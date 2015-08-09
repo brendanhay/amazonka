@@ -29,33 +29,35 @@
 -- stream. The sequence number is assigned when a record is put into the
 -- stream.
 --
--- You can limit the number of returned shards using the @Limit@ parameter.
+-- You can limit the number of returned shards using the 'Limit' parameter.
 -- The number of shards in a stream may be too large to return from a
--- single call to @DescribeStream@. You can detect this by using the
--- @HasMoreShards@ flag in the returned output. @HasMoreShards@ is set to
--- @true@ when there is more data available.
+-- single call to 'DescribeStream'. You can detect this by using the
+-- 'HasMoreShards' flag in the returned output. 'HasMoreShards' is set to
+-- 'true' when there is more data available.
 --
--- @DescribeStream@ is a paginated operation. If there are more shards
+-- 'DescribeStream' is a paginated operation. If there are more shards
 -- available, you can request them using the shard ID of the last shard
--- returned. Specify this ID in the @ExclusiveStartShardId@ parameter in a
--- subsequent request to @DescribeStream@.
+-- returned. Specify this ID in the 'ExclusiveStartShardId' parameter in a
+-- subsequent request to 'DescribeStream'.
 --
 -- DescribeStream has a limit of 10 transactions per second per account.
 --
 -- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html AWS API Reference> for DescribeStream.
+--
+-- This operation returns paginated results.
 module Network.AWS.Kinesis.DescribeStream
     (
     -- * Creating a Request
-      DescribeStream
-    , describeStream
+      describeStream
+    , DescribeStream
     -- * Request Lenses
     , dExclusiveStartShardId
     , dLimit
     , dStreamName
 
     -- * Destructuring the Response
-    , DescribeStreamResponse
     , describeStreamResponse
+    , DescribeStreamResponse
     -- * Response Lenses
     , dsrsStatus
     , dsrsStreamDescription
@@ -68,25 +70,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for @DescribeStream@.
+-- | Represents the input for 'DescribeStream'.
 --
 -- /See:/ 'describeStream' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dExclusiveStartShardId'
---
--- * 'dLimit'
---
--- * 'dStreamName'
 data DescribeStream = DescribeStream'
     { _dExclusiveStartShardId :: !(Maybe Text)
     , _dLimit                 :: !(Maybe Nat)
     , _dStreamName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStream' smart constructor.
-describeStream :: Text -> DescribeStream
+-- | Creates a value of 'DescribeStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dExclusiveStartShardId'
+--
+-- * 'dLimit'
+--
+-- * 'dStreamName'
+describeStream
+    :: Text -- ^ 'dStreamName'
+    -> DescribeStream
 describeStream pStreamName_ =
     DescribeStream'
     { _dExclusiveStartShardId = Nothing
@@ -152,29 +156,32 @@ instance ToPath DescribeStream where
 instance ToQuery DescribeStream where
         toQuery = const mempty
 
--- | Represents the output for @DescribeStream@.
+-- | Represents the output for 'DescribeStream'.
 --
 -- /See:/ 'describeStreamResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrsStatus'
---
--- * 'dsrsStreamDescription'
 data DescribeStreamResponse = DescribeStreamResponse'
     { _dsrsStatus            :: !Int
     , _dsrsStreamDescription :: !StreamDescription
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStreamResponse' smart constructor.
-describeStreamResponse :: Int -> StreamDescription -> DescribeStreamResponse
+-- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrsStatus'
+--
+-- * 'dsrsStreamDescription'
+describeStreamResponse
+    :: Int -- ^ 'dsrsStatus'
+    -> StreamDescription -- ^ 'dsrsStreamDescription'
+    -> DescribeStreamResponse
 describeStreamResponse pStatus_ pStreamDescription_ =
     DescribeStreamResponse'
     { _dsrsStatus = pStatus_
     , _dsrsStreamDescription = pStreamDescription_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dsrsStatus :: Lens' DescribeStreamResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
 

@@ -25,18 +25,20 @@
 -- returned (including existing stacks and stacks that have been deleted).
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStacks.html AWS API Reference> for ListStacks.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStacks
     (
     -- * Creating a Request
-      ListStacks
-    , listStacks
+      listStacks
+    , ListStacks
     -- * Request Lenses
     , lsNextToken
     , lsStackStatusFilter
 
     -- * Destructuring the Response
-    , ListStacksResponse
     , listStacksResponse
+    , ListStacksResponse
     -- * Response Lenses
     , lsrsStackSummaries
     , lsrsNextToken
@@ -53,19 +55,20 @@ import           Network.AWS.Response
 -- | The input for ListStacks action.
 --
 -- /See:/ 'listStacks' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsNextToken'
---
--- * 'lsStackStatusFilter'
 data ListStacks = ListStacks'
     { _lsNextToken         :: !(Maybe Text)
     , _lsStackStatusFilter :: !(Maybe [StackStatus])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListStacks' smart constructor.
-listStacks :: ListStacks
+-- | Creates a value of 'ListStacks' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsNextToken'
+--
+-- * 'lsStackStatusFilter'
+listStacks
+    :: ListStacks
 listStacks =
     ListStacks'
     { _lsNextToken = Nothing
@@ -81,7 +84,7 @@ lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
 -- | Stack status to use as a filter. Specify one or more stack status codes
 -- to list only stacks with the specified status codes. For a complete list
--- of stack status codes, see the @StackStatus@ parameter of the Stack data
+-- of stack status codes, see the 'StackStatus' parameter of the Stack data
 -- type.
 lsStackStatusFilter :: Lens' ListStacks [StackStatus]
 lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a}) . _Default . _Coerce;
@@ -125,22 +128,24 @@ instance ToQuery ListStacks where
 -- | The output for ListStacks action.
 --
 -- /See:/ 'listStacksResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsrsStackSummaries'
---
--- * 'lsrsNextToken'
---
--- * 'lsrsStatus'
 data ListStacksResponse = ListStacksResponse'
     { _lsrsStackSummaries :: !(Maybe [StackSummary])
     , _lsrsNextToken      :: !(Maybe Text)
     , _lsrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListStacksResponse' smart constructor.
-listStacksResponse :: Int -> ListStacksResponse
+-- | Creates a value of 'ListStacksResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsrsStackSummaries'
+--
+-- * 'lsrsNextToken'
+--
+-- * 'lsrsStatus'
+listStacksResponse
+    :: Int -- ^ 'lsrsStatus'
+    -> ListStacksResponse
 listStacksResponse pStatus_ =
     ListStacksResponse'
     { _lsrsStackSummaries = Nothing
@@ -148,7 +153,7 @@ listStacksResponse pStatus_ =
     , _lsrsStatus = pStatus_
     }
 
--- | A list of @StackSummary@ structures containing information about the
+-- | A list of 'StackSummary' structures containing information about the
 -- specified stacks.
 lsrsStackSummaries :: Lens' ListStacksResponse [StackSummary]
 lsrsStackSummaries = lens _lsrsStackSummaries (\ s a -> s{_lsrsStackSummaries = a}) . _Default . _Coerce;
@@ -158,6 +163,6 @@ lsrsStackSummaries = lens _lsrsStackSummaries (\ s a -> s{_lsrsStackSummaries = 
 lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 lsrsStatus :: Lens' ListStacksResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

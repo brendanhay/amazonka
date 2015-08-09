@@ -29,22 +29,23 @@ import           Network.AWS.Prelude
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier>.
 --
 -- /See:/ 'archiveCreationOutput' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'acoArchiveId'
---
--- * 'acoChecksum'
---
--- * 'acoLocation'
 data ArchiveCreationOutput = ArchiveCreationOutput'
     { _acoArchiveId :: !(Maybe Text)
     , _acoChecksum  :: !(Maybe Text)
     , _acoLocation  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ArchiveCreationOutput' smart constructor.
-archiveCreationOutput :: ArchiveCreationOutput
+-- | Creates a value of 'ArchiveCreationOutput' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acoArchiveId'
+--
+-- * 'acoChecksum'
+--
+-- * 'acoLocation'
+archiveCreationOutput
+    :: ArchiveCreationOutput
 archiveCreationOutput =
     ArchiveCreationOutput'
     { _acoArchiveId = Nothing
@@ -77,16 +78,17 @@ instance FromJSON ArchiveCreationOutput where
 -- | Data retrieval policy.
 --
 -- /See:/ 'dataRetrievalPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drpRules'
 newtype DataRetrievalPolicy = DataRetrievalPolicy'
     { _drpRules :: Maybe [DataRetrievalRule]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DataRetrievalPolicy' smart constructor.
-dataRetrievalPolicy :: DataRetrievalPolicy
+-- | Creates a value of 'DataRetrievalPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drpRules'
+dataRetrievalPolicy
+    :: DataRetrievalPolicy
 dataRetrievalPolicy =
     DataRetrievalPolicy'
     { _drpRules = Nothing
@@ -111,19 +113,20 @@ instance ToJSON DataRetrievalPolicy where
 -- | Data retrieval policy rule.
 --
 -- /See:/ 'dataRetrievalRule' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drrStrategy'
---
--- * 'drrBytesPerHour'
 data DataRetrievalRule = DataRetrievalRule'
     { _drrStrategy     :: !(Maybe Text)
     , _drrBytesPerHour :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DataRetrievalRule' smart constructor.
-dataRetrievalRule :: DataRetrievalRule
+-- | Creates a value of 'DataRetrievalRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drrStrategy'
+--
+-- * 'drrBytesPerHour'
+dataRetrievalRule
+    :: DataRetrievalRule
 dataRetrievalRule =
     DataRetrievalRule'
     { _drrStrategy = Nothing
@@ -139,8 +142,8 @@ drrStrategy = lens _drrStrategy (\ s a -> s{_drrStrategy = a});
 -- | The maximum number of bytes that can be retrieved in an hour.
 --
 -- This field is required only if the value of the Strategy field is
--- @BytesPerHour@. Your PUT operation will be rejected if the Strategy
--- field is not set to @BytesPerHour@ and you set this field.
+-- 'BytesPerHour'. Your PUT operation will be rejected if the Strategy
+-- field is not set to 'BytesPerHour' and you set this field.
 drrBytesPerHour :: Lens' DataRetrievalRule (Maybe Integer)
 drrBytesPerHour = lens _drrBytesPerHour (\ s a -> s{_drrBytesPerHour = a});
 
@@ -160,8 +163,18 @@ instance ToJSON DataRetrievalRule where
 -- | Contains the Amazon Glacier response to your request.
 --
 -- /See:/ 'describeVaultOutput' smart constructor.
+data DescribeVaultOutput = DescribeVaultOutput'
+    { _dvoVaultName         :: !(Maybe Text)
+    , _dvoSizeInBytes       :: !(Maybe Integer)
+    , _dvoLastInventoryDate :: !(Maybe Text)
+    , _dvoVaultARN          :: !(Maybe Text)
+    , _dvoCreationDate      :: !(Maybe Text)
+    , _dvoNumberOfArchives  :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeVaultOutput' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dvoVaultName'
 --
@@ -174,17 +187,8 @@ instance ToJSON DataRetrievalRule where
 -- * 'dvoCreationDate'
 --
 -- * 'dvoNumberOfArchives'
-data DescribeVaultOutput = DescribeVaultOutput'
-    { _dvoVaultName         :: !(Maybe Text)
-    , _dvoSizeInBytes       :: !(Maybe Integer)
-    , _dvoLastInventoryDate :: !(Maybe Text)
-    , _dvoVaultARN          :: !(Maybe Text)
-    , _dvoCreationDate      :: !(Maybe Text)
-    , _dvoNumberOfArchives  :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeVaultOutput' smart constructor.
-describeVaultOutput :: DescribeVaultOutput
+describeVaultOutput
+    :: DescribeVaultOutput
 describeVaultOutput =
     DescribeVaultOutput'
     { _dvoVaultName = Nothing
@@ -221,7 +225,7 @@ dvoCreationDate :: Lens' DescribeVaultOutput (Maybe Text)
 dvoCreationDate = lens _dvoCreationDate (\ s a -> s{_dvoCreationDate = a});
 
 -- | The number of archives in the vault as of the last inventory date. This
--- field will return @null@ if an inventory has not yet run on the vault,
+-- field will return 'null' if an inventory has not yet run on the vault,
 -- for example, if you just created the vault.
 dvoNumberOfArchives :: Lens' DescribeVaultOutput (Maybe Integer)
 dvoNumberOfArchives = lens _dvoNumberOfArchives (\ s a -> s{_dvoNumberOfArchives = a});
@@ -240,8 +244,29 @@ instance FromJSON DescribeVaultOutput where
 -- | Describes an Amazon Glacier job.
 --
 -- /See:/ 'glacierJobDescription' smart constructor.
+data GlacierJobDescription = GlacierJobDescription'
+    { _gjdArchiveId                    :: !(Maybe Text)
+    , _gjdSHA256TreeHash               :: !(Maybe Text)
+    , _gjdJobId                        :: !(Maybe Text)
+    , _gjdRetrievalByteRange           :: !(Maybe Text)
+    , _gjdInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobDescription)
+    , _gjdAction                       :: !(Maybe ActionCode)
+    , _gjdJobDescription               :: !(Maybe Text)
+    , _gjdSNSTopic                     :: !(Maybe Text)
+    , _gjdVaultARN                     :: !(Maybe Text)
+    , _gjdStatusMessage                :: !(Maybe Text)
+    , _gjdArchiveSHA256TreeHash        :: !(Maybe Text)
+    , _gjdCreationDate                 :: !(Maybe Text)
+    , _gjdCompleted                    :: !(Maybe Bool)
+    , _gjdCompletionDate               :: !(Maybe Text)
+    , _gjdArchiveSizeInBytes           :: !(Maybe Integer)
+    , _gjdStatusCode                   :: !(Maybe StatusCode)
+    , _gjdInventorySizeInBytes         :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GlacierJobDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gjdArchiveId'
 --
@@ -276,28 +301,8 @@ instance FromJSON DescribeVaultOutput where
 -- * 'gjdStatusCode'
 --
 -- * 'gjdInventorySizeInBytes'
-data GlacierJobDescription = GlacierJobDescription'
-    { _gjdArchiveId                    :: !(Maybe Text)
-    , _gjdSHA256TreeHash               :: !(Maybe Text)
-    , _gjdJobId                        :: !(Maybe Text)
-    , _gjdRetrievalByteRange           :: !(Maybe Text)
-    , _gjdInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobDescription)
-    , _gjdAction                       :: !(Maybe ActionCode)
-    , _gjdJobDescription               :: !(Maybe Text)
-    , _gjdSNSTopic                     :: !(Maybe Text)
-    , _gjdVaultARN                     :: !(Maybe Text)
-    , _gjdStatusMessage                :: !(Maybe Text)
-    , _gjdArchiveSHA256TreeHash        :: !(Maybe Text)
-    , _gjdCreationDate                 :: !(Maybe Text)
-    , _gjdCompleted                    :: !(Maybe Bool)
-    , _gjdCompletionDate               :: !(Maybe Text)
-    , _gjdArchiveSizeInBytes           :: !(Maybe Integer)
-    , _gjdStatusCode                   :: !(Maybe StatusCode)
-    , _gjdInventorySizeInBytes         :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GlacierJobDescription' smart constructor.
-glacierJobDescription :: GlacierJobDescription
+glacierJobDescription
+    :: GlacierJobDescription
 glacierJobDescription =
     GlacierJobDescription'
     { _gjdArchiveId = Nothing
@@ -446,8 +451,17 @@ instance FromJSON GlacierJobDescription where
 -- | Describes the options for a range inventory retrieval job.
 --
 -- /See:/ 'inventoryRetrievalJobDescription' smart constructor.
+data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'
+    { _irjdFormat    :: !(Maybe Text)
+    , _irjdEndDate   :: !(Maybe Text)
+    , _irjdStartDate :: !(Maybe Text)
+    , _irjdMarker    :: !(Maybe Text)
+    , _irjdLimit     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InventoryRetrievalJobDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'irjdFormat'
 --
@@ -458,16 +472,8 @@ instance FromJSON GlacierJobDescription where
 -- * 'irjdMarker'
 --
 -- * 'irjdLimit'
-data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'
-    { _irjdFormat    :: !(Maybe Text)
-    , _irjdEndDate   :: !(Maybe Text)
-    , _irjdStartDate :: !(Maybe Text)
-    , _irjdMarker    :: !(Maybe Text)
-    , _irjdLimit     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InventoryRetrievalJobDescription' smart constructor.
-inventoryRetrievalJobDescription :: InventoryRetrievalJobDescription
+inventoryRetrievalJobDescription
+    :: InventoryRetrievalJobDescription
 inventoryRetrievalJobDescription =
     InventoryRetrievalJobDescription'
     { _irjdFormat = Nothing
@@ -498,7 +504,7 @@ irjdStartDate = lens _irjdStartDate (\ s a -> s{_irjdStartDate = a});
 -- | An opaque string that represents where to continue pagination of the
 -- vault inventory retrieval results. You use the marker in a new
 -- __InitiateJob__ request to obtain additional inventory items. If there
--- are no more inventory items, this value is @null@. For more information,
+-- are no more inventory items, this value is 'null'. For more information,
 -- see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-initiate-job-post.html#api-initiate-job-post-vault-inventory-list-filtering Range Inventory Retrieval>.
 irjdMarker :: Lens' InventoryRetrievalJobDescription (Maybe Text)
@@ -524,8 +530,16 @@ instance FromJSON InventoryRetrievalJobDescription
 -- | Provides options for specifying a range inventory retrieval job.
 --
 -- /See:/ 'inventoryRetrievalJobInput' smart constructor.
+data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
+    { _irjiEndDate   :: !(Maybe Text)
+    , _irjiStartDate :: !(Maybe Text)
+    , _irjiMarker    :: !(Maybe Text)
+    , _irjiLimit     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InventoryRetrievalJobInput' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'irjiEndDate'
 --
@@ -534,15 +548,8 @@ instance FromJSON InventoryRetrievalJobDescription
 -- * 'irjiMarker'
 --
 -- * 'irjiLimit'
-data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
-    { _irjiEndDate   :: !(Maybe Text)
-    , _irjiStartDate :: !(Maybe Text)
-    , _irjiMarker    :: !(Maybe Text)
-    , _irjiLimit     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InventoryRetrievalJobInput' smart constructor.
-inventoryRetrievalJobInput :: InventoryRetrievalJobInput
+inventoryRetrievalJobInput
+    :: InventoryRetrievalJobInput
 inventoryRetrievalJobInput =
     InventoryRetrievalJobInput'
     { _irjiEndDate = Nothing
@@ -566,7 +573,7 @@ irjiStartDate = lens _irjiStartDate (\ s a -> s{_irjiStartDate = a});
 -- | An opaque string that represents where to continue pagination of the
 -- vault inventory retrieval results. You use the marker in a new
 -- __InitiateJob__ request to obtain additional inventory items. If there
--- are no more inventory items, this value is @null@.
+-- are no more inventory items, this value is 'null'.
 irjiMarker :: Lens' InventoryRetrievalJobInput (Maybe Text)
 irjiMarker = lens _irjiMarker (\ s a -> s{_irjiMarker = a});
 
@@ -586,8 +593,19 @@ instance ToJSON InventoryRetrievalJobInput where
 -- | Provides options for defining a job.
 --
 -- /See:/ 'jobParameters' smart constructor.
+data JobParameters = JobParameters'
+    { _jpArchiveId                    :: !(Maybe Text)
+    , _jpRetrievalByteRange           :: !(Maybe Text)
+    , _jpFormat                       :: !(Maybe Text)
+    , _jpInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobInput)
+    , _jpSNSTopic                     :: !(Maybe Text)
+    , _jpType                         :: !(Maybe Text)
+    , _jpDescription                  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'JobParameters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'jpArchiveId'
 --
@@ -602,18 +620,8 @@ instance ToJSON InventoryRetrievalJobInput where
 -- * 'jpType'
 --
 -- * 'jpDescription'
-data JobParameters = JobParameters'
-    { _jpArchiveId                    :: !(Maybe Text)
-    , _jpRetrievalByteRange           :: !(Maybe Text)
-    , _jpFormat                       :: !(Maybe Text)
-    , _jpInventoryRetrievalParameters :: !(Maybe InventoryRetrievalJobInput)
-    , _jpSNSTopic                     :: !(Maybe Text)
-    , _jpType                         :: !(Maybe Text)
-    , _jpDescription                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'JobParameters' smart constructor.
-jobParameters :: JobParameters
+jobParameters
+    :: JobParameters
 jobParameters =
     JobParameters'
     { _jpArchiveId = Nothing
@@ -626,7 +634,7 @@ jobParameters =
     }
 
 -- | The ID of the archive that you want to retrieve. This field is required
--- only if @Type@ is set to archive-retrieval. An error occurs if you
+-- only if 'Type' is set to archive-retrieval. An error occurs if you
 -- specify this request parameter for an inventory retrieval job request.
 jpArchiveId :: Lens' JobParameters (Maybe Text)
 jpArchiveId = lens _jpArchiveId (\ s a -> s{_jpArchiveId = a});
@@ -690,19 +698,20 @@ instance ToJSON JobParameters where
 -- | A list of the part sizes of the multipart upload.
 --
 -- /See:/ 'partListElement' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pleSHA256TreeHash'
---
--- * 'pleRangeInBytes'
 data PartListElement = PartListElement'
     { _pleSHA256TreeHash :: !(Maybe Text)
     , _pleRangeInBytes   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PartListElement' smart constructor.
-partListElement :: PartListElement
+-- | Creates a value of 'PartListElement' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pleSHA256TreeHash'
+--
+-- * 'pleRangeInBytes'
+partListElement
+    :: PartListElement
 partListElement =
     PartListElement'
     { _pleSHA256TreeHash = Nothing
@@ -710,7 +719,7 @@ partListElement =
     }
 
 -- | The SHA256 tree hash value that Amazon Glacier calculated for the part.
--- This field is never @null@.
+-- This field is never 'null'.
 pleSHA256TreeHash :: Lens' PartListElement (Maybe Text)
 pleSHA256TreeHash = lens _pleSHA256TreeHash (\ s a -> s{_pleSHA256TreeHash = a});
 
@@ -728,8 +737,17 @@ instance FromJSON PartListElement where
 -- | A list of in-progress multipart uploads for a vault.
 --
 -- /See:/ 'uploadListElement' smart constructor.
+data UploadListElement = UploadListElement'
+    { _uleMultipartUploadId  :: !(Maybe Text)
+    , _uleArchiveDescription :: !(Maybe Text)
+    , _ulePartSizeInBytes    :: !(Maybe Integer)
+    , _uleVaultARN           :: !(Maybe Text)
+    , _uleCreationDate       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UploadListElement' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uleMultipartUploadId'
 --
@@ -740,16 +758,8 @@ instance FromJSON PartListElement where
 -- * 'uleVaultARN'
 --
 -- * 'uleCreationDate'
-data UploadListElement = UploadListElement'
-    { _uleMultipartUploadId  :: !(Maybe Text)
-    , _uleArchiveDescription :: !(Maybe Text)
-    , _ulePartSizeInBytes    :: !(Maybe Integer)
-    , _uleVaultARN           :: !(Maybe Text)
-    , _uleCreationDate       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UploadListElement' smart constructor.
-uploadListElement :: UploadListElement
+uploadListElement
+    :: UploadListElement
 uploadListElement =
     UploadListElement'
     { _uleMultipartUploadId = Nothing
@@ -796,16 +806,17 @@ instance FromJSON UploadListElement where
 -- | Contains the vault access policy.
 --
 -- /See:/ 'vaultAccessPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vapPolicy'
 newtype VaultAccessPolicy = VaultAccessPolicy'
     { _vapPolicy :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VaultAccessPolicy' smart constructor.
-vaultAccessPolicy :: VaultAccessPolicy
+-- | Creates a value of 'VaultAccessPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vapPolicy'
+vaultAccessPolicy
+    :: VaultAccessPolicy
 vaultAccessPolicy =
     VaultAccessPolicy'
     { _vapPolicy = Nothing
@@ -827,16 +838,17 @@ instance ToJSON VaultAccessPolicy where
 -- | Contains the vault lock policy.
 --
 -- /See:/ 'vaultLockPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vlpPolicy'
 newtype VaultLockPolicy = VaultLockPolicy'
     { _vlpPolicy :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VaultLockPolicy' smart constructor.
-vaultLockPolicy :: VaultLockPolicy
+-- | Creates a value of 'VaultLockPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vlpPolicy'
+vaultLockPolicy
+    :: VaultLockPolicy
 vaultLockPolicy =
     VaultLockPolicy'
     { _vlpPolicy = Nothing
@@ -853,19 +865,20 @@ instance ToJSON VaultLockPolicy where
 -- | Represents a vault\'s notification configuration.
 --
 -- /See:/ 'vaultNotificationConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vncSNSTopic'
---
--- * 'vncEvents'
 data VaultNotificationConfig = VaultNotificationConfig'
     { _vncSNSTopic :: !(Maybe Text)
     , _vncEvents   :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VaultNotificationConfig' smart constructor.
-vaultNotificationConfig :: VaultNotificationConfig
+-- | Creates a value of 'VaultNotificationConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vncSNSTopic'
+--
+-- * 'vncEvents'
+vaultNotificationConfig
+    :: VaultNotificationConfig
 vaultNotificationConfig =
     VaultNotificationConfig'
     { _vncSNSTopic = Nothing

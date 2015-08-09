@@ -36,8 +36,8 @@
 module Network.AWS.EC2.AssignPrivateIPAddresses
     (
     -- * Creating a Request
-      AssignPrivateIPAddresses
-    , assignPrivateIPAddresses
+      assignPrivateIPAddresses
+    , AssignPrivateIPAddresses
     -- * Request Lenses
     , apiaPrivateIPAddresses
     , apiaAllowReassignment
@@ -45,8 +45,8 @@ module Network.AWS.EC2.AssignPrivateIPAddresses
     , apiaNetworkInterfaceId
 
     -- * Destructuring the Response
-    , AssignPrivateIPAddressesResponse
     , assignPrivateIPAddressesResponse
+    , AssignPrivateIPAddressesResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -56,8 +56,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'assignPrivateIPAddresses' smart constructor.
+data AssignPrivateIPAddresses = AssignPrivateIPAddresses'
+    { _apiaPrivateIPAddresses             :: !(Maybe [Text])
+    , _apiaAllowReassignment              :: !(Maybe Bool)
+    , _apiaSecondaryPrivateIPAddressCount :: !(Maybe Int)
+    , _apiaNetworkInterfaceId             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AssignPrivateIPAddresses' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'apiaPrivateIPAddresses'
 --
@@ -66,15 +74,9 @@ import           Network.AWS.Response
 -- * 'apiaSecondaryPrivateIPAddressCount'
 --
 -- * 'apiaNetworkInterfaceId'
-data AssignPrivateIPAddresses = AssignPrivateIPAddresses'
-    { _apiaPrivateIPAddresses             :: !(Maybe [Text])
-    , _apiaAllowReassignment              :: !(Maybe Bool)
-    , _apiaSecondaryPrivateIPAddressCount :: !(Maybe Int)
-    , _apiaNetworkInterfaceId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AssignPrivateIPAddresses' smart constructor.
-assignPrivateIPAddresses :: Text -> AssignPrivateIPAddresses
+assignPrivateIPAddresses
+    :: Text -- ^ 'apiaNetworkInterfaceId'
+    -> AssignPrivateIPAddresses
 assignPrivateIPAddresses pNetworkInterfaceId_ =
     AssignPrivateIPAddresses'
     { _apiaPrivateIPAddresses = Nothing
@@ -141,6 +143,8 @@ data AssignPrivateIPAddressesResponse =
     AssignPrivateIPAddressesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssignPrivateIPAddressesResponse' smart constructor.
-assignPrivateIPAddressesResponse :: AssignPrivateIPAddressesResponse
+-- | Creates a value of 'AssignPrivateIPAddressesResponse' with the minimum fields required to make a request.
+--
+assignPrivateIPAddressesResponse
+    :: AssignPrivateIPAddressesResponse
 assignPrivateIPAddressesResponse = AssignPrivateIPAddressesResponse'

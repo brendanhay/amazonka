@@ -26,21 +26,21 @@
 -- This action returns as soon as the restore operation is initiated. You
 -- can monitor the progress of the restore operation by calling the
 -- DescribeDirectories operation with the directory identifier. When the
--- __DirectoryDescription.Stage__ value changes to @Active@, the restore
+-- __DirectoryDescription.Stage__ value changes to 'Active', the restore
 -- operation is complete.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_RestoreFromSnapshot.html AWS API Reference> for RestoreFromSnapshot.
 module Network.AWS.DirectoryService.RestoreFromSnapshot
     (
     -- * Creating a Request
-      RestoreFromSnapshot
-    , restoreFromSnapshot
+      restoreFromSnapshot
+    , RestoreFromSnapshot
     -- * Request Lenses
     , rfsSnapshotId
 
     -- * Destructuring the Response
-    , RestoreFromSnapshotResponse
     , restoreFromSnapshotResponse
+    , RestoreFromSnapshotResponse
     -- * Response Lenses
     , rfsrsStatus
     ) where
@@ -54,16 +54,18 @@ import           Network.AWS.Response
 -- | An object representing the inputs for the RestoreFromSnapshot operation.
 --
 -- /See:/ 'restoreFromSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rfsSnapshotId'
 newtype RestoreFromSnapshot = RestoreFromSnapshot'
     { _rfsSnapshotId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestoreFromSnapshot' smart constructor.
-restoreFromSnapshot :: Text -> RestoreFromSnapshot
+-- | Creates a value of 'RestoreFromSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rfsSnapshotId'
+restoreFromSnapshot
+    :: Text -- ^ 'rfsSnapshotId'
+    -> RestoreFromSnapshot
 restoreFromSnapshot pSnapshotId_ =
     RestoreFromSnapshot'
     { _rfsSnapshotId = pSnapshotId_
@@ -106,21 +108,23 @@ instance ToQuery RestoreFromSnapshot where
 -- | Contains the results of the RestoreFromSnapshot operation.
 --
 -- /See:/ 'restoreFromSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rfsrsStatus'
 newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
     { _rfsrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestoreFromSnapshotResponse' smart constructor.
-restoreFromSnapshotResponse :: Int -> RestoreFromSnapshotResponse
+-- | Creates a value of 'RestoreFromSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rfsrsStatus'
+restoreFromSnapshotResponse
+    :: Int -- ^ 'rfsrsStatus'
+    -> RestoreFromSnapshotResponse
 restoreFromSnapshotResponse pStatus_ =
     RestoreFromSnapshotResponse'
     { _rfsrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 rfsrsStatus :: Lens' RestoreFromSnapshotResponse Int
 rfsrsStatus = lens _rfsrsStatus (\ s a -> s{_rfsrsStatus = a});

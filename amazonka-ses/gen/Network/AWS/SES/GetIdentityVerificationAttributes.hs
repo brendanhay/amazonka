@@ -29,14 +29,14 @@
 module Network.AWS.SES.GetIdentityVerificationAttributes
     (
     -- * Creating a Request
-      GetIdentityVerificationAttributes
-    , getIdentityVerificationAttributes
+      getIdentityVerificationAttributes
+    , GetIdentityVerificationAttributes
     -- * Request Lenses
     , givaIdentities
 
     -- * Destructuring the Response
-    , GetIdentityVerificationAttributesResponse
     , getIdentityVerificationAttributesResponse
+    , GetIdentityVerificationAttributesResponse
     -- * Response Lenses
     , givarsStatus
     , givarsVerificationAttributes
@@ -52,16 +52,17 @@ import           Network.AWS.SES.Types.Product
 -- attributes for a list of identities.
 --
 -- /See:/ 'getIdentityVerificationAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'givaIdentities'
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'
     { _givaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetIdentityVerificationAttributes' smart constructor.
-getIdentityVerificationAttributes :: GetIdentityVerificationAttributes
+-- | Creates a value of 'GetIdentityVerificationAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'givaIdentities'
+getIdentityVerificationAttributes
+    :: GetIdentityVerificationAttributes
 getIdentityVerificationAttributes =
     GetIdentityVerificationAttributes'
     { _givaIdentities = mempty
@@ -106,26 +107,28 @@ instance ToQuery GetIdentityVerificationAttributes
 -- | Represents the verification attributes for a list of identities.
 --
 -- /See:/ 'getIdentityVerificationAttributesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'givarsStatus'
---
--- * 'givarsVerificationAttributes'
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
     { _givarsStatus                 :: !Int
     , _givarsVerificationAttributes :: !(Map Text IdentityVerificationAttributes)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetIdentityVerificationAttributesResponse' smart constructor.
-getIdentityVerificationAttributesResponse :: Int -> GetIdentityVerificationAttributesResponse
+-- | Creates a value of 'GetIdentityVerificationAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'givarsStatus'
+--
+-- * 'givarsVerificationAttributes'
+getIdentityVerificationAttributesResponse
+    :: Int -- ^ 'givarsStatus'
+    -> GetIdentityVerificationAttributesResponse
 getIdentityVerificationAttributesResponse pStatus_ =
     GetIdentityVerificationAttributesResponse'
     { _givarsStatus = pStatus_
     , _givarsVerificationAttributes = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 givarsStatus :: Lens' GetIdentityVerificationAttributesResponse Int
 givarsStatus = lens _givarsStatus (\ s a -> s{_givarsStatus = a});
 

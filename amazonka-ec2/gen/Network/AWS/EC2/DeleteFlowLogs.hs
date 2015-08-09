@@ -24,14 +24,14 @@
 module Network.AWS.EC2.DeleteFlowLogs
     (
     -- * Creating a Request
-      DeleteFlowLogs
-    , deleteFlowLogs
+      deleteFlowLogs
+    , DeleteFlowLogs
     -- * Request Lenses
     , dflFlowLogIds
 
     -- * Destructuring the Response
-    , DeleteFlowLogsResponse
     , deleteFlowLogsResponse
+    , DeleteFlowLogsResponse
     -- * Response Lenses
     , dflrsUnsuccessful
     , dflrsStatus
@@ -44,16 +44,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteFlowLogs' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dflFlowLogIds'
 newtype DeleteFlowLogs = DeleteFlowLogs'
     { _dflFlowLogIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteFlowLogs' smart constructor.
-deleteFlowLogs :: DeleteFlowLogs
+-- | Creates a value of 'DeleteFlowLogs' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dflFlowLogIds'
+deleteFlowLogs
+    :: DeleteFlowLogs
 deleteFlowLogs =
     DeleteFlowLogs'
     { _dflFlowLogIds = mempty
@@ -89,19 +90,21 @@ instance ToQuery DeleteFlowLogs where
                toQueryList "item" _dflFlowLogIds]
 
 -- | /See:/ 'deleteFlowLogsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dflrsUnsuccessful'
---
--- * 'dflrsStatus'
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
     { _dflrsUnsuccessful :: !(Maybe [UnsuccessfulItem])
     , _dflrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteFlowLogsResponse' smart constructor.
-deleteFlowLogsResponse :: Int -> DeleteFlowLogsResponse
+-- | Creates a value of 'DeleteFlowLogsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dflrsUnsuccessful'
+--
+-- * 'dflrsStatus'
+deleteFlowLogsResponse
+    :: Int -- ^ 'dflrsStatus'
+    -> DeleteFlowLogsResponse
 deleteFlowLogsResponse pStatus_ =
     DeleteFlowLogsResponse'
     { _dflrsUnsuccessful = Nothing
@@ -112,6 +115,6 @@ deleteFlowLogsResponse pStatus_ =
 dflrsUnsuccessful :: Lens' DeleteFlowLogsResponse [UnsuccessfulItem]
 dflrsUnsuccessful = lens _dflrsUnsuccessful (\ s a -> s{_dflrsUnsuccessful = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dflrsStatus :: Lens' DeleteFlowLogsResponse Int
 dflrsStatus = lens _dflrsStatus (\ s a -> s{_dflrsStatus = a});

@@ -31,15 +31,15 @@
 module Network.AWS.SSM.DeleteAssociation
     (
     -- * Creating a Request
-      DeleteAssociation
-    , deleteAssociation
+      deleteAssociation
+    , DeleteAssociation
     -- * Request Lenses
     , delName
     , delInstanceId
 
     -- * Destructuring the Response
-    , DeleteAssociationResponse
     , deleteAssociationResponse
+    , DeleteAssociationResponse
     -- * Response Lenses
     , delrsStatus
     ) where
@@ -51,19 +51,22 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deleteAssociation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delName'
---
--- * 'delInstanceId'
 data DeleteAssociation = DeleteAssociation'
     { _delName       :: !Text
     , _delInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAssociation' smart constructor.
-deleteAssociation :: Text -> Text -> DeleteAssociation
+-- | Creates a value of 'DeleteAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delName'
+--
+-- * 'delInstanceId'
+deleteAssociation
+    :: Text -- ^ 'delName'
+    -> Text -- ^ 'delInstanceId'
+    -> DeleteAssociation
 deleteAssociation pName_ pInstanceId_ =
     DeleteAssociation'
     { _delName = pName_
@@ -108,21 +111,23 @@ instance ToQuery DeleteAssociation where
         toQuery = const mempty
 
 -- | /See:/ 'deleteAssociationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delrsStatus'
 newtype DeleteAssociationResponse = DeleteAssociationResponse'
     { _delrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAssociationResponse' smart constructor.
-deleteAssociationResponse :: Int -> DeleteAssociationResponse
+-- | Creates a value of 'DeleteAssociationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delrsStatus'
+deleteAssociationResponse
+    :: Int -- ^ 'delrsStatus'
+    -> DeleteAssociationResponse
 deleteAssociationResponse pStatus_ =
     DeleteAssociationResponse'
     { _delrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 delrsStatus :: Lens' DeleteAssociationResponse Int
 delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

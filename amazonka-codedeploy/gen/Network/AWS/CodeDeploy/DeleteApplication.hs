@@ -24,14 +24,14 @@
 module Network.AWS.CodeDeploy.DeleteApplication
     (
     -- * Creating a Request
-      DeleteApplication
-    , deleteApplication
+      deleteApplication
+    , DeleteApplication
     -- * Request Lenses
     , daApplicationName
 
     -- * Destructuring the Response
-    , DeleteApplicationResponse
     , deleteApplicationResponse
+    , DeleteApplicationResponse
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -43,16 +43,18 @@ import           Network.AWS.Response
 -- | Represents the input of a delete application operation.
 --
 -- /See:/ 'deleteApplication' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daApplicationName'
 newtype DeleteApplication = DeleteApplication'
     { _daApplicationName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteApplication' smart constructor.
-deleteApplication :: Text -> DeleteApplication
+-- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daApplicationName'
+deleteApplication
+    :: Text -- ^ 'daApplicationName'
+    -> DeleteApplication
 deleteApplication pApplicationName_ =
     DeleteApplication'
     { _daApplicationName = pApplicationName_
@@ -94,6 +96,8 @@ data DeleteApplicationResponse =
     DeleteApplicationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteApplicationResponse' smart constructor.
-deleteApplicationResponse :: DeleteApplicationResponse
+-- | Creates a value of 'DeleteApplicationResponse' with the minimum fields required to make a request.
+--
+deleteApplicationResponse
+    :: DeleteApplicationResponse
 deleteApplicationResponse = DeleteApplicationResponse'

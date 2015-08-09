@@ -28,16 +28,16 @@
 module Network.AWS.AutoScaling.SetInstanceHealth
     (
     -- * Creating a Request
-      SetInstanceHealth
-    , setInstanceHealth
+      setInstanceHealth
+    , SetInstanceHealth
     -- * Request Lenses
     , sihShouldRespectGracePeriod
     , sihInstanceId
     , sihHealthStatus
 
     -- * Destructuring the Response
-    , SetInstanceHealthResponse
     , setInstanceHealthResponse
+    , SetInstanceHealthResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -47,22 +47,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'setInstanceHealth' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sihShouldRespectGracePeriod'
---
--- * 'sihInstanceId'
---
--- * 'sihHealthStatus'
 data SetInstanceHealth = SetInstanceHealth'
     { _sihShouldRespectGracePeriod :: !(Maybe Bool)
     , _sihInstanceId               :: !Text
     , _sihHealthStatus             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetInstanceHealth' smart constructor.
-setInstanceHealth :: Text -> Text -> SetInstanceHealth
+-- | Creates a value of 'SetInstanceHealth' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sihShouldRespectGracePeriod'
+--
+-- * 'sihInstanceId'
+--
+-- * 'sihHealthStatus'
+setInstanceHealth
+    :: Text -- ^ 'sihInstanceId'
+    -> Text -- ^ 'sihHealthStatus'
+    -> SetInstanceHealth
 setInstanceHealth pInstanceId_ pHealthStatus_ =
     SetInstanceHealth'
     { _sihShouldRespectGracePeriod = Nothing
@@ -71,11 +74,11 @@ setInstanceHealth pInstanceId_ pHealthStatus_ =
     }
 
 -- | If the Auto Scaling group of the specified instance has a
--- @HealthCheckGracePeriod@ specified for the group, by default, this call
--- will respect the grace period. Set this to @False@, if you do not want
+-- 'HealthCheckGracePeriod' specified for the group, by default, this call
+-- will respect the grace period. Set this to 'False', if you do not want
 -- the call to respect the grace period associated with the group.
 --
--- For more information, see the @HealthCheckGracePeriod@ parameter
+-- For more information, see the 'HealthCheckGracePeriod' parameter
 -- description for CreateAutoScalingGroup.
 sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
 sihShouldRespectGracePeriod = lens _sihShouldRespectGracePeriod (\ s a -> s{_sihShouldRespectGracePeriod = a});
@@ -84,8 +87,8 @@ sihShouldRespectGracePeriod = lens _sihShouldRespectGracePeriod (\ s a -> s{_sih
 sihInstanceId :: Lens' SetInstanceHealth Text
 sihInstanceId = lens _sihInstanceId (\ s a -> s{_sihInstanceId = a});
 
--- | The health status of the instance. Set to @Healthy@ if you want the
--- instance to remain in service. Set to @Unhealthy@ if you want the
+-- | The health status of the instance. Set to 'Healthy' if you want the
+-- instance to remain in service. Set to 'Unhealthy' if you want the
 -- instance to be out of service. Auto Scaling will terminate and replace
 -- the unhealthy instance.
 sihHealthStatus :: Lens' SetInstanceHealth Text
@@ -118,6 +121,8 @@ data SetInstanceHealthResponse =
     SetInstanceHealthResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetInstanceHealthResponse' smart constructor.
-setInstanceHealthResponse :: SetInstanceHealthResponse
+-- | Creates a value of 'SetInstanceHealthResponse' with the minimum fields required to make a request.
+--
+setInstanceHealthResponse
+    :: SetInstanceHealthResponse
 setInstanceHealthResponse = SetInstanceHealthResponse'

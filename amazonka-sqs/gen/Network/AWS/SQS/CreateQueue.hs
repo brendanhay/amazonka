@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new queue, or returns the URL of an existing one. When you
--- request @CreateQueue@, you provide a name for the queue. To successfully
+-- request 'CreateQueue', you provide a name for the queue. To successfully
 -- create a new queue, you must provide a name that is unique within the
 -- scope of your own queues.
 --
@@ -32,35 +32,35 @@
 -- using SetQueueAttributes.
 --
 -- Use GetQueueUrl to get a queue\'s URL. GetQueueUrl requires only the
--- @QueueName@ parameter.
+-- 'QueueName' parameter.
 --
 -- If you provide the name of an existing queue, along with the exact names
--- and values of all the queue\'s attributes, @CreateQueue@ returns the
+-- and values of all the queue\'s attributes, 'CreateQueue' returns the
 -- queue URL for the existing queue. If the queue name, attribute names, or
--- attribute values do not match an existing queue, @CreateQueue@ returns
+-- attribute values do not match an existing queue, 'CreateQueue' returns
 -- an error.
 --
 -- Some API actions take lists of parameters. These lists are specified
--- using the @param.n@ notation. Values of @n@ are integers starting from
+-- using the 'param.n' notation. Values of 'n' are integers starting from
 -- 1. For example, a parameter list with two elements looks like this:
 --
--- @&Attribute.1=this@
+-- '&Attribute.1=this'
 --
--- @&Attribute.2=that@
+-- '&Attribute.2=that'
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html AWS API Reference> for CreateQueue.
 module Network.AWS.SQS.CreateQueue
     (
     -- * Creating a Request
-      CreateQueue
-    , createQueue
+      createQueue
+    , CreateQueue
     -- * Request Lenses
     , cqAttributes
     , cqQueueName
 
     -- * Destructuring the Response
-    , CreateQueueResponse
     , createQueueResponse
+    , CreateQueueResponse
     -- * Response Lenses
     , cqrsQueueURL
     , cqrsStatus
@@ -73,19 +73,21 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'createQueue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cqAttributes'
---
--- * 'cqQueueName'
 data CreateQueue = CreateQueue'
     { _cqAttributes :: !(Maybe (Map QueueAttributeName Text))
     , _cqQueueName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateQueue' smart constructor.
-createQueue :: Text -> CreateQueue
+-- | Creates a value of 'CreateQueue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cqAttributes'
+--
+-- * 'cqQueueName'
+createQueue
+    :: Text -- ^ 'cqQueueName'
+    -> CreateQueue
 createQueue pQueueName_ =
     CreateQueue'
     { _cqAttributes = Nothing
@@ -95,27 +97,27 @@ createQueue pQueueName_ =
 -- | A map of attributes with their corresponding values.
 --
 -- The following lists the names, descriptions, and values of the special
--- request parameters the @CreateQueue@ action uses:
+-- request parameters the 'CreateQueue' action uses:
 --
--- -   @DelaySeconds@ - The time in seconds that the delivery of all
+-- -   'DelaySeconds' - The time in seconds that the delivery of all
 --     messages in the queue will be delayed. An integer from 0 to 900 (15
 --     minutes). The default for this attribute is 0 (zero).
--- -   @MaximumMessageSize@ - The limit of how many bytes a message can
+-- -   'MaximumMessageSize' - The limit of how many bytes a message can
 --     contain before Amazon SQS rejects it. An integer from 1024 bytes (1
 --     KiB) up to 262144 bytes (256 KiB). The default for this attribute is
 --     262144 (256 KiB).
--- -   @MessageRetentionPeriod@ - The number of seconds Amazon SQS retains
+-- -   'MessageRetentionPeriod' - The number of seconds Amazon SQS retains
 --     a message. Integer representing seconds, from 60 (1 minute) to
 --     1209600 (14 days). The default for this attribute is 345600 (4
 --     days).
--- -   @Policy@ - The queue\'s policy. A valid AWS policy. For more
+-- -   'Policy' - The queue\'s policy. A valid AWS policy. For more
 --     information about policy structure, see
 --     <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of AWS IAM Policies>
 --     in the /Amazon IAM User Guide/.
--- -   @ReceiveMessageWaitTimeSeconds@ - The time for which a
+-- -   'ReceiveMessageWaitTimeSeconds' - The time for which a
 --     ReceiveMessage call will wait for a message to arrive. An integer
 --     from 0 to 20 (seconds). The default for this attribute is 0.
--- -   @VisibilityTimeout@ - The visibility timeout for the queue. An
+-- -   'VisibilityTimeout' - The visibility timeout for the queue. An
 --     integer from 0 to 43200 (12 hours). The default for this attribute
 --     is 30. For more information about visibility timeout, see
 --     <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout>
@@ -156,19 +158,21 @@ instance ToQuery CreateQueue where
 -- | Returns the QueueUrl element of the created queue.
 --
 -- /See:/ 'createQueueResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cqrsQueueURL'
---
--- * 'cqrsStatus'
 data CreateQueueResponse = CreateQueueResponse'
     { _cqrsQueueURL :: !(Maybe Text)
     , _cqrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateQueueResponse' smart constructor.
-createQueueResponse :: Int -> CreateQueueResponse
+-- | Creates a value of 'CreateQueueResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cqrsQueueURL'
+--
+-- * 'cqrsStatus'
+createQueueResponse
+    :: Int -- ^ 'cqrsStatus'
+    -> CreateQueueResponse
 createQueueResponse pStatus_ =
     CreateQueueResponse'
     { _cqrsQueueURL = Nothing
@@ -179,6 +183,6 @@ createQueueResponse pStatus_ =
 cqrsQueueURL :: Lens' CreateQueueResponse (Maybe Text)
 cqrsQueueURL = lens _cqrsQueueURL (\ s a -> s{_cqrsQueueURL = a});
 
--- | Undocumented member.
+-- | The response status code.
 cqrsStatus :: Lens' CreateQueueResponse Int
 cqrsStatus = lens _cqrsStatus (\ s a -> s{_cqrsStatus = a});

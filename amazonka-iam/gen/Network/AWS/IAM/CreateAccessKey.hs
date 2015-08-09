@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new AWS secret access key and corresponding AWS access key ID
--- for the specified user. The default status for new keys is @Active@.
+-- for the specified user. The default status for new keys is 'Active'.
 --
 -- If you do not specify a user name, IAM determines the user name
 -- implicitly based on the AWS access key ID signing the request. Because
@@ -41,14 +41,14 @@
 module Network.AWS.IAM.CreateAccessKey
     (
     -- * Creating a Request
-      CreateAccessKey
-    , createAccessKey
+      createAccessKey
+    , CreateAccessKey
     -- * Request Lenses
     , cakUserName
 
     -- * Destructuring the Response
-    , CreateAccessKeyResponse
     , createAccessKeyResponse
+    , CreateAccessKeyResponse
     -- * Response Lenses
     , cakrsStatus
     , cakrsAccessKey
@@ -61,16 +61,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createAccessKey' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cakUserName'
 newtype CreateAccessKey = CreateAccessKey'
     { _cakUserName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAccessKey' smart constructor.
-createAccessKey :: CreateAccessKey
+-- | Creates a value of 'CreateAccessKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cakUserName'
+createAccessKey
+    :: CreateAccessKey
 createAccessKey =
     CreateAccessKey'
     { _cakUserName = Nothing
@@ -106,26 +107,29 @@ instance ToQuery CreateAccessKey where
 -- | Contains the response to a successful CreateAccessKey request.
 --
 -- /See:/ 'createAccessKeyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cakrsStatus'
---
--- * 'cakrsAccessKey'
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
     { _cakrsStatus    :: !Int
     , _cakrsAccessKey :: !AccessKey
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAccessKeyResponse' smart constructor.
-createAccessKeyResponse :: Int -> AccessKey -> CreateAccessKeyResponse
+-- | Creates a value of 'CreateAccessKeyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cakrsStatus'
+--
+-- * 'cakrsAccessKey'
+createAccessKeyResponse
+    :: Int -- ^ 'cakrsStatus'
+    -> AccessKey -- ^ 'cakrsAccessKey'
+    -> CreateAccessKeyResponse
 createAccessKeyResponse pStatus_ pAccessKey_ =
     CreateAccessKeyResponse'
     { _cakrsStatus = pStatus_
     , _cakrsAccessKey = pAccessKey_
     }
 
--- | Undocumented member.
+-- | The response status code.
 cakrsStatus :: Lens' CreateAccessKeyResponse Int
 cakrsStatus = lens _cakrsStatus (\ s a -> s{_cakrsStatus = a});
 

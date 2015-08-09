@@ -27,16 +27,16 @@
 -- the peering connection. The VPC peering connection request expires after
 -- 7 days, after which it cannot be accepted or rejected.
 --
--- A @CreateVpcPeeringConnection@ request between VPCs with overlapping
+-- A 'CreateVpcPeeringConnection' request between VPCs with overlapping
 -- CIDR blocks results in the VPC peering connection having a status of
--- @failed@.
+-- 'failed'.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVPCPeeringConnection.html AWS API Reference> for CreateVPCPeeringConnection.
 module Network.AWS.EC2.CreateVPCPeeringConnection
     (
     -- * Creating a Request
-      CreateVPCPeeringConnection
-    , createVPCPeeringConnection
+      createVPCPeeringConnection
+    , CreateVPCPeeringConnection
     -- * Request Lenses
     , cvpcPeerVPCId
     , cvpcVPCId
@@ -44,8 +44,8 @@ module Network.AWS.EC2.CreateVPCPeeringConnection
     , cvpcDryRun
 
     -- * Destructuring the Response
-    , CreateVPCPeeringConnectionResponse
     , createVPCPeeringConnectionResponse
+    , CreateVPCPeeringConnectionResponse
     -- * Response Lenses
     , cvpcrsVPCPeeringConnection
     , cvpcrsStatus
@@ -58,8 +58,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createVPCPeeringConnection' smart constructor.
+data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
+    { _cvpcPeerVPCId   :: !(Maybe Text)
+    , _cvpcVPCId       :: !(Maybe Text)
+    , _cvpcPeerOwnerId :: !(Maybe Text)
+    , _cvpcDryRun      :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateVPCPeeringConnection' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cvpcPeerVPCId'
 --
@@ -68,15 +76,8 @@ import           Network.AWS.Response
 -- * 'cvpcPeerOwnerId'
 --
 -- * 'cvpcDryRun'
-data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
-    { _cvpcPeerVPCId   :: !(Maybe Text)
-    , _cvpcVPCId       :: !(Maybe Text)
-    , _cvpcPeerOwnerId :: !(Maybe Text)
-    , _cvpcDryRun      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateVPCPeeringConnection' smart constructor.
-createVPCPeeringConnection :: CreateVPCPeeringConnection
+createVPCPeeringConnection
+    :: CreateVPCPeeringConnection
 createVPCPeeringConnection =
     CreateVPCPeeringConnection'
     { _cvpcPeerVPCId = Nothing
@@ -102,8 +103,8 @@ cvpcPeerOwnerId = lens _cvpcPeerOwnerId (\ s a -> s{_cvpcPeerOwnerId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cvpcDryRun :: Lens' CreateVPCPeeringConnection (Maybe Bool)
 cvpcDryRun = lens _cvpcDryRun (\ s a -> s{_cvpcDryRun = a});
 
@@ -136,19 +137,21 @@ instance ToQuery CreateVPCPeeringConnection where
                "DryRun" =: _cvpcDryRun]
 
 -- | /See:/ 'createVPCPeeringConnectionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvpcrsVPCPeeringConnection'
---
--- * 'cvpcrsStatus'
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
     { _cvpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
     , _cvpcrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVPCPeeringConnectionResponse' smart constructor.
-createVPCPeeringConnectionResponse :: Int -> CreateVPCPeeringConnectionResponse
+-- | Creates a value of 'CreateVPCPeeringConnectionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvpcrsVPCPeeringConnection'
+--
+-- * 'cvpcrsStatus'
+createVPCPeeringConnectionResponse
+    :: Int -- ^ 'cvpcrsStatus'
+    -> CreateVPCPeeringConnectionResponse
 createVPCPeeringConnectionResponse pStatus_ =
     CreateVPCPeeringConnectionResponse'
     { _cvpcrsVPCPeeringConnection = Nothing
@@ -159,6 +162,6 @@ createVPCPeeringConnectionResponse pStatus_ =
 cvpcrsVPCPeeringConnection :: Lens' CreateVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
 cvpcrsVPCPeeringConnection = lens _cvpcrsVPCPeeringConnection (\ s a -> s{_cvpcrsVPCPeeringConnection = a});
 
--- | Undocumented member.
+-- | The response status code.
 cvpcrsStatus :: Lens' CreateVPCPeeringConnectionResponse Int
 cvpcrsStatus = lens _cvpcrsStatus (\ s a -> s{_cvpcrsStatus = a});

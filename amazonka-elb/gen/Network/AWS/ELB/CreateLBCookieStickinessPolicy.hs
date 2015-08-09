@@ -43,16 +43,16 @@
 module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     (
     -- * Creating a Request
-      CreateLBCookieStickinessPolicy
-    , createLBCookieStickinessPolicy
+      createLBCookieStickinessPolicy
+    , CreateLBCookieStickinessPolicy
     -- * Request Lenses
     , clbcspCookieExpirationPeriod
     , clbcspLoadBalancerName
     , clbcspPolicyName
 
     -- * Destructuring the Response
-    , CreateLBCookieStickinessPolicyResponse
     , createLBCookieStickinessPolicyResponse
+    , CreateLBCookieStickinessPolicyResponse
     -- * Response Lenses
     , clbcsprsStatus
     ) where
@@ -64,22 +64,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createLBCookieStickinessPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clbcspCookieExpirationPeriod'
---
--- * 'clbcspLoadBalancerName'
---
--- * 'clbcspPolicyName'
 data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
     { _clbcspCookieExpirationPeriod :: !(Maybe Integer)
     , _clbcspLoadBalancerName       :: !Text
     , _clbcspPolicyName             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLBCookieStickinessPolicy' smart constructor.
-createLBCookieStickinessPolicy :: Text -> Text -> CreateLBCookieStickinessPolicy
+-- | Creates a value of 'CreateLBCookieStickinessPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clbcspCookieExpirationPeriod'
+--
+-- * 'clbcspLoadBalancerName'
+--
+-- * 'clbcspPolicyName'
+createLBCookieStickinessPolicy
+    :: Text -- ^ 'clbcspLoadBalancerName'
+    -> Text -- ^ 'clbcspPolicyName'
+    -> CreateLBCookieStickinessPolicy
 createLBCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ =
     CreateLBCookieStickinessPolicy'
     { _clbcspCookieExpirationPeriod = Nothing
@@ -134,21 +137,23 @@ instance ToQuery CreateLBCookieStickinessPolicy where
                "PolicyName" =: _clbcspPolicyName]
 
 -- | /See:/ 'createLBCookieStickinessPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clbcsprsStatus'
 newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'
     { _clbcsprsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLBCookieStickinessPolicyResponse' smart constructor.
-createLBCookieStickinessPolicyResponse :: Int -> CreateLBCookieStickinessPolicyResponse
+-- | Creates a value of 'CreateLBCookieStickinessPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clbcsprsStatus'
+createLBCookieStickinessPolicyResponse
+    :: Int -- ^ 'clbcsprsStatus'
+    -> CreateLBCookieStickinessPolicyResponse
 createLBCookieStickinessPolicyResponse pStatus_ =
     CreateLBCookieStickinessPolicyResponse'
     { _clbcsprsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 clbcsprsStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
 clbcsprsStatus = lens _clbcsprsStatus (\ s a -> s{_clbcsprsStatus = a});

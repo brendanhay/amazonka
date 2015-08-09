@@ -33,14 +33,14 @@
 module Network.AWS.OpsWorks.DeleteLayer
     (
     -- * Creating a Request
-      DeleteLayer
-    , deleteLayer
+      deleteLayer
+    , DeleteLayer
     -- * Request Lenses
     , dlLayerId
 
     -- * Destructuring the Response
-    , DeleteLayerResponse
     , deleteLayerResponse
+    , DeleteLayerResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -50,16 +50,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteLayer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlLayerId'
 newtype DeleteLayer = DeleteLayer'
     { _dlLayerId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLayer' smart constructor.
-deleteLayer :: Text -> DeleteLayer
+-- | Creates a value of 'DeleteLayer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlLayerId'
+deleteLayer
+    :: Text -- ^ 'dlLayerId'
+    -> DeleteLayer
 deleteLayer pLayerId_ =
     DeleteLayer'
     { _dlLayerId = pLayerId_
@@ -99,6 +101,8 @@ data DeleteLayerResponse =
     DeleteLayerResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLayerResponse' smart constructor.
-deleteLayerResponse :: DeleteLayerResponse
+-- | Creates a value of 'DeleteLayerResponse' with the minimum fields required to make a request.
+--
+deleteLayerResponse
+    :: DeleteLayerResponse
 deleteLayerResponse = DeleteLayerResponse'

@@ -49,8 +49,8 @@
 module Network.AWS.Route53Domains.TransferDomain
     (
     -- * Creating a Request
-      TransferDomain
-    , transferDomain
+      transferDomain
+    , TransferDomain
     -- * Request Lenses
     , tdPrivacyProtectTechContact
     , tdPrivacyProtectRegistrantContact
@@ -66,8 +66,8 @@ module Network.AWS.Route53Domains.TransferDomain
     , tdTechContact
 
     -- * Destructuring the Response
-    , TransferDomainResponse
     , transferDomainResponse
+    , TransferDomainResponse
     -- * Response Lenses
     , tdrsStatus
     , tdrsOperationId
@@ -82,8 +82,24 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The TransferDomain request includes the following elements.
 --
 -- /See:/ 'transferDomain' smart constructor.
+data TransferDomain = TransferDomain'
+    { _tdPrivacyProtectTechContact       :: !(Maybe Bool)
+    , _tdPrivacyProtectRegistrantContact :: !(Maybe Bool)
+    , _tdAutoRenew                       :: !(Maybe Bool)
+    , _tdPrivacyProtectAdminContact      :: !(Maybe Bool)
+    , _tdIdNLangCode                     :: !(Maybe Text)
+    , _tdAuthCode                        :: !(Maybe (Sensitive Text))
+    , _tdNameservers                     :: !(Maybe [Nameserver])
+    , _tdDomainName                      :: !Text
+    , _tdDurationInYears                 :: !Nat
+    , _tdAdminContact                    :: !(Sensitive ContactDetail)
+    , _tdRegistrantContact               :: !(Sensitive ContactDetail)
+    , _tdTechContact                     :: !(Sensitive ContactDetail)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TransferDomain' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tdPrivacyProtectTechContact'
 --
@@ -108,23 +124,13 @@ import           Network.AWS.Route53Domains.Types.Product
 -- * 'tdRegistrantContact'
 --
 -- * 'tdTechContact'
-data TransferDomain = TransferDomain'
-    { _tdPrivacyProtectTechContact       :: !(Maybe Bool)
-    , _tdPrivacyProtectRegistrantContact :: !(Maybe Bool)
-    , _tdAutoRenew                       :: !(Maybe Bool)
-    , _tdPrivacyProtectAdminContact      :: !(Maybe Bool)
-    , _tdIdNLangCode                     :: !(Maybe Text)
-    , _tdAuthCode                        :: !(Maybe (Sensitive Text))
-    , _tdNameservers                     :: !(Maybe [Nameserver])
-    , _tdDomainName                      :: !Text
-    , _tdDurationInYears                 :: !Nat
-    , _tdAdminContact                    :: !(Sensitive ContactDetail)
-    , _tdRegistrantContact               :: !(Sensitive ContactDetail)
-    , _tdTechContact                     :: !(Sensitive ContactDetail)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TransferDomain' smart constructor.
-transferDomain :: Text -> Natural -> ContactDetail -> ContactDetail -> ContactDetail -> TransferDomain
+transferDomain
+    :: Text -- ^ 'tdDomainName'
+    -> Natural -- ^ 'tdDurationInYears'
+    -> ContactDetail -- ^ 'tdAdminContact'
+    -> ContactDetail -- ^ 'tdRegistrantContact'
+    -> ContactDetail -- ^ 'tdTechContact'
+    -> TransferDomain
 transferDomain pDomainName_ pDurationInYears_ pAdminContact_ pRegistrantContact_ pTechContact_ =
     TransferDomain'
     { _tdPrivacyProtectTechContact = Nothing
@@ -148,9 +154,9 @@ transferDomain pDomainName_ pDurationInYears_ pAdminContact_ pRegistrantContact_
 --
 -- Type: Boolean
 --
--- Default: @true@
+-- Default: 'true'
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
 -- Required: No
 tdPrivacyProtectTechContact :: Lens' TransferDomain (Maybe Bool)
@@ -163,9 +169,9 @@ tdPrivacyProtectTechContact = lens _tdPrivacyProtectTechContact (\ s a -> s{_tdP
 --
 -- Type: Boolean
 --
--- Default: @true@
+-- Default: 'true'
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
 -- Required: No
 tdPrivacyProtectRegistrantContact :: Lens' TransferDomain (Maybe Bool)
@@ -176,7 +182,7 @@ tdPrivacyProtectRegistrantContact = lens _tdPrivacyProtectRegistrantContact (\ s
 --
 -- Type: Boolean
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
 -- Default: true
 --
@@ -191,9 +197,9 @@ tdAutoRenew = lens _tdAutoRenew (\ s a -> s{_tdAutoRenew = a});
 --
 -- Type: Boolean
 --
--- Default: @true@
+-- Default: 'true'
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
 -- Required: No
 tdPrivacyProtectAdminContact :: Lens' TransferDomain (Maybe Bool)
@@ -216,7 +222,7 @@ tdAuthCode = lens _tdAuthCode (\ s a -> s{_tdAuthCode = a}) . mapping _Sensitive
 --
 -- Type: Complex
 --
--- Children: @GlueIps@, @Name@
+-- Children: 'GlueIps', 'Name'
 --
 -- Required: No
 tdNameservers :: Lens' TransferDomain [Nameserver]
@@ -254,9 +260,9 @@ tdDurationInYears = lens _tdDurationInYears (\ s a -> s{_tdDurationInYears = a})
 --
 -- Type: Complex
 --
--- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
--- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
--- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
+-- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType',
+-- 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State',
+-- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
 tdAdminContact :: Lens' TransferDomain ContactDetail
@@ -266,9 +272,9 @@ tdAdminContact = lens _tdAdminContact (\ s a -> s{_tdAdminContact = a}) . _Sensi
 --
 -- Type: Complex
 --
--- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
--- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
--- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
+-- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType',
+-- 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State',
+-- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
 tdRegistrantContact :: Lens' TransferDomain ContactDetail
@@ -278,9 +284,9 @@ tdRegistrantContact = lens _tdRegistrantContact (\ s a -> s{_tdRegistrantContact
 --
 -- Type: Complex
 --
--- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
--- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
--- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
+-- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType',
+-- 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State',
+-- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
 tdTechContact :: Lens' TransferDomain ContactDetail
@@ -334,26 +340,29 @@ instance ToQuery TransferDomain where
 -- | The TranserDomain response includes the following element.
 --
 -- /See:/ 'transferDomainResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tdrsStatus'
---
--- * 'tdrsOperationId'
 data TransferDomainResponse = TransferDomainResponse'
     { _tdrsStatus      :: !Int
     , _tdrsOperationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TransferDomainResponse' smart constructor.
-transferDomainResponse :: Int -> Text -> TransferDomainResponse
+-- | Creates a value of 'TransferDomainResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tdrsStatus'
+--
+-- * 'tdrsOperationId'
+transferDomainResponse
+    :: Int -- ^ 'tdrsStatus'
+    -> Text -- ^ 'tdrsOperationId'
+    -> TransferDomainResponse
 transferDomainResponse pStatus_ pOperationId_ =
     TransferDomainResponse'
     { _tdrsStatus = pStatus_
     , _tdrsOperationId = pOperationId_
     }
 
--- | Undocumented member.
+-- | The response status code.
 tdrsStatus :: Lens' TransferDomainResponse Int
 tdrsStatus = lens _tdrsStatus (\ s a -> s{_tdrsStatus = a});
 

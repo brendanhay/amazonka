@@ -24,14 +24,14 @@
 module Network.AWS.KMS.DescribeKey
     (
     -- * Creating a Request
-      DescribeKey
-    , describeKey
+      describeKey
+    , DescribeKey
     -- * Request Lenses
     , dKeyId
 
     -- * Destructuring the Response
-    , DescribeKeyResponse
     , describeKeyResponse
+    , DescribeKeyResponse
     -- * Response Lenses
     , dkrsKeyMetadata
     , dkrsStatus
@@ -44,16 +44,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeKey' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dKeyId'
 newtype DescribeKey = DescribeKey'
     { _dKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeKey' smart constructor.
-describeKey :: Text -> DescribeKey
+-- | Creates a value of 'DescribeKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dKeyId'
+describeKey
+    :: Text -- ^ 'dKeyId'
+    -> DescribeKey
 describeKey pKeyId_ =
     DescribeKey'
     { _dKeyId = pKeyId_
@@ -102,19 +104,21 @@ instance ToQuery DescribeKey where
         toQuery = const mempty
 
 -- | /See:/ 'describeKeyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dkrsKeyMetadata'
---
--- * 'dkrsStatus'
 data DescribeKeyResponse = DescribeKeyResponse'
     { _dkrsKeyMetadata :: !(Maybe KeyMetadata)
     , _dkrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeKeyResponse' smart constructor.
-describeKeyResponse :: Int -> DescribeKeyResponse
+-- | Creates a value of 'DescribeKeyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dkrsKeyMetadata'
+--
+-- * 'dkrsStatus'
+describeKeyResponse
+    :: Int -- ^ 'dkrsStatus'
+    -> DescribeKeyResponse
 describeKeyResponse pStatus_ =
     DescribeKeyResponse'
     { _dkrsKeyMetadata = Nothing
@@ -125,6 +129,6 @@ describeKeyResponse pStatus_ =
 dkrsKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
 dkrsKeyMetadata = lens _dkrsKeyMetadata (\ s a -> s{_dkrsKeyMetadata = a});
 
--- | Undocumented member.
+-- | The response status code.
 dkrsStatus :: Lens' DescribeKeyResponse Int
 dkrsStatus = lens _dkrsStatus (\ s a -> s{_dkrsStatus = a});

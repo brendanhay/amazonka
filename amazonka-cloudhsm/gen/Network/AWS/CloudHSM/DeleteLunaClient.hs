@@ -24,14 +24,14 @@
 module Network.AWS.CloudHSM.DeleteLunaClient
     (
     -- * Creating a Request
-      DeleteLunaClient
-    , deleteLunaClient
+      deleteLunaClient
+    , DeleteLunaClient
     -- * Request Lenses
     , dClientARN
 
     -- * Destructuring the Response
-    , DeleteLunaClientResponse
     , deleteLunaClientResponse
+    , DeleteLunaClientResponse
     -- * Response Lenses
     , dlcrsStatus
     ) where
@@ -43,16 +43,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteLunaClient' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dClientARN'
 newtype DeleteLunaClient = DeleteLunaClient'
     { _dClientARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLunaClient' smart constructor.
-deleteLunaClient :: Text -> DeleteLunaClient
+-- | Creates a value of 'DeleteLunaClient' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dClientARN'
+deleteLunaClient
+    :: Text -- ^ 'dClientARN'
+    -> DeleteLunaClient
 deleteLunaClient pClientARN_ =
     DeleteLunaClient'
     { _dClientARN = pClientARN_
@@ -92,21 +94,23 @@ instance ToQuery DeleteLunaClient where
         toQuery = const mempty
 
 -- | /See:/ 'deleteLunaClientResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlcrsStatus'
 newtype DeleteLunaClientResponse = DeleteLunaClientResponse'
     { _dlcrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLunaClientResponse' smart constructor.
-deleteLunaClientResponse :: Int -> DeleteLunaClientResponse
+-- | Creates a value of 'DeleteLunaClientResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlcrsStatus'
+deleteLunaClientResponse
+    :: Int -- ^ 'dlcrsStatus'
+    -> DeleteLunaClientResponse
 deleteLunaClientResponse pStatus_ =
     DeleteLunaClientResponse'
     { _dlcrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dlcrsStatus :: Lens' DeleteLunaClientResponse Int
 dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});

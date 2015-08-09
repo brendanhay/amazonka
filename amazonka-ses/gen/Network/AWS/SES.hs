@@ -89,7 +89,6 @@ module Network.AWS.SES
 
     -- ** ListIdentities (Paginated)
     , module Network.AWS.SES.ListIdentities
-    -- $pager
 
     -- ** DeleteVerifiedEmailAddress
     , module Network.AWS.SES.DeleteVerifiedEmailAddress
@@ -234,8 +233,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

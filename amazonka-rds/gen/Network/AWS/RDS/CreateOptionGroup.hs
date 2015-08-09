@@ -24,8 +24,8 @@
 module Network.AWS.RDS.CreateOptionGroup
     (
     -- * Creating a Request
-      CreateOptionGroup
-    , createOptionGroup
+      createOptionGroup
+    , CreateOptionGroup
     -- * Request Lenses
     , cogTags
     , cogOptionGroupName
@@ -34,8 +34,8 @@ module Network.AWS.RDS.CreateOptionGroup
     , cogOptionGroupDescription
 
     -- * Destructuring the Response
-    , CreateOptionGroupResponse
     , createOptionGroupResponse
+    , CreateOptionGroupResponse
     -- * Response Lenses
     , crsOptionGroup
     , crsStatus
@@ -50,8 +50,17 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createOptionGroup' smart constructor.
+data CreateOptionGroup = CreateOptionGroup'
+    { _cogTags                   :: !(Maybe [Tag])
+    , _cogOptionGroupName        :: !Text
+    , _cogEngineName             :: !Text
+    , _cogMajorEngineVersion     :: !Text
+    , _cogOptionGroupDescription :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateOptionGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cogTags'
 --
@@ -62,16 +71,12 @@ import           Network.AWS.Response
 -- * 'cogMajorEngineVersion'
 --
 -- * 'cogOptionGroupDescription'
-data CreateOptionGroup = CreateOptionGroup'
-    { _cogTags                   :: !(Maybe [Tag])
-    , _cogOptionGroupName        :: !Text
-    , _cogEngineName             :: !Text
-    , _cogMajorEngineVersion     :: !Text
-    , _cogOptionGroupDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateOptionGroup' smart constructor.
-createOptionGroup :: Text -> Text -> Text -> Text -> CreateOptionGroup
+createOptionGroup
+    :: Text -- ^ 'cogOptionGroupName'
+    -> Text -- ^ 'cogEngineName'
+    -> Text -- ^ 'cogMajorEngineVersion'
+    -> Text -- ^ 'cogOptionGroupDescription'
+    -> CreateOptionGroup
 createOptionGroup pOptionGroupName_ pEngineName_ pMajorEngineVersion_ pOptionGroupDescription_ =
     CreateOptionGroup'
     { _cogTags = Nothing
@@ -93,7 +98,7 @@ cogTags = lens _cogTags (\ s a -> s{_cogTags = a}) . _Default . _Coerce;
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- Example: @myoptiongroup@
+-- Example: 'myoptiongroup'
 cogOptionGroupName :: Lens' CreateOptionGroup Text
 cogOptionGroupName = lens _cogOptionGroupName (\ s a -> s{_cogOptionGroupName = a});
 
@@ -140,19 +145,21 @@ instance ToQuery CreateOptionGroup where
                  _cogOptionGroupDescription]
 
 -- | /See:/ 'createOptionGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crsOptionGroup'
---
--- * 'crsStatus'
 data CreateOptionGroupResponse = CreateOptionGroupResponse'
     { _crsOptionGroup :: !(Maybe OptionGroup)
     , _crsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateOptionGroupResponse' smart constructor.
-createOptionGroupResponse :: Int -> CreateOptionGroupResponse
+-- | Creates a value of 'CreateOptionGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crsOptionGroup'
+--
+-- * 'crsStatus'
+createOptionGroupResponse
+    :: Int -- ^ 'crsStatus'
+    -> CreateOptionGroupResponse
 createOptionGroupResponse pStatus_ =
     CreateOptionGroupResponse'
     { _crsOptionGroup = Nothing
@@ -163,6 +170,6 @@ createOptionGroupResponse pStatus_ =
 crsOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
 crsOptionGroup = lens _crsOptionGroup (\ s a -> s{_crsOptionGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 crsStatus :: Lens' CreateOptionGroupResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

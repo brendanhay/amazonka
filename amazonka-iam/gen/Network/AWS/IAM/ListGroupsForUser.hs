@@ -20,23 +20,25 @@
 --
 -- Lists the groups the specified user belongs to.
 --
--- You can paginate the results using the @MaxItems@ and @Marker@
+-- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupsForUser.html AWS API Reference> for ListGroupsForUser.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListGroupsForUser
     (
     -- * Creating a Request
-      ListGroupsForUser
-    , listGroupsForUser
+      listGroupsForUser
+    , ListGroupsForUser
     -- * Request Lenses
     , lgfuMaxItems
     , lgfuMarker
     , lgfuUserName
 
     -- * Destructuring the Response
-    , ListGroupsForUserResponse
     , listGroupsForUserResponse
+    , ListGroupsForUserResponse
     -- * Response Lenses
     , lgfursMarker
     , lgfursIsTruncated
@@ -52,22 +54,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listGroupsForUser' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lgfuMaxItems'
---
--- * 'lgfuMarker'
---
--- * 'lgfuUserName'
 data ListGroupsForUser = ListGroupsForUser'
     { _lgfuMaxItems :: !(Maybe Nat)
     , _lgfuMarker   :: !(Maybe Text)
     , _lgfuUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListGroupsForUser' smart constructor.
-listGroupsForUser :: Text -> ListGroupsForUser
+-- | Creates a value of 'ListGroupsForUser' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lgfuMaxItems'
+--
+-- * 'lgfuMarker'
+--
+-- * 'lgfuUserName'
+listGroupsForUser
+    :: Text -- ^ 'lgfuUserName'
+    -> ListGroupsForUser
 listGroupsForUser pUserName_ =
     ListGroupsForUser'
     { _lgfuMaxItems = Nothing
@@ -77,7 +81,7 @@ listGroupsForUser pUserName_ =
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -86,7 +90,7 @@ lgfuMaxItems = lens _lgfuMaxItems (\ s a -> s{_lgfuMaxItems = a}) . mapping _Nat
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 lgfuMarker :: Lens' ListGroupsForUser (Maybe Text)
 lgfuMarker = lens _lgfuMarker (\ s a -> s{_lgfuMarker = a});
 
@@ -132,8 +136,16 @@ instance ToQuery ListGroupsForUser where
 -- | Contains the response to a successful ListGroupsForUser request.
 --
 -- /See:/ 'listGroupsForUserResponse' smart constructor.
+data ListGroupsForUserResponse = ListGroupsForUserResponse'
+    { _lgfursMarker      :: !(Maybe Text)
+    , _lgfursIsTruncated :: !(Maybe Bool)
+    , _lgfursStatus      :: !Int
+    , _lgfursGroups      :: ![Group]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListGroupsForUserResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lgfursMarker'
 --
@@ -142,15 +154,9 @@ instance ToQuery ListGroupsForUser where
 -- * 'lgfursStatus'
 --
 -- * 'lgfursGroups'
-data ListGroupsForUserResponse = ListGroupsForUserResponse'
-    { _lgfursMarker      :: !(Maybe Text)
-    , _lgfursIsTruncated :: !(Maybe Bool)
-    , _lgfursStatus      :: !Int
-    , _lgfursGroups      :: ![Group]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListGroupsForUserResponse' smart constructor.
-listGroupsForUserResponse :: Int -> ListGroupsForUserResponse
+listGroupsForUserResponse
+    :: Int -- ^ 'lgfursStatus'
+    -> ListGroupsForUserResponse
 listGroupsForUserResponse pStatus_ =
     ListGroupsForUserResponse'
     { _lgfursMarker = Nothing
@@ -159,19 +165,19 @@ listGroupsForUserResponse pStatus_ =
     , _lgfursGroups = mempty
     }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lgfursMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
 lgfursMarker = lens _lgfursMarker (\ s a -> s{_lgfursMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 lgfursIsTruncated :: Lens' ListGroupsForUserResponse (Maybe Bool)
 lgfursIsTruncated = lens _lgfursIsTruncated (\ s a -> s{_lgfursIsTruncated = a});
 
--- | Undocumented member.
+-- | The response status code.
 lgfursStatus :: Lens' ListGroupsForUserResponse Int
 lgfursStatus = lens _lgfursStatus (\ s a -> s{_lgfursStatus = a});
 

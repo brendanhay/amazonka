@@ -28,14 +28,14 @@
 module Network.AWS.Support.DescribeAttachment
     (
     -- * Creating a Request
-      DescribeAttachment
-    , describeAttachment
+      describeAttachment
+    , DescribeAttachment
     -- * Request Lenses
     , daAttachmentId
 
     -- * Destructuring the Response
-    , DescribeAttachmentResponse
     , describeAttachmentResponse
+    , DescribeAttachmentResponse
     -- * Response Lenses
     , darsAttachment
     , darsStatus
@@ -48,16 +48,18 @@ import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
 -- | /See:/ 'describeAttachment' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daAttachmentId'
 newtype DescribeAttachment = DescribeAttachment'
     { _daAttachmentId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAttachment' smart constructor.
-describeAttachment :: Text -> DescribeAttachment
+-- | Creates a value of 'DescribeAttachment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daAttachmentId'
+describeAttachment
+    :: Text -- ^ 'daAttachmentId'
+    -> DescribeAttachment
 describeAttachment pAttachmentId_ =
     DescribeAttachment'
     { _daAttachmentId = pAttachmentId_
@@ -103,19 +105,21 @@ instance ToQuery DescribeAttachment where
 -- DescribeAttachment operation.
 --
 -- /See:/ 'describeAttachmentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'darsAttachment'
---
--- * 'darsStatus'
 data DescribeAttachmentResponse = DescribeAttachmentResponse'
     { _darsAttachment :: !(Maybe Attachment)
     , _darsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAttachmentResponse' smart constructor.
-describeAttachmentResponse :: Int -> DescribeAttachmentResponse
+-- | Creates a value of 'DescribeAttachmentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'darsAttachment'
+--
+-- * 'darsStatus'
+describeAttachmentResponse
+    :: Int -- ^ 'darsStatus'
+    -> DescribeAttachmentResponse
 describeAttachmentResponse pStatus_ =
     DescribeAttachmentResponse'
     { _darsAttachment = Nothing
@@ -126,6 +130,6 @@ describeAttachmentResponse pStatus_ =
 darsAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
 darsAttachment = lens _darsAttachment (\ s a -> s{_darsAttachment = a});
 
--- | Undocumented member.
+-- | The response status code.
 darsStatus :: Lens' DescribeAttachmentResponse Int
 darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

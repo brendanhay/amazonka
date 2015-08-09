@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This action deletes a health check. To delete a health check, send a
--- @DELETE@ request to the @2013-04-01\/healthcheck\/health check ID@
+-- 'DELETE' request to the '2013-04-01\/healthcheck\/health check ID'
 -- resource.
 --
 -- You can delete a health check only if there are no resource record sets
@@ -27,21 +27,21 @@
 -- associated with this health check, you must disassociate them before you
 -- can delete your health check. If you try to delete a health check that
 -- is associated with resource record sets, Route 53 will deny your request
--- with a @HealthCheckInUse@ error. For information about disassociating
+-- with a 'HealthCheckInUse' error. For information about disassociating
 -- the records from your health check, see ChangeResourceRecordSets.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html AWS API Reference> for DeleteHealthCheck.
 module Network.AWS.Route53.DeleteHealthCheck
     (
     -- * Creating a Request
-      DeleteHealthCheck
-    , deleteHealthCheck
+      deleteHealthCheck
+    , DeleteHealthCheck
     -- * Request Lenses
     , dhcHealthCheckId
 
     -- * Destructuring the Response
-    , DeleteHealthCheckResponse
     , deleteHealthCheckResponse
+    , DeleteHealthCheckResponse
     -- * Response Lenses
     , dhcrsStatus
     ) where
@@ -56,16 +56,18 @@ import           Network.AWS.Route53.Types.Product
 -- check.
 --
 -- /See:/ 'deleteHealthCheck' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhcHealthCheckId'
 newtype DeleteHealthCheck = DeleteHealthCheck'
     { _dhcHealthCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteHealthCheck' smart constructor.
-deleteHealthCheck :: Text -> DeleteHealthCheck
+-- | Creates a value of 'DeleteHealthCheck' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhcHealthCheckId'
+deleteHealthCheck
+    :: Text -- ^ 'dhcHealthCheckId'
+    -> DeleteHealthCheck
 deleteHealthCheck pHealthCheckId_ =
     DeleteHealthCheck'
     { _dhcHealthCheckId = pHealthCheckId_
@@ -98,21 +100,23 @@ instance ToQuery DeleteHealthCheck where
 -- | Empty response for the request.
 --
 -- /See:/ 'deleteHealthCheckResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhcrsStatus'
 newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
     { _dhcrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteHealthCheckResponse' smart constructor.
-deleteHealthCheckResponse :: Int -> DeleteHealthCheckResponse
+-- | Creates a value of 'DeleteHealthCheckResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhcrsStatus'
+deleteHealthCheckResponse
+    :: Int -- ^ 'dhcrsStatus'
+    -> DeleteHealthCheckResponse
 deleteHealthCheckResponse pStatus_ =
     DeleteHealthCheckResponse'
     { _dhcrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dhcrsStatus :: Lens' DeleteHealthCheckResponse Int
 dhcrsStatus = lens _dhcrsStatus (\ s a -> s{_dhcrsStatus = a});

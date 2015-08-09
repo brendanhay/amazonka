@@ -27,14 +27,14 @@
 module Network.AWS.RDS.DeleteDBSecurityGroup
     (
     -- * Creating a Request
-      DeleteDBSecurityGroup
-    , deleteDBSecurityGroup
+      deleteDBSecurityGroup
+    , DeleteDBSecurityGroup
     -- * Request Lenses
     , ddsgDBSecurityGroupName
 
     -- * Destructuring the Response
-    , DeleteDBSecurityGroupResponse
     , deleteDBSecurityGroupResponse
+    , DeleteDBSecurityGroupResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteDBSecurityGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddsgDBSecurityGroupName'
 newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup'
     { _ddsgDBSecurityGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBSecurityGroup' smart constructor.
-deleteDBSecurityGroup :: Text -> DeleteDBSecurityGroup
+-- | Creates a value of 'DeleteDBSecurityGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddsgDBSecurityGroupName'
+deleteDBSecurityGroup
+    :: Text -- ^ 'ddsgDBSecurityGroupName'
+    -> DeleteDBSecurityGroup
 deleteDBSecurityGroup pDBSecurityGroupName_ =
     DeleteDBSecurityGroup'
     { _ddsgDBSecurityGroupName = pDBSecurityGroupName_
@@ -100,6 +102,8 @@ data DeleteDBSecurityGroupResponse =
     DeleteDBSecurityGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBSecurityGroupResponse' smart constructor.
-deleteDBSecurityGroupResponse :: DeleteDBSecurityGroupResponse
+-- | Creates a value of 'DeleteDBSecurityGroupResponse' with the minimum fields required to make a request.
+--
+deleteDBSecurityGroupResponse
+    :: DeleteDBSecurityGroupResponse
 deleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse'

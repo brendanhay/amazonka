@@ -30,8 +30,8 @@
 module Network.AWS.SDB.GetAttributes
     (
     -- * Creating a Request
-      GetAttributes
-    , getAttributes
+      getAttributes
+    , GetAttributes
     -- * Request Lenses
     , gaConsistentRead
     , gaAttributeNames
@@ -39,8 +39,8 @@ module Network.AWS.SDB.GetAttributes
     , gaItemName
 
     -- * Destructuring the Response
-    , GetAttributesResponse
     , getAttributesResponse
+    , GetAttributesResponse
     -- * Response Lenses
     , garsAttributes
     , garsStatus
@@ -53,8 +53,16 @@ import           Network.AWS.SDB.Types
 import           Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'getAttributes' smart constructor.
+data GetAttributes = GetAttributes'
+    { _gaConsistentRead :: !(Maybe Bool)
+    , _gaAttributeNames :: !(Maybe [Text])
+    , _gaDomainName     :: !Text
+    , _gaItemName       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetAttributes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gaConsistentRead'
 --
@@ -63,15 +71,10 @@ import           Network.AWS.SDB.Types.Product
 -- * 'gaDomainName'
 --
 -- * 'gaItemName'
-data GetAttributes = GetAttributes'
-    { _gaConsistentRead :: !(Maybe Bool)
-    , _gaAttributeNames :: !(Maybe [Text])
-    , _gaDomainName     :: !Text
-    , _gaItemName       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetAttributes' smart constructor.
-getAttributes :: Text -> Text -> GetAttributes
+getAttributes
+    :: Text -- ^ 'gaDomainName'
+    -> Text -- ^ 'gaItemName'
+    -> GetAttributes
 getAttributes pDomainName_ pItemName_ =
     GetAttributes'
     { _gaConsistentRead = Nothing
@@ -81,7 +84,7 @@ getAttributes pDomainName_ pItemName_ =
     }
 
 -- | Determines whether or not strong consistency should be enforced when
--- data is read from SimpleDB. If @true@, any data previously written to
+-- data is read from SimpleDB. If 'true', any data previously written to
 -- SimpleDB will be returned. Otherwise, results will be consistent
 -- eventually, and the client may not see data that was written immediately
 -- before your read.
@@ -129,19 +132,21 @@ instance ToQuery GetAttributes where
                "ItemName" =: _gaItemName]
 
 -- | /See:/ 'getAttributesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'garsAttributes'
---
--- * 'garsStatus'
 data GetAttributesResponse = GetAttributesResponse'
     { _garsAttributes :: !(Maybe [Attribute])
     , _garsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetAttributesResponse' smart constructor.
-getAttributesResponse :: Int -> GetAttributesResponse
+-- | Creates a value of 'GetAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'garsAttributes'
+--
+-- * 'garsStatus'
+getAttributesResponse
+    :: Int -- ^ 'garsStatus'
+    -> GetAttributesResponse
 getAttributesResponse pStatus_ =
     GetAttributesResponse'
     { _garsAttributes = Nothing
@@ -152,6 +157,6 @@ getAttributesResponse pStatus_ =
 garsAttributes :: Lens' GetAttributesResponse [Attribute]
 garsAttributes = lens _garsAttributes (\ s a -> s{_garsAttributes = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 garsStatus :: Lens' GetAttributesResponse Int
 garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});

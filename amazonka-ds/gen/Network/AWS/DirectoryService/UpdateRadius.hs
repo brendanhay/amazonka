@@ -25,15 +25,15 @@
 module Network.AWS.DirectoryService.UpdateRadius
     (
     -- * Creating a Request
-      UpdateRadius
-    , updateRadius
+      updateRadius
+    , UpdateRadius
     -- * Request Lenses
     , urDirectoryId
     , urRadiusSettings
 
     -- * Destructuring the Response
-    , UpdateRadiusResponse
     , updateRadiusResponse
+    , UpdateRadiusResponse
     -- * Response Lenses
     , urrsStatus
     ) where
@@ -47,19 +47,22 @@ import           Network.AWS.Response
 -- | Contains the inputs for the UpdateRadius operation.
 --
 -- /See:/ 'updateRadius' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'urDirectoryId'
---
--- * 'urRadiusSettings'
 data UpdateRadius = UpdateRadius'
     { _urDirectoryId    :: !Text
     , _urRadiusSettings :: !RadiusSettings
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateRadius' smart constructor.
-updateRadius :: Text -> RadiusSettings -> UpdateRadius
+-- | Creates a value of 'UpdateRadius' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'urDirectoryId'
+--
+-- * 'urRadiusSettings'
+updateRadius
+    :: Text -- ^ 'urDirectoryId'
+    -> RadiusSettings -- ^ 'urRadiusSettings'
+    -> UpdateRadius
 updateRadius pDirectoryId_ pRadiusSettings_ =
     UpdateRadius'
     { _urDirectoryId = pDirectoryId_
@@ -110,21 +113,23 @@ instance ToQuery UpdateRadius where
 -- | Contains the results of the UpdateRadius operation.
 --
 -- /See:/ 'updateRadiusResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'urrsStatus'
 newtype UpdateRadiusResponse = UpdateRadiusResponse'
     { _urrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateRadiusResponse' smart constructor.
-updateRadiusResponse :: Int -> UpdateRadiusResponse
+-- | Creates a value of 'UpdateRadiusResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'urrsStatus'
+updateRadiusResponse
+    :: Int -- ^ 'urrsStatus'
+    -> UpdateRadiusResponse
 updateRadiusResponse pStatus_ =
     UpdateRadiusResponse'
     { _urrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 urrsStatus :: Lens' UpdateRadiusResponse Int
 urrsStatus = lens _urrsStatus (\ s a -> s{_urrsStatus = a});

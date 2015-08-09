@@ -24,15 +24,15 @@
 module Network.AWS.CloudFront.CreateInvalidation
     (
     -- * Creating a Request
-      CreateInvalidation
-    , createInvalidation
+      createInvalidation
+    , CreateInvalidation
     -- * Request Lenses
     , ciDistributionId
     , ciInvalidationBatch
 
     -- * Destructuring the Response
-    , CreateInvalidationResponse
     , createInvalidationResponse
+    , CreateInvalidationResponse
     -- * Response Lenses
     , cirsInvalidation
     , cirsLocation
@@ -48,19 +48,22 @@ import           Network.AWS.Response
 -- | The request to create an invalidation.
 --
 -- /See:/ 'createInvalidation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ciDistributionId'
---
--- * 'ciInvalidationBatch'
 data CreateInvalidation = CreateInvalidation'
     { _ciDistributionId    :: !Text
     , _ciInvalidationBatch :: !InvalidationBatch
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateInvalidation' smart constructor.
-createInvalidation :: Text -> InvalidationBatch -> CreateInvalidation
+-- | Creates a value of 'CreateInvalidation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ciDistributionId'
+--
+-- * 'ciInvalidationBatch'
+createInvalidation
+    :: Text -- ^ 'ciDistributionId'
+    -> InvalidationBatch -- ^ 'ciInvalidationBatch'
+    -> CreateInvalidation
 createInvalidation pDistributionId_ pInvalidationBatch_ =
     CreateInvalidation'
     { _ciDistributionId = pDistributionId_
@@ -109,22 +112,24 @@ instance ToQuery CreateInvalidation where
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'createInvalidationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cirsInvalidation'
---
--- * 'cirsLocation'
---
--- * 'cirsStatus'
 data CreateInvalidationResponse = CreateInvalidationResponse'
     { _cirsInvalidation :: !(Maybe Invalidation)
     , _cirsLocation     :: !(Maybe Text)
     , _cirsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateInvalidationResponse' smart constructor.
-createInvalidationResponse :: Int -> CreateInvalidationResponse
+-- | Creates a value of 'CreateInvalidationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cirsInvalidation'
+--
+-- * 'cirsLocation'
+--
+-- * 'cirsStatus'
+createInvalidationResponse
+    :: Int -- ^ 'cirsStatus'
+    -> CreateInvalidationResponse
 createInvalidationResponse pStatus_ =
     CreateInvalidationResponse'
     { _cirsInvalidation = Nothing
@@ -141,6 +146,6 @@ cirsInvalidation = lens _cirsInvalidation (\ s a -> s{_cirsInvalidation = a});
 cirsLocation :: Lens' CreateInvalidationResponse (Maybe Text)
 cirsLocation = lens _cirsLocation (\ s a -> s{_cirsLocation = a});
 
--- | Undocumented member.
+-- | The response status code.
 cirsStatus :: Lens' CreateInvalidationResponse Int
 cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});

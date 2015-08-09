@@ -25,16 +25,16 @@
 module Network.AWS.RDS.CreateDBSnapshot
     (
     -- * Creating a Request
-      CreateDBSnapshot
-    , createDBSnapshot
+      createDBSnapshot
+    , CreateDBSnapshot
     -- * Request Lenses
     , cdbsTags
     , cdbsDBSnapshotIdentifier
     , cdbsDBInstanceIdentifier
 
     -- * Destructuring the Response
-    , CreateDBSnapshotResponse
     , createDBSnapshotResponse
+    , CreateDBSnapshotResponse
     -- * Response Lenses
     , cdbsrsDBSnapshot
     , cdbsrsStatus
@@ -49,22 +49,25 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createDBSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdbsTags'
---
--- * 'cdbsDBSnapshotIdentifier'
---
--- * 'cdbsDBInstanceIdentifier'
 data CreateDBSnapshot = CreateDBSnapshot'
     { _cdbsTags                 :: !(Maybe [Tag])
     , _cdbsDBSnapshotIdentifier :: !Text
     , _cdbsDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBSnapshot' smart constructor.
-createDBSnapshot :: Text -> Text -> CreateDBSnapshot
+-- | Creates a value of 'CreateDBSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdbsTags'
+--
+-- * 'cdbsDBSnapshotIdentifier'
+--
+-- * 'cdbsDBInstanceIdentifier'
+createDBSnapshot
+    :: Text -- ^ 'cdbsDBSnapshotIdentifier'
+    -> Text -- ^ 'cdbsDBInstanceIdentifier'
+    -> CreateDBSnapshot
 createDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
     CreateDBSnapshot'
     { _cdbsTags = Nothing
@@ -85,7 +88,7 @@ cdbsTags = lens _cdbsTags (\ s a -> s{_cdbsTags = a}) . _Default . _Coerce;
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- Example: @my-snapshot-id@
+-- Example: 'my-snapshot-id'
 cdbsDBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
 cdbsDBSnapshotIdentifier = lens _cdbsDBSnapshotIdentifier (\ s a -> s{_cdbsDBSnapshotIdentifier = a});
 
@@ -126,19 +129,21 @@ instance ToQuery CreateDBSnapshot where
                "DBInstanceIdentifier" =: _cdbsDBInstanceIdentifier]
 
 -- | /See:/ 'createDBSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdbsrsDBSnapshot'
---
--- * 'cdbsrsStatus'
 data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
     { _cdbsrsDBSnapshot :: !(Maybe DBSnapshot)
     , _cdbsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBSnapshotResponse' smart constructor.
-createDBSnapshotResponse :: Int -> CreateDBSnapshotResponse
+-- | Creates a value of 'CreateDBSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdbsrsDBSnapshot'
+--
+-- * 'cdbsrsStatus'
+createDBSnapshotResponse
+    :: Int -- ^ 'cdbsrsStatus'
+    -> CreateDBSnapshotResponse
 createDBSnapshotResponse pStatus_ =
     CreateDBSnapshotResponse'
     { _cdbsrsDBSnapshot = Nothing
@@ -149,6 +154,6 @@ createDBSnapshotResponse pStatus_ =
 cdbsrsDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
 cdbsrsDBSnapshot = lens _cdbsrsDBSnapshot (\ s a -> s{_cdbsrsDBSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdbsrsStatus :: Lens' CreateDBSnapshotResponse Int
 cdbsrsStatus = lens _cdbsrsStatus (\ s a -> s{_cdbsrsStatus = a});

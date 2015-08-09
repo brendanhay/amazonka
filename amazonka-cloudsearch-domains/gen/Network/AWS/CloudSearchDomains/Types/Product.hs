@@ -24,19 +24,20 @@ import           Network.AWS.Prelude
 -- | A container for facet information.
 --
 -- /See:/ 'bucket' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bValue'
---
--- * 'bCount'
 data Bucket = Bucket'
     { _bValue :: !(Maybe Text)
     , _bCount :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Bucket' smart constructor.
-bucket :: Bucket
+-- | Creates a value of 'Bucket' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bValue'
+--
+-- * 'bCount'
+bucket
+    :: Bucket
 bucket =
     Bucket'
     { _bValue = Nothing
@@ -61,16 +62,17 @@ instance FromJSON Bucket where
 -- | A container for the calculated facet values and counts.
 --
 -- /See:/ 'bucketInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'biBuckets'
 newtype BucketInfo = BucketInfo'
     { _biBuckets :: Maybe [Bucket]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BucketInfo' smart constructor.
-bucketInfo :: BucketInfo
+-- | Creates a value of 'BucketInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'biBuckets'
+bucketInfo
+    :: BucketInfo
 bucketInfo =
     BucketInfo'
     { _biBuckets = Nothing
@@ -89,16 +91,17 @@ instance FromJSON BucketInfo where
 -- while processing an upload request.
 --
 -- /See:/ 'documentServiceWarning' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dswMessage'
 newtype DocumentServiceWarning = DocumentServiceWarning'
     { _dswMessage :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DocumentServiceWarning' smart constructor.
-documentServiceWarning :: DocumentServiceWarning
+-- | Creates a value of 'DocumentServiceWarning' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dswMessage'
+documentServiceWarning
+    :: DocumentServiceWarning
 documentServiceWarning =
     DocumentServiceWarning'
     { _dswMessage = Nothing
@@ -117,8 +120,16 @@ instance FromJSON DocumentServiceWarning where
 -- | Information about a document that matches the search request.
 --
 -- /See:/ 'hit' smart constructor.
+data Hit = Hit'
+    { _hitExprs      :: !(Maybe (Map Text Text))
+    , _hitId         :: !(Maybe Text)
+    , _hitHighlights :: !(Maybe (Map Text Text))
+    , _hitFields     :: !(Maybe (Map Text [Text]))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Hit' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'hitExprs'
 --
@@ -127,15 +138,8 @@ instance FromJSON DocumentServiceWarning where
 -- * 'hitHighlights'
 --
 -- * 'hitFields'
-data Hit = Hit'
-    { _hitExprs      :: !(Maybe (Map Text Text))
-    , _hitId         :: !(Maybe Text)
-    , _hitHighlights :: !(Maybe (Map Text Text))
-    , _hitFields     :: !(Maybe (Map Text [Text]))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Hit' smart constructor.
-hit :: Hit
+hit
+    :: Hit
 hit =
     Hit'
     { _hitExprs = Nothing
@@ -173,8 +177,16 @@ instance FromJSON Hit where
 -- | The collection of documents that match the search request.
 --
 -- /See:/ 'hits' smart constructor.
+data Hits = Hits'
+    { _hCursor :: !(Maybe Text)
+    , _hHit    :: !(Maybe [Hit])
+    , _hStart  :: !(Maybe Integer)
+    , _hFound  :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Hits' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'hCursor'
 --
@@ -183,15 +195,8 @@ instance FromJSON Hit where
 -- * 'hStart'
 --
 -- * 'hFound'
-data Hits = Hits'
-    { _hCursor :: !(Maybe Text)
-    , _hHit    :: !(Maybe [Hit])
-    , _hStart  :: !(Maybe Integer)
-    , _hFound  :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Hits' smart constructor.
-hits :: Hits
+hits
+    :: Hits
 hits =
     Hits'
     { _hCursor = Nothing
@@ -226,23 +231,24 @@ instance FromJSON Hits where
                      (x .:? "start")
                      <*> (x .:? "found"))
 
--- | Contains the resource id (@rid@) and the time it took to process the
--- request (@timems@).
+-- | Contains the resource id ('rid') and the time it took to process the
+-- request ('timems').
 --
 -- /See:/ 'searchStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ssRid'
---
--- * 'ssTimems'
 data SearchStatus = SearchStatus'
     { _ssRid    :: !(Maybe Text)
     , _ssTimems :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SearchStatus' smart constructor.
-searchStatus :: SearchStatus
+-- | Creates a value of 'SearchStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssRid'
+--
+-- * 'ssTimems'
+searchStatus
+    :: SearchStatus
 searchStatus =
     SearchStatus'
     { _ssRid = Nothing
@@ -264,25 +270,26 @@ instance FromJSON SearchStatus where
                  SearchStatus' <$> (x .:? "rid") <*> (x .:? "timems"))
 
 -- | Container for the suggestion information returned in a
--- @SuggestResponse@.
+-- 'SuggestResponse'.
 --
 -- /See:/ 'suggestModel' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'smFound'
---
--- * 'smSuggestions'
---
--- * 'smQuery'
 data SuggestModel = SuggestModel'
     { _smFound       :: !(Maybe Integer)
     , _smSuggestions :: !(Maybe [SuggestionMatch])
     , _smQuery       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SuggestModel' smart constructor.
-suggestModel :: SuggestModel
+-- | Creates a value of 'SuggestModel' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'smFound'
+--
+-- * 'smSuggestions'
+--
+-- * 'smQuery'
+suggestModel
+    :: SuggestModel
 suggestModel =
     SuggestModel'
     { _smFound = Nothing
@@ -310,23 +317,24 @@ instance FromJSON SuggestModel where
                    (x .:? "found") <*> (x .:? "suggestions" .!= mempty)
                      <*> (x .:? "query"))
 
--- | Contains the resource id (@rid@) and the time it took to process the
--- request (@timems@).
+-- | Contains the resource id ('rid') and the time it took to process the
+-- request ('timems').
 --
 -- /See:/ 'suggestStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sRid'
---
--- * 'sTimems'
 data SuggestStatus = SuggestStatus'
     { _sRid    :: !(Maybe Text)
     , _sTimems :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SuggestStatus' smart constructor.
-suggestStatus :: SuggestStatus
+-- | Creates a value of 'SuggestStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sRid'
+--
+-- * 'sTimems'
+suggestStatus
+    :: SuggestStatus
 suggestStatus =
     SuggestStatus'
     { _sRid = Nothing
@@ -349,25 +357,26 @@ instance FromJSON SuggestStatus where
                    (x .:? "rid") <*> (x .:? "timems"))
 
 -- | An autocomplete suggestion that matches the query string specified in a
--- @SuggestRequest@.
+-- 'SuggestRequest'.
 --
 -- /See:/ 'suggestionMatch' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'smSuggestion'
---
--- * 'smScore'
---
--- * 'smId'
 data SuggestionMatch = SuggestionMatch'
     { _smSuggestion :: !(Maybe Text)
     , _smScore      :: !(Maybe Integer)
     , _smId         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SuggestionMatch' smart constructor.
-suggestionMatch :: SuggestionMatch
+-- | Creates a value of 'SuggestionMatch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'smSuggestion'
+--
+-- * 'smScore'
+--
+-- * 'smId'
+suggestionMatch
+    :: SuggestionMatch
 suggestionMatch =
     SuggestionMatch'
     { _smSuggestion = Nothing
@@ -376,7 +385,7 @@ suggestionMatch =
     }
 
 -- | The string that matches the query string specified in the
--- @SuggestRequest@.
+-- 'SuggestRequest'.
 smSuggestion :: Lens' SuggestionMatch (Maybe Text)
 smSuggestion = lens _smSuggestion (\ s a -> s{_smSuggestion = a});
 

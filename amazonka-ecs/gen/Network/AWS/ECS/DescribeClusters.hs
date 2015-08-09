@@ -24,14 +24,14 @@
 module Network.AWS.ECS.DescribeClusters
     (
     -- * Creating a Request
-      DescribeClusters
-    , describeClusters
+      describeClusters
+    , DescribeClusters
     -- * Request Lenses
     , dcClusters
 
     -- * Destructuring the Response
-    , DescribeClustersResponse
     , describeClustersResponse
+    , DescribeClustersResponse
     -- * Response Lenses
     , dcrsFailures
     , dcrsClusters
@@ -45,16 +45,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeClusters' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcClusters'
 newtype DescribeClusters = DescribeClusters'
     { _dcClusters :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeClusters' smart constructor.
-describeClusters :: DescribeClusters
+-- | Creates a value of 'DescribeClusters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcClusters'
+describeClusters
+    :: DescribeClusters
 describeClusters =
     DescribeClusters'
     { _dcClusters = Nothing
@@ -99,22 +100,24 @@ instance ToQuery DescribeClusters where
         toQuery = const mempty
 
 -- | /See:/ 'describeClustersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcrsFailures'
---
--- * 'dcrsClusters'
---
--- * 'dcrsStatus'
 data DescribeClustersResponse = DescribeClustersResponse'
     { _dcrsFailures :: !(Maybe [Failure])
     , _dcrsClusters :: !(Maybe [Cluster])
     , _dcrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeClustersResponse' smart constructor.
-describeClustersResponse :: Int -> DescribeClustersResponse
+-- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcrsFailures'
+--
+-- * 'dcrsClusters'
+--
+-- * 'dcrsStatus'
+describeClustersResponse
+    :: Int -- ^ 'dcrsStatus'
+    -> DescribeClustersResponse
 describeClustersResponse pStatus_ =
     DescribeClustersResponse'
     { _dcrsFailures = Nothing
@@ -130,6 +133,6 @@ dcrsFailures = lens _dcrsFailures (\ s a -> s{_dcrsFailures = a}) . _Default . _
 dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
 dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dcrsStatus :: Lens' DescribeClustersResponse Int
 dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

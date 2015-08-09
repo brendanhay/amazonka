@@ -22,18 +22,20 @@
 -- 53 for the current AWS account.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListDomains.html AWS API Reference> for ListDomains.
+--
+-- This operation returns paginated results.
 module Network.AWS.Route53Domains.ListDomains
     (
     -- * Creating a Request
-      ListDomains
-    , listDomains
+      listDomains
+    , ListDomains
     -- * Request Lenses
     , ldMaxItems
     , ldMarker
 
     -- * Destructuring the Response
-    , ListDomainsResponse
     , listDomainsResponse
+    , ListDomainsResponse
     -- * Response Lenses
     , ldrsNextPageMarker
     , ldrsStatus
@@ -50,19 +52,20 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The ListDomains request includes the following elements.
 --
 -- /See:/ 'listDomains' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldMaxItems'
---
--- * 'ldMarker'
 data ListDomains = ListDomains'
     { _ldMaxItems :: !(Maybe Int)
     , _ldMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDomains' smart constructor.
-listDomains :: ListDomains
+-- | Creates a value of 'ListDomains' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldMaxItems'
+--
+-- * 'ldMarker'
+listDomains
+    :: ListDomains
 listDomains =
     ListDomains'
     { _ldMaxItems = Nothing
@@ -83,10 +86,10 @@ ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 
 -- | For an initial request for a list of domains, omit this element. If the
 -- number of domains that are associated with the current AWS account is
--- greater than the value that you specified for @MaxItems@, you can use
--- @Marker@ to return additional domains. Get the value of @NextPageMarker@
+-- greater than the value that you specified for 'MaxItems', you can use
+-- 'Marker' to return additional domains. Get the value of 'NextPageMarker'
 -- from the previous response, and submit another request that includes the
--- value of @NextPageMarker@ in the @Marker@ element.
+-- value of 'NextPageMarker' in the 'Marker' element.
 --
 -- Type: String
 --
@@ -141,22 +144,24 @@ instance ToQuery ListDomains where
 -- | The ListDomains response includes the following elements.
 --
 -- /See:/ 'listDomainsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldrsNextPageMarker'
---
--- * 'ldrsStatus'
---
--- * 'ldrsDomains'
 data ListDomainsResponse = ListDomainsResponse'
     { _ldrsNextPageMarker :: !(Maybe Text)
     , _ldrsStatus         :: !Int
     , _ldrsDomains        :: ![DomainSummary]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDomainsResponse' smart constructor.
-listDomainsResponse :: Int -> ListDomainsResponse
+-- | Creates a value of 'ListDomainsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldrsNextPageMarker'
+--
+-- * 'ldrsStatus'
+--
+-- * 'ldrsDomains'
+listDomainsResponse
+    :: Int -- ^ 'ldrsStatus'
+    -> ListDomainsResponse
 listDomainsResponse pStatus_ =
     ListDomainsResponse'
     { _ldrsNextPageMarker = Nothing
@@ -164,17 +169,17 @@ listDomainsResponse pStatus_ =
     , _ldrsDomains = mempty
     }
 
--- | If there are more domains than you specified for @MaxItems@ in the
+-- | If there are more domains than you specified for 'MaxItems' in the
 -- request, submit another request and include the value of
--- @NextPageMarker@ in the value of @Marker@.
+-- 'NextPageMarker' in the value of 'Marker'.
 --
 -- Type: String
 --
--- Parent: @Operations@
+-- Parent: 'Operations'
 ldrsNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextPageMarker = lens _ldrsNextPageMarker (\ s a -> s{_ldrsNextPageMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 ldrsStatus :: Lens' ListDomainsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
 
@@ -182,6 +187,6 @@ ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
 --
 -- Type: Complex type containing a list of domain summaries.
 --
--- Children: @AutoRenew@, @DomainName@, @Expiry@, @TransferLock@
+-- Children: 'AutoRenew', 'DomainName', 'Expiry', 'TransferLock'
 ldrsDomains :: Lens' ListDomainsResponse [DomainSummary]
 ldrsDomains = lens _ldrsDomains (\ s a -> s{_ldrsDomains = a}) . _Coerce;

@@ -39,8 +39,8 @@
 module Network.AWS.Redshift.RestoreFromClusterSnapshot
     (
     -- * Creating a Request
-      RestoreFromClusterSnapshot
-    , restoreFromClusterSnapshot
+      restoreFromClusterSnapshot
+    , RestoreFromClusterSnapshot
     -- * Request Lenses
     , rfcsPubliclyAccessible
     , rfcsHSMConfigurationIdentifier
@@ -63,8 +63,8 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     , rfcsSnapshotIdentifier
 
     -- * Destructuring the Response
-    , RestoreFromClusterSnapshotResponse
     , restoreFromClusterSnapshotResponse
+    , RestoreFromClusterSnapshotResponse
     -- * Response Lenses
     , rfcsrsCluster
     , rfcsrsStatus
@@ -79,8 +79,31 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'restoreFromClusterSnapshot' smart constructor.
+data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
+    { _rfcsPubliclyAccessible               :: !(Maybe Bool)
+    , _rfcsHSMConfigurationIdentifier       :: !(Maybe Text)
+    , _rfcsSnapshotClusterIdentifier        :: !(Maybe Text)
+    , _rfcsClusterSecurityGroups            :: !(Maybe [Text])
+    , _rfcsAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+    , _rfcsHSMClientCertificateIdentifier   :: !(Maybe Text)
+    , _rfcsClusterSubnetGroupName           :: !(Maybe Text)
+    , _rfcsElasticIP                        :: !(Maybe Text)
+    , _rfcsPreferredMaintenanceWindow       :: !(Maybe Text)
+    , _rfcsAvailabilityZone                 :: !(Maybe Text)
+    , _rfcsKMSKeyId                         :: !(Maybe Text)
+    , _rfcsVPCSecurityGroupIds              :: !(Maybe [Text])
+    , _rfcsOwnerAccount                     :: !(Maybe Text)
+    , _rfcsNodeType                         :: !(Maybe Text)
+    , _rfcsAllowVersionUpgrade              :: !(Maybe Bool)
+    , _rfcsClusterParameterGroupName        :: !(Maybe Text)
+    , _rfcsPort                             :: !(Maybe Int)
+    , _rfcsClusterIdentifier                :: !Text
+    , _rfcsSnapshotIdentifier               :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RestoreFromClusterSnapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rfcsPubliclyAccessible'
 --
@@ -119,30 +142,10 @@ import           Network.AWS.Response
 -- * 'rfcsClusterIdentifier'
 --
 -- * 'rfcsSnapshotIdentifier'
-data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
-    { _rfcsPubliclyAccessible               :: !(Maybe Bool)
-    , _rfcsHSMConfigurationIdentifier       :: !(Maybe Text)
-    , _rfcsSnapshotClusterIdentifier        :: !(Maybe Text)
-    , _rfcsClusterSecurityGroups            :: !(Maybe [Text])
-    , _rfcsAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _rfcsHSMClientCertificateIdentifier   :: !(Maybe Text)
-    , _rfcsClusterSubnetGroupName           :: !(Maybe Text)
-    , _rfcsElasticIP                        :: !(Maybe Text)
-    , _rfcsPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _rfcsAvailabilityZone                 :: !(Maybe Text)
-    , _rfcsKMSKeyId                         :: !(Maybe Text)
-    , _rfcsVPCSecurityGroupIds              :: !(Maybe [Text])
-    , _rfcsOwnerAccount                     :: !(Maybe Text)
-    , _rfcsNodeType                         :: !(Maybe Text)
-    , _rfcsAllowVersionUpgrade              :: !(Maybe Bool)
-    , _rfcsClusterParameterGroupName        :: !(Maybe Text)
-    , _rfcsPort                             :: !(Maybe Int)
-    , _rfcsClusterIdentifier                :: !Text
-    , _rfcsSnapshotIdentifier               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RestoreFromClusterSnapshot' smart constructor.
-restoreFromClusterSnapshot :: Text -> Text -> RestoreFromClusterSnapshot
+restoreFromClusterSnapshot
+    :: Text -- ^ 'rfcsClusterIdentifier'
+    -> Text -- ^ 'rfcsSnapshotIdentifier'
+    -> RestoreFromClusterSnapshot
 restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
     RestoreFromClusterSnapshot'
     { _rfcsPubliclyAccessible = Nothing
@@ -166,7 +169,7 @@ restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
     , _rfcsSnapshotIdentifier = pSnapshotIdentifier_
     }
 
--- | If @true@, the cluster can be accessed from a public network.
+-- | If 'true', the cluster can be accessed from a public network.
 rfcsPubliclyAccessible :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
 rfcsPubliclyAccessible = lens _rfcsPubliclyAccessible (\ s a -> s{_rfcsPubliclyAccessible = a});
 
@@ -222,7 +225,7 @@ rfcsElasticIP = lens _rfcsElasticIP (\ s a -> s{_rfcsElasticIP = a});
 -- | The weekly time range (in UTC) during which automated cluster
 -- maintenance can occur.
 --
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
+-- Format: 'ddd:hh24:mi-ddd:hh24:mi'
 --
 -- Default: The value selected for the cluster from which the snapshot was
 -- taken. For more information about the time blocks for each region, see
@@ -239,7 +242,7 @@ rfcsPreferredMaintenanceWindow = lens _rfcsPreferredMaintenanceWindow (\ s a -> 
 --
 -- Default: A random, system-chosen Availability Zone.
 --
--- Example: @us-east-1a@
+-- Example: 'us-east-1a'
 rfcsAvailabilityZone :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsAvailabilityZone = lens _rfcsAvailabilityZone (\ s a -> s{_rfcsAvailabilityZone = a});
 
@@ -279,10 +282,10 @@ rfcsOwnerAccount = lens _rfcsOwnerAccount (\ s a -> s{_rfcsOwnerAccount = a});
 rfcsNodeType :: Lens' RestoreFromClusterSnapshot (Maybe Text)
 rfcsNodeType = lens _rfcsNodeType (\ s a -> s{_rfcsNodeType = a});
 
--- | If @true@, major version upgrades can be applied during the maintenance
+-- | If 'true', major version upgrades can be applied during the maintenance
 -- window to the Amazon Redshift engine that is running on the cluster.
 --
--- Default: @true@
+-- Default: 'true'
 rfcsAllowVersionUpgrade :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
 rfcsAllowVersionUpgrade = lens _rfcsAllowVersionUpgrade (\ s a -> s{_rfcsAllowVersionUpgrade = a});
 
@@ -304,7 +307,7 @@ rfcsClusterParameterGroupName = lens _rfcsClusterParameterGroupName (\ s a -> s{
 --
 -- Default: The same port as the original cluster.
 --
--- Constraints: Must be between @1115@ and @65535@.
+-- Constraints: Must be between '1115' and '65535'.
 rfcsPort :: Lens' RestoreFromClusterSnapshot (Maybe Int)
 rfcsPort = lens _rfcsPort (\ s a -> s{_rfcsPort = a});
 
@@ -324,7 +327,7 @@ rfcsClusterIdentifier = lens _rfcsClusterIdentifier (\ s a -> s{_rfcsClusterIden
 -- | The name of the snapshot from which to create the new cluster. This
 -- parameter isn\'t case sensitive.
 --
--- Example: @my-snapshot-id@
+-- Example: 'my-snapshot-id'
 rfcsSnapshotIdentifier :: Lens' RestoreFromClusterSnapshot Text
 rfcsSnapshotIdentifier = lens _rfcsSnapshotIdentifier (\ s a -> s{_rfcsSnapshotIdentifier = a});
 
@@ -386,19 +389,21 @@ instance ToQuery RestoreFromClusterSnapshot where
                "SnapshotIdentifier" =: _rfcsSnapshotIdentifier]
 
 -- | /See:/ 'restoreFromClusterSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rfcsrsCluster'
---
--- * 'rfcsrsStatus'
 data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
     { _rfcsrsCluster :: !(Maybe Cluster)
     , _rfcsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestoreFromClusterSnapshotResponse' smart constructor.
-restoreFromClusterSnapshotResponse :: Int -> RestoreFromClusterSnapshotResponse
+-- | Creates a value of 'RestoreFromClusterSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rfcsrsCluster'
+--
+-- * 'rfcsrsStatus'
+restoreFromClusterSnapshotResponse
+    :: Int -- ^ 'rfcsrsStatus'
+    -> RestoreFromClusterSnapshotResponse
 restoreFromClusterSnapshotResponse pStatus_ =
     RestoreFromClusterSnapshotResponse'
     { _rfcsrsCluster = Nothing
@@ -409,6 +414,6 @@ restoreFromClusterSnapshotResponse pStatus_ =
 rfcsrsCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
 rfcsrsCluster = lens _rfcsrsCluster (\ s a -> s{_rfcsrsCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 rfcsrsStatus :: Lens' RestoreFromClusterSnapshotResponse Int
 rfcsrsStatus = lens _rfcsrsStatus (\ s a -> s{_rfcsrsStatus = a});

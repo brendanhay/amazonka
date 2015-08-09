@@ -20,25 +20,25 @@
 --
 -- This action creates a new health check.
 --
--- To create a new health check, send a @POST@ request to the
--- @2013-04-01\/healthcheck@ resource. The request body must include an XML
--- document with a @CreateHealthCheckRequest@ element. The response returns
--- the @CreateHealthCheckResponse@ element that contains metadata about the
+-- To create a new health check, send a 'POST' request to the
+-- '2013-04-01\/healthcheck' resource. The request body must include an XML
+-- document with a 'CreateHealthCheckRequest' element. The response returns
+-- the 'CreateHealthCheckResponse' element that contains metadata about the
 -- health check.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateHealthCheck.html AWS API Reference> for CreateHealthCheck.
 module Network.AWS.Route53.CreateHealthCheck
     (
     -- * Creating a Request
-      CreateHealthCheck
-    , createHealthCheck
+      createHealthCheck
+    , CreateHealthCheck
     -- * Request Lenses
     , chcCallerReference
     , chcHealthCheckConfig
 
     -- * Destructuring the Response
-    , CreateHealthCheckResponse
     , createHealthCheckResponse
+    , CreateHealthCheckResponse
     -- * Response Lenses
     , chcrsStatus
     , chcrsHealthCheck
@@ -55,19 +55,22 @@ import           Network.AWS.Route53.Types.Product
 -- health check.
 --
 -- /See:/ 'createHealthCheck' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'chcCallerReference'
---
--- * 'chcHealthCheckConfig'
 data CreateHealthCheck = CreateHealthCheck'
     { _chcCallerReference   :: !Text
     , _chcHealthCheckConfig :: !HealthCheckConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateHealthCheck' smart constructor.
-createHealthCheck :: Text -> HealthCheckConfig -> CreateHealthCheck
+-- | Creates a value of 'CreateHealthCheck' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'chcCallerReference'
+--
+-- * 'chcHealthCheckConfig'
+createHealthCheck
+    :: Text -- ^ 'chcCallerReference'
+    -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
+    -> CreateHealthCheck
 createHealthCheck pCallerReference_ pHealthCheckConfig_ =
     CreateHealthCheck'
     { _chcCallerReference = pCallerReference_
@@ -75,9 +78,9 @@ createHealthCheck pCallerReference_ pHealthCheckConfig_ =
     }
 
 -- | A unique string that identifies the request and that allows failed
--- @CreateHealthCheck@ requests to be retried without the risk of executing
--- the operation twice. You must use a unique @CallerReference@ string
--- every time you create a health check. @CallerReference@ can be any
+-- 'CreateHealthCheck' requests to be retried without the risk of executing
+-- the operation twice. You must use a unique 'CallerReference' string
+-- every time you create a health check. 'CallerReference' can be any
 -- unique string; you might choose to use a string that identifies your
 -- project.
 --
@@ -126,22 +129,26 @@ instance ToXML CreateHealthCheck where
 -- check.
 --
 -- /See:/ 'createHealthCheckResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'chcrsStatus'
---
--- * 'chcrsHealthCheck'
---
--- * 'chcrsLocation'
 data CreateHealthCheckResponse = CreateHealthCheckResponse'
     { _chcrsStatus      :: !Int
     , _chcrsHealthCheck :: !HealthCheck
     , _chcrsLocation    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateHealthCheckResponse' smart constructor.
-createHealthCheckResponse :: Int -> HealthCheck -> Text -> CreateHealthCheckResponse
+-- | Creates a value of 'CreateHealthCheckResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'chcrsStatus'
+--
+-- * 'chcrsHealthCheck'
+--
+-- * 'chcrsLocation'
+createHealthCheckResponse
+    :: Int -- ^ 'chcrsStatus'
+    -> HealthCheck -- ^ 'chcrsHealthCheck'
+    -> Text -- ^ 'chcrsLocation'
+    -> CreateHealthCheckResponse
 createHealthCheckResponse pStatus_ pHealthCheck_ pLocation_ =
     CreateHealthCheckResponse'
     { _chcrsStatus = pStatus_
@@ -149,7 +156,7 @@ createHealthCheckResponse pStatus_ pHealthCheck_ pLocation_ =
     , _chcrsLocation = pLocation_
     }
 
--- | Undocumented member.
+-- | The response status code.
 chcrsStatus :: Lens' CreateHealthCheckResponse Int
 chcrsStatus = lens _chcrsStatus (\ s a -> s{_chcrsStatus = a});
 

@@ -34,15 +34,15 @@
 module Network.AWS.Redshift.CreateHSMClientCertificate
     (
     -- * Creating a Request
-      CreateHSMClientCertificate
-    , createHSMClientCertificate
+      createHSMClientCertificate
+    , CreateHSMClientCertificate
     -- * Request Lenses
     , chccTags
     , chccHSMClientCertificateIdentifier
 
     -- * Destructuring the Response
-    , CreateHSMClientCertificateResponse
     , createHSMClientCertificateResponse
+    , CreateHSMClientCertificateResponse
     -- * Response Lenses
     , chccrsHSMClientCertificate
     , chccrsStatus
@@ -57,19 +57,21 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createHSMClientCertificate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'chccTags'
---
--- * 'chccHSMClientCertificateIdentifier'
 data CreateHSMClientCertificate = CreateHSMClientCertificate'
     { _chccTags                           :: !(Maybe [Tag])
     , _chccHSMClientCertificateIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateHSMClientCertificate' smart constructor.
-createHSMClientCertificate :: Text -> CreateHSMClientCertificate
+-- | Creates a value of 'CreateHSMClientCertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'chccTags'
+--
+-- * 'chccHSMClientCertificateIdentifier'
+createHSMClientCertificate
+    :: Text -- ^ 'chccHSMClientCertificateIdentifier'
+    -> CreateHSMClientCertificate
 createHSMClientCertificate pHSMClientCertificateIdentifier_ =
     CreateHSMClientCertificate'
     { _chccTags = Nothing
@@ -116,19 +118,21 @@ instance ToQuery CreateHSMClientCertificate where
                  _chccHSMClientCertificateIdentifier]
 
 -- | /See:/ 'createHSMClientCertificateResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'chccrsHSMClientCertificate'
---
--- * 'chccrsStatus'
 data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
     { _chccrsHSMClientCertificate :: !(Maybe HSMClientCertificate)
     , _chccrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateHSMClientCertificateResponse' smart constructor.
-createHSMClientCertificateResponse :: Int -> CreateHSMClientCertificateResponse
+-- | Creates a value of 'CreateHSMClientCertificateResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'chccrsHSMClientCertificate'
+--
+-- * 'chccrsStatus'
+createHSMClientCertificateResponse
+    :: Int -- ^ 'chccrsStatus'
+    -> CreateHSMClientCertificateResponse
 createHSMClientCertificateResponse pStatus_ =
     CreateHSMClientCertificateResponse'
     { _chccrsHSMClientCertificate = Nothing
@@ -139,6 +143,6 @@ createHSMClientCertificateResponse pStatus_ =
 chccrsHSMClientCertificate :: Lens' CreateHSMClientCertificateResponse (Maybe HSMClientCertificate)
 chccrsHSMClientCertificate = lens _chccrsHSMClientCertificate (\ s a -> s{_chccrsHSMClientCertificate = a});
 
--- | Undocumented member.
+-- | The response status code.
 chccrsStatus :: Lens' CreateHSMClientCertificateResponse Int
 chccrsStatus = lens _chccrsStatus (\ s a -> s{_chccrsStatus = a});

@@ -279,7 +279,7 @@ _IdempotentParameterMismatchException =
     hasStatus 400 . hasCode "IdempotentParameterMismatchException"
 
 -- | The exception is thrown when a predict request is made to an unmounted
--- @MLModel@.
+-- 'MLModel'.
 _PredictorNotMountedException :: AsError a => Getting (First ServiceError) a ServiceError
 _PredictorNotMountedException =
     _ServiceError . hasStatus 400 . hasCode "PredictorNotMountedException"
@@ -290,7 +290,7 @@ _ResourceNotFoundException =
     _ServiceError . hasStatus 404 . hasCode "ResourceNotFoundException"
 
 -- | The subscriber exceeded the maximum number of operations. This exception
--- can occur when listing objects such as @DataSource@.
+-- can occur when listing objects such as 'DataSource'.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _LimitExceededException =
     _ServiceError . hasStatus 417 . hasCode "LimitExceededException"

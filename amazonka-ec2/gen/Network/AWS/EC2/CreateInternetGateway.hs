@@ -28,14 +28,14 @@
 module Network.AWS.EC2.CreateInternetGateway
     (
     -- * Creating a Request
-      CreateInternetGateway
-    , createInternetGateway
+      createInternetGateway
+    , CreateInternetGateway
     -- * Request Lenses
     , cigDryRun
 
     -- * Destructuring the Response
-    , CreateInternetGatewayResponse
     , createInternetGatewayResponse
+    , CreateInternetGatewayResponse
     -- * Response Lenses
     , cigrsInternetGateway
     , cigrsStatus
@@ -48,16 +48,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createInternetGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cigDryRun'
 newtype CreateInternetGateway = CreateInternetGateway'
     { _cigDryRun :: Maybe Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateInternetGateway' smart constructor.
-createInternetGateway :: CreateInternetGateway
+-- | Creates a value of 'CreateInternetGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cigDryRun'
+createInternetGateway
+    :: CreateInternetGateway
 createInternetGateway =
     CreateInternetGateway'
     { _cigDryRun = Nothing
@@ -65,8 +66,8 @@ createInternetGateway =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cigDryRun :: Lens' CreateInternetGateway (Maybe Bool)
 cigDryRun = lens _cigDryRun (\ s a -> s{_cigDryRun = a});
 
@@ -95,19 +96,21 @@ instance ToQuery CreateInternetGateway where
                "DryRun" =: _cigDryRun]
 
 -- | /See:/ 'createInternetGatewayResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cigrsInternetGateway'
---
--- * 'cigrsStatus'
 data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
     { _cigrsInternetGateway :: !(Maybe InternetGateway)
     , _cigrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateInternetGatewayResponse' smart constructor.
-createInternetGatewayResponse :: Int -> CreateInternetGatewayResponse
+-- | Creates a value of 'CreateInternetGatewayResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cigrsInternetGateway'
+--
+-- * 'cigrsStatus'
+createInternetGatewayResponse
+    :: Int -- ^ 'cigrsStatus'
+    -> CreateInternetGatewayResponse
 createInternetGatewayResponse pStatus_ =
     CreateInternetGatewayResponse'
     { _cigrsInternetGateway = Nothing
@@ -118,6 +121,6 @@ createInternetGatewayResponse pStatus_ =
 cigrsInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
 cigrsInternetGateway = lens _cigrsInternetGateway (\ s a -> s{_cigrsInternetGateway = a});
 
--- | Undocumented member.
+-- | The response status code.
 cigrsStatus :: Lens' CreateInternetGatewayResponse Int
 cigrsStatus = lens _cigrsStatus (\ s a -> s{_cigrsStatus = a});

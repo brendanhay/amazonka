@@ -25,16 +25,16 @@
 module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     (
     -- * Creating a Request
-      ModifyCacheSubnetGroup
-    , modifyCacheSubnetGroup
+      modifyCacheSubnetGroup
+    , ModifyCacheSubnetGroup
     -- * Request Lenses
     , mcsgSubnetIds
     , mcsgCacheSubnetGroupDescription
     , mcsgCacheSubnetGroupName
 
     -- * Destructuring the Response
-    , ModifyCacheSubnetGroupResponse
     , modifyCacheSubnetGroupResponse
+    , ModifyCacheSubnetGroupResponse
     -- * Response Lenses
     , mcsgrsCacheSubnetGroup
     , mcsgrsStatus
@@ -49,22 +49,24 @@ import           Network.AWS.Response
 -- | Represents the input of a /ModifyCacheSubnetGroup/ action.
 --
 -- /See:/ 'modifyCacheSubnetGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mcsgSubnetIds'
---
--- * 'mcsgCacheSubnetGroupDescription'
---
--- * 'mcsgCacheSubnetGroupName'
 data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
     { _mcsgSubnetIds                   :: !(Maybe [Text])
     , _mcsgCacheSubnetGroupDescription :: !(Maybe Text)
     , _mcsgCacheSubnetGroupName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyCacheSubnetGroup' smart constructor.
-modifyCacheSubnetGroup :: Text -> ModifyCacheSubnetGroup
+-- | Creates a value of 'ModifyCacheSubnetGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mcsgSubnetIds'
+--
+-- * 'mcsgCacheSubnetGroupDescription'
+--
+-- * 'mcsgCacheSubnetGroupName'
+modifyCacheSubnetGroup
+    :: Text -- ^ 'mcsgCacheSubnetGroupName'
+    -> ModifyCacheSubnetGroup
 modifyCacheSubnetGroup pCacheSubnetGroupName_ =
     ModifyCacheSubnetGroup'
     { _mcsgSubnetIds = Nothing
@@ -86,7 +88,7 @@ mcsgCacheSubnetGroupDescription = lens _mcsgCacheSubnetGroupDescription (\ s a -
 -- Constraints: Must contain no more than 255 alphanumeric characters or
 -- hyphens.
 --
--- Example: @mysubnetgroup@
+-- Example: 'mysubnetgroup'
 mcsgCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup Text
 mcsgCacheSubnetGroupName = lens _mcsgCacheSubnetGroupName (\ s a -> s{_mcsgCacheSubnetGroupName = a});
 
@@ -121,19 +123,21 @@ instance ToQuery ModifyCacheSubnetGroup where
                "CacheSubnetGroupName" =: _mcsgCacheSubnetGroupName]
 
 -- | /See:/ 'modifyCacheSubnetGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mcsgrsCacheSubnetGroup'
---
--- * 'mcsgrsStatus'
 data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
     { _mcsgrsCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
     , _mcsgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyCacheSubnetGroupResponse' smart constructor.
-modifyCacheSubnetGroupResponse :: Int -> ModifyCacheSubnetGroupResponse
+-- | Creates a value of 'ModifyCacheSubnetGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mcsgrsCacheSubnetGroup'
+--
+-- * 'mcsgrsStatus'
+modifyCacheSubnetGroupResponse
+    :: Int -- ^ 'mcsgrsStatus'
+    -> ModifyCacheSubnetGroupResponse
 modifyCacheSubnetGroupResponse pStatus_ =
     ModifyCacheSubnetGroupResponse'
     { _mcsgrsCacheSubnetGroup = Nothing
@@ -144,6 +148,6 @@ modifyCacheSubnetGroupResponse pStatus_ =
 mcsgrsCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 mcsgrsCacheSubnetGroup = lens _mcsgrsCacheSubnetGroup (\ s a -> s{_mcsgrsCacheSubnetGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 mcsgrsStatus :: Lens' ModifyCacheSubnetGroupResponse Int
 mcsgrsStatus = lens _mcsgrsStatus (\ s a -> s{_mcsgrsStatus = a});

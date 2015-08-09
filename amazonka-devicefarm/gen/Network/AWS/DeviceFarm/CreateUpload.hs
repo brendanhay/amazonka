@@ -24,8 +24,8 @@
 module Network.AWS.DeviceFarm.CreateUpload
     (
     -- * Creating a Request
-      CreateUpload
-    , createUpload
+      createUpload
+    , CreateUpload
     -- * Request Lenses
     , cuContentType
     , cuProjectARN
@@ -33,8 +33,8 @@ module Network.AWS.DeviceFarm.CreateUpload
     , cuType
 
     -- * Destructuring the Response
-    , CreateUploadResponse
     , createUploadResponse
+    , CreateUploadResponse
     -- * Response Lenses
     , cursUpload
     , cursStatus
@@ -49,8 +49,16 @@ import           Network.AWS.Response
 -- | Represents a request to the create upload operation.
 --
 -- /See:/ 'createUpload' smart constructor.
+data CreateUpload = CreateUpload'
+    { _cuContentType :: !(Maybe Text)
+    , _cuProjectARN  :: !Text
+    , _cuName        :: !Text
+    , _cuType        :: !UploadType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateUpload' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cuContentType'
 --
@@ -59,15 +67,11 @@ import           Network.AWS.Response
 -- * 'cuName'
 --
 -- * 'cuType'
-data CreateUpload = CreateUpload'
-    { _cuContentType :: !(Maybe Text)
-    , _cuProjectARN  :: !Text
-    , _cuName        :: !Text
-    , _cuType        :: !UploadType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateUpload' smart constructor.
-createUpload :: Text -> Text -> UploadType -> CreateUpload
+createUpload
+    :: Text -- ^ 'cuProjectARN'
+    -> Text -- ^ 'cuName'
+    -> UploadType -- ^ 'cuType'
+    -> CreateUpload
 createUpload pProjectARN_ pName_ pType_ =
     CreateUpload'
     { _cuContentType = Nothing
@@ -150,19 +154,21 @@ instance ToQuery CreateUpload where
 -- | Represents the result of a create upload request.
 --
 -- /See:/ 'createUploadResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cursUpload'
---
--- * 'cursStatus'
 data CreateUploadResponse = CreateUploadResponse'
     { _cursUpload :: !(Maybe Upload)
     , _cursStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateUploadResponse' smart constructor.
-createUploadResponse :: Int -> CreateUploadResponse
+-- | Creates a value of 'CreateUploadResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cursUpload'
+--
+-- * 'cursStatus'
+createUploadResponse
+    :: Int -- ^ 'cursStatus'
+    -> CreateUploadResponse
 createUploadResponse pStatus_ =
     CreateUploadResponse'
     { _cursUpload = Nothing
@@ -173,6 +179,6 @@ createUploadResponse pStatus_ =
 cursUpload :: Lens' CreateUploadResponse (Maybe Upload)
 cursUpload = lens _cursUpload (\ s a -> s{_cursUpload = a});
 
--- | Undocumented member.
+-- | The response status code.
 cursStatus :: Lens' CreateUploadResponse Int
 cursStatus = lens _cursStatus (\ s a -> s{_cursStatus = a});

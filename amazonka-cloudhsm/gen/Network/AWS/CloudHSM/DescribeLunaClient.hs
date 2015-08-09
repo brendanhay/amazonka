@@ -24,15 +24,15 @@
 module Network.AWS.CloudHSM.DescribeLunaClient
     (
     -- * Creating a Request
-      DescribeLunaClient
-    , describeLunaClient
+      describeLunaClient
+    , DescribeLunaClient
     -- * Request Lenses
     , dlcClientARN
     , dlcCertificateFingerprint
 
     -- * Destructuring the Response
-    , DescribeLunaClientResponse
     , describeLunaClientResponse
+    , DescribeLunaClientResponse
     -- * Response Lenses
     , drsClientARN
     , drsCertificateFingerprint
@@ -49,19 +49,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeLunaClient' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlcClientARN'
---
--- * 'dlcCertificateFingerprint'
 data DescribeLunaClient = DescribeLunaClient'
     { _dlcClientARN              :: !(Maybe Text)
     , _dlcCertificateFingerprint :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLunaClient' smart constructor.
-describeLunaClient :: DescribeLunaClient
+-- | Creates a value of 'DescribeLunaClient' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlcClientARN'
+--
+-- * 'dlcCertificateFingerprint'
+describeLunaClient
+    :: DescribeLunaClient
 describeLunaClient =
     DescribeLunaClient'
     { _dlcClientARN = Nothing
@@ -116,8 +117,18 @@ instance ToQuery DescribeLunaClient where
         toQuery = const mempty
 
 -- | /See:/ 'describeLunaClientResponse' smart constructor.
+data DescribeLunaClientResponse = DescribeLunaClientResponse'
+    { _drsClientARN              :: !(Maybe Text)
+    , _drsCertificateFingerprint :: !(Maybe Text)
+    , _drsLastModifiedTimestamp  :: !(Maybe Text)
+    , _drsCertificate            :: !(Maybe Text)
+    , _drsLabel                  :: !(Maybe Text)
+    , _drsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeLunaClientResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'drsClientARN'
 --
@@ -130,17 +141,9 @@ instance ToQuery DescribeLunaClient where
 -- * 'drsLabel'
 --
 -- * 'drsStatus'
-data DescribeLunaClientResponse = DescribeLunaClientResponse'
-    { _drsClientARN              :: !(Maybe Text)
-    , _drsCertificateFingerprint :: !(Maybe Text)
-    , _drsLastModifiedTimestamp  :: !(Maybe Text)
-    , _drsCertificate            :: !(Maybe Text)
-    , _drsLabel                  :: !(Maybe Text)
-    , _drsStatus                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeLunaClientResponse' smart constructor.
-describeLunaClientResponse :: Int -> DescribeLunaClientResponse
+describeLunaClientResponse
+    :: Int -- ^ 'drsStatus'
+    -> DescribeLunaClientResponse
 describeLunaClientResponse pStatus_ =
     DescribeLunaClientResponse'
     { _drsClientARN = Nothing
@@ -171,6 +174,6 @@ drsCertificate = lens _drsCertificate (\ s a -> s{_drsCertificate = a});
 drsLabel :: Lens' DescribeLunaClientResponse (Maybe Text)
 drsLabel = lens _drsLabel (\ s a -> s{_drsLabel = a});
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DescribeLunaClientResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

@@ -41,11 +41,13 @@
 -- parameter to /true/.
 --
 -- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html AWS API Reference> for Scan.
+--
+-- This operation returns paginated results.
 module Network.AWS.DynamoDB.Scan
     (
     -- * Creating a Request
-      Scan
-    , scan
+      scan
+    , Scan
     -- * Request Lenses
     , sProjectionExpression
     , sScanFilter
@@ -65,8 +67,8 @@ module Network.AWS.DynamoDB.Scan
     , sTableName
 
     -- * Destructuring the Response
-    , ScanResponse
     , scanResponse
+    , ScanResponse
     -- * Response Lenses
     , srsLastEvaluatedKey
     , srsCount
@@ -86,8 +88,28 @@ import           Network.AWS.Response
 -- | Represents the input of a /Scan/ operation.
 --
 -- /See:/ 'scan' smart constructor.
+data Scan = Scan'
+    { _sProjectionExpression      :: !(Maybe Text)
+    , _sScanFilter                :: !(Maybe (Map Text Condition))
+    , _sTotalSegments             :: !(Maybe Nat)
+    , _sFilterExpression          :: !(Maybe Text)
+    , _sConsistentRead            :: !(Maybe Bool)
+    , _sExpressionAttributeNames  :: !(Maybe (Map Text Text))
+    , _sAttributesToGet           :: !(Maybe (List1 Text))
+    , _sReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
+    , _sExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+    , _sLimit                     :: !(Maybe Nat)
+    , _sSelect                    :: !(Maybe Select)
+    , _sSegment                   :: !(Maybe Nat)
+    , _sConditionalOperator       :: !(Maybe ConditionalOperator)
+    , _sExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
+    , _sIndexName                 :: !(Maybe Text)
+    , _sTableName                 :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Scan' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sProjectionExpression'
 --
@@ -120,27 +142,9 @@ import           Network.AWS.Response
 -- * 'sIndexName'
 --
 -- * 'sTableName'
-data Scan = Scan'
-    { _sProjectionExpression      :: !(Maybe Text)
-    , _sScanFilter                :: !(Maybe (Map Text Condition))
-    , _sTotalSegments             :: !(Maybe Nat)
-    , _sFilterExpression          :: !(Maybe Text)
-    , _sConsistentRead            :: !(Maybe Bool)
-    , _sExpressionAttributeNames  :: !(Maybe (Map Text Text))
-    , _sAttributesToGet           :: !(Maybe (List1 Text))
-    , _sReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
-    , _sExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
-    , _sLimit                     :: !(Maybe Nat)
-    , _sSelect                    :: !(Maybe Select)
-    , _sSegment                   :: !(Maybe Nat)
-    , _sConditionalOperator       :: !(Maybe ConditionalOperator)
-    , _sExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
-    , _sIndexName                 :: !(Maybe Text)
-    , _sTableName                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Scan' smart constructor.
-scan :: Text -> Scan
+scan
+    :: Text -- ^ 'sTableName'
+    -> Scan
 scan pTableName_ =
     Scan'
     { _sProjectionExpression = Nothing
@@ -204,8 +208,8 @@ sProjectionExpression = lens _sProjectionExpression (\ s a -> s{_sProjectionExpr
 --     For type Number, value comparisons are numeric.
 --
 --     String value comparisons for greater than, equals, or less than are
---     based on ASCII character code values. For example, @a@ is greater
---     than @A@, and @a@ is greater than @B@. For a list of code values,
+--     based on ASCII character code values. For example, 'a' is greater
+--     than 'A', and 'a' is greater than 'B'. For a list of code values,
 --     see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 --     For Binary, DynamoDB treats each byte of the binary data as unsigned
@@ -220,7 +224,7 @@ sProjectionExpression = lens _sProjectionExpression (\ s a -> s{_sProjectionExpr
 --
 --     The following comparison operators are available:
 --
---     @EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN@
+--     'EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN'
 --
 --     For complete descriptions of all comparison operators, see
 --     <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Condition.html Condition>.
@@ -263,18 +267,18 @@ sFilterExpression = lens _sFilterExpression (\ s a -> s{_sFilterExpression = a})
 -- | A Boolean value that determines the read consistency model during the
 -- scan:
 --
--- -   If /ConsistentRead/ is @false@, then /Scan/ will use eventually
+-- -   If /ConsistentRead/ is 'false', then /Scan/ will use eventually
 --     consistent reads. The data returned from /Scan/ might not contain
 --     the results of other recently completed write operations (PutItem,
 --     UpdateItem or DeleteItem). The /Scan/ response might include some
 --     stale data.
 --
--- -   If /ConsistentRead/ is @true@, then /Scan/ will use strongly
+-- -   If /ConsistentRead/ is 'true', then /Scan/ will use strongly
 --     consistent reads. All of the write operations that completed before
 --     the /Scan/ began are guaranteed to be contained in the /Scan/
 --     response.
 --
--- The default setting for /ConsistentRead/ is @false@, meaning that
+-- The default setting for /ConsistentRead/ is 'false', meaning that
 -- eventually consistent reads will be used.
 --
 -- Strongly consistent reads are not supported on global secondary indexes.
@@ -298,7 +302,7 @@ sConsistentRead = lens _sConsistentRead (\ s a -> s{_sConsistentRead = a});
 -- Use the __#__ character in an expression to dereference an attribute
 -- name. For example, consider the following attribute name:
 --
--- -   @Percentile@
+-- -   'Percentile'
 --
 -- The name of this attribute conflicts with a reserved word, so it cannot
 -- be used directly in an expression. (For the complete list of reserved
@@ -307,12 +311,12 @@ sConsistentRead = lens _sConsistentRead (\ s a -> s{_sConsistentRead = a});
 -- in the /Amazon DynamoDB Developer Guide/). To work around this, you
 -- could specify the following for /ExpressionAttributeNames/:
 --
--- -   @{\"#P\":\"Percentile\"}@
+-- -   '{\"#P\":\"Percentile\"}'
 --
 -- You could then use this substitution in an expression, as in this
 -- example:
 --
--- -   @#P = :val@
+-- -   '#P = :val'
 --
 -- Tokens that begin with the __:__ character are /expression attribute
 -- values/, which are placeholders for the actual value at runtime.
@@ -351,15 +355,15 @@ sReturnConsumedCapacity = lens _sReturnConsumedCapacity (\ s a -> s{_sReturnCons
 -- attribute value. For example, suppose that you wanted to check whether
 -- the value of the /ProductStatus/ attribute was one of the following:
 --
--- @Available | Backordered | Discontinued@
+-- 'Available | Backordered | Discontinued'
 --
 -- You would first need to specify /ExpressionAttributeValues/ as follows:
 --
--- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
+-- '{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }'
 --
 -- You could then use these values in an expression, such as this:
 --
--- @ProductStatus IN (:avail, :back, :disc)@
+-- 'ProductStatus IN (:avail, :back, :disc)'
 --
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
@@ -385,19 +389,19 @@ sLimit = lens _sLimit (\ s a -> s{_sLimit = a}) . mapping _Nat;
 -- | The attributes to be returned in the result. You can retrieve all item
 -- attributes, specific item attributes, or the count of matching items.
 --
--- -   @ALL_ATTRIBUTES@ - Returns all of the item attributes.
+-- -   'ALL_ATTRIBUTES' - Returns all of the item attributes.
 --
--- -   @COUNT@ - Returns the number of matching items, rather than the
+-- -   'COUNT' - Returns the number of matching items, rather than the
 --     matching items themselves.
 --
--- -   @SPECIFIC_ATTRIBUTES@ - Returns only the attributes listed in
+-- -   'SPECIFIC_ATTRIBUTES' - Returns only the attributes listed in
 --     /AttributesToGet/. This return value is equivalent to specifying
 --     /AttributesToGet/ without specifying any value for /Select/.
 --
 -- If neither /Select/ nor /AttributesToGet/ are specified, DynamoDB
--- defaults to @ALL_ATTRIBUTES@. You cannot use both /AttributesToGet/ and
+-- defaults to 'ALL_ATTRIBUTES'. You cannot use both /AttributesToGet/ and
 -- /Select/ together in a single request, unless the value for /Select/ is
--- @SPECIFIC_ATTRIBUTES@. (This usage is equivalent to specifying
+-- 'SPECIFIC_ATTRIBUTES'. (This usage is equivalent to specifying
 -- /AttributesToGet/ without any value for /Select/.)
 sSelect :: Lens' Scan (Maybe Select)
 sSelect = lens _sSelect (\ s a -> s{_sSelect = a});
@@ -428,13 +432,13 @@ sSegment = lens _sSegment (\ s a -> s{_sSegment = a}) . mapping _Nat;
 --
 -- A logical operator to apply to the conditions in a /ScanFilter/ map:
 --
--- -   @AND@ - If all of the conditions evaluate to true, then the entire
+-- -   'AND' - If all of the conditions evaluate to true, then the entire
 --     map evaluates to true.
 --
--- -   @OR@ - If at least one of the conditions evaluate to true, then the
+-- -   'OR' - If at least one of the conditions evaluate to true, then the
 --     entire map evaluates to true.
 --
--- If you omit /ConditionalOperator/, then @AND@ is the default.
+-- If you omit /ConditionalOperator/, then 'AND' is the default.
 --
 -- The operation will succeed only if the entire map evaluates to true.
 --
@@ -457,12 +461,12 @@ sExclusiveStartKey = lens _sExclusiveStartKey (\ s a -> s{_sExclusiveStartKey = 
 
 -- | The name of a secondary index to scan. This index can be any local
 -- secondary index or global secondary index. Note that if you use the
--- @IndexName@ parameter, you must also provide @TableName@.
+-- 'IndexName' parameter, you must also provide 'TableName'.
 sIndexName :: Lens' Scan (Maybe Text)
 sIndexName = lens _sIndexName (\ s a -> s{_sIndexName = a});
 
 -- | The name of the table containing the requested items; or, if you provide
--- @IndexName@, the name of the table to which that index belongs.
+-- 'IndexName', the name of the table to which that index belongs.
 sTableName :: Lens' Scan Text
 sTableName = lens _sTableName (\ s a -> s{_sTableName = a});
 
@@ -528,8 +532,18 @@ instance ToQuery Scan where
 -- | Represents the output of a /Scan/ operation.
 --
 -- /See:/ 'scanResponse' smart constructor.
+data ScanResponse = ScanResponse'
+    { _srsLastEvaluatedKey :: !(Maybe (Map Text AttributeValue))
+    , _srsCount            :: !(Maybe Int)
+    , _srsScannedCount     :: !(Maybe Int)
+    , _srsItems            :: !(Maybe [Map Text AttributeValue])
+    , _srsConsumedCapacity :: !(Maybe ConsumedCapacity)
+    , _srsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScanResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'srsLastEvaluatedKey'
 --
@@ -542,17 +556,9 @@ instance ToQuery Scan where
 -- * 'srsConsumedCapacity'
 --
 -- * 'srsStatus'
-data ScanResponse = ScanResponse'
-    { _srsLastEvaluatedKey :: !(Maybe (Map Text AttributeValue))
-    , _srsCount            :: !(Maybe Int)
-    , _srsScannedCount     :: !(Maybe Int)
-    , _srsItems            :: !(Maybe [Map Text AttributeValue])
-    , _srsConsumedCapacity :: !(Maybe ConsumedCapacity)
-    , _srsStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ScanResponse' smart constructor.
-scanResponse :: Int -> ScanResponse
+scanResponse
+    :: Int -- ^ 'srsStatus'
+    -> ScanResponse
 scanResponse pStatus_ =
     ScanResponse'
     { _srsLastEvaluatedKey = Nothing
@@ -608,6 +614,6 @@ srsItems = lens _srsItems (\ s a -> s{_srsItems = a}) . _Default . _Coerce;
 srsConsumedCapacity :: Lens' ScanResponse (Maybe ConsumedCapacity)
 srsConsumedCapacity = lens _srsConsumedCapacity (\ s a -> s{_srsConsumedCapacity = a});
 
--- | Undocumented member.
+-- | The response status code.
 srsStatus :: Lens' ScanResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

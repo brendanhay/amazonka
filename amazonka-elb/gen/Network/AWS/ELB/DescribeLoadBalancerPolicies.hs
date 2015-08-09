@@ -26,21 +26,21 @@
 -- description of that policy. If you don\'t specify a load balancer name,
 -- the action returns descriptions of the specified sample policies, or
 -- descriptions of all sample policies. The names of the sample policies
--- have the @ELBSample-@ prefix.
+-- have the 'ELBSample-' prefix.
 --
 -- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicies.html AWS API Reference> for DescribeLoadBalancerPolicies.
 module Network.AWS.ELB.DescribeLoadBalancerPolicies
     (
     -- * Creating a Request
-      DescribeLoadBalancerPolicies
-    , describeLoadBalancerPolicies
+      describeLoadBalancerPolicies
+    , DescribeLoadBalancerPolicies
     -- * Request Lenses
     , dlbpPolicyNames
     , dlbpLoadBalancerName
 
     -- * Destructuring the Response
-    , DescribeLoadBalancerPoliciesResponse
     , describeLoadBalancerPoliciesResponse
+    , DescribeLoadBalancerPoliciesResponse
     -- * Response Lenses
     , dlbprsPolicyDescriptions
     , dlbprsStatus
@@ -53,19 +53,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancerPolicies' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbpPolicyNames'
---
--- * 'dlbpLoadBalancerName'
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
     { _dlbpPolicyNames      :: !(Maybe [Text])
     , _dlbpLoadBalancerName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoadBalancerPolicies' smart constructor.
-describeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
+-- | Creates a value of 'DescribeLoadBalancerPolicies' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbpPolicyNames'
+--
+-- * 'dlbpLoadBalancerName'
+describeLoadBalancerPolicies
+    :: DescribeLoadBalancerPolicies
 describeLoadBalancerPolicies =
     DescribeLoadBalancerPolicies'
     { _dlbpPolicyNames = Nothing
@@ -112,19 +113,21 @@ instance ToQuery DescribeLoadBalancerPolicies where
                "LoadBalancerName" =: _dlbpLoadBalancerName]
 
 -- | /See:/ 'describeLoadBalancerPoliciesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbprsPolicyDescriptions'
---
--- * 'dlbprsStatus'
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
     { _dlbprsPolicyDescriptions :: !(Maybe [PolicyDescription])
     , _dlbprsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoadBalancerPoliciesResponse' smart constructor.
-describeLoadBalancerPoliciesResponse :: Int -> DescribeLoadBalancerPoliciesResponse
+-- | Creates a value of 'DescribeLoadBalancerPoliciesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbprsPolicyDescriptions'
+--
+-- * 'dlbprsStatus'
+describeLoadBalancerPoliciesResponse
+    :: Int -- ^ 'dlbprsStatus'
+    -> DescribeLoadBalancerPoliciesResponse
 describeLoadBalancerPoliciesResponse pStatus_ =
     DescribeLoadBalancerPoliciesResponse'
     { _dlbprsPolicyDescriptions = Nothing
@@ -135,6 +138,6 @@ describeLoadBalancerPoliciesResponse pStatus_ =
 dlbprsPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
 dlbprsPolicyDescriptions = lens _dlbprsPolicyDescriptions (\ s a -> s{_dlbprsPolicyDescriptions = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dlbprsStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
 dlbprsStatus = lens _dlbprsStatus (\ s a -> s{_dlbprsStatus = a});

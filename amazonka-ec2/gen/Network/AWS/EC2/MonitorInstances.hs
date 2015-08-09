@@ -27,15 +27,15 @@
 module Network.AWS.EC2.MonitorInstances
     (
     -- * Creating a Request
-      MonitorInstances
-    , monitorInstances
+      monitorInstances
+    , MonitorInstances
     -- * Request Lenses
     , miDryRun
     , miInstanceIds
 
     -- * Destructuring the Response
-    , MonitorInstancesResponse
     , monitorInstancesResponse
+    , MonitorInstancesResponse
     -- * Response Lenses
     , mirsInstanceMonitorings
     , mirsStatus
@@ -48,19 +48,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'monitorInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'miDryRun'
---
--- * 'miInstanceIds'
 data MonitorInstances = MonitorInstances'
     { _miDryRun      :: !(Maybe Bool)
     , _miInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MonitorInstances' smart constructor.
-monitorInstances :: MonitorInstances
+-- | Creates a value of 'MonitorInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'miDryRun'
+--
+-- * 'miInstanceIds'
+monitorInstances
+    :: MonitorInstances
 monitorInstances =
     MonitorInstances'
     { _miDryRun = Nothing
@@ -69,8 +70,8 @@ monitorInstances =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 miDryRun :: Lens' MonitorInstances (Maybe Bool)
 miDryRun = lens _miDryRun (\ s a -> s{_miDryRun = a});
 
@@ -105,19 +106,21 @@ instance ToQuery MonitorInstances where
                toQueryList "InstanceId" _miInstanceIds]
 
 -- | /See:/ 'monitorInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mirsInstanceMonitorings'
---
--- * 'mirsStatus'
 data MonitorInstancesResponse = MonitorInstancesResponse'
     { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
     , _mirsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MonitorInstancesResponse' smart constructor.
-monitorInstancesResponse :: Int -> MonitorInstancesResponse
+-- | Creates a value of 'MonitorInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mirsInstanceMonitorings'
+--
+-- * 'mirsStatus'
+monitorInstancesResponse
+    :: Int -- ^ 'mirsStatus'
+    -> MonitorInstancesResponse
 monitorInstancesResponse pStatus_ =
     MonitorInstancesResponse'
     { _mirsInstanceMonitorings = Nothing
@@ -128,6 +131,6 @@ monitorInstancesResponse pStatus_ =
 mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanceMonitorings = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 mirsStatus :: Lens' MonitorInstancesResponse Int
 mirsStatus = lens _mirsStatus (\ s a -> s{_mirsStatus = a});

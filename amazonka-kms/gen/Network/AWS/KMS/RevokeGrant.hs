@@ -25,15 +25,15 @@
 module Network.AWS.KMS.RevokeGrant
     (
     -- * Creating a Request
-      RevokeGrant
-    , revokeGrant
+      revokeGrant
+    , RevokeGrant
     -- * Request Lenses
     , rKeyId
     , rGrantId
 
     -- * Destructuring the Response
-    , RevokeGrantResponse
     , revokeGrantResponse
+    , RevokeGrantResponse
     ) where
 
 import           Network.AWS.KMS.Types
@@ -43,19 +43,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'revokeGrant' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rKeyId'
---
--- * 'rGrantId'
 data RevokeGrant = RevokeGrant'
     { _rKeyId   :: !Text
     , _rGrantId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RevokeGrant' smart constructor.
-revokeGrant :: Text -> Text -> RevokeGrant
+-- | Creates a value of 'RevokeGrant' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rKeyId'
+--
+-- * 'rGrantId'
+revokeGrant
+    :: Text -- ^ 'rKeyId'
+    -> Text -- ^ 'rGrantId'
+    -> RevokeGrant
 revokeGrant pKeyId_ pGrantId_ =
     RevokeGrant'
     { _rKeyId = pKeyId_
@@ -107,6 +110,8 @@ data RevokeGrantResponse =
     RevokeGrantResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RevokeGrantResponse' smart constructor.
-revokeGrantResponse :: RevokeGrantResponse
+-- | Creates a value of 'RevokeGrantResponse' with the minimum fields required to make a request.
+--
+revokeGrantResponse
+    :: RevokeGrantResponse
 revokeGrantResponse = RevokeGrantResponse'

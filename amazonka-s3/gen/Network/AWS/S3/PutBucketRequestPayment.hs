@@ -29,16 +29,16 @@
 module Network.AWS.S3.PutBucketRequestPayment
     (
     -- * Creating a Request
-      PutBucketRequestPayment
-    , putBucketRequestPayment
+      putBucketRequestPayment
+    , PutBucketRequestPayment
     -- * Request Lenses
     , pbrpContentMD5
     , pbrpBucket
     , pbrpRequestPaymentConfiguration
 
     -- * Destructuring the Response
-    , PutBucketRequestPaymentResponse
     , putBucketRequestPaymentResponse
+    , PutBucketRequestPaymentResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -48,22 +48,25 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketRequestPayment' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pbrpContentMD5'
---
--- * 'pbrpBucket'
---
--- * 'pbrpRequestPaymentConfiguration'
 data PutBucketRequestPayment = PutBucketRequestPayment'
     { _pbrpContentMD5                  :: !(Maybe Text)
     , _pbrpBucket                      :: !BucketName
     , _pbrpRequestPaymentConfiguration :: !RequestPaymentConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketRequestPayment' smart constructor.
-putBucketRequestPayment :: BucketName -> RequestPaymentConfiguration -> PutBucketRequestPayment
+-- | Creates a value of 'PutBucketRequestPayment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pbrpContentMD5'
+--
+-- * 'pbrpBucket'
+--
+-- * 'pbrpRequestPaymentConfiguration'
+putBucketRequestPayment
+    :: BucketName -- ^ 'pbrpBucket'
+    -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
+    -> PutBucketRequestPayment
 putBucketRequestPayment pBucket_ pRequestPaymentConfiguration_ =
     PutBucketRequestPayment'
     { _pbrpContentMD5 = Nothing
@@ -114,6 +117,8 @@ data PutBucketRequestPaymentResponse =
     PutBucketRequestPaymentResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketRequestPaymentResponse' smart constructor.
-putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
+-- | Creates a value of 'PutBucketRequestPaymentResponse' with the minimum fields required to make a request.
+--
+putBucketRequestPaymentResponse
+    :: PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse'

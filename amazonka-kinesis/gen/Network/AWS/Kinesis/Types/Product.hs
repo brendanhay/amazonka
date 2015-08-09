@@ -25,19 +25,22 @@ import           Network.AWS.Prelude
 -- ordered contiguous positive integers.
 --
 -- /See:/ 'hashKeyRange' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hkrStartingHashKey'
---
--- * 'hkrEndingHashKey'
 data HashKeyRange = HashKeyRange'
     { _hkrStartingHashKey :: !Text
     , _hkrEndingHashKey   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'HashKeyRange' smart constructor.
-hashKeyRange :: Text -> Text -> HashKeyRange
+-- | Creates a value of 'HashKeyRange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hkrStartingHashKey'
+--
+-- * 'hkrEndingHashKey'
+hashKeyRange
+    :: Text -- ^ 'hkrStartingHashKey'
+    -> Text -- ^ 'hkrEndingHashKey'
+    -> HashKeyRange
 hashKeyRange pStartingHashKey_ pEndingHashKey_ =
     HashKeyRange'
     { _hkrStartingHashKey = pStartingHashKey_
@@ -59,25 +62,28 @@ instance FromJSON HashKeyRange where
                  HashKeyRange' <$>
                    (x .: "StartingHashKey") <*> (x .: "EndingHashKey"))
 
--- | Represents the output for @PutRecords@.
+-- | Represents the output for 'PutRecords'.
 --
 -- /See:/ 'putRecordsRequestEntry' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prreExplicitHashKey'
---
--- * 'prreData'
---
--- * 'prrePartitionKey'
 data PutRecordsRequestEntry = PutRecordsRequestEntry'
     { _prreExplicitHashKey :: !(Maybe Text)
     , _prreData            :: !Base64
     , _prrePartitionKey    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutRecordsRequestEntry' smart constructor.
-putRecordsRequestEntry :: ByteString -> Text -> PutRecordsRequestEntry
+-- | Creates a value of 'PutRecordsRequestEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prreExplicitHashKey'
+--
+-- * 'prreData'
+--
+-- * 'prrePartitionKey'
+putRecordsRequestEntry
+    :: ByteString -- ^ 'prreData'
+    -> Text -- ^ 'prrePartitionKey'
+    -> PutRecordsRequestEntry
 putRecordsRequestEntry pData_ pPartitionKey_ =
     PutRecordsRequestEntry'
     { _prreExplicitHashKey = Nothing
@@ -115,15 +121,23 @@ instance ToJSON PutRecordsRequestEntry where
                "Data" .= _prreData,
                "PartitionKey" .= _prrePartitionKey]
 
--- | Represents the result of an individual record from a @PutRecords@
+-- | Represents the result of an individual record from a 'PutRecords'
 -- request. A record that is successfully added to your Amazon Kinesis
 -- stream includes SequenceNumber and ShardId in the result. A record that
 -- fails to be added to your Amazon Kinesis stream includes ErrorCode and
 -- ErrorMessage in the result.
 --
 -- /See:/ 'putRecordsResultEntry' smart constructor.
+data PutRecordsResultEntry = PutRecordsResultEntry'
+    { _prreSequenceNumber :: !(Maybe Text)
+    , _prreErrorCode      :: !(Maybe Text)
+    , _prreErrorMessage   :: !(Maybe Text)
+    , _prreShardId        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutRecordsResultEntry' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'prreSequenceNumber'
 --
@@ -132,15 +146,8 @@ instance ToJSON PutRecordsRequestEntry where
 -- * 'prreErrorMessage'
 --
 -- * 'prreShardId'
-data PutRecordsResultEntry = PutRecordsResultEntry'
-    { _prreSequenceNumber :: !(Maybe Text)
-    , _prreErrorCode      :: !(Maybe Text)
-    , _prreErrorMessage   :: !(Maybe Text)
-    , _prreShardId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutRecordsResultEntry' smart constructor.
-putRecordsResultEntry :: PutRecordsResultEntry
+putRecordsResultEntry
+    :: PutRecordsResultEntry
 putRecordsResultEntry =
     PutRecordsResultEntry'
     { _prreSequenceNumber = Nothing
@@ -153,16 +160,16 @@ putRecordsResultEntry =
 prreSequenceNumber :: Lens' PutRecordsResultEntry (Maybe Text)
 prreSequenceNumber = lens _prreSequenceNumber (\ s a -> s{_prreSequenceNumber = a});
 
--- | The error code for an individual record result. @ErrorCodes@ can be
--- either @ProvisionedThroughputExceededException@ or @InternalFailure@.
+-- | The error code for an individual record result. 'ErrorCodes' can be
+-- either 'ProvisionedThroughputExceededException' or 'InternalFailure'.
 prreErrorCode :: Lens' PutRecordsResultEntry (Maybe Text)
 prreErrorCode = lens _prreErrorCode (\ s a -> s{_prreErrorCode = a});
 
--- | The error message for an individual record result. An @ErrorCode@ value
--- of @ProvisionedThroughputExceededException@ has an error message that
--- includes the account ID, stream name, and shard ID. An @ErrorCode@ value
--- of @InternalFailure@ has the error message
--- @\"Internal Service Failure\"@.
+-- | The error message for an individual record result. An 'ErrorCode' value
+-- of 'ProvisionedThroughputExceededException' has an error message that
+-- includes the account ID, stream name, and shard ID. An 'ErrorCode' value
+-- of 'InternalFailure' has the error message
+-- '\"Internal Service Failure\"'.
 prreErrorMessage :: Lens' PutRecordsResultEntry (Maybe Text)
 prreErrorMessage = lens _prreErrorMessage (\ s a -> s{_prreErrorMessage = a});
 
@@ -183,22 +190,26 @@ instance FromJSON PutRecordsResultEntry where
 -- sequence number, a partition key, and a data blob.
 --
 -- /See:/ 'record' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rSequenceNumber'
---
--- * 'rData'
---
--- * 'rPartitionKey'
 data Record = Record'
     { _rSequenceNumber :: !Text
     , _rData           :: !Base64
     , _rPartitionKey   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Record' smart constructor.
-record :: Text -> ByteString -> Text -> Record
+-- | Creates a value of 'Record' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rSequenceNumber'
+--
+-- * 'rData'
+--
+-- * 'rPartitionKey'
+record
+    :: Text -- ^ 'rSequenceNumber'
+    -> ByteString -- ^ 'rData'
+    -> Text -- ^ 'rPartitionKey'
+    -> Record
 record pSequenceNumber_ pData_ pPartitionKey_ =
     Record'
     { _rSequenceNumber = pSequenceNumber_
@@ -232,19 +243,21 @@ instance FromJSON Record where
 -- | The range of possible sequence numbers for the shard.
 --
 -- /See:/ 'sequenceNumberRange' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'snrEndingSequenceNumber'
---
--- * 'snrStartingSequenceNumber'
 data SequenceNumberRange = SequenceNumberRange'
     { _snrEndingSequenceNumber   :: !(Maybe Text)
     , _snrStartingSequenceNumber :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SequenceNumberRange' smart constructor.
-sequenceNumberRange :: Text -> SequenceNumberRange
+-- | Creates a value of 'SequenceNumberRange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'snrEndingSequenceNumber'
+--
+-- * 'snrStartingSequenceNumber'
+sequenceNumberRange
+    :: Text -- ^ 'snrStartingSequenceNumber'
+    -> SequenceNumberRange
 sequenceNumberRange pStartingSequenceNumber_ =
     SequenceNumberRange'
     { _snrEndingSequenceNumber = Nothing
@@ -252,7 +265,7 @@ sequenceNumberRange pStartingSequenceNumber_ =
     }
 
 -- | The ending sequence number for the range. Shards that are in the OPEN
--- state have an ending sequence number of @null@.
+-- state have an ending sequence number of 'null'.
 snrEndingSequenceNumber :: Lens' SequenceNumberRange (Maybe Text)
 snrEndingSequenceNumber = lens _snrEndingSequenceNumber (\ s a -> s{_snrEndingSequenceNumber = a});
 
@@ -271,8 +284,17 @@ instance FromJSON SequenceNumberRange where
 -- | A uniquely identified group of data records in an Amazon Kinesis stream.
 --
 -- /See:/ 'shard' smart constructor.
+data Shard = Shard'
+    { _sAdjacentParentShardId :: !(Maybe Text)
+    , _sParentShardId         :: !(Maybe Text)
+    , _sShardId               :: !Text
+    , _sHashKeyRange          :: !HashKeyRange
+    , _sSequenceNumberRange   :: !SequenceNumberRange
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Shard' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sAdjacentParentShardId'
 --
@@ -283,16 +305,11 @@ instance FromJSON SequenceNumberRange where
 -- * 'sHashKeyRange'
 --
 -- * 'sSequenceNumberRange'
-data Shard = Shard'
-    { _sAdjacentParentShardId :: !(Maybe Text)
-    , _sParentShardId         :: !(Maybe Text)
-    , _sShardId               :: !Text
-    , _sHashKeyRange          :: !HashKeyRange
-    , _sSequenceNumberRange   :: !SequenceNumberRange
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Shard' smart constructor.
-shard :: Text -> HashKeyRange -> SequenceNumberRange -> Shard
+shard
+    :: Text -- ^ 'sShardId'
+    -> HashKeyRange -- ^ 'sHashKeyRange'
+    -> SequenceNumberRange -- ^ 'sSequenceNumberRange'
+    -> Shard
 shard pShardId_ pHashKeyRange_ pSequenceNumberRange_ =
     Shard'
     { _sAdjacentParentShardId = Nothing
@@ -334,11 +351,20 @@ instance FromJSON Shard where
                      <*> (x .: "HashKeyRange")
                      <*> (x .: "SequenceNumberRange"))
 
--- | Represents the output for @DescribeStream@.
+-- | Represents the output for 'DescribeStream'.
 --
 -- /See:/ 'streamDescription' smart constructor.
+data StreamDescription = StreamDescription'
+    { _sdStreamName    :: !Text
+    , _sdStreamARN     :: !Text
+    , _sdStreamStatus  :: !StreamStatus
+    , _sdShards        :: ![Shard]
+    , _sdHasMoreShards :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StreamDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sdStreamName'
 --
@@ -349,16 +375,12 @@ instance FromJSON Shard where
 -- * 'sdShards'
 --
 -- * 'sdHasMoreShards'
-data StreamDescription = StreamDescription'
-    { _sdStreamName    :: !Text
-    , _sdStreamARN     :: !Text
-    , _sdStreamStatus  :: !StreamStatus
-    , _sdShards        :: ![Shard]
-    , _sdHasMoreShards :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StreamDescription' smart constructor.
-streamDescription :: Text -> Text -> StreamStatus -> Bool -> StreamDescription
+streamDescription
+    :: Text -- ^ 'sdStreamName'
+    -> Text -- ^ 'sdStreamARN'
+    -> StreamStatus -- ^ 'sdStreamStatus'
+    -> Bool -- ^ 'sdHasMoreShards'
+    -> StreamDescription
 streamDescription pStreamName_ pStreamARN_ pStreamStatus_ pHasMoreShards_ =
     StreamDescription'
     { _sdStreamName = pStreamName_
@@ -380,16 +402,16 @@ sdStreamARN = lens _sdStreamARN (\ s a -> s{_sdStreamARN = a});
 --
 -- The stream status is one of the following states:
 --
--- -   @CREATING@ - The stream is being created. Amazon Kinesis immediately
---     returns and sets @StreamStatus@ to @CREATING@.
--- -   @DELETING@ - The stream is being deleted. The specified stream is in
---     the @DELETING@ state until Amazon Kinesis completes the deletion.
--- -   @ACTIVE@ - The stream exists and is ready for read and write
+-- -   'CREATING' - The stream is being created. Amazon Kinesis immediately
+--     returns and sets 'StreamStatus' to 'CREATING'.
+-- -   'DELETING' - The stream is being deleted. The specified stream is in
+--     the 'DELETING' state until Amazon Kinesis completes the deletion.
+-- -   'ACTIVE' - The stream exists and is ready for read and write
 --     operations or deletion. You should perform read and write operations
---     only on an @ACTIVE@ stream.
--- -   @UPDATING@ - Shards in the stream are being merged or split. Read
+--     only on an 'ACTIVE' stream.
+-- -   'UPDATING' - Shards in the stream are being merged or split. Read
 --     and write operations continue to work while the stream is in the
---     @UPDATING@ state.
+--     'UPDATING' state.
 sdStreamStatus :: Lens' StreamDescription StreamStatus
 sdStreamStatus = lens _sdStreamStatus (\ s a -> s{_sdStreamStatus = a});
 
@@ -397,7 +419,7 @@ sdStreamStatus = lens _sdStreamStatus (\ s a -> s{_sdStreamStatus = a});
 sdShards :: Lens' StreamDescription [Shard]
 sdShards = lens _sdShards (\ s a -> s{_sdShards = a}) . _Coerce;
 
--- | If set to @true@, more shards in the stream are available to describe.
+-- | If set to 'true', more shards in the stream are available to describe.
 sdHasMoreShards :: Lens' StreamDescription Bool
 sdHasMoreShards = lens _sdHasMoreShards (\ s a -> s{_sdHasMoreShards = a});
 
@@ -414,19 +436,21 @@ instance FromJSON StreamDescription where
 -- | Metadata assigned to the stream, consisting of a key-value pair.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagValue'
---
--- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Text -> Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Tag
 tag pKey_ =
     Tag'
     { _tagValue = Nothing
@@ -435,12 +459,12 @@ tag pKey_ =
 
 -- | An optional string, typically used to describe or define the tag.
 -- Maximum length: 256 characters. Valid characters: Unicode letters,
--- digits, white space, _ . \/ = + - % \@
+-- digits, white space, _ . \/ = + - % \'
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
 -- | A unique identifier for the tag. Maximum length: 128 characters. Valid
--- characters: Unicode letters, digits, white space, _ . \/ = + - % \@
+-- characters: Unicode letters, digits, white space, _ . \/ = + - % \'
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 

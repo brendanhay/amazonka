@@ -32,14 +32,14 @@
 module Network.AWS.CloudWatchLogs.CreateLogGroup
     (
     -- * Creating a Request
-      CreateLogGroup
-    , createLogGroup
+      createLogGroup
+    , CreateLogGroup
     -- * Request Lenses
     , clgLogGroupName
 
     -- * Destructuring the Response
-    , CreateLogGroupResponse
     , createLogGroupResponse
+    , CreateLogGroupResponse
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -49,16 +49,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createLogGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clgLogGroupName'
 newtype CreateLogGroup = CreateLogGroup'
     { _clgLogGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLogGroup' smart constructor.
-createLogGroup :: Text -> CreateLogGroup
+-- | Creates a value of 'CreateLogGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clgLogGroupName'
+createLogGroup
+    :: Text -- ^ 'clgLogGroupName'
+    -> CreateLogGroup
 createLogGroup pLogGroupName_ =
     CreateLogGroup'
     { _clgLogGroupName = pLogGroupName_
@@ -98,6 +100,8 @@ data CreateLogGroupResponse =
     CreateLogGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLogGroupResponse' smart constructor.
-createLogGroupResponse :: CreateLogGroupResponse
+-- | Creates a value of 'CreateLogGroupResponse' with the minimum fields required to make a request.
+--
+createLogGroupResponse
+    :: CreateLogGroupResponse
 createLogGroupResponse = CreateLogGroupResponse'

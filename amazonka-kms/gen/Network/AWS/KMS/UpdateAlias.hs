@@ -37,15 +37,15 @@
 module Network.AWS.KMS.UpdateAlias
     (
     -- * Creating a Request
-      UpdateAlias
-    , updateAlias
+      updateAlias
+    , UpdateAlias
     -- * Request Lenses
     , uaAliasName
     , uaTargetKeyId
 
     -- * Destructuring the Response
-    , UpdateAliasResponse
     , updateAliasResponse
+    , UpdateAliasResponse
     ) where
 
 import           Network.AWS.KMS.Types
@@ -55,19 +55,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateAlias' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uaAliasName'
---
--- * 'uaTargetKeyId'
 data UpdateAlias = UpdateAlias'
     { _uaAliasName   :: !Text
     , _uaTargetKeyId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAlias' smart constructor.
-updateAlias :: Text -> Text -> UpdateAlias
+-- | Creates a value of 'UpdateAlias' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uaAliasName'
+--
+-- * 'uaTargetKeyId'
+updateAlias
+    :: Text -- ^ 'uaAliasName'
+    -> Text -- ^ 'uaTargetKeyId'
+    -> UpdateAlias
 updateAlias pAliasName_ pTargetKeyId_ =
     UpdateAlias'
     { _uaAliasName = pAliasName_
@@ -123,6 +126,8 @@ data UpdateAliasResponse =
     UpdateAliasResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAliasResponse' smart constructor.
-updateAliasResponse :: UpdateAliasResponse
+-- | Creates a value of 'UpdateAliasResponse' with the minimum fields required to make a request.
+--
+updateAliasResponse
+    :: UpdateAliasResponse
 updateAliasResponse = UpdateAliasResponse'

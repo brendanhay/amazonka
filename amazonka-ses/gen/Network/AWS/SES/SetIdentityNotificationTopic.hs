@@ -21,11 +21,11 @@
 -- Given an identity (email address or domain), sets the Amazon Simple
 -- Notification Service (Amazon SNS) topic to which Amazon SES will publish
 -- bounce, complaint, and\/or delivery notifications for emails sent with
--- that identity as the @Source@.
+-- that identity as the 'Source'.
 --
 -- Unless feedback forwarding is enabled, you must specify Amazon SNS
 -- topics for bounce and complaint notifications. For more information, see
--- @SetIdentityFeedbackForwardingEnabled@.
+-- 'SetIdentityFeedbackForwardingEnabled'.
 --
 -- This action is throttled at one request per second.
 --
@@ -36,16 +36,16 @@
 module Network.AWS.SES.SetIdentityNotificationTopic
     (
     -- * Creating a Request
-      SetIdentityNotificationTopic
-    , setIdentityNotificationTopic
+      setIdentityNotificationTopic
+    , SetIdentityNotificationTopic
     -- * Request Lenses
     , sintSNSTopic
     , sintIdentity
     , sintNotificationType
 
     -- * Destructuring the Response
-    , SetIdentityNotificationTopicResponse
     , setIdentityNotificationTopicResponse
+    , SetIdentityNotificationTopicResponse
     -- * Response Lenses
     , sintrsStatus
     ) where
@@ -59,22 +59,25 @@ import           Network.AWS.SES.Types.Product
 -- | Represents a request to set or clear an identity\'s notification topic.
 --
 -- /See:/ 'setIdentityNotificationTopic' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sintSNSTopic'
---
--- * 'sintIdentity'
---
--- * 'sintNotificationType'
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
     { _sintSNSTopic         :: !(Maybe Text)
     , _sintIdentity         :: !Text
     , _sintNotificationType :: !NotificationType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetIdentityNotificationTopic' smart constructor.
-setIdentityNotificationTopic :: Text -> NotificationType -> SetIdentityNotificationTopic
+-- | Creates a value of 'SetIdentityNotificationTopic' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sintSNSTopic'
+--
+-- * 'sintIdentity'
+--
+-- * 'sintNotificationType'
+setIdentityNotificationTopic
+    :: Text -- ^ 'sintIdentity'
+    -> NotificationType -- ^ 'sintNotificationType'
+    -> SetIdentityNotificationTopic
 setIdentityNotificationTopic pIdentity_ pNotificationType_ =
     SetIdentityNotificationTopic'
     { _sintSNSTopic = Nothing
@@ -83,15 +86,15 @@ setIdentityNotificationTopic pIdentity_ pNotificationType_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter
--- is omitted from the request or a null value is passed, @SnsTopic@ is
+-- is omitted from the request or a null value is passed, 'SnsTopic' is
 -- cleared and publishing is disabled.
 sintSNSTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
 sintSNSTopic = lens _sintSNSTopic (\ s a -> s{_sintSNSTopic = a});
 
 -- | The identity for which the Amazon SNS topic will be set. You can specify
 -- an identity by using its name or by using its Amazon Resource Name
--- (ARN). Examples: @user\@example.com@, @example.com@,
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+-- (ARN). Examples: 'user\'example.com', 'example.com',
+-- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
 sintIdentity :: Lens' SetIdentityNotificationTopic Text
 sintIdentity = lens _sintIdentity (\ s a -> s{_sintIdentity = a});
 
@@ -133,21 +136,23 @@ instance ToQuery SetIdentityNotificationTopic where
 -- completed successfully.
 --
 -- /See:/ 'setIdentityNotificationTopicResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sintrsStatus'
 newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
     { _sintrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetIdentityNotificationTopicResponse' smart constructor.
-setIdentityNotificationTopicResponse :: Int -> SetIdentityNotificationTopicResponse
+-- | Creates a value of 'SetIdentityNotificationTopicResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sintrsStatus'
+setIdentityNotificationTopicResponse
+    :: Int -- ^ 'sintrsStatus'
+    -> SetIdentityNotificationTopicResponse
 setIdentityNotificationTopicResponse pStatus_ =
     SetIdentityNotificationTopicResponse'
     { _sintrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 sintrsStatus :: Lens' SetIdentityNotificationTopicResponse Int
 sintrsStatus = lens _sintrsStatus (\ s a -> s{_sintrsStatus = a});

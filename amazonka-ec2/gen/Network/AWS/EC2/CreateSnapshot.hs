@@ -34,7 +34,7 @@
 -- writes to the volume, you should unmount the volume from within the
 -- instance, issue the snapshot command, and then remount the volume to
 -- ensure a consistent and complete snapshot. You may remount and use your
--- volume while the snapshot status is @pending@.
+-- volume while the snapshot status is 'pending'.
 --
 -- To create a snapshot for EBS volumes that serve as root devices, you
 -- should stop the instance before taking the snapshot.
@@ -54,16 +54,16 @@
 module Network.AWS.EC2.CreateSnapshot
     (
     -- * Creating a Request
-      CreateSnapshot
-    , createSnapshot
+      createSnapshot
+    , CreateSnapshot
     -- * Request Lenses
     , ccDryRun
     , ccDescription
     , ccVolumeId
 
     -- * Destructuring the Response
-    , Snapshot
     , snapshot
+    , Snapshot
     -- * Response Lenses
     , sOwnerAlias
     , sKMSKeyId
@@ -86,22 +86,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccDryRun'
---
--- * 'ccDescription'
---
--- * 'ccVolumeId'
 data CreateSnapshot = CreateSnapshot'
     { _ccDryRun      :: !(Maybe Bool)
     , _ccDescription :: !(Maybe Text)
     , _ccVolumeId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSnapshot' smart constructor.
-createSnapshot :: Text -> CreateSnapshot
+-- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccDryRun'
+--
+-- * 'ccDescription'
+--
+-- * 'ccVolumeId'
+createSnapshot
+    :: Text -- ^ 'ccVolumeId'
+    -> CreateSnapshot
 createSnapshot pVolumeId_ =
     CreateSnapshot'
     { _ccDryRun = Nothing
@@ -111,8 +113,8 @@ createSnapshot pVolumeId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 ccDryRun :: Lens' CreateSnapshot (Maybe Bool)
 ccDryRun = lens _ccDryRun (\ s a -> s{_ccDryRun = a});
 

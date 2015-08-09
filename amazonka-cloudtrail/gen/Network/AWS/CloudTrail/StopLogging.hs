@@ -27,14 +27,14 @@
 module Network.AWS.CloudTrail.StopLogging
     (
     -- * Creating a Request
-      StopLogging
-    , stopLogging
+      stopLogging
+    , StopLogging
     -- * Request Lenses
     , slName
 
     -- * Destructuring the Response
-    , StopLoggingResponse
     , stopLoggingResponse
+    , StopLoggingResponse
     -- * Response Lenses
     , slrsStatus
     ) where
@@ -49,16 +49,18 @@ import           Network.AWS.Response
 -- specified account.
 --
 -- /See:/ 'stopLogging' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slName'
 newtype StopLogging = StopLogging'
     { _slName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopLogging' smart constructor.
-stopLogging :: Text -> StopLogging
+-- | Creates a value of 'StopLogging' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slName'
+stopLogging
+    :: Text -- ^ 'slName'
+    -> StopLogging
 stopLogging pName_ =
     StopLogging'
     { _slName = pName_
@@ -101,21 +103,23 @@ instance ToQuery StopLogging where
 -- returns an error.
 --
 -- /See:/ 'stopLoggingResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slrsStatus'
 newtype StopLoggingResponse = StopLoggingResponse'
     { _slrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopLoggingResponse' smart constructor.
-stopLoggingResponse :: Int -> StopLoggingResponse
+-- | Creates a value of 'StopLoggingResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slrsStatus'
+stopLoggingResponse
+    :: Int -- ^ 'slrsStatus'
+    -> StopLoggingResponse
 stopLoggingResponse pStatus_ =
     StopLoggingResponse'
     { _slrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 slrsStatus :: Lens' StopLoggingResponse Int
 slrsStatus = lens _slrsStatus (\ s a -> s{_slrsStatus = a});

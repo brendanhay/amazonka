@@ -21,28 +21,28 @@
 -- Obtains information about the WorkSpace bundles that are available to
 -- your account in the specified region.
 --
--- You can filter the results with either the @BundleIds@ parameter, or the
--- @Owner@ parameter, but not both.
+-- You can filter the results with either the 'BundleIds' parameter, or the
+-- 'Owner' parameter, but not both.
 --
--- This operation supports pagination with the use of the @NextToken@
+-- This operation supports pagination with the use of the 'NextToken'
 -- request and response parameters. If more results are available, the
--- @NextToken@ response member contains a token that you pass in the next
+-- 'NextToken' response member contains a token that you pass in the next
 -- call to this operation to retrieve the next set of items.
 --
 -- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_DescribeWorkspaceBundles.html AWS API Reference> for DescribeWorkspaceBundles.
 module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     (
     -- * Creating a Request
-      DescribeWorkspaceBundles
-    , describeWorkspaceBundles
+      describeWorkspaceBundles
+    , DescribeWorkspaceBundles
     -- * Request Lenses
     , dwbBundleIds
     , dwbOwner
     , dwbNextToken
 
     -- * Destructuring the Response
-    , DescribeWorkspaceBundlesResponse
     , describeWorkspaceBundlesResponse
+    , DescribeWorkspaceBundlesResponse
     -- * Response Lenses
     , dwbrsBundles
     , dwbrsNextToken
@@ -58,22 +58,23 @@ import           Network.AWS.WorkSpaces.Types.Product
 -- | Contains the inputs for the DescribeWorkspaceBundles operation.
 --
 -- /See:/ 'describeWorkspaceBundles' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dwbBundleIds'
---
--- * 'dwbOwner'
---
--- * 'dwbNextToken'
 data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
     { _dwbBundleIds :: !(Maybe (List1 Text))
     , _dwbOwner     :: !(Maybe Text)
     , _dwbNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeWorkspaceBundles' smart constructor.
-describeWorkspaceBundles :: DescribeWorkspaceBundles
+-- | Creates a value of 'DescribeWorkspaceBundles' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dwbBundleIds'
+--
+-- * 'dwbOwner'
+--
+-- * 'dwbNextToken'
+describeWorkspaceBundles
+    :: DescribeWorkspaceBundles
 describeWorkspaceBundles =
     DescribeWorkspaceBundles'
     { _dwbBundleIds = Nothing
@@ -94,11 +95,11 @@ dwbBundleIds = lens _dwbBundleIds (\ s a -> s{_dwbBundleIds = a}) . mapping _Lis
 --
 -- -   null - Retrieves the bundles that belong to the account making the
 --     call.
--- -   @AMAZON@ - Retrieves the bundles that are provided by AWS.
+-- -   'AMAZON' - Retrieves the bundles that are provided by AWS.
 dwbOwner :: Lens' DescribeWorkspaceBundles (Maybe Text)
 dwbOwner = lens _dwbOwner (\ s a -> s{_dwbOwner = a});
 
--- | The @NextToken@ value from a previous call to this operation. Pass null
+-- | The 'NextToken' value from a previous call to this operation. Pass null
 -- if this is the first call.
 dwbNextToken :: Lens' DescribeWorkspaceBundles (Maybe Text)
 dwbNextToken = lens _dwbNextToken (\ s a -> s{_dwbNextToken = a});
@@ -140,22 +141,24 @@ instance ToQuery DescribeWorkspaceBundles where
 -- | Contains the results of the DescribeWorkspaceBundles operation.
 --
 -- /See:/ 'describeWorkspaceBundlesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dwbrsBundles'
---
--- * 'dwbrsNextToken'
---
--- * 'dwbrsStatus'
 data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
     { _dwbrsBundles   :: !(Maybe [WorkspaceBundle])
     , _dwbrsNextToken :: !(Maybe Text)
     , _dwbrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeWorkspaceBundlesResponse' smart constructor.
-describeWorkspaceBundlesResponse :: Int -> DescribeWorkspaceBundlesResponse
+-- | Creates a value of 'DescribeWorkspaceBundlesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dwbrsBundles'
+--
+-- * 'dwbrsNextToken'
+--
+-- * 'dwbrsStatus'
+describeWorkspaceBundlesResponse
+    :: Int -- ^ 'dwbrsStatus'
+    -> DescribeWorkspaceBundlesResponse
 describeWorkspaceBundlesResponse pStatus_ =
     DescribeWorkspaceBundlesResponse'
     { _dwbrsBundles = Nothing
@@ -168,12 +171,12 @@ dwbrsBundles :: Lens' DescribeWorkspaceBundlesResponse [WorkspaceBundle]
 dwbrsBundles = lens _dwbrsBundles (\ s a -> s{_dwbrsBundles = a}) . _Default . _Coerce;
 
 -- | If not null, more results are available. Pass this value for the
--- @NextToken@ parameter in a subsequent call to this operation to retrieve
+-- 'NextToken' parameter in a subsequent call to this operation to retrieve
 -- the next set of items. This token is valid for one day and must be used
 -- within that timeframe.
 dwbrsNextToken :: Lens' DescribeWorkspaceBundlesResponse (Maybe Text)
 dwbrsNextToken = lens _dwbrsNextToken (\ s a -> s{_dwbrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dwbrsStatus :: Lens' DescribeWorkspaceBundlesResponse Int
 dwbrsStatus = lens _dwbrsStatus (\ s a -> s{_dwbrsStatus = a});

@@ -30,16 +30,16 @@
 module Network.AWS.OpsWorks.UpdateRDSDBInstance
     (
     -- * Creating a Request
-      UpdateRDSDBInstance
-    , updateRDSDBInstance
+      updateRDSDBInstance
+    , UpdateRDSDBInstance
     -- * Request Lenses
     , urdiDBUser
     , urdiDBPassword
     , urdiRDSDBInstanceARN
 
     -- * Destructuring the Response
-    , UpdateRDSDBInstanceResponse
     , updateRDSDBInstanceResponse
+    , UpdateRDSDBInstanceResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -49,22 +49,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateRDSDBInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'urdiDBUser'
---
--- * 'urdiDBPassword'
---
--- * 'urdiRDSDBInstanceARN'
 data UpdateRDSDBInstance = UpdateRDSDBInstance'
     { _urdiDBUser           :: !(Maybe Text)
     , _urdiDBPassword       :: !(Maybe Text)
     , _urdiRDSDBInstanceARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateRDSDBInstance' smart constructor.
-updateRDSDBInstance :: Text -> UpdateRDSDBInstance
+-- | Creates a value of 'UpdateRDSDBInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'urdiDBUser'
+--
+-- * 'urdiDBPassword'
+--
+-- * 'urdiRDSDBInstanceARN'
+updateRDSDBInstance
+    :: Text -- ^ 'urdiRDSDBInstanceARN'
+    -> UpdateRDSDBInstance
 updateRDSDBInstance pRDSDBInstanceARN_ =
     UpdateRDSDBInstance'
     { _urdiDBUser = Nothing
@@ -119,6 +121,8 @@ data UpdateRDSDBInstanceResponse =
     UpdateRDSDBInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateRDSDBInstanceResponse' smart constructor.
-updateRDSDBInstanceResponse :: UpdateRDSDBInstanceResponse
+-- | Creates a value of 'UpdateRDSDBInstanceResponse' with the minimum fields required to make a request.
+--
+updateRDSDBInstanceResponse
+    :: UpdateRDSDBInstanceResponse
 updateRDSDBInstanceResponse = UpdateRDSDBInstanceResponse'

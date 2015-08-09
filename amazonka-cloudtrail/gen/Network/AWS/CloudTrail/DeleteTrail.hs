@@ -24,14 +24,14 @@
 module Network.AWS.CloudTrail.DeleteTrail
     (
     -- * Creating a Request
-      DeleteTrail
-    , deleteTrail
+      deleteTrail
+    , DeleteTrail
     -- * Request Lenses
     , dtName
 
     -- * Destructuring the Response
-    , DeleteTrailResponse
     , deleteTrailResponse
+    , DeleteTrailResponse
     -- * Response Lenses
     , drsStatus
     ) where
@@ -45,16 +45,18 @@ import           Network.AWS.Response
 -- | The request that specifies the name of a trail to delete.
 --
 -- /See:/ 'deleteTrail' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtName'
 newtype DeleteTrail = DeleteTrail'
     { _dtName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTrail' smart constructor.
-deleteTrail :: Text -> DeleteTrail
+-- | Creates a value of 'DeleteTrail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtName'
+deleteTrail
+    :: Text -- ^ 'dtName'
+    -> DeleteTrail
 deleteTrail pName_ =
     DeleteTrail'
     { _dtName = pName_
@@ -96,21 +98,23 @@ instance ToQuery DeleteTrail where
 -- returns an error.
 --
 -- /See:/ 'deleteTrailResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsStatus'
 newtype DeleteTrailResponse = DeleteTrailResponse'
     { _drsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTrailResponse' smart constructor.
-deleteTrailResponse :: Int -> DeleteTrailResponse
+-- | Creates a value of 'DeleteTrailResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsStatus'
+deleteTrailResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeleteTrailResponse
 deleteTrailResponse pStatus_ =
     DeleteTrailResponse'
     { _drsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeleteTrailResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

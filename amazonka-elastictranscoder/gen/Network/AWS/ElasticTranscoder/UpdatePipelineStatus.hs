@@ -31,15 +31,15 @@
 module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     (
     -- * Creating a Request
-      UpdatePipelineStatus
-    , updatePipelineStatus
+      updatePipelineStatus
+    , UpdatePipelineStatus
     -- * Request Lenses
     , upsId
     , upsStatus
 
     -- * Destructuring the Response
-    , UpdatePipelineStatusResponse
     , updatePipelineStatusResponse
+    , UpdatePipelineStatusResponse
     -- * Response Lenses
     , upsrsPipeline
     , upsrsStatus
@@ -51,22 +51,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @UpdatePipelineStatusRequest@ structure.
+-- | The 'UpdatePipelineStatusRequest' structure.
 --
 -- /See:/ 'updatePipelineStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'upsId'
---
--- * 'upsStatus'
 data UpdatePipelineStatus = UpdatePipelineStatus'
     { _upsId     :: !Text
     , _upsStatus :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdatePipelineStatus' smart constructor.
-updatePipelineStatus :: Text -> Text -> UpdatePipelineStatus
+-- | Creates a value of 'UpdatePipelineStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'upsId'
+--
+-- * 'upsStatus'
+updatePipelineStatus
+    :: Text -- ^ 'upsId'
+    -> Text -- ^ 'upsStatus'
+    -> UpdatePipelineStatus
 updatePipelineStatus pId_ pStatus_ =
     UpdatePipelineStatus'
     { _upsId = pId_
@@ -79,8 +82,8 @@ upsId = lens _upsId (\ s a -> s{_upsId = a});
 
 -- | The desired status of the pipeline:
 --
--- -   @Active@: The pipeline is processing jobs.
--- -   @Paused@: The pipeline is not currently processing jobs.
+-- -   'Active': The pipeline is processing jobs.
+-- -   'Paused': The pipeline is not currently processing jobs.
 upsStatus :: Lens' UpdatePipelineStatus Text
 upsStatus = lens _upsStatus (\ s a -> s{_upsStatus = a});
 
@@ -114,19 +117,21 @@ instance ToQuery UpdatePipelineStatus where
 -- values that you specified in the request.
 --
 -- /See:/ 'updatePipelineStatusResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'upsrsPipeline'
---
--- * 'upsrsStatus'
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
     { _upsrsPipeline :: !(Maybe Pipeline)
     , _upsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdatePipelineStatusResponse' smart constructor.
-updatePipelineStatusResponse :: Int -> UpdatePipelineStatusResponse
+-- | Creates a value of 'UpdatePipelineStatusResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'upsrsPipeline'
+--
+-- * 'upsrsStatus'
+updatePipelineStatusResponse
+    :: Int -- ^ 'upsrsStatus'
+    -> UpdatePipelineStatusResponse
 updatePipelineStatusResponse pStatus_ =
     UpdatePipelineStatusResponse'
     { _upsrsPipeline = Nothing
@@ -138,6 +143,6 @@ updatePipelineStatusResponse pStatus_ =
 upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
 upsrsPipeline = lens _upsrsPipeline (\ s a -> s{_upsrsPipeline = a});
 
--- | Undocumented member.
+-- | The response status code.
 upsrsStatus :: Lens' UpdatePipelineStatusResponse Int
 upsrsStatus = lens _upsrsStatus (\ s a -> s{_upsrsStatus = a});

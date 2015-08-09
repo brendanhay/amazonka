@@ -73,11 +73,9 @@ module Network.AWS.SWF
 
     -- ** ListActivityTypes (Paginated)
     , module Network.AWS.SWF.ListActivityTypes
-    -- $pager
 
     -- ** ListOpenWorkflowExecutions (Paginated)
     , module Network.AWS.SWF.ListOpenWorkflowExecutions
-    -- $pager
 
     -- ** RegisterActivityType
     , module Network.AWS.SWF.RegisterActivityType
@@ -93,7 +91,6 @@ module Network.AWS.SWF
 
     -- ** ListWorkflowTypes (Paginated)
     , module Network.AWS.SWF.ListWorkflowTypes
-    -- $pager
 
     -- ** CountOpenWorkflowExecutions
     , module Network.AWS.SWF.CountOpenWorkflowExecutions
@@ -130,7 +127,6 @@ module Network.AWS.SWF
 
     -- ** ListClosedWorkflowExecutions (Paginated)
     , module Network.AWS.SWF.ListClosedWorkflowExecutions
-    -- $pager
 
     -- ** RecordActivityTaskHeartbeat
     , module Network.AWS.SWF.RecordActivityTaskHeartbeat
@@ -143,7 +139,6 @@ module Network.AWS.SWF
 
     -- ** GetWorkflowExecutionHistory (Paginated)
     , module Network.AWS.SWF.GetWorkflowExecutionHistory
-    -- $pager
 
     -- ** DescribeActivityType
     , module Network.AWS.SWF.DescribeActivityType
@@ -162,14 +157,12 @@ module Network.AWS.SWF
 
     -- ** ListDomains (Paginated)
     , module Network.AWS.SWF.ListDomains
-    -- $pager
 
     -- ** StartWorkflowExecution
     , module Network.AWS.SWF.StartWorkflowExecution
 
     -- ** PollForDecisionTask (Paginated)
     , module Network.AWS.SWF.PollForDecisionTask
-    -- $pager
 
     -- * Types
 
@@ -1079,8 +1072,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

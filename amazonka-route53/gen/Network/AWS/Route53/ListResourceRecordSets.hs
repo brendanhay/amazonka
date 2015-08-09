@@ -62,11 +62,13 @@
 -- ListResourceRecordSets by that process.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListResourceRecordSets.html AWS API Reference> for ListResourceRecordSets.
+--
+-- This operation returns paginated results.
 module Network.AWS.Route53.ListResourceRecordSets
     (
     -- * Creating a Request
-      ListResourceRecordSets
-    , listResourceRecordSets
+      listResourceRecordSets
+    , ListResourceRecordSets
     -- * Request Lenses
     , lrrsStartRecordName
     , lrrsStartRecordType
@@ -75,8 +77,8 @@ module Network.AWS.Route53.ListResourceRecordSets
     , lrrsHostedZoneId
 
     -- * Destructuring the Response
-    , ListResourceRecordSetsResponse
     , listResourceRecordSetsResponse
+    , ListResourceRecordSetsResponse
     -- * Response Lenses
     , lrrsrsNextRecordType
     , lrrsrsNextRecordName
@@ -97,8 +99,17 @@ import           Network.AWS.Route53.Types.Product
 -- | The input for a ListResourceRecordSets request.
 --
 -- /See:/ 'listResourceRecordSets' smart constructor.
+data ListResourceRecordSets = ListResourceRecordSets'
+    { _lrrsStartRecordName       :: !(Maybe Text)
+    , _lrrsStartRecordType       :: !(Maybe RecordType)
+    , _lrrsStartRecordIdentifier :: !(Maybe Text)
+    , _lrrsMaxItems              :: !(Maybe Text)
+    , _lrrsHostedZoneId          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListResourceRecordSets' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lrrsStartRecordName'
 --
@@ -109,16 +120,9 @@ import           Network.AWS.Route53.Types.Product
 -- * 'lrrsMaxItems'
 --
 -- * 'lrrsHostedZoneId'
-data ListResourceRecordSets = ListResourceRecordSets'
-    { _lrrsStartRecordName       :: !(Maybe Text)
-    , _lrrsStartRecordType       :: !(Maybe RecordType)
-    , _lrrsStartRecordIdentifier :: !(Maybe Text)
-    , _lrrsMaxItems              :: !(Maybe Text)
-    , _lrrsHostedZoneId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListResourceRecordSets' smart constructor.
-listResourceRecordSets :: Text -> ListResourceRecordSets
+listResourceRecordSets
+    :: Text -- ^ 'lrrsHostedZoneId'
+    -> ListResourceRecordSets
 listResourceRecordSets pHostedZoneId_ =
     ListResourceRecordSets'
     { _lrrsStartRecordName = Nothing
@@ -129,29 +133,29 @@ listResourceRecordSets pHostedZoneId_ =
     }
 
 -- | The first name in the lexicographic ordering of domain names that you
--- want the @ListResourceRecordSets@ request to list.
+-- want the 'ListResourceRecordSets' request to list.
 lrrsStartRecordName :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsStartRecordName = lens _lrrsStartRecordName (\ s a -> s{_lrrsStartRecordName = a});
 
 -- | The DNS type at which to begin the listing of resource record sets.
 --
--- Valid values: @A@ | @AAAA@ | @CNAME@ | @MX@ | @NS@ | @PTR@ | @SOA@ |
--- @SPF@ | @SRV@ | @TXT@
+-- Valid values: 'A' | 'AAAA' | 'CNAME' | 'MX' | 'NS' | 'PTR' | 'SOA' |
+-- 'SPF' | 'SRV' | 'TXT'
 --
--- Values for Weighted Resource Record Sets: @A@ | @AAAA@ | @CNAME@ | @TXT@
+-- Values for Weighted Resource Record Sets: 'A' | 'AAAA' | 'CNAME' | 'TXT'
 --
--- Values for Regional Resource Record Sets: @A@ | @AAAA@ | @CNAME@ | @TXT@
+-- Values for Regional Resource Record Sets: 'A' | 'AAAA' | 'CNAME' | 'TXT'
 --
--- Values for Alias Resource Record Sets: @A@ | @AAAA@
+-- Values for Alias Resource Record Sets: 'A' | 'AAAA'
 --
--- Constraint: Specifying @type@ without specifying @name@ returns an
+-- Constraint: Specifying 'type' without specifying 'name' returns an
 -- InvalidInput error.
 lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsStartRecordType = lens _lrrsStartRecordType (\ s a -> s{_lrrsStartRecordType = a});
 
 -- | /Weighted resource record sets only:/ If results were truncated for a
 -- given DNS name and type, specify the value of
--- @ListResourceRecordSetsResponse$NextRecordIdentifier@ from the previous
+-- 'ListResourceRecordSetsResponse$NextRecordIdentifier' from the previous
 -- response to get the next resource record set that has the current DNS
 -- name and type.
 lrrsStartRecordIdentifier :: Lens' ListResourceRecordSets (Maybe Text)
@@ -220,8 +224,19 @@ instance ToQuery ListResourceRecordSets where
 -- that are returned by the request and information about the response.
 --
 -- /See:/ 'listResourceRecordSetsResponse' smart constructor.
+data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
+    { _lrrsrsNextRecordType       :: !(Maybe RecordType)
+    , _lrrsrsNextRecordName       :: !(Maybe Text)
+    , _lrrsrsNextRecordIdentifier :: !(Maybe Text)
+    , _lrrsrsStatus               :: !Int
+    , _lrrsrsResourceRecordSets   :: ![ResourceRecordSet]
+    , _lrrsrsIsTruncated          :: !Bool
+    , _lrrsrsMaxItems             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListResourceRecordSetsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lrrsrsNextRecordType'
 --
@@ -236,18 +251,11 @@ instance ToQuery ListResourceRecordSets where
 -- * 'lrrsrsIsTruncated'
 --
 -- * 'lrrsrsMaxItems'
-data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
-    { _lrrsrsNextRecordType       :: !(Maybe RecordType)
-    , _lrrsrsNextRecordName       :: !(Maybe Text)
-    , _lrrsrsNextRecordIdentifier :: !(Maybe Text)
-    , _lrrsrsStatus               :: !Int
-    , _lrrsrsResourceRecordSets   :: ![ResourceRecordSet]
-    , _lrrsrsIsTruncated          :: !Bool
-    , _lrrsrsMaxItems             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListResourceRecordSetsResponse' smart constructor.
-listResourceRecordSetsResponse :: Int -> Bool -> Text -> ListResourceRecordSetsResponse
+listResourceRecordSetsResponse
+    :: Int -- ^ 'lrrsrsStatus'
+    -> Bool -- ^ 'lrrsrsIsTruncated'
+    -> Text -- ^ 'lrrsrsMaxItems'
+    -> ListResourceRecordSetsResponse
 listResourceRecordSetsResponse pStatus_ pIsTruncated_ pMaxItems_ =
     ListResourceRecordSetsResponse'
     { _lrrsrsNextRecordType = Nothing
@@ -272,12 +280,12 @@ lrrsrsNextRecordName :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrsNextRecordName = lens _lrrsrsNextRecordName (\ s a -> s{_lrrsrsNextRecordName = a});
 
 -- | /Weighted resource record sets only:/ If results were truncated for a
--- given DNS name and type, the value of @SetIdentifier@ for the next
+-- given DNS name and type, the value of 'SetIdentifier' for the next
 -- resource record set that has the current DNS name and type.
 lrrsrsNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrsNextRecordIdentifier = lens _lrrsrsNextRecordIdentifier (\ s a -> s{_lrrsrsNextRecordIdentifier = a});
 
--- | Undocumented member.
+-- | The response status code.
 lrrsrsStatus :: Lens' ListResourceRecordSetsResponse Int
 lrrsrsStatus = lens _lrrsrsStatus (\ s a -> s{_lrrsrsStatus = a});
 
@@ -291,11 +299,11 @@ lrrsrsResourceRecordSets = lens _lrrsrsResourceRecordSets (\ s a -> s{_lrrsrsRes
 -- for the next page of results by using the
 -- ListResourceRecordSetsResponse$NextRecordName element.
 --
--- Valid Values: @true@ | @false@
+-- Valid Values: 'true' | 'false'
 lrrsrsIsTruncated :: Lens' ListResourceRecordSetsResponse Bool
 lrrsrsIsTruncated = lens _lrrsrsIsTruncated (\ s a -> s{_lrrsrsIsTruncated = a});
 
 -- | The maximum number of records you requested. The maximum value of
--- @MaxItems@ is 100.
+-- 'MaxItems' is 100.
 lrrsrsMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrsMaxItems = lens _lrrsrsMaxItems (\ s a -> s{_lrrsrsMaxItems = a});

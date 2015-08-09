@@ -26,7 +26,7 @@
 -- link the EC2-Classic instances to that VPC and then register the linked
 -- EC2-Classic instances with the load balancer in the VPC.
 --
--- Note that @RegisterInstanceWithLoadBalancer@ completes when the request
+-- Note that 'RegisterInstanceWithLoadBalancer' completes when the request
 -- has been registered. Instance registration happens shortly afterwards.
 -- To check the state of the registered instances, use
 -- DescribeLoadBalancers or DescribeInstanceHealth.
@@ -34,9 +34,9 @@
 -- After the instance is registered, it starts receiving traffic and
 -- requests from the load balancer. Any instance that is not in one of the
 -- Availability Zones registered for the load balancer is moved to the
--- @OutOfService@ state. If an Availability Zone is added to the load
+-- 'OutOfService' state. If an Availability Zone is added to the load
 -- balancer later, any instances registered with the load balancer move to
--- the @InService@ state.
+-- the 'InService' state.
 --
 -- If you stop an instance registered with a load balancer and then start
 -- it, the IP addresses associated with the instance changes. Elastic Load
@@ -54,15 +54,15 @@
 module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     (
     -- * Creating a Request
-      RegisterInstancesWithLoadBalancer
-    , registerInstancesWithLoadBalancer
+      registerInstancesWithLoadBalancer
+    , RegisterInstancesWithLoadBalancer
     -- * Request Lenses
     , riwlbLoadBalancerName
     , riwlbInstances
 
     -- * Destructuring the Response
-    , RegisterInstancesWithLoadBalancerResponse
     , registerInstancesWithLoadBalancerResponse
+    , RegisterInstancesWithLoadBalancerResponse
     -- * Response Lenses
     , riwlbrsInstances
     , riwlbrsStatus
@@ -75,19 +75,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'registerInstancesWithLoadBalancer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'riwlbLoadBalancerName'
---
--- * 'riwlbInstances'
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
     { _riwlbLoadBalancerName :: !Text
     , _riwlbInstances        :: ![Instance]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterInstancesWithLoadBalancer' smart constructor.
-registerInstancesWithLoadBalancer :: Text -> RegisterInstancesWithLoadBalancer
+-- | Creates a value of 'RegisterInstancesWithLoadBalancer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'riwlbLoadBalancerName'
+--
+-- * 'riwlbInstances'
+registerInstancesWithLoadBalancer
+    :: Text -- ^ 'riwlbLoadBalancerName'
+    -> RegisterInstancesWithLoadBalancer
 registerInstancesWithLoadBalancer pLoadBalancerName_ =
     RegisterInstancesWithLoadBalancer'
     { _riwlbLoadBalancerName = pLoadBalancerName_
@@ -136,19 +138,21 @@ instance ToQuery RegisterInstancesWithLoadBalancer
                "Instances" =: toQueryList "member" _riwlbInstances]
 
 -- | /See:/ 'registerInstancesWithLoadBalancerResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'riwlbrsInstances'
---
--- * 'riwlbrsStatus'
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
     { _riwlbrsInstances :: !(Maybe [Instance])
     , _riwlbrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterInstancesWithLoadBalancerResponse' smart constructor.
-registerInstancesWithLoadBalancerResponse :: Int -> RegisterInstancesWithLoadBalancerResponse
+-- | Creates a value of 'RegisterInstancesWithLoadBalancerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'riwlbrsInstances'
+--
+-- * 'riwlbrsStatus'
+registerInstancesWithLoadBalancerResponse
+    :: Int -- ^ 'riwlbrsStatus'
+    -> RegisterInstancesWithLoadBalancerResponse
 registerInstancesWithLoadBalancerResponse pStatus_ =
     RegisterInstancesWithLoadBalancerResponse'
     { _riwlbrsInstances = Nothing
@@ -159,6 +163,6 @@ registerInstancesWithLoadBalancerResponse pStatus_ =
 riwlbrsInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
 riwlbrsInstances = lens _riwlbrsInstances (\ s a -> s{_riwlbrsInstances = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 riwlbrsStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
 riwlbrsStatus = lens _riwlbrsStatus (\ s a -> s{_riwlbrsStatus = a});

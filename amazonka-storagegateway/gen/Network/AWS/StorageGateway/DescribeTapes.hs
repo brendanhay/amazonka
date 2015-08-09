@@ -19,15 +19,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a description of the specified Amazon Resource Name (ARN) of
--- virtual tapes. If a @TapeARN@ is not specified, returns a description of
+-- virtual tapes. If a 'TapeARN' is not specified, returns a description of
 -- all virtual tapes associated with the specified gateway.
 --
 -- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapes.html AWS API Reference> for DescribeTapes.
+--
+-- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapes
     (
     -- * Creating a Request
-      DescribeTapes
-    , describeTapes
+      describeTapes
+    , DescribeTapes
     -- * Request Lenses
     , dtMarker
     , dtLimit
@@ -35,8 +37,8 @@ module Network.AWS.StorageGateway.DescribeTapes
     , dtGatewayARN
 
     -- * Destructuring the Response
-    , DescribeTapesResponse
     , describeTapesResponse
+    , DescribeTapesResponse
     -- * Response Lenses
     , dtsrsMarker
     , dtsrsTapes
@@ -53,8 +55,16 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | DescribeTapesInput
 --
 -- /See:/ 'describeTapes' smart constructor.
+data DescribeTapes = DescribeTapes'
+    { _dtMarker     :: !(Maybe Text)
+    , _dtLimit      :: !(Maybe Nat)
+    , _dtTapeARNs   :: !(Maybe [Text])
+    , _dtGatewayARN :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeTapes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dtMarker'
 --
@@ -63,15 +73,9 @@ import           Network.AWS.StorageGateway.Types.Product
 -- * 'dtTapeARNs'
 --
 -- * 'dtGatewayARN'
-data DescribeTapes = DescribeTapes'
-    { _dtMarker     :: !(Maybe Text)
-    , _dtLimit      :: !(Maybe Nat)
-    , _dtTapeARNs   :: !(Maybe [Text])
-    , _dtGatewayARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeTapes' smart constructor.
-describeTapes :: Text -> DescribeTapes
+describeTapes
+    :: Text -- ^ 'dtGatewayARN'
+    -> DescribeTapes
 describeTapes pGatewayARN_ =
     DescribeTapes'
     { _dtMarker = Nothing
@@ -80,7 +84,7 @@ describeTapes pGatewayARN_ =
     , _dtGatewayARN = pGatewayARN_
     }
 
--- | A marker value, obtained in a previous call to @DescribeTapes@. This
+-- | A marker value, obtained in a previous call to 'DescribeTapes'. This
 -- marker indicates which page of results to retrieve.
 --
 -- If not specified, the first page of results is retrieved.
@@ -149,22 +153,24 @@ instance ToQuery DescribeTapes where
 -- | DescribeTapesOutput
 --
 -- /See:/ 'describeTapesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtsrsMarker'
---
--- * 'dtsrsTapes'
---
--- * 'dtsrsStatus'
 data DescribeTapesResponse = DescribeTapesResponse'
     { _dtsrsMarker :: !(Maybe Text)
     , _dtsrsTapes  :: !(Maybe [Tape])
     , _dtsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTapesResponse' smart constructor.
-describeTapesResponse :: Int -> DescribeTapesResponse
+-- | Creates a value of 'DescribeTapesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtsrsMarker'
+--
+-- * 'dtsrsTapes'
+--
+-- * 'dtsrsStatus'
+describeTapesResponse
+    :: Int -- ^ 'dtsrsStatus'
+    -> DescribeTapesResponse
 describeTapesResponse pStatus_ =
     DescribeTapesResponse'
     { _dtsrsMarker = Nothing
@@ -184,6 +190,6 @@ dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a});
 dtsrsTapes :: Lens' DescribeTapesResponse [Tape]
 dtsrsTapes = lens _dtsrsTapes (\ s a -> s{_dtsrsTapes = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dtsrsStatus :: Lens' DescribeTapesResponse Int
 dtsrsStatus = lens _dtsrsStatus (\ s a -> s{_dtsrsStatus = a});

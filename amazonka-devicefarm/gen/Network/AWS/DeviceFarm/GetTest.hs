@@ -24,14 +24,14 @@
 module Network.AWS.DeviceFarm.GetTest
     (
     -- * Creating a Request
-      GetTest
-    , getTest
+      getTest
+    , GetTest
     -- * Request Lenses
     , gtArn
 
     -- * Destructuring the Response
-    , GetTestResponse
     , getTestResponse
+    , GetTestResponse
     -- * Response Lenses
     , gtrsTest
     , gtrsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents a request to the get test operation.
 --
 -- /See:/ 'getTest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gtArn'
 newtype GetTest = GetTest'
     { _gtArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetTest' smart constructor.
-getTest :: Text -> GetTest
+-- | Creates a value of 'GetTest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtArn'
+getTest
+    :: Text -- ^ 'gtArn'
+    -> GetTest
 getTest pArn_ =
     GetTest'
     { _gtArn = pArn_
@@ -96,19 +98,21 @@ instance ToQuery GetTest where
 -- | Represents the result of a get test request.
 --
 -- /See:/ 'getTestResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gtrsTest'
---
--- * 'gtrsStatus'
 data GetTestResponse = GetTestResponse'
     { _gtrsTest   :: !(Maybe Test)
     , _gtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetTestResponse' smart constructor.
-getTestResponse :: Int -> GetTestResponse
+-- | Creates a value of 'GetTestResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtrsTest'
+--
+-- * 'gtrsStatus'
+getTestResponse
+    :: Int -- ^ 'gtrsStatus'
+    -> GetTestResponse
 getTestResponse pStatus_ =
     GetTestResponse'
     { _gtrsTest = Nothing
@@ -119,6 +123,6 @@ getTestResponse pStatus_ =
 gtrsTest :: Lens' GetTestResponse (Maybe Test)
 gtrsTest = lens _gtrsTest (\ s a -> s{_gtrsTest = a});
 
--- | Undocumented member.
+-- | The response status code.
 gtrsStatus :: Lens' GetTestResponse Int
 gtrsStatus = lens _gtrsStatus (\ s a -> s{_gtrsStatus = a});

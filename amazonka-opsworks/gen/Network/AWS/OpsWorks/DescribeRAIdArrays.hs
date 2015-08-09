@@ -32,16 +32,16 @@
 module Network.AWS.OpsWorks.DescribeRAIdArrays
     (
     -- * Creating a Request
-      DescribeRAIdArrays
-    , describeRAIdArrays
+      describeRAIdArrays
+    , DescribeRAIdArrays
     -- * Request Lenses
     , draiaInstanceId
     , draiaRAIdArrayIds
     , draiaStackId
 
     -- * Destructuring the Response
-    , DescribeRAIdArraysResponse
     , describeRAIdArraysResponse
+    , DescribeRAIdArraysResponse
     -- * Response Lenses
     , draiarsRAIdArrays
     , draiarsStatus
@@ -54,22 +54,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeRAIdArrays' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'draiaInstanceId'
---
--- * 'draiaRAIdArrayIds'
---
--- * 'draiaStackId'
 data DescribeRAIdArrays = DescribeRAIdArrays'
     { _draiaInstanceId   :: !(Maybe Text)
     , _draiaRAIdArrayIds :: !(Maybe [Text])
     , _draiaStackId      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeRAIdArrays' smart constructor.
-describeRAIdArrays :: DescribeRAIdArrays
+-- | Creates a value of 'DescribeRAIdArrays' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'draiaInstanceId'
+--
+-- * 'draiaRAIdArrayIds'
+--
+-- * 'draiaStackId'
+describeRAIdArrays
+    :: DescribeRAIdArrays
 describeRAIdArrays =
     DescribeRAIdArrays'
     { _draiaInstanceId = Nothing
@@ -77,13 +78,13 @@ describeRAIdArrays =
     , _draiaStackId = Nothing
     }
 
--- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
+-- | The instance ID. If you use this parameter, 'DescribeRaidArrays' returns
 -- descriptions of the RAID arrays associated with the specified instance.
 draiaInstanceId :: Lens' DescribeRAIdArrays (Maybe Text)
 draiaInstanceId = lens _draiaInstanceId (\ s a -> s{_draiaInstanceId = a});
 
 -- | An array of RAID array IDs. If you use this parameter,
--- @DescribeRaidArrays@ returns descriptions of the specified arrays.
+-- 'DescribeRaidArrays' returns descriptions of the specified arrays.
 -- Otherwise, it returns a description of every array.
 draiaRAIdArrayIds :: Lens' DescribeRAIdArrays [Text]
 draiaRAIdArrayIds = lens _draiaRAIdArrayIds (\ s a -> s{_draiaRAIdArrayIds = a}) . _Default . _Coerce;
@@ -127,32 +128,34 @@ instance ToPath DescribeRAIdArrays where
 instance ToQuery DescribeRAIdArrays where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeRaidArrays@ request.
+-- | Contains the response to a 'DescribeRaidArrays' request.
 --
 -- /See:/ 'describeRAIdArraysResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'draiarsRAIdArrays'
---
--- * 'draiarsStatus'
 data DescribeRAIdArraysResponse = DescribeRAIdArraysResponse'
     { _draiarsRAIdArrays :: !(Maybe [RAIdArray])
     , _draiarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeRAIdArraysResponse' smart constructor.
-describeRAIdArraysResponse :: Int -> DescribeRAIdArraysResponse
+-- | Creates a value of 'DescribeRAIdArraysResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'draiarsRAIdArrays'
+--
+-- * 'draiarsStatus'
+describeRAIdArraysResponse
+    :: Int -- ^ 'draiarsStatus'
+    -> DescribeRAIdArraysResponse
 describeRAIdArraysResponse pStatus_ =
     DescribeRAIdArraysResponse'
     { _draiarsRAIdArrays = Nothing
     , _draiarsStatus = pStatus_
     }
 
--- | A @RaidArrays@ object that describes the specified RAID arrays.
+-- | A 'RaidArrays' object that describes the specified RAID arrays.
 draiarsRAIdArrays :: Lens' DescribeRAIdArraysResponse [RAIdArray]
 draiarsRAIdArrays = lens _draiarsRAIdArrays (\ s a -> s{_draiarsRAIdArrays = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 draiarsStatus :: Lens' DescribeRAIdArraysResponse Int
 draiarsStatus = lens _draiarsStatus (\ s a -> s{_draiarsStatus = a});

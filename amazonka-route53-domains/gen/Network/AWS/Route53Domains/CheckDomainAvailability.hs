@@ -27,15 +27,15 @@
 module Network.AWS.Route53Domains.CheckDomainAvailability
     (
     -- * Creating a Request
-      CheckDomainAvailability
-    , checkDomainAvailability
+      checkDomainAvailability
+    , CheckDomainAvailability
     -- * Request Lenses
     , cdaIdNLangCode
     , cdaDomainName
 
     -- * Destructuring the Response
-    , CheckDomainAvailabilityResponse
     , checkDomainAvailabilityResponse
+    , CheckDomainAvailabilityResponse
     -- * Response Lenses
     , cdarsStatus
     , cdarsAvailability
@@ -50,19 +50,21 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The CheckDomainAvailability request contains the following elements.
 --
 -- /See:/ 'checkDomainAvailability' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdaIdNLangCode'
---
--- * 'cdaDomainName'
 data CheckDomainAvailability = CheckDomainAvailability'
     { _cdaIdNLangCode :: !(Maybe Text)
     , _cdaDomainName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CheckDomainAvailability' smart constructor.
-checkDomainAvailability :: Text -> CheckDomainAvailability
+-- | Creates a value of 'CheckDomainAvailability' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdaIdNLangCode'
+--
+-- * 'cdaDomainName'
+checkDomainAvailability
+    :: Text -- ^ 'cdaDomainName'
+    -> CheckDomainAvailability
 checkDomainAvailability pDomainName_ =
     CheckDomainAvailability'
     { _cdaIdNLangCode = Nothing
@@ -123,48 +125,51 @@ instance ToQuery CheckDomainAvailability where
 -- | The CheckDomainAvailability response includes the following elements.
 --
 -- /See:/ 'checkDomainAvailabilityResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdarsStatus'
---
--- * 'cdarsAvailability'
 data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
     { _cdarsStatus       :: !Int
     , _cdarsAvailability :: !DomainAvailability
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CheckDomainAvailabilityResponse' smart constructor.
-checkDomainAvailabilityResponse :: Int -> DomainAvailability -> CheckDomainAvailabilityResponse
+-- | Creates a value of 'CheckDomainAvailabilityResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdarsStatus'
+--
+-- * 'cdarsAvailability'
+checkDomainAvailabilityResponse
+    :: Int -- ^ 'cdarsStatus'
+    -> DomainAvailability -- ^ 'cdarsAvailability'
+    -> CheckDomainAvailabilityResponse
 checkDomainAvailabilityResponse pStatus_ pAvailability_ =
     CheckDomainAvailabilityResponse'
     { _cdarsStatus = pStatus_
     , _cdarsAvailability = pAvailability_
     }
 
--- | Undocumented member.
+-- | The response status code.
 cdarsStatus :: Lens' CheckDomainAvailabilityResponse Int
 cdarsStatus = lens _cdarsStatus (\ s a -> s{_cdarsStatus = a});
 
 -- | Whether the domain name is available for registering.
 --
--- You can only register domains designated as @AVAILABLE@.
+-- You can only register domains designated as 'AVAILABLE'.
 --
 -- Type: String
 --
 -- Valid values:
 --
--- -   @AVAILABLE@ – The domain name is available.
--- -   @AVAILABLE_RESERVED@ – The domain name is reserved under specific
+-- -   'AVAILABLE' – The domain name is available.
+-- -   'AVAILABLE_RESERVED' – The domain name is reserved under specific
 --     conditions.
--- -   @AVAILABLE_PREORDER@ – The domain name is available and can be
+-- -   'AVAILABLE_PREORDER' – The domain name is available and can be
 --     preordered.
--- -   @UNAVAILABLE@ – The domain name is not available.
--- -   @UNAVAILABLE_PREMIUM@ – The domain name is not available.
--- -   @UNAVAILABLE_RESTRICTED@ – The domain name is forbidden.
--- -   @RESERVED@ – The domain name has been reserved for another person or
+-- -   'UNAVAILABLE' – The domain name is not available.
+-- -   'UNAVAILABLE_PREMIUM' – The domain name is not available.
+-- -   'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.
+-- -   'RESERVED' – The domain name has been reserved for another person or
 --     organization.
--- -   @DONT_KNOW@ – The TLD registry didn\'t reply with a definitive
+-- -   'DONT_KNOW' – The TLD registry didn\'t reply with a definitive
 --     answer about whether the domain name is available. Amazon Route 53
 --     can return this response for a variety of reasons, for example, the
 --     registry is performing maintenance. Try again later.

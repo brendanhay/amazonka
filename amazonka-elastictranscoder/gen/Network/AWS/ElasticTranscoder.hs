@@ -59,7 +59,6 @@ module Network.AWS.ElasticTranscoder
 
     -- ** ListJobsByPipeline (Paginated)
     , module Network.AWS.ElasticTranscoder.ListJobsByPipeline
-    -- $pager
 
     -- ** UpdatePipelineStatus
     , module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
@@ -78,14 +77,12 @@ module Network.AWS.ElasticTranscoder
 
     -- ** ListPipelines (Paginated)
     , module Network.AWS.ElasticTranscoder.ListPipelines
-    -- $pager
 
     -- ** CreatePreset
     , module Network.AWS.ElasticTranscoder.CreatePreset
 
     -- ** ListPresets (Paginated)
     , module Network.AWS.ElasticTranscoder.ListPresets
-    -- $pager
 
     -- ** ReadPreset
     , module Network.AWS.ElasticTranscoder.ReadPreset
@@ -104,7 +101,6 @@ module Network.AWS.ElasticTranscoder
 
     -- ** ListJobsByStatus (Paginated)
     , module Network.AWS.ElasticTranscoder.ListJobsByStatus
-    -- $pager
 
     -- ** CancelJob
     , module Network.AWS.ElasticTranscoder.CancelJob
@@ -468,8 +464,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

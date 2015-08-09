@@ -23,11 +23,11 @@
 -- policies.
 --
 -- You can filter the list of policies that is returned using the optional
--- @OnlyAttached@, @Scope@, and @PathPrefix@ parameters. For example, to
--- list only the customer managed policies in your AWS account, set @Scope@
--- to @Local@. To list only AWS managed policies, set @Scope@ to @AWS@.
+-- 'OnlyAttached', 'Scope', and 'PathPrefix' parameters. For example, to
+-- list only the customer managed policies in your AWS account, set 'Scope'
+-- to 'Local'. To list only AWS managed policies, set 'Scope' to 'AWS'.
 --
--- You can paginate the results using the @MaxItems@ and @Marker@
+-- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
 --
 -- For more information about managed policies, refer to
@@ -35,11 +35,13 @@
 -- in the /Using IAM/ guide.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicies.html AWS API Reference> for ListPolicies.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListPolicies
     (
     -- * Creating a Request
-      ListPolicies
-    , listPolicies
+      listPolicies
+    , ListPolicies
     -- * Request Lenses
     , lpPathPrefix
     , lpOnlyAttached
@@ -48,8 +50,8 @@ module Network.AWS.IAM.ListPolicies
     , lpMarker
 
     -- * Destructuring the Response
-    , ListPoliciesResponse
     , listPoliciesResponse
+    , ListPoliciesResponse
     -- * Response Lenses
     , lprsMarker
     , lprsIsTruncated
@@ -65,8 +67,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listPolicies' smart constructor.
+data ListPolicies = ListPolicies'
+    { _lpPathPrefix   :: !(Maybe Text)
+    , _lpOnlyAttached :: !(Maybe Bool)
+    , _lpScope        :: !(Maybe PolicyScopeType)
+    , _lpMaxItems     :: !(Maybe Nat)
+    , _lpMarker       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListPolicies' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lpPathPrefix'
 --
@@ -77,16 +88,8 @@ import           Network.AWS.Response
 -- * 'lpMaxItems'
 --
 -- * 'lpMarker'
-data ListPolicies = ListPolicies'
-    { _lpPathPrefix   :: !(Maybe Text)
-    , _lpOnlyAttached :: !(Maybe Bool)
-    , _lpScope        :: !(Maybe PolicyScopeType)
-    , _lpMaxItems     :: !(Maybe Nat)
-    , _lpMarker       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListPolicies' smart constructor.
-listPolicies :: ListPolicies
+listPolicies
+    :: ListPolicies
 listPolicies =
     ListPolicies'
     { _lpPathPrefix = Nothing
@@ -104,27 +107,27 @@ lpPathPrefix = lens _lpPathPrefix (\ s a -> s{_lpPathPrefix = a});
 
 -- | A flag to filter the results to only the attached policies.
 --
--- When @OnlyAttached@ is @true@, the returned list contains only the
+-- When 'OnlyAttached' is 'true', the returned list contains only the
 -- policies that are attached to a user, group, or role. When
--- @OnlyAttached@ is @false@, or when the parameter is not included, all
+-- 'OnlyAttached' is 'false', or when the parameter is not included, all
 -- policies are returned.
 lpOnlyAttached :: Lens' ListPolicies (Maybe Bool)
 lpOnlyAttached = lens _lpOnlyAttached (\ s a -> s{_lpOnlyAttached = a});
 
 -- | The scope to use for filtering the results.
 --
--- To list only AWS managed policies, set @Scope@ to @AWS@. To list only
--- the customer managed policies in your AWS account, set @Scope@ to
--- @Local@.
+-- To list only AWS managed policies, set 'Scope' to 'AWS'. To list only
+-- the customer managed policies in your AWS account, set 'Scope' to
+-- 'Local'.
 --
 -- This parameter is optional. If it is not included, or if it is set to
--- @All@, all policies are returned.
+-- 'All', all policies are returned.
 lpScope :: Lens' ListPolicies (Maybe PolicyScopeType)
 lpScope = lens _lpScope (\ s a -> s{_lpScope = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -133,7 +136,7 @@ lpMaxItems = lens _lpMaxItems (\ s a -> s{_lpMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 lpMarker :: Lens' ListPolicies (Maybe Text)
 lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
@@ -176,8 +179,16 @@ instance ToQuery ListPolicies where
 -- | Contains the response to a successful ListPolicies request.
 --
 -- /See:/ 'listPoliciesResponse' smart constructor.
+data ListPoliciesResponse = ListPoliciesResponse'
+    { _lprsMarker      :: !(Maybe Text)
+    , _lprsIsTruncated :: !(Maybe Bool)
+    , _lprsPolicies    :: !(Maybe [Policy])
+    , _lprsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListPoliciesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lprsMarker'
 --
@@ -186,15 +197,9 @@ instance ToQuery ListPolicies where
 -- * 'lprsPolicies'
 --
 -- * 'lprsStatus'
-data ListPoliciesResponse = ListPoliciesResponse'
-    { _lprsMarker      :: !(Maybe Text)
-    , _lprsIsTruncated :: !(Maybe Bool)
-    , _lprsPolicies    :: !(Maybe [Policy])
-    , _lprsStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListPoliciesResponse' smart constructor.
-listPoliciesResponse :: Int -> ListPoliciesResponse
+listPoliciesResponse
+    :: Int -- ^ 'lprsStatus'
+    -> ListPoliciesResponse
 listPoliciesResponse pStatus_ =
     ListPoliciesResponse'
     { _lprsMarker = Nothing
@@ -203,15 +208,15 @@ listPoliciesResponse pStatus_ =
     , _lprsStatus = pStatus_
     }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lprsMarker :: Lens' ListPoliciesResponse (Maybe Text)
 lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 lprsIsTruncated :: Lens' ListPoliciesResponse (Maybe Bool)
 lprsIsTruncated = lens _lprsIsTruncated (\ s a -> s{_lprsIsTruncated = a});
 
@@ -219,6 +224,6 @@ lprsIsTruncated = lens _lprsIsTruncated (\ s a -> s{_lprsIsTruncated = a});
 lprsPolicies :: Lens' ListPoliciesResponse [Policy]
 lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lprsStatus :: Lens' ListPoliciesResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

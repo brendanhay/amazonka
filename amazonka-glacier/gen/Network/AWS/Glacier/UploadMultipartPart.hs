@@ -71,8 +71,8 @@
 module Network.AWS.Glacier.UploadMultipartPart
     (
     -- * Creating a Request
-      UploadMultipartPart
-    , uploadMultipartPart
+      uploadMultipartPart
+    , UploadMultipartPart
     -- * Request Lenses
     , umpChecksum
     , umpRange
@@ -82,8 +82,8 @@ module Network.AWS.Glacier.UploadMultipartPart
     , umpBody
 
     -- * Destructuring the Response
-    , UploadMultipartPartResponse
     , uploadMultipartPartResponse
+    , UploadMultipartPartResponse
     -- * Response Lenses
     , umprsChecksum
     , umprsStatus
@@ -99,8 +99,18 @@ import           Network.AWS.Response
 -- operation.
 --
 -- /See:/ 'uploadMultipartPart' smart constructor.
+data UploadMultipartPart = UploadMultipartPart'
+    { _umpChecksum  :: !(Maybe Text)
+    , _umpRange     :: !(Maybe Text)
+    , _umpAccountId :: !Text
+    , _umpVaultName :: !Text
+    , _umpUploadId  :: !Text
+    , _umpBody      :: !RqBody
+    } deriving (Show,Generic)
+
+-- | Creates a value of 'UploadMultipartPart' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'umpChecksum'
 --
@@ -113,17 +123,12 @@ import           Network.AWS.Response
 -- * 'umpUploadId'
 --
 -- * 'umpBody'
-data UploadMultipartPart = UploadMultipartPart'
-    { _umpChecksum  :: !(Maybe Text)
-    , _umpRange     :: !(Maybe Text)
-    , _umpAccountId :: !Text
-    , _umpVaultName :: !Text
-    , _umpUploadId  :: !Text
-    , _umpBody      :: !RqBody
-    } deriving (Show,Generic)
-
--- | 'UploadMultipartPart' smart constructor.
-uploadMultipartPart :: Text -> Text -> Text -> RqBody -> UploadMultipartPart
+uploadMultipartPart
+    :: Text -- ^ 'umpAccountId'
+    -> Text -- ^ 'umpVaultName'
+    -> Text -- ^ 'umpUploadId'
+    -> RqBody -- ^ 'umpBody'
+    -> UploadMultipartPart
 uploadMultipartPart pAccountId_ pVaultName_ pUploadId_ pBody_ =
     UploadMultipartPart'
     { _umpChecksum = Nothing
@@ -145,9 +150,9 @@ umpChecksum = lens _umpChecksum (\ s a -> s{_umpChecksum = a});
 umpRange :: Lens' UploadMultipartPart (Maybe Text)
 umpRange = lens _umpRange (\ s a -> s{_umpRange = a});
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 umpAccountId :: Lens' UploadMultipartPart Text
@@ -199,19 +204,21 @@ instance ToQuery UploadMultipartPart where
 -- | Contains the Amazon Glacier response to your request.
 --
 -- /See:/ 'uploadMultipartPartResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'umprsChecksum'
---
--- * 'umprsStatus'
 data UploadMultipartPartResponse = UploadMultipartPartResponse'
     { _umprsChecksum :: !(Maybe Text)
     , _umprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UploadMultipartPartResponse' smart constructor.
-uploadMultipartPartResponse :: Int -> UploadMultipartPartResponse
+-- | Creates a value of 'UploadMultipartPartResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'umprsChecksum'
+--
+-- * 'umprsStatus'
+uploadMultipartPartResponse
+    :: Int -- ^ 'umprsStatus'
+    -> UploadMultipartPartResponse
 uploadMultipartPartResponse pStatus_ =
     UploadMultipartPartResponse'
     { _umprsChecksum = Nothing
@@ -222,6 +229,6 @@ uploadMultipartPartResponse pStatus_ =
 umprsChecksum :: Lens' UploadMultipartPartResponse (Maybe Text)
 umprsChecksum = lens _umprsChecksum (\ s a -> s{_umprsChecksum = a});
 
--- | Undocumented member.
+-- | The response status code.
 umprsStatus :: Lens' UploadMultipartPartResponse Int
 umprsStatus = lens _umprsStatus (\ s a -> s{_umprsStatus = a});

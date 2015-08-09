@@ -209,7 +209,7 @@ _DescribeAttachmentLimitExceeded :: AsError a => Getting (First ServiceError) a 
 _DescribeAttachmentLimitExceeded =
     _ServiceError . hasCode "DescribeAttachmentLimitExceeded"
 
--- | The requested @CaseId@ could not be located.
+-- | The requested 'CaseId' could not be located.
 _CaseIdNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _CaseIdNotFound = _ServiceError . hasCode "CaseIdNotFound"
 

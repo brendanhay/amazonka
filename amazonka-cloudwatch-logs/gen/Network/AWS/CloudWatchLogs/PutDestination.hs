@@ -18,34 +18,34 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates or updates a @Destination@. A destination encapsulates a
+-- Creates or updates a 'Destination'. A destination encapsulates a
 -- physical resource (such as a Kinesis stream) and allows you to subscribe
 -- to a real-time stream of log events of a different account, ingested
--- through @PutLogEvents@ requests. Currently, the only supported physical
+-- through 'PutLogEvents' requests. Currently, the only supported physical
 -- resource is a Amazon Kinesis stream belonging to the same account as the
 -- destination.
 --
 -- A destination controls what is written to its Amazon Kinesis stream
 -- through an access policy. By default, PutDestination does not set any
 -- access policy with the destination, which means a cross-account user
--- will not be able to call @PutSubscriptionFilter@ against this
+-- will not be able to call 'PutSubscriptionFilter' against this
 -- destination. To enable that, the destination owner must call
--- @PutDestinationPolicy@ after PutDestination.
+-- 'PutDestinationPolicy' after PutDestination.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html AWS API Reference> for PutDestination.
 module Network.AWS.CloudWatchLogs.PutDestination
     (
     -- * Creating a Request
-      PutDestination
-    , putDestination
+      putDestination
+    , PutDestination
     -- * Request Lenses
     , pdDestinationName
     , pdTargetARN
     , pdRoleARN
 
     -- * Destructuring the Response
-    , PutDestinationResponse
     , putDestinationResponse
+    , PutDestinationResponse
     -- * Response Lenses
     , pdrsDestination
     , pdrsStatus
@@ -58,22 +58,26 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putDestination' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pdDestinationName'
---
--- * 'pdTargetARN'
---
--- * 'pdRoleARN'
 data PutDestination = PutDestination'
     { _pdDestinationName :: !Text
     , _pdTargetARN       :: !Text
     , _pdRoleARN         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutDestination' smart constructor.
-putDestination :: Text -> Text -> Text -> PutDestination
+-- | Creates a value of 'PutDestination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pdDestinationName'
+--
+-- * 'pdTargetARN'
+--
+-- * 'pdRoleARN'
+putDestination
+    :: Text -- ^ 'pdDestinationName'
+    -> Text -- ^ 'pdTargetARN'
+    -> Text -- ^ 'pdRoleARN'
+    -> PutDestination
 putDestination pDestinationName_ pTargetARN_ pRoleARN_ =
     PutDestination'
     { _pdDestinationName = pDestinationName_
@@ -126,19 +130,21 @@ instance ToQuery PutDestination where
         toQuery = const mempty
 
 -- | /See:/ 'putDestinationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pdrsDestination'
---
--- * 'pdrsStatus'
 data PutDestinationResponse = PutDestinationResponse'
     { _pdrsDestination :: !(Maybe Destination)
     , _pdrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutDestinationResponse' smart constructor.
-putDestinationResponse :: Int -> PutDestinationResponse
+-- | Creates a value of 'PutDestinationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pdrsDestination'
+--
+-- * 'pdrsStatus'
+putDestinationResponse
+    :: Int -- ^ 'pdrsStatus'
+    -> PutDestinationResponse
 putDestinationResponse pStatus_ =
     PutDestinationResponse'
     { _pdrsDestination = Nothing
@@ -149,6 +155,6 @@ putDestinationResponse pStatus_ =
 pdrsDestination :: Lens' PutDestinationResponse (Maybe Destination)
 pdrsDestination = lens _pdrsDestination (\ s a -> s{_pdrsDestination = a});
 
--- | Undocumented member.
+-- | The response status code.
 pdrsStatus :: Lens' PutDestinationResponse Int
 pdrsStatus = lens _pdrsStatus (\ s a -> s{_pdrsStatus = a});

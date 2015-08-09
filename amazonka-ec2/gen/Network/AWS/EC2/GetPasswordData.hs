@@ -21,11 +21,11 @@
 -- Retrieves the encrypted administrator password for an instance running
 -- Windows.
 --
--- The Windows password is generated at boot if the @EC2Config@ service
--- plugin, @Ec2SetPassword@, is enabled. This usually only happens the
--- first time an AMI is launched, and then @Ec2SetPassword@ is
+-- The Windows password is generated at boot if the 'EC2Config' service
+-- plugin, 'Ec2SetPassword', is enabled. This usually only happens the
+-- first time an AMI is launched, and then 'Ec2SetPassword' is
 -- automatically disabled. The password is not generated for rebundled AMIs
--- unless @Ec2SetPassword@ is enabled before bundling.
+-- unless 'Ec2SetPassword' is enabled before bundling.
 --
 -- The password is encrypted using the key pair that you specified when you
 -- launched the instance. You must provide the corresponding key pair file.
@@ -38,15 +38,15 @@
 module Network.AWS.EC2.GetPasswordData
     (
     -- * Creating a Request
-      GetPasswordData
-    , getPasswordData
+      getPasswordData
+    , GetPasswordData
     -- * Request Lenses
     , gpdDryRun
     , gpdInstanceId
 
     -- * Destructuring the Response
-    , GetPasswordDataResponse
     , getPasswordDataResponse
+    , GetPasswordDataResponse
     -- * Response Lenses
     , gpdrsStatus
     , gpdrsInstanceId
@@ -61,19 +61,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getPasswordData' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gpdDryRun'
---
--- * 'gpdInstanceId'
 data GetPasswordData = GetPasswordData'
     { _gpdDryRun     :: !(Maybe Bool)
     , _gpdInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPasswordData' smart constructor.
-getPasswordData :: Text -> GetPasswordData
+-- | Creates a value of 'GetPasswordData' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpdDryRun'
+--
+-- * 'gpdInstanceId'
+getPasswordData
+    :: Text -- ^ 'gpdInstanceId'
+    -> GetPasswordData
 getPasswordData pInstanceId_ =
     GetPasswordData'
     { _gpdDryRun = Nothing
@@ -82,8 +84,8 @@ getPasswordData pInstanceId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 gpdDryRun :: Lens' GetPasswordData (Maybe Bool)
 gpdDryRun = lens _gpdDryRun (\ s a -> s{_gpdDryRun = a});
 
@@ -118,8 +120,16 @@ instance ToQuery GetPasswordData where
                "InstanceId" =: _gpdInstanceId]
 
 -- | /See:/ 'getPasswordDataResponse' smart constructor.
+data GetPasswordDataResponse = GetPasswordDataResponse'
+    { _gpdrsStatus       :: !Int
+    , _gpdrsInstanceId   :: !Text
+    , _gpdrsPasswordData :: !Text
+    , _gpdrsTimestamp    :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetPasswordDataResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gpdrsStatus'
 --
@@ -128,15 +138,12 @@ instance ToQuery GetPasswordData where
 -- * 'gpdrsPasswordData'
 --
 -- * 'gpdrsTimestamp'
-data GetPasswordDataResponse = GetPasswordDataResponse'
-    { _gpdrsStatus       :: !Int
-    , _gpdrsInstanceId   :: !Text
-    , _gpdrsPasswordData :: !Text
-    , _gpdrsTimestamp    :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetPasswordDataResponse' smart constructor.
-getPasswordDataResponse :: Int -> Text -> Text -> UTCTime -> GetPasswordDataResponse
+getPasswordDataResponse
+    :: Int -- ^ 'gpdrsStatus'
+    -> Text -- ^ 'gpdrsInstanceId'
+    -> Text -- ^ 'gpdrsPasswordData'
+    -> UTCTime -- ^ 'gpdrsTimestamp'
+    -> GetPasswordDataResponse
 getPasswordDataResponse pStatus_ pInstanceId_ pPasswordData_ pTimestamp_ =
     GetPasswordDataResponse'
     { _gpdrsStatus = pStatus_
@@ -145,7 +152,7 @@ getPasswordDataResponse pStatus_ pInstanceId_ pPasswordData_ pTimestamp_ =
     , _gpdrsTimestamp = _Time # pTimestamp_
     }
 
--- | Undocumented member.
+-- | The response status code.
 gpdrsStatus :: Lens' GetPasswordDataResponse Int
 gpdrsStatus = lens _gpdrsStatus (\ s a -> s{_gpdrsStatus = a});
 

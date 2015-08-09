@@ -26,19 +26,20 @@ import           Network.AWS.SES.Types.Sum
 -- variety of email clients.
 --
 -- /See:/ 'body' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bText'
---
--- * 'bHTML'
 data Body = Body'
     { _bText :: !(Maybe Content)
     , _bHTML :: !(Maybe Content)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Body' smart constructor.
-body :: Body
+-- | Creates a value of 'Body' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bText'
+--
+-- * 'bHTML'
+body
+    :: Body
 body =
     Body'
     { _bText = Nothing
@@ -69,19 +70,21 @@ instance ToQuery Body where
 -- and Shift_JIS.
 --
 -- /See:/ 'content' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cCharset'
---
--- * 'cData'
 data Content = Content'
     { _cCharset :: !(Maybe Text)
     , _cData    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Content' smart constructor.
-content :: Text -> Content
+-- | Creates a value of 'Content' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cCharset'
+--
+-- * 'cData'
+content
+    :: Text -- ^ 'cData'
+    -> Content
 content pData_ =
     Content'
     { _cCharset = Nothing
@@ -106,26 +109,27 @@ instance ToQuery Content where
 -- By default, the string must be 7-bit ASCII. If the text must contain any
 -- other characters, then you must use MIME encoded-word syntax (RFC 2047)
 -- instead of a literal string. MIME encoded-word syntax uses the following
--- form: @=?charset?encoding?encoded-text?=@. For more information, see
+-- form: '=?charset?encoding?encoded-text?='. For more information, see
 -- <http://tools.ietf.org/html/rfc2047 RFC 2047>.
 --
 -- /See:/ 'destination' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dBCCAddresses'
---
--- * 'dCCAddresses'
---
--- * 'dToAddresses'
 data Destination = Destination'
     { _dBCCAddresses :: !(Maybe [Text])
     , _dCCAddresses  :: !(Maybe [Text])
     , _dToAddresses  :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Destination' smart constructor.
-destination :: Destination
+-- | Creates a value of 'Destination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dBCCAddresses'
+--
+-- * 'dCCAddresses'
+--
+-- * 'dToAddresses'
+destination
+    :: Destination
 destination =
     Destination'
     { _dBCCAddresses = Nothing
@@ -158,22 +162,25 @@ instance ToQuery Destination where
 -- | Represents the DKIM attributes of a verified email address or a domain.
 --
 -- /See:/ 'identityDkimAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'idaDkimTokens'
---
--- * 'idaDkimEnabled'
---
--- * 'idaDkimVerificationStatus'
 data IdentityDkimAttributes = IdentityDkimAttributes'
     { _idaDkimTokens             :: !(Maybe [Text])
     , _idaDkimEnabled            :: !Bool
     , _idaDkimVerificationStatus :: !VerificationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'IdentityDkimAttributes' smart constructor.
-identityDkimAttributes :: Bool -> VerificationStatus -> IdentityDkimAttributes
+-- | Creates a value of 'IdentityDkimAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'idaDkimTokens'
+--
+-- * 'idaDkimEnabled'
+--
+-- * 'idaDkimVerificationStatus'
+identityDkimAttributes
+    :: Bool -- ^ 'idaDkimEnabled'
+    -> VerificationStatus -- ^ 'idaDkimVerificationStatus'
+    -> IdentityDkimAttributes
 identityDkimAttributes pDkimEnabled_ pDkimVerificationStatus_ =
     IdentityDkimAttributes'
     { _idaDkimTokens = Nothing
@@ -220,8 +227,16 @@ instance FromXML IdentityDkimAttributes where
 -- feedback forwarding is enabled for bounce and complaint notifications.
 --
 -- /See:/ 'identityNotificationAttributes' smart constructor.
+data IdentityNotificationAttributes = IdentityNotificationAttributes'
+    { _inaBounceTopic       :: !Text
+    , _inaComplaintTopic    :: !Text
+    , _inaDeliveryTopic     :: !Text
+    , _inaForwardingEnabled :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IdentityNotificationAttributes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'inaBounceTopic'
 --
@@ -230,15 +245,12 @@ instance FromXML IdentityDkimAttributes where
 -- * 'inaDeliveryTopic'
 --
 -- * 'inaForwardingEnabled'
-data IdentityNotificationAttributes = IdentityNotificationAttributes'
-    { _inaBounceTopic       :: !Text
-    , _inaComplaintTopic    :: !Text
-    , _inaDeliveryTopic     :: !Text
-    , _inaForwardingEnabled :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'IdentityNotificationAttributes' smart constructor.
-identityNotificationAttributes :: Text -> Text -> Text -> Bool -> IdentityNotificationAttributes
+identityNotificationAttributes
+    :: Text -- ^ 'inaBounceTopic'
+    -> Text -- ^ 'inaComplaintTopic'
+    -> Text -- ^ 'inaDeliveryTopic'
+    -> Bool -- ^ 'inaForwardingEnabled'
+    -> IdentityNotificationAttributes
 identityNotificationAttributes pBounceTopic_ pComplaintTopic_ pDeliveryTopic_ pForwardingEnabled_ =
     IdentityNotificationAttributes'
     { _inaBounceTopic = pBounceTopic_
@@ -263,8 +275,8 @@ inaDeliveryTopic :: Lens' IdentityNotificationAttributes Text
 inaDeliveryTopic = lens _inaDeliveryTopic (\ s a -> s{_inaDeliveryTopic = a});
 
 -- | Describes whether Amazon SES will forward bounce and complaint
--- notifications as email. @true@ indicates that Amazon SES will forward
--- bounce and complaint notifications as email, while @false@ indicates
+-- notifications as email. 'true' indicates that Amazon SES will forward
+-- bounce and complaint notifications as email, while 'false' indicates
 -- that bounce and complaint notifications will be published only to the
 -- specified bounce and complaint Amazon SNS topics.
 inaForwardingEnabled :: Lens' IdentityNotificationAttributes Bool
@@ -280,19 +292,21 @@ instance FromXML IdentityNotificationAttributes where
 -- | Represents the verification attributes of a single identity.
 --
 -- /See:/ 'identityVerificationAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ivaVerificationToken'
---
--- * 'ivaVerificationStatus'
 data IdentityVerificationAttributes = IdentityVerificationAttributes'
     { _ivaVerificationToken  :: !(Maybe Text)
     , _ivaVerificationStatus :: !VerificationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'IdentityVerificationAttributes' smart constructor.
-identityVerificationAttributes :: VerificationStatus -> IdentityVerificationAttributes
+-- | Creates a value of 'IdentityVerificationAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ivaVerificationToken'
+--
+-- * 'ivaVerificationStatus'
+identityVerificationAttributes
+    :: VerificationStatus -- ^ 'ivaVerificationStatus'
+    -> IdentityVerificationAttributes
 identityVerificationAttributes pVerificationStatus_ =
     IdentityVerificationAttributes'
     { _ivaVerificationToken = Nothing
@@ -318,19 +332,22 @@ instance FromXML IdentityVerificationAttributes where
 -- | Represents the message to be sent, composed of a subject and a body.
 --
 -- /See:/ 'message' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mSubject'
---
--- * 'mBody'
 data Message = Message'
     { _mSubject :: !Content
     , _mBody    :: !Body
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Message' smart constructor.
-message :: Content -> Body -> Message
+-- | Creates a value of 'Message' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mSubject'
+--
+-- * 'mBody'
+message
+    :: Content -- ^ 'mSubject'
+    -> Body -- ^ 'mBody'
+    -> Message
 message pSubject_ pBody_ =
     Message'
     { _mSubject = pSubject_
@@ -353,16 +370,18 @@ instance ToQuery Message where
 -- | Represents the raw data of the message.
 --
 -- /See:/ 'rawMessage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rmData'
 newtype RawMessage = RawMessage'
     { _rmData :: Base64
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RawMessage' smart constructor.
-rawMessage :: ByteString -> RawMessage
+-- | Creates a value of 'RawMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rmData'
+rawMessage
+    :: ByteString -- ^ 'rmData'
+    -> RawMessage
 rawMessage pData_ =
     RawMessage'
     { _rmData = _Base64 # pData_
@@ -375,10 +394,10 @@ rawMessage pData_ =
 -- The To:, CC:, and BCC: headers in the raw message can contain a group
 -- list.
 --
--- If you are using @SendRawEmail@ with sending authorization, you can
+-- If you are using 'SendRawEmail' with sending authorization, you can
 -- include X-headers in the raw message to specify the \"Source,\"
 -- \"From,\" and \"Return-Path\" addresses. For more information, see the
--- documentation for @SendRawEmail@.
+-- documentation for 'SendRawEmail'.
 --
 -- Do not include these X-headers in the DKIM signature, because they are
 -- removed by Amazon SES before sending the email.
@@ -391,12 +410,21 @@ rmData = lens _rmData (\ s a -> s{_rmData = a}) . _Base64;
 instance ToQuery RawMessage where
         toQuery RawMessage'{..} = mconcat ["Data" =: _rmData]
 
--- | Represents sending statistics data. Each @SendDataPoint@ contains
+-- | Represents sending statistics data. Each 'SendDataPoint' contains
 -- statistics for a 15-minute period of sending activity.
 --
 -- /See:/ 'sendDataPoint' smart constructor.
+data SendDataPoint = SendDataPoint'
+    { _sdpRejects          :: !(Maybe Integer)
+    , _sdpComplaints       :: !(Maybe Integer)
+    , _sdpDeliveryAttempts :: !(Maybe Integer)
+    , _sdpBounces          :: !(Maybe Integer)
+    , _sdpTimestamp        :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SendDataPoint' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sdpRejects'
 --
@@ -407,16 +435,8 @@ instance ToQuery RawMessage where
 -- * 'sdpBounces'
 --
 -- * 'sdpTimestamp'
-data SendDataPoint = SendDataPoint'
-    { _sdpRejects          :: !(Maybe Integer)
-    , _sdpComplaints       :: !(Maybe Integer)
-    , _sdpDeliveryAttempts :: !(Maybe Integer)
-    , _sdpBounces          :: !(Maybe Integer)
-    , _sdpTimestamp        :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SendDataPoint' smart constructor.
-sendDataPoint :: SendDataPoint
+sendDataPoint
+    :: SendDataPoint
 sendDataPoint =
     SendDataPoint'
     { _sdpRejects = Nothing

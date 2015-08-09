@@ -35,8 +35,8 @@
 module Network.AWS.Redshift.CreateClusterParameterGroup
     (
     -- * Creating a Request
-      CreateClusterParameterGroup
-    , createClusterParameterGroup
+      createClusterParameterGroup
+    , CreateClusterParameterGroup
     -- * Request Lenses
     , ccpgTags
     , ccpgParameterGroupName
@@ -44,8 +44,8 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
     , ccpgDescription
 
     -- * Destructuring the Response
-    , CreateClusterParameterGroupResponse
     , createClusterParameterGroupResponse
+    , CreateClusterParameterGroupResponse
     -- * Response Lenses
     , ccpgrsClusterParameterGroup
     , ccpgrsStatus
@@ -60,8 +60,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createClusterParameterGroup' smart constructor.
+data CreateClusterParameterGroup = CreateClusterParameterGroup'
+    { _ccpgTags                 :: !(Maybe [Tag])
+    , _ccpgParameterGroupName   :: !Text
+    , _ccpgParameterGroupFamily :: !Text
+    , _ccpgDescription          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateClusterParameterGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ccpgTags'
 --
@@ -70,15 +78,11 @@ import           Network.AWS.Response
 -- * 'ccpgParameterGroupFamily'
 --
 -- * 'ccpgDescription'
-data CreateClusterParameterGroup = CreateClusterParameterGroup'
-    { _ccpgTags                 :: !(Maybe [Tag])
-    , _ccpgParameterGroupName   :: !Text
-    , _ccpgParameterGroupFamily :: !Text
-    , _ccpgDescription          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateClusterParameterGroup' smart constructor.
-createClusterParameterGroup :: Text -> Text -> Text -> CreateClusterParameterGroup
+createClusterParameterGroup
+    :: Text -- ^ 'ccpgParameterGroupName'
+    -> Text -- ^ 'ccpgParameterGroupFamily'
+    -> Text -- ^ 'ccpgDescription'
+    -> CreateClusterParameterGroup
 createClusterParameterGroup pParameterGroupName_ pParameterGroupFamily_ pDescription_ =
     CreateClusterParameterGroup'
     { _ccpgTags = Nothing
@@ -152,19 +156,21 @@ instance ToQuery CreateClusterParameterGroup where
                "Description" =: _ccpgDescription]
 
 -- | /See:/ 'createClusterParameterGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccpgrsClusterParameterGroup'
---
--- * 'ccpgrsStatus'
 data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'
     { _ccpgrsClusterParameterGroup :: !(Maybe ClusterParameterGroup)
     , _ccpgrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateClusterParameterGroupResponse' smart constructor.
-createClusterParameterGroupResponse :: Int -> CreateClusterParameterGroupResponse
+-- | Creates a value of 'CreateClusterParameterGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccpgrsClusterParameterGroup'
+--
+-- * 'ccpgrsStatus'
+createClusterParameterGroupResponse
+    :: Int -- ^ 'ccpgrsStatus'
+    -> CreateClusterParameterGroupResponse
 createClusterParameterGroupResponse pStatus_ =
     CreateClusterParameterGroupResponse'
     { _ccpgrsClusterParameterGroup = Nothing
@@ -175,6 +181,6 @@ createClusterParameterGroupResponse pStatus_ =
 ccpgrsClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe ClusterParameterGroup)
 ccpgrsClusterParameterGroup = lens _ccpgrsClusterParameterGroup (\ s a -> s{_ccpgrsClusterParameterGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 ccpgrsStatus :: Lens' CreateClusterParameterGroupResponse Int
 ccpgrsStatus = lens _ccpgrsStatus (\ s a -> s{_ccpgrsStatus = a});

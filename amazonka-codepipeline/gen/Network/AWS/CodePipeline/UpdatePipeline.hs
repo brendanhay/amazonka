@@ -27,14 +27,14 @@
 module Network.AWS.CodePipeline.UpdatePipeline
     (
     -- * Creating a Request
-      UpdatePipeline
-    , updatePipeline
+      updatePipeline
+    , UpdatePipeline
     -- * Request Lenses
     , upPipeline
 
     -- * Destructuring the Response
-    , UpdatePipelineResponse
     , updatePipelineResponse
+    , UpdatePipelineResponse
     -- * Response Lenses
     , uprsPipeline
     , uprsStatus
@@ -49,16 +49,18 @@ import           Network.AWS.Response
 -- | Represents the input of an update pipeline action.
 --
 -- /See:/ 'updatePipeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'upPipeline'
 newtype UpdatePipeline = UpdatePipeline'
     { _upPipeline :: PipelineDeclaration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdatePipeline' smart constructor.
-updatePipeline :: PipelineDeclaration -> UpdatePipeline
+-- | Creates a value of 'UpdatePipeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'upPipeline'
+updatePipeline
+    :: PipelineDeclaration -- ^ 'upPipeline'
+    -> UpdatePipeline
 updatePipeline pPipeline_ =
     UpdatePipeline'
     { _upPipeline = pPipeline_
@@ -101,19 +103,21 @@ instance ToQuery UpdatePipeline where
 -- | Represents the output of an update pipeline action.
 --
 -- /See:/ 'updatePipelineResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uprsPipeline'
---
--- * 'uprsStatus'
 data UpdatePipelineResponse = UpdatePipelineResponse'
     { _uprsPipeline :: !(Maybe PipelineDeclaration)
     , _uprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdatePipelineResponse' smart constructor.
-updatePipelineResponse :: Int -> UpdatePipelineResponse
+-- | Creates a value of 'UpdatePipelineResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uprsPipeline'
+--
+-- * 'uprsStatus'
+updatePipelineResponse
+    :: Int -- ^ 'uprsStatus'
+    -> UpdatePipelineResponse
 updatePipelineResponse pStatus_ =
     UpdatePipelineResponse'
     { _uprsPipeline = Nothing
@@ -124,6 +128,6 @@ updatePipelineResponse pStatus_ =
 uprsPipeline :: Lens' UpdatePipelineResponse (Maybe PipelineDeclaration)
 uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a});
 
--- | Undocumented member.
+-- | The response status code.
 uprsStatus :: Lens' UpdatePipelineResponse Int
 uprsStatus = lens _uprsStatus (\ s a -> s{_uprsStatus = a});

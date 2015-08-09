@@ -27,15 +27,15 @@
 module Network.AWS.Glacier.ListTagsForVault
     (
     -- * Creating a Request
-      ListTagsForVault
-    , listTagsForVault
+      listTagsForVault
+    , ListTagsForVault
     -- * Request Lenses
     , ltfvAccountId
     , ltfvVaultName
 
     -- * Destructuring the Response
-    , ListTagsForVaultResponse
     , listTagsForVaultResponse
+    , ListTagsForVaultResponse
     -- * Response Lenses
     , ltfvrsTags
     , ltfvrsStatus
@@ -47,31 +47,34 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input value for @ListTagsForVaultInput@.
+-- | The input value for 'ListTagsForVaultInput'.
 --
 -- /See:/ 'listTagsForVault' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltfvAccountId'
---
--- * 'ltfvVaultName'
 data ListTagsForVault = ListTagsForVault'
     { _ltfvAccountId :: !Text
     , _ltfvVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTagsForVault' smart constructor.
-listTagsForVault :: Text -> Text -> ListTagsForVault
+-- | Creates a value of 'ListTagsForVault' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltfvAccountId'
+--
+-- * 'ltfvVaultName'
+listTagsForVault
+    :: Text -- ^ 'ltfvAccountId'
+    -> Text -- ^ 'ltfvVaultName'
+    -> ListTagsForVault
 listTagsForVault pAccountId_ pVaultName_ =
     ListTagsForVault'
     { _ltfvAccountId = pAccountId_
     , _ltfvVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 ltfvAccountId :: Lens' ListTagsForVault Text
@@ -106,19 +109,21 @@ instance ToQuery ListTagsForVault where
 -- | Contains the Amazon Glacier response to your request.
 --
 -- /See:/ 'listTagsForVaultResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltfvrsTags'
---
--- * 'ltfvrsStatus'
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
     { _ltfvrsTags   :: !(Maybe (Map Text Text))
     , _ltfvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTagsForVaultResponse' smart constructor.
-listTagsForVaultResponse :: Int -> ListTagsForVaultResponse
+-- | Creates a value of 'ListTagsForVaultResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltfvrsTags'
+--
+-- * 'ltfvrsStatus'
+listTagsForVaultResponse
+    :: Int -- ^ 'ltfvrsStatus'
+    -> ListTagsForVaultResponse
 listTagsForVaultResponse pStatus_ =
     ListTagsForVaultResponse'
     { _ltfvrsTags = Nothing
@@ -130,6 +135,6 @@ listTagsForVaultResponse pStatus_ =
 ltfvrsTags :: Lens' ListTagsForVaultResponse (HashMap Text Text)
 ltfvrsTags = lens _ltfvrsTags (\ s a -> s{_ltfvrsTags = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 ltfvrsStatus :: Lens' ListTagsForVaultResponse Int
 ltfvrsStatus = lens _ltfvrsStatus (\ s a -> s{_ltfvrsStatus = a});

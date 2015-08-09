@@ -40,7 +40,7 @@
 -- parameter group is used as the default for a new DB cluster. This is
 -- especially important for parameters that are critical when creating the
 -- default database for a DB cluster, such as the character set for the
--- default database defined by the @character_set_database@ parameter. You
+-- default database defined by the 'character_set_database' parameter. You
 -- can use the /Parameter Groups/ option of the
 -- <https://console.aws.amazon.com/rds/ Amazon RDS console> or the
 -- DescribeDBClusterParameters command to verify that your DB cluster
@@ -54,8 +54,8 @@
 module Network.AWS.RDS.CreateDBClusterParameterGroup
     (
     -- * Creating a Request
-      CreateDBClusterParameterGroup
-    , createDBClusterParameterGroup
+      createDBClusterParameterGroup
+    , CreateDBClusterParameterGroup
     -- * Request Lenses
     , cdcpgTags
     , cdcpgDBClusterParameterGroupName
@@ -63,8 +63,8 @@ module Network.AWS.RDS.CreateDBClusterParameterGroup
     , cdcpgDescription
 
     -- * Destructuring the Response
-    , CreateDBClusterParameterGroupResponse
     , createDBClusterParameterGroupResponse
+    , CreateDBClusterParameterGroupResponse
     -- * Response Lenses
     , cdcpgrsDBClusterParameterGroup
     , cdcpgrsStatus
@@ -79,8 +79,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createDBClusterParameterGroup' smart constructor.
+data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
+    { _cdcpgTags                        :: !(Maybe [Tag])
+    , _cdcpgDBClusterParameterGroupName :: !Text
+    , _cdcpgDBParameterGroupFamily      :: !Text
+    , _cdcpgDescription                 :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDBClusterParameterGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdcpgTags'
 --
@@ -89,15 +97,11 @@ import           Network.AWS.Response
 -- * 'cdcpgDBParameterGroupFamily'
 --
 -- * 'cdcpgDescription'
-data CreateDBClusterParameterGroup = CreateDBClusterParameterGroup'
-    { _cdcpgTags                        :: !(Maybe [Tag])
-    , _cdcpgDBClusterParameterGroupName :: !Text
-    , _cdcpgDBParameterGroupFamily      :: !Text
-    , _cdcpgDescription                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateDBClusterParameterGroup' smart constructor.
-createDBClusterParameterGroup :: Text -> Text -> Text -> CreateDBClusterParameterGroup
+createDBClusterParameterGroup
+    :: Text -- ^ 'cdcpgDBClusterParameterGroupName'
+    -> Text -- ^ 'cdcpgDBParameterGroupFamily'
+    -> Text -- ^ 'cdcpgDescription'
+    -> CreateDBClusterParameterGroup
 createDBClusterParameterGroup pDBClusterParameterGroupName_ pDBParameterGroupFamily_ pDescription_ =
     CreateDBClusterParameterGroup'
     { _cdcpgTags = Nothing
@@ -169,19 +173,21 @@ instance ToQuery CreateDBClusterParameterGroup where
                "Description" =: _cdcpgDescription]
 
 -- | /See:/ 'createDBClusterParameterGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdcpgrsDBClusterParameterGroup'
---
--- * 'cdcpgrsStatus'
 data CreateDBClusterParameterGroupResponse = CreateDBClusterParameterGroupResponse'
     { _cdcpgrsDBClusterParameterGroup :: !(Maybe DBClusterParameterGroup)
     , _cdcpgrsStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBClusterParameterGroupResponse' smart constructor.
-createDBClusterParameterGroupResponse :: Int -> CreateDBClusterParameterGroupResponse
+-- | Creates a value of 'CreateDBClusterParameterGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdcpgrsDBClusterParameterGroup'
+--
+-- * 'cdcpgrsStatus'
+createDBClusterParameterGroupResponse
+    :: Int -- ^ 'cdcpgrsStatus'
+    -> CreateDBClusterParameterGroupResponse
 createDBClusterParameterGroupResponse pStatus_ =
     CreateDBClusterParameterGroupResponse'
     { _cdcpgrsDBClusterParameterGroup = Nothing
@@ -192,6 +198,6 @@ createDBClusterParameterGroupResponse pStatus_ =
 cdcpgrsDBClusterParameterGroup :: Lens' CreateDBClusterParameterGroupResponse (Maybe DBClusterParameterGroup)
 cdcpgrsDBClusterParameterGroup = lens _cdcpgrsDBClusterParameterGroup (\ s a -> s{_cdcpgrsDBClusterParameterGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdcpgrsStatus :: Lens' CreateDBClusterParameterGroupResponse Int
 cdcpgrsStatus = lens _cdcpgrsStatus (\ s a -> s{_cdcpgrsStatus = a});

@@ -27,16 +27,16 @@
 module Network.AWS.CodeCommit.CreateBranch
     (
     -- * Creating a Request
-      CreateBranch
-    , createBranch
+      createBranch
+    , CreateBranch
     -- * Request Lenses
     , cbRepositoryName
     , cbBranchName
     , cbCommitId
 
     -- * Destructuring the Response
-    , CreateBranchResponse
     , createBranchResponse
+    , CreateBranchResponse
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -48,22 +48,26 @@ import           Network.AWS.Response
 -- | Represents the input of a create branch operation.
 --
 -- /See:/ 'createBranch' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cbRepositoryName'
---
--- * 'cbBranchName'
---
--- * 'cbCommitId'
 data CreateBranch = CreateBranch'
     { _cbRepositoryName :: !Text
     , _cbBranchName     :: !Text
     , _cbCommitId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateBranch' smart constructor.
-createBranch :: Text -> Text -> Text -> CreateBranch
+-- | Creates a value of 'CreateBranch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cbRepositoryName'
+--
+-- * 'cbBranchName'
+--
+-- * 'cbCommitId'
+createBranch
+    :: Text -- ^ 'cbRepositoryName'
+    -> Text -- ^ 'cbBranchName'
+    -> Text -- ^ 'cbCommitId'
+    -> CreateBranch
 createBranch pRepositoryName_ pBranchName_ pCommitId_ =
     CreateBranch'
     { _cbRepositoryName = pRepositoryName_
@@ -119,6 +123,8 @@ data CreateBranchResponse =
     CreateBranchResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateBranchResponse' smart constructor.
-createBranchResponse :: CreateBranchResponse
+-- | Creates a value of 'CreateBranchResponse' with the minimum fields required to make a request.
+--
+createBranchResponse
+    :: CreateBranchResponse
 createBranchResponse = CreateBranchResponse'

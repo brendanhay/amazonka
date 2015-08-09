@@ -22,18 +22,20 @@
 -- complete.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListOperations.html AWS API Reference> for ListOperations.
+--
+-- This operation returns paginated results.
 module Network.AWS.Route53Domains.ListOperations
     (
     -- * Creating a Request
-      ListOperations
-    , listOperations
+      listOperations
+    , ListOperations
     -- * Request Lenses
     , loMaxItems
     , loMarker
 
     -- * Destructuring the Response
-    , ListOperationsResponse
     , listOperationsResponse
+    , ListOperationsResponse
     -- * Response Lenses
     , lorsNextPageMarker
     , lorsStatus
@@ -50,19 +52,20 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The ListOperations request includes the following elements.
 --
 -- /See:/ 'listOperations' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'loMaxItems'
---
--- * 'loMarker'
 data ListOperations = ListOperations'
     { _loMaxItems :: !(Maybe Int)
     , _loMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListOperations' smart constructor.
-listOperations :: ListOperations
+-- | Creates a value of 'ListOperations' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'loMaxItems'
+--
+-- * 'loMarker'
+listOperations
+    :: ListOperations
 listOperations =
     ListOperations'
     { _loMaxItems = Nothing
@@ -83,10 +86,10 @@ loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
 
 -- | For an initial request for a list of operations, omit this element. If
 -- the number of operations that are not yet complete is greater than the
--- value that you specified for @MaxItems@, you can use @Marker@ to return
--- additional operations. Get the value of @NextPageMarker@ from the
+-- value that you specified for 'MaxItems', you can use 'Marker' to return
+-- additional operations. Get the value of 'NextPageMarker' from the
 -- previous response, and submit another request that includes the value of
--- @NextPageMarker@ in the @Marker@ element.
+-- 'NextPageMarker' in the 'Marker' element.
 --
 -- Type: String
 --
@@ -138,22 +141,24 @@ instance ToQuery ListOperations where
 -- | The ListOperations response includes the following elements.
 --
 -- /See:/ 'listOperationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lorsNextPageMarker'
---
--- * 'lorsStatus'
---
--- * 'lorsOperations'
 data ListOperationsResponse = ListOperationsResponse'
     { _lorsNextPageMarker :: !(Maybe Text)
     , _lorsStatus         :: !Int
     , _lorsOperations     :: ![OperationSummary]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListOperationsResponse' smart constructor.
-listOperationsResponse :: Int -> ListOperationsResponse
+-- | Creates a value of 'ListOperationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lorsNextPageMarker'
+--
+-- * 'lorsStatus'
+--
+-- * 'lorsOperations'
+listOperationsResponse
+    :: Int -- ^ 'lorsStatus'
+    -> ListOperationsResponse
 listOperationsResponse pStatus_ =
     ListOperationsResponse'
     { _lorsNextPageMarker = Nothing
@@ -161,17 +166,17 @@ listOperationsResponse pStatus_ =
     , _lorsOperations = mempty
     }
 
--- | If there are more operations than you specified for @MaxItems@ in the
+-- | If there are more operations than you specified for 'MaxItems' in the
 -- request, submit another request and include the value of
--- @NextPageMarker@ in the value of @Marker@.
+-- 'NextPageMarker' in the value of 'Marker'.
 --
 -- Type: String
 --
--- Parent: @Operations@
+-- Parent: 'Operations'
 lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
 lorsNextPageMarker = lens _lorsNextPageMarker (\ s a -> s{_lorsNextPageMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 lorsStatus :: Lens' ListOperationsResponse Int
 lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});
 
@@ -179,6 +184,6 @@ lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});
 --
 -- Type: Complex type containing a list of operation summaries
 --
--- Children: @OperationId@, @Status@, @SubmittedDate@, @Type@
+-- Children: 'OperationId', 'Status', 'SubmittedDate', 'Type'
 lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
 lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a}) . _Coerce;

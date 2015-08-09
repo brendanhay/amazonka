@@ -31,14 +31,14 @@
 module Network.AWS.CodeCommit.GetRepository
     (
     -- * Creating a Request
-      GetRepository
-    , getRepository
+      getRepository
+    , GetRepository
     -- * Request Lenses
     , grRepositoryName
 
     -- * Destructuring the Response
-    , GetRepositoryResponse
     , getRepositoryResponse
+    , GetRepositoryResponse
     -- * Response Lenses
     , grrsRepositoryMetadata
     , grrsStatus
@@ -53,16 +53,18 @@ import           Network.AWS.Response
 -- | Represents the input of a get repository operation.
 --
 -- /See:/ 'getRepository' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grRepositoryName'
 newtype GetRepository = GetRepository'
     { _grRepositoryName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetRepository' smart constructor.
-getRepository :: Text -> GetRepository
+-- | Creates a value of 'GetRepository' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grRepositoryName'
+getRepository
+    :: Text -- ^ 'grRepositoryName'
+    -> GetRepository
 getRepository pRepositoryName_ =
     GetRepository'
     { _grRepositoryName = pRepositoryName_
@@ -104,19 +106,21 @@ instance ToQuery GetRepository where
 -- | Represents the output of a get repository operation.
 --
 -- /See:/ 'getRepositoryResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grrsRepositoryMetadata'
---
--- * 'grrsStatus'
 data GetRepositoryResponse = GetRepositoryResponse'
     { _grrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
     , _grrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetRepositoryResponse' smart constructor.
-getRepositoryResponse :: Int -> GetRepositoryResponse
+-- | Creates a value of 'GetRepositoryResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grrsRepositoryMetadata'
+--
+-- * 'grrsStatus'
+getRepositoryResponse
+    :: Int -- ^ 'grrsStatus'
+    -> GetRepositoryResponse
 getRepositoryResponse pStatus_ =
     GetRepositoryResponse'
     { _grrsRepositoryMetadata = Nothing
@@ -127,6 +131,6 @@ getRepositoryResponse pStatus_ =
 grrsRepositoryMetadata :: Lens' GetRepositoryResponse (Maybe RepositoryMetadata)
 grrsRepositoryMetadata = lens _grrsRepositoryMetadata (\ s a -> s{_grrsRepositoryMetadata = a});
 
--- | Undocumented member.
+-- | The response status code.
 grrsStatus :: Lens' GetRepositoryResponse Int
 grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});

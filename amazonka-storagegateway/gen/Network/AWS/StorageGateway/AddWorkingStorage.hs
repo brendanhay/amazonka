@@ -35,15 +35,15 @@
 module Network.AWS.StorageGateway.AddWorkingStorage
     (
     -- * Creating a Request
-      AddWorkingStorage
-    , addWorkingStorage
+      addWorkingStorage
+    , AddWorkingStorage
     -- * Request Lenses
     , awsGatewayARN
     , awsDiskIds
 
     -- * Destructuring the Response
-    , AddWorkingStorageResponse
     , addWorkingStorageResponse
+    , AddWorkingStorageResponse
     -- * Response Lenses
     , awsrsGatewayARN
     , awsrsStatus
@@ -60,19 +60,21 @@ import           Network.AWS.StorageGateway.Types.Product
 -- -   AddWorkingStorageInput$DiskIds
 --
 -- /See:/ 'addWorkingStorage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'awsGatewayARN'
---
--- * 'awsDiskIds'
 data AddWorkingStorage = AddWorkingStorage'
     { _awsGatewayARN :: !Text
     , _awsDiskIds    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddWorkingStorage' smart constructor.
-addWorkingStorage :: Text -> AddWorkingStorage
+-- | Creates a value of 'AddWorkingStorage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'awsGatewayARN'
+--
+-- * 'awsDiskIds'
+addWorkingStorage
+    :: Text -- ^ 'awsGatewayARN'
+    -> AddWorkingStorage
 addWorkingStorage pGatewayARN_ =
     AddWorkingStorage'
     { _awsGatewayARN = pGatewayARN_
@@ -125,19 +127,21 @@ instance ToQuery AddWorkingStorage where
 -- was configured.
 --
 -- /See:/ 'addWorkingStorageResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'awsrsGatewayARN'
---
--- * 'awsrsStatus'
 data AddWorkingStorageResponse = AddWorkingStorageResponse'
     { _awsrsGatewayARN :: !(Maybe Text)
     , _awsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddWorkingStorageResponse' smart constructor.
-addWorkingStorageResponse :: Int -> AddWorkingStorageResponse
+-- | Creates a value of 'AddWorkingStorageResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'awsrsGatewayARN'
+--
+-- * 'awsrsStatus'
+addWorkingStorageResponse
+    :: Int -- ^ 'awsrsStatus'
+    -> AddWorkingStorageResponse
 addWorkingStorageResponse pStatus_ =
     AddWorkingStorageResponse'
     { _awsrsGatewayARN = Nothing
@@ -148,6 +152,6 @@ addWorkingStorageResponse pStatus_ =
 awsrsGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
 awsrsGatewayARN = lens _awsrsGatewayARN (\ s a -> s{_awsrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 awsrsStatus :: Lens' AddWorkingStorageResponse Int
 awsrsStatus = lens _awsrsStatus (\ s a -> s{_awsrsStatus = a});

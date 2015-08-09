@@ -24,21 +24,21 @@
 -- Note that removal of a permission will cause an active event source to
 -- lose permission to the function.
 --
--- You need permission for the @lambda:RemovePermission@ action.
+-- You need permission for the 'lambda:RemovePermission' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_RemovePermission.html AWS API Reference> for RemovePermission.
 module Network.AWS.Lambda.RemovePermission
     (
     -- * Creating a Request
-      RemovePermission
-    , removePermission
+      removePermission
+    , RemovePermission
     -- * Request Lenses
     , rpFunctionName
     , rpStatementId
 
     -- * Destructuring the Response
-    , RemovePermissionResponse
     , removePermissionResponse
+    , RemovePermissionResponse
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -48,19 +48,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'removePermission' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rpFunctionName'
---
--- * 'rpStatementId'
 data RemovePermission = RemovePermission'
     { _rpFunctionName :: !Text
     , _rpStatementId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemovePermission' smart constructor.
-removePermission :: Text -> Text -> RemovePermission
+-- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpFunctionName'
+--
+-- * 'rpStatementId'
+removePermission
+    :: Text -- ^ 'rpFunctionName'
+    -> Text -- ^ 'rpStatementId'
+    -> RemovePermission
 removePermission pFunctionName_ pStatementId_ =
     RemovePermission'
     { _rpFunctionName = pFunctionName_
@@ -108,6 +111,8 @@ data RemovePermissionResponse =
     RemovePermissionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemovePermissionResponse' smart constructor.
-removePermissionResponse :: RemovePermissionResponse
+-- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.
+--
+removePermissionResponse
+    :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse'

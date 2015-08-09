@@ -25,8 +25,8 @@
 module Network.AWS.DataPipeline.ValidatePipelineDefinition
     (
     -- * Creating a Request
-      ValidatePipelineDefinition
-    , validatePipelineDefinition
+      validatePipelineDefinition
+    , ValidatePipelineDefinition
     -- * Request Lenses
     , vpdParameterObjects
     , vpdParameterValues
@@ -34,8 +34,8 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     , vpdPipelineObjects
 
     -- * Destructuring the Response
-    , ValidatePipelineDefinitionResponse
     , validatePipelineDefinitionResponse
+    , ValidatePipelineDefinitionResponse
     -- * Response Lenses
     , vpdrsValidationErrors
     , vpdrsValidationWarnings
@@ -52,8 +52,16 @@ import           Network.AWS.Response
 -- | Contains the parameters for ValidatePipelineDefinition.
 --
 -- /See:/ 'validatePipelineDefinition' smart constructor.
+data ValidatePipelineDefinition = ValidatePipelineDefinition'
+    { _vpdParameterObjects :: !(Maybe [ParameterObject])
+    , _vpdParameterValues  :: !(Maybe [ParameterValue])
+    , _vpdPipelineId       :: !Text
+    , _vpdPipelineObjects  :: ![PipelineObject]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ValidatePipelineDefinition' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vpdParameterObjects'
 --
@@ -62,15 +70,9 @@ import           Network.AWS.Response
 -- * 'vpdPipelineId'
 --
 -- * 'vpdPipelineObjects'
-data ValidatePipelineDefinition = ValidatePipelineDefinition'
-    { _vpdParameterObjects :: !(Maybe [ParameterObject])
-    , _vpdParameterValues  :: !(Maybe [ParameterValue])
-    , _vpdPipelineId       :: !Text
-    , _vpdPipelineObjects  :: ![PipelineObject]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ValidatePipelineDefinition' smart constructor.
-validatePipelineDefinition :: Text -> ValidatePipelineDefinition
+validatePipelineDefinition
+    :: Text -- ^ 'vpdPipelineId'
+    -> ValidatePipelineDefinition
 validatePipelineDefinition pPipelineId_ =
     ValidatePipelineDefinition'
     { _vpdParameterObjects = Nothing
@@ -137,8 +139,16 @@ instance ToQuery ValidatePipelineDefinition where
 -- | Contains the output of ValidatePipelineDefinition.
 --
 -- /See:/ 'validatePipelineDefinitionResponse' smart constructor.
+data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
+    { _vpdrsValidationErrors   :: !(Maybe [ValidationError])
+    , _vpdrsValidationWarnings :: !(Maybe [ValidationWarning])
+    , _vpdrsStatus             :: !Int
+    , _vpdrsErrored            :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ValidatePipelineDefinitionResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vpdrsValidationErrors'
 --
@@ -147,15 +157,10 @@ instance ToQuery ValidatePipelineDefinition where
 -- * 'vpdrsStatus'
 --
 -- * 'vpdrsErrored'
-data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
-    { _vpdrsValidationErrors   :: !(Maybe [ValidationError])
-    , _vpdrsValidationWarnings :: !(Maybe [ValidationWarning])
-    , _vpdrsStatus             :: !Int
-    , _vpdrsErrored            :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ValidatePipelineDefinitionResponse' smart constructor.
-validatePipelineDefinitionResponse :: Int -> Bool -> ValidatePipelineDefinitionResponse
+validatePipelineDefinitionResponse
+    :: Int -- ^ 'vpdrsStatus'
+    -> Bool -- ^ 'vpdrsErrored'
+    -> ValidatePipelineDefinitionResponse
 validatePipelineDefinitionResponse pStatus_ pErrored_ =
     ValidatePipelineDefinitionResponse'
     { _vpdrsValidationErrors = Nothing
@@ -172,7 +177,7 @@ vpdrsValidationErrors = lens _vpdrsValidationErrors (\ s a -> s{_vpdrsValidation
 vpdrsValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
 vpdrsValidationWarnings = lens _vpdrsValidationWarnings (\ s a -> s{_vpdrsValidationWarnings = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 vpdrsStatus :: Lens' ValidatePipelineDefinitionResponse Int
 vpdrsStatus = lens _vpdrsStatus (\ s a -> s{_vpdrsStatus = a});
 

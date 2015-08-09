@@ -23,23 +23,25 @@
 -- name. If you do not specify a user name, IAM determines the user name
 -- implicitly based on the AWS access key ID signing the request.
 --
--- You can paginate the results using the @MaxItems@ and @Marker@
+-- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListMFADevices.html AWS API Reference> for ListMFADevices.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListMFADevices
     (
     -- * Creating a Request
-      ListMFADevices
-    , listMFADevices
+      listMFADevices
+    , ListMFADevices
     -- * Request Lenses
     , lmdUserName
     , lmdMaxItems
     , lmdMarker
 
     -- * Destructuring the Response
-    , ListMFADevicesResponse
     , listMFADevicesResponse
+    , ListMFADevicesResponse
     -- * Response Lenses
     , lmdrsMarker
     , lmdrsIsTruncated
@@ -55,22 +57,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listMFADevices' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lmdUserName'
---
--- * 'lmdMaxItems'
---
--- * 'lmdMarker'
 data ListMFADevices = ListMFADevices'
     { _lmdUserName :: !(Maybe Text)
     , _lmdMaxItems :: !(Maybe Nat)
     , _lmdMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListMFADevices' smart constructor.
-listMFADevices :: ListMFADevices
+-- | Creates a value of 'ListMFADevices' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lmdUserName'
+--
+-- * 'lmdMaxItems'
+--
+-- * 'lmdMarker'
+listMFADevices
+    :: ListMFADevices
 listMFADevices =
     ListMFADevices'
     { _lmdUserName = Nothing
@@ -84,7 +87,7 @@ lmdUserName = lens _lmdUserName (\ s a -> s{_lmdUserName = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -93,7 +96,7 @@ lmdMaxItems = lens _lmdMaxItems (\ s a -> s{_lmdMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 lmdMarker :: Lens' ListMFADevices (Maybe Text)
 lmdMarker = lens _lmdMarker (\ s a -> s{_lmdMarker = a});
 
@@ -135,8 +138,16 @@ instance ToQuery ListMFADevices where
 -- | Contains the response to a successful ListMFADevices request.
 --
 -- /See:/ 'listMFADevicesResponse' smart constructor.
+data ListMFADevicesResponse = ListMFADevicesResponse'
+    { _lmdrsMarker      :: !(Maybe Text)
+    , _lmdrsIsTruncated :: !(Maybe Bool)
+    , _lmdrsStatus      :: !Int
+    , _lmdrsMFADevices  :: ![MFADevice]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListMFADevicesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lmdrsMarker'
 --
@@ -145,15 +156,9 @@ instance ToQuery ListMFADevices where
 -- * 'lmdrsStatus'
 --
 -- * 'lmdrsMFADevices'
-data ListMFADevicesResponse = ListMFADevicesResponse'
-    { _lmdrsMarker      :: !(Maybe Text)
-    , _lmdrsIsTruncated :: !(Maybe Bool)
-    , _lmdrsStatus      :: !Int
-    , _lmdrsMFADevices  :: ![MFADevice]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListMFADevicesResponse' smart constructor.
-listMFADevicesResponse :: Int -> ListMFADevicesResponse
+listMFADevicesResponse
+    :: Int -- ^ 'lmdrsStatus'
+    -> ListMFADevicesResponse
 listMFADevicesResponse pStatus_ =
     ListMFADevicesResponse'
     { _lmdrsMarker = Nothing
@@ -162,19 +167,19 @@ listMFADevicesResponse pStatus_ =
     , _lmdrsMFADevices = mempty
     }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lmdrsMarker :: Lens' ListMFADevicesResponse (Maybe Text)
 lmdrsMarker = lens _lmdrsMarker (\ s a -> s{_lmdrsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 lmdrsIsTruncated :: Lens' ListMFADevicesResponse (Maybe Bool)
 lmdrsIsTruncated = lens _lmdrsIsTruncated (\ s a -> s{_lmdrsIsTruncated = a});
 
--- | Undocumented member.
+-- | The response status code.
 lmdrsStatus :: Lens' ListMFADevicesResponse Int
 lmdrsStatus = lens _lmdrsStatus (\ s a -> s{_lmdrsStatus = a});
 

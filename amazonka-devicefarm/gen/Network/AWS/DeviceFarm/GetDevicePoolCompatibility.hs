@@ -24,16 +24,16 @@
 module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
     (
     -- * Creating a Request
-      GetDevicePoolCompatibility
-    , getDevicePoolCompatibility
+      getDevicePoolCompatibility
+    , GetDevicePoolCompatibility
     -- * Request Lenses
     , gdpcTestType
     , gdpcDevicePoolARN
     , gdpcAppARN
 
     -- * Destructuring the Response
-    , GetDevicePoolCompatibilityResponse
     , getDevicePoolCompatibilityResponse
+    , GetDevicePoolCompatibilityResponse
     -- * Response Lenses
     , gdpcrsIncompatibleDevices
     , gdpcrsCompatibleDevices
@@ -49,22 +49,25 @@ import           Network.AWS.Response
 -- | Represents a request to the get device pool compatibility operation.
 --
 -- /See:/ 'getDevicePoolCompatibility' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdpcTestType'
---
--- * 'gdpcDevicePoolARN'
---
--- * 'gdpcAppARN'
 data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
     { _gdpcTestType      :: !(Maybe TestType)
     , _gdpcDevicePoolARN :: !Text
     , _gdpcAppARN        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDevicePoolCompatibility' smart constructor.
-getDevicePoolCompatibility :: Text -> Text -> GetDevicePoolCompatibility
+-- | Creates a value of 'GetDevicePoolCompatibility' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdpcTestType'
+--
+-- * 'gdpcDevicePoolARN'
+--
+-- * 'gdpcAppARN'
+getDevicePoolCompatibility
+    :: Text -- ^ 'gdpcDevicePoolARN'
+    -> Text -- ^ 'gdpcAppARN'
+    -> GetDevicePoolCompatibility
 getDevicePoolCompatibility pDevicePoolARN_ pAppARN_ =
     GetDevicePoolCompatibility'
     { _gdpcTestType = Nothing
@@ -146,22 +149,24 @@ instance ToQuery GetDevicePoolCompatibility where
 -- | Represents the result of describe device pool compatibility request.
 --
 -- /See:/ 'getDevicePoolCompatibilityResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdpcrsIncompatibleDevices'
---
--- * 'gdpcrsCompatibleDevices'
---
--- * 'gdpcrsStatus'
 data GetDevicePoolCompatibilityResponse = GetDevicePoolCompatibilityResponse'
     { _gdpcrsIncompatibleDevices :: !(Maybe [DevicePoolCompatibilityResult])
     , _gdpcrsCompatibleDevices   :: !(Maybe [DevicePoolCompatibilityResult])
     , _gdpcrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDevicePoolCompatibilityResponse' smart constructor.
-getDevicePoolCompatibilityResponse :: Int -> GetDevicePoolCompatibilityResponse
+-- | Creates a value of 'GetDevicePoolCompatibilityResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdpcrsIncompatibleDevices'
+--
+-- * 'gdpcrsCompatibleDevices'
+--
+-- * 'gdpcrsStatus'
+getDevicePoolCompatibilityResponse
+    :: Int -- ^ 'gdpcrsStatus'
+    -> GetDevicePoolCompatibilityResponse
 getDevicePoolCompatibilityResponse pStatus_ =
     GetDevicePoolCompatibilityResponse'
     { _gdpcrsIncompatibleDevices = Nothing
@@ -177,6 +182,6 @@ gdpcrsIncompatibleDevices = lens _gdpcrsIncompatibleDevices (\ s a -> s{_gdpcrsI
 gdpcrsCompatibleDevices :: Lens' GetDevicePoolCompatibilityResponse [DevicePoolCompatibilityResult]
 gdpcrsCompatibleDevices = lens _gdpcrsCompatibleDevices (\ s a -> s{_gdpcrsCompatibleDevices = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 gdpcrsStatus :: Lens' GetDevicePoolCompatibilityResponse Int
 gdpcrsStatus = lens _gdpcrsStatus (\ s a -> s{_gdpcrsStatus = a});

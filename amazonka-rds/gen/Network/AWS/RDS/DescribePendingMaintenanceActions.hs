@@ -25,8 +25,8 @@
 module Network.AWS.RDS.DescribePendingMaintenanceActions
     (
     -- * Creating a Request
-      DescribePendingMaintenanceActions
-    , describePendingMaintenanceActions
+      describePendingMaintenanceActions
+    , DescribePendingMaintenanceActions
     -- * Request Lenses
     , dpmaFilters
     , dpmaMaxRecords
@@ -34,8 +34,8 @@ module Network.AWS.RDS.DescribePendingMaintenanceActions
     , dpmaResourceIdentifier
 
     -- * Destructuring the Response
-    , DescribePendingMaintenanceActionsResponse
     , describePendingMaintenanceActionsResponse
+    , DescribePendingMaintenanceActionsResponse
     -- * Response Lenses
     , dpmarsPendingMaintenanceActions
     , dpmarsMarker
@@ -51,8 +51,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describePendingMaintenanceActions' smart constructor.
+data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
+    { _dpmaFilters            :: !(Maybe [Filter])
+    , _dpmaMaxRecords         :: !(Maybe Int)
+    , _dpmaMarker             :: !(Maybe Text)
+    , _dpmaResourceIdentifier :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribePendingMaintenanceActions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dpmaFilters'
 --
@@ -61,15 +69,8 @@ import           Network.AWS.Response
 -- * 'dpmaMarker'
 --
 -- * 'dpmaResourceIdentifier'
-data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
-    { _dpmaFilters            :: !(Maybe [Filter])
-    , _dpmaMaxRecords         :: !(Maybe Int)
-    , _dpmaMarker             :: !(Maybe Text)
-    , _dpmaResourceIdentifier :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribePendingMaintenanceActions' smart constructor.
-describePendingMaintenanceActions :: DescribePendingMaintenanceActions
+describePendingMaintenanceActions
+    :: DescribePendingMaintenanceActions
 describePendingMaintenanceActions =
     DescribePendingMaintenanceActions'
     { _dpmaFilters = Nothing
@@ -83,7 +84,7 @@ describePendingMaintenanceActions =
 --
 -- Supported filters:
 --
--- -   @db-instance-id@ - Accepts DB instance identifiers and DB instance
+-- -   'db-instance-id' - Accepts DB instance identifiers and DB instance
 --     Amazon Resource Names (ARNs). The results list will only include
 --     pending maintenance actions for the DB instances identified by these
 --     ARNs.
@@ -91,7 +92,7 @@ dpmaFilters :: Lens' DescribePendingMaintenanceActions [Filter]
 dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
+-- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 --
@@ -102,9 +103,9 @@ dpmaMaxRecords :: Lens' DescribePendingMaintenanceActions (Maybe Int)
 dpmaMaxRecords = lens _dpmaMaxRecords (\ s a -> s{_dpmaMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
--- @DescribePendingMaintenanceActions@ request. If this parameter is
+-- 'DescribePendingMaintenanceActions' request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to a
--- number of records specified by @MaxRecords@.
+-- number of records specified by 'MaxRecords'.
 dpmaMarker :: Lens' DescribePendingMaintenanceActions (Maybe Text)
 dpmaMarker = lens _dpmaMarker (\ s a -> s{_dpmaMarker = a});
 
@@ -153,22 +154,24 @@ instance ToQuery DescribePendingMaintenanceActions
 -- | Data returned from the __DescribePendingMaintenanceActions__ action.
 --
 -- /See:/ 'describePendingMaintenanceActionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpmarsPendingMaintenanceActions'
---
--- * 'dpmarsMarker'
---
--- * 'dpmarsStatus'
 data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'
     { _dpmarsPendingMaintenanceActions :: !(Maybe [ResourcePendingMaintenanceActions])
     , _dpmarsMarker                    :: !(Maybe Text)
     , _dpmarsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribePendingMaintenanceActionsResponse' smart constructor.
-describePendingMaintenanceActionsResponse :: Int -> DescribePendingMaintenanceActionsResponse
+-- | Creates a value of 'DescribePendingMaintenanceActionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpmarsPendingMaintenanceActions'
+--
+-- * 'dpmarsMarker'
+--
+-- * 'dpmarsStatus'
+describePendingMaintenanceActionsResponse
+    :: Int -- ^ 'dpmarsStatus'
+    -> DescribePendingMaintenanceActionsResponse
 describePendingMaintenanceActionsResponse pStatus_ =
     DescribePendingMaintenanceActionsResponse'
     { _dpmarsPendingMaintenanceActions = Nothing
@@ -181,12 +184,12 @@ dpmarsPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsRespon
 dpmarsPendingMaintenanceActions = lens _dpmarsPendingMaintenanceActions (\ s a -> s{_dpmarsPendingMaintenanceActions = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous
--- @DescribePendingMaintenanceActions@ request. If this parameter is
+-- 'DescribePendingMaintenanceActions' request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to a
--- number of records specified by @MaxRecords@.
+-- number of records specified by 'MaxRecords'.
 dpmarsMarker :: Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
 dpmarsMarker = lens _dpmarsMarker (\ s a -> s{_dpmarsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dpmarsStatus :: Lens' DescribePendingMaintenanceActionsResponse Int
 dpmarsStatus = lens _dpmarsStatus (\ s a -> s{_dpmarsStatus = a});

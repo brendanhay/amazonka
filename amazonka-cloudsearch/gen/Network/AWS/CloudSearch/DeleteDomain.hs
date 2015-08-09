@@ -27,14 +27,14 @@
 module Network.AWS.CloudSearch.DeleteDomain
     (
     -- * Creating a Request
-      DeleteDomain
-    , deleteDomain
+      deleteDomain
+    , DeleteDomain
     -- * Request Lenses
     , dddDomainName
 
     -- * Destructuring the Response
-    , DeleteDomainResponse
     , deleteDomainResponse
+    , DeleteDomainResponse
     -- * Response Lenses
     , ddrsDomainStatus
     , ddrsStatus
@@ -46,20 +46,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DeleteDomain@ operation. Specifies
+-- | Container for the parameters to the 'DeleteDomain' operation. Specifies
 -- the name of the domain you want to delete.
 --
 -- /See:/ 'deleteDomain' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dddDomainName'
 newtype DeleteDomain = DeleteDomain'
     { _dddDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDomain' smart constructor.
-deleteDomain :: Text -> DeleteDomain
+-- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dddDomainName'
+deleteDomain
+    :: Text -- ^ 'dddDomainName'
+    -> DeleteDomain
 deleteDomain pDomainName_ =
     DeleteDomain'
     { _dddDomainName = pDomainName_
@@ -92,24 +94,26 @@ instance ToQuery DeleteDomain where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _dddDomainName]
 
--- | The result of a @DeleteDomain@ request. Contains the status of a newly
+-- | The result of a 'DeleteDomain' request. Contains the status of a newly
 -- deleted domain, or no status if the domain has already been completely
 -- deleted.
 --
 -- /See:/ 'deleteDomainResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddrsDomainStatus'
---
--- * 'ddrsStatus'
 data DeleteDomainResponse = DeleteDomainResponse'
     { _ddrsDomainStatus :: !(Maybe DomainStatus)
     , _ddrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDomainResponse' smart constructor.
-deleteDomainResponse :: Int -> DeleteDomainResponse
+-- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddrsDomainStatus'
+--
+-- * 'ddrsStatus'
+deleteDomainResponse
+    :: Int -- ^ 'ddrsStatus'
+    -> DeleteDomainResponse
 deleteDomainResponse pStatus_ =
     DeleteDomainResponse'
     { _ddrsDomainStatus = Nothing
@@ -120,6 +124,6 @@ deleteDomainResponse pStatus_ =
 ddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
 ddrsDomainStatus = lens _ddrsDomainStatus (\ s a -> s{_ddrsDomainStatus = a});
 
--- | Undocumented member.
+-- | The response status code.
 ddrsStatus :: Lens' DeleteDomainResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

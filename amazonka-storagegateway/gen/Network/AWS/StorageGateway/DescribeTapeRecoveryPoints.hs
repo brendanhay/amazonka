@@ -27,19 +27,21 @@
 -- gateway.
 --
 -- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeRecoveryPoints.html AWS API Reference> for DescribeTapeRecoveryPoints.
+--
+-- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     (
     -- * Creating a Request
-      DescribeTapeRecoveryPoints
-    , describeTapeRecoveryPoints
+      describeTapeRecoveryPoints
+    , DescribeTapeRecoveryPoints
     -- * Request Lenses
     , dtrpMarker
     , dtrpLimit
     , dtrpGatewayARN
 
     -- * Destructuring the Response
-    , DescribeTapeRecoveryPointsResponse
     , describeTapeRecoveryPointsResponse
+    , DescribeTapeRecoveryPointsResponse
     -- * Response Lenses
     , dtrprsTapeRecoveryPointInfos
     , dtrprsGatewayARN
@@ -57,22 +59,24 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | DescribeTapeRecoveryPointsInput
 --
 -- /See:/ 'describeTapeRecoveryPoints' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtrpMarker'
---
--- * 'dtrpLimit'
---
--- * 'dtrpGatewayARN'
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
     { _dtrpMarker     :: !(Maybe Text)
     , _dtrpLimit      :: !(Maybe Nat)
     , _dtrpGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTapeRecoveryPoints' smart constructor.
-describeTapeRecoveryPoints :: Text -> DescribeTapeRecoveryPoints
+-- | Creates a value of 'DescribeTapeRecoveryPoints' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtrpMarker'
+--
+-- * 'dtrpLimit'
+--
+-- * 'dtrpGatewayARN'
+describeTapeRecoveryPoints
+    :: Text -- ^ 'dtrpGatewayARN'
+    -> DescribeTapeRecoveryPoints
 describeTapeRecoveryPoints pGatewayARN_ =
     DescribeTapeRecoveryPoints'
     { _dtrpMarker = Nothing
@@ -140,8 +144,16 @@ instance ToQuery DescribeTapeRecoveryPoints where
 -- | DescribeTapeRecoveryPointsOutput
 --
 -- /See:/ 'describeTapeRecoveryPointsResponse' smart constructor.
+data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
+    { _dtrprsTapeRecoveryPointInfos :: !(Maybe [TapeRecoveryPointInfo])
+    , _dtrprsGatewayARN             :: !(Maybe Text)
+    , _dtrprsMarker                 :: !(Maybe Text)
+    , _dtrprsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeTapeRecoveryPointsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dtrprsTapeRecoveryPointInfos'
 --
@@ -150,15 +162,9 @@ instance ToQuery DescribeTapeRecoveryPoints where
 -- * 'dtrprsMarker'
 --
 -- * 'dtrprsStatus'
-data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
-    { _dtrprsTapeRecoveryPointInfos :: !(Maybe [TapeRecoveryPointInfo])
-    , _dtrprsGatewayARN             :: !(Maybe Text)
-    , _dtrprsMarker                 :: !(Maybe Text)
-    , _dtrprsStatus                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeTapeRecoveryPointsResponse' smart constructor.
-describeTapeRecoveryPointsResponse :: Int -> DescribeTapeRecoveryPointsResponse
+describeTapeRecoveryPointsResponse
+    :: Int -- ^ 'dtrprsStatus'
+    -> DescribeTapeRecoveryPointsResponse
 describeTapeRecoveryPointsResponse pStatus_ =
     DescribeTapeRecoveryPointsResponse'
     { _dtrprsTapeRecoveryPointInfos = Nothing
@@ -185,6 +191,6 @@ dtrprsGatewayARN = lens _dtrprsGatewayARN (\ s a -> s{_dtrprsGatewayARN = a});
 dtrprsMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
 dtrprsMarker = lens _dtrprsMarker (\ s a -> s{_dtrprsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dtrprsStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
 dtrprsStatus = lens _dtrprsStatus (\ s a -> s{_dtrprsStatus = a});

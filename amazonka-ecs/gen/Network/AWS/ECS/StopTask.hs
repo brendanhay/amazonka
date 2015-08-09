@@ -24,15 +24,15 @@
 module Network.AWS.ECS.StopTask
     (
     -- * Creating a Request
-      StopTask
-    , stopTask
+      stopTask
+    , StopTask
     -- * Request Lenses
     , stCluster
     , stTask
 
     -- * Destructuring the Response
-    , StopTaskResponse
     , stopTaskResponse
+    , StopTaskResponse
     -- * Response Lenses
     , srsTask
     , srsStatus
@@ -45,19 +45,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'stopTask' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'stCluster'
---
--- * 'stTask'
 data StopTask = StopTask'
     { _stCluster :: !(Maybe Text)
     , _stTask    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopTask' smart constructor.
-stopTask :: Text -> StopTask
+-- | Creates a value of 'StopTask' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stCluster'
+--
+-- * 'stTask'
+stopTask
+    :: Text -- ^ 'stTask'
+    -> StopTask
 stopTask pTask_ =
     StopTask'
     { _stCluster = Nothing
@@ -106,19 +108,21 @@ instance ToQuery StopTask where
         toQuery = const mempty
 
 -- | /See:/ 'stopTaskResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'srsTask'
---
--- * 'srsStatus'
 data StopTaskResponse = StopTaskResponse'
     { _srsTask   :: !(Maybe Task)
     , _srsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopTaskResponse' smart constructor.
-stopTaskResponse :: Int -> StopTaskResponse
+-- | Creates a value of 'StopTaskResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srsTask'
+--
+-- * 'srsStatus'
+stopTaskResponse
+    :: Int -- ^ 'srsStatus'
+    -> StopTaskResponse
 stopTaskResponse pStatus_ =
     StopTaskResponse'
     { _srsTask = Nothing
@@ -129,6 +133,6 @@ stopTaskResponse pStatus_ =
 srsTask :: Lens' StopTaskResponse (Maybe Task)
 srsTask = lens _srsTask (\ s a -> s{_srsTask = a});
 
--- | Undocumented member.
+-- | The response status code.
 srsStatus :: Lens' StopTaskResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

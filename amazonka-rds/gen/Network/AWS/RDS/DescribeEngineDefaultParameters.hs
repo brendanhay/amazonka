@@ -22,11 +22,13 @@
 -- specified database engine.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEngineDefaultParameters.html AWS API Reference> for DescribeEngineDefaultParameters.
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEngineDefaultParameters
     (
     -- * Creating a Request
-      DescribeEngineDefaultParameters
-    , describeEngineDefaultParameters
+      describeEngineDefaultParameters
+    , DescribeEngineDefaultParameters
     -- * Request Lenses
     , dedpFilters
     , dedpMaxRecords
@@ -34,8 +36,8 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     , dedpDBParameterGroupFamily
 
     -- * Destructuring the Response
-    , DescribeEngineDefaultParametersResponse
     , describeEngineDefaultParametersResponse
+    , DescribeEngineDefaultParametersResponse
     -- * Response Lenses
     , dedprsStatus
     , dedprsEngineDefaults
@@ -51,8 +53,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeEngineDefaultParameters' smart constructor.
+data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
+    { _dedpFilters                :: !(Maybe [Filter])
+    , _dedpMaxRecords             :: !(Maybe Int)
+    , _dedpMarker                 :: !(Maybe Text)
+    , _dedpDBParameterGroupFamily :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeEngineDefaultParameters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dedpFilters'
 --
@@ -61,15 +71,9 @@ import           Network.AWS.Response
 -- * 'dedpMarker'
 --
 -- * 'dedpDBParameterGroupFamily'
-data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-    { _dedpFilters                :: !(Maybe [Filter])
-    , _dedpMaxRecords             :: !(Maybe Int)
-    , _dedpMarker                 :: !(Maybe Text)
-    , _dedpDBParameterGroupFamily :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeEngineDefaultParameters' smart constructor.
-describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
+describeEngineDefaultParameters
+    :: Text -- ^ 'dedpDBParameterGroupFamily'
+    -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters pDBParameterGroupFamily_ =
     DescribeEngineDefaultParameters'
     { _dedpFilters = Nothing
@@ -83,7 +87,7 @@ dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
 dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
+-- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 --
@@ -94,9 +98,9 @@ dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
 dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
--- @DescribeEngineDefaultParameters@ request. If this parameter is
+-- 'DescribeEngineDefaultParameters' request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
+-- the value specified by 'MaxRecords'.
 dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
 dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 
@@ -152,26 +156,29 @@ instance ToQuery DescribeEngineDefaultParameters
                  _dedpDBParameterGroupFamily]
 
 -- | /See:/ 'describeEngineDefaultParametersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dedprsStatus'
---
--- * 'dedprsEngineDefaults'
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
     { _dedprsStatus         :: !Int
     , _dedprsEngineDefaults :: !EngineDefaults
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEngineDefaultParametersResponse' smart constructor.
-describeEngineDefaultParametersResponse :: Int -> EngineDefaults -> DescribeEngineDefaultParametersResponse
+-- | Creates a value of 'DescribeEngineDefaultParametersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dedprsStatus'
+--
+-- * 'dedprsEngineDefaults'
+describeEngineDefaultParametersResponse
+    :: Int -- ^ 'dedprsStatus'
+    -> EngineDefaults -- ^ 'dedprsEngineDefaults'
+    -> DescribeEngineDefaultParametersResponse
 describeEngineDefaultParametersResponse pStatus_ pEngineDefaults_ =
     DescribeEngineDefaultParametersResponse'
     { _dedprsStatus = pStatus_
     , _dedprsEngineDefaults = pEngineDefaults_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dedprsStatus :: Lens' DescribeEngineDefaultParametersResponse Int
 dedprsStatus = lens _dedprsStatus (\ s a -> s{_dedprsStatus = a});
 

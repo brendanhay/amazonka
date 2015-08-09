@@ -117,7 +117,6 @@ module Network.AWS.S3
 
     -- ** ListObjectVersions (Paginated)
     , module Network.AWS.S3.ListObjectVersions
-    -- $pager
 
     -- ** GetBucketLifecycle
     , module Network.AWS.S3.GetBucketLifecycle
@@ -148,14 +147,12 @@ module Network.AWS.S3
 
     -- ** ListMultipartUploads (Paginated)
     , module Network.AWS.S3.ListMultipartUploads
-    -- $pager
 
     -- ** DeleteBucketWebsite
     , module Network.AWS.S3.DeleteBucketWebsite
 
     -- ** ListObjects (Paginated)
     , module Network.AWS.S3.ListObjects
-    -- $pager
 
     -- ** DeleteObjects
     , module Network.AWS.S3.DeleteObjects
@@ -213,7 +210,6 @@ module Network.AWS.S3
 
     -- ** ListParts (Paginated)
     , module Network.AWS.S3.ListParts
-    -- $pager
 
     -- ** GetBucketACL
     , module Network.AWS.S3.GetBucketACL
@@ -723,8 +719,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

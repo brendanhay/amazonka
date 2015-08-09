@@ -37,8 +37,8 @@
 module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     (
     -- * Creating a Request
-      CreateCachediSCSIVolume
-    , createCachediSCSIVolume
+      createCachediSCSIVolume
+    , CreateCachediSCSIVolume
     -- * Request Lenses
     , ccscsivSnapshotId
     , ccscsivGatewayARN
@@ -48,8 +48,8 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     , ccscsivClientToken
 
     -- * Destructuring the Response
-    , CreateCachediSCSIVolumeResponse
     , createCachediSCSIVolumeResponse
+    , CreateCachediSCSIVolumeResponse
     -- * Response Lenses
     , ccscsivrsTargetARN
     , ccscsivrsVolumeARN
@@ -63,8 +63,18 @@ import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'createCachediSCSIVolume' smart constructor.
+data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
+    { _ccscsivSnapshotId         :: !(Maybe Text)
+    , _ccscsivGatewayARN         :: !Text
+    , _ccscsivVolumeSizeInBytes  :: !Integer
+    , _ccscsivTargetName         :: !Text
+    , _ccscsivNetworkInterfaceId :: !Text
+    , _ccscsivClientToken        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateCachediSCSIVolume' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ccscsivSnapshotId'
 --
@@ -77,17 +87,13 @@ import           Network.AWS.StorageGateway.Types.Product
 -- * 'ccscsivNetworkInterfaceId'
 --
 -- * 'ccscsivClientToken'
-data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
-    { _ccscsivSnapshotId         :: !(Maybe Text)
-    , _ccscsivGatewayARN         :: !Text
-    , _ccscsivVolumeSizeInBytes  :: !Integer
-    , _ccscsivTargetName         :: !Text
-    , _ccscsivNetworkInterfaceId :: !Text
-    , _ccscsivClientToken        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateCachediSCSIVolume' smart constructor.
-createCachediSCSIVolume :: Text -> Integer -> Text -> Text -> Text -> CreateCachediSCSIVolume
+createCachediSCSIVolume
+    :: Text -- ^ 'ccscsivGatewayARN'
+    -> Integer -- ^ 'ccscsivVolumeSizeInBytes'
+    -> Text -- ^ 'ccscsivTargetName'
+    -> Text -- ^ 'ccscsivNetworkInterfaceId'
+    -> Text -- ^ 'ccscsivClientToken'
+    -> CreateCachediSCSIVolume
 createCachediSCSIVolume pGatewayARN_ pVolumeSizeInBytes_ pTargetName_ pNetworkInterfaceId_ pClientToken_ =
     CreateCachediSCSIVolume'
     { _ccscsivSnapshotId = Nothing
@@ -161,22 +167,24 @@ instance ToQuery CreateCachediSCSIVolume where
         toQuery = const mempty
 
 -- | /See:/ 'createCachediSCSIVolumeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccscsivrsTargetARN'
---
--- * 'ccscsivrsVolumeARN'
---
--- * 'ccscsivrsStatus'
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
     { _ccscsivrsTargetARN :: !(Maybe Text)
     , _ccscsivrsVolumeARN :: !(Maybe Text)
     , _ccscsivrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateCachediSCSIVolumeResponse' smart constructor.
-createCachediSCSIVolumeResponse :: Int -> CreateCachediSCSIVolumeResponse
+-- | Creates a value of 'CreateCachediSCSIVolumeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccscsivrsTargetARN'
+--
+-- * 'ccscsivrsVolumeARN'
+--
+-- * 'ccscsivrsStatus'
+createCachediSCSIVolumeResponse
+    :: Int -- ^ 'ccscsivrsStatus'
+    -> CreateCachediSCSIVolumeResponse
 createCachediSCSIVolumeResponse pStatus_ =
     CreateCachediSCSIVolumeResponse'
     { _ccscsivrsTargetARN = Nothing
@@ -192,6 +200,6 @@ ccscsivrsTargetARN = lens _ccscsivrsTargetARN (\ s a -> s{_ccscsivrsTargetARN = 
 ccscsivrsVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrsVolumeARN = lens _ccscsivrsVolumeARN (\ s a -> s{_ccscsivrsVolumeARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 ccscsivrsStatus :: Lens' CreateCachediSCSIVolumeResponse Int
 ccscsivrsStatus = lens _ccscsivrsStatus (\ s a -> s{_ccscsivrsStatus = a});

@@ -31,8 +31,8 @@
 module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     (
     -- * Creating a Request
-      PutScheduledUpdateGroupAction
-    , putScheduledUpdateGroupAction
+      putScheduledUpdateGroupAction
+    , PutScheduledUpdateGroupAction
     -- * Request Lenses
     , psugaTime
     , psugaStartTime
@@ -45,8 +45,8 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     , psugaScheduledActionName
 
     -- * Destructuring the Response
-    , PutScheduledUpdateGroupActionResponse
     , putScheduledUpdateGroupActionResponse
+    , PutScheduledUpdateGroupActionResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -56,8 +56,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putScheduledUpdateGroupAction' smart constructor.
+data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
+    { _psugaTime                 :: !(Maybe ISO8601)
+    , _psugaStartTime            :: !(Maybe ISO8601)
+    , _psugaMaxSize              :: !(Maybe Int)
+    , _psugaDesiredCapacity      :: !(Maybe Int)
+    , _psugaRecurrence           :: !(Maybe Text)
+    , _psugaMinSize              :: !(Maybe Int)
+    , _psugaEndTime              :: !(Maybe ISO8601)
+    , _psugaAutoScalingGroupName :: !Text
+    , _psugaScheduledActionName  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutScheduledUpdateGroupAction' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'psugaTime'
 --
@@ -76,20 +89,10 @@ import           Network.AWS.Response
 -- * 'psugaAutoScalingGroupName'
 --
 -- * 'psugaScheduledActionName'
-data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
-    { _psugaTime                 :: !(Maybe ISO8601)
-    , _psugaStartTime            :: !(Maybe ISO8601)
-    , _psugaMaxSize              :: !(Maybe Int)
-    , _psugaDesiredCapacity      :: !(Maybe Int)
-    , _psugaRecurrence           :: !(Maybe Text)
-    , _psugaMinSize              :: !(Maybe Int)
-    , _psugaEndTime              :: !(Maybe ISO8601)
-    , _psugaAutoScalingGroupName :: !Text
-    , _psugaScheduledActionName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutScheduledUpdateGroupAction' smart constructor.
-putScheduledUpdateGroupAction :: Text -> Text -> PutScheduledUpdateGroupAction
+putScheduledUpdateGroupAction
+    :: Text -- ^ 'psugaAutoScalingGroupName'
+    -> Text -- ^ 'psugaScheduledActionName'
+    -> PutScheduledUpdateGroupAction
 putScheduledUpdateGroupAction pAutoScalingGroupName_ pScheduledActionName_ =
     PutScheduledUpdateGroupAction'
     { _psugaTime = Nothing
@@ -103,20 +106,20 @@ putScheduledUpdateGroupAction pAutoScalingGroupName_ pScheduledActionName_ =
     , _psugaScheduledActionName = pScheduledActionName_
     }
 
--- | This parameter is deprecated; use @StartTime@ instead.
+-- | This parameter is deprecated; use 'StartTime' instead.
 --
--- The time for this action to start. If both @Time@ and @StartTime@ are
+-- The time for this action to start. If both 'Time' and 'StartTime' are
 -- specified, their values must be identical.
 psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaTime = lens _psugaTime (\ s a -> s{_psugaTime = a}) . mapping _Time;
 
 -- | The time for this action to start, in \"YYYY-MM-DDThh:mm:ssZ\" format in
--- UTC\/GMT only (for example, @2014-06-01T00:00:00Z@).
+-- UTC\/GMT only (for example, '2014-06-01T00:00:00Z').
 --
 -- If you try to schedule your action in the past, Auto Scaling returns an
 -- error message.
 --
--- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
+-- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they
 -- form the boundaries of when the recurring action starts and stops.
 psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
 psugaStartTime = lens _psugaStartTime (\ s a -> s{_psugaStartTime = a}) . mapping _Time;
@@ -133,7 +136,7 @@ psugaDesiredCapacity = lens _psugaDesiredCapacity (\ s a -> s{_psugaDesiredCapac
 -- specified by the user following the Unix cron syntax format. For more
 -- information, see <http://en.wikipedia.org/wiki/Cron Cron> in Wikipedia.
 --
--- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
+-- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they
 -- form the boundaries of when the recurring action will start and stop.
 psugaRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
 psugaRecurrence = lens _psugaRecurrence (\ s a -> s{_psugaRecurrence = a});
@@ -190,6 +193,8 @@ data PutScheduledUpdateGroupActionResponse =
     PutScheduledUpdateGroupActionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutScheduledUpdateGroupActionResponse' smart constructor.
-putScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse
+-- | Creates a value of 'PutScheduledUpdateGroupActionResponse' with the minimum fields required to make a request.
+--
+putScheduledUpdateGroupActionResponse
+    :: PutScheduledUpdateGroupActionResponse
 putScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse'

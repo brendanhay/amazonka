@@ -25,16 +25,27 @@ import           Network.AWS.Prelude
 -- associated with an audio file, to a maximum of 20.
 --
 -- To remove artwork or leave the artwork empty, you can either set
--- @Artwork@ to null, or set the @Merge Policy@ to \"Replace\" and use an
--- empty @Artwork@ array.
+-- 'Artwork' to null, or set the 'Merge Policy' to \"Replace\" and use an
+-- empty 'Artwork' array.
 --
--- To pass through existing artwork unchanged, set the @Merge Policy@ to
--- \"Prepend\", \"Append\", or \"Fallback\", and use an empty @Artwork@
+-- To pass through existing artwork unchanged, set the 'Merge Policy' to
+-- \"Prepend\", \"Append\", or \"Fallback\", and use an empty 'Artwork'
 -- array.
 --
 -- /See:/ 'artwork' smart constructor.
+data Artwork = Artwork'
+    { _aSizingPolicy   :: !(Maybe Text)
+    , _aMaxHeight      :: !(Maybe Text)
+    , _aAlbumArtFormat :: !(Maybe Text)
+    , _aInputKey       :: !(Maybe Text)
+    , _aPaddingPolicy  :: !(Maybe Text)
+    , _aEncryption     :: !(Maybe Encryption)
+    , _aMaxWidth       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Artwork' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'aSizingPolicy'
 --
@@ -49,18 +60,8 @@ import           Network.AWS.Prelude
 -- * 'aEncryption'
 --
 -- * 'aMaxWidth'
-data Artwork = Artwork'
-    { _aSizingPolicy   :: !(Maybe Text)
-    , _aMaxHeight      :: !(Maybe Text)
-    , _aAlbumArtFormat :: !(Maybe Text)
-    , _aInputKey       :: !(Maybe Text)
-    , _aPaddingPolicy  :: !(Maybe Text)
-    , _aEncryption     :: !(Maybe Encryption)
-    , _aMaxWidth       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Artwork' smart constructor.
-artwork :: Artwork
+artwork
+    :: Artwork
 artwork =
     Artwork'
     { _aSizingPolicy = Nothing
@@ -75,58 +76,58 @@ artwork =
 -- | Specify one of the following values to control scaling of the output
 -- album art:
 --
--- -   @Fit:@ Elastic Transcoder scales the output art so it matches the
---     value that you specified in either @MaxWidth@ or @MaxHeight@ without
+-- -   'Fit:' Elastic Transcoder scales the output art so it matches the
+--     value that you specified in either 'MaxWidth' or 'MaxHeight' without
 --     exceeding the other value.
--- -   @Fill:@ Elastic Transcoder scales the output art so it matches the
---     value that you specified in either @MaxWidth@ or @MaxHeight@ and
+-- -   'Fill:' Elastic Transcoder scales the output art so it matches the
+--     value that you specified in either 'MaxWidth' or 'MaxHeight' and
 --     matches or exceeds the other value. Elastic Transcoder centers the
 --     output art and then crops it in the dimension (if any) that exceeds
 --     the maximum value.
--- -   @Stretch:@ Elastic Transcoder stretches the output art to match the
---     values that you specified for @MaxWidth@ and @MaxHeight@. If the
+-- -   'Stretch:' Elastic Transcoder stretches the output art to match the
+--     values that you specified for 'MaxWidth' and 'MaxHeight'. If the
 --     relative proportions of the input art and the output art are
 --     different, the output art will be distorted.
--- -   @Keep:@ Elastic Transcoder does not scale the output art. If either
+-- -   'Keep:' Elastic Transcoder does not scale the output art. If either
 --     dimension of the input art exceeds the values that you specified for
---     @MaxWidth@ and @MaxHeight@, Elastic Transcoder crops the output art.
--- -   @ShrinkToFit:@ Elastic Transcoder scales the output art down so that
+--     'MaxWidth' and 'MaxHeight', Elastic Transcoder crops the output art.
+-- -   'ShrinkToFit:' Elastic Transcoder scales the output art down so that
 --     its dimensions match the values that you specified for at least one
---     of @MaxWidth@ and @MaxHeight@ without exceeding either value. If you
+--     of 'MaxWidth' and 'MaxHeight' without exceeding either value. If you
 --     specify this option, Elastic Transcoder does not scale the art up.
--- -   @ShrinkToFill@ Elastic Transcoder scales the output art down so that
+-- -   'ShrinkToFill' Elastic Transcoder scales the output art down so that
 --     its dimensions match the values that you specified for at least one
---     of @MaxWidth@ and @MaxHeight@ without dropping below either value.
+--     of 'MaxWidth' and 'MaxHeight' without dropping below either value.
 --     If you specify this option, Elastic Transcoder does not scale the
 --     art up.
 aSizingPolicy :: Lens' Artwork (Maybe Text)
 aSizingPolicy = lens _aSizingPolicy (\ s a -> s{_aSizingPolicy = a});
 
 -- | The maximum height of the output album art in pixels. If you specify
--- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
+-- 'auto', Elastic Transcoder uses 600 as the default value. If you specify
 -- a numeric value, enter an even integer between 32 and 3072, inclusive.
 aMaxHeight :: Lens' Artwork (Maybe Text)
 aMaxHeight = lens _aMaxHeight (\ s a -> s{_aMaxHeight = a});
 
--- | The format of album art, if any. Valid formats are @.jpg@ and @.png@.
+-- | The format of album art, if any. Valid formats are '.jpg' and '.png'.
 aAlbumArtFormat :: Lens' Artwork (Maybe Text)
 aAlbumArtFormat = lens _aAlbumArtFormat (\ s a -> s{_aAlbumArtFormat = a});
 
 -- | The name of the file to be used as album art. To determine which Amazon
 -- S3 bucket contains the specified file, Elastic Transcoder checks the
--- pipeline specified by @PipelineId@; the @InputBucket@ object in that
+-- pipeline specified by 'PipelineId'; the 'InputBucket' object in that
 -- pipeline identifies the bucket.
 --
--- If the file name includes a prefix, for example, @cooking\/pie.jpg@,
+-- If the file name includes a prefix, for example, 'cooking\/pie.jpg',
 -- include the prefix in the key. If the file isn\'t in the specified
 -- bucket, Elastic Transcoder returns an error.
 aInputKey :: Lens' Artwork (Maybe Text)
 aInputKey = lens _aInputKey (\ s a -> s{_aInputKey = a});
 
--- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add white
+-- | When you set 'PaddingPolicy' to 'Pad', Elastic Transcoder may add white
 -- bars to the top and bottom and\/or left and right sides of the output
 -- album art to make the total size of the output art match the values that
--- you specified for @MaxWidth@ and @MaxHeight@.
+-- you specified for 'MaxWidth' and 'MaxHeight'.
 aPaddingPolicy :: Lens' Artwork (Maybe Text)
 aPaddingPolicy = lens _aPaddingPolicy (\ s a -> s{_aPaddingPolicy = a});
 
@@ -136,7 +137,7 @@ aEncryption :: Lens' Artwork (Maybe Encryption)
 aEncryption = lens _aEncryption (\ s a -> s{_aEncryption = a});
 
 -- | The maximum width of the output album art in pixels. If you specify
--- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
+-- 'auto', Elastic Transcoder uses 600 as the default value. If you specify
 -- a numeric value, enter an even integer between 32 and 4096, inclusive.
 aMaxWidth :: Lens' Artwork (Maybe Text)
 aMaxWidth = lens _aMaxWidth (\ s a -> s{_aMaxWidth = a});
@@ -167,8 +168,16 @@ instance ToJSON Artwork where
 -- | Options associated with your audio codec.
 --
 -- /See:/ 'audioCodecOptions' smart constructor.
+data AudioCodecOptions = AudioCodecOptions'
+    { _acoBitDepth :: !(Maybe Text)
+    , _acoSigned   :: !(Maybe Text)
+    , _acoProfile  :: !(Maybe Text)
+    , _acoBitOrder :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AudioCodecOptions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'acoBitDepth'
 --
@@ -177,15 +186,8 @@ instance ToJSON Artwork where
 -- * 'acoProfile'
 --
 -- * 'acoBitOrder'
-data AudioCodecOptions = AudioCodecOptions'
-    { _acoBitDepth :: !(Maybe Text)
-    , _acoSigned   :: !(Maybe Text)
-    , _acoProfile  :: !(Maybe Text)
-    , _acoBitOrder :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AudioCodecOptions' smart constructor.
-audioCodecOptions :: AudioCodecOptions
+audioCodecOptions
+    :: AudioCodecOptions
 audioCodecOptions =
     AudioCodecOptions'
     { _acoBitDepth = Nothing
@@ -194,26 +196,26 @@ audioCodecOptions =
     , _acoBitOrder = Nothing
     }
 
--- | You can only choose an audio bit depth when you specify @flac@ or @pcm@
+-- | You can only choose an audio bit depth when you specify 'flac' or 'pcm'
 -- for the value of Audio:Codec.
 --
 -- The bit depth of a sample is how many bits of information are included
 -- in the audio samples. The higher the bit depth, the better the audio,
 -- but the larger the file.
 --
--- Valid values are @16@ and @24@.
+-- Valid values are '16' and '24'.
 --
--- The most common bit depth is @24@.
+-- The most common bit depth is '24'.
 acoBitDepth :: Lens' AudioCodecOptions (Maybe Text)
 acoBitDepth = lens _acoBitDepth (\ s a -> s{_acoBitDepth = a});
 
 -- | You can only choose whether an audio sample is signed when you specify
--- @pcm@ for the value of Audio:Codec.
+-- 'pcm' for the value of Audio:Codec.
 --
 -- Whether audio samples are represented with negative and positive numbers
 -- (signed) or only positive numbers (unsigned).
 --
--- The supported value is @Signed@.
+-- The supported value is 'Signed'.
 acoSigned :: Lens' AudioCodecOptions (Maybe Text)
 acoSigned = lens _acoSigned (\ s a -> s{_acoSigned = a});
 
@@ -223,17 +225,17 @@ acoSigned = lens _acoSigned (\ s a -> s{_acoSigned = a});
 -- Specify the AAC profile for the output file. Elastic Transcoder supports
 -- the following profiles:
 --
--- -   @auto@: If you specify @auto@, Elastic Transcoder will select the
+-- -   'auto': If you specify 'auto', Elastic Transcoder will select the
 --     profile based on the bit rate selected for the output file.
--- -   @AAC-LC@: The most common AAC profile. Use for bit rates larger than
+-- -   'AAC-LC': The most common AAC profile. Use for bit rates larger than
 --     64 kbps.
--- -   @HE-AAC@: Not supported on some older players and devices. Use for
+-- -   'HE-AAC': Not supported on some older players and devices. Use for
 --     bit rates between 40 and 80 kbps.
--- -   @HE-AACv2@: Not supported on some players and devices. Use for bit
+-- -   'HE-AACv2': Not supported on some players and devices. Use for bit
 --     rates less than 48 kbps.
 --
--- All outputs in a @Smooth@ playlist must have the same value for
--- @Profile@.
+-- All outputs in a 'Smooth' playlist must have the same value for
+-- 'Profile'.
 --
 -- If you created any presets before AAC profiles were added, Elastic
 -- Transcoder automatically updated your presets to use AAC-LC. You can
@@ -241,12 +243,12 @@ acoSigned = lens _acoSigned (\ s a -> s{_acoSigned = a});
 acoProfile :: Lens' AudioCodecOptions (Maybe Text)
 acoProfile = lens _acoProfile (\ s a -> s{_acoProfile = a});
 
--- | You can only choose an audio bit order when you specify @pcm@ for the
+-- | You can only choose an audio bit order when you specify 'pcm' for the
 -- value of Audio:Codec.
 --
 -- The order the bits of a PCM sample are stored in.
 --
--- The supported value is @LittleEndian@.
+-- The supported value is 'LittleEndian'.
 acoBitOrder :: Lens' AudioCodecOptions (Maybe Text)
 acoBitOrder = lens _acoBitOrder (\ s a -> s{_acoBitOrder = a});
 
@@ -268,8 +270,18 @@ instance ToJSON AudioCodecOptions where
 -- | Parameters required for transcoding audio.
 --
 -- /See:/ 'audioParameters' smart constructor.
+data AudioParameters = AudioParameters'
+    { _apChannels         :: !(Maybe Text)
+    , _apCodec            :: !(Maybe Text)
+    , _apAudioPackingMode :: !(Maybe Text)
+    , _apSampleRate       :: !(Maybe Text)
+    , _apBitRate          :: !(Maybe Text)
+    , _apCodecOptions     :: !(Maybe AudioCodecOptions)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AudioParameters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'apChannels'
 --
@@ -282,17 +294,8 @@ instance ToJSON AudioCodecOptions where
 -- * 'apBitRate'
 --
 -- * 'apCodecOptions'
-data AudioParameters = AudioParameters'
-    { _apChannels         :: !(Maybe Text)
-    , _apCodec            :: !(Maybe Text)
-    , _apAudioPackingMode :: !(Maybe Text)
-    , _apSampleRate       :: !(Maybe Text)
-    , _apBitRate          :: !(Maybe Text)
-    , _apCodecOptions     :: !(Maybe AudioCodecOptions)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AudioParameters' smart constructor.
-audioParameters :: AudioParameters
+audioParameters
+    :: AudioParameters
 audioParameters =
     AudioParameters'
     { _apChannels = Nothing
@@ -306,122 +309,122 @@ audioParameters =
 -- | The number of audio channels in the output file. The following values
 -- are valid:
 --
--- @auto@, @0@, @1@, @2@
+-- 'auto', '0', '1', '2'
 --
 -- One channel carries the information played by a single speaker. For
 -- example, a stereo track with two channels sends one channel to the left
 -- speaker, and the other channel to the right speaker. The output channels
 -- are organized into tracks. If you want Elastic Transcoder to
 -- automatically detect the number of audio channels in the input file and
--- use that value for the output file, select @auto@.
+-- use that value for the output file, select 'auto'.
 --
 -- The output of a specific channel value and inputs are as follows:
 --
--- -   @auto@ __channel specified, with any input:__ Pass through up to
+-- -   'auto' __channel specified, with any input:__ Pass through up to
 --     eight input channels.
--- -   @0@ __channels specified, with any input:__ Audio omitted from the
+-- -   '0' __channels specified, with any input:__ Audio omitted from the
 --     output.
--- -   @1@ __channel specified, with at least one input channel:__ Mono
+-- -   '1' __channel specified, with at least one input channel:__ Mono
 --     sound.
--- -   @2@ __channels specified, with any input:__ Two identical mono
+-- -   '2' __channels specified, with any input:__ Two identical mono
 --     channels or stereo. For more information about tracks, see
---     @Audio:AudioPackingMode.@
+--     'Audio:AudioPackingMode.'
 --
 -- For more information about how Elastic Transcoder organizes channels and
--- tracks, see @Audio:AudioPackingMode@.
+-- tracks, see 'Audio:AudioPackingMode'.
 apChannels :: Lens' AudioParameters (Maybe Text)
 apChannels = lens _apChannels (\ s a -> s{_apChannels = a});
 
--- | The audio codec for the output file. Valid values include @aac@, @flac@,
--- @mp2@, @mp3@, @pcm@, and @vorbis@.
+-- | The audio codec for the output file. Valid values include 'aac', 'flac',
+-- 'mp2', 'mp3', 'pcm', and 'vorbis'.
 apCodec :: Lens' AudioParameters (Maybe Text)
 apCodec = lens _apCodec (\ s a -> s{_apCodec = a});
 
--- | The method of organizing audio channels and tracks. Use @Audio:Channels@
+-- | The method of organizing audio channels and tracks. Use 'Audio:Channels'
 -- to specify the number of channels in your output, and
--- @Audio:AudioPackingMode@ to specify the number of tracks and their
+-- 'Audio:AudioPackingMode' to specify the number of tracks and their
 -- relation to the channels. If you do not specify an
--- @Audio:AudioPackingMode@, Elastic Transcoder uses @SingleTrack@.
+-- 'Audio:AudioPackingMode', Elastic Transcoder uses 'SingleTrack'.
 --
 -- The following values are valid:
 --
--- @SingleTrack@, @OneChannelPerTrack@, and
--- @OneChannelPerTrackWithMosTo8Tracks@
+-- 'SingleTrack', 'OneChannelPerTrack', and
+-- 'OneChannelPerTrackWithMosTo8Tracks'
 --
--- When you specify @SingleTrack@, Elastic Transcoder creates a single
+-- When you specify 'SingleTrack', Elastic Transcoder creates a single
 -- track for your output. The track can have up to eight channels. Use
--- @SingleTrack@ for all non-@mxf@ containers.
+-- 'SingleTrack' for all non-'mxf' containers.
 --
--- The outputs of @SingleTrack@ for a specific channel value and inputs are
+-- The outputs of 'SingleTrack' for a specific channel value and inputs are
 -- as follows:
 --
--- -   @0@ __channels with any input:__ Audio omitted from the output
--- -   @1, 2, or auto @ __channels with no audio input:__ Audio omitted
+-- -   '0' __channels with any input:__ Audio omitted from the output
+-- -   '1, 2, or auto ' __channels with no audio input:__ Audio omitted
 --     from the output
--- -   @1 @ __channel with any input with audio:__ One track with one
+-- -   '1 ' __channel with any input with audio:__ One track with one
 --     channel, downmixed if necessary
--- -   @2 @ __channels with one track with one channel:__ One track with
+-- -   '2 ' __channels with one track with one channel:__ One track with
 --     two identical channels
--- -   @2 or auto @ __channels with two tracks with one channel each:__ One
+-- -   '2 or auto ' __channels with two tracks with one channel each:__ One
 --     track with two channels
--- -   @2 or auto @ __channels with one track with two channels:__ One
+-- -   '2 or auto ' __channels with one track with two channels:__ One
 --     track with two channels
--- -   @2 @ __channels with one track with multiple channels:__ One track
+-- -   '2 ' __channels with one track with multiple channels:__ One track
 --     with two channels
--- -   @auto @ __channels with one track with one channel:__ One track with
+-- -   'auto ' __channels with one track with one channel:__ One track with
 --     one channel
--- -   @auto @ __channels with one track with multiple channels:__ One
+-- -   'auto ' __channels with one track with multiple channels:__ One
 --     track with multiple channels
 --
--- When you specify @OneChannelPerTrack@, Elastic Transcoder creates a new
+-- When you specify 'OneChannelPerTrack', Elastic Transcoder creates a new
 -- track for every channel in your output. Your output can have up to eight
 -- single-channel tracks.
 --
--- The outputs of @OneChannelPerTrack@ for a specific channel value and
+-- The outputs of 'OneChannelPerTrack' for a specific channel value and
 -- inputs are as follows:
 --
--- -   @0 @ __channels with any input:__ Audio omitted from the output
--- -   @1, 2, or auto @ __channels with no audio input:__ Audio omitted
+-- -   '0 ' __channels with any input:__ Audio omitted from the output
+-- -   '1, 2, or auto ' __channels with no audio input:__ Audio omitted
 --     from the output
--- -   @1 @ __channel with any input with audio:__ One track with one
+-- -   '1 ' __channel with any input with audio:__ One track with one
 --     channel, downmixed if necessary
--- -   @2 @ __channels with one track with one channel:__ Two tracks with
+-- -   '2 ' __channels with one track with one channel:__ Two tracks with
 --     one identical channel each
--- -   @2 or auto @ __channels with two tracks with one channel each:__ Two
+-- -   '2 or auto ' __channels with two tracks with one channel each:__ Two
 --     tracks with one channel each
--- -   @2 or auto @ __channels with one track with two channels:__ Two
+-- -   '2 or auto ' __channels with one track with two channels:__ Two
 --     tracks with one channel each
--- -   @2 @ __channels with one track with multiple channels:__ Two tracks
+-- -   '2 ' __channels with one track with multiple channels:__ Two tracks
 --     with one channel each
--- -   @auto @ __channels with one track with one channel:__ One track with
+-- -   'auto ' __channels with one track with one channel:__ One track with
 --     one channel
--- -   @auto @ __channels with one track with multiple channels:__ Up to
+-- -   'auto ' __channels with one track with multiple channels:__ Up to
 --     eight tracks with one channel each
 --
--- When you specify @OneChannelPerTrackWithMosTo8Tracks@, Elastic
+-- When you specify 'OneChannelPerTrackWithMosTo8Tracks', Elastic
 -- Transcoder creates eight single-channel tracks for your output. All
 -- tracks that do not contain audio data from an input channel are MOS, or
 -- Mit Out Sound, tracks.
 --
--- The outputs of @OneChannelPerTrackWithMosTo8Tracks@ for a specific
+-- The outputs of 'OneChannelPerTrackWithMosTo8Tracks' for a specific
 -- channel value and inputs are as follows:
 --
--- -   @0 @ __channels with any input:__ Audio omitted from the output
--- -   @1, 2, or auto @ __channels with no audio input:__ Audio omitted
+-- -   '0 ' __channels with any input:__ Audio omitted from the output
+-- -   '1, 2, or auto ' __channels with no audio input:__ Audio omitted
 --     from the output
--- -   @1 @ __channel with any input with audio:__ One track with one
+-- -   '1 ' __channel with any input with audio:__ One track with one
 --     channel, downmixed if necessary, plus six MOS tracks
--- -   @2 @ __channels with one track with one channel:__ Two tracks with
+-- -   '2 ' __channels with one track with one channel:__ Two tracks with
 --     one identical channel each, plus six MOS tracks
--- -   @2 or auto @ __channels with two tracks with one channel each:__ Two
+-- -   '2 or auto ' __channels with two tracks with one channel each:__ Two
 --     tracks with one channel each, plus six MOS tracks
--- -   @2 or auto @ __channels with one track with two channels:__ Two
+-- -   '2 or auto ' __channels with one track with two channels:__ Two
 --     tracks with one channel each, plus six MOS tracks
--- -   @2 @ __channels with one track with multiple channels:__ Two tracks
+-- -   '2 ' __channels with one track with multiple channels:__ Two tracks
 --     with one channel each, plus six MOS tracks
--- -   @auto @ __channels with one track with one channel:__ One track with
+-- -   'auto ' __channels with one track with one channel:__ One track with
 --     one channel, plus seven MOS tracks
--- -   @auto @ __channels with one track with multiple channels:__ Up to
+-- -   'auto ' __channels with one track with multiple channels:__ Up to
 --     eight tracks with one channel each, plus MOS tracks until there are
 --     eight tracks in all
 apAudioPackingMode :: Lens' AudioParameters (Maybe Text)
@@ -430,9 +433,9 @@ apAudioPackingMode = lens _apAudioPackingMode (\ s a -> s{_apAudioPackingMode = 
 -- | The sample rate of the audio stream in the output file, in Hertz. Valid
 -- values include:
 --
--- @auto@, @22050@, @32000@, @44100@, @48000@, @96000@
+-- 'auto', '22050', '32000', '44100', '48000', '96000'
 --
--- If you specify @auto@, Elastic Transcoder automatically detects the
+-- If you specify 'auto', Elastic Transcoder automatically detects the
 -- sample rate.
 apSampleRate :: Lens' AudioParameters (Maybe Text)
 apSampleRate = lens _apSampleRate (\ s a -> s{_apSampleRate = a});
@@ -442,12 +445,12 @@ apSampleRate = lens _apSampleRate (\ s a -> s{_apSampleRate = a});
 apBitRate :: Lens' AudioParameters (Maybe Text)
 apBitRate = lens _apBitRate (\ s a -> s{_apBitRate = a});
 
--- | If you specified @AAC@ for @Audio:Codec@, this is the @AAC@ compression
+-- | If you specified 'AAC' for 'Audio:Codec', this is the 'AAC' compression
 -- profile to use. Valid values include:
 --
--- @auto@, @AAC-LC@, @HE-AAC@, @HE-AACv2@
+-- 'auto', 'AAC-LC', 'HE-AAC', 'HE-AACv2'
 --
--- If you specify @auto@, Elastic Transcoder chooses a profile based on the
+-- If you specify 'auto', Elastic Transcoder chooses a profile based on the
 -- bit rate of the output file.
 apCodecOptions :: Lens' AudioParameters (Maybe AudioCodecOptions)
 apCodecOptions = lens _apCodecOptions (\ s a -> s{_apCodecOptions = a});
@@ -476,22 +479,23 @@ instance ToJSON AudioParameters where
 -- Elastic Transcoder returns an error.
 --
 -- /See:/ 'captionFormat' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cfPattern'
---
--- * 'cfFormat'
---
--- * 'cfEncryption'
 data CaptionFormat = CaptionFormat'
     { _cfPattern    :: !(Maybe Text)
     , _cfFormat     :: !(Maybe Text)
     , _cfEncryption :: !(Maybe Encryption)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CaptionFormat' smart constructor.
-captionFormat :: CaptionFormat
+-- | Creates a value of 'CaptionFormat' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfPattern'
+--
+-- * 'cfFormat'
+--
+-- * 'cfEncryption'
+captionFormat
+    :: CaptionFormat
 captionFormat =
     CaptionFormat'
     { _cfPattern = Nothing
@@ -500,15 +504,15 @@ captionFormat =
     }
 
 -- | The prefix for caption filenames, in the form
--- /description/-@{language}@, where:
+-- /description/-'{language}', where:
 --
 -- -   /description/ is a description of the video.
--- -   @{language}@ is a literal value that Elastic Transcoder replaces
+-- -   '{language}' is a literal value that Elastic Transcoder replaces
 --     with the two- or three-letter code for the language of the caption
 --     in the output file names.
 --
--- If you don\'t include @{language}@ in the file name pattern, Elastic
--- Transcoder automatically appends \"@{language}@\" to the value that you
+-- If you don\'t include '{language}' in the file name pattern, Elastic
+-- Transcoder automatically appends \"'{language}'\" to the value that you
 -- specify for the description. In addition, Elastic Transcoder
 -- automatically appends the count to the end of the segment files.
 --
@@ -544,7 +548,7 @@ cfPattern = lens _cfPattern (\ s a -> s{_cfPattern = a});
 --
 --     -   __Non-FMP4 outputs__: All sidecar types
 --
---     @fmp4@ captions have an extension of @.ismt@
+--     'fmp4' captions have an extension of '.ismt'
 --
 cfFormat :: Lens' CaptionFormat (Maybe Text)
 cfFormat = lens _cfFormat (\ s a -> s{_cfFormat = a});
@@ -572,8 +576,17 @@ instance ToJSON CaptionFormat where
 -- process.
 --
 -- /See:/ 'captionSource' smart constructor.
+data CaptionSource = CaptionSource'
+    { _csTimeOffset :: !(Maybe Text)
+    , _csKey        :: !(Maybe Text)
+    , _csEncryption :: !(Maybe Encryption)
+    , _csLanguage   :: !(Maybe Text)
+    , _csLabel      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CaptionSource' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'csTimeOffset'
 --
@@ -584,16 +597,8 @@ instance ToJSON CaptionFormat where
 -- * 'csLanguage'
 --
 -- * 'csLabel'
-data CaptionSource = CaptionSource'
-    { _csTimeOffset :: !(Maybe Text)
-    , _csKey        :: !(Maybe Text)
-    , _csEncryption :: !(Maybe Encryption)
-    , _csLanguage   :: !(Maybe Text)
-    , _csLabel      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CaptionSource' smart constructor.
-captionSource :: CaptionSource
+captionSource
+    :: CaptionSource
 captionSource =
     CaptionSource'
     { _csTimeOffset = Nothing
@@ -604,7 +609,7 @@ captionSource =
     }
 
 -- | For clip generation or captions that do not start at the same time as
--- the associated video file, the @TimeOffset@ tells Elastic Transcoder how
+-- the associated video file, the 'TimeOffset' tells Elastic Transcoder how
 -- much of the video to encode before including captions.
 --
 -- Specify the TimeOffset in the form [+-]SS.sss or [+-]HH:mm:SS.ss.
@@ -659,22 +664,23 @@ instance ToJSON CaptionSource where
 -- | The captions to be created, if any.
 --
 -- /See:/ 'captions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cMergePolicy'
---
--- * 'cCaptionSources'
---
--- * 'cCaptionFormats'
 data Captions = Captions'
     { _cMergePolicy    :: !(Maybe Text)
     , _cCaptionSources :: !(Maybe [CaptionSource])
     , _cCaptionFormats :: !(Maybe [CaptionFormat])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Captions' smart constructor.
-captions :: Captions
+-- | Creates a value of 'Captions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cMergePolicy'
+--
+-- * 'cCaptionSources'
+--
+-- * 'cCaptionFormats'
+captions
+    :: Captions
 captions =
     Captions'
     { _cMergePolicy = Nothing
@@ -695,18 +701,18 @@ captions =
 --     sidecar captions into outputs. If captions for a language are
 --     embedded in the input file and also appear in a sidecar file,
 --     Elastic Transcoder uses the embedded captions and ignores the
---     sidecar captions for that language. If @CaptionSources@ is empty,
+--     sidecar captions for that language. If 'CaptionSources' is empty,
 --     Elastic Transcoder omits all sidecar captions from the output files.
 --
 -- -   __Override:__ Elastic Transcoder transcodes only the sidecar
---     captions that you specify in @CaptionSources@.
+--     captions that you specify in 'CaptionSources'.
 --
--- @MergePolicy@ cannot be null.
+-- 'MergePolicy' cannot be null.
 cMergePolicy :: Lens' Captions (Maybe Text)
 cMergePolicy = lens _cMergePolicy (\ s a -> s{_cMergePolicy = a});
 
 -- | Source files for the input sidecar captions used during the transcoding
--- process. To omit all sidecar captions, leave @CaptionSources@ blank.
+-- process. To omit all sidecar captions, leave 'CaptionSources' blank.
 cCaptionSources :: Lens' Captions [CaptionSource]
 cCaptionSources = lens _cCaptionSources (\ s a -> s{_cCaptionSources = a}) . _Default . _Coerce;
 
@@ -735,16 +741,17 @@ instance ToJSON Captions where
 -- the same clip settings.
 --
 -- /See:/ 'clip' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cTimeSpan'
 newtype Clip = Clip'
     { _cTimeSpan :: Maybe TimeSpan
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Clip' smart constructor.
-clip :: Clip
+-- | Creates a value of 'Clip' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cTimeSpan'
+clip
+    :: Clip
 clip =
     Clip'
     { _cTimeSpan = Nothing
@@ -762,11 +769,26 @@ instance FromJSON Clip where
 instance ToJSON Clip where
         toJSON Clip'{..} = object ["TimeSpan" .= _cTimeSpan]
 
--- | The @CreateJobOutput@ structure.
+-- | The 'CreateJobOutput' structure.
 --
 -- /See:/ 'createJobOutput' smart constructor.
+data CreateJobOutput = CreateJobOutput'
+    { _cjoThumbnailPattern    :: !(Maybe Text)
+    , _cjoCaptions            :: !(Maybe Captions)
+    , _cjoPresetId            :: !(Maybe Text)
+    , _cjoComposition         :: !(Maybe [Clip])
+    , _cjoAlbumArt            :: !(Maybe JobAlbumArt)
+    , _cjoWatermarks          :: !(Maybe [JobWatermark])
+    , _cjoKey                 :: !(Maybe Text)
+    , _cjoEncryption          :: !(Maybe Encryption)
+    , _cjoSegmentDuration     :: !(Maybe Text)
+    , _cjoThumbnailEncryption :: !(Maybe Encryption)
+    , _cjoRotate              :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateJobOutput' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cjoThumbnailPattern'
 --
@@ -789,22 +811,8 @@ instance ToJSON Clip where
 -- * 'cjoThumbnailEncryption'
 --
 -- * 'cjoRotate'
-data CreateJobOutput = CreateJobOutput'
-    { _cjoThumbnailPattern    :: !(Maybe Text)
-    , _cjoCaptions            :: !(Maybe Captions)
-    , _cjoPresetId            :: !(Maybe Text)
-    , _cjoComposition         :: !(Maybe [Clip])
-    , _cjoAlbumArt            :: !(Maybe JobAlbumArt)
-    , _cjoWatermarks          :: !(Maybe [JobWatermark])
-    , _cjoKey                 :: !(Maybe Text)
-    , _cjoEncryption          :: !(Maybe Encryption)
-    , _cjoSegmentDuration     :: !(Maybe Text)
-    , _cjoThumbnailEncryption :: !(Maybe Encryption)
-    , _cjoRotate              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateJobOutput' smart constructor.
-createJobOutput :: CreateJobOutput
+createJobOutput
+    :: CreateJobOutput
 createJobOutput =
     CreateJobOutput'
     { _cjoThumbnailPattern = Nothing
@@ -830,29 +838,29 @@ createJobOutput =
 -- information that you want to include in the file name for each
 -- thumbnail. You can specify the following values in any sequence:
 --
--- -   __@{count}@ (Required)__: If you want to create thumbnails, you must
---     include @{count}@ in the @ThumbnailPattern@ object. Wherever you
---     specify @{count}@, Elastic Transcoder adds a five-digit sequence
+-- -   __'{count}' (Required)__: If you want to create thumbnails, you must
+--     include '{count}' in the 'ThumbnailPattern' object. Wherever you
+--     specify '{count}', Elastic Transcoder adds a five-digit sequence
 --     number (beginning with __00001__) to thumbnail file names. The
 --     number indicates where a given thumbnail appears in the sequence of
 --     thumbnails for a transcoded file.
 --
---     If you specify a literal value and\/or @{resolution}@ but you omit
---     @{count}@, Elastic Transcoder returns a validation error and does
+--     If you specify a literal value and\/or '{resolution}' but you omit
+--     '{count}', Elastic Transcoder returns a validation error and does
 --     not create the job.
 --
 -- -   __Literal values (Optional)__: You can specify literal values
---     anywhere in the @ThumbnailPattern@ object. For example, you can
+--     anywhere in the 'ThumbnailPattern' object. For example, you can
 --     include them as a file name prefix or as a delimiter between
---     @{resolution}@ and @{count}@.
+--     '{resolution}' and '{count}'.
 --
--- -   __@{resolution}@ (Optional)__: If you want Elastic Transcoder to
---     include the resolution in the file name, include @{resolution}@ in
---     the @ThumbnailPattern@ object.
+-- -   __'{resolution}' (Optional)__: If you want Elastic Transcoder to
+--     include the resolution in the file name, include '{resolution}' in
+--     the 'ThumbnailPattern' object.
 --
 -- When creating thumbnails, Elastic Transcoder automatically saves the
 -- files in the format (.jpg or .png) that appears in the preset that you
--- specified in the @PresetID@ value of @CreateJobOutput@. Elastic
+-- specified in the 'PresetID' value of 'CreateJobOutput'. Elastic
 -- Transcoder also appends the applicable file name extension.
 cjoThumbnailPattern :: Lens' CreateJobOutput (Maybe Text)
 cjoThumbnailPattern = lens _cjoThumbnailPattern (\ s a -> s{_cjoThumbnailPattern = a});
@@ -866,11 +874,11 @@ cjoThumbnailPattern = lens _cjoThumbnailPattern (\ s a -> s{_cjoThumbnailPattern
 --     caption per language, to a maximum of 300 embedded captions per
 --     file.
 --
---     Valid input values include: @CEA-608 (EIA-608@, first non-empty
---     channel only), @CEA-708 (EIA-708@, first non-empty channel only),
---     and @mov-text@
+--     Valid input values include: 'CEA-608 (EIA-608', first non-empty
+--     channel only), 'CEA-708 (EIA-708', first non-empty channel only),
+--     and 'mov-text'
 --
---     Valid outputs include: @mov-text@
+--     Valid outputs include: 'mov-text'
 --
 --     Elastic Transcoder supports a maximum of one embedded format per
 --     output.
@@ -882,12 +890,12 @@ cjoThumbnailPattern = lens _cjoThumbnailPattern (\ s a -> s{_cjoThumbnailPattern
 --     sidecar caption per language, to a maximum of 20 sidecar captions
 --     per file.
 --
---     Valid input values include: @dfxp@ (first div element only),
---     @ebu-tt@, @scc@, @smpt@, @srt@, @ttml@ (first div element only), and
---     @webvtt@
+--     Valid input values include: 'dfxp' (first div element only),
+--     'ebu-tt', 'scc', 'smpt', 'srt', 'ttml' (first div element only), and
+--     'webvtt'
 --
---     Valid outputs include: @dfxp@ (first div element only), @scc@,
---     @srt@, and @webvtt@.
+--     Valid outputs include: 'dfxp' (first div element only), 'scc',
+--     'srt', and 'webvtt'.
 --
 -- If you want ttml or smpte-tt compatible captions, specify dfxp as your
 -- output format.
@@ -898,9 +906,9 @@ cjoThumbnailPattern = lens _cjoThumbnailPattern (\ s a -> s{_cjoThumbnailPattern
 -- preserve text formatting (for example, italics) during the transcoding
 -- process.
 --
--- To remove captions or leave the captions empty, set @Captions@ to null.
--- To pass through existing captions unchanged, set the @MergePolicy@ to
--- @MergeRetain@, and pass in a null @CaptionSources@ array.
+-- To remove captions or leave the captions empty, set 'Captions' to null.
+-- To pass through existing captions unchanged, set the 'MergePolicy' to
+-- 'MergeRetain', and pass in a null 'CaptionSources' array.
 --
 -- For more information on embedded files, see the Subtitles Wikipedia
 -- page.
@@ -910,7 +918,7 @@ cjoThumbnailPattern = lens _cjoThumbnailPattern (\ s a -> s{_cjoThumbnailPattern
 cjoCaptions :: Lens' CreateJobOutput (Maybe Captions)
 cjoCaptions = lens _cjoCaptions (\ s a -> s{_cjoCaptions = a});
 
--- | The @Id@ of the preset to use for this job. The preset determines the
+-- | The 'Id' of the preset to use for this job. The preset determines the
 -- audio, video, and thumbnail settings that Elastic Transcoder uses for
 -- transcoding.
 cjoPresetId :: Lens' CreateJobOutput (Maybe Text)
@@ -940,7 +948,7 @@ cjoWatermarks :: Lens' CreateJobOutput [JobWatermark]
 cjoWatermarks = lens _cjoWatermarks (\ s a -> s{_cjoWatermarks = a}) . _Default . _Coerce;
 
 -- | The name to assign to the transcoded file. Elastic Transcoder saves the
--- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
+-- file in the Amazon S3 bucket specified by the 'OutputBucket' object in
 -- the pipeline that is specified by the pipeline ID. If a file with the
 -- specified name already exists in the output bucket, the job fails.
 cjoKey :: Lens' CreateJobOutput (Maybe Text)
@@ -955,22 +963,22 @@ cjoEncryption = lens _cjoEncryption (\ s a -> s{_cjoEncryption = a});
 
 -- | (Outputs in Fragmented MP4 or MPEG-TS format only.
 --
--- If you specify a preset in @PresetId@ for which the value of @Container@
--- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
--- target maximum duration of each segment in seconds. For @HLSv3@ format
--- playlists, each media segment is stored in a separate @.ts@ file. For
--- @HLSv4@ and @Smooth@ playlists, all media segments for an output are
+-- If you specify a preset in 'PresetId' for which the value of 'Container'
+-- is 'fmp4' (Fragmented MP4) or 'ts' (MPEG-TS), 'SegmentDuration' is the
+-- target maximum duration of each segment in seconds. For 'HLSv3' format
+-- playlists, each media segment is stored in a separate '.ts' file. For
+-- 'HLSv4' and 'Smooth' playlists, all media segments for an output are
 -- stored in a single file. Each segment is approximately the length of the
--- @SegmentDuration@, though individual segments might be shorter or
+-- 'SegmentDuration', though individual segments might be shorter or
 -- longer.
 --
 -- The range of valid values is 1 to 60 seconds. If the duration of the
--- video is not evenly divisible by @SegmentDuration@, the duration of the
+-- video is not evenly divisible by 'SegmentDuration', the duration of the
 -- last segment is the remainder of total length\/SegmentDuration.
 --
 -- Elastic Transcoder creates an output-specific playlist for each output
--- @HLS@ output that you specify in OutputKeys. To add an output to the
--- master playlist for this job, include it in the @OutputKeys@ of the
+-- 'HLS' output that you specify in OutputKeys. To add an output to the
+-- master playlist for this job, include it in the 'OutputKeys' of the
 -- associated playlist.
 cjoSegmentDuration :: Lens' CreateJobOutput (Maybe Text)
 cjoSegmentDuration = lens _cjoSegmentDuration (\ s a -> s{_cjoSegmentDuration = a});
@@ -982,7 +990,7 @@ cjoThumbnailEncryption = lens _cjoThumbnailEncryption (\ s a -> s{_cjoThumbnailE
 
 -- | The number of degrees clockwise by which you want Elastic Transcoder to
 -- rotate the output relative to the input. Enter one of the following
--- values: @auto@, @0@, @90@, @180@, @270@. The value @auto@ generally
+-- values: 'auto', '0', '90', '180', '270'. The value 'auto' generally
 -- works only if the file that you\'re transcoding contains rotation
 -- metadata.
 cjoRotate :: Lens' CreateJobOutput (Maybe Text)
@@ -1005,8 +1013,17 @@ instance ToJSON CreateJobOutput where
 -- | Information about the master playlist.
 --
 -- /See:/ 'createJobPlaylist' smart constructor.
+data CreateJobPlaylist = CreateJobPlaylist'
+    { _cjpPlayReadyDrm         :: !(Maybe PlayReadyDrm)
+    , _cjpOutputKeys           :: !(Maybe [Text])
+    , _cjpFormat               :: !(Maybe Text)
+    , _cjpName                 :: !(Maybe Text)
+    , _cjpHlsContentProtection :: !(Maybe HlsContentProtection)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateJobPlaylist' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cjpPlayReadyDrm'
 --
@@ -1017,16 +1034,8 @@ instance ToJSON CreateJobOutput where
 -- * 'cjpName'
 --
 -- * 'cjpHlsContentProtection'
-data CreateJobPlaylist = CreateJobPlaylist'
-    { _cjpPlayReadyDrm         :: !(Maybe PlayReadyDrm)
-    , _cjpOutputKeys           :: !(Maybe [Text])
-    , _cjpFormat               :: !(Maybe Text)
-    , _cjpName                 :: !(Maybe Text)
-    , _cjpHlsContentProtection :: !(Maybe HlsContentProtection)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateJobPlaylist' smart constructor.
-createJobPlaylist :: CreateJobPlaylist
+createJobPlaylist
+    :: CreateJobPlaylist
 createJobPlaylist =
     CreateJobPlaylist'
     { _cjpPlayReadyDrm = Nothing
@@ -1042,35 +1051,35 @@ cjpPlayReadyDrm :: Lens' CreateJobPlaylist (Maybe PlayReadyDrm)
 cjpPlayReadyDrm = lens _cjpPlayReadyDrm (\ s a -> s{_cjpPlayReadyDrm = a});
 
 -- | For each output in this job that you want to include in a master
--- playlist, the value of the @Outputs:Key@ object.
+-- playlist, the value of the 'Outputs:Key' object.
 --
--- -   If your output is not @HLS@ or does not have a segment duration set,
---     the name of the output file is a concatenation of @OutputKeyPrefix@
---     and @Outputs:Key@:
+-- -   If your output is not 'HLS' or does not have a segment duration set,
+--     the name of the output file is a concatenation of 'OutputKeyPrefix'
+--     and 'Outputs:Key':
 --
---     OutputKeyPrefix@Outputs:Key@
+--     OutputKeyPrefix'Outputs:Key'
 --
--- -   If your output is @HLSv3@ and has a segment duration set, or is not
+-- -   If your output is 'HLSv3' and has a segment duration set, or is not
 --     included in a playlist, Elastic Transcoder creates an output
---     playlist file with a file extension of @.m3u8@, and a series of
---     @.ts@ files that include a five-digit sequential counter beginning
+--     playlist file with a file extension of '.m3u8', and a series of
+--     '.ts' files that include a five-digit sequential counter beginning
 --     with 00000:
 --
---     OutputKeyPrefix@Outputs:Key@.m3u8
+--     OutputKeyPrefix'Outputs:Key'.m3u8
 --
---     OutputKeyPrefix@Outputs:Key@00000.ts
+--     OutputKeyPrefix'Outputs:Key'00000.ts
 --
--- -   If your output is @HLSv4@, has a segment duration set, and is
---     included in an @HLSv4@ playlist, Elastic Transcoder creates an
---     output playlist file with a file extension of @_v4.m3u8@. If the
+-- -   If your output is 'HLSv4', has a segment duration set, and is
+--     included in an 'HLSv4' playlist, Elastic Transcoder creates an
+--     output playlist file with a file extension of '_v4.m3u8'. If the
 --     output is video, Elastic Transcoder also creates an output file with
---     an extension of @_iframe.m3u8@:
+--     an extension of '_iframe.m3u8':
 --
---     OutputKeyPrefix@Outputs:Key@_v4.m3u8
+--     OutputKeyPrefix'Outputs:Key'_v4.m3u8
 --
---     OutputKeyPrefix@Outputs:Key@_iframe.m3u8
+--     OutputKeyPrefix'Outputs:Key'_iframe.m3u8
 --
---     OutputKeyPrefix@Outputs:Key@.ts
+--     OutputKeyPrefix'Outputs:Key'.ts
 --
 -- Elastic Transcoder automatically appends the relevant file extension to
 -- the file name. If you include a file extension in Output Key, the file
@@ -1078,27 +1087,27 @@ cjpPlayReadyDrm = lens _cjpPlayReadyDrm (\ s a -> s{_cjpPlayReadyDrm = a});
 --
 -- If you include more than one output in a playlist, any segment duration
 -- settings, clip settings, or caption settings must be the same for all
--- outputs in the playlist. For @Smooth@ playlists, the @Audio:Profile@,
--- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
+-- outputs in the playlist. For 'Smooth' playlists, the 'Audio:Profile',
+-- 'Video:Profile', and 'Video:FrameRate' to 'Video:KeyframesMaxDist' ratio
 -- must be the same for all outputs.
 cjpOutputKeys :: Lens' CreateJobPlaylist [Text]
 cjpOutputKeys = lens _cjpOutputKeys (\ s a -> s{_cjpOutputKeys = a}) . _Default . _Coerce;
 
--- | The format of the output playlist. Valid formats include @HLSv3@,
--- @HLSv4@, and @Smooth@.
+-- | The format of the output playlist. Valid formats include 'HLSv3',
+-- 'HLSv4', and 'Smooth'.
 cjpFormat :: Lens' CreateJobPlaylist (Maybe Text)
 cjpFormat = lens _cjpFormat (\ s a -> s{_cjpFormat = a});
 
 -- | The name that you want Elastic Transcoder to assign to the master
--- playlist, for example, nyc-vacation.m3u8. If the name includes a @\/@
--- character, the section of the name before the last @\/@ must be
--- identical for all @Name@ objects. If you create more than one master
--- playlist, the values of all @Name@ objects must be unique.
+-- playlist, for example, nyc-vacation.m3u8. If the name includes a '\/'
+-- character, the section of the name before the last '\/' must be
+-- identical for all 'Name' objects. If you create more than one master
+-- playlist, the values of all 'Name' objects must be unique.
 --
 -- __Note:__ Elastic Transcoder automatically appends the relevant file
--- extension to the file name (@.m3u8@ for @HLSv3@ and @HLSv4@ playlists,
--- and @.ism@ and @.ismc@ for @Smooth@ playlists). If you include a file
--- extension in @Name@, the file name will have two extensions.
+-- extension to the file name ('.m3u8' for 'HLSv3' and 'HLSv4' playlists,
+-- and '.ism' and '.ismc' for 'Smooth' playlists). If you include a file
+-- extension in 'Name', the file name will have two extensions.
 cjpName :: Lens' CreateJobPlaylist (Maybe Text)
 cjpName = lens _cjpName (\ s a -> s{_cjpName = a});
 
@@ -1119,8 +1128,17 @@ instance ToJSON CreateJobPlaylist where
 -- these values from the input file.
 --
 -- /See:/ 'detectedProperties' smart constructor.
+data DetectedProperties = DetectedProperties'
+    { _dpHeight         :: !(Maybe Int)
+    , _dpFrameRate      :: !(Maybe Text)
+    , _dpFileSize       :: !(Maybe Integer)
+    , _dpWidth          :: !(Maybe Int)
+    , _dpDurationMillis :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DetectedProperties' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dpHeight'
 --
@@ -1131,16 +1149,8 @@ instance ToJSON CreateJobPlaylist where
 -- * 'dpWidth'
 --
 -- * 'dpDurationMillis'
-data DetectedProperties = DetectedProperties'
-    { _dpHeight         :: !(Maybe Int)
-    , _dpFrameRate      :: !(Maybe Text)
-    , _dpFileSize       :: !(Maybe Integer)
-    , _dpWidth          :: !(Maybe Int)
-    , _dpDurationMillis :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DetectedProperties' smart constructor.
-detectedProperties :: DetectedProperties
+detectedProperties
+    :: DetectedProperties
 detectedProperties =
     DetectedProperties'
     { _dpHeight = Nothing
@@ -1194,8 +1204,16 @@ instance ToJSON DetectedProperties where
 -- Transcoder to use to encrypt your output files.
 --
 -- /See:/ 'encryption' smart constructor.
+data Encryption = Encryption'
+    { _eKeyMD5               :: !(Maybe Text)
+    , _eMode                 :: !(Maybe Text)
+    , _eKey                  :: !(Maybe Text)
+    , _eInitializationVector :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Encryption' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eKeyMD5'
 --
@@ -1204,15 +1222,8 @@ instance ToJSON DetectedProperties where
 -- * 'eKey'
 --
 -- * 'eInitializationVector'
-data Encryption = Encryption'
-    { _eKeyMD5               :: !(Maybe Text)
-    , _eMode                 :: !(Maybe Text)
-    , _eKey                  :: !(Maybe Text)
-    , _eInitializationVector :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Encryption' smart constructor.
-encryption :: Encryption
+encryption
+    :: Encryption
 encryption =
     Encryption'
     { _eKeyMD5 = Nothing
@@ -1238,7 +1249,7 @@ eKeyMD5 = lens _eKeyMD5 (\ s a -> s{_eKeyMD5 = a});
 --
 -- -   __S3-AWS-KMS:__ Amazon S3 calls the Amazon Key Management Service,
 --     which creates and manages the keys that are used for encrypting your
---     files. If you specify @S3-AWS-KMS@ and you don\'t want to use the
+--     files. If you specify 'S3-AWS-KMS' and you don\'t want to use the
 --     default key, you must add the AWS-KMS key that you want to use to
 --     your pipeline.
 --
@@ -1273,7 +1284,7 @@ eMode = lens _eMode (\ s a -> s{_eMode = a});
 -- The key must be base64-encoded and it must be one of the following bit
 -- lengths before being base64-encoded:
 --
--- @128@, @192@, or @256@.
+-- '128', '192', or '256'.
 --
 -- The key must also be encrypted by using the Amazon Key Management
 -- Service.
@@ -1307,8 +1318,18 @@ instance ToJSON Encryption where
 -- Transcoder to apply to your output files.
 --
 -- /See:/ 'hlsContentProtection' smart constructor.
+data HlsContentProtection = HlsContentProtection'
+    { _hcpKeyMD5                :: !(Maybe Text)
+    , _hcpKeyStoragePolicy      :: !(Maybe Text)
+    , _hcpKey                   :: !(Maybe Text)
+    , _hcpMethod                :: !(Maybe Text)
+    , _hcpLicenseAcquisitionURL :: !(Maybe Text)
+    , _hcpInitializationVector  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HlsContentProtection' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'hcpKeyMD5'
 --
@@ -1321,17 +1342,8 @@ instance ToJSON Encryption where
 -- * 'hcpLicenseAcquisitionURL'
 --
 -- * 'hcpInitializationVector'
-data HlsContentProtection = HlsContentProtection'
-    { _hcpKeyMD5                :: !(Maybe Text)
-    , _hcpKeyStoragePolicy      :: !(Maybe Text)
-    , _hcpKey                   :: !(Maybe Text)
-    , _hcpMethod                :: !(Maybe Text)
-    , _hcpLicenseAcquisitionURL :: !(Maybe Text)
-    , _hcpInitializationVector  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'HlsContentProtection' smart constructor.
-hlsContentProtection :: HlsContentProtection
+hlsContentProtection
+    :: HlsContentProtection
 hlsContentProtection =
     HlsContentProtection'
     { _hcpKeyMD5 = Nothing
@@ -1354,8 +1366,8 @@ hcpKeyMD5 :: Lens' HlsContentProtection (Maybe Text)
 hcpKeyMD5 = lens _hcpKeyMD5 (\ s a -> s{_hcpKeyMD5 = a});
 
 -- | Specify whether you want Elastic Transcoder to write your HLS license
--- key to an Amazon S3 bucket. If you choose @WithVariantPlaylists@,
--- @LicenseAcquisitionUrl@ must be left blank and Elastic Transcoder writes
+-- key to an Amazon S3 bucket. If you choose 'WithVariantPlaylists',
+-- 'LicenseAcquisitionUrl' must be left blank and Elastic Transcoder writes
 -- your data key into the same bucket as the associated playlist.
 hcpKeyStoragePolicy :: Lens' HlsContentProtection (Maybe Text)
 hcpKeyStoragePolicy = lens _hcpKeyStoragePolicy (\ s a -> s{_hcpKeyStoragePolicy = a});
@@ -1367,14 +1379,14 @@ hcpKeyStoragePolicy = lens _hcpKeyStoragePolicy (\ s a -> s{_hcpKeyStoragePolicy
 -- AWS KMS. The key must be base64-encoded, and it must be one of the
 -- following bit lengths before being base64-encoded:
 --
--- @128@, @192@, or @256@.
+-- '128', '192', or '256'.
 hcpKey :: Lens' HlsContentProtection (Maybe Text)
 hcpKey = lens _hcpKey (\ s a -> s{_hcpKey = a});
 
 -- | The content protection method for your output. The only valid value is:
--- @aes-128@.
+-- 'aes-128'.
 --
--- This value will be written into the method attribute of the @EXT-X-KEY@
+-- This value will be written into the method attribute of the 'EXT-X-KEY'
 -- metadata tag in the output playlist.
 hcpMethod :: Lens' HlsContentProtection (Maybe Text)
 hcpMethod = lens _hcpMethod (\ s a -> s{_hcpMethod = a});
@@ -1420,8 +1432,23 @@ instance ToJSON HlsContentProtection where
 -- that is created.
 --
 -- /See:/ 'job'' smart constructor.
+data Job' = Job''
+    { _jStatus          :: !(Maybe Text)
+    , _jPipelineId      :: !(Maybe Text)
+    , _jARN             :: !(Maybe Text)
+    , _jInput           :: !(Maybe JobInput)
+    , _jOutputs         :: !(Maybe [JobOutput])
+    , _jUserMetadata    :: !(Maybe (Map Text Text))
+    , _jOutput          :: !(Maybe JobOutput)
+    , _jId              :: !(Maybe Text)
+    , _jPlaylists       :: !(Maybe [Playlist])
+    , _jTiming          :: !(Maybe Timing)
+    , _jOutputKeyPrefix :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Job'' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'jStatus'
 --
@@ -1444,22 +1471,8 @@ instance ToJSON HlsContentProtection where
 -- * 'jTiming'
 --
 -- * 'jOutputKeyPrefix'
-data Job' = Job''
-    { _jStatus          :: !(Maybe Text)
-    , _jPipelineId      :: !(Maybe Text)
-    , _jARN             :: !(Maybe Text)
-    , _jInput           :: !(Maybe JobInput)
-    , _jOutputs         :: !(Maybe [JobOutput])
-    , _jUserMetadata    :: !(Maybe (Map Text Text))
-    , _jOutput          :: !(Maybe JobOutput)
-    , _jId              :: !(Maybe Text)
-    , _jPlaylists       :: !(Maybe [Playlist])
-    , _jTiming          :: !(Maybe Timing)
-    , _jOutputKeyPrefix :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Job'' smart constructor.
-job' :: Job'
+job'
+    :: Job'
 job' =
     Job''
     { _jStatus = Nothing
@@ -1475,12 +1488,12 @@ job' =
     , _jOutputKeyPrefix = Nothing
     }
 
--- | The status of the job: @Submitted@, @Progressing@, @Complete@,
--- @Canceled@, or @Error@.
+-- | The status of the job: 'Submitted', 'Progressing', 'Complete',
+-- 'Canceled', or 'Error'.
 jStatus :: Lens' Job' (Maybe Text)
 jStatus = lens _jStatus (\ s a -> s{_jStatus = a});
 
--- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
+-- | The 'Id' of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
 -- Amazon S3 bucket from which Elastic Transcoder gets the files to
 -- transcode and the bucket into which Elastic Transcoder puts the
@@ -1498,9 +1511,9 @@ jInput :: Lens' Job' (Maybe JobInput)
 jInput = lens _jInput (\ s a -> s{_jInput = a});
 
 -- | Information about the output files. We recommend that you use the
--- @Outputs@ syntax for all jobs, even when you want Elastic Transcoder to
--- transcode a file into only one format. Do not use both the @Outputs@ and
--- @Output@ syntaxes in the same request. You can create a maximum of 30
+-- 'Outputs' syntax for all jobs, even when you want Elastic Transcoder to
+-- transcode a file into only one format. Do not use both the 'Outputs' and
+-- 'Output' syntaxes in the same request. You can create a maximum of 30
 -- outputs per job.
 --
 -- If you specify more than one output for a job, Elastic Transcoder
@@ -1510,21 +1523,21 @@ jOutputs :: Lens' Job' [JobOutput]
 jOutputs = lens _jOutputs (\ s a -> s{_jOutputs = a}) . _Default . _Coerce;
 
 -- | User-defined metadata that you want to associate with an Elastic
--- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
--- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
--- guarantee that @key\/value@ pairs will be returned in the same order in
+-- Transcoder job. You specify metadata in 'key\/value' pairs, and you can
+-- add up to 10 'key\/value' pairs per job. Elastic Transcoder does not
+-- guarantee that 'key\/value' pairs will be returned in the same order in
 -- which you specify them.
 --
--- Metadata @keys@ and @values@ must use characters from the following
+-- Metadata 'keys' and 'values' must use characters from the following
 -- list:
 --
--- -   @0-9@
+-- -   '0-9'
 --
--- -   @A-Z@ and @a-z@
+-- -   'A-Z' and 'a-z'
 --
--- -   @Space@
+-- -   'Space'
 --
--- -   The following symbols: @_.:\/=+-%\@@
+-- -   The following symbols: '_.:\/=+-%\''
 --
 jUserMetadata :: Lens' Job' (HashMap Text Text)
 jUserMetadata = lens _jUserMetadata (\ s a -> s{_jUserMetadata = a}) . _Default . _Map;
@@ -1548,8 +1561,8 @@ jId = lens _jId (\ s a -> s{_jId = a});
 
 -- | Outputs in Fragmented MP4 or MPEG-TS format only.
 --
--- If you specify a preset in @PresetId@ for which the value of @Container@
--- is fmp4 (Fragmented MP4) or ts (MPEG-TS), @Playlists@ contains
+-- If you specify a preset in 'PresetId' for which the value of 'Container'
+-- is fmp4 (Fragmented MP4) or ts (MPEG-TS), 'Playlists' contains
 -- information about the master playlists that you want Elastic Transcoder
 -- to create.
 --
@@ -1564,7 +1577,7 @@ jTiming = lens _jTiming (\ s a -> s{_jTiming = a});
 -- | The value, if any, that you want Elastic Transcoder to prepend to the
 -- names of all files that this job creates, including output files,
 -- thumbnails, and playlists. We recommend that you add a \/ or some other
--- delimiter to the end of the @OutputKeyPrefix@.
+-- delimiter to the end of the 'OutputKeyPrefix'.
 jOutputKeyPrefix :: Lens' Job' (Maybe Text)
 jOutputKeyPrefix = lens _jOutputKeyPrefix (\ s a -> s{_jOutputKeyPrefix = a});
 
@@ -1587,19 +1600,20 @@ instance FromJSON Job' where
 -- | The .jpg or .png file associated with an audio file.
 --
 -- /See:/ 'jobAlbumArt' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'jaaMergePolicy'
---
--- * 'jaaArtwork'
 data JobAlbumArt = JobAlbumArt'
     { _jaaMergePolicy :: !(Maybe Text)
     , _jaaArtwork     :: !(Maybe [Artwork])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'JobAlbumArt' smart constructor.
-jobAlbumArt :: JobAlbumArt
+-- | Creates a value of 'JobAlbumArt' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'jaaMergePolicy'
+--
+-- * 'jaaArtwork'
+jobAlbumArt
+    :: JobAlbumArt
 jobAlbumArt =
     JobAlbumArt'
     { _jaaMergePolicy = Nothing
@@ -1609,13 +1623,13 @@ jobAlbumArt =
 -- | A policy that determines how Elastic Transcoder will handle the
 -- existence of multiple album artwork files.
 --
--- -   @Replace:@ The specified album art will replace any existing album
+-- -   'Replace:' The specified album art will replace any existing album
 --     art.
--- -   @Prepend:@ The specified album art will be placed in front of any
+-- -   'Prepend:' The specified album art will be placed in front of any
 --     existing album art.
--- -   @Append:@ The specified album art will be placed after any existing
+-- -   'Append:' The specified album art will be placed after any existing
 --     album art.
--- -   @Fallback:@ If the original input file contains artwork, Elastic
+-- -   'Fallback:' If the original input file contains artwork, Elastic
 --     Transcoder will use that artwork for the output. If the original
 --     input does not contain artwork, Elastic Transcoder will use the
 --     specified album art file.
@@ -1624,7 +1638,7 @@ jaaMergePolicy = lens _jaaMergePolicy (\ s a -> s{_jaaMergePolicy = a});
 
 -- | The file to be used as album art. There can be multiple artworks
 -- associated with an audio file, to a maximum of 20. Valid formats are
--- @.jpg@ and @.png@
+-- '.jpg' and '.png'
 jaaArtwork :: Lens' JobAlbumArt [Artwork]
 jaaArtwork = lens _jaaArtwork (\ s a -> s{_jaaArtwork = a}) . _Default . _Coerce;
 
@@ -1645,8 +1659,20 @@ instance ToJSON JobAlbumArt where
 -- | Information about the file that you\'re transcoding.
 --
 -- /See:/ 'jobInput' smart constructor.
+data JobInput = JobInput'
+    { _jiFrameRate          :: !(Maybe Text)
+    , _jiResolution         :: !(Maybe Text)
+    , _jiAspectRatio        :: !(Maybe Text)
+    , _jiKey                :: !(Maybe Text)
+    , _jiDetectedProperties :: !(Maybe DetectedProperties)
+    , _jiEncryption         :: !(Maybe Encryption)
+    , _jiContainer          :: !(Maybe Text)
+    , _jiInterlaced         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'JobInput' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'jiFrameRate'
 --
@@ -1663,19 +1689,8 @@ instance ToJSON JobAlbumArt where
 -- * 'jiContainer'
 --
 -- * 'jiInterlaced'
-data JobInput = JobInput'
-    { _jiFrameRate          :: !(Maybe Text)
-    , _jiResolution         :: !(Maybe Text)
-    , _jiAspectRatio        :: !(Maybe Text)
-    , _jiKey                :: !(Maybe Text)
-    , _jiDetectedProperties :: !(Maybe DetectedProperties)
-    , _jiEncryption         :: !(Maybe Encryption)
-    , _jiContainer          :: !(Maybe Text)
-    , _jiInterlaced         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'JobInput' smart constructor.
-jobInput :: JobInput
+jobInput
+    :: JobInput
 jobInput =
     JobInput'
     { _jiFrameRate = Nothing
@@ -1689,40 +1704,40 @@ jobInput =
     }
 
 -- | The frame rate of the input file. If you want Elastic Transcoder to
--- automatically detect the frame rate of the input file, specify @auto@.
+-- automatically detect the frame rate of the input file, specify 'auto'.
 -- If you want to specify the frame rate for the input file, enter one of
 -- the following values:
 --
--- @10@, @15@, @23.97@, @24@, @25@, @29.97@, @30@, @60@
+-- '10', '15', '23.97', '24', '25', '29.97', '30', '60'
 --
--- If you specify a value other than @auto@, Elastic Transcoder disables
+-- If you specify a value other than 'auto', Elastic Transcoder disables
 -- automatic detection of the frame rate.
 jiFrameRate :: Lens' JobInput (Maybe Text)
 jiFrameRate = lens _jiFrameRate (\ s a -> s{_jiFrameRate = a});
 
--- | This value must be @auto@, which causes Elastic Transcoder to
+-- | This value must be 'auto', which causes Elastic Transcoder to
 -- automatically detect the resolution of the input file.
 jiResolution :: Lens' JobInput (Maybe Text)
 jiResolution = lens _jiResolution (\ s a -> s{_jiResolution = a});
 
 -- | The aspect ratio of the input file. If you want Elastic Transcoder to
--- automatically detect the aspect ratio of the input file, specify @auto@.
+-- automatically detect the aspect ratio of the input file, specify 'auto'.
 -- If you want to specify the aspect ratio for the output file, enter one
 -- of the following values:
 --
--- @1:1@, @4:3@, @3:2@, @16:9@
+-- '1:1', '4:3', '3:2', '16:9'
 --
--- If you specify a value other than @auto@, Elastic Transcoder disables
+-- If you specify a value other than 'auto', Elastic Transcoder disables
 -- automatic detection of the aspect ratio.
 jiAspectRatio :: Lens' JobInput (Maybe Text)
 jiAspectRatio = lens _jiAspectRatio (\ s a -> s{_jiAspectRatio = a});
 
 -- | The name of the file to transcode. Elsewhere in the body of the JSON
 -- block is the the ID of the pipeline to use for processing the job. The
--- @InputBucket@ object in that pipeline tells Elastic Transcoder which
+-- 'InputBucket' object in that pipeline tells Elastic Transcoder which
 -- Amazon S3 bucket to get the file from.
 --
--- If the file name includes a prefix, such as @cooking\/lasagna.mpg@,
+-- If the file name includes a prefix, such as 'cooking\/lasagna.mpg',
 -- include the prefix in the key. If the file isn\'t in the specified
 -- bucket, Elastic Transcoder returns an error.
 jiKey :: Lens' JobInput (Maybe Text)
@@ -1740,22 +1755,22 @@ jiEncryption = lens _jiEncryption (\ s a -> s{_jiEncryption = a});
 
 -- | The container type for the input file. If you want Elastic Transcoder to
 -- automatically detect the container type of the input file, specify
--- @auto@. If you want to specify the container type for the input file,
+-- 'auto'. If you want to specify the container type for the input file,
 -- enter one of the following values:
 --
--- @3gp@, @aac@, @asf@, @avi@, @divx@, @flv@, @m4a@, @mkv@, @mov@, @mp3@,
--- @mp4@, @mpeg@, @mpeg-ps@, @mpeg-ts@, @mxf@, @ogg@, @vob@, @wav@, @webm@
+-- '3gp', 'aac', 'asf', 'avi', 'divx', 'flv', 'm4a', 'mkv', 'mov', 'mp3',
+-- 'mp4', 'mpeg', 'mpeg-ps', 'mpeg-ts', 'mxf', 'ogg', 'vob', 'wav', 'webm'
 jiContainer :: Lens' JobInput (Maybe Text)
 jiContainer = lens _jiContainer (\ s a -> s{_jiContainer = a});
 
 -- | Whether the input file is interlaced. If you want Elastic Transcoder to
 -- automatically detect whether the input file is interlaced, specify
--- @auto@. If you want to specify whether the input file is interlaced,
+-- 'auto'. If you want to specify whether the input file is interlaced,
 -- enter one of the following values:
 --
--- @true@, @false@
+-- 'true', 'false'
 --
--- If you specify a value other than @auto@, Elastic Transcoder disables
+-- If you specify a value other than 'auto', Elastic Transcoder disables
 -- automatic detection of interlacing.
 jiInterlaced :: Lens' JobInput (Maybe Text)
 jiInterlaced = lens _jiInterlaced (\ s a -> s{_jiInterlaced = a});
@@ -1786,13 +1801,38 @@ instance ToJSON JobInput where
 
 -- | Outputs recommended instead.
 -- If you specified one output for a job, information about that output. If
--- you specified multiple outputs for a job, the @Output@ object lists
+-- you specified multiple outputs for a job, the 'Output' object lists
 -- information about the first output. This duplicates the information that
--- is listed for the first output in the @Outputs@ object.
+-- is listed for the first output in the 'Outputs' object.
 --
 -- /See:/ 'jobOutput' smart constructor.
+data JobOutput = JobOutput'
+    { _joAppliedColorSpaceConversion :: !(Maybe Text)
+    , _joStatus                      :: !(Maybe Text)
+    , _joThumbnailPattern            :: !(Maybe Text)
+    , _joHeight                      :: !(Maybe Int)
+    , _joFrameRate                   :: !(Maybe Text)
+    , _joCaptions                    :: !(Maybe Captions)
+    , _joPresetId                    :: !(Maybe Text)
+    , _joComposition                 :: !(Maybe [Clip])
+    , _joAlbumArt                    :: !(Maybe JobAlbumArt)
+    , _joFileSize                    :: !(Maybe Integer)
+    , _joWatermarks                  :: !(Maybe [JobWatermark])
+    , _joWidth                       :: !(Maybe Int)
+    , _joKey                         :: !(Maybe Text)
+    , _joEncryption                  :: !(Maybe Encryption)
+    , _joId                          :: !(Maybe Text)
+    , _joSegmentDuration             :: !(Maybe Text)
+    , _joStatusDetail                :: !(Maybe Text)
+    , _joDurationMillis              :: !(Maybe Integer)
+    , _joThumbnailEncryption         :: !(Maybe Encryption)
+    , _joDuration                    :: !(Maybe Integer)
+    , _joRotate                      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'JobOutput' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'joAppliedColorSpaceConversion'
 --
@@ -1835,32 +1875,8 @@ instance ToJSON JobInput where
 -- * 'joDuration'
 --
 -- * 'joRotate'
-data JobOutput = JobOutput'
-    { _joAppliedColorSpaceConversion :: !(Maybe Text)
-    , _joStatus                      :: !(Maybe Text)
-    , _joThumbnailPattern            :: !(Maybe Text)
-    , _joHeight                      :: !(Maybe Int)
-    , _joFrameRate                   :: !(Maybe Text)
-    , _joCaptions                    :: !(Maybe Captions)
-    , _joPresetId                    :: !(Maybe Text)
-    , _joComposition                 :: !(Maybe [Clip])
-    , _joAlbumArt                    :: !(Maybe JobAlbumArt)
-    , _joFileSize                    :: !(Maybe Integer)
-    , _joWatermarks                  :: !(Maybe [JobWatermark])
-    , _joWidth                       :: !(Maybe Int)
-    , _joKey                         :: !(Maybe Text)
-    , _joEncryption                  :: !(Maybe Encryption)
-    , _joId                          :: !(Maybe Text)
-    , _joSegmentDuration             :: !(Maybe Text)
-    , _joStatusDetail                :: !(Maybe Text)
-    , _joDurationMillis              :: !(Maybe Integer)
-    , _joThumbnailEncryption         :: !(Maybe Encryption)
-    , _joDuration                    :: !(Maybe Integer)
-    , _joRotate                      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'JobOutput' smart constructor.
-jobOutput :: JobOutput
+jobOutput
+    :: JobOutput
 jobOutput =
     JobOutput'
     { _joAppliedColorSpaceConversion = Nothing
@@ -1886,33 +1902,33 @@ jobOutput =
     , _joRotate = Nothing
     }
 
--- | If Elastic Transcoder used a preset with a @ColorSpaceConversionMode@ to
--- transcode the output file, the @AppliedColorSpaceConversion@ parameter
--- shows the conversion used. If no @ColorSpaceConversionMode@ was defined
+-- | If Elastic Transcoder used a preset with a 'ColorSpaceConversionMode' to
+-- transcode the output file, the 'AppliedColorSpaceConversion' parameter
+-- shows the conversion used. If no 'ColorSpaceConversionMode' was defined
 -- in the preset, this parameter will not be included in the job response.
 joAppliedColorSpaceConversion :: Lens' JobOutput (Maybe Text)
 joAppliedColorSpaceConversion = lens _joAppliedColorSpaceConversion (\ s a -> s{_joAppliedColorSpaceConversion = a});
 
 -- | The status of one output in a job. If you specified only one output for
--- the job, @Outputs:Status@ is always the same as @Job:Status@. If you
+-- the job, 'Outputs:Status' is always the same as 'Job:Status'. If you
 -- specified more than one output:
 --
--- -   @Job:Status@ and @Outputs:Status@ for all of the outputs is
+-- -   'Job:Status' and 'Outputs:Status' for all of the outputs is
 --     Submitted until Elastic Transcoder starts to process the first
 --     output.
 -- -   When Elastic Transcoder starts to process the first output,
---     @Outputs:Status@ for that output and @Job:Status@ both change to
---     Progressing. For each output, the value of @Outputs:Status@ remains
+--     'Outputs:Status' for that output and 'Job:Status' both change to
+--     Progressing. For each output, the value of 'Outputs:Status' remains
 --     Submitted until Elastic Transcoder starts to process the output.
 -- -   Job:Status remains Progressing until all of the outputs reach a
 --     terminal status, either Complete or Error.
--- -   When all of the outputs reach a terminal status, @Job:Status@
---     changes to Complete only if @Outputs:Status@ for all of the outputs
---     is @Complete@. If @Outputs:Status@ for one or more outputs is
---     @Error@, the terminal status for @Job:Status@ is also @Error@.
+-- -   When all of the outputs reach a terminal status, 'Job:Status'
+--     changes to Complete only if 'Outputs:Status' for all of the outputs
+--     is 'Complete'. If 'Outputs:Status' for one or more outputs is
+--     'Error', the terminal status for 'Job:Status' is also 'Error'.
 --
--- The value of @Status@ is one of the following: @Submitted@,
--- @Progressing@, @Complete@, @Canceled@, or @Error@.
+-- The value of 'Status' is one of the following: 'Submitted',
+-- 'Progressing', 'Complete', 'Canceled', or 'Error'.
 joStatus :: Lens' JobOutput (Maybe Text)
 joStatus = lens _joStatus (\ s a -> s{_joStatus = a});
 
@@ -1926,29 +1942,29 @@ joStatus = lens _joStatus (\ s a -> s{_joStatus = a});
 -- information that you want to include in the file name for each
 -- thumbnail. You can specify the following values in any sequence:
 --
--- -   __@{count}@ (Required)__: If you want to create thumbnails, you must
---     include @{count}@ in the @ThumbnailPattern@ object. Wherever you
---     specify @{count}@, Elastic Transcoder adds a five-digit sequence
+-- -   __'{count}' (Required)__: If you want to create thumbnails, you must
+--     include '{count}' in the 'ThumbnailPattern' object. Wherever you
+--     specify '{count}', Elastic Transcoder adds a five-digit sequence
 --     number (beginning with __00001__) to thumbnail file names. The
 --     number indicates where a given thumbnail appears in the sequence of
 --     thumbnails for a transcoded file.
 --
---     If you specify a literal value and\/or @{resolution}@ but you omit
---     @{count}@, Elastic Transcoder returns a validation error and does
+--     If you specify a literal value and\/or '{resolution}' but you omit
+--     '{count}', Elastic Transcoder returns a validation error and does
 --     not create the job.
 --
 -- -   __Literal values (Optional)__: You can specify literal values
---     anywhere in the @ThumbnailPattern@ object. For example, you can
+--     anywhere in the 'ThumbnailPattern' object. For example, you can
 --     include them as a file name prefix or as a delimiter between
---     @{resolution}@ and @{count}@.
+--     '{resolution}' and '{count}'.
 --
--- -   __@{resolution}@ (Optional)__: If you want Elastic Transcoder to
---     include the resolution in the file name, include @{resolution}@ in
---     the @ThumbnailPattern@ object.
+-- -   __'{resolution}' (Optional)__: If you want Elastic Transcoder to
+--     include the resolution in the file name, include '{resolution}' in
+--     the 'ThumbnailPattern' object.
 --
 -- When creating thumbnails, Elastic Transcoder automatically saves the
 -- files in the format (.jpg or .png) that appears in the preset that you
--- specified in the @PresetID@ value of @CreateJobOutput@. Elastic
+-- specified in the 'PresetID' value of 'CreateJobOutput'. Elastic
 -- Transcoder also appends the applicable file name extension.
 joThumbnailPattern :: Lens' JobOutput (Maybe Text)
 joThumbnailPattern = lens _joThumbnailPattern (\ s a -> s{_joThumbnailPattern = a});
@@ -1970,11 +1986,11 @@ joFrameRate = lens _joFrameRate (\ s a -> s{_joFrameRate = a});
 --     caption per language, to a maximum of 300 embedded captions per
 --     file.
 --
---     Valid input values include: @CEA-608 (EIA-608@, first non-empty
---     channel only), @CEA-708 (EIA-708@, first non-empty channel only),
---     and @mov-text@
+--     Valid input values include: 'CEA-608 (EIA-608', first non-empty
+--     channel only), 'CEA-708 (EIA-708', first non-empty channel only),
+--     and 'mov-text'
 --
---     Valid outputs include: @mov-text@
+--     Valid outputs include: 'mov-text'
 --
 --     Elastic Transcoder supports a maximum of one embedded format per
 --     output.
@@ -1986,12 +2002,12 @@ joFrameRate = lens _joFrameRate (\ s a -> s{_joFrameRate = a});
 --     sidecar caption per language, to a maximum of 20 sidecar captions
 --     per file.
 --
---     Valid input values include: @dfxp@ (first div element only),
---     @ebu-tt@, @scc@, @smpt@, @srt@, @ttml@ (first div element only), and
---     @webvtt@
+--     Valid input values include: 'dfxp' (first div element only),
+--     'ebu-tt', 'scc', 'smpt', 'srt', 'ttml' (first div element only), and
+--     'webvtt'
 --
---     Valid outputs include: @dfxp@ (first div element only), @scc@,
---     @srt@, and @webvtt@.
+--     Valid outputs include: 'dfxp' (first div element only), 'scc',
+--     'srt', and 'webvtt'.
 --
 -- If you want ttml or smpte-tt compatible captions, specify dfxp as your
 -- output format.
@@ -2002,9 +2018,9 @@ joFrameRate = lens _joFrameRate (\ s a -> s{_joFrameRate = a});
 -- preserve text formatting (for example, italics) during the transcoding
 -- process.
 --
--- To remove captions or leave the captions empty, set @Captions@ to null.
--- To pass through existing captions unchanged, set the @MergePolicy@ to
--- @MergeRetain@, and pass in a null @CaptionSources@ array.
+-- To remove captions or leave the captions empty, set 'Captions' to null.
+-- To pass through existing captions unchanged, set the 'MergePolicy' to
+-- 'MergeRetain', and pass in a null 'CaptionSources' array.
 --
 -- For more information on embedded files, see the Subtitles Wikipedia
 -- page.
@@ -2014,12 +2030,12 @@ joFrameRate = lens _joFrameRate (\ s a -> s{_joFrameRate = a});
 joCaptions :: Lens' JobOutput (Maybe Captions)
 joCaptions = lens _joCaptions (\ s a -> s{_joCaptions = a});
 
--- | The value of the @Id@ object for the preset that you want to use for
+-- | The value of the 'Id' object for the preset that you want to use for
 -- this job. The preset determines the audio, video, and thumbnail settings
 -- that Elastic Transcoder uses for transcoding. To use a preset that you
 -- created, specify the preset ID that Elastic Transcoder returned in the
 -- response when you created the preset. You can also use the Elastic
--- Transcoder system presets, which you can get with @ListPresets@.
+-- Transcoder system presets, which you can get with 'ListPresets'.
 joPresetId :: Lens' JobOutput (Maybe Text)
 joPresetId = lens _joPresetId (\ s a -> s{_joPresetId = a});
 
@@ -2043,7 +2059,7 @@ joFileSize = lens _joFileSize (\ s a -> s{_joFileSize = a});
 -- | Information about the watermarks that you want Elastic Transcoder to add
 -- to the video during transcoding. You can specify up to four watermarks
 -- for each output. Settings for each watermark must be defined in the
--- preset that you specify in @Preset@ for the current output.
+-- preset that you specify in 'Preset' for the current output.
 --
 -- Watermarks are added to the output video in the sequence in which you
 -- list them in the job output—the first watermark in the list is added to
@@ -2060,7 +2076,7 @@ joWidth :: Lens' JobOutput (Maybe Int)
 joWidth = lens _joWidth (\ s a -> s{_joWidth = a});
 
 -- | The name to assign to the transcoded file. Elastic Transcoder saves the
--- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
+-- file in the Amazon S3 bucket specified by the 'OutputBucket' object in
 -- the pipeline that is specified by the pipeline ID.
 joKey :: Lens' JobOutput (Maybe Text)
 joKey = lens _joKey (\ s a -> s{_joKey = a});
@@ -2080,27 +2096,27 @@ joId = lens _joId (\ s a -> s{_joId = a});
 
 -- | (Outputs in Fragmented MP4 or MPEG-TS format only.
 --
--- If you specify a preset in @PresetId@ for which the value of @Container@
--- is @fmp4@ (Fragmented MP4) or @ts@ (MPEG-TS), @SegmentDuration@ is the
--- target maximum duration of each segment in seconds. For @HLSv3@ format
--- playlists, each media segment is stored in a separate @.ts@ file. For
--- @HLSv4@ and @Smooth@ playlists, all media segments for an output are
+-- If you specify a preset in 'PresetId' for which the value of 'Container'
+-- is 'fmp4' (Fragmented MP4) or 'ts' (MPEG-TS), 'SegmentDuration' is the
+-- target maximum duration of each segment in seconds. For 'HLSv3' format
+-- playlists, each media segment is stored in a separate '.ts' file. For
+-- 'HLSv4' and 'Smooth' playlists, all media segments for an output are
 -- stored in a single file. Each segment is approximately the length of the
--- @SegmentDuration@, though individual segments might be shorter or
+-- 'SegmentDuration', though individual segments might be shorter or
 -- longer.
 --
 -- The range of valid values is 1 to 60 seconds. If the duration of the
--- video is not evenly divisible by @SegmentDuration@, the duration of the
+-- video is not evenly divisible by 'SegmentDuration', the duration of the
 -- last segment is the remainder of total length\/SegmentDuration.
 --
 -- Elastic Transcoder creates an output-specific playlist for each output
--- @HLS@ output that you specify in OutputKeys. To add an output to the
--- master playlist for this job, include it in the @OutputKeys@ of the
+-- 'HLS' output that you specify in OutputKeys. To add an output to the
+-- master playlist for this job, include it in the 'OutputKeys' of the
 -- associated playlist.
 joSegmentDuration :: Lens' JobOutput (Maybe Text)
 joSegmentDuration = lens _joSegmentDuration (\ s a -> s{_joSegmentDuration = a});
 
--- | Information that further explains @Status@.
+-- | Information that further explains 'Status'.
 joStatusDetail :: Lens' JobOutput (Maybe Text)
 joStatusDetail = lens _joStatusDetail (\ s a -> s{_joStatusDetail = a});
 
@@ -2121,9 +2137,9 @@ joDuration = lens _joDuration (\ s a -> s{_joDuration = a});
 -- rotate the output relative to the input. Enter one of the following
 -- values:
 --
--- @auto@, @0@, @90@, @180@, @270@
+-- 'auto', '0', '90', '180', '270'
 --
--- The value @auto@ generally works only if the file that you\'re
+-- The value 'auto' generally works only if the file that you\'re
 -- transcoding contains rotation metadata.
 joRotate :: Lens' JobOutput (Maybe Text)
 joRotate = lens _joRotate (\ s a -> s{_joRotate = a});
@@ -2160,22 +2176,23 @@ instance FromJSON JobOutput where
 -- transparency.
 --
 -- /See:/ 'jobWatermark' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'jwPresetWatermarkId'
---
--- * 'jwInputKey'
---
--- * 'jwEncryption'
 data JobWatermark = JobWatermark'
     { _jwPresetWatermarkId :: !(Maybe Text)
     , _jwInputKey          :: !(Maybe Text)
     , _jwEncryption        :: !(Maybe Encryption)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'JobWatermark' smart constructor.
-jobWatermark :: JobWatermark
+-- | Creates a value of 'JobWatermark' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'jwPresetWatermarkId'
+--
+-- * 'jwInputKey'
+--
+-- * 'jwEncryption'
+jobWatermark
+    :: JobWatermark
 jobWatermark =
     JobWatermark'
     { _jwPresetWatermarkId = Nothing
@@ -2192,8 +2209,8 @@ jwPresetWatermarkId = lens _jwPresetWatermarkId (\ s a -> s{_jwPresetWatermarkId
 
 -- | The name of the .png or .jpg file that you want to use for the
 -- watermark. To determine which Amazon S3 bucket contains the specified
--- file, Elastic Transcoder checks the pipeline specified by @Pipeline@;
--- the @Input Bucket@ object in that pipeline identifies the bucket.
+-- file, Elastic Transcoder checks the pipeline specified by 'Pipeline';
+-- the 'Input Bucket' object in that pipeline identifies the bucket.
 --
 -- If the file name includes a prefix, for example, __logos\/128x64.png__,
 -- include the prefix in the key. If the file isn\'t in the specified
@@ -2228,8 +2245,16 @@ instance ToJSON JobWatermark where
 -- the Amazon SNS console.
 --
 -- /See:/ 'notifications' smart constructor.
+data Notifications = Notifications'
+    { _nError       :: !(Maybe Text)
+    , _nWarning     :: !(Maybe Text)
+    , _nCompleted   :: !(Maybe Text)
+    , _nProgressing :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Notifications' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'nError'
 --
@@ -2238,15 +2263,8 @@ instance ToJSON JobWatermark where
 -- * 'nCompleted'
 --
 -- * 'nProgressing'
-data Notifications = Notifications'
-    { _nError       :: !(Maybe Text)
-    , _nWarning     :: !(Maybe Text)
-    , _nCompleted   :: !(Maybe Text)
-    , _nProgressing :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Notifications' smart constructor.
-notifications :: Notifications
+notifications
+    :: Notifications
 notifications =
     Notifications'
     { _nError = Nothing
@@ -2291,25 +2309,26 @@ instance ToJSON Notifications where
                "Completed" .= _nCompleted,
                "Progressing" .= _nProgressing]
 
--- | The @Permission@ structure.
+-- | The 'Permission' structure.
 --
 -- /See:/ 'permission' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pAccess'
---
--- * 'pGranteeType'
---
--- * 'pGrantee'
 data Permission = Permission'
     { _pAccess      :: !(Maybe [Text])
     , _pGranteeType :: !(Maybe Text)
     , _pGrantee     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Permission' smart constructor.
-permission :: Permission
+-- | Creates a value of 'Permission' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pAccess'
+--
+-- * 'pGranteeType'
+--
+-- * 'pGrantee'
+permission
+    :: Permission
 permission =
     Permission'
     { _pAccess = Nothing
@@ -2320,13 +2339,13 @@ permission =
 -- | The permission that you want to give to the AWS user that is listed in
 -- Grantee. Valid values include:
 --
--- -   @READ@: The grantee can read the thumbnails and metadata for
+-- -   'READ': The grantee can read the thumbnails and metadata for
 --     thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.
--- -   @READ_ACP@: The grantee can read the object ACL for thumbnails that
+-- -   'READ_ACP': The grantee can read the object ACL for thumbnails that
 --     Elastic Transcoder adds to the Amazon S3 bucket.
--- -   @WRITE_ACP@: The grantee can write the ACL for the thumbnails that
+-- -   'WRITE_ACP': The grantee can write the ACL for the thumbnails that
 --     Elastic Transcoder adds to the Amazon S3 bucket.
--- -   @FULL_CONTROL@: The grantee has READ, READ_ACP, and WRITE_ACP
+-- -   'FULL_CONTROL': The grantee has READ, READ_ACP, and WRITE_ACP
 --     permissions for the thumbnails that Elastic Transcoder adds to the
 --     Amazon S3 bucket.
 pAccess :: Lens' Permission [Text]
@@ -2334,12 +2353,12 @@ pAccess = lens _pAccess (\ s a -> s{_pAccess = a}) . _Default . _Coerce;
 
 -- | The type of value that appears in the Grantee object:
 --
--- -   @Canonical@: Either the canonical user ID for an AWS account or an
+-- -   'Canonical': Either the canonical user ID for an AWS account or an
 --     origin access identity for an Amazon CloudFront distribution.
 --     A canonical user ID is not the same as an AWS account number.
--- -   @Email@: The registered email address of an AWS account.
--- -   @Group@: One of the following predefined Amazon S3 groups:
---     @AllUsers@, @AuthenticatedUsers@, or @LogDelivery@.
+-- -   'Email': The registered email address of an AWS account.
+-- -   'Group': One of the following predefined Amazon S3 groups:
+--     'AllUsers', 'AuthenticatedUsers', or 'LogDelivery'.
 pGranteeType :: Lens' Permission (Maybe Text)
 pGranteeType = lens _pGranteeType (\ s a -> s{_pGranteeType = a});
 
@@ -2369,8 +2388,23 @@ instance ToJSON Permission where
 -- | The pipeline (queue) that is used to manage jobs.
 --
 -- /See:/ 'pipeline' smart constructor.
+data Pipeline = Pipeline'
+    { _pipStatus          :: !(Maybe Text)
+    , _pipARN             :: !(Maybe Text)
+    , _pipInputBucket     :: !(Maybe Text)
+    , _pipContentConfig   :: !(Maybe PipelineOutputConfig)
+    , _pipOutputBucket    :: !(Maybe Text)
+    , _pipRole            :: !(Maybe Text)
+    , _pipName            :: !(Maybe Text)
+    , _pipAWSKMSKeyARN    :: !(Maybe Text)
+    , _pipId              :: !(Maybe Text)
+    , _pipThumbnailConfig :: !(Maybe PipelineOutputConfig)
+    , _pipNotifications   :: !(Maybe Notifications)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Pipeline' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pipStatus'
 --
@@ -2393,22 +2427,8 @@ instance ToJSON Permission where
 -- * 'pipThumbnailConfig'
 --
 -- * 'pipNotifications'
-data Pipeline = Pipeline'
-    { _pipStatus          :: !(Maybe Text)
-    , _pipARN             :: !(Maybe Text)
-    , _pipInputBucket     :: !(Maybe Text)
-    , _pipContentConfig   :: !(Maybe PipelineOutputConfig)
-    , _pipOutputBucket    :: !(Maybe Text)
-    , _pipRole            :: !(Maybe Text)
-    , _pipName            :: !(Maybe Text)
-    , _pipAWSKMSKeyARN    :: !(Maybe Text)
-    , _pipId              :: !(Maybe Text)
-    , _pipThumbnailConfig :: !(Maybe PipelineOutputConfig)
-    , _pipNotifications   :: !(Maybe Notifications)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Pipeline' smart constructor.
-pipeline :: Pipeline
+pipeline
+    :: Pipeline
 pipeline =
     Pipeline'
     { _pipStatus = Nothing
@@ -2426,8 +2446,8 @@ pipeline =
 
 -- | The current status of the pipeline:
 --
--- -   @Active@: The pipeline is processing jobs.
--- -   @Paused@: The pipeline is not currently processing jobs.
+-- -   'Active': The pipeline is processing jobs.
+-- -   'Paused': The pipeline is not currently processing jobs.
 pipStatus :: Lens' Pipeline (Maybe Text)
 pipStatus = lens _pipStatus (\ s a -> s{_pipStatus = a});
 
@@ -2443,35 +2463,35 @@ pipInputBucket = lens _pipInputBucket (\ s a -> s{_pipInputBucket = a});
 
 -- | Information about the Amazon S3 bucket in which you want Elastic
 -- Transcoder to save transcoded files and playlists. Either you specify
--- both @ContentConfig@ and @ThumbnailConfig@, or you specify
--- @OutputBucket@.
+-- both 'ContentConfig' and 'ThumbnailConfig', or you specify
+-- 'OutputBucket'.
 --
 -- -   __Bucket__: The Amazon S3 bucket in which you want Elastic
 --     Transcoder to save transcoded files and playlists.
 -- -   __Permissions__: A list of the users and\/or predefined Amazon S3
 --     groups you want to have access to transcoded files and playlists,
 --     and the type of access that you want them to have.
---     -   GranteeType: The type of value that appears in the @Grantee@
+--     -   GranteeType: The type of value that appears in the 'Grantee'
 --         object:
---         -   @Canonical@: Either the canonical user ID for an AWS account
+--         -   'Canonical': Either the canonical user ID for an AWS account
 --             or an origin access identity for an Amazon CloudFront
 --             distribution.
---         -   @Email@: The registered email address of an AWS account.
---         -   @Group@: One of the following predefined Amazon S3 groups:
---             @AllUsers@, @AuthenticatedUsers@, or @LogDelivery@.
---     -   @Grantee@: The AWS user or group that you want to have access to
+--         -   'Email': The registered email address of an AWS account.
+--         -   'Group': One of the following predefined Amazon S3 groups:
+--             'AllUsers', 'AuthenticatedUsers', or 'LogDelivery'.
+--     -   'Grantee': The AWS user or group that you want to have access to
 --         transcoded files and playlists.
---     -   @Access@: The permission that you want to give to the AWS user
---         that is listed in @Grantee@. Valid values include:
---         -   @READ@: The grantee can read the objects and metadata for
+--     -   'Access': The permission that you want to give to the AWS user
+--         that is listed in 'Grantee'. Valid values include:
+--         -   'READ': The grantee can read the objects and metadata for
 --             objects that Elastic Transcoder adds to the Amazon S3
 --             bucket.
---         -   @READ_ACP@: The grantee can read the object ACL for objects
+--         -   'READ_ACP': The grantee can read the object ACL for objects
 --             that Elastic Transcoder adds to the Amazon S3 bucket.
---         -   @WRITE_ACP@: The grantee can write the ACL for the objects
+--         -   'WRITE_ACP': The grantee can write the ACL for the objects
 --             that Elastic Transcoder adds to the Amazon S3 bucket.
---         -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and
---             @WRITE_ACP@ permissions for the objects that Elastic
+--         -   'FULL_CONTROL': The grantee has 'READ', 'READ_ACP', and
+--             'WRITE_ACP' permissions for the objects that Elastic
 --             Transcoder adds to the Amazon S3 bucket.
 -- -   __StorageClass__: The Amazon S3 storage class, Standard or
 --     ReducedRedundancy, that you want Elastic Transcoder to assign to the
@@ -2481,7 +2501,7 @@ pipContentConfig = lens _pipContentConfig (\ s a -> s{_pipContentConfig = a});
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save
 -- transcoded files, thumbnails, and playlists. Either you specify this
--- value, or you specify both @ContentConfig@ and @ThumbnailConfig@.
+-- value, or you specify both 'ContentConfig' and 'ThumbnailConfig'.
 pipOutputBucket :: Lens' Pipeline (Maybe Text)
 pipOutputBucket = lens _pipOutputBucket (\ s a -> s{_pipOutputBucket = a});
 
@@ -2500,12 +2520,12 @@ pipName = lens _pipName (\ s a -> s{_pipName = a});
 -- | The AWS Key Management Service (AWS KMS) key that you want to use with
 -- this pipeline.
 --
--- If you use either @S3@ or @S3-AWS-KMS@ as your @Encryption:Mode@, you
+-- If you use either 'S3' or 'S3-AWS-KMS' as your 'Encryption:Mode', you
 -- don\'t need to provide a key with your job because a default key, known
 -- as an AWS-KMS key, is created for you automatically. You need to provide
 -- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if
--- you are using an @Encryption:Mode@ of @AES-PKCS7@, @AES-CTR@, or
--- @AES-GCM@.
+-- you are using an 'Encryption:Mode' of 'AES-PKCS7', 'AES-CTR', or
+-- 'AES-GCM'.
 pipAWSKMSKeyARN :: Lens' Pipeline (Maybe Text)
 pipAWSKMSKeyARN = lens _pipAWSKMSKeyARN (\ s a -> s{_pipAWSKMSKeyARN = a});
 
@@ -2517,41 +2537,41 @@ pipId = lens _pipId (\ s a -> s{_pipId = a});
 
 -- | Information about the Amazon S3 bucket in which you want Elastic
 -- Transcoder to save thumbnail files. Either you specify both
--- @ContentConfig@ and @ThumbnailConfig@, or you specify @OutputBucket@.
+-- 'ContentConfig' and 'ThumbnailConfig', or you specify 'OutputBucket'.
 --
--- -   @Bucket@: The Amazon S3 bucket in which you want Elastic Transcoder
+-- -   'Bucket': The Amazon S3 bucket in which you want Elastic Transcoder
 --     to save thumbnail files.
--- -   @Permissions@: A list of the users and\/or predefined Amazon S3
+-- -   'Permissions': A list of the users and\/or predefined Amazon S3
 --     groups you want to have access to thumbnail files, and the type of
 --     access that you want them to have.
 --     -   GranteeType: The type of value that appears in the Grantee
 --         object:
---         -   @Canonical@: Either the canonical user ID for an AWS account
+--         -   'Canonical': Either the canonical user ID for an AWS account
 --             or an origin access identity for an Amazon CloudFront
 --             distribution.
 --             A canonical user ID is not the same as an AWS account
 --             number.
---         -   @Email@: The registered email address of an AWS account.
---         -   @Group@: One of the following predefined Amazon S3 groups:
---             @AllUsers@, @AuthenticatedUsers@, or @LogDelivery@.
---     -   @Grantee@: The AWS user or group that you want to have access to
+--         -   'Email': The registered email address of an AWS account.
+--         -   'Group': One of the following predefined Amazon S3 groups:
+--             'AllUsers', 'AuthenticatedUsers', or 'LogDelivery'.
+--     -   'Grantee': The AWS user or group that you want to have access to
 --         thumbnail files.
 --     -   Access: The permission that you want to give to the AWS user
 --         that is listed in Grantee. Valid values include:
---         -   @READ@: The grantee can read the thumbnails and metadata for
+--         -   'READ': The grantee can read the thumbnails and metadata for
 --             thumbnails that Elastic Transcoder adds to the Amazon S3
 --             bucket.
---         -   @READ_ACP@: The grantee can read the object ACL for
+--         -   'READ_ACP': The grantee can read the object ACL for
 --             thumbnails that Elastic Transcoder adds to the Amazon S3
 --             bucket.
---         -   @WRITE_ACP@: The grantee can write the ACL for the
+--         -   'WRITE_ACP': The grantee can write the ACL for the
 --             thumbnails that Elastic Transcoder adds to the Amazon S3
 --             bucket.
---         -   @FULL_CONTROL@: The grantee has READ, READ_ACP, and
+--         -   'FULL_CONTROL': The grantee has READ, READ_ACP, and
 --             WRITE_ACP permissions for the thumbnails that Elastic
 --             Transcoder adds to the Amazon S3 bucket.
--- -   @StorageClass@: The Amazon S3 storage class, @Standard@ or
---     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
+-- -   'StorageClass': The Amazon S3 storage class, 'Standard' or
+--     'ReducedRedundancy', that you want Elastic Transcoder to assign to
 --     the thumbnails that it stores in your Amazon S3 bucket.
 pipThumbnailConfig :: Lens' Pipeline (Maybe PipelineOutputConfig)
 pipThumbnailConfig = lens _pipThumbnailConfig (\ s a -> s{_pipThumbnailConfig = a});
@@ -2590,25 +2610,26 @@ instance FromJSON Pipeline where
                      <*> (x .:? "ThumbnailConfig")
                      <*> (x .:? "Notifications"))
 
--- | The @PipelineOutputConfig@ structure.
+-- | The 'PipelineOutputConfig' structure.
 --
 -- /See:/ 'pipelineOutputConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pocBucket'
---
--- * 'pocStorageClass'
---
--- * 'pocPermissions'
 data PipelineOutputConfig = PipelineOutputConfig'
     { _pocBucket       :: !(Maybe Text)
     , _pocStorageClass :: !(Maybe Text)
     , _pocPermissions  :: !(Maybe [Permission])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PipelineOutputConfig' smart constructor.
-pipelineOutputConfig :: PipelineOutputConfig
+-- | Creates a value of 'PipelineOutputConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pocBucket'
+--
+-- * 'pocStorageClass'
+--
+-- * 'pocPermissions'
+pipelineOutputConfig
+    :: PipelineOutputConfig
 pipelineOutputConfig =
     PipelineOutputConfig'
     { _pocBucket = Nothing
@@ -2632,30 +2653,30 @@ pipelineOutputConfig =
 -- thumbnails in another bucket, specify which users can access the
 -- transcoded files or the permissions the users have, or change the Amazon
 -- S3 storage class, omit OutputBucket and specify values for
--- @ContentConfig@ and @ThumbnailConfig@ instead.
+-- 'ContentConfig' and 'ThumbnailConfig' instead.
 pocBucket :: Lens' PipelineOutputConfig (Maybe Text)
 pocBucket = lens _pocBucket (\ s a -> s{_pocBucket = a});
 
--- | The Amazon S3 storage class, @Standard@ or @ReducedRedundancy@, that you
+-- | The Amazon S3 storage class, 'Standard' or 'ReducedRedundancy', that you
 -- want Elastic Transcoder to assign to the video files and playlists that
 -- it stores in your Amazon S3 bucket.
 pocStorageClass :: Lens' PipelineOutputConfig (Maybe Text)
 pocStorageClass = lens _pocStorageClass (\ s a -> s{_pocStorageClass = a});
 
--- | Optional. The @Permissions@ object specifies which users and\/or
+-- | Optional. The 'Permissions' object specifies which users and\/or
 -- predefined Amazon S3 groups you want to have access to transcoded files
 -- and playlists, and the type of access you want them to have. You can
 -- grant permissions to a maximum of 30 users and\/or predefined Amazon S3
 -- groups.
 --
--- If you include @Permissions@, Elastic Transcoder grants only the
+-- If you include 'Permissions', Elastic Transcoder grants only the
 -- permissions that you specify. It does not grant full permissions to the
--- owner of the role specified by @Role@. If you want that user to have
+-- owner of the role specified by 'Role'. If you want that user to have
 -- full control, you must explicitly grant full control to the user.
 --
--- If you omit @Permissions@, Elastic Transcoder grants full control over
+-- If you omit 'Permissions', Elastic Transcoder grants full control over
 -- the transcoded files and playlists to the owner of the role specified by
--- @Role@, and grants no other permissions to any other user or group.
+-- 'Role', and grants no other permissions to any other user or group.
 pocPermissions :: Lens' PipelineOutputConfig [Permission]
 pocPermissions = lens _pocPermissions (\ s a -> s{_pocPermissions = a}) . _Default . _Coerce;
 
@@ -2677,14 +2698,24 @@ instance ToJSON PipelineOutputConfig where
 -- | The PlayReady DRM settings, if any, that you want Elastic Transcoder to
 -- apply to the output files associated with this playlist.
 --
--- PlayReady DRM encrypts your media files using @AES-CTR@ encryption.
+-- PlayReady DRM encrypts your media files using 'AES-CTR' encryption.
 --
--- If you use DRM for an @HLSv3@ playlist, your outputs must have a master
+-- If you use DRM for an 'HLSv3' playlist, your outputs must have a master
 -- playlist.
 --
 -- /See:/ 'playReadyDrm' smart constructor.
+data PlayReadyDrm = PlayReadyDrm'
+    { _prdKeyId                 :: !(Maybe Text)
+    , _prdKeyMD5                :: !(Maybe Text)
+    , _prdFormat                :: !(Maybe Text)
+    , _prdKey                   :: !(Maybe Text)
+    , _prdLicenseAcquisitionURL :: !(Maybe Text)
+    , _prdInitializationVector  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PlayReadyDrm' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'prdKeyId'
 --
@@ -2697,17 +2728,8 @@ instance ToJSON PipelineOutputConfig where
 -- * 'prdLicenseAcquisitionURL'
 --
 -- * 'prdInitializationVector'
-data PlayReadyDrm = PlayReadyDrm'
-    { _prdKeyId                 :: !(Maybe Text)
-    , _prdKeyMD5                :: !(Maybe Text)
-    , _prdFormat                :: !(Maybe Text)
-    , _prdKey                   :: !(Maybe Text)
-    , _prdLicenseAcquisitionURL :: !(Maybe Text)
-    , _prdInitializationVector  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PlayReadyDrm' smart constructor.
-playReadyDrm :: PlayReadyDrm
+playReadyDrm
+    :: PlayReadyDrm
 playReadyDrm =
     PlayReadyDrm'
     { _prdKeyId = Nothing
@@ -2744,7 +2766,7 @@ prdFormat = lens _prdFormat (\ s a -> s{_prdFormat = a});
 -- key must be base64-encoded, and it must be one of the following bit
 -- lengths before being base64-encoded:
 --
--- @128@, @192@, or @256@.
+-- '128', '192', or '256'.
 --
 -- The key must also be encrypted by using AWS KMS.
 prdKey :: Lens' PlayReadyDrm (Maybe Text)
@@ -2789,15 +2811,26 @@ instance ToJSON PlayReadyDrm where
                "InitializationVector" .= _prdInitializationVector]
 
 -- | Use Only for Fragmented MP4 or MPEG-TS Outputs. If you specify a preset
--- for which the value of Container is @fmp4@ (Fragmented MP4) or @ts@
+-- for which the value of Container is 'fmp4' (Fragmented MP4) or 'ts'
 -- (MPEG-TS), Playlists contains information about the master playlists
 -- that you want Elastic Transcoder to create. We recommend that you create
 -- only one master playlist per output format. The maximum number of master
 -- playlists in a job is 30.
 --
 -- /See:/ 'playlist' smart constructor.
+data Playlist = Playlist'
+    { _pPlayReadyDrm         :: !(Maybe PlayReadyDrm)
+    , _pStatus               :: !(Maybe Text)
+    , _pOutputKeys           :: !(Maybe [Text])
+    , _pFormat               :: !(Maybe Text)
+    , _pName                 :: !(Maybe Text)
+    , _pHlsContentProtection :: !(Maybe HlsContentProtection)
+    , _pStatusDetail         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Playlist' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pPlayReadyDrm'
 --
@@ -2812,18 +2845,8 @@ instance ToJSON PlayReadyDrm where
 -- * 'pHlsContentProtection'
 --
 -- * 'pStatusDetail'
-data Playlist = Playlist'
-    { _pPlayReadyDrm         :: !(Maybe PlayReadyDrm)
-    , _pStatus               :: !(Maybe Text)
-    , _pOutputKeys           :: !(Maybe [Text])
-    , _pFormat               :: !(Maybe Text)
-    , _pName                 :: !(Maybe Text)
-    , _pHlsContentProtection :: !(Maybe HlsContentProtection)
-    , _pStatusDetail         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Playlist' smart constructor.
-playlist :: Playlist
+playlist
+    :: Playlist
 playlist =
     Playlist'
     { _pPlayReadyDrm = Nothing
@@ -2847,33 +2870,33 @@ pStatus = lens _pStatus (\ s a -> s{_pStatus = a});
 -- | For each output in this job that you want to include in a master
 -- playlist, the value of the Outputs:Key object.
 --
--- -   If your output is not @HLS@ or does not have a segment duration set,
---     the name of the output file is a concatenation of @OutputKeyPrefix@
---     and @Outputs:Key@:
+-- -   If your output is not 'HLS' or does not have a segment duration set,
+--     the name of the output file is a concatenation of 'OutputKeyPrefix'
+--     and 'Outputs:Key':
 --
---     OutputKeyPrefix@Outputs:Key@
+--     OutputKeyPrefix'Outputs:Key'
 --
--- -   If your output is @HLSv3@ and has a segment duration set, or is not
+-- -   If your output is 'HLSv3' and has a segment duration set, or is not
 --     included in a playlist, Elastic Transcoder creates an output
---     playlist file with a file extension of @.m3u8@, and a series of
---     @.ts@ files that include a five-digit sequential counter beginning
+--     playlist file with a file extension of '.m3u8', and a series of
+--     '.ts' files that include a five-digit sequential counter beginning
 --     with 00000:
 --
---     OutputKeyPrefix@Outputs:Key@.m3u8
+--     OutputKeyPrefix'Outputs:Key'.m3u8
 --
---     OutputKeyPrefix@Outputs:Key@00000.ts
+--     OutputKeyPrefix'Outputs:Key'00000.ts
 --
--- -   If your output is @HLSv4@, has a segment duration set, and is
---     included in an @HLSv4@ playlist, Elastic Transcoder creates an
---     output playlist file with a file extension of @_v4.m3u8@. If the
+-- -   If your output is 'HLSv4', has a segment duration set, and is
+--     included in an 'HLSv4' playlist, Elastic Transcoder creates an
+--     output playlist file with a file extension of '_v4.m3u8'. If the
 --     output is video, Elastic Transcoder also creates an output file with
---     an extension of @_iframe.m3u8@:
+--     an extension of '_iframe.m3u8':
 --
---     OutputKeyPrefix@Outputs:Key@_v4.m3u8
+--     OutputKeyPrefix'Outputs:Key'_v4.m3u8
 --
---     OutputKeyPrefix@Outputs:Key@_iframe.m3u8
+--     OutputKeyPrefix'Outputs:Key'_iframe.m3u8
 --
---     OutputKeyPrefix@Outputs:Key@.ts
+--     OutputKeyPrefix'Outputs:Key'.ts
 --
 -- Elastic Transcoder automatically appends the relevant file extension to
 -- the file name. If you include a file extension in Output Key, the file
@@ -2881,27 +2904,27 @@ pStatus = lens _pStatus (\ s a -> s{_pStatus = a});
 --
 -- If you include more than one output in a playlist, any segment duration
 -- settings, clip settings, or caption settings must be the same for all
--- outputs in the playlist. For @Smooth@ playlists, the @Audio:Profile@,
--- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
+-- outputs in the playlist. For 'Smooth' playlists, the 'Audio:Profile',
+-- 'Video:Profile', and 'Video:FrameRate' to 'Video:KeyframesMaxDist' ratio
 -- must be the same for all outputs.
 pOutputKeys :: Lens' Playlist [Text]
 pOutputKeys = lens _pOutputKeys (\ s a -> s{_pOutputKeys = a}) . _Default . _Coerce;
 
--- | The format of the output playlist. Valid formats include @HLSv3@,
--- @HLSv4@, and @Smooth@.
+-- | The format of the output playlist. Valid formats include 'HLSv3',
+-- 'HLSv4', and 'Smooth'.
 pFormat :: Lens' Playlist (Maybe Text)
 pFormat = lens _pFormat (\ s a -> s{_pFormat = a});
 
 -- | The name that you want Elastic Transcoder to assign to the master
--- playlist, for example, nyc-vacation.m3u8. If the name includes a @\/@
--- character, the section of the name before the last @\/@ must be
--- identical for all @Name@ objects. If you create more than one master
--- playlist, the values of all @Name@ objects must be unique.
+-- playlist, for example, nyc-vacation.m3u8. If the name includes a '\/'
+-- character, the section of the name before the last '\/' must be
+-- identical for all 'Name' objects. If you create more than one master
+-- playlist, the values of all 'Name' objects must be unique.
 --
 -- __Note__: Elastic Transcoder automatically appends the relevant file
--- extension to the file name (@.m3u8@ for @HLSv3@ and @HLSv4@ playlists,
--- and @.ism@ and @.ismc@ for @Smooth@ playlists). If you include a file
--- extension in @Name@, the file name will have two extensions.
+-- extension to the file name ('.m3u8' for 'HLSv3' and 'HLSv4' playlists,
+-- and '.ism' and '.ismc' for 'Smooth' playlists). If you include a file
+-- extension in 'Name', the file name will have two extensions.
 pName :: Lens' Playlist (Maybe Text)
 pName = lens _pName (\ s a -> s{_pName = a});
 
@@ -2934,8 +2957,21 @@ instance FromJSON Playlist where
 -- use when you create a job.
 --
 -- /See:/ 'preset' smart constructor.
+data Preset = Preset'
+    { _preARN         :: !(Maybe Text)
+    , _preVideo       :: !(Maybe VideoParameters)
+    , _preName        :: !(Maybe Text)
+    , _preThumbnails  :: !(Maybe Thumbnails)
+    , _preContainer   :: !(Maybe Text)
+    , _preId          :: !(Maybe Text)
+    , _preType        :: !(Maybe Text)
+    , _preAudio       :: !(Maybe AudioParameters)
+    , _preDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Preset' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'preARN'
 --
@@ -2954,20 +2990,8 @@ instance FromJSON Playlist where
 -- * 'preAudio'
 --
 -- * 'preDescription'
-data Preset = Preset'
-    { _preARN         :: !(Maybe Text)
-    , _preVideo       :: !(Maybe VideoParameters)
-    , _preName        :: !(Maybe Text)
-    , _preThumbnails  :: !(Maybe Thumbnails)
-    , _preContainer   :: !(Maybe Text)
-    , _preId          :: !(Maybe Text)
-    , _preType        :: !(Maybe Text)
-    , _preAudio       :: !(Maybe AudioParameters)
-    , _preDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Preset' smart constructor.
-preset :: Preset
+preset
+    :: Preset
 preset =
     Preset'
     { _preARN = Nothing
@@ -2999,9 +3023,9 @@ preName = lens _preName (\ s a -> s{_preName = a});
 preThumbnails :: Lens' Preset (Maybe Thumbnails)
 preThumbnails = lens _preThumbnails (\ s a -> s{_preThumbnails = a});
 
--- | The container type for the output file. Valid values include @flac@,
--- @flv@, @fmp4@, @gif@, @mp3@, @mp4@, @mpg@, @mxf@, @oga@, @ogg@, @ts@,
--- and @webm@.
+-- | The container type for the output file. Valid values include 'flac',
+-- 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'mxf', 'oga', 'ogg', 'ts',
+-- and 'webm'.
 preContainer :: Lens' Preset (Maybe Text)
 preContainer = lens _preContainer (\ s a -> s{_preContainer = a});
 
@@ -3011,7 +3035,7 @@ preId :: Lens' Preset (Maybe Text)
 preId = lens _preId (\ s a -> s{_preId = a});
 
 -- | Whether the preset is a default preset provided by Elastic Transcoder
--- (@System@) or a preset that you have defined (@Custom@).
+-- ('System') or a preset that you have defined ('Custom').
 preType :: Lens' Preset (Maybe Text)
 preType = lens _preType (\ s a -> s{_preType = a});
 
@@ -3054,8 +3078,22 @@ instance FromJSON Preset where
 -- same preset for up to four watermarks that have different dimensions.
 --
 -- /See:/ 'presetWatermark' smart constructor.
+data PresetWatermark = PresetWatermark'
+    { _pwVerticalAlign    :: !(Maybe Text)
+    , _pwSizingPolicy     :: !(Maybe Text)
+    , _pwMaxHeight        :: !(Maybe Text)
+    , _pwHorizontalOffset :: !(Maybe Text)
+    , _pwOpacity          :: !(Maybe Text)
+    , _pwVerticalOffset   :: !(Maybe Text)
+    , _pwMaxWidth         :: !(Maybe Text)
+    , _pwId               :: !(Maybe Text)
+    , _pwHorizontalAlign  :: !(Maybe Text)
+    , _pwTarget           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PresetWatermark' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pwVerticalAlign'
 --
@@ -3076,21 +3114,8 @@ instance FromJSON Preset where
 -- * 'pwHorizontalAlign'
 --
 -- * 'pwTarget'
-data PresetWatermark = PresetWatermark'
-    { _pwVerticalAlign    :: !(Maybe Text)
-    , _pwSizingPolicy     :: !(Maybe Text)
-    , _pwMaxHeight        :: !(Maybe Text)
-    , _pwHorizontalOffset :: !(Maybe Text)
-    , _pwOpacity          :: !(Maybe Text)
-    , _pwVerticalOffset   :: !(Maybe Text)
-    , _pwMaxWidth         :: !(Maybe Text)
-    , _pwId               :: !(Maybe Text)
-    , _pwHorizontalAlign  :: !(Maybe Text)
-    , _pwTarget           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PresetWatermark' smart constructor.
-presetWatermark :: PresetWatermark
+presetWatermark
+    :: PresetWatermark
 presetWatermark =
     PresetWatermark'
     { _pwVerticalAlign = Nothing
@@ -3106,7 +3131,7 @@ presetWatermark =
     }
 
 -- | The vertical position of the watermark unless you specify a non-zero
--- value for @VerticalOffset@:
+-- value for 'VerticalOffset':
 --
 -- -   __Top__: The top edge of the watermark is aligned with the top
 --     border of the video.
@@ -3120,15 +3145,15 @@ pwVerticalAlign = lens _pwVerticalAlign (\ s a -> s{_pwVerticalAlign = a});
 -- | A value that controls scaling of the watermark:
 --
 -- -   __Fit__: Elastic Transcoder scales the watermark so it matches the
---     value that you specified in either @MaxWidth@ or @MaxHeight@ without
+--     value that you specified in either 'MaxWidth' or 'MaxHeight' without
 --     exceeding the other value.
 -- -   __Stretch__: Elastic Transcoder stretches the watermark to match the
---     values that you specified for @MaxWidth@ and @MaxHeight@. If the
---     relative proportions of the watermark and the values of @MaxWidth@
---     and @MaxHeight@ are different, the watermark will be distorted.
+--     values that you specified for 'MaxWidth' and 'MaxHeight'. If the
+--     relative proportions of the watermark and the values of 'MaxWidth'
+--     and 'MaxHeight' are different, the watermark will be distorted.
 -- -   __ShrinkToFit__: Elastic Transcoder scales the watermark down so
 --     that its dimensions match the values that you specified for at least
---     one of @MaxWidth@ and @MaxHeight@ without exceeding either value. If
+--     one of 'MaxWidth' and 'MaxHeight' without exceeding either value. If
 --     you specify this option, Elastic Transcoder does not scale the
 --     watermark up.
 pwSizingPolicy :: Lens' PresetWatermark (Maybe Text)
@@ -3137,14 +3162,14 @@ pwSizingPolicy = lens _pwSizingPolicy (\ s a -> s{_pwSizingPolicy = a});
 -- | The maximum height of the watermark in one of the following formats:
 --
 -- -   number of pixels (px): The minimum value is 16 pixels, and the
---     maximum value is the value of @MaxHeight@.
+--     maximum value is the value of 'MaxHeight'.
 -- -   integer percentage (%): The range of valid values is 0 to 100. Use
---     the value of @Target@ to specify whether you want Elastic Transcoder
+--     the value of 'Target' to specify whether you want Elastic Transcoder
 --     to include the black bars that are added by Elastic Transcoder, if
 --     any, in the calculation.
 --
 -- If you specify the value in pixels, it must be less than or equal to the
--- value of @MaxHeight@.
+-- value of 'MaxHeight'.
 pwMaxHeight :: Lens' PresetWatermark (Maybe Text)
 pwMaxHeight = lens _pwMaxHeight (\ s a -> s{_pwMaxHeight = a});
 
@@ -3155,18 +3180,18 @@ pwMaxHeight = lens _pwMaxHeight (\ s a -> s{_pwMaxHeight = a});
 --     maximum value is the value of MaxWidth.
 -- -   integer percentage (%): The range of valid values is 0 to 100.
 --
--- For example, if you specify Left for @HorizontalAlign@ and 5px for
--- @HorizontalOffset@, the left side of the watermark appears 5 pixels from
+-- For example, if you specify Left for 'HorizontalAlign' and 5px for
+-- 'HorizontalOffset', the left side of the watermark appears 5 pixels from
 -- the left border of the output video.
 --
--- @HorizontalOffset@ is only valid when the value of @HorizontalAlign@ is
--- @Left@ or @Right@. If you specify an offset that causes the watermark to
+-- 'HorizontalOffset' is only valid when the value of 'HorizontalAlign' is
+-- 'Left' or 'Right'. If you specify an offset that causes the watermark to
 -- extend beyond the left or right border and Elastic Transcoder has not
 -- added black bars, the watermark is cropped. If Elastic Transcoder has
 -- added black bars, the watermark extends into the black bars. If the
 -- watermark extends beyond the black bars, it is cropped.
 --
--- Use the value of @Target@ to specify whether you want to include the
+-- Use the value of 'Target' to specify whether you want to include the
 -- black bars that are added by Elastic Transcoder, if any, in the offset
 -- calculation.
 pwHorizontalOffset :: Lens' PresetWatermark (Maybe Text)
@@ -3175,29 +3200,29 @@ pwHorizontalOffset = lens _pwHorizontalOffset (\ s a -> s{_pwHorizontalOffset = 
 -- | A percentage that indicates how much you want a watermark to obscure the
 -- video in the location where it appears. Valid values are 0 (the
 -- watermark is invisible) to 100 (the watermark completely obscures the
--- video in the specified location). The datatype of @Opacity@ is float.
+-- video in the specified location). The datatype of 'Opacity' is float.
 --
 -- Elastic Transcoder supports transparent .png graphics. If you use a
 -- transparent .png, the transparent portion of the video appears as if you
--- had specified a value of 0 for @Opacity@. The .jpg file format doesn\'t
+-- had specified a value of 0 for 'Opacity'. The .jpg file format doesn\'t
 -- support transparency.
 pwOpacity :: Lens' PresetWatermark (Maybe Text)
 pwOpacity = lens _pwOpacity (\ s a -> s{_pwOpacity = a});
 
--- | @VerticalOffset@
+-- | 'VerticalOffset'
 --
 -- The amount by which you want the vertical position of the watermark to
 -- be offset from the position specified by VerticalAlign:
 --
 -- -   number of pixels (px): The minimum value is 0 pixels, and the
---     maximum value is the value of @MaxHeight@.
+--     maximum value is the value of 'MaxHeight'.
 -- -   integer percentage (%): The range of valid values is 0 to 100.
 --
--- For example, if you specify @Top@ for @VerticalAlign@ and @5px@ for
--- @VerticalOffset@, the top of the watermark appears 5 pixels from the top
+-- For example, if you specify 'Top' for 'VerticalAlign' and '5px' for
+-- 'VerticalOffset', the top of the watermark appears 5 pixels from the top
 -- border of the output video.
 --
--- @VerticalOffset@ is only valid when the value of VerticalAlign is Top or
+-- 'VerticalOffset' is only valid when the value of VerticalAlign is Top or
 -- Bottom.
 --
 -- If you specify an offset that causes the watermark to extend beyond the
@@ -3206,7 +3231,7 @@ pwOpacity = lens _pwOpacity (\ s a -> s{_pwOpacity = a});
 -- the watermark extends into the black bars. If the watermark extends
 -- beyond the black bars, it is cropped.
 --
--- Use the value of @Target@ to specify whether you want Elastic Transcoder
+-- Use the value of 'Target' to specify whether you want Elastic Transcoder
 -- to include the black bars that are added by Elastic Transcoder, if any,
 -- in the offset calculation.
 pwVerticalOffset :: Lens' PresetWatermark (Maybe Text)
@@ -3215,21 +3240,21 @@ pwVerticalOffset = lens _pwVerticalOffset (\ s a -> s{_pwVerticalOffset = a});
 -- | The maximum width of the watermark in one of the following formats:
 --
 -- -   number of pixels (px): The minimum value is 16 pixels, and the
---     maximum value is the value of @MaxWidth@.
+--     maximum value is the value of 'MaxWidth'.
 -- -   integer percentage (%): The range of valid values is 0 to 100. Use
---     the value of @Target@ to specify whether you want Elastic Transcoder
+--     the value of 'Target' to specify whether you want Elastic Transcoder
 --     to include the black bars that are added by Elastic Transcoder, if
 --     any, in the calculation.
 pwMaxWidth :: Lens' PresetWatermark (Maybe Text)
 pwMaxWidth = lens _pwMaxWidth (\ s a -> s{_pwMaxWidth = a});
 
 -- | A unique identifier for the settings for one watermark. The value of
--- @Id@ can be up to 40 characters long.
+-- 'Id' can be up to 40 characters long.
 pwId :: Lens' PresetWatermark (Maybe Text)
 pwId = lens _pwId (\ s a -> s{_pwId = a});
 
 -- | The horizontal position of the watermark unless you specify a non-zero
--- value for @HorizontalOffset@:
+-- value for 'HorizontalOffset':
 --
 -- -   __Left__: The left edge of the watermark is aligned with the left
 --     border of the video.
@@ -3241,16 +3266,16 @@ pwHorizontalAlign :: Lens' PresetWatermark (Maybe Text)
 pwHorizontalAlign = lens _pwHorizontalAlign (\ s a -> s{_pwHorizontalAlign = a});
 
 -- | A value that determines how Elastic Transcoder interprets values that
--- you specified for @HorizontalOffset@, @VerticalOffset@, @MaxWidth@, and
--- @MaxHeight@:
+-- you specified for 'HorizontalOffset', 'VerticalOffset', 'MaxWidth', and
+-- 'MaxHeight':
 --
--- -   __Content__: @HorizontalOffset@ and @VerticalOffset@ values are
+-- -   __Content__: 'HorizontalOffset' and 'VerticalOffset' values are
 --     calculated based on the borders of the video excluding black bars
---     added by Elastic Transcoder, if any. In addition, @MaxWidth@ and
---     @MaxHeight@, if specified as a percentage, are calculated based on
+--     added by Elastic Transcoder, if any. In addition, 'MaxWidth' and
+--     'MaxHeight', if specified as a percentage, are calculated based on
 --     the borders of the video excluding black bars added by Elastic
 --     Transcoder, if any.
--- -   __Frame__: @HorizontalOffset@ and @VerticalOffset@ values are
+-- -   __Frame__: 'HorizontalOffset' and 'VerticalOffset' values are
 --     calculated based on the borders of the video including black bars
 --     added by Elastic Transcoder, if any.
 pwTarget :: Lens' PresetWatermark (Maybe Text)
@@ -3287,8 +3312,20 @@ instance ToJSON PresetWatermark where
 -- | Thumbnails for videos.
 --
 -- /See:/ 'thumbnails' smart constructor.
+data Thumbnails = Thumbnails'
+    { _tSizingPolicy  :: !(Maybe Text)
+    , _tFormat        :: !(Maybe Text)
+    , _tMaxHeight     :: !(Maybe Text)
+    , _tResolution    :: !(Maybe Text)
+    , _tPaddingPolicy :: !(Maybe Text)
+    , _tAspectRatio   :: !(Maybe Text)
+    , _tInterval      :: !(Maybe Text)
+    , _tMaxWidth      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Thumbnails' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tSizingPolicy'
 --
@@ -3305,19 +3342,8 @@ instance ToJSON PresetWatermark where
 -- * 'tInterval'
 --
 -- * 'tMaxWidth'
-data Thumbnails = Thumbnails'
-    { _tSizingPolicy  :: !(Maybe Text)
-    , _tFormat        :: !(Maybe Text)
-    , _tMaxHeight     :: !(Maybe Text)
-    , _tResolution    :: !(Maybe Text)
-    , _tPaddingPolicy :: !(Maybe Text)
-    , _tAspectRatio   :: !(Maybe Text)
-    , _tInterval      :: !(Maybe Text)
-    , _tMaxWidth      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Thumbnails' smart constructor.
-thumbnails :: Thumbnails
+thumbnails
+    :: Thumbnails
 thumbnails =
     Thumbnails'
     { _tSizingPolicy = Nothing
@@ -3332,36 +3358,36 @@ thumbnails =
 
 -- | Specify one of the following values to control scaling of thumbnails:
 --
--- -   @Fit@: Elastic Transcoder scales thumbnails so they match the value
+-- -   'Fit': Elastic Transcoder scales thumbnails so they match the value
 --     that you specified in thumbnail MaxWidth or MaxHeight settings
 --     without exceeding the other value.
--- -   @Fill@: Elastic Transcoder scales thumbnails so they match the value
---     that you specified in thumbnail @MaxWidth@ or @MaxHeight@ settings
+-- -   'Fill': Elastic Transcoder scales thumbnails so they match the value
+--     that you specified in thumbnail 'MaxWidth' or 'MaxHeight' settings
 --     and matches or exceeds the other value. Elastic Transcoder centers
 --     the image in thumbnails and then crops in the dimension (if any)
 --     that exceeds the maximum value.
--- -   @Stretch@: Elastic Transcoder stretches thumbnails to match the
---     values that you specified for thumbnail @MaxWidth@ and @MaxHeight@
+-- -   'Stretch': Elastic Transcoder stretches thumbnails to match the
+--     values that you specified for thumbnail 'MaxWidth' and 'MaxHeight'
 --     settings. If the relative proportions of the input video and
 --     thumbnails are different, the thumbnails will be distorted.
--- -   @Keep@: Elastic Transcoder does not scale thumbnails. If either
+-- -   'Keep': Elastic Transcoder does not scale thumbnails. If either
 --     dimension of the input video exceeds the values that you specified
---     for thumbnail @MaxWidth@ and @MaxHeight@ settings, Elastic
+--     for thumbnail 'MaxWidth' and 'MaxHeight' settings, Elastic
 --     Transcoder crops the thumbnails.
--- -   @ShrinkToFit@: Elastic Transcoder scales thumbnails down so that
+-- -   'ShrinkToFit': Elastic Transcoder scales thumbnails down so that
 --     their dimensions match the values that you specified for at least
---     one of thumbnail @MaxWidth@ and @MaxHeight@ without exceeding either
+--     one of thumbnail 'MaxWidth' and 'MaxHeight' without exceeding either
 --     value. If you specify this option, Elastic Transcoder does not scale
 --     thumbnails up.
--- -   @ShrinkToFill@: Elastic Transcoder scales thumbnails down so that
+-- -   'ShrinkToFill': Elastic Transcoder scales thumbnails down so that
 --     their dimensions match the values that you specified for at least
---     one of @MaxWidth@ and @MaxHeight@ without dropping below either
+--     one of 'MaxWidth' and 'MaxHeight' without dropping below either
 --     value. If you specify this option, Elastic Transcoder does not scale
 --     thumbnails up.
 tSizingPolicy :: Lens' Thumbnails (Maybe Text)
 tSizingPolicy = lens _tSizingPolicy (\ s a -> s{_tSizingPolicy = a});
 
--- | The format of thumbnails, if any. Valid values are @jpg@ and @png@.
+-- | The format of thumbnails, if any. Valid values are 'jpg' and 'png'.
 --
 -- You specify whether you want Elastic Transcoder to create thumbnails
 -- when you create a job.
@@ -3375,36 +3401,36 @@ tMaxHeight :: Lens' Thumbnails (Maybe Text)
 tMaxHeight = lens _tMaxHeight (\ s a -> s{_tMaxHeight = a});
 
 -- | To better control resolution and aspect ratio of thumbnails, we
--- recommend that you use the values @MaxWidth@, @MaxHeight@,
--- @SizingPolicy@, and @PaddingPolicy@ instead of @Resolution@ and
--- @AspectRatio@. The two groups of settings are mutually exclusive. Do not
+-- recommend that you use the values 'MaxWidth', 'MaxHeight',
+-- 'SizingPolicy', and 'PaddingPolicy' instead of 'Resolution' and
+-- 'AspectRatio'. The two groups of settings are mutually exclusive. Do not
 -- use them together.
 --
 -- The width and height of thumbnail files in pixels. Specify a value in
--- the format @width@ x @height@ where both values are even integers. The
+-- the format 'width' x 'height' where both values are even integers. The
 -- values cannot exceed the width and height that you specified in the
--- @Video:Resolution@ object.
+-- 'Video:Resolution' object.
 tResolution :: Lens' Thumbnails (Maybe Text)
 tResolution = lens _tResolution (\ s a -> s{_tResolution = a});
 
--- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
+-- | When you set 'PaddingPolicy' to 'Pad', Elastic Transcoder may add black
 -- bars to the top and bottom and\/or left and right sides of thumbnails to
 -- make the total size of the thumbnails match the values that you
--- specified for thumbnail @MaxWidth@ and @MaxHeight@ settings.
+-- specified for thumbnail 'MaxWidth' and 'MaxHeight' settings.
 tPaddingPolicy :: Lens' Thumbnails (Maybe Text)
 tPaddingPolicy = lens _tPaddingPolicy (\ s a -> s{_tPaddingPolicy = a});
 
 -- | To better control resolution and aspect ratio of thumbnails, we
--- recommend that you use the values @MaxWidth@, @MaxHeight@,
--- @SizingPolicy@, and @PaddingPolicy@ instead of @Resolution@ and
--- @AspectRatio@. The two groups of settings are mutually exclusive. Do not
+-- recommend that you use the values 'MaxWidth', 'MaxHeight',
+-- 'SizingPolicy', and 'PaddingPolicy' instead of 'Resolution' and
+-- 'AspectRatio'. The two groups of settings are mutually exclusive. Do not
 -- use them together.
 --
 -- The aspect ratio of thumbnails. Valid values include:
 --
--- @auto@, @1:1@, @4:3@, @3:2@, @16:9@
+-- 'auto', '1:1', '4:3', '3:2', '16:9'
 --
--- If you specify @auto@, Elastic Transcoder tries to preserve the aspect
+-- If you specify 'auto', Elastic Transcoder tries to preserve the aspect
 -- ratio of the video in the output file.
 tAspectRatio :: Lens' Thumbnails (Maybe Text)
 tAspectRatio = lens _tAspectRatio (\ s a -> s{_tAspectRatio = a});
@@ -3446,19 +3472,20 @@ instance ToJSON Thumbnails where
 -- | Settings that determine when a clip begins and how long it lasts.
 --
 -- /See:/ 'timeSpan' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tsStartTime'
---
--- * 'tsDuration'
 data TimeSpan = TimeSpan'
     { _tsStartTime :: !(Maybe Text)
     , _tsDuration  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TimeSpan' smart constructor.
-timeSpan :: TimeSpan
+-- | Creates a value of 'TimeSpan' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tsStartTime'
+--
+-- * 'tsDuration'
+timeSpan
+    :: TimeSpan
 timeSpan =
     TimeSpan'
     { _tsStartTime = Nothing
@@ -3499,22 +3526,23 @@ instance ToJSON TimeSpan where
 -- | Details about the timing of a job.
 --
 -- /See:/ 'timing' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tSubmitTimeMillis'
---
--- * 'tFinishTimeMillis'
---
--- * 'tStartTimeMillis'
 data Timing = Timing'
     { _tSubmitTimeMillis :: !(Maybe Integer)
     , _tFinishTimeMillis :: !(Maybe Integer)
     , _tStartTimeMillis  :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Timing' smart constructor.
-timing :: Timing
+-- | Creates a value of 'Timing' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tSubmitTimeMillis'
+--
+-- * 'tFinishTimeMillis'
+--
+-- * 'tStartTimeMillis'
+timing
+    :: Timing
 timing =
     Timing'
     { _tSubmitTimeMillis = Nothing
@@ -3544,11 +3572,30 @@ instance FromJSON Timing where
                      (x .:? "FinishTimeMillis")
                      <*> (x .:? "StartTimeMillis"))
 
--- | The @VideoParameters@ structure.
+-- | The 'VideoParameters' structure.
 --
 -- /See:/ 'videoParameters' smart constructor.
+data VideoParameters = VideoParameters'
+    { _vpKeyframesMaxDist   :: !(Maybe Text)
+    , _vpFrameRate          :: !(Maybe Text)
+    , _vpSizingPolicy       :: !(Maybe Text)
+    , _vpMaxFrameRate       :: !(Maybe Text)
+    , _vpMaxHeight          :: !(Maybe Text)
+    , _vpDisplayAspectRatio :: !(Maybe Text)
+    , _vpWatermarks         :: !(Maybe [PresetWatermark])
+    , _vpCodec              :: !(Maybe Text)
+    , _vpResolution         :: !(Maybe Text)
+    , _vpPaddingPolicy      :: !(Maybe Text)
+    , _vpAspectRatio        :: !(Maybe Text)
+    , _vpMaxWidth           :: !(Maybe Text)
+    , _vpBitRate            :: !(Maybe Text)
+    , _vpFixedGOP           :: !(Maybe Text)
+    , _vpCodecOptions       :: !(Maybe (Map Text Text))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VideoParameters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vpKeyframesMaxDist'
 --
@@ -3579,26 +3626,8 @@ instance FromJSON Timing where
 -- * 'vpFixedGOP'
 --
 -- * 'vpCodecOptions'
-data VideoParameters = VideoParameters'
-    { _vpKeyframesMaxDist   :: !(Maybe Text)
-    , _vpFrameRate          :: !(Maybe Text)
-    , _vpSizingPolicy       :: !(Maybe Text)
-    , _vpMaxFrameRate       :: !(Maybe Text)
-    , _vpMaxHeight          :: !(Maybe Text)
-    , _vpDisplayAspectRatio :: !(Maybe Text)
-    , _vpWatermarks         :: !(Maybe [PresetWatermark])
-    , _vpCodec              :: !(Maybe Text)
-    , _vpResolution         :: !(Maybe Text)
-    , _vpPaddingPolicy      :: !(Maybe Text)
-    , _vpAspectRatio        :: !(Maybe Text)
-    , _vpMaxWidth           :: !(Maybe Text)
-    , _vpBitRate            :: !(Maybe Text)
-    , _vpFixedGOP           :: !(Maybe Text)
-    , _vpCodecOptions       :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VideoParameters' smart constructor.
-videoParameters :: VideoParameters
+videoParameters
+    :: VideoParameters
 videoParameters =
     VideoParameters'
     { _vpKeyframesMaxDist = Nothing
@@ -3618,8 +3647,8 @@ videoParameters =
     , _vpCodecOptions = Nothing
     }
 
--- | Applicable only when the value of Video:Codec is one of @H.264@,
--- @MPEG2@, or @VP8@.
+-- | Applicable only when the value of Video:Codec is one of 'H.264',
+-- 'MPEG2', or 'VP8'.
 --
 -- The maximum number of frames between key frames. Key frames are fully
 -- encoded frames; the frames between key frames are encoded based, in
@@ -3628,30 +3657,30 @@ videoParameters =
 -- frame) and 100000, inclusive. A higher value results in higher
 -- compression but may also discernibly decrease video quality.
 --
--- For @Smooth@ outputs, the @FrameRate@ must have a constant ratio to the
--- @KeyframesMaxDist@. This allows @Smooth@ playlists to switch between
+-- For 'Smooth' outputs, the 'FrameRate' must have a constant ratio to the
+-- 'KeyframesMaxDist'. This allows 'Smooth' playlists to switch between
 -- different quality levels while the file is being played.
 --
--- For example, an input file can have a @FrameRate@ of 30 with a
--- @KeyframesMaxDist@ of 90. The output file then needs to have a ratio of
--- 1:3. Valid outputs would have @FrameRate@ of 30, 25, and 10, and
--- @KeyframesMaxDist@ of 90, 75, and 30, respectively.
+-- For example, an input file can have a 'FrameRate' of 30 with a
+-- 'KeyframesMaxDist' of 90. The output file then needs to have a ratio of
+-- 1:3. Valid outputs would have 'FrameRate' of 30, 25, and 10, and
+-- 'KeyframesMaxDist' of 90, 75, and 30, respectively.
 --
--- Alternately, this can be achieved by setting @FrameRate@ to auto and
--- having the same values for @MaxFrameRate@ and @KeyframesMaxDist@.
+-- Alternately, this can be achieved by setting 'FrameRate' to auto and
+-- having the same values for 'MaxFrameRate' and 'KeyframesMaxDist'.
 vpKeyframesMaxDist :: Lens' VideoParameters (Maybe Text)
 vpKeyframesMaxDist = lens _vpKeyframesMaxDist (\ s a -> s{_vpKeyframesMaxDist = a});
 
 -- | The frames per second for the video stream in the output file. Valid
 -- values include:
 --
--- @auto@, @10@, @15@, @23.97@, @24@, @25@, @29.97@, @30@, @60@
+-- 'auto', '10', '15', '23.97', '24', '25', '29.97', '30', '60'
 --
--- If you specify @auto@, Elastic Transcoder uses the detected frame rate
+-- If you specify 'auto', Elastic Transcoder uses the detected frame rate
 -- of the input source. If you specify a frame rate, we recommend that you
 -- perform the following calculation:
 --
--- @Frame rate = maximum recommended decoding speed in luma samples\/second \/ (width in pixels * height in pixels)@
+-- 'Frame rate = maximum recommended decoding speed in luma samples\/second \/ (width in pixels * height in pixels)'
 --
 -- where:
 --
@@ -3683,45 +3712,45 @@ vpFrameRate = lens _vpFrameRate (\ s a -> s{_vpFrameRate = a});
 -- | Specify one of the following values to control scaling of the output
 -- video:
 --
--- -   @Fit@: Elastic Transcoder scales the output video so it matches the
---     value that you specified in either @MaxWidth@ or @MaxHeight@ without
+-- -   'Fit': Elastic Transcoder scales the output video so it matches the
+--     value that you specified in either 'MaxWidth' or 'MaxHeight' without
 --     exceeding the other value.
--- -   @Fill@: Elastic Transcoder scales the output video so it matches the
---     value that you specified in either @MaxWidth@ or @MaxHeight@ and
+-- -   'Fill': Elastic Transcoder scales the output video so it matches the
+--     value that you specified in either 'MaxWidth' or 'MaxHeight' and
 --     matches or exceeds the other value. Elastic Transcoder centers the
 --     output video and then crops it in the dimension (if any) that
 --     exceeds the maximum value.
--- -   @Stretch@: Elastic Transcoder stretches the output video to match
---     the values that you specified for @MaxWidth@ and @MaxHeight@. If the
+-- -   'Stretch': Elastic Transcoder stretches the output video to match
+--     the values that you specified for 'MaxWidth' and 'MaxHeight'. If the
 --     relative proportions of the input video and the output video are
 --     different, the output video will be distorted.
--- -   @Keep@: Elastic Transcoder does not scale the output video. If
+-- -   'Keep': Elastic Transcoder does not scale the output video. If
 --     either dimension of the input video exceeds the values that you
---     specified for @MaxWidth@ and @MaxHeight@, Elastic Transcoder crops
+--     specified for 'MaxWidth' and 'MaxHeight', Elastic Transcoder crops
 --     the output video.
--- -   @ShrinkToFit@: Elastic Transcoder scales the output video down so
+-- -   'ShrinkToFit': Elastic Transcoder scales the output video down so
 --     that its dimensions match the values that you specified for at least
---     one of @MaxWidth@ and @MaxHeight@ without exceeding either value. If
+--     one of 'MaxWidth' and 'MaxHeight' without exceeding either value. If
 --     you specify this option, Elastic Transcoder does not scale the video
 --     up.
--- -   @ShrinkToFill@: Elastic Transcoder scales the output video down so
+-- -   'ShrinkToFill': Elastic Transcoder scales the output video down so
 --     that its dimensions match the values that you specified for at least
---     one of @MaxWidth@ and @MaxHeight@ without dropping below either
+--     one of 'MaxWidth' and 'MaxHeight' without dropping below either
 --     value. If you specify this option, Elastic Transcoder does not scale
 --     the video up.
 vpSizingPolicy :: Lens' VideoParameters (Maybe Text)
 vpSizingPolicy = lens _vpSizingPolicy (\ s a -> s{_vpSizingPolicy = a});
 
--- | If you specify @auto@ for @FrameRate@, Elastic Transcoder uses the frame
+-- | If you specify 'auto' for 'FrameRate', Elastic Transcoder uses the frame
 -- rate of the input video for the frame rate of the output video. Specify
 -- the maximum frame rate that you want Elastic Transcoder to use when the
 -- frame rate of the input video is greater than the desired maximum frame
--- rate of the output video. Valid values include: @10@, @15@, @23.97@,
--- @24@, @25@, @29.97@, @30@, @60@.
+-- rate of the output video. Valid values include: '10', '15', '23.97',
+-- '24', '25', '29.97', '30', '60'.
 vpMaxFrameRate :: Lens' VideoParameters (Maybe Text)
 vpMaxFrameRate = lens _vpMaxFrameRate (\ s a -> s{_vpMaxFrameRate = a});
 
--- | The maximum height of the output video in pixels. If you specify @auto@,
+-- | The maximum height of the output video in pixels. If you specify 'auto',
 -- Elastic Transcoder uses 1080 (Full HD) as the default value. If you
 -- specify a numeric value, enter an even integer between 96 and 3072.
 vpMaxHeight :: Lens' VideoParameters (Maybe Text)
@@ -3750,25 +3779,25 @@ vpDisplayAspectRatio = lens _vpDisplayAspectRatio (\ s a -> s{_vpDisplayAspectRa
 vpWatermarks :: Lens' VideoParameters [PresetWatermark]
 vpWatermarks = lens _vpWatermarks (\ s a -> s{_vpWatermarks = a}) . _Default . _Coerce;
 
--- | The video codec for the output file. Valid values include @gif@,
--- @H.264@, @mpeg2@, and @vp8@. You can only specify @vp8@ when the
--- container type is @webm@, @gif@ when the container type is @gif@, and
--- @mpeg2@ when the container type is @mpg@.
+-- | The video codec for the output file. Valid values include 'gif',
+-- 'H.264', 'mpeg2', and 'vp8'. You can only specify 'vp8' when the
+-- container type is 'webm', 'gif' when the container type is 'gif', and
+-- 'mpeg2' when the container type is 'mpg'.
 vpCodec :: Lens' VideoParameters (Maybe Text)
 vpCodec = lens _vpCodec (\ s a -> s{_vpCodec = a});
 
 -- | To better control resolution and aspect ratio of output videos, we
--- recommend that you use the values @MaxWidth@, @MaxHeight@,
--- @SizingPolicy@, @PaddingPolicy@, and @DisplayAspectRatio@ instead of
--- @Resolution@ and @AspectRatio@. The two groups of settings are mutually
+-- recommend that you use the values 'MaxWidth', 'MaxHeight',
+-- 'SizingPolicy', 'PaddingPolicy', and 'DisplayAspectRatio' instead of
+-- 'Resolution' and 'AspectRatio'. The two groups of settings are mutually
 -- exclusive. Do not use them together.
 --
 -- The width and height of the video in the output file, in pixels. Valid
--- values are @auto@ and /width/ x /height/:
+-- values are 'auto' and /width/ x /height/:
 --
--- -   @auto@: Elastic Transcoder attempts to preserve the width and height
+-- -   'auto': Elastic Transcoder attempts to preserve the width and height
 --     of the input file, subject to the following rules.
--- -   @width x height@: The width and height of the output video in
+-- -   'width x height': The width and height of the output video in
 --     pixels.
 --
 -- Note the following about specifying the width and height:
@@ -3805,25 +3834,25 @@ vpCodec = lens _vpCodec (\ s a -> s{_vpCodec = a});
 vpResolution :: Lens' VideoParameters (Maybe Text)
 vpResolution = lens _vpResolution (\ s a -> s{_vpResolution = a});
 
--- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
+-- | When you set 'PaddingPolicy' to 'Pad', Elastic Transcoder may add black
 -- bars to the top and bottom and\/or left and right sides of the output
 -- video to make the total size of the output video match the values that
--- you specified for @MaxWidth@ and @MaxHeight@.
+-- you specified for 'MaxWidth' and 'MaxHeight'.
 vpPaddingPolicy :: Lens' VideoParameters (Maybe Text)
 vpPaddingPolicy = lens _vpPaddingPolicy (\ s a -> s{_vpPaddingPolicy = a});
 
 -- | To better control resolution and aspect ratio of output videos, we
--- recommend that you use the values @MaxWidth@, @MaxHeight@,
--- @SizingPolicy@, @PaddingPolicy@, and @DisplayAspectRatio@ instead of
--- @Resolution@ and @AspectRatio@. The two groups of settings are mutually
+-- recommend that you use the values 'MaxWidth', 'MaxHeight',
+-- 'SizingPolicy', 'PaddingPolicy', and 'DisplayAspectRatio' instead of
+-- 'Resolution' and 'AspectRatio'. The two groups of settings are mutually
 -- exclusive. Do not use them together.
 --
 -- The display aspect ratio of the video in the output file. Valid values
 -- include:
 --
--- @auto@, @1:1@, @4:3@, @3:2@, @16:9@
+-- 'auto', '1:1', '4:3', '3:2', '16:9'
 --
--- If you specify @auto@, Elastic Transcoder tries to preserve the aspect
+-- If you specify 'auto', Elastic Transcoder tries to preserve the aspect
 -- ratio of the input file.
 --
 -- If you specify an aspect ratio for the output file that differs from
@@ -3833,16 +3862,16 @@ vpPaddingPolicy = lens _vpPaddingPolicy (\ s a -> s{_vpPaddingPolicy = a});
 vpAspectRatio :: Lens' VideoParameters (Maybe Text)
 vpAspectRatio = lens _vpAspectRatio (\ s a -> s{_vpAspectRatio = a});
 
--- | The maximum width of the output video in pixels. If you specify @auto@,
+-- | The maximum width of the output video in pixels. If you specify 'auto',
 -- Elastic Transcoder uses 1920 (Full HD) as the default value. If you
 -- specify a numeric value, enter an even integer between 128 and 4096.
 vpMaxWidth :: Lens' VideoParameters (Maybe Text)
 vpMaxWidth = lens _vpMaxWidth (\ s a -> s{_vpMaxWidth = a});
 
 -- | The bit rate of the video stream in the output file, in
--- kilobits\/second. Valid values depend on the values of @Level@ and
--- @Profile@. If you specify @auto@, Elastic Transcoder uses the detected
--- bit rate of the input source. If you specify a value other than @auto@,
+-- kilobits\/second. Valid values depend on the values of 'Level' and
+-- 'Profile'. If you specify 'auto', Elastic Transcoder uses the detected
+-- bit rate of the input source. If you specify a value other than 'auto',
 -- we recommend that you specify a value less than or equal to the maximum
 -- H.264-compliant value listed for your level and profile:
 --
@@ -3863,18 +3892,18 @@ vpMaxWidth = lens _vpMaxWidth (\ s a -> s{_vpMaxWidth = a});
 vpBitRate :: Lens' VideoParameters (Maybe Text)
 vpBitRate = lens _vpBitRate (\ s a -> s{_vpBitRate = a});
 
--- | Applicable only when the value of Video:Codec is one of @H.264@,
--- @MPEG2@, or @VP8@.
+-- | Applicable only when the value of Video:Codec is one of 'H.264',
+-- 'MPEG2', or 'VP8'.
 --
--- Whether to use a fixed value for @FixedGOP@. Valid values are @true@ and
--- @false@:
+-- Whether to use a fixed value for 'FixedGOP'. Valid values are 'true' and
+-- 'false':
 --
--- -   @true@: Elastic Transcoder uses the value of @KeyframesMaxDist@ for
+-- -   'true': Elastic Transcoder uses the value of 'KeyframesMaxDist' for
 --     the distance between key frames (the number of frames in a group of
 --     pictures, or GOP).
--- -   @false@: The distance between key frames can vary.
+-- -   'false': The distance between key frames can vary.
 --
--- @FixedGOP@ must be set to @true@ for @fmp4@ containers.
+-- 'FixedGOP' must be set to 'true' for 'fmp4' containers.
 vpFixedGOP :: Lens' VideoParameters (Maybe Text)
 vpFixedGOP = lens _vpFixedGOP (\ s a -> s{_vpFixedGOP = a});
 
@@ -3883,11 +3912,11 @@ vpFixedGOP = lens _vpFixedGOP (\ s a -> s{_vpFixedGOP = a});
 -- The H.264 profile that you want to use for the output file. Elastic
 -- Transcoder supports the following profiles:
 --
--- -   @baseline@: The profile most commonly used for videoconferencing and
+-- -   'baseline': The profile most commonly used for videoconferencing and
 --     for mobile applications.
--- -   @main@: The profile used for standard-definition digital TV
+-- -   'main': The profile used for standard-definition digital TV
 --     broadcasts.
--- -   @high@: The profile used for high-definition digital TV broadcasts
+-- -   'high': The profile used for high-definition digital TV broadcasts
 --     and for Blu-ray discs.
 --
 -- __Level (H.264 Only)__
@@ -3895,8 +3924,8 @@ vpFixedGOP = lens _vpFixedGOP (\ s a -> s{_vpFixedGOP = a});
 -- The H.264 level that you want to use for the output file. Elastic
 -- Transcoder supports the following levels:
 --
--- @1@, @1b@, @1.1@, @1.2@, @1.3@, @2@, @2.1@, @2.2@, @3@, @3.1@, @3.2@,
--- @4@, @4.1@
+-- '1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2',
+-- '4', '4.1'
 --
 -- __MaxReferenceFrames (H.264 Only)__
 --
@@ -3905,11 +3934,11 @@ vpFixedGOP = lens _vpFixedGOP (\ s a -> s{_vpFixedGOP = a});
 -- future frames. Valid values are integers 0 through 16, but we recommend
 -- that you not use a value greater than the following:
 --
--- @Min(Floor(Maximum decoded picture buffer in macroblocks * 256 \/ (Width in pixels * Height in pixels)), 16)@
+-- 'Min(Floor(Maximum decoded picture buffer in macroblocks * 256 \/ (Width in pixels * Height in pixels)), 16)'
 --
 -- where /Width in pixels/ and /Height in pixels/ represent either MaxWidth
 -- and MaxHeight, or Resolution. /Maximum decoded picture buffer in
--- macroblocks/ depends on the value of the @Level@ object. See the list
+-- macroblocks/ depends on the value of the 'Level' object. See the list
 -- below. (A macroblock is a block of pixels measuring 16x16.)
 --
 -- -   1 - 396
@@ -3929,7 +3958,7 @@ vpFixedGOP = lens _vpFixedGOP (\ s a -> s{_vpFixedGOP = a});
 -- __MaxBitRate (Optional, H.264\/MPEG2\/VP8 only)__
 --
 -- The maximum number of bits per second in a video buffer; the size of the
--- buffer is specified by @BufferSize@. Specify a value between 16 and
+-- buffer is specified by 'BufferSize'. Specify a value between 16 and
 -- 62,500. You can reduce the bandwidth required to stream a video by
 -- reducing the maximum bit rate, but this also reduces the quality of the
 -- video.
@@ -3939,9 +3968,9 @@ vpFixedGOP = lens _vpFixedGOP (\ s a -> s{_vpFixedGOP = a});
 -- The maximum number of bits in any x seconds of the output video. This
 -- window is commonly 10 seconds, the standard segment duration when
 -- you\'re using FMP4 or MPEG-TS for the container type of the output
--- video. Specify an integer greater than 0. If you specify @MaxBitRate@
--- and omit @BufferSize@, Elastic Transcoder sets @BufferSize@ to 10 times
--- the value of @MaxBitRate@.
+-- video. Specify an integer greater than 0. If you specify 'MaxBitRate'
+-- and omit 'BufferSize', Elastic Transcoder sets 'BufferSize' to 10 times
+-- the value of 'MaxBitRate'.
 --
 -- __InterlacedMode (Optional, H.264\/MPEG2 Only)__
 --
@@ -3953,63 +3982,63 @@ vpFixedGOP = lens _vpFixedGOP (\ s a -> s{_vpFixedGOP = a});
 -- pictures per frame. Interlacing reduces the bandwidth required for
 -- transmitting a video, but can result in blurred images and flickering.
 --
--- Valid values include @Progressive@ (no interlacing, top to bottom),
--- @TopFirst@ (top field first), @BottomFirst@ (bottom field first), and
--- @Auto@.
+-- Valid values include 'Progressive' (no interlacing, top to bottom),
+-- 'TopFirst' (top field first), 'BottomFirst' (bottom field first), and
+-- 'Auto'.
 --
--- If @InterlaceMode@ is not specified, Elastic Transcoder uses
--- @Progressive@ for the output. If @Auto@ is specified, Elastic Transcoder
+-- If 'InterlaceMode' is not specified, Elastic Transcoder uses
+-- 'Progressive' for the output. If 'Auto' is specified, Elastic Transcoder
 -- interlaces the output.
 --
 -- __ColorSpaceConversionMode (Optional, H.264\/MPEG2 Only)__
 --
 -- The color space conversion Elastic Transcoder applies to the output
 -- video. Color spaces are the algorithms used by the computer to store
--- information about how to render color. @Bt.601@ is the standard for
--- standard definition video, while @Bt.709@ is the standard for high
+-- information about how to render color. 'Bt.601' is the standard for
+-- standard definition video, while 'Bt.709' is the standard for high
 -- definition video.
 --
--- Valid values include @None@, @Bt709toBt601@, @Bt601toBt709@, and @Auto@.
+-- Valid values include 'None', 'Bt709toBt601', 'Bt601toBt709', and 'Auto'.
 --
--- If you chose @Auto@ for @ColorSpaceConversionMode@ and your output is
--- interlaced, your frame rate is one of @23.97@, @24@, @25@, @29.97@,
--- @50@, or @60@, your @SegmentDuration@ is null, and you are using one of
+-- If you chose 'Auto' for 'ColorSpaceConversionMode' and your output is
+-- interlaced, your frame rate is one of '23.97', '24', '25', '29.97',
+-- '50', or '60', your 'SegmentDuration' is null, and you are using one of
 -- the resolution changes from the list below, Elastic Transcoder applies
 -- the following color space conversions:
 --
 -- -   /Standard to HD, 720x480 to 1920x1080/ - Elastic Transcoder applies
---     @Bt601ToBt709@
+--     'Bt601ToBt709'
 -- -   /Standard to HD, 720x576 to 1920x1080/ - Elastic Transcoder applies
---     @Bt601ToBt709@
+--     'Bt601ToBt709'
 -- -   /HD to Standard, 1920x1080 to 720x480/ - Elastic Transcoder applies
---     @Bt709ToBt601@
+--     'Bt709ToBt601'
 -- -   /HD to Standard, 1920x1080 to 720x576/ - Elastic Transcoder applies
---     @Bt709ToBt601@
+--     'Bt709ToBt601'
 --
 -- Elastic Transcoder may change the behavior of the
--- @ColorspaceConversionMode@ @Auto@ mode in the future. All outputs in a
--- playlist must use the same @ColorSpaceConversionMode@.
+-- 'ColorspaceConversionMode' 'Auto' mode in the future. All outputs in a
+-- playlist must use the same 'ColorSpaceConversionMode'.
 --
--- If you do not specify a @ColorSpaceConversionMode@, Elastic Transcoder
+-- If you do not specify a 'ColorSpaceConversionMode', Elastic Transcoder
 -- does not change the color space of a file. If you are unsure what
--- @ColorSpaceConversionMode@ was applied to your output file, you can
--- check the @AppliedColorSpaceConversion@ parameter included in your job
--- response. If your job does not have an @AppliedColorSpaceConversion@ in
--- its response, no @ColorSpaceConversionMode@ was applied.
+-- 'ColorSpaceConversionMode' was applied to your output file, you can
+-- check the 'AppliedColorSpaceConversion' parameter included in your job
+-- response. If your job does not have an 'AppliedColorSpaceConversion' in
+-- its response, no 'ColorSpaceConversionMode' was applied.
 --
 -- __ChromaSubsampling__
 --
 -- The sampling pattern for the chroma (color) channels of the output
--- video. Valid values include @yuv420p@ and @yuv422p@.
+-- video. Valid values include 'yuv420p' and 'yuv422p'.
 --
--- @yuv420p@ samples the chroma information of every other horizontal and
--- every other vertical line, @yuv422p@ samples the color information of
+-- 'yuv420p' samples the chroma information of every other horizontal and
+-- every other vertical line, 'yuv422p' samples the color information of
 -- every horizontal line and every other vertical line.
 --
 -- __LoopCount (Gif Only)__
 --
 -- The number of times you want the output gif to loop. Valid values
--- include @Infinite@ and integers between @0@ and @100@, inclusive.
+-- include 'Infinite' and integers between '0' and '100', inclusive.
 vpCodecOptions :: Lens' VideoParameters (HashMap Text Text)
 vpCodecOptions = lens _vpCodecOptions (\ s a -> s{_vpCodecOptions = a}) . _Default . _Map;
 
@@ -4058,19 +4087,20 @@ instance ToJSON VideoParameters where
 -- and prevents cross-regional charges.
 --
 -- /See:/ 'warning' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'wCode'
---
--- * 'wMessage'
 data Warning = Warning'
     { _wCode    :: !(Maybe Text)
     , _wMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Warning' smart constructor.
-warning :: Warning
+-- | Creates a value of 'Warning' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wCode'
+--
+-- * 'wMessage'
+warning
+    :: Warning
 warning =
     Warning'
     { _wCode = Nothing

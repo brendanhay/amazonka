@@ -24,8 +24,8 @@
 module Network.AWS.S3.CopyObject
     (
     -- * Creating a Request
-      CopyObject
-    , copyObject
+      copyObject
+    , CopyObject
     -- * Request Lenses
     , coCopySourceIfModifiedSince
     , coCopySourceIfUnmodifiedSince
@@ -60,8 +60,8 @@ module Network.AWS.S3.CopyObject
     , coKey
 
     -- * Destructuring the Response
-    , CopyObjectResponse
     , copyObjectResponse
+    , CopyObjectResponse
     -- * Response Lenses
     , corsRequestCharged
     , corsExpiration
@@ -81,8 +81,43 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'copyObject' smart constructor.
+data CopyObject = CopyObject'
+    { _coCopySourceIfModifiedSince      :: !(Maybe RFC822)
+    , _coCopySourceIfUnmodifiedSince    :: !(Maybe RFC822)
+    , _coCopySourceSSECustomerKeyMD5    :: !(Maybe Text)
+    , _coMetadataDirective              :: !(Maybe MetadataDirective)
+    , _coExpires                        :: !(Maybe RFC822)
+    , _coSSECustomerAlgorithm           :: !(Maybe Text)
+    , _coCopySourceIfNoneMatch          :: !(Maybe Text)
+    , _coGrantReadACP                   :: !(Maybe Text)
+    , _coSSECustomerKey                 :: !(Maybe (Sensitive Text))
+    , _coRequestPayer                   :: !(Maybe RequestPayer)
+    , _coGrantWriteACP                  :: !(Maybe Text)
+    , _coWebsiteRedirectLocation        :: !(Maybe Text)
+    , _coCopySourceIfMatch              :: !(Maybe Text)
+    , _coGrantRead                      :: !(Maybe Text)
+    , _coStorageClass                   :: !(Maybe StorageClass)
+    , _coContentEncoding                :: !(Maybe Text)
+    , _coSSEKMSKeyId                    :: !(Maybe (Sensitive Text))
+    , _coGrantFullControl               :: !(Maybe Text)
+    , _coSSECustomerKeyMD5              :: !(Maybe Text)
+    , _coMetadata                       :: !(Map Text Text)
+    , _coCacheControl                   :: !(Maybe Text)
+    , _coContentLanguage                :: !(Maybe Text)
+    , _coACL                            :: !(Maybe ObjectCannedACL)
+    , _coCopySourceSSECustomerKey       :: !(Maybe (Sensitive Text))
+    , _coContentDisposition             :: !(Maybe Text)
+    , _coCopySourceSSECustomerAlgorithm :: !(Maybe Text)
+    , _coServerSideEncryption           :: !(Maybe ServerSideEncryption)
+    , _coContentType                    :: !(Maybe Text)
+    , _coBucket                         :: !BucketName
+    , _coCopySource                     :: !Text
+    , _coKey                            :: !ObjectKey
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CopyObject' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'coCopySourceIfModifiedSince'
 --
@@ -145,42 +180,11 @@ import           Network.AWS.S3.Types.Product
 -- * 'coCopySource'
 --
 -- * 'coKey'
-data CopyObject = CopyObject'
-    { _coCopySourceIfModifiedSince      :: !(Maybe RFC822)
-    , _coCopySourceIfUnmodifiedSince    :: !(Maybe RFC822)
-    , _coCopySourceSSECustomerKeyMD5    :: !(Maybe Text)
-    , _coMetadataDirective              :: !(Maybe MetadataDirective)
-    , _coExpires                        :: !(Maybe RFC822)
-    , _coSSECustomerAlgorithm           :: !(Maybe Text)
-    , _coCopySourceIfNoneMatch          :: !(Maybe Text)
-    , _coGrantReadACP                   :: !(Maybe Text)
-    , _coSSECustomerKey                 :: !(Maybe (Sensitive Text))
-    , _coRequestPayer                   :: !(Maybe RequestPayer)
-    , _coGrantWriteACP                  :: !(Maybe Text)
-    , _coWebsiteRedirectLocation        :: !(Maybe Text)
-    , _coCopySourceIfMatch              :: !(Maybe Text)
-    , _coGrantRead                      :: !(Maybe Text)
-    , _coStorageClass                   :: !(Maybe StorageClass)
-    , _coContentEncoding                :: !(Maybe Text)
-    , _coSSEKMSKeyId                    :: !(Maybe (Sensitive Text))
-    , _coGrantFullControl               :: !(Maybe Text)
-    , _coSSECustomerKeyMD5              :: !(Maybe Text)
-    , _coMetadata                       :: !(Map Text Text)
-    , _coCacheControl                   :: !(Maybe Text)
-    , _coContentLanguage                :: !(Maybe Text)
-    , _coACL                            :: !(Maybe ObjectCannedACL)
-    , _coCopySourceSSECustomerKey       :: !(Maybe (Sensitive Text))
-    , _coContentDisposition             :: !(Maybe Text)
-    , _coCopySourceSSECustomerAlgorithm :: !(Maybe Text)
-    , _coServerSideEncryption           :: !(Maybe ServerSideEncryption)
-    , _coContentType                    :: !(Maybe Text)
-    , _coBucket                         :: !BucketName
-    , _coCopySource                     :: !Text
-    , _coKey                            :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CopyObject' smart constructor.
-copyObject :: BucketName -> Text -> ObjectKey -> CopyObject
+copyObject
+    :: BucketName -- ^ 'coBucket'
+    -> Text -- ^ 'coCopySource'
+    -> ObjectKey -- ^ 'coKey'
+    -> CopyObject
 copyObject pBucket_ pCopySource_ pKey_ =
     CopyObject'
     { _coCopySourceIfModifiedSince = Nothing
@@ -441,8 +445,21 @@ instance ToQuery CopyObject where
         toQuery = const mempty
 
 -- | /See:/ 'copyObjectResponse' smart constructor.
+data CopyObjectResponse = CopyObjectResponse'
+    { _corsRequestCharged       :: !(Maybe RequestCharged)
+    , _corsExpiration           :: !(Maybe Text)
+    , _corsSSECustomerAlgorithm :: !(Maybe Text)
+    , _corsCopySourceVersionId  :: !(Maybe Text)
+    , _corsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _corsSSECustomerKeyMD5    :: !(Maybe Text)
+    , _corsServerSideEncryption :: !(Maybe ServerSideEncryption)
+    , _corsCopyObjectResult     :: !(Maybe CopyObjectResult)
+    , _corsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CopyObjectResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'corsRequestCharged'
 --
@@ -461,20 +478,9 @@ instance ToQuery CopyObject where
 -- * 'corsCopyObjectResult'
 --
 -- * 'corsStatus'
-data CopyObjectResponse = CopyObjectResponse'
-    { _corsRequestCharged       :: !(Maybe RequestCharged)
-    , _corsExpiration           :: !(Maybe Text)
-    , _corsSSECustomerAlgorithm :: !(Maybe Text)
-    , _corsCopySourceVersionId  :: !(Maybe Text)
-    , _corsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
-    , _corsSSECustomerKeyMD5    :: !(Maybe Text)
-    , _corsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _corsCopyObjectResult     :: !(Maybe CopyObjectResult)
-    , _corsStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CopyObjectResponse' smart constructor.
-copyObjectResponse :: Int -> CopyObjectResponse
+copyObjectResponse
+    :: Int -- ^ 'corsStatus'
+    -> CopyObjectResponse
 copyObjectResponse pStatus_ =
     CopyObjectResponse'
     { _corsRequestCharged = Nothing
@@ -527,6 +533,6 @@ corsServerSideEncryption = lens _corsServerSideEncryption (\ s a -> s{_corsServe
 corsCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
 corsCopyObjectResult = lens _corsCopyObjectResult (\ s a -> s{_corsCopyObjectResult = a});
 
--- | Undocumented member.
+-- | The response status code.
 corsStatus :: Lens' CopyObjectResponse Int
 corsStatus = lens _corsStatus (\ s a -> s{_corsStatus = a});

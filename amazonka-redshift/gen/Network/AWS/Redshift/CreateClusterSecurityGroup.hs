@@ -29,16 +29,16 @@
 module Network.AWS.Redshift.CreateClusterSecurityGroup
     (
     -- * Creating a Request
-      CreateClusterSecurityGroup
-    , createClusterSecurityGroup
+      createClusterSecurityGroup
+    , CreateClusterSecurityGroup
     -- * Request Lenses
     , creTags
     , creClusterSecurityGroupName
     , creDescription
 
     -- * Destructuring the Response
-    , CreateClusterSecurityGroupResponse
     , createClusterSecurityGroupResponse
+    , CreateClusterSecurityGroupResponse
     -- * Response Lenses
     , crsClusterSecurityGroup
     , crsStatus
@@ -53,22 +53,25 @@ import           Network.AWS.Response
 -- | ???
 --
 -- /See:/ 'createClusterSecurityGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'creTags'
---
--- * 'creClusterSecurityGroupName'
---
--- * 'creDescription'
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
     { _creTags                     :: !(Maybe [Tag])
     , _creClusterSecurityGroupName :: !Text
     , _creDescription              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateClusterSecurityGroup' smart constructor.
-createClusterSecurityGroup :: Text -> Text -> CreateClusterSecurityGroup
+-- | Creates a value of 'CreateClusterSecurityGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'creTags'
+--
+-- * 'creClusterSecurityGroupName'
+--
+-- * 'creDescription'
+createClusterSecurityGroup
+    :: Text -- ^ 'creClusterSecurityGroupName'
+    -> Text -- ^ 'creDescription'
+    -> CreateClusterSecurityGroup
 createClusterSecurityGroup pClusterSecurityGroupName_ pDescription_ =
     CreateClusterSecurityGroup'
     { _creTags = Nothing
@@ -90,7 +93,7 @@ creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default . _Coerce;
 -- -   Must be unique for all security groups that are created by your AWS
 --     account.
 --
--- Example: @examplesecuritygroup@
+-- Example: 'examplesecuritygroup'
 creClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
 creClusterSecurityGroupName = lens _creClusterSecurityGroupName (\ s a -> s{_creClusterSecurityGroupName = a});
 
@@ -129,19 +132,21 @@ instance ToQuery CreateClusterSecurityGroup where
                "Description" =: _creDescription]
 
 -- | /See:/ 'createClusterSecurityGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crsClusterSecurityGroup'
---
--- * 'crsStatus'
 data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
     { _crsClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
     , _crsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateClusterSecurityGroupResponse' smart constructor.
-createClusterSecurityGroupResponse :: Int -> CreateClusterSecurityGroupResponse
+-- | Creates a value of 'CreateClusterSecurityGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crsClusterSecurityGroup'
+--
+-- * 'crsStatus'
+createClusterSecurityGroupResponse
+    :: Int -- ^ 'crsStatus'
+    -> CreateClusterSecurityGroupResponse
 createClusterSecurityGroupResponse pStatus_ =
     CreateClusterSecurityGroupResponse'
     { _crsClusterSecurityGroup = Nothing
@@ -152,6 +157,6 @@ createClusterSecurityGroupResponse pStatus_ =
 crsClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
 crsClusterSecurityGroup = lens _crsClusterSecurityGroup (\ s a -> s{_crsClusterSecurityGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 crsStatus :: Lens' CreateClusterSecurityGroupResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

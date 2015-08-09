@@ -24,14 +24,14 @@
 module Network.AWS.CloudFront.GetDistribution
     (
     -- * Creating a Request
-      GetDistribution
-    , getDistribution
+      getDistribution
+    , GetDistribution
     -- * Request Lenses
     , gdId
 
     -- * Destructuring the Response
-    , GetDistributionResponse
     , getDistributionResponse
+    , GetDistributionResponse
     -- * Response Lenses
     , gdrsETag
     , gdrsDistribution
@@ -47,16 +47,18 @@ import           Network.AWS.Response
 -- | The request to get a distribution\'s information.
 --
 -- /See:/ 'getDistribution' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdId'
 newtype GetDistribution = GetDistribution'
     { _gdId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDistribution' smart constructor.
-getDistribution :: Text -> GetDistribution
+-- | Creates a value of 'GetDistribution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdId'
+getDistribution
+    :: Text -- ^ 'gdId'
+    -> GetDistribution
 getDistribution pId_ =
     GetDistribution'
     { _gdId = pId_
@@ -90,22 +92,24 @@ instance ToQuery GetDistribution where
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'getDistributionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdrsETag'
---
--- * 'gdrsDistribution'
---
--- * 'gdrsStatus'
 data GetDistributionResponse = GetDistributionResponse'
     { _gdrsETag         :: !(Maybe Text)
     , _gdrsDistribution :: !(Maybe Distribution)
     , _gdrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDistributionResponse' smart constructor.
-getDistributionResponse :: Int -> GetDistributionResponse
+-- | Creates a value of 'GetDistributionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdrsETag'
+--
+-- * 'gdrsDistribution'
+--
+-- * 'gdrsStatus'
+getDistributionResponse
+    :: Int -- ^ 'gdrsStatus'
+    -> GetDistributionResponse
 getDistributionResponse pStatus_ =
     GetDistributionResponse'
     { _gdrsETag = Nothing
@@ -122,6 +126,6 @@ gdrsETag = lens _gdrsETag (\ s a -> s{_gdrsETag = a});
 gdrsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
 gdrsDistribution = lens _gdrsDistribution (\ s a -> s{_gdrsDistribution = a});
 
--- | Undocumented member.
+-- | The response status code.
 gdrsStatus :: Lens' GetDistributionResponse Int
 gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

@@ -19,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds tasks, schedules, and preconditions to the specified pipeline. You
--- can use @PutPipelineDefinition@ to populate a new pipeline.
+-- can use 'PutPipelineDefinition' to populate a new pipeline.
 --
--- @PutPipelineDefinition@ also validates the configuration as it adds it
+-- 'PutPipelineDefinition' also validates the configuration as it adds it
 -- to the pipeline. Changes to the pipeline are saved unless one of the
 -- following three validation errors exists in the pipeline.
 --
@@ -31,15 +31,15 @@
 --     objects.
 -- 4.  The pipeline is in a FINISHED state.
 --
--- Pipeline object definitions are passed to the @PutPipelineDefinition@
+-- Pipeline object definitions are passed to the 'PutPipelineDefinition'
 -- action and returned by the GetPipelineDefinition action.
 --
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutPipelineDefinition.html AWS API Reference> for PutPipelineDefinition.
 module Network.AWS.DataPipeline.PutPipelineDefinition
     (
     -- * Creating a Request
-      PutPipelineDefinition
-    , putPipelineDefinition
+      putPipelineDefinition
+    , PutPipelineDefinition
     -- * Request Lenses
     , ppdParameterObjects
     , ppdParameterValues
@@ -47,8 +47,8 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     , ppdPipelineObjects
 
     -- * Destructuring the Response
-    , PutPipelineDefinitionResponse
     , putPipelineDefinitionResponse
+    , PutPipelineDefinitionResponse
     -- * Response Lenses
     , ppdrsValidationErrors
     , ppdrsValidationWarnings
@@ -65,8 +65,16 @@ import           Network.AWS.Response
 -- | Contains the parameters for PutPipelineDefinition.
 --
 -- /See:/ 'putPipelineDefinition' smart constructor.
+data PutPipelineDefinition = PutPipelineDefinition'
+    { _ppdParameterObjects :: !(Maybe [ParameterObject])
+    , _ppdParameterValues  :: !(Maybe [ParameterValue])
+    , _ppdPipelineId       :: !Text
+    , _ppdPipelineObjects  :: ![PipelineObject]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutPipelineDefinition' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ppdParameterObjects'
 --
@@ -75,15 +83,9 @@ import           Network.AWS.Response
 -- * 'ppdPipelineId'
 --
 -- * 'ppdPipelineObjects'
-data PutPipelineDefinition = PutPipelineDefinition'
-    { _ppdParameterObjects :: !(Maybe [ParameterObject])
-    , _ppdParameterValues  :: !(Maybe [ParameterValue])
-    , _ppdPipelineId       :: !Text
-    , _ppdPipelineObjects  :: ![PipelineObject]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutPipelineDefinition' smart constructor.
-putPipelineDefinition :: Text -> PutPipelineDefinition
+putPipelineDefinition
+    :: Text -- ^ 'ppdPipelineId'
+    -> PutPipelineDefinition
 putPipelineDefinition pPipelineId_ =
     PutPipelineDefinition'
     { _ppdParameterObjects = Nothing
@@ -149,8 +151,16 @@ instance ToQuery PutPipelineDefinition where
 -- | Contains the output of PutPipelineDefinition.
 --
 -- /See:/ 'putPipelineDefinitionResponse' smart constructor.
+data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
+    { _ppdrsValidationErrors   :: !(Maybe [ValidationError])
+    , _ppdrsValidationWarnings :: !(Maybe [ValidationWarning])
+    , _ppdrsStatus             :: !Int
+    , _ppdrsErrored            :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutPipelineDefinitionResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ppdrsValidationErrors'
 --
@@ -159,15 +169,10 @@ instance ToQuery PutPipelineDefinition where
 -- * 'ppdrsStatus'
 --
 -- * 'ppdrsErrored'
-data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
-    { _ppdrsValidationErrors   :: !(Maybe [ValidationError])
-    , _ppdrsValidationWarnings :: !(Maybe [ValidationWarning])
-    , _ppdrsStatus             :: !Int
-    , _ppdrsErrored            :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutPipelineDefinitionResponse' smart constructor.
-putPipelineDefinitionResponse :: Int -> Bool -> PutPipelineDefinitionResponse
+putPipelineDefinitionResponse
+    :: Int -- ^ 'ppdrsStatus'
+    -> Bool -- ^ 'ppdrsErrored'
+    -> PutPipelineDefinitionResponse
 putPipelineDefinitionResponse pStatus_ pErrored_ =
     PutPipelineDefinitionResponse'
     { _ppdrsValidationErrors = Nothing
@@ -177,22 +182,22 @@ putPipelineDefinitionResponse pStatus_ pErrored_ =
     }
 
 -- | The validation errors that are associated with the objects defined in
--- @pipelineObjects@.
+-- 'pipelineObjects'.
 ppdrsValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
 ppdrsValidationErrors = lens _ppdrsValidationErrors (\ s a -> s{_ppdrsValidationErrors = a}) . _Default . _Coerce;
 
 -- | The validation warnings that are associated with the objects defined in
--- @pipelineObjects@.
+-- 'pipelineObjects'.
 ppdrsValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
 ppdrsValidationWarnings = lens _ppdrsValidationWarnings (\ s a -> s{_ppdrsValidationWarnings = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ppdrsStatus :: Lens' PutPipelineDefinitionResponse Int
 ppdrsStatus = lens _ppdrsStatus (\ s a -> s{_ppdrsStatus = a});
 
 -- | Indicates whether there were validation errors, and the pipeline
 -- definition is stored but cannot be activated until you correct the
--- pipeline and call @PutPipelineDefinition@ to commit the corrected
+-- pipeline and call 'PutPipelineDefinition' to commit the corrected
 -- pipeline.
 ppdrsErrored :: Lens' PutPipelineDefinitionResponse Bool
 ppdrsErrored = lens _ppdrsErrored (\ s a -> s{_ppdrsErrored = a});

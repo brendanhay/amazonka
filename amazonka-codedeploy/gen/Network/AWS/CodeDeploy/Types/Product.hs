@@ -24,8 +24,16 @@ import           Network.AWS.Prelude
 -- | Information about an application.
 --
 -- /See:/ 'applicationInfo' smart constructor.
+data ApplicationInfo = ApplicationInfo'
+    { _aiLinkedToGitHub  :: !(Maybe Bool)
+    , _aiApplicationId   :: !(Maybe Text)
+    , _aiApplicationName :: !(Maybe Text)
+    , _aiCreateTime      :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ApplicationInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'aiLinkedToGitHub'
 --
@@ -34,15 +42,8 @@ import           Network.AWS.Prelude
 -- * 'aiApplicationName'
 --
 -- * 'aiCreateTime'
-data ApplicationInfo = ApplicationInfo'
-    { _aiLinkedToGitHub  :: !(Maybe Bool)
-    , _aiApplicationId   :: !(Maybe Text)
-    , _aiApplicationName :: !(Maybe Text)
-    , _aiCreateTime      :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ApplicationInfo' smart constructor.
-applicationInfo :: ApplicationInfo
+applicationInfo
+    :: ApplicationInfo
 applicationInfo =
     ApplicationInfo'
     { _aiLinkedToGitHub = Nothing
@@ -80,19 +81,20 @@ instance FromJSON ApplicationInfo where
 -- | Information about an Auto Scaling group.
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'asgHook'
---
--- * 'asgName'
 data AutoScalingGroup = AutoScalingGroup'
     { _asgHook :: !(Maybe Text)
     , _asgName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AutoScalingGroup' smart constructor.
-autoScalingGroup :: AutoScalingGroup
+-- | Creates a value of 'AutoScalingGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asgHook'
+--
+-- * 'asgName'
+autoScalingGroup
+    :: AutoScalingGroup
 autoScalingGroup =
     AutoScalingGroup'
     { _asgHook = Nothing
@@ -117,8 +119,16 @@ instance FromJSON AutoScalingGroup where
 -- | Information about a deployment configuration.
 --
 -- /See:/ 'deploymentConfigInfo' smart constructor.
+data DeploymentConfigInfo = DeploymentConfigInfo'
+    { _dciDeploymentConfigName :: !(Maybe Text)
+    , _dciMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
+    , _dciDeploymentConfigId   :: !(Maybe Text)
+    , _dciCreateTime           :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeploymentConfigInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dciDeploymentConfigName'
 --
@@ -127,15 +137,8 @@ instance FromJSON AutoScalingGroup where
 -- * 'dciDeploymentConfigId'
 --
 -- * 'dciCreateTime'
-data DeploymentConfigInfo = DeploymentConfigInfo'
-    { _dciDeploymentConfigName :: !(Maybe Text)
-    , _dciMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
-    , _dciDeploymentConfigId   :: !(Maybe Text)
-    , _dciCreateTime           :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeploymentConfigInfo' smart constructor.
-deploymentConfigInfo :: DeploymentConfigInfo
+deploymentConfigInfo
+    :: DeploymentConfigInfo
 deploymentConfigInfo =
     DeploymentConfigInfo'
     { _dciDeploymentConfigName = Nothing
@@ -173,8 +176,21 @@ instance FromJSON DeploymentConfigInfo where
 -- | Information about a deployment group.
 --
 -- /See:/ 'deploymentGroupInfo' smart constructor.
+data DeploymentGroupInfo = DeploymentGroupInfo'
+    { _dgiServiceRoleARN               :: !(Maybe Text)
+    , _dgiDeploymentConfigName         :: !(Maybe Text)
+    , _dgiTargetRevision               :: !(Maybe RevisionLocation)
+    , _dgiEc2TagFilters                :: !(Maybe [EC2TagFilter])
+    , _dgiOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+    , _dgiApplicationName              :: !(Maybe Text)
+    , _dgiDeploymentGroupId            :: !(Maybe Text)
+    , _dgiAutoScalingGroups            :: !(Maybe [AutoScalingGroup])
+    , _dgiDeploymentGroupName          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeploymentGroupInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dgiServiceRoleARN'
 --
@@ -193,20 +209,8 @@ instance FromJSON DeploymentConfigInfo where
 -- * 'dgiAutoScalingGroups'
 --
 -- * 'dgiDeploymentGroupName'
-data DeploymentGroupInfo = DeploymentGroupInfo'
-    { _dgiServiceRoleARN               :: !(Maybe Text)
-    , _dgiDeploymentConfigName         :: !(Maybe Text)
-    , _dgiTargetRevision               :: !(Maybe RevisionLocation)
-    , _dgiEc2TagFilters                :: !(Maybe [EC2TagFilter])
-    , _dgiOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
-    , _dgiApplicationName              :: !(Maybe Text)
-    , _dgiDeploymentGroupId            :: !(Maybe Text)
-    , _dgiAutoScalingGroups            :: !(Maybe [AutoScalingGroup])
-    , _dgiDeploymentGroupName          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeploymentGroupInfo' smart constructor.
-deploymentGroupInfo :: DeploymentGroupInfo
+deploymentGroupInfo
+    :: DeploymentGroupInfo
 deploymentGroupInfo =
     DeploymentGroupInfo'
     { _dgiServiceRoleARN = Nothing
@@ -275,8 +279,26 @@ instance FromJSON DeploymentGroupInfo where
 -- | Information about a deployment.
 --
 -- /See:/ 'deploymentInfo' smart constructor.
+data DeploymentInfo = DeploymentInfo'
+    { _diDeploymentId                  :: !(Maybe Text)
+    , _diCreator                       :: !(Maybe DeploymentCreator)
+    , _diStatus                        :: !(Maybe DeploymentStatus)
+    , _diDeploymentConfigName          :: !(Maybe Text)
+    , _diStartTime                     :: !(Maybe POSIX)
+    , _diCompleteTime                  :: !(Maybe POSIX)
+    , _diErrorInformation              :: !(Maybe ErrorInformation)
+    , _diDeploymentOverview            :: !(Maybe DeploymentOverview)
+    , _diApplicationName               :: !(Maybe Text)
+    , _diRevision                      :: !(Maybe RevisionLocation)
+    , _diDescription                   :: !(Maybe Text)
+    , _diIgnoreApplicationStopFailures :: !(Maybe Bool)
+    , _diDeploymentGroupName           :: !(Maybe Text)
+    , _diCreateTime                    :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeploymentInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'diDeploymentId'
 --
@@ -305,25 +327,8 @@ instance FromJSON DeploymentGroupInfo where
 -- * 'diDeploymentGroupName'
 --
 -- * 'diCreateTime'
-data DeploymentInfo = DeploymentInfo'
-    { _diDeploymentId                  :: !(Maybe Text)
-    , _diCreator                       :: !(Maybe DeploymentCreator)
-    , _diStatus                        :: !(Maybe DeploymentStatus)
-    , _diDeploymentConfigName          :: !(Maybe Text)
-    , _diStartTime                     :: !(Maybe POSIX)
-    , _diCompleteTime                  :: !(Maybe POSIX)
-    , _diErrorInformation              :: !(Maybe ErrorInformation)
-    , _diDeploymentOverview            :: !(Maybe DeploymentOverview)
-    , _diApplicationName               :: !(Maybe Text)
-    , _diRevision                      :: !(Maybe RevisionLocation)
-    , _diDescription                   :: !(Maybe Text)
-    , _diIgnoreApplicationStopFailures :: !(Maybe Bool)
-    , _diDeploymentGroupName           :: !(Maybe Text)
-    , _diCreateTime                    :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeploymentInfo' smart constructor.
-deploymentInfo :: DeploymentInfo
+deploymentInfo
+    :: DeploymentInfo
 deploymentInfo =
     DeploymentInfo'
     { _diDeploymentId = Nothing
@@ -439,8 +444,17 @@ instance FromJSON DeploymentInfo where
 -- deployment.
 --
 -- /See:/ 'deploymentOverview' smart constructor.
+data DeploymentOverview = DeploymentOverview'
+    { _doPending    :: !(Maybe Integer)
+    , _doSkipped    :: !(Maybe Integer)
+    , _doInProgress :: !(Maybe Integer)
+    , _doSucceeded  :: !(Maybe Integer)
+    , _doFailed     :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeploymentOverview' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'doPending'
 --
@@ -451,16 +465,8 @@ instance FromJSON DeploymentInfo where
 -- * 'doSucceeded'
 --
 -- * 'doFailed'
-data DeploymentOverview = DeploymentOverview'
-    { _doPending    :: !(Maybe Integer)
-    , _doSkipped    :: !(Maybe Integer)
-    , _doInProgress :: !(Maybe Integer)
-    , _doSucceeded  :: !(Maybe Integer)
-    , _doFailed     :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeploymentOverview' smart constructor.
-deploymentOverview :: DeploymentOverview
+deploymentOverview
+    :: DeploymentOverview
 deploymentOverview =
     DeploymentOverview'
     { _doPending = Nothing
@@ -504,8 +510,16 @@ instance FromJSON DeploymentOverview where
 -- deployment.
 --
 -- /See:/ 'diagnostics' smart constructor.
+data Diagnostics = Diagnostics'
+    { _dLogTail    :: !(Maybe Text)
+    , _dErrorCode  :: !(Maybe LifecycleErrorCode)
+    , _dScriptName :: !(Maybe Text)
+    , _dMessage    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Diagnostics' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dLogTail'
 --
@@ -514,15 +528,8 @@ instance FromJSON DeploymentOverview where
 -- * 'dScriptName'
 --
 -- * 'dMessage'
-data Diagnostics = Diagnostics'
-    { _dLogTail    :: !(Maybe Text)
-    , _dErrorCode  :: !(Maybe LifecycleErrorCode)
-    , _dScriptName :: !(Maybe Text)
-    , _dMessage    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Diagnostics' smart constructor.
-diagnostics :: Diagnostics
+diagnostics
+    :: Diagnostics
 diagnostics =
     Diagnostics'
     { _dLogTail = Nothing
@@ -570,22 +577,23 @@ instance FromJSON Diagnostics where
 -- | Information about a tag filter.
 --
 -- /See:/ 'ec2TagFilter' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'etfValue'
---
--- * 'etfKey'
---
--- * 'etfType'
 data EC2TagFilter = EC2TagFilter'
     { _etfValue :: !(Maybe Text)
     , _etfKey   :: !(Maybe Text)
     , _etfType  :: !(Maybe EC2TagFilterType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EC2TagFilter' smart constructor.
-ec2TagFilter :: EC2TagFilter
+-- | Creates a value of 'EC2TagFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'etfValue'
+--
+-- * 'etfKey'
+--
+-- * 'etfType'
+ec2TagFilter
+    :: EC2TagFilter
 ec2TagFilter =
     EC2TagFilter'
     { _etfValue = Nothing
@@ -625,19 +633,20 @@ instance ToJSON EC2TagFilter where
 -- | Information about a deployment error.
 --
 -- /See:/ 'errorInformation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'eiCode'
---
--- * 'eiMessage'
 data ErrorInformation = ErrorInformation'
     { _eiCode    :: !(Maybe DeployErrorCode)
     , _eiMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ErrorInformation' smart constructor.
-errorInformation :: ErrorInformation
+-- | Creates a value of 'ErrorInformation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eiCode'
+--
+-- * 'eiMessage'
+errorInformation
+    :: ErrorInformation
 errorInformation =
     ErrorInformation'
     { _eiCode = Nothing
@@ -690,8 +699,17 @@ instance FromJSON ErrorInformation where
 -- | Information about an application revision.
 --
 -- /See:/ 'genericRevisionInfo' smart constructor.
+data GenericRevisionInfo = GenericRevisionInfo'
+    { _griRegisterTime     :: !(Maybe POSIX)
+    , _griFirstUsedTime    :: !(Maybe POSIX)
+    , _griDeploymentGroups :: !(Maybe [Text])
+    , _griLastUsedTime     :: !(Maybe POSIX)
+    , _griDescription      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GenericRevisionInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'griRegisterTime'
 --
@@ -702,16 +720,8 @@ instance FromJSON ErrorInformation where
 -- * 'griLastUsedTime'
 --
 -- * 'griDescription'
-data GenericRevisionInfo = GenericRevisionInfo'
-    { _griRegisterTime     :: !(Maybe POSIX)
-    , _griFirstUsedTime    :: !(Maybe POSIX)
-    , _griDeploymentGroups :: !(Maybe [Text])
-    , _griLastUsedTime     :: !(Maybe POSIX)
-    , _griDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GenericRevisionInfo' smart constructor.
-genericRevisionInfo :: GenericRevisionInfo
+genericRevisionInfo
+    :: GenericRevisionInfo
 genericRevisionInfo =
     GenericRevisionInfo'
     { _griRegisterTime = Nothing
@@ -755,19 +765,20 @@ instance FromJSON GenericRevisionInfo where
 -- in GitHub.
 --
 -- /See:/ 'gitHubLocation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ghlCommitId'
---
--- * 'ghlRepository'
 data GitHubLocation = GitHubLocation'
     { _ghlCommitId   :: !(Maybe Text)
     , _ghlRepository :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GitHubLocation' smart constructor.
-gitHubLocation :: GitHubLocation
+-- | Creates a value of 'GitHubLocation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ghlCommitId'
+--
+-- * 'ghlRepository'
+gitHubLocation
+    :: GitHubLocation
 gitHubLocation =
     GitHubLocation'
     { _ghlCommitId = Nothing
@@ -803,8 +814,18 @@ instance ToJSON GitHubLocation where
 -- | Information about an on-premises instance.
 --
 -- /See:/ 'instanceInfo' smart constructor.
+data InstanceInfo = InstanceInfo'
+    { _iiInstanceARN    :: !(Maybe Text)
+    , _iiRegisterTime   :: !(Maybe POSIX)
+    , _iiDeregisterTime :: !(Maybe POSIX)
+    , _iiIamUserARN     :: !(Maybe Text)
+    , _iiInstanceName   :: !(Maybe Text)
+    , _iiTags           :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iiInstanceARN'
 --
@@ -817,17 +838,8 @@ instance ToJSON GitHubLocation where
 -- * 'iiInstanceName'
 --
 -- * 'iiTags'
-data InstanceInfo = InstanceInfo'
-    { _iiInstanceARN    :: !(Maybe Text)
-    , _iiRegisterTime   :: !(Maybe POSIX)
-    , _iiDeregisterTime :: !(Maybe POSIX)
-    , _iiIamUserARN     :: !(Maybe Text)
-    , _iiInstanceName   :: !(Maybe Text)
-    , _iiTags           :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstanceInfo' smart constructor.
-instanceInfo :: InstanceInfo
+instanceInfo
+    :: InstanceInfo
 instanceInfo =
     InstanceInfo'
     { _iiInstanceARN = Nothing
@@ -877,8 +889,17 @@ instance FromJSON InstanceInfo where
 -- | Information about an instance in a deployment.
 --
 -- /See:/ 'instanceSummary' smart constructor.
+data InstanceSummary = InstanceSummary'
+    { _isInstanceId      :: !(Maybe Text)
+    , _isDeploymentId    :: !(Maybe Text)
+    , _isStatus          :: !(Maybe InstanceStatus)
+    , _isLastUpdatedAt   :: !(Maybe POSIX)
+    , _isLifecycleEvents :: !(Maybe [LifecycleEvent])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'isInstanceId'
 --
@@ -889,16 +910,8 @@ instance FromJSON InstanceInfo where
 -- * 'isLastUpdatedAt'
 --
 -- * 'isLifecycleEvents'
-data InstanceSummary = InstanceSummary'
-    { _isInstanceId      :: !(Maybe Text)
-    , _isDeploymentId    :: !(Maybe Text)
-    , _isStatus          :: !(Maybe InstanceStatus)
-    , _isLastUpdatedAt   :: !(Maybe POSIX)
-    , _isLifecycleEvents :: !(Maybe [LifecycleEvent])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstanceSummary' smart constructor.
-instanceSummary :: InstanceSummary
+instanceSummary
+    :: InstanceSummary
 instanceSummary =
     InstanceSummary'
     { _isInstanceId = Nothing
@@ -948,8 +961,17 @@ instance FromJSON InstanceSummary where
 -- | Information about a deployment lifecycle event.
 --
 -- /See:/ 'lifecycleEvent' smart constructor.
+data LifecycleEvent = LifecycleEvent'
+    { _leStatus             :: !(Maybe LifecycleEventStatus)
+    , _leStartTime          :: !(Maybe POSIX)
+    , _leLifecycleEventName :: !(Maybe Text)
+    , _leDiagnostics        :: !(Maybe Diagnostics)
+    , _leEndTime            :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LifecycleEvent' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'leStatus'
 --
@@ -960,16 +982,8 @@ instance FromJSON InstanceSummary where
 -- * 'leDiagnostics'
 --
 -- * 'leEndTime'
-data LifecycleEvent = LifecycleEvent'
-    { _leStatus             :: !(Maybe LifecycleEventStatus)
-    , _leStartTime          :: !(Maybe POSIX)
-    , _leLifecycleEventName :: !(Maybe Text)
-    , _leDiagnostics        :: !(Maybe Diagnostics)
-    , _leEndTime            :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LifecycleEvent' smart constructor.
-lifecycleEvent :: LifecycleEvent
+lifecycleEvent
+    :: LifecycleEvent
 lifecycleEvent =
     LifecycleEvent'
     { _leStatus = Nothing
@@ -1020,19 +1034,20 @@ instance FromJSON LifecycleEvent where
 -- | Information about minimum healthy instances.
 --
 -- /See:/ 'minimumHealthyHosts' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mhhValue'
---
--- * 'mhhType'
 data MinimumHealthyHosts = MinimumHealthyHosts'
     { _mhhValue :: !(Maybe Int)
     , _mhhType  :: !(Maybe MinimumHealthyHostsType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MinimumHealthyHosts' smart constructor.
-minimumHealthyHosts :: MinimumHealthyHosts
+-- | Creates a value of 'MinimumHealthyHosts' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mhhValue'
+--
+-- * 'mhhType'
+minimumHealthyHosts
+    :: MinimumHealthyHosts
 minimumHealthyHosts =
     MinimumHealthyHosts'
     { _mhhValue = Nothing
@@ -1079,22 +1094,23 @@ instance ToJSON MinimumHealthyHosts where
 -- | Information about an application revision\'s location.
 --
 -- /See:/ 'revisionLocation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rlRevisionType'
---
--- * 'rlS3Location'
---
--- * 'rlGitHubLocation'
 data RevisionLocation = RevisionLocation'
     { _rlRevisionType   :: !(Maybe RevisionLocationType)
     , _rlS3Location     :: !(Maybe S3Location)
     , _rlGitHubLocation :: !(Maybe GitHubLocation)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RevisionLocation' smart constructor.
-revisionLocation :: RevisionLocation
+-- | Creates a value of 'RevisionLocation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rlRevisionType'
+--
+-- * 'rlS3Location'
+--
+-- * 'rlGitHubLocation'
+revisionLocation
+    :: RevisionLocation
 revisionLocation =
     RevisionLocation'
     { _rlRevisionType = Nothing
@@ -1136,8 +1152,17 @@ instance ToJSON RevisionLocation where
 -- in Amazon S3.
 --
 -- /See:/ 's3Location' smart constructor.
+data S3Location = S3Location'
+    { _slBundleType :: !(Maybe BundleType)
+    , _slETag       :: !(Maybe Text)
+    , _slBucket     :: !(Maybe Text)
+    , _slKey        :: !(Maybe Text)
+    , _slVersion    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'S3Location' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'slBundleType'
 --
@@ -1148,16 +1173,8 @@ instance ToJSON RevisionLocation where
 -- * 'slKey'
 --
 -- * 'slVersion'
-data S3Location = S3Location'
-    { _slBundleType :: !(Maybe BundleType)
-    , _slETag       :: !(Maybe Text)
-    , _slBucket     :: !(Maybe Text)
-    , _slKey        :: !(Maybe Text)
-    , _slVersion    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'S3Location' smart constructor.
-s3Location :: S3Location
+s3Location
+    :: S3Location
 s3Location =
     S3Location'
     { _slBundleType = Nothing
@@ -1221,19 +1238,20 @@ instance ToJSON S3Location where
 -- | Information about a tag.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagValue'
---
--- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Tag
 tag =
     Tag'
     { _tagValue = Nothing
@@ -1260,22 +1278,23 @@ instance ToJSON Tag where
 -- | Information about an on-premises instance tag filter.
 --
 -- /See:/ 'tagFilter' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tfValue'
---
--- * 'tfKey'
---
--- * 'tfType'
 data TagFilter = TagFilter'
     { _tfValue :: !(Maybe Text)
     , _tfKey   :: !(Maybe Text)
     , _tfType  :: !(Maybe TagFilterType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TagFilter' smart constructor.
-tagFilter :: TagFilter
+-- | Creates a value of 'TagFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tfValue'
+--
+-- * 'tfKey'
+--
+-- * 'tfType'
+tagFilter
+    :: TagFilter
 tagFilter =
     TagFilter'
     { _tfValue = Nothing
@@ -1315,19 +1334,20 @@ instance ToJSON TagFilter where
 -- | Information about a time range.
 --
 -- /See:/ 'timeRange' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'trStart'
---
--- * 'trEnd'
 data TimeRange = TimeRange'
     { _trStart :: !(Maybe POSIX)
     , _trEnd   :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TimeRange' smart constructor.
-timeRange :: TimeRange
+-- | Creates a value of 'TimeRange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'trStart'
+--
+-- * 'trEnd'
+timeRange
+    :: TimeRange
 timeRange =
     TimeRange'
     { _trStart = Nothing

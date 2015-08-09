@@ -45,16 +45,16 @@
 module Network.AWS.Glacier.AbortMultipartUpload
     (
     -- * Creating a Request
-      AbortMultipartUpload
-    , abortMultipartUpload
+      abortMultipartUpload
+    , AbortMultipartUpload
     -- * Request Lenses
     , amuAccountId
     , amuVaultName
     , amuUploadId
 
     -- * Destructuring the Response
-    , AbortMultipartUploadResponse
     , abortMultipartUploadResponse
+    , AbortMultipartUploadResponse
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -72,22 +72,26 @@ import           Network.AWS.Response
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier>.
 --
 -- /See:/ 'abortMultipartUpload' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'amuAccountId'
---
--- * 'amuVaultName'
---
--- * 'amuUploadId'
 data AbortMultipartUpload = AbortMultipartUpload'
     { _amuAccountId :: !Text
     , _amuVaultName :: !Text
     , _amuUploadId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AbortMultipartUpload' smart constructor.
-abortMultipartUpload :: Text -> Text -> Text -> AbortMultipartUpload
+-- | Creates a value of 'AbortMultipartUpload' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'amuAccountId'
+--
+-- * 'amuVaultName'
+--
+-- * 'amuUploadId'
+abortMultipartUpload
+    :: Text -- ^ 'amuAccountId'
+    -> Text -- ^ 'amuVaultName'
+    -> Text -- ^ 'amuUploadId'
+    -> AbortMultipartUpload
 abortMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
     AbortMultipartUpload'
     { _amuAccountId = pAccountId_
@@ -95,9 +99,9 @@ abortMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
     , _amuUploadId = pUploadId_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 amuAccountId :: Lens' AbortMultipartUpload Text
@@ -136,6 +140,8 @@ data AbortMultipartUploadResponse =
     AbortMultipartUploadResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AbortMultipartUploadResponse' smart constructor.
-abortMultipartUploadResponse :: AbortMultipartUploadResponse
+-- | Creates a value of 'AbortMultipartUploadResponse' with the minimum fields required to make a request.
+--
+abortMultipartUploadResponse
+    :: AbortMultipartUploadResponse
 abortMultipartUploadResponse = AbortMultipartUploadResponse'

@@ -20,7 +20,7 @@
 --
 -- Creates or updates a metric filter and associates it with the specified
 -- log group. Metric filters allow you to configure rules to extract metric
--- data from log events ingested through @PutLogEvents@ requests.
+-- data from log events ingested through 'PutLogEvents' requests.
 --
 -- The maximum number of metric filters that can be associated with a log
 -- group is 100.
@@ -29,8 +29,8 @@
 module Network.AWS.CloudWatchLogs.PutMetricFilter
     (
     -- * Creating a Request
-      PutMetricFilter
-    , putMetricFilter
+      putMetricFilter
+    , PutMetricFilter
     -- * Request Lenses
     , pmfLogGroupName
     , pmfFilterName
@@ -38,8 +38,8 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
     , pmfMetricTransformations
 
     -- * Destructuring the Response
-    , PutMetricFilterResponse
     , putMetricFilterResponse
+    , PutMetricFilterResponse
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -49,8 +49,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putMetricFilter' smart constructor.
+data PutMetricFilter = PutMetricFilter'
+    { _pmfLogGroupName          :: !Text
+    , _pmfFilterName            :: !Text
+    , _pmfFilterPattern         :: !Text
+    , _pmfMetricTransformations :: !(List1 MetricTransformation)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutMetricFilter' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pmfLogGroupName'
 --
@@ -59,15 +67,12 @@ import           Network.AWS.Response
 -- * 'pmfFilterPattern'
 --
 -- * 'pmfMetricTransformations'
-data PutMetricFilter = PutMetricFilter'
-    { _pmfLogGroupName          :: !Text
-    , _pmfFilterName            :: !Text
-    , _pmfFilterPattern         :: !Text
-    , _pmfMetricTransformations :: !(List1 MetricTransformation)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutMetricFilter' smart constructor.
-putMetricFilter :: Text -> Text -> Text -> NonEmpty MetricTransformation -> PutMetricFilter
+putMetricFilter
+    :: Text -- ^ 'pmfLogGroupName'
+    -> Text -- ^ 'pmfFilterName'
+    -> Text -- ^ 'pmfFilterPattern'
+    -> NonEmpty MetricTransformation -- ^ 'pmfMetricTransformations'
+    -> PutMetricFilter
 putMetricFilter pLogGroupName_ pFilterName_ pFilterPattern_ pMetricTransformations_ =
     PutMetricFilter'
     { _pmfLogGroupName = pLogGroupName_
@@ -128,6 +133,8 @@ data PutMetricFilterResponse =
     PutMetricFilterResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutMetricFilterResponse' smart constructor.
-putMetricFilterResponse :: PutMetricFilterResponse
+-- | Creates a value of 'PutMetricFilterResponse' with the minimum fields required to make a request.
+--
+putMetricFilterResponse
+    :: PutMetricFilterResponse
 putMetricFilterResponse = PutMetricFilterResponse'

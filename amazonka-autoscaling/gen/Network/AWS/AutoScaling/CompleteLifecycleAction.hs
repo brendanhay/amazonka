@@ -44,8 +44,8 @@
 module Network.AWS.AutoScaling.CompleteLifecycleAction
     (
     -- * Creating a Request
-      CompleteLifecycleAction
-    , completeLifecycleAction
+      completeLifecycleAction
+    , CompleteLifecycleAction
     -- * Request Lenses
     , claLifecycleHookName
     , claAutoScalingGroupName
@@ -53,8 +53,8 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     , claLifecycleActionResult
 
     -- * Destructuring the Response
-    , CompleteLifecycleActionResponse
     , completeLifecycleActionResponse
+    , CompleteLifecycleActionResponse
     -- * Response Lenses
     , clarsStatus
     ) where
@@ -66,8 +66,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'completeLifecycleAction' smart constructor.
+data CompleteLifecycleAction = CompleteLifecycleAction'
+    { _claLifecycleHookName     :: !Text
+    , _claAutoScalingGroupName  :: !Text
+    , _claLifecycleActionToken  :: !Text
+    , _claLifecycleActionResult :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CompleteLifecycleAction' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'claLifecycleHookName'
 --
@@ -76,15 +84,12 @@ import           Network.AWS.Response
 -- * 'claLifecycleActionToken'
 --
 -- * 'claLifecycleActionResult'
-data CompleteLifecycleAction = CompleteLifecycleAction'
-    { _claLifecycleHookName     :: !Text
-    , _claAutoScalingGroupName  :: !Text
-    , _claLifecycleActionToken  :: !Text
-    , _claLifecycleActionResult :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CompleteLifecycleAction' smart constructor.
-completeLifecycleAction :: Text -> Text -> Text -> Text -> CompleteLifecycleAction
+completeLifecycleAction
+    :: Text -- ^ 'claLifecycleHookName'
+    -> Text -- ^ 'claAutoScalingGroupName'
+    -> Text -- ^ 'claLifecycleActionToken'
+    -> Text -- ^ 'claLifecycleActionResult'
+    -> CompleteLifecycleAction
 completeLifecycleAction pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleActionToken_ pLifecycleActionResult_ =
     CompleteLifecycleAction'
     { _claLifecycleHookName = pLifecycleHookName_
@@ -109,7 +114,7 @@ claLifecycleActionToken :: Lens' CompleteLifecycleAction Text
 claLifecycleActionToken = lens _claLifecycleActionToken (\ s a -> s{_claLifecycleActionToken = a});
 
 -- | The action for the group to take. This parameter can be either
--- @CONTINUE@ or @ABANDON@.
+-- 'CONTINUE' or 'ABANDON'.
 claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
 claLifecycleActionResult = lens _claLifecycleActionResult (\ s a -> s{_claLifecycleActionResult = a});
 
@@ -142,21 +147,23 @@ instance ToQuery CompleteLifecycleAction where
                "LifecycleActionResult" =: _claLifecycleActionResult]
 
 -- | /See:/ 'completeLifecycleActionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clarsStatus'
 newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
     { _clarsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CompleteLifecycleActionResponse' smart constructor.
-completeLifecycleActionResponse :: Int -> CompleteLifecycleActionResponse
+-- | Creates a value of 'CompleteLifecycleActionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clarsStatus'
+completeLifecycleActionResponse
+    :: Int -- ^ 'clarsStatus'
+    -> CompleteLifecycleActionResponse
 completeLifecycleActionResponse pStatus_ =
     CompleteLifecycleActionResponse'
     { _clarsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 clarsStatus :: Lens' CompleteLifecycleActionResponse Int
 clarsStatus = lens _clarsStatus (\ s a -> s{_clarsStatus = a});

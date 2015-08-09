@@ -24,15 +24,15 @@
 module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     (
     -- * Creating a Request
-      ListCloudFrontOriginAccessIdentities
-    , listCloudFrontOriginAccessIdentities
+      listCloudFrontOriginAccessIdentities
+    , ListCloudFrontOriginAccessIdentities
     -- * Request Lenses
     , lcfoaiMaxItems
     , lcfoaiMarker
 
     -- * Destructuring the Response
-    , ListCloudFrontOriginAccessIdentitiesResponse
     , listCloudFrontOriginAccessIdentitiesResponse
+    , ListCloudFrontOriginAccessIdentitiesResponse
     -- * Response Lenses
     , lcfoairsStatus
     , lcfoairsCloudFrontOriginAccessIdentityList
@@ -47,19 +47,20 @@ import           Network.AWS.Response
 -- | The request to list origin access identities.
 --
 -- /See:/ 'listCloudFrontOriginAccessIdentities' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lcfoaiMaxItems'
---
--- * 'lcfoaiMarker'
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'
     { _lcfoaiMaxItems :: !(Maybe Text)
     , _lcfoaiMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListCloudFrontOriginAccessIdentities' smart constructor.
-listCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
+-- | Creates a value of 'ListCloudFrontOriginAccessIdentities' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lcfoaiMaxItems'
+--
+-- * 'lcfoaiMarker'
+listCloudFrontOriginAccessIdentities
+    :: ListCloudFrontOriginAccessIdentities
 listCloudFrontOriginAccessIdentities =
     ListCloudFrontOriginAccessIdentities'
     { _lcfoaiMaxItems = Nothing
@@ -112,26 +113,29 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'listCloudFrontOriginAccessIdentitiesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lcfoairsStatus'
---
--- * 'lcfoairsCloudFrontOriginAccessIdentityList'
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
     { _lcfoairsStatus                             :: !Int
     , _lcfoairsCloudFrontOriginAccessIdentityList :: !CloudFrontOriginAccessIdentityList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListCloudFrontOriginAccessIdentitiesResponse' smart constructor.
-listCloudFrontOriginAccessIdentitiesResponse :: Int -> CloudFrontOriginAccessIdentityList -> ListCloudFrontOriginAccessIdentitiesResponse
+-- | Creates a value of 'ListCloudFrontOriginAccessIdentitiesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lcfoairsStatus'
+--
+-- * 'lcfoairsCloudFrontOriginAccessIdentityList'
+listCloudFrontOriginAccessIdentitiesResponse
+    :: Int -- ^ 'lcfoairsStatus'
+    -> CloudFrontOriginAccessIdentityList -- ^ 'lcfoairsCloudFrontOriginAccessIdentityList'
+    -> ListCloudFrontOriginAccessIdentitiesResponse
 listCloudFrontOriginAccessIdentitiesResponse pStatus_ pCloudFrontOriginAccessIdentityList_ =
     ListCloudFrontOriginAccessIdentitiesResponse'
     { _lcfoairsStatus = pStatus_
     , _lcfoairsCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList_
     }
 
--- | Undocumented member.
+-- | The response status code.
 lcfoairsStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
 lcfoairsStatus = lens _lcfoairsStatus (\ s a -> s{_lcfoairsStatus = a});
 

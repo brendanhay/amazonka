@@ -26,8 +26,8 @@
 module Network.AWS.RDS.ModifyDBInstance
     (
     -- * Creating a Request
-      ModifyDBInstance
-    , modifyDBInstance
+      modifyDBInstance
+    , ModifyDBInstance
     -- * Request Lenses
     , mdiDBSecurityGroups
     , mdiEngineVersion
@@ -55,8 +55,8 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdiDBInstanceIdentifier
 
     -- * Destructuring the Response
-    , ModifyDBInstanceResponse
     , modifyDBInstanceResponse
+    , ModifyDBInstanceResponse
     -- * Response Lenses
     , mdirsDBInstance
     , mdirsStatus
@@ -71,8 +71,36 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'modifyDBInstance' smart constructor.
+data ModifyDBInstance = ModifyDBInstance'
+    { _mdiDBSecurityGroups           :: !(Maybe [Text])
+    , _mdiEngineVersion              :: !(Maybe Text)
+    , _mdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _mdiMasterUserPassword         :: !(Maybe Text)
+    , _mdiIOPS                       :: !(Maybe Int)
+    , _mdiAllowMajorVersionUpgrade   :: !(Maybe Bool)
+    , _mdiNewDBInstanceIdentifier    :: !(Maybe Text)
+    , _mdiDomain                     :: !(Maybe Text)
+    , _mdiTDECredentialPassword      :: !(Maybe Text)
+    , _mdiDBInstanceClass            :: !(Maybe Text)
+    , _mdiPreferredMaintenanceWindow :: !(Maybe Text)
+    , _mdiCACertificateIdentifier    :: !(Maybe Text)
+    , _mdiPreferredBackupWindow      :: !(Maybe Text)
+    , _mdiBackupRetentionPeriod      :: !(Maybe Int)
+    , _mdiDBParameterGroupName       :: !(Maybe Text)
+    , _mdiVPCSecurityGroupIds        :: !(Maybe [Text])
+    , _mdiMultiAZ                    :: !(Maybe Bool)
+    , _mdiAllocatedStorage           :: !(Maybe Int)
+    , _mdiApplyImmediately           :: !(Maybe Bool)
+    , _mdiTDECredentialARN           :: !(Maybe Text)
+    , _mdiOptionGroupName            :: !(Maybe Text)
+    , _mdiCopyTagsToSnapshot         :: !(Maybe Bool)
+    , _mdiStorageType                :: !(Maybe Text)
+    , _mdiDBInstanceIdentifier       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyDBInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mdiDBSecurityGroups'
 --
@@ -121,35 +149,9 @@ import           Network.AWS.Response
 -- * 'mdiStorageType'
 --
 -- * 'mdiDBInstanceIdentifier'
-data ModifyDBInstance = ModifyDBInstance'
-    { _mdiDBSecurityGroups           :: !(Maybe [Text])
-    , _mdiEngineVersion              :: !(Maybe Text)
-    , _mdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _mdiMasterUserPassword         :: !(Maybe Text)
-    , _mdiIOPS                       :: !(Maybe Int)
-    , _mdiAllowMajorVersionUpgrade   :: !(Maybe Bool)
-    , _mdiNewDBInstanceIdentifier    :: !(Maybe Text)
-    , _mdiDomain                     :: !(Maybe Text)
-    , _mdiTDECredentialPassword      :: !(Maybe Text)
-    , _mdiDBInstanceClass            :: !(Maybe Text)
-    , _mdiPreferredMaintenanceWindow :: !(Maybe Text)
-    , _mdiCACertificateIdentifier    :: !(Maybe Text)
-    , _mdiPreferredBackupWindow      :: !(Maybe Text)
-    , _mdiBackupRetentionPeriod      :: !(Maybe Int)
-    , _mdiDBParameterGroupName       :: !(Maybe Text)
-    , _mdiVPCSecurityGroupIds        :: !(Maybe [Text])
-    , _mdiMultiAZ                    :: !(Maybe Bool)
-    , _mdiAllocatedStorage           :: !(Maybe Int)
-    , _mdiApplyImmediately           :: !(Maybe Bool)
-    , _mdiTDECredentialARN           :: !(Maybe Text)
-    , _mdiOptionGroupName            :: !(Maybe Text)
-    , _mdiCopyTagsToSnapshot         :: !(Maybe Bool)
-    , _mdiStorageType                :: !(Maybe Text)
-    , _mdiDBInstanceIdentifier       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifyDBInstance' smart constructor.
-modifyDBInstance :: Text -> ModifyDBInstance
+modifyDBInstance
+    :: Text -- ^ 'mdiDBInstanceIdentifier'
+    -> ModifyDBInstance
 modifyDBInstance pDBInstanceIdentifier_ =
     ModifyDBInstance'
     { _mdiDBSecurityGroups = Nothing
@@ -192,8 +194,8 @@ mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups
 
 -- | The version number of the database engine to upgrade to. Changing this
 -- parameter results in an outage and the change is applied during the next
--- maintenance window unless the @ApplyImmediately@ parameter is set to
--- @true@ for this request.
+-- maintenance window unless the 'ApplyImmediately' parameter is set to
+-- 'true' for this request.
 --
 -- For major version upgrades, if a non-default DB parameter group is
 -- currently in use, a new DB parameter group in the DB parameter group
@@ -208,19 +210,19 @@ mdiEngineVersion = lens _mdiEngineVersion (\ s a -> s{_mdiEngineVersion = a});
 -- the DB instance during the maintenance window. Changing this parameter
 -- does not result in an outage except in the following case and the change
 -- is asynchronously applied as soon as possible. An outage will result if
--- this parameter is set to @true@ during the maintenance window, and a
+-- this parameter is set to 'true' during the maintenance window, and a
 -- newer minor version is available, and RDS has enabled auto patching for
 -- that engine version.
 mdiAutoMinorVersionUpgrade :: Lens' ModifyDBInstance (Maybe Bool)
 mdiAutoMinorVersionUpgrade = lens _mdiAutoMinorVersionUpgrade (\ s a -> s{_mdiAutoMinorVersionUpgrade = a});
 
 -- | The new password for the DB instance master user. Can be any printable
--- ASCII character except \"\/\", \"\"\", or \"\@\".
+-- ASCII character except \"\/\", \"\"\", or \"\'\".
 --
 -- Changing this parameter does not result in an outage and the change is
 -- asynchronously applied as soon as possible. Between the time of the
--- request and the completion of the request, the @MasterUserPassword@
--- element exists in the @PendingModifiedValues@ element of the operation
+-- request and the completion of the request, the 'MasterUserPassword'
+-- element exists in the 'PendingModifiedValues' element of the operation
 -- response.
 --
 -- Default: Uses existing setting
@@ -239,7 +241,7 @@ mdiMasterUserPassword = lens _mdiMasterUserPassword (\ s a -> s{_mdiMasterUserPa
 -- | The new Provisioned IOPS (I\/O operations per second) value for the RDS
 -- instance. Changing this setting does not result in an outage and the
 -- change is applied during the next maintenance window unless the
--- @ApplyImmediately@ parameter is set to @true@ for this request.
+-- 'ApplyImmediately' parameter is set to 'true' for this request.
 --
 -- Default: Uses existing setting
 --
@@ -286,8 +288,8 @@ mdiAllowMajorVersionUpgrade = lens _mdiAllowMajorVersionUpgrade (\ s a -> s{_mdi
 
 -- | The new DB instance identifier for the DB instance when renaming a DB
 -- instance. When you change the DB instance identifier, an instance reboot
--- will occur immediately if you set @Apply Immediately@ to true, or will
--- occur during the next maintenance window if @Apply Immediately@ to
+-- will occur immediately if you set 'Apply Immediately' to true, or will
+-- occur during the next maintenance window if 'Apply Immediately' to
 -- false. This value is stored as a lowercase string.
 --
 -- Constraints:
@@ -315,13 +317,13 @@ mdiTDECredentialPassword = lens _mdiTDECredentialPassword (\ s a -> s{_mdiTDECre
 -- DescribeOrderableDBInstanceOptions action.
 --
 -- Passing a value for this setting causes an outage during the change and
--- is applied during the next maintenance window, unless @ApplyImmediately@
--- is specified as @true@ for this request.
+-- is applied during the next maintenance window, unless 'ApplyImmediately'
+-- is specified as 'true' for this request.
 --
 -- Default: Uses existing setting
 --
 -- Valid Values:
--- @db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium@
+-- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
 mdiDBInstanceClass :: Lens' ModifyDBInstance (Maybe Text)
 mdiDBInstanceClass = lens _mdiDBInstanceClass (\ s a -> s{_mdiDBInstanceClass = a});
 
@@ -351,7 +353,7 @@ mdiCACertificateIdentifier = lens _mdiCACertificateIdentifier (\ s a -> s{_mdiCA
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, as determined by the
--- @BackupRetentionPeriod@ parameter. Changing this parameter does not
+-- 'BackupRetentionPeriod' parameter. Changing this parameter does not
 -- result in an outage and the change is asynchronously applied as soon as
 -- possible.
 --
@@ -370,8 +372,8 @@ mdiPreferredBackupWindow = lens _mdiPreferredBackupWindow (\ s a -> s{_mdiPrefer
 --
 -- Changing this parameter can result in an outage if you change from 0 to
 -- a non-zero value or from a non-zero value to 0. These changes are
--- applied during the next maintenance window unless the @ApplyImmediately@
--- parameter is set to @true@ for this request. If you change the parameter
+-- applied during the next maintenance window unless the 'ApplyImmediately'
+-- parameter is set to 'true' for this request. If you change the parameter
 -- from one non-zero value to another non-zero value, the change is
 -- asynchronously applied as soon as possible.
 --
@@ -415,8 +417,8 @@ mdiVPCSecurityGroupIds = lens _mdiVPCSecurityGroupIds (\ s a -> s{_mdiVPCSecurit
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Changing this
 -- parameter does not result in an outage and the change is applied during
--- the next maintenance window unless the @ApplyImmediately@ parameter is
--- set to @true@ for this request.
+-- the next maintenance window unless the 'ApplyImmediately' parameter is
+-- set to 'true' for this request.
 --
 -- Constraints: Cannot be specified if the DB instance is a Read Replica.
 -- This parameter cannot be used with SQL Server DB instances. Multi-AZ for
@@ -427,7 +429,7 @@ mdiMultiAZ = lens _mdiMultiAZ (\ s a -> s{_mdiMultiAZ = a});
 
 -- | The new storage capacity of the RDS instance. Changing this setting does
 -- not result in an outage and the change is applied during the next
--- maintenance window unless @ApplyImmediately@ is set to @true@ for this
+-- maintenance window unless 'ApplyImmediately' is set to 'true' for this
 -- request.
 --
 -- __MySQL__
@@ -490,19 +492,19 @@ mdiAllocatedStorage = lens _mdiAllocatedStorage (\ s a -> s{_mdiAllocatedStorage
 
 -- | Specifies whether the modifications in this request and any pending
 -- modifications are asynchronously applied as soon as possible, regardless
--- of the @PreferredMaintenanceWindow@ setting for the DB instance.
+-- of the 'PreferredMaintenanceWindow' setting for the DB instance.
 --
--- If this parameter is set to @false@, changes to the DB instance are
+-- If this parameter is set to 'false', changes to the DB instance are
 -- applied during the next maintenance window. Some parameter changes can
 -- cause an outage and will be applied on the next call to
 -- RebootDBInstance, or the next failure reboot. Review the table of
 -- parameters in
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.html#Overview.DBInstance.Modifying Modifying a DB Instance and Using the Apply Immediately Parameter>
--- to see the impact that setting @ApplyImmediately@ to @true@ or @false@
+-- to see the impact that setting 'ApplyImmediately' to 'true' or 'false'
 -- has for each modified parameter and to determine when the changes will
 -- be applied.
 --
--- Default: @false@
+-- Default: 'false'
 mdiApplyImmediately :: Lens' ModifyDBInstance (Maybe Bool)
 mdiApplyImmediately = lens _mdiApplyImmediately (\ s a -> s{_mdiApplyImmediately = a});
 
@@ -514,8 +516,8 @@ mdiTDECredentialARN = lens _mdiTDECredentialARN (\ s a -> s{_mdiTDECredentialARN
 -- | Indicates that the DB instance should be associated with the specified
 -- option group. Changing this parameter does not result in an outage
 -- except in the following case and the change is applied during the next
--- maintenance window unless the @ApplyImmediately@ parameter is set to
--- @true@ for this request. If the parameter change results in an option
+-- maintenance window unless the 'ApplyImmediately' parameter is set to
+-- 'true' for this request. If the parameter change results in an option
 -- group that enables OEM, this change can cause a brief (sub-second)
 -- period during which new connections are rejected but existing
 -- connections are not interrupted.
@@ -533,13 +535,13 @@ mdiCopyTagsToSnapshot = lens _mdiCopyTagsToSnapshot (\ s a -> s{_mdiCopyTagsToSn
 
 -- | Specifies the storage type to be associated with the DB instance.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: 'standard | gp2 | io1'
 --
--- If you specify @io1@, you must also include a value for the @Iops@
+-- If you specify 'io1', you must also include a value for the 'Iops'
 -- parameter.
 --
--- Default: @io1@ if the @Iops@ parameter is specified; otherwise
--- @standard@
+-- Default: 'io1' if the 'Iops' parameter is specified; otherwise
+-- 'standard'
 mdiStorageType :: Lens' ModifyDBInstance (Maybe Text)
 mdiStorageType = lens _mdiStorageType (\ s a -> s{_mdiStorageType = a});
 
@@ -612,19 +614,21 @@ instance ToQuery ModifyDBInstance where
                "DBInstanceIdentifier" =: _mdiDBInstanceIdentifier]
 
 -- | /See:/ 'modifyDBInstanceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mdirsDBInstance'
---
--- * 'mdirsStatus'
 data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
     { _mdirsDBInstance :: !(Maybe DBInstance)
     , _mdirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyDBInstanceResponse' smart constructor.
-modifyDBInstanceResponse :: Int -> ModifyDBInstanceResponse
+-- | Creates a value of 'ModifyDBInstanceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mdirsDBInstance'
+--
+-- * 'mdirsStatus'
+modifyDBInstanceResponse
+    :: Int -- ^ 'mdirsStatus'
+    -> ModifyDBInstanceResponse
 modifyDBInstanceResponse pStatus_ =
     ModifyDBInstanceResponse'
     { _mdirsDBInstance = Nothing
@@ -635,6 +639,6 @@ modifyDBInstanceResponse pStatus_ =
 mdirsDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
 mdirsDBInstance = lens _mdirsDBInstance (\ s a -> s{_mdirsDBInstance = a});
 
--- | Undocumented member.
+-- | The response status code.
 mdirsStatus :: Lens' ModifyDBInstanceResponse Int
 mdirsStatus = lens _mdirsStatus (\ s a -> s{_mdirsStatus = a});

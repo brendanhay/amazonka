@@ -24,16 +24,16 @@
 module Network.AWS.DirectoryService.EnableSSO
     (
     -- * Creating a Request
-      EnableSSO
-    , enableSSO
+      enableSSO
+    , EnableSSO
     -- * Request Lenses
     , esUserName
     , esPassword
     , esDirectoryId
 
     -- * Destructuring the Response
-    , EnableSSOResponse
     , enableSSOResponse
+    , EnableSSOResponse
     -- * Response Lenses
     , esrsStatus
     ) where
@@ -47,22 +47,24 @@ import           Network.AWS.Response
 -- | Contains the inputs for the EnableSso operation.
 --
 -- /See:/ 'enableSSO' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'esUserName'
---
--- * 'esPassword'
---
--- * 'esDirectoryId'
 data EnableSSO = EnableSSO'
     { _esUserName    :: !(Maybe Text)
     , _esPassword    :: !(Maybe (Sensitive Text))
     , _esDirectoryId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableSSO' smart constructor.
-enableSSO :: Text -> EnableSSO
+-- | Creates a value of 'EnableSSO' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'esUserName'
+--
+-- * 'esPassword'
+--
+-- * 'esDirectoryId'
+enableSSO
+    :: Text -- ^ 'esDirectoryId'
+    -> EnableSSO
 enableSSO pDirectoryId_ =
     EnableSSO'
     { _esUserName = Nothing
@@ -127,21 +129,23 @@ instance ToQuery EnableSSO where
 -- | Contains the results of the EnableSso operation.
 --
 -- /See:/ 'enableSSOResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'esrsStatus'
 newtype EnableSSOResponse = EnableSSOResponse'
     { _esrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableSSOResponse' smart constructor.
-enableSSOResponse :: Int -> EnableSSOResponse
+-- | Creates a value of 'EnableSSOResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'esrsStatus'
+enableSSOResponse
+    :: Int -- ^ 'esrsStatus'
+    -> EnableSSOResponse
 enableSSOResponse pStatus_ =
     EnableSSOResponse'
     { _esrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 esrsStatus :: Lens' EnableSSOResponse Int
 esrsStatus = lens _esrsStatus (\ s a -> s{_esrsStatus = a});

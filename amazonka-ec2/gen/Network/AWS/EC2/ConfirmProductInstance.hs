@@ -27,16 +27,16 @@
 module Network.AWS.EC2.ConfirmProductInstance
     (
     -- * Creating a Request
-      ConfirmProductInstance
-    , confirmProductInstance
+      confirmProductInstance
+    , ConfirmProductInstance
     -- * Request Lenses
     , cpiDryRun
     , cpiProductCode
     , cpiInstanceId
 
     -- * Destructuring the Response
-    , ConfirmProductInstanceResponse
     , confirmProductInstanceResponse
+    , ConfirmProductInstanceResponse
     -- * Response Lenses
     , cpirsReturn
     , cpirsOwnerId
@@ -50,22 +50,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'confirmProductInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpiDryRun'
---
--- * 'cpiProductCode'
---
--- * 'cpiInstanceId'
 data ConfirmProductInstance = ConfirmProductInstance'
     { _cpiDryRun      :: !(Maybe Bool)
     , _cpiProductCode :: !Text
     , _cpiInstanceId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfirmProductInstance' smart constructor.
-confirmProductInstance :: Text -> Text -> ConfirmProductInstance
+-- | Creates a value of 'ConfirmProductInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpiDryRun'
+--
+-- * 'cpiProductCode'
+--
+-- * 'cpiInstanceId'
+confirmProductInstance
+    :: Text -- ^ 'cpiProductCode'
+    -> Text -- ^ 'cpiInstanceId'
+    -> ConfirmProductInstance
 confirmProductInstance pProductCode_ pInstanceId_ =
     ConfirmProductInstance'
     { _cpiDryRun = Nothing
@@ -75,8 +78,8 @@ confirmProductInstance pProductCode_ pInstanceId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cpiDryRun :: Lens' ConfirmProductInstance (Maybe Bool)
 cpiDryRun = lens _cpiDryRun (\ s a -> s{_cpiDryRun = a});
 
@@ -117,22 +120,24 @@ instance ToQuery ConfirmProductInstance where
                "InstanceId" =: _cpiInstanceId]
 
 -- | /See:/ 'confirmProductInstanceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpirsReturn'
---
--- * 'cpirsOwnerId'
---
--- * 'cpirsStatus'
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
     { _cpirsReturn  :: !(Maybe Bool)
     , _cpirsOwnerId :: !(Maybe Text)
     , _cpirsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfirmProductInstanceResponse' smart constructor.
-confirmProductInstanceResponse :: Int -> ConfirmProductInstanceResponse
+-- | Creates a value of 'ConfirmProductInstanceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpirsReturn'
+--
+-- * 'cpirsOwnerId'
+--
+-- * 'cpirsStatus'
+confirmProductInstanceResponse
+    :: Int -- ^ 'cpirsStatus'
+    -> ConfirmProductInstanceResponse
 confirmProductInstanceResponse pStatus_ =
     ConfirmProductInstanceResponse'
     { _cpirsReturn = Nothing
@@ -140,7 +145,7 @@ confirmProductInstanceResponse pStatus_ =
     , _cpirsStatus = pStatus_
     }
 
--- | The return value of the request. Returns @true@ if the specified product
+-- | The return value of the request. Returns 'true' if the specified product
 -- code is owned by the requester and associated with the specified
 -- instance.
 cpirsReturn :: Lens' ConfirmProductInstanceResponse (Maybe Bool)
@@ -151,6 +156,6 @@ cpirsReturn = lens _cpirsReturn (\ s a -> s{_cpirsReturn = a});
 cpirsOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirsOwnerId = lens _cpirsOwnerId (\ s a -> s{_cpirsOwnerId = a});
 
--- | Undocumented member.
+-- | The response status code.
 cpirsStatus :: Lens' ConfirmProductInstanceResponse Int
 cpirsStatus = lens _cpirsStatus (\ s a -> s{_cpirsStatus = a});

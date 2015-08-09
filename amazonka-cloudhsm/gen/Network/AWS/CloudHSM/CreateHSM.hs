@@ -26,8 +26,8 @@
 module Network.AWS.CloudHSM.CreateHSM
     (
     -- * Creating a Request
-      CreateHSM
-    , createHSM
+      createHSM
+    , CreateHSM
     -- * Request Lenses
     , chClientToken
     , chSyslogIP
@@ -39,8 +39,8 @@ module Network.AWS.CloudHSM.CreateHSM
     , chSubscriptionType
 
     -- * Destructuring the Response
-    , CreateHSMResponse
     , createHSMResponse
+    , CreateHSMResponse
     -- * Response Lenses
     , chsmrsHSMARN
     , chsmrsStatus
@@ -55,8 +55,20 @@ import           Network.AWS.Response
 -- | Contains the inputs for the CreateHsm action.
 --
 -- /See:/ 'createHSM' smart constructor.
+data CreateHSM = CreateHSM'
+    { _chClientToken      :: !(Maybe Text)
+    , _chSyslogIP         :: !(Maybe Text)
+    , _chExternalId       :: !(Maybe Text)
+    , _chEniIP            :: !(Maybe Text)
+    , _chSubnetId         :: !Text
+    , _chSSHKey           :: !Text
+    , _chIAMRoleARN       :: !Text
+    , _chSubscriptionType :: !SubscriptionType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateHSM' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'chClientToken'
 --
@@ -73,19 +85,12 @@ import           Network.AWS.Response
 -- * 'chIAMRoleARN'
 --
 -- * 'chSubscriptionType'
-data CreateHSM = CreateHSM'
-    { _chClientToken      :: !(Maybe Text)
-    , _chSyslogIP         :: !(Maybe Text)
-    , _chExternalId       :: !(Maybe Text)
-    , _chEniIP            :: !(Maybe Text)
-    , _chSubnetId         :: !Text
-    , _chSSHKey           :: !Text
-    , _chIAMRoleARN       :: !Text
-    , _chSubscriptionType :: !SubscriptionType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateHSM' smart constructor.
-createHSM :: Text -> Text -> Text -> SubscriptionType -> CreateHSM
+createHSM
+    :: Text -- ^ 'chSubnetId'
+    -> Text -- ^ 'chSSHKey'
+    -> Text -- ^ 'chIAMRoleARN'
+    -> SubscriptionType -- ^ 'chSubscriptionType'
+    -> CreateHSM
 createHSM pSubnetId_ pSSHKey_ pIAMRoleARN_ pSubscriptionType_ =
     CreateHSM'
     { _chClientToken = Nothing
@@ -170,19 +175,21 @@ instance ToQuery CreateHSM where
 -- | Contains the output of the CreateHsm action.
 --
 -- /See:/ 'createHSMResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'chsmrsHSMARN'
---
--- * 'chsmrsStatus'
 data CreateHSMResponse = CreateHSMResponse'
     { _chsmrsHSMARN :: !(Maybe Text)
     , _chsmrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateHSMResponse' smart constructor.
-createHSMResponse :: Int -> CreateHSMResponse
+-- | Creates a value of 'CreateHSMResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'chsmrsHSMARN'
+--
+-- * 'chsmrsStatus'
+createHSMResponse
+    :: Int -- ^ 'chsmrsStatus'
+    -> CreateHSMResponse
 createHSMResponse pStatus_ =
     CreateHSMResponse'
     { _chsmrsHSMARN = Nothing
@@ -193,6 +200,6 @@ createHSMResponse pStatus_ =
 chsmrsHSMARN :: Lens' CreateHSMResponse (Maybe Text)
 chsmrsHSMARN = lens _chsmrsHSMARN (\ s a -> s{_chsmrsHSMARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 chsmrsStatus :: Lens' CreateHSMResponse Int
 chsmrsStatus = lens _chsmrsStatus (\ s a -> s{_chsmrsStatus = a});

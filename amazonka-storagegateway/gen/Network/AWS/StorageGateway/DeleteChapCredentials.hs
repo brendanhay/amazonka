@@ -25,15 +25,15 @@
 module Network.AWS.StorageGateway.DeleteChapCredentials
     (
     -- * Creating a Request
-      DeleteChapCredentials
-    , deleteChapCredentials
+      deleteChapCredentials
+    , DeleteChapCredentials
     -- * Request Lenses
     , dTargetARN
     , dInitiatorName
 
     -- * Destructuring the Response
-    , DeleteChapCredentialsResponse
     , deleteChapCredentialsResponse
+    , DeleteChapCredentialsResponse
     -- * Response Lenses
     , drsTargetARN
     , drsInitiatorName
@@ -52,19 +52,22 @@ import           Network.AWS.StorageGateway.Types.Product
 -- -   DeleteChapCredentialsInput$TargetARN
 --
 -- /See:/ 'deleteChapCredentials' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dTargetARN'
---
--- * 'dInitiatorName'
 data DeleteChapCredentials = DeleteChapCredentials'
     { _dTargetARN     :: !Text
     , _dInitiatorName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteChapCredentials' smart constructor.
-deleteChapCredentials :: Text -> Text -> DeleteChapCredentials
+-- | Creates a value of 'DeleteChapCredentials' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dTargetARN'
+--
+-- * 'dInitiatorName'
+deleteChapCredentials
+    :: Text -- ^ 'dTargetARN'
+    -> Text -- ^ 'dInitiatorName'
+    -> DeleteChapCredentials
 deleteChapCredentials pTargetARN_ pInitiatorName_ =
     DeleteChapCredentials'
     { _dTargetARN = pTargetARN_
@@ -118,22 +121,24 @@ instance ToQuery DeleteChapCredentials where
 -- | A JSON object containing the following fields:
 --
 -- /See:/ 'deleteChapCredentialsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsTargetARN'
---
--- * 'drsInitiatorName'
---
--- * 'drsStatus'
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
     { _drsTargetARN     :: !(Maybe Text)
     , _drsInitiatorName :: !(Maybe Text)
     , _drsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteChapCredentialsResponse' smart constructor.
-deleteChapCredentialsResponse :: Int -> DeleteChapCredentialsResponse
+-- | Creates a value of 'DeleteChapCredentialsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsTargetARN'
+--
+-- * 'drsInitiatorName'
+--
+-- * 'drsStatus'
+deleteChapCredentialsResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeleteChapCredentialsResponse
 deleteChapCredentialsResponse pStatus_ =
     DeleteChapCredentialsResponse'
     { _drsTargetARN = Nothing
@@ -149,6 +154,6 @@ drsTargetARN = lens _drsTargetARN (\ s a -> s{_drsTargetARN = a});
 drsInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 drsInitiatorName = lens _drsInitiatorName (\ s a -> s{_drsInitiatorName = a});
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeleteChapCredentialsResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

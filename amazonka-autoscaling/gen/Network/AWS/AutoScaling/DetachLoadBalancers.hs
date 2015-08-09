@@ -21,7 +21,7 @@
 -- Removes one or more load balancers from the specified Auto Scaling
 -- group.
 --
--- When you detach a load balancer, it enters the @Removing@ state while
+-- When you detach a load balancer, it enters the 'Removing' state while
 -- deregistering the instances in the group. When all instances are
 -- deregistered, then you can no longer describe the load balancer using
 -- DescribeLoadBalancers. Note that the instances remain running.
@@ -30,15 +30,15 @@
 module Network.AWS.AutoScaling.DetachLoadBalancers
     (
     -- * Creating a Request
-      DetachLoadBalancers
-    , detachLoadBalancers
+      detachLoadBalancers
+    , DetachLoadBalancers
     -- * Request Lenses
     , dAutoScalingGroupName
     , dLoadBalancerNames
 
     -- * Destructuring the Response
-    , DetachLoadBalancersResponse
     , detachLoadBalancersResponse
+    , DetachLoadBalancersResponse
     -- * Response Lenses
     , dlbsrsStatus
     ) where
@@ -50,19 +50,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachLoadBalancers' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dAutoScalingGroupName'
---
--- * 'dLoadBalancerNames'
 data DetachLoadBalancers = DetachLoadBalancers'
     { _dAutoScalingGroupName :: !(Maybe Text)
     , _dLoadBalancerNames    :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachLoadBalancers' smart constructor.
-detachLoadBalancers :: DetachLoadBalancers
+-- | Creates a value of 'DetachLoadBalancers' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dAutoScalingGroupName'
+--
+-- * 'dLoadBalancerNames'
+detachLoadBalancers
+    :: DetachLoadBalancers
 detachLoadBalancers =
     DetachLoadBalancers'
     { _dAutoScalingGroupName = Nothing
@@ -104,21 +105,23 @@ instance ToQuery DetachLoadBalancers where
                    (toQueryList "member" <$> _dLoadBalancerNames)]
 
 -- | /See:/ 'detachLoadBalancersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbsrsStatus'
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
     { _dlbsrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachLoadBalancersResponse' smart constructor.
-detachLoadBalancersResponse :: Int -> DetachLoadBalancersResponse
+-- | Creates a value of 'DetachLoadBalancersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbsrsStatus'
+detachLoadBalancersResponse
+    :: Int -- ^ 'dlbsrsStatus'
+    -> DetachLoadBalancersResponse
 detachLoadBalancersResponse pStatus_ =
     DetachLoadBalancersResponse'
     { _dlbsrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dlbsrsStatus :: Lens' DetachLoadBalancersResponse Int
 dlbsrsStatus = lens _dlbsrsStatus (\ s a -> s{_dlbsrsStatus = a});

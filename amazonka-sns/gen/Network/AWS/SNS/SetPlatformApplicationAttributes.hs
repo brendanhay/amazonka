@@ -27,15 +27,15 @@
 module Network.AWS.SNS.SetPlatformApplicationAttributes
     (
     -- * Creating a Request
-      SetPlatformApplicationAttributes
-    , setPlatformApplicationAttributes
+      setPlatformApplicationAttributes
+    , SetPlatformApplicationAttributes
     -- * Request Lenses
     , spaaPlatformApplicationARN
     , spaaAttributes
 
     -- * Destructuring the Response
-    , SetPlatformApplicationAttributesResponse
     , setPlatformApplicationAttributesResponse
+    , SetPlatformApplicationAttributesResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -47,19 +47,21 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for SetPlatformApplicationAttributes action.
 --
 -- /See:/ 'setPlatformApplicationAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'spaaPlatformApplicationARN'
---
--- * 'spaaAttributes'
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
     { _spaaPlatformApplicationARN :: !Text
     , _spaaAttributes             :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetPlatformApplicationAttributes' smart constructor.
-setPlatformApplicationAttributes :: Text -> SetPlatformApplicationAttributes
+-- | Creates a value of 'SetPlatformApplicationAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spaaPlatformApplicationARN'
+--
+-- * 'spaaAttributes'
+setPlatformApplicationAttributes
+    :: Text -- ^ 'spaaPlatformApplicationARN'
+    -> SetPlatformApplicationAttributes
 setPlatformApplicationAttributes pPlatformApplicationARN_ =
     SetPlatformApplicationAttributes'
     { _spaaPlatformApplicationARN = pPlatformApplicationARN_
@@ -73,21 +75,21 @@ spaaPlatformApplicationARN = lens _spaaPlatformApplicationARN (\ s a -> s{_spaaP
 -- | A map of the platform application attributes. Attributes in this map
 -- include the following:
 --
--- -   @PlatformCredential@ -- The credential received from the
+-- -   'PlatformCredential' -- The credential received from the
 --     notification service. For APNS\/APNS_SANDBOX, PlatformCredential is
 --     \"private key\". For GCM, PlatformCredential is \"API key\". For
 --     ADM, PlatformCredential is \"client secret\".
--- -   @PlatformPrincipal@ -- The principal received from the notification
+-- -   'PlatformPrincipal' -- The principal received from the notification
 --     service. For APNS\/APNS_SANDBOX, PlatformPrincipal is \"SSL
 --     certificate\". For GCM, PlatformPrincipal is not applicable. For
 --     ADM, PlatformPrincipal is \"client id\".
--- -   @EventEndpointCreated@ -- Topic ARN to which EndpointCreated event
+-- -   'EventEndpointCreated' -- Topic ARN to which EndpointCreated event
 --     notifications should be sent.
--- -   @EventEndpointDeleted@ -- Topic ARN to which EndpointDeleted event
+-- -   'EventEndpointDeleted' -- Topic ARN to which EndpointDeleted event
 --     notifications should be sent.
--- -   @EventEndpointUpdated@ -- Topic ARN to which EndpointUpdate event
+-- -   'EventEndpointUpdated' -- Topic ARN to which EndpointUpdate event
 --     notifications should be sent.
--- -   @EventDeliveryFailure@ -- Topic ARN to which DeliveryFailure event
+-- -   'EventDeliveryFailure' -- Topic ARN to which DeliveryFailure event
 --     notifications should be sent upon Direct Publish delivery failure
 --     (permanent) to one of the application\'s endpoints.
 spaaAttributes :: Lens' SetPlatformApplicationAttributes (HashMap Text Text)
@@ -128,7 +130,9 @@ data SetPlatformApplicationAttributesResponse =
     SetPlatformApplicationAttributesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetPlatformApplicationAttributesResponse' smart constructor.
-setPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse
+-- | Creates a value of 'SetPlatformApplicationAttributesResponse' with the minimum fields required to make a request.
+--
+setPlatformApplicationAttributesResponse
+    :: SetPlatformApplicationAttributesResponse
 setPlatformApplicationAttributesResponse =
     SetPlatformApplicationAttributesResponse'

@@ -33,14 +33,14 @@
 module Network.AWS.OpsWorks.DeregisterInstance
     (
     -- * Creating a Request
-      DeregisterInstance
-    , deregisterInstance
+      deregisterInstance
+    , DeregisterInstance
     -- * Request Lenses
     , dInstanceId
 
     -- * Destructuring the Response
-    , DeregisterInstanceResponse
     , deregisterInstanceResponse
+    , DeregisterInstanceResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -50,16 +50,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deregisterInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dInstanceId'
 newtype DeregisterInstance = DeregisterInstance'
     { _dInstanceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterInstance' smart constructor.
-deregisterInstance :: Text -> DeregisterInstance
+-- | Creates a value of 'DeregisterInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dInstanceId'
+deregisterInstance
+    :: Text -- ^ 'dInstanceId'
+    -> DeregisterInstance
 deregisterInstance pInstanceId_ =
     DeregisterInstance'
     { _dInstanceId = pInstanceId_
@@ -101,6 +103,8 @@ data DeregisterInstanceResponse =
     DeregisterInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterInstanceResponse' smart constructor.
-deregisterInstanceResponse :: DeregisterInstanceResponse
+-- | Creates a value of 'DeregisterInstanceResponse' with the minimum fields required to make a request.
+--
+deregisterInstanceResponse
+    :: DeregisterInstanceResponse
 deregisterInstanceResponse = DeregisterInstanceResponse'

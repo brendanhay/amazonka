@@ -33,16 +33,16 @@
 module Network.AWS.EC2.AssociateRouteTable
     (
     -- * Creating a Request
-      AssociateRouteTable
-    , associateRouteTable
+      associateRouteTable
+    , AssociateRouteTable
     -- * Request Lenses
     , artDryRun
     , artSubnetId
     , artRouteTableId
 
     -- * Destructuring the Response
-    , AssociateRouteTableResponse
     , associateRouteTableResponse
+    , AssociateRouteTableResponse
     -- * Response Lenses
     , artrsAssociationId
     , artrsStatus
@@ -55,22 +55,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'associateRouteTable' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'artDryRun'
---
--- * 'artSubnetId'
---
--- * 'artRouteTableId'
 data AssociateRouteTable = AssociateRouteTable'
     { _artDryRun       :: !(Maybe Bool)
     , _artSubnetId     :: !Text
     , _artRouteTableId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssociateRouteTable' smart constructor.
-associateRouteTable :: Text -> Text -> AssociateRouteTable
+-- | Creates a value of 'AssociateRouteTable' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'artDryRun'
+--
+-- * 'artSubnetId'
+--
+-- * 'artRouteTableId'
+associateRouteTable
+    :: Text -- ^ 'artSubnetId'
+    -> Text -- ^ 'artRouteTableId'
+    -> AssociateRouteTable
 associateRouteTable pSubnetId_ pRouteTableId_ =
     AssociateRouteTable'
     { _artDryRun = Nothing
@@ -80,8 +83,8 @@ associateRouteTable pSubnetId_ pRouteTableId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 artDryRun :: Lens' AssociateRouteTable (Maybe Bool)
 artDryRun = lens _artDryRun (\ s a -> s{_artDryRun = a});
 
@@ -119,19 +122,21 @@ instance ToQuery AssociateRouteTable where
                "RouteTableId" =: _artRouteTableId]
 
 -- | /See:/ 'associateRouteTableResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'artrsAssociationId'
---
--- * 'artrsStatus'
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
     { _artrsAssociationId :: !(Maybe Text)
     , _artrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssociateRouteTableResponse' smart constructor.
-associateRouteTableResponse :: Int -> AssociateRouteTableResponse
+-- | Creates a value of 'AssociateRouteTableResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'artrsAssociationId'
+--
+-- * 'artrsStatus'
+associateRouteTableResponse
+    :: Int -- ^ 'artrsStatus'
+    -> AssociateRouteTableResponse
 associateRouteTableResponse pStatus_ =
     AssociateRouteTableResponse'
     { _artrsAssociationId = Nothing
@@ -142,6 +147,6 @@ associateRouteTableResponse pStatus_ =
 artrsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artrsAssociationId = lens _artrsAssociationId (\ s a -> s{_artrsAssociationId = a});
 
--- | Undocumented member.
+-- | The response status code.
 artrsStatus :: Lens' AssociateRouteTableResponse Int
 artrsStatus = lens _artrsStatus (\ s a -> s{_artrsStatus = a});

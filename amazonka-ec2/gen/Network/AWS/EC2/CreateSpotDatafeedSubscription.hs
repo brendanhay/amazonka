@@ -28,16 +28,16 @@
 module Network.AWS.EC2.CreateSpotDatafeedSubscription
     (
     -- * Creating a Request
-      CreateSpotDatafeedSubscription
-    , createSpotDatafeedSubscription
+      createSpotDatafeedSubscription
+    , CreateSpotDatafeedSubscription
     -- * Request Lenses
     , csdsPrefix
     , csdsDryRun
     , csdsBucket
 
     -- * Destructuring the Response
-    , CreateSpotDatafeedSubscriptionResponse
     , createSpotDatafeedSubscriptionResponse
+    , CreateSpotDatafeedSubscriptionResponse
     -- * Response Lenses
     , csdsrsSpotDatafeedSubscription
     , csdsrsStatus
@@ -52,22 +52,24 @@ import           Network.AWS.Response
 -- | Contains the parameters for CreateSpotDatafeedSubscription.
 --
 -- /See:/ 'createSpotDatafeedSubscription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csdsPrefix'
---
--- * 'csdsDryRun'
---
--- * 'csdsBucket'
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
     { _csdsPrefix :: !(Maybe Text)
     , _csdsDryRun :: !(Maybe Bool)
     , _csdsBucket :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSpotDatafeedSubscription' smart constructor.
-createSpotDatafeedSubscription :: Text -> CreateSpotDatafeedSubscription
+-- | Creates a value of 'CreateSpotDatafeedSubscription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csdsPrefix'
+--
+-- * 'csdsDryRun'
+--
+-- * 'csdsBucket'
+createSpotDatafeedSubscription
+    :: Text -- ^ 'csdsBucket'
+    -> CreateSpotDatafeedSubscription
 createSpotDatafeedSubscription pBucket_ =
     CreateSpotDatafeedSubscription'
     { _csdsPrefix = Nothing
@@ -81,8 +83,8 @@ csdsPrefix = lens _csdsPrefix (\ s a -> s{_csdsPrefix = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 csdsDryRun :: Lens' CreateSpotDatafeedSubscription (Maybe Bool)
 csdsDryRun = lens _csdsDryRun (\ s a -> s{_csdsDryRun = a});
 
@@ -122,19 +124,21 @@ instance ToQuery CreateSpotDatafeedSubscription where
 -- | Contains the output of CreateSpotDatafeedSubscription.
 --
 -- /See:/ 'createSpotDatafeedSubscriptionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csdsrsSpotDatafeedSubscription'
---
--- * 'csdsrsStatus'
 data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse'
     { _csdsrsSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
     , _csdsrsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSpotDatafeedSubscriptionResponse' smart constructor.
-createSpotDatafeedSubscriptionResponse :: Int -> CreateSpotDatafeedSubscriptionResponse
+-- | Creates a value of 'CreateSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csdsrsSpotDatafeedSubscription'
+--
+-- * 'csdsrsStatus'
+createSpotDatafeedSubscriptionResponse
+    :: Int -- ^ 'csdsrsStatus'
+    -> CreateSpotDatafeedSubscriptionResponse
 createSpotDatafeedSubscriptionResponse pStatus_ =
     CreateSpotDatafeedSubscriptionResponse'
     { _csdsrsSpotDatafeedSubscription = Nothing
@@ -145,6 +149,6 @@ createSpotDatafeedSubscriptionResponse pStatus_ =
 csdsrsSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 csdsrsSpotDatafeedSubscription = lens _csdsrsSpotDatafeedSubscription (\ s a -> s{_csdsrsSpotDatafeedSubscription = a});
 
--- | Undocumented member.
+-- | The response status code.
 csdsrsStatus :: Lens' CreateSpotDatafeedSubscriptionResponse Int
 csdsrsStatus = lens _csdsrsStatus (\ s a -> s{_csdsrsStatus = a});

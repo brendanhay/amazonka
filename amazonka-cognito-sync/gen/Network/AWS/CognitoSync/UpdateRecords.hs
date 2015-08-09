@@ -41,8 +41,8 @@
 module Network.AWS.CognitoSync.UpdateRecords
     (
     -- * Creating a Request
-      UpdateRecords
-    , updateRecords
+      updateRecords
+    , UpdateRecords
     -- * Request Lenses
     , urRecordPatches
     , urDeviceId
@@ -53,8 +53,8 @@ module Network.AWS.CognitoSync.UpdateRecords
     , urSyncSessionToken
 
     -- * Destructuring the Response
-    , UpdateRecordsResponse
     , updateRecordsResponse
+    , UpdateRecordsResponse
     -- * Response Lenses
     , urrsRecords
     , urrsStatus
@@ -70,8 +70,19 @@ import           Network.AWS.Response
 -- dataset and user.
 --
 -- /See:/ 'updateRecords' smart constructor.
+data UpdateRecords = UpdateRecords'
+    { _urRecordPatches    :: !(Maybe [RecordPatch])
+    , _urDeviceId         :: !(Maybe Text)
+    , _urClientContext    :: !(Maybe Text)
+    , _urIdentityPoolId   :: !Text
+    , _urIdentityId       :: !Text
+    , _urDatasetName      :: !Text
+    , _urSyncSessionToken :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateRecords' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'urRecordPatches'
 --
@@ -86,18 +97,12 @@ import           Network.AWS.Response
 -- * 'urDatasetName'
 --
 -- * 'urSyncSessionToken'
-data UpdateRecords = UpdateRecords'
-    { _urRecordPatches    :: !(Maybe [RecordPatch])
-    , _urDeviceId         :: !(Maybe Text)
-    , _urClientContext    :: !(Maybe Text)
-    , _urIdentityPoolId   :: !Text
-    , _urIdentityId       :: !Text
-    , _urDatasetName      :: !Text
-    , _urSyncSessionToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateRecords' smart constructor.
-updateRecords :: Text -> Text -> Text -> Text -> UpdateRecords
+updateRecords
+    :: Text -- ^ 'urIdentityPoolId'
+    -> Text -- ^ 'urIdentityId'
+    -> Text -- ^ 'urDatasetName'
+    -> Text -- ^ 'urSyncSessionToken'
+    -> UpdateRecords
 updateRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ pSyncSessionToken_ =
     UpdateRecords'
     { _urRecordPatches = Nothing
@@ -182,19 +187,21 @@ instance ToQuery UpdateRecords where
 -- | Returned for a successful UpdateRecordsRequest.
 --
 -- /See:/ 'updateRecordsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'urrsRecords'
---
--- * 'urrsStatus'
 data UpdateRecordsResponse = UpdateRecordsResponse'
     { _urrsRecords :: !(Maybe [Record])
     , _urrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateRecordsResponse' smart constructor.
-updateRecordsResponse :: Int -> UpdateRecordsResponse
+-- | Creates a value of 'UpdateRecordsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'urrsRecords'
+--
+-- * 'urrsStatus'
+updateRecordsResponse
+    :: Int -- ^ 'urrsStatus'
+    -> UpdateRecordsResponse
 updateRecordsResponse pStatus_ =
     UpdateRecordsResponse'
     { _urrsRecords = Nothing
@@ -205,6 +212,6 @@ updateRecordsResponse pStatus_ =
 urrsRecords :: Lens' UpdateRecordsResponse [Record]
 urrsRecords = lens _urrsRecords (\ s a -> s{_urrsRecords = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 urrsStatus :: Lens' UpdateRecordsResponse Int
 urrsStatus = lens _urrsStatus (\ s a -> s{_urrsStatus = a});

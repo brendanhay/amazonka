@@ -19,25 +19,27 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns communications (and attachments) for one or more support cases.
--- You can use the @AfterTime@ and @BeforeTime@ parameters to filter by
--- date. You can use the @CaseId@ parameter to restrict the results to a
+-- You can use the 'AfterTime' and 'BeforeTime' parameters to filter by
+-- date. You can use the 'CaseId' parameter to restrict the results to a
 -- particular case.
 --
 -- Case data is available for 12 months after creation. If a case was
 -- created more than 12 months ago, a request for data might cause an
 -- error.
 --
--- You can use the @MaxResults@ and @NextToken@ parameters to control the
--- pagination of the result set. Set @MaxResults@ to the number of cases
--- you want displayed on each page, and use @NextToken@ to specify the
+-- You can use the 'MaxResults' and 'NextToken' parameters to control the
+-- pagination of the result set. Set 'MaxResults' to the number of cases
+-- you want displayed on each page, and use 'NextToken' to specify the
 -- resumption of pagination.
 --
 -- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCommunications.html AWS API Reference> for DescribeCommunications.
+--
+-- This operation returns paginated results.
 module Network.AWS.Support.DescribeCommunications
     (
     -- * Creating a Request
-      DescribeCommunications
-    , describeCommunications
+      describeCommunications
+    , DescribeCommunications
     -- * Request Lenses
     , dAfterTime
     , dNextToken
@@ -46,8 +48,8 @@ module Network.AWS.Support.DescribeCommunications
     , dCaseId
 
     -- * Destructuring the Response
-    , DescribeCommunicationsResponse
     , describeCommunicationsResponse
+    , DescribeCommunicationsResponse
     -- * Response Lenses
     , dcrsNextToken
     , dcrsCommunications
@@ -62,8 +64,17 @@ import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
 -- | /See:/ 'describeCommunications' smart constructor.
+data DescribeCommunications = DescribeCommunications'
+    { _dAfterTime  :: !(Maybe Text)
+    , _dNextToken  :: !(Maybe Text)
+    , _dBeforeTime :: !(Maybe Text)
+    , _dMaxResults :: !(Maybe Nat)
+    , _dCaseId     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeCommunications' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dAfterTime'
 --
@@ -74,16 +85,9 @@ import           Network.AWS.Support.Types.Product
 -- * 'dMaxResults'
 --
 -- * 'dCaseId'
-data DescribeCommunications = DescribeCommunications'
-    { _dAfterTime  :: !(Maybe Text)
-    , _dNextToken  :: !(Maybe Text)
-    , _dBeforeTime :: !(Maybe Text)
-    , _dMaxResults :: !(Maybe Nat)
-    , _dCaseId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeCommunications' smart constructor.
-describeCommunications :: Text -> DescribeCommunications
+describeCommunications
+    :: Text -- ^ 'dCaseId'
+    -> DescribeCommunications
 describeCommunications pCaseId_ =
     DescribeCommunications'
     { _dAfterTime = Nothing
@@ -165,22 +169,24 @@ instance ToQuery DescribeCommunications where
 -- | The communications returned by the DescribeCommunications operation.
 --
 -- /See:/ 'describeCommunicationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcrsNextToken'
---
--- * 'dcrsCommunications'
---
--- * 'dcrsStatus'
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
     { _dcrsNextToken      :: !(Maybe Text)
     , _dcrsCommunications :: !(Maybe [Communication])
     , _dcrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCommunicationsResponse' smart constructor.
-describeCommunicationsResponse :: Int -> DescribeCommunicationsResponse
+-- | Creates a value of 'DescribeCommunicationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcrsNextToken'
+--
+-- * 'dcrsCommunications'
+--
+-- * 'dcrsStatus'
+describeCommunicationsResponse
+    :: Int -- ^ 'dcrsStatus'
+    -> DescribeCommunicationsResponse
 describeCommunicationsResponse pStatus_ =
     DescribeCommunicationsResponse'
     { _dcrsNextToken = Nothing
@@ -196,6 +202,6 @@ dcrsNextToken = lens _dcrsNextToken (\ s a -> s{_dcrsNextToken = a});
 dcrsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
 dcrsCommunications = lens _dcrsCommunications (\ s a -> s{_dcrsCommunications = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dcrsStatus :: Lens' DescribeCommunicationsResponse Int
 dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

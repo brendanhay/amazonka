@@ -22,23 +22,23 @@
 --
 -- If you attempt to delete a security group that is associated with an
 -- instance, or is referenced by another security group, the operation
--- fails with @InvalidGroup.InUse@ in EC2-Classic or @DependencyViolation@
+-- fails with 'InvalidGroup.InUse' in EC2-Classic or 'DependencyViolation'
 -- in EC2-VPC.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSecurityGroup.html AWS API Reference> for DeleteSecurityGroup.
 module Network.AWS.EC2.DeleteSecurityGroup
     (
     -- * Creating a Request
-      DeleteSecurityGroup
-    , deleteSecurityGroup
+      deleteSecurityGroup
+    , DeleteSecurityGroup
     -- * Request Lenses
     , dsgGroupId
     , dsgGroupName
     , dsgDryRun
 
     -- * Destructuring the Response
-    , DeleteSecurityGroupResponse
     , deleteSecurityGroupResponse
+    , DeleteSecurityGroupResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -48,22 +48,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteSecurityGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsgGroupId'
---
--- * 'dsgGroupName'
---
--- * 'dsgDryRun'
 data DeleteSecurityGroup = DeleteSecurityGroup'
     { _dsgGroupId   :: !(Maybe Text)
     , _dsgGroupName :: !(Maybe Text)
     , _dsgDryRun    :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSecurityGroup' smart constructor.
-deleteSecurityGroup :: DeleteSecurityGroup
+-- | Creates a value of 'DeleteSecurityGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsgGroupId'
+--
+-- * 'dsgGroupName'
+--
+-- * 'dsgDryRun'
+deleteSecurityGroup
+    :: DeleteSecurityGroup
 deleteSecurityGroup =
     DeleteSecurityGroup'
     { _dsgGroupId = Nothing
@@ -82,8 +83,8 @@ dsgGroupName = lens _dsgGroupName (\ s a -> s{_dsgGroupName = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dsgDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
 dsgDryRun = lens _dsgDryRun (\ s a -> s{_dsgDryRun = a});
 
@@ -113,6 +114,8 @@ data DeleteSecurityGroupResponse =
     DeleteSecurityGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSecurityGroupResponse' smart constructor.
-deleteSecurityGroupResponse :: DeleteSecurityGroupResponse
+-- | Creates a value of 'DeleteSecurityGroupResponse' with the minimum fields required to make a request.
+--
+deleteSecurityGroupResponse
+    :: DeleteSecurityGroupResponse
 deleteSecurityGroupResponse = DeleteSecurityGroupResponse'

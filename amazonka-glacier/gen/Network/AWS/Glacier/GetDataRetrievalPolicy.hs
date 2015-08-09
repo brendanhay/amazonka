@@ -27,14 +27,14 @@
 module Network.AWS.Glacier.GetDataRetrievalPolicy
     (
     -- * Creating a Request
-      GetDataRetrievalPolicy
-    , getDataRetrievalPolicy
+      getDataRetrievalPolicy
+    , GetDataRetrievalPolicy
     -- * Request Lenses
     , gdrpAccountId
 
     -- * Destructuring the Response
-    , GetDataRetrievalPolicyResponse
     , getDataRetrievalPolicyResponse
+    , GetDataRetrievalPolicyResponse
     -- * Response Lenses
     , gdrprsPolicy
     , gdrprsStatus
@@ -49,25 +49,27 @@ import           Network.AWS.Response
 -- | Input for GetDataRetrievalPolicy.
 --
 -- /See:/ 'getDataRetrievalPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdrpAccountId'
 newtype GetDataRetrievalPolicy = GetDataRetrievalPolicy'
     { _gdrpAccountId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDataRetrievalPolicy' smart constructor.
-getDataRetrievalPolicy :: Text -> GetDataRetrievalPolicy
+-- | Creates a value of 'GetDataRetrievalPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdrpAccountId'
+getDataRetrievalPolicy
+    :: Text -- ^ 'gdrpAccountId'
+    -> GetDataRetrievalPolicy
 getDataRetrievalPolicy pAccountId_ =
     GetDataRetrievalPolicy'
     { _gdrpAccountId = pAccountId_
     }
 
--- | The @AccountId@ value is the AWS account ID. This value must match the
+-- | The 'AccountId' value is the AWS account ID. This value must match the
 -- AWS account ID associated with the credentials used to sign the request.
 -- You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you
 -- specify your account ID, do not include any hyphens (apos-apos) in the
 -- ID.
@@ -97,23 +99,25 @@ instance ToPath GetDataRetrievalPolicy where
 instance ToQuery GetDataRetrievalPolicy where
         toQuery = const mempty
 
--- | Contains the Amazon Glacier response to the @GetDataRetrievalPolicy@
+-- | Contains the Amazon Glacier response to the 'GetDataRetrievalPolicy'
 -- request.
 --
 -- /See:/ 'getDataRetrievalPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdrprsPolicy'
---
--- * 'gdrprsStatus'
 data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
     { _gdrprsPolicy :: !(Maybe DataRetrievalPolicy)
     , _gdrprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDataRetrievalPolicyResponse' smart constructor.
-getDataRetrievalPolicyResponse :: Int -> GetDataRetrievalPolicyResponse
+-- | Creates a value of 'GetDataRetrievalPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdrprsPolicy'
+--
+-- * 'gdrprsStatus'
+getDataRetrievalPolicyResponse
+    :: Int -- ^ 'gdrprsStatus'
+    -> GetDataRetrievalPolicyResponse
 getDataRetrievalPolicyResponse pStatus_ =
     GetDataRetrievalPolicyResponse'
     { _gdrprsPolicy = Nothing
@@ -124,6 +128,6 @@ getDataRetrievalPolicyResponse pStatus_ =
 gdrprsPolicy :: Lens' GetDataRetrievalPolicyResponse (Maybe DataRetrievalPolicy)
 gdrprsPolicy = lens _gdrprsPolicy (\ s a -> s{_gdrprsPolicy = a});
 
--- | Undocumented member.
+-- | The response status code.
 gdrprsStatus :: Lens' GetDataRetrievalPolicyResponse Int
 gdrprsStatus = lens _gdrprsStatus (\ s a -> s{_gdrprsStatus = a});

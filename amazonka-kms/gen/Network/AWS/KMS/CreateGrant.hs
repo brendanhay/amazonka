@@ -33,8 +33,8 @@
 module Network.AWS.KMS.CreateGrant
     (
     -- * Creating a Request
-      CreateGrant
-    , createGrant
+      createGrant
+    , CreateGrant
     -- * Request Lenses
     , cgRetiringPrincipal
     , cgConstraints
@@ -44,8 +44,8 @@ module Network.AWS.KMS.CreateGrant
     , cgGranteePrincipal
 
     -- * Destructuring the Response
-    , CreateGrantResponse
     , createGrantResponse
+    , CreateGrantResponse
     -- * Response Lenses
     , cgrsGrantId
     , cgrsGrantToken
@@ -59,8 +59,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createGrant' smart constructor.
+data CreateGrant = CreateGrant'
+    { _cgRetiringPrincipal :: !(Maybe Text)
+    , _cgConstraints       :: !(Maybe GrantConstraints)
+    , _cgGrantTokens       :: !(Maybe [Text])
+    , _cgOperations        :: !(Maybe [GrantOperation])
+    , _cgKeyId             :: !Text
+    , _cgGranteePrincipal  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateGrant' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cgRetiringPrincipal'
 --
@@ -73,17 +83,10 @@ import           Network.AWS.Response
 -- * 'cgKeyId'
 --
 -- * 'cgGranteePrincipal'
-data CreateGrant = CreateGrant'
-    { _cgRetiringPrincipal :: !(Maybe Text)
-    , _cgConstraints       :: !(Maybe GrantConstraints)
-    , _cgGrantTokens       :: !(Maybe [Text])
-    , _cgOperations        :: !(Maybe [GrantOperation])
-    , _cgKeyId             :: !Text
-    , _cgGranteePrincipal  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateGrant' smart constructor.
-createGrant :: Text -> Text -> CreateGrant
+createGrant
+    :: Text -- ^ 'cgKeyId'
+    -> Text -- ^ 'cgGranteePrincipal'
+    -> CreateGrant
 createGrant pKeyId_ pGranteePrincipal_ =
     CreateGrant'
     { _cgRetiringPrincipal = Nothing
@@ -100,7 +103,7 @@ cgRetiringPrincipal :: Lens' CreateGrant (Maybe Text)
 cgRetiringPrincipal = lens _cgRetiringPrincipal (\ s a -> s{_cgRetiringPrincipal = a});
 
 -- | Specifies the conditions under which the actions specified by the
--- @Operations@ parameter are allowed.
+-- 'Operations' parameter are allowed.
 cgConstraints :: Lens' CreateGrant (Maybe GrantConstraints)
 cgConstraints = lens _cgConstraints (\ s a -> s{_cgConstraints = a});
 
@@ -134,7 +137,7 @@ cgKeyId :: Lens' CreateGrant Text
 cgKeyId = lens _cgKeyId (\ s a -> s{_cgKeyId = a});
 
 -- | Principal given permission by the grant to use the key identified by the
--- @keyId@ parameter.
+-- 'keyId' parameter.
 cgGranteePrincipal :: Lens' CreateGrant Text
 cgGranteePrincipal = lens _cgGranteePrincipal (\ s a -> s{_cgGranteePrincipal = a});
 
@@ -174,22 +177,24 @@ instance ToQuery CreateGrant where
         toQuery = const mempty
 
 -- | /See:/ 'createGrantResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cgrsGrantId'
---
--- * 'cgrsGrantToken'
---
--- * 'cgrsStatus'
 data CreateGrantResponse = CreateGrantResponse'
     { _cgrsGrantId    :: !(Maybe Text)
     , _cgrsGrantToken :: !(Maybe Text)
     , _cgrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateGrantResponse' smart constructor.
-createGrantResponse :: Int -> CreateGrantResponse
+-- | Creates a value of 'CreateGrantResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cgrsGrantId'
+--
+-- * 'cgrsGrantToken'
+--
+-- * 'cgrsStatus'
+createGrantResponse
+    :: Int -- ^ 'cgrsStatus'
+    -> CreateGrantResponse
 createGrantResponse pStatus_ =
     CreateGrantResponse'
     { _cgrsGrantId = Nothing
@@ -207,6 +212,6 @@ cgrsGrantId = lens _cgrsGrantId (\ s a -> s{_cgrsGrantId = a});
 cgrsGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrsGrantToken = lens _cgrsGrantToken (\ s a -> s{_cgrsGrantToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 cgrsStatus :: Lens' CreateGrantResponse Int
 cgrsStatus = lens _cgrsStatus (\ s a -> s{_cgrsStatus = a});

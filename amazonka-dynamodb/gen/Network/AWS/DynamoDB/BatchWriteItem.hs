@@ -100,16 +100,16 @@
 module Network.AWS.DynamoDB.BatchWriteItem
     (
     -- * Creating a Request
-      BatchWriteItem
-    , batchWriteItem
+      batchWriteItem
+    , BatchWriteItem
     -- * Request Lenses
     , bwiReturnConsumedCapacity
     , bwiReturnItemCollectionMetrics
     , bwiRequestItems
 
     -- * Destructuring the Response
-    , BatchWriteItemResponse
     , batchWriteItemResponse
+    , BatchWriteItemResponse
     -- * Response Lenses
     , bwirsConsumedCapacity
     , bwirsItemCollectionMetrics
@@ -126,22 +126,23 @@ import           Network.AWS.Response
 -- | Represents the input of a /BatchWriteItem/ operation.
 --
 -- /See:/ 'batchWriteItem' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bwiReturnConsumedCapacity'
---
--- * 'bwiReturnItemCollectionMetrics'
---
--- * 'bwiRequestItems'
 data BatchWriteItem = BatchWriteItem'
     { _bwiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
     , _bwiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
     , _bwiRequestItems                :: !(Map Text (List1 WriteRequest))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BatchWriteItem' smart constructor.
-batchWriteItem :: BatchWriteItem
+-- | Creates a value of 'BatchWriteItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bwiReturnConsumedCapacity'
+--
+-- * 'bwiReturnItemCollectionMetrics'
+--
+-- * 'bwiRequestItems'
+batchWriteItem
+    :: BatchWriteItem
 batchWriteItem =
     BatchWriteItem'
     { _bwiReturnConsumedCapacity = Nothing
@@ -154,9 +155,9 @@ bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
 bwiReturnConsumedCapacity = lens _bwiReturnConsumedCapacity (\ s a -> s{_bwiReturnConsumedCapacity = a});
 
 -- | Determines whether item collection metrics are returned. If set to
--- @SIZE@, the response includes statistics about item collections, if any,
+-- 'SIZE', the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
--- set to @NONE@ (the default), no statistics are returned.
+-- set to 'NONE' (the default), no statistics are returned.
 bwiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
 bwiReturnItemCollectionMetrics = lens _bwiReturnItemCollectionMetrics (\ s a -> s{_bwiReturnItemCollectionMetrics = a});
 
@@ -232,8 +233,16 @@ instance ToQuery BatchWriteItem where
 -- | Represents the output of a /BatchWriteItem/ operation.
 --
 -- /See:/ 'batchWriteItemResponse' smart constructor.
+data BatchWriteItemResponse = BatchWriteItemResponse'
+    { _bwirsConsumedCapacity      :: !(Maybe [ConsumedCapacity])
+    , _bwirsItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
+    , _bwirsUnprocessedItems      :: !(Maybe (Map Text (List1 WriteRequest)))
+    , _bwirsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BatchWriteItemResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'bwirsConsumedCapacity'
 --
@@ -242,15 +251,9 @@ instance ToQuery BatchWriteItem where
 -- * 'bwirsUnprocessedItems'
 --
 -- * 'bwirsStatus'
-data BatchWriteItemResponse = BatchWriteItemResponse'
-    { _bwirsConsumedCapacity      :: !(Maybe [ConsumedCapacity])
-    , _bwirsItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
-    , _bwirsUnprocessedItems      :: !(Maybe (Map Text (List1 WriteRequest)))
-    , _bwirsStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'BatchWriteItemResponse' smart constructor.
-batchWriteItemResponse :: Int -> BatchWriteItemResponse
+batchWriteItemResponse
+    :: Int -- ^ 'bwirsStatus'
+    -> BatchWriteItemResponse
 batchWriteItemResponse pStatus_ =
     BatchWriteItemResponse'
     { _bwirsConsumedCapacity = Nothing
@@ -329,6 +332,6 @@ bwirsItemCollectionMetrics = lens _bwirsItemCollectionMetrics (\ s a -> s{_bwirs
 bwirsUnprocessedItems :: Lens' BatchWriteItemResponse (HashMap Text (NonEmpty WriteRequest))
 bwirsUnprocessedItems = lens _bwirsUnprocessedItems (\ s a -> s{_bwirsUnprocessedItems = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 bwirsStatus :: Lens' BatchWriteItemResponse Int
 bwirsStatus = lens _bwirsStatus (\ s a -> s{_bwirsStatus = a});

@@ -23,23 +23,23 @@
 -- API to obtain a snapshot of the configuration of IAM permissions (users,
 -- groups, roles, and policies) in your account.
 --
--- You can optionally filter the results using the @Filter@ parameter. You
--- can paginate the results using the @MaxItems@ and @Marker@ parameters.
+-- You can optionally filter the results using the 'Filter' parameter. You
+-- can paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html AWS API Reference> for GetAccountAuthorizationDetails.
 module Network.AWS.IAM.GetAccountAuthorizationDetails
     (
     -- * Creating a Request
-      GetAccountAuthorizationDetails
-    , getAccountAuthorizationDetails
+      getAccountAuthorizationDetails
+    , GetAccountAuthorizationDetails
     -- * Request Lenses
     , gaadMaxItems
     , gaadMarker
     , gaadFilter
 
     -- * Destructuring the Response
-    , GetAccountAuthorizationDetailsResponse
     , getAccountAuthorizationDetailsResponse
+    , GetAccountAuthorizationDetailsResponse
     -- * Response Lenses
     , gaadrsRoleDetailList
     , gaadrsGroupDetailList
@@ -57,22 +57,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getAccountAuthorizationDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gaadMaxItems'
---
--- * 'gaadMarker'
---
--- * 'gaadFilter'
 data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
     { _gaadMaxItems :: !(Maybe Nat)
     , _gaadMarker   :: !(Maybe Text)
     , _gaadFilter   :: !(Maybe [EntityType])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetAccountAuthorizationDetails' smart constructor.
-getAccountAuthorizationDetails :: GetAccountAuthorizationDetails
+-- | Creates a value of 'GetAccountAuthorizationDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gaadMaxItems'
+--
+-- * 'gaadMarker'
+--
+-- * 'gaadFilter'
+getAccountAuthorizationDetails
+    :: GetAccountAuthorizationDetails
 getAccountAuthorizationDetails =
     GetAccountAuthorizationDetails'
     { _gaadMaxItems = Nothing
@@ -82,7 +83,7 @@ getAccountAuthorizationDetails =
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -91,7 +92,7 @@ gaadMaxItems = lens _gaadMaxItems (\ s a -> s{_gaadMaxItems = a}) . mapping _Nat
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 gaadMarker :: Lens' GetAccountAuthorizationDetails (Maybe Text)
 gaadMarker = lens _gaadMarker (\ s a -> s{_gaadMarker = a});
 
@@ -147,8 +148,19 @@ instance ToQuery GetAccountAuthorizationDetails where
 -- request.
 --
 -- /See:/ 'getAccountAuthorizationDetailsResponse' smart constructor.
+data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
+    { _gaadrsRoleDetailList  :: !(Maybe [RoleDetail])
+    , _gaadrsGroupDetailList :: !(Maybe [GroupDetail])
+    , _gaadrsUserDetailList  :: !(Maybe [UserDetail])
+    , _gaadrsMarker          :: !(Maybe Text)
+    , _gaadrsIsTruncated     :: !(Maybe Bool)
+    , _gaadrsPolicies        :: !(Maybe [ManagedPolicyDetail])
+    , _gaadrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetAccountAuthorizationDetailsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gaadrsRoleDetailList'
 --
@@ -163,18 +175,9 @@ instance ToQuery GetAccountAuthorizationDetails where
 -- * 'gaadrsPolicies'
 --
 -- * 'gaadrsStatus'
-data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
-    { _gaadrsRoleDetailList  :: !(Maybe [RoleDetail])
-    , _gaadrsGroupDetailList :: !(Maybe [GroupDetail])
-    , _gaadrsUserDetailList  :: !(Maybe [UserDetail])
-    , _gaadrsMarker          :: !(Maybe Text)
-    , _gaadrsIsTruncated     :: !(Maybe Bool)
-    , _gaadrsPolicies        :: !(Maybe [ManagedPolicyDetail])
-    , _gaadrsStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetAccountAuthorizationDetailsResponse' smart constructor.
-getAccountAuthorizationDetailsResponse :: Int -> GetAccountAuthorizationDetailsResponse
+getAccountAuthorizationDetailsResponse
+    :: Int -- ^ 'gaadrsStatus'
+    -> GetAccountAuthorizationDetailsResponse
 getAccountAuthorizationDetailsResponse pStatus_ =
     GetAccountAuthorizationDetailsResponse'
     { _gaadrsRoleDetailList = Nothing
@@ -198,15 +201,15 @@ gaadrsGroupDetailList = lens _gaadrsGroupDetailList (\ s a -> s{_gaadrsGroupDeta
 gaadrsUserDetailList :: Lens' GetAccountAuthorizationDetailsResponse [UserDetail]
 gaadrsUserDetailList = lens _gaadrsUserDetailList (\ s a -> s{_gaadrsUserDetailList = a}) . _Default . _Coerce;
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 gaadrsMarker :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Text)
 gaadrsMarker = lens _gaadrsMarker (\ s a -> s{_gaadrsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 gaadrsIsTruncated :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Bool)
 gaadrsIsTruncated = lens _gaadrsIsTruncated (\ s a -> s{_gaadrsIsTruncated = a});
 
@@ -214,6 +217,6 @@ gaadrsIsTruncated = lens _gaadrsIsTruncated (\ s a -> s{_gaadrsIsTruncated = a})
 gaadrsPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDetail]
 gaadrsPolicies = lens _gaadrsPolicies (\ s a -> s{_gaadrsPolicies = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 gaadrsStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
 gaadrsStatus = lens _gaadrsStatus (\ s a -> s{_gaadrsStatus = a});

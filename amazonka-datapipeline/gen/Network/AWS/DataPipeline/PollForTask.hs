@@ -18,36 +18,36 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Task runners call @PollForTask@ to receive a task to perform from AWS
+-- Task runners call 'PollForTask' to receive a task to perform from AWS
 -- Data Pipeline. The task runner specifies which tasks it can perform by
--- setting a value for the @workerGroup@ parameter. The task returned can
--- come from any of the pipelines that match the @workerGroup@ value passed
+-- setting a value for the 'workerGroup' parameter. The task returned can
+-- come from any of the pipelines that match the 'workerGroup' value passed
 -- in by the task runner and that was launched using the IAM user
 -- credentials specified by the task runner.
 --
--- If tasks are ready in the work queue, @PollForTask@ returns a response
--- immediately. If no tasks are available in the queue, @PollForTask@ uses
+-- If tasks are ready in the work queue, 'PollForTask' returns a response
+-- immediately. If no tasks are available in the queue, 'PollForTask' uses
 -- long-polling and holds on to a poll connection for up to a 90 seconds,
 -- during which time the first newly scheduled task is handed to the task
 -- runner. To accomodate this, set the socket timeout in your task runner
--- to 90 seconds. The task runner should not call @PollForTask@ again on
--- the same @workerGroup@ until it receives a response, and this can take
+-- to 90 seconds. The task runner should not call 'PollForTask' again on
+-- the same 'workerGroup' until it receives a response, and this can take
 -- up to 90 seconds.
 --
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PollForTask.html AWS API Reference> for PollForTask.
 module Network.AWS.DataPipeline.PollForTask
     (
     -- * Creating a Request
-      PollForTask
-    , pollForTask
+      pollForTask
+    , PollForTask
     -- * Request Lenses
     , pftHostname
     , pftInstanceIdentity
     , pftWorkerGroup
 
     -- * Destructuring the Response
-    , PollForTaskResponse
     , pollForTaskResponse
+    , PollForTaskResponse
     -- * Response Lenses
     , pftrsTaskObject
     , pftrsStatus
@@ -62,22 +62,24 @@ import           Network.AWS.Response
 -- | Contains the parameters for PollForTask.
 --
 -- /See:/ 'pollForTask' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pftHostname'
---
--- * 'pftInstanceIdentity'
---
--- * 'pftWorkerGroup'
 data PollForTask = PollForTask'
     { _pftHostname         :: !(Maybe Text)
     , _pftInstanceIdentity :: !(Maybe InstanceIdentity)
     , _pftWorkerGroup      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PollForTask' smart constructor.
-pollForTask :: Text -> PollForTask
+-- | Creates a value of 'PollForTask' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pftHostname'
+--
+-- * 'pftInstanceIdentity'
+--
+-- * 'pftWorkerGroup'
+pollForTask
+    :: Text -- ^ 'pftWorkerGroup'
+    -> PollForTask
 pollForTask pWorkerGroup_ =
     PollForTask'
     { _pftHostname = Nothing
@@ -91,7 +93,7 @@ pftHostname = lens _pftHostname (\ s a -> s{_pftHostname = a});
 
 -- | Identity information for the EC2 instance that is hosting the task
 -- runner. You can get this value from the instance using
--- @http:\/\/169.254.169.254\/latest\/meta-data\/instance-id@. For more
+-- 'http:\/\/169.254.169.254\/latest\/meta-data\/instance-id'. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata>
 -- in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value
@@ -103,9 +105,9 @@ pftInstanceIdentity = lens _pftInstanceIdentity (\ s a -> s{_pftInstanceIdentity
 
 -- | The type of task the task runner is configured to accept and process.
 -- The worker group is set as a field on objects in the pipeline when they
--- are created. You can only specify a single value for @workerGroup@ in
--- the call to @PollForTask@. There are no wildcard values permitted in
--- @workerGroup@; the string must be an exact, case-sensitive, match.
+-- are created. You can only specify a single value for 'workerGroup' in
+-- the call to 'PollForTask'. There are no wildcard values permitted in
+-- 'workerGroup'; the string must be an exact, case-sensitive, match.
 pftWorkerGroup :: Lens' PollForTask Text
 pftWorkerGroup = lens _pftWorkerGroup (\ s a -> s{_pftWorkerGroup = a});
 
@@ -144,19 +146,21 @@ instance ToQuery PollForTask where
 -- | Contains the output of PollForTask.
 --
 -- /See:/ 'pollForTaskResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pftrsTaskObject'
---
--- * 'pftrsStatus'
 data PollForTaskResponse = PollForTaskResponse'
     { _pftrsTaskObject :: !(Maybe TaskObject)
     , _pftrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PollForTaskResponse' smart constructor.
-pollForTaskResponse :: Int -> PollForTaskResponse
+-- | Creates a value of 'PollForTaskResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pftrsTaskObject'
+--
+-- * 'pftrsStatus'
+pollForTaskResponse
+    :: Int -- ^ 'pftrsStatus'
+    -> PollForTaskResponse
 pollForTaskResponse pStatus_ =
     PollForTaskResponse'
     { _pftrsTaskObject = Nothing
@@ -164,13 +168,13 @@ pollForTaskResponse pStatus_ =
     }
 
 -- | The information needed to complete the task that is being assigned to
--- the task runner. One of the fields returned in this object is @taskId@,
+-- the task runner. One of the fields returned in this object is 'taskId',
 -- which contains an identifier for the task being assigned. The calling
--- task runner uses @taskId@ in subsequent calls to ReportTaskProgress and
+-- task runner uses 'taskId' in subsequent calls to ReportTaskProgress and
 -- SetTaskStatus.
 pftrsTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
 pftrsTaskObject = lens _pftrsTaskObject (\ s a -> s{_pftrsTaskObject = a});
 
--- | Undocumented member.
+-- | The response status code.
 pftrsStatus :: Lens' PollForTaskResponse Int
 pftrsStatus = lens _pftrsStatus (\ s a -> s{_pftrsStatus = a});

@@ -31,15 +31,15 @@
 module Network.AWS.IAM.DeleteGroupPolicy
     (
     -- * Creating a Request
-      DeleteGroupPolicy
-    , deleteGroupPolicy
+      deleteGroupPolicy
+    , DeleteGroupPolicy
     -- * Request Lenses
     , dGroupName
     , dPolicyName
 
     -- * Destructuring the Response
-    , DeleteGroupPolicyResponse
     , deleteGroupPolicyResponse
+    , DeleteGroupPolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -49,19 +49,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteGroupPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dGroupName'
---
--- * 'dPolicyName'
 data DeleteGroupPolicy = DeleteGroupPolicy'
     { _dGroupName  :: !Text
     , _dPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteGroupPolicy' smart constructor.
-deleteGroupPolicy :: Text -> Text -> DeleteGroupPolicy
+-- | Creates a value of 'DeleteGroupPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dGroupName'
+--
+-- * 'dPolicyName'
+deleteGroupPolicy
+    :: Text -- ^ 'dGroupName'
+    -> Text -- ^ 'dPolicyName'
+    -> DeleteGroupPolicy
 deleteGroupPolicy pGroupName_ pPolicyName_ =
     DeleteGroupPolicy'
     { _dGroupName = pGroupName_
@@ -102,6 +105,8 @@ data DeleteGroupPolicyResponse =
     DeleteGroupPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteGroupPolicyResponse' smart constructor.
-deleteGroupPolicyResponse :: DeleteGroupPolicyResponse
+-- | Creates a value of 'DeleteGroupPolicyResponse' with the minimum fields required to make a request.
+--
+deleteGroupPolicyResponse
+    :: DeleteGroupPolicyResponse
 deleteGroupPolicyResponse = DeleteGroupPolicyResponse'

@@ -24,14 +24,14 @@
 module Network.AWS.S3.GetBucketRequestPayment
     (
     -- * Creating a Request
-      GetBucketRequestPayment
-    , getBucketRequestPayment
+      getBucketRequestPayment
+    , GetBucketRequestPayment
     -- * Request Lenses
     , gbrpBucket
 
     -- * Destructuring the Response
-    , GetBucketRequestPaymentResponse
     , getBucketRequestPaymentResponse
+    , GetBucketRequestPaymentResponse
     -- * Response Lenses
     , gbrprsPayer
     , gbrprsStatus
@@ -44,16 +44,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketRequestPayment' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbrpBucket'
 newtype GetBucketRequestPayment = GetBucketRequestPayment'
     { _gbrpBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketRequestPayment' smart constructor.
-getBucketRequestPayment :: BucketName -> GetBucketRequestPayment
+-- | Creates a value of 'GetBucketRequestPayment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbrpBucket'
+getBucketRequestPayment
+    :: BucketName -- ^ 'gbrpBucket'
+    -> GetBucketRequestPayment
 getBucketRequestPayment pBucket_ =
     GetBucketRequestPayment'
     { _gbrpBucket = pBucket_
@@ -85,19 +87,21 @@ instance ToQuery GetBucketRequestPayment where
         toQuery = const (mconcat ["requestPayment"])
 
 -- | /See:/ 'getBucketRequestPaymentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbrprsPayer'
---
--- * 'gbrprsStatus'
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
     { _gbrprsPayer  :: !(Maybe Payer)
     , _gbrprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketRequestPaymentResponse' smart constructor.
-getBucketRequestPaymentResponse :: Int -> GetBucketRequestPaymentResponse
+-- | Creates a value of 'GetBucketRequestPaymentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbrprsPayer'
+--
+-- * 'gbrprsStatus'
+getBucketRequestPaymentResponse
+    :: Int -- ^ 'gbrprsStatus'
+    -> GetBucketRequestPaymentResponse
 getBucketRequestPaymentResponse pStatus_ =
     GetBucketRequestPaymentResponse'
     { _gbrprsPayer = Nothing
@@ -108,6 +112,6 @@ getBucketRequestPaymentResponse pStatus_ =
 gbrprsPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
 gbrprsPayer = lens _gbrprsPayer (\ s a -> s{_gbrprsPayer = a});
 
--- | Undocumented member.
+-- | The response status code.
 gbrprsStatus :: Lens' GetBucketRequestPaymentResponse Int
 gbrprsStatus = lens _gbrprsStatus (\ s a -> s{_gbrprsStatus = a});

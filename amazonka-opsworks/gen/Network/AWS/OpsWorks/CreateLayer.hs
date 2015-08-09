@@ -38,8 +38,8 @@
 module Network.AWS.OpsWorks.CreateLayer
     (
     -- * Creating a Request
-      CreateLayer
-    , createLayer
+      createLayer
+    , CreateLayer
     -- * Request Lenses
     , clCustomInstanceProfileARN
     , clInstallUpdatesOnBoot
@@ -60,8 +60,8 @@ module Network.AWS.OpsWorks.CreateLayer
     , clShortname
 
     -- * Destructuring the Response
-    , CreateLayerResponse
     , createLayerResponse
+    , CreateLayerResponse
     -- * Response Lenses
     , clrsLayerId
     , clrsStatus
@@ -74,8 +74,29 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createLayer' smart constructor.
+data CreateLayer = CreateLayer'
+    { _clCustomInstanceProfileARN    :: !(Maybe Text)
+    , _clInstallUpdatesOnBoot        :: !(Maybe Bool)
+    , _clCustomSecurityGroupIds      :: !(Maybe [Text])
+    , _clLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+    , _clCustomRecipes               :: !(Maybe Recipes)
+    , _clVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
+    , _clCustomJSON                  :: !(Maybe Text)
+    , _clEnableAutoHealing           :: !(Maybe Bool)
+    , _clPackages                    :: !(Maybe [Text])
+    , _clAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
+    , _clAutoAssignPublicIPs         :: !(Maybe Bool)
+    , _clUseEBSOptimizedInstances    :: !(Maybe Bool)
+    , _clAutoAssignElasticIPs        :: !(Maybe Bool)
+    , _clStackId                     :: !Text
+    , _clType                        :: !LayerType
+    , _clName                        :: !Text
+    , _clShortname                   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateLayer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'clCustomInstanceProfileARN'
 --
@@ -110,28 +131,12 @@ import           Network.AWS.Response
 -- * 'clName'
 --
 -- * 'clShortname'
-data CreateLayer = CreateLayer'
-    { _clCustomInstanceProfileARN    :: !(Maybe Text)
-    , _clInstallUpdatesOnBoot        :: !(Maybe Bool)
-    , _clCustomSecurityGroupIds      :: !(Maybe [Text])
-    , _clLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
-    , _clCustomRecipes               :: !(Maybe Recipes)
-    , _clVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
-    , _clCustomJSON                  :: !(Maybe Text)
-    , _clEnableAutoHealing           :: !(Maybe Bool)
-    , _clPackages                    :: !(Maybe [Text])
-    , _clAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
-    , _clAutoAssignPublicIPs         :: !(Maybe Bool)
-    , _clUseEBSOptimizedInstances    :: !(Maybe Bool)
-    , _clAutoAssignElasticIPs        :: !(Maybe Bool)
-    , _clStackId                     :: !Text
-    , _clType                        :: !LayerType
-    , _clName                        :: !Text
-    , _clShortname                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateLayer' smart constructor.
-createLayer :: Text -> LayerType -> Text -> Text -> CreateLayer
+createLayer
+    :: Text -- ^ 'clStackId'
+    -> LayerType -- ^ 'clType'
+    -> Text -- ^ 'clName'
+    -> Text -- ^ 'clShortname'
+    -> CreateLayer
 createLayer pStackId_ pType_ pName_ pShortname_ =
     CreateLayer'
     { _clCustomInstanceProfileARN = Nothing
@@ -160,14 +165,14 @@ clCustomInstanceProfileARN :: Lens' CreateLayer (Maybe Text)
 clCustomInstanceProfileARN = lens _clCustomInstanceProfileARN (\ s a -> s{_clCustomInstanceProfileARN = a});
 
 -- | Whether to install operating system and package updates when the
--- instance boots. The default value is @true@. To control when updates are
--- installed, set this value to @false@. You must then update your
+-- instance boots. The default value is 'true'. To control when updates are
+-- installed, set this value to 'false'. You must then update your
 -- instances manually by using CreateDeployment to run the
--- @update_dependencies@ stack command or by manually running @yum@ (Amazon
--- Linux) or @apt-get@ (Ubuntu) on the instances.
+-- 'update_dependencies' stack command or by manually running 'yum' (Amazon
+-- Linux) or 'apt-get' (Ubuntu) on the instances.
 --
 -- To ensure that your instances have the latest security updates, we
--- strongly recommend using the default value of @true@.
+-- strongly recommend using the default value of 'true'.
 clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
 clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\ s a -> s{_clInstallUpdatesOnBoot = a});
 
@@ -175,17 +180,17 @@ clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\ s a -> s{_clInstallUpda
 clCustomSecurityGroupIds :: Lens' CreateLayer [Text]
 clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomSecurityGroupIds = a}) . _Default . _Coerce;
 
--- | A @LifeCycleEventConfiguration@ object that you can use to configure the
+-- | A 'LifeCycleEventConfiguration' object that you can use to configure the
 -- Shutdown event to specify an execution timeout and enable or disable
 -- Elastic Load Balancer connection draining.
 clLifecycleEventConfiguration :: Lens' CreateLayer (Maybe LifecycleEventConfiguration)
 clLifecycleEventConfiguration = lens _clLifecycleEventConfiguration (\ s a -> s{_clLifecycleEventConfiguration = a});
 
--- | A @LayerCustomRecipes@ object that specifies the layer custom recipes.
+-- | A 'LayerCustomRecipes' object that specifies the layer custom recipes.
 clCustomRecipes :: Lens' CreateLayer (Maybe Recipes)
 clCustomRecipes = lens _clCustomRecipes (\ s a -> s{_clCustomRecipes = a});
 
--- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+-- | A 'VolumeConfigurations' object that describes the layer\'s Amazon EBS
 -- volumes.
 clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
 clVolumeConfigurations = lens _clVolumeConfigurations (\ s a -> s{_clVolumeConfigurations = a}) . _Default . _Coerce;
@@ -201,14 +206,14 @@ clCustomJSON = lens _clCustomJSON (\ s a -> s{_clCustomJSON = a});
 clEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
 clEnableAutoHealing = lens _clEnableAutoHealing (\ s a -> s{_clEnableAutoHealing = a});
 
--- | An array of @Package@ objects that describes the layer packages.
+-- | An array of 'Package' objects that describes the layer packages.
 clPackages :: Lens' CreateLayer [Text]
 clPackages = lens _clPackages (\ s a -> s{_clPackages = a}) . _Default . _Coerce;
 
 -- | One or more user-defined key-value pairs to be added to the stack
 -- attributes.
 --
--- To create a cluster layer, set the @EcsClusterArn@ attribute to the
+-- To create a cluster layer, set the 'EcsClusterArn' attribute to the
 -- cluster\'s ARN.
 clAttributes :: Lens' CreateLayer (HashMap LayerAttributesKeys Text)
 clAttributes = lens _clAttributes (\ s a -> s{_clAttributes = a}) . _Default . _Map;
@@ -303,22 +308,24 @@ instance ToPath CreateLayer where
 instance ToQuery CreateLayer where
         toQuery = const mempty
 
--- | Contains the response to a @CreateLayer@ request.
+-- | Contains the response to a 'CreateLayer' request.
 --
 -- /See:/ 'createLayerResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clrsLayerId'
---
--- * 'clrsStatus'
 data CreateLayerResponse = CreateLayerResponse'
     { _clrsLayerId :: !(Maybe Text)
     , _clrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLayerResponse' smart constructor.
-createLayerResponse :: Int -> CreateLayerResponse
+-- | Creates a value of 'CreateLayerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clrsLayerId'
+--
+-- * 'clrsStatus'
+createLayerResponse
+    :: Int -- ^ 'clrsStatus'
+    -> CreateLayerResponse
 createLayerResponse pStatus_ =
     CreateLayerResponse'
     { _clrsLayerId = Nothing
@@ -329,6 +336,6 @@ createLayerResponse pStatus_ =
 clrsLayerId :: Lens' CreateLayerResponse (Maybe Text)
 clrsLayerId = lens _clrsLayerId (\ s a -> s{_clrsLayerId = a});
 
--- | Undocumented member.
+-- | The response status code.
 clrsStatus :: Lens' CreateLayerResponse Int
 clrsStatus = lens _clrsStatus (\ s a -> s{_clrsStatus = a});

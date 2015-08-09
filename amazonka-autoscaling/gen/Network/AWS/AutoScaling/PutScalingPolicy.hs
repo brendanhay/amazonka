@@ -33,8 +33,8 @@
 module Network.AWS.AutoScaling.PutScalingPolicy
     (
     -- * Creating a Request
-      PutScalingPolicy
-    , putScalingPolicy
+      putScalingPolicy
+    , PutScalingPolicy
     -- * Request Lenses
     , pspEstimatedInstanceWarmup
     , pspMinAdjustmentStep
@@ -49,8 +49,8 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     , pspAdjustmentType
 
     -- * Destructuring the Response
-    , PutScalingPolicyResponse
     , putScalingPolicyResponse
+    , PutScalingPolicyResponse
     -- * Response Lenses
     , psprsPolicyARN
     , psprsStatus
@@ -63,8 +63,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putScalingPolicy' smart constructor.
+data PutScalingPolicy = PutScalingPolicy'
+    { _pspEstimatedInstanceWarmup :: !(Maybe Int)
+    , _pspMinAdjustmentStep       :: !(Maybe Int)
+    , _pspPolicyType              :: !(Maybe Text)
+    , _pspStepAdjustments         :: !(Maybe [StepAdjustment])
+    , _pspScalingAdjustment       :: !(Maybe Int)
+    , _pspCooldown                :: !(Maybe Int)
+    , _pspMetricAggregationType   :: !(Maybe Text)
+    , _pspMinAdjustmentMagnitude  :: !(Maybe Int)
+    , _pspAutoScalingGroupName    :: !Text
+    , _pspPolicyName              :: !Text
+    , _pspAdjustmentType          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutScalingPolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pspEstimatedInstanceWarmup'
 --
@@ -87,22 +102,11 @@ import           Network.AWS.Response
 -- * 'pspPolicyName'
 --
 -- * 'pspAdjustmentType'
-data PutScalingPolicy = PutScalingPolicy'
-    { _pspEstimatedInstanceWarmup :: !(Maybe Int)
-    , _pspMinAdjustmentStep       :: !(Maybe Int)
-    , _pspPolicyType              :: !(Maybe Text)
-    , _pspStepAdjustments         :: !(Maybe [StepAdjustment])
-    , _pspScalingAdjustment       :: !(Maybe Int)
-    , _pspCooldown                :: !(Maybe Int)
-    , _pspMetricAggregationType   :: !(Maybe Text)
-    , _pspMinAdjustmentMagnitude  :: !(Maybe Int)
-    , _pspAutoScalingGroupName    :: !Text
-    , _pspPolicyName              :: !Text
-    , _pspAdjustmentType          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutScalingPolicy' smart constructor.
-putScalingPolicy :: Text -> Text -> Text -> PutScalingPolicy
+putScalingPolicy
+    :: Text -- ^ 'pspAutoScalingGroupName'
+    -> Text -- ^ 'pspPolicyName'
+    -> Text -- ^ 'pspAdjustmentType'
+    -> PutScalingPolicy
 putScalingPolicy pAutoScalingGroupName_ pPolicyName_ pAdjustmentType_ =
     PutScalingPolicy'
     { _pspEstimatedInstanceWarmup = Nothing
@@ -122,24 +126,24 @@ putScalingPolicy pAutoScalingGroupName_ pPolicyName_ pAdjustmentType_ =
 -- contribute to the CloudWatch metrics. The default is to use the value
 -- specified for the default cooldown period for the group.
 --
--- This parameter is not supported if the policy type is @SimpleScaling@.
+-- This parameter is not supported if the policy type is 'SimpleScaling'.
 pspEstimatedInstanceWarmup :: Lens' PutScalingPolicy (Maybe Int)
 pspEstimatedInstanceWarmup = lens _pspEstimatedInstanceWarmup (\ s a -> s{_pspEstimatedInstanceWarmup = a});
 
--- | Available for backward compatibility. Use @MinAdjustmentMagnitude@
+-- | Available for backward compatibility. Use 'MinAdjustmentMagnitude'
 -- instead.
 pspMinAdjustmentStep :: Lens' PutScalingPolicy (Maybe Int)
 pspMinAdjustmentStep = lens _pspMinAdjustmentStep (\ s a -> s{_pspMinAdjustmentStep = a});
 
--- | The policy type. Valid values are @SimpleScaling@ and @StepScaling@. If
--- the policy type is null, the value is treated as @SimpleScaling@.
+-- | The policy type. Valid values are 'SimpleScaling' and 'StepScaling'. If
+-- the policy type is null, the value is treated as 'SimpleScaling'.
 pspPolicyType :: Lens' PutScalingPolicy (Maybe Text)
 pspPolicyType = lens _pspPolicyType (\ s a -> s{_pspPolicyType = a});
 
 -- | A set of adjustments that enable you to scale based on the size of the
 -- alarm breach.
 --
--- This parameter is required if the policy type is @StepScaling@ and not
+-- This parameter is required if the policy type is 'StepScaling' and not
 -- supported otherwise.
 pspStepAdjustments :: Lens' PutScalingPolicy [StepAdjustment]
 pspStepAdjustments = lens _pspStepAdjustments (\ s a -> s{_pspStepAdjustments = a}) . _Default . _Coerce;
@@ -148,7 +152,7 @@ pspStepAdjustments = lens _pspStepAdjustments (\ s a -> s{_pspStepAdjustments = 
 -- positive value adds to the current capacity while a negative number
 -- removes from the current capacity.
 --
--- This parameter is required if the policy type is @SimpleScaling@ and not
+-- This parameter is required if the policy type is 'SimpleScaling' and not
 -- supported otherwise.
 pspScalingAdjustment :: Lens' PutScalingPolicy (Maybe Int)
 pspScalingAdjustment = lens _pspScalingAdjustment (\ s a -> s{_pspScalingAdjustment = a});
@@ -158,7 +162,7 @@ pspScalingAdjustment = lens _pspScalingAdjustment (\ s a -> s{_pspScalingAdjustm
 -- specified, the default cooldown period for the group applies.
 --
 -- This parameter is not supported unless the policy type is
--- @SimpleScaling@.
+-- 'SimpleScaling'.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
@@ -167,17 +171,17 @@ pspCooldown :: Lens' PutScalingPolicy (Maybe Int)
 pspCooldown = lens _pspCooldown (\ s a -> s{_pspCooldown = a});
 
 -- | The aggregation type for the CloudWatch metrics. Valid values are
--- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
--- the value is treated as @Average@.
+-- 'Minimum', 'Maximum', and 'Average'. If the aggregation type is null,
+-- the value is treated as 'Average'.
 --
--- This parameter is not supported if the policy type is @SimpleScaling@.
+-- This parameter is not supported if the policy type is 'SimpleScaling'.
 pspMetricAggregationType :: Lens' PutScalingPolicy (Maybe Text)
 pspMetricAggregationType = lens _pspMetricAggregationType (\ s a -> s{_pspMetricAggregationType = a});
 
 -- | The minimum number of instances to scale. If the value of
--- @AdjustmentType@ is @PercentChangeInCapacity@, the scaling policy
--- changes the @DesiredCapacity@ of the Auto Scaling group by at least this
--- many instances. Otherwise, the error is @ValidationError@.
+-- 'AdjustmentType' is 'PercentChangeInCapacity', the scaling policy
+-- changes the 'DesiredCapacity' of the Auto Scaling group by at least this
+-- many instances. Otherwise, the error is 'ValidationError'.
 pspMinAdjustmentMagnitude :: Lens' PutScalingPolicy (Maybe Int)
 pspMinAdjustmentMagnitude = lens _pspMinAdjustmentMagnitude (\ s a -> s{_pspMinAdjustmentMagnitude = a});
 
@@ -189,8 +193,8 @@ pspAutoScalingGroupName = lens _pspAutoScalingGroupName (\ s a -> s{_pspAutoScal
 pspPolicyName :: Lens' PutScalingPolicy Text
 pspPolicyName = lens _pspPolicyName (\ s a -> s{_pspPolicyName = a});
 
--- | The adjustment type. Valid values are @ChangeInCapacity@,
--- @ExactCapacity@, and @PercentChangeInCapacity@.
+-- | The adjustment type. Valid values are 'ChangeInCapacity',
+-- 'ExactCapacity', and 'PercentChangeInCapacity'.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling>
@@ -236,19 +240,21 @@ instance ToQuery PutScalingPolicy where
                "AdjustmentType" =: _pspAdjustmentType]
 
 -- | /See:/ 'putScalingPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'psprsPolicyARN'
---
--- * 'psprsStatus'
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
     { _psprsPolicyARN :: !(Maybe Text)
     , _psprsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutScalingPolicyResponse' smart constructor.
-putScalingPolicyResponse :: Int -> PutScalingPolicyResponse
+-- | Creates a value of 'PutScalingPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'psprsPolicyARN'
+--
+-- * 'psprsStatus'
+putScalingPolicyResponse
+    :: Int -- ^ 'psprsStatus'
+    -> PutScalingPolicyResponse
 putScalingPolicyResponse pStatus_ =
     PutScalingPolicyResponse'
     { _psprsPolicyARN = Nothing
@@ -259,6 +265,6 @@ putScalingPolicyResponse pStatus_ =
 psprsPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprsPolicyARN = lens _psprsPolicyARN (\ s a -> s{_psprsPolicyARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 psprsStatus :: Lens' PutScalingPolicyResponse Int
 psprsStatus = lens _psprsStatus (\ s a -> s{_psprsStatus = a});

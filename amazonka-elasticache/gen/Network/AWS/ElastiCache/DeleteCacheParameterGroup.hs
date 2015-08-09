@@ -26,14 +26,14 @@
 module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     (
     -- * Creating a Request
-      DeleteCacheParameterGroup
-    , deleteCacheParameterGroup
+      deleteCacheParameterGroup
+    , DeleteCacheParameterGroup
     -- * Request Lenses
     , dCacheParameterGroupName
 
     -- * Destructuring the Response
-    , DeleteCacheParameterGroupResponse
     , deleteCacheParameterGroupResponse
+    , DeleteCacheParameterGroupResponse
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -45,16 +45,18 @@ import           Network.AWS.Response
 -- | Represents the input of a /DeleteCacheParameterGroup/ action.
 --
 -- /See:/ 'deleteCacheParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dCacheParameterGroupName'
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
     { _dCacheParameterGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCacheParameterGroup' smart constructor.
-deleteCacheParameterGroup :: Text -> DeleteCacheParameterGroup
+-- | Creates a value of 'DeleteCacheParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dCacheParameterGroupName'
+deleteCacheParameterGroup
+    :: Text -- ^ 'dCacheParameterGroupName'
+    -> DeleteCacheParameterGroup
 deleteCacheParameterGroup pCacheParameterGroupName_ =
     DeleteCacheParameterGroup'
     { _dCacheParameterGroupName = pCacheParameterGroupName_
@@ -95,6 +97,8 @@ data DeleteCacheParameterGroupResponse =
     DeleteCacheParameterGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCacheParameterGroupResponse' smart constructor.
-deleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse
+-- | Creates a value of 'DeleteCacheParameterGroupResponse' with the minimum fields required to make a request.
+--
+deleteCacheParameterGroupResponse
+    :: DeleteCacheParameterGroupResponse
 deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse'

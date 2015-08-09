@@ -29,16 +29,16 @@
 module Network.AWS.IAM.ListPolicyVersions
     (
     -- * Creating a Request
-      ListPolicyVersions
-    , listPolicyVersions
+      listPolicyVersions
+    , ListPolicyVersions
     -- * Request Lenses
     , lpvMaxItems
     , lpvMarker
     , lpvPolicyARN
 
     -- * Destructuring the Response
-    , ListPolicyVersionsResponse
     , listPolicyVersionsResponse
+    , ListPolicyVersionsResponse
     -- * Response Lenses
     , lpvrsVersions
     , lpvrsMarker
@@ -53,22 +53,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listPolicyVersions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lpvMaxItems'
---
--- * 'lpvMarker'
---
--- * 'lpvPolicyARN'
 data ListPolicyVersions = ListPolicyVersions'
     { _lpvMaxItems  :: !(Maybe Nat)
     , _lpvMarker    :: !(Maybe Text)
     , _lpvPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListPolicyVersions' smart constructor.
-listPolicyVersions :: Text -> ListPolicyVersions
+-- | Creates a value of 'ListPolicyVersions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpvMaxItems'
+--
+-- * 'lpvMarker'
+--
+-- * 'lpvPolicyARN'
+listPolicyVersions
+    :: Text -- ^ 'lpvPolicyARN'
+    -> ListPolicyVersions
 listPolicyVersions pPolicyARN_ =
     ListPolicyVersions'
     { _lpvMaxItems = Nothing
@@ -78,7 +80,7 @@ listPolicyVersions pPolicyARN_ =
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -87,7 +89,7 @@ lpvMaxItems = lens _lpvMaxItems (\ s a -> s{_lpvMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 lpvMarker :: Lens' ListPolicyVersions (Maybe Text)
 lpvMarker = lens _lpvMarker (\ s a -> s{_lpvMarker = a});
 
@@ -127,8 +129,16 @@ instance ToQuery ListPolicyVersions where
 -- | Contains the response to a successful ListPolicyVersions request.
 --
 -- /See:/ 'listPolicyVersionsResponse' smart constructor.
+data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
+    { _lpvrsVersions    :: !(Maybe [PolicyVersion])
+    , _lpvrsMarker      :: !(Maybe Text)
+    , _lpvrsIsTruncated :: !(Maybe Bool)
+    , _lpvrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListPolicyVersionsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lpvrsVersions'
 --
@@ -137,15 +147,9 @@ instance ToQuery ListPolicyVersions where
 -- * 'lpvrsIsTruncated'
 --
 -- * 'lpvrsStatus'
-data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
-    { _lpvrsVersions    :: !(Maybe [PolicyVersion])
-    , _lpvrsMarker      :: !(Maybe Text)
-    , _lpvrsIsTruncated :: !(Maybe Bool)
-    , _lpvrsStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListPolicyVersionsResponse' smart constructor.
-listPolicyVersionsResponse :: Int -> ListPolicyVersionsResponse
+listPolicyVersionsResponse
+    :: Int -- ^ 'lpvrsStatus'
+    -> ListPolicyVersionsResponse
 listPolicyVersionsResponse pStatus_ =
     ListPolicyVersionsResponse'
     { _lpvrsVersions = Nothing
@@ -162,18 +166,18 @@ listPolicyVersionsResponse pStatus_ =
 lpvrsVersions :: Lens' ListPolicyVersionsResponse [PolicyVersion]
 lpvrsVersions = lens _lpvrsVersions (\ s a -> s{_lpvrsVersions = a}) . _Default . _Coerce;
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lpvrsMarker :: Lens' ListPolicyVersionsResponse (Maybe Text)
 lpvrsMarker = lens _lpvrsMarker (\ s a -> s{_lpvrsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 lpvrsIsTruncated :: Lens' ListPolicyVersionsResponse (Maybe Bool)
 lpvrsIsTruncated = lens _lpvrsIsTruncated (\ s a -> s{_lpvrsIsTruncated = a});
 
--- | Undocumented member.
+-- | The response status code.
 lpvrsStatus :: Lens' ListPolicyVersionsResponse Int
 lpvrsStatus = lens _lpvrsStatus (\ s a -> s{_lpvrsStatus = a});

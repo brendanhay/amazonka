@@ -24,19 +24,20 @@ import           Network.AWS.Prelude
 -- | Describes an agent version.
 --
 -- /See:/ 'agentVersion' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'avVersion'
---
--- * 'avConfigurationManager'
 data AgentVersion = AgentVersion'
     { _avVersion              :: !(Maybe Text)
     , _avConfigurationManager :: !(Maybe StackConfigurationManager)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AgentVersion' smart constructor.
-agentVersion :: AgentVersion
+-- | Creates a value of 'AgentVersion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avVersion'
+--
+-- * 'avConfigurationManager'
+agentVersion
+    :: AgentVersion
 agentVersion =
     AgentVersion'
     { _avVersion = Nothing
@@ -61,8 +62,26 @@ instance FromJSON AgentVersion where
 -- | A description of the app.
 --
 -- /See:/ 'app' smart constructor.
+data App = App'
+    { _appSSLConfiguration :: !(Maybe SSLConfiguration)
+    , _appShortname        :: !(Maybe Text)
+    , _appEnableSSL        :: !(Maybe Bool)
+    , _appCreatedAt        :: !(Maybe Text)
+    , _appEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _appDataSources      :: !(Maybe [DataSource])
+    , _appAppId            :: !(Maybe Text)
+    , _appAppSource        :: !(Maybe Source)
+    , _appName             :: !(Maybe Text)
+    , _appAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _appType             :: !(Maybe AppType)
+    , _appDomains          :: !(Maybe [Text])
+    , _appStackId          :: !(Maybe Text)
+    , _appDescription      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'App' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'appSSLConfiguration'
 --
@@ -91,25 +110,8 @@ instance FromJSON AgentVersion where
 -- * 'appStackId'
 --
 -- * 'appDescription'
-data App = App'
-    { _appSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _appShortname        :: !(Maybe Text)
-    , _appEnableSSL        :: !(Maybe Bool)
-    , _appCreatedAt        :: !(Maybe Text)
-    , _appEnvironment      :: !(Maybe [EnvironmentVariable])
-    , _appDataSources      :: !(Maybe [DataSource])
-    , _appAppId            :: !(Maybe Text)
-    , _appAppSource        :: !(Maybe Source)
-    , _appName             :: !(Maybe Text)
-    , _appAttributes       :: !(Maybe (Map AppAttributesKeys Text))
-    , _appType             :: !(Maybe AppType)
-    , _appDomains          :: !(Maybe [Text])
-    , _appStackId          :: !(Maybe Text)
-    , _appDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'App' smart constructor.
-app :: App
+app
+    :: App
 app =
     App'
     { _appSSLConfiguration = Nothing
@@ -128,7 +130,7 @@ app =
     , _appDescription = Nothing
     }
 
--- | An @SslConfiguration@ object with the SSL configuration.
+-- | An 'SslConfiguration' object with the SSL configuration.
 appSSLConfiguration :: Lens' App (Maybe SSLConfiguration)
 appSSLConfiguration = lens _appSSLConfiguration (\ s a -> s{_appSSLConfiguration = a});
 
@@ -144,7 +146,7 @@ appEnableSSL = lens _appEnableSSL (\ s a -> s{_appEnableSSL = a});
 appCreatedAt :: Lens' App (Maybe Text)
 appCreatedAt = lens _appCreatedAt (\ s a -> s{_appCreatedAt = a});
 
--- | An array of @EnvironmentVariable@ objects that specify environment
+-- | An array of 'EnvironmentVariable' objects that specify environment
 -- variables to be associated with the app. After you deploy the app, these
 -- variables are defined on the associated app server instances. For more
 -- information, see
@@ -167,7 +169,7 @@ appDataSources = lens _appDataSources (\ s a -> s{_appDataSources = a}) . _Defau
 appAppId :: Lens' App (Maybe Text)
 appAppId = lens _appAppId (\ s a -> s{_appAppId = a});
 
--- | A @Source@ object that describes the app repository.
+-- | A 'Source' object that describes the app repository.
 appAppSource :: Lens' App (Maybe Source)
 appAppSource = lens _appAppSource (\ s a -> s{_appAppSource = a});
 
@@ -184,7 +186,7 @@ appType :: Lens' App (Maybe AppType)
 appType = lens _appType (\ s a -> s{_appType = a});
 
 -- | The app vhost settings with multiple domains separated by commas. For
--- example: @\'www.example.com, example.com\'@
+-- example: '\'www.example.com, example.com\''
 appDomains :: Lens' App [Text]
 appDomains = lens _appDomains (\ s a -> s{_appDomains = a}) . _Default . _Coerce;
 
@@ -220,8 +222,19 @@ instance FromJSON App where
 -- load-based instances.
 --
 -- /See:/ 'autoScalingThresholds' smart constructor.
+data AutoScalingThresholds = AutoScalingThresholds'
+    { _astInstanceCount      :: !(Maybe Int)
+    , _astIgnoreMetricsTime  :: !(Maybe Nat)
+    , _astLoadThreshold      :: !(Maybe Double)
+    , _astThresholdsWaitTime :: !(Maybe Nat)
+    , _astAlarms             :: !(Maybe [Text])
+    , _astMemoryThreshold    :: !(Maybe Double)
+    , _astCPUThreshold       :: !(Maybe Double)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AutoScalingThresholds' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'astInstanceCount'
 --
@@ -236,18 +249,8 @@ instance FromJSON App where
 -- * 'astMemoryThreshold'
 --
 -- * 'astCPUThreshold'
-data AutoScalingThresholds = AutoScalingThresholds'
-    { _astInstanceCount      :: !(Maybe Int)
-    , _astIgnoreMetricsTime  :: !(Maybe Nat)
-    , _astLoadThreshold      :: !(Maybe Double)
-    , _astThresholdsWaitTime :: !(Maybe Nat)
-    , _astAlarms             :: !(Maybe [Text])
-    , _astMemoryThreshold    :: !(Maybe Double)
-    , _astCPUThreshold       :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AutoScalingThresholds' smart constructor.
-autoScalingThresholds :: AutoScalingThresholds
+autoScalingThresholds
+    :: AutoScalingThresholds
 autoScalingThresholds =
     AutoScalingThresholds'
     { _astInstanceCount = Nothing
@@ -270,7 +273,7 @@ astInstanceCount = lens _astInstanceCount (\ s a -> s{_astInstanceCount = a});
 -- event but the instances won\'t start reducing the load until they have
 -- been booted and configured. There is no point in raising additional
 -- scaling events during that operation, which typically takes several
--- minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks to
+-- minutes. 'IgnoreMetricsTime' allows you to direct AWS OpsWorks to
 -- suppress scaling events long enough to get the new instances online.
 astIgnoreMetricsTime :: Lens' AutoScalingThresholds (Maybe Natural)
 astIgnoreMetricsTime = lens _astIgnoreMetricsTime (\ s a -> s{_astIgnoreMetricsTime = a}) . mapping _Nat;
@@ -290,7 +293,7 @@ astThresholdsWaitTime = lens _astThresholdsWaitTime (\ s a -> s{_astThresholdsWa
 -- sensitive and must be in the same region as the stack.
 --
 -- To use custom alarms, you must update your service role to allow
--- @cloudwatch:DescribeAlarms@. You can either have AWS OpsWorks update the
+-- 'cloudwatch:DescribeAlarms'. You can either have AWS OpsWorks update the
 -- role for you when you first use this feature or you can edit the role
 -- manually. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html Allowing AWS OpsWorks to Act on Your Behalf>.
@@ -335,8 +338,16 @@ instance ToJSON AutoScalingThresholds where
 -- data type.
 --
 -- /See:/ 'blockDeviceMapping' smart constructor.
+data BlockDeviceMapping = BlockDeviceMapping'
+    { _bdmVirtualName :: !(Maybe Text)
+    , _bdmNoDevice    :: !(Maybe Text)
+    , _bdmEBS         :: !(Maybe EBSBlockDevice)
+    , _bdmDeviceName  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BlockDeviceMapping' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'bdmVirtualName'
 --
@@ -345,15 +356,8 @@ instance ToJSON AutoScalingThresholds where
 -- * 'bdmEBS'
 --
 -- * 'bdmDeviceName'
-data BlockDeviceMapping = BlockDeviceMapping'
-    { _bdmVirtualName :: !(Maybe Text)
-    , _bdmNoDevice    :: !(Maybe Text)
-    , _bdmEBS         :: !(Maybe EBSBlockDevice)
-    , _bdmDeviceName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'BlockDeviceMapping' smart constructor.
-blockDeviceMapping :: BlockDeviceMapping
+blockDeviceMapping
+    :: BlockDeviceMapping
 blockDeviceMapping =
     BlockDeviceMapping'
     { _bdmVirtualName = Nothing
@@ -372,14 +376,14 @@ bdmVirtualName = lens _bdmVirtualName (\ s a -> s{_bdmVirtualName = a});
 bdmNoDevice :: Lens' BlockDeviceMapping (Maybe Text)
 bdmNoDevice = lens _bdmNoDevice (\ s a -> s{_bdmNoDevice = a});
 
--- | An @EBSBlockDevice@ that defines how to configure an Amazon EBS volume
+-- | An 'EBSBlockDevice' that defines how to configure an Amazon EBS volume
 -- when the instance is launched.
 bdmEBS :: Lens' BlockDeviceMapping (Maybe EBSBlockDevice)
 bdmEBS = lens _bdmEBS (\ s a -> s{_bdmEBS = a});
 
--- | The device name that is exposed to the instance, such as @\/dev\/sdh@.
+-- | The device name that is exposed to the instance, such as '\/dev\/sdh'.
 -- For the root device, you can use the explicit device name or you can set
--- this parameter to @ROOT_DEVICE@ and AWS OpsWorks will provide the
+-- this parameter to 'ROOT_DEVICE' and AWS OpsWorks will provide the
 -- correct device name.
 bdmDeviceName :: Lens' BlockDeviceMapping (Maybe Text)
 bdmDeviceName = lens _bdmDeviceName (\ s a -> s{_bdmDeviceName = a});
@@ -403,19 +407,20 @@ instance ToJSON BlockDeviceMapping where
 -- | Describes the Chef configuration.
 --
 -- /See:/ 'chefConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccBerkshelfVersion'
---
--- * 'ccManageBerkshelf'
 data ChefConfiguration = ChefConfiguration'
     { _ccBerkshelfVersion :: !(Maybe Text)
     , _ccManageBerkshelf  :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChefConfiguration' smart constructor.
-chefConfiguration :: ChefConfiguration
+-- | Creates a value of 'ChefConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccBerkshelfVersion'
+--
+-- * 'ccManageBerkshelf'
+chefConfiguration
+    :: ChefConfiguration
 chefConfiguration =
     ChefConfiguration'
     { _ccBerkshelfVersion = Nothing
@@ -447,8 +452,22 @@ instance ToJSON ChefConfiguration where
 -- | Describes a command.
 --
 -- /See:/ 'command' smart constructor.
+data Command = Command'
+    { _cInstanceId     :: !(Maybe Text)
+    , _cDeploymentId   :: !(Maybe Text)
+    , _cStatus         :: !(Maybe Text)
+    , _cLogURL         :: !(Maybe Text)
+    , _cCreatedAt      :: !(Maybe Text)
+    , _cCommandId      :: !(Maybe Text)
+    , _cExitCode       :: !(Maybe Int)
+    , _cType           :: !(Maybe Text)
+    , _cCompletedAt    :: !(Maybe Text)
+    , _cAcknowledgedAt :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Command' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cInstanceId'
 --
@@ -469,21 +488,8 @@ instance ToJSON ChefConfiguration where
 -- * 'cCompletedAt'
 --
 -- * 'cAcknowledgedAt'
-data Command = Command'
-    { _cInstanceId     :: !(Maybe Text)
-    , _cDeploymentId   :: !(Maybe Text)
-    , _cStatus         :: !(Maybe Text)
-    , _cLogURL         :: !(Maybe Text)
-    , _cCreatedAt      :: !(Maybe Text)
-    , _cCommandId      :: !(Maybe Text)
-    , _cExitCode       :: !(Maybe Int)
-    , _cType           :: !(Maybe Text)
-    , _cCompletedAt    :: !(Maybe Text)
-    , _cAcknowledgedAt :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Command' smart constructor.
-command :: Command
+command
+    :: Command
 command =
     Command'
     { _cInstanceId = Nothing
@@ -533,16 +539,16 @@ cExitCode = lens _cExitCode (\ s a -> s{_cExitCode = a});
 
 -- | The command type:
 --
--- -   @deploy@
--- -   @rollback@
--- -   @start@
--- -   @stop@
--- -   @restart@
--- -   @undeploy@
--- -   @update_dependencies@
--- -   @install_dependencies@
--- -   @update_custom_cookbooks@
--- -   @execute_recipes@
+-- -   'deploy'
+-- -   'rollback'
+-- -   'start'
+-- -   'stop'
+-- -   'restart'
+-- -   'undeploy'
+-- -   'update_dependencies'
+-- -   'install_dependencies'
+-- -   'update_custom_cookbooks'
+-- -   'execute_recipes'
 cType :: Lens' Command (Maybe Text)
 cType = lens _cType (\ s a -> s{_cType = a});
 
@@ -572,22 +578,23 @@ instance FromJSON Command where
 -- | Describes an app\'s data source.
 --
 -- /See:/ 'dataSource' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsARN'
---
--- * 'dsDatabaseName'
---
--- * 'dsType'
 data DataSource = DataSource'
     { _dsARN          :: !(Maybe Text)
     , _dsDatabaseName :: !(Maybe Text)
     , _dsType         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DataSource' smart constructor.
-dataSource :: DataSource
+-- | Creates a value of 'DataSource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsARN'
+--
+-- * 'dsDatabaseName'
+--
+-- * 'dsType'
+dataSource
+    :: DataSource
 dataSource =
     DataSource'
     { _dsARN = Nothing
@@ -603,8 +610,8 @@ dsARN = lens _dsARN (\ s a -> s{_dsARN = a});
 dsDatabaseName :: Lens' DataSource (Maybe Text)
 dsDatabaseName = lens _dsDatabaseName (\ s a -> s{_dsDatabaseName = a});
 
--- | The data source\'s type, @AutoSelectOpsworksMysqlInstance@,
--- @OpsworksMysqlInstance@, or @RdsDbInstance@.
+-- | The data source\'s type, 'AutoSelectOpsworksMysqlInstance',
+-- 'OpsworksMysqlInstance', or 'RdsDbInstance'.
 dsType :: Lens' DataSource (Maybe Text)
 dsType = lens _dsType (\ s a -> s{_dsType = a});
 
@@ -625,8 +632,24 @@ instance ToJSON DataSource where
 -- | Describes a deployment of a stack or app.
 --
 -- /See:/ 'deployment' smart constructor.
+data Deployment = Deployment'
+    { _dDeploymentId :: !(Maybe Text)
+    , _dStatus       :: !(Maybe Text)
+    , _dCommand      :: !(Maybe DeploymentCommand)
+    , _dCreatedAt    :: !(Maybe Text)
+    , _dCustomJSON   :: !(Maybe Text)
+    , _dIAMUserARN   :: !(Maybe Text)
+    , _dAppId        :: !(Maybe Text)
+    , _dInstanceIds  :: !(Maybe [Text])
+    , _dCompletedAt  :: !(Maybe Text)
+    , _dStackId      :: !(Maybe Text)
+    , _dComment      :: !(Maybe Text)
+    , _dDuration     :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dDeploymentId'
 --
@@ -651,23 +674,8 @@ instance ToJSON DataSource where
 -- * 'dComment'
 --
 -- * 'dDuration'
-data Deployment = Deployment'
-    { _dDeploymentId :: !(Maybe Text)
-    , _dStatus       :: !(Maybe Text)
-    , _dCommand      :: !(Maybe DeploymentCommand)
-    , _dCreatedAt    :: !(Maybe Text)
-    , _dCustomJSON   :: !(Maybe Text)
-    , _dIAMUserARN   :: !(Maybe Text)
-    , _dAppId        :: !(Maybe Text)
-    , _dInstanceIds  :: !(Maybe [Text])
-    , _dCompletedAt  :: !(Maybe Text)
-    , _dStackId      :: !(Maybe Text)
-    , _dComment      :: !(Maybe Text)
-    , _dDuration     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Deployment' smart constructor.
-deployment :: Deployment
+deployment
+    :: Deployment
 deployment =
     Deployment'
     { _dDeploymentId = Nothing
@@ -709,7 +717,7 @@ dCreatedAt = lens _dCreatedAt (\ s a -> s{_dCreatedAt = a});
 -- for stack or to pass data to recipes. The string should be in the
 -- following format and must escape characters such as \'\"\':
 --
--- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
+-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'
 --
 -- For more information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
@@ -764,19 +772,21 @@ instance FromJSON Deployment where
 -- | Used to specify a stack or deployment command.
 --
 -- /See:/ 'deploymentCommand' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcArgs'
---
--- * 'dcName'
 data DeploymentCommand = DeploymentCommand'
     { _dcArgs :: !(Maybe (Map Text [Text]))
     , _dcName :: !DeploymentCommandName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeploymentCommand' smart constructor.
-deploymentCommand :: DeploymentCommandName -> DeploymentCommand
+-- | Creates a value of 'DeploymentCommand' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcArgs'
+--
+-- * 'dcName'
+deploymentCommand
+    :: DeploymentCommandName -- ^ 'dcName'
+    -> DeploymentCommand
 deploymentCommand pName_ =
     DeploymentCommand'
     { _dcArgs = Nothing
@@ -786,23 +796,23 @@ deploymentCommand pName_ =
 -- | The arguments of those commands that take arguments. It should be set to
 -- a JSON object with the following format:
 --
--- @{\"arg_name1\" : [\"value1\", \"value2\", ...], \"arg_name2\" : [\"value1\", \"value2\", ...], ...}@
+-- '{\"arg_name1\" : [\"value1\", \"value2\", ...], \"arg_name2\" : [\"value1\", \"value2\", ...], ...}'
 --
--- The @update_dependencies@ command takes two arguments:
+-- The 'update_dependencies' command takes two arguments:
 --
--- -   @upgrade_os_to@ - Specifies the desired Amazon Linux version for
+-- -   'upgrade_os_to' - Specifies the desired Amazon Linux version for
 --     instances whose OS you want to upgrade, such as
---     @Amazon Linux 2014.09@. You must also set the @allow_reboot@
+--     'Amazon Linux 2014.09'. You must also set the 'allow_reboot'
 --     argument to true.
--- -   @allow_reboot@ - Specifies whether to allow AWS OpsWorks to reboot
+-- -   'allow_reboot' - Specifies whether to allow AWS OpsWorks to reboot
 --     the instances if necessary, after installing the updates. This
---     argument can be set to either @true@ or @false@. The default value
---     is @false@.
+--     argument can be set to either 'true' or 'false'. The default value
+--     is 'false'.
 --
--- For example, to upgrade an instance to Amazon Linux 2014.09, set @Args@
+-- For example, to upgrade an instance to Amazon Linux 2014.09, set 'Args'
 -- to the following.
 --
--- @ { \"upgrade_os_to\":[\"Amazon Linux 2014.09\"], \"allow_reboot\":[\"true\"] } @
+-- ' { \"upgrade_os_to\":[\"Amazon Linux 2014.09\"], \"allow_reboot\":[\"true\"] } '
 dcArgs :: Lens' DeploymentCommand (HashMap Text [Text])
 dcArgs = lens _dcArgs (\ s a -> s{_dcArgs = a}) . _Default . _Map;
 
@@ -810,13 +820,13 @@ dcArgs = lens _dcArgs (\ s a -> s{_dcArgs = a}) . _Default . _Map;
 --
 -- For stacks, the following commands are available:
 --
--- -   @execute_recipes@: Execute one or more recipes. To specify the
---     recipes, set an @Args@ parameter named @recipes@ to the list of
---     recipes to be executed. For example, to execute @phpapp::appsetup@,
---     set @Args@ to @{\"recipes\":[\"phpapp::appsetup\"]}@.
--- -   @install_dependencies@: Install the stack\'s dependencies.
--- -   @update_custom_cookbooks@: Update the stack\'s custom cookbooks.
--- -   @update_dependencies@: Update the stack\'s dependencies.
+-- -   'execute_recipes': Execute one or more recipes. To specify the
+--     recipes, set an 'Args' parameter named 'recipes' to the list of
+--     recipes to be executed. For example, to execute 'phpapp::appsetup',
+--     set 'Args' to '{\"recipes\":[\"phpapp::appsetup\"]}'.
+-- -   'install_dependencies': Install the stack\'s dependencies.
+-- -   'update_custom_cookbooks': Update the stack\'s custom cookbooks.
+-- -   'update_dependencies': Update the stack\'s dependencies.
 --
 -- The update_dependencies and install_dependencies commands are supported
 -- only for Linux instances. You can run the commands successfully on
@@ -824,18 +834,18 @@ dcArgs = lens _dcArgs (\ s a -> s{_dcArgs = a}) . _Default . _Map;
 --
 -- For apps, the following commands are available:
 --
--- -   @deploy@: Deploy an app. Ruby on Rails apps have an optional @Args@
---     parameter named @migrate@. Set @Args@ to {\"migrate\":[\"true\"]} to
+-- -   'deploy': Deploy an app. Ruby on Rails apps have an optional 'Args'
+--     parameter named 'migrate'. Set 'Args' to {\"migrate\":[\"true\"]} to
 --     migrate the database. The default setting is
 --     {\"migrate\":[\"false\"]}.
--- -   @rollback@ Roll the app back to the previous version. When you
+-- -   'rollback' Roll the app back to the previous version. When you
 --     update an app, AWS OpsWorks stores the previous version, up to a
 --     maximum of five versions. You can use this command to roll an app
 --     back as many as four versions.
--- -   @start@: Start the app\'s web or application server.
--- -   @stop@: Stop the app\'s web or application server.
--- -   @restart@: Restart the app\'s web or application server.
--- -   @undeploy@: Undeploy the app.
+-- -   'start': Start the app\'s web or application server.
+-- -   'stop': Stop the app\'s web or application server.
+-- -   'restart': Restart the app\'s web or application server.
+-- -   'undeploy': Undeploy the app.
 dcName :: Lens' DeploymentCommand DeploymentCommandName
 dcName = lens _dcName (\ s a -> s{_dcName = a});
 
@@ -856,8 +866,17 @@ instance ToJSON DeploymentCommand where
 -- data type.
 --
 -- /See:/ 'ebsBlockDevice' smart constructor.
+data EBSBlockDevice = EBSBlockDevice'
+    { _ebdDeleteOnTermination :: !(Maybe Bool)
+    , _ebdVolumeSize          :: !(Maybe Int)
+    , _ebdIOPS                :: !(Maybe Int)
+    , _ebdVolumeType          :: !(Maybe VolumeType)
+    , _ebdSnapshotId          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EBSBlockDevice' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ebdDeleteOnTermination'
 --
@@ -868,16 +887,8 @@ instance ToJSON DeploymentCommand where
 -- * 'ebdVolumeType'
 --
 -- * 'ebdSnapshotId'
-data EBSBlockDevice = EBSBlockDevice'
-    { _ebdDeleteOnTermination :: !(Maybe Bool)
-    , _ebdVolumeSize          :: !(Maybe Int)
-    , _ebdIOPS                :: !(Maybe Int)
-    , _ebdVolumeType          :: !(Maybe VolumeType)
-    , _ebdSnapshotId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EBSBlockDevice' smart constructor.
-ebsBlockDevice :: EBSBlockDevice
+ebsBlockDevice
+    :: EBSBlockDevice
 ebsBlockDevice =
     EBSBlockDevice'
     { _ebdDeleteOnTermination = Nothing
@@ -902,8 +913,8 @@ ebdVolumeSize = lens _ebdVolumeSize (\ s a -> s{_ebdVolumeSize = a});
 ebdIOPS :: Lens' EBSBlockDevice (Maybe Int)
 ebdIOPS = lens _ebdIOPS (\ s a -> s{_ebdIOPS = a});
 
--- | The volume type. @gp2@ for General Purpose (SSD) volumes, @io1@ for
--- Provisioned IOPS (SSD) volumes, and @standard@ for Magnetic volumes.
+-- | The volume type. 'gp2' for General Purpose (SSD) volumes, 'io1' for
+-- Provisioned IOPS (SSD) volumes, and 'standard' for Magnetic volumes.
 ebdVolumeType :: Lens' EBSBlockDevice (Maybe VolumeType)
 ebdVolumeType = lens _ebdVolumeType (\ s a -> s{_ebdVolumeType = a});
 
@@ -933,8 +944,16 @@ instance ToJSON EBSBlockDevice where
 -- | Describes a registered Amazon ECS cluster.
 --
 -- /See:/ 'ecsCluster' smart constructor.
+data EcsCluster = EcsCluster'
+    { _ecEcsClusterARN  :: !(Maybe Text)
+    , _ecEcsClusterName :: !(Maybe Text)
+    , _ecRegisteredAt   :: !(Maybe Text)
+    , _ecStackId        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EcsCluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ecEcsClusterARN'
 --
@@ -943,15 +962,8 @@ instance ToJSON EBSBlockDevice where
 -- * 'ecRegisteredAt'
 --
 -- * 'ecStackId'
-data EcsCluster = EcsCluster'
-    { _ecEcsClusterARN  :: !(Maybe Text)
-    , _ecEcsClusterName :: !(Maybe Text)
-    , _ecRegisteredAt   :: !(Maybe Text)
-    , _ecStackId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EcsCluster' smart constructor.
-ecsCluster :: EcsCluster
+ecsCluster
+    :: EcsCluster
 ecsCluster =
     EcsCluster'
     { _ecEcsClusterARN = Nothing
@@ -988,8 +1000,17 @@ instance FromJSON EcsCluster where
 -- | Describes an Elastic IP address.
 --
 -- /See:/ 'elasticIP' smart constructor.
+data ElasticIP = ElasticIP'
+    { _eiInstanceId :: !(Maybe Text)
+    , _eiDomain     :: !(Maybe Text)
+    , _eiIP         :: !(Maybe Text)
+    , _eiName       :: !(Maybe Text)
+    , _eiRegion     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ElasticIP' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eiInstanceId'
 --
@@ -1000,16 +1021,8 @@ instance FromJSON EcsCluster where
 -- * 'eiName'
 --
 -- * 'eiRegion'
-data ElasticIP = ElasticIP'
-    { _eiInstanceId :: !(Maybe Text)
-    , _eiDomain     :: !(Maybe Text)
-    , _eiIP         :: !(Maybe Text)
-    , _eiName       :: !(Maybe Text)
-    , _eiRegion     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ElasticIP' smart constructor.
-elasticIP :: ElasticIP
+elasticIP
+    :: ElasticIP
 elasticIP =
     ElasticIP'
     { _eiInstanceId = Nothing
@@ -1053,8 +1066,21 @@ instance FromJSON ElasticIP where
 -- | Describes an Elastic Load Balancing instance.
 --
 -- /See:/ 'elasticLoadBalancer' smart constructor.
+data ElasticLoadBalancer = ElasticLoadBalancer'
+    { _elbSubnetIds               :: !(Maybe [Text])
+    , _elbVPCId                   :: !(Maybe Text)
+    , _elbAvailabilityZones       :: !(Maybe [Text])
+    , _elbRegion                  :: !(Maybe Text)
+    , _elbElasticLoadBalancerName :: !(Maybe Text)
+    , _elbEC2InstanceIds          :: !(Maybe [Text])
+    , _elbStackId                 :: !(Maybe Text)
+    , _elbLayerId                 :: !(Maybe Text)
+    , _elbDNSName                 :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ElasticLoadBalancer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'elbSubnetIds'
 --
@@ -1073,20 +1099,8 @@ instance FromJSON ElasticIP where
 -- * 'elbLayerId'
 --
 -- * 'elbDNSName'
-data ElasticLoadBalancer = ElasticLoadBalancer'
-    { _elbSubnetIds               :: !(Maybe [Text])
-    , _elbVPCId                   :: !(Maybe Text)
-    , _elbAvailabilityZones       :: !(Maybe [Text])
-    , _elbRegion                  :: !(Maybe Text)
-    , _elbElasticLoadBalancerName :: !(Maybe Text)
-    , _elbEC2InstanceIds          :: !(Maybe [Text])
-    , _elbStackId                 :: !(Maybe Text)
-    , _elbLayerId                 :: !(Maybe Text)
-    , _elbDNSName                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ElasticLoadBalancer' smart constructor.
-elasticLoadBalancer :: ElasticLoadBalancer
+elasticLoadBalancer
+    :: ElasticLoadBalancer
 elasticLoadBalancer =
     ElasticLoadBalancer'
     { _elbSubnetIds = Nothing
@@ -1154,22 +1168,25 @@ instance FromJSON ElasticLoadBalancer where
 -- | Represents an app\'s environment variable.
 --
 -- /See:/ 'environmentVariable' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'evSecure'
---
--- * 'evKey'
---
--- * 'evValue'
 data EnvironmentVariable = EnvironmentVariable'
     { _evSecure :: !(Maybe Bool)
     , _evKey    :: !Text
     , _evValue  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnvironmentVariable' smart constructor.
-environmentVariable :: Text -> Text -> EnvironmentVariable
+-- | Creates a value of 'EnvironmentVariable' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'evSecure'
+--
+-- * 'evKey'
+--
+-- * 'evValue'
+environmentVariable
+    :: Text -- ^ 'evKey'
+    -> Text -- ^ 'evValue'
+    -> EnvironmentVariable
 environmentVariable pKey_ pValue_ =
     EnvironmentVariable'
     { _evSecure = Nothing
@@ -1179,8 +1196,8 @@ environmentVariable pKey_ pValue_ =
 
 -- | (Optional) Whether the variable\'s value will be returned by the
 -- DescribeApps action. To conceal an environment variable\'s value, set
--- @Secure@ to @true@. @DescribeApps@ then returns @*****FILTERED*****@
--- instead of the actual value. The default value for @Secure@ is @false@.
+-- 'Secure' to 'true'. 'DescribeApps' then returns '*****FILTERED*****'
+-- instead of the actual value. The default value for 'Secure' is 'false'.
 evSecure :: Lens' EnvironmentVariable (Maybe Bool)
 evSecure = lens _evSecure (\ s a -> s{_evSecure = a});
 
@@ -1213,8 +1230,51 @@ instance ToJSON EnvironmentVariable where
 -- | Describes an instance.
 --
 -- /See:/ 'instance'' smart constructor.
+data Instance = Instance'
+    { _iInstanceId               :: !(Maybe Text)
+    , _iPrivateIP                :: !(Maybe Text)
+    , _iInstallUpdatesOnBoot     :: !(Maybe Bool)
+    , _iReportedAgentVersion     :: !(Maybe Text)
+    , _iStatus                   :: !(Maybe Text)
+    , _iPrivateDNS               :: !(Maybe Text)
+    , _iVirtualizationType       :: !(Maybe VirtualizationType)
+    , _iSecurityGroupIds         :: !(Maybe [Text])
+    , _iSSHHostRsaKeyFingerprint :: !(Maybe Text)
+    , _iInstanceProfileARN       :: !(Maybe Text)
+    , _iPlatform                 :: !(Maybe Text)
+    , _iHostname                 :: !(Maybe Text)
+    , _iEcsClusterARN            :: !(Maybe Text)
+    , _iCreatedAt                :: !(Maybe Text)
+    , _iSSHKeyName               :: !(Maybe Text)
+    , _iEC2InstanceId            :: !(Maybe Text)
+    , _iAgentVersion             :: !(Maybe Text)
+    , _iRootDeviceVolumeId       :: !(Maybe Text)
+    , _iSubnetId                 :: !(Maybe Text)
+    , _iInstanceType             :: !(Maybe Text)
+    , _iInfrastructureClass      :: !(Maybe Text)
+    , _iEBSOptimized             :: !(Maybe Bool)
+    , _iSSHHostDsaKeyFingerprint :: !(Maybe Text)
+    , _iElasticIP                :: !(Maybe Text)
+    , _iOS                       :: !(Maybe Text)
+    , _iAvailabilityZone         :: !(Maybe Text)
+    , _iLastServiceErrorId       :: !(Maybe Text)
+    , _iAutoScalingType          :: !(Maybe AutoScalingType)
+    , _iLayerIds                 :: !(Maybe [Text])
+    , _iArchitecture             :: !(Maybe Architecture)
+    , _iPublicDNS                :: !(Maybe Text)
+    , _iPublicIP                 :: !(Maybe Text)
+    , _iAMIId                    :: !(Maybe Text)
+    , _iReportedOS               :: !(Maybe ReportedOS)
+    , _iStackId                  :: !(Maybe Text)
+    , _iRegisteredBy             :: !(Maybe Text)
+    , _iBlockDeviceMappings      :: !(Maybe [BlockDeviceMapping])
+    , _iEcsContainerInstanceARN  :: !(Maybe Text)
+    , _iRootDeviceType           :: !(Maybe RootDeviceType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iInstanceId'
 --
@@ -1293,50 +1353,8 @@ instance ToJSON EnvironmentVariable where
 -- * 'iEcsContainerInstanceARN'
 --
 -- * 'iRootDeviceType'
-data Instance = Instance'
-    { _iInstanceId               :: !(Maybe Text)
-    , _iPrivateIP                :: !(Maybe Text)
-    , _iInstallUpdatesOnBoot     :: !(Maybe Bool)
-    , _iReportedAgentVersion     :: !(Maybe Text)
-    , _iStatus                   :: !(Maybe Text)
-    , _iPrivateDNS               :: !(Maybe Text)
-    , _iVirtualizationType       :: !(Maybe VirtualizationType)
-    , _iSecurityGroupIds         :: !(Maybe [Text])
-    , _iSSHHostRsaKeyFingerprint :: !(Maybe Text)
-    , _iInstanceProfileARN       :: !(Maybe Text)
-    , _iPlatform                 :: !(Maybe Text)
-    , _iHostname                 :: !(Maybe Text)
-    , _iEcsClusterARN            :: !(Maybe Text)
-    , _iCreatedAt                :: !(Maybe Text)
-    , _iSSHKeyName               :: !(Maybe Text)
-    , _iEC2InstanceId            :: !(Maybe Text)
-    , _iAgentVersion             :: !(Maybe Text)
-    , _iRootDeviceVolumeId       :: !(Maybe Text)
-    , _iSubnetId                 :: !(Maybe Text)
-    , _iInstanceType             :: !(Maybe Text)
-    , _iInfrastructureClass      :: !(Maybe Text)
-    , _iEBSOptimized             :: !(Maybe Bool)
-    , _iSSHHostDsaKeyFingerprint :: !(Maybe Text)
-    , _iElasticIP                :: !(Maybe Text)
-    , _iOS                       :: !(Maybe Text)
-    , _iAvailabilityZone         :: !(Maybe Text)
-    , _iLastServiceErrorId       :: !(Maybe Text)
-    , _iAutoScalingType          :: !(Maybe AutoScalingType)
-    , _iLayerIds                 :: !(Maybe [Text])
-    , _iArchitecture             :: !(Maybe Architecture)
-    , _iPublicDNS                :: !(Maybe Text)
-    , _iPublicIP                 :: !(Maybe Text)
-    , _iAMIId                    :: !(Maybe Text)
-    , _iReportedOS               :: !(Maybe ReportedOS)
-    , _iStackId                  :: !(Maybe Text)
-    , _iRegisteredBy             :: !(Maybe Text)
-    , _iBlockDeviceMappings      :: !(Maybe [BlockDeviceMapping])
-    , _iEcsContainerInstanceARN  :: !(Maybe Text)
-    , _iRootDeviceType           :: !(Maybe RootDeviceType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Instance' smart constructor.
-instance' :: Instance
+instance'
+    :: Instance
 instance' =
     Instance'
     { _iInstanceId = Nothing
@@ -1389,13 +1407,13 @@ iPrivateIP :: Lens' Instance (Maybe Text)
 iPrivateIP = lens _iPrivateIP (\ s a -> s{_iPrivateIP = a});
 
 -- | Whether to install operating system and package updates when the
--- instance boots. The default value is @true@. If this value is set to
--- @false@, you must then update your instances manually by using
--- CreateDeployment to run the @update_dependencies@ stack command or by
--- manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the
+-- instance boots. The default value is 'true'. If this value is set to
+-- 'false', you must then update your instances manually by using
+-- CreateDeployment to run the 'update_dependencies' stack command or by
+-- manually running 'yum' (Amazon Linux) or 'apt-get' (Ubuntu) on the
 -- instances.
 --
--- We strongly recommend using the default value of @true@, to ensure that
+-- We strongly recommend using the default value of 'true', to ensure that
 -- your instances have the latest security updates.
 iInstallUpdatesOnBoot :: Lens' Instance (Maybe Bool)
 iInstallUpdatesOnBoot = lens _iInstallUpdatesOnBoot (\ s a -> s{_iInstallUpdatesOnBoot = a});
@@ -1406,20 +1424,20 @@ iReportedAgentVersion = lens _iReportedAgentVersion (\ s a -> s{_iReportedAgentV
 
 -- | The instance status:
 --
--- -   @booting@
--- -   @connection_lost@
--- -   @online@
--- -   @pending@
--- -   @rebooting@
--- -   @requested@
--- -   @running_setup@
--- -   @setup_failed@
--- -   @shutting_down@
--- -   @start_failed@
--- -   @stopped@
--- -   @stopping@
--- -   @terminated@
--- -   @terminating@
+-- -   'booting'
+-- -   'connection_lost'
+-- -   'online'
+-- -   'pending'
+-- -   'rebooting'
+-- -   'requested'
+-- -   'running_setup'
+-- -   'setup_failed'
+-- -   'shutting_down'
+-- -   'start_failed'
+-- -   'stopped'
+-- -   'stopping'
+-- -   'terminated'
+-- -   'terminating'
 iStatus :: Lens' Instance (Maybe Text)
 iStatus = lens _iStatus (\ s a -> s{_iStatus = a});
 
@@ -1427,7 +1445,7 @@ iStatus = lens _iStatus (\ s a -> s{_iStatus = a});
 iPrivateDNS :: Lens' Instance (Maybe Text)
 iPrivateDNS = lens _iPrivateDNS (\ s a -> s{_iPrivateDNS = a});
 
--- | The instance\'s virtualization type: @paravirtual@ or @hvm@.
+-- | The instance\'s virtualization type: 'paravirtual' or 'hvm'.
 iVirtualizationType :: Lens' Instance (Maybe VirtualizationType)
 iVirtualizationType = lens _iVirtualizationType (\ s a -> s{_iVirtualizationType = a});
 
@@ -1469,7 +1487,7 @@ iSSHKeyName = lens _iSSHKeyName (\ s a -> s{_iSSHKeyName = a});
 iEC2InstanceId :: Lens' Instance (Maybe Text)
 iEC2InstanceId = lens _iEC2InstanceId (\ s a -> s{_iEC2InstanceId = a});
 
--- | The agent version. This parameter is set to @INHERIT@ if the instance
+-- | The agent version. This parameter is set to 'INHERIT' if the instance
 -- inherits the default stack setting or to a a version number for a fixed
 -- agent version.
 iAgentVersion :: Lens' Instance (Maybe Text)
@@ -1484,12 +1502,12 @@ iRootDeviceVolumeId = lens _iRootDeviceVolumeId (\ s a -> s{_iRootDeviceVolumeId
 iSubnetId :: Lens' Instance (Maybe Text)
 iSubnetId = lens _iSubnetId (\ s a -> s{_iSubnetId = a});
 
--- | The instance type, such as @t2.micro@.
+-- | The instance type, such as 't2.micro'.
 iInstanceType :: Lens' Instance (Maybe Text)
 iInstanceType = lens _iInstanceType (\ s a -> s{_iInstanceType = a});
 
--- | For registered instances, the infrastructure class: @ec2@ or
--- @on-premises@.
+-- | For registered instances, the infrastructure class: 'ec2' or
+-- 'on-premises'.
 iInfrastructureClass :: Lens' Instance (Maybe Text)
 iInfrastructureClass = lens _iInfrastructureClass (\ s a -> s{_iInfrastructureClass = a});
 
@@ -1558,7 +1576,7 @@ iStackId = lens _iStackId (\ s a -> s{_iStackId = a});
 iRegisteredBy :: Lens' Instance (Maybe Text)
 iRegisteredBy = lens _iRegisteredBy (\ s a -> s{_iRegisteredBy = a});
 
--- | An array of @BlockDeviceMapping@ objects that specify the instance\'s
+-- | An array of 'BlockDeviceMapping' objects that specify the instance\'s
 -- block device mappings.
 iBlockDeviceMappings :: Lens' Instance [BlockDeviceMapping]
 iBlockDeviceMappings = lens _iBlockDeviceMappings (\ s a -> s{_iBlockDeviceMappings = a}) . _Default . _Coerce;
@@ -1621,19 +1639,20 @@ instance FromJSON Instance where
 -- <http://docs.aws.amazon.com/sdkfornet/latest/apidocs/Index.html Instance Metadata and User Data>.
 --
 -- /See:/ 'instanceIdentity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iiSignature'
---
--- * 'iiDocument'
 data InstanceIdentity = InstanceIdentity'
     { _iiSignature :: !(Maybe Text)
     , _iiDocument  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceIdentity' smart constructor.
-instanceIdentity :: InstanceIdentity
+-- | Creates a value of 'InstanceIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iiSignature'
+--
+-- * 'iiDocument'
+instanceIdentity
+    :: InstanceIdentity
 instanceIdentity =
     InstanceIdentity'
     { _iiSignature = Nothing
@@ -1658,8 +1677,31 @@ instance ToJSON InstanceIdentity where
 -- | Describes how many instances a stack has for each status.
 --
 -- /See:/ 'instancesCount' smart constructor.
+data InstancesCount = InstancesCount'
+    { _icTerminating    :: !(Maybe Int)
+    , _icPending        :: !(Maybe Int)
+    , _icOnline         :: !(Maybe Int)
+    , _icUnassigning    :: !(Maybe Int)
+    , _icRequested      :: !(Maybe Int)
+    , _icRunningSetup   :: !(Maybe Int)
+    , _icDeregistering  :: !(Maybe Int)
+    , _icBooting        :: !(Maybe Int)
+    , _icStopped        :: !(Maybe Int)
+    , _icRebooting      :: !(Maybe Int)
+    , _icAssigning      :: !(Maybe Int)
+    , _icShuttingDown   :: !(Maybe Int)
+    , _icSetupFailed    :: !(Maybe Int)
+    , _icConnectionLost :: !(Maybe Int)
+    , _icTerminated     :: !(Maybe Int)
+    , _icStopping       :: !(Maybe Int)
+    , _icRegistered     :: !(Maybe Int)
+    , _icStartFailed    :: !(Maybe Int)
+    , _icRegistering    :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstancesCount' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'icTerminating'
 --
@@ -1698,30 +1740,8 @@ instance ToJSON InstanceIdentity where
 -- * 'icStartFailed'
 --
 -- * 'icRegistering'
-data InstancesCount = InstancesCount'
-    { _icTerminating    :: !(Maybe Int)
-    , _icPending        :: !(Maybe Int)
-    , _icOnline         :: !(Maybe Int)
-    , _icUnassigning    :: !(Maybe Int)
-    , _icRequested      :: !(Maybe Int)
-    , _icRunningSetup   :: !(Maybe Int)
-    , _icDeregistering  :: !(Maybe Int)
-    , _icBooting        :: !(Maybe Int)
-    , _icStopped        :: !(Maybe Int)
-    , _icRebooting      :: !(Maybe Int)
-    , _icAssigning      :: !(Maybe Int)
-    , _icShuttingDown   :: !(Maybe Int)
-    , _icSetupFailed    :: !(Maybe Int)
-    , _icConnectionLost :: !(Maybe Int)
-    , _icTerminated     :: !(Maybe Int)
-    , _icStopping       :: !(Maybe Int)
-    , _icRegistered     :: !(Maybe Int)
-    , _icStartFailed    :: !(Maybe Int)
-    , _icRegistering    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstancesCount' smart constructor.
-instancesCount :: InstancesCount
+instancesCount
+    :: InstancesCount
 instancesCount =
     InstancesCount'
     { _icTerminating = Nothing
@@ -1745,15 +1765,15 @@ instancesCount =
     , _icRegistering = Nothing
     }
 
--- | The number of instances with @terminating@ status.
+-- | The number of instances with 'terminating' status.
 icTerminating :: Lens' InstancesCount (Maybe Int)
 icTerminating = lens _icTerminating (\ s a -> s{_icTerminating = a});
 
--- | The number of instances with @pending@ status.
+-- | The number of instances with 'pending' status.
 icPending :: Lens' InstancesCount (Maybe Int)
 icPending = lens _icPending (\ s a -> s{_icPending = a});
 
--- | The number of instances with @online@ status.
+-- | The number of instances with 'online' status.
 icOnline :: Lens' InstancesCount (Maybe Int)
 icOnline = lens _icOnline (\ s a -> s{_icOnline = a});
 
@@ -1761,11 +1781,11 @@ icOnline = lens _icOnline (\ s a -> s{_icOnline = a});
 icUnassigning :: Lens' InstancesCount (Maybe Int)
 icUnassigning = lens _icUnassigning (\ s a -> s{_icUnassigning = a});
 
--- | The number of instances with @requested@ status.
+-- | The number of instances with 'requested' status.
 icRequested :: Lens' InstancesCount (Maybe Int)
 icRequested = lens _icRequested (\ s a -> s{_icRequested = a});
 
--- | The number of instances with @running_setup@ status.
+-- | The number of instances with 'running_setup' status.
 icRunningSetup :: Lens' InstancesCount (Maybe Int)
 icRunningSetup = lens _icRunningSetup (\ s a -> s{_icRunningSetup = a});
 
@@ -1773,15 +1793,15 @@ icRunningSetup = lens _icRunningSetup (\ s a -> s{_icRunningSetup = a});
 icDeregistering :: Lens' InstancesCount (Maybe Int)
 icDeregistering = lens _icDeregistering (\ s a -> s{_icDeregistering = a});
 
--- | The number of instances with @booting@ status.
+-- | The number of instances with 'booting' status.
 icBooting :: Lens' InstancesCount (Maybe Int)
 icBooting = lens _icBooting (\ s a -> s{_icBooting = a});
 
--- | The number of instances with @stopped@ status.
+-- | The number of instances with 'stopped' status.
 icStopped :: Lens' InstancesCount (Maybe Int)
 icStopped = lens _icStopped (\ s a -> s{_icStopped = a});
 
--- | The number of instances with @rebooting@ status.
+-- | The number of instances with 'rebooting' status.
 icRebooting :: Lens' InstancesCount (Maybe Int)
 icRebooting = lens _icRebooting (\ s a -> s{_icRebooting = a});
 
@@ -1789,23 +1809,23 @@ icRebooting = lens _icRebooting (\ s a -> s{_icRebooting = a});
 icAssigning :: Lens' InstancesCount (Maybe Int)
 icAssigning = lens _icAssigning (\ s a -> s{_icAssigning = a});
 
--- | The number of instances with @shutting_down@ status.
+-- | The number of instances with 'shutting_down' status.
 icShuttingDown :: Lens' InstancesCount (Maybe Int)
 icShuttingDown = lens _icShuttingDown (\ s a -> s{_icShuttingDown = a});
 
--- | The number of instances with @setup_failed@ status.
+-- | The number of instances with 'setup_failed' status.
 icSetupFailed :: Lens' InstancesCount (Maybe Int)
 icSetupFailed = lens _icSetupFailed (\ s a -> s{_icSetupFailed = a});
 
--- | The number of instances with @connection_lost@ status.
+-- | The number of instances with 'connection_lost' status.
 icConnectionLost :: Lens' InstancesCount (Maybe Int)
 icConnectionLost = lens _icConnectionLost (\ s a -> s{_icConnectionLost = a});
 
--- | The number of instances with @terminated@ status.
+-- | The number of instances with 'terminated' status.
 icTerminated :: Lens' InstancesCount (Maybe Int)
 icTerminated = lens _icTerminated (\ s a -> s{_icTerminated = a});
 
--- | The number of instances with @stopping@ status.
+-- | The number of instances with 'stopping' status.
 icStopping :: Lens' InstancesCount (Maybe Int)
 icStopping = lens _icStopping (\ s a -> s{_icStopping = a});
 
@@ -1813,7 +1833,7 @@ icStopping = lens _icStopping (\ s a -> s{_icStopping = a});
 icRegistered :: Lens' InstancesCount (Maybe Int)
 icRegistered = lens _icRegistered (\ s a -> s{_icRegistered = a});
 
--- | The number of instances with @start_failed@ status.
+-- | The number of instances with 'start_failed' status.
 icStartFailed :: Lens' InstancesCount (Maybe Int)
 icStartFailed = lens _icStartFailed (\ s a -> s{_icStartFailed = a});
 
@@ -1848,8 +1868,33 @@ instance FromJSON InstancesCount where
 -- | Describes a layer.
 --
 -- /See:/ 'layer' smart constructor.
+data Layer = Layer'
+    { _lCustomInstanceProfileARN    :: !(Maybe Text)
+    , _lInstallUpdatesOnBoot        :: !(Maybe Bool)
+    , _lCustomSecurityGroupIds      :: !(Maybe [Text])
+    , _lLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+    , _lShortname                   :: !(Maybe Text)
+    , _lCreatedAt                   :: !(Maybe Text)
+    , _lDefaultRecipes              :: !(Maybe Recipes)
+    , _lCustomRecipes               :: !(Maybe Recipes)
+    , _lVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
+    , _lCustomJSON                  :: !(Maybe Text)
+    , _lEnableAutoHealing           :: !(Maybe Bool)
+    , _lPackages                    :: !(Maybe [Text])
+    , _lName                        :: !(Maybe Text)
+    , _lAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
+    , _lAutoAssignPublicIPs         :: !(Maybe Bool)
+    , _lUseEBSOptimizedInstances    :: !(Maybe Bool)
+    , _lType                        :: !(Maybe LayerType)
+    , _lStackId                     :: !(Maybe Text)
+    , _lLayerId                     :: !(Maybe Text)
+    , _lDefaultSecurityGroupNames   :: !(Maybe [Text])
+    , _lAutoAssignElasticIPs        :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Layer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lCustomInstanceProfileARN'
 --
@@ -1892,32 +1937,8 @@ instance FromJSON InstancesCount where
 -- * 'lDefaultSecurityGroupNames'
 --
 -- * 'lAutoAssignElasticIPs'
-data Layer = Layer'
-    { _lCustomInstanceProfileARN    :: !(Maybe Text)
-    , _lInstallUpdatesOnBoot        :: !(Maybe Bool)
-    , _lCustomSecurityGroupIds      :: !(Maybe [Text])
-    , _lLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
-    , _lShortname                   :: !(Maybe Text)
-    , _lCreatedAt                   :: !(Maybe Text)
-    , _lDefaultRecipes              :: !(Maybe Recipes)
-    , _lCustomRecipes               :: !(Maybe Recipes)
-    , _lVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
-    , _lCustomJSON                  :: !(Maybe Text)
-    , _lEnableAutoHealing           :: !(Maybe Bool)
-    , _lPackages                    :: !(Maybe [Text])
-    , _lName                        :: !(Maybe Text)
-    , _lAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
-    , _lAutoAssignPublicIPs         :: !(Maybe Bool)
-    , _lUseEBSOptimizedInstances    :: !(Maybe Bool)
-    , _lType                        :: !(Maybe LayerType)
-    , _lStackId                     :: !(Maybe Text)
-    , _lLayerId                     :: !(Maybe Text)
-    , _lDefaultSecurityGroupNames   :: !(Maybe [Text])
-    , _lAutoAssignElasticIPs        :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Layer' smart constructor.
-layer :: Layer
+layer
+    :: Layer
 layer =
     Layer'
     { _lCustomInstanceProfileARN = Nothing
@@ -1950,13 +1971,13 @@ lCustomInstanceProfileARN :: Lens' Layer (Maybe Text)
 lCustomInstanceProfileARN = lens _lCustomInstanceProfileARN (\ s a -> s{_lCustomInstanceProfileARN = a});
 
 -- | Whether to install operating system and package updates when the
--- instance boots. The default value is @true@. If this value is set to
--- @false@, you must then update your instances manually by using
--- CreateDeployment to run the @update_dependencies@ stack command or
--- manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the
+-- instance boots. The default value is 'true'. If this value is set to
+-- 'false', you must then update your instances manually by using
+-- CreateDeployment to run the 'update_dependencies' stack command or
+-- manually running 'yum' (Amazon Linux) or 'apt-get' (Ubuntu) on the
 -- instances.
 --
--- We strongly recommend using the default value of @true@, to ensure that
+-- We strongly recommend using the default value of 'true', to ensure that
 -- your instances have the latest security updates.
 lInstallUpdatesOnBoot :: Lens' Layer (Maybe Bool)
 lInstallUpdatesOnBoot = lens _lInstallUpdatesOnBoot (\ s a -> s{_lInstallUpdatesOnBoot = a});
@@ -1965,7 +1986,7 @@ lInstallUpdatesOnBoot = lens _lInstallUpdatesOnBoot (\ s a -> s{_lInstallUpdates
 lCustomSecurityGroupIds :: Lens' Layer [Text]
 lCustomSecurityGroupIds = lens _lCustomSecurityGroupIds (\ s a -> s{_lCustomSecurityGroupIds = a}) . _Default . _Coerce;
 
--- | A @LifeCycleEventConfiguration@ object that specifies the Shutdown event
+-- | A 'LifeCycleEventConfiguration' object that specifies the Shutdown event
 -- configuration.
 lLifecycleEventConfiguration :: Lens' Layer (Maybe LifecycleEventConfiguration)
 lLifecycleEventConfiguration = lens _lLifecycleEventConfiguration (\ s a -> s{_lLifecycleEventConfiguration = a});
@@ -1982,12 +2003,12 @@ lCreatedAt = lens _lCreatedAt (\ s a -> s{_lCreatedAt = a});
 lDefaultRecipes :: Lens' Layer (Maybe Recipes)
 lDefaultRecipes = lens _lDefaultRecipes (\ s a -> s{_lDefaultRecipes = a});
 
--- | A @LayerCustomRecipes@ object that specifies the layer\'s custom
+-- | A 'LayerCustomRecipes' object that specifies the layer\'s custom
 -- recipes.
 lCustomRecipes :: Lens' Layer (Maybe Recipes)
 lCustomRecipes = lens _lCustomRecipes (\ s a -> s{_lCustomRecipes = a});
 
--- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+-- | A 'VolumeConfigurations' object that describes the layer\'s Amazon EBS
 -- volumes.
 lVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
 lVolumeConfigurations = lens _lVolumeConfigurations (\ s a -> s{_lVolumeConfigurations = a}) . _Default . _Coerce;
@@ -2001,7 +2022,7 @@ lCustomJSON = lens _lCustomJSON (\ s a -> s{_lCustomJSON = a});
 lEnableAutoHealing :: Lens' Layer (Maybe Bool)
 lEnableAutoHealing = lens _lEnableAutoHealing (\ s a -> s{_lEnableAutoHealing = a});
 
--- | An array of @Package@ objects that describe the layer\'s packages.
+-- | An array of 'Package' objects that describe the layer\'s packages.
 lPackages :: Lens' Layer [Text]
 lPackages = lens _lPackages (\ s a -> s{_lPackages = a}) . _Default . _Coerce;
 
@@ -2011,11 +2032,11 @@ lName = lens _lName (\ s a -> s{_lName = a});
 
 -- | The layer attributes.
 --
--- For the @HaproxyStatsPassword@, @MysqlRootPassword@, and
--- @GangliaPassword@ attributes, AWS OpsWorks returns @*****FILTERED*****@
+-- For the 'HaproxyStatsPassword', 'MysqlRootPassword', and
+-- 'GangliaPassword' attributes, AWS OpsWorks returns '*****FILTERED*****'
 -- instead of the actual value
 --
--- For an ECS Cluster layer, AWS OpsWorks the @EcsClusterArn@ attribute is
+-- For an ECS Cluster layer, AWS OpsWorks the 'EcsClusterArn' attribute is
 -- set to the cluster\'s ARN.
 lAttributes :: Lens' Layer (HashMap LayerAttributesKeys Text)
 lAttributes = lens _lAttributes (\ s a -> s{_lAttributes = a}) . _Default . _Map;
@@ -2083,22 +2104,23 @@ instance FromJSON Layer where
 -- | Specifies the lifecycle event configuration
 --
 -- /See:/ 'lifecycleEventConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lecShutdown'
 newtype LifecycleEventConfiguration = LifecycleEventConfiguration'
     { _lecShutdown :: Maybe ShutdownEventConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LifecycleEventConfiguration' smart constructor.
-lifecycleEventConfiguration :: LifecycleEventConfiguration
+-- | Creates a value of 'LifecycleEventConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lecShutdown'
+lifecycleEventConfiguration
+    :: LifecycleEventConfiguration
 lifecycleEventConfiguration =
     LifecycleEventConfiguration'
     { _lecShutdown = Nothing
     }
 
--- | A @ShutdownEventConfiguration@ object that specifies the Shutdown event
+-- | A 'ShutdownEventConfiguration' object that specifies the Shutdown event
 -- configuration.
 lecShutdown :: Lens' LifecycleEventConfiguration (Maybe ShutdownEventConfiguration)
 lecShutdown = lens _lecShutdown (\ s a -> s{_lecShutdown = a});
@@ -2116,8 +2138,16 @@ instance ToJSON LifecycleEventConfiguration where
 -- | Describes a layer\'s load-based auto scaling configuration.
 --
 -- /See:/ 'loadBasedAutoScalingConfiguration' smart constructor.
+data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
+    { _lbascUpScaling   :: !(Maybe AutoScalingThresholds)
+    , _lbascEnable      :: !(Maybe Bool)
+    , _lbascDownScaling :: !(Maybe AutoScalingThresholds)
+    , _lbascLayerId     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LoadBasedAutoScalingConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lbascUpScaling'
 --
@@ -2126,15 +2156,8 @@ instance ToJSON LifecycleEventConfiguration where
 -- * 'lbascDownScaling'
 --
 -- * 'lbascLayerId'
-data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
-    { _lbascUpScaling   :: !(Maybe AutoScalingThresholds)
-    , _lbascEnable      :: !(Maybe Bool)
-    , _lbascDownScaling :: !(Maybe AutoScalingThresholds)
-    , _lbascLayerId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LoadBasedAutoScalingConfiguration' smart constructor.
-loadBasedAutoScalingConfiguration :: LoadBasedAutoScalingConfiguration
+loadBasedAutoScalingConfiguration
+    :: LoadBasedAutoScalingConfiguration
 loadBasedAutoScalingConfiguration =
     LoadBasedAutoScalingConfiguration'
     { _lbascUpScaling = Nothing
@@ -2143,7 +2166,7 @@ loadBasedAutoScalingConfiguration =
     , _lbascLayerId = Nothing
     }
 
--- | An @AutoScalingThresholds@ object that describes the upscaling
+-- | An 'AutoScalingThresholds' object that describes the upscaling
 -- configuration, which defines how and when AWS OpsWorks increases the
 -- number of instances.
 lbascUpScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
@@ -2153,7 +2176,7 @@ lbascUpScaling = lens _lbascUpScaling (\ s a -> s{_lbascUpScaling = a});
 lbascEnable :: Lens' LoadBasedAutoScalingConfiguration (Maybe Bool)
 lbascEnable = lens _lbascEnable (\ s a -> s{_lbascEnable = a});
 
--- | An @AutoScalingThresholds@ object that describes the downscaling
+-- | An 'AutoScalingThresholds' object that describes the downscaling
 -- configuration, which defines how and when AWS OpsWorks reduces the
 -- number of instances.
 lbascDownScaling :: Lens' LoadBasedAutoScalingConfiguration (Maybe AutoScalingThresholds)
@@ -2176,8 +2199,17 @@ instance FromJSON LoadBasedAutoScalingConfiguration
 -- | Describes stack or user permissions.
 --
 -- /See:/ 'permission' smart constructor.
+data Permission = Permission'
+    { _pIAMUserARN :: !(Maybe Text)
+    , _pAllowSudo  :: !(Maybe Bool)
+    , _pStackId    :: !(Maybe Text)
+    , _pLevel      :: !(Maybe Text)
+    , _pAllowSSH   :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Permission' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pIAMUserARN'
 --
@@ -2188,16 +2220,8 @@ instance FromJSON LoadBasedAutoScalingConfiguration
 -- * 'pLevel'
 --
 -- * 'pAllowSSH'
-data Permission = Permission'
-    { _pIAMUserARN :: !(Maybe Text)
-    , _pAllowSudo  :: !(Maybe Bool)
-    , _pStackId    :: !(Maybe Text)
-    , _pLevel      :: !(Maybe Text)
-    , _pAllowSSH   :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Permission' smart constructor.
-permission :: Permission
+permission
+    :: Permission
 permission =
     Permission'
     { _pIAMUserARN = Nothing
@@ -2223,11 +2247,11 @@ pStackId = lens _pStackId (\ s a -> s{_pStackId = a});
 
 -- | The user\'s permission level, which must be the following:
 --
--- -   @deny@
--- -   @show@
--- -   @deploy@
--- -   @manage@
--- -   @iam_only@
+-- -   'deny'
+-- -   'show'
+-- -   'deploy'
+-- -   'manage'
+-- -   'iam_only'
 --
 -- For more information on the permissions associated with these levels,
 -- see
@@ -2252,8 +2276,25 @@ instance FromJSON Permission where
 -- | Describes an instance\'s RAID array.
 --
 -- /See:/ 'rAIdArray' smart constructor.
+data RAIdArray = RAIdArray'
+    { _raiaInstanceId       :: !(Maybe Text)
+    , _raiaSize             :: !(Maybe Int)
+    , _raiaCreatedAt        :: !(Maybe Text)
+    , _raiaIOPS             :: !(Maybe Int)
+    , _raiaRAIdLevel        :: !(Maybe Int)
+    , _raiaDevice           :: !(Maybe Text)
+    , _raiaNumberOfDisks    :: !(Maybe Int)
+    , _raiaName             :: !(Maybe Text)
+    , _raiaAvailabilityZone :: !(Maybe Text)
+    , _raiaRAIdArrayId      :: !(Maybe Text)
+    , _raiaVolumeType       :: !(Maybe Text)
+    , _raiaStackId          :: !(Maybe Text)
+    , _raiaMountPoint       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RAIdArray' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'raiaInstanceId'
 --
@@ -2280,24 +2321,8 @@ instance FromJSON Permission where
 -- * 'raiaStackId'
 --
 -- * 'raiaMountPoint'
-data RAIdArray = RAIdArray'
-    { _raiaInstanceId       :: !(Maybe Text)
-    , _raiaSize             :: !(Maybe Int)
-    , _raiaCreatedAt        :: !(Maybe Text)
-    , _raiaIOPS             :: !(Maybe Int)
-    , _raiaRAIdLevel        :: !(Maybe Int)
-    , _raiaDevice           :: !(Maybe Text)
-    , _raiaNumberOfDisks    :: !(Maybe Int)
-    , _raiaName             :: !(Maybe Text)
-    , _raiaAvailabilityZone :: !(Maybe Text)
-    , _raiaRAIdArrayId      :: !(Maybe Text)
-    , _raiaVolumeType       :: !(Maybe Text)
-    , _raiaStackId          :: !(Maybe Text)
-    , _raiaMountPoint       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RAIdArray' smart constructor.
-rAIdArray :: RAIdArray
+rAIdArray
+    :: RAIdArray
 rAIdArray =
     RAIdArray'
     { _raiaInstanceId = Nothing
@@ -2389,8 +2414,21 @@ instance FromJSON RAIdArray where
 -- | Describes an Amazon RDS instance.
 --
 -- /See:/ 'rdsDBInstance' smart constructor.
+data RDSDBInstance = RDSDBInstance'
+    { _rdiDBUser               :: !(Maybe Text)
+    , _rdiRDSDBInstanceARN     :: !(Maybe Text)
+    , _rdiMissingOnRDS         :: !(Maybe Bool)
+    , _rdiEngine               :: !(Maybe Text)
+    , _rdiAddress              :: !(Maybe Text)
+    , _rdiDBInstanceIdentifier :: !(Maybe Text)
+    , _rdiRegion               :: !(Maybe Text)
+    , _rdiStackId              :: !(Maybe Text)
+    , _rdiDBPassword           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RDSDBInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rdiDBUser'
 --
@@ -2409,20 +2447,8 @@ instance FromJSON RAIdArray where
 -- * 'rdiStackId'
 --
 -- * 'rdiDBPassword'
-data RDSDBInstance = RDSDBInstance'
-    { _rdiDBUser               :: !(Maybe Text)
-    , _rdiRDSDBInstanceARN     :: !(Maybe Text)
-    , _rdiMissingOnRDS         :: !(Maybe Bool)
-    , _rdiEngine               :: !(Maybe Text)
-    , _rdiAddress              :: !(Maybe Text)
-    , _rdiDBInstanceIdentifier :: !(Maybe Text)
-    , _rdiRegion               :: !(Maybe Text)
-    , _rdiStackId              :: !(Maybe Text)
-    , _rdiDBPassword           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RDSDBInstance' smart constructor.
-rdsDBInstance :: RDSDBInstance
+rdsDBInstance
+    :: RDSDBInstance
 rdsDBInstance =
     RDSDBInstance'
     { _rdiDBUser = Nothing
@@ -2444,9 +2470,9 @@ rdiDBUser = lens _rdiDBUser (\ s a -> s{_rdiDBUser = a});
 rdiRDSDBInstanceARN :: Lens' RDSDBInstance (Maybe Text)
 rdiRDSDBInstanceARN = lens _rdiRDSDBInstanceARN (\ s a -> s{_rdiRDSDBInstanceARN = a});
 
--- | Set to @true@ if AWS OpsWorks was unable to discover the Amazon RDS
+-- | Set to 'true' if AWS OpsWorks was unable to discover the Amazon RDS
 -- instance. AWS OpsWorks attempts to discover the instance only once. If
--- this value is set to @true@, you must deregister the instance and then
+-- this value is set to 'true', you must deregister the instance and then
 -- register it again.
 rdiMissingOnRDS :: Lens' RDSDBInstance (Maybe Bool)
 rdiMissingOnRDS = lens _rdiMissingOnRDS (\ s a -> s{_rdiMissingOnRDS = a});
@@ -2471,7 +2497,7 @@ rdiRegion = lens _rdiRegion (\ s a -> s{_rdiRegion = a});
 rdiStackId :: Lens' RDSDBInstance (Maybe Text)
 rdiStackId = lens _rdiStackId (\ s a -> s{_rdiStackId = a});
 
--- | AWS OpsWorks returns @*****FILTERED*****@ instead of the actual value.
+-- | AWS OpsWorks returns '*****FILTERED*****' instead of the actual value.
 rdiDBPassword :: Lens' RDSDBInstance (Maybe Text)
 rdiDBPassword = lens _rdiDBPassword (\ s a -> s{_rdiDBPassword = a});
 
@@ -2494,7 +2520,7 @@ instance FromJSON RDSDBInstance where
 -- layer, AWS OpsWorks runs a set of standard recipes for each event. In
 -- addition, you can provide custom recipes for any or all layers and
 -- events. AWS OpsWorks runs custom event recipes after the standard
--- recipes. @LayerCustomRecipes@ specifies the custom recipes for a
+-- recipes. 'LayerCustomRecipes' specifies the custom recipes for a
 -- particular layer to be run in response to each of the five events.
 --
 -- To specify a recipe, use the cookbook\'s directory name in the
@@ -2504,8 +2530,17 @@ instance FromJSON RDSDBInstance where
 -- phpapp2 folder.
 --
 -- /See:/ 'recipes' smart constructor.
+data Recipes = Recipes'
+    { _rSetup     :: !(Maybe [Text])
+    , _rUndeploy  :: !(Maybe [Text])
+    , _rShutdown  :: !(Maybe [Text])
+    , _rConfigure :: !(Maybe [Text])
+    , _rDeploy    :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Recipes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rSetup'
 --
@@ -2516,16 +2551,8 @@ instance FromJSON RDSDBInstance where
 -- * 'rConfigure'
 --
 -- * 'rDeploy'
-data Recipes = Recipes'
-    { _rSetup     :: !(Maybe [Text])
-    , _rUndeploy  :: !(Maybe [Text])
-    , _rShutdown  :: !(Maybe [Text])
-    , _rConfigure :: !(Maybe [Text])
-    , _rDeploy    :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Recipes' smart constructor.
-recipes :: Recipes
+recipes
+    :: Recipes
 recipes =
     Recipes'
     { _rSetup = Nothing
@@ -2535,23 +2562,23 @@ recipes =
     , _rDeploy = Nothing
     }
 
--- | An array of custom recipe names to be run following a @setup@ event.
+-- | An array of custom recipe names to be run following a 'setup' event.
 rSetup :: Lens' Recipes [Text]
 rSetup = lens _rSetup (\ s a -> s{_rSetup = a}) . _Default . _Coerce;
 
--- | An array of custom recipe names to be run following a @undeploy@ event.
+-- | An array of custom recipe names to be run following a 'undeploy' event.
 rUndeploy :: Lens' Recipes [Text]
 rUndeploy = lens _rUndeploy (\ s a -> s{_rUndeploy = a}) . _Default . _Coerce;
 
--- | An array of custom recipe names to be run following a @shutdown@ event.
+-- | An array of custom recipe names to be run following a 'shutdown' event.
 rShutdown :: Lens' Recipes [Text]
 rShutdown = lens _rShutdown (\ s a -> s{_rShutdown = a}) . _Default . _Coerce;
 
--- | An array of custom recipe names to be run following a @configure@ event.
+-- | An array of custom recipe names to be run following a 'configure' event.
 rConfigure :: Lens' Recipes [Text]
 rConfigure = lens _rConfigure (\ s a -> s{_rConfigure = a}) . _Default . _Coerce;
 
--- | An array of custom recipe names to be run following a @deploy@ event.
+-- | An array of custom recipe names to be run following a 'deploy' event.
 rDeploy :: Lens' Recipes [Text]
 rDeploy = lens _rDeploy (\ s a -> s{_rDeploy = a}) . _Default . _Coerce;
 
@@ -2576,22 +2603,23 @@ instance ToJSON Recipes where
 -- | A registered instance\'s reported operating system.
 --
 -- /See:/ 'reportedOS' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'roFamily'
---
--- * 'roName'
---
--- * 'roVersion'
 data ReportedOS = ReportedOS'
     { _roFamily  :: !(Maybe Text)
     , _roName    :: !(Maybe Text)
     , _roVersion :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReportedOS' smart constructor.
-reportedOS :: ReportedOS
+-- | Creates a value of 'ReportedOS' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'roFamily'
+--
+-- * 'roName'
+--
+-- * 'roVersion'
+reportedOS
+    :: ReportedOS
 reportedOS =
     ReportedOS'
     { _roFamily = Nothing
@@ -2622,22 +2650,25 @@ instance FromJSON ReportedOS where
 -- | Describes an app\'s SSL configuration.
 --
 -- /See:/ 'sslConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'scChain'
---
--- * 'scCertificate'
---
--- * 'scPrivateKey'
 data SSLConfiguration = SSLConfiguration'
     { _scChain       :: !(Maybe Text)
     , _scCertificate :: !Text
     , _scPrivateKey  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SSLConfiguration' smart constructor.
-sslConfiguration :: Text -> Text -> SSLConfiguration
+-- | Creates a value of 'SSLConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scChain'
+--
+-- * 'scCertificate'
+--
+-- * 'scPrivateKey'
+sslConfiguration
+    :: Text -- ^ 'scCertificate'
+    -> Text -- ^ 'scPrivateKey'
+    -> SSLConfiguration
 sslConfiguration pCertificate_ pPrivateKey_ =
     SSLConfiguration'
     { _scChain = Nothing
@@ -2676,8 +2707,16 @@ instance ToJSON SSLConfiguration where
 -- | Describes a user\'s SSH information.
 --
 -- /See:/ 'selfUserProfile' smart constructor.
+data SelfUserProfile = SelfUserProfile'
+    { _supSSHUsername  :: !(Maybe Text)
+    , _supSSHPublicKey :: !(Maybe Text)
+    , _supIAMUserARN   :: !(Maybe Text)
+    , _supName         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SelfUserProfile' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'supSSHUsername'
 --
@@ -2686,15 +2725,8 @@ instance ToJSON SSLConfiguration where
 -- * 'supIAMUserARN'
 --
 -- * 'supName'
-data SelfUserProfile = SelfUserProfile'
-    { _supSSHUsername  :: !(Maybe Text)
-    , _supSSHPublicKey :: !(Maybe Text)
-    , _supIAMUserARN   :: !(Maybe Text)
-    , _supName         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SelfUserProfile' smart constructor.
-selfUserProfile :: SelfUserProfile
+selfUserProfile
+    :: SelfUserProfile
 selfUserProfile =
     SelfUserProfile'
     { _supSSHUsername = Nothing
@@ -2731,8 +2763,18 @@ instance FromJSON SelfUserProfile where
 -- | Describes an AWS OpsWorks service error.
 --
 -- /See:/ 'serviceError'' smart constructor.
+data ServiceError' = ServiceError''
+    { _seInstanceId     :: !(Maybe Text)
+    , _seCreatedAt      :: !(Maybe Text)
+    , _seServiceErrorId :: !(Maybe Text)
+    , _seType           :: !(Maybe Text)
+    , _seMessage        :: !(Maybe Text)
+    , _seStackId        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ServiceError'' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'seInstanceId'
 --
@@ -2745,17 +2787,8 @@ instance FromJSON SelfUserProfile where
 -- * 'seMessage'
 --
 -- * 'seStackId'
-data ServiceError' = ServiceError''
-    { _seInstanceId     :: !(Maybe Text)
-    , _seCreatedAt      :: !(Maybe Text)
-    , _seServiceErrorId :: !(Maybe Text)
-    , _seType           :: !(Maybe Text)
-    , _seMessage        :: !(Maybe Text)
-    , _seStackId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ServiceError'' smart constructor.
-serviceError' :: ServiceError'
+serviceError'
+    :: ServiceError'
 serviceError' =
     ServiceError''
     { _seInstanceId = Nothing
@@ -2804,19 +2837,20 @@ instance FromJSON ServiceError' where
 -- | The Shutdown event configuration.
 --
 -- /See:/ 'shutdownEventConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'secExecutionTimeout'
---
--- * 'secDelayUntilElbConnectionsDrained'
 data ShutdownEventConfiguration = ShutdownEventConfiguration'
     { _secExecutionTimeout                :: !(Maybe Int)
     , _secDelayUntilElbConnectionsDrained :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ShutdownEventConfiguration' smart constructor.
-shutdownEventConfiguration :: ShutdownEventConfiguration
+-- | Creates a value of 'ShutdownEventConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'secExecutionTimeout'
+--
+-- * 'secDelayUntilElbConnectionsDrained'
+shutdownEventConfiguration
+    :: ShutdownEventConfiguration
 shutdownEventConfiguration =
     ShutdownEventConfiguration'
     { _secExecutionTimeout = Nothing
@@ -2856,8 +2890,18 @@ instance ToJSON ShutdownEventConfiguration where
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Custom Recipes and Cookbooks>.
 --
 -- /See:/ 'source' smart constructor.
+data Source = Source'
+    { _sURL      :: !(Maybe Text)
+    , _sUsername :: !(Maybe Text)
+    , _sSSHKey   :: !(Maybe Text)
+    , _sPassword :: !(Maybe Text)
+    , _sType     :: !(Maybe SourceType)
+    , _sRevision :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Source' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sURL'
 --
@@ -2870,17 +2914,8 @@ instance ToJSON ShutdownEventConfiguration where
 -- * 'sType'
 --
 -- * 'sRevision'
-data Source = Source'
-    { _sURL      :: !(Maybe Text)
-    , _sUsername :: !(Maybe Text)
-    , _sSSHKey   :: !(Maybe Text)
-    , _sPassword :: !(Maybe Text)
-    , _sType     :: !(Maybe SourceType)
-    , _sRevision :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Source' smart constructor.
-source :: Source
+source
+    :: Source
 source =
     Source'
     { _sURL = Nothing
@@ -2897,16 +2932,16 @@ sURL = lens _sURL (\ s a -> s{_sURL = a});
 
 -- | This parameter depends on the repository type.
 --
--- -   For Amazon S3 bundles, set @Username@ to the appropriate IAM access
+-- -   For Amazon S3 bundles, set 'Username' to the appropriate IAM access
 --     key ID.
 -- -   For HTTP bundles, Git repositories, and Subversion repositories, set
---     @Username@ to the user name.
+--     'Username' to the user name.
 sUsername :: Lens' Source (Maybe Text)
 sUsername = lens _sUsername (\ s a -> s{_sUsername = a});
 
 -- | In requests, the repository\'s SSH key.
 --
--- In responses, AWS OpsWorks returns @*****FILTERED*****@ instead of the
+-- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the
 -- actual value.
 sSSHKey :: Lens' Source (Maybe Text)
 sSSHKey = lens _sSSHKey (\ s a -> s{_sSSHKey = a});
@@ -2914,15 +2949,15 @@ sSSHKey = lens _sSSHKey (\ s a -> s{_sSSHKey = a});
 -- | When included in a request, the parameter depends on the repository
 -- type.
 --
--- -   For Amazon S3 bundles, set @Password@ to the appropriate IAM secret
+-- -   For Amazon S3 bundles, set 'Password' to the appropriate IAM secret
 --     access key.
--- -   For HTTP bundles and Subversion repositories, set @Password@ to the
+-- -   For HTTP bundles and Subversion repositories, set 'Password' to the
 --     password.
 --
 -- For more information on how to safely handle IAM credentials, see
 -- <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html >.
 --
--- In responses, AWS OpsWorks returns @*****FILTERED*****@ instead of the
+-- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the
 -- actual value.
 sPassword :: Lens' Source (Maybe Text)
 sPassword = lens _sPassword (\ s a -> s{_sPassword = a});
@@ -2959,8 +2994,34 @@ instance ToJSON Source where
 -- | Describes a stack.
 --
 -- /See:/ 'stack' smart constructor.
+data Stack = Stack'
+    { _sDefaultInstanceProfileARN :: !(Maybe Text)
+    , _sServiceRoleARN            :: !(Maybe Text)
+    , _sARN                       :: !(Maybe Text)
+    , _sDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+    , _sCreatedAt                 :: !(Maybe Text)
+    , _sChefConfiguration         :: !(Maybe ChefConfiguration)
+    , _sVPCId                     :: !(Maybe Text)
+    , _sAgentVersion              :: !(Maybe Text)
+    , _sDefaultSSHKeyName         :: !(Maybe Text)
+    , _sCustomJSON                :: !(Maybe Text)
+    , _sCustomCookbooksSource     :: !(Maybe Source)
+    , _sDefaultAvailabilityZone   :: !(Maybe Text)
+    , _sName                      :: !(Maybe Text)
+    , _sUseOpsworksSecurityGroups :: !(Maybe Bool)
+    , _sDefaultOS                 :: !(Maybe Text)
+    , _sAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _sUseCustomCookbooks        :: !(Maybe Bool)
+    , _sDefaultSubnetId           :: !(Maybe Text)
+    , _sRegion                    :: !(Maybe Text)
+    , _sConfigurationManager      :: !(Maybe StackConfigurationManager)
+    , _sStackId                   :: !(Maybe Text)
+    , _sHostnameTheme             :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Stack' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sDefaultInstanceProfileARN'
 --
@@ -3005,33 +3066,8 @@ instance ToJSON Source where
 -- * 'sStackId'
 --
 -- * 'sHostnameTheme'
-data Stack = Stack'
-    { _sDefaultInstanceProfileARN :: !(Maybe Text)
-    , _sServiceRoleARN            :: !(Maybe Text)
-    , _sARN                       :: !(Maybe Text)
-    , _sDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _sCreatedAt                 :: !(Maybe Text)
-    , _sChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _sVPCId                     :: !(Maybe Text)
-    , _sAgentVersion              :: !(Maybe Text)
-    , _sDefaultSSHKeyName         :: !(Maybe Text)
-    , _sCustomJSON                :: !(Maybe Text)
-    , _sCustomCookbooksSource     :: !(Maybe Source)
-    , _sDefaultAvailabilityZone   :: !(Maybe Text)
-    , _sName                      :: !(Maybe Text)
-    , _sUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _sDefaultOS                 :: !(Maybe Text)
-    , _sAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _sUseCustomCookbooks        :: !(Maybe Bool)
-    , _sDefaultSubnetId           :: !(Maybe Text)
-    , _sRegion                    :: !(Maybe Text)
-    , _sConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _sStackId                   :: !(Maybe Text)
-    , _sHostnameTheme             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Stack' smart constructor.
-stack :: Stack
+stack
+    :: Stack
 stack =
     Stack'
     { _sDefaultInstanceProfileARN = Nothing
@@ -3083,7 +3119,7 @@ sDefaultRootDeviceType = lens _sDefaultRootDeviceType (\ s a -> s{_sDefaultRootD
 sCreatedAt :: Lens' Stack (Maybe Text)
 sCreatedAt = lens _sCreatedAt (\ s a -> s{_sCreatedAt = a});
 
--- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf
 -- and the Berkshelf version. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
 sChefConfiguration :: Lens' Stack (Maybe ChefConfiguration)
@@ -3093,7 +3129,7 @@ sChefConfiguration = lens _sChefConfiguration (\ s a -> s{_sChefConfiguration = 
 sVPCId :: Lens' Stack (Maybe Text)
 sVPCId = lens _sVPCId (\ s a -> s{_sVPCId = a});
 
--- | The agent version. This parameter is set to @LATEST@ for auto-update. or
+-- | The agent version. This parameter is set to 'LATEST' for auto-update. or
 -- a version number for a fixed agent version.
 sAgentVersion :: Lens' Stack (Maybe Text)
 sAgentVersion = lens _sAgentVersion (\ s a -> s{_sAgentVersion = a});
@@ -3109,7 +3145,7 @@ sDefaultSSHKeyName = lens _sDefaultSSHKeyName (\ s a -> s{_sDefaultSSHKeyName = 
 -- values or to pass data to recipes. The string should be in the following
 -- format and must escape characters such as \'\"\':
 --
--- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
+-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'
 --
 -- For more information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
@@ -3199,19 +3235,20 @@ instance FromJSON Stack where
 -- | Describes the configuration manager.
 --
 -- /See:/ 'stackConfigurationManager' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'scmName'
---
--- * 'scmVersion'
 data StackConfigurationManager = StackConfigurationManager'
     { _scmName    :: !(Maybe Text)
     , _scmVersion :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StackConfigurationManager' smart constructor.
-stackConfigurationManager :: StackConfigurationManager
+-- | Creates a value of 'StackConfigurationManager' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scmName'
+--
+-- * 'scmVersion'
+stackConfigurationManager
+    :: StackConfigurationManager
 stackConfigurationManager =
     StackConfigurationManager'
     { _scmName = Nothing
@@ -3242,8 +3279,18 @@ instance ToJSON StackConfigurationManager where
 -- | Summarizes the number of layers, instances, and apps in a stack.
 --
 -- /See:/ 'stackSummary' smart constructor.
+data StackSummary = StackSummary'
+    { _ssARN            :: !(Maybe Text)
+    , _ssAppsCount      :: !(Maybe Int)
+    , _ssName           :: !(Maybe Text)
+    , _ssStackId        :: !(Maybe Text)
+    , _ssLayersCount    :: !(Maybe Int)
+    , _ssInstancesCount :: !(Maybe InstancesCount)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ssARN'
 --
@@ -3256,17 +3303,8 @@ instance ToJSON StackConfigurationManager where
 -- * 'ssLayersCount'
 --
 -- * 'ssInstancesCount'
-data StackSummary = StackSummary'
-    { _ssARN            :: !(Maybe Text)
-    , _ssAppsCount      :: !(Maybe Int)
-    , _ssName           :: !(Maybe Text)
-    , _ssStackId        :: !(Maybe Text)
-    , _ssLayersCount    :: !(Maybe Int)
-    , _ssInstancesCount :: !(Maybe InstancesCount)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StackSummary' smart constructor.
-stackSummary :: StackSummary
+stackSummary
+    :: StackSummary
 stackSummary =
     StackSummary'
     { _ssARN = Nothing
@@ -3297,7 +3335,7 @@ ssStackId = lens _ssStackId (\ s a -> s{_ssStackId = a});
 ssLayersCount :: Lens' StackSummary (Maybe Int)
 ssLayersCount = lens _ssLayersCount (\ s a -> s{_ssLayersCount = a});
 
--- | An @InstancesCount@ object with the number of instances in each status.
+-- | An 'InstancesCount' object with the number of instances in each status.
 ssInstancesCount :: Lens' StackSummary (Maybe InstancesCount)
 ssInstancesCount = lens _ssInstancesCount (\ s a -> s{_ssInstancesCount = a});
 
@@ -3316,8 +3354,16 @@ instance FromJSON StackSummary where
 -- Desktop Connection to log in to the instance.
 --
 -- /See:/ 'temporaryCredential' smart constructor.
+data TemporaryCredential = TemporaryCredential'
+    { _tcInstanceId        :: !(Maybe Text)
+    , _tcUsername          :: !(Maybe Text)
+    , _tcPassword          :: !(Maybe Text)
+    , _tcValidForInMinutes :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TemporaryCredential' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tcInstanceId'
 --
@@ -3326,15 +3372,8 @@ instance FromJSON StackSummary where
 -- * 'tcPassword'
 --
 -- * 'tcValidForInMinutes'
-data TemporaryCredential = TemporaryCredential'
-    { _tcInstanceId        :: !(Maybe Text)
-    , _tcUsername          :: !(Maybe Text)
-    , _tcPassword          :: !(Maybe Text)
-    , _tcValidForInMinutes :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TemporaryCredential' smart constructor.
-temporaryCredential :: TemporaryCredential
+temporaryCredential
+    :: TemporaryCredential
 temporaryCredential =
     TemporaryCredential'
     { _tcInstanceId = Nothing
@@ -3374,19 +3413,20 @@ instance FromJSON TemporaryCredential where
 -- | Describes an instance\'s time-based auto scaling configuration.
 --
 -- /See:/ 'timeBasedAutoScalingConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tbascInstanceId'
---
--- * 'tbascAutoScalingSchedule'
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'
     { _tbascInstanceId          :: !(Maybe Text)
     , _tbascAutoScalingSchedule :: !(Maybe WeeklyAutoScalingSchedule)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TimeBasedAutoScalingConfiguration' smart constructor.
-timeBasedAutoScalingConfiguration :: TimeBasedAutoScalingConfiguration
+-- | Creates a value of 'TimeBasedAutoScalingConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tbascInstanceId'
+--
+-- * 'tbascAutoScalingSchedule'
+timeBasedAutoScalingConfiguration
+    :: TimeBasedAutoScalingConfiguration
 timeBasedAutoScalingConfiguration =
     TimeBasedAutoScalingConfiguration'
     { _tbascInstanceId = Nothing
@@ -3397,7 +3437,7 @@ timeBasedAutoScalingConfiguration =
 tbascInstanceId :: Lens' TimeBasedAutoScalingConfiguration (Maybe Text)
 tbascInstanceId = lens _tbascInstanceId (\ s a -> s{_tbascInstanceId = a});
 
--- | A @WeeklyAutoScalingSchedule@ object with the instance schedule.
+-- | A 'WeeklyAutoScalingSchedule' object with the instance schedule.
 tbascAutoScalingSchedule :: Lens' TimeBasedAutoScalingConfiguration (Maybe WeeklyAutoScalingSchedule)
 tbascAutoScalingSchedule = lens _tbascAutoScalingSchedule (\ s a -> s{_tbascAutoScalingSchedule = a});
 
@@ -3413,8 +3453,17 @@ instance FromJSON TimeBasedAutoScalingConfiguration
 -- | Describes a user\'s SSH information.
 --
 -- /See:/ 'userProfile' smart constructor.
+data UserProfile = UserProfile'
+    { _upSSHUsername         :: !(Maybe Text)
+    , _upSSHPublicKey        :: !(Maybe Text)
+    , _upAllowSelfManagement :: !(Maybe Bool)
+    , _upIAMUserARN          :: !(Maybe Text)
+    , _upName                :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UserProfile' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'upSSHUsername'
 --
@@ -3425,16 +3474,8 @@ instance FromJSON TimeBasedAutoScalingConfiguration
 -- * 'upIAMUserARN'
 --
 -- * 'upName'
-data UserProfile = UserProfile'
-    { _upSSHUsername         :: !(Maybe Text)
-    , _upSSHPublicKey        :: !(Maybe Text)
-    , _upAllowSelfManagement :: !(Maybe Bool)
-    , _upIAMUserARN          :: !(Maybe Text)
-    , _upName                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UserProfile' smart constructor.
-userProfile :: UserProfile
+userProfile
+    :: UserProfile
 userProfile =
     UserProfile'
     { _upSSHUsername = Nothing
@@ -3479,8 +3520,25 @@ instance FromJSON UserProfile where
 -- | Describes an instance\'s Amazon EBS volume.
 --
 -- /See:/ 'volume' smart constructor.
+data Volume = Volume'
+    { _vInstanceId       :: !(Maybe Text)
+    , _vStatus           :: !(Maybe Text)
+    , _vSize             :: !(Maybe Int)
+    , _vIOPS             :: !(Maybe Int)
+    , _vDevice           :: !(Maybe Text)
+    , _vName             :: !(Maybe Text)
+    , _vAvailabilityZone :: !(Maybe Text)
+    , _vRAIdArrayId      :: !(Maybe Text)
+    , _vVolumeId         :: !(Maybe Text)
+    , _vRegion           :: !(Maybe Text)
+    , _vVolumeType       :: !(Maybe Text)
+    , _vEC2VolumeId      :: !(Maybe Text)
+    , _vMountPoint       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Volume' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vInstanceId'
 --
@@ -3507,24 +3565,8 @@ instance FromJSON UserProfile where
 -- * 'vEC2VolumeId'
 --
 -- * 'vMountPoint'
-data Volume = Volume'
-    { _vInstanceId       :: !(Maybe Text)
-    , _vStatus           :: !(Maybe Text)
-    , _vSize             :: !(Maybe Int)
-    , _vIOPS             :: !(Maybe Int)
-    , _vDevice           :: !(Maybe Text)
-    , _vName             :: !(Maybe Text)
-    , _vAvailabilityZone :: !(Maybe Text)
-    , _vRAIdArrayId      :: !(Maybe Text)
-    , _vVolumeId         :: !(Maybe Text)
-    , _vRegion           :: !(Maybe Text)
-    , _vVolumeType       :: !(Maybe Text)
-    , _vEC2VolumeId      :: !(Maybe Text)
-    , _vMountPoint       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Volume' smart constructor.
-volume :: Volume
+volume
+    :: Volume
 volume =
     Volume'
     { _vInstanceId = Nothing
@@ -3618,8 +3660,18 @@ instance FromJSON Volume where
 -- | Describes an Amazon EBS volume configuration.
 --
 -- /See:/ 'volumeConfiguration' smart constructor.
+data VolumeConfiguration = VolumeConfiguration'
+    { _vcIOPS          :: !(Maybe Int)
+    , _vcRAIdLevel     :: !(Maybe Int)
+    , _vcVolumeType    :: !(Maybe Text)
+    , _vcMountPoint    :: !Text
+    , _vcNumberOfDisks :: !Int
+    , _vcSize          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VolumeConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vcIOPS'
 --
@@ -3632,17 +3684,11 @@ instance FromJSON Volume where
 -- * 'vcNumberOfDisks'
 --
 -- * 'vcSize'
-data VolumeConfiguration = VolumeConfiguration'
-    { _vcIOPS          :: !(Maybe Int)
-    , _vcRAIdLevel     :: !(Maybe Int)
-    , _vcVolumeType    :: !(Maybe Text)
-    , _vcMountPoint    :: !Text
-    , _vcNumberOfDisks :: !Int
-    , _vcSize          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VolumeConfiguration' smart constructor.
-volumeConfiguration :: Text -> Int -> Int -> VolumeConfiguration
+volumeConfiguration
+    :: Text -- ^ 'vcMountPoint'
+    -> Int -- ^ 'vcNumberOfDisks'
+    -> Int -- ^ 'vcSize'
+    -> VolumeConfiguration
 volumeConfiguration pMountPoint_ pNumberOfDisks_ pSize_ =
     VolumeConfiguration'
     { _vcIOPS = Nothing
@@ -3664,9 +3710,9 @@ vcRAIdLevel = lens _vcRAIdLevel (\ s a -> s{_vcRAIdLevel = a});
 
 -- | The volume type:
 --
--- -   @standard@ - Magnetic
--- -   @io1@ - Provisioned IOPS (SSD)
--- -   @gp2@ - General Purpose (SSD)
+-- -   'standard' - Magnetic
+-- -   'io1' - Provisioned IOPS (SSD)
+-- -   'gp2' - General Purpose (SSD)
 vcVolumeType :: Lens' VolumeConfiguration (Maybe Text)
 vcVolumeType = lens _vcVolumeType (\ s a -> s{_vcVolumeType = a});
 
@@ -3719,11 +3765,22 @@ instance ToJSON VolumeConfiguration where
 -- four hours, from UTC 1200 - 1600. It will be off for the remainder of
 -- the day.
 --
--- @ { \"12\":\"on\", \"13\":\"on\", \"14\":\"on\", \"15\":\"on\" } @
+-- ' { \"12\":\"on\", \"13\":\"on\", \"14\":\"on\", \"15\":\"on\" } '
 --
 -- /See:/ 'weeklyAutoScalingSchedule' smart constructor.
+data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
+    { _wassThursday  :: !(Maybe (Map Text Text))
+    , _wassWednesday :: !(Maybe (Map Text Text))
+    , _wassSaturday  :: !(Maybe (Map Text Text))
+    , _wassMonday    :: !(Maybe (Map Text Text))
+    , _wassFriday    :: !(Maybe (Map Text Text))
+    , _wassSunday    :: !(Maybe (Map Text Text))
+    , _wassTuesday   :: !(Maybe (Map Text Text))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'WeeklyAutoScalingSchedule' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'wassThursday'
 --
@@ -3738,18 +3795,8 @@ instance ToJSON VolumeConfiguration where
 -- * 'wassSunday'
 --
 -- * 'wassTuesday'
-data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
-    { _wassThursday  :: !(Maybe (Map Text Text))
-    , _wassWednesday :: !(Maybe (Map Text Text))
-    , _wassSaturday  :: !(Maybe (Map Text Text))
-    , _wassMonday    :: !(Maybe (Map Text Text))
-    , _wassFriday    :: !(Maybe (Map Text Text))
-    , _wassSunday    :: !(Maybe (Map Text Text))
-    , _wassTuesday   :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'WeeklyAutoScalingSchedule' smart constructor.
-weeklyAutoScalingSchedule :: WeeklyAutoScalingSchedule
+weeklyAutoScalingSchedule
+    :: WeeklyAutoScalingSchedule
 weeklyAutoScalingSchedule =
     WeeklyAutoScalingSchedule'
     { _wassThursday = Nothing

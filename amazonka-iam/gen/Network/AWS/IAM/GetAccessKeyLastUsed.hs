@@ -27,14 +27,14 @@
 module Network.AWS.IAM.GetAccessKeyLastUsed
     (
     -- * Creating a Request
-      GetAccessKeyLastUsed
-    , getAccessKeyLastUsed
+      getAccessKeyLastUsed
+    , GetAccessKeyLastUsed
     -- * Request Lenses
     , gakluAccessKeyId
 
     -- * Destructuring the Response
-    , GetAccessKeyLastUsedResponse
     , getAccessKeyLastUsedResponse
+    , GetAccessKeyLastUsedResponse
     -- * Response Lenses
     , gaklursUserName
     , gaklursAccessKeyLastUsed
@@ -48,16 +48,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getAccessKeyLastUsed' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gakluAccessKeyId'
 newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
     { _gakluAccessKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetAccessKeyLastUsed' smart constructor.
-getAccessKeyLastUsed :: Text -> GetAccessKeyLastUsed
+-- | Creates a value of 'GetAccessKeyLastUsed' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gakluAccessKeyId'
+getAccessKeyLastUsed
+    :: Text -- ^ 'gakluAccessKeyId'
+    -> GetAccessKeyLastUsed
 getAccessKeyLastUsed pAccessKeyId_ =
     GetAccessKeyLastUsed'
     { _gakluAccessKeyId = pAccessKeyId_
@@ -97,22 +99,24 @@ instance ToQuery GetAccessKeyLastUsed where
 -- by the ListAccessKeys action.
 --
 -- /See:/ 'getAccessKeyLastUsedResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gaklursUserName'
---
--- * 'gaklursAccessKeyLastUsed'
---
--- * 'gaklursStatus'
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
     { _gaklursUserName          :: !(Maybe Text)
     , _gaklursAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
     , _gaklursStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetAccessKeyLastUsedResponse' smart constructor.
-getAccessKeyLastUsedResponse :: Int -> GetAccessKeyLastUsedResponse
+-- | Creates a value of 'GetAccessKeyLastUsedResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gaklursUserName'
+--
+-- * 'gaklursAccessKeyLastUsed'
+--
+-- * 'gaklursStatus'
+getAccessKeyLastUsedResponse
+    :: Int -- ^ 'gaklursStatus'
+    -> GetAccessKeyLastUsedResponse
 getAccessKeyLastUsedResponse pStatus_ =
     GetAccessKeyLastUsedResponse'
     { _gaklursUserName = Nothing
@@ -128,6 +132,6 @@ gaklursUserName = lens _gaklursUserName (\ s a -> s{_gaklursUserName = a});
 gaklursAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyLastUsed)
 gaklursAccessKeyLastUsed = lens _gaklursAccessKeyLastUsed (\ s a -> s{_gaklursAccessKeyLastUsed = a});
 
--- | Undocumented member.
+-- | The response status code.
 gaklursStatus :: Lens' GetAccessKeyLastUsedResponse Int
 gaklursStatus = lens _gaklursStatus (\ s a -> s{_gaklursStatus = a});

@@ -31,8 +31,8 @@
 module Network.AWS.OpsWorks.SetPermission
     (
     -- * Creating a Request
-      SetPermission
-    , setPermission
+      setPermission
+    , SetPermission
     -- * Request Lenses
     , spAllowSudo
     , spLevel
@@ -41,8 +41,8 @@ module Network.AWS.OpsWorks.SetPermission
     , spIAMUserARN
 
     -- * Destructuring the Response
-    , SetPermissionResponse
     , setPermissionResponse
+    , SetPermissionResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -52,8 +52,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'setPermission' smart constructor.
+data SetPermission = SetPermission'
+    { _spAllowSudo  :: !(Maybe Bool)
+    , _spLevel      :: !(Maybe Text)
+    , _spAllowSSH   :: !(Maybe Bool)
+    , _spStackId    :: !Text
+    , _spIAMUserARN :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SetPermission' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'spAllowSudo'
 --
@@ -64,16 +73,10 @@ import           Network.AWS.Response
 -- * 'spStackId'
 --
 -- * 'spIAMUserARN'
-data SetPermission = SetPermission'
-    { _spAllowSudo  :: !(Maybe Bool)
-    , _spLevel      :: !(Maybe Text)
-    , _spAllowSSH   :: !(Maybe Bool)
-    , _spStackId    :: !Text
-    , _spIAMUserARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SetPermission' smart constructor.
-setPermission :: Text -> Text -> SetPermission
+setPermission
+    :: Text -- ^ 'spStackId'
+    -> Text -- ^ 'spIAMUserARN'
+    -> SetPermission
 setPermission pStackId_ pIAMUserARN_ =
     SetPermission'
     { _spAllowSudo = Nothing
@@ -90,11 +93,11 @@ spAllowSudo = lens _spAllowSudo (\ s a -> s{_spAllowSudo = a});
 -- | The user\'s permission level, which must be set to one of the following
 -- strings. You cannot set your own permissions level.
 --
--- -   @deny@
--- -   @show@
--- -   @deploy@
--- -   @manage@
--- -   @iam_only@
+-- -   'deny'
+-- -   'show'
+-- -   'deploy'
+-- -   'manage'
+-- -   'iam_only'
 --
 -- For more information on the permissions associated with these levels,
 -- see
@@ -147,6 +150,8 @@ data SetPermissionResponse =
     SetPermissionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetPermissionResponse' smart constructor.
-setPermissionResponse :: SetPermissionResponse
+-- | Creates a value of 'SetPermissionResponse' with the minimum fields required to make a request.
+--
+setPermissionResponse
+    :: SetPermissionResponse
 setPermissionResponse = SetPermissionResponse'

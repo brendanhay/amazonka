@@ -27,15 +27,15 @@
 module Network.AWS.EC2.DeregisterImage
     (
     -- * Creating a Request
-      DeregisterImage
-    , deregisterImage
+      deregisterImage
+    , DeregisterImage
     -- * Request Lenses
     , diDryRun
     , diImageId
 
     -- * Destructuring the Response
-    , DeregisterImageResponse
     , deregisterImageResponse
+    , DeregisterImageResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -45,19 +45,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deregisterImage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diDryRun'
---
--- * 'diImageId'
 data DeregisterImage = DeregisterImage'
     { _diDryRun  :: !(Maybe Bool)
     , _diImageId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterImage' smart constructor.
-deregisterImage :: Text -> DeregisterImage
+-- | Creates a value of 'DeregisterImage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diDryRun'
+--
+-- * 'diImageId'
+deregisterImage
+    :: Text -- ^ 'diImageId'
+    -> DeregisterImage
 deregisterImage pImageId_ =
     DeregisterImage'
     { _diDryRun = Nothing
@@ -66,8 +68,8 @@ deregisterImage pImageId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 diDryRun :: Lens' DeregisterImage (Maybe Bool)
 diDryRun = lens _diDryRun (\ s a -> s{_diDryRun = a});
 
@@ -99,6 +101,8 @@ data DeregisterImageResponse =
     DeregisterImageResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterImageResponse' smart constructor.
-deregisterImageResponse :: DeregisterImageResponse
+-- | Creates a value of 'DeregisterImageResponse' with the minimum fields required to make a request.
+--
+deregisterImageResponse
+    :: DeregisterImageResponse
 deregisterImageResponse = DeregisterImageResponse'

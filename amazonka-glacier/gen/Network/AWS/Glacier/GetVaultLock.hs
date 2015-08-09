@@ -18,44 +18,44 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation retrieves the following attributes from the @lock-policy@
+-- This operation retrieves the following attributes from the 'lock-policy'
 -- subresource set on the specified vault:
 --
 -- -   The vault lock policy set on the vault.
 --
--- -   The state of the vault lock, which is either @InProgess@ or
---     @Locked@.
+-- -   The state of the vault lock, which is either 'InProgess' or
+--     'Locked'.
 --
 -- -   When the lock ID expires. The lock ID is used to complete the vault
 --     locking process.
 --
--- -   When the vault lock was initiated and put into the @InProgress@
+-- -   When the vault lock was initiated and put into the 'InProgress'
 --     state.
 --
--- A vault lock is put into the @InProgress@ state by calling
--- InitiateVaultLock. A vault lock is put into the @Locked@ state by
+-- A vault lock is put into the 'InProgress' state by calling
+-- InitiateVaultLock. A vault lock is put into the 'Locked' state by
 -- calling CompleteVaultLock. You can abort the vault locking process by
 -- calling AbortVaultLock. For more information about the vault locking
 -- process,
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock>.
 --
 -- If there is no vault lock policy set on the vault, the operation returns
--- a @404 Not found@ error. For more information about vault lock policies,
+-- a '404 Not found' error. For more information about vault lock policies,
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies>.
 --
 -- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetVaultLock.html AWS API Reference> for GetVaultLock.
 module Network.AWS.Glacier.GetVaultLock
     (
     -- * Creating a Request
-      GetVaultLock
-    , getVaultLock
+      getVaultLock
+    , GetVaultLock
     -- * Request Lenses
     , gvlAccountId
     , gvlVaultName
 
     -- * Destructuring the Response
-    , GetVaultLockResponse
     , getVaultLockResponse
+    , GetVaultLockResponse
     -- * Response Lenses
     , gvlrsState
     , gvlrsExpirationDate
@@ -70,31 +70,34 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input values for @GetVaultLock@.
+-- | The input values for 'GetVaultLock'.
 --
 -- /See:/ 'getVaultLock' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gvlAccountId'
---
--- * 'gvlVaultName'
 data GetVaultLock = GetVaultLock'
     { _gvlAccountId :: !Text
     , _gvlVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetVaultLock' smart constructor.
-getVaultLock :: Text -> Text -> GetVaultLock
+-- | Creates a value of 'GetVaultLock' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gvlAccountId'
+--
+-- * 'gvlVaultName'
+getVaultLock
+    :: Text -- ^ 'gvlAccountId'
+    -> Text -- ^ 'gvlVaultName'
+    -> GetVaultLock
 getVaultLock pAccountId_ pVaultName_ =
     GetVaultLock'
     { _gvlAccountId = pAccountId_
     , _gvlVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 gvlAccountId :: Lens' GetVaultLock Text
@@ -132,8 +135,17 @@ instance ToQuery GetVaultLock where
 -- | Contains the Amazon Glacier response to your request.
 --
 -- /See:/ 'getVaultLockResponse' smart constructor.
+data GetVaultLockResponse = GetVaultLockResponse'
+    { _gvlrsState          :: !(Maybe Text)
+    , _gvlrsExpirationDate :: !(Maybe Text)
+    , _gvlrsCreationDate   :: !(Maybe Text)
+    , _gvlrsPolicy         :: !(Maybe Text)
+    , _gvlrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetVaultLockResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gvlrsState'
 --
@@ -144,16 +156,9 @@ instance ToQuery GetVaultLock where
 -- * 'gvlrsPolicy'
 --
 -- * 'gvlrsStatus'
-data GetVaultLockResponse = GetVaultLockResponse'
-    { _gvlrsState          :: !(Maybe Text)
-    , _gvlrsExpirationDate :: !(Maybe Text)
-    , _gvlrsCreationDate   :: !(Maybe Text)
-    , _gvlrsPolicy         :: !(Maybe Text)
-    , _gvlrsStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetVaultLockResponse' smart constructor.
-getVaultLockResponse :: Int -> GetVaultLockResponse
+getVaultLockResponse
+    :: Int -- ^ 'gvlrsStatus'
+    -> GetVaultLockResponse
 getVaultLockResponse pStatus_ =
     GetVaultLockResponse'
     { _gvlrsState = Nothing
@@ -163,17 +168,17 @@ getVaultLockResponse pStatus_ =
     , _gvlrsStatus = pStatus_
     }
 
--- | The state of the vault lock. @InProgress@ or @Locked@.
+-- | The state of the vault lock. 'InProgress' or 'Locked'.
 gvlrsState :: Lens' GetVaultLockResponse (Maybe Text)
 gvlrsState = lens _gvlrsState (\ s a -> s{_gvlrsState = a});
 
 -- | The UTC date and time at which the lock ID expires. This value can be
--- @null@ if the vault lock is in a @Locked@ state.
+-- 'null' if the vault lock is in a 'Locked' state.
 gvlrsExpirationDate :: Lens' GetVaultLockResponse (Maybe Text)
 gvlrsExpirationDate = lens _gvlrsExpirationDate (\ s a -> s{_gvlrsExpirationDate = a});
 
 -- | The UTC date and time at which the vault lock was put into the
--- @InProgress@ state.
+-- 'InProgress' state.
 gvlrsCreationDate :: Lens' GetVaultLockResponse (Maybe Text)
 gvlrsCreationDate = lens _gvlrsCreationDate (\ s a -> s{_gvlrsCreationDate = a});
 
@@ -182,6 +187,6 @@ gvlrsCreationDate = lens _gvlrsCreationDate (\ s a -> s{_gvlrsCreationDate = a})
 gvlrsPolicy :: Lens' GetVaultLockResponse (Maybe Text)
 gvlrsPolicy = lens _gvlrsPolicy (\ s a -> s{_gvlrsPolicy = a});
 
--- | Undocumented member.
+-- | The response status code.
 gvlrsStatus :: Lens' GetVaultLockResponse Int
 gvlrsStatus = lens _gvlrsStatus (\ s a -> s{_gvlrsStatus = a});

@@ -33,8 +33,8 @@
 module Network.AWS.DirectoryService.DescribeSnapshots
     (
     -- * Creating a Request
-      DescribeSnapshots
-    , describeSnapshots
+      describeSnapshots
+    , DescribeSnapshots
     -- * Request Lenses
     , dsDirectoryId
     , dsNextToken
@@ -42,8 +42,8 @@ module Network.AWS.DirectoryService.DescribeSnapshots
     , dsLimit
 
     -- * Destructuring the Response
-    , DescribeSnapshotsResponse
     , describeSnapshotsResponse
+    , DescribeSnapshotsResponse
     -- * Response Lenses
     , dssrsNextToken
     , dssrsSnapshots
@@ -59,8 +59,16 @@ import           Network.AWS.Response
 -- | Contains the inputs for the DescribeSnapshots operation.
 --
 -- /See:/ 'describeSnapshots' smart constructor.
+data DescribeSnapshots = DescribeSnapshots'
+    { _dsDirectoryId :: !(Maybe Text)
+    , _dsNextToken   :: !(Maybe Text)
+    , _dsSnapshotIds :: !(Maybe [Text])
+    , _dsLimit       :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeSnapshots' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsDirectoryId'
 --
@@ -69,15 +77,8 @@ import           Network.AWS.Response
 -- * 'dsSnapshotIds'
 --
 -- * 'dsLimit'
-data DescribeSnapshots = DescribeSnapshots'
-    { _dsDirectoryId :: !(Maybe Text)
-    , _dsNextToken   :: !(Maybe Text)
-    , _dsSnapshotIds :: !(Maybe [Text])
-    , _dsLimit       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeSnapshots' smart constructor.
-describeSnapshots :: DescribeSnapshots
+describeSnapshots
+    :: DescribeSnapshots
 describeSnapshots =
     DescribeSnapshots'
     { _dsDirectoryId = Nothing
@@ -143,22 +144,24 @@ instance ToQuery DescribeSnapshots where
 -- | Contains the results of the DescribeSnapshots operation.
 --
 -- /See:/ 'describeSnapshotsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dssrsNextToken'
---
--- * 'dssrsSnapshots'
---
--- * 'dssrsStatus'
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
     { _dssrsNextToken :: !(Maybe Text)
     , _dssrsSnapshots :: !(Maybe [Snapshot])
     , _dssrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSnapshotsResponse' smart constructor.
-describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
+-- | Creates a value of 'DescribeSnapshotsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dssrsNextToken'
+--
+-- * 'dssrsSnapshots'
+--
+-- * 'dssrsStatus'
+describeSnapshotsResponse
+    :: Int -- ^ 'dssrsStatus'
+    -> DescribeSnapshotsResponse
 describeSnapshotsResponse pStatus_ =
     DescribeSnapshotsResponse'
     { _dssrsNextToken = Nothing
@@ -180,6 +183,6 @@ dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
 dssrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dssrsStatus :: Lens' DescribeSnapshotsResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

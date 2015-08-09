@@ -28,14 +28,14 @@
 module Network.AWS.CognitoSync.GetBulkPublishDetails
     (
     -- * Creating a Request
-      GetBulkPublishDetails
-    , getBulkPublishDetails
+      getBulkPublishDetails
+    , GetBulkPublishDetails
     -- * Request Lenses
     , gbpdIdentityPoolId
 
     -- * Destructuring the Response
-    , GetBulkPublishDetailsResponse
     , getBulkPublishDetailsResponse
+    , GetBulkPublishDetailsResponse
     -- * Response Lenses
     , gbpdrsBulkPublishStartTime
     , gbpdrsIdentityPoolId
@@ -54,16 +54,18 @@ import           Network.AWS.Response
 -- | The input for the GetBulkPublishDetails operation.
 --
 -- /See:/ 'getBulkPublishDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbpdIdentityPoolId'
 newtype GetBulkPublishDetails = GetBulkPublishDetails'
     { _gbpdIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBulkPublishDetails' smart constructor.
-getBulkPublishDetails :: Text -> GetBulkPublishDetails
+-- | Creates a value of 'GetBulkPublishDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbpdIdentityPoolId'
+getBulkPublishDetails
+    :: Text -- ^ 'gbpdIdentityPoolId'
+    -> GetBulkPublishDetails
 getBulkPublishDetails pIdentityPoolId_ =
     GetBulkPublishDetails'
     { _gbpdIdentityPoolId = pIdentityPoolId_
@@ -113,8 +115,18 @@ instance ToQuery GetBulkPublishDetails where
 -- | The output for the GetBulkPublishDetails operation.
 --
 -- /See:/ 'getBulkPublishDetailsResponse' smart constructor.
+data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
+    { _gbpdrsBulkPublishStartTime    :: !(Maybe POSIX)
+    , _gbpdrsIdentityPoolId          :: !(Maybe Text)
+    , _gbpdrsBulkPublishCompleteTime :: !(Maybe POSIX)
+    , _gbpdrsFailureMessage          :: !(Maybe Text)
+    , _gbpdrsBulkPublishStatus       :: !(Maybe BulkPublishStatus)
+    , _gbpdrsStatus                  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetBulkPublishDetailsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gbpdrsBulkPublishStartTime'
 --
@@ -127,17 +139,9 @@ instance ToQuery GetBulkPublishDetails where
 -- * 'gbpdrsBulkPublishStatus'
 --
 -- * 'gbpdrsStatus'
-data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
-    { _gbpdrsBulkPublishStartTime    :: !(Maybe POSIX)
-    , _gbpdrsIdentityPoolId          :: !(Maybe Text)
-    , _gbpdrsBulkPublishCompleteTime :: !(Maybe POSIX)
-    , _gbpdrsFailureMessage          :: !(Maybe Text)
-    , _gbpdrsBulkPublishStatus       :: !(Maybe BulkPublishStatus)
-    , _gbpdrsStatus                  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetBulkPublishDetailsResponse' smart constructor.
-getBulkPublishDetailsResponse :: Int -> GetBulkPublishDetailsResponse
+getBulkPublishDetailsResponse
+    :: Int -- ^ 'gbpdrsStatus'
+    -> GetBulkPublishDetailsResponse
 getBulkPublishDetailsResponse pStatus_ =
     GetBulkPublishDetailsResponse'
     { _gbpdrsBulkPublishStartTime = Nothing
@@ -182,6 +186,6 @@ gbpdrsFailureMessage = lens _gbpdrsFailureMessage (\ s a -> s{_gbpdrsFailureMess
 gbpdrsBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublishStatus)
 gbpdrsBulkPublishStatus = lens _gbpdrsBulkPublishStatus (\ s a -> s{_gbpdrsBulkPublishStatus = a});
 
--- | Undocumented member.
+-- | The response status code.
 gbpdrsStatus :: Lens' GetBulkPublishDetailsResponse Int
 gbpdrsStatus = lens _gbpdrsStatus (\ s a -> s{_gbpdrsStatus = a});

@@ -24,14 +24,14 @@
 module Network.AWS.SSM.DescribeDocument
     (
     -- * Creating a Request
-      DescribeDocument
-    , describeDocument
+      describeDocument
+    , DescribeDocument
     -- * Request Lenses
     , ddName
 
     -- * Destructuring the Response
-    , DescribeDocumentResponse
     , describeDocumentResponse
+    , DescribeDocumentResponse
     -- * Response Lenses
     , drsDocument
     , drsStatus
@@ -44,16 +44,18 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeDocument' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddName'
 newtype DescribeDocument = DescribeDocument'
     { _ddName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDocument' smart constructor.
-describeDocument :: Text -> DescribeDocument
+-- | Creates a value of 'DescribeDocument' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddName'
+describeDocument
+    :: Text -- ^ 'ddName'
+    -> DescribeDocument
 describeDocument pName_ =
     DescribeDocument'
     { _ddName = pName_
@@ -93,19 +95,21 @@ instance ToQuery DescribeDocument where
         toQuery = const mempty
 
 -- | /See:/ 'describeDocumentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsDocument'
---
--- * 'drsStatus'
 data DescribeDocumentResponse = DescribeDocumentResponse'
     { _drsDocument :: !(Maybe DocumentDescription)
     , _drsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDocumentResponse' smart constructor.
-describeDocumentResponse :: Int -> DescribeDocumentResponse
+-- | Creates a value of 'DescribeDocumentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsDocument'
+--
+-- * 'drsStatus'
+describeDocumentResponse
+    :: Int -- ^ 'drsStatus'
+    -> DescribeDocumentResponse
 describeDocumentResponse pStatus_ =
     DescribeDocumentResponse'
     { _drsDocument = Nothing
@@ -116,6 +120,6 @@ describeDocumentResponse pStatus_ =
 drsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
 drsDocument = lens _drsDocument (\ s a -> s{_drsDocument = a});
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DescribeDocumentResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

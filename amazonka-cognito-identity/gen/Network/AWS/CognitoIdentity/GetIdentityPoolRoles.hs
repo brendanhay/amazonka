@@ -26,14 +26,14 @@
 module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     (
     -- * Creating a Request
-      GetIdentityPoolRoles
-    , getIdentityPoolRoles
+      getIdentityPoolRoles
+    , GetIdentityPoolRoles
     -- * Request Lenses
     , giprIdentityPoolId
 
     -- * Destructuring the Response
-    , GetIdentityPoolRolesResponse
     , getIdentityPoolRolesResponse
+    , GetIdentityPoolRolesResponse
     -- * Response Lenses
     , giprrsRoles
     , giprrsIdentityPoolId
@@ -46,19 +46,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the @GetIdentityPoolRoles@ action.
+-- | Input to the 'GetIdentityPoolRoles' action.
 --
 -- /See:/ 'getIdentityPoolRoles' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'giprIdentityPoolId'
 newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
     { _giprIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetIdentityPoolRoles' smart constructor.
-getIdentityPoolRoles :: Text -> GetIdentityPoolRoles
+-- | Creates a value of 'GetIdentityPoolRoles' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'giprIdentityPoolId'
+getIdentityPoolRoles
+    :: Text -- ^ 'giprIdentityPoolId'
+    -> GetIdentityPoolRoles
 getIdentityPoolRoles pIdentityPoolId_ =
     GetIdentityPoolRoles'
     { _giprIdentityPoolId = pIdentityPoolId_
@@ -101,25 +103,27 @@ instance ToPath GetIdentityPoolRoles where
 instance ToQuery GetIdentityPoolRoles where
         toQuery = const mempty
 
--- | Returned in response to a successful @GetIdentityPoolRoles@ operation.
+-- | Returned in response to a successful 'GetIdentityPoolRoles' operation.
 --
 -- /See:/ 'getIdentityPoolRolesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'giprrsRoles'
---
--- * 'giprrsIdentityPoolId'
---
--- * 'giprrsStatus'
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
     { _giprrsRoles          :: !(Maybe (Map Text Text))
     , _giprrsIdentityPoolId :: !(Maybe Text)
     , _giprrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetIdentityPoolRolesResponse' smart constructor.
-getIdentityPoolRolesResponse :: Int -> GetIdentityPoolRolesResponse
+-- | Creates a value of 'GetIdentityPoolRolesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'giprrsRoles'
+--
+-- * 'giprrsIdentityPoolId'
+--
+-- * 'giprrsStatus'
+getIdentityPoolRolesResponse
+    :: Int -- ^ 'giprrsStatus'
+    -> GetIdentityPoolRolesResponse
 getIdentityPoolRolesResponse pStatus_ =
     GetIdentityPoolRolesResponse'
     { _giprrsRoles = Nothing
@@ -136,6 +140,6 @@ giprrsRoles = lens _giprrsRoles (\ s a -> s{_giprrsRoles = a}) . _Default . _Map
 giprrsIdentityPoolId :: Lens' GetIdentityPoolRolesResponse (Maybe Text)
 giprrsIdentityPoolId = lens _giprrsIdentityPoolId (\ s a -> s{_giprrsIdentityPoolId = a});
 
--- | Undocumented member.
+-- | The response status code.
 giprrsStatus :: Lens' GetIdentityPoolRolesResponse Int
 giprrsStatus = lens _giprrsStatus (\ s a -> s{_giprrsStatus = a});

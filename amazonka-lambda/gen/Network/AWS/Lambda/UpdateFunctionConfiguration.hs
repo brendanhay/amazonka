@@ -25,14 +25,14 @@
 -- code.
 --
 -- This operation requires permission for the
--- @lambda:UpdateFunctionConfiguration@ action.
+-- 'lambda:UpdateFunctionConfiguration' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionConfiguration.html AWS API Reference> for UpdateFunctionConfiguration.
 module Network.AWS.Lambda.UpdateFunctionConfiguration
     (
     -- * Creating a Request
-      UpdateFunctionConfiguration
-    , updateFunctionConfiguration
+      updateFunctionConfiguration
+    , UpdateFunctionConfiguration
     -- * Request Lenses
     , ufcMemorySize
     , ufcRole
@@ -42,8 +42,8 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     , ufcFunctionName
 
     -- * Destructuring the Response
-    , FunctionConfiguration
     , functionConfiguration
+    , FunctionConfiguration
     -- * Response Lenses
     , fcRuntime
     , fcMemorySize
@@ -64,8 +64,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateFunctionConfiguration' smart constructor.
+data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
+    { _ufcMemorySize   :: !(Maybe Nat)
+    , _ufcRole         :: !(Maybe Text)
+    , _ufcHandler      :: !(Maybe Text)
+    , _ufcTimeout      :: !(Maybe Nat)
+    , _ufcDescription  :: !(Maybe Text)
+    , _ufcFunctionName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateFunctionConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ufcMemorySize'
 --
@@ -78,17 +88,9 @@ import           Network.AWS.Response
 -- * 'ufcDescription'
 --
 -- * 'ufcFunctionName'
-data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
-    { _ufcMemorySize   :: !(Maybe Nat)
-    , _ufcRole         :: !(Maybe Text)
-    , _ufcHandler      :: !(Maybe Text)
-    , _ufcTimeout      :: !(Maybe Nat)
-    , _ufcDescription  :: !(Maybe Text)
-    , _ufcFunctionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateFunctionConfiguration' smart constructor.
-updateFunctionConfiguration :: Text -> UpdateFunctionConfiguration
+updateFunctionConfiguration
+    :: Text -- ^ 'ufcFunctionName'
+    -> UpdateFunctionConfiguration
 updateFunctionConfiguration pFunctionName_ =
     UpdateFunctionConfiguration'
     { _ufcMemorySize = Nothing

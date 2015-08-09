@@ -30,14 +30,14 @@
 module Network.AWS.CloudHSM.ListHSMs
     (
     -- * Creating a Request
-      ListHSMs
-    , listHSMs
+      listHSMs
+    , ListHSMs
     -- * Request Lenses
     , lhsmNextToken
 
     -- * Destructuring the Response
-    , ListHSMsResponse
     , listHSMsResponse
+    , ListHSMsResponse
     -- * Response Lenses
     , lhsmrsNextToken
     , lhsmrsHSMList
@@ -51,16 +51,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listHSMs' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lhsmNextToken'
 newtype ListHSMs = ListHSMs'
     { _lhsmNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListHSMs' smart constructor.
-listHSMs :: ListHSMs
+-- | Creates a value of 'ListHSMs' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lhsmNextToken'
+listHSMs
+    :: ListHSMs
 listHSMs =
     ListHSMs'
     { _lhsmNextToken = Nothing
@@ -104,22 +105,24 @@ instance ToQuery ListHSMs where
 -- | Contains the output of the ListHsms action.
 --
 -- /See:/ 'listHSMsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lhsmrsNextToken'
---
--- * 'lhsmrsHSMList'
---
--- * 'lhsmrsStatus'
 data ListHSMsResponse = ListHSMsResponse'
     { _lhsmrsNextToken :: !(Maybe Text)
     , _lhsmrsHSMList   :: !(Maybe [Text])
     , _lhsmrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListHSMsResponse' smart constructor.
-listHSMsResponse :: Int -> ListHSMsResponse
+-- | Creates a value of 'ListHSMsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lhsmrsNextToken'
+--
+-- * 'lhsmrsHSMList'
+--
+-- * 'lhsmrsStatus'
+listHSMsResponse
+    :: Int -- ^ 'lhsmrsStatus'
+    -> ListHSMsResponse
 listHSMsResponse pStatus_ =
     ListHSMsResponse'
     { _lhsmrsNextToken = Nothing
@@ -136,6 +139,6 @@ lhsmrsNextToken = lens _lhsmrsNextToken (\ s a -> s{_lhsmrsNextToken = a});
 lhsmrsHSMList :: Lens' ListHSMsResponse [Text]
 lhsmrsHSMList = lens _lhsmrsHSMList (\ s a -> s{_lhsmrsHSMList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lhsmrsStatus :: Lens' ListHSMsResponse Int
 lhsmrsStatus = lens _lhsmrsStatus (\ s a -> s{_lhsmrsStatus = a});

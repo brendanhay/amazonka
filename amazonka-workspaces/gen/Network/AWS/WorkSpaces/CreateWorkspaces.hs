@@ -27,14 +27,14 @@
 module Network.AWS.WorkSpaces.CreateWorkspaces
     (
     -- * Creating a Request
-      CreateWorkspaces
-    , createWorkspaces
+      createWorkspaces
+    , CreateWorkspaces
     -- * Request Lenses
     , cwWorkspaces
 
     -- * Destructuring the Response
-    , CreateWorkspacesResponse
     , createWorkspacesResponse
+    , CreateWorkspacesResponse
     -- * Response Lenses
     , cwrsFailedRequests
     , cwrsPendingRequests
@@ -50,16 +50,18 @@ import           Network.AWS.WorkSpaces.Types.Product
 -- | Contains the inputs for the CreateWorkspaces operation.
 --
 -- /See:/ 'createWorkspaces' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cwWorkspaces'
 newtype CreateWorkspaces = CreateWorkspaces'
     { _cwWorkspaces :: List1 WorkspaceRequest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateWorkspaces' smart constructor.
-createWorkspaces :: NonEmpty WorkspaceRequest -> CreateWorkspaces
+-- | Creates a value of 'CreateWorkspaces' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cwWorkspaces'
+createWorkspaces
+    :: NonEmpty WorkspaceRequest -- ^ 'cwWorkspaces'
+    -> CreateWorkspaces
 createWorkspaces pWorkspaces_ =
     CreateWorkspaces'
     { _cwWorkspaces = _List1 # pWorkspaces_
@@ -103,22 +105,24 @@ instance ToQuery CreateWorkspaces where
 -- | Contains the result of the CreateWorkspaces operation.
 --
 -- /See:/ 'createWorkspacesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cwrsFailedRequests'
---
--- * 'cwrsPendingRequests'
---
--- * 'cwrsStatus'
 data CreateWorkspacesResponse = CreateWorkspacesResponse'
     { _cwrsFailedRequests  :: !(Maybe [FailedCreateWorkspaceRequest])
     , _cwrsPendingRequests :: !(Maybe [Workspace])
     , _cwrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateWorkspacesResponse' smart constructor.
-createWorkspacesResponse :: Int -> CreateWorkspacesResponse
+-- | Creates a value of 'CreateWorkspacesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cwrsFailedRequests'
+--
+-- * 'cwrsPendingRequests'
+--
+-- * 'cwrsStatus'
+createWorkspacesResponse
+    :: Int -- ^ 'cwrsStatus'
+    -> CreateWorkspacesResponse
 createWorkspacesResponse pStatus_ =
     CreateWorkspacesResponse'
     { _cwrsFailedRequests = Nothing
@@ -133,12 +137,12 @@ cwrsFailedRequests = lens _cwrsFailedRequests (\ s a -> s{_cwrsFailedRequests = 
 
 -- | An array of structures that represent the WorkSpaces that were created.
 --
--- Because this operation is asynchronous, the identifier in @WorkspaceId@
+-- Because this operation is asynchronous, the identifier in 'WorkspaceId'
 -- is not immediately available. If you immediately call DescribeWorkspaces
 -- with this identifier, no information will be returned.
 cwrsPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
 cwrsPendingRequests = lens _cwrsPendingRequests (\ s a -> s{_cwrsPendingRequests = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 cwrsStatus :: Lens' CreateWorkspacesResponse Int
 cwrsStatus = lens _cwrsStatus (\ s a -> s{_cwrsStatus = a});

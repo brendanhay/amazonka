@@ -30,8 +30,8 @@
 module Network.AWS.OpsWorks.RegisterRDSDBInstance
     (
     -- * Creating a Request
-      RegisterRDSDBInstance
-    , registerRDSDBInstance
+      registerRDSDBInstance
+    , RegisterRDSDBInstance
     -- * Request Lenses
     , rrdiStackId
     , rrdiRDSDBInstanceARN
@@ -39,8 +39,8 @@ module Network.AWS.OpsWorks.RegisterRDSDBInstance
     , rrdiDBPassword
 
     -- * Destructuring the Response
-    , RegisterRDSDBInstanceResponse
     , registerRDSDBInstanceResponse
+    , RegisterRDSDBInstanceResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -50,8 +50,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'registerRDSDBInstance' smart constructor.
+data RegisterRDSDBInstance = RegisterRDSDBInstance'
+    { _rrdiStackId          :: !Text
+    , _rrdiRDSDBInstanceARN :: !Text
+    , _rrdiDBUser           :: !Text
+    , _rrdiDBPassword       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RegisterRDSDBInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rrdiStackId'
 --
@@ -60,15 +68,12 @@ import           Network.AWS.Response
 -- * 'rrdiDBUser'
 --
 -- * 'rrdiDBPassword'
-data RegisterRDSDBInstance = RegisterRDSDBInstance'
-    { _rrdiStackId          :: !Text
-    , _rrdiRDSDBInstanceARN :: !Text
-    , _rrdiDBUser           :: !Text
-    , _rrdiDBPassword       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RegisterRDSDBInstance' smart constructor.
-registerRDSDBInstance :: Text -> Text -> Text -> Text -> RegisterRDSDBInstance
+registerRDSDBInstance
+    :: Text -- ^ 'rrdiStackId'
+    -> Text -- ^ 'rrdiRDSDBInstanceARN'
+    -> Text -- ^ 'rrdiDBUser'
+    -> Text -- ^ 'rrdiDBPassword'
+    -> RegisterRDSDBInstance
 registerRDSDBInstance pStackId_ pRDSDBInstanceARN_ pDBUser_ pDBPassword_ =
     RegisterRDSDBInstance'
     { _rrdiStackId = pStackId_
@@ -129,6 +134,8 @@ data RegisterRDSDBInstanceResponse =
     RegisterRDSDBInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterRDSDBInstanceResponse' smart constructor.
-registerRDSDBInstanceResponse :: RegisterRDSDBInstanceResponse
+-- | Creates a value of 'RegisterRDSDBInstanceResponse' with the minimum fields required to make a request.
+--
+registerRDSDBInstanceResponse
+    :: RegisterRDSDBInstanceResponse
 registerRDSDBInstanceResponse = RegisterRDSDBInstanceResponse'

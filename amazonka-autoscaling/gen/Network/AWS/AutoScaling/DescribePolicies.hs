@@ -21,11 +21,13 @@
 -- Describes the policies for the specified Auto Scaling group.
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribePolicies.html AWS API Reference> for DescribePolicies.
+--
+-- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribePolicies
     (
     -- * Creating a Request
-      DescribePolicies
-    , describePolicies
+      describePolicies
+    , DescribePolicies
     -- * Request Lenses
     , dpsPolicyNames
     , dpsNextToken
@@ -34,8 +36,8 @@ module Network.AWS.AutoScaling.DescribePolicies
     , dpsPolicyTypes
 
     -- * Destructuring the Response
-    , DescribePoliciesResponse
     , describePoliciesResponse
+    , DescribePoliciesResponse
     -- * Response Lenses
     , dprsNextToken
     , dprsScalingPolicies
@@ -50,8 +52,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describePolicies' smart constructor.
+data DescribePolicies = DescribePolicies'
+    { _dpsPolicyNames          :: !(Maybe [Text])
+    , _dpsNextToken            :: !(Maybe Text)
+    , _dpsMaxRecords           :: !(Maybe Int)
+    , _dpsAutoScalingGroupName :: !(Maybe Text)
+    , _dpsPolicyTypes          :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribePolicies' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dpsPolicyNames'
 --
@@ -62,16 +73,8 @@ import           Network.AWS.Response
 -- * 'dpsAutoScalingGroupName'
 --
 -- * 'dpsPolicyTypes'
-data DescribePolicies = DescribePolicies'
-    { _dpsPolicyNames          :: !(Maybe [Text])
-    , _dpsNextToken            :: !(Maybe Text)
-    , _dpsMaxRecords           :: !(Maybe Int)
-    , _dpsAutoScalingGroupName :: !(Maybe Text)
-    , _dpsPolicyTypes          :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribePolicies' smart constructor.
-describePolicies :: DescribePolicies
+describePolicies
+    :: DescribePolicies
 describePolicies =
     DescribePolicies'
     { _dpsPolicyNames = Nothing
@@ -101,8 +104,8 @@ dpsMaxRecords = lens _dpsMaxRecords (\ s a -> s{_dpsMaxRecords = a});
 dpsAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
 dpsAutoScalingGroupName = lens _dpsAutoScalingGroupName (\ s a -> s{_dpsAutoScalingGroupName = a});
 
--- | One or more policy types. Valid values are @SimpleScaling@ and
--- @StepScaling@.
+-- | One or more policy types. Valid values are 'SimpleScaling' and
+-- 'StepScaling'.
 dpsPolicyTypes :: Lens' DescribePolicies [Text]
 dpsPolicyTypes = lens _dpsPolicyTypes (\ s a -> s{_dpsPolicyTypes = a}) . _Default . _Coerce;
 
@@ -146,22 +149,24 @@ instance ToQuery DescribePolicies where
                  toQuery (toQueryList "member" <$> _dpsPolicyTypes)]
 
 -- | /See:/ 'describePoliciesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dprsNextToken'
---
--- * 'dprsScalingPolicies'
---
--- * 'dprsStatus'
 data DescribePoliciesResponse = DescribePoliciesResponse'
     { _dprsNextToken       :: !(Maybe Text)
     , _dprsScalingPolicies :: !(Maybe [ScalingPolicy])
     , _dprsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribePoliciesResponse' smart constructor.
-describePoliciesResponse :: Int -> DescribePoliciesResponse
+-- | Creates a value of 'DescribePoliciesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dprsNextToken'
+--
+-- * 'dprsScalingPolicies'
+--
+-- * 'dprsStatus'
+describePoliciesResponse
+    :: Int -- ^ 'dprsStatus'
+    -> DescribePoliciesResponse
 describePoliciesResponse pStatus_ =
     DescribePoliciesResponse'
     { _dprsNextToken = Nothing
@@ -178,6 +183,6 @@ dprsNextToken = lens _dprsNextToken (\ s a -> s{_dprsNextToken = a});
 dprsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprsScalingPolicies = lens _dprsScalingPolicies (\ s a -> s{_dprsScalingPolicies = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dprsStatus :: Lens' DescribePoliciesResponse Int
 dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});

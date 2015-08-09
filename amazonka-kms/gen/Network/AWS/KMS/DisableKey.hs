@@ -24,14 +24,14 @@
 module Network.AWS.KMS.DisableKey
     (
     -- * Creating a Request
-      DisableKey
-    , disableKey
+      disableKey
+    , DisableKey
     -- * Request Lenses
     , dkKeyId
 
     -- * Destructuring the Response
-    , DisableKeyResponse
     , disableKeyResponse
+    , DisableKeyResponse
     ) where
 
 import           Network.AWS.KMS.Types
@@ -41,16 +41,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'disableKey' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dkKeyId'
 newtype DisableKey = DisableKey'
     { _dkKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableKey' smart constructor.
-disableKey :: Text -> DisableKey
+-- | Creates a value of 'DisableKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dkKeyId'
+disableKey
+    :: Text -- ^ 'dkKeyId'
+    -> DisableKey
 disableKey pKeyId_ =
     DisableKey'
     { _dkKeyId = pKeyId_
@@ -95,6 +97,8 @@ data DisableKeyResponse =
     DisableKeyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableKeyResponse' smart constructor.
-disableKeyResponse :: DisableKeyResponse
+-- | Creates a value of 'DisableKeyResponse' with the minimum fields required to make a request.
+--
+disableKeyResponse
+    :: DisableKeyResponse
 disableKeyResponse = DisableKeyResponse'

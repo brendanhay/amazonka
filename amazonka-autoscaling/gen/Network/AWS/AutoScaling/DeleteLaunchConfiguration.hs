@@ -28,14 +28,14 @@
 module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     (
     -- * Creating a Request
-      DeleteLaunchConfiguration
-    , deleteLaunchConfiguration
+      deleteLaunchConfiguration
+    , DeleteLaunchConfiguration
     -- * Request Lenses
     , dlcLaunchConfigurationName
 
     -- * Destructuring the Response
-    , DeleteLaunchConfigurationResponse
     , deleteLaunchConfigurationResponse
+    , DeleteLaunchConfigurationResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -45,16 +45,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteLaunchConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlcLaunchConfigurationName'
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'
     { _dlcLaunchConfigurationName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLaunchConfiguration' smart constructor.
-deleteLaunchConfiguration :: Text -> DeleteLaunchConfiguration
+-- | Creates a value of 'DeleteLaunchConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlcLaunchConfigurationName'
+deleteLaunchConfiguration
+    :: Text -- ^ 'dlcLaunchConfigurationName'
+    -> DeleteLaunchConfiguration
 deleteLaunchConfiguration pLaunchConfigurationName_ =
     DeleteLaunchConfiguration'
     { _dlcLaunchConfigurationName = pLaunchConfigurationName_
@@ -92,6 +94,8 @@ data DeleteLaunchConfigurationResponse =
     DeleteLaunchConfigurationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLaunchConfigurationResponse' smart constructor.
-deleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse
+-- | Creates a value of 'DeleteLaunchConfigurationResponse' with the minimum fields required to make a request.
+--
+deleteLaunchConfigurationResponse
+    :: DeleteLaunchConfigurationResponse
 deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse'

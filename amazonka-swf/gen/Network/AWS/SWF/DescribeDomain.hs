@@ -26,9 +26,9 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
 -- -   You cannot use an IAM policy to constrain this action\'s parameters.
 --
@@ -43,14 +43,14 @@
 module Network.AWS.SWF.DescribeDomain
     (
     -- * Creating a Request
-      DescribeDomain
-    , describeDomain
+      describeDomain
+    , DescribeDomain
     -- * Request Lenses
     , ddName
 
     -- * Destructuring the Response
-    , DescribeDomainResponse
     , describeDomainResponse
+    , DescribeDomainResponse
     -- * Response Lenses
     , ddrsStatus
     , ddrsDomainInfo
@@ -64,16 +64,18 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeDomain' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddName'
 newtype DescribeDomain = DescribeDomain'
     { _ddName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDomain' smart constructor.
-describeDomain :: Text -> DescribeDomain
+-- | Creates a value of 'DescribeDomain' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddName'
+describeDomain
+    :: Text -- ^ 'ddName'
+    -> DescribeDomain
 describeDomain pName_ =
     DescribeDomain'
     { _ddName = pName_
@@ -117,22 +119,26 @@ instance ToQuery DescribeDomain where
 -- | Contains details of a domain.
 --
 -- /See:/ 'describeDomainResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddrsStatus'
---
--- * 'ddrsDomainInfo'
---
--- * 'ddrsConfiguration'
 data DescribeDomainResponse = DescribeDomainResponse'
     { _ddrsStatus        :: !Int
     , _ddrsDomainInfo    :: !DomainInfo
     , _ddrsConfiguration :: !DomainConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDomainResponse' smart constructor.
-describeDomainResponse :: Int -> DomainInfo -> DomainConfiguration -> DescribeDomainResponse
+-- | Creates a value of 'DescribeDomainResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddrsStatus'
+--
+-- * 'ddrsDomainInfo'
+--
+-- * 'ddrsConfiguration'
+describeDomainResponse
+    :: Int -- ^ 'ddrsStatus'
+    -> DomainInfo -- ^ 'ddrsDomainInfo'
+    -> DomainConfiguration -- ^ 'ddrsConfiguration'
+    -> DescribeDomainResponse
 describeDomainResponse pStatus_ pDomainInfo_ pConfiguration_ =
     DescribeDomainResponse'
     { _ddrsStatus = pStatus_
@@ -140,7 +146,7 @@ describeDomainResponse pStatus_ pDomainInfo_ pConfiguration_ =
     , _ddrsConfiguration = pConfiguration_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ddrsStatus :: Lens' DescribeDomainResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
 

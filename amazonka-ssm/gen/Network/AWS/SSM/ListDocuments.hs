@@ -24,16 +24,16 @@
 module Network.AWS.SSM.ListDocuments
     (
     -- * Creating a Request
-      ListDocuments
-    , listDocuments
+      listDocuments
+    , ListDocuments
     -- * Request Lenses
     , ldDocumentFilterList
     , ldNextToken
     , ldMaxResults
 
     -- * Destructuring the Response
-    , ListDocumentsResponse
     , listDocumentsResponse
+    , ListDocumentsResponse
     -- * Response Lenses
     , ldrsDocumentIdentifiers
     , ldrsNextToken
@@ -47,22 +47,23 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listDocuments' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldDocumentFilterList'
---
--- * 'ldNextToken'
---
--- * 'ldMaxResults'
 data ListDocuments = ListDocuments'
     { _ldDocumentFilterList :: !(Maybe (List1 DocumentFilter))
     , _ldNextToken          :: !(Maybe Text)
     , _ldMaxResults         :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDocuments' smart constructor.
-listDocuments :: ListDocuments
+-- | Creates a value of 'ListDocuments' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldDocumentFilterList'
+--
+-- * 'ldNextToken'
+--
+-- * 'ldMaxResults'
+listDocuments
+    :: ListDocuments
 listDocuments =
     ListDocuments'
     { _ldDocumentFilterList = Nothing
@@ -121,22 +122,24 @@ instance ToQuery ListDocuments where
         toQuery = const mempty
 
 -- | /See:/ 'listDocumentsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldrsDocumentIdentifiers'
---
--- * 'ldrsNextToken'
---
--- * 'ldrsStatus'
 data ListDocumentsResponse = ListDocumentsResponse'
     { _ldrsDocumentIdentifiers :: !(Maybe [DocumentIdentifier])
     , _ldrsNextToken           :: !(Maybe Text)
     , _ldrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDocumentsResponse' smart constructor.
-listDocumentsResponse :: Int -> ListDocumentsResponse
+-- | Creates a value of 'ListDocumentsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldrsDocumentIdentifiers'
+--
+-- * 'ldrsNextToken'
+--
+-- * 'ldrsStatus'
+listDocumentsResponse
+    :: Int -- ^ 'ldrsStatus'
+    -> ListDocumentsResponse
 listDocumentsResponse pStatus_ =
     ListDocumentsResponse'
     { _ldrsDocumentIdentifiers = Nothing
@@ -153,6 +156,6 @@ ldrsDocumentIdentifiers = lens _ldrsDocumentIdentifiers (\ s a -> s{_ldrsDocumen
 ldrsNextToken :: Lens' ListDocumentsResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 ldrsStatus :: Lens' ListDocumentsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

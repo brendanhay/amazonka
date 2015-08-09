@@ -25,15 +25,15 @@
 module Network.AWS.ElasticBeanstalk.RestartAppServer
     (
     -- * Creating a Request
-      RestartAppServer
-    , restartAppServer
+      restartAppServer
+    , RestartAppServer
     -- * Request Lenses
     , rasEnvironmentName
     , rasEnvironmentId
 
     -- * Destructuring the Response
-    , RestartAppServerResponse
     , restartAppServerResponse
+    , RestartAppServerResponse
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -45,19 +45,20 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'restartAppServer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rasEnvironmentName'
---
--- * 'rasEnvironmentId'
 data RestartAppServer = RestartAppServer'
     { _rasEnvironmentName :: !(Maybe Text)
     , _rasEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestartAppServer' smart constructor.
-restartAppServer :: RestartAppServer
+-- | Creates a value of 'RestartAppServer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rasEnvironmentName'
+--
+-- * 'rasEnvironmentId'
+restartAppServer
+    :: RestartAppServer
 restartAppServer =
     RestartAppServer'
     { _rasEnvironmentName = Nothing
@@ -68,7 +69,7 @@ restartAppServer =
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
+-- 'MissingRequiredParameter' error.
 rasEnvironmentName :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentName = lens _rasEnvironmentName (\ s a -> s{_rasEnvironmentName = a});
 
@@ -76,7 +77,7 @@ rasEnvironmentName = lens _rasEnvironmentName (\ s a -> s{_rasEnvironmentName = 
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
+-- 'MissingRequiredParameter' error.
 rasEnvironmentId :: Lens' RestartAppServer (Maybe Text)
 rasEnvironmentId = lens _rasEnvironmentId (\ s a -> s{_rasEnvironmentId = a});
 
@@ -105,6 +106,8 @@ data RestartAppServerResponse =
     RestartAppServerResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestartAppServerResponse' smart constructor.
-restartAppServerResponse :: RestartAppServerResponse
+-- | Creates a value of 'RestartAppServerResponse' with the minimum fields required to make a request.
+--
+restartAppServerResponse
+    :: RestartAppServerResponse
 restartAppServerResponse = RestartAppServerResponse'

@@ -24,14 +24,14 @@
 module Network.AWS.CodePipeline.DeletePipeline
     (
     -- * Creating a Request
-      DeletePipeline
-    , deletePipeline
+      deletePipeline
+    , DeletePipeline
     -- * Request Lenses
     , dpName
 
     -- * Destructuring the Response
-    , DeletePipelineResponse
     , deletePipelineResponse
+    , DeletePipelineResponse
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -43,16 +43,18 @@ import           Network.AWS.Response
 -- | Represents the input of a delete pipeline action.
 --
 -- /See:/ 'deletePipeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpName'
 newtype DeletePipeline = DeletePipeline'
     { _dpName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePipeline' smart constructor.
-deletePipeline :: Text -> DeletePipeline
+-- | Creates a value of 'DeletePipeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpName'
+deletePipeline
+    :: Text -- ^ 'dpName'
+    -> DeletePipeline
 deletePipeline pName_ =
     DeletePipeline'
     { _dpName = pName_
@@ -93,6 +95,8 @@ data DeletePipelineResponse =
     DeletePipelineResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePipelineResponse' smart constructor.
-deletePipelineResponse :: DeletePipelineResponse
+-- | Creates a value of 'DeletePipelineResponse' with the minimum fields required to make a request.
+--
+deletePipelineResponse
+    :: DeletePipelineResponse
 deletePipelineResponse = DeletePipelineResponse'

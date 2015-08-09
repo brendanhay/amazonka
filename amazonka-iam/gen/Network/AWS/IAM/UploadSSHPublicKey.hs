@@ -31,15 +31,15 @@
 module Network.AWS.IAM.UploadSSHPublicKey
     (
     -- * Creating a Request
-      UploadSSHPublicKey
-    , uploadSSHPublicKey
+      uploadSSHPublicKey
+    , UploadSSHPublicKey
     -- * Request Lenses
     , usshpkUserName
     , usshpkSSHPublicKeyBody
 
     -- * Destructuring the Response
-    , UploadSSHPublicKeyResponse
     , uploadSSHPublicKeyResponse
+    , UploadSSHPublicKeyResponse
     -- * Response Lenses
     , uspkrsSSHPublicKey
     , uspkrsStatus
@@ -52,19 +52,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'uploadSSHPublicKey' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'usshpkUserName'
---
--- * 'usshpkSSHPublicKeyBody'
 data UploadSSHPublicKey = UploadSSHPublicKey'
     { _usshpkUserName         :: !Text
     , _usshpkSSHPublicKeyBody :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UploadSSHPublicKey' smart constructor.
-uploadSSHPublicKey :: Text -> Text -> UploadSSHPublicKey
+-- | Creates a value of 'UploadSSHPublicKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'usshpkUserName'
+--
+-- * 'usshpkSSHPublicKeyBody'
+uploadSSHPublicKey
+    :: Text -- ^ 'usshpkUserName'
+    -> Text -- ^ 'usshpkSSHPublicKeyBody'
+    -> UploadSSHPublicKey
 uploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
     UploadSSHPublicKey'
     { _usshpkUserName = pUserName_
@@ -108,19 +111,21 @@ instance ToQuery UploadSSHPublicKey where
 -- | Contains the response to a successful UploadSSHPublicKey request.
 --
 -- /See:/ 'uploadSSHPublicKeyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uspkrsSSHPublicKey'
---
--- * 'uspkrsStatus'
 data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
     { _uspkrsSSHPublicKey :: !(Maybe SSHPublicKey)
     , _uspkrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UploadSSHPublicKeyResponse' smart constructor.
-uploadSSHPublicKeyResponse :: Int -> UploadSSHPublicKeyResponse
+-- | Creates a value of 'UploadSSHPublicKeyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uspkrsSSHPublicKey'
+--
+-- * 'uspkrsStatus'
+uploadSSHPublicKeyResponse
+    :: Int -- ^ 'uspkrsStatus'
+    -> UploadSSHPublicKeyResponse
 uploadSSHPublicKeyResponse pStatus_ =
     UploadSSHPublicKeyResponse'
     { _uspkrsSSHPublicKey = Nothing
@@ -131,6 +136,6 @@ uploadSSHPublicKeyResponse pStatus_ =
 uspkrsSSHPublicKey :: Lens' UploadSSHPublicKeyResponse (Maybe SSHPublicKey)
 uspkrsSSHPublicKey = lens _uspkrsSSHPublicKey (\ s a -> s{_uspkrsSSHPublicKey = a});
 
--- | Undocumented member.
+-- | The response status code.
 uspkrsStatus :: Lens' UploadSSHPublicKeyResponse Int
 uspkrsStatus = lens _uspkrsStatus (\ s a -> s{_uspkrsStatus = a});

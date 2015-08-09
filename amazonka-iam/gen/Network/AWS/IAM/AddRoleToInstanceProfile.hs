@@ -28,15 +28,15 @@
 module Network.AWS.IAM.AddRoleToInstanceProfile
     (
     -- * Creating a Request
-      AddRoleToInstanceProfile
-    , addRoleToInstanceProfile
+      addRoleToInstanceProfile
+    , AddRoleToInstanceProfile
     -- * Request Lenses
     , artipInstanceProfileName
     , artipRoleName
 
     -- * Destructuring the Response
-    , AddRoleToInstanceProfileResponse
     , addRoleToInstanceProfileResponse
+    , AddRoleToInstanceProfileResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -46,19 +46,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'addRoleToInstanceProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'artipInstanceProfileName'
---
--- * 'artipRoleName'
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
     { _artipInstanceProfileName :: !Text
     , _artipRoleName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddRoleToInstanceProfile' smart constructor.
-addRoleToInstanceProfile :: Text -> Text -> AddRoleToInstanceProfile
+-- | Creates a value of 'AddRoleToInstanceProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'artipInstanceProfileName'
+--
+-- * 'artipRoleName'
+addRoleToInstanceProfile
+    :: Text -- ^ 'artipInstanceProfileName'
+    -> Text -- ^ 'artipRoleName'
+    -> AddRoleToInstanceProfile
 addRoleToInstanceProfile pInstanceProfileName_ pRoleName_ =
     AddRoleToInstanceProfile'
     { _artipInstanceProfileName = pInstanceProfileName_
@@ -101,6 +104,8 @@ data AddRoleToInstanceProfileResponse =
     AddRoleToInstanceProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddRoleToInstanceProfileResponse' smart constructor.
-addRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse
+-- | Creates a value of 'AddRoleToInstanceProfileResponse' with the minimum fields required to make a request.
+--
+addRoleToInstanceProfileResponse
+    :: AddRoleToInstanceProfileResponse
 addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse'

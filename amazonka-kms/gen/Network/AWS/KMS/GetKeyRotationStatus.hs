@@ -25,14 +25,14 @@
 module Network.AWS.KMS.GetKeyRotationStatus
     (
     -- * Creating a Request
-      GetKeyRotationStatus
-    , getKeyRotationStatus
+      getKeyRotationStatus
+    , GetKeyRotationStatus
     -- * Request Lenses
     , gkrsKeyId
 
     -- * Destructuring the Response
-    , GetKeyRotationStatusResponse
     , getKeyRotationStatusResponse
+    , GetKeyRotationStatusResponse
     -- * Response Lenses
     , gkrsrsKeyRotationEnabled
     , gkrsrsStatus
@@ -45,16 +45,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getKeyRotationStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gkrsKeyId'
 newtype GetKeyRotationStatus = GetKeyRotationStatus'
     { _gkrsKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetKeyRotationStatus' smart constructor.
-getKeyRotationStatus :: Text -> GetKeyRotationStatus
+-- | Creates a value of 'GetKeyRotationStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gkrsKeyId'
+getKeyRotationStatus
+    :: Text -- ^ 'gkrsKeyId'
+    -> GetKeyRotationStatus
 getKeyRotationStatus pKeyId_ =
     GetKeyRotationStatus'
     { _gkrsKeyId = pKeyId_
@@ -101,19 +103,21 @@ instance ToQuery GetKeyRotationStatus where
         toQuery = const mempty
 
 -- | /See:/ 'getKeyRotationStatusResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gkrsrsKeyRotationEnabled'
---
--- * 'gkrsrsStatus'
 data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
     { _gkrsrsKeyRotationEnabled :: !(Maybe Bool)
     , _gkrsrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetKeyRotationStatusResponse' smart constructor.
-getKeyRotationStatusResponse :: Int -> GetKeyRotationStatusResponse
+-- | Creates a value of 'GetKeyRotationStatusResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gkrsrsKeyRotationEnabled'
+--
+-- * 'gkrsrsStatus'
+getKeyRotationStatusResponse
+    :: Int -- ^ 'gkrsrsStatus'
+    -> GetKeyRotationStatusResponse
 getKeyRotationStatusResponse pStatus_ =
     GetKeyRotationStatusResponse'
     { _gkrsrsKeyRotationEnabled = Nothing
@@ -124,6 +128,6 @@ getKeyRotationStatusResponse pStatus_ =
 gkrsrsKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
 gkrsrsKeyRotationEnabled = lens _gkrsrsKeyRotationEnabled (\ s a -> s{_gkrsrsKeyRotationEnabled = a});
 
--- | Undocumented member.
+-- | The response status code.
 gkrsrsStatus :: Lens' GetKeyRotationStatusResponse Int
 gkrsrsStatus = lens _gkrsrsStatus (\ s a -> s{_gkrsrsStatus = a});

@@ -19,13 +19,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation aborts the vault locking process if the vault lock is not
--- in the @Locked@ state. If the vault lock is in the @Locked@ state when
+-- in the 'Locked' state. If the vault lock is in the 'Locked' state when
 -- this operation is requested, the operation returns an
--- @AccessDeniedException@ error. Aborting the vault locking process
+-- 'AccessDeniedException' error. Aborting the vault locking process
 -- removes the vault lock policy from the specified vault.
 --
--- A vault lock is put into the @InProgress@ state by calling
--- InitiateVaultLock. A vault lock is put into the @Locked@ state by
+-- A vault lock is put into the 'InProgress' state by calling
+-- InitiateVaultLock. A vault lock is put into the 'Locked' state by
 -- calling CompleteVaultLock. You can get the state of a vault lock by
 -- calling GetVaultLock. For more information about the vault locking
 -- process, see
@@ -34,22 +34,22 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies>.
 --
 -- This operation is idempotent. You can successfully invoke this operation
--- multiple times, if the vault lock is in the @InProgress@ state or if
+-- multiple times, if the vault lock is in the 'InProgress' state or if
 -- there is no policy associated with the vault.
 --
 -- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AbortVaultLock.html AWS API Reference> for AbortVaultLock.
 module Network.AWS.Glacier.AbortVaultLock
     (
     -- * Creating a Request
-      AbortVaultLock
-    , abortVaultLock
+      abortVaultLock
+    , AbortVaultLock
     -- * Request Lenses
     , avlAccountId
     , avlVaultName
 
     -- * Destructuring the Response
-    , AbortVaultLockResponse
     , abortVaultLockResponse
+    , AbortVaultLockResponse
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -58,32 +58,35 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input values for @AbortVaultLock@.
+-- | The input values for 'AbortVaultLock'.
 --
 -- /See:/ 'abortVaultLock' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'avlAccountId'
---
--- * 'avlVaultName'
 data AbortVaultLock = AbortVaultLock'
     { _avlAccountId :: !Text
     , _avlVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AbortVaultLock' smart constructor.
-abortVaultLock :: Text -> Text -> AbortVaultLock
+-- | Creates a value of 'AbortVaultLock' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avlAccountId'
+--
+-- * 'avlVaultName'
+abortVaultLock
+    :: Text -- ^ 'avlAccountId'
+    -> Text -- ^ 'avlVaultName'
+    -> AbortVaultLock
 abortVaultLock pAccountId_ pVaultName_ =
     AbortVaultLock'
     { _avlAccountId = pAccountId_
     , _avlVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID. This value must match the
+-- | The 'AccountId' value is the AWS account ID. This value must match the
 -- AWS account ID associated with the credentials used to sign the request.
 -- You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you
 -- specify your account ID, do not include any hyphens (apos-apos) in the
 -- ID.
@@ -117,6 +120,8 @@ data AbortVaultLockResponse =
     AbortVaultLockResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AbortVaultLockResponse' smart constructor.
-abortVaultLockResponse :: AbortVaultLockResponse
+-- | Creates a value of 'AbortVaultLockResponse' with the minimum fields required to make a request.
+--
+abortVaultLockResponse
+    :: AbortVaultLockResponse
 abortVaultLockResponse = AbortVaultLockResponse'

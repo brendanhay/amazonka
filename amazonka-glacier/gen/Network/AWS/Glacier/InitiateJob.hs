@@ -98,19 +98,19 @@
 -- /Filtering by Archive Creation Date/
 --
 -- You can retrieve inventory items for archives created between
--- @StartDate@ and @EndDate@ by specifying values for these parameters in
+-- 'StartDate' and 'EndDate' by specifying values for these parameters in
 -- the __InitiateJob__ request. Archives created on or after the
--- @StartDate@ and before the @EndDate@ will be returned. If you only
--- provide the @StartDate@ without the @EndDate@, you will retrieve the
--- inventory for all archives created on or after the @StartDate@. If you
--- only provide the @EndDate@ without the @StartDate@, you will get back
--- the inventory for all archives created before the @EndDate@.
+-- 'StartDate' and before the 'EndDate' will be returned. If you only
+-- provide the 'StartDate' without the 'EndDate', you will retrieve the
+-- inventory for all archives created on or after the 'StartDate'. If you
+-- only provide the 'EndDate' without the 'StartDate', you will get back
+-- the inventory for all archives created before the 'EndDate'.
 --
 -- /Limiting Inventory Items per Retrieval/
 --
 -- You can limit the number of inventory items returned by setting the
--- @Limit@ parameter in the __InitiateJob__ request. The inventory job
--- output will contain inventory items up to the specified @Limit@. If
+-- 'Limit' parameter in the __InitiateJob__ request. The inventory job
+-- output will contain inventory items up to the specified 'Limit'. If
 -- there are more inventory items available, the result is paginated. After
 -- a job is complete you can use the DescribeJob operation to get a marker
 -- that you use in a subsequent __InitiateJob__ request. The marker will
@@ -121,7 +121,7 @@
 -- returns null, indicating that there are no more inventory items
 -- available.
 --
--- You can use the @Limit@ parameter together with the date range
+-- You can use the 'Limit' parameter together with the date range
 -- parameters.
 --
 -- __About Ranged Archive Retrieval__
@@ -151,16 +151,16 @@
 module Network.AWS.Glacier.InitiateJob
     (
     -- * Creating a Request
-      InitiateJob
-    , initiateJob
+      initiateJob
+    , InitiateJob
     -- * Request Lenses
     , ijJobParameters
     , ijAccountId
     , ijVaultName
 
     -- * Destructuring the Response
-    , InitiateJobResponse
     , initiateJobResponse
+    , InitiateJobResponse
     -- * Response Lenses
     , ijrsJobId
     , ijrsLocation
@@ -176,22 +176,25 @@ import           Network.AWS.Response
 -- | Provides options for initiating an Amazon Glacier job.
 --
 -- /See:/ 'initiateJob' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ijJobParameters'
---
--- * 'ijAccountId'
---
--- * 'ijVaultName'
 data InitiateJob = InitiateJob'
     { _ijJobParameters :: !(Maybe JobParameters)
     , _ijAccountId     :: !Text
     , _ijVaultName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InitiateJob' smart constructor.
-initiateJob :: Text -> Text -> InitiateJob
+-- | Creates a value of 'InitiateJob' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ijJobParameters'
+--
+-- * 'ijAccountId'
+--
+-- * 'ijVaultName'
+initiateJob
+    :: Text -- ^ 'ijAccountId'
+    -> Text -- ^ 'ijVaultName'
+    -> InitiateJob
 initiateJob pAccountId_ pVaultName_ =
     InitiateJob'
     { _ijJobParameters = Nothing
@@ -203,9 +206,9 @@ initiateJob pAccountId_ pVaultName_ =
 ijJobParameters :: Lens' InitiateJob (Maybe JobParameters)
 ijJobParameters = lens _ijJobParameters (\ s a -> s{_ijJobParameters = a});
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 ijAccountId :: Lens' InitiateJob Text
@@ -245,22 +248,24 @@ instance ToQuery InitiateJob where
 -- | Contains the Amazon Glacier response to your request.
 --
 -- /See:/ 'initiateJobResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ijrsJobId'
---
--- * 'ijrsLocation'
---
--- * 'ijrsStatus'
 data InitiateJobResponse = InitiateJobResponse'
     { _ijrsJobId    :: !(Maybe Text)
     , _ijrsLocation :: !(Maybe Text)
     , _ijrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InitiateJobResponse' smart constructor.
-initiateJobResponse :: Int -> InitiateJobResponse
+-- | Creates a value of 'InitiateJobResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ijrsJobId'
+--
+-- * 'ijrsLocation'
+--
+-- * 'ijrsStatus'
+initiateJobResponse
+    :: Int -- ^ 'ijrsStatus'
+    -> InitiateJobResponse
 initiateJobResponse pStatus_ =
     InitiateJobResponse'
     { _ijrsJobId = Nothing
@@ -276,6 +281,6 @@ ijrsJobId = lens _ijrsJobId (\ s a -> s{_ijrsJobId = a});
 ijrsLocation :: Lens' InitiateJobResponse (Maybe Text)
 ijrsLocation = lens _ijrsLocation (\ s a -> s{_ijrsLocation = a});
 
--- | Undocumented member.
+-- | The response status code.
 ijrsStatus :: Lens' InitiateJobResponse Int
 ijrsStatus = lens _ijrsStatus (\ s a -> s{_ijrsStatus = a});

@@ -35,16 +35,16 @@
 module Network.AWS.SES.PutIdentityPolicy
     (
     -- * Creating a Request
-      PutIdentityPolicy
-    , putIdentityPolicy
+      putIdentityPolicy
+    , PutIdentityPolicy
     -- * Request Lenses
     , pipIdentity
     , pipPolicyName
     , pipPolicy
 
     -- * Destructuring the Response
-    , PutIdentityPolicyResponse
     , putIdentityPolicyResponse
+    , PutIdentityPolicyResponse
     -- * Response Lenses
     , piprsStatus
     ) where
@@ -59,22 +59,26 @@ import           Network.AWS.SES.Types.Product
 -- policy to an identity.
 --
 -- /See:/ 'putIdentityPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pipIdentity'
---
--- * 'pipPolicyName'
---
--- * 'pipPolicy'
 data PutIdentityPolicy = PutIdentityPolicy'
     { _pipIdentity   :: !Text
     , _pipPolicyName :: !Text
     , _pipPolicy     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutIdentityPolicy' smart constructor.
-putIdentityPolicy :: Text -> Text -> Text -> PutIdentityPolicy
+-- | Creates a value of 'PutIdentityPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pipIdentity'
+--
+-- * 'pipPolicyName'
+--
+-- * 'pipPolicy'
+putIdentityPolicy
+    :: Text -- ^ 'pipIdentity'
+    -> Text -- ^ 'pipPolicyName'
+    -> Text -- ^ 'pipPolicy'
+    -> PutIdentityPolicy
 putIdentityPolicy pIdentity_ pPolicyName_ pPolicy_ =
     PutIdentityPolicy'
     { _pipIdentity = pIdentity_
@@ -84,8 +88,8 @@ putIdentityPolicy pIdentity_ pPolicyName_ pPolicy_ =
 
 -- | The identity to which the policy will apply. You can specify an identity
 -- by using its name or by using its Amazon Resource Name (ARN). Examples:
--- @user\@example.com@, @example.com@,
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+-- 'user\'example.com', 'example.com',
+-- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
 --
 -- To successfully call this API, you must own the identity.
 pipIdentity :: Lens' PutIdentityPolicy Text
@@ -134,21 +138,23 @@ instance ToQuery PutIdentityPolicy where
 -- completed successfully.
 --
 -- /See:/ 'putIdentityPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'piprsStatus'
 newtype PutIdentityPolicyResponse = PutIdentityPolicyResponse'
     { _piprsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutIdentityPolicyResponse' smart constructor.
-putIdentityPolicyResponse :: Int -> PutIdentityPolicyResponse
+-- | Creates a value of 'PutIdentityPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'piprsStatus'
+putIdentityPolicyResponse
+    :: Int -- ^ 'piprsStatus'
+    -> PutIdentityPolicyResponse
 putIdentityPolicyResponse pStatus_ =
     PutIdentityPolicyResponse'
     { _piprsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 piprsStatus :: Lens' PutIdentityPolicyResponse Int
 piprsStatus = lens _piprsStatus (\ s a -> s{_piprsStatus = a});

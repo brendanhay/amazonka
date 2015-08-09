@@ -24,12 +24,12 @@
 module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     (
     -- * Creating a Request
-      DescribeTerminationPolicyTypes
-    , describeTerminationPolicyTypes
+      describeTerminationPolicyTypes
+    , DescribeTerminationPolicyTypes
 
     -- * Destructuring the Response
-    , DescribeTerminationPolicyTypesResponse
     , describeTerminationPolicyTypesResponse
+    , DescribeTerminationPolicyTypesResponse
     -- * Response Lenses
     , dtptrsTerminationPolicyTypes
     , dtptrsStatus
@@ -46,8 +46,10 @@ data DescribeTerminationPolicyTypes =
     DescribeTerminationPolicyTypes'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTerminationPolicyTypes' smart constructor.
-describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
+-- | Creates a value of 'DescribeTerminationPolicyTypes' with the minimum fields required to make a request.
+--
+describeTerminationPolicyTypes
+    :: DescribeTerminationPolicyTypes
 describeTerminationPolicyTypes = DescribeTerminationPolicyTypes'
 
 instance AWSRequest DescribeTerminationPolicyTypes
@@ -81,31 +83,33 @@ instance ToQuery DescribeTerminationPolicyTypes where
                   "Version" =: ("2011-01-01" :: ByteString)])
 
 -- | /See:/ 'describeTerminationPolicyTypesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtptrsTerminationPolicyTypes'
---
--- * 'dtptrsStatus'
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
     { _dtptrsTerminationPolicyTypes :: !(Maybe [Text])
     , _dtptrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTerminationPolicyTypesResponse' smart constructor.
-describeTerminationPolicyTypesResponse :: Int -> DescribeTerminationPolicyTypesResponse
+-- | Creates a value of 'DescribeTerminationPolicyTypesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtptrsTerminationPolicyTypes'
+--
+-- * 'dtptrsStatus'
+describeTerminationPolicyTypesResponse
+    :: Int -- ^ 'dtptrsStatus'
+    -> DescribeTerminationPolicyTypesResponse
 describeTerminationPolicyTypesResponse pStatus_ =
     DescribeTerminationPolicyTypesResponse'
     { _dtptrsTerminationPolicyTypes = Nothing
     , _dtptrsStatus = pStatus_
     }
 
--- | The termination policies supported by Auto Scaling (@OldestInstance@,
--- @OldestLaunchConfiguration@, @NewestInstance@,
--- @ClosestToNextInstanceHour@, and @Default@).
+-- | The termination policies supported by Auto Scaling ('OldestInstance',
+-- 'OldestLaunchConfiguration', 'NewestInstance',
+-- 'ClosestToNextInstanceHour', and 'Default').
 dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
 dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_dtptrsTerminationPolicyTypes = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dtptrsStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
 dtptrsStatus = lens _dtptrsStatus (\ s a -> s{_dtptrsStatus = a});

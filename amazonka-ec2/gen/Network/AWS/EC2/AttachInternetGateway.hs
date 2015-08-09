@@ -27,16 +27,16 @@
 module Network.AWS.EC2.AttachInternetGateway
     (
     -- * Creating a Request
-      AttachInternetGateway
-    , attachInternetGateway
+      attachInternetGateway
+    , AttachInternetGateway
     -- * Request Lenses
     , aigDryRun
     , aigInternetGatewayId
     , aigVPCId
 
     -- * Destructuring the Response
-    , AttachInternetGatewayResponse
     , attachInternetGatewayResponse
+    , AttachInternetGatewayResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -46,22 +46,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachInternetGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aigDryRun'
---
--- * 'aigInternetGatewayId'
---
--- * 'aigVPCId'
 data AttachInternetGateway = AttachInternetGateway'
     { _aigDryRun            :: !(Maybe Bool)
     , _aigInternetGatewayId :: !Text
     , _aigVPCId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachInternetGateway' smart constructor.
-attachInternetGateway :: Text -> Text -> AttachInternetGateway
+-- | Creates a value of 'AttachInternetGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aigDryRun'
+--
+-- * 'aigInternetGatewayId'
+--
+-- * 'aigVPCId'
+attachInternetGateway
+    :: Text -- ^ 'aigInternetGatewayId'
+    -> Text -- ^ 'aigVPCId'
+    -> AttachInternetGateway
 attachInternetGateway pInternetGatewayId_ pVPCId_ =
     AttachInternetGateway'
     { _aigDryRun = Nothing
@@ -71,8 +74,8 @@ attachInternetGateway pInternetGatewayId_ pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 aigDryRun :: Lens' AttachInternetGateway (Maybe Bool)
 aigDryRun = lens _aigDryRun (\ s a -> s{_aigDryRun = a});
 
@@ -111,6 +114,8 @@ data AttachInternetGatewayResponse =
     AttachInternetGatewayResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachInternetGatewayResponse' smart constructor.
-attachInternetGatewayResponse :: AttachInternetGatewayResponse
+-- | Creates a value of 'AttachInternetGatewayResponse' with the minimum fields required to make a request.
+--
+attachInternetGatewayResponse
+    :: AttachInternetGatewayResponse
 attachInternetGatewayResponse = AttachInternetGatewayResponse'

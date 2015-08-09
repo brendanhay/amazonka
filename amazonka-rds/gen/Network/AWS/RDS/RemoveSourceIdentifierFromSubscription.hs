@@ -25,15 +25,15 @@
 module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     (
     -- * Creating a Request
-      RemoveSourceIdentifierFromSubscription
-    , removeSourceIdentifierFromSubscription
+      removeSourceIdentifierFromSubscription
+    , RemoveSourceIdentifierFromSubscription
     -- * Request Lenses
     , rsifsSubscriptionName
     , rsifsSourceIdentifier
 
     -- * Destructuring the Response
-    , RemoveSourceIdentifierFromSubscriptionResponse
     , removeSourceIdentifierFromSubscriptionResponse
+    , RemoveSourceIdentifierFromSubscriptionResponse
     -- * Response Lenses
     , rsifsrsEventSubscription
     , rsifsrsStatus
@@ -48,19 +48,22 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'removeSourceIdentifierFromSubscription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rsifsSubscriptionName'
---
--- * 'rsifsSourceIdentifier'
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription'
     { _rsifsSubscriptionName :: !Text
     , _rsifsSourceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveSourceIdentifierFromSubscription' smart constructor.
-removeSourceIdentifierFromSubscription :: Text -> Text -> RemoveSourceIdentifierFromSubscription
+-- | Creates a value of 'RemoveSourceIdentifierFromSubscription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsifsSubscriptionName'
+--
+-- * 'rsifsSourceIdentifier'
+removeSourceIdentifierFromSubscription
+    :: Text -- ^ 'rsifsSubscriptionName'
+    -> Text -- ^ 'rsifsSourceIdentifier'
+    -> RemoveSourceIdentifierFromSubscription
 removeSourceIdentifierFromSubscription pSubscriptionName_ pSourceIdentifier_ =
     RemoveSourceIdentifierFromSubscription'
     { _rsifsSubscriptionName = pSubscriptionName_
@@ -111,19 +114,21 @@ instance ToQuery
                "SourceIdentifier" =: _rsifsSourceIdentifier]
 
 -- | /See:/ 'removeSourceIdentifierFromSubscriptionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rsifsrsEventSubscription'
---
--- * 'rsifsrsStatus'
 data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'
     { _rsifsrsEventSubscription :: !(Maybe EventSubscription)
     , _rsifsrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveSourceIdentifierFromSubscriptionResponse' smart constructor.
-removeSourceIdentifierFromSubscriptionResponse :: Int -> RemoveSourceIdentifierFromSubscriptionResponse
+-- | Creates a value of 'RemoveSourceIdentifierFromSubscriptionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsifsrsEventSubscription'
+--
+-- * 'rsifsrsStatus'
+removeSourceIdentifierFromSubscriptionResponse
+    :: Int -- ^ 'rsifsrsStatus'
+    -> RemoveSourceIdentifierFromSubscriptionResponse
 removeSourceIdentifierFromSubscriptionResponse pStatus_ =
     RemoveSourceIdentifierFromSubscriptionResponse'
     { _rsifsrsEventSubscription = Nothing
@@ -134,6 +139,6 @@ removeSourceIdentifierFromSubscriptionResponse pStatus_ =
 rsifsrsEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
 rsifsrsEventSubscription = lens _rsifsrsEventSubscription (\ s a -> s{_rsifsrsEventSubscription = a});
 
--- | Undocumented member.
+-- | The response status code.
 rsifsrsStatus :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
 rsifsrsStatus = lens _rsifsrsStatus (\ s a -> s{_rsifsrsStatus = a});

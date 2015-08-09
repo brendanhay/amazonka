@@ -27,8 +27,8 @@
 module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     (
     -- * Creating a Request
-      AllocateConnectionOnInterconnect
-    , allocateConnectionOnInterconnect
+      allocateConnectionOnInterconnect
+    , AllocateConnectionOnInterconnect
     -- * Request Lenses
     , acoiBandwidth
     , acoiConnectionName
@@ -37,8 +37,8 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     , acoiVlan
 
     -- * Destructuring the Response
-    , Connection
     , connection
+    , Connection
     -- * Response Lenses
     , cVlan
     , cLocation
@@ -61,8 +61,17 @@ import           Network.AWS.Response
 -- operation.
 --
 -- /See:/ 'allocateConnectionOnInterconnect' smart constructor.
+data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect'
+    { _acoiBandwidth      :: !Text
+    , _acoiConnectionName :: !Text
+    , _acoiOwnerAccount   :: !Text
+    , _acoiInterconnectId :: !Text
+    , _acoiVlan           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AllocateConnectionOnInterconnect' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'acoiBandwidth'
 --
@@ -73,16 +82,13 @@ import           Network.AWS.Response
 -- * 'acoiInterconnectId'
 --
 -- * 'acoiVlan'
-data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect'
-    { _acoiBandwidth      :: !Text
-    , _acoiConnectionName :: !Text
-    , _acoiOwnerAccount   :: !Text
-    , _acoiInterconnectId :: !Text
-    , _acoiVlan           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AllocateConnectionOnInterconnect' smart constructor.
-allocateConnectionOnInterconnect :: Text -> Text -> Text -> Text -> Int -> AllocateConnectionOnInterconnect
+allocateConnectionOnInterconnect
+    :: Text -- ^ 'acoiBandwidth'
+    -> Text -- ^ 'acoiConnectionName'
+    -> Text -- ^ 'acoiOwnerAccount'
+    -> Text -- ^ 'acoiInterconnectId'
+    -> Int -- ^ 'acoiVlan'
+    -> AllocateConnectionOnInterconnect
 allocateConnectionOnInterconnect pBandwidth_ pConnectionName_ pOwnerAccount_ pInterconnectId_ pVlan_ =
     AllocateConnectionOnInterconnect'
     { _acoiBandwidth = pBandwidth_

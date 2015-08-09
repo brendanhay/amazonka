@@ -32,14 +32,14 @@
 module Network.AWS.OpsWorks.UnassignVolume
     (
     -- * Creating a Request
-      UnassignVolume
-    , unassignVolume
+      unassignVolume
+    , UnassignVolume
     -- * Request Lenses
     , uvVolumeId
 
     -- * Destructuring the Response
-    , UnassignVolumeResponse
     , unassignVolumeResponse
+    , UnassignVolumeResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -49,16 +49,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'unassignVolume' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uvVolumeId'
 newtype UnassignVolume = UnassignVolume'
     { _uvVolumeId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnassignVolume' smart constructor.
-unassignVolume :: Text -> UnassignVolume
+-- | Creates a value of 'UnassignVolume' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uvVolumeId'
+unassignVolume
+    :: Text -- ^ 'uvVolumeId'
+    -> UnassignVolume
 unassignVolume pVolumeId_ =
     UnassignVolume'
     { _uvVolumeId = pVolumeId_
@@ -98,6 +100,8 @@ data UnassignVolumeResponse =
     UnassignVolumeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnassignVolumeResponse' smart constructor.
-unassignVolumeResponse :: UnassignVolumeResponse
+-- | Creates a value of 'UnassignVolumeResponse' with the minimum fields required to make a request.
+--
+unassignVolumeResponse
+    :: UnassignVolumeResponse
 unassignVolumeResponse = UnassignVolumeResponse'

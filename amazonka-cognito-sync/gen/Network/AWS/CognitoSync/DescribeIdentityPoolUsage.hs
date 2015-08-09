@@ -29,14 +29,14 @@
 module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     (
     -- * Creating a Request
-      DescribeIdentityPoolUsage
-    , describeIdentityPoolUsage
+      describeIdentityPoolUsage
+    , DescribeIdentityPoolUsage
     -- * Request Lenses
     , dipuIdentityPoolId
 
     -- * Destructuring the Response
-    , DescribeIdentityPoolUsageResponse
     , describeIdentityPoolUsageResponse
+    , DescribeIdentityPoolUsageResponse
     -- * Response Lenses
     , dipursIdentityPoolUsage
     , dipursStatus
@@ -51,16 +51,18 @@ import           Network.AWS.Response
 -- | A request for usage information about the identity pool.
 --
 -- /See:/ 'describeIdentityPoolUsage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dipuIdentityPoolId'
 newtype DescribeIdentityPoolUsage = DescribeIdentityPoolUsage'
     { _dipuIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeIdentityPoolUsage' smart constructor.
-describeIdentityPoolUsage :: Text -> DescribeIdentityPoolUsage
+-- | Creates a value of 'DescribeIdentityPoolUsage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dipuIdentityPoolId'
+describeIdentityPoolUsage
+    :: Text -- ^ 'dipuIdentityPoolId'
+    -> DescribeIdentityPoolUsage
 describeIdentityPoolUsage pIdentityPoolId_ =
     DescribeIdentityPoolUsage'
     { _dipuIdentityPoolId = pIdentityPoolId_
@@ -101,19 +103,21 @@ instance ToQuery DescribeIdentityPoolUsage where
 -- | Response to a successful DescribeIdentityPoolUsage request.
 --
 -- /See:/ 'describeIdentityPoolUsageResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dipursIdentityPoolUsage'
---
--- * 'dipursStatus'
 data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
     { _dipursIdentityPoolUsage :: !(Maybe IdentityPoolUsage)
     , _dipursStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeIdentityPoolUsageResponse' smart constructor.
-describeIdentityPoolUsageResponse :: Int -> DescribeIdentityPoolUsageResponse
+-- | Creates a value of 'DescribeIdentityPoolUsageResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dipursIdentityPoolUsage'
+--
+-- * 'dipursStatus'
+describeIdentityPoolUsageResponse
+    :: Int -- ^ 'dipursStatus'
+    -> DescribeIdentityPoolUsageResponse
 describeIdentityPoolUsageResponse pStatus_ =
     DescribeIdentityPoolUsageResponse'
     { _dipursIdentityPoolUsage = Nothing
@@ -124,6 +128,6 @@ describeIdentityPoolUsageResponse pStatus_ =
 dipursIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe IdentityPoolUsage)
 dipursIdentityPoolUsage = lens _dipursIdentityPoolUsage (\ s a -> s{_dipursIdentityPoolUsage = a});
 
--- | Undocumented member.
+-- | The response status code.
 dipursStatus :: Lens' DescribeIdentityPoolUsageResponse Int
 dipursStatus = lens _dipursStatus (\ s a -> s{_dipursStatus = a});

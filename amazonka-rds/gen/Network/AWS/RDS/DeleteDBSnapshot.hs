@@ -21,20 +21,20 @@
 -- Deletes a DBSnapshot. If the snapshot is being copied, the copy
 -- operation is terminated.
 --
--- The DBSnapshot must be in the @available@ state to be deleted.
+-- The DBSnapshot must be in the 'available' state to be deleted.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSnapshot.html AWS API Reference> for DeleteDBSnapshot.
 module Network.AWS.RDS.DeleteDBSnapshot
     (
     -- * Creating a Request
-      DeleteDBSnapshot
-    , deleteDBSnapshot
+      deleteDBSnapshot
+    , DeleteDBSnapshot
     -- * Request Lenses
     , ddbsDBSnapshotIdentifier
 
     -- * Destructuring the Response
-    , DeleteDBSnapshotResponse
     , deleteDBSnapshotResponse
+    , DeleteDBSnapshotResponse
     -- * Response Lenses
     , ddbsrsDBSnapshot
     , ddbsrsStatus
@@ -49,16 +49,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteDBSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddbsDBSnapshotIdentifier'
 newtype DeleteDBSnapshot = DeleteDBSnapshot'
     { _ddbsDBSnapshotIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBSnapshot' smart constructor.
-deleteDBSnapshot :: Text -> DeleteDBSnapshot
+-- | Creates a value of 'DeleteDBSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddbsDBSnapshotIdentifier'
+deleteDBSnapshot
+    :: Text -- ^ 'ddbsDBSnapshotIdentifier'
+    -> DeleteDBSnapshot
 deleteDBSnapshot pDBSnapshotIdentifier_ =
     DeleteDBSnapshot'
     { _ddbsDBSnapshotIdentifier = pDBSnapshotIdentifier_
@@ -67,7 +69,7 @@ deleteDBSnapshot pDBSnapshotIdentifier_ =
 -- | The DBSnapshot identifier.
 --
 -- Constraints: Must be the name of an existing DB snapshot in the
--- @available@ state.
+-- 'available' state.
 ddbsDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
 ddbsDBSnapshotIdentifier = lens _ddbsDBSnapshotIdentifier (\ s a -> s{_ddbsDBSnapshotIdentifier = a});
 
@@ -95,19 +97,21 @@ instance ToQuery DeleteDBSnapshot where
                "DBSnapshotIdentifier" =: _ddbsDBSnapshotIdentifier]
 
 -- | /See:/ 'deleteDBSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddbsrsDBSnapshot'
---
--- * 'ddbsrsStatus'
 data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
     { _ddbsrsDBSnapshot :: !(Maybe DBSnapshot)
     , _ddbsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBSnapshotResponse' smart constructor.
-deleteDBSnapshotResponse :: Int -> DeleteDBSnapshotResponse
+-- | Creates a value of 'DeleteDBSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddbsrsDBSnapshot'
+--
+-- * 'ddbsrsStatus'
+deleteDBSnapshotResponse
+    :: Int -- ^ 'ddbsrsStatus'
+    -> DeleteDBSnapshotResponse
 deleteDBSnapshotResponse pStatus_ =
     DeleteDBSnapshotResponse'
     { _ddbsrsDBSnapshot = Nothing
@@ -118,6 +122,6 @@ deleteDBSnapshotResponse pStatus_ =
 ddbsrsDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
 ddbsrsDBSnapshot = lens _ddbsrsDBSnapshot (\ s a -> s{_ddbsrsDBSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 ddbsrsStatus :: Lens' DeleteDBSnapshotResponse Int
 ddbsrsStatus = lens _ddbsrsStatus (\ s a -> s{_ddbsrsStatus = a});

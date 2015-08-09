@@ -30,19 +30,21 @@
 -- match, no special message is returned.
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTags.html AWS API Reference> for DescribeTags.
+--
+-- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeTags
     (
     -- * Creating a Request
-      DescribeTags
-    , describeTags
+      describeTags
+    , DescribeTags
     -- * Request Lenses
     , dtFilters
     , dtNextToken
     , dtMaxRecords
 
     -- * Destructuring the Response
-    , DescribeTagsResponse
     , describeTagsResponse
+    , DescribeTagsResponse
     -- * Response Lenses
     , dtrsNextToken
     , dtrsTags
@@ -57,22 +59,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtFilters'
---
--- * 'dtNextToken'
---
--- * 'dtMaxRecords'
 data DescribeTags = DescribeTags'
     { _dtFilters    :: !(Maybe [Filter])
     , _dtNextToken  :: !(Maybe Text)
     , _dtMaxRecords :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTags' smart constructor.
-describeTags :: DescribeTags
+-- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtFilters'
+--
+-- * 'dtNextToken'
+--
+-- * 'dtMaxRecords'
+describeTags
+    :: DescribeTags
 describeTags =
     DescribeTags'
     { _dtFilters = Nothing
@@ -130,22 +133,24 @@ instance ToQuery DescribeTags where
                "MaxRecords" =: _dtMaxRecords]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtrsNextToken'
---
--- * 'dtrsTags'
---
--- * 'dtrsStatus'
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsNextToken :: !(Maybe Text)
     , _dtrsTags      :: !(Maybe [TagDescription])
     , _dtrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTagsResponse' smart constructor.
-describeTagsResponse :: Int -> DescribeTagsResponse
+-- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtrsNextToken'
+--
+-- * 'dtrsTags'
+--
+-- * 'dtrsStatus'
+describeTagsResponse
+    :: Int -- ^ 'dtrsStatus'
+    -> DescribeTagsResponse
 describeTagsResponse pStatus_ =
     DescribeTagsResponse'
     { _dtrsNextToken = Nothing
@@ -162,6 +167,6 @@ dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dtrsStatus :: Lens' DescribeTagsResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

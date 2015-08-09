@@ -28,16 +28,16 @@
 module Network.AWS.KMS.CreateKey
     (
     -- * Creating a Request
-      CreateKey
-    , createKey
+      createKey
+    , CreateKey
     -- * Request Lenses
     , ckKeyUsage
     , ckPolicy
     , ckDescription
 
     -- * Destructuring the Response
-    , CreateKeyResponse
     , createKeyResponse
+    , CreateKeyResponse
     -- * Response Lenses
     , ckrsKeyMetadata
     , ckrsStatus
@@ -50,22 +50,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createKey' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ckKeyUsage'
---
--- * 'ckPolicy'
---
--- * 'ckDescription'
 data CreateKey = CreateKey'
     { _ckKeyUsage    :: !(Maybe KeyUsageType)
     , _ckPolicy      :: !(Maybe Text)
     , _ckDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateKey' smart constructor.
-createKey :: CreateKey
+-- | Creates a value of 'CreateKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ckKeyUsage'
+--
+-- * 'ckPolicy'
+--
+-- * 'ckDescription'
+createKey
+    :: CreateKey
 createKey =
     CreateKey'
     { _ckKeyUsage = Nothing
@@ -121,19 +122,21 @@ instance ToQuery CreateKey where
         toQuery = const mempty
 
 -- | /See:/ 'createKeyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ckrsKeyMetadata'
---
--- * 'ckrsStatus'
 data CreateKeyResponse = CreateKeyResponse'
     { _ckrsKeyMetadata :: !(Maybe KeyMetadata)
     , _ckrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateKeyResponse' smart constructor.
-createKeyResponse :: Int -> CreateKeyResponse
+-- | Creates a value of 'CreateKeyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ckrsKeyMetadata'
+--
+-- * 'ckrsStatus'
+createKeyResponse
+    :: Int -- ^ 'ckrsStatus'
+    -> CreateKeyResponse
 createKeyResponse pStatus_ =
     CreateKeyResponse'
     { _ckrsKeyMetadata = Nothing
@@ -144,6 +147,6 @@ createKeyResponse pStatus_ =
 ckrsKeyMetadata :: Lens' CreateKeyResponse (Maybe KeyMetadata)
 ckrsKeyMetadata = lens _ckrsKeyMetadata (\ s a -> s{_ckrsKeyMetadata = a});
 
--- | Undocumented member.
+-- | The response status code.
 ckrsStatus :: Lens' CreateKeyResponse Int
 ckrsStatus = lens _ckrsStatus (\ s a -> s{_ckrsStatus = a});

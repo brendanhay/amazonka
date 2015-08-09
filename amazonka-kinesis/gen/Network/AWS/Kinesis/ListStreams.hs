@@ -21,34 +21,36 @@
 -- Lists your streams.
 --
 -- The number of streams may be too large to return from a single call to
--- @ListStreams@. You can limit the number of returned streams using the
--- @Limit@ parameter. If you do not specify a value for the @Limit@
+-- 'ListStreams'. You can limit the number of returned streams using the
+-- 'Limit' parameter. If you do not specify a value for the 'Limit'
 -- parameter, Amazon Kinesis uses the default limit, which is currently 10.
 --
 -- You can detect if there are more streams available to list by using the
--- @HasMoreStreams@ flag from the returned output. If there are more
+-- 'HasMoreStreams' flag from the returned output. If there are more
 -- streams available, you can request more streams by using the name of the
--- last stream returned by the @ListStreams@ request in the
--- @ExclusiveStartStreamName@ parameter in a subsequent request to
--- @ListStreams@. The group of stream names returned by the subsequent
+-- last stream returned by the 'ListStreams' request in the
+-- 'ExclusiveStartStreamName' parameter in a subsequent request to
+-- 'ListStreams'. The group of stream names returned by the subsequent
 -- request is then added to the list. You can continue this process until
 -- all the stream names have been collected in the list.
 --
 -- ListStreams has a limit of 5 transactions per second per account.
 --
 -- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreams.html AWS API Reference> for ListStreams.
+--
+-- This operation returns paginated results.
 module Network.AWS.Kinesis.ListStreams
     (
     -- * Creating a Request
-      ListStreams
-    , listStreams
+      listStreams
+    , ListStreams
     -- * Request Lenses
     , lsLimit
     , lsExclusiveStartStreamName
 
     -- * Destructuring the Response
-    , ListStreamsResponse
     , listStreamsResponse
+    , ListStreamsResponse
     -- * Response Lenses
     , lsrsStatus
     , lsrsStreamNames
@@ -62,22 +64,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for @ListStreams@.
+-- | Represents the input for 'ListStreams'.
 --
 -- /See:/ 'listStreams' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsLimit'
---
--- * 'lsExclusiveStartStreamName'
 data ListStreams = ListStreams'
     { _lsLimit                    :: !(Maybe Nat)
     , _lsExclusiveStartStreamName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListStreams' smart constructor.
-listStreams :: ListStreams
+-- | Creates a value of 'ListStreams' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsLimit'
+--
+-- * 'lsExclusiveStartStreamName'
+listStreams
+    :: ListStreams
 listStreams =
     ListStreams'
     { _lsLimit = Nothing
@@ -135,25 +138,28 @@ instance ToPath ListStreams where
 instance ToQuery ListStreams where
         toQuery = const mempty
 
--- | Represents the output for @ListStreams@.
+-- | Represents the output for 'ListStreams'.
 --
 -- /See:/ 'listStreamsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsrsStatus'
---
--- * 'lsrsStreamNames'
---
--- * 'lsrsHasMoreStreams'
 data ListStreamsResponse = ListStreamsResponse'
     { _lsrsStatus         :: !Int
     , _lsrsStreamNames    :: ![Text]
     , _lsrsHasMoreStreams :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListStreamsResponse' smart constructor.
-listStreamsResponse :: Int -> Bool -> ListStreamsResponse
+-- | Creates a value of 'ListStreamsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsrsStatus'
+--
+-- * 'lsrsStreamNames'
+--
+-- * 'lsrsHasMoreStreams'
+listStreamsResponse
+    :: Int -- ^ 'lsrsStatus'
+    -> Bool -- ^ 'lsrsHasMoreStreams'
+    -> ListStreamsResponse
 listStreamsResponse pStatus_ pHasMoreStreams_ =
     ListStreamsResponse'
     { _lsrsStatus = pStatus_
@@ -161,15 +167,15 @@ listStreamsResponse pStatus_ pHasMoreStreams_ =
     , _lsrsHasMoreStreams = pHasMoreStreams_
     }
 
--- | Undocumented member.
+-- | The response status code.
 lsrsStatus :: Lens' ListStreamsResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});
 
 -- | The names of the streams that are associated with the AWS account making
--- the @ListStreams@ request.
+-- the 'ListStreams' request.
 lsrsStreamNames :: Lens' ListStreamsResponse [Text]
 lsrsStreamNames = lens _lsrsStreamNames (\ s a -> s{_lsrsStreamNames = a}) . _Coerce;
 
--- | If set to @true@, there are more streams available to list.
+-- | If set to 'true', there are more streams available to list.
 lsrsHasMoreStreams :: Lens' ListStreamsResponse Bool
 lsrsHasMoreStreams = lens _lsrsHasMoreStreams (\ s a -> s{_lsrsHasMoreStreams = a});

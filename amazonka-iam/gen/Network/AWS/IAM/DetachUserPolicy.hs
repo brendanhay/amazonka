@@ -30,15 +30,15 @@
 module Network.AWS.IAM.DetachUserPolicy
     (
     -- * Creating a Request
-      DetachUserPolicy
-    , detachUserPolicy
+      detachUserPolicy
+    , DetachUserPolicy
     -- * Request Lenses
     , dUserName
     , dPolicyARN
 
     -- * Destructuring the Response
-    , DetachUserPolicyResponse
     , detachUserPolicyResponse
+    , DetachUserPolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -48,19 +48,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachUserPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dUserName'
---
--- * 'dPolicyARN'
 data DetachUserPolicy = DetachUserPolicy'
     { _dUserName  :: !Text
     , _dPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachUserPolicy' smart constructor.
-detachUserPolicy :: Text -> Text -> DetachUserPolicy
+-- | Creates a value of 'DetachUserPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dUserName'
+--
+-- * 'dPolicyARN'
+detachUserPolicy
+    :: Text -- ^ 'dUserName'
+    -> Text -- ^ 'dPolicyARN'
+    -> DetachUserPolicy
 detachUserPolicy pUserName_ pPolicyARN_ =
     DetachUserPolicy'
     { _dUserName = pUserName_
@@ -99,6 +102,8 @@ data DetachUserPolicyResponse =
     DetachUserPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachUserPolicyResponse' smart constructor.
-detachUserPolicyResponse :: DetachUserPolicyResponse
+-- | Creates a value of 'DetachUserPolicyResponse' with the minimum fields required to make a request.
+--
+detachUserPolicyResponse
+    :: DetachUserPolicyResponse
 detachUserPolicyResponse = DetachUserPolicyResponse'

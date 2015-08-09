@@ -25,16 +25,16 @@
 module Network.AWS.S3.PutBucketReplication
     (
     -- * Creating a Request
-      PutBucketReplication
-    , putBucketReplication
+      putBucketReplication
+    , PutBucketReplication
     -- * Request Lenses
     , pbrContentMD5
     , pbrBucket
     , pbrReplicationConfiguration
 
     -- * Destructuring the Response
-    , PutBucketReplicationResponse
     , putBucketReplicationResponse
+    , PutBucketReplicationResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -44,22 +44,25 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketReplication' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pbrContentMD5'
---
--- * 'pbrBucket'
---
--- * 'pbrReplicationConfiguration'
 data PutBucketReplication = PutBucketReplication'
     { _pbrContentMD5               :: !(Maybe Text)
     , _pbrBucket                   :: !BucketName
     , _pbrReplicationConfiguration :: !ReplicationConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketReplication' smart constructor.
-putBucketReplication :: BucketName -> ReplicationConfiguration -> PutBucketReplication
+-- | Creates a value of 'PutBucketReplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pbrContentMD5'
+--
+-- * 'pbrBucket'
+--
+-- * 'pbrReplicationConfiguration'
+putBucketReplication
+    :: BucketName -- ^ 'pbrBucket'
+    -> ReplicationConfiguration -- ^ 'pbrReplicationConfiguration'
+    -> PutBucketReplication
 putBucketReplication pBucket_ pReplicationConfiguration_ =
     PutBucketReplication'
     { _pbrContentMD5 = Nothing
@@ -109,6 +112,8 @@ data PutBucketReplicationResponse =
     PutBucketReplicationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketReplicationResponse' smart constructor.
-putBucketReplicationResponse :: PutBucketReplicationResponse
+-- | Creates a value of 'PutBucketReplicationResponse' with the minimum fields required to make a request.
+--
+putBucketReplicationResponse
+    :: PutBucketReplicationResponse
 putBucketReplicationResponse = PutBucketReplicationResponse'

@@ -19,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves log events from the specified log stream. You can provide an
--- optional time range to filter the results on the event @timestamp@.
+-- optional time range to filter the results on the event 'timestamp'.
 --
 -- By default, this operation returns as much log events as can fit in a
 -- response size of 1MB, up to 10,000 log events. The response will always
--- include a @nextForwardToken@ and a @nextBackwardToken@ in the response
--- body. You can use any of these tokens in subsequent @GetLogEvents@
+-- include a 'nextForwardToken' and a 'nextBackwardToken' in the response
+-- body. You can use any of these tokens in subsequent 'GetLogEvents'
 -- requests to paginate through events in either forward or backward
 -- direction. You can also limit the number of log events returned in the
--- response by specifying the @limit@ parameter in the request.
+-- response by specifying the 'limit' parameter in the request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html AWS API Reference> for GetLogEvents.
 module Network.AWS.CloudWatchLogs.GetLogEvents
     (
     -- * Creating a Request
-      GetLogEvents
-    , getLogEvents
+      getLogEvents
+    , GetLogEvents
     -- * Request Lenses
     , gleStartTime
     , gleStartFromHead
@@ -45,8 +45,8 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     , gleLogStreamName
 
     -- * Destructuring the Response
-    , GetLogEventsResponse
     , getLogEventsResponse
+    , GetLogEventsResponse
     -- * Response Lenses
     , glersNextBackwardToken
     , glersNextForwardToken
@@ -61,8 +61,19 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getLogEvents' smart constructor.
+data GetLogEvents = GetLogEvents'
+    { _gleStartTime     :: !(Maybe Nat)
+    , _gleStartFromHead :: !(Maybe Bool)
+    , _gleNextToken     :: !(Maybe Text)
+    , _gleEndTime       :: !(Maybe Nat)
+    , _gleLimit         :: !(Maybe Nat)
+    , _gleLogGroupName  :: !Text
+    , _gleLogStreamName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetLogEvents' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gleStartTime'
 --
@@ -77,18 +88,10 @@ import           Network.AWS.Response
 -- * 'gleLogGroupName'
 --
 -- * 'gleLogStreamName'
-data GetLogEvents = GetLogEvents'
-    { _gleStartTime     :: !(Maybe Nat)
-    , _gleStartFromHead :: !(Maybe Bool)
-    , _gleNextToken     :: !(Maybe Text)
-    , _gleEndTime       :: !(Maybe Nat)
-    , _gleLimit         :: !(Maybe Nat)
-    , _gleLogGroupName  :: !Text
-    , _gleLogStreamName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetLogEvents' smart constructor.
-getLogEvents :: Text -> Text -> GetLogEvents
+getLogEvents
+    :: Text -- ^ 'gleLogGroupName'
+    -> Text -- ^ 'gleLogStreamName'
+    -> GetLogEvents
 getLogEvents pLogGroupName_ pLogStreamName_ =
     GetLogEvents'
     { _gleStartTime = Nothing
@@ -110,9 +113,9 @@ gleStartFromHead :: Lens' GetLogEvents (Maybe Bool)
 gleStartFromHead = lens _gleStartFromHead (\ s a -> s{_gleStartFromHead = a});
 
 -- | A string token used for pagination that points to the next page of
--- results. It must be a value obtained from the @nextForwardToken@ or
--- @nextBackwardToken@ fields in the response of the previous
--- @GetLogEvents@ request.
+-- results. It must be a value obtained from the 'nextForwardToken' or
+-- 'nextBackwardToken' fields in the response of the previous
+-- 'GetLogEvents' request.
 gleNextToken :: Lens' GetLogEvents (Maybe Text)
 gleNextToken = lens _gleNextToken (\ s a -> s{_gleNextToken = a});
 
@@ -173,8 +176,16 @@ instance ToQuery GetLogEvents where
         toQuery = const mempty
 
 -- | /See:/ 'getLogEventsResponse' smart constructor.
+data GetLogEventsResponse = GetLogEventsResponse'
+    { _glersNextBackwardToken :: !(Maybe Text)
+    , _glersNextForwardToken  :: !(Maybe Text)
+    , _glersEvents            :: !(Maybe [OutputLogEvent])
+    , _glersStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetLogEventsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'glersNextBackwardToken'
 --
@@ -183,15 +194,9 @@ instance ToQuery GetLogEvents where
 -- * 'glersEvents'
 --
 -- * 'glersStatus'
-data GetLogEventsResponse = GetLogEventsResponse'
-    { _glersNextBackwardToken :: !(Maybe Text)
-    , _glersNextForwardToken  :: !(Maybe Text)
-    , _glersEvents            :: !(Maybe [OutputLogEvent])
-    , _glersStatus            :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetLogEventsResponse' smart constructor.
-getLogEventsResponse :: Int -> GetLogEventsResponse
+getLogEventsResponse
+    :: Int -- ^ 'glersStatus'
+    -> GetLogEventsResponse
 getLogEventsResponse pStatus_ =
     GetLogEventsResponse'
     { _glersNextBackwardToken = Nothing
@@ -212,6 +217,6 @@ glersNextForwardToken = lens _glersNextForwardToken (\ s a -> s{_glersNextForwar
 glersEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
 glersEvents = lens _glersEvents (\ s a -> s{_glersEvents = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 glersStatus :: Lens' GetLogEventsResponse Int
 glersStatus = lens _glersStatus (\ s a -> s{_glersStatus = a});

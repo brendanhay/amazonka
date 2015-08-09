@@ -196,11 +196,9 @@ module Network.AWS.ElastiCache
 
     -- ** DescribeEvents (Paginated)
     , module Network.AWS.ElastiCache.DescribeEvents
-    -- $pager
 
     -- ** DescribeEngineDefaultParameters (Paginated)
     , module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
-    -- $pager
 
     -- ** ModifyCacheParameterGroup
     , module Network.AWS.ElastiCache.ModifyCacheParameterGroup
@@ -219,7 +217,6 @@ module Network.AWS.ElastiCache
 
     -- ** DescribeCacheClusters (Paginated)
     , module Network.AWS.ElastiCache.DescribeCacheClusters
-    -- $pager
 
     -- ** ModifyReplicationGroup
     , module Network.AWS.ElastiCache.ModifyReplicationGroup
@@ -229,11 +226,9 @@ module Network.AWS.ElastiCache
 
     -- ** DescribeCacheParameters (Paginated)
     , module Network.AWS.ElastiCache.DescribeCacheParameters
-    -- $pager
 
     -- ** DescribeCacheSubnetGroups (Paginated)
     , module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
-    -- $pager
 
     -- ** CreateCacheSecurityGroup
     , module Network.AWS.ElastiCache.CreateCacheSecurityGroup
@@ -252,25 +247,21 @@ module Network.AWS.ElastiCache
 
     -- ** DescribeCacheParameterGroups (Paginated)
     , module Network.AWS.ElastiCache.DescribeCacheParameterGroups
-    -- $pager
 
     -- ** ResetCacheParameterGroup
     , module Network.AWS.ElastiCache.ResetCacheParameterGroup
 
     -- ** DescribeSnapshots (Paginated)
     , module Network.AWS.ElastiCache.DescribeSnapshots
-    -- $pager
 
     -- ** DescribeReservedCacheNodesOfferings (Paginated)
     , module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
-    -- $pager
 
     -- ** DeleteSnapshot
     , module Network.AWS.ElastiCache.DeleteSnapshot
 
     -- ** DescribeReplicationGroups (Paginated)
     , module Network.AWS.ElastiCache.DescribeReplicationGroups
-    -- $pager
 
     -- ** ModifyCacheSubnetGroup
     , module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
@@ -280,18 +271,15 @@ module Network.AWS.ElastiCache
 
     -- ** DescribeCacheSecurityGroups (Paginated)
     , module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
-    -- $pager
 
     -- ** DeleteCacheParameterGroup
     , module Network.AWS.ElastiCache.DeleteCacheParameterGroup
 
     -- ** DescribeReservedCacheNodes (Paginated)
     , module Network.AWS.ElastiCache.DescribeReservedCacheNodes
-    -- $pager
 
     -- ** DescribeCacheEngineVersions (Paginated)
     , module Network.AWS.ElastiCache.DescribeCacheEngineVersions
-    -- $pager
 
     -- ** ModifyCacheCluster
     , module Network.AWS.ElastiCache.ModifyCacheCluster
@@ -679,8 +667,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

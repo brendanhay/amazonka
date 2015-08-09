@@ -96,7 +96,6 @@ module Network.AWS.Lambda
 
     -- ** ListEventSourceMappings (Paginated)
     , module Network.AWS.Lambda.ListEventSourceMappings
-    -- $pager
 
     -- ** AddPermission
     , module Network.AWS.Lambda.AddPermission
@@ -109,7 +108,6 @@ module Network.AWS.Lambda
 
     -- ** ListFunctions (Paginated)
     , module Network.AWS.Lambda.ListFunctions
-    -- $pager
 
     -- ** UpdateFunctionCode
     , module Network.AWS.Lambda.UpdateFunctionCode
@@ -219,8 +217,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

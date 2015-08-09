@@ -30,14 +30,14 @@
 module Network.AWS.OpsWorks.DeregisterRDSDBInstance
     (
     -- * Creating a Request
-      DeregisterRDSDBInstance
-    , deregisterRDSDBInstance
+      deregisterRDSDBInstance
+    , DeregisterRDSDBInstance
     -- * Request Lenses
     , drdiRDSDBInstanceARN
 
     -- * Destructuring the Response
-    , DeregisterRDSDBInstanceResponse
     , deregisterRDSDBInstanceResponse
+    , DeregisterRDSDBInstanceResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -47,16 +47,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deregisterRDSDBInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drdiRDSDBInstanceARN'
 newtype DeregisterRDSDBInstance = DeregisterRDSDBInstance'
     { _drdiRDSDBInstanceARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterRDSDBInstance' smart constructor.
-deregisterRDSDBInstance :: Text -> DeregisterRDSDBInstance
+-- | Creates a value of 'DeregisterRDSDBInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drdiRDSDBInstanceARN'
+deregisterRDSDBInstance
+    :: Text -- ^ 'drdiRDSDBInstanceARN'
+    -> DeregisterRDSDBInstance
 deregisterRDSDBInstance pRDSDBInstanceARN_ =
     DeregisterRDSDBInstance'
     { _drdiRDSDBInstanceARN = pRDSDBInstanceARN_
@@ -100,6 +102,8 @@ data DeregisterRDSDBInstanceResponse =
     DeregisterRDSDBInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterRDSDBInstanceResponse' smart constructor.
-deregisterRDSDBInstanceResponse :: DeregisterRDSDBInstanceResponse
+-- | Creates a value of 'DeregisterRDSDBInstanceResponse' with the minimum fields required to make a request.
+--
+deregisterRDSDBInstanceResponse
+    :: DeregisterRDSDBInstanceResponse
 deregisterRDSDBInstanceResponse = DeregisterRDSDBInstanceResponse'

@@ -24,14 +24,14 @@
 module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
     (
     -- * Creating a Request
-      BatchGetOnPremisesInstances
-    , batchGetOnPremisesInstances
+      batchGetOnPremisesInstances
+    , BatchGetOnPremisesInstances
     -- * Request Lenses
     , bgopiInstanceNames
 
     -- * Destructuring the Response
-    , BatchGetOnPremisesInstancesResponse
     , batchGetOnPremisesInstancesResponse
+    , BatchGetOnPremisesInstancesResponse
     -- * Response Lenses
     , bgopirsInstanceInfos
     , bgopirsStatus
@@ -46,16 +46,17 @@ import           Network.AWS.Response
 -- | Represents the input of a batch get on-premises instances operation.
 --
 -- /See:/ 'batchGetOnPremisesInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bgopiInstanceNames'
 newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
     { _bgopiInstanceNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BatchGetOnPremisesInstances' smart constructor.
-batchGetOnPremisesInstances :: BatchGetOnPremisesInstances
+-- | Creates a value of 'BatchGetOnPremisesInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgopiInstanceNames'
+batchGetOnPremisesInstances
+    :: BatchGetOnPremisesInstances
 batchGetOnPremisesInstances =
     BatchGetOnPremisesInstances'
     { _bgopiInstanceNames = Nothing
@@ -100,19 +101,21 @@ instance ToQuery BatchGetOnPremisesInstances where
 -- | Represents the output of a batch get on-premises instances operation.
 --
 -- /See:/ 'batchGetOnPremisesInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bgopirsInstanceInfos'
---
--- * 'bgopirsStatus'
 data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
     { _bgopirsInstanceInfos :: !(Maybe [InstanceInfo])
     , _bgopirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BatchGetOnPremisesInstancesResponse' smart constructor.
-batchGetOnPremisesInstancesResponse :: Int -> BatchGetOnPremisesInstancesResponse
+-- | Creates a value of 'BatchGetOnPremisesInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgopirsInstanceInfos'
+--
+-- * 'bgopirsStatus'
+batchGetOnPremisesInstancesResponse
+    :: Int -- ^ 'bgopirsStatus'
+    -> BatchGetOnPremisesInstancesResponse
 batchGetOnPremisesInstancesResponse pStatus_ =
     BatchGetOnPremisesInstancesResponse'
     { _bgopirsInstanceInfos = Nothing
@@ -123,6 +126,6 @@ batchGetOnPremisesInstancesResponse pStatus_ =
 bgopirsInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
 bgopirsInstanceInfos = lens _bgopirsInstanceInfos (\ s a -> s{_bgopirsInstanceInfos = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 bgopirsStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
 bgopirsStatus = lens _bgopirsStatus (\ s a -> s{_bgopirsStatus = a});

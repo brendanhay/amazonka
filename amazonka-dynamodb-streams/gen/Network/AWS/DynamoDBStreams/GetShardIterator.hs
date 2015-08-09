@@ -20,7 +20,7 @@
 --
 -- Returns a shard iterator. A shard iterator provides information about
 -- how to retrieve the stream records from within a shard. Use the shard
--- iterator in a subsequent @GetRecords@ request to read the stream records
+-- iterator in a subsequent 'GetRecords' request to read the stream records
 -- from the shard.
 --
 -- A shard iterator expires 15 minutes after it is returned to the
@@ -30,8 +30,8 @@
 module Network.AWS.DynamoDBStreams.GetShardIterator
     (
     -- * Creating a Request
-      GetShardIterator
-    , getShardIterator
+      getShardIterator
+    , GetShardIterator
     -- * Request Lenses
     , gsiSequenceNumber
     , gsiStreamARN
@@ -39,8 +39,8 @@ module Network.AWS.DynamoDBStreams.GetShardIterator
     , gsiShardIteratorType
 
     -- * Destructuring the Response
-    , GetShardIteratorResponse
     , getShardIteratorResponse
+    , GetShardIteratorResponse
     -- * Response Lenses
     , gsirsShardIterator
     , gsirsStatus
@@ -55,8 +55,16 @@ import           Network.AWS.Response
 -- | Represents the input of a /GetShardIterator/ operation.
 --
 -- /See:/ 'getShardIterator' smart constructor.
+data GetShardIterator = GetShardIterator'
+    { _gsiSequenceNumber    :: !(Maybe Text)
+    , _gsiStreamARN         :: !Text
+    , _gsiShardId           :: !Text
+    , _gsiShardIteratorType :: !ShardIteratorType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetShardIterator' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gsiSequenceNumber'
 --
@@ -65,15 +73,11 @@ import           Network.AWS.Response
 -- * 'gsiShardId'
 --
 -- * 'gsiShardIteratorType'
-data GetShardIterator = GetShardIterator'
-    { _gsiSequenceNumber    :: !(Maybe Text)
-    , _gsiStreamARN         :: !Text
-    , _gsiShardId           :: !Text
-    , _gsiShardIteratorType :: !ShardIteratorType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetShardIterator' smart constructor.
-getShardIterator :: Text -> Text -> ShardIteratorType -> GetShardIterator
+getShardIterator
+    :: Text -- ^ 'gsiStreamARN'
+    -> Text -- ^ 'gsiShardId'
+    -> ShardIteratorType -- ^ 'gsiShardIteratorType'
+    -> GetShardIterator
 getShardIterator pStreamARN_ pShardId_ pShardIteratorType_ =
     GetShardIterator'
     { _gsiSequenceNumber = Nothing
@@ -99,19 +103,19 @@ gsiShardId = lens _gsiShardId (\ s a -> s{_gsiShardId = a});
 -- | Determines how the shard iterator is used to start reading stream
 -- records from the shard:
 --
--- -   @AT_SEQUENCE_NUMBER@ - Start reading exactly from the position
+-- -   'AT_SEQUENCE_NUMBER' - Start reading exactly from the position
 --     denoted by a specific sequence number.
 --
--- -   @AFTER_SEQUENCE_NUMBER@ - Start reading right after the position
+-- -   'AFTER_SEQUENCE_NUMBER' - Start reading right after the position
 --     denoted by a specific sequence number.
 --
--- -   @TRIM_HORIZON@ - Start reading at the last (untrimmed) stream
+-- -   'TRIM_HORIZON' - Start reading at the last (untrimmed) stream
 --     record, which is the oldest record in the shard. In DynamoDB
 --     Streams, there is a 24 hour limit on data retention. Stream records
 --     whose age exceeds this limit are subject to removal (trimming) from
 --     the stream.
 --
--- -   @LATEST@ - Start reading just after the most recent stream record in
+-- -   'LATEST' - Start reading just after the most recent stream record in
 --     the shard, so that you always read the most recent data in the
 --     shard.
 --
@@ -155,19 +159,21 @@ instance ToQuery GetShardIterator where
 -- | Represents the output of a /GetShardIterator/ operation.
 --
 -- /See:/ 'getShardIteratorResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsirsShardIterator'
---
--- * 'gsirsStatus'
 data GetShardIteratorResponse = GetShardIteratorResponse'
     { _gsirsShardIterator :: !(Maybe Text)
     , _gsirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetShardIteratorResponse' smart constructor.
-getShardIteratorResponse :: Int -> GetShardIteratorResponse
+-- | Creates a value of 'GetShardIteratorResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsirsShardIterator'
+--
+-- * 'gsirsStatus'
+getShardIteratorResponse
+    :: Int -- ^ 'gsirsStatus'
+    -> GetShardIteratorResponse
 getShardIteratorResponse pStatus_ =
     GetShardIteratorResponse'
     { _gsirsShardIterator = Nothing
@@ -180,6 +186,6 @@ getShardIteratorResponse pStatus_ =
 gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirsShardIterator = lens _gsirsShardIterator (\ s a -> s{_gsirsShardIterator = a});
 
--- | Undocumented member.
+-- | The response status code.
 gsirsStatus :: Lens' GetShardIteratorResponse Int
 gsirsStatus = lens _gsirsStatus (\ s a -> s{_gsirsStatus = a});

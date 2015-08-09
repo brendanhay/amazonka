@@ -23,25 +23,25 @@
 -- destination name.
 --
 -- By default, this operation returns up to 50 destinations. If there are
--- more destinations to list, the response would contain a @nextToken@
+-- more destinations to list, the response would contain a 'nextToken'
 -- value in the response body. You can also limit the number of
--- destinations returned in the response by specifying the @limit@
+-- destinations returned in the response by specifying the 'limit'
 -- parameter in the request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDestinations.html AWS API Reference> for DescribeDestinations.
 module Network.AWS.CloudWatchLogs.DescribeDestinations
     (
     -- * Creating a Request
-      DescribeDestinations
-    , describeDestinations
+      describeDestinations
+    , DescribeDestinations
     -- * Request Lenses
     , ddNextToken
     , ddLimit
     , ddDestinationNamePrefix
 
     -- * Destructuring the Response
-    , DescribeDestinationsResponse
     , describeDestinationsResponse
+    , DescribeDestinationsResponse
     -- * Response Lenses
     , ddrsNextToken
     , ddrsDestinations
@@ -55,22 +55,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeDestinations' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddNextToken'
---
--- * 'ddLimit'
---
--- * 'ddDestinationNamePrefix'
 data DescribeDestinations = DescribeDestinations'
     { _ddNextToken             :: !(Maybe Text)
     , _ddLimit                 :: !(Maybe Nat)
     , _ddDestinationNamePrefix :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDestinations' smart constructor.
-describeDestinations :: DescribeDestinations
+-- | Creates a value of 'DescribeDestinations' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddNextToken'
+--
+-- * 'ddLimit'
+--
+-- * 'ddDestinationNamePrefix'
+describeDestinations
+    :: DescribeDestinations
 describeDestinations =
     DescribeDestinations'
     { _ddNextToken = Nothing
@@ -127,22 +128,24 @@ instance ToQuery DescribeDestinations where
         toQuery = const mempty
 
 -- | /See:/ 'describeDestinationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddrsNextToken'
---
--- * 'ddrsDestinations'
---
--- * 'ddrsStatus'
 data DescribeDestinationsResponse = DescribeDestinationsResponse'
     { _ddrsNextToken    :: !(Maybe Text)
     , _ddrsDestinations :: !(Maybe [Destination])
     , _ddrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDestinationsResponse' smart constructor.
-describeDestinationsResponse :: Int -> DescribeDestinationsResponse
+-- | Creates a value of 'DescribeDestinationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddrsNextToken'
+--
+-- * 'ddrsDestinations'
+--
+-- * 'ddrsStatus'
+describeDestinationsResponse
+    :: Int -- ^ 'ddrsStatus'
+    -> DescribeDestinationsResponse
 describeDestinationsResponse pStatus_ =
     DescribeDestinationsResponse'
     { _ddrsNextToken = Nothing
@@ -158,6 +161,6 @@ ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});
 ddrsDestinations :: Lens' DescribeDestinationsResponse [Destination]
 ddrsDestinations = lens _ddrsDestinations (\ s a -> s{_ddrsDestinations = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ddrsStatus :: Lens' DescribeDestinationsResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

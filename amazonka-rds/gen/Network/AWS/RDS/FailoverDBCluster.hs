@@ -39,14 +39,14 @@
 module Network.AWS.RDS.FailoverDBCluster
     (
     -- * Creating a Request
-      FailoverDBCluster
-    , failoverDBCluster
+      failoverDBCluster
+    , FailoverDBCluster
     -- * Request Lenses
     , fdcDBClusterIdentifier
 
     -- * Destructuring the Response
-    , FailoverDBClusterResponse
     , failoverDBClusterResponse
+    , FailoverDBClusterResponse
     -- * Response Lenses
     , fdcrsDBCluster
     , fdcrsStatus
@@ -61,16 +61,17 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'failoverDBCluster' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fdcDBClusterIdentifier'
 newtype FailoverDBCluster = FailoverDBCluster'
     { _fdcDBClusterIdentifier :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'FailoverDBCluster' smart constructor.
-failoverDBCluster :: FailoverDBCluster
+-- | Creates a value of 'FailoverDBCluster' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fdcDBClusterIdentifier'
+failoverDBCluster
+    :: FailoverDBCluster
 failoverDBCluster =
     FailoverDBCluster'
     { _fdcDBClusterIdentifier = Nothing
@@ -111,19 +112,21 @@ instance ToQuery FailoverDBCluster where
                "DBClusterIdentifier" =: _fdcDBClusterIdentifier]
 
 -- | /See:/ 'failoverDBClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fdcrsDBCluster'
---
--- * 'fdcrsStatus'
 data FailoverDBClusterResponse = FailoverDBClusterResponse'
     { _fdcrsDBCluster :: !(Maybe DBCluster)
     , _fdcrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'FailoverDBClusterResponse' smart constructor.
-failoverDBClusterResponse :: Int -> FailoverDBClusterResponse
+-- | Creates a value of 'FailoverDBClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fdcrsDBCluster'
+--
+-- * 'fdcrsStatus'
+failoverDBClusterResponse
+    :: Int -- ^ 'fdcrsStatus'
+    -> FailoverDBClusterResponse
 failoverDBClusterResponse pStatus_ =
     FailoverDBClusterResponse'
     { _fdcrsDBCluster = Nothing
@@ -134,6 +137,6 @@ failoverDBClusterResponse pStatus_ =
 fdcrsDBCluster :: Lens' FailoverDBClusterResponse (Maybe DBCluster)
 fdcrsDBCluster = lens _fdcrsDBCluster (\ s a -> s{_fdcrsDBCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 fdcrsStatus :: Lens' FailoverDBClusterResponse Int
 fdcrsStatus = lens _fdcrsStatus (\ s a -> s{_fdcrsStatus = a});

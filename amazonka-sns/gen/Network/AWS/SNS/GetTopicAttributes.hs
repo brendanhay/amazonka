@@ -25,14 +25,14 @@
 module Network.AWS.SNS.GetTopicAttributes
     (
     -- * Creating a Request
-      GetTopicAttributes
-    , getTopicAttributes
+      getTopicAttributes
+    , GetTopicAttributes
     -- * Request Lenses
     , gtaTopicARN
 
     -- * Destructuring the Response
-    , GetTopicAttributesResponse
     , getTopicAttributesResponse
+    , GetTopicAttributesResponse
     -- * Response Lenses
     , gtarsAttributes
     , gtarsStatus
@@ -47,16 +47,18 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for GetTopicAttributes action.
 --
 -- /See:/ 'getTopicAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gtaTopicARN'
 newtype GetTopicAttributes = GetTopicAttributes'
     { _gtaTopicARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetTopicAttributes' smart constructor.
-getTopicAttributes :: Text -> GetTopicAttributes
+-- | Creates a value of 'GetTopicAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtaTopicARN'
+getTopicAttributes
+    :: Text -- ^ 'gtaTopicARN'
+    -> GetTopicAttributes
 getTopicAttributes pTopicARN_ =
     GetTopicAttributes'
     { _gtaTopicARN = pTopicARN_
@@ -95,19 +97,21 @@ instance ToQuery GetTopicAttributes where
 -- | Response for GetTopicAttributes action.
 --
 -- /See:/ 'getTopicAttributesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gtarsAttributes'
---
--- * 'gtarsStatus'
 data GetTopicAttributesResponse = GetTopicAttributesResponse'
     { _gtarsAttributes :: !(Maybe (Map Text Text))
     , _gtarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetTopicAttributesResponse' smart constructor.
-getTopicAttributesResponse :: Int -> GetTopicAttributesResponse
+-- | Creates a value of 'GetTopicAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtarsAttributes'
+--
+-- * 'gtarsStatus'
+getTopicAttributesResponse
+    :: Int -- ^ 'gtarsStatus'
+    -> GetTopicAttributesResponse
 getTopicAttributesResponse pStatus_ =
     GetTopicAttributesResponse'
     { _gtarsAttributes = Nothing
@@ -117,25 +121,25 @@ getTopicAttributesResponse pStatus_ =
 -- | A map of the topic\'s attributes. Attributes in this map include the
 -- following:
 --
--- -   @TopicArn@ -- the topic\'s ARN
--- -   @Owner@ -- the AWS account ID of the topic\'s owner
--- -   @Policy@ -- the JSON serialization of the topic\'s access control
+-- -   'TopicArn' -- the topic\'s ARN
+-- -   'Owner' -- the AWS account ID of the topic\'s owner
+-- -   'Policy' -- the JSON serialization of the topic\'s access control
 --     policy
--- -   @DisplayName@ -- the human-readable name used in the \"From\" field
+-- -   'DisplayName' -- the human-readable name used in the \"From\" field
 --     for notifications to email and email-json endpoints
--- -   @SubscriptionsPending@ -- the number of subscriptions pending
+-- -   'SubscriptionsPending' -- the number of subscriptions pending
 --     confirmation on this topic
--- -   @SubscriptionsConfirmed@ -- the number of confirmed subscriptions on
+-- -   'SubscriptionsConfirmed' -- the number of confirmed subscriptions on
 --     this topic
--- -   @SubscriptionsDeleted@ -- the number of deleted subscriptions on
+-- -   'SubscriptionsDeleted' -- the number of deleted subscriptions on
 --     this topic
--- -   @DeliveryPolicy@ -- the JSON serialization of the topic\'s delivery
+-- -   'DeliveryPolicy' -- the JSON serialization of the topic\'s delivery
 --     policy
--- -   @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective
+-- -   'EffectiveDeliveryPolicy' -- the JSON serialization of the effective
 --     delivery policy that takes into account system defaults
 gtarsAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
 gtarsAttributes = lens _gtarsAttributes (\ s a -> s{_gtarsAttributes = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 gtarsStatus :: Lens' GetTopicAttributesResponse Int
 gtarsStatus = lens _gtarsStatus (\ s a -> s{_gtarsStatus = a});

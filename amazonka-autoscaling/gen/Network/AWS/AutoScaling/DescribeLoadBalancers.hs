@@ -24,16 +24,16 @@
 module Network.AWS.AutoScaling.DescribeLoadBalancers
     (
     -- * Creating a Request
-      DescribeLoadBalancers
-    , describeLoadBalancers
+      describeLoadBalancers
+    , DescribeLoadBalancers
     -- * Request Lenses
     , dlbNextToken
     , dlbMaxRecords
     , dlbAutoScalingGroupName
 
     -- * Destructuring the Response
-    , DescribeLoadBalancersResponse
     , describeLoadBalancersResponse
+    , DescribeLoadBalancersResponse
     -- * Response Lenses
     , dlbrsLoadBalancers
     , dlbrsNextToken
@@ -47,22 +47,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancers' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbNextToken'
---
--- * 'dlbMaxRecords'
---
--- * 'dlbAutoScalingGroupName'
 data DescribeLoadBalancers = DescribeLoadBalancers'
     { _dlbNextToken            :: !(Maybe Text)
     , _dlbMaxRecords           :: !(Maybe Int)
     , _dlbAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoadBalancers' smart constructor.
-describeLoadBalancers :: Text -> DescribeLoadBalancers
+-- | Creates a value of 'DescribeLoadBalancers' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbNextToken'
+--
+-- * 'dlbMaxRecords'
+--
+-- * 'dlbAutoScalingGroupName'
+describeLoadBalancers
+    :: Text -- ^ 'dlbAutoScalingGroupName'
+    -> DescribeLoadBalancers
 describeLoadBalancers pAutoScalingGroupName_ =
     DescribeLoadBalancers'
     { _dlbNextToken = Nothing
@@ -113,22 +115,24 @@ instance ToQuery DescribeLoadBalancers where
                "AutoScalingGroupName" =: _dlbAutoScalingGroupName]
 
 -- | /See:/ 'describeLoadBalancersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbrsLoadBalancers'
---
--- * 'dlbrsNextToken'
---
--- * 'dlbrsStatus'
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancers :: !(Maybe [LoadBalancerState])
     , _dlbrsNextToken     :: !(Maybe Text)
     , _dlbrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoadBalancersResponse' smart constructor.
-describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
+-- | Creates a value of 'DescribeLoadBalancersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbrsLoadBalancers'
+--
+-- * 'dlbrsNextToken'
+--
+-- * 'dlbrsStatus'
+describeLoadBalancersResponse
+    :: Int -- ^ 'dlbrsStatus'
+    -> DescribeLoadBalancersResponse
 describeLoadBalancersResponse pStatus_ =
     DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancers = Nothing
@@ -145,6 +149,6 @@ dlbrsLoadBalancers = lens _dlbrsLoadBalancers (\ s a -> s{_dlbrsLoadBalancers = 
 dlbrsNextToken :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrsNextToken = lens _dlbrsNextToken (\ s a -> s{_dlbrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dlbrsStatus :: Lens' DescribeLoadBalancersResponse Int
 dlbrsStatus = lens _dlbrsStatus (\ s a -> s{_dlbrsStatus = a});

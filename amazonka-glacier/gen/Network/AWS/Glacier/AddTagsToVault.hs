@@ -21,7 +21,7 @@
 -- This operation adds the specified tags to a vault. Each tag is composed
 -- of a key and a value. Each vault can have up to 10 tags. If your request
 -- would cause the tag limit for the vault to be exceeded, the operation
--- throws the @LimitExceededException@ error. If a tag already exists on
+-- throws the 'LimitExceededException' error. If a tag already exists on
 -- the vault under a specified key, the existing key value will be
 -- overwritten. For more information about tags, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
@@ -30,16 +30,16 @@
 module Network.AWS.Glacier.AddTagsToVault
     (
     -- * Creating a Request
-      AddTagsToVault
-    , addTagsToVault
+      addTagsToVault
+    , AddTagsToVault
     -- * Request Lenses
     , attvTags
     , attvAccountId
     , attvVaultName
 
     -- * Destructuring the Response
-    , AddTagsToVaultResponse
     , addTagsToVaultResponse
+    , AddTagsToVaultResponse
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -48,25 +48,28 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input values for @AddTagsToVault@.
+-- | The input values for 'AddTagsToVault'.
 --
 -- /See:/ 'addTagsToVault' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'attvTags'
---
--- * 'attvAccountId'
---
--- * 'attvVaultName'
 data AddTagsToVault = AddTagsToVault'
     { _attvTags      :: !(Maybe (Map Text Text))
     , _attvAccountId :: !Text
     , _attvVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTagsToVault' smart constructor.
-addTagsToVault :: Text -> Text -> AddTagsToVault
+-- | Creates a value of 'AddTagsToVault' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'attvTags'
+--
+-- * 'attvAccountId'
+--
+-- * 'attvVaultName'
+addTagsToVault
+    :: Text -- ^ 'attvAccountId'
+    -> Text -- ^ 'attvVaultName'
+    -> AddTagsToVault
 addTagsToVault pAccountId_ pVaultName_ =
     AddTagsToVault'
     { _attvTags = Nothing
@@ -79,9 +82,9 @@ addTagsToVault pAccountId_ pVaultName_ =
 attvTags :: Lens' AddTagsToVault (HashMap Text Text)
 attvTags = lens _attvTags (\ s a -> s{_attvTags = a}) . _Default . _Map;
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 attvAccountId :: Lens' AddTagsToVault Text
@@ -118,6 +121,8 @@ data AddTagsToVaultResponse =
     AddTagsToVaultResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTagsToVaultResponse' smart constructor.
-addTagsToVaultResponse :: AddTagsToVaultResponse
+-- | Creates a value of 'AddTagsToVaultResponse' with the minimum fields required to make a request.
+--
+addTagsToVaultResponse
+    :: AddTagsToVaultResponse
 addTagsToVaultResponse = AddTagsToVaultResponse'

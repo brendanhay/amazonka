@@ -30,14 +30,14 @@
 module Network.AWS.OpsWorks.DeleteApp
     (
     -- * Creating a Request
-      DeleteApp
-    , deleteApp
+      deleteApp
+    , DeleteApp
     -- * Request Lenses
     , daAppId
 
     -- * Destructuring the Response
-    , DeleteAppResponse
     , deleteAppResponse
+    , DeleteAppResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -47,16 +47,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteApp' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daAppId'
 newtype DeleteApp = DeleteApp'
     { _daAppId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteApp' smart constructor.
-deleteApp :: Text -> DeleteApp
+-- | Creates a value of 'DeleteApp' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daAppId'
+deleteApp
+    :: Text -- ^ 'daAppId'
+    -> DeleteApp
 deleteApp pAppId_ =
     DeleteApp'
     { _daAppId = pAppId_
@@ -95,6 +97,8 @@ data DeleteAppResponse =
     DeleteAppResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAppResponse' smart constructor.
-deleteAppResponse :: DeleteAppResponse
+-- | Creates a value of 'DeleteAppResponse' with the minimum fields required to make a request.
+--
+deleteAppResponse
+    :: DeleteAppResponse
 deleteAppResponse = DeleteAppResponse'

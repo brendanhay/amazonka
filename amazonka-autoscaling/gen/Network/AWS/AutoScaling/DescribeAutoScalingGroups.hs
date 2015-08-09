@@ -22,19 +22,21 @@
 -- provided, the call describes all Auto Scaling groups.
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroups.html AWS API Reference> for DescribeAutoScalingGroups.
+--
+-- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     (
     -- * Creating a Request
-      DescribeAutoScalingGroups
-    , describeAutoScalingGroups
+      describeAutoScalingGroups
+    , DescribeAutoScalingGroups
     -- * Request Lenses
     , dasgAutoScalingGroupNames
     , dasgNextToken
     , dasgMaxRecords
 
     -- * Destructuring the Response
-    , DescribeAutoScalingGroupsResponse
     , describeAutoScalingGroupsResponse
+    , DescribeAutoScalingGroupsResponse
     -- * Response Lenses
     , dasgrsNextToken
     , dasgrsStatus
@@ -49,22 +51,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeAutoScalingGroups' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dasgAutoScalingGroupNames'
---
--- * 'dasgNextToken'
---
--- * 'dasgMaxRecords'
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
     { _dasgAutoScalingGroupNames :: !(Maybe [Text])
     , _dasgNextToken             :: !(Maybe Text)
     , _dasgMaxRecords            :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAutoScalingGroups' smart constructor.
-describeAutoScalingGroups :: DescribeAutoScalingGroups
+-- | Creates a value of 'DescribeAutoScalingGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dasgAutoScalingGroupNames'
+--
+-- * 'dasgNextToken'
+--
+-- * 'dasgMaxRecords'
+describeAutoScalingGroups
+    :: DescribeAutoScalingGroups
 describeAutoScalingGroups =
     DescribeAutoScalingGroups'
     { _dasgAutoScalingGroupNames = Nothing
@@ -125,22 +128,24 @@ instance ToQuery DescribeAutoScalingGroups where
                "MaxRecords" =: _dasgMaxRecords]
 
 -- | /See:/ 'describeAutoScalingGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dasgrsNextToken'
---
--- * 'dasgrsStatus'
---
--- * 'dasgrsAutoScalingGroups'
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
     { _dasgrsNextToken         :: !(Maybe Text)
     , _dasgrsStatus            :: !Int
     , _dasgrsAutoScalingGroups :: ![AutoScalingGroup]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAutoScalingGroupsResponse' smart constructor.
-describeAutoScalingGroupsResponse :: Int -> DescribeAutoScalingGroupsResponse
+-- | Creates a value of 'DescribeAutoScalingGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dasgrsNextToken'
+--
+-- * 'dasgrsStatus'
+--
+-- * 'dasgrsAutoScalingGroups'
+describeAutoScalingGroupsResponse
+    :: Int -- ^ 'dasgrsStatus'
+    -> DescribeAutoScalingGroupsResponse
 describeAutoScalingGroupsResponse pStatus_ =
     DescribeAutoScalingGroupsResponse'
     { _dasgrsNextToken = Nothing
@@ -153,7 +158,7 @@ describeAutoScalingGroupsResponse pStatus_ =
 dasgrsNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
 dasgrsNextToken = lens _dasgrsNextToken (\ s a -> s{_dasgrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dasgrsStatus :: Lens' DescribeAutoScalingGroupsResponse Int
 dasgrsStatus = lens _dasgrsStatus (\ s a -> s{_dasgrsStatus = a});
 

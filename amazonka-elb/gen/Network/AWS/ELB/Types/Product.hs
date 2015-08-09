@@ -21,11 +21,19 @@ module Network.AWS.ELB.Types.Product where
 import           Network.AWS.ELB.Types.Sum
 import           Network.AWS.Prelude
 
--- | Information about the @AccessLog@ attribute.
+-- | Information about the 'AccessLog' attribute.
 --
 -- /See:/ 'accessLog' smart constructor.
+data AccessLog = AccessLog'
+    { _alEmitInterval   :: !(Maybe Int)
+    , _alS3BucketPrefix :: !(Maybe Text)
+    , _alS3BucketName   :: !(Maybe Text)
+    , _alEnabled        :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AccessLog' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'alEmitInterval'
 --
@@ -34,15 +42,9 @@ import           Network.AWS.Prelude
 -- * 'alS3BucketName'
 --
 -- * 'alEnabled'
-data AccessLog = AccessLog'
-    { _alEmitInterval   :: !(Maybe Int)
-    , _alS3BucketPrefix :: !(Maybe Text)
-    , _alS3BucketName   :: !(Maybe Text)
-    , _alEnabled        :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AccessLog' smart constructor.
-accessLog :: Bool -> AccessLog
+accessLog
+    :: Bool -- ^ 'alEnabled'
+    -> AccessLog
 accessLog pEnabled_ =
     AccessLog'
     { _alEmitInterval = Nothing
@@ -59,7 +61,7 @@ alEmitInterval :: Lens' AccessLog (Maybe Int)
 alEmitInterval = lens _alEmitInterval (\ s a -> s{_alEmitInterval = a});
 
 -- | The logical hierarchy you created for your Amazon S3 bucket, for example
--- @my-bucket-prefix\/prod@. If the prefix is not provided, the log is
+-- 'my-bucket-prefix\/prod'. If the prefix is not provided, the log is
 -- placed at the root level of the bucket.
 alS3BucketPrefix :: Lens' AccessLog (Maybe Text)
 alS3BucketPrefix = lens _alS3BucketPrefix (\ s a -> s{_alS3BucketPrefix = a});
@@ -90,19 +92,20 @@ instance ToQuery AccessLog where
 -- | This data type is reserved.
 --
 -- /See:/ 'additionalAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aaValue'
---
--- * 'aaKey'
 data AdditionalAttribute = AdditionalAttribute'
     { _aaValue :: !(Maybe Text)
     , _aaKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AdditionalAttribute' smart constructor.
-additionalAttribute :: AdditionalAttribute
+-- | Creates a value of 'AdditionalAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aaValue'
+--
+-- * 'aaKey'
+additionalAttribute
+    :: AdditionalAttribute
 additionalAttribute =
     AdditionalAttribute'
     { _aaValue = Nothing
@@ -130,19 +133,20 @@ instance ToQuery AdditionalAttribute where
 -- stickiness.
 --
 -- /See:/ 'appCookieStickinessPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'acspPolicyName'
---
--- * 'acspCookieName'
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy'
     { _acspPolicyName :: !(Maybe Text)
     , _acspCookieName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AppCookieStickinessPolicy' smart constructor.
-appCookieStickinessPolicy :: AppCookieStickinessPolicy
+-- | Creates a value of 'AppCookieStickinessPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acspPolicyName'
+--
+-- * 'acspCookieName'
+appCookieStickinessPolicy
+    :: AppCookieStickinessPolicy
 appCookieStickinessPolicy =
     AppCookieStickinessPolicy'
     { _acspPolicyName = Nothing
@@ -166,19 +170,20 @@ instance FromXML AppCookieStickinessPolicy where
 -- | Information about the configuration of a back-end server.
 --
 -- /See:/ 'backendServerDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bsdPolicyNames'
---
--- * 'bsdInstancePort'
 data BackendServerDescription = BackendServerDescription'
     { _bsdPolicyNames  :: !(Maybe [Text])
     , _bsdInstancePort :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BackendServerDescription' smart constructor.
-backendServerDescription :: BackendServerDescription
+-- | Creates a value of 'BackendServerDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bsdPolicyNames'
+--
+-- * 'bsdInstancePort'
+backendServerDescription
+    :: BackendServerDescription
 backendServerDescription =
     BackendServerDescription'
     { _bsdPolicyNames = Nothing
@@ -200,22 +205,24 @@ instance FromXML BackendServerDescription where
                  may (parseXMLList "member"))
                 <*> (x .@? "InstancePort")
 
--- | Information about the @ConnectionDraining@ attribute.
+-- | Information about the 'ConnectionDraining' attribute.
 --
 -- /See:/ 'connectionDraining' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdTimeout'
---
--- * 'cdEnabled'
 data ConnectionDraining = ConnectionDraining'
     { _cdTimeout :: !(Maybe Int)
     , _cdEnabled :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConnectionDraining' smart constructor.
-connectionDraining :: Bool -> ConnectionDraining
+-- | Creates a value of 'ConnectionDraining' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdTimeout'
+--
+-- * 'cdEnabled'
+connectionDraining
+    :: Bool -- ^ 'cdEnabled'
+    -> ConnectionDraining
 connectionDraining pEnabled_ =
     ConnectionDraining'
     { _cdTimeout = Nothing
@@ -241,19 +248,21 @@ instance ToQuery ConnectionDraining where
           = mconcat
               ["Timeout" =: _cdTimeout, "Enabled" =: _cdEnabled]
 
--- | Information about the @ConnectionSettings@ attribute.
+-- | Information about the 'ConnectionSettings' attribute.
 --
 -- /See:/ 'connectionSettings' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csIdleTimeout'
 newtype ConnectionSettings = ConnectionSettings'
     { _csIdleTimeout :: Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConnectionSettings' smart constructor.
-connectionSettings :: Natural -> ConnectionSettings
+-- | Creates a value of 'ConnectionSettings' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csIdleTimeout'
+connectionSettings
+    :: Natural -- ^ 'csIdleTimeout'
+    -> ConnectionSettings
 connectionSettings pIdleTimeout_ =
     ConnectionSettings'
     { _csIdleTimeout = _Nat # pIdleTimeout_
@@ -273,19 +282,21 @@ instance ToQuery ConnectionSettings where
         toQuery ConnectionSettings'{..}
           = mconcat ["IdleTimeout" =: _csIdleTimeout]
 
--- | Information about the @CrossZoneLoadBalancing@ attribute.
+-- | Information about the 'CrossZoneLoadBalancing' attribute.
 --
 -- /See:/ 'crossZoneLoadBalancing' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'czlbEnabled'
 newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing'
     { _czlbEnabled :: Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CrossZoneLoadBalancing' smart constructor.
-crossZoneLoadBalancing :: Bool -> CrossZoneLoadBalancing
+-- | Creates a value of 'CrossZoneLoadBalancing' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'czlbEnabled'
+crossZoneLoadBalancing
+    :: Bool -- ^ 'czlbEnabled'
+    -> CrossZoneLoadBalancing
 crossZoneLoadBalancing pEnabled_ =
     CrossZoneLoadBalancing'
     { _czlbEnabled = pEnabled_
@@ -307,8 +318,17 @@ instance ToQuery CrossZoneLoadBalancing where
 -- | Information about a health check.
 --
 -- /See:/ 'healthCheck' smart constructor.
+data HealthCheck = HealthCheck'
+    { _hcTarget             :: !Text
+    , _hcInterval           :: !Nat
+    , _hcTimeout            :: !Nat
+    , _hcUnhealthyThreshold :: !Nat
+    , _hcHealthyThreshold   :: !Nat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HealthCheck' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'hcTarget'
 --
@@ -319,16 +339,13 @@ instance ToQuery CrossZoneLoadBalancing where
 -- * 'hcUnhealthyThreshold'
 --
 -- * 'hcHealthyThreshold'
-data HealthCheck = HealthCheck'
-    { _hcTarget             :: !Text
-    , _hcInterval           :: !Nat
-    , _hcTimeout            :: !Nat
-    , _hcUnhealthyThreshold :: !Nat
-    , _hcHealthyThreshold   :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'HealthCheck' smart constructor.
-healthCheck :: Text -> Natural -> Natural -> Natural -> Natural -> HealthCheck
+healthCheck
+    :: Text -- ^ 'hcTarget'
+    -> Natural -- ^ 'hcInterval'
+    -> Natural -- ^ 'hcTimeout'
+    -> Natural -- ^ 'hcUnhealthyThreshold'
+    -> Natural -- ^ 'hcHealthyThreshold'
+    -> HealthCheck
 healthCheck pTarget_ pInterval_ pTimeout_ pUnhealthyThreshold_ pHealthyThreshold_ =
     HealthCheck'
     { _hcTarget = pTarget_
@@ -367,17 +384,17 @@ hcInterval = lens _hcInterval (\ s a -> s{_hcInterval = a}) . _Nat;
 -- | The amount of time, in seconds, during which no response means a failed
 -- health check.
 --
--- This value must be less than the @Interval@ value.
+-- This value must be less than the 'Interval' value.
 hcTimeout :: Lens' HealthCheck Natural
 hcTimeout = lens _hcTimeout (\ s a -> s{_hcTimeout = a}) . _Nat;
 
 -- | The number of consecutive health check failures required before moving
--- the instance to the @Unhealthy@ state.
+-- the instance to the 'Unhealthy' state.
 hcUnhealthyThreshold :: Lens' HealthCheck Natural
 hcUnhealthyThreshold = lens _hcUnhealthyThreshold (\ s a -> s{_hcUnhealthyThreshold = a}) . _Nat;
 
 -- | The number of consecutive health checks successes required before moving
--- the instance to the @Healthy@ state.
+-- the instance to the 'Healthy' state.
 hcHealthyThreshold :: Lens' HealthCheck Natural
 hcHealthyThreshold = lens _hcHealthyThreshold (\ s a -> s{_hcHealthyThreshold = a}) . _Nat;
 
@@ -400,16 +417,17 @@ instance ToQuery HealthCheck where
 -- | The ID of a back-end instance.
 --
 -- /See:/ 'instance'' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iInstanceId'
 newtype Instance = Instance'
     { _iInstanceId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Instance' smart constructor.
-instance' :: Instance
+-- | Creates a value of 'Instance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iInstanceId'
+instance'
+    :: Instance
 instance' =
     Instance'
     { _iInstanceId = Nothing
@@ -429,8 +447,16 @@ instance ToQuery Instance where
 -- | Information about the state of a back-end instance.
 --
 -- /See:/ 'instanceState' smart constructor.
+data InstanceState = InstanceState'
+    { _isInstanceId  :: !(Maybe Text)
+    , _isState       :: !(Maybe Text)
+    , _isReasonCode  :: !(Maybe Text)
+    , _isDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceState' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'isInstanceId'
 --
@@ -439,15 +465,8 @@ instance ToQuery Instance where
 -- * 'isReasonCode'
 --
 -- * 'isDescription'
-data InstanceState = InstanceState'
-    { _isInstanceId  :: !(Maybe Text)
-    , _isState       :: !(Maybe Text)
-    , _isReasonCode  :: !(Maybe Text)
-    , _isDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstanceState' smart constructor.
-instanceState :: InstanceState
+instanceState
+    :: InstanceState
 instanceState =
     InstanceState'
     { _isInstanceId = Nothing
@@ -462,43 +481,43 @@ isInstanceId = lens _isInstanceId (\ s a -> s{_isInstanceId = a});
 
 -- | The current state of the instance.
 --
--- Valid values: @InService@ | @OutOfService@ | @Unknown@
+-- Valid values: 'InService' | 'OutOfService' | 'Unknown'
 isState :: Lens' InstanceState (Maybe Text)
 isState = lens _isState (\ s a -> s{_isState = a});
 
--- | Information about the cause of @OutOfService@ instances. Specifically,
+-- | Information about the cause of 'OutOfService' instances. Specifically,
 -- whether the cause is Elastic Load Balancing or the instance.
 --
--- Valid values: @ELB@ | @Instance@ | @N\/A@
+-- Valid values: 'ELB' | 'Instance' | 'N\/A'
 isReasonCode :: Lens' InstanceState (Maybe Text)
 isReasonCode = lens _isReasonCode (\ s a -> s{_isReasonCode = a});
 
 -- | A description of the instance state. This string can contain one or more
 -- of the following messages.
 --
--- -   @N\/A@
+-- -   'N\/A'
 --
--- -   @A transient error occurred. Please try again later.@
+-- -   'A transient error occurred. Please try again later.'
 --
--- -   @Instance has failed at least the UnhealthyThreshold number of health checks consecutively.@
+-- -   'Instance has failed at least the UnhealthyThreshold number of health checks consecutively.'
 --
--- -   @Instance has not passed the configured HealthyThreshold number of health checks consecutively.@
+-- -   'Instance has not passed the configured HealthyThreshold number of health checks consecutively.'
 --
--- -   @Instance registration is still in progress.@
+-- -   'Instance registration is still in progress.'
 --
--- -   @Instance is in the EC2 Availability Zone for which LoadBalancer is not configured to route traffic to.@
+-- -   'Instance is in the EC2 Availability Zone for which LoadBalancer is not configured to route traffic to.'
 --
--- -   @Instance is not currently registered with the LoadBalancer.@
+-- -   'Instance is not currently registered with the LoadBalancer.'
 --
--- -   @Instance deregistration currently in progress.@
+-- -   'Instance deregistration currently in progress.'
 --
--- -   @Disable Availability Zone is currently in progress.@
+-- -   'Disable Availability Zone is currently in progress.'
 --
--- -   @Instance is in pending state.@
+-- -   'Instance is in pending state.'
 --
--- -   @Instance is in stopped state.@
+-- -   'Instance is in stopped state.'
 --
--- -   @Instance is in terminated state.@
+-- -   'Instance is in terminated state.'
 --
 isDescription :: Lens' InstanceState (Maybe Text)
 isDescription = lens _isDescription (\ s a -> s{_isDescription = a});
@@ -513,19 +532,20 @@ instance FromXML InstanceState where
 -- | Information about a policy for duration-based session stickiness.
 --
 -- /See:/ 'lBCookieStickinessPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lbcspPolicyName'
---
--- * 'lbcspCookieExpirationPeriod'
 data LBCookieStickinessPolicy = LBCookieStickinessPolicy'
     { _lbcspPolicyName             :: !(Maybe Text)
     , _lbcspCookieExpirationPeriod :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LBCookieStickinessPolicy' smart constructor.
-lBCookieStickinessPolicy :: LBCookieStickinessPolicy
+-- | Creates a value of 'LBCookieStickinessPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbcspPolicyName'
+--
+-- * 'lbcspCookieExpirationPeriod'
+lBCookieStickinessPolicy
+    :: LBCookieStickinessPolicy
 lBCookieStickinessPolicy =
     LBCookieStickinessPolicy'
     { _lbcspPolicyName = Nothing
@@ -557,8 +577,17 @@ instance FromXML LBCookieStickinessPolicy where
 -- in the /Elastic Load Balancing Developer Guide/.
 --
 -- /See:/ 'listener' smart constructor.
+data Listener = Listener'
+    { _lInstanceProtocol :: !(Maybe Text)
+    , _lSSLCertificateId :: !(Maybe Text)
+    , _lProtocol         :: !Text
+    , _lLoadBalancerPort :: !Int
+    , _lInstancePort     :: !Nat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Listener' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lInstanceProtocol'
 --
@@ -569,16 +598,11 @@ instance FromXML LBCookieStickinessPolicy where
 -- * 'lLoadBalancerPort'
 --
 -- * 'lInstancePort'
-data Listener = Listener'
-    { _lInstanceProtocol :: !(Maybe Text)
-    , _lSSLCertificateId :: !(Maybe Text)
-    , _lProtocol         :: !Text
-    , _lLoadBalancerPort :: !Int
-    , _lInstancePort     :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Listener' smart constructor.
-listener :: Text -> Int -> Natural -> Listener
+listener
+    :: Text -- ^ 'lProtocol'
+    -> Int -- ^ 'lLoadBalancerPort'
+    -> Natural -- ^ 'lInstancePort'
+    -> Listener
 listener pProtocol_ pLoadBalancerPort_ pInstancePort_ =
     Listener'
     { _lInstanceProtocol = Nothing
@@ -592,14 +616,14 @@ listener pProtocol_ pLoadBalancerPort_ pInstancePort_ =
 -- HTTPS, TCP, or SSL.
 --
 -- If the front-end protocol is HTTP, HTTPS, TCP, or SSL,
--- @InstanceProtocol@ must be at the same protocol.
+-- 'InstanceProtocol' must be at the same protocol.
 --
--- If there is another listener with the same @InstancePort@ whose
--- @InstanceProtocol@ is secure, (HTTPS or SSL), the listener\'s
--- @InstanceProtocol@ must also be secure.
+-- If there is another listener with the same 'InstancePort' whose
+-- 'InstanceProtocol' is secure, (HTTPS or SSL), the listener\'s
+-- 'InstanceProtocol' must also be secure.
 --
--- If there is another listener with the same @InstancePort@ whose
--- @InstanceProtocol@ is HTTP or TCP, the listener\'s @InstanceProtocol@
+-- If there is another listener with the same 'InstancePort' whose
+-- 'InstanceProtocol' is HTTP or TCP, the listener\'s 'InstanceProtocol'
 -- must be HTTP or TCP.
 lInstanceProtocol :: Lens' Listener (Maybe Text)
 lInstanceProtocol = lens _lInstanceProtocol (\ s a -> s{_lInstanceProtocol = a});
@@ -643,19 +667,20 @@ instance ToQuery Listener where
 -- | The policies enabled for a listener.
 --
 -- /See:/ 'listenerDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldPolicyNames'
---
--- * 'ldListener'
 data ListenerDescription = ListenerDescription'
     { _ldPolicyNames :: !(Maybe [Text])
     , _ldListener    :: !(Maybe Listener)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListenerDescription' smart constructor.
-listenerDescription :: ListenerDescription
+-- | Creates a value of 'ListenerDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldPolicyNames'
+--
+-- * 'ldListener'
+listenerDescription
+    :: ListenerDescription
 listenerDescription =
     ListenerDescription'
     { _ldPolicyNames = Nothing
@@ -680,8 +705,17 @@ instance FromXML ListenerDescription where
 -- | The attributes for a load balancer.
 --
 -- /See:/ 'loadBalancerAttributes' smart constructor.
+data LoadBalancerAttributes = LoadBalancerAttributes'
+    { _lbaCrossZoneLoadBalancing :: !(Maybe CrossZoneLoadBalancing)
+    , _lbaAccessLog              :: !(Maybe AccessLog)
+    , _lbaAdditionalAttributes   :: !(Maybe [AdditionalAttribute])
+    , _lbaConnectionSettings     :: !(Maybe ConnectionSettings)
+    , _lbaConnectionDraining     :: !(Maybe ConnectionDraining)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LoadBalancerAttributes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lbaCrossZoneLoadBalancing'
 --
@@ -692,16 +726,8 @@ instance FromXML ListenerDescription where
 -- * 'lbaConnectionSettings'
 --
 -- * 'lbaConnectionDraining'
-data LoadBalancerAttributes = LoadBalancerAttributes'
-    { _lbaCrossZoneLoadBalancing :: !(Maybe CrossZoneLoadBalancing)
-    , _lbaAccessLog              :: !(Maybe AccessLog)
-    , _lbaAdditionalAttributes   :: !(Maybe [AdditionalAttribute])
-    , _lbaConnectionSettings     :: !(Maybe ConnectionSettings)
-    , _lbaConnectionDraining     :: !(Maybe ConnectionDraining)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LoadBalancerAttributes' smart constructor.
-loadBalancerAttributes :: LoadBalancerAttributes
+loadBalancerAttributes
+    :: LoadBalancerAttributes
 loadBalancerAttributes =
     LoadBalancerAttributes'
     { _lbaCrossZoneLoadBalancing = Nothing
@@ -781,8 +807,28 @@ instance ToQuery LoadBalancerAttributes where
 -- | Information about a load balancer.
 --
 -- /See:/ 'loadBalancerDescription' smart constructor.
+data LoadBalancerDescription = LoadBalancerDescription'
+    { _lbdSourceSecurityGroup       :: !(Maybe SourceSecurityGroup)
+    , _lbdHealthCheck               :: !(Maybe HealthCheck)
+    , _lbdCanonicalHostedZoneName   :: !(Maybe Text)
+    , _lbdSecurityGroups            :: !(Maybe [Text])
+    , _lbdLoadBalancerName          :: !(Maybe Text)
+    , _lbdCreatedTime               :: !(Maybe ISO8601)
+    , _lbdVPCId                     :: !(Maybe Text)
+    , _lbdSubnets                   :: !(Maybe [Text])
+    , _lbdAvailabilityZones         :: !(Maybe [Text])
+    , _lbdBackendServerDescriptions :: !(Maybe [BackendServerDescription])
+    , _lbdCanonicalHostedZoneNameId :: !(Maybe Text)
+    , _lbdInstances                 :: !(Maybe [Instance])
+    , _lbdScheme                    :: !(Maybe Text)
+    , _lbdListenerDescriptions      :: !(Maybe [ListenerDescription])
+    , _lbdDNSName                   :: !(Maybe Text)
+    , _lbdPolicies                  :: !(Maybe Policies)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LoadBalancerDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lbdSourceSecurityGroup'
 --
@@ -815,27 +861,8 @@ instance ToQuery LoadBalancerAttributes where
 -- * 'lbdDNSName'
 --
 -- * 'lbdPolicies'
-data LoadBalancerDescription = LoadBalancerDescription'
-    { _lbdSourceSecurityGroup       :: !(Maybe SourceSecurityGroup)
-    , _lbdHealthCheck               :: !(Maybe HealthCheck)
-    , _lbdCanonicalHostedZoneName   :: !(Maybe Text)
-    , _lbdSecurityGroups            :: !(Maybe [Text])
-    , _lbdLoadBalancerName          :: !(Maybe Text)
-    , _lbdCreatedTime               :: !(Maybe ISO8601)
-    , _lbdVPCId                     :: !(Maybe Text)
-    , _lbdSubnets                   :: !(Maybe [Text])
-    , _lbdAvailabilityZones         :: !(Maybe [Text])
-    , _lbdBackendServerDescriptions :: !(Maybe [BackendServerDescription])
-    , _lbdCanonicalHostedZoneNameId :: !(Maybe Text)
-    , _lbdInstances                 :: !(Maybe [Instance])
-    , _lbdScheme                    :: !(Maybe Text)
-    , _lbdListenerDescriptions      :: !(Maybe [ListenerDescription])
-    , _lbdDNSName                   :: !(Maybe Text)
-    , _lbdPolicies                  :: !(Maybe Policies)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LoadBalancerDescription' smart constructor.
-loadBalancerDescription :: LoadBalancerDescription
+loadBalancerDescription
+    :: LoadBalancerDescription
 loadBalancerDescription =
     LoadBalancerDescription'
     { _lbdSourceSecurityGroup = Nothing
@@ -916,10 +943,10 @@ lbdInstances = lens _lbdInstances (\ s a -> s{_lbdInstances = a}) . _Default . _
 
 -- | The type of load balancer. Valid only for load balancers in a VPC.
 --
--- If @Scheme@ is @internet-facing@, the load balancer has a public DNS
+-- If 'Scheme' is 'internet-facing', the load balancer has a public DNS
 -- name that resolves to a public IP address.
 --
--- If @Scheme@ is @internal@, the load balancer has a public DNS name that
+-- If 'Scheme' is 'internal', the load balancer has a public DNS name that
 -- resolves to a private IP address.
 lbdScheme :: Lens' LoadBalancerDescription (Maybe Text)
 lbdScheme = lens _lbdScheme (\ s a -> s{_lbdScheme = a});
@@ -971,22 +998,23 @@ instance FromXML LoadBalancerDescription where
 -- | The policies for a load balancer.
 --
 -- /See:/ 'policies' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pOtherPolicies'
---
--- * 'pLBCookieStickinessPolicies'
---
--- * 'pAppCookieStickinessPolicies'
 data Policies = Policies'
     { _pOtherPolicies               :: !(Maybe [Text])
     , _pLBCookieStickinessPolicies  :: !(Maybe [LBCookieStickinessPolicy])
     , _pAppCookieStickinessPolicies :: !(Maybe [AppCookieStickinessPolicy])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Policies' smart constructor.
-policies :: Policies
+-- | Creates a value of 'Policies' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pOtherPolicies'
+--
+-- * 'pLBCookieStickinessPolicies'
+--
+-- * 'pAppCookieStickinessPolicies'
+policies
+    :: Policies
 policies =
     Policies'
     { _pOtherPolicies = Nothing
@@ -1021,19 +1049,20 @@ instance FromXML Policies where
 -- | Information about a policy attribute.
 --
 -- /See:/ 'policyAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'paAttributeValue'
---
--- * 'paAttributeName'
 data PolicyAttribute = PolicyAttribute'
     { _paAttributeValue :: !(Maybe Text)
     , _paAttributeName  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PolicyAttribute' smart constructor.
-policyAttribute :: PolicyAttribute
+-- | Creates a value of 'PolicyAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'paAttributeValue'
+--
+-- * 'paAttributeName'
+policyAttribute
+    :: PolicyAttribute
 policyAttribute =
     PolicyAttribute'
     { _paAttributeValue = Nothing
@@ -1057,19 +1086,20 @@ instance ToQuery PolicyAttribute where
 -- | Information about a policy attribute.
 --
 -- /See:/ 'policyAttributeDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'padAttributeValue'
---
--- * 'padAttributeName'
 data PolicyAttributeDescription = PolicyAttributeDescription'
     { _padAttributeValue :: !(Maybe Text)
     , _padAttributeName  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PolicyAttributeDescription' smart constructor.
-policyAttributeDescription :: PolicyAttributeDescription
+-- | Creates a value of 'PolicyAttributeDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'padAttributeValue'
+--
+-- * 'padAttributeName'
+policyAttributeDescription
+    :: PolicyAttributeDescription
 policyAttributeDescription =
     PolicyAttributeDescription'
     { _padAttributeValue = Nothing
@@ -1092,8 +1122,17 @@ instance FromXML PolicyAttributeDescription where
 -- | Information about a policy attribute type.
 --
 -- /See:/ 'policyAttributeTypeDescription' smart constructor.
+data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
+    { _patdAttributeType :: !(Maybe Text)
+    , _patdCardinality   :: !(Maybe Text)
+    , _patdDefaultValue  :: !(Maybe Text)
+    , _patdAttributeName :: !(Maybe Text)
+    , _patdDescription   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PolicyAttributeTypeDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'patdAttributeType'
 --
@@ -1104,16 +1143,8 @@ instance FromXML PolicyAttributeDescription where
 -- * 'patdAttributeName'
 --
 -- * 'patdDescription'
-data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
-    { _patdAttributeType :: !(Maybe Text)
-    , _patdCardinality   :: !(Maybe Text)
-    , _patdDefaultValue  :: !(Maybe Text)
-    , _patdAttributeName :: !(Maybe Text)
-    , _patdDescription   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PolicyAttributeTypeDescription' smart constructor.
-policyAttributeTypeDescription :: PolicyAttributeTypeDescription
+policyAttributeTypeDescription
+    :: PolicyAttributeTypeDescription
 policyAttributeTypeDescription =
     PolicyAttributeTypeDescription'
     { _patdAttributeType = Nothing
@@ -1123,7 +1154,7 @@ policyAttributeTypeDescription =
     , _patdDescription = Nothing
     }
 
--- | The type of the attribute. For example, @Boolean@ or @Integer@.
+-- | The type of the attribute. For example, 'Boolean' or 'Integer'.
 patdAttributeType :: Lens' PolicyAttributeTypeDescription (Maybe Text)
 patdAttributeType = lens _patdAttributeType (\ s a -> s{_patdAttributeType = a});
 
@@ -1161,22 +1192,23 @@ instance FromXML PolicyAttributeTypeDescription where
 -- | Information about a policy.
 --
 -- /See:/ 'policyDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pdPolicyName'
---
--- * 'pdPolicyAttributeDescriptions'
---
--- * 'pdPolicyTypeName'
 data PolicyDescription = PolicyDescription'
     { _pdPolicyName                  :: !(Maybe Text)
     , _pdPolicyAttributeDescriptions :: !(Maybe [PolicyAttributeDescription])
     , _pdPolicyTypeName              :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PolicyDescription' smart constructor.
-policyDescription :: PolicyDescription
+-- | Creates a value of 'PolicyDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pdPolicyName'
+--
+-- * 'pdPolicyAttributeDescriptions'
+--
+-- * 'pdPolicyTypeName'
+policyDescription
+    :: PolicyDescription
 policyDescription =
     PolicyDescription'
     { _pdPolicyName = Nothing
@@ -1207,22 +1239,23 @@ instance FromXML PolicyDescription where
 -- | Information about a policy type.
 --
 -- /See:/ 'policyTypeDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ptdPolicyTypeName'
---
--- * 'ptdDescription'
---
--- * 'ptdPolicyAttributeTypeDescriptions'
 data PolicyTypeDescription = PolicyTypeDescription'
     { _ptdPolicyTypeName                  :: !(Maybe Text)
     , _ptdDescription                     :: !(Maybe Text)
     , _ptdPolicyAttributeTypeDescriptions :: !(Maybe [PolicyAttributeTypeDescription])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PolicyTypeDescription' smart constructor.
-policyTypeDescription :: PolicyTypeDescription
+-- | Creates a value of 'PolicyTypeDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ptdPolicyTypeName'
+--
+-- * 'ptdDescription'
+--
+-- * 'ptdPolicyAttributeTypeDescriptions'
+policyTypeDescription
+    :: PolicyTypeDescription
 policyTypeDescription =
     PolicyTypeDescription'
     { _ptdPolicyTypeName = Nothing
@@ -1254,19 +1287,20 @@ instance FromXML PolicyTypeDescription where
 -- | Information about a source security group.
 --
 -- /See:/ 'sourceSecurityGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ssgOwnerAlias'
---
--- * 'ssgGroupName'
 data SourceSecurityGroup = SourceSecurityGroup'
     { _ssgOwnerAlias :: !(Maybe Text)
     , _ssgGroupName  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SourceSecurityGroup' smart constructor.
-sourceSecurityGroup :: SourceSecurityGroup
+-- | Creates a value of 'SourceSecurityGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssgOwnerAlias'
+--
+-- * 'ssgGroupName'
+sourceSecurityGroup
+    :: SourceSecurityGroup
 sourceSecurityGroup =
     SourceSecurityGroup'
     { _ssgOwnerAlias = Nothing
@@ -1289,19 +1323,21 @@ instance FromXML SourceSecurityGroup where
 -- | Information about a tag.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagValue'
---
--- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Text -> Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Tag
 tag pKey_ =
     Tag'
     { _tagValue = Nothing
@@ -1327,19 +1363,20 @@ instance ToQuery Tag where
 -- | The tags associated with a load balancer.
 --
 -- /See:/ 'tagDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tdLoadBalancerName'
---
--- * 'tdTags'
 data TagDescription = TagDescription'
     { _tdLoadBalancerName :: !(Maybe Text)
     , _tdTags             :: !(Maybe (List1 Tag))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TagDescription' smart constructor.
-tagDescription :: TagDescription
+-- | Creates a value of 'TagDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tdLoadBalancerName'
+--
+-- * 'tdTags'
+tagDescription
+    :: TagDescription
 tagDescription =
     TagDescription'
     { _tdLoadBalancerName = Nothing
@@ -1364,16 +1401,17 @@ instance FromXML TagDescription where
 -- | The key of a tag.
 --
 -- /See:/ 'tagKeyOnly' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tkoKey'
 newtype TagKeyOnly = TagKeyOnly'
     { _tkoKey :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TagKeyOnly' smart constructor.
-tagKeyOnly :: TagKeyOnly
+-- | Creates a value of 'TagKeyOnly' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tkoKey'
+tagKeyOnly
+    :: TagKeyOnly
 tagKeyOnly =
     TagKeyOnly'
     { _tkoKey = Nothing

@@ -28,14 +28,14 @@
 module Network.AWS.CloudFormation.CancelUpdateStack
     (
     -- * Creating a Request
-      CancelUpdateStack
-    , cancelUpdateStack
+      cancelUpdateStack
+    , CancelUpdateStack
     -- * Request Lenses
     , cusStackName
 
     -- * Destructuring the Response
-    , CancelUpdateStackResponse
     , cancelUpdateStackResponse
+    , CancelUpdateStackResponse
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -47,16 +47,18 @@ import           Network.AWS.Response
 -- | The input for CancelUpdateStack action.
 --
 -- /See:/ 'cancelUpdateStack' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cusStackName'
 newtype CancelUpdateStack = CancelUpdateStack'
     { _cusStackName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelUpdateStack' smart constructor.
-cancelUpdateStack :: Text -> CancelUpdateStack
+-- | Creates a value of 'CancelUpdateStack' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cusStackName'
+cancelUpdateStack
+    :: Text -- ^ 'cusStackName'
+    -> CancelUpdateStack
 cancelUpdateStack pStackName_ =
     CancelUpdateStack'
     { _cusStackName = pStackName_
@@ -90,6 +92,8 @@ data CancelUpdateStackResponse =
     CancelUpdateStackResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelUpdateStackResponse' smart constructor.
-cancelUpdateStackResponse :: CancelUpdateStackResponse
+-- | Creates a value of 'CancelUpdateStackResponse' with the minimum fields required to make a request.
+--
+cancelUpdateStackResponse
+    :: CancelUpdateStackResponse
 cancelUpdateStackResponse = CancelUpdateStackResponse'

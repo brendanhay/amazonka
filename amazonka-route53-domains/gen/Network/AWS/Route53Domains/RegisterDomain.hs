@@ -46,8 +46,8 @@
 module Network.AWS.Route53Domains.RegisterDomain
     (
     -- * Creating a Request
-      RegisterDomain
-    , registerDomain
+      registerDomain
+    , RegisterDomain
     -- * Request Lenses
     , rdPrivacyProtectTechContact
     , rdPrivacyProtectRegistrantContact
@@ -61,8 +61,8 @@ module Network.AWS.Route53Domains.RegisterDomain
     , rdTechContact
 
     -- * Destructuring the Response
-    , RegisterDomainResponse
     , registerDomainResponse
+    , RegisterDomainResponse
     -- * Response Lenses
     , rdrsStatus
     , rdrsOperationId
@@ -77,8 +77,22 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The RegisterDomain request includes the following elements.
 --
 -- /See:/ 'registerDomain' smart constructor.
+data RegisterDomain = RegisterDomain'
+    { _rdPrivacyProtectTechContact       :: !(Maybe Bool)
+    , _rdPrivacyProtectRegistrantContact :: !(Maybe Bool)
+    , _rdAutoRenew                       :: !(Maybe Bool)
+    , _rdPrivacyProtectAdminContact      :: !(Maybe Bool)
+    , _rdIdNLangCode                     :: !(Maybe Text)
+    , _rdDomainName                      :: !Text
+    , _rdDurationInYears                 :: !Nat
+    , _rdAdminContact                    :: !(Sensitive ContactDetail)
+    , _rdRegistrantContact               :: !(Sensitive ContactDetail)
+    , _rdTechContact                     :: !(Sensitive ContactDetail)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RegisterDomain' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rdPrivacyProtectTechContact'
 --
@@ -99,21 +113,13 @@ import           Network.AWS.Route53Domains.Types.Product
 -- * 'rdRegistrantContact'
 --
 -- * 'rdTechContact'
-data RegisterDomain = RegisterDomain'
-    { _rdPrivacyProtectTechContact       :: !(Maybe Bool)
-    , _rdPrivacyProtectRegistrantContact :: !(Maybe Bool)
-    , _rdAutoRenew                       :: !(Maybe Bool)
-    , _rdPrivacyProtectAdminContact      :: !(Maybe Bool)
-    , _rdIdNLangCode                     :: !(Maybe Text)
-    , _rdDomainName                      :: !Text
-    , _rdDurationInYears                 :: !Nat
-    , _rdAdminContact                    :: !(Sensitive ContactDetail)
-    , _rdRegistrantContact               :: !(Sensitive ContactDetail)
-    , _rdTechContact                     :: !(Sensitive ContactDetail)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RegisterDomain' smart constructor.
-registerDomain :: Text -> Natural -> ContactDetail -> ContactDetail -> ContactDetail -> RegisterDomain
+registerDomain
+    :: Text -- ^ 'rdDomainName'
+    -> Natural -- ^ 'rdDurationInYears'
+    -> ContactDetail -- ^ 'rdAdminContact'
+    -> ContactDetail -- ^ 'rdRegistrantContact'
+    -> ContactDetail -- ^ 'rdTechContact'
+    -> RegisterDomain
 registerDomain pDomainName_ pDurationInYears_ pAdminContact_ pRegistrantContact_ pTechContact_ =
     RegisterDomain'
     { _rdPrivacyProtectTechContact = Nothing
@@ -135,9 +141,9 @@ registerDomain pDomainName_ pDurationInYears_ pAdminContact_ pRegistrantContact_
 --
 -- Type: Boolean
 --
--- Default: @true@
+-- Default: 'true'
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
 -- Required: No
 rdPrivacyProtectTechContact :: Lens' RegisterDomain (Maybe Bool)
@@ -150,23 +156,23 @@ rdPrivacyProtectTechContact = lens _rdPrivacyProtectTechContact (\ s a -> s{_rdP
 --
 -- Type: Boolean
 --
--- Default: @true@
+-- Default: 'true'
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
 -- Required: No
 rdPrivacyProtectRegistrantContact :: Lens' RegisterDomain (Maybe Bool)
 rdPrivacyProtectRegistrantContact = lens _rdPrivacyProtectRegistrantContact (\ s a -> s{_rdPrivacyProtectRegistrantContact = a});
 
--- | Indicates whether the domain will be automatically renewed (@true@) or
--- not (@false@). Autorenewal only takes effect after the account is
+-- | Indicates whether the domain will be automatically renewed ('true') or
+-- not ('false'). Autorenewal only takes effect after the account is
 -- charged.
 --
 -- Type: Boolean
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
--- Default: @true@
+-- Default: 'true'
 --
 -- Required: No
 rdAutoRenew :: Lens' RegisterDomain (Maybe Bool)
@@ -179,9 +185,9 @@ rdAutoRenew = lens _rdAutoRenew (\ s a -> s{_rdAutoRenew = a});
 --
 -- Type: Boolean
 --
--- Default: @true@
+-- Default: 'true'
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
 -- Required: No
 rdPrivacyProtectAdminContact :: Lens' RegisterDomain (Maybe Bool)
@@ -223,9 +229,9 @@ rdDurationInYears = lens _rdDurationInYears (\ s a -> s{_rdDurationInYears = a})
 --
 -- Type: Complex
 --
--- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
--- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
--- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
+-- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType',
+-- 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State',
+-- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
 rdAdminContact :: Lens' RegisterDomain ContactDetail
@@ -235,9 +241,9 @@ rdAdminContact = lens _rdAdminContact (\ s a -> s{_rdAdminContact = a}) . _Sensi
 --
 -- Type: Complex
 --
--- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
--- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
--- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
+-- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType',
+-- 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State',
+-- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
 rdRegistrantContact :: Lens' RegisterDomain ContactDetail
@@ -247,9 +253,9 @@ rdRegistrantContact = lens _rdRegistrantContact (\ s a -> s{_rdRegistrantContact
 --
 -- Type: Complex
 --
--- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
--- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
--- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
+-- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType',
+-- 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State',
+-- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
 rdTechContact :: Lens' RegisterDomain ContactDetail
@@ -301,26 +307,29 @@ instance ToQuery RegisterDomain where
 -- | The RegisterDomain response includes the following element.
 --
 -- /See:/ 'registerDomainResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdrsStatus'
---
--- * 'rdrsOperationId'
 data RegisterDomainResponse = RegisterDomainResponse'
     { _rdrsStatus      :: !Int
     , _rdrsOperationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterDomainResponse' smart constructor.
-registerDomainResponse :: Int -> Text -> RegisterDomainResponse
+-- | Creates a value of 'RegisterDomainResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdrsStatus'
+--
+-- * 'rdrsOperationId'
+registerDomainResponse
+    :: Int -- ^ 'rdrsStatus'
+    -> Text -- ^ 'rdrsOperationId'
+    -> RegisterDomainResponse
 registerDomainResponse pStatus_ pOperationId_ =
     RegisterDomainResponse'
     { _rdrsStatus = pStatus_
     , _rdrsOperationId = pOperationId_
     }
 
--- | Undocumented member.
+-- | The response status code.
 rdrsStatus :: Lens' RegisterDomainResponse Int
 rdrsStatus = lens _rdrsStatus (\ s a -> s{_rdrsStatus = a});
 

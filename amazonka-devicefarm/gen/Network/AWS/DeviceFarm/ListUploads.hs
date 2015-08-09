@@ -24,15 +24,15 @@
 module Network.AWS.DeviceFarm.ListUploads
     (
     -- * Creating a Request
-      ListUploads
-    , listUploads
+      listUploads
+    , ListUploads
     -- * Request Lenses
     , luNextToken
     , luArn
 
     -- * Destructuring the Response
-    , ListUploadsResponse
     , listUploadsResponse
+    , ListUploadsResponse
     -- * Response Lenses
     , lursNextToken
     , lursUploads
@@ -48,19 +48,21 @@ import           Network.AWS.Response
 -- | Represents a request to the list uploads operation.
 --
 -- /See:/ 'listUploads' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'luNextToken'
---
--- * 'luArn'
 data ListUploads = ListUploads'
     { _luNextToken :: !(Maybe Text)
     , _luArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListUploads' smart constructor.
-listUploads :: Text -> ListUploads
+-- | Creates a value of 'ListUploads' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'luNextToken'
+--
+-- * 'luArn'
+listUploads
+    :: Text -- ^ 'luArn'
+    -> ListUploads
 listUploads pArn_ =
     ListUploads'
     { _luNextToken = Nothing
@@ -111,22 +113,24 @@ instance ToQuery ListUploads where
 -- | Represents the result of a list uploads request.
 --
 -- /See:/ 'listUploadsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lursNextToken'
---
--- * 'lursUploads'
---
--- * 'lursStatus'
 data ListUploadsResponse = ListUploadsResponse'
     { _lursNextToken :: !(Maybe Text)
     , _lursUploads   :: !(Maybe [Upload])
     , _lursStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListUploadsResponse' smart constructor.
-listUploadsResponse :: Int -> ListUploadsResponse
+-- | Creates a value of 'ListUploadsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lursNextToken'
+--
+-- * 'lursUploads'
+--
+-- * 'lursStatus'
+listUploadsResponse
+    :: Int -- ^ 'lursStatus'
+    -> ListUploadsResponse
 listUploadsResponse pStatus_ =
     ListUploadsResponse'
     { _lursNextToken = Nothing
@@ -144,6 +148,6 @@ lursNextToken = lens _lursNextToken (\ s a -> s{_lursNextToken = a});
 lursUploads :: Lens' ListUploadsResponse [Upload]
 lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lursStatus :: Lens' ListUploadsResponse Int
 lursStatus = lens _lursStatus (\ s a -> s{_lursStatus = a});

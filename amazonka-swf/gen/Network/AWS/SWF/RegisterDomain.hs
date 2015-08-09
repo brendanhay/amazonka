@@ -28,7 +28,7 @@
 -- -   You cannot use an IAM policy to control domain access for this
 --     action. The name of the domain being registered is available as the
 --     resource of this action.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
 -- -   You cannot use an IAM policy to constrain this action\'s parameters.
 --
@@ -43,16 +43,16 @@
 module Network.AWS.SWF.RegisterDomain
     (
     -- * Creating a Request
-      RegisterDomain
-    , registerDomain
+      registerDomain
+    , RegisterDomain
     -- * Request Lenses
     , rdDescription
     , rdName
     , rdWorkflowExecutionRetentionPeriodInDays
 
     -- * Destructuring the Response
-    , RegisterDomainResponse
     , registerDomainResponse
+    , RegisterDomainResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -62,22 +62,25 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'registerDomain' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdDescription'
---
--- * 'rdName'
---
--- * 'rdWorkflowExecutionRetentionPeriodInDays'
 data RegisterDomain = RegisterDomain'
     { _rdDescription                            :: !(Maybe Text)
     , _rdName                                   :: !Text
     , _rdWorkflowExecutionRetentionPeriodInDays :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterDomain' smart constructor.
-registerDomain :: Text -> Text -> RegisterDomain
+-- | Creates a value of 'RegisterDomain' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdDescription'
+--
+-- * 'rdName'
+--
+-- * 'rdWorkflowExecutionRetentionPeriodInDays'
+registerDomain
+    :: Text -- ^ 'rdName'
+    -> Text -- ^ 'rdWorkflowExecutionRetentionPeriodInDays'
+    -> RegisterDomain
 registerDomain pName_ pWorkflowExecutionRetentionPeriodInDays_ =
     RegisterDomain'
     { _rdDescription = Nothing
@@ -93,7 +96,7 @@ rdDescription = lens _rdDescription (\ s a -> s{_rdDescription = a});
 -- that the domain is registered in.
 --
 -- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
+-- contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
 rdName :: Lens' RegisterDomain Text
@@ -104,7 +107,7 @@ rdName = lens _rdName (\ s a -> s{_rdName = a});
 -- the workflow execution is not available in the results of visibility
 -- calls.
 --
--- If you pass the value @NONE@ or @0@ (zero), then the workflow execution
+-- If you pass the value 'NONE' or '0' (zero), then the workflow execution
 -- history will not be retained. As soon as the workflow execution
 -- completes, the execution record and its history are deleted.
 --
@@ -149,6 +152,8 @@ data RegisterDomainResponse =
     RegisterDomainResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterDomainResponse' smart constructor.
-registerDomainResponse :: RegisterDomainResponse
+-- | Creates a value of 'RegisterDomainResponse' with the minimum fields required to make a request.
+--
+registerDomainResponse
+    :: RegisterDomainResponse
 registerDomainResponse = RegisterDomainResponse'

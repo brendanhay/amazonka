@@ -26,14 +26,14 @@
 module Network.AWS.SNS.DeleteEndpoint
     (
     -- * Creating a Request
-      DeleteEndpoint
-    , deleteEndpoint
+      deleteEndpoint
+    , DeleteEndpoint
     -- * Request Lenses
     , deEndpointARN
 
     -- * Destructuring the Response
-    , DeleteEndpointResponse
     , deleteEndpointResponse
+    , DeleteEndpointResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -45,16 +45,18 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for DeleteEndpoint action.
 --
 -- /See:/ 'deleteEndpoint' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'deEndpointARN'
 newtype DeleteEndpoint = DeleteEndpoint'
     { _deEndpointARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEndpoint' smart constructor.
-deleteEndpoint :: Text -> DeleteEndpoint
+-- | Creates a value of 'DeleteEndpoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'deEndpointARN'
+deleteEndpoint
+    :: Text -- ^ 'deEndpointARN'
+    -> DeleteEndpoint
 deleteEndpoint pEndpointARN_ =
     DeleteEndpoint'
     { _deEndpointARN = pEndpointARN_
@@ -88,6 +90,8 @@ data DeleteEndpointResponse =
     DeleteEndpointResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEndpointResponse' smart constructor.
-deleteEndpointResponse :: DeleteEndpointResponse
+-- | Creates a value of 'DeleteEndpointResponse' with the minimum fields required to make a request.
+--
+deleteEndpointResponse
+    :: DeleteEndpointResponse
 deleteEndpointResponse = DeleteEndpointResponse'

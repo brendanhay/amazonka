@@ -23,22 +23,24 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID>
 -- in the /Using IAM/ guide.
 --
--- You can paginate the results using the @MaxItems@ and @Marker@
+-- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccountAliases.html AWS API Reference> for ListAccountAliases.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListAccountAliases
     (
     -- * Creating a Request
-      ListAccountAliases
-    , listAccountAliases
+      listAccountAliases
+    , ListAccountAliases
     -- * Request Lenses
     , laaMaxItems
     , laaMarker
 
     -- * Destructuring the Response
-    , ListAccountAliasesResponse
     , listAccountAliasesResponse
+    , ListAccountAliasesResponse
     -- * Response Lenses
     , laarsMarker
     , laarsIsTruncated
@@ -54,19 +56,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listAccountAliases' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'laaMaxItems'
---
--- * 'laaMarker'
 data ListAccountAliases = ListAccountAliases'
     { _laaMaxItems :: !(Maybe Nat)
     , _laaMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListAccountAliases' smart constructor.
-listAccountAliases :: ListAccountAliases
+-- | Creates a value of 'ListAccountAliases' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'laaMaxItems'
+--
+-- * 'laaMarker'
+listAccountAliases
+    :: ListAccountAliases
 listAccountAliases =
     ListAccountAliases'
     { _laaMaxItems = Nothing
@@ -75,7 +78,7 @@ listAccountAliases =
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -84,7 +87,7 @@ laaMaxItems = lens _laaMaxItems (\ s a -> s{_laaMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 laaMarker :: Lens' ListAccountAliases (Maybe Text)
 laaMarker = lens _laaMarker (\ s a -> s{_laaMarker = a});
 
@@ -126,8 +129,16 @@ instance ToQuery ListAccountAliases where
 -- | Contains the response to a successful ListAccountAliases request.
 --
 -- /See:/ 'listAccountAliasesResponse' smart constructor.
+data ListAccountAliasesResponse = ListAccountAliasesResponse'
+    { _laarsMarker         :: !(Maybe Text)
+    , _laarsIsTruncated    :: !(Maybe Bool)
+    , _laarsStatus         :: !Int
+    , _laarsAccountAliases :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListAccountAliasesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'laarsMarker'
 --
@@ -136,15 +147,9 @@ instance ToQuery ListAccountAliases where
 -- * 'laarsStatus'
 --
 -- * 'laarsAccountAliases'
-data ListAccountAliasesResponse = ListAccountAliasesResponse'
-    { _laarsMarker         :: !(Maybe Text)
-    , _laarsIsTruncated    :: !(Maybe Bool)
-    , _laarsStatus         :: !Int
-    , _laarsAccountAliases :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListAccountAliasesResponse' smart constructor.
-listAccountAliasesResponse :: Int -> ListAccountAliasesResponse
+listAccountAliasesResponse
+    :: Int -- ^ 'laarsStatus'
+    -> ListAccountAliasesResponse
 listAccountAliasesResponse pStatus_ =
     ListAccountAliasesResponse'
     { _laarsMarker = Nothing
@@ -153,19 +158,19 @@ listAccountAliasesResponse pStatus_ =
     , _laarsAccountAliases = mempty
     }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 laarsMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
 laarsMarker = lens _laarsMarker (\ s a -> s{_laarsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 laarsIsTruncated :: Lens' ListAccountAliasesResponse (Maybe Bool)
 laarsIsTruncated = lens _laarsIsTruncated (\ s a -> s{_laarsIsTruncated = a});
 
--- | Undocumented member.
+-- | The response status code.
 laarsStatus :: Lens' ListAccountAliasesResponse Int
 laarsStatus = lens _laarsStatus (\ s a -> s{_laarsStatus = a});
 

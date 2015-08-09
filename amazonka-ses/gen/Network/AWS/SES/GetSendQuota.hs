@@ -26,12 +26,12 @@
 module Network.AWS.SES.GetSendQuota
     (
     -- * Creating a Request
-      GetSendQuota
-    , getSendQuota
+      getSendQuota
+    , GetSendQuota
 
     -- * Destructuring the Response
-    , GetSendQuotaResponse
     , getSendQuotaResponse
+    , GetSendQuotaResponse
     -- * Response Lenses
     , gsqrsMaxSendRate
     , gsqrsSentLast24Hours
@@ -50,8 +50,10 @@ data GetSendQuota =
     GetSendQuota'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSendQuota' smart constructor.
-getSendQuota :: GetSendQuota
+-- | Creates a value of 'GetSendQuota' with the minimum fields required to make a request.
+--
+getSendQuota
+    :: GetSendQuota
 getSendQuota = GetSendQuota'
 
 instance AWSRequest GetSendQuota where
@@ -80,11 +82,19 @@ instance ToQuery GetSendQuota where
                   "Version" =: ("2010-12-01" :: ByteString)])
 
 -- | Represents the user\'s current activity limits returned from a
--- successful @GetSendQuota@ request.
+-- successful 'GetSendQuota' request.
 --
 -- /See:/ 'getSendQuotaResponse' smart constructor.
+data GetSendQuotaResponse = GetSendQuotaResponse'
+    { _gsqrsMaxSendRate     :: !(Maybe Double)
+    , _gsqrsSentLast24Hours :: !(Maybe Double)
+    , _gsqrsMax24HourSend   :: !(Maybe Double)
+    , _gsqrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetSendQuotaResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gsqrsMaxSendRate'
 --
@@ -93,15 +103,9 @@ instance ToQuery GetSendQuota where
 -- * 'gsqrsMax24HourSend'
 --
 -- * 'gsqrsStatus'
-data GetSendQuotaResponse = GetSendQuotaResponse'
-    { _gsqrsMaxSendRate     :: !(Maybe Double)
-    , _gsqrsSentLast24Hours :: !(Maybe Double)
-    , _gsqrsMax24HourSend   :: !(Maybe Double)
-    , _gsqrsStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetSendQuotaResponse' smart constructor.
-getSendQuotaResponse :: Int -> GetSendQuotaResponse
+getSendQuotaResponse
+    :: Int -- ^ 'gsqrsStatus'
+    -> GetSendQuotaResponse
 getSendQuotaResponse pStatus_ =
     GetSendQuotaResponse'
     { _gsqrsMaxSendRate = Nothing
@@ -127,6 +131,6 @@ gsqrsSentLast24Hours = lens _gsqrsSentLast24Hours (\ s a -> s{_gsqrsSentLast24Ho
 gsqrsMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrsMax24HourSend = lens _gsqrsMax24HourSend (\ s a -> s{_gsqrsMax24HourSend = a});
 
--- | Undocumented member.
+-- | The response status code.
 gsqrsStatus :: Lens' GetSendQuotaResponse Int
 gsqrsStatus = lens _gsqrsStatus (\ s a -> s{_gsqrsStatus = a});

@@ -26,15 +26,15 @@
 module Network.AWS.IAM.UpdateAssumeRolePolicy
     (
     -- * Creating a Request
-      UpdateAssumeRolePolicy
-    , updateAssumeRolePolicy
+      updateAssumeRolePolicy
+    , UpdateAssumeRolePolicy
     -- * Request Lenses
     , uarpRoleName
     , uarpPolicyDocument
 
     -- * Destructuring the Response
-    , UpdateAssumeRolePolicyResponse
     , updateAssumeRolePolicyResponse
+    , UpdateAssumeRolePolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -44,19 +44,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateAssumeRolePolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uarpRoleName'
---
--- * 'uarpPolicyDocument'
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
     { _uarpRoleName       :: !Text
     , _uarpPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAssumeRolePolicy' smart constructor.
-updateAssumeRolePolicy :: Text -> Text -> UpdateAssumeRolePolicy
+-- | Creates a value of 'UpdateAssumeRolePolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uarpRoleName'
+--
+-- * 'uarpPolicyDocument'
+updateAssumeRolePolicy
+    :: Text -- ^ 'uarpRoleName'
+    -> Text -- ^ 'uarpPolicyDocument'
+    -> UpdateAssumeRolePolicy
 updateAssumeRolePolicy pRoleName_ pPolicyDocument_ =
     UpdateAssumeRolePolicy'
     { _uarpRoleName = pRoleName_
@@ -99,6 +102,8 @@ data UpdateAssumeRolePolicyResponse =
     UpdateAssumeRolePolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAssumeRolePolicyResponse' smart constructor.
-updateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse
+-- | Creates a value of 'UpdateAssumeRolePolicyResponse' with the minimum fields required to make a request.
+--
+updateAssumeRolePolicyResponse
+    :: UpdateAssumeRolePolicyResponse
 updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse'

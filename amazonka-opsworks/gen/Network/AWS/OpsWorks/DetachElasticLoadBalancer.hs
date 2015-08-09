@@ -30,15 +30,15 @@
 module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     (
     -- * Creating a Request
-      DetachElasticLoadBalancer
-    , detachElasticLoadBalancer
+      detachElasticLoadBalancer
+    , DetachElasticLoadBalancer
     -- * Request Lenses
     , delbElasticLoadBalancerName
     , delbLayerId
 
     -- * Destructuring the Response
-    , DetachElasticLoadBalancerResponse
     , detachElasticLoadBalancerResponse
+    , DetachElasticLoadBalancerResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -48,19 +48,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachElasticLoadBalancer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delbElasticLoadBalancerName'
---
--- * 'delbLayerId'
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
     { _delbElasticLoadBalancerName :: !Text
     , _delbLayerId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachElasticLoadBalancer' smart constructor.
-detachElasticLoadBalancer :: Text -> Text -> DetachElasticLoadBalancer
+-- | Creates a value of 'DetachElasticLoadBalancer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delbElasticLoadBalancerName'
+--
+-- * 'delbLayerId'
+detachElasticLoadBalancer
+    :: Text -- ^ 'delbElasticLoadBalancerName'
+    -> Text -- ^ 'delbLayerId'
+    -> DetachElasticLoadBalancer
 detachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
     DetachElasticLoadBalancer'
     { _delbElasticLoadBalancerName = pElasticLoadBalancerName_
@@ -112,6 +115,8 @@ data DetachElasticLoadBalancerResponse =
     DetachElasticLoadBalancerResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachElasticLoadBalancerResponse' smart constructor.
-detachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse
+-- | Creates a value of 'DetachElasticLoadBalancerResponse' with the minimum fields required to make a request.
+--
+detachElasticLoadBalancerResponse
+    :: DetachElasticLoadBalancerResponse
 detachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse'

@@ -24,15 +24,15 @@
 module Network.AWS.S3.PutBucketNotificationConfiguration
     (
     -- * Creating a Request
-      PutBucketNotificationConfiguration
-    , putBucketNotificationConfiguration
+      putBucketNotificationConfiguration
+    , PutBucketNotificationConfiguration
     -- * Request Lenses
     , pbncBucket
     , pbncNotificationConfiguration
 
     -- * Destructuring the Response
-    , PutBucketNotificationConfigurationResponse
     , putBucketNotificationConfigurationResponse
+    , PutBucketNotificationConfigurationResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -42,19 +42,22 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketNotificationConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pbncBucket'
---
--- * 'pbncNotificationConfiguration'
 data PutBucketNotificationConfiguration = PutBucketNotificationConfiguration'
     { _pbncBucket                    :: !BucketName
     , _pbncNotificationConfiguration :: !NotificationConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketNotificationConfiguration' smart constructor.
-putBucketNotificationConfiguration :: BucketName -> NotificationConfiguration -> PutBucketNotificationConfiguration
+-- | Creates a value of 'PutBucketNotificationConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pbncBucket'
+--
+-- * 'pbncNotificationConfiguration'
+putBucketNotificationConfiguration
+    :: BucketName -- ^ 'pbncBucket'
+    -> NotificationConfiguration -- ^ 'pbncNotificationConfiguration'
+    -> PutBucketNotificationConfiguration
 putBucketNotificationConfiguration pBucket_ pNotificationConfiguration_ =
     PutBucketNotificationConfiguration'
     { _pbncBucket = pBucket_
@@ -105,7 +108,9 @@ data PutBucketNotificationConfigurationResponse =
     PutBucketNotificationConfigurationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketNotificationConfigurationResponse' smart constructor.
-putBucketNotificationConfigurationResponse :: PutBucketNotificationConfigurationResponse
+-- | Creates a value of 'PutBucketNotificationConfigurationResponse' with the minimum fields required to make a request.
+--
+putBucketNotificationConfigurationResponse
+    :: PutBucketNotificationConfigurationResponse
 putBucketNotificationConfigurationResponse =
     PutBucketNotificationConfigurationResponse'

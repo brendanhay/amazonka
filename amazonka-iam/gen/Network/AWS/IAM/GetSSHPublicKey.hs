@@ -32,16 +32,16 @@
 module Network.AWS.IAM.GetSSHPublicKey
     (
     -- * Creating a Request
-      GetSSHPublicKey
-    , getSSHPublicKey
+      getSSHPublicKey
+    , GetSSHPublicKey
     -- * Request Lenses
     , gspkUserName
     , gspkSSHPublicKeyId
     , gspkEncoding
 
     -- * Destructuring the Response
-    , GetSSHPublicKeyResponse
     , getSSHPublicKeyResponse
+    , GetSSHPublicKeyResponse
     -- * Response Lenses
     , gspkrsSSHPublicKey
     , gspkrsStatus
@@ -54,22 +54,26 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getSSHPublicKey' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gspkUserName'
---
--- * 'gspkSSHPublicKeyId'
---
--- * 'gspkEncoding'
 data GetSSHPublicKey = GetSSHPublicKey'
     { _gspkUserName       :: !Text
     , _gspkSSHPublicKeyId :: !Text
     , _gspkEncoding       :: !EncodingType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSSHPublicKey' smart constructor.
-getSSHPublicKey :: Text -> Text -> EncodingType -> GetSSHPublicKey
+-- | Creates a value of 'GetSSHPublicKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gspkUserName'
+--
+-- * 'gspkSSHPublicKeyId'
+--
+-- * 'gspkEncoding'
+getSSHPublicKey
+    :: Text -- ^ 'gspkUserName'
+    -> Text -- ^ 'gspkSSHPublicKeyId'
+    -> EncodingType -- ^ 'gspkEncoding'
+    -> GetSSHPublicKey
 getSSHPublicKey pUserName_ pSSHPublicKeyId_ pEncoding_ =
     GetSSHPublicKey'
     { _gspkUserName = pUserName_
@@ -86,8 +90,8 @@ gspkSSHPublicKeyId :: Lens' GetSSHPublicKey Text
 gspkSSHPublicKeyId = lens _gspkSSHPublicKeyId (\ s a -> s{_gspkSSHPublicKeyId = a});
 
 -- | Specifies the public key encoding format to use in the response. To
--- retrieve the public key in ssh-rsa format, use @SSH@. To retrieve the
--- public key in PEM format, use @PEM@.
+-- retrieve the public key in ssh-rsa format, use 'SSH'. To retrieve the
+-- public key in PEM format, use 'PEM'.
 gspkEncoding :: Lens' GetSSHPublicKey EncodingType
 gspkEncoding = lens _gspkEncoding (\ s a -> s{_gspkEncoding = a});
 
@@ -119,19 +123,21 @@ instance ToQuery GetSSHPublicKey where
 -- | Contains the response to a successful GetSSHPublicKey request.
 --
 -- /See:/ 'getSSHPublicKeyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gspkrsSSHPublicKey'
---
--- * 'gspkrsStatus'
 data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
     { _gspkrsSSHPublicKey :: !(Maybe SSHPublicKey)
     , _gspkrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSSHPublicKeyResponse' smart constructor.
-getSSHPublicKeyResponse :: Int -> GetSSHPublicKeyResponse
+-- | Creates a value of 'GetSSHPublicKeyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gspkrsSSHPublicKey'
+--
+-- * 'gspkrsStatus'
+getSSHPublicKeyResponse
+    :: Int -- ^ 'gspkrsStatus'
+    -> GetSSHPublicKeyResponse
 getSSHPublicKeyResponse pStatus_ =
     GetSSHPublicKeyResponse'
     { _gspkrsSSHPublicKey = Nothing
@@ -142,6 +148,6 @@ getSSHPublicKeyResponse pStatus_ =
 gspkrsSSHPublicKey :: Lens' GetSSHPublicKeyResponse (Maybe SSHPublicKey)
 gspkrsSSHPublicKey = lens _gspkrsSSHPublicKey (\ s a -> s{_gspkrsSSHPublicKey = a});
 
--- | Undocumented member.
+-- | The response status code.
 gspkrsStatus :: Lens' GetSSHPublicKeyResponse Int
 gspkrsStatus = lens _gspkrsStatus (\ s a -> s{_gspkrsStatus = a});

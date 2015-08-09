@@ -30,14 +30,14 @@
 module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     (
     -- * Creating a Request
-      DescribeStackProvisioningParameters
-    , describeStackProvisioningParameters
+      describeStackProvisioningParameters
+    , DescribeStackProvisioningParameters
     -- * Request Lenses
     , dsppStackId
 
     -- * Destructuring the Response
-    , DescribeStackProvisioningParametersResponse
     , describeStackProvisioningParametersResponse
+    , DescribeStackProvisioningParametersResponse
     -- * Response Lenses
     , dspprsAgentInstallerURL
     , dspprsParameters
@@ -51,16 +51,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeStackProvisioningParameters' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsppStackId'
 newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameters'
     { _dsppStackId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStackProvisioningParameters' smart constructor.
-describeStackProvisioningParameters :: Text -> DescribeStackProvisioningParameters
+-- | Creates a value of 'DescribeStackProvisioningParameters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsppStackId'
+describeStackProvisioningParameters
+    :: Text -- ^ 'dsppStackId'
+    -> DescribeStackProvisioningParameters
 describeStackProvisioningParameters pStackId_ =
     DescribeStackProvisioningParameters'
     { _dsppStackId = pStackId_
@@ -109,26 +111,28 @@ instance ToQuery DescribeStackProvisioningParameters
          where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeStackProvisioningParameters@
+-- | Contains the response to a 'DescribeStackProvisioningParameters'
 -- request.
 --
 -- /See:/ 'describeStackProvisioningParametersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dspprsAgentInstallerURL'
---
--- * 'dspprsParameters'
---
--- * 'dspprsStatus'
 data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'
     { _dspprsAgentInstallerURL :: !(Maybe Text)
     , _dspprsParameters        :: !(Maybe (Map Text Text))
     , _dspprsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStackProvisioningParametersResponse' smart constructor.
-describeStackProvisioningParametersResponse :: Int -> DescribeStackProvisioningParametersResponse
+-- | Creates a value of 'DescribeStackProvisioningParametersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dspprsAgentInstallerURL'
+--
+-- * 'dspprsParameters'
+--
+-- * 'dspprsStatus'
+describeStackProvisioningParametersResponse
+    :: Int -- ^ 'dspprsStatus'
+    -> DescribeStackProvisioningParametersResponse
 describeStackProvisioningParametersResponse pStatus_ =
     DescribeStackProvisioningParametersResponse'
     { _dspprsAgentInstallerURL = Nothing
@@ -144,6 +148,6 @@ dspprsAgentInstallerURL = lens _dspprsAgentInstallerURL (\ s a -> s{_dspprsAgent
 dspprsParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap Text Text)
 dspprsParameters = lens _dspprsParameters (\ s a -> s{_dspprsParameters = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 dspprsStatus :: Lens' DescribeStackProvisioningParametersResponse Int
 dspprsStatus = lens _dspprsStatus (\ s a -> s{_dspprsStatus = a});

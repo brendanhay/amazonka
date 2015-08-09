@@ -25,16 +25,16 @@
 module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     (
     -- * Creating a Request
-      PurchaseReservedCacheNodesOffering
-    , purchaseReservedCacheNodesOffering
+      purchaseReservedCacheNodesOffering
+    , PurchaseReservedCacheNodesOffering
     -- * Request Lenses
     , prcnoCacheNodeCount
     , prcnoReservedCacheNodeId
     , prcnoReservedCacheNodesOfferingId
 
     -- * Destructuring the Response
-    , PurchaseReservedCacheNodesOfferingResponse
     , purchaseReservedCacheNodesOfferingResponse
+    , PurchaseReservedCacheNodesOfferingResponse
     -- * Response Lenses
     , prcnorsReservedCacheNode
     , prcnorsStatus
@@ -49,22 +49,24 @@ import           Network.AWS.Response
 -- | Represents the input of a /PurchaseReservedCacheNodesOffering/ action.
 --
 -- /See:/ 'purchaseReservedCacheNodesOffering' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prcnoCacheNodeCount'
---
--- * 'prcnoReservedCacheNodeId'
---
--- * 'prcnoReservedCacheNodesOfferingId'
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
     { _prcnoCacheNodeCount               :: !(Maybe Int)
     , _prcnoReservedCacheNodeId          :: !(Maybe Text)
     , _prcnoReservedCacheNodesOfferingId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PurchaseReservedCacheNodesOffering' smart constructor.
-purchaseReservedCacheNodesOffering :: Text -> PurchaseReservedCacheNodesOffering
+-- | Creates a value of 'PurchaseReservedCacheNodesOffering' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prcnoCacheNodeCount'
+--
+-- * 'prcnoReservedCacheNodeId'
+--
+-- * 'prcnoReservedCacheNodesOfferingId'
+purchaseReservedCacheNodesOffering
+    :: Text -- ^ 'prcnoReservedCacheNodesOfferingId'
+    -> PurchaseReservedCacheNodesOffering
 purchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId_ =
     PurchaseReservedCacheNodesOffering'
     { _prcnoCacheNodeCount = Nothing
@@ -74,7 +76,7 @@ purchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId_ =
 
 -- | The number of cache node instances to reserve.
 --
--- Default: @1@
+-- Default: '1'
 prcnoCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Int)
 prcnoCacheNodeCount = lens _prcnoCacheNodeCount (\ s a -> s{_prcnoCacheNodeCount = a});
 
@@ -125,19 +127,21 @@ instance ToQuery PurchaseReservedCacheNodesOffering
                  _prcnoReservedCacheNodesOfferingId]
 
 -- | /See:/ 'purchaseReservedCacheNodesOfferingResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prcnorsReservedCacheNode'
---
--- * 'prcnorsStatus'
 data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
     { _prcnorsReservedCacheNode :: !(Maybe ReservedCacheNode)
     , _prcnorsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PurchaseReservedCacheNodesOfferingResponse' smart constructor.
-purchaseReservedCacheNodesOfferingResponse :: Int -> PurchaseReservedCacheNodesOfferingResponse
+-- | Creates a value of 'PurchaseReservedCacheNodesOfferingResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prcnorsReservedCacheNode'
+--
+-- * 'prcnorsStatus'
+purchaseReservedCacheNodesOfferingResponse
+    :: Int -- ^ 'prcnorsStatus'
+    -> PurchaseReservedCacheNodesOfferingResponse
 purchaseReservedCacheNodesOfferingResponse pStatus_ =
     PurchaseReservedCacheNodesOfferingResponse'
     { _prcnorsReservedCacheNode = Nothing
@@ -148,6 +152,6 @@ purchaseReservedCacheNodesOfferingResponse pStatus_ =
 prcnorsReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
 prcnorsReservedCacheNode = lens _prcnorsReservedCacheNode (\ s a -> s{_prcnorsReservedCacheNode = a});
 
--- | Undocumented member.
+-- | The response status code.
 prcnorsStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
 prcnorsStatus = lens _prcnorsStatus (\ s a -> s{_prcnorsStatus = a});

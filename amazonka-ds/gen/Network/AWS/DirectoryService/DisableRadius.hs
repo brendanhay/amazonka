@@ -25,14 +25,14 @@
 module Network.AWS.DirectoryService.DisableRadius
     (
     -- * Creating a Request
-      DisableRadius
-    , disableRadius
+      disableRadius
+    , DisableRadius
     -- * Request Lenses
     , drDirectoryId
 
     -- * Destructuring the Response
-    , DisableRadiusResponse
     , disableRadiusResponse
+    , DisableRadiusResponse
     -- * Response Lenses
     , drrsStatus
     ) where
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Contains the inputs for the DisableRadius operation.
 --
 -- /See:/ 'disableRadius' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drDirectoryId'
 newtype DisableRadius = DisableRadius'
     { _drDirectoryId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableRadius' smart constructor.
-disableRadius :: Text -> DisableRadius
+-- | Creates a value of 'DisableRadius' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drDirectoryId'
+disableRadius
+    :: Text -- ^ 'drDirectoryId'
+    -> DisableRadius
 disableRadius pDirectoryId_ =
     DisableRadius'
     { _drDirectoryId = pDirectoryId_
@@ -97,21 +99,23 @@ instance ToQuery DisableRadius where
 -- | Contains the results of the DisableRadius operation.
 --
 -- /See:/ 'disableRadiusResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drrsStatus'
 newtype DisableRadiusResponse = DisableRadiusResponse'
     { _drrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableRadiusResponse' smart constructor.
-disableRadiusResponse :: Int -> DisableRadiusResponse
+-- | Creates a value of 'DisableRadiusResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drrsStatus'
+disableRadiusResponse
+    :: Int -- ^ 'drrsStatus'
+    -> DisableRadiusResponse
 disableRadiusResponse pStatus_ =
     DisableRadiusResponse'
     { _drrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 drrsStatus :: Lens' DisableRadiusResponse Int
 drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});

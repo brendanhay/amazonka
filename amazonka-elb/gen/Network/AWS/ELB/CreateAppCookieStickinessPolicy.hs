@@ -24,7 +24,7 @@
 --
 -- This policy is similar to the policy created by
 -- CreateLBCookieStickinessPolicy, except that the lifetime of the special
--- Elastic Load Balancing cookie, @AWSELB@, follows the lifetime of the
+-- Elastic Load Balancing cookie, 'AWSELB', follows the lifetime of the
 -- application-generated cookie specified in the policy configuration. The
 -- load balancer only inserts a new stickiness cookie when the application
 -- response includes a new application cookie.
@@ -40,16 +40,16 @@
 module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     (
     -- * Creating a Request
-      CreateAppCookieStickinessPolicy
-    , createAppCookieStickinessPolicy
+      createAppCookieStickinessPolicy
+    , CreateAppCookieStickinessPolicy
     -- * Request Lenses
     , cacspLoadBalancerName
     , cacspPolicyName
     , cacspCookieName
 
     -- * Destructuring the Response
-    , CreateAppCookieStickinessPolicyResponse
     , createAppCookieStickinessPolicyResponse
+    , CreateAppCookieStickinessPolicyResponse
     -- * Response Lenses
     , cacsprsStatus
     ) where
@@ -61,22 +61,26 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createAppCookieStickinessPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cacspLoadBalancerName'
---
--- * 'cacspPolicyName'
---
--- * 'cacspCookieName'
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
     { _cacspLoadBalancerName :: !Text
     , _cacspPolicyName       :: !Text
     , _cacspCookieName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAppCookieStickinessPolicy' smart constructor.
-createAppCookieStickinessPolicy :: Text -> Text -> Text -> CreateAppCookieStickinessPolicy
+-- | Creates a value of 'CreateAppCookieStickinessPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cacspLoadBalancerName'
+--
+-- * 'cacspPolicyName'
+--
+-- * 'cacspCookieName'
+createAppCookieStickinessPolicy
+    :: Text -- ^ 'cacspLoadBalancerName'
+    -> Text -- ^ 'cacspPolicyName'
+    -> Text -- ^ 'cacspCookieName'
+    -> CreateAppCookieStickinessPolicy
 createAppCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ pCookieName_ =
     CreateAppCookieStickinessPolicy'
     { _cacspLoadBalancerName = pLoadBalancerName_
@@ -129,21 +133,23 @@ instance ToQuery CreateAppCookieStickinessPolicy
                "CookieName" =: _cacspCookieName]
 
 -- | /See:/ 'createAppCookieStickinessPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cacsprsStatus'
 newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
     { _cacsprsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAppCookieStickinessPolicyResponse' smart constructor.
-createAppCookieStickinessPolicyResponse :: Int -> CreateAppCookieStickinessPolicyResponse
+-- | Creates a value of 'CreateAppCookieStickinessPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cacsprsStatus'
+createAppCookieStickinessPolicyResponse
+    :: Int -- ^ 'cacsprsStatus'
+    -> CreateAppCookieStickinessPolicyResponse
 createAppCookieStickinessPolicyResponse pStatus_ =
     CreateAppCookieStickinessPolicyResponse'
     { _cacsprsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 cacsprsStatus :: Lens' CreateAppCookieStickinessPolicyResponse Int
 cacsprsStatus = lens _cacsprsStatus (\ s a -> s{_cacsprsStatus = a});

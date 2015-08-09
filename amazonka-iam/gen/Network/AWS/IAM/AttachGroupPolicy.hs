@@ -31,15 +31,15 @@
 module Network.AWS.IAM.AttachGroupPolicy
     (
     -- * Creating a Request
-      AttachGroupPolicy
-    , attachGroupPolicy
+      attachGroupPolicy
+    , AttachGroupPolicy
     -- * Request Lenses
     , agpGroupName
     , agpPolicyARN
 
     -- * Destructuring the Response
-    , AttachGroupPolicyResponse
     , attachGroupPolicyResponse
+    , AttachGroupPolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -49,19 +49,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachGroupPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'agpGroupName'
---
--- * 'agpPolicyARN'
 data AttachGroupPolicy = AttachGroupPolicy'
     { _agpGroupName :: !Text
     , _agpPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachGroupPolicy' smart constructor.
-attachGroupPolicy :: Text -> Text -> AttachGroupPolicy
+-- | Creates a value of 'AttachGroupPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'agpGroupName'
+--
+-- * 'agpPolicyARN'
+attachGroupPolicy
+    :: Text -- ^ 'agpGroupName'
+    -> Text -- ^ 'agpPolicyARN'
+    -> AttachGroupPolicy
 attachGroupPolicy pGroupName_ pPolicyARN_ =
     AttachGroupPolicy'
     { _agpGroupName = pGroupName_
@@ -101,6 +104,8 @@ data AttachGroupPolicyResponse =
     AttachGroupPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachGroupPolicyResponse' smart constructor.
-attachGroupPolicyResponse :: AttachGroupPolicyResponse
+-- | Creates a value of 'AttachGroupPolicyResponse' with the minimum fields required to make a request.
+--
+attachGroupPolicyResponse
+    :: AttachGroupPolicyResponse
 attachGroupPolicyResponse = AttachGroupPolicyResponse'

@@ -22,7 +22,7 @@
 -- key ID, a secret access key, and a security token) for a federated user.
 -- A typical use is in a proxy application that gets temporary security
 -- credentials on behalf of distributed applications inside a corporate
--- network. Because you must call the @GetFederationToken@ action using the
+-- network. Because you must call the 'GetFederationToken' action using the
 -- long-term security credentials of an IAM user, this call is appropriate
 -- in contexts where those credentials can be safely stored, usually in a
 -- server-based application.
@@ -31,12 +31,12 @@
 -- authenticate users using a web identity provider like Login with Amazon,
 -- Facebook, Google, or an OpenID Connect-compatible identity provider, we
 -- recommend that you use <http://aws.amazon.com/cognito/ Amazon Cognito>
--- or @AssumeRoleWithWebIdentity@. For more information, see
+-- or 'AssumeRoleWithWebIdentity'. For more information, see
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html Creating Temporary Security Credentials for Mobile Apps Using Identity Providers>.
 --
--- The @GetFederationToken@ action must be called by using the long-term
+-- The 'GetFederationToken' action must be called by using the long-term
 -- AWS security credentials of an IAM user. You can also call
--- @GetFederationToken@ using the security credentials of an AWS account
+-- 'GetFederationToken' using the security credentials of an AWS account
 -- (root), but this is not recommended. Instead, we recommend that you
 -- create an IAM user for the purpose of the proxy application and then
 -- attach a policy to the IAM user that limits federated users to only the
@@ -53,25 +53,25 @@
 -- __Permissions__
 --
 -- The permissions for the temporary security credentials returned by
--- @GetFederationToken@ are determined by a combination of the following:
+-- 'GetFederationToken' are determined by a combination of the following:
 --
 -- -   The policy or policies that are attached to the IAM user whose
---     credentials are used to call @GetFederationToken@.
+--     credentials are used to call 'GetFederationToken'.
 -- -   The policy that is passed as a parameter in the call.
 --
 -- The passed policy is attached to the temporary security credentials that
--- result from the @GetFederationToken@ API call--that is, to the
+-- result from the 'GetFederationToken' API call--that is, to the
 -- /federated user/. When the federated user makes an AWS request, AWS
 -- evaluates the policy attached to the federated user in combination with
 -- the policy or policies attached to the IAM user whose credentials were
--- used to call @GetFederationToken@. AWS allows the federated user\'s
+-- used to call 'GetFederationToken'. AWS allows the federated user\'s
 -- request only when both the federated user /__and__/ the IAM user are
 -- explicitly allowed to perform the requested action. The passed policy
 -- cannot grant more permissions than those that are defined in the IAM
 -- user policy.
 --
 -- A typical use case is that the permissions of the IAM user whose
--- credentials are used to call @GetFederationToken@ are designed to allow
+-- credentials are used to call 'GetFederationToken' are designed to allow
 -- access to all the actions and resources that any federated user will
 -- need. Then, for individual users, you pass a policy to the operation
 -- that scopes down the permissions to a level that\'s appropriate to that
@@ -86,7 +86,7 @@
 --
 -- For more information about how permissions work, see
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-get-federation-token.html Permissions for GetFederationToken>.
--- For information about using @GetFederationToken@ to create temporary
+-- For information about using 'GetFederationToken' to create temporary
 -- security credentials, see
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingFedTokens.html Creating Temporary Credentials to Enable Access for Federated Users>.
 --
@@ -94,16 +94,16 @@
 module Network.AWS.STS.GetFederationToken
     (
     -- * Creating a Request
-      GetFederationToken
-    , getFederationToken
+      getFederationToken
+    , GetFederationToken
     -- * Request Lenses
     , gftDurationSeconds
     , gftPolicy
     , gftName
 
     -- * Destructuring the Response
-    , GetFederationTokenResponse
     , getFederationTokenResponse
+    , GetFederationTokenResponse
     -- * Response Lenses
     , gftrsPackedPolicySize
     , gftrsCredentials
@@ -118,22 +118,24 @@ import           Network.AWS.STS.Types
 import           Network.AWS.STS.Types.Product
 
 -- | /See:/ 'getFederationToken' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gftDurationSeconds'
---
--- * 'gftPolicy'
---
--- * 'gftName'
 data GetFederationToken = GetFederationToken'
     { _gftDurationSeconds :: !(Maybe Nat)
     , _gftPolicy          :: !(Maybe Text)
     , _gftName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetFederationToken' smart constructor.
-getFederationToken :: Text -> GetFederationToken
+-- | Creates a value of 'GetFederationToken' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gftDurationSeconds'
+--
+-- * 'gftPolicy'
+--
+-- * 'gftName'
+getFederationToken
+    :: Text -- ^ 'gftName'
+    -> GetFederationToken
 getFederationToken pName_ =
     GetFederationToken'
     { _gftDurationSeconds = Nothing
@@ -152,9 +154,9 @@ gftDurationSeconds :: Lens' GetFederationToken (Maybe Natural)
 gftDurationSeconds = lens _gftDurationSeconds (\ s a -> s{_gftDurationSeconds = a}) . mapping _Nat;
 
 -- | An IAM policy in JSON format that is passed with the
--- @GetFederationToken@ call and evaluated along with the policy or
+-- 'GetFederationToken' call and evaluated along with the policy or
 -- policies that are attached to the IAM user whose credentials are used to
--- call @GetFederationToken@. The passed policy is used to scope down the
+-- call 'GetFederationToken'. The passed policy is used to scope down the
 -- permissions that are available to the IAM user, by allowing only a
 -- subset of the permissions that are granted to the IAM user. The passed
 -- policy cannot grant more permissions than those granted to the IAM user.
@@ -180,7 +182,7 @@ gftPolicy :: Lens' GetFederationToken (Maybe Text)
 gftPolicy = lens _gftPolicy (\ s a -> s{_gftPolicy = a});
 
 -- | The name of the federated user. The name is used as an identifier for
--- the temporary security credentials (such as @Bob@). For example, you can
+-- the temporary security credentials (such as 'Bob'). For example, you can
 -- reference the federated user name in a resource-based policy, such as in
 -- an Amazon S3 bucket policy.
 gftName :: Lens' GetFederationToken Text
@@ -218,8 +220,16 @@ instance ToQuery GetFederationToken where
 -- requests.
 --
 -- /See:/ 'getFederationTokenResponse' smart constructor.
+data GetFederationTokenResponse = GetFederationTokenResponse'
+    { _gftrsPackedPolicySize :: !(Maybe Nat)
+    , _gftrsCredentials      :: !(Maybe Credentials)
+    , _gftrsFederatedUser    :: !(Maybe FederatedUser)
+    , _gftrsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetFederationTokenResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gftrsPackedPolicySize'
 --
@@ -228,15 +238,9 @@ instance ToQuery GetFederationToken where
 -- * 'gftrsFederatedUser'
 --
 -- * 'gftrsStatus'
-data GetFederationTokenResponse = GetFederationTokenResponse'
-    { _gftrsPackedPolicySize :: !(Maybe Nat)
-    , _gftrsCredentials      :: !(Maybe Credentials)
-    , _gftrsFederatedUser    :: !(Maybe FederatedUser)
-    , _gftrsStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetFederationTokenResponse' smart constructor.
-getFederationTokenResponse :: Int -> GetFederationTokenResponse
+getFederationTokenResponse
+    :: Int -- ^ 'gftrsStatus'
+    -> GetFederationTokenResponse
 getFederationTokenResponse pStatus_ =
     GetFederationTokenResponse'
     { _gftrsPackedPolicySize = Nothing
@@ -256,12 +260,12 @@ gftrsCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)
 gftrsCredentials = lens _gftrsCredentials (\ s a -> s{_gftrsCredentials = a});
 
 -- | Identifiers for the federated user associated with the credentials (such
--- as @arn:aws:sts::123456789012:federated-user\/Bob@ or
--- @123456789012:Bob@). You can use the federated user\'s ARN in your
+-- as 'arn:aws:sts::123456789012:federated-user\/Bob' or
+-- '123456789012:Bob'). You can use the federated user\'s ARN in your
 -- resource-based policies, such as an Amazon S3 bucket policy.
 gftrsFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
 gftrsFederatedUser = lens _gftrsFederatedUser (\ s a -> s{_gftrsFederatedUser = a});
 
--- | Undocumented member.
+-- | The response status code.
 gftrsStatus :: Lens' GetFederationTokenResponse Int
 gftrsStatus = lens _gftrsStatus (\ s a -> s{_gftrsStatus = a});

@@ -24,14 +24,14 @@
 module Network.AWS.ElasticTranscoder.ReadPreset
     (
     -- * Creating a Request
-      ReadPreset
-    , readPreset
+      readPreset
+    , ReadPreset
     -- * Request Lenses
     , rpId
 
     -- * Destructuring the Response
-    , ReadPresetResponse
     , readPresetResponse
+    , ReadPresetResponse
     -- * Response Lenses
     , rprsPreset
     , rprsStatus
@@ -43,19 +43,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @ReadPresetRequest@ structure.
+-- | The 'ReadPresetRequest' structure.
 --
 -- /See:/ 'readPreset' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rpId'
 newtype ReadPreset = ReadPreset'
     { _rpId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReadPreset' smart constructor.
-readPreset :: Text -> ReadPreset
+-- | Creates a value of 'ReadPreset' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpId'
+readPreset
+    :: Text -- ^ 'rpId'
+    -> ReadPreset
 readPreset pId_ =
     ReadPreset'
     { _rpId = pId_
@@ -86,22 +88,24 @@ instance ToPath ReadPreset where
 instance ToQuery ReadPreset where
         toQuery = const mempty
 
--- | The @ReadPresetResponse@ structure.
+-- | The 'ReadPresetResponse' structure.
 --
 -- /See:/ 'readPresetResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rprsPreset'
---
--- * 'rprsStatus'
 data ReadPresetResponse = ReadPresetResponse'
     { _rprsPreset :: !(Maybe Preset)
     , _rprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReadPresetResponse' smart constructor.
-readPresetResponse :: Int -> ReadPresetResponse
+-- | Creates a value of 'ReadPresetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rprsPreset'
+--
+-- * 'rprsStatus'
+readPresetResponse
+    :: Int -- ^ 'rprsStatus'
+    -> ReadPresetResponse
 readPresetResponse pStatus_ =
     ReadPresetResponse'
     { _rprsPreset = Nothing
@@ -113,6 +117,6 @@ readPresetResponse pStatus_ =
 rprsPreset :: Lens' ReadPresetResponse (Maybe Preset)
 rprsPreset = lens _rprsPreset (\ s a -> s{_rprsPreset = a});
 
--- | Undocumented member.
+-- | The response status code.
 rprsStatus :: Lens' ReadPresetResponse Int
 rprsStatus = lens _rprsStatus (\ s a -> s{_rprsStatus = a});

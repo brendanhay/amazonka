@@ -29,16 +29,16 @@
 module Network.AWS.CodePipeline.DeleteCustomActionType
     (
     -- * Creating a Request
-      DeleteCustomActionType
-    , deleteCustomActionType
+      deleteCustomActionType
+    , DeleteCustomActionType
     -- * Request Lenses
     , dcatCategory
     , dcatProvider
     , dcatVersion
 
     -- * Destructuring the Response
-    , DeleteCustomActionTypeResponse
     , deleteCustomActionTypeResponse
+    , DeleteCustomActionTypeResponse
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -51,22 +51,26 @@ import           Network.AWS.Response
 -- action will be marked as deleted.
 --
 -- /See:/ 'deleteCustomActionType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcatCategory'
---
--- * 'dcatProvider'
---
--- * 'dcatVersion'
 data DeleteCustomActionType = DeleteCustomActionType'
     { _dcatCategory :: !ActionCategory
     , _dcatProvider :: !Text
     , _dcatVersion  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCustomActionType' smart constructor.
-deleteCustomActionType :: ActionCategory -> Text -> Text -> DeleteCustomActionType
+-- | Creates a value of 'DeleteCustomActionType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcatCategory'
+--
+-- * 'dcatProvider'
+--
+-- * 'dcatVersion'
+deleteCustomActionType
+    :: ActionCategory -- ^ 'dcatCategory'
+    -> Text -- ^ 'dcatProvider'
+    -> Text -- ^ 'dcatVersion'
+    -> DeleteCustomActionType
 deleteCustomActionType pCategory_ pProvider_ pVersion_ =
     DeleteCustomActionType'
     { _dcatCategory = pCategory_
@@ -124,6 +128,8 @@ data DeleteCustomActionTypeResponse =
     DeleteCustomActionTypeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCustomActionTypeResponse' smart constructor.
-deleteCustomActionTypeResponse :: DeleteCustomActionTypeResponse
+-- | Creates a value of 'DeleteCustomActionTypeResponse' with the minimum fields required to make a request.
+--
+deleteCustomActionTypeResponse
+    :: DeleteCustomActionTypeResponse
 deleteCustomActionTypeResponse = DeleteCustomActionTypeResponse'

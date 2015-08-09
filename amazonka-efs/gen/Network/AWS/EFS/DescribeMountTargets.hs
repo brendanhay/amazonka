@@ -22,23 +22,23 @@
 -- The order of mount targets returned in the response is unspecified.
 --
 -- This operation requires permission for the
--- @elasticfilesystem:DescribeMountTargets@ action on the file system
--- @FileSystemId@.
+-- 'elasticfilesystem:DescribeMountTargets' action on the file system
+-- 'FileSystemId'.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeMountTargets.html AWS API Reference> for DescribeMountTargets.
 module Network.AWS.EFS.DescribeMountTargets
     (
     -- * Creating a Request
-      DescribeMountTargets
-    , describeMountTargets
+      describeMountTargets
+    , DescribeMountTargets
     -- * Request Lenses
     , dmtMaxItems
     , dmtMarker
     , dmtFileSystemId
 
     -- * Destructuring the Response
-    , DescribeMountTargetsResponse
     , describeMountTargetsResponse
+    , DescribeMountTargetsResponse
     -- * Response Lenses
     , dmtrsMountTargets
     , dmtrsMarker
@@ -53,22 +53,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeMountTargets' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmtMaxItems'
---
--- * 'dmtMarker'
---
--- * 'dmtFileSystemId'
 data DescribeMountTargets = DescribeMountTargets'
     { _dmtMaxItems     :: !(Maybe Nat)
     , _dmtMarker       :: !(Maybe Text)
     , _dmtFileSystemId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeMountTargets' smart constructor.
-describeMountTargets :: Text -> DescribeMountTargets
+-- | Creates a value of 'DescribeMountTargets' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmtMaxItems'
+--
+-- * 'dmtMarker'
+--
+-- * 'dmtFileSystemId'
+describeMountTargets
+    :: Text -- ^ 'dmtFileSystemId'
+    -> DescribeMountTargets
 describeMountTargets pFileSystemId_ =
     DescribeMountTargets'
     { _dmtMaxItems = Nothing
@@ -82,7 +84,7 @@ dmtMaxItems :: Lens' DescribeMountTargets (Maybe Natural)
 dmtMaxItems = lens _dmtMaxItems (\ s a -> s{_dmtMaxItems = a}) . mapping _Nat;
 
 -- | Optional. String. Opaque pagination token returned from a previous
--- @DescribeMountTargets@ operation. If present, it specifies to continue
+-- 'DescribeMountTargets' operation. If present, it specifies to continue
 -- the list from where the previous returning call left off.
 dmtMarker :: Lens' DescribeMountTargets (Maybe Text)
 dmtMarker = lens _dmtMarker (\ s a -> s{_dmtMarker = a});
@@ -118,8 +120,16 @@ instance ToQuery DescribeMountTargets where
                "FileSystemId" =: _dmtFileSystemId]
 
 -- | /See:/ 'describeMountTargetsResponse' smart constructor.
+data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
+    { _dmtrsMountTargets :: !(Maybe [MountTargetDescription])
+    , _dmtrsMarker       :: !(Maybe Text)
+    , _dmtrsNextMarker   :: !(Maybe Text)
+    , _dmtrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeMountTargetsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dmtrsMountTargets'
 --
@@ -128,15 +138,9 @@ instance ToQuery DescribeMountTargets where
 -- * 'dmtrsNextMarker'
 --
 -- * 'dmtrsStatus'
-data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
-    { _dmtrsMountTargets :: !(Maybe [MountTargetDescription])
-    , _dmtrsMarker       :: !(Maybe Text)
-    , _dmtrsNextMarker   :: !(Maybe Text)
-    , _dmtrsStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeMountTargetsResponse' smart constructor.
-describeMountTargetsResponse :: Int -> DescribeMountTargetsResponse
+describeMountTargetsResponse
+    :: Int -- ^ 'dmtrsStatus'
+    -> DescribeMountTargetsResponse
 describeMountTargetsResponse pStatus_ =
     DescribeMountTargetsResponse'
     { _dmtrsMountTargets = Nothing
@@ -146,21 +150,21 @@ describeMountTargetsResponse pStatus_ =
     }
 
 -- | Returns the file system\'s mount targets as an array of
--- @MountTargetDescription@ objects.
+-- 'MountTargetDescription' objects.
 dmtrsMountTargets :: Lens' DescribeMountTargetsResponse [MountTargetDescription]
 dmtrsMountTargets = lens _dmtrsMountTargets (\ s a -> s{_dmtrsMountTargets = a}) . _Default . _Coerce;
 
--- | If the request included the @Marker@, the response returns that value in
+-- | If the request included the 'Marker', the response returns that value in
 -- this field.
 dmtrsMarker :: Lens' DescribeMountTargetsResponse (Maybe Text)
 dmtrsMarker = lens _dmtrsMarker (\ s a -> s{_dmtrsMarker = a});
 
 -- | If a value is present, there are more mount targets to return. In a
--- subsequent request, you can provide @Marker@ in your request with this
+-- subsequent request, you can provide 'Marker' in your request with this
 -- value to retrieve the next set of mount targets.
 dmtrsNextMarker :: Lens' DescribeMountTargetsResponse (Maybe Text)
 dmtrsNextMarker = lens _dmtrsNextMarker (\ s a -> s{_dmtrsNextMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dmtrsStatus :: Lens' DescribeMountTargetsResponse Int
 dmtrsStatus = lens _dmtrsStatus (\ s a -> s{_dmtrsStatus = a});

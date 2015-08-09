@@ -36,15 +36,15 @@
 module Network.AWS.SES.DeleteIdentityPolicy
     (
     -- * Creating a Request
-      DeleteIdentityPolicy
-    , deleteIdentityPolicy
+      deleteIdentityPolicy
+    , DeleteIdentityPolicy
     -- * Request Lenses
     , dipIdentity
     , dipPolicyName
 
     -- * Destructuring the Response
-    , DeleteIdentityPolicyResponse
     , deleteIdentityPolicyResponse
+    , DeleteIdentityPolicyResponse
     -- * Response Lenses
     , diprsStatus
     ) where
@@ -61,19 +61,22 @@ import           Network.AWS.SES.Types.Product
 -- This request succeeds regardless of whether the specified policy exists.
 --
 -- /See:/ 'deleteIdentityPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dipIdentity'
---
--- * 'dipPolicyName'
 data DeleteIdentityPolicy = DeleteIdentityPolicy'
     { _dipIdentity   :: !Text
     , _dipPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteIdentityPolicy' smart constructor.
-deleteIdentityPolicy :: Text -> Text -> DeleteIdentityPolicy
+-- | Creates a value of 'DeleteIdentityPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dipIdentity'
+--
+-- * 'dipPolicyName'
+deleteIdentityPolicy
+    :: Text -- ^ 'dipIdentity'
+    -> Text -- ^ 'dipPolicyName'
+    -> DeleteIdentityPolicy
 deleteIdentityPolicy pIdentity_ pPolicyName_ =
     DeleteIdentityPolicy'
     { _dipIdentity = pIdentity_
@@ -82,8 +85,8 @@ deleteIdentityPolicy pIdentity_ pPolicyName_ =
 
 -- | The identity that is associated with the policy that you want to delete.
 -- You can specify the identity by using its name or by using its Amazon
--- Resource Name (ARN). Examples: @user\@example.com@, @example.com@,
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+-- Resource Name (ARN). Examples: 'user\'example.com', 'example.com',
+-- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
 --
 -- To successfully call this API, you must own the identity.
 dipIdentity :: Lens' DeleteIdentityPolicy Text
@@ -122,21 +125,23 @@ instance ToQuery DeleteIdentityPolicy where
 -- completed successfully.
 --
 -- /See:/ 'deleteIdentityPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diprsStatus'
 newtype DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
     { _diprsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteIdentityPolicyResponse' smart constructor.
-deleteIdentityPolicyResponse :: Int -> DeleteIdentityPolicyResponse
+-- | Creates a value of 'DeleteIdentityPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diprsStatus'
+deleteIdentityPolicyResponse
+    :: Int -- ^ 'diprsStatus'
+    -> DeleteIdentityPolicyResponse
 deleteIdentityPolicyResponse pStatus_ =
     DeleteIdentityPolicyResponse'
     { _diprsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 diprsStatus :: Lens' DeleteIdentityPolicyResponse Int
 diprsStatus = lens _diprsStatus (\ s a -> s{_diprsStatus = a});

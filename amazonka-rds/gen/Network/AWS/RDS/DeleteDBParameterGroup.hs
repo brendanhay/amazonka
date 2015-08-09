@@ -25,14 +25,14 @@
 module Network.AWS.RDS.DeleteDBParameterGroup
     (
     -- * Creating a Request
-      DeleteDBParameterGroup
-    , deleteDBParameterGroup
+      deleteDBParameterGroup
+    , DeleteDBParameterGroup
     -- * Request Lenses
     , ddbpgDBParameterGroupName
 
     -- * Destructuring the Response
-    , DeleteDBParameterGroupResponse
     , deleteDBParameterGroupResponse
+    , DeleteDBParameterGroupResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -44,16 +44,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteDBParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddbpgDBParameterGroupName'
 newtype DeleteDBParameterGroup = DeleteDBParameterGroup'
     { _ddbpgDBParameterGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBParameterGroup' smart constructor.
-deleteDBParameterGroup :: Text -> DeleteDBParameterGroup
+-- | Creates a value of 'DeleteDBParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddbpgDBParameterGroupName'
+deleteDBParameterGroup
+    :: Text -- ^ 'ddbpgDBParameterGroupName'
+    -> DeleteDBParameterGroup
 deleteDBParameterGroup pDBParameterGroupName_ =
     DeleteDBParameterGroup'
     { _ddbpgDBParameterGroupName = pDBParameterGroupName_
@@ -96,6 +98,8 @@ data DeleteDBParameterGroupResponse =
     DeleteDBParameterGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBParameterGroupResponse' smart constructor.
-deleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse
+-- | Creates a value of 'DeleteDBParameterGroupResponse' with the minimum fields required to make a request.
+--
+deleteDBParameterGroupResponse
+    :: DeleteDBParameterGroupResponse
 deleteDBParameterGroupResponse = DeleteDBParameterGroupResponse'

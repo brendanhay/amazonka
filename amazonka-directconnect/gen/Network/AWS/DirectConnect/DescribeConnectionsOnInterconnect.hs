@@ -25,14 +25,14 @@
 module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     (
     -- * Creating a Request
-      DescribeConnectionsOnInterconnect
-    , describeConnectionsOnInterconnect
+      describeConnectionsOnInterconnect
+    , DescribeConnectionsOnInterconnect
     -- * Request Lenses
     , dcoiInterconnectId
 
     -- * Destructuring the Response
-    , Connections
     , connections
+    , Connections
     -- * Response Lenses
     , cConnections
     ) where
@@ -47,16 +47,18 @@ import           Network.AWS.Response
 -- operation.
 --
 -- /See:/ 'describeConnectionsOnInterconnect' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcoiInterconnectId'
 newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect'
     { _dcoiInterconnectId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeConnectionsOnInterconnect' smart constructor.
-describeConnectionsOnInterconnect :: Text -> DescribeConnectionsOnInterconnect
+-- | Creates a value of 'DescribeConnectionsOnInterconnect' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcoiInterconnectId'
+describeConnectionsOnInterconnect
+    :: Text -- ^ 'dcoiInterconnectId'
+    -> DescribeConnectionsOnInterconnect
 describeConnectionsOnInterconnect pInterconnectId_ =
     DescribeConnectionsOnInterconnect'
     { _dcoiInterconnectId = pInterconnectId_

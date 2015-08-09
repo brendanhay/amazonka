@@ -25,14 +25,14 @@
 module Network.AWS.CloudWatch.DeleteAlarms
     (
     -- * Creating a Request
-      DeleteAlarms
-    , deleteAlarms
+      deleteAlarms
+    , DeleteAlarms
     -- * Request Lenses
     , dAlarmNames
 
     -- * Destructuring the Response
-    , DeleteAlarmsResponse
     , deleteAlarmsResponse
+    , DeleteAlarmsResponse
     ) where
 
 import           Network.AWS.CloudWatch.Types
@@ -42,16 +42,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteAlarms' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dAlarmNames'
 newtype DeleteAlarms = DeleteAlarms'
     { _dAlarmNames :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAlarms' smart constructor.
-deleteAlarms :: DeleteAlarms
+-- | Creates a value of 'DeleteAlarms' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dAlarmNames'
+deleteAlarms
+    :: DeleteAlarms
 deleteAlarms =
     DeleteAlarms'
     { _dAlarmNames = mempty
@@ -85,6 +86,8 @@ data DeleteAlarmsResponse =
     DeleteAlarmsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAlarmsResponse' smart constructor.
-deleteAlarmsResponse :: DeleteAlarmsResponse
+-- | Creates a value of 'DeleteAlarmsResponse' with the minimum fields required to make a request.
+--
+deleteAlarmsResponse
+    :: DeleteAlarmsResponse
 deleteAlarmsResponse = DeleteAlarmsResponse'

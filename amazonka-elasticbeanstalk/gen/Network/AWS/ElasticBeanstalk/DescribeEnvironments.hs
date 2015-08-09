@@ -24,8 +24,8 @@
 module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     (
     -- * Creating a Request
-      DescribeEnvironments
-    , describeEnvironments
+      describeEnvironments
+    , DescribeEnvironments
     -- * Request Lenses
     , dEnvironmentIds
     , dEnvironmentNames
@@ -35,8 +35,8 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     , dIncludeDeleted
 
     -- * Destructuring the Response
-    , DescribeEnvironmentsResponse
     , describeEnvironmentsResponse
+    , DescribeEnvironmentsResponse
     -- * Response Lenses
     , drsEnvironments
     , drsStatus
@@ -51,8 +51,18 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'describeEnvironments' smart constructor.
+data DescribeEnvironments = DescribeEnvironments'
+    { _dEnvironmentIds        :: !(Maybe [Text])
+    , _dEnvironmentNames      :: !(Maybe [Text])
+    , _dVersionLabel          :: !(Maybe Text)
+    , _dIncludedDeletedBackTo :: !(Maybe ISO8601)
+    , _dApplicationName       :: !(Maybe Text)
+    , _dIncludeDeleted        :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeEnvironments' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dEnvironmentIds'
 --
@@ -65,17 +75,8 @@ import           Network.AWS.Response
 -- * 'dApplicationName'
 --
 -- * 'dIncludeDeleted'
-data DescribeEnvironments = DescribeEnvironments'
-    { _dEnvironmentIds        :: !(Maybe [Text])
-    , _dEnvironmentNames      :: !(Maybe [Text])
-    , _dVersionLabel          :: !(Maybe Text)
-    , _dIncludedDeletedBackTo :: !(Maybe ISO8601)
-    , _dApplicationName       :: !(Maybe Text)
-    , _dIncludeDeleted        :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeEnvironments' smart constructor.
-describeEnvironments :: DescribeEnvironments
+describeEnvironments
+    :: DescribeEnvironments
 describeEnvironments =
     DescribeEnvironments'
     { _dEnvironmentIds = Nothing
@@ -101,7 +102,7 @@ dEnvironmentNames = lens _dEnvironmentNames (\ s a -> s{_dEnvironmentNames = a})
 dVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
 dVersionLabel = lens _dVersionLabel (\ s a -> s{_dVersionLabel = a});
 
--- | If specified when @IncludeDeleted@ is set to @true@, then environments
+-- | If specified when 'IncludeDeleted' is set to 'true', then environments
 -- deleted after this date are displayed.
 dIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
 dIncludedDeletedBackTo = lens _dIncludedDeletedBackTo (\ s a -> s{_dIncludedDeletedBackTo = a}) . mapping _Time;
@@ -113,10 +114,10 @@ dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
 
 -- | Indicates whether to include deleted environments:
 --
--- @true@: Environments that have been deleted after
--- @IncludedDeletedBackTo@ are displayed.
+-- 'true': Environments that have been deleted after
+-- 'IncludedDeletedBackTo' are displayed.
 --
--- @false@: Do not include deleted environments.
+-- 'false': Do not include deleted environments.
 dIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
 dIncludeDeleted = lens _dIncludeDeleted (\ s a -> s{_dIncludeDeleted = a});
 
@@ -157,19 +158,21 @@ instance ToQuery DescribeEnvironments where
 -- | Result message containing a list of environment descriptions.
 --
 -- /See:/ 'describeEnvironmentsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsEnvironments'
---
--- * 'drsStatus'
 data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
     { _drsEnvironments :: !(Maybe [EnvironmentDescription])
     , _drsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEnvironmentsResponse' smart constructor.
-describeEnvironmentsResponse :: Int -> DescribeEnvironmentsResponse
+-- | Creates a value of 'DescribeEnvironmentsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsEnvironments'
+--
+-- * 'drsStatus'
+describeEnvironmentsResponse
+    :: Int -- ^ 'drsStatus'
+    -> DescribeEnvironmentsResponse
 describeEnvironmentsResponse pStatus_ =
     DescribeEnvironmentsResponse'
     { _drsEnvironments = Nothing
@@ -180,6 +183,6 @@ describeEnvironmentsResponse pStatus_ =
 drsEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
 drsEnvironments = lens _drsEnvironments (\ s a -> s{_drsEnvironments = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DescribeEnvironmentsResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

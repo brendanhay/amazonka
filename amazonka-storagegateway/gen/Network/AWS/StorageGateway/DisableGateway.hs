@@ -31,14 +31,14 @@
 module Network.AWS.StorageGateway.DisableGateway
     (
     -- * Creating a Request
-      DisableGateway
-    , disableGateway
+      disableGateway
+    , DisableGateway
     -- * Request Lenses
     , dGatewayARN
 
     -- * Destructuring the Response
-    , DisableGatewayResponse
     , disableGatewayResponse
+    , DisableGatewayResponse
     -- * Response Lenses
     , disrsGatewayARN
     , disrsStatus
@@ -53,16 +53,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | DisableGatewayInput
 --
 -- /See:/ 'disableGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dGatewayARN'
 newtype DisableGateway = DisableGateway'
     { _dGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableGateway' smart constructor.
-disableGateway :: Text -> DisableGateway
+-- | Creates a value of 'DisableGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dGatewayARN'
+disableGateway
+    :: Text -- ^ 'dGatewayARN'
+    -> DisableGateway
 disableGateway pGatewayARN_ =
     DisableGateway'
     { _dGatewayARN = pGatewayARN_
@@ -105,19 +107,21 @@ instance ToQuery DisableGateway where
 -- | DisableGatewayOutput
 --
 -- /See:/ 'disableGatewayResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'disrsGatewayARN'
---
--- * 'disrsStatus'
 data DisableGatewayResponse = DisableGatewayResponse'
     { _disrsGatewayARN :: !(Maybe Text)
     , _disrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableGatewayResponse' smart constructor.
-disableGatewayResponse :: Int -> DisableGatewayResponse
+-- | Creates a value of 'DisableGatewayResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'disrsGatewayARN'
+--
+-- * 'disrsStatus'
+disableGatewayResponse
+    :: Int -- ^ 'disrsStatus'
+    -> DisableGatewayResponse
 disableGatewayResponse pStatus_ =
     DisableGatewayResponse'
     { _disrsGatewayARN = Nothing
@@ -128,6 +132,6 @@ disableGatewayResponse pStatus_ =
 disrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 disrsGatewayARN = lens _disrsGatewayARN (\ s a -> s{_disrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 disrsStatus :: Lens' DisableGatewayResponse Int
 disrsStatus = lens _disrsStatus (\ s a -> s{_disrsStatus = a});

@@ -28,19 +28,21 @@
 -- in the Amazon Elastic Compute Cloud User Guide.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesModifications.html AWS API Reference> for DescribeReservedInstancesModifications.
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeReservedInstancesModifications
     (
     -- * Creating a Request
-      DescribeReservedInstancesModifications
-    , describeReservedInstancesModifications
+      describeReservedInstancesModifications
+    , DescribeReservedInstancesModifications
     -- * Request Lenses
     , drimFilters
     , drimReservedInstancesModificationIds
     , drimNextToken
 
     -- * Destructuring the Response
-    , DescribeReservedInstancesModificationsResponse
     , describeReservedInstancesModificationsResponse
+    , DescribeReservedInstancesModificationsResponse
     -- * Response Lenses
     , drimrsNextToken
     , drimrsReservedInstancesModifications
@@ -55,22 +57,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeReservedInstancesModifications' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drimFilters'
---
--- * 'drimReservedInstancesModificationIds'
---
--- * 'drimNextToken'
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
     { _drimFilters                          :: !(Maybe [Filter])
     , _drimReservedInstancesModificationIds :: !(Maybe [Text])
     , _drimNextToken                        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeReservedInstancesModifications' smart constructor.
-describeReservedInstancesModifications :: DescribeReservedInstancesModifications
+-- | Creates a value of 'DescribeReservedInstancesModifications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drimFilters'
+--
+-- * 'drimReservedInstancesModificationIds'
+--
+-- * 'drimNextToken'
+describeReservedInstancesModifications
+    :: DescribeReservedInstancesModifications
 describeReservedInstancesModifications =
     DescribeReservedInstancesModifications'
     { _drimFilters = Nothing
@@ -80,40 +83,40 @@ describeReservedInstancesModifications =
 
 -- | One or more filters.
 --
--- -   @client-token@ - The idempotency token for the modification request.
+-- -   'client-token' - The idempotency token for the modification request.
 --
--- -   @create-date@ - The time when the modification request was created.
+-- -   'create-date' - The time when the modification request was created.
 --
--- -   @effective-date@ - The time when the modification becomes effective.
+-- -   'effective-date' - The time when the modification becomes effective.
 --
--- -   @modification-result.reserved-instances-id@ - The ID for the
+-- -   'modification-result.reserved-instances-id' - The ID for the
 --     Reserved Instances created as part of the modification request. This
 --     ID is only available when the status of the modification is
---     @fulfilled@.
+--     'fulfilled'.
 --
--- -   @modification-result.target-configuration.availability-zone@ - The
+-- -   'modification-result.target-configuration.availability-zone' - The
 --     Availability Zone for the new Reserved Instances.
 --
--- -   @modification-result.target-configuration.instance-count @ - The
+-- -   'modification-result.target-configuration.instance-count ' - The
 --     number of new Reserved Instances.
 --
--- -   @modification-result.target-configuration.instance-type@ - The
+-- -   'modification-result.target-configuration.instance-type' - The
 --     instance type of the new Reserved Instances.
 --
--- -   @modification-result.target-configuration.platform@ - The network
---     platform of the new Reserved Instances (@EC2-Classic@ | @EC2-VPC@).
+-- -   'modification-result.target-configuration.platform' - The network
+--     platform of the new Reserved Instances ('EC2-Classic' | 'EC2-VPC').
 --
--- -   @reserved-instances-id@ - The ID of the Reserved Instances modified.
+-- -   'reserved-instances-id' - The ID of the Reserved Instances modified.
 --
--- -   @reserved-instances-modification-id@ - The ID of the modification
+-- -   'reserved-instances-modification-id' - The ID of the modification
 --     request.
 --
--- -   @status@ - The status of the Reserved Instances modification request
---     (@processing@ | @fulfilled@ | @failed@).
+-- -   'status' - The status of the Reserved Instances modification request
+--     ('processing' | 'fulfilled' | 'failed').
 --
--- -   @status-message@ - The reason for the status.
+-- -   'status-message' - The reason for the status.
 --
--- -   @update-date@ - The time when the modification request was last
+-- -   'update-date' - The time when the modification request was last
 --     updated.
 --
 drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
@@ -174,22 +177,24 @@ instance ToQuery
                "NextToken" =: _drimNextToken]
 
 -- | /See:/ 'describeReservedInstancesModificationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drimrsNextToken'
---
--- * 'drimrsReservedInstancesModifications'
---
--- * 'drimrsStatus'
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
     { _drimrsNextToken                      :: !(Maybe Text)
     , _drimrsReservedInstancesModifications :: !(Maybe [ReservedInstancesModification])
     , _drimrsStatus                         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeReservedInstancesModificationsResponse' smart constructor.
-describeReservedInstancesModificationsResponse :: Int -> DescribeReservedInstancesModificationsResponse
+-- | Creates a value of 'DescribeReservedInstancesModificationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drimrsNextToken'
+--
+-- * 'drimrsReservedInstancesModifications'
+--
+-- * 'drimrsStatus'
+describeReservedInstancesModificationsResponse
+    :: Int -- ^ 'drimrsStatus'
+    -> DescribeReservedInstancesModificationsResponse
 describeReservedInstancesModificationsResponse pStatus_ =
     DescribeReservedInstancesModificationsResponse'
     { _drimrsNextToken = Nothing
@@ -198,7 +203,7 @@ describeReservedInstancesModificationsResponse pStatus_ =
     }
 
 -- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'null' when there are no more results to return.
 drimrsNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
 drimrsNextToken = lens _drimrsNextToken (\ s a -> s{_drimrsNextToken = a});
 
@@ -206,6 +211,6 @@ drimrsNextToken = lens _drimrsNextToken (\ s a -> s{_drimrsNextToken = a});
 drimrsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
 drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModifications (\ s a -> s{_drimrsReservedInstancesModifications = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 drimrsStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
 drimrsStatus = lens _drimrsStatus (\ s a -> s{_drimrsStatus = a});

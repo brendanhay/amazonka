@@ -27,16 +27,16 @@
 module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     (
     -- * Creating a Request
-      CreateCacheSubnetGroup
-    , createCacheSubnetGroup
+      createCacheSubnetGroup
+    , CreateCacheSubnetGroup
     -- * Request Lenses
     , ccsgCacheSubnetGroupName
     , ccsgCacheSubnetGroupDescription
     , ccsgSubnetIds
 
     -- * Destructuring the Response
-    , CreateCacheSubnetGroupResponse
     , createCacheSubnetGroupResponse
+    , CreateCacheSubnetGroupResponse
     -- * Response Lenses
     , crsCacheSubnetGroup
     , crsStatus
@@ -51,22 +51,25 @@ import           Network.AWS.Response
 -- | Represents the input of a /CreateCacheSubnetGroup/ action.
 --
 -- /See:/ 'createCacheSubnetGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccsgCacheSubnetGroupName'
---
--- * 'ccsgCacheSubnetGroupDescription'
---
--- * 'ccsgSubnetIds'
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
     { _ccsgCacheSubnetGroupName        :: !Text
     , _ccsgCacheSubnetGroupDescription :: !Text
     , _ccsgSubnetIds                   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateCacheSubnetGroup' smart constructor.
-createCacheSubnetGroup :: Text -> Text -> CreateCacheSubnetGroup
+-- | Creates a value of 'CreateCacheSubnetGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccsgCacheSubnetGroupName'
+--
+-- * 'ccsgCacheSubnetGroupDescription'
+--
+-- * 'ccsgSubnetIds'
+createCacheSubnetGroup
+    :: Text -- ^ 'ccsgCacheSubnetGroupName'
+    -> Text -- ^ 'ccsgCacheSubnetGroupDescription'
+    -> CreateCacheSubnetGroup
 createCacheSubnetGroup pCacheSubnetGroupName_ pCacheSubnetGroupDescription_ =
     CreateCacheSubnetGroup'
     { _ccsgCacheSubnetGroupName = pCacheSubnetGroupName_
@@ -80,7 +83,7 @@ createCacheSubnetGroup pCacheSubnetGroupName_ pCacheSubnetGroupDescription_ =
 -- Constraints: Must contain no more than 255 alphanumeric characters or
 -- hyphens.
 --
--- Example: @mysubnetgroup@
+-- Example: 'mysubnetgroup'
 ccsgCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup Text
 ccsgCacheSubnetGroupName = lens _ccsgCacheSubnetGroupName (\ s a -> s{_ccsgCacheSubnetGroupName = a});
 
@@ -122,19 +125,21 @@ instance ToQuery CreateCacheSubnetGroup where
                  toQueryList "SubnetIdentifier" _ccsgSubnetIds]
 
 -- | /See:/ 'createCacheSubnetGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crsCacheSubnetGroup'
---
--- * 'crsStatus'
 data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
     { _crsCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
     , _crsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateCacheSubnetGroupResponse' smart constructor.
-createCacheSubnetGroupResponse :: Int -> CreateCacheSubnetGroupResponse
+-- | Creates a value of 'CreateCacheSubnetGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crsCacheSubnetGroup'
+--
+-- * 'crsStatus'
+createCacheSubnetGroupResponse
+    :: Int -- ^ 'crsStatus'
+    -> CreateCacheSubnetGroupResponse
 createCacheSubnetGroupResponse pStatus_ =
     CreateCacheSubnetGroupResponse'
     { _crsCacheSubnetGroup = Nothing
@@ -145,6 +150,6 @@ createCacheSubnetGroupResponse pStatus_ =
 crsCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 crsCacheSubnetGroup = lens _crsCacheSubnetGroup (\ s a -> s{_crsCacheSubnetGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 crsStatus :: Lens' CreateCacheSubnetGroupResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

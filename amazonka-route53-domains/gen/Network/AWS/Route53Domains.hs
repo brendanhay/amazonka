@@ -48,7 +48,6 @@ module Network.AWS.Route53Domains
 
     -- ** ListOperations (Paginated)
     , module Network.AWS.Route53Domains.ListOperations
-    -- $pager
 
     -- ** GetDomainDetail
     , module Network.AWS.Route53Domains.GetDomainDetail
@@ -100,7 +99,6 @@ module Network.AWS.Route53Domains
 
     -- ** ListDomains (Paginated)
     , module Network.AWS.Route53Domains.ListDomains
-    -- $pager
 
     -- * Types
 
@@ -224,8 +222,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

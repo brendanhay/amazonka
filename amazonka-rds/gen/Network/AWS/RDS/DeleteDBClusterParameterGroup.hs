@@ -29,14 +29,14 @@
 module Network.AWS.RDS.DeleteDBClusterParameterGroup
     (
     -- * Creating a Request
-      DeleteDBClusterParameterGroup
-    , deleteDBClusterParameterGroup
+      deleteDBClusterParameterGroup
+    , DeleteDBClusterParameterGroup
     -- * Request Lenses
     , ddbcpgDBClusterParameterGroupName
 
     -- * Destructuring the Response
-    , DeleteDBClusterParameterGroupResponse
     , deleteDBClusterParameterGroupResponse
+    , DeleteDBClusterParameterGroupResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -48,16 +48,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteDBClusterParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddbcpgDBClusterParameterGroupName'
 newtype DeleteDBClusterParameterGroup = DeleteDBClusterParameterGroup'
     { _ddbcpgDBClusterParameterGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBClusterParameterGroup' smart constructor.
-deleteDBClusterParameterGroup :: Text -> DeleteDBClusterParameterGroup
+-- | Creates a value of 'DeleteDBClusterParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddbcpgDBClusterParameterGroupName'
+deleteDBClusterParameterGroup
+    :: Text -- ^ 'ddbcpgDBClusterParameterGroupName'
+    -> DeleteDBClusterParameterGroup
 deleteDBClusterParameterGroup pDBClusterParameterGroupName_ =
     DeleteDBClusterParameterGroup'
     { _ddbcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
@@ -103,6 +105,8 @@ data DeleteDBClusterParameterGroupResponse =
     DeleteDBClusterParameterGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBClusterParameterGroupResponse' smart constructor.
-deleteDBClusterParameterGroupResponse :: DeleteDBClusterParameterGroupResponse
+-- | Creates a value of 'DeleteDBClusterParameterGroupResponse' with the minimum fields required to make a request.
+--
+deleteDBClusterParameterGroupResponse
+    :: DeleteDBClusterParameterGroupResponse
 deleteDBClusterParameterGroupResponse = DeleteDBClusterParameterGroupResponse'

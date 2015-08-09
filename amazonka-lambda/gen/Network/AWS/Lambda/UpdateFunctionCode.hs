@@ -22,15 +22,15 @@
 -- only be used on an existing Lambda function and cannot be used to update
 -- the function configuration.
 --
--- This operation requires permission for the @lambda:UpdateFunctionCode@
+-- This operation requires permission for the 'lambda:UpdateFunctionCode'
 -- action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionCode.html AWS API Reference> for UpdateFunctionCode.
 module Network.AWS.Lambda.UpdateFunctionCode
     (
     -- * Creating a Request
-      UpdateFunctionCode
-    , updateFunctionCode
+      updateFunctionCode
+    , UpdateFunctionCode
     -- * Request Lenses
     , uS3ObjectVersion
     , uS3Key
@@ -39,8 +39,8 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , uFunctionName
 
     -- * Destructuring the Response
-    , FunctionConfiguration
     , functionConfiguration
+    , FunctionConfiguration
     -- * Response Lenses
     , fcRuntime
     , fcMemorySize
@@ -61,8 +61,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateFunctionCode' smart constructor.
+data UpdateFunctionCode = UpdateFunctionCode'
+    { _uS3ObjectVersion :: !(Maybe Text)
+    , _uS3Key           :: !(Maybe Text)
+    , _uZipFile         :: !(Maybe Base64)
+    , _uS3Bucket        :: !(Maybe Text)
+    , _uFunctionName    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateFunctionCode' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uS3ObjectVersion'
 --
@@ -73,16 +82,9 @@ import           Network.AWS.Response
 -- * 'uS3Bucket'
 --
 -- * 'uFunctionName'
-data UpdateFunctionCode = UpdateFunctionCode'
-    { _uS3ObjectVersion :: !(Maybe Text)
-    , _uS3Key           :: !(Maybe Text)
-    , _uZipFile         :: !(Maybe Base64)
-    , _uS3Bucket        :: !(Maybe Text)
-    , _uFunctionName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateFunctionCode' smart constructor.
-updateFunctionCode :: Text -> UpdateFunctionCode
+updateFunctionCode
+    :: Text -- ^ 'uFunctionName'
+    -> UpdateFunctionCode
 updateFunctionCode pFunctionName_ =
     UpdateFunctionCode'
     { _uS3ObjectVersion = Nothing

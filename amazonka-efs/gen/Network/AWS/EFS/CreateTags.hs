@@ -26,21 +26,21 @@
 -- API.
 --
 -- This operation requires permission for the
--- @elasticfilesystem:CreateTags@ action.
+-- 'elasticfilesystem:CreateTags' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateTags.html AWS API Reference> for CreateTags.
 module Network.AWS.EFS.CreateTags
     (
     -- * Creating a Request
-      CreateTags
-    , createTags
+      createTags
+    , CreateTags
     -- * Request Lenses
     , ctFileSystemId
     , ctTags
 
     -- * Destructuring the Response
-    , CreateTagsResponse
     , createTagsResponse
+    , CreateTagsResponse
     ) where
 
 import           Network.AWS.EFS.Types
@@ -50,19 +50,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ctFileSystemId'
---
--- * 'ctTags'
 data CreateTags = CreateTags'
     { _ctFileSystemId :: !Text
     , _ctTags         :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateTags' smart constructor.
-createTags :: Text -> CreateTags
+-- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctFileSystemId'
+--
+-- * 'ctTags'
+createTags
+    :: Text -- ^ 'ctFileSystemId'
+    -> CreateTags
 createTags pFileSystemId_ =
     CreateTags'
     { _ctFileSystemId = pFileSystemId_
@@ -74,7 +76,7 @@ createTags pFileSystemId_ =
 ctFileSystemId :: Lens' CreateTags Text
 ctFileSystemId = lens _ctFileSystemId (\ s a -> s{_ctFileSystemId = a});
 
--- | An array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
+-- | An array of 'Tag' objects to add. Each 'Tag' object is a key-value pair.
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
 
@@ -103,6 +105,8 @@ data CreateTagsResponse =
     CreateTagsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateTagsResponse' smart constructor.
-createTagsResponse :: CreateTagsResponse
+-- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
+--
+createTagsResponse
+    :: CreateTagsResponse
 createTagsResponse = CreateTagsResponse'

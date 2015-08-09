@@ -36,7 +36,7 @@
 -- <http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-auth.html#d0e664 Amazon Cognito Overview>
 -- in the /AWS SDK for iOS Developer Guide/.
 --
--- Calling @AssumeRoleWithWebIdentity@ does not require the use of AWS
+-- Calling 'AssumeRoleWithWebIdentity' does not require the use of AWS
 -- security credentials. Therefore, you can distribute an application (for
 -- example, on mobile devices) that requests temporary security credentials
 -- without including long-term AWS credentials in the application, and
@@ -48,7 +48,7 @@
 -- access key ID, a secret access key, and a security token. Applications
 -- can use these temporary security credentials to sign calls to AWS
 -- service APIs. The credentials are valid for the duration that you
--- specified when calling @AssumeRoleWithWebIdentity@, which can be from
+-- specified when calling 'AssumeRoleWithWebIdentity', which can be from
 -- 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the
 -- temporary security credentials are valid for 1 hour.
 --
@@ -66,7 +66,7 @@
 -- see
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithWebIdentity>.
 --
--- Before your application can call @AssumeRoleWithWebIdentity@, you must
+-- Before your application can call 'AssumeRoleWithWebIdentity', you must
 -- have an identity token from a supported identity provider and create a
 -- role that the application can assume. The role that your application
 -- assumes must trust the identity provider that is associated with the
@@ -74,7 +74,7 @@
 -- in the role\'s trust policy.
 --
 -- For more information about how to use web identity federation and the
--- @AssumeRoleWithWebIdentity@ API, see the following resources:
+-- 'AssumeRoleWithWebIdentity' API, see the following resources:
 --
 -- -   <http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html#MobileApplication-KnownProvider Creating a Mobile Application with Third-Party Sign-In>
 --     and
@@ -98,8 +98,8 @@
 module Network.AWS.STS.AssumeRoleWithWebIdentity
     (
     -- * Creating a Request
-      AssumeRoleWithWebIdentity
-    , assumeRoleWithWebIdentity
+      assumeRoleWithWebIdentity
+    , AssumeRoleWithWebIdentity
     -- * Request Lenses
     , arwwiProviderId
     , arwwiDurationSeconds
@@ -109,8 +109,8 @@ module Network.AWS.STS.AssumeRoleWithWebIdentity
     , arwwiWebIdentityToken
 
     -- * Destructuring the Response
-    , AssumeRoleWithWebIdentityResponse
     , assumeRoleWithWebIdentityResponse
+    , AssumeRoleWithWebIdentityResponse
     -- * Response Lenses
     , arwwirsAudience
     , arwwirsSubjectFromWebIdentityToken
@@ -128,8 +128,18 @@ import           Network.AWS.STS.Types
 import           Network.AWS.STS.Types.Product
 
 -- | /See:/ 'assumeRoleWithWebIdentity' smart constructor.
+data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
+    { _arwwiProviderId       :: !(Maybe Text)
+    , _arwwiDurationSeconds  :: !(Maybe Nat)
+    , _arwwiPolicy           :: !(Maybe Text)
+    , _arwwiRoleARN          :: !Text
+    , _arwwiRoleSessionName  :: !Text
+    , _arwwiWebIdentityToken :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AssumeRoleWithWebIdentity' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'arwwiProviderId'
 --
@@ -142,17 +152,11 @@ import           Network.AWS.STS.Types.Product
 -- * 'arwwiRoleSessionName'
 --
 -- * 'arwwiWebIdentityToken'
-data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
-    { _arwwiProviderId       :: !(Maybe Text)
-    , _arwwiDurationSeconds  :: !(Maybe Nat)
-    , _arwwiPolicy           :: !(Maybe Text)
-    , _arwwiRoleARN          :: !Text
-    , _arwwiRoleSessionName  :: !Text
-    , _arwwiWebIdentityToken :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AssumeRoleWithWebIdentity' smart constructor.
-assumeRoleWithWebIdentity :: Text -> Text -> Text -> AssumeRoleWithWebIdentity
+assumeRoleWithWebIdentity
+    :: Text -- ^ 'arwwiRoleARN'
+    -> Text -- ^ 'arwwiRoleSessionName'
+    -> Text -- ^ 'arwwiWebIdentityToken'
+    -> AssumeRoleWithWebIdentity
 assumeRoleWithWebIdentity pRoleARN_ pRoleSessionName_ pWebIdentityToken_ =
     AssumeRoleWithWebIdentity'
     { _arwwiProviderId = Nothing
@@ -167,7 +171,7 @@ assumeRoleWithWebIdentity pRoleARN_ pRoleSessionName_ pWebIdentityToken_ =
 -- provider.
 --
 -- Specify this value only for OAuth 2.0 access tokens. Currently
--- @www.amazon.com@ and @graph.facebook.com@ are the only supported
+-- 'www.amazon.com' and 'graph.facebook.com' are the only supported
 -- identity providers for OAuth 2.0 access tokens. Do not include URL
 -- schemes and port numbers.
 --
@@ -209,7 +213,7 @@ arwwiRoleARN = lens _arwwiRoleARN (\ s a -> s{_arwwiRoleARN = a});
 -- or identifier that is associated with the user who is using your
 -- application. That way, the temporary security credentials that your
 -- application will use are associated with that user. This session name is
--- included as part of the ARN and assumed role ID in the @AssumedRoleUser@
+-- included as part of the ARN and assumed role ID in the 'AssumedRoleUser'
 -- response element.
 arwwiRoleSessionName :: Lens' AssumeRoleWithWebIdentity Text
 arwwiRoleSessionName = lens _arwwiRoleSessionName (\ s a -> s{_arwwiRoleSessionName = a});
@@ -218,7 +222,7 @@ arwwiRoleSessionName = lens _arwwiRoleSessionName (\ s a -> s{_arwwiRoleSessionN
 -- by the identity provider. Your application must get this token by
 -- authenticating the user who is using your application with a web
 -- identity provider before the application makes an
--- @AssumeRoleWithWebIdentity@ call.
+-- 'AssumeRoleWithWebIdentity' call.
 arwwiWebIdentityToken :: Lens' AssumeRoleWithWebIdentity Text
 arwwiWebIdentityToken = lens _arwwiWebIdentityToken (\ s a -> s{_arwwiWebIdentityToken = a});
 
@@ -262,8 +266,19 @@ instance ToQuery AssumeRoleWithWebIdentity where
 -- requests.
 --
 -- /See:/ 'assumeRoleWithWebIdentityResponse' smart constructor.
+data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
+    { _arwwirsAudience                    :: !(Maybe Text)
+    , _arwwirsSubjectFromWebIdentityToken :: !(Maybe Text)
+    , _arwwirsPackedPolicySize            :: !(Maybe Nat)
+    , _arwwirsCredentials                 :: !(Maybe Credentials)
+    , _arwwirsAssumedRoleUser             :: !(Maybe AssumedRoleUser)
+    , _arwwirsProvider                    :: !(Maybe Text)
+    , _arwwirsStatus                      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AssumeRoleWithWebIdentityResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'arwwirsAudience'
 --
@@ -278,18 +293,9 @@ instance ToQuery AssumeRoleWithWebIdentity where
 -- * 'arwwirsProvider'
 --
 -- * 'arwwirsStatus'
-data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
-    { _arwwirsAudience                    :: !(Maybe Text)
-    , _arwwirsSubjectFromWebIdentityToken :: !(Maybe Text)
-    , _arwwirsPackedPolicySize            :: !(Maybe Nat)
-    , _arwwirsCredentials                 :: !(Maybe Credentials)
-    , _arwwirsAssumedRoleUser             :: !(Maybe AssumedRoleUser)
-    , _arwwirsProvider                    :: !(Maybe Text)
-    , _arwwirsStatus                      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AssumeRoleWithWebIdentityResponse' smart constructor.
-assumeRoleWithWebIdentityResponse :: Int -> AssumeRoleWithWebIdentityResponse
+assumeRoleWithWebIdentityResponse
+    :: Int -- ^ 'arwwirsStatus'
+    -> AssumeRoleWithWebIdentityResponse
 assumeRoleWithWebIdentityResponse pStatus_ =
     AssumeRoleWithWebIdentityResponse'
     { _arwwirsAudience = Nothing
@@ -308,12 +314,12 @@ arwwirsAudience :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirsAudience = lens _arwwirsAudience (\ s a -> s{_arwwirsAudience = a});
 
 -- | The unique user identifier that is returned by the identity provider.
--- This identifier is associated with the @WebIdentityToken@ that was
--- submitted with the @AssumeRoleWithWebIdentity@ call. The identifier is
+-- This identifier is associated with the 'WebIdentityToken' that was
+-- submitted with the 'AssumeRoleWithWebIdentity' call. The identifier is
 -- typically unique to the user and the application that acquired the
--- @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens,
+-- 'WebIdentityToken' (pairwise identifier). For OpenID Connect ID tokens,
 -- this field contains the value returned by the identity provider as the
--- token\'s @sub@ (Subject) claim.
+-- token\'s 'sub' (Subject) claim.
 arwwirsSubjectFromWebIdentityToken :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirsSubjectFromWebIdentityToken = lens _arwwirsSubjectFromWebIdentityToken (\ s a -> s{_arwwirsSubjectFromWebIdentityToken = a});
 
@@ -332,18 +338,18 @@ arwwirsCredentials = lens _arwwirsCredentials (\ s a -> s{_arwwirsCredentials = 
 -- identifiers that you can use to refer to the resulting temporary
 -- security credentials. For example, you can reference these credentials
 -- as a principal in a resource-based policy by using the ARN or assumed
--- role ID. The ARN and ID include the @RoleSessionName@ that you specified
--- when you called @AssumeRole@.
+-- role ID. The ARN and ID include the 'RoleSessionName' that you specified
+-- when you called 'AssumeRole'.
 arwwirsAssumedRoleUser :: Lens' AssumeRoleWithWebIdentityResponse (Maybe AssumedRoleUser)
 arwwirsAssumedRoleUser = lens _arwwirsAssumedRoleUser (\ s a -> s{_arwwirsAssumedRoleUser = a});
 
 -- | The issuing authority of the web identity token presented. For OpenID
--- Connect ID Tokens this contains the value of the @iss@ field. For OAuth
--- 2.0 access tokens, this contains the value of the @ProviderId@ parameter
--- that was passed in the @AssumeRoleWithWebIdentity@ request.
+-- Connect ID Tokens this contains the value of the 'iss' field. For OAuth
+-- 2.0 access tokens, this contains the value of the 'ProviderId' parameter
+-- that was passed in the 'AssumeRoleWithWebIdentity' request.
 arwwirsProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirsProvider = lens _arwwirsProvider (\ s a -> s{_arwwirsProvider = a});
 
--- | Undocumented member.
+-- | The response status code.
 arwwirsStatus :: Lens' AssumeRoleWithWebIdentityResponse Int
 arwwirsStatus = lens _arwwirsStatus (\ s a -> s{_arwwirsStatus = a});

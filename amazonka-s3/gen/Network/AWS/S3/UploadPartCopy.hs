@@ -24,8 +24,8 @@
 module Network.AWS.S3.UploadPartCopy
     (
     -- * Creating a Request
-      UploadPartCopy
-    , uploadPartCopy
+      uploadPartCopy
+    , UploadPartCopy
     -- * Request Lenses
     , upcCopySourceIfModifiedSince
     , upcCopySourceIfUnmodifiedSince
@@ -46,8 +46,8 @@ module Network.AWS.S3.UploadPartCopy
     , upcUploadId
 
     -- * Destructuring the Response
-    , UploadPartCopyResponse
     , uploadPartCopyResponse
+    , UploadPartCopyResponse
     -- * Response Lenses
     , upcrsRequestCharged
     , upcrsCopyPartResult
@@ -66,8 +66,29 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'uploadPartCopy' smart constructor.
+data UploadPartCopy = UploadPartCopy'
+    { _upcCopySourceIfModifiedSince      :: !(Maybe RFC822)
+    , _upcCopySourceIfUnmodifiedSince    :: !(Maybe RFC822)
+    , _upcCopySourceRange                :: !(Maybe Text)
+    , _upcCopySourceSSECustomerKeyMD5    :: !(Maybe Text)
+    , _upcSSECustomerAlgorithm           :: !(Maybe Text)
+    , _upcCopySourceIfNoneMatch          :: !(Maybe Text)
+    , _upcSSECustomerKey                 :: !(Maybe (Sensitive Text))
+    , _upcRequestPayer                   :: !(Maybe RequestPayer)
+    , _upcCopySourceIfMatch              :: !(Maybe Text)
+    , _upcSSECustomerKeyMD5              :: !(Maybe Text)
+    , _upcCopySourceSSECustomerKey       :: !(Maybe (Sensitive Text))
+    , _upcCopySourceSSECustomerAlgorithm :: !(Maybe Text)
+    , _upcBucket                         :: !BucketName
+    , _upcCopySource                     :: !Text
+    , _upcKey                            :: !ObjectKey
+    , _upcPartNumber                     :: !Int
+    , _upcUploadId                       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UploadPartCopy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'upcCopySourceIfModifiedSince'
 --
@@ -102,28 +123,13 @@ import           Network.AWS.S3.Types.Product
 -- * 'upcPartNumber'
 --
 -- * 'upcUploadId'
-data UploadPartCopy = UploadPartCopy'
-    { _upcCopySourceIfModifiedSince      :: !(Maybe RFC822)
-    , _upcCopySourceIfUnmodifiedSince    :: !(Maybe RFC822)
-    , _upcCopySourceRange                :: !(Maybe Text)
-    , _upcCopySourceSSECustomerKeyMD5    :: !(Maybe Text)
-    , _upcSSECustomerAlgorithm           :: !(Maybe Text)
-    , _upcCopySourceIfNoneMatch          :: !(Maybe Text)
-    , _upcSSECustomerKey                 :: !(Maybe (Sensitive Text))
-    , _upcRequestPayer                   :: !(Maybe RequestPayer)
-    , _upcCopySourceIfMatch              :: !(Maybe Text)
-    , _upcSSECustomerKeyMD5              :: !(Maybe Text)
-    , _upcCopySourceSSECustomerKey       :: !(Maybe (Sensitive Text))
-    , _upcCopySourceSSECustomerAlgorithm :: !(Maybe Text)
-    , _upcBucket                         :: !BucketName
-    , _upcCopySource                     :: !Text
-    , _upcKey                            :: !ObjectKey
-    , _upcPartNumber                     :: !Int
-    , _upcUploadId                       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UploadPartCopy' smart constructor.
-uploadPartCopy :: BucketName -> Text -> ObjectKey -> Int -> Text -> UploadPartCopy
+uploadPartCopy
+    :: BucketName -- ^ 'upcBucket'
+    -> Text -- ^ 'upcCopySource'
+    -> ObjectKey -- ^ 'upcKey'
+    -> Int -- ^ 'upcPartNumber'
+    -> Text -- ^ 'upcUploadId'
+    -> UploadPartCopy
 uploadPartCopy pBucket_ pCopySource_ pKey_ pPartNumber_ pUploadId_ =
     UploadPartCopy'
     { _upcCopySourceIfModifiedSince = Nothing
@@ -292,8 +298,20 @@ instance ToQuery UploadPartCopy where
                "uploadId" =: _upcUploadId]
 
 -- | /See:/ 'uploadPartCopyResponse' smart constructor.
+data UploadPartCopyResponse = UploadPartCopyResponse'
+    { _upcrsRequestCharged       :: !(Maybe RequestCharged)
+    , _upcrsCopyPartResult       :: !(Maybe CopyPartResult)
+    , _upcrsSSECustomerAlgorithm :: !(Maybe Text)
+    , _upcrsCopySourceVersionId  :: !(Maybe Text)
+    , _upcrsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _upcrsSSECustomerKeyMD5    :: !(Maybe Text)
+    , _upcrsServerSideEncryption :: !(Maybe ServerSideEncryption)
+    , _upcrsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UploadPartCopyResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'upcrsRequestCharged'
 --
@@ -310,19 +328,9 @@ instance ToQuery UploadPartCopy where
 -- * 'upcrsServerSideEncryption'
 --
 -- * 'upcrsStatus'
-data UploadPartCopyResponse = UploadPartCopyResponse'
-    { _upcrsRequestCharged       :: !(Maybe RequestCharged)
-    , _upcrsCopyPartResult       :: !(Maybe CopyPartResult)
-    , _upcrsSSECustomerAlgorithm :: !(Maybe Text)
-    , _upcrsCopySourceVersionId  :: !(Maybe Text)
-    , _upcrsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
-    , _upcrsSSECustomerKeyMD5    :: !(Maybe Text)
-    , _upcrsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _upcrsStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UploadPartCopyResponse' smart constructor.
-uploadPartCopyResponse :: Int -> UploadPartCopyResponse
+uploadPartCopyResponse
+    :: Int -- ^ 'upcrsStatus'
+    -> UploadPartCopyResponse
 uploadPartCopyResponse pStatus_ =
     UploadPartCopyResponse'
     { _upcrsRequestCharged = Nothing
@@ -370,6 +378,6 @@ upcrsSSECustomerKeyMD5 = lens _upcrsSSECustomerKeyMD5 (\ s a -> s{_upcrsSSECusto
 upcrsServerSideEncryption :: Lens' UploadPartCopyResponse (Maybe ServerSideEncryption)
 upcrsServerSideEncryption = lens _upcrsServerSideEncryption (\ s a -> s{_upcrsServerSideEncryption = a});
 
--- | Undocumented member.
+-- | The response status code.
 upcrsStatus :: Lens' UploadPartCopyResponse Int
 upcrsStatus = lens _upcrsStatus (\ s a -> s{_upcrsStatus = a});

@@ -25,16 +25,16 @@
 module Network.AWS.EC2.DescribeVPCEndpointServices
     (
     -- * Creating a Request
-      DescribeVPCEndpointServices
-    , describeVPCEndpointServices
+      describeVPCEndpointServices
+    , DescribeVPCEndpointServices
     -- * Request Lenses
     , dvesNextToken
     , dvesDryRun
     , dvesMaxResults
 
     -- * Destructuring the Response
-    , DescribeVPCEndpointServicesResponse
     , describeVPCEndpointServicesResponse
+    , DescribeVPCEndpointServicesResponse
     -- * Response Lenses
     , dvesrsServiceNames
     , dvesrsNextToken
@@ -48,22 +48,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeVPCEndpointServices' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvesNextToken'
---
--- * 'dvesDryRun'
---
--- * 'dvesMaxResults'
 data DescribeVPCEndpointServices = DescribeVPCEndpointServices'
     { _dvesNextToken  :: !(Maybe Text)
     , _dvesDryRun     :: !(Maybe Bool)
     , _dvesMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVPCEndpointServices' smart constructor.
-describeVPCEndpointServices :: DescribeVPCEndpointServices
+-- | Creates a value of 'DescribeVPCEndpointServices' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvesNextToken'
+--
+-- * 'dvesDryRun'
+--
+-- * 'dvesMaxResults'
+describeVPCEndpointServices
+    :: DescribeVPCEndpointServices
 describeVPCEndpointServices =
     DescribeVPCEndpointServices'
     { _dvesNextToken = Nothing
@@ -78,8 +79,8 @@ dvesNextToken = lens _dvesNextToken (\ s a -> s{_dvesNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dvesDryRun :: Lens' DescribeVPCEndpointServices (Maybe Bool)
 dvesDryRun = lens _dvesDryRun (\ s a -> s{_dvesDryRun = a});
 
@@ -123,22 +124,24 @@ instance ToQuery DescribeVPCEndpointServices where
                "MaxResults" =: _dvesMaxResults]
 
 -- | /See:/ 'describeVPCEndpointServicesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvesrsServiceNames'
---
--- * 'dvesrsNextToken'
---
--- * 'dvesrsStatus'
 data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
     { _dvesrsServiceNames :: !(Maybe [Text])
     , _dvesrsNextToken    :: !(Maybe Text)
     , _dvesrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVPCEndpointServicesResponse' smart constructor.
-describeVPCEndpointServicesResponse :: Int -> DescribeVPCEndpointServicesResponse
+-- | Creates a value of 'DescribeVPCEndpointServicesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvesrsServiceNames'
+--
+-- * 'dvesrsNextToken'
+--
+-- * 'dvesrsStatus'
+describeVPCEndpointServicesResponse
+    :: Int -- ^ 'dvesrsStatus'
+    -> DescribeVPCEndpointServicesResponse
 describeVPCEndpointServicesResponse pStatus_ =
     DescribeVPCEndpointServicesResponse'
     { _dvesrsServiceNames = Nothing
@@ -155,6 +158,6 @@ dvesrsServiceNames = lens _dvesrsServiceNames (\ s a -> s{_dvesrsServiceNames = 
 dvesrsNextToken :: Lens' DescribeVPCEndpointServicesResponse (Maybe Text)
 dvesrsNextToken = lens _dvesrsNextToken (\ s a -> s{_dvesrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dvesrsStatus :: Lens' DescribeVPCEndpointServicesResponse Int
 dvesrsStatus = lens _dvesrsStatus (\ s a -> s{_dvesrsStatus = a});

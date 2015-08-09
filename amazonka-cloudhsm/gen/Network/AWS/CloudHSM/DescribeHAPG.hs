@@ -24,14 +24,14 @@
 module Network.AWS.CloudHSM.DescribeHAPG
     (
     -- * Creating a Request
-      DescribeHAPG
-    , describeHAPG
+      describeHAPG
+    , DescribeHAPG
     -- * Request Lenses
     , dhapgHAPGARN
 
     -- * Destructuring the Response
-    , DescribeHAPGResponse
     , describeHAPGResponse
+    , DescribeHAPGResponse
     -- * Response Lenses
     , dhapgrsState
     , dhapgrsLastModifiedTimestamp
@@ -54,16 +54,18 @@ import           Network.AWS.Response
 -- | Contains the inputs for the DescribeHapg action.
 --
 -- /See:/ 'describeHAPG' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhapgHAPGARN'
 newtype DescribeHAPG = DescribeHAPG'
     { _dhapgHAPGARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeHAPG' smart constructor.
-describeHAPG :: Text -> DescribeHAPG
+-- | Creates a value of 'DescribeHAPG' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhapgHAPGARN'
+describeHAPG
+    :: Text -- ^ 'dhapgHAPGARN'
+    -> DescribeHAPG
 describeHAPG pHAPGARN_ =
     DescribeHAPG'
     { _dhapgHAPGARN = pHAPGARN_
@@ -114,8 +116,22 @@ instance ToQuery DescribeHAPG where
 -- | Contains the output of the DescribeHapg action.
 --
 -- /See:/ 'describeHAPGResponse' smart constructor.
+data DescribeHAPGResponse = DescribeHAPGResponse'
+    { _dhapgrsState                   :: !(Maybe CloudHSMObjectState)
+    , _dhapgrsLastModifiedTimestamp   :: !(Maybe Text)
+    , _dhapgrsHSMsPendingRegistration :: !(Maybe [Text])
+    , _dhapgrsHAPGSerial              :: !(Maybe Text)
+    , _dhapgrsHSMsPendingDeletion     :: !(Maybe [Text])
+    , _dhapgrsHSMsLastActionFailed    :: !(Maybe [Text])
+    , _dhapgrsPartitionSerialList     :: !(Maybe [Text])
+    , _dhapgrsHAPGARN                 :: !(Maybe Text)
+    , _dhapgrsLabel                   :: !(Maybe Text)
+    , _dhapgrsStatus                  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeHAPGResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dhapgrsState'
 --
@@ -136,21 +152,9 @@ instance ToQuery DescribeHAPG where
 -- * 'dhapgrsLabel'
 --
 -- * 'dhapgrsStatus'
-data DescribeHAPGResponse = DescribeHAPGResponse'
-    { _dhapgrsState                   :: !(Maybe CloudHSMObjectState)
-    , _dhapgrsLastModifiedTimestamp   :: !(Maybe Text)
-    , _dhapgrsHSMsPendingRegistration :: !(Maybe [Text])
-    , _dhapgrsHAPGSerial              :: !(Maybe Text)
-    , _dhapgrsHSMsPendingDeletion     :: !(Maybe [Text])
-    , _dhapgrsHSMsLastActionFailed    :: !(Maybe [Text])
-    , _dhapgrsPartitionSerialList     :: !(Maybe [Text])
-    , _dhapgrsHAPGARN                 :: !(Maybe Text)
-    , _dhapgrsLabel                   :: !(Maybe Text)
-    , _dhapgrsStatus                  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeHAPGResponse' smart constructor.
-describeHAPGResponse :: Int -> DescribeHAPGResponse
+describeHAPGResponse
+    :: Int -- ^ 'dhapgrsStatus'
+    -> DescribeHAPGResponse
 describeHAPGResponse pStatus_ =
     DescribeHAPGResponse'
     { _dhapgrsState = Nothing
@@ -203,6 +207,6 @@ dhapgrsHAPGARN = lens _dhapgrsHAPGARN (\ s a -> s{_dhapgrsHAPGARN = a});
 dhapgrsLabel :: Lens' DescribeHAPGResponse (Maybe Text)
 dhapgrsLabel = lens _dhapgrsLabel (\ s a -> s{_dhapgrsLabel = a});
 
--- | Undocumented member.
+-- | The response status code.
 dhapgrsStatus :: Lens' DescribeHAPGResponse Int
 dhapgrsStatus = lens _dhapgrsStatus (\ s a -> s{_dhapgrsStatus = a});

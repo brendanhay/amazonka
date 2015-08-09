@@ -26,7 +26,7 @@
 -- system has any mount targets, you must first delete them. For more
 -- information, see DescribeMountTargets and DeleteMountTarget.
 --
--- The @DeleteFileSystem@ call returns while the file system state is still
+-- The 'DeleteFileSystem' call returns while the file system state is still
 -- \"deleting\". You can check the file system deletion status by calling
 -- the DescribeFileSystems API, which returns a list of file systems in
 -- your account. If you pass file system ID or creation token for the
@@ -34,20 +34,20 @@
 -- \"FileSystemNotFound\" error.
 --
 -- This operation requires permission for the
--- @elasticfilesystem:DeleteFileSystem@ action.
+-- 'elasticfilesystem:DeleteFileSystem' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteFileSystem.html AWS API Reference> for DeleteFileSystem.
 module Network.AWS.EFS.DeleteFileSystem
     (
     -- * Creating a Request
-      DeleteFileSystem
-    , deleteFileSystem
+      deleteFileSystem
+    , DeleteFileSystem
     -- * Request Lenses
     , delFileSystemId
 
     -- * Destructuring the Response
-    , DeleteFileSystemResponse
     , deleteFileSystemResponse
+    , DeleteFileSystemResponse
     ) where
 
 import           Network.AWS.EFS.Types
@@ -57,16 +57,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteFileSystem' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delFileSystemId'
 newtype DeleteFileSystem = DeleteFileSystem'
     { _delFileSystemId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteFileSystem' smart constructor.
-deleteFileSystem :: Text -> DeleteFileSystem
+-- | Creates a value of 'DeleteFileSystem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delFileSystemId'
+deleteFileSystem
+    :: Text -- ^ 'delFileSystemId'
+    -> DeleteFileSystem
 deleteFileSystem pFileSystemId_ =
     DeleteFileSystem'
     { _delFileSystemId = pFileSystemId_
@@ -98,6 +100,8 @@ data DeleteFileSystemResponse =
     DeleteFileSystemResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteFileSystemResponse' smart constructor.
-deleteFileSystemResponse :: DeleteFileSystemResponse
+-- | Creates a value of 'DeleteFileSystemResponse' with the minimum fields required to make a request.
+--
+deleteFileSystemResponse
+    :: DeleteFileSystemResponse
 deleteFileSystemResponse = DeleteFileSystemResponse'

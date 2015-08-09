@@ -41,15 +41,15 @@
 module Network.AWS.RDS.RebootDBInstance
     (
     -- * Creating a Request
-      RebootDBInstance
-    , rebootDBInstance
+      rebootDBInstance
+    , RebootDBInstance
     -- * Request Lenses
     , rdiForceFailover
     , rdiDBInstanceIdentifier
 
     -- * Destructuring the Response
-    , RebootDBInstanceResponse
     , rebootDBInstanceResponse
+    , RebootDBInstanceResponse
     -- * Response Lenses
     , rdirsDBInstance
     , rdirsStatus
@@ -64,28 +64,30 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'rebootDBInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdiForceFailover'
---
--- * 'rdiDBInstanceIdentifier'
 data RebootDBInstance = RebootDBInstance'
     { _rdiForceFailover        :: !(Maybe Bool)
     , _rdiDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebootDBInstance' smart constructor.
-rebootDBInstance :: Text -> RebootDBInstance
+-- | Creates a value of 'RebootDBInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdiForceFailover'
+--
+-- * 'rdiDBInstanceIdentifier'
+rebootDBInstance
+    :: Text -- ^ 'rdiDBInstanceIdentifier'
+    -> RebootDBInstance
 rebootDBInstance pDBInstanceIdentifier_ =
     RebootDBInstance'
     { _rdiForceFailover = Nothing
     , _rdiDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
--- | When @true@, the reboot will be conducted through a MultiAZ failover.
+-- | When 'true', the reboot will be conducted through a MultiAZ failover.
 --
--- Constraint: You cannot specify @true@ if the instance is not configured
+-- Constraint: You cannot specify 'true' if the instance is not configured
 -- for MultiAZ.
 rdiForceFailover :: Lens' RebootDBInstance (Maybe Bool)
 rdiForceFailover = lens _rdiForceFailover (\ s a -> s{_rdiForceFailover = a});
@@ -126,19 +128,21 @@ instance ToQuery RebootDBInstance where
                "DBInstanceIdentifier" =: _rdiDBInstanceIdentifier]
 
 -- | /See:/ 'rebootDBInstanceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdirsDBInstance'
---
--- * 'rdirsStatus'
 data RebootDBInstanceResponse = RebootDBInstanceResponse'
     { _rdirsDBInstance :: !(Maybe DBInstance)
     , _rdirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebootDBInstanceResponse' smart constructor.
-rebootDBInstanceResponse :: Int -> RebootDBInstanceResponse
+-- | Creates a value of 'RebootDBInstanceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdirsDBInstance'
+--
+-- * 'rdirsStatus'
+rebootDBInstanceResponse
+    :: Int -- ^ 'rdirsStatus'
+    -> RebootDBInstanceResponse
 rebootDBInstanceResponse pStatus_ =
     RebootDBInstanceResponse'
     { _rdirsDBInstance = Nothing
@@ -149,6 +153,6 @@ rebootDBInstanceResponse pStatus_ =
 rdirsDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
 rdirsDBInstance = lens _rdirsDBInstance (\ s a -> s{_rdirsDBInstance = a});
 
--- | Undocumented member.
+-- | The response status code.
 rdirsStatus :: Lens' RebootDBInstanceResponse Int
 rdirsStatus = lens _rdirsStatus (\ s a -> s{_rdirsStatus = a});

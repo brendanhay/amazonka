@@ -23,18 +23,20 @@
 -- returning a maximum of 100 table names.
 --
 -- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTables.html AWS API Reference> for ListTables.
+--
+-- This operation returns paginated results.
 module Network.AWS.DynamoDB.ListTables
     (
     -- * Creating a Request
-      ListTables
-    , listTables
+      listTables
+    , ListTables
     -- * Request Lenses
     , ltExclusiveStartTableName
     , ltLimit
 
     -- * Destructuring the Response
-    , ListTablesResponse
     , listTablesResponse
+    , ListTablesResponse
     -- * Response Lenses
     , ltrsLastEvaluatedTableName
     , ltrsTableNames
@@ -51,19 +53,20 @@ import           Network.AWS.Response
 -- | Represents the input of a /ListTables/ operation.
 --
 -- /See:/ 'listTables' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltExclusiveStartTableName'
---
--- * 'ltLimit'
 data ListTables = ListTables'
     { _ltExclusiveStartTableName :: !(Maybe Text)
     , _ltLimit                   :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTables' smart constructor.
-listTables :: ListTables
+-- | Creates a value of 'ListTables' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltExclusiveStartTableName'
+--
+-- * 'ltLimit'
+listTables
+    :: ListTables
 listTables =
     ListTables'
     { _ltExclusiveStartTableName = Nothing
@@ -127,22 +130,24 @@ instance ToQuery ListTables where
 -- | Represents the output of a /ListTables/ operation.
 --
 -- /See:/ 'listTablesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltrsLastEvaluatedTableName'
---
--- * 'ltrsTableNames'
---
--- * 'ltrsStatus'
 data ListTablesResponse = ListTablesResponse'
     { _ltrsLastEvaluatedTableName :: !(Maybe Text)
     , _ltrsTableNames             :: !(Maybe [Text])
     , _ltrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTablesResponse' smart constructor.
-listTablesResponse :: Int -> ListTablesResponse
+-- | Creates a value of 'ListTablesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltrsLastEvaluatedTableName'
+--
+-- * 'ltrsTableNames'
+--
+-- * 'ltrsStatus'
+listTablesResponse
+    :: Int -- ^ 'ltrsStatus'
+    -> ListTablesResponse
 listTablesResponse pStatus_ =
     ListTablesResponse'
     { _ltrsLastEvaluatedTableName = Nothing
@@ -168,6 +173,6 @@ ltrsLastEvaluatedTableName = lens _ltrsLastEvaluatedTableName (\ s a -> s{_ltrsL
 ltrsTableNames :: Lens' ListTablesResponse [Text]
 ltrsTableNames = lens _ltrsTableNames (\ s a -> s{_ltrsTableNames = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ltrsStatus :: Lens' ListTablesResponse Int
 ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});

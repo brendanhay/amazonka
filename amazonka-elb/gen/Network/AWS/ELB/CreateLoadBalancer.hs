@@ -37,8 +37,8 @@
 module Network.AWS.ELB.CreateLoadBalancer
     (
     -- * Creating a Request
-      CreateLoadBalancer
-    , createLoadBalancer
+      createLoadBalancer
+    , CreateLoadBalancer
     -- * Request Lenses
     , clbSecurityGroups
     , clbSubnets
@@ -49,8 +49,8 @@ module Network.AWS.ELB.CreateLoadBalancer
     , clbListeners
 
     -- * Destructuring the Response
-    , CreateLoadBalancerResponse
     , createLoadBalancerResponse
+    , CreateLoadBalancerResponse
     -- * Response Lenses
     , clbrsDNSName
     , clbrsStatus
@@ -63,8 +63,19 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createLoadBalancer' smart constructor.
+data CreateLoadBalancer = CreateLoadBalancer'
+    { _clbSecurityGroups    :: !(Maybe [Text])
+    , _clbSubnets           :: !(Maybe [Text])
+    , _clbAvailabilityZones :: !(Maybe [Text])
+    , _clbScheme            :: !(Maybe Text)
+    , _clbTags              :: !(Maybe (List1 Tag))
+    , _clbLoadBalancerName  :: !Text
+    , _clbListeners         :: ![Listener]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateLoadBalancer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'clbSecurityGroups'
 --
@@ -79,18 +90,9 @@ import           Network.AWS.Response
 -- * 'clbLoadBalancerName'
 --
 -- * 'clbListeners'
-data CreateLoadBalancer = CreateLoadBalancer'
-    { _clbSecurityGroups    :: !(Maybe [Text])
-    , _clbSubnets           :: !(Maybe [Text])
-    , _clbAvailabilityZones :: !(Maybe [Text])
-    , _clbScheme            :: !(Maybe Text)
-    , _clbTags              :: !(Maybe (List1 Tag))
-    , _clbLoadBalancerName  :: !Text
-    , _clbListeners         :: ![Listener]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateLoadBalancer' smart constructor.
-createLoadBalancer :: Text -> CreateLoadBalancer
+createLoadBalancer
+    :: Text -- ^ 'clbLoadBalancerName'
+    -> CreateLoadBalancer
 createLoadBalancer pLoadBalancerName_ =
     CreateLoadBalancer'
     { _clbSecurityGroups = Nothing
@@ -108,7 +110,7 @@ clbSecurityGroups = lens _clbSecurityGroups (\ s a -> s{_clbSecurityGroups = a})
 
 -- | The IDs of the subnets in your VPC to attach to the load balancer.
 -- Specify one subnet per Availability Zone specified in
--- @AvailabilityZones@.
+-- 'AvailabilityZones'.
 clbSubnets :: Lens' CreateLoadBalancer [Text]
 clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a}) . _Default . _Coerce;
 
@@ -132,7 +134,7 @@ clbAvailabilityZones = lens _clbAvailabilityZones (\ s a -> s{_clbAvailabilityZo
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html Internet-facing and Internal Load Balancers>
 -- in the /Elastic Load Balancing Developer Guide/.
 --
--- Specify @internal@ to create an internal load balancer with a DNS name
+-- Specify 'internal' to create an internal load balancer with a DNS name
 -- that resolves to private IP addresses.
 clbScheme :: Lens' CreateLoadBalancer (Maybe Text)
 clbScheme = lens _clbScheme (\ s a -> s{_clbScheme = a});
@@ -198,19 +200,21 @@ instance ToQuery CreateLoadBalancer where
                "Listeners" =: toQueryList "member" _clbListeners]
 
 -- | /See:/ 'createLoadBalancerResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clbrsDNSName'
---
--- * 'clbrsStatus'
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
     { _clbrsDNSName :: !(Maybe Text)
     , _clbrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLoadBalancerResponse' smart constructor.
-createLoadBalancerResponse :: Int -> CreateLoadBalancerResponse
+-- | Creates a value of 'CreateLoadBalancerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clbrsDNSName'
+--
+-- * 'clbrsStatus'
+createLoadBalancerResponse
+    :: Int -- ^ 'clbrsStatus'
+    -> CreateLoadBalancerResponse
 createLoadBalancerResponse pStatus_ =
     CreateLoadBalancerResponse'
     { _clbrsDNSName = Nothing
@@ -221,6 +225,6 @@ createLoadBalancerResponse pStatus_ =
 clbrsDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
 clbrsDNSName = lens _clbrsDNSName (\ s a -> s{_clbrsDNSName = a});
 
--- | Undocumented member.
+-- | The response status code.
 clbrsStatus :: Lens' CreateLoadBalancerResponse Int
 clbrsStatus = lens _clbrsStatus (\ s a -> s{_clbrsStatus = a});

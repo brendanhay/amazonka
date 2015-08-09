@@ -20,7 +20,7 @@
 --
 -- Gets data records from a shard.
 --
--- Specify a shard iterator using the @ShardIterator@ parameter. The shard
+-- Specify a shard iterator using the 'ShardIterator' parameter. The shard
 -- iterator specifies the position in the shard from which you want to
 -- start reading data records sequentially. If there are no records
 -- available in the portion of the shard that the iterator points to,
@@ -32,17 +32,17 @@
 -- read from a stream continually, call GetRecords in a loop. Use
 -- GetShardIterator to get the shard iterator to specify in the first
 -- GetRecords call. GetRecords returns a new shard iterator in
--- @NextShardIterator@. Specify the shard iterator returned in
--- @NextShardIterator@ in subsequent calls to GetRecords. Note that if the
+-- 'NextShardIterator'. Specify the shard iterator returned in
+-- 'NextShardIterator' in subsequent calls to GetRecords. Note that if the
 -- shard has been closed, the shard iterator can\'t return more data and
--- GetRecords returns @null@ in @NextShardIterator@. You can terminate the
+-- GetRecords returns 'null' in 'NextShardIterator'. You can terminate the
 -- loop when the shard is closed, or when the shard iterator reaches the
 -- record with the sequence number or other attribute that marks it as the
 -- last record to process.
 --
 -- Each data record can be up to 50 KB in size, and each shard can read up
 -- to 2 MB per second. You can ensure that your calls don\'t exceed the
--- maximum supported size or throughput by using the @Limit@ parameter to
+-- maximum supported size or throughput by using the 'Limit' parameter to
 -- specify the maximum number of records that GetRecords can return.
 -- Consider your average record size when determining this limit. For
 -- example, if your average record size is 40 KB, you can limit the data
@@ -52,16 +52,16 @@
 -- utilization of the shard. The maximum size of data that GetRecords can
 -- return is 10 MB. If a call returns this amount of data, subsequent calls
 -- made within the next 5 seconds throw
--- @ProvisionedThroughputExceededException@. If there is insufficient
+-- 'ProvisionedThroughputExceededException'. If there is insufficient
 -- provisioned throughput on the shard, subsequent calls made within the
--- next 1 second throw @ProvisionedThroughputExceededException@. Note that
+-- next 1 second throw 'ProvisionedThroughputExceededException'. Note that
 -- GetRecords won\'t return any data when it throws an exception. For this
 -- reason, we recommend that you wait one second between calls to
 -- GetRecords; however, it\'s possible that the application will get
 -- exceptions for longer than 1 second.
 --
 -- To detect whether the application is falling behind in processing, you
--- can use the @MillisBehindLatest@ response attribute. You can also
+-- can use the 'MillisBehindLatest' response attribute. You can also
 -- monitor the amount of data in a stream using the CloudWatch metrics. For
 -- more information, see
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html Monitoring Amazon Kinesis with Amazon CloudWatch>
@@ -71,15 +71,15 @@
 module Network.AWS.Kinesis.GetRecords
     (
     -- * Creating a Request
-      GetRecords
-    , getRecords
+      getRecords
+    , GetRecords
     -- * Request Lenses
     , grLimit
     , grShardIterator
 
     -- * Destructuring the Response
-    , GetRecordsResponse
     , getRecordsResponse
+    , GetRecordsResponse
     -- * Response Lenses
     , grrsMillisBehindLatest
     , grrsNextShardIterator
@@ -96,19 +96,21 @@ import           Network.AWS.Response
 -- | Represents the input for GetRecords.
 --
 -- /See:/ 'getRecords' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grLimit'
---
--- * 'grShardIterator'
 data GetRecords = GetRecords'
     { _grLimit         :: !(Maybe Nat)
     , _grShardIterator :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetRecords' smart constructor.
-getRecords :: Text -> GetRecords
+-- | Creates a value of 'GetRecords' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grLimit'
+--
+-- * 'grShardIterator'
+getRecords
+    :: Text -- ^ 'grShardIterator'
+    -> GetRecords
 getRecords pShardIterator_ =
     GetRecords'
     { _grLimit = Nothing
@@ -117,7 +119,7 @@ getRecords pShardIterator_ =
 
 -- | The maximum number of records to return. Specify a value of up to
 -- 10,000. If you specify a value that is greater than 10,000, GetRecords
--- throws @InvalidArgumentException@.
+-- throws 'InvalidArgumentException'.
 grLimit :: Lens' GetRecords (Maybe Natural)
 grLimit = lens _grLimit (\ s a -> s{_grLimit = a}) . mapping _Nat;
 
@@ -164,8 +166,16 @@ instance ToQuery GetRecords where
 -- | Represents the output for GetRecords.
 --
 -- /See:/ 'getRecordsResponse' smart constructor.
+data GetRecordsResponse = GetRecordsResponse'
+    { _grrsMillisBehindLatest :: !(Maybe Nat)
+    , _grrsNextShardIterator  :: !(Maybe Text)
+    , _grrsStatus             :: !Int
+    , _grrsRecords            :: ![Record]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetRecordsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'grrsMillisBehindLatest'
 --
@@ -174,15 +184,9 @@ instance ToQuery GetRecords where
 -- * 'grrsStatus'
 --
 -- * 'grrsRecords'
-data GetRecordsResponse = GetRecordsResponse'
-    { _grrsMillisBehindLatest :: !(Maybe Nat)
-    , _grrsNextShardIterator  :: !(Maybe Text)
-    , _grrsStatus             :: !Int
-    , _grrsRecords            :: ![Record]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetRecordsResponse' smart constructor.
-getRecordsResponse :: Int -> GetRecordsResponse
+getRecordsResponse
+    :: Int -- ^ 'grrsStatus'
+    -> GetRecordsResponse
 getRecordsResponse pStatus_ =
     GetRecordsResponse'
     { _grrsMillisBehindLatest = Nothing
@@ -199,12 +203,12 @@ grrsMillisBehindLatest :: Lens' GetRecordsResponse (Maybe Natural)
 grrsMillisBehindLatest = lens _grrsMillisBehindLatest (\ s a -> s{_grrsMillisBehindLatest = a}) . mapping _Nat;
 
 -- | The next position in the shard from which to start sequentially reading
--- data records. If set to @null@, the shard has been closed and the
+-- data records. If set to 'null', the shard has been closed and the
 -- requested iterator will not return any more data.
 grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIterator = a});
 
--- | Undocumented member.
+-- | The response status code.
 grrsStatus :: Lens' GetRecordsResponse Int
 grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
 

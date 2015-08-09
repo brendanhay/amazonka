@@ -30,16 +30,16 @@
 module Network.AWS.Redshift.RevokeSnapshotAccess
     (
     -- * Creating a Request
-      RevokeSnapshotAccess
-    , revokeSnapshotAccess
+      revokeSnapshotAccess
+    , RevokeSnapshotAccess
     -- * Request Lenses
     , rsaSnapshotClusterIdentifier
     , rsaSnapshotIdentifier
     , rsaAccountWithRestoreAccess
 
     -- * Destructuring the Response
-    , RevokeSnapshotAccessResponse
     , revokeSnapshotAccessResponse
+    , RevokeSnapshotAccessResponse
     -- * Response Lenses
     , rsarsSnapshot
     , rsarsStatus
@@ -54,22 +54,25 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'revokeSnapshotAccess' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rsaSnapshotClusterIdentifier'
---
--- * 'rsaSnapshotIdentifier'
---
--- * 'rsaAccountWithRestoreAccess'
 data RevokeSnapshotAccess = RevokeSnapshotAccess'
     { _rsaSnapshotClusterIdentifier :: !(Maybe Text)
     , _rsaSnapshotIdentifier        :: !Text
     , _rsaAccountWithRestoreAccess  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RevokeSnapshotAccess' smart constructor.
-revokeSnapshotAccess :: Text -> Text -> RevokeSnapshotAccess
+-- | Creates a value of 'RevokeSnapshotAccess' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsaSnapshotClusterIdentifier'
+--
+-- * 'rsaSnapshotIdentifier'
+--
+-- * 'rsaAccountWithRestoreAccess'
+revokeSnapshotAccess
+    :: Text -- ^ 'rsaSnapshotIdentifier'
+    -> Text -- ^ 'rsaAccountWithRestoreAccess'
+    -> RevokeSnapshotAccess
 revokeSnapshotAccess pSnapshotIdentifier_ pAccountWithRestoreAccess_ =
     RevokeSnapshotAccess'
     { _rsaSnapshotClusterIdentifier = Nothing
@@ -122,19 +125,21 @@ instance ToQuery RevokeSnapshotAccess where
                  _rsaAccountWithRestoreAccess]
 
 -- | /See:/ 'revokeSnapshotAccessResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rsarsSnapshot'
---
--- * 'rsarsStatus'
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
     { _rsarsSnapshot :: !(Maybe Snapshot)
     , _rsarsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RevokeSnapshotAccessResponse' smart constructor.
-revokeSnapshotAccessResponse :: Int -> RevokeSnapshotAccessResponse
+-- | Creates a value of 'RevokeSnapshotAccessResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsarsSnapshot'
+--
+-- * 'rsarsStatus'
+revokeSnapshotAccessResponse
+    :: Int -- ^ 'rsarsStatus'
+    -> RevokeSnapshotAccessResponse
 revokeSnapshotAccessResponse pStatus_ =
     RevokeSnapshotAccessResponse'
     { _rsarsSnapshot = Nothing
@@ -145,6 +150,6 @@ revokeSnapshotAccessResponse pStatus_ =
 rsarsSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
 rsarsSnapshot = lens _rsarsSnapshot (\ s a -> s{_rsarsSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 rsarsStatus :: Lens' RevokeSnapshotAccessResponse Int
 rsarsStatus = lens _rsarsStatus (\ s a -> s{_rsarsStatus = a});

@@ -27,16 +27,16 @@
 module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     (
     -- * Creating a Request
-      DeleteApplicationVersion
-    , deleteApplicationVersion
+      deleteApplicationVersion
+    , DeleteApplicationVersion
     -- * Request Lenses
     , davDeleteSourceBundle
     , davApplicationName
     , davVersionLabel
 
     -- * Destructuring the Response
-    , DeleteApplicationVersionResponse
     , deleteApplicationVersionResponse
+    , DeleteApplicationVersionResponse
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -48,22 +48,25 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'deleteApplicationVersion' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'davDeleteSourceBundle'
---
--- * 'davApplicationName'
---
--- * 'davVersionLabel'
 data DeleteApplicationVersion = DeleteApplicationVersion'
     { _davDeleteSourceBundle :: !(Maybe Bool)
     , _davApplicationName    :: !Text
     , _davVersionLabel       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteApplicationVersion' smart constructor.
-deleteApplicationVersion :: Text -> Text -> DeleteApplicationVersion
+-- | Creates a value of 'DeleteApplicationVersion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'davDeleteSourceBundle'
+--
+-- * 'davApplicationName'
+--
+-- * 'davVersionLabel'
+deleteApplicationVersion
+    :: Text -- ^ 'davApplicationName'
+    -> Text -- ^ 'davVersionLabel'
+    -> DeleteApplicationVersion
 deleteApplicationVersion pApplicationName_ pVersionLabel_ =
     DeleteApplicationVersion'
     { _davDeleteSourceBundle = Nothing
@@ -73,12 +76,12 @@ deleteApplicationVersion pApplicationName_ pVersionLabel_ =
 
 -- | Indicates whether to delete the associated source bundle from Amazon S3:
 --
--- -   @true@: An attempt is made to delete the associated Amazon S3 source
+-- -   'true': An attempt is made to delete the associated Amazon S3 source
 --     bundle specified at time of creation.
--- -   @false@: No action is taken on the Amazon S3 source bundle specified
+-- -   'false': No action is taken on the Amazon S3 source bundle specified
 --     at time of creation.
 --
--- Valid Values: @true@ | @false@
+-- Valid Values: 'true' | 'false'
 davDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
 davDeleteSourceBundle = lens _davDeleteSourceBundle (\ s a -> s{_davDeleteSourceBundle = a});
 
@@ -119,6 +122,8 @@ data DeleteApplicationVersionResponse =
     DeleteApplicationVersionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteApplicationVersionResponse' smart constructor.
-deleteApplicationVersionResponse :: DeleteApplicationVersionResponse
+-- | Creates a value of 'DeleteApplicationVersionResponse' with the minimum fields required to make a request.
+--
+deleteApplicationVersionResponse
+    :: DeleteApplicationVersionResponse
 deleteApplicationVersionResponse = DeleteApplicationVersionResponse'

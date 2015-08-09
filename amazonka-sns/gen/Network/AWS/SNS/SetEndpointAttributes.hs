@@ -27,15 +27,15 @@
 module Network.AWS.SNS.SetEndpointAttributes
     (
     -- * Creating a Request
-      SetEndpointAttributes
-    , setEndpointAttributes
+      setEndpointAttributes
+    , SetEndpointAttributes
     -- * Request Lenses
     , seaEndpointARN
     , seaAttributes
 
     -- * Destructuring the Response
-    , SetEndpointAttributesResponse
     , setEndpointAttributesResponse
+    , SetEndpointAttributesResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -47,19 +47,21 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for SetEndpointAttributes action.
 --
 -- /See:/ 'setEndpointAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'seaEndpointARN'
---
--- * 'seaAttributes'
 data SetEndpointAttributes = SetEndpointAttributes'
     { _seaEndpointARN :: !Text
     , _seaAttributes  :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetEndpointAttributes' smart constructor.
-setEndpointAttributes :: Text -> SetEndpointAttributes
+-- | Creates a value of 'SetEndpointAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'seaEndpointARN'
+--
+-- * 'seaAttributes'
+setEndpointAttributes
+    :: Text -- ^ 'seaEndpointARN'
+    -> SetEndpointAttributes
 setEndpointAttributes pEndpointARN_ =
     SetEndpointAttributes'
     { _seaEndpointARN = pEndpointARN_
@@ -73,14 +75,14 @@ seaEndpointARN = lens _seaEndpointARN (\ s a -> s{_seaEndpointARN = a});
 -- | A map of the endpoint attributes. Attributes in this map include the
 -- following:
 --
--- -   @CustomUserData@ -- arbitrary user data to associate with the
+-- -   'CustomUserData' -- arbitrary user data to associate with the
 --     endpoint. Amazon SNS does not use this data. The data must be in
 --     UTF-8 format and less than 2KB.
--- -   @Enabled@ -- flag that enables\/disables delivery to the endpoint.
+-- -   'Enabled' -- flag that enables\/disables delivery to the endpoint.
 --     Amazon SNS will set this to false when a notification service
 --     indicates to Amazon SNS that the endpoint is invalid. Users can set
 --     it back to true, typically after updating Token.
--- -   @Token@ -- device token, also referred to as a registration id, for
+-- -   'Token' -- device token, also referred to as a registration id, for
 --     an app and mobile device. This is returned from the notification
 --     service when an app and mobile device are registered with the
 --     notification service.
@@ -114,6 +116,8 @@ data SetEndpointAttributesResponse =
     SetEndpointAttributesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetEndpointAttributesResponse' smart constructor.
-setEndpointAttributesResponse :: SetEndpointAttributesResponse
+-- | Creates a value of 'SetEndpointAttributesResponse' with the minimum fields required to make a request.
+--
+setEndpointAttributesResponse
+    :: SetEndpointAttributesResponse
 setEndpointAttributesResponse = SetEndpointAttributesResponse'

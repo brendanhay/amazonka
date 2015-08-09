@@ -24,14 +24,14 @@
 module Network.AWS.DirectoryService.DeleteDirectory
     (
     -- * Creating a Request
-      DeleteDirectory
-    , deleteDirectory
+      deleteDirectory
+    , DeleteDirectory
     -- * Request Lenses
     , dDirectoryId
 
     -- * Destructuring the Response
-    , DeleteDirectoryResponse
     , deleteDirectoryResponse
+    , DeleteDirectoryResponse
     -- * Response Lenses
     , drsDirectoryId
     , drsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Contains the inputs for the DeleteDirectory operation.
 --
 -- /See:/ 'deleteDirectory' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dDirectoryId'
 newtype DeleteDirectory = DeleteDirectory'
     { _dDirectoryId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDirectory' smart constructor.
-deleteDirectory :: Text -> DeleteDirectory
+-- | Creates a value of 'DeleteDirectory' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dDirectoryId'
+deleteDirectory
+    :: Text -- ^ 'dDirectoryId'
+    -> DeleteDirectory
 deleteDirectory pDirectoryId_ =
     DeleteDirectory'
     { _dDirectoryId = pDirectoryId_
@@ -98,19 +100,21 @@ instance ToQuery DeleteDirectory where
 -- | Contains the results of the DeleteDirectory operation.
 --
 -- /See:/ 'deleteDirectoryResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsDirectoryId'
---
--- * 'drsStatus'
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
     { _drsDirectoryId :: !(Maybe Text)
     , _drsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDirectoryResponse' smart constructor.
-deleteDirectoryResponse :: Int -> DeleteDirectoryResponse
+-- | Creates a value of 'DeleteDirectoryResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsDirectoryId'
+--
+-- * 'drsStatus'
+deleteDirectoryResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeleteDirectoryResponse
 deleteDirectoryResponse pStatus_ =
     DeleteDirectoryResponse'
     { _drsDirectoryId = Nothing
@@ -121,6 +125,6 @@ deleteDirectoryResponse pStatus_ =
 drsDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
 drsDirectoryId = lens _drsDirectoryId (\ s a -> s{_drsDirectoryId = a});
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeleteDirectoryResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

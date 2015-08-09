@@ -35,16 +35,16 @@
 module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     (
     -- * Creating a Request
-      UpdateBandwidthRateLimit
-    , updateBandwidthRateLimit
+      updateBandwidthRateLimit
+    , UpdateBandwidthRateLimit
     -- * Request Lenses
     , ubrlAverageUploadRateLimitInBitsPerSec
     , ubrlAverageDownloadRateLimitInBitsPerSec
     , ubrlGatewayARN
 
     -- * Destructuring the Response
-    , UpdateBandwidthRateLimitResponse
     , updateBandwidthRateLimitResponse
+    , UpdateBandwidthRateLimitResponse
     -- * Response Lenses
     , ubrlrsGatewayARN
     , ubrlrsStatus
@@ -62,22 +62,24 @@ import           Network.AWS.StorageGateway.Types.Product
 -- -   UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec
 --
 -- /See:/ 'updateBandwidthRateLimit' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ubrlAverageUploadRateLimitInBitsPerSec'
---
--- * 'ubrlAverageDownloadRateLimitInBitsPerSec'
---
--- * 'ubrlGatewayARN'
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
     { _ubrlAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
     , _ubrlAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
     , _ubrlGatewayARN                           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateBandwidthRateLimit' smart constructor.
-updateBandwidthRateLimit :: Text -> UpdateBandwidthRateLimit
+-- | Creates a value of 'UpdateBandwidthRateLimit' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ubrlAverageUploadRateLimitInBitsPerSec'
+--
+-- * 'ubrlAverageDownloadRateLimitInBitsPerSec'
+--
+-- * 'ubrlGatewayARN'
+updateBandwidthRateLimit
+    :: Text -- ^ 'ubrlGatewayARN'
+    -> UpdateBandwidthRateLimit
 updateBandwidthRateLimit pGatewayARN_ =
     UpdateBandwidthRateLimit'
     { _ubrlAverageUploadRateLimitInBitsPerSec = Nothing
@@ -137,19 +139,21 @@ instance ToQuery UpdateBandwidthRateLimit where
 -- was updated.
 --
 -- /See:/ 'updateBandwidthRateLimitResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ubrlrsGatewayARN'
---
--- * 'ubrlrsStatus'
 data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
     { _ubrlrsGatewayARN :: !(Maybe Text)
     , _ubrlrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateBandwidthRateLimitResponse' smart constructor.
-updateBandwidthRateLimitResponse :: Int -> UpdateBandwidthRateLimitResponse
+-- | Creates a value of 'UpdateBandwidthRateLimitResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ubrlrsGatewayARN'
+--
+-- * 'ubrlrsStatus'
+updateBandwidthRateLimitResponse
+    :: Int -- ^ 'ubrlrsStatus'
+    -> UpdateBandwidthRateLimitResponse
 updateBandwidthRateLimitResponse pStatus_ =
     UpdateBandwidthRateLimitResponse'
     { _ubrlrsGatewayARN = Nothing
@@ -160,6 +164,6 @@ updateBandwidthRateLimitResponse pStatus_ =
 ubrlrsGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
 ubrlrsGatewayARN = lens _ubrlrsGatewayARN (\ s a -> s{_ubrlrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 ubrlrsStatus :: Lens' UpdateBandwidthRateLimitResponse Int
 ubrlrsStatus = lens _ubrlrsStatus (\ s a -> s{_ubrlrsStatus = a});

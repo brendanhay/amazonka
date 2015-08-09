@@ -21,19 +21,21 @@
 -- Returns a list of container instances in a specified cluster.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html AWS API Reference> for ListContainerInstances.
+--
+-- This operation returns paginated results.
 module Network.AWS.ECS.ListContainerInstances
     (
     -- * Creating a Request
-      ListContainerInstances
-    , listContainerInstances
+      listContainerInstances
+    , ListContainerInstances
     -- * Request Lenses
     , lciCluster
     , lciNextToken
     , lciMaxResults
 
     -- * Destructuring the Response
-    , ListContainerInstancesResponse
     , listContainerInstancesResponse
+    , ListContainerInstancesResponse
     -- * Response Lenses
     , lcirsContainerInstanceARNs
     , lcirsNextToken
@@ -48,22 +50,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listContainerInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lciCluster'
---
--- * 'lciNextToken'
---
--- * 'lciMaxResults'
 data ListContainerInstances = ListContainerInstances'
     { _lciCluster    :: !(Maybe Text)
     , _lciNextToken  :: !(Maybe Text)
     , _lciMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListContainerInstances' smart constructor.
-listContainerInstances :: ListContainerInstances
+-- | Creates a value of 'ListContainerInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lciCluster'
+--
+-- * 'lciNextToken'
+--
+-- * 'lciMaxResults'
+listContainerInstances
+    :: ListContainerInstances
 listContainerInstances =
     ListContainerInstances'
     { _lciCluster = Nothing
@@ -77,22 +80,22 @@ listContainerInstances =
 lciCluster :: Lens' ListContainerInstances (Maybe Text)
 lciCluster = lens _lciCluster (\ s a -> s{_lciCluster = a});
 
--- | The @nextToken@ value returned from a previous paginated
--- @ListContainerInstances@ request where @maxResults@ was used and the
+-- | The 'nextToken' value returned from a previous paginated
+-- 'ListContainerInstances' request where 'maxResults' was used and the
 -- results exceeded the value of that parameter. Pagination continues from
--- the end of the previous results that returned the @nextToken@ value.
--- This value is @null@ when there are no more results to return.
+-- the end of the previous results that returned the 'nextToken' value.
+-- This value is 'null' when there are no more results to return.
 lciNextToken :: Lens' ListContainerInstances (Maybe Text)
 lciNextToken = lens _lciNextToken (\ s a -> s{_lciNextToken = a});
 
 -- | The maximum number of container instance results returned by
--- @ListContainerInstances@ in paginated output. When this parameter is
--- used, @ListContainerInstances@ only returns @maxResults@ results in a
--- single page along with a @nextToken@ response element. The remaining
+-- 'ListContainerInstances' in paginated output. When this parameter is
+-- used, 'ListContainerInstances' only returns 'maxResults' results in a
+-- single page along with a 'nextToken' response element. The remaining
 -- results of the initial request can be seen by sending another
--- @ListContainerInstances@ request with the returned @nextToken@ value.
+-- 'ListContainerInstances' request with the returned 'nextToken' value.
 -- This value can be between 1 and 100. If this parameter is not used, then
--- @ListContainerInstances@ returns up to 100 results and a @nextToken@
+-- 'ListContainerInstances' returns up to 100 results and a 'nextToken'
 -- value if applicable.
 lciMaxResults :: Lens' ListContainerInstances (Maybe Int)
 lciMaxResults = lens _lciMaxResults (\ s a -> s{_lciMaxResults = a});
@@ -141,22 +144,24 @@ instance ToQuery ListContainerInstances where
         toQuery = const mempty
 
 -- | /See:/ 'listContainerInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lcirsContainerInstanceARNs'
---
--- * 'lcirsNextToken'
---
--- * 'lcirsStatus'
 data ListContainerInstancesResponse = ListContainerInstancesResponse'
     { _lcirsContainerInstanceARNs :: !(Maybe [Text])
     , _lcirsNextToken             :: !(Maybe Text)
     , _lcirsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListContainerInstancesResponse' smart constructor.
-listContainerInstancesResponse :: Int -> ListContainerInstancesResponse
+-- | Creates a value of 'ListContainerInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lcirsContainerInstanceARNs'
+--
+-- * 'lcirsNextToken'
+--
+-- * 'lcirsStatus'
+listContainerInstancesResponse
+    :: Int -- ^ 'lcirsStatus'
+    -> ListContainerInstancesResponse
 listContainerInstancesResponse pStatus_ =
     ListContainerInstancesResponse'
     { _lcirsContainerInstanceARNs = Nothing
@@ -169,13 +174,13 @@ listContainerInstancesResponse pStatus_ =
 lcirsContainerInstanceARNs :: Lens' ListContainerInstancesResponse [Text]
 lcirsContainerInstanceARNs = lens _lcirsContainerInstanceARNs (\ s a -> s{_lcirsContainerInstanceARNs = a}) . _Default . _Coerce;
 
--- | The @nextToken@ value to include in a future @ListContainerInstances@
--- request. When the results of a @ListContainerInstances@ request exceed
--- @maxResults@, this value can be used to retrieve the next page of
--- results. This value is @null@ when there are no more results to return.
+-- | The 'nextToken' value to include in a future 'ListContainerInstances'
+-- request. When the results of a 'ListContainerInstances' request exceed
+-- 'maxResults', this value can be used to retrieve the next page of
+-- results. This value is 'null' when there are no more results to return.
 lcirsNextToken :: Lens' ListContainerInstancesResponse (Maybe Text)
 lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 lcirsStatus :: Lens' ListContainerInstancesResponse Int
 lcirsStatus = lens _lcirsStatus (\ s a -> s{_lcirsStatus = a});

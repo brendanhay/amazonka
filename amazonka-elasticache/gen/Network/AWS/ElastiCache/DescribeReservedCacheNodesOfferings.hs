@@ -22,11 +22,13 @@
 -- reserved cache node offerings.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodesOfferings.html AWS API Reference> for DescribeReservedCacheNodesOfferings.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     (
     -- * Creating a Request
-      DescribeReservedCacheNodesOfferings
-    , describeReservedCacheNodesOfferings
+      describeReservedCacheNodesOfferings
+    , DescribeReservedCacheNodesOfferings
     -- * Request Lenses
     , drcnoCacheNodeType
     , drcnoProductDescription
@@ -37,8 +39,8 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     , drcnoReservedCacheNodesOfferingId
 
     -- * Destructuring the Response
-    , DescribeReservedCacheNodesOfferingsResponse
     , describeReservedCacheNodesOfferingsResponse
+    , DescribeReservedCacheNodesOfferingsResponse
     -- * Response Lenses
     , drcnorsMarker
     , drcnorsReservedCacheNodesOfferings
@@ -55,8 +57,19 @@ import           Network.AWS.Response
 -- | Represents the input of a /DescribeReservedCacheNodesOfferings/ action.
 --
 -- /See:/ 'describeReservedCacheNodesOfferings' smart constructor.
+data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
+    { _drcnoCacheNodeType                :: !(Maybe Text)
+    , _drcnoProductDescription           :: !(Maybe Text)
+    , _drcnoMaxRecords                   :: !(Maybe Int)
+    , _drcnoMarker                       :: !(Maybe Text)
+    , _drcnoOfferingType                 :: !(Maybe Text)
+    , _drcnoDuration                     :: !(Maybe Text)
+    , _drcnoReservedCacheNodesOfferingId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeReservedCacheNodesOfferings' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'drcnoCacheNodeType'
 --
@@ -71,18 +84,8 @@ import           Network.AWS.Response
 -- * 'drcnoDuration'
 --
 -- * 'drcnoReservedCacheNodesOfferingId'
-data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
-    { _drcnoCacheNodeType                :: !(Maybe Text)
-    , _drcnoProductDescription           :: !(Maybe Text)
-    , _drcnoMaxRecords                   :: !(Maybe Int)
-    , _drcnoMarker                       :: !(Maybe Text)
-    , _drcnoOfferingType                 :: !(Maybe Text)
-    , _drcnoDuration                     :: !(Maybe Text)
-    , _drcnoReservedCacheNodesOfferingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeReservedCacheNodesOfferings' smart constructor.
-describeReservedCacheNodesOfferings :: DescribeReservedCacheNodesOfferings
+describeReservedCacheNodesOfferings
+    :: DescribeReservedCacheNodesOfferings
 describeReservedCacheNodesOfferings =
     DescribeReservedCacheNodesOfferings'
     { _drcnoCacheNodeType = Nothing
@@ -100,17 +103,17 @@ describeReservedCacheNodesOfferings =
 -- Valid node types are as follows:
 --
 -- -   General purpose:
---     -   Current generation: @cache.t2.micro@, @cache.t2.small@,
---         @cache.t2.medium@, @cache.m3.medium@, @cache.m3.large@,
---         @cache.m3.xlarge@, @cache.m3.2xlarge@
---     -   Previous generation: @cache.t1.micro@, @cache.m1.small@,
---         @cache.m1.medium@, @cache.m1.large@, @cache.m1.xlarge@
--- -   Compute optimized: @cache.c1.xlarge@
+--     -   Current generation: 'cache.t2.micro', 'cache.t2.small',
+--         'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large',
+--         'cache.m3.xlarge', 'cache.m3.2xlarge'
+--     -   Previous generation: 'cache.t1.micro', 'cache.m1.small',
+--         'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+-- -   Compute optimized: 'cache.c1.xlarge'
 -- -   Memory optimized
---     -   Current generation: @cache.r3.large@, @cache.r3.xlarge@,
---         @cache.r3.2xlarge@, @cache.r3.4xlarge@, @cache.r3.8xlarge@
---     -   Previous generation: @cache.m2.xlarge@, @cache.m2.2xlarge@,
---         @cache.m2.4xlarge@
+--     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge',
+--         'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge',
+--         'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
@@ -135,7 +138,7 @@ drcnoProductDescription :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text
 drcnoProductDescription = lens _drcnoProductDescription (\ s a -> s{_drcnoProductDescription = a});
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a marker is
+-- records exist than the specified 'MaxRecords' value, a marker is
 -- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
@@ -155,14 +158,14 @@ drcnoMarker = lens _drcnoMarker (\ s a -> s{_drcnoMarker = a});
 -- available offerings matching the specified offering type.
 --
 -- Valid Values:
--- @\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"@
+-- '\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"'
 drcnoOfferingType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoOfferingType = lens _drcnoOfferingType (\ s a -> s{_drcnoOfferingType = a});
 
 -- | Duration filter value, specified in years or seconds. Use this parameter
 -- to show only reservations for a given duration.
 --
--- Valid Values: @1 | 3 | 31536000 | 94608000@
+-- Valid Values: '1 | 3 | 31536000 | 94608000'
 drcnoDuration :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoDuration = lens _drcnoDuration (\ s a -> s{_drcnoDuration = a});
 
@@ -170,7 +173,7 @@ drcnoDuration = lens _drcnoDuration (\ s a -> s{_drcnoDuration = a});
 -- the available offering that matches the specified reservation
 -- identifier.
 --
--- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
+-- Example: '438012d3-4052-4cc7-b2e3-8d3372e0e706'
 drcnoReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoReservedCacheNodesOfferingId = lens _drcnoReservedCacheNodesOfferingId (\ s a -> s{_drcnoReservedCacheNodesOfferingId = a});
 
@@ -228,22 +231,24 @@ instance ToQuery DescribeReservedCacheNodesOfferings
 -- | Represents the output of a /DescribeReservedCacheNodesOfferings/ action.
 --
 -- /See:/ 'describeReservedCacheNodesOfferingsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drcnorsMarker'
---
--- * 'drcnorsReservedCacheNodesOfferings'
---
--- * 'drcnorsStatus'
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'
     { _drcnorsMarker                      :: !(Maybe Text)
     , _drcnorsReservedCacheNodesOfferings :: !(Maybe [ReservedCacheNodesOffering])
     , _drcnorsStatus                      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeReservedCacheNodesOfferingsResponse' smart constructor.
-describeReservedCacheNodesOfferingsResponse :: Int -> DescribeReservedCacheNodesOfferingsResponse
+-- | Creates a value of 'DescribeReservedCacheNodesOfferingsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drcnorsMarker'
+--
+-- * 'drcnorsReservedCacheNodesOfferings'
+--
+-- * 'drcnorsStatus'
+describeReservedCacheNodesOfferingsResponse
+    :: Int -- ^ 'drcnorsStatus'
+    -> DescribeReservedCacheNodesOfferingsResponse
 describeReservedCacheNodesOfferingsResponse pStatus_ =
     DescribeReservedCacheNodesOfferingsResponse'
     { _drcnorsMarker = Nothing
@@ -260,6 +265,6 @@ drcnorsMarker = lens _drcnorsMarker (\ s a -> s{_drcnorsMarker = a});
 drcnorsReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse [ReservedCacheNodesOffering]
 drcnorsReservedCacheNodesOfferings = lens _drcnorsReservedCacheNodesOfferings (\ s a -> s{_drcnorsReservedCacheNodesOfferings = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 drcnorsStatus :: Lens' DescribeReservedCacheNodesOfferingsResponse Int
 drcnorsStatus = lens _drcnorsStatus (\ s a -> s{_drcnorsStatus = a});

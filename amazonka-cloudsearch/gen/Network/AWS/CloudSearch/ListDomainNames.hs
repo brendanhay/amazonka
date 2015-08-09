@@ -24,12 +24,12 @@
 module Network.AWS.CloudSearch.ListDomainNames
     (
     -- * Creating a Request
-      ListDomainNames
-    , listDomainNames
+      listDomainNames
+    , ListDomainNames
 
     -- * Destructuring the Response
-    , ListDomainNamesResponse
     , listDomainNamesResponse
+    , ListDomainNamesResponse
     -- * Response Lenses
     , ldnrsDomainNames
     , ldnrsStatus
@@ -46,8 +46,10 @@ data ListDomainNames =
     ListDomainNames'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDomainNames' smart constructor.
-listDomainNames :: ListDomainNames
+-- | Creates a value of 'ListDomainNames' with the minimum fields required to make a request.
+--
+listDomainNames
+    :: ListDomainNames
 listDomainNames = ListDomainNames'
 
 instance AWSRequest ListDomainNames where
@@ -75,23 +77,25 @@ instance ToQuery ListDomainNames where
                  ["Action" =: ("ListDomainNames" :: ByteString),
                   "Version" =: ("2013-01-01" :: ByteString)])
 
--- | The result of a @ListDomainNames@ request. Contains a list of the
+-- | The result of a 'ListDomainNames' request. Contains a list of the
 -- domains owned by an account.
 --
 -- /See:/ 'listDomainNamesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldnrsDomainNames'
---
--- * 'ldnrsStatus'
 data ListDomainNamesResponse = ListDomainNamesResponse'
     { _ldnrsDomainNames :: !(Maybe (Map Text Text))
     , _ldnrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDomainNamesResponse' smart constructor.
-listDomainNamesResponse :: Int -> ListDomainNamesResponse
+-- | Creates a value of 'ListDomainNamesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldnrsDomainNames'
+--
+-- * 'ldnrsStatus'
+listDomainNamesResponse
+    :: Int -- ^ 'ldnrsStatus'
+    -> ListDomainNamesResponse
 listDomainNamesResponse pStatus_ =
     ListDomainNamesResponse'
     { _ldnrsDomainNames = Nothing
@@ -102,6 +106,6 @@ listDomainNamesResponse pStatus_ =
 ldnrsDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 ldnrsStatus :: Lens' ListDomainNamesResponse Int
 ldnrsStatus = lens _ldnrsStatus (\ s a -> s{_ldnrsStatus = a});

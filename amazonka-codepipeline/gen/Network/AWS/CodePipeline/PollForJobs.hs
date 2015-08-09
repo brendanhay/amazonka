@@ -30,16 +30,16 @@
 module Network.AWS.CodePipeline.PollForJobs
     (
     -- * Creating a Request
-      PollForJobs
-    , pollForJobs
+      pollForJobs
+    , PollForJobs
     -- * Request Lenses
     , pfjMaxBatchSize
     , pfjQueryParam
     , pfjActionTypeId
 
     -- * Destructuring the Response
-    , PollForJobsResponse
     , pollForJobsResponse
+    , PollForJobsResponse
     -- * Response Lenses
     , pfjrsJobs
     , pfjrsStatus
@@ -54,22 +54,24 @@ import           Network.AWS.Response
 -- | Represents the input of a poll for jobs action.
 --
 -- /See:/ 'pollForJobs' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pfjMaxBatchSize'
---
--- * 'pfjQueryParam'
---
--- * 'pfjActionTypeId'
 data PollForJobs = PollForJobs'
     { _pfjMaxBatchSize :: !(Maybe Nat)
     , _pfjQueryParam   :: !(Maybe (Map Text Text))
     , _pfjActionTypeId :: !ActionTypeId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PollForJobs' smart constructor.
-pollForJobs :: ActionTypeId -> PollForJobs
+-- | Creates a value of 'PollForJobs' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pfjMaxBatchSize'
+--
+-- * 'pfjQueryParam'
+--
+-- * 'pfjActionTypeId'
+pollForJobs
+    :: ActionTypeId -- ^ 'pfjActionTypeId'
+    -> PollForJobs
 pollForJobs pActionTypeId_ =
     PollForJobs'
     { _pfjMaxBatchSize = Nothing
@@ -128,19 +130,21 @@ instance ToQuery PollForJobs where
 -- | Represents the output of a poll for jobs action.
 --
 -- /See:/ 'pollForJobsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pfjrsJobs'
---
--- * 'pfjrsStatus'
 data PollForJobsResponse = PollForJobsResponse'
     { _pfjrsJobs   :: !(Maybe [Job])
     , _pfjrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PollForJobsResponse' smart constructor.
-pollForJobsResponse :: Int -> PollForJobsResponse
+-- | Creates a value of 'PollForJobsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pfjrsJobs'
+--
+-- * 'pfjrsStatus'
+pollForJobsResponse
+    :: Int -- ^ 'pfjrsStatus'
+    -> PollForJobsResponse
 pollForJobsResponse pStatus_ =
     PollForJobsResponse'
     { _pfjrsJobs = Nothing
@@ -151,6 +155,6 @@ pollForJobsResponse pStatus_ =
 pfjrsJobs :: Lens' PollForJobsResponse [Job]
 pfjrsJobs = lens _pfjrsJobs (\ s a -> s{_pfjrsJobs = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 pfjrsStatus :: Lens' PollForJobsResponse Int
 pfjrsStatus = lens _pfjrsStatus (\ s a -> s{_pfjrsStatus = a});

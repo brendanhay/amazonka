@@ -24,14 +24,14 @@
 module Network.AWS.KMS.EnableKeyRotation
     (
     -- * Creating a Request
-      EnableKeyRotation
-    , enableKeyRotation
+      enableKeyRotation
+    , EnableKeyRotation
     -- * Request Lenses
     , ekrKeyId
 
     -- * Destructuring the Response
-    , EnableKeyRotationResponse
     , enableKeyRotationResponse
+    , EnableKeyRotationResponse
     ) where
 
 import           Network.AWS.KMS.Types
@@ -41,16 +41,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'enableKeyRotation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ekrKeyId'
 newtype EnableKeyRotation = EnableKeyRotation'
     { _ekrKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableKeyRotation' smart constructor.
-enableKeyRotation :: Text -> EnableKeyRotation
+-- | Creates a value of 'EnableKeyRotation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ekrKeyId'
+enableKeyRotation
+    :: Text -- ^ 'ekrKeyId'
+    -> EnableKeyRotation
 enableKeyRotation pKeyId_ =
     EnableKeyRotation'
     { _ekrKeyId = pKeyId_
@@ -96,6 +98,8 @@ data EnableKeyRotationResponse =
     EnableKeyRotationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableKeyRotationResponse' smart constructor.
-enableKeyRotationResponse :: EnableKeyRotationResponse
+-- | Creates a value of 'EnableKeyRotationResponse' with the minimum fields required to make a request.
+--
+enableKeyRotationResponse
+    :: EnableKeyRotationResponse
 enableKeyRotationResponse = EnableKeyRotationResponse'

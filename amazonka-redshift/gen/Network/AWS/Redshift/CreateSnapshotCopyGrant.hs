@@ -30,16 +30,16 @@
 module Network.AWS.Redshift.CreateSnapshotCopyGrant
     (
     -- * Creating a Request
-      CreateSnapshotCopyGrant
-    , createSnapshotCopyGrant
+      createSnapshotCopyGrant
+    , CreateSnapshotCopyGrant
     -- * Request Lenses
     , cscgKMSKeyId
     , cscgTags
     , cscgSnapshotCopyGrantName
 
     -- * Destructuring the Response
-    , CreateSnapshotCopyGrantResponse
     , createSnapshotCopyGrantResponse
+    , CreateSnapshotCopyGrantResponse
     -- * Response Lenses
     , cscgrsSnapshotCopyGrant
     , cscgrsStatus
@@ -51,25 +51,27 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The result of the @CreateSnapshotCopyGrant@ action.
+-- | The result of the 'CreateSnapshotCopyGrant' action.
 --
 -- /See:/ 'createSnapshotCopyGrant' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cscgKMSKeyId'
---
--- * 'cscgTags'
---
--- * 'cscgSnapshotCopyGrantName'
 data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
     { _cscgKMSKeyId              :: !(Maybe Text)
     , _cscgTags                  :: !(Maybe [Tag])
     , _cscgSnapshotCopyGrantName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSnapshotCopyGrant' smart constructor.
-createSnapshotCopyGrant :: Text -> CreateSnapshotCopyGrant
+-- | Creates a value of 'CreateSnapshotCopyGrant' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cscgKMSKeyId'
+--
+-- * 'cscgTags'
+--
+-- * 'cscgSnapshotCopyGrantName'
+createSnapshotCopyGrant
+    :: Text -- ^ 'cscgSnapshotCopyGrantName'
+    -> CreateSnapshotCopyGrant
 createSnapshotCopyGrant pSnapshotCopyGrantName_ =
     CreateSnapshotCopyGrant'
     { _cscgKMSKeyId = Nothing
@@ -129,19 +131,21 @@ instance ToQuery CreateSnapshotCopyGrant where
                  _cscgSnapshotCopyGrantName]
 
 -- | /See:/ 'createSnapshotCopyGrantResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cscgrsSnapshotCopyGrant'
---
--- * 'cscgrsStatus'
 data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
     { _cscgrsSnapshotCopyGrant :: !(Maybe SnapshotCopyGrant)
     , _cscgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSnapshotCopyGrantResponse' smart constructor.
-createSnapshotCopyGrantResponse :: Int -> CreateSnapshotCopyGrantResponse
+-- | Creates a value of 'CreateSnapshotCopyGrantResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cscgrsSnapshotCopyGrant'
+--
+-- * 'cscgrsStatus'
+createSnapshotCopyGrantResponse
+    :: Int -- ^ 'cscgrsStatus'
+    -> CreateSnapshotCopyGrantResponse
 createSnapshotCopyGrantResponse pStatus_ =
     CreateSnapshotCopyGrantResponse'
     { _cscgrsSnapshotCopyGrant = Nothing
@@ -152,6 +156,6 @@ createSnapshotCopyGrantResponse pStatus_ =
 cscgrsSnapshotCopyGrant :: Lens' CreateSnapshotCopyGrantResponse (Maybe SnapshotCopyGrant)
 cscgrsSnapshotCopyGrant = lens _cscgrsSnapshotCopyGrant (\ s a -> s{_cscgrsSnapshotCopyGrant = a});
 
--- | Undocumented member.
+-- | The response status code.
 cscgrsStatus :: Lens' CreateSnapshotCopyGrantResponse Int
 cscgrsStatus = lens _cscgrsStatus (\ s a -> s{_cscgrsStatus = a});

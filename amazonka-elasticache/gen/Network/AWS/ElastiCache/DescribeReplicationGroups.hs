@@ -24,19 +24,21 @@
 -- groups.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html AWS API Reference> for DescribeReplicationGroups.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeReplicationGroups
     (
     -- * Creating a Request
-      DescribeReplicationGroups
-    , describeReplicationGroups
+      describeReplicationGroups
+    , DescribeReplicationGroups
     -- * Request Lenses
     , drgsMaxRecords
     , drgsMarker
     , drgsReplicationGroupId
 
     -- * Destructuring the Response
-    , DescribeReplicationGroupsResponse
     , describeReplicationGroupsResponse
+    , DescribeReplicationGroupsResponse
     -- * Response Lenses
     , drgrsMarker
     , drgrsReplicationGroups
@@ -53,22 +55,23 @@ import           Network.AWS.Response
 -- | Represents the input of a /DescribeReplicationGroups/ action.
 --
 -- /See:/ 'describeReplicationGroups' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drgsMaxRecords'
---
--- * 'drgsMarker'
---
--- * 'drgsReplicationGroupId'
 data DescribeReplicationGroups = DescribeReplicationGroups'
     { _drgsMaxRecords         :: !(Maybe Int)
     , _drgsMarker             :: !(Maybe Text)
     , _drgsReplicationGroupId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeReplicationGroups' smart constructor.
-describeReplicationGroups :: DescribeReplicationGroups
+-- | Creates a value of 'DescribeReplicationGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drgsMaxRecords'
+--
+-- * 'drgsMarker'
+--
+-- * 'drgsReplicationGroupId'
+describeReplicationGroups
+    :: DescribeReplicationGroups
 describeReplicationGroups =
     DescribeReplicationGroups'
     { _drgsMaxRecords = Nothing
@@ -77,7 +80,7 @@ describeReplicationGroups =
     }
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a marker is
+-- records exist than the specified 'MaxRecords' value, a marker is
 -- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
@@ -141,22 +144,24 @@ instance ToQuery DescribeReplicationGroups where
 -- | Represents the output of a /DescribeReplicationGroups/ action.
 --
 -- /See:/ 'describeReplicationGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drgrsMarker'
---
--- * 'drgrsReplicationGroups'
---
--- * 'drgrsStatus'
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
     { _drgrsMarker            :: !(Maybe Text)
     , _drgrsReplicationGroups :: !(Maybe [ReplicationGroup])
     , _drgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeReplicationGroupsResponse' smart constructor.
-describeReplicationGroupsResponse :: Int -> DescribeReplicationGroupsResponse
+-- | Creates a value of 'DescribeReplicationGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drgrsMarker'
+--
+-- * 'drgrsReplicationGroups'
+--
+-- * 'drgrsStatus'
+describeReplicationGroupsResponse
+    :: Int -- ^ 'drgrsStatus'
+    -> DescribeReplicationGroupsResponse
 describeReplicationGroupsResponse pStatus_ =
     DescribeReplicationGroupsResponse'
     { _drgrsMarker = Nothing
@@ -173,6 +178,6 @@ drgrsMarker = lens _drgrsMarker (\ s a -> s{_drgrsMarker = a});
 drgrsReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
 drgrsReplicationGroups = lens _drgrsReplicationGroups (\ s a -> s{_drgrsReplicationGroups = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 drgrsStatus :: Lens' DescribeReplicationGroupsResponse Int
 drgrsStatus = lens _drgrsStatus (\ s a -> s{_drgrsStatus = a});

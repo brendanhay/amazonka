@@ -25,15 +25,15 @@
 module Network.AWS.Redshift.DeleteTags
     (
     -- * Creating a Request
-      DeleteTags
-    , deleteTags
+      deleteTags
+    , DeleteTags
     -- * Request Lenses
     , dResourceName
     , dTagKeys
 
     -- * Destructuring the Response
-    , DeleteTagsResponse
     , deleteTagsResponse
+    , DeleteTagsResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -42,22 +42,24 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the output from the @DeleteTags@ action.
+-- | Contains the output from the 'DeleteTags' action.
 --
 -- /See:/ 'deleteTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dResourceName'
---
--- * 'dTagKeys'
 data DeleteTags = DeleteTags'
     { _dResourceName :: !Text
     , _dTagKeys      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTags' smart constructor.
-deleteTags :: Text -> DeleteTags
+-- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dResourceName'
+--
+-- * 'dTagKeys'
+deleteTags
+    :: Text -- ^ 'dResourceName'
+    -> DeleteTags
 deleteTags pResourceName_ =
     DeleteTags'
     { _dResourceName = pResourceName_
@@ -65,7 +67,7 @@ deleteTags pResourceName_ =
     }
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
--- tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
+-- tags. For example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
 dResourceName :: Lens' DeleteTags Text
 dResourceName = lens _dResourceName (\ s a -> s{_dResourceName = a});
 
@@ -98,6 +100,8 @@ data DeleteTagsResponse =
     DeleteTagsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTagsResponse' smart constructor.
-deleteTagsResponse :: DeleteTagsResponse
+-- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
+--
+deleteTagsResponse
+    :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse'

@@ -24,16 +24,16 @@
 module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     (
     -- * Creating a Request
-      TerminateEnvironment
-    , terminateEnvironment
+      terminateEnvironment
+    , TerminateEnvironment
     -- * Request Lenses
     , teTerminateResources
     , teEnvironmentName
     , teEnvironmentId
 
     -- * Destructuring the Response
-    , EnvironmentDescription
     , environmentDescription
+    , EnvironmentDescription
     -- * Response Lenses
     , eCNAME
     , eStatus
@@ -62,22 +62,23 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'terminateEnvironment' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'teTerminateResources'
---
--- * 'teEnvironmentName'
---
--- * 'teEnvironmentId'
 data TerminateEnvironment = TerminateEnvironment'
     { _teTerminateResources :: !(Maybe Bool)
     , _teEnvironmentName    :: !(Maybe Text)
     , _teEnvironmentId      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TerminateEnvironment' smart constructor.
-terminateEnvironment :: TerminateEnvironment
+-- | Creates a value of 'TerminateEnvironment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'teTerminateResources'
+--
+-- * 'teEnvironmentName'
+--
+-- * 'teEnvironmentId'
+terminateEnvironment
+    :: TerminateEnvironment
 terminateEnvironment =
     TerminateEnvironment'
     { _teTerminateResources = Nothing
@@ -88,24 +89,24 @@ terminateEnvironment =
 -- | Indicates whether the associated AWS resources should shut down when the
 -- environment is terminated:
 --
--- @true@: (default) The user AWS resources (for example, the Auto Scaling
+-- 'true': (default) The user AWS resources (for example, the Auto Scaling
 -- group, LoadBalancer, etc.) are terminated along with the environment.
 --
--- @false@: The environment is removed from the AWS Elastic Beanstalk but
+-- 'false': The environment is removed from the AWS Elastic Beanstalk but
 -- the AWS resources continue to operate.
 --
--- -   @true@: The specified environment as well as the associated AWS
+-- -   'true': The specified environment as well as the associated AWS
 --     resources, such as Auto Scaling group and LoadBalancer, are
 --     terminated.
--- -   @false@: AWS Elastic Beanstalk resource management is removed from
+-- -   'false': AWS Elastic Beanstalk resource management is removed from
 --     the environment, but the AWS resources continue to operate.
 --
 -- For more information, see the
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/ AWS Elastic Beanstalk User Guide.>
 --
--- Default: @true@
+-- Default: 'true'
 --
--- Valid Values: @true@ | @false@
+-- Valid Values: 'true' | 'false'
 teTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
 teTerminateResources = lens _teTerminateResources (\ s a -> s{_teTerminateResources = a});
 
@@ -113,7 +114,7 @@ teTerminateResources = lens _teTerminateResources (\ s a -> s{_teTerminateResour
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
+-- 'MissingRequiredParameter' error.
 teEnvironmentName :: Lens' TerminateEnvironment (Maybe Text)
 teEnvironmentName = lens _teEnvironmentName (\ s a -> s{_teEnvironmentName = a});
 
@@ -121,7 +122,7 @@ teEnvironmentName = lens _teEnvironmentName (\ s a -> s{_teEnvironmentName = a})
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
+-- 'MissingRequiredParameter' error.
 teEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
 teEnvironmentId = lens _teEnvironmentId (\ s a -> s{_teEnvironmentId = a});
 

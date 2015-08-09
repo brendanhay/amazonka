@@ -24,14 +24,14 @@
 module Network.AWS.ElasticTranscoder.ReadJob
     (
     -- * Creating a Request
-      ReadJob
-    , readJob
+      readJob
+    , ReadJob
     -- * Request Lenses
     , rjId
 
     -- * Destructuring the Response
-    , ReadJobResponse
     , readJobResponse
+    , ReadJobResponse
     -- * Response Lenses
     , rjrsStatus
     , rjrsJob
@@ -43,19 +43,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @ReadJobRequest@ structure.
+-- | The 'ReadJobRequest' structure.
 --
 -- /See:/ 'readJob' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rjId'
 newtype ReadJob = ReadJob'
     { _rjId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReadJob' smart constructor.
-readJob :: Text -> ReadJob
+-- | Creates a value of 'ReadJob' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rjId'
+readJob
+    :: Text -- ^ 'rjId'
+    -> ReadJob
 readJob pId_ =
     ReadJob'
     { _rjId = pId_
@@ -86,29 +88,32 @@ instance ToPath ReadJob where
 instance ToQuery ReadJob where
         toQuery = const mempty
 
--- | The @ReadJobResponse@ structure.
+-- | The 'ReadJobResponse' structure.
 --
 -- /See:/ 'readJobResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rjrsStatus'
---
--- * 'rjrsJob'
 data ReadJobResponse = ReadJobResponse'
     { _rjrsStatus :: !Int
     , _rjrsJob    :: !Job'
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReadJobResponse' smart constructor.
-readJobResponse :: Int -> Job' -> ReadJobResponse
+-- | Creates a value of 'ReadJobResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rjrsStatus'
+--
+-- * 'rjrsJob'
+readJobResponse
+    :: Int -- ^ 'rjrsStatus'
+    -> Job' -- ^ 'rjrsJob'
+    -> ReadJobResponse
 readJobResponse pStatus_ pJob_ =
     ReadJobResponse'
     { _rjrsStatus = pStatus_
     , _rjrsJob = pJob_
     }
 
--- | Undocumented member.
+-- | The response status code.
 rjrsStatus :: Lens' ReadJobResponse Int
 rjrsStatus = lens _rjrsStatus (\ s a -> s{_rjrsStatus = a});
 

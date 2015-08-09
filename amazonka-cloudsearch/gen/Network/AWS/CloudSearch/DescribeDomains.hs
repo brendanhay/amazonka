@@ -21,8 +21,8 @@
 -- Gets information about the search domains owned by this account. Can be
 -- limited to specific domains. Shows all domains by default. To get the
 -- number of searchable documents in a domain, use the console or submit a
--- @matchall@ request to your domain\'s search endpoint:
--- @q=matchall&amp;q.parser=structured&amp;size=0@. For more information,
+-- 'matchall' request to your domain\'s search endpoint:
+-- 'q=matchall&amp;q.parser=structured&amp;size=0'. For more information,
 -- see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Information about a Search Domain>
 -- in the /Amazon CloudSearch Developer Guide/.
@@ -31,14 +31,14 @@
 module Network.AWS.CloudSearch.DescribeDomains
     (
     -- * Creating a Request
-      DescribeDomains
-    , describeDomains
+      describeDomains
+    , DescribeDomains
     -- * Request Lenses
     , ddDomainNames
 
     -- * Destructuring the Response
-    , DescribeDomainsResponse
     , describeDomainsResponse
+    , DescribeDomainsResponse
     -- * Response Lenses
     , ddsrsStatus
     , ddsrsDomainStatusList
@@ -50,22 +50,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DescribeDomains@ operation. By
+-- | Container for the parameters to the 'DescribeDomains' operation. By
 -- default shows the status of all domains. To restrict the response to
 -- particular domains, specify the names of the domains you want to
 -- describe.
 --
 -- /See:/ 'describeDomains' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddDomainNames'
 newtype DescribeDomains = DescribeDomains'
     { _ddDomainNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDomains' smart constructor.
-describeDomains :: DescribeDomains
+-- | Creates a value of 'DescribeDomains' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddDomainNames'
+describeDomains
+    :: DescribeDomains
 describeDomains =
     DescribeDomains'
     { _ddDomainNames = Nothing
@@ -101,30 +102,32 @@ instance ToQuery DescribeDomains where
                "DomainNames" =:
                  toQuery (toQueryList "member" <$> _ddDomainNames)]
 
--- | The result of a @DescribeDomains@ request. Contains the status of the
+-- | The result of a 'DescribeDomains' request. Contains the status of the
 -- domains specified in the request or all domains owned by the account.
 --
 -- /See:/ 'describeDomainsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddsrsStatus'
---
--- * 'ddsrsDomainStatusList'
 data DescribeDomainsResponse = DescribeDomainsResponse'
     { _ddsrsStatus           :: !Int
     , _ddsrsDomainStatusList :: ![DomainStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDomainsResponse' smart constructor.
-describeDomainsResponse :: Int -> DescribeDomainsResponse
+-- | Creates a value of 'DescribeDomainsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddsrsStatus'
+--
+-- * 'ddsrsDomainStatusList'
+describeDomainsResponse
+    :: Int -- ^ 'ddsrsStatus'
+    -> DescribeDomainsResponse
 describeDomainsResponse pStatus_ =
     DescribeDomainsResponse'
     { _ddsrsStatus = pStatus_
     , _ddsrsDomainStatusList = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 ddsrsStatus :: Lens' DescribeDomainsResponse Int
 ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});
 

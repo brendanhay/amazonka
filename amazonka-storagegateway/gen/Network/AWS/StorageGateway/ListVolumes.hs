@@ -24,26 +24,28 @@
 -- API.
 --
 -- The operation supports pagination. By default, the operation returns a
--- maximum of up to 100 volumes. You can optionally specify the @Limit@
+-- maximum of up to 100 volumes. You can optionally specify the 'Limit'
 -- field in the body to limit the number of volumes in the response. If the
 -- number of volumes returned in the response is truncated, the response
 -- includes a Marker field. You can use this Marker value in your
 -- subsequent request to retrieve the next set of volumes.
 --
 -- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumes.html AWS API Reference> for ListVolumes.
+--
+-- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListVolumes
     (
     -- * Creating a Request
-      ListVolumes
-    , listVolumes
+      listVolumes
+    , ListVolumes
     -- * Request Lenses
     , lvMarker
     , lvLimit
     , lvGatewayARN
 
     -- * Destructuring the Response
-    , ListVolumesResponse
     , listVolumesResponse
+    , ListVolumesResponse
     -- * Response Lenses
     , lvrsGatewayARN
     , lvrsMarker
@@ -64,22 +66,24 @@ import           Network.AWS.StorageGateway.Types.Product
 -- -   ListVolumesInput$Marker
 --
 -- /See:/ 'listVolumes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lvMarker'
---
--- * 'lvLimit'
---
--- * 'lvGatewayARN'
 data ListVolumes = ListVolumes'
     { _lvMarker     :: !(Maybe Text)
     , _lvLimit      :: !(Maybe Nat)
     , _lvGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListVolumes' smart constructor.
-listVolumes :: Text -> ListVolumes
+-- | Creates a value of 'ListVolumes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lvMarker'
+--
+-- * 'lvLimit'
+--
+-- * 'lvGatewayARN'
+listVolumes
+    :: Text -- ^ 'lvGatewayARN'
+    -> ListVolumes
 listVolumes pGatewayARN_ =
     ListVolumes'
     { _lvMarker = Nothing
@@ -144,8 +148,16 @@ instance ToQuery ListVolumes where
         toQuery = const mempty
 
 -- | /See:/ 'listVolumesResponse' smart constructor.
+data ListVolumesResponse = ListVolumesResponse'
+    { _lvrsGatewayARN  :: !(Maybe Text)
+    , _lvrsMarker      :: !(Maybe Text)
+    , _lvrsVolumeInfos :: !(Maybe [VolumeInfo])
+    , _lvrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListVolumesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lvrsGatewayARN'
 --
@@ -154,15 +166,9 @@ instance ToQuery ListVolumes where
 -- * 'lvrsVolumeInfos'
 --
 -- * 'lvrsStatus'
-data ListVolumesResponse = ListVolumesResponse'
-    { _lvrsGatewayARN  :: !(Maybe Text)
-    , _lvrsMarker      :: !(Maybe Text)
-    , _lvrsVolumeInfos :: !(Maybe [VolumeInfo])
-    , _lvrsStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListVolumesResponse' smart constructor.
-listVolumesResponse :: Int -> ListVolumesResponse
+listVolumesResponse
+    :: Int -- ^ 'lvrsStatus'
+    -> ListVolumesResponse
 listVolumesResponse pStatus_ =
     ListVolumesResponse'
     { _lvrsGatewayARN = Nothing
@@ -183,6 +189,6 @@ lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a});
 lvrsVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
 lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lvrsStatus :: Lens' ListVolumesResponse Int
 lvrsStatus = lens _lvrsStatus (\ s a -> s{_lvrsStatus = a});

@@ -27,14 +27,14 @@
 module Network.AWS.CognitoIdentity.DescribeIdentityPool
     (
     -- * Creating a Request
-      DescribeIdentityPool
-    , describeIdentityPool
+      describeIdentityPool
+    , DescribeIdentityPool
     -- * Request Lenses
     , dipIdentityPoolId
 
     -- * Destructuring the Response
-    , IdentityPool
     , identityPool
+    , IdentityPool
     -- * Response Lenses
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
@@ -53,16 +53,18 @@ import           Network.AWS.Response
 -- | Input to the DescribeIdentityPool action.
 --
 -- /See:/ 'describeIdentityPool' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dipIdentityPoolId'
 newtype DescribeIdentityPool = DescribeIdentityPool'
     { _dipIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeIdentityPool' smart constructor.
-describeIdentityPool :: Text -> DescribeIdentityPool
+-- | Creates a value of 'DescribeIdentityPool' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dipIdentityPoolId'
+describeIdentityPool
+    :: Text -- ^ 'dipIdentityPoolId'
+    -> DescribeIdentityPool
 describeIdentityPool pIdentityPoolId_ =
     DescribeIdentityPool'
     { _dipIdentityPoolId = pIdentityPoolId_

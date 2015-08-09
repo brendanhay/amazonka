@@ -24,7 +24,7 @@
 -- describing the virtual private gateway (any attachments to the virtual
 -- private gateway are also described).
 --
--- You must wait for the attachment\'s state to switch to @detached@ before
+-- You must wait for the attachment\'s state to switch to 'detached' before
 -- you can delete the VPC or attach a different VPC to the virtual private
 -- gateway.
 --
@@ -32,16 +32,16 @@
 module Network.AWS.EC2.DetachVPNGateway
     (
     -- * Creating a Request
-      DetachVPNGateway
-    , detachVPNGateway
+      detachVPNGateway
+    , DetachVPNGateway
     -- * Request Lenses
     , dvpngDryRun
     , dvpngVPNGatewayId
     , dvpngVPCId
 
     -- * Destructuring the Response
-    , DetachVPNGatewayResponse
     , detachVPNGatewayResponse
+    , DetachVPNGatewayResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -51,22 +51,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachVPNGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvpngDryRun'
---
--- * 'dvpngVPNGatewayId'
---
--- * 'dvpngVPCId'
 data DetachVPNGateway = DetachVPNGateway'
     { _dvpngDryRun       :: !(Maybe Bool)
     , _dvpngVPNGatewayId :: !Text
     , _dvpngVPCId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachVPNGateway' smart constructor.
-detachVPNGateway :: Text -> Text -> DetachVPNGateway
+-- | Creates a value of 'DetachVPNGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvpngDryRun'
+--
+-- * 'dvpngVPNGatewayId'
+--
+-- * 'dvpngVPCId'
+detachVPNGateway
+    :: Text -- ^ 'dvpngVPNGatewayId'
+    -> Text -- ^ 'dvpngVPCId'
+    -> DetachVPNGateway
 detachVPNGateway pVPNGatewayId_ pVPCId_ =
     DetachVPNGateway'
     { _dvpngDryRun = Nothing
@@ -76,8 +79,8 @@ detachVPNGateway pVPNGatewayId_ pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dvpngDryRun :: Lens' DetachVPNGateway (Maybe Bool)
 dvpngDryRun = lens _dvpngDryRun (\ s a -> s{_dvpngDryRun = a});
 
@@ -115,6 +118,8 @@ data DetachVPNGatewayResponse =
     DetachVPNGatewayResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachVPNGatewayResponse' smart constructor.
-detachVPNGatewayResponse :: DetachVPNGatewayResponse
+-- | Creates a value of 'DetachVPNGatewayResponse' with the minimum fields required to make a request.
+--
+detachVPNGatewayResponse
+    :: DetachVPNGatewayResponse
 detachVPNGatewayResponse = DetachVPNGatewayResponse'

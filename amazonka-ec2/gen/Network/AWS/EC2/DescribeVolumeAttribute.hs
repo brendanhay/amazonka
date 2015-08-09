@@ -29,16 +29,16 @@
 module Network.AWS.EC2.DescribeVolumeAttribute
     (
     -- * Creating a Request
-      DescribeVolumeAttribute
-    , describeVolumeAttribute
+      describeVolumeAttribute
+    , DescribeVolumeAttribute
     -- * Request Lenses
     , dvaAttribute
     , dvaDryRun
     , dvaVolumeId
 
     -- * Destructuring the Response
-    , DescribeVolumeAttributeResponse
     , describeVolumeAttributeResponse
+    , DescribeVolumeAttributeResponse
     -- * Response Lenses
     , dvarsProductCodes
     , dvarsVolumeId
@@ -53,22 +53,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeVolumeAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvaAttribute'
---
--- * 'dvaDryRun'
---
--- * 'dvaVolumeId'
 data DescribeVolumeAttribute = DescribeVolumeAttribute'
     { _dvaAttribute :: !(Maybe VolumeAttributeName)
     , _dvaDryRun    :: !(Maybe Bool)
     , _dvaVolumeId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVolumeAttribute' smart constructor.
-describeVolumeAttribute :: Text -> DescribeVolumeAttribute
+-- | Creates a value of 'DescribeVolumeAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvaAttribute'
+--
+-- * 'dvaDryRun'
+--
+-- * 'dvaVolumeId'
+describeVolumeAttribute
+    :: Text -- ^ 'dvaVolumeId'
+    -> DescribeVolumeAttribute
 describeVolumeAttribute pVolumeId_ =
     DescribeVolumeAttribute'
     { _dvaAttribute = Nothing
@@ -82,8 +84,8 @@ dvaAttribute = lens _dvaAttribute (\ s a -> s{_dvaAttribute = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dvaDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
 dvaDryRun = lens _dvaDryRun (\ s a -> s{_dvaDryRun = a});
 
@@ -122,8 +124,16 @@ instance ToQuery DescribeVolumeAttribute where
                "VolumeId" =: _dvaVolumeId]
 
 -- | /See:/ 'describeVolumeAttributeResponse' smart constructor.
+data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
+    { _dvarsProductCodes :: !(Maybe [ProductCode])
+    , _dvarsVolumeId     :: !(Maybe Text)
+    , _dvarsAutoEnableIO :: !(Maybe AttributeBooleanValue)
+    , _dvarsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeVolumeAttributeResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dvarsProductCodes'
 --
@@ -132,15 +142,9 @@ instance ToQuery DescribeVolumeAttribute where
 -- * 'dvarsAutoEnableIO'
 --
 -- * 'dvarsStatus'
-data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
-    { _dvarsProductCodes :: !(Maybe [ProductCode])
-    , _dvarsVolumeId     :: !(Maybe Text)
-    , _dvarsAutoEnableIO :: !(Maybe AttributeBooleanValue)
-    , _dvarsStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeVolumeAttributeResponse' smart constructor.
-describeVolumeAttributeResponse :: Int -> DescribeVolumeAttributeResponse
+describeVolumeAttributeResponse
+    :: Int -- ^ 'dvarsStatus'
+    -> DescribeVolumeAttributeResponse
 describeVolumeAttributeResponse pStatus_ =
     DescribeVolumeAttributeResponse'
     { _dvarsProductCodes = Nothing
@@ -157,10 +161,10 @@ dvarsProductCodes = lens _dvarsProductCodes (\ s a -> s{_dvarsProductCodes = a})
 dvarsVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
 dvarsVolumeId = lens _dvarsVolumeId (\ s a -> s{_dvarsVolumeId = a});
 
--- | The state of @autoEnableIO@ attribute.
+-- | The state of 'autoEnableIO' attribute.
 dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
 dvarsAutoEnableIO = lens _dvarsAutoEnableIO (\ s a -> s{_dvarsAutoEnableIO = a});
 
--- | Undocumented member.
+-- | The response status code.
 dvarsStatus :: Lens' DescribeVolumeAttributeResponse Int
 dvarsStatus = lens _dvarsStatus (\ s a -> s{_dvarsStatus = a});

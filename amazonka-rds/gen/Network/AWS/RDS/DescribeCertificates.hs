@@ -25,8 +25,8 @@
 module Network.AWS.RDS.DescribeCertificates
     (
     -- * Creating a Request
-      DescribeCertificates
-    , describeCertificates
+      describeCertificates
+    , DescribeCertificates
     -- * Request Lenses
     , dcFilters
     , dcCertificateIdentifier
@@ -34,8 +34,8 @@ module Network.AWS.RDS.DescribeCertificates
     , dcMarker
 
     -- * Destructuring the Response
-    , DescribeCertificatesResponse
     , describeCertificatesResponse
+    , DescribeCertificatesResponse
     -- * Response Lenses
     , dcrsCertificates
     , dcrsMarker
@@ -51,8 +51,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeCertificates' smart constructor.
+data DescribeCertificates = DescribeCertificates'
+    { _dcFilters               :: !(Maybe [Filter])
+    , _dcCertificateIdentifier :: !(Maybe Text)
+    , _dcMaxRecords            :: !(Maybe Int)
+    , _dcMarker                :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeCertificates' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcFilters'
 --
@@ -61,15 +69,8 @@ import           Network.AWS.Response
 -- * 'dcMaxRecords'
 --
 -- * 'dcMarker'
-data DescribeCertificates = DescribeCertificates'
-    { _dcFilters               :: !(Maybe [Filter])
-    , _dcCertificateIdentifier :: !(Maybe Text)
-    , _dcMaxRecords            :: !(Maybe Int)
-    , _dcMarker                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeCertificates' smart constructor.
-describeCertificates :: DescribeCertificates
+describeCertificates
+    :: DescribeCertificates
 describeCertificates =
     DescribeCertificates'
     { _dcFilters = Nothing
@@ -95,7 +96,7 @@ dcCertificateIdentifier :: Lens' DescribeCertificates (Maybe Text)
 dcCertificateIdentifier = lens _dcCertificateIdentifier (\ s a -> s{_dcCertificateIdentifier = a});
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
+-- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 --
@@ -107,7 +108,7 @@ dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
 
 -- | An optional pagination token provided by a previous DescribeCertificates
 -- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
+-- records beyond the marker, up to the value specified by 'MaxRecords'.
 dcMarker :: Lens' DescribeCertificates (Maybe Text)
 dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
 
@@ -144,22 +145,24 @@ instance ToQuery DescribeCertificates where
 -- | Data returned by the __DescribeCertificates__ action.
 --
 -- /See:/ 'describeCertificatesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcrsCertificates'
---
--- * 'dcrsMarker'
---
--- * 'dcrsStatus'
 data DescribeCertificatesResponse = DescribeCertificatesResponse'
     { _dcrsCertificates :: !(Maybe [Certificate])
     , _dcrsMarker       :: !(Maybe Text)
     , _dcrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCertificatesResponse' smart constructor.
-describeCertificatesResponse :: Int -> DescribeCertificatesResponse
+-- | Creates a value of 'DescribeCertificatesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcrsCertificates'
+--
+-- * 'dcrsMarker'
+--
+-- * 'dcrsStatus'
+describeCertificatesResponse
+    :: Int -- ^ 'dcrsStatus'
+    -> DescribeCertificatesResponse
 describeCertificatesResponse pStatus_ =
     DescribeCertificatesResponse'
     { _dcrsCertificates = Nothing
@@ -173,10 +176,10 @@ dcrsCertificates = lens _dcrsCertificates (\ s a -> s{_dcrsCertificates = a}) . 
 
 -- | An optional pagination token provided by a previous DescribeCertificates
 -- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@ .
+-- records beyond the marker, up to the value specified by 'MaxRecords' .
 dcrsMarker :: Lens' DescribeCertificatesResponse (Maybe Text)
 dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dcrsStatus :: Lens' DescribeCertificatesResponse Int
 dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

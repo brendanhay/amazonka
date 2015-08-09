@@ -24,14 +24,14 @@
 module Network.AWS.Redshift.DeleteEventSubscription
     (
     -- * Creating a Request
-      DeleteEventSubscription
-    , deleteEventSubscription
+      deleteEventSubscription
+    , DeleteEventSubscription
     -- * Request Lenses
     , desSubscriptionName
 
     -- * Destructuring the Response
-    , DeleteEventSubscriptionResponse
     , deleteEventSubscriptionResponse
+    , DeleteEventSubscriptionResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -43,16 +43,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteEventSubscription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'desSubscriptionName'
 newtype DeleteEventSubscription = DeleteEventSubscription'
     { _desSubscriptionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEventSubscription' smart constructor.
-deleteEventSubscription :: Text -> DeleteEventSubscription
+-- | Creates a value of 'DeleteEventSubscription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'desSubscriptionName'
+deleteEventSubscription
+    :: Text -- ^ 'desSubscriptionName'
+    -> DeleteEventSubscription
 deleteEventSubscription pSubscriptionName_ =
     DeleteEventSubscription'
     { _desSubscriptionName = pSubscriptionName_
@@ -90,6 +92,8 @@ data DeleteEventSubscriptionResponse =
     DeleteEventSubscriptionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEventSubscriptionResponse' smart constructor.
-deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
+-- | Creates a value of 'DeleteEventSubscriptionResponse' with the minimum fields required to make a request.
+--
+deleteEventSubscriptionResponse
+    :: DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'

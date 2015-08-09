@@ -29,7 +29,7 @@
 --
 -- Because the body of the public key certificate, private key, and the
 -- certificate chain can be large, you should use POST rather than GET when
--- calling @UploadServerCertificate@. For information about setting up
+-- calling 'UploadServerCertificate'. For information about setting up
 -- signatures and authorization through the API, go to
 -- <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>
 -- in the /AWS General Reference/. For general information about using the
@@ -41,8 +41,8 @@
 module Network.AWS.IAM.UploadServerCertificate
     (
     -- * Creating a Request
-      UploadServerCertificate
-    , uploadServerCertificate
+      uploadServerCertificate
+    , UploadServerCertificate
     -- * Request Lenses
     , uscPath
     , uscCertificateChain
@@ -51,8 +51,8 @@ module Network.AWS.IAM.UploadServerCertificate
     , uscPrivateKey
 
     -- * Destructuring the Response
-    , UploadServerCertificateResponse
     , uploadServerCertificateResponse
+    , UploadServerCertificateResponse
     -- * Response Lenses
     , ursServerCertificateMetadata
     , ursStatus
@@ -65,8 +65,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'uploadServerCertificate' smart constructor.
+data UploadServerCertificate = UploadServerCertificate'
+    { _uscPath                  :: !(Maybe Text)
+    , _uscCertificateChain      :: !(Maybe Text)
+    , _uscServerCertificateName :: !Text
+    , _uscCertificateBody       :: !Text
+    , _uscPrivateKey            :: !(Sensitive Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UploadServerCertificate' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uscPath'
 --
@@ -77,16 +86,11 @@ import           Network.AWS.Response
 -- * 'uscCertificateBody'
 --
 -- * 'uscPrivateKey'
-data UploadServerCertificate = UploadServerCertificate'
-    { _uscPath                  :: !(Maybe Text)
-    , _uscCertificateChain      :: !(Maybe Text)
-    , _uscServerCertificateName :: !Text
-    , _uscCertificateBody       :: !Text
-    , _uscPrivateKey            :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UploadServerCertificate' smart constructor.
-uploadServerCertificate :: Text -> Text -> Text -> UploadServerCertificate
+uploadServerCertificate
+    :: Text -- ^ 'uscServerCertificateName'
+    -> Text -- ^ 'uscCertificateBody'
+    -> Text -- ^ 'uscPrivateKey'
+    -> UploadServerCertificate
 uploadServerCertificate pServerCertificateName_ pCertificateBody_ pPrivateKey_ =
     UploadServerCertificate'
     { _uscPath = Nothing
@@ -106,8 +110,8 @@ uploadServerCertificate pServerCertificateName_ pCertificateBody_ pPrivateKey_ =
 --
 -- If you are uploading a server certificate specifically for use with
 -- Amazon CloudFront distributions, you must specify a path using the
--- @--path@ option. The path must begin with @\/cloudfront@ and must
--- include a trailing slash (for example, @\/cloudfront\/test\/@).
+-- '--path' option. The path must begin with '\/cloudfront' and must
+-- include a trailing slash (for example, '\/cloudfront\/test\/').
 uscPath :: Lens' UploadServerCertificate (Maybe Text)
 uscPath = lens _uscPath (\ s a -> s{_uscPath = a});
 
@@ -162,19 +166,21 @@ instance ToQuery UploadServerCertificate where
 -- | Contains the response to a successful UploadServerCertificate request.
 --
 -- /See:/ 'uploadServerCertificateResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ursServerCertificateMetadata'
---
--- * 'ursStatus'
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
     { _ursServerCertificateMetadata :: !(Maybe ServerCertificateMetadata)
     , _ursStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UploadServerCertificateResponse' smart constructor.
-uploadServerCertificateResponse :: Int -> UploadServerCertificateResponse
+-- | Creates a value of 'UploadServerCertificateResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ursServerCertificateMetadata'
+--
+-- * 'ursStatus'
+uploadServerCertificateResponse
+    :: Int -- ^ 'ursStatus'
+    -> UploadServerCertificateResponse
 uploadServerCertificateResponse pStatus_ =
     UploadServerCertificateResponse'
     { _ursServerCertificateMetadata = Nothing
@@ -186,6 +192,6 @@ uploadServerCertificateResponse pStatus_ =
 ursServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
 ursServerCertificateMetadata = lens _ursServerCertificateMetadata (\ s a -> s{_ursServerCertificateMetadata = a});
 
--- | Undocumented member.
+-- | The response status code.
 ursStatus :: Lens' UploadServerCertificateResponse Int
 ursStatus = lens _ursStatus (\ s a -> s{_ursStatus = a});

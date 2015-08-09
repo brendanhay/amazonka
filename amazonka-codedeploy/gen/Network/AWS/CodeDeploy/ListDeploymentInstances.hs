@@ -25,16 +25,16 @@
 module Network.AWS.CodeDeploy.ListDeploymentInstances
     (
     -- * Creating a Request
-      ListDeploymentInstances
-    , listDeploymentInstances
+      listDeploymentInstances
+    , ListDeploymentInstances
     -- * Request Lenses
     , ldiInstanceStatusFilter
     , ldiNextToken
     , ldiDeploymentId
 
     -- * Destructuring the Response
-    , ListDeploymentInstancesResponse
     , listDeploymentInstancesResponse
+    , ListDeploymentInstancesResponse
     -- * Response Lenses
     , ldirsNextToken
     , ldirsInstancesList
@@ -50,22 +50,24 @@ import           Network.AWS.Response
 -- | Represents the input of a list deployment instances operation.
 --
 -- /See:/ 'listDeploymentInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldiInstanceStatusFilter'
---
--- * 'ldiNextToken'
---
--- * 'ldiDeploymentId'
 data ListDeploymentInstances = ListDeploymentInstances'
     { _ldiInstanceStatusFilter :: !(Maybe [InstanceStatus])
     , _ldiNextToken            :: !(Maybe Text)
     , _ldiDeploymentId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDeploymentInstances' smart constructor.
-listDeploymentInstances :: Text -> ListDeploymentInstances
+-- | Creates a value of 'ListDeploymentInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldiInstanceStatusFilter'
+--
+-- * 'ldiNextToken'
+--
+-- * 'ldiDeploymentId'
+listDeploymentInstances
+    :: Text -- ^ 'ldiDeploymentId'
+    -> ListDeploymentInstances
 listDeploymentInstances pDeploymentId_ =
     ListDeploymentInstances'
     { _ldiInstanceStatusFilter = Nothing
@@ -139,22 +141,24 @@ instance ToQuery ListDeploymentInstances where
 -- | Represents the output of a list deployment instances operation.
 --
 -- /See:/ 'listDeploymentInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldirsNextToken'
---
--- * 'ldirsInstancesList'
---
--- * 'ldirsStatus'
 data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
     { _ldirsNextToken     :: !(Maybe Text)
     , _ldirsInstancesList :: !(Maybe [Text])
     , _ldirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDeploymentInstancesResponse' smart constructor.
-listDeploymentInstancesResponse :: Int -> ListDeploymentInstancesResponse
+-- | Creates a value of 'ListDeploymentInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldirsNextToken'
+--
+-- * 'ldirsInstancesList'
+--
+-- * 'ldirsStatus'
+listDeploymentInstancesResponse
+    :: Int -- ^ 'ldirsStatus'
+    -> ListDeploymentInstancesResponse
 listDeploymentInstancesResponse pStatus_ =
     ListDeploymentInstancesResponse'
     { _ldirsNextToken = Nothing
@@ -173,6 +177,6 @@ ldirsNextToken = lens _ldirsNextToken (\ s a -> s{_ldirsNextToken = a});
 ldirsInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
 ldirsInstancesList = lens _ldirsInstancesList (\ s a -> s{_ldirsInstancesList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ldirsStatus :: Lens' ListDeploymentInstancesResponse Int
 ldirsStatus = lens _ldirsStatus (\ s a -> s{_ldirsStatus = a});

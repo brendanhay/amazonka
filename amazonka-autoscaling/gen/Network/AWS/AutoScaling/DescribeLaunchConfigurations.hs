@@ -22,19 +22,21 @@
 -- names, then the call describes all launch configurations.
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html AWS API Reference> for DescribeLaunchConfigurations.
+--
+-- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     (
     -- * Creating a Request
-      DescribeLaunchConfigurations
-    , describeLaunchConfigurations
+      describeLaunchConfigurations
+    , DescribeLaunchConfigurations
     -- * Request Lenses
     , dlcLaunchConfigurationNames
     , dlcNextToken
     , dlcMaxRecords
 
     -- * Destructuring the Response
-    , DescribeLaunchConfigurationsResponse
     , describeLaunchConfigurationsResponse
+    , DescribeLaunchConfigurationsResponse
     -- * Response Lenses
     , dlcrsNextToken
     , dlcrsStatus
@@ -49,22 +51,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeLaunchConfigurations' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlcLaunchConfigurationNames'
---
--- * 'dlcNextToken'
---
--- * 'dlcMaxRecords'
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
     { _dlcLaunchConfigurationNames :: !(Maybe [Text])
     , _dlcNextToken                :: !(Maybe Text)
     , _dlcMaxRecords               :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLaunchConfigurations' smart constructor.
-describeLaunchConfigurations :: DescribeLaunchConfigurations
+-- | Creates a value of 'DescribeLaunchConfigurations' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlcLaunchConfigurationNames'
+--
+-- * 'dlcNextToken'
+--
+-- * 'dlcMaxRecords'
+describeLaunchConfigurations
+    :: DescribeLaunchConfigurations
 describeLaunchConfigurations =
     DescribeLaunchConfigurations'
     { _dlcLaunchConfigurationNames = Nothing
@@ -128,22 +131,24 @@ instance ToQuery DescribeLaunchConfigurations where
                "MaxRecords" =: _dlcMaxRecords]
 
 -- | /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlcrsNextToken'
---
--- * 'dlcrsStatus'
---
--- * 'dlcrsLaunchConfigurations'
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
     { _dlcrsNextToken            :: !(Maybe Text)
     , _dlcrsStatus               :: !Int
     , _dlcrsLaunchConfigurations :: ![LaunchConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLaunchConfigurationsResponse' smart constructor.
-describeLaunchConfigurationsResponse :: Int -> DescribeLaunchConfigurationsResponse
+-- | Creates a value of 'DescribeLaunchConfigurationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlcrsNextToken'
+--
+-- * 'dlcrsStatus'
+--
+-- * 'dlcrsLaunchConfigurations'
+describeLaunchConfigurationsResponse
+    :: Int -- ^ 'dlcrsStatus'
+    -> DescribeLaunchConfigurationsResponse
 describeLaunchConfigurationsResponse pStatus_ =
     DescribeLaunchConfigurationsResponse'
     { _dlcrsNextToken = Nothing
@@ -156,7 +161,7 @@ describeLaunchConfigurationsResponse pStatus_ =
 dlcrsNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
 dlcrsNextToken = lens _dlcrsNextToken (\ s a -> s{_dlcrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dlcrsStatus :: Lens' DescribeLaunchConfigurationsResponse Int
 dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});
 

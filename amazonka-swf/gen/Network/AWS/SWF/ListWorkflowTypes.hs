@@ -27,9 +27,9 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
 -- -   You cannot use an IAM policy to constrain this action\'s parameters.
 --
@@ -41,11 +41,13 @@
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListWorkflowTypes.html AWS API Reference> for ListWorkflowTypes.
+--
+-- This operation returns paginated results.
 module Network.AWS.SWF.ListWorkflowTypes
     (
     -- * Creating a Request
-      ListWorkflowTypes
-    , listWorkflowTypes
+      listWorkflowTypes
+    , ListWorkflowTypes
     -- * Request Lenses
     , lwtNextPageToken
     , lwtReverseOrder
@@ -55,8 +57,8 @@ module Network.AWS.SWF.ListWorkflowTypes
     , lwtRegistrationStatus
 
     -- * Destructuring the Response
-    , ListWorkflowTypesResponse
     , listWorkflowTypesResponse
+    , ListWorkflowTypesResponse
     -- * Response Lenses
     , lwtrsNextPageToken
     , lwtrsStatus
@@ -71,8 +73,18 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'listWorkflowTypes' smart constructor.
+data ListWorkflowTypes = ListWorkflowTypes'
+    { _lwtNextPageToken      :: !(Maybe Text)
+    , _lwtReverseOrder       :: !(Maybe Bool)
+    , _lwtName               :: !(Maybe Text)
+    , _lwtMaximumPageSize    :: !(Maybe Nat)
+    , _lwtDomain             :: !Text
+    , _lwtRegistrationStatus :: !RegistrationStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListWorkflowTypes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lwtNextPageToken'
 --
@@ -85,17 +97,10 @@ import           Network.AWS.SWF.Types.Product
 -- * 'lwtDomain'
 --
 -- * 'lwtRegistrationStatus'
-data ListWorkflowTypes = ListWorkflowTypes'
-    { _lwtNextPageToken      :: !(Maybe Text)
-    , _lwtReverseOrder       :: !(Maybe Bool)
-    , _lwtName               :: !(Maybe Text)
-    , _lwtMaximumPageSize    :: !(Maybe Nat)
-    , _lwtDomain             :: !Text
-    , _lwtRegistrationStatus :: !RegistrationStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListWorkflowTypes' smart constructor.
-listWorkflowTypes :: Text -> RegistrationStatus -> ListWorkflowTypes
+listWorkflowTypes
+    :: Text -- ^ 'lwtDomain'
+    -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
+    -> ListWorkflowTypes
 listWorkflowTypes pDomain_ pRegistrationStatus_ =
     ListWorkflowTypes'
     { _lwtNextPageToken = Nothing
@@ -106,18 +111,18 @@ listWorkflowTypes pDomain_ pRegistrationStatus_ =
     , _lwtRegistrationStatus = pRegistrationStatus_
     }
 
--- | If a @NextPageToken@ was returned by a previous call, there are more
+-- | If a 'NextPageToken' was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
--- again using the returned token in @nextPageToken@. Keep all other
+-- again using the returned token in 'nextPageToken'. Keep all other
 -- arguments unchanged.
 --
--- The configured @maximumPageSize@ determines how many results can be
+-- The configured 'maximumPageSize' determines how many results can be
 -- returned in a single call.
 lwtNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
 lwtNextPageToken = lens _lwtNextPageToken (\ s a -> s{_lwtNextPageToken = a});
 
--- | When set to @true@, returns the results in reverse order. By default the
--- results are returned in ascending alphabetical order of the @name@ of
+-- | When set to 'true', returns the results in reverse order. By default the
+-- results are returned in ascending alphabetical order of the 'name' of
 -- the workflow types.
 lwtReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
 lwtReverseOrder = lens _lwtReverseOrder (\ s a -> s{_lwtReverseOrder = a});
@@ -127,7 +132,7 @@ lwtName :: Lens' ListWorkflowTypes (Maybe Text)
 lwtName = lens _lwtName (\ s a -> s{_lwtName = a});
 
 -- | The maximum number of results that will be returned per call.
--- @nextPageToken@ can be used to obtain futher pages of results. The
+-- 'nextPageToken' can be used to obtain futher pages of results. The
 -- default is 1000, which is the maximum allowed page size. You can,
 -- however, specify a page size /smaller/ than the maximum.
 --
@@ -193,22 +198,24 @@ instance ToQuery ListWorkflowTypes where
 -- types.
 --
 -- /See:/ 'listWorkflowTypesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lwtrsNextPageToken'
---
--- * 'lwtrsStatus'
---
--- * 'lwtrsTypeInfos'
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
     { _lwtrsNextPageToken :: !(Maybe Text)
     , _lwtrsStatus        :: !Int
     , _lwtrsTypeInfos     :: ![WorkflowTypeInfo]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListWorkflowTypesResponse' smart constructor.
-listWorkflowTypesResponse :: Int -> ListWorkflowTypesResponse
+-- | Creates a value of 'ListWorkflowTypesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lwtrsNextPageToken'
+--
+-- * 'lwtrsStatus'
+--
+-- * 'lwtrsTypeInfos'
+listWorkflowTypesResponse
+    :: Int -- ^ 'lwtrsStatus'
+    -> ListWorkflowTypesResponse
 listWorkflowTypesResponse pStatus_ =
     ListWorkflowTypesResponse'
     { _lwtrsNextPageToken = Nothing
@@ -216,17 +223,17 @@ listWorkflowTypesResponse pStatus_ =
     , _lwtrsTypeInfos = mempty
     }
 
--- | If a @NextPageToken@ was returned by a previous call, there are more
+-- | If a 'NextPageToken' was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
--- again using the returned token in @nextPageToken@. Keep all other
+-- again using the returned token in 'nextPageToken'. Keep all other
 -- arguments unchanged.
 --
--- The configured @maximumPageSize@ determines how many results can be
+-- The configured 'maximumPageSize' determines how many results can be
 -- returned in a single call.
 lwtrsNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
 lwtrsNextPageToken = lens _lwtrsNextPageToken (\ s a -> s{_lwtrsNextPageToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 lwtrsStatus :: Lens' ListWorkflowTypesResponse Int
 lwtrsStatus = lens _lwtrsStatus (\ s a -> s{_lwtrsStatus = a});
 

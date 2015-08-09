@@ -25,8 +25,8 @@
 module Network.AWS.Redshift.EnableSnapshotCopy
     (
     -- * Creating a Request
-      EnableSnapshotCopy
-    , enableSnapshotCopy
+      enableSnapshotCopy
+    , EnableSnapshotCopy
     -- * Request Lenses
     , escRetentionPeriod
     , escSnapshotCopyGrantName
@@ -34,8 +34,8 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     , escDestinationRegion
 
     -- * Destructuring the Response
-    , EnableSnapshotCopyResponse
     , enableSnapshotCopyResponse
+    , EnableSnapshotCopyResponse
     -- * Response Lenses
     , escrsCluster
     , escrsStatus
@@ -50,8 +50,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'enableSnapshotCopy' smart constructor.
+data EnableSnapshotCopy = EnableSnapshotCopy'
+    { _escRetentionPeriod       :: !(Maybe Int)
+    , _escSnapshotCopyGrantName :: !(Maybe Text)
+    , _escClusterIdentifier     :: !Text
+    , _escDestinationRegion     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnableSnapshotCopy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'escRetentionPeriod'
 --
@@ -60,15 +68,10 @@ import           Network.AWS.Response
 -- * 'escClusterIdentifier'
 --
 -- * 'escDestinationRegion'
-data EnableSnapshotCopy = EnableSnapshotCopy'
-    { _escRetentionPeriod       :: !(Maybe Int)
-    , _escSnapshotCopyGrantName :: !(Maybe Text)
-    , _escClusterIdentifier     :: !Text
-    , _escDestinationRegion     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EnableSnapshotCopy' smart constructor.
-enableSnapshotCopy :: Text -> Text -> EnableSnapshotCopy
+enableSnapshotCopy
+    :: Text -- ^ 'escClusterIdentifier'
+    -> Text -- ^ 'escDestinationRegion'
+    -> EnableSnapshotCopy
 enableSnapshotCopy pClusterIdentifier_ pDestinationRegion_ =
     EnableSnapshotCopy'
     { _escRetentionPeriod = Nothing
@@ -135,19 +138,21 @@ instance ToQuery EnableSnapshotCopy where
                "DestinationRegion" =: _escDestinationRegion]
 
 -- | /See:/ 'enableSnapshotCopyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'escrsCluster'
---
--- * 'escrsStatus'
 data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'
     { _escrsCluster :: !(Maybe Cluster)
     , _escrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableSnapshotCopyResponse' smart constructor.
-enableSnapshotCopyResponse :: Int -> EnableSnapshotCopyResponse
+-- | Creates a value of 'EnableSnapshotCopyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'escrsCluster'
+--
+-- * 'escrsStatus'
+enableSnapshotCopyResponse
+    :: Int -- ^ 'escrsStatus'
+    -> EnableSnapshotCopyResponse
 enableSnapshotCopyResponse pStatus_ =
     EnableSnapshotCopyResponse'
     { _escrsCluster = Nothing
@@ -158,6 +163,6 @@ enableSnapshotCopyResponse pStatus_ =
 escrsCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
 escrsCluster = lens _escrsCluster (\ s a -> s{_escrsCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 escrsStatus :: Lens' EnableSnapshotCopyResponse Int
 escrsStatus = lens _escrsStatus (\ s a -> s{_escrsStatus = a});

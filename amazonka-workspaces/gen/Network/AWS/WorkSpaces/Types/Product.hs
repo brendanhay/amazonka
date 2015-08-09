@@ -24,16 +24,17 @@ import           Network.AWS.WorkSpaces.Types.Sum
 -- | Contains information about the compute type of a WorkSpace bundle.
 --
 -- /See:/ 'computeType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ctName'
 newtype ComputeType = ComputeType'
     { _ctName :: Maybe Compute
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ComputeType' smart constructor.
-computeType :: ComputeType
+-- | Creates a value of 'ComputeType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctName'
+computeType
+    :: ComputeType
 computeType =
     ComputeType'
     { _ctName = Nothing
@@ -51,8 +52,17 @@ instance FromJSON ComputeType where
 -- | Contains default WorkSpace creation information.
 --
 -- /See:/ 'defaultWorkspaceCreationProperties' smart constructor.
+data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
+    { _dwcpCustomSecurityGroupId           :: !(Maybe Text)
+    , _dwcpUserEnabledAsLocalAdministrator :: !(Maybe Bool)
+    , _dwcpEnableWorkDocs                  :: !(Maybe Bool)
+    , _dwcpEnableInternetAccess            :: !(Maybe Bool)
+    , _dwcpDefaultOu                       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DefaultWorkspaceCreationProperties' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dwcpCustomSecurityGroupId'
 --
@@ -63,16 +73,8 @@ instance FromJSON ComputeType where
 -- * 'dwcpEnableInternetAccess'
 --
 -- * 'dwcpDefaultOu'
-data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
-    { _dwcpCustomSecurityGroupId           :: !(Maybe Text)
-    , _dwcpUserEnabledAsLocalAdministrator :: !(Maybe Bool)
-    , _dwcpEnableWorkDocs                  :: !(Maybe Bool)
-    , _dwcpEnableInternetAccess            :: !(Maybe Bool)
-    , _dwcpDefaultOu                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DefaultWorkspaceCreationProperties' smart constructor.
-defaultWorkspaceCreationProperties :: DefaultWorkspaceCreationProperties
+defaultWorkspaceCreationProperties
+    :: DefaultWorkspaceCreationProperties
 defaultWorkspaceCreationProperties =
     DefaultWorkspaceCreationProperties'
     { _dwcpCustomSecurityGroupId = Nothing
@@ -120,22 +122,23 @@ instance FromJSON DefaultWorkspaceCreationProperties
 -- | Contains information about a WorkSpace that could not be created.
 --
 -- /See:/ 'failedCreateWorkspaceRequest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fcwrWorkspaceRequest'
---
--- * 'fcwrErrorCode'
---
--- * 'fcwrErrorMessage'
 data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
     { _fcwrWorkspaceRequest :: !(Maybe WorkspaceRequest)
     , _fcwrErrorCode        :: !(Maybe Text)
     , _fcwrErrorMessage     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'FailedCreateWorkspaceRequest' smart constructor.
-failedCreateWorkspaceRequest :: FailedCreateWorkspaceRequest
+-- | Creates a value of 'FailedCreateWorkspaceRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fcwrWorkspaceRequest'
+--
+-- * 'fcwrErrorCode'
+--
+-- * 'fcwrErrorMessage'
+failedCreateWorkspaceRequest
+    :: FailedCreateWorkspaceRequest
 failedCreateWorkspaceRequest =
     FailedCreateWorkspaceRequest'
     { _fcwrWorkspaceRequest = Nothing
@@ -169,22 +172,23 @@ instance FromJSON FailedCreateWorkspaceRequest where
 -- (TerminateWorkspaces).
 --
 -- /See:/ 'failedWorkspaceChangeRequest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fwcrErrorCode'
---
--- * 'fwcrWorkspaceId'
---
--- * 'fwcrErrorMessage'
 data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
     { _fwcrErrorCode    :: !(Maybe Text)
     , _fwcrWorkspaceId  :: !(Maybe Text)
     , _fwcrErrorMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'FailedWorkspaceChangeRequest' smart constructor.
-failedWorkspaceChangeRequest :: FailedWorkspaceChangeRequest
+-- | Creates a value of 'FailedWorkspaceChangeRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fwcrErrorCode'
+--
+-- * 'fwcrWorkspaceId'
+--
+-- * 'fwcrErrorMessage'
+failedWorkspaceChangeRequest
+    :: FailedWorkspaceChangeRequest
 failedWorkspaceChangeRequest =
     FailedWorkspaceChangeRequest'
     { _fwcrErrorCode = Nothing
@@ -216,16 +220,18 @@ instance FromJSON FailedWorkspaceChangeRequest where
 -- a WorkSpace.
 --
 -- /See:/ 'rebootRequest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rWorkspaceId'
 newtype RebootRequest = RebootRequest'
     { _rWorkspaceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebootRequest' smart constructor.
-rebootRequest :: Text -> RebootRequest
+-- | Creates a value of 'RebootRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rWorkspaceId'
+rebootRequest
+    :: Text -- ^ 'rWorkspaceId'
+    -> RebootRequest
 rebootRequest pWorkspaceId_ =
     RebootRequest'
     { _rWorkspaceId = pWorkspaceId_
@@ -243,16 +249,18 @@ instance ToJSON RebootRequest where
 -- rebuild a WorkSpace.
 --
 -- /See:/ 'rebuildRequest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rrWorkspaceId'
 newtype RebuildRequest = RebuildRequest'
     { _rrWorkspaceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebuildRequest' smart constructor.
-rebuildRequest :: Text -> RebuildRequest
+-- | Creates a value of 'RebuildRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rrWorkspaceId'
+rebuildRequest
+    :: Text -- ^ 'rrWorkspaceId'
+    -> RebuildRequest
 rebuildRequest pWorkspaceId_ =
     RebuildRequest'
     { _rrWorkspaceId = pWorkspaceId_
@@ -270,16 +278,18 @@ instance ToJSON RebuildRequest where
 -- terminate a WorkSpace.
 --
 -- /See:/ 'terminateRequest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'trWorkspaceId'
 newtype TerminateRequest = TerminateRequest'
     { _trWorkspaceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TerminateRequest' smart constructor.
-terminateRequest :: Text -> TerminateRequest
+-- | Creates a value of 'TerminateRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'trWorkspaceId'
+terminateRequest
+    :: Text -- ^ 'trWorkspaceId'
+    -> TerminateRequest
 terminateRequest pWorkspaceId_ =
     TerminateRequest'
     { _trWorkspaceId = pWorkspaceId_
@@ -296,16 +306,17 @@ instance ToJSON TerminateRequest where
 -- | Contains information about the user storage for a WorkSpace bundle.
 --
 -- /See:/ 'userStorage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'usCapacity'
 newtype UserStorage = UserStorage'
     { _usCapacity :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UserStorage' smart constructor.
-userStorage :: UserStorage
+-- | Creates a value of 'UserStorage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'usCapacity'
+userStorage
+    :: UserStorage
 userStorage =
     UserStorage'
     { _usCapacity = Nothing
@@ -323,8 +334,21 @@ instance FromJSON UserStorage where
 -- | Contains information about a WorkSpace.
 --
 -- /See:/ 'workspace' smart constructor.
+data Workspace = Workspace'
+    { _wDirectoryId  :: !(Maybe Text)
+    , _wIPAddress    :: !(Maybe Text)
+    , _wState        :: !(Maybe WorkspaceState)
+    , _wUserName     :: !(Maybe Text)
+    , _wSubnetId     :: !(Maybe Text)
+    , _wBundleId     :: !(Maybe Text)
+    , _wErrorCode    :: !(Maybe Text)
+    , _wWorkspaceId  :: !(Maybe Text)
+    , _wErrorMessage :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Workspace' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'wDirectoryId'
 --
@@ -343,20 +367,8 @@ instance FromJSON UserStorage where
 -- * 'wWorkspaceId'
 --
 -- * 'wErrorMessage'
-data Workspace = Workspace'
-    { _wDirectoryId  :: !(Maybe Text)
-    , _wIPAddress    :: !(Maybe Text)
-    , _wState        :: !(Maybe WorkspaceState)
-    , _wUserName     :: !(Maybe Text)
-    , _wSubnetId     :: !(Maybe Text)
-    , _wBundleId     :: !(Maybe Text)
-    , _wErrorCode    :: !(Maybe Text)
-    , _wWorkspaceId  :: !(Maybe Text)
-    , _wErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Workspace' smart constructor.
-workspace :: Workspace
+workspace
+    :: Workspace
 workspace =
     Workspace'
     { _wDirectoryId = Nothing
@@ -425,8 +437,18 @@ instance FromJSON Workspace where
 -- | Contains information about a WorkSpace bundle.
 --
 -- /See:/ 'workspaceBundle' smart constructor.
+data WorkspaceBundle = WorkspaceBundle'
+    { _wbOwner       :: !(Maybe Text)
+    , _wbBundleId    :: !(Maybe Text)
+    , _wbName        :: !(Maybe Text)
+    , _wbComputeType :: !(Maybe ComputeType)
+    , _wbUserStorage :: !(Maybe UserStorage)
+    , _wbDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'WorkspaceBundle' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'wbOwner'
 --
@@ -439,17 +461,8 @@ instance FromJSON Workspace where
 -- * 'wbUserStorage'
 --
 -- * 'wbDescription'
-data WorkspaceBundle = WorkspaceBundle'
-    { _wbOwner       :: !(Maybe Text)
-    , _wbBundleId    :: !(Maybe Text)
-    , _wbName        :: !(Maybe Text)
-    , _wbComputeType :: !(Maybe ComputeType)
-    , _wbUserStorage :: !(Maybe UserStorage)
-    , _wbDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'WorkspaceBundle' smart constructor.
-workspaceBundle :: WorkspaceBundle
+workspaceBundle
+    :: WorkspaceBundle
 workspaceBundle =
     WorkspaceBundle'
     { _wbOwner = Nothing
@@ -461,7 +474,7 @@ workspaceBundle =
     }
 
 -- | The owner of the bundle. This contains the owner\'s account identifier,
--- or @AMAZON@ if the bundle is provided by AWS.
+-- or 'AMAZON' if the bundle is provided by AWS.
 wbOwner :: Lens' WorkspaceBundle (Maybe Text)
 wbOwner = lens _wbOwner (\ s a -> s{_wbOwner = a});
 
@@ -501,8 +514,24 @@ instance FromJSON WorkspaceBundle where
 -- with Amazon WorkSpaces.
 --
 -- /See:/ 'workspaceDirectory' smart constructor.
+data WorkspaceDirectory = WorkspaceDirectory'
+    { _wdRegistrationCode            :: !(Maybe Text)
+    , _wdIAMRoleId                   :: !(Maybe Text)
+    , _wdDirectoryId                 :: !(Maybe Text)
+    , _wdState                       :: !(Maybe WorkspaceDirectoryState)
+    , _wdCustomerUserName            :: !(Maybe Text)
+    , _wdSubnetIds                   :: !(Maybe [Text])
+    , _wdAlias                       :: !(Maybe Text)
+    , _wdDirectoryType               :: !(Maybe WorkspaceDirectoryType)
+    , _wdWorkspaceSecurityGroupId    :: !(Maybe Text)
+    , _wdWorkspaceCreationProperties :: !(Maybe DefaultWorkspaceCreationProperties)
+    , _wdDNSIPAddresses              :: !(Maybe [Text])
+    , _wdDirectoryName               :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'WorkspaceDirectory' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'wdRegistrationCode'
 --
@@ -527,23 +556,8 @@ instance FromJSON WorkspaceBundle where
 -- * 'wdDNSIPAddresses'
 --
 -- * 'wdDirectoryName'
-data WorkspaceDirectory = WorkspaceDirectory'
-    { _wdRegistrationCode            :: !(Maybe Text)
-    , _wdIAMRoleId                   :: !(Maybe Text)
-    , _wdDirectoryId                 :: !(Maybe Text)
-    , _wdState                       :: !(Maybe WorkspaceDirectoryState)
-    , _wdCustomerUserName            :: !(Maybe Text)
-    , _wdSubnetIds                   :: !(Maybe [Text])
-    , _wdAlias                       :: !(Maybe Text)
-    , _wdDirectoryType               :: !(Maybe WorkspaceDirectoryType)
-    , _wdWorkspaceSecurityGroupId    :: !(Maybe Text)
-    , _wdWorkspaceCreationProperties :: !(Maybe DefaultWorkspaceCreationProperties)
-    , _wdDNSIPAddresses              :: !(Maybe [Text])
-    , _wdDirectoryName               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'WorkspaceDirectory' smart constructor.
-workspaceDirectory :: WorkspaceDirectory
+workspaceDirectory
+    :: WorkspaceDirectory
 workspaceDirectory =
     WorkspaceDirectory'
     { _wdRegistrationCode = Nothing
@@ -635,22 +649,26 @@ instance FromJSON WorkspaceDirectory where
 -- | Contains information about a WorkSpace creation request.
 --
 -- /See:/ 'workspaceRequest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'wrDirectoryId'
---
--- * 'wrUserName'
---
--- * 'wrBundleId'
 data WorkspaceRequest = WorkspaceRequest'
     { _wrDirectoryId :: !Text
     , _wrUserName    :: !Text
     , _wrBundleId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'WorkspaceRequest' smart constructor.
-workspaceRequest :: Text -> Text -> Text -> WorkspaceRequest
+-- | Creates a value of 'WorkspaceRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wrDirectoryId'
+--
+-- * 'wrUserName'
+--
+-- * 'wrBundleId'
+workspaceRequest
+    :: Text -- ^ 'wrDirectoryId'
+    -> Text -- ^ 'wrUserName'
+    -> Text -- ^ 'wrBundleId'
+    -> WorkspaceRequest
 workspaceRequest pDirectoryId_ pUserName_ pBundleId_ =
     WorkspaceRequest'
     { _wrDirectoryId = pDirectoryId_
@@ -665,7 +683,7 @@ wrDirectoryId :: Lens' WorkspaceRequest Text
 wrDirectoryId = lens _wrDirectoryId (\ s a -> s{_wrDirectoryId = a});
 
 -- | The username that the WorkSpace is assigned to. This username must exist
--- in the AWS Directory Service directory specified by the @DirectoryId@
+-- in the AWS Directory Service directory specified by the 'DirectoryId'
 -- member.
 wrUserName :: Lens' WorkspaceRequest Text
 wrUserName = lens _wrUserName (\ s a -> s{_wrUserName = a});

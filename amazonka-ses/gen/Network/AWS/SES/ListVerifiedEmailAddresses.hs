@@ -31,12 +31,12 @@
 module Network.AWS.SES.ListVerifiedEmailAddresses
     (
     -- * Creating a Request
-      ListVerifiedEmailAddresses
-    , listVerifiedEmailAddresses
+      listVerifiedEmailAddresses
+    , ListVerifiedEmailAddresses
 
     -- * Destructuring the Response
-    , ListVerifiedEmailAddressesResponse
     , listVerifiedEmailAddressesResponse
+    , ListVerifiedEmailAddressesResponse
     -- * Response Lenses
     , lvearsVerifiedEmailAddresses
     , lvearsStatus
@@ -53,8 +53,10 @@ data ListVerifiedEmailAddresses =
     ListVerifiedEmailAddresses'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListVerifiedEmailAddresses' smart constructor.
-listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
+-- | Creates a value of 'ListVerifiedEmailAddresses' with the minimum fields required to make a request.
+--
+listVerifiedEmailAddresses
+    :: ListVerifiedEmailAddresses
 listVerifiedEmailAddresses = ListVerifiedEmailAddresses'
 
 instance AWSRequest ListVerifiedEmailAddresses where
@@ -89,19 +91,21 @@ instance ToQuery ListVerifiedEmailAddresses where
 -- user.
 --
 -- /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lvearsVerifiedEmailAddresses'
---
--- * 'lvearsStatus'
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
     { _lvearsVerifiedEmailAddresses :: !(Maybe [Text])
     , _lvearsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListVerifiedEmailAddressesResponse' smart constructor.
-listVerifiedEmailAddressesResponse :: Int -> ListVerifiedEmailAddressesResponse
+-- | Creates a value of 'ListVerifiedEmailAddressesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lvearsVerifiedEmailAddresses'
+--
+-- * 'lvearsStatus'
+listVerifiedEmailAddressesResponse
+    :: Int -- ^ 'lvearsStatus'
+    -> ListVerifiedEmailAddressesResponse
 listVerifiedEmailAddressesResponse pStatus_ =
     ListVerifiedEmailAddressesResponse'
     { _lvearsVerifiedEmailAddresses = Nothing
@@ -112,6 +116,6 @@ listVerifiedEmailAddressesResponse pStatus_ =
 lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_lvearsVerifiedEmailAddresses = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lvearsStatus :: Lens' ListVerifiedEmailAddressesResponse Int
 lvearsStatus = lens _lvearsStatus (\ s a -> s{_lvearsStatus = a});

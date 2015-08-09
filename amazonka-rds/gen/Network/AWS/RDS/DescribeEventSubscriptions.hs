@@ -26,11 +26,13 @@
 -- subscription.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventSubscriptions.html AWS API Reference> for DescribeEventSubscriptions.
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEventSubscriptions
     (
     -- * Creating a Request
-      DescribeEventSubscriptions
-    , describeEventSubscriptions
+      describeEventSubscriptions
+    , DescribeEventSubscriptions
     -- * Request Lenses
     , dSubscriptionName
     , dFilters
@@ -38,8 +40,8 @@ module Network.AWS.RDS.DescribeEventSubscriptions
     , dMarker
 
     -- * Destructuring the Response
-    , DescribeEventSubscriptionsResponse
     , describeEventSubscriptionsResponse
+    , DescribeEventSubscriptionsResponse
     -- * Response Lenses
     , desrsEventSubscriptionsList
     , desrsMarker
@@ -56,8 +58,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeEventSubscriptions' smart constructor.
+data DescribeEventSubscriptions = DescribeEventSubscriptions'
+    { _dSubscriptionName :: !(Maybe Text)
+    , _dFilters          :: !(Maybe [Filter])
+    , _dMaxRecords       :: !(Maybe Int)
+    , _dMarker           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeEventSubscriptions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dSubscriptionName'
 --
@@ -66,15 +76,8 @@ import           Network.AWS.Response
 -- * 'dMaxRecords'
 --
 -- * 'dMarker'
-data DescribeEventSubscriptions = DescribeEventSubscriptions'
-    { _dSubscriptionName :: !(Maybe Text)
-    , _dFilters          :: !(Maybe [Filter])
-    , _dMaxRecords       :: !(Maybe Int)
-    , _dMarker           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeEventSubscriptions' smart constructor.
-describeEventSubscriptions :: DescribeEventSubscriptions
+describeEventSubscriptions
+    :: DescribeEventSubscriptions
 describeEventSubscriptions =
     DescribeEventSubscriptions'
     { _dSubscriptionName = Nothing
@@ -93,7 +96,7 @@ dFilters :: Lens' DescribeEventSubscriptions [Filter]
 dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
+-- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 --
@@ -106,7 +109,7 @@ dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@ .
+-- the value specified by 'MaxRecords' .
 dMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
 dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
@@ -152,22 +155,24 @@ instance ToQuery DescribeEventSubscriptions where
 -- | Data returned by the __DescribeEventSubscriptions__ action.
 --
 -- /See:/ 'describeEventSubscriptionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'desrsEventSubscriptionsList'
---
--- * 'desrsMarker'
---
--- * 'desrsStatus'
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
     { _desrsEventSubscriptionsList :: !(Maybe [EventSubscription])
     , _desrsMarker                 :: !(Maybe Text)
     , _desrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEventSubscriptionsResponse' smart constructor.
-describeEventSubscriptionsResponse :: Int -> DescribeEventSubscriptionsResponse
+-- | Creates a value of 'DescribeEventSubscriptionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'desrsEventSubscriptionsList'
+--
+-- * 'desrsMarker'
+--
+-- * 'desrsStatus'
+describeEventSubscriptionsResponse
+    :: Int -- ^ 'desrsStatus'
+    -> DescribeEventSubscriptionsResponse
 describeEventSubscriptionsResponse pStatus_ =
     DescribeEventSubscriptionsResponse'
     { _desrsEventSubscriptionsList = Nothing
@@ -182,10 +187,10 @@ desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_des
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
+-- the value specified by 'MaxRecords'.
 desrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 desrsStatus :: Lens' DescribeEventSubscriptionsResponse Int
 desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

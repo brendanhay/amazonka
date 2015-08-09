@@ -19,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Restores a DB cluster to an arbitrary point in time. Users can restore
--- to any point in time before @LatestRestorableTime@ for up to
--- @BackupRetentionPeriod@ days. The target DB cluster is created from the
+-- to any point in time before 'LatestRestorableTime' for up to
+-- 'BackupRetentionPeriod' days. The target DB cluster is created from the
 -- source DB cluster with the same configuration as the original DB
 -- cluster, except that the new DB cluster is created with the default DB
 -- security group.
@@ -33,8 +33,8 @@
 module Network.AWS.RDS.RestoreDBClusterToPointInTime
     (
     -- * Creating a Request
-      RestoreDBClusterToPointInTime
-    , restoreDBClusterToPointInTime
+      restoreDBClusterToPointInTime
+    , RestoreDBClusterToPointInTime
     -- * Request Lenses
     , rdctpitUseLatestRestorableTime
     , rdctpitDBSubnetGroupName
@@ -47,8 +47,8 @@ module Network.AWS.RDS.RestoreDBClusterToPointInTime
     , rdctpitSourceDBClusterIdentifier
 
     -- * Destructuring the Response
-    , RestoreDBClusterToPointInTimeResponse
     , restoreDBClusterToPointInTimeResponse
+    , RestoreDBClusterToPointInTimeResponse
     -- * Response Lenses
     , rdctpitrsDBCluster
     , rdctpitrsStatus
@@ -63,8 +63,21 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'restoreDBClusterToPointInTime' smart constructor.
+data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
+    { _rdctpitUseLatestRestorableTime   :: !(Maybe Bool)
+    , _rdctpitDBSubnetGroupName         :: !(Maybe Text)
+    , _rdctpitVPCSecurityGroupIds       :: !(Maybe [Text])
+    , _rdctpitOptionGroupName           :: !(Maybe Text)
+    , _rdctpitRestoreToTime             :: !(Maybe ISO8601)
+    , _rdctpitTags                      :: !(Maybe [Tag])
+    , _rdctpitPort                      :: !(Maybe Int)
+    , _rdctpitDBClusterIdentifier       :: !Text
+    , _rdctpitSourceDBClusterIdentifier :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RestoreDBClusterToPointInTime' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rdctpitUseLatestRestorableTime'
 --
@@ -83,20 +96,10 @@ import           Network.AWS.Response
 -- * 'rdctpitDBClusterIdentifier'
 --
 -- * 'rdctpitSourceDBClusterIdentifier'
-data RestoreDBClusterToPointInTime = RestoreDBClusterToPointInTime'
-    { _rdctpitUseLatestRestorableTime   :: !(Maybe Bool)
-    , _rdctpitDBSubnetGroupName         :: !(Maybe Text)
-    , _rdctpitVPCSecurityGroupIds       :: !(Maybe [Text])
-    , _rdctpitOptionGroupName           :: !(Maybe Text)
-    , _rdctpitRestoreToTime             :: !(Maybe ISO8601)
-    , _rdctpitTags                      :: !(Maybe [Tag])
-    , _rdctpitPort                      :: !(Maybe Int)
-    , _rdctpitDBClusterIdentifier       :: !Text
-    , _rdctpitSourceDBClusterIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RestoreDBClusterToPointInTime' smart constructor.
-restoreDBClusterToPointInTime :: Text -> Text -> RestoreDBClusterToPointInTime
+restoreDBClusterToPointInTime
+    :: Text -- ^ 'rdctpitDBClusterIdentifier'
+    -> Text -- ^ 'rdctpitSourceDBClusterIdentifier'
+    -> RestoreDBClusterToPointInTime
 restoreDBClusterToPointInTime pDBClusterIdentifier_ pSourceDBClusterIdentifier_ =
     RestoreDBClusterToPointInTime'
     { _rdctpitUseLatestRestorableTime = Nothing
@@ -110,12 +113,12 @@ restoreDBClusterToPointInTime pDBClusterIdentifier_ pSourceDBClusterIdentifier_ 
     , _rdctpitSourceDBClusterIdentifier = pSourceDBClusterIdentifier_
     }
 
--- | A value that is set to @true@ to restore the DB cluster to the latest
--- restorable backup time, and @false@ otherwise.
+-- | A value that is set to 'true' to restore the DB cluster to the latest
+-- restorable backup time, and 'false' otherwise.
 --
--- Default: @false@
+-- Default: 'false'
 --
--- Constraints: Cannot be specified if @RestoreToTime@ parameter is
+-- Constraints: Cannot be specified if 'RestoreToTime' parameter is
 -- provided.
 rdctpitUseLatestRestorableTime :: Lens' RestoreDBClusterToPointInTime (Maybe Bool)
 rdctpitUseLatestRestorableTime = lens _rdctpitUseLatestRestorableTime (\ s a -> s{_rdctpitUseLatestRestorableTime = a});
@@ -140,9 +143,9 @@ rdctpitOptionGroupName = lens _rdctpitOptionGroupName (\ s a -> s{_rdctpitOption
 -- Constraints:
 --
 -- -   Must be before the latest restorable time for the DB instance
--- -   Cannot be specified if @UseLatestRestorableTime@ parameter is true
+-- -   Cannot be specified if 'UseLatestRestorableTime' parameter is true
 --
--- Example: @2015-03-07T23:45:00Z@
+-- Example: '2015-03-07T23:45:00Z'
 rdctpitRestoreToTime :: Lens' RestoreDBClusterToPointInTime (Maybe UTCTime)
 rdctpitRestoreToTime = lens _rdctpitRestoreToTime (\ s a -> s{_rdctpitRestoreToTime = a}) . mapping _Time;
 
@@ -152,7 +155,7 @@ rdctpitTags = lens _rdctpitTags (\ s a -> s{_rdctpitTags = a}) . _Default . _Coe
 
 -- | The port number on which the new DB cluster accepts connections.
 --
--- Constraints: Value must be @1150-65535@
+-- Constraints: Value must be '1150-65535'
 --
 -- Default: The same port as the original DB cluster.
 rdctpitPort :: Lens' RestoreDBClusterToPointInTime (Maybe Int)
@@ -222,19 +225,21 @@ instance ToQuery RestoreDBClusterToPointInTime where
                  _rdctpitSourceDBClusterIdentifier]
 
 -- | /See:/ 'restoreDBClusterToPointInTimeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdctpitrsDBCluster'
---
--- * 'rdctpitrsStatus'
 data RestoreDBClusterToPointInTimeResponse = RestoreDBClusterToPointInTimeResponse'
     { _rdctpitrsDBCluster :: !(Maybe DBCluster)
     , _rdctpitrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestoreDBClusterToPointInTimeResponse' smart constructor.
-restoreDBClusterToPointInTimeResponse :: Int -> RestoreDBClusterToPointInTimeResponse
+-- | Creates a value of 'RestoreDBClusterToPointInTimeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdctpitrsDBCluster'
+--
+-- * 'rdctpitrsStatus'
+restoreDBClusterToPointInTimeResponse
+    :: Int -- ^ 'rdctpitrsStatus'
+    -> RestoreDBClusterToPointInTimeResponse
 restoreDBClusterToPointInTimeResponse pStatus_ =
     RestoreDBClusterToPointInTimeResponse'
     { _rdctpitrsDBCluster = Nothing
@@ -245,6 +250,6 @@ restoreDBClusterToPointInTimeResponse pStatus_ =
 rdctpitrsDBCluster :: Lens' RestoreDBClusterToPointInTimeResponse (Maybe DBCluster)
 rdctpitrsDBCluster = lens _rdctpitrsDBCluster (\ s a -> s{_rdctpitrsDBCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 rdctpitrsStatus :: Lens' RestoreDBClusterToPointInTimeResponse Int
 rdctpitrsStatus = lens _rdctpitrsStatus (\ s a -> s{_rdctpitrsStatus = a});

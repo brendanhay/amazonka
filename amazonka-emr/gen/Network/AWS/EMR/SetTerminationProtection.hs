@@ -31,9 +31,9 @@
 -- storage.
 --
 -- To terminate a job flow that has been locked by setting
--- SetTerminationProtection to @true@, you must first unlock the job flow
+-- SetTerminationProtection to 'true', you must first unlock the job flow
 -- by a subsequent call to SetTerminationProtection in which you set the
--- value to @false@.
+-- value to 'false'.
 --
 -- For more information, go to
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html Protecting a Job Flow from Termination>
@@ -43,15 +43,15 @@
 module Network.AWS.EMR.SetTerminationProtection
     (
     -- * Creating a Request
-      SetTerminationProtection
-    , setTerminationProtection
+      setTerminationProtection
+    , SetTerminationProtection
     -- * Request Lenses
     , stpJobFlowIds
     , stpTerminationProtected
 
     -- * Destructuring the Response
-    , SetTerminationProtectionResponse
     , setTerminationProtectionResponse
+    , SetTerminationProtectionResponse
     ) where
 
 import           Network.AWS.EMR.Types
@@ -63,19 +63,21 @@ import           Network.AWS.Response
 -- | The input argument to the TerminationProtection operation.
 --
 -- /See:/ 'setTerminationProtection' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'stpJobFlowIds'
---
--- * 'stpTerminationProtected'
 data SetTerminationProtection = SetTerminationProtection'
     { _stpJobFlowIds           :: ![Text]
     , _stpTerminationProtected :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetTerminationProtection' smart constructor.
-setTerminationProtection :: Bool -> SetTerminationProtection
+-- | Creates a value of 'SetTerminationProtection' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stpJobFlowIds'
+--
+-- * 'stpTerminationProtected'
+setTerminationProtection
+    :: Bool -- ^ 'stpTerminationProtected'
+    -> SetTerminationProtection
 setTerminationProtection pTerminationProtected_ =
     SetTerminationProtection'
     { _stpJobFlowIds = mempty
@@ -129,6 +131,8 @@ data SetTerminationProtectionResponse =
     SetTerminationProtectionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetTerminationProtectionResponse' smart constructor.
-setTerminationProtectionResponse :: SetTerminationProtectionResponse
+-- | Creates a value of 'SetTerminationProtectionResponse' with the minimum fields required to make a request.
+--
+setTerminationProtectionResponse
+    :: SetTerminationProtectionResponse
 setTerminationProtectionResponse = SetTerminationProtectionResponse'

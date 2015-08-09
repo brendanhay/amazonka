@@ -21,19 +21,21 @@
 -- Lists the services that are running in a specified cluster.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html AWS API Reference> for ListServices.
+--
+-- This operation returns paginated results.
 module Network.AWS.ECS.ListServices
     (
     -- * Creating a Request
-      ListServices
-    , listServices
+      listServices
+    , ListServices
     -- * Request Lenses
     , lsCluster
     , lsNextToken
     , lsMaxResults
 
     -- * Destructuring the Response
-    , ListServicesResponse
     , listServicesResponse
+    , ListServicesResponse
     -- * Response Lenses
     , lsrsServiceARNs
     , lsrsNextToken
@@ -48,22 +50,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listServices' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsCluster'
---
--- * 'lsNextToken'
---
--- * 'lsMaxResults'
 data ListServices = ListServices'
     { _lsCluster    :: !(Maybe Text)
     , _lsNextToken  :: !(Maybe Text)
     , _lsMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListServices' smart constructor.
-listServices :: ListServices
+-- | Creates a value of 'ListServices' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsCluster'
+--
+-- * 'lsNextToken'
+--
+-- * 'lsMaxResults'
+listServices
+    :: ListServices
 listServices =
     ListServices'
     { _lsCluster = Nothing
@@ -77,22 +80,22 @@ listServices =
 lsCluster :: Lens' ListServices (Maybe Text)
 lsCluster = lens _lsCluster (\ s a -> s{_lsCluster = a});
 
--- | The @nextToken@ value returned from a previous paginated @ListServices@
--- request where @maxResults@ was used and the results exceeded the value
+-- | The 'nextToken' value returned from a previous paginated 'ListServices'
+-- request where 'maxResults' was used and the results exceeded the value
 -- of that parameter. Pagination continues from the end of the previous
--- results that returned the @nextToken@ value. This value is @null@ when
+-- results that returned the 'nextToken' value. This value is 'null' when
 -- there are no more results to return.
 lsNextToken :: Lens' ListServices (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
 -- | The maximum number of container instance results returned by
--- @ListServices@ in paginated output. When this parameter is used,
--- @ListServices@ only returns @maxResults@ results in a single page along
--- with a @nextToken@ response element. The remaining results of the
--- initial request can be seen by sending another @ListServices@ request
--- with the returned @nextToken@ value. This value can be between 1 and
--- 100. If this parameter is not used, then @ListServices@ returns up to
--- 100 results and a @nextToken@ value if applicable.
+-- 'ListServices' in paginated output. When this parameter is used,
+-- 'ListServices' only returns 'maxResults' results in a single page along
+-- with a 'nextToken' response element. The remaining results of the
+-- initial request can be seen by sending another 'ListServices' request
+-- with the returned 'nextToken' value. This value can be between 1 and
+-- 100. If this parameter is not used, then 'ListServices' returns up to
+-- 100 results and a 'nextToken' value if applicable.
 lsMaxResults :: Lens' ListServices (Maybe Int)
 lsMaxResults = lens _lsMaxResults (\ s a -> s{_lsMaxResults = a});
 
@@ -139,22 +142,24 @@ instance ToQuery ListServices where
         toQuery = const mempty
 
 -- | /See:/ 'listServicesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsrsServiceARNs'
---
--- * 'lsrsNextToken'
---
--- * 'lsrsStatus'
 data ListServicesResponse = ListServicesResponse'
     { _lsrsServiceARNs :: !(Maybe [Text])
     , _lsrsNextToken   :: !(Maybe Text)
     , _lsrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListServicesResponse' smart constructor.
-listServicesResponse :: Int -> ListServicesResponse
+-- | Creates a value of 'ListServicesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsrsServiceARNs'
+--
+-- * 'lsrsNextToken'
+--
+-- * 'lsrsStatus'
+listServicesResponse
+    :: Int -- ^ 'lsrsStatus'
+    -> ListServicesResponse
 listServicesResponse pStatus_ =
     ListServicesResponse'
     { _lsrsServiceARNs = Nothing
@@ -167,13 +172,13 @@ listServicesResponse pStatus_ =
 lsrsServiceARNs :: Lens' ListServicesResponse [Text]
 lsrsServiceARNs = lens _lsrsServiceARNs (\ s a -> s{_lsrsServiceARNs = a}) . _Default . _Coerce;
 
--- | The @nextToken@ value to include in a future @ListServices@ request.
--- When the results of a @ListServices@ request exceed @maxResults@, this
+-- | The 'nextToken' value to include in a future 'ListServices' request.
+-- When the results of a 'ListServices' request exceed 'maxResults', this
 -- value can be used to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'null' when there are no more results to return.
 lsrsNextToken :: Lens' ListServicesResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 lsrsStatus :: Lens' ListServicesResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

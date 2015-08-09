@@ -29,14 +29,14 @@
 module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     (
     -- * Creating a Request
-      ConfirmPublicVirtualInterface
-    , confirmPublicVirtualInterface
+      confirmPublicVirtualInterface
+    , ConfirmPublicVirtualInterface
     -- * Request Lenses
     , cVirtualInterfaceId
 
     -- * Destructuring the Response
-    , ConfirmPublicVirtualInterfaceResponse
     , confirmPublicVirtualInterfaceResponse
+    , ConfirmPublicVirtualInterfaceResponse
     -- * Response Lenses
     , crsVirtualInterfaceState
     , crsStatus
@@ -52,16 +52,18 @@ import           Network.AWS.Response
 -- operation.
 --
 -- /See:/ 'confirmPublicVirtualInterface' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cVirtualInterfaceId'
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
     { _cVirtualInterfaceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfirmPublicVirtualInterface' smart constructor.
-confirmPublicVirtualInterface :: Text -> ConfirmPublicVirtualInterface
+-- | Creates a value of 'ConfirmPublicVirtualInterface' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cVirtualInterfaceId'
+confirmPublicVirtualInterface
+    :: Text -- ^ 'cVirtualInterfaceId'
+    -> ConfirmPublicVirtualInterface
 confirmPublicVirtualInterface pVirtualInterfaceId_ =
     ConfirmPublicVirtualInterface'
     { _cVirtualInterfaceId = pVirtualInterfaceId_
@@ -109,19 +111,21 @@ instance ToQuery ConfirmPublicVirtualInterface where
 -- | The response received when ConfirmPublicVirtualInterface is called.
 --
 -- /See:/ 'confirmPublicVirtualInterfaceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crsVirtualInterfaceState'
---
--- * 'crsStatus'
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
     { _crsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
     , _crsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfirmPublicVirtualInterfaceResponse' smart constructor.
-confirmPublicVirtualInterfaceResponse :: Int -> ConfirmPublicVirtualInterfaceResponse
+-- | Creates a value of 'ConfirmPublicVirtualInterfaceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crsVirtualInterfaceState'
+--
+-- * 'crsStatus'
+confirmPublicVirtualInterfaceResponse
+    :: Int -- ^ 'crsStatus'
+    -> ConfirmPublicVirtualInterfaceResponse
 confirmPublicVirtualInterfaceResponse pStatus_ =
     ConfirmPublicVirtualInterfaceResponse'
     { _crsVirtualInterfaceState = Nothing
@@ -132,6 +136,6 @@ confirmPublicVirtualInterfaceResponse pStatus_ =
 crsVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 crsVirtualInterfaceState = lens _crsVirtualInterfaceState (\ s a -> s{_crsVirtualInterfaceState = a});
 
--- | Undocumented member.
+-- | The response status code.
 crsStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

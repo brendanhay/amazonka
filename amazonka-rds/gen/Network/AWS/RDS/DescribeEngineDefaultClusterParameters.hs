@@ -29,8 +29,8 @@
 module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
     (
     -- * Creating a Request
-      DescribeEngineDefaultClusterParameters
-    , describeEngineDefaultClusterParameters
+      describeEngineDefaultClusterParameters
+    , DescribeEngineDefaultClusterParameters
     -- * Request Lenses
     , dedcpFilters
     , dedcpMaxRecords
@@ -38,8 +38,8 @@ module Network.AWS.RDS.DescribeEngineDefaultClusterParameters
     , dedcpDBParameterGroupFamily
 
     -- * Destructuring the Response
-    , DescribeEngineDefaultClusterParametersResponse
     , describeEngineDefaultClusterParametersResponse
+    , DescribeEngineDefaultClusterParametersResponse
     -- * Response Lenses
     , dedcprsEngineDefaults
     , dedcprsStatus
@@ -54,8 +54,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeEngineDefaultClusterParameters' smart constructor.
+data DescribeEngineDefaultClusterParameters = DescribeEngineDefaultClusterParameters'
+    { _dedcpFilters                :: !(Maybe [Filter])
+    , _dedcpMaxRecords             :: !(Maybe Int)
+    , _dedcpMarker                 :: !(Maybe Text)
+    , _dedcpDBParameterGroupFamily :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeEngineDefaultClusterParameters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dedcpFilters'
 --
@@ -64,15 +72,9 @@ import           Network.AWS.Response
 -- * 'dedcpMarker'
 --
 -- * 'dedcpDBParameterGroupFamily'
-data DescribeEngineDefaultClusterParameters = DescribeEngineDefaultClusterParameters'
-    { _dedcpFilters                :: !(Maybe [Filter])
-    , _dedcpMaxRecords             :: !(Maybe Int)
-    , _dedcpMarker                 :: !(Maybe Text)
-    , _dedcpDBParameterGroupFamily :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeEngineDefaultClusterParameters' smart constructor.
-describeEngineDefaultClusterParameters :: Text -> DescribeEngineDefaultClusterParameters
+describeEngineDefaultClusterParameters
+    :: Text -- ^ 'dedcpDBParameterGroupFamily'
+    -> DescribeEngineDefaultClusterParameters
 describeEngineDefaultClusterParameters pDBParameterGroupFamily_ =
     DescribeEngineDefaultClusterParameters'
     { _dedcpFilters = Nothing
@@ -86,7 +88,7 @@ dedcpFilters :: Lens' DescribeEngineDefaultClusterParameters [Filter]
 dedcpFilters = lens _dedcpFilters (\ s a -> s{_dedcpFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
+-- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 --
@@ -97,9 +99,9 @@ dedcpMaxRecords :: Lens' DescribeEngineDefaultClusterParameters (Maybe Int)
 dedcpMaxRecords = lens _dedcpMaxRecords (\ s a -> s{_dedcpMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
--- @DescribeEngineDefaultClusterParameters@ request. If this parameter is
+-- 'DescribeEngineDefaultClusterParameters' request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
+-- the value specified by 'MaxRecords'.
 dedcpMarker :: Lens' DescribeEngineDefaultClusterParameters (Maybe Text)
 dedcpMarker = lens _dedcpMarker (\ s a -> s{_dedcpMarker = a});
 
@@ -145,19 +147,21 @@ instance ToQuery
                  _dedcpDBParameterGroupFamily]
 
 -- | /See:/ 'describeEngineDefaultClusterParametersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dedcprsEngineDefaults'
---
--- * 'dedcprsStatus'
 data DescribeEngineDefaultClusterParametersResponse = DescribeEngineDefaultClusterParametersResponse'
     { _dedcprsEngineDefaults :: !(Maybe EngineDefaults)
     , _dedcprsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEngineDefaultClusterParametersResponse' smart constructor.
-describeEngineDefaultClusterParametersResponse :: Int -> DescribeEngineDefaultClusterParametersResponse
+-- | Creates a value of 'DescribeEngineDefaultClusterParametersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dedcprsEngineDefaults'
+--
+-- * 'dedcprsStatus'
+describeEngineDefaultClusterParametersResponse
+    :: Int -- ^ 'dedcprsStatus'
+    -> DescribeEngineDefaultClusterParametersResponse
 describeEngineDefaultClusterParametersResponse pStatus_ =
     DescribeEngineDefaultClusterParametersResponse'
     { _dedcprsEngineDefaults = Nothing
@@ -168,6 +172,6 @@ describeEngineDefaultClusterParametersResponse pStatus_ =
 dedcprsEngineDefaults :: Lens' DescribeEngineDefaultClusterParametersResponse (Maybe EngineDefaults)
 dedcprsEngineDefaults = lens _dedcprsEngineDefaults (\ s a -> s{_dedcprsEngineDefaults = a});
 
--- | Undocumented member.
+-- | The response status code.
 dedcprsStatus :: Lens' DescribeEngineDefaultClusterParametersResponse Int
 dedcprsStatus = lens _dedcprsStatus (\ s a -> s{_dedcprsStatus = a});

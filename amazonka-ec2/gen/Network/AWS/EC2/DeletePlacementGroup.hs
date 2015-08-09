@@ -28,15 +28,15 @@
 module Network.AWS.EC2.DeletePlacementGroup
     (
     -- * Creating a Request
-      DeletePlacementGroup
-    , deletePlacementGroup
+      deletePlacementGroup
+    , DeletePlacementGroup
     -- * Request Lenses
     , dpgDryRun
     , dpgGroupName
 
     -- * Destructuring the Response
-    , DeletePlacementGroupResponse
     , deletePlacementGroupResponse
+    , DeletePlacementGroupResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -46,19 +46,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deletePlacementGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpgDryRun'
---
--- * 'dpgGroupName'
 data DeletePlacementGroup = DeletePlacementGroup'
     { _dpgDryRun    :: !(Maybe Bool)
     , _dpgGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePlacementGroup' smart constructor.
-deletePlacementGroup :: Text -> DeletePlacementGroup
+-- | Creates a value of 'DeletePlacementGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpgDryRun'
+--
+-- * 'dpgGroupName'
+deletePlacementGroup
+    :: Text -- ^ 'dpgGroupName'
+    -> DeletePlacementGroup
 deletePlacementGroup pGroupName_ =
     DeletePlacementGroup'
     { _dpgDryRun = Nothing
@@ -67,8 +69,8 @@ deletePlacementGroup pGroupName_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dpgDryRun :: Lens' DeletePlacementGroup (Maybe Bool)
 dpgDryRun = lens _dpgDryRun (\ s a -> s{_dpgDryRun = a});
 
@@ -101,6 +103,8 @@ data DeletePlacementGroupResponse =
     DeletePlacementGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePlacementGroupResponse' smart constructor.
-deletePlacementGroupResponse :: DeletePlacementGroupResponse
+-- | Creates a value of 'DeletePlacementGroupResponse' with the minimum fields required to make a request.
+--
+deletePlacementGroupResponse
+    :: DeletePlacementGroupResponse
 deletePlacementGroupResponse = DeletePlacementGroupResponse'

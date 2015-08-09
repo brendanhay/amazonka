@@ -23,11 +23,13 @@
 -- objects in a bucket.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjects.html AWS API Reference> for ListObjects.
+--
+-- This operation returns paginated results.
 module Network.AWS.S3.ListObjects
     (
     -- * Creating a Request
-      ListObjects
-    , listObjects
+      listObjects
+    , ListObjects
     -- * Request Lenses
     , loPrefix
     , loEncodingType
@@ -37,8 +39,8 @@ module Network.AWS.S3.ListObjects
     , loBucket
 
     -- * Destructuring the Response
-    , ListObjectsResponse
     , listObjectsResponse
+    , ListObjectsResponse
     -- * Response Lenses
     , lorsContents
     , lorsPrefix
@@ -61,8 +63,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listObjects' smart constructor.
+data ListObjects = ListObjects'
+    { _loPrefix       :: !(Maybe Text)
+    , _loEncodingType :: !(Maybe EncodingType)
+    , _loMarker       :: !(Maybe Text)
+    , _loMaxKeys      :: !(Maybe Int)
+    , _loDelimiter    :: !(Maybe Delimiter)
+    , _loBucket       :: !BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListObjects' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'loPrefix'
 --
@@ -75,17 +87,9 @@ import           Network.AWS.S3.Types.Product
 -- * 'loDelimiter'
 --
 -- * 'loBucket'
-data ListObjects = ListObjects'
-    { _loPrefix       :: !(Maybe Text)
-    , _loEncodingType :: !(Maybe EncodingType)
-    , _loMarker       :: !(Maybe Text)
-    , _loMaxKeys      :: !(Maybe Int)
-    , _loDelimiter    :: !(Maybe Delimiter)
-    , _loBucket       :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListObjects' smart constructor.
-listObjects :: BucketName -> ListObjects
+listObjects
+    :: BucketName -- ^ 'loBucket'
+    -> ListObjects
 listObjects pBucket_ =
     ListObjects'
     { _loPrefix = Nothing
@@ -172,8 +176,23 @@ instance ToQuery ListObjects where
                "delimiter" =: _loDelimiter]
 
 -- | /See:/ 'listObjectsResponse' smart constructor.
+data ListObjectsResponse = ListObjectsResponse'
+    { _lorsContents       :: !(Maybe [Object])
+    , _lorsPrefix         :: !(Maybe Text)
+    , _lorsEncodingType   :: !(Maybe EncodingType)
+    , _lorsCommonPrefixes :: !(Maybe [CommonPrefix])
+    , _lorsName           :: !(Maybe BucketName)
+    , _lorsMarker         :: !(Maybe Text)
+    , _lorsNextMarker     :: !(Maybe Text)
+    , _lorsMaxKeys        :: !(Maybe Int)
+    , _lorsIsTruncated    :: !(Maybe Bool)
+    , _lorsDelimiter      :: !(Maybe Delimiter)
+    , _lorsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListObjectsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lorsContents'
 --
@@ -196,22 +215,9 @@ instance ToQuery ListObjects where
 -- * 'lorsDelimiter'
 --
 -- * 'lorsStatus'
-data ListObjectsResponse = ListObjectsResponse'
-    { _lorsContents       :: !(Maybe [Object])
-    , _lorsPrefix         :: !(Maybe Text)
-    , _lorsEncodingType   :: !(Maybe EncodingType)
-    , _lorsCommonPrefixes :: !(Maybe [CommonPrefix])
-    , _lorsName           :: !(Maybe BucketName)
-    , _lorsMarker         :: !(Maybe Text)
-    , _lorsNextMarker     :: !(Maybe Text)
-    , _lorsMaxKeys        :: !(Maybe Int)
-    , _lorsIsTruncated    :: !(Maybe Bool)
-    , _lorsDelimiter      :: !(Maybe Delimiter)
-    , _lorsStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListObjectsResponse' smart constructor.
-listObjectsResponse :: Int -> ListObjectsResponse
+listObjectsResponse
+    :: Int -- ^ 'lorsStatus'
+    -> ListObjectsResponse
 listObjectsResponse pStatus_ =
     ListObjectsResponse'
     { _lorsContents = Nothing
@@ -275,6 +281,6 @@ lorsIsTruncated = lens _lorsIsTruncated (\ s a -> s{_lorsIsTruncated = a});
 lorsDelimiter :: Lens' ListObjectsResponse (Maybe Delimiter)
 lorsDelimiter = lens _lorsDelimiter (\ s a -> s{_lorsDelimiter = a});
 
--- | Undocumented member.
+-- | The response status code.
 lorsStatus :: Lens' ListObjectsResponse Int
 lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});

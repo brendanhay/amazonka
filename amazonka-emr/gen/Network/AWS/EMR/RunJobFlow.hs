@@ -22,12 +22,12 @@
 -- run the steps specified. Once the job flow completes, the cluster is
 -- stopped and the HDFS partition is lost. To prevent loss of data,
 -- configure the last step of the job flow to store results in Amazon S3.
--- If the JobFlowInstancesConfig @KeepJobFlowAliveWhenNoSteps@ parameter is
--- set to @TRUE@, the job flow will transition to the WAITING state rather
+-- If the JobFlowInstancesConfig 'KeepJobFlowAliveWhenNoSteps' parameter is
+-- set to 'TRUE', the job flow will transition to the WAITING state rather
 -- than shutting down once the steps have completed.
 --
 -- For additional protection, you can set the JobFlowInstancesConfig
--- @TerminationProtected@ parameter to @TRUE@ to lock the job flow and
+-- 'TerminationProtected' parameter to 'TRUE' to lock the job flow and
 -- prevent it from being terminated by API call, user intervention, or in
 -- the event of a job flow error.
 --
@@ -49,8 +49,8 @@
 module Network.AWS.EMR.RunJobFlow
     (
     -- * Creating a Request
-      RunJobFlow
-    , runJobFlow
+      runJobFlow
+    , RunJobFlow
     -- * Request Lenses
     , rjfAMIVersion
     , rjfAdditionalInfo
@@ -70,8 +70,8 @@ module Network.AWS.EMR.RunJobFlow
     , rjfInstances
 
     -- * Destructuring the Response
-    , RunJobFlowResponse
     , runJobFlowResponse
+    , RunJobFlowResponse
     -- * Response Lenses
     , rjfrsJobFlowId
     , rjfrsStatus
@@ -86,8 +86,28 @@ import           Network.AWS.Response
 -- | Input to the RunJobFlow operation.
 --
 -- /See:/ 'runJobFlow' smart constructor.
+data RunJobFlow = RunJobFlow'
+    { _rjfAMIVersion           :: !(Maybe Text)
+    , _rjfAdditionalInfo       :: !(Maybe Text)
+    , _rjfConfigurations       :: !(Maybe [Configuration])
+    , _rjfJobFlowRole          :: !(Maybe Text)
+    , _rjfSteps                :: !(Maybe [StepConfig])
+    , _rjfBootstrapActions     :: !(Maybe [BootstrapActionConfig])
+    , _rjfReleaseLabel         :: !(Maybe Text)
+    , _rjfNewSupportedProducts :: !(Maybe [SupportedProductConfig])
+    , _rjfLogURI               :: !(Maybe Text)
+    , _rjfSupportedProducts    :: !(Maybe [Text])
+    , _rjfVisibleToAllUsers    :: !(Maybe Bool)
+    , _rjfApplications         :: !(Maybe [Application])
+    , _rjfTags                 :: !(Maybe [Tag])
+    , _rjfServiceRole          :: !(Maybe Text)
+    , _rjfName                 :: !Text
+    , _rjfInstances            :: !JobFlowInstancesConfig
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RunJobFlow' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rjfAMIVersion'
 --
@@ -120,27 +140,10 @@ import           Network.AWS.Response
 -- * 'rjfName'
 --
 -- * 'rjfInstances'
-data RunJobFlow = RunJobFlow'
-    { _rjfAMIVersion           :: !(Maybe Text)
-    , _rjfAdditionalInfo       :: !(Maybe Text)
-    , _rjfConfigurations       :: !(Maybe [Configuration])
-    , _rjfJobFlowRole          :: !(Maybe Text)
-    , _rjfSteps                :: !(Maybe [StepConfig])
-    , _rjfBootstrapActions     :: !(Maybe [BootstrapActionConfig])
-    , _rjfReleaseLabel         :: !(Maybe Text)
-    , _rjfNewSupportedProducts :: !(Maybe [SupportedProductConfig])
-    , _rjfLogURI               :: !(Maybe Text)
-    , _rjfSupportedProducts    :: !(Maybe [Text])
-    , _rjfVisibleToAllUsers    :: !(Maybe Bool)
-    , _rjfApplications         :: !(Maybe [Application])
-    , _rjfTags                 :: !(Maybe [Tag])
-    , _rjfServiceRole          :: !(Maybe Text)
-    , _rjfName                 :: !Text
-    , _rjfInstances            :: !JobFlowInstancesConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RunJobFlow' smart constructor.
-runJobFlow :: Text -> JobFlowInstancesConfig -> RunJobFlow
+runJobFlow
+    :: Text -- ^ 'rjfName'
+    -> JobFlowInstancesConfig -- ^ 'rjfInstances'
+    -> RunJobFlow
 runJobFlow pName_ pInstances_ =
     RunJobFlow'
     { _rjfAMIVersion = Nothing
@@ -171,7 +174,7 @@ runJobFlow pName_ pInstances_ =
 --
 -- If the AMI supports multiple versions of Hadoop (for example, AMI 1.0
 -- supports both Hadoop 0.18 and 0.20) you can use the
--- JobFlowInstancesConfig @HadoopVersion@ parameter to modify the version
+-- JobFlowInstancesConfig 'HadoopVersion' parameter to modify the version
 -- of Hadoop from the defaults shown above.
 --
 -- For details about the AMI versions currently supported by Amazon Elastic
@@ -193,7 +196,7 @@ rjfConfigurations :: Lens' RunJobFlow [Configuration]
 rjfConfigurations = lens _rjfConfigurations (\ s a -> s{_rjfConfigurations = a}) . _Default . _Coerce;
 
 -- | An IAM role for the job flow. The EC2 instances of the job flow assume
--- this role. The default role is @EMRJobflowDefault@. In order to use the
+-- this role. The default role is 'EMRJobflowDefault'. In order to use the
 -- default role, you must have already created it using the CLI.
 rjfJobFlowRole :: Lens' RunJobFlow (Maybe Text)
 rjfJobFlowRole = lens _rjfJobFlowRole (\ s a -> s{_rjfJobFlowRole = a});
@@ -258,9 +261,9 @@ rjfSupportedProducts :: Lens' RunJobFlow [Text]
 rjfSupportedProducts = lens _rjfSupportedProducts (\ s a -> s{_rjfSupportedProducts = a}) . _Default . _Coerce;
 
 -- | Whether the job flow is visible to all IAM users of the AWS account
--- associated with the job flow. If this value is set to @true@, all IAM
+-- associated with the job flow. If this value is set to 'true', all IAM
 -- users of that AWS account can view and (if they have the proper policy
--- permissions set) manage the job flow. If it is set to @false@, only the
+-- permissions set) manage the job flow. If it is set to 'false', only the
 -- IAM user that created the job flow can view and manage it.
 rjfVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
 rjfVisibleToAllUsers = lens _rjfVisibleToAllUsers (\ s a -> s{_rjfVisibleToAllUsers = a});
@@ -337,19 +340,21 @@ instance ToQuery RunJobFlow where
 -- | The result of the RunJobFlow operation.
 --
 -- /See:/ 'runJobFlowResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rjfrsJobFlowId'
---
--- * 'rjfrsStatus'
 data RunJobFlowResponse = RunJobFlowResponse'
     { _rjfrsJobFlowId :: !(Maybe Text)
     , _rjfrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RunJobFlowResponse' smart constructor.
-runJobFlowResponse :: Int -> RunJobFlowResponse
+-- | Creates a value of 'RunJobFlowResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rjfrsJobFlowId'
+--
+-- * 'rjfrsStatus'
+runJobFlowResponse
+    :: Int -- ^ 'rjfrsStatus'
+    -> RunJobFlowResponse
 runJobFlowResponse pStatus_ =
     RunJobFlowResponse'
     { _rjfrsJobFlowId = Nothing
@@ -360,6 +365,6 @@ runJobFlowResponse pStatus_ =
 rjfrsJobFlowId :: Lens' RunJobFlowResponse (Maybe Text)
 rjfrsJobFlowId = lens _rjfrsJobFlowId (\ s a -> s{_rjfrsJobFlowId = a});
 
--- | Undocumented member.
+-- | The response status code.
 rjfrsStatus :: Lens' RunJobFlowResponse Int
 rjfrsStatus = lens _rjfrsStatus (\ s a -> s{_rjfrsStatus = a});

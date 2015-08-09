@@ -41,16 +41,16 @@
 module Network.AWS.IAM.CreateOpenIdConnectProvider
     (
     -- * Creating a Request
-      CreateOpenIdConnectProvider
-    , createOpenIdConnectProvider
+      createOpenIdConnectProvider
+    , CreateOpenIdConnectProvider
     -- * Request Lenses
     , coicpClientIdList
     , coicpURL
     , coicpThumbprintList
 
     -- * Destructuring the Response
-    , CreateOpenIdConnectProviderResponse
     , createOpenIdConnectProviderResponse
+    , CreateOpenIdConnectProviderResponse
     -- * Response Lenses
     , coicprsOpenIdConnectProviderARN
     , coicprsStatus
@@ -63,22 +63,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createOpenIdConnectProvider' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'coicpClientIdList'
---
--- * 'coicpURL'
---
--- * 'coicpThumbprintList'
 data CreateOpenIdConnectProvider = CreateOpenIdConnectProvider'
     { _coicpClientIdList   :: !(Maybe [Text])
     , _coicpURL            :: !Text
     , _coicpThumbprintList :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateOpenIdConnectProvider' smart constructor.
-createOpenIdConnectProvider :: Text -> CreateOpenIdConnectProvider
+-- | Creates a value of 'CreateOpenIdConnectProvider' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'coicpClientIdList'
+--
+-- * 'coicpURL'
+--
+-- * 'coicpThumbprintList'
+createOpenIdConnectProvider
+    :: Text -- ^ 'coicpURL'
+    -> CreateOpenIdConnectProvider
 createOpenIdConnectProvider pURL_ =
     CreateOpenIdConnectProvider'
     { _coicpClientIdList = Nothing
@@ -89,7 +91,7 @@ createOpenIdConnectProvider pURL_ =
 -- | A list of client IDs (also known as audiences). When a mobile or web app
 -- registers with an OpenID Connect provider, they establish a value that
 -- identifies the application. (This is the value that\'s sent as the
--- @client_id@ parameter on OAuth requests.)
+-- 'client_id' parameter on OAuth requests.)
 --
 -- You can register multiple client IDs with the same provider. For
 -- example, you might have multiple applications that use the same OIDC
@@ -97,13 +99,13 @@ createOpenIdConnectProvider pURL_ =
 -- OIDC provider.
 --
 -- There is no defined format for a client ID. The
--- @CreateOpenIDConnectProviderRequest@ action accepts client IDs up to 255
+-- 'CreateOpenIDConnectProviderRequest' action accepts client IDs up to 255
 -- characters long.
 coicpClientIdList :: Lens' CreateOpenIdConnectProvider [Text]
 coicpClientIdList = lens _coicpClientIdList (\ s a -> s{_coicpClientIdList = a}) . _Default . _Coerce;
 
 -- | The URL of the identity provider. The URL must begin with \"https:\/\/\"
--- and should correspond to the @iss@ claim in the provider\'s OpenID
+-- and should correspond to the 'iss' claim in the provider\'s OpenID
 -- Connect ID tokens. Per the OIDC standard, path components are allowed
 -- but query parameters are not. Typically the URL consists of only a host
 -- name, like \"https:\/\/server.example.org\" or
@@ -126,7 +128,7 @@ coicpURL = lens _coicpURL (\ s a -> s{_coicpURL = a});
 -- provider makes its keys available. It is always a 40-character string.
 --
 -- You must provide at least one thumbprint when creating an IAM OIDC
--- provider. For example, if the OIDC provider is @server.example.com@ and
+-- provider. For example, if the OIDC provider is 'server.example.com' and
 -- the provider stores its keys at
 -- \"https:\/\/keys.server.example.com\/openid-connect\", the thumbprint
 -- string would be the hex-encoded SHA-1 hash value of the certificate used
@@ -175,19 +177,21 @@ instance ToQuery CreateOpenIdConnectProvider where
 -- request.
 --
 -- /See:/ 'createOpenIdConnectProviderResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'coicprsOpenIdConnectProviderARN'
---
--- * 'coicprsStatus'
 data CreateOpenIdConnectProviderResponse = CreateOpenIdConnectProviderResponse'
     { _coicprsOpenIdConnectProviderARN :: !(Maybe Text)
     , _coicprsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateOpenIdConnectProviderResponse' smart constructor.
-createOpenIdConnectProviderResponse :: Int -> CreateOpenIdConnectProviderResponse
+-- | Creates a value of 'CreateOpenIdConnectProviderResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'coicprsOpenIdConnectProviderARN'
+--
+-- * 'coicprsStatus'
+createOpenIdConnectProviderResponse
+    :: Int -- ^ 'coicprsStatus'
+    -> CreateOpenIdConnectProviderResponse
 createOpenIdConnectProviderResponse pStatus_ =
     CreateOpenIdConnectProviderResponse'
     { _coicprsOpenIdConnectProviderARN = Nothing
@@ -199,6 +203,6 @@ createOpenIdConnectProviderResponse pStatus_ =
 coicprsOpenIdConnectProviderARN :: Lens' CreateOpenIdConnectProviderResponse (Maybe Text)
 coicprsOpenIdConnectProviderARN = lens _coicprsOpenIdConnectProviderARN (\ s a -> s{_coicprsOpenIdConnectProviderARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 coicprsStatus :: Lens' CreateOpenIdConnectProviderResponse Int
 coicprsStatus = lens _coicprsStatus (\ s a -> s{_coicprsStatus = a});

@@ -24,14 +24,14 @@
 module Network.AWS.IAM.GetServerCertificate
     (
     -- * Creating a Request
-      GetServerCertificate
-    , getServerCertificate
+      getServerCertificate
+    , GetServerCertificate
     -- * Request Lenses
     , gscServerCertificateName
 
     -- * Destructuring the Response
-    , GetServerCertificateResponse
     , getServerCertificateResponse
+    , GetServerCertificateResponse
     -- * Response Lenses
     , gscrsStatus
     , gscrsServerCertificate
@@ -44,16 +44,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getServerCertificate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gscServerCertificateName'
 newtype GetServerCertificate = GetServerCertificate'
     { _gscServerCertificateName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetServerCertificate' smart constructor.
-getServerCertificate :: Text -> GetServerCertificate
+-- | Creates a value of 'GetServerCertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gscServerCertificateName'
+getServerCertificate
+    :: Text -- ^ 'gscServerCertificateName'
+    -> GetServerCertificate
 getServerCertificate pServerCertificateName_ =
     GetServerCertificate'
     { _gscServerCertificateName = pServerCertificateName_
@@ -91,26 +93,29 @@ instance ToQuery GetServerCertificate where
 -- | Contains the response to a successful GetServerCertificate request.
 --
 -- /See:/ 'getServerCertificateResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gscrsStatus'
---
--- * 'gscrsServerCertificate'
 data GetServerCertificateResponse = GetServerCertificateResponse'
     { _gscrsStatus            :: !Int
     , _gscrsServerCertificate :: !ServerCertificate
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetServerCertificateResponse' smart constructor.
-getServerCertificateResponse :: Int -> ServerCertificate -> GetServerCertificateResponse
+-- | Creates a value of 'GetServerCertificateResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gscrsStatus'
+--
+-- * 'gscrsServerCertificate'
+getServerCertificateResponse
+    :: Int -- ^ 'gscrsStatus'
+    -> ServerCertificate -- ^ 'gscrsServerCertificate'
+    -> GetServerCertificateResponse
 getServerCertificateResponse pStatus_ pServerCertificate_ =
     GetServerCertificateResponse'
     { _gscrsStatus = pStatus_
     , _gscrsServerCertificate = pServerCertificate_
     }
 
--- | Undocumented member.
+-- | The response status code.
 gscrsStatus :: Lens' GetServerCertificateResponse Int
 gscrsStatus = lens _gscrsStatus (\ s a -> s{_gscrsStatus = a});
 

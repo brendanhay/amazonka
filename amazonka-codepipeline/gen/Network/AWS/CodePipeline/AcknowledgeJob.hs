@@ -25,15 +25,15 @@
 module Network.AWS.CodePipeline.AcknowledgeJob
     (
     -- * Creating a Request
-      AcknowledgeJob
-    , acknowledgeJob
+      acknowledgeJob
+    , AcknowledgeJob
     -- * Request Lenses
     , ajJobId
     , ajNonce
 
     -- * Destructuring the Response
-    , AcknowledgeJobResponse
     , acknowledgeJobResponse
+    , AcknowledgeJobResponse
     -- * Response Lenses
     , ajrsStatus
     ) where
@@ -47,19 +47,22 @@ import           Network.AWS.Response
 -- | Represents the input of an acknowledge job action.
 --
 -- /See:/ 'acknowledgeJob' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ajJobId'
---
--- * 'ajNonce'
 data AcknowledgeJob = AcknowledgeJob'
     { _ajJobId :: !Text
     , _ajNonce :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AcknowledgeJob' smart constructor.
-acknowledgeJob :: Text -> Text -> AcknowledgeJob
+-- | Creates a value of 'AcknowledgeJob' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ajJobId'
+--
+-- * 'ajNonce'
+acknowledgeJob
+    :: Text -- ^ 'ajJobId'
+    -> Text -- ^ 'ajNonce'
+    -> AcknowledgeJob
 acknowledgeJob pJobId_ pNonce_ =
     AcknowledgeJob'
     { _ajJobId = pJobId_
@@ -109,21 +112,23 @@ instance ToQuery AcknowledgeJob where
 -- | Represents the output of an acknowledge job action.
 --
 -- /See:/ 'acknowledgeJobResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ajrsStatus'
 newtype AcknowledgeJobResponse = AcknowledgeJobResponse'
     { _ajrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AcknowledgeJobResponse' smart constructor.
-acknowledgeJobResponse :: Int -> AcknowledgeJobResponse
+-- | Creates a value of 'AcknowledgeJobResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ajrsStatus'
+acknowledgeJobResponse
+    :: Int -- ^ 'ajrsStatus'
+    -> AcknowledgeJobResponse
 acknowledgeJobResponse pStatus_ =
     AcknowledgeJobResponse'
     { _ajrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ajrsStatus :: Lens' AcknowledgeJobResponse Int
 ajrsStatus = lens _ajrsStatus (\ s a -> s{_ajrsStatus = a});

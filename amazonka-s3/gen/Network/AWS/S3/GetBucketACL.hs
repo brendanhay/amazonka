@@ -24,14 +24,14 @@
 module Network.AWS.S3.GetBucketACL
     (
     -- * Creating a Request
-      GetBucketACL
-    , getBucketACL
+      getBucketACL
+    , GetBucketACL
     -- * Request Lenses
     , gbaBucket
 
     -- * Destructuring the Response
-    , GetBucketACLResponse
     , getBucketACLResponse
+    , GetBucketACLResponse
     -- * Response Lenses
     , gbarsGrants
     , gbarsOwner
@@ -45,16 +45,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketACL' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbaBucket'
 newtype GetBucketACL = GetBucketACL'
     { _gbaBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketACL' smart constructor.
-getBucketACL :: BucketName -> GetBucketACL
+-- | Creates a value of 'GetBucketACL' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbaBucket'
+getBucketACL
+    :: BucketName -- ^ 'gbaBucket'
+    -> GetBucketACL
 getBucketACL pBucket_ =
     GetBucketACL'
     { _gbaBucket = pBucket_
@@ -88,22 +90,24 @@ instance ToQuery GetBucketACL where
         toQuery = const (mconcat ["acl"])
 
 -- | /See:/ 'getBucketACLResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbarsGrants'
---
--- * 'gbarsOwner'
---
--- * 'gbarsStatus'
 data GetBucketACLResponse = GetBucketACLResponse'
     { _gbarsGrants :: !(Maybe [Grant])
     , _gbarsOwner  :: !(Maybe Owner)
     , _gbarsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketACLResponse' smart constructor.
-getBucketACLResponse :: Int -> GetBucketACLResponse
+-- | Creates a value of 'GetBucketACLResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbarsGrants'
+--
+-- * 'gbarsOwner'
+--
+-- * 'gbarsStatus'
+getBucketACLResponse
+    :: Int -- ^ 'gbarsStatus'
+    -> GetBucketACLResponse
 getBucketACLResponse pStatus_ =
     GetBucketACLResponse'
     { _gbarsGrants = Nothing
@@ -119,6 +123,6 @@ gbarsGrants = lens _gbarsGrants (\ s a -> s{_gbarsGrants = a}) . _Default . _Coe
 gbarsOwner :: Lens' GetBucketACLResponse (Maybe Owner)
 gbarsOwner = lens _gbarsOwner (\ s a -> s{_gbarsOwner = a});
 
--- | Undocumented member.
+-- | The response status code.
 gbarsStatus :: Lens' GetBucketACLResponse Int
 gbarsStatus = lens _gbarsStatus (\ s a -> s{_gbarsStatus = a});

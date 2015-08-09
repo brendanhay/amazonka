@@ -24,8 +24,8 @@
 module Network.AWS.EC2.ImportSnapshot
     (
     -- * Creating a Request
-      ImportSnapshot
-    , importSnapshot
+      importSnapshot
+    , ImportSnapshot
     -- * Request Lenses
     , isDiskContainer
     , isClientToken
@@ -35,8 +35,8 @@ module Network.AWS.EC2.ImportSnapshot
     , isClientData
 
     -- * Destructuring the Response
-    , ImportSnapshotResponse
     , importSnapshotResponse
+    , ImportSnapshotResponse
     -- * Response Lenses
     , isrsSnapshotTaskDetail
     , isrsImportTaskId
@@ -51,8 +51,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'importSnapshot' smart constructor.
+data ImportSnapshot = ImportSnapshot'
+    { _isDiskContainer :: !(Maybe SnapshotDiskContainer)
+    , _isClientToken   :: !(Maybe Text)
+    , _isRoleName      :: !(Maybe Text)
+    , _isDryRun        :: !(Maybe Bool)
+    , _isDescription   :: !(Maybe Text)
+    , _isClientData    :: !(Maybe ClientData)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImportSnapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'isDiskContainer'
 --
@@ -65,17 +75,8 @@ import           Network.AWS.Response
 -- * 'isDescription'
 --
 -- * 'isClientData'
-data ImportSnapshot = ImportSnapshot'
-    { _isDiskContainer :: !(Maybe SnapshotDiskContainer)
-    , _isClientToken   :: !(Maybe Text)
-    , _isRoleName      :: !(Maybe Text)
-    , _isDryRun        :: !(Maybe Bool)
-    , _isDescription   :: !(Maybe Text)
-    , _isClientData    :: !(Maybe ClientData)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ImportSnapshot' smart constructor.
-importSnapshot :: ImportSnapshot
+importSnapshot
+    :: ImportSnapshot
 importSnapshot =
     ImportSnapshot'
     { _isDiskContainer = Nothing
@@ -101,8 +102,8 @@ isRoleName = lens _isRoleName (\ s a -> s{_isRoleName = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 isDryRun :: Lens' ImportSnapshot (Maybe Bool)
 isDryRun = lens _isDryRun (\ s a -> s{_isDryRun = a});
 
@@ -145,8 +146,16 @@ instance ToQuery ImportSnapshot where
                "ClientData" =: _isClientData]
 
 -- | /See:/ 'importSnapshotResponse' smart constructor.
+data ImportSnapshotResponse = ImportSnapshotResponse'
+    { _isrsSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
+    , _isrsImportTaskId       :: !(Maybe Text)
+    , _isrsDescription        :: !(Maybe Text)
+    , _isrsStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImportSnapshotResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'isrsSnapshotTaskDetail'
 --
@@ -155,15 +164,9 @@ instance ToQuery ImportSnapshot where
 -- * 'isrsDescription'
 --
 -- * 'isrsStatus'
-data ImportSnapshotResponse = ImportSnapshotResponse'
-    { _isrsSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
-    , _isrsImportTaskId       :: !(Maybe Text)
-    , _isrsDescription        :: !(Maybe Text)
-    , _isrsStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ImportSnapshotResponse' smart constructor.
-importSnapshotResponse :: Int -> ImportSnapshotResponse
+importSnapshotResponse
+    :: Int -- ^ 'isrsStatus'
+    -> ImportSnapshotResponse
 importSnapshotResponse pStatus_ =
     ImportSnapshotResponse'
     { _isrsSnapshotTaskDetail = Nothing
@@ -184,6 +187,6 @@ isrsImportTaskId = lens _isrsImportTaskId (\ s a -> s{_isrsImportTaskId = a});
 isrsDescription :: Lens' ImportSnapshotResponse (Maybe Text)
 isrsDescription = lens _isrsDescription (\ s a -> s{_isrsDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 isrsStatus :: Lens' ImportSnapshotResponse Int
 isrsStatus = lens _isrsStatus (\ s a -> s{_isrsStatus = a});

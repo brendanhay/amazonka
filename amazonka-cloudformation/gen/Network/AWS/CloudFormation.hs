@@ -69,11 +69,9 @@ module Network.AWS.CloudFormation
 
     -- ** ListStackResources (Paginated)
     , module Network.AWS.CloudFormation.ListStackResources
-    -- $pager
 
     -- ** DescribeStacks (Paginated)
     , module Network.AWS.CloudFormation.DescribeStacks
-    -- $pager
 
     -- ** GetStackPolicy
     , module Network.AWS.CloudFormation.GetStackPolicy
@@ -89,14 +87,12 @@ module Network.AWS.CloudFormation
 
     -- ** DescribeStackEvents (Paginated)
     , module Network.AWS.CloudFormation.DescribeStackEvents
-    -- $pager
 
     -- ** SignalResource
     , module Network.AWS.CloudFormation.SignalResource
 
     -- ** ListStacks (Paginated)
     , module Network.AWS.CloudFormation.ListStacks
-    -- $pager
 
     -- ** CreateStack
     , module Network.AWS.CloudFormation.CreateStack
@@ -303,8 +299,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

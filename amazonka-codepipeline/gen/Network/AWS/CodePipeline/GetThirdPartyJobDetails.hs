@@ -31,15 +31,15 @@
 module Network.AWS.CodePipeline.GetThirdPartyJobDetails
     (
     -- * Creating a Request
-      GetThirdPartyJobDetails
-    , getThirdPartyJobDetails
+      getThirdPartyJobDetails
+    , GetThirdPartyJobDetails
     -- * Request Lenses
     , gtpjdJobId
     , gtpjdClientToken
 
     -- * Destructuring the Response
-    , GetThirdPartyJobDetailsResponse
     , getThirdPartyJobDetailsResponse
+    , GetThirdPartyJobDetailsResponse
     -- * Response Lenses
     , gtpjdrsJobDetails
     , gtpjdrsStatus
@@ -54,19 +54,22 @@ import           Network.AWS.Response
 -- | Represents the input of a get third party job details action.
 --
 -- /See:/ 'getThirdPartyJobDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gtpjdJobId'
---
--- * 'gtpjdClientToken'
 data GetThirdPartyJobDetails = GetThirdPartyJobDetails'
     { _gtpjdJobId       :: !Text
     , _gtpjdClientToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetThirdPartyJobDetails' smart constructor.
-getThirdPartyJobDetails :: Text -> Text -> GetThirdPartyJobDetails
+-- | Creates a value of 'GetThirdPartyJobDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtpjdJobId'
+--
+-- * 'gtpjdClientToken'
+getThirdPartyJobDetails
+    :: Text -- ^ 'gtpjdJobId'
+    -> Text -- ^ 'gtpjdClientToken'
+    -> GetThirdPartyJobDetails
 getThirdPartyJobDetails pJobId_ pClientToken_ =
     GetThirdPartyJobDetails'
     { _gtpjdJobId = pJobId_
@@ -119,19 +122,21 @@ instance ToQuery GetThirdPartyJobDetails where
 -- | Represents the output of a get third party job details action.
 --
 -- /See:/ 'getThirdPartyJobDetailsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gtpjdrsJobDetails'
---
--- * 'gtpjdrsStatus'
 data GetThirdPartyJobDetailsResponse = GetThirdPartyJobDetailsResponse'
     { _gtpjdrsJobDetails :: !(Maybe ThirdPartyJobDetails)
     , _gtpjdrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetThirdPartyJobDetailsResponse' smart constructor.
-getThirdPartyJobDetailsResponse :: Int -> GetThirdPartyJobDetailsResponse
+-- | Creates a value of 'GetThirdPartyJobDetailsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtpjdrsJobDetails'
+--
+-- * 'gtpjdrsStatus'
+getThirdPartyJobDetailsResponse
+    :: Int -- ^ 'gtpjdrsStatus'
+    -> GetThirdPartyJobDetailsResponse
 getThirdPartyJobDetailsResponse pStatus_ =
     GetThirdPartyJobDetailsResponse'
     { _gtpjdrsJobDetails = Nothing
@@ -143,6 +148,6 @@ getThirdPartyJobDetailsResponse pStatus_ =
 gtpjdrsJobDetails :: Lens' GetThirdPartyJobDetailsResponse (Maybe ThirdPartyJobDetails)
 gtpjdrsJobDetails = lens _gtpjdrsJobDetails (\ s a -> s{_gtpjdrsJobDetails = a});
 
--- | Undocumented member.
+-- | The response status code.
 gtpjdrsStatus :: Lens' GetThirdPartyJobDetailsResponse Int
 gtpjdrsStatus = lens _gtpjdrsStatus (\ s a -> s{_gtpjdrsStatus = a});

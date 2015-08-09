@@ -27,14 +27,14 @@
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     (
     -- * Creating a Request
-      DescribeLoadBalancerPolicyTypes
-    , describeLoadBalancerPolicyTypes
+      describeLoadBalancerPolicyTypes
+    , DescribeLoadBalancerPolicyTypes
     -- * Request Lenses
     , dlbptPolicyTypeNames
 
     -- * Destructuring the Response
-    , DescribeLoadBalancerPolicyTypesResponse
     , describeLoadBalancerPolicyTypesResponse
+    , DescribeLoadBalancerPolicyTypesResponse
     -- * Response Lenses
     , dlbptrsPolicyTypeDescriptions
     , dlbptrsStatus
@@ -47,16 +47,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancerPolicyTypes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbptPolicyTypeNames'
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
     { _dlbptPolicyTypeNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoadBalancerPolicyTypes' smart constructor.
-describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
+-- | Creates a value of 'DescribeLoadBalancerPolicyTypes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbptPolicyTypeNames'
+describeLoadBalancerPolicyTypes
+    :: DescribeLoadBalancerPolicyTypes
 describeLoadBalancerPolicyTypes =
     DescribeLoadBalancerPolicyTypes'
     { _dlbptPolicyTypeNames = Nothing
@@ -101,19 +102,21 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
                    (toQueryList "member" <$> _dlbptPolicyTypeNames)]
 
 -- | /See:/ 'describeLoadBalancerPolicyTypesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbptrsPolicyTypeDescriptions'
---
--- * 'dlbptrsStatus'
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
     { _dlbptrsPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
     , _dlbptrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoadBalancerPolicyTypesResponse' smart constructor.
-describeLoadBalancerPolicyTypesResponse :: Int -> DescribeLoadBalancerPolicyTypesResponse
+-- | Creates a value of 'DescribeLoadBalancerPolicyTypesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbptrsPolicyTypeDescriptions'
+--
+-- * 'dlbptrsStatus'
+describeLoadBalancerPolicyTypesResponse
+    :: Int -- ^ 'dlbptrsStatus'
+    -> DescribeLoadBalancerPolicyTypesResponse
 describeLoadBalancerPolicyTypesResponse pStatus_ =
     DescribeLoadBalancerPolicyTypesResponse'
     { _dlbptrsPolicyTypeDescriptions = Nothing
@@ -124,6 +127,6 @@ describeLoadBalancerPolicyTypesResponse pStatus_ =
 dlbptrsPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
 dlbptrsPolicyTypeDescriptions = lens _dlbptrsPolicyTypeDescriptions (\ s a -> s{_dlbptrsPolicyTypeDescriptions = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dlbptrsStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
 dlbptrsStatus = lens _dlbptrsStatus (\ s a -> s{_dlbptrsStatus = a});

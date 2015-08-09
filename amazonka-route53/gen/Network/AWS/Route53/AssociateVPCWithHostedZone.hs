@@ -20,29 +20,29 @@
 --
 -- This action associates a VPC with an hosted zone.
 --
--- To associate a VPC with an hosted zone, send a @POST@ request to the
--- @2013-04-01\/hostedzone\/hosted zone ID\/associatevpc@ resource. The
+-- To associate a VPC with an hosted zone, send a 'POST' request to the
+-- '2013-04-01\/hostedzone\/hosted zone ID\/associatevpc' resource. The
 -- request body must include an XML document with a
--- @AssociateVPCWithHostedZoneRequest@ element. The response returns the
--- @AssociateVPCWithHostedZoneResponse@ element that contains @ChangeInfo@
--- for you to track the progress of the @AssociateVPCWithHostedZoneRequest@
--- you made. See @GetChange@ operation for how to track the progress of
+-- 'AssociateVPCWithHostedZoneRequest' element. The response returns the
+-- 'AssociateVPCWithHostedZoneResponse' element that contains 'ChangeInfo'
+-- for you to track the progress of the 'AssociateVPCWithHostedZoneRequest'
+-- you made. See 'GetChange' operation for how to track the progress of
 -- your change.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_AssociateVPCWithHostedZone.html AWS API Reference> for AssociateVPCWithHostedZone.
 module Network.AWS.Route53.AssociateVPCWithHostedZone
     (
     -- * Creating a Request
-      AssociateVPCWithHostedZone
-    , associateVPCWithHostedZone
+      associateVPCWithHostedZone
+    , AssociateVPCWithHostedZone
     -- * Request Lenses
     , avwhzComment
     , avwhzHostedZoneId
     , avwhzVPC
 
     -- * Destructuring the Response
-    , AssociateVPCWithHostedZoneResponse
     , associateVPCWithHostedZoneResponse
+    , AssociateVPCWithHostedZoneResponse
     -- * Response Lenses
     , avwhzrsStatus
     , avwhzrsChangeInfo
@@ -58,22 +58,25 @@ import           Network.AWS.Route53.Types.Product
 -- a VPC with an hosted zone.
 --
 -- /See:/ 'associateVPCWithHostedZone' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'avwhzComment'
---
--- * 'avwhzHostedZoneId'
---
--- * 'avwhzVPC'
 data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
     { _avwhzComment      :: !(Maybe Text)
     , _avwhzHostedZoneId :: !Text
     , _avwhzVPC          :: !VPC
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssociateVPCWithHostedZone' smart constructor.
-associateVPCWithHostedZone :: Text -> VPC -> AssociateVPCWithHostedZone
+-- | Creates a value of 'AssociateVPCWithHostedZone' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avwhzComment'
+--
+-- * 'avwhzHostedZoneId'
+--
+-- * 'avwhzVPC'
+associateVPCWithHostedZone
+    :: Text -- ^ 'avwhzHostedZoneId'
+    -> VPC -- ^ 'avwhzVPC'
+    -> AssociateVPCWithHostedZone
 associateVPCWithHostedZone pHostedZoneId_ pVPC_ =
     AssociateVPCWithHostedZone'
     { _avwhzComment = Nothing
@@ -82,7 +85,7 @@ associateVPCWithHostedZone pHostedZoneId_ pVPC_ =
     }
 
 -- | /Optional:/ Any comments you want to include about a
--- @AssociateVPCWithHostedZoneRequest@.
+-- 'AssociateVPCWithHostedZoneRequest'.
 avwhzComment :: Lens' AssociateVPCWithHostedZone (Maybe Text)
 avwhzComment = lens _avwhzComment (\ s a -> s{_avwhzComment = a});
 
@@ -133,30 +136,33 @@ instance ToXML AssociateVPCWithHostedZone where
 -- | A complex type containing the response information for the request.
 --
 -- /See:/ 'associateVPCWithHostedZoneResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'avwhzrsStatus'
---
--- * 'avwhzrsChangeInfo'
 data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
     { _avwhzrsStatus     :: !Int
     , _avwhzrsChangeInfo :: !ChangeInfo
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssociateVPCWithHostedZoneResponse' smart constructor.
-associateVPCWithHostedZoneResponse :: Int -> ChangeInfo -> AssociateVPCWithHostedZoneResponse
+-- | Creates a value of 'AssociateVPCWithHostedZoneResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avwhzrsStatus'
+--
+-- * 'avwhzrsChangeInfo'
+associateVPCWithHostedZoneResponse
+    :: Int -- ^ 'avwhzrsStatus'
+    -> ChangeInfo -- ^ 'avwhzrsChangeInfo'
+    -> AssociateVPCWithHostedZoneResponse
 associateVPCWithHostedZoneResponse pStatus_ pChangeInfo_ =
     AssociateVPCWithHostedZoneResponse'
     { _avwhzrsStatus = pStatus_
     , _avwhzrsChangeInfo = pChangeInfo_
     }
 
--- | Undocumented member.
+-- | The response status code.
 avwhzrsStatus :: Lens' AssociateVPCWithHostedZoneResponse Int
 avwhzrsStatus = lens _avwhzrsStatus (\ s a -> s{_avwhzrsStatus = a});
 
 -- | A complex type that contains the ID, the status, and the date and time
--- of your @AssociateVPCWithHostedZoneRequest@.
+-- of your 'AssociateVPCWithHostedZoneRequest'.
 avwhzrsChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
 avwhzrsChangeInfo = lens _avwhzrsChangeInfo (\ s a -> s{_avwhzrsChangeInfo = a});

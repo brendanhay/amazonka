@@ -24,14 +24,14 @@
 module Network.AWS.RDS.DeleteEventSubscription
     (
     -- * Creating a Request
-      DeleteEventSubscription
-    , deleteEventSubscription
+      deleteEventSubscription
+    , DeleteEventSubscription
     -- * Request Lenses
     , desSubscriptionName
 
     -- * Destructuring the Response
-    , DeleteEventSubscriptionResponse
     , deleteEventSubscriptionResponse
+    , DeleteEventSubscriptionResponse
     -- * Response Lenses
     , drsEventSubscription
     , drsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteEventSubscription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'desSubscriptionName'
 newtype DeleteEventSubscription = DeleteEventSubscription'
     { _desSubscriptionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEventSubscription' smart constructor.
-deleteEventSubscription :: Text -> DeleteEventSubscription
+-- | Creates a value of 'DeleteEventSubscription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'desSubscriptionName'
+deleteEventSubscription
+    :: Text -- ^ 'desSubscriptionName'
+    -> DeleteEventSubscription
 deleteEventSubscription pSubscriptionName_ =
     DeleteEventSubscription'
     { _desSubscriptionName = pSubscriptionName_
@@ -91,19 +93,21 @@ instance ToQuery DeleteEventSubscription where
                "SubscriptionName" =: _desSubscriptionName]
 
 -- | /See:/ 'deleteEventSubscriptionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsEventSubscription'
---
--- * 'drsStatus'
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
     { _drsEventSubscription :: !(Maybe EventSubscription)
     , _drsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEventSubscriptionResponse' smart constructor.
-deleteEventSubscriptionResponse :: Int -> DeleteEventSubscriptionResponse
+-- | Creates a value of 'DeleteEventSubscriptionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsEventSubscription'
+--
+-- * 'drsStatus'
+deleteEventSubscriptionResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse pStatus_ =
     DeleteEventSubscriptionResponse'
     { _drsEventSubscription = Nothing
@@ -114,6 +118,6 @@ deleteEventSubscriptionResponse pStatus_ =
 drsEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
 drsEventSubscription = lens _drsEventSubscription (\ s a -> s{_drsEventSubscription = a});
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeleteEventSubscriptionResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

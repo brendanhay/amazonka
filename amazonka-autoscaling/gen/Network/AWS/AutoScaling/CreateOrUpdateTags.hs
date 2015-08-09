@@ -22,10 +22,10 @@
 --
 -- A tag is defined by its resource ID, resource type, key, value, and
 -- propagate flag. The value and the propagate flag are optional
--- parameters. The only supported resource type is @auto-scaling-group@,
+-- parameters. The only supported resource type is 'auto-scaling-group',
 -- and the resource ID must be the name of the group. The
--- @PropagateAtLaunch@ flag determines whether the tag is added to
--- instances launched in the group. Valid values are @true@ or @false@.
+-- 'PropagateAtLaunch' flag determines whether the tag is added to
+-- instances launched in the group. Valid values are 'true' or 'false'.
 --
 -- When you specify a tag with a key that already exists, the operation
 -- overwrites the previous tag definition, and you do not get an error
@@ -39,14 +39,14 @@
 module Network.AWS.AutoScaling.CreateOrUpdateTags
     (
     -- * Creating a Request
-      CreateOrUpdateTags
-    , createOrUpdateTags
+      createOrUpdateTags
+    , CreateOrUpdateTags
     -- * Request Lenses
     , coutTags
 
     -- * Destructuring the Response
-    , CreateOrUpdateTagsResponse
     , createOrUpdateTagsResponse
+    , CreateOrUpdateTagsResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -56,16 +56,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createOrUpdateTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'coutTags'
 newtype CreateOrUpdateTags = CreateOrUpdateTags'
     { _coutTags :: [Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateOrUpdateTags' smart constructor.
-createOrUpdateTags :: CreateOrUpdateTags
+-- | Creates a value of 'CreateOrUpdateTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'coutTags'
+createOrUpdateTags
+    :: CreateOrUpdateTags
 createOrUpdateTags =
     CreateOrUpdateTags'
     { _coutTags = mempty
@@ -100,6 +101,8 @@ data CreateOrUpdateTagsResponse =
     CreateOrUpdateTagsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateOrUpdateTagsResponse' smart constructor.
-createOrUpdateTagsResponse :: CreateOrUpdateTagsResponse
+-- | Creates a value of 'CreateOrUpdateTagsResponse' with the minimum fields required to make a request.
+--
+createOrUpdateTagsResponse
+    :: CreateOrUpdateTagsResponse
 createOrUpdateTagsResponse = CreateOrUpdateTagsResponse'

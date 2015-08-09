@@ -34,15 +34,15 @@
 module Network.AWS.OpsWorks.RegisterElasticIP
     (
     -- * Creating a Request
-      RegisterElasticIP
-    , registerElasticIP
+      registerElasticIP
+    , RegisterElasticIP
     -- * Request Lenses
     , reiElasticIP
     , reiStackId
 
     -- * Destructuring the Response
-    , RegisterElasticIPResponse
     , registerElasticIPResponse
+    , RegisterElasticIPResponse
     -- * Response Lenses
     , reirsElasticIP
     , reirsStatus
@@ -55,19 +55,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'registerElasticIP' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'reiElasticIP'
---
--- * 'reiStackId'
 data RegisterElasticIP = RegisterElasticIP'
     { _reiElasticIP :: !Text
     , _reiStackId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterElasticIP' smart constructor.
-registerElasticIP :: Text -> Text -> RegisterElasticIP
+-- | Creates a value of 'RegisterElasticIP' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'reiElasticIP'
+--
+-- * 'reiStackId'
+registerElasticIP
+    :: Text -- ^ 'reiElasticIP'
+    -> Text -- ^ 'reiStackId'
+    -> RegisterElasticIP
 registerElasticIP pElasticIP_ pStackId_ =
     RegisterElasticIP'
     { _reiElasticIP = pElasticIP_
@@ -114,22 +117,24 @@ instance ToPath RegisterElasticIP where
 instance ToQuery RegisterElasticIP where
         toQuery = const mempty
 
--- | Contains the response to a @RegisterElasticIp@ request.
+-- | Contains the response to a 'RegisterElasticIp' request.
 --
 -- /See:/ 'registerElasticIPResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'reirsElasticIP'
---
--- * 'reirsStatus'
 data RegisterElasticIPResponse = RegisterElasticIPResponse'
     { _reirsElasticIP :: !(Maybe Text)
     , _reirsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterElasticIPResponse' smart constructor.
-registerElasticIPResponse :: Int -> RegisterElasticIPResponse
+-- | Creates a value of 'RegisterElasticIPResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'reirsElasticIP'
+--
+-- * 'reirsStatus'
+registerElasticIPResponse
+    :: Int -- ^ 'reirsStatus'
+    -> RegisterElasticIPResponse
 registerElasticIPResponse pStatus_ =
     RegisterElasticIPResponse'
     { _reirsElasticIP = Nothing
@@ -140,6 +145,6 @@ registerElasticIPResponse pStatus_ =
 reirsElasticIP :: Lens' RegisterElasticIPResponse (Maybe Text)
 reirsElasticIP = lens _reirsElasticIP (\ s a -> s{_reirsElasticIP = a});
 
--- | Undocumented member.
+-- | The response status code.
 reirsStatus :: Lens' RegisterElasticIPResponse Int
 reirsStatus = lens _reirsStatus (\ s a -> s{_reirsStatus = a});

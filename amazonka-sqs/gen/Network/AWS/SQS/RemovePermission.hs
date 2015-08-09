@@ -19,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Revokes any permissions in the queue policy that matches the specified
--- @Label@ parameter. Only the owner of the queue can remove permissions.
+-- 'Label' parameter. Only the owner of the queue can remove permissions.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_RemovePermission.html AWS API Reference> for RemovePermission.
 module Network.AWS.SQS.RemovePermission
     (
     -- * Creating a Request
-      RemovePermission
-    , removePermission
+      removePermission
+    , RemovePermission
     -- * Request Lenses
     , rpQueueURL
     , rpLabel
 
     -- * Destructuring the Response
-    , RemovePermissionResponse
     , removePermissionResponse
+    , RemovePermissionResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -43,19 +43,22 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'removePermission' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rpQueueURL'
---
--- * 'rpLabel'
 data RemovePermission = RemovePermission'
     { _rpQueueURL :: !Text
     , _rpLabel    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemovePermission' smart constructor.
-removePermission :: Text -> Text -> RemovePermission
+-- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpQueueURL'
+--
+-- * 'rpLabel'
+removePermission
+    :: Text -- ^ 'rpQueueURL'
+    -> Text -- ^ 'rpLabel'
+    -> RemovePermission
 removePermission pQueueURL_ pLabel_ =
     RemovePermission'
     { _rpQueueURL = pQueueURL_
@@ -95,6 +98,8 @@ data RemovePermissionResponse =
     RemovePermissionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemovePermissionResponse' smart constructor.
-removePermissionResponse :: RemovePermissionResponse
+-- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.
+--
+removePermissionResponse
+    :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse'

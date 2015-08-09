@@ -20,8 +20,8 @@
 --
 -- Gets the expressions configured for the search domain. Can be limited to
 -- specific expressions by name. By default, shows all expressions and
--- includes any pending changes to the configuration. Set the @Deployed@
--- option to @true@ to show the active configuration and exclude pending
+-- includes any pending changes to the configuration. Set the 'Deployed'
+-- option to 'true' to show the active configuration and exclude pending
 -- changes. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
 -- in the /Amazon CloudSearch Developer Guide/.
@@ -30,16 +30,16 @@
 module Network.AWS.CloudSearch.DescribeExpressions
     (
     -- * Creating a Request
-      DescribeExpressions
-    , describeExpressions
+      describeExpressions
+    , DescribeExpressions
     -- * Request Lenses
     , deDeployed
     , deExpressionNames
     , deDomainName
 
     -- * Destructuring the Response
-    , DescribeExpressionsResponse
     , describeExpressionsResponse
+    , DescribeExpressionsResponse
     -- * Response Lenses
     , drsStatus
     , drsExpressions
@@ -51,29 +51,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DescribeDomains@ operation.
+-- | Container for the parameters to the 'DescribeDomains' operation.
 -- Specifies the name of the domain you want to describe. To restrict the
 -- response to particular expressions, specify the names of the expressions
 -- you want to describe. To show the active configuration and exclude any
--- pending changes, set the @Deployed@ option to @true@.
+-- pending changes, set the 'Deployed' option to 'true'.
 --
 -- /See:/ 'describeExpressions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'deDeployed'
---
--- * 'deExpressionNames'
---
--- * 'deDomainName'
 data DescribeExpressions = DescribeExpressions'
     { _deDeployed        :: !(Maybe Bool)
     , _deExpressionNames :: !(Maybe [Text])
     , _deDomainName      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeExpressions' smart constructor.
-describeExpressions :: Text -> DescribeExpressions
+-- | Creates a value of 'DescribeExpressions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'deDeployed'
+--
+-- * 'deExpressionNames'
+--
+-- * 'deDomainName'
+describeExpressions
+    :: Text -- ^ 'deDomainName'
+    -> DescribeExpressions
 describeExpressions pDomainName_ =
     DescribeExpressions'
     { _deDeployed = Nothing
@@ -81,12 +83,12 @@ describeExpressions pDomainName_ =
     , _deDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration (@true@) or include any
--- pending changes (@false@). Defaults to @false@.
+-- | Whether to display the deployed configuration ('true') or include any
+-- pending changes ('false'). Defaults to 'false'.
 deDeployed :: Lens' DescribeExpressions (Maybe Bool)
 deDeployed = lens _deDeployed (\ s a -> s{_deDeployed = a});
 
--- | Limits the @DescribeExpressions@ response to the specified expressions.
+-- | Limits the 'DescribeExpressions' response to the specified expressions.
 -- If not specified, all expressions are shown.
 deExpressionNames :: Lens' DescribeExpressions [Text]
 deExpressionNames = lens _deExpressionNames (\ s a -> s{_deExpressionNames = a}) . _Default . _Coerce;
@@ -125,30 +127,32 @@ instance ToQuery DescribeExpressions where
                    (toQueryList "member" <$> _deExpressionNames),
                "DomainName" =: _deDomainName]
 
--- | The result of a @DescribeExpressions@ request. Contains the expressions
+-- | The result of a 'DescribeExpressions' request. Contains the expressions
 -- configured for the domain specified in the request.
 --
 -- /See:/ 'describeExpressionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsStatus'
---
--- * 'drsExpressions'
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
     { _drsStatus      :: !Int
     , _drsExpressions :: ![ExpressionStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeExpressionsResponse' smart constructor.
-describeExpressionsResponse :: Int -> DescribeExpressionsResponse
+-- | Creates a value of 'DescribeExpressionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsStatus'
+--
+-- * 'drsExpressions'
+describeExpressionsResponse
+    :: Int -- ^ 'drsStatus'
+    -> DescribeExpressionsResponse
 describeExpressionsResponse pStatus_ =
     DescribeExpressionsResponse'
     { _drsStatus = pStatus_
     , _drsExpressions = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DescribeExpressionsResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
 

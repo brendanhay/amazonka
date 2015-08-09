@@ -19,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new Amazon ECS cluster. By default, your account will receive
--- a @default@ cluster when you launch your first container instance.
+-- a 'default' cluster when you launch your first container instance.
 -- However, you can create your own cluster with a unique name with the
--- @CreateCluster@ action.
+-- 'CreateCluster' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html AWS API Reference> for CreateCluster.
 module Network.AWS.ECS.CreateCluster
     (
     -- * Creating a Request
-      CreateCluster
-    , createCluster
+      createCluster
+    , CreateCluster
     -- * Request Lenses
     , ccClusterName
 
     -- * Destructuring the Response
-    , CreateClusterResponse
     , createClusterResponse
+    , CreateClusterResponse
     -- * Response Lenses
     , ccrsCluster
     , ccrsStatus
@@ -47,23 +47,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createCluster' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccClusterName'
 newtype CreateCluster = CreateCluster'
     { _ccClusterName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateCluster' smart constructor.
-createCluster :: CreateCluster
+-- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccClusterName'
+createCluster
+    :: CreateCluster
 createCluster =
     CreateCluster'
     { _ccClusterName = Nothing
     }
 
 -- | The name of your cluster. If you do not specify a name for your cluster,
--- you will create a cluster named @default@. Up to 255 letters (uppercase
+-- you will create a cluster named 'default'. Up to 255 letters (uppercase
 -- and lowercase), numbers, hyphens, and underscores are allowed.
 ccClusterName :: Lens' CreateCluster (Maybe Text)
 ccClusterName = lens _ccClusterName (\ s a -> s{_ccClusterName = a});
@@ -99,19 +100,21 @@ instance ToQuery CreateCluster where
         toQuery = const mempty
 
 -- | /See:/ 'createClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccrsCluster'
---
--- * 'ccrsStatus'
 data CreateClusterResponse = CreateClusterResponse'
     { _ccrsCluster :: !(Maybe Cluster)
     , _ccrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateClusterResponse' smart constructor.
-createClusterResponse :: Int -> CreateClusterResponse
+-- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccrsCluster'
+--
+-- * 'ccrsStatus'
+createClusterResponse
+    :: Int -- ^ 'ccrsStatus'
+    -> CreateClusterResponse
 createClusterResponse pStatus_ =
     CreateClusterResponse'
     { _ccrsCluster = Nothing
@@ -122,6 +125,6 @@ createClusterResponse pStatus_ =
 ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 ccrsStatus :: Lens' CreateClusterResponse Int
 ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

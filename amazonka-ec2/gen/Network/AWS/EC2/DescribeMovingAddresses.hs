@@ -27,8 +27,8 @@
 module Network.AWS.EC2.DescribeMovingAddresses
     (
     -- * Creating a Request
-      DescribeMovingAddresses
-    , describeMovingAddresses
+      describeMovingAddresses
+    , DescribeMovingAddresses
     -- * Request Lenses
     , dmaPublicIPs
     , dmaFilters
@@ -37,8 +37,8 @@ module Network.AWS.EC2.DescribeMovingAddresses
     , dmaMaxResults
 
     -- * Destructuring the Response
-    , DescribeMovingAddressesResponse
     , describeMovingAddressesResponse
+    , DescribeMovingAddressesResponse
     -- * Response Lenses
     , dmarsMovingAddressStatuses
     , dmarsNextToken
@@ -52,8 +52,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeMovingAddresses' smart constructor.
+data DescribeMovingAddresses = DescribeMovingAddresses'
+    { _dmaPublicIPs  :: !(Maybe [Text])
+    , _dmaFilters    :: !(Maybe [Filter])
+    , _dmaNextToken  :: !(Maybe Text)
+    , _dmaDryRun     :: !(Maybe Bool)
+    , _dmaMaxResults :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeMovingAddresses' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dmaPublicIPs'
 --
@@ -64,16 +73,8 @@ import           Network.AWS.Response
 -- * 'dmaDryRun'
 --
 -- * 'dmaMaxResults'
-data DescribeMovingAddresses = DescribeMovingAddresses'
-    { _dmaPublicIPs  :: !(Maybe [Text])
-    , _dmaFilters    :: !(Maybe [Filter])
-    , _dmaNextToken  :: !(Maybe Text)
-    , _dmaDryRun     :: !(Maybe Bool)
-    , _dmaMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeMovingAddresses' smart constructor.
-describeMovingAddresses :: DescribeMovingAddresses
+describeMovingAddresses
+    :: DescribeMovingAddresses
 describeMovingAddresses =
     DescribeMovingAddresses'
     { _dmaPublicIPs = Nothing
@@ -89,8 +90,8 @@ dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a}) . _Default . _
 
 -- | One or more filters.
 --
--- -   @moving-status@ - The status of the Elastic IP address
---     (@MovingToVpc@ | @RestoringToClassic@).
+-- -   'moving-status' - The status of the Elastic IP address
+--     ('MovingToVpc' | 'RestoringToClassic').
 --
 dmaFilters :: Lens' DescribeMovingAddresses [Filter]
 dmaFilters = lens _dmaFilters (\ s a -> s{_dmaFilters = a}) . _Default . _Coerce;
@@ -101,15 +102,15 @@ dmaNextToken = lens _dmaNextToken (\ s a -> s{_dmaNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dmaDryRun :: Lens' DescribeMovingAddresses (Maybe Bool)
 dmaDryRun = lens _dmaDryRun (\ s a -> s{_dmaDryRun = a});
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results of the initial request can be seen by
--- sending another request with the returned @NextToken@ value. This value
--- can be between 5 and 1000; if @MaxResults@ is given a value outside of
+-- sending another request with the returned 'NextToken' value. This value
+-- can be between 5 and 1000; if 'MaxResults' is given a value outside of
 -- this range, an error is returned.
 --
 -- Default: If no value is provided, the default is 1000.
@@ -148,22 +149,24 @@ instance ToQuery DescribeMovingAddresses where
                "MaxResults" =: _dmaMaxResults]
 
 -- | /See:/ 'describeMovingAddressesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmarsMovingAddressStatuses'
---
--- * 'dmarsNextToken'
---
--- * 'dmarsStatus'
 data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
     { _dmarsMovingAddressStatuses :: !(Maybe [MovingAddressStatus])
     , _dmarsNextToken             :: !(Maybe Text)
     , _dmarsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeMovingAddressesResponse' smart constructor.
-describeMovingAddressesResponse :: Int -> DescribeMovingAddressesResponse
+-- | Creates a value of 'DescribeMovingAddressesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmarsMovingAddressStatuses'
+--
+-- * 'dmarsNextToken'
+--
+-- * 'dmarsStatus'
+describeMovingAddressesResponse
+    :: Int -- ^ 'dmarsStatus'
+    -> DescribeMovingAddressesResponse
 describeMovingAddressesResponse pStatus_ =
     DescribeMovingAddressesResponse'
     { _dmarsMovingAddressStatuses = Nothing
@@ -176,10 +179,10 @@ dmarsMovingAddressStatuses :: Lens' DescribeMovingAddressesResponse [MovingAddre
 dmarsMovingAddressStatuses = lens _dmarsMovingAddressStatuses (\ s a -> s{_dmarsMovingAddressStatuses = a}) . _Default . _Coerce;
 
 -- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'null' when there are no more results to return.
 dmarsNextToken :: Lens' DescribeMovingAddressesResponse (Maybe Text)
 dmarsNextToken = lens _dmarsNextToken (\ s a -> s{_dmarsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dmarsStatus :: Lens' DescribeMovingAddressesResponse Int
 dmarsStatus = lens _dmarsStatus (\ s a -> s{_dmarsStatus = a});

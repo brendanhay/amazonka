@@ -23,19 +23,21 @@
 -- specified, the list will contain only the descriptions for that group.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameterGroups.html AWS API Reference> for DescribeCacheParameterGroups.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     (
     -- * Creating a Request
-      DescribeCacheParameterGroups
-    , describeCacheParameterGroups
+      describeCacheParameterGroups
+    , DescribeCacheParameterGroups
     -- * Request Lenses
     , dcpgCacheParameterGroupName
     , dcpgMaxRecords
     , dcpgMarker
 
     -- * Destructuring the Response
-    , DescribeCacheParameterGroupsResponse
     , describeCacheParameterGroupsResponse
+    , DescribeCacheParameterGroupsResponse
     -- * Response Lenses
     , dcpgrsCacheParameterGroups
     , dcpgrsMarker
@@ -52,22 +54,23 @@ import           Network.AWS.Response
 -- | Represents the input of a /DescribeCacheParameterGroups/ action.
 --
 -- /See:/ 'describeCacheParameterGroups' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcpgCacheParameterGroupName'
---
--- * 'dcpgMaxRecords'
---
--- * 'dcpgMarker'
 data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
     { _dcpgCacheParameterGroupName :: !(Maybe Text)
     , _dcpgMaxRecords              :: !(Maybe Int)
     , _dcpgMarker                  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCacheParameterGroups' smart constructor.
-describeCacheParameterGroups :: DescribeCacheParameterGroups
+-- | Creates a value of 'DescribeCacheParameterGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcpgCacheParameterGroupName'
+--
+-- * 'dcpgMaxRecords'
+--
+-- * 'dcpgMarker'
+describeCacheParameterGroups
+    :: DescribeCacheParameterGroups
 describeCacheParameterGroups =
     DescribeCacheParameterGroups'
     { _dcpgCacheParameterGroupName = Nothing
@@ -80,7 +83,7 @@ dcpgCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
 dcpgCacheParameterGroupName = lens _dcpgCacheParameterGroupName (\ s a -> s{_dcpgCacheParameterGroupName = a});
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a marker is
+-- records exist than the specified 'MaxRecords' value, a marker is
 -- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
@@ -139,22 +142,24 @@ instance ToQuery DescribeCacheParameterGroups where
 -- | Represents the output of a /DescribeCacheParameterGroups/ action.
 --
 -- /See:/ 'describeCacheParameterGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcpgrsCacheParameterGroups'
---
--- * 'dcpgrsMarker'
---
--- * 'dcpgrsStatus'
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'
     { _dcpgrsCacheParameterGroups :: !(Maybe [CacheParameterGroup])
     , _dcpgrsMarker               :: !(Maybe Text)
     , _dcpgrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCacheParameterGroupsResponse' smart constructor.
-describeCacheParameterGroupsResponse :: Int -> DescribeCacheParameterGroupsResponse
+-- | Creates a value of 'DescribeCacheParameterGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcpgrsCacheParameterGroups'
+--
+-- * 'dcpgrsMarker'
+--
+-- * 'dcpgrsStatus'
+describeCacheParameterGroupsResponse
+    :: Int -- ^ 'dcpgrsStatus'
+    -> DescribeCacheParameterGroupsResponse
 describeCacheParameterGroupsResponse pStatus_ =
     DescribeCacheParameterGroupsResponse'
     { _dcpgrsCacheParameterGroups = Nothing
@@ -171,6 +176,6 @@ dcpgrsCacheParameterGroups = lens _dcpgrsCacheParameterGroups (\ s a -> s{_dcpgr
 dcpgrsMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
 dcpgrsMarker = lens _dcpgrsMarker (\ s a -> s{_dcpgrsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dcpgrsStatus :: Lens' DescribeCacheParameterGroupsResponse Int
 dcpgrsStatus = lens _dcpgrsStatus (\ s a -> s{_dcpgrsStatus = a});

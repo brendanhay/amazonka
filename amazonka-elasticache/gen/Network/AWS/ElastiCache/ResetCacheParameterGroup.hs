@@ -28,16 +28,16 @@
 module Network.AWS.ElastiCache.ResetCacheParameterGroup
     (
     -- * Creating a Request
-      ResetCacheParameterGroup
-    , resetCacheParameterGroup
+      resetCacheParameterGroup
+    , ResetCacheParameterGroup
     -- * Request Lenses
     , rcpgResetAllParameters
     , rcpgCacheParameterGroupName
     , rcpgParameterNameValues
 
     -- * Destructuring the Response
-    , CacheParameterGroupNameMessage
     , cacheParameterGroupNameMessage
+    , CacheParameterGroupNameMessage
     -- * Response Lenses
     , cpgnmCacheParameterGroupName
     ) where
@@ -51,22 +51,24 @@ import           Network.AWS.Response
 -- | Represents the input of a /ResetCacheParameterGroup/ action.
 --
 -- /See:/ 'resetCacheParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcpgResetAllParameters'
---
--- * 'rcpgCacheParameterGroupName'
---
--- * 'rcpgParameterNameValues'
 data ResetCacheParameterGroup = ResetCacheParameterGroup'
     { _rcpgResetAllParameters      :: !(Maybe Bool)
     , _rcpgCacheParameterGroupName :: !Text
     , _rcpgParameterNameValues     :: ![ParameterNameValue]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetCacheParameterGroup' smart constructor.
-resetCacheParameterGroup :: Text -> ResetCacheParameterGroup
+-- | Creates a value of 'ResetCacheParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcpgResetAllParameters'
+--
+-- * 'rcpgCacheParameterGroupName'
+--
+-- * 'rcpgParameterNameValues'
+resetCacheParameterGroup
+    :: Text -- ^ 'rcpgCacheParameterGroupName'
+    -> ResetCacheParameterGroup
 resetCacheParameterGroup pCacheParameterGroupName_ =
     ResetCacheParameterGroup'
     { _rcpgResetAllParameters = Nothing
@@ -77,7 +79,7 @@ resetCacheParameterGroup pCacheParameterGroupName_ =
 -- | If /true/, all parameters in the cache parameter group will be reset to
 -- default values. If /false/, no such action occurs.
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
 rcpgResetAllParameters = lens _rcpgResetAllParameters (\ s a -> s{_rcpgResetAllParameters = a});
 

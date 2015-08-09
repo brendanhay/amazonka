@@ -38,8 +38,8 @@
 module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     (
     -- * Creating a Request
-      AuthorizeDBSecurityGroupIngress
-    , authorizeDBSecurityGroupIngress
+      authorizeDBSecurityGroupIngress
+    , AuthorizeDBSecurityGroupIngress
     -- * Request Lenses
     , adsgiEC2SecurityGroupOwnerId
     , adsgiEC2SecurityGroupName
@@ -48,8 +48,8 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     , adsgiDBSecurityGroupName
 
     -- * Destructuring the Response
-    , AuthorizeDBSecurityGroupIngressResponse
     , authorizeDBSecurityGroupIngressResponse
+    , AuthorizeDBSecurityGroupIngressResponse
     -- * Response Lenses
     , adsgirsDBSecurityGroup
     , adsgirsStatus
@@ -64,8 +64,17 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'authorizeDBSecurityGroupIngress' smart constructor.
+data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
+    { _adsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
+    , _adsgiEC2SecurityGroupName    :: !(Maybe Text)
+    , _adsgiCIdRIP                  :: !(Maybe Text)
+    , _adsgiEC2SecurityGroupId      :: !(Maybe Text)
+    , _adsgiDBSecurityGroupName     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AuthorizeDBSecurityGroupIngress' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'adsgiEC2SecurityGroupOwnerId'
 --
@@ -76,16 +85,9 @@ import           Network.AWS.Response
 -- * 'adsgiEC2SecurityGroupId'
 --
 -- * 'adsgiDBSecurityGroupName'
-data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
-    { _adsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
-    , _adsgiEC2SecurityGroupName    :: !(Maybe Text)
-    , _adsgiCIdRIP                  :: !(Maybe Text)
-    , _adsgiEC2SecurityGroupId      :: !(Maybe Text)
-    , _adsgiDBSecurityGroupName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AuthorizeDBSecurityGroupIngress' smart constructor.
-authorizeDBSecurityGroupIngress :: Text -> AuthorizeDBSecurityGroupIngress
+authorizeDBSecurityGroupIngress
+    :: Text -- ^ 'adsgiDBSecurityGroupName'
+    -> AuthorizeDBSecurityGroupIngress
 authorizeDBSecurityGroupIngress pDBSecurityGroupName_ =
     AuthorizeDBSecurityGroupIngress'
     { _adsgiEC2SecurityGroupOwnerId = Nothing
@@ -96,17 +98,17 @@ authorizeDBSecurityGroupIngress pDBSecurityGroupName_ =
     }
 
 -- | AWS account number of the owner of the EC2 security group specified in
--- the @EC2SecurityGroupName@ parameter. The AWS Access Key ID is not an
--- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
--- be provided. Otherwise, @EC2SecurityGroupOwnerId@ and either
--- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
+-- the 'EC2SecurityGroupName' parameter. The AWS Access Key ID is not an
+-- acceptable value. For VPC DB security groups, 'EC2SecurityGroupId' must
+-- be provided. Otherwise, 'EC2SecurityGroupOwnerId' and either
+-- 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
 adsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adsgiEC2SecurityGroupOwnerId = lens _adsgiEC2SecurityGroupOwnerId (\ s a -> s{_adsgiEC2SecurityGroupOwnerId = a});
 
 -- | Name of the EC2 security group to authorize. For VPC DB security groups,
--- @EC2SecurityGroupId@ must be provided. Otherwise,
--- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
--- @EC2SecurityGroupId@ must be provided.
+-- 'EC2SecurityGroupId' must be provided. Otherwise,
+-- 'EC2SecurityGroupOwnerId' and either 'EC2SecurityGroupName' or
+-- 'EC2SecurityGroupId' must be provided.
 adsgiEC2SecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adsgiEC2SecurityGroupName = lens _adsgiEC2SecurityGroupName (\ s a -> s{_adsgiEC2SecurityGroupName = a});
 
@@ -115,9 +117,9 @@ adsgiCIdRIP :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adsgiCIdRIP = lens _adsgiCIdRIP (\ s a -> s{_adsgiCIdRIP = a});
 
 -- | Id of the EC2 security group to authorize. For VPC DB security groups,
--- @EC2SecurityGroupId@ must be provided. Otherwise,
--- @EC2SecurityGroupOwnerId@ and either @EC2SecurityGroupName@ or
--- @EC2SecurityGroupId@ must be provided.
+-- 'EC2SecurityGroupId' must be provided. Otherwise,
+-- 'EC2SecurityGroupOwnerId' and either 'EC2SecurityGroupName' or
+-- 'EC2SecurityGroupId' must be provided.
 adsgiEC2SecurityGroupId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adsgiEC2SecurityGroupId = lens _adsgiEC2SecurityGroupId (\ s a -> s{_adsgiEC2SecurityGroupId = a});
 
@@ -160,19 +162,21 @@ instance ToQuery AuthorizeDBSecurityGroupIngress
                "DBSecurityGroupName" =: _adsgiDBSecurityGroupName]
 
 -- | /See:/ 'authorizeDBSecurityGroupIngressResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'adsgirsDBSecurityGroup'
---
--- * 'adsgirsStatus'
 data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'
     { _adsgirsDBSecurityGroup :: !(Maybe DBSecurityGroup)
     , _adsgirsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AuthorizeDBSecurityGroupIngressResponse' smart constructor.
-authorizeDBSecurityGroupIngressResponse :: Int -> AuthorizeDBSecurityGroupIngressResponse
+-- | Creates a value of 'AuthorizeDBSecurityGroupIngressResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'adsgirsDBSecurityGroup'
+--
+-- * 'adsgirsStatus'
+authorizeDBSecurityGroupIngressResponse
+    :: Int -- ^ 'adsgirsStatus'
+    -> AuthorizeDBSecurityGroupIngressResponse
 authorizeDBSecurityGroupIngressResponse pStatus_ =
     AuthorizeDBSecurityGroupIngressResponse'
     { _adsgirsDBSecurityGroup = Nothing
@@ -183,6 +187,6 @@ authorizeDBSecurityGroupIngressResponse pStatus_ =
 adsgirsDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
 adsgirsDBSecurityGroup = lens _adsgirsDBSecurityGroup (\ s a -> s{_adsgirsDBSecurityGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 adsgirsStatus :: Lens' AuthorizeDBSecurityGroupIngressResponse Int
 adsgirsStatus = lens _adsgirsStatus (\ s a -> s{_adsgirsStatus = a});

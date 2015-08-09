@@ -30,14 +30,14 @@
 module Network.AWS.SES.DeleteVerifiedEmailAddress
     (
     -- * Creating a Request
-      DeleteVerifiedEmailAddress
-    , deleteVerifiedEmailAddress
+      deleteVerifiedEmailAddress
+    , DeleteVerifiedEmailAddress
     -- * Request Lenses
     , dveaEmailAddress
 
     -- * Destructuring the Response
-    , DeleteVerifiedEmailAddressResponse
     , deleteVerifiedEmailAddressResponse
+    , DeleteVerifiedEmailAddressResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -50,16 +50,18 @@ import           Network.AWS.SES.Types.Product
 -- the list of verified email addresses.
 --
 -- /See:/ 'deleteVerifiedEmailAddress' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dveaEmailAddress'
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
     { _dveaEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVerifiedEmailAddress' smart constructor.
-deleteVerifiedEmailAddress :: Text -> DeleteVerifiedEmailAddress
+-- | Creates a value of 'DeleteVerifiedEmailAddress' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dveaEmailAddress'
+deleteVerifiedEmailAddress
+    :: Text -- ^ 'dveaEmailAddress'
+    -> DeleteVerifiedEmailAddress
 deleteVerifiedEmailAddress pEmailAddress_ =
     DeleteVerifiedEmailAddress'
     { _dveaEmailAddress = pEmailAddress_
@@ -96,6 +98,8 @@ data DeleteVerifiedEmailAddressResponse =
     DeleteVerifiedEmailAddressResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVerifiedEmailAddressResponse' smart constructor.
-deleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse
+-- | Creates a value of 'DeleteVerifiedEmailAddressResponse' with the minimum fields required to make a request.
+--
+deleteVerifiedEmailAddressResponse
+    :: DeleteVerifiedEmailAddressResponse
 deleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse'

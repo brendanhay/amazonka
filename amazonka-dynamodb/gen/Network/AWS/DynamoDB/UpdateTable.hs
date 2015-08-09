@@ -34,17 +34,17 @@
 --     operations.
 --
 -- /UpdateTable/ is an asynchronous operation; while it is executing, the
--- table status changes from @ACTIVE@ to @UPDATING@. While it is
--- @UPDATING@, you cannot issue another /UpdateTable/ request. When the
--- table returns to the @ACTIVE@ state, the /UpdateTable/ operation is
+-- table status changes from 'ACTIVE' to 'UPDATING'. While it is
+-- 'UPDATING', you cannot issue another /UpdateTable/ request. When the
+-- table returns to the 'ACTIVE' state, the /UpdateTable/ operation is
 -- complete.
 --
 -- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html AWS API Reference> for UpdateTable.
 module Network.AWS.DynamoDB.UpdateTable
     (
     -- * Creating a Request
-      UpdateTable
-    , updateTable
+      updateTable
+    , UpdateTable
     -- * Request Lenses
     , utProvisionedThroughput
     , utAttributeDefinitions
@@ -53,8 +53,8 @@ module Network.AWS.DynamoDB.UpdateTable
     , utTableName
 
     -- * Destructuring the Response
-    , UpdateTableResponse
     , updateTableResponse
+    , UpdateTableResponse
     -- * Response Lenses
     , utrsTableDescription
     , utrsStatus
@@ -69,8 +69,17 @@ import           Network.AWS.Response
 -- | Represents the input of an /UpdateTable/ operation.
 --
 -- /See:/ 'updateTable' smart constructor.
+data UpdateTable = UpdateTable'
+    { _utProvisionedThroughput       :: !(Maybe ProvisionedThroughput)
+    , _utAttributeDefinitions        :: !(Maybe [AttributeDefinition])
+    , _utGlobalSecondaryIndexUpdates :: !(Maybe [GlobalSecondaryIndexUpdate])
+    , _utStreamSpecification         :: !(Maybe StreamSpecification)
+    , _utTableName                   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateTable' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'utProvisionedThroughput'
 --
@@ -81,16 +90,9 @@ import           Network.AWS.Response
 -- * 'utStreamSpecification'
 --
 -- * 'utTableName'
-data UpdateTable = UpdateTable'
-    { _utProvisionedThroughput       :: !(Maybe ProvisionedThroughput)
-    , _utAttributeDefinitions        :: !(Maybe [AttributeDefinition])
-    , _utGlobalSecondaryIndexUpdates :: !(Maybe [GlobalSecondaryIndexUpdate])
-    , _utStreamSpecification         :: !(Maybe StreamSpecification)
-    , _utTableName                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateTable' smart constructor.
-updateTable :: Text -> UpdateTable
+updateTable
+    :: Text -- ^ 'utTableName'
+    -> UpdateTable
 updateTable pTableName_ =
     UpdateTable'
     { _utProvisionedThroughput = Nothing
@@ -176,19 +178,21 @@ instance ToQuery UpdateTable where
 -- | Represents the output of an /UpdateTable/ operation.
 --
 -- /See:/ 'updateTableResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'utrsTableDescription'
---
--- * 'utrsStatus'
 data UpdateTableResponse = UpdateTableResponse'
     { _utrsTableDescription :: !(Maybe TableDescription)
     , _utrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateTableResponse' smart constructor.
-updateTableResponse :: Int -> UpdateTableResponse
+-- | Creates a value of 'UpdateTableResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'utrsTableDescription'
+--
+-- * 'utrsStatus'
+updateTableResponse
+    :: Int -- ^ 'utrsStatus'
+    -> UpdateTableResponse
 updateTableResponse pStatus_ =
     UpdateTableResponse'
     { _utrsTableDescription = Nothing
@@ -199,6 +203,6 @@ updateTableResponse pStatus_ =
 utrsTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
 utrsTableDescription = lens _utrsTableDescription (\ s a -> s{_utrsTableDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 utrsStatus :: Lens' UpdateTableResponse Int
 utrsStatus = lens _utrsStatus (\ s a -> s{_utrsStatus = a});

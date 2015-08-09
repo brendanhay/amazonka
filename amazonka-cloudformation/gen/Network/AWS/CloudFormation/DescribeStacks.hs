@@ -22,18 +22,20 @@
 -- specified, then it returns the description for all the stacks created.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStacks.html AWS API Reference> for DescribeStacks.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.DescribeStacks
     (
     -- * Creating a Request
-      DescribeStacks
-    , describeStacks
+      describeStacks
+    , DescribeStacks
     -- * Request Lenses
     , dNextToken
     , dStackName
 
     -- * Destructuring the Response
-    , DescribeStacksResponse
     , describeStacksResponse
+    , DescribeStacksResponse
     -- * Response Lenses
     , dsrsNextToken
     , dsrsStacks
@@ -50,19 +52,20 @@ import           Network.AWS.Response
 -- | The input for DescribeStacks action.
 --
 -- /See:/ 'describeStacks' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dNextToken'
---
--- * 'dStackName'
 data DescribeStacks = DescribeStacks'
     { _dNextToken :: !(Maybe Text)
     , _dStackName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStacks' smart constructor.
-describeStacks :: DescribeStacks
+-- | Creates a value of 'DescribeStacks' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dNextToken'
+--
+-- * 'dStackName'
+describeStacks
+    :: DescribeStacks
 describeStacks =
     DescribeStacks'
     { _dNextToken = Nothing
@@ -122,22 +125,24 @@ instance ToQuery DescribeStacks where
 -- | The output for a DescribeStacks action.
 --
 -- /See:/ 'describeStacksResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrsNextToken'
---
--- * 'dsrsStacks'
---
--- * 'dsrsStatus'
 data DescribeStacksResponse = DescribeStacksResponse'
     { _dsrsNextToken :: !(Maybe Text)
     , _dsrsStacks    :: !(Maybe [Stack])
     , _dsrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStacksResponse' smart constructor.
-describeStacksResponse :: Int -> DescribeStacksResponse
+-- | Creates a value of 'DescribeStacksResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrsNextToken'
+--
+-- * 'dsrsStacks'
+--
+-- * 'dsrsStatus'
+describeStacksResponse
+    :: Int -- ^ 'dsrsStatus'
+    -> DescribeStacksResponse
 describeStacksResponse pStatus_ =
     DescribeStacksResponse'
     { _dsrsNextToken = Nothing
@@ -154,6 +159,6 @@ dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
 dsrsStacks :: Lens' DescribeStacksResponse [Stack]
 dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dsrsStatus :: Lens' DescribeStacksResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

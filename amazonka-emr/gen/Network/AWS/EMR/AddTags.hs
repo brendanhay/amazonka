@@ -27,15 +27,15 @@
 module Network.AWS.EMR.AddTags
     (
     -- * Creating a Request
-      AddTags
-    , addTags
+      addTags
+    , AddTags
     -- * Request Lenses
     , atResourceId
     , atTags
 
     -- * Destructuring the Response
-    , AddTagsResponse
     , addTagsResponse
+    , AddTagsResponse
     -- * Response Lenses
     , atrsStatus
     ) where
@@ -49,19 +49,21 @@ import           Network.AWS.Response
 -- | This input identifies a cluster and a list of tags to attach.
 --
 -- /See:/ 'addTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atResourceId'
---
--- * 'atTags'
 data AddTags = AddTags'
     { _atResourceId :: !Text
     , _atTags       :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTags' smart constructor.
-addTags :: Text -> AddTags
+-- | Creates a value of 'AddTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atResourceId'
+--
+-- * 'atTags'
+addTags
+    :: Text -- ^ 'atResourceId'
+    -> AddTags
 addTags pResourceId_ =
     AddTags'
     { _atResourceId = pResourceId_
@@ -111,21 +113,23 @@ instance ToQuery AddTags where
 -- | This output indicates the result of adding tags to a resource.
 --
 -- /See:/ 'addTagsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atrsStatus'
 newtype AddTagsResponse = AddTagsResponse'
     { _atrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTagsResponse' smart constructor.
-addTagsResponse :: Int -> AddTagsResponse
+-- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atrsStatus'
+addTagsResponse
+    :: Int -- ^ 'atrsStatus'
+    -> AddTagsResponse
 addTagsResponse pStatus_ =
     AddTagsResponse'
     { _atrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 atrsStatus :: Lens' AddTagsResponse Int
 atrsStatus = lens _atrsStatus (\ s a -> s{_atrsStatus = a});

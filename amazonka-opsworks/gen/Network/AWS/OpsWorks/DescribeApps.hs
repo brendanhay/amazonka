@@ -32,15 +32,15 @@
 module Network.AWS.OpsWorks.DescribeApps
     (
     -- * Creating a Request
-      DescribeApps
-    , describeApps
+      describeApps
+    , DescribeApps
     -- * Request Lenses
     , daAppIds
     , daStackId
 
     -- * Destructuring the Response
-    , DescribeAppsResponse
     , describeAppsResponse
+    , DescribeAppsResponse
     -- * Response Lenses
     , darsApps
     , darsStatus
@@ -53,19 +53,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeApps' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daAppIds'
---
--- * 'daStackId'
 data DescribeApps = DescribeApps'
     { _daAppIds  :: !(Maybe [Text])
     , _daStackId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeApps' smart constructor.
-describeApps :: DescribeApps
+-- | Creates a value of 'DescribeApps' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daAppIds'
+--
+-- * 'daStackId'
+describeApps
+    :: DescribeApps
 describeApps =
     DescribeApps'
     { _daAppIds = Nothing
@@ -73,12 +74,12 @@ describeApps =
     }
 
 -- | An array of app IDs for the apps to be described. If you use this
--- parameter, @DescribeApps@ returns a description of the specified apps.
+-- parameter, 'DescribeApps' returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
 daAppIds :: Lens' DescribeApps [Text]
 daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a}) . _Default . _Coerce;
 
--- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
+-- | The app stack ID. If you use this parameter, 'DescribeApps' returns a
 -- description of the apps in the specified stack.
 daStackId :: Lens' DescribeApps (Maybe Text)
 daStackId = lens _daStackId (\ s a -> s{_daStackId = a});
@@ -113,32 +114,34 @@ instance ToPath DescribeApps where
 instance ToQuery DescribeApps where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeApps@ request.
+-- | Contains the response to a 'DescribeApps' request.
 --
 -- /See:/ 'describeAppsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'darsApps'
---
--- * 'darsStatus'
 data DescribeAppsResponse = DescribeAppsResponse'
     { _darsApps   :: !(Maybe [App])
     , _darsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAppsResponse' smart constructor.
-describeAppsResponse :: Int -> DescribeAppsResponse
+-- | Creates a value of 'DescribeAppsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'darsApps'
+--
+-- * 'darsStatus'
+describeAppsResponse
+    :: Int -- ^ 'darsStatus'
+    -> DescribeAppsResponse
 describeAppsResponse pStatus_ =
     DescribeAppsResponse'
     { _darsApps = Nothing
     , _darsStatus = pStatus_
     }
 
--- | An array of @App@ objects that describe the specified apps.
+-- | An array of 'App' objects that describe the specified apps.
 darsApps :: Lens' DescribeAppsResponse [App]
 darsApps = lens _darsApps (\ s a -> s{_darsApps = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 darsStatus :: Lens' DescribeAppsResponse Int
 darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

@@ -34,8 +34,8 @@
 module Network.AWS.EC2.ModifySnapshotAttribute
     (
     -- * Creating a Request
-      ModifySnapshotAttribute
-    , modifySnapshotAttribute
+      modifySnapshotAttribute
+    , ModifySnapshotAttribute
     -- * Request Lenses
     , msaAttribute
     , msaUserIds
@@ -46,8 +46,8 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     , msaSnapshotId
 
     -- * Destructuring the Response
-    , ModifySnapshotAttributeResponse
     , modifySnapshotAttributeResponse
+    , ModifySnapshotAttributeResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -57,8 +57,19 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifySnapshotAttribute' smart constructor.
+data ModifySnapshotAttribute = ModifySnapshotAttribute'
+    { _msaAttribute              :: !(Maybe SnapshotAttributeName)
+    , _msaUserIds                :: !(Maybe [Text])
+    , _msaCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
+    , _msaGroupNames             :: !(Maybe [Text])
+    , _msaOperationType          :: !(Maybe Text)
+    , _msaDryRun                 :: !(Maybe Bool)
+    , _msaSnapshotId             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifySnapshotAttribute' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'msaAttribute'
 --
@@ -73,18 +84,9 @@ import           Network.AWS.Response
 -- * 'msaDryRun'
 --
 -- * 'msaSnapshotId'
-data ModifySnapshotAttribute = ModifySnapshotAttribute'
-    { _msaAttribute              :: !(Maybe SnapshotAttributeName)
-    , _msaUserIds                :: !(Maybe [Text])
-    , _msaCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
-    , _msaGroupNames             :: !(Maybe [Text])
-    , _msaOperationType          :: !(Maybe Text)
-    , _msaDryRun                 :: !(Maybe Bool)
-    , _msaSnapshotId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifySnapshotAttribute' smart constructor.
-modifySnapshotAttribute :: Text -> ModifySnapshotAttribute
+modifySnapshotAttribute
+    :: Text -- ^ 'msaSnapshotId'
+    -> ModifySnapshotAttribute
 modifySnapshotAttribute pSnapshotId_ =
     ModifySnapshotAttribute'
     { _msaAttribute = Nothing
@@ -120,8 +122,8 @@ msaOperationType = lens _msaOperationType (\ s a -> s{_msaOperationType = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 msaDryRun :: Lens' ModifySnapshotAttribute (Maybe Bool)
 msaDryRun = lens _msaDryRun (\ s a -> s{_msaDryRun = a});
 
@@ -163,6 +165,8 @@ data ModifySnapshotAttributeResponse =
     ModifySnapshotAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifySnapshotAttributeResponse' smart constructor.
-modifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse
+-- | Creates a value of 'ModifySnapshotAttributeResponse' with the minimum fields required to make a request.
+--
+modifySnapshotAttributeResponse
+    :: ModifySnapshotAttributeResponse
 modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse'

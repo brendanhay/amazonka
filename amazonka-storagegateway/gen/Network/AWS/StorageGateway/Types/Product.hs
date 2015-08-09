@@ -22,8 +22,20 @@ import           Network.AWS.Prelude
 import           Network.AWS.StorageGateway.Types.Sum
 
 -- | /See:/ 'cachediSCSIVolume' smart constructor.
+data CachediSCSIVolume = CachediSCSIVolume'
+    { _cscsivVolumeStatus          :: !(Maybe Text)
+    , _cscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
+    , _cscsivSourceSnapshotId      :: !(Maybe Text)
+    , _cscsivVolumeARN             :: !(Maybe Text)
+    , _cscsivVolumeProgress        :: !(Maybe Double)
+    , _cscsivVolumeSizeInBytes     :: !(Maybe Integer)
+    , _cscsivVolumeId              :: !(Maybe Text)
+    , _cscsivVolumeType            :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CachediSCSIVolume' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cscsivVolumeStatus'
 --
@@ -40,19 +52,8 @@ import           Network.AWS.StorageGateway.Types.Sum
 -- * 'cscsivVolumeId'
 --
 -- * 'cscsivVolumeType'
-data CachediSCSIVolume = CachediSCSIVolume'
-    { _cscsivVolumeStatus          :: !(Maybe Text)
-    , _cscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
-    , _cscsivSourceSnapshotId      :: !(Maybe Text)
-    , _cscsivVolumeARN             :: !(Maybe Text)
-    , _cscsivVolumeProgress        :: !(Maybe Double)
-    , _cscsivVolumeSizeInBytes     :: !(Maybe Integer)
-    , _cscsivVolumeId              :: !(Maybe Text)
-    , _cscsivVolumeType            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CachediSCSIVolume' smart constructor.
-cachediSCSIVolume :: CachediSCSIVolume
+cachediSCSIVolume
+    :: CachediSCSIVolume
 cachediSCSIVolume =
     CachediSCSIVolume'
     { _cscsivVolumeStatus = Nothing
@@ -115,8 +116,16 @@ instance FromJSON CachediSCSIVolume where
 -- that supports authentication between your gateway and iSCSI initiators.
 --
 -- /See:/ 'chapInfo' smart constructor.
+data ChapInfo = ChapInfo'
+    { _ciTargetARN                     :: !(Maybe Text)
+    , _ciSecretToAuthenticateInitiator :: !(Maybe Text)
+    , _ciInitiatorName                 :: !(Maybe Text)
+    , _ciSecretToAuthenticateTarget    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ChapInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ciTargetARN'
 --
@@ -125,15 +134,8 @@ instance FromJSON CachediSCSIVolume where
 -- * 'ciInitiatorName'
 --
 -- * 'ciSecretToAuthenticateTarget'
-data ChapInfo = ChapInfo'
-    { _ciTargetARN                     :: !(Maybe Text)
-    , _ciSecretToAuthenticateInitiator :: !(Maybe Text)
-    , _ciInitiatorName                 :: !(Maybe Text)
-    , _ciSecretToAuthenticateTarget    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ChapInfo' smart constructor.
-chapInfo :: ChapInfo
+chapInfo
+    :: ChapInfo
 chapInfo =
     ChapInfo'
     { _ciTargetARN = Nothing
@@ -176,8 +178,16 @@ instance FromJSON ChapInfo where
 -- | Lists iSCSI information about a VTL device.
 --
 -- /See:/ 'deviceiSCSIAttributes' smart constructor.
+data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
+    { _dscsiaTargetARN            :: !(Maybe Text)
+    , _dscsiaChapEnabled          :: !(Maybe Bool)
+    , _dscsiaNetworkInterfaceId   :: !(Maybe Text)
+    , _dscsiaNetworkInterfacePort :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeviceiSCSIAttributes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dscsiaTargetARN'
 --
@@ -186,15 +196,8 @@ instance FromJSON ChapInfo where
 -- * 'dscsiaNetworkInterfaceId'
 --
 -- * 'dscsiaNetworkInterfacePort'
-data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
-    { _dscsiaTargetARN            :: !(Maybe Text)
-    , _dscsiaChapEnabled          :: !(Maybe Bool)
-    , _dscsiaNetworkInterfaceId   :: !(Maybe Text)
-    , _dscsiaNetworkInterfacePort :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeviceiSCSIAttributes' smart constructor.
-deviceiSCSIAttributes :: DeviceiSCSIAttributes
+deviceiSCSIAttributes
+    :: DeviceiSCSIAttributes
 deviceiSCSIAttributes =
     DeviceiSCSIAttributes'
     { _dscsiaTargetARN = Nothing
@@ -230,8 +233,19 @@ instance FromJSON DeviceiSCSIAttributes where
                      <*> (x .:? "NetworkInterfacePort"))
 
 -- | /See:/ 'disk' smart constructor.
+data Disk = Disk'
+    { _dDiskAllocationResource :: !(Maybe Text)
+    , _dDiskAllocationType     :: !(Maybe Text)
+    , _dDiskNode               :: !(Maybe Text)
+    , _dDiskPath               :: !(Maybe Text)
+    , _dDiskSizeInBytes        :: !(Maybe Integer)
+    , _dDiskStatus             :: !(Maybe Text)
+    , _dDiskId                 :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Disk' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dDiskAllocationResource'
 --
@@ -246,18 +260,8 @@ instance FromJSON DeviceiSCSIAttributes where
 -- * 'dDiskStatus'
 --
 -- * 'dDiskId'
-data Disk = Disk'
-    { _dDiskAllocationResource :: !(Maybe Text)
-    , _dDiskAllocationType     :: !(Maybe Text)
-    , _dDiskNode               :: !(Maybe Text)
-    , _dDiskPath               :: !(Maybe Text)
-    , _dDiskSizeInBytes        :: !(Maybe Integer)
-    , _dDiskStatus             :: !(Maybe Text)
-    , _dDiskId                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Disk' smart constructor.
-disk :: Disk
+disk
+    :: Disk
 disk =
     Disk'
     { _dDiskAllocationResource = Nothing
@@ -311,22 +315,23 @@ instance FromJSON Disk where
                      <*> (x .:? "DiskId"))
 
 -- | /See:/ 'gatewayInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'giGatewayARN'
---
--- * 'giGatewayOperationalState'
---
--- * 'giGatewayType'
 data GatewayInfo = GatewayInfo'
     { _giGatewayARN              :: !(Maybe Text)
     , _giGatewayOperationalState :: !(Maybe Text)
     , _giGatewayType             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GatewayInfo' smart constructor.
-gatewayInfo :: GatewayInfo
+-- | Creates a value of 'GatewayInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'giGatewayARN'
+--
+-- * 'giGatewayOperationalState'
+--
+-- * 'giGatewayType'
+gatewayInfo
+    :: GatewayInfo
 gatewayInfo =
     GatewayInfo'
     { _giGatewayARN = Nothing
@@ -358,22 +363,23 @@ instance FromJSON GatewayInfo where
 -- | Describes a gateway\'s network interface.
 --
 -- /See:/ 'networkInterface' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'niIPv6Address'
---
--- * 'niMACAddress'
---
--- * 'niIPv4Address'
 data NetworkInterface = NetworkInterface'
     { _niIPv6Address :: !(Maybe Text)
     , _niMACAddress  :: !(Maybe Text)
     , _niIPv4Address :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'NetworkInterface' smart constructor.
-networkInterface :: NetworkInterface
+-- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'niIPv6Address'
+--
+-- * 'niMACAddress'
+--
+-- * 'niIPv4Address'
+networkInterface
+    :: NetworkInterface
 networkInterface =
     NetworkInterface'
     { _niIPv6Address = Nothing
@@ -405,8 +411,22 @@ instance FromJSON NetworkInterface where
                      (x .:? "Ipv4Address"))
 
 -- | /See:/ 'storediSCSIVolume' smart constructor.
+data StorediSCSIVolume = StorediSCSIVolume'
+    { _sscsivVolumeStatus          :: !(Maybe Text)
+    , _sscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
+    , _sscsivSourceSnapshotId      :: !(Maybe Text)
+    , _sscsivPreservedExistingData :: !(Maybe Bool)
+    , _sscsivVolumeARN             :: !(Maybe Text)
+    , _sscsivVolumeProgress        :: !(Maybe Double)
+    , _sscsivVolumeSizeInBytes     :: !(Maybe Integer)
+    , _sscsivVolumeId              :: !(Maybe Text)
+    , _sscsivVolumeType            :: !(Maybe Text)
+    , _sscsivVolumeDiskId          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StorediSCSIVolume' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sscsivVolumeStatus'
 --
@@ -427,21 +447,8 @@ instance FromJSON NetworkInterface where
 -- * 'sscsivVolumeType'
 --
 -- * 'sscsivVolumeDiskId'
-data StorediSCSIVolume = StorediSCSIVolume'
-    { _sscsivVolumeStatus          :: !(Maybe Text)
-    , _sscsivVolumeiSCSIAttributes :: !(Maybe VolumeiSCSIAttributes)
-    , _sscsivSourceSnapshotId      :: !(Maybe Text)
-    , _sscsivPreservedExistingData :: !(Maybe Bool)
-    , _sscsivVolumeARN             :: !(Maybe Text)
-    , _sscsivVolumeProgress        :: !(Maybe Double)
-    , _sscsivVolumeSizeInBytes     :: !(Maybe Integer)
-    , _sscsivVolumeId              :: !(Maybe Text)
-    , _sscsivVolumeType            :: !(Maybe Text)
-    , _sscsivVolumeDiskId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StorediSCSIVolume' smart constructor.
-storediSCSIVolume :: StorediSCSIVolume
+storediSCSIVolume
+    :: StorediSCSIVolume
 storediSCSIVolume =
     StorediSCSIVolume'
     { _sscsivVolumeStatus = Nothing
@@ -515,8 +522,18 @@ instance FromJSON StorediSCSIVolume where
 -- | Describes a virtual tape object.
 --
 -- /See:/ 'tape' smart constructor.
+data Tape = Tape'
+    { _tTapeBarcode     :: !(Maybe Text)
+    , _tTapeStatus      :: !(Maybe Text)
+    , _tProgress        :: !(Maybe Double)
+    , _tTapeARN         :: !(Maybe Text)
+    , _tTapeSizeInBytes :: !(Maybe Integer)
+    , _tVTLDevice       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tape' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tTapeBarcode'
 --
@@ -529,17 +546,8 @@ instance FromJSON StorediSCSIVolume where
 -- * 'tTapeSizeInBytes'
 --
 -- * 'tVTLDevice'
-data Tape = Tape'
-    { _tTapeBarcode     :: !(Maybe Text)
-    , _tTapeStatus      :: !(Maybe Text)
-    , _tProgress        :: !(Maybe Double)
-    , _tTapeARN         :: !(Maybe Text)
-    , _tTapeSizeInBytes :: !(Maybe Integer)
-    , _tVTLDevice       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Tape' smart constructor.
-tape :: Tape
+tape
+    :: Tape
 tape =
     Tape'
     { _tTapeBarcode = Nothing
@@ -593,8 +601,18 @@ instance FromJSON Tape where
 -- (VTS).
 --
 -- /See:/ 'tapeArchive' smart constructor.
+data TapeArchive = TapeArchive'
+    { _taTapeBarcode     :: !(Maybe Text)
+    , _taTapeStatus      :: !(Maybe Text)
+    , _taTapeARN         :: !(Maybe Text)
+    , _taTapeSizeInBytes :: !(Maybe Integer)
+    , _taCompletionTime  :: !(Maybe POSIX)
+    , _taRetrievedTo     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TapeArchive' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'taTapeBarcode'
 --
@@ -607,17 +625,8 @@ instance FromJSON Tape where
 -- * 'taCompletionTime'
 --
 -- * 'taRetrievedTo'
-data TapeArchive = TapeArchive'
-    { _taTapeBarcode     :: !(Maybe Text)
-    , _taTapeStatus      :: !(Maybe Text)
-    , _taTapeARN         :: !(Maybe Text)
-    , _taTapeSizeInBytes :: !(Maybe Integer)
-    , _taCompletionTime  :: !(Maybe POSIX)
-    , _taRetrievedTo     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TapeArchive' smart constructor.
-tapeArchive :: TapeArchive
+tapeArchive
+    :: TapeArchive
 tapeArchive =
     TapeArchive'
     { _taTapeBarcode = Nothing
@@ -672,8 +681,16 @@ instance FromJSON TapeArchive where
 -- | Describes a recovery point.
 --
 -- /See:/ 'tapeRecoveryPointInfo' smart constructor.
+data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
+    { _trpiTapeStatus            :: !(Maybe Text)
+    , _trpiTapeRecoveryPointTime :: !(Maybe POSIX)
+    , _trpiTapeARN               :: !(Maybe Text)
+    , _trpiTapeSizeInBytes       :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TapeRecoveryPointInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'trpiTapeStatus'
 --
@@ -682,15 +699,8 @@ instance FromJSON TapeArchive where
 -- * 'trpiTapeARN'
 --
 -- * 'trpiTapeSizeInBytes'
-data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
-    { _trpiTapeStatus            :: !(Maybe Text)
-    , _trpiTapeRecoveryPointTime :: !(Maybe POSIX)
-    , _trpiTapeARN               :: !(Maybe Text)
-    , _trpiTapeSizeInBytes       :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TapeRecoveryPointInfo' smart constructor.
-tapeRecoveryPointInfo :: TapeRecoveryPointInfo
+tapeRecoveryPointInfo
+    :: TapeRecoveryPointInfo
 tapeRecoveryPointInfo =
     TapeRecoveryPointInfo'
     { _trpiTapeStatus = Nothing
@@ -732,8 +742,17 @@ instance FromJSON TapeRecoveryPointInfo where
 -- | Represents a device object associated with a gateway-VTL.
 --
 -- /See:/ 'vTLDevice' smart constructor.
+data VTLDevice = VTLDevice'
+    { _vtldDeviceiSCSIAttributes      :: !(Maybe DeviceiSCSIAttributes)
+    , _vtldVTLDeviceVendor            :: !(Maybe Text)
+    , _vtldVTLDeviceARN               :: !(Maybe Text)
+    , _vtldVTLDeviceType              :: !(Maybe Text)
+    , _vtldVTLDeviceProductIdentifier :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VTLDevice' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vtldDeviceiSCSIAttributes'
 --
@@ -744,16 +763,8 @@ instance FromJSON TapeRecoveryPointInfo where
 -- * 'vtldVTLDeviceType'
 --
 -- * 'vtldVTLDeviceProductIdentifier'
-data VTLDevice = VTLDevice'
-    { _vtldDeviceiSCSIAttributes      :: !(Maybe DeviceiSCSIAttributes)
-    , _vtldVTLDeviceVendor            :: !(Maybe Text)
-    , _vtldVTLDeviceARN               :: !(Maybe Text)
-    , _vtldVTLDeviceType              :: !(Maybe Text)
-    , _vtldVTLDeviceProductIdentifier :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VTLDevice' smart constructor.
-vTLDevice :: VTLDevice
+vTLDevice
+    :: VTLDevice
 vTLDevice =
     VTLDevice'
     { _vtldDeviceiSCSIAttributes = Nothing
@@ -796,19 +807,20 @@ instance FromJSON VTLDevice where
                      <*> (x .:? "VTLDeviceProductIdentifier"))
 
 -- | /See:/ 'volumeInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'viVolumeARN'
---
--- * 'viVolumeType'
 data VolumeInfo = VolumeInfo'
     { _viVolumeARN  :: !(Maybe Text)
     , _viVolumeType :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VolumeInfo' smart constructor.
-volumeInfo :: VolumeInfo
+-- | Creates a value of 'VolumeInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'viVolumeARN'
+--
+-- * 'viVolumeType'
+volumeInfo
+    :: VolumeInfo
 volumeInfo =
     VolumeInfo'
     { _viVolumeARN = Nothing
@@ -831,8 +843,16 @@ instance FromJSON VolumeInfo where
                    (x .:? "VolumeARN") <*> (x .:? "VolumeType"))
 
 -- | /See:/ 'volumeRecoveryPointInfo' smart constructor.
+data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
+    { _vrpiVolumeRecoveryPointTime :: !(Maybe Text)
+    , _vrpiVolumeARN               :: !(Maybe Text)
+    , _vrpiVolumeSizeInBytes       :: !(Maybe Integer)
+    , _vrpiVolumeUsageInBytes      :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VolumeRecoveryPointInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vrpiVolumeRecoveryPointTime'
 --
@@ -841,15 +861,8 @@ instance FromJSON VolumeInfo where
 -- * 'vrpiVolumeSizeInBytes'
 --
 -- * 'vrpiVolumeUsageInBytes'
-data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
-    { _vrpiVolumeRecoveryPointTime :: !(Maybe Text)
-    , _vrpiVolumeARN               :: !(Maybe Text)
-    , _vrpiVolumeSizeInBytes       :: !(Maybe Integer)
-    , _vrpiVolumeUsageInBytes      :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VolumeRecoveryPointInfo' smart constructor.
-volumeRecoveryPointInfo :: VolumeRecoveryPointInfo
+volumeRecoveryPointInfo
+    :: VolumeRecoveryPointInfo
 volumeRecoveryPointInfo =
     VolumeRecoveryPointInfo'
     { _vrpiVolumeRecoveryPointTime = Nothing
@@ -887,8 +900,17 @@ instance FromJSON VolumeRecoveryPointInfo where
 -- | Lists iSCSI information about a volume.
 --
 -- /See:/ 'volumeiSCSIAttributes' smart constructor.
+data VolumeiSCSIAttributes = VolumeiSCSIAttributes'
+    { _vscsiaLunNumber            :: !(Maybe Nat)
+    , _vscsiaTargetARN            :: !(Maybe Text)
+    , _vscsiaChapEnabled          :: !(Maybe Bool)
+    , _vscsiaNetworkInterfaceId   :: !(Maybe Text)
+    , _vscsiaNetworkInterfacePort :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VolumeiSCSIAttributes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vscsiaLunNumber'
 --
@@ -899,16 +921,8 @@ instance FromJSON VolumeRecoveryPointInfo where
 -- * 'vscsiaNetworkInterfaceId'
 --
 -- * 'vscsiaNetworkInterfacePort'
-data VolumeiSCSIAttributes = VolumeiSCSIAttributes'
-    { _vscsiaLunNumber            :: !(Maybe Nat)
-    , _vscsiaTargetARN            :: !(Maybe Text)
-    , _vscsiaChapEnabled          :: !(Maybe Bool)
-    , _vscsiaNetworkInterfaceId   :: !(Maybe Text)
-    , _vscsiaNetworkInterfacePort :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VolumeiSCSIAttributes' smart constructor.
-volumeiSCSIAttributes :: VolumeiSCSIAttributes
+volumeiSCSIAttributes
+    :: VolumeiSCSIAttributes
 volumeiSCSIAttributes =
     VolumeiSCSIAttributes'
     { _vscsiaLunNumber = Nothing

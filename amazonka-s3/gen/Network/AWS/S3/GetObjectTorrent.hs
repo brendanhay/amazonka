@@ -24,16 +24,16 @@
 module Network.AWS.S3.GetObjectTorrent
     (
     -- * Creating a Request
-      GetObjectTorrent
-    , getObjectTorrent
+      getObjectTorrent
+    , GetObjectTorrent
     -- * Request Lenses
     , gotRequestPayer
     , gotBucket
     , gotKey
 
     -- * Destructuring the Response
-    , GetObjectTorrentResponse
     , getObjectTorrentResponse
+    , GetObjectTorrentResponse
     -- * Response Lenses
     , gotrsRequestCharged
     , gotrsStatus
@@ -47,22 +47,25 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getObjectTorrent' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gotRequestPayer'
---
--- * 'gotBucket'
---
--- * 'gotKey'
 data GetObjectTorrent = GetObjectTorrent'
     { _gotRequestPayer :: !(Maybe RequestPayer)
     , _gotBucket       :: !BucketName
     , _gotKey          :: !ObjectKey
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetObjectTorrent' smart constructor.
-getObjectTorrent :: BucketName -> ObjectKey -> GetObjectTorrent
+-- | Creates a value of 'GetObjectTorrent' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gotRequestPayer'
+--
+-- * 'gotBucket'
+--
+-- * 'gotKey'
+getObjectTorrent
+    :: BucketName -- ^ 'gotBucket'
+    -> ObjectKey -- ^ 'gotKey'
+    -> GetObjectTorrent
 getObjectTorrent pBucket_ pKey_ =
     GetObjectTorrent'
     { _gotRequestPayer = Nothing
@@ -106,22 +109,25 @@ instance ToQuery GetObjectTorrent where
         toQuery = const (mconcat ["torrent"])
 
 -- | /See:/ 'getObjectTorrentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gotrsRequestCharged'
---
--- * 'gotrsStatus'
---
--- * 'gotrsBody'
 data GetObjectTorrentResponse = GetObjectTorrentResponse'
     { _gotrsRequestCharged :: !(Maybe RequestCharged)
     , _gotrsStatus         :: !Int
     , _gotrsBody           :: !RsBody
     } deriving (Show,Generic)
 
--- | 'GetObjectTorrentResponse' smart constructor.
-getObjectTorrentResponse :: Int -> RsBody -> GetObjectTorrentResponse
+-- | Creates a value of 'GetObjectTorrentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gotrsRequestCharged'
+--
+-- * 'gotrsStatus'
+--
+-- * 'gotrsBody'
+getObjectTorrentResponse
+    :: Int -- ^ 'gotrsStatus'
+    -> RsBody -- ^ 'gotrsBody'
+    -> GetObjectTorrentResponse
 getObjectTorrentResponse pStatus_ pBody_ =
     GetObjectTorrentResponse'
     { _gotrsRequestCharged = Nothing
@@ -133,7 +139,7 @@ getObjectTorrentResponse pStatus_ pBody_ =
 gotrsRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
 gotrsRequestCharged = lens _gotrsRequestCharged (\ s a -> s{_gotrsRequestCharged = a});
 
--- | Undocumented member.
+-- | The response status code.
 gotrsStatus :: Lens' GetObjectTorrentResponse Int
 gotrsStatus = lens _gotrsStatus (\ s a -> s{_gotrsStatus = a});
 

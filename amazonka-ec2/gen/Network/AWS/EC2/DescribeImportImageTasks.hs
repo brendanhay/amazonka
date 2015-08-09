@@ -25,8 +25,8 @@
 module Network.AWS.EC2.DescribeImportImageTasks
     (
     -- * Creating a Request
-      DescribeImportImageTasks
-    , describeImportImageTasks
+      describeImportImageTasks
+    , DescribeImportImageTasks
     -- * Request Lenses
     , diitFilters
     , diitImportTaskIds
@@ -35,8 +35,8 @@ module Network.AWS.EC2.DescribeImportImageTasks
     , diitMaxResults
 
     -- * Destructuring the Response
-    , DescribeImportImageTasksResponse
     , describeImportImageTasksResponse
+    , DescribeImportImageTasksResponse
     -- * Response Lenses
     , diitrsImportImageTasks
     , diitrsNextToken
@@ -50,8 +50,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeImportImageTasks' smart constructor.
+data DescribeImportImageTasks = DescribeImportImageTasks'
+    { _diitFilters       :: !(Maybe [Filter])
+    , _diitImportTaskIds :: !(Maybe [Text])
+    , _diitNextToken     :: !(Maybe Text)
+    , _diitDryRun        :: !(Maybe Bool)
+    , _diitMaxResults    :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeImportImageTasks' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'diitFilters'
 --
@@ -62,16 +71,8 @@ import           Network.AWS.Response
 -- * 'diitDryRun'
 --
 -- * 'diitMaxResults'
-data DescribeImportImageTasks = DescribeImportImageTasks'
-    { _diitFilters       :: !(Maybe [Filter])
-    , _diitImportTaskIds :: !(Maybe [Text])
-    , _diitNextToken     :: !(Maybe Text)
-    , _diitDryRun        :: !(Maybe Bool)
-    , _diitMaxResults    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeImportImageTasks' smart constructor.
-describeImportImageTasks :: DescribeImportImageTasks
+describeImportImageTasks
+    :: DescribeImportImageTasks
 describeImportImageTasks =
     DescribeImportImageTasks'
     { _diitFilters = Nothing
@@ -95,8 +96,8 @@ diitNextToken = lens _diitNextToken (\ s a -> s{_diitNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 diitDryRun :: Lens' DescribeImportImageTasks (Maybe Bool)
 diitDryRun = lens _diitDryRun (\ s a -> s{_diitDryRun = a});
 
@@ -138,22 +139,24 @@ instance ToQuery DescribeImportImageTasks where
                "MaxResults" =: _diitMaxResults]
 
 -- | /See:/ 'describeImportImageTasksResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diitrsImportImageTasks'
---
--- * 'diitrsNextToken'
---
--- * 'diitrsStatus'
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
     { _diitrsImportImageTasks :: !(Maybe [ImportImageTask])
     , _diitrsNextToken        :: !(Maybe Text)
     , _diitrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeImportImageTasksResponse' smart constructor.
-describeImportImageTasksResponse :: Int -> DescribeImportImageTasksResponse
+-- | Creates a value of 'DescribeImportImageTasksResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diitrsImportImageTasks'
+--
+-- * 'diitrsNextToken'
+--
+-- * 'diitrsStatus'
+describeImportImageTasksResponse
+    :: Int -- ^ 'diitrsStatus'
+    -> DescribeImportImageTasksResponse
 describeImportImageTasksResponse pStatus_ =
     DescribeImportImageTasksResponse'
     { _diitrsImportImageTasks = Nothing
@@ -166,11 +169,11 @@ describeImportImageTasksResponse pStatus_ =
 diitrsImportImageTasks :: Lens' DescribeImportImageTasksResponse [ImportImageTask]
 diitrsImportImageTasks = lens _diitrsImportImageTasks (\ s a -> s{_diitrsImportImageTasks = a}) . _Default . _Coerce;
 
--- | The token to use to get the next page of results. This value is @null@
+-- | The token to use to get the next page of results. This value is 'null'
 -- when there are no more results to return.
 diitrsNextToken :: Lens' DescribeImportImageTasksResponse (Maybe Text)
 diitrsNextToken = lens _diitrsNextToken (\ s a -> s{_diitrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 diitrsStatus :: Lens' DescribeImportImageTasksResponse Int
 diitrsStatus = lens _diitrsStatus (\ s a -> s{_diitrsStatus = a});

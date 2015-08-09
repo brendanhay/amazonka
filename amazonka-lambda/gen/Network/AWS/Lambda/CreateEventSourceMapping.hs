@@ -37,14 +37,14 @@
 -- can be associated with multiple AWS event sources.
 --
 -- This operation requires permission for the
--- @lambda:CreateEventSourceMapping@ action.
+-- 'lambda:CreateEventSourceMapping' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html AWS API Reference> for CreateEventSourceMapping.
 module Network.AWS.Lambda.CreateEventSourceMapping
     (
     -- * Creating a Request
-      CreateEventSourceMapping
-    , createEventSourceMapping
+      createEventSourceMapping
+    , CreateEventSourceMapping
     -- * Request Lenses
     , cesmEnabled
     , cesmBatchSize
@@ -53,8 +53,8 @@ module Network.AWS.Lambda.CreateEventSourceMapping
     , cesmStartingPosition
 
     -- * Destructuring the Response
-    , EventSourceMappingConfiguration
     , eventSourceMappingConfiguration
+    , EventSourceMappingConfiguration
     -- * Response Lenses
     , esmcEventSourceARN
     , esmcFunctionARN
@@ -73,8 +73,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createEventSourceMapping' smart constructor.
+data CreateEventSourceMapping = CreateEventSourceMapping'
+    { _cesmEnabled          :: !(Maybe Bool)
+    , _cesmBatchSize        :: !(Maybe Nat)
+    , _cesmEventSourceARN   :: !Text
+    , _cesmFunctionName     :: !Text
+    , _cesmStartingPosition :: !EventSourcePosition
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateEventSourceMapping' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cesmEnabled'
 --
@@ -85,16 +94,11 @@ import           Network.AWS.Response
 -- * 'cesmFunctionName'
 --
 -- * 'cesmStartingPosition'
-data CreateEventSourceMapping = CreateEventSourceMapping'
-    { _cesmEnabled          :: !(Maybe Bool)
-    , _cesmBatchSize        :: !(Maybe Nat)
-    , _cesmEventSourceARN   :: !Text
-    , _cesmFunctionName     :: !Text
-    , _cesmStartingPosition :: !EventSourcePosition
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateEventSourceMapping' smart constructor.
-createEventSourceMapping :: Text -> Text -> EventSourcePosition -> CreateEventSourceMapping
+createEventSourceMapping
+    :: Text -- ^ 'cesmEventSourceARN'
+    -> Text -- ^ 'cesmFunctionName'
+    -> EventSourcePosition -- ^ 'cesmStartingPosition'
+    -> CreateEventSourceMapping
 createEventSourceMapping pEventSourceARN_ pFunctionName_ pStartingPosition_ =
     CreateEventSourceMapping'
     { _cesmEnabled = Nothing
@@ -119,7 +123,7 @@ cesmBatchSize = lens _cesmBatchSize (\ s a -> s{_cesmBatchSize = a}) . mapping _
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon
 -- DynamoDB stream that is the event source. Any record added to this
 -- stream could cause AWS Lambda to invoke your Lambda function, it depends
--- on the @BatchSize@. AWS Lambda POSTs the Amazon Kinesis event,
+-- on the 'BatchSize'. AWS Lambda POSTs the Amazon Kinesis event,
 -- containing records, to your Lambda function as JSON.
 cesmEventSourceARN :: Lens' CreateEventSourceMapping Text
 cesmEventSourceARN = lens _cesmEventSourceARN (\ s a -> s{_cesmEventSourceARN = a});

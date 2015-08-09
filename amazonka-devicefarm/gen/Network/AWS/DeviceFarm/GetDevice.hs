@@ -24,14 +24,14 @@
 module Network.AWS.DeviceFarm.GetDevice
     (
     -- * Creating a Request
-      GetDevice
-    , getDevice
+      getDevice
+    , GetDevice
     -- * Request Lenses
     , gdArn
 
     -- * Destructuring the Response
-    , GetDeviceResponse
     , getDeviceResponse
+    , GetDeviceResponse
     -- * Response Lenses
     , gdrsDevice
     , gdrsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents a request to the get device request.
 --
 -- /See:/ 'getDevice' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdArn'
 newtype GetDevice = GetDevice'
     { _gdArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDevice' smart constructor.
-getDevice :: Text -> GetDevice
+-- | Creates a value of 'GetDevice' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdArn'
+getDevice
+    :: Text -- ^ 'gdArn'
+    -> GetDevice
 getDevice pArn_ =
     GetDevice'
     { _gdArn = pArn_
@@ -96,19 +98,21 @@ instance ToQuery GetDevice where
 -- | Represents the result of a get device request.
 --
 -- /See:/ 'getDeviceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdrsDevice'
---
--- * 'gdrsStatus'
 data GetDeviceResponse = GetDeviceResponse'
     { _gdrsDevice :: !(Maybe Device)
     , _gdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDeviceResponse' smart constructor.
-getDeviceResponse :: Int -> GetDeviceResponse
+-- | Creates a value of 'GetDeviceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdrsDevice'
+--
+-- * 'gdrsStatus'
+getDeviceResponse
+    :: Int -- ^ 'gdrsStatus'
+    -> GetDeviceResponse
 getDeviceResponse pStatus_ =
     GetDeviceResponse'
     { _gdrsDevice = Nothing
@@ -119,6 +123,6 @@ getDeviceResponse pStatus_ =
 gdrsDevice :: Lens' GetDeviceResponse (Maybe Device)
 gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a});
 
--- | Undocumented member.
+-- | The response status code.
 gdrsStatus :: Lens' GetDeviceResponse Int
 gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

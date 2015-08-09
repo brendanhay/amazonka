@@ -33,8 +33,8 @@
 module Network.AWS.DynamoDB.UpdateItem
     (
     -- * Creating a Request
-      UpdateItem
-    , updateItem
+      updateItem
+    , UpdateItem
     -- * Request Lenses
     , uiReturnValues
     , uiExpressionAttributeNames
@@ -50,8 +50,8 @@ module Network.AWS.DynamoDB.UpdateItem
     , uiKey
 
     -- * Destructuring the Response
-    , UpdateItemResponse
     , updateItemResponse
+    , UpdateItemResponse
     -- * Response Lenses
     , uirsConsumedCapacity
     , uirsItemCollectionMetrics
@@ -68,8 +68,24 @@ import           Network.AWS.Response
 -- | Represents the input of an /UpdateItem/ operation.
 --
 -- /See:/ 'updateItem' smart constructor.
+data UpdateItem = UpdateItem'
+    { _uiReturnValues                :: !(Maybe ReturnValue)
+    , _uiExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _uiUpdateExpression            :: !(Maybe Text)
+    , _uiAttributeUpdates            :: !(Maybe (Map Text AttributeValueUpdate))
+    , _uiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _uiExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+    , _uiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+    , _uiConditionExpression         :: !(Maybe Text)
+    , _uiConditionalOperator         :: !(Maybe ConditionalOperator)
+    , _uiExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+    , _uiTableName                   :: !Text
+    , _uiKey                         :: !(Map Text AttributeValue)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateItem' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uiReturnValues'
 --
@@ -94,23 +110,9 @@ import           Network.AWS.Response
 -- * 'uiTableName'
 --
 -- * 'uiKey'
-data UpdateItem = UpdateItem'
-    { _uiReturnValues                :: !(Maybe ReturnValue)
-    , _uiExpressionAttributeNames    :: !(Maybe (Map Text Text))
-    , _uiUpdateExpression            :: !(Maybe Text)
-    , _uiAttributeUpdates            :: !(Maybe (Map Text AttributeValueUpdate))
-    , _uiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _uiExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
-    , _uiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _uiConditionExpression         :: !(Maybe Text)
-    , _uiConditionalOperator         :: !(Maybe ConditionalOperator)
-    , _uiExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
-    , _uiTableName                   :: !Text
-    , _uiKey                         :: !(Map Text AttributeValue)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateItem' smart constructor.
-updateItem :: Text -> UpdateItem
+updateItem
+    :: Text -- ^ 'uiTableName'
+    -> UpdateItem
 updateItem pTableName_ =
     UpdateItem'
     { _uiReturnValues = Nothing
@@ -131,20 +133,20 @@ updateItem pTableName_ =
 -- appeared either before or after they were updated. For /UpdateItem/, the
 -- valid values are:
 --
--- -   @NONE@ - If /ReturnValues/ is not specified, or if its value is
---     @NONE@, then nothing is returned. (This setting is the default for
+-- -   'NONE' - If /ReturnValues/ is not specified, or if its value is
+--     'NONE', then nothing is returned. (This setting is the default for
 --     /ReturnValues/.)
 --
--- -   @ALL_OLD@ - If /UpdateItem/ overwrote an attribute name-value pair,
+-- -   'ALL_OLD' - If /UpdateItem/ overwrote an attribute name-value pair,
 --     then the content of the old item is returned.
 --
--- -   @UPDATED_OLD@ - The old versions of only the updated attributes are
+-- -   'UPDATED_OLD' - The old versions of only the updated attributes are
 --     returned.
 --
--- -   @ALL_NEW@ - All of the attributes of the new version of the item are
+-- -   'ALL_NEW' - All of the attributes of the new version of the item are
 --     returned.
 --
--- -   @UPDATED_NEW@ - The new versions of only the updated attributes are
+-- -   'UPDATED_NEW' - The new versions of only the updated attributes are
 --     returned.
 --
 uiReturnValues :: Lens' UpdateItem (Maybe ReturnValue)
@@ -165,7 +167,7 @@ uiReturnValues = lens _uiReturnValues (\ s a -> s{_uiReturnValues = a});
 -- Use the __#__ character in an expression to dereference an attribute
 -- name. For example, consider the following attribute name:
 --
--- -   @Percentile@
+-- -   'Percentile'
 --
 -- The name of this attribute conflicts with a reserved word, so it cannot
 -- be used directly in an expression. (For the complete list of reserved
@@ -174,12 +176,12 @@ uiReturnValues = lens _uiReturnValues (\ s a -> s{_uiReturnValues = a});
 -- in the /Amazon DynamoDB Developer Guide/). To work around this, you
 -- could specify the following for /ExpressionAttributeNames/:
 --
--- -   @{\"#P\":\"Percentile\"}@
+-- -   '{\"#P\":\"Percentile\"}'
 --
 -- You could then use this substitution in an expression, as in this
 -- example:
 --
--- -   @#P = :val@
+-- -   '#P = :val'
 --
 -- Tokens that begin with the __:__ character are /expression attribute
 -- values/, which are placeholders for the actual value at runtime.
@@ -195,56 +197,56 @@ uiExpressionAttributeNames = lens _uiExpressionAttributeNames (\ s a -> s{_uiExp
 --
 -- The following action values are available for /UpdateExpression/.
 --
--- -   @SET@ - Adds one or more attributes and values to an item. If any of
+-- -   'SET' - Adds one or more attributes and values to an item. If any of
 --     these attribute already exist, they are replaced by the new values.
---     You can also use @SET@ to add or subtract from an attribute that is
---     of type Number. For example: @SET myNum = myNum + :val@
+--     You can also use 'SET' to add or subtract from an attribute that is
+--     of type Number. For example: 'SET myNum = myNum + :val'
 --
---     @SET@ supports the following functions:
+--     'SET' supports the following functions:
 --
---     -   @if_not_exists (path, operand)@ - if the item does not contain
---         an attribute at the specified path, then @if_not_exists@
+--     -   'if_not_exists (path, operand)' - if the item does not contain
+--         an attribute at the specified path, then 'if_not_exists'
 --         evaluates to operand; otherwise, it evaluates to path. You can
 --         use this function to avoid overwriting an attribute that may
 --         already be present in the item.
 --
---     -   @list_append (operand, operand)@ - evaluates to a list with a
+--     -   'list_append (operand, operand)' - evaluates to a list with a
 --         new element added to it. You can append the new element to the
 --         start or the end of the list by reversing the order of the
 --         operands.
 --
 --     These function names are case-sensitive.
 --
--- -   @REMOVE@ - Removes one or more attributes from an item.
+-- -   'REMOVE' - Removes one or more attributes from an item.
 --
--- -   @ADD@ - Adds the specified value to the item, if the attribute does
+-- -   'ADD' - Adds the specified value to the item, if the attribute does
 --     not already exist. If the attribute does exist, then the behavior of
---     @ADD@ depends on the data type of the attribute:
+--     'ADD' depends on the data type of the attribute:
 --
 --     -   If the existing attribute is a number, and if /Value/ is also a
 --         number, then /Value/ is mathematically added to the existing
 --         attribute. If /Value/ is a negative number, then it is
 --         subtracted from the existing attribute.
 --
---         If you use @ADD@ to increment or decrement a number value for an
---         item that doesn\'t exist before the update, DynamoDB uses @0@ as
+--         If you use 'ADD' to increment or decrement a number value for an
+--         item that doesn\'t exist before the update, DynamoDB uses '0' as
 --         the initial value.
 --
---         Similarly, if you use @ADD@ for an existing item to increment or
+--         Similarly, if you use 'ADD' for an existing item to increment or
 --         decrement an attribute value that doesn\'t exist before the
---         update, DynamoDB uses @0@ as the initial value. For example,
+--         update, DynamoDB uses '0' as the initial value. For example,
 --         suppose that the item you want to update doesn\'t have an
---         attribute named /itemcount/, but you decide to @ADD@ the number
---         @3@ to this attribute anyway. DynamoDB will create the
---         /itemcount/ attribute, set its initial value to @0@, and finally
---         add @3@ to it. The result will be a new /itemcount/ attribute in
---         the item, with a value of @3@.
+--         attribute named /itemcount/, but you decide to 'ADD' the number
+--         '3' to this attribute anyway. DynamoDB will create the
+--         /itemcount/ attribute, set its initial value to '0', and finally
+--         add '3' to it. The result will be a new /itemcount/ attribute in
+--         the item, with a value of '3'.
 --
 --     -   If the existing data type is a set and if /Value/ is also a set,
 --         then /Value/ is added to the existing set. For example, if the
---         attribute value is the set @[1,2]@, and the @ADD@ action
---         specified @[3]@, then the final attribute value is @[1,2,3]@. An
---         error occurs if an @ADD@ action is specified for a set attribute
+--         attribute value is the set '[1,2]', and the 'ADD' action
+--         specified '[3]', then the final attribute value is '[1,2,3]'. An
+--         error occurs if an 'ADD' action is specified for a set attribute
 --         and the attribute type specified does not match the existing set
 --         type.
 --
@@ -252,23 +254,23 @@ uiExpressionAttributeNames = lens _uiExpressionAttributeNames (\ s a -> s{_uiExp
 --         if the existing data type is a set of strings, the /Value/ must
 --         also be a set of strings.
 --
---     The @ADD@ action only supports Number and set data types. In
---     addition, @ADD@ can only be used on top-level attributes, not nested
+--     The 'ADD' action only supports Number and set data types. In
+--     addition, 'ADD' can only be used on top-level attributes, not nested
 --     attributes.
 --
--- -   @DELETE@ - Deletes an element from a set.
+-- -   'DELETE' - Deletes an element from a set.
 --
 --     If a set of values is specified, then those values are subtracted
 --     from the old set. For example, if the attribute value was the set
---     @[a,b,c]@ and the @DELETE@ action specifies @[a,c]@, then the final
---     attribute value is @[b]@. Specifying an empty set is an error.
+--     '[a,b,c]' and the 'DELETE' action specifies '[a,c]', then the final
+--     attribute value is '[b]'. Specifying an empty set is an error.
 --
---     The @DELETE@ action only supports set data types. In addition,
---     @DELETE@ can only be used on top-level attributes, not nested
+--     The 'DELETE' action only supports set data types. In addition,
+--     'DELETE' can only be used on top-level attributes, not nested
 --     attributes.
 --
 -- You can have many actions in a single expression, such as the following:
--- @SET a=:value1, b=:value2 DELETE :value3, :value4, :value5@
+-- 'SET a=:value1, b=:value2 DELETE :value3, :value4, :value5'
 --
 -- For more information on update expressions, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html Modifying Items and Attributes>
@@ -305,52 +307,52 @@ uiUpdateExpression = lens _uiUpdateExpression (\ s a -> s{_uiUpdateExpression = 
 --
 -- -   /Action/ - A value that specifies how to perform the update. This
 --     action is only valid for an existing attribute whose data type is
---     Number or is a set; do not use @ADD@ for other data types.
+--     Number or is a set; do not use 'ADD' for other data types.
 --
 --     If an item with the specified primary key is found in the table, the
 --     following values perform the following actions:
 --
---     -   @PUT@ - Adds the specified attribute to the item. If the
+--     -   'PUT' - Adds the specified attribute to the item. If the
 --         attribute already exists, it is replaced by the new value.
 --
---     -   @DELETE@ - Removes the attribute and its value, if no value is
---         specified for @DELETE@. The data type of the specified value
+--     -   'DELETE' - Removes the attribute and its value, if no value is
+--         specified for 'DELETE'. The data type of the specified value
 --         must match the existing value\'s data type.
 --
 --         If a set of values is specified, then those values are
 --         subtracted from the old set. For example, if the attribute value
---         was the set @[a,b,c]@ and the @DELETE@ action specifies @[a,c]@,
---         then the final attribute value is @[b]@. Specifying an empty set
+--         was the set '[a,b,c]' and the 'DELETE' action specifies '[a,c]',
+--         then the final attribute value is '[b]'. Specifying an empty set
 --         is an error.
 --
---     -   @ADD@ - Adds the specified value to the item, if the attribute
+--     -   'ADD' - Adds the specified value to the item, if the attribute
 --         does not already exist. If the attribute does exist, then the
---         behavior of @ADD@ depends on the data type of the attribute:
+--         behavior of 'ADD' depends on the data type of the attribute:
 --
 --         -   If the existing attribute is a number, and if /Value/ is
 --             also a number, then /Value/ is mathematically added to the
 --             existing attribute. If /Value/ is a negative number, then it
 --             is subtracted from the existing attribute.
 --
---             If you use @ADD@ to increment or decrement a number value
+--             If you use 'ADD' to increment or decrement a number value
 --             for an item that doesn\'t exist before the update, DynamoDB
 --             uses 0 as the initial value.
 --
---             Similarly, if you use @ADD@ for an existing item to
+--             Similarly, if you use 'ADD' for an existing item to
 --             increment or decrement an attribute value that doesn\'t
---             exist before the update, DynamoDB uses @0@ as the initial
+--             exist before the update, DynamoDB uses '0' as the initial
 --             value. For example, suppose that the item you want to update
 --             doesn\'t have an attribute named /itemcount/, but you decide
---             to @ADD@ the number @3@ to this attribute anyway. DynamoDB
+--             to 'ADD' the number '3' to this attribute anyway. DynamoDB
 --             will create the /itemcount/ attribute, set its initial value
---             to @0@, and finally add @3@ to it. The result will be a new
---             /itemcount/ attribute, with a value of @3@.
+--             to '0', and finally add '3' to it. The result will be a new
+--             /itemcount/ attribute, with a value of '3'.
 --
 --         -   If the existing data type is a set, and if /Value/ is also a
 --             set, then /Value/ is appended to the existing set. For
---             example, if the attribute value is the set @[1,2]@, and the
---             @ADD@ action specified @[3]@, then the final attribute value
---             is @[1,2,3]@. An error occurs if an @ADD@ action is
+--             example, if the attribute value is the set '[1,2]', and the
+--             'ADD' action specified '[3]', then the final attribute value
+--             is '[1,2,3]'. An error occurs if an 'ADD' action is
 --             specified for a set attribute and the attribute type
 --             specified does not match the existing set type.
 --
@@ -361,14 +363,14 @@ uiUpdateExpression = lens _uiUpdateExpression (\ s a -> s{_uiUpdateExpression = 
 --     If no item with the specified key is found in the table, the
 --     following values perform the following actions:
 --
---     -   @PUT@ - Causes DynamoDB to create a new item with the specified
+--     -   'PUT' - Causes DynamoDB to create a new item with the specified
 --         primary key, and then adds the attribute.
 --
---     -   @DELETE@ - Nothing happens, because attributes cannot be deleted
+--     -   'DELETE' - Nothing happens, because attributes cannot be deleted
 --         from a nonexistent item. The operation succeeds, but DynamoDB
 --         does not create a new item.
 --
---     -   @ADD@ - Causes DynamoDB to create an item with the supplied
+--     -   'ADD' - Causes DynamoDB to create an item with the supplied
 --         primary key and number (or set of numbers) for the attribute
 --         value. The only data types allowed are Number and Number Set.
 --
@@ -388,15 +390,15 @@ uiReturnConsumedCapacity = lens _uiReturnConsumedCapacity (\ s a -> s{_uiReturnC
 -- attribute value. For example, suppose that you wanted to check whether
 -- the value of the /ProductStatus/ attribute was one of the following:
 --
--- @Available | Backordered | Discontinued@
+-- 'Available | Backordered | Discontinued'
 --
 -- You would first need to specify /ExpressionAttributeValues/ as follows:
 --
--- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
+-- '{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }'
 --
 -- You could then use these values in an expression, such as this:
 --
--- @ProductStatus IN (:avail, :back, :disc)@
+-- 'ProductStatus IN (:avail, :back, :disc)'
 --
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
@@ -405,9 +407,9 @@ uiExpressionAttributeValues :: Lens' UpdateItem (HashMap Text AttributeValue)
 uiExpressionAttributeValues = lens _uiExpressionAttributeValues (\ s a -> s{_uiExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | Determines whether item collection metrics are returned. If set to
--- @SIZE@, the response includes statistics about item collections, if any,
+-- 'SIZE', the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
--- set to @NONE@ (the default), no statistics are returned.
+-- set to 'NONE' (the default), no statistics are returned.
 uiReturnItemCollectionMetrics :: Lens' UpdateItem (Maybe ReturnItemCollectionMetrics)
 uiReturnItemCollectionMetrics = lens _uiReturnItemCollectionMetrics (\ s a -> s{_uiReturnItemCollectionMetrics = a});
 
@@ -417,13 +419,13 @@ uiReturnItemCollectionMetrics = lens _uiReturnItemCollectionMetrics (\ s a -> s{
 -- An expression can contain any of the following:
 --
 -- -   Functions:
---     @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
+--     'attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size'
 --
 --     These function names are case-sensitive.
 --
--- -   Comparison operators: @ = | \<> | \< | > | \<= | >= | BETWEEN | IN@
+-- -   Comparison operators: ' = | \<> | \< | > | \<= | >= | BETWEEN | IN'
 --
--- -   Logical operators: @AND | OR | NOT@
+-- -   Logical operators: 'AND | OR | NOT'
 --
 -- For more information on condition expressions, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
@@ -441,13 +443,13 @@ uiConditionExpression = lens _uiConditionExpression (\ s a -> s{_uiConditionExpr
 --
 -- A logical operator to apply to the conditions in the /Expected/ map:
 --
--- -   @AND@ - If all of the conditions evaluate to true, then the entire
+-- -   'AND' - If all of the conditions evaluate to true, then the entire
 --     map evaluates to true.
 --
--- -   @OR@ - If at least one of the conditions evaluate to true, then the
+-- -   'OR' - If at least one of the conditions evaluate to true, then the
 --     entire map evaluates to true.
 --
--- If you omit /ConditionalOperator/, then @AND@ is the default.
+-- If you omit /ConditionalOperator/, then 'AND' is the default.
 --
 -- The operation will succeed only if the entire map evaluates to true.
 --
@@ -487,8 +489,8 @@ uiConditionalOperator = lens _uiConditionalOperator (\ s a -> s{_uiConditionalOp
 --     For type Number, value comparisons are numeric.
 --
 --     String value comparisons for greater than, equals, or less than are
---     based on ASCII character code values. For example, @a@ is greater
---     than @A@, and @a@ is greater than @B@. For a list of code values,
+--     based on ASCII character code values. For example, 'a' is greater
+--     than 'A', and 'a' is greater than 'B'. For a list of code values,
 --     see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 --     For type Binary, DynamoDB treats each byte of the binary data as
@@ -500,91 +502,91 @@ uiConditionalOperator = lens _uiConditionalOperator (\ s a -> s{_uiConditionalOp
 --
 --     The following comparison operators are available:
 --
---     @EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN@
+--     'EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN'
 --
 --     The following are descriptions of each comparison operator.
 --
---     -   @EQ@ : Equal. @EQ@ is supported for all datatypes, including
+--     -   'EQ' : Equal. 'EQ' is supported for all datatypes, including
 --         lists and maps.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/
 --         element of type String, Number, Binary, String Set, Number Set,
 --         or Binary Set. If an item contains an /AttributeValue/ element
 --         of a different type than the one provided in the request, the
---         value does not match. For example, @{\"S\":\"6\"}@ does not
---         equal @{\"N\":\"6\"}@. Also, @{\"N\":\"6\"}@ does not equal
---         @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--         value does not match. For example, '{\"S\":\"6\"}' does not
+--         equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not equal
+--         '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
---     -   @NE@ : Not equal. @NE@ is supported for all datatypes, including
+--     -   'NE' : Not equal. 'NE' is supported for all datatypes, including
 --         lists and maps.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/ of
 --         type String, Number, Binary, String Set, Number Set, or Binary
 --         Set. If an item contains an /AttributeValue/ of a different type
 --         than the one provided in the request, the value does not match.
---         For example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@.
---         Also, @{\"N\":\"6\"}@ does not equal
---         @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--         For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'.
+--         Also, '{\"N\":\"6\"}' does not equal
+--         '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
---     -   @LE@ : Less than or equal.
+--     -   'LE' : Less than or equal.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/
 --         element of type String, Number, or Binary (not a set type). If
 --         an item contains an /AttributeValue/ element of a different type
 --         than the one provided in the request, the value does not match.
---         For example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@.
---         Also, @{\"N\":\"6\"}@ does not compare to
---         @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--         For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'.
+--         Also, '{\"N\":\"6\"}' does not compare to
+--         '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
---     -   @LT@ : Less than.
+--     -   'LT' : Less than.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/ of
 --         type String, Number, or Binary (not a set type). If an item
 --         contains an /AttributeValue/ element of a different type than
 --         the one provided in the request, the value does not match. For
---         example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---         @{\"N\":\"6\"}@ does not compare to
---         @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--         example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--         '{\"N\":\"6\"}' does not compare to
+--         '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
---     -   @GE@ : Greater than or equal.
---
---         /AttributeValueList/ can contain only one /AttributeValue/
---         element of type String, Number, or Binary (not a set type). If
---         an item contains an /AttributeValue/ element of a different type
---         than the one provided in the request, the value does not match.
---         For example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@.
---         Also, @{\"N\":\"6\"}@ does not compare to
---         @{\"NS\":[\"6\", \"2\", \"1\"]}@.
---
---     -   @GT@ : Greater than.
+--     -   'GE' : Greater than or equal.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/
 --         element of type String, Number, or Binary (not a set type). If
 --         an item contains an /AttributeValue/ element of a different type
 --         than the one provided in the request, the value does not match.
---         For example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@.
---         Also, @{\"N\":\"6\"}@ does not compare to
---         @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--         For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'.
+--         Also, '{\"N\":\"6\"}' does not compare to
+--         '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
---     -   @NOT_NULL@ : The attribute exists. @NOT_NULL@ is supported for
+--     -   'GT' : Greater than.
+--
+--         /AttributeValueList/ can contain only one /AttributeValue/
+--         element of type String, Number, or Binary (not a set type). If
+--         an item contains an /AttributeValue/ element of a different type
+--         than the one provided in the request, the value does not match.
+--         For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'.
+--         Also, '{\"N\":\"6\"}' does not compare to
+--         '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--
+--     -   'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for
 --         all datatypes, including lists and maps.
 --
 --         This operator tests for the existence of an attribute, not its
---         data type. If the data type of attribute \"@a@\" is null, and
---         you evaluate it using @NOT_NULL@, the result is a Boolean
---         /true/. This result is because the attribute \"@a@\" exists; its
---         data type is not relevant to the @NOT_NULL@ comparison operator.
+--         data type. If the data type of attribute \"'a'\" is null, and
+--         you evaluate it using 'NOT_NULL', the result is a Boolean
+--         /true/. This result is because the attribute \"'a'\" exists; its
+--         data type is not relevant to the 'NOT_NULL' comparison operator.
 --
---     -   @NULL@ : The attribute does not exist. @NULL@ is supported for
+--     -   'NULL' : The attribute does not exist. 'NULL' is supported for
 --         all datatypes, including lists and maps.
 --
 --         This operator tests for the nonexistence of an attribute, not
---         its data type. If the data type of attribute \"@a@\" is null,
---         and you evaluate it using @NULL@, the result is a Boolean
---         /false/. This is because the attribute \"@a@\" exists; its data
---         type is not relevant to the @NULL@ comparison operator.
+--         its data type. If the data type of attribute \"'a'\" is null,
+--         and you evaluate it using 'NULL', the result is a Boolean
+--         /false/. This is because the attribute \"'a'\" exists; its data
+--         type is not relevant to the 'NULL' comparison operator.
 --
---     -   @CONTAINS@ : Checks for a subsequence, or value in a set.
+--     -   'CONTAINS' : Checks for a subsequence, or value in a set.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/
 --         element of type String, Number, or Binary (not a set type). If
@@ -592,15 +594,15 @@ uiConditionalOperator = lens _uiConditionalOperator (\ s a -> s{_uiConditionalOp
 --         the operator checks for a substring match. If the target
 --         attribute of the comparison is of type Binary, then the operator
 --         looks for a subsequence of the target that matches the input. If
---         the target attribute of the comparison is a set (\"@SS@\",
---         \"@NS@\", or \"@BS@\"), then the operator evaluates to true if
+--         the target attribute of the comparison is a set (\"'SS'\",
+--         \"'NS'\", or \"'BS'\"), then the operator evaluates to true if
 --         it finds an exact match with any member of the set.
 --
 --         CONTAINS is supported for lists: When evaluating
---         \"@a CONTAINS b@\", \"@a@\" can be a list; however, \"@b@\"
+--         \"'a CONTAINS b'\", \"'a'\" can be a list; however, \"'b'\"
 --         cannot be a set, a map, or a list.
 --
---     -   @NOT_CONTAINS@ : Checks for absence of a subsequence, or absence
+--     -   'NOT_CONTAINS' : Checks for absence of a subsequence, or absence
 --         of a value in a set.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/
@@ -610,22 +612,22 @@ uiConditionalOperator = lens _uiConditionalOperator (\ s a -> s{_uiConditionalOp
 --         target attribute of the comparison is Binary, then the operator
 --         checks for the absence of a subsequence of the target that
 --         matches the input. If the target attribute of the comparison is
---         a set (\"@SS@\", \"@NS@\", or \"@BS@\"), then the operator
+--         a set (\"'SS'\", \"'NS'\", or \"'BS'\"), then the operator
 --         evaluates to true if it /does not/ find an exact match with any
 --         member of the set.
 --
 --         NOT_CONTAINS is supported for lists: When evaluating
---         \"@a NOT CONTAINS b@\", \"@a@\" can be a list; however, \"@b@\"
+--         \"'a NOT CONTAINS b'\", \"'a'\" can be a list; however, \"'b'\"
 --         cannot be a set, a map, or a list.
 --
---     -   @BEGINS_WITH@ : Checks for a prefix.
+--     -   'BEGINS_WITH' : Checks for a prefix.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/ of
 --         type String or Binary (not a Number or a set type). The target
 --         attribute of the comparison must be of type String or Binary
 --         (not a Number or a set type).
 --
---     -   @IN@ : Checks for matching elements within two sets.
+--     -   'IN' : Checks for matching elements within two sets.
 --
 --         /AttributeValueList/ can contain one or more /AttributeValue/
 --         elements of type String, Number, or Binary (not a set type).
@@ -633,7 +635,7 @@ uiConditionalOperator = lens _uiConditionalOperator (\ s a -> s{_uiConditionalOp
 --         attribute of an item. If any elements of the input set are
 --         present in the item attribute, the expression evaluates to true.
 --
---     -   @BETWEEN@ : Greater than or equal to the first value, and less
+--     -   'BETWEEN' : Greater than or equal to the first value, and less
 --         than or equal to the second value.
 --
 --         /AttributeValueList/ must contain two /AttributeValue/ elements
@@ -642,9 +644,9 @@ uiConditionalOperator = lens _uiConditionalOperator (\ s a -> s{_uiConditionalOp
 --         than, or equal to, the first element and less than, or equal to,
 --         the second element. If an item contains an /AttributeValue/
 --         element of a different type than the one provided in the
---         request, the value does not match. For example, @{\"S\":\"6\"}@
---         does not compare to @{\"N\":\"6\"}@. Also, @{\"N\":\"6\"}@ does
---         not compare to @{\"NS\":[\"6\", \"2\", \"1\"]}@
+--         request, the value does not match. For example, '{\"S\":\"6\"}'
+--         does not compare to '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does
+--         not compare to '{\"NS\":[\"6\", \"2\", \"1\"]}'
 --
 -- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters>
@@ -659,18 +661,18 @@ uiConditionalOperator = lens _uiConditionalOperator (\ s a -> s{_uiConditionalOp
 -- -   /Exists/ - A Boolean value that causes DynamoDB to evaluate the
 --     value before attempting the conditional operation:
 --
---     -   If /Exists/ is @true@, DynamoDB will check to see if that
+--     -   If /Exists/ is 'true', DynamoDB will check to see if that
 --         attribute value already exists in the table. If it is found,
 --         then the condition evaluates to true; otherwise the condition
 --         evaluate to false.
 --
---     -   If /Exists/ is @false@, DynamoDB assumes that the attribute
+--     -   If /Exists/ is 'false', DynamoDB assumes that the attribute
 --         value does /not/ exist in the table. If in fact the value does
 --         not exist, then the assumption is valid and the condition
 --         evaluates to true. If the value is found, despite the assumption
 --         that it does not exist, the condition evaluates to false.
 --
---     Note that the default value for /Exists/ is @true@.
+--     Note that the default value for /Exists/ is 'true'.
 --
 -- The /Value/ and /Exists/ parameters are incompatible with
 -- /AttributeValueList/ and /ComparisonOperator/. Note that if you use both
@@ -745,8 +747,16 @@ instance ToQuery UpdateItem where
 -- | Represents the output of an /UpdateItem/ operation.
 --
 -- /See:/ 'updateItemResponse' smart constructor.
+data UpdateItemResponse = UpdateItemResponse'
+    { _uirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
+    , _uirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    , _uirsAttributes            :: !(Maybe (Map Text AttributeValue))
+    , _uirsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateItemResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uirsConsumedCapacity'
 --
@@ -755,15 +765,9 @@ instance ToQuery UpdateItem where
 -- * 'uirsAttributes'
 --
 -- * 'uirsStatus'
-data UpdateItemResponse = UpdateItemResponse'
-    { _uirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
-    , _uirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
-    , _uirsAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _uirsStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateItemResponse' smart constructor.
-updateItemResponse :: Int -> UpdateItemResponse
+updateItemResponse
+    :: Int -- ^ 'uirsStatus'
+    -> UpdateItemResponse
 updateItemResponse pStatus_ =
     UpdateItemResponse'
     { _uirsConsumedCapacity = Nothing
@@ -782,11 +786,11 @@ uirsItemCollectionMetrics = lens _uirsItemCollectionMetrics (\ s a -> s{_uirsIte
 
 -- | A map of attribute values as they appeared before the /UpdateItem/
 -- operation. This map only appears if /ReturnValues/ was specified as
--- something other than @NONE@ in the request. Each element represents one
+-- something other than 'NONE' in the request. Each element represents one
 -- attribute.
 uirsAttributes :: Lens' UpdateItemResponse (HashMap Text AttributeValue)
 uirsAttributes = lens _uirsAttributes (\ s a -> s{_uirsAttributes = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 uirsStatus :: Lens' UpdateItemResponse Int
 uirsStatus = lens _uirsStatus (\ s a -> s{_uirsStatus = a});

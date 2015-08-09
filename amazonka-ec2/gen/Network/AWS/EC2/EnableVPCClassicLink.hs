@@ -22,8 +22,8 @@
 -- to your ClassicLink-enabled VPC to allow communication over private IP
 -- addresses. You cannot enable your VPC for ClassicLink if any of your
 -- VPC\'s route tables have existing routes for address ranges within the
--- @10.0.0.0\/8@ IP address range, excluding local routes for VPCs in the
--- @10.0.0.0\/16@ and @10.1.0.0\/16@ IP address ranges. For more
+-- '10.0.0.0\/8' IP address range, excluding local routes for VPCs in the
+-- '10.0.0.0\/16' and '10.1.0.0\/16' IP address ranges. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the Amazon Elastic Compute Cloud User Guide.
@@ -32,15 +32,15 @@
 module Network.AWS.EC2.EnableVPCClassicLink
     (
     -- * Creating a Request
-      EnableVPCClassicLink
-    , enableVPCClassicLink
+      enableVPCClassicLink
+    , EnableVPCClassicLink
     -- * Request Lenses
     , evclDryRun
     , evclVPCId
 
     -- * Destructuring the Response
-    , EnableVPCClassicLinkResponse
     , enableVPCClassicLinkResponse
+    , EnableVPCClassicLinkResponse
     -- * Response Lenses
     , evclrsReturn
     , evclrsStatus
@@ -53,19 +53,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'enableVPCClassicLink' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'evclDryRun'
---
--- * 'evclVPCId'
 data EnableVPCClassicLink = EnableVPCClassicLink'
     { _evclDryRun :: !(Maybe Bool)
     , _evclVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableVPCClassicLink' smart constructor.
-enableVPCClassicLink :: Text -> EnableVPCClassicLink
+-- | Creates a value of 'EnableVPCClassicLink' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'evclDryRun'
+--
+-- * 'evclVPCId'
+enableVPCClassicLink
+    :: Text -- ^ 'evclVPCId'
+    -> EnableVPCClassicLink
 enableVPCClassicLink pVPCId_ =
     EnableVPCClassicLink'
     { _evclDryRun = Nothing
@@ -74,8 +76,8 @@ enableVPCClassicLink pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 evclDryRun :: Lens' EnableVPCClassicLink (Maybe Bool)
 evclDryRun = lens _evclDryRun (\ s a -> s{_evclDryRun = a});
 
@@ -108,29 +110,31 @@ instance ToQuery EnableVPCClassicLink where
                "DryRun" =: _evclDryRun, "VpcId" =: _evclVPCId]
 
 -- | /See:/ 'enableVPCClassicLinkResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'evclrsReturn'
---
--- * 'evclrsStatus'
 data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
     { _evclrsReturn :: !(Maybe Bool)
     , _evclrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableVPCClassicLinkResponse' smart constructor.
-enableVPCClassicLinkResponse :: Int -> EnableVPCClassicLinkResponse
+-- | Creates a value of 'EnableVPCClassicLinkResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'evclrsReturn'
+--
+-- * 'evclrsStatus'
+enableVPCClassicLinkResponse
+    :: Int -- ^ 'evclrsStatus'
+    -> EnableVPCClassicLinkResponse
 enableVPCClassicLinkResponse pStatus_ =
     EnableVPCClassicLinkResponse'
     { _evclrsReturn = Nothing
     , _evclrsStatus = pStatus_
     }
 
--- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- | Returns 'true' if the request succeeds; otherwise, it returns an error.
 evclrsReturn :: Lens' EnableVPCClassicLinkResponse (Maybe Bool)
 evclrsReturn = lens _evclrsReturn (\ s a -> s{_evclrsReturn = a});
 
--- | Undocumented member.
+-- | The response status code.
 evclrsStatus :: Lens' EnableVPCClassicLinkResponse Int
 evclrsStatus = lens _evclrsStatus (\ s a -> s{_evclrsStatus = a});

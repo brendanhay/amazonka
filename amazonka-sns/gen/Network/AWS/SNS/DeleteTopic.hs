@@ -27,14 +27,14 @@
 module Network.AWS.SNS.DeleteTopic
     (
     -- * Creating a Request
-      DeleteTopic
-    , deleteTopic
+      deleteTopic
+    , DeleteTopic
     -- * Request Lenses
     , dtTopicARN
 
     -- * Destructuring the Response
-    , DeleteTopicResponse
     , deleteTopicResponse
+    , DeleteTopicResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -44,16 +44,18 @@ import           Network.AWS.SNS.Types
 import           Network.AWS.SNS.Types.Product
 
 -- | /See:/ 'deleteTopic' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtTopicARN'
 newtype DeleteTopic = DeleteTopic'
     { _dtTopicARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTopic' smart constructor.
-deleteTopic :: Text -> DeleteTopic
+-- | Creates a value of 'DeleteTopic' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtTopicARN'
+deleteTopic
+    :: Text -- ^ 'dtTopicARN'
+    -> DeleteTopic
 deleteTopic pTopicARN_ =
     DeleteTopic'
     { _dtTopicARN = pTopicARN_
@@ -87,6 +89,8 @@ data DeleteTopicResponse =
     DeleteTopicResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTopicResponse' smart constructor.
-deleteTopicResponse :: DeleteTopicResponse
+-- | Creates a value of 'DeleteTopicResponse' with the minimum fields required to make a request.
+--
+deleteTopicResponse
+    :: DeleteTopicResponse
 deleteTopicResponse = DeleteTopicResponse'

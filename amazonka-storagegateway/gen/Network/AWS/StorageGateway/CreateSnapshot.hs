@@ -44,15 +44,15 @@
 module Network.AWS.StorageGateway.CreateSnapshot
     (
     -- * Creating a Request
-      CreateSnapshot
-    , createSnapshot
+      createSnapshot
+    , CreateSnapshot
     -- * Request Lenses
     , csVolumeARN
     , csSnapshotDescription
 
     -- * Destructuring the Response
-    , CreateSnapshotResponse
     , createSnapshotResponse
+    , CreateSnapshotResponse
     -- * Response Lenses
     , csrsVolumeARN
     , csrsSnapshotId
@@ -71,19 +71,22 @@ import           Network.AWS.StorageGateway.Types.Product
 -- -   CreateSnapshotInput$VolumeARN
 --
 -- /See:/ 'createSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csVolumeARN'
---
--- * 'csSnapshotDescription'
 data CreateSnapshot = CreateSnapshot'
     { _csVolumeARN           :: !Text
     , _csSnapshotDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSnapshot' smart constructor.
-createSnapshot :: Text -> Text -> CreateSnapshot
+-- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csVolumeARN'
+--
+-- * 'csSnapshotDescription'
+createSnapshot
+    :: Text -- ^ 'csVolumeARN'
+    -> Text -- ^ 'csSnapshotDescription'
+    -> CreateSnapshot
 createSnapshot pVolumeARN_ pSnapshotDescription_ =
     CreateSnapshot'
     { _csVolumeARN = pVolumeARN_
@@ -138,22 +141,24 @@ instance ToQuery CreateSnapshot where
 -- | A JSON object containing the following fields:
 --
 -- /See:/ 'createSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csrsVolumeARN'
---
--- * 'csrsSnapshotId'
---
--- * 'csrsStatus'
 data CreateSnapshotResponse = CreateSnapshotResponse'
     { _csrsVolumeARN  :: !(Maybe Text)
     , _csrsSnapshotId :: !(Maybe Text)
     , _csrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSnapshotResponse' smart constructor.
-createSnapshotResponse :: Int -> CreateSnapshotResponse
+-- | Creates a value of 'CreateSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csrsVolumeARN'
+--
+-- * 'csrsSnapshotId'
+--
+-- * 'csrsStatus'
+createSnapshotResponse
+    :: Int -- ^ 'csrsStatus'
+    -> CreateSnapshotResponse
 createSnapshotResponse pStatus_ =
     CreateSnapshotResponse'
     { _csrsVolumeARN = Nothing
@@ -168,11 +173,11 @@ csrsVolumeARN = lens _csrsVolumeARN (\ s a -> s{_csrsVolumeARN = a});
 
 -- | The snapshot ID that is used to refer to the snapshot in future
 -- operations such as describing snapshots (Amazon Elastic Compute Cloud
--- API @DescribeSnapshots@) or creating a volume from a snapshot
+-- API 'DescribeSnapshots') or creating a volume from a snapshot
 -- (CreateStorediSCSIVolume).
 csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 
--- | Undocumented member.
+-- | The response status code.
 csrsStatus :: Lens' CreateSnapshotResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

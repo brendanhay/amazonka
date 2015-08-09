@@ -24,15 +24,15 @@
 module Network.AWS.CodeDeploy.CreateDeploymentConfig
     (
     -- * Creating a Request
-      CreateDeploymentConfig
-    , createDeploymentConfig
+      createDeploymentConfig
+    , CreateDeploymentConfig
     -- * Request Lenses
     , cdcMinimumHealthyHosts
     , cdcDeploymentConfigName
 
     -- * Destructuring the Response
-    , CreateDeploymentConfigResponse
     , createDeploymentConfigResponse
+    , CreateDeploymentConfigResponse
     -- * Response Lenses
     , cdcrsDeploymentConfigId
     , cdcrsStatus
@@ -47,19 +47,21 @@ import           Network.AWS.Response
 -- | Represents the input of a create deployment configuration operation.
 --
 -- /See:/ 'createDeploymentConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdcMinimumHealthyHosts'
---
--- * 'cdcDeploymentConfigName'
 data CreateDeploymentConfig = CreateDeploymentConfig'
     { _cdcMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
     , _cdcDeploymentConfigName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDeploymentConfig' smart constructor.
-createDeploymentConfig :: Text -> CreateDeploymentConfig
+-- | Creates a value of 'CreateDeploymentConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdcMinimumHealthyHosts'
+--
+-- * 'cdcDeploymentConfigName'
+createDeploymentConfig
+    :: Text -- ^ 'cdcDeploymentConfigName'
+    -> CreateDeploymentConfig
 createDeploymentConfig pDeploymentConfigName_ =
     CreateDeploymentConfig'
     { _cdcMinimumHealthyHosts = Nothing
@@ -127,19 +129,21 @@ instance ToQuery CreateDeploymentConfig where
 -- | Represents the output of a create deployment configuration operation.
 --
 -- /See:/ 'createDeploymentConfigResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdcrsDeploymentConfigId'
---
--- * 'cdcrsStatus'
 data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
     { _cdcrsDeploymentConfigId :: !(Maybe Text)
     , _cdcrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDeploymentConfigResponse' smart constructor.
-createDeploymentConfigResponse :: Int -> CreateDeploymentConfigResponse
+-- | Creates a value of 'CreateDeploymentConfigResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdcrsDeploymentConfigId'
+--
+-- * 'cdcrsStatus'
+createDeploymentConfigResponse
+    :: Int -- ^ 'cdcrsStatus'
+    -> CreateDeploymentConfigResponse
 createDeploymentConfigResponse pStatus_ =
     CreateDeploymentConfigResponse'
     { _cdcrsDeploymentConfigId = Nothing
@@ -150,6 +154,6 @@ createDeploymentConfigResponse pStatus_ =
 cdcrsDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
 cdcrsDeploymentConfigId = lens _cdcrsDeploymentConfigId (\ s a -> s{_cdcrsDeploymentConfigId = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdcrsStatus :: Lens' CreateDeploymentConfigResponse Int
 cdcrsStatus = lens _cdcrsStatus (\ s a -> s{_cdcrsStatus = a});

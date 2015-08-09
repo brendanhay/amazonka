@@ -23,11 +23,13 @@
 -- returns histories for all of the owner\'s alarms.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html AWS API Reference> for DescribeAlarmHistory.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarmHistory
     (
     -- * Creating a Request
-      DescribeAlarmHistory
-    , describeAlarmHistory
+      describeAlarmHistory
+    , DescribeAlarmHistory
     -- * Request Lenses
     , dahAlarmName
     , dahHistoryItemType
@@ -37,8 +39,8 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     , dahMaxRecords
 
     -- * Destructuring the Response
-    , DescribeAlarmHistoryResponse
     , describeAlarmHistoryResponse
+    , DescribeAlarmHistoryResponse
     -- * Response Lenses
     , dahrsAlarmHistoryItems
     , dahrsNextToken
@@ -53,8 +55,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeAlarmHistory' smart constructor.
+data DescribeAlarmHistory = DescribeAlarmHistory'
+    { _dahAlarmName       :: !(Maybe Text)
+    , _dahHistoryItemType :: !(Maybe HistoryItemType)
+    , _dahEndDate         :: !(Maybe ISO8601)
+    , _dahStartDate       :: !(Maybe ISO8601)
+    , _dahNextToken       :: !(Maybe Text)
+    , _dahMaxRecords      :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeAlarmHistory' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dahAlarmName'
 --
@@ -67,17 +79,8 @@ import           Network.AWS.Response
 -- * 'dahNextToken'
 --
 -- * 'dahMaxRecords'
-data DescribeAlarmHistory = DescribeAlarmHistory'
-    { _dahAlarmName       :: !(Maybe Text)
-    , _dahHistoryItemType :: !(Maybe HistoryItemType)
-    , _dahEndDate         :: !(Maybe ISO8601)
-    , _dahStartDate       :: !(Maybe ISO8601)
-    , _dahNextToken       :: !(Maybe Text)
-    , _dahMaxRecords      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeAlarmHistory' smart constructor.
-describeAlarmHistory :: DescribeAlarmHistory
+describeAlarmHistory
+    :: DescribeAlarmHistory
 describeAlarmHistory =
     DescribeAlarmHistory'
     { _dahAlarmName = Nothing
@@ -155,22 +158,24 @@ instance ToQuery DescribeAlarmHistory where
 -- | The output for the DescribeAlarmHistory action.
 --
 -- /See:/ 'describeAlarmHistoryResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dahrsAlarmHistoryItems'
---
--- * 'dahrsNextToken'
---
--- * 'dahrsStatus'
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
     { _dahrsAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
     , _dahrsNextToken         :: !(Maybe Text)
     , _dahrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAlarmHistoryResponse' smart constructor.
-describeAlarmHistoryResponse :: Int -> DescribeAlarmHistoryResponse
+-- | Creates a value of 'DescribeAlarmHistoryResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dahrsAlarmHistoryItems'
+--
+-- * 'dahrsNextToken'
+--
+-- * 'dahrsStatus'
+describeAlarmHistoryResponse
+    :: Int -- ^ 'dahrsStatus'
+    -> DescribeAlarmHistoryResponse
 describeAlarmHistoryResponse pStatus_ =
     DescribeAlarmHistoryResponse'
     { _dahrsAlarmHistoryItems = Nothing
@@ -186,6 +191,6 @@ dahrsAlarmHistoryItems = lens _dahrsAlarmHistoryItems (\ s a -> s{_dahrsAlarmHis
 dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrsNextToken = lens _dahrsNextToken (\ s a -> s{_dahrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dahrsStatus :: Lens' DescribeAlarmHistoryResponse Int
 dahrsStatus = lens _dahrsStatus (\ s a -> s{_dahrsStatus = a});

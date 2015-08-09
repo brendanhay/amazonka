@@ -23,16 +23,16 @@
 --
 -- By default, this operation returns up to 50 subscription filters. If
 -- there are more subscription filters to list, the response would contain
--- a @nextToken@ value in the response body. You can also limit the number
+-- a 'nextToken' value in the response body. You can also limit the number
 -- of subscription filters returned in the response by specifying the
--- @limit@ parameter in the request.
+-- 'limit' parameter in the request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html AWS API Reference> for DescribeSubscriptionFilters.
 module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     (
     -- * Creating a Request
-      DescribeSubscriptionFilters
-    , describeSubscriptionFilters
+      describeSubscriptionFilters
+    , DescribeSubscriptionFilters
     -- * Request Lenses
     , dsfFilterNamePrefix
     , dsfNextToken
@@ -40,8 +40,8 @@ module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     , dsfLogGroupName
 
     -- * Destructuring the Response
-    , DescribeSubscriptionFiltersResponse
     , describeSubscriptionFiltersResponse
+    , DescribeSubscriptionFiltersResponse
     -- * Response Lenses
     , dsfrsSubscriptionFilters
     , dsfrsNextToken
@@ -55,8 +55,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeSubscriptionFilters' smart constructor.
+data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
+    { _dsfFilterNamePrefix :: !(Maybe Text)
+    , _dsfNextToken        :: !(Maybe Text)
+    , _dsfLimit            :: !(Maybe Nat)
+    , _dsfLogGroupName     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeSubscriptionFilters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsfFilterNamePrefix'
 --
@@ -65,15 +73,9 @@ import           Network.AWS.Response
 -- * 'dsfLimit'
 --
 -- * 'dsfLogGroupName'
-data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
-    { _dsfFilterNamePrefix :: !(Maybe Text)
-    , _dsfNextToken        :: !(Maybe Text)
-    , _dsfLimit            :: !(Maybe Nat)
-    , _dsfLogGroupName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeSubscriptionFilters' smart constructor.
-describeSubscriptionFilters :: Text -> DescribeSubscriptionFilters
+describeSubscriptionFilters
+    :: Text -- ^ 'dsfLogGroupName'
+    -> DescribeSubscriptionFilters
 describeSubscriptionFilters pLogGroupName_ =
     DescribeSubscriptionFilters'
     { _dsfFilterNamePrefix = Nothing
@@ -137,22 +139,24 @@ instance ToQuery DescribeSubscriptionFilters where
         toQuery = const mempty
 
 -- | /See:/ 'describeSubscriptionFiltersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsfrsSubscriptionFilters'
---
--- * 'dsfrsNextToken'
---
--- * 'dsfrsStatus'
 data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
     { _dsfrsSubscriptionFilters :: !(Maybe [SubscriptionFilter])
     , _dsfrsNextToken           :: !(Maybe Text)
     , _dsfrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSubscriptionFiltersResponse' smart constructor.
-describeSubscriptionFiltersResponse :: Int -> DescribeSubscriptionFiltersResponse
+-- | Creates a value of 'DescribeSubscriptionFiltersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsfrsSubscriptionFilters'
+--
+-- * 'dsfrsNextToken'
+--
+-- * 'dsfrsStatus'
+describeSubscriptionFiltersResponse
+    :: Int -- ^ 'dsfrsStatus'
+    -> DescribeSubscriptionFiltersResponse
 describeSubscriptionFiltersResponse pStatus_ =
     DescribeSubscriptionFiltersResponse'
     { _dsfrsSubscriptionFilters = Nothing
@@ -168,6 +172,6 @@ dsfrsSubscriptionFilters = lens _dsfrsSubscriptionFilters (\ s a -> s{_dsfrsSubs
 dsfrsNextToken :: Lens' DescribeSubscriptionFiltersResponse (Maybe Text)
 dsfrsNextToken = lens _dsfrsNextToken (\ s a -> s{_dsfrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dsfrsStatus :: Lens' DescribeSubscriptionFiltersResponse Int
 dsfrsStatus = lens _dsfrsStatus (\ s a -> s{_dsfrsStatus = a});

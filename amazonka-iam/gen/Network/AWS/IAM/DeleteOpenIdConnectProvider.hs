@@ -31,14 +31,14 @@
 module Network.AWS.IAM.DeleteOpenIdConnectProvider
     (
     -- * Creating a Request
-      DeleteOpenIdConnectProvider
-    , deleteOpenIdConnectProvider
+      deleteOpenIdConnectProvider
+    , DeleteOpenIdConnectProvider
     -- * Request Lenses
     , doicpOpenIdConnectProviderARN
 
     -- * Destructuring the Response
-    , DeleteOpenIdConnectProviderResponse
     , deleteOpenIdConnectProviderResponse
+    , DeleteOpenIdConnectProviderResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -48,16 +48,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteOpenIdConnectProvider' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'doicpOpenIdConnectProviderARN'
 newtype DeleteOpenIdConnectProvider = DeleteOpenIdConnectProvider'
     { _doicpOpenIdConnectProviderARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteOpenIdConnectProvider' smart constructor.
-deleteOpenIdConnectProvider :: Text -> DeleteOpenIdConnectProvider
+-- | Creates a value of 'DeleteOpenIdConnectProvider' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'doicpOpenIdConnectProviderARN'
+deleteOpenIdConnectProvider
+    :: Text -- ^ 'doicpOpenIdConnectProviderARN'
+    -> DeleteOpenIdConnectProvider
 deleteOpenIdConnectProvider pOpenIdConnectProviderARN_ =
     DeleteOpenIdConnectProvider'
     { _doicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
@@ -97,6 +99,8 @@ data DeleteOpenIdConnectProviderResponse =
     DeleteOpenIdConnectProviderResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteOpenIdConnectProviderResponse' smart constructor.
-deleteOpenIdConnectProviderResponse :: DeleteOpenIdConnectProviderResponse
+-- | Creates a value of 'DeleteOpenIdConnectProviderResponse' with the minimum fields required to make a request.
+--
+deleteOpenIdConnectProviderResponse
+    :: DeleteOpenIdConnectProviderResponse
 deleteOpenIdConnectProviderResponse = DeleteOpenIdConnectProviderResponse'

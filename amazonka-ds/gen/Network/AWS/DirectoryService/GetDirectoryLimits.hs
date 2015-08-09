@@ -24,12 +24,12 @@
 module Network.AWS.DirectoryService.GetDirectoryLimits
     (
     -- * Creating a Request
-      GetDirectoryLimits
-    , getDirectoryLimits
+      getDirectoryLimits
+    , GetDirectoryLimits
 
     -- * Destructuring the Response
-    , GetDirectoryLimitsResponse
     , getDirectoryLimitsResponse
+    , GetDirectoryLimitsResponse
     -- * Response Lenses
     , gdlrsDirectoryLimits
     , gdlrsStatus
@@ -48,8 +48,10 @@ data GetDirectoryLimits =
     GetDirectoryLimits'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDirectoryLimits' smart constructor.
-getDirectoryLimits :: GetDirectoryLimits
+-- | Creates a value of 'GetDirectoryLimits' with the minimum fields required to make a request.
+--
+getDirectoryLimits
+    :: GetDirectoryLimits
 getDirectoryLimits = GetDirectoryLimits'
 
 instance AWSRequest GetDirectoryLimits where
@@ -85,19 +87,21 @@ instance ToQuery GetDirectoryLimits where
 -- | Contains the results of the GetDirectoryLimits operation.
 --
 -- /See:/ 'getDirectoryLimitsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdlrsDirectoryLimits'
---
--- * 'gdlrsStatus'
 data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
     { _gdlrsDirectoryLimits :: !(Maybe DirectoryLimits)
     , _gdlrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDirectoryLimitsResponse' smart constructor.
-getDirectoryLimitsResponse :: Int -> GetDirectoryLimitsResponse
+-- | Creates a value of 'GetDirectoryLimitsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdlrsDirectoryLimits'
+--
+-- * 'gdlrsStatus'
+getDirectoryLimitsResponse
+    :: Int -- ^ 'gdlrsStatus'
+    -> GetDirectoryLimitsResponse
 getDirectoryLimitsResponse pStatus_ =
     GetDirectoryLimitsResponse'
     { _gdlrsDirectoryLimits = Nothing
@@ -109,6 +113,6 @@ getDirectoryLimitsResponse pStatus_ =
 gdlrsDirectoryLimits :: Lens' GetDirectoryLimitsResponse (Maybe DirectoryLimits)
 gdlrsDirectoryLimits = lens _gdlrsDirectoryLimits (\ s a -> s{_gdlrsDirectoryLimits = a});
 
--- | Undocumented member.
+-- | The response status code.
 gdlrsStatus :: Lens' GetDirectoryLimitsResponse Int
 gdlrsStatus = lens _gdlrsStatus (\ s a -> s{_gdlrsStatus = a});

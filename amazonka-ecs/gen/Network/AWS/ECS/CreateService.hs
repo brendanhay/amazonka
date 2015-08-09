@@ -20,15 +20,15 @@
 --
 -- Runs and maintains a desired number of tasks from a specified task
 -- definition. If the number of tasks running in a service drops below
--- @desiredCount@, Amazon ECS will spawn another instantiation of the task
+-- 'desiredCount', Amazon ECS will spawn another instantiation of the task
 -- in the specified cluster.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html AWS API Reference> for CreateService.
 module Network.AWS.ECS.CreateService
     (
     -- * Creating a Request
-      CreateService
-    , createService
+      createService
+    , CreateService
     -- * Request Lenses
     , cCluster
     , cClientToken
@@ -39,8 +39,8 @@ module Network.AWS.ECS.CreateService
     , cDesiredCount
 
     -- * Destructuring the Response
-    , CreateServiceResponse
     , createServiceResponse
+    , CreateServiceResponse
     -- * Response Lenses
     , csrsService
     , csrsStatus
@@ -53,8 +53,19 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createService' smart constructor.
+data CreateService = CreateService'
+    { _cCluster        :: !(Maybe Text)
+    , _cClientToken    :: !(Maybe Text)
+    , _cLoadBalancers  :: !(Maybe [LoadBalancer])
+    , _cRole           :: !(Maybe Text)
+    , _cServiceName    :: !Text
+    , _cTaskDefinition :: !Text
+    , _cDesiredCount   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateService' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cCluster'
 --
@@ -69,18 +80,11 @@ import           Network.AWS.Response
 -- * 'cTaskDefinition'
 --
 -- * 'cDesiredCount'
-data CreateService = CreateService'
-    { _cCluster        :: !(Maybe Text)
-    , _cClientToken    :: !(Maybe Text)
-    , _cLoadBalancers  :: !(Maybe [LoadBalancer])
-    , _cRole           :: !(Maybe Text)
-    , _cServiceName    :: !Text
-    , _cTaskDefinition :: !Text
-    , _cDesiredCount   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateService' smart constructor.
-createService :: Text -> Text -> Int -> CreateService
+createService
+    :: Text -- ^ 'cServiceName'
+    -> Text -- ^ 'cTaskDefinition'
+    -> Int -- ^ 'cDesiredCount'
+    -> CreateService
 createService pServiceName_ pTaskDefinition_ pDesiredCount_ =
     CreateService'
     { _cCluster = Nothing
@@ -123,9 +127,9 @@ cRole = lens _cRole (\ s a -> s{_cRole = a});
 cServiceName :: Lens' CreateService Text
 cServiceName = lens _cServiceName (\ s a -> s{_cServiceName = a});
 
--- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
+-- | The 'family' and 'revision' ('family:revision') or full Amazon Resource
 -- Name (ARN) of the task definition that you want to run in your service.
--- If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
+-- If a 'revision' is not specified, the latest 'ACTIVE' revision is used.
 cTaskDefinition :: Lens' CreateService Text
 cTaskDefinition = lens _cTaskDefinition (\ s a -> s{_cTaskDefinition = a});
 
@@ -171,19 +175,21 @@ instance ToQuery CreateService where
         toQuery = const mempty
 
 -- | /See:/ 'createServiceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csrsService'
---
--- * 'csrsStatus'
 data CreateServiceResponse = CreateServiceResponse'
     { _csrsService :: !(Maybe ContainerService)
     , _csrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateServiceResponse' smart constructor.
-createServiceResponse :: Int -> CreateServiceResponse
+-- | Creates a value of 'CreateServiceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csrsService'
+--
+-- * 'csrsStatus'
+createServiceResponse
+    :: Int -- ^ 'csrsStatus'
+    -> CreateServiceResponse
 createServiceResponse pStatus_ =
     CreateServiceResponse'
     { _csrsService = Nothing
@@ -194,6 +200,6 @@ createServiceResponse pStatus_ =
 csrsService :: Lens' CreateServiceResponse (Maybe ContainerService)
 csrsService = lens _csrsService (\ s a -> s{_csrsService = a});
 
--- | Undocumented member.
+-- | The response status code.
 csrsStatus :: Lens' CreateServiceResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

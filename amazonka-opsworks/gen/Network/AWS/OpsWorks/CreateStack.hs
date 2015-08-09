@@ -30,8 +30,8 @@
 module Network.AWS.OpsWorks.CreateStack
     (
     -- * Creating a Request
-      CreateStack
-    , createStack
+      createStack
+    , CreateStack
     -- * Request Lenses
     , csDefaultRootDeviceType
     , csChefConfiguration
@@ -54,8 +54,8 @@ module Network.AWS.OpsWorks.CreateStack
     , csDefaultInstanceProfileARN
 
     -- * Destructuring the Response
-    , CreateStackResponse
     , createStackResponse
+    , CreateStackResponse
     -- * Response Lenses
     , crsStackId
     , crsStatus
@@ -68,8 +68,31 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createStack' smart constructor.
+data CreateStack = CreateStack'
+    { _csDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+    , _csChefConfiguration         :: !(Maybe ChefConfiguration)
+    , _csVPCId                     :: !(Maybe Text)
+    , _csAgentVersion              :: !(Maybe Text)
+    , _csDefaultSSHKeyName         :: !(Maybe Text)
+    , _csCustomJSON                :: !(Maybe Text)
+    , _csCustomCookbooksSource     :: !(Maybe Source)
+    , _csDefaultAvailabilityZone   :: !(Maybe Text)
+    , _csUseOpsworksSecurityGroups :: !(Maybe Bool)
+    , _csDefaultOS                 :: !(Maybe Text)
+    , _csAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _csUseCustomCookbooks        :: !(Maybe Bool)
+    , _csDefaultSubnetId           :: !(Maybe Text)
+    , _csConfigurationManager      :: !(Maybe StackConfigurationManager)
+    , _csHostnameTheme             :: !(Maybe Text)
+    , _csName                      :: !Text
+    , _csRegion                    :: !Text
+    , _csServiceRoleARN            :: !Text
+    , _csDefaultInstanceProfileARN :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateStack' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'csDefaultRootDeviceType'
 --
@@ -108,30 +131,12 @@ import           Network.AWS.Response
 -- * 'csServiceRoleARN'
 --
 -- * 'csDefaultInstanceProfileARN'
-data CreateStack = CreateStack'
-    { _csDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _csChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _csVPCId                     :: !(Maybe Text)
-    , _csAgentVersion              :: !(Maybe Text)
-    , _csDefaultSSHKeyName         :: !(Maybe Text)
-    , _csCustomJSON                :: !(Maybe Text)
-    , _csCustomCookbooksSource     :: !(Maybe Source)
-    , _csDefaultAvailabilityZone   :: !(Maybe Text)
-    , _csUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _csDefaultOS                 :: !(Maybe Text)
-    , _csAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _csUseCustomCookbooks        :: !(Maybe Bool)
-    , _csDefaultSubnetId           :: !(Maybe Text)
-    , _csConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _csHostnameTheme             :: !(Maybe Text)
-    , _csName                      :: !Text
-    , _csRegion                    :: !Text
-    , _csServiceRoleARN            :: !Text
-    , _csDefaultInstanceProfileARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateStack' smart constructor.
-createStack :: Text -> Text -> Text -> Text -> CreateStack
+createStack
+    :: Text -- ^ 'csName'
+    -> Text -- ^ 'csRegion'
+    -> Text -- ^ 'csServiceRoleARN'
+    -> Text -- ^ 'csDefaultInstanceProfileARN'
+    -> CreateStack
 createStack pName_ pRegion_ pServiceRoleARN_ pDefaultInstanceProfileARN_ =
     CreateStack'
     { _csDefaultRootDeviceType = Nothing
@@ -157,13 +162,13 @@ createStack pName_ pRegion_ pServiceRoleARN_ pDefaultInstanceProfileARN_ =
 
 -- | The default root device type. This value is the default for all
 -- instances in the stack, but you can override it when you create an
--- instance. The default option is @instance-store@. For more information,
+-- instance. The default option is 'instance-store'. For more information,
 -- see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
 csDefaultRootDeviceType :: Lens' CreateStack (Maybe RootDeviceType)
 csDefaultRootDeviceType = lens _csDefaultRootDeviceType (\ s a -> s{_csDefaultRootDeviceType = a});
 
--- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf
 -- and the Berkshelf version on Chef 11.10 stacks. For more information,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
@@ -174,12 +179,12 @@ csChefConfiguration = lens _csChefConfiguration (\ s a -> s{_csChefConfiguration
 -- in the stack\'s region. All instances are launched into this VPC. You
 -- cannot change the ID later.
 --
--- -   If your account supports EC2-Classic, the default value is @no VPC@.
+-- -   If your account supports EC2-Classic, the default value is 'no VPC'.
 -- -   If your account does not support EC2-Classic, the default value is
 --     the default VPC for the specified region.
 --
 -- If the VPC ID corresponds to a default VPC and you have specified either
--- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
+-- the 'DefaultAvailabilityZone' or the 'DefaultSubnetId' parameter only,
 -- AWS OpsWorks infers the value of the other parameter. If you specify
 -- neither parameter, AWS OpsWorks sets these parameters to the first valid
 -- Availability Zone for the specified region and the corresponding default
@@ -189,7 +194,7 @@ csChefConfiguration = lens _csChefConfiguration (\ s a -> s{_csChefConfiguration
 --
 -- -   It must belong to a VPC in your account that is in the specified
 --     region.
--- -   You must specify a value for @DefaultSubnetId@.
+-- -   You must specify a value for 'DefaultSubnetId'.
 --
 -- For more information on how to use AWS OpsWorks with a VPC, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
@@ -200,7 +205,7 @@ csVPCId = lens _csVPCId (\ s a -> s{_csVPCId = a});
 
 -- | The default AWS OpsWorks agent version. You have the following options:
 --
--- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks
+-- -   Auto-update - Set this parameter to 'LATEST'. AWS OpsWorks
 --     automatically installs new agent versions on the stack\'s instances
 --     as soon as they are available.
 -- -   Fixed version - Set this parameter to your preferred agent version.
@@ -208,7 +213,7 @@ csVPCId = lens _csVPCId (\ s a -> s{_csVPCId = a});
 --     and specify a new version. AWS OpsWorks then automatically installs
 --     that version on the stack\'s instances.
 --
--- The default setting is @LATEST@. To specify an agent version, you must
+-- The default setting is 'LATEST'. To specify an agent version, you must
 -- use the complete version number, not the abbreviated number shown on the
 -- console. For a list of available agent version numbers, call
 -- DescribeAgentVersions.
@@ -236,7 +241,7 @@ csDefaultSSHKeyName = lens _csDefaultSSHKeyName (\ s a -> s{_csDefaultSSHKeyName
 -- or to pass data to recipes. The string should be in the following escape
 -- characters such as \'\"\':
 --
--- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
+-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'
 --
 -- For more information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
@@ -250,8 +255,8 @@ csCustomCookbooksSource = lens _csCustomCookbooksSource (\ s a -> s{_csCustomCoo
 -- | The stack\'s default Availability Zone, which must be in the specified
 -- region. For more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
--- If you also specify a value for @DefaultSubnetId@, the subnet must be in
--- the same zone. For more information, see the @VpcId@ parameter
+-- If you also specify a value for 'DefaultSubnetId', the subnet must be in
+-- the same zone. For more information, see the 'VpcId' parameter
 -- description.
 csDefaultAvailabilityZone :: Lens' CreateStack (Maybe Text)
 csDefaultAvailabilityZone = lens _csDefaultAvailabilityZone (\ s a -> s{_csDefaultAvailabilityZone = a});
@@ -261,8 +266,8 @@ csDefaultAvailabilityZone = lens _csDefaultAvailabilityZone (\ s a -> s{_csDefau
 --
 -- AWS OpsWorks provides a standard set of built-in security groups, one
 -- for each layer, which are associated with layers by default. With
--- @UseOpsworksSecurityGroups@ you can instead provide your own custom
--- security groups. @UseOpsworksSecurityGroups@ has the following settings:
+-- 'UseOpsworksSecurityGroups' you can instead provide your own custom
+-- security groups. 'UseOpsworksSecurityGroups' has the following settings:
 --
 -- -   True - AWS OpsWorks automatically associates the appropriate
 --     built-in security group with each layer (default setting). You can
@@ -285,10 +290,10 @@ csUseOpsworksSecurityGroups = lens _csUseOpsworksSecurityGroups (\ s a -> s{_csU
 -- the instance. You can specify one of the following.
 --
 -- -   A supported Linux operating system: An Amazon Linux version, such as
---     @Amazon Linux 2015.03@, @Red Hat Enterprise Linux 7@,
---     @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
--- -   @Microsoft Windows Server 2012 R2 Base@.
--- -   A custom AMI: @Custom@. You specify the custom AMI you want to use
+--     'Amazon Linux 2015.03', 'Red Hat Enterprise Linux 7',
+--     'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'.
+-- -   'Microsoft Windows Server 2012 R2 Base'.
+-- -   A custom AMI: 'Custom'. You specify the custom AMI you want to use
 --     when you create instances. For more information, see
 --     <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
 --
@@ -308,11 +313,11 @@ csUseCustomCookbooks :: Lens' CreateStack (Maybe Bool)
 csUseCustomCookbooks = lens _csUseCustomCookbooks (\ s a -> s{_csUseCustomCookbooks = a});
 
 -- | The stack\'s default VPC subnet ID. This parameter is required if you
--- specify a value for the @VpcId@ parameter. All instances are launched
+-- specify a value for the 'VpcId' parameter. All instances are launched
 -- into this subnet unless you specify otherwise when you create the
--- instance. If you also specify a value for @DefaultAvailabilityZone@, the
+-- instance. If you also specify a value for 'DefaultAvailabilityZone', the
 -- subnet must be in that zone. For information on default values and when
--- this parameter is required, see the @VpcId@ parameter description.
+-- this parameter is required, see the 'VpcId' parameter description.
 csDefaultSubnetId :: Lens' CreateStack (Maybe Text)
 csDefaultSubnetId = lens _csDefaultSubnetId (\ s a -> s{_csDefaultSubnetId = a});
 
@@ -324,23 +329,23 @@ csConfigurationManager = lens _csConfigurationManager (\ s a -> s{_csConfigurati
 
 -- | The stack\'s host name theme, with spaces replaced by underscores. The
 -- theme is used to generate host names for the stack\'s instances. By
--- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
+-- default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host
 -- names by appending integers to the layer\'s short name. The other themes
 -- are:
 --
--- -   @Baked_Goods@
--- -   @Clouds@
--- -   @Europe_Cities@
--- -   @Fruits@
--- -   @Greek_Deities@
--- -   @Legendary_creatures_from_Japan@
--- -   @Planets_and_Moons@
--- -   @Roman_Deities@
--- -   @Scottish_Islands@
--- -   @US_Cities@
--- -   @Wild_Cats@
+-- -   'Baked_Goods'
+-- -   'Clouds'
+-- -   'Europe_Cities'
+-- -   'Fruits'
+-- -   'Greek_Deities'
+-- -   'Legendary_creatures_from_Japan'
+-- -   'Planets_and_Moons'
+-- -   'Roman_Deities'
+-- -   'Scottish_Islands'
+-- -   'US_Cities'
+-- -   'Wild_Cats'
 --
--- To obtain a generated host name, call @GetHostNameSuggestion@, which
+-- To obtain a generated host name, call 'GetHostNameSuggestion', which
 -- returns a host name based on the current theme.
 csHostnameTheme :: Lens' CreateStack (Maybe Text)
 csHostnameTheme = lens _csHostnameTheme (\ s a -> s{_csHostnameTheme = a});
@@ -420,22 +425,24 @@ instance ToPath CreateStack where
 instance ToQuery CreateStack where
         toQuery = const mempty
 
--- | Contains the response to a @CreateStack@ request.
+-- | Contains the response to a 'CreateStack' request.
 --
 -- /See:/ 'createStackResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crsStackId'
---
--- * 'crsStatus'
 data CreateStackResponse = CreateStackResponse'
     { _crsStackId :: !(Maybe Text)
     , _crsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateStackResponse' smart constructor.
-createStackResponse :: Int -> CreateStackResponse
+-- | Creates a value of 'CreateStackResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crsStackId'
+--
+-- * 'crsStatus'
+createStackResponse
+    :: Int -- ^ 'crsStatus'
+    -> CreateStackResponse
 createStackResponse pStatus_ =
     CreateStackResponse'
     { _crsStackId = Nothing
@@ -443,10 +450,10 @@ createStackResponse pStatus_ =
     }
 
 -- | The stack ID, which is an opaque string that you use to identify the
--- stack when performing actions such as @DescribeStacks@.
+-- stack when performing actions such as 'DescribeStacks'.
 crsStackId :: Lens' CreateStackResponse (Maybe Text)
 crsStackId = lens _crsStackId (\ s a -> s{_crsStackId = a});
 
--- | Undocumented member.
+-- | The response status code.
 crsStatus :: Lens' CreateStackResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

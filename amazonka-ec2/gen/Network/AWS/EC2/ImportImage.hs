@@ -25,8 +25,8 @@
 module Network.AWS.EC2.ImportImage
     (
     -- * Creating a Request
-      ImportImage
-    , importImage
+      importImage
+    , ImportImage
     -- * Request Lenses
     , impHypervisor
     , impPlatform
@@ -40,8 +40,8 @@ module Network.AWS.EC2.ImportImage
     , impDiskContainers
 
     -- * Destructuring the Response
-    , ImportImageResponse
     , importImageResponse
+    , ImportImageResponse
     -- * Response Lenses
     , irsHypervisor
     , irsPlatform
@@ -63,8 +63,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'importImage' smart constructor.
+data ImportImage = ImportImage'
+    { _impHypervisor     :: !(Maybe Text)
+    , _impPlatform       :: !(Maybe Text)
+    , _impClientToken    :: !(Maybe Text)
+    , _impLicenseType    :: !(Maybe Text)
+    , _impRoleName       :: !(Maybe Text)
+    , _impArchitecture   :: !(Maybe Text)
+    , _impDryRun         :: !(Maybe Bool)
+    , _impDescription    :: !(Maybe Text)
+    , _impClientData     :: !(Maybe ClientData)
+    , _impDiskContainers :: !(Maybe [ImageDiskContainer])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImportImage' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'impHypervisor'
 --
@@ -85,21 +99,8 @@ import           Network.AWS.Response
 -- * 'impClientData'
 --
 -- * 'impDiskContainers'
-data ImportImage = ImportImage'
-    { _impHypervisor     :: !(Maybe Text)
-    , _impPlatform       :: !(Maybe Text)
-    , _impClientToken    :: !(Maybe Text)
-    , _impLicenseType    :: !(Maybe Text)
-    , _impRoleName       :: !(Maybe Text)
-    , _impArchitecture   :: !(Maybe Text)
-    , _impDryRun         :: !(Maybe Bool)
-    , _impDescription    :: !(Maybe Text)
-    , _impClientData     :: !(Maybe ClientData)
-    , _impDiskContainers :: !(Maybe [ImageDiskContainer])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ImportImage' smart constructor.
-importImage :: ImportImage
+importImage
+    :: ImportImage
 importImage =
     ImportImage'
     { _impHypervisor = Nothing
@@ -116,13 +117,13 @@ importImage =
 
 -- | The target hypervisor platform.
 --
--- Valid values: @xen@
+-- Valid values: 'xen'
 impHypervisor :: Lens' ImportImage (Maybe Text)
 impHypervisor = lens _impHypervisor (\ s a -> s{_impHypervisor = a});
 
 -- | The operating system of the virtual machine.
 --
--- Valid values: @Windows@ | @Linux@
+-- Valid values: 'Windows' | 'Linux'
 impPlatform :: Lens' ImportImage (Maybe Text)
 impPlatform = lens _impPlatform (\ s a -> s{_impPlatform = a});
 
@@ -139,7 +140,7 @@ impClientToken = lens _impClientToken (\ s a -> s{_impClientToken = a});
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html VM Import\/Export Prerequisites>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Valid values: @AWS@ | @BYOL@
+-- Valid values: 'AWS' | 'BYOL'
 impLicenseType :: Lens' ImportImage (Maybe Text)
 impLicenseType = lens _impLicenseType (\ s a -> s{_impLicenseType = a});
 
@@ -150,14 +151,14 @@ impRoleName = lens _impRoleName (\ s a -> s{_impRoleName = a});
 
 -- | The architecture of the virtual machine.
 --
--- Valid values: @i386@ | @x86_64@
+-- Valid values: 'i386' | 'x86_64'
 impArchitecture :: Lens' ImportImage (Maybe Text)
 impArchitecture = lens _impArchitecture (\ s a -> s{_impArchitecture = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 impDryRun :: Lens' ImportImage (Maybe Bool)
 impDryRun = lens _impDryRun (\ s a -> s{_impDryRun = a});
 
@@ -217,8 +218,23 @@ instance ToQuery ImportImage where
                toQuery (toQueryList "item" <$> _impDiskContainers)]
 
 -- | /See:/ 'importImageResponse' smart constructor.
+data ImportImageResponse = ImportImageResponse'
+    { _irsHypervisor      :: !(Maybe Text)
+    , _irsPlatform        :: !(Maybe Text)
+    , _irsProgress        :: !(Maybe Text)
+    , _irsLicenseType     :: !(Maybe Text)
+    , _irsSnapshotDetails :: !(Maybe [SnapshotDetail])
+    , _irsStatusMessage   :: !(Maybe Text)
+    , _irsImageId         :: !(Maybe Text)
+    , _irsImportTaskId    :: !(Maybe Text)
+    , _irsArchitecture    :: !(Maybe Text)
+    , _irsDescription     :: !(Maybe Text)
+    , _irsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImportImageResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'irsHypervisor'
 --
@@ -241,22 +257,9 @@ instance ToQuery ImportImage where
 -- * 'irsDescription'
 --
 -- * 'irsStatus'
-data ImportImageResponse = ImportImageResponse'
-    { _irsHypervisor      :: !(Maybe Text)
-    , _irsPlatform        :: !(Maybe Text)
-    , _irsProgress        :: !(Maybe Text)
-    , _irsLicenseType     :: !(Maybe Text)
-    , _irsSnapshotDetails :: !(Maybe [SnapshotDetail])
-    , _irsStatusMessage   :: !(Maybe Text)
-    , _irsImageId         :: !(Maybe Text)
-    , _irsImportTaskId    :: !(Maybe Text)
-    , _irsArchitecture    :: !(Maybe Text)
-    , _irsDescription     :: !(Maybe Text)
-    , _irsStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ImportImageResponse' smart constructor.
-importImageResponse :: Int -> ImportImageResponse
+importImageResponse
+    :: Int -- ^ 'irsStatus'
+    -> ImportImageResponse
 importImageResponse pStatus_ =
     ImportImageResponse'
     { _irsHypervisor = Nothing
@@ -312,6 +315,6 @@ irsArchitecture = lens _irsArchitecture (\ s a -> s{_irsArchitecture = a});
 irsDescription :: Lens' ImportImageResponse (Maybe Text)
 irsDescription = lens _irsDescription (\ s a -> s{_irsDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 irsStatus :: Lens' ImportImageResponse Int
 irsStatus = lens _irsStatus (\ s a -> s{_irsStatus = a});

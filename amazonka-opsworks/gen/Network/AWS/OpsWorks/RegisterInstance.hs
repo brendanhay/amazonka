@@ -24,8 +24,8 @@
 -- We do not recommend using this action to register instances. The
 -- complete registration operation has two primary steps, installing the
 -- AWS OpsWorks agent on the instance and registering the instance with the
--- stack. @RegisterInstance@ handles only the second step. You should
--- instead use the AWS CLI @register@ command, which performs the entire
+-- stack. 'RegisterInstance' handles only the second step. You should
+-- instead use the AWS CLI 'register' command, which performs the entire
 -- registration operation. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html Registering an Instance with an AWS OpsWorks Stack>.
 --
@@ -39,8 +39,8 @@
 module Network.AWS.OpsWorks.RegisterInstance
     (
     -- * Creating a Request
-      RegisterInstance
-    , registerInstance
+      registerInstance
+    , RegisterInstance
     -- * Request Lenses
     , riPrivateIP
     , riHostname
@@ -51,8 +51,8 @@ module Network.AWS.OpsWorks.RegisterInstance
     , riStackId
 
     -- * Destructuring the Response
-    , RegisterInstanceResponse
     , registerInstanceResponse
+    , RegisterInstanceResponse
     -- * Response Lenses
     , rirsInstanceId
     , rirsStatus
@@ -65,8 +65,19 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'registerInstance' smart constructor.
+data RegisterInstance = RegisterInstance'
+    { _riPrivateIP               :: !(Maybe Text)
+    , _riHostname                :: !(Maybe Text)
+    , _riInstanceIdentity        :: !(Maybe InstanceIdentity)
+    , _riPublicIP                :: !(Maybe Text)
+    , _riRsaPublicKeyFingerprint :: !(Maybe Text)
+    , _riRsaPublicKey            :: !(Maybe Text)
+    , _riStackId                 :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RegisterInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'riPrivateIP'
 --
@@ -81,18 +92,9 @@ import           Network.AWS.Response
 -- * 'riRsaPublicKey'
 --
 -- * 'riStackId'
-data RegisterInstance = RegisterInstance'
-    { _riPrivateIP               :: !(Maybe Text)
-    , _riHostname                :: !(Maybe Text)
-    , _riInstanceIdentity        :: !(Maybe InstanceIdentity)
-    , _riPublicIP                :: !(Maybe Text)
-    , _riRsaPublicKeyFingerprint :: !(Maybe Text)
-    , _riRsaPublicKey            :: !(Maybe Text)
-    , _riStackId                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RegisterInstance' smart constructor.
-registerInstance :: Text -> RegisterInstance
+registerInstance
+    :: Text -- ^ 'riStackId'
+    -> RegisterInstance
 registerInstance pStackId_ =
     RegisterInstance'
     { _riPrivateIP = Nothing
@@ -170,22 +172,24 @@ instance ToPath RegisterInstance where
 instance ToQuery RegisterInstance where
         toQuery = const mempty
 
--- | Contains the response to a @RegisterInstanceResult@ request.
+-- | Contains the response to a 'RegisterInstanceResult' request.
 --
 -- /See:/ 'registerInstanceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rirsInstanceId'
---
--- * 'rirsStatus'
 data RegisterInstanceResponse = RegisterInstanceResponse'
     { _rirsInstanceId :: !(Maybe Text)
     , _rirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterInstanceResponse' smart constructor.
-registerInstanceResponse :: Int -> RegisterInstanceResponse
+-- | Creates a value of 'RegisterInstanceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rirsInstanceId'
+--
+-- * 'rirsStatus'
+registerInstanceResponse
+    :: Int -- ^ 'rirsStatus'
+    -> RegisterInstanceResponse
 registerInstanceResponse pStatus_ =
     RegisterInstanceResponse'
     { _rirsInstanceId = Nothing
@@ -196,6 +200,6 @@ registerInstanceResponse pStatus_ =
 rirsInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
 rirsInstanceId = lens _rirsInstanceId (\ s a -> s{_rirsInstanceId = a});
 
--- | Undocumented member.
+-- | The response status code.
 rirsStatus :: Lens' RegisterInstanceResponse Int
 rirsStatus = lens _rirsStatus (\ s a -> s{_rirsStatus = a});

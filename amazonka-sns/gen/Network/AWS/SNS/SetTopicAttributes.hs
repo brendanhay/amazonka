@@ -24,16 +24,16 @@
 module Network.AWS.SNS.SetTopicAttributes
     (
     -- * Creating a Request
-      SetTopicAttributes
-    , setTopicAttributes
+      setTopicAttributes
+    , SetTopicAttributes
     -- * Request Lenses
     , staAttributeValue
     , staTopicARN
     , staAttributeName
 
     -- * Destructuring the Response
-    , SetTopicAttributesResponse
     , setTopicAttributesResponse
+    , SetTopicAttributesResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -45,22 +45,25 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for SetTopicAttributes action.
 --
 -- /See:/ 'setTopicAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'staAttributeValue'
---
--- * 'staTopicARN'
---
--- * 'staAttributeName'
 data SetTopicAttributes = SetTopicAttributes'
     { _staAttributeValue :: !(Maybe Text)
     , _staTopicARN       :: !Text
     , _staAttributeName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetTopicAttributes' smart constructor.
-setTopicAttributes :: Text -> Text -> SetTopicAttributes
+-- | Creates a value of 'SetTopicAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'staAttributeValue'
+--
+-- * 'staTopicARN'
+--
+-- * 'staAttributeName'
+setTopicAttributes
+    :: Text -- ^ 'staTopicARN'
+    -> Text -- ^ 'staAttributeName'
+    -> SetTopicAttributes
 setTopicAttributes pTopicARN_ pAttributeName_ =
     SetTopicAttributes'
     { _staAttributeValue = Nothing
@@ -79,7 +82,7 @@ staTopicARN = lens _staTopicARN (\ s a -> s{_staTopicARN = a});
 -- | The name of the attribute you want to set. Only a subset of the topic\'s
 -- attributes are mutable.
 --
--- Valid values: @Policy@ | @DisplayName@ | @DeliveryPolicy@
+-- Valid values: 'Policy' | 'DisplayName' | 'DeliveryPolicy'
 staAttributeName :: Lens' SetTopicAttributes Text
 staAttributeName = lens _staAttributeName (\ s a -> s{_staAttributeName = a});
 
@@ -110,6 +113,8 @@ data SetTopicAttributesResponse =
     SetTopicAttributesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetTopicAttributesResponse' smart constructor.
-setTopicAttributesResponse :: SetTopicAttributesResponse
+-- | Creates a value of 'SetTopicAttributesResponse' with the minimum fields required to make a request.
+--
+setTopicAttributesResponse
+    :: SetTopicAttributesResponse
 setTopicAttributesResponse = SetTopicAttributesResponse'

@@ -20,36 +20,36 @@
 --
 -- Returns a set of temporary credentials for an AWS account or IAM user.
 -- The credentials consist of an access key ID, a secret access key, and a
--- security token. Typically, you use @GetSessionToken@ if you want to use
+-- security token. Typically, you use 'GetSessionToken' if you want to use
 -- MFA to protect programmatic calls to specific AWS APIs like Amazon EC2
--- @StopInstances@. MFA-enabled IAM users would need to call
--- @GetSessionToken@ and submit an MFA code that is associated with their
+-- 'StopInstances'. MFA-enabled IAM users would need to call
+-- 'GetSessionToken' and submit an MFA code that is associated with their
 -- MFA device. Using the temporary security credentials that are returned
 -- from the call, IAM users can then make programmatic calls to APIs that
 -- require MFA authentication.
 --
--- The @GetSessionToken@ action must be called by using the long-term AWS
+-- The 'GetSessionToken' action must be called by using the long-term AWS
 -- security credentials of the AWS account or an IAM user. Credentials that
 -- are created by IAM users are valid for the duration that you specify,
 -- between 900 seconds (15 minutes) and 129600 seconds (36 hours);
 -- credentials that are created by using account credentials have a maximum
 -- duration of 3600 seconds (1 hour).
 --
--- We recommend that you do not call @GetSessionToken@ with root account
+-- We recommend that you do not call 'GetSessionToken' with root account
 -- credentials. Instead, follow our
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html#create-iam-users best practices>
 -- by creating one or more IAM users, giving them the necessary
 -- permissions, and using IAM users for everyday interaction with AWS.
 --
 -- The permissions associated with the temporary security credentials
--- returned by @GetSessionToken@ are based on the permissions associated
+-- returned by 'GetSessionToken' are based on the permissions associated
 -- with account or IAM user whose credentials are used to call the action.
--- If @GetSessionToken@ is called using root account credentials, the
+-- If 'GetSessionToken' is called using root account credentials, the
 -- temporary credentials have root account permissions. Similarly, if
--- @GetSessionToken@ is called using the credentials of an IAM user, the
+-- 'GetSessionToken' is called using the credentials of an IAM user, the
 -- temporary credentials have the same permissions as the IAM user.
 --
--- For more information about using @GetSessionToken@ to create temporary
+-- For more information about using 'GetSessionToken' to create temporary
 -- credentials, go to
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSessionTokens.html Creating Temporary Credentials to Enable Access for IAM Users>.
 --
@@ -57,16 +57,16 @@
 module Network.AWS.STS.GetSessionToken
     (
     -- * Creating a Request
-      GetSessionToken
-    , getSessionToken
+      getSessionToken
+    , GetSessionToken
     -- * Request Lenses
     , gstTokenCode
     , gstDurationSeconds
     , gstSerialNumber
 
     -- * Destructuring the Response
-    , GetSessionTokenResponse
     , getSessionTokenResponse
+    , GetSessionTokenResponse
     -- * Response Lenses
     , gstrsCredentials
     , gstrsStatus
@@ -79,22 +79,23 @@ import           Network.AWS.STS.Types
 import           Network.AWS.STS.Types.Product
 
 -- | /See:/ 'getSessionToken' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gstTokenCode'
---
--- * 'gstDurationSeconds'
---
--- * 'gstSerialNumber'
 data GetSessionToken = GetSessionToken'
     { _gstTokenCode       :: !(Maybe Text)
     , _gstDurationSeconds :: !(Maybe Nat)
     , _gstSerialNumber    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSessionToken' smart constructor.
-getSessionToken :: GetSessionToken
+-- | Creates a value of 'GetSessionToken' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gstTokenCode'
+--
+-- * 'gstDurationSeconds'
+--
+-- * 'gstSerialNumber'
+getSessionToken
+    :: GetSessionToken
 getSessionToken =
     GetSessionToken'
     { _gstTokenCode = Nothing
@@ -121,11 +122,11 @@ gstDurationSeconds :: Lens' GetSessionToken (Maybe Natural)
 gstDurationSeconds = lens _gstDurationSeconds (\ s a -> s{_gstDurationSeconds = a}) . mapping _Nat;
 
 -- | The identification number of the MFA device that is associated with the
--- IAM user who is making the @GetSessionToken@ call. Specify this value if
+-- IAM user who is making the 'GetSessionToken' call. Specify this value if
 -- the IAM user has a policy that requires MFA authentication. The value is
--- either the serial number for a hardware device (such as @GAHT12345678@)
+-- either the serial number for a hardware device (such as 'GAHT12345678')
 -- or an Amazon Resource Name (ARN) for a virtual device (such as
--- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an
+-- 'arn:aws:iam::123456789012:mfa\/user'). You can find the device for an
 -- IAM user by going to the AWS Management Console and viewing the user\'s
 -- security credentials.
 gstSerialNumber :: Lens' GetSessionToken (Maybe Text)
@@ -160,19 +161,21 @@ instance ToQuery GetSessionToken where
 -- temporary AWS credentials that can be used to make AWS requests.
 --
 -- /See:/ 'getSessionTokenResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gstrsCredentials'
---
--- * 'gstrsStatus'
 data GetSessionTokenResponse = GetSessionTokenResponse'
     { _gstrsCredentials :: !(Maybe Credentials)
     , _gstrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSessionTokenResponse' smart constructor.
-getSessionTokenResponse :: Int -> GetSessionTokenResponse
+-- | Creates a value of 'GetSessionTokenResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gstrsCredentials'
+--
+-- * 'gstrsStatus'
+getSessionTokenResponse
+    :: Int -- ^ 'gstrsStatus'
+    -> GetSessionTokenResponse
 getSessionTokenResponse pStatus_ =
     GetSessionTokenResponse'
     { _gstrsCredentials = Nothing
@@ -183,6 +186,6 @@ getSessionTokenResponse pStatus_ =
 gstrsCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrsCredentials = lens _gstrsCredentials (\ s a -> s{_gstrsCredentials = a});
 
--- | Undocumented member.
+-- | The response status code.
 gstrsStatus :: Lens' GetSessionTokenResponse Int
 gstrsStatus = lens _gstrsStatus (\ s a -> s{_gstrsStatus = a});

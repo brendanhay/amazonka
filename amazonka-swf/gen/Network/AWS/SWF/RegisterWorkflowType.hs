@@ -24,7 +24,7 @@
 -- The retention period for the workflow history is set by the
 -- RegisterDomain action.
 --
--- If the type already exists, then a @TypeAlreadyExists@ fault is
+-- If the type already exists, then a 'TypeAlreadyExists' fault is
 -- returned. You cannot change the configuration settings of a workflow
 -- type once it is registered and it must be registered as a new version.
 --
@@ -33,16 +33,16 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
--- -   Constrain the following parameters by using a @Condition@ element
+-- -   Constrain the following parameters by using a 'Condition' element
 --     with the appropriate keys.
---     -   @defaultTaskList.name@: String constraint. The key is
---         @swf:defaultTaskList.name@.
---     -   @name@: String constraint. The key is @swf:name@.
---     -   @version@: String constraint. The key is @swf:version@.
+--     -   'defaultTaskList.name': String constraint. The key is
+--         'swf:defaultTaskList.name'.
+--     -   'name': String constraint. The key is 'swf:name'.
+--     -   'version': String constraint. The key is 'swf:version'.
 --
 -- If the caller does not have sufficient permissions to invoke the action,
 -- or the parameter values fall outside the specified constraints, the
@@ -55,8 +55,8 @@
 module Network.AWS.SWF.RegisterWorkflowType
     (
     -- * Creating a Request
-      RegisterWorkflowType
-    , registerWorkflowType
+      registerWorkflowType
+    , RegisterWorkflowType
     -- * Request Lenses
     , rwtDefaultLambdaRole
     , rwtDefaultChildPolicy
@@ -70,8 +70,8 @@ module Network.AWS.SWF.RegisterWorkflowType
     , rwtVersion
 
     -- * Destructuring the Response
-    , RegisterWorkflowTypeResponse
     , registerWorkflowTypeResponse
+    , RegisterWorkflowTypeResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -81,8 +81,22 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'registerWorkflowType' smart constructor.
+data RegisterWorkflowType = RegisterWorkflowType'
+    { _rwtDefaultLambdaRole                   :: !(Maybe Text)
+    , _rwtDefaultChildPolicy                  :: !(Maybe ChildPolicy)
+    , _rwtDefaultTaskList                     :: !(Maybe TaskList)
+    , _rwtDefaultTaskPriority                 :: !(Maybe Text)
+    , _rwtDefaultExecutionStartToCloseTimeout :: !(Maybe Text)
+    , _rwtDefaultTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _rwtDescription                         :: !(Maybe Text)
+    , _rwtDomain                              :: !Text
+    , _rwtName                                :: !Text
+    , _rwtVersion                             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RegisterWorkflowType' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rwtDefaultLambdaRole'
 --
@@ -103,21 +117,11 @@ import           Network.AWS.SWF.Types.Product
 -- * 'rwtName'
 --
 -- * 'rwtVersion'
-data RegisterWorkflowType = RegisterWorkflowType'
-    { _rwtDefaultLambdaRole                   :: !(Maybe Text)
-    , _rwtDefaultChildPolicy                  :: !(Maybe ChildPolicy)
-    , _rwtDefaultTaskList                     :: !(Maybe TaskList)
-    , _rwtDefaultTaskPriority                 :: !(Maybe Text)
-    , _rwtDefaultExecutionStartToCloseTimeout :: !(Maybe Text)
-    , _rwtDefaultTaskStartToCloseTimeout      :: !(Maybe Text)
-    , _rwtDescription                         :: !(Maybe Text)
-    , _rwtDomain                              :: !Text
-    , _rwtName                                :: !Text
-    , _rwtVersion                             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RegisterWorkflowType' smart constructor.
-registerWorkflowType :: Text -> Text -> Text -> RegisterWorkflowType
+registerWorkflowType
+    :: Text -- ^ 'rwtDomain'
+    -> Text -- ^ 'rwtName'
+    -> Text -- ^ 'rwtVersion'
+    -> RegisterWorkflowType
 registerWorkflowType pDomain_ pName_ pVersion_ =
     RegisterWorkflowType'
     { _rwtDefaultLambdaRole = Nothing
@@ -136,8 +140,8 @@ registerWorkflowType pDomain_ pName_ pVersion_ =
 -- type invokes AWS Lambda functions.
 --
 -- This default can be overridden when starting a workflow execution using
--- the StartWorkflowExecution action or the @StartChildWorkflowExecution@
--- and @ContinueAsNewWorkflowExecution@ decision.
+-- the StartWorkflowExecution action or the 'StartChildWorkflowExecution'
+-- and 'ContinueAsNewWorkflowExecution' decision.
 rwtDefaultLambdaRole :: Lens' RegisterWorkflowType (Maybe Text)
 rwtDefaultLambdaRole = lens _rwtDefaultLambdaRole (\ s a -> s{_rwtDefaultLambdaRole = a});
 
@@ -146,13 +150,13 @@ rwtDefaultLambdaRole = lens _rwtDefaultLambdaRole (\ s a -> s{_rwtDefaultLambdaR
 -- calling the TerminateWorkflowExecution action explicitly or due to an
 -- expired timeout. This default can be overridden when starting a workflow
 -- execution using the StartWorkflowExecution action or the
--- @StartChildWorkflowExecution@ decision.
+-- 'StartChildWorkflowExecution' decision.
 --
 -- The supported child policies are:
 --
 -- -   __TERMINATE:__ the child executions will be terminated.
 -- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each
---     child execution by recording a @WorkflowExecutionCancelRequested@
+--     child execution by recording a 'WorkflowExecutionCancelRequested'
 --     event in its history. It is up to the decider to take appropriate
 --     actions when it receives an execution history with this event.
 -- -   __ABANDON:__ no action will be taken. The child executions will
@@ -163,13 +167,13 @@ rwtDefaultChildPolicy = lens _rwtDefaultChildPolicy (\ s a -> s{_rwtDefaultChild
 -- | If set, specifies the default task list to use for scheduling decision
 -- tasks for executions of this workflow type. This default is used only if
 -- a task list is not provided when starting the execution through the
--- StartWorkflowExecution action or @StartChildWorkflowExecution@ decision.
+-- StartWorkflowExecution action or 'StartChildWorkflowExecution' decision.
 rwtDefaultTaskList :: Lens' RegisterWorkflowType (Maybe TaskList)
 rwtDefaultTaskList = lens _rwtDefaultTaskList (\ s a -> s{_rwtDefaultTaskList = a});
 
 -- | The default task priority to assign to the workflow type. If not
 -- assigned, then \"0\" will be used. Valid values are integers that range
--- from Java\'s @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@
+-- from Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE'
 -- (2147483647). Higher numbers indicate higher priority.
 --
 -- For more information about setting task priority, see
@@ -181,12 +185,12 @@ rwtDefaultTaskPriority = lens _rwtDefaultTaskPriority (\ s a -> s{_rwtDefaultTas
 -- | If set, specifies the default maximum duration for executions of this
 -- workflow type. You can override this default when starting an execution
 -- through the StartWorkflowExecution action or
--- @StartChildWorkflowExecution@ decision.
+-- 'StartChildWorkflowExecution' decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. Unlike some of the other timeout parameters in Amazon SWF, you
 -- cannot specify a value of \"NONE\" for
--- @defaultExecutionStartToCloseTimeout@; there is a one-year max limit on
+-- 'defaultExecutionStartToCloseTimeout'; there is a one-year max limit on
 -- the time that a workflow execution can run. Exceeding this limit will
 -- always cause the workflow execution to time out.
 rwtDefaultExecutionStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
@@ -195,7 +199,7 @@ rwtDefaultExecutionStartToCloseTimeout = lens _rwtDefaultExecutionStartToCloseTi
 -- | If set, specifies the default maximum duration of decision tasks for
 -- this workflow type. This default can be overridden when starting a
 -- workflow execution using the StartWorkflowExecution action or the
--- @StartChildWorkflowExecution@ decision.
+-- 'StartChildWorkflowExecution' decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -213,7 +217,7 @@ rwtDomain = lens _rwtDomain (\ s a -> s{_rwtDomain = a});
 -- | The name of the workflow type.
 --
 -- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
+-- contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
 rwtName :: Lens' RegisterWorkflowType Text
@@ -226,7 +230,7 @@ rwtName = lens _rwtName (\ s a -> s{_rwtName = a});
 -- registered workflow types, use the ListWorkflowTypes action.
 --
 -- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
+-- contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
 rwtVersion :: Lens' RegisterWorkflowType Text
@@ -275,6 +279,8 @@ data RegisterWorkflowTypeResponse =
     RegisterWorkflowTypeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterWorkflowTypeResponse' smart constructor.
-registerWorkflowTypeResponse :: RegisterWorkflowTypeResponse
+-- | Creates a value of 'RegisterWorkflowTypeResponse' with the minimum fields required to make a request.
+--
+registerWorkflowTypeResponse
+    :: RegisterWorkflowTypeResponse
 registerWorkflowTypeResponse = RegisterWorkflowTypeResponse'

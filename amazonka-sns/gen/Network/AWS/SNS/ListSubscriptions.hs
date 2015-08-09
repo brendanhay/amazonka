@@ -20,21 +20,23 @@
 --
 -- Returns a list of the requester\'s subscriptions. Each call returns a
 -- limited list of subscriptions, up to 100. If there are more
--- subscriptions, a @NextToken@ is also returned. Use the @NextToken@
--- parameter in a new @ListSubscriptions@ call to get further results.
+-- subscriptions, a 'NextToken' is also returned. Use the 'NextToken'
+-- parameter in a new 'ListSubscriptions' call to get further results.
 --
 -- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptions.html AWS API Reference> for ListSubscriptions.
+--
+-- This operation returns paginated results.
 module Network.AWS.SNS.ListSubscriptions
     (
     -- * Creating a Request
-      ListSubscriptions
-    , listSubscriptions
+      listSubscriptions
+    , ListSubscriptions
     -- * Request Lenses
     , lsNextToken
 
     -- * Destructuring the Response
-    , ListSubscriptionsResponse
     , listSubscriptionsResponse
+    , ListSubscriptionsResponse
     -- * Response Lenses
     , lsrsNextToken
     , lsrsSubscriptions
@@ -51,22 +53,23 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for ListSubscriptions action.
 --
 -- /See:/ 'listSubscriptions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsNextToken'
 newtype ListSubscriptions = ListSubscriptions'
     { _lsNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListSubscriptions' smart constructor.
-listSubscriptions :: ListSubscriptions
+-- | Creates a value of 'ListSubscriptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsNextToken'
+listSubscriptions
+    :: ListSubscriptions
 listSubscriptions =
     ListSubscriptions'
     { _lsNextToken = Nothing
     }
 
--- | Token returned by the previous @ListSubscriptions@ request.
+-- | Token returned by the previous 'ListSubscriptions' request.
 lsNextToken :: Lens' ListSubscriptions (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
@@ -106,22 +109,24 @@ instance ToQuery ListSubscriptions where
 -- | Response for ListSubscriptions action
 --
 -- /See:/ 'listSubscriptionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsrsNextToken'
---
--- * 'lsrsSubscriptions'
---
--- * 'lsrsStatus'
 data ListSubscriptionsResponse = ListSubscriptionsResponse'
     { _lsrsNextToken     :: !(Maybe Text)
     , _lsrsSubscriptions :: !(Maybe [Subscription])
     , _lsrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListSubscriptionsResponse' smart constructor.
-listSubscriptionsResponse :: Int -> ListSubscriptionsResponse
+-- | Creates a value of 'ListSubscriptionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsrsNextToken'
+--
+-- * 'lsrsSubscriptions'
+--
+-- * 'lsrsStatus'
+listSubscriptionsResponse
+    :: Int -- ^ 'lsrsStatus'
+    -> ListSubscriptionsResponse
 listSubscriptionsResponse pStatus_ =
     ListSubscriptionsResponse'
     { _lsrsNextToken = Nothing
@@ -129,7 +134,7 @@ listSubscriptionsResponse pStatus_ =
     , _lsrsStatus = pStatus_
     }
 
--- | Token to pass along to the next @ListSubscriptions@ request. This
+-- | Token to pass along to the next 'ListSubscriptions' request. This
 -- element is returned if there are more subscriptions to retrieve.
 lsrsNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
 lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
@@ -138,6 +143,6 @@ lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 lsrsSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
 lsrsSubscriptions = lens _lsrsSubscriptions (\ s a -> s{_lsrsSubscriptions = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lsrsStatus :: Lens' ListSubscriptionsResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

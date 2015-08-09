@@ -47,15 +47,15 @@
 module Network.AWS.IAM.CreateSAMLProvider
     (
     -- * Creating a Request
-      CreateSAMLProvider
-    , createSAMLProvider
+      createSAMLProvider
+    , CreateSAMLProvider
     -- * Request Lenses
     , csamlpSAMLMetadataDocument
     , csamlpName
 
     -- * Destructuring the Response
-    , CreateSAMLProviderResponse
     , createSAMLProviderResponse
+    , CreateSAMLProviderResponse
     -- * Response Lenses
     , csamlprsSAMLProviderARN
     , csamlprsStatus
@@ -68,19 +68,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createSAMLProvider' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csamlpSAMLMetadataDocument'
---
--- * 'csamlpName'
 data CreateSAMLProvider = CreateSAMLProvider'
     { _csamlpSAMLMetadataDocument :: !Text
     , _csamlpName                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSAMLProvider' smart constructor.
-createSAMLProvider :: Text -> Text -> CreateSAMLProvider
+-- | Creates a value of 'CreateSAMLProvider' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csamlpSAMLMetadataDocument'
+--
+-- * 'csamlpName'
+createSAMLProvider
+    :: Text -- ^ 'csamlpSAMLMetadataDocument'
+    -> Text -- ^ 'csamlpName'
+    -> CreateSAMLProvider
 createSAMLProvider pSAMLMetadataDocument_ pName_ =
     CreateSAMLProvider'
     { _csamlpSAMLMetadataDocument = pSAMLMetadataDocument_
@@ -133,19 +136,21 @@ instance ToQuery CreateSAMLProvider where
 -- | Contains the response to a successful CreateSAMLProvider request.
 --
 -- /See:/ 'createSAMLProviderResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csamlprsSAMLProviderARN'
---
--- * 'csamlprsStatus'
 data CreateSAMLProviderResponse = CreateSAMLProviderResponse'
     { _csamlprsSAMLProviderARN :: !(Maybe Text)
     , _csamlprsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSAMLProviderResponse' smart constructor.
-createSAMLProviderResponse :: Int -> CreateSAMLProviderResponse
+-- | Creates a value of 'CreateSAMLProviderResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csamlprsSAMLProviderARN'
+--
+-- * 'csamlprsStatus'
+createSAMLProviderResponse
+    :: Int -- ^ 'csamlprsStatus'
+    -> CreateSAMLProviderResponse
 createSAMLProviderResponse pStatus_ =
     CreateSAMLProviderResponse'
     { _csamlprsSAMLProviderARN = Nothing
@@ -156,6 +161,6 @@ createSAMLProviderResponse pStatus_ =
 csamlprsSAMLProviderARN :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlprsSAMLProviderARN = lens _csamlprsSAMLProviderARN (\ s a -> s{_csamlprsSAMLProviderARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 csamlprsStatus :: Lens' CreateSAMLProviderResponse Int
 csamlprsStatus = lens _csamlprsStatus (\ s a -> s{_csamlprsStatus = a});

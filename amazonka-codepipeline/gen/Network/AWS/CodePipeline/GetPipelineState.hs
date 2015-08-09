@@ -25,14 +25,14 @@
 module Network.AWS.CodePipeline.GetPipelineState
     (
     -- * Creating a Request
-      GetPipelineState
-    , getPipelineState
+      getPipelineState
+    , GetPipelineState
     -- * Request Lenses
     , gpsName
 
     -- * Destructuring the Response
-    , GetPipelineStateResponse
     , getPipelineStateResponse
+    , GetPipelineStateResponse
     -- * Response Lenses
     , gpsrsPipelineName
     , gpsrsPipelineVersion
@@ -51,16 +51,18 @@ import           Network.AWS.Response
 -- | Represents the input of a get pipeline state action.
 --
 -- /See:/ 'getPipelineState' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gpsName'
 newtype GetPipelineState = GetPipelineState'
     { _gpsName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPipelineState' smart constructor.
-getPipelineState :: Text -> GetPipelineState
+-- | Creates a value of 'GetPipelineState' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpsName'
+getPipelineState
+    :: Text -- ^ 'gpsName'
+    -> GetPipelineState
 getPipelineState pName_ =
     GetPipelineState'
     { _gpsName = pName_
@@ -107,8 +109,18 @@ instance ToQuery GetPipelineState where
 -- | Represents the output of a get pipeline state action.
 --
 -- /See:/ 'getPipelineStateResponse' smart constructor.
+data GetPipelineStateResponse = GetPipelineStateResponse'
+    { _gpsrsPipelineName    :: !(Maybe Text)
+    , _gpsrsPipelineVersion :: !(Maybe Nat)
+    , _gpsrsCreated         :: !(Maybe POSIX)
+    , _gpsrsStageStates     :: !(Maybe [StageState])
+    , _gpsrsUpdated         :: !(Maybe POSIX)
+    , _gpsrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetPipelineStateResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gpsrsPipelineName'
 --
@@ -121,17 +133,9 @@ instance ToQuery GetPipelineState where
 -- * 'gpsrsUpdated'
 --
 -- * 'gpsrsStatus'
-data GetPipelineStateResponse = GetPipelineStateResponse'
-    { _gpsrsPipelineName    :: !(Maybe Text)
-    , _gpsrsPipelineVersion :: !(Maybe Nat)
-    , _gpsrsCreated         :: !(Maybe POSIX)
-    , _gpsrsStageStates     :: !(Maybe [StageState])
-    , _gpsrsUpdated         :: !(Maybe POSIX)
-    , _gpsrsStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetPipelineStateResponse' smart constructor.
-getPipelineStateResponse :: Int -> GetPipelineStateResponse
+getPipelineStateResponse
+    :: Int -- ^ 'gpsrsStatus'
+    -> GetPipelineStateResponse
 getPipelineStateResponse pStatus_ =
     GetPipelineStateResponse'
     { _gpsrsPipelineName = Nothing
@@ -148,7 +152,7 @@ gpsrsPipelineName = lens _gpsrsPipelineName (\ s a -> s{_gpsrsPipelineName = a})
 
 -- | The version number of the pipeline.
 --
--- A newly-created pipeline is always assigned a version number of @1@.
+-- A newly-created pipeline is always assigned a version number of '1'.
 gpsrsPipelineVersion :: Lens' GetPipelineStateResponse (Maybe Natural)
 gpsrsPipelineVersion = lens _gpsrsPipelineVersion (\ s a -> s{_gpsrsPipelineVersion = a}) . mapping _Nat;
 
@@ -166,6 +170,6 @@ gpsrsStageStates = lens _gpsrsStageStates (\ s a -> s{_gpsrsStageStates = a}) . 
 gpsrsUpdated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
 gpsrsUpdated = lens _gpsrsUpdated (\ s a -> s{_gpsrsUpdated = a}) . mapping _Time;
 
--- | Undocumented member.
+-- | The response status code.
 gpsrsStatus :: Lens' GetPipelineStateResponse Int
 gpsrsStatus = lens _gpsrsStatus (\ s a -> s{_gpsrsStatus = a});

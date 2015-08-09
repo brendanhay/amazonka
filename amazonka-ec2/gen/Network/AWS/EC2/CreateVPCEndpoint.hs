@@ -30,8 +30,8 @@
 module Network.AWS.EC2.CreateVPCEndpoint
     (
     -- * Creating a Request
-      CreateVPCEndpoint
-    , createVPCEndpoint
+      createVPCEndpoint
+    , CreateVPCEndpoint
     -- * Request Lenses
     , cvePolicyDocument
     , cveClientToken
@@ -41,8 +41,8 @@ module Network.AWS.EC2.CreateVPCEndpoint
     , cveServiceName
 
     -- * Destructuring the Response
-    , CreateVPCEndpointResponse
     , createVPCEndpointResponse
+    , CreateVPCEndpointResponse
     -- * Response Lenses
     , cversClientToken
     , cversVPCEndpoint
@@ -56,8 +56,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createVPCEndpoint' smart constructor.
+data CreateVPCEndpoint = CreateVPCEndpoint'
+    { _cvePolicyDocument :: !(Maybe Text)
+    , _cveClientToken    :: !(Maybe Text)
+    , _cveDryRun         :: !(Maybe Bool)
+    , _cveRouteTableIds  :: !(Maybe [Text])
+    , _cveVPCId          :: !Text
+    , _cveServiceName    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateVPCEndpoint' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cvePolicyDocument'
 --
@@ -70,17 +80,10 @@ import           Network.AWS.Response
 -- * 'cveVPCId'
 --
 -- * 'cveServiceName'
-data CreateVPCEndpoint = CreateVPCEndpoint'
-    { _cvePolicyDocument :: !(Maybe Text)
-    , _cveClientToken    :: !(Maybe Text)
-    , _cveDryRun         :: !(Maybe Bool)
-    , _cveRouteTableIds  :: !(Maybe [Text])
-    , _cveVPCId          :: !Text
-    , _cveServiceName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateVPCEndpoint' smart constructor.
-createVPCEndpoint :: Text -> Text -> CreateVPCEndpoint
+createVPCEndpoint
+    :: Text -- ^ 'cveVPCId'
+    -> Text -- ^ 'cveServiceName'
+    -> CreateVPCEndpoint
 createVPCEndpoint pVPCId_ pServiceName_ =
     CreateVPCEndpoint'
     { _cvePolicyDocument = Nothing
@@ -106,8 +109,8 @@ cveClientToken = lens _cveClientToken (\ s a -> s{_cveClientToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cveDryRun :: Lens' CreateVPCEndpoint (Maybe Bool)
 cveDryRun = lens _cveDryRun (\ s a -> s{_cveDryRun = a});
 
@@ -119,7 +122,7 @@ cveRouteTableIds = lens _cveRouteTableIds (\ s a -> s{_cveRouteTableIds = a}) . 
 cveVPCId :: Lens' CreateVPCEndpoint Text
 cveVPCId = lens _cveVPCId (\ s a -> s{_cveVPCId = a});
 
--- | The AWS service name, in the form @com.amazonaws.region.service@. To get
+-- | The AWS service name, in the form 'com.amazonaws.region.service'. To get
 -- a list of available services, use the DescribeVpcEndpointServices
 -- request.
 cveServiceName :: Lens' CreateVPCEndpoint Text
@@ -155,22 +158,24 @@ instance ToQuery CreateVPCEndpoint where
                "ServiceName" =: _cveServiceName]
 
 -- | /See:/ 'createVPCEndpointResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cversClientToken'
---
--- * 'cversVPCEndpoint'
---
--- * 'cversStatus'
 data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
     { _cversClientToken :: !(Maybe Text)
     , _cversVPCEndpoint :: !(Maybe VPCEndpoint)
     , _cversStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVPCEndpointResponse' smart constructor.
-createVPCEndpointResponse :: Int -> CreateVPCEndpointResponse
+-- | Creates a value of 'CreateVPCEndpointResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cversClientToken'
+--
+-- * 'cversVPCEndpoint'
+--
+-- * 'cversStatus'
+createVPCEndpointResponse
+    :: Int -- ^ 'cversStatus'
+    -> CreateVPCEndpointResponse
 createVPCEndpointResponse pStatus_ =
     CreateVPCEndpointResponse'
     { _cversClientToken = Nothing
@@ -187,6 +192,6 @@ cversClientToken = lens _cversClientToken (\ s a -> s{_cversClientToken = a});
 cversVPCEndpoint :: Lens' CreateVPCEndpointResponse (Maybe VPCEndpoint)
 cversVPCEndpoint = lens _cversVPCEndpoint (\ s a -> s{_cversVPCEndpoint = a});
 
--- | Undocumented member.
+-- | The response status code.
 cversStatus :: Lens' CreateVPCEndpointResponse Int
 cversStatus = lens _cversStatus (\ s a -> s{_cversStatus = a});

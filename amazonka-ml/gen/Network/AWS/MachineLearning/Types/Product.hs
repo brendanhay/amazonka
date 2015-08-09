@@ -27,8 +27,23 @@ import           Network.AWS.Prelude
 -- file information of a /Batch Prediction/.
 --
 -- /See:/ 'batchPrediction' smart constructor.
+data BatchPrediction = BatchPrediction'
+    { _bpStatus                      :: !(Maybe EntityStatus)
+    , _bpLastUpdatedAt               :: !(Maybe POSIX)
+    , _bpCreatedAt                   :: !(Maybe POSIX)
+    , _bpInputDataLocationS3         :: !(Maybe Text)
+    , _bpMLModelId                   :: !(Maybe Text)
+    , _bpBatchPredictionDataSourceId :: !(Maybe Text)
+    , _bpBatchPredictionId           :: !(Maybe Text)
+    , _bpName                        :: !(Maybe Text)
+    , _bpCreatedByIAMUser            :: !(Maybe Text)
+    , _bpMessage                     :: !(Maybe Text)
+    , _bpOutputURI                   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BatchPrediction' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'bpStatus'
 --
@@ -51,22 +66,8 @@ import           Network.AWS.Prelude
 -- * 'bpMessage'
 --
 -- * 'bpOutputURI'
-data BatchPrediction = BatchPrediction'
-    { _bpStatus                      :: !(Maybe EntityStatus)
-    , _bpLastUpdatedAt               :: !(Maybe POSIX)
-    , _bpCreatedAt                   :: !(Maybe POSIX)
-    , _bpInputDataLocationS3         :: !(Maybe Text)
-    , _bpMLModelId                   :: !(Maybe Text)
-    , _bpBatchPredictionDataSourceId :: !(Maybe Text)
-    , _bpBatchPredictionId           :: !(Maybe Text)
-    , _bpName                        :: !(Maybe Text)
-    , _bpCreatedByIAMUser            :: !(Maybe Text)
-    , _bpMessage                     :: !(Maybe Text)
-    , _bpOutputURI                   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'BatchPrediction' smart constructor.
-batchPrediction :: BatchPrediction
+batchPrediction
+    :: BatchPrediction
 batchPrediction =
     BatchPrediction'
     { _bpStatus = Nothing
@@ -82,26 +83,26 @@ batchPrediction =
     , _bpOutputURI = Nothing
     }
 
--- | The status of the @BatchPrediction@. This element can have one of the
+-- | The status of the 'BatchPrediction'. This element can have one of the
 -- following values:
 --
--- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
+-- -   'PENDING' - Amazon Machine Learning (Amazon ML) submitted a request
 --     to generate predictions for a batch of observations.
--- -   @INPROGRESS@ - The process is underway.
--- -   @FAILED@ - The request to peform a batch prediction did not run to
+-- -   'INPROGRESS' - The process is underway.
+-- -   'FAILED' - The request to peform a batch prediction did not run to
 --     completion. It is not usable.
--- -   @COMPLETED@ - The batch prediction process completed successfully.
--- -   @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not
+-- -   'COMPLETED' - The batch prediction process completed successfully.
+-- -   'DELETED' - The 'BatchPrediction' is marked as deleted. It is not
 --     usable.
 bpStatus :: Lens' BatchPrediction (Maybe EntityStatus)
 bpStatus = lens _bpStatus (\ s a -> s{_bpStatus = a});
 
--- | The time of the most recent edit to the @BatchPrediction@. The time is
+-- | The time of the most recent edit to the 'BatchPrediction'. The time is
 -- expressed in epoch time.
 bpLastUpdatedAt :: Lens' BatchPrediction (Maybe UTCTime)
 bpLastUpdatedAt = lens _bpLastUpdatedAt (\ s a -> s{_bpLastUpdatedAt = a}) . mapping _Time;
 
--- | The time that the @BatchPrediction@ was created. The time is expressed
+-- | The time that the 'BatchPrediction' was created. The time is expressed
 -- in epoch time.
 bpCreatedAt :: Lens' BatchPrediction (Maybe UTCTime)
 bpCreatedAt = lens _bpCreatedAt (\ s a -> s{_bpCreatedAt = a}) . mapping _Time;
@@ -111,26 +112,26 @@ bpCreatedAt = lens _bpCreatedAt (\ s a -> s{_bpCreatedAt = a}) . mapping _Time;
 bpInputDataLocationS3 :: Lens' BatchPrediction (Maybe Text)
 bpInputDataLocationS3 = lens _bpInputDataLocationS3 (\ s a -> s{_bpInputDataLocationS3 = a});
 
--- | The ID of the @MLModel@ that generated predictions for the
--- @BatchPrediction@ request.
+-- | The ID of the 'MLModel' that generated predictions for the
+-- 'BatchPrediction' request.
 bpMLModelId :: Lens' BatchPrediction (Maybe Text)
 bpMLModelId = lens _bpMLModelId (\ s a -> s{_bpMLModelId = a});
 
--- | The ID of the @DataSource@ that points to the group of observations to
+-- | The ID of the 'DataSource' that points to the group of observations to
 -- predict.
 bpBatchPredictionDataSourceId :: Lens' BatchPrediction (Maybe Text)
 bpBatchPredictionDataSourceId = lens _bpBatchPredictionDataSourceId (\ s a -> s{_bpBatchPredictionDataSourceId = a});
 
--- | The ID assigned to the @BatchPrediction@ at creation. This value should
--- be identical to the value of the @BatchPredictionID@ in the request.
+-- | The ID assigned to the 'BatchPrediction' at creation. This value should
+-- be identical to the value of the 'BatchPredictionID' in the request.
 bpBatchPredictionId :: Lens' BatchPrediction (Maybe Text)
 bpBatchPredictionId = lens _bpBatchPredictionId (\ s a -> s{_bpBatchPredictionId = a});
 
--- | A user-supplied name or description of the @BatchPrediction@.
+-- | A user-supplied name or description of the 'BatchPrediction'.
 bpName :: Lens' BatchPrediction (Maybe Text)
 bpName = lens _bpName (\ s a -> s{_bpName = a});
 
--- | The AWS user account that invoked the @BatchPrediction@. The account
+-- | The AWS user account that invoked the 'BatchPrediction'. The account
 -- type can be either an AWS root account or an AWS Identity and Access
 -- Management (IAM) user account.
 bpCreatedByIAMUser :: Lens' BatchPrediction (Maybe Text)
@@ -167,11 +168,30 @@ instance FromJSON BatchPrediction where
 -- | Represents the output of the GetDataSource operation.
 --
 -- The content consists of the detailed metadata and data file information
--- and the current status of the @DataSource@.
+-- and the current status of the 'DataSource'.
 --
 -- /See:/ 'dataSource' smart constructor.
+data DataSource = DataSource'
+    { _dsStatus            :: !(Maybe EntityStatus)
+    , _dsNumberOfFiles     :: !(Maybe Integer)
+    , _dsLastUpdatedAt     :: !(Maybe POSIX)
+    , _dsCreatedAt         :: !(Maybe POSIX)
+    , _dsRDSMetadata       :: !(Maybe RDSMetadata)
+    , _dsDataSourceId      :: !(Maybe Text)
+    , _dsDataSizeInBytes   :: !(Maybe Integer)
+    , _dsName              :: !(Maybe Text)
+    , _dsCreatedByIAMUser  :: !(Maybe Text)
+    , _dsDataLocationS3    :: !(Maybe Text)
+    , _dsComputeStatistics :: !(Maybe Bool)
+    , _dsMessage           :: !(Maybe Text)
+    , _dsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
+    , _dsRoleARN           :: !(Maybe Text)
+    , _dsDataRearrangement :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DataSource' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsStatus'
 --
@@ -202,26 +222,8 @@ instance FromJSON BatchPrediction where
 -- * 'dsRoleARN'
 --
 -- * 'dsDataRearrangement'
-data DataSource = DataSource'
-    { _dsStatus            :: !(Maybe EntityStatus)
-    , _dsNumberOfFiles     :: !(Maybe Integer)
-    , _dsLastUpdatedAt     :: !(Maybe POSIX)
-    , _dsCreatedAt         :: !(Maybe POSIX)
-    , _dsRDSMetadata       :: !(Maybe RDSMetadata)
-    , _dsDataSourceId      :: !(Maybe Text)
-    , _dsDataSizeInBytes   :: !(Maybe Integer)
-    , _dsName              :: !(Maybe Text)
-    , _dsCreatedByIAMUser  :: !(Maybe Text)
-    , _dsDataLocationS3    :: !(Maybe Text)
-    , _dsComputeStatistics :: !(Maybe Bool)
-    , _dsMessage           :: !(Maybe Text)
-    , _dsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
-    , _dsRoleARN           :: !(Maybe Text)
-    , _dsDataRearrangement :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DataSource' smart constructor.
-dataSource :: DataSource
+dataSource
+    :: DataSource
 dataSource =
     DataSource'
     { _dsStatus = Nothing
@@ -241,29 +243,29 @@ dataSource =
     , _dsDataRearrangement = Nothing
     }
 
--- | The current status of the @DataSource@. This element can have one of the
+-- | The current status of the 'DataSource'. This element can have one of the
 -- following values:
 --
 -- -   PENDING - Amazon Machine Learning (Amazon ML) submitted a request to
---     create a @DataSource@.
+--     create a 'DataSource'.
 -- -   INPROGRESS - The creation process is underway.
--- -   FAILED - The request to create a @DataSource@ did not run to
+-- -   FAILED - The request to create a 'DataSource' did not run to
 --     completion. It is not usable.
 -- -   COMPLETED - The creation process completed successfully.
--- -   DELETED - The @DataSource@ is marked as deleted. It is not usable.
+-- -   DELETED - The 'DataSource' is marked as deleted. It is not usable.
 dsStatus :: Lens' DataSource (Maybe EntityStatus)
 dsStatus = lens _dsStatus (\ s a -> s{_dsStatus = a});
 
--- | The number of data files referenced by the @DataSource@.
+-- | The number of data files referenced by the 'DataSource'.
 dsNumberOfFiles :: Lens' DataSource (Maybe Integer)
 dsNumberOfFiles = lens _dsNumberOfFiles (\ s a -> s{_dsNumberOfFiles = a});
 
--- | The time of the most recent edit to the @BatchPrediction@. The time is
+-- | The time of the most recent edit to the 'BatchPrediction'. The time is
 -- expressed in epoch time.
 dsLastUpdatedAt :: Lens' DataSource (Maybe UTCTime)
 dsLastUpdatedAt = lens _dsLastUpdatedAt (\ s a -> s{_dsLastUpdatedAt = a}) . mapping _Time;
 
--- | The time that the @DataSource@ was created. The time is expressed in
+-- | The time that the 'DataSource' was created. The time is expressed in
 -- epoch time.
 dsCreatedAt :: Lens' DataSource (Maybe UTCTime)
 dsCreatedAt = lens _dsCreatedAt (\ s a -> s{_dsCreatedAt = a}) . mapping _Time;
@@ -272,37 +274,37 @@ dsCreatedAt = lens _dsCreatedAt (\ s a -> s{_dsCreatedAt = a}) . mapping _Time;
 dsRDSMetadata :: Lens' DataSource (Maybe RDSMetadata)
 dsRDSMetadata = lens _dsRDSMetadata (\ s a -> s{_dsRDSMetadata = a});
 
--- | The ID that is assigned to the @DataSource@ during creation.
+-- | The ID that is assigned to the 'DataSource' during creation.
 dsDataSourceId :: Lens' DataSource (Maybe Text)
 dsDataSourceId = lens _dsDataSourceId (\ s a -> s{_dsDataSourceId = a});
 
 -- | The total number of observations contained in the data files that the
--- @DataSource@ references.
+-- 'DataSource' references.
 dsDataSizeInBytes :: Lens' DataSource (Maybe Integer)
 dsDataSizeInBytes = lens _dsDataSizeInBytes (\ s a -> s{_dsDataSizeInBytes = a});
 
--- | A user-supplied name or description of the @DataSource@.
+-- | A user-supplied name or description of the 'DataSource'.
 dsName :: Lens' DataSource (Maybe Text)
 dsName = lens _dsName (\ s a -> s{_dsName = a});
 
--- | The AWS user account from which the @DataSource@ was created. The
+-- | The AWS user account from which the 'DataSource' was created. The
 -- account type can be either an AWS root account or an AWS Identity and
 -- Access Management (IAM) user account.
 dsCreatedByIAMUser :: Lens' DataSource (Maybe Text)
 dsCreatedByIAMUser = lens _dsCreatedByIAMUser (\ s a -> s{_dsCreatedByIAMUser = a});
 
 -- | The location and name of the data in Amazon Simple Storage Service
--- (Amazon S3) that is used by a @DataSource@.
+-- (Amazon S3) that is used by a 'DataSource'.
 dsDataLocationS3 :: Lens' DataSource (Maybe Text)
 dsDataLocationS3 = lens _dsDataLocationS3 (\ s a -> s{_dsDataLocationS3 = a});
 
--- | The parameter is @true@ if statistics need to be generated from the
+-- | The parameter is 'true' if statistics need to be generated from the
 -- observation data.
 dsComputeStatistics :: Lens' DataSource (Maybe Bool)
 dsComputeStatistics = lens _dsComputeStatistics (\ s a -> s{_dsComputeStatistics = a});
 
 -- | A description of the most recent details about creating the
--- @DataSource@.
+-- 'DataSource'.
 dsMessage :: Lens' DataSource (Maybe Text)
 dsMessage = lens _dsMessage (\ s a -> s{_dsMessage = a});
 
@@ -315,7 +317,7 @@ dsRoleARN :: Lens' DataSource (Maybe Text)
 dsRoleARN = lens _dsRoleARN (\ s a -> s{_dsRoleARN = a});
 
 -- | A JSON string that represents the splitting requirement of a
--- @Datasource@.
+-- 'Datasource'.
 dsDataRearrangement :: Lens' DataSource (Maybe Text)
 dsDataRearrangement = lens _dsDataRearrangement (\ s a -> s{_dsDataRearrangement = a});
 
@@ -342,11 +344,26 @@ instance FromJSON DataSource where
 -- | Represents the output of GetEvaluation operation.
 --
 -- The content consists of the detailed metadata and data file information
--- and the current status of the @Evaluation@.
+-- and the current status of the 'Evaluation'.
 --
 -- /See:/ 'evaluation' smart constructor.
+data Evaluation = Evaluation'
+    { _eStatus                 :: !(Maybe EntityStatus)
+    , _ePerformanceMetrics     :: !(Maybe PerformanceMetrics)
+    , _eLastUpdatedAt          :: !(Maybe POSIX)
+    , _eCreatedAt              :: !(Maybe POSIX)
+    , _eInputDataLocationS3    :: !(Maybe Text)
+    , _eMLModelId              :: !(Maybe Text)
+    , _eName                   :: !(Maybe Text)
+    , _eCreatedByIAMUser       :: !(Maybe Text)
+    , _eMessage                :: !(Maybe Text)
+    , _eEvaluationId           :: !(Maybe Text)
+    , _eEvaluationDataSourceId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Evaluation' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eStatus'
 --
@@ -369,22 +386,8 @@ instance FromJSON DataSource where
 -- * 'eEvaluationId'
 --
 -- * 'eEvaluationDataSourceId'
-data Evaluation = Evaluation'
-    { _eStatus                 :: !(Maybe EntityStatus)
-    , _ePerformanceMetrics     :: !(Maybe PerformanceMetrics)
-    , _eLastUpdatedAt          :: !(Maybe POSIX)
-    , _eCreatedAt              :: !(Maybe POSIX)
-    , _eInputDataLocationS3    :: !(Maybe Text)
-    , _eMLModelId              :: !(Maybe Text)
-    , _eName                   :: !(Maybe Text)
-    , _eCreatedByIAMUser       :: !(Maybe Text)
-    , _eMessage                :: !(Maybe Text)
-    , _eEvaluationId           :: !(Maybe Text)
-    , _eEvaluationDataSourceId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Evaluation' smart constructor.
-evaluation :: Evaluation
+evaluation
+    :: Evaluation
 evaluation =
     Evaluation'
     { _eStatus = Nothing
@@ -403,29 +406,29 @@ evaluation =
 -- | The status of the evaluation. This element can have one of the following
 -- values:
 --
--- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
---     to evaluate an @MLModel@.
--- -   @INPROGRESS@ - The evaluation is underway.
--- -   @FAILED@ - The request to evaluate an @MLModel@ did not run to
+-- -   'PENDING' - Amazon Machine Learning (Amazon ML) submitted a request
+--     to evaluate an 'MLModel'.
+-- -   'INPROGRESS' - The evaluation is underway.
+-- -   'FAILED' - The request to evaluate an 'MLModel' did not run to
 --     completion. It is not usable.
--- -   @COMPLETED@ - The evaluation process completed successfully.
--- -   @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
+-- -   'COMPLETED' - The evaluation process completed successfully.
+-- -   'DELETED' - The 'Evaluation' is marked as deleted. It is not usable.
 eStatus :: Lens' Evaluation (Maybe EntityStatus)
 eStatus = lens _eStatus (\ s a -> s{_eStatus = a});
 
--- | Measurements of how well the @MLModel@ performed, using observations
--- referenced by the @DataSource@. One of the following metrics is
+-- | Measurements of how well the 'MLModel' performed, using observations
+-- referenced by the 'DataSource'. One of the following metrics is
 -- returned, based on the type of the MLModel:
 --
--- -   BinaryAUC: A binary @MLModel@ uses the Area Under the Curve (AUC)
+-- -   BinaryAUC: A binary 'MLModel' uses the Area Under the Curve (AUC)
 --     technique to measure performance.
 --
--- -   RegressionRMSE: A regression @MLModel@ uses the Root Mean Square
+-- -   RegressionRMSE: A regression 'MLModel' uses the Root Mean Square
 --     Error (RMSE) technique to measure performance. RMSE measures the
 --     difference between predicted and actual values for a single
 --     variable.
 --
--- -   MulticlassAvgFScore: A multiclass @MLModel@ uses the F1 score
+-- -   MulticlassAvgFScore: A multiclass 'MLModel' uses the F1 score
 --     technique to measure performance.
 --
 -- For more information about performance metrics, please see the
@@ -433,12 +436,12 @@ eStatus = lens _eStatus (\ s a -> s{_eStatus = a});
 ePerformanceMetrics :: Lens' Evaluation (Maybe PerformanceMetrics)
 ePerformanceMetrics = lens _ePerformanceMetrics (\ s a -> s{_ePerformanceMetrics = a});
 
--- | The time of the most recent edit to the @Evaluation@. The time is
+-- | The time of the most recent edit to the 'Evaluation'. The time is
 -- expressed in epoch time.
 eLastUpdatedAt :: Lens' Evaluation (Maybe UTCTime)
 eLastUpdatedAt = lens _eLastUpdatedAt (\ s a -> s{_eLastUpdatedAt = a}) . mapping _Time;
 
--- | The time that the @Evaluation@ was created. The time is expressed in
+-- | The time that the 'Evaluation' was created. The time is expressed in
 -- epoch time.
 eCreatedAt :: Lens' Evaluation (Maybe UTCTime)
 eCreatedAt = lens _eCreatedAt (\ s a -> s{_eCreatedAt = a}) . mapping _Time;
@@ -448,11 +451,11 @@ eCreatedAt = lens _eCreatedAt (\ s a -> s{_eCreatedAt = a}) . mapping _Time;
 eInputDataLocationS3 :: Lens' Evaluation (Maybe Text)
 eInputDataLocationS3 = lens _eInputDataLocationS3 (\ s a -> s{_eInputDataLocationS3 = a});
 
--- | The ID of the @MLModel@ that is the focus of the evaluation.
+-- | The ID of the 'MLModel' that is the focus of the evaluation.
 eMLModelId :: Lens' Evaluation (Maybe Text)
 eMLModelId = lens _eMLModelId (\ s a -> s{_eMLModelId = a});
 
--- | A user-supplied name or description of the @Evaluation@.
+-- | A user-supplied name or description of the 'Evaluation'.
 eName :: Lens' Evaluation (Maybe Text)
 eName = lens _eName (\ s a -> s{_eName = a});
 
@@ -462,15 +465,15 @@ eName = lens _eName (\ s a -> s{_eName = a});
 eCreatedByIAMUser :: Lens' Evaluation (Maybe Text)
 eCreatedByIAMUser = lens _eCreatedByIAMUser (\ s a -> s{_eCreatedByIAMUser = a});
 
--- | A description of the most recent details about evaluating the @MLModel@.
+-- | A description of the most recent details about evaluating the 'MLModel'.
 eMessage :: Lens' Evaluation (Maybe Text)
 eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
 
--- | The ID that is assigned to the @Evaluation@ at creation.
+-- | The ID that is assigned to the 'Evaluation' at creation.
 eEvaluationId :: Lens' Evaluation (Maybe Text)
 eEvaluationId = lens _eEvaluationId (\ s a -> s{_eEvaluationId = a});
 
--- | The ID of the @DataSource@ that is used to evaluate the @MLModel@.
+-- | The ID of the 'DataSource' that is used to evaluate the 'MLModel'.
 eEvaluationDataSourceId :: Lens' Evaluation (Maybe Text)
 eEvaluationDataSourceId = lens _eEvaluationDataSourceId (\ s a -> s{_eEvaluationDataSourceId = a});
 
@@ -493,11 +496,31 @@ instance FromJSON Evaluation where
 -- | Represents the output of a GetMLModel operation.
 --
 -- The content consists of the detailed metadata and the current status of
--- the @MLModel@.
+-- the 'MLModel'.
 --
 -- /See:/ 'mLModel' smart constructor.
+data MLModel = MLModel'
+    { _mlmStatus                      :: !(Maybe EntityStatus)
+    , _mlmTrainingParameters          :: !(Maybe (Map Text Text))
+    , _mlmLastUpdatedAt               :: !(Maybe POSIX)
+    , _mlmCreatedAt                   :: !(Maybe POSIX)
+    , _mlmScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
+    , _mlmInputDataLocationS3         :: !(Maybe Text)
+    , _mlmSizeInBytes                 :: !(Maybe Integer)
+    , _mlmMLModelId                   :: !(Maybe Text)
+    , _mlmScoreThreshold              :: !(Maybe Double)
+    , _mlmName                        :: !(Maybe Text)
+    , _mlmAlgorithm                   :: !(Maybe Algorithm)
+    , _mlmCreatedByIAMUser            :: !(Maybe Text)
+    , _mlmEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
+    , _mlmTrainingDataSourceId        :: !(Maybe Text)
+    , _mlmMessage                     :: !(Maybe Text)
+    , _mlmMLModelType                 :: !(Maybe MLModelType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MLModel' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mlmStatus'
 --
@@ -530,27 +553,8 @@ instance FromJSON Evaluation where
 -- * 'mlmMessage'
 --
 -- * 'mlmMLModelType'
-data MLModel = MLModel'
-    { _mlmStatus                      :: !(Maybe EntityStatus)
-    , _mlmTrainingParameters          :: !(Maybe (Map Text Text))
-    , _mlmLastUpdatedAt               :: !(Maybe POSIX)
-    , _mlmCreatedAt                   :: !(Maybe POSIX)
-    , _mlmScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
-    , _mlmInputDataLocationS3         :: !(Maybe Text)
-    , _mlmSizeInBytes                 :: !(Maybe Integer)
-    , _mlmMLModelId                   :: !(Maybe Text)
-    , _mlmScoreThreshold              :: !(Maybe Double)
-    , _mlmName                        :: !(Maybe Text)
-    , _mlmAlgorithm                   :: !(Maybe Algorithm)
-    , _mlmCreatedByIAMUser            :: !(Maybe Text)
-    , _mlmEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
-    , _mlmTrainingDataSourceId        :: !(Maybe Text)
-    , _mlmMessage                     :: !(Maybe Text)
-    , _mlmMLModelType                 :: !(Maybe MLModelType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'MLModel' smart constructor.
-mLModel :: MLModel
+mLModel
+    :: MLModel
 mLModel =
     MLModel'
     { _mlmStatus = Nothing
@@ -571,25 +575,25 @@ mLModel =
     , _mlmMLModelType = Nothing
     }
 
--- | The current status of an @MLModel@. This element can have one of the
+-- | The current status of an 'MLModel'. This element can have one of the
 -- following values:
 --
 -- -   PENDING - Amazon Machine Learning (Amazon ML) submitted a request to
---     create an @MLModel@.
+--     create an 'MLModel'.
 -- -   INPROGRESS - The creation process is underway.
--- -   FAILED - The request to create an @MLModel@ did not run to
+-- -   FAILED - The request to create an 'MLModel' did not run to
 --     completion. It is not usable.
 -- -   COMPLETED - The creation process completed successfully.
--- -   DELETED - The @MLModel@ is marked as deleted. It is not usable.
+-- -   DELETED - The 'MLModel' is marked as deleted. It is not usable.
 mlmStatus :: Lens' MLModel (Maybe EntityStatus)
 mlmStatus = lens _mlmStatus (\ s a -> s{_mlmStatus = a});
 
--- | A list of the training parameters in the @MLModel@. The list is
+-- | A list of the training parameters in the 'MLModel'. The list is
 -- implemented as a map of key\/value pairs.
 --
 -- The following is the current set of training parameters:
 --
--- -   @sgd.l1RegularizationAmount@ - Coefficient regularization L1 norm.
+-- -   'sgd.l1RegularizationAmount' - Coefficient regularization L1 norm.
 --     It controls overfitting the data by penalizing large coefficients.
 --     This tends to drive coefficients to zero, resulting in a sparse
 --     feature set. If you use this parameter, specify a small value, such
@@ -597,23 +601,23 @@ mlmStatus = lens _mlmStatus (\ s a -> s{_mlmStatus = a});
 --
 --     The value is a double that ranges from 0 to MAX_DOUBLE. The default
 --     is not to use L1 normalization. The parameter cannot be used when
---     @L2@ is specified. Use this parameter sparingly.
+--     'L2' is specified. Use this parameter sparingly.
 --
--- -   @sgd.l2RegularizationAmount@ - Coefficient regularization L2 norm.
+-- -   'sgd.l2RegularizationAmount' - Coefficient regularization L2 norm.
 --     It controls overfitting the data by penalizing large coefficients.
 --     This tends to drive coefficients to small, nonzero values. If you
 --     use this parameter, specify a small value, such as 1.0E-04 or
 --     1.0E-08.
 --
 --     The valus is a double that ranges from 0 to MAX_DOUBLE. The default
---     is not to use L2 normalization. This cannot be used when @L1@ is
+--     is not to use L2 normalization. This cannot be used when 'L1' is
 --     specified. Use this parameter sparingly.
 --
--- -   @sgd.maxPasses@ - Number of times that the training process
---     traverses the observations to build the @MLModel@. The value is an
+-- -   'sgd.maxPasses' - Number of times that the training process
+--     traverses the observations to build the 'MLModel'. The value is an
 --     integer that ranges from 1 to 10000. The default value is 10.
 --
--- -   @sgd.maxMLModelSizeInBytes@ - Maximum allowed size of the model.
+-- -   'sgd.maxMLModelSizeInBytes' - Maximum allowed size of the model.
 --     Depending on the input data, the model size might affect
 --     performance.
 --
@@ -623,17 +627,17 @@ mlmStatus = lens _mlmStatus (\ s a -> s{_mlmStatus = a});
 mlmTrainingParameters :: Lens' MLModel (HashMap Text Text)
 mlmTrainingParameters = lens _mlmTrainingParameters (\ s a -> s{_mlmTrainingParameters = a}) . _Default . _Map;
 
--- | The time of the most recent edit to the @MLModel@. The time is expressed
+-- | The time of the most recent edit to the 'MLModel'. The time is expressed
 -- in epoch time.
 mlmLastUpdatedAt :: Lens' MLModel (Maybe UTCTime)
 mlmLastUpdatedAt = lens _mlmLastUpdatedAt (\ s a -> s{_mlmLastUpdatedAt = a}) . mapping _Time;
 
--- | The time that the @MLModel@ was created. The time is expressed in epoch
+-- | The time that the 'MLModel' was created. The time is expressed in epoch
 -- time.
 mlmCreatedAt :: Lens' MLModel (Maybe UTCTime)
 mlmCreatedAt = lens _mlmCreatedAt (\ s a -> s{_mlmCreatedAt = a}) . mapping _Time;
 
--- | The time of the most recent edit to the @ScoreThreshold@. The time is
+-- | The time of the most recent edit to the 'ScoreThreshold'. The time is
 -- expressed in epoch time.
 mlmScoreThresholdLastUpdatedAt :: Lens' MLModel (Maybe UTCTime)
 mlmScoreThresholdLastUpdatedAt = lens _mlmScoreThresholdLastUpdatedAt (\ s a -> s{_mlmScoreThresholdLastUpdatedAt = a}) . mapping _Time;
@@ -647,7 +651,7 @@ mlmInputDataLocationS3 = lens _mlmInputDataLocationS3 (\ s a -> s{_mlmInputDataL
 mlmSizeInBytes :: Lens' MLModel (Maybe Integer)
 mlmSizeInBytes = lens _mlmSizeInBytes (\ s a -> s{_mlmSizeInBytes = a});
 
--- | The ID assigned to the @MLModel@ at creation.
+-- | The ID assigned to the 'MLModel' at creation.
 mlmMLModelId :: Lens' MLModel (Maybe Text)
 mlmMLModelId = lens _mlmMLModelId (\ s a -> s{_mlmMLModelId = a});
 
@@ -655,11 +659,11 @@ mlmMLModelId = lens _mlmMLModelId (\ s a -> s{_mlmMLModelId = a});
 mlmScoreThreshold :: Lens' MLModel (Maybe Double)
 mlmScoreThreshold = lens _mlmScoreThreshold (\ s a -> s{_mlmScoreThreshold = a});
 
--- | A user-supplied name or description of the @MLModel@.
+-- | A user-supplied name or description of the 'MLModel'.
 mlmName :: Lens' MLModel (Maybe Text)
 mlmName = lens _mlmName (\ s a -> s{_mlmName = a});
 
--- | The algorithm used to train the @MLModel@. The following algorithm is
+-- | The algorithm used to train the 'MLModel'. The following algorithm is
 -- supported:
 --
 -- -   SGD -- Stochastic gradient descent. The goal of SGD is to minimize
@@ -667,26 +671,26 @@ mlmName = lens _mlmName (\ s a -> s{_mlmName = a});
 mlmAlgorithm :: Lens' MLModel (Maybe Algorithm)
 mlmAlgorithm = lens _mlmAlgorithm (\ s a -> s{_mlmAlgorithm = a});
 
--- | The AWS user account from which the @MLModel@ was created. The account
+-- | The AWS user account from which the 'MLModel' was created. The account
 -- type can be either an AWS root account or an AWS Identity and Access
 -- Management (IAM) user account.
 mlmCreatedByIAMUser :: Lens' MLModel (Maybe Text)
 mlmCreatedByIAMUser = lens _mlmCreatedByIAMUser (\ s a -> s{_mlmCreatedByIAMUser = a});
 
--- | The current endpoint of the @MLModel@.
+-- | The current endpoint of the 'MLModel'.
 mlmEndpointInfo :: Lens' MLModel (Maybe RealtimeEndpointInfo)
 mlmEndpointInfo = lens _mlmEndpointInfo (\ s a -> s{_mlmEndpointInfo = a});
 
--- | The ID of the training @DataSource@. The CreateMLModel operation uses
--- the @TrainingDataSourceId@.
+-- | The ID of the training 'DataSource'. The CreateMLModel operation uses
+-- the 'TrainingDataSourceId'.
 mlmTrainingDataSourceId :: Lens' MLModel (Maybe Text)
 mlmTrainingDataSourceId = lens _mlmTrainingDataSourceId (\ s a -> s{_mlmTrainingDataSourceId = a});
 
--- | A description of the most recent details about accessing the @MLModel@.
+-- | A description of the most recent details about accessing the 'MLModel'.
 mlmMessage :: Lens' MLModel (Maybe Text)
 mlmMessage = lens _mlmMessage (\ s a -> s{_mlmMessage = a});
 
--- | Identifies the @MLModel@ category. The following are the available
+-- | Identifies the 'MLModel' category. The following are the available
 -- types:
 --
 -- -   REGRESSION - Produces a numeric result. For example, \"What listing
@@ -720,35 +724,36 @@ instance FromJSON MLModel where
                      <*> (x .:? "Message")
                      <*> (x .:? "MLModelType"))
 
--- | Measurements of how well the @MLModel@ performed on known observations.
+-- | Measurements of how well the 'MLModel' performed on known observations.
 -- One of the following metrics is returned, based on the type of the
--- @MLModel@:
+-- 'MLModel':
 --
--- -   BinaryAUC: The binary @MLModel@ uses the Area Under the Curve (AUC)
+-- -   BinaryAUC: The binary 'MLModel' uses the Area Under the Curve (AUC)
 --     technique to measure performance.
 --
--- -   RegressionRMSE: The regression @MLModel@ uses the Root Mean Square
+-- -   RegressionRMSE: The regression 'MLModel' uses the Root Mean Square
 --     Error (RMSE) technique to measure performance. RMSE measures the
 --     difference between predicted and actual values for a single
 --     variable.
 --
--- -   MulticlassAvgFScore: The multiclass @MLModel@ uses the F1 score
+-- -   MulticlassAvgFScore: The multiclass 'MLModel' uses the F1 score
 --     technique to measure performance.
 --
 -- For more information about performance metrics, please see the
 -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 --
 -- /See:/ 'performanceMetrics' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pmProperties'
 newtype PerformanceMetrics = PerformanceMetrics'
     { _pmProperties :: Maybe (Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PerformanceMetrics' smart constructor.
-performanceMetrics :: PerformanceMetrics
+-- | Creates a value of 'PerformanceMetrics' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pmProperties'
+performanceMetrics
+    :: PerformanceMetrics
 performanceMetrics =
     PerformanceMetrics'
     { _pmProperties = Nothing
@@ -765,24 +770,32 @@ instance FromJSON PerformanceMetrics where
                  PerformanceMetrics' <$>
                    (x .:? "Properties" .!= mempty))
 
--- | The output from a @Predict@ operation:
+-- | The output from a 'Predict' operation:
 --
--- -   @Details@ - Contains the following attributes:
+-- -   'Details' - Contains the following attributes:
 --     DetailsAttributes.PREDICTIVE_MODEL_TYPE - REGRESSION | BINARY |
 --     MULTICLASS DetailsAttributes.ALGORITHM - SGD
 --
--- -   @PredictedLabel@ - Present for either a BINARY or MULTICLASS
---     @MLModel@ request.
+-- -   'PredictedLabel' - Present for either a BINARY or MULTICLASS
+--     'MLModel' request.
 --
--- -   @PredictedScores@ - Contains the raw classification score
+-- -   'PredictedScores' - Contains the raw classification score
 --     corresponding to each label.
 --
--- -   @PredictedValue@ - Present for a REGRESSION @MLModel@ request.
+-- -   'PredictedValue' - Present for a REGRESSION 'MLModel' request.
 --
 --
 -- /See:/ 'prediction' smart constructor.
+data Prediction = Prediction'
+    { _pPredictedValue  :: !(Maybe Double)
+    , _pPredictedLabel  :: !(Maybe Text)
+    , _pPredictedScores :: !(Maybe (Map Text Double))
+    , _pDetails         :: !(Maybe (Map DetailsAttributes Text))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Prediction' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pPredictedValue'
 --
@@ -791,15 +804,8 @@ instance FromJSON PerformanceMetrics where
 -- * 'pPredictedScores'
 --
 -- * 'pDetails'
-data Prediction = Prediction'
-    { _pPredictedValue  :: !(Maybe Double)
-    , _pPredictedLabel  :: !(Maybe Text)
-    , _pPredictedScores :: !(Maybe (Map Text Double))
-    , _pDetails         :: !(Maybe (Map DetailsAttributes Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Prediction' smart constructor.
-prediction :: Prediction
+prediction
+    :: Prediction
 prediction =
     Prediction'
     { _pPredictedValue = Nothing
@@ -808,11 +814,11 @@ prediction =
     , _pDetails = Nothing
     }
 
--- | The prediction value for REGRESSION @MLModel@.
+-- | The prediction value for REGRESSION 'MLModel'.
 pPredictedValue :: Lens' Prediction (Maybe Double)
 pPredictedValue = lens _pPredictedValue (\ s a -> s{_pPredictedValue = a});
 
--- | The prediction label for either a BINARY or MULTICLASS @MLModel@.
+-- | The prediction label for either a BINARY or MULTICLASS 'MLModel'.
 pPredictedLabel :: Lens' Prediction (Maybe Text)
 pPredictedLabel = lens _pPredictedLabel (\ s a -> s{_pPredictedLabel = a});
 
@@ -834,11 +840,26 @@ instance FromJSON Prediction where
                      <*> (x .:? "details" .!= mempty))
 
 -- | The data specification of an Amazon Relational Database Service (Amazon
--- RDS) @DataSource@.
+-- RDS) 'DataSource'.
 --
 -- /See:/ 'rdsDataSpec' smart constructor.
+data RDSDataSpec = RDSDataSpec'
+    { _rdsdsDataSchemaURI       :: !(Maybe Text)
+    , _rdsdsDataSchema          :: !(Maybe Text)
+    , _rdsdsDataRearrangement   :: !(Maybe Text)
+    , _rdsdsDatabaseInformation :: !RDSDatabase
+    , _rdsdsSelectSqlQuery      :: !Text
+    , _rdsdsDatabaseCredentials :: !RDSDatabaseCredentials
+    , _rdsdsS3StagingLocation   :: !Text
+    , _rdsdsResourceRole        :: !Text
+    , _rdsdsServiceRole         :: !Text
+    , _rdsdsSubnetId            :: !Text
+    , _rdsdsSecurityGroupIds    :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RDSDataSpec' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rdsdsDataSchemaURI'
 --
@@ -861,22 +882,15 @@ instance FromJSON Prediction where
 -- * 'rdsdsSubnetId'
 --
 -- * 'rdsdsSecurityGroupIds'
-data RDSDataSpec = RDSDataSpec'
-    { _rdsdsDataSchemaURI       :: !(Maybe Text)
-    , _rdsdsDataSchema          :: !(Maybe Text)
-    , _rdsdsDataRearrangement   :: !(Maybe Text)
-    , _rdsdsDatabaseInformation :: !RDSDatabase
-    , _rdsdsSelectSqlQuery      :: !Text
-    , _rdsdsDatabaseCredentials :: !RDSDatabaseCredentials
-    , _rdsdsS3StagingLocation   :: !Text
-    , _rdsdsResourceRole        :: !Text
-    , _rdsdsServiceRole         :: !Text
-    , _rdsdsSubnetId            :: !Text
-    , _rdsdsSecurityGroupIds    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RDSDataSpec' smart constructor.
-rdsDataSpec :: RDSDatabase -> Text -> RDSDatabaseCredentials -> Text -> Text -> Text -> Text -> RDSDataSpec
+rdsDataSpec
+    :: RDSDatabase -- ^ 'rdsdsDatabaseInformation'
+    -> Text -- ^ 'rdsdsSelectSqlQuery'
+    -> RDSDatabaseCredentials -- ^ 'rdsdsDatabaseCredentials'
+    -> Text -- ^ 'rdsdsS3StagingLocation'
+    -> Text -- ^ 'rdsdsResourceRole'
+    -> Text -- ^ 'rdsdsServiceRole'
+    -> Text -- ^ 'rdsdsSubnetId'
+    -> RDSDataSpec
 rdsDataSpec pDatabaseInformation_ pSelectSqlQuery_ pDatabaseCredentials_ pS3StagingLocation_ pResourceRole_ pServiceRole_ pSubnetId_ =
     RDSDataSpec'
     { _rdsdsDataSchemaURI = Nothing
@@ -892,30 +906,30 @@ rdsDataSpec pDatabaseInformation_ pSelectSqlQuery_ pDatabaseCredentials_ pS3Stag
     , _rdsdsSecurityGroupIds = mempty
     }
 
--- | The Amazon S3 location of the @DataSchema@.
+-- | The Amazon S3 location of the 'DataSchema'.
 rdsdsDataSchemaURI :: Lens' RDSDataSpec (Maybe Text)
 rdsdsDataSchemaURI = lens _rdsdsDataSchemaURI (\ s a -> s{_rdsdsDataSchemaURI = a});
 
 -- | A JSON string that represents the schema. This is not required if
--- @DataSchemaUri@ is specified.
+-- 'DataSchemaUri' is specified.
 rdsdsDataSchema :: Lens' RDSDataSpec (Maybe Text)
 rdsdsDataSchema = lens _rdsdsDataSchema (\ s a -> s{_rdsdsDataSchema = a});
 
 -- | DataRearrangement - A JSON string that represents the splitting
--- requirement of a @DataSource@.
+-- requirement of a 'DataSource'.
 --
 -- Sample -
--- @ \"{\\\"randomSeed\\\":\\\"some-random-seed\\\", \\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"@
+-- ' \"{\\\"randomSeed\\\":\\\"some-random-seed\\\", \\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"'
 rdsdsDataRearrangement :: Lens' RDSDataSpec (Maybe Text)
 rdsdsDataRearrangement = lens _rdsdsDataRearrangement (\ s a -> s{_rdsdsDataRearrangement = a});
 
--- | Describes the @DatabaseName@ and @InstanceIdentifier@ of an an Amazon
+-- | Describes the 'DatabaseName' and 'InstanceIdentifier' of an an Amazon
 -- RDS database.
 rdsdsDatabaseInformation :: Lens' RDSDataSpec RDSDatabase
 rdsdsDatabaseInformation = lens _rdsdsDatabaseInformation (\ s a -> s{_rdsdsDatabaseInformation = a});
 
 -- | The query that is used to retrieve the observation data for the
--- @DataSource@.
+-- 'DataSource'.
 rdsdsSelectSqlQuery :: Lens' RDSDataSpec Text
 rdsdsSelectSqlQuery = lens _rdsdsSelectSqlQuery (\ s a -> s{_rdsdsSelectSqlQuery = a});
 
@@ -925,7 +939,7 @@ rdsdsDatabaseCredentials :: Lens' RDSDataSpec RDSDatabaseCredentials
 rdsdsDatabaseCredentials = lens _rdsdsDatabaseCredentials (\ s a -> s{_rdsdsDatabaseCredentials = a});
 
 -- | The Amazon S3 location for staging Amazon RDS data. The data retrieved
--- from Amazon RDS using @SelectSqlQuery@ is stored in this location.
+-- from Amazon RDS using 'SelectSqlQuery' is stored in this location.
 rdsdsS3StagingLocation :: Lens' RDSDataSpec Text
 rdsdsS3StagingLocation = lens _rdsdsS3StagingLocation (\ s a -> s{_rdsdsS3StagingLocation = a});
 
@@ -976,19 +990,22 @@ instance ToJSON RDSDataSpec where
 -- | The database details of an Amazon RDS database.
 --
 -- /See:/ 'rdsDatabase' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdsdInstanceIdentifier'
---
--- * 'rdsdDatabaseName'
 data RDSDatabase = RDSDatabase'
     { _rdsdInstanceIdentifier :: !Text
     , _rdsdDatabaseName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RDSDatabase' smart constructor.
-rdsDatabase :: Text -> Text -> RDSDatabase
+-- | Creates a value of 'RDSDatabase' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdsdInstanceIdentifier'
+--
+-- * 'rdsdDatabaseName'
+rdsDatabase
+    :: Text -- ^ 'rdsdInstanceIdentifier'
+    -> Text -- ^ 'rdsdDatabaseName'
+    -> RDSDatabase
 rdsDatabase pInstanceIdentifier_ pDatabaseName_ =
     RDSDatabase'
     { _rdsdInstanceIdentifier = pInstanceIdentifier_
@@ -1020,19 +1037,22 @@ instance ToJSON RDSDatabase where
 -- | The database credentials to connect to a database on an RDS DB instance.
 --
 -- /See:/ 'rdsDatabaseCredentials' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdsdcUsername'
---
--- * 'rdsdcPassword'
 data RDSDatabaseCredentials = RDSDatabaseCredentials'
     { _rdsdcUsername :: !Text
     , _rdsdcPassword :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RDSDatabaseCredentials' smart constructor.
-rdsDatabaseCredentials :: Text -> Text -> RDSDatabaseCredentials
+-- | Creates a value of 'RDSDatabaseCredentials' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdsdcUsername'
+--
+-- * 'rdsdcPassword'
+rdsDatabaseCredentials
+    :: Text -- ^ 'rdsdcUsername'
+    -> Text -- ^ 'rdsdcPassword'
+    -> RDSDatabaseCredentials
 rdsDatabaseCredentials pUsername_ pPassword_ =
     RDSDatabaseCredentials'
     { _rdsdcUsername = pUsername_
@@ -1056,8 +1076,18 @@ instance ToJSON RDSDatabaseCredentials where
 -- | The datasource details that are specific to Amazon RDS.
 --
 -- /See:/ 'rdsMetadata' smart constructor.
+data RDSMetadata = RDSMetadata'
+    { _rmSelectSqlQuery   :: !(Maybe Text)
+    , _rmDataPipelineId   :: !(Maybe Text)
+    , _rmDatabase         :: !(Maybe RDSDatabase)
+    , _rmDatabaseUserName :: !(Maybe Text)
+    , _rmResourceRole     :: !(Maybe Text)
+    , _rmServiceRole      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RDSMetadata' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rmSelectSqlQuery'
 --
@@ -1070,17 +1100,8 @@ instance ToJSON RDSDatabaseCredentials where
 -- * 'rmResourceRole'
 --
 -- * 'rmServiceRole'
-data RDSMetadata = RDSMetadata'
-    { _rmSelectSqlQuery   :: !(Maybe Text)
-    , _rmDataPipelineId   :: !(Maybe Text)
-    , _rmDatabase         :: !(Maybe RDSDatabase)
-    , _rmDatabaseUserName :: !(Maybe Text)
-    , _rmResourceRole     :: !(Maybe Text)
-    , _rmServiceRole      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RDSMetadata' smart constructor.
-rdsMetadata :: RDSMetadata
+rdsMetadata
+    :: RDSMetadata
 rdsMetadata =
     RDSMetadata'
     { _rmSelectSqlQuery = Nothing
@@ -1092,7 +1113,7 @@ rdsMetadata =
     }
 
 -- | The SQL query that is supplied during CreateDataSourceFromRDS. Returns
--- only if @Verbose@ is true in @GetDataSourceInput@.
+-- only if 'Verbose' is true in 'GetDataSourceInput'.
 rmSelectSqlQuery :: Lens' RDSMetadata (Maybe Text)
 rmSelectSqlQuery = lens _rmSelectSqlQuery (\ s a -> s{_rmSelectSqlQuery = a});
 
@@ -1137,11 +1158,19 @@ instance FromJSON RDSMetadata where
                      <*> (x .:? "ResourceRole")
                      <*> (x .:? "ServiceRole"))
 
--- | Describes the real-time endpoint information for an @MLModel@.
+-- | Describes the real-time endpoint information for an 'MLModel'.
 --
 -- /See:/ 'realtimeEndpointInfo' smart constructor.
+data RealtimeEndpointInfo = RealtimeEndpointInfo'
+    { _reiCreatedAt             :: !(Maybe POSIX)
+    , _reiEndpointURL           :: !(Maybe Text)
+    , _reiEndpointStatus        :: !(Maybe RealtimeEndpointStatus)
+    , _reiPeakRequestsPerSecond :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RealtimeEndpointInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'reiCreatedAt'
 --
@@ -1150,15 +1179,8 @@ instance FromJSON RDSMetadata where
 -- * 'reiEndpointStatus'
 --
 -- * 'reiPeakRequestsPerSecond'
-data RealtimeEndpointInfo = RealtimeEndpointInfo'
-    { _reiCreatedAt             :: !(Maybe POSIX)
-    , _reiEndpointURL           :: !(Maybe Text)
-    , _reiEndpointStatus        :: !(Maybe RealtimeEndpointStatus)
-    , _reiPeakRequestsPerSecond :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RealtimeEndpointInfo' smart constructor.
-realtimeEndpointInfo :: RealtimeEndpointInfo
+realtimeEndpointInfo
+    :: RealtimeEndpointInfo
 realtimeEndpointInfo =
     RealtimeEndpointInfo'
     { _reiCreatedAt = Nothing
@@ -1168,12 +1190,12 @@ realtimeEndpointInfo =
     }
 
 -- | The time that the request to create the real-time endpoint for the
--- @MLModel@ was received. The time is expressed in epoch time.
+-- 'MLModel' was received. The time is expressed in epoch time.
 reiCreatedAt :: Lens' RealtimeEndpointInfo (Maybe UTCTime)
 reiCreatedAt = lens _reiCreatedAt (\ s a -> s{_reiCreatedAt = a}) . mapping _Time;
 
 -- | The URI that specifies where to send real-time prediction requests for
--- the @MLModel@.
+-- the 'MLModel'.
 --
 -- Note
 --
@@ -1182,7 +1204,7 @@ reiCreatedAt = lens _reiCreatedAt (\ s a -> s{_reiCreatedAt = a}) . mapping _Tim
 reiEndpointURL :: Lens' RealtimeEndpointInfo (Maybe Text)
 reiEndpointURL = lens _reiEndpointURL (\ s a -> s{_reiEndpointURL = a});
 
--- | The current status of the real-time endpoint for the @MLModel@. This
+-- | The current status of the real-time endpoint for the 'MLModel'. This
 -- element can have one of the following values:
 --
 -- -   NONE - Endpoint does not exist or was previously deleted.
@@ -1191,7 +1213,7 @@ reiEndpointURL = lens _reiEndpointURL (\ s a -> s{_reiEndpointURL = a});
 reiEndpointStatus :: Lens' RealtimeEndpointInfo (Maybe RealtimeEndpointStatus)
 reiEndpointStatus = lens _reiEndpointStatus (\ s a -> s{_reiEndpointStatus = a});
 
--- | The maximum processing rate for the real-time endpoint for @MLModel@,
+-- | The maximum processing rate for the real-time endpoint for 'MLModel',
 -- measured in incoming requests per second.
 reiPeakRequestsPerSecond :: Lens' RealtimeEndpointInfo (Maybe Int)
 reiPeakRequestsPerSecond = lens _reiPeakRequestsPerSecond (\ s a -> s{_reiPeakRequestsPerSecond = a});
@@ -1205,11 +1227,22 @@ instance FromJSON RealtimeEndpointInfo where
                      (x .:? "EndpointStatus")
                      <*> (x .:? "PeakRequestsPerSecond"))
 
--- | Describes the data specification of an Amazon Redshift @DataSource@.
+-- | Describes the data specification of an Amazon Redshift 'DataSource'.
 --
 -- /See:/ 'redshiftDataSpec' smart constructor.
+data RedshiftDataSpec = RedshiftDataSpec'
+    { _rDataSchemaURI       :: !(Maybe Text)
+    , _rDataSchema          :: !(Maybe Text)
+    , _rDataRearrangement   :: !(Maybe Text)
+    , _rDatabaseInformation :: !RedshiftDatabase
+    , _rSelectSqlQuery      :: !Text
+    , _rDatabaseCredentials :: !RedshiftDatabaseCredentials
+    , _rS3StagingLocation   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RedshiftDataSpec' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rDataSchemaURI'
 --
@@ -1224,18 +1257,12 @@ instance FromJSON RealtimeEndpointInfo where
 -- * 'rDatabaseCredentials'
 --
 -- * 'rS3StagingLocation'
-data RedshiftDataSpec = RedshiftDataSpec'
-    { _rDataSchemaURI       :: !(Maybe Text)
-    , _rDataSchema          :: !(Maybe Text)
-    , _rDataRearrangement   :: !(Maybe Text)
-    , _rDatabaseInformation :: !RedshiftDatabase
-    , _rSelectSqlQuery      :: !Text
-    , _rDatabaseCredentials :: !RedshiftDatabaseCredentials
-    , _rS3StagingLocation   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RedshiftDataSpec' smart constructor.
-redshiftDataSpec :: RedshiftDatabase -> Text -> RedshiftDatabaseCredentials -> Text -> RedshiftDataSpec
+redshiftDataSpec
+    :: RedshiftDatabase -- ^ 'rDatabaseInformation'
+    -> Text -- ^ 'rSelectSqlQuery'
+    -> RedshiftDatabaseCredentials -- ^ 'rDatabaseCredentials'
+    -> Text -- ^ 'rS3StagingLocation'
+    -> RedshiftDataSpec
 redshiftDataSpec pDatabaseInformation_ pSelectSqlQuery_ pDatabaseCredentials_ pS3StagingLocation_ =
     RedshiftDataSpec'
     { _rDataSchemaURI = Nothing
@@ -1247,25 +1274,25 @@ redshiftDataSpec pDatabaseInformation_ pSelectSqlQuery_ pDatabaseCredentials_ pS
     , _rS3StagingLocation = pS3StagingLocation_
     }
 
--- | Describes the schema location for an Amazon Redshift @DataSource@.
+-- | Describes the schema location for an Amazon Redshift 'DataSource'.
 rDataSchemaURI :: Lens' RedshiftDataSpec (Maybe Text)
 rDataSchemaURI = lens _rDataSchemaURI (\ s a -> s{_rDataSchemaURI = a});
 
--- | Describes the schema for an Amazon Redshift @DataSource@.
+-- | Describes the schema for an Amazon Redshift 'DataSource'.
 rDataSchema :: Lens' RedshiftDataSpec (Maybe Text)
 rDataSchema = lens _rDataSchema (\ s a -> s{_rDataSchema = a});
 
--- | Describes the splitting specifications for a @DataSource@.
+-- | Describes the splitting specifications for a 'DataSource'.
 rDataRearrangement :: Lens' RedshiftDataSpec (Maybe Text)
 rDataRearrangement = lens _rDataRearrangement (\ s a -> s{_rDataRearrangement = a});
 
--- | Describes the @DatabaseName@ and @ClusterIdentifier@ for an Amazon
--- Redshift @DataSource@.
+-- | Describes the 'DatabaseName' and 'ClusterIdentifier' for an Amazon
+-- Redshift 'DataSource'.
 rDatabaseInformation :: Lens' RedshiftDataSpec RedshiftDatabase
 rDatabaseInformation = lens _rDatabaseInformation (\ s a -> s{_rDatabaseInformation = a});
 
 -- | Describes the SQL Query to execute on an Amazon Redshift database for an
--- Amazon Redshift @DataSource@.
+-- Amazon Redshift 'DataSource'.
 rSelectSqlQuery :: Lens' RedshiftDataSpec Text
 rSelectSqlQuery = lens _rSelectSqlQuery (\ s a -> s{_rSelectSqlQuery = a});
 
@@ -1275,7 +1302,7 @@ rDatabaseCredentials :: Lens' RedshiftDataSpec RedshiftDatabaseCredentials
 rDatabaseCredentials = lens _rDatabaseCredentials (\ s a -> s{_rDatabaseCredentials = a});
 
 -- | Describes an Amazon S3 location to store the result set of the
--- @SelectSqlQuery@ query.
+-- 'SelectSqlQuery' query.
 rS3StagingLocation :: Lens' RedshiftDataSpec Text
 rS3StagingLocation = lens _rS3StagingLocation (\ s a -> s{_rS3StagingLocation = a});
 
@@ -1294,19 +1321,22 @@ instance ToJSON RedshiftDataSpec where
 -- database.
 --
 -- /See:/ 'redshiftDatabase' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdDatabaseName'
---
--- * 'rdClusterIdentifier'
 data RedshiftDatabase = RedshiftDatabase'
     { _rdDatabaseName      :: !Text
     , _rdClusterIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RedshiftDatabase' smart constructor.
-redshiftDatabase :: Text -> Text -> RedshiftDatabase
+-- | Creates a value of 'RedshiftDatabase' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdDatabaseName'
+--
+-- * 'rdClusterIdentifier'
+redshiftDatabase
+    :: Text -- ^ 'rdDatabaseName'
+    -> Text -- ^ 'rdClusterIdentifier'
+    -> RedshiftDatabase
 redshiftDatabase pDatabaseName_ pClusterIdentifier_ =
     RedshiftDatabase'
     { _rdDatabaseName = pDatabaseName_
@@ -1338,19 +1368,22 @@ instance ToJSON RedshiftDatabase where
 -- Amazon Redshift cluster.
 --
 -- /See:/ 'redshiftDatabaseCredentials' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdcUsername'
---
--- * 'rdcPassword'
 data RedshiftDatabaseCredentials = RedshiftDatabaseCredentials'
     { _rdcUsername :: !Text
     , _rdcPassword :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RedshiftDatabaseCredentials' smart constructor.
-redshiftDatabaseCredentials :: Text -> Text -> RedshiftDatabaseCredentials
+-- | Creates a value of 'RedshiftDatabaseCredentials' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdcUsername'
+--
+-- * 'rdcPassword'
+redshiftDatabaseCredentials
+    :: Text -- ^ 'rdcUsername'
+    -> Text -- ^ 'rdcPassword'
+    -> RedshiftDatabaseCredentials
 redshiftDatabaseCredentials pUsername_ pPassword_ =
     RedshiftDatabaseCredentials'
     { _rdcUsername = pUsername_
@@ -1371,25 +1404,26 @@ instance ToJSON RedshiftDatabaseCredentials where
               ["Username" .= _rdcUsername,
                "Password" .= _rdcPassword]
 
--- | Describes the @DataSource@ details specific to Amazon Redshift.
+-- | Describes the 'DataSource' details specific to Amazon Redshift.
 --
 -- /See:/ 'redshiftMetadata' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'redSelectSqlQuery'
---
--- * 'redRedshiftDatabase'
---
--- * 'redDatabaseUserName'
 data RedshiftMetadata = RedshiftMetadata'
     { _redSelectSqlQuery   :: !(Maybe Text)
     , _redRedshiftDatabase :: !(Maybe RedshiftDatabase)
     , _redDatabaseUserName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RedshiftMetadata' smart constructor.
-redshiftMetadata :: RedshiftMetadata
+-- | Creates a value of 'RedshiftMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'redSelectSqlQuery'
+--
+-- * 'redRedshiftDatabase'
+--
+-- * 'redDatabaseUserName'
+redshiftMetadata
+    :: RedshiftMetadata
 redshiftMetadata =
     RedshiftMetadata'
     { _redSelectSqlQuery = Nothing
@@ -1398,7 +1432,7 @@ redshiftMetadata =
     }
 
 -- | The SQL query that is specified during CreateDataSourceFromRedshift.
--- Returns only if @Verbose@ is true in GetDataSourceInput.
+-- Returns only if 'Verbose' is true in GetDataSourceInput.
 redSelectSqlQuery :: Lens' RedshiftMetadata (Maybe Text)
 redSelectSqlQuery = lens _redSelectSqlQuery (\ s a -> s{_redSelectSqlQuery = a});
 
@@ -1419,11 +1453,19 @@ instance FromJSON RedshiftMetadata where
                      (x .:? "RedshiftDatabase")
                      <*> (x .:? "DatabaseUserName"))
 
--- | Describes the data specification of a @DataSource@.
+-- | Describes the data specification of a 'DataSource'.
 --
 -- /See:/ 's3DataSpec' smart constructor.
+data S3DataSpec = S3DataSpec'
+    { _sdsDataSchema           :: !(Maybe Text)
+    , _sdsDataSchemaLocationS3 :: !(Maybe Text)
+    , _sdsDataRearrangement    :: !(Maybe Text)
+    , _sdsDataLocationS3       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'S3DataSpec' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sdsDataSchema'
 --
@@ -1432,15 +1474,9 @@ instance FromJSON RedshiftMetadata where
 -- * 'sdsDataRearrangement'
 --
 -- * 'sdsDataLocationS3'
-data S3DataSpec = S3DataSpec'
-    { _sdsDataSchema           :: !(Maybe Text)
-    , _sdsDataSchemaLocationS3 :: !(Maybe Text)
-    , _sdsDataRearrangement    :: !(Maybe Text)
-    , _sdsDataLocationS3       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'S3DataSpec' smart constructor.
-s3DataSpec :: Text -> S3DataSpec
+s3DataSpec
+    :: Text -- ^ 'sdsDataLocationS3'
+    -> S3DataSpec
 s3DataSpec pDataLocationS3_ =
     S3DataSpec'
     { _sdsDataSchema = Nothing
@@ -1449,7 +1485,7 @@ s3DataSpec pDataLocationS3_ =
     , _sdsDataLocationS3 = pDataLocationS3_
     }
 
--- | Describes the schema for an Amazon S3 @DataSource@.
+-- | Describes the schema for an Amazon S3 'DataSource'.
 sdsDataSchema :: Lens' S3DataSpec (Maybe Text)
 sdsDataSchema = lens _sdsDataSchema (\ s a -> s{_sdsDataSchema = a});
 
@@ -1457,11 +1493,11 @@ sdsDataSchema = lens _sdsDataSchema (\ s a -> s{_sdsDataSchema = a});
 sdsDataSchemaLocationS3 :: Lens' S3DataSpec (Maybe Text)
 sdsDataSchemaLocationS3 = lens _sdsDataSchemaLocationS3 (\ s a -> s{_sdsDataSchemaLocationS3 = a});
 
--- | Describes the splitting requirement of a @Datasource@.
+-- | Describes the splitting requirement of a 'Datasource'.
 sdsDataRearrangement :: Lens' S3DataSpec (Maybe Text)
 sdsDataRearrangement = lens _sdsDataRearrangement (\ s a -> s{_sdsDataRearrangement = a});
 
--- | The location of the data file(s) used by a @DataSource@. The URI
+-- | The location of the data file(s) used by a 'DataSource'. The URI
 -- specifies a data file or an Amazon Simple Storage Service (Amazon S3)
 -- directory or bucket containing data files.
 sdsDataLocationS3 :: Lens' S3DataSpec Text

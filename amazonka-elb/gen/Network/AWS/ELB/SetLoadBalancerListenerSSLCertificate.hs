@@ -30,16 +30,16 @@
 module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     (
     -- * Creating a Request
-      SetLoadBalancerListenerSSLCertificate
-    , setLoadBalancerListenerSSLCertificate
+      setLoadBalancerListenerSSLCertificate
+    , SetLoadBalancerListenerSSLCertificate
     -- * Request Lenses
     , slblscLoadBalancerName
     , slblscLoadBalancerPort
     , slblscSSLCertificateId
 
     -- * Destructuring the Response
-    , SetLoadBalancerListenerSSLCertificateResponse
     , setLoadBalancerListenerSSLCertificateResponse
+    , SetLoadBalancerListenerSSLCertificateResponse
     -- * Response Lenses
     , slblscrsStatus
     ) where
@@ -51,22 +51,26 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'setLoadBalancerListenerSSLCertificate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slblscLoadBalancerName'
---
--- * 'slblscLoadBalancerPort'
---
--- * 'slblscSSLCertificateId'
 data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate'
     { _slblscLoadBalancerName :: !Text
     , _slblscLoadBalancerPort :: !Int
     , _slblscSSLCertificateId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetLoadBalancerListenerSSLCertificate' smart constructor.
-setLoadBalancerListenerSSLCertificate :: Text -> Int -> Text -> SetLoadBalancerListenerSSLCertificate
+-- | Creates a value of 'SetLoadBalancerListenerSSLCertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slblscLoadBalancerName'
+--
+-- * 'slblscLoadBalancerPort'
+--
+-- * 'slblscSSLCertificateId'
+setLoadBalancerListenerSSLCertificate
+    :: Text -- ^ 'slblscLoadBalancerName'
+    -> Int -- ^ 'slblscLoadBalancerPort'
+    -> Text -- ^ 'slblscSSLCertificateId'
+    -> SetLoadBalancerListenerSSLCertificate
 setLoadBalancerListenerSSLCertificate pLoadBalancerName_ pLoadBalancerPort_ pSSLCertificateId_ =
     SetLoadBalancerListenerSSLCertificate'
     { _slblscLoadBalancerName = pLoadBalancerName_
@@ -120,21 +124,23 @@ instance ToQuery
                "SSLCertificateId" =: _slblscSSLCertificateId]
 
 -- | /See:/ 'setLoadBalancerListenerSSLCertificateResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slblscrsStatus'
 newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'
     { _slblscrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetLoadBalancerListenerSSLCertificateResponse' smart constructor.
-setLoadBalancerListenerSSLCertificateResponse :: Int -> SetLoadBalancerListenerSSLCertificateResponse
+-- | Creates a value of 'SetLoadBalancerListenerSSLCertificateResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slblscrsStatus'
+setLoadBalancerListenerSSLCertificateResponse
+    :: Int -- ^ 'slblscrsStatus'
+    -> SetLoadBalancerListenerSSLCertificateResponse
 setLoadBalancerListenerSSLCertificateResponse pStatus_ =
     SetLoadBalancerListenerSSLCertificateResponse'
     { _slblscrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 slblscrsStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
 slblscrsStatus = lens _slblscrsStatus (\ s a -> s{_slblscrsStatus = a});

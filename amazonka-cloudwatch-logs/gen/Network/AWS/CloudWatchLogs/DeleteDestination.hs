@@ -26,14 +26,14 @@
 module Network.AWS.CloudWatchLogs.DeleteDestination
     (
     -- * Creating a Request
-      DeleteDestination
-    , deleteDestination
+      deleteDestination
+    , DeleteDestination
     -- * Request Lenses
     , ddDestinationName
 
     -- * Destructuring the Response
-    , DeleteDestinationResponse
     , deleteDestinationResponse
+    , DeleteDestinationResponse
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -43,16 +43,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteDestination' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddDestinationName'
 newtype DeleteDestination = DeleteDestination'
     { _ddDestinationName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDestination' smart constructor.
-deleteDestination :: Text -> DeleteDestination
+-- | Creates a value of 'DeleteDestination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddDestinationName'
+deleteDestination
+    :: Text -- ^ 'ddDestinationName'
+    -> DeleteDestination
 deleteDestination pDestinationName_ =
     DeleteDestination'
     { _ddDestinationName = pDestinationName_
@@ -92,6 +94,8 @@ data DeleteDestinationResponse =
     DeleteDestinationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDestinationResponse' smart constructor.
-deleteDestinationResponse :: DeleteDestinationResponse
+-- | Creates a value of 'DeleteDestinationResponse' with the minimum fields required to make a request.
+--
+deleteDestinationResponse
+    :: DeleteDestinationResponse
 deleteDestinationResponse = DeleteDestinationResponse'

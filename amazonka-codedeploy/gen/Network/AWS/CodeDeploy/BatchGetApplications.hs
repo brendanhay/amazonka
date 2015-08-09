@@ -24,14 +24,14 @@
 module Network.AWS.CodeDeploy.BatchGetApplications
     (
     -- * Creating a Request
-      BatchGetApplications
-    , batchGetApplications
+      batchGetApplications
+    , BatchGetApplications
     -- * Request Lenses
     , bgaApplicationNames
 
     -- * Destructuring the Response
-    , BatchGetApplicationsResponse
     , batchGetApplicationsResponse
+    , BatchGetApplicationsResponse
     -- * Response Lenses
     , bgarsApplicationsInfo
     , bgarsStatus
@@ -46,16 +46,17 @@ import           Network.AWS.Response
 -- | Represents the input of a batch get applications operation.
 --
 -- /See:/ 'batchGetApplications' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bgaApplicationNames'
 newtype BatchGetApplications = BatchGetApplications'
     { _bgaApplicationNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BatchGetApplications' smart constructor.
-batchGetApplications :: BatchGetApplications
+-- | Creates a value of 'BatchGetApplications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgaApplicationNames'
+batchGetApplications
+    :: BatchGetApplications
 batchGetApplications =
     BatchGetApplications'
     { _bgaApplicationNames = Nothing
@@ -101,19 +102,21 @@ instance ToQuery BatchGetApplications where
 -- | Represents the output of a batch get applications operation.
 --
 -- /See:/ 'batchGetApplicationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bgarsApplicationsInfo'
---
--- * 'bgarsStatus'
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
     { _bgarsApplicationsInfo :: !(Maybe [ApplicationInfo])
     , _bgarsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BatchGetApplicationsResponse' smart constructor.
-batchGetApplicationsResponse :: Int -> BatchGetApplicationsResponse
+-- | Creates a value of 'BatchGetApplicationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgarsApplicationsInfo'
+--
+-- * 'bgarsStatus'
+batchGetApplicationsResponse
+    :: Int -- ^ 'bgarsStatus'
+    -> BatchGetApplicationsResponse
 batchGetApplicationsResponse pStatus_ =
     BatchGetApplicationsResponse'
     { _bgarsApplicationsInfo = Nothing
@@ -124,6 +127,6 @@ batchGetApplicationsResponse pStatus_ =
 bgarsApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
 bgarsApplicationsInfo = lens _bgarsApplicationsInfo (\ s a -> s{_bgarsApplicationsInfo = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 bgarsStatus :: Lens' BatchGetApplicationsResponse Int
 bgarsStatus = lens _bgarsStatus (\ s a -> s{_bgarsStatus = a});

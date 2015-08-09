@@ -31,8 +31,8 @@
 module Network.AWS.CognitoSync.ListRecords
     (
     -- * Creating a Request
-      ListRecords
-    , listRecords
+      listRecords
+    , ListRecords
     -- * Request Lenses
     , lrLastSyncCount
     , lrNextToken
@@ -43,8 +43,8 @@ module Network.AWS.CognitoSync.ListRecords
     , lrDatasetName
 
     -- * Destructuring the Response
-    , ListRecordsResponse
     , listRecordsResponse
+    , ListRecordsResponse
     -- * Response Lenses
     , lrrsDatasetDeletedAfterRequestedSyncCount
     , lrrsDatasetExists
@@ -67,8 +67,19 @@ import           Network.AWS.Response
 -- | A request for a list of records.
 --
 -- /See:/ 'listRecords' smart constructor.
+data ListRecords = ListRecords'
+    { _lrLastSyncCount    :: !(Maybe Integer)
+    , _lrNextToken        :: !(Maybe Text)
+    , _lrSyncSessionToken :: !(Maybe Text)
+    , _lrMaxResults       :: !(Maybe Int)
+    , _lrIdentityPoolId   :: !Text
+    , _lrIdentityId       :: !Text
+    , _lrDatasetName      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListRecords' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lrLastSyncCount'
 --
@@ -83,18 +94,11 @@ import           Network.AWS.Response
 -- * 'lrIdentityId'
 --
 -- * 'lrDatasetName'
-data ListRecords = ListRecords'
-    { _lrLastSyncCount    :: !(Maybe Integer)
-    , _lrNextToken        :: !(Maybe Text)
-    , _lrSyncSessionToken :: !(Maybe Text)
-    , _lrMaxResults       :: !(Maybe Int)
-    , _lrIdentityPoolId   :: !Text
-    , _lrIdentityId       :: !Text
-    , _lrDatasetName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListRecords' smart constructor.
-listRecords :: Text -> Text -> Text -> ListRecords
+listRecords
+    :: Text -- ^ 'lrIdentityPoolId'
+    -> Text -- ^ 'lrIdentityId'
+    -> Text -- ^ 'lrDatasetName'
+    -> ListRecords
 listRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ =
     ListRecords'
     { _lrLastSyncCount = Nothing
@@ -183,8 +187,22 @@ instance ToQuery ListRecords where
 -- | Returned for a successful ListRecordsRequest.
 --
 -- /See:/ 'listRecordsResponse' smart constructor.
+data ListRecordsResponse = ListRecordsResponse'
+    { _lrrsDatasetDeletedAfterRequestedSyncCount :: !(Maybe Bool)
+    , _lrrsDatasetExists                         :: !(Maybe Bool)
+    , _lrrsCount                                 :: !(Maybe Int)
+    , _lrrsRecords                               :: !(Maybe [Record])
+    , _lrrsNextToken                             :: !(Maybe Text)
+    , _lrrsSyncSessionToken                      :: !(Maybe Text)
+    , _lrrsMergedDatasetNames                    :: !(Maybe [Text])
+    , _lrrsLastModifiedBy                        :: !(Maybe Text)
+    , _lrrsDatasetSyncCount                      :: !(Maybe Integer)
+    , _lrrsStatus                                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListRecordsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lrrsDatasetDeletedAfterRequestedSyncCount'
 --
@@ -205,21 +223,9 @@ instance ToQuery ListRecords where
 -- * 'lrrsDatasetSyncCount'
 --
 -- * 'lrrsStatus'
-data ListRecordsResponse = ListRecordsResponse'
-    { _lrrsDatasetDeletedAfterRequestedSyncCount :: !(Maybe Bool)
-    , _lrrsDatasetExists                         :: !(Maybe Bool)
-    , _lrrsCount                                 :: !(Maybe Int)
-    , _lrrsRecords                               :: !(Maybe [Record])
-    , _lrrsNextToken                             :: !(Maybe Text)
-    , _lrrsSyncSessionToken                      :: !(Maybe Text)
-    , _lrrsMergedDatasetNames                    :: !(Maybe [Text])
-    , _lrrsLastModifiedBy                        :: !(Maybe Text)
-    , _lrrsDatasetSyncCount                      :: !(Maybe Integer)
-    , _lrrsStatus                                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListRecordsResponse' smart constructor.
-listRecordsResponse :: Int -> ListRecordsResponse
+listRecordsResponse
+    :: Int -- ^ 'lrrsStatus'
+    -> ListRecordsResponse
 listRecordsResponse pStatus_ =
     ListRecordsResponse'
     { _lrrsDatasetDeletedAfterRequestedSyncCount = Nothing
@@ -270,6 +276,6 @@ lrrsLastModifiedBy = lens _lrrsLastModifiedBy (\ s a -> s{_lrrsLastModifiedBy = 
 lrrsDatasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
 lrrsDatasetSyncCount = lens _lrrsDatasetSyncCount (\ s a -> s{_lrrsDatasetSyncCount = a});
 
--- | Undocumented member.
+-- | The response status code.
 lrrsStatus :: Lens' ListRecordsResponse Int
 lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});

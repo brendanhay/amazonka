@@ -33,8 +33,8 @@
 module Network.AWS.RDS.ModifyEventSubscription
     (
     -- * Creating a Request
-      ModifyEventSubscription
-    , modifyEventSubscription
+      modifyEventSubscription
+    , ModifyEventSubscription
     -- * Request Lenses
     , mesSNSTopicARN
     , mesEnabled
@@ -43,8 +43,8 @@ module Network.AWS.RDS.ModifyEventSubscription
     , mesSubscriptionName
 
     -- * Destructuring the Response
-    , ModifyEventSubscriptionResponse
     , modifyEventSubscriptionResponse
+    , ModifyEventSubscriptionResponse
     -- * Response Lenses
     , mesrsEventSubscription
     , mesrsStatus
@@ -59,8 +59,17 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'modifyEventSubscription' smart constructor.
+data ModifyEventSubscription = ModifyEventSubscription'
+    { _mesSNSTopicARN      :: !(Maybe Text)
+    , _mesEnabled          :: !(Maybe Bool)
+    , _mesSourceType       :: !(Maybe Text)
+    , _mesEventCategories  :: !(Maybe [Text])
+    , _mesSubscriptionName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyEventSubscription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mesSNSTopicARN'
 --
@@ -71,16 +80,9 @@ import           Network.AWS.Response
 -- * 'mesEventCategories'
 --
 -- * 'mesSubscriptionName'
-data ModifyEventSubscription = ModifyEventSubscription'
-    { _mesSNSTopicARN      :: !(Maybe Text)
-    , _mesEnabled          :: !(Maybe Bool)
-    , _mesSourceType       :: !(Maybe Text)
-    , _mesEventCategories  :: !(Maybe [Text])
-    , _mesSubscriptionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifyEventSubscription' smart constructor.
-modifyEventSubscription :: Text -> ModifyEventSubscription
+modifyEventSubscription
+    :: Text -- ^ 'mesSubscriptionName'
+    -> ModifyEventSubscription
 modifyEventSubscription pSubscriptionName_ =
     ModifyEventSubscription'
     { _mesSNSTopicARN = Nothing
@@ -155,19 +157,21 @@ instance ToQuery ModifyEventSubscription where
                "SubscriptionName" =: _mesSubscriptionName]
 
 -- | /See:/ 'modifyEventSubscriptionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mesrsEventSubscription'
---
--- * 'mesrsStatus'
 data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
     { _mesrsEventSubscription :: !(Maybe EventSubscription)
     , _mesrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyEventSubscriptionResponse' smart constructor.
-modifyEventSubscriptionResponse :: Int -> ModifyEventSubscriptionResponse
+-- | Creates a value of 'ModifyEventSubscriptionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mesrsEventSubscription'
+--
+-- * 'mesrsStatus'
+modifyEventSubscriptionResponse
+    :: Int -- ^ 'mesrsStatus'
+    -> ModifyEventSubscriptionResponse
 modifyEventSubscriptionResponse pStatus_ =
     ModifyEventSubscriptionResponse'
     { _mesrsEventSubscription = Nothing
@@ -178,6 +182,6 @@ modifyEventSubscriptionResponse pStatus_ =
 mesrsEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
 mesrsEventSubscription = lens _mesrsEventSubscription (\ s a -> s{_mesrsEventSubscription = a});
 
--- | Undocumented member.
+-- | The response status code.
 mesrsStatus :: Lens' ModifyEventSubscriptionResponse Int
 mesrsStatus = lens _mesrsStatus (\ s a -> s{_mesrsStatus = a});

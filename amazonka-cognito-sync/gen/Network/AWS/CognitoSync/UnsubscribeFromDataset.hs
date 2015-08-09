@@ -28,8 +28,8 @@
 module Network.AWS.CognitoSync.UnsubscribeFromDataset
     (
     -- * Creating a Request
-      UnsubscribeFromDataset
-    , unsubscribeFromDataset
+      unsubscribeFromDataset
+    , UnsubscribeFromDataset
     -- * Request Lenses
     , ufdIdentityPoolId
     , ufdIdentityId
@@ -37,8 +37,8 @@ module Network.AWS.CognitoSync.UnsubscribeFromDataset
     , ufdDeviceId
 
     -- * Destructuring the Response
-    , UnsubscribeFromDatasetResponse
     , unsubscribeFromDatasetResponse
+    , UnsubscribeFromDatasetResponse
     -- * Response Lenses
     , ufdrsStatus
     ) where
@@ -52,8 +52,16 @@ import           Network.AWS.Response
 -- | A request to UnsubscribeFromDataset.
 --
 -- /See:/ 'unsubscribeFromDataset' smart constructor.
+data UnsubscribeFromDataset = UnsubscribeFromDataset'
+    { _ufdIdentityPoolId :: !Text
+    , _ufdIdentityId     :: !Text
+    , _ufdDatasetName    :: !Text
+    , _ufdDeviceId       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UnsubscribeFromDataset' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ufdIdentityPoolId'
 --
@@ -62,15 +70,12 @@ import           Network.AWS.Response
 -- * 'ufdDatasetName'
 --
 -- * 'ufdDeviceId'
-data UnsubscribeFromDataset = UnsubscribeFromDataset'
-    { _ufdIdentityPoolId :: !Text
-    , _ufdIdentityId     :: !Text
-    , _ufdDatasetName    :: !Text
-    , _ufdDeviceId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UnsubscribeFromDataset' smart constructor.
-unsubscribeFromDataset :: Text -> Text -> Text -> Text -> UnsubscribeFromDataset
+unsubscribeFromDataset
+    :: Text -- ^ 'ufdIdentityPoolId'
+    -> Text -- ^ 'ufdIdentityId'
+    -> Text -- ^ 'ufdDatasetName'
+    -> Text -- ^ 'ufdDeviceId'
+    -> UnsubscribeFromDataset
 unsubscribeFromDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
     UnsubscribeFromDataset'
     { _ufdIdentityPoolId = pIdentityPoolId_
@@ -129,21 +134,23 @@ instance ToQuery UnsubscribeFromDataset where
 -- | Response to an UnsubscribeFromDataset request.
 --
 -- /See:/ 'unsubscribeFromDatasetResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ufdrsStatus'
 newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
     { _ufdrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnsubscribeFromDatasetResponse' smart constructor.
-unsubscribeFromDatasetResponse :: Int -> UnsubscribeFromDatasetResponse
+-- | Creates a value of 'UnsubscribeFromDatasetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ufdrsStatus'
+unsubscribeFromDatasetResponse
+    :: Int -- ^ 'ufdrsStatus'
+    -> UnsubscribeFromDatasetResponse
 unsubscribeFromDatasetResponse pStatus_ =
     UnsubscribeFromDatasetResponse'
     { _ufdrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ufdrsStatus :: Lens' UnsubscribeFromDatasetResponse Int
 ufdrsStatus = lens _ufdrsStatus (\ s a -> s{_ufdrsStatus = a});

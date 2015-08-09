@@ -27,14 +27,14 @@
 module Network.AWS.ECS.DeleteCluster
     (
     -- * Creating a Request
-      DeleteCluster
-    , deleteCluster
+      deleteCluster
+    , DeleteCluster
     -- * Request Lenses
     , dcCluster
 
     -- * Destructuring the Response
-    , DeleteClusterResponse
     , deleteClusterResponse
+    , DeleteClusterResponse
     -- * Response Lenses
     , drsCluster
     , drsStatus
@@ -47,16 +47,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteCluster' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcCluster'
 newtype DeleteCluster = DeleteCluster'
     { _dcCluster :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCluster' smart constructor.
-deleteCluster :: Text -> DeleteCluster
+-- | Creates a value of 'DeleteCluster' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcCluster'
+deleteCluster
+    :: Text -- ^ 'dcCluster'
+    -> DeleteCluster
 deleteCluster pCluster_ =
     DeleteCluster'
     { _dcCluster = pCluster_
@@ -98,19 +100,21 @@ instance ToQuery DeleteCluster where
         toQuery = const mempty
 
 -- | /See:/ 'deleteClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsCluster'
---
--- * 'drsStatus'
 data DeleteClusterResponse = DeleteClusterResponse'
     { _drsCluster :: !(Maybe Cluster)
     , _drsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteClusterResponse' smart constructor.
-deleteClusterResponse :: Int -> DeleteClusterResponse
+-- | Creates a value of 'DeleteClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsCluster'
+--
+-- * 'drsStatus'
+deleteClusterResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeleteClusterResponse
 deleteClusterResponse pStatus_ =
     DeleteClusterResponse'
     { _drsCluster = Nothing
@@ -121,6 +125,6 @@ deleteClusterResponse pStatus_ =
 drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeleteClusterResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

@@ -24,8 +24,20 @@ import           Network.AWS.Prelude
 -- | This object provides description of a file system.
 --
 -- /See:/ 'fileSystemDescription' smart constructor.
+data FileSystemDescription = FileSystemDescription'
+    { _fsdName                 :: !(Maybe Text)
+    , _fsdOwnerId              :: !Text
+    , _fsdCreationToken        :: !Text
+    , _fsdFileSystemId         :: !Text
+    , _fsdCreationTime         :: !POSIX
+    , _fsdLifeCycleState       :: !LifeCycleState
+    , _fsdNumberOfMountTargets :: !Nat
+    , _fsdSizeInBytes          :: !FileSystemSize
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'FileSystemDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'fsdName'
 --
@@ -42,19 +54,15 @@ import           Network.AWS.Prelude
 -- * 'fsdNumberOfMountTargets'
 --
 -- * 'fsdSizeInBytes'
-data FileSystemDescription = FileSystemDescription'
-    { _fsdName                 :: !(Maybe Text)
-    , _fsdOwnerId              :: !Text
-    , _fsdCreationToken        :: !Text
-    , _fsdFileSystemId         :: !Text
-    , _fsdCreationTime         :: !POSIX
-    , _fsdLifeCycleState       :: !LifeCycleState
-    , _fsdNumberOfMountTargets :: !Nat
-    , _fsdSizeInBytes          :: !FileSystemSize
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'FileSystemDescription' smart constructor.
-fileSystemDescription :: Text -> Text -> Text -> UTCTime -> LifeCycleState -> Natural -> FileSystemSize -> FileSystemDescription
+fileSystemDescription
+    :: Text -- ^ 'fsdOwnerId'
+    -> Text -- ^ 'fsdCreationToken'
+    -> Text -- ^ 'fsdFileSystemId'
+    -> UTCTime -- ^ 'fsdCreationTime'
+    -> LifeCycleState -- ^ 'fsdLifeCycleState'
+    -> Natural -- ^ 'fsdNumberOfMountTargets'
+    -> FileSystemSize -- ^ 'fsdSizeInBytes'
+    -> FileSystemDescription
 fileSystemDescription pOwnerId_ pCreationToken_ pFileSystemId_ pCreationTime_ pLifeCycleState_ pNumberOfMountTargets_ pSizeInBytes_ =
     FileSystemDescription'
     { _fsdName = Nothing
@@ -103,8 +111,8 @@ fsdNumberOfMountTargets :: Lens' FileSystemDescription Natural
 fsdNumberOfMountTargets = lens _fsdNumberOfMountTargets (\ s a -> s{_fsdNumberOfMountTargets = a}) . _Nat;
 
 -- | This object provides the latest known metered size of data stored in the
--- file system, in bytes, in its @Value@ field, and the time at which that
--- size was determined in its @Timestamp@ field. The @Timestamp@ value is
+-- file system, in bytes, in its 'Value' field, and the time at which that
+-- size was determined in its 'Timestamp' field. The 'Timestamp' value is
 -- the integer number of seconds since 1970-01-01T00:00:00Z. Note that the
 -- value does not represent the size of a consistent snapshot of the file
 -- system, but it is eventually consistent when there are no writes to the
@@ -129,8 +137,8 @@ instance FromJSON FileSystemDescription where
                      <*> (x .: "SizeInBytes"))
 
 -- | This object provides the latest known metered size, in bytes, of data
--- stored in the file system, in its @Value@ field, and the time at which
--- that size was determined in its @Timestamp@ field. Note that the value
+-- stored in the file system, in its 'Value' field, and the time at which
+-- that size was determined in its 'Timestamp' field. Note that the value
 -- does not represent the size of a consistent snapshot of the file system,
 -- but it is eventually consistent when there are no writes to the file
 -- system. That is, the value will represent the actual size only if the
@@ -139,26 +147,28 @@ instance FromJSON FileSystemDescription where
 -- was at any instant in time.
 --
 -- /See:/ 'fileSystemSize' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fssTimestamp'
---
--- * 'fssValue'
 data FileSystemSize = FileSystemSize'
     { _fssTimestamp :: !(Maybe POSIX)
     , _fssValue     :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'FileSystemSize' smart constructor.
-fileSystemSize :: Natural -> FileSystemSize
+-- | Creates a value of 'FileSystemSize' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fssTimestamp'
+--
+-- * 'fssValue'
+fileSystemSize
+    :: Natural -- ^ 'fssValue'
+    -> FileSystemSize
 fileSystemSize pValue_ =
     FileSystemSize'
     { _fssTimestamp = Nothing
     , _fssValue = _Nat # pValue_
     }
 
--- | The time at which the size of data, returned in the @Value@ field, was
+-- | The time at which the size of data, returned in the 'Value' field, was
 -- determined. The value is the integer number of seconds since
 -- 1970-01-01T00:00:00Z.
 fssTimestamp :: Lens' FileSystemSize (Maybe UTCTime)
@@ -179,8 +189,19 @@ instance FromJSON FileSystemSize where
 -- | This object provides description of a mount target.
 --
 -- /See:/ 'mountTargetDescription' smart constructor.
+data MountTargetDescription = MountTargetDescription'
+    { _mtdIPAddress          :: !(Maybe Text)
+    , _mtdNetworkInterfaceId :: !(Maybe Text)
+    , _mtdOwnerId            :: !(Maybe Text)
+    , _mtdMountTargetId      :: !Text
+    , _mtdFileSystemId       :: !Text
+    , _mtdSubnetId           :: !Text
+    , _mtdLifeCycleState     :: !LifeCycleState
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MountTargetDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mtdIPAddress'
 --
@@ -195,18 +216,12 @@ instance FromJSON FileSystemSize where
 -- * 'mtdSubnetId'
 --
 -- * 'mtdLifeCycleState'
-data MountTargetDescription = MountTargetDescription'
-    { _mtdIPAddress          :: !(Maybe Text)
-    , _mtdNetworkInterfaceId :: !(Maybe Text)
-    , _mtdOwnerId            :: !(Maybe Text)
-    , _mtdMountTargetId      :: !Text
-    , _mtdFileSystemId       :: !Text
-    , _mtdSubnetId           :: !Text
-    , _mtdLifeCycleState     :: !LifeCycleState
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'MountTargetDescription' smart constructor.
-mountTargetDescription :: Text -> Text -> Text -> LifeCycleState -> MountTargetDescription
+mountTargetDescription
+    :: Text -- ^ 'mtdMountTargetId'
+    -> Text -- ^ 'mtdFileSystemId'
+    -> Text -- ^ 'mtdSubnetId'
+    -> LifeCycleState -- ^ 'mtdLifeCycleState'
+    -> MountTargetDescription
 mountTargetDescription pMountTargetId_ pFileSystemId_ pSubnetId_ pLifeCycleState_ =
     MountTargetDescription'
     { _mtdIPAddress = Nothing
@@ -265,19 +280,22 @@ instance FromJSON MountTargetDescription where
 -- the characters \'+\', \'-\', \'=\', \'.\', \'_\', \':\', and \'\/\'.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagKey'
---
--- * 'tagValue'
 data Tag = Tag'
     { _tagKey   :: !Text
     , _tagValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Text -> Text -> Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagKey'
+--
+-- * 'tagValue'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
 tag pKey_ pValue_ =
     Tag'
     { _tagKey = pKey_

@@ -24,14 +24,14 @@
 module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
     (
     -- * Creating a Request
-      DeregisterOnPremisesInstance
-    , deregisterOnPremisesInstance
+      deregisterOnPremisesInstance
+    , DeregisterOnPremisesInstance
     -- * Request Lenses
     , dopiInstanceName
 
     -- * Destructuring the Response
-    , DeregisterOnPremisesInstanceResponse
     , deregisterOnPremisesInstanceResponse
+    , DeregisterOnPremisesInstanceResponse
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -43,16 +43,18 @@ import           Network.AWS.Response
 -- | Represents the input of a deregister on-premises instance operation.
 --
 -- /See:/ 'deregisterOnPremisesInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dopiInstanceName'
 newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
     { _dopiInstanceName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterOnPremisesInstance' smart constructor.
-deregisterOnPremisesInstance :: Text -> DeregisterOnPremisesInstance
+-- | Creates a value of 'DeregisterOnPremisesInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dopiInstanceName'
+deregisterOnPremisesInstance
+    :: Text -- ^ 'dopiInstanceName'
+    -> DeregisterOnPremisesInstance
 deregisterOnPremisesInstance pInstanceName_ =
     DeregisterOnPremisesInstance'
     { _dopiInstanceName = pInstanceName_
@@ -96,6 +98,8 @@ data DeregisterOnPremisesInstanceResponse =
     DeregisterOnPremisesInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterOnPremisesInstanceResponse' smart constructor.
-deregisterOnPremisesInstanceResponse :: DeregisterOnPremisesInstanceResponse
+-- | Creates a value of 'DeregisterOnPremisesInstanceResponse' with the minimum fields required to make a request.
+--
+deregisterOnPremisesInstanceResponse
+    :: DeregisterOnPremisesInstanceResponse
 deregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse'

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures an @Expression@ for the search domain. Used to create new
+-- Configures an 'Expression' for the search domain. Used to create new
 -- expressions and modify existing ones. If the expression exists, the new
 -- configuration replaces the old one. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
@@ -28,15 +28,15 @@
 module Network.AWS.CloudSearch.DefineExpression
     (
     -- * Creating a Request
-      DefineExpression
-    , defineExpression
+      defineExpression
+    , DefineExpression
     -- * Request Lenses
     , dDomainName
     , dExpression
 
     -- * Destructuring the Response
-    , DefineExpressionResponse
     , defineExpressionResponse
+    , DefineExpressionResponse
     -- * Response Lenses
     , dersStatus
     , dersExpression
@@ -48,24 +48,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DefineExpression@ operation.
+-- | Container for the parameters to the 'DefineExpression' operation.
 -- Specifies the name of the domain you want to update and the expression
 -- you want to configure.
 --
 -- /See:/ 'defineExpression' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dDomainName'
---
--- * 'dExpression'
 data DefineExpression = DefineExpression'
     { _dDomainName :: !Text
     , _dExpression :: !Expression
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DefineExpression' smart constructor.
-defineExpression :: Text -> Expression -> DefineExpression
+-- | Creates a value of 'DefineExpression' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dDomainName'
+--
+-- * 'dExpression'
+defineExpression
+    :: Text -- ^ 'dDomainName'
+    -> Expression -- ^ 'dExpression'
+    -> DefineExpression
 defineExpression pDomainName_ pExpression_ =
     DefineExpression'
     { _dDomainName = pDomainName_
@@ -104,30 +107,33 @@ instance ToQuery DefineExpression where
                "DomainName" =: _dDomainName,
                "Expression" =: _dExpression]
 
--- | The result of a @DefineExpression@ request. Contains the status of the
+-- | The result of a 'DefineExpression' request. Contains the status of the
 -- newly-configured expression.
 --
 -- /See:/ 'defineExpressionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dersStatus'
---
--- * 'dersExpression'
 data DefineExpressionResponse = DefineExpressionResponse'
     { _dersStatus     :: !Int
     , _dersExpression :: !ExpressionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DefineExpressionResponse' smart constructor.
-defineExpressionResponse :: Int -> ExpressionStatus -> DefineExpressionResponse
+-- | Creates a value of 'DefineExpressionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dersStatus'
+--
+-- * 'dersExpression'
+defineExpressionResponse
+    :: Int -- ^ 'dersStatus'
+    -> ExpressionStatus -- ^ 'dersExpression'
+    -> DefineExpressionResponse
 defineExpressionResponse pStatus_ pExpression_ =
     DefineExpressionResponse'
     { _dersStatus = pStatus_
     , _dersExpression = pExpression_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dersStatus :: Lens' DefineExpressionResponse Int
 dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
 

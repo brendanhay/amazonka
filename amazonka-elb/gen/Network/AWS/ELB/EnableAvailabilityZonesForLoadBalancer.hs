@@ -32,15 +32,15 @@
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     (
     -- * Creating a Request
-      EnableAvailabilityZonesForLoadBalancer
-    , enableAvailabilityZonesForLoadBalancer
+      enableAvailabilityZonesForLoadBalancer
+    , EnableAvailabilityZonesForLoadBalancer
     -- * Request Lenses
     , eazflbLoadBalancerName
     , eazflbAvailabilityZones
 
     -- * Destructuring the Response
-    , EnableAvailabilityZonesForLoadBalancerResponse
     , enableAvailabilityZonesForLoadBalancerResponse
+    , EnableAvailabilityZonesForLoadBalancerResponse
     -- * Response Lenses
     , eazflbrsAvailabilityZones
     , eazflbrsStatus
@@ -53,19 +53,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'enableAvailabilityZonesForLoadBalancer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'eazflbLoadBalancerName'
---
--- * 'eazflbAvailabilityZones'
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer'
     { _eazflbLoadBalancerName  :: !Text
     , _eazflbAvailabilityZones :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableAvailabilityZonesForLoadBalancer' smart constructor.
-enableAvailabilityZonesForLoadBalancer :: Text -> EnableAvailabilityZonesForLoadBalancer
+-- | Creates a value of 'EnableAvailabilityZonesForLoadBalancer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eazflbLoadBalancerName'
+--
+-- * 'eazflbAvailabilityZones'
+enableAvailabilityZonesForLoadBalancer
+    :: Text -- ^ 'eazflbLoadBalancerName'
+    -> EnableAvailabilityZonesForLoadBalancer
 enableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
     EnableAvailabilityZonesForLoadBalancer'
     { _eazflbLoadBalancerName = pLoadBalancerName_
@@ -117,19 +119,21 @@ instance ToQuery
                  toQueryList "member" _eazflbAvailabilityZones]
 
 -- | /See:/ 'enableAvailabilityZonesForLoadBalancerResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'eazflbrsAvailabilityZones'
---
--- * 'eazflbrsStatus'
 data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'
     { _eazflbrsAvailabilityZones :: !(Maybe [Text])
     , _eazflbrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableAvailabilityZonesForLoadBalancerResponse' smart constructor.
-enableAvailabilityZonesForLoadBalancerResponse :: Int -> EnableAvailabilityZonesForLoadBalancerResponse
+-- | Creates a value of 'EnableAvailabilityZonesForLoadBalancerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eazflbrsAvailabilityZones'
+--
+-- * 'eazflbrsStatus'
+enableAvailabilityZonesForLoadBalancerResponse
+    :: Int -- ^ 'eazflbrsStatus'
+    -> EnableAvailabilityZonesForLoadBalancerResponse
 enableAvailabilityZonesForLoadBalancerResponse pStatus_ =
     EnableAvailabilityZonesForLoadBalancerResponse'
     { _eazflbrsAvailabilityZones = Nothing
@@ -140,6 +144,6 @@ enableAvailabilityZonesForLoadBalancerResponse pStatus_ =
 eazflbrsAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
 eazflbrsAvailabilityZones = lens _eazflbrsAvailabilityZones (\ s a -> s{_eazflbrsAvailabilityZones = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 eazflbrsStatus :: Lens' EnableAvailabilityZonesForLoadBalancerResponse Int
 eazflbrsStatus = lens _eazflbrsStatus (\ s a -> s{_eazflbrsStatus = a});

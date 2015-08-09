@@ -24,15 +24,15 @@
 module Network.AWS.CloudFront.ListStreamingDistributions
     (
     -- * Creating a Request
-      ListStreamingDistributions
-    , listStreamingDistributions
+      listStreamingDistributions
+    , ListStreamingDistributions
     -- * Request Lenses
     , lsdMaxItems
     , lsdMarker
 
     -- * Destructuring the Response
-    , ListStreamingDistributionsResponse
     , listStreamingDistributionsResponse
+    , ListStreamingDistributionsResponse
     -- * Response Lenses
     , lsdrsStatus
     , lsdrsStreamingDistributionList
@@ -47,19 +47,20 @@ import           Network.AWS.Response
 -- | The request to list your streaming distributions.
 --
 -- /See:/ 'listStreamingDistributions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsdMaxItems'
---
--- * 'lsdMarker'
 data ListStreamingDistributions = ListStreamingDistributions'
     { _lsdMaxItems :: !(Maybe Text)
     , _lsdMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListStreamingDistributions' smart constructor.
-listStreamingDistributions :: ListStreamingDistributions
+-- | Creates a value of 'ListStreamingDistributions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsdMaxItems'
+--
+-- * 'lsdMarker'
+listStreamingDistributions
+    :: ListStreamingDistributions
 listStreamingDistributions =
     ListStreamingDistributions'
     { _lsdMaxItems = Nothing
@@ -104,26 +105,29 @@ instance ToQuery ListStreamingDistributions where
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'listStreamingDistributionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsdrsStatus'
---
--- * 'lsdrsStreamingDistributionList'
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
     { _lsdrsStatus                    :: !Int
     , _lsdrsStreamingDistributionList :: !StreamingDistributionList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListStreamingDistributionsResponse' smart constructor.
-listStreamingDistributionsResponse :: Int -> StreamingDistributionList -> ListStreamingDistributionsResponse
+-- | Creates a value of 'ListStreamingDistributionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsdrsStatus'
+--
+-- * 'lsdrsStreamingDistributionList'
+listStreamingDistributionsResponse
+    :: Int -- ^ 'lsdrsStatus'
+    -> StreamingDistributionList -- ^ 'lsdrsStreamingDistributionList'
+    -> ListStreamingDistributionsResponse
 listStreamingDistributionsResponse pStatus_ pStreamingDistributionList_ =
     ListStreamingDistributionsResponse'
     { _lsdrsStatus = pStatus_
     , _lsdrsStreamingDistributionList = pStreamingDistributionList_
     }
 
--- | Undocumented member.
+-- | The response status code.
 lsdrsStatus :: Lens' ListStreamingDistributionsResponse Int
 lsdrsStatus = lens _lsdrsStatus (\ s a -> s{_lsdrsStatus = a});
 

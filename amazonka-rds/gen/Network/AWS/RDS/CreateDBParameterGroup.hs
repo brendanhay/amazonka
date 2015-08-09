@@ -36,7 +36,7 @@
 -- as the default for a new DB instance. This is especially important for
 -- parameters that are critical when creating the default database for a DB
 -- instance, such as the character set for the default database defined by
--- the @character_set_database@ parameter. You can use the /Parameter
+-- the 'character_set_database' parameter. You can use the /Parameter
 -- Groups/ option of the
 -- <https://console.aws.amazon.com/rds/ Amazon RDS console> or the
 -- /DescribeDBParameters/ command to verify that your DB parameter group
@@ -46,8 +46,8 @@
 module Network.AWS.RDS.CreateDBParameterGroup
     (
     -- * Creating a Request
-      CreateDBParameterGroup
-    , createDBParameterGroup
+      createDBParameterGroup
+    , CreateDBParameterGroup
     -- * Request Lenses
     , cdbpgTags
     , cdbpgDBParameterGroupName
@@ -55,8 +55,8 @@ module Network.AWS.RDS.CreateDBParameterGroup
     , cdbpgDescription
 
     -- * Destructuring the Response
-    , CreateDBParameterGroupResponse
     , createDBParameterGroupResponse
+    , CreateDBParameterGroupResponse
     -- * Response Lenses
     , cdpgrsDBParameterGroup
     , cdpgrsStatus
@@ -71,8 +71,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createDBParameterGroup' smart constructor.
+data CreateDBParameterGroup = CreateDBParameterGroup'
+    { _cdbpgTags                   :: !(Maybe [Tag])
+    , _cdbpgDBParameterGroupName   :: !Text
+    , _cdbpgDBParameterGroupFamily :: !Text
+    , _cdbpgDescription            :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDBParameterGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdbpgTags'
 --
@@ -81,15 +89,11 @@ import           Network.AWS.Response
 -- * 'cdbpgDBParameterGroupFamily'
 --
 -- * 'cdbpgDescription'
-data CreateDBParameterGroup = CreateDBParameterGroup'
-    { _cdbpgTags                   :: !(Maybe [Tag])
-    , _cdbpgDBParameterGroupName   :: !Text
-    , _cdbpgDBParameterGroupFamily :: !Text
-    , _cdbpgDescription            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateDBParameterGroup' smart constructor.
-createDBParameterGroup :: Text -> Text -> Text -> CreateDBParameterGroup
+createDBParameterGroup
+    :: Text -- ^ 'cdbpgDBParameterGroupName'
+    -> Text -- ^ 'cdbpgDBParameterGroupFamily'
+    -> Text -- ^ 'cdbpgDescription'
+    -> CreateDBParameterGroup
 createDBParameterGroup pDBParameterGroupName_ pDBParameterGroupFamily_ pDescription_ =
     CreateDBParameterGroup'
     { _cdbpgTags = Nothing
@@ -155,19 +159,21 @@ instance ToQuery CreateDBParameterGroup where
                "Description" =: _cdbpgDescription]
 
 -- | /See:/ 'createDBParameterGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdpgrsDBParameterGroup'
---
--- * 'cdpgrsStatus'
 data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
     { _cdpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
     , _cdpgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBParameterGroupResponse' smart constructor.
-createDBParameterGroupResponse :: Int -> CreateDBParameterGroupResponse
+-- | Creates a value of 'CreateDBParameterGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdpgrsDBParameterGroup'
+--
+-- * 'cdpgrsStatus'
+createDBParameterGroupResponse
+    :: Int -- ^ 'cdpgrsStatus'
+    -> CreateDBParameterGroupResponse
 createDBParameterGroupResponse pStatus_ =
     CreateDBParameterGroupResponse'
     { _cdpgrsDBParameterGroup = Nothing
@@ -178,6 +184,6 @@ createDBParameterGroupResponse pStatus_ =
 cdpgrsDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
 cdpgrsDBParameterGroup = lens _cdpgrsDBParameterGroup (\ s a -> s{_cdpgrsDBParameterGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdpgrsStatus :: Lens' CreateDBParameterGroupResponse Int
 cdpgrsStatus = lens _cdpgrsStatus (\ s a -> s{_cdpgrsStatus = a});

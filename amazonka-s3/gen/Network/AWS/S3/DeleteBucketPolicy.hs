@@ -24,14 +24,14 @@
 module Network.AWS.S3.DeleteBucketPolicy
     (
     -- * Creating a Request
-      DeleteBucketPolicy
-    , deleteBucketPolicy
+      deleteBucketPolicy
+    , DeleteBucketPolicy
     -- * Request Lenses
     , dbpBucket
 
     -- * Destructuring the Response
-    , DeleteBucketPolicyResponse
     , deleteBucketPolicyResponse
+    , DeleteBucketPolicyResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -41,16 +41,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dbpBucket'
 newtype DeleteBucketPolicy = DeleteBucketPolicy'
     { _dbpBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucketPolicy' smart constructor.
-deleteBucketPolicy :: BucketName -> DeleteBucketPolicy
+-- | Creates a value of 'DeleteBucketPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dbpBucket'
+deleteBucketPolicy
+    :: BucketName -- ^ 'dbpBucket'
+    -> DeleteBucketPolicy
 deleteBucketPolicy pBucket_ =
     DeleteBucketPolicy'
     { _dbpBucket = pBucket_
@@ -82,6 +84,8 @@ data DeleteBucketPolicyResponse =
     DeleteBucketPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucketPolicyResponse' smart constructor.
-deleteBucketPolicyResponse :: DeleteBucketPolicyResponse
+-- | Creates a value of 'DeleteBucketPolicyResponse' with the minimum fields required to make a request.
+--
+deleteBucketPolicyResponse
+    :: DeleteBucketPolicyResponse
 deleteBucketPolicyResponse = DeleteBucketPolicyResponse'

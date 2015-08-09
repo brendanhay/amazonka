@@ -30,8 +30,8 @@
 module Network.AWS.StorageGateway.UpdateChapCredentials
     (
     -- * Creating a Request
-      UpdateChapCredentials
-    , updateChapCredentials
+      updateChapCredentials
+    , UpdateChapCredentials
     -- * Request Lenses
     , uccSecretToAuthenticateTarget
     , uccTargetARN
@@ -39,8 +39,8 @@ module Network.AWS.StorageGateway.UpdateChapCredentials
     , uccInitiatorName
 
     -- * Destructuring the Response
-    , UpdateChapCredentialsResponse
     , updateChapCredentialsResponse
+    , UpdateChapCredentialsResponse
     -- * Response Lenses
     , uccrsTargetARN
     , uccrsInitiatorName
@@ -61,8 +61,16 @@ import           Network.AWS.StorageGateway.Types.Product
 -- -   UpdateChapCredentialsInput$TargetARN
 --
 -- /See:/ 'updateChapCredentials' smart constructor.
+data UpdateChapCredentials = UpdateChapCredentials'
+    { _uccSecretToAuthenticateTarget    :: !(Maybe Text)
+    , _uccTargetARN                     :: !Text
+    , _uccSecretToAuthenticateInitiator :: !Text
+    , _uccInitiatorName                 :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateChapCredentials' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uccSecretToAuthenticateTarget'
 --
@@ -71,15 +79,11 @@ import           Network.AWS.StorageGateway.Types.Product
 -- * 'uccSecretToAuthenticateInitiator'
 --
 -- * 'uccInitiatorName'
-data UpdateChapCredentials = UpdateChapCredentials'
-    { _uccSecretToAuthenticateTarget    :: !(Maybe Text)
-    , _uccTargetARN                     :: !Text
-    , _uccSecretToAuthenticateInitiator :: !Text
-    , _uccInitiatorName                 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateChapCredentials' smart constructor.
-updateChapCredentials :: Text -> Text -> Text -> UpdateChapCredentials
+updateChapCredentials
+    :: Text -- ^ 'uccTargetARN'
+    -> Text -- ^ 'uccSecretToAuthenticateInitiator'
+    -> Text -- ^ 'uccInitiatorName'
+    -> UpdateChapCredentials
 updateChapCredentials pTargetARN_ pSecretToAuthenticateInitiator_ pInitiatorName_ =
     UpdateChapCredentials'
     { _uccSecretToAuthenticateTarget = Nothing
@@ -155,22 +159,24 @@ instance ToQuery UpdateChapCredentials where
 -- | A JSON object containing the following fields:
 --
 -- /See:/ 'updateChapCredentialsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uccrsTargetARN'
---
--- * 'uccrsInitiatorName'
---
--- * 'uccrsStatus'
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
     { _uccrsTargetARN     :: !(Maybe Text)
     , _uccrsInitiatorName :: !(Maybe Text)
     , _uccrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateChapCredentialsResponse' smart constructor.
-updateChapCredentialsResponse :: Int -> UpdateChapCredentialsResponse
+-- | Creates a value of 'UpdateChapCredentialsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uccrsTargetARN'
+--
+-- * 'uccrsInitiatorName'
+--
+-- * 'uccrsStatus'
+updateChapCredentialsResponse
+    :: Int -- ^ 'uccrsStatus'
+    -> UpdateChapCredentialsResponse
 updateChapCredentialsResponse pStatus_ =
     UpdateChapCredentialsResponse'
     { _uccrsTargetARN = Nothing
@@ -188,6 +194,6 @@ uccrsTargetARN = lens _uccrsTargetARN (\ s a -> s{_uccrsTargetARN = a});
 uccrsInitiatorName :: Lens' UpdateChapCredentialsResponse (Maybe Text)
 uccrsInitiatorName = lens _uccrsInitiatorName (\ s a -> s{_uccrsInitiatorName = a});
 
--- | Undocumented member.
+-- | The response status code.
 uccrsStatus :: Lens' UpdateChapCredentialsResponse Int
 uccrsStatus = lens _uccrsStatus (\ s a -> s{_uccrsStatus = a});

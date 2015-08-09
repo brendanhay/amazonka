@@ -25,15 +25,15 @@
 module Network.AWS.EC2.EnableVolumeIO
     (
     -- * Creating a Request
-      EnableVolumeIO
-    , enableVolumeIO
+      enableVolumeIO
+    , EnableVolumeIO
     -- * Request Lenses
     , evioDryRun
     , evioVolumeId
 
     -- * Destructuring the Response
-    , EnableVolumeIOResponse
     , enableVolumeIOResponse
+    , EnableVolumeIOResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -43,19 +43,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'enableVolumeIO' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'evioDryRun'
---
--- * 'evioVolumeId'
 data EnableVolumeIO = EnableVolumeIO'
     { _evioDryRun   :: !(Maybe Bool)
     , _evioVolumeId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableVolumeIO' smart constructor.
-enableVolumeIO :: Text -> EnableVolumeIO
+-- | Creates a value of 'EnableVolumeIO' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'evioDryRun'
+--
+-- * 'evioVolumeId'
+enableVolumeIO
+    :: Text -- ^ 'evioVolumeId'
+    -> EnableVolumeIO
 enableVolumeIO pVolumeId_ =
     EnableVolumeIO'
     { _evioDryRun = Nothing
@@ -64,8 +66,8 @@ enableVolumeIO pVolumeId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 evioDryRun :: Lens' EnableVolumeIO (Maybe Bool)
 evioDryRun = lens _evioDryRun (\ s a -> s{_evioDryRun = a});
 
@@ -97,6 +99,8 @@ data EnableVolumeIOResponse =
     EnableVolumeIOResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableVolumeIOResponse' smart constructor.
-enableVolumeIOResponse :: EnableVolumeIOResponse
+-- | Creates a value of 'EnableVolumeIOResponse' with the minimum fields required to make a request.
+--
+enableVolumeIOResponse
+    :: EnableVolumeIOResponse
 enableVolumeIOResponse = EnableVolumeIOResponse'

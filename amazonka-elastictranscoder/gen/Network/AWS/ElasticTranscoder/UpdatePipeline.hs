@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use the @UpdatePipeline@ operation to update settings for a pipeline.
+-- Use the 'UpdatePipeline' operation to update settings for a pipeline.
 -- When you change pipeline settings, your changes take effect immediately.
 -- Jobs that you have already submitted and that Elastic Transcoder has not
 -- started to process are affected in addition to jobs that you submit
@@ -28,8 +28,8 @@
 module Network.AWS.ElasticTranscoder.UpdatePipeline
     (
     -- * Creating a Request
-      UpdatePipeline
-    , updatePipeline
+      updatePipeline
+    , UpdatePipeline
     -- * Request Lenses
     , upInputBucket
     , upContentConfig
@@ -41,8 +41,8 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     , upId
 
     -- * Destructuring the Response
-    , UpdatePipelineResponse
     , updatePipelineResponse
+    , UpdatePipelineResponse
     -- * Response Lenses
     , uprsWarnings
     , uprsPipeline
@@ -55,11 +55,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @UpdatePipelineRequest@ structure.
+-- | The 'UpdatePipelineRequest' structure.
 --
 -- /See:/ 'updatePipeline' smart constructor.
+data UpdatePipeline = UpdatePipeline'
+    { _upInputBucket     :: !(Maybe Text)
+    , _upContentConfig   :: !(Maybe PipelineOutputConfig)
+    , _upRole            :: !(Maybe Text)
+    , _upName            :: !(Maybe Text)
+    , _upAWSKMSKeyARN    :: !(Maybe Text)
+    , _upThumbnailConfig :: !(Maybe PipelineOutputConfig)
+    , _upNotifications   :: !(Maybe Notifications)
+    , _upId              :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdatePipeline' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'upInputBucket'
 --
@@ -76,19 +88,9 @@ import           Network.AWS.Response
 -- * 'upNotifications'
 --
 -- * 'upId'
-data UpdatePipeline = UpdatePipeline'
-    { _upInputBucket     :: !(Maybe Text)
-    , _upContentConfig   :: !(Maybe PipelineOutputConfig)
-    , _upRole            :: !(Maybe Text)
-    , _upName            :: !(Maybe Text)
-    , _upAWSKMSKeyARN    :: !(Maybe Text)
-    , _upThumbnailConfig :: !(Maybe PipelineOutputConfig)
-    , _upNotifications   :: !(Maybe Notifications)
-    , _upId              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdatePipeline' smart constructor.
-updatePipeline :: Text -> UpdatePipeline
+updatePipeline
+    :: Text -- ^ 'upId'
+    -> UpdatePipeline
 updatePipeline pId_ =
     UpdatePipeline'
     { _upInputBucket = Nothing
@@ -106,17 +108,17 @@ updatePipeline pId_ =
 upInputBucket :: Lens' UpdatePipeline (Maybe Text)
 upInputBucket = lens _upInputBucket (\ s a -> s{_upInputBucket = a});
 
--- | The optional @ContentConfig@ object specifies information about the
+-- | The optional 'ContentConfig' object specifies information about the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
 -- files and playlists: which bucket to use, which users you want to have
 -- access to the files, the type of access you want users to have, and the
 -- storage class that you want to assign to the files.
 --
--- If you specify values for @ContentConfig@, you must also specify values
--- for @ThumbnailConfig@.
+-- If you specify values for 'ContentConfig', you must also specify values
+-- for 'ThumbnailConfig'.
 --
--- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit
--- the @OutputBucket@ object.
+-- If you specify values for 'ContentConfig' and 'ThumbnailConfig', omit
+-- the 'OutputBucket' object.
 --
 -- -   __Bucket__: The Amazon S3 bucket in which you want Elastic
 --     Transcoder to save transcoded files and playlists.
@@ -125,8 +127,8 @@ upInputBucket = lens _upInputBucket (\ s a -> s{_upInputBucket = a});
 --     access you want them to have. You can grant permissions to a maximum
 --     of 30 users and\/or predefined Amazon S3 groups.
 -- -   __Grantee Type__: Specify the type of value that appears in the
---     @Grantee@ object:
---     -   __Canonical__: The value in the @Grantee@ object is either the
+--     'Grantee' object:
+--     -   __Canonical__: The value in the 'Grantee' object is either the
 --         canonical user ID for an AWS account or an origin access
 --         identity for an Amazon CloudFront distribution. For more
 --         information about canonical user IDs, see Access Control List
@@ -136,31 +138,31 @@ upInputBucket = lens _upInputBucket (\ s a -> s{_upInputBucket = a});
 --         Amazon S3 URLs, see Using an Origin Access Identity to Restrict
 --         Access to Your Amazon S3 Content.
 --         A canonical user ID is not the same as an AWS account number.
---     -   __Email__: The value in the @Grantee@ object is the registered
+--     -   __Email__: The value in the 'Grantee' object is the registered
 --         email address of an AWS account.
---     -   __Group__: The value in the @Grantee@ object is one of the
---         following predefined Amazon S3 groups: @AllUsers@,
---         @AuthenticatedUsers@, or @LogDelivery@.
+--     -   __Group__: The value in the 'Grantee' object is one of the
+--         following predefined Amazon S3 groups: 'AllUsers',
+--         'AuthenticatedUsers', or 'LogDelivery'.
 -- -   __Grantee__: The AWS user or group that you want to have access to
 --     transcoded files and playlists. To identify the user or group, you
 --     can specify the canonical user ID for an AWS account, an origin
 --     access identity for a CloudFront distribution, the registered email
 --     address of an AWS account, or a predefined Amazon S3 group
 -- -   __Access__: The permission that you want to give to the AWS user
---     that you specified in @Grantee@. Permissions are granted on the
+--     that you specified in 'Grantee'. Permissions are granted on the
 --     files that Elastic Transcoder adds to the bucket, including
 --     playlists and video files. Valid values include:
---     -   @READ@: The grantee can read the objects and metadata for
+--     -   'READ': The grantee can read the objects and metadata for
 --         objects that Elastic Transcoder adds to the Amazon S3 bucket.
---     -   @READ_ACP@: The grantee can read the object ACL for objects that
+--     -   'READ_ACP': The grantee can read the object ACL for objects that
 --         Elastic Transcoder adds to the Amazon S3 bucket.
---     -   @WRITE_ACP@: The grantee can write the ACL for the objects that
+--     -   'WRITE_ACP': The grantee can write the ACL for the objects that
 --         Elastic Transcoder adds to the Amazon S3 bucket.
---     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and
---         @WRITE_ACP@ permissions for the objects that Elastic Transcoder
+--     -   'FULL_CONTROL': The grantee has 'READ', 'READ_ACP', and
+--         'WRITE_ACP' permissions for the objects that Elastic Transcoder
 --         adds to the Amazon S3 bucket.
--- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
---     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
+-- -   __StorageClass__: The Amazon S3 storage class, 'Standard' or
+--     'ReducedRedundancy', that you want Elastic Transcoder to assign to
 --     the video files and playlists that it stores in your Amazon S3
 --     bucket.
 upContentConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
@@ -181,65 +183,65 @@ upName = lens _upName (\ s a -> s{_upName = a});
 -- | The AWS Key Management Service (AWS KMS) key that you want to use with
 -- this pipeline.
 --
--- If you use either @S3@ or @S3-AWS-KMS@ as your @Encryption:Mode@, you
+-- If you use either 'S3' or 'S3-AWS-KMS' as your 'Encryption:Mode', you
 -- don\'t need to provide a key with your job because a default key, known
 -- as an AWS-KMS key, is created for you automatically. You need to provide
 -- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if
--- you are using an @Encryption:Mode@ of @AES-PKCS7@, @AES-CTR@, or
--- @AES-GCM@.
+-- you are using an 'Encryption:Mode' of 'AES-PKCS7', 'AES-CTR', or
+-- 'AES-GCM'.
 upAWSKMSKeyARN :: Lens' UpdatePipeline (Maybe Text)
 upAWSKMSKeyARN = lens _upAWSKMSKeyARN (\ s a -> s{_upAWSKMSKeyARN = a});
 
--- | The @ThumbnailConfig@ object specifies several values, including the
+-- | The 'ThumbnailConfig' object specifies several values, including the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
 -- files, which users you want to have access to the files, the type of
 -- access you want users to have, and the storage class that you want to
 -- assign to the files.
 --
--- If you specify values for @ContentConfig@, you must also specify values
--- for @ThumbnailConfig@ even if you don\'t want to create thumbnails.
+-- If you specify values for 'ContentConfig', you must also specify values
+-- for 'ThumbnailConfig' even if you don\'t want to create thumbnails.
 --
--- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit
--- the @OutputBucket@ object.
+-- If you specify values for 'ContentConfig' and 'ThumbnailConfig', omit
+-- the 'OutputBucket' object.
 --
 -- -   __Bucket__: The Amazon S3 bucket in which you want Elastic
 --     Transcoder to save thumbnail files.
--- -   __Permissions__ (Optional): The @Permissions@ object specifies which
+-- -   __Permissions__ (Optional): The 'Permissions' object specifies which
 --     users and\/or predefined Amazon S3 groups you want to have access to
 --     thumbnail files, and the type of access you want them to have. You
 --     can grant permissions to a maximum of 30 users and\/or predefined
 --     Amazon S3 groups.
 -- -   __GranteeType__: Specify the type of value that appears in the
 --     Grantee object:
---     -   __Canonical__: The value in the @Grantee@ object is either the
+--     -   __Canonical__: The value in the 'Grantee' object is either the
 --         canonical user ID for an AWS account or an origin access
 --         identity for an Amazon CloudFront distribution.
 --         A canonical user ID is not the same as an AWS account number.
---     -   __Email__: The value in the @Grantee@ object is the registered
+--     -   __Email__: The value in the 'Grantee' object is the registered
 --         email address of an AWS account.
---     -   __Group__: The value in the @Grantee@ object is one of the
---         following predefined Amazon S3 groups: @AllUsers@,
---         @AuthenticatedUsers@, or @LogDelivery@.
+--     -   __Group__: The value in the 'Grantee' object is one of the
+--         following predefined Amazon S3 groups: 'AllUsers',
+--         'AuthenticatedUsers', or 'LogDelivery'.
 -- -   __Grantee__: The AWS user or group that you want to have access to
 --     thumbnail files. To identify the user or group, you can specify the
 --     canonical user ID for an AWS account, an origin access identity for
 --     a CloudFront distribution, the registered email address of an AWS
 --     account, or a predefined Amazon S3 group.
 -- -   __Access__: The permission that you want to give to the AWS user
---     that you specified in @Grantee@. Permissions are granted on the
+--     that you specified in 'Grantee'. Permissions are granted on the
 --     thumbnail files that Elastic Transcoder adds to the bucket. Valid
 --     values include:
---     -   @READ@: The grantee can read the thumbnails and metadata for
+--     -   'READ': The grantee can read the thumbnails and metadata for
 --         objects that Elastic Transcoder adds to the Amazon S3 bucket.
---     -   @READ_ACP@: The grantee can read the object ACL for thumbnails
+--     -   'READ_ACP': The grantee can read the object ACL for thumbnails
 --         that Elastic Transcoder adds to the Amazon S3 bucket.
---     -   @WRITE_ACP@: The grantee can write the ACL for the thumbnails
+--     -   'WRITE_ACP': The grantee can write the ACL for the thumbnails
 --         that Elastic Transcoder adds to the Amazon S3 bucket.
---     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and
---         @WRITE_ACP@ permissions for the thumbnails that Elastic
+--     -   'FULL_CONTROL': The grantee has 'READ', 'READ_ACP', and
+--         'WRITE_ACP' permissions for the thumbnails that Elastic
 --         Transcoder adds to the Amazon S3 bucket.
--- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
---     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
+-- -   __StorageClass__: The Amazon S3 storage class, 'Standard' or
+--     'ReducedRedundancy', that you want Elastic Transcoder to assign to
 --     the thumbnails that it stores in your Amazon S3 bucket.
 upThumbnailConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
 upThumbnailConfig = lens _upThumbnailConfig (\ s a -> s{_upThumbnailConfig = a});
@@ -287,22 +289,24 @@ instance ToQuery UpdatePipeline where
 -- you specified in the request.
 --
 -- /See:/ 'updatePipelineResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uprsWarnings'
---
--- * 'uprsPipeline'
---
--- * 'uprsStatus'
 data UpdatePipelineResponse = UpdatePipelineResponse'
     { _uprsWarnings :: !(Maybe [Warning])
     , _uprsPipeline :: !(Maybe Pipeline)
     , _uprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdatePipelineResponse' smart constructor.
-updatePipelineResponse :: Int -> UpdatePipelineResponse
+-- | Creates a value of 'UpdatePipelineResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uprsWarnings'
+--
+-- * 'uprsPipeline'
+--
+-- * 'uprsStatus'
+updatePipelineResponse
+    :: Int -- ^ 'uprsStatus'
+    -> UpdatePipelineResponse
 updatePipelineResponse pStatus_ =
     UpdatePipelineResponse'
     { _uprsWarnings = Nothing
@@ -323,6 +327,6 @@ uprsWarnings = lens _uprsWarnings (\ s a -> s{_uprsWarnings = a}) . _Default . _
 uprsPipeline :: Lens' UpdatePipelineResponse (Maybe Pipeline)
 uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a});
 
--- | Undocumented member.
+-- | The response status code.
 uprsStatus :: Lens' UpdatePipelineResponse Int
 uprsStatus = lens _uprsStatus (\ s a -> s{_uprsStatus = a});

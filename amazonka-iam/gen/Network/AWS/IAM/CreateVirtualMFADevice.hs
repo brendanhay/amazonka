@@ -40,15 +40,15 @@
 module Network.AWS.IAM.CreateVirtualMFADevice
     (
     -- * Creating a Request
-      CreateVirtualMFADevice
-    , createVirtualMFADevice
+      createVirtualMFADevice
+    , CreateVirtualMFADevice
     -- * Request Lenses
     , cvmdPath
     , cvmdVirtualMFADeviceName
 
     -- * Destructuring the Response
-    , CreateVirtualMFADeviceResponse
     , createVirtualMFADeviceResponse
+    , CreateVirtualMFADeviceResponse
     -- * Response Lenses
     , cvmdrsStatus
     , cvmdrsVirtualMFADevice
@@ -61,19 +61,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createVirtualMFADevice' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvmdPath'
---
--- * 'cvmdVirtualMFADeviceName'
 data CreateVirtualMFADevice = CreateVirtualMFADevice'
     { _cvmdPath                 :: !(Maybe Text)
     , _cvmdVirtualMFADeviceName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVirtualMFADevice' smart constructor.
-createVirtualMFADevice :: Text -> CreateVirtualMFADevice
+-- | Creates a value of 'CreateVirtualMFADevice' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvmdPath'
+--
+-- * 'cvmdVirtualMFADeviceName'
+createVirtualMFADevice
+    :: Text -- ^ 'cvmdVirtualMFADeviceName'
+    -> CreateVirtualMFADevice
 createVirtualMFADevice pVirtualMFADeviceName_ =
     CreateVirtualMFADevice'
     { _cvmdPath = Nothing
@@ -124,26 +126,29 @@ instance ToQuery CreateVirtualMFADevice where
 -- | Contains the response to a successful CreateVirtualMFADevice request.
 --
 -- /See:/ 'createVirtualMFADeviceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvmdrsStatus'
---
--- * 'cvmdrsVirtualMFADevice'
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
     { _cvmdrsStatus           :: !Int
     , _cvmdrsVirtualMFADevice :: !VirtualMFADevice
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVirtualMFADeviceResponse' smart constructor.
-createVirtualMFADeviceResponse :: Int -> VirtualMFADevice -> CreateVirtualMFADeviceResponse
+-- | Creates a value of 'CreateVirtualMFADeviceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvmdrsStatus'
+--
+-- * 'cvmdrsVirtualMFADevice'
+createVirtualMFADeviceResponse
+    :: Int -- ^ 'cvmdrsStatus'
+    -> VirtualMFADevice -- ^ 'cvmdrsVirtualMFADevice'
+    -> CreateVirtualMFADeviceResponse
 createVirtualMFADeviceResponse pStatus_ pVirtualMFADevice_ =
     CreateVirtualMFADeviceResponse'
     { _cvmdrsStatus = pStatus_
     , _cvmdrsVirtualMFADevice = pVirtualMFADevice_
     }
 
--- | Undocumented member.
+-- | The response status code.
 cvmdrsStatus :: Lens' CreateVirtualMFADeviceResponse Int
 cvmdrsStatus = lens _cvmdrsStatus (\ s a -> s{_cvmdrsStatus = a});
 

@@ -18,22 +18,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a real-time endpoint for the @MLModel@. The endpoint contains
--- the URI of the @MLModel@; that is, the location to send real-time
--- prediction requests for the specified @MLModel@.
+-- Creates a real-time endpoint for the 'MLModel'. The endpoint contains
+-- the URI of the 'MLModel'; that is, the location to send real-time
+-- prediction requests for the specified 'MLModel'.
 --
 -- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateRealtimeEndpoint.html AWS API Reference> for CreateRealtimeEndpoint.
 module Network.AWS.MachineLearning.CreateRealtimeEndpoint
     (
     -- * Creating a Request
-      CreateRealtimeEndpoint
-    , createRealtimeEndpoint
+      createRealtimeEndpoint
+    , CreateRealtimeEndpoint
     -- * Request Lenses
     , creMLModelId
 
     -- * Destructuring the Response
-    , CreateRealtimeEndpointResponse
     , createRealtimeEndpointResponse
+    , CreateRealtimeEndpointResponse
     -- * Response Lenses
     , crersRealtimeEndpointInfo
     , crersMLModelId
@@ -47,22 +47,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createRealtimeEndpoint' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'creMLModelId'
 newtype CreateRealtimeEndpoint = CreateRealtimeEndpoint'
     { _creMLModelId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateRealtimeEndpoint' smart constructor.
-createRealtimeEndpoint :: Text -> CreateRealtimeEndpoint
+-- | Creates a value of 'CreateRealtimeEndpoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'creMLModelId'
+createRealtimeEndpoint
+    :: Text -- ^ 'creMLModelId'
+    -> CreateRealtimeEndpoint
 createRealtimeEndpoint pMLModelId_ =
     CreateRealtimeEndpoint'
     { _creMLModelId = pMLModelId_
     }
 
--- | The ID assigned to the @MLModel@ during creation.
+-- | The ID assigned to the 'MLModel' during creation.
 creMLModelId :: Lens' CreateRealtimeEndpoint Text
 creMLModelId = lens _creMLModelId (\ s a -> s{_creMLModelId = a});
 
@@ -101,29 +103,31 @@ instance ToQuery CreateRealtimeEndpoint where
 
 -- | Represents the output of an CreateRealtimeEndpoint operation.
 --
--- The result contains the @MLModelId@ and the endpoint information for the
--- @MLModel@.
+-- The result contains the 'MLModelId' and the endpoint information for the
+-- 'MLModel'.
 --
--- The endpoint information includes the URI of the @MLModel@; that is, the
--- location to send online prediction requests for the specified @MLModel@.
+-- The endpoint information includes the URI of the 'MLModel'; that is, the
+-- location to send online prediction requests for the specified 'MLModel'.
 --
 -- /See:/ 'createRealtimeEndpointResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crersRealtimeEndpointInfo'
---
--- * 'crersMLModelId'
---
--- * 'crersStatus'
 data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
     { _crersRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
     , _crersMLModelId            :: !(Maybe Text)
     , _crersStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateRealtimeEndpointResponse' smart constructor.
-createRealtimeEndpointResponse :: Int -> CreateRealtimeEndpointResponse
+-- | Creates a value of 'CreateRealtimeEndpointResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crersRealtimeEndpointInfo'
+--
+-- * 'crersMLModelId'
+--
+-- * 'crersStatus'
+createRealtimeEndpointResponse
+    :: Int -- ^ 'crersStatus'
+    -> CreateRealtimeEndpointResponse
 createRealtimeEndpointResponse pStatus_ =
     CreateRealtimeEndpointResponse'
     { _crersRealtimeEndpointInfo = Nothing
@@ -131,15 +135,15 @@ createRealtimeEndpointResponse pStatus_ =
     , _crersStatus = pStatus_
     }
 
--- | The endpoint information of the @MLModel@
+-- | The endpoint information of the 'MLModel'
 crersRealtimeEndpointInfo :: Lens' CreateRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
 crersRealtimeEndpointInfo = lens _crersRealtimeEndpointInfo (\ s a -> s{_crersRealtimeEndpointInfo = a});
 
--- | A user-supplied ID that uniquely identifies the @MLModel@. This value
--- should be identical to the value of the @MLModelId@ in the request.
+-- | A user-supplied ID that uniquely identifies the 'MLModel'. This value
+-- should be identical to the value of the 'MLModelId' in the request.
 crersMLModelId :: Lens' CreateRealtimeEndpointResponse (Maybe Text)
 crersMLModelId = lens _crersMLModelId (\ s a -> s{_crersMLModelId = a});
 
--- | Undocumented member.
+-- | The response status code.
 crersStatus :: Lens' CreateRealtimeEndpointResponse Int
 crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

@@ -27,16 +27,16 @@
 module Network.AWS.RDS.CopyDBClusterSnapshot
     (
     -- * Creating a Request
-      CopyDBClusterSnapshot
-    , copyDBClusterSnapshot
+      copyDBClusterSnapshot
+    , CopyDBClusterSnapshot
     -- * Request Lenses
     , cdbcsTags
     , cdbcsSourceDBClusterSnapshotIdentifier
     , cdbcsTargetDBClusterSnapshotIdentifier
 
     -- * Destructuring the Response
-    , CopyDBClusterSnapshotResponse
     , copyDBClusterSnapshotResponse
+    , CopyDBClusterSnapshotResponse
     -- * Response Lenses
     , cdcsrsDBClusterSnapshot
     , cdcsrsStatus
@@ -51,22 +51,25 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'copyDBClusterSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdbcsTags'
---
--- * 'cdbcsSourceDBClusterSnapshotIdentifier'
---
--- * 'cdbcsTargetDBClusterSnapshotIdentifier'
 data CopyDBClusterSnapshot = CopyDBClusterSnapshot'
     { _cdbcsTags                              :: !(Maybe [Tag])
     , _cdbcsSourceDBClusterSnapshotIdentifier :: !Text
     , _cdbcsTargetDBClusterSnapshotIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CopyDBClusterSnapshot' smart constructor.
-copyDBClusterSnapshot :: Text -> Text -> CopyDBClusterSnapshot
+-- | Creates a value of 'CopyDBClusterSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdbcsTags'
+--
+-- * 'cdbcsSourceDBClusterSnapshotIdentifier'
+--
+-- * 'cdbcsTargetDBClusterSnapshotIdentifier'
+copyDBClusterSnapshot
+    :: Text -- ^ 'cdbcsSourceDBClusterSnapshotIdentifier'
+    -> Text -- ^ 'cdbcsTargetDBClusterSnapshotIdentifier'
+    -> CopyDBClusterSnapshot
 copyDBClusterSnapshot pSourceDBClusterSnapshotIdentifier_ pTargetDBClusterSnapshotIdentifier_ =
     CopyDBClusterSnapshot'
     { _cdbcsTags = Nothing
@@ -87,7 +90,7 @@ cdbcsTags = lens _cdbcsTags (\ s a -> s{_cdbcsTags = a}) . _Default . _Coerce;
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- Example: @my-cluster-snapshot1@
+-- Example: 'my-cluster-snapshot1'
 cdbcsSourceDBClusterSnapshotIdentifier :: Lens' CopyDBClusterSnapshot Text
 cdbcsSourceDBClusterSnapshotIdentifier = lens _cdbcsSourceDBClusterSnapshotIdentifier (\ s a -> s{_cdbcsSourceDBClusterSnapshotIdentifier = a});
 
@@ -100,7 +103,7 @@ cdbcsSourceDBClusterSnapshotIdentifier = lens _cdbcsSourceDBClusterSnapshotIdent
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- Example: @my-cluster-snapshot2@
+-- Example: 'my-cluster-snapshot2'
 cdbcsTargetDBClusterSnapshotIdentifier :: Lens' CopyDBClusterSnapshot Text
 cdbcsTargetDBClusterSnapshotIdentifier = lens _cdbcsTargetDBClusterSnapshotIdentifier (\ s a -> s{_cdbcsTargetDBClusterSnapshotIdentifier = a});
 
@@ -133,19 +136,21 @@ instance ToQuery CopyDBClusterSnapshot where
                  _cdbcsTargetDBClusterSnapshotIdentifier]
 
 -- | /See:/ 'copyDBClusterSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdcsrsDBClusterSnapshot'
---
--- * 'cdcsrsStatus'
 data CopyDBClusterSnapshotResponse = CopyDBClusterSnapshotResponse'
     { _cdcsrsDBClusterSnapshot :: !(Maybe DBClusterSnapshot)
     , _cdcsrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CopyDBClusterSnapshotResponse' smart constructor.
-copyDBClusterSnapshotResponse :: Int -> CopyDBClusterSnapshotResponse
+-- | Creates a value of 'CopyDBClusterSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdcsrsDBClusterSnapshot'
+--
+-- * 'cdcsrsStatus'
+copyDBClusterSnapshotResponse
+    :: Int -- ^ 'cdcsrsStatus'
+    -> CopyDBClusterSnapshotResponse
 copyDBClusterSnapshotResponse pStatus_ =
     CopyDBClusterSnapshotResponse'
     { _cdcsrsDBClusterSnapshot = Nothing
@@ -156,6 +161,6 @@ copyDBClusterSnapshotResponse pStatus_ =
 cdcsrsDBClusterSnapshot :: Lens' CopyDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
 cdcsrsDBClusterSnapshot = lens _cdcsrsDBClusterSnapshot (\ s a -> s{_cdcsrsDBClusterSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdcsrsStatus :: Lens' CopyDBClusterSnapshotResponse Int
 cdcsrsStatus = lens _cdcsrsStatus (\ s a -> s{_cdcsrsStatus = a});

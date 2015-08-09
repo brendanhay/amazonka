@@ -24,14 +24,14 @@
 module Network.AWS.CodePipeline.CreatePipeline
     (
     -- * Creating a Request
-      CreatePipeline
-    , createPipeline
+      createPipeline
+    , CreatePipeline
     -- * Request Lenses
     , cpPipeline
 
     -- * Destructuring the Response
-    , CreatePipelineResponse
     , createPipelineResponse
+    , CreatePipelineResponse
     -- * Response Lenses
     , cprsPipeline
     , cprsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents the input of a create pipeline action.
 --
 -- /See:/ 'createPipeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpPipeline'
 newtype CreatePipeline = CreatePipeline'
     { _cpPipeline :: PipelineDeclaration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePipeline' smart constructor.
-createPipeline :: PipelineDeclaration -> CreatePipeline
+-- | Creates a value of 'CreatePipeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpPipeline'
+createPipeline
+    :: PipelineDeclaration -- ^ 'cpPipeline'
+    -> CreatePipeline
 createPipeline pPipeline_ =
     CreatePipeline'
     { _cpPipeline = pPipeline_
@@ -98,19 +100,21 @@ instance ToQuery CreatePipeline where
 -- | Represents the output of a create pipeline action.
 --
 -- /See:/ 'createPipelineResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cprsPipeline'
---
--- * 'cprsStatus'
 data CreatePipelineResponse = CreatePipelineResponse'
     { _cprsPipeline :: !(Maybe PipelineDeclaration)
     , _cprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePipelineResponse' smart constructor.
-createPipelineResponse :: Int -> CreatePipelineResponse
+-- | Creates a value of 'CreatePipelineResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cprsPipeline'
+--
+-- * 'cprsStatus'
+createPipelineResponse
+    :: Int -- ^ 'cprsStatus'
+    -> CreatePipelineResponse
 createPipelineResponse pStatus_ =
     CreatePipelineResponse'
     { _cprsPipeline = Nothing
@@ -121,6 +125,6 @@ createPipelineResponse pStatus_ =
 cprsPipeline :: Lens' CreatePipelineResponse (Maybe PipelineDeclaration)
 cprsPipeline = lens _cprsPipeline (\ s a -> s{_cprsPipeline = a});
 
--- | Undocumented member.
+-- | The response status code.
 cprsStatus :: Lens' CreatePipelineResponse Int
 cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

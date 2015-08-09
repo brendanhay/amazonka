@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a manual snapshot of the specified cluster. The cluster must be
--- in the @available@ state.
+-- in the 'available' state.
 --
 -- For more information about working with snapshots, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
@@ -29,16 +29,16 @@
 module Network.AWS.Redshift.CreateClusterSnapshot
     (
     -- * Creating a Request
-      CreateClusterSnapshot
-    , createClusterSnapshot
+      createClusterSnapshot
+    , CreateClusterSnapshot
     -- * Request Lenses
     , ccsTags
     , ccsSnapshotIdentifier
     , ccsClusterIdentifier
 
     -- * Destructuring the Response
-    , CreateClusterSnapshotResponse
     , createClusterSnapshotResponse
+    , CreateClusterSnapshotResponse
     -- * Response Lenses
     , crersSnapshot
     , crersStatus
@@ -53,22 +53,25 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createClusterSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccsTags'
---
--- * 'ccsSnapshotIdentifier'
---
--- * 'ccsClusterIdentifier'
 data CreateClusterSnapshot = CreateClusterSnapshot'
     { _ccsTags               :: !(Maybe [Tag])
     , _ccsSnapshotIdentifier :: !Text
     , _ccsClusterIdentifier  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateClusterSnapshot' smart constructor.
-createClusterSnapshot :: Text -> Text -> CreateClusterSnapshot
+-- | Creates a value of 'CreateClusterSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccsTags'
+--
+-- * 'ccsSnapshotIdentifier'
+--
+-- * 'ccsClusterIdentifier'
+createClusterSnapshot
+    :: Text -- ^ 'ccsSnapshotIdentifier'
+    -> Text -- ^ 'ccsClusterIdentifier'
+    -> CreateClusterSnapshot
 createClusterSnapshot pSnapshotIdentifier_ pClusterIdentifier_ =
     CreateClusterSnapshot'
     { _ccsTags = Nothing
@@ -90,7 +93,7 @@ ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default . _Coerce;
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- Example: @my-snapshot-id@
+-- Example: 'my-snapshot-id'
 ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
 ccsSnapshotIdentifier = lens _ccsSnapshotIdentifier (\ s a -> s{_ccsSnapshotIdentifier = a});
 
@@ -125,19 +128,21 @@ instance ToQuery CreateClusterSnapshot where
                "ClusterIdentifier" =: _ccsClusterIdentifier]
 
 -- | /See:/ 'createClusterSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crersSnapshot'
---
--- * 'crersStatus'
 data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
     { _crersSnapshot :: !(Maybe Snapshot)
     , _crersStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateClusterSnapshotResponse' smart constructor.
-createClusterSnapshotResponse :: Int -> CreateClusterSnapshotResponse
+-- | Creates a value of 'CreateClusterSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crersSnapshot'
+--
+-- * 'crersStatus'
+createClusterSnapshotResponse
+    :: Int -- ^ 'crersStatus'
+    -> CreateClusterSnapshotResponse
 createClusterSnapshotResponse pStatus_ =
     CreateClusterSnapshotResponse'
     { _crersSnapshot = Nothing
@@ -148,6 +153,6 @@ createClusterSnapshotResponse pStatus_ =
 crersSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
 crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 crersStatus :: Lens' CreateClusterSnapshotResponse Int
 crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

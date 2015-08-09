@@ -19,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve a list of the IP ranges used by Amazon Route 53 health
--- checkers to check the health of your resources, send a @GET@ request to
--- the @2013-04-01\/checkeripranges@ resource. You can use these IP
+-- checkers to check the health of your resources, send a 'GET' request to
+-- the '2013-04-01\/checkeripranges' resource. You can use these IP
 -- addresses to configure router and firewall rules to allow health
 -- checkers to check the health of your resources.
 --
@@ -28,12 +28,12 @@
 module Network.AWS.Route53.GetCheckerIPRanges
     (
     -- * Creating a Request
-      GetCheckerIPRanges
-    , getCheckerIPRanges
+      getCheckerIPRanges
+    , GetCheckerIPRanges
 
     -- * Destructuring the Response
-    , GetCheckerIPRangesResponse
     , getCheckerIPRangesResponse
+    , GetCheckerIPRangesResponse
     -- * Response Lenses
     , gcirrsStatus
     , gcirrsCheckerIPRanges
@@ -52,8 +52,10 @@ data GetCheckerIPRanges =
     GetCheckerIPRanges'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetCheckerIPRanges' smart constructor.
-getCheckerIPRanges :: GetCheckerIPRanges
+-- | Creates a value of 'GetCheckerIPRanges' with the minimum fields required to make a request.
+--
+getCheckerIPRanges
+    :: GetCheckerIPRanges
 getCheckerIPRanges = GetCheckerIPRanges'
 
 instance AWSRequest GetCheckerIPRanges where
@@ -78,29 +80,31 @@ instance ToPath GetCheckerIPRanges where
 instance ToQuery GetCheckerIPRanges where
         toQuery = const mempty
 
--- | A complex type that contains the @CheckerIpRanges@ element.
+-- | A complex type that contains the 'CheckerIpRanges' element.
 --
 -- /See:/ 'getCheckerIPRangesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gcirrsStatus'
---
--- * 'gcirrsCheckerIPRanges'
 data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
     { _gcirrsStatus          :: !Int
     , _gcirrsCheckerIPRanges :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetCheckerIPRangesResponse' smart constructor.
-getCheckerIPRangesResponse :: Int -> GetCheckerIPRangesResponse
+-- | Creates a value of 'GetCheckerIPRangesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcirrsStatus'
+--
+-- * 'gcirrsCheckerIPRanges'
+getCheckerIPRangesResponse
+    :: Int -- ^ 'gcirrsStatus'
+    -> GetCheckerIPRangesResponse
 getCheckerIPRangesResponse pStatus_ =
     GetCheckerIPRangesResponse'
     { _gcirrsStatus = pStatus_
     , _gcirrsCheckerIPRanges = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 gcirrsStatus :: Lens' GetCheckerIPRangesResponse Int
 gcirrsStatus = lens _gcirrsStatus (\ s a -> s{_gcirrsStatus = a});
 

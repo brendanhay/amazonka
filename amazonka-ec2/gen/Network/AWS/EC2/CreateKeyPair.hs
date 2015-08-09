@@ -38,15 +38,15 @@
 module Network.AWS.EC2.CreateKeyPair
     (
     -- * Creating a Request
-      CreateKeyPair
-    , createKeyPair
+      createKeyPair
+    , CreateKeyPair
     -- * Request Lenses
     , ckpDryRun
     , ckpKeyName
 
     -- * Destructuring the Response
-    , CreateKeyPairResponse
     , createKeyPairResponse
+    , CreateKeyPairResponse
     -- * Response Lenses
     , ckprsStatus
     , ckprsKeyName
@@ -61,19 +61,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createKeyPair' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ckpDryRun'
---
--- * 'ckpKeyName'
 data CreateKeyPair = CreateKeyPair'
     { _ckpDryRun  :: !(Maybe Bool)
     , _ckpKeyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateKeyPair' smart constructor.
-createKeyPair :: Text -> CreateKeyPair
+-- | Creates a value of 'CreateKeyPair' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ckpDryRun'
+--
+-- * 'ckpKeyName'
+createKeyPair
+    :: Text -- ^ 'ckpKeyName'
+    -> CreateKeyPair
 createKeyPair pKeyName_ =
     CreateKeyPair'
     { _ckpDryRun = Nothing
@@ -82,8 +84,8 @@ createKeyPair pKeyName_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 ckpDryRun :: Lens' CreateKeyPair (Maybe Bool)
 ckpDryRun = lens _ckpDryRun (\ s a -> s{_ckpDryRun = a});
 
@@ -121,8 +123,16 @@ instance ToQuery CreateKeyPair where
 -- | Describes a key pair.
 --
 -- /See:/ 'createKeyPairResponse' smart constructor.
+data CreateKeyPairResponse = CreateKeyPairResponse'
+    { _ckprsStatus         :: !Int
+    , _ckprsKeyName        :: !Text
+    , _ckprsKeyFingerprint :: !Text
+    , _ckprsKeyMaterial    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateKeyPairResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ckprsStatus'
 --
@@ -131,15 +141,12 @@ instance ToQuery CreateKeyPair where
 -- * 'ckprsKeyFingerprint'
 --
 -- * 'ckprsKeyMaterial'
-data CreateKeyPairResponse = CreateKeyPairResponse'
-    { _ckprsStatus         :: !Int
-    , _ckprsKeyName        :: !Text
-    , _ckprsKeyFingerprint :: !Text
-    , _ckprsKeyMaterial    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateKeyPairResponse' smart constructor.
-createKeyPairResponse :: Int -> Text -> Text -> Text -> CreateKeyPairResponse
+createKeyPairResponse
+    :: Int -- ^ 'ckprsStatus'
+    -> Text -- ^ 'ckprsKeyName'
+    -> Text -- ^ 'ckprsKeyFingerprint'
+    -> Text -- ^ 'ckprsKeyMaterial'
+    -> CreateKeyPairResponse
 createKeyPairResponse pStatus_ pKeyName_ pKeyFingerprint_ pKeyMaterial_ =
     CreateKeyPairResponse'
     { _ckprsStatus = pStatus_
@@ -148,7 +155,7 @@ createKeyPairResponse pStatus_ pKeyName_ pKeyFingerprint_ pKeyMaterial_ =
     , _ckprsKeyMaterial = pKeyMaterial_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ckprsStatus :: Lens' CreateKeyPairResponse Int
 ckprsStatus = lens _ckprsStatus (\ s a -> s{_ckprsStatus = a});
 

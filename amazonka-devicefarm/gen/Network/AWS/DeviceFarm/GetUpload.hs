@@ -24,14 +24,14 @@
 module Network.AWS.DeviceFarm.GetUpload
     (
     -- * Creating a Request
-      GetUpload
-    , getUpload
+      getUpload
+    , GetUpload
     -- * Request Lenses
     , guArn
 
     -- * Destructuring the Response
-    , GetUploadResponse
     , getUploadResponse
+    , GetUploadResponse
     -- * Response Lenses
     , gursUpload
     , gursStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents a request to the get upload operation.
 --
 -- /See:/ 'getUpload' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'guArn'
 newtype GetUpload = GetUpload'
     { _guArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetUpload' smart constructor.
-getUpload :: Text -> GetUpload
+-- | Creates a value of 'GetUpload' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'guArn'
+getUpload
+    :: Text -- ^ 'guArn'
+    -> GetUpload
 getUpload pArn_ =
     GetUpload'
     { _guArn = pArn_
@@ -96,19 +98,21 @@ instance ToQuery GetUpload where
 -- | Represents the result of a get upload request.
 --
 -- /See:/ 'getUploadResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gursUpload'
---
--- * 'gursStatus'
 data GetUploadResponse = GetUploadResponse'
     { _gursUpload :: !(Maybe Upload)
     , _gursStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetUploadResponse' smart constructor.
-getUploadResponse :: Int -> GetUploadResponse
+-- | Creates a value of 'GetUploadResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gursUpload'
+--
+-- * 'gursStatus'
+getUploadResponse
+    :: Int -- ^ 'gursStatus'
+    -> GetUploadResponse
 getUploadResponse pStatus_ =
     GetUploadResponse'
     { _gursUpload = Nothing
@@ -119,6 +123,6 @@ getUploadResponse pStatus_ =
 gursUpload :: Lens' GetUploadResponse (Maybe Upload)
 gursUpload = lens _gursUpload (\ s a -> s{_gursUpload = a});
 
--- | Undocumented member.
+-- | The response status code.
 gursStatus :: Lens' GetUploadResponse Int
 gursStatus = lens _gursStatus (\ s a -> s{_gursStatus = a});

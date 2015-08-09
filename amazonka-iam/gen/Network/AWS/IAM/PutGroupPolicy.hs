@@ -34,7 +34,7 @@
 -- in the /Using IAM/ guide.
 --
 -- Because policy documents can be large, you should use POST rather than
--- GET when calling @PutGroupPolicy@. For general information about using
+-- GET when calling 'PutGroupPolicy'. For general information about using
 -- the Query API with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/ guide.
@@ -43,16 +43,16 @@
 module Network.AWS.IAM.PutGroupPolicy
     (
     -- * Creating a Request
-      PutGroupPolicy
-    , putGroupPolicy
+      putGroupPolicy
+    , PutGroupPolicy
     -- * Request Lenses
     , pgpGroupName
     , pgpPolicyName
     , pgpPolicyDocument
 
     -- * Destructuring the Response
-    , PutGroupPolicyResponse
     , putGroupPolicyResponse
+    , PutGroupPolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -62,22 +62,26 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putGroupPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pgpGroupName'
---
--- * 'pgpPolicyName'
---
--- * 'pgpPolicyDocument'
 data PutGroupPolicy = PutGroupPolicy'
     { _pgpGroupName      :: !Text
     , _pgpPolicyName     :: !Text
     , _pgpPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutGroupPolicy' smart constructor.
-putGroupPolicy :: Text -> Text -> Text -> PutGroupPolicy
+-- | Creates a value of 'PutGroupPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pgpGroupName'
+--
+-- * 'pgpPolicyName'
+--
+-- * 'pgpPolicyDocument'
+putGroupPolicy
+    :: Text -- ^ 'pgpGroupName'
+    -> Text -- ^ 'pgpPolicyName'
+    -> Text -- ^ 'pgpPolicyDocument'
+    -> PutGroupPolicy
 putGroupPolicy pGroupName_ pPolicyName_ pPolicyDocument_ =
     PutGroupPolicy'
     { _pgpGroupName = pGroupName_
@@ -123,6 +127,8 @@ data PutGroupPolicyResponse =
     PutGroupPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutGroupPolicyResponse' smart constructor.
-putGroupPolicyResponse :: PutGroupPolicyResponse
+-- | Creates a value of 'PutGroupPolicyResponse' with the minimum fields required to make a request.
+--
+putGroupPolicyResponse
+    :: PutGroupPolicyResponse
 putGroupPolicyResponse = PutGroupPolicyResponse'

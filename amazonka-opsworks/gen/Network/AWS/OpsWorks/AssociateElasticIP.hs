@@ -33,15 +33,15 @@
 module Network.AWS.OpsWorks.AssociateElasticIP
     (
     -- * Creating a Request
-      AssociateElasticIP
-    , associateElasticIP
+      associateElasticIP
+    , AssociateElasticIP
     -- * Request Lenses
     , aeiInstanceId
     , aeiElasticIP
 
     -- * Destructuring the Response
-    , AssociateElasticIPResponse
     , associateElasticIPResponse
+    , AssociateElasticIPResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -51,19 +51,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'associateElasticIP' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aeiInstanceId'
---
--- * 'aeiElasticIP'
 data AssociateElasticIP = AssociateElasticIP'
     { _aeiInstanceId :: !(Maybe Text)
     , _aeiElasticIP  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssociateElasticIP' smart constructor.
-associateElasticIP :: Text -> AssociateElasticIP
+-- | Creates a value of 'AssociateElasticIP' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aeiInstanceId'
+--
+-- * 'aeiElasticIP'
+associateElasticIP
+    :: Text -- ^ 'aeiElasticIP'
+    -> AssociateElasticIP
 associateElasticIP pElasticIP_ =
     AssociateElasticIP'
     { _aeiInstanceId = Nothing
@@ -112,6 +114,8 @@ data AssociateElasticIPResponse =
     AssociateElasticIPResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssociateElasticIPResponse' smart constructor.
-associateElasticIPResponse :: AssociateElasticIPResponse
+-- | Creates a value of 'AssociateElasticIPResponse' with the minimum fields required to make a request.
+--
+associateElasticIPResponse
+    :: AssociateElasticIPResponse
 associateElasticIPResponse = AssociateElasticIPResponse'

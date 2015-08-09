@@ -38,14 +38,14 @@
 module Network.AWS.IAM.GetPolicy
     (
     -- * Creating a Request
-      GetPolicy
-    , getPolicy
+      getPolicy
+    , GetPolicy
     -- * Request Lenses
     , gpPolicyARN
 
     -- * Destructuring the Response
-    , GetPolicyResponse
     , getPolicyResponse
+    , GetPolicyResponse
     -- * Response Lenses
     , gprsPolicy
     , gprsStatus
@@ -58,16 +58,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gpPolicyARN'
 newtype GetPolicy = GetPolicy'
     { _gpPolicyARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPolicy' smart constructor.
-getPolicy :: Text -> GetPolicy
+-- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpPolicyARN'
+getPolicy
+    :: Text -- ^ 'gpPolicyARN'
+    -> GetPolicy
 getPolicy pPolicyARN_ =
     GetPolicy'
     { _gpPolicyARN = pPolicyARN_
@@ -103,19 +105,21 @@ instance ToQuery GetPolicy where
 -- | Contains the response to a successful GetPolicy request.
 --
 -- /See:/ 'getPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gprsPolicy'
---
--- * 'gprsStatus'
 data GetPolicyResponse = GetPolicyResponse'
     { _gprsPolicy :: !(Maybe Policy)
     , _gprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPolicyResponse' smart constructor.
-getPolicyResponse :: Int -> GetPolicyResponse
+-- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gprsPolicy'
+--
+-- * 'gprsStatus'
+getPolicyResponse
+    :: Int -- ^ 'gprsStatus'
+    -> GetPolicyResponse
 getPolicyResponse pStatus_ =
     GetPolicyResponse'
     { _gprsPolicy = Nothing
@@ -126,6 +130,6 @@ getPolicyResponse pStatus_ =
 gprsPolicy :: Lens' GetPolicyResponse (Maybe Policy)
 gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 
--- | Undocumented member.
+-- | The response status code.
 gprsStatus :: Lens' GetPolicyResponse Int
 gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

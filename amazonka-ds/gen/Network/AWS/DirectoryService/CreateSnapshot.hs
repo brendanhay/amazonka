@@ -26,15 +26,15 @@
 module Network.AWS.DirectoryService.CreateSnapshot
     (
     -- * Creating a Request
-      CreateSnapshot
-    , createSnapshot
+      createSnapshot
+    , CreateSnapshot
     -- * Request Lenses
     , csName
     , csDirectoryId
 
     -- * Destructuring the Response
-    , CreateSnapshotResponse
     , createSnapshotResponse
+    , CreateSnapshotResponse
     -- * Response Lenses
     , csrsSnapshotId
     , csrsStatus
@@ -49,19 +49,21 @@ import           Network.AWS.Response
 -- | Contains the inputs for the CreateSnapshot operation.
 --
 -- /See:/ 'createSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csName'
---
--- * 'csDirectoryId'
 data CreateSnapshot = CreateSnapshot'
     { _csName        :: !(Maybe Text)
     , _csDirectoryId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSnapshot' smart constructor.
-createSnapshot :: Text -> CreateSnapshot
+-- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csName'
+--
+-- * 'csDirectoryId'
+createSnapshot
+    :: Text -- ^ 'csDirectoryId'
+    -> CreateSnapshot
 createSnapshot pDirectoryId_ =
     CreateSnapshot'
     { _csName = Nothing
@@ -110,19 +112,21 @@ instance ToQuery CreateSnapshot where
 -- | Contains the results of the CreateSnapshot operation.
 --
 -- /See:/ 'createSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csrsSnapshotId'
---
--- * 'csrsStatus'
 data CreateSnapshotResponse = CreateSnapshotResponse'
     { _csrsSnapshotId :: !(Maybe Text)
     , _csrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSnapshotResponse' smart constructor.
-createSnapshotResponse :: Int -> CreateSnapshotResponse
+-- | Creates a value of 'CreateSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csrsSnapshotId'
+--
+-- * 'csrsStatus'
+createSnapshotResponse
+    :: Int -- ^ 'csrsStatus'
+    -> CreateSnapshotResponse
 createSnapshotResponse pStatus_ =
     CreateSnapshotResponse'
     { _csrsSnapshotId = Nothing
@@ -133,6 +137,6 @@ createSnapshotResponse pStatus_ =
 csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 
--- | Undocumented member.
+-- | The response status code.
 csrsStatus :: Lens' CreateSnapshotResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

@@ -18,21 +18,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Registers (or retrieves) a Cognito @IdentityId@ and an OpenID Connect
+-- Registers (or retrieves) a Cognito 'IdentityId' and an OpenID Connect
 -- token for a user authenticated by your backend authentication process.
 -- Supplying multiple logins will create an implicit linked account. You
--- can only specify one developer provider as part of the @Logins@ map,
+-- can only specify one developer provider as part of the 'Logins' map,
 -- which is linked to the identity pool. The developer provider is the
 -- \"domain\" by which Cognito will refer to your users.
 --
--- You can use @GetOpenIdTokenForDeveloperIdentity@ to create a new
+-- You can use 'GetOpenIdTokenForDeveloperIdentity' to create a new
 -- identity and to link new logins (that is, user credentials issued by a
 -- public provider or developer provider) to an existing identity. When you
--- want to create a new identity, the @IdentityId@ should be null. When you
+-- want to create a new identity, the 'IdentityId' should be null. When you
 -- want to associate a new login with an existing
 -- authenticated\/unauthenticated identity, you can do so by providing the
--- existing @IdentityId@. This API will create the identity in the
--- specified @IdentityPoolId@.
+-- existing 'IdentityId'. This API will create the identity in the
+-- specified 'IdentityPoolId'.
 --
 -- You must use AWS Developer credentials to call this API.
 --
@@ -40,8 +40,8 @@
 module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     (
     -- * Creating a Request
-      GetOpenIdTokenForDeveloperIdentity
-    , getOpenIdTokenForDeveloperIdentity
+      getOpenIdTokenForDeveloperIdentity
+    , GetOpenIdTokenForDeveloperIdentity
     -- * Request Lenses
     , goitfdiTokenDuration
     , goitfdiIdentityId
@@ -49,8 +49,8 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     , goitfdiLogins
 
     -- * Destructuring the Response
-    , GetOpenIdTokenForDeveloperIdentityResponse
     , getOpenIdTokenForDeveloperIdentityResponse
+    , GetOpenIdTokenForDeveloperIdentityResponse
     -- * Response Lenses
     , goitfdirsToken
     , goitfdirsIdentityId
@@ -63,11 +63,19 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the @GetOpenIdTokenForDeveloperIdentity@ action.
+-- | Input to the 'GetOpenIdTokenForDeveloperIdentity' action.
 --
 -- /See:/ 'getOpenIdTokenForDeveloperIdentity' smart constructor.
+data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
+    { _goitfdiTokenDuration  :: !(Maybe Nat)
+    , _goitfdiIdentityId     :: !(Maybe Text)
+    , _goitfdiIdentityPoolId :: !Text
+    , _goitfdiLogins         :: !(Map Text Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetOpenIdTokenForDeveloperIdentity' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'goitfdiTokenDuration'
 --
@@ -76,15 +84,9 @@ import           Network.AWS.Response
 -- * 'goitfdiIdentityPoolId'
 --
 -- * 'goitfdiLogins'
-data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
-    { _goitfdiTokenDuration  :: !(Maybe Nat)
-    , _goitfdiIdentityId     :: !(Maybe Text)
-    , _goitfdiIdentityPoolId :: !Text
-    , _goitfdiLogins         :: !(Map Text Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetOpenIdTokenForDeveloperIdentity' smart constructor.
-getOpenIdTokenForDeveloperIdentity :: Text -> GetOpenIdTokenForDeveloperIdentity
+getOpenIdTokenForDeveloperIdentity
+    :: Text -- ^ 'goitfdiIdentityPoolId'
+    -> GetOpenIdTokenForDeveloperIdentity
 getOpenIdTokenForDeveloperIdentity pIdentityPoolId_ =
     GetOpenIdTokenForDeveloperIdentity'
     { _goitfdiTokenDuration = Nothing
@@ -117,7 +119,7 @@ goitfdiIdentityPoolId = lens _goitfdiIdentityPoolId (\ s a -> s{_goitfdiIdentity
 -- tokens. Each name-value pair represents a user from a public provider or
 -- developer provider. If the user is from a developer provider, the
 -- name-value pair will follow the syntax
--- @\"developer_provider_name\": \"developer_user_identifier\"@. The
+-- '\"developer_provider_name\": \"developer_user_identifier\"'. The
 -- developer provider is the \"domain\" by which Cognito will refer to your
 -- users; you provided this domain while creating\/updating the identity
 -- pool. The developer user identifier is an identifier from your backend
@@ -169,25 +171,27 @@ instance ToQuery GetOpenIdTokenForDeveloperIdentity
         toQuery = const mempty
 
 -- | Returned in response to a successful
--- @GetOpenIdTokenForDeveloperIdentity@ request.
+-- 'GetOpenIdTokenForDeveloperIdentity' request.
 --
 -- /See:/ 'getOpenIdTokenForDeveloperIdentityResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'goitfdirsToken'
---
--- * 'goitfdirsIdentityId'
---
--- * 'goitfdirsStatus'
 data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'
     { _goitfdirsToken      :: !(Maybe Text)
     , _goitfdirsIdentityId :: !(Maybe Text)
     , _goitfdirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
-getOpenIdTokenForDeveloperIdentityResponse :: Int -> GetOpenIdTokenForDeveloperIdentityResponse
+-- | Creates a value of 'GetOpenIdTokenForDeveloperIdentityResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'goitfdirsToken'
+--
+-- * 'goitfdirsIdentityId'
+--
+-- * 'goitfdirsStatus'
+getOpenIdTokenForDeveloperIdentityResponse
+    :: Int -- ^ 'goitfdirsStatus'
+    -> GetOpenIdTokenForDeveloperIdentityResponse
 getOpenIdTokenForDeveloperIdentityResponse pStatus_ =
     GetOpenIdTokenForDeveloperIdentityResponse'
     { _goitfdirsToken = Nothing
@@ -203,6 +207,6 @@ goitfdirsToken = lens _goitfdirsToken (\ s a -> s{_goitfdirsToken = a});
 goitfdirsIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
 goitfdirsIdentityId = lens _goitfdirsIdentityId (\ s a -> s{_goitfdirsIdentityId = a});
 
--- | Undocumented member.
+-- | The response status code.
 goitfdirsStatus :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Int
 goitfdirsStatus = lens _goitfdirsStatus (\ s a -> s{_goitfdirsStatus = a});

@@ -33,8 +33,8 @@
 module Network.AWS.IAM.UpdateAccountPasswordPolicy
     (
     -- * Creating a Request
-      UpdateAccountPasswordPolicy
-    , updateAccountPasswordPolicy
+      updateAccountPasswordPolicy
+    , UpdateAccountPasswordPolicy
     -- * Request Lenses
     , uappRequireNumbers
     , uappMinimumPasswordLength
@@ -47,8 +47,8 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
     , uappAllowUsersToChangePassword
 
     -- * Destructuring the Response
-    , UpdateAccountPasswordPolicyResponse
     , updateAccountPasswordPolicyResponse
+    , UpdateAccountPasswordPolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -58,8 +58,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateAccountPasswordPolicy' smart constructor.
+data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
+    { _uappRequireNumbers             :: !(Maybe Bool)
+    , _uappMinimumPasswordLength      :: !(Maybe Nat)
+    , _uappPasswordReusePrevention    :: !(Maybe Nat)
+    , _uappRequireLowercaseCharacters :: !(Maybe Bool)
+    , _uappMaxPasswordAge             :: !(Maybe Nat)
+    , _uappHardExpiry                 :: !(Maybe Bool)
+    , _uappRequireSymbols             :: !(Maybe Bool)
+    , _uappRequireUppercaseCharacters :: !(Maybe Bool)
+    , _uappAllowUsersToChangePassword :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateAccountPasswordPolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uappRequireNumbers'
 --
@@ -78,20 +91,8 @@ import           Network.AWS.Response
 -- * 'uappRequireUppercaseCharacters'
 --
 -- * 'uappAllowUsersToChangePassword'
-data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
-    { _uappRequireNumbers             :: !(Maybe Bool)
-    , _uappMinimumPasswordLength      :: !(Maybe Nat)
-    , _uappPasswordReusePrevention    :: !(Maybe Nat)
-    , _uappRequireLowercaseCharacters :: !(Maybe Bool)
-    , _uappMaxPasswordAge             :: !(Maybe Nat)
-    , _uappHardExpiry                 :: !(Maybe Bool)
-    , _uappRequireSymbols             :: !(Maybe Bool)
-    , _uappRequireUppercaseCharacters :: !(Maybe Bool)
-    , _uappAllowUsersToChangePassword :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateAccountPasswordPolicy' smart constructor.
-updateAccountPasswordPolicy :: UpdateAccountPasswordPolicy
+updateAccountPasswordPolicy
+    :: UpdateAccountPasswordPolicy
 updateAccountPasswordPolicy =
     UpdateAccountPasswordPolicy'
     { _uappRequireNumbers = Nothing
@@ -150,7 +151,7 @@ uappHardExpiry = lens _uappHardExpiry (\ s a -> s{_uappHardExpiry = a});
 -- | Specifies whether IAM user passwords must contain at least one of the
 -- following non-alphanumeric characters:
 --
--- ! \@ # $ % ^ &amp; * ( ) _ + - = [ ] { } | \'
+-- ! \' # $ % ^ &amp; * ( ) _ + - = [ ] { } | \'
 --
 -- Default value: false
 uappRequireSymbols :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
@@ -212,6 +213,8 @@ data UpdateAccountPasswordPolicyResponse =
     UpdateAccountPasswordPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAccountPasswordPolicyResponse' smart constructor.
-updateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse
+-- | Creates a value of 'UpdateAccountPasswordPolicyResponse' with the minimum fields required to make a request.
+--
+updateAccountPasswordPolicyResponse
+    :: UpdateAccountPasswordPolicyResponse
 updateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse'

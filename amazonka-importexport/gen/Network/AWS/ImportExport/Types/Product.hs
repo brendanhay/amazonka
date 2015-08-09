@@ -25,19 +25,20 @@ import           Network.AWS.Prelude
 -- (such as a PDF).
 --
 -- /See:/ 'artifact' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aURL'
---
--- * 'aDescription'
 data Artifact = Artifact'
     { _aURL         :: !(Maybe Text)
     , _aDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Artifact' smart constructor.
-artifact :: Artifact
+-- | Creates a value of 'Artifact' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aURL'
+--
+-- * 'aDescription'
+artifact
+    :: Artifact
 artifact =
     Artifact'
     { _aURL = Nothing
@@ -60,8 +61,16 @@ instance FromXML Artifact where
 -- | Representation of a job returned by the ListJobs operation.
 --
 -- /See:/ 'job' smart constructor.
+data Job = Job'
+    { _jobJobType      :: !JobType
+    , _jobJobId        :: !Text
+    , _jobIsCanceled   :: !Bool
+    , _jobCreationDate :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'jobJobType'
 --
@@ -70,15 +79,12 @@ instance FromXML Artifact where
 -- * 'jobIsCanceled'
 --
 -- * 'jobCreationDate'
-data Job = Job'
-    { _jobJobType      :: !JobType
-    , _jobJobId        :: !Text
-    , _jobIsCanceled   :: !Bool
-    , _jobCreationDate :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Job' smart constructor.
-job :: JobType -> Text -> Bool -> UTCTime -> Job
+job
+    :: JobType -- ^ 'jobJobType'
+    -> Text -- ^ 'jobJobId'
+    -> Bool -- ^ 'jobIsCanceled'
+    -> UTCTime -- ^ 'jobCreationDate'
+    -> Job
 job pJobType_ pJobId_ pIsCanceled_ pCreationDate_ =
     Job'
     { _jobJobType = pJobType_

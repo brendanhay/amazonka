@@ -28,8 +28,8 @@
 module Network.AWS.EC2.ModifyImageAttribute
     (
     -- * Creating a Request
-      ModifyImageAttribute
-    , modifyImageAttribute
+      modifyImageAttribute
+    , ModifyImageAttribute
     -- * Request Lenses
     , miaAttribute
     , miaUserIds
@@ -43,8 +43,8 @@ module Network.AWS.EC2.ModifyImageAttribute
     , miaImageId
 
     -- * Destructuring the Response
-    , ModifyImageAttributeResponse
     , modifyImageAttributeResponse
+    , ModifyImageAttributeResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -54,8 +54,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifyImageAttribute' smart constructor.
+data ModifyImageAttribute = ModifyImageAttribute'
+    { _miaAttribute        :: !(Maybe Text)
+    , _miaUserIds          :: !(Maybe [Text])
+    , _miaUserGroups       :: !(Maybe [Text])
+    , _miaValue            :: !(Maybe Text)
+    , _miaLaunchPermission :: !(Maybe LaunchPermissionModifications)
+    , _miaOperationType    :: !(Maybe Text)
+    , _miaProductCodes     :: !(Maybe [Text])
+    , _miaDryRun           :: !(Maybe Bool)
+    , _miaDescription      :: !(Maybe AttributeValue)
+    , _miaImageId          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyImageAttribute' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'miaAttribute'
 --
@@ -76,21 +90,9 @@ import           Network.AWS.Response
 -- * 'miaDescription'
 --
 -- * 'miaImageId'
-data ModifyImageAttribute = ModifyImageAttribute'
-    { _miaAttribute        :: !(Maybe Text)
-    , _miaUserIds          :: !(Maybe [Text])
-    , _miaUserGroups       :: !(Maybe [Text])
-    , _miaValue            :: !(Maybe Text)
-    , _miaLaunchPermission :: !(Maybe LaunchPermissionModifications)
-    , _miaOperationType    :: !(Maybe Text)
-    , _miaProductCodes     :: !(Maybe [Text])
-    , _miaDryRun           :: !(Maybe Bool)
-    , _miaDescription      :: !(Maybe AttributeValue)
-    , _miaImageId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifyImageAttribute' smart constructor.
-modifyImageAttribute :: Text -> ModifyImageAttribute
+modifyImageAttribute
+    :: Text -- ^ 'miaImageId'
+    -> ModifyImageAttribute
 modifyImageAttribute pImageId_ =
     ModifyImageAttribute'
     { _miaAttribute = Nothing
@@ -110,17 +112,17 @@ miaAttribute :: Lens' ModifyImageAttribute (Maybe Text)
 miaAttribute = lens _miaAttribute (\ s a -> s{_miaAttribute = a});
 
 -- | One or more AWS account IDs. This is only valid when modifying the
--- @launchPermission@ attribute.
+-- 'launchPermission' attribute.
 miaUserIds :: Lens' ModifyImageAttribute [Text]
 miaUserIds = lens _miaUserIds (\ s a -> s{_miaUserIds = a}) . _Default . _Coerce;
 
 -- | One or more user groups. This is only valid when modifying the
--- @launchPermission@ attribute.
+-- 'launchPermission' attribute.
 miaUserGroups :: Lens' ModifyImageAttribute [Text]
 miaUserGroups = lens _miaUserGroups (\ s a -> s{_miaUserGroups = a}) . _Default . _Coerce;
 
 -- | The value of the attribute being modified. This is only valid when
--- modifying the @description@ attribute.
+-- modifying the 'description' attribute.
 miaValue :: Lens' ModifyImageAttribute (Maybe Text)
 miaValue = lens _miaValue (\ s a -> s{_miaValue = a});
 
@@ -133,15 +135,15 @@ miaOperationType :: Lens' ModifyImageAttribute (Maybe Text)
 miaOperationType = lens _miaOperationType (\ s a -> s{_miaOperationType = a});
 
 -- | One or more product codes. After you add a product code to an AMI, it
--- can\'t be removed. This is only valid when modifying the @productCodes@
+-- can\'t be removed. This is only valid when modifying the 'productCodes'
 -- attribute.
 miaProductCodes :: Lens' ModifyImageAttribute [Text]
 miaProductCodes = lens _miaProductCodes (\ s a -> s{_miaProductCodes = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 miaDryRun :: Lens' ModifyImageAttribute (Maybe Bool)
 miaDryRun = lens _miaDryRun (\ s a -> s{_miaDryRun = a});
 
@@ -188,6 +190,8 @@ data ModifyImageAttributeResponse =
     ModifyImageAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyImageAttributeResponse' smart constructor.
-modifyImageAttributeResponse :: ModifyImageAttributeResponse
+-- | Creates a value of 'ModifyImageAttributeResponse' with the minimum fields required to make a request.
+--
+modifyImageAttributeResponse
+    :: ModifyImageAttributeResponse
 modifyImageAttributeResponse = ModifyImageAttributeResponse'

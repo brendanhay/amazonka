@@ -26,14 +26,23 @@ import           Network.AWS.Prelude
 -- This data type is used as a response element in the CreateAccessKey and
 -- ListAccessKeys actions.
 --
--- The @SecretAccessKey@ value is returned only in response to
+-- The 'SecretAccessKey' value is returned only in response to
 -- CreateAccessKey. You can get a secret access key only when you first
 -- create an access key; you cannot recover the secret access key later. If
 -- you lose a secret access key, you must create a new access key.
 --
 -- /See:/ 'accessKey' smart constructor.
+data AccessKey = AccessKey'
+    { _akCreateDate      :: !(Maybe ISO8601)
+    , _akUserName        :: !Text
+    , _akAccessKeyId     :: !Text
+    , _akStatus          :: !StatusType
+    , _akSecretAccessKey :: !(Sensitive Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AccessKey' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'akCreateDate'
 --
@@ -44,16 +53,12 @@ import           Network.AWS.Prelude
 -- * 'akStatus'
 --
 -- * 'akSecretAccessKey'
-data AccessKey = AccessKey'
-    { _akCreateDate      :: !(Maybe ISO8601)
-    , _akUserName        :: !Text
-    , _akAccessKeyId     :: !Text
-    , _akStatus          :: !StatusType
-    , _akSecretAccessKey :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AccessKey' smart constructor.
-accessKey :: Text -> Text -> StatusType -> Text -> AccessKey
+accessKey
+    :: Text -- ^ 'akUserName'
+    -> Text -- ^ 'akAccessKeyId'
+    -> StatusType -- ^ 'akStatus'
+    -> Text -- ^ 'akSecretAccessKey'
+    -> AccessKey
 accessKey pUserName_ pAccessKeyId_ pStatus_ pSecretAccessKey_ =
     AccessKey'
     { _akCreateDate = Nothing
@@ -75,8 +80,8 @@ akUserName = lens _akUserName (\ s a -> s{_akUserName = a});
 akAccessKeyId :: Lens' AccessKey Text
 akAccessKeyId = lens _akAccessKeyId (\ s a -> s{_akAccessKeyId = a});
 
--- | The status of the access key. @Active@ means the key is valid for API
--- calls, while @Inactive@ means it is not.
+-- | The status of the access key. 'Active' means the key is valid for API
+-- calls, while 'Inactive' means it is not.
 akStatus :: Lens' AccessKey StatusType
 akStatus = lens _akStatus (\ s a -> s{_akStatus = a});
 
@@ -98,22 +103,26 @@ instance FromXML AccessKey where
 -- action.
 --
 -- /See:/ 'accessKeyLastUsed' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'akluLastUsedDate'
---
--- * 'akluServiceName'
---
--- * 'akluRegion'
 data AccessKeyLastUsed = AccessKeyLastUsed'
     { _akluLastUsedDate :: !ISO8601
     , _akluServiceName  :: !Text
     , _akluRegion       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AccessKeyLastUsed' smart constructor.
-accessKeyLastUsed :: UTCTime -> Text -> Text -> AccessKeyLastUsed
+-- | Creates a value of 'AccessKeyLastUsed' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'akluLastUsedDate'
+--
+-- * 'akluServiceName'
+--
+-- * 'akluRegion'
+accessKeyLastUsed
+    :: UTCTime -- ^ 'akluLastUsedDate'
+    -> Text -- ^ 'akluServiceName'
+    -> Text -- ^ 'akluRegion'
+    -> AccessKeyLastUsed
 accessKeyLastUsed pLastUsedDate_ pServiceName_ pRegion_ =
     AccessKeyLastUsed'
     { _akluLastUsedDate = _Time # pLastUsedDate_
@@ -176,8 +185,16 @@ instance FromXML AccessKeyLastUsed where
 -- action.
 --
 -- /See:/ 'accessKeyMetadata' smart constructor.
+data AccessKeyMetadata = AccessKeyMetadata'
+    { _akmStatus      :: !(Maybe StatusType)
+    , _akmCreateDate  :: !(Maybe ISO8601)
+    , _akmUserName    :: !(Maybe Text)
+    , _akmAccessKeyId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AccessKeyMetadata' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'akmStatus'
 --
@@ -186,15 +203,8 @@ instance FromXML AccessKeyLastUsed where
 -- * 'akmUserName'
 --
 -- * 'akmAccessKeyId'
-data AccessKeyMetadata = AccessKeyMetadata'
-    { _akmStatus      :: !(Maybe StatusType)
-    , _akmCreateDate  :: !(Maybe ISO8601)
-    , _akmUserName    :: !(Maybe Text)
-    , _akmAccessKeyId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AccessKeyMetadata' smart constructor.
-accessKeyMetadata :: AccessKeyMetadata
+accessKeyMetadata
+    :: AccessKeyMetadata
 accessKeyMetadata =
     AccessKeyMetadata'
     { _akmStatus = Nothing
@@ -203,8 +213,8 @@ accessKeyMetadata =
     , _akmAccessKeyId = Nothing
     }
 
--- | The status of the access key. @Active@ means the key is valid for API
--- calls; @Inactive@ means it is not.
+-- | The status of the access key. 'Active' means the key is valid for API
+-- calls; 'Inactive' means it is not.
 akmStatus :: Lens' AccessKeyMetadata (Maybe StatusType)
 akmStatus = lens _akmStatus (\ s a -> s{_akmStatus = a});
 
@@ -239,19 +249,20 @@ instance FromXML AccessKeyMetadata where
 -- in the /Using IAM/ guide.
 --
 -- /See:/ 'attachedPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'apPolicyName'
---
--- * 'apPolicyARN'
 data AttachedPolicy = AttachedPolicy'
     { _apPolicyName :: !(Maybe Text)
     , _apPolicyARN  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachedPolicy' smart constructor.
-attachedPolicy :: AttachedPolicy
+-- | Creates a value of 'AttachedPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'apPolicyName'
+--
+-- * 'apPolicyARN'
+attachedPolicy
+    :: AttachedPolicy
 attachedPolicy =
     AttachedPolicy'
     { _apPolicyName = Nothing
@@ -280,8 +291,17 @@ instance FromXML AttachedPolicy where
 -- -   ListGroups
 --
 -- /See:/ 'group'' smart constructor.
+data Group = Group'
+    { _gPath       :: !Text
+    , _gGroupName  :: !Text
+    , _gGroupId    :: !Text
+    , _gARN        :: !Text
+    , _gCreateDate :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Group' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gPath'
 --
@@ -292,16 +312,13 @@ instance FromXML AttachedPolicy where
 -- * 'gARN'
 --
 -- * 'gCreateDate'
-data Group = Group'
-    { _gPath       :: !Text
-    , _gGroupName  :: !Text
-    , _gGroupId    :: !Text
-    , _gARN        :: !Text
-    , _gCreateDate :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Group' smart constructor.
-group' :: Text -> Text -> Text -> Text -> UTCTime -> Group
+group'
+    :: Text -- ^ 'gPath'
+    -> Text -- ^ 'gGroupName'
+    -> Text -- ^ 'gGroupId'
+    -> Text -- ^ 'gARN'
+    -> UTCTime -- ^ 'gCreateDate'
+    -> Group
 group' pPath_ pGroupName_ pGroupId_ pARN_ pCreateDate_ =
     Group'
     { _gPath = pPath_
@@ -356,8 +373,19 @@ instance FromXML Group where
 -- GetAccountAuthorizationDetails action.
 --
 -- /See:/ 'groupDetail' smart constructor.
+data GroupDetail = GroupDetail'
+    { _gdARN                     :: !(Maybe Text)
+    , _gdPath                    :: !(Maybe Text)
+    , _gdCreateDate              :: !(Maybe ISO8601)
+    , _gdGroupId                 :: !(Maybe Text)
+    , _gdGroupPolicyList         :: !(Maybe [PolicyDetail])
+    , _gdGroupName               :: !(Maybe Text)
+    , _gdAttachedManagedPolicies :: !(Maybe [AttachedPolicy])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GroupDetail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gdARN'
 --
@@ -372,18 +400,8 @@ instance FromXML Group where
 -- * 'gdGroupName'
 --
 -- * 'gdAttachedManagedPolicies'
-data GroupDetail = GroupDetail'
-    { _gdARN                     :: !(Maybe Text)
-    , _gdPath                    :: !(Maybe Text)
-    , _gdCreateDate              :: !(Maybe ISO8601)
-    , _gdGroupId                 :: !(Maybe Text)
-    , _gdGroupPolicyList         :: !(Maybe [PolicyDetail])
-    , _gdGroupName               :: !(Maybe Text)
-    , _gdAttachedManagedPolicies :: !(Maybe [AttachedPolicy])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GroupDetail' smart constructor.
-groupDetail :: GroupDetail
+groupDetail
+    :: GroupDetail
 groupDetail =
     GroupDetail'
     { _gdARN = Nothing
@@ -458,8 +476,18 @@ instance FromXML GroupDetail where
 --
 --
 -- /See:/ 'instanceProfile' smart constructor.
+data InstanceProfile = InstanceProfile'
+    { _ipPath                :: !Text
+    , _ipInstanceProfileName :: !Text
+    , _ipInstanceProfileId   :: !Text
+    , _ipARN                 :: !Text
+    , _ipCreateDate          :: !ISO8601
+    , _ipRoles               :: ![Role]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceProfile' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ipPath'
 --
@@ -472,17 +500,13 @@ instance FromXML GroupDetail where
 -- * 'ipCreateDate'
 --
 -- * 'ipRoles'
-data InstanceProfile = InstanceProfile'
-    { _ipPath                :: !Text
-    , _ipInstanceProfileName :: !Text
-    , _ipInstanceProfileId   :: !Text
-    , _ipARN                 :: !Text
-    , _ipCreateDate          :: !ISO8601
-    , _ipRoles               :: ![Role]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstanceProfile' smart constructor.
-instanceProfile :: Text -> Text -> Text -> Text -> UTCTime -> InstanceProfile
+instanceProfile
+    :: Text -- ^ 'ipPath'
+    -> Text -- ^ 'ipInstanceProfileName'
+    -> Text -- ^ 'ipInstanceProfileId'
+    -> Text -- ^ 'ipARN'
+    -> UTCTime -- ^ 'ipCreateDate'
+    -> InstanceProfile
 instanceProfile pPath_ pInstanceProfileName_ pInstanceProfileId_ pARN_ pCreateDate_ =
     InstanceProfile'
     { _ipPath = pPath_
@@ -541,22 +565,25 @@ instance FromXML InstanceProfile where
 -- and GetLoginProfile actions.
 --
 -- /See:/ 'loginProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lpPasswordResetRequired'
---
--- * 'lpUserName'
---
--- * 'lpCreateDate'
 data LoginProfile = LoginProfile'
     { _lpPasswordResetRequired :: !(Maybe Bool)
     , _lpUserName              :: !Text
     , _lpCreateDate            :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LoginProfile' smart constructor.
-loginProfile :: Text -> UTCTime -> LoginProfile
+-- | Creates a value of 'LoginProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpPasswordResetRequired'
+--
+-- * 'lpUserName'
+--
+-- * 'lpCreateDate'
+loginProfile
+    :: Text -- ^ 'lpUserName'
+    -> UTCTime -- ^ 'lpCreateDate'
+    -> LoginProfile
 loginProfile pUserName_ pCreateDate_ =
     LoginProfile'
     { _lpPasswordResetRequired = Nothing
@@ -590,22 +617,26 @@ instance FromXML LoginProfile where
 -- action.
 --
 -- /See:/ 'mfaDevice' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mdUserName'
---
--- * 'mdSerialNumber'
---
--- * 'mdEnableDate'
 data MFADevice = MFADevice'
     { _mdUserName     :: !Text
     , _mdSerialNumber :: !Text
     , _mdEnableDate   :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MFADevice' smart constructor.
-mfaDevice :: Text -> Text -> UTCTime -> MFADevice
+-- | Creates a value of 'MFADevice' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mdUserName'
+--
+-- * 'mdSerialNumber'
+--
+-- * 'mdEnableDate'
+mfaDevice
+    :: Text -- ^ 'mdUserName'
+    -> Text -- ^ 'mdSerialNumber'
+    -> UTCTime -- ^ 'mdEnableDate'
+    -> MFADevice
 mfaDevice pUserName_ pSerialNumber_ pEnableDate_ =
     MFADevice'
     { _mdUserName = pUserName_
@@ -644,8 +675,23 @@ instance FromXML MFADevice where
 -- in the /Using IAM/ guide.
 --
 -- /See:/ 'managedPolicyDetail' smart constructor.
+data ManagedPolicyDetail = ManagedPolicyDetail'
+    { _mpdPolicyName        :: !(Maybe Text)
+    , _mpdARN               :: !(Maybe Text)
+    , _mpdPath              :: !(Maybe Text)
+    , _mpdUpdateDate        :: !(Maybe ISO8601)
+    , _mpdPolicyId          :: !(Maybe Text)
+    , _mpdCreateDate        :: !(Maybe ISO8601)
+    , _mpdPolicyVersionList :: !(Maybe [PolicyVersion])
+    , _mpdIsAttachable      :: !(Maybe Bool)
+    , _mpdDefaultVersionId  :: !(Maybe Text)
+    , _mpdAttachmentCount   :: !(Maybe Int)
+    , _mpdDescription       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ManagedPolicyDetail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mpdPolicyName'
 --
@@ -668,22 +714,8 @@ instance FromXML MFADevice where
 -- * 'mpdAttachmentCount'
 --
 -- * 'mpdDescription'
-data ManagedPolicyDetail = ManagedPolicyDetail'
-    { _mpdPolicyName        :: !(Maybe Text)
-    , _mpdARN               :: !(Maybe Text)
-    , _mpdPath              :: !(Maybe Text)
-    , _mpdUpdateDate        :: !(Maybe ISO8601)
-    , _mpdPolicyId          :: !(Maybe Text)
-    , _mpdCreateDate        :: !(Maybe ISO8601)
-    , _mpdPolicyVersionList :: !(Maybe [PolicyVersion])
-    , _mpdIsAttachable      :: !(Maybe Bool)
-    , _mpdDefaultVersionId  :: !(Maybe Text)
-    , _mpdAttachmentCount   :: !(Maybe Int)
-    , _mpdDescription       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ManagedPolicyDetail' smart constructor.
-managedPolicyDetail :: ManagedPolicyDetail
+managedPolicyDetail
+    :: ManagedPolicyDetail
 managedPolicyDetail =
     ManagedPolicyDetail'
     { _mpdPolicyName = Nothing
@@ -787,16 +819,17 @@ instance FromXML ManagedPolicyDetail where
 -- provider.
 --
 -- /See:/ 'openIdConnectProviderListEntry' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'oicpleARN'
 newtype OpenIdConnectProviderListEntry = OpenIdConnectProviderListEntry'
     { _oicpleARN :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'OpenIdConnectProviderListEntry' smart constructor.
-openIdConnectProviderListEntry :: OpenIdConnectProviderListEntry
+-- | Creates a value of 'OpenIdConnectProviderListEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'oicpleARN'
+openIdConnectProviderListEntry
+    :: OpenIdConnectProviderListEntry
 openIdConnectProviderListEntry =
     OpenIdConnectProviderListEntry'
     { _oicpleARN = Nothing
@@ -816,8 +849,22 @@ instance FromXML OpenIdConnectProviderListEntry where
 -- GetAccountPasswordPolicy action.
 --
 -- /See:/ 'passwordPolicy' smart constructor.
+data PasswordPolicy = PasswordPolicy'
+    { _ppExpirePasswords            :: !(Maybe Bool)
+    , _ppRequireNumbers             :: !(Maybe Bool)
+    , _ppMinimumPasswordLength      :: !(Maybe Nat)
+    , _ppPasswordReusePrevention    :: !(Maybe Nat)
+    , _ppRequireLowercaseCharacters :: !(Maybe Bool)
+    , _ppMaxPasswordAge             :: !(Maybe Nat)
+    , _ppHardExpiry                 :: !(Maybe Bool)
+    , _ppRequireSymbols             :: !(Maybe Bool)
+    , _ppRequireUppercaseCharacters :: !(Maybe Bool)
+    , _ppAllowUsersToChangePassword :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PasswordPolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ppExpirePasswords'
 --
@@ -838,21 +885,8 @@ instance FromXML OpenIdConnectProviderListEntry where
 -- * 'ppRequireUppercaseCharacters'
 --
 -- * 'ppAllowUsersToChangePassword'
-data PasswordPolicy = PasswordPolicy'
-    { _ppExpirePasswords            :: !(Maybe Bool)
-    , _ppRequireNumbers             :: !(Maybe Bool)
-    , _ppMinimumPasswordLength      :: !(Maybe Nat)
-    , _ppPasswordReusePrevention    :: !(Maybe Nat)
-    , _ppRequireLowercaseCharacters :: !(Maybe Bool)
-    , _ppMaxPasswordAge             :: !(Maybe Nat)
-    , _ppHardExpiry                 :: !(Maybe Bool)
-    , _ppRequireSymbols             :: !(Maybe Bool)
-    , _ppRequireUppercaseCharacters :: !(Maybe Bool)
-    , _ppAllowUsersToChangePassword :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PasswordPolicy' smart constructor.
-passwordPolicy :: PasswordPolicy
+passwordPolicy
+    :: PasswordPolicy
 passwordPolicy =
     PasswordPolicy'
     { _ppExpirePasswords = Nothing
@@ -936,8 +970,22 @@ instance FromXML PasswordPolicy where
 -- in the /Using IAM/ guide.
 --
 -- /See:/ 'policy' smart constructor.
+data Policy = Policy'
+    { _pPolicyName       :: !(Maybe Text)
+    , _pARN              :: !(Maybe Text)
+    , _pPath             :: !(Maybe Text)
+    , _pUpdateDate       :: !(Maybe ISO8601)
+    , _pPolicyId         :: !(Maybe Text)
+    , _pCreateDate       :: !(Maybe ISO8601)
+    , _pIsAttachable     :: !(Maybe Bool)
+    , _pDefaultVersionId :: !(Maybe Text)
+    , _pAttachmentCount  :: !(Maybe Int)
+    , _pDescription      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Policy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pPolicyName'
 --
@@ -958,21 +1006,8 @@ instance FromXML PasswordPolicy where
 -- * 'pAttachmentCount'
 --
 -- * 'pDescription'
-data Policy = Policy'
-    { _pPolicyName       :: !(Maybe Text)
-    , _pARN              :: !(Maybe Text)
-    , _pPath             :: !(Maybe Text)
-    , _pUpdateDate       :: !(Maybe ISO8601)
-    , _pPolicyId         :: !(Maybe Text)
-    , _pCreateDate       :: !(Maybe ISO8601)
-    , _pIsAttachable     :: !(Maybe Bool)
-    , _pDefaultVersionId :: !(Maybe Text)
-    , _pAttachmentCount  :: !(Maybe Int)
-    , _pDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Policy' smart constructor.
-policy :: Policy
+policy
+    :: Policy
 policy =
     Policy'
     { _pPolicyName = Nothing
@@ -1069,19 +1104,20 @@ instance FromXML Policy where
 -- GetAccountAuthorizationDetails action.
 --
 -- /See:/ 'policyDetail' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pdPolicyDocument'
---
--- * 'pdPolicyName'
 data PolicyDetail = PolicyDetail'
     { _pdPolicyDocument :: !(Maybe Text)
     , _pdPolicyName     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PolicyDetail' smart constructor.
-policyDetail :: PolicyDetail
+-- | Creates a value of 'PolicyDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pdPolicyDocument'
+--
+-- * 'pdPolicyName'
+policyDetail
+    :: PolicyDetail
 policyDetail =
     PolicyDetail'
     { _pdPolicyDocument = Nothing
@@ -1111,16 +1147,17 @@ instance FromXML PolicyDetail where
 -- in the /Using IAM/ guide.
 --
 -- /See:/ 'policyGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pgGroupName'
 newtype PolicyGroup = PolicyGroup'
     { _pgGroupName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PolicyGroup' smart constructor.
-policyGroup :: PolicyGroup
+-- | Creates a value of 'PolicyGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pgGroupName'
+policyGroup
+    :: PolicyGroup
 policyGroup =
     PolicyGroup'
     { _pgGroupName = Nothing
@@ -1143,16 +1180,17 @@ instance FromXML PolicyGroup where
 -- in the /Using IAM/ guide.
 --
 -- /See:/ 'policyRole' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prRoleName'
 newtype PolicyRole = PolicyRole'
     { _prRoleName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PolicyRole' smart constructor.
-policyRole :: PolicyRole
+-- | Creates a value of 'PolicyRole' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prRoleName'
+policyRole
+    :: PolicyRole
 policyRole =
     PolicyRole'
     { _prRoleName = Nothing
@@ -1175,16 +1213,17 @@ instance FromXML PolicyRole where
 -- in the /Using IAM/ guide.
 --
 -- /See:/ 'policyUser' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'puUserName'
 newtype PolicyUser = PolicyUser'
     { _puUserName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PolicyUser' smart constructor.
-policyUser :: PolicyUser
+-- | Creates a value of 'PolicyUser' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'puUserName'
+policyUser
+    :: PolicyUser
 policyUser =
     PolicyUser'
     { _puUserName = Nothing
@@ -1208,8 +1247,16 @@ instance FromXML PolicyUser where
 -- in the /Using IAM/ guide.
 --
 -- /See:/ 'policyVersion' smart constructor.
+data PolicyVersion = PolicyVersion'
+    { _pvVersionId        :: !(Maybe Text)
+    , _pvCreateDate       :: !(Maybe ISO8601)
+    , _pvDocument         :: !(Maybe Text)
+    , _pvIsDefaultVersion :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PolicyVersion' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pvVersionId'
 --
@@ -1218,15 +1265,8 @@ instance FromXML PolicyUser where
 -- * 'pvDocument'
 --
 -- * 'pvIsDefaultVersion'
-data PolicyVersion = PolicyVersion'
-    { _pvVersionId        :: !(Maybe Text)
-    , _pvCreateDate       :: !(Maybe ISO8601)
-    , _pvDocument         :: !(Maybe Text)
-    , _pvIsDefaultVersion :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PolicyVersion' smart constructor.
-policyVersion :: PolicyVersion
+policyVersion
+    :: PolicyVersion
 policyVersion =
     PolicyVersion'
     { _pvVersionId = Nothing
@@ -1237,8 +1277,8 @@ policyVersion =
 
 -- | The identifier for the policy version.
 --
--- Policy version identifiers always begin with @v@ (always lowercase).
--- When a policy is created, the first policy version is @v1@.
+-- Policy version identifiers always begin with 'v' (always lowercase).
+-- When a policy is created, the first policy version is 'v1'.
 pvVersionId :: Lens' PolicyVersion (Maybe Text)
 pvVersionId = lens _pvVersionId (\ s a -> s{_pvVersionId = a});
 
@@ -1280,8 +1320,18 @@ instance FromXML PolicyVersion where
 --
 --
 -- /See:/ 'role' smart constructor.
+data Role = Role'
+    { _rAssumeRolePolicyDocument :: !(Maybe Text)
+    , _rPath                     :: !Text
+    , _rRoleName                 :: !Text
+    , _rRoleId                   :: !Text
+    , _rARN                      :: !Text
+    , _rCreateDate               :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Role' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rAssumeRolePolicyDocument'
 --
@@ -1294,17 +1344,13 @@ instance FromXML PolicyVersion where
 -- * 'rARN'
 --
 -- * 'rCreateDate'
-data Role = Role'
-    { _rAssumeRolePolicyDocument :: !(Maybe Text)
-    , _rPath                     :: !Text
-    , _rRoleName                 :: !Text
-    , _rRoleId                   :: !Text
-    , _rARN                      :: !Text
-    , _rCreateDate               :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Role' smart constructor.
-role :: Text -> Text -> Text -> Text -> UTCTime -> Role
+role
+    :: Text -- ^ 'rPath'
+    -> Text -- ^ 'rRoleName'
+    -> Text -- ^ 'rRoleId'
+    -> Text -- ^ 'rARN'
+    -> UTCTime -- ^ 'rCreateDate'
+    -> Role
 role pPath_ pRoleName_ pRoleId_ pARN_ pCreateDate_ =
     Role'
     { _rAssumeRolePolicyDocument = Nothing
@@ -1365,8 +1411,21 @@ instance FromXML Role where
 -- GetAccountAuthorizationDetails action.
 --
 -- /See:/ 'roleDetail' smart constructor.
+data RoleDetail = RoleDetail'
+    { _rdAssumeRolePolicyDocument :: !(Maybe Text)
+    , _rdARN                      :: !(Maybe Text)
+    , _rdPath                     :: !(Maybe Text)
+    , _rdInstanceProfileList      :: !(Maybe [InstanceProfile])
+    , _rdCreateDate               :: !(Maybe ISO8601)
+    , _rdRoleName                 :: !(Maybe Text)
+    , _rdRoleId                   :: !(Maybe Text)
+    , _rdRolePolicyList           :: !(Maybe [PolicyDetail])
+    , _rdAttachedManagedPolicies  :: !(Maybe [AttachedPolicy])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RoleDetail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rdAssumeRolePolicyDocument'
 --
@@ -1385,20 +1444,8 @@ instance FromXML Role where
 -- * 'rdRolePolicyList'
 --
 -- * 'rdAttachedManagedPolicies'
-data RoleDetail = RoleDetail'
-    { _rdAssumeRolePolicyDocument :: !(Maybe Text)
-    , _rdARN                      :: !(Maybe Text)
-    , _rdPath                     :: !(Maybe Text)
-    , _rdInstanceProfileList      :: !(Maybe [InstanceProfile])
-    , _rdCreateDate               :: !(Maybe ISO8601)
-    , _rdRoleName                 :: !(Maybe Text)
-    , _rdRoleId                   :: !(Maybe Text)
-    , _rdRolePolicyList           :: !(Maybe [PolicyDetail])
-    , _rdAttachedManagedPolicies  :: !(Maybe [AttachedPolicy])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RoleDetail' smart constructor.
-roleDetail :: RoleDetail
+roleDetail
+    :: RoleDetail
 roleDetail =
     RoleDetail'
     { _rdAssumeRolePolicyDocument = Nothing
@@ -1478,22 +1525,23 @@ instance FromXML RoleDetail where
 -- | Contains the list of SAML providers for this account.
 --
 -- /See:/ 'sAMLProviderListEntry' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'samlpleARN'
---
--- * 'samlpleCreateDate'
---
--- * 'samlpleValidUntil'
 data SAMLProviderListEntry = SAMLProviderListEntry'
     { _samlpleARN        :: !(Maybe Text)
     , _samlpleCreateDate :: !(Maybe ISO8601)
     , _samlpleValidUntil :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SAMLProviderListEntry' smart constructor.
-sAMLProviderListEntry :: SAMLProviderListEntry
+-- | Creates a value of 'SAMLProviderListEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'samlpleARN'
+--
+-- * 'samlpleCreateDate'
+--
+-- * 'samlpleValidUntil'
+sAMLProviderListEntry
+    :: SAMLProviderListEntry
 sAMLProviderListEntry =
     SAMLProviderListEntry'
     { _samlpleARN = Nothing
@@ -1525,8 +1573,18 @@ instance FromXML SAMLProviderListEntry where
 -- UploadSSHPublicKey actions.
 --
 -- /See:/ 'sshPublicKey' smart constructor.
+data SSHPublicKey = SSHPublicKey'
+    { _spkUploadDate       :: !(Maybe ISO8601)
+    , _spkUserName         :: !Text
+    , _spkSSHPublicKeyId   :: !Text
+    , _spkFingerprint      :: !Text
+    , _spkSSHPublicKeyBody :: !Text
+    , _spkStatus           :: !StatusType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SSHPublicKey' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'spkUploadDate'
 --
@@ -1539,17 +1597,13 @@ instance FromXML SAMLProviderListEntry where
 -- * 'spkSSHPublicKeyBody'
 --
 -- * 'spkStatus'
-data SSHPublicKey = SSHPublicKey'
-    { _spkUploadDate       :: !(Maybe ISO8601)
-    , _spkUserName         :: !Text
-    , _spkSSHPublicKeyId   :: !Text
-    , _spkFingerprint      :: !Text
-    , _spkSSHPublicKeyBody :: !Text
-    , _spkStatus           :: !StatusType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SSHPublicKey' smart constructor.
-sshPublicKey :: Text -> Text -> Text -> Text -> StatusType -> SSHPublicKey
+sshPublicKey
+    :: Text -- ^ 'spkUserName'
+    -> Text -- ^ 'spkSSHPublicKeyId'
+    -> Text -- ^ 'spkFingerprint'
+    -> Text -- ^ 'spkSSHPublicKeyBody'
+    -> StatusType -- ^ 'spkStatus'
+    -> SSHPublicKey
 sshPublicKey pUserName_ pSSHPublicKeyId_ pFingerprint_ pSSHPublicKeyBody_ pStatus_ =
     SSHPublicKey'
     { _spkUploadDate = Nothing
@@ -1582,8 +1636,8 @@ spkFingerprint = lens _spkFingerprint (\ s a -> s{_spkFingerprint = a});
 spkSSHPublicKeyBody :: Lens' SSHPublicKey Text
 spkSSHPublicKeyBody = lens _spkSSHPublicKeyBody (\ s a -> s{_spkSSHPublicKeyBody = a});
 
--- | The status of the SSH public key. @Active@ means the key can be used for
--- authentication with an AWS CodeCommit repository. @Inactive@ means the
+-- | The status of the SSH public key. 'Active' means the key can be used for
+-- authentication with an AWS CodeCommit repository. 'Inactive' means the
 -- key cannot be used.
 spkStatus :: Lens' SSHPublicKey StatusType
 spkStatus = lens _spkStatus (\ s a -> s{_spkStatus = a});
@@ -1604,8 +1658,16 @@ instance FromXML SSHPublicKey where
 -- action.
 --
 -- /See:/ 'sshPublicKeyMetadata' smart constructor.
+data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
+    { _spkmUserName       :: !Text
+    , _spkmSSHPublicKeyId :: !Text
+    , _spkmStatus         :: !StatusType
+    , _spkmUploadDate     :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SSHPublicKeyMetadata' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'spkmUserName'
 --
@@ -1614,15 +1676,12 @@ instance FromXML SSHPublicKey where
 -- * 'spkmStatus'
 --
 -- * 'spkmUploadDate'
-data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
-    { _spkmUserName       :: !Text
-    , _spkmSSHPublicKeyId :: !Text
-    , _spkmStatus         :: !StatusType
-    , _spkmUploadDate     :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SSHPublicKeyMetadata' smart constructor.
-sshPublicKeyMetadata :: Text -> Text -> StatusType -> UTCTime -> SSHPublicKeyMetadata
+sshPublicKeyMetadata
+    :: Text -- ^ 'spkmUserName'
+    -> Text -- ^ 'spkmSSHPublicKeyId'
+    -> StatusType -- ^ 'spkmStatus'
+    -> UTCTime -- ^ 'spkmUploadDate'
+    -> SSHPublicKeyMetadata
 sshPublicKeyMetadata pUserName_ pSSHPublicKeyId_ pStatus_ pUploadDate_ =
     SSHPublicKeyMetadata'
     { _spkmUserName = pUserName_
@@ -1639,8 +1698,8 @@ spkmUserName = lens _spkmUserName (\ s a -> s{_spkmUserName = a});
 spkmSSHPublicKeyId :: Lens' SSHPublicKeyMetadata Text
 spkmSSHPublicKeyId = lens _spkmSSHPublicKeyId (\ s a -> s{_spkmSSHPublicKeyId = a});
 
--- | The status of the SSH public key. @Active@ means the key can be used for
--- authentication with an AWS CodeCommit repository. @Inactive@ means the
+-- | The status of the SSH public key. 'Active' means the key can be used for
+-- authentication with an AWS CodeCommit repository. 'Inactive' means the
 -- key cannot be used.
 spkmStatus :: Lens' SSHPublicKeyMetadata StatusType
 spkmStatus = lens _spkmStatus (\ s a -> s{_spkmStatus = a});
@@ -1664,22 +1723,25 @@ instance FromXML SSHPublicKeyMetadata where
 -- action.
 --
 -- /See:/ 'serverCertificate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sCertificateChain'
---
--- * 'sServerCertificateMetadata'
---
--- * 'sCertificateBody'
 data ServerCertificate = ServerCertificate'
     { _sCertificateChain          :: !(Maybe Text)
     , _sServerCertificateMetadata :: !ServerCertificateMetadata
     , _sCertificateBody           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ServerCertificate' smart constructor.
-serverCertificate :: ServerCertificateMetadata -> Text -> ServerCertificate
+-- | Creates a value of 'ServerCertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sCertificateChain'
+--
+-- * 'sServerCertificateMetadata'
+--
+-- * 'sCertificateBody'
+serverCertificate
+    :: ServerCertificateMetadata -- ^ 'sServerCertificateMetadata'
+    -> Text -- ^ 'sCertificateBody'
+    -> ServerCertificate
 serverCertificate pServerCertificateMetadata_ pCertificateBody_ =
     ServerCertificate'
     { _sCertificateChain = Nothing
@@ -1714,8 +1776,18 @@ instance FromXML ServerCertificate where
 -- UploadServerCertificate and ListServerCertificates actions.
 --
 -- /See:/ 'serverCertificateMetadata' smart constructor.
+data ServerCertificateMetadata = ServerCertificateMetadata'
+    { _scmUploadDate            :: !(Maybe ISO8601)
+    , _scmExpiration            :: !(Maybe ISO8601)
+    , _scmPath                  :: !Text
+    , _scmServerCertificateName :: !Text
+    , _scmServerCertificateId   :: !Text
+    , _scmARN                   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ServerCertificateMetadata' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'scmUploadDate'
 --
@@ -1728,17 +1800,12 @@ instance FromXML ServerCertificate where
 -- * 'scmServerCertificateId'
 --
 -- * 'scmARN'
-data ServerCertificateMetadata = ServerCertificateMetadata'
-    { _scmUploadDate            :: !(Maybe ISO8601)
-    , _scmExpiration            :: !(Maybe ISO8601)
-    , _scmPath                  :: !Text
-    , _scmServerCertificateName :: !Text
-    , _scmServerCertificateId   :: !Text
-    , _scmARN                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ServerCertificateMetadata' smart constructor.
-serverCertificateMetadata :: Text -> Text -> Text -> Text -> ServerCertificateMetadata
+serverCertificateMetadata
+    :: Text -- ^ 'scmPath'
+    -> Text -- ^ 'scmServerCertificateName'
+    -> Text -- ^ 'scmServerCertificateId'
+    -> Text -- ^ 'scmARN'
+    -> ServerCertificateMetadata
 serverCertificateMetadata pPath_ pServerCertificateName_ pServerCertificateId_ pARN_ =
     ServerCertificateMetadata'
     { _scmUploadDate = Nothing
@@ -1797,8 +1864,17 @@ instance FromXML ServerCertificateMetadata where
 -- UploadSigningCertificate and ListSigningCertificates actions.
 --
 -- /See:/ 'signingCertificate' smart constructor.
+data SigningCertificate = SigningCertificate'
+    { _scUploadDate      :: !(Maybe ISO8601)
+    , _scUserName        :: !Text
+    , _scCertificateId   :: !Text
+    , _scCertificateBody :: !Text
+    , _scStatus          :: !StatusType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SigningCertificate' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'scUploadDate'
 --
@@ -1809,16 +1885,12 @@ instance FromXML ServerCertificateMetadata where
 -- * 'scCertificateBody'
 --
 -- * 'scStatus'
-data SigningCertificate = SigningCertificate'
-    { _scUploadDate      :: !(Maybe ISO8601)
-    , _scUserName        :: !Text
-    , _scCertificateId   :: !Text
-    , _scCertificateBody :: !Text
-    , _scStatus          :: !StatusType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SigningCertificate' smart constructor.
-signingCertificate :: Text -> Text -> Text -> StatusType -> SigningCertificate
+signingCertificate
+    :: Text -- ^ 'scUserName'
+    -> Text -- ^ 'scCertificateId'
+    -> Text -- ^ 'scCertificateBody'
+    -> StatusType -- ^ 'scStatus'
+    -> SigningCertificate
 signingCertificate pUserName_ pCertificateId_ pCertificateBody_ pStatus_ =
     SigningCertificate'
     { _scUploadDate = Nothing
@@ -1844,8 +1916,8 @@ scCertificateId = lens _scCertificateId (\ s a -> s{_scCertificateId = a});
 scCertificateBody :: Lens' SigningCertificate Text
 scCertificateBody = lens _scCertificateBody (\ s a -> s{_scCertificateBody = a});
 
--- | The status of the signing certificate. @Active@ means the key is valid
--- for API calls, while @Inactive@ means it is not.
+-- | The status of the signing certificate. 'Active' means the key is valid
+-- for API calls, while 'Inactive' means it is not.
 scStatus :: Lens' SigningCertificate StatusType
 scStatus = lens _scStatus (\ s a -> s{_scStatus = a});
 
@@ -1869,8 +1941,18 @@ instance FromXML SigningCertificate where
 --
 --
 -- /See:/ 'user' smart constructor.
+data User = User'
+    { _uPasswordLastUsed :: !(Maybe ISO8601)
+    , _uPath             :: !Text
+    , _uUserName         :: !Text
+    , _uUserId           :: !Text
+    , _uARN              :: !Text
+    , _uCreateDate       :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'User' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uPasswordLastUsed'
 --
@@ -1883,17 +1965,13 @@ instance FromXML SigningCertificate where
 -- * 'uARN'
 --
 -- * 'uCreateDate'
-data User = User'
-    { _uPasswordLastUsed :: !(Maybe ISO8601)
-    , _uPath             :: !Text
-    , _uUserName         :: !Text
-    , _uUserId           :: !Text
-    , _uARN              :: !Text
-    , _uCreateDate       :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'User' smart constructor.
-user :: Text -> Text -> Text -> Text -> UTCTime -> User
+user
+    :: Text -- ^ 'uPath'
+    -> Text -- ^ 'uUserName'
+    -> Text -- ^ 'uUserId'
+    -> Text -- ^ 'uARN'
+    -> UTCTime -- ^ 'uCreateDate'
+    -> User
 user pPath_ pUserName_ pUserId_ pARN_ pCreateDate_ =
     User'
     { _uPasswordLastUsed = Nothing
@@ -1970,8 +2048,20 @@ instance FromXML User where
 -- GetAccountAuthorizationDetails action.
 --
 -- /See:/ 'userDetail' smart constructor.
+data UserDetail = UserDetail'
+    { _udARN                     :: !(Maybe Text)
+    , _udPath                    :: !(Maybe Text)
+    , _udGroupList               :: !(Maybe [Text])
+    , _udCreateDate              :: !(Maybe ISO8601)
+    , _udUserName                :: !(Maybe Text)
+    , _udUserId                  :: !(Maybe Text)
+    , _udUserPolicyList          :: !(Maybe [PolicyDetail])
+    , _udAttachedManagedPolicies :: !(Maybe [AttachedPolicy])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UserDetail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'udARN'
 --
@@ -1988,19 +2078,8 @@ instance FromXML User where
 -- * 'udUserPolicyList'
 --
 -- * 'udAttachedManagedPolicies'
-data UserDetail = UserDetail'
-    { _udARN                     :: !(Maybe Text)
-    , _udPath                    :: !(Maybe Text)
-    , _udGroupList               :: !(Maybe [Text])
-    , _udCreateDate              :: !(Maybe ISO8601)
-    , _udUserName                :: !(Maybe Text)
-    , _udUserId                  :: !(Maybe Text)
-    , _udUserPolicyList          :: !(Maybe [PolicyDetail])
-    , _udAttachedManagedPolicies :: !(Maybe [AttachedPolicy])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UserDetail' smart constructor.
-userDetail :: UserDetail
+userDetail
+    :: UserDetail
 userDetail =
     UserDetail'
     { _udARN = Nothing
@@ -2071,8 +2150,17 @@ instance FromXML UserDetail where
 -- | Contains information about a virtual MFA device.
 --
 -- /See:/ 'virtualMFADevice' smart constructor.
+data VirtualMFADevice = VirtualMFADevice'
+    { _vmdQRCodePNG        :: !(Maybe (Sensitive Base64))
+    , _vmdBase32StringSeed :: !(Maybe (Sensitive Base64))
+    , _vmdUser             :: !(Maybe User)
+    , _vmdEnableDate       :: !(Maybe ISO8601)
+    , _vmdSerialNumber     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VirtualMFADevice' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vmdQRCodePNG'
 --
@@ -2083,16 +2171,9 @@ instance FromXML UserDetail where
 -- * 'vmdEnableDate'
 --
 -- * 'vmdSerialNumber'
-data VirtualMFADevice = VirtualMFADevice'
-    { _vmdQRCodePNG        :: !(Maybe (Sensitive Base64))
-    , _vmdBase32StringSeed :: !(Maybe (Sensitive Base64))
-    , _vmdUser             :: !(Maybe User)
-    , _vmdEnableDate       :: !(Maybe ISO8601)
-    , _vmdSerialNumber     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VirtualMFADevice' smart constructor.
-virtualMFADevice :: Text -> VirtualMFADevice
+virtualMFADevice
+    :: Text -- ^ 'vmdSerialNumber'
+    -> VirtualMFADevice
 virtualMFADevice pSerialNumber_ =
     VirtualMFADevice'
     { _vmdQRCodePNG = Nothing
@@ -2103,16 +2184,16 @@ virtualMFADevice pSerialNumber_ =
     }
 
 -- | A QR code PNG image that encodes
--- @otpauth:\/\/totp\/$virtualMFADeviceName\@$AccountName?secret=$Base32String@
--- where @$virtualMFADeviceName@ is one of the create call arguments,
--- @AccountName@ is the user name if set (otherwise, the account ID
--- otherwise), and @Base32String@ is the seed in Base32 format. The
--- @Base32String@ value is Base64-encoded.
+-- 'otpauth:\/\/totp\/$virtualMFADeviceName\'$AccountName?secret=$Base32String'
+-- where '$virtualMFADeviceName' is one of the create call arguments,
+-- 'AccountName' is the user name if set (otherwise, the account ID
+-- otherwise), and 'Base32String' is the seed in Base32 format. The
+-- 'Base32String' value is Base64-encoded.
 vmdQRCodePNG :: Lens' VirtualMFADevice (Maybe ByteString)
 vmdQRCodePNG = lens _vmdQRCodePNG (\ s a -> s{_vmdQRCodePNG = a}) . mapping (_Sensitive . _Base64);
 
 -- | The Base32 seed defined as specified in
--- <http://www.ietf.org/rfc/rfc3548.txt RFC3548>. The @Base32StringSeed@ is
+-- <http://www.ietf.org/rfc/rfc3548.txt RFC3548>. The 'Base32StringSeed' is
 -- Base64-encoded.
 vmdBase32StringSeed :: Lens' VirtualMFADevice (Maybe ByteString)
 vmdBase32StringSeed = lens _vmdBase32StringSeed (\ s a -> s{_vmdBase32StringSeed = a}) . mapping (_Sensitive . _Base64);
@@ -2125,7 +2206,7 @@ vmdUser = lens _vmdUser (\ s a -> s{_vmdUser = a});
 vmdEnableDate :: Lens' VirtualMFADevice (Maybe UTCTime)
 vmdEnableDate = lens _vmdEnableDate (\ s a -> s{_vmdEnableDate = a}) . mapping _Time;
 
--- | The serial number associated with @VirtualMFADevice@.
+-- | The serial number associated with 'VirtualMFADevice'.
 vmdSerialNumber :: Lens' VirtualMFADevice Text
 vmdSerialNumber = lens _vmdSerialNumber (\ s a -> s{_vmdSerialNumber = a});
 

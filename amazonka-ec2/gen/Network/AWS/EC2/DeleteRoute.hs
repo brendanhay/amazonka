@@ -24,16 +24,16 @@
 module Network.AWS.EC2.DeleteRoute
     (
     -- * Creating a Request
-      DeleteRoute
-    , deleteRoute
+      deleteRoute
+    , DeleteRoute
     -- * Request Lenses
     , drDryRun
     , drRouteTableId
     , drDestinationCIdRBlock
 
     -- * Destructuring the Response
-    , DeleteRouteResponse
     , deleteRouteResponse
+    , DeleteRouteResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -43,22 +43,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteRoute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drDryRun'
---
--- * 'drRouteTableId'
---
--- * 'drDestinationCIdRBlock'
 data DeleteRoute = DeleteRoute'
     { _drDryRun               :: !(Maybe Bool)
     , _drRouteTableId         :: !Text
     , _drDestinationCIdRBlock :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRoute' smart constructor.
-deleteRoute :: Text -> Text -> DeleteRoute
+-- | Creates a value of 'DeleteRoute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drDryRun'
+--
+-- * 'drRouteTableId'
+--
+-- * 'drDestinationCIdRBlock'
+deleteRoute
+    :: Text -- ^ 'drRouteTableId'
+    -> Text -- ^ 'drDestinationCIdRBlock'
+    -> DeleteRoute
 deleteRoute pRouteTableId_ pDestinationCIdRBlock_ =
     DeleteRoute'
     { _drDryRun = Nothing
@@ -68,8 +71,8 @@ deleteRoute pRouteTableId_ pDestinationCIdRBlock_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 drDryRun :: Lens' DeleteRoute (Maybe Bool)
 drDryRun = lens _drDryRun (\ s a -> s{_drDryRun = a});
 
@@ -108,6 +111,8 @@ data DeleteRouteResponse =
     DeleteRouteResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRouteResponse' smart constructor.
-deleteRouteResponse :: DeleteRouteResponse
+-- | Creates a value of 'DeleteRouteResponse' with the minimum fields required to make a request.
+--
+deleteRouteResponse
+    :: DeleteRouteResponse
 deleteRouteResponse = DeleteRouteResponse'

@@ -31,14 +31,14 @@
 module Network.AWS.Redshift.DeleteClusterSecurityGroup
     (
     -- * Creating a Request
-      DeleteClusterSecurityGroup
-    , deleteClusterSecurityGroup
+      deleteClusterSecurityGroup
+    , DeleteClusterSecurityGroup
     -- * Request Lenses
     , dClusterSecurityGroupName
 
     -- * Destructuring the Response
-    , DeleteClusterSecurityGroupResponse
     , deleteClusterSecurityGroupResponse
+    , DeleteClusterSecurityGroupResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -50,16 +50,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteClusterSecurityGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dClusterSecurityGroupName'
 newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup'
     { _dClusterSecurityGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteClusterSecurityGroup' smart constructor.
-deleteClusterSecurityGroup :: Text -> DeleteClusterSecurityGroup
+-- | Creates a value of 'DeleteClusterSecurityGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dClusterSecurityGroupName'
+deleteClusterSecurityGroup
+    :: Text -- ^ 'dClusterSecurityGroupName'
+    -> DeleteClusterSecurityGroup
 deleteClusterSecurityGroup pClusterSecurityGroupName_ =
     DeleteClusterSecurityGroup'
     { _dClusterSecurityGroupName = pClusterSecurityGroupName_
@@ -97,6 +99,8 @@ data DeleteClusterSecurityGroupResponse =
     DeleteClusterSecurityGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteClusterSecurityGroupResponse' smart constructor.
-deleteClusterSecurityGroupResponse :: DeleteClusterSecurityGroupResponse
+-- | Creates a value of 'DeleteClusterSecurityGroupResponse' with the minimum fields required to make a request.
+--
+deleteClusterSecurityGroupResponse
+    :: DeleteClusterSecurityGroupResponse
 deleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse'

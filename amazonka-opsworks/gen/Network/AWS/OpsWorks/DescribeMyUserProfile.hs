@@ -29,12 +29,12 @@
 module Network.AWS.OpsWorks.DescribeMyUserProfile
     (
     -- * Creating a Request
-      DescribeMyUserProfile
-    , describeMyUserProfile
+      describeMyUserProfile
+    , DescribeMyUserProfile
 
     -- * Destructuring the Response
-    , DescribeMyUserProfileResponse
     , describeMyUserProfileResponse
+    , DescribeMyUserProfileResponse
     -- * Response Lenses
     , dmuprsUserProfile
     , dmuprsStatus
@@ -51,8 +51,10 @@ data DescribeMyUserProfile =
     DescribeMyUserProfile'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeMyUserProfile' smart constructor.
-describeMyUserProfile :: DescribeMyUserProfile
+-- | Creates a value of 'DescribeMyUserProfile' with the minimum fields required to make a request.
+--
+describeMyUserProfile
+    :: DescribeMyUserProfile
 describeMyUserProfile = DescribeMyUserProfile'
 
 instance AWSRequest DescribeMyUserProfile where
@@ -85,32 +87,34 @@ instance ToPath DescribeMyUserProfile where
 instance ToQuery DescribeMyUserProfile where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeMyUserProfile@ request.
+-- | Contains the response to a 'DescribeMyUserProfile' request.
 --
 -- /See:/ 'describeMyUserProfileResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmuprsUserProfile'
---
--- * 'dmuprsStatus'
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
     { _dmuprsUserProfile :: !(Maybe SelfUserProfile)
     , _dmuprsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeMyUserProfileResponse' smart constructor.
-describeMyUserProfileResponse :: Int -> DescribeMyUserProfileResponse
+-- | Creates a value of 'DescribeMyUserProfileResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmuprsUserProfile'
+--
+-- * 'dmuprsStatus'
+describeMyUserProfileResponse
+    :: Int -- ^ 'dmuprsStatus'
+    -> DescribeMyUserProfileResponse
 describeMyUserProfileResponse pStatus_ =
     DescribeMyUserProfileResponse'
     { _dmuprsUserProfile = Nothing
     , _dmuprsStatus = pStatus_
     }
 
--- | A @UserProfile@ object that describes the user\'s SSH information.
+-- | A 'UserProfile' object that describes the user\'s SSH information.
 dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
 dmuprsUserProfile = lens _dmuprsUserProfile (\ s a -> s{_dmuprsUserProfile = a});
 
--- | Undocumented member.
+-- | The response status code.
 dmuprsStatus :: Lens' DescribeMyUserProfileResponse Int
 dmuprsStatus = lens _dmuprsStatus (\ s a -> s{_dmuprsStatus = a});

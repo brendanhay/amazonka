@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve the delegation set for a hosted zone, send a @GET@ request
--- to the @2013-04-01\/hostedzone\/hosted zone ID@ resource. The delegation
+-- To retrieve the delegation set for a hosted zone, send a 'GET' request
+-- to the '2013-04-01\/hostedzone\/hosted zone ID' resource. The delegation
 -- set is the four Route 53 name servers that were assigned to the hosted
 -- zone when you created it.
 --
@@ -27,14 +27,14 @@
 module Network.AWS.Route53.GetHostedZone
     (
     -- * Creating a Request
-      GetHostedZone
-    , getHostedZone
+      getHostedZone
+    , GetHostedZone
     -- * Request Lenses
     , ghzId
 
     -- * Destructuring the Response
-    , GetHostedZoneResponse
     , getHostedZoneResponse
+    , GetHostedZoneResponse
     -- * Response Lenses
     , ghzrsVPCs
     , ghzrsDelegationSet
@@ -51,16 +51,18 @@ import           Network.AWS.Route53.Types.Product
 -- | The input for a GetHostedZone request.
 --
 -- /See:/ 'getHostedZone' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ghzId'
 newtype GetHostedZone = GetHostedZone'
     { _ghzId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetHostedZone' smart constructor.
-getHostedZone :: Text -> GetHostedZone
+-- | Creates a value of 'GetHostedZone' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ghzId'
+getHostedZone
+    :: Text -- ^ 'ghzId'
+    -> GetHostedZone
 getHostedZone pId_ =
     GetHostedZone'
     { _ghzId = pId_
@@ -98,8 +100,16 @@ instance ToQuery GetHostedZone where
 -- | A complex type containing information about the specified hosted zone.
 --
 -- /See:/ 'getHostedZoneResponse' smart constructor.
+data GetHostedZoneResponse = GetHostedZoneResponse'
+    { _ghzrsVPCs          :: !(Maybe (List1 VPC))
+    , _ghzrsDelegationSet :: !(Maybe DelegationSet)
+    , _ghzrsStatus        :: !Int
+    , _ghzrsHostedZone    :: !HostedZone
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetHostedZoneResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ghzrsVPCs'
 --
@@ -108,15 +118,10 @@ instance ToQuery GetHostedZone where
 -- * 'ghzrsStatus'
 --
 -- * 'ghzrsHostedZone'
-data GetHostedZoneResponse = GetHostedZoneResponse'
-    { _ghzrsVPCs          :: !(Maybe (List1 VPC))
-    , _ghzrsDelegationSet :: !(Maybe DelegationSet)
-    , _ghzrsStatus        :: !Int
-    , _ghzrsHostedZone    :: !HostedZone
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetHostedZoneResponse' smart constructor.
-getHostedZoneResponse :: Int -> HostedZone -> GetHostedZoneResponse
+getHostedZoneResponse
+    :: Int -- ^ 'ghzrsStatus'
+    -> HostedZone -- ^ 'ghzrsHostedZone'
+    -> GetHostedZoneResponse
 getHostedZoneResponse pStatus_ pHostedZone_ =
     GetHostedZoneResponse'
     { _ghzrsVPCs = Nothing
@@ -135,7 +140,7 @@ ghzrsVPCs = lens _ghzrsVPCs (\ s a -> s{_ghzrsVPCs = a}) . mapping _List1;
 ghzrsDelegationSet :: Lens' GetHostedZoneResponse (Maybe DelegationSet)
 ghzrsDelegationSet = lens _ghzrsDelegationSet (\ s a -> s{_ghzrsDelegationSet = a});
 
--- | Undocumented member.
+-- | The response status code.
 ghzrsStatus :: Lens' GetHostedZoneResponse Int
 ghzrsStatus = lens _ghzrsStatus (\ s a -> s{_ghzrsStatus = a});
 

@@ -28,16 +28,16 @@
 module Network.AWS.EC2.DescribeNetworkACLs
     (
     -- * Creating a Request
-      DescribeNetworkACLs
-    , describeNetworkACLs
+      describeNetworkACLs
+    , DescribeNetworkACLs
     -- * Request Lenses
     , dnaclFilters
     , dnaclDryRun
     , dnaclNetworkACLIds
 
     -- * Destructuring the Response
-    , DescribeNetworkACLsResponse
     , describeNetworkACLsResponse
+    , DescribeNetworkACLsResponse
     -- * Response Lenses
     , dnarsNetworkACLs
     , dnarsStatus
@@ -50,22 +50,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeNetworkACLs' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dnaclFilters'
---
--- * 'dnaclDryRun'
---
--- * 'dnaclNetworkACLIds'
 data DescribeNetworkACLs = DescribeNetworkACLs'
     { _dnaclFilters       :: !(Maybe [Filter])
     , _dnaclDryRun        :: !(Maybe Bool)
     , _dnaclNetworkACLIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeNetworkACLs' smart constructor.
-describeNetworkACLs :: DescribeNetworkACLs
+-- | Creates a value of 'DescribeNetworkACLs' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dnaclFilters'
+--
+-- * 'dnaclDryRun'
+--
+-- * 'dnaclNetworkACLIds'
+describeNetworkACLs
+    :: DescribeNetworkACLs
 describeNetworkACLs =
     DescribeNetworkACLs'
     { _dnaclFilters = Nothing
@@ -75,67 +76,67 @@ describeNetworkACLs =
 
 -- | One or more filters.
 --
--- -   @association.association-id@ - The ID of an association ID for the
+-- -   'association.association-id' - The ID of an association ID for the
 --     ACL.
 --
--- -   @association.network-acl-id@ - The ID of the network ACL involved in
+-- -   'association.network-acl-id' - The ID of the network ACL involved in
 --     the association.
 --
--- -   @association.subnet-id@ - The ID of the subnet involved in the
+-- -   'association.subnet-id' - The ID of the subnet involved in the
 --     association.
 --
--- -   @default@ - Indicates whether the ACL is the default network ACL for
+-- -   'default' - Indicates whether the ACL is the default network ACL for
 --     the VPC.
 --
--- -   @entry.cidr@ - The CIDR range specified in the entry.
+-- -   'entry.cidr' - The CIDR range specified in the entry.
 --
--- -   @entry.egress@ - Indicates whether the entry applies to egress
+-- -   'entry.egress' - Indicates whether the entry applies to egress
 --     traffic.
 --
--- -   @entry.icmp.code@ - The ICMP code specified in the entry, if any.
+-- -   'entry.icmp.code' - The ICMP code specified in the entry, if any.
 --
--- -   @entry.icmp.type@ - The ICMP type specified in the entry, if any.
+-- -   'entry.icmp.type' - The ICMP type specified in the entry, if any.
 --
--- -   @entry.port-range.from@ - The start of the port range specified in
+-- -   'entry.port-range.from' - The start of the port range specified in
 --     the entry.
 --
--- -   @entry.port-range.to@ - The end of the port range specified in the
+-- -   'entry.port-range.to' - The end of the port range specified in the
 --     entry.
 --
--- -   @entry.protocol@ - The protocol specified in the entry (@tcp@ |
---     @udp@ | @icmp@ or a protocol number).
+-- -   'entry.protocol' - The protocol specified in the entry ('tcp' |
+--     'udp' | 'icmp' or a protocol number).
 --
--- -   @entry.rule-action@ - Allows or denies the matching traffic (@allow@
---     | @deny@).
+-- -   'entry.rule-action' - Allows or denies the matching traffic ('allow'
+--     | 'deny').
 --
--- -   @entry.rule-number@ - The number of an entry (in other words, rule)
+-- -   'entry.rule-number' - The number of an entry (in other words, rule)
 --     in the ACL\'s set of entries.
 --
--- -   @network-acl-id@ - The ID of the network ACL.
+-- -   'network-acl-id' - The ID of the network ACL.
 --
--- -   @tag@:/key/=/value/ - The key\/value combination of a tag assigned
+-- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
 --     to the resource.
 --
--- -   @tag-key@ - The key of a tag assigned to the resource. This filter
---     is independent of the @tag-value@ filter. For example, if you use
+-- -   'tag-key' - The key of a tag assigned to the resource. This filter
+--     is independent of the 'tag-value' filter. For example, if you use
 --     both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\",
 --     you get any resources assigned both the tag key Purpose (regardless
 --     of what the tag\'s value is), and the tag value X (regardless of
 --     what the tag\'s key is). If you want to list only resources where
---     Purpose is X, see the @tag@:/key/=/value/ filter.
+--     Purpose is X, see the 'tag':/key/=/value/ filter.
 --
--- -   @tag-value@ - The value of a tag assigned to the resource. This
---     filter is independent of the @tag-key@ filter.
+-- -   'tag-value' - The value of a tag assigned to the resource. This
+--     filter is independent of the 'tag-key' filter.
 --
--- -   @vpc-id@ - The ID of the VPC for the network ACL.
+-- -   'vpc-id' - The ID of the VPC for the network ACL.
 --
 dnaclFilters :: Lens' DescribeNetworkACLs [Filter]
 dnaclFilters = lens _dnaclFilters (\ s a -> s{_dnaclFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dnaclDryRun :: Lens' DescribeNetworkACLs (Maybe Bool)
 dnaclDryRun = lens _dnaclDryRun (\ s a -> s{_dnaclDryRun = a});
 
@@ -174,19 +175,21 @@ instance ToQuery DescribeNetworkACLs where
                toQuery (toQueryList "item" <$> _dnaclNetworkACLIds)]
 
 -- | /See:/ 'describeNetworkACLsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dnarsNetworkACLs'
---
--- * 'dnarsStatus'
 data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
     { _dnarsNetworkACLs :: !(Maybe [NetworkACL])
     , _dnarsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeNetworkACLsResponse' smart constructor.
-describeNetworkACLsResponse :: Int -> DescribeNetworkACLsResponse
+-- | Creates a value of 'DescribeNetworkACLsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dnarsNetworkACLs'
+--
+-- * 'dnarsStatus'
+describeNetworkACLsResponse
+    :: Int -- ^ 'dnarsStatus'
+    -> DescribeNetworkACLsResponse
 describeNetworkACLsResponse pStatus_ =
     DescribeNetworkACLsResponse'
     { _dnarsNetworkACLs = Nothing
@@ -197,6 +200,6 @@ describeNetworkACLsResponse pStatus_ =
 dnarsNetworkACLs :: Lens' DescribeNetworkACLsResponse [NetworkACL]
 dnarsNetworkACLs = lens _dnarsNetworkACLs (\ s a -> s{_dnarsNetworkACLs = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dnarsStatus :: Lens' DescribeNetworkACLsResponse Int
 dnarsStatus = lens _dnarsStatus (\ s a -> s{_dnarsStatus = a});

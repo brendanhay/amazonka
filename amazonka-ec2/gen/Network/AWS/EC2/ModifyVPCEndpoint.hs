@@ -26,8 +26,8 @@
 module Network.AWS.EC2.ModifyVPCEndpoint
     (
     -- * Creating a Request
-      ModifyVPCEndpoint
-    , modifyVPCEndpoint
+      modifyVPCEndpoint
+    , ModifyVPCEndpoint
     -- * Request Lenses
     , mvePolicyDocument
     , mveRemoveRouteTableIds
@@ -37,8 +37,8 @@ module Network.AWS.EC2.ModifyVPCEndpoint
     , mveVPCEndpointId
 
     -- * Destructuring the Response
-    , ModifyVPCEndpointResponse
     , modifyVPCEndpointResponse
+    , ModifyVPCEndpointResponse
     -- * Response Lenses
     , mversReturn
     , mversStatus
@@ -51,8 +51,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifyVPCEndpoint' smart constructor.
+data ModifyVPCEndpoint = ModifyVPCEndpoint'
+    { _mvePolicyDocument      :: !(Maybe Text)
+    , _mveRemoveRouteTableIds :: !(Maybe [Text])
+    , _mveResetPolicy         :: !(Maybe Bool)
+    , _mveAddRouteTableIds    :: !(Maybe [Text])
+    , _mveDryRun              :: !(Maybe Bool)
+    , _mveVPCEndpointId       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyVPCEndpoint' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mvePolicyDocument'
 --
@@ -65,17 +75,9 @@ import           Network.AWS.Response
 -- * 'mveDryRun'
 --
 -- * 'mveVPCEndpointId'
-data ModifyVPCEndpoint = ModifyVPCEndpoint'
-    { _mvePolicyDocument      :: !(Maybe Text)
-    , _mveRemoveRouteTableIds :: !(Maybe [Text])
-    , _mveResetPolicy         :: !(Maybe Bool)
-    , _mveAddRouteTableIds    :: !(Maybe [Text])
-    , _mveDryRun              :: !(Maybe Bool)
-    , _mveVPCEndpointId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifyVPCEndpoint' smart constructor.
-modifyVPCEndpoint :: Text -> ModifyVPCEndpoint
+modifyVPCEndpoint
+    :: Text -- ^ 'mveVPCEndpointId'
+    -> ModifyVPCEndpoint
 modifyVPCEndpoint pVPCEndpointId_ =
     ModifyVPCEndpoint'
     { _mvePolicyDocument = Nothing
@@ -95,7 +97,7 @@ mvePolicyDocument = lens _mvePolicyDocument (\ s a -> s{_mvePolicyDocument = a})
 mveRemoveRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
 mveRemoveRouteTableIds = lens _mveRemoveRouteTableIds (\ s a -> s{_mveRemoveRouteTableIds = a}) . _Default . _Coerce;
 
--- | Specify @true@ to reset the policy document to the default policy. The
+-- | Specify 'true' to reset the policy document to the default policy. The
 -- default policy allows access to the service.
 mveResetPolicy :: Lens' ModifyVPCEndpoint (Maybe Bool)
 mveResetPolicy = lens _mveResetPolicy (\ s a -> s{_mveResetPolicy = a});
@@ -106,8 +108,8 @@ mveAddRouteTableIds = lens _mveAddRouteTableIds (\ s a -> s{_mveAddRouteTableIds
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 mveDryRun :: Lens' ModifyVPCEndpoint (Maybe Bool)
 mveDryRun = lens _mveDryRun (\ s a -> s{_mveDryRun = a});
 
@@ -146,29 +148,31 @@ instance ToQuery ModifyVPCEndpoint where
                "VpcEndpointId" =: _mveVPCEndpointId]
 
 -- | /See:/ 'modifyVPCEndpointResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mversReturn'
---
--- * 'mversStatus'
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
     { _mversReturn :: !(Maybe Bool)
     , _mversStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyVPCEndpointResponse' smart constructor.
-modifyVPCEndpointResponse :: Int -> ModifyVPCEndpointResponse
+-- | Creates a value of 'ModifyVPCEndpointResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mversReturn'
+--
+-- * 'mversStatus'
+modifyVPCEndpointResponse
+    :: Int -- ^ 'mversStatus'
+    -> ModifyVPCEndpointResponse
 modifyVPCEndpointResponse pStatus_ =
     ModifyVPCEndpointResponse'
     { _mversReturn = Nothing
     , _mversStatus = pStatus_
     }
 
--- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- | Returns 'true' if the request succeeds; otherwise, it returns an error.
 mversReturn :: Lens' ModifyVPCEndpointResponse (Maybe Bool)
 mversReturn = lens _mversReturn (\ s a -> s{_mversReturn = a});
 
--- | Undocumented member.
+-- | The response status code.
 mversStatus :: Lens' ModifyVPCEndpointResponse Int
 mversStatus = lens _mversStatus (\ s a -> s{_mversStatus = a});

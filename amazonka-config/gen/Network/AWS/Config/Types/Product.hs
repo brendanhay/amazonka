@@ -25,8 +25,17 @@ import           Network.AWS.Prelude
 -- or the configuration history to the specified Amazon S3 bucket.
 --
 -- /See:/ 'configExportDeliveryInfo' smart constructor.
+data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'
+    { _cediLastErrorCode      :: !(Maybe Text)
+    , _cediLastAttemptTime    :: !(Maybe POSIX)
+    , _cediLastSuccessfulTime :: !(Maybe POSIX)
+    , _cediLastStatus         :: !(Maybe DeliveryStatus)
+    , _cediLastErrorMessage   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConfigExportDeliveryInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cediLastErrorCode'
 --
@@ -37,16 +46,8 @@ import           Network.AWS.Prelude
 -- * 'cediLastStatus'
 --
 -- * 'cediLastErrorMessage'
-data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'
-    { _cediLastErrorCode      :: !(Maybe Text)
-    , _cediLastAttemptTime    :: !(Maybe POSIX)
-    , _cediLastSuccessfulTime :: !(Maybe POSIX)
-    , _cediLastStatus         :: !(Maybe DeliveryStatus)
-    , _cediLastErrorMessage   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ConfigExportDeliveryInfo' smart constructor.
-configExportDeliveryInfo :: ConfigExportDeliveryInfo
+configExportDeliveryInfo
+    :: ConfigExportDeliveryInfo
 configExportDeliveryInfo =
     ConfigExportDeliveryInfo'
     { _cediLastErrorCode = Nothing
@@ -90,8 +91,16 @@ instance FromJSON ConfigExportDeliveryInfo where
 -- stream notification to the Amazon SNS topic.
 --
 -- /See:/ 'configStreamDeliveryInfo' smart constructor.
+data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
+    { _csdiLastErrorCode        :: !(Maybe Text)
+    , _csdiLastStatusChangeTime :: !(Maybe POSIX)
+    , _csdiLastStatus           :: !(Maybe DeliveryStatus)
+    , _csdiLastErrorMessage     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConfigStreamDeliveryInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'csdiLastErrorCode'
 --
@@ -100,15 +109,8 @@ instance FromJSON ConfigExportDeliveryInfo where
 -- * 'csdiLastStatus'
 --
 -- * 'csdiLastErrorMessage'
-data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
-    { _csdiLastErrorCode        :: !(Maybe Text)
-    , _csdiLastStatusChangeTime :: !(Maybe POSIX)
-    , _csdiLastStatus           :: !(Maybe DeliveryStatus)
-    , _csdiLastErrorMessage     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ConfigStreamDeliveryInfo' smart constructor.
-configStreamDeliveryInfo :: ConfigStreamDeliveryInfo
+configStreamDeliveryInfo
+    :: ConfigStreamDeliveryInfo
 configStreamDeliveryInfo =
     ConfigStreamDeliveryInfo'
     { _csdiLastErrorCode = Nothing
@@ -154,8 +156,27 @@ instance FromJSON ConfigStreamDeliveryInfo where
 -- components (for example, applications on your Amazon EC2 instances).
 --
 -- /See:/ 'configurationItem' smart constructor.
+data ConfigurationItem = ConfigurationItem'
+    { _ciResourceId                   :: !(Maybe Text)
+    , _ciConfigurationStateId         :: !(Maybe Text)
+    , _ciResourceType                 :: !(Maybe ResourceType)
+    , _ciArn                          :: !(Maybe Text)
+    , _ciResourceCreationTime         :: !(Maybe POSIX)
+    , _ciConfigurationItemStatus      :: !(Maybe ConfigurationItemStatus)
+    , _ciAccountId                    :: !(Maybe Text)
+    , _ciConfigurationItemCaptureTime :: !(Maybe POSIX)
+    , _ciAvailabilityZone             :: !(Maybe Text)
+    , _ciRelationships                :: !(Maybe [Relationship])
+    , _ciVersion                      :: !(Maybe Text)
+    , _ciRelatedEvents                :: !(Maybe [Text])
+    , _ciConfiguration                :: !(Maybe Text)
+    , _ciConfigurationItemMD5Hash     :: !(Maybe Text)
+    , _ciTags                         :: !(Maybe (Map Text Text))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConfigurationItem' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ciResourceId'
 --
@@ -186,26 +207,8 @@ instance FromJSON ConfigStreamDeliveryInfo where
 -- * 'ciConfigurationItemMD5Hash'
 --
 -- * 'ciTags'
-data ConfigurationItem = ConfigurationItem'
-    { _ciResourceId                   :: !(Maybe Text)
-    , _ciConfigurationStateId         :: !(Maybe Text)
-    , _ciResourceType                 :: !(Maybe ResourceType)
-    , _ciArn                          :: !(Maybe Text)
-    , _ciResourceCreationTime         :: !(Maybe POSIX)
-    , _ciConfigurationItemStatus      :: !(Maybe ConfigurationItemStatus)
-    , _ciAccountId                    :: !(Maybe Text)
-    , _ciConfigurationItemCaptureTime :: !(Maybe POSIX)
-    , _ciAvailabilityZone             :: !(Maybe Text)
-    , _ciRelationships                :: !(Maybe [Relationship])
-    , _ciVersion                      :: !(Maybe Text)
-    , _ciRelatedEvents                :: !(Maybe [Text])
-    , _ciConfiguration                :: !(Maybe Text)
-    , _ciConfigurationItemMD5Hash     :: !(Maybe Text)
-    , _ciTags                         :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ConfigurationItem' smart constructor.
-configurationItem :: ConfigurationItem
+configurationItem
+    :: ConfigurationItem
 configurationItem =
     ConfigurationItem'
     { _ciResourceId = Nothing
@@ -225,7 +228,7 @@ configurationItem =
     , _ciTags = Nothing
     }
 
--- | The ID of the resource (for example., @sg-xxxxxx@).
+-- | The ID of the resource (for example., 'sg-xxxxxx').
 ciResourceId :: Lens' ConfigurationItem (Maybe Text)
 ciResourceId = lens _ciResourceId (\ s a -> s{_ciResourceId = a});
 
@@ -322,22 +325,23 @@ instance FromJSON ConfigurationItem where
 -- AWS resource.
 --
 -- /See:/ 'configurationRecorder' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crName'
---
--- * 'crRecordingGroup'
---
--- * 'crRoleARN'
 data ConfigurationRecorder = ConfigurationRecorder'
     { _crName           :: !(Maybe Text)
     , _crRecordingGroup :: !(Maybe RecordingGroup)
     , _crRoleARN        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfigurationRecorder' smart constructor.
-configurationRecorder :: ConfigurationRecorder
+-- | Creates a value of 'ConfigurationRecorder' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crName'
+--
+-- * 'crRecordingGroup'
+--
+-- * 'crRoleARN'
+configurationRecorder
+    :: ConfigurationRecorder
 configurationRecorder =
     ConfigurationRecorder'
     { _crName = Nothing
@@ -380,8 +384,20 @@ instance ToJSON ConfigurationRecorder where
 -- | The current status of the configuration recorder.
 --
 -- /See:/ 'configurationRecorderStatus' smart constructor.
+data ConfigurationRecorderStatus = ConfigurationRecorderStatus'
+    { _crsLastErrorCode        :: !(Maybe Text)
+    , _crsLastStopTime         :: !(Maybe POSIX)
+    , _crsLastStatusChangeTime :: !(Maybe POSIX)
+    , _crsRecording            :: !(Maybe Bool)
+    , _crsLastStatus           :: !(Maybe RecorderStatus)
+    , _crsLastErrorMessage     :: !(Maybe Text)
+    , _crsName                 :: !(Maybe Text)
+    , _crsLastStartTime        :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConfigurationRecorderStatus' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'crsLastErrorCode'
 --
@@ -398,19 +414,8 @@ instance ToJSON ConfigurationRecorder where
 -- * 'crsName'
 --
 -- * 'crsLastStartTime'
-data ConfigurationRecorderStatus = ConfigurationRecorderStatus'
-    { _crsLastErrorCode        :: !(Maybe Text)
-    , _crsLastStopTime         :: !(Maybe POSIX)
-    , _crsLastStatusChangeTime :: !(Maybe POSIX)
-    , _crsRecording            :: !(Maybe Bool)
-    , _crsLastStatus           :: !(Maybe RecorderStatus)
-    , _crsLastErrorMessage     :: !(Maybe Text)
-    , _crsName                 :: !(Maybe Text)
-    , _crsLastStartTime        :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ConfigurationRecorderStatus' smart constructor.
-configurationRecorderStatus :: ConfigurationRecorderStatus
+configurationRecorderStatus
+    :: ConfigurationRecorderStatus
 configurationRecorderStatus =
     ConfigurationRecorderStatus'
     { _crsLastErrorCode = Nothing
@@ -472,8 +477,16 @@ instance FromJSON ConfigurationRecorderStatus where
 -- resource.
 --
 -- /See:/ 'deliveryChannel' smart constructor.
+data DeliveryChannel = DeliveryChannel'
+    { _dcS3KeyPrefix  :: !(Maybe Text)
+    , _dcSnsTopicARN  :: !(Maybe Text)
+    , _dcName         :: !(Maybe Text)
+    , _dcS3BucketName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeliveryChannel' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcS3KeyPrefix'
 --
@@ -482,15 +495,8 @@ instance FromJSON ConfigurationRecorderStatus where
 -- * 'dcName'
 --
 -- * 'dcS3BucketName'
-data DeliveryChannel = DeliveryChannel'
-    { _dcS3KeyPrefix  :: !(Maybe Text)
-    , _dcSnsTopicARN  :: !(Maybe Text)
-    , _dcName         :: !(Maybe Text)
-    , _dcS3BucketName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeliveryChannel' smart constructor.
-deliveryChannel :: DeliveryChannel
+deliveryChannel
+    :: DeliveryChannel
 deliveryChannel =
     DeliveryChannel'
     { _dcS3KeyPrefix = Nothing
@@ -537,11 +543,19 @@ instance ToJSON DeliveryChannel where
 
 -- | The status of a specified delivery channel.
 --
--- Valid values: @Success@ | @Failure@
+-- Valid values: 'Success' | 'Failure'
 --
 -- /See:/ 'deliveryChannelStatus' smart constructor.
+data DeliveryChannelStatus = DeliveryChannelStatus'
+    { _dcsConfigStreamDeliveryInfo   :: !(Maybe ConfigStreamDeliveryInfo)
+    , _dcsConfigSnapshotDeliveryInfo :: !(Maybe ConfigExportDeliveryInfo)
+    , _dcsConfigHistoryDeliveryInfo  :: !(Maybe ConfigExportDeliveryInfo)
+    , _dcsName                       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeliveryChannelStatus' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcsConfigStreamDeliveryInfo'
 --
@@ -550,15 +564,8 @@ instance ToJSON DeliveryChannel where
 -- * 'dcsConfigHistoryDeliveryInfo'
 --
 -- * 'dcsName'
-data DeliveryChannelStatus = DeliveryChannelStatus'
-    { _dcsConfigStreamDeliveryInfo   :: !(Maybe ConfigStreamDeliveryInfo)
-    , _dcsConfigSnapshotDeliveryInfo :: !(Maybe ConfigExportDeliveryInfo)
-    , _dcsConfigHistoryDeliveryInfo  :: !(Maybe ConfigExportDeliveryInfo)
-    , _dcsName                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeliveryChannelStatus' smart constructor.
-deliveryChannelStatus :: DeliveryChannelStatus
+deliveryChannelStatus
+    :: DeliveryChannelStatus
 deliveryChannelStatus =
     DeliveryChannelStatus'
     { _dcsConfigStreamDeliveryInfo = Nothing
@@ -603,19 +610,20 @@ instance FromJSON DeliveryChannelStatus where
 -- __allSupported__ or __resourceTypes__.
 --
 -- /See:/ 'recordingGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rgAllSupported'
---
--- * 'rgResourceTypes'
 data RecordingGroup = RecordingGroup'
     { _rgAllSupported  :: !(Maybe Bool)
     , _rgResourceTypes :: !(Maybe [ResourceType])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RecordingGroup' smart constructor.
-recordingGroup :: RecordingGroup
+-- | Creates a value of 'RecordingGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rgAllSupported'
+--
+-- * 'rgResourceTypes'
+recordingGroup
+    :: RecordingGroup
 recordingGroup =
     RecordingGroup'
     { _rgAllSupported = Nothing
@@ -631,7 +639,7 @@ rgAllSupported :: Lens' RecordingGroup (Maybe Bool)
 rgAllSupported = lens _rgAllSupported (\ s a -> s{_rgAllSupported = a});
 
 -- | A comma-separated list of strings representing valid AWS resource types
--- (e.g., @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@).
+-- (e.g., 'AWS::EC2::Instance' or 'AWS::CloudTrail::Trail').
 -- __resourceTypes__ is only valid if you have chosen not to select
 -- __allSupported__. For a list of valid __resourceTypes__ values, see the
 -- __resourceType Value__ column in the following topic:
@@ -656,22 +664,23 @@ instance ToJSON RecordingGroup where
 -- | The relationship of the related resource to the main resource.
 --
 -- /See:/ 'relationship' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rResourceId'
---
--- * 'rResourceType'
---
--- * 'rRelationshipName'
 data Relationship = Relationship'
     { _rResourceId       :: !(Maybe Text)
     , _rResourceType     :: !(Maybe ResourceType)
     , _rRelationshipName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Relationship' smart constructor.
-relationship :: Relationship
+-- | Creates a value of 'Relationship' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rResourceId'
+--
+-- * 'rResourceType'
+--
+-- * 'rRelationshipName'
+relationship
+    :: Relationship
 relationship =
     Relationship'
     { _rResourceId = Nothing
@@ -679,7 +688,7 @@ relationship =
     , _rRelationshipName = Nothing
     }
 
--- | The resource ID of the related resource (for example, @sg-xxxxxx@).
+-- | The resource ID of the related resource (for example, 'sg-xxxxxx').
 rResourceId :: Lens' Relationship (Maybe Text)
 rResourceId = lens _rResourceId (\ s a -> s{_rResourceId = a});
 

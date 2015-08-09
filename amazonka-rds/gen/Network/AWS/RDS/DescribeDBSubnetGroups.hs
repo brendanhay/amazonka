@@ -26,11 +26,13 @@
 -- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSubnetGroups.html AWS API Reference> for DescribeDBSubnetGroups.
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBSubnetGroups
     (
     -- * Creating a Request
-      DescribeDBSubnetGroups
-    , describeDBSubnetGroups
+      describeDBSubnetGroups
+    , DescribeDBSubnetGroups
     -- * Request Lenses
     , ddsgDBSubnetGroupName
     , ddsgFilters
@@ -38,8 +40,8 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     , ddsgMarker
 
     -- * Destructuring the Response
-    , DescribeDBSubnetGroupsResponse
     , describeDBSubnetGroupsResponse
+    , DescribeDBSubnetGroupsResponse
     -- * Response Lenses
     , ddsgrsDBSubnetGroups
     , ddsgrsMarker
@@ -56,8 +58,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeDBSubnetGroups' smart constructor.
+data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
+    { _ddsgDBSubnetGroupName :: !(Maybe Text)
+    , _ddsgFilters           :: !(Maybe [Filter])
+    , _ddsgMaxRecords        :: !(Maybe Int)
+    , _ddsgMarker            :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeDBSubnetGroups' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ddsgDBSubnetGroupName'
 --
@@ -66,15 +76,8 @@ import           Network.AWS.Response
 -- * 'ddsgMaxRecords'
 --
 -- * 'ddsgMarker'
-data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
-    { _ddsgDBSubnetGroupName :: !(Maybe Text)
-    , _ddsgFilters           :: !(Maybe [Filter])
-    , _ddsgMaxRecords        :: !(Maybe Int)
-    , _ddsgMarker            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeDBSubnetGroups' smart constructor.
-describeDBSubnetGroups :: DescribeDBSubnetGroups
+describeDBSubnetGroups
+    :: DescribeDBSubnetGroups
 describeDBSubnetGroups =
     DescribeDBSubnetGroups'
     { _ddsgDBSubnetGroupName = Nothing
@@ -92,7 +95,7 @@ ddsgFilters :: Lens' DescribeDBSubnetGroups [Filter]
 ddsgFilters = lens _ddsgFilters (\ s a -> s{_ddsgFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
+-- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 --
@@ -105,7 +108,7 @@ ddsgMaxRecords = lens _ddsgMaxRecords (\ s a -> s{_ddsgMaxRecords = a});
 -- | An optional pagination token provided by a previous
 -- DescribeDBSubnetGroups request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
+-- specified by 'MaxRecords'.
 ddsgMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddsgMarker = lens _ddsgMarker (\ s a -> s{_ddsgMarker = a});
 
@@ -152,22 +155,24 @@ instance ToQuery DescribeDBSubnetGroups where
 -- DescribeDBSubnetGroups action.
 --
 -- /See:/ 'describeDBSubnetGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddsgrsDBSubnetGroups'
---
--- * 'ddsgrsMarker'
---
--- * 'ddsgrsStatus'
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
     { _ddsgrsDBSubnetGroups :: !(Maybe [DBSubnetGroup])
     , _ddsgrsMarker         :: !(Maybe Text)
     , _ddsgrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDBSubnetGroupsResponse' smart constructor.
-describeDBSubnetGroupsResponse :: Int -> DescribeDBSubnetGroupsResponse
+-- | Creates a value of 'DescribeDBSubnetGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddsgrsDBSubnetGroups'
+--
+-- * 'ddsgrsMarker'
+--
+-- * 'ddsgrsStatus'
+describeDBSubnetGroupsResponse
+    :: Int -- ^ 'ddsgrsStatus'
+    -> DescribeDBSubnetGroupsResponse
 describeDBSubnetGroupsResponse pStatus_ =
     DescribeDBSubnetGroupsResponse'
     { _ddsgrsDBSubnetGroups = Nothing
@@ -181,10 +186,10 @@ ddsgrsDBSubnetGroups = lens _ddsgrsDBSubnetGroups (\ s a -> s{_ddsgrsDBSubnetGro
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- marker, up to the value specified by 'MaxRecords'.
 ddsgrsMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddsgrsMarker = lens _ddsgrsMarker (\ s a -> s{_ddsgrsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 ddsgrsStatus :: Lens' DescribeDBSubnetGroupsResponse Int
 ddsgrsStatus = lens _ddsgrsStatus (\ s a -> s{_ddsgrsStatus = a});

@@ -29,15 +29,15 @@
 module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
     (
     -- * Creating a Request
-      GetCredentialsForIdentity
-    , getCredentialsForIdentity
+      getCredentialsForIdentity
+    , GetCredentialsForIdentity
     -- * Request Lenses
     , gcfiLogins
     , gcfiIdentityId
 
     -- * Destructuring the Response
-    , GetCredentialsForIdentityResponse
     , getCredentialsForIdentityResponse
+    , GetCredentialsForIdentityResponse
     -- * Response Lenses
     , gcfirsCredentials
     , gcfirsIdentityId
@@ -50,22 +50,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the @GetCredentialsForIdentity@ action.
+-- | Input to the 'GetCredentialsForIdentity' action.
 --
 -- /See:/ 'getCredentialsForIdentity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gcfiLogins'
---
--- * 'gcfiIdentityId'
 data GetCredentialsForIdentity = GetCredentialsForIdentity'
     { _gcfiLogins     :: !(Maybe (Map Text Text))
     , _gcfiIdentityId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetCredentialsForIdentity' smart constructor.
-getCredentialsForIdentity :: Text -> GetCredentialsForIdentity
+-- | Creates a value of 'GetCredentialsForIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcfiLogins'
+--
+-- * 'gcfiIdentityId'
+getCredentialsForIdentity
+    :: Text -- ^ 'gcfiIdentityId'
+    -> GetCredentialsForIdentity
 getCredentialsForIdentity pIdentityId_ =
     GetCredentialsForIdentity'
     { _gcfiLogins = Nothing
@@ -115,26 +117,28 @@ instance ToPath GetCredentialsForIdentity where
 instance ToQuery GetCredentialsForIdentity where
         toQuery = const mempty
 
--- | Returned in response to a successful @GetCredentialsForIdentity@
+-- | Returned in response to a successful 'GetCredentialsForIdentity'
 -- operation.
 --
 -- /See:/ 'getCredentialsForIdentityResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gcfirsCredentials'
---
--- * 'gcfirsIdentityId'
---
--- * 'gcfirsStatus'
 data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
     { _gcfirsCredentials :: !(Maybe Credentials)
     , _gcfirsIdentityId  :: !(Maybe Text)
     , _gcfirsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetCredentialsForIdentityResponse' smart constructor.
-getCredentialsForIdentityResponse :: Int -> GetCredentialsForIdentityResponse
+-- | Creates a value of 'GetCredentialsForIdentityResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcfirsCredentials'
+--
+-- * 'gcfirsIdentityId'
+--
+-- * 'gcfirsStatus'
+getCredentialsForIdentityResponse
+    :: Int -- ^ 'gcfirsStatus'
+    -> GetCredentialsForIdentityResponse
 getCredentialsForIdentityResponse pStatus_ =
     GetCredentialsForIdentityResponse'
     { _gcfirsCredentials = Nothing
@@ -150,6 +154,6 @@ gcfirsCredentials = lens _gcfirsCredentials (\ s a -> s{_gcfirsCredentials = a})
 gcfirsIdentityId :: Lens' GetCredentialsForIdentityResponse (Maybe Text)
 gcfirsIdentityId = lens _gcfirsIdentityId (\ s a -> s{_gcfirsIdentityId = a});
 
--- | Undocumented member.
+-- | The response status code.
 gcfirsStatus :: Lens' GetCredentialsForIdentityResponse Int
 gcfirsStatus = lens _gcfirsStatus (\ s a -> s{_gcfirsStatus = a});

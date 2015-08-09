@@ -31,16 +31,16 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
--- -   Constrain the following parameters by using a @Condition@ element
+-- -   Constrain the following parameters by using a 'Condition' element
 --     with the appropriate keys.
---     -   @activityType.name@: String constraint. The key is
---         @swf:activityType.name@.
---     -   @activityType.version@: String constraint. The key is
---         @swf:activityType.version@.
+--     -   'activityType.name': String constraint. The key is
+--         'swf:activityType.name'.
+--     -   'activityType.version': String constraint. The key is
+--         'swf:activityType.version'.
 --
 -- If the caller does not have sufficient permissions to invoke the action,
 -- or the parameter values fall outside the specified constraints, the
@@ -53,15 +53,15 @@
 module Network.AWS.SWF.DeprecateActivityType
     (
     -- * Creating a Request
-      DeprecateActivityType
-    , deprecateActivityType
+      deprecateActivityType
+    , DeprecateActivityType
     -- * Request Lenses
     , depDomain
     , depActivityType
 
     -- * Destructuring the Response
-    , DeprecateActivityTypeResponse
     , deprecateActivityTypeResponse
+    , DeprecateActivityTypeResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -71,19 +71,22 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'deprecateActivityType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'depDomain'
---
--- * 'depActivityType'
 data DeprecateActivityType = DeprecateActivityType'
     { _depDomain       :: !Text
     , _depActivityType :: !ActivityType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeprecateActivityType' smart constructor.
-deprecateActivityType :: Text -> ActivityType -> DeprecateActivityType
+-- | Creates a value of 'DeprecateActivityType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'depDomain'
+--
+-- * 'depActivityType'
+deprecateActivityType
+    :: Text -- ^ 'depDomain'
+    -> ActivityType -- ^ 'depActivityType'
+    -> DeprecateActivityType
 deprecateActivityType pDomain_ pActivityType_ =
     DeprecateActivityType'
     { _depDomain = pDomain_
@@ -132,6 +135,8 @@ data DeprecateActivityTypeResponse =
     DeprecateActivityTypeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeprecateActivityTypeResponse' smart constructor.
-deprecateActivityTypeResponse :: DeprecateActivityTypeResponse
+-- | Creates a value of 'DeprecateActivityTypeResponse' with the minimum fields required to make a request.
+--
+deprecateActivityTypeResponse
+    :: DeprecateActivityTypeResponse
 deprecateActivityTypeResponse = DeprecateActivityTypeResponse'

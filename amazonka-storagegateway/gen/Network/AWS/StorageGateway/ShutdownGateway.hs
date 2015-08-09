@@ -34,7 +34,7 @@
 -- write to the gateway\'s storage volumes, and there are no snapshots
 -- taken.
 --
--- When you make a shutdown request, you will get a @200 OK@ success
+-- When you make a shutdown request, you will get a '200 OK' success
 -- response immediately. However, it might take some time for the gateway
 -- to shut down. You can call the DescribeGatewayInformation API to check
 -- the status. For more information, see ActivateGateway.
@@ -47,14 +47,14 @@
 module Network.AWS.StorageGateway.ShutdownGateway
     (
     -- * Creating a Request
-      ShutdownGateway
-    , shutdownGateway
+      shutdownGateway
+    , ShutdownGateway
     -- * Request Lenses
     , sGatewayARN
 
     -- * Destructuring the Response
-    , ShutdownGatewayResponse
     , shutdownGatewayResponse
+    , ShutdownGatewayResponse
     -- * Response Lenses
     , sgrsGatewayARN
     , sgrsStatus
@@ -69,16 +69,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing the of the gateway to shut down.
 --
 -- /See:/ 'shutdownGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sGatewayARN'
 newtype ShutdownGateway = ShutdownGateway'
     { _sGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ShutdownGateway' smart constructor.
-shutdownGateway :: Text -> ShutdownGateway
+-- | Creates a value of 'ShutdownGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sGatewayARN'
+shutdownGateway
+    :: Text -- ^ 'sGatewayARN'
+    -> ShutdownGateway
 shutdownGateway pGatewayARN_ =
     ShutdownGateway'
     { _sGatewayARN = pGatewayARN_
@@ -121,19 +123,21 @@ instance ToQuery ShutdownGateway where
 -- | A JSON object containing the of the gateway that was shut down.
 --
 -- /See:/ 'shutdownGatewayResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sgrsGatewayARN'
---
--- * 'sgrsStatus'
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
     { _sgrsGatewayARN :: !(Maybe Text)
     , _sgrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ShutdownGatewayResponse' smart constructor.
-shutdownGatewayResponse :: Int -> ShutdownGatewayResponse
+-- | Creates a value of 'ShutdownGatewayResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sgrsGatewayARN'
+--
+-- * 'sgrsStatus'
+shutdownGatewayResponse
+    :: Int -- ^ 'sgrsStatus'
+    -> ShutdownGatewayResponse
 shutdownGatewayResponse pStatus_ =
     ShutdownGatewayResponse'
     { _sgrsGatewayARN = Nothing
@@ -144,6 +148,6 @@ shutdownGatewayResponse pStatus_ =
 sgrsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
 sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 sgrsStatus :: Lens' ShutdownGatewayResponse Int
 sgrsStatus = lens _sgrsStatus (\ s a -> s{_sgrsStatus = a});

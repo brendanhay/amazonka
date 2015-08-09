@@ -18,32 +18,32 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Task runners call @ReportTaskProgress@ when assigned a task to
+-- Task runners call 'ReportTaskProgress' when assigned a task to
 -- acknowledge that it has the task. If the web service does not receive
 -- this acknowledgement within 2 minutes, it assigns the task in a
 -- subsequent PollForTask call. After this initial acknowledgement, the
 -- task runner only needs to report progress every 15 minutes to maintain
 -- its ownership of the task. You can change this reporting time from 15
--- minutes by specifying a @reportProgressTimeout@ field in your pipeline.
+-- minutes by specifying a 'reportProgressTimeout' field in your pipeline.
 --
 -- If a task runner does not report its status after 5 minutes, AWS Data
 -- Pipeline assumes that the task runner is unable to process the task and
 -- reassigns the task in a subsequent response to PollForTask. Task runners
--- should call @ReportTaskProgress@ every 60 seconds.
+-- should call 'ReportTaskProgress' every 60 seconds.
 --
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskProgress.html AWS API Reference> for ReportTaskProgress.
 module Network.AWS.DataPipeline.ReportTaskProgress
     (
     -- * Creating a Request
-      ReportTaskProgress
-    , reportTaskProgress
+      reportTaskProgress
+    , ReportTaskProgress
     -- * Request Lenses
     , rtpFields
     , rtpTaskId
 
     -- * Destructuring the Response
-    , ReportTaskProgressResponse
     , reportTaskProgressResponse
+    , ReportTaskProgressResponse
     -- * Response Lenses
     , rtprsStatus
     , rtprsCanceled
@@ -58,19 +58,21 @@ import           Network.AWS.Response
 -- | Contains the parameters for ReportTaskProgress.
 --
 -- /See:/ 'reportTaskProgress' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtpFields'
---
--- * 'rtpTaskId'
 data ReportTaskProgress = ReportTaskProgress'
     { _rtpFields :: !(Maybe [Field])
     , _rtpTaskId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReportTaskProgress' smart constructor.
-reportTaskProgress :: Text -> ReportTaskProgress
+-- | Creates a value of 'ReportTaskProgress' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtpFields'
+--
+-- * 'rtpTaskId'
+reportTaskProgress
+    :: Text -- ^ 'rtpTaskId'
+    -> ReportTaskProgress
 reportTaskProgress pTaskId_ =
     ReportTaskProgress'
     { _rtpFields = Nothing
@@ -121,26 +123,29 @@ instance ToQuery ReportTaskProgress where
 -- | Contains the output of ReportTaskProgress.
 --
 -- /See:/ 'reportTaskProgressResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtprsStatus'
---
--- * 'rtprsCanceled'
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
     { _rtprsStatus   :: !Int
     , _rtprsCanceled :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReportTaskProgressResponse' smart constructor.
-reportTaskProgressResponse :: Int -> Bool -> ReportTaskProgressResponse
+-- | Creates a value of 'ReportTaskProgressResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtprsStatus'
+--
+-- * 'rtprsCanceled'
+reportTaskProgressResponse
+    :: Int -- ^ 'rtprsStatus'
+    -> Bool -- ^ 'rtprsCanceled'
+    -> ReportTaskProgressResponse
 reportTaskProgressResponse pStatus_ pCanceled_ =
     ReportTaskProgressResponse'
     { _rtprsStatus = pStatus_
     , _rtprsCanceled = pCanceled_
     }
 
--- | Undocumented member.
+-- | The response status code.
 rtprsStatus :: Lens' ReportTaskProgressResponse Int
 rtprsStatus = lens _rtprsStatus (\ s a -> s{_rtprsStatus = a});
 

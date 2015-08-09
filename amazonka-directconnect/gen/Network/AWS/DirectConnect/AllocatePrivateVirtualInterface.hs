@@ -33,16 +33,16 @@
 module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     (
     -- * Creating a Request
-      AllocatePrivateVirtualInterface
-    , allocatePrivateVirtualInterface
+      allocatePrivateVirtualInterface
+    , AllocatePrivateVirtualInterface
     -- * Request Lenses
     , apviConnectionId
     , apviOwnerAccount
     , apviNewPrivateVirtualInterfaceAllocation
 
     -- * Destructuring the Response
-    , VirtualInterface
     , virtualInterface
+    , VirtualInterface
     -- * Response Lenses
     , viVirtualGatewayId
     , viRouteFilterPrefixes
@@ -71,22 +71,26 @@ import           Network.AWS.Response
 -- operation.
 --
 -- /See:/ 'allocatePrivateVirtualInterface' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'apviConnectionId'
---
--- * 'apviOwnerAccount'
---
--- * 'apviNewPrivateVirtualInterfaceAllocation'
 data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
     { _apviConnectionId                         :: !Text
     , _apviOwnerAccount                         :: !Text
     , _apviNewPrivateVirtualInterfaceAllocation :: !NewPrivateVirtualInterfaceAllocation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AllocatePrivateVirtualInterface' smart constructor.
-allocatePrivateVirtualInterface :: Text -> Text -> NewPrivateVirtualInterfaceAllocation -> AllocatePrivateVirtualInterface
+-- | Creates a value of 'AllocatePrivateVirtualInterface' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'apviConnectionId'
+--
+-- * 'apviOwnerAccount'
+--
+-- * 'apviNewPrivateVirtualInterfaceAllocation'
+allocatePrivateVirtualInterface
+    :: Text -- ^ 'apviConnectionId'
+    -> Text -- ^ 'apviOwnerAccount'
+    -> NewPrivateVirtualInterfaceAllocation -- ^ 'apviNewPrivateVirtualInterfaceAllocation'
+    -> AllocatePrivateVirtualInterface
 allocatePrivateVirtualInterface pConnectionId_ pOwnerAccount_ pNewPrivateVirtualInterfaceAllocation_ =
     AllocatePrivateVirtualInterface'
     { _apviConnectionId = pConnectionId_

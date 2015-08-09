@@ -19,23 +19,23 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sends a message to all of a topic\'s subscribed endpoints. When a
--- @messageId@ is returned, the message has been saved and Amazon SNS will
+-- 'messageId' is returned, the message has been saved and Amazon SNS will
 -- attempt to deliver it to the topic\'s subscribers shortly. The format of
 -- the outgoing message to each subscribed endpoint depends on the
 -- notification protocol selected.
 --
--- To use the @Publish@ action for sending a message to a mobile endpoint,
+-- To use the 'Publish' action for sending a message to a mobile endpoint,
 -- such as an app on a Kindle device or mobile phone, you must specify the
 -- EndpointArn. The EndpointArn is returned when making a call with the
--- @CreatePlatformEndpoint@ action. The second example below shows a
+-- 'CreatePlatformEndpoint' action. The second example below shows a
 -- request and response for publishing to a mobile endpoint.
 --
 -- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_Publish.html AWS API Reference> for Publish.
 module Network.AWS.SNS.Publish
     (
     -- * Creating a Request
-      Publish
-    , publish
+      publish
+    , Publish
     -- * Request Lenses
     , pMessageAttributes
     , pTargetARN
@@ -45,8 +45,8 @@ module Network.AWS.SNS.Publish
     , pMessage
 
     -- * Destructuring the Response
-    , PublishResponse
     , publishResponse
+    , PublishResponse
     -- * Response Lenses
     , prsMessageId
     , prsStatus
@@ -61,8 +61,18 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for Publish action.
 --
 -- /See:/ 'publish' smart constructor.
+data Publish = Publish'
+    { _pMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    , _pTargetARN         :: !(Maybe Text)
+    , _pSubject           :: !(Maybe Text)
+    , _pTopicARN          :: !(Maybe Text)
+    , _pMessageStructure  :: !(Maybe Text)
+    , _pMessage           :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Publish' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pMessageAttributes'
 --
@@ -75,17 +85,9 @@ import           Network.AWS.SNS.Types.Product
 -- * 'pMessageStructure'
 --
 -- * 'pMessage'
-data Publish = Publish'
-    { _pMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
-    , _pTargetARN         :: !(Maybe Text)
-    , _pSubject           :: !(Maybe Text)
-    , _pTopicARN          :: !(Maybe Text)
-    , _pMessageStructure  :: !(Maybe Text)
-    , _pMessage           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Publish' smart constructor.
-publish :: Text -> Publish
+publish
+    :: Text -- ^ 'pMessage'
+    -> Publish
 publish pMessage_ =
     Publish'
     { _pMessageAttributes = Nothing
@@ -118,11 +120,11 @@ pSubject = lens _pSubject (\ s a -> s{_pSubject = a});
 pTopicARN :: Lens' Publish (Maybe Text)
 pTopicARN = lens _pTopicARN (\ s a -> s{_pTopicARN = a});
 
--- | Set @MessageStructure@ to @json@ if you want to send a different message
+-- | Set 'MessageStructure' to 'json' if you want to send a different message
 -- for each protocol. For example, using one publish action, you can send a
 -- short message to your SMS subscribers and a longer message to your email
--- subscribers. If you set @MessageStructure@ to @json@, the value of the
--- @Message@ parameter must:
+-- subscribers. If you set 'MessageStructure' to 'json', the value of the
+-- 'Message' parameter must:
 --
 -- -   be a syntactically valid JSON object; and
 -- -   contain at least a top-level JSON key of \"default\" with a value
@@ -136,7 +138,7 @@ pTopicARN = lens _pTopicARN (\ s a -> s{_pTopicARN = a});
 -- <http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol Create Different Messages for Each Protocol>
 -- in the /Amazon Simple Notification Service Getting Started Guide/.
 --
--- Valid value: @json@
+-- Valid value: 'json'
 pMessageStructure :: Lens' Publish (Maybe Text)
 pMessageStructure = lens _pMessageStructure (\ s a -> s{_pMessageStructure = a});
 
@@ -146,8 +148,8 @@ pMessageStructure = lens _pMessageStructure (\ s a -> s{_pMessageStructure = a})
 -- the text of the message as a String value.
 --
 -- If you want to send different messages for each transport protocol, set
--- the value of the @MessageStructure@ parameter to @json@ and use a JSON
--- object for the @Message@ parameter. See the Examples section for the
+-- the value of the 'MessageStructure' parameter to 'json' and use a JSON
+-- object for the 'Message' parameter. See the Examples section for the
 -- format of the JSON object.
 --
 -- Constraints: Messages must be UTF-8 encoded strings at most 256 KB in
@@ -170,7 +172,7 @@ pMessageStructure = lens _pMessageStructure (\ s a -> s{_pMessageStructure = a})
 --     ignored.
 -- -   Duplicate keys are not allowed.
 -- -   Failure to parse or validate any key or value in the message will
---     cause the @Publish@ call to return an error (no partial delivery).
+--     cause the 'Publish' call to return an error (no partial delivery).
 pMessage :: Lens' Publish Text
 pMessage = lens _pMessage (\ s a -> s{_pMessage = a});
 
@@ -207,19 +209,21 @@ instance ToQuery Publish where
 -- | Response for Publish action.
 --
 -- /See:/ 'publishResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prsMessageId'
---
--- * 'prsStatus'
 data PublishResponse = PublishResponse'
     { _prsMessageId :: !(Maybe Text)
     , _prsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PublishResponse' smart constructor.
-publishResponse :: Int -> PublishResponse
+-- | Creates a value of 'PublishResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prsMessageId'
+--
+-- * 'prsStatus'
+publishResponse
+    :: Int -- ^ 'prsStatus'
+    -> PublishResponse
 publishResponse pStatus_ =
     PublishResponse'
     { _prsMessageId = Nothing
@@ -232,6 +236,6 @@ publishResponse pStatus_ =
 prsMessageId :: Lens' PublishResponse (Maybe Text)
 prsMessageId = lens _prsMessageId (\ s a -> s{_prsMessageId = a});
 
--- | Undocumented member.
+-- | The response status code.
 prsStatus :: Lens' PublishResponse Int
 prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});

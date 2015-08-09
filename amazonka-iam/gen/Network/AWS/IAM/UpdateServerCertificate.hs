@@ -37,16 +37,16 @@
 module Network.AWS.IAM.UpdateServerCertificate
     (
     -- * Creating a Request
-      UpdateServerCertificate
-    , updateServerCertificate
+      updateServerCertificate
+    , UpdateServerCertificate
     -- * Request Lenses
     , uNewServerCertificateName
     , uNewPath
     , uServerCertificateName
 
     -- * Destructuring the Response
-    , UpdateServerCertificateResponse
     , updateServerCertificateResponse
+    , UpdateServerCertificateResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -56,22 +56,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateServerCertificate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uNewServerCertificateName'
---
--- * 'uNewPath'
---
--- * 'uServerCertificateName'
 data UpdateServerCertificate = UpdateServerCertificate'
     { _uNewServerCertificateName :: !(Maybe Text)
     , _uNewPath                  :: !(Maybe Text)
     , _uServerCertificateName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateServerCertificate' smart constructor.
-updateServerCertificate :: Text -> UpdateServerCertificate
+-- | Creates a value of 'UpdateServerCertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uNewServerCertificateName'
+--
+-- * 'uNewPath'
+--
+-- * 'uServerCertificateName'
+updateServerCertificate
+    :: Text -- ^ 'uServerCertificateName'
+    -> UpdateServerCertificate
 updateServerCertificate pServerCertificateName_ =
     UpdateServerCertificate'
     { _uNewServerCertificateName = Nothing
@@ -124,6 +126,8 @@ data UpdateServerCertificateResponse =
     UpdateServerCertificateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateServerCertificateResponse' smart constructor.
-updateServerCertificateResponse :: UpdateServerCertificateResponse
+-- | Creates a value of 'UpdateServerCertificateResponse' with the minimum fields required to make a request.
+--
+updateServerCertificateResponse
+    :: UpdateServerCertificateResponse
 updateServerCertificateResponse = UpdateServerCertificateResponse'

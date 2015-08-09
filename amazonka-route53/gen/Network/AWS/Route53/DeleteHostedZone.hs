@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This action deletes a hosted zone. To delete a hosted zone, send a
--- @DELETE@ request to the @2013-04-01\/hostedzone\/hosted zone ID@
+-- 'DELETE' request to the '2013-04-01\/hostedzone\/hosted zone ID'
 -- resource.
 --
 -- For more information about deleting a hosted zone, see
@@ -31,21 +31,21 @@
 -- hosted zone contains other resource record sets, you must delete them
 -- before you can delete your hosted zone. If you try to delete a hosted
 -- zone that contains other resource record sets, Route 53 will deny your
--- request with a @HostedZoneNotEmpty@ error. For information about
+-- request with a 'HostedZoneNotEmpty' error. For information about
 -- deleting records from your hosted zone, see ChangeResourceRecordSets.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html AWS API Reference> for DeleteHostedZone.
 module Network.AWS.Route53.DeleteHostedZone
     (
     -- * Creating a Request
-      DeleteHostedZone
-    , deleteHostedZone
+      deleteHostedZone
+    , DeleteHostedZone
     -- * Request Lenses
     , dhzId
 
     -- * Destructuring the Response
-    , DeleteHostedZoneResponse
     , deleteHostedZoneResponse
+    , DeleteHostedZoneResponse
     -- * Response Lenses
     , dhzrsStatus
     , dhzrsChangeInfo
@@ -61,16 +61,18 @@ import           Network.AWS.Route53.Types.Product
 -- want to delete.
 --
 -- /See:/ 'deleteHostedZone' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhzId'
 newtype DeleteHostedZone = DeleteHostedZone'
     { _dhzId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteHostedZone' smart constructor.
-deleteHostedZone :: Text -> DeleteHostedZone
+-- | Creates a value of 'DeleteHostedZone' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhzId'
+deleteHostedZone
+    :: Text -- ^ 'dhzId'
+    -> DeleteHostedZone
 deleteHostedZone pId_ =
     DeleteHostedZone'
     { _dhzId = pId_
@@ -103,26 +105,29 @@ instance ToQuery DeleteHostedZone where
 -- | A complex type containing the response information for the request.
 --
 -- /See:/ 'deleteHostedZoneResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhzrsStatus'
---
--- * 'dhzrsChangeInfo'
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
     { _dhzrsStatus     :: !Int
     , _dhzrsChangeInfo :: !ChangeInfo
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteHostedZoneResponse' smart constructor.
-deleteHostedZoneResponse :: Int -> ChangeInfo -> DeleteHostedZoneResponse
+-- | Creates a value of 'DeleteHostedZoneResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhzrsStatus'
+--
+-- * 'dhzrsChangeInfo'
+deleteHostedZoneResponse
+    :: Int -- ^ 'dhzrsStatus'
+    -> ChangeInfo -- ^ 'dhzrsChangeInfo'
+    -> DeleteHostedZoneResponse
 deleteHostedZoneResponse pStatus_ pChangeInfo_ =
     DeleteHostedZoneResponse'
     { _dhzrsStatus = pStatus_
     , _dhzrsChangeInfo = pChangeInfo_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dhzrsStatus :: Lens' DeleteHostedZoneResponse Int
 dhzrsStatus = lens _dhzrsStatus (\ s a -> s{_dhzrsStatus = a});
 

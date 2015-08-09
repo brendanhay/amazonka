@@ -26,8 +26,8 @@
 module Network.AWS.IAM.EnableMFADevice
     (
     -- * Creating a Request
-      EnableMFADevice
-    , enableMFADevice
+      enableMFADevice
+    , EnableMFADevice
     -- * Request Lenses
     , emdUserName
     , emdSerialNumber
@@ -35,8 +35,8 @@ module Network.AWS.IAM.EnableMFADevice
     , emdAuthenticationCode2
 
     -- * Destructuring the Response
-    , EnableMFADeviceResponse
     , enableMFADeviceResponse
+    , EnableMFADeviceResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -46,8 +46,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'enableMFADevice' smart constructor.
+data EnableMFADevice = EnableMFADevice'
+    { _emdUserName            :: !Text
+    , _emdSerialNumber        :: !Text
+    , _emdAuthenticationCode1 :: !Text
+    , _emdAuthenticationCode2 :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnableMFADevice' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'emdUserName'
 --
@@ -56,15 +64,12 @@ import           Network.AWS.Response
 -- * 'emdAuthenticationCode1'
 --
 -- * 'emdAuthenticationCode2'
-data EnableMFADevice = EnableMFADevice'
-    { _emdUserName            :: !Text
-    , _emdSerialNumber        :: !Text
-    , _emdAuthenticationCode1 :: !Text
-    , _emdAuthenticationCode2 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EnableMFADevice' smart constructor.
-enableMFADevice :: Text -> Text -> Text -> Text -> EnableMFADevice
+enableMFADevice
+    :: Text -- ^ 'emdUserName'
+    -> Text -- ^ 'emdSerialNumber'
+    -> Text -- ^ 'emdAuthenticationCode1'
+    -> Text -- ^ 'emdAuthenticationCode2'
+    -> EnableMFADevice
 enableMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationCode2_ =
     EnableMFADevice'
     { _emdUserName = pUserName_
@@ -117,6 +122,8 @@ data EnableMFADeviceResponse =
     EnableMFADeviceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableMFADeviceResponse' smart constructor.
-enableMFADeviceResponse :: EnableMFADeviceResponse
+-- | Creates a value of 'EnableMFADeviceResponse' with the minimum fields required to make a request.
+--
+enableMFADeviceResponse
+    :: EnableMFADeviceResponse
 enableMFADeviceResponse = EnableMFADeviceResponse'

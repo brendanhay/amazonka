@@ -22,7 +22,7 @@
 -- balancer can have a maximum of 10 tags.
 --
 -- Each tag consists of a key and an optional value. If a tag with the same
--- key is already associated with the load balancer, @AddTags@ updates its
+-- key is already associated with the load balancer, 'AddTags' updates its
 -- value.
 --
 -- For more information, see
@@ -33,15 +33,15 @@
 module Network.AWS.ELB.AddTags
     (
     -- * Creating a Request
-      AddTags
-    , addTags
+      addTags
+    , AddTags
     -- * Request Lenses
     , atLoadBalancerNames
     , atTags
 
     -- * Destructuring the Response
-    , AddTagsResponse
     , addTagsResponse
+    , AddTagsResponse
     -- * Response Lenses
     , atrsStatus
     ) where
@@ -53,19 +53,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'addTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atLoadBalancerNames'
---
--- * 'atTags'
 data AddTags = AddTags'
     { _atLoadBalancerNames :: ![Text]
     , _atTags              :: !(List1 Tag)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTags' smart constructor.
-addTags :: NonEmpty Tag -> AddTags
+-- | Creates a value of 'AddTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atLoadBalancerNames'
+--
+-- * 'atTags'
+addTags
+    :: NonEmpty Tag -- ^ 'atTags'
+    -> AddTags
 addTags pTags_ =
     AddTags'
     { _atLoadBalancerNames = mempty
@@ -104,21 +106,23 @@ instance ToQuery AddTags where
                "Tags" =: toQueryList "member" _atTags]
 
 -- | /See:/ 'addTagsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atrsStatus'
 newtype AddTagsResponse = AddTagsResponse'
     { _atrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTagsResponse' smart constructor.
-addTagsResponse :: Int -> AddTagsResponse
+-- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atrsStatus'
+addTagsResponse
+    :: Int -- ^ 'atrsStatus'
+    -> AddTagsResponse
 addTagsResponse pStatus_ =
     AddTagsResponse'
     { _atrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 atrsStatus :: Lens' AddTagsResponse Int
 atrsStatus = lens _atrsStatus (\ s a -> s{_atrsStatus = a});

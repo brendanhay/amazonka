@@ -20,7 +20,7 @@
 --
 -- Describes the available CloudWatch metrics for Auto Scaling.
 --
--- Note that the @GroupStandbyInstances@ metric is not returned by default.
+-- Note that the 'GroupStandbyInstances' metric is not returned by default.
 -- You must explicitly request this metric when calling
 -- EnableMetricsCollection.
 --
@@ -28,12 +28,12 @@
 module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     (
     -- * Creating a Request
-      DescribeMetricCollectionTypes
-    , describeMetricCollectionTypes
+      describeMetricCollectionTypes
+    , DescribeMetricCollectionTypes
 
     -- * Destructuring the Response
-    , DescribeMetricCollectionTypesResponse
     , describeMetricCollectionTypesResponse
+    , DescribeMetricCollectionTypesResponse
     -- * Response Lenses
     , dmctrsMetrics
     , dmctrsGranularities
@@ -51,8 +51,10 @@ data DescribeMetricCollectionTypes =
     DescribeMetricCollectionTypes'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeMetricCollectionTypes' smart constructor.
-describeMetricCollectionTypes :: DescribeMetricCollectionTypes
+-- | Creates a value of 'DescribeMetricCollectionTypes' with the minimum fields required to make a request.
+--
+describeMetricCollectionTypes
+    :: DescribeMetricCollectionTypes
 describeMetricCollectionTypes = DescribeMetricCollectionTypes'
 
 instance AWSRequest DescribeMetricCollectionTypes
@@ -89,22 +91,24 @@ instance ToQuery DescribeMetricCollectionTypes where
                   "Version" =: ("2011-01-01" :: ByteString)])
 
 -- | /See:/ 'describeMetricCollectionTypesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmctrsMetrics'
---
--- * 'dmctrsGranularities'
---
--- * 'dmctrsStatus'
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
     { _dmctrsMetrics       :: !(Maybe [MetricCollectionType])
     , _dmctrsGranularities :: !(Maybe [MetricGranularityType])
     , _dmctrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeMetricCollectionTypesResponse' smart constructor.
-describeMetricCollectionTypesResponse :: Int -> DescribeMetricCollectionTypesResponse
+-- | Creates a value of 'DescribeMetricCollectionTypesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmctrsMetrics'
+--
+-- * 'dmctrsGranularities'
+--
+-- * 'dmctrsStatus'
+describeMetricCollectionTypesResponse
+    :: Int -- ^ 'dmctrsStatus'
+    -> DescribeMetricCollectionTypesResponse
 describeMetricCollectionTypesResponse pStatus_ =
     DescribeMetricCollectionTypesResponse'
     { _dmctrsMetrics = Nothing
@@ -120,6 +124,6 @@ dmctrsMetrics = lens _dmctrsMetrics (\ s a -> s{_dmctrsMetrics = a}) . _Default 
 dmctrsGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
 dmctrsGranularities = lens _dmctrsGranularities (\ s a -> s{_dmctrsGranularities = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dmctrsStatus :: Lens' DescribeMetricCollectionTypesResponse Int
 dmctrsStatus = lens _dmctrsStatus (\ s a -> s{_dmctrsStatus = a});

@@ -28,8 +28,19 @@ import           Network.AWS.Prelude
 -- simultaneously.
 --
 -- /See:/ 'cluster' smart constructor.
+data Cluster = Cluster'
+    { _cStatus                            :: !(Maybe Text)
+    , _cClusterARN                        :: !(Maybe Text)
+    , _cRunningTasksCount                 :: !(Maybe Int)
+    , _cRegisteredContainerInstancesCount :: !(Maybe Int)
+    , _cPendingTasksCount                 :: !(Maybe Int)
+    , _cClusterName                       :: !(Maybe Text)
+    , _cActiveServicesCount               :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cStatus'
 --
@@ -44,18 +55,8 @@ import           Network.AWS.Prelude
 -- * 'cClusterName'
 --
 -- * 'cActiveServicesCount'
-data Cluster = Cluster'
-    { _cStatus                            :: !(Maybe Text)
-    , _cClusterARN                        :: !(Maybe Text)
-    , _cRunningTasksCount                 :: !(Maybe Int)
-    , _cRegisteredContainerInstancesCount :: !(Maybe Int)
-    , _cPendingTasksCount                 :: !(Maybe Int)
-    , _cClusterName                       :: !(Maybe Text)
-    , _cActiveServicesCount               :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Cluster' smart constructor.
-cluster :: Cluster
+cluster
+    :: Cluster
 cluster =
     Cluster'
     { _cStatus = Nothing
@@ -67,21 +68,21 @@ cluster =
     , _cActiveServicesCount = Nothing
     }
 
--- | The status of the cluster. The valid values are @ACTIVE@ or @INACTIVE@.
--- @ACTIVE@ indicates that you can register container instances with the
+-- | The status of the cluster. The valid values are 'ACTIVE' or 'INACTIVE'.
+-- 'ACTIVE' indicates that you can register container instances with the
 -- cluster and the associated instances can accept tasks.
 cStatus :: Lens' Cluster (Maybe Text)
 cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
 
 -- | The Amazon Resource Name (ARN) that identifies the cluster. The ARN
--- contains the @arn:aws:ecs@ namespace, followed by the region of the
--- cluster, the AWS account ID of the cluster owner, the @cluster@
+-- contains the 'arn:aws:ecs' namespace, followed by the region of the
+-- cluster, the AWS account ID of the cluster owner, the 'cluster'
 -- namespace, and then the cluster name. For example,
 -- arn:aws:ecs:/region/:/012345678910/:cluster\//test/.
 cClusterARN :: Lens' Cluster (Maybe Text)
 cClusterARN = lens _cClusterARN (\ s a -> s{_cClusterARN = a});
 
--- | The number of tasks in the cluster that are in the @RUNNING@ state.
+-- | The number of tasks in the cluster that are in the 'RUNNING' state.
 cRunningTasksCount :: Lens' Cluster (Maybe Int)
 cRunningTasksCount = lens _cRunningTasksCount (\ s a -> s{_cRunningTasksCount = a});
 
@@ -89,7 +90,7 @@ cRunningTasksCount = lens _cRunningTasksCount (\ s a -> s{_cRunningTasksCount = 
 cRegisteredContainerInstancesCount :: Lens' Cluster (Maybe Int)
 cRegisteredContainerInstancesCount = lens _cRegisteredContainerInstancesCount (\ s a -> s{_cRegisteredContainerInstancesCount = a});
 
--- | The number of tasks in the cluster that are in the @PENDING@ state.
+-- | The number of tasks in the cluster that are in the 'PENDING' state.
 cPendingTasksCount :: Lens' Cluster (Maybe Int)
 cPendingTasksCount = lens _cPendingTasksCount (\ s a -> s{_cPendingTasksCount = a});
 
@@ -97,7 +98,7 @@ cPendingTasksCount = lens _cPendingTasksCount (\ s a -> s{_cPendingTasksCount = 
 cClusterName :: Lens' Cluster (Maybe Text)
 cClusterName = lens _cClusterName (\ s a -> s{_cClusterName = a});
 
--- | The number of services that are running on the cluster in an @ACTIVE@
+-- | The number of services that are running on the cluster in an 'ACTIVE'
 -- state. You can view these services with ListServices.
 cActiveServicesCount :: Lens' Cluster (Maybe Int)
 cActiveServicesCount = lens _cActiveServicesCount (\ s a -> s{_cActiveServicesCount = a});
@@ -117,8 +118,19 @@ instance FromJSON Cluster where
 -- | A docker container that is part of a task.
 --
 -- /See:/ 'container' smart constructor.
+data Container = Container'
+    { _cNetworkBindings :: !(Maybe [NetworkBinding])
+    , _cContainerARN    :: !(Maybe Text)
+    , _cTaskARN         :: !(Maybe Text)
+    , _cLastStatus      :: !(Maybe Text)
+    , _cReason          :: !(Maybe Text)
+    , _cName            :: !(Maybe Text)
+    , _cExitCode        :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Container' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cNetworkBindings'
 --
@@ -133,18 +145,8 @@ instance FromJSON Cluster where
 -- * 'cName'
 --
 -- * 'cExitCode'
-data Container = Container'
-    { _cNetworkBindings :: !(Maybe [NetworkBinding])
-    , _cContainerARN    :: !(Maybe Text)
-    , _cTaskARN         :: !(Maybe Text)
-    , _cLastStatus      :: !(Maybe Text)
-    , _cReason          :: !(Maybe Text)
-    , _cName            :: !(Maybe Text)
-    , _cExitCode        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Container' smart constructor.
-container :: Container
+container
+    :: Container
 container =
     Container'
     { _cNetworkBindings = Nothing
@@ -202,8 +204,24 @@ instance FromJSON Container where
 -- different containers that are launched as part of a task.
 --
 -- /See:/ 'containerDefinition' smart constructor.
+data ContainerDefinition = ContainerDefinition'
+    { _cdImage        :: !(Maybe Text)
+    , _cdCommand      :: !(Maybe [Text])
+    , _cdVolumesFrom  :: !(Maybe [VolumeFrom])
+    , _cdEnvironment  :: !(Maybe [KeyValuePair])
+    , _cdEntryPoint   :: !(Maybe [Text])
+    , _cdPortMappings :: !(Maybe [PortMapping])
+    , _cdMemory       :: !(Maybe Int)
+    , _cdName         :: !(Maybe Text)
+    , _cdMountPoints  :: !(Maybe [MountPoint])
+    , _cdLinks        :: !(Maybe [Text])
+    , _cdEssential    :: !(Maybe Bool)
+    , _cdCpu          :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ContainerDefinition' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdImage'
 --
@@ -228,23 +246,8 @@ instance FromJSON Container where
 -- * 'cdEssential'
 --
 -- * 'cdCpu'
-data ContainerDefinition = ContainerDefinition'
-    { _cdImage        :: !(Maybe Text)
-    , _cdCommand      :: !(Maybe [Text])
-    , _cdVolumesFrom  :: !(Maybe [VolumeFrom])
-    , _cdEnvironment  :: !(Maybe [KeyValuePair])
-    , _cdEntryPoint   :: !(Maybe [Text])
-    , _cdPortMappings :: !(Maybe [PortMapping])
-    , _cdMemory       :: !(Maybe Int)
-    , _cdName         :: !(Maybe Text)
-    , _cdMountPoints  :: !(Maybe [MountPoint])
-    , _cdLinks        :: !(Maybe [Text])
-    , _cdEssential    :: !(Maybe Bool)
-    , _cdCpu          :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ContainerDefinition' smart constructor.
-containerDefinition :: ContainerDefinition
+containerDefinition
+    :: ContainerDefinition
 containerDefinition =
     ContainerDefinition'
     { _cdImage = Nothing
@@ -264,12 +267,12 @@ containerDefinition =
 -- | The image used to start a container. This string is passed directly to
 -- the Docker daemon. Images in the Docker Hub registry are available by
 -- default. Other repositories are specified with
--- @repository-url\/image:tag@.
+-- 'repository-url\/image:tag'.
 cdImage :: Lens' ContainerDefinition (Maybe Text)
 cdImage = lens _cdImage (\ s a -> s{_cdImage = a});
 
--- | The @CMD@ that is passed to the container. For more information on the
--- Docker @CMD@ parameter, see
+-- | The 'CMD' that is passed to the container. For more information on the
+-- Docker 'CMD' parameter, see
 -- <https://docs.docker.com/reference/builder/#cmd>.
 cdCommand :: Lens' ContainerDefinition [Text]
 cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a}) . _Default . _Coerce;
@@ -283,12 +286,12 @@ cdEnvironment :: Lens' ContainerDefinition [KeyValuePair]
 cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a}) . _Default . _Coerce;
 
 -- | Early versions of the Amazon ECS container agent do not properly handle
--- @entryPoint@ parameters. If you have problems using @entryPoint@, update
--- your container agent or enter your commands and arguments as @command@
+-- 'entryPoint' parameters. If you have problems using 'entryPoint', update
+-- your container agent or enter your commands and arguments as 'command'
 -- array items instead.
 --
--- The @ENTRYPOINT@ that is passed to the container. For more information
--- on the Docker @ENTRYPOINT@ parameter, see
+-- The 'ENTRYPOINT' that is passed to the container. For more information
+-- on the Docker 'ENTRYPOINT' parameter, see
 -- <https://docs.docker.com/reference/builder/#entrypoint>.
 cdEntryPoint :: Lens' ContainerDefinition [Text]
 cdEntryPoint = lens _cdEntryPoint (\ s a -> s{_cdEntryPoint = a}) . _Default . _Coerce;
@@ -304,8 +307,8 @@ cdMemory :: Lens' ContainerDefinition (Maybe Int)
 cdMemory = lens _cdMemory (\ s a -> s{_cdMemory = a});
 
 -- | The name of a container. If you are linking multiple containers together
--- in a task definition, the @name@ of one container can be entered in the
--- @links@ of another container to connect the containers.
+-- in a task definition, the 'name' of one container can be entered in the
+-- 'links' of another container to connect the containers.
 cdName :: Lens' ContainerDefinition (Maybe Text)
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
@@ -313,9 +316,9 @@ cdName = lens _cdName (\ s a -> s{_cdName = a});
 cdMountPoints :: Lens' ContainerDefinition [MountPoint]
 cdMountPoints = lens _cdMountPoints (\ s a -> s{_cdMountPoints = a}) . _Default . _Coerce;
 
--- | The @link@ parameter allows containers to communicate with each other
--- without the need for port mappings, using the @name@ parameter. The
--- @name:internalName@ construct is analogous to @name:alias@ in Docker
+-- | The 'link' parameter allows containers to communicate with each other
+-- without the need for port mappings, using the 'name' parameter. The
+-- 'name:internalName' construct is analogous to 'name:alias' in Docker
 -- links. For more information on linking Docker containers, see
 -- <https://docs.docker.com/userguide/dockerlinks/>.
 --
@@ -326,9 +329,9 @@ cdMountPoints = lens _cdMountPoints (\ s a -> s{_cdMountPoints = a}) . _Default 
 cdLinks :: Lens' ContainerDefinition [Text]
 cdLinks = lens _cdLinks (\ s a -> s{_cdLinks = a}) . _Default . _Coerce;
 
--- | If the @essential@ parameter of a container is marked as @true@, the
--- failure of that container will stop the task. If the @essential@
--- parameter of a container is marked as @false@, then its failure will not
+-- | If the 'essential' parameter of a container is marked as 'true', the
+-- failure of that container will stop the task. If the 'essential'
+-- parameter of a container is marked as 'false', then its failure will not
 -- affect the rest of the containers in a task. If this parameter is
 -- omitted, a container is assumed to be essential.
 --
@@ -336,8 +339,8 @@ cdLinks = lens _cdLinks (\ s a -> s{_cdLinks = a}) . _Default . _Coerce;
 cdEssential :: Lens' ContainerDefinition (Maybe Bool)
 cdEssential = lens _cdEssential (\ s a -> s{_cdEssential = a});
 
--- | The number of @cpu@ units reserved for the container. A container
--- instance has 1,024 @cpu@ units for every CPU core. This parameter
+-- | The number of 'cpu' units reserved for the container. A container
+-- instance has 1,024 'cpu' units for every CPU core. This parameter
 -- specifies the minimum amount of CPU to reserve for a container, and
 -- containers share unallocated CPU units with other containers on the
 -- instance with the same ratio as their allocated amount.
@@ -404,8 +407,22 @@ instance ToJSON ContainerDefinition where
 -- registered with a cluster.
 --
 -- /See:/ 'containerInstance' smart constructor.
+data ContainerInstance = ContainerInstance'
+    { _ciStatus               :: !(Maybe Text)
+    , _ciRunningTasksCount    :: !(Maybe Int)
+    , _ciRemainingResources   :: !(Maybe [Resource])
+    , _ciEc2InstanceId        :: !(Maybe Text)
+    , _ciContainerInstanceARN :: !(Maybe Text)
+    , _ciAgentConnected       :: !(Maybe Bool)
+    , _ciVersionInfo          :: !(Maybe VersionInfo)
+    , _ciAgentUpdateStatus    :: !(Maybe AgentUpdateStatus)
+    , _ciPendingTasksCount    :: !(Maybe Int)
+    , _ciRegisteredResources  :: !(Maybe [Resource])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ContainerInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ciStatus'
 --
@@ -426,21 +443,8 @@ instance ToJSON ContainerDefinition where
 -- * 'ciPendingTasksCount'
 --
 -- * 'ciRegisteredResources'
-data ContainerInstance = ContainerInstance'
-    { _ciStatus               :: !(Maybe Text)
-    , _ciRunningTasksCount    :: !(Maybe Int)
-    , _ciRemainingResources   :: !(Maybe [Resource])
-    , _ciEc2InstanceId        :: !(Maybe Text)
-    , _ciContainerInstanceARN :: !(Maybe Text)
-    , _ciAgentConnected       :: !(Maybe Bool)
-    , _ciVersionInfo          :: !(Maybe VersionInfo)
-    , _ciAgentUpdateStatus    :: !(Maybe AgentUpdateStatus)
-    , _ciPendingTasksCount    :: !(Maybe Int)
-    , _ciRegisteredResources  :: !(Maybe [Resource])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ContainerInstance' smart constructor.
-containerInstance :: ContainerInstance
+containerInstance
+    :: ContainerInstance
 containerInstance =
     ContainerInstance'
     { _ciStatus = Nothing
@@ -455,13 +459,13 @@ containerInstance =
     , _ciRegisteredResources = Nothing
     }
 
--- | The status of the container instance. The valid values are @ACTIVE@ or
--- @INACTIVE@. @ACTIVE@ indicates that the container instance can accept
+-- | The status of the container instance. The valid values are 'ACTIVE' or
+-- 'INACTIVE'. 'ACTIVE' indicates that the container instance can accept
 -- tasks.
 ciStatus :: Lens' ContainerInstance (Maybe Text)
 ciStatus = lens _ciStatus (\ s a -> s{_ciStatus = a});
 
--- | The number of tasks on the container instance that are in the @RUNNING@
+-- | The number of tasks on the container instance that are in the 'RUNNING'
 -- status.
 ciRunningTasksCount :: Lens' ContainerInstance (Maybe Int)
 ciRunningTasksCount = lens _ciRunningTasksCount (\ s a -> s{_ciRunningTasksCount = a});
@@ -476,17 +480,17 @@ ciEc2InstanceId :: Lens' ContainerInstance (Maybe Text)
 ciEc2InstanceId = lens _ciEc2InstanceId (\ s a -> s{_ciEc2InstanceId = a});
 
 -- | The Amazon Resource Name (ARN) of the container instance. The ARN
--- contains the @arn:aws:ecs@ namespace, followed by the region of the
+-- contains the 'arn:aws:ecs' namespace, followed by the region of the
 -- container instance, the AWS account ID of the container instance owner,
--- the @container-instance@ namespace, and then the container instance
+-- the 'container-instance' namespace, and then the container instance
 -- UUID. For example,
 -- arn:aws:ecs:/region/:/aws_account_id/:container-instance\//container_instance_UUID/.
 ciContainerInstanceARN :: Lens' ContainerInstance (Maybe Text)
 ciContainerInstanceARN = lens _ciContainerInstanceARN (\ s a -> s{_ciContainerInstanceARN = a});
 
--- | This parameter returns @true@ if the agent is actually connected to
+-- | This parameter returns 'true' if the agent is actually connected to
 -- Amazon ECS. Registered instances with an agent that may be unhealthy or
--- stopped will return @false@, and instances without a connected agent
+-- stopped will return 'false', and instances without a connected agent
 -- cannot accept placement request.
 ciAgentConnected :: Lens' ContainerInstance (Maybe Bool)
 ciAgentConnected = lens _ciAgentConnected (\ s a -> s{_ciAgentConnected = a});
@@ -497,11 +501,11 @@ ciVersionInfo :: Lens' ContainerInstance (Maybe VersionInfo)
 ciVersionInfo = lens _ciVersionInfo (\ s a -> s{_ciVersionInfo = a});
 
 -- | The status of the most recent agent update. If an update has never been
--- requested, this value is @NULL@.
+-- requested, this value is 'NULL'.
 ciAgentUpdateStatus :: Lens' ContainerInstance (Maybe AgentUpdateStatus)
 ciAgentUpdateStatus = lens _ciAgentUpdateStatus (\ s a -> s{_ciAgentUpdateStatus = a});
 
--- | The number of tasks on the container instance that are in the @PENDING@
+-- | The number of tasks on the container instance that are in the 'PENDING'
 -- status.
 ciPendingTasksCount :: Lens' ContainerInstance (Maybe Int)
 ciPendingTasksCount = lens _ciPendingTasksCount (\ s a -> s{_ciPendingTasksCount = a});
@@ -529,22 +533,23 @@ instance FromJSON ContainerInstance where
 -- | The overrides that should be sent to a container.
 --
 -- /See:/ 'containerOverride' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'coCommand'
---
--- * 'coEnvironment'
---
--- * 'coName'
 data ContainerOverride = ContainerOverride'
     { _coCommand     :: !(Maybe [Text])
     , _coEnvironment :: !(Maybe [KeyValuePair])
     , _coName        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ContainerOverride' smart constructor.
-containerOverride :: ContainerOverride
+-- | Creates a value of 'ContainerOverride' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'coCommand'
+--
+-- * 'coEnvironment'
+--
+-- * 'coName'
+containerOverride
+    :: ContainerOverride
 containerOverride =
     ContainerOverride'
     { _coCommand = Nothing
@@ -586,8 +591,24 @@ instance ToJSON ContainerOverride where
 -- | Details on a service within a cluster
 --
 -- /See:/ 'containerService' smart constructor.
+data ContainerService = ContainerService'
+    { _csStatus         :: !(Maybe Text)
+    , _csRunningCount   :: !(Maybe Int)
+    , _csClusterARN     :: !(Maybe Text)
+    , _csDesiredCount   :: !(Maybe Int)
+    , _csLoadBalancers  :: !(Maybe [LoadBalancer])
+    , _csPendingCount   :: !(Maybe Int)
+    , _csEvents         :: !(Maybe [ServiceEvent])
+    , _csServiceName    :: !(Maybe Text)
+    , _csDeployments    :: !(Maybe [Deployment])
+    , _csTaskDefinition :: !(Maybe Text)
+    , _csServiceARN     :: !(Maybe Text)
+    , _csRoleARN        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ContainerService' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'csStatus'
 --
@@ -612,23 +633,8 @@ instance ToJSON ContainerOverride where
 -- * 'csServiceARN'
 --
 -- * 'csRoleARN'
-data ContainerService = ContainerService'
-    { _csStatus         :: !(Maybe Text)
-    , _csRunningCount   :: !(Maybe Int)
-    , _csClusterARN     :: !(Maybe Text)
-    , _csDesiredCount   :: !(Maybe Int)
-    , _csLoadBalancers  :: !(Maybe [LoadBalancer])
-    , _csPendingCount   :: !(Maybe Int)
-    , _csEvents         :: !(Maybe [ServiceEvent])
-    , _csServiceName    :: !(Maybe Text)
-    , _csDeployments    :: !(Maybe [Deployment])
-    , _csTaskDefinition :: !(Maybe Text)
-    , _csServiceARN     :: !(Maybe Text)
-    , _csRoleARN        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ContainerService' smart constructor.
-containerService :: ContainerService
+containerService
+    :: ContainerService
 containerService =
     ContainerService'
     { _csStatus = Nothing
@@ -645,12 +651,12 @@ containerService =
     , _csRoleARN = Nothing
     }
 
--- | The status of the service. The valid values are @ACTIVE@, @DRAINING@, or
--- @INACTIVE@.
+-- | The status of the service. The valid values are 'ACTIVE', 'DRAINING', or
+-- 'INACTIVE'.
 csStatus :: Lens' ContainerService (Maybe Text)
 csStatus = lens _csStatus (\ s a -> s{_csStatus = a});
 
--- | The number of tasks in the cluster that are in the @RUNNING@ state.
+-- | The number of tasks in the cluster that are in the 'RUNNING' state.
 csRunningCount :: Lens' ContainerService (Maybe Int)
 csRunningCount = lens _csRunningCount (\ s a -> s{_csRunningCount = a});
 
@@ -671,7 +677,7 @@ csDesiredCount = lens _csDesiredCount (\ s a -> s{_csDesiredCount = a});
 csLoadBalancers :: Lens' ContainerService [LoadBalancer]
 csLoadBalancers = lens _csLoadBalancers (\ s a -> s{_csLoadBalancers = a}) . _Default . _Coerce;
 
--- | The number of tasks in the cluster that are in the @PENDING@ state.
+-- | The number of tasks in the cluster that are in the 'PENDING' state.
 csPendingCount :: Lens' ContainerService (Maybe Int)
 csPendingCount = lens _csPendingCount (\ s a -> s{_csPendingCount = a});
 
@@ -695,8 +701,8 @@ csTaskDefinition :: Lens' ContainerService (Maybe Text)
 csTaskDefinition = lens _csTaskDefinition (\ s a -> s{_csTaskDefinition = a});
 
 -- | The Amazon Resource Name (ARN) that identifies the service. The ARN
--- contains the @arn:aws:ecs@ namespace, followed by the region of the
--- service, the AWS account ID of the service owner, the @service@
+-- contains the 'arn:aws:ecs' namespace, followed by the region of the
+-- service, the AWS account ID of the service owner, the 'service'
 -- namespace, and then the service name. For example,
 -- arn:aws:ecs:/region/:/012345678910/:service\//my-service/.
 csServiceARN :: Lens' ContainerService (Maybe Text)
@@ -728,8 +734,20 @@ instance FromJSON ContainerService where
 -- | The details of an Amazon ECS service deployment.
 --
 -- /See:/ 'deployment' smart constructor.
+data Deployment = Deployment'
+    { _dStatus         :: !(Maybe Text)
+    , _dRunningCount   :: !(Maybe Int)
+    , _dCreatedAt      :: !(Maybe POSIX)
+    , _dDesiredCount   :: !(Maybe Int)
+    , _dPendingCount   :: !(Maybe Int)
+    , _dId             :: !(Maybe Text)
+    , _dTaskDefinition :: !(Maybe Text)
+    , _dUpdatedAt      :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Deployment' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dStatus'
 --
@@ -746,19 +764,8 @@ instance FromJSON ContainerService where
 -- * 'dTaskDefinition'
 --
 -- * 'dUpdatedAt'
-data Deployment = Deployment'
-    { _dStatus         :: !(Maybe Text)
-    , _dRunningCount   :: !(Maybe Int)
-    , _dCreatedAt      :: !(Maybe POSIX)
-    , _dDesiredCount   :: !(Maybe Int)
-    , _dPendingCount   :: !(Maybe Int)
-    , _dId             :: !(Maybe Text)
-    , _dTaskDefinition :: !(Maybe Text)
-    , _dUpdatedAt      :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Deployment' smart constructor.
-deployment :: Deployment
+deployment
+    :: Deployment
 deployment =
     Deployment'
     { _dStatus = Nothing
@@ -771,14 +778,14 @@ deployment =
     , _dUpdatedAt = Nothing
     }
 
--- | The status of the deployment. Valid values are @PRIMARY@ (for the most
--- recent deployment), @ACTIVE@ (for previous deployments that still have
--- tasks running, but are being replaced with the @PRIMARY@ deployment),
--- and @INACTIVE@ (for deployments that have been completely replaced).
+-- | The status of the deployment. Valid values are 'PRIMARY' (for the most
+-- recent deployment), 'ACTIVE' (for previous deployments that still have
+-- tasks running, but are being replaced with the 'PRIMARY' deployment),
+-- and 'INACTIVE' (for deployments that have been completely replaced).
 dStatus :: Lens' Deployment (Maybe Text)
 dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
--- | The number of tasks in the deployment that are in the @RUNNING@ status.
+-- | The number of tasks in the deployment that are in the 'RUNNING' status.
 dRunningCount :: Lens' Deployment (Maybe Int)
 dRunningCount = lens _dRunningCount (\ s a -> s{_dRunningCount = a});
 
@@ -791,7 +798,7 @@ dCreatedAt = lens _dCreatedAt (\ s a -> s{_dCreatedAt = a}) . mapping _Time;
 dDesiredCount :: Lens' Deployment (Maybe Int)
 dDesiredCount = lens _dDesiredCount (\ s a -> s{_dDesiredCount = a});
 
--- | The number of tasks in the deployment that are in the @PENDING@ status.
+-- | The number of tasks in the deployment that are in the 'PENDING' status.
 dPendingCount :: Lens' Deployment (Maybe Int)
 dPendingCount = lens _dPendingCount (\ s a -> s{_dPendingCount = a});
 
@@ -825,19 +832,20 @@ instance FromJSON Deployment where
 -- | A failed resource.
 --
 -- /See:/ 'failure' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fArn'
---
--- * 'fReason'
 data Failure = Failure'
     { _fArn    :: !(Maybe Text)
     , _fReason :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Failure' smart constructor.
-failure :: Failure
+-- | Creates a value of 'Failure' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fArn'
+--
+-- * 'fReason'
+failure
+    :: Failure
 failure =
     Failure'
     { _fArn = Nothing
@@ -861,16 +869,17 @@ instance FromJSON Failure where
 -- | Details on a container instance host volume.
 --
 -- /See:/ 'hostVolumeProperties' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hvpSourcePath'
 newtype HostVolumeProperties = HostVolumeProperties'
     { _hvpSourcePath :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'HostVolumeProperties' smart constructor.
-hostVolumeProperties :: HostVolumeProperties
+-- | Creates a value of 'HostVolumeProperties' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hvpSourcePath'
+hostVolumeProperties
+    :: HostVolumeProperties
 hostVolumeProperties =
     HostVolumeProperties'
     { _hvpSourcePath = Nothing
@@ -895,19 +904,20 @@ instance ToJSON HostVolumeProperties where
 -- | A key and value pair object.
 --
 -- /See:/ 'keyValuePair' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'kvpValue'
---
--- * 'kvpName'
 data KeyValuePair = KeyValuePair'
     { _kvpValue :: !(Maybe Text)
     , _kvpName  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'KeyValuePair' smart constructor.
-keyValuePair :: KeyValuePair
+-- | Creates a value of 'KeyValuePair' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'kvpValue'
+--
+-- * 'kvpName'
+keyValuePair
+    :: KeyValuePair
 keyValuePair =
     KeyValuePair'
     { _kvpValue = Nothing
@@ -937,22 +947,23 @@ instance ToJSON KeyValuePair where
 -- | Details on a load balancer that is used with a service.
 --
 -- /See:/ 'loadBalancer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lbLoadBalancerName'
---
--- * 'lbContainerName'
---
--- * 'lbContainerPort'
 data LoadBalancer = LoadBalancer'
     { _lbLoadBalancerName :: !(Maybe Text)
     , _lbContainerName    :: !(Maybe Text)
     , _lbContainerPort    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LoadBalancer' smart constructor.
-loadBalancer :: LoadBalancer
+-- | Creates a value of 'LoadBalancer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbLoadBalancerName'
+--
+-- * 'lbContainerName'
+--
+-- * 'lbContainerPort'
+loadBalancer
+    :: LoadBalancer
 loadBalancer =
     LoadBalancer'
     { _lbLoadBalancerName = Nothing
@@ -969,8 +980,8 @@ lbContainerName :: Lens' LoadBalancer (Maybe Text)
 lbContainerName = lens _lbContainerName (\ s a -> s{_lbContainerName = a});
 
 -- | The port on the container to associate with the load balancer. This port
--- must correspond to a @containerPort@ in the service\'s task definition.
--- Your container instances must allow ingress traffic on the @hostPort@ of
+-- must correspond to a 'containerPort' in the service\'s task definition.
+-- Your container instances must allow ingress traffic on the 'hostPort' of
 -- the port mapping.
 lbContainerPort :: Lens' LoadBalancer (Maybe Int)
 lbContainerPort = lens _lbContainerPort (\ s a -> s{_lbContainerPort = a});
@@ -994,22 +1005,23 @@ instance ToJSON LoadBalancer where
 -- | Details on a volume mount point that is used in a container definition.
 --
 -- /See:/ 'mountPoint' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mpContainerPath'
---
--- * 'mpSourceVolume'
---
--- * 'mpReadOnly'
 data MountPoint = MountPoint'
     { _mpContainerPath :: !(Maybe Text)
     , _mpSourceVolume  :: !(Maybe Text)
     , _mpReadOnly      :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MountPoint' smart constructor.
-mountPoint :: MountPoint
+-- | Creates a value of 'MountPoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mpContainerPath'
+--
+-- * 'mpSourceVolume'
+--
+-- * 'mpReadOnly'
+mountPoint
+    :: MountPoint
 mountPoint =
     MountPoint'
     { _mpContainerPath = Nothing
@@ -1025,9 +1037,9 @@ mpContainerPath = lens _mpContainerPath (\ s a -> s{_mpContainerPath = a});
 mpSourceVolume :: Lens' MountPoint (Maybe Text)
 mpSourceVolume = lens _mpSourceVolume (\ s a -> s{_mpSourceVolume = a});
 
--- | If this value is @true@, the container has read-only access to the
--- volume. If this value is @false@, then the container can write to the
--- volume. The default value is @false@.
+-- | If this value is 'true', the container has read-only access to the
+-- volume. If this value is 'false', then the container can write to the
+-- volume. The default value is 'false'.
 mpReadOnly :: Lens' MountPoint (Maybe Bool)
 mpReadOnly = lens _mpReadOnly (\ s a -> s{_mpReadOnly = a});
 
@@ -1050,8 +1062,16 @@ instance ToJSON MountPoint where
 -- container instance.
 --
 -- /See:/ 'networkBinding' smart constructor.
+data NetworkBinding = NetworkBinding'
+    { _nbBindIP        :: !(Maybe Text)
+    , _nbProtocol      :: !(Maybe TransportProtocol)
+    , _nbHostPort      :: !(Maybe Int)
+    , _nbContainerPort :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NetworkBinding' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'nbBindIP'
 --
@@ -1060,15 +1080,8 @@ instance ToJSON MountPoint where
 -- * 'nbHostPort'
 --
 -- * 'nbContainerPort'
-data NetworkBinding = NetworkBinding'
-    { _nbBindIP        :: !(Maybe Text)
-    , _nbProtocol      :: !(Maybe TransportProtocol)
-    , _nbHostPort      :: !(Maybe Int)
-    , _nbContainerPort :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NetworkBinding' smart constructor.
-networkBinding :: NetworkBinding
+networkBinding
+    :: NetworkBinding
 networkBinding =
     NetworkBinding'
     { _nbBindIP = Nothing
@@ -1115,22 +1128,23 @@ instance ToJSON NetworkBinding where
 -- of the container definition.
 --
 -- /See:/ 'portMapping' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pmProtocol'
---
--- * 'pmHostPort'
---
--- * 'pmContainerPort'
 data PortMapping = PortMapping'
     { _pmProtocol      :: !(Maybe TransportProtocol)
     , _pmHostPort      :: !(Maybe Int)
     , _pmContainerPort :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PortMapping' smart constructor.
-portMapping :: PortMapping
+-- | Creates a value of 'PortMapping' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pmProtocol'
+--
+-- * 'pmHostPort'
+--
+-- * 'pmContainerPort'
+portMapping
+    :: PortMapping
 portMapping =
     PortMapping'
     { _pmProtocol = Nothing
@@ -1138,22 +1152,22 @@ portMapping =
     , _pmContainerPort = Nothing
     }
 
--- | The protocol used for the port mapping. Valid values are @tcp@ and
--- @udp@. The default is @tcp@.
+-- | The protocol used for the port mapping. Valid values are 'tcp' and
+-- 'udp'. The default is 'tcp'.
 pmProtocol :: Lens' PortMapping (Maybe TransportProtocol)
 pmProtocol = lens _pmProtocol (\ s a -> s{_pmProtocol = a});
 
 -- | The port number on the container instance to reserve for your container.
 -- You can specify a non-reserved host port for your container port
--- mapping, or you can omit the @hostPort@ (or set it to @0@) while
--- specifying a @containerPort@ and your container will automatically
+-- mapping, or you can omit the 'hostPort' (or set it to '0') while
+-- specifying a 'containerPort' and your container will automatically
 -- receive a port in the ephemeral port range for your container instance
 -- operating system and Docker version.
 --
 -- The default ephemeral port range is 49153 to 65535, and this range is
 -- used for Docker versions prior to 1.6.0. For Docker version 1.6.0 and
 -- later, the Docker daemon tries to read the ephemeral port range from
--- @\/proc\/sys\/net\/ipv4\/ip_local_port_range@; if this kernel parameter
+-- '\/proc\/sys\/net\/ipv4\/ip_local_port_range'; if this kernel parameter
 -- is unavailable, the default ephemeral port range is used. You should not
 -- attempt to specify a host port in the ephemeral port range, since these
 -- are reserved for automatic assignment. In general, ports below 32768 are
@@ -1163,7 +1177,7 @@ pmProtocol = lens _pmProtocol (\ s a -> s{_pmProtocol = a});
 -- 2376, and the Amazon ECS Container Agent port 51678. Any host port that
 -- was previously specified in a running task is also reserved while the
 -- task is running (once a task stops, the host port is released).The
--- current reserved ports are displayed in the @remainingResources@ of
+-- current reserved ports are displayed in the 'remainingResources' of
 -- DescribeContainerInstances output, and a container instance may have up
 -- to 50 reserved ports at a time, including the default reserved ports
 -- (automatically assigned ports do not count toward this limit).
@@ -1173,7 +1187,7 @@ pmHostPort = lens _pmHostPort (\ s a -> s{_pmHostPort = a});
 -- | The port number on the container that is bound to the user-specified or
 -- automatically assigned host port. If you specify a container port and
 -- not a host port, your container will automatically receive a host port
--- in the ephemeral port range (for more information, see @hostPort@).
+-- in the ephemeral port range (for more information, see 'hostPort').
 pmContainerPort :: Lens' PortMapping (Maybe Int)
 pmContainerPort = lens _pmContainerPort (\ s a -> s{_pmContainerPort = a});
 
@@ -1195,8 +1209,18 @@ instance ToJSON PortMapping where
 -- | Describes the resources available for a container instance.
 --
 -- /See:/ 'resource' smart constructor.
+data Resource = Resource'
+    { _rStringSetValue :: !(Maybe [Text])
+    , _rIntegerValue   :: !(Maybe Int)
+    , _rDoubleValue    :: !(Maybe Double)
+    , _rLongValue      :: !(Maybe Integer)
+    , _rName           :: !(Maybe Text)
+    , _rType           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Resource' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rStringSetValue'
 --
@@ -1209,17 +1233,8 @@ instance ToJSON PortMapping where
 -- * 'rName'
 --
 -- * 'rType'
-data Resource = Resource'
-    { _rStringSetValue :: !(Maybe [Text])
-    , _rIntegerValue   :: !(Maybe Int)
-    , _rDoubleValue    :: !(Maybe Double)
-    , _rLongValue      :: !(Maybe Integer)
-    , _rName           :: !(Maybe Text)
-    , _rType           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Resource' smart constructor.
-resource :: Resource
+resource
+    :: Resource
 resource =
     Resource'
     { _rStringSetValue = Nothing
@@ -1230,33 +1245,33 @@ resource =
     , _rType = Nothing
     }
 
--- | When the @stringSetValue@ type is set, the value of the resource must be
+-- | When the 'stringSetValue' type is set, the value of the resource must be
 -- a string type.
 rStringSetValue :: Lens' Resource [Text]
 rStringSetValue = lens _rStringSetValue (\ s a -> s{_rStringSetValue = a}) . _Default . _Coerce;
 
--- | When the @integerValue@ type is set, the value of the resource must be
+-- | When the 'integerValue' type is set, the value of the resource must be
 -- an integer.
 rIntegerValue :: Lens' Resource (Maybe Int)
 rIntegerValue = lens _rIntegerValue (\ s a -> s{_rIntegerValue = a});
 
--- | When the @doubleValue@ type is set, the value of the resource must be a
+-- | When the 'doubleValue' type is set, the value of the resource must be a
 -- double precision floating-point type.
 rDoubleValue :: Lens' Resource (Maybe Double)
 rDoubleValue = lens _rDoubleValue (\ s a -> s{_rDoubleValue = a});
 
--- | When the @longValue@ type is set, the value of the resource must be an
+-- | When the 'longValue' type is set, the value of the resource must be an
 -- extended precision floating-point type.
 rLongValue :: Lens' Resource (Maybe Integer)
 rLongValue = lens _rLongValue (\ s a -> s{_rLongValue = a});
 
--- | The name of the resource, such as @CPU@, @MEMORY@, @PORTS@, or a
+-- | The name of the resource, such as 'CPU', 'MEMORY', 'PORTS', or a
 -- user-defined resource.
 rName :: Lens' Resource (Maybe Text)
 rName = lens _rName (\ s a -> s{_rName = a});
 
--- | The type of the resource, such as @INTEGER@, @DOUBLE@, @LONG@, or
--- @STRINGSET@.
+-- | The type of the resource, such as 'INTEGER', 'DOUBLE', 'LONG', or
+-- 'STRINGSET'.
 rType :: Lens' Resource (Maybe Text)
 rType = lens _rType (\ s a -> s{_rType = a});
 
@@ -1284,22 +1299,23 @@ instance ToJSON Resource where
 -- | Details on an event associated with a service.
 --
 -- /See:/ 'serviceEvent' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'seCreatedAt'
---
--- * 'seId'
---
--- * 'seMessage'
 data ServiceEvent = ServiceEvent'
     { _seCreatedAt :: !(Maybe POSIX)
     , _seId        :: !(Maybe Text)
     , _seMessage   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ServiceEvent' smart constructor.
-serviceEvent :: ServiceEvent
+-- | Creates a value of 'ServiceEvent' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'seCreatedAt'
+--
+-- * 'seId'
+--
+-- * 'seMessage'
+serviceEvent
+    :: ServiceEvent
 serviceEvent =
     ServiceEvent'
     { _seCreatedAt = Nothing
@@ -1330,8 +1346,21 @@ instance FromJSON ServiceEvent where
 -- | Details on a task in a cluster.
 --
 -- /See:/ 'task' smart constructor.
+data Task = Task'
+    { _tDesiredStatus        :: !(Maybe Text)
+    , _tClusterARN           :: !(Maybe Text)
+    , _tOverrides            :: !(Maybe TaskOverride)
+    , _tTaskARN              :: !(Maybe Text)
+    , _tContainerInstanceARN :: !(Maybe Text)
+    , _tLastStatus           :: !(Maybe Text)
+    , _tContainers           :: !(Maybe [Container])
+    , _tStartedBy            :: !(Maybe Text)
+    , _tTaskDefinitionARN    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Task' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tDesiredStatus'
 --
@@ -1350,20 +1379,8 @@ instance FromJSON ServiceEvent where
 -- * 'tStartedBy'
 --
 -- * 'tTaskDefinitionARN'
-data Task = Task'
-    { _tDesiredStatus        :: !(Maybe Text)
-    , _tClusterARN           :: !(Maybe Text)
-    , _tOverrides            :: !(Maybe TaskOverride)
-    , _tTaskARN              :: !(Maybe Text)
-    , _tContainerInstanceARN :: !(Maybe Text)
-    , _tLastStatus           :: !(Maybe Text)
-    , _tContainers           :: !(Maybe [Container])
-    , _tStartedBy            :: !(Maybe Text)
-    , _tTaskDefinitionARN    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Task' smart constructor.
-task :: Task
+task
+    :: Task
 task =
     Task'
     { _tDesiredStatus = Nothing
@@ -1408,7 +1425,7 @@ tContainers :: Lens' Task [Container]
 tContainers = lens _tContainers (\ s a -> s{_tContainers = a}) . _Default . _Coerce;
 
 -- | The tag specified when a task is started. If the task is started by an
--- Amazon ECS service, then the @startedBy@ parameter contains the
+-- Amazon ECS service, then the 'startedBy' parameter contains the
 -- deployment ID of the service that starts it.
 tStartedBy :: Lens' Task (Maybe Text)
 tStartedBy = lens _tStartedBy (\ s a -> s{_tStartedBy = a});
@@ -1435,8 +1452,18 @@ instance FromJSON Task where
 -- | Details of a task definition.
 --
 -- /See:/ 'taskDefinition' smart constructor.
+data TaskDefinition = TaskDefinition'
+    { _tdStatus               :: !(Maybe TaskDefinitionStatus)
+    , _tdFamily               :: !(Maybe Text)
+    , _tdContainerDefinitions :: !(Maybe [ContainerDefinition])
+    , _tdTaskDefinitionARN    :: !(Maybe Text)
+    , _tdRevision             :: !(Maybe Int)
+    , _tdVolumes              :: !(Maybe [Volume])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TaskDefinition' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tdStatus'
 --
@@ -1449,17 +1476,8 @@ instance FromJSON Task where
 -- * 'tdRevision'
 --
 -- * 'tdVolumes'
-data TaskDefinition = TaskDefinition'
-    { _tdStatus               :: !(Maybe TaskDefinitionStatus)
-    , _tdFamily               :: !(Maybe Text)
-    , _tdContainerDefinitions :: !(Maybe [ContainerDefinition])
-    , _tdTaskDefinitionARN    :: !(Maybe Text)
-    , _tdRevision             :: !(Maybe Int)
-    , _tdVolumes              :: !(Maybe [Volume])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TaskDefinition' smart constructor.
-taskDefinition :: TaskDefinition
+taskDefinition
+    :: TaskDefinition
 taskDefinition =
     TaskDefinition'
     { _tdStatus = Nothing
@@ -1474,7 +1492,7 @@ taskDefinition =
 tdStatus :: Lens' TaskDefinition (Maybe TaskDefinitionStatus)
 tdStatus = lens _tdStatus (\ s a -> s{_tdStatus = a});
 
--- | The family of your task definition. You can think of the @family@ as the
+-- | The family of your task definition. You can think of the 'family' as the
 -- name of your task definition.
 tdFamily :: Lens' TaskDefinition (Maybe Text)
 tdFamily = lens _tdFamily (\ s a -> s{_tdFamily = a});
@@ -1493,7 +1511,7 @@ tdTaskDefinitionARN = lens _tdTaskDefinitionARN (\ s a -> s{_tdTaskDefinitionARN
 
 -- | The revision of the task in a particular family. You can think of the
 -- revision as a version number of a task definition in a family. When you
--- register a task definition for the first time, the revision is @1@, and
+-- register a task definition for the first time, the revision is '1', and
 -- each time you register a new revision of a task definition in the same
 -- family, the revision value always increases by one (even if you have
 -- deregistered previous revisions in this family).
@@ -1521,16 +1539,17 @@ instance FromJSON TaskDefinition where
 -- | The overrides associated with a task.
 --
 -- /See:/ 'taskOverride' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'toContainerOverrides'
 newtype TaskOverride = TaskOverride'
     { _toContainerOverrides :: Maybe [ContainerOverride]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TaskOverride' smart constructor.
-taskOverride :: TaskOverride
+-- | Creates a value of 'TaskOverride' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'toContainerOverrides'
+taskOverride
+    :: TaskOverride
 taskOverride =
     TaskOverride'
     { _toContainerOverrides = Nothing
@@ -1556,22 +1575,23 @@ instance ToJSON TaskOverride where
 -- container instance.
 --
 -- /See:/ 'versionInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'viAgentVersion'
---
--- * 'viAgentHash'
---
--- * 'viDockerVersion'
 data VersionInfo = VersionInfo'
     { _viAgentVersion  :: !(Maybe Text)
     , _viAgentHash     :: !(Maybe Text)
     , _viDockerVersion :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VersionInfo' smart constructor.
-versionInfo :: VersionInfo
+-- | Creates a value of 'VersionInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'viAgentVersion'
+--
+-- * 'viAgentHash'
+--
+-- * 'viDockerVersion'
+versionInfo
+    :: VersionInfo
 versionInfo =
     VersionInfo'
     { _viAgentVersion = Nothing
@@ -1611,27 +1631,28 @@ instance ToJSON VersionInfo where
 -- | A data volume used in a task definition.
 --
 -- /See:/ 'volume' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vName'
---
--- * 'vHost'
 data Volume = Volume'
     { _vName :: !(Maybe Text)
     , _vHost :: !(Maybe HostVolumeProperties)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Volume' smart constructor.
-volume :: Volume
+-- | Creates a value of 'Volume' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vName'
+--
+-- * 'vHost'
+volume
+    :: Volume
 volume =
     Volume'
     { _vName = Nothing
     , _vHost = Nothing
     }
 
--- | The name of the volume. This name is referenced in the @sourceVolume@
--- parameter of container definition @mountPoints@.
+-- | The name of the volume. This name is referenced in the 'sourceVolume'
+-- parameter of container definition 'mountPoints'.
 vName :: Lens' Volume (Maybe Text)
 vName = lens _vName (\ s a -> s{_vName = a});
 
@@ -1654,19 +1675,20 @@ instance ToJSON Volume where
 -- | Details on a data volume from another container.
 --
 -- /See:/ 'volumeFrom' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vfSourceContainer'
---
--- * 'vfReadOnly'
 data VolumeFrom = VolumeFrom'
     { _vfSourceContainer :: !(Maybe Text)
     , _vfReadOnly        :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VolumeFrom' smart constructor.
-volumeFrom :: VolumeFrom
+-- | Creates a value of 'VolumeFrom' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vfSourceContainer'
+--
+-- * 'vfReadOnly'
+volumeFrom
+    :: VolumeFrom
 volumeFrom =
     VolumeFrom'
     { _vfSourceContainer = Nothing
@@ -1677,9 +1699,9 @@ volumeFrom =
 vfSourceContainer :: Lens' VolumeFrom (Maybe Text)
 vfSourceContainer = lens _vfSourceContainer (\ s a -> s{_vfSourceContainer = a});
 
--- | If this value is @true@, the container has read-only access to the
--- volume. If this value is @false@, then the container can write to the
--- volume. The default value is @false@.
+-- | If this value is 'true', the container has read-only access to the
+-- volume. If this value is 'false', then the container can write to the
+-- volume. The default value is 'false'.
 vfReadOnly :: Lens' VolumeFrom (Maybe Bool)
 vfReadOnly = lens _vfReadOnly (\ s a -> s{_vfReadOnly = a});
 

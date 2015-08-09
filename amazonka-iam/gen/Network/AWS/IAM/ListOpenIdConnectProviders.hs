@@ -24,12 +24,12 @@
 module Network.AWS.IAM.ListOpenIdConnectProviders
     (
     -- * Creating a Request
-      ListOpenIdConnectProviders
-    , listOpenIdConnectProviders
+      listOpenIdConnectProviders
+    , ListOpenIdConnectProviders
 
     -- * Destructuring the Response
-    , ListOpenIdConnectProvidersResponse
     , listOpenIdConnectProvidersResponse
+    , ListOpenIdConnectProvidersResponse
     -- * Response Lenses
     , loicprsOpenIdConnectProviderList
     , loicprsStatus
@@ -46,8 +46,10 @@ data ListOpenIdConnectProviders =
     ListOpenIdConnectProviders'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListOpenIdConnectProviders' smart constructor.
-listOpenIdConnectProviders :: ListOpenIdConnectProviders
+-- | Creates a value of 'ListOpenIdConnectProviders' with the minimum fields required to make a request.
+--
+listOpenIdConnectProviders
+    :: ListOpenIdConnectProviders
 listOpenIdConnectProviders = ListOpenIdConnectProviders'
 
 instance AWSRequest ListOpenIdConnectProviders where
@@ -82,19 +84,21 @@ instance ToQuery ListOpenIdConnectProviders where
 -- request.
 --
 -- /See:/ 'listOpenIdConnectProvidersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'loicprsOpenIdConnectProviderList'
---
--- * 'loicprsStatus'
 data ListOpenIdConnectProvidersResponse = ListOpenIdConnectProvidersResponse'
     { _loicprsOpenIdConnectProviderList :: !(Maybe [OpenIdConnectProviderListEntry])
     , _loicprsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListOpenIdConnectProvidersResponse' smart constructor.
-listOpenIdConnectProvidersResponse :: Int -> ListOpenIdConnectProvidersResponse
+-- | Creates a value of 'ListOpenIdConnectProvidersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'loicprsOpenIdConnectProviderList'
+--
+-- * 'loicprsStatus'
+listOpenIdConnectProvidersResponse
+    :: Int -- ^ 'loicprsStatus'
+    -> ListOpenIdConnectProvidersResponse
 listOpenIdConnectProvidersResponse pStatus_ =
     ListOpenIdConnectProvidersResponse'
     { _loicprsOpenIdConnectProviderList = Nothing
@@ -105,6 +109,6 @@ listOpenIdConnectProvidersResponse pStatus_ =
 loicprsOpenIdConnectProviderList :: Lens' ListOpenIdConnectProvidersResponse [OpenIdConnectProviderListEntry]
 loicprsOpenIdConnectProviderList = lens _loicprsOpenIdConnectProviderList (\ s a -> s{_loicprsOpenIdConnectProviderList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 loicprsStatus :: Lens' ListOpenIdConnectProvidersResponse Int
 loicprsStatus = lens _loicprsStatus (\ s a -> s{_loicprsStatus = a});

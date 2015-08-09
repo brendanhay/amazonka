@@ -31,15 +31,15 @@
 module Network.AWS.CodeCommit.UpdateRepositoryDescription
     (
     -- * Creating a Request
-      UpdateRepositoryDescription
-    , updateRepositoryDescription
+      updateRepositoryDescription
+    , UpdateRepositoryDescription
     -- * Request Lenses
     , urdRepositoryDescription
     , urdRepositoryName
 
     -- * Destructuring the Response
-    , UpdateRepositoryDescriptionResponse
     , updateRepositoryDescriptionResponse
+    , UpdateRepositoryDescriptionResponse
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -51,19 +51,21 @@ import           Network.AWS.Response
 -- | Represents the input of an update repository description operation.
 --
 -- /See:/ 'updateRepositoryDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'urdRepositoryDescription'
---
--- * 'urdRepositoryName'
 data UpdateRepositoryDescription = UpdateRepositoryDescription'
     { _urdRepositoryDescription :: !(Maybe Text)
     , _urdRepositoryName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateRepositoryDescription' smart constructor.
-updateRepositoryDescription :: Text -> UpdateRepositoryDescription
+-- | Creates a value of 'UpdateRepositoryDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'urdRepositoryDescription'
+--
+-- * 'urdRepositoryName'
+updateRepositoryDescription
+    :: Text -- ^ 'urdRepositoryName'
+    -> UpdateRepositoryDescription
 updateRepositoryDescription pRepositoryName_ =
     UpdateRepositoryDescription'
     { _urdRepositoryDescription = Nothing
@@ -115,6 +117,8 @@ data UpdateRepositoryDescriptionResponse =
     UpdateRepositoryDescriptionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateRepositoryDescriptionResponse' smart constructor.
-updateRepositoryDescriptionResponse :: UpdateRepositoryDescriptionResponse
+-- | Creates a value of 'UpdateRepositoryDescriptionResponse' with the minimum fields required to make a request.
+--
+updateRepositoryDescriptionResponse
+    :: UpdateRepositoryDescriptionResponse
 updateRepositoryDescriptionResponse = UpdateRepositoryDescriptionResponse'

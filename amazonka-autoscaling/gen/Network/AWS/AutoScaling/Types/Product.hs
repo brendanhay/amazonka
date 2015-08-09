@@ -26,8 +26,22 @@ import           Network.AWS.Prelude
 -- size or replacing an instance.
 --
 -- /See:/ 'activity' smart constructor.
+data Activity = Activity'
+    { _aProgress             :: !(Maybe Int)
+    , _aStatusMessage        :: !(Maybe Text)
+    , _aDetails              :: !(Maybe Text)
+    , _aEndTime              :: !(Maybe ISO8601)
+    , _aDescription          :: !(Maybe Text)
+    , _aActivityId           :: !Text
+    , _aAutoScalingGroupName :: !Text
+    , _aCause                :: !Text
+    , _aStartTime            :: !ISO8601
+    , _aStatusCode           :: !ScalingActivityStatusCode
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Activity' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'aProgress'
 --
@@ -48,21 +62,13 @@ import           Network.AWS.Prelude
 -- * 'aStartTime'
 --
 -- * 'aStatusCode'
-data Activity = Activity'
-    { _aProgress             :: !(Maybe Int)
-    , _aStatusMessage        :: !(Maybe Text)
-    , _aDetails              :: !(Maybe Text)
-    , _aEndTime              :: !(Maybe ISO8601)
-    , _aDescription          :: !(Maybe Text)
-    , _aActivityId           :: !Text
-    , _aAutoScalingGroupName :: !Text
-    , _aCause                :: !Text
-    , _aStartTime            :: !ISO8601
-    , _aStatusCode           :: !ScalingActivityStatusCode
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Activity' smart constructor.
-activity :: Text -> Text -> Text -> UTCTime -> ScalingActivityStatusCode -> Activity
+activity
+    :: Text -- ^ 'aActivityId'
+    -> Text -- ^ 'aAutoScalingGroupName'
+    -> Text -- ^ 'aCause'
+    -> UTCTime -- ^ 'aStartTime'
+    -> ScalingActivityStatusCode -- ^ 'aStatusCode'
+    -> Activity
 activity pActivityId_ pAutoScalingGroupName_ pCause_ pStartTime_ pStatusCode_ =
     Activity'
     { _aProgress = Nothing
@@ -137,23 +143,24 @@ instance FromXML Activity where
 -- in the /Auto Scaling Developer Guide/.
 --
 -- /See:/ 'adjustmentType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atAdjustmentType'
 newtype AdjustmentType = AdjustmentType'
     { _atAdjustmentType :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AdjustmentType' smart constructor.
-adjustmentType :: AdjustmentType
+-- | Creates a value of 'AdjustmentType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atAdjustmentType'
+adjustmentType
+    :: AdjustmentType
 adjustmentType =
     AdjustmentType'
     { _atAdjustmentType = Nothing
     }
 
--- | The policy adjustment type. The valid values are @ChangeInCapacity@,
--- @ExactCapacity@, and @PercentChangeInCapacity@.
+-- | The policy adjustment type. The valid values are 'ChangeInCapacity',
+-- 'ExactCapacity', and 'PercentChangeInCapacity'.
 atAdjustmentType :: Lens' AdjustmentType (Maybe Text)
 atAdjustmentType = lens _atAdjustmentType (\ s a -> s{_atAdjustmentType = a});
 
@@ -164,19 +171,20 @@ instance FromXML AdjustmentType where
 -- | Describes an alarm.
 --
 -- /See:/ 'alarm' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aAlarmName'
---
--- * 'aAlarmARN'
 data Alarm = Alarm'
     { _aAlarmName :: !(Maybe Text)
     , _aAlarmARN  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Alarm' smart constructor.
-alarm :: Alarm
+-- | Creates a value of 'Alarm' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aAlarmName'
+--
+-- * 'aAlarmARN'
+alarm
+    :: Alarm
 alarm =
     Alarm'
     { _aAlarmName = Nothing
@@ -199,8 +207,32 @@ instance FromXML Alarm where
 -- | Describes an Auto Scaling group.
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
+data AutoScalingGroup = AutoScalingGroup'
+    { _asgStatus                  :: !(Maybe Text)
+    , _asgTerminationPolicies     :: !(Maybe [Text])
+    , _asgHealthCheckGracePeriod  :: !(Maybe Int)
+    , _asgVPCZoneIdentifier       :: !(Maybe Text)
+    , _asgEnabledMetrics          :: !(Maybe [EnabledMetric])
+    , _asgInstances               :: !(Maybe [Instance])
+    , _asgAutoScalingGroupARN     :: !(Maybe Text)
+    , _asgSuspendedProcesses      :: !(Maybe [SuspendedProcess])
+    , _asgPlacementGroup          :: !(Maybe Text)
+    , _asgLoadBalancerNames       :: !(Maybe [Text])
+    , _asgTags                    :: !(Maybe [TagDescription])
+    , _asgAutoScalingGroupName    :: !Text
+    , _asgLaunchConfigurationName :: !Text
+    , _asgMinSize                 :: !Int
+    , _asgMaxSize                 :: !Int
+    , _asgDesiredCapacity         :: !Int
+    , _asgDefaultCooldown         :: !Int
+    , _asgAvailabilityZones       :: !(List1 Text)
+    , _asgHealthCheckType         :: !Text
+    , _asgCreatedTime             :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AutoScalingGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'asgStatus'
 --
@@ -241,31 +273,17 @@ instance FromXML Alarm where
 -- * 'asgHealthCheckType'
 --
 -- * 'asgCreatedTime'
-data AutoScalingGroup = AutoScalingGroup'
-    { _asgStatus                  :: !(Maybe Text)
-    , _asgTerminationPolicies     :: !(Maybe [Text])
-    , _asgHealthCheckGracePeriod  :: !(Maybe Int)
-    , _asgVPCZoneIdentifier       :: !(Maybe Text)
-    , _asgEnabledMetrics          :: !(Maybe [EnabledMetric])
-    , _asgInstances               :: !(Maybe [Instance])
-    , _asgAutoScalingGroupARN     :: !(Maybe Text)
-    , _asgSuspendedProcesses      :: !(Maybe [SuspendedProcess])
-    , _asgPlacementGroup          :: !(Maybe Text)
-    , _asgLoadBalancerNames       :: !(Maybe [Text])
-    , _asgTags                    :: !(Maybe [TagDescription])
-    , _asgAutoScalingGroupName    :: !Text
-    , _asgLaunchConfigurationName :: !Text
-    , _asgMinSize                 :: !Int
-    , _asgMaxSize                 :: !Int
-    , _asgDesiredCapacity         :: !Int
-    , _asgDefaultCooldown         :: !Int
-    , _asgAvailabilityZones       :: !(List1 Text)
-    , _asgHealthCheckType         :: !Text
-    , _asgCreatedTime             :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AutoScalingGroup' smart constructor.
-autoScalingGroup :: Text -> Text -> Int -> Int -> Int -> Int -> NonEmpty Text -> Text -> UTCTime -> AutoScalingGroup
+autoScalingGroup
+    :: Text -- ^ 'asgAutoScalingGroupName'
+    -> Text -- ^ 'asgLaunchConfigurationName'
+    -> Int -- ^ 'asgMinSize'
+    -> Int -- ^ 'asgMaxSize'
+    -> Int -- ^ 'asgDesiredCapacity'
+    -> Int -- ^ 'asgDefaultCooldown'
+    -> NonEmpty Text -- ^ 'asgAvailabilityZones'
+    -> Text -- ^ 'asgHealthCheckType'
+    -> UTCTime -- ^ 'asgCreatedTime'
+    -> AutoScalingGroup
 autoScalingGroup pAutoScalingGroupName_ pLaunchConfigurationName_ pMinSize_ pMaxSize_ pDesiredCapacity_ pDefaultCooldown_ pAvailabilityZones_ pHealthCheckType_ pCreatedTime_ =
     AutoScalingGroup'
     { _asgStatus = Nothing
@@ -307,9 +325,9 @@ asgHealthCheckGracePeriod = lens _asgHealthCheckGracePeriod (\ s a -> s{_asgHeal
 
 -- | One or more subnet IDs, if applicable, separated by commas.
 --
--- If you specify @VPCZoneIdentifier@ and @AvailabilityZones@, ensure that
+-- If you specify 'VPCZoneIdentifier' and 'AvailabilityZones', ensure that
 -- the Availability Zones of the subnets match the values for
--- @AvailabilityZones@.
+-- 'AvailabilityZones'.
 asgVPCZoneIdentifier :: Lens' AutoScalingGroup (Maybe Text)
 asgVPCZoneIdentifier = lens _asgVPCZoneIdentifier (\ s a -> s{_asgVPCZoneIdentifier = a});
 
@@ -373,7 +391,7 @@ asgAvailabilityZones :: Lens' AutoScalingGroup (NonEmpty Text)
 asgAvailabilityZones = lens _asgAvailabilityZones (\ s a -> s{_asgAvailabilityZones = a}) . _List1;
 
 -- | The service of interest for the health status check, which can be either
--- @EC2@ for Amazon EC2 or @ELB@ for Elastic Load Balancing.
+-- 'EC2' for Amazon EC2 or 'ELB' for Elastic Load Balancing.
 asgHealthCheckType :: Lens' AutoScalingGroup Text
 asgHealthCheckType = lens _asgHealthCheckType (\ s a -> s{_asgHealthCheckType = a});
 
@@ -421,8 +439,18 @@ instance FromXML AutoScalingGroup where
 -- | Describes an EC2 instance associated with an Auto Scaling group.
 --
 -- /See:/ 'autoScalingInstanceDetails' smart constructor.
+data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
+    { _asidInstanceId              :: !Text
+    , _asidAutoScalingGroupName    :: !Text
+    , _asidAvailabilityZone        :: !Text
+    , _asidLifecycleState          :: !Text
+    , _asidHealthStatus            :: !Text
+    , _asidLaunchConfigurationName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AutoScalingInstanceDetails' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'asidInstanceId'
 --
@@ -435,17 +463,14 @@ instance FromXML AutoScalingGroup where
 -- * 'asidHealthStatus'
 --
 -- * 'asidLaunchConfigurationName'
-data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
-    { _asidInstanceId              :: !Text
-    , _asidAutoScalingGroupName    :: !Text
-    , _asidAvailabilityZone        :: !Text
-    , _asidLifecycleState          :: !Text
-    , _asidHealthStatus            :: !Text
-    , _asidLaunchConfigurationName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AutoScalingInstanceDetails' smart constructor.
-autoScalingInstanceDetails :: Text -> Text -> Text -> Text -> Text -> Text -> AutoScalingInstanceDetails
+autoScalingInstanceDetails
+    :: Text -- ^ 'asidInstanceId'
+    -> Text -- ^ 'asidAutoScalingGroupName'
+    -> Text -- ^ 'asidAvailabilityZone'
+    -> Text -- ^ 'asidLifecycleState'
+    -> Text -- ^ 'asidHealthStatus'
+    -> Text -- ^ 'asidLaunchConfigurationName'
+    -> AutoScalingInstanceDetails
 autoScalingInstanceDetails pInstanceId_ pAutoScalingGroupName_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pLaunchConfigurationName_ =
     AutoScalingInstanceDetails'
     { _asidInstanceId = pInstanceId_
@@ -496,8 +521,16 @@ instance FromXML AutoScalingInstanceDetails where
 -- | Describes a block device mapping.
 --
 -- /See:/ 'blockDeviceMapping' smart constructor.
+data BlockDeviceMapping = BlockDeviceMapping'
+    { _bdmVirtualName :: !(Maybe Text)
+    , _bdmNoDevice    :: !(Maybe Bool)
+    , _bdmEBS         :: !(Maybe EBS)
+    , _bdmDeviceName  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BlockDeviceMapping' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'bdmVirtualName'
 --
@@ -506,15 +539,9 @@ instance FromXML AutoScalingInstanceDetails where
 -- * 'bdmEBS'
 --
 -- * 'bdmDeviceName'
-data BlockDeviceMapping = BlockDeviceMapping'
-    { _bdmVirtualName :: !(Maybe Text)
-    , _bdmNoDevice    :: !(Maybe Bool)
-    , _bdmEBS         :: !(Maybe EBS)
-    , _bdmDeviceName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'BlockDeviceMapping' smart constructor.
-blockDeviceMapping :: Text -> BlockDeviceMapping
+blockDeviceMapping
+    :: Text -- ^ 'bdmDeviceName'
+    -> BlockDeviceMapping
 blockDeviceMapping pDeviceName_ =
     BlockDeviceMapping'
     { _bdmVirtualName = Nothing
@@ -523,7 +550,7 @@ blockDeviceMapping pDeviceName_ =
     , _bdmDeviceName = pDeviceName_
     }
 
--- | The name of the virtual device, @ephemeral0@ to @ephemeral3@.
+-- | The name of the virtual device, 'ephemeral0' to 'ephemeral3'.
 bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
 bdmVirtualName = lens _bdmVirtualName (\ s a -> s{_bdmVirtualName = a});
 
@@ -539,8 +566,8 @@ bdmNoDevice = lens _bdmNoDevice (\ s a -> s{_bdmNoDevice = a});
 bdmEBS :: Lens' BlockDeviceMapping (Maybe EBS)
 bdmEBS = lens _bdmEBS (\ s a -> s{_bdmEBS = a});
 
--- | The device name exposed to the EC2 instance (for example, @\/dev\/sdh@
--- or @xvdh@).
+-- | The device name exposed to the EC2 instance (for example, '\/dev\/sdh'
+-- or 'xvdh').
 bdmDeviceName :: Lens' BlockDeviceMapping Text
 bdmDeviceName = lens _bdmDeviceName (\ s a -> s{_bdmDeviceName = a});
 
@@ -561,8 +588,17 @@ instance ToQuery BlockDeviceMapping where
 -- | Describes an Amazon EBS volume.
 --
 -- /See:/ 'ebs' smart constructor.
+data EBS = EBS'
+    { _ebsDeleteOnTermination :: !(Maybe Bool)
+    , _ebsVolumeSize          :: !(Maybe Nat)
+    , _ebsIOPS                :: !(Maybe Nat)
+    , _ebsVolumeType          :: !(Maybe Text)
+    , _ebsSnapshotId          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EBS' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ebsDeleteOnTermination'
 --
@@ -573,16 +609,8 @@ instance ToQuery BlockDeviceMapping where
 -- * 'ebsVolumeType'
 --
 -- * 'ebsSnapshotId'
-data EBS = EBS'
-    { _ebsDeleteOnTermination :: !(Maybe Bool)
-    , _ebsVolumeSize          :: !(Maybe Nat)
-    , _ebsIOPS                :: !(Maybe Nat)
-    , _ebsVolumeType          :: !(Maybe Text)
-    , _ebsSnapshotId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EBS' smart constructor.
-ebs :: EBS
+ebs
+    :: EBS
 ebs =
     EBS'
     { _ebsDeleteOnTermination = Nothing
@@ -594,20 +622,20 @@ ebs =
 
 -- | Indicates whether to delete the volume on instance termination.
 --
--- Default: @true@
+-- Default: 'true'
 ebsDeleteOnTermination :: Lens' EBS (Maybe Bool)
 ebsDeleteOnTermination = lens _ebsDeleteOnTermination (\ s a -> s{_ebsDeleteOnTermination = a});
 
 -- | The volume size, in gigabytes.
 --
--- Valid values: If the volume type is @io1@, the minimum size of the
--- volume is 10 GiB. If you specify @SnapshotId@ and @VolumeSize@,
--- @VolumeSize@ must be equal to or larger than the size of the snapshot.
+-- Valid values: If the volume type is 'io1', the minimum size of the
+-- volume is 10 GiB. If you specify 'SnapshotId' and 'VolumeSize',
+-- 'VolumeSize' must be equal to or larger than the size of the snapshot.
 --
 -- Default: If you create a volume from a snapshot and you don\'t specify a
 -- volume size, the default is the size of the snapshot.
 --
--- Required: Required when the volume type is @io1@.
+-- Required: Required when the volume type is 'io1'.
 ebsVolumeSize :: Lens' EBS (Maybe Natural)
 ebsVolumeSize = lens _ebsVolumeSize (\ s a -> s{_ebsVolumeSize = a}) . mapping _Nat;
 
@@ -622,9 +650,9 @@ ebsIOPS = lens _ebsIOPS (\ s a -> s{_ebsIOPS = a}) . mapping _Nat;
 
 -- | The volume type.
 --
--- Valid values: @standard | io1 | gp2@
+-- Valid values: 'standard | io1 | gp2'
 --
--- Default: @standard@
+-- Default: 'standard'
 ebsVolumeType :: Lens' EBS (Maybe Text)
 ebsVolumeType = lens _ebsVolumeType (\ s a -> s{_ebsVolumeType = a});
 
@@ -652,46 +680,47 @@ instance ToQuery EBS where
 -- | Describes an enabled metric.
 --
 -- /See:/ 'enabledMetric' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'emGranularity'
---
--- * 'emMetric'
 data EnabledMetric = EnabledMetric'
     { _emGranularity :: !(Maybe Text)
     , _emMetric      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnabledMetric' smart constructor.
-enabledMetric :: EnabledMetric
+-- | Creates a value of 'EnabledMetric' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'emGranularity'
+--
+-- * 'emMetric'
+enabledMetric
+    :: EnabledMetric
 enabledMetric =
     EnabledMetric'
     { _emGranularity = Nothing
     , _emMetric = Nothing
     }
 
--- | The granularity of the metric. The only valid value is @1Minute@.
+-- | The granularity of the metric. The only valid value is '1Minute'.
 emGranularity :: Lens' EnabledMetric (Maybe Text)
 emGranularity = lens _emGranularity (\ s a -> s{_emGranularity = a});
 
 -- | The name of the metric.
 --
--- -   @GroupMinSize@
+-- -   'GroupMinSize'
 --
--- -   @GroupMaxSize@
+-- -   'GroupMaxSize'
 --
--- -   @GroupDesiredCapacity@
+-- -   'GroupDesiredCapacity'
 --
--- -   @GroupInServiceInstances@
+-- -   'GroupInServiceInstances'
 --
--- -   @GroupPendingInstances@
+-- -   'GroupPendingInstances'
 --
--- -   @GroupStandbyInstances@
+-- -   'GroupStandbyInstances'
 --
--- -   @GroupTerminatingInstances@
+-- -   'GroupTerminatingInstances'
 --
--- -   @GroupTotalInstances@
+-- -   'GroupTotalInstances'
 --
 emMetric :: Lens' EnabledMetric (Maybe Text)
 emMetric = lens _emMetric (\ s a -> s{_emMetric = a});
@@ -704,19 +733,21 @@ instance FromXML EnabledMetric where
 -- | Describes a filter.
 --
 -- /See:/ 'filter'' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fValues'
---
--- * 'fName'
 data Filter = Filter'
     { _fValues :: !(Maybe [Text])
     , _fName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Filter' smart constructor.
-filter' :: Text -> Filter
+-- | Creates a value of 'Filter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fValues'
+--
+-- * 'fName'
+filter'
+    :: Text -- ^ 'fName'
+    -> Filter
 filter' pName_ =
     Filter'
     { _fValues = Nothing
@@ -727,8 +758,8 @@ filter' pName_ =
 fValues :: Lens' Filter [Text]
 fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Default . _Coerce;
 
--- | The name of the filter. The valid values are: @\"auto-scaling-group\"@,
--- @\"key\"@, @\"value\"@, and @\"propagate-at-launch\"@.
+-- | The name of the filter. The valid values are: '\"auto-scaling-group\"',
+-- '\"key\"', '\"value\"', and '\"propagate-at-launch\"'.
 fName :: Lens' Filter Text
 fName = lens _fName (\ s a -> s{_fName = a});
 
@@ -742,8 +773,17 @@ instance ToQuery Filter where
 -- | Describes an EC2 instance.
 --
 -- /See:/ 'instance'' smart constructor.
+data Instance = Instance'
+    { _iInstanceId              :: !Text
+    , _iAvailabilityZone        :: !Text
+    , _iLifecycleState          :: !LifecycleState
+    , _iHealthStatus            :: !Text
+    , _iLaunchConfigurationName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iInstanceId'
 --
@@ -754,16 +794,13 @@ instance ToQuery Filter where
 -- * 'iHealthStatus'
 --
 -- * 'iLaunchConfigurationName'
-data Instance = Instance'
-    { _iInstanceId              :: !Text
-    , _iAvailabilityZone        :: !Text
-    , _iLifecycleState          :: !LifecycleState
-    , _iHealthStatus            :: !Text
-    , _iLaunchConfigurationName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Instance' smart constructor.
-instance' :: Text -> Text -> LifecycleState -> Text -> Text -> Instance
+instance'
+    :: Text -- ^ 'iInstanceId'
+    -> Text -- ^ 'iAvailabilityZone'
+    -> LifecycleState -- ^ 'iLifecycleState'
+    -> Text -- ^ 'iHealthStatus'
+    -> Text -- ^ 'iLaunchConfigurationName'
+    -> Instance
 instance' pInstanceId_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pLaunchConfigurationName_ =
     Instance'
     { _iInstanceId = pInstanceId_
@@ -782,7 +819,7 @@ iAvailabilityZone :: Lens' Instance Text
 iAvailabilityZone = lens _iAvailabilityZone (\ s a -> s{_iAvailabilityZone = a});
 
 -- | A description of the current lifecycle state. Note that the
--- @Quarantined@ state is not used.
+-- 'Quarantined' state is not used.
 iLifecycleState :: Lens' Instance LifecycleState
 iLifecycleState = lens _iLifecycleState (\ s a -> s{_iLifecycleState = a});
 
@@ -805,22 +842,23 @@ instance FromXML Instance where
 -- | Describes whether instance monitoring is enabled.
 --
 -- /See:/ 'instanceMonitoring' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'imEnabled'
 newtype InstanceMonitoring = InstanceMonitoring'
     { _imEnabled :: Maybe Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceMonitoring' smart constructor.
-instanceMonitoring :: InstanceMonitoring
+-- | Creates a value of 'InstanceMonitoring' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'imEnabled'
+instanceMonitoring
+    :: InstanceMonitoring
 instanceMonitoring =
     InstanceMonitoring'
     { _imEnabled = Nothing
     }
 
--- | If @True@, instance monitoring is enabled.
+-- | If 'True', instance monitoring is enabled.
 imEnabled :: Lens' InstanceMonitoring (Maybe Bool)
 imEnabled = lens _imEnabled (\ s a -> s{_imEnabled = a});
 
@@ -835,8 +873,31 @@ instance ToQuery InstanceMonitoring where
 -- | Describes a launch configuration.
 --
 -- /See:/ 'launchConfiguration' smart constructor.
+data LaunchConfiguration = LaunchConfiguration'
+    { _lcSecurityGroups               :: !(Maybe [Text])
+    , _lcAssociatePublicIPAddress     :: !(Maybe Bool)
+    , _lcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
+    , _lcSpotPrice                    :: !(Maybe Text)
+    , _lcKeyName                      :: !(Maybe Text)
+    , _lcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
+    , _lcRAMDiskId                    :: !(Maybe Text)
+    , _lcKernelId                     :: !(Maybe Text)
+    , _lcEBSOptimized                 :: !(Maybe Bool)
+    , _lcUserData                     :: !(Maybe Text)
+    , _lcClassicLinkVPCId             :: !(Maybe Text)
+    , _lcIAMInstanceProfile           :: !(Maybe Text)
+    , _lcLaunchConfigurationARN       :: !(Maybe Text)
+    , _lcPlacementTenancy             :: !(Maybe Text)
+    , _lcBlockDeviceMappings          :: !(Maybe [BlockDeviceMapping])
+    , _lcLaunchConfigurationName      :: !Text
+    , _lcImageId                      :: !Text
+    , _lcInstanceType                 :: !Text
+    , _lcCreatedTime                  :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LaunchConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lcSecurityGroups'
 --
@@ -875,30 +936,12 @@ instance ToQuery InstanceMonitoring where
 -- * 'lcInstanceType'
 --
 -- * 'lcCreatedTime'
-data LaunchConfiguration = LaunchConfiguration'
-    { _lcSecurityGroups               :: !(Maybe [Text])
-    , _lcAssociatePublicIPAddress     :: !(Maybe Bool)
-    , _lcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
-    , _lcSpotPrice                    :: !(Maybe Text)
-    , _lcKeyName                      :: !(Maybe Text)
-    , _lcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
-    , _lcRAMDiskId                    :: !(Maybe Text)
-    , _lcKernelId                     :: !(Maybe Text)
-    , _lcEBSOptimized                 :: !(Maybe Bool)
-    , _lcUserData                     :: !(Maybe Text)
-    , _lcClassicLinkVPCId             :: !(Maybe Text)
-    , _lcIAMInstanceProfile           :: !(Maybe Text)
-    , _lcLaunchConfigurationARN       :: !(Maybe Text)
-    , _lcPlacementTenancy             :: !(Maybe Text)
-    , _lcBlockDeviceMappings          :: !(Maybe [BlockDeviceMapping])
-    , _lcLaunchConfigurationName      :: !Text
-    , _lcImageId                      :: !Text
-    , _lcInstanceType                 :: !Text
-    , _lcCreatedTime                  :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LaunchConfiguration' smart constructor.
-launchConfiguration :: Text -> Text -> Text -> UTCTime -> LaunchConfiguration
+launchConfiguration
+    :: Text -- ^ 'lcLaunchConfigurationName'
+    -> Text -- ^ 'lcImageId'
+    -> Text -- ^ 'lcInstanceType'
+    -> UTCTime -- ^ 'lcCreatedTime'
+    -> LaunchConfiguration
 launchConfiguration pLaunchConfigurationName_ pImageId_ pInstanceType_ pCreatedTime_ =
     LaunchConfiguration'
     { _lcSecurityGroups = Nothing
@@ -927,7 +970,7 @@ lcSecurityGroups :: Lens' LaunchConfiguration [Text]
 lcSecurityGroups = lens _lcSecurityGroups (\ s a -> s{_lcSecurityGroups = a}) . _Default . _Coerce;
 
 -- | Specifies whether the instances are associated with a public IP address
--- (@true@) or not (@false@).
+-- ('true') or not ('false').
 lcAssociatePublicIPAddress :: Lens' LaunchConfiguration (Maybe Bool)
 lcAssociatePublicIPAddress = lens _lcAssociatePublicIPAddress (\ s a -> s{_lcAssociatePublicIPAddress = a});
 
@@ -945,7 +988,7 @@ lcKeyName :: Lens' LaunchConfiguration (Maybe Text)
 lcKeyName = lens _lcKeyName (\ s a -> s{_lcKeyName = a});
 
 -- | The IDs of one or more security groups for the VPC specified in
--- @ClassicLinkVPCId@. This parameter is required if @ClassicLinkVPCId@ is
+-- 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is
 -- specified, and cannot be used otherwise. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -960,8 +1003,8 @@ lcRAMDiskId = lens _lcRAMDiskId (\ s a -> s{_lcRAMDiskId = a});
 lcKernelId :: Lens' LaunchConfiguration (Maybe Text)
 lcKernelId = lens _lcKernelId (\ s a -> s{_lcKernelId = a});
 
--- | Controls whether the instance is optimized for EBS I\/O (@true@) or not
--- (@false@).
+-- | Controls whether the instance is optimized for EBS I\/O ('true') or not
+-- ('false').
 lcEBSOptimized :: Lens' LaunchConfiguration (Maybe Bool)
 lcEBSOptimized = lens _lcEBSOptimized (\ s a -> s{_lcEBSOptimized = a});
 
@@ -986,8 +1029,8 @@ lcIAMInstanceProfile = lens _lcIAMInstanceProfile (\ s a -> s{_lcIAMInstanceProf
 lcLaunchConfigurationARN :: Lens' LaunchConfiguration (Maybe Text)
 lcLaunchConfigurationARN = lens _lcLaunchConfigurationARN (\ s a -> s{_lcLaunchConfigurationARN = a});
 
--- | The tenancy of the instance, either @default@ or @dedicated@. An
--- instance with @dedicated@ tenancy runs in an isolated, single-tenant
+-- | The tenancy of the instance, either 'default' or 'dedicated'. An
+-- instance with 'dedicated' tenancy runs in an isolated, single-tenant
 -- hardware and can only be launched into a VPC.
 lcPlacementTenancy :: Lens' LaunchConfiguration (Maybe Text)
 lcPlacementTenancy = lens _lcPlacementTenancy (\ s a -> s{_lcPlacementTenancy = a});
@@ -1057,8 +1100,21 @@ instance FromXML LaunchConfiguration where
 -- in the /Auto Scaling Developer Guide/.
 --
 -- /See:/ 'lifecycleHook' smart constructor.
+data LifecycleHook = LifecycleHook'
+    { _lhDefaultResult         :: !(Maybe Text)
+    , _lhLifecycleHookName     :: !(Maybe Text)
+    , _lhHeartbeatTimeout      :: !(Maybe Int)
+    , _lhAutoScalingGroupName  :: !(Maybe Text)
+    , _lhNotificationMetadata  :: !(Maybe Text)
+    , _lhGlobalTimeout         :: !(Maybe Int)
+    , _lhRoleARN               :: !(Maybe Text)
+    , _lhLifecycleTransition   :: !(Maybe Text)
+    , _lhNotificationTargetARN :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LifecycleHook' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lhDefaultResult'
 --
@@ -1077,20 +1133,8 @@ instance FromXML LaunchConfiguration where
 -- * 'lhLifecycleTransition'
 --
 -- * 'lhNotificationTargetARN'
-data LifecycleHook = LifecycleHook'
-    { _lhDefaultResult         :: !(Maybe Text)
-    , _lhLifecycleHookName     :: !(Maybe Text)
-    , _lhHeartbeatTimeout      :: !(Maybe Int)
-    , _lhAutoScalingGroupName  :: !(Maybe Text)
-    , _lhNotificationMetadata  :: !(Maybe Text)
-    , _lhGlobalTimeout         :: !(Maybe Int)
-    , _lhRoleARN               :: !(Maybe Text)
-    , _lhLifecycleTransition   :: !(Maybe Text)
-    , _lhNotificationTargetARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LifecycleHook' smart constructor.
-lifecycleHook :: LifecycleHook
+lifecycleHook
+    :: LifecycleHook
 lifecycleHook =
     LifecycleHook'
     { _lhDefaultResult = Nothing
@@ -1106,7 +1150,7 @@ lifecycleHook =
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The valid
--- values are @CONTINUE@ and @ABANDON@. The default value is @CONTINUE@.
+-- values are 'CONTINUE' and 'ABANDON'. The default value is 'CONTINUE'.
 lhDefaultResult :: Lens' LifecycleHook (Maybe Text)
 lhDefaultResult = lens _lhDefaultResult (\ s a -> s{_lhDefaultResult = a});
 
@@ -1116,7 +1160,7 @@ lhLifecycleHookName = lens _lhLifecycleHookName (\ s a -> s{_lhLifecycleHookName
 
 -- | The amount of time that can elapse before the lifecycle hook times out.
 -- When the lifecycle hook times out, Auto Scaling performs the action
--- defined in the @DefaultResult@ parameter. You can prevent the lifecycle
+-- defined in the 'DefaultResult' parameter. You can prevent the lifecycle
 -- hook from timing out by calling RecordLifecycleActionHeartbeat.
 lhHeartbeatTimeout :: Lens' LifecycleHook (Maybe Int)
 lhHeartbeatTimeout = lens _lhHeartbeatTimeout (\ s a -> s{_lhHeartbeatTimeout = a});
@@ -1130,8 +1174,8 @@ lhAutoScalingGroupName = lens _lhAutoScalingGroupName (\ s a -> s{_lhAutoScaling
 lhNotificationMetadata :: Lens' LifecycleHook (Maybe Text)
 lhNotificationMetadata = lens _lhNotificationMetadata (\ s a -> s{_lhNotificationMetadata = a});
 
--- | The maximum length of time an instance can remain in a @Pending:Wait@ or
--- @Terminating:Wait@ state. Currently, the maximum is set to 48 hours.
+-- | The maximum length of time an instance can remain in a 'Pending:Wait' or
+-- 'Terminating:Wait' state. Currently, the maximum is set to 48 hours.
 lhGlobalTimeout :: Lens' LifecycleHook (Maybe Int)
 lhGlobalTimeout = lens _lhGlobalTimeout (\ s a -> s{_lhGlobalTimeout = a});
 
@@ -1177,19 +1221,20 @@ instance FromXML LifecycleHook where
 -- | Describes the state of a load balancer.
 --
 -- /See:/ 'loadBalancerState' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lbsState'
---
--- * 'lbsLoadBalancerName'
 data LoadBalancerState = LoadBalancerState'
     { _lbsState            :: !(Maybe Text)
     , _lbsLoadBalancerName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LoadBalancerState' smart constructor.
-loadBalancerState :: LoadBalancerState
+-- | Creates a value of 'LoadBalancerState' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbsState'
+--
+-- * 'lbsLoadBalancerName'
+loadBalancerState
+    :: LoadBalancerState
 loadBalancerState =
     LoadBalancerState'
     { _lbsState = Nothing
@@ -1198,16 +1243,16 @@ loadBalancerState =
 
 -- | The state of the load balancer.
 --
--- -   @Adding@ - The instances in the group are being registered with the
+-- -   'Adding' - The instances in the group are being registered with the
 --     load balancer.
 --
--- -   @Added@ - All instances in the group are registered with the load
+-- -   'Added' - All instances in the group are registered with the load
 --     balancer.
 --
--- -   @InService@ - At least one instance in the group passed an ELB
+-- -   'InService' - At least one instance in the group passed an ELB
 --     health check.
 --
--- -   @Removing@ - The instances are being deregistered from the load
+-- -   'Removing' - The instances are being deregistered from the load
 --     balancer. If connection draining is enabled, Elastic Load Balancing
 --     waits for in-flight requests to complete before deregistering the
 --     instances.
@@ -1227,16 +1272,17 @@ instance FromXML LoadBalancerState where
 -- | Describes a metric.
 --
 -- /See:/ 'metricCollectionType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mctMetric'
 newtype MetricCollectionType = MetricCollectionType'
     { _mctMetric :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MetricCollectionType' smart constructor.
-metricCollectionType :: MetricCollectionType
+-- | Creates a value of 'MetricCollectionType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mctMetric'
+metricCollectionType
+    :: MetricCollectionType
 metricCollectionType =
     MetricCollectionType'
     { _mctMetric = Nothing
@@ -1244,21 +1290,21 @@ metricCollectionType =
 
 -- | The metric.
 --
--- -   @GroupMinSize@
+-- -   'GroupMinSize'
 --
--- -   @GroupMaxSize@
+-- -   'GroupMaxSize'
 --
--- -   @GroupDesiredCapacity@
+-- -   'GroupDesiredCapacity'
 --
--- -   @GroupInServiceInstances@
+-- -   'GroupInServiceInstances'
 --
--- -   @GroupPendingInstances@
+-- -   'GroupPendingInstances'
 --
--- -   @GroupStandbyInstances@
+-- -   'GroupStandbyInstances'
 --
--- -   @GroupTerminatingInstances@
+-- -   'GroupTerminatingInstances'
 --
--- -   @GroupTotalInstances@
+-- -   'GroupTotalInstances'
 --
 mctMetric :: Lens' MetricCollectionType (Maybe Text)
 mctMetric = lens _mctMetric (\ s a -> s{_mctMetric = a});
@@ -1270,22 +1316,23 @@ instance FromXML MetricCollectionType where
 -- | Describes a granularity of a metric.
 --
 -- /See:/ 'metricGranularityType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mgtGranularity'
 newtype MetricGranularityType = MetricGranularityType'
     { _mgtGranularity :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MetricGranularityType' smart constructor.
-metricGranularityType :: MetricGranularityType
+-- | Creates a value of 'MetricGranularityType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mgtGranularity'
+metricGranularityType
+    :: MetricGranularityType
 metricGranularityType =
     MetricGranularityType'
     { _mgtGranularity = Nothing
     }
 
--- | The granularity. The only valid value is @1Minute@.
+-- | The granularity. The only valid value is '1Minute'.
 mgtGranularity :: Lens' MetricGranularityType (Maybe Text)
 mgtGranularity = lens _mgtGranularity (\ s a -> s{_mgtGranularity = a});
 
@@ -1296,22 +1343,23 @@ instance FromXML MetricGranularityType where
 -- | Describes a notification.
 --
 -- /See:/ 'notificationConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ncTopicARN'
---
--- * 'ncAutoScalingGroupName'
---
--- * 'ncNotificationType'
 data NotificationConfiguration = NotificationConfiguration'
     { _ncTopicARN             :: !(Maybe Text)
     , _ncAutoScalingGroupName :: !(Maybe Text)
     , _ncNotificationType     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'NotificationConfiguration' smart constructor.
-notificationConfiguration :: NotificationConfiguration
+-- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ncTopicARN'
+--
+-- * 'ncAutoScalingGroupName'
+--
+-- * 'ncNotificationType'
+notificationConfiguration
+    :: NotificationConfiguration
 notificationConfiguration =
     NotificationConfiguration'
     { _ncTopicARN = Nothing
@@ -1330,15 +1378,15 @@ ncAutoScalingGroupName = lens _ncAutoScalingGroupName (\ s a -> s{_ncAutoScaling
 
 -- | The types of events for an action to start.
 --
--- -   @autoscaling:EC2_INSTANCE_LAUNCH@
+-- -   'autoscaling:EC2_INSTANCE_LAUNCH'
 --
--- -   @autoscaling:EC2_INSTANCE_LAUNCH_ERROR@
+-- -   'autoscaling:EC2_INSTANCE_LAUNCH_ERROR'
 --
--- -   @autoscaling:EC2_INSTANCE_TERMINATE@
+-- -   'autoscaling:EC2_INSTANCE_TERMINATE'
 --
--- -   @autoscaling:EC2_INSTANCE_TERMINATE_ERROR@
+-- -   'autoscaling:EC2_INSTANCE_TERMINATE_ERROR'
 --
--- -   @autoscaling:TEST_NOTIFICATION@
+-- -   'autoscaling:TEST_NOTIFICATION'
 --
 ncNotificationType :: Lens' NotificationConfiguration (Maybe Text)
 ncNotificationType = lens _ncNotificationType (\ s a -> s{_ncNotificationType = a});
@@ -1356,16 +1404,18 @@ instance FromXML NotificationConfiguration where
 -- in the /Auto Scaling Developer Guide/.
 --
 -- /See:/ 'processType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ptProcessName'
 newtype ProcessType = ProcessType'
     { _ptProcessName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ProcessType' smart constructor.
-processType :: Text -> ProcessType
+-- | Creates a value of 'ProcessType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ptProcessName'
+processType
+    :: Text -- ^ 'ptProcessName'
+    -> ProcessType
 processType pProcessName_ =
     ProcessType'
     { _ptProcessName = pProcessName_
@@ -1373,21 +1423,21 @@ processType pProcessName_ =
 
 -- | The name of the process.
 --
--- -   @Launch@
+-- -   'Launch'
 --
--- -   @Terminate@
+-- -   'Terminate'
 --
--- -   @AddToLoadBalancer@
+-- -   'AddToLoadBalancer'
 --
--- -   @AlarmNotification@
+-- -   'AlarmNotification'
 --
--- -   @AZRebalance@
+-- -   'AZRebalance'
 --
--- -   @HealthCheck@
+-- -   'HealthCheck'
 --
--- -   @ReplaceUnhealthy@
+-- -   'ReplaceUnhealthy'
 --
--- -   @ScheduledActions@
+-- -   'ScheduledActions'
 --
 ptProcessName :: Lens' ProcessType Text
 ptProcessName = lens _ptProcessName (\ s a -> s{_ptProcessName = a});
@@ -1398,8 +1448,25 @@ instance FromXML ProcessType where
 -- | Describes a scaling policy.
 --
 -- /See:/ 'scalingPolicy' smart constructor.
+data ScalingPolicy = ScalingPolicy'
+    { _sEstimatedInstanceWarmup :: !(Maybe Int)
+    , _sMinAdjustmentStep       :: !(Maybe Int)
+    , _sPolicyName              :: !(Maybe Text)
+    , _sPolicyType              :: !(Maybe Text)
+    , _sStepAdjustments         :: !(Maybe [StepAdjustment])
+    , _sAdjustmentType          :: !(Maybe Text)
+    , _sScalingAdjustment       :: !(Maybe Int)
+    , _sAutoScalingGroupName    :: !(Maybe Text)
+    , _sCooldown                :: !(Maybe Int)
+    , _sPolicyARN               :: !(Maybe Text)
+    , _sAlarms                  :: !(Maybe [Alarm])
+    , _sMetricAggregationType   :: !(Maybe Text)
+    , _sMinAdjustmentMagnitude  :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScalingPolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sEstimatedInstanceWarmup'
 --
@@ -1426,24 +1493,8 @@ instance FromXML ProcessType where
 -- * 'sMetricAggregationType'
 --
 -- * 'sMinAdjustmentMagnitude'
-data ScalingPolicy = ScalingPolicy'
-    { _sEstimatedInstanceWarmup :: !(Maybe Int)
-    , _sMinAdjustmentStep       :: !(Maybe Int)
-    , _sPolicyName              :: !(Maybe Text)
-    , _sPolicyType              :: !(Maybe Text)
-    , _sStepAdjustments         :: !(Maybe [StepAdjustment])
-    , _sAdjustmentType          :: !(Maybe Text)
-    , _sScalingAdjustment       :: !(Maybe Int)
-    , _sAutoScalingGroupName    :: !(Maybe Text)
-    , _sCooldown                :: !(Maybe Int)
-    , _sPolicyARN               :: !(Maybe Text)
-    , _sAlarms                  :: !(Maybe [Alarm])
-    , _sMetricAggregationType   :: !(Maybe Text)
-    , _sMinAdjustmentMagnitude  :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ScalingPolicy' smart constructor.
-scalingPolicy :: ScalingPolicy
+scalingPolicy
+    :: ScalingPolicy
 scalingPolicy =
     ScalingPolicy'
     { _sEstimatedInstanceWarmup = Nothing
@@ -1466,7 +1517,7 @@ scalingPolicy =
 sEstimatedInstanceWarmup :: Lens' ScalingPolicy (Maybe Int)
 sEstimatedInstanceWarmup = lens _sEstimatedInstanceWarmup (\ s a -> s{_sEstimatedInstanceWarmup = a});
 
--- | Available for backward compatibility. Use @MinAdjustmentMagnitude@
+-- | Available for backward compatibility. Use 'MinAdjustmentMagnitude'
 -- instead.
 sMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Int)
 sMinAdjustmentStep = lens _sMinAdjustmentStep (\ s a -> s{_sMinAdjustmentStep = a});
@@ -1475,7 +1526,7 @@ sMinAdjustmentStep = lens _sMinAdjustmentStep (\ s a -> s{_sMinAdjustmentStep = 
 sPolicyName :: Lens' ScalingPolicy (Maybe Text)
 sPolicyName = lens _sPolicyName (\ s a -> s{_sPolicyName = a});
 
--- | The policy type. Valid values are @SimpleScaling@ and @StepScaling@.
+-- | The policy type. Valid values are 'SimpleScaling' and 'StepScaling'.
 sPolicyType :: Lens' ScalingPolicy (Maybe Text)
 sPolicyType = lens _sPolicyType (\ s a -> s{_sPolicyType = a});
 
@@ -1484,9 +1535,9 @@ sPolicyType = lens _sPolicyType (\ s a -> s{_sPolicyType = a});
 sStepAdjustments :: Lens' ScalingPolicy [StepAdjustment]
 sStepAdjustments = lens _sStepAdjustments (\ s a -> s{_sStepAdjustments = a}) . _Default . _Coerce;
 
--- | The adjustment type, which specifies how @ScalingAdjustment@ is
--- interpreted. Valid values are @ChangeInCapacity@, @ExactCapacity@, and
--- @PercentChangeInCapacity@.
+-- | The adjustment type, which specifies how 'ScalingAdjustment' is
+-- interpreted. Valid values are 'ChangeInCapacity', 'ExactCapacity', and
+-- 'PercentChangeInCapacity'.
 sAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
 sAdjustmentType = lens _sAdjustmentType (\ s a -> s{_sAdjustmentType = a});
 
@@ -1514,14 +1565,14 @@ sAlarms :: Lens' ScalingPolicy [Alarm]
 sAlarms = lens _sAlarms (\ s a -> s{_sAlarms = a}) . _Default . _Coerce;
 
 -- | The aggregation type for the CloudWatch metrics. Valid values are
--- @Minimum@, @Maximum@, and @Average@.
+-- 'Minimum', 'Maximum', and 'Average'.
 sMetricAggregationType :: Lens' ScalingPolicy (Maybe Text)
 sMetricAggregationType = lens _sMetricAggregationType (\ s a -> s{_sMetricAggregationType = a});
 
 -- | The minimum number of instances to scale. If the value of
--- @AdjustmentType@ is @PercentChangeInCapacity@, the scaling policy
--- changes the @DesiredCapacity@ of the Auto Scaling group by at least this
--- many instances. Otherwise, the error is @ValidationError@.
+-- 'AdjustmentType' is 'PercentChangeInCapacity', the scaling policy
+-- changes the 'DesiredCapacity' of the Auto Scaling group by at least this
+-- many instances. Otherwise, the error is 'ValidationError'.
 sMinAdjustmentMagnitude :: Lens' ScalingPolicy (Maybe Int)
 sMinAdjustmentMagnitude = lens _sMinAdjustmentMagnitude (\ s a -> s{_sMinAdjustmentMagnitude = a});
 
@@ -1547,19 +1598,21 @@ instance FromXML ScalingPolicy where
                 <*> (x .@? "MinAdjustmentMagnitude")
 
 -- | /See:/ 'scalingProcessQuery' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'spqScalingProcesses'
---
--- * 'spqAutoScalingGroupName'
 data ScalingProcessQuery = ScalingProcessQuery'
     { _spqScalingProcesses     :: !(Maybe [Text])
     , _spqAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ScalingProcessQuery' smart constructor.
-scalingProcessQuery :: Text -> ScalingProcessQuery
+-- | Creates a value of 'ScalingProcessQuery' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spqScalingProcesses'
+--
+-- * 'spqAutoScalingGroupName'
+scalingProcessQuery
+    :: Text -- ^ 'spqAutoScalingGroupName'
+    -> ScalingProcessQuery
 scalingProcessQuery pAutoScalingGroupName_ =
     ScalingProcessQuery'
     { _spqScalingProcesses = Nothing
@@ -1568,21 +1621,21 @@ scalingProcessQuery pAutoScalingGroupName_ =
 
 -- | One or more of the following processes:
 --
--- -   @Launch@
+-- -   'Launch'
 --
--- -   @Terminate@
+-- -   'Terminate'
 --
--- -   @HealthCheck@
+-- -   'HealthCheck'
 --
--- -   @ReplaceUnhealthy@
+-- -   'ReplaceUnhealthy'
 --
--- -   @AZRebalance@
+-- -   'AZRebalance'
 --
--- -   @AlarmNotification@
+-- -   'AlarmNotification'
 --
--- -   @ScheduledActions@
+-- -   'ScheduledActions'
 --
--- -   @AddToLoadBalancer@
+-- -   'AddToLoadBalancer'
 --
 spqScalingProcesses :: Lens' ScalingProcessQuery [Text]
 spqScalingProcesses = lens _spqScalingProcesses (\ s a -> s{_spqScalingProcesses = a}) . _Default . _Coerce;
@@ -1602,8 +1655,22 @@ instance ToQuery ScalingProcessQuery where
 -- | Describes a scheduled update to an Auto Scaling group.
 --
 -- /See:/ 'scheduledUpdateGroupAction' smart constructor.
+data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
+    { _sugaScheduledActionARN   :: !(Maybe Text)
+    , _sugaTime                 :: !(Maybe ISO8601)
+    , _sugaStartTime            :: !(Maybe ISO8601)
+    , _sugaScheduledActionName  :: !(Maybe Text)
+    , _sugaMaxSize              :: !(Maybe Int)
+    , _sugaDesiredCapacity      :: !(Maybe Int)
+    , _sugaRecurrence           :: !(Maybe Text)
+    , _sugaMinSize              :: !(Maybe Int)
+    , _sugaEndTime              :: !(Maybe ISO8601)
+    , _sugaAutoScalingGroupName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduledUpdateGroupAction' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sugaScheduledActionARN'
 --
@@ -1624,21 +1691,8 @@ instance ToQuery ScalingProcessQuery where
 -- * 'sugaEndTime'
 --
 -- * 'sugaAutoScalingGroupName'
-data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
-    { _sugaScheduledActionARN   :: !(Maybe Text)
-    , _sugaTime                 :: !(Maybe ISO8601)
-    , _sugaStartTime            :: !(Maybe ISO8601)
-    , _sugaScheduledActionName  :: !(Maybe Text)
-    , _sugaMaxSize              :: !(Maybe Int)
-    , _sugaDesiredCapacity      :: !(Maybe Int)
-    , _sugaRecurrence           :: !(Maybe Text)
-    , _sugaMinSize              :: !(Maybe Int)
-    , _sugaEndTime              :: !(Maybe ISO8601)
-    , _sugaAutoScalingGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ScheduledUpdateGroupAction' smart constructor.
-scheduledUpdateGroupAction :: ScheduledUpdateGroupAction
+scheduledUpdateGroupAction
+    :: ScheduledUpdateGroupAction
 scheduledUpdateGroupAction =
     ScheduledUpdateGroupAction'
     { _sugaScheduledActionARN = Nothing
@@ -1657,14 +1711,14 @@ scheduledUpdateGroupAction =
 sugaScheduledActionARN :: Lens' ScheduledUpdateGroupAction (Maybe Text)
 sugaScheduledActionARN = lens _sugaScheduledActionARN (\ s a -> s{_sugaScheduledActionARN = a});
 
--- | This parameter is deprecated; use @StartTime@ instead.
+-- | This parameter is deprecated; use 'StartTime' instead.
 sugaTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaTime = lens _sugaTime (\ s a -> s{_sugaTime = a}) . mapping _Time;
 
 -- | The date and time that the action is scheduled to begin. This date and
 -- time can be up to one month in the future.
 --
--- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
+-- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they
 -- form the boundaries of when the recurring action will start and stop.
 sugaStartTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaStartTime = lens _sugaStartTime (\ s a -> s{_sugaStartTime = a}) . mapping _Time;
@@ -1743,22 +1797,24 @@ instance FromXML ScheduledUpdateGroupAction where
 --
 --
 -- /See:/ 'stepAdjustment' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'saMetricIntervalLowerBound'
---
--- * 'saMetricIntervalUpperBound'
---
--- * 'saScalingAdjustment'
 data StepAdjustment = StepAdjustment'
     { _saMetricIntervalLowerBound :: !(Maybe Double)
     , _saMetricIntervalUpperBound :: !(Maybe Double)
     , _saScalingAdjustment        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StepAdjustment' smart constructor.
-stepAdjustment :: Int -> StepAdjustment
+-- | Creates a value of 'StepAdjustment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'saMetricIntervalLowerBound'
+--
+-- * 'saMetricIntervalUpperBound'
+--
+-- * 'saScalingAdjustment'
+stepAdjustment
+    :: Int -- ^ 'saScalingAdjustment'
+    -> StepAdjustment
 stepAdjustment pScalingAdjustment_ =
     StepAdjustment'
     { _saMetricIntervalLowerBound = Nothing
@@ -1812,19 +1868,20 @@ instance ToQuery StepAdjustment where
 -- information, see ProcessType.
 --
 -- /See:/ 'suspendedProcess' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'spProcessName'
---
--- * 'spSuspensionReason'
 data SuspendedProcess = SuspendedProcess'
     { _spProcessName      :: !(Maybe Text)
     , _spSuspensionReason :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SuspendedProcess' smart constructor.
-suspendedProcess :: SuspendedProcess
+-- | Creates a value of 'SuspendedProcess' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spProcessName'
+--
+-- * 'spSuspensionReason'
+suspendedProcess
+    :: SuspendedProcess
 suspendedProcess =
     SuspendedProcess'
     { _spProcessName = Nothing
@@ -1847,8 +1904,17 @@ instance FromXML SuspendedProcess where
 -- | Describes a tag for an Auto Scaling group.
 --
 -- /See:/ 'tag' smart constructor.
+data Tag = Tag'
+    { _tagKey               :: !Text
+    , _tagResourceId        :: !Text
+    , _tagResourceType      :: !Text
+    , _tagPropagateAtLaunch :: !Bool
+    , _tagValue             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tagKey'
 --
@@ -1859,16 +1925,13 @@ instance FromXML SuspendedProcess where
 -- * 'tagPropagateAtLaunch'
 --
 -- * 'tagValue'
-data Tag = Tag'
-    { _tagKey               :: !Text
-    , _tagResourceId        :: !Text
-    , _tagResourceType      :: !Text
-    , _tagPropagateAtLaunch :: !Bool
-    , _tagValue             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Tag' smart constructor.
-tag :: Text -> Text -> Text -> Bool -> Text -> Tag
+tag
+    :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagResourceId'
+    -> Text -- ^ 'tagResourceType'
+    -> Bool -- ^ 'tagPropagateAtLaunch'
+    -> Text -- ^ 'tagValue'
+    -> Tag
 tag pKey_ pResourceId_ pResourceType_ pPropagateAtLaunch_ pValue_ =
     Tag'
     { _tagKey = pKey_
@@ -1886,7 +1949,7 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 tagResourceId :: Lens' Tag Text
 tagResourceId = lens _tagResourceId (\ s a -> s{_tagResourceId = a});
 
--- | The type of resource. The only supported value is @auto-scaling-group@.
+-- | The type of resource. The only supported value is 'auto-scaling-group'.
 tagResourceType :: Lens' Tag Text
 tagResourceType = lens _tagResourceType (\ s a -> s{_tagResourceType = a});
 
@@ -1910,8 +1973,17 @@ instance ToQuery Tag where
 -- | Describes a tag for an Auto Scaling group.
 --
 -- /See:/ 'tagDescription' smart constructor.
+data TagDescription = TagDescription'
+    { _tdResourceId        :: !Text
+    , _tdResourceType      :: !Text
+    , _tdKey               :: !Text
+    , _tdPropagateAtLaunch :: !Bool
+    , _tdValue             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TagDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tdResourceId'
 --
@@ -1922,16 +1994,13 @@ instance ToQuery Tag where
 -- * 'tdPropagateAtLaunch'
 --
 -- * 'tdValue'
-data TagDescription = TagDescription'
-    { _tdResourceId        :: !Text
-    , _tdResourceType      :: !Text
-    , _tdKey               :: !Text
-    , _tdPropagateAtLaunch :: !Bool
-    , _tdValue             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TagDescription' smart constructor.
-tagDescription :: Text -> Text -> Text -> Bool -> Text -> TagDescription
+tagDescription
+    :: Text -- ^ 'tdResourceId'
+    -> Text -- ^ 'tdResourceType'
+    -> Text -- ^ 'tdKey'
+    -> Bool -- ^ 'tdPropagateAtLaunch'
+    -> Text -- ^ 'tdValue'
+    -> TagDescription
 tagDescription pResourceId_ pResourceType_ pKey_ pPropagateAtLaunch_ pValue_ =
     TagDescription'
     { _tdResourceId = pResourceId_
@@ -1945,7 +2014,7 @@ tagDescription pResourceId_ pResourceType_ pKey_ pPropagateAtLaunch_ pValue_ =
 tdResourceId :: Lens' TagDescription Text
 tdResourceId = lens _tdResourceId (\ s a -> s{_tdResourceId = a});
 
--- | The type of resource. The only supported value is @auto-scaling-group@.
+-- | The type of resource. The only supported value is 'auto-scaling-group'.
 tdResourceType :: Lens' TagDescription Text
 tdResourceType = lens _tdResourceType (\ s a -> s{_tdResourceType = a});
 

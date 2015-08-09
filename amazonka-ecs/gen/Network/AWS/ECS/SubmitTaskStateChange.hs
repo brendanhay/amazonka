@@ -27,8 +27,8 @@
 module Network.AWS.ECS.SubmitTaskStateChange
     (
     -- * Creating a Request
-      SubmitTaskStateChange
-    , submitTaskStateChange
+      submitTaskStateChange
+    , SubmitTaskStateChange
     -- * Request Lenses
     , stscStatus
     , stscCluster
@@ -36,8 +36,8 @@ module Network.AWS.ECS.SubmitTaskStateChange
     , stscTask
 
     -- * Destructuring the Response
-    , SubmitTaskStateChangeResponse
     , submitTaskStateChangeResponse
+    , SubmitTaskStateChangeResponse
     -- * Response Lenses
     , stscrsAcknowledgment
     , stscrsStatus
@@ -50,8 +50,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'submitTaskStateChange' smart constructor.
+data SubmitTaskStateChange = SubmitTaskStateChange'
+    { _stscStatus  :: !(Maybe Text)
+    , _stscCluster :: !(Maybe Text)
+    , _stscReason  :: !(Maybe Text)
+    , _stscTask    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SubmitTaskStateChange' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'stscStatus'
 --
@@ -60,15 +68,8 @@ import           Network.AWS.Response
 -- * 'stscReason'
 --
 -- * 'stscTask'
-data SubmitTaskStateChange = SubmitTaskStateChange'
-    { _stscStatus  :: !(Maybe Text)
-    , _stscCluster :: !(Maybe Text)
-    , _stscReason  :: !(Maybe Text)
-    , _stscTask    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SubmitTaskStateChange' smart constructor.
-submitTaskStateChange :: SubmitTaskStateChange
+submitTaskStateChange
+    :: SubmitTaskStateChange
 submitTaskStateChange =
     SubmitTaskStateChange'
     { _stscStatus = Nothing
@@ -129,19 +130,21 @@ instance ToQuery SubmitTaskStateChange where
         toQuery = const mempty
 
 -- | /See:/ 'submitTaskStateChangeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'stscrsAcknowledgment'
---
--- * 'stscrsStatus'
 data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
     { _stscrsAcknowledgment :: !(Maybe Text)
     , _stscrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SubmitTaskStateChangeResponse' smart constructor.
-submitTaskStateChangeResponse :: Int -> SubmitTaskStateChangeResponse
+-- | Creates a value of 'SubmitTaskStateChangeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stscrsAcknowledgment'
+--
+-- * 'stscrsStatus'
+submitTaskStateChangeResponse
+    :: Int -- ^ 'stscrsStatus'
+    -> SubmitTaskStateChangeResponse
 submitTaskStateChangeResponse pStatus_ =
     SubmitTaskStateChangeResponse'
     { _stscrsAcknowledgment = Nothing
@@ -152,6 +155,6 @@ submitTaskStateChangeResponse pStatus_ =
 stscrsAcknowledgment :: Lens' SubmitTaskStateChangeResponse (Maybe Text)
 stscrsAcknowledgment = lens _stscrsAcknowledgment (\ s a -> s{_stscrsAcknowledgment = a});
 
--- | Undocumented member.
+-- | The response status code.
 stscrsStatus :: Lens' SubmitTaskStateChangeResponse Int
 stscrsStatus = lens _stscrsStatus (\ s a -> s{_stscrsStatus = a});

@@ -30,16 +30,16 @@
 module Network.AWS.CognitoSync.DeleteDataset
     (
     -- * Creating a Request
-      DeleteDataset
-    , deleteDataset
+      deleteDataset
+    , DeleteDataset
     -- * Request Lenses
     , delIdentityPoolId
     , delIdentityId
     , delDatasetName
 
     -- * Destructuring the Response
-    , DeleteDatasetResponse
     , deleteDatasetResponse
+    , DeleteDatasetResponse
     -- * Response Lenses
     , drsDataset
     , drsStatus
@@ -54,22 +54,26 @@ import           Network.AWS.Response
 -- | A request to delete the specific dataset.
 --
 -- /See:/ 'deleteDataset' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delIdentityPoolId'
---
--- * 'delIdentityId'
---
--- * 'delDatasetName'
 data DeleteDataset = DeleteDataset'
     { _delIdentityPoolId :: !Text
     , _delIdentityId     :: !Text
     , _delDatasetName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDataset' smart constructor.
-deleteDataset :: Text -> Text -> Text -> DeleteDataset
+-- | Creates a value of 'DeleteDataset' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delIdentityPoolId'
+--
+-- * 'delIdentityId'
+--
+-- * 'delDatasetName'
+deleteDataset
+    :: Text -- ^ 'delIdentityPoolId'
+    -> Text -- ^ 'delIdentityId'
+    -> Text -- ^ 'delDatasetName'
+    -> DeleteDataset
 deleteDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
     DeleteDataset'
     { _delIdentityPoolId = pIdentityPoolId_
@@ -124,19 +128,21 @@ instance ToQuery DeleteDataset where
 -- | Response to a successful DeleteDataset request.
 --
 -- /See:/ 'deleteDatasetResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsDataset'
---
--- * 'drsStatus'
 data DeleteDatasetResponse = DeleteDatasetResponse'
     { _drsDataset :: !(Maybe Dataset)
     , _drsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDatasetResponse' smart constructor.
-deleteDatasetResponse :: Int -> DeleteDatasetResponse
+-- | Creates a value of 'DeleteDatasetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsDataset'
+--
+-- * 'drsStatus'
+deleteDatasetResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeleteDatasetResponse
 deleteDatasetResponse pStatus_ =
     DeleteDatasetResponse'
     { _drsDataset = Nothing
@@ -151,6 +157,6 @@ deleteDatasetResponse pStatus_ =
 drsDataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
 drsDataset = lens _drsDataset (\ s a -> s{_drsDataset = a});
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeleteDatasetResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

@@ -25,16 +25,16 @@
 module Network.AWS.S3.PutBucketLifecycle
     (
     -- * Creating a Request
-      PutBucketLifecycle
-    , putBucketLifecycle
+      putBucketLifecycle
+    , PutBucketLifecycle
     -- * Request Lenses
     , pContentMD5
     , pLifecycleConfiguration
     , pBucket
 
     -- * Destructuring the Response
-    , PutBucketLifecycleResponse
     , putBucketLifecycleResponse
+    , PutBucketLifecycleResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -44,22 +44,24 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketLifecycle' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pContentMD5'
---
--- * 'pLifecycleConfiguration'
---
--- * 'pBucket'
 data PutBucketLifecycle = PutBucketLifecycle'
     { _pContentMD5             :: !(Maybe Text)
     , _pLifecycleConfiguration :: !(Maybe LifecycleConfiguration)
     , _pBucket                 :: !BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketLifecycle' smart constructor.
-putBucketLifecycle :: BucketName -> PutBucketLifecycle
+-- | Creates a value of 'PutBucketLifecycle' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pContentMD5'
+--
+-- * 'pLifecycleConfiguration'
+--
+-- * 'pBucket'
+putBucketLifecycle
+    :: BucketName -- ^ 'pBucket'
+    -> PutBucketLifecycle
 putBucketLifecycle pBucket_ =
     PutBucketLifecycle'
     { _pContentMD5 = Nothing
@@ -109,6 +111,8 @@ data PutBucketLifecycleResponse =
     PutBucketLifecycleResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketLifecycleResponse' smart constructor.
-putBucketLifecycleResponse :: PutBucketLifecycleResponse
+-- | Creates a value of 'PutBucketLifecycleResponse' with the minimum fields required to make a request.
+--
+putBucketLifecycleResponse
+    :: PutBucketLifecycleResponse
 putBucketLifecycleResponse = PutBucketLifecycleResponse'

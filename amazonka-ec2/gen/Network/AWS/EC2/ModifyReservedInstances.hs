@@ -31,16 +31,16 @@
 module Network.AWS.EC2.ModifyReservedInstances
     (
     -- * Creating a Request
-      ModifyReservedInstances
-    , modifyReservedInstances
+      modifyReservedInstances
+    , ModifyReservedInstances
     -- * Request Lenses
     , mriClientToken
     , mriReservedInstancesIds
     , mriTargetConfigurations
 
     -- * Destructuring the Response
-    , ModifyReservedInstancesResponse
     , modifyReservedInstancesResponse
+    , ModifyReservedInstancesResponse
     -- * Response Lenses
     , mrirsReservedInstancesModificationId
     , mrirsStatus
@@ -53,22 +53,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifyReservedInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mriClientToken'
---
--- * 'mriReservedInstancesIds'
---
--- * 'mriTargetConfigurations'
 data ModifyReservedInstances = ModifyReservedInstances'
     { _mriClientToken          :: !(Maybe Text)
     , _mriReservedInstancesIds :: ![Text]
     , _mriTargetConfigurations :: ![ReservedInstancesConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyReservedInstances' smart constructor.
-modifyReservedInstances :: ModifyReservedInstances
+-- | Creates a value of 'ModifyReservedInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mriClientToken'
+--
+-- * 'mriReservedInstancesIds'
+--
+-- * 'mriTargetConfigurations'
+modifyReservedInstances
+    :: ModifyReservedInstances
 modifyReservedInstances =
     ModifyReservedInstances'
     { _mriClientToken = Nothing
@@ -120,19 +121,21 @@ instance ToQuery ModifyReservedInstances where
                toQueryList "item" _mriTargetConfigurations]
 
 -- | /See:/ 'modifyReservedInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mrirsReservedInstancesModificationId'
---
--- * 'mrirsStatus'
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
     { _mrirsReservedInstancesModificationId :: !(Maybe Text)
     , _mrirsStatus                          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyReservedInstancesResponse' smart constructor.
-modifyReservedInstancesResponse :: Int -> ModifyReservedInstancesResponse
+-- | Creates a value of 'ModifyReservedInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mrirsReservedInstancesModificationId'
+--
+-- * 'mrirsStatus'
+modifyReservedInstancesResponse
+    :: Int -- ^ 'mrirsStatus'
+    -> ModifyReservedInstancesResponse
 modifyReservedInstancesResponse pStatus_ =
     ModifyReservedInstancesResponse'
     { _mrirsReservedInstancesModificationId = Nothing
@@ -143,6 +146,6 @@ modifyReservedInstancesResponse pStatus_ =
 mrirsReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
 mrirsReservedInstancesModificationId = lens _mrirsReservedInstancesModificationId (\ s a -> s{_mrirsReservedInstancesModificationId = a});
 
--- | Undocumented member.
+-- | The response status code.
 mrirsStatus :: Lens' ModifyReservedInstancesResponse Int
 mrirsStatus = lens _mrirsStatus (\ s a -> s{_mrirsStatus = a});

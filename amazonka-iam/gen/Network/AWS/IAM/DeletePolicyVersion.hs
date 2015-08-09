@@ -33,15 +33,15 @@
 module Network.AWS.IAM.DeletePolicyVersion
     (
     -- * Creating a Request
-      DeletePolicyVersion
-    , deletePolicyVersion
+      deletePolicyVersion
+    , DeletePolicyVersion
     -- * Request Lenses
     , dpvPolicyARN
     , dpvVersionId
 
     -- * Destructuring the Response
-    , DeletePolicyVersionResponse
     , deletePolicyVersionResponse
+    , DeletePolicyVersionResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -51,19 +51,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deletePolicyVersion' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpvPolicyARN'
---
--- * 'dpvVersionId'
 data DeletePolicyVersion = DeletePolicyVersion'
     { _dpvPolicyARN :: !Text
     , _dpvVersionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePolicyVersion' smart constructor.
-deletePolicyVersion :: Text -> Text -> DeletePolicyVersion
+-- | Creates a value of 'DeletePolicyVersion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpvPolicyARN'
+--
+-- * 'dpvVersionId'
+deletePolicyVersion
+    :: Text -- ^ 'dpvPolicyARN'
+    -> Text -- ^ 'dpvVersionId'
+    -> DeletePolicyVersion
 deletePolicyVersion pPolicyARN_ pVersionId_ =
     DeletePolicyVersion'
     { _dpvPolicyARN = pPolicyARN_
@@ -108,6 +111,8 @@ data DeletePolicyVersionResponse =
     DeletePolicyVersionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePolicyVersionResponse' smart constructor.
-deletePolicyVersionResponse :: DeletePolicyVersionResponse
+-- | Creates a value of 'DeletePolicyVersionResponse' with the minimum fields required to make a request.
+--
+deletePolicyVersionResponse
+    :: DeletePolicyVersionResponse
 deletePolicyVersionResponse = DeletePolicyVersionResponse'

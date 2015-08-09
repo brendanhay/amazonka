@@ -32,22 +32,26 @@ import           Network.AWS.Route53.Types.Sum
 -- .
 --
 -- /See:/ 'aliasTarget' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atHostedZoneId'
---
--- * 'atDNSName'
---
--- * 'atEvaluateTargetHealth'
 data AliasTarget = AliasTarget'
     { _atHostedZoneId         :: !Text
     , _atDNSName              :: !Text
     , _atEvaluateTargetHealth :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AliasTarget' smart constructor.
-aliasTarget :: Text -> Text -> Bool -> AliasTarget
+-- | Creates a value of 'AliasTarget' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atHostedZoneId'
+--
+-- * 'atDNSName'
+--
+-- * 'atEvaluateTargetHealth'
+aliasTarget
+    :: Text -- ^ 'atHostedZoneId'
+    -> Text -- ^ 'atDNSName'
+    -> Bool -- ^ 'atEvaluateTargetHealth'
+    -> AliasTarget
 aliasTarget pHostedZoneId_ pDNSName_ pEvaluateTargetHealth_ =
     AliasTarget'
     { _atHostedZoneId = pHostedZoneId_
@@ -107,19 +111,22 @@ instance ToXML AliasTarget where
 -- batch request.
 --
 -- /See:/ 'change' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cAction'
---
--- * 'cResourceRecordSet'
 data Change = Change'
     { _cAction            :: !ChangeAction
     , _cResourceRecordSet :: !ResourceRecordSet
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Change' smart constructor.
-change :: ChangeAction -> ResourceRecordSet -> Change
+-- | Creates a value of 'Change' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cAction'
+--
+-- * 'cResourceRecordSet'
+change
+    :: ChangeAction -- ^ 'cAction'
+    -> ResourceRecordSet -- ^ 'cResourceRecordSet'
+    -> Change
 change pAction_ pResourceRecordSet_ =
     Change'
     { _cAction = pAction_
@@ -128,7 +135,7 @@ change pAction_ pResourceRecordSet_ =
 
 -- | The action to perform.
 --
--- Valid values: @CREATE@ | @DELETE@ | @UPSERT@
+-- Valid values: 'CREATE' | 'DELETE' | 'UPSERT'
 cAction :: Lens' Change ChangeAction
 cAction = lens _cAction (\ s a -> s{_cAction = a});
 
@@ -146,19 +153,21 @@ instance ToXML Change where
 -- you want to make with a change batch request.
 --
 -- /See:/ 'changeBatch' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cbComment'
---
--- * 'cbChanges'
 data ChangeBatch = ChangeBatch'
     { _cbComment :: !(Maybe Text)
     , _cbChanges :: !(List1 Change)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangeBatch' smart constructor.
-changeBatch :: NonEmpty Change -> ChangeBatch
+-- | Creates a value of 'ChangeBatch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cbComment'
+--
+-- * 'cbChanges'
+changeBatch
+    :: NonEmpty Change -- ^ 'cbChanges'
+    -> ChangeBatch
 changeBatch pChanges_ =
     ChangeBatch'
     { _cbComment = Nothing
@@ -170,7 +179,7 @@ changeBatch pChanges_ =
 cbComment :: Lens' ChangeBatch (Maybe Text)
 cbComment = lens _cbComment (\ s a -> s{_cbComment = a});
 
--- | A complex type that contains one @Change@ element for each resource
+-- | A complex type that contains one 'Change' element for each resource
 -- record set that you want to create or delete.
 cbChanges :: Lens' ChangeBatch (NonEmpty Change)
 cbChanges = lens _cbChanges (\ s a -> s{_cbChanges = a}) . _List1;
@@ -188,8 +197,16 @@ instance ToXML ChangeBatch where
 -- action to get detailed information about the change.
 --
 -- /See:/ 'changeInfo' smart constructor.
+data ChangeInfo = ChangeInfo'
+    { _ciComment     :: !(Maybe Text)
+    , _ciId          :: !Text
+    , _ciStatus      :: !ChangeStatus
+    , _ciSubmittedAt :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ChangeInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ciComment'
 --
@@ -198,15 +215,11 @@ instance ToXML ChangeBatch where
 -- * 'ciStatus'
 --
 -- * 'ciSubmittedAt'
-data ChangeInfo = ChangeInfo'
-    { _ciComment     :: !(Maybe Text)
-    , _ciId          :: !Text
-    , _ciStatus      :: !ChangeStatus
-    , _ciSubmittedAt :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ChangeInfo' smart constructor.
-changeInfo :: Text -> ChangeStatus -> UTCTime -> ChangeInfo
+changeInfo
+    :: Text -- ^ 'ciId'
+    -> ChangeStatus -- ^ 'ciStatus'
+    -> UTCTime -- ^ 'ciSubmittedAt'
+    -> ChangeInfo
 changeInfo pId_ pStatus_ pSubmittedAt_ =
     ChangeInfo'
     { _ciComment = Nothing
@@ -228,16 +241,16 @@ ciComment = lens _ciComment (\ s a -> s{_ciComment = a});
 ciId :: Lens' ChangeInfo Text
 ciId = lens _ciId (\ s a -> s{_ciId = a});
 
--- | The current state of the request. @PENDING@ indicates that this request
+-- | The current state of the request. 'PENDING' indicates that this request
 -- has not yet been applied to all Amazon Route 53 DNS servers.
 --
--- Valid Values: @PENDING@ | @INSYNC@
+-- Valid Values: 'PENDING' | 'INSYNC'
 ciStatus :: Lens' ChangeInfo ChangeStatus
 ciStatus = lens _ciStatus (\ s a -> s{_ciStatus = a});
 
 -- | The date and time the change was submitted, in the format
--- @YYYY-MM-DDThh:mm:ssZ@, as specified in the ISO 8601 standard (for
--- example, 2009-11-19T19:37:58Z). The @Z@ after the time indicates that
+-- 'YYYY-MM-DDThh:mm:ssZ', as specified in the ISO 8601 standard (for
+-- example, 2009-11-19T19:37:58Z). The 'Z' after the time indicates that
 -- the time is listed in Coordinated Universal Time (UTC), which is
 -- synonymous with Greenwich Mean Time in this context.
 ciSubmittedAt :: Lens' ChangeInfo UTCTime
@@ -252,22 +265,24 @@ instance FromXML ChangeInfo where
 -- | A complex type that contains name server information.
 --
 -- /See:/ 'delegationSet' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsId'
---
--- * 'dsCallerReference'
---
--- * 'dsNameServers'
 data DelegationSet = DelegationSet'
     { _dsId              :: !(Maybe Text)
     , _dsCallerReference :: !(Maybe Text)
     , _dsNameServers     :: !(List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DelegationSet' smart constructor.
-delegationSet :: NonEmpty Text -> DelegationSet
+-- | Creates a value of 'DelegationSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsId'
+--
+-- * 'dsCallerReference'
+--
+-- * 'dsNameServers'
+delegationSet
+    :: NonEmpty Text -- ^ 'dsNameServers'
+    -> DelegationSet
 delegationSet pNameServers_ =
     DelegationSet'
     { _dsId = Nothing
@@ -285,7 +300,7 @@ dsCallerReference = lens _dsCallerReference (\ s a -> s{_dsCallerReference = a})
 
 -- | A complex type that contains the authoritative name servers for the
 -- hosted zone. Use the method provided by your domain registrar to add an
--- NS record to your domain for each @NameServer@ that is assigned to your
+-- NS record to your domain for each 'NameServer' that is assigned to your
 -- hosted zone.
 dsNameServers :: Lens' DelegationSet (NonEmpty Text)
 dsNameServers = lens _dsNameServers (\ s a -> s{_dsNameServers = a}) . _List1;
@@ -300,22 +315,23 @@ instance FromXML DelegationSet where
 -- | A complex type that contains information about a geo location.
 --
 -- /See:/ 'geoLocation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'glSubdivisionCode'
---
--- * 'glCountryCode'
---
--- * 'glContinentCode'
 data GeoLocation = GeoLocation'
     { _glSubdivisionCode :: !(Maybe Text)
     , _glCountryCode     :: !(Maybe Text)
     , _glContinentCode   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GeoLocation' smart constructor.
-geoLocation :: GeoLocation
+-- | Creates a value of 'GeoLocation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'glSubdivisionCode'
+--
+-- * 'glCountryCode'
+--
+-- * 'glContinentCode'
+geoLocation
+    :: GeoLocation
 geoLocation =
     GeoLocation'
     { _glSubdivisionCode = Nothing
@@ -326,7 +342,7 @@ geoLocation =
 -- | The code for a country\'s subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
 --
--- Constraint: Specifying @SubdivisionCode@ without @CountryCode@ returns
+-- Constraint: Specifying 'SubdivisionCode' without 'CountryCode' returns
 -- an InvalidInput error.
 glSubdivisionCode :: Lens' GeoLocation (Maybe Text)
 glSubdivisionCode = lens _glSubdivisionCode (\ s a -> s{_glSubdivisionCode = a});
@@ -335,7 +351,7 @@ glSubdivisionCode = lens _glSubdivisionCode (\ s a -> s{_glSubdivisionCode = a})
 -- the country code and will match all locations that are not matched by a
 -- geo location.
 --
--- The default geo location uses a @*@ for the country code. All other
+-- The default geo location uses a '*' for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
 glCountryCode :: Lens' GeoLocation (Maybe Text)
 glCountryCode = lens _glCountryCode (\ s a -> s{_glCountryCode = a});
@@ -343,10 +359,10 @@ glCountryCode = lens _glCountryCode (\ s a -> s{_glCountryCode = a});
 -- | The code for a continent geo location. Note: only continent locations
 -- have a continent code.
 --
--- Valid values: @AF@ | @AN@ | @AS@ | @EU@ | @OC@ | @NA@ | @SA@
+-- Valid values: 'AF' | 'AN' | 'AS' | 'EU' | 'OC' | 'NA' | 'SA'
 --
--- Constraint: Specifying @ContinentCode@ with either @CountryCode@ or
--- @SubdivisionCode@ returns an InvalidInput error.
+-- Constraint: Specifying 'ContinentCode' with either 'CountryCode' or
+-- 'SubdivisionCode' returns an InvalidInput error.
 glContinentCode :: Lens' GeoLocation (Maybe Text)
 glContinentCode = lens _glContinentCode (\ s a -> s{_glContinentCode = a});
 
@@ -363,11 +379,21 @@ instance ToXML GeoLocation where
                "CountryCode" @= _glCountryCode,
                "ContinentCode" @= _glContinentCode]
 
--- | A complex type that contains information about a @GeoLocation@.
+-- | A complex type that contains information about a 'GeoLocation'.
 --
 -- /See:/ 'geoLocationDetails' smart constructor.
+data GeoLocationDetails = GeoLocationDetails'
+    { _gldSubdivisionName :: !(Maybe Text)
+    , _gldSubdivisionCode :: !(Maybe Text)
+    , _gldCountryName     :: !(Maybe Text)
+    , _gldCountryCode     :: !(Maybe Text)
+    , _gldContinentCode   :: !(Maybe Text)
+    , _gldContinentName   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GeoLocationDetails' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gldSubdivisionName'
 --
@@ -380,17 +406,8 @@ instance ToXML GeoLocation where
 -- * 'gldContinentCode'
 --
 -- * 'gldContinentName'
-data GeoLocationDetails = GeoLocationDetails'
-    { _gldSubdivisionName :: !(Maybe Text)
-    , _gldSubdivisionCode :: !(Maybe Text)
-    , _gldCountryName     :: !(Maybe Text)
-    , _gldCountryCode     :: !(Maybe Text)
-    , _gldContinentCode   :: !(Maybe Text)
-    , _gldContinentName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GeoLocationDetails' smart constructor.
-geoLocationDetails :: GeoLocationDetails
+geoLocationDetails
+    :: GeoLocationDetails
 geoLocationDetails =
     GeoLocationDetails'
     { _gldSubdivisionName = Nothing
@@ -402,7 +419,7 @@ geoLocationDetails =
     }
 
 -- | The name of the subdivision. This element is only present if
--- @SubdivisionCode@ is also present.
+-- 'SubdivisionCode' is also present.
 gldSubdivisionName :: Lens' GeoLocationDetails (Maybe Text)
 gldSubdivisionName = lens _gldSubdivisionName (\ s a -> s{_gldSubdivisionName = a});
 
@@ -411,7 +428,7 @@ gldSubdivisionName = lens _gldSubdivisionName (\ s a -> s{_gldSubdivisionName = 
 gldSubdivisionCode :: Lens' GeoLocationDetails (Maybe Text)
 gldSubdivisionCode = lens _gldSubdivisionCode (\ s a -> s{_gldSubdivisionCode = a});
 
--- | The name of the country. This element is only present if @CountryCode@
+-- | The name of the country. This element is only present if 'CountryCode'
 -- is also present.
 gldCountryName :: Lens' GeoLocationDetails (Maybe Text)
 gldCountryName = lens _gldCountryName (\ s a -> s{_gldCountryName = a});
@@ -420,7 +437,7 @@ gldCountryName = lens _gldCountryName (\ s a -> s{_gldCountryName = a});
 -- the country code and will match all locations that are not matched by a
 -- geo location.
 --
--- The default geo location uses a @*@ for the country code. All other
+-- The default geo location uses a '*' for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
 gldCountryCode :: Lens' GeoLocationDetails (Maybe Text)
 gldCountryCode = lens _gldCountryCode (\ s a -> s{_gldCountryCode = a});
@@ -431,7 +448,7 @@ gldContinentCode :: Lens' GeoLocationDetails (Maybe Text)
 gldContinentCode = lens _gldContinentCode (\ s a -> s{_gldContinentCode = a});
 
 -- | The name of the continent. This element is only present if
--- @ContinentCode@ is also present.
+-- 'ContinentCode' is also present.
 gldContinentName :: Lens' GeoLocationDetails (Maybe Text)
 gldContinentName = lens _gldContinentName (\ s a -> s{_gldContinentName = a});
 
@@ -449,8 +466,16 @@ instance FromXML GeoLocationDetails where
 -- check.
 --
 -- /See:/ 'healthCheck' smart constructor.
+data HealthCheck = HealthCheck'
+    { _hcId                 :: !Text
+    , _hcCallerReference    :: !Text
+    , _hcHealthCheckConfig  :: !HealthCheckConfig
+    , _hcHealthCheckVersion :: !Nat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HealthCheck' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'hcId'
 --
@@ -459,15 +484,12 @@ instance FromXML GeoLocationDetails where
 -- * 'hcHealthCheckConfig'
 --
 -- * 'hcHealthCheckVersion'
-data HealthCheck = HealthCheck'
-    { _hcId                 :: !Text
-    , _hcCallerReference    :: !Text
-    , _hcHealthCheckConfig  :: !HealthCheckConfig
-    , _hcHealthCheckVersion :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'HealthCheck' smart constructor.
-healthCheck :: Text -> Text -> HealthCheckConfig -> Natural -> HealthCheck
+healthCheck
+    :: Text -- ^ 'hcId'
+    -> Text -- ^ 'hcCallerReference'
+    -> HealthCheckConfig -- ^ 'hcHealthCheckConfig'
+    -> Natural -- ^ 'hcHealthCheckVersion'
+    -> HealthCheck
 healthCheck pId_ pCallerReference_ pHealthCheckConfig_ pHealthCheckVersion_ =
     HealthCheck'
     { _hcId = pId_
@@ -489,7 +511,7 @@ hcHealthCheckConfig :: Lens' HealthCheck HealthCheckConfig
 hcHealthCheckConfig = lens _hcHealthCheckConfig (\ s a -> s{_hcHealthCheckConfig = a});
 
 -- | The version of the health check. You can optionally pass this value in a
--- call to @UpdateHealthCheck@ to prevent overwriting another change to the
+-- call to 'UpdateHealthCheck' to prevent overwriting another change to the
 -- health check.
 hcHealthCheckVersion :: Lens' HealthCheck Natural
 hcHealthCheckVersion = lens _hcHealthCheckVersion (\ s a -> s{_hcHealthCheckVersion = a}) . _Nat;
@@ -504,8 +526,20 @@ instance FromXML HealthCheck where
 -- | A complex type that contains the health check configuration.
 --
 -- /See:/ 'healthCheckConfig' smart constructor.
+data HealthCheckConfig = HealthCheckConfig'
+    { _hccIPAddress                :: !(Maybe Text)
+    , _hccFailureThreshold         :: !(Maybe Nat)
+    , _hccSearchString             :: !(Maybe Text)
+    , _hccResourcePath             :: !(Maybe Text)
+    , _hccFullyQualifiedDomainName :: !(Maybe Text)
+    , _hccRequestInterval          :: !(Maybe Nat)
+    , _hccPort                     :: !(Maybe Nat)
+    , _hccType                     :: !HealthCheckType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HealthCheckConfig' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'hccIPAddress'
 --
@@ -522,19 +556,9 @@ instance FromXML HealthCheck where
 -- * 'hccPort'
 --
 -- * 'hccType'
-data HealthCheckConfig = HealthCheckConfig'
-    { _hccIPAddress                :: !(Maybe Text)
-    , _hccFailureThreshold         :: !(Maybe Nat)
-    , _hccSearchString             :: !(Maybe Text)
-    , _hccResourcePath             :: !(Maybe Text)
-    , _hccFullyQualifiedDomainName :: !(Maybe Text)
-    , _hccRequestInterval          :: !(Maybe Nat)
-    , _hccPort                     :: !(Maybe Nat)
-    , _hccType                     :: !HealthCheckType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'HealthCheckConfig' smart constructor.
-healthCheckConfig :: HealthCheckType -> HealthCheckConfig
+healthCheckConfig
+    :: HealthCheckType -- ^ 'hccType'
+    -> HealthCheckConfig
 healthCheckConfig pType_ =
     HealthCheckConfig'
     { _hccIPAddress = Nothing
@@ -624,19 +648,20 @@ instance ToXML HealthCheckConfig where
 -- and the reason for the health check status.
 --
 -- /See:/ 'healthCheckObservation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hcoIPAddress'
---
--- * 'hcoStatusReport'
 data HealthCheckObservation = HealthCheckObservation'
     { _hcoIPAddress    :: !(Maybe Text)
     , _hcoStatusReport :: !(Maybe StatusReport)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'HealthCheckObservation' smart constructor.
-healthCheckObservation :: HealthCheckObservation
+-- | Creates a value of 'HealthCheckObservation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hcoIPAddress'
+--
+-- * 'hcoStatusReport'
+healthCheckObservation
+    :: HealthCheckObservation
 healthCheckObservation =
     HealthCheckObservation'
     { _hcoIPAddress = Nothing
@@ -661,8 +686,17 @@ instance FromXML HealthCheckObservation where
 -- | A complex type that contain information about the specified hosted zone.
 --
 -- /See:/ 'hostedZone' smart constructor.
+data HostedZone = HostedZone'
+    { _hzConfig                 :: !(Maybe HostedZoneConfig)
+    , _hzResourceRecordSetCount :: !(Maybe Integer)
+    , _hzId                     :: !Text
+    , _hzName                   :: !Text
+    , _hzCallerReference        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HostedZone' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'hzConfig'
 --
@@ -673,16 +707,11 @@ instance FromXML HealthCheckObservation where
 -- * 'hzName'
 --
 -- * 'hzCallerReference'
-data HostedZone = HostedZone'
-    { _hzConfig                 :: !(Maybe HostedZoneConfig)
-    , _hzResourceRecordSetCount :: !(Maybe Integer)
-    , _hzId                     :: !Text
-    , _hzName                   :: !Text
-    , _hzCallerReference        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'HostedZone' smart constructor.
-hostedZone :: Text -> Text -> Text -> HostedZone
+hostedZone
+    :: Text -- ^ 'hzId'
+    -> Text -- ^ 'hzName'
+    -> Text -- ^ 'hzCallerReference'
+    -> HostedZone
 hostedZone pId_ pName_ pCallerReference_ =
     HostedZone'
     { _hzConfig = Nothing
@@ -692,7 +721,7 @@ hostedZone pId_ pName_ pCallerReference_ =
     , _hzCallerReference = pCallerReference_
     }
 
--- | A complex type that contains the @Comment@ element.
+-- | A complex type that contains the 'Comment' element.
 hzConfig :: Lens' HostedZone (Maybe HostedZoneConfig)
 hzConfig = lens _hzConfig (\ s a -> s{_hzConfig = a});
 
@@ -712,7 +741,7 @@ hzId = lens _hzId (\ s a -> s{_hzId = a});
 --
 -- This is the name you have registered with your DNS registrar. You should
 -- ask your registrar to change the authoritative name servers for your
--- domain to the set of @NameServers@ elements returned in @DelegationSet@.
+-- domain to the set of 'NameServers' elements returned in 'DelegationSet'.
 hzName :: Lens' HostedZone Text
 hzName = lens _hzName (\ s a -> s{_hzName = a});
 
@@ -730,22 +759,23 @@ instance FromXML HostedZone where
 
 -- | A complex type that contains an optional comment about your hosted zone.
 -- If you don\'t want to specify a comment, you can omit the
--- @HostedZoneConfig@ and @Comment@ elements from the XML document.
+-- 'HostedZoneConfig' and 'Comment' elements from the XML document.
 --
 -- /See:/ 'hostedZoneConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hzcPrivateZone'
---
--- * 'hzcComment'
 data HostedZoneConfig = HostedZoneConfig'
     { _hzcPrivateZone :: !(Maybe Bool)
     , _hzcComment     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'HostedZoneConfig' smart constructor.
-hostedZoneConfig :: HostedZoneConfig
+-- | Creates a value of 'HostedZoneConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hzcPrivateZone'
+--
+-- * 'hzcComment'
+hostedZoneConfig
+    :: HostedZoneConfig
 hostedZoneConfig =
     HostedZoneConfig'
     { _hzcPrivateZone = Nothing
@@ -758,7 +788,7 @@ hzcPrivateZone :: Lens' HostedZoneConfig (Maybe Bool)
 hzcPrivateZone = lens _hzcPrivateZone (\ s a -> s{_hzcPrivateZone = a});
 
 -- | An optional comment about your hosted zone. If you don\'t want to
--- specify a comment, you can omit the @HostedZoneConfig@ and @Comment@
+-- specify a comment, you can omit the 'HostedZoneConfig' and 'Comment'
 -- elements from the XML document.
 hzcComment :: Lens' HostedZoneConfig (Maybe Text)
 hzcComment = lens _hzcComment (\ s a -> s{_hzcComment = a});
@@ -774,26 +804,28 @@ instance ToXML HostedZoneConfig where
               ["PrivateZone" @= _hzcPrivateZone,
                "Comment" @= _hzcComment]
 
--- | A complex type that contains the value of the @Value@ element for the
+-- | A complex type that contains the value of the 'Value' element for the
 -- current resource record set.
 --
 -- /See:/ 'resourceRecord' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rrValue'
 newtype ResourceRecord = ResourceRecord'
     { _rrValue :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResourceRecord' smart constructor.
-resourceRecord :: Text -> ResourceRecord
+-- | Creates a value of 'ResourceRecord' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rrValue'
+resourceRecord
+    :: Text -- ^ 'rrValue'
+    -> ResourceRecord
 resourceRecord pValue_ =
     ResourceRecord'
     { _rrValue = pValue_
     }
 
--- | The value of the @Value@ element for the current resource record set.
+-- | The value of the 'Value' element for the current resource record set.
 rrValue :: Lens' ResourceRecord Text
 rrValue = lens _rrValue (\ s a -> s{_rrValue = a});
 
@@ -808,8 +840,23 @@ instance ToXML ResourceRecord where
 -- record set.
 --
 -- /See:/ 'resourceRecordSet' smart constructor.
+data ResourceRecordSet = ResourceRecordSet'
+    { _rrsResourceRecords :: !(Maybe (List1 ResourceRecord))
+    , _rrsTTL             :: !(Maybe Nat)
+    , _rrsAliasTarget     :: !(Maybe AliasTarget)
+    , _rrsWeight          :: !(Maybe Nat)
+    , _rrsSetIdentifier   :: !(Maybe Text)
+    , _rrsFailover        :: !(Maybe Failover)
+    , _rrsHealthCheckId   :: !(Maybe Text)
+    , _rrsRegion          :: !(Maybe Region)
+    , _rrsGeoLocation     :: !(Maybe GeoLocation)
+    , _rrsName            :: !Text
+    , _rrsType            :: !RecordType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResourceRecordSet' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rrsResourceRecords'
 --
@@ -832,22 +879,10 @@ instance ToXML ResourceRecord where
 -- * 'rrsName'
 --
 -- * 'rrsType'
-data ResourceRecordSet = ResourceRecordSet'
-    { _rrsResourceRecords :: !(Maybe (List1 ResourceRecord))
-    , _rrsTTL             :: !(Maybe Nat)
-    , _rrsAliasTarget     :: !(Maybe AliasTarget)
-    , _rrsWeight          :: !(Maybe Nat)
-    , _rrsSetIdentifier   :: !(Maybe Text)
-    , _rrsFailover        :: !(Maybe Failover)
-    , _rrsHealthCheckId   :: !(Maybe Text)
-    , _rrsRegion          :: !(Maybe Region)
-    , _rrsGeoLocation     :: !(Maybe GeoLocation)
-    , _rrsName            :: !Text
-    , _rrsType            :: !RecordType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ResourceRecordSet' smart constructor.
-resourceRecordSet :: Text -> RecordType -> ResourceRecordSet
+resourceRecordSet
+    :: Text -- ^ 'rrsName'
+    -> RecordType -- ^ 'rrsType'
+    -> ResourceRecordSet
 resourceRecordSet pName_ pType_ =
     ResourceRecordSet'
     { _rrsResourceRecords = Nothing
@@ -906,7 +941,7 @@ rrsSetIdentifier = lens _rrsSetIdentifier (\ s a -> s{_rrsSetIdentifier = a});
 -- check or has no associated health check, or (2) there is no primary
 -- resource record set.
 --
--- Valid values: @PRIMARY@ | @SECONDARY@
+-- Valid values: 'PRIMARY' | 'SECONDARY'
 rrsFailover :: Lens' ResourceRecordSet (Maybe Failover)
 rrsFailover = lens _rrsFailover (\ s a -> s{_rrsFailover = a});
 
@@ -970,22 +1005,23 @@ instance ToXML ResourceRecordSet where
 -- | A complex type containing a resource and its associated tags.
 --
 -- /See:/ 'resourceTagSet' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtsResourceId'
---
--- * 'rtsResourceType'
---
--- * 'rtsTags'
 data ResourceTagSet = ResourceTagSet'
     { _rtsResourceId   :: !(Maybe Text)
     , _rtsResourceType :: !(Maybe TagResourceType)
     , _rtsTags         :: !(Maybe (List1 Tag))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResourceTagSet' smart constructor.
-resourceTagSet :: ResourceTagSet
+-- | Creates a value of 'ResourceTagSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtsResourceId'
+--
+-- * 'rtsResourceType'
+--
+-- * 'rtsTags'
+resourceTagSet
+    :: ResourceTagSet
 resourceTagSet =
     ResourceTagSet'
     { _rtsResourceId = Nothing
@@ -999,9 +1035,9 @@ rtsResourceId = lens _rtsResourceId (\ s a -> s{_rtsResourceId = a});
 
 -- | The type of the resource.
 --
--- - The resource type for health checks is @healthcheck@.
+-- - The resource type for health checks is 'healthcheck'.
 --
--- - The resource type for hosted zones is @hostedzone@.
+-- - The resource type for hosted zones is 'hostedzone'.
 rtsResourceType :: Lens' ResourceTagSet (Maybe TagResourceType)
 rtsResourceType = lens _rtsResourceType (\ s a -> s{_rtsResourceType = a});
 
@@ -1020,19 +1056,20 @@ instance FromXML ResourceTagSet where
 -- for the current observation.
 --
 -- /See:/ 'statusReport' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'srStatus'
---
--- * 'srCheckedTime'
 data StatusReport = StatusReport'
     { _srStatus      :: !(Maybe Text)
     , _srCheckedTime :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StatusReport' smart constructor.
-statusReport :: StatusReport
+-- | Creates a value of 'StatusReport' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srStatus'
+--
+-- * 'srCheckedTime'
+statusReport
+    :: StatusReport
 statusReport =
     StatusReport'
     { _srStatus = Nothing
@@ -1044,8 +1081,8 @@ srStatus :: Lens' StatusReport (Maybe Text)
 srStatus = lens _srStatus (\ s a -> s{_srStatus = a});
 
 -- | The date and time the health check status was observed, in the format
--- @YYYY-MM-DDThh:mm:ssZ@, as specified in the ISO 8601 standard (for
--- example, 2009-11-19T19:37:58Z). The @Z@ after the time indicates that
+-- 'YYYY-MM-DDThh:mm:ssZ', as specified in the ISO 8601 standard (for
+-- example, 2009-11-19T19:37:58Z). The 'Z' after the time indicates that
 -- the time is listed in Coordinated Universal Time (UTC), which is
 -- synonymous with Greenwich Mean Time in this context.
 srCheckedTime :: Lens' StatusReport (Maybe UTCTime)
@@ -1059,30 +1096,31 @@ instance FromXML StatusReport where
 -- | A single tag containing a key and value.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagValue'
---
--- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Tag
 tag =
     Tag'
     { _tagValue = Nothing
     , _tagKey = Nothing
     }
 
--- | The value for a @Tag@.
+-- | The value for a 'Tag'.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
--- | The key for a @Tag@.
+-- | The key for a 'Tag'.
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
@@ -1095,19 +1133,20 @@ instance ToXML Tag where
           = mconcat ["Value" @= _tagValue, "Key" @= _tagKey]
 
 -- | /See:/ 'vpc' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vpcVPCRegion'
---
--- * 'vpcVPCId'
 data VPC = VPC'
     { _vpcVPCRegion :: !(Maybe VPCRegion)
     , _vpcVPCId     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VPC' smart constructor.
-vpc :: VPC
+-- | Creates a value of 'VPC' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vpcVPCRegion'
+--
+-- * 'vpcVPCId'
+vpc
+    :: VPC
 vpc =
     VPC'
     { _vpcVPCRegion = Nothing

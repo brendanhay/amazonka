@@ -25,14 +25,14 @@
 -- mapping.
 --
 -- This operation requires permission for the
--- @lambda:UpdateEventSourceMapping@ action.
+-- 'lambda:UpdateEventSourceMapping' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateEventSourceMapping.html AWS API Reference> for UpdateEventSourceMapping.
 module Network.AWS.Lambda.UpdateEventSourceMapping
     (
     -- * Creating a Request
-      UpdateEventSourceMapping
-    , updateEventSourceMapping
+      updateEventSourceMapping
+    , UpdateEventSourceMapping
     -- * Request Lenses
     , uesmEnabled
     , uesmBatchSize
@@ -40,8 +40,8 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     , uesmUUId
 
     -- * Destructuring the Response
-    , EventSourceMappingConfiguration
     , eventSourceMappingConfiguration
+    , EventSourceMappingConfiguration
     -- * Response Lenses
     , esmcEventSourceARN
     , esmcFunctionARN
@@ -60,8 +60,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateEventSourceMapping' smart constructor.
+data UpdateEventSourceMapping = UpdateEventSourceMapping'
+    { _uesmEnabled      :: !(Maybe Bool)
+    , _uesmBatchSize    :: !(Maybe Nat)
+    , _uesmFunctionName :: !(Maybe Text)
+    , _uesmUUId         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateEventSourceMapping' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uesmEnabled'
 --
@@ -70,15 +78,9 @@ import           Network.AWS.Response
 -- * 'uesmFunctionName'
 --
 -- * 'uesmUUId'
-data UpdateEventSourceMapping = UpdateEventSourceMapping'
-    { _uesmEnabled      :: !(Maybe Bool)
-    , _uesmBatchSize    :: !(Maybe Nat)
-    , _uesmFunctionName :: !(Maybe Text)
-    , _uesmUUId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateEventSourceMapping' smart constructor.
-updateEventSourceMapping :: Text -> UpdateEventSourceMapping
+updateEventSourceMapping
+    :: Text -- ^ 'uesmUUId'
+    -> UpdateEventSourceMapping
 updateEventSourceMapping pUUId_ =
     UpdateEventSourceMapping'
     { _uesmEnabled = Nothing

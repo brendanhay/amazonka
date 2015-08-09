@@ -27,14 +27,14 @@
 module Network.AWS.EMR.ModifyInstanceGroups
     (
     -- * Creating a Request
-      ModifyInstanceGroups
-    , modifyInstanceGroups
+      modifyInstanceGroups
+    , ModifyInstanceGroups
     -- * Request Lenses
     , migInstanceGroups
 
     -- * Destructuring the Response
-    , ModifyInstanceGroupsResponse
     , modifyInstanceGroupsResponse
+    , ModifyInstanceGroupsResponse
     ) where
 
 import           Network.AWS.EMR.Types
@@ -46,16 +46,17 @@ import           Network.AWS.Response
 -- | Change the size of some instance groups.
 --
 -- /See:/ 'modifyInstanceGroups' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'migInstanceGroups'
 newtype ModifyInstanceGroups = ModifyInstanceGroups'
     { _migInstanceGroups :: Maybe [InstanceGroupModifyConfig]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyInstanceGroups' smart constructor.
-modifyInstanceGroups :: ModifyInstanceGroups
+-- | Creates a value of 'ModifyInstanceGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'migInstanceGroups'
+modifyInstanceGroups
+    :: ModifyInstanceGroups
 modifyInstanceGroups =
     ModifyInstanceGroups'
     { _migInstanceGroups = Nothing
@@ -97,6 +98,8 @@ data ModifyInstanceGroupsResponse =
     ModifyInstanceGroupsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyInstanceGroupsResponse' smart constructor.
-modifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse
+-- | Creates a value of 'ModifyInstanceGroupsResponse' with the minimum fields required to make a request.
+--
+modifyInstanceGroupsResponse
+    :: ModifyInstanceGroupsResponse
 modifyInstanceGroupsResponse = ModifyInstanceGroupsResponse'

@@ -29,15 +29,15 @@
 module Network.AWS.EC2.AllocateAddress
     (
     -- * Creating a Request
-      AllocateAddress
-    , allocateAddress
+      allocateAddress
+    , AllocateAddress
     -- * Request Lenses
     , aaDomain
     , aaDryRun
 
     -- * Destructuring the Response
-    , AllocateAddressResponse
     , allocateAddressResponse
+    , AllocateAddressResponse
     -- * Response Lenses
     , aarsAllocationId
     , aarsDomain
@@ -52,26 +52,27 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'allocateAddress' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aaDomain'
---
--- * 'aaDryRun'
 data AllocateAddress = AllocateAddress'
     { _aaDomain :: !(Maybe DomainType)
     , _aaDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AllocateAddress' smart constructor.
-allocateAddress :: AllocateAddress
+-- | Creates a value of 'AllocateAddress' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aaDomain'
+--
+-- * 'aaDryRun'
+allocateAddress
+    :: AllocateAddress
 allocateAddress =
     AllocateAddress'
     { _aaDomain = Nothing
     , _aaDryRun = Nothing
     }
 
--- | Set to @vpc@ to allocate the address for use with instances in a VPC.
+-- | Set to 'vpc' to allocate the address for use with instances in a VPC.
 --
 -- Default: The address is for use with instances in EC2-Classic.
 aaDomain :: Lens' AllocateAddress (Maybe DomainType)
@@ -79,8 +80,8 @@ aaDomain = lens _aaDomain (\ s a -> s{_aaDomain = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 aaDryRun :: Lens' AllocateAddress (Maybe Bool)
 aaDryRun = lens _aaDryRun (\ s a -> s{_aaDryRun = a});
 
@@ -110,8 +111,16 @@ instance ToQuery AllocateAddress where
                "Domain" =: _aaDomain, "DryRun" =: _aaDryRun]
 
 -- | /See:/ 'allocateAddressResponse' smart constructor.
+data AllocateAddressResponse = AllocateAddressResponse'
+    { _aarsAllocationId :: !(Maybe Text)
+    , _aarsDomain       :: !(Maybe DomainType)
+    , _aarsPublicIP     :: !(Maybe Text)
+    , _aarsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AllocateAddressResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'aarsAllocationId'
 --
@@ -120,15 +129,9 @@ instance ToQuery AllocateAddress where
 -- * 'aarsPublicIP'
 --
 -- * 'aarsStatus'
-data AllocateAddressResponse = AllocateAddressResponse'
-    { _aarsAllocationId :: !(Maybe Text)
-    , _aarsDomain       :: !(Maybe DomainType)
-    , _aarsPublicIP     :: !(Maybe Text)
-    , _aarsStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AllocateAddressResponse' smart constructor.
-allocateAddressResponse :: Int -> AllocateAddressResponse
+allocateAddressResponse
+    :: Int -- ^ 'aarsStatus'
+    -> AllocateAddressResponse
 allocateAddressResponse pStatus_ =
     AllocateAddressResponse'
     { _aarsAllocationId = Nothing
@@ -143,7 +146,7 @@ aarsAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
 aarsAllocationId = lens _aarsAllocationId (\ s a -> s{_aarsAllocationId = a});
 
 -- | Indicates whether this Elastic IP address is for use with instances in
--- EC2-Classic (@standard@) or instances in a VPC (@vpc@).
+-- EC2-Classic ('standard') or instances in a VPC ('vpc').
 aarsDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
 aarsDomain = lens _aarsDomain (\ s a -> s{_aarsDomain = a});
 
@@ -151,6 +154,6 @@ aarsDomain = lens _aarsDomain (\ s a -> s{_aarsDomain = a});
 aarsPublicIP :: Lens' AllocateAddressResponse (Maybe Text)
 aarsPublicIP = lens _aarsPublicIP (\ s a -> s{_aarsPublicIP = a});
 
--- | Undocumented member.
+-- | The response status code.
 aarsStatus :: Lens' AllocateAddressResponse Int
 aarsStatus = lens _aarsStatus (\ s a -> s{_aarsStatus = a});

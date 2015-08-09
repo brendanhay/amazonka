@@ -21,7 +21,7 @@
 -- Reboots the specified WorkSpaces.
 --
 -- To be able to reboot a WorkSpace, the WorkSpace must have a __State__ of
--- @AVAILABLE@, @IMPAIRED@, or @INOPERABLE@.
+-- 'AVAILABLE', 'IMPAIRED', or 'INOPERABLE'.
 --
 -- This operation is asynchronous and will return before the WorkSpaces
 -- have rebooted.
@@ -30,14 +30,14 @@
 module Network.AWS.WorkSpaces.RebootWorkspaces
     (
     -- * Creating a Request
-      RebootWorkspaces
-    , rebootWorkspaces
+      rebootWorkspaces
+    , RebootWorkspaces
     -- * Request Lenses
     , rwRebootWorkspaceRequests
 
     -- * Destructuring the Response
-    , RebootWorkspacesResponse
     , rebootWorkspacesResponse
+    , RebootWorkspacesResponse
     -- * Response Lenses
     , rrsFailedRequests
     , rrsStatus
@@ -52,16 +52,18 @@ import           Network.AWS.WorkSpaces.Types.Product
 -- | Contains the inputs for the RebootWorkspaces operation.
 --
 -- /See:/ 'rebootWorkspaces' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rwRebootWorkspaceRequests'
 newtype RebootWorkspaces = RebootWorkspaces'
     { _rwRebootWorkspaceRequests :: List1 RebootRequest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebootWorkspaces' smart constructor.
-rebootWorkspaces :: NonEmpty RebootRequest -> RebootWorkspaces
+-- | Creates a value of 'RebootWorkspaces' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rwRebootWorkspaceRequests'
+rebootWorkspaces
+    :: NonEmpty RebootRequest -- ^ 'rwRebootWorkspaceRequests'
+    -> RebootWorkspaces
 rebootWorkspaces pRebootWorkspaceRequests_ =
     RebootWorkspaces'
     { _rwRebootWorkspaceRequests = _List1 # pRebootWorkspaceRequests_
@@ -106,19 +108,21 @@ instance ToQuery RebootWorkspaces where
 -- | Contains the results of the RebootWorkspaces operation.
 --
 -- /See:/ 'rebootWorkspacesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rrsFailedRequests'
---
--- * 'rrsStatus'
 data RebootWorkspacesResponse = RebootWorkspacesResponse'
     { _rrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
     , _rrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebootWorkspacesResponse' smart constructor.
-rebootWorkspacesResponse :: Int -> RebootWorkspacesResponse
+-- | Creates a value of 'RebootWorkspacesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rrsFailedRequests'
+--
+-- * 'rrsStatus'
+rebootWorkspacesResponse
+    :: Int -- ^ 'rrsStatus'
+    -> RebootWorkspacesResponse
 rebootWorkspacesResponse pStatus_ =
     RebootWorkspacesResponse'
     { _rrsFailedRequests = Nothing
@@ -130,6 +134,6 @@ rebootWorkspacesResponse pStatus_ =
 rrsFailedRequests :: Lens' RebootWorkspacesResponse [FailedWorkspaceChangeRequest]
 rrsFailedRequests = lens _rrsFailedRequests (\ s a -> s{_rrsFailedRequests = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 rrsStatus :: Lens' RebootWorkspacesResponse Int
 rrsStatus = lens _rrsStatus (\ s a -> s{_rrsStatus = a});

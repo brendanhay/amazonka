@@ -24,8 +24,8 @@
 module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     (
     -- * Creating a Request
-      UpdateDeploymentGroup
-    , updateDeploymentGroup
+      updateDeploymentGroup
+    , UpdateDeploymentGroup
     -- * Request Lenses
     , udgServiceRoleARN
     , udgDeploymentConfigName
@@ -37,8 +37,8 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , udgCurrentDeploymentGroupName
 
     -- * Destructuring the Response
-    , UpdateDeploymentGroupResponse
     , updateDeploymentGroupResponse
+    , UpdateDeploymentGroupResponse
     -- * Response Lenses
     , udgrsHooksNotCleanedUp
     , udgrsStatus
@@ -53,8 +53,20 @@ import           Network.AWS.Response
 -- | Represents the input of an update deployment group operation.
 --
 -- /See:/ 'updateDeploymentGroup' smart constructor.
+data UpdateDeploymentGroup = UpdateDeploymentGroup'
+    { _udgServiceRoleARN               :: !(Maybe Text)
+    , _udgDeploymentConfigName         :: !(Maybe Text)
+    , _udgEc2TagFilters                :: !(Maybe [EC2TagFilter])
+    , _udgNewDeploymentGroupName       :: !(Maybe Text)
+    , _udgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+    , _udgAutoScalingGroups            :: !(Maybe [Text])
+    , _udgApplicationName              :: !Text
+    , _udgCurrentDeploymentGroupName   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateDeploymentGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'udgServiceRoleARN'
 --
@@ -71,19 +83,10 @@ import           Network.AWS.Response
 -- * 'udgApplicationName'
 --
 -- * 'udgCurrentDeploymentGroupName'
-data UpdateDeploymentGroup = UpdateDeploymentGroup'
-    { _udgServiceRoleARN               :: !(Maybe Text)
-    , _udgDeploymentConfigName         :: !(Maybe Text)
-    , _udgEc2TagFilters                :: !(Maybe [EC2TagFilter])
-    , _udgNewDeploymentGroupName       :: !(Maybe Text)
-    , _udgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
-    , _udgAutoScalingGroups            :: !(Maybe [Text])
-    , _udgApplicationName              :: !Text
-    , _udgCurrentDeploymentGroupName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateDeploymentGroup' smart constructor.
-updateDeploymentGroup :: Text -> Text -> UpdateDeploymentGroup
+updateDeploymentGroup
+    :: Text -- ^ 'udgApplicationName'
+    -> Text -- ^ 'udgCurrentDeploymentGroupName'
+    -> UpdateDeploymentGroup
 updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
     UpdateDeploymentGroup'
     { _udgServiceRoleARN = Nothing
@@ -178,19 +181,21 @@ instance ToQuery UpdateDeploymentGroup where
 -- | Represents the output of an update deployment group operation.
 --
 -- /See:/ 'updateDeploymentGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udgrsHooksNotCleanedUp'
---
--- * 'udgrsStatus'
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
     { _udgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
     , _udgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateDeploymentGroupResponse' smart constructor.
-updateDeploymentGroupResponse :: Int -> UpdateDeploymentGroupResponse
+-- | Creates a value of 'UpdateDeploymentGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udgrsHooksNotCleanedUp'
+--
+-- * 'udgrsStatus'
+updateDeploymentGroupResponse
+    :: Int -- ^ 'udgrsStatus'
+    -> UpdateDeploymentGroupResponse
 updateDeploymentGroupResponse pStatus_ =
     UpdateDeploymentGroupResponse'
     { _udgrsHooksNotCleanedUp = Nothing
@@ -205,6 +210,6 @@ updateDeploymentGroupResponse pStatus_ =
 udgrsHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrsHooksNotCleanedUp = lens _udgrsHooksNotCleanedUp (\ s a -> s{_udgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 udgrsStatus :: Lens' UpdateDeploymentGroupResponse Int
 udgrsStatus = lens _udgrsStatus (\ s a -> s{_udgrsStatus = a});

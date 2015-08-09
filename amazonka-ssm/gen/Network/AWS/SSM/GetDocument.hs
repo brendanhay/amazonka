@@ -24,14 +24,14 @@
 module Network.AWS.SSM.GetDocument
     (
     -- * Creating a Request
-      GetDocument
-    , getDocument
+      getDocument
+    , GetDocument
     -- * Request Lenses
     , gdName
 
     -- * Destructuring the Response
-    , GetDocumentResponse
     , getDocumentResponse
+    , GetDocumentResponse
     -- * Response Lenses
     , gdrsContent
     , gdrsName
@@ -45,16 +45,18 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'getDocument' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdName'
 newtype GetDocument = GetDocument'
     { _gdName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDocument' smart constructor.
-getDocument :: Text -> GetDocument
+-- | Creates a value of 'GetDocument' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdName'
+getDocument
+    :: Text -- ^ 'gdName'
+    -> GetDocument
 getDocument pName_ =
     GetDocument'
     { _gdName = pName_
@@ -94,22 +96,24 @@ instance ToQuery GetDocument where
         toQuery = const mempty
 
 -- | /See:/ 'getDocumentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdrsContent'
---
--- * 'gdrsName'
---
--- * 'gdrsStatus'
 data GetDocumentResponse = GetDocumentResponse'
     { _gdrsContent :: !(Maybe Text)
     , _gdrsName    :: !(Maybe Text)
     , _gdrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDocumentResponse' smart constructor.
-getDocumentResponse :: Int -> GetDocumentResponse
+-- | Creates a value of 'GetDocumentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdrsContent'
+--
+-- * 'gdrsName'
+--
+-- * 'gdrsStatus'
+getDocumentResponse
+    :: Int -- ^ 'gdrsStatus'
+    -> GetDocumentResponse
 getDocumentResponse pStatus_ =
     GetDocumentResponse'
     { _gdrsContent = Nothing
@@ -125,6 +129,6 @@ gdrsContent = lens _gdrsContent (\ s a -> s{_gdrsContent = a});
 gdrsName :: Lens' GetDocumentResponse (Maybe Text)
 gdrsName = lens _gdrsName (\ s a -> s{_gdrsName = a});
 
--- | Undocumented member.
+-- | The response status code.
 gdrsStatus :: Lens' GetDocumentResponse Int
 gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

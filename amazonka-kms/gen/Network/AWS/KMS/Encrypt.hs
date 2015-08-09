@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Encrypts plaintext into ciphertext by using a customer master key. The
--- @Encrypt@ function has two primary use cases:
+-- 'Encrypt' function has two primary use cases:
 --
 -- -   You can encrypt up to 4 KB of arbitrary data such as an RSA key, a
 --     database password, or other sensitive customer information.
@@ -34,10 +34,10 @@
 -- don\'t use this function to encrypt a generated data key within a
 -- region. You retrieve data keys already encrypted by calling the
 -- GenerateDataKey or GenerateDataKeyWithoutPlaintext function. Data keys
--- don\'t need to be encrypted again by calling @Encrypt@.
+-- don\'t need to be encrypted again by calling 'Encrypt'.
 --
 -- If you want to encrypt data locally in your application, you can use the
--- @GenerateDataKey@ function to return a plaintext data encryption key and
+-- 'GenerateDataKey' function to return a plaintext data encryption key and
 -- a copy of the key encrypted under the customer master key (CMK) of your
 -- choosing.
 --
@@ -45,8 +45,8 @@
 module Network.AWS.KMS.Encrypt
     (
     -- * Creating a Request
-      Encrypt
-    , encrypt
+      encrypt
+    , Encrypt
     -- * Request Lenses
     , eEncryptionContext
     , eGrantTokens
@@ -54,8 +54,8 @@ module Network.AWS.KMS.Encrypt
     , ePlaintext
 
     -- * Destructuring the Response
-    , EncryptResponse
     , encryptResponse
+    , EncryptResponse
     -- * Response Lenses
     , ersKeyId
     , ersCiphertextBlob
@@ -69,8 +69,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'encrypt' smart constructor.
+data Encrypt = Encrypt'
+    { _eEncryptionContext :: !(Maybe (Map Text Text))
+    , _eGrantTokens       :: !(Maybe [Text])
+    , _eKeyId             :: !Text
+    , _ePlaintext         :: !(Sensitive Base64)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Encrypt' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eEncryptionContext'
 --
@@ -79,15 +87,10 @@ import           Network.AWS.Response
 -- * 'eKeyId'
 --
 -- * 'ePlaintext'
-data Encrypt = Encrypt'
-    { _eEncryptionContext :: !(Maybe (Map Text Text))
-    , _eGrantTokens       :: !(Maybe [Text])
-    , _eKeyId             :: !Text
-    , _ePlaintext         :: !(Sensitive Base64)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Encrypt' smart constructor.
-encrypt :: Text -> ByteString -> Encrypt
+encrypt
+    :: Text -- ^ 'eKeyId'
+    -> ByteString -- ^ 'ePlaintext'
+    -> Encrypt
 encrypt pKeyId_ pPlaintext_ =
     Encrypt'
     { _eEncryptionContext = Nothing
@@ -98,7 +101,7 @@ encrypt pKeyId_ pPlaintext_ =
 
 -- | Name\/value pair that specifies the encryption context to be used for
 -- authenticated encryption. If used here, the same value must be supplied
--- to the @Decrypt@ API or decryption will fail. For more information, see
+-- to the 'Decrypt' API or decryption will fail. For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
 eEncryptionContext :: Lens' Encrypt (HashMap Text Text)
 eEncryptionContext = lens _eEncryptionContext (\ s a -> s{_eEncryptionContext = a}) . _Default . _Map;
@@ -160,22 +163,24 @@ instance ToQuery Encrypt where
         toQuery = const mempty
 
 -- | /See:/ 'encryptResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ersKeyId'
---
--- * 'ersCiphertextBlob'
---
--- * 'ersStatus'
 data EncryptResponse = EncryptResponse'
     { _ersKeyId          :: !(Maybe Text)
     , _ersCiphertextBlob :: !(Maybe Base64)
     , _ersStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EncryptResponse' smart constructor.
-encryptResponse :: Int -> EncryptResponse
+-- | Creates a value of 'EncryptResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ersKeyId'
+--
+-- * 'ersCiphertextBlob'
+--
+-- * 'ersStatus'
+encryptResponse
+    :: Int -- ^ 'ersStatus'
+    -> EncryptResponse
 encryptResponse pStatus_ =
     EncryptResponse'
     { _ersKeyId = Nothing
@@ -192,6 +197,6 @@ ersKeyId = lens _ersKeyId (\ s a -> s{_ersKeyId = a});
 ersCiphertextBlob :: Lens' EncryptResponse (Maybe ByteString)
 ersCiphertextBlob = lens _ersCiphertextBlob (\ s a -> s{_ersCiphertextBlob = a}) . mapping _Base64;
 
--- | Undocumented member.
+-- | The response status code.
 ersStatus :: Lens' EncryptResponse Int
 ersStatus = lens _ersStatus (\ s a -> s{_ersStatus = a});

@@ -18,16 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of @DBParameterGroup@ descriptions. If a
--- @DBParameterGroupName@ is specified, the list will contain only the
+-- Returns a list of 'DBParameterGroup' descriptions. If a
+-- 'DBParameterGroupName' is specified, the list will contain only the
 -- description of the specified DB parameter group.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameterGroups.html AWS API Reference> for DescribeDBParameterGroups.
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBParameterGroups
     (
     -- * Creating a Request
-      DescribeDBParameterGroups
-    , describeDBParameterGroups
+      describeDBParameterGroups
+    , DescribeDBParameterGroups
     -- * Request Lenses
     , ddpgFilters
     , ddpgDBParameterGroupName
@@ -35,8 +37,8 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     , ddpgMarker
 
     -- * Destructuring the Response
-    , DescribeDBParameterGroupsResponse
     , describeDBParameterGroupsResponse
+    , DescribeDBParameterGroupsResponse
     -- * Response Lenses
     , ddpgrsMarker
     , ddpgrsDBParameterGroups
@@ -53,8 +55,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeDBParameterGroups' smart constructor.
+data DescribeDBParameterGroups = DescribeDBParameterGroups'
+    { _ddpgFilters              :: !(Maybe [Filter])
+    , _ddpgDBParameterGroupName :: !(Maybe Text)
+    , _ddpgMaxRecords           :: !(Maybe Int)
+    , _ddpgMarker               :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeDBParameterGroups' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ddpgFilters'
 --
@@ -63,15 +73,8 @@ import           Network.AWS.Response
 -- * 'ddpgMaxRecords'
 --
 -- * 'ddpgMarker'
-data DescribeDBParameterGroups = DescribeDBParameterGroups'
-    { _ddpgFilters              :: !(Maybe [Filter])
-    , _ddpgDBParameterGroupName :: !(Maybe Text)
-    , _ddpgMaxRecords           :: !(Maybe Int)
-    , _ddpgMarker               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeDBParameterGroups' smart constructor.
-describeDBParameterGroups :: DescribeDBParameterGroups
+describeDBParameterGroups
+    :: DescribeDBParameterGroups
 describeDBParameterGroups =
     DescribeDBParameterGroups'
     { _ddpgFilters = Nothing
@@ -95,7 +98,7 @@ ddpgDBParameterGroupName :: Lens' DescribeDBParameterGroups (Maybe Text)
 ddpgDBParameterGroupName = lens _ddpgDBParameterGroupName (\ s a -> s{_ddpgDBParameterGroupName = a});
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
+-- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 --
@@ -106,9 +109,9 @@ ddpgMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Int)
 ddpgMaxRecords = lens _ddpgMaxRecords (\ s a -> s{_ddpgMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
--- @DescribeDBParameterGroups@ request. If this parameter is specified, the
+-- 'DescribeDBParameterGroups' request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
+-- specified by 'MaxRecords'.
 ddpgMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
 ddpgMarker = lens _ddpgMarker (\ s a -> s{_ddpgMarker = a});
 
@@ -155,22 +158,24 @@ instance ToQuery DescribeDBParameterGroups where
 -- DescribeDBParameterGroups action.
 --
 -- /See:/ 'describeDBParameterGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddpgrsMarker'
---
--- * 'ddpgrsDBParameterGroups'
---
--- * 'ddpgrsStatus'
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
     { _ddpgrsMarker            :: !(Maybe Text)
     , _ddpgrsDBParameterGroups :: !(Maybe [DBParameterGroup])
     , _ddpgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDBParameterGroupsResponse' smart constructor.
-describeDBParameterGroupsResponse :: Int -> DescribeDBParameterGroupsResponse
+-- | Creates a value of 'DescribeDBParameterGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddpgrsMarker'
+--
+-- * 'ddpgrsDBParameterGroups'
+--
+-- * 'ddpgrsStatus'
+describeDBParameterGroupsResponse
+    :: Int -- ^ 'ddpgrsStatus'
+    -> DescribeDBParameterGroupsResponse
 describeDBParameterGroupsResponse pStatus_ =
     DescribeDBParameterGroupsResponse'
     { _ddpgrsMarker = Nothing
@@ -180,7 +185,7 @@ describeDBParameterGroupsResponse pStatus_ =
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- marker, up to the value specified by 'MaxRecords'.
 ddpgrsMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
 ddpgrsMarker = lens _ddpgrsMarker (\ s a -> s{_ddpgrsMarker = a});
 
@@ -188,6 +193,6 @@ ddpgrsMarker = lens _ddpgrsMarker (\ s a -> s{_ddpgrsMarker = a});
 ddpgrsDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
 ddpgrsDBParameterGroups = lens _ddpgrsDBParameterGroups (\ s a -> s{_ddpgrsDBParameterGroups = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ddpgrsStatus :: Lens' DescribeDBParameterGroupsResponse Int
 ddpgrsStatus = lens _ddpgrsStatus (\ s a -> s{_ddpgrsStatus = a});

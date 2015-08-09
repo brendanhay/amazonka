@@ -35,14 +35,14 @@
 module Network.AWS.IAM.DeleteServerCertificate
     (
     -- * Creating a Request
-      DeleteServerCertificate
-    , deleteServerCertificate
+      deleteServerCertificate
+    , DeleteServerCertificate
     -- * Request Lenses
     , dscServerCertificateName
 
     -- * Destructuring the Response
-    , DeleteServerCertificateResponse
     , deleteServerCertificateResponse
+    , DeleteServerCertificateResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -52,16 +52,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteServerCertificate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dscServerCertificateName'
 newtype DeleteServerCertificate = DeleteServerCertificate'
     { _dscServerCertificateName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteServerCertificate' smart constructor.
-deleteServerCertificate :: Text -> DeleteServerCertificate
+-- | Creates a value of 'DeleteServerCertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dscServerCertificateName'
+deleteServerCertificate
+    :: Text -- ^ 'dscServerCertificateName'
+    -> DeleteServerCertificate
 deleteServerCertificate pServerCertificateName_ =
     DeleteServerCertificate'
     { _dscServerCertificateName = pServerCertificateName_
@@ -98,6 +100,8 @@ data DeleteServerCertificateResponse =
     DeleteServerCertificateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteServerCertificateResponse' smart constructor.
-deleteServerCertificateResponse :: DeleteServerCertificateResponse
+-- | Creates a value of 'DeleteServerCertificateResponse' with the minimum fields required to make a request.
+--
+deleteServerCertificateResponse
+    :: DeleteServerCertificateResponse
 deleteServerCertificateResponse = DeleteServerCertificateResponse'

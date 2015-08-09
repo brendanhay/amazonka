@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Merges two users having different @IdentityId@s, existing in the same
+-- Merges two users having different 'IdentityId's, existing in the same
 -- identity pool, and identified by the same developer provider. You can
 -- use this action to request that discrete users be merged and identified
 -- as a single user in the Cognito environment. Cognito associates the
--- given source user (@SourceUserIdentifier@) with the @IdentityId@ of the
--- @DestinationUserIdentifier@. Only developer-authenticated users can be
+-- given source user ('SourceUserIdentifier') with the 'IdentityId' of the
+-- 'DestinationUserIdentifier'. Only developer-authenticated users can be
 -- merged. If the users to be merged are associated with the same public
 -- provider, but as two different users, an exception will be thrown.
 --
@@ -33,8 +33,8 @@
 module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     (
     -- * Creating a Request
-      MergeDeveloperIdentities
-    , mergeDeveloperIdentities
+      mergeDeveloperIdentities
+    , MergeDeveloperIdentities
     -- * Request Lenses
     , mdiSourceUserIdentifier
     , mdiDestinationUserIdentifier
@@ -42,8 +42,8 @@ module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     , mdiIdentityPoolId
 
     -- * Destructuring the Response
-    , MergeDeveloperIdentitiesResponse
     , mergeDeveloperIdentitiesResponse
+    , MergeDeveloperIdentitiesResponse
     -- * Response Lenses
     , mdirsIdentityId
     , mdirsStatus
@@ -55,11 +55,19 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the @MergeDeveloperIdentities@ action.
+-- | Input to the 'MergeDeveloperIdentities' action.
 --
 -- /See:/ 'mergeDeveloperIdentities' smart constructor.
+data MergeDeveloperIdentities = MergeDeveloperIdentities'
+    { _mdiSourceUserIdentifier      :: !Text
+    , _mdiDestinationUserIdentifier :: !Text
+    , _mdiDeveloperProviderName     :: !Text
+    , _mdiIdentityPoolId            :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MergeDeveloperIdentities' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mdiSourceUserIdentifier'
 --
@@ -68,15 +76,12 @@ import           Network.AWS.Response
 -- * 'mdiDeveloperProviderName'
 --
 -- * 'mdiIdentityPoolId'
-data MergeDeveloperIdentities = MergeDeveloperIdentities'
-    { _mdiSourceUserIdentifier      :: !Text
-    , _mdiDestinationUserIdentifier :: !Text
-    , _mdiDeveloperProviderName     :: !Text
-    , _mdiIdentityPoolId            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'MergeDeveloperIdentities' smart constructor.
-mergeDeveloperIdentities :: Text -> Text -> Text -> Text -> MergeDeveloperIdentities
+mergeDeveloperIdentities
+    :: Text -- ^ 'mdiSourceUserIdentifier'
+    -> Text -- ^ 'mdiDestinationUserIdentifier'
+    -> Text -- ^ 'mdiDeveloperProviderName'
+    -> Text -- ^ 'mdiIdentityPoolId'
+    -> MergeDeveloperIdentities
 mergeDeveloperIdentities pSourceUserIdentifier_ pDestinationUserIdentifier_ pDeveloperProviderName_ pIdentityPoolId_ =
     MergeDeveloperIdentities'
     { _mdiSourceUserIdentifier = pSourceUserIdentifier_
@@ -86,12 +91,12 @@ mergeDeveloperIdentities pSourceUserIdentifier_ pDestinationUserIdentifier_ pDev
     }
 
 -- | User identifier for the source user. The value should be a
--- @DeveloperUserIdentifier@.
+-- 'DeveloperUserIdentifier'.
 mdiSourceUserIdentifier :: Lens' MergeDeveloperIdentities Text
 mdiSourceUserIdentifier = lens _mdiSourceUserIdentifier (\ s a -> s{_mdiSourceUserIdentifier = a});
 
 -- | User identifier for the destination user. The value should be a
--- @DeveloperUserIdentifier@.
+-- 'DeveloperUserIdentifier'.
 mdiDestinationUserIdentifier :: Lens' MergeDeveloperIdentities Text
 mdiDestinationUserIdentifier = lens _mdiDestinationUserIdentifier (\ s a -> s{_mdiDestinationUserIdentifier = a});
 
@@ -99,7 +104,7 @@ mdiDestinationUserIdentifier = lens _mdiDestinationUserIdentifier (\ s a -> s{_m
 -- (pseudo) domain name that you provide while creating an identity pool.
 -- This name acts as a placeholder that allows your backend and the Cognito
 -- service to communicate about the developer provider. For the
--- @DeveloperProviderName@, you can use letters as well as period (.),
+-- 'DeveloperProviderName', you can use letters as well as period (.),
 -- underscore (_), and dash (-).
 mdiDeveloperProviderName :: Lens' MergeDeveloperIdentities Text
 mdiDeveloperProviderName = lens _mdiDeveloperProviderName (\ s a -> s{_mdiDeveloperProviderName = a});
@@ -144,22 +149,24 @@ instance ToPath MergeDeveloperIdentities where
 instance ToQuery MergeDeveloperIdentities where
         toQuery = const mempty
 
--- | Returned in response to a successful @MergeDeveloperIdentities@ action.
+-- | Returned in response to a successful 'MergeDeveloperIdentities' action.
 --
 -- /See:/ 'mergeDeveloperIdentitiesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mdirsIdentityId'
---
--- * 'mdirsStatus'
 data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
     { _mdirsIdentityId :: !(Maybe Text)
     , _mdirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MergeDeveloperIdentitiesResponse' smart constructor.
-mergeDeveloperIdentitiesResponse :: Int -> MergeDeveloperIdentitiesResponse
+-- | Creates a value of 'MergeDeveloperIdentitiesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mdirsIdentityId'
+--
+-- * 'mdirsStatus'
+mergeDeveloperIdentitiesResponse
+    :: Int -- ^ 'mdirsStatus'
+    -> MergeDeveloperIdentitiesResponse
 mergeDeveloperIdentitiesResponse pStatus_ =
     MergeDeveloperIdentitiesResponse'
     { _mdirsIdentityId = Nothing
@@ -170,6 +177,6 @@ mergeDeveloperIdentitiesResponse pStatus_ =
 mdirsIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
 mdirsIdentityId = lens _mdirsIdentityId (\ s a -> s{_mdirsIdentityId = a});
 
--- | Undocumented member.
+-- | The response status code.
 mdirsStatus :: Lens' MergeDeveloperIdentitiesResponse Int
 mdirsStatus = lens _mdirsStatus (\ s a -> s{_mdirsStatus = a});

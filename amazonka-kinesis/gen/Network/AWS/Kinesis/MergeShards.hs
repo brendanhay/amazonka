@@ -28,51 +28,51 @@
 -- 276...454. After the merge, the single child shard receives data for all
 -- hash key values covered by the two parent shards.
 --
--- @MergeShards@ is called when there is a need to reduce the overall
+-- 'MergeShards' is called when there is a need to reduce the overall
 -- capacity of a stream because of excess capacity that is not being used.
 -- You must specify the shard to be merged and the adjacent shard for a
 -- stream. For more information about merging shards, see
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-merge.html Merge Two Shards>
 -- in the /Amazon Kinesis Developer Guide/.
 --
--- If the stream is in the @ACTIVE@ state, you can call @MergeShards@. If a
--- stream is in the @CREATING@, @UPDATING@, or @DELETING@ state,
--- @MergeShards@ returns a @ResourceInUseException@. If the specified
--- stream does not exist, @MergeShards@ returns a
--- @ResourceNotFoundException@.
+-- If the stream is in the 'ACTIVE' state, you can call 'MergeShards'. If a
+-- stream is in the 'CREATING', 'UPDATING', or 'DELETING' state,
+-- 'MergeShards' returns a 'ResourceInUseException'. If the specified
+-- stream does not exist, 'MergeShards' returns a
+-- 'ResourceNotFoundException'.
 --
 -- You can use DescribeStream to check the state of the stream, which is
--- returned in @StreamStatus@.
+-- returned in 'StreamStatus'.
 --
--- @MergeShards@ is an asynchronous operation. Upon receiving a
--- @MergeShards@ request, Amazon Kinesis immediately returns a response and
--- sets the @StreamStatus@ to @UPDATING@. After the operation is completed,
--- Amazon Kinesis sets the @StreamStatus@ to @ACTIVE@. Read and write
--- operations continue to work while the stream is in the @UPDATING@ state.
+-- 'MergeShards' is an asynchronous operation. Upon receiving a
+-- 'MergeShards' request, Amazon Kinesis immediately returns a response and
+-- sets the 'StreamStatus' to 'UPDATING'. After the operation is completed,
+-- Amazon Kinesis sets the 'StreamStatus' to 'ACTIVE'. Read and write
+-- operations continue to work while the stream is in the 'UPDATING' state.
 --
 -- You use DescribeStream to determine the shard IDs that are specified in
--- the @MergeShards@ request.
+-- the 'MergeShards' request.
 --
 -- If you try to operate on too many streams in parallel using
--- CreateStream, DeleteStream, @MergeShards@ or SplitShard, you will
--- receive a @LimitExceededException@.
+-- CreateStream, DeleteStream, 'MergeShards' or SplitShard, you will
+-- receive a 'LimitExceededException'.
 --
--- @MergeShards@ has limit of 5 transactions per second per account.
+-- 'MergeShards' has limit of 5 transactions per second per account.
 --
 -- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_MergeShards.html AWS API Reference> for MergeShards.
 module Network.AWS.Kinesis.MergeShards
     (
     -- * Creating a Request
-      MergeShards
-    , mergeShards
+      mergeShards
+    , MergeShards
     -- * Request Lenses
     , msStreamName
     , msShardToMerge
     , msAdjacentShardToMerge
 
     -- * Destructuring the Response
-    , MergeShardsResponse
     , mergeShardsResponse
+    , MergeShardsResponse
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -81,25 +81,29 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for @MergeShards@.
+-- | Represents the input for 'MergeShards'.
 --
 -- /See:/ 'mergeShards' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'msStreamName'
---
--- * 'msShardToMerge'
---
--- * 'msAdjacentShardToMerge'
 data MergeShards = MergeShards'
     { _msStreamName           :: !Text
     , _msShardToMerge         :: !Text
     , _msAdjacentShardToMerge :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MergeShards' smart constructor.
-mergeShards :: Text -> Text -> Text -> MergeShards
+-- | Creates a value of 'MergeShards' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'msStreamName'
+--
+-- * 'msShardToMerge'
+--
+-- * 'msAdjacentShardToMerge'
+mergeShards
+    :: Text -- ^ 'msStreamName'
+    -> Text -- ^ 'msShardToMerge'
+    -> Text -- ^ 'msAdjacentShardToMerge'
+    -> MergeShards
 mergeShards pStreamName_ pShardToMerge_ pAdjacentShardToMerge_ =
     MergeShards'
     { _msStreamName = pStreamName_
@@ -153,6 +157,8 @@ data MergeShardsResponse =
     MergeShardsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MergeShardsResponse' smart constructor.
-mergeShardsResponse :: MergeShardsResponse
+-- | Creates a value of 'MergeShardsResponse' with the minimum fields required to make a request.
+--
+mergeShardsResponse
+    :: MergeShardsResponse
 mergeShardsResponse = MergeShardsResponse'

@@ -44,11 +44,13 @@
 -- endpoint information for the removed nodes is displayed.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheClusters.html AWS API Reference> for DescribeCacheClusters.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheClusters
     (
     -- * Creating a Request
-      DescribeCacheClusters
-    , describeCacheClusters
+      describeCacheClusters
+    , DescribeCacheClusters
     -- * Request Lenses
     , dCacheClusterId
     , dMaxRecords
@@ -56,8 +58,8 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     , dShowCacheNodeInfo
 
     -- * Destructuring the Response
-    , DescribeCacheClustersResponse
     , describeCacheClustersResponse
+    , DescribeCacheClustersResponse
     -- * Response Lenses
     , drsCacheClusters
     , drsMarker
@@ -74,8 +76,16 @@ import           Network.AWS.Response
 -- | Represents the input of a /DescribeCacheClusters/ action.
 --
 -- /See:/ 'describeCacheClusters' smart constructor.
+data DescribeCacheClusters = DescribeCacheClusters'
+    { _dCacheClusterId    :: !(Maybe Text)
+    , _dMaxRecords        :: !(Maybe Int)
+    , _dMarker            :: !(Maybe Text)
+    , _dShowCacheNodeInfo :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeCacheClusters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dCacheClusterId'
 --
@@ -84,15 +94,8 @@ import           Network.AWS.Response
 -- * 'dMarker'
 --
 -- * 'dShowCacheNodeInfo'
-data DescribeCacheClusters = DescribeCacheClusters'
-    { _dCacheClusterId    :: !(Maybe Text)
-    , _dMaxRecords        :: !(Maybe Int)
-    , _dMarker            :: !(Maybe Text)
-    , _dShowCacheNodeInfo :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeCacheClusters' smart constructor.
-describeCacheClusters :: DescribeCacheClusters
+describeCacheClusters
+    :: DescribeCacheClusters
 describeCacheClusters =
     DescribeCacheClusters'
     { _dCacheClusterId = Nothing
@@ -108,7 +111,7 @@ dCacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
 dCacheClusterId = lens _dCacheClusterId (\ s a -> s{_dCacheClusterId = a});
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a marker is
+-- records exist than the specified 'MaxRecords' value, a marker is
 -- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
@@ -167,22 +170,24 @@ instance ToQuery DescribeCacheClusters where
 -- | Represents the output of a /DescribeCacheClusters/ action.
 --
 -- /See:/ 'describeCacheClustersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsCacheClusters'
---
--- * 'drsMarker'
---
--- * 'drsStatus'
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
     { _drsCacheClusters :: !(Maybe [CacheCluster])
     , _drsMarker        :: !(Maybe Text)
     , _drsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCacheClustersResponse' smart constructor.
-describeCacheClustersResponse :: Int -> DescribeCacheClustersResponse
+-- | Creates a value of 'DescribeCacheClustersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsCacheClusters'
+--
+-- * 'drsMarker'
+--
+-- * 'drsStatus'
+describeCacheClustersResponse
+    :: Int -- ^ 'drsStatus'
+    -> DescribeCacheClustersResponse
 describeCacheClustersResponse pStatus_ =
     DescribeCacheClustersResponse'
     { _drsCacheClusters = Nothing
@@ -199,6 +204,6 @@ drsCacheClusters = lens _drsCacheClusters (\ s a -> s{_drsCacheClusters = a}) . 
 drsMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
 drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DescribeCacheClustersResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

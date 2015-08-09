@@ -26,14 +26,14 @@
 module Network.AWS.StorageGateway.ListVolumeInitiators
     (
     -- * Creating a Request
-      ListVolumeInitiators
-    , listVolumeInitiators
+      listVolumeInitiators
+    , ListVolumeInitiators
     -- * Request Lenses
     , lviVolumeARN
 
     -- * Destructuring the Response
-    , ListVolumeInitiatorsResponse
     , listVolumeInitiatorsResponse
+    , ListVolumeInitiatorsResponse
     -- * Response Lenses
     , lvirsInitiators
     , lvirsStatus
@@ -48,16 +48,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | ListVolumeInitiatorsInput
 --
 -- /See:/ 'listVolumeInitiators' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lviVolumeARN'
 newtype ListVolumeInitiators = ListVolumeInitiators'
     { _lviVolumeARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListVolumeInitiators' smart constructor.
-listVolumeInitiators :: Text -> ListVolumeInitiators
+-- | Creates a value of 'ListVolumeInitiators' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lviVolumeARN'
+listVolumeInitiators
+    :: Text -- ^ 'lviVolumeARN'
+    -> ListVolumeInitiators
 listVolumeInitiators pVolumeARN_ =
     ListVolumeInitiators'
     { _lviVolumeARN = pVolumeARN_
@@ -103,19 +105,21 @@ instance ToQuery ListVolumeInitiators where
 -- | ListVolumeInitiatorsOutput
 --
 -- /See:/ 'listVolumeInitiatorsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lvirsInitiators'
---
--- * 'lvirsStatus'
 data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
     { _lvirsInitiators :: !(Maybe [Text])
     , _lvirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListVolumeInitiatorsResponse' smart constructor.
-listVolumeInitiatorsResponse :: Int -> ListVolumeInitiatorsResponse
+-- | Creates a value of 'ListVolumeInitiatorsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lvirsInitiators'
+--
+-- * 'lvirsStatus'
+listVolumeInitiatorsResponse
+    :: Int -- ^ 'lvirsStatus'
+    -> ListVolumeInitiatorsResponse
 listVolumeInitiatorsResponse pStatus_ =
     ListVolumeInitiatorsResponse'
     { _lvirsInitiators = Nothing
@@ -127,6 +131,6 @@ listVolumeInitiatorsResponse pStatus_ =
 lvirsInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
 lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lvirsStatus :: Lens' ListVolumeInitiatorsResponse Int
 lvirsStatus = lens _lvirsStatus (\ s a -> s{_lvirsStatus = a});

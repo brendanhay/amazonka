@@ -23,23 +23,25 @@
 -- to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
 --
--- You can paginate the results using the @MaxItems@ and @Marker@
+-- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRoles.html AWS API Reference> for ListRoles.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListRoles
     (
     -- * Creating a Request
-      ListRoles
-    , listRoles
+      listRoles
+    , ListRoles
     -- * Request Lenses
     , lrPathPrefix
     , lrMaxItems
     , lrMarker
 
     -- * Destructuring the Response
-    , ListRolesResponse
     , listRolesResponse
+    , ListRolesResponse
     -- * Response Lenses
     , lrrsMarker
     , lrrsIsTruncated
@@ -55,22 +57,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listRoles' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lrPathPrefix'
---
--- * 'lrMaxItems'
---
--- * 'lrMarker'
 data ListRoles = ListRoles'
     { _lrPathPrefix :: !(Maybe Text)
     , _lrMaxItems   :: !(Maybe Nat)
     , _lrMarker     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListRoles' smart constructor.
-listRoles :: ListRoles
+-- | Creates a value of 'ListRoles' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lrPathPrefix'
+--
+-- * 'lrMaxItems'
+--
+-- * 'lrMarker'
+listRoles
+    :: ListRoles
 listRoles =
     ListRoles'
     { _lrPathPrefix = Nothing
@@ -79,8 +82,8 @@ listRoles =
     }
 
 -- | The path prefix for filtering the results. For example, the prefix
--- @\/application_abc\/component_xyz\/@ gets all roles whose path starts
--- with @\/application_abc\/component_xyz\/@.
+-- '\/application_abc\/component_xyz\/' gets all roles whose path starts
+-- with '\/application_abc\/component_xyz\/'.
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/), listing all roles.
@@ -89,7 +92,7 @@ lrPathPrefix = lens _lrPathPrefix (\ s a -> s{_lrPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -98,7 +101,7 @@ lrMaxItems = lens _lrMaxItems (\ s a -> s{_lrMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 lrMarker :: Lens' ListRoles (Maybe Text)
 lrMarker = lens _lrMarker (\ s a -> s{_lrMarker = a});
 
@@ -139,8 +142,16 @@ instance ToQuery ListRoles where
 -- | Contains the response to a successful ListRoles request.
 --
 -- /See:/ 'listRolesResponse' smart constructor.
+data ListRolesResponse = ListRolesResponse'
+    { _lrrsMarker      :: !(Maybe Text)
+    , _lrrsIsTruncated :: !(Maybe Bool)
+    , _lrrsStatus      :: !Int
+    , _lrrsRoles       :: ![Role]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListRolesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lrrsMarker'
 --
@@ -149,15 +160,9 @@ instance ToQuery ListRoles where
 -- * 'lrrsStatus'
 --
 -- * 'lrrsRoles'
-data ListRolesResponse = ListRolesResponse'
-    { _lrrsMarker      :: !(Maybe Text)
-    , _lrrsIsTruncated :: !(Maybe Bool)
-    , _lrrsStatus      :: !Int
-    , _lrrsRoles       :: ![Role]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListRolesResponse' smart constructor.
-listRolesResponse :: Int -> ListRolesResponse
+listRolesResponse
+    :: Int -- ^ 'lrrsStatus'
+    -> ListRolesResponse
 listRolesResponse pStatus_ =
     ListRolesResponse'
     { _lrrsMarker = Nothing
@@ -166,19 +171,19 @@ listRolesResponse pStatus_ =
     , _lrrsRoles = mempty
     }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lrrsMarker :: Lens' ListRolesResponse (Maybe Text)
 lrrsMarker = lens _lrrsMarker (\ s a -> s{_lrrsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 lrrsIsTruncated :: Lens' ListRolesResponse (Maybe Bool)
 lrrsIsTruncated = lens _lrrsIsTruncated (\ s a -> s{_lrrsIsTruncated = a});
 
--- | Undocumented member.
+-- | The response status code.
 lrrsStatus :: Lens' ListRolesResponse Int
 lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});
 

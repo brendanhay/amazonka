@@ -24,14 +24,14 @@
 module Network.AWS.CodePipeline.ListPipelines
     (
     -- * Creating a Request
-      ListPipelines
-    , listPipelines
+      listPipelines
+    , ListPipelines
     -- * Request Lenses
     , lpNextToken
 
     -- * Destructuring the Response
-    , ListPipelinesResponse
     , listPipelinesResponse
+    , ListPipelinesResponse
     -- * Response Lenses
     , lprsPipelines
     , lprsNextToken
@@ -47,16 +47,17 @@ import           Network.AWS.Response
 -- | Represents the input of a list pipelines action.
 --
 -- /See:/ 'listPipelines' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lpNextToken'
 newtype ListPipelines = ListPipelines'
     { _lpNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListPipelines' smart constructor.
-listPipelines :: ListPipelines
+-- | Creates a value of 'ListPipelines' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpNextToken'
+listPipelines
+    :: ListPipelines
 listPipelines =
     ListPipelines'
     { _lpNextToken = Nothing
@@ -102,22 +103,24 @@ instance ToQuery ListPipelines where
 -- | Represents the output of a list pipelines action.
 --
 -- /See:/ 'listPipelinesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lprsPipelines'
---
--- * 'lprsNextToken'
---
--- * 'lprsStatus'
 data ListPipelinesResponse = ListPipelinesResponse'
     { _lprsPipelines :: !(Maybe [PipelineSummary])
     , _lprsNextToken :: !(Maybe Text)
     , _lprsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListPipelinesResponse' smart constructor.
-listPipelinesResponse :: Int -> ListPipelinesResponse
+-- | Creates a value of 'ListPipelinesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lprsPipelines'
+--
+-- * 'lprsNextToken'
+--
+-- * 'lprsStatus'
+listPipelinesResponse
+    :: Int -- ^ 'lprsStatus'
+    -> ListPipelinesResponse
 listPipelinesResponse pStatus_ =
     ListPipelinesResponse'
     { _lprsPipelines = Nothing
@@ -135,6 +138,6 @@ lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default 
 lprsNextToken :: Lens' ListPipelinesResponse (Maybe Text)
 lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 lprsStatus :: Lens' ListPipelinesResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

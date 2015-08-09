@@ -21,11 +21,13 @@
 -- This operation lists in-progress multipart uploads.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListMultipartUploads.html AWS API Reference> for ListMultipartUploads.
+--
+-- This operation returns paginated results.
 module Network.AWS.S3.ListMultipartUploads
     (
     -- * Creating a Request
-      ListMultipartUploads
-    , listMultipartUploads
+      listMultipartUploads
+    , ListMultipartUploads
     -- * Request Lenses
     , lmuKeyMarker
     , lmuPrefix
@@ -36,8 +38,8 @@ module Network.AWS.S3.ListMultipartUploads
     , lmuBucket
 
     -- * Destructuring the Response
-    , ListMultipartUploadsResponse
     , listMultipartUploadsResponse
+    , ListMultipartUploadsResponse
     -- * Response Lenses
     , lmursKeyMarker
     , lmursPrefix
@@ -62,8 +64,19 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listMultipartUploads' smart constructor.
+data ListMultipartUploads = ListMultipartUploads'
+    { _lmuKeyMarker      :: !(Maybe Text)
+    , _lmuPrefix         :: !(Maybe Text)
+    , _lmuEncodingType   :: !(Maybe EncodingType)
+    , _lmuMaxUploads     :: !(Maybe Int)
+    , _lmuUploadIdMarker :: !(Maybe Text)
+    , _lmuDelimiter      :: !(Maybe Delimiter)
+    , _lmuBucket         :: !BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListMultipartUploads' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lmuKeyMarker'
 --
@@ -78,18 +91,9 @@ import           Network.AWS.S3.Types.Product
 -- * 'lmuDelimiter'
 --
 -- * 'lmuBucket'
-data ListMultipartUploads = ListMultipartUploads'
-    { _lmuKeyMarker      :: !(Maybe Text)
-    , _lmuPrefix         :: !(Maybe Text)
-    , _lmuEncodingType   :: !(Maybe EncodingType)
-    , _lmuMaxUploads     :: !(Maybe Int)
-    , _lmuUploadIdMarker :: !(Maybe Text)
-    , _lmuDelimiter      :: !(Maybe Delimiter)
-    , _lmuBucket         :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListMultipartUploads' smart constructor.
-listMultipartUploads :: BucketName -> ListMultipartUploads
+listMultipartUploads
+    :: BucketName -- ^ 'lmuBucket'
+    -> ListMultipartUploads
 listMultipartUploads pBucket_ =
     ListMultipartUploads'
     { _lmuKeyMarker = Nothing
@@ -185,8 +189,25 @@ instance ToQuery ListMultipartUploads where
                "delimiter" =: _lmuDelimiter, "uploads"]
 
 -- | /See:/ 'listMultipartUploadsResponse' smart constructor.
+data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
+    { _lmursKeyMarker          :: !(Maybe Text)
+    , _lmursPrefix             :: !(Maybe Text)
+    , _lmursEncodingType       :: !(Maybe EncodingType)
+    , _lmursCommonPrefixes     :: !(Maybe [CommonPrefix])
+    , _lmursBucket             :: !(Maybe BucketName)
+    , _lmursMaxUploads         :: !(Maybe Int)
+    , _lmursUploadIdMarker     :: !(Maybe Text)
+    , _lmursNextKeyMarker      :: !(Maybe Text)
+    , _lmursUploads            :: !(Maybe [MultipartUpload])
+    , _lmursIsTruncated        :: !(Maybe Bool)
+    , _lmursNextUploadIdMarker :: !(Maybe Text)
+    , _lmursDelimiter          :: !(Maybe Delimiter)
+    , _lmursStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListMultipartUploadsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lmursKeyMarker'
 --
@@ -213,24 +234,9 @@ instance ToQuery ListMultipartUploads where
 -- * 'lmursDelimiter'
 --
 -- * 'lmursStatus'
-data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
-    { _lmursKeyMarker          :: !(Maybe Text)
-    , _lmursPrefix             :: !(Maybe Text)
-    , _lmursEncodingType       :: !(Maybe EncodingType)
-    , _lmursCommonPrefixes     :: !(Maybe [CommonPrefix])
-    , _lmursBucket             :: !(Maybe BucketName)
-    , _lmursMaxUploads         :: !(Maybe Int)
-    , _lmursUploadIdMarker     :: !(Maybe Text)
-    , _lmursNextKeyMarker      :: !(Maybe Text)
-    , _lmursUploads            :: !(Maybe [MultipartUpload])
-    , _lmursIsTruncated        :: !(Maybe Bool)
-    , _lmursNextUploadIdMarker :: !(Maybe Text)
-    , _lmursDelimiter          :: !(Maybe Delimiter)
-    , _lmursStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListMultipartUploadsResponse' smart constructor.
-listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse
+listMultipartUploadsResponse
+    :: Int -- ^ 'lmursStatus'
+    -> ListMultipartUploadsResponse
 listMultipartUploadsResponse pStatus_ =
     ListMultipartUploadsResponse'
     { _lmursKeyMarker = Nothing
@@ -305,6 +311,6 @@ lmursNextUploadIdMarker = lens _lmursNextUploadIdMarker (\ s a -> s{_lmursNextUp
 lmursDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Delimiter)
 lmursDelimiter = lens _lmursDelimiter (\ s a -> s{_lmursDelimiter = a});
 
--- | Undocumented member.
+-- | The response status code.
 lmursStatus :: Lens' ListMultipartUploadsResponse Int
 lmursStatus = lens _lmursStatus (\ s a -> s{_lmursStatus = a});

@@ -22,17 +22,17 @@
 -- The list returned in the response is ASCII-sorted by filter name.
 --
 -- By default, this operation returns up to 50 metric filters. If there are
--- more metric filters to list, the response would contain a @nextToken@
+-- more metric filters to list, the response would contain a 'nextToken'
 -- value in the response body. You can also limit the number of metric
--- filters returned in the response by specifying the @limit@ parameter in
+-- filters returned in the response by specifying the 'limit' parameter in
 -- the request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html AWS API Reference> for DescribeMetricFilters.
 module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     (
     -- * Creating a Request
-      DescribeMetricFilters
-    , describeMetricFilters
+      describeMetricFilters
+    , DescribeMetricFilters
     -- * Request Lenses
     , dmfFilterNamePrefix
     , dmfNextToken
@@ -40,8 +40,8 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     , dmfLogGroupName
 
     -- * Destructuring the Response
-    , DescribeMetricFiltersResponse
     , describeMetricFiltersResponse
+    , DescribeMetricFiltersResponse
     -- * Response Lenses
     , dmfrsNextToken
     , dmfrsMetricFilters
@@ -55,8 +55,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeMetricFilters' smart constructor.
+data DescribeMetricFilters = DescribeMetricFilters'
+    { _dmfFilterNamePrefix :: !(Maybe Text)
+    , _dmfNextToken        :: !(Maybe Text)
+    , _dmfLimit            :: !(Maybe Nat)
+    , _dmfLogGroupName     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeMetricFilters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dmfFilterNamePrefix'
 --
@@ -65,15 +73,9 @@ import           Network.AWS.Response
 -- * 'dmfLimit'
 --
 -- * 'dmfLogGroupName'
-data DescribeMetricFilters = DescribeMetricFilters'
-    { _dmfFilterNamePrefix :: !(Maybe Text)
-    , _dmfNextToken        :: !(Maybe Text)
-    , _dmfLimit            :: !(Maybe Nat)
-    , _dmfLogGroupName     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeMetricFilters' smart constructor.
-describeMetricFilters :: Text -> DescribeMetricFilters
+describeMetricFilters
+    :: Text -- ^ 'dmfLogGroupName'
+    -> DescribeMetricFilters
 describeMetricFilters pLogGroupName_ =
     DescribeMetricFilters'
     { _dmfFilterNamePrefix = Nothing
@@ -90,7 +92,7 @@ dmfFilterNamePrefix = lens _dmfFilterNamePrefix (\ s a -> s{_dmfFilterNamePrefix
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the response of the previous
--- @DescribeMetricFilters@ request.
+-- 'DescribeMetricFilters' request.
 dmfNextToken :: Lens' DescribeMetricFilters (Maybe Text)
 dmfNextToken = lens _dmfNextToken (\ s a -> s{_dmfNextToken = a});
 
@@ -140,22 +142,24 @@ instance ToQuery DescribeMetricFilters where
         toQuery = const mempty
 
 -- | /See:/ 'describeMetricFiltersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmfrsNextToken'
---
--- * 'dmfrsMetricFilters'
---
--- * 'dmfrsStatus'
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
     { _dmfrsNextToken     :: !(Maybe Text)
     , _dmfrsMetricFilters :: !(Maybe [MetricFilter])
     , _dmfrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeMetricFiltersResponse' smart constructor.
-describeMetricFiltersResponse :: Int -> DescribeMetricFiltersResponse
+-- | Creates a value of 'DescribeMetricFiltersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmfrsNextToken'
+--
+-- * 'dmfrsMetricFilters'
+--
+-- * 'dmfrsStatus'
+describeMetricFiltersResponse
+    :: Int -- ^ 'dmfrsStatus'
+    -> DescribeMetricFiltersResponse
 describeMetricFiltersResponse pStatus_ =
     DescribeMetricFiltersResponse'
     { _dmfrsNextToken = Nothing
@@ -171,6 +175,6 @@ dmfrsNextToken = lens _dmfrsNextToken (\ s a -> s{_dmfrsNextToken = a});
 dmfrsMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
 dmfrsMetricFilters = lens _dmfrsMetricFilters (\ s a -> s{_dmfrsMetricFilters = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dmfrsStatus :: Lens' DescribeMetricFiltersResponse Int
 dmfrsStatus = lens _dmfrsStatus (\ s a -> s{_dmfrsStatus = a});

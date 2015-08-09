@@ -28,15 +28,15 @@
 module Network.AWS.CognitoSync.ListIdentityPoolUsage
     (
     -- * Creating a Request
-      ListIdentityPoolUsage
-    , listIdentityPoolUsage
+      listIdentityPoolUsage
+    , ListIdentityPoolUsage
     -- * Request Lenses
     , lipuNextToken
     , lipuMaxResults
 
     -- * Destructuring the Response
-    , ListIdentityPoolUsageResponse
     , listIdentityPoolUsageResponse
+    , ListIdentityPoolUsageResponse
     -- * Response Lenses
     , lipursIdentityPoolUsages
     , lipursCount
@@ -54,19 +54,20 @@ import           Network.AWS.Response
 -- | A request for usage information on an identity pool.
 --
 -- /See:/ 'listIdentityPoolUsage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lipuNextToken'
---
--- * 'lipuMaxResults'
 data ListIdentityPoolUsage = ListIdentityPoolUsage'
     { _lipuNextToken  :: !(Maybe Text)
     , _lipuMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListIdentityPoolUsage' smart constructor.
-listIdentityPoolUsage :: ListIdentityPoolUsage
+-- | Creates a value of 'ListIdentityPoolUsage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lipuNextToken'
+--
+-- * 'lipuMaxResults'
+listIdentityPoolUsage
+    :: ListIdentityPoolUsage
 listIdentityPoolUsage =
     ListIdentityPoolUsage'
     { _lipuNextToken = Nothing
@@ -115,8 +116,17 @@ instance ToQuery ListIdentityPoolUsage where
 -- | Returned for a successful ListIdentityPoolUsage request.
 --
 -- /See:/ 'listIdentityPoolUsageResponse' smart constructor.
+data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
+    { _lipursIdentityPoolUsages :: !(Maybe [IdentityPoolUsage])
+    , _lipursCount              :: !(Maybe Int)
+    , _lipursNextToken          :: !(Maybe Text)
+    , _lipursMaxResults         :: !(Maybe Int)
+    , _lipursStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListIdentityPoolUsageResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lipursIdentityPoolUsages'
 --
@@ -127,16 +137,9 @@ instance ToQuery ListIdentityPoolUsage where
 -- * 'lipursMaxResults'
 --
 -- * 'lipursStatus'
-data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
-    { _lipursIdentityPoolUsages :: !(Maybe [IdentityPoolUsage])
-    , _lipursCount              :: !(Maybe Int)
-    , _lipursNextToken          :: !(Maybe Text)
-    , _lipursMaxResults         :: !(Maybe Int)
-    , _lipursStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListIdentityPoolUsageResponse' smart constructor.
-listIdentityPoolUsageResponse :: Int -> ListIdentityPoolUsageResponse
+listIdentityPoolUsageResponse
+    :: Int -- ^ 'lipursStatus'
+    -> ListIdentityPoolUsageResponse
 listIdentityPoolUsageResponse pStatus_ =
     ListIdentityPoolUsageResponse'
     { _lipursIdentityPoolUsages = Nothing
@@ -162,6 +165,6 @@ lipursNextToken = lens _lipursNextToken (\ s a -> s{_lipursNextToken = a});
 lipursMaxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
 lipursMaxResults = lens _lipursMaxResults (\ s a -> s{_lipursMaxResults = a});
 
--- | Undocumented member.
+-- | The response status code.
 lipursStatus :: Lens' ListIdentityPoolUsageResponse Int
 lipursStatus = lens _lipursStatus (\ s a -> s{_lipursStatus = a});

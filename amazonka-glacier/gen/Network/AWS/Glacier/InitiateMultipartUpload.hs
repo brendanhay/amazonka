@@ -60,8 +60,8 @@
 module Network.AWS.Glacier.InitiateMultipartUpload
     (
     -- * Creating a Request
-      InitiateMultipartUpload
-    , initiateMultipartUpload
+      initiateMultipartUpload
+    , InitiateMultipartUpload
     -- * Request Lenses
     , imuPartSize
     , imuArchiveDescription
@@ -69,8 +69,8 @@ module Network.AWS.Glacier.InitiateMultipartUpload
     , imuVaultName
 
     -- * Destructuring the Response
-    , InitiateMultipartUploadResponse
     , initiateMultipartUploadResponse
+    , InitiateMultipartUploadResponse
     -- * Response Lenses
     , imursLocation
     , imursUploadId
@@ -87,8 +87,16 @@ import           Network.AWS.Response
 -- vault.
 --
 -- /See:/ 'initiateMultipartUpload' smart constructor.
+data InitiateMultipartUpload = InitiateMultipartUpload'
+    { _imuPartSize           :: !(Maybe Text)
+    , _imuArchiveDescription :: !(Maybe Text)
+    , _imuAccountId          :: !Text
+    , _imuVaultName          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InitiateMultipartUpload' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'imuPartSize'
 --
@@ -97,15 +105,10 @@ import           Network.AWS.Response
 -- * 'imuAccountId'
 --
 -- * 'imuVaultName'
-data InitiateMultipartUpload = InitiateMultipartUpload'
-    { _imuPartSize           :: !(Maybe Text)
-    , _imuArchiveDescription :: !(Maybe Text)
-    , _imuAccountId          :: !Text
-    , _imuVaultName          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InitiateMultipartUpload' smart constructor.
-initiateMultipartUpload :: Text -> Text -> InitiateMultipartUpload
+initiateMultipartUpload
+    :: Text -- ^ 'imuAccountId'
+    -> Text -- ^ 'imuVaultName'
+    -> InitiateMultipartUpload
 initiateMultipartUpload pAccountId_ pVaultName_ =
     InitiateMultipartUpload'
     { _imuPartSize = Nothing
@@ -128,9 +131,9 @@ imuPartSize = lens _imuPartSize (\ s a -> s{_imuPartSize = a});
 imuArchiveDescription :: Lens' InitiateMultipartUpload (Maybe Text)
 imuArchiveDescription = lens _imuArchiveDescription (\ s a -> s{_imuArchiveDescription = a});
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 imuAccountId :: Lens' InitiateMultipartUpload Text
@@ -175,22 +178,24 @@ instance ToQuery InitiateMultipartUpload where
 -- | The Amazon Glacier response to your request.
 --
 -- /See:/ 'initiateMultipartUploadResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'imursLocation'
---
--- * 'imursUploadId'
---
--- * 'imursStatus'
 data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
     { _imursLocation :: !(Maybe Text)
     , _imursUploadId :: !(Maybe Text)
     , _imursStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InitiateMultipartUploadResponse' smart constructor.
-initiateMultipartUploadResponse :: Int -> InitiateMultipartUploadResponse
+-- | Creates a value of 'InitiateMultipartUploadResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'imursLocation'
+--
+-- * 'imursUploadId'
+--
+-- * 'imursStatus'
+initiateMultipartUploadResponse
+    :: Int -- ^ 'imursStatus'
+    -> InitiateMultipartUploadResponse
 initiateMultipartUploadResponse pStatus_ =
     InitiateMultipartUploadResponse'
     { _imursLocation = Nothing
@@ -207,6 +212,6 @@ imursLocation = lens _imursLocation (\ s a -> s{_imursLocation = a});
 imursUploadId :: Lens' InitiateMultipartUploadResponse (Maybe Text)
 imursUploadId = lens _imursUploadId (\ s a -> s{_imursUploadId = a});
 
--- | Undocumented member.
+-- | The response status code.
 imursStatus :: Lens' InitiateMultipartUploadResponse Int
 imursStatus = lens _imursStatus (\ s a -> s{_imursStatus = a});

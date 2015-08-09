@@ -45,7 +45,7 @@
 --
 -- -   DescribeTrustedAdvisorChecks returns the list of checks that run
 --     against your AWS resources.
--- -   Using the @CheckId@ for a specific check returned by
+-- -   Using the 'CheckId' for a specific check returned by
 --     DescribeTrustedAdvisorChecks, you can call
 --     DescribeTrustedAdvisorCheckResult to obtain the results for the
 --     check you specified.
@@ -112,7 +112,6 @@ module Network.AWS.Support
 
     -- ** DescribeCases (Paginated)
     , module Network.AWS.Support.DescribeCases
-    -- $pager
 
     -- ** DescribeTrustedAdvisorCheckRefreshStatuses
     , module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
@@ -146,7 +145,6 @@ module Network.AWS.Support
 
     -- ** DescribeCommunications (Paginated)
     , module Network.AWS.Support.DescribeCommunications
-    -- $pager
 
     -- ** AddCommunicationToCase
     , module Network.AWS.Support.AddCommunicationToCase
@@ -325,8 +323,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

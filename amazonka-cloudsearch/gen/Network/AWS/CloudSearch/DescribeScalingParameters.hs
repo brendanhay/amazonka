@@ -28,14 +28,14 @@
 module Network.AWS.CloudSearch.DescribeScalingParameters
     (
     -- * Creating a Request
-      DescribeScalingParameters
-    , describeScalingParameters
+      describeScalingParameters
+    , DescribeScalingParameters
     -- * Request Lenses
     , dspDomainName
 
     -- * Destructuring the Response
-    , DescribeScalingParametersResponse
     , describeScalingParametersResponse
+    , DescribeScalingParametersResponse
     -- * Response Lenses
     , dsprsStatus
     , dsprsScalingParameters
@@ -47,20 +47,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DescribeScalingParameters@
+-- | Container for the parameters to the 'DescribeScalingParameters'
 -- operation. Specifies the name of the domain you want to describe.
 --
 -- /See:/ 'describeScalingParameters' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dspDomainName'
 newtype DescribeScalingParameters = DescribeScalingParameters'
     { _dspDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeScalingParameters' smart constructor.
-describeScalingParameters :: Text -> DescribeScalingParameters
+-- | Creates a value of 'DescribeScalingParameters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dspDomainName'
+describeScalingParameters
+    :: Text -- ^ 'dspDomainName'
+    -> DescribeScalingParameters
 describeScalingParameters pDomainName_ =
     DescribeScalingParameters'
     { _dspDomainName = pDomainName_
@@ -95,30 +97,33 @@ instance ToQuery DescribeScalingParameters where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _dspDomainName]
 
--- | The result of a @DescribeScalingParameters@ request. Contains the
+-- | The result of a 'DescribeScalingParameters' request. Contains the
 -- scaling parameters configured for the domain specified in the request.
 --
 -- /See:/ 'describeScalingParametersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsprsStatus'
---
--- * 'dsprsScalingParameters'
 data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
     { _dsprsStatus            :: !Int
     , _dsprsScalingParameters :: !ScalingParametersStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeScalingParametersResponse' smart constructor.
-describeScalingParametersResponse :: Int -> ScalingParametersStatus -> DescribeScalingParametersResponse
+-- | Creates a value of 'DescribeScalingParametersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsprsStatus'
+--
+-- * 'dsprsScalingParameters'
+describeScalingParametersResponse
+    :: Int -- ^ 'dsprsStatus'
+    -> ScalingParametersStatus -- ^ 'dsprsScalingParameters'
+    -> DescribeScalingParametersResponse
 describeScalingParametersResponse pStatus_ pScalingParameters_ =
     DescribeScalingParametersResponse'
     { _dsprsStatus = pStatus_
     , _dsprsScalingParameters = pScalingParameters_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dsprsStatus :: Lens' DescribeScalingParametersResponse Int
 dsprsStatus = lens _dsprsStatus (\ s a -> s{_dsprsStatus = a});
 

@@ -26,14 +26,14 @@
 module Network.AWS.S3.DeleteBucket
     (
     -- * Creating a Request
-      DeleteBucket
-    , deleteBucket
+      deleteBucket
+    , DeleteBucket
     -- * Request Lenses
     , dbBucket
 
     -- * Destructuring the Response
-    , DeleteBucketResponse
     , deleteBucketResponse
+    , DeleteBucketResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -43,16 +43,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucket' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dbBucket'
 newtype DeleteBucket = DeleteBucket'
     { _dbBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucket' smart constructor.
-deleteBucket :: BucketName -> DeleteBucket
+-- | Creates a value of 'DeleteBucket' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dbBucket'
+deleteBucket
+    :: BucketName -- ^ 'dbBucket'
+    -> DeleteBucket
 deleteBucket pBucket_ =
     DeleteBucket'
     { _dbBucket = pBucket_
@@ -83,6 +85,8 @@ data DeleteBucketResponse =
     DeleteBucketResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucketResponse' smart constructor.
-deleteBucketResponse :: DeleteBucketResponse
+-- | Creates a value of 'DeleteBucketResponse' with the minimum fields required to make a request.
+--
+deleteBucketResponse
+    :: DeleteBucketResponse
 deleteBucketResponse = DeleteBucketResponse'

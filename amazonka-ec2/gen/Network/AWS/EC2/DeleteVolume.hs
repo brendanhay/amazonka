@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified EBS volume. The volume must be in the @available@
+-- Deletes the specified EBS volume. The volume must be in the 'available'
 -- state (not attached to an instance).
 --
--- The volume may remain in the @deleting@ state for several minutes.
+-- The volume may remain in the 'deleting' state for several minutes.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Deleting an Amazon EBS Volume>
@@ -31,15 +31,15 @@
 module Network.AWS.EC2.DeleteVolume
     (
     -- * Creating a Request
-      DeleteVolume
-    , deleteVolume
+      deleteVolume
+    , DeleteVolume
     -- * Request Lenses
     , dvvDryRun
     , dvvVolumeId
 
     -- * Destructuring the Response
-    , DeleteVolumeResponse
     , deleteVolumeResponse
+    , DeleteVolumeResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -49,19 +49,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteVolume' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvvDryRun'
---
--- * 'dvvVolumeId'
 data DeleteVolume = DeleteVolume'
     { _dvvDryRun   :: !(Maybe Bool)
     , _dvvVolumeId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVolume' smart constructor.
-deleteVolume :: Text -> DeleteVolume
+-- | Creates a value of 'DeleteVolume' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvvDryRun'
+--
+-- * 'dvvVolumeId'
+deleteVolume
+    :: Text -- ^ 'dvvVolumeId'
+    -> DeleteVolume
 deleteVolume pVolumeId_ =
     DeleteVolume'
     { _dvvDryRun = Nothing
@@ -70,8 +72,8 @@ deleteVolume pVolumeId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dvvDryRun :: Lens' DeleteVolume (Maybe Bool)
 dvvDryRun = lens _dvvDryRun (\ s a -> s{_dvvDryRun = a});
 
@@ -103,6 +105,8 @@ data DeleteVolumeResponse =
     DeleteVolumeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVolumeResponse' smart constructor.
-deleteVolumeResponse :: DeleteVolumeResponse
+-- | Creates a value of 'DeleteVolumeResponse' with the minimum fields required to make a request.
+--
+deleteVolumeResponse
+    :: DeleteVolumeResponse
 deleteVolumeResponse = DeleteVolumeResponse'

@@ -30,15 +30,15 @@
 module Network.AWS.OpsWorks.DescribePermissions
     (
     -- * Creating a Request
-      DescribePermissions
-    , describePermissions
+      describePermissions
+    , DescribePermissions
     -- * Request Lenses
     , dpIAMUserARN
     , dpStackId
 
     -- * Destructuring the Response
-    , DescribePermissionsResponse
     , describePermissionsResponse
+    , DescribePermissionsResponse
     -- * Response Lenses
     , dprsPermissions
     , dprsStatus
@@ -51,19 +51,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describePermissions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpIAMUserARN'
---
--- * 'dpStackId'
 data DescribePermissions = DescribePermissions'
     { _dpIAMUserARN :: !(Maybe Text)
     , _dpStackId    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribePermissions' smart constructor.
-describePermissions :: DescribePermissions
+-- | Creates a value of 'DescribePermissions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpIAMUserARN'
+--
+-- * 'dpStackId'
+describePermissions
+    :: DescribePermissions
 describePermissions =
     DescribePermissions'
     { _dpIAMUserARN = Nothing
@@ -113,41 +114,43 @@ instance ToPath DescribePermissions where
 instance ToQuery DescribePermissions where
         toQuery = const mempty
 
--- | Contains the response to a @DescribePermissions@ request.
+-- | Contains the response to a 'DescribePermissions' request.
 --
 -- /See:/ 'describePermissionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dprsPermissions'
---
--- * 'dprsStatus'
 data DescribePermissionsResponse = DescribePermissionsResponse'
     { _dprsPermissions :: !(Maybe [Permission])
     , _dprsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribePermissionsResponse' smart constructor.
-describePermissionsResponse :: Int -> DescribePermissionsResponse
+-- | Creates a value of 'DescribePermissionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dprsPermissions'
+--
+-- * 'dprsStatus'
+describePermissionsResponse
+    :: Int -- ^ 'dprsStatus'
+    -> DescribePermissionsResponse
 describePermissionsResponse pStatus_ =
     DescribePermissionsResponse'
     { _dprsPermissions = Nothing
     , _dprsStatus = pStatus_
     }
 
--- | An array of @Permission@ objects that describe the stack permissions.
+-- | An array of 'Permission' objects that describe the stack permissions.
 --
 -- -   If the request object contains only a stack ID, the array contains a
---     @Permission@ object with permissions for each of the stack IAM ARNs.
+--     'Permission' object with permissions for each of the stack IAM ARNs.
 -- -   If the request object contains only an IAM ARN, the array contains a
---     @Permission@ object with permissions for each of the user\'s stack
+--     'Permission' object with permissions for each of the user\'s stack
 --     IDs.
 -- -   If the request contains a stack ID and an IAM ARN, the array
---     contains a single @Permission@ object with permissions for the
+--     contains a single 'Permission' object with permissions for the
 --     specified stack and IAM ARN.
 dprsPermissions :: Lens' DescribePermissionsResponse [Permission]
 dprsPermissions = lens _dprsPermissions (\ s a -> s{_dprsPermissions = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dprsStatus :: Lens' DescribePermissionsResponse Int
 dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});

@@ -28,8 +28,8 @@
 module Network.AWS.S3.AbortMultipartUpload
     (
     -- * Creating a Request
-      AbortMultipartUpload
-    , abortMultipartUpload
+      abortMultipartUpload
+    , AbortMultipartUpload
     -- * Request Lenses
     , amuRequestPayer
     , amuBucket
@@ -37,8 +37,8 @@ module Network.AWS.S3.AbortMultipartUpload
     , amuUploadId
 
     -- * Destructuring the Response
-    , AbortMultipartUploadResponse
     , abortMultipartUploadResponse
+    , AbortMultipartUploadResponse
     -- * Response Lenses
     , amursRequestCharged
     , amursStatus
@@ -51,8 +51,16 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'abortMultipartUpload' smart constructor.
+data AbortMultipartUpload = AbortMultipartUpload'
+    { _amuRequestPayer :: !(Maybe RequestPayer)
+    , _amuBucket       :: !BucketName
+    , _amuKey          :: !ObjectKey
+    , _amuUploadId     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AbortMultipartUpload' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'amuRequestPayer'
 --
@@ -61,15 +69,11 @@ import           Network.AWS.S3.Types.Product
 -- * 'amuKey'
 --
 -- * 'amuUploadId'
-data AbortMultipartUpload = AbortMultipartUpload'
-    { _amuRequestPayer :: !(Maybe RequestPayer)
-    , _amuBucket       :: !BucketName
-    , _amuKey          :: !ObjectKey
-    , _amuUploadId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AbortMultipartUpload' smart constructor.
-abortMultipartUpload :: BucketName -> ObjectKey -> Text -> AbortMultipartUpload
+abortMultipartUpload
+    :: BucketName -- ^ 'amuBucket'
+    -> ObjectKey -- ^ 'amuKey'
+    -> Text -- ^ 'amuUploadId'
+    -> AbortMultipartUpload
 abortMultipartUpload pBucket_ pKey_ pUploadId_ =
     AbortMultipartUpload'
     { _amuRequestPayer = Nothing
@@ -119,19 +123,21 @@ instance ToQuery AbortMultipartUpload where
           = mconcat ["uploadId" =: _amuUploadId]
 
 -- | /See:/ 'abortMultipartUploadResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'amursRequestCharged'
---
--- * 'amursStatus'
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
     { _amursRequestCharged :: !(Maybe RequestCharged)
     , _amursStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AbortMultipartUploadResponse' smart constructor.
-abortMultipartUploadResponse :: Int -> AbortMultipartUploadResponse
+-- | Creates a value of 'AbortMultipartUploadResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'amursRequestCharged'
+--
+-- * 'amursStatus'
+abortMultipartUploadResponse
+    :: Int -- ^ 'amursStatus'
+    -> AbortMultipartUploadResponse
 abortMultipartUploadResponse pStatus_ =
     AbortMultipartUploadResponse'
     { _amursRequestCharged = Nothing
@@ -142,6 +148,6 @@ abortMultipartUploadResponse pStatus_ =
 amursRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
 amursRequestCharged = lens _amursRequestCharged (\ s a -> s{_amursRequestCharged = a});
 
--- | Undocumented member.
+-- | The response status code.
 amursStatus :: Lens' AbortMultipartUploadResponse Int
 amursStatus = lens _amursStatus (\ s a -> s{_amursStatus = a});

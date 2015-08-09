@@ -30,15 +30,15 @@
 module Network.AWS.IAM.DetachRolePolicy
     (
     -- * Creating a Request
-      DetachRolePolicy
-    , detachRolePolicy
+      detachRolePolicy
+    , DetachRolePolicy
     -- * Request Lenses
     , drpRoleName
     , drpPolicyARN
 
     -- * Destructuring the Response
-    , DetachRolePolicyResponse
     , detachRolePolicyResponse
+    , DetachRolePolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -48,19 +48,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachRolePolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drpRoleName'
---
--- * 'drpPolicyARN'
 data DetachRolePolicy = DetachRolePolicy'
     { _drpRoleName  :: !Text
     , _drpPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachRolePolicy' smart constructor.
-detachRolePolicy :: Text -> Text -> DetachRolePolicy
+-- | Creates a value of 'DetachRolePolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drpRoleName'
+--
+-- * 'drpPolicyARN'
+detachRolePolicy
+    :: Text -- ^ 'drpRoleName'
+    -> Text -- ^ 'drpPolicyARN'
+    -> DetachRolePolicy
 detachRolePolicy pRoleName_ pPolicyARN_ =
     DetachRolePolicy'
     { _drpRoleName = pRoleName_
@@ -100,6 +103,8 @@ data DetachRolePolicyResponse =
     DetachRolePolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachRolePolicyResponse' smart constructor.
-detachRolePolicyResponse :: DetachRolePolicyResponse
+-- | Creates a value of 'DetachRolePolicyResponse' with the minimum fields required to make a request.
+--
+detachRolePolicyResponse
+    :: DetachRolePolicyResponse
 detachRolePolicyResponse = DetachRolePolicyResponse'

@@ -33,16 +33,16 @@
 module Network.AWS.EC2.BundleInstance
     (
     -- * Creating a Request
-      BundleInstance
-    , bundleInstance
+      bundleInstance
+    , BundleInstance
     -- * Request Lenses
     , biDryRun
     , biInstanceId
     , biStorage
 
     -- * Destructuring the Response
-    , BundleInstanceResponse
     , bundleInstanceResponse
+    , BundleInstanceResponse
     -- * Response Lenses
     , birsBundleTask
     , birsStatus
@@ -55,22 +55,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'bundleInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'biDryRun'
---
--- * 'biInstanceId'
---
--- * 'biStorage'
 data BundleInstance = BundleInstance'
     { _biDryRun     :: !(Maybe Bool)
     , _biInstanceId :: !Text
     , _biStorage    :: !Storage
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BundleInstance' smart constructor.
-bundleInstance :: Text -> Storage -> BundleInstance
+-- | Creates a value of 'BundleInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'biDryRun'
+--
+-- * 'biInstanceId'
+--
+-- * 'biStorage'
+bundleInstance
+    :: Text -- ^ 'biInstanceId'
+    -> Storage -- ^ 'biStorage'
+    -> BundleInstance
 bundleInstance pInstanceId_ pStorage_ =
     BundleInstance'
     { _biDryRun = Nothing
@@ -80,8 +83,8 @@ bundleInstance pInstanceId_ pStorage_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 biDryRun :: Lens' BundleInstance (Maybe Bool)
 biDryRun = lens _biDryRun (\ s a -> s{_biDryRun = a});
 
@@ -127,19 +130,21 @@ instance ToQuery BundleInstance where
                "Storage" =: _biStorage]
 
 -- | /See:/ 'bundleInstanceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'birsBundleTask'
---
--- * 'birsStatus'
 data BundleInstanceResponse = BundleInstanceResponse'
     { _birsBundleTask :: !(Maybe BundleTask)
     , _birsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BundleInstanceResponse' smart constructor.
-bundleInstanceResponse :: Int -> BundleInstanceResponse
+-- | Creates a value of 'BundleInstanceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'birsBundleTask'
+--
+-- * 'birsStatus'
+bundleInstanceResponse
+    :: Int -- ^ 'birsStatus'
+    -> BundleInstanceResponse
 bundleInstanceResponse pStatus_ =
     BundleInstanceResponse'
     { _birsBundleTask = Nothing
@@ -150,6 +155,6 @@ bundleInstanceResponse pStatus_ =
 birsBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 birsBundleTask = lens _birsBundleTask (\ s a -> s{_birsBundleTask = a});
 
--- | Undocumented member.
+-- | The response status code.
 birsStatus :: Lens' BundleInstanceResponse Int
 birsStatus = lens _birsStatus (\ s a -> s{_birsStatus = a});

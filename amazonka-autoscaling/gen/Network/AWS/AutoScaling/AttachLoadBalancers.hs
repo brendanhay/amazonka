@@ -32,15 +32,15 @@
 module Network.AWS.AutoScaling.AttachLoadBalancers
     (
     -- * Creating a Request
-      AttachLoadBalancers
-    , attachLoadBalancers
+      attachLoadBalancers
+    , AttachLoadBalancers
     -- * Request Lenses
     , albAutoScalingGroupName
     , albLoadBalancerNames
 
     -- * Destructuring the Response
-    , AttachLoadBalancersResponse
     , attachLoadBalancersResponse
+    , AttachLoadBalancersResponse
     -- * Response Lenses
     , albrsStatus
     ) where
@@ -52,19 +52,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachLoadBalancers' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'albAutoScalingGroupName'
---
--- * 'albLoadBalancerNames'
 data AttachLoadBalancers = AttachLoadBalancers'
     { _albAutoScalingGroupName :: !(Maybe Text)
     , _albLoadBalancerNames    :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachLoadBalancers' smart constructor.
-attachLoadBalancers :: AttachLoadBalancers
+-- | Creates a value of 'AttachLoadBalancers' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'albAutoScalingGroupName'
+--
+-- * 'albLoadBalancerNames'
+attachLoadBalancers
+    :: AttachLoadBalancers
 attachLoadBalancers =
     AttachLoadBalancers'
     { _albAutoScalingGroupName = Nothing
@@ -106,21 +107,23 @@ instance ToQuery AttachLoadBalancers where
                    (toQueryList "member" <$> _albLoadBalancerNames)]
 
 -- | /See:/ 'attachLoadBalancersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'albrsStatus'
 newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
     { _albrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachLoadBalancersResponse' smart constructor.
-attachLoadBalancersResponse :: Int -> AttachLoadBalancersResponse
+-- | Creates a value of 'AttachLoadBalancersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'albrsStatus'
+attachLoadBalancersResponse
+    :: Int -- ^ 'albrsStatus'
+    -> AttachLoadBalancersResponse
 attachLoadBalancersResponse pStatus_ =
     AttachLoadBalancersResponse'
     { _albrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 albrsStatus :: Lens' AttachLoadBalancersResponse Int
 albrsStatus = lens _albrsStatus (\ s a -> s{_albrsStatus = a});

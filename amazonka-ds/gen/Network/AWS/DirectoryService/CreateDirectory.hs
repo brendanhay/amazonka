@@ -24,8 +24,8 @@
 module Network.AWS.DirectoryService.CreateDirectory
     (
     -- * Creating a Request
-      CreateDirectory
-    , createDirectory
+      createDirectory
+    , CreateDirectory
     -- * Request Lenses
     , cShortName
     , cVPCSettings
@@ -35,8 +35,8 @@ module Network.AWS.DirectoryService.CreateDirectory
     , cSize
 
     -- * Destructuring the Response
-    , CreateDirectoryResponse
     , createDirectoryResponse
+    , CreateDirectoryResponse
     -- * Response Lenses
     , crsDirectoryId
     , crsStatus
@@ -51,8 +51,18 @@ import           Network.AWS.Response
 -- | Contains the inputs for the CreateDirectory operation.
 --
 -- /See:/ 'createDirectory' smart constructor.
+data CreateDirectory = CreateDirectory'
+    { _cShortName   :: !(Maybe Text)
+    , _cVPCSettings :: !(Maybe DirectoryVPCSettings)
+    , _cDescription :: !(Maybe Text)
+    , _cName        :: !Text
+    , _cPassword    :: !(Sensitive Text)
+    , _cSize        :: !DirectorySize
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDirectory' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cShortName'
 --
@@ -65,17 +75,11 @@ import           Network.AWS.Response
 -- * 'cPassword'
 --
 -- * 'cSize'
-data CreateDirectory = CreateDirectory'
-    { _cShortName   :: !(Maybe Text)
-    , _cVPCSettings :: !(Maybe DirectoryVPCSettings)
-    , _cDescription :: !(Maybe Text)
-    , _cName        :: !Text
-    , _cPassword    :: !(Sensitive Text)
-    , _cSize        :: !DirectorySize
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateDirectory' smart constructor.
-createDirectory :: Text -> Text -> DirectorySize -> CreateDirectory
+createDirectory
+    :: Text -- ^ 'cName'
+    -> Text -- ^ 'cPassword'
+    -> DirectorySize -- ^ 'cSize'
+    -> CreateDirectory
 createDirectory pName_ pPassword_ pSize_ =
     CreateDirectory'
     { _cShortName = Nothing
@@ -86,7 +90,7 @@ createDirectory pName_ pPassword_ pSize_ =
     , _cSize = pSize_
     }
 
--- | The short name of the directory, such as @CORP@.
+-- | The short name of the directory, such as 'CORP'.
 cShortName :: Lens' CreateDirectory (Maybe Text)
 cShortName = lens _cShortName (\ s a -> s{_cShortName = a});
 
@@ -99,13 +103,13 @@ cVPCSettings = lens _cVPCSettings (\ s a -> s{_cVPCSettings = a});
 cDescription :: Lens' CreateDirectory (Maybe Text)
 cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
 
--- | The fully qualified name for the directory, such as @corp.example.com@.
+-- | The fully qualified name for the directory, such as 'corp.example.com'.
 cName :: Lens' CreateDirectory Text
 cName = lens _cName (\ s a -> s{_cName = a});
 
 -- | The password for the directory administrator. The directory creation
 -- process creates a directory administrator account with the username
--- @Administrator@ and this password.
+-- 'Administrator' and this password.
 cPassword :: Lens' CreateDirectory Text
 cPassword = lens _cPassword (\ s a -> s{_cPassword = a}) . _Sensitive;
 
@@ -150,19 +154,21 @@ instance ToQuery CreateDirectory where
 -- | Contains the results of the CreateDirectory operation.
 --
 -- /See:/ 'createDirectoryResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crsDirectoryId'
---
--- * 'crsStatus'
 data CreateDirectoryResponse = CreateDirectoryResponse'
     { _crsDirectoryId :: !(Maybe Text)
     , _crsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDirectoryResponse' smart constructor.
-createDirectoryResponse :: Int -> CreateDirectoryResponse
+-- | Creates a value of 'CreateDirectoryResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crsDirectoryId'
+--
+-- * 'crsStatus'
+createDirectoryResponse
+    :: Int -- ^ 'crsStatus'
+    -> CreateDirectoryResponse
 createDirectoryResponse pStatus_ =
     CreateDirectoryResponse'
     { _crsDirectoryId = Nothing
@@ -173,6 +179,6 @@ createDirectoryResponse pStatus_ =
 crsDirectoryId :: Lens' CreateDirectoryResponse (Maybe Text)
 crsDirectoryId = lens _crsDirectoryId (\ s a -> s{_crsDirectoryId = a});
 
--- | Undocumented member.
+-- | The response status code.
 crsStatus :: Lens' CreateDirectoryResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

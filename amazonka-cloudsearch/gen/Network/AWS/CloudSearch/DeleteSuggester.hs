@@ -26,15 +26,15 @@
 module Network.AWS.CloudSearch.DeleteSuggester
     (
     -- * Creating a Request
-      DeleteSuggester
-    , deleteSuggester
+      deleteSuggester
+    , DeleteSuggester
     -- * Request Lenses
     , ddDomainName
     , ddSuggesterName
 
     -- * Destructuring the Response
-    , DeleteSuggesterResponse
     , deleteSuggesterResponse
+    , DeleteSuggesterResponse
     -- * Response Lenses
     , delersStatus
     , delersSuggester
@@ -46,24 +46,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DeleteSuggester@ operation.
+-- | Container for the parameters to the 'DeleteSuggester' operation.
 -- Specifies the name of the domain you want to update and name of the
 -- suggester you want to delete.
 --
 -- /See:/ 'deleteSuggester' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddDomainName'
---
--- * 'ddSuggesterName'
 data DeleteSuggester = DeleteSuggester'
     { _ddDomainName    :: !Text
     , _ddSuggesterName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSuggester' smart constructor.
-deleteSuggester :: Text -> Text -> DeleteSuggester
+-- | Creates a value of 'DeleteSuggester' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddDomainName'
+--
+-- * 'ddSuggesterName'
+deleteSuggester
+    :: Text -- ^ 'ddDomainName'
+    -> Text -- ^ 'ddSuggesterName'
+    -> DeleteSuggester
 deleteSuggester pDomainName_ pSuggesterName_ =
     DeleteSuggester'
     { _ddDomainName = pDomainName_
@@ -102,30 +105,33 @@ instance ToQuery DeleteSuggester where
                "DomainName" =: _ddDomainName,
                "SuggesterName" =: _ddSuggesterName]
 
--- | The result of a @DeleteSuggester@ request. Contains the status of the
+-- | The result of a 'DeleteSuggester' request. Contains the status of the
 -- deleted suggester.
 --
 -- /See:/ 'deleteSuggesterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delersStatus'
---
--- * 'delersSuggester'
 data DeleteSuggesterResponse = DeleteSuggesterResponse'
     { _delersStatus    :: !Int
     , _delersSuggester :: !SuggesterStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSuggesterResponse' smart constructor.
-deleteSuggesterResponse :: Int -> SuggesterStatus -> DeleteSuggesterResponse
+-- | Creates a value of 'DeleteSuggesterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delersStatus'
+--
+-- * 'delersSuggester'
+deleteSuggesterResponse
+    :: Int -- ^ 'delersStatus'
+    -> SuggesterStatus -- ^ 'delersSuggester'
+    -> DeleteSuggesterResponse
 deleteSuggesterResponse pStatus_ pSuggester_ =
     DeleteSuggesterResponse'
     { _delersStatus = pStatus_
     , _delersSuggester = pSuggester_
     }
 
--- | Undocumented member.
+-- | The response status code.
 delersStatus :: Lens' DeleteSuggesterResponse Int
 delersStatus = lens _delersStatus (\ s a -> s{_delersStatus = a});
 

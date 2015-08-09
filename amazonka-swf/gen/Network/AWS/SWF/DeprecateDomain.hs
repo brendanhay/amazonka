@@ -33,9 +33,9 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
 -- -   You cannot use an IAM policy to constrain this action\'s parameters.
 --
@@ -50,14 +50,14 @@
 module Network.AWS.SWF.DeprecateDomain
     (
     -- * Creating a Request
-      DeprecateDomain
-    , deprecateDomain
+      deprecateDomain
+    , DeprecateDomain
     -- * Request Lenses
     , dName
 
     -- * Destructuring the Response
-    , DeprecateDomainResponse
     , deprecateDomainResponse
+    , DeprecateDomainResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -67,16 +67,18 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'deprecateDomain' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dName'
 newtype DeprecateDomain = DeprecateDomain'
     { _dName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeprecateDomain' smart constructor.
-deprecateDomain :: Text -> DeprecateDomain
+-- | Creates a value of 'DeprecateDomain' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dName'
+deprecateDomain
+    :: Text -- ^ 'dName'
+    -> DeprecateDomain
 deprecateDomain pName_ =
     DeprecateDomain'
     { _dName = pName_
@@ -117,6 +119,8 @@ data DeprecateDomainResponse =
     DeprecateDomainResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeprecateDomainResponse' smart constructor.
-deprecateDomainResponse :: DeprecateDomainResponse
+-- | Creates a value of 'DeprecateDomainResponse' with the minimum fields required to make a request.
+--
+deprecateDomainResponse
+    :: DeprecateDomainResponse
 deprecateDomainResponse = DeprecateDomainResponse'

@@ -24,26 +24,27 @@ import           Network.AWS.Prelude
 -- | A container for account-level settings within AWS Device Farm.
 --
 -- /See:/ 'accountSettings' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'asAwsAccountNumber'
---
--- * 'asUnmeteredDevices'
 data AccountSettings = AccountSettings'
     { _asAwsAccountNumber :: !(Maybe Text)
     , _asUnmeteredDevices :: !(Maybe (Map DevicePlatform Int))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AccountSettings' smart constructor.
-accountSettings :: AccountSettings
+-- | Creates a value of 'AccountSettings' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asAwsAccountNumber'
+--
+-- * 'asUnmeteredDevices'
+accountSettings
+    :: AccountSettings
 accountSettings =
     AccountSettings'
     { _asAwsAccountNumber = Nothing
     , _asUnmeteredDevices = Nothing
     }
 
--- | The AWS account number specified in the @AccountSettings@ container.
+-- | The AWS account number specified in the 'AccountSettings' container.
 asAwsAccountNumber :: Lens' AccountSettings (Maybe Text)
 asAwsAccountNumber = lens _asAwsAccountNumber (\ s a -> s{_asAwsAccountNumber = a});
 
@@ -63,8 +64,17 @@ instance FromJSON AccountSettings where
 -- screenshots.
 --
 -- /See:/ 'artifact' smart constructor.
+data Artifact = Artifact'
+    { _aArn       :: !(Maybe Text)
+    , _aUrl       :: !(Maybe Text)
+    , _aExtension :: !(Maybe Text)
+    , _aName      :: !(Maybe Text)
+    , _aType      :: !(Maybe ArtifactType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Artifact' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'aArn'
 --
@@ -75,16 +85,8 @@ instance FromJSON AccountSettings where
 -- * 'aName'
 --
 -- * 'aType'
-data Artifact = Artifact'
-    { _aArn       :: !(Maybe Text)
-    , _aUrl       :: !(Maybe Text)
-    , _aExtension :: !(Maybe Text)
-    , _aName      :: !(Maybe Text)
-    , _aType      :: !(Maybe ArtifactType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Artifact' smart constructor.
-artifact :: Artifact
+artifact
+    :: Artifact
 artifact =
     Artifact'
     { _aArn = Nothing
@@ -166,22 +168,23 @@ instance FromJSON Artifact where
 -- Note that this does not represent system-wide CPU usage.
 --
 -- /See:/ 'cpu' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpuFrequency'
---
--- * 'cpuClock'
---
--- * 'cpuArchitecture'
 data CPU = CPU'
     { _cpuFrequency    :: !(Maybe Text)
     , _cpuClock        :: !(Maybe Double)
     , _cpuArchitecture :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CPU' smart constructor.
-cpu :: CPU
+-- | Creates a value of 'CPU' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpuFrequency'
+--
+-- * 'cpuClock'
+--
+-- * 'cpuArchitecture'
+cpu
+    :: CPU
 cpu =
     CPU'
     { _cpuFrequency = Nothing
@@ -213,8 +216,19 @@ instance FromJSON CPU where
 -- | Represents entity counters.
 --
 -- /See:/ 'counters' smart constructor.
+data Counters = Counters'
+    { _cPassed  :: !(Maybe Int)
+    , _cSkipped :: !(Maybe Int)
+    , _cWarned  :: !(Maybe Int)
+    , _cStopped :: !(Maybe Int)
+    , _cTotal   :: !(Maybe Int)
+    , _cFailed  :: !(Maybe Int)
+    , _cErrored :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Counters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cPassed'
 --
@@ -229,18 +243,8 @@ instance FromJSON CPU where
 -- * 'cFailed'
 --
 -- * 'cErrored'
-data Counters = Counters'
-    { _cPassed  :: !(Maybe Int)
-    , _cSkipped :: !(Maybe Int)
-    , _cWarned  :: !(Maybe Int)
-    , _cStopped :: !(Maybe Int)
-    , _cTotal   :: !(Maybe Int)
-    , _cFailed  :: !(Maybe Int)
-    , _cErrored :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Counters' smart constructor.
-counters :: Counters
+counters
+    :: Counters
 counters =
     Counters'
     { _cPassed = Nothing
@@ -295,8 +299,26 @@ instance FromJSON Counters where
 -- | Represents a device type that an app is tested against.
 --
 -- /See:/ 'device' smart constructor.
+data Device = Device'
+    { _dCarrier      :: !(Maybe Text)
+    , _dImage        :: !(Maybe Text)
+    , _dManufacturer :: !(Maybe Text)
+    , _dPlatform     :: !(Maybe DevicePlatform)
+    , _dArn          :: !(Maybe Text)
+    , _dFormFactor   :: !(Maybe DeviceFormFactor)
+    , _dResolution   :: !(Maybe Resolution)
+    , _dMemory       :: !(Maybe Integer)
+    , _dRadio        :: !(Maybe Text)
+    , _dOs           :: !(Maybe Text)
+    , _dName         :: !(Maybe Text)
+    , _dModel        :: !(Maybe Text)
+    , _dCpu          :: !(Maybe CPU)
+    , _dHeapSize     :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Device' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dCarrier'
 --
@@ -325,25 +347,8 @@ instance FromJSON Counters where
 -- * 'dCpu'
 --
 -- * 'dHeapSize'
-data Device = Device'
-    { _dCarrier      :: !(Maybe Text)
-    , _dImage        :: !(Maybe Text)
-    , _dManufacturer :: !(Maybe Text)
-    , _dPlatform     :: !(Maybe DevicePlatform)
-    , _dArn          :: !(Maybe Text)
-    , _dFormFactor   :: !(Maybe DeviceFormFactor)
-    , _dResolution   :: !(Maybe Resolution)
-    , _dMemory       :: !(Maybe Integer)
-    , _dRadio        :: !(Maybe Text)
-    , _dOs           :: !(Maybe Text)
-    , _dName         :: !(Maybe Text)
-    , _dModel        :: !(Maybe Text)
-    , _dCpu          :: !(Maybe CPU)
-    , _dHeapSize     :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Device' smart constructor.
-device :: Device
+device
+    :: Device
 device =
     Device'
     { _dCarrier = Nothing
@@ -454,8 +459,17 @@ instance FromJSON Device where
 -- | Represents a collection of device types.
 --
 -- /See:/ 'devicePool' smart constructor.
+data DevicePool = DevicePool'
+    { _dpArn         :: !(Maybe Text)
+    , _dpRules       :: !(Maybe [Rule])
+    , _dpName        :: !(Maybe Text)
+    , _dpType        :: !(Maybe DevicePoolType)
+    , _dpDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DevicePool' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dpArn'
 --
@@ -466,16 +480,8 @@ instance FromJSON Device where
 -- * 'dpType'
 --
 -- * 'dpDescription'
-data DevicePool = DevicePool'
-    { _dpArn         :: !(Maybe Text)
-    , _dpRules       :: !(Maybe [Rule])
-    , _dpName        :: !(Maybe Text)
-    , _dpType        :: !(Maybe DevicePoolType)
-    , _dpDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DevicePool' smart constructor.
-devicePool :: DevicePool
+devicePool
+    :: DevicePool
 devicePool =
     DevicePool'
     { _dpArn = Nothing
@@ -527,22 +533,23 @@ instance FromJSON DevicePool where
 -- | Represents a device pool compatibility result.
 --
 -- /See:/ 'devicePoolCompatibilityResult' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpcrDevice'
---
--- * 'dpcrCompatible'
---
--- * 'dpcrIncompatibilityMessages'
 data DevicePoolCompatibilityResult = DevicePoolCompatibilityResult'
     { _dpcrDevice                  :: !(Maybe Device)
     , _dpcrCompatible              :: !(Maybe Bool)
     , _dpcrIncompatibilityMessages :: !(Maybe [IncompatibilityMessage])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DevicePoolCompatibilityResult' smart constructor.
-devicePoolCompatibilityResult :: DevicePoolCompatibilityResult
+-- | Creates a value of 'DevicePoolCompatibilityResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpcrDevice'
+--
+-- * 'dpcrCompatible'
+--
+-- * 'dpcrIncompatibilityMessages'
+devicePoolCompatibilityResult
+    :: DevicePoolCompatibilityResult
 devicePoolCompatibilityResult =
     DevicePoolCompatibilityResult'
     { _dpcrDevice = Nothing
@@ -573,19 +580,20 @@ instance FromJSON DevicePoolCompatibilityResult where
 -- | Represents information about incompatibility.
 --
 -- /See:/ 'incompatibilityMessage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'imType'
---
--- * 'imMessage'
 data IncompatibilityMessage = IncompatibilityMessage'
     { _imType    :: !(Maybe DeviceAttribute)
     , _imMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'IncompatibilityMessage' smart constructor.
-incompatibilityMessage :: IncompatibilityMessage
+-- | Creates a value of 'IncompatibilityMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'imType'
+--
+-- * 'imMessage'
+incompatibilityMessage
+    :: IncompatibilityMessage
 incompatibilityMessage =
     IncompatibilityMessage'
     { _imType = Nothing
@@ -621,8 +629,23 @@ instance FromJSON IncompatibilityMessage where
 -- | Represents a device.
 --
 -- /See:/ 'job' smart constructor.
+data Job = Job'
+    { _jobStatus   :: !(Maybe ExecutionStatus)
+    , _jobCounters :: !(Maybe Counters)
+    , _jobArn      :: !(Maybe Text)
+    , _jobCreated  :: !(Maybe POSIX)
+    , _jobDevice   :: !(Maybe Device)
+    , _jobStopped  :: !(Maybe POSIX)
+    , _jobResult   :: !(Maybe ExecutionResult)
+    , _jobName     :: !(Maybe Text)
+    , _jobType     :: !(Maybe TestType)
+    , _jobMessage  :: !(Maybe Text)
+    , _jobStarted  :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'jobStatus'
 --
@@ -645,22 +668,8 @@ instance FromJSON IncompatibilityMessage where
 -- * 'jobMessage'
 --
 -- * 'jobStarted'
-data Job = Job'
-    { _jobStatus   :: !(Maybe ExecutionStatus)
-    , _jobCounters :: !(Maybe Counters)
-    , _jobArn      :: !(Maybe Text)
-    , _jobCreated  :: !(Maybe POSIX)
-    , _jobDevice   :: !(Maybe Device)
-    , _jobStopped  :: !(Maybe POSIX)
-    , _jobResult   :: !(Maybe ExecutionResult)
-    , _jobName     :: !(Maybe Text)
-    , _jobType     :: !(Maybe TestType)
-    , _jobMessage  :: !(Maybe Text)
-    , _jobStarted  :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Job' smart constructor.
-job :: Job
+job
+    :: Job
 job =
     Job'
     { _jobStatus = Nothing
@@ -795,19 +804,22 @@ instance FromJSON Job where
 -- Elevation is currently not supported.
 --
 -- /See:/ 'location' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lLatitude'
---
--- * 'lLongitude'
 data Location = Location'
     { _lLatitude  :: !Double
     , _lLongitude :: !Double
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Location' smart constructor.
-location :: Double -> Double -> Location
+-- | Creates a value of 'Location' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lLatitude'
+--
+-- * 'lLongitude'
+location
+    :: Double -- ^ 'lLatitude'
+    -> Double -- ^ 'lLongitude'
+    -> Location
 location pLatitude_ pLongitude_ =
     Location'
     { _lLatitude = pLatitude_
@@ -831,8 +843,19 @@ instance ToJSON Location where
 -- | Represents a specific warning or failure.
 --
 -- /See:/ 'problem' smart constructor.
+data Problem = Problem'
+    { _pDevice  :: !(Maybe Device)
+    , _pTest    :: !(Maybe ProblemDetail)
+    , _pResult  :: !(Maybe ExecutionResult)
+    , _pRun     :: !(Maybe ProblemDetail)
+    , _pJob     :: !(Maybe ProblemDetail)
+    , _pMessage :: !(Maybe Text)
+    , _pSuite   :: !(Maybe ProblemDetail)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Problem' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pDevice'
 --
@@ -847,18 +870,8 @@ instance ToJSON Location where
 -- * 'pMessage'
 --
 -- * 'pSuite'
-data Problem = Problem'
-    { _pDevice  :: !(Maybe Device)
-    , _pTest    :: !(Maybe ProblemDetail)
-    , _pResult  :: !(Maybe ExecutionResult)
-    , _pRun     :: !(Maybe ProblemDetail)
-    , _pJob     :: !(Maybe ProblemDetail)
-    , _pMessage :: !(Maybe Text)
-    , _pSuite   :: !(Maybe ProblemDetail)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Problem' smart constructor.
-problem :: Problem
+problem
+    :: Problem
 problem =
     Problem'
     { _pDevice = Nothing
@@ -930,19 +943,20 @@ instance FromJSON Problem where
 -- | Information about a problem detail.
 --
 -- /See:/ 'problemDetail' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pdArn'
---
--- * 'pdName'
 data ProblemDetail = ProblemDetail'
     { _pdArn  :: !(Maybe Text)
     , _pdName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ProblemDetail' smart constructor.
-problemDetail :: ProblemDetail
+-- | Creates a value of 'ProblemDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pdArn'
+--
+-- * 'pdName'
+problemDetail
+    :: ProblemDetail
 problemDetail =
     ProblemDetail'
     { _pdArn = Nothing
@@ -967,22 +981,23 @@ instance FromJSON ProblemDetail where
 -- managing tests.
 --
 -- /See:/ 'project' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pArn'
---
--- * 'pCreated'
---
--- * 'pName'
 data Project = Project'
     { _pArn     :: !(Maybe Text)
     , _pCreated :: !(Maybe POSIX)
     , _pName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Project' smart constructor.
-project :: Project
+-- | Creates a value of 'Project' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pArn'
+--
+-- * 'pCreated'
+--
+-- * 'pName'
+project
+    :: Project
 project =
     Project'
     { _pArn = Nothing
@@ -1014,8 +1029,16 @@ instance FromJSON Project where
 -- radios include Wi-Fi, GPS, Bluetooth, and NFC.
 --
 -- /See:/ 'radios' smart constructor.
+data Radios = Radios'
+    { _rNfc       :: !(Maybe Bool)
+    , _rGps       :: !(Maybe Bool)
+    , _rBluetooth :: !(Maybe Bool)
+    , _rWifi      :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Radios' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rNfc'
 --
@@ -1024,15 +1047,8 @@ instance FromJSON Project where
 -- * 'rBluetooth'
 --
 -- * 'rWifi'
-data Radios = Radios'
-    { _rNfc       :: !(Maybe Bool)
-    , _rGps       :: !(Maybe Bool)
-    , _rBluetooth :: !(Maybe Bool)
-    , _rWifi      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Radios' smart constructor.
-radios :: Radios
+radios
+    :: Radios
 radios =
     Radios'
     { _rNfc = Nothing
@@ -1068,19 +1084,20 @@ instance ToJSON Radios where
 -- expressed in pixels.
 --
 -- /See:/ 'resolution' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rHeight'
---
--- * 'rWidth'
 data Resolution = Resolution'
     { _rHeight :: !(Maybe Int)
     , _rWidth  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Resolution' smart constructor.
-resolution :: Resolution
+-- | Creates a value of 'Resolution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rHeight'
+--
+-- * 'rWidth'
+resolution
+    :: Resolution
 resolution =
     Resolution'
     { _rHeight = Nothing
@@ -1104,22 +1121,23 @@ instance FromJSON Resolution where
 -- | Represents a condition for a device pool.
 --
 -- /See:/ 'rule' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rAttribute'
---
--- * 'rOperator'
---
--- * 'rValue'
 data Rule = Rule'
     { _rAttribute :: !(Maybe DeviceAttribute)
     , _rOperator  :: !(Maybe RuleOperator)
     , _rValue     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Rule' smart constructor.
-rule :: Rule
+-- | Creates a value of 'Rule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rAttribute'
+--
+-- * 'rOperator'
+--
+-- * 'rValue'
+rule
+    :: Rule
 rule =
     Rule'
     { _rAttribute = Nothing
@@ -1179,8 +1197,26 @@ instance ToJSON Rule where
 -- configuration.
 --
 -- /See:/ 'run' smart constructor.
+data Run = Run'
+    { _runStatus        :: !(Maybe ExecutionStatus)
+    , _runBillingMethod :: !(Maybe BillingMethod)
+    , _runCounters      :: !(Maybe Counters)
+    , _runPlatform      :: !(Maybe DevicePlatform)
+    , _runArn           :: !(Maybe Text)
+    , _runCreated       :: !(Maybe POSIX)
+    , _runCompletedJobs :: !(Maybe Int)
+    , _runStopped       :: !(Maybe POSIX)
+    , _runResult        :: !(Maybe ExecutionResult)
+    , _runName          :: !(Maybe Text)
+    , _runType          :: !(Maybe TestType)
+    , _runMessage       :: !(Maybe Text)
+    , _runTotalJobs     :: !(Maybe Int)
+    , _runStarted       :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Run' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'runStatus'
 --
@@ -1209,25 +1245,8 @@ instance ToJSON Rule where
 -- * 'runTotalJobs'
 --
 -- * 'runStarted'
-data Run = Run'
-    { _runStatus        :: !(Maybe ExecutionStatus)
-    , _runBillingMethod :: !(Maybe BillingMethod)
-    , _runCounters      :: !(Maybe Counters)
-    , _runPlatform      :: !(Maybe DevicePlatform)
-    , _runArn           :: !(Maybe Text)
-    , _runCreated       :: !(Maybe POSIX)
-    , _runCompletedJobs :: !(Maybe Int)
-    , _runStopped       :: !(Maybe POSIX)
-    , _runResult        :: !(Maybe ExecutionResult)
-    , _runName          :: !(Maybe Text)
-    , _runType          :: !(Maybe TestType)
-    , _runMessage       :: !(Maybe Text)
-    , _runTotalJobs     :: !(Maybe Int)
-    , _runStarted       :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Run' smart constructor.
-run :: Run
+run
+    :: Run
 run =
     Run'
     { _runStatus = Nothing
@@ -1263,8 +1282,8 @@ run =
 runStatus :: Lens' Run (Maybe ExecutionStatus)
 runStatus = lens _runStatus (\ s a -> s{_runStatus = a});
 
--- | Specifies the billing method for a test run: @metered@ or @unmetered@.
--- If the parameter is not specified, the default value is @unmetered@.
+-- | Specifies the billing method for a test run: 'metered' or 'unmetered'.
+-- If the parameter is not specified, the default value is 'unmetered'.
 runBillingMethod :: Lens' Run (Maybe BillingMethod)
 runBillingMethod = lens _runBillingMethod (\ s a -> s{_runBillingMethod = a});
 
@@ -1385,22 +1404,23 @@ instance FromJSON Run where
 -- | Represents a sample of performance data.
 --
 -- /See:/ 'sample' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sArn'
---
--- * 'sUrl'
---
--- * 'sType'
 data Sample = Sample'
     { _sArn  :: !(Maybe Text)
     , _sUrl  :: !(Maybe Text)
     , _sType :: !(Maybe SampleType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Sample' smart constructor.
-sample :: Sample
+-- | Creates a value of 'Sample' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sArn'
+--
+-- * 'sUrl'
+--
+-- * 'sType'
+sample
+    :: Sample
 sample =
     Sample'
     { _sArn = Nothing
@@ -1475,8 +1495,19 @@ instance FromJSON Sample where
 -- states, auxiliary apps, and network profiles.
 --
 -- /See:/ 'scheduleRunConfiguration' smart constructor.
+data ScheduleRunConfiguration = ScheduleRunConfiguration'
+    { _srcBillingMethod       :: !(Maybe BillingMethod)
+    , _srcRadios              :: !(Maybe Radios)
+    , _srcLocation            :: !(Maybe Location)
+    , _srcLocale              :: !(Maybe Text)
+    , _srcNetworkProfileARN   :: !(Maybe Text)
+    , _srcExtraDataPackageARN :: !(Maybe Text)
+    , _srcAuxiliaryApps       :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduleRunConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'srcBillingMethod'
 --
@@ -1491,18 +1522,8 @@ instance FromJSON Sample where
 -- * 'srcExtraDataPackageARN'
 --
 -- * 'srcAuxiliaryApps'
-data ScheduleRunConfiguration = ScheduleRunConfiguration'
-    { _srcBillingMethod       :: !(Maybe BillingMethod)
-    , _srcRadios              :: !(Maybe Radios)
-    , _srcLocation            :: !(Maybe Location)
-    , _srcLocale              :: !(Maybe Text)
-    , _srcNetworkProfileARN   :: !(Maybe Text)
-    , _srcExtraDataPackageARN :: !(Maybe Text)
-    , _srcAuxiliaryApps       :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ScheduleRunConfiguration' smart constructor.
-scheduleRunConfiguration :: ScheduleRunConfiguration
+scheduleRunConfiguration
+    :: ScheduleRunConfiguration
 scheduleRunConfiguration =
     ScheduleRunConfiguration'
     { _srcBillingMethod = Nothing
@@ -1514,8 +1535,8 @@ scheduleRunConfiguration =
     , _srcAuxiliaryApps = Nothing
     }
 
--- | Specifies the billing method for a test run: @metered@ or @unmetered@.
--- If the parameter is not specified, the default value is @unmetered@.
+-- | Specifies the billing method for a test run: 'metered' or 'unmetered'.
+-- If the parameter is not specified, the default value is 'unmetered'.
 srcBillingMethod :: Lens' ScheduleRunConfiguration (Maybe BillingMethod)
 srcBillingMethod = lens _srcBillingMethod (\ s a -> s{_srcBillingMethod = a});
 
@@ -1558,8 +1579,16 @@ instance ToJSON ScheduleRunConfiguration where
 -- | Represents additional test settings.
 --
 -- /See:/ 'scheduleRunTest' smart constructor.
+data ScheduleRunTest = ScheduleRunTest'
+    { _srtTestPackageARN :: !(Maybe Text)
+    , _srtParameters     :: !(Maybe (Map Text Text))
+    , _srtFilter         :: !(Maybe Text)
+    , _srtType           :: !TestType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduleRunTest' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'srtTestPackageARN'
 --
@@ -1568,15 +1597,9 @@ instance ToJSON ScheduleRunConfiguration where
 -- * 'srtFilter'
 --
 -- * 'srtType'
-data ScheduleRunTest = ScheduleRunTest'
-    { _srtTestPackageARN :: !(Maybe Text)
-    , _srtParameters     :: !(Maybe (Map Text Text))
-    , _srtFilter         :: !(Maybe Text)
-    , _srtType           :: !TestType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ScheduleRunTest' smart constructor.
-scheduleRunTest :: TestType -> ScheduleRunTest
+scheduleRunTest
+    :: TestType -- ^ 'srtType'
+    -> ScheduleRunTest
 scheduleRunTest pType_ =
     ScheduleRunTest'
     { _srtTestPackageARN = Nothing
@@ -1635,8 +1658,22 @@ instance ToJSON ScheduleRunTest where
 -- | Represents a collection of one or more tests.
 --
 -- /See:/ 'suite' smart constructor.
+data Suite = Suite'
+    { _suiStatus   :: !(Maybe ExecutionStatus)
+    , _suiCounters :: !(Maybe Counters)
+    , _suiArn      :: !(Maybe Text)
+    , _suiCreated  :: !(Maybe POSIX)
+    , _suiStopped  :: !(Maybe POSIX)
+    , _suiResult   :: !(Maybe ExecutionResult)
+    , _suiName     :: !(Maybe Text)
+    , _suiType     :: !(Maybe TestType)
+    , _suiMessage  :: !(Maybe Text)
+    , _suiStarted  :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Suite' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'suiStatus'
 --
@@ -1657,21 +1694,8 @@ instance ToJSON ScheduleRunTest where
 -- * 'suiMessage'
 --
 -- * 'suiStarted'
-data Suite = Suite'
-    { _suiStatus   :: !(Maybe ExecutionStatus)
-    , _suiCounters :: !(Maybe Counters)
-    , _suiArn      :: !(Maybe Text)
-    , _suiCreated  :: !(Maybe POSIX)
-    , _suiStopped  :: !(Maybe POSIX)
-    , _suiResult   :: !(Maybe ExecutionResult)
-    , _suiName     :: !(Maybe Text)
-    , _suiType     :: !(Maybe TestType)
-    , _suiMessage  :: !(Maybe Text)
-    , _suiStarted  :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Suite' smart constructor.
-suite :: Suite
+suite
+    :: Suite
 suite =
     Suite'
     { _suiStatus = Nothing
@@ -1797,8 +1821,22 @@ instance FromJSON Suite where
 -- | Represents a condition that is evaluated.
 --
 -- /See:/ 'test' smart constructor.
+data Test = Test'
+    { _tStatus   :: !(Maybe ExecutionStatus)
+    , _tCounters :: !(Maybe Counters)
+    , _tArn      :: !(Maybe Text)
+    , _tCreated  :: !(Maybe POSIX)
+    , _tStopped  :: !(Maybe POSIX)
+    , _tResult   :: !(Maybe ExecutionResult)
+    , _tName     :: !(Maybe Text)
+    , _tType     :: !(Maybe TestType)
+    , _tMessage  :: !(Maybe Text)
+    , _tStarted  :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Test' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tStatus'
 --
@@ -1819,21 +1857,8 @@ instance FromJSON Suite where
 -- * 'tMessage'
 --
 -- * 'tStarted'
-data Test = Test'
-    { _tStatus   :: !(Maybe ExecutionStatus)
-    , _tCounters :: !(Maybe Counters)
-    , _tArn      :: !(Maybe Text)
-    , _tCreated  :: !(Maybe POSIX)
-    , _tStopped  :: !(Maybe POSIX)
-    , _tResult   :: !(Maybe ExecutionResult)
-    , _tName     :: !(Maybe Text)
-    , _tType     :: !(Maybe TestType)
-    , _tMessage  :: !(Maybe Text)
-    , _tStarted  :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Test' smart constructor.
-test :: Test
+test
+    :: Test
 test =
     Test'
     { _tStatus = Nothing
@@ -1959,19 +1984,20 @@ instance FromJSON Test where
 -- | A collection of one or more problems, grouped by their result.
 --
 -- /See:/ 'uniqueProblem' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'upProblems'
---
--- * 'upMessage'
 data UniqueProblem = UniqueProblem'
     { _upProblems :: !(Maybe [Problem])
     , _upMessage  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UniqueProblem' smart constructor.
-uniqueProblem :: UniqueProblem
+-- | Creates a value of 'UniqueProblem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'upProblems'
+--
+-- * 'upMessage'
+uniqueProblem
+    :: UniqueProblem
 uniqueProblem =
     UniqueProblem'
     { _upProblems = Nothing
@@ -1997,8 +2023,21 @@ instance FromJSON UniqueProblem where
 -- uploaded.
 --
 -- /See:/ 'upload' smart constructor.
+data Upload = Upload'
+    { _uStatus      :: !(Maybe UploadStatus)
+    , _uArn         :: !(Maybe Text)
+    , _uCreated     :: !(Maybe POSIX)
+    , _uUrl         :: !(Maybe Text)
+    , _uName        :: !(Maybe Text)
+    , _uMetadata    :: !(Maybe Text)
+    , _uType        :: !(Maybe UploadType)
+    , _uMessage     :: !(Maybe Text)
+    , _uContentType :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Upload' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uStatus'
 --
@@ -2017,20 +2056,8 @@ instance FromJSON UniqueProblem where
 -- * 'uMessage'
 --
 -- * 'uContentType'
-data Upload = Upload'
-    { _uStatus      :: !(Maybe UploadStatus)
-    , _uArn         :: !(Maybe Text)
-    , _uCreated     :: !(Maybe POSIX)
-    , _uUrl         :: !(Maybe Text)
-    , _uName        :: !(Maybe Text)
-    , _uMetadata    :: !(Maybe Text)
-    , _uType        :: !(Maybe UploadType)
-    , _uMessage     :: !(Maybe Text)
-    , _uContentType :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Upload' smart constructor.
-upload :: Upload
+upload
+    :: Upload
 upload =
     Upload'
     { _uStatus = Nothing

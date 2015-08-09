@@ -22,29 +22,31 @@
 -- specified user. If there are none, the action returns an empty list.
 --
 -- Although each user is limited to a small number of signing certificates,
--- you can still paginate the results using the @MaxItems@ and @Marker@
+-- you can still paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
 --
--- If the @UserName@ field is not specified, the user name is determined
+-- If the 'UserName' field is not specified, the user name is determined
 -- implicitly based on the AWS access key ID used to sign the request.
 -- Because this action works for access keys under the AWS account, you can
 -- use this action to manage root credentials even if the AWS account has
 -- no associated users.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListSigningCertificates.html AWS API Reference> for ListSigningCertificates.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListSigningCertificates
     (
     -- * Creating a Request
-      ListSigningCertificates
-    , listSigningCertificates
+      listSigningCertificates
+    , ListSigningCertificates
     -- * Request Lenses
     , lUserName
     , lMaxItems
     , lMarker
 
     -- * Destructuring the Response
-    , ListSigningCertificatesResponse
     , listSigningCertificatesResponse
+    , ListSigningCertificatesResponse
     -- * Response Lenses
     , lrsMarker
     , lrsIsTruncated
@@ -60,22 +62,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listSigningCertificates' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lUserName'
---
--- * 'lMaxItems'
---
--- * 'lMarker'
 data ListSigningCertificates = ListSigningCertificates'
     { _lUserName :: !(Maybe Text)
     , _lMaxItems :: !(Maybe Nat)
     , _lMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListSigningCertificates' smart constructor.
-listSigningCertificates :: ListSigningCertificates
+-- | Creates a value of 'ListSigningCertificates' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lUserName'
+--
+-- * 'lMaxItems'
+--
+-- * 'lMarker'
+listSigningCertificates
+    :: ListSigningCertificates
 listSigningCertificates =
     ListSigningCertificates'
     { _lUserName = Nothing
@@ -89,7 +92,7 @@ lUserName = lens _lUserName (\ s a -> s{_lUserName = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -98,7 +101,7 @@ lMaxItems = lens _lMaxItems (\ s a -> s{_lMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 lMarker :: Lens' ListSigningCertificates (Maybe Text)
 lMarker = lens _lMarker (\ s a -> s{_lMarker = a});
 
@@ -141,8 +144,16 @@ instance ToQuery ListSigningCertificates where
 -- | Contains the response to a successful ListSigningCertificates request.
 --
 -- /See:/ 'listSigningCertificatesResponse' smart constructor.
+data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
+    { _lrsMarker       :: !(Maybe Text)
+    , _lrsIsTruncated  :: !(Maybe Bool)
+    , _lrsStatus       :: !Int
+    , _lrsCertificates :: ![SigningCertificate]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListSigningCertificatesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lrsMarker'
 --
@@ -151,15 +162,9 @@ instance ToQuery ListSigningCertificates where
 -- * 'lrsStatus'
 --
 -- * 'lrsCertificates'
-data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
-    { _lrsMarker       :: !(Maybe Text)
-    , _lrsIsTruncated  :: !(Maybe Bool)
-    , _lrsStatus       :: !Int
-    , _lrsCertificates :: ![SigningCertificate]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListSigningCertificatesResponse' smart constructor.
-listSigningCertificatesResponse :: Int -> ListSigningCertificatesResponse
+listSigningCertificatesResponse
+    :: Int -- ^ 'lrsStatus'
+    -> ListSigningCertificatesResponse
 listSigningCertificatesResponse pStatus_ =
     ListSigningCertificatesResponse'
     { _lrsMarker = Nothing
@@ -168,19 +173,19 @@ listSigningCertificatesResponse pStatus_ =
     , _lrsCertificates = mempty
     }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lrsMarker :: Lens' ListSigningCertificatesResponse (Maybe Text)
 lrsMarker = lens _lrsMarker (\ s a -> s{_lrsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 lrsIsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
 lrsIsTruncated = lens _lrsIsTruncated (\ s a -> s{_lrsIsTruncated = a});
 
--- | Undocumented member.
+-- | The response status code.
 lrsStatus :: Lens' ListSigningCertificatesResponse Int
 lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});
 

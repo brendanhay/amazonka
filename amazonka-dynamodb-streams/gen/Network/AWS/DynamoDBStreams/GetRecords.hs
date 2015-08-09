@@ -20,11 +20,11 @@
 --
 -- Retrieves the stream records from a given shard.
 --
--- Specify a shard iterator using the @ShardIterator@ parameter. The shard
+-- Specify a shard iterator using the 'ShardIterator' parameter. The shard
 -- iterator specifies the position in the shard from which you want to
 -- start reading stream records sequentially. If there are no stream
 -- records available in the portion of the shard that the iterator points
--- to, @GetRecords@ returns an empty list. Note that it might take multiple
+-- to, 'GetRecords' returns an empty list. Note that it might take multiple
 -- calls to get to a portion of the shard that contains stream records.
 --
 -- GetRecords can retrieve a maximum of 1 MB of data or 2000 stream
@@ -34,15 +34,15 @@
 module Network.AWS.DynamoDBStreams.GetRecords
     (
     -- * Creating a Request
-      GetRecords
-    , getRecords
+      getRecords
+    , GetRecords
     -- * Request Lenses
     , grLimit
     , grShardIterator
 
     -- * Destructuring the Response
-    , GetRecordsResponse
     , getRecordsResponse
+    , GetRecordsResponse
     -- * Response Lenses
     , grrsRecords
     , grrsNextShardIterator
@@ -58,19 +58,21 @@ import           Network.AWS.Response
 -- | Represents the input of a /GetRecords/ operation.
 --
 -- /See:/ 'getRecords' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grLimit'
---
--- * 'grShardIterator'
 data GetRecords = GetRecords'
     { _grLimit         :: !(Maybe Nat)
     , _grShardIterator :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetRecords' smart constructor.
-getRecords :: Text -> GetRecords
+-- | Creates a value of 'GetRecords' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grLimit'
+--
+-- * 'grShardIterator'
+getRecords
+    :: Text -- ^ 'grShardIterator'
+    -> GetRecords
 getRecords pShardIterator_ =
     GetRecords'
     { _grLimit = Nothing
@@ -125,22 +127,24 @@ instance ToQuery GetRecords where
 -- | Represents the output of a /GetRecords/ operation.
 --
 -- /See:/ 'getRecordsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grrsRecords'
---
--- * 'grrsNextShardIterator'
---
--- * 'grrsStatus'
 data GetRecordsResponse = GetRecordsResponse'
     { _grrsRecords           :: !(Maybe [Record])
     , _grrsNextShardIterator :: !(Maybe Text)
     , _grrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetRecordsResponse' smart constructor.
-getRecordsResponse :: Int -> GetRecordsResponse
+-- | Creates a value of 'GetRecordsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grrsRecords'
+--
+-- * 'grrsNextShardIterator'
+--
+-- * 'grrsStatus'
+getRecordsResponse
+    :: Int -- ^ 'grrsStatus'
+    -> GetRecordsResponse
 getRecordsResponse pStatus_ =
     GetRecordsResponse'
     { _grrsRecords = Nothing
@@ -154,11 +158,11 @@ grrsRecords :: Lens' GetRecordsResponse [Record]
 grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a}) . _Default . _Coerce;
 
 -- | The next position in the shard from which to start sequentially reading
--- stream records. If set to @null@, the shard has been closed and the
+-- stream records. If set to 'null', the shard has been closed and the
 -- requested iterator will not return any more data.
 grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
 grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIterator = a});
 
--- | Undocumented member.
+-- | The response status code.
 grrsStatus :: Lens' GetRecordsResponse Int
 grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});

@@ -27,15 +27,15 @@
 module Network.AWS.EC2.RestoreAddressToClassic
     (
     -- * Creating a Request
-      RestoreAddressToClassic
-    , restoreAddressToClassic
+      restoreAddressToClassic
+    , RestoreAddressToClassic
     -- * Request Lenses
     , ratcDryRun
     , ratcPublicIP
 
     -- * Destructuring the Response
-    , RestoreAddressToClassicResponse
     , restoreAddressToClassicResponse
+    , RestoreAddressToClassicResponse
     -- * Response Lenses
     , ratcrsPublicIP
     , ratcrsStatus
@@ -48,19 +48,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'restoreAddressToClassic' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ratcDryRun'
---
--- * 'ratcPublicIP'
 data RestoreAddressToClassic = RestoreAddressToClassic'
     { _ratcDryRun   :: !(Maybe Bool)
     , _ratcPublicIP :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestoreAddressToClassic' smart constructor.
-restoreAddressToClassic :: Text -> RestoreAddressToClassic
+-- | Creates a value of 'RestoreAddressToClassic' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ratcDryRun'
+--
+-- * 'ratcPublicIP'
+restoreAddressToClassic
+    :: Text -- ^ 'ratcPublicIP'
+    -> RestoreAddressToClassic
 restoreAddressToClassic pPublicIP_ =
     RestoreAddressToClassic'
     { _ratcDryRun = Nothing
@@ -69,8 +71,8 @@ restoreAddressToClassic pPublicIP_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 ratcDryRun :: Lens' RestoreAddressToClassic (Maybe Bool)
 ratcDryRun = lens _ratcDryRun (\ s a -> s{_ratcDryRun = a});
 
@@ -104,19 +106,21 @@ instance ToQuery RestoreAddressToClassic where
                "DryRun" =: _ratcDryRun, "PublicIp" =: _ratcPublicIP]
 
 -- | /See:/ 'restoreAddressToClassicResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ratcrsPublicIP'
---
--- * 'ratcrsStatus'
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
     { _ratcrsPublicIP :: !(Maybe Text)
     , _ratcrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestoreAddressToClassicResponse' smart constructor.
-restoreAddressToClassicResponse :: Int -> RestoreAddressToClassicResponse
+-- | Creates a value of 'RestoreAddressToClassicResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ratcrsPublicIP'
+--
+-- * 'ratcrsStatus'
+restoreAddressToClassicResponse
+    :: Int -- ^ 'ratcrsStatus'
+    -> RestoreAddressToClassicResponse
 restoreAddressToClassicResponse pStatus_ =
     RestoreAddressToClassicResponse'
     { _ratcrsPublicIP = Nothing
@@ -127,6 +131,6 @@ restoreAddressToClassicResponse pStatus_ =
 ratcrsPublicIP :: Lens' RestoreAddressToClassicResponse (Maybe Text)
 ratcrsPublicIP = lens _ratcrsPublicIP (\ s a -> s{_ratcrsPublicIP = a});
 
--- | Undocumented member.
+-- | The response status code.
 ratcrsStatus :: Lens' RestoreAddressToClassicResponse Int
 ratcrsStatus = lens _ratcrsStatus (\ s a -> s{_ratcrsStatus = a});

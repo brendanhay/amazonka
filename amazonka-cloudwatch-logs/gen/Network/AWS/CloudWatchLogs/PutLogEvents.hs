@@ -20,9 +20,9 @@
 --
 -- Uploads a batch of log events to the specified log stream.
 --
--- Every PutLogEvents request must include the @sequenceToken@ obtained
+-- Every PutLogEvents request must include the 'sequenceToken' obtained
 -- from the response of the previous request. An upload in a newly created
--- log stream does not require a @sequenceToken@.
+-- log stream does not require a 'sequenceToken'.
 --
 -- The batch of events must satisfy the following constraints:
 --
@@ -34,15 +34,15 @@
 -- -   None of the log events in the batch can be older than 14 days or the
 --     retention period of the log group.
 -- -   The log events in the batch must be in chronological ordered by
---     their @timestamp@.
+--     their 'timestamp'.
 -- -   The maximum number of log events in a batch is 10,000.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html AWS API Reference> for PutLogEvents.
 module Network.AWS.CloudWatchLogs.PutLogEvents
     (
     -- * Creating a Request
-      PutLogEvents
-    , putLogEvents
+      putLogEvents
+    , PutLogEvents
     -- * Request Lenses
     , pleSequenceToken
     , pleLogGroupName
@@ -50,8 +50,8 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     , pleLogEvents
 
     -- * Destructuring the Response
-    , PutLogEventsResponse
     , putLogEventsResponse
+    , PutLogEventsResponse
     -- * Response Lenses
     , plersRejectedLogEventsInfo
     , plersNextSequenceToken
@@ -65,8 +65,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putLogEvents' smart constructor.
+data PutLogEvents = PutLogEvents'
+    { _pleSequenceToken :: !(Maybe Text)
+    , _pleLogGroupName  :: !Text
+    , _pleLogStreamName :: !Text
+    , _pleLogEvents     :: !(List1 InputLogEvent)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutLogEvents' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pleSequenceToken'
 --
@@ -75,15 +83,11 @@ import           Network.AWS.Response
 -- * 'pleLogStreamName'
 --
 -- * 'pleLogEvents'
-data PutLogEvents = PutLogEvents'
-    { _pleSequenceToken :: !(Maybe Text)
-    , _pleLogGroupName  :: !Text
-    , _pleLogStreamName :: !Text
-    , _pleLogEvents     :: !(List1 InputLogEvent)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutLogEvents' smart constructor.
-putLogEvents :: Text -> Text -> NonEmpty InputLogEvent -> PutLogEvents
+putLogEvents
+    :: Text -- ^ 'pleLogGroupName'
+    -> Text -- ^ 'pleLogStreamName'
+    -> NonEmpty InputLogEvent -- ^ 'pleLogEvents'
+    -> PutLogEvents
 putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
     PutLogEvents'
     { _pleSequenceToken = Nothing
@@ -93,7 +97,7 @@ putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
     }
 
 -- | A string token that must be obtained from the response of the previous
--- @PutLogEvents@ request.
+-- 'PutLogEvents' request.
 pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
 pleSequenceToken = lens _pleSequenceToken (\ s a -> s{_pleSequenceToken = a});
 
@@ -145,22 +149,24 @@ instance ToQuery PutLogEvents where
         toQuery = const mempty
 
 -- | /See:/ 'putLogEventsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'plersRejectedLogEventsInfo'
---
--- * 'plersNextSequenceToken'
---
--- * 'plersStatus'
 data PutLogEventsResponse = PutLogEventsResponse'
     { _plersRejectedLogEventsInfo :: !(Maybe RejectedLogEventsInfo)
     , _plersNextSequenceToken     :: !(Maybe Text)
     , _plersStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutLogEventsResponse' smart constructor.
-putLogEventsResponse :: Int -> PutLogEventsResponse
+-- | Creates a value of 'PutLogEventsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'plersRejectedLogEventsInfo'
+--
+-- * 'plersNextSequenceToken'
+--
+-- * 'plersStatus'
+putLogEventsResponse
+    :: Int -- ^ 'plersStatus'
+    -> PutLogEventsResponse
 putLogEventsResponse pStatus_ =
     PutLogEventsResponse'
     { _plersRejectedLogEventsInfo = Nothing
@@ -176,6 +182,6 @@ plersRejectedLogEventsInfo = lens _plersRejectedLogEventsInfo (\ s a -> s{_plers
 plersNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plersNextSequenceToken = lens _plersNextSequenceToken (\ s a -> s{_plersNextSequenceToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 plersStatus :: Lens' PutLogEventsResponse Int
 plersStatus = lens _plersStatus (\ s a -> s{_plersStatus = a});

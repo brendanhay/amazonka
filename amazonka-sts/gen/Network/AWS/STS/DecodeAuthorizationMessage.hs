@@ -22,7 +22,7 @@
 -- request from an encoded message returned in response to an AWS request.
 --
 -- For example, if a user is not authorized to perform an action that he or
--- she has requested, the request returns a @Client.UnauthorizedOperation@
+-- she has requested, the request returns a 'Client.UnauthorizedOperation'
 -- response (an HTTP 403 response). Some AWS actions additionally return an
 -- encoded message that can provide details about this authorization
 -- failure.
@@ -35,7 +35,7 @@
 -- can constitute privileged information that the user who requested the
 -- action should not see. To decode an authorization status message, a user
 -- must be granted permissions via an IAM policy to request the
--- @DecodeAuthorizationMessage@ (@sts:DecodeAuthorizationMessage@) action.
+-- 'DecodeAuthorizationMessage' ('sts:DecodeAuthorizationMessage') action.
 --
 -- The decoded message includes the following type of information:
 --
@@ -52,14 +52,14 @@
 module Network.AWS.STS.DecodeAuthorizationMessage
     (
     -- * Creating a Request
-      DecodeAuthorizationMessage
-    , decodeAuthorizationMessage
+      decodeAuthorizationMessage
+    , DecodeAuthorizationMessage
     -- * Request Lenses
     , damEncodedMessage
 
     -- * Destructuring the Response
-    , DecodeAuthorizationMessageResponse
     , decodeAuthorizationMessageResponse
+    , DecodeAuthorizationMessageResponse
     -- * Response Lenses
     , damrsDecodedMessage
     , damrsStatus
@@ -72,16 +72,18 @@ import           Network.AWS.STS.Types
 import           Network.AWS.STS.Types.Product
 
 -- | /See:/ 'decodeAuthorizationMessage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'damEncodedMessage'
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage'
     { _damEncodedMessage :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DecodeAuthorizationMessage' smart constructor.
-decodeAuthorizationMessage :: Text -> DecodeAuthorizationMessage
+-- | Creates a value of 'DecodeAuthorizationMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'damEncodedMessage'
+decodeAuthorizationMessage
+    :: Text -- ^ 'damEncodedMessage'
+    -> DecodeAuthorizationMessage
 decodeAuthorizationMessage pEncodedMessage_ =
     DecodeAuthorizationMessage'
     { _damEncodedMessage = pEncodedMessage_
@@ -122,19 +124,21 @@ instance ToQuery DecodeAuthorizationMessage where
 -- to an AWS request.
 --
 -- /See:/ 'decodeAuthorizationMessageResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'damrsDecodedMessage'
---
--- * 'damrsStatus'
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
     { _damrsDecodedMessage :: !(Maybe Text)
     , _damrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DecodeAuthorizationMessageResponse' smart constructor.
-decodeAuthorizationMessageResponse :: Int -> DecodeAuthorizationMessageResponse
+-- | Creates a value of 'DecodeAuthorizationMessageResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'damrsDecodedMessage'
+--
+-- * 'damrsStatus'
+decodeAuthorizationMessageResponse
+    :: Int -- ^ 'damrsStatus'
+    -> DecodeAuthorizationMessageResponse
 decodeAuthorizationMessageResponse pStatus_ =
     DecodeAuthorizationMessageResponse'
     { _damrsDecodedMessage = Nothing
@@ -142,10 +146,10 @@ decodeAuthorizationMessageResponse pStatus_ =
     }
 
 -- | An XML document that contains the decoded message. For more information,
--- see @DecodeAuthorizationMessage@.
+-- see 'DecodeAuthorizationMessage'.
 damrsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damrsDecodedMessage = lens _damrsDecodedMessage (\ s a -> s{_damrsDecodedMessage = a});
 
--- | Undocumented member.
+-- | The response status code.
 damrsStatus :: Lens' DecodeAuthorizationMessageResponse Int
 damrsStatus = lens _damrsStatus (\ s a -> s{_damrsStatus = a});

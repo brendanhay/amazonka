@@ -27,14 +27,14 @@
 module Network.AWS.SES.DeleteIdentity
     (
     -- * Creating a Request
-      DeleteIdentity
-    , deleteIdentity
+      deleteIdentity
+    , DeleteIdentity
     -- * Request Lenses
     , diIdentity
 
     -- * Destructuring the Response
-    , DeleteIdentityResponse
     , deleteIdentityResponse
+    , DeleteIdentityResponse
     -- * Response Lenses
     , dirsStatus
     ) where
@@ -49,16 +49,18 @@ import           Network.AWS.SES.Types.Product
 -- the list of identities for the AWS Account.
 --
 -- /See:/ 'deleteIdentity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diIdentity'
 newtype DeleteIdentity = DeleteIdentity'
     { _diIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteIdentity' smart constructor.
-deleteIdentity :: Text -> DeleteIdentity
+-- | Creates a value of 'DeleteIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diIdentity'
+deleteIdentity
+    :: Text -- ^ 'diIdentity'
+    -> DeleteIdentity
 deleteIdentity pIdentity_ =
     DeleteIdentity'
     { _diIdentity = pIdentity_
@@ -95,21 +97,23 @@ instance ToQuery DeleteIdentity where
 -- completed successfully.
 --
 -- /See:/ 'deleteIdentityResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dirsStatus'
 newtype DeleteIdentityResponse = DeleteIdentityResponse'
     { _dirsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteIdentityResponse' smart constructor.
-deleteIdentityResponse :: Int -> DeleteIdentityResponse
+-- | Creates a value of 'DeleteIdentityResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dirsStatus'
+deleteIdentityResponse
+    :: Int -- ^ 'dirsStatus'
+    -> DeleteIdentityResponse
 deleteIdentityResponse pStatus_ =
     DeleteIdentityResponse'
     { _dirsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dirsStatus :: Lens' DeleteIdentityResponse Int
 dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

@@ -25,15 +25,15 @@
 module Network.AWS.EC2.CancelBundleTask
     (
     -- * Creating a Request
-      CancelBundleTask
-    , cancelBundleTask
+      cancelBundleTask
+    , CancelBundleTask
     -- * Request Lenses
     , cbtDryRun
     , cbtBundleId
 
     -- * Destructuring the Response
-    , CancelBundleTaskResponse
     , cancelBundleTaskResponse
+    , CancelBundleTaskResponse
     -- * Response Lenses
     , cbtrsBundleTask
     , cbtrsStatus
@@ -46,19 +46,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'cancelBundleTask' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cbtDryRun'
---
--- * 'cbtBundleId'
 data CancelBundleTask = CancelBundleTask'
     { _cbtDryRun   :: !(Maybe Bool)
     , _cbtBundleId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelBundleTask' smart constructor.
-cancelBundleTask :: Text -> CancelBundleTask
+-- | Creates a value of 'CancelBundleTask' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cbtDryRun'
+--
+-- * 'cbtBundleId'
+cancelBundleTask
+    :: Text -- ^ 'cbtBundleId'
+    -> CancelBundleTask
 cancelBundleTask pBundleId_ =
     CancelBundleTask'
     { _cbtDryRun = Nothing
@@ -67,8 +69,8 @@ cancelBundleTask pBundleId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cbtDryRun :: Lens' CancelBundleTask (Maybe Bool)
 cbtDryRun = lens _cbtDryRun (\ s a -> s{_cbtDryRun = a});
 
@@ -100,19 +102,21 @@ instance ToQuery CancelBundleTask where
                "DryRun" =: _cbtDryRun, "BundleId" =: _cbtBundleId]
 
 -- | /See:/ 'cancelBundleTaskResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cbtrsBundleTask'
---
--- * 'cbtrsStatus'
 data CancelBundleTaskResponse = CancelBundleTaskResponse'
     { _cbtrsBundleTask :: !(Maybe BundleTask)
     , _cbtrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelBundleTaskResponse' smart constructor.
-cancelBundleTaskResponse :: Int -> CancelBundleTaskResponse
+-- | Creates a value of 'CancelBundleTaskResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cbtrsBundleTask'
+--
+-- * 'cbtrsStatus'
+cancelBundleTaskResponse
+    :: Int -- ^ 'cbtrsStatus'
+    -> CancelBundleTaskResponse
 cancelBundleTaskResponse pStatus_ =
     CancelBundleTaskResponse'
     { _cbtrsBundleTask = Nothing
@@ -123,6 +127,6 @@ cancelBundleTaskResponse pStatus_ =
 cbtrsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtrsBundleTask = lens _cbtrsBundleTask (\ s a -> s{_cbtrsBundleTask = a});
 
--- | Undocumented member.
+-- | The response status code.
 cbtrsStatus :: Lens' CancelBundleTaskResponse Int
 cbtrsStatus = lens _cbtrsStatus (\ s a -> s{_cbtrsStatus = a});

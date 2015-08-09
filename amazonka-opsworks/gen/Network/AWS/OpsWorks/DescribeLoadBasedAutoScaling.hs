@@ -32,14 +32,14 @@
 module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     (
     -- * Creating a Request
-      DescribeLoadBasedAutoScaling
-    , describeLoadBasedAutoScaling
+      describeLoadBasedAutoScaling
+    , DescribeLoadBasedAutoScaling
     -- * Request Lenses
     , dlbasLayerIds
 
     -- * Destructuring the Response
-    , DescribeLoadBasedAutoScalingResponse
     , describeLoadBasedAutoScalingResponse
+    , DescribeLoadBasedAutoScalingResponse
     -- * Response Lenses
     , dlbasrsLoadBasedAutoScalingConfigurations
     , dlbasrsStatus
@@ -52,16 +52,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBasedAutoScaling' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbasLayerIds'
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'
     { _dlbasLayerIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoadBasedAutoScaling' smart constructor.
-describeLoadBasedAutoScaling :: DescribeLoadBasedAutoScaling
+-- | Creates a value of 'DescribeLoadBasedAutoScaling' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbasLayerIds'
+describeLoadBasedAutoScaling
+    :: DescribeLoadBasedAutoScaling
 describeLoadBasedAutoScaling =
     DescribeLoadBasedAutoScaling'
     { _dlbasLayerIds = mempty
@@ -105,33 +106,35 @@ instance ToPath DescribeLoadBasedAutoScaling where
 instance ToQuery DescribeLoadBasedAutoScaling where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeLoadBasedAutoScaling@ request.
+-- | Contains the response to a 'DescribeLoadBasedAutoScaling' request.
 --
 -- /See:/ 'describeLoadBasedAutoScalingResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbasrsLoadBasedAutoScalingConfigurations'
---
--- * 'dlbasrsStatus'
 data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
     { _dlbasrsLoadBasedAutoScalingConfigurations :: !(Maybe [LoadBasedAutoScalingConfiguration])
     , _dlbasrsStatus                             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoadBasedAutoScalingResponse' smart constructor.
-describeLoadBasedAutoScalingResponse :: Int -> DescribeLoadBasedAutoScalingResponse
+-- | Creates a value of 'DescribeLoadBasedAutoScalingResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbasrsLoadBasedAutoScalingConfigurations'
+--
+-- * 'dlbasrsStatus'
+describeLoadBasedAutoScalingResponse
+    :: Int -- ^ 'dlbasrsStatus'
+    -> DescribeLoadBasedAutoScalingResponse
 describeLoadBasedAutoScalingResponse pStatus_ =
     DescribeLoadBasedAutoScalingResponse'
     { _dlbasrsLoadBasedAutoScalingConfigurations = Nothing
     , _dlbasrsStatus = pStatus_
     }
 
--- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe
+-- | An array of 'LoadBasedAutoScalingConfiguration' objects that describe
 -- each layer\'s configuration.
 dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
 dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrsLoadBasedAutoScalingConfigurations = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dlbasrsStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
 dlbasrsStatus = lens _dlbasrsStatus (\ s a -> s{_dlbasrsStatus = a});

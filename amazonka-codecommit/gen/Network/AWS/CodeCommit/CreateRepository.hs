@@ -24,15 +24,15 @@
 module Network.AWS.CodeCommit.CreateRepository
     (
     -- * Creating a Request
-      CreateRepository
-    , createRepository
+      createRepository
+    , CreateRepository
     -- * Request Lenses
     , crRepositoryDescription
     , crRepositoryName
 
     -- * Destructuring the Response
-    , CreateRepositoryResponse
     , createRepositoryResponse
+    , CreateRepositoryResponse
     -- * Response Lenses
     , crrsRepositoryMetadata
     , crrsStatus
@@ -47,19 +47,21 @@ import           Network.AWS.Response
 -- | Represents the input of a create repository operation.
 --
 -- /See:/ 'createRepository' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crRepositoryDescription'
---
--- * 'crRepositoryName'
 data CreateRepository = CreateRepository'
     { _crRepositoryDescription :: !(Maybe Text)
     , _crRepositoryName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateRepository' smart constructor.
-createRepository :: Text -> CreateRepository
+-- | Creates a value of 'CreateRepository' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crRepositoryDescription'
+--
+-- * 'crRepositoryName'
+createRepository
+    :: Text -- ^ 'crRepositoryName'
+    -> CreateRepository
 createRepository pRepositoryName_ =
     CreateRepository'
     { _crRepositoryDescription = Nothing
@@ -113,19 +115,21 @@ instance ToQuery CreateRepository where
 -- | Represents the output of a create repository operation.
 --
 -- /See:/ 'createRepositoryResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crrsRepositoryMetadata'
---
--- * 'crrsStatus'
 data CreateRepositoryResponse = CreateRepositoryResponse'
     { _crrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
     , _crrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateRepositoryResponse' smart constructor.
-createRepositoryResponse :: Int -> CreateRepositoryResponse
+-- | Creates a value of 'CreateRepositoryResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crrsRepositoryMetadata'
+--
+-- * 'crrsStatus'
+createRepositoryResponse
+    :: Int -- ^ 'crrsStatus'
+    -> CreateRepositoryResponse
 createRepositoryResponse pStatus_ =
     CreateRepositoryResponse'
     { _crrsRepositoryMetadata = Nothing
@@ -136,6 +140,6 @@ createRepositoryResponse pStatus_ =
 crrsRepositoryMetadata :: Lens' CreateRepositoryResponse (Maybe RepositoryMetadata)
 crrsRepositoryMetadata = lens _crrsRepositoryMetadata (\ s a -> s{_crrsRepositoryMetadata = a});
 
--- | Undocumented member.
+-- | The response status code.
 crrsStatus :: Lens' CreateRepositoryResponse Int
 crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});

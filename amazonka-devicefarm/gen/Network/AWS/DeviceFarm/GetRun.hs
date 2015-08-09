@@ -24,14 +24,14 @@
 module Network.AWS.DeviceFarm.GetRun
     (
     -- * Creating a Request
-      GetRun
-    , getRun
+      getRun
+    , GetRun
     -- * Request Lenses
     , grArn
 
     -- * Destructuring the Response
-    , GetRunResponse
     , getRunResponse
+    , GetRunResponse
     -- * Response Lenses
     , grrsRun
     , grrsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents a request to the get run operation.
 --
 -- /See:/ 'getRun' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grArn'
 newtype GetRun = GetRun'
     { _grArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetRun' smart constructor.
-getRun :: Text -> GetRun
+-- | Creates a value of 'GetRun' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grArn'
+getRun
+    :: Text -- ^ 'grArn'
+    -> GetRun
 getRun pArn_ =
     GetRun'
     { _grArn = pArn_
@@ -96,19 +98,21 @@ instance ToQuery GetRun where
 -- | Represents the result of a get run request.
 --
 -- /See:/ 'getRunResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grrsRun'
---
--- * 'grrsStatus'
 data GetRunResponse = GetRunResponse'
     { _grrsRun    :: !(Maybe Run)
     , _grrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetRunResponse' smart constructor.
-getRunResponse :: Int -> GetRunResponse
+-- | Creates a value of 'GetRunResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grrsRun'
+--
+-- * 'grrsStatus'
+getRunResponse
+    :: Int -- ^ 'grrsStatus'
+    -> GetRunResponse
 getRunResponse pStatus_ =
     GetRunResponse'
     { _grrsRun = Nothing
@@ -119,6 +123,6 @@ getRunResponse pStatus_ =
 grrsRun :: Lens' GetRunResponse (Maybe Run)
 grrsRun = lens _grrsRun (\ s a -> s{_grrsRun = a});
 
--- | Undocumented member.
+-- | The response status code.
 grrsStatus :: Lens' GetRunResponse Int
 grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});

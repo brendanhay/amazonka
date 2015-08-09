@@ -24,14 +24,14 @@
 module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     (
     -- * Creating a Request
-      CheckDNSAvailability
-    , checkDNSAvailability
+      checkDNSAvailability
+    , CheckDNSAvailability
     -- * Request Lenses
     , cdaCNAMEPrefix
 
     -- * Destructuring the Response
-    , CheckDNSAvailabilityResponse
     , checkDNSAvailabilityResponse
+    , CheckDNSAvailabilityResponse
     -- * Response Lenses
     , cdarsFullyQualifiedCNAME
     , cdarsAvailable
@@ -47,16 +47,18 @@ import           Network.AWS.Response
 -- | Results message indicating whether a CNAME is available.
 --
 -- /See:/ 'checkDNSAvailability' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdaCNAMEPrefix'
 newtype CheckDNSAvailability = CheckDNSAvailability'
     { _cdaCNAMEPrefix :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CheckDNSAvailability' smart constructor.
-checkDNSAvailability :: Text -> CheckDNSAvailability
+-- | Creates a value of 'CheckDNSAvailability' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdaCNAMEPrefix'
+checkDNSAvailability
+    :: Text -- ^ 'cdaCNAMEPrefix'
+    -> CheckDNSAvailability
 checkDNSAvailability pCNAMEPrefix_ =
     CheckDNSAvailability'
     { _cdaCNAMEPrefix = pCNAMEPrefix_
@@ -94,22 +96,24 @@ instance ToQuery CheckDNSAvailability where
 -- | Indicates if the specified CNAME is available.
 --
 -- /See:/ 'checkDNSAvailabilityResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdarsFullyQualifiedCNAME'
---
--- * 'cdarsAvailable'
---
--- * 'cdarsStatus'
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
     { _cdarsFullyQualifiedCNAME :: !(Maybe Text)
     , _cdarsAvailable           :: !(Maybe Bool)
     , _cdarsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CheckDNSAvailabilityResponse' smart constructor.
-checkDNSAvailabilityResponse :: Int -> CheckDNSAvailabilityResponse
+-- | Creates a value of 'CheckDNSAvailabilityResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdarsFullyQualifiedCNAME'
+--
+-- * 'cdarsAvailable'
+--
+-- * 'cdarsStatus'
+checkDNSAvailabilityResponse
+    :: Int -- ^ 'cdarsStatus'
+    -> CheckDNSAvailabilityResponse
 checkDNSAvailabilityResponse pStatus_ =
     CheckDNSAvailabilityResponse'
     { _cdarsFullyQualifiedCNAME = Nothing
@@ -124,15 +128,15 @@ cdarsFullyQualifiedCNAME = lens _cdarsFullyQualifiedCNAME (\ s a -> s{_cdarsFull
 
 -- | Indicates if the specified CNAME is available:
 --
--- @true@ : The CNAME is available.
+-- 'true' : The CNAME is available.
 --
--- @true@ : The CNAME is not available.
+-- 'true' : The CNAME is not available.
 --
--- -   @true@ : The CNAME is available.
--- -   @false@ : The CNAME is not available.
+-- -   'true' : The CNAME is available.
+-- -   'false' : The CNAME is not available.
 cdarsAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdarsAvailable = lens _cdarsAvailable (\ s a -> s{_cdarsAvailable = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdarsStatus :: Lens' CheckDNSAvailabilityResponse Int
 cdarsStatus = lens _cdarsStatus (\ s a -> s{_cdarsStatus = a});

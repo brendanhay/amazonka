@@ -25,8 +25,21 @@ import           Network.AWS.Prelude
 -- Direct Connect location and the customer.
 --
 -- /See:/ 'connection' smart constructor.
+data Connection = Connection'
+    { _cVlan            :: !(Maybe Int)
+    , _cLocation        :: !(Maybe Text)
+    , _cConnectionId    :: !(Maybe Text)
+    , _cConnectionName  :: !(Maybe Text)
+    , _cPartnerName     :: !(Maybe Text)
+    , _cBandwidth       :: !(Maybe Text)
+    , _cRegion          :: !(Maybe Text)
+    , _cOwnerAccount    :: !(Maybe Text)
+    , _cConnectionState :: !(Maybe ConnectionState)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Connection' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cVlan'
 --
@@ -45,20 +58,8 @@ import           Network.AWS.Prelude
 -- * 'cOwnerAccount'
 --
 -- * 'cConnectionState'
-data Connection = Connection'
-    { _cVlan            :: !(Maybe Int)
-    , _cLocation        :: !(Maybe Text)
-    , _cConnectionId    :: !(Maybe Text)
-    , _cConnectionName  :: !(Maybe Text)
-    , _cPartnerName     :: !(Maybe Text)
-    , _cBandwidth       :: !(Maybe Text)
-    , _cRegion          :: !(Maybe Text)
-    , _cOwnerAccount    :: !(Maybe Text)
-    , _cConnectionState :: !(Maybe ConnectionState)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Connection' smart constructor.
-connection :: Connection
+connection
+    :: Connection
 connection =
     Connection'
     { _cVlan = Nothing
@@ -130,16 +131,17 @@ instance FromJSON Connection where
 -- | A structure containing a list of connections.
 --
 -- /See:/ 'connections' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cConnections'
 newtype Connections = Connections'
     { _cConnections :: Maybe [Connection]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Connections' smart constructor.
-connections :: Connections
+-- | Creates a value of 'Connections' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cConnections'
+connections
+    :: Connections
 connections =
     Connections'
     { _cConnections = Nothing
@@ -169,8 +171,18 @@ instance FromJSON Connections where
 -- owner of the interconnect determines how these resources are assigned.
 --
 -- /See:/ 'interconnect' smart constructor.
+data Interconnect = Interconnect'
+    { _iInterconnectId    :: !(Maybe Text)
+    , _iInterconnectName  :: !(Maybe Text)
+    , _iLocation          :: !(Maybe Text)
+    , _iBandwidth         :: !(Maybe Text)
+    , _iInterconnectState :: !(Maybe InterconnectState)
+    , _iRegion            :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Interconnect' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iInterconnectId'
 --
@@ -183,17 +195,8 @@ instance FromJSON Connections where
 -- * 'iInterconnectState'
 --
 -- * 'iRegion'
-data Interconnect = Interconnect'
-    { _iInterconnectId    :: !(Maybe Text)
-    , _iInterconnectName  :: !(Maybe Text)
-    , _iLocation          :: !(Maybe Text)
-    , _iBandwidth         :: !(Maybe Text)
-    , _iInterconnectState :: !(Maybe InterconnectState)
-    , _iRegion            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Interconnect' smart constructor.
-interconnect :: Interconnect
+interconnect
+    :: Interconnect
 interconnect =
     Interconnect'
     { _iInterconnectId = Nothing
@@ -244,19 +247,20 @@ instance FromJSON Interconnect where
 -- be requested.
 --
 -- /See:/ 'location' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lLocationName'
---
--- * 'lLocationCode'
 data Location = Location'
     { _lLocationName :: !(Maybe Text)
     , _lLocationCode :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Location' smart constructor.
-location :: Location
+-- | Creates a value of 'Location' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lLocationName'
+--
+-- * 'lLocationCode'
+location
+    :: Location
 location =
     Location'
     { _lLocationName = Nothing
@@ -283,8 +287,19 @@ instance FromJSON Location where
 -- interface.
 --
 -- /See:/ 'newPrivateVirtualInterface' smart constructor.
+data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
+    { _nCustomerAddress      :: !(Maybe Text)
+    , _nAmazonAddress        :: !(Maybe Text)
+    , _nAuthKey              :: !(Maybe Text)
+    , _nVirtualInterfaceName :: !Text
+    , _nVlan                 :: !Int
+    , _nAsn                  :: !Int
+    , _nVirtualGatewayId     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NewPrivateVirtualInterface' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'nCustomerAddress'
 --
@@ -299,18 +314,12 @@ instance FromJSON Location where
 -- * 'nAsn'
 --
 -- * 'nVirtualGatewayId'
-data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
-    { _nCustomerAddress      :: !(Maybe Text)
-    , _nAmazonAddress        :: !(Maybe Text)
-    , _nAuthKey              :: !(Maybe Text)
-    , _nVirtualInterfaceName :: !Text
-    , _nVlan                 :: !Int
-    , _nAsn                  :: !Int
-    , _nVirtualGatewayId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NewPrivateVirtualInterface' smart constructor.
-newPrivateVirtualInterface :: Text -> Int -> Int -> Text -> NewPrivateVirtualInterface
+newPrivateVirtualInterface
+    :: Text -- ^ 'nVirtualInterfaceName'
+    -> Int -- ^ 'nVlan'
+    -> Int -- ^ 'nAsn'
+    -> Text -- ^ 'nVirtualGatewayId'
+    -> NewPrivateVirtualInterface
 newPrivateVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pVirtualGatewayId_ =
     NewPrivateVirtualInterface'
     { _nCustomerAddress = Nothing
@@ -364,8 +373,18 @@ instance ToJSON NewPrivateVirtualInterface where
 -- that will be provisioned on a connection.
 --
 -- /See:/ 'newPrivateVirtualInterfaceAllocation' smart constructor.
+data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
+    { _npviaCustomerAddress      :: !(Maybe Text)
+    , _npviaAmazonAddress        :: !(Maybe Text)
+    , _npviaAuthKey              :: !(Maybe Text)
+    , _npviaVirtualInterfaceName :: !Text
+    , _npviaVlan                 :: !Int
+    , _npviaAsn                  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NewPrivateVirtualInterfaceAllocation' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'npviaCustomerAddress'
 --
@@ -378,17 +397,11 @@ instance ToJSON NewPrivateVirtualInterface where
 -- * 'npviaVlan'
 --
 -- * 'npviaAsn'
-data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation'
-    { _npviaCustomerAddress      :: !(Maybe Text)
-    , _npviaAmazonAddress        :: !(Maybe Text)
-    , _npviaAuthKey              :: !(Maybe Text)
-    , _npviaVirtualInterfaceName :: !Text
-    , _npviaVlan                 :: !Int
-    , _npviaAsn                  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NewPrivateVirtualInterfaceAllocation' smart constructor.
-newPrivateVirtualInterfaceAllocation :: Text -> Int -> Int -> NewPrivateVirtualInterfaceAllocation
+newPrivateVirtualInterfaceAllocation
+    :: Text -- ^ 'npviaVirtualInterfaceName'
+    -> Int -- ^ 'npviaVlan'
+    -> Int -- ^ 'npviaAsn'
+    -> NewPrivateVirtualInterfaceAllocation
 newPrivateVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
     NewPrivateVirtualInterfaceAllocation'
     { _npviaCustomerAddress = Nothing
@@ -436,8 +449,19 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
 -- | A structure containing information about a new public virtual interface.
 --
 -- /See:/ 'newPublicVirtualInterface' smart constructor.
+data NewPublicVirtualInterface = NewPublicVirtualInterface'
+    { _npviAuthKey              :: !(Maybe Text)
+    , _npviVirtualInterfaceName :: !Text
+    , _npviVlan                 :: !Int
+    , _npviAsn                  :: !Int
+    , _npviAmazonAddress        :: !Text
+    , _npviCustomerAddress      :: !Text
+    , _npviRouteFilterPrefixes  :: ![RouteFilterPrefix]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NewPublicVirtualInterface' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'npviAuthKey'
 --
@@ -452,18 +476,13 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
 -- * 'npviCustomerAddress'
 --
 -- * 'npviRouteFilterPrefixes'
-data NewPublicVirtualInterface = NewPublicVirtualInterface'
-    { _npviAuthKey              :: !(Maybe Text)
-    , _npviVirtualInterfaceName :: !Text
-    , _npviVlan                 :: !Int
-    , _npviAsn                  :: !Int
-    , _npviAmazonAddress        :: !Text
-    , _npviCustomerAddress      :: !Text
-    , _npviRouteFilterPrefixes  :: ![RouteFilterPrefix]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NewPublicVirtualInterface' smart constructor.
-newPublicVirtualInterface :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterface
+newPublicVirtualInterface
+    :: Text -- ^ 'npviVirtualInterfaceName'
+    -> Int -- ^ 'npviVlan'
+    -> Int -- ^ 'npviAsn'
+    -> Text -- ^ 'npviAmazonAddress'
+    -> Text -- ^ 'npviCustomerAddress'
+    -> NewPublicVirtualInterface
 newPublicVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pAmazonAddress_ pCustomerAddress_ =
     NewPublicVirtualInterface'
     { _npviAuthKey = Nothing
@@ -517,8 +536,19 @@ instance ToJSON NewPublicVirtualInterface where
 -- will be provisioned on a connection.
 --
 -- /See:/ 'newPublicVirtualInterfaceAllocation' smart constructor.
+data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
+    { _newAuthKey              :: !(Maybe Text)
+    , _newVirtualInterfaceName :: !Text
+    , _newVlan                 :: !Int
+    , _newAsn                  :: !Int
+    , _newAmazonAddress        :: !Text
+    , _newCustomerAddress      :: !Text
+    , _newRouteFilterPrefixes  :: ![RouteFilterPrefix]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NewPublicVirtualInterfaceAllocation' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'newAuthKey'
 --
@@ -533,18 +563,13 @@ instance ToJSON NewPublicVirtualInterface where
 -- * 'newCustomerAddress'
 --
 -- * 'newRouteFilterPrefixes'
-data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
-    { _newAuthKey              :: !(Maybe Text)
-    , _newVirtualInterfaceName :: !Text
-    , _newVlan                 :: !Int
-    , _newAsn                  :: !Int
-    , _newAmazonAddress        :: !Text
-    , _newCustomerAddress      :: !Text
-    , _newRouteFilterPrefixes  :: ![RouteFilterPrefix]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NewPublicVirtualInterfaceAllocation' smart constructor.
-newPublicVirtualInterfaceAllocation :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterfaceAllocation
+newPublicVirtualInterfaceAllocation
+    :: Text -- ^ 'newVirtualInterfaceName'
+    -> Int -- ^ 'newVlan'
+    -> Int -- ^ 'newAsn'
+    -> Text -- ^ 'newAmazonAddress'
+    -> Text -- ^ 'newCustomerAddress'
+    -> NewPublicVirtualInterfaceAllocation
 newPublicVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ pAmazonAddress_ pCustomerAddress_ =
     NewPublicVirtualInterfaceAllocation'
     { _newAuthKey = Nothing
@@ -599,16 +624,17 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
 -- Gateway Protocol (BGP) over a public virtual interface.
 --
 -- /See:/ 'routeFilterPrefix' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rfpCidr'
 newtype RouteFilterPrefix = RouteFilterPrefix'
     { _rfpCidr :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RouteFilterPrefix' smart constructor.
-routeFilterPrefix :: RouteFilterPrefix
+-- | Creates a value of 'RouteFilterPrefix' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rfpCidr'
+routeFilterPrefix
+    :: RouteFilterPrefix
 routeFilterPrefix =
     RouteFilterPrefix'
     { _rfpCidr = Nothing
@@ -638,19 +664,20 @@ instance ToJSON RouteFilterPrefix where
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html Amazon EC2 CreateVpnGateway action>.
 --
 -- /See:/ 'virtualGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vgVirtualGatewayId'
---
--- * 'vgVirtualGatewayState'
 data VirtualGateway = VirtualGateway'
     { _vgVirtualGatewayId    :: !(Maybe Text)
     , _vgVirtualGatewayState :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VirtualGateway' smart constructor.
-virtualGateway :: VirtualGateway
+-- | Creates a value of 'VirtualGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vgVirtualGatewayId'
+--
+-- * 'vgVirtualGatewayState'
+virtualGateway
+    :: VirtualGateway
 virtualGateway =
     VirtualGateway'
     { _vgVirtualGatewayId = Nothing
@@ -677,8 +704,27 @@ instance FromJSON VirtualGateway where
 -- Connect location and the customer.
 --
 -- /See:/ 'virtualInterface' smart constructor.
+data VirtualInterface = VirtualInterface'
+    { _viVirtualGatewayId      :: !(Maybe Text)
+    , _viRouteFilterPrefixes   :: !(Maybe [RouteFilterPrefix])
+    , _viCustomerAddress       :: !(Maybe Text)
+    , _viVlan                  :: !(Maybe Int)
+    , _viLocation              :: !(Maybe Text)
+    , _viAmazonAddress         :: !(Maybe Text)
+    , _viVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
+    , _viConnectionId          :: !(Maybe Text)
+    , _viAsn                   :: !(Maybe Int)
+    , _viVirtualInterfaceType  :: !(Maybe Text)
+    , _viAuthKey               :: !(Maybe Text)
+    , _viCustomerRouterConfig  :: !(Maybe Text)
+    , _viOwnerAccount          :: !(Maybe Text)
+    , _viVirtualInterfaceName  :: !(Maybe Text)
+    , _viVirtualInterfaceId    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VirtualInterface' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'viVirtualGatewayId'
 --
@@ -709,26 +755,8 @@ instance FromJSON VirtualGateway where
 -- * 'viVirtualInterfaceName'
 --
 -- * 'viVirtualInterfaceId'
-data VirtualInterface = VirtualInterface'
-    { _viVirtualGatewayId      :: !(Maybe Text)
-    , _viRouteFilterPrefixes   :: !(Maybe [RouteFilterPrefix])
-    , _viCustomerAddress       :: !(Maybe Text)
-    , _viVlan                  :: !(Maybe Int)
-    , _viLocation              :: !(Maybe Text)
-    , _viAmazonAddress         :: !(Maybe Text)
-    , _viVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _viConnectionId          :: !(Maybe Text)
-    , _viAsn                   :: !(Maybe Int)
-    , _viVirtualInterfaceType  :: !(Maybe Text)
-    , _viAuthKey               :: !(Maybe Text)
-    , _viCustomerRouterConfig  :: !(Maybe Text)
-    , _viOwnerAccount          :: !(Maybe Text)
-    , _viVirtualInterfaceName  :: !(Maybe Text)
-    , _viVirtualInterfaceId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VirtualInterface' smart constructor.
-virtualInterface :: VirtualInterface
+virtualInterface
+    :: VirtualInterface
 virtualInterface =
     VirtualInterface'
     { _viVirtualGatewayId = Nothing

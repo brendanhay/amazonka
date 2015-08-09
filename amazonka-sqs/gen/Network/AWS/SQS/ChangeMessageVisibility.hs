@@ -28,7 +28,7 @@
 --
 -- For example, let\'s say you have a message and its default message
 -- visibility timeout is 30 minutes. You could call
--- @ChangeMessageVisiblity@ with a value of two hours and the effective
+-- 'ChangeMessageVisiblity' with a value of two hours and the effective
 -- timeout would be two hours and 30 minutes. When that time comes near you
 -- could again extend the time out by calling ChangeMessageVisiblity, but
 -- this time the maximum allowed timeout would be 9 hours and 30 minutes.
@@ -41,7 +41,7 @@
 -- messages from the queue after they have been processed. You can also
 -- increase the number of queues you use to process the messages.
 --
--- If you attempt to set the @VisibilityTimeout@ to an amount more than the
+-- If you attempt to set the 'VisibilityTimeout' to an amount more than the
 -- maximum time left, Amazon SQS returns an error. It will not
 -- automatically recalculate and increase the timeout to the maximum time
 -- remaining.
@@ -51,22 +51,22 @@
 -- saved in memory for that message. If you don\'t delete a message after
 -- it is received, the visibility timeout for the message the next time it
 -- is received reverts to the original timeout value, not the value you set
--- with the @ChangeMessageVisibility@ action.
+-- with the 'ChangeMessageVisibility' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibility.html AWS API Reference> for ChangeMessageVisibility.
 module Network.AWS.SQS.ChangeMessageVisibility
     (
     -- * Creating a Request
-      ChangeMessageVisibility
-    , changeMessageVisibility
+      changeMessageVisibility
+    , ChangeMessageVisibility
     -- * Request Lenses
     , cmvQueueURL
     , cmvReceiptHandle
     , cmvVisibilityTimeout
 
     -- * Destructuring the Response
-    , ChangeMessageVisibilityResponse
     , changeMessageVisibilityResponse
+    , ChangeMessageVisibilityResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -76,22 +76,26 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'changeMessageVisibility' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cmvQueueURL'
---
--- * 'cmvReceiptHandle'
---
--- * 'cmvVisibilityTimeout'
 data ChangeMessageVisibility = ChangeMessageVisibility'
     { _cmvQueueURL          :: !Text
     , _cmvReceiptHandle     :: !Text
     , _cmvVisibilityTimeout :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangeMessageVisibility' smart constructor.
-changeMessageVisibility :: Text -> Text -> Int -> ChangeMessageVisibility
+-- | Creates a value of 'ChangeMessageVisibility' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cmvQueueURL'
+--
+-- * 'cmvReceiptHandle'
+--
+-- * 'cmvVisibilityTimeout'
+changeMessageVisibility
+    :: Text -- ^ 'cmvQueueURL'
+    -> Text -- ^ 'cmvReceiptHandle'
+    -> Int -- ^ 'cmvVisibilityTimeout'
+    -> ChangeMessageVisibility
 changeMessageVisibility pQueueURL_ pReceiptHandle_ pVisibilityTimeout_ =
     ChangeMessageVisibility'
     { _cmvQueueURL = pQueueURL_
@@ -143,6 +147,8 @@ data ChangeMessageVisibilityResponse =
     ChangeMessageVisibilityResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangeMessageVisibilityResponse' smart constructor.
-changeMessageVisibilityResponse :: ChangeMessageVisibilityResponse
+-- | Creates a value of 'ChangeMessageVisibilityResponse' with the minimum fields required to make a request.
+--
+changeMessageVisibilityResponse
+    :: ChangeMessageVisibilityResponse
 changeMessageVisibilityResponse = ChangeMessageVisibilityResponse'

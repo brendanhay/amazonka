@@ -26,16 +26,16 @@
 module Network.AWS.EC2.ResetImageAttribute
     (
     -- * Creating a Request
-      ResetImageAttribute
-    , resetImageAttribute
+      resetImageAttribute
+    , ResetImageAttribute
     -- * Request Lenses
     , resDryRun
     , resImageId
     , resAttribute
 
     -- * Destructuring the Response
-    , ResetImageAttributeResponse
     , resetImageAttributeResponse
+    , ResetImageAttributeResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -45,22 +45,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'resetImageAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'resDryRun'
---
--- * 'resImageId'
---
--- * 'resAttribute'
 data ResetImageAttribute = ResetImageAttribute'
     { _resDryRun    :: !(Maybe Bool)
     , _resImageId   :: !Text
     , _resAttribute :: !ResetImageAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetImageAttribute' smart constructor.
-resetImageAttribute :: Text -> ResetImageAttributeName -> ResetImageAttribute
+-- | Creates a value of 'ResetImageAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'resDryRun'
+--
+-- * 'resImageId'
+--
+-- * 'resAttribute'
+resetImageAttribute
+    :: Text -- ^ 'resImageId'
+    -> ResetImageAttributeName -- ^ 'resAttribute'
+    -> ResetImageAttribute
 resetImageAttribute pImageId_ pAttribute_ =
     ResetImageAttribute'
     { _resDryRun = Nothing
@@ -70,8 +73,8 @@ resetImageAttribute pImageId_ pAttribute_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 resDryRun :: Lens' ResetImageAttribute (Maybe Bool)
 resDryRun = lens _resDryRun (\ s a -> s{_resDryRun = a});
 
@@ -110,6 +113,8 @@ data ResetImageAttributeResponse =
     ResetImageAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetImageAttributeResponse' smart constructor.
-resetImageAttributeResponse :: ResetImageAttributeResponse
+-- | Creates a value of 'ResetImageAttributeResponse' with the minimum fields required to make a request.
+--
+resetImageAttributeResponse
+    :: ResetImageAttributeResponse
 resetImageAttributeResponse = ResetImageAttributeResponse'

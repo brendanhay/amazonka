@@ -28,14 +28,14 @@
 module Network.AWS.DirectConnect.ConfirmConnection
     (
     -- * Creating a Request
-      ConfirmConnection
-    , confirmConnection
+      confirmConnection
+    , ConfirmConnection
     -- * Request Lenses
     , ccConnectionId
 
     -- * Destructuring the Response
-    , ConfirmConnectionResponse
     , confirmConnectionResponse
+    , ConfirmConnectionResponse
     -- * Response Lenses
     , ccrsConnectionState
     , ccrsStatus
@@ -50,16 +50,18 @@ import           Network.AWS.Response
 -- | Container for the parameters to the ConfirmConnection operation.
 --
 -- /See:/ 'confirmConnection' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccConnectionId'
 newtype ConfirmConnection = ConfirmConnection'
     { _ccConnectionId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfirmConnection' smart constructor.
-confirmConnection :: Text -> ConfirmConnection
+-- | Creates a value of 'ConfirmConnection' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccConnectionId'
+confirmConnection
+    :: Text -- ^ 'ccConnectionId'
+    -> ConfirmConnection
 confirmConnection pConnectionId_ =
     ConfirmConnection'
     { _ccConnectionId = pConnectionId_
@@ -101,19 +103,21 @@ instance ToQuery ConfirmConnection where
 -- | The response received when ConfirmConnection is called.
 --
 -- /See:/ 'confirmConnectionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccrsConnectionState'
---
--- * 'ccrsStatus'
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
     { _ccrsConnectionState :: !(Maybe ConnectionState)
     , _ccrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfirmConnectionResponse' smart constructor.
-confirmConnectionResponse :: Int -> ConfirmConnectionResponse
+-- | Creates a value of 'ConfirmConnectionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccrsConnectionState'
+--
+-- * 'ccrsStatus'
+confirmConnectionResponse
+    :: Int -- ^ 'ccrsStatus'
+    -> ConfirmConnectionResponse
 confirmConnectionResponse pStatus_ =
     ConfirmConnectionResponse'
     { _ccrsConnectionState = Nothing
@@ -124,6 +128,6 @@ confirmConnectionResponse pStatus_ =
 ccrsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
 ccrsConnectionState = lens _ccrsConnectionState (\ s a -> s{_ccrsConnectionState = a});
 
--- | Undocumented member.
+-- | The response status code.
 ccrsStatus :: Lens' ConfirmConnectionResponse Int
 ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

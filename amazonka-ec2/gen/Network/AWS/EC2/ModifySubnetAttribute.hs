@@ -24,15 +24,15 @@
 module Network.AWS.EC2.ModifySubnetAttribute
     (
     -- * Creating a Request
-      ModifySubnetAttribute
-    , modifySubnetAttribute
+      modifySubnetAttribute
+    , ModifySubnetAttribute
     -- * Request Lenses
     , msaMapPublicIPOnLaunch
     , msaSubnetId
 
     -- * Destructuring the Response
-    , ModifySubnetAttributeResponse
     , modifySubnetAttributeResponse
+    , ModifySubnetAttributeResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -42,26 +42,28 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifySubnetAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'msaMapPublicIPOnLaunch'
---
--- * 'msaSubnetId'
 data ModifySubnetAttribute = ModifySubnetAttribute'
     { _msaMapPublicIPOnLaunch :: !(Maybe AttributeBooleanValue)
     , _msaSubnetId            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifySubnetAttribute' smart constructor.
-modifySubnetAttribute :: Text -> ModifySubnetAttribute
+-- | Creates a value of 'ModifySubnetAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'msaMapPublicIPOnLaunch'
+--
+-- * 'msaSubnetId'
+modifySubnetAttribute
+    :: Text -- ^ 'msaSubnetId'
+    -> ModifySubnetAttribute
 modifySubnetAttribute pSubnetId_ =
     ModifySubnetAttribute'
     { _msaMapPublicIPOnLaunch = Nothing
     , _msaSubnetId = pSubnetId_
     }
 
--- | Specify @true@ to indicate that instances launched into the specified
+-- | Specify 'true' to indicate that instances launched into the specified
 -- subnet should be assigned public IP address.
 msaMapPublicIPOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
 msaMapPublicIPOnLaunch = lens _msaMapPublicIPOnLaunch (\ s a -> s{_msaMapPublicIPOnLaunch = a});
@@ -96,6 +98,8 @@ data ModifySubnetAttributeResponse =
     ModifySubnetAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifySubnetAttributeResponse' smart constructor.
-modifySubnetAttributeResponse :: ModifySubnetAttributeResponse
+-- | Creates a value of 'ModifySubnetAttributeResponse' with the minimum fields required to make a request.
+--
+modifySubnetAttributeResponse
+    :: ModifySubnetAttributeResponse
 modifySubnetAttributeResponse = ModifySubnetAttributeResponse'

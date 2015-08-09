@@ -22,19 +22,21 @@
 -- Scaling group.
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeNotificationConfigurations.html AWS API Reference> for DescribeNotificationConfigurations.
+--
+-- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     (
     -- * Creating a Request
-      DescribeNotificationConfigurations
-    , describeNotificationConfigurations
+      describeNotificationConfigurations
+    , DescribeNotificationConfigurations
     -- * Request Lenses
     , dncAutoScalingGroupNames
     , dncNextToken
     , dncMaxRecords
 
     -- * Destructuring the Response
-    , DescribeNotificationConfigurationsResponse
     , describeNotificationConfigurationsResponse
+    , DescribeNotificationConfigurationsResponse
     -- * Response Lenses
     , dncrsNextToken
     , dncrsStatus
@@ -49,22 +51,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeNotificationConfigurations' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dncAutoScalingGroupNames'
---
--- * 'dncNextToken'
---
--- * 'dncMaxRecords'
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
     { _dncAutoScalingGroupNames :: !(Maybe [Text])
     , _dncNextToken             :: !(Maybe Text)
     , _dncMaxRecords            :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeNotificationConfigurations' smart constructor.
-describeNotificationConfigurations :: DescribeNotificationConfigurations
+-- | Creates a value of 'DescribeNotificationConfigurations' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dncAutoScalingGroupNames'
+--
+-- * 'dncNextToken'
+--
+-- * 'dncMaxRecords'
+describeNotificationConfigurations
+    :: DescribeNotificationConfigurations
 describeNotificationConfigurations =
     DescribeNotificationConfigurations'
     { _dncAutoScalingGroupNames = Nothing
@@ -132,22 +135,24 @@ instance ToQuery DescribeNotificationConfigurations
                "MaxRecords" =: _dncMaxRecords]
 
 -- | /See:/ 'describeNotificationConfigurationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dncrsNextToken'
---
--- * 'dncrsStatus'
---
--- * 'dncrsNotificationConfigurations'
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
     { _dncrsNextToken                  :: !(Maybe Text)
     , _dncrsStatus                     :: !Int
     , _dncrsNotificationConfigurations :: ![NotificationConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeNotificationConfigurationsResponse' smart constructor.
-describeNotificationConfigurationsResponse :: Int -> DescribeNotificationConfigurationsResponse
+-- | Creates a value of 'DescribeNotificationConfigurationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dncrsNextToken'
+--
+-- * 'dncrsStatus'
+--
+-- * 'dncrsNotificationConfigurations'
+describeNotificationConfigurationsResponse
+    :: Int -- ^ 'dncrsStatus'
+    -> DescribeNotificationConfigurationsResponse
 describeNotificationConfigurationsResponse pStatus_ =
     DescribeNotificationConfigurationsResponse'
     { _dncrsNextToken = Nothing
@@ -160,7 +165,7 @@ describeNotificationConfigurationsResponse pStatus_ =
 dncrsNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
 dncrsNextToken = lens _dncrsNextToken (\ s a -> s{_dncrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dncrsStatus :: Lens' DescribeNotificationConfigurationsResponse Int
 dncrsStatus = lens _dncrsStatus (\ s a -> s{_dncrsStatus = a});
 

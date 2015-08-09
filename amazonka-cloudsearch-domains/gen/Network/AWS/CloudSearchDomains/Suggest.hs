@@ -31,10 +31,10 @@
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Suggestions>
 -- in the /Amazon CloudSearch Developer Guide/.
 --
--- The endpoint for submitting @Suggest@ requests is domain-specific. You
+-- The endpoint for submitting 'Suggest' requests is domain-specific. You
 -- submit suggest requests to a domain\'s search endpoint. To get the
 -- search endpoint for your domain, use the Amazon CloudSearch
--- configuration service @DescribeDomains@ action. A domain\'s endpoints
+-- configuration service 'DescribeDomains' action. A domain\'s endpoints
 -- are also displayed on the domain dashboard in the Amazon CloudSearch
 -- console.
 --
@@ -42,16 +42,16 @@
 module Network.AWS.CloudSearchDomains.Suggest
     (
     -- * Creating a Request
-      Suggest
-    , suggest
+      suggest
+    , Suggest
     -- * Request Lenses
     , sSize
     , sQuery
     , sSuggester
 
     -- * Destructuring the Response
-    , SuggestResponse
     , suggestResponse
+    , SuggestResponse
     -- * Response Lenses
     , srsSuggest
     , srsStatus
@@ -63,25 +63,28 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @Suggest@ request.
+-- | Container for the parameters to the 'Suggest' request.
 --
 -- /See:/ 'suggest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sSize'
---
--- * 'sQuery'
---
--- * 'sSuggester'
 data Suggest = Suggest'
     { _sSize      :: !(Maybe Integer)
     , _sQuery     :: !Text
     , _sSuggester :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Suggest' smart constructor.
-suggest :: Text -> Text -> Suggest
+-- | Creates a value of 'Suggest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sSize'
+--
+-- * 'sQuery'
+--
+-- * 'sSuggester'
+suggest
+    :: Text -- ^ 'sQuery'
+    -> Text -- ^ 'sSuggester'
+    -> Suggest
 suggest pQuery_ pSuggester_ =
     Suggest'
     { _sSize = Nothing
@@ -127,22 +130,24 @@ instance ToQuery Suggest where
               ["size" =: _sSize, "q" =: _sQuery,
                "suggester" =: _sSuggester, "format=sdk&pretty=true"]
 
--- | Contains the response to a @Suggest@ request.
+-- | Contains the response to a 'Suggest' request.
 --
 -- /See:/ 'suggestResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'srsSuggest'
---
--- * 'srsStatus'
 data SuggestResponse = SuggestResponse'
     { _srsSuggest :: !(Maybe SuggestModel)
     , _srsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SuggestResponse' smart constructor.
-suggestResponse :: Int -> SuggestResponse
+-- | Creates a value of 'SuggestResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srsSuggest'
+--
+-- * 'srsStatus'
+suggestResponse
+    :: Int -- ^ 'srsStatus'
+    -> SuggestResponse
 suggestResponse pStatus_ =
     SuggestResponse'
     { _srsSuggest = Nothing
@@ -153,6 +158,6 @@ suggestResponse pStatus_ =
 srsSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
 srsSuggest = lens _srsSuggest (\ s a -> s{_srsSuggest = a});
 
--- | Undocumented member.
+-- | The response status code.
 srsStatus :: Lens' SuggestResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

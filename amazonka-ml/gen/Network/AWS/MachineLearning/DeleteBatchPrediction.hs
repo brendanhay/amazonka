@@ -18,29 +18,29 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Assigns the DELETED status to a @BatchPrediction@, rendering it
+-- Assigns the DELETED status to a 'BatchPrediction', rendering it
 -- unusable.
 --
--- After using the @DeleteBatchPrediction@ operation, you can use the
+-- After using the 'DeleteBatchPrediction' operation, you can use the
 -- GetBatchPrediction operation to verify that the status of the
--- @BatchPrediction@ changed to DELETED.
+-- 'BatchPrediction' changed to DELETED.
 --
 -- Caution
 --
--- The result of the @DeleteBatchPrediction@ operation is irreversible.
+-- The result of the 'DeleteBatchPrediction' operation is irreversible.
 --
 -- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteBatchPrediction.html AWS API Reference> for DeleteBatchPrediction.
 module Network.AWS.MachineLearning.DeleteBatchPrediction
     (
     -- * Creating a Request
-      DeleteBatchPrediction
-    , deleteBatchPrediction
+      deleteBatchPrediction
+    , DeleteBatchPrediction
     -- * Request Lenses
     , dbpBatchPredictionId
 
     -- * Destructuring the Response
-    , DeleteBatchPredictionResponse
     , deleteBatchPredictionResponse
+    , DeleteBatchPredictionResponse
     -- * Response Lenses
     , dbprsBatchPredictionId
     , dbprsStatus
@@ -53,22 +53,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteBatchPrediction' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dbpBatchPredictionId'
 newtype DeleteBatchPrediction = DeleteBatchPrediction'
     { _dbpBatchPredictionId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBatchPrediction' smart constructor.
-deleteBatchPrediction :: Text -> DeleteBatchPrediction
+-- | Creates a value of 'DeleteBatchPrediction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dbpBatchPredictionId'
+deleteBatchPrediction
+    :: Text -- ^ 'dbpBatchPredictionId'
+    -> DeleteBatchPrediction
 deleteBatchPrediction pBatchPredictionId_ =
     DeleteBatchPrediction'
     { _dbpBatchPredictionId = pBatchPredictionId_
     }
 
--- | A user-supplied ID that uniquely identifies the @BatchPrediction@.
+-- | A user-supplied ID that uniquely identifies the 'BatchPrediction'.
 dbpBatchPredictionId :: Lens' DeleteBatchPrediction Text
 dbpBatchPredictionId = lens _dbpBatchPredictionId (\ s a -> s{_dbpBatchPredictionId = a});
 
@@ -107,35 +109,37 @@ instance ToQuery DeleteBatchPrediction where
 -- | Represents the output of a DeleteBatchPrediction operation.
 --
 -- You can use the GetBatchPrediction operation and check the value of the
--- @Status@ parameter to see whether a @BatchPrediction@ is marked as
--- @DELETED@.
+-- 'Status' parameter to see whether a 'BatchPrediction' is marked as
+-- 'DELETED'.
 --
 -- /See:/ 'deleteBatchPredictionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dbprsBatchPredictionId'
---
--- * 'dbprsStatus'
 data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
     { _dbprsBatchPredictionId :: !(Maybe Text)
     , _dbprsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBatchPredictionResponse' smart constructor.
-deleteBatchPredictionResponse :: Int -> DeleteBatchPredictionResponse
+-- | Creates a value of 'DeleteBatchPredictionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dbprsBatchPredictionId'
+--
+-- * 'dbprsStatus'
+deleteBatchPredictionResponse
+    :: Int -- ^ 'dbprsStatus'
+    -> DeleteBatchPredictionResponse
 deleteBatchPredictionResponse pStatus_ =
     DeleteBatchPredictionResponse'
     { _dbprsBatchPredictionId = Nothing
     , _dbprsStatus = pStatus_
     }
 
--- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This
--- value should be identical to the value of the @BatchPredictionID@ in the
+-- | A user-supplied ID that uniquely identifies the 'BatchPrediction'. This
+-- value should be identical to the value of the 'BatchPredictionID' in the
 -- request.
 dbprsBatchPredictionId :: Lens' DeleteBatchPredictionResponse (Maybe Text)
 dbprsBatchPredictionId = lens _dbprsBatchPredictionId (\ s a -> s{_dbprsBatchPredictionId = a});
 
--- | Undocumented member.
+-- | The response status code.
 dbprsStatus :: Lens' DeleteBatchPredictionResponse Int
 dbprsStatus = lens _dbprsStatus (\ s a -> s{_dbprsStatus = a});

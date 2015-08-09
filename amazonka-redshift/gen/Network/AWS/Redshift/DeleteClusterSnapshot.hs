@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified manual snapshot. The snapshot must be in the
--- @available@ state, with no other users authorized to access the
+-- 'available' state, with no other users authorized to access the
 -- snapshot.
 --
 -- Unlike automated snapshots, manual snapshots are retained even after you
@@ -33,15 +33,15 @@
 module Network.AWS.Redshift.DeleteClusterSnapshot
     (
     -- * Creating a Request
-      DeleteClusterSnapshot
-    , deleteClusterSnapshot
+      deleteClusterSnapshot
+    , DeleteClusterSnapshot
     -- * Request Lenses
     , dcsSnapshotClusterIdentifier
     , dcsSnapshotIdentifier
 
     -- * Destructuring the Response
-    , DeleteClusterSnapshotResponse
     , deleteClusterSnapshotResponse
+    , DeleteClusterSnapshotResponse
     -- * Response Lenses
     , dcsrsSnapshot
     , dcsrsStatus
@@ -56,19 +56,21 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteClusterSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsSnapshotClusterIdentifier'
---
--- * 'dcsSnapshotIdentifier'
 data DeleteClusterSnapshot = DeleteClusterSnapshot'
     { _dcsSnapshotClusterIdentifier :: !(Maybe Text)
     , _dcsSnapshotIdentifier        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteClusterSnapshot' smart constructor.
-deleteClusterSnapshot :: Text -> DeleteClusterSnapshot
+-- | Creates a value of 'DeleteClusterSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsSnapshotClusterIdentifier'
+--
+-- * 'dcsSnapshotIdentifier'
+deleteClusterSnapshot
+    :: Text -- ^ 'dcsSnapshotIdentifier'
+    -> DeleteClusterSnapshot
 deleteClusterSnapshot pSnapshotIdentifier_ =
     DeleteClusterSnapshot'
     { _dcsSnapshotClusterIdentifier = Nothing
@@ -87,7 +89,7 @@ dcsSnapshotClusterIdentifier = lens _dcsSnapshotClusterIdentifier (\ s a -> s{_d
 -- | The unique identifier of the manual snapshot to be deleted.
 --
 -- Constraints: Must be the name of an existing snapshot that is in the
--- @available@ state.
+-- 'available' state.
 dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
 dcsSnapshotIdentifier = lens _dcsSnapshotIdentifier (\ s a -> s{_dcsSnapshotIdentifier = a});
 
@@ -118,19 +120,21 @@ instance ToQuery DeleteClusterSnapshot where
                "SnapshotIdentifier" =: _dcsSnapshotIdentifier]
 
 -- | /See:/ 'deleteClusterSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsrsSnapshot'
---
--- * 'dcsrsStatus'
 data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
     { _dcsrsSnapshot :: !(Maybe Snapshot)
     , _dcsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteClusterSnapshotResponse' smart constructor.
-deleteClusterSnapshotResponse :: Int -> DeleteClusterSnapshotResponse
+-- | Creates a value of 'DeleteClusterSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsrsSnapshot'
+--
+-- * 'dcsrsStatus'
+deleteClusterSnapshotResponse
+    :: Int -- ^ 'dcsrsStatus'
+    -> DeleteClusterSnapshotResponse
 deleteClusterSnapshotResponse pStatus_ =
     DeleteClusterSnapshotResponse'
     { _dcsrsSnapshot = Nothing
@@ -141,6 +145,6 @@ deleteClusterSnapshotResponse pStatus_ =
 dcsrsSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
 dcsrsSnapshot = lens _dcsrsSnapshot (\ s a -> s{_dcsrsSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 dcsrsStatus :: Lens' DeleteClusterSnapshotResponse Int
 dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});

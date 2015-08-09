@@ -24,14 +24,14 @@
 module Network.AWS.S3.DeleteBucketTagging
     (
     -- * Creating a Request
-      DeleteBucketTagging
-    , deleteBucketTagging
+      deleteBucketTagging
+    , DeleteBucketTagging
     -- * Request Lenses
     , dbtBucket
 
     -- * Destructuring the Response
-    , DeleteBucketTaggingResponse
     , deleteBucketTaggingResponse
+    , DeleteBucketTaggingResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -41,16 +41,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketTagging' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dbtBucket'
 newtype DeleteBucketTagging = DeleteBucketTagging'
     { _dbtBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucketTagging' smart constructor.
-deleteBucketTagging :: BucketName -> DeleteBucketTagging
+-- | Creates a value of 'DeleteBucketTagging' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dbtBucket'
+deleteBucketTagging
+    :: BucketName -- ^ 'dbtBucket'
+    -> DeleteBucketTagging
 deleteBucketTagging pBucket_ =
     DeleteBucketTagging'
     { _dbtBucket = pBucket_
@@ -82,6 +84,8 @@ data DeleteBucketTaggingResponse =
     DeleteBucketTaggingResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucketTaggingResponse' smart constructor.
-deleteBucketTaggingResponse :: DeleteBucketTaggingResponse
+-- | Creates a value of 'DeleteBucketTaggingResponse' with the minimum fields required to make a request.
+--
+deleteBucketTaggingResponse
+    :: DeleteBucketTaggingResponse
 deleteBucketTaggingResponse = DeleteBucketTaggingResponse'

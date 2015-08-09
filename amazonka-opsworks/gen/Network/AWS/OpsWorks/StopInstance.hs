@@ -34,14 +34,14 @@
 module Network.AWS.OpsWorks.StopInstance
     (
     -- * Creating a Request
-      StopInstance
-    , stopInstance
+      stopInstance
+    , StopInstance
     -- * Request Lenses
     , siInstanceId
 
     -- * Destructuring the Response
-    , StopInstanceResponse
     , stopInstanceResponse
+    , StopInstanceResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -51,16 +51,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'stopInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'siInstanceId'
 newtype StopInstance = StopInstance'
     { _siInstanceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopInstance' smart constructor.
-stopInstance :: Text -> StopInstance
+-- | Creates a value of 'StopInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'siInstanceId'
+stopInstance
+    :: Text -- ^ 'siInstanceId'
+    -> StopInstance
 stopInstance pInstanceId_ =
     StopInstance'
     { _siInstanceId = pInstanceId_
@@ -100,6 +102,8 @@ data StopInstanceResponse =
     StopInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopInstanceResponse' smart constructor.
-stopInstanceResponse :: StopInstanceResponse
+-- | Creates a value of 'StopInstanceResponse' with the minimum fields required to make a request.
+--
+stopInstanceResponse
+    :: StopInstanceResponse
 stopInstanceResponse = StopInstanceResponse'

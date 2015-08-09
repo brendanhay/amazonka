@@ -24,15 +24,15 @@
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     (
     -- * Creating a Request
-      DescribeApplicationVersions
-    , describeApplicationVersions
+      describeApplicationVersions
+    , DescribeApplicationVersions
     -- * Request Lenses
     , davsVersionLabels
     , davsApplicationName
 
     -- * Destructuring the Response
-    , DescribeApplicationVersionsResponse
     , describeApplicationVersionsResponse
+    , DescribeApplicationVersionsResponse
     -- * Response Lenses
     , davrsApplicationVersions
     , davrsStatus
@@ -47,19 +47,20 @@ import           Network.AWS.Response
 -- | Result message containing a list of configuration descriptions.
 --
 -- /See:/ 'describeApplicationVersions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'davsVersionLabels'
---
--- * 'davsApplicationName'
 data DescribeApplicationVersions = DescribeApplicationVersions'
     { _davsVersionLabels   :: !(Maybe [Text])
     , _davsApplicationName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeApplicationVersions' smart constructor.
-describeApplicationVersions :: DescribeApplicationVersions
+-- | Creates a value of 'DescribeApplicationVersions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'davsVersionLabels'
+--
+-- * 'davsApplicationName'
+describeApplicationVersions
+    :: DescribeApplicationVersions
 describeApplicationVersions =
     DescribeApplicationVersions'
     { _davsVersionLabels = Nothing
@@ -111,19 +112,21 @@ instance ToQuery DescribeApplicationVersions where
 -- | Result message wrapping a list of application version descriptions.
 --
 -- /See:/ 'describeApplicationVersionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'davrsApplicationVersions'
---
--- * 'davrsStatus'
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
     { _davrsApplicationVersions :: !(Maybe [ApplicationVersionDescription])
     , _davrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeApplicationVersionsResponse' smart constructor.
-describeApplicationVersionsResponse :: Int -> DescribeApplicationVersionsResponse
+-- | Creates a value of 'DescribeApplicationVersionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'davrsApplicationVersions'
+--
+-- * 'davrsStatus'
+describeApplicationVersionsResponse
+    :: Int -- ^ 'davrsStatus'
+    -> DescribeApplicationVersionsResponse
 describeApplicationVersionsResponse pStatus_ =
     DescribeApplicationVersionsResponse'
     { _davrsApplicationVersions = Nothing
@@ -134,6 +137,6 @@ describeApplicationVersionsResponse pStatus_ =
 davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 davrsStatus :: Lens' DescribeApplicationVersionsResponse Int
 davrsStatus = lens _davrsStatus (\ s a -> s{_davrsStatus = a});

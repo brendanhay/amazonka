@@ -29,15 +29,15 @@
 module Network.AWS.EC2.DeleteVPC
     (
     -- * Creating a Request
-      DeleteVPC
-    , deleteVPC
+      deleteVPC
+    , DeleteVPC
     -- * Request Lenses
     , delDryRun
     , delVPCId
 
     -- * Destructuring the Response
-    , DeleteVPCResponse
     , deleteVPCResponse
+    , DeleteVPCResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -47,19 +47,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPC' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delDryRun'
---
--- * 'delVPCId'
 data DeleteVPC = DeleteVPC'
     { _delDryRun :: !(Maybe Bool)
     , _delVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVPC' smart constructor.
-deleteVPC :: Text -> DeleteVPC
+-- | Creates a value of 'DeleteVPC' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delDryRun'
+--
+-- * 'delVPCId'
+deleteVPC
+    :: Text -- ^ 'delVPCId'
+    -> DeleteVPC
 deleteVPC pVPCId_ =
     DeleteVPC'
     { _delDryRun = Nothing
@@ -68,8 +70,8 @@ deleteVPC pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 delDryRun :: Lens' DeleteVPC (Maybe Bool)
 delDryRun = lens _delDryRun (\ s a -> s{_delDryRun = a});
 
@@ -101,6 +103,8 @@ data DeleteVPCResponse =
     DeleteVPCResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVPCResponse' smart constructor.
-deleteVPCResponse :: DeleteVPCResponse
+-- | Creates a value of 'DeleteVPCResponse' with the minimum fields required to make a request.
+--
+deleteVPCResponse
+    :: DeleteVPCResponse
 deleteVPCResponse = DeleteVPCResponse'

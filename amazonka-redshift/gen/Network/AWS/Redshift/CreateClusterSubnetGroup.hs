@@ -30,8 +30,8 @@
 module Network.AWS.Redshift.CreateClusterSubnetGroup
     (
     -- * Creating a Request
-      CreateClusterSubnetGroup
-    , createClusterSubnetGroup
+      createClusterSubnetGroup
+    , CreateClusterSubnetGroup
     -- * Request Lenses
     , ccsgTags
     , ccsgClusterSubnetGroupName
@@ -39,8 +39,8 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     , ccsgSubnetIds
 
     -- * Destructuring the Response
-    , CreateClusterSubnetGroupResponse
     , createClusterSubnetGroupResponse
+    , CreateClusterSubnetGroupResponse
     -- * Response Lenses
     , ccsgrsClusterSubnetGroup
     , ccsgrsStatus
@@ -55,8 +55,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createClusterSubnetGroup' smart constructor.
+data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
+    { _ccsgTags                   :: !(Maybe [Tag])
+    , _ccsgClusterSubnetGroupName :: !Text
+    , _ccsgDescription            :: !Text
+    , _ccsgSubnetIds              :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateClusterSubnetGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ccsgTags'
 --
@@ -65,15 +73,10 @@ import           Network.AWS.Response
 -- * 'ccsgDescription'
 --
 -- * 'ccsgSubnetIds'
-data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
-    { _ccsgTags                   :: !(Maybe [Tag])
-    , _ccsgClusterSubnetGroupName :: !Text
-    , _ccsgDescription            :: !Text
-    , _ccsgSubnetIds              :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateClusterSubnetGroup' smart constructor.
-createClusterSubnetGroup :: Text -> Text -> CreateClusterSubnetGroup
+createClusterSubnetGroup
+    :: Text -- ^ 'ccsgClusterSubnetGroupName'
+    -> Text -- ^ 'ccsgDescription'
+    -> CreateClusterSubnetGroup
 createClusterSubnetGroup pClusterSubnetGroupName_ pDescription_ =
     CreateClusterSubnetGroup'
     { _ccsgTags = Nothing
@@ -96,7 +99,7 @@ ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a}) . _Default . _Coerce;
 -- -   Must be unique for all subnet groups that are created by your AWS
 --     account.
 --
--- Example: @examplesubnetgroup@
+-- Example: 'examplesubnetgroup'
 ccsgClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
 ccsgClusterSubnetGroupName = lens _ccsgClusterSubnetGroupName (\ s a -> s{_ccsgClusterSubnetGroupName = a});
 
@@ -140,19 +143,21 @@ instance ToQuery CreateClusterSubnetGroup where
                  toQueryList "SubnetIdentifier" _ccsgSubnetIds]
 
 -- | /See:/ 'createClusterSubnetGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccsgrsClusterSubnetGroup'
---
--- * 'ccsgrsStatus'
 data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
     { _ccsgrsClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
     , _ccsgrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateClusterSubnetGroupResponse' smart constructor.
-createClusterSubnetGroupResponse :: Int -> CreateClusterSubnetGroupResponse
+-- | Creates a value of 'CreateClusterSubnetGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccsgrsClusterSubnetGroup'
+--
+-- * 'ccsgrsStatus'
+createClusterSubnetGroupResponse
+    :: Int -- ^ 'ccsgrsStatus'
+    -> CreateClusterSubnetGroupResponse
 createClusterSubnetGroupResponse pStatus_ =
     CreateClusterSubnetGroupResponse'
     { _ccsgrsClusterSubnetGroup = Nothing
@@ -163,6 +168,6 @@ createClusterSubnetGroupResponse pStatus_ =
 ccsgrsClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 ccsgrsClusterSubnetGroup = lens _ccsgrsClusterSubnetGroup (\ s a -> s{_ccsgrsClusterSubnetGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 ccsgrsStatus :: Lens' CreateClusterSubnetGroupResponse Int
 ccsgrsStatus = lens _ccsgrsStatus (\ s a -> s{_ccsgrsStatus = a});

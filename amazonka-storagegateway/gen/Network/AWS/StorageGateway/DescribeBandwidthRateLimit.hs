@@ -32,14 +32,14 @@
 module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     (
     -- * Creating a Request
-      DescribeBandwidthRateLimit
-    , describeBandwidthRateLimit
+      describeBandwidthRateLimit
+    , DescribeBandwidthRateLimit
     -- * Request Lenses
     , dbrlGatewayARN
 
     -- * Destructuring the Response
-    , DescribeBandwidthRateLimitResponse
     , describeBandwidthRateLimitResponse
+    , DescribeBandwidthRateLimitResponse
     -- * Response Lenses
     , dbrlrsGatewayARN
     , dbrlrsAverageUploadRateLimitInBitsPerSec
@@ -56,16 +56,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing the of the gateway.
 --
 -- /See:/ 'describeBandwidthRateLimit' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dbrlGatewayARN'
 newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit'
     { _dbrlGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeBandwidthRateLimit' smart constructor.
-describeBandwidthRateLimit :: Text -> DescribeBandwidthRateLimit
+-- | Creates a value of 'DescribeBandwidthRateLimit' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dbrlGatewayARN'
+describeBandwidthRateLimit
+    :: Text -- ^ 'dbrlGatewayARN'
+    -> DescribeBandwidthRateLimit
 describeBandwidthRateLimit pGatewayARN_ =
     DescribeBandwidthRateLimit'
     { _dbrlGatewayARN = pGatewayARN_
@@ -112,8 +114,16 @@ instance ToQuery DescribeBandwidthRateLimit where
 -- | A JSON object containing the following fields:
 --
 -- /See:/ 'describeBandwidthRateLimitResponse' smart constructor.
+data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
+    { _dbrlrsGatewayARN                           :: !(Maybe Text)
+    , _dbrlrsAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
+    , _dbrlrsAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
+    , _dbrlrsStatus                               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeBandwidthRateLimitResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dbrlrsGatewayARN'
 --
@@ -122,15 +132,9 @@ instance ToQuery DescribeBandwidthRateLimit where
 -- * 'dbrlrsAverageDownloadRateLimitInBitsPerSec'
 --
 -- * 'dbrlrsStatus'
-data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
-    { _dbrlrsGatewayARN                           :: !(Maybe Text)
-    , _dbrlrsAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
-    , _dbrlrsAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
-    , _dbrlrsStatus                               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeBandwidthRateLimitResponse' smart constructor.
-describeBandwidthRateLimitResponse :: Int -> DescribeBandwidthRateLimitResponse
+describeBandwidthRateLimitResponse
+    :: Int -- ^ 'dbrlrsStatus'
+    -> DescribeBandwidthRateLimitResponse
 describeBandwidthRateLimitResponse pStatus_ =
     DescribeBandwidthRateLimitResponse'
     { _dbrlrsGatewayARN = Nothing
@@ -153,6 +157,6 @@ dbrlrsAverageUploadRateLimitInBitsPerSec = lens _dbrlrsAverageUploadRateLimitInB
 dbrlrsAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
 dbrlrsAverageDownloadRateLimitInBitsPerSec = lens _dbrlrsAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_dbrlrsAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The response status code.
 dbrlrsStatus :: Lens' DescribeBandwidthRateLimitResponse Int
 dbrlrsStatus = lens _dbrlrsStatus (\ s a -> s{_dbrlrsStatus = a});

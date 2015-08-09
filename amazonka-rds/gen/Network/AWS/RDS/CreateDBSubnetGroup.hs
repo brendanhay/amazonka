@@ -25,8 +25,8 @@
 module Network.AWS.RDS.CreateDBSubnetGroup
     (
     -- * Creating a Request
-      CreateDBSubnetGroup
-    , createDBSubnetGroup
+      createDBSubnetGroup
+    , CreateDBSubnetGroup
     -- * Request Lenses
     , cdbsgTags
     , cdbsgDBSubnetGroupName
@@ -34,8 +34,8 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     , cdbsgSubnetIds
 
     -- * Destructuring the Response
-    , CreateDBSubnetGroupResponse
     , createDBSubnetGroupResponse
+    , CreateDBSubnetGroupResponse
     -- * Response Lenses
     , cdsgrsDBSubnetGroup
     , cdsgrsStatus
@@ -50,8 +50,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createDBSubnetGroup' smart constructor.
+data CreateDBSubnetGroup = CreateDBSubnetGroup'
+    { _cdbsgTags                     :: !(Maybe [Tag])
+    , _cdbsgDBSubnetGroupName        :: !Text
+    , _cdbsgDBSubnetGroupDescription :: !Text
+    , _cdbsgSubnetIds                :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDBSubnetGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdbsgTags'
 --
@@ -60,15 +68,10 @@ import           Network.AWS.Response
 -- * 'cdbsgDBSubnetGroupDescription'
 --
 -- * 'cdbsgSubnetIds'
-data CreateDBSubnetGroup = CreateDBSubnetGroup'
-    { _cdbsgTags                     :: !(Maybe [Tag])
-    , _cdbsgDBSubnetGroupName        :: !Text
-    , _cdbsgDBSubnetGroupDescription :: !Text
-    , _cdbsgSubnetIds                :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateDBSubnetGroup' smart constructor.
-createDBSubnetGroup :: Text -> Text -> CreateDBSubnetGroup
+createDBSubnetGroup
+    :: Text -- ^ 'cdbsgDBSubnetGroupName'
+    -> Text -- ^ 'cdbsgDBSubnetGroupDescription'
+    -> CreateDBSubnetGroup
 createDBSubnetGroup pDBSubnetGroupName_ pDBSubnetGroupDescription_ =
     CreateDBSubnetGroup'
     { _cdbsgTags = Nothing
@@ -87,7 +90,7 @@ cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default . _Coerce;
 -- Constraints: Must contain no more than 255 alphanumeric characters or
 -- hyphens. Must not be \"Default\".
 --
--- Example: @mySubnetgroup@
+-- Example: 'mySubnetgroup'
 cdbsgDBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
 cdbsgDBSubnetGroupName = lens _cdbsgDBSubnetGroupName (\ s a -> s{_cdbsgDBSubnetGroupName = a});
 
@@ -129,19 +132,21 @@ instance ToQuery CreateDBSubnetGroup where
                  toQueryList "SubnetIdentifier" _cdbsgSubnetIds]
 
 -- | /See:/ 'createDBSubnetGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdsgrsDBSubnetGroup'
---
--- * 'cdsgrsStatus'
 data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
     { _cdsgrsDBSubnetGroup :: !(Maybe DBSubnetGroup)
     , _cdsgrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBSubnetGroupResponse' smart constructor.
-createDBSubnetGroupResponse :: Int -> CreateDBSubnetGroupResponse
+-- | Creates a value of 'CreateDBSubnetGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdsgrsDBSubnetGroup'
+--
+-- * 'cdsgrsStatus'
+createDBSubnetGroupResponse
+    :: Int -- ^ 'cdsgrsStatus'
+    -> CreateDBSubnetGroupResponse
 createDBSubnetGroupResponse pStatus_ =
     CreateDBSubnetGroupResponse'
     { _cdsgrsDBSubnetGroup = Nothing
@@ -152,6 +157,6 @@ createDBSubnetGroupResponse pStatus_ =
 cdsgrsDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
 cdsgrsDBSubnetGroup = lens _cdsgrsDBSubnetGroup (\ s a -> s{_cdsgrsDBSubnetGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdsgrsStatus :: Lens' CreateDBSubnetGroupResponse Int
 cdsgrsStatus = lens _cdsgrsStatus (\ s a -> s{_cdsgrsStatus = a});

@@ -22,7 +22,7 @@
 --
 -- The group must have no instances and no scaling activities in progress.
 --
--- To remove all instances before calling @DeleteAutoScalingGroup@, call
+-- To remove all instances before calling 'DeleteAutoScalingGroup', call
 -- UpdateAutoScalingGroup to set the minimum and maximum size of the Auto
 -- Scaling group to zero.
 --
@@ -30,15 +30,15 @@
 module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     (
     -- * Creating a Request
-      DeleteAutoScalingGroup
-    , deleteAutoScalingGroup
+      deleteAutoScalingGroup
+    , DeleteAutoScalingGroup
     -- * Request Lenses
     , dasgForceDelete
     , dasgAutoScalingGroupName
 
     -- * Destructuring the Response
-    , DeleteAutoScalingGroupResponse
     , deleteAutoScalingGroupResponse
+    , DeleteAutoScalingGroupResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -48,19 +48,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteAutoScalingGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dasgForceDelete'
---
--- * 'dasgAutoScalingGroupName'
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
     { _dasgForceDelete          :: !(Maybe Bool)
     , _dasgAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAutoScalingGroup' smart constructor.
-deleteAutoScalingGroup :: Text -> DeleteAutoScalingGroup
+-- | Creates a value of 'DeleteAutoScalingGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dasgForceDelete'
+--
+-- * 'dasgAutoScalingGroupName'
+deleteAutoScalingGroup
+    :: Text -- ^ 'dasgAutoScalingGroupName'
+    -> DeleteAutoScalingGroup
 deleteAutoScalingGroup pAutoScalingGroupName_ =
     DeleteAutoScalingGroup'
     { _dasgForceDelete = Nothing
@@ -106,6 +108,8 @@ data DeleteAutoScalingGroupResponse =
     DeleteAutoScalingGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAutoScalingGroupResponse' smart constructor.
-deleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse
+-- | Creates a value of 'DeleteAutoScalingGroupResponse' with the minimum fields required to make a request.
+--
+deleteAutoScalingGroupResponse
+    :: DeleteAutoScalingGroupResponse
 deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse'

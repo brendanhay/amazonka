@@ -22,20 +22,20 @@
 -- (see CreateEventSourceMapping).
 --
 -- This operation requires permission for the
--- @lambda:GetEventSourceMapping@ action.
+-- 'lambda:GetEventSourceMapping' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetEventSourceMapping.html AWS API Reference> for GetEventSourceMapping.
 module Network.AWS.Lambda.GetEventSourceMapping
     (
     -- * Creating a Request
-      GetEventSourceMapping
-    , getEventSourceMapping
+      getEventSourceMapping
+    , GetEventSourceMapping
     -- * Request Lenses
     , gesmUUId
 
     -- * Destructuring the Response
-    , EventSourceMappingConfiguration
     , eventSourceMappingConfiguration
+    , EventSourceMappingConfiguration
     -- * Response Lenses
     , esmcEventSourceARN
     , esmcFunctionARN
@@ -54,16 +54,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getEventSourceMapping' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gesmUUId'
 newtype GetEventSourceMapping = GetEventSourceMapping'
     { _gesmUUId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetEventSourceMapping' smart constructor.
-getEventSourceMapping :: Text -> GetEventSourceMapping
+-- | Creates a value of 'GetEventSourceMapping' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gesmUUId'
+getEventSourceMapping
+    :: Text -- ^ 'gesmUUId'
+    -> GetEventSourceMapping
 getEventSourceMapping pUUId_ =
     GetEventSourceMapping'
     { _gesmUUId = pUUId_

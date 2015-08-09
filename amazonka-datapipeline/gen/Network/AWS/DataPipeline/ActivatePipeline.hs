@@ -31,16 +31,16 @@
 module Network.AWS.DataPipeline.ActivatePipeline
     (
     -- * Creating a Request
-      ActivatePipeline
-    , activatePipeline
+      activatePipeline
+    , ActivatePipeline
     -- * Request Lenses
     , apStartTimestamp
     , apParameterValues
     , apPipelineId
 
     -- * Destructuring the Response
-    , ActivatePipelineResponse
     , activatePipelineResponse
+    , ActivatePipelineResponse
     -- * Response Lenses
     , aprsStatus
     ) where
@@ -54,22 +54,24 @@ import           Network.AWS.Response
 -- | Contains the parameters for ActivatePipeline.
 --
 -- /See:/ 'activatePipeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'apStartTimestamp'
---
--- * 'apParameterValues'
---
--- * 'apPipelineId'
 data ActivatePipeline = ActivatePipeline'
     { _apStartTimestamp  :: !(Maybe POSIX)
     , _apParameterValues :: !(Maybe [ParameterValue])
     , _apPipelineId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ActivatePipeline' smart constructor.
-activatePipeline :: Text -> ActivatePipeline
+-- | Creates a value of 'ActivatePipeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'apStartTimestamp'
+--
+-- * 'apParameterValues'
+--
+-- * 'apPipelineId'
+activatePipeline
+    :: Text -- ^ 'apPipelineId'
+    -> ActivatePipeline
 activatePipeline pPipelineId_ =
     ActivatePipeline'
     { _apStartTimestamp = Nothing
@@ -124,21 +126,23 @@ instance ToQuery ActivatePipeline where
 -- | Contains the output of ActivatePipeline.
 --
 -- /See:/ 'activatePipelineResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aprsStatus'
 newtype ActivatePipelineResponse = ActivatePipelineResponse'
     { _aprsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ActivatePipelineResponse' smart constructor.
-activatePipelineResponse :: Int -> ActivatePipelineResponse
+-- | Creates a value of 'ActivatePipelineResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aprsStatus'
+activatePipelineResponse
+    :: Int -- ^ 'aprsStatus'
+    -> ActivatePipelineResponse
 activatePipelineResponse pStatus_ =
     ActivatePipelineResponse'
     { _aprsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 aprsStatus :: Lens' ActivatePipelineResponse Int
 aprsStatus = lens _aprsStatus (\ s a -> s{_aprsStatus = a});

@@ -33,7 +33,7 @@
 -- in the /Using IAM/ guide.
 --
 -- Because policy documents can be large, you should use POST rather than
--- GET when calling @PutUserPolicy@. For general information about using
+-- GET when calling 'PutUserPolicy'. For general information about using
 -- the Query API with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/ guide.
@@ -42,16 +42,16 @@
 module Network.AWS.IAM.PutUserPolicy
     (
     -- * Creating a Request
-      PutUserPolicy
-    , putUserPolicy
+      putUserPolicy
+    , PutUserPolicy
     -- * Request Lenses
     , pupUserName
     , pupPolicyName
     , pupPolicyDocument
 
     -- * Destructuring the Response
-    , PutUserPolicyResponse
     , putUserPolicyResponse
+    , PutUserPolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -61,22 +61,26 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putUserPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pupUserName'
---
--- * 'pupPolicyName'
---
--- * 'pupPolicyDocument'
 data PutUserPolicy = PutUserPolicy'
     { _pupUserName       :: !Text
     , _pupPolicyName     :: !Text
     , _pupPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutUserPolicy' smart constructor.
-putUserPolicy :: Text -> Text -> Text -> PutUserPolicy
+-- | Creates a value of 'PutUserPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pupUserName'
+--
+-- * 'pupPolicyName'
+--
+-- * 'pupPolicyDocument'
+putUserPolicy
+    :: Text -- ^ 'pupUserName'
+    -> Text -- ^ 'pupPolicyName'
+    -> Text -- ^ 'pupPolicyDocument'
+    -> PutUserPolicy
 putUserPolicy pUserName_ pPolicyName_ pPolicyDocument_ =
     PutUserPolicy'
     { _pupUserName = pUserName_
@@ -122,6 +126,8 @@ data PutUserPolicyResponse =
     PutUserPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutUserPolicyResponse' smart constructor.
-putUserPolicyResponse :: PutUserPolicyResponse
+-- | Creates a value of 'PutUserPolicyResponse' with the minimum fields required to make a request.
+--
+putUserPolicyResponse
+    :: PutUserPolicyResponse
 putUserPolicyResponse = PutUserPolicyResponse'

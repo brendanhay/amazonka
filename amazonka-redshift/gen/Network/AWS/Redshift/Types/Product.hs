@@ -24,16 +24,17 @@ import           Network.AWS.Redshift.Types.Sum
 -- | Describes an AWS customer account authorized to restore a snapshot.
 --
 -- /See:/ 'accountWithRestoreAccess' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'awraAccountId'
 newtype AccountWithRestoreAccess = AccountWithRestoreAccess'
     { _awraAccountId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AccountWithRestoreAccess' smart constructor.
-accountWithRestoreAccess :: AccountWithRestoreAccess
+-- | Creates a value of 'AccountWithRestoreAccess' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'awraAccountId'
+accountWithRestoreAccess
+    :: AccountWithRestoreAccess
 accountWithRestoreAccess =
     AccountWithRestoreAccess'
     { _awraAccountId = Nothing
@@ -51,16 +52,17 @@ instance FromXML AccountWithRestoreAccess where
 -- | Describes an availability zone.
 --
 -- /See:/ 'availabilityZone' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'azName'
 newtype AvailabilityZone = AvailabilityZone'
     { _azName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AvailabilityZone' smart constructor.
-availabilityZone :: AvailabilityZone
+-- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'azName'
+availabilityZone
+    :: AvailabilityZone
 availabilityZone =
     AvailabilityZone'
     { _azName = Nothing
@@ -76,8 +78,43 @@ instance FromXML AvailabilityZone where
 -- | Describes a cluster.
 --
 -- /See:/ 'cluster' smart constructor.
+data Cluster = Cluster'
+    { _cRestoreStatus                    :: !(Maybe RestoreStatus)
+    , _cClusterSnapshotCopyStatus        :: !(Maybe ClusterSnapshotCopyStatus)
+    , _cClusterRevisionNumber            :: !(Maybe Text)
+    , _cMasterUsername                   :: !(Maybe Text)
+    , _cPubliclyAccessible               :: !(Maybe Bool)
+    , _cVPCId                            :: !(Maybe Text)
+    , _cClusterSecurityGroups            :: !(Maybe [ClusterSecurityGroupMembership])
+    , _cAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+    , _cEncrypted                        :: !(Maybe Bool)
+    , _cClusterIdentifier                :: !(Maybe Text)
+    , _cNumberOfNodes                    :: !(Maybe Int)
+    , _cClusterSubnetGroupName           :: !(Maybe Text)
+    , _cPreferredMaintenanceWindow       :: !(Maybe Text)
+    , _cModifyStatus                     :: !(Maybe Text)
+    , _cClusterPublicKey                 :: !(Maybe Text)
+    , _cClusterParameterGroups           :: !(Maybe [ClusterParameterGroupStatus])
+    , _cAvailabilityZone                 :: !(Maybe Text)
+    , _cVPCSecurityGroups                :: !(Maybe [VPCSecurityGroupMembership])
+    , _cKMSKeyId                         :: !(Maybe Text)
+    , _cHSMStatus                        :: !(Maybe HSMStatus)
+    , _cElasticIPStatus                  :: !(Maybe ElasticIPStatus)
+    , _cClusterVersion                   :: !(Maybe Text)
+    , _cNodeType                         :: !(Maybe Text)
+    , _cEndpoint                         :: !(Maybe Endpoint)
+    , _cClusterCreateTime                :: !(Maybe ISO8601)
+    , _cAllowVersionUpgrade              :: !(Maybe Bool)
+    , _cPendingModifiedValues            :: !(Maybe PendingModifiedValues)
+    , _cClusterStatus                    :: !(Maybe Text)
+    , _cDBName                           :: !(Maybe Text)
+    , _cTags                             :: !(Maybe [Tag])
+    , _cClusterNodes                     :: !(Maybe [ClusterNode])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cRestoreStatus'
 --
@@ -140,42 +177,8 @@ instance FromXML AvailabilityZone where
 -- * 'cTags'
 --
 -- * 'cClusterNodes'
-data Cluster = Cluster'
-    { _cRestoreStatus                    :: !(Maybe RestoreStatus)
-    , _cClusterSnapshotCopyStatus        :: !(Maybe ClusterSnapshotCopyStatus)
-    , _cClusterRevisionNumber            :: !(Maybe Text)
-    , _cMasterUsername                   :: !(Maybe Text)
-    , _cPubliclyAccessible               :: !(Maybe Bool)
-    , _cVPCId                            :: !(Maybe Text)
-    , _cClusterSecurityGroups            :: !(Maybe [ClusterSecurityGroupMembership])
-    , _cAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _cEncrypted                        :: !(Maybe Bool)
-    , _cClusterIdentifier                :: !(Maybe Text)
-    , _cNumberOfNodes                    :: !(Maybe Int)
-    , _cClusterSubnetGroupName           :: !(Maybe Text)
-    , _cPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _cModifyStatus                     :: !(Maybe Text)
-    , _cClusterPublicKey                 :: !(Maybe Text)
-    , _cClusterParameterGroups           :: !(Maybe [ClusterParameterGroupStatus])
-    , _cAvailabilityZone                 :: !(Maybe Text)
-    , _cVPCSecurityGroups                :: !(Maybe [VPCSecurityGroupMembership])
-    , _cKMSKeyId                         :: !(Maybe Text)
-    , _cHSMStatus                        :: !(Maybe HSMStatus)
-    , _cElasticIPStatus                  :: !(Maybe ElasticIPStatus)
-    , _cClusterVersion                   :: !(Maybe Text)
-    , _cNodeType                         :: !(Maybe Text)
-    , _cEndpoint                         :: !(Maybe Endpoint)
-    , _cClusterCreateTime                :: !(Maybe ISO8601)
-    , _cAllowVersionUpgrade              :: !(Maybe Bool)
-    , _cPendingModifiedValues            :: !(Maybe PendingModifiedValues)
-    , _cClusterStatus                    :: !(Maybe Text)
-    , _cDBName                           :: !(Maybe Text)
-    , _cTags                             :: !(Maybe [Tag])
-    , _cClusterNodes                     :: !(Maybe [ClusterNode])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Cluster' smart constructor.
-cluster :: Cluster
+cluster
+    :: Cluster
 cluster =
     Cluster'
     { _cRestoreStatus = Nothing
@@ -230,7 +233,7 @@ cClusterRevisionNumber = lens _cClusterRevisionNumber (\ s a -> s{_cClusterRevis
 cMasterUsername :: Lens' Cluster (Maybe Text)
 cMasterUsername = lens _cMasterUsername (\ s a -> s{_cMasterUsername = a});
 
--- | If @true@, the cluster can be accessed from a public network.
+-- | If 'true', the cluster can be accessed from a public network.
 cPubliclyAccessible :: Lens' Cluster (Maybe Bool)
 cPubliclyAccessible = lens _cPubliclyAccessible (\ s a -> s{_cPubliclyAccessible = a});
 
@@ -240,7 +243,7 @@ cVPCId = lens _cVPCId (\ s a -> s{_cVPCId = a});
 
 -- | A list of cluster security group that are associated with the cluster.
 -- Each security group is represented by an element that contains
--- @ClusterSecurityGroup.Name@ and @ClusterSecurityGroup.Status@
+-- 'ClusterSecurityGroup.Name' and 'ClusterSecurityGroup.Status'
 -- subelements.
 --
 -- Cluster security groups are used when the cluster is not created in a
@@ -253,7 +256,7 @@ cClusterSecurityGroups = lens _cClusterSecurityGroups (\ s a -> s{_cClusterSecur
 cAutomatedSnapshotRetentionPeriod :: Lens' Cluster (Maybe Int)
 cAutomatedSnapshotRetentionPeriod = lens _cAutomatedSnapshotRetentionPeriod (\ s a -> s{_cAutomatedSnapshotRetentionPeriod = a});
 
--- | If @true@, data in the cluster is encrypted at rest.
+-- | If 'true', data in the cluster is encrypted at rest.
 cEncrypted :: Lens' Cluster (Maybe Bool)
 cEncrypted = lens _cEncrypted (\ s a -> s{_cEncrypted = a});
 
@@ -331,7 +334,7 @@ cEndpoint = lens _cEndpoint (\ s a -> s{_cEndpoint = a});
 cClusterCreateTime :: Lens' Cluster (Maybe UTCTime)
 cClusterCreateTime = lens _cClusterCreateTime (\ s a -> s{_cClusterCreateTime = a}) . mapping _Time;
 
--- | If @true@, major version upgrades will be applied automatically to the
+-- | If 'true', major version upgrades will be applied automatically to the
 -- cluster during the maintenance window.
 cAllowVersionUpgrade :: Lens' Cluster (Maybe Bool)
 cAllowVersionUpgrade = lens _cAllowVersionUpgrade (\ s a -> s{_cAllowVersionUpgrade = a});
@@ -341,8 +344,8 @@ cAllowVersionUpgrade = lens _cAllowVersionUpgrade (\ s a -> s{_cAllowVersionUpgr
 cPendingModifiedValues :: Lens' Cluster (Maybe PendingModifiedValues)
 cPendingModifiedValues = lens _cPendingModifiedValues (\ s a -> s{_cPendingModifiedValues = a});
 
--- | The current state of this cluster. Possible values include @available@,
--- @creating@, @deleting@, @rebooting@, @renaming@, and @resizing@.
+-- | The current state of this cluster. Possible values include 'available',
+-- 'creating', 'deleting', 'rebooting', 'renaming', and 'resizing'.
 cClusterStatus :: Lens' Cluster (Maybe Text)
 cClusterStatus = lens _cClusterStatus (\ s a -> s{_cClusterStatus = a});
 
@@ -409,22 +412,23 @@ instance FromXML Cluster where
 -- | The identifier of a node in a cluster.
 --
 -- /See:/ 'clusterNode' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cnNodeRole'
---
--- * 'cnPrivateIPAddress'
---
--- * 'cnPublicIPAddress'
 data ClusterNode = ClusterNode'
     { _cnNodeRole         :: !(Maybe Text)
     , _cnPrivateIPAddress :: !(Maybe Text)
     , _cnPublicIPAddress  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ClusterNode' smart constructor.
-clusterNode :: ClusterNode
+-- | Creates a value of 'ClusterNode' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cnNodeRole'
+--
+-- * 'cnPrivateIPAddress'
+--
+-- * 'cnPublicIPAddress'
+clusterNode
+    :: ClusterNode
 clusterNode =
     ClusterNode'
     { _cnNodeRole = Nothing
@@ -453,8 +457,16 @@ instance FromXML ClusterNode where
 -- | Describes a parameter group.
 --
 -- /See:/ 'clusterParameterGroup' smart constructor.
+data ClusterParameterGroup = ClusterParameterGroup'
+    { _cpgParameterGroupFamily :: !(Maybe Text)
+    , _cpgDescription          :: !(Maybe Text)
+    , _cpgParameterGroupName   :: !(Maybe Text)
+    , _cpgTags                 :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ClusterParameterGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cpgParameterGroupFamily'
 --
@@ -463,15 +475,8 @@ instance FromXML ClusterNode where
 -- * 'cpgParameterGroupName'
 --
 -- * 'cpgTags'
-data ClusterParameterGroup = ClusterParameterGroup'
-    { _cpgParameterGroupFamily :: !(Maybe Text)
-    , _cpgDescription          :: !(Maybe Text)
-    , _cpgParameterGroupName   :: !(Maybe Text)
-    , _cpgTags                 :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ClusterParameterGroup' smart constructor.
-clusterParameterGroup :: ClusterParameterGroup
+clusterParameterGroup
+    :: ClusterParameterGroup
 clusterParameterGroup =
     ClusterParameterGroup'
     { _cpgParameterGroupFamily = Nothing
@@ -512,19 +517,20 @@ instance FromXML ClusterParameterGroup where
 -- involved and the status of the operation on the parameter group.
 --
 -- /See:/ 'clusterParameterGroupNameMessage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpgnmParameterGroupStatus'
---
--- * 'cpgnmParameterGroupName'
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
     { _cpgnmParameterGroupStatus :: !(Maybe Text)
     , _cpgnmParameterGroupName   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ClusterParameterGroupNameMessage' smart constructor.
-clusterParameterGroupNameMessage :: ClusterParameterGroupNameMessage
+-- | Creates a value of 'ClusterParameterGroupNameMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpgnmParameterGroupStatus'
+--
+-- * 'cpgnmParameterGroupName'
+clusterParameterGroupNameMessage
+    :: ClusterParameterGroupNameMessage
 clusterParameterGroupNameMessage =
     ClusterParameterGroupNameMessage'
     { _cpgnmParameterGroupStatus = Nothing
@@ -551,22 +557,23 @@ instance FromXML ClusterParameterGroupNameMessage
 -- | Describes the status of a parameter group.
 --
 -- /See:/ 'clusterParameterGroupStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpgsClusterParameterStatusList'
---
--- * 'cpgsParameterApplyStatus'
---
--- * 'cpgsParameterGroupName'
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
     { _cpgsClusterParameterStatusList :: !(Maybe [ClusterParameterStatus])
     , _cpgsParameterApplyStatus       :: !(Maybe Text)
     , _cpgsParameterGroupName         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ClusterParameterGroupStatus' smart constructor.
-clusterParameterGroupStatus :: ClusterParameterGroupStatus
+-- | Creates a value of 'ClusterParameterGroupStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpgsClusterParameterStatusList'
+--
+-- * 'cpgsParameterApplyStatus'
+--
+-- * 'cpgsParameterGroupName'
+clusterParameterGroupStatus
+    :: ClusterParameterGroupStatus
 clusterParameterGroupStatus =
     ClusterParameterGroupStatus'
     { _cpgsClusterParameterStatusList = Nothing
@@ -601,22 +608,23 @@ instance FromXML ClusterParameterGroupStatus where
 -- | Describes the status of a parameter group.
 --
 -- /See:/ 'clusterParameterStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpsParameterApplyErrorDescription'
---
--- * 'cpsParameterName'
---
--- * 'cpsParameterApplyStatus'
 data ClusterParameterStatus = ClusterParameterStatus'
     { _cpsParameterApplyErrorDescription :: !(Maybe Text)
     , _cpsParameterName                  :: !(Maybe Text)
     , _cpsParameterApplyStatus           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ClusterParameterStatus' smart constructor.
-clusterParameterStatus :: ClusterParameterStatus
+-- | Creates a value of 'ClusterParameterStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpsParameterApplyErrorDescription'
+--
+-- * 'cpsParameterName'
+--
+-- * 'cpsParameterApplyStatus'
+clusterParameterStatus
+    :: ClusterParameterStatus
 clusterParameterStatus =
     ClusterParameterStatus'
     { _cpsParameterApplyErrorDescription = Nothing
@@ -639,17 +647,17 @@ cpsParameterName = lens _cpsParameterName (\ s a -> s{_cpsParameterName = a});
 --
 -- The following are possible statuses and descriptions.
 --
--- -   @in-sync@: The parameter value is in sync with the database.
--- -   @pending-reboot@: The parameter value will be applied after the
+-- -   'in-sync': The parameter value is in sync with the database.
+-- -   'pending-reboot': The parameter value will be applied after the
 --     cluster reboots.
--- -   @applying@: The parameter value is being applied to the database.
--- -   @invalid-parameter@: Cannot apply the parameter value because it has
+-- -   'applying': The parameter value is being applied to the database.
+-- -   'invalid-parameter': Cannot apply the parameter value because it has
 --     an invalid value or syntax.
--- -   @apply-deferred@: The parameter contains static property changes.
+-- -   'apply-deferred': The parameter contains static property changes.
 --     The changes are deferred until the cluster reboots.
--- -   @apply-error@: Cannot connect to the cluster. The parameter change
+-- -   'apply-error': Cannot connect to the cluster. The parameter change
 --     will be applied after the cluster reboots.
--- -   @unknown-error@: Cannot apply the parameter change right now. The
+-- -   'unknown-error': Cannot apply the parameter change right now. The
 --     change will be applied after the cluster reboots.
 cpsParameterApplyStatus :: Lens' ClusterParameterStatus (Maybe Text)
 cpsParameterApplyStatus = lens _cpsParameterApplyStatus (\ s a -> s{_cpsParameterApplyStatus = a});
@@ -664,8 +672,17 @@ instance FromXML ClusterParameterStatus where
 -- | Describes a security group.
 --
 -- /See:/ 'clusterSecurityGroup' smart constructor.
+data ClusterSecurityGroup = ClusterSecurityGroup'
+    { _cluClusterSecurityGroupName :: !(Maybe Text)
+    , _cluIPRanges                 :: !(Maybe [IPRange])
+    , _cluEC2SecurityGroups        :: !(Maybe [EC2SecurityGroup])
+    , _cluDescription              :: !(Maybe Text)
+    , _cluTags                     :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ClusterSecurityGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cluClusterSecurityGroupName'
 --
@@ -676,16 +693,8 @@ instance FromXML ClusterParameterStatus where
 -- * 'cluDescription'
 --
 -- * 'cluTags'
-data ClusterSecurityGroup = ClusterSecurityGroup'
-    { _cluClusterSecurityGroupName :: !(Maybe Text)
-    , _cluIPRanges                 :: !(Maybe [IPRange])
-    , _cluEC2SecurityGroups        :: !(Maybe [EC2SecurityGroup])
-    , _cluDescription              :: !(Maybe Text)
-    , _cluTags                     :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ClusterSecurityGroup' smart constructor.
-clusterSecurityGroup :: ClusterSecurityGroup
+clusterSecurityGroup
+    :: ClusterSecurityGroup
 clusterSecurityGroup =
     ClusterSecurityGroup'
     { _cluClusterSecurityGroupName = Nothing
@@ -735,19 +744,20 @@ instance FromXML ClusterSecurityGroup where
 -- | Describes a security group.
 --
 -- /See:/ 'clusterSecurityGroupMembership' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csgmStatus'
---
--- * 'csgmClusterSecurityGroupName'
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
     { _csgmStatus                   :: !(Maybe Text)
     , _csgmClusterSecurityGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ClusterSecurityGroupMembership' smart constructor.
-clusterSecurityGroupMembership :: ClusterSecurityGroupMembership
+-- | Creates a value of 'ClusterSecurityGroupMembership' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csgmStatus'
+--
+-- * 'csgmClusterSecurityGroupName'
+clusterSecurityGroupMembership
+    :: ClusterSecurityGroupMembership
 clusterSecurityGroupMembership =
     ClusterSecurityGroupMembership'
     { _csgmStatus = Nothing
@@ -772,22 +782,23 @@ instance FromXML ClusterSecurityGroupMembership where
 -- for cross-region snapshot copy.
 --
 -- /See:/ 'clusterSnapshotCopyStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cscsRetentionPeriod'
---
--- * 'cscsDestinationRegion'
---
--- * 'cscsSnapshotCopyGrantName'
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
     { _cscsRetentionPeriod       :: !(Maybe Integer)
     , _cscsDestinationRegion     :: !(Maybe Text)
     , _cscsSnapshotCopyGrantName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ClusterSnapshotCopyStatus' smart constructor.
-clusterSnapshotCopyStatus :: ClusterSnapshotCopyStatus
+-- | Creates a value of 'ClusterSnapshotCopyStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cscsRetentionPeriod'
+--
+-- * 'cscsDestinationRegion'
+--
+-- * 'cscsSnapshotCopyGrantName'
+clusterSnapshotCopyStatus
+    :: ClusterSnapshotCopyStatus
 clusterSnapshotCopyStatus =
     ClusterSnapshotCopyStatus'
     { _cscsRetentionPeriod = Nothing
@@ -819,8 +830,18 @@ instance FromXML ClusterSnapshotCopyStatus where
 -- | Describes a subnet group.
 --
 -- /See:/ 'clusterSubnetGroup' smart constructor.
+data ClusterSubnetGroup = ClusterSubnetGroup'
+    { _csgVPCId                  :: !(Maybe Text)
+    , _csgSubnets                :: !(Maybe [Subnet])
+    , _csgClusterSubnetGroupName :: !(Maybe Text)
+    , _csgSubnetGroupStatus      :: !(Maybe Text)
+    , _csgDescription            :: !(Maybe Text)
+    , _csgTags                   :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ClusterSubnetGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'csgVPCId'
 --
@@ -833,17 +854,8 @@ instance FromXML ClusterSnapshotCopyStatus where
 -- * 'csgDescription'
 --
 -- * 'csgTags'
-data ClusterSubnetGroup = ClusterSubnetGroup'
-    { _csgVPCId                  :: !(Maybe Text)
-    , _csgSubnets                :: !(Maybe [Subnet])
-    , _csgClusterSubnetGroupName :: !(Maybe Text)
-    , _csgSubnetGroupStatus      :: !(Maybe Text)
-    , _csgDescription            :: !(Maybe Text)
-    , _csgTags                   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ClusterSubnetGroup' smart constructor.
-clusterSubnetGroup :: ClusterSubnetGroup
+clusterSubnetGroup
+    :: ClusterSubnetGroup
 clusterSubnetGroup =
     ClusterSubnetGroup'
     { _csgVPCId = Nothing
@@ -866,8 +878,8 @@ csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a}) . _Default . _Coerce
 csgClusterSubnetGroupName :: Lens' ClusterSubnetGroup (Maybe Text)
 csgClusterSubnetGroupName = lens _csgClusterSubnetGroupName (\ s a -> s{_csgClusterSubnetGroupName = a});
 
--- | The status of the cluster subnet group. Possible values are @Complete@,
--- @Incomplete@ and @Invalid@.
+-- | The status of the cluster subnet group. Possible values are 'Complete',
+-- 'Incomplete' and 'Invalid'.
 csgSubnetGroupStatus :: Lens' ClusterSubnetGroup (Maybe Text)
 csgSubnetGroupStatus = lens _csgSubnetGroupStatus (\ s a -> s{_csgSubnetGroupStatus = a});
 
@@ -896,22 +908,23 @@ instance FromXML ClusterSubnetGroup where
 -- description of the version.
 --
 -- /See:/ 'clusterVersion' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvClusterParameterGroupFamily'
---
--- * 'cvClusterVersion'
---
--- * 'cvDescription'
 data ClusterVersion = ClusterVersion'
     { _cvClusterParameterGroupFamily :: !(Maybe Text)
     , _cvClusterVersion              :: !(Maybe Text)
     , _cvDescription                 :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ClusterVersion' smart constructor.
-clusterVersion :: ClusterVersion
+-- | Creates a value of 'ClusterVersion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvClusterParameterGroupFamily'
+--
+-- * 'cvClusterVersion'
+--
+-- * 'cvDescription'
+clusterVersion
+    :: ClusterVersion
 clusterVersion =
     ClusterVersion'
     { _cvClusterParameterGroupFamily = Nothing
@@ -941,22 +954,23 @@ instance FromXML ClusterVersion where
 -- | Describes the default cluster parameters for a parameter group family.
 --
 -- /See:/ 'defaultClusterParameters' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcpParameters'
---
--- * 'dcpMarker'
---
--- * 'dcpParameterGroupFamily'
 data DefaultClusterParameters = DefaultClusterParameters'
     { _dcpParameters           :: !(Maybe [Parameter])
     , _dcpMarker               :: !(Maybe Text)
     , _dcpParameterGroupFamily :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DefaultClusterParameters' smart constructor.
-defaultClusterParameters :: DefaultClusterParameters
+-- | Creates a value of 'DefaultClusterParameters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcpParameters'
+--
+-- * 'dcpMarker'
+--
+-- * 'dcpParameterGroupFamily'
+defaultClusterParameters
+    :: DefaultClusterParameters
 defaultClusterParameters =
     DefaultClusterParameters'
     { _dcpParameters = Nothing
@@ -971,8 +985,8 @@ dcpParameters = lens _dcpParameters (\ s a -> s{_dcpParameters = a}) . _Default 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
--- marker value in the @Marker@ parameter and retrying the command. If the
--- @Marker@ field is empty, all response records have been retrieved for
+-- marker value in the 'Marker' parameter and retrying the command. If the
+-- 'Marker' field is empty, all response records have been retrieved for
 -- the request.
 dcpMarker :: Lens' DefaultClusterParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\ s a -> s{_dcpMarker = a});
@@ -993,8 +1007,16 @@ instance FromXML DefaultClusterParameters where
 -- | Describes an Amazon EC2 security group.
 --
 -- /See:/ 'ec2SecurityGroup' smart constructor.
+data EC2SecurityGroup = EC2SecurityGroup'
+    { _esgStatus                  :: !(Maybe Text)
+    , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
+    , _esgEC2SecurityGroupName    :: !(Maybe Text)
+    , _esgTags                    :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EC2SecurityGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'esgStatus'
 --
@@ -1003,15 +1025,8 @@ instance FromXML DefaultClusterParameters where
 -- * 'esgEC2SecurityGroupName'
 --
 -- * 'esgTags'
-data EC2SecurityGroup = EC2SecurityGroup'
-    { _esgStatus                  :: !(Maybe Text)
-    , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
-    , _esgEC2SecurityGroupName    :: !(Maybe Text)
-    , _esgTags                    :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EC2SecurityGroup' smart constructor.
-ec2SecurityGroup :: EC2SecurityGroup
+ec2SecurityGroup
+    :: EC2SecurityGroup
 ec2SecurityGroup =
     EC2SecurityGroup'
     { _esgStatus = Nothing
@@ -1025,7 +1040,7 @@ esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
 esgStatus = lens _esgStatus (\ s a -> s{_esgStatus = a});
 
 -- | The AWS ID of the owner of the EC2 security group specified in the
--- @EC2SecurityGroupName@ field.
+-- 'EC2SecurityGroupName' field.
 esgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
 esgEC2SecurityGroupOwnerId = lens _esgEC2SecurityGroupOwnerId (\ s a -> s{_esgEC2SecurityGroupOwnerId = a});
 
@@ -1050,19 +1065,20 @@ instance FromXML EC2SecurityGroup where
 -- | Describes the status of the elastic IP (EIP) address.
 --
 -- /See:/ 'elasticIPStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'eisStatus'
---
--- * 'eisElasticIP'
 data ElasticIPStatus = ElasticIPStatus'
     { _eisStatus    :: !(Maybe Text)
     , _eisElasticIP :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ElasticIPStatus' smart constructor.
-elasticIPStatus :: ElasticIPStatus
+-- | Creates a value of 'ElasticIPStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eisStatus'
+--
+-- * 'eisElasticIP'
+elasticIPStatus
+    :: ElasticIPStatus
 elasticIPStatus =
     ElasticIPStatus'
     { _eisStatus = Nothing
@@ -1085,19 +1101,20 @@ instance FromXML ElasticIPStatus where
 -- | Describes a connection endpoint.
 --
 -- /See:/ 'endpoint' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'eAddress'
---
--- * 'ePort'
 data Endpoint = Endpoint'
     { _eAddress :: !(Maybe Text)
     , _ePort    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Endpoint' smart constructor.
-endpoint :: Endpoint
+-- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eAddress'
+--
+-- * 'ePort'
+endpoint
+    :: Endpoint
 endpoint =
     Endpoint'
     { _eAddress = Nothing
@@ -1119,8 +1136,19 @@ instance FromXML Endpoint where
 -- | Describes an event.
 --
 -- /See:/ 'event' smart constructor.
+data Event = Event'
+    { _eSourceType       :: !(Maybe SourceType)
+    , _eSeverity         :: !(Maybe Text)
+    , _eSourceIdentifier :: !(Maybe Text)
+    , _eDate             :: !(Maybe ISO8601)
+    , _eEventCategories  :: !(Maybe [Text])
+    , _eMessage          :: !(Maybe Text)
+    , _eEventId          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eSourceType'
 --
@@ -1135,18 +1163,8 @@ instance FromXML Endpoint where
 -- * 'eMessage'
 --
 -- * 'eEventId'
-data Event = Event'
-    { _eSourceType       :: !(Maybe SourceType)
-    , _eSeverity         :: !(Maybe Text)
-    , _eSourceIdentifier :: !(Maybe Text)
-    , _eDate             :: !(Maybe ISO8601)
-    , _eEventCategories  :: !(Maybe [Text])
-    , _eMessage          :: !(Maybe Text)
-    , _eEventId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Event' smart constructor.
-event :: Event
+event
+    :: Event
 event =
     Event'
     { _eSourceType = Nothing
@@ -1203,19 +1221,20 @@ instance FromXML Event where
                 <*> (x .@? "EventId")
 
 -- | /See:/ 'eventCategoriesMap' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ecmSourceType'
---
--- * 'ecmEvents'
 data EventCategoriesMap = EventCategoriesMap'
     { _ecmSourceType :: !(Maybe Text)
     , _ecmEvents     :: !(Maybe [EventInfoMap])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EventCategoriesMap' smart constructor.
-eventCategoriesMap :: EventCategoriesMap
+-- | Creates a value of 'EventCategoriesMap' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ecmSourceType'
+--
+-- * 'ecmEvents'
+eventCategoriesMap
+    :: EventCategoriesMap
 eventCategoriesMap =
     EventCategoriesMap'
     { _ecmSourceType = Nothing
@@ -1239,8 +1258,16 @@ instance FromXML EventCategoriesMap where
                    may (parseXMLList "EventInfoMap"))
 
 -- | /See:/ 'eventInfoMap' smart constructor.
+data EventInfoMap = EventInfoMap'
+    { _eimEventDescription :: !(Maybe Text)
+    , _eimSeverity         :: !(Maybe Text)
+    , _eimEventCategories  :: !(Maybe [Text])
+    , _eimEventId          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EventInfoMap' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eimEventDescription'
 --
@@ -1249,15 +1276,8 @@ instance FromXML EventCategoriesMap where
 -- * 'eimEventCategories'
 --
 -- * 'eimEventId'
-data EventInfoMap = EventInfoMap'
-    { _eimEventDescription :: !(Maybe Text)
-    , _eimSeverity         :: !(Maybe Text)
-    , _eimEventCategories  :: !(Maybe [Text])
-    , _eimEventId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EventInfoMap' smart constructor.
-eventInfoMap :: EventInfoMap
+eventInfoMap
+    :: EventInfoMap
 eventInfoMap =
     EventInfoMap'
     { _eimEventDescription = Nothing
@@ -1293,8 +1313,23 @@ instance FromXML EventInfoMap where
                 <*> (x .@? "EventId")
 
 -- | /See:/ 'eventSubscription' smart constructor.
+data EventSubscription = EventSubscription'
+    { _esCustomerAWSId            :: !(Maybe Text)
+    , _esStatus                   :: !(Maybe Text)
+    , _esCustSubscriptionId       :: !(Maybe Text)
+    , _esSNSTopicARN              :: !(Maybe Text)
+    , _esEnabled                  :: !(Maybe Bool)
+    , _esSourceType               :: !(Maybe Text)
+    , _esSeverity                 :: !(Maybe Text)
+    , _esSubscriptionCreationTime :: !(Maybe ISO8601)
+    , _esEventCategoriesList      :: !(Maybe [Text])
+    , _esSourceIdsList            :: !(Maybe [Text])
+    , _esTags                     :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'esCustomerAWSId'
 --
@@ -1317,22 +1352,8 @@ instance FromXML EventInfoMap where
 -- * 'esSourceIdsList'
 --
 -- * 'esTags'
-data EventSubscription = EventSubscription'
-    { _esCustomerAWSId            :: !(Maybe Text)
-    , _esStatus                   :: !(Maybe Text)
-    , _esCustSubscriptionId       :: !(Maybe Text)
-    , _esSNSTopicARN              :: !(Maybe Text)
-    , _esEnabled                  :: !(Maybe Bool)
-    , _esSourceType               :: !(Maybe Text)
-    , _esSeverity                 :: !(Maybe Text)
-    , _esSubscriptionCreationTime :: !(Maybe ISO8601)
-    , _esEventCategoriesList      :: !(Maybe [Text])
-    , _esSourceIdsList            :: !(Maybe [Text])
-    , _esTags                     :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EventSubscription' smart constructor.
-eventSubscription :: EventSubscription
+eventSubscription
+    :: EventSubscription
 eventSubscription =
     EventSubscription'
     { _esCustomerAWSId = Nothing
@@ -1375,7 +1396,7 @@ esCustSubscriptionId = lens _esCustSubscriptionId (\ s a -> s{_esCustSubscriptio
 esSNSTopicARN :: Lens' EventSubscription (Maybe Text)
 esSNSTopicARN = lens _esSNSTopicARN (\ s a -> s{_esSNSTopicARN = a});
 
--- | A Boolean value indicating whether the subscription is enabled. @true@
+-- | A Boolean value indicating whether the subscription is enabled. 'true'
 -- indicates the subscription is enabled.
 esEnabled :: Lens' EventSubscription (Maybe Bool)
 esEnabled = lens _esEnabled (\ s a -> s{_esEnabled = a});
@@ -1438,22 +1459,23 @@ instance FromXML EventSubscription where
 -- Redshift cluster to encrypt data files.
 --
 -- /See:/ 'hsmClientCertificate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hccHSMClientCertificateIdentifier'
---
--- * 'hccHSMClientCertificatePublicKey'
---
--- * 'hccTags'
 data HSMClientCertificate = HSMClientCertificate'
     { _hccHSMClientCertificateIdentifier :: !(Maybe Text)
     , _hccHSMClientCertificatePublicKey  :: !(Maybe Text)
     , _hccTags                           :: !(Maybe [Tag])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'HSMClientCertificate' smart constructor.
-hsmClientCertificate :: HSMClientCertificate
+-- | Creates a value of 'HSMClientCertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hccHSMClientCertificateIdentifier'
+--
+-- * 'hccHSMClientCertificatePublicKey'
+--
+-- * 'hccTags'
+hsmClientCertificate
+    :: HSMClientCertificate
 hsmClientCertificate =
     HSMClientCertificate'
     { _hccHSMClientCertificateIdentifier = Nothing
@@ -1488,8 +1510,17 @@ instance FromXML HSMClientCertificate where
 -- connect to an HSM where they can store database encryption keys.
 --
 -- /See:/ 'hsmConfiguration' smart constructor.
+data HSMConfiguration = HSMConfiguration'
+    { _hcHSMConfigurationIdentifier :: !(Maybe Text)
+    , _hcHSMPartitionName           :: !(Maybe Text)
+    , _hcDescription                :: !(Maybe Text)
+    , _hcHSMIPAddress               :: !(Maybe Text)
+    , _hcTags                       :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HSMConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'hcHSMConfigurationIdentifier'
 --
@@ -1500,16 +1531,8 @@ instance FromXML HSMClientCertificate where
 -- * 'hcHSMIPAddress'
 --
 -- * 'hcTags'
-data HSMConfiguration = HSMConfiguration'
-    { _hcHSMConfigurationIdentifier :: !(Maybe Text)
-    , _hcHSMPartitionName           :: !(Maybe Text)
-    , _hcDescription                :: !(Maybe Text)
-    , _hcHSMIPAddress               :: !(Maybe Text)
-    , _hcTags                       :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'HSMConfiguration' smart constructor.
-hsmConfiguration :: HSMConfiguration
+hsmConfiguration
+    :: HSMConfiguration
 hsmConfiguration =
     HSMConfiguration'
     { _hcHSMConfigurationIdentifier = Nothing
@@ -1555,22 +1578,23 @@ instance FromXML HSMConfiguration where
 -- |
 --
 -- /See:/ 'hsmStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hsStatus'
---
--- * 'hsHSMConfigurationIdentifier'
---
--- * 'hsHSMClientCertificateIdentifier'
 data HSMStatus = HSMStatus'
     { _hsStatus                         :: !(Maybe Text)
     , _hsHSMConfigurationIdentifier     :: !(Maybe Text)
     , _hsHSMClientCertificateIdentifier :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'HSMStatus' smart constructor.
-hsmStatus :: HSMStatus
+-- | Creates a value of 'HSMStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hsStatus'
+--
+-- * 'hsHSMConfigurationIdentifier'
+--
+-- * 'hsHSMClientCertificateIdentifier'
+hsmStatus
+    :: HSMStatus
 hsmStatus =
     HSMStatus'
     { _hsStatus = Nothing
@@ -1606,22 +1630,23 @@ instance FromXML HSMStatus where
 -- | Describes an IP range used in a security group.
 --
 -- /See:/ 'ipRange' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'irStatus'
---
--- * 'irCIdRIP'
---
--- * 'irTags'
 data IPRange = IPRange'
     { _irStatus :: !(Maybe Text)
     , _irCIdRIP :: !(Maybe Text)
     , _irTags   :: !(Maybe [Tag])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'IPRange' smart constructor.
-ipRange :: IPRange
+-- | Creates a value of 'IPRange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'irStatus'
+--
+-- * 'irCIdRIP'
+--
+-- * 'irTags'
+ipRange
+    :: IPRange
 ipRange =
     IPRange'
     { _irStatus = Nothing
@@ -1651,8 +1676,18 @@ instance FromXML IPRange where
 -- | Describes the status of logging for a cluster.
 --
 -- /See:/ 'loggingStatus' smart constructor.
+data LoggingStatus = LoggingStatus'
+    { _lsLastSuccessfulDeliveryTime :: !(Maybe ISO8601)
+    , _lsLastFailureTime            :: !(Maybe ISO8601)
+    , _lsS3KeyPrefix                :: !(Maybe Text)
+    , _lsBucketName                 :: !(Maybe Text)
+    , _lsLoggingEnabled             :: !(Maybe Bool)
+    , _lsLastFailureMessage         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LoggingStatus' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lsLastSuccessfulDeliveryTime'
 --
@@ -1665,17 +1700,8 @@ instance FromXML IPRange where
 -- * 'lsLoggingEnabled'
 --
 -- * 'lsLastFailureMessage'
-data LoggingStatus = LoggingStatus'
-    { _lsLastSuccessfulDeliveryTime :: !(Maybe ISO8601)
-    , _lsLastFailureTime            :: !(Maybe ISO8601)
-    , _lsS3KeyPrefix                :: !(Maybe Text)
-    , _lsBucketName                 :: !(Maybe Text)
-    , _lsLoggingEnabled             :: !(Maybe Bool)
-    , _lsLastFailureMessage         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LoggingStatus' smart constructor.
-loggingStatus :: LoggingStatus
+loggingStatus
+    :: LoggingStatus
 loggingStatus =
     LoggingStatus'
     { _lsLastSuccessfulDeliveryTime = Nothing
@@ -1702,7 +1728,7 @@ lsS3KeyPrefix = lens _lsS3KeyPrefix (\ s a -> s{_lsS3KeyPrefix = a});
 lsBucketName :: Lens' LoggingStatus (Maybe Text)
 lsBucketName = lens _lsBucketName (\ s a -> s{_lsBucketName = a});
 
--- | @true@ if logging is on, @false@ if logging is off.
+-- | 'true' if logging is on, 'false' if logging is off.
 lsLoggingEnabled :: Lens' LoggingStatus (Maybe Bool)
 lsLoggingEnabled = lens _lsLoggingEnabled (\ s a -> s{_lsLoggingEnabled = a});
 
@@ -1723,8 +1749,16 @@ instance FromXML LoggingStatus where
 -- | Describes an orderable cluster option.
 --
 -- /See:/ 'orderableClusterOption' smart constructor.
+data OrderableClusterOption = OrderableClusterOption'
+    { _ocoAvailabilityZones :: !(Maybe [AvailabilityZone])
+    , _ocoClusterType       :: !(Maybe Text)
+    , _ocoClusterVersion    :: !(Maybe Text)
+    , _ocoNodeType          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OrderableClusterOption' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ocoAvailabilityZones'
 --
@@ -1733,15 +1767,8 @@ instance FromXML LoggingStatus where
 -- * 'ocoClusterVersion'
 --
 -- * 'ocoNodeType'
-data OrderableClusterOption = OrderableClusterOption'
-    { _ocoAvailabilityZones :: !(Maybe [AvailabilityZone])
-    , _ocoClusterType       :: !(Maybe Text)
-    , _ocoClusterVersion    :: !(Maybe Text)
-    , _ocoNodeType          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'OrderableClusterOption' smart constructor.
-orderableClusterOption :: OrderableClusterOption
+orderableClusterOption
+    :: OrderableClusterOption
 orderableClusterOption =
     OrderableClusterOption'
     { _ocoAvailabilityZones = Nothing
@@ -1754,7 +1781,7 @@ orderableClusterOption =
 ocoAvailabilityZones :: Lens' OrderableClusterOption [AvailabilityZone]
 ocoAvailabilityZones = lens _ocoAvailabilityZones (\ s a -> s{_ocoAvailabilityZones = a}) . _Default . _Coerce;
 
--- | The cluster type, for example @multi-node@.
+-- | The cluster type, for example 'multi-node'.
 ocoClusterType :: Lens' OrderableClusterOption (Maybe Text)
 ocoClusterType = lens _ocoClusterType (\ s a -> s{_ocoClusterType = a});
 
@@ -1778,8 +1805,21 @@ instance FromXML OrderableClusterOption where
 -- | Describes a parameter in a cluster parameter group.
 --
 -- /See:/ 'parameter' smart constructor.
+data Parameter = Parameter'
+    { _pApplyType            :: !(Maybe ParameterApplyType)
+    , _pParameterValue       :: !(Maybe Text)
+    , _pMinimumEngineVersion :: !(Maybe Text)
+    , _pSource               :: !(Maybe Text)
+    , _pIsModifiable         :: !(Maybe Bool)
+    , _pAllowedValues        :: !(Maybe Text)
+    , _pDataType             :: !(Maybe Text)
+    , _pParameterName        :: !(Maybe Text)
+    , _pDescription          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pApplyType'
 --
@@ -1798,20 +1838,8 @@ instance FromXML OrderableClusterOption where
 -- * 'pParameterName'
 --
 -- * 'pDescription'
-data Parameter = Parameter'
-    { _pApplyType            :: !(Maybe ParameterApplyType)
-    , _pParameterValue       :: !(Maybe Text)
-    , _pMinimumEngineVersion :: !(Maybe Text)
-    , _pSource               :: !(Maybe Text)
-    , _pIsModifiable         :: !(Maybe Bool)
-    , _pAllowedValues        :: !(Maybe Text)
-    , _pDataType             :: !(Maybe Text)
-    , _pParameterName        :: !(Maybe Text)
-    , _pDescription          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Parameter' smart constructor.
-parameter :: Parameter
+parameter
+    :: Parameter
 parameter =
     Parameter'
     { _pApplyType = Nothing
@@ -1825,7 +1853,7 @@ parameter =
     , _pDescription = Nothing
     }
 
--- | Specifies how to apply the parameter. Supported value: @static@.
+-- | Specifies how to apply the parameter. Supported value: 'static'.
 pApplyType :: Lens' Parameter (Maybe ParameterApplyType)
 pApplyType = lens _pApplyType (\ s a -> s{_pApplyType = a});
 
@@ -1842,7 +1870,7 @@ pMinimumEngineVersion = lens _pMinimumEngineVersion (\ s a -> s{_pMinimumEngineV
 pSource :: Lens' Parameter (Maybe Text)
 pSource = lens _pSource (\ s a -> s{_pSource = a});
 
--- | If @true@, the parameter can be modified. Some parameters have security
+-- | If 'true', the parameter can be modified. Some parameters have security
 -- or operational implications that prevent them from being changed.
 pIsModifiable :: Lens' Parameter (Maybe Bool)
 pIsModifiable = lens _pIsModifiable (\ s a -> s{_pIsModifiable = a});
@@ -1893,8 +1921,19 @@ instance ToQuery Parameter where
 -- applied.
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
+data PendingModifiedValues = PendingModifiedValues'
+    { _pmvMasterUserPassword               :: !(Maybe Text)
+    , _pmvAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+    , _pmvClusterIdentifier                :: !(Maybe Text)
+    , _pmvNumberOfNodes                    :: !(Maybe Int)
+    , _pmvClusterType                      :: !(Maybe Text)
+    , _pmvClusterVersion                   :: !(Maybe Text)
+    , _pmvNodeType                         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pmvMasterUserPassword'
 --
@@ -1909,18 +1948,8 @@ instance ToQuery Parameter where
 -- * 'pmvClusterVersion'
 --
 -- * 'pmvNodeType'
-data PendingModifiedValues = PendingModifiedValues'
-    { _pmvMasterUserPassword               :: !(Maybe Text)
-    , _pmvAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _pmvClusterIdentifier                :: !(Maybe Text)
-    , _pmvNumberOfNodes                    :: !(Maybe Int)
-    , _pmvClusterType                      :: !(Maybe Text)
-    , _pmvClusterVersion                   :: !(Maybe Text)
-    , _pmvNodeType                         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PendingModifiedValues' smart constructor.
-pendingModifiedValues :: PendingModifiedValues
+pendingModifiedValues
+    :: PendingModifiedValues
 pendingModifiedValues =
     PendingModifiedValues'
     { _pmvMasterUserPassword = Nothing
@@ -1976,19 +2005,20 @@ instance FromXML PendingModifiedValues where
 -- | Describes a recurring charge.
 --
 -- /See:/ 'recurringCharge' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcRecurringChargeFrequency'
---
--- * 'rcRecurringChargeAmount'
 data RecurringCharge = RecurringCharge'
     { _rcRecurringChargeFrequency :: !(Maybe Text)
     , _rcRecurringChargeAmount    :: !(Maybe Double)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RecurringCharge' smart constructor.
-recurringCharge :: RecurringCharge
+-- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcRecurringChargeFrequency'
+--
+-- * 'rcRecurringChargeAmount'
+recurringCharge
+    :: RecurringCharge
 recurringCharge =
     RecurringCharge'
     { _rcRecurringChargeFrequency = Nothing
@@ -2015,8 +2045,24 @@ instance FromXML RecurringCharge where
 -- offerings.
 --
 -- /See:/ 'reservedNode' smart constructor.
+data ReservedNode = ReservedNode'
+    { _rnState                  :: !(Maybe Text)
+    , _rnCurrencyCode           :: !(Maybe Text)
+    , _rnStartTime              :: !(Maybe ISO8601)
+    , _rnNodeCount              :: !(Maybe Int)
+    , _rnReservedNodeOfferingId :: !(Maybe Text)
+    , _rnReservedNodeId         :: !(Maybe Text)
+    , _rnOfferingType           :: !(Maybe Text)
+    , _rnUsagePrice             :: !(Maybe Double)
+    , _rnNodeType               :: !(Maybe Text)
+    , _rnRecurringCharges       :: !(Maybe [RecurringCharge])
+    , _rnFixedPrice             :: !(Maybe Double)
+    , _rnDuration               :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservedNode' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rnState'
 --
@@ -2041,23 +2087,8 @@ instance FromXML RecurringCharge where
 -- * 'rnFixedPrice'
 --
 -- * 'rnDuration'
-data ReservedNode = ReservedNode'
-    { _rnState                  :: !(Maybe Text)
-    , _rnCurrencyCode           :: !(Maybe Text)
-    , _rnStartTime              :: !(Maybe ISO8601)
-    , _rnNodeCount              :: !(Maybe Int)
-    , _rnReservedNodeOfferingId :: !(Maybe Text)
-    , _rnReservedNodeId         :: !(Maybe Text)
-    , _rnOfferingType           :: !(Maybe Text)
-    , _rnUsagePrice             :: !(Maybe Double)
-    , _rnNodeType               :: !(Maybe Text)
-    , _rnRecurringCharges       :: !(Maybe [RecurringCharge])
-    , _rnFixedPrice             :: !(Maybe Double)
-    , _rnDuration               :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReservedNode' smart constructor.
-reservedNode :: ReservedNode
+reservedNode
+    :: ReservedNode
 reservedNode =
     ReservedNode'
     { _rnState = Nothing
@@ -2152,8 +2183,20 @@ instance FromXML ReservedNode where
 -- | Describes a reserved node offering.
 --
 -- /See:/ 'reservedNodeOffering' smart constructor.
+data ReservedNodeOffering = ReservedNodeOffering'
+    { _rnoCurrencyCode           :: !(Maybe Text)
+    , _rnoReservedNodeOfferingId :: !(Maybe Text)
+    , _rnoOfferingType           :: !(Maybe Text)
+    , _rnoUsagePrice             :: !(Maybe Double)
+    , _rnoNodeType               :: !(Maybe Text)
+    , _rnoRecurringCharges       :: !(Maybe [RecurringCharge])
+    , _rnoFixedPrice             :: !(Maybe Double)
+    , _rnoDuration               :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservedNodeOffering' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rnoCurrencyCode'
 --
@@ -2170,19 +2213,8 @@ instance FromXML ReservedNode where
 -- * 'rnoFixedPrice'
 --
 -- * 'rnoDuration'
-data ReservedNodeOffering = ReservedNodeOffering'
-    { _rnoCurrencyCode           :: !(Maybe Text)
-    , _rnoReservedNodeOfferingId :: !(Maybe Text)
-    , _rnoOfferingType           :: !(Maybe Text)
-    , _rnoUsagePrice             :: !(Maybe Double)
-    , _rnoNodeType               :: !(Maybe Text)
-    , _rnoRecurringCharges       :: !(Maybe [RecurringCharge])
-    , _rnoFixedPrice             :: !(Maybe Double)
-    , _rnoDuration               :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReservedNodeOffering' smart constructor.
-reservedNodeOffering :: ReservedNodeOffering
+reservedNodeOffering
+    :: ReservedNodeOffering
 reservedNodeOffering =
     ReservedNodeOffering'
     { _rnoCurrencyCode = Nothing
@@ -2250,8 +2282,18 @@ instance FromXML ReservedNodeOffering where
 -- cluster was not created by restoring a snapshot.
 --
 -- /See:/ 'restoreStatus' smart constructor.
+data RestoreStatus = RestoreStatus'
+    { _rsEstimatedTimeToCompletionInSeconds     :: !(Maybe Integer)
+    , _rsStatus                                 :: !(Maybe Text)
+    , _rsCurrentRestoreRateInMegaBytesPerSecond :: !(Maybe Double)
+    , _rsProgressInMegaBytes                    :: !(Maybe Integer)
+    , _rsElapsedTimeInSeconds                   :: !(Maybe Integer)
+    , _rsSnapshotSizeInMegaBytes                :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RestoreStatus' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rsEstimatedTimeToCompletionInSeconds'
 --
@@ -2264,17 +2306,8 @@ instance FromXML ReservedNodeOffering where
 -- * 'rsElapsedTimeInSeconds'
 --
 -- * 'rsSnapshotSizeInMegaBytes'
-data RestoreStatus = RestoreStatus'
-    { _rsEstimatedTimeToCompletionInSeconds     :: !(Maybe Integer)
-    , _rsStatus                                 :: !(Maybe Text)
-    , _rsCurrentRestoreRateInMegaBytesPerSecond :: !(Maybe Double)
-    , _rsProgressInMegaBytes                    :: !(Maybe Integer)
-    , _rsElapsedTimeInSeconds                   :: !(Maybe Integer)
-    , _rsSnapshotSizeInMegaBytes                :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RestoreStatus' smart constructor.
-restoreStatus :: RestoreStatus
+restoreStatus
+    :: RestoreStatus
 restoreStatus =
     RestoreStatus'
     { _rsEstimatedTimeToCompletionInSeconds = Nothing
@@ -2327,8 +2360,40 @@ instance FromXML RestoreStatus where
 -- | Describes a snapshot.
 --
 -- /See:/ 'snapshot' smart constructor.
+data Snapshot = Snapshot'
+    { _sRestorableNodeTypes                    :: !(Maybe [Text])
+    , _sStatus                                 :: !(Maybe Text)
+    , _sAccountsWithRestoreAccess              :: !(Maybe [AccountWithRestoreAccess])
+    , _sSnapshotIdentifier                     :: !(Maybe Text)
+    , _sEncryptedWithHSM                       :: !(Maybe Bool)
+    , _sMasterUsername                         :: !(Maybe Text)
+    , _sSourceRegion                           :: !(Maybe Text)
+    , _sVPCId                                  :: !(Maybe Text)
+    , _sBackupProgressInMegaBytes              :: !(Maybe Double)
+    , _sEncrypted                              :: !(Maybe Bool)
+    , _sClusterIdentifier                      :: !(Maybe Text)
+    , _sNumberOfNodes                          :: !(Maybe Int)
+    , _sSnapshotType                           :: !(Maybe Text)
+    , _sAvailabilityZone                       :: !(Maybe Text)
+    , _sKMSKeyId                               :: !(Maybe Text)
+    , _sCurrentBackupRateInMegaBytesPerSecond  :: !(Maybe Double)
+    , _sSnapshotCreateTime                     :: !(Maybe ISO8601)
+    , _sClusterVersion                         :: !(Maybe Text)
+    , _sOwnerAccount                           :: !(Maybe Text)
+    , _sNodeType                               :: !(Maybe Text)
+    , _sClusterCreateTime                      :: !(Maybe ISO8601)
+    , _sElapsedTimeInSeconds                   :: !(Maybe Integer)
+    , _sEstimatedSecondsToCompletion           :: !(Maybe Integer)
+    , _sTotalBackupSizeInMegaBytes             :: !(Maybe Double)
+    , _sDBName                                 :: !(Maybe Text)
+    , _sTags                                   :: !(Maybe [Tag])
+    , _sActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
+    , _sPort                                   :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sRestorableNodeTypes'
 --
@@ -2385,39 +2450,8 @@ instance FromXML RestoreStatus where
 -- * 'sActualIncrementalBackupSizeInMegaBytes'
 --
 -- * 'sPort'
-data Snapshot = Snapshot'
-    { _sRestorableNodeTypes                    :: !(Maybe [Text])
-    , _sStatus                                 :: !(Maybe Text)
-    , _sAccountsWithRestoreAccess              :: !(Maybe [AccountWithRestoreAccess])
-    , _sSnapshotIdentifier                     :: !(Maybe Text)
-    , _sEncryptedWithHSM                       :: !(Maybe Bool)
-    , _sMasterUsername                         :: !(Maybe Text)
-    , _sSourceRegion                           :: !(Maybe Text)
-    , _sVPCId                                  :: !(Maybe Text)
-    , _sBackupProgressInMegaBytes              :: !(Maybe Double)
-    , _sEncrypted                              :: !(Maybe Bool)
-    , _sClusterIdentifier                      :: !(Maybe Text)
-    , _sNumberOfNodes                          :: !(Maybe Int)
-    , _sSnapshotType                           :: !(Maybe Text)
-    , _sAvailabilityZone                       :: !(Maybe Text)
-    , _sKMSKeyId                               :: !(Maybe Text)
-    , _sCurrentBackupRateInMegaBytesPerSecond  :: !(Maybe Double)
-    , _sSnapshotCreateTime                     :: !(Maybe ISO8601)
-    , _sClusterVersion                         :: !(Maybe Text)
-    , _sOwnerAccount                           :: !(Maybe Text)
-    , _sNodeType                               :: !(Maybe Text)
-    , _sClusterCreateTime                      :: !(Maybe ISO8601)
-    , _sElapsedTimeInSeconds                   :: !(Maybe Integer)
-    , _sEstimatedSecondsToCompletion           :: !(Maybe Integer)
-    , _sTotalBackupSizeInMegaBytes             :: !(Maybe Double)
-    , _sDBName                                 :: !(Maybe Text)
-    , _sTags                                   :: !(Maybe [Tag])
-    , _sActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
-    , _sPort                                   :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Snapshot' smart constructor.
-snapshot :: Snapshot
+snapshot
+    :: Snapshot
 snapshot =
     Snapshot'
     { _sRestorableNodeTypes = Nothing
@@ -2467,7 +2501,7 @@ sStatus :: Lens' Snapshot (Maybe Text)
 sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 
 -- | A list of the AWS customer accounts authorized to restore the snapshot.
--- Returns @null@ if no accounts are authorized. Visible only to the
+-- Returns 'null' if no accounts are authorized. Visible only to the
 -- snapshot owner.
 sAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
 sAccountsWithRestoreAccess = lens _sAccountsWithRestoreAccess (\ s a -> s{_sAccountsWithRestoreAccess = a}) . _Default . _Coerce;
@@ -2477,7 +2511,7 @@ sSnapshotIdentifier :: Lens' Snapshot (Maybe Text)
 sSnapshotIdentifier = lens _sSnapshotIdentifier (\ s a -> s{_sSnapshotIdentifier = a});
 
 -- | A boolean that indicates whether the snapshot data is encrypted using
--- the HSM keys of the source cluster. @true@ indicates that the data is
+-- the HSM keys of the source cluster. 'true' indicates that the data is
 -- encrypted using HSM keys.
 sEncryptedWithHSM :: Lens' Snapshot (Maybe Bool)
 sEncryptedWithHSM = lens _sEncryptedWithHSM (\ s a -> s{_sEncryptedWithHSM = a});
@@ -2500,7 +2534,7 @@ sVPCId = lens _sVPCId (\ s a -> s{_sVPCId = a});
 sBackupProgressInMegaBytes :: Lens' Snapshot (Maybe Double)
 sBackupProgressInMegaBytes = lens _sBackupProgressInMegaBytes (\ s a -> s{_sBackupProgressInMegaBytes = a});
 
--- | If @true@, the data in the snapshot is encrypted at rest.
+-- | If 'true', the data in the snapshot is encrypted at rest.
 sEncrypted :: Lens' Snapshot (Maybe Bool)
 sEncrypted = lens _sEncrypted (\ s a -> s{_sEncrypted = a});
 
@@ -2528,7 +2562,7 @@ sKMSKeyId :: Lens' Snapshot (Maybe Text)
 sKMSKeyId = lens _sKMSKeyId (\ s a -> s{_sKMSKeyId = a});
 
 -- | The number of megabytes per second being transferred to the snapshot
--- backup. Returns @0@ for a completed backup.
+-- backup. Returns '0' for a completed backup.
 sCurrentBackupRateInMegaBytesPerSecond :: Lens' Snapshot (Maybe Double)
 sCurrentBackupRateInMegaBytesPerSecond = lens _sCurrentBackupRateInMegaBytesPerSecond (\ s a -> s{_sCurrentBackupRateInMegaBytesPerSecond = a});
 
@@ -2563,7 +2597,7 @@ sElapsedTimeInSeconds :: Lens' Snapshot (Maybe Integer)
 sElapsedTimeInSeconds = lens _sElapsedTimeInSeconds (\ s a -> s{_sElapsedTimeInSeconds = a});
 
 -- | The estimate of the time remaining before the snapshot backup will
--- complete. Returns @0@ for a completed backup.
+-- complete. Returns '0' for a completed backup.
 sEstimatedSecondsToCompletion :: Lens' Snapshot (Maybe Integer)
 sEstimatedSecondsToCompletion = lens _sEstimatedSecondsToCompletion (\ s a -> s{_sEstimatedSecondsToCompletion = a});
 
@@ -2634,22 +2668,23 @@ instance FromXML Snapshot where
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
 -- /See:/ 'snapshotCopyGrant' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'scgKMSKeyId'
---
--- * 'scgSnapshotCopyGrantName'
---
--- * 'scgTags'
 data SnapshotCopyGrant = SnapshotCopyGrant'
     { _scgKMSKeyId              :: !(Maybe Text)
     , _scgSnapshotCopyGrantName :: !(Maybe Text)
     , _scgTags                  :: !(Maybe [Tag])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SnapshotCopyGrant' smart constructor.
-snapshotCopyGrant :: SnapshotCopyGrant
+-- | Creates a value of 'SnapshotCopyGrant' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scgKMSKeyId'
+--
+-- * 'scgSnapshotCopyGrantName'
+--
+-- * 'scgTags'
+snapshotCopyGrant
+    :: SnapshotCopyGrant
 snapshotCopyGrant =
     SnapshotCopyGrant'
     { _scgKMSKeyId = Nothing
@@ -2682,22 +2717,23 @@ instance FromXML SnapshotCopyGrant where
 -- | Describes a subnet.
 --
 -- /See:/ 'subnet' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sSubnetStatus'
---
--- * 'sSubnetIdentifier'
---
--- * 'sSubnetAvailabilityZone'
 data Subnet = Subnet'
     { _sSubnetStatus           :: !(Maybe Text)
     , _sSubnetIdentifier       :: !(Maybe Text)
     , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Subnet' smart constructor.
-subnet :: Subnet
+-- | Creates a value of 'Subnet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sSubnetStatus'
+--
+-- * 'sSubnetIdentifier'
+--
+-- * 'sSubnetAvailabilityZone'
+subnet
+    :: Subnet
 subnet =
     Subnet'
     { _sSubnetStatus = Nothing
@@ -2726,19 +2762,20 @@ instance FromXML Subnet where
 -- | A tag consisting of a name\/value pair for a resource.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagValue'
---
--- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Tag
 tag =
     Tag'
     { _tagValue = Nothing
@@ -2764,22 +2801,23 @@ instance ToQuery Tag where
 -- | A tag and its associated resource.
 --
 -- /See:/ 'taggedResource' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'trResourceType'
---
--- * 'trTag'
---
--- * 'trResourceName'
 data TaggedResource = TaggedResource'
     { _trResourceType :: !(Maybe Text)
     , _trTag          :: !(Maybe Tag)
     , _trResourceName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TaggedResource' smart constructor.
-taggedResource :: TaggedResource
+-- | Creates a value of 'TaggedResource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'trResourceType'
+--
+-- * 'trTag'
+--
+-- * 'trResourceName'
+taggedResource
+    :: TaggedResource
 taggedResource =
     TaggedResource'
     { _trResourceType = Nothing
@@ -2812,7 +2850,7 @@ trTag :: Lens' TaggedResource (Maybe Tag)
 trTag = lens _trTag (\ s a -> s{_trTag = a});
 
 -- | The Amazon Resource Name (ARN) with which the tag is associated. For
--- example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
+-- example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
 trResourceName :: Lens' TaggedResource (Maybe Text)
 trResourceName = lens _trResourceName (\ s a -> s{_trResourceName = a});
 
@@ -2825,19 +2863,20 @@ instance FromXML TaggedResource where
 -- | Describes the members of a VPC security group.
 --
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vsgmStatus'
---
--- * 'vsgmVPCSecurityGroupId'
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
     { _vsgmStatus             :: !(Maybe Text)
     , _vsgmVPCSecurityGroupId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VPCSecurityGroupMembership' smart constructor.
-vpcSecurityGroupMembership :: VPCSecurityGroupMembership
+-- | Creates a value of 'VPCSecurityGroupMembership' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vsgmStatus'
+--
+-- * 'vsgmVPCSecurityGroupId'
+vpcSecurityGroupMembership
+    :: VPCSecurityGroupMembership
 vpcSecurityGroupMembership =
     VPCSecurityGroupMembership'
     { _vsgmStatus = Nothing

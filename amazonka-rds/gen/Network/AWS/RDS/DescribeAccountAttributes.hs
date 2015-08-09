@@ -29,12 +29,12 @@
 module Network.AWS.RDS.DescribeAccountAttributes
     (
     -- * Creating a Request
-      DescribeAccountAttributes
-    , describeAccountAttributes
+      describeAccountAttributes
+    , DescribeAccountAttributes
 
     -- * Destructuring the Response
-    , DescribeAccountAttributesResponse
     , describeAccountAttributesResponse
+    , DescribeAccountAttributesResponse
     -- * Response Lenses
     , daarsAccountQuotas
     , daarsStatus
@@ -53,8 +53,10 @@ data DescribeAccountAttributes =
     DescribeAccountAttributes'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAccountAttributes' smart constructor.
-describeAccountAttributes :: DescribeAccountAttributes
+-- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
+--
+describeAccountAttributes
+    :: DescribeAccountAttributes
 describeAccountAttributes = DescribeAccountAttributes'
 
 instance AWSRequest DescribeAccountAttributes where
@@ -87,19 +89,21 @@ instance ToQuery DescribeAccountAttributes where
 -- | Data returned by the __DescribeAccountAttributes__ action.
 --
 -- /See:/ 'describeAccountAttributesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daarsAccountQuotas'
---
--- * 'daarsStatus'
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     { _daarsAccountQuotas :: !(Maybe [AccountQuota])
     , _daarsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAccountAttributesResponse' smart constructor.
-describeAccountAttributesResponse :: Int -> DescribeAccountAttributesResponse
+-- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daarsAccountQuotas'
+--
+-- * 'daarsStatus'
+describeAccountAttributesResponse
+    :: Int -- ^ 'daarsStatus'
+    -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pStatus_ =
     DescribeAccountAttributesResponse'
     { _daarsAccountQuotas = Nothing
@@ -112,6 +116,6 @@ describeAccountAttributesResponse pStatus_ =
 daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
 daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 daarsStatus :: Lens' DescribeAccountAttributesResponse Int
 daarsStatus = lens _daarsStatus (\ s a -> s{_daarsStatus = a});

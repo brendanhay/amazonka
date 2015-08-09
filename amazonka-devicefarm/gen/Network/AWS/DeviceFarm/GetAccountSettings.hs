@@ -25,12 +25,12 @@
 module Network.AWS.DeviceFarm.GetAccountSettings
     (
     -- * Creating a Request
-      GetAccountSettings
-    , getAccountSettings
+      getAccountSettings
+    , GetAccountSettings
 
     -- * Destructuring the Response
-    , GetAccountSettingsResponse
     , getAccountSettingsResponse
+    , GetAccountSettingsResponse
     -- * Response Lenses
     , gasrsAccountSettings
     , gasrsStatus
@@ -47,8 +47,10 @@ data GetAccountSettings =
     GetAccountSettings'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetAccountSettings' smart constructor.
-getAccountSettings :: GetAccountSettings
+-- | Creates a value of 'GetAccountSettings' with the minimum fields required to make a request.
+--
+getAccountSettings
+    :: GetAccountSettings
 getAccountSettings = GetAccountSettings'
 
 instance AWSRequest GetAccountSettings where
@@ -82,19 +84,21 @@ instance ToQuery GetAccountSettings where
         toQuery = const mempty
 
 -- | /See:/ 'getAccountSettingsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gasrsAccountSettings'
---
--- * 'gasrsStatus'
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
     { _gasrsAccountSettings :: !(Maybe AccountSettings)
     , _gasrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetAccountSettingsResponse' smart constructor.
-getAccountSettingsResponse :: Int -> GetAccountSettingsResponse
+-- | Creates a value of 'GetAccountSettingsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gasrsAccountSettings'
+--
+-- * 'gasrsStatus'
+getAccountSettingsResponse
+    :: Int -- ^ 'gasrsStatus'
+    -> GetAccountSettingsResponse
 getAccountSettingsResponse pStatus_ =
     GetAccountSettingsResponse'
     { _gasrsAccountSettings = Nothing
@@ -105,6 +109,6 @@ getAccountSettingsResponse pStatus_ =
 gasrsAccountSettings :: Lens' GetAccountSettingsResponse (Maybe AccountSettings)
 gasrsAccountSettings = lens _gasrsAccountSettings (\ s a -> s{_gasrsAccountSettings = a});
 
--- | Undocumented member.
+-- | The response status code.
 gasrsStatus :: Lens' GetAccountSettingsResponse Int
 gasrsStatus = lens _gasrsStatus (\ s a -> s{_gasrsStatus = a});

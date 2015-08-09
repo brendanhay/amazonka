@@ -25,16 +25,16 @@
 module Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
     (
     -- * Creating a Request
-      PutThirdPartyJobFailureResult
-    , putThirdPartyJobFailureResult
+      putThirdPartyJobFailureResult
+    , PutThirdPartyJobFailureResult
     -- * Request Lenses
     , ptpjfrJobId
     , ptpjfrClientToken
     , ptpjfrFailureDetails
 
     -- * Destructuring the Response
-    , PutThirdPartyJobFailureResultResponse
     , putThirdPartyJobFailureResultResponse
+    , PutThirdPartyJobFailureResultResponse
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -46,22 +46,26 @@ import           Network.AWS.Response
 -- | Represents the input of a third party job failure result action.
 --
 -- /See:/ 'putThirdPartyJobFailureResult' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ptpjfrJobId'
---
--- * 'ptpjfrClientToken'
---
--- * 'ptpjfrFailureDetails'
 data PutThirdPartyJobFailureResult = PutThirdPartyJobFailureResult'
     { _ptpjfrJobId          :: !Text
     , _ptpjfrClientToken    :: !Text
     , _ptpjfrFailureDetails :: !FailureDetails
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutThirdPartyJobFailureResult' smart constructor.
-putThirdPartyJobFailureResult :: Text -> Text -> FailureDetails -> PutThirdPartyJobFailureResult
+-- | Creates a value of 'PutThirdPartyJobFailureResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ptpjfrJobId'
+--
+-- * 'ptpjfrClientToken'
+--
+-- * 'ptpjfrFailureDetails'
+putThirdPartyJobFailureResult
+    :: Text -- ^ 'ptpjfrJobId'
+    -> Text -- ^ 'ptpjfrClientToken'
+    -> FailureDetails -- ^ 'ptpjfrFailureDetails'
+    -> PutThirdPartyJobFailureResult
 putThirdPartyJobFailureResult pJobId_ pClientToken_ pFailureDetails_ =
     PutThirdPartyJobFailureResult'
     { _ptpjfrJobId = pJobId_
@@ -122,6 +126,8 @@ data PutThirdPartyJobFailureResultResponse =
     PutThirdPartyJobFailureResultResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutThirdPartyJobFailureResultResponse' smart constructor.
-putThirdPartyJobFailureResultResponse :: PutThirdPartyJobFailureResultResponse
+-- | Creates a value of 'PutThirdPartyJobFailureResultResponse' with the minimum fields required to make a request.
+--
+putThirdPartyJobFailureResultResponse
+    :: PutThirdPartyJobFailureResultResponse
 putThirdPartyJobFailureResultResponse = PutThirdPartyJobFailureResultResponse'

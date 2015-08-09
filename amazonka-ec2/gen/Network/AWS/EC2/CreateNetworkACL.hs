@@ -30,15 +30,15 @@
 module Network.AWS.EC2.CreateNetworkACL
     (
     -- * Creating a Request
-      CreateNetworkACL
-    , createNetworkACL
+      createNetworkACL
+    , CreateNetworkACL
     -- * Request Lenses
     , cnaDryRun
     , cnaVPCId
 
     -- * Destructuring the Response
-    , CreateNetworkACLResponse
     , createNetworkACLResponse
+    , CreateNetworkACLResponse
     -- * Response Lenses
     , cnarsNetworkACL
     , cnarsStatus
@@ -51,19 +51,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createNetworkACL' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cnaDryRun'
---
--- * 'cnaVPCId'
 data CreateNetworkACL = CreateNetworkACL'
     { _cnaDryRun :: !(Maybe Bool)
     , _cnaVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateNetworkACL' smart constructor.
-createNetworkACL :: Text -> CreateNetworkACL
+-- | Creates a value of 'CreateNetworkACL' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cnaDryRun'
+--
+-- * 'cnaVPCId'
+createNetworkACL
+    :: Text -- ^ 'cnaVPCId'
+    -> CreateNetworkACL
 createNetworkACL pVPCId_ =
     CreateNetworkACL'
     { _cnaDryRun = Nothing
@@ -72,8 +74,8 @@ createNetworkACL pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cnaDryRun :: Lens' CreateNetworkACL (Maybe Bool)
 cnaDryRun = lens _cnaDryRun (\ s a -> s{_cnaDryRun = a});
 
@@ -105,19 +107,21 @@ instance ToQuery CreateNetworkACL where
                "DryRun" =: _cnaDryRun, "VpcId" =: _cnaVPCId]
 
 -- | /See:/ 'createNetworkACLResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cnarsNetworkACL'
---
--- * 'cnarsStatus'
 data CreateNetworkACLResponse = CreateNetworkACLResponse'
     { _cnarsNetworkACL :: !(Maybe NetworkACL)
     , _cnarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateNetworkACLResponse' smart constructor.
-createNetworkACLResponse :: Int -> CreateNetworkACLResponse
+-- | Creates a value of 'CreateNetworkACLResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cnarsNetworkACL'
+--
+-- * 'cnarsStatus'
+createNetworkACLResponse
+    :: Int -- ^ 'cnarsStatus'
+    -> CreateNetworkACLResponse
 createNetworkACLResponse pStatus_ =
     CreateNetworkACLResponse'
     { _cnarsNetworkACL = Nothing
@@ -128,6 +132,6 @@ createNetworkACLResponse pStatus_ =
 cnarsNetworkACL :: Lens' CreateNetworkACLResponse (Maybe NetworkACL)
 cnarsNetworkACL = lens _cnarsNetworkACL (\ s a -> s{_cnarsNetworkACL = a});
 
--- | Undocumented member.
+-- | The response status code.
 cnarsStatus :: Lens' CreateNetworkACLResponse Int
 cnarsStatus = lens _cnarsStatus (\ s a -> s{_cnarsStatus = a});

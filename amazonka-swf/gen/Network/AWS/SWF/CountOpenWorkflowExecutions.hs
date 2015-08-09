@@ -29,18 +29,18 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
--- -   Constrain the following parameters by using a @Condition@ element
+-- -   Constrain the following parameters by using a 'Condition' element
 --     with the appropriate keys.
---     -   @tagFilter.tag@: String constraint. The key is
---         @swf:tagFilter.tag@.
---     -   @typeFilter.name@: String constraint. The key is
---         @swf:typeFilter.name@.
---     -   @typeFilter.version@: String constraint. The key is
---         @swf:typeFilter.version@.
+--     -   'tagFilter.tag': String constraint. The key is
+--         'swf:tagFilter.tag'.
+--     -   'typeFilter.name': String constraint. The key is
+--         'swf:typeFilter.name'.
+--     -   'typeFilter.version': String constraint. The key is
+--         'swf:typeFilter.version'.
 --
 -- If the caller does not have sufficient permissions to invoke the action,
 -- or the parameter values fall outside the specified constraints, the
@@ -53,8 +53,8 @@
 module Network.AWS.SWF.CountOpenWorkflowExecutions
     (
     -- * Creating a Request
-      CountOpenWorkflowExecutions
-    , countOpenWorkflowExecutions
+      countOpenWorkflowExecutions
+    , CountOpenWorkflowExecutions
     -- * Request Lenses
     , coweExecutionFilter
     , coweTypeFilter
@@ -63,8 +63,8 @@ module Network.AWS.SWF.CountOpenWorkflowExecutions
     , coweStartTimeFilter
 
     -- * Destructuring the Response
-    , WorkflowExecutionCount
     , workflowExecutionCount
+    , WorkflowExecutionCount
     -- * Response Lenses
     , wecTruncated
     , wecCount
@@ -77,8 +77,17 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'countOpenWorkflowExecutions' smart constructor.
+data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
+    { _coweExecutionFilter :: !(Maybe WorkflowExecutionFilter)
+    , _coweTypeFilter      :: !(Maybe WorkflowTypeFilter)
+    , _coweTagFilter       :: !(Maybe TagFilter)
+    , _coweDomain          :: !Text
+    , _coweStartTimeFilter :: !ExecutionTimeFilter
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CountOpenWorkflowExecutions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'coweExecutionFilter'
 --
@@ -89,16 +98,10 @@ import           Network.AWS.SWF.Types.Product
 -- * 'coweDomain'
 --
 -- * 'coweStartTimeFilter'
-data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
-    { _coweExecutionFilter :: !(Maybe WorkflowExecutionFilter)
-    , _coweTypeFilter      :: !(Maybe WorkflowTypeFilter)
-    , _coweTagFilter       :: !(Maybe TagFilter)
-    , _coweDomain          :: !Text
-    , _coweStartTimeFilter :: !ExecutionTimeFilter
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CountOpenWorkflowExecutions' smart constructor.
-countOpenWorkflowExecutions :: Text -> ExecutionTimeFilter -> CountOpenWorkflowExecutions
+countOpenWorkflowExecutions
+    :: Text -- ^ 'coweDomain'
+    -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
+    -> CountOpenWorkflowExecutions
 countOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
     CountOpenWorkflowExecutions'
     { _coweExecutionFilter = Nothing
@@ -108,17 +111,17 @@ countOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
     , _coweStartTimeFilter = pStartTimeFilter_
     }
 
--- | If specified, only workflow executions matching the @WorkflowId@ in the
+-- | If specified, only workflow executions matching the 'WorkflowId' in the
 -- filter are counted.
 --
--- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
+-- 'executionFilter', 'typeFilter' and 'tagFilter' are mutually exclusive.
 -- You can specify at most one of these in a request.
 coweExecutionFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
 coweExecutionFilter = lens _coweExecutionFilter (\ s a -> s{_coweExecutionFilter = a});
 
 -- | Specifies the type of the workflow executions to be counted.
 --
--- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
+-- 'executionFilter', 'typeFilter' and 'tagFilter' are mutually exclusive.
 -- You can specify at most one of these in a request.
 coweTypeFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
 coweTypeFilter = lens _coweTypeFilter (\ s a -> s{_coweTypeFilter = a});
@@ -126,7 +129,7 @@ coweTypeFilter = lens _coweTypeFilter (\ s a -> s{_coweTypeFilter = a});
 -- | If specified, only executions that have a tag that matches the filter
 -- are counted.
 --
--- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
+-- 'executionFilter', 'typeFilter' and 'tagFilter' are mutually exclusive.
 -- You can specify at most one of these in a request.
 coweTagFilter :: Lens' CountOpenWorkflowExecutions (Maybe TagFilter)
 coweTagFilter = lens _coweTagFilter (\ s a -> s{_coweTagFilter = a});

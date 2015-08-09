@@ -27,14 +27,14 @@
 module Network.AWS.StorageGateway.DescribeGatewayInformation
     (
     -- * Creating a Request
-      DescribeGatewayInformation
-    , describeGatewayInformation
+      describeGatewayInformation
+    , DescribeGatewayInformation
     -- * Request Lenses
     , dgiGatewayARN
 
     -- * Destructuring the Response
-    , DescribeGatewayInformationResponse
     , describeGatewayInformationResponse
+    , DescribeGatewayInformationResponse
     -- * Response Lenses
     , dgirsGatewayState
     , dgirsGatewayARN
@@ -56,16 +56,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing the id of the gateway.
 --
 -- /See:/ 'describeGatewayInformation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dgiGatewayARN'
 newtype DescribeGatewayInformation = DescribeGatewayInformation'
     { _dgiGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeGatewayInformation' smart constructor.
-describeGatewayInformation :: Text -> DescribeGatewayInformation
+-- | Creates a value of 'DescribeGatewayInformation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dgiGatewayARN'
+describeGatewayInformation
+    :: Text -- ^ 'dgiGatewayARN'
+    -> DescribeGatewayInformation
 describeGatewayInformation pGatewayARN_ =
     DescribeGatewayInformation'
     { _dgiGatewayARN = pGatewayARN_
@@ -116,8 +118,21 @@ instance ToQuery DescribeGatewayInformation where
 -- | A JSON object containing the following fields:
 --
 -- /See:/ 'describeGatewayInformationResponse' smart constructor.
+data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
+    { _dgirsGatewayState               :: !(Maybe Text)
+    , _dgirsGatewayARN                 :: !(Maybe Text)
+    , _dgirsGatewayNetworkInterfaces   :: !(Maybe [NetworkInterface])
+    , _dgirsNextUpdateAvailabilityDate :: !(Maybe Text)
+    , _dgirsLastSoftwareUpdate         :: !(Maybe Text)
+    , _dgirsGatewayId                  :: !(Maybe Text)
+    , _dgirsGatewayType                :: !(Maybe Text)
+    , _dgirsGatewayTimezone            :: !(Maybe Text)
+    , _dgirsStatus                     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeGatewayInformationResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dgirsGatewayState'
 --
@@ -136,20 +151,9 @@ instance ToQuery DescribeGatewayInformation where
 -- * 'dgirsGatewayTimezone'
 --
 -- * 'dgirsStatus'
-data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
-    { _dgirsGatewayState               :: !(Maybe Text)
-    , _dgirsGatewayARN                 :: !(Maybe Text)
-    , _dgirsGatewayNetworkInterfaces   :: !(Maybe [NetworkInterface])
-    , _dgirsNextUpdateAvailabilityDate :: !(Maybe Text)
-    , _dgirsLastSoftwareUpdate         :: !(Maybe Text)
-    , _dgirsGatewayId                  :: !(Maybe Text)
-    , _dgirsGatewayType                :: !(Maybe Text)
-    , _dgirsGatewayTimezone            :: !(Maybe Text)
-    , _dgirsStatus                     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeGatewayInformationResponse' smart constructor.
-describeGatewayInformationResponse :: Int -> DescribeGatewayInformationResponse
+describeGatewayInformationResponse
+    :: Int -- ^ 'dgirsStatus'
+    -> DescribeGatewayInformationResponse
 describeGatewayInformationResponse pStatus_ =
     DescribeGatewayInformationResponse'
     { _dgirsGatewayState = Nothing
@@ -201,6 +205,6 @@ dgirsGatewayType = lens _dgirsGatewayType (\ s a -> s{_dgirsGatewayType = a});
 dgirsGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirsGatewayTimezone = lens _dgirsGatewayTimezone (\ s a -> s{_dgirsGatewayTimezone = a});
 
--- | Undocumented member.
+-- | The response status code.
 dgirsStatus :: Lens' DescribeGatewayInformationResponse Int
 dgirsStatus = lens _dgirsStatus (\ s a -> s{_dgirsStatus = a});

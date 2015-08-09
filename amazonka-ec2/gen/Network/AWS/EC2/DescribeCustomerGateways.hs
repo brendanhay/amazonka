@@ -28,16 +28,16 @@
 module Network.AWS.EC2.DescribeCustomerGateways
     (
     -- * Creating a Request
-      DescribeCustomerGateways
-    , describeCustomerGateways
+      describeCustomerGateways
+    , DescribeCustomerGateways
     -- * Request Lenses
     , dcgCustomerGatewayIds
     , dcgFilters
     , dcgDryRun
 
     -- * Destructuring the Response
-    , DescribeCustomerGatewaysResponse
     , describeCustomerGatewaysResponse
+    , DescribeCustomerGatewaysResponse
     -- * Response Lenses
     , dcgrsCustomerGateways
     , dcgrsStatus
@@ -50,22 +50,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeCustomerGateways' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcgCustomerGatewayIds'
---
--- * 'dcgFilters'
---
--- * 'dcgDryRun'
 data DescribeCustomerGateways = DescribeCustomerGateways'
     { _dcgCustomerGatewayIds :: !(Maybe [Text])
     , _dcgFilters            :: !(Maybe [Filter])
     , _dcgDryRun             :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCustomerGateways' smart constructor.
-describeCustomerGateways :: DescribeCustomerGateways
+-- | Creates a value of 'DescribeCustomerGateways' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcgCustomerGatewayIds'
+--
+-- * 'dcgFilters'
+--
+-- * 'dcgDryRun'
+describeCustomerGateways
+    :: DescribeCustomerGateways
 describeCustomerGateways =
     DescribeCustomerGateways'
     { _dcgCustomerGatewayIds = Nothing
@@ -81,41 +82,41 @@ dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGate
 
 -- | One or more filters.
 --
--- -   @bgp-asn@ - The customer gateway\'s Border Gateway Protocol (BGP)
+-- -   'bgp-asn' - The customer gateway\'s Border Gateway Protocol (BGP)
 --     Autonomous System Number (ASN).
 --
--- -   @customer-gateway-id@ - The ID of the customer gateway.
+-- -   'customer-gateway-id' - The ID of the customer gateway.
 --
--- -   @ip-address@ - The IP address of the customer gateway\'s
+-- -   'ip-address' - The IP address of the customer gateway\'s
 --     Internet-routable external interface.
 --
--- -   @state@ - The state of the customer gateway (@pending@ | @available@
---     | @deleting@ | @deleted@).
+-- -   'state' - The state of the customer gateway ('pending' | 'available'
+--     | 'deleting' | 'deleted').
 --
--- -   @type@ - The type of customer gateway. Currently, the only supported
---     type is @ipsec.1@.
+-- -   'type' - The type of customer gateway. Currently, the only supported
+--     type is 'ipsec.1'.
 --
--- -   @tag@:/key/=/value/ - The key\/value combination of a tag assigned
+-- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
 --     to the resource.
 --
--- -   @tag-key@ - The key of a tag assigned to the resource. This filter
---     is independent of the @tag-value@ filter. For example, if you use
+-- -   'tag-key' - The key of a tag assigned to the resource. This filter
+--     is independent of the 'tag-value' filter. For example, if you use
 --     both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\",
 --     you get any resources assigned both the tag key Purpose (regardless
 --     of what the tag\'s value is), and the tag value X (regardless of
 --     what the tag\'s key is). If you want to list only resources where
---     Purpose is X, see the @tag@:/key/=/value/ filter.
+--     Purpose is X, see the 'tag':/key/=/value/ filter.
 --
--- -   @tag-value@ - The value of a tag assigned to the resource. This
---     filter is independent of the @tag-key@ filter.
+-- -   'tag-value' - The value of a tag assigned to the resource. This
+--     filter is independent of the 'tag-key' filter.
 --
 dcgFilters :: Lens' DescribeCustomerGateways [Filter]
 dcgFilters = lens _dcgFilters (\ s a -> s{_dcgFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dcgDryRun :: Lens' DescribeCustomerGateways (Maybe Bool)
 dcgDryRun = lens _dcgDryRun (\ s a -> s{_dcgDryRun = a});
 
@@ -151,19 +152,21 @@ instance ToQuery DescribeCustomerGateways where
                "DryRun" =: _dcgDryRun]
 
 -- | /See:/ 'describeCustomerGatewaysResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcgrsCustomerGateways'
---
--- * 'dcgrsStatus'
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
     { _dcgrsCustomerGateways :: !(Maybe [CustomerGateway])
     , _dcgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCustomerGatewaysResponse' smart constructor.
-describeCustomerGatewaysResponse :: Int -> DescribeCustomerGatewaysResponse
+-- | Creates a value of 'DescribeCustomerGatewaysResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcgrsCustomerGateways'
+--
+-- * 'dcgrsStatus'
+describeCustomerGatewaysResponse
+    :: Int -- ^ 'dcgrsStatus'
+    -> DescribeCustomerGatewaysResponse
 describeCustomerGatewaysResponse pStatus_ =
     DescribeCustomerGatewaysResponse'
     { _dcgrsCustomerGateways = Nothing
@@ -174,6 +177,6 @@ describeCustomerGatewaysResponse pStatus_ =
 dcgrsCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
 dcgrsCustomerGateways = lens _dcgrsCustomerGateways (\ s a -> s{_dcgrsCustomerGateways = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dcgrsStatus :: Lens' DescribeCustomerGatewaysResponse Int
 dcgrsStatus = lens _dcgrsStatus (\ s a -> s{_dcgrsStatus = a});

@@ -25,15 +25,15 @@
 module Network.AWS.CodeDeploy.ListDeploymentGroups
     (
     -- * Creating a Request
-      ListDeploymentGroups
-    , listDeploymentGroups
+      listDeploymentGroups
+    , ListDeploymentGroups
     -- * Request Lenses
     , ldgNextToken
     , ldgApplicationName
 
     -- * Destructuring the Response
-    , ListDeploymentGroupsResponse
     , listDeploymentGroupsResponse
+    , ListDeploymentGroupsResponse
     -- * Response Lenses
     , ldgrsNextToken
     , ldgrsApplicationName
@@ -50,19 +50,21 @@ import           Network.AWS.Response
 -- | Represents the input of a list deployment groups operation.
 --
 -- /See:/ 'listDeploymentGroups' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldgNextToken'
---
--- * 'ldgApplicationName'
 data ListDeploymentGroups = ListDeploymentGroups'
     { _ldgNextToken       :: !(Maybe Text)
     , _ldgApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDeploymentGroups' smart constructor.
-listDeploymentGroups :: Text -> ListDeploymentGroups
+-- | Creates a value of 'ListDeploymentGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldgNextToken'
+--
+-- * 'ldgApplicationName'
+listDeploymentGroups
+    :: Text -- ^ 'ldgApplicationName'
+    -> ListDeploymentGroups
 listDeploymentGroups pApplicationName_ =
     ListDeploymentGroups'
     { _ldgNextToken = Nothing
@@ -118,8 +120,16 @@ instance ToQuery ListDeploymentGroups where
 -- | Represents the output of a list deployment groups operation.
 --
 -- /See:/ 'listDeploymentGroupsResponse' smart constructor.
+data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
+    { _ldgrsNextToken        :: !(Maybe Text)
+    , _ldgrsApplicationName  :: !(Maybe Text)
+    , _ldgrsDeploymentGroups :: !(Maybe [Text])
+    , _ldgrsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListDeploymentGroupsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ldgrsNextToken'
 --
@@ -128,15 +138,9 @@ instance ToQuery ListDeploymentGroups where
 -- * 'ldgrsDeploymentGroups'
 --
 -- * 'ldgrsStatus'
-data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
-    { _ldgrsNextToken        :: !(Maybe Text)
-    , _ldgrsApplicationName  :: !(Maybe Text)
-    , _ldgrsDeploymentGroups :: !(Maybe [Text])
-    , _ldgrsStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListDeploymentGroupsResponse' smart constructor.
-listDeploymentGroupsResponse :: Int -> ListDeploymentGroupsResponse
+listDeploymentGroupsResponse
+    :: Int -- ^ 'ldgrsStatus'
+    -> ListDeploymentGroupsResponse
 listDeploymentGroupsResponse pStatus_ =
     ListDeploymentGroupsResponse'
     { _ldgrsNextToken = Nothing
@@ -160,6 +164,6 @@ ldgrsApplicationName = lens _ldgrsApplicationName (\ s a -> s{_ldgrsApplicationN
 ldgrsDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
 ldgrsDeploymentGroups = lens _ldgrsDeploymentGroups (\ s a -> s{_ldgrsDeploymentGroups = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ldgrsStatus :: Lens' ListDeploymentGroupsResponse Int
 ldgrsStatus = lens _ldgrsStatus (\ s a -> s{_ldgrsStatus = a});

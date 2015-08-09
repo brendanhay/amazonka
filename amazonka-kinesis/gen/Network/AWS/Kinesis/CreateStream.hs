@@ -38,16 +38,16 @@
 -- streams in the same account, but in two different regions, can have the
 -- same name.
 --
--- @CreateStream@ is an asynchronous operation. Upon receiving a
--- @CreateStream@ request, Amazon Kinesis immediately returns and sets the
--- stream status to @CREATING@. After the stream is created, Amazon Kinesis
--- sets the stream status to @ACTIVE@. You should perform read and write
--- operations only on an @ACTIVE@ stream.
+-- 'CreateStream' is an asynchronous operation. Upon receiving a
+-- 'CreateStream' request, Amazon Kinesis immediately returns and sets the
+-- stream status to 'CREATING'. After the stream is created, Amazon Kinesis
+-- sets the stream status to 'ACTIVE'. You should perform read and write
+-- operations only on an 'ACTIVE' stream.
 --
--- You receive a @LimitExceededException@ when making a @CreateStream@
+-- You receive a 'LimitExceededException' when making a 'CreateStream'
 -- request if you try to do one of the following:
 --
--- -   Have more than five streams in the @CREATING@ state at any point in
+-- -   Have more than five streams in the 'CREATING' state at any point in
 --     time.
 -- -   Create more shards than are authorized for your account.
 --
@@ -56,8 +56,8 @@
 -- If you need to increase this limit,
 -- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support>
 --
--- You can use @DescribeStream@ to check the stream status, which is
--- returned in @StreamStatus@.
+-- You can use 'DescribeStream' to check the stream status, which is
+-- returned in 'StreamStatus'.
 --
 -- CreateStream has a limit of 5 transactions per second per account.
 --
@@ -65,15 +65,15 @@
 module Network.AWS.Kinesis.CreateStream
     (
     -- * Creating a Request
-      CreateStream
-    , createStream
+      createStream
+    , CreateStream
     -- * Request Lenses
     , csStreamName
     , csShardCount
 
     -- * Destructuring the Response
-    , CreateStreamResponse
     , createStreamResponse
+    , CreateStreamResponse
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -82,22 +82,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for @CreateStream@.
+-- | Represents the input for 'CreateStream'.
 --
 -- /See:/ 'createStream' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csStreamName'
---
--- * 'csShardCount'
 data CreateStream = CreateStream'
     { _csStreamName :: !Text
     , _csShardCount :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateStream' smart constructor.
-createStream :: Text -> Natural -> CreateStream
+-- | Creates a value of 'CreateStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csStreamName'
+--
+-- * 'csShardCount'
+createStream
+    :: Text -- ^ 'csStreamName'
+    -> Natural -- ^ 'csShardCount'
+    -> CreateStream
 createStream pStreamName_ pShardCount_ =
     CreateStream'
     { _csStreamName = pStreamName_
@@ -152,6 +155,8 @@ data CreateStreamResponse =
     CreateStreamResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateStreamResponse' smart constructor.
-createStreamResponse :: CreateStreamResponse
+-- | Creates a value of 'CreateStreamResponse' with the minimum fields required to make a request.
+--
+createStreamResponse
+    :: CreateStreamResponse
 createStreamResponse = CreateStreamResponse'

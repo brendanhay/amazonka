@@ -32,15 +32,15 @@
 module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     (
     -- * Creating a Request
-      CreateCacheSecurityGroup
-    , createCacheSecurityGroup
+      createCacheSecurityGroup
+    , CreateCacheSecurityGroup
     -- * Request Lenses
     , ccsgCacheSecurityGroupName
     , ccsgDescription
 
     -- * Destructuring the Response
-    , CreateCacheSecurityGroupResponse
     , createCacheSecurityGroupResponse
+    , CreateCacheSecurityGroupResponse
     -- * Response Lenses
     , ccsgrsCacheSecurityGroup
     , ccsgrsStatus
@@ -55,19 +55,22 @@ import           Network.AWS.Response
 -- | Represents the input of a /CreateCacheSecurityGroup/ action.
 --
 -- /See:/ 'createCacheSecurityGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccsgCacheSecurityGroupName'
---
--- * 'ccsgDescription'
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
     { _ccsgCacheSecurityGroupName :: !Text
     , _ccsgDescription            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateCacheSecurityGroup' smart constructor.
-createCacheSecurityGroup :: Text -> Text -> CreateCacheSecurityGroup
+-- | Creates a value of 'CreateCacheSecurityGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccsgCacheSecurityGroupName'
+--
+-- * 'ccsgDescription'
+createCacheSecurityGroup
+    :: Text -- ^ 'ccsgCacheSecurityGroupName'
+    -> Text -- ^ 'ccsgDescription'
+    -> CreateCacheSecurityGroup
 createCacheSecurityGroup pCacheSecurityGroupName_ pDescription_ =
     CreateCacheSecurityGroup'
     { _ccsgCacheSecurityGroupName = pCacheSecurityGroupName_
@@ -80,7 +83,7 @@ createCacheSecurityGroup pCacheSecurityGroupName_ pDescription_ =
 -- Constraints: Must contain no more than 255 alphanumeric characters.
 -- Cannot be the word \"Default\".
 --
--- Example: @mysecuritygroup@
+-- Example: 'mysecuritygroup'
 ccsgCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup Text
 ccsgCacheSecurityGroupName = lens _ccsgCacheSecurityGroupName (\ s a -> s{_ccsgCacheSecurityGroupName = a});
 
@@ -116,19 +119,21 @@ instance ToQuery CreateCacheSecurityGroup where
                "Description" =: _ccsgDescription]
 
 -- | /See:/ 'createCacheSecurityGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccsgrsCacheSecurityGroup'
---
--- * 'ccsgrsStatus'
 data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
     { _ccsgrsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
     , _ccsgrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateCacheSecurityGroupResponse' smart constructor.
-createCacheSecurityGroupResponse :: Int -> CreateCacheSecurityGroupResponse
+-- | Creates a value of 'CreateCacheSecurityGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccsgrsCacheSecurityGroup'
+--
+-- * 'ccsgrsStatus'
+createCacheSecurityGroupResponse
+    :: Int -- ^ 'ccsgrsStatus'
+    -> CreateCacheSecurityGroupResponse
 createCacheSecurityGroupResponse pStatus_ =
     CreateCacheSecurityGroupResponse'
     { _ccsgrsCacheSecurityGroup = Nothing
@@ -139,6 +144,6 @@ createCacheSecurityGroupResponse pStatus_ =
 ccsgrsCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
 ccsgrsCacheSecurityGroup = lens _ccsgrsCacheSecurityGroup (\ s a -> s{_ccsgrsCacheSecurityGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 ccsgrsStatus :: Lens' CreateCacheSecurityGroupResponse Int
 ccsgrsStatus = lens _ccsgrsStatus (\ s a -> s{_ccsgrsStatus = a});

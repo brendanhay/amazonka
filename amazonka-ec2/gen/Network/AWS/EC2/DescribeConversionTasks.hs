@@ -27,16 +27,16 @@
 module Network.AWS.EC2.DescribeConversionTasks
     (
     -- * Creating a Request
-      DescribeConversionTasks
-    , describeConversionTasks
+      describeConversionTasks
+    , DescribeConversionTasks
     -- * Request Lenses
     , dctConversionTaskIds
     , dctFilters
     , dctDryRun
 
     -- * Destructuring the Response
-    , DescribeConversionTasksResponse
     , describeConversionTasksResponse
+    , DescribeConversionTasksResponse
     -- * Response Lenses
     , dctrsConversionTasks
     , dctrsStatus
@@ -49,22 +49,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeConversionTasks' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dctConversionTaskIds'
---
--- * 'dctFilters'
---
--- * 'dctDryRun'
 data DescribeConversionTasks = DescribeConversionTasks'
     { _dctConversionTaskIds :: !(Maybe [Text])
     , _dctFilters           :: !(Maybe [Filter])
     , _dctDryRun            :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeConversionTasks' smart constructor.
-describeConversionTasks :: DescribeConversionTasks
+-- | Creates a value of 'DescribeConversionTasks' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dctConversionTaskIds'
+--
+-- * 'dctFilters'
+--
+-- * 'dctDryRun'
+describeConversionTasks
+    :: DescribeConversionTasks
 describeConversionTasks =
     DescribeConversionTasks'
     { _dctConversionTaskIds = Nothing
@@ -82,8 +83,8 @@ dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dctDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
 dctDryRun = lens _dctDryRun (\ s a -> s{_dctDryRun = a});
 
@@ -118,19 +119,21 @@ instance ToQuery DescribeConversionTasks where
                "DryRun" =: _dctDryRun]
 
 -- | /See:/ 'describeConversionTasksResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dctrsConversionTasks'
---
--- * 'dctrsStatus'
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
     { _dctrsConversionTasks :: !(Maybe [ConversionTask])
     , _dctrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeConversionTasksResponse' smart constructor.
-describeConversionTasksResponse :: Int -> DescribeConversionTasksResponse
+-- | Creates a value of 'DescribeConversionTasksResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dctrsConversionTasks'
+--
+-- * 'dctrsStatus'
+describeConversionTasksResponse
+    :: Int -- ^ 'dctrsStatus'
+    -> DescribeConversionTasksResponse
 describeConversionTasksResponse pStatus_ =
     DescribeConversionTasksResponse'
     { _dctrsConversionTasks = Nothing
@@ -141,6 +144,6 @@ describeConversionTasksResponse pStatus_ =
 dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTasks = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dctrsStatus :: Lens' DescribeConversionTasksResponse Int
 dctrsStatus = lens _dctrsStatus (\ s a -> s{_dctrsStatus = a});

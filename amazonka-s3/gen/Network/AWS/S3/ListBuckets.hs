@@ -25,12 +25,12 @@
 module Network.AWS.S3.ListBuckets
     (
     -- * Creating a Request
-      ListBuckets
-    , listBuckets
+      listBuckets
+    , ListBuckets
 
     -- * Destructuring the Response
-    , ListBucketsResponse
     , listBucketsResponse
+    , ListBucketsResponse
     -- * Response Lenses
     , lbrsBuckets
     , lbrsOwner
@@ -48,8 +48,10 @@ data ListBuckets =
     ListBuckets'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListBuckets' smart constructor.
-listBuckets :: ListBuckets
+-- | Creates a value of 'ListBuckets' with the minimum fields required to make a request.
+--
+listBuckets
+    :: ListBuckets
 listBuckets = ListBuckets'
 
 instance AWSRequest ListBuckets where
@@ -75,22 +77,24 @@ instance ToQuery ListBuckets where
         toQuery = const mempty
 
 -- | /See:/ 'listBucketsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lbrsBuckets'
---
--- * 'lbrsOwner'
---
--- * 'lbrsStatus'
 data ListBucketsResponse = ListBucketsResponse'
     { _lbrsBuckets :: !(Maybe [Bucket])
     , _lbrsOwner   :: !(Maybe Owner)
     , _lbrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListBucketsResponse' smart constructor.
-listBucketsResponse :: Int -> ListBucketsResponse
+-- | Creates a value of 'ListBucketsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbrsBuckets'
+--
+-- * 'lbrsOwner'
+--
+-- * 'lbrsStatus'
+listBucketsResponse
+    :: Int -- ^ 'lbrsStatus'
+    -> ListBucketsResponse
 listBucketsResponse pStatus_ =
     ListBucketsResponse'
     { _lbrsBuckets = Nothing
@@ -106,6 +110,6 @@ lbrsBuckets = lens _lbrsBuckets (\ s a -> s{_lbrsBuckets = a}) . _Default . _Coe
 lbrsOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrsOwner = lens _lbrsOwner (\ s a -> s{_lbrsOwner = a});
 
--- | Undocumented member.
+-- | The response status code.
 lbrsStatus :: Lens' ListBucketsResponse Int
 lbrsStatus = lens _lbrsStatus (\ s a -> s{_lbrsStatus = a});

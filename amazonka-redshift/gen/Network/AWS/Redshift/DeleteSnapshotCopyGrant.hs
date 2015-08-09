@@ -24,14 +24,14 @@
 module Network.AWS.Redshift.DeleteSnapshotCopyGrant
     (
     -- * Creating a Request
-      DeleteSnapshotCopyGrant
-    , deleteSnapshotCopyGrant
+      deleteSnapshotCopyGrant
+    , DeleteSnapshotCopyGrant
     -- * Request Lenses
     , dscgSnapshotCopyGrantName
 
     -- * Destructuring the Response
-    , DeleteSnapshotCopyGrantResponse
     , deleteSnapshotCopyGrantResponse
+    , DeleteSnapshotCopyGrantResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -40,19 +40,21 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The result of the @DeleteSnapshotCopyGrant@ action.
+-- | The result of the 'DeleteSnapshotCopyGrant' action.
 --
 -- /See:/ 'deleteSnapshotCopyGrant' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dscgSnapshotCopyGrantName'
 newtype DeleteSnapshotCopyGrant = DeleteSnapshotCopyGrant'
     { _dscgSnapshotCopyGrantName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSnapshotCopyGrant' smart constructor.
-deleteSnapshotCopyGrant :: Text -> DeleteSnapshotCopyGrant
+-- | Creates a value of 'DeleteSnapshotCopyGrant' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dscgSnapshotCopyGrantName'
+deleteSnapshotCopyGrant
+    :: Text -- ^ 'dscgSnapshotCopyGrantName'
+    -> DeleteSnapshotCopyGrant
 deleteSnapshotCopyGrant pSnapshotCopyGrantName_ =
     DeleteSnapshotCopyGrant'
     { _dscgSnapshotCopyGrantName = pSnapshotCopyGrantName_
@@ -90,6 +92,8 @@ data DeleteSnapshotCopyGrantResponse =
     DeleteSnapshotCopyGrantResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSnapshotCopyGrantResponse' smart constructor.
-deleteSnapshotCopyGrantResponse :: DeleteSnapshotCopyGrantResponse
+-- | Creates a value of 'DeleteSnapshotCopyGrantResponse' with the minimum fields required to make a request.
+--
+deleteSnapshotCopyGrantResponse
+    :: DeleteSnapshotCopyGrantResponse
 deleteSnapshotCopyGrantResponse = DeleteSnapshotCopyGrantResponse'

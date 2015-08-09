@@ -36,16 +36,16 @@
 module Network.AWS.IAM.UpdateGroup
     (
     -- * Creating a Request
-      UpdateGroup
-    , updateGroup
+      updateGroup
+    , UpdateGroup
     -- * Request Lenses
     , ugNewGroupName
     , ugNewPath
     , ugGroupName
 
     -- * Destructuring the Response
-    , UpdateGroupResponse
     , updateGroupResponse
+    , UpdateGroupResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -55,22 +55,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ugNewGroupName'
---
--- * 'ugNewPath'
---
--- * 'ugGroupName'
 data UpdateGroup = UpdateGroup'
     { _ugNewGroupName :: !(Maybe Text)
     , _ugNewPath      :: !(Maybe Text)
     , _ugGroupName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateGroup' smart constructor.
-updateGroup :: Text -> UpdateGroup
+-- | Creates a value of 'UpdateGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ugNewGroupName'
+--
+-- * 'ugNewPath'
+--
+-- * 'ugGroupName'
+updateGroup
+    :: Text -- ^ 'ugGroupName'
+    -> UpdateGroup
 updateGroup pGroupName_ =
     UpdateGroup'
     { _ugNewGroupName = Nothing
@@ -116,6 +118,8 @@ data UpdateGroupResponse =
     UpdateGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateGroupResponse' smart constructor.
-updateGroupResponse :: UpdateGroupResponse
+-- | Creates a value of 'UpdateGroupResponse' with the minimum fields required to make a request.
+--
+updateGroupResponse
+    :: UpdateGroupResponse
 updateGroupResponse = UpdateGroupResponse'

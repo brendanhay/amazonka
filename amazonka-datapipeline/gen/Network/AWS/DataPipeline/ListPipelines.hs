@@ -22,17 +22,19 @@
 -- permission to access.
 --
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ListPipelines.html AWS API Reference> for ListPipelines.
+--
+-- This operation returns paginated results.
 module Network.AWS.DataPipeline.ListPipelines
     (
     -- * Creating a Request
-      ListPipelines
-    , listPipelines
+      listPipelines
+    , ListPipelines
     -- * Request Lenses
     , lpMarker
 
     -- * Destructuring the Response
-    , ListPipelinesResponse
     , listPipelinesResponse
+    , ListPipelinesResponse
     -- * Response Lenses
     , lprsHasMoreResults
     , lprsMarker
@@ -50,16 +52,17 @@ import           Network.AWS.Response
 -- | Contains the parameters for ListPipelines.
 --
 -- /See:/ 'listPipelines' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lpMarker'
 newtype ListPipelines = ListPipelines'
     { _lpMarker :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListPipelines' smart constructor.
-listPipelines :: ListPipelines
+-- | Creates a value of 'ListPipelines' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpMarker'
+listPipelines
+    :: ListPipelines
 listPipelines =
     ListPipelines'
     { _lpMarker = Nothing
@@ -67,7 +70,7 @@ listPipelines =
 
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
--- to call @ListPipelines@ with the marker value from the previous call to
+-- to call 'ListPipelines' with the marker value from the previous call to
 -- retrieve the next set of results.
 lpMarker :: Lens' ListPipelines (Maybe Text)
 lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
@@ -113,8 +116,16 @@ instance ToQuery ListPipelines where
 -- | Contains the output of ListPipelines.
 --
 -- /See:/ 'listPipelinesResponse' smart constructor.
+data ListPipelinesResponse = ListPipelinesResponse'
+    { _lprsHasMoreResults :: !(Maybe Bool)
+    , _lprsMarker         :: !(Maybe Text)
+    , _lprsStatus         :: !Int
+    , _lprsPipelineIdList :: ![PipelineIdName]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListPipelinesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lprsHasMoreResults'
 --
@@ -123,15 +134,9 @@ instance ToQuery ListPipelines where
 -- * 'lprsStatus'
 --
 -- * 'lprsPipelineIdList'
-data ListPipelinesResponse = ListPipelinesResponse'
-    { _lprsHasMoreResults :: !(Maybe Bool)
-    , _lprsMarker         :: !(Maybe Text)
-    , _lprsStatus         :: !Int
-    , _lprsPipelineIdList :: ![PipelineIdName]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListPipelinesResponse' smart constructor.
-listPipelinesResponse :: Int -> ListPipelinesResponse
+listPipelinesResponse
+    :: Int -- ^ 'lprsStatus'
+    -> ListPipelinesResponse
 listPipelinesResponse pStatus_ =
     ListPipelinesResponse'
     { _lprsHasMoreResults = Nothing
@@ -146,12 +151,12 @@ lprsHasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
 lprsHasMoreResults = lens _lprsHasMoreResults (\ s a -> s{_lprsHasMoreResults = a});
 
 -- | The starting point for the next page of results. To view the next page
--- of results, call @ListPipelinesOutput@ again with this marker value. If
+-- of results, call 'ListPipelinesOutput' again with this marker value. If
 -- the value is null, there are no more results.
 lprsMarker :: Lens' ListPipelinesResponse (Maybe Text)
 lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 lprsStatus :: Lens' ListPipelinesResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});
 

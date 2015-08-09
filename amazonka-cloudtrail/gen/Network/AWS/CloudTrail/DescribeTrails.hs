@@ -25,14 +25,14 @@
 module Network.AWS.CloudTrail.DescribeTrails
     (
     -- * Creating a Request
-      DescribeTrails
-    , describeTrails
+      describeTrails
+    , DescribeTrails
     -- * Request Lenses
     , dtTrailNameList
 
     -- * Destructuring the Response
-    , DescribeTrailsResponse
     , describeTrailsResponse
+    , DescribeTrailsResponse
     -- * Response Lenses
     , dtrsTrailList
     , dtrsStatus
@@ -47,16 +47,17 @@ import           Network.AWS.Response
 -- | Returns information about the trail.
 --
 -- /See:/ 'describeTrails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtTrailNameList'
 newtype DescribeTrails = DescribeTrails'
     { _dtTrailNameList :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTrails' smart constructor.
-describeTrails :: DescribeTrails
+-- | Creates a value of 'DescribeTrails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtTrailNameList'
+describeTrails
+    :: DescribeTrails
 describeTrails =
     DescribeTrails'
     { _dtTrailNameList = Nothing
@@ -101,19 +102,21 @@ instance ToQuery DescribeTrails where
 -- returns an error.
 --
 -- /See:/ 'describeTrailsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtrsTrailList'
---
--- * 'dtrsStatus'
 data DescribeTrailsResponse = DescribeTrailsResponse'
     { _dtrsTrailList :: !(Maybe [Trail])
     , _dtrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTrailsResponse' smart constructor.
-describeTrailsResponse :: Int -> DescribeTrailsResponse
+-- | Creates a value of 'DescribeTrailsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtrsTrailList'
+--
+-- * 'dtrsStatus'
+describeTrailsResponse
+    :: Int -- ^ 'dtrsStatus'
+    -> DescribeTrailsResponse
 describeTrailsResponse pStatus_ =
     DescribeTrailsResponse'
     { _dtrsTrailList = Nothing
@@ -124,6 +127,6 @@ describeTrailsResponse pStatus_ =
 dtrsTrailList :: Lens' DescribeTrailsResponse [Trail]
 dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dtrsStatus :: Lens' DescribeTrailsResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

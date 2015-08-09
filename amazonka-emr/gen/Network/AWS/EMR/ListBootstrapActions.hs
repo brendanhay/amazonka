@@ -22,18 +22,20 @@
 -- cluster.
 --
 -- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListBootstrapActions.html AWS API Reference> for ListBootstrapActions.
+--
+-- This operation returns paginated results.
 module Network.AWS.EMR.ListBootstrapActions
     (
     -- * Creating a Request
-      ListBootstrapActions
-    , listBootstrapActions
+      listBootstrapActions
+    , ListBootstrapActions
     -- * Request Lenses
     , lbaMarker
     , lbaClusterId
 
     -- * Destructuring the Response
-    , ListBootstrapActionsResponse
     , listBootstrapActionsResponse
+    , ListBootstrapActionsResponse
     -- * Response Lenses
     , lbarsBootstrapActions
     , lbarsMarker
@@ -50,19 +52,21 @@ import           Network.AWS.Response
 -- | This input determines which bootstrap actions to retrieve.
 --
 -- /See:/ 'listBootstrapActions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lbaMarker'
---
--- * 'lbaClusterId'
 data ListBootstrapActions = ListBootstrapActions'
     { _lbaMarker    :: !(Maybe Text)
     , _lbaClusterId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListBootstrapActions' smart constructor.
-listBootstrapActions :: Text -> ListBootstrapActions
+-- | Creates a value of 'ListBootstrapActions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbaMarker'
+--
+-- * 'lbaClusterId'
+listBootstrapActions
+    :: Text -- ^ 'lbaClusterId'
+    -> ListBootstrapActions
 listBootstrapActions pClusterId_ =
     ListBootstrapActions'
     { _lbaMarker = Nothing
@@ -123,22 +127,24 @@ instance ToQuery ListBootstrapActions where
 -- | This output contains the boostrap actions detail .
 --
 -- /See:/ 'listBootstrapActionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lbarsBootstrapActions'
---
--- * 'lbarsMarker'
---
--- * 'lbarsStatus'
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
     { _lbarsBootstrapActions :: !(Maybe [Command])
     , _lbarsMarker           :: !(Maybe Text)
     , _lbarsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListBootstrapActionsResponse' smart constructor.
-listBootstrapActionsResponse :: Int -> ListBootstrapActionsResponse
+-- | Creates a value of 'ListBootstrapActionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbarsBootstrapActions'
+--
+-- * 'lbarsMarker'
+--
+-- * 'lbarsStatus'
+listBootstrapActionsResponse
+    :: Int -- ^ 'lbarsStatus'
+    -> ListBootstrapActionsResponse
 listBootstrapActionsResponse pStatus_ =
     ListBootstrapActionsResponse'
     { _lbarsBootstrapActions = Nothing
@@ -155,6 +161,6 @@ lbarsBootstrapActions = lens _lbarsBootstrapActions (\ s a -> s{_lbarsBootstrapA
 lbarsMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
 lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 lbarsStatus :: Lens' ListBootstrapActionsResponse Int
 lbarsStatus = lens _lbarsStatus (\ s a -> s{_lbarsStatus = a});

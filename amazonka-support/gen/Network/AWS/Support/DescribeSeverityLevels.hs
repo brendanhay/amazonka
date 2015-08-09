@@ -26,14 +26,14 @@
 module Network.AWS.Support.DescribeSeverityLevels
     (
     -- * Creating a Request
-      DescribeSeverityLevels
-    , describeSeverityLevels
+      describeSeverityLevels
+    , DescribeSeverityLevels
     -- * Request Lenses
     , dslLanguage
 
     -- * Destructuring the Response
-    , DescribeSeverityLevelsResponse
     , describeSeverityLevelsResponse
+    , DescribeSeverityLevelsResponse
     -- * Response Lenses
     , dslrsSeverityLevels
     , dslrsStatus
@@ -46,16 +46,17 @@ import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
 -- | /See:/ 'describeSeverityLevels' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dslLanguage'
 newtype DescribeSeverityLevels = DescribeSeverityLevels'
     { _dslLanguage :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSeverityLevels' smart constructor.
-describeSeverityLevels :: DescribeSeverityLevels
+-- | Creates a value of 'DescribeSeverityLevels' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dslLanguage'
+describeSeverityLevels
+    :: DescribeSeverityLevels
 describeSeverityLevels =
     DescribeSeverityLevels'
     { _dslLanguage = Nothing
@@ -104,19 +105,21 @@ instance ToQuery DescribeSeverityLevels where
 -- operation.
 --
 -- /See:/ 'describeSeverityLevelsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dslrsSeverityLevels'
---
--- * 'dslrsStatus'
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
     { _dslrsSeverityLevels :: !(Maybe [SeverityLevel])
     , _dslrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSeverityLevelsResponse' smart constructor.
-describeSeverityLevelsResponse :: Int -> DescribeSeverityLevelsResponse
+-- | Creates a value of 'DescribeSeverityLevelsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dslrsSeverityLevels'
+--
+-- * 'dslrsStatus'
+describeSeverityLevelsResponse
+    :: Int -- ^ 'dslrsStatus'
+    -> DescribeSeverityLevelsResponse
 describeSeverityLevelsResponse pStatus_ =
     DescribeSeverityLevelsResponse'
     { _dslrsSeverityLevels = Nothing
@@ -128,6 +131,6 @@ describeSeverityLevelsResponse pStatus_ =
 dslrsSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
 dslrsSeverityLevels = lens _dslrsSeverityLevels (\ s a -> s{_dslrsSeverityLevels = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dslrsStatus :: Lens' DescribeSeverityLevelsResponse Int
 dslrsStatus = lens _dslrsStatus (\ s a -> s{_dslrsStatus = a});

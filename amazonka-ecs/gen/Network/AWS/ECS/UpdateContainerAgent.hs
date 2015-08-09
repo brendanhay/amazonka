@@ -25,8 +25,8 @@
 -- was launched with the Amazon ECS-optimized AMI or another operating
 -- system.
 --
--- @UpdateContainerAgent@ requires the Amazon ECS-optimized AMI or Amazon
--- Linux with the @ecs-init@ service installed and running. For help
+-- 'UpdateContainerAgent' requires the Amazon ECS-optimized AMI or Amazon
+-- Linux with the 'ecs-init' service installed and running. For help
 -- updating the Amazon ECS container agent on other operating systems, see
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent Manually Updating the Amazon ECS Container Agent>
 -- in the /Amazon EC2 Container Service Developer Guide/.
@@ -35,15 +35,15 @@
 module Network.AWS.ECS.UpdateContainerAgent
     (
     -- * Creating a Request
-      UpdateContainerAgent
-    , updateContainerAgent
+      updateContainerAgent
+    , UpdateContainerAgent
     -- * Request Lenses
     , ucaCluster
     , ucaContainerInstance
 
     -- * Destructuring the Response
-    , UpdateContainerAgentResponse
     , updateContainerAgentResponse
+    , UpdateContainerAgentResponse
     -- * Response Lenses
     , ucarsContainerInstance
     , ucarsStatus
@@ -56,19 +56,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateContainerAgent' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ucaCluster'
---
--- * 'ucaContainerInstance'
 data UpdateContainerAgent = UpdateContainerAgent'
     { _ucaCluster           :: !(Maybe Text)
     , _ucaContainerInstance :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateContainerAgent' smart constructor.
-updateContainerAgent :: Text -> UpdateContainerAgent
+-- | Creates a value of 'UpdateContainerAgent' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ucaCluster'
+--
+-- * 'ucaContainerInstance'
+updateContainerAgent
+    :: Text -- ^ 'ucaContainerInstance'
+    -> UpdateContainerAgent
 updateContainerAgent pContainerInstance_ =
     UpdateContainerAgent'
     { _ucaCluster = Nothing
@@ -121,19 +123,21 @@ instance ToQuery UpdateContainerAgent where
         toQuery = const mempty
 
 -- | /See:/ 'updateContainerAgentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ucarsContainerInstance'
---
--- * 'ucarsStatus'
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
     { _ucarsContainerInstance :: !(Maybe ContainerInstance)
     , _ucarsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateContainerAgentResponse' smart constructor.
-updateContainerAgentResponse :: Int -> UpdateContainerAgentResponse
+-- | Creates a value of 'UpdateContainerAgentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ucarsContainerInstance'
+--
+-- * 'ucarsStatus'
+updateContainerAgentResponse
+    :: Int -- ^ 'ucarsStatus'
+    -> UpdateContainerAgentResponse
 updateContainerAgentResponse pStatus_ =
     UpdateContainerAgentResponse'
     { _ucarsContainerInstance = Nothing
@@ -144,6 +148,6 @@ updateContainerAgentResponse pStatus_ =
 ucarsContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInstance)
 ucarsContainerInstance = lens _ucarsContainerInstance (\ s a -> s{_ucarsContainerInstance = a});
 
--- | Undocumented member.
+-- | The response status code.
 ucarsStatus :: Lens' UpdateContainerAgentResponse Int
 ucarsStatus = lens _ucarsStatus (\ s a -> s{_ucarsStatus = a});

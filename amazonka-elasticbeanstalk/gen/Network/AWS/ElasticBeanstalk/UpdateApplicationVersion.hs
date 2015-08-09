@@ -21,23 +21,23 @@
 -- Updates the specified application version to have the specified
 -- properties.
 --
--- If a property (for example, @description@) is not provided, the value
+-- If a property (for example, 'description') is not provided, the value
 -- remains unchanged. To clear properties, specify an empty string.
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplicationVersion.html AWS API Reference> for UpdateApplicationVersion.
 module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     (
     -- * Creating a Request
-      UpdateApplicationVersion
-    , updateApplicationVersion
+      updateApplicationVersion
+    , UpdateApplicationVersion
     -- * Request Lenses
     , uavDescription
     , uavApplicationName
     , uavVersionLabel
 
     -- * Destructuring the Response
-    , ApplicationVersionDescriptionMessage
     , applicationVersionDescriptionMessage
+    , ApplicationVersionDescriptionMessage
     -- * Response Lenses
     , avdmApplicationVersion
     ) where
@@ -51,22 +51,25 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'updateApplicationVersion' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uavDescription'
---
--- * 'uavApplicationName'
---
--- * 'uavVersionLabel'
 data UpdateApplicationVersion = UpdateApplicationVersion'
     { _uavDescription     :: !(Maybe Text)
     , _uavApplicationName :: !Text
     , _uavVersionLabel    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateApplicationVersion' smart constructor.
-updateApplicationVersion :: Text -> Text -> UpdateApplicationVersion
+-- | Creates a value of 'UpdateApplicationVersion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uavDescription'
+--
+-- * 'uavApplicationName'
+--
+-- * 'uavVersionLabel'
+updateApplicationVersion
+    :: Text -- ^ 'uavApplicationName'
+    -> Text -- ^ 'uavVersionLabel'
+    -> UpdateApplicationVersion
 updateApplicationVersion pApplicationName_ pVersionLabel_ =
     UpdateApplicationVersion'
     { _uavDescription = Nothing
@@ -80,15 +83,15 @@ uavDescription = lens _uavDescription (\ s a -> s{_uavDescription = a});
 
 -- | The name of the application associated with this version.
 --
--- If no application is found with this name, @UpdateApplication@ returns
--- an @InvalidParameterValue@ error.
+-- If no application is found with this name, 'UpdateApplication' returns
+-- an 'InvalidParameterValue' error.
 uavApplicationName :: Lens' UpdateApplicationVersion Text
 uavApplicationName = lens _uavApplicationName (\ s a -> s{_uavApplicationName = a});
 
 -- | The name of the version to update.
 --
--- If no application version is found with this label, @UpdateApplication@
--- returns an @InvalidParameterValue@ error.
+-- If no application version is found with this label, 'UpdateApplication'
+-- returns an 'InvalidParameterValue' error.
 uavVersionLabel :: Lens' UpdateApplicationVersion Text
 uavVersionLabel = lens _uavVersionLabel (\ s a -> s{_uavVersionLabel = a});
 

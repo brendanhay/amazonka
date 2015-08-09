@@ -28,15 +28,15 @@
 module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     (
     -- * Creating a Request
-      TerminateInstanceInAutoScalingGroup
-    , terminateInstanceInAutoScalingGroup
+      terminateInstanceInAutoScalingGroup
+    , TerminateInstanceInAutoScalingGroup
     -- * Request Lenses
     , tiiasgInstanceId
     , tiiasgShouldDecrementDesiredCapacity
 
     -- * Destructuring the Response
-    , TerminateInstanceInAutoScalingGroupResponse
     , terminateInstanceInAutoScalingGroupResponse
+    , TerminateInstanceInAutoScalingGroupResponse
     -- * Response Lenses
     , tiiasgrsActivity
     , tiiasgrsStatus
@@ -49,19 +49,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'terminateInstanceInAutoScalingGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tiiasgInstanceId'
---
--- * 'tiiasgShouldDecrementDesiredCapacity'
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
     { _tiiasgInstanceId                     :: !Text
     , _tiiasgShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TerminateInstanceInAutoScalingGroup' smart constructor.
-terminateInstanceInAutoScalingGroup :: Text -> Bool -> TerminateInstanceInAutoScalingGroup
+-- | Creates a value of 'TerminateInstanceInAutoScalingGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tiiasgInstanceId'
+--
+-- * 'tiiasgShouldDecrementDesiredCapacity'
+terminateInstanceInAutoScalingGroup
+    :: Text -- ^ 'tiiasgInstanceId'
+    -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
+    -> TerminateInstanceInAutoScalingGroup
 terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity_ =
     TerminateInstanceInAutoScalingGroup'
     { _tiiasgInstanceId = pInstanceId_
@@ -72,7 +75,7 @@ terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity
 tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
 tiiasgInstanceId = lens _tiiasgInstanceId (\ s a -> s{_tiiasgInstanceId = a});
 
--- | If @true@, terminating this instance also decrements the size of the
+-- | If 'true', terminating this instance also decrements the size of the
 -- Auto Scaling group.
 tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
 tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacity (\ s a -> s{_tiiasgShouldDecrementDesiredCapacity = a});
@@ -112,19 +115,21 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
                  _tiiasgShouldDecrementDesiredCapacity]
 
 -- | /See:/ 'terminateInstanceInAutoScalingGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tiiasgrsActivity'
---
--- * 'tiiasgrsStatus'
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
     { _tiiasgrsActivity :: !(Maybe Activity)
     , _tiiasgrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TerminateInstanceInAutoScalingGroupResponse' smart constructor.
-terminateInstanceInAutoScalingGroupResponse :: Int -> TerminateInstanceInAutoScalingGroupResponse
+-- | Creates a value of 'TerminateInstanceInAutoScalingGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tiiasgrsActivity'
+--
+-- * 'tiiasgrsStatus'
+terminateInstanceInAutoScalingGroupResponse
+    :: Int -- ^ 'tiiasgrsStatus'
+    -> TerminateInstanceInAutoScalingGroupResponse
 terminateInstanceInAutoScalingGroupResponse pStatus_ =
     TerminateInstanceInAutoScalingGroupResponse'
     { _tiiasgrsActivity = Nothing
@@ -135,6 +140,6 @@ terminateInstanceInAutoScalingGroupResponse pStatus_ =
 tiiasgrsActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
 tiiasgrsActivity = lens _tiiasgrsActivity (\ s a -> s{_tiiasgrsActivity = a});
 
--- | Undocumented member.
+-- | The response status code.
 tiiasgrsStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
 tiiasgrsStatus = lens _tiiasgrsStatus (\ s a -> s{_tiiasgrsStatus = a});

@@ -40,17 +40,17 @@
 --
 -- This List Jobs operation supports pagination. By default, this operation
 -- returns up to 1,000 jobs in the response. You should always check the
--- response for a @marker@ at which to continue the list; if there are no
--- more items the @marker@ is @null@. To return a list of jobs that begins
--- at a specific job, set the @marker@ request parameter to the value you
+-- response for a 'marker' at which to continue the list; if there are no
+-- more items the 'marker' is 'null'. To return a list of jobs that begins
+-- at a specific job, set the 'marker' request parameter to the value you
 -- obtained from a previous List Jobs request. You can also limit the
--- number of jobs returned in the response by specifying the @limit@
+-- number of jobs returned in the response by specifying the 'limit'
 -- parameter in the request.
 --
 -- Additionally, you can filter the jobs list returned by specifying an
--- optional @statuscode@ (InProgress, Succeeded, or Failed) and @completed@
--- (true, false) parameter. The @statuscode@ allows you to specify that
--- only jobs that match a specified status are returned. The @completed@
+-- optional 'statuscode' (InProgress, Succeeded, or Failed) and 'completed'
+-- (true, false) parameter. The 'statuscode' allows you to specify that
+-- only jobs that match a specified status are returned. The 'completed'
 -- parameter allows you to specify that only jobs in a specific completion
 -- state are returned.
 --
@@ -67,8 +67,8 @@
 module Network.AWS.Glacier.ListJobs
     (
     -- * Creating a Request
-      ListJobs
-    , listJobs
+      listJobs
+    , ListJobs
     -- * Request Lenses
     , ljMarker
     , ljCompleted
@@ -78,8 +78,8 @@ module Network.AWS.Glacier.ListJobs
     , ljVaultName
 
     -- * Destructuring the Response
-    , ListJobsResponse
     , listJobsResponse
+    , ListJobsResponse
     -- * Response Lenses
     , ljrsMarker
     , ljrsJobList
@@ -95,8 +95,18 @@ import           Network.AWS.Response
 -- | Provides options for retrieving a job list for an Amazon Glacier vault.
 --
 -- /See:/ 'listJobs' smart constructor.
+data ListJobs = ListJobs'
+    { _ljMarker     :: !(Maybe Text)
+    , _ljCompleted  :: !(Maybe Text)
+    , _ljLimit      :: !(Maybe Text)
+    , _ljStatuscode :: !(Maybe Text)
+    , _ljAccountId  :: !Text
+    , _ljVaultName  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ljMarker'
 --
@@ -109,17 +119,10 @@ import           Network.AWS.Response
 -- * 'ljAccountId'
 --
 -- * 'ljVaultName'
-data ListJobs = ListJobs'
-    { _ljMarker     :: !(Maybe Text)
-    , _ljCompleted  :: !(Maybe Text)
-    , _ljLimit      :: !(Maybe Text)
-    , _ljStatuscode :: !(Maybe Text)
-    , _ljAccountId  :: !Text
-    , _ljVaultName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListJobs' smart constructor.
-listJobs :: Text -> Text -> ListJobs
+listJobs
+    :: Text -- ^ 'ljAccountId'
+    -> Text -- ^ 'ljVaultName'
+    -> ListJobs
 listJobs pAccountId_ pVaultName_ =
     ListJobs'
     { _ljMarker = Nothing
@@ -138,8 +141,8 @@ listJobs pAccountId_ pVaultName_ =
 ljMarker :: Lens' ListJobs (Maybe Text)
 ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a});
 
--- | Specifies the state of the jobs to return. You can specify @true@ or
--- @false@.
+-- | Specifies the state of the jobs to return. You can specify 'true' or
+-- 'false'.
 ljCompleted :: Lens' ListJobs (Maybe Text)
 ljCompleted = lens _ljCompleted (\ s a -> s{_ljCompleted = a});
 
@@ -154,9 +157,9 @@ ljLimit = lens _ljLimit (\ s a -> s{_ljLimit = a});
 ljStatuscode :: Lens' ListJobs (Maybe Text)
 ljStatuscode = lens _ljStatuscode (\ s a -> s{_ljStatuscode = a});
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 ljAccountId :: Lens' ListJobs Text
@@ -195,22 +198,24 @@ instance ToQuery ListJobs where
 -- | Contains the Amazon Glacier response to your request.
 --
 -- /See:/ 'listJobsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ljrsMarker'
---
--- * 'ljrsJobList'
---
--- * 'ljrsStatus'
 data ListJobsResponse = ListJobsResponse'
     { _ljrsMarker  :: !(Maybe Text)
     , _ljrsJobList :: !(Maybe [GlacierJobDescription])
     , _ljrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListJobsResponse' smart constructor.
-listJobsResponse :: Int -> ListJobsResponse
+-- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ljrsMarker'
+--
+-- * 'ljrsJobList'
+--
+-- * 'ljrsStatus'
+listJobsResponse
+    :: Int -- ^ 'ljrsStatus'
+    -> ListJobsResponse
 listJobsResponse pStatus_ =
     ListJobsResponse'
     { _ljrsMarker = Nothing
@@ -220,7 +225,7 @@ listJobsResponse pStatus_ =
 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use this value in a new List Jobs request to obtain more
--- jobs in the list. If there are no more jobs, this value is @null@.
+-- jobs in the list. If there are no more jobs, this value is 'null'.
 ljrsMarker :: Lens' ListJobsResponse (Maybe Text)
 ljrsMarker = lens _ljrsMarker (\ s a -> s{_ljrsMarker = a});
 
@@ -229,6 +234,6 @@ ljrsMarker = lens _ljrsMarker (\ s a -> s{_ljrsMarker = a});
 ljrsJobList :: Lens' ListJobsResponse [GlacierJobDescription]
 ljrsJobList = lens _ljrsJobList (\ s a -> s{_ljrsJobList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ljrsStatus :: Lens' ListJobsResponse Int
 ljrsStatus = lens _ljrsStatus (\ s a -> s{_ljrsStatus = a});

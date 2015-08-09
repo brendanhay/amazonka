@@ -24,14 +24,14 @@
 module Network.AWS.SNS.GetSubscriptionAttributes
     (
     -- * Creating a Request
-      GetSubscriptionAttributes
-    , getSubscriptionAttributes
+      getSubscriptionAttributes
+    , GetSubscriptionAttributes
     -- * Request Lenses
     , gsaSubscriptionARN
 
     -- * Destructuring the Response
-    , GetSubscriptionAttributesResponse
     , getSubscriptionAttributesResponse
+    , GetSubscriptionAttributesResponse
     -- * Response Lenses
     , gsarsAttributes
     , gsarsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for GetSubscriptionAttributes.
 --
 -- /See:/ 'getSubscriptionAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsaSubscriptionARN'
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes'
     { _gsaSubscriptionARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSubscriptionAttributes' smart constructor.
-getSubscriptionAttributes :: Text -> GetSubscriptionAttributes
+-- | Creates a value of 'GetSubscriptionAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsaSubscriptionARN'
+getSubscriptionAttributes
+    :: Text -- ^ 'gsaSubscriptionARN'
+    -> GetSubscriptionAttributes
 getSubscriptionAttributes pSubscriptionARN_ =
     GetSubscriptionAttributes'
     { _gsaSubscriptionARN = pSubscriptionARN_
@@ -95,19 +97,21 @@ instance ToQuery GetSubscriptionAttributes where
 -- | Response for GetSubscriptionAttributes action.
 --
 -- /See:/ 'getSubscriptionAttributesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsarsAttributes'
---
--- * 'gsarsStatus'
 data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
     { _gsarsAttributes :: !(Maybe (Map Text Text))
     , _gsarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSubscriptionAttributesResponse' smart constructor.
-getSubscriptionAttributesResponse :: Int -> GetSubscriptionAttributesResponse
+-- | Creates a value of 'GetSubscriptionAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsarsAttributes'
+--
+-- * 'gsarsStatus'
+getSubscriptionAttributesResponse
+    :: Int -- ^ 'gsarsStatus'
+    -> GetSubscriptionAttributesResponse
 getSubscriptionAttributesResponse pStatus_ =
     GetSubscriptionAttributesResponse'
     { _gsarsAttributes = Nothing
@@ -117,19 +121,19 @@ getSubscriptionAttributesResponse pStatus_ =
 -- | A map of the subscription\'s attributes. Attributes in this map include
 -- the following:
 --
--- -   @SubscriptionArn@ -- the subscription\'s ARN
--- -   @TopicArn@ -- the topic ARN that the subscription is associated with
--- -   @Owner@ -- the AWS account ID of the subscription\'s owner
--- -   @ConfirmationWasAuthenticated@ -- true if the subscription
+-- -   'SubscriptionArn' -- the subscription\'s ARN
+-- -   'TopicArn' -- the topic ARN that the subscription is associated with
+-- -   'Owner' -- the AWS account ID of the subscription\'s owner
+-- -   'ConfirmationWasAuthenticated' -- true if the subscription
 --     confirmation request was authenticated
--- -   @DeliveryPolicy@ -- the JSON serialization of the subscription\'s
+-- -   'DeliveryPolicy' -- the JSON serialization of the subscription\'s
 --     delivery policy
--- -   @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective
+-- -   'EffectiveDeliveryPolicy' -- the JSON serialization of the effective
 --     delivery policy that takes into account the topic delivery policy
 --     and account system defaults
 gsarsAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarsAttributes = lens _gsarsAttributes (\ s a -> s{_gsarsAttributes = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 gsarsStatus :: Lens' GetSubscriptionAttributesResponse Int
 gsarsStatus = lens _gsarsStatus (\ s a -> s{_gsarsStatus = a});

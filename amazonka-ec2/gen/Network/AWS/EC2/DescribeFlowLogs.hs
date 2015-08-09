@@ -26,8 +26,8 @@
 module Network.AWS.EC2.DescribeFlowLogs
     (
     -- * Creating a Request
-      DescribeFlowLogs
-    , describeFlowLogs
+      describeFlowLogs
+    , DescribeFlowLogs
     -- * Request Lenses
     , dNextToken
     , dFilter
@@ -35,8 +35,8 @@ module Network.AWS.EC2.DescribeFlowLogs
     , dMaxResults
 
     -- * Destructuring the Response
-    , DescribeFlowLogsResponse
     , describeFlowLogsResponse
+    , DescribeFlowLogsResponse
     -- * Response Lenses
     , dflsrsNextToken
     , dflsrsFlowLogs
@@ -50,8 +50,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeFlowLogs' smart constructor.
+data DescribeFlowLogs = DescribeFlowLogs'
+    { _dNextToken  :: !(Maybe Text)
+    , _dFilter     :: !(Maybe [Filter])
+    , _dFlowLogIds :: !(Maybe [Text])
+    , _dMaxResults :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeFlowLogs' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dNextToken'
 --
@@ -60,15 +68,8 @@ import           Network.AWS.Response
 -- * 'dFlowLogIds'
 --
 -- * 'dMaxResults'
-data DescribeFlowLogs = DescribeFlowLogs'
-    { _dNextToken  :: !(Maybe Text)
-    , _dFilter     :: !(Maybe [Filter])
-    , _dFlowLogIds :: !(Maybe [Text])
-    , _dMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeFlowLogs' smart constructor.
-describeFlowLogs :: DescribeFlowLogs
+describeFlowLogs
+    :: DescribeFlowLogs
 describeFlowLogs =
     DescribeFlowLogs'
     { _dNextToken = Nothing
@@ -83,16 +84,16 @@ dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
 -- | One or more filters.
 --
--- -   @deliver-log-status@ - The status of the logs delivery (@SUCCESS@ |
---     @FAILED@).
+-- -   'deliver-log-status' - The status of the logs delivery ('SUCCESS' |
+--     'FAILED').
 --
--- -   @flow-log-id@ - The ID of the flow log.
+-- -   'flow-log-id' - The ID of the flow log.
 --
--- -   @log-group-name@ - The name of the log group.
+-- -   'log-group-name' - The name of the log group.
 --
--- -   @resource-id@ - The ID of the VPC, subnet, or network interface.
+-- -   'resource-id' - The ID of the VPC, subnet, or network interface.
 --
--- -   @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@)
+-- -   'traffic-type' - The type of traffic ('ACCEPT' | 'REJECT' | 'ALL')
 --
 dFilter :: Lens' DescribeFlowLogs [Filter]
 dFilter = lens _dFilter (\ s a -> s{_dFilter = a}) . _Default . _Coerce;
@@ -103,8 +104,8 @@ dFlowLogIds = lens _dFlowLogIds (\ s a -> s{_dFlowLogIds = a}) . _Default . _Coe
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
--- the returned @NextToken@ value. This value can be between 5 and 1000; if
--- @MaxResults@ is given a value larger than 1000, only 1000 results are
+-- the returned 'NextToken' value. This value can be between 5 and 1000; if
+-- 'MaxResults' is given a value larger than 1000, only 1000 results are
 -- returned. You cannot specify this parameter and the flow log IDs
 -- parameter in the same request.
 dMaxResults :: Lens' DescribeFlowLogs (Maybe Int)
@@ -140,22 +141,24 @@ instance ToQuery DescribeFlowLogs where
                "MaxResults" =: _dMaxResults]
 
 -- | /See:/ 'describeFlowLogsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dflsrsNextToken'
---
--- * 'dflsrsFlowLogs'
---
--- * 'dflsrsStatus'
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
     { _dflsrsNextToken :: !(Maybe Text)
     , _dflsrsFlowLogs  :: !(Maybe [FlowLog])
     , _dflsrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeFlowLogsResponse' smart constructor.
-describeFlowLogsResponse :: Int -> DescribeFlowLogsResponse
+-- | Creates a value of 'DescribeFlowLogsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dflsrsNextToken'
+--
+-- * 'dflsrsFlowLogs'
+--
+-- * 'dflsrsStatus'
+describeFlowLogsResponse
+    :: Int -- ^ 'dflsrsStatus'
+    -> DescribeFlowLogsResponse
 describeFlowLogsResponse pStatus_ =
     DescribeFlowLogsResponse'
     { _dflsrsNextToken = Nothing
@@ -164,7 +167,7 @@ describeFlowLogsResponse pStatus_ =
     }
 
 -- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'null' when there are no more results to return.
 dflsrsNextToken :: Lens' DescribeFlowLogsResponse (Maybe Text)
 dflsrsNextToken = lens _dflsrsNextToken (\ s a -> s{_dflsrsNextToken = a});
 
@@ -172,6 +175,6 @@ dflsrsNextToken = lens _dflsrsNextToken (\ s a -> s{_dflsrsNextToken = a});
 dflsrsFlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
 dflsrsFlowLogs = lens _dflsrsFlowLogs (\ s a -> s{_dflsrsFlowLogs = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dflsrsStatus :: Lens' DescribeFlowLogsResponse Int
 dflsrsStatus = lens _dflsrsStatus (\ s a -> s{_dflsrsStatus = a});

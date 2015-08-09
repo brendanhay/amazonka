@@ -119,7 +119,6 @@ module Network.AWS.StorageGateway
 
     -- ** DescribeTapes (Paginated)
     , module Network.AWS.StorageGateway.DescribeTapes
-    -- $pager
 
     -- ** DescribeUploadBuffer
     , module Network.AWS.StorageGateway.DescribeUploadBuffer
@@ -147,7 +146,6 @@ module Network.AWS.StorageGateway
 
     -- ** DescribeTapeArchives (Paginated)
     , module Network.AWS.StorageGateway.DescribeTapeArchives
-    -- $pager
 
     -- ** RetrieveTapeArchive
     , module Network.AWS.StorageGateway.RetrieveTapeArchive
@@ -157,7 +155,6 @@ module Network.AWS.StorageGateway
 
     -- ** DescribeVTLDevices (Paginated)
     , module Network.AWS.StorageGateway.DescribeVTLDevices
-    -- $pager
 
     -- ** CreateSnapshot
     , module Network.AWS.StorageGateway.CreateSnapshot
@@ -182,15 +179,12 @@ module Network.AWS.StorageGateway
 
     -- ** ListGateways (Paginated)
     , module Network.AWS.StorageGateway.ListGateways
-    -- $pager
 
     -- ** ListVolumes (Paginated)
     , module Network.AWS.StorageGateway.ListVolumes
-    -- $pager
 
     -- ** DescribeTapeRecoveryPoints (Paginated)
     , module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
-    -- $pager
 
     -- ** DeleteVolume
     , module Network.AWS.StorageGateway.DeleteVolume
@@ -427,8 +421,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

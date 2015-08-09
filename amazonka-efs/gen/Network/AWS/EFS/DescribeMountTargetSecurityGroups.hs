@@ -25,23 +25,23 @@
 --
 -- This operation requires permissions for the following actions:
 --
--- -   @elasticfilesystem:DescribeMountTargetSecurityGroups@ action on the
+-- -   'elasticfilesystem:DescribeMountTargetSecurityGroups' action on the
 --     mount target\'s file system.
--- -   @ec2:DescribeNetworkInterfaceAttribute@ action on the mount
+-- -   'ec2:DescribeNetworkInterfaceAttribute' action on the mount
 --     target\'s network interface.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeMountTargetSecurityGroups.html AWS API Reference> for DescribeMountTargetSecurityGroups.
 module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     (
     -- * Creating a Request
-      DescribeMountTargetSecurityGroups
-    , describeMountTargetSecurityGroups
+      describeMountTargetSecurityGroups
+    , DescribeMountTargetSecurityGroups
     -- * Request Lenses
     , dmtsgMountTargetId
 
     -- * Destructuring the Response
-    , DescribeMountTargetSecurityGroupsResponse
     , describeMountTargetSecurityGroupsResponse
+    , DescribeMountTargetSecurityGroupsResponse
     -- * Response Lenses
     , dmtsgrsStatus
     , dmtsgrsSecurityGroups
@@ -54,16 +54,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeMountTargetSecurityGroups' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmtsgMountTargetId'
 newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
     { _dmtsgMountTargetId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeMountTargetSecurityGroups' smart constructor.
-describeMountTargetSecurityGroups :: Text -> DescribeMountTargetSecurityGroups
+-- | Creates a value of 'DescribeMountTargetSecurityGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmtsgMountTargetId'
+describeMountTargetSecurityGroups
+    :: Text -- ^ 'dmtsgMountTargetId'
+    -> DescribeMountTargetSecurityGroups
 describeMountTargetSecurityGroups pMountTargetId_ =
     DescribeMountTargetSecurityGroups'
     { _dmtsgMountTargetId = pMountTargetId_
@@ -102,26 +104,28 @@ instance ToQuery DescribeMountTargetSecurityGroups
         toQuery = const mempty
 
 -- | /See:/ 'describeMountTargetSecurityGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmtsgrsStatus'
---
--- * 'dmtsgrsSecurityGroups'
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
     { _dmtsgrsStatus         :: !Int
     , _dmtsgrsSecurityGroups :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeMountTargetSecurityGroupsResponse' smart constructor.
-describeMountTargetSecurityGroupsResponse :: Int -> DescribeMountTargetSecurityGroupsResponse
+-- | Creates a value of 'DescribeMountTargetSecurityGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmtsgrsStatus'
+--
+-- * 'dmtsgrsSecurityGroups'
+describeMountTargetSecurityGroupsResponse
+    :: Int -- ^ 'dmtsgrsStatus'
+    -> DescribeMountTargetSecurityGroupsResponse
 describeMountTargetSecurityGroupsResponse pStatus_ =
     DescribeMountTargetSecurityGroupsResponse'
     { _dmtsgrsStatus = pStatus_
     , _dmtsgrsSecurityGroups = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 dmtsgrsStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
 dmtsgrsStatus = lens _dmtsgrsStatus (\ s a -> s{_dmtsgrsStatus = a});
 

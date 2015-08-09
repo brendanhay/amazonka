@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified tags from a file system. If the @DeleteTags@
+-- Deletes the specified tags from a file system. If the 'DeleteTags'
 -- request includes a tag key that does not exist, Amazon EFS ignores it;
 -- it is not an error. For more information about tags and related
 -- restrictions, go to
@@ -26,21 +26,21 @@
 -- in the /AWS Billing and Cost Management User Guide/.
 --
 -- This operation requires permission for the
--- @elasticfilesystem:DeleteTags@ action.
+-- 'elasticfilesystem:DeleteTags' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteTags.html AWS API Reference> for DeleteTags.
 module Network.AWS.EFS.DeleteTags
     (
     -- * Creating a Request
-      DeleteTags
-    , deleteTags
+      deleteTags
+    , DeleteTags
     -- * Request Lenses
     , dFileSystemId
     , dTagKeys
 
     -- * Destructuring the Response
-    , DeleteTagsResponse
     , deleteTagsResponse
+    , DeleteTagsResponse
     ) where
 
 import           Network.AWS.EFS.Types
@@ -50,19 +50,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dFileSystemId'
---
--- * 'dTagKeys'
 data DeleteTags = DeleteTags'
     { _dFileSystemId :: !Text
     , _dTagKeys      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTags' smart constructor.
-deleteTags :: Text -> DeleteTags
+-- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dFileSystemId'
+--
+-- * 'dTagKeys'
+deleteTags
+    :: Text -- ^ 'dFileSystemId'
+    -> DeleteTags
 deleteTags pFileSystemId_ =
     DeleteTags'
     { _dFileSystemId = pFileSystemId_
@@ -103,6 +105,8 @@ data DeleteTagsResponse =
     DeleteTagsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTagsResponse' smart constructor.
-deleteTagsResponse :: DeleteTagsResponse
+-- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
+--
+deleteTagsResponse
+    :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse'

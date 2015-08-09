@@ -26,14 +26,14 @@
 module Network.AWS.EC2.DeleteSpotDatafeedSubscription
     (
     -- * Creating a Request
-      DeleteSpotDatafeedSubscription
-    , deleteSpotDatafeedSubscription
+      deleteSpotDatafeedSubscription
+    , DeleteSpotDatafeedSubscription
     -- * Request Lenses
     , dsdssDryRun
 
     -- * Destructuring the Response
-    , DeleteSpotDatafeedSubscriptionResponse
     , deleteSpotDatafeedSubscriptionResponse
+    , DeleteSpotDatafeedSubscriptionResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -45,16 +45,17 @@ import           Network.AWS.Response
 -- | Contains the parameters for DeleteSpotDatafeedSubscription.
 --
 -- /See:/ 'deleteSpotDatafeedSubscription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsdssDryRun'
 newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
     { _dsdssDryRun :: Maybe Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSpotDatafeedSubscription' smart constructor.
-deleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
+-- | Creates a value of 'DeleteSpotDatafeedSubscription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsdssDryRun'
+deleteSpotDatafeedSubscription
+    :: DeleteSpotDatafeedSubscription
 deleteSpotDatafeedSubscription =
     DeleteSpotDatafeedSubscription'
     { _dsdssDryRun = Nothing
@@ -62,8 +63,8 @@ deleteSpotDatafeedSubscription =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dsdssDryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
 dsdssDryRun = lens _dsdssDryRun (\ s a -> s{_dsdssDryRun = a});
 
@@ -96,7 +97,9 @@ data DeleteSpotDatafeedSubscriptionResponse =
     DeleteSpotDatafeedSubscriptionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSpotDatafeedSubscriptionResponse' smart constructor.
-deleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse
+-- | Creates a value of 'DeleteSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
+--
+deleteSpotDatafeedSubscriptionResponse
+    :: DeleteSpotDatafeedSubscriptionResponse
 deleteSpotDatafeedSubscriptionResponse =
     DeleteSpotDatafeedSubscriptionResponse'

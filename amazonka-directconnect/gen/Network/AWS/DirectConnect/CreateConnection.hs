@@ -34,16 +34,16 @@
 module Network.AWS.DirectConnect.CreateConnection
     (
     -- * Creating a Request
-      CreateConnection
-    , createConnection
+      createConnection
+    , CreateConnection
     -- * Request Lenses
     , ccLocation
     , ccBandwidth
     , ccConnectionName
 
     -- * Destructuring the Response
-    , Connection
     , connection
+    , Connection
     -- * Response Lenses
     , cVlan
     , cLocation
@@ -65,22 +65,26 @@ import           Network.AWS.Response
 -- | Container for the parameters to the CreateConnection operation.
 --
 -- /See:/ 'createConnection' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccLocation'
---
--- * 'ccBandwidth'
---
--- * 'ccConnectionName'
 data CreateConnection = CreateConnection'
     { _ccLocation       :: !Text
     , _ccBandwidth      :: !Text
     , _ccConnectionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateConnection' smart constructor.
-createConnection :: Text -> Text -> Text -> CreateConnection
+-- | Creates a value of 'CreateConnection' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccLocation'
+--
+-- * 'ccBandwidth'
+--
+-- * 'ccConnectionName'
+createConnection
+    :: Text -- ^ 'ccLocation'
+    -> Text -- ^ 'ccBandwidth'
+    -> Text -- ^ 'ccConnectionName'
+    -> CreateConnection
 createConnection pLocation_ pBandwidth_ pConnectionName_ =
     CreateConnection'
     { _ccLocation = pLocation_

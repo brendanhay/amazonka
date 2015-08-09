@@ -28,16 +28,16 @@
 module Network.AWS.EC2.DescribeKeyPairs
     (
     -- * Creating a Request
-      DescribeKeyPairs
-    , describeKeyPairs
+      describeKeyPairs
+    , DescribeKeyPairs
     -- * Request Lenses
     , dkpsFilters
     , dkpsKeyNames
     , dkpsDryRun
 
     -- * Destructuring the Response
-    , DescribeKeyPairsResponse
     , describeKeyPairsResponse
+    , DescribeKeyPairsResponse
     -- * Response Lenses
     , dkprsKeyPairs
     , dkprsStatus
@@ -50,22 +50,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeKeyPairs' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dkpsFilters'
---
--- * 'dkpsKeyNames'
---
--- * 'dkpsDryRun'
 data DescribeKeyPairs = DescribeKeyPairs'
     { _dkpsFilters  :: !(Maybe [Filter])
     , _dkpsKeyNames :: !(Maybe [Text])
     , _dkpsDryRun   :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeKeyPairs' smart constructor.
-describeKeyPairs :: DescribeKeyPairs
+-- | Creates a value of 'DescribeKeyPairs' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dkpsFilters'
+--
+-- * 'dkpsKeyNames'
+--
+-- * 'dkpsDryRun'
+describeKeyPairs
+    :: DescribeKeyPairs
 describeKeyPairs =
     DescribeKeyPairs'
     { _dkpsFilters = Nothing
@@ -75,9 +76,9 @@ describeKeyPairs =
 
 -- | One or more filters.
 --
--- -   @fingerprint@ - The fingerprint of the key pair.
+-- -   'fingerprint' - The fingerprint of the key pair.
 --
--- -   @key-name@ - The name of the key pair.
+-- -   'key-name' - The name of the key pair.
 --
 dkpsFilters :: Lens' DescribeKeyPairs [Filter]
 dkpsFilters = lens _dkpsFilters (\ s a -> s{_dkpsFilters = a}) . _Default . _Coerce;
@@ -90,8 +91,8 @@ dkpsKeyNames = lens _dkpsKeyNames (\ s a -> s{_dkpsKeyNames = a}) . _Default . _
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dkpsDryRun :: Lens' DescribeKeyPairs (Maybe Bool)
 dkpsDryRun = lens _dkpsDryRun (\ s a -> s{_dkpsDryRun = a});
 
@@ -123,19 +124,21 @@ instance ToQuery DescribeKeyPairs where
                "DryRun" =: _dkpsDryRun]
 
 -- | /See:/ 'describeKeyPairsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dkprsKeyPairs'
---
--- * 'dkprsStatus'
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
     { _dkprsKeyPairs :: !(Maybe [KeyPairInfo])
     , _dkprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeKeyPairsResponse' smart constructor.
-describeKeyPairsResponse :: Int -> DescribeKeyPairsResponse
+-- | Creates a value of 'DescribeKeyPairsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dkprsKeyPairs'
+--
+-- * 'dkprsStatus'
+describeKeyPairsResponse
+    :: Int -- ^ 'dkprsStatus'
+    -> DescribeKeyPairsResponse
 describeKeyPairsResponse pStatus_ =
     DescribeKeyPairsResponse'
     { _dkprsKeyPairs = Nothing
@@ -146,6 +149,6 @@ describeKeyPairsResponse pStatus_ =
 dkprsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkprsKeyPairs = lens _dkprsKeyPairs (\ s a -> s{_dkprsKeyPairs = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dkprsStatus :: Lens' DescribeKeyPairsResponse Int
 dkprsStatus = lens _dkprsStatus (\ s a -> s{_dkprsStatus = a});

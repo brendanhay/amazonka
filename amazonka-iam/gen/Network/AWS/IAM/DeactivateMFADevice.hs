@@ -30,15 +30,15 @@
 module Network.AWS.IAM.DeactivateMFADevice
     (
     -- * Creating a Request
-      DeactivateMFADevice
-    , deactivateMFADevice
+      deactivateMFADevice
+    , DeactivateMFADevice
     -- * Request Lenses
     , dmdUserName
     , dmdSerialNumber
 
     -- * Destructuring the Response
-    , DeactivateMFADeviceResponse
     , deactivateMFADeviceResponse
+    , DeactivateMFADeviceResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -48,19 +48,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deactivateMFADevice' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmdUserName'
---
--- * 'dmdSerialNumber'
 data DeactivateMFADevice = DeactivateMFADevice'
     { _dmdUserName     :: !Text
     , _dmdSerialNumber :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeactivateMFADevice' smart constructor.
-deactivateMFADevice :: Text -> Text -> DeactivateMFADevice
+-- | Creates a value of 'DeactivateMFADevice' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmdUserName'
+--
+-- * 'dmdSerialNumber'
+deactivateMFADevice
+    :: Text -- ^ 'dmdUserName'
+    -> Text -- ^ 'dmdSerialNumber'
+    -> DeactivateMFADevice
 deactivateMFADevice pUserName_ pSerialNumber_ =
     DeactivateMFADevice'
     { _dmdUserName = pUserName_
@@ -102,6 +105,8 @@ data DeactivateMFADeviceResponse =
     DeactivateMFADeviceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeactivateMFADeviceResponse' smart constructor.
-deactivateMFADeviceResponse :: DeactivateMFADeviceResponse
+-- | Creates a value of 'DeactivateMFADeviceResponse' with the minimum fields required to make a request.
+--
+deactivateMFADeviceResponse
+    :: DeactivateMFADeviceResponse
 deactivateMFADeviceResponse = DeactivateMFADeviceResponse'

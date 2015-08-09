@@ -19,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The /RemoveTagsFromResource/ action removes the tags identified by the
--- @TagKeys@ list from the named resource.
+-- 'TagKeys' list from the named resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RemoveTagsFromResource.html AWS API Reference> for RemoveTagsFromResource.
 module Network.AWS.ElastiCache.RemoveTagsFromResource
     (
     -- * Creating a Request
-      RemoveTagsFromResource
-    , removeTagsFromResource
+      removeTagsFromResource
+    , RemoveTagsFromResource
     -- * Request Lenses
     , rtfrResourceName
     , rtfrTagKeys
 
     -- * Destructuring the Response
-    , TagListMessage
     , tagListMessage
+    , TagListMessage
     -- * Response Lenses
     , tlmTagList
     ) where
@@ -47,19 +47,21 @@ import           Network.AWS.Response
 -- | Represents the input of a /RemoveTagsFromResource/ action.
 --
 -- /See:/ 'removeTagsFromResource' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtfrResourceName'
---
--- * 'rtfrTagKeys'
 data RemoveTagsFromResource = RemoveTagsFromResource'
     { _rtfrResourceName :: !Text
     , _rtfrTagKeys      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveTagsFromResource' smart constructor.
-removeTagsFromResource :: Text -> RemoveTagsFromResource
+-- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtfrResourceName'
+--
+-- * 'rtfrTagKeys'
+removeTagsFromResource
+    :: Text -- ^ 'rtfrResourceName'
+    -> RemoveTagsFromResource
 removeTagsFromResource pResourceName_ =
     RemoveTagsFromResource'
     { _rtfrResourceName = pResourceName_
@@ -68,13 +70,13 @@ removeTagsFromResource pResourceName_ =
 
 -- | The name of the ElastiCache resource from which you want the listed tags
 -- removed, for example
--- @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@.
+-- 'arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster'.
 rtfrResourceName :: Lens' RemoveTagsFromResource Text
 rtfrResourceName = lens _rtfrResourceName (\ s a -> s{_rtfrResourceName = a});
 
--- | A list of @TagKeys@ identifying the tags you want removed from the named
--- resource. For example, @TagKeys.member.1=Region@ removes the cost
--- allocation tag with the key name @Region@ from the resource named by the
+-- | A list of 'TagKeys' identifying the tags you want removed from the named
+-- resource. For example, 'TagKeys.member.1=Region' removes the cost
+-- allocation tag with the key name 'Region' from the resource named by the
 -- /ResourceName/ parameter.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
 rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;

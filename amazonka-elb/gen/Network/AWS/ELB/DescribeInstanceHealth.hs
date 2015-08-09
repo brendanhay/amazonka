@@ -27,15 +27,15 @@
 module Network.AWS.ELB.DescribeInstanceHealth
     (
     -- * Creating a Request
-      DescribeInstanceHealth
-    , describeInstanceHealth
+      describeInstanceHealth
+    , DescribeInstanceHealth
     -- * Request Lenses
     , dihInstances
     , dihLoadBalancerName
 
     -- * Destructuring the Response
-    , DescribeInstanceHealthResponse
     , describeInstanceHealthResponse
+    , DescribeInstanceHealthResponse
     -- * Response Lenses
     , dihrsInstanceStates
     , dihrsStatus
@@ -48,19 +48,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeInstanceHealth' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dihInstances'
---
--- * 'dihLoadBalancerName'
 data DescribeInstanceHealth = DescribeInstanceHealth'
     { _dihInstances        :: !(Maybe [Instance])
     , _dihLoadBalancerName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeInstanceHealth' smart constructor.
-describeInstanceHealth :: Text -> DescribeInstanceHealth
+-- | Creates a value of 'DescribeInstanceHealth' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dihInstances'
+--
+-- * 'dihLoadBalancerName'
+describeInstanceHealth
+    :: Text -- ^ 'dihLoadBalancerName'
+    -> DescribeInstanceHealth
 describeInstanceHealth pLoadBalancerName_ =
     DescribeInstanceHealth'
     { _dihInstances = Nothing
@@ -105,19 +107,21 @@ instance ToQuery DescribeInstanceHealth where
                "LoadBalancerName" =: _dihLoadBalancerName]
 
 -- | /See:/ 'describeInstanceHealthResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dihrsInstanceStates'
---
--- * 'dihrsStatus'
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
     { _dihrsInstanceStates :: !(Maybe [InstanceState])
     , _dihrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeInstanceHealthResponse' smart constructor.
-describeInstanceHealthResponse :: Int -> DescribeInstanceHealthResponse
+-- | Creates a value of 'DescribeInstanceHealthResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dihrsInstanceStates'
+--
+-- * 'dihrsStatus'
+describeInstanceHealthResponse
+    :: Int -- ^ 'dihrsStatus'
+    -> DescribeInstanceHealthResponse
 describeInstanceHealthResponse pStatus_ =
     DescribeInstanceHealthResponse'
     { _dihrsInstanceStates = Nothing
@@ -128,6 +132,6 @@ describeInstanceHealthResponse pStatus_ =
 dihrsInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrsInstanceStates = lens _dihrsInstanceStates (\ s a -> s{_dihrsInstanceStates = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dihrsStatus :: Lens' DescribeInstanceHealthResponse Int
 dihrsStatus = lens _dihrsStatus (\ s a -> s{_dihrsStatus = a});

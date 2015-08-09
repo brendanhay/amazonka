@@ -24,16 +24,16 @@
 module Network.AWS.CloudFront.ListInvalidations
     (
     -- * Creating a Request
-      ListInvalidations
-    , listInvalidations
+      listInvalidations
+    , ListInvalidations
     -- * Request Lenses
     , liMaxItems
     , liMarker
     , liDistributionId
 
     -- * Destructuring the Response
-    , ListInvalidationsResponse
     , listInvalidationsResponse
+    , ListInvalidationsResponse
     -- * Response Lenses
     , lirsStatus
     , lirsInvalidationList
@@ -48,22 +48,24 @@ import           Network.AWS.Response
 -- | The request to list invalidations.
 --
 -- /See:/ 'listInvalidations' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'liMaxItems'
---
--- * 'liMarker'
---
--- * 'liDistributionId'
 data ListInvalidations = ListInvalidations'
     { _liMaxItems       :: !(Maybe Text)
     , _liMarker         :: !(Maybe Text)
     , _liDistributionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListInvalidations' smart constructor.
-listInvalidations :: Text -> ListInvalidations
+-- | Creates a value of 'ListInvalidations' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'liMaxItems'
+--
+-- * 'liMarker'
+--
+-- * 'liDistributionId'
+listInvalidations
+    :: Text -- ^ 'liDistributionId'
+    -> ListInvalidations
 listInvalidations pDistributionId_ =
     ListInvalidations'
     { _liMaxItems = Nothing
@@ -117,26 +119,29 @@ instance ToQuery ListInvalidations where
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'listInvalidationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lirsStatus'
---
--- * 'lirsInvalidationList'
 data ListInvalidationsResponse = ListInvalidationsResponse'
     { _lirsStatus           :: !Int
     , _lirsInvalidationList :: !InvalidationList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListInvalidationsResponse' smart constructor.
-listInvalidationsResponse :: Int -> InvalidationList -> ListInvalidationsResponse
+-- | Creates a value of 'ListInvalidationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lirsStatus'
+--
+-- * 'lirsInvalidationList'
+listInvalidationsResponse
+    :: Int -- ^ 'lirsStatus'
+    -> InvalidationList -- ^ 'lirsInvalidationList'
+    -> ListInvalidationsResponse
 listInvalidationsResponse pStatus_ pInvalidationList_ =
     ListInvalidationsResponse'
     { _lirsStatus = pStatus_
     , _lirsInvalidationList = pInvalidationList_
     }
 
--- | Undocumented member.
+-- | The response status code.
 lirsStatus :: Lens' ListInvalidationsResponse Int
 lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
 

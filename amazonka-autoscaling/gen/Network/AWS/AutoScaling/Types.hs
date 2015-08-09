@@ -320,7 +320,7 @@ _AlreadyExistsFault = _ServiceError . hasStatus 400 . hasCode "AlreadyExists"
 _ResourceInUseFault :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseFault = _ServiceError . hasStatus 400 . hasCode "ResourceInUse"
 
--- | The @NextToken@ value is not valid.
+-- | The 'NextToken' value is not valid.
 _InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 

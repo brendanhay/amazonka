@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the @MLModelName@ and the @ScoreThreshold@ of an @MLModel@.
+-- Updates the 'MLModelName' and the 'ScoreThreshold' of an 'MLModel'.
 --
 -- You can use the GetMLModel operation to view the contents of the updated
 -- data element.
@@ -27,16 +27,16 @@
 module Network.AWS.MachineLearning.UpdateMLModel
     (
     -- * Creating a Request
-      UpdateMLModel
-    , updateMLModel
+      updateMLModel
+    , UpdateMLModel
     -- * Request Lenses
     , umlmMLModelName
     , umlmScoreThreshold
     , umlmMLModelId
 
     -- * Destructuring the Response
-    , UpdateMLModelResponse
     , updateMLModelResponse
+    , UpdateMLModelResponse
     -- * Response Lenses
     , umlmrsMLModelId
     , umlmrsStatus
@@ -49,22 +49,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateMLModel' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'umlmMLModelName'
---
--- * 'umlmScoreThreshold'
---
--- * 'umlmMLModelId'
 data UpdateMLModel = UpdateMLModel'
     { _umlmMLModelName    :: !(Maybe Text)
     , _umlmScoreThreshold :: !(Maybe Double)
     , _umlmMLModelId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateMLModel' smart constructor.
-updateMLModel :: Text -> UpdateMLModel
+-- | Creates a value of 'UpdateMLModel' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'umlmMLModelName'
+--
+-- * 'umlmScoreThreshold'
+--
+-- * 'umlmMLModelId'
+updateMLModel
+    :: Text -- ^ 'umlmMLModelId'
+    -> UpdateMLModel
 updateMLModel pMLModelId_ =
     UpdateMLModel'
     { _umlmMLModelName = Nothing
@@ -72,21 +74,21 @@ updateMLModel pMLModelId_ =
     , _umlmMLModelId = pMLModelId_
     }
 
--- | A user-supplied name or description of the @MLModel@.
+-- | A user-supplied name or description of the 'MLModel'.
 umlmMLModelName :: Lens' UpdateMLModel (Maybe Text)
 umlmMLModelName = lens _umlmMLModelName (\ s a -> s{_umlmMLModelName = a});
 
--- | The @ScoreThreshold@ used in binary classification @MLModel@ that marks
+-- | The 'ScoreThreshold' used in binary classification 'MLModel' that marks
 -- the boundary between a positive prediction and a negative prediction.
 --
--- Output values greater than or equal to the @ScoreThreshold@ receive a
--- positive result from the @MLModel@, such as @true@. Output values less
--- than the @ScoreThreshold@ receive a negative response from the
--- @MLModel@, such as @false@.
+-- Output values greater than or equal to the 'ScoreThreshold' receive a
+-- positive result from the 'MLModel', such as 'true'. Output values less
+-- than the 'ScoreThreshold' receive a negative response from the
+-- 'MLModel', such as 'false'.
 umlmScoreThreshold :: Lens' UpdateMLModel (Maybe Double)
 umlmScoreThreshold = lens _umlmScoreThreshold (\ s a -> s{_umlmScoreThreshold = a});
 
--- | The ID assigned to the @MLModel@ during creation.
+-- | The ID assigned to the 'MLModel' during creation.
 umlmMLModelId :: Lens' UpdateMLModel Text
 umlmMLModelId = lens _umlmMLModelId (\ s a -> s{_umlmMLModelId = a});
 
@@ -127,30 +129,32 @@ instance ToQuery UpdateMLModel where
 -- You can see the updated content by using the GetMLModel operation.
 --
 -- /See:/ 'updateMLModelResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'umlmrsMLModelId'
---
--- * 'umlmrsStatus'
 data UpdateMLModelResponse = UpdateMLModelResponse'
     { _umlmrsMLModelId :: !(Maybe Text)
     , _umlmrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateMLModelResponse' smart constructor.
-updateMLModelResponse :: Int -> UpdateMLModelResponse
+-- | Creates a value of 'UpdateMLModelResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'umlmrsMLModelId'
+--
+-- * 'umlmrsStatus'
+updateMLModelResponse
+    :: Int -- ^ 'umlmrsStatus'
+    -> UpdateMLModelResponse
 updateMLModelResponse pStatus_ =
     UpdateMLModelResponse'
     { _umlmrsMLModelId = Nothing
     , _umlmrsStatus = pStatus_
     }
 
--- | The ID assigned to the @MLModel@ during creation. This value should be
--- identical to the value of the @MLModelID@ in the request.
+-- | The ID assigned to the 'MLModel' during creation. This value should be
+-- identical to the value of the 'MLModelID' in the request.
 umlmrsMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
 umlmrsMLModelId = lens _umlmrsMLModelId (\ s a -> s{_umlmrsMLModelId = a});
 
--- | Undocumented member.
+-- | The response status code.
 umlmrsStatus :: Lens' UpdateMLModelResponse Int
 umlmrsStatus = lens _umlmrsStatus (\ s a -> s{_umlmrsStatus = a});

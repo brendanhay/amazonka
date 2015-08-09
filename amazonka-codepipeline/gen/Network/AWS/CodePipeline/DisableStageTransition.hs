@@ -25,8 +25,8 @@
 module Network.AWS.CodePipeline.DisableStageTransition
     (
     -- * Creating a Request
-      DisableStageTransition
-    , disableStageTransition
+      disableStageTransition
+    , DisableStageTransition
     -- * Request Lenses
     , dstPipelineName
     , dstStageName
@@ -34,8 +34,8 @@ module Network.AWS.CodePipeline.DisableStageTransition
     , dstReason
 
     -- * Destructuring the Response
-    , DisableStageTransitionResponse
     , disableStageTransitionResponse
+    , DisableStageTransitionResponse
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -47,8 +47,16 @@ import           Network.AWS.Response
 -- | Represents the input of a disable stage transition input action.
 --
 -- /See:/ 'disableStageTransition' smart constructor.
+data DisableStageTransition = DisableStageTransition'
+    { _dstPipelineName   :: !Text
+    , _dstStageName      :: !Text
+    , _dstTransitionType :: !StageTransitionType
+    , _dstReason         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DisableStageTransition' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dstPipelineName'
 --
@@ -57,15 +65,12 @@ import           Network.AWS.Response
 -- * 'dstTransitionType'
 --
 -- * 'dstReason'
-data DisableStageTransition = DisableStageTransition'
-    { _dstPipelineName   :: !Text
-    , _dstStageName      :: !Text
-    , _dstTransitionType :: !StageTransitionType
-    , _dstReason         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DisableStageTransition' smart constructor.
-disableStageTransition :: Text -> Text -> StageTransitionType -> Text -> DisableStageTransition
+disableStageTransition
+    :: Text -- ^ 'dstPipelineName'
+    -> Text -- ^ 'dstStageName'
+    -> StageTransitionType -- ^ 'dstTransitionType'
+    -> Text -- ^ 'dstReason'
+    -> DisableStageTransition
 disableStageTransition pPipelineName_ pStageName_ pTransitionType_ pReason_ =
     DisableStageTransition'
     { _dstPipelineName = pPipelineName_
@@ -134,6 +139,8 @@ data DisableStageTransitionResponse =
     DisableStageTransitionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableStageTransitionResponse' smart constructor.
-disableStageTransitionResponse :: DisableStageTransitionResponse
+-- | Creates a value of 'DisableStageTransitionResponse' with the minimum fields required to make a request.
+--
+disableStageTransitionResponse
+    :: DisableStageTransitionResponse
 disableStageTransitionResponse = DisableStageTransitionResponse'

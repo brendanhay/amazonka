@@ -18,13 +18,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Records a @WorkflowExecutionCancelRequested@ event in the currently
+-- Records a 'WorkflowExecutionCancelRequested' event in the currently
 -- running workflow execution identified by the given domain, workflowId,
 -- and runId. This logically requests the cancellation of the workflow
 -- execution as a whole. It is up to the decider to take appropriate
 -- actions when it receives an execution history with this event.
 --
--- If the runId is not specified, the @WorkflowExecutionCancelRequested@
+-- If the runId is not specified, the 'WorkflowExecutionCancelRequested'
 -- event is recorded in the history of the current open workflow execution
 -- with the specified workflowId in the domain.
 --
@@ -37,9 +37,9 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
 -- -   You cannot use an IAM policy to constrain this action\'s parameters.
 --
@@ -54,16 +54,16 @@
 module Network.AWS.SWF.RequestCancelWorkflowExecution
     (
     -- * Creating a Request
-      RequestCancelWorkflowExecution
-    , requestCancelWorkflowExecution
+      requestCancelWorkflowExecution
+    , RequestCancelWorkflowExecution
     -- * Request Lenses
     , rcweRunId
     , rcweDomain
     , rcweWorkflowId
 
     -- * Destructuring the Response
-    , RequestCancelWorkflowExecutionResponse
     , requestCancelWorkflowExecutionResponse
+    , RequestCancelWorkflowExecutionResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -73,22 +73,25 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'requestCancelWorkflowExecution' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcweRunId'
---
--- * 'rcweDomain'
---
--- * 'rcweWorkflowId'
 data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
     { _rcweRunId      :: !(Maybe Text)
     , _rcweDomain     :: !Text
     , _rcweWorkflowId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RequestCancelWorkflowExecution' smart constructor.
-requestCancelWorkflowExecution :: Text -> Text -> RequestCancelWorkflowExecution
+-- | Creates a value of 'RequestCancelWorkflowExecution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcweRunId'
+--
+-- * 'rcweDomain'
+--
+-- * 'rcweWorkflowId'
+requestCancelWorkflowExecution
+    :: Text -- ^ 'rcweDomain'
+    -> Text -- ^ 'rcweWorkflowId'
+    -> RequestCancelWorkflowExecution
 requestCancelWorkflowExecution pDomain_ pWorkflowId_ =
     RequestCancelWorkflowExecution'
     { _rcweRunId = Nothing
@@ -145,7 +148,9 @@ data RequestCancelWorkflowExecutionResponse =
     RequestCancelWorkflowExecutionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RequestCancelWorkflowExecutionResponse' smart constructor.
-requestCancelWorkflowExecutionResponse :: RequestCancelWorkflowExecutionResponse
+-- | Creates a value of 'RequestCancelWorkflowExecutionResponse' with the minimum fields required to make a request.
+--
+requestCancelWorkflowExecutionResponse
+    :: RequestCancelWorkflowExecutionResponse
 requestCancelWorkflowExecutionResponse =
     RequestCancelWorkflowExecutionResponse'

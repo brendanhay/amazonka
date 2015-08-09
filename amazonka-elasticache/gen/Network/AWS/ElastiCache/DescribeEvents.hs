@@ -27,11 +27,13 @@
 -- however, you can retrieve up to 14 days\' worth of events if necessary.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeEvents
     (
     -- * Creating a Request
-      DescribeEvents
-    , describeEvents
+      describeEvents
+    , DescribeEvents
     -- * Request Lenses
     , deStartTime
     , deSourceType
@@ -42,8 +44,8 @@ module Network.AWS.ElastiCache.DescribeEvents
     , deDuration
 
     -- * Destructuring the Response
-    , DescribeEventsResponse
     , describeEventsResponse
+    , DescribeEventsResponse
     -- * Response Lenses
     , dersEvents
     , dersMarker
@@ -60,8 +62,19 @@ import           Network.AWS.Response
 -- | Represents the input of a /DescribeEvents/ action.
 --
 -- /See:/ 'describeEvents' smart constructor.
+data DescribeEvents = DescribeEvents'
+    { _deStartTime        :: !(Maybe ISO8601)
+    , _deSourceType       :: !(Maybe SourceType)
+    , _deSourceIdentifier :: !(Maybe Text)
+    , _deMaxRecords       :: !(Maybe Int)
+    , _deEndTime          :: !(Maybe ISO8601)
+    , _deMarker           :: !(Maybe Text)
+    , _deDuration         :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'deStartTime'
 --
@@ -76,18 +89,8 @@ import           Network.AWS.Response
 -- * 'deMarker'
 --
 -- * 'deDuration'
-data DescribeEvents = DescribeEvents'
-    { _deStartTime        :: !(Maybe ISO8601)
-    , _deSourceType       :: !(Maybe SourceType)
-    , _deSourceIdentifier :: !(Maybe Text)
-    , _deMaxRecords       :: !(Maybe Int)
-    , _deEndTime          :: !(Maybe ISO8601)
-    , _deMarker           :: !(Maybe Text)
-    , _deDuration         :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeEvents' smart constructor.
-describeEvents :: DescribeEvents
+describeEvents
+    :: DescribeEvents
 describeEvents =
     DescribeEvents'
     { _deStartTime = Nothing
@@ -107,8 +110,8 @@ deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time;
 -- | The event source to retrieve events for. If no value is specified, all
 -- events are returned.
 --
--- Valid values are: @cache-cluster@ | @cache-parameter-group@ |
--- @cache-security-group@ | @cache-subnet-group@
+-- Valid values are: 'cache-cluster' | 'cache-parameter-group' |
+-- 'cache-security-group' | 'cache-subnet-group'
 deSourceType :: Lens' DescribeEvents (Maybe SourceType)
 deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 
@@ -118,7 +121,7 @@ deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a marker is
+-- records exist than the specified 'MaxRecords' value, a marker is
 -- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
@@ -184,22 +187,24 @@ instance ToQuery DescribeEvents where
 -- | Represents the output of a /DescribeEvents/ action.
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dersEvents'
---
--- * 'dersMarker'
---
--- * 'dersStatus'
 data DescribeEventsResponse = DescribeEventsResponse'
     { _dersEvents :: !(Maybe [Event])
     , _dersMarker :: !(Maybe Text)
     , _dersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEventsResponse' smart constructor.
-describeEventsResponse :: Int -> DescribeEventsResponse
+-- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dersEvents'
+--
+-- * 'dersMarker'
+--
+-- * 'dersStatus'
+describeEventsResponse
+    :: Int -- ^ 'dersStatus'
+    -> DescribeEventsResponse
 describeEventsResponse pStatus_ =
     DescribeEventsResponse'
     { _dersEvents = Nothing
@@ -216,6 +221,6 @@ dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce
 dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dersStatus :: Lens' DescribeEventsResponse Int
 dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

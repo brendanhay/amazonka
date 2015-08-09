@@ -26,15 +26,15 @@
 module Network.AWS.CloudWatchLogs.TestMetricFilter
     (
     -- * Creating a Request
-      TestMetricFilter
-    , testMetricFilter
+      testMetricFilter
+    , TestMetricFilter
     -- * Request Lenses
     , tmfFilterPattern
     , tmfLogEventMessages
 
     -- * Destructuring the Response
-    , TestMetricFilterResponse
     , testMetricFilterResponse
+    , TestMetricFilterResponse
     -- * Response Lenses
     , tmfrsMatches
     , tmfrsStatus
@@ -47,19 +47,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'testMetricFilter' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmfFilterPattern'
---
--- * 'tmfLogEventMessages'
 data TestMetricFilter = TestMetricFilter'
     { _tmfFilterPattern    :: !Text
     , _tmfLogEventMessages :: !(List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TestMetricFilter' smart constructor.
-testMetricFilter :: Text -> NonEmpty Text -> TestMetricFilter
+-- | Creates a value of 'TestMetricFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tmfFilterPattern'
+--
+-- * 'tmfLogEventMessages'
+testMetricFilter
+    :: Text -- ^ 'tmfFilterPattern'
+    -> NonEmpty Text -- ^ 'tmfLogEventMessages'
+    -> TestMetricFilter
 testMetricFilter pFilterPattern_ pLogEventMessages_ =
     TestMetricFilter'
     { _tmfFilterPattern = pFilterPattern_
@@ -106,19 +109,21 @@ instance ToQuery TestMetricFilter where
         toQuery = const mempty
 
 -- | /See:/ 'testMetricFilterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmfrsMatches'
---
--- * 'tmfrsStatus'
 data TestMetricFilterResponse = TestMetricFilterResponse'
     { _tmfrsMatches :: !(Maybe [MetricFilterMatchRecord])
     , _tmfrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TestMetricFilterResponse' smart constructor.
-testMetricFilterResponse :: Int -> TestMetricFilterResponse
+-- | Creates a value of 'TestMetricFilterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tmfrsMatches'
+--
+-- * 'tmfrsStatus'
+testMetricFilterResponse
+    :: Int -- ^ 'tmfrsStatus'
+    -> TestMetricFilterResponse
 testMetricFilterResponse pStatus_ =
     TestMetricFilterResponse'
     { _tmfrsMatches = Nothing
@@ -129,6 +134,6 @@ testMetricFilterResponse pStatus_ =
 tmfrsMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
 tmfrsMatches = lens _tmfrsMatches (\ s a -> s{_tmfrsMatches = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 tmfrsStatus :: Lens' TestMetricFilterResponse Int
 tmfrsStatus = lens _tmfrsStatus (\ s a -> s{_tmfrsStatus = a});

@@ -29,14 +29,14 @@
 module Network.AWS.CloudHSM.ListHAPGs
     (
     -- * Creating a Request
-      ListHAPGs
-    , listHAPGs
+      listHAPGs
+    , ListHAPGs
     -- * Request Lenses
     , lhNextToken
 
     -- * Destructuring the Response
-    , ListHAPGsResponse
     , listHAPGsResponse
+    , ListHAPGsResponse
     -- * Response Lenses
     , lhrsNextToken
     , lhrsStatus
@@ -50,16 +50,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listHAPGs' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lhNextToken'
 newtype ListHAPGs = ListHAPGs'
     { _lhNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListHAPGs' smart constructor.
-listHAPGs :: ListHAPGs
+-- | Creates a value of 'ListHAPGs' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lhNextToken'
+listHAPGs
+    :: ListHAPGs
 listHAPGs =
     ListHAPGs'
     { _lhNextToken = Nothing
@@ -101,22 +102,24 @@ instance ToQuery ListHAPGs where
         toQuery = const mempty
 
 -- | /See:/ 'listHAPGsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lhrsNextToken'
---
--- * 'lhrsStatus'
---
--- * 'lhrsHAPGList'
 data ListHAPGsResponse = ListHAPGsResponse'
     { _lhrsNextToken :: !(Maybe Text)
     , _lhrsStatus    :: !Int
     , _lhrsHAPGList  :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListHAPGsResponse' smart constructor.
-listHAPGsResponse :: Int -> ListHAPGsResponse
+-- | Creates a value of 'ListHAPGsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lhrsNextToken'
+--
+-- * 'lhrsStatus'
+--
+-- * 'lhrsHAPGList'
+listHAPGsResponse
+    :: Int -- ^ 'lhrsStatus'
+    -> ListHAPGsResponse
 listHAPGsResponse pStatus_ =
     ListHAPGsResponse'
     { _lhrsNextToken = Nothing
@@ -129,7 +132,7 @@ listHAPGsResponse pStatus_ =
 lhrsNextToken :: Lens' ListHAPGsResponse (Maybe Text)
 lhrsNextToken = lens _lhrsNextToken (\ s a -> s{_lhrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 lhrsStatus :: Lens' ListHAPGsResponse Int
 lhrsStatus = lens _lhrsStatus (\ s a -> s{_lhrsStatus = a});
 

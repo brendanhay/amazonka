@@ -27,8 +27,8 @@
 module Network.AWS.CognitoIdentity.CreateIdentityPool
     (
     -- * Creating a Request
-      CreateIdentityPool
-    , createIdentityPool
+      createIdentityPool
+    , CreateIdentityPool
     -- * Request Lenses
     , cipSupportedLoginProviders
     , cipDeveloperProviderName
@@ -37,8 +37,8 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     , cipAllowUnauthenticatedIdentities
 
     -- * Destructuring the Response
-    , IdentityPool
     , identityPool
+    , IdentityPool
     -- * Response Lenses
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
@@ -57,8 +57,17 @@ import           Network.AWS.Response
 -- | Input to the CreateIdentityPool action.
 --
 -- /See:/ 'createIdentityPool' smart constructor.
+data CreateIdentityPool = CreateIdentityPool'
+    { _cipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+    , _cipDeveloperProviderName          :: !(Maybe Text)
+    , _cipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+    , _cipIdentityPoolName               :: !Text
+    , _cipAllowUnauthenticatedIdentities :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateIdentityPool' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cipSupportedLoginProviders'
 --
@@ -69,16 +78,10 @@ import           Network.AWS.Response
 -- * 'cipIdentityPoolName'
 --
 -- * 'cipAllowUnauthenticatedIdentities'
-data CreateIdentityPool = CreateIdentityPool'
-    { _cipSupportedLoginProviders        :: !(Maybe (Map Text Text))
-    , _cipDeveloperProviderName          :: !(Maybe Text)
-    , _cipOpenIdConnectProviderARNs      :: !(Maybe [Text])
-    , _cipIdentityPoolName               :: !Text
-    , _cipAllowUnauthenticatedIdentities :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateIdentityPool' smart constructor.
-createIdentityPool :: Text -> Bool -> CreateIdentityPool
+createIdentityPool
+    :: Text -- ^ 'cipIdentityPoolName'
+    -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
+    -> CreateIdentityPool
 createIdentityPool pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     CreateIdentityPool'
     { _cipSupportedLoginProviders = Nothing
@@ -95,8 +98,8 @@ cipSupportedLoginProviders = lens _cipSupportedLoginProviders (\ s a -> s{_cipSu
 -- | The \"domain\" by which Cognito will refer to your users. This name acts
 -- as a placeholder that allows your backend and the Cognito service to
 -- communicate about the developer provider. For the
--- @DeveloperProviderName@, you can use letters as well as period (@.@),
--- underscore (@_@), and dash (@-@).
+-- 'DeveloperProviderName', you can use letters as well as period ('.'),
+-- underscore ('_'), and dash ('-').
 --
 -- Once you have set a developer provider name, you cannot change it.
 -- Please take care in setting this parameter.

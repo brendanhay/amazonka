@@ -24,8 +24,8 @@
 module Network.AWS.S3.PutObject
     (
     -- * Creating a Request
-      PutObject
-    , putObject
+      putObject
+    , PutObject
     -- * Request Lenses
     , poContentLength
     , poExpires
@@ -54,8 +54,8 @@ module Network.AWS.S3.PutObject
     , poBody
 
     -- * Destructuring the Response
-    , PutObjectResponse
     , putObjectResponse
+    , PutObjectResponse
     -- * Response Lenses
     , porsVersionId
     , porsETag
@@ -75,8 +75,37 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putObject' smart constructor.
+data PutObject = PutObject'
+    { _poContentLength           :: !(Maybe Int)
+    , _poExpires                 :: !(Maybe RFC822)
+    , _poSSECustomerAlgorithm    :: !(Maybe Text)
+    , _poGrantReadACP            :: !(Maybe Text)
+    , _poSSECustomerKey          :: !(Maybe (Sensitive Text))
+    , _poRequestPayer            :: !(Maybe RequestPayer)
+    , _poGrantWriteACP           :: !(Maybe Text)
+    , _poWebsiteRedirectLocation :: !(Maybe Text)
+    , _poGrantRead               :: !(Maybe Text)
+    , _poStorageClass            :: !(Maybe StorageClass)
+    , _poContentEncoding         :: !(Maybe Text)
+    , _poSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _poGrantFullControl        :: !(Maybe Text)
+    , _poSSECustomerKeyMD5       :: !(Maybe Text)
+    , _poMetadata                :: !(Map Text Text)
+    , _poContentMD5              :: !(Maybe Text)
+    , _poCacheControl            :: !(Maybe Text)
+    , _poContentLanguage         :: !(Maybe Text)
+    , _poACL                     :: !(Maybe ObjectCannedACL)
+    , _poContentDisposition      :: !(Maybe Text)
+    , _poServerSideEncryption    :: !(Maybe ServerSideEncryption)
+    , _poContentType             :: !(Maybe Text)
+    , _poBucket                  :: !BucketName
+    , _poKey                     :: !ObjectKey
+    , _poBody                    :: !RqBody
+    } deriving (Show,Generic)
+
+-- | Creates a value of 'PutObject' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'poContentLength'
 --
@@ -127,36 +156,11 @@ import           Network.AWS.S3.Types.Product
 -- * 'poKey'
 --
 -- * 'poBody'
-data PutObject = PutObject'
-    { _poContentLength           :: !(Maybe Int)
-    , _poExpires                 :: !(Maybe RFC822)
-    , _poSSECustomerAlgorithm    :: !(Maybe Text)
-    , _poGrantReadACP            :: !(Maybe Text)
-    , _poSSECustomerKey          :: !(Maybe (Sensitive Text))
-    , _poRequestPayer            :: !(Maybe RequestPayer)
-    , _poGrantWriteACP           :: !(Maybe Text)
-    , _poWebsiteRedirectLocation :: !(Maybe Text)
-    , _poGrantRead               :: !(Maybe Text)
-    , _poStorageClass            :: !(Maybe StorageClass)
-    , _poContentEncoding         :: !(Maybe Text)
-    , _poSSEKMSKeyId             :: !(Maybe (Sensitive Text))
-    , _poGrantFullControl        :: !(Maybe Text)
-    , _poSSECustomerKeyMD5       :: !(Maybe Text)
-    , _poMetadata                :: !(Map Text Text)
-    , _poContentMD5              :: !(Maybe Text)
-    , _poCacheControl            :: !(Maybe Text)
-    , _poContentLanguage         :: !(Maybe Text)
-    , _poACL                     :: !(Maybe ObjectCannedACL)
-    , _poContentDisposition      :: !(Maybe Text)
-    , _poServerSideEncryption    :: !(Maybe ServerSideEncryption)
-    , _poContentType             :: !(Maybe Text)
-    , _poBucket                  :: !BucketName
-    , _poKey                     :: !ObjectKey
-    , _poBody                    :: !RqBody
-    } deriving (Show,Generic)
-
--- | 'PutObject' smart constructor.
-putObject :: BucketName -> ObjectKey -> RqBody -> PutObject
+putObject
+    :: BucketName -- ^ 'poBucket'
+    -> ObjectKey -- ^ 'poKey'
+    -> RqBody -- ^ 'poBody'
+    -> PutObject
 putObject pBucket_ pKey_ pBody_ =
     PutObject'
     { _poContentLength = Nothing
@@ -369,8 +373,21 @@ instance ToQuery PutObject where
         toQuery = const mempty
 
 -- | /See:/ 'putObjectResponse' smart constructor.
+data PutObjectResponse = PutObjectResponse'
+    { _porsVersionId            :: !(Maybe ObjectVersionId)
+    , _porsETag                 :: !(Maybe ETag)
+    , _porsRequestCharged       :: !(Maybe RequestCharged)
+    , _porsExpiration           :: !(Maybe Text)
+    , _porsSSECustomerAlgorithm :: !(Maybe Text)
+    , _porsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _porsSSECustomerKeyMD5    :: !(Maybe Text)
+    , _porsServerSideEncryption :: !(Maybe ServerSideEncryption)
+    , _porsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutObjectResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'porsVersionId'
 --
@@ -389,20 +406,9 @@ instance ToQuery PutObject where
 -- * 'porsServerSideEncryption'
 --
 -- * 'porsStatus'
-data PutObjectResponse = PutObjectResponse'
-    { _porsVersionId            :: !(Maybe ObjectVersionId)
-    , _porsETag                 :: !(Maybe ETag)
-    , _porsRequestCharged       :: !(Maybe RequestCharged)
-    , _porsExpiration           :: !(Maybe Text)
-    , _porsSSECustomerAlgorithm :: !(Maybe Text)
-    , _porsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
-    , _porsSSECustomerKeyMD5    :: !(Maybe Text)
-    , _porsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _porsStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutObjectResponse' smart constructor.
-putObjectResponse :: Int -> PutObjectResponse
+putObjectResponse
+    :: Int -- ^ 'porsStatus'
+    -> PutObjectResponse
 putObjectResponse pStatus_ =
     PutObjectResponse'
     { _porsVersionId = Nothing
@@ -456,6 +462,6 @@ porsSSECustomerKeyMD5 = lens _porsSSECustomerKeyMD5 (\ s a -> s{_porsSSECustomer
 porsServerSideEncryption :: Lens' PutObjectResponse (Maybe ServerSideEncryption)
 porsServerSideEncryption = lens _porsServerSideEncryption (\ s a -> s{_porsServerSideEncryption = a});
 
--- | Undocumented member.
+-- | The response status code.
 porsStatus :: Lens' PutObjectResponse Int
 porsStatus = lens _porsStatus (\ s a -> s{_porsStatus = a});

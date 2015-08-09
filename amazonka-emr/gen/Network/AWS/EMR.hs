@@ -73,29 +73,24 @@ module Network.AWS.EMR
 
     -- ** ListSteps (Paginated)
     , module Network.AWS.EMR.ListSteps
-    -- $pager
 
     -- ** AddInstanceGroups
     , module Network.AWS.EMR.AddInstanceGroups
 
     -- ** ListInstanceGroups (Paginated)
     , module Network.AWS.EMR.ListInstanceGroups
-    -- $pager
 
     -- ** ListBootstrapActions (Paginated)
     , module Network.AWS.EMR.ListBootstrapActions
-    -- $pager
 
     -- ** AddTags
     , module Network.AWS.EMR.AddTags
 
     -- ** ListInstances (Paginated)
     , module Network.AWS.EMR.ListInstances
-    -- $pager
 
     -- ** ListClusters (Paginated)
     , module Network.AWS.EMR.ListClusters
-    -- $pager
 
     -- * Types
 
@@ -463,8 +458,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

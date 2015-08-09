@@ -27,14 +27,14 @@
 module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     (
     -- * Creating a Request
-      DescribeStorediSCSIVolumes
-    , describeStorediSCSIVolumes
+      describeStorediSCSIVolumes
+    , DescribeStorediSCSIVolumes
     -- * Request Lenses
     , dsscsivVolumeARNs
 
     -- * Destructuring the Response
-    , DescribeStorediSCSIVolumesResponse
     , describeStorediSCSIVolumesResponse
+    , DescribeStorediSCSIVolumesResponse
     -- * Response Lenses
     , dsscsivrsStorediSCSIVolumes
     , dsscsivrsStatus
@@ -50,16 +50,17 @@ import           Network.AWS.StorageGateway.Types.Product
 -- DescribeStorediSCSIVolumesInput$VolumeARNs.
 --
 -- /See:/ 'describeStorediSCSIVolumes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsscsivVolumeARNs'
 newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes'
     { _dsscsivVolumeARNs :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStorediSCSIVolumes' smart constructor.
-describeStorediSCSIVolumes :: DescribeStorediSCSIVolumes
+-- | Creates a value of 'DescribeStorediSCSIVolumes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsscsivVolumeARNs'
+describeStorediSCSIVolumes
+    :: DescribeStorediSCSIVolumes
 describeStorediSCSIVolumes =
     DescribeStorediSCSIVolumes'
     { _dsscsivVolumeARNs = mempty
@@ -104,19 +105,21 @@ instance ToQuery DescribeStorediSCSIVolumes where
         toQuery = const mempty
 
 -- | /See:/ 'describeStorediSCSIVolumesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsscsivrsStorediSCSIVolumes'
---
--- * 'dsscsivrsStatus'
 data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
     { _dsscsivrsStorediSCSIVolumes :: !(Maybe [StorediSCSIVolume])
     , _dsscsivrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStorediSCSIVolumesResponse' smart constructor.
-describeStorediSCSIVolumesResponse :: Int -> DescribeStorediSCSIVolumesResponse
+-- | Creates a value of 'DescribeStorediSCSIVolumesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsscsivrsStorediSCSIVolumes'
+--
+-- * 'dsscsivrsStatus'
+describeStorediSCSIVolumesResponse
+    :: Int -- ^ 'dsscsivrsStatus'
+    -> DescribeStorediSCSIVolumesResponse
 describeStorediSCSIVolumesResponse pStatus_ =
     DescribeStorediSCSIVolumesResponse'
     { _dsscsivrsStorediSCSIVolumes = Nothing
@@ -127,6 +130,6 @@ describeStorediSCSIVolumesResponse pStatus_ =
 dsscsivrsStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolume]
 dsscsivrsStorediSCSIVolumes = lens _dsscsivrsStorediSCSIVolumes (\ s a -> s{_dsscsivrsStorediSCSIVolumes = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dsscsivrsStatus :: Lens' DescribeStorediSCSIVolumesResponse Int
 dsscsivrsStatus = lens _dsscsivrsStatus (\ s a -> s{_dsscsivrsStatus = a});

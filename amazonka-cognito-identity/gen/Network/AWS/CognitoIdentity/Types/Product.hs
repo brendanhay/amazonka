@@ -24,8 +24,16 @@ import           Network.AWS.Prelude
 -- | Credentials for the the provided identity ID.
 --
 -- /See:/ 'credentials' smart constructor.
+data Credentials = Credentials'
+    { _cSessionToken :: !(Maybe Text)
+    , _cExpiration   :: !(Maybe POSIX)
+    , _cSecretKey    :: !(Maybe Text)
+    , _cAccessKeyId  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Credentials' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cSessionToken'
 --
@@ -34,15 +42,8 @@ import           Network.AWS.Prelude
 -- * 'cSecretKey'
 --
 -- * 'cAccessKeyId'
-data Credentials = Credentials'
-    { _cSessionToken :: !(Maybe Text)
-    , _cExpiration   :: !(Maybe POSIX)
-    , _cSecretKey    :: !(Maybe Text)
-    , _cAccessKeyId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Credentials' smart constructor.
-credentials :: Credentials
+credentials
+    :: Credentials
 credentials =
     Credentials'
     { _cSessionToken = Nothing
@@ -79,8 +80,16 @@ instance FromJSON Credentials where
 -- | A description of the identity.
 --
 -- /See:/ 'identityDescription' smart constructor.
+data IdentityDescription = IdentityDescription'
+    { _idLastModifiedDate :: !(Maybe POSIX)
+    , _idCreationDate     :: !(Maybe POSIX)
+    , _idLogins           :: !(Maybe [Text])
+    , _idIdentityId       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IdentityDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'idLastModifiedDate'
 --
@@ -89,15 +98,8 @@ instance FromJSON Credentials where
 -- * 'idLogins'
 --
 -- * 'idIdentityId'
-data IdentityDescription = IdentityDescription'
-    { _idLastModifiedDate :: !(Maybe POSIX)
-    , _idCreationDate     :: !(Maybe POSIX)
-    , _idLogins           :: !(Maybe [Text])
-    , _idIdentityId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'IdentityDescription' smart constructor.
-identityDescription :: IdentityDescription
+identityDescription
+    :: IdentityDescription
 identityDescription =
     IdentityDescription'
     { _idLastModifiedDate = Nothing
@@ -135,8 +137,18 @@ instance FromJSON IdentityDescription where
 -- | An object representing a Cognito identity pool.
 --
 -- /See:/ 'identityPool' smart constructor.
+data IdentityPool = IdentityPool'
+    { _ipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+    , _ipDeveloperProviderName          :: !(Maybe Text)
+    , _ipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+    , _ipIdentityPoolId                 :: !Text
+    , _ipIdentityPoolName               :: !Text
+    , _ipAllowUnauthenticatedIdentities :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IdentityPool' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ipSupportedLoginProviders'
 --
@@ -149,17 +161,11 @@ instance FromJSON IdentityDescription where
 -- * 'ipIdentityPoolName'
 --
 -- * 'ipAllowUnauthenticatedIdentities'
-data IdentityPool = IdentityPool'
-    { _ipSupportedLoginProviders        :: !(Maybe (Map Text Text))
-    , _ipDeveloperProviderName          :: !(Maybe Text)
-    , _ipOpenIdConnectProviderARNs      :: !(Maybe [Text])
-    , _ipIdentityPoolId                 :: !Text
-    , _ipIdentityPoolName               :: !Text
-    , _ipAllowUnauthenticatedIdentities :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'IdentityPool' smart constructor.
-identityPool :: Text -> Text -> Bool -> IdentityPool
+identityPool
+    :: Text -- ^ 'ipIdentityPoolId'
+    -> Text -- ^ 'ipIdentityPoolName'
+    -> Bool -- ^ 'ipAllowUnauthenticatedIdentities'
+    -> IdentityPool
 identityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     IdentityPool'
     { _ipSupportedLoginProviders = Nothing
@@ -222,19 +228,20 @@ instance ToJSON IdentityPool where
 -- | A description of the identity pool.
 --
 -- /See:/ 'identityPoolShortDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ipsdIdentityPoolId'
---
--- * 'ipsdIdentityPoolName'
 data IdentityPoolShortDescription = IdentityPoolShortDescription'
     { _ipsdIdentityPoolId   :: !(Maybe Text)
     , _ipsdIdentityPoolName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'IdentityPoolShortDescription' smart constructor.
-identityPoolShortDescription :: IdentityPoolShortDescription
+-- | Creates a value of 'IdentityPoolShortDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ipsdIdentityPoolId'
+--
+-- * 'ipsdIdentityPoolName'
+identityPoolShortDescription
+    :: IdentityPoolShortDescription
 identityPoolShortDescription =
     IdentityPoolShortDescription'
     { _ipsdIdentityPoolId = Nothing
@@ -261,19 +268,20 @@ instance FromJSON IdentityPoolShortDescription where
 -- ErrorCode and IdentityId.
 --
 -- /See:/ 'unprocessedIdentityId' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uiiErrorCode'
---
--- * 'uiiIdentityId'
 data UnprocessedIdentityId = UnprocessedIdentityId'
     { _uiiErrorCode  :: !(Maybe CognitoErrorCode)
     , _uiiIdentityId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnprocessedIdentityId' smart constructor.
-unprocessedIdentityId :: UnprocessedIdentityId
+-- | Creates a value of 'UnprocessedIdentityId' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uiiErrorCode'
+--
+-- * 'uiiIdentityId'
+unprocessedIdentityId
+    :: UnprocessedIdentityId
 unprocessedIdentityId =
     UnprocessedIdentityId'
     { _uiiErrorCode = Nothing

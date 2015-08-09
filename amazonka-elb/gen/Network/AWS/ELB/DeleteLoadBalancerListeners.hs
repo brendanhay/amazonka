@@ -24,15 +24,15 @@
 module Network.AWS.ELB.DeleteLoadBalancerListeners
     (
     -- * Creating a Request
-      DeleteLoadBalancerListeners
-    , deleteLoadBalancerListeners
+      deleteLoadBalancerListeners
+    , DeleteLoadBalancerListeners
     -- * Request Lenses
     , dlblLoadBalancerName
     , dlblLoadBalancerPorts
 
     -- * Destructuring the Response
-    , DeleteLoadBalancerListenersResponse
     , deleteLoadBalancerListenersResponse
+    , DeleteLoadBalancerListenersResponse
     -- * Response Lenses
     , dlblrsStatus
     ) where
@@ -44,19 +44,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteLoadBalancerListeners' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlblLoadBalancerName'
---
--- * 'dlblLoadBalancerPorts'
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
     { _dlblLoadBalancerName  :: !Text
     , _dlblLoadBalancerPorts :: ![Int]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLoadBalancerListeners' smart constructor.
-deleteLoadBalancerListeners :: Text -> DeleteLoadBalancerListeners
+-- | Creates a value of 'DeleteLoadBalancerListeners' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlblLoadBalancerName'
+--
+-- * 'dlblLoadBalancerPorts'
+deleteLoadBalancerListeners
+    :: Text -- ^ 'dlblLoadBalancerName'
+    -> DeleteLoadBalancerListeners
 deleteLoadBalancerListeners pLoadBalancerName_ =
     DeleteLoadBalancerListeners'
     { _dlblLoadBalancerName = pLoadBalancerName_
@@ -100,21 +102,23 @@ instance ToQuery DeleteLoadBalancerListeners where
                  toQueryList "member" _dlblLoadBalancerPorts]
 
 -- | /See:/ 'deleteLoadBalancerListenersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlblrsStatus'
 newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
     { _dlblrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLoadBalancerListenersResponse' smart constructor.
-deleteLoadBalancerListenersResponse :: Int -> DeleteLoadBalancerListenersResponse
+-- | Creates a value of 'DeleteLoadBalancerListenersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlblrsStatus'
+deleteLoadBalancerListenersResponse
+    :: Int -- ^ 'dlblrsStatus'
+    -> DeleteLoadBalancerListenersResponse
 deleteLoadBalancerListenersResponse pStatus_ =
     DeleteLoadBalancerListenersResponse'
     { _dlblrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dlblrsStatus :: Lens' DeleteLoadBalancerListenersResponse Int
 dlblrsStatus = lens _dlblrsStatus (\ s a -> s{_dlblrsStatus = a});

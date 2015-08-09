@@ -24,16 +24,16 @@
 module Network.AWS.KMS.ListKeyPolicies
     (
     -- * Creating a Request
-      ListKeyPolicies
-    , listKeyPolicies
+      listKeyPolicies
+    , ListKeyPolicies
     -- * Request Lenses
     , lkpMarker
     , lkpLimit
     , lkpKeyId
 
     -- * Destructuring the Response
-    , ListKeyPoliciesResponse
     , listKeyPoliciesResponse
+    , ListKeyPoliciesResponse
     -- * Response Lenses
     , lkprsPolicyNames
     , lkprsTruncated
@@ -48,22 +48,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listKeyPolicies' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lkpMarker'
---
--- * 'lkpLimit'
---
--- * 'lkpKeyId'
 data ListKeyPolicies = ListKeyPolicies'
     { _lkpMarker :: !(Maybe Text)
     , _lkpLimit  :: !(Maybe Nat)
     , _lkpKeyId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListKeyPolicies' smart constructor.
-listKeyPolicies :: Text -> ListKeyPolicies
+-- | Creates a value of 'ListKeyPolicies' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lkpMarker'
+--
+-- * 'lkpLimit'
+--
+-- * 'lkpKeyId'
+listKeyPolicies
+    :: Text -- ^ 'lkpKeyId'
+    -> ListKeyPolicies
 listKeyPolicies pKeyId_ =
     ListKeyPolicies'
     { _lkpMarker = Nothing
@@ -73,15 +75,15 @@ listKeyPolicies pKeyId_ =
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
--- are truncated. Set it to the value of the @NextMarker@ in the response
+-- are truncated. Set it to the value of the 'NextMarker' in the response
 -- you just received.
 lkpMarker :: Lens' ListKeyPolicies (Maybe Text)
 lkpMarker = lens _lkpMarker (\ s a -> s{_lkpMarker = a});
 
 -- | Specify this parameter only when paginating results to indicate the
 -- maximum number of policies you want listed in the response. If there are
--- additional policies beyond the maximum you specify, the @Truncated@
--- response element will be set to @true.@
+-- additional policies beyond the maximum you specify, the 'Truncated'
+-- response element will be set to 'true.'
 lkpLimit :: Lens' ListKeyPolicies (Maybe Natural)
 lkpLimit = lens _lkpLimit (\ s a -> s{_lkpLimit = a}) . mapping _Nat;
 
@@ -134,8 +136,16 @@ instance ToQuery ListKeyPolicies where
         toQuery = const mempty
 
 -- | /See:/ 'listKeyPoliciesResponse' smart constructor.
+data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
+    { _lkprsPolicyNames :: !(Maybe [Text])
+    , _lkprsTruncated   :: !(Maybe Bool)
+    , _lkprsNextMarker  :: !(Maybe Text)
+    , _lkprsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListKeyPoliciesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lkprsPolicyNames'
 --
@@ -144,15 +154,9 @@ instance ToQuery ListKeyPolicies where
 -- * 'lkprsNextMarker'
 --
 -- * 'lkprsStatus'
-data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
-    { _lkprsPolicyNames :: !(Maybe [Text])
-    , _lkprsTruncated   :: !(Maybe Bool)
-    , _lkprsNextMarker  :: !(Maybe Text)
-    , _lkprsStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListKeyPoliciesResponse' smart constructor.
-listKeyPoliciesResponse :: Int -> ListKeyPoliciesResponse
+listKeyPoliciesResponse
+    :: Int -- ^ 'lkprsStatus'
+    -> ListKeyPoliciesResponse
 listKeyPoliciesResponse pStatus_ =
     ListKeyPoliciesResponse'
     { _lkprsPolicyNames = Nothing
@@ -168,17 +172,17 @@ lkprsPolicyNames = lens _lkprsPolicyNames (\ s a -> s{_lkprsPolicyNames = a}) . 
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more policies in the
+-- using the 'Marker' request parameter to retrieve more policies in the
 -- list.
 lkprsTruncated :: Lens' ListKeyPoliciesResponse (Maybe Bool)
 lkprsTruncated = lens _lkprsTruncated (\ s a -> s{_lkprsTruncated = a});
 
--- | If @Truncated@ is true, this value is present and contains the value to
--- use for the @Marker@ request parameter in a subsequent pagination
+-- | If 'Truncated' is true, this value is present and contains the value to
+-- use for the 'Marker' request parameter in a subsequent pagination
 -- request.
 lkprsNextMarker :: Lens' ListKeyPoliciesResponse (Maybe Text)
 lkprsNextMarker = lens _lkprsNextMarker (\ s a -> s{_lkprsNextMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 lkprsStatus :: Lens' ListKeyPoliciesResponse Int
 lkprsStatus = lens _lkprsStatus (\ s a -> s{_lkprsStatus = a});

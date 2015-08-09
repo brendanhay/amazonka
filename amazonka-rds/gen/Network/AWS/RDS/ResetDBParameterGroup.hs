@@ -20,27 +20,27 @@
 --
 -- Modifies the parameters of a DB parameter group to the engine\/system
 -- default value. To reset specific parameters submit a list of the
--- following: @ParameterName@ and @ApplyMethod@. To reset the entire DB
--- parameter group, specify the @DBParameterGroup@ name and
--- @ResetAllParameters@ parameters. When resetting the entire group,
+-- following: 'ParameterName' and 'ApplyMethod'. To reset the entire DB
+-- parameter group, specify the 'DBParameterGroup' name and
+-- 'ResetAllParameters' parameters. When resetting the entire group,
 -- dynamic parameters are updated immediately and static parameters are set
--- to @pending-reboot@ to take effect on the next DB instance restart or
--- @RebootDBInstance@ request.
+-- to 'pending-reboot' to take effect on the next DB instance restart or
+-- 'RebootDBInstance' request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBParameterGroup.html AWS API Reference> for ResetDBParameterGroup.
 module Network.AWS.RDS.ResetDBParameterGroup
     (
     -- * Creating a Request
-      ResetDBParameterGroup
-    , resetDBParameterGroup
+      resetDBParameterGroup
+    , ResetDBParameterGroup
     -- * Request Lenses
     , rdpgResetAllParameters
     , rdpgParameters
     , rdpgDBParameterGroupName
 
     -- * Destructuring the Response
-    , DBParameterGroupNameMessage
     , dbParameterGroupNameMessage
+    , DBParameterGroupNameMessage
     -- * Response Lenses
     , dpgnmDBParameterGroupName
     ) where
@@ -54,22 +54,24 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'resetDBParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdpgResetAllParameters'
---
--- * 'rdpgParameters'
---
--- * 'rdpgDBParameterGroupName'
 data ResetDBParameterGroup = ResetDBParameterGroup'
     { _rdpgResetAllParameters   :: !(Maybe Bool)
     , _rdpgParameters           :: !(Maybe [Parameter])
     , _rdpgDBParameterGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetDBParameterGroup' smart constructor.
-resetDBParameterGroup :: Text -> ResetDBParameterGroup
+-- | Creates a value of 'ResetDBParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdpgResetAllParameters'
+--
+-- * 'rdpgParameters'
+--
+-- * 'rdpgDBParameterGroupName'
+resetDBParameterGroup
+    :: Text -- ^ 'rdpgDBParameterGroupName'
+    -> ResetDBParameterGroup
 resetDBParameterGroup pDBParameterGroupName_ =
     ResetDBParameterGroup'
     { _rdpgResetAllParameters = Nothing
@@ -77,10 +79,10 @@ resetDBParameterGroup pDBParameterGroupName_ =
     , _rdpgDBParameterGroupName = pDBParameterGroupName_
     }
 
--- | Specifies whether (@true@) or not (@false@) to reset all parameters in
+-- | Specifies whether ('true') or not ('false') to reset all parameters in
 -- the DB parameter group to default values.
 --
--- Default: @true@
+-- Default: 'true'
 rdpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
 rdpgResetAllParameters = lens _rdpgResetAllParameters (\ s a -> s{_rdpgResetAllParameters = a});
 
@@ -91,15 +93,15 @@ rdpgResetAllParameters = lens _rdpgResetAllParameters (\ s a -> s{_rdpgResetAllP
 --
 -- __MySQL__
 --
--- Valid Values (for Apply method): @immediate@ | @pending-reboot@
+-- Valid Values (for Apply method): 'immediate' | 'pending-reboot'
 --
 -- You can use the immediate value with dynamic parameters only. You can
--- use the @pending-reboot@ value for both dynamic and static parameters,
+-- use the 'pending-reboot' value for both dynamic and static parameters,
 -- and changes are applied when DB instance reboots.
 --
 -- __Oracle__
 --
--- Valid Values (for Apply method): @pending-reboot@
+-- Valid Values (for Apply method): 'pending-reboot'
 rdpgParameters :: Lens' ResetDBParameterGroup [Parameter]
 rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a}) . _Default . _Coerce;
 

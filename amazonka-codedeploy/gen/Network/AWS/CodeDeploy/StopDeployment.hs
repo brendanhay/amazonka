@@ -24,14 +24,14 @@
 module Network.AWS.CodeDeploy.StopDeployment
     (
     -- * Creating a Request
-      StopDeployment
-    , stopDeployment
+      stopDeployment
+    , StopDeployment
     -- * Request Lenses
     , sdDeploymentId
 
     -- * Destructuring the Response
-    , StopDeploymentResponse
     , stopDeploymentResponse
+    , StopDeploymentResponse
     -- * Response Lenses
     , sdrsStatusMessage
     , sdrsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents the input of a stop deployment operation.
 --
 -- /See:/ 'stopDeployment' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sdDeploymentId'
 newtype StopDeployment = StopDeployment'
     { _sdDeploymentId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopDeployment' smart constructor.
-stopDeployment :: Text -> StopDeployment
+-- | Creates a value of 'StopDeployment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdDeploymentId'
+stopDeployment
+    :: Text -- ^ 'sdDeploymentId'
+    -> StopDeployment
 stopDeployment pDeploymentId_ =
     StopDeployment'
     { _sdDeploymentId = pDeploymentId_
@@ -97,19 +99,21 @@ instance ToQuery StopDeployment where
 -- | Represents the output of a stop deployment operation.
 --
 -- /See:/ 'stopDeploymentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sdrsStatusMessage'
---
--- * 'sdrsStatus'
 data StopDeploymentResponse = StopDeploymentResponse'
     { _sdrsStatusMessage :: !(Maybe Text)
     , _sdrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopDeploymentResponse' smart constructor.
-stopDeploymentResponse :: Int -> StopDeploymentResponse
+-- | Creates a value of 'StopDeploymentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdrsStatusMessage'
+--
+-- * 'sdrsStatus'
+stopDeploymentResponse
+    :: Int -- ^ 'sdrsStatus'
+    -> StopDeploymentResponse
 stopDeploymentResponse pStatus_ =
     StopDeploymentResponse'
     { _sdrsStatusMessage = Nothing
@@ -120,6 +124,6 @@ stopDeploymentResponse pStatus_ =
 sdrsStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
 sdrsStatusMessage = lens _sdrsStatusMessage (\ s a -> s{_sdrsStatusMessage = a});
 
--- | Undocumented member.
+-- | The response status code.
 sdrsStatus :: Lens' StopDeploymentResponse Int
 sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a});

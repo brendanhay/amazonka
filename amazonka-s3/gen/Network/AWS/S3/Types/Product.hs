@@ -23,19 +23,20 @@ import           Network.AWS.S3.Internal
 import           Network.AWS.S3.Types.Sum
 
 -- | /See:/ 'accessControlPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'acpGrants'
---
--- * 'acpOwner'
 data AccessControlPolicy = AccessControlPolicy'
     { _acpGrants :: !(Maybe [Grant])
     , _acpOwner  :: !(Maybe Owner)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AccessControlPolicy' smart constructor.
-accessControlPolicy :: AccessControlPolicy
+-- | Creates a value of 'AccessControlPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acpGrants'
+--
+-- * 'acpOwner'
+accessControlPolicy
+    :: AccessControlPolicy
 accessControlPolicy =
     AccessControlPolicy'
     { _acpGrants = Nothing
@@ -58,19 +59,22 @@ instance ToXML AccessControlPolicy where
                "Owner" @= _acpOwner]
 
 -- | /See:/ 'bucket' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bCreationDate'
---
--- * 'bName'
 data Bucket = Bucket'
     { _bCreationDate :: !RFC822
     , _bName         :: !BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Bucket' smart constructor.
-bucket :: UTCTime -> BucketName -> Bucket
+-- | Creates a value of 'Bucket' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bCreationDate'
+--
+-- * 'bName'
+bucket
+    :: UTCTime -- ^ 'bCreationDate'
+    -> BucketName -- ^ 'bName'
+    -> Bucket
 bucket pCreationDate_ pName_ =
     Bucket'
     { _bCreationDate = _Time # pCreationDate_
@@ -90,16 +94,17 @@ instance FromXML Bucket where
           = Bucket' <$> (x .@ "CreationDate") <*> (x .@ "Name")
 
 -- | /See:/ 'bucketLoggingStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'blsLoggingEnabled'
 newtype BucketLoggingStatus = BucketLoggingStatus'
     { _blsLoggingEnabled :: Maybe LoggingEnabled
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BucketLoggingStatus' smart constructor.
-bucketLoggingStatus :: BucketLoggingStatus
+-- | Creates a value of 'BucketLoggingStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'blsLoggingEnabled'
+bucketLoggingStatus
+    :: BucketLoggingStatus
 bucketLoggingStatus =
     BucketLoggingStatus'
     { _blsLoggingEnabled = Nothing
@@ -114,16 +119,17 @@ instance ToXML BucketLoggingStatus where
           = mconcat ["LoggingEnabled" @= _blsLoggingEnabled]
 
 -- | /See:/ 'corsConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccCORSRules'
 newtype CORSConfiguration = CORSConfiguration'
     { _ccCORSRules :: Maybe [CORSRule]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CORSConfiguration' smart constructor.
-corsConfiguration :: CORSConfiguration
+-- | Creates a value of 'CORSConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccCORSRules'
+corsConfiguration
+    :: CORSConfiguration
 corsConfiguration =
     CORSConfiguration'
     { _ccCORSRules = Nothing
@@ -139,8 +145,17 @@ instance ToXML CORSConfiguration where
               [toXML (toXMLList "CORSRule" <$> _ccCORSRules)]
 
 -- | /See:/ 'corsRule' smart constructor.
+data CORSRule = CORSRule'
+    { _crAllowedMethods :: !(Maybe [Text])
+    , _crMaxAgeSeconds  :: !(Maybe Int)
+    , _crAllowedHeaders :: !(Maybe [Text])
+    , _crAllowedOrigins :: !(Maybe [Text])
+    , _crExposeHeaders  :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CORSRule' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'crAllowedMethods'
 --
@@ -151,16 +166,8 @@ instance ToXML CORSConfiguration where
 -- * 'crAllowedOrigins'
 --
 -- * 'crExposeHeaders'
-data CORSRule = CORSRule'
-    { _crAllowedMethods :: !(Maybe [Text])
-    , _crMaxAgeSeconds  :: !(Maybe Int)
-    , _crAllowedHeaders :: !(Maybe [Text])
-    , _crAllowedOrigins :: !(Maybe [Text])
-    , _crExposeHeaders  :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CORSRule' smart constructor.
-corsRule :: CORSRule
+corsRule
+    :: CORSRule
 corsRule =
     CORSRule'
     { _crAllowedMethods = Nothing
@@ -218,16 +225,17 @@ instance ToXML CORSRule where
                  (toXMLList "ExposeHeader" <$> _crExposeHeaders)]
 
 -- | /See:/ 'commonPrefix' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpPrefix'
 newtype CommonPrefix = CommonPrefix'
     { _cpPrefix :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CommonPrefix' smart constructor.
-commonPrefix :: CommonPrefix
+-- | Creates a value of 'CommonPrefix' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpPrefix'
+commonPrefix
+    :: CommonPrefix
 commonPrefix =
     CommonPrefix'
     { _cpPrefix = Nothing
@@ -241,16 +249,17 @@ instance FromXML CommonPrefix where
         parseXML x = CommonPrefix' <$> (x .@? "Prefix")
 
 -- | /See:/ 'completedMultipartUpload' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cmuParts'
 newtype CompletedMultipartUpload = CompletedMultipartUpload'
     { _cmuParts :: Maybe (List1 CompletedPart)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CompletedMultipartUpload' smart constructor.
-completedMultipartUpload :: CompletedMultipartUpload
+-- | Creates a value of 'CompletedMultipartUpload' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cmuParts'
+completedMultipartUpload
+    :: CompletedMultipartUpload
 completedMultipartUpload =
     CompletedMultipartUpload'
     { _cmuParts = Nothing
@@ -265,19 +274,22 @@ instance ToXML CompletedMultipartUpload where
           = mconcat [toXML (toXMLList "Part" <$> _cmuParts)]
 
 -- | /See:/ 'completedPart' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpPartNumber'
---
--- * 'cpETag'
 data CompletedPart = CompletedPart'
     { _cpPartNumber :: !Int
     , _cpETag       :: !ETag
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CompletedPart' smart constructor.
-completedPart :: Int -> ETag -> CompletedPart
+-- | Creates a value of 'CompletedPart' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpPartNumber'
+--
+-- * 'cpETag'
+completedPart
+    :: Int -- ^ 'cpPartNumber'
+    -> ETag -- ^ 'cpETag'
+    -> CompletedPart
 completedPart pPartNumber_ pETag_ =
     CompletedPart'
     { _cpPartNumber = pPartNumber_
@@ -299,19 +311,20 @@ instance ToXML CompletedPart where
               ["PartNumber" @= _cpPartNumber, "ETag" @= _cpETag]
 
 -- | /See:/ 'condition' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cKeyPrefixEquals'
---
--- * 'cHTTPErrorCodeReturnedEquals'
 data Condition = Condition'
     { _cKeyPrefixEquals             :: !(Maybe Text)
     , _cHTTPErrorCodeReturnedEquals :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Condition' smart constructor.
-condition :: Condition
+-- | Creates a value of 'Condition' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cKeyPrefixEquals'
+--
+-- * 'cHTTPErrorCodeReturnedEquals'
+condition
+    :: Condition
 condition =
     Condition'
     { _cKeyPrefixEquals = Nothing
@@ -351,19 +364,20 @@ instance ToXML Condition where
                  _cHTTPErrorCodeReturnedEquals]
 
 -- | /See:/ 'copyObjectResult' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'corETag'
---
--- * 'corLastModified'
 data CopyObjectResult = CopyObjectResult'
     { _corETag         :: !(Maybe ETag)
     , _corLastModified :: !(Maybe RFC822)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CopyObjectResult' smart constructor.
-copyObjectResult :: CopyObjectResult
+-- | Creates a value of 'CopyObjectResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'corETag'
+--
+-- * 'corLastModified'
+copyObjectResult
+    :: CopyObjectResult
 copyObjectResult =
     CopyObjectResult'
     { _corETag = Nothing
@@ -384,19 +398,20 @@ instance FromXML CopyObjectResult where
               (x .@? "ETag") <*> (x .@? "LastModified")
 
 -- | /See:/ 'copyPartResult' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cprETag'
---
--- * 'cprLastModified'
 data CopyPartResult = CopyPartResult'
     { _cprETag         :: !(Maybe ETag)
     , _cprLastModified :: !(Maybe RFC822)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CopyPartResult' smart constructor.
-copyPartResult :: CopyPartResult
+-- | Creates a value of 'CopyPartResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cprETag'
+--
+-- * 'cprLastModified'
+copyPartResult
+    :: CopyPartResult
 copyPartResult =
     CopyPartResult'
     { _cprETag = Nothing
@@ -417,16 +432,17 @@ instance FromXML CopyPartResult where
               (x .@? "ETag") <*> (x .@? "LastModified")
 
 -- | /See:/ 'createBucketConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cbcLocationConstraint'
 newtype CreateBucketConfiguration = CreateBucketConfiguration'
     { _cbcLocationConstraint :: Maybe Region
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateBucketConfiguration' smart constructor.
-createBucketConfiguration :: CreateBucketConfiguration
+-- | Creates a value of 'CreateBucketConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cbcLocationConstraint'
+createBucketConfiguration
+    :: CreateBucketConfiguration
 createBucketConfiguration =
     CreateBucketConfiguration'
     { _cbcLocationConstraint = Nothing
@@ -443,19 +459,20 @@ instance ToXML CreateBucketConfiguration where
               ["LocationConstraint" @= _cbcLocationConstraint]
 
 -- | /See:/ 'delete'' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dQuiet'
---
--- * 'dObjects'
 data Delete = Delete'
     { _dQuiet   :: !(Maybe Bool)
     , _dObjects :: ![ObjectIdentifier]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Delete' smart constructor.
-delete' :: Delete
+-- | Creates a value of 'Delete' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dQuiet'
+--
+-- * 'dObjects'
+delete'
+    :: Delete
 delete' =
     Delete'
     { _dQuiet = Nothing
@@ -477,8 +494,17 @@ instance ToXML Delete where
               ["Quiet" @= _dQuiet, toXMLList "Object" _dObjects]
 
 -- | /See:/ 'deleteMarkerEntry' smart constructor.
+data DeleteMarkerEntry = DeleteMarkerEntry'
+    { _dmeVersionId    :: !(Maybe ObjectVersionId)
+    , _dmeIsLatest     :: !(Maybe Bool)
+    , _dmeOwner        :: !(Maybe Owner)
+    , _dmeKey          :: !(Maybe ObjectKey)
+    , _dmeLastModified :: !(Maybe RFC822)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteMarkerEntry' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dmeVersionId'
 --
@@ -489,16 +515,8 @@ instance ToXML Delete where
 -- * 'dmeKey'
 --
 -- * 'dmeLastModified'
-data DeleteMarkerEntry = DeleteMarkerEntry'
-    { _dmeVersionId    :: !(Maybe ObjectVersionId)
-    , _dmeIsLatest     :: !(Maybe Bool)
-    , _dmeOwner        :: !(Maybe Owner)
-    , _dmeKey          :: !(Maybe ObjectKey)
-    , _dmeLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeleteMarkerEntry' smart constructor.
-deleteMarkerEntry :: DeleteMarkerEntry
+deleteMarkerEntry
+    :: DeleteMarkerEntry
 deleteMarkerEntry =
     DeleteMarkerEntry'
     { _dmeVersionId = Nothing
@@ -538,8 +556,16 @@ instance FromXML DeleteMarkerEntry where
                 <*> (x .@? "LastModified")
 
 -- | /See:/ 'deletedObject' smart constructor.
+data DeletedObject = DeletedObject'
+    { _dVersionId             :: !(Maybe ObjectVersionId)
+    , _dDeleteMarker          :: !(Maybe Bool)
+    , _dDeleteMarkerVersionId :: !(Maybe Text)
+    , _dKey                   :: !(Maybe ObjectKey)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeletedObject' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dVersionId'
 --
@@ -548,15 +574,8 @@ instance FromXML DeleteMarkerEntry where
 -- * 'dDeleteMarkerVersionId'
 --
 -- * 'dKey'
-data DeletedObject = DeletedObject'
-    { _dVersionId             :: !(Maybe ObjectVersionId)
-    , _dDeleteMarker          :: !(Maybe Bool)
-    , _dDeleteMarkerVersionId :: !(Maybe Text)
-    , _dKey                   :: !(Maybe ObjectKey)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeletedObject' smart constructor.
-deletedObject :: DeletedObject
+deletedObject
+    :: DeletedObject
 deletedObject =
     DeletedObject'
     { _dVersionId = Nothing
@@ -589,16 +608,18 @@ instance FromXML DeletedObject where
                 <*> (x .@? "Key")
 
 -- | /See:/ 'destination' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dBucket'
 newtype Destination = Destination'
     { _dBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Destination' smart constructor.
-destination :: BucketName -> Destination
+-- | Creates a value of 'Destination' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dBucket'
+destination
+    :: BucketName -- ^ 'dBucket'
+    -> Destination
 destination pBucket_ =
     Destination'
     { _dBucket = pBucket_
@@ -617,16 +638,18 @@ instance ToXML Destination where
           = mconcat ["Bucket" @= _dBucket]
 
 -- | /See:/ 'errorDocument' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'edKey'
 newtype ErrorDocument = ErrorDocument'
     { _edKey :: ObjectKey
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ErrorDocument' smart constructor.
-errorDocument :: ObjectKey -> ErrorDocument
+-- | Creates a value of 'ErrorDocument' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edKey'
+errorDocument
+    :: ObjectKey -- ^ 'edKey'
+    -> ErrorDocument
 errorDocument pKey_ =
     ErrorDocument'
     { _edKey = pKey_
@@ -643,19 +666,20 @@ instance ToXML ErrorDocument where
         toXML ErrorDocument'{..} = mconcat ["Key" @= _edKey]
 
 -- | /See:/ 'grant' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gPermission'
---
--- * 'gGrantee'
 data Grant = Grant'
     { _gPermission :: !(Maybe Permission)
     , _gGrantee    :: !(Maybe Grantee)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Grant' smart constructor.
-grant :: Grant
+-- | Creates a value of 'Grant' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gPermission'
+--
+-- * 'gGrantee'
+grant
+    :: Grant
 grant =
     Grant'
     { _gPermission = Nothing
@@ -682,8 +706,17 @@ instance ToXML Grant where
                "Grantee" @= _gGrantee]
 
 -- | /See:/ 'grantee' smart constructor.
+data Grantee = Grantee'
+    { _gURI          :: !(Maybe Text)
+    , _gEmailAddress :: !(Maybe Text)
+    , _gId           :: !(Maybe Text)
+    , _gDisplayName  :: !(Maybe Text)
+    , _gType         :: !Type
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Grantee' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gURI'
 --
@@ -694,16 +727,9 @@ instance ToXML Grant where
 -- * 'gDisplayName'
 --
 -- * 'gType'
-data Grantee = Grantee'
-    { _gURI          :: !(Maybe Text)
-    , _gEmailAddress :: !(Maybe Text)
-    , _gId           :: !(Maybe Text)
-    , _gDisplayName  :: !(Maybe Text)
-    , _gType         :: !Type
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Grantee' smart constructor.
-grantee :: Type -> Grantee
+grantee
+    :: Type -- ^ 'gType'
+    -> Grantee
 grantee pType_ =
     Grantee'
     { _gURI = Nothing
@@ -749,16 +775,18 @@ instance ToXML Grantee where
                "xsi:type" @= _gType]
 
 -- | /See:/ 'indexDocument' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'idSuffix'
 newtype IndexDocument = IndexDocument'
     { _idSuffix :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'IndexDocument' smart constructor.
-indexDocument :: Text -> IndexDocument
+-- | Creates a value of 'IndexDocument' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'idSuffix'
+indexDocument
+    :: Text -- ^ 'idSuffix'
+    -> IndexDocument
 indexDocument pSuffix_ =
     IndexDocument'
     { _idSuffix = pSuffix_
@@ -780,19 +808,20 @@ instance ToXML IndexDocument where
           = mconcat ["Suffix" @= _idSuffix]
 
 -- | /See:/ 'initiator' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iId'
---
--- * 'iDisplayName'
 data Initiator = Initiator'
     { _iId          :: !(Maybe Text)
     , _iDisplayName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Initiator' smart constructor.
-initiator :: Initiator
+-- | Creates a value of 'Initiator' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iId'
+--
+-- * 'iDisplayName'
+initiator
+    :: Initiator
 initiator =
     Initiator'
     { _iId = Nothing
@@ -816,22 +845,24 @@ instance FromXML Initiator where
 -- | Container for specifying the AWS Lambda notification configuration.
 --
 -- /See:/ 'lambdaFunctionConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lfcId'
---
--- * 'lfcLambdaFunctionARN'
---
--- * 'lfcEvents'
 data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
     { _lfcId                :: !(Maybe Text)
     , _lfcLambdaFunctionARN :: !Text
     , _lfcEvents            :: ![Event]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LambdaFunctionConfiguration' smart constructor.
-lambdaFunctionConfiguration :: Text -> LambdaFunctionConfiguration
+-- | Creates a value of 'LambdaFunctionConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lfcId'
+--
+-- * 'lfcLambdaFunctionARN'
+--
+-- * 'lfcEvents'
+lambdaFunctionConfiguration
+    :: Text -- ^ 'lfcLambdaFunctionARN'
+    -> LambdaFunctionConfiguration
 lambdaFunctionConfiguration pLambdaFunctionARN_ =
     LambdaFunctionConfiguration'
     { _lfcId = Nothing
@@ -866,16 +897,17 @@ instance ToXML LambdaFunctionConfiguration where
                toXMLList "Event" _lfcEvents]
 
 -- | /See:/ 'lifecycleConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lcRules'
 newtype LifecycleConfiguration = LifecycleConfiguration'
     { _lcRules :: [Rule]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LifecycleConfiguration' smart constructor.
-lifecycleConfiguration :: LifecycleConfiguration
+-- | Creates a value of 'LifecycleConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lcRules'
+lifecycleConfiguration
+    :: LifecycleConfiguration
 lifecycleConfiguration =
     LifecycleConfiguration'
     { _lcRules = mempty
@@ -890,19 +922,20 @@ instance ToXML LifecycleConfiguration where
           = mconcat [toXMLList "Rule" _lcRules]
 
 -- | /See:/ 'lifecycleExpiration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'leDays'
---
--- * 'leDate'
 data LifecycleExpiration = LifecycleExpiration'
     { _leDays :: !(Maybe Int)
     , _leDate :: !(Maybe RFC822)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LifecycleExpiration' smart constructor.
-lifecycleExpiration :: LifecycleExpiration
+-- | Creates a value of 'LifecycleExpiration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'leDays'
+--
+-- * 'leDate'
+lifecycleExpiration
+    :: LifecycleExpiration
 lifecycleExpiration =
     LifecycleExpiration'
     { _leDays = Nothing
@@ -929,22 +962,23 @@ instance ToXML LifecycleExpiration where
           = mconcat ["Days" @= _leDays, "Date" @= _leDate]
 
 -- | /See:/ 'loggingEnabled' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'leTargetBucket'
---
--- * 'leTargetGrants'
---
--- * 'leTargetPrefix'
 data LoggingEnabled = LoggingEnabled'
     { _leTargetBucket :: !(Maybe Text)
     , _leTargetGrants :: !(Maybe [TargetGrant])
     , _leTargetPrefix :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LoggingEnabled' smart constructor.
-loggingEnabled :: LoggingEnabled
+-- | Creates a value of 'LoggingEnabled' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'leTargetBucket'
+--
+-- * 'leTargetGrants'
+--
+-- * 'leTargetPrefix'
+loggingEnabled
+    :: LoggingEnabled
 loggingEnabled =
     LoggingEnabled'
     { _leTargetBucket = Nothing
@@ -987,8 +1021,18 @@ instance ToXML LoggingEnabled where
                "TargetPrefix" @= _leTargetPrefix]
 
 -- | /See:/ 'multipartUpload' smart constructor.
+data MultipartUpload = MultipartUpload'
+    { _muInitiated    :: !(Maybe RFC822)
+    , _muInitiator    :: !(Maybe Initiator)
+    , _muOwner        :: !(Maybe Owner)
+    , _muKey          :: !(Maybe ObjectKey)
+    , _muStorageClass :: !(Maybe StorageClass)
+    , _muUploadId     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MultipartUpload' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'muInitiated'
 --
@@ -1001,17 +1045,8 @@ instance ToXML LoggingEnabled where
 -- * 'muStorageClass'
 --
 -- * 'muUploadId'
-data MultipartUpload = MultipartUpload'
-    { _muInitiated    :: !(Maybe RFC822)
-    , _muInitiator    :: !(Maybe Initiator)
-    , _muOwner        :: !(Maybe Owner)
-    , _muKey          :: !(Maybe ObjectKey)
-    , _muStorageClass :: !(Maybe StorageClass)
-    , _muUploadId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'MultipartUpload' smart constructor.
-multipartUpload :: MultipartUpload
+multipartUpload
+    :: MultipartUpload
 multipartUpload =
     MultipartUpload'
     { _muInitiated = Nothing
@@ -1062,16 +1097,18 @@ instance FromXML MultipartUpload where
 -- object versions at a specific period in the object\'s lifetime.
 --
 -- /See:/ 'noncurrentVersionExpiration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nveNoncurrentDays'
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration'
     { _nveNoncurrentDays :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'NoncurrentVersionExpiration' smart constructor.
-noncurrentVersionExpiration :: Int -> NoncurrentVersionExpiration
+-- | Creates a value of 'NoncurrentVersionExpiration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'nveNoncurrentDays'
+noncurrentVersionExpiration
+    :: Int -- ^ 'nveNoncurrentDays'
+    -> NoncurrentVersionExpiration
 noncurrentVersionExpiration pNoncurrentDays_ =
     NoncurrentVersionExpiration'
     { _nveNoncurrentDays = pNoncurrentDays_
@@ -1101,19 +1138,22 @@ instance ToXML NoncurrentVersionExpiration where
 -- GLACIER storage class at a specific period in the object\'s lifetime.
 --
 -- /See:/ 'noncurrentVersionTransition' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nvtNoncurrentDays'
---
--- * 'nvtStorageClass'
 data NoncurrentVersionTransition = NoncurrentVersionTransition'
     { _nvtNoncurrentDays :: !Int
     , _nvtStorageClass   :: !TransitionStorageClass
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'NoncurrentVersionTransition' smart constructor.
-noncurrentVersionTransition :: Int -> TransitionStorageClass -> NoncurrentVersionTransition
+-- | Creates a value of 'NoncurrentVersionTransition' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'nvtNoncurrentDays'
+--
+-- * 'nvtStorageClass'
+noncurrentVersionTransition
+    :: Int -- ^ 'nvtNoncurrentDays'
+    -> TransitionStorageClass -- ^ 'nvtStorageClass'
+    -> NoncurrentVersionTransition
 noncurrentVersionTransition pNoncurrentDays_ pStorageClass_ =
     NoncurrentVersionTransition'
     { _nvtNoncurrentDays = pNoncurrentDays_
@@ -1147,22 +1187,23 @@ instance ToXML NoncurrentVersionTransition where
 -- If this element is empty, notifications are turned off on the bucket.
 --
 -- /See:/ 'notificationConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ncQueueConfigurations'
---
--- * 'ncTopicConfigurations'
---
--- * 'ncLambdaFunctionConfigurations'
 data NotificationConfiguration = NotificationConfiguration'
     { _ncQueueConfigurations          :: !(Maybe [QueueConfiguration])
     , _ncTopicConfigurations          :: !(Maybe [TopicConfiguration])
     , _ncLambdaFunctionConfigurations :: !(Maybe [LambdaFunctionConfiguration])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'NotificationConfiguration' smart constructor.
-notificationConfiguration :: NotificationConfiguration
+-- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ncQueueConfigurations'
+--
+-- * 'ncTopicConfigurations'
+--
+-- * 'ncLambdaFunctionConfigurations'
+notificationConfiguration
+    :: NotificationConfiguration
 notificationConfiguration =
     NotificationConfiguration'
     { _ncQueueConfigurations = Nothing
@@ -1204,8 +1245,18 @@ instance ToXML NotificationConfiguration where
                     _ncLambdaFunctionConfigurations)]
 
 -- | /See:/ 'object'' smart constructor.
+data Object = Object'
+    { _oOwner        :: !(Maybe Owner)
+    , _oETag         :: !ETag
+    , _oSize         :: !Int
+    , _oKey          :: !ObjectKey
+    , _oStorageClass :: !ObjectStorageClass
+    , _oLastModified :: !RFC822
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Object' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'oOwner'
 --
@@ -1218,17 +1269,13 @@ instance ToXML NotificationConfiguration where
 -- * 'oStorageClass'
 --
 -- * 'oLastModified'
-data Object = Object'
-    { _oOwner        :: !(Maybe Owner)
-    , _oETag         :: !ETag
-    , _oSize         :: !Int
-    , _oKey          :: !ObjectKey
-    , _oStorageClass :: !ObjectStorageClass
-    , _oLastModified :: !RFC822
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Object' smart constructor.
-object' :: ETag -> Int -> ObjectKey -> ObjectStorageClass -> UTCTime -> Object
+object'
+    :: ETag -- ^ 'oETag'
+    -> Int -- ^ 'oSize'
+    -> ObjectKey -- ^ 'oKey'
+    -> ObjectStorageClass -- ^ 'oStorageClass'
+    -> UTCTime -- ^ 'oLastModified'
+    -> Object
 object' pETag_ pSize_ pKey_ pStorageClass_ pLastModified_ =
     Object'
     { _oOwner = Nothing
@@ -1272,19 +1319,21 @@ instance FromXML Object where
                 <*> (x .@ "LastModified")
 
 -- | /See:/ 'objectIdentifier' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'oiVersionId'
---
--- * 'oiKey'
 data ObjectIdentifier = ObjectIdentifier'
     { _oiVersionId :: !(Maybe ObjectVersionId)
     , _oiKey       :: !ObjectKey
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ObjectIdentifier' smart constructor.
-objectIdentifier :: ObjectKey -> ObjectIdentifier
+-- | Creates a value of 'ObjectIdentifier' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'oiVersionId'
+--
+-- * 'oiKey'
+objectIdentifier
+    :: ObjectKey -- ^ 'oiKey'
+    -> ObjectIdentifier
 objectIdentifier pKey_ =
     ObjectIdentifier'
     { _oiVersionId = Nothing
@@ -1305,8 +1354,20 @@ instance ToXML ObjectIdentifier where
               ["VersionId" @= _oiVersionId, "Key" @= _oiKey]
 
 -- | /See:/ 'objectVersion' smart constructor.
+data ObjectVersion = ObjectVersion'
+    { _ovVersionId    :: !(Maybe ObjectVersionId)
+    , _ovETag         :: !(Maybe ETag)
+    , _ovSize         :: !(Maybe Int)
+    , _ovIsLatest     :: !(Maybe Bool)
+    , _ovOwner        :: !(Maybe Owner)
+    , _ovKey          :: !(Maybe ObjectKey)
+    , _ovStorageClass :: !(Maybe ObjectVersionStorageClass)
+    , _ovLastModified :: !(Maybe RFC822)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ObjectVersion' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ovVersionId'
 --
@@ -1323,19 +1384,8 @@ instance ToXML ObjectIdentifier where
 -- * 'ovStorageClass'
 --
 -- * 'ovLastModified'
-data ObjectVersion = ObjectVersion'
-    { _ovVersionId    :: !(Maybe ObjectVersionId)
-    , _ovETag         :: !(Maybe ETag)
-    , _ovSize         :: !(Maybe Int)
-    , _ovIsLatest     :: !(Maybe Bool)
-    , _ovOwner        :: !(Maybe Owner)
-    , _ovKey          :: !(Maybe ObjectKey)
-    , _ovStorageClass :: !(Maybe ObjectVersionStorageClass)
-    , _ovLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ObjectVersion' smart constructor.
-objectVersion :: ObjectVersion
+objectVersion
+    :: ObjectVersion
 objectVersion =
     ObjectVersion'
     { _ovVersionId = Nothing
@@ -1393,19 +1443,20 @@ instance FromXML ObjectVersion where
                 <*> (x .@? "LastModified")
 
 -- | /See:/ 'owner' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'oId'
---
--- * 'oDisplayName'
 data Owner = Owner'
     { _oId          :: !(Maybe Text)
     , _oDisplayName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Owner' smart constructor.
-owner :: Owner
+-- | Creates a value of 'Owner' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'oId'
+--
+-- * 'oDisplayName'
+owner
+    :: Owner
 owner =
     Owner'
     { _oId = Nothing
@@ -1430,8 +1481,16 @@ instance ToXML Owner where
               ["ID" @= _oId, "DisplayName" @= _oDisplayName]
 
 -- | /See:/ 'part' smart constructor.
+data Part = Part'
+    { _pETag         :: !(Maybe ETag)
+    , _pSize         :: !(Maybe Int)
+    , _pPartNumber   :: !(Maybe Int)
+    , _pLastModified :: !(Maybe RFC822)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Part' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pETag'
 --
@@ -1440,15 +1499,8 @@ instance ToXML Owner where
 -- * 'pPartNumber'
 --
 -- * 'pLastModified'
-data Part = Part'
-    { _pETag         :: !(Maybe ETag)
-    , _pSize         :: !(Maybe Int)
-    , _pPartNumber   :: !(Maybe Int)
-    , _pLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Part' smart constructor.
-part :: Part
+part
+    :: Part
 part =
     Part'
     { _pETag = Nothing
@@ -1485,22 +1537,24 @@ instance FromXML Part where
 -- publish events to an Amazon Simple Queue Service (Amazon SQS) queue.
 --
 -- /See:/ 'queueConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'qcId'
---
--- * 'qcQueueARN'
---
--- * 'qcEvents'
 data QueueConfiguration = QueueConfiguration'
     { _qcId       :: !(Maybe Text)
     , _qcQueueARN :: !Text
     , _qcEvents   :: ![Event]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'QueueConfiguration' smart constructor.
-queueConfiguration :: Text -> QueueConfiguration
+-- | Creates a value of 'QueueConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'qcId'
+--
+-- * 'qcQueueARN'
+--
+-- * 'qcEvents'
+queueConfiguration
+    :: Text -- ^ 'qcQueueARN'
+    -> QueueConfiguration
 queueConfiguration pQueueARN_ =
     QueueConfiguration'
     { _qcId = Nothing
@@ -1534,8 +1588,17 @@ instance ToXML QueueConfiguration where
                toXMLList "Event" _qcEvents]
 
 -- | /See:/ 'redirect' smart constructor.
+data Redirect = Redirect'
+    { _rHostName             :: !(Maybe Text)
+    , _rProtocol             :: !(Maybe Protocol)
+    , _rHTTPRedirectCode     :: !(Maybe Text)
+    , _rReplaceKeyWith       :: !(Maybe Text)
+    , _rReplaceKeyPrefixWith :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Redirect' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rHostName'
 --
@@ -1546,16 +1609,8 @@ instance ToXML QueueConfiguration where
 -- * 'rReplaceKeyWith'
 --
 -- * 'rReplaceKeyPrefixWith'
-data Redirect = Redirect'
-    { _rHostName             :: !(Maybe Text)
-    , _rProtocol             :: !(Maybe Protocol)
-    , _rHTTPRedirectCode     :: !(Maybe Text)
-    , _rReplaceKeyWith       :: !(Maybe Text)
-    , _rReplaceKeyPrefixWith :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Redirect' smart constructor.
-redirect :: Redirect
+redirect
+    :: Redirect
 redirect =
     Redirect'
     { _rHostName = Nothing
@@ -1611,19 +1666,21 @@ instance ToXML Redirect where
                "ReplaceKeyPrefixWith" @= _rReplaceKeyPrefixWith]
 
 -- | /See:/ 'redirectAllRequestsTo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rartProtocol'
---
--- * 'rartHostName'
 data RedirectAllRequestsTo = RedirectAllRequestsTo'
     { _rartProtocol :: !(Maybe Protocol)
     , _rartHostName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RedirectAllRequestsTo' smart constructor.
-redirectAllRequestsTo :: Text -> RedirectAllRequestsTo
+-- | Creates a value of 'RedirectAllRequestsTo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rartProtocol'
+--
+-- * 'rartHostName'
+redirectAllRequestsTo
+    :: Text -- ^ 'rartHostName'
+    -> RedirectAllRequestsTo
 redirectAllRequestsTo pHostName_ =
     RedirectAllRequestsTo'
     { _rartProtocol = Nothing
@@ -1654,19 +1711,21 @@ instance ToXML RedirectAllRequestsTo where
 -- Total replication configuration size can be up to 2 MB.
 --
 -- /See:/ 'replicationConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcRole'
---
--- * 'rcRules'
 data ReplicationConfiguration = ReplicationConfiguration'
     { _rcRole  :: !Text
     , _rcRules :: ![ReplicationRule]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReplicationConfiguration' smart constructor.
-replicationConfiguration :: Text -> ReplicationConfiguration
+-- | Creates a value of 'ReplicationConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcRole'
+--
+-- * 'rcRules'
+replicationConfiguration
+    :: Text -- ^ 'rcRole'
+    -> ReplicationConfiguration
 replicationConfiguration pRole_ =
     ReplicationConfiguration'
     { _rcRole = pRole_
@@ -1695,8 +1754,16 @@ instance ToXML ReplicationConfiguration where
               ["Role" @= _rcRole, toXMLList "Rule" _rcRules]
 
 -- | /See:/ 'replicationRule' smart constructor.
+data ReplicationRule = ReplicationRule'
+    { _rrId          :: !(Maybe Text)
+    , _rrPrefix      :: !Text
+    , _rrStatus      :: !ReplicationRuleStatus
+    , _rrDestination :: !Destination
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReplicationRule' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rrId'
 --
@@ -1705,15 +1772,11 @@ instance ToXML ReplicationConfiguration where
 -- * 'rrStatus'
 --
 -- * 'rrDestination'
-data ReplicationRule = ReplicationRule'
-    { _rrId          :: !(Maybe Text)
-    , _rrPrefix      :: !Text
-    , _rrStatus      :: !ReplicationRuleStatus
-    , _rrDestination :: !Destination
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReplicationRule' smart constructor.
-replicationRule :: Text -> ReplicationRuleStatus -> Destination -> ReplicationRule
+replicationRule
+    :: Text -- ^ 'rrPrefix'
+    -> ReplicationRuleStatus -- ^ 'rrStatus'
+    -> Destination -- ^ 'rrDestination'
+    -> ReplicationRule
 replicationRule pPrefix_ pStatus_ pDestination_ =
     ReplicationRule'
     { _rrId = Nothing
@@ -1755,16 +1818,18 @@ instance ToXML ReplicationRule where
                "Destination" @= _rrDestination]
 
 -- | /See:/ 'requestPaymentConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rpcPayer'
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration'
     { _rpcPayer :: Payer
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RequestPaymentConfiguration' smart constructor.
-requestPaymentConfiguration :: Payer -> RequestPaymentConfiguration
+-- | Creates a value of 'RequestPaymentConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpcPayer'
+requestPaymentConfiguration
+    :: Payer -- ^ 'rpcPayer'
+    -> RequestPaymentConfiguration
 requestPaymentConfiguration pPayer_ =
     RequestPaymentConfiguration'
     { _rpcPayer = pPayer_
@@ -1779,16 +1844,18 @@ instance ToXML RequestPaymentConfiguration where
           = mconcat ["Payer" @= _rpcPayer]
 
 -- | /See:/ 'restoreRequest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rrDays'
 newtype RestoreRequest = RestoreRequest'
     { _rrDays :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestoreRequest' smart constructor.
-restoreRequest :: Int -> RestoreRequest
+-- | Creates a value of 'RestoreRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rrDays'
+restoreRequest
+    :: Int -- ^ 'rrDays'
+    -> RestoreRequest
 restoreRequest pDays_ =
     RestoreRequest'
     { _rrDays = pDays_
@@ -1803,19 +1870,21 @@ instance ToXML RestoreRequest where
           = mconcat ["Days" @= _rrDays]
 
 -- | /See:/ 'routingRule' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rrCondition'
---
--- * 'rrRedirect'
 data RoutingRule = RoutingRule'
     { _rrCondition :: !(Maybe Condition)
     , _rrRedirect  :: !Redirect
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RoutingRule' smart constructor.
-routingRule :: Redirect -> RoutingRule
+-- | Creates a value of 'RoutingRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rrCondition'
+--
+-- * 'rrRedirect'
+routingRule
+    :: Redirect -- ^ 'rrRedirect'
+    -> RoutingRule
 routingRule pRedirect_ =
     RoutingRule'
     { _rrCondition = Nothing
@@ -1848,8 +1917,19 @@ instance ToXML RoutingRule where
                "Redirect" @= _rrRedirect]
 
 -- | /See:/ 'rule' smart constructor.
+data Rule = Rule'
+    { _rNoncurrentVersionExpiration :: !(Maybe NoncurrentVersionExpiration)
+    , _rTransition                  :: !(Maybe Transition)
+    , _rExpiration                  :: !(Maybe LifecycleExpiration)
+    , _rNoncurrentVersionTransition :: !(Maybe NoncurrentVersionTransition)
+    , _rId                          :: !(Maybe Text)
+    , _rPrefix                      :: !Text
+    , _rStatus                      :: !ExpirationStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Rule' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rNoncurrentVersionExpiration'
 --
@@ -1864,18 +1944,10 @@ instance ToXML RoutingRule where
 -- * 'rPrefix'
 --
 -- * 'rStatus'
-data Rule = Rule'
-    { _rNoncurrentVersionExpiration :: !(Maybe NoncurrentVersionExpiration)
-    , _rTransition                  :: !(Maybe Transition)
-    , _rExpiration                  :: !(Maybe LifecycleExpiration)
-    , _rNoncurrentVersionTransition :: !(Maybe NoncurrentVersionTransition)
-    , _rId                          :: !(Maybe Text)
-    , _rPrefix                      :: !Text
-    , _rStatus                      :: !ExpirationStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Rule' smart constructor.
-rule :: Text -> ExpirationStatus -> Rule
+rule
+    :: Text -- ^ 'rPrefix'
+    -> ExpirationStatus -- ^ 'rStatus'
+    -> Rule
 rule pPrefix_ pStatus_ =
     Rule'
     { _rNoncurrentVersionExpiration = Nothing
@@ -1941,8 +2013,16 @@ instance ToXML Rule where
                "Status" @= _rStatus]
 
 -- | /See:/ 's3ServiceError' smart constructor.
+data S3ServiceError = S3ServiceError'
+    { _sseVersionId :: !(Maybe ObjectVersionId)
+    , _sseKey       :: !(Maybe ObjectKey)
+    , _sseCode      :: !(Maybe Text)
+    , _sseMessage   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'S3ServiceError' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sseVersionId'
 --
@@ -1951,15 +2031,8 @@ instance ToXML Rule where
 -- * 'sseCode'
 --
 -- * 'sseMessage'
-data S3ServiceError = S3ServiceError'
-    { _sseVersionId :: !(Maybe ObjectVersionId)
-    , _sseKey       :: !(Maybe ObjectKey)
-    , _sseCode      :: !(Maybe Text)
-    , _sseMessage   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'S3ServiceError' smart constructor.
-s3ServiceError :: S3ServiceError
+s3ServiceError
+    :: S3ServiceError
 s3ServiceError =
     S3ServiceError'
     { _sseVersionId = Nothing
@@ -1992,19 +2065,22 @@ instance FromXML S3ServiceError where
                 <*> (x .@? "Message")
 
 -- | /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagKey'
---
--- * 'tagValue'
 data Tag = Tag'
     { _tagKey   :: !ObjectKey
     , _tagValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: ObjectKey -> Text -> Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagKey'
+--
+-- * 'tagValue'
+tag
+    :: ObjectKey -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
 tag pKey_ pValue_ =
     Tag'
     { _tagKey = pKey_
@@ -2027,16 +2103,17 @@ instance ToXML Tag where
           = mconcat ["Key" @= _tagKey, "Value" @= _tagValue]
 
 -- | /See:/ 'tagging' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tTagSet'
 newtype Tagging = Tagging'
     { _tTagSet :: [Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tagging' smart constructor.
-tagging :: Tagging
+-- | Creates a value of 'Tagging' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tTagSet'
+tagging
+    :: Tagging
 tagging =
     Tagging'
     { _tTagSet = mempty
@@ -2051,19 +2128,20 @@ instance ToXML Tagging where
           = mconcat ["TagSet" @= toXMLList "Tag" _tTagSet]
 
 -- | /See:/ 'targetGrant' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tgPermission'
---
--- * 'tgGrantee'
 data TargetGrant = TargetGrant'
     { _tgPermission :: !(Maybe BucketLogsPermission)
     , _tgGrantee    :: !(Maybe Grantee)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TargetGrant' smart constructor.
-targetGrant :: TargetGrant
+-- | Creates a value of 'TargetGrant' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tgPermission'
+--
+-- * 'tgGrantee'
+targetGrant
+    :: TargetGrant
 targetGrant =
     TargetGrant'
     { _tgPermission = Nothing
@@ -2094,22 +2172,24 @@ instance ToXML TargetGrant where
 -- topic.
 --
 -- /See:/ 'topicConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tcId'
---
--- * 'tcTopicARN'
---
--- * 'tcEvents'
 data TopicConfiguration = TopicConfiguration'
     { _tcId       :: !(Maybe Text)
     , _tcTopicARN :: !Text
     , _tcEvents   :: ![Event]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TopicConfiguration' smart constructor.
-topicConfiguration :: Text -> TopicConfiguration
+-- | Creates a value of 'TopicConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tcId'
+--
+-- * 'tcTopicARN'
+--
+-- * 'tcEvents'
+topicConfiguration
+    :: Text -- ^ 'tcTopicARN'
+    -> TopicConfiguration
 topicConfiguration pTopicARN_ =
     TopicConfiguration'
     { _tcId = Nothing
@@ -2143,22 +2223,23 @@ instance ToXML TopicConfiguration where
                toXMLList "Event" _tcEvents]
 
 -- | /See:/ 'transition' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tDays'
---
--- * 'tDate'
---
--- * 'tStorageClass'
 data Transition = Transition'
     { _tDays         :: !(Maybe Int)
     , _tDate         :: !(Maybe RFC822)
     , _tStorageClass :: !(Maybe TransitionStorageClass)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Transition' smart constructor.
-transition :: Transition
+-- | Creates a value of 'Transition' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tDays'
+--
+-- * 'tDate'
+--
+-- * 'tStorageClass'
+transition
+    :: Transition
 transition =
     Transition'
     { _tDays = Nothing
@@ -2193,19 +2274,20 @@ instance ToXML Transition where
                "StorageClass" @= _tStorageClass]
 
 -- | /See:/ 'versioningConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vcStatus'
---
--- * 'vcMFADelete'
 data VersioningConfiguration = VersioningConfiguration'
     { _vcStatus    :: !(Maybe BucketVersioningStatus)
     , _vcMFADelete :: !(Maybe MFADelete)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VersioningConfiguration' smart constructor.
-versioningConfiguration :: VersioningConfiguration
+-- | Creates a value of 'VersioningConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vcStatus'
+--
+-- * 'vcMFADelete'
+versioningConfiguration
+    :: VersioningConfiguration
 versioningConfiguration =
     VersioningConfiguration'
     { _vcStatus = Nothing
@@ -2229,8 +2311,16 @@ instance ToXML VersioningConfiguration where
               ["Status" @= _vcStatus, "MfaDelete" @= _vcMFADelete]
 
 -- | /See:/ 'websiteConfiguration' smart constructor.
+data WebsiteConfiguration = WebsiteConfiguration'
+    { _wcRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
+    , _wcErrorDocument         :: !(Maybe ErrorDocument)
+    , _wcRoutingRules          :: !(Maybe [RoutingRule])
+    , _wcIndexDocument         :: !(Maybe IndexDocument)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'WebsiteConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'wcRedirectAllRequestsTo'
 --
@@ -2239,15 +2329,8 @@ instance ToXML VersioningConfiguration where
 -- * 'wcRoutingRules'
 --
 -- * 'wcIndexDocument'
-data WebsiteConfiguration = WebsiteConfiguration'
-    { _wcRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
-    , _wcErrorDocument         :: !(Maybe ErrorDocument)
-    , _wcRoutingRules          :: !(Maybe [RoutingRule])
-    , _wcIndexDocument         :: !(Maybe IndexDocument)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'WebsiteConfiguration' smart constructor.
-websiteConfiguration :: WebsiteConfiguration
+websiteConfiguration
+    :: WebsiteConfiguration
 websiteConfiguration =
     WebsiteConfiguration'
     { _wcRedirectAllRequestsTo = Nothing

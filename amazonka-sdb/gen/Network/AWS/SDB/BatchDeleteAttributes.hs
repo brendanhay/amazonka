@@ -31,15 +31,15 @@
 module Network.AWS.SDB.BatchDeleteAttributes
     (
     -- * Creating a Request
-      BatchDeleteAttributes
-    , batchDeleteAttributes
+      batchDeleteAttributes
+    , BatchDeleteAttributes
     -- * Request Lenses
     , bdaDomainName
     , bdaItems
 
     -- * Destructuring the Response
-    , BatchDeleteAttributesResponse
     , batchDeleteAttributesResponse
+    , BatchDeleteAttributesResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -49,19 +49,21 @@ import           Network.AWS.SDB.Types
 import           Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'batchDeleteAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bdaDomainName'
---
--- * 'bdaItems'
 data BatchDeleteAttributes = BatchDeleteAttributes'
     { _bdaDomainName :: !Text
     , _bdaItems      :: ![DeletableItem]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BatchDeleteAttributes' smart constructor.
-batchDeleteAttributes :: Text -> BatchDeleteAttributes
+-- | Creates a value of 'BatchDeleteAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bdaDomainName'
+--
+-- * 'bdaItems'
+batchDeleteAttributes
+    :: Text -- ^ 'bdaDomainName'
+    -> BatchDeleteAttributes
 batchDeleteAttributes pDomainName_ =
     BatchDeleteAttributes'
     { _bdaDomainName = pDomainName_
@@ -102,6 +104,8 @@ data BatchDeleteAttributesResponse =
     BatchDeleteAttributesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BatchDeleteAttributesResponse' smart constructor.
-batchDeleteAttributesResponse :: BatchDeleteAttributesResponse
+-- | Creates a value of 'BatchDeleteAttributesResponse' with the minimum fields required to make a request.
+--
+batchDeleteAttributesResponse
+    :: BatchDeleteAttributesResponse
 batchDeleteAttributesResponse = BatchDeleteAttributesResponse'

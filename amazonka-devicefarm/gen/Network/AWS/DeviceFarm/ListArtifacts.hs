@@ -24,16 +24,16 @@
 module Network.AWS.DeviceFarm.ListArtifacts
     (
     -- * Creating a Request
-      ListArtifacts
-    , listArtifacts
+      listArtifacts
+    , ListArtifacts
     -- * Request Lenses
     , laNextToken
     , laArn
     , laType
 
     -- * Destructuring the Response
-    , ListArtifactsResponse
     , listArtifactsResponse
+    , ListArtifactsResponse
     -- * Response Lenses
     , larsArtifacts
     , larsNextToken
@@ -49,22 +49,25 @@ import           Network.AWS.Response
 -- | Represents a request to the list artifacts operation.
 --
 -- /See:/ 'listArtifacts' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'laNextToken'
---
--- * 'laArn'
---
--- * 'laType'
 data ListArtifacts = ListArtifacts'
     { _laNextToken :: !(Maybe Text)
     , _laArn       :: !Text
     , _laType      :: !ArtifactCategory
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListArtifacts' smart constructor.
-listArtifacts :: Text -> ArtifactCategory -> ListArtifacts
+-- | Creates a value of 'ListArtifacts' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'laNextToken'
+--
+-- * 'laArn'
+--
+-- * 'laType'
+listArtifacts
+    :: Text -- ^ 'laArn'
+    -> ArtifactCategory -- ^ 'laType'
+    -> ListArtifacts
 listArtifacts pArn_ pType_ =
     ListArtifacts'
     { _laNextToken = Nothing
@@ -128,22 +131,24 @@ instance ToQuery ListArtifacts where
 -- | Represents the result of a list artifacts operation.
 --
 -- /See:/ 'listArtifactsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'larsArtifacts'
---
--- * 'larsNextToken'
---
--- * 'larsStatus'
 data ListArtifactsResponse = ListArtifactsResponse'
     { _larsArtifacts :: !(Maybe [Artifact])
     , _larsNextToken :: !(Maybe Text)
     , _larsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListArtifactsResponse' smart constructor.
-listArtifactsResponse :: Int -> ListArtifactsResponse
+-- | Creates a value of 'ListArtifactsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'larsArtifacts'
+--
+-- * 'larsNextToken'
+--
+-- * 'larsStatus'
+listArtifactsResponse
+    :: Int -- ^ 'larsStatus'
+    -> ListArtifactsResponse
 listArtifactsResponse pStatus_ =
     ListArtifactsResponse'
     { _larsArtifacts = Nothing
@@ -161,6 +166,6 @@ larsArtifacts = lens _larsArtifacts (\ s a -> s{_larsArtifacts = a}) . _Default 
 larsNextToken :: Lens' ListArtifactsResponse (Maybe Text)
 larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 larsStatus :: Lens' ListArtifactsResponse Int
 larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

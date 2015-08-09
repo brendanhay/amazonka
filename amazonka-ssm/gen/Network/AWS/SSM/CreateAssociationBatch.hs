@@ -33,14 +33,14 @@
 module Network.AWS.SSM.CreateAssociationBatch
     (
     -- * Creating a Request
-      CreateAssociationBatch
-    , createAssociationBatch
+      createAssociationBatch
+    , CreateAssociationBatch
     -- * Request Lenses
     , cabEntries
 
     -- * Destructuring the Response
-    , CreateAssociationBatchResponse
     , createAssociationBatchResponse
+    , CreateAssociationBatchResponse
     -- * Response Lenses
     , cabrsSuccessful
     , cabrsFailed
@@ -54,16 +54,17 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createAssociationBatch' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cabEntries'
 newtype CreateAssociationBatch = CreateAssociationBatch'
     { _cabEntries :: [CreateAssociationBatchRequestEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAssociationBatch' smart constructor.
-createAssociationBatch :: CreateAssociationBatch
+-- | Creates a value of 'CreateAssociationBatch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cabEntries'
+createAssociationBatch
+    :: CreateAssociationBatch
 createAssociationBatch =
     CreateAssociationBatch'
     { _cabEntries = mempty
@@ -106,22 +107,24 @@ instance ToQuery CreateAssociationBatch where
         toQuery = const mempty
 
 -- | /See:/ 'createAssociationBatchResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cabrsSuccessful'
---
--- * 'cabrsFailed'
---
--- * 'cabrsStatus'
 data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
     { _cabrsSuccessful :: !(Maybe [AssociationDescription])
     , _cabrsFailed     :: !(Maybe [FailedCreateAssociation])
     , _cabrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAssociationBatchResponse' smart constructor.
-createAssociationBatchResponse :: Int -> CreateAssociationBatchResponse
+-- | Creates a value of 'CreateAssociationBatchResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cabrsSuccessful'
+--
+-- * 'cabrsFailed'
+--
+-- * 'cabrsStatus'
+createAssociationBatchResponse
+    :: Int -- ^ 'cabrsStatus'
+    -> CreateAssociationBatchResponse
 createAssociationBatchResponse pStatus_ =
     CreateAssociationBatchResponse'
     { _cabrsSuccessful = Nothing
@@ -137,6 +140,6 @@ cabrsSuccessful = lens _cabrsSuccessful (\ s a -> s{_cabrsSuccessful = a}) . _De
 cabrsFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
 cabrsFailed = lens _cabrsFailed (\ s a -> s{_cabrsFailed = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 cabrsStatus :: Lens' CreateAssociationBatchResponse Int
 cabrsStatus = lens _cabrsStatus (\ s a -> s{_cabrsStatus = a});

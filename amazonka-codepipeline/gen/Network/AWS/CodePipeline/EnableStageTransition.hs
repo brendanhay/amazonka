@@ -24,16 +24,16 @@
 module Network.AWS.CodePipeline.EnableStageTransition
     (
     -- * Creating a Request
-      EnableStageTransition
-    , enableStageTransition
+      enableStageTransition
+    , EnableStageTransition
     -- * Request Lenses
     , estPipelineName
     , estStageName
     , estTransitionType
 
     -- * Destructuring the Response
-    , EnableStageTransitionResponse
     , enableStageTransitionResponse
+    , EnableStageTransitionResponse
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -45,22 +45,26 @@ import           Network.AWS.Response
 -- | Represents the input of an enable stage transition action.
 --
 -- /See:/ 'enableStageTransition' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'estPipelineName'
---
--- * 'estStageName'
---
--- * 'estTransitionType'
 data EnableStageTransition = EnableStageTransition'
     { _estPipelineName   :: !Text
     , _estStageName      :: !Text
     , _estTransitionType :: !StageTransitionType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableStageTransition' smart constructor.
-enableStageTransition :: Text -> Text -> StageTransitionType -> EnableStageTransition
+-- | Creates a value of 'EnableStageTransition' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'estPipelineName'
+--
+-- * 'estStageName'
+--
+-- * 'estTransitionType'
+enableStageTransition
+    :: Text -- ^ 'estPipelineName'
+    -> Text -- ^ 'estStageName'
+    -> StageTransitionType -- ^ 'estTransitionType'
+    -> EnableStageTransition
 enableStageTransition pPipelineName_ pStageName_ pTransitionType_ =
     EnableStageTransition'
     { _estPipelineName = pPipelineName_
@@ -121,6 +125,8 @@ data EnableStageTransitionResponse =
     EnableStageTransitionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableStageTransitionResponse' smart constructor.
-enableStageTransitionResponse :: EnableStageTransitionResponse
+-- | Creates a value of 'EnableStageTransitionResponse' with the minimum fields required to make a request.
+--
+enableStageTransitionResponse
+    :: EnableStageTransitionResponse
 enableStageTransitionResponse = EnableStageTransitionResponse'

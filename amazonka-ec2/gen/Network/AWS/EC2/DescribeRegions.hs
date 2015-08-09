@@ -27,16 +27,16 @@
 module Network.AWS.EC2.DescribeRegions
     (
     -- * Creating a Request
-      DescribeRegions
-    , describeRegions
+      describeRegions
+    , DescribeRegions
     -- * Request Lenses
     , drsRegionNames
     , drsFilters
     , drsDryRun
 
     -- * Destructuring the Response
-    , DescribeRegionsResponse
     , describeRegionsResponse
+    , DescribeRegionsResponse
     -- * Response Lenses
     , drrsRegions
     , drrsStatus
@@ -49,22 +49,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeRegions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsRegionNames'
---
--- * 'drsFilters'
---
--- * 'drsDryRun'
 data DescribeRegions = DescribeRegions'
     { _drsRegionNames :: !(Maybe [Text])
     , _drsFilters     :: !(Maybe [Filter])
     , _drsDryRun      :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeRegions' smart constructor.
-describeRegions :: DescribeRegions
+-- | Creates a value of 'DescribeRegions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsRegionNames'
+--
+-- * 'drsFilters'
+--
+-- * 'drsDryRun'
+describeRegions
+    :: DescribeRegions
 describeRegions =
     DescribeRegions'
     { _drsRegionNames = Nothing
@@ -78,18 +79,18 @@ drsRegionNames = lens _drsRegionNames (\ s a -> s{_drsRegionNames = a}) . _Defau
 
 -- | One or more filters.
 --
--- -   @endpoint@ - The endpoint of the region (for example,
---     @ec2.us-east-1.amazonaws.com@).
+-- -   'endpoint' - The endpoint of the region (for example,
+--     'ec2.us-east-1.amazonaws.com').
 --
--- -   @region-name@ - The name of the region (for example, @us-east-1@).
+-- -   'region-name' - The name of the region (for example, 'us-east-1').
 --
 drsFilters :: Lens' DescribeRegions [Filter]
 drsFilters = lens _drsFilters (\ s a -> s{_drsFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 drsDryRun :: Lens' DescribeRegions (Maybe Bool)
 drsDryRun = lens _drsDryRun (\ s a -> s{_drsDryRun = a});
 
@@ -122,19 +123,21 @@ instance ToQuery DescribeRegions where
                "DryRun" =: _drsDryRun]
 
 -- | /See:/ 'describeRegionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drrsRegions'
---
--- * 'drrsStatus'
 data DescribeRegionsResponse = DescribeRegionsResponse'
     { _drrsRegions :: !(Maybe [RegionInfo])
     , _drrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeRegionsResponse' smart constructor.
-describeRegionsResponse :: Int -> DescribeRegionsResponse
+-- | Creates a value of 'DescribeRegionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drrsRegions'
+--
+-- * 'drrsStatus'
+describeRegionsResponse
+    :: Int -- ^ 'drrsStatus'
+    -> DescribeRegionsResponse
 describeRegionsResponse pStatus_ =
     DescribeRegionsResponse'
     { _drrsRegions = Nothing
@@ -145,6 +148,6 @@ describeRegionsResponse pStatus_ =
 drrsRegions :: Lens' DescribeRegionsResponse [RegionInfo]
 drrsRegions = lens _drrsRegions (\ s a -> s{_drrsRegions = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 drrsStatus :: Lens' DescribeRegionsResponse Int
 drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});

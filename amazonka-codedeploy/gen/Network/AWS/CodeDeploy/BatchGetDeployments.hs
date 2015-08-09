@@ -24,14 +24,14 @@
 module Network.AWS.CodeDeploy.BatchGetDeployments
     (
     -- * Creating a Request
-      BatchGetDeployments
-    , batchGetDeployments
+      batchGetDeployments
+    , BatchGetDeployments
     -- * Request Lenses
     , bgdDeploymentIds
 
     -- * Destructuring the Response
-    , BatchGetDeploymentsResponse
     , batchGetDeploymentsResponse
+    , BatchGetDeploymentsResponse
     -- * Response Lenses
     , bgdrsDeploymentsInfo
     , bgdrsStatus
@@ -46,16 +46,17 @@ import           Network.AWS.Response
 -- | Represents the input of a batch get deployments operation.
 --
 -- /See:/ 'batchGetDeployments' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bgdDeploymentIds'
 newtype BatchGetDeployments = BatchGetDeployments'
     { _bgdDeploymentIds :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BatchGetDeployments' smart constructor.
-batchGetDeployments :: BatchGetDeployments
+-- | Creates a value of 'BatchGetDeployments' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgdDeploymentIds'
+batchGetDeployments
+    :: BatchGetDeployments
 batchGetDeployments =
     BatchGetDeployments'
     { _bgdDeploymentIds = Nothing
@@ -101,19 +102,21 @@ instance ToQuery BatchGetDeployments where
 -- | Represents the output of a batch get deployments operation.
 --
 -- /See:/ 'batchGetDeploymentsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bgdrsDeploymentsInfo'
---
--- * 'bgdrsStatus'
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
     { _bgdrsDeploymentsInfo :: !(Maybe [DeploymentInfo])
     , _bgdrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BatchGetDeploymentsResponse' smart constructor.
-batchGetDeploymentsResponse :: Int -> BatchGetDeploymentsResponse
+-- | Creates a value of 'BatchGetDeploymentsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgdrsDeploymentsInfo'
+--
+-- * 'bgdrsStatus'
+batchGetDeploymentsResponse
+    :: Int -- ^ 'bgdrsStatus'
+    -> BatchGetDeploymentsResponse
 batchGetDeploymentsResponse pStatus_ =
     BatchGetDeploymentsResponse'
     { _bgdrsDeploymentsInfo = Nothing
@@ -124,6 +127,6 @@ batchGetDeploymentsResponse pStatus_ =
 bgdrsDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
 bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\ s a -> s{_bgdrsDeploymentsInfo = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 bgdrsStatus :: Lens' BatchGetDeploymentsResponse Int
 bgdrsStatus = lens _bgdrsStatus (\ s a -> s{_bgdrsStatus = a});

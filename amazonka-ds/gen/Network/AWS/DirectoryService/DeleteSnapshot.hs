@@ -24,14 +24,14 @@
 module Network.AWS.DirectoryService.DeleteSnapshot
     (
     -- * Creating a Request
-      DeleteSnapshot
-    , deleteSnapshot
+      deleteSnapshot
+    , DeleteSnapshot
     -- * Request Lenses
     , dsSnapshotId
 
     -- * Destructuring the Response
-    , DeleteSnapshotResponse
     , deleteSnapshotResponse
+    , DeleteSnapshotResponse
     -- * Response Lenses
     , dsrsSnapshotId
     , dsrsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Contains the inputs for the DeleteSnapshot operation.
 --
 -- /See:/ 'deleteSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsSnapshotId'
 newtype DeleteSnapshot = DeleteSnapshot'
     { _dsSnapshotId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSnapshot' smart constructor.
-deleteSnapshot :: Text -> DeleteSnapshot
+-- | Creates a value of 'DeleteSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsSnapshotId'
+deleteSnapshot
+    :: Text -- ^ 'dsSnapshotId'
+    -> DeleteSnapshot
 deleteSnapshot pSnapshotId_ =
     DeleteSnapshot'
     { _dsSnapshotId = pSnapshotId_
@@ -98,19 +100,21 @@ instance ToQuery DeleteSnapshot where
 -- | Contains the results of the DeleteSnapshot operation.
 --
 -- /See:/ 'deleteSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrsSnapshotId'
---
--- * 'dsrsStatus'
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
     { _dsrsSnapshotId :: !(Maybe Text)
     , _dsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSnapshotResponse' smart constructor.
-deleteSnapshotResponse :: Int -> DeleteSnapshotResponse
+-- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrsSnapshotId'
+--
+-- * 'dsrsStatus'
+deleteSnapshotResponse
+    :: Int -- ^ 'dsrsStatus'
+    -> DeleteSnapshotResponse
 deleteSnapshotResponse pStatus_ =
     DeleteSnapshotResponse'
     { _dsrsSnapshotId = Nothing
@@ -121,6 +125,6 @@ deleteSnapshotResponse pStatus_ =
 dsrsSnapshotId :: Lens' DeleteSnapshotResponse (Maybe Text)
 dsrsSnapshotId = lens _dsrsSnapshotId (\ s a -> s{_dsrsSnapshotId = a});
 
--- | Undocumented member.
+-- | The response status code.
 dsrsStatus :: Lens' DeleteSnapshotResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

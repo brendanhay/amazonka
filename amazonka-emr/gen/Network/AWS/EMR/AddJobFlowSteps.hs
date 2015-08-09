@@ -48,15 +48,15 @@
 module Network.AWS.EMR.AddJobFlowSteps
     (
     -- * Creating a Request
-      AddJobFlowSteps
-    , addJobFlowSteps
+      addJobFlowSteps
+    , AddJobFlowSteps
     -- * Request Lenses
     , ajfsJobFlowId
     , ajfsSteps
 
     -- * Destructuring the Response
-    , AddJobFlowStepsResponse
     , addJobFlowStepsResponse
+    , AddJobFlowStepsResponse
     -- * Response Lenses
     , ajfsrsStepIds
     , ajfsrsStatus
@@ -71,19 +71,21 @@ import           Network.AWS.Response
 -- | The input argument to the AddJobFlowSteps operation.
 --
 -- /See:/ 'addJobFlowSteps' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ajfsJobFlowId'
---
--- * 'ajfsSteps'
 data AddJobFlowSteps = AddJobFlowSteps'
     { _ajfsJobFlowId :: !Text
     , _ajfsSteps     :: ![StepConfig]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddJobFlowSteps' smart constructor.
-addJobFlowSteps :: Text -> AddJobFlowSteps
+-- | Creates a value of 'AddJobFlowSteps' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ajfsJobFlowId'
+--
+-- * 'ajfsSteps'
+addJobFlowSteps
+    :: Text -- ^ 'ajfsJobFlowId'
+    -> AddJobFlowSteps
 addJobFlowSteps pJobFlowId_ =
     AddJobFlowSteps'
     { _ajfsJobFlowId = pJobFlowId_
@@ -133,19 +135,21 @@ instance ToQuery AddJobFlowSteps where
 -- | The output for the AddJobFlowSteps operation.
 --
 -- /See:/ 'addJobFlowStepsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ajfsrsStepIds'
---
--- * 'ajfsrsStatus'
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
     { _ajfsrsStepIds :: !(Maybe [Text])
     , _ajfsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddJobFlowStepsResponse' smart constructor.
-addJobFlowStepsResponse :: Int -> AddJobFlowStepsResponse
+-- | Creates a value of 'AddJobFlowStepsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ajfsrsStepIds'
+--
+-- * 'ajfsrsStatus'
+addJobFlowStepsResponse
+    :: Int -- ^ 'ajfsrsStatus'
+    -> AddJobFlowStepsResponse
 addJobFlowStepsResponse pStatus_ =
     AddJobFlowStepsResponse'
     { _ajfsrsStepIds = Nothing
@@ -156,6 +160,6 @@ addJobFlowStepsResponse pStatus_ =
 ajfsrsStepIds :: Lens' AddJobFlowStepsResponse [Text]
 ajfsrsStepIds = lens _ajfsrsStepIds (\ s a -> s{_ajfsrsStepIds = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ajfsrsStatus :: Lens' AddJobFlowStepsResponse Int
 ajfsrsStatus = lens _ajfsrsStatus (\ s a -> s{_ajfsrsStatus = a});

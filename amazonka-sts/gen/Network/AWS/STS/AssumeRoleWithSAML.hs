@@ -28,9 +28,9 @@
 -- an access key ID, a secret access key, and a security token.
 -- Applications can use these temporary security credentials to sign calls
 -- to AWS services. The credentials are valid for the duration that you
--- specified when calling @AssumeRoleWithSAML@, which can be up to 3600
+-- specified when calling 'AssumeRoleWithSAML', which can be up to 3600
 -- seconds (1 hour) or until the time specified in the SAML authentication
--- response\'s @SessionNotOnOrAfter@ value, whichever is shorter.
+-- response\'s 'SessionNotOnOrAfter' value, whichever is shorter.
 --
 -- The maximum duration for a session is 1 hour, and the minimum duration
 -- is 15 minutes, even if values outside this range are specified.
@@ -50,14 +50,14 @@
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithSAML>
 -- in /Using Temporary Security Credentials/.
 --
--- Before your application can call @AssumeRoleWithSAML@, you must
+-- Before your application can call 'AssumeRoleWithSAML', you must
 -- configure your SAML identity provider (IdP) to issue the claims required
 -- by AWS. Additionally, you must use AWS Identity and Access Management
 -- (IAM) to create a SAML provider entity in your AWS account that
 -- represents your identity provider, and create an IAM role that specifies
 -- this SAML provider in its trust policy.
 --
--- Calling @AssumeRoleWithSAML@ does not require the use of AWS security
+-- Calling 'AssumeRoleWithSAML' does not require the use of AWS security
 -- credentials. The identity of the caller is validated by using keys in
 -- the metadata document that is uploaded for the SAML provider entity for
 -- your identity provider.
@@ -76,8 +76,8 @@
 module Network.AWS.STS.AssumeRoleWithSAML
     (
     -- * Creating a Request
-      AssumeRoleWithSAML
-    , assumeRoleWithSAML
+      assumeRoleWithSAML
+    , AssumeRoleWithSAML
     -- * Request Lenses
     , arwsamlDurationSeconds
     , arwsamlPolicy
@@ -86,8 +86,8 @@ module Network.AWS.STS.AssumeRoleWithSAML
     , arwsamlSAMLAssertion
 
     -- * Destructuring the Response
-    , AssumeRoleWithSAMLResponse
     , assumeRoleWithSAMLResponse
+    , AssumeRoleWithSAMLResponse
     -- * Response Lenses
     , arwsamlrsAudience
     , arwsamlrsSubject
@@ -107,8 +107,17 @@ import           Network.AWS.STS.Types
 import           Network.AWS.STS.Types.Product
 
 -- | /See:/ 'assumeRoleWithSAML' smart constructor.
+data AssumeRoleWithSAML = AssumeRoleWithSAML'
+    { _arwsamlDurationSeconds :: !(Maybe Nat)
+    , _arwsamlPolicy          :: !(Maybe Text)
+    , _arwsamlRoleARN         :: !Text
+    , _arwsamlPrincipalARN    :: !Text
+    , _arwsamlSAMLAssertion   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AssumeRoleWithSAML' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'arwsamlDurationSeconds'
 --
@@ -119,16 +128,11 @@ import           Network.AWS.STS.Types.Product
 -- * 'arwsamlPrincipalARN'
 --
 -- * 'arwsamlSAMLAssertion'
-data AssumeRoleWithSAML = AssumeRoleWithSAML'
-    { _arwsamlDurationSeconds :: !(Maybe Nat)
-    , _arwsamlPolicy          :: !(Maybe Text)
-    , _arwsamlRoleARN         :: !Text
-    , _arwsamlPrincipalARN    :: !Text
-    , _arwsamlSAMLAssertion   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AssumeRoleWithSAML' smart constructor.
-assumeRoleWithSAML :: Text -> Text -> Text -> AssumeRoleWithSAML
+assumeRoleWithSAML
+    :: Text -- ^ 'arwsamlRoleARN'
+    -> Text -- ^ 'arwsamlPrincipalARN'
+    -> Text -- ^ 'arwsamlSAMLAssertion'
+    -> AssumeRoleWithSAML
 assumeRoleWithSAML pRoleARN_ pPrincipalARN_ pSAMLAssertion_ =
     AssumeRoleWithSAML'
     { _arwsamlDurationSeconds = Nothing
@@ -141,7 +145,7 @@ assumeRoleWithSAML pRoleARN_ pPrincipalARN_ pSAMLAssertion_ =
 -- | The duration, in seconds, of the role session. The value can range from
 -- 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value
 -- is set to 3600 seconds. An expiration can also be specified in the SAML
--- authentication response\'s @SessionNotOnOrAfter@ value. The actual
+-- authentication response\'s 'SessionNotOnOrAfter' value. The actual
 -- expiration time is whichever value is shorter.
 --
 -- The maximum duration for a session is 1 hour, and the minimum duration
@@ -227,8 +231,21 @@ instance ToQuery AssumeRoleWithSAML where
 -- requests.
 --
 -- /See:/ 'assumeRoleWithSAMLResponse' smart constructor.
+data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
+    { _arwsamlrsAudience         :: !(Maybe Text)
+    , _arwsamlrsSubject          :: !(Maybe Text)
+    , _arwsamlrsPackedPolicySize :: !(Maybe Nat)
+    , _arwsamlrsCredentials      :: !(Maybe Credentials)
+    , _arwsamlrsSubjectType      :: !(Maybe Text)
+    , _arwsamlrsNameQualifier    :: !(Maybe Text)
+    , _arwsamlrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
+    , _arwsamlrsIssuer           :: !(Maybe Text)
+    , _arwsamlrsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AssumeRoleWithSAMLResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'arwsamlrsAudience'
 --
@@ -247,20 +264,9 @@ instance ToQuery AssumeRoleWithSAML where
 -- * 'arwsamlrsIssuer'
 --
 -- * 'arwsamlrsStatus'
-data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
-    { _arwsamlrsAudience         :: !(Maybe Text)
-    , _arwsamlrsSubject          :: !(Maybe Text)
-    , _arwsamlrsPackedPolicySize :: !(Maybe Nat)
-    , _arwsamlrsCredentials      :: !(Maybe Credentials)
-    , _arwsamlrsSubjectType      :: !(Maybe Text)
-    , _arwsamlrsNameQualifier    :: !(Maybe Text)
-    , _arwsamlrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
-    , _arwsamlrsIssuer           :: !(Maybe Text)
-    , _arwsamlrsStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AssumeRoleWithSAMLResponse' smart constructor.
-assumeRoleWithSAMLResponse :: Int -> AssumeRoleWithSAMLResponse
+assumeRoleWithSAMLResponse
+    :: Int -- ^ 'arwsamlrsStatus'
+    -> AssumeRoleWithSAMLResponse
 assumeRoleWithSAMLResponse pStatus_ =
     AssumeRoleWithSAMLResponse'
     { _arwsamlrsAudience = Nothing
@@ -274,12 +280,12 @@ assumeRoleWithSAMLResponse pStatus_ =
     , _arwsamlrsStatus = pStatus_
     }
 
--- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@
+-- | The value of the 'Recipient' attribute of the 'SubjectConfirmationData'
 -- element of the SAML assertion.
 arwsamlrsAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsAudience = lens _arwsamlrsAudience (\ s a -> s{_arwsamlrsAudience = a});
 
--- | The value of the @NameID@ element in the @Subject@ element of the SAML
+-- | The value of the 'NameID' element in the 'Subject' element of the SAML
 -- assertion.
 arwsamlrsSubject :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsSubject = lens _arwsamlrsSubject (\ s a -> s{_arwsamlrsSubject = a});
@@ -294,26 +300,26 @@ arwsamlrsPackedPolicySize = lens _arwsamlrsPackedPolicySize (\ s a -> s{_arwsaml
 arwsamlrsCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe Credentials)
 arwsamlrsCredentials = lens _arwsamlrsCredentials (\ s a -> s{_arwsamlrsCredentials = a});
 
--- | The format of the name ID, as defined by the @Format@ attribute in the
--- @NameID@ element of the SAML assertion. Typical examples of the format
--- are @transient@ or @persistent@.
+-- | The format of the name ID, as defined by the 'Format' attribute in the
+-- 'NameID' element of the SAML assertion. Typical examples of the format
+-- are 'transient' or 'persistent'.
 --
 -- If the format includes the prefix
--- @urn:oasis:names:tc:SAML:2.0:nameid-format@, that prefix is removed. For
--- example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is
--- returned as @transient@. If the format includes any other prefix, the
+-- 'urn:oasis:names:tc:SAML:2.0:nameid-format', that prefix is removed. For
+-- example, 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient' is
+-- returned as 'transient'. If the format includes any other prefix, the
 -- format is returned with no modifications.
 arwsamlrsSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsSubjectType = lens _arwsamlrsSubjectType (\ s a -> s{_arwsamlrsSubjectType = a});
 
--- | A hash value based on the concatenation of the @Issuer@ response value,
+-- | A hash value based on the concatenation of the 'Issuer' response value,
 -- the AWS account ID, and the friendly name (the last part of the ARN) of
--- the SAML provider in IAM. The combination of @NameQualifier@ and
--- @Subject@ can be used to uniquely identify a federated user.
+-- the SAML provider in IAM. The combination of 'NameQualifier' and
+-- 'Subject' can be used to uniquely identify a federated user.
 --
 -- The following pseudocode shows how the hash value is calculated:
 --
--- @BASE64 ( SHA1 ( \"https:\/\/example.com\/saml\" + \"123456789012\" + \"\/MySAMLIdP\" ) )@
+-- 'BASE64 ( SHA1 ( \"https:\/\/example.com\/saml\" + \"123456789012\" + \"\/MySAMLIdP\" ) )'
 arwsamlrsNameQualifier :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsNameQualifier = lens _arwsamlrsNameQualifier (\ s a -> s{_arwsamlrsNameQualifier = a});
 
@@ -321,10 +327,10 @@ arwsamlrsNameQualifier = lens _arwsamlrsNameQualifier (\ s a -> s{_arwsamlrsName
 arwsamlrsAssumedRoleUser :: Lens' AssumeRoleWithSAMLResponse (Maybe AssumedRoleUser)
 arwsamlrsAssumedRoleUser = lens _arwsamlrsAssumedRoleUser (\ s a -> s{_arwsamlrsAssumedRoleUser = a});
 
--- | The value of the @Issuer@ element of the SAML assertion.
+-- | The value of the 'Issuer' element of the SAML assertion.
 arwsamlrsIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrsIssuer = lens _arwsamlrsIssuer (\ s a -> s{_arwsamlrsIssuer = a});
 
--- | Undocumented member.
+-- | The response status code.
 arwsamlrsStatus :: Lens' AssumeRoleWithSAMLResponse Int
 arwsamlrsStatus = lens _arwsamlrsStatus (\ s a -> s{_arwsamlrsStatus = a});

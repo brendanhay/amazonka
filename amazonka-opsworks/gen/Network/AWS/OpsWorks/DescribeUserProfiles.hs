@@ -29,14 +29,14 @@
 module Network.AWS.OpsWorks.DescribeUserProfiles
     (
     -- * Creating a Request
-      DescribeUserProfiles
-    , describeUserProfiles
+      describeUserProfiles
+    , DescribeUserProfiles
     -- * Request Lenses
     , dupIAMUserARNs
 
     -- * Destructuring the Response
-    , DescribeUserProfilesResponse
     , describeUserProfilesResponse
+    , DescribeUserProfilesResponse
     -- * Response Lenses
     , duprsUserProfiles
     , duprsStatus
@@ -49,16 +49,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeUserProfiles' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dupIAMUserARNs'
 newtype DescribeUserProfiles = DescribeUserProfiles'
     { _dupIAMUserARNs :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeUserProfiles' smart constructor.
-describeUserProfiles :: DescribeUserProfiles
+-- | Creates a value of 'DescribeUserProfiles' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dupIAMUserARNs'
+describeUserProfiles
+    :: DescribeUserProfiles
 describeUserProfiles =
     DescribeUserProfiles'
     { _dupIAMUserARNs = Nothing
@@ -100,32 +101,34 @@ instance ToPath DescribeUserProfiles where
 instance ToQuery DescribeUserProfiles where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeUserProfiles@ request.
+-- | Contains the response to a 'DescribeUserProfiles' request.
 --
 -- /See:/ 'describeUserProfilesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'duprsUserProfiles'
---
--- * 'duprsStatus'
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
     { _duprsUserProfiles :: !(Maybe [UserProfile])
     , _duprsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeUserProfilesResponse' smart constructor.
-describeUserProfilesResponse :: Int -> DescribeUserProfilesResponse
+-- | Creates a value of 'DescribeUserProfilesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'duprsUserProfiles'
+--
+-- * 'duprsStatus'
+describeUserProfilesResponse
+    :: Int -- ^ 'duprsStatus'
+    -> DescribeUserProfilesResponse
 describeUserProfilesResponse pStatus_ =
     DescribeUserProfilesResponse'
     { _duprsUserProfiles = Nothing
     , _duprsStatus = pStatus_
     }
 
--- | A @Users@ object that describes the specified users.
+-- | A 'Users' object that describes the specified users.
 duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
 duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 duprsStatus :: Lens' DescribeUserProfilesResponse Int
 duprsStatus = lens _duprsStatus (\ s a -> s{_duprsStatus = a});

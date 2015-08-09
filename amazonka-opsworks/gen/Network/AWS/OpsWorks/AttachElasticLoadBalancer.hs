@@ -37,15 +37,15 @@
 module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     (
     -- * Creating a Request
-      AttachElasticLoadBalancer
-    , attachElasticLoadBalancer
+      attachElasticLoadBalancer
+    , AttachElasticLoadBalancer
     -- * Request Lenses
     , aelbElasticLoadBalancerName
     , aelbLayerId
 
     -- * Destructuring the Response
-    , AttachElasticLoadBalancerResponse
     , attachElasticLoadBalancerResponse
+    , AttachElasticLoadBalancerResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -55,19 +55,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachElasticLoadBalancer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aelbElasticLoadBalancerName'
---
--- * 'aelbLayerId'
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer'
     { _aelbElasticLoadBalancerName :: !Text
     , _aelbLayerId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachElasticLoadBalancer' smart constructor.
-attachElasticLoadBalancer :: Text -> Text -> AttachElasticLoadBalancer
+-- | Creates a value of 'AttachElasticLoadBalancer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aelbElasticLoadBalancerName'
+--
+-- * 'aelbLayerId'
+attachElasticLoadBalancer
+    :: Text -- ^ 'aelbElasticLoadBalancerName'
+    -> Text -- ^ 'aelbLayerId'
+    -> AttachElasticLoadBalancer
 attachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
     AttachElasticLoadBalancer'
     { _aelbElasticLoadBalancerName = pElasticLoadBalancerName_
@@ -119,6 +122,8 @@ data AttachElasticLoadBalancerResponse =
     AttachElasticLoadBalancerResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachElasticLoadBalancerResponse' smart constructor.
-attachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse
+-- | Creates a value of 'AttachElasticLoadBalancerResponse' with the minimum fields required to make a request.
+--
+attachElasticLoadBalancerResponse
+    :: AttachElasticLoadBalancerResponse
 attachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse'

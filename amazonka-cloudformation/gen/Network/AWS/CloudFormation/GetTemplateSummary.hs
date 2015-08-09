@@ -19,31 +19,31 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about a new or existing template. The
--- @GetTemplateSummary@ action is useful for viewing parameter information,
+-- 'GetTemplateSummary' action is useful for viewing parameter information,
 -- such as default parameter values and parameter types, before you create
 -- or update a stack.
 --
--- You can use the @GetTemplateSummary@ action when you submit a template,
+-- You can use the 'GetTemplateSummary' action when you submit a template,
 -- or you can get template information for a running or deleted stack.
 --
--- For deleted stacks, @GetTemplateSummary@ returns the template
+-- For deleted stacks, 'GetTemplateSummary' returns the template
 -- information for up to 90 days after the stack has been deleted. If the
--- template does not exist, a @ValidationError@ is returned.
+-- template does not exist, a 'ValidationError' is returned.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplateSummary.html AWS API Reference> for GetTemplateSummary.
 module Network.AWS.CloudFormation.GetTemplateSummary
     (
     -- * Creating a Request
-      GetTemplateSummary
-    , getTemplateSummary
+      getTemplateSummary
+    , GetTemplateSummary
     -- * Request Lenses
     , gtsTemplateBody
     , gtsTemplateURL
     , gtsStackName
 
     -- * Destructuring the Response
-    , GetTemplateSummaryResponse
     , getTemplateSummaryResponse
+    , GetTemplateSummaryResponse
     -- * Response Lenses
     , gtsrsVersion
     , gtsrsParameters
@@ -63,22 +63,23 @@ import           Network.AWS.Response
 -- | The input for the GetTemplateSummary action.
 --
 -- /See:/ 'getTemplateSummary' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gtsTemplateBody'
---
--- * 'gtsTemplateURL'
---
--- * 'gtsStackName'
 data GetTemplateSummary = GetTemplateSummary'
     { _gtsTemplateBody :: !(Maybe Text)
     , _gtsTemplateURL  :: !(Maybe Text)
     , _gtsStackName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetTemplateSummary' smart constructor.
-getTemplateSummary :: GetTemplateSummary
+-- | Creates a value of 'GetTemplateSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtsTemplateBody'
+--
+-- * 'gtsTemplateURL'
+--
+-- * 'gtsStackName'
+getTemplateSummary
+    :: GetTemplateSummary
 getTemplateSummary =
     GetTemplateSummary'
     { _gtsTemplateBody = Nothing
@@ -93,7 +94,7 @@ getTemplateSummary =
 -- in the AWS CloudFormation User Guide.
 --
 -- Conditional: You must specify only one of the following parameters:
--- @StackName@, @TemplateBody@, or @TemplateURL@.
+-- 'StackName', 'TemplateBody', or 'TemplateURL'.
 gtsTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateBody = lens _gtsTemplateBody (\ s a -> s{_gtsTemplateBody = a});
 
@@ -104,7 +105,7 @@ gtsTemplateBody = lens _gtsTemplateBody (\ s a -> s{_gtsTemplateBody = a});
 -- in the AWS CloudFormation User Guide.
 --
 -- Conditional: You must specify only one of the following parameters:
--- @StackName@, @TemplateBody@, or @TemplateURL@.
+-- 'StackName', 'TemplateBody', or 'TemplateURL'.
 gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateURL = lens _gtsTemplateURL (\ s a -> s{_gtsTemplateURL = a});
 
@@ -114,7 +115,7 @@ gtsTemplateURL = lens _gtsTemplateURL (\ s a -> s{_gtsTemplateURL = a});
 -- specify the unique stack ID.
 --
 -- Conditional: You must specify only one of the following parameters:
--- @StackName@, @TemplateBody@, or @TemplateURL@.
+-- 'StackName', 'TemplateBody', or 'TemplateURL'.
 gtsStackName :: Lens' GetTemplateSummary (Maybe Text)
 gtsStackName = lens _gtsStackName (\ s a -> s{_gtsStackName = a});
 
@@ -156,8 +157,19 @@ instance ToQuery GetTemplateSummary where
 -- | The output for the GetTemplateSummary action.
 --
 -- /See:/ 'getTemplateSummaryResponse' smart constructor.
+data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
+    { _gtsrsVersion            :: !(Maybe Text)
+    , _gtsrsParameters         :: !(Maybe [ParameterDeclaration])
+    , _gtsrsCapabilitiesReason :: !(Maybe Text)
+    , _gtsrsMetadata           :: !(Maybe Text)
+    , _gtsrsCapabilities       :: !(Maybe [Capability])
+    , _gtsrsDescription        :: !(Maybe Text)
+    , _gtsrsStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetTemplateSummaryResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gtsrsVersion'
 --
@@ -172,18 +184,9 @@ instance ToQuery GetTemplateSummary where
 -- * 'gtsrsDescription'
 --
 -- * 'gtsrsStatus'
-data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
-    { _gtsrsVersion            :: !(Maybe Text)
-    , _gtsrsParameters         :: !(Maybe [ParameterDeclaration])
-    , _gtsrsCapabilitiesReason :: !(Maybe Text)
-    , _gtsrsMetadata           :: !(Maybe Text)
-    , _gtsrsCapabilities       :: !(Maybe [Capability])
-    , _gtsrsDescription        :: !(Maybe Text)
-    , _gtsrsStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetTemplateSummaryResponse' smart constructor.
-getTemplateSummaryResponse :: Int -> GetTemplateSummaryResponse
+getTemplateSummaryResponse
+    :: Int -- ^ 'gtsrsStatus'
+    -> GetTemplateSummaryResponse
 getTemplateSummaryResponse pStatus_ =
     GetTemplateSummaryResponse'
     { _gtsrsVersion = Nothing
@@ -205,12 +208,12 @@ gtsrsVersion = lens _gtsrsVersion (\ s a -> s{_gtsrsVersion = a});
 gtsrsParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
 gtsrsParameters = lens _gtsrsParameters (\ s a -> s{_gtsrsParameters = a}) . _Default . _Coerce;
 
--- | The list of resources that generated the values in the @Capabilities@
+-- | The list of resources that generated the values in the 'Capabilities'
 -- response element.
 gtsrsCapabilitiesReason :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrsCapabilitiesReason = lens _gtsrsCapabilitiesReason (\ s a -> s{_gtsrsCapabilitiesReason = a});
 
--- | The value that is defined for the @Metadata@ property of the template.
+-- | The value that is defined for the 'Metadata' property of the template.
 gtsrsMetadata :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrsMetadata = lens _gtsrsMetadata (\ s a -> s{_gtsrsMetadata = a});
 
@@ -223,10 +226,10 @@ gtsrsMetadata = lens _gtsrsMetadata (\ s a -> s{_gtsrsMetadata = a});
 gtsrsCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
 gtsrsCapabilities = lens _gtsrsCapabilities (\ s a -> s{_gtsrsCapabilities = a}) . _Default . _Coerce;
 
--- | The value that is defined in the @Description@ property of the template.
+-- | The value that is defined in the 'Description' property of the template.
 gtsrsDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrsDescription = lens _gtsrsDescription (\ s a -> s{_gtsrsDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 gtsrsStatus :: Lens' GetTemplateSummaryResponse Int
 gtsrsStatus = lens _gtsrsStatus (\ s a -> s{_gtsrsStatus = a});

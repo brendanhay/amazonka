@@ -24,14 +24,14 @@
 module Network.AWS.S3.GetBucketLifecycle
     (
     -- * Creating a Request
-      GetBucketLifecycle
-    , getBucketLifecycle
+      getBucketLifecycle
+    , GetBucketLifecycle
     -- * Request Lenses
     , gBucket
 
     -- * Destructuring the Response
-    , GetBucketLifecycleResponse
     , getBucketLifecycleResponse
+    , GetBucketLifecycleResponse
     -- * Response Lenses
     , gblrsRules
     , gblrsStatus
@@ -44,16 +44,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketLifecycle' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gBucket'
 newtype GetBucketLifecycle = GetBucketLifecycle'
     { _gBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketLifecycle' smart constructor.
-getBucketLifecycle :: BucketName -> GetBucketLifecycle
+-- | Creates a value of 'GetBucketLifecycle' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gBucket'
+getBucketLifecycle
+    :: BucketName -- ^ 'gBucket'
+    -> GetBucketLifecycle
 getBucketLifecycle pBucket_ =
     GetBucketLifecycle'
     { _gBucket = pBucket_
@@ -86,19 +88,21 @@ instance ToQuery GetBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])
 
 -- | /See:/ 'getBucketLifecycleResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gblrsRules'
---
--- * 'gblrsStatus'
 data GetBucketLifecycleResponse = GetBucketLifecycleResponse'
     { _gblrsRules  :: !(Maybe [Rule])
     , _gblrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketLifecycleResponse' smart constructor.
-getBucketLifecycleResponse :: Int -> GetBucketLifecycleResponse
+-- | Creates a value of 'GetBucketLifecycleResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gblrsRules'
+--
+-- * 'gblrsStatus'
+getBucketLifecycleResponse
+    :: Int -- ^ 'gblrsStatus'
+    -> GetBucketLifecycleResponse
 getBucketLifecycleResponse pStatus_ =
     GetBucketLifecycleResponse'
     { _gblrsRules = Nothing
@@ -109,6 +113,6 @@ getBucketLifecycleResponse pStatus_ =
 gblrsRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrsRules = lens _gblrsRules (\ s a -> s{_gblrsRules = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 gblrsStatus :: Lens' GetBucketLifecycleResponse Int
 gblrsStatus = lens _gblrsStatus (\ s a -> s{_gblrsStatus = a});

@@ -31,15 +31,15 @@
 module Network.AWS.Redshift.CreateTags
     (
     -- * Creating a Request
-      CreateTags
-    , createTags
+      createTags
+    , CreateTags
     -- * Request Lenses
     , ctResourceName
     , ctTags
 
     -- * Destructuring the Response
-    , CreateTagsResponse
     , createTagsResponse
+    , CreateTagsResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -48,22 +48,24 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the output from the @CreateTags@ action.
+-- | Contains the output from the 'CreateTags' action.
 --
 -- /See:/ 'createTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ctResourceName'
---
--- * 'ctTags'
 data CreateTags = CreateTags'
     { _ctResourceName :: !Text
     , _ctTags         :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateTags' smart constructor.
-createTags :: Text -> CreateTags
+-- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctResourceName'
+--
+-- * 'ctTags'
+createTags
+    :: Text -- ^ 'ctResourceName'
+    -> CreateTags
 createTags pResourceName_ =
     CreateTags'
     { _ctResourceName = pResourceName_
@@ -71,16 +73,16 @@ createTags pResourceName_ =
     }
 
 -- | The Amazon Resource Name (ARN) to which you want to add the tag or tags.
--- For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
+-- For example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
 ctResourceName :: Lens' CreateTags Text
 ctResourceName = lens _ctResourceName (\ s a -> s{_ctResourceName = a});
 
 -- | One or more name\/value pairs to add as tags to the specified resource.
--- Each tag name is passed in with the parameter @Key@ and the
--- corresponding value is passed in with the parameter @Value@. The @Key@
--- and @Value@ parameters are separated by a comma (,). Separate multiple
+-- Each tag name is passed in with the parameter 'Key' and the
+-- corresponding value is passed in with the parameter 'Value'. The 'Key'
+-- and 'Value' parameters are separated by a comma (,). Separate multiple
 -- tags with a space. For example,
--- @--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"@.
+-- '--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"'.
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
 
@@ -109,6 +111,8 @@ data CreateTagsResponse =
     CreateTagsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateTagsResponse' smart constructor.
-createTagsResponse :: CreateTagsResponse
+-- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
+--
+createTagsResponse
+    :: CreateTagsResponse
 createTagsResponse = CreateTagsResponse'

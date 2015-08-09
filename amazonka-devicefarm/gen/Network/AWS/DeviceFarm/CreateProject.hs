@@ -24,14 +24,14 @@
 module Network.AWS.DeviceFarm.CreateProject
     (
     -- * Creating a Request
-      CreateProject
-    , createProject
+      createProject
+    , CreateProject
     -- * Request Lenses
     , cpName
 
     -- * Destructuring the Response
-    , CreateProjectResponse
     , createProjectResponse
+    , CreateProjectResponse
     -- * Response Lenses
     , cprsProject
     , cprsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents a request to the create project operation.
 --
 -- /See:/ 'createProject' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpName'
 newtype CreateProject = CreateProject'
     { _cpName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateProject' smart constructor.
-createProject :: Text -> CreateProject
+-- | Creates a value of 'CreateProject' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpName'
+createProject
+    :: Text -- ^ 'cpName'
+    -> CreateProject
 createProject pName_ =
     CreateProject'
     { _cpName = pName_
@@ -97,19 +99,21 @@ instance ToQuery CreateProject where
 -- | Represents the result of a create project request.
 --
 -- /See:/ 'createProjectResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cprsProject'
---
--- * 'cprsStatus'
 data CreateProjectResponse = CreateProjectResponse'
     { _cprsProject :: !(Maybe Project)
     , _cprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateProjectResponse' smart constructor.
-createProjectResponse :: Int -> CreateProjectResponse
+-- | Creates a value of 'CreateProjectResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cprsProject'
+--
+-- * 'cprsStatus'
+createProjectResponse
+    :: Int -- ^ 'cprsStatus'
+    -> CreateProjectResponse
 createProjectResponse pStatus_ =
     CreateProjectResponse'
     { _cprsProject = Nothing
@@ -120,6 +124,6 @@ createProjectResponse pStatus_ =
 cprsProject :: Lens' CreateProjectResponse (Maybe Project)
 cprsProject = lens _cprsProject (\ s a -> s{_cprsProject = a});
 
--- | Undocumented member.
+-- | The response status code.
 cprsStatus :: Lens' CreateProjectResponse Int
 cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

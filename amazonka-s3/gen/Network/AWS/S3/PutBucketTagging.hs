@@ -24,16 +24,16 @@
 module Network.AWS.S3.PutBucketTagging
     (
     -- * Creating a Request
-      PutBucketTagging
-    , putBucketTagging
+      putBucketTagging
+    , PutBucketTagging
     -- * Request Lenses
     , pbtContentMD5
     , pbtBucket
     , pbtTagging
 
     -- * Destructuring the Response
-    , PutBucketTaggingResponse
     , putBucketTaggingResponse
+    , PutBucketTaggingResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -43,22 +43,25 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketTagging' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pbtContentMD5'
---
--- * 'pbtBucket'
---
--- * 'pbtTagging'
 data PutBucketTagging = PutBucketTagging'
     { _pbtContentMD5 :: !(Maybe Text)
     , _pbtBucket     :: !BucketName
     , _pbtTagging    :: !Tagging
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketTagging' smart constructor.
-putBucketTagging :: BucketName -> Tagging -> PutBucketTagging
+-- | Creates a value of 'PutBucketTagging' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pbtContentMD5'
+--
+-- * 'pbtBucket'
+--
+-- * 'pbtTagging'
+putBucketTagging
+    :: BucketName -- ^ 'pbtBucket'
+    -> Tagging -- ^ 'pbtTagging'
+    -> PutBucketTagging
 putBucketTagging pBucket_ pTagging_ =
     PutBucketTagging'
     { _pbtContentMD5 = Nothing
@@ -107,6 +110,8 @@ data PutBucketTaggingResponse =
     PutBucketTaggingResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketTaggingResponse' smart constructor.
-putBucketTaggingResponse :: PutBucketTaggingResponse
+-- | Creates a value of 'PutBucketTaggingResponse' with the minimum fields required to make a request.
+--
+putBucketTaggingResponse
+    :: PutBucketTaggingResponse
 putBucketTaggingResponse = PutBucketTaggingResponse'

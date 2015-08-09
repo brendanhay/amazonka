@@ -119,7 +119,6 @@ module Network.AWS.EC2
 
     -- ** DescribeTags (Paginated)
     , module Network.AWS.EC2.DescribeTags
-    -- $pager
 
     -- ** RevokeSecurityGroupEgress
     , module Network.AWS.EC2.RevokeSecurityGroupEgress
@@ -183,7 +182,6 @@ module Network.AWS.EC2
 
     -- ** DescribeSpotPriceHistory (Paginated)
     , module Network.AWS.EC2.DescribeSpotPriceHistory
-    -- $pager
 
     -- ** StopInstances
     , module Network.AWS.EC2.StopInstances
@@ -268,7 +266,6 @@ module Network.AWS.EC2
 
     -- ** DescribeReservedInstancesOfferings (Paginated)
     , module Network.AWS.EC2.DescribeReservedInstancesOfferings
-    -- $pager
 
     -- ** DeleteVPCPeeringConnection
     , module Network.AWS.EC2.DeleteVPCPeeringConnection
@@ -290,7 +287,6 @@ module Network.AWS.EC2
 
     -- ** DescribeInstanceStatus (Paginated)
     , module Network.AWS.EC2.DescribeInstanceStatus
-    -- $pager
 
     -- ** CancelConversionTask
     , module Network.AWS.EC2.CancelConversionTask
@@ -429,7 +425,6 @@ module Network.AWS.EC2
 
     -- ** DescribeInstances (Paginated)
     , module Network.AWS.EC2.DescribeInstances
-    -- $pager
 
     -- ** DescribeSecurityGroups
     , module Network.AWS.EC2.DescribeSecurityGroups
@@ -457,7 +452,6 @@ module Network.AWS.EC2
 
     -- ** DescribeSnapshots (Paginated)
     , module Network.AWS.EC2.DescribeSnapshots
-    -- $pager
 
     -- ** CreatePlacementGroup
     , module Network.AWS.EC2.CreatePlacementGroup
@@ -614,7 +608,6 @@ module Network.AWS.EC2
 
     -- ** DescribeReservedInstancesModifications (Paginated)
     , module Network.AWS.EC2.DescribeReservedInstancesModifications
-    -- $pager
 
     -- ** DescribeSpotInstanceRequests
     , module Network.AWS.EC2.DescribeSpotInstanceRequests
@@ -633,7 +626,6 @@ module Network.AWS.EC2
 
     -- ** DescribeVolumeStatus (Paginated)
     , module Network.AWS.EC2.DescribeVolumeStatus
-    -- $pager
 
     -- ** DeleteVolume
     , module Network.AWS.EC2.DeleteVolume
@@ -2512,8 +2504,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

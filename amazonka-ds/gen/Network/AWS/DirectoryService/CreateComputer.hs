@@ -25,8 +25,8 @@
 module Network.AWS.DirectoryService.CreateComputer
     (
     -- * Creating a Request
-      CreateComputer
-    , createComputer
+      createComputer
+    , CreateComputer
     -- * Request Lenses
     , ccComputerAttributes
     , ccOrganizationalUnitDistinguishedName
@@ -35,8 +35,8 @@ module Network.AWS.DirectoryService.CreateComputer
     , ccPassword
 
     -- * Destructuring the Response
-    , CreateComputerResponse
     , createComputerResponse
+    , CreateComputerResponse
     -- * Response Lenses
     , ccrsComputer
     , ccrsStatus
@@ -51,8 +51,17 @@ import           Network.AWS.Response
 -- | Contains the inputs for the CreateComputer operation.
 --
 -- /See:/ 'createComputer' smart constructor.
+data CreateComputer = CreateComputer'
+    { _ccComputerAttributes                  :: !(Maybe [Attribute])
+    , _ccOrganizationalUnitDistinguishedName :: !(Maybe Text)
+    , _ccDirectoryId                         :: !Text
+    , _ccComputerName                        :: !Text
+    , _ccPassword                            :: !(Sensitive Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateComputer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ccComputerAttributes'
 --
@@ -63,16 +72,11 @@ import           Network.AWS.Response
 -- * 'ccComputerName'
 --
 -- * 'ccPassword'
-data CreateComputer = CreateComputer'
-    { _ccComputerAttributes                  :: !(Maybe [Attribute])
-    , _ccOrganizationalUnitDistinguishedName :: !(Maybe Text)
-    , _ccDirectoryId                         :: !Text
-    , _ccComputerName                        :: !Text
-    , _ccPassword                            :: !(Sensitive Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateComputer' smart constructor.
-createComputer :: Text -> Text -> Text -> CreateComputer
+createComputer
+    :: Text -- ^ 'ccDirectoryId'
+    -> Text -- ^ 'ccComputerName'
+    -> Text -- ^ 'ccPassword'
+    -> CreateComputer
 createComputer pDirectoryId_ pComputerName_ pPassword_ =
     CreateComputer'
     { _ccComputerAttributes = Nothing
@@ -144,19 +148,21 @@ instance ToQuery CreateComputer where
 -- | Contains the results for the CreateComputer operation.
 --
 -- /See:/ 'createComputerResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccrsComputer'
---
--- * 'ccrsStatus'
 data CreateComputerResponse = CreateComputerResponse'
     { _ccrsComputer :: !(Maybe Computer)
     , _ccrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateComputerResponse' smart constructor.
-createComputerResponse :: Int -> CreateComputerResponse
+-- | Creates a value of 'CreateComputerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccrsComputer'
+--
+-- * 'ccrsStatus'
+createComputerResponse
+    :: Int -- ^ 'ccrsStatus'
+    -> CreateComputerResponse
 createComputerResponse pStatus_ =
     CreateComputerResponse'
     { _ccrsComputer = Nothing
@@ -167,6 +173,6 @@ createComputerResponse pStatus_ =
 ccrsComputer :: Lens' CreateComputerResponse (Maybe Computer)
 ccrsComputer = lens _ccrsComputer (\ s a -> s{_ccrsComputer = a});
 
--- | Undocumented member.
+-- | The response status code.
 ccrsStatus :: Lens' CreateComputerResponse Int
 ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

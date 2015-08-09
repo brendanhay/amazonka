@@ -28,15 +28,15 @@
 module Network.AWS.RDS.DescribeEventCategories
     (
     -- * Creating a Request
-      DescribeEventCategories
-    , describeEventCategories
+      describeEventCategories
+    , DescribeEventCategories
     -- * Request Lenses
     , decSourceType
     , decFilters
 
     -- * Destructuring the Response
-    , DescribeEventCategoriesResponse
     , describeEventCategoriesResponse
+    , DescribeEventCategoriesResponse
     -- * Response Lenses
     , decrsEventCategoriesMapList
     , decrsStatus
@@ -51,19 +51,20 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeEventCategories' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'decSourceType'
---
--- * 'decFilters'
 data DescribeEventCategories = DescribeEventCategories'
     { _decSourceType :: !(Maybe Text)
     , _decFilters    :: !(Maybe [Filter])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEventCategories' smart constructor.
-describeEventCategories :: DescribeEventCategories
+-- | Creates a value of 'DescribeEventCategories' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'decSourceType'
+--
+-- * 'decFilters'
+describeEventCategories
+    :: DescribeEventCategories
 describeEventCategories =
     DescribeEventCategories'
     { _decSourceType = Nothing
@@ -113,19 +114,21 @@ instance ToQuery DescribeEventCategories where
 -- | Data returned from the __DescribeEventCategories__ action.
 --
 -- /See:/ 'describeEventCategoriesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'decrsEventCategoriesMapList'
---
--- * 'decrsStatus'
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
     { _decrsEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
     , _decrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEventCategoriesResponse' smart constructor.
-describeEventCategoriesResponse :: Int -> DescribeEventCategoriesResponse
+-- | Creates a value of 'DescribeEventCategoriesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'decrsEventCategoriesMapList'
+--
+-- * 'decrsStatus'
+describeEventCategoriesResponse
+    :: Int -- ^ 'decrsStatus'
+    -> DescribeEventCategoriesResponse
 describeEventCategoriesResponse pStatus_ =
     DescribeEventCategoriesResponse'
     { _decrsEventCategoriesMapList = Nothing
@@ -136,6 +139,6 @@ describeEventCategoriesResponse pStatus_ =
 decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
 decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 decrsStatus :: Lens' DescribeEventCategoriesResponse Int
 decrsStatus = lens _decrsStatus (\ s a -> s{_decrsStatus = a});

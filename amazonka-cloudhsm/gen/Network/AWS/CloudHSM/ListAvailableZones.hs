@@ -24,12 +24,12 @@
 module Network.AWS.CloudHSM.ListAvailableZones
     (
     -- * Creating a Request
-      ListAvailableZones
-    , listAvailableZones
+      listAvailableZones
+    , ListAvailableZones
 
     -- * Destructuring the Response
-    , ListAvailableZonesResponse
     , listAvailableZonesResponse
+    , ListAvailableZonesResponse
     -- * Response Lenses
     , lazrsAZList
     , lazrsStatus
@@ -48,8 +48,10 @@ data ListAvailableZones =
     ListAvailableZones'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListAvailableZones' smart constructor.
-listAvailableZones :: ListAvailableZones
+-- | Creates a value of 'ListAvailableZones' with the minimum fields required to make a request.
+--
+listAvailableZones
+    :: ListAvailableZones
 listAvailableZones = ListAvailableZones'
 
 instance AWSRequest ListAvailableZones where
@@ -83,19 +85,21 @@ instance ToQuery ListAvailableZones where
         toQuery = const mempty
 
 -- | /See:/ 'listAvailableZonesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lazrsAZList'
---
--- * 'lazrsStatus'
 data ListAvailableZonesResponse = ListAvailableZonesResponse'
     { _lazrsAZList :: !(Maybe [Text])
     , _lazrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListAvailableZonesResponse' smart constructor.
-listAvailableZonesResponse :: Int -> ListAvailableZonesResponse
+-- | Creates a value of 'ListAvailableZonesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lazrsAZList'
+--
+-- * 'lazrsStatus'
+listAvailableZonesResponse
+    :: Int -- ^ 'lazrsStatus'
+    -> ListAvailableZonesResponse
 listAvailableZonesResponse pStatus_ =
     ListAvailableZonesResponse'
     { _lazrsAZList = Nothing
@@ -107,6 +111,6 @@ listAvailableZonesResponse pStatus_ =
 lazrsAZList :: Lens' ListAvailableZonesResponse [Text]
 lazrsAZList = lens _lazrsAZList (\ s a -> s{_lazrsAZList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lazrsStatus :: Lens' ListAvailableZonesResponse Int
 lazrsStatus = lens _lazrsStatus (\ s a -> s{_lazrsStatus = a});

@@ -20,13 +20,13 @@
 --
 -- Creates or updates a subscription filter and associates it with the
 -- specified log group. Subscription filters allow you to subscribe to a
--- real-time stream of log events ingested through @PutLogEvents@ requests
+-- real-time stream of log events ingested through 'PutLogEvents' requests
 -- and have them delivered to a specific destination. Currently, the
 -- supported destinations are:
 --
 -- -   A Amazon Kinesis stream belonging to the same account as the
 --     subscription filter, for same-account delivery.
--- -   A logical destination (used via an ARN of @Destination@) belonging
+-- -   A logical destination (used via an ARN of 'Destination') belonging
 --     to a different account, for cross-account delivery.
 --
 -- Currently there can only be one subscription filter associated with a
@@ -36,8 +36,8 @@
 module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     (
     -- * Creating a Request
-      PutSubscriptionFilter
-    , putSubscriptionFilter
+      putSubscriptionFilter
+    , PutSubscriptionFilter
     -- * Request Lenses
     , psfRoleARN
     , psfLogGroupName
@@ -46,8 +46,8 @@ module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     , psfDestinationARN
 
     -- * Destructuring the Response
-    , PutSubscriptionFilterResponse
     , putSubscriptionFilterResponse
+    , PutSubscriptionFilterResponse
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -57,8 +57,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putSubscriptionFilter' smart constructor.
+data PutSubscriptionFilter = PutSubscriptionFilter'
+    { _psfRoleARN        :: !(Maybe Text)
+    , _psfLogGroupName   :: !Text
+    , _psfFilterName     :: !Text
+    , _psfFilterPattern  :: !Text
+    , _psfDestinationARN :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutSubscriptionFilter' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'psfRoleARN'
 --
@@ -69,16 +78,12 @@ import           Network.AWS.Response
 -- * 'psfFilterPattern'
 --
 -- * 'psfDestinationARN'
-data PutSubscriptionFilter = PutSubscriptionFilter'
-    { _psfRoleARN        :: !(Maybe Text)
-    , _psfLogGroupName   :: !Text
-    , _psfFilterName     :: !Text
-    , _psfFilterPattern  :: !Text
-    , _psfDestinationARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutSubscriptionFilter' smart constructor.
-putSubscriptionFilter :: Text -> Text -> Text -> Text -> PutSubscriptionFilter
+putSubscriptionFilter
+    :: Text -- ^ 'psfLogGroupName'
+    -> Text -- ^ 'psfFilterName'
+    -> Text -- ^ 'psfFilterPattern'
+    -> Text -- ^ 'psfDestinationARN'
+    -> PutSubscriptionFilter
 putSubscriptionFilter pLogGroupName_ pFilterName_ pFilterPattern_ pDestinationARN_ =
     PutSubscriptionFilter'
     { _psfRoleARN = Nothing
@@ -91,7 +96,7 @@ putSubscriptionFilter pLogGroupName_ pFilterName_ pFilterPattern_ pDestinationAR
 -- | The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to
 -- deliver ingested log events to the destination stream. You don\'t need
 -- to provide the ARN when you are working with a logical destination (used
--- via an ARN of @Destination@) for cross-account delivery.
+-- via an ARN of 'Destination') for cross-account delivery.
 psfRoleARN :: Lens' PutSubscriptionFilter (Maybe Text)
 psfRoleARN = lens _psfRoleARN (\ s a -> s{_psfRoleARN = a});
 
@@ -113,7 +118,7 @@ psfFilterPattern = lens _psfFilterPattern (\ s a -> s{_psfFilterPattern = a});
 --
 -- -   A Amazon Kinesis stream belonging to the same account as the
 --     subscription filter, for same-account delivery.
--- -   A logical destination (used via an ARN of @Destination@) belonging
+-- -   A logical destination (used via an ARN of 'Destination') belonging
 --     to a different account, for cross-account delivery.
 psfDestinationARN :: Lens' PutSubscriptionFilter Text
 psfDestinationARN = lens _psfDestinationARN (\ s a -> s{_psfDestinationARN = a});
@@ -155,6 +160,8 @@ data PutSubscriptionFilterResponse =
     PutSubscriptionFilterResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutSubscriptionFilterResponse' smart constructor.
-putSubscriptionFilterResponse :: PutSubscriptionFilterResponse
+-- | Creates a value of 'PutSubscriptionFilterResponse' with the minimum fields required to make a request.
+--
+putSubscriptionFilterResponse
+    :: PutSubscriptionFilterResponse
 putSubscriptionFilterResponse = PutSubscriptionFilterResponse'

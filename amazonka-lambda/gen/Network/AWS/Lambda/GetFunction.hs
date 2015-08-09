@@ -24,20 +24,20 @@
 -- minutes. The configuration information is the same information you
 -- provided as parameters when uploading the function.
 --
--- This operation requires permission for the @lambda:GetFunction@ action.
+-- This operation requires permission for the 'lambda:GetFunction' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunction.html AWS API Reference> for GetFunction.
 module Network.AWS.Lambda.GetFunction
     (
     -- * Creating a Request
-      GetFunction
-    , getFunction
+      getFunction
+    , GetFunction
     -- * Request Lenses
     , gfFunctionName
 
     -- * Destructuring the Response
-    , GetFunctionResponse
     , getFunctionResponse
+    , GetFunctionResponse
     -- * Response Lenses
     , gfrsCode
     , gfrsConfiguration
@@ -51,16 +51,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getFunction' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gfFunctionName'
 newtype GetFunction = GetFunction'
     { _gfFunctionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetFunction' smart constructor.
-getFunction :: Text -> GetFunction
+-- | Creates a value of 'GetFunction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gfFunctionName'
+getFunction
+    :: Text -- ^ 'gfFunctionName'
+    -> GetFunction
 getFunction pFunctionName_ =
     GetFunction'
     { _gfFunctionName = pFunctionName_
@@ -106,22 +108,24 @@ instance ToQuery GetFunction where
 -- API_FunctionCodeLocation
 --
 -- /See:/ 'getFunctionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gfrsCode'
---
--- * 'gfrsConfiguration'
---
--- * 'gfrsStatus'
 data GetFunctionResponse = GetFunctionResponse'
     { _gfrsCode          :: !(Maybe FunctionCodeLocation)
     , _gfrsConfiguration :: !(Maybe FunctionConfiguration)
     , _gfrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetFunctionResponse' smart constructor.
-getFunctionResponse :: Int -> GetFunctionResponse
+-- | Creates a value of 'GetFunctionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gfrsCode'
+--
+-- * 'gfrsConfiguration'
+--
+-- * 'gfrsStatus'
+getFunctionResponse
+    :: Int -- ^ 'gfrsStatus'
+    -> GetFunctionResponse
 getFunctionResponse pStatus_ =
     GetFunctionResponse'
     { _gfrsCode = Nothing
@@ -137,6 +141,6 @@ gfrsCode = lens _gfrsCode (\ s a -> s{_gfrsCode = a});
 gfrsConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
 gfrsConfiguration = lens _gfrsConfiguration (\ s a -> s{_gfrsConfiguration = a});
 
--- | Undocumented member.
+-- | The response status code.
 gfrsStatus :: Lens' GetFunctionResponse Int
 gfrsStatus = lens _gfrsStatus (\ s a -> s{_gfrsStatus = a});

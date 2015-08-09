@@ -24,14 +24,14 @@
 module Network.AWS.IAM.GetOpenIdConnectProvider
     (
     -- * Creating a Request
-      GetOpenIdConnectProvider
-    , getOpenIdConnectProvider
+      getOpenIdConnectProvider
+    , GetOpenIdConnectProvider
     -- * Request Lenses
     , goicpOpenIdConnectProviderARN
 
     -- * Destructuring the Response
-    , GetOpenIdConnectProviderResponse
     , getOpenIdConnectProviderResponse
+    , GetOpenIdConnectProviderResponse
     -- * Response Lenses
     , goicprsCreateDate
     , goicprsURL
@@ -47,16 +47,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getOpenIdConnectProvider' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'goicpOpenIdConnectProviderARN'
 newtype GetOpenIdConnectProvider = GetOpenIdConnectProvider'
     { _goicpOpenIdConnectProviderARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetOpenIdConnectProvider' smart constructor.
-getOpenIdConnectProvider :: Text -> GetOpenIdConnectProvider
+-- | Creates a value of 'GetOpenIdConnectProvider' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'goicpOpenIdConnectProviderARN'
+getOpenIdConnectProvider
+    :: Text -- ^ 'goicpOpenIdConnectProviderARN'
+    -> GetOpenIdConnectProvider
 getOpenIdConnectProvider pOpenIdConnectProviderARN_ =
     GetOpenIdConnectProvider'
     { _goicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
@@ -103,8 +105,17 @@ instance ToQuery GetOpenIdConnectProvider where
 -- | Contains the response to a successful GetOpenIDConnectProvider request.
 --
 -- /See:/ 'getOpenIdConnectProviderResponse' smart constructor.
+data GetOpenIdConnectProviderResponse = GetOpenIdConnectProviderResponse'
+    { _goicprsCreateDate     :: !(Maybe ISO8601)
+    , _goicprsURL            :: !(Maybe Text)
+    , _goicprsThumbprintList :: !(Maybe [Text])
+    , _goicprsClientIdList   :: !(Maybe [Text])
+    , _goicprsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetOpenIdConnectProviderResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'goicprsCreateDate'
 --
@@ -115,16 +126,9 @@ instance ToQuery GetOpenIdConnectProvider where
 -- * 'goicprsClientIdList'
 --
 -- * 'goicprsStatus'
-data GetOpenIdConnectProviderResponse = GetOpenIdConnectProviderResponse'
-    { _goicprsCreateDate     :: !(Maybe ISO8601)
-    , _goicprsURL            :: !(Maybe Text)
-    , _goicprsThumbprintList :: !(Maybe [Text])
-    , _goicprsClientIdList   :: !(Maybe [Text])
-    , _goicprsStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetOpenIdConnectProviderResponse' smart constructor.
-getOpenIdConnectProviderResponse :: Int -> GetOpenIdConnectProviderResponse
+getOpenIdConnectProviderResponse
+    :: Int -- ^ 'goicprsStatus'
+    -> GetOpenIdConnectProviderResponse
 getOpenIdConnectProviderResponse pStatus_ =
     GetOpenIdConnectProviderResponse'
     { _goicprsCreateDate = Nothing
@@ -156,6 +160,6 @@ goicprsThumbprintList = lens _goicprsThumbprintList (\ s a -> s{_goicprsThumbpri
 goicprsClientIdList :: Lens' GetOpenIdConnectProviderResponse [Text]
 goicprsClientIdList = lens _goicprsClientIdList (\ s a -> s{_goicprsClientIdList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 goicprsStatus :: Lens' GetOpenIdConnectProviderResponse Int
 goicprsStatus = lens _goicprsStatus (\ s a -> s{_goicprsStatus = a});

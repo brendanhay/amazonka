@@ -30,14 +30,14 @@
 module Network.AWS.StorageGateway.DescribeUploadBuffer
     (
     -- * Creating a Request
-      DescribeUploadBuffer
-    , describeUploadBuffer
+      describeUploadBuffer
+    , DescribeUploadBuffer
     -- * Request Lenses
     , dubGatewayARN
 
     -- * Destructuring the Response
-    , DescribeUploadBufferResponse
     , describeUploadBufferResponse
+    , DescribeUploadBufferResponse
     -- * Response Lenses
     , dubrsUploadBufferAllocatedInBytes
     , dubrsGatewayARN
@@ -53,16 +53,18 @@ import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'describeUploadBuffer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dubGatewayARN'
 newtype DescribeUploadBuffer = DescribeUploadBuffer'
     { _dubGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeUploadBuffer' smart constructor.
-describeUploadBuffer :: Text -> DescribeUploadBuffer
+-- | Creates a value of 'DescribeUploadBuffer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dubGatewayARN'
+describeUploadBuffer
+    :: Text -- ^ 'dubGatewayARN'
+    -> DescribeUploadBuffer
 describeUploadBuffer pGatewayARN_ =
     DescribeUploadBuffer'
     { _dubGatewayARN = pGatewayARN_
@@ -108,8 +110,17 @@ instance ToQuery DescribeUploadBuffer where
         toQuery = const mempty
 
 -- | /See:/ 'describeUploadBufferResponse' smart constructor.
+data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
+    { _dubrsUploadBufferAllocatedInBytes :: !(Maybe Integer)
+    , _dubrsGatewayARN                   :: !(Maybe Text)
+    , _dubrsDiskIds                      :: !(Maybe [Text])
+    , _dubrsUploadBufferUsedInBytes      :: !(Maybe Integer)
+    , _dubrsStatus                       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeUploadBufferResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dubrsUploadBufferAllocatedInBytes'
 --
@@ -120,16 +131,9 @@ instance ToQuery DescribeUploadBuffer where
 -- * 'dubrsUploadBufferUsedInBytes'
 --
 -- * 'dubrsStatus'
-data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
-    { _dubrsUploadBufferAllocatedInBytes :: !(Maybe Integer)
-    , _dubrsGatewayARN                   :: !(Maybe Text)
-    , _dubrsDiskIds                      :: !(Maybe [Text])
-    , _dubrsUploadBufferUsedInBytes      :: !(Maybe Integer)
-    , _dubrsStatus                       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeUploadBufferResponse' smart constructor.
-describeUploadBufferResponse :: Int -> DescribeUploadBufferResponse
+describeUploadBufferResponse
+    :: Int -- ^ 'dubrsStatus'
+    -> DescribeUploadBufferResponse
 describeUploadBufferResponse pStatus_ =
     DescribeUploadBufferResponse'
     { _dubrsUploadBufferAllocatedInBytes = Nothing
@@ -155,6 +159,6 @@ dubrsDiskIds = lens _dubrsDiskIds (\ s a -> s{_dubrsDiskIds = a}) . _Default . _
 dubrsUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\ s a -> s{_dubrsUploadBufferUsedInBytes = a});
 
--- | Undocumented member.
+-- | The response status code.
 dubrsStatus :: Lens' DescribeUploadBufferResponse Int
 dubrsStatus = lens _dubrsStatus (\ s a -> s{_dubrsStatus = a});

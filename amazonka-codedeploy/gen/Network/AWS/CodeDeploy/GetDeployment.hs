@@ -24,14 +24,14 @@
 module Network.AWS.CodeDeploy.GetDeployment
     (
     -- * Creating a Request
-      GetDeployment
-    , getDeployment
+      getDeployment
+    , GetDeployment
     -- * Request Lenses
     , gdDeploymentId
 
     -- * Destructuring the Response
-    , GetDeploymentResponse
     , getDeploymentResponse
+    , GetDeploymentResponse
     -- * Response Lenses
     , gdrsDeploymentInfo
     , gdrsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents the input of a get deployment operation.
 --
 -- /See:/ 'getDeployment' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdDeploymentId'
 newtype GetDeployment = GetDeployment'
     { _gdDeploymentId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDeployment' smart constructor.
-getDeployment :: Text -> GetDeployment
+-- | Creates a value of 'GetDeployment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdDeploymentId'
+getDeployment
+    :: Text -- ^ 'gdDeploymentId'
+    -> GetDeployment
 getDeployment pDeploymentId_ =
     GetDeployment'
     { _gdDeploymentId = pDeploymentId_
@@ -98,19 +100,21 @@ instance ToQuery GetDeployment where
 -- | Represents the output of a get deployment operation.
 --
 -- /See:/ 'getDeploymentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdrsDeploymentInfo'
---
--- * 'gdrsStatus'
 data GetDeploymentResponse = GetDeploymentResponse'
     { _gdrsDeploymentInfo :: !(Maybe DeploymentInfo)
     , _gdrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDeploymentResponse' smart constructor.
-getDeploymentResponse :: Int -> GetDeploymentResponse
+-- | Creates a value of 'GetDeploymentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdrsDeploymentInfo'
+--
+-- * 'gdrsStatus'
+getDeploymentResponse
+    :: Int -- ^ 'gdrsStatus'
+    -> GetDeploymentResponse
 getDeploymentResponse pStatus_ =
     GetDeploymentResponse'
     { _gdrsDeploymentInfo = Nothing
@@ -121,6 +125,6 @@ getDeploymentResponse pStatus_ =
 gdrsDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
 gdrsDeploymentInfo = lens _gdrsDeploymentInfo (\ s a -> s{_gdrsDeploymentInfo = a});
 
--- | Undocumented member.
+-- | The response status code.
 gdrsStatus :: Lens' GetDeploymentResponse Int
 gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

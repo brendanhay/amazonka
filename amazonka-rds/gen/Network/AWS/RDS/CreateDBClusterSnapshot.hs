@@ -27,16 +27,16 @@
 module Network.AWS.RDS.CreateDBClusterSnapshot
     (
     -- * Creating a Request
-      CreateDBClusterSnapshot
-    , createDBClusterSnapshot
+      createDBClusterSnapshot
+    , CreateDBClusterSnapshot
     -- * Request Lenses
     , cdcsTags
     , cdcsDBClusterSnapshotIdentifier
     , cdcsDBClusterIdentifier
 
     -- * Destructuring the Response
-    , CreateDBClusterSnapshotResponse
     , createDBClusterSnapshotResponse
+    , CreateDBClusterSnapshotResponse
     -- * Response Lenses
     , cdbcsrsDBClusterSnapshot
     , cdbcsrsStatus
@@ -51,22 +51,25 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createDBClusterSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdcsTags'
---
--- * 'cdcsDBClusterSnapshotIdentifier'
---
--- * 'cdcsDBClusterIdentifier'
 data CreateDBClusterSnapshot = CreateDBClusterSnapshot'
     { _cdcsTags                        :: !(Maybe [Tag])
     , _cdcsDBClusterSnapshotIdentifier :: !Text
     , _cdcsDBClusterIdentifier         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBClusterSnapshot' smart constructor.
-createDBClusterSnapshot :: Text -> Text -> CreateDBClusterSnapshot
+-- | Creates a value of 'CreateDBClusterSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdcsTags'
+--
+-- * 'cdcsDBClusterSnapshotIdentifier'
+--
+-- * 'cdcsDBClusterIdentifier'
+createDBClusterSnapshot
+    :: Text -- ^ 'cdcsDBClusterSnapshotIdentifier'
+    -> Text -- ^ 'cdcsDBClusterIdentifier'
+    -> CreateDBClusterSnapshot
 createDBClusterSnapshot pDBClusterSnapshotIdentifier_ pDBClusterIdentifier_ =
     CreateDBClusterSnapshot'
     { _cdcsTags = Nothing
@@ -87,7 +90,7 @@ cdcsTags = lens _cdcsTags (\ s a -> s{_cdcsTags = a}) . _Default . _Coerce;
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- Example: @my-cluster1-snapshot1@
+-- Example: 'my-cluster1-snapshot1'
 cdcsDBClusterSnapshotIdentifier :: Lens' CreateDBClusterSnapshot Text
 cdcsDBClusterSnapshotIdentifier = lens _cdcsDBClusterSnapshotIdentifier (\ s a -> s{_cdcsDBClusterSnapshotIdentifier = a});
 
@@ -100,7 +103,7 @@ cdcsDBClusterSnapshotIdentifier = lens _cdcsDBClusterSnapshotIdentifier (\ s a -
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- Example: @my-cluster1@
+-- Example: 'my-cluster1'
 cdcsDBClusterIdentifier :: Lens' CreateDBClusterSnapshot Text
 cdcsDBClusterIdentifier = lens _cdcsDBClusterIdentifier (\ s a -> s{_cdcsDBClusterIdentifier = a});
 
@@ -133,19 +136,21 @@ instance ToQuery CreateDBClusterSnapshot where
                "DBClusterIdentifier" =: _cdcsDBClusterIdentifier]
 
 -- | /See:/ 'createDBClusterSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdbcsrsDBClusterSnapshot'
---
--- * 'cdbcsrsStatus'
 data CreateDBClusterSnapshotResponse = CreateDBClusterSnapshotResponse'
     { _cdbcsrsDBClusterSnapshot :: !(Maybe DBClusterSnapshot)
     , _cdbcsrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBClusterSnapshotResponse' smart constructor.
-createDBClusterSnapshotResponse :: Int -> CreateDBClusterSnapshotResponse
+-- | Creates a value of 'CreateDBClusterSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdbcsrsDBClusterSnapshot'
+--
+-- * 'cdbcsrsStatus'
+createDBClusterSnapshotResponse
+    :: Int -- ^ 'cdbcsrsStatus'
+    -> CreateDBClusterSnapshotResponse
 createDBClusterSnapshotResponse pStatus_ =
     CreateDBClusterSnapshotResponse'
     { _cdbcsrsDBClusterSnapshot = Nothing
@@ -156,6 +161,6 @@ createDBClusterSnapshotResponse pStatus_ =
 cdbcsrsDBClusterSnapshot :: Lens' CreateDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
 cdbcsrsDBClusterSnapshot = lens _cdbcsrsDBClusterSnapshot (\ s a -> s{_cdbcsrsDBClusterSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdbcsrsStatus :: Lens' CreateDBClusterSnapshotResponse Int
 cdbcsrsStatus = lens _cdbcsrsStatus (\ s a -> s{_cdbcsrsStatus = a});

@@ -48,15 +48,15 @@
 module Network.AWS.Glacier.CreateVault
     (
     -- * Creating a Request
-      CreateVault
-    , createVault
+      createVault
+    , CreateVault
     -- * Request Lenses
     , cvAccountId
     , cvVaultName
 
     -- * Destructuring the Response
-    , CreateVaultResponse
     , createVaultResponse
+    , CreateVaultResponse
     -- * Response Lenses
     , cvrsLocation
     , cvrsStatus
@@ -71,29 +71,32 @@ import           Network.AWS.Response
 -- | Provides options to create a vault.
 --
 -- /See:/ 'createVault' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvAccountId'
---
--- * 'cvVaultName'
 data CreateVault = CreateVault'
     { _cvAccountId :: !Text
     , _cvVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVault' smart constructor.
-createVault :: Text -> Text -> CreateVault
+-- | Creates a value of 'CreateVault' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvAccountId'
+--
+-- * 'cvVaultName'
+createVault
+    :: Text -- ^ 'cvAccountId'
+    -> Text -- ^ 'cvVaultName'
+    -> CreateVault
 createVault pAccountId_ pVaultName_ =
     CreateVault'
     { _cvAccountId = pAccountId_
     , _cvVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID. This value must match the
+-- | The 'AccountId' value is the AWS account ID. This value must match the
 -- AWS account ID associated with the credentials used to sign the request.
 -- You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you
 -- specify your account ID, do not include any hyphens (apos-apos) in the
 -- ID.
@@ -132,19 +135,21 @@ instance ToQuery CreateVault where
 -- | Contains the Amazon Glacier response to your request.
 --
 -- /See:/ 'createVaultResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvrsLocation'
---
--- * 'cvrsStatus'
 data CreateVaultResponse = CreateVaultResponse'
     { _cvrsLocation :: !(Maybe Text)
     , _cvrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVaultResponse' smart constructor.
-createVaultResponse :: Int -> CreateVaultResponse
+-- | Creates a value of 'CreateVaultResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvrsLocation'
+--
+-- * 'cvrsStatus'
+createVaultResponse
+    :: Int -- ^ 'cvrsStatus'
+    -> CreateVaultResponse
 createVaultResponse pStatus_ =
     CreateVaultResponse'
     { _cvrsLocation = Nothing
@@ -155,6 +160,6 @@ createVaultResponse pStatus_ =
 cvrsLocation :: Lens' CreateVaultResponse (Maybe Text)
 cvrsLocation = lens _cvrsLocation (\ s a -> s{_cvrsLocation = a});
 
--- | Undocumented member.
+-- | The response status code.
 cvrsStatus :: Lens' CreateVaultResponse Int
 cvrsStatus = lens _cvrsStatus (\ s a -> s{_cvrsStatus = a});

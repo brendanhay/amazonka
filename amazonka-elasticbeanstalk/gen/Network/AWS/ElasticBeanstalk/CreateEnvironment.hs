@@ -25,8 +25,8 @@
 module Network.AWS.ElasticBeanstalk.CreateEnvironment
     (
     -- * Creating a Request
-      CreateEnvironment
-    , createEnvironment
+      createEnvironment
+    , CreateEnvironment
     -- * Request Lenses
     , ceCNAMEPrefix
     , ceTemplateName
@@ -41,8 +41,8 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     , ceEnvironmentName
 
     -- * Destructuring the Response
-    , EnvironmentDescription
     , environmentDescription
+    , EnvironmentDescription
     -- * Response Lenses
     , eCNAME
     , eStatus
@@ -71,8 +71,23 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createEnvironment' smart constructor.
+data CreateEnvironment = CreateEnvironment'
+    { _ceCNAMEPrefix       :: !(Maybe Text)
+    , _ceTemplateName      :: !(Maybe Text)
+    , _ceOptionsToRemove   :: !(Maybe [OptionSpecification])
+    , _ceOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
+    , _ceVersionLabel      :: !(Maybe Text)
+    , _ceTier              :: !(Maybe EnvironmentTier)
+    , _ceSolutionStackName :: !(Maybe Text)
+    , _ceDescription       :: !(Maybe Text)
+    , _ceTags              :: !(Maybe [Tag])
+    , _ceApplicationName   :: !Text
+    , _ceEnvironmentName   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateEnvironment' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ceCNAMEPrefix'
 --
@@ -95,22 +110,10 @@ import           Network.AWS.Response
 -- * 'ceApplicationName'
 --
 -- * 'ceEnvironmentName'
-data CreateEnvironment = CreateEnvironment'
-    { _ceCNAMEPrefix       :: !(Maybe Text)
-    , _ceTemplateName      :: !(Maybe Text)
-    , _ceOptionsToRemove   :: !(Maybe [OptionSpecification])
-    , _ceOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
-    , _ceVersionLabel      :: !(Maybe Text)
-    , _ceTier              :: !(Maybe EnvironmentTier)
-    , _ceSolutionStackName :: !(Maybe Text)
-    , _ceDescription       :: !(Maybe Text)
-    , _ceTags              :: !(Maybe [Tag])
-    , _ceApplicationName   :: !Text
-    , _ceEnvironmentName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateEnvironment' smart constructor.
-createEnvironment :: Text -> Text -> CreateEnvironment
+createEnvironment
+    :: Text -- ^ 'ceApplicationName'
+    -> Text -- ^ 'ceEnvironmentName'
+    -> CreateEnvironment
 createEnvironment pApplicationName_ pEnvironmentName_ =
     CreateEnvironment'
     { _ceCNAMEPrefix = Nothing
@@ -134,13 +137,13 @@ ceCNAMEPrefix = lens _ceCNAMEPrefix (\ s a -> s{_ceCNAMEPrefix = a});
 
 -- | The name of the configuration template to use in deployment. If no
 -- configuration template is found with this name, AWS Elastic Beanstalk
--- returns an @InvalidParameterValue@ error.
+-- returns an 'InvalidParameterValue' error.
 --
 -- Condition: You must specify either this parameter or a
--- @SolutionStackName@, but not both. If you specify both, AWS Elastic
--- Beanstalk returns an @InvalidParameterCombination@ error. If you do not
+-- 'SolutionStackName', but not both. If you specify both, AWS Elastic
+-- Beanstalk returns an 'InvalidParameterCombination' error. If you do not
 -- specify either, AWS Elastic Beanstalk returns a
--- @MissingRequiredParameter@ error.
+-- 'MissingRequiredParameter' error.
 ceTemplateName :: Lens' CreateEnvironment (Maybe Text)
 ceTemplateName = lens _ceTemplateName (\ s a -> s{_ceTemplateName = a});
 
@@ -159,7 +162,7 @@ ceOptionSettings = lens _ceOptionSettings (\ s a -> s{_ceOptionSettings = a}) . 
 -- | The name of the application version to deploy.
 --
 -- If the specified application has no associated application versions, AWS
--- Elastic Beanstalk @UpdateEnvironment@ returns an @InvalidParameterValue@
+-- Elastic Beanstalk 'UpdateEnvironment' returns an 'InvalidParameterValue'
 -- error.
 --
 -- Default: If not specified, AWS Elastic Beanstalk attempts to launch the
@@ -175,10 +178,10 @@ ceTier = lens _ceTier (\ s a -> s{_ceTier = a});
 -- AWS Elastic Beanstalk sets the configuration values to the default
 -- values associated with the specified solution stack.
 --
--- Condition: You must specify either this or a @TemplateName@, but not
+-- Condition: You must specify either this or a 'TemplateName', but not
 -- both. If you specify both, AWS Elastic Beanstalk returns an
--- @InvalidParameterCombination@ error. If you do not specify either, AWS
--- Elastic Beanstalk returns a @MissingRequiredParameter@ error.
+-- 'InvalidParameterCombination' error. If you do not specify either, AWS
+-- Elastic Beanstalk returns a 'MissingRequiredParameter' error.
 ceSolutionStackName :: Lens' CreateEnvironment (Maybe Text)
 ceSolutionStackName = lens _ceSolutionStackName (\ s a -> s{_ceSolutionStackName = a});
 
@@ -192,8 +195,8 @@ ceTags = lens _ceTags (\ s a -> s{_ceTags = a}) . _Default . _Coerce;
 
 -- | The name of the application that contains the version to be deployed.
 --
--- If no application is found with this name, @CreateEnvironment@ returns
--- an @InvalidParameterValue@ error.
+-- If no application is found with this name, 'CreateEnvironment' returns
+-- an 'InvalidParameterValue' error.
 ceApplicationName :: Lens' CreateEnvironment Text
 ceApplicationName = lens _ceApplicationName (\ s a -> s{_ceApplicationName = a});
 
@@ -204,7 +207,7 @@ ceApplicationName = lens _ceApplicationName (\ s a -> s{_ceApplicationName = a})
 -- contain only letters, numbers, and hyphens. It cannot start or end with
 -- a hyphen. This name must be unique in your account. If the specified
 -- name already exists, AWS Elastic Beanstalk returns an
--- @InvalidParameterValue@ error.
+-- 'InvalidParameterValue' error.
 --
 -- Default: If the CNAME parameter is not specified, the environment name
 -- becomes part of the CNAME, and therefore part of the visible URL for

@@ -24,15 +24,15 @@
 module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     (
     -- * Creating a Request
-      DeleteDeploymentGroup
-    , deleteDeploymentGroup
+      deleteDeploymentGroup
+    , DeleteDeploymentGroup
     -- * Request Lenses
     , ddgApplicationName
     , ddgDeploymentGroupName
 
     -- * Destructuring the Response
-    , DeleteDeploymentGroupResponse
     , deleteDeploymentGroupResponse
+    , DeleteDeploymentGroupResponse
     -- * Response Lenses
     , ddgrsHooksNotCleanedUp
     , ddgrsStatus
@@ -47,19 +47,22 @@ import           Network.AWS.Response
 -- | Represents the input of a delete deployment group operation.
 --
 -- /See:/ 'deleteDeploymentGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddgApplicationName'
---
--- * 'ddgDeploymentGroupName'
 data DeleteDeploymentGroup = DeleteDeploymentGroup'
     { _ddgApplicationName     :: !Text
     , _ddgDeploymentGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDeploymentGroup' smart constructor.
-deleteDeploymentGroup :: Text -> Text -> DeleteDeploymentGroup
+-- | Creates a value of 'DeleteDeploymentGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddgApplicationName'
+--
+-- * 'ddgDeploymentGroupName'
+deleteDeploymentGroup
+    :: Text -- ^ 'ddgApplicationName'
+    -> Text -- ^ 'ddgDeploymentGroupName'
+    -> DeleteDeploymentGroup
 deleteDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
     DeleteDeploymentGroup'
     { _ddgApplicationName = pApplicationName_
@@ -112,19 +115,21 @@ instance ToQuery DeleteDeploymentGroup where
 -- | Represents the output of a delete deployment group operation.
 --
 -- /See:/ 'deleteDeploymentGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddgrsHooksNotCleanedUp'
---
--- * 'ddgrsStatus'
 data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
     { _ddgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
     , _ddgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDeploymentGroupResponse' smart constructor.
-deleteDeploymentGroupResponse :: Int -> DeleteDeploymentGroupResponse
+-- | Creates a value of 'DeleteDeploymentGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddgrsHooksNotCleanedUp'
+--
+-- * 'ddgrsStatus'
+deleteDeploymentGroupResponse
+    :: Int -- ^ 'ddgrsStatus'
+    -> DeleteDeploymentGroupResponse
 deleteDeploymentGroupResponse pStatus_ =
     DeleteDeploymentGroupResponse'
     { _ddgrsHooksNotCleanedUp = Nothing
@@ -140,6 +145,6 @@ deleteDeploymentGroupResponse pStatus_ =
 ddgrsHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
 ddgrsHooksNotCleanedUp = lens _ddgrsHooksNotCleanedUp (\ s a -> s{_ddgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ddgrsStatus :: Lens' DeleteDeploymentGroupResponse Int
 ddgrsStatus = lens _ddgrsStatus (\ s a -> s{_ddgrsStatus = a});

@@ -22,22 +22,24 @@
 -- includes the function configuration information. You must use
 -- GetFunction to retrieve the code for your function.
 --
--- This operation requires permission for the @lambda:ListFunctions@
+-- This operation requires permission for the 'lambda:ListFunctions'
 -- action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_ListFunctions.html AWS API Reference> for ListFunctions.
+--
+-- This operation returns paginated results.
 module Network.AWS.Lambda.ListFunctions
     (
     -- * Creating a Request
-      ListFunctions
-    , listFunctions
+      listFunctions
+    , ListFunctions
     -- * Request Lenses
     , lfMaxItems
     , lfMarker
 
     -- * Destructuring the Response
-    , ListFunctionsResponse
     , listFunctionsResponse
+    , ListFunctionsResponse
     -- * Response Lenses
     , lfrsNextMarker
     , lfrsFunctions
@@ -52,19 +54,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listFunctions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lfMaxItems'
---
--- * 'lfMarker'
 data ListFunctions = ListFunctions'
     { _lfMaxItems :: !(Maybe Nat)
     , _lfMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListFunctions' smart constructor.
-listFunctions :: ListFunctions
+-- | Creates a value of 'ListFunctions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lfMaxItems'
+--
+-- * 'lfMarker'
+listFunctions
+    :: ListFunctions
 listFunctions =
     ListFunctions'
     { _lfMaxItems = Nothing
@@ -77,7 +80,7 @@ lfMaxItems :: Lens' ListFunctions (Maybe Natural)
 lfMaxItems = lens _lfMaxItems (\ s a -> s{_lfMaxItems = a}) . mapping _Nat;
 
 -- | Optional string. An opaque pagination token returned from a previous
--- @ListFunctions@ operation. If present, indicates where to continue the
+-- 'ListFunctions' operation. If present, indicates where to continue the
 -- listing.
 lfMarker :: Lens' ListFunctions (Maybe Text)
 lfMarker = lens _lfMarker (\ s a -> s{_lfMarker = a});
@@ -116,22 +119,24 @@ instance ToQuery ListFunctions where
 -- FunctionConfiguration.
 --
 -- /See:/ 'listFunctionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lfrsNextMarker'
---
--- * 'lfrsFunctions'
---
--- * 'lfrsStatus'
 data ListFunctionsResponse = ListFunctionsResponse'
     { _lfrsNextMarker :: !(Maybe Text)
     , _lfrsFunctions  :: !(Maybe [FunctionConfiguration])
     , _lfrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListFunctionsResponse' smart constructor.
-listFunctionsResponse :: Int -> ListFunctionsResponse
+-- | Creates a value of 'ListFunctionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lfrsNextMarker'
+--
+-- * 'lfrsFunctions'
+--
+-- * 'lfrsStatus'
+listFunctionsResponse
+    :: Int -- ^ 'lfrsStatus'
+    -> ListFunctionsResponse
 listFunctionsResponse pStatus_ =
     ListFunctionsResponse'
     { _lfrsNextMarker = Nothing
@@ -147,6 +152,6 @@ lfrsNextMarker = lens _lfrsNextMarker (\ s a -> s{_lfrsNextMarker = a});
 lfrsFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
 lfrsFunctions = lens _lfrsFunctions (\ s a -> s{_lfrsFunctions = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lfrsStatus :: Lens' ListFunctionsResponse Int
 lfrsStatus = lens _lfrsStatus (\ s a -> s{_lfrsStatus = a});

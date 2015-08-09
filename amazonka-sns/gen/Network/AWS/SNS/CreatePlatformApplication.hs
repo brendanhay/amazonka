@@ -21,7 +21,7 @@
 -- Creates a platform application object for one of the supported push
 -- notification services, such as APNS and GCM, to which devices and mobile
 -- apps may register. You must specify PlatformPrincipal and
--- PlatformCredential attributes when using the @CreatePlatformApplication@
+-- PlatformCredential attributes when using the 'CreatePlatformApplication'
 -- action. The PlatformPrincipal is received from the notification service.
 -- For APNS\/APNS_SANDBOX, PlatformPrincipal is \"SSL certificate\". For
 -- GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is
@@ -29,8 +29,8 @@
 -- notification service. For APNS\/APNS_SANDBOX, PlatformCredential is
 -- \"private key\". For GCM, PlatformCredential is \"API key\". For ADM,
 -- PlatformCredential is \"client secret\". The PlatformApplicationArn that
--- is returned when using @CreatePlatformApplication@ is then used as an
--- attribute for the @CreatePlatformEndpoint@ action. For more information,
+-- is returned when using 'CreatePlatformApplication' is then used as an
+-- attribute for the 'CreatePlatformEndpoint' action. For more information,
 -- see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
@@ -38,16 +38,16 @@
 module Network.AWS.SNS.CreatePlatformApplication
     (
     -- * Creating a Request
-      CreatePlatformApplication
-    , createPlatformApplication
+      createPlatformApplication
+    , CreatePlatformApplication
     -- * Request Lenses
     , cpaName
     , cpaPlatform
     , cpaAttributes
 
     -- * Destructuring the Response
-    , CreatePlatformApplicationResponse
     , createPlatformApplicationResponse
+    , CreatePlatformApplicationResponse
     -- * Response Lenses
     , cparsPlatformApplicationARN
     , cparsStatus
@@ -62,22 +62,25 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for CreatePlatformApplication action.
 --
 -- /See:/ 'createPlatformApplication' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpaName'
---
--- * 'cpaPlatform'
---
--- * 'cpaAttributes'
 data CreatePlatformApplication = CreatePlatformApplication'
     { _cpaName       :: !Text
     , _cpaPlatform   :: !Text
     , _cpaAttributes :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePlatformApplication' smart constructor.
-createPlatformApplication :: Text -> Text -> CreatePlatformApplication
+-- | Creates a value of 'CreatePlatformApplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpaName'
+--
+-- * 'cpaPlatform'
+--
+-- * 'cpaAttributes'
+createPlatformApplication
+    :: Text -- ^ 'cpaName'
+    -> Text -- ^ 'cpaPlatform'
+    -> CreatePlatformApplication
 createPlatformApplication pName_ pPlatform_ =
     CreatePlatformApplication'
     { _cpaName = pName_
@@ -133,19 +136,21 @@ instance ToQuery CreatePlatformApplication where
 -- | Response from CreatePlatformApplication action.
 --
 -- /See:/ 'createPlatformApplicationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cparsPlatformApplicationARN'
---
--- * 'cparsStatus'
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
     { _cparsPlatformApplicationARN :: !(Maybe Text)
     , _cparsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePlatformApplicationResponse' smart constructor.
-createPlatformApplicationResponse :: Int -> CreatePlatformApplicationResponse
+-- | Creates a value of 'CreatePlatformApplicationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cparsPlatformApplicationARN'
+--
+-- * 'cparsStatus'
+createPlatformApplicationResponse
+    :: Int -- ^ 'cparsStatus'
+    -> CreatePlatformApplicationResponse
 createPlatformApplicationResponse pStatus_ =
     CreatePlatformApplicationResponse'
     { _cparsPlatformApplicationARN = Nothing
@@ -156,6 +161,6 @@ createPlatformApplicationResponse pStatus_ =
 cparsPlatformApplicationARN :: Lens' CreatePlatformApplicationResponse (Maybe Text)
 cparsPlatformApplicationARN = lens _cparsPlatformApplicationARN (\ s a -> s{_cparsPlatformApplicationARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 cparsStatus :: Lens' CreatePlatformApplicationResponse Int
 cparsStatus = lens _cparsStatus (\ s a -> s{_cparsStatus = a});

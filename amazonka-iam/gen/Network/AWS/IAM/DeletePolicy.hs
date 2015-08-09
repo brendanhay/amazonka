@@ -45,14 +45,14 @@
 module Network.AWS.IAM.DeletePolicy
     (
     -- * Creating a Request
-      DeletePolicy
-    , deletePolicy
+      deletePolicy
+    , DeletePolicy
     -- * Request Lenses
     , dpPolicyARN
 
     -- * Destructuring the Response
-    , DeletePolicyResponse
     , deletePolicyResponse
+    , DeletePolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -62,16 +62,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deletePolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpPolicyARN'
 newtype DeletePolicy = DeletePolicy'
     { _dpPolicyARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePolicy' smart constructor.
-deletePolicy :: Text -> DeletePolicy
+-- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpPolicyARN'
+deletePolicy
+    :: Text -- ^ 'dpPolicyARN'
+    -> DeletePolicy
 deletePolicy pPolicyARN_ =
     DeletePolicy'
     { _dpPolicyARN = pPolicyARN_
@@ -105,6 +107,8 @@ data DeletePolicyResponse =
     DeletePolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePolicyResponse' smart constructor.
-deletePolicyResponse :: DeletePolicyResponse
+-- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
+--
+deletePolicyResponse
+    :: DeletePolicyResponse
 deletePolicyResponse = DeletePolicyResponse'

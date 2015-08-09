@@ -24,8 +24,8 @@
 module Network.AWS.CodeDeploy.CreateDeployment
     (
     -- * Creating a Request
-      CreateDeployment
-    , createDeployment
+      createDeployment
+    , CreateDeployment
     -- * Request Lenses
     , cdDeploymentConfigName
     , cdRevision
@@ -35,8 +35,8 @@ module Network.AWS.CodeDeploy.CreateDeployment
     , cdApplicationName
 
     -- * Destructuring the Response
-    , CreateDeploymentResponse
     , createDeploymentResponse
+    , CreateDeploymentResponse
     -- * Response Lenses
     , cdrsDeploymentId
     , cdrsStatus
@@ -51,8 +51,18 @@ import           Network.AWS.Response
 -- | Represents the input of a create deployment operation.
 --
 -- /See:/ 'createDeployment' smart constructor.
+data CreateDeployment = CreateDeployment'
+    { _cdDeploymentConfigName          :: !(Maybe Text)
+    , _cdRevision                      :: !(Maybe RevisionLocation)
+    , _cdDescription                   :: !(Maybe Text)
+    , _cdIgnoreApplicationStopFailures :: !(Maybe Bool)
+    , _cdDeploymentGroupName           :: !(Maybe Text)
+    , _cdApplicationName               :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdDeploymentConfigName'
 --
@@ -65,17 +75,9 @@ import           Network.AWS.Response
 -- * 'cdDeploymentGroupName'
 --
 -- * 'cdApplicationName'
-data CreateDeployment = CreateDeployment'
-    { _cdDeploymentConfigName          :: !(Maybe Text)
-    , _cdRevision                      :: !(Maybe RevisionLocation)
-    , _cdDescription                   :: !(Maybe Text)
-    , _cdIgnoreApplicationStopFailures :: !(Maybe Bool)
-    , _cdDeploymentGroupName           :: !(Maybe Text)
-    , _cdApplicationName               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateDeployment' smart constructor.
-createDeployment :: Text -> CreateDeployment
+createDeployment
+    :: Text -- ^ 'cdApplicationName'
+    -> CreateDeployment
 createDeployment pApplicationName_ =
     CreateDeployment'
     { _cdDeploymentConfigName = Nothing
@@ -167,19 +169,21 @@ instance ToQuery CreateDeployment where
 -- | Represents the output of a create deployment operation.
 --
 -- /See:/ 'createDeploymentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdrsDeploymentId'
---
--- * 'cdrsStatus'
 data CreateDeploymentResponse = CreateDeploymentResponse'
     { _cdrsDeploymentId :: !(Maybe Text)
     , _cdrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDeploymentResponse' smart constructor.
-createDeploymentResponse :: Int -> CreateDeploymentResponse
+-- | Creates a value of 'CreateDeploymentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdrsDeploymentId'
+--
+-- * 'cdrsStatus'
+createDeploymentResponse
+    :: Int -- ^ 'cdrsStatus'
+    -> CreateDeploymentResponse
 createDeploymentResponse pStatus_ =
     CreateDeploymentResponse'
     { _cdrsDeploymentId = Nothing
@@ -190,6 +194,6 @@ createDeploymentResponse pStatus_ =
 cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdrsStatus :: Lens' CreateDeploymentResponse Int
 cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

@@ -24,8 +24,8 @@
 module Network.AWS.EC2.DescribeSpotFleetRequests
     (
     -- * Creating a Request
-      DescribeSpotFleetRequests
-    , describeSpotFleetRequests
+      describeSpotFleetRequests
+    , DescribeSpotFleetRequests
     -- * Request Lenses
     , dsfrSpotFleetRequestIds
     , dsfrNextToken
@@ -33,8 +33,8 @@ module Network.AWS.EC2.DescribeSpotFleetRequests
     , dsfrMaxResults
 
     -- * Destructuring the Response
-    , DescribeSpotFleetRequestsResponse
     , describeSpotFleetRequestsResponse
+    , DescribeSpotFleetRequestsResponse
     -- * Response Lenses
     , dsfrrsNextToken
     , dsfrrsStatus
@@ -50,8 +50,16 @@ import           Network.AWS.Response
 -- | Contains the parameters for DescribeSpotFleetRequests.
 --
 -- /See:/ 'describeSpotFleetRequests' smart constructor.
+data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
+    { _dsfrSpotFleetRequestIds :: !(Maybe [Text])
+    , _dsfrNextToken           :: !(Maybe Text)
+    , _dsfrDryRun              :: !(Maybe Bool)
+    , _dsfrMaxResults          :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeSpotFleetRequests' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsfrSpotFleetRequestIds'
 --
@@ -60,15 +68,8 @@ import           Network.AWS.Response
 -- * 'dsfrDryRun'
 --
 -- * 'dsfrMaxResults'
-data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
-    { _dsfrSpotFleetRequestIds :: !(Maybe [Text])
-    , _dsfrNextToken           :: !(Maybe Text)
-    , _dsfrDryRun              :: !(Maybe Bool)
-    , _dsfrMaxResults          :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeSpotFleetRequests' smart constructor.
-describeSpotFleetRequests :: DescribeSpotFleetRequests
+describeSpotFleetRequests
+    :: DescribeSpotFleetRequests
 describeSpotFleetRequests =
     DescribeSpotFleetRequests'
     { _dsfrSpotFleetRequestIds = Nothing
@@ -87,14 +88,14 @@ dsfrNextToken = lens _dsfrNextToken (\ s a -> s{_dsfrNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dsfrDryRun :: Lens' DescribeSpotFleetRequests (Maybe Bool)
 dsfrDryRun = lens _dsfrDryRun (\ s a -> s{_dsfrDryRun = a});
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
+-- remaining results, make another call with the returned 'NextToken'
 -- value.
 dsfrMaxResults :: Lens' DescribeSpotFleetRequests (Maybe Int)
 dsfrMaxResults = lens _dsfrMaxResults (\ s a -> s{_dsfrMaxResults = a});
@@ -133,22 +134,24 @@ instance ToQuery DescribeSpotFleetRequests where
 -- | Contains the output of DescribeSpotFleetRequests.
 --
 -- /See:/ 'describeSpotFleetRequestsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsfrrsNextToken'
---
--- * 'dsfrrsStatus'
---
--- * 'dsfrrsSpotFleetRequestConfigs'
 data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
     { _dsfrrsNextToken               :: !(Maybe Text)
     , _dsfrrsStatus                  :: !Int
     , _dsfrrsSpotFleetRequestConfigs :: ![SpotFleetRequestConfig]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSpotFleetRequestsResponse' smart constructor.
-describeSpotFleetRequestsResponse :: Int -> DescribeSpotFleetRequestsResponse
+-- | Creates a value of 'DescribeSpotFleetRequestsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsfrrsNextToken'
+--
+-- * 'dsfrrsStatus'
+--
+-- * 'dsfrrsSpotFleetRequestConfigs'
+describeSpotFleetRequestsResponse
+    :: Int -- ^ 'dsfrrsStatus'
+    -> DescribeSpotFleetRequestsResponse
 describeSpotFleetRequestsResponse pStatus_ =
     DescribeSpotFleetRequestsResponse'
     { _dsfrrsNextToken = Nothing
@@ -157,11 +160,11 @@ describeSpotFleetRequestsResponse pStatus_ =
     }
 
 -- | The token required to retrieve the next set of results. This value is
--- @null@ when there are no more results to return.
+-- 'null' when there are no more results to return.
 dsfrrsNextToken :: Lens' DescribeSpotFleetRequestsResponse (Maybe Text)
 dsfrrsNextToken = lens _dsfrrsNextToken (\ s a -> s{_dsfrrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dsfrrsStatus :: Lens' DescribeSpotFleetRequestsResponse Int
 dsfrrsStatus = lens _dsfrrsStatus (\ s a -> s{_dsfrrsStatus = a});
 

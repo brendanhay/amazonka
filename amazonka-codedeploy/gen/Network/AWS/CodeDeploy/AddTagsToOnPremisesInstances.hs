@@ -24,15 +24,15 @@
 module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
     (
     -- * Creating a Request
-      AddTagsToOnPremisesInstances
-    , addTagsToOnPremisesInstances
+      addTagsToOnPremisesInstances
+    , AddTagsToOnPremisesInstances
     -- * Request Lenses
     , attopiTags
     , attopiInstanceNames
 
     -- * Destructuring the Response
-    , AddTagsToOnPremisesInstancesResponse
     , addTagsToOnPremisesInstancesResponse
+    , AddTagsToOnPremisesInstancesResponse
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -44,19 +44,20 @@ import           Network.AWS.Response
 -- | Represents the input of an adds tags to on-premises instance operation.
 --
 -- /See:/ 'addTagsToOnPremisesInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'attopiTags'
---
--- * 'attopiInstanceNames'
 data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
     { _attopiTags          :: ![Tag]
     , _attopiInstanceNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTagsToOnPremisesInstances' smart constructor.
-addTagsToOnPremisesInstances :: AddTagsToOnPremisesInstances
+-- | Creates a value of 'AddTagsToOnPremisesInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'attopiTags'
+--
+-- * 'attopiInstanceNames'
+addTagsToOnPremisesInstances
+    :: AddTagsToOnPremisesInstances
 addTagsToOnPremisesInstances =
     AddTagsToOnPremisesInstances'
     { _attopiTags = mempty
@@ -110,6 +111,8 @@ data AddTagsToOnPremisesInstancesResponse =
     AddTagsToOnPremisesInstancesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTagsToOnPremisesInstancesResponse' smart constructor.
-addTagsToOnPremisesInstancesResponse :: AddTagsToOnPremisesInstancesResponse
+-- | Creates a value of 'AddTagsToOnPremisesInstancesResponse' with the minimum fields required to make a request.
+--
+addTagsToOnPremisesInstancesResponse
+    :: AddTagsToOnPremisesInstancesResponse
 addTagsToOnPremisesInstancesResponse = AddTagsToOnPremisesInstancesResponse'

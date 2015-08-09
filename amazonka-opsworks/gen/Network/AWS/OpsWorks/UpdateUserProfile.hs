@@ -29,8 +29,8 @@
 module Network.AWS.OpsWorks.UpdateUserProfile
     (
     -- * Creating a Request
-      UpdateUserProfile
-    , updateUserProfile
+      updateUserProfile
+    , UpdateUserProfile
     -- * Request Lenses
     , uupSSHUsername
     , uupSSHPublicKey
@@ -38,8 +38,8 @@ module Network.AWS.OpsWorks.UpdateUserProfile
     , uupIAMUserARN
 
     -- * Destructuring the Response
-    , UpdateUserProfileResponse
     , updateUserProfileResponse
+    , UpdateUserProfileResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -49,8 +49,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateUserProfile' smart constructor.
+data UpdateUserProfile = UpdateUserProfile'
+    { _uupSSHUsername         :: !(Maybe Text)
+    , _uupSSHPublicKey        :: !(Maybe Text)
+    , _uupAllowSelfManagement :: !(Maybe Bool)
+    , _uupIAMUserARN          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateUserProfile' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uupSSHUsername'
 --
@@ -59,15 +67,9 @@ import           Network.AWS.Response
 -- * 'uupAllowSelfManagement'
 --
 -- * 'uupIAMUserARN'
-data UpdateUserProfile = UpdateUserProfile'
-    { _uupSSHUsername         :: !(Maybe Text)
-    , _uupSSHPublicKey        :: !(Maybe Text)
-    , _uupAllowSelfManagement :: !(Maybe Bool)
-    , _uupIAMUserARN          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateUserProfile' smart constructor.
-updateUserProfile :: Text -> UpdateUserProfile
+updateUserProfile
+    :: Text -- ^ 'uupIAMUserARN'
+    -> UpdateUserProfile
 updateUserProfile pIAMUserARN_ =
     UpdateUserProfile'
     { _uupSSHUsername = Nothing
@@ -78,8 +80,8 @@ updateUserProfile pIAMUserARN_ =
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
 -- [0-9], \'-\', and \'_\'. If the specified name includes other
--- punctuation marks, AWS OpsWorks removes them. For example, @my.name@
--- will be changed to @myname@. If you do not specify an SSH user name, AWS
+-- punctuation marks, AWS OpsWorks removes them. For example, 'my.name'
+-- will be changed to 'myname'. If you do not specify an SSH user name, AWS
 -- OpsWorks generates one from the IAM user name.
 uupSSHUsername :: Lens' UpdateUserProfile (Maybe Text)
 uupSSHUsername = lens _uupSSHUsername (\ s a -> s{_uupSSHUsername = a});
@@ -133,6 +135,8 @@ data UpdateUserProfileResponse =
     UpdateUserProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateUserProfileResponse' smart constructor.
-updateUserProfileResponse :: UpdateUserProfileResponse
+-- | Creates a value of 'UpdateUserProfileResponse' with the minimum fields required to make a request.
+--
+updateUserProfileResponse
+    :: UpdateUserProfileResponse
 updateUserProfileResponse = UpdateUserProfileResponse'

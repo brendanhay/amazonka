@@ -33,16 +33,16 @@
 module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     (
     -- * Creating a Request
-      AllocatePublicVirtualInterface
-    , allocatePublicVirtualInterface
+      allocatePublicVirtualInterface
+    , AllocatePublicVirtualInterface
     -- * Request Lenses
     , aConnectionId
     , aOwnerAccount
     , aNewPublicVirtualInterfaceAllocation
 
     -- * Destructuring the Response
-    , VirtualInterface
     , virtualInterface
+    , VirtualInterface
     -- * Response Lenses
     , viVirtualGatewayId
     , viRouteFilterPrefixes
@@ -71,22 +71,26 @@ import           Network.AWS.Response
 -- operation.
 --
 -- /See:/ 'allocatePublicVirtualInterface' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aConnectionId'
---
--- * 'aOwnerAccount'
---
--- * 'aNewPublicVirtualInterfaceAllocation'
 data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
     { _aConnectionId                        :: !Text
     , _aOwnerAccount                        :: !Text
     , _aNewPublicVirtualInterfaceAllocation :: !NewPublicVirtualInterfaceAllocation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AllocatePublicVirtualInterface' smart constructor.
-allocatePublicVirtualInterface :: Text -> Text -> NewPublicVirtualInterfaceAllocation -> AllocatePublicVirtualInterface
+-- | Creates a value of 'AllocatePublicVirtualInterface' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aConnectionId'
+--
+-- * 'aOwnerAccount'
+--
+-- * 'aNewPublicVirtualInterfaceAllocation'
+allocatePublicVirtualInterface
+    :: Text -- ^ 'aConnectionId'
+    -> Text -- ^ 'aOwnerAccount'
+    -> NewPublicVirtualInterfaceAllocation -- ^ 'aNewPublicVirtualInterfaceAllocation'
+    -> AllocatePublicVirtualInterface
 allocatePublicVirtualInterface pConnectionId_ pOwnerAccount_ pNewPublicVirtualInterfaceAllocation_ =
     AllocatePublicVirtualInterface'
     { _aConnectionId = pConnectionId_

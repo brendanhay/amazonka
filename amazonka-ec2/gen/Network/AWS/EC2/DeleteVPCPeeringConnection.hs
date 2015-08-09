@@ -20,22 +20,22 @@
 --
 -- Deletes a VPC peering connection. Either the owner of the requester VPC
 -- or the owner of the peer VPC can delete the VPC peering connection if
--- it\'s in the @active@ state. The owner of the requester VPC can delete a
--- VPC peering connection in the @pending-acceptance@ state.
+-- it\'s in the 'active' state. The owner of the requester VPC can delete a
+-- VPC peering connection in the 'pending-acceptance' state.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVPCPeeringConnection.html AWS API Reference> for DeleteVPCPeeringConnection.
 module Network.AWS.EC2.DeleteVPCPeeringConnection
     (
     -- * Creating a Request
-      DeleteVPCPeeringConnection
-    , deleteVPCPeeringConnection
+      deleteVPCPeeringConnection
+    , DeleteVPCPeeringConnection
     -- * Request Lenses
     , dvpcDryRun
     , dvpcVPCPeeringConnectionId
 
     -- * Destructuring the Response
-    , DeleteVPCPeeringConnectionResponse
     , deleteVPCPeeringConnectionResponse
+    , DeleteVPCPeeringConnectionResponse
     -- * Response Lenses
     , dvpcrsReturn
     , dvpcrsStatus
@@ -48,19 +48,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPCPeeringConnection' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvpcDryRun'
---
--- * 'dvpcVPCPeeringConnectionId'
 data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
     { _dvpcDryRun                 :: !(Maybe Bool)
     , _dvpcVPCPeeringConnectionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVPCPeeringConnection' smart constructor.
-deleteVPCPeeringConnection :: Text -> DeleteVPCPeeringConnection
+-- | Creates a value of 'DeleteVPCPeeringConnection' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvpcDryRun'
+--
+-- * 'dvpcVPCPeeringConnectionId'
+deleteVPCPeeringConnection
+    :: Text -- ^ 'dvpcVPCPeeringConnectionId'
+    -> DeleteVPCPeeringConnection
 deleteVPCPeeringConnection pVPCPeeringConnectionId_ =
     DeleteVPCPeeringConnection'
     { _dvpcDryRun = Nothing
@@ -69,8 +71,8 @@ deleteVPCPeeringConnection pVPCPeeringConnectionId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dvpcDryRun :: Lens' DeleteVPCPeeringConnection (Maybe Bool)
 dvpcDryRun = lens _dvpcDryRun (\ s a -> s{_dvpcDryRun = a});
 
@@ -106,29 +108,31 @@ instance ToQuery DeleteVPCPeeringConnection where
                  _dvpcVPCPeeringConnectionId]
 
 -- | /See:/ 'deleteVPCPeeringConnectionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvpcrsReturn'
---
--- * 'dvpcrsStatus'
 data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
     { _dvpcrsReturn :: !(Maybe Bool)
     , _dvpcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVPCPeeringConnectionResponse' smart constructor.
-deleteVPCPeeringConnectionResponse :: Int -> DeleteVPCPeeringConnectionResponse
+-- | Creates a value of 'DeleteVPCPeeringConnectionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvpcrsReturn'
+--
+-- * 'dvpcrsStatus'
+deleteVPCPeeringConnectionResponse
+    :: Int -- ^ 'dvpcrsStatus'
+    -> DeleteVPCPeeringConnectionResponse
 deleteVPCPeeringConnectionResponse pStatus_ =
     DeleteVPCPeeringConnectionResponse'
     { _dvpcrsReturn = Nothing
     , _dvpcrsStatus = pStatus_
     }
 
--- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- | Returns 'true' if the request succeeds; otherwise, it returns an error.
 dvpcrsReturn :: Lens' DeleteVPCPeeringConnectionResponse (Maybe Bool)
 dvpcrsReturn = lens _dvpcrsReturn (\ s a -> s{_dvpcrsReturn = a});
 
--- | Undocumented member.
+-- | The response status code.
 dvpcrsStatus :: Lens' DeleteVPCPeeringConnectionResponse Int
 dvpcrsStatus = lens _dvpcrsStatus (\ s a -> s{_dvpcrsStatus = a});

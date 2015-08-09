@@ -25,8 +25,8 @@
 module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     (
     -- * Creating a Request
-      ModifyNetworkInterfaceAttribute
-    , modifyNetworkInterfaceAttribute
+      modifyNetworkInterfaceAttribute
+    , ModifyNetworkInterfaceAttribute
     -- * Request Lenses
     , mniaGroups
     , mniaSourceDestCheck
@@ -36,8 +36,8 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     , mniaNetworkInterfaceId
 
     -- * Destructuring the Response
-    , ModifyNetworkInterfaceAttributeResponse
     , modifyNetworkInterfaceAttributeResponse
+    , ModifyNetworkInterfaceAttributeResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -47,8 +47,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifyNetworkInterfaceAttribute' smart constructor.
+data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
+    { _mniaGroups             :: !(Maybe [Text])
+    , _mniaSourceDestCheck    :: !(Maybe AttributeBooleanValue)
+    , _mniaAttachment         :: !(Maybe NetworkInterfaceAttachmentChanges)
+    , _mniaDryRun             :: !(Maybe Bool)
+    , _mniaDescription        :: !(Maybe AttributeValue)
+    , _mniaNetworkInterfaceId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyNetworkInterfaceAttribute' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mniaGroups'
 --
@@ -61,17 +71,9 @@ import           Network.AWS.Response
 -- * 'mniaDescription'
 --
 -- * 'mniaNetworkInterfaceId'
-data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
-    { _mniaGroups             :: !(Maybe [Text])
-    , _mniaSourceDestCheck    :: !(Maybe AttributeBooleanValue)
-    , _mniaAttachment         :: !(Maybe NetworkInterfaceAttachmentChanges)
-    , _mniaDryRun             :: !(Maybe Bool)
-    , _mniaDescription        :: !(Maybe AttributeValue)
-    , _mniaNetworkInterfaceId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifyNetworkInterfaceAttribute' smart constructor.
-modifyNetworkInterfaceAttribute :: Text -> ModifyNetworkInterfaceAttribute
+modifyNetworkInterfaceAttribute
+    :: Text -- ^ 'mniaNetworkInterfaceId'
+    -> ModifyNetworkInterfaceAttribute
 modifyNetworkInterfaceAttribute pNetworkInterfaceId_ =
     ModifyNetworkInterfaceAttribute'
     { _mniaGroups = Nothing
@@ -90,8 +92,8 @@ mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
 mniaGroups = lens _mniaGroups (\ s a -> s{_mniaGroups = a}) . _Default . _Coerce;
 
 -- | Indicates whether source\/destination checking is enabled. A value of
--- @true@ means checking is enabled, and @false@ means checking is
--- disabled. This value must be @false@ for a NAT instance to perform NAT.
+-- 'true' means checking is enabled, and 'false' means checking is
+-- disabled. This value must be 'false' for a NAT instance to perform NAT.
 -- For more information, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
 -- in the /Amazon Virtual Private Cloud User Guide/.
@@ -106,8 +108,8 @@ mniaAttachment = lens _mniaAttachment (\ s a -> s{_mniaAttachment = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 mniaDryRun :: Lens' ModifyNetworkInterfaceAttribute (Maybe Bool)
 mniaDryRun = lens _mniaDryRun (\ s a -> s{_mniaDryRun = a});
 
@@ -156,7 +158,9 @@ data ModifyNetworkInterfaceAttributeResponse =
     ModifyNetworkInterfaceAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyNetworkInterfaceAttributeResponse' smart constructor.
-modifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse
+-- | Creates a value of 'ModifyNetworkInterfaceAttributeResponse' with the minimum fields required to make a request.
+--
+modifyNetworkInterfaceAttributeResponse
+    :: ModifyNetworkInterfaceAttributeResponse
 modifyNetworkInterfaceAttributeResponse =
     ModifyNetworkInterfaceAttributeResponse'

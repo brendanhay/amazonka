@@ -37,15 +37,15 @@
 module Network.AWS.SES.GetIdentityPolicies
     (
     -- * Creating a Request
-      GetIdentityPolicies
-    , getIdentityPolicies
+      getIdentityPolicies
+    , GetIdentityPolicies
     -- * Request Lenses
     , gipIdentity
     , gipPolicyNames
 
     -- * Destructuring the Response
-    , GetIdentityPoliciesResponse
     , getIdentityPoliciesResponse
+    , GetIdentityPoliciesResponse
     -- * Response Lenses
     , giprsStatus
     , giprsPolicies
@@ -61,19 +61,21 @@ import           Network.AWS.SES.Types.Product
 -- list of authorization policies applying to an identity.
 --
 -- /See:/ 'getIdentityPolicies' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gipIdentity'
---
--- * 'gipPolicyNames'
 data GetIdentityPolicies = GetIdentityPolicies'
     { _gipIdentity    :: !Text
     , _gipPolicyNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetIdentityPolicies' smart constructor.
-getIdentityPolicies :: Text -> GetIdentityPolicies
+-- | Creates a value of 'GetIdentityPolicies' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gipIdentity'
+--
+-- * 'gipPolicyNames'
+getIdentityPolicies
+    :: Text -- ^ 'gipIdentity'
+    -> GetIdentityPolicies
 getIdentityPolicies pIdentity_ =
     GetIdentityPolicies'
     { _gipIdentity = pIdentity_
@@ -82,8 +84,8 @@ getIdentityPolicies pIdentity_ =
 
 -- | The identity for which the policies will be retrieved. You can specify
 -- an identity by using its name or by using its Amazon Resource Name
--- (ARN). Examples: @user\@example.com@, @example.com@,
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+-- (ARN). Examples: 'user\'example.com', 'example.com',
+-- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
 --
 -- To successfully call this API, you must own the identity.
 gipIdentity :: Lens' GetIdentityPolicies Text
@@ -92,7 +94,7 @@ gipIdentity = lens _gipIdentity (\ s a -> s{_gipIdentity = a});
 -- | A list of the names of policies to be retrieved. You can retrieve a
 -- maximum of 20 policies at a time. If you do not know the names of the
 -- policies that are attached to the identity, you can use
--- @ListIdentityPolicies@.
+-- 'ListIdentityPolicies'.
 gipPolicyNames :: Lens' GetIdentityPolicies [Text]
 gipPolicyNames = lens _gipPolicyNames (\ s a -> s{_gipPolicyNames = a}) . _Coerce;
 
@@ -125,29 +127,31 @@ instance ToQuery GetIdentityPolicies where
                  toQueryList "member" _gipPolicyNames]
 
 -- | Represents a map of policy names to policies returned from a successful
--- @GetIdentityPolicies@ request.
+-- 'GetIdentityPolicies' request.
 --
 -- /See:/ 'getIdentityPoliciesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'giprsStatus'
---
--- * 'giprsPolicies'
 data GetIdentityPoliciesResponse = GetIdentityPoliciesResponse'
     { _giprsStatus   :: !Int
     , _giprsPolicies :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetIdentityPoliciesResponse' smart constructor.
-getIdentityPoliciesResponse :: Int -> GetIdentityPoliciesResponse
+-- | Creates a value of 'GetIdentityPoliciesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'giprsStatus'
+--
+-- * 'giprsPolicies'
+getIdentityPoliciesResponse
+    :: Int -- ^ 'giprsStatus'
+    -> GetIdentityPoliciesResponse
 getIdentityPoliciesResponse pStatus_ =
     GetIdentityPoliciesResponse'
     { _giprsStatus = pStatus_
     , _giprsPolicies = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 giprsStatus :: Lens' GetIdentityPoliciesResponse Int
 giprsStatus = lens _giprsStatus (\ s a -> s{_giprsStatus = a});
 

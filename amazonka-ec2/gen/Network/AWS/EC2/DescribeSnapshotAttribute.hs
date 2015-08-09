@@ -29,16 +29,16 @@
 module Network.AWS.EC2.DescribeSnapshotAttribute
     (
     -- * Creating a Request
-      DescribeSnapshotAttribute
-    , describeSnapshotAttribute
+      describeSnapshotAttribute
+    , DescribeSnapshotAttribute
     -- * Request Lenses
     , dsaDryRun
     , dsaSnapshotId
     , dsaAttribute
 
     -- * Destructuring the Response
-    , DescribeSnapshotAttributeResponse
     , describeSnapshotAttributeResponse
+    , DescribeSnapshotAttributeResponse
     -- * Response Lenses
     , dsarsCreateVolumePermissions
     , dsarsProductCodes
@@ -53,22 +53,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeSnapshotAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsaDryRun'
---
--- * 'dsaSnapshotId'
---
--- * 'dsaAttribute'
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
     { _dsaDryRun     :: !(Maybe Bool)
     , _dsaSnapshotId :: !Text
     , _dsaAttribute  :: !SnapshotAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSnapshotAttribute' smart constructor.
-describeSnapshotAttribute :: Text -> SnapshotAttributeName -> DescribeSnapshotAttribute
+-- | Creates a value of 'DescribeSnapshotAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsaDryRun'
+--
+-- * 'dsaSnapshotId'
+--
+-- * 'dsaAttribute'
+describeSnapshotAttribute
+    :: Text -- ^ 'dsaSnapshotId'
+    -> SnapshotAttributeName -- ^ 'dsaAttribute'
+    -> DescribeSnapshotAttribute
 describeSnapshotAttribute pSnapshotId_ pAttribute_ =
     DescribeSnapshotAttribute'
     { _dsaDryRun = Nothing
@@ -78,8 +81,8 @@ describeSnapshotAttribute pSnapshotId_ pAttribute_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dsaDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)
 dsaDryRun = lens _dsaDryRun (\ s a -> s{_dsaDryRun = a});
 
@@ -125,8 +128,16 @@ instance ToQuery DescribeSnapshotAttribute where
                "Attribute" =: _dsaAttribute]
 
 -- | /See:/ 'describeSnapshotAttributeResponse' smart constructor.
+data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
+    { _dsarsCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
+    , _dsarsProductCodes            :: !(Maybe [ProductCode])
+    , _dsarsSnapshotId              :: !(Maybe Text)
+    , _dsarsStatus                  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeSnapshotAttributeResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsarsCreateVolumePermissions'
 --
@@ -135,15 +146,9 @@ instance ToQuery DescribeSnapshotAttribute where
 -- * 'dsarsSnapshotId'
 --
 -- * 'dsarsStatus'
-data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
-    { _dsarsCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
-    , _dsarsProductCodes            :: !(Maybe [ProductCode])
-    , _dsarsSnapshotId              :: !(Maybe Text)
-    , _dsarsStatus                  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeSnapshotAttributeResponse' smart constructor.
-describeSnapshotAttributeResponse :: Int -> DescribeSnapshotAttributeResponse
+describeSnapshotAttributeResponse
+    :: Int -- ^ 'dsarsStatus'
+    -> DescribeSnapshotAttributeResponse
 describeSnapshotAttributeResponse pStatus_ =
     DescribeSnapshotAttributeResponse'
     { _dsarsCreateVolumePermissions = Nothing
@@ -164,6 +169,6 @@ dsarsProductCodes = lens _dsarsProductCodes (\ s a -> s{_dsarsProductCodes = a})
 dsarsSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarsSnapshotId = lens _dsarsSnapshotId (\ s a -> s{_dsarsSnapshotId = a});
 
--- | Undocumented member.
+-- | The response status code.
 dsarsStatus :: Lens' DescribeSnapshotAttributeResponse Int
 dsarsStatus = lens _dsarsStatus (\ s a -> s{_dsarsStatus = a});

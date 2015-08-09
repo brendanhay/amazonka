@@ -28,16 +28,16 @@
 module Network.AWS.EC2.DescribeDHCPOptions
     (
     -- * Creating a Request
-      DescribeDHCPOptions
-    , describeDHCPOptions
+      describeDHCPOptions
+    , DescribeDHCPOptions
     -- * Request Lenses
     , ddoFilters
     , ddoDHCPOptionsIds
     , ddoDryRun
 
     -- * Destructuring the Response
-    , DescribeDHCPOptionsResponse
     , describeDHCPOptionsResponse
+    , DescribeDHCPOptionsResponse
     -- * Response Lenses
     , ddorsDHCPOptions
     , ddorsStatus
@@ -50,22 +50,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeDHCPOptions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddoFilters'
---
--- * 'ddoDHCPOptionsIds'
---
--- * 'ddoDryRun'
 data DescribeDHCPOptions = DescribeDHCPOptions'
     { _ddoFilters        :: !(Maybe [Filter])
     , _ddoDHCPOptionsIds :: !(Maybe [Text])
     , _ddoDryRun         :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDHCPOptions' smart constructor.
-describeDHCPOptions :: DescribeDHCPOptions
+-- | Creates a value of 'DescribeDHCPOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddoFilters'
+--
+-- * 'ddoDHCPOptionsIds'
+--
+-- * 'ddoDryRun'
+describeDHCPOptions
+    :: DescribeDHCPOptions
 describeDHCPOptions =
     DescribeDHCPOptions'
     { _ddoFilters = Nothing
@@ -75,25 +76,25 @@ describeDHCPOptions =
 
 -- | One or more filters.
 --
--- -   @dhcp-options-id@ - The ID of a set of DHCP options.
+-- -   'dhcp-options-id' - The ID of a set of DHCP options.
 --
--- -   @key@ - The key for one of the options (for example, @domain-name@).
+-- -   'key' - The key for one of the options (for example, 'domain-name').
 --
--- -   @value@ - The value for one of the options.
+-- -   'value' - The value for one of the options.
 --
--- -   @tag@:/key/=/value/ - The key\/value combination of a tag assigned
+-- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
 --     to the resource.
 --
--- -   @tag-key@ - The key of a tag assigned to the resource. This filter
---     is independent of the @tag-value@ filter. For example, if you use
+-- -   'tag-key' - The key of a tag assigned to the resource. This filter
+--     is independent of the 'tag-value' filter. For example, if you use
 --     both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\",
 --     you get any resources assigned both the tag key Purpose (regardless
 --     of what the tag\'s value is), and the tag value X (regardless of
 --     what the tag\'s key is). If you want to list only resources where
---     Purpose is X, see the @tag@:/key/=/value/ filter.
+--     Purpose is X, see the 'tag':/key/=/value/ filter.
 --
--- -   @tag-value@ - The value of a tag assigned to the resource. This
---     filter is independent of the @tag-key@ filter.
+-- -   'tag-value' - The value of a tag assigned to the resource. This
+--     filter is independent of the 'tag-key' filter.
 --
 ddoFilters :: Lens' DescribeDHCPOptions [Filter]
 ddoFilters = lens _ddoFilters (\ s a -> s{_ddoFilters = a}) . _Default . _Coerce;
@@ -106,8 +107,8 @@ ddoDHCPOptionsIds = lens _ddoDHCPOptionsIds (\ s a -> s{_ddoDHCPOptionsIds = a})
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 ddoDryRun :: Lens' DescribeDHCPOptions (Maybe Bool)
 ddoDryRun = lens _ddoDryRun (\ s a -> s{_ddoDryRun = a});
 
@@ -141,19 +142,21 @@ instance ToQuery DescribeDHCPOptions where
                "DryRun" =: _ddoDryRun]
 
 -- | /See:/ 'describeDHCPOptionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddorsDHCPOptions'
---
--- * 'ddorsStatus'
 data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
     { _ddorsDHCPOptions :: !(Maybe [DHCPOptions])
     , _ddorsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDHCPOptionsResponse' smart constructor.
-describeDHCPOptionsResponse :: Int -> DescribeDHCPOptionsResponse
+-- | Creates a value of 'DescribeDHCPOptionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddorsDHCPOptions'
+--
+-- * 'ddorsStatus'
+describeDHCPOptionsResponse
+    :: Int -- ^ 'ddorsStatus'
+    -> DescribeDHCPOptionsResponse
 describeDHCPOptionsResponse pStatus_ =
     DescribeDHCPOptionsResponse'
     { _ddorsDHCPOptions = Nothing
@@ -164,6 +167,6 @@ describeDHCPOptionsResponse pStatus_ =
 ddorsDHCPOptions :: Lens' DescribeDHCPOptionsResponse [DHCPOptions]
 ddorsDHCPOptions = lens _ddorsDHCPOptions (\ s a -> s{_ddorsDHCPOptions = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ddorsStatus :: Lens' DescribeDHCPOptionsResponse Int
 ddorsStatus = lens _ddorsStatus (\ s a -> s{_ddorsStatus = a});

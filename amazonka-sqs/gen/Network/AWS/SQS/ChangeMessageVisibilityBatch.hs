@@ -22,33 +22,33 @@
 -- version of ChangeMessageVisibility. The result of the action on each
 -- message is reported individually in the response. You can send up to 10
 -- ChangeMessageVisibility requests with each
--- @ChangeMessageVisibilityBatch@ action.
+-- 'ChangeMessageVisibilityBatch' action.
 --
 -- Because the batch request can result in a combination of successful and
 -- unsuccessful actions, you should check for batch errors even when the
 -- call returns an HTTP status code of 200.
 --
 -- Some API actions take lists of parameters. These lists are specified
--- using the @param.n@ notation. Values of @n@ are integers starting from
+-- using the 'param.n' notation. Values of 'n' are integers starting from
 -- 1. For example, a parameter list with two elements looks like this:
 --
--- @&Attribute.1=this@
+-- '&Attribute.1=this'
 --
--- @&Attribute.2=that@
+-- '&Attribute.2=that'
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html AWS API Reference> for ChangeMessageVisibilityBatch.
 module Network.AWS.SQS.ChangeMessageVisibilityBatch
     (
     -- * Creating a Request
-      ChangeMessageVisibilityBatch
-    , changeMessageVisibilityBatch
+      changeMessageVisibilityBatch
+    , ChangeMessageVisibilityBatch
     -- * Request Lenses
     , cmvbQueueURL
     , cmvbEntries
 
     -- * Destructuring the Response
-    , ChangeMessageVisibilityBatchResponse
     , changeMessageVisibilityBatchResponse
+    , ChangeMessageVisibilityBatchResponse
     -- * Response Lenses
     , cmvbrsStatus
     , cmvbrsSuccessful
@@ -62,19 +62,21 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'changeMessageVisibilityBatch' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cmvbQueueURL'
---
--- * 'cmvbEntries'
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
     { _cmvbQueueURL :: !Text
     , _cmvbEntries  :: ![ChangeMessageVisibilityBatchRequestEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangeMessageVisibilityBatch' smart constructor.
-changeMessageVisibilityBatch :: Text -> ChangeMessageVisibilityBatch
+-- | Creates a value of 'ChangeMessageVisibilityBatch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cmvbQueueURL'
+--
+-- * 'cmvbEntries'
+changeMessageVisibilityBatch
+    :: Text -- ^ 'cmvbQueueURL'
+    -> ChangeMessageVisibilityBatch
 changeMessageVisibilityBatch pQueueURL_ =
     ChangeMessageVisibilityBatch'
     { _cmvbQueueURL = pQueueURL_
@@ -129,22 +131,24 @@ instance ToQuery ChangeMessageVisibilityBatch where
 -- BatchResultErrorEntry tag if the message fails.
 --
 -- /See:/ 'changeMessageVisibilityBatchResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cmvbrsStatus'
---
--- * 'cmvbrsSuccessful'
---
--- * 'cmvbrsFailed'
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'
     { _cmvbrsStatus     :: !Int
     , _cmvbrsSuccessful :: ![ChangeMessageVisibilityBatchResultEntry]
     , _cmvbrsFailed     :: ![BatchResultErrorEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangeMessageVisibilityBatchResponse' smart constructor.
-changeMessageVisibilityBatchResponse :: Int -> ChangeMessageVisibilityBatchResponse
+-- | Creates a value of 'ChangeMessageVisibilityBatchResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cmvbrsStatus'
+--
+-- * 'cmvbrsSuccessful'
+--
+-- * 'cmvbrsFailed'
+changeMessageVisibilityBatchResponse
+    :: Int -- ^ 'cmvbrsStatus'
+    -> ChangeMessageVisibilityBatchResponse
 changeMessageVisibilityBatchResponse pStatus_ =
     ChangeMessageVisibilityBatchResponse'
     { _cmvbrsStatus = pStatus_
@@ -152,7 +156,7 @@ changeMessageVisibilityBatchResponse pStatus_ =
     , _cmvbrsFailed = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 cmvbrsStatus :: Lens' ChangeMessageVisibilityBatchResponse Int
 cmvbrsStatus = lens _cmvbrsStatus (\ s a -> s{_cmvbrsStatus = a});
 

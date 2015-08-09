@@ -27,14 +27,14 @@
 module Network.AWS.CognitoIdentity.DeleteIdentityPool
     (
     -- * Creating a Request
-      DeleteIdentityPool
-    , deleteIdentityPool
+      deleteIdentityPool
+    , DeleteIdentityPool
     -- * Request Lenses
     , dIdentityPoolId
 
     -- * Destructuring the Response
-    , DeleteIdentityPoolResponse
     , deleteIdentityPoolResponse
+    , DeleteIdentityPoolResponse
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Input to the DeleteIdentityPool action.
 --
 -- /See:/ 'deleteIdentityPool' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dIdentityPoolId'
 newtype DeleteIdentityPool = DeleteIdentityPool'
     { _dIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteIdentityPool' smart constructor.
-deleteIdentityPool :: Text -> DeleteIdentityPool
+-- | Creates a value of 'DeleteIdentityPool' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dIdentityPoolId'
+deleteIdentityPool
+    :: Text -- ^ 'dIdentityPoolId'
+    -> DeleteIdentityPool
 deleteIdentityPool pIdentityPoolId_ =
     DeleteIdentityPool'
     { _dIdentityPoolId = pIdentityPoolId_
@@ -97,6 +99,8 @@ data DeleteIdentityPoolResponse =
     DeleteIdentityPoolResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteIdentityPoolResponse' smart constructor.
-deleteIdentityPoolResponse :: DeleteIdentityPoolResponse
+-- | Creates a value of 'DeleteIdentityPoolResponse' with the minimum fields required to make a request.
+--
+deleteIdentityPoolResponse
+    :: DeleteIdentityPoolResponse
 deleteIdentityPoolResponse = DeleteIdentityPoolResponse'

@@ -23,11 +23,13 @@
 -- DescribeScalingActivities.
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScheduledActions.html AWS API Reference> for DescribeScheduledActions.
+--
+-- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeScheduledActions
     (
     -- * Creating a Request
-      DescribeScheduledActions
-    , describeScheduledActions
+      describeScheduledActions
+    , DescribeScheduledActions
     -- * Request Lenses
     , dsasStartTime
     , dsasNextToken
@@ -37,8 +39,8 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     , dsasScheduledActionNames
 
     -- * Destructuring the Response
-    , DescribeScheduledActionsResponse
     , describeScheduledActionsResponse
+    , DescribeScheduledActionsResponse
     -- * Response Lenses
     , dsarsScheduledUpdateGroupActions
     , dsarsNextToken
@@ -53,8 +55,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeScheduledActions' smart constructor.
+data DescribeScheduledActions = DescribeScheduledActions'
+    { _dsasStartTime            :: !(Maybe ISO8601)
+    , _dsasNextToken            :: !(Maybe Text)
+    , _dsasMaxRecords           :: !(Maybe Int)
+    , _dsasEndTime              :: !(Maybe ISO8601)
+    , _dsasAutoScalingGroupName :: !(Maybe Text)
+    , _dsasScheduledActionNames :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeScheduledActions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsasStartTime'
 --
@@ -67,17 +79,8 @@ import           Network.AWS.Response
 -- * 'dsasAutoScalingGroupName'
 --
 -- * 'dsasScheduledActionNames'
-data DescribeScheduledActions = DescribeScheduledActions'
-    { _dsasStartTime            :: !(Maybe ISO8601)
-    , _dsasNextToken            :: !(Maybe Text)
-    , _dsasMaxRecords           :: !(Maybe Int)
-    , _dsasEndTime              :: !(Maybe ISO8601)
-    , _dsasAutoScalingGroupName :: !(Maybe Text)
-    , _dsasScheduledActionNames :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeScheduledActions' smart constructor.
-describeScheduledActions :: DescribeScheduledActions
+describeScheduledActions
+    :: DescribeScheduledActions
 describeScheduledActions =
     DescribeScheduledActions'
     { _dsasStartTime = Nothing
@@ -118,7 +121,7 @@ dsasAutoScalingGroupName = lens _dsasAutoScalingGroupName (\ s a -> s{_dsasAutoS
 -- You can describe up to a maximum of 50 instances with a single call. If
 -- there are more items to return, the call returns a token. To get the
 -- next set of items, repeat the call with the returned token in the
--- @NextToken@ parameter.
+-- 'NextToken' parameter.
 dsasScheduledActionNames :: Lens' DescribeScheduledActions [Text]
 dsasScheduledActionNames = lens _dsasScheduledActionNames (\ s a -> s{_dsasScheduledActionNames = a}) . _Default . _Coerce;
 
@@ -166,22 +169,24 @@ instance ToQuery DescribeScheduledActions where
                    (toQueryList "member" <$> _dsasScheduledActionNames)]
 
 -- | /See:/ 'describeScheduledActionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsarsScheduledUpdateGroupActions'
---
--- * 'dsarsNextToken'
---
--- * 'dsarsStatus'
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
     { _dsarsScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
     , _dsarsNextToken                   :: !(Maybe Text)
     , _dsarsStatus                      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeScheduledActionsResponse' smart constructor.
-describeScheduledActionsResponse :: Int -> DescribeScheduledActionsResponse
+-- | Creates a value of 'DescribeScheduledActionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsarsScheduledUpdateGroupActions'
+--
+-- * 'dsarsNextToken'
+--
+-- * 'dsarsStatus'
+describeScheduledActionsResponse
+    :: Int -- ^ 'dsarsStatus'
+    -> DescribeScheduledActionsResponse
 describeScheduledActionsResponse pStatus_ =
     DescribeScheduledActionsResponse'
     { _dsarsScheduledUpdateGroupActions = Nothing
@@ -198,6 +203,6 @@ dsarsScheduledUpdateGroupActions = lens _dsarsScheduledUpdateGroupActions (\ s a
 dsarsNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
 dsarsNextToken = lens _dsarsNextToken (\ s a -> s{_dsarsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dsarsStatus :: Lens' DescribeScheduledActionsResponse Int
 dsarsStatus = lens _dsarsStatus (\ s a -> s{_dsarsStatus = a});

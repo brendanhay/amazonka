@@ -30,8 +30,8 @@
 module Network.AWS.S3.UploadPart
     (
     -- * Creating a Request
-      UploadPart
-    , uploadPart
+      uploadPart
+    , UploadPart
     -- * Request Lenses
     , upContentLength
     , upSSECustomerAlgorithm
@@ -46,8 +46,8 @@ module Network.AWS.S3.UploadPart
     , upBody
 
     -- * Destructuring the Response
-    , UploadPartResponse
     , uploadPartResponse
+    , UploadPartResponse
     -- * Response Lenses
     , uprsETag
     , uprsRequestCharged
@@ -65,8 +65,23 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'uploadPart' smart constructor.
+data UploadPart = UploadPart'
+    { _upContentLength        :: !(Maybe Int)
+    , _upSSECustomerAlgorithm :: !(Maybe Text)
+    , _upSSECustomerKey       :: !(Maybe (Sensitive Text))
+    , _upRequestPayer         :: !(Maybe RequestPayer)
+    , _upSSECustomerKeyMD5    :: !(Maybe Text)
+    , _upContentMD5           :: !(Maybe Text)
+    , _upBucket               :: !BucketName
+    , _upKey                  :: !ObjectKey
+    , _upPartNumber           :: !Int
+    , _upUploadId             :: !Text
+    , _upBody                 :: !RqBody
+    } deriving (Show,Generic)
+
+-- | Creates a value of 'UploadPart' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'upContentLength'
 --
@@ -89,22 +104,13 @@ import           Network.AWS.S3.Types.Product
 -- * 'upUploadId'
 --
 -- * 'upBody'
-data UploadPart = UploadPart'
-    { _upContentLength        :: !(Maybe Int)
-    , _upSSECustomerAlgorithm :: !(Maybe Text)
-    , _upSSECustomerKey       :: !(Maybe (Sensitive Text))
-    , _upRequestPayer         :: !(Maybe RequestPayer)
-    , _upSSECustomerKeyMD5    :: !(Maybe Text)
-    , _upContentMD5           :: !(Maybe Text)
-    , _upBucket               :: !BucketName
-    , _upKey                  :: !ObjectKey
-    , _upPartNumber           :: !Int
-    , _upUploadId             :: !Text
-    , _upBody                 :: !RqBody
-    } deriving (Show,Generic)
-
--- | 'UploadPart' smart constructor.
-uploadPart :: BucketName -> ObjectKey -> Int -> Text -> RqBody -> UploadPart
+uploadPart
+    :: BucketName -- ^ 'upBucket'
+    -> ObjectKey -- ^ 'upKey'
+    -> Int -- ^ 'upPartNumber'
+    -> Text -- ^ 'upUploadId'
+    -> RqBody -- ^ 'upBody'
+    -> UploadPart
 uploadPart pBucket_ pKey_ pPartNumber_ pUploadId_ pBody_ =
     UploadPart'
     { _upContentLength = Nothing
@@ -222,8 +228,19 @@ instance ToQuery UploadPart where
                "uploadId" =: _upUploadId]
 
 -- | /See:/ 'uploadPartResponse' smart constructor.
+data UploadPartResponse = UploadPartResponse'
+    { _uprsETag                 :: !(Maybe ETag)
+    , _uprsRequestCharged       :: !(Maybe RequestCharged)
+    , _uprsSSECustomerAlgorithm :: !(Maybe Text)
+    , _uprsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _uprsSSECustomerKeyMD5    :: !(Maybe Text)
+    , _uprsServerSideEncryption :: !(Maybe ServerSideEncryption)
+    , _uprsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UploadPartResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uprsETag'
 --
@@ -238,18 +255,9 @@ instance ToQuery UploadPart where
 -- * 'uprsServerSideEncryption'
 --
 -- * 'uprsStatus'
-data UploadPartResponse = UploadPartResponse'
-    { _uprsETag                 :: !(Maybe ETag)
-    , _uprsRequestCharged       :: !(Maybe RequestCharged)
-    , _uprsSSECustomerAlgorithm :: !(Maybe Text)
-    , _uprsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
-    , _uprsSSECustomerKeyMD5    :: !(Maybe Text)
-    , _uprsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _uprsStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UploadPartResponse' smart constructor.
-uploadPartResponse :: Int -> UploadPartResponse
+uploadPartResponse
+    :: Int -- ^ 'uprsStatus'
+    -> UploadPartResponse
 uploadPartResponse pStatus_ =
     UploadPartResponse'
     { _uprsETag = Nothing
@@ -291,6 +299,6 @@ uprsSSECustomerKeyMD5 = lens _uprsSSECustomerKeyMD5 (\ s a -> s{_uprsSSECustomer
 uprsServerSideEncryption :: Lens' UploadPartResponse (Maybe ServerSideEncryption)
 uprsServerSideEncryption = lens _uprsServerSideEncryption (\ s a -> s{_uprsServerSideEncryption = a});
 
--- | Undocumented member.
+-- | The response status code.
 uprsStatus :: Lens' UploadPartResponse Int
 uprsStatus = lens _uprsStatus (\ s a -> s{_uprsStatus = a});

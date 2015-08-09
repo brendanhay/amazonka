@@ -29,8 +29,8 @@
 module Network.AWS.RDS.ModifyDBCluster
     (
     -- * Creating a Request
-      ModifyDBCluster
-    , modifyDBCluster
+      modifyDBCluster
+    , ModifyDBCluster
     -- * Request Lenses
     , mdcDBClusterIdentifier
     , mdcMasterUserPassword
@@ -45,8 +45,8 @@ module Network.AWS.RDS.ModifyDBCluster
     , mdcPort
 
     -- * Destructuring the Response
-    , ModifyDBClusterResponse
     , modifyDBClusterResponse
+    , ModifyDBClusterResponse
     -- * Response Lenses
     , mdcrsDBCluster
     , mdcrsStatus
@@ -61,8 +61,23 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'modifyDBCluster' smart constructor.
+data ModifyDBCluster = ModifyDBCluster'
+    { _mdcDBClusterIdentifier         :: !(Maybe Text)
+    , _mdcMasterUserPassword          :: !(Maybe Text)
+    , _mdcPreferredMaintenanceWindow  :: !(Maybe Text)
+    , _mdcPreferredBackupWindow       :: !(Maybe Text)
+    , _mdcBackupRetentionPeriod       :: !(Maybe Int)
+    , _mdcVPCSecurityGroupIds         :: !(Maybe [Text])
+    , _mdcDBClusterParameterGroupName :: !(Maybe Text)
+    , _mdcApplyImmediately            :: !(Maybe Bool)
+    , _mdcOptionGroupName             :: !(Maybe Text)
+    , _mdcNewDBClusterIdentifier      :: !(Maybe Text)
+    , _mdcPort                        :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyDBCluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mdcDBClusterIdentifier'
 --
@@ -85,22 +100,8 @@ import           Network.AWS.Response
 -- * 'mdcNewDBClusterIdentifier'
 --
 -- * 'mdcPort'
-data ModifyDBCluster = ModifyDBCluster'
-    { _mdcDBClusterIdentifier         :: !(Maybe Text)
-    , _mdcMasterUserPassword          :: !(Maybe Text)
-    , _mdcPreferredMaintenanceWindow  :: !(Maybe Text)
-    , _mdcPreferredBackupWindow       :: !(Maybe Text)
-    , _mdcBackupRetentionPeriod       :: !(Maybe Int)
-    , _mdcVPCSecurityGroupIds         :: !(Maybe [Text])
-    , _mdcDBClusterParameterGroupName :: !(Maybe Text)
-    , _mdcApplyImmediately            :: !(Maybe Bool)
-    , _mdcOptionGroupName             :: !(Maybe Text)
-    , _mdcNewDBClusterIdentifier      :: !(Maybe Text)
-    , _mdcPort                        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifyDBCluster' smart constructor.
-modifyDBCluster :: ModifyDBCluster
+modifyDBCluster
+    :: ModifyDBCluster
 modifyDBCluster =
     ModifyDBCluster'
     { _mdcDBClusterIdentifier = Nothing
@@ -129,7 +130,7 @@ mdcDBClusterIdentifier :: Lens' ModifyDBCluster (Maybe Text)
 mdcDBClusterIdentifier = lens _mdcDBClusterIdentifier (\ s a -> s{_mdcDBClusterIdentifier = a});
 
 -- | The new password for the master database user. This password can contain
--- any printable ASCII character except \"\/\", \"\"\", or \"\@\".
+-- any printable ASCII character except \"\/\", \"\"\", or \"\'\".
 --
 -- Constraints: Must contain from 8 to 41 characters.
 mdcMasterUserPassword :: Lens' ModifyDBCluster (Maybe Text)
@@ -138,7 +139,7 @@ mdcMasterUserPassword = lens _mdcMasterUserPassword (\ s a -> s{_mdcMasterUserPa
 -- | The weekly time range during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC).
 --
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
+-- Format: 'ddd:hh24:mi-ddd:hh24:mi'
 --
 -- Default: A 30-minute window selected at random from an 8-hour block of
 -- time per region, occurring on a random day of the week. To see the time
@@ -153,7 +154,7 @@ mdcPreferredMaintenanceWindow :: Lens' ModifyDBCluster (Maybe Text)
 mdcPreferredMaintenanceWindow = lens _mdcPreferredMaintenanceWindow (\ s a -> s{_mdcPreferredMaintenanceWindow = a});
 
 -- | The daily time range during which automated backups are created if
--- automated backups are enabled, using the @BackupRetentionPeriod@
+-- automated backups are enabled, using the 'BackupRetentionPeriod'
 -- parameter.
 --
 -- Default: A 30-minute window selected at random from an 8-hour block of
@@ -163,7 +164,7 @@ mdcPreferredMaintenanceWindow = lens _mdcPreferredMaintenanceWindow (\ s a -> s{
 --
 -- Constraints:
 --
--- -   Must be in the format @hh24:mi-hh24:mi@.
+-- -   Must be in the format 'hh24:mi-hh24:mi'.
 -- -   Times should be in Universal Coordinated Time (UTC).
 -- -   Must not conflict with the preferred maintenance window.
 -- -   Must be at least 30 minutes.
@@ -192,21 +193,21 @@ mdcDBClusterParameterGroupName = lens _mdcDBClusterParameterGroupName (\ s a -> 
 
 -- | A value that specifies whether the modifications in this request and any
 -- pending modifications are asynchronously applied as soon as possible,
--- regardless of the @PreferredMaintenanceWindow@ setting for the DB
+-- regardless of the 'PreferredMaintenanceWindow' setting for the DB
 -- cluster.
 --
--- If this parameter is set to @false@, changes to the DB cluster are
+-- If this parameter is set to 'false', changes to the DB cluster are
 -- applied during the next maintenance window.
 --
--- Default: @false@
+-- Default: 'false'
 mdcApplyImmediately :: Lens' ModifyDBCluster (Maybe Bool)
 mdcApplyImmediately = lens _mdcApplyImmediately (\ s a -> s{_mdcApplyImmediately = a});
 
 -- | A value that indicates that the DB cluster should be associated with the
 -- specified option group. Changing this parameter does not result in an
 -- outage except in the following case, and the change is applied during
--- the next maintenance window unless the @ApplyImmediately@ parameter is
--- set to @true@ for this request. If the parameter change results in an
+-- the next maintenance window unless the 'ApplyImmediately' parameter is
+-- set to 'true' for this request. If the parameter change results in an
 -- option group that enables OEM, this change can cause a brief
 -- (sub-second) period during which new connections are rejected but
 -- existing connections are not interrupted.
@@ -226,13 +227,13 @@ mdcOptionGroupName = lens _mdcOptionGroupName (\ s a -> s{_mdcOptionGroupName = 
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- Example: @my-cluster2@
+-- Example: 'my-cluster2'
 mdcNewDBClusterIdentifier :: Lens' ModifyDBCluster (Maybe Text)
 mdcNewDBClusterIdentifier = lens _mdcNewDBClusterIdentifier (\ s a -> s{_mdcNewDBClusterIdentifier = a});
 
 -- | The port number on which the DB cluster accepts connections.
 --
--- Constraints: Value must be @1150-65535@
+-- Constraints: Value must be '1150-65535'
 --
 -- Default: The same port as the original DB cluster.
 mdcPort :: Lens' ModifyDBCluster (Maybe Int)
@@ -278,19 +279,21 @@ instance ToQuery ModifyDBCluster where
                "Port" =: _mdcPort]
 
 -- | /See:/ 'modifyDBClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mdcrsDBCluster'
---
--- * 'mdcrsStatus'
 data ModifyDBClusterResponse = ModifyDBClusterResponse'
     { _mdcrsDBCluster :: !(Maybe DBCluster)
     , _mdcrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyDBClusterResponse' smart constructor.
-modifyDBClusterResponse :: Int -> ModifyDBClusterResponse
+-- | Creates a value of 'ModifyDBClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mdcrsDBCluster'
+--
+-- * 'mdcrsStatus'
+modifyDBClusterResponse
+    :: Int -- ^ 'mdcrsStatus'
+    -> ModifyDBClusterResponse
 modifyDBClusterResponse pStatus_ =
     ModifyDBClusterResponse'
     { _mdcrsDBCluster = Nothing
@@ -301,6 +304,6 @@ modifyDBClusterResponse pStatus_ =
 mdcrsDBCluster :: Lens' ModifyDBClusterResponse (Maybe DBCluster)
 mdcrsDBCluster = lens _mdcrsDBCluster (\ s a -> s{_mdcrsDBCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 mdcrsStatus :: Lens' ModifyDBClusterResponse Int
 mdcrsStatus = lens _mdcrsStatus (\ s a -> s{_mdcrsStatus = a});

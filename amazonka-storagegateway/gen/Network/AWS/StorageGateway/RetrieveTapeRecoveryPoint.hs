@@ -32,15 +32,15 @@
 module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     (
     -- * Creating a Request
-      RetrieveTapeRecoveryPoint
-    , retrieveTapeRecoveryPoint
+      retrieveTapeRecoveryPoint
+    , RetrieveTapeRecoveryPoint
     -- * Request Lenses
     , rtrpTapeARN
     , rtrpGatewayARN
 
     -- * Destructuring the Response
-    , RetrieveTapeRecoveryPointResponse
     , retrieveTapeRecoveryPointResponse
+    , RetrieveTapeRecoveryPointResponse
     -- * Response Lenses
     , rtrprsTapeARN
     , rtrprsStatus
@@ -55,19 +55,22 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | RetrieveTapeRecoveryPointInput
 --
 -- /See:/ 'retrieveTapeRecoveryPoint' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtrpTapeARN'
---
--- * 'rtrpGatewayARN'
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
     { _rtrpTapeARN    :: !Text
     , _rtrpGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RetrieveTapeRecoveryPoint' smart constructor.
-retrieveTapeRecoveryPoint :: Text -> Text -> RetrieveTapeRecoveryPoint
+-- | Creates a value of 'RetrieveTapeRecoveryPoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtrpTapeARN'
+--
+-- * 'rtrpGatewayARN'
+retrieveTapeRecoveryPoint
+    :: Text -- ^ 'rtrpTapeARN'
+    -> Text -- ^ 'rtrpGatewayARN'
+    -> RetrieveTapeRecoveryPoint
 retrieveTapeRecoveryPoint pTapeARN_ pGatewayARN_ =
     RetrieveTapeRecoveryPoint'
     { _rtrpTapeARN = pTapeARN_
@@ -119,19 +122,21 @@ instance ToQuery RetrieveTapeRecoveryPoint where
 -- | RetrieveTapeRecoveryPointOutput
 --
 -- /See:/ 'retrieveTapeRecoveryPointResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtrprsTapeARN'
---
--- * 'rtrprsStatus'
 data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
     { _rtrprsTapeARN :: !(Maybe Text)
     , _rtrprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RetrieveTapeRecoveryPointResponse' smart constructor.
-retrieveTapeRecoveryPointResponse :: Int -> RetrieveTapeRecoveryPointResponse
+-- | Creates a value of 'RetrieveTapeRecoveryPointResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtrprsTapeARN'
+--
+-- * 'rtrprsStatus'
+retrieveTapeRecoveryPointResponse
+    :: Int -- ^ 'rtrprsStatus'
+    -> RetrieveTapeRecoveryPointResponse
 retrieveTapeRecoveryPointResponse pStatus_ =
     RetrieveTapeRecoveryPointResponse'
     { _rtrprsTapeARN = Nothing
@@ -143,6 +148,6 @@ retrieveTapeRecoveryPointResponse pStatus_ =
 rtrprsTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprsTapeARN = lens _rtrprsTapeARN (\ s a -> s{_rtrprsTapeARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 rtrprsStatus :: Lens' RetrieveTapeRecoveryPointResponse Int
 rtrprsStatus = lens _rtrprsStatus (\ s a -> s{_rtrprsStatus = a});

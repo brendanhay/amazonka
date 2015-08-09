@@ -36,8 +36,8 @@
 module Network.AWS.SQS.SendMessage
     (
     -- * Creating a Request
-      SendMessage
-    , sendMessage
+      sendMessage
+    , SendMessage
     -- * Request Lenses
     , smMessageAttributes
     , smDelaySeconds
@@ -45,8 +45,8 @@ module Network.AWS.SQS.SendMessage
     , smMessageBody
 
     -- * Destructuring the Response
-    , SendMessageResponse
     , sendMessageResponse
+    , SendMessageResponse
     -- * Response Lenses
     , smrsMessageId
     , smrsMD5OfMessageBody
@@ -61,8 +61,16 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'sendMessage' smart constructor.
+data SendMessage = SendMessage'
+    { _smMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    , _smDelaySeconds      :: !(Maybe Int)
+    , _smQueueURL          :: !Text
+    , _smMessageBody       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SendMessage' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'smMessageAttributes'
 --
@@ -71,15 +79,10 @@ import           Network.AWS.SQS.Types.Product
 -- * 'smQueueURL'
 --
 -- * 'smMessageBody'
-data SendMessage = SendMessage'
-    { _smMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
-    , _smDelaySeconds      :: !(Maybe Int)
-    , _smQueueURL          :: !Text
-    , _smMessageBody       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SendMessage' smart constructor.
-sendMessage :: Text -> Text -> SendMessage
+sendMessage
+    :: Text -- ^ 'smQueueURL'
+    -> Text -- ^ 'smMessageBody'
+    -> SendMessage
 sendMessage pQueueURL_ pMessageBody_ =
     SendMessage'
     { _smMessageAttributes = Nothing
@@ -95,7 +98,7 @@ smMessageAttributes :: Lens' SendMessage (HashMap Text MessageAttributeValue)
 smMessageAttributes = lens _smMessageAttributes (\ s a -> s{_smMessageAttributes = a}) . _Default . _Map;
 
 -- | The number of seconds (0 to 900 - 15 minutes) to delay a specific
--- message. Messages with a positive @DelaySeconds@ value become available
+-- message. Messages with a positive 'DelaySeconds' value become available
 -- for processing after the delay time is finished. If you don\'t specify a
 -- value, the default value for the queue applies.
 smDelaySeconds :: Lens' SendMessage (Maybe Int)
@@ -143,8 +146,16 @@ instance ToQuery SendMessage where
 -- | The MD5OfMessageBody and MessageId elements.
 --
 -- /See:/ 'sendMessageResponse' smart constructor.
+data SendMessageResponse = SendMessageResponse'
+    { _smrsMessageId              :: !(Maybe Text)
+    , _smrsMD5OfMessageBody       :: !(Maybe Text)
+    , _smrsMD5OfMessageAttributes :: !(Maybe Text)
+    , _smrsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SendMessageResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'smrsMessageId'
 --
@@ -153,15 +164,9 @@ instance ToQuery SendMessage where
 -- * 'smrsMD5OfMessageAttributes'
 --
 -- * 'smrsStatus'
-data SendMessageResponse = SendMessageResponse'
-    { _smrsMessageId              :: !(Maybe Text)
-    , _smrsMD5OfMessageBody       :: !(Maybe Text)
-    , _smrsMD5OfMessageAttributes :: !(Maybe Text)
-    , _smrsStatus                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SendMessageResponse' smart constructor.
-sendMessageResponse :: Int -> SendMessageResponse
+sendMessageResponse
+    :: Int -- ^ 'smrsStatus'
+    -> SendMessageResponse
 sendMessageResponse pStatus_ =
     SendMessageResponse'
     { _smrsMessageId = Nothing
@@ -191,6 +196,6 @@ smrsMD5OfMessageBody = lens _smrsMD5OfMessageBody (\ s a -> s{_smrsMD5OfMessageB
 smrsMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
 smrsMD5OfMessageAttributes = lens _smrsMD5OfMessageAttributes (\ s a -> s{_smrsMD5OfMessageAttributes = a});
 
--- | Undocumented member.
+-- | The response status code.
 smrsStatus :: Lens' SendMessageResponse Int
 smrsStatus = lens _smrsStatus (\ s a -> s{_smrsStatus = a});

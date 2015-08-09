@@ -28,12 +28,12 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
--- -   Constrain the @taskList.name@ parameter by using a __Condition__
---     element with the @swf:taskList.name@ key to allow the action to
+-- -   Constrain the 'taskList.name' parameter by using a __Condition__
+--     element with the 'swf:taskList.name' key to allow the action to
 --     access only certain task lists.
 --
 -- If the caller does not have sufficient permissions to invoke the action,
@@ -47,15 +47,15 @@
 module Network.AWS.SWF.CountPendingDecisionTasks
     (
     -- * Creating a Request
-      CountPendingDecisionTasks
-    , countPendingDecisionTasks
+      countPendingDecisionTasks
+    , CountPendingDecisionTasks
     -- * Request Lenses
     , cpdtDomain
     , cpdtTaskList
 
     -- * Destructuring the Response
-    , PendingTaskCount
     , pendingTaskCount
+    , PendingTaskCount
     -- * Response Lenses
     , ptcTruncated
     , ptcCount
@@ -68,19 +68,22 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'countPendingDecisionTasks' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpdtDomain'
---
--- * 'cpdtTaskList'
 data CountPendingDecisionTasks = CountPendingDecisionTasks'
     { _cpdtDomain   :: !Text
     , _cpdtTaskList :: !TaskList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CountPendingDecisionTasks' smart constructor.
-countPendingDecisionTasks :: Text -> TaskList -> CountPendingDecisionTasks
+-- | Creates a value of 'CountPendingDecisionTasks' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpdtDomain'
+--
+-- * 'cpdtTaskList'
+countPendingDecisionTasks
+    :: Text -- ^ 'cpdtDomain'
+    -> TaskList -- ^ 'cpdtTaskList'
+    -> CountPendingDecisionTasks
 countPendingDecisionTasks pDomain_ pTaskList_ =
     CountPendingDecisionTasks'
     { _cpdtDomain = pDomain_

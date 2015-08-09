@@ -31,14 +31,14 @@
 module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     (
     -- * Creating a Request
-      ListVolumeRecoveryPoints
-    , listVolumeRecoveryPoints
+      listVolumeRecoveryPoints
+    , ListVolumeRecoveryPoints
     -- * Request Lenses
     , lvrpGatewayARN
 
     -- * Destructuring the Response
-    , ListVolumeRecoveryPointsResponse
     , listVolumeRecoveryPointsResponse
+    , ListVolumeRecoveryPointsResponse
     -- * Response Lenses
     , lvrprsVolumeRecoveryPointInfos
     , lvrprsGatewayARN
@@ -52,16 +52,18 @@ import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'listVolumeRecoveryPoints' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lvrpGatewayARN'
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
     { _lvrpGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListVolumeRecoveryPoints' smart constructor.
-listVolumeRecoveryPoints :: Text -> ListVolumeRecoveryPoints
+-- | Creates a value of 'ListVolumeRecoveryPoints' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lvrpGatewayARN'
+listVolumeRecoveryPoints
+    :: Text -- ^ 'lvrpGatewayARN'
+    -> ListVolumeRecoveryPoints
 listVolumeRecoveryPoints pGatewayARN_ =
     ListVolumeRecoveryPoints'
     { _lvrpGatewayARN = pGatewayARN_
@@ -105,22 +107,24 @@ instance ToQuery ListVolumeRecoveryPoints where
         toQuery = const mempty
 
 -- | /See:/ 'listVolumeRecoveryPointsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lvrprsVolumeRecoveryPointInfos'
---
--- * 'lvrprsGatewayARN'
---
--- * 'lvrprsStatus'
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
     { _lvrprsVolumeRecoveryPointInfos :: !(Maybe [VolumeRecoveryPointInfo])
     , _lvrprsGatewayARN               :: !(Maybe Text)
     , _lvrprsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListVolumeRecoveryPointsResponse' smart constructor.
-listVolumeRecoveryPointsResponse :: Int -> ListVolumeRecoveryPointsResponse
+-- | Creates a value of 'ListVolumeRecoveryPointsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lvrprsVolumeRecoveryPointInfos'
+--
+-- * 'lvrprsGatewayARN'
+--
+-- * 'lvrprsStatus'
+listVolumeRecoveryPointsResponse
+    :: Int -- ^ 'lvrprsStatus'
+    -> ListVolumeRecoveryPointsResponse
 listVolumeRecoveryPointsResponse pStatus_ =
     ListVolumeRecoveryPointsResponse'
     { _lvrprsVolumeRecoveryPointInfos = Nothing
@@ -136,6 +140,6 @@ lvrprsVolumeRecoveryPointInfos = lens _lvrprsVolumeRecoveryPointInfos (\ s a -> 
 lvrprsGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
 lvrprsGatewayARN = lens _lvrprsGatewayARN (\ s a -> s{_lvrprsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 lvrprsStatus :: Lens' ListVolumeRecoveryPointsResponse Int
 lvrprsStatus = lens _lvrprsStatus (\ s a -> s{_lvrprsStatus = a});

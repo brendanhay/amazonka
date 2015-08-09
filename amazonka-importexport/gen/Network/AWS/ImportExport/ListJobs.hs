@@ -25,19 +25,21 @@
 -- followed by Test1.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebListJobs.html AWS API Reference> for ListJobs.
+--
+-- This operation returns paginated results.
 module Network.AWS.ImportExport.ListJobs
     (
     -- * Creating a Request
-      ListJobs
-    , listJobs
+      listJobs
+    , ListJobs
     -- * Request Lenses
     , ljAPIVersion
     , ljMarker
     , ljMaxJobs
 
     -- * Destructuring the Response
-    , ListJobsResponse
     , listJobsResponse
+    , ListJobsResponse
     -- * Response Lenses
     , ljrsJobs
     , ljrsIsTruncated
@@ -54,22 +56,23 @@ import           Network.AWS.Response
 -- | Input structure for the ListJobs operation.
 --
 -- /See:/ 'listJobs' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ljAPIVersion'
---
--- * 'ljMarker'
---
--- * 'ljMaxJobs'
 data ListJobs = ListJobs'
     { _ljAPIVersion :: !(Maybe Text)
     , _ljMarker     :: !(Maybe Text)
     , _ljMaxJobs    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListJobs' smart constructor.
-listJobs :: ListJobs
+-- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ljAPIVersion'
+--
+-- * 'ljMarker'
+--
+-- * 'ljMaxJobs'
+listJobs
+    :: ListJobs
 listJobs =
     ListJobs'
     { _ljAPIVersion = Nothing
@@ -129,22 +132,24 @@ instance ToQuery ListJobs where
 -- | Output structure for the ListJobs operation.
 --
 -- /See:/ 'listJobsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ljrsJobs'
---
--- * 'ljrsIsTruncated'
---
--- * 'ljrsStatus'
 data ListJobsResponse = ListJobsResponse'
     { _ljrsJobs        :: !(Maybe [Job])
     , _ljrsIsTruncated :: !(Maybe Bool)
     , _ljrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListJobsResponse' smart constructor.
-listJobsResponse :: Int -> ListJobsResponse
+-- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ljrsJobs'
+--
+-- * 'ljrsIsTruncated'
+--
+-- * 'ljrsStatus'
+listJobsResponse
+    :: Int -- ^ 'ljrsStatus'
+    -> ListJobsResponse
 listJobsResponse pStatus_ =
     ListJobsResponse'
     { _ljrsJobs = Nothing
@@ -160,6 +165,6 @@ ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
 ljrsIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
 ljrsIsTruncated = lens _ljrsIsTruncated (\ s a -> s{_ljrsIsTruncated = a});
 
--- | Undocumented member.
+-- | The response status code.
 ljrsStatus :: Lens' ListJobsResponse Int
 ljrsStatus = lens _ljrsStatus (\ s a -> s{_ljrsStatus = a});

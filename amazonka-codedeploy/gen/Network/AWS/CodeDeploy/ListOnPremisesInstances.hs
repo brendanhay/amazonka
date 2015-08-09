@@ -28,16 +28,16 @@
 module Network.AWS.CodeDeploy.ListOnPremisesInstances
     (
     -- * Creating a Request
-      ListOnPremisesInstances
-    , listOnPremisesInstances
+      listOnPremisesInstances
+    , ListOnPremisesInstances
     -- * Request Lenses
     , lopiTagFilters
     , lopiNextToken
     , lopiRegistrationStatus
 
     -- * Destructuring the Response
-    , ListOnPremisesInstancesResponse
     , listOnPremisesInstancesResponse
+    , ListOnPremisesInstancesResponse
     -- * Response Lenses
     , lopirsNextToken
     , lopirsInstanceNames
@@ -55,22 +55,23 @@ import           Network.AWS.Response
 -- .
 --
 -- /See:/ 'listOnPremisesInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lopiTagFilters'
---
--- * 'lopiNextToken'
---
--- * 'lopiRegistrationStatus'
 data ListOnPremisesInstances = ListOnPremisesInstances'
     { _lopiTagFilters         :: !(Maybe [TagFilter])
     , _lopiNextToken          :: !(Maybe Text)
     , _lopiRegistrationStatus :: !(Maybe RegistrationStatus)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListOnPremisesInstances' smart constructor.
-listOnPremisesInstances :: ListOnPremisesInstances
+-- | Creates a value of 'ListOnPremisesInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lopiTagFilters'
+--
+-- * 'lopiNextToken'
+--
+-- * 'lopiRegistrationStatus'
+listOnPremisesInstances
+    :: ListOnPremisesInstances
 listOnPremisesInstances =
     ListOnPremisesInstances'
     { _lopiTagFilters = Nothing
@@ -137,22 +138,24 @@ instance ToQuery ListOnPremisesInstances where
 -- | Represents the output of list on-premises instances operation.
 --
 -- /See:/ 'listOnPremisesInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lopirsNextToken'
---
--- * 'lopirsInstanceNames'
---
--- * 'lopirsStatus'
 data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
     { _lopirsNextToken     :: !(Maybe Text)
     , _lopirsInstanceNames :: !(Maybe [Text])
     , _lopirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListOnPremisesInstancesResponse' smart constructor.
-listOnPremisesInstancesResponse :: Int -> ListOnPremisesInstancesResponse
+-- | Creates a value of 'ListOnPremisesInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lopirsNextToken'
+--
+-- * 'lopirsInstanceNames'
+--
+-- * 'lopirsStatus'
+listOnPremisesInstancesResponse
+    :: Int -- ^ 'lopirsStatus'
+    -> ListOnPremisesInstancesResponse
 listOnPremisesInstancesResponse pStatus_ =
     ListOnPremisesInstancesResponse'
     { _lopirsNextToken = Nothing
@@ -171,6 +174,6 @@ lopirsNextToken = lens _lopirsNextToken (\ s a -> s{_lopirsNextToken = a});
 lopirsInstanceNames :: Lens' ListOnPremisesInstancesResponse [Text]
 lopirsInstanceNames = lens _lopirsInstanceNames (\ s a -> s{_lopirsInstanceNames = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lopirsStatus :: Lens' ListOnPremisesInstancesResponse Int
 lopirsStatus = lens _lopirsStatus (\ s a -> s{_lopirsStatus = a});

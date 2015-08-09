@@ -26,8 +26,8 @@
 module Network.AWS.CognitoIdentity.UpdateIdentityPool
     (
     -- * Creating a Request
-      UpdateIdentityPool
-    , updateIdentityPool
+      updateIdentityPool
+    , UpdateIdentityPool
     -- * Request Lenses
     , uipSupportedLoginProviders
     , uipDeveloperProviderName
@@ -37,8 +37,8 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , uipAllowUnauthenticatedIdentities
 
     -- * Destructuring the Response
-    , IdentityPool
     , identityPool
+    , IdentityPool
     -- * Response Lenses
     , ipSupportedLoginProviders
     , ipDeveloperProviderName
@@ -57,8 +57,18 @@ import           Network.AWS.Response
 -- | An object representing a Cognito identity pool.
 --
 -- /See:/ 'updateIdentityPool' smart constructor.
+data UpdateIdentityPool = UpdateIdentityPool'
+    { _uipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+    , _uipDeveloperProviderName          :: !(Maybe Text)
+    , _uipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+    , _uipIdentityPoolId                 :: !Text
+    , _uipIdentityPoolName               :: !Text
+    , _uipAllowUnauthenticatedIdentities :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateIdentityPool' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uipSupportedLoginProviders'
 --
@@ -71,17 +81,11 @@ import           Network.AWS.Response
 -- * 'uipIdentityPoolName'
 --
 -- * 'uipAllowUnauthenticatedIdentities'
-data UpdateIdentityPool = UpdateIdentityPool'
-    { _uipSupportedLoginProviders        :: !(Maybe (Map Text Text))
-    , _uipDeveloperProviderName          :: !(Maybe Text)
-    , _uipOpenIdConnectProviderARNs      :: !(Maybe [Text])
-    , _uipIdentityPoolId                 :: !Text
-    , _uipIdentityPoolName               :: !Text
-    , _uipAllowUnauthenticatedIdentities :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateIdentityPool' smart constructor.
-updateIdentityPool :: Text -> Text -> Bool -> UpdateIdentityPool
+updateIdentityPool
+    :: Text -- ^ 'uipIdentityPoolId'
+    -> Text -- ^ 'uipIdentityPoolName'
+    -> Bool -- ^ 'uipAllowUnauthenticatedIdentities'
+    -> UpdateIdentityPool
 updateIdentityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     UpdateIdentityPool'
     { _uipSupportedLoginProviders = Nothing

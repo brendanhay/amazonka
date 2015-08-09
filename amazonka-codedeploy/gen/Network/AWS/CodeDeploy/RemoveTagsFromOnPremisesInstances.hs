@@ -24,15 +24,15 @@
 module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
     (
     -- * Creating a Request
-      RemoveTagsFromOnPremisesInstances
-    , removeTagsFromOnPremisesInstances
+      removeTagsFromOnPremisesInstances
+    , RemoveTagsFromOnPremisesInstances
     -- * Request Lenses
     , rtfopiTags
     , rtfopiInstanceNames
 
     -- * Destructuring the Response
-    , RemoveTagsFromOnPremisesInstancesResponse
     , removeTagsFromOnPremisesInstancesResponse
+    , RemoveTagsFromOnPremisesInstancesResponse
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -45,19 +45,20 @@ import           Network.AWS.Response
 -- operation.
 --
 -- /See:/ 'removeTagsFromOnPremisesInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtfopiTags'
---
--- * 'rtfopiInstanceNames'
 data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'
     { _rtfopiTags          :: ![Tag]
     , _rtfopiInstanceNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveTagsFromOnPremisesInstances' smart constructor.
-removeTagsFromOnPremisesInstances :: RemoveTagsFromOnPremisesInstances
+-- | Creates a value of 'RemoveTagsFromOnPremisesInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtfopiTags'
+--
+-- * 'rtfopiInstanceNames'
+removeTagsFromOnPremisesInstances
+    :: RemoveTagsFromOnPremisesInstances
 removeTagsFromOnPremisesInstances =
     RemoveTagsFromOnPremisesInstances'
     { _rtfopiTags = mempty
@@ -114,7 +115,9 @@ data RemoveTagsFromOnPremisesInstancesResponse =
     RemoveTagsFromOnPremisesInstancesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveTagsFromOnPremisesInstancesResponse' smart constructor.
-removeTagsFromOnPremisesInstancesResponse :: RemoveTagsFromOnPremisesInstancesResponse
+-- | Creates a value of 'RemoveTagsFromOnPremisesInstancesResponse' with the minimum fields required to make a request.
+--
+removeTagsFromOnPremisesInstancesResponse
+    :: RemoveTagsFromOnPremisesInstancesResponse
 removeTagsFromOnPremisesInstancesResponse =
     RemoveTagsFromOnPremisesInstancesResponse'

@@ -34,15 +34,15 @@
 module Network.AWS.EC2.RebootInstances
     (
     -- * Creating a Request
-      RebootInstances
-    , rebootInstances
+      rebootInstances
+    , RebootInstances
     -- * Request Lenses
     , rebDryRun
     , rebInstanceIds
 
     -- * Destructuring the Response
-    , RebootInstancesResponse
     , rebootInstancesResponse
+    , RebootInstancesResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,19 +52,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'rebootInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rebDryRun'
---
--- * 'rebInstanceIds'
 data RebootInstances = RebootInstances'
     { _rebDryRun      :: !(Maybe Bool)
     , _rebInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebootInstances' smart constructor.
-rebootInstances :: RebootInstances
+-- | Creates a value of 'RebootInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rebDryRun'
+--
+-- * 'rebInstanceIds'
+rebootInstances
+    :: RebootInstances
 rebootInstances =
     RebootInstances'
     { _rebDryRun = Nothing
@@ -73,8 +74,8 @@ rebootInstances =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 rebDryRun :: Lens' RebootInstances (Maybe Bool)
 rebDryRun = lens _rebDryRun (\ s a -> s{_rebDryRun = a});
 
@@ -107,6 +108,8 @@ data RebootInstancesResponse =
     RebootInstancesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebootInstancesResponse' smart constructor.
-rebootInstancesResponse :: RebootInstancesResponse
+-- | Creates a value of 'RebootInstancesResponse' with the minimum fields required to make a request.
+--
+rebootInstancesResponse
+    :: RebootInstancesResponse
 rebootInstancesResponse = RebootInstancesResponse'

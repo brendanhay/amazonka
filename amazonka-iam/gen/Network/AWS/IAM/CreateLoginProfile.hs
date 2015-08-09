@@ -28,16 +28,16 @@
 module Network.AWS.IAM.CreateLoginProfile
     (
     -- * Creating a Request
-      CreateLoginProfile
-    , createLoginProfile
+      createLoginProfile
+    , CreateLoginProfile
     -- * Request Lenses
     , clpPasswordResetRequired
     , clpUserName
     , clpPassword
 
     -- * Destructuring the Response
-    , CreateLoginProfileResponse
     , createLoginProfileResponse
+    , CreateLoginProfileResponse
     -- * Response Lenses
     , clprsStatus
     , clprsLoginProfile
@@ -50,22 +50,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createLoginProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clpPasswordResetRequired'
---
--- * 'clpUserName'
---
--- * 'clpPassword'
 data CreateLoginProfile = CreateLoginProfile'
     { _clpPasswordResetRequired :: !(Maybe Bool)
     , _clpUserName              :: !Text
     , _clpPassword              :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLoginProfile' smart constructor.
-createLoginProfile :: Text -> Text -> CreateLoginProfile
+-- | Creates a value of 'CreateLoginProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clpPasswordResetRequired'
+--
+-- * 'clpUserName'
+--
+-- * 'clpPassword'
+createLoginProfile
+    :: Text -- ^ 'clpUserName'
+    -> Text -- ^ 'clpPassword'
+    -> CreateLoginProfile
 createLoginProfile pUserName_ pPassword_ =
     CreateLoginProfile'
     { _clpPasswordResetRequired = Nothing
@@ -115,26 +118,29 @@ instance ToQuery CreateLoginProfile where
 -- | Contains the response to a successful CreateLoginProfile request.
 --
 -- /See:/ 'createLoginProfileResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clprsStatus'
---
--- * 'clprsLoginProfile'
 data CreateLoginProfileResponse = CreateLoginProfileResponse'
     { _clprsStatus       :: !Int
     , _clprsLoginProfile :: !LoginProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLoginProfileResponse' smart constructor.
-createLoginProfileResponse :: Int -> LoginProfile -> CreateLoginProfileResponse
+-- | Creates a value of 'CreateLoginProfileResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clprsStatus'
+--
+-- * 'clprsLoginProfile'
+createLoginProfileResponse
+    :: Int -- ^ 'clprsStatus'
+    -> LoginProfile -- ^ 'clprsLoginProfile'
+    -> CreateLoginProfileResponse
 createLoginProfileResponse pStatus_ pLoginProfile_ =
     CreateLoginProfileResponse'
     { _clprsStatus = pStatus_
     , _clprsLoginProfile = pLoginProfile_
     }
 
--- | Undocumented member.
+-- | The response status code.
 clprsStatus :: Lens' CreateLoginProfileResponse Int
 clprsStatus = lens _clprsStatus (\ s a -> s{_clprsStatus = a});
 

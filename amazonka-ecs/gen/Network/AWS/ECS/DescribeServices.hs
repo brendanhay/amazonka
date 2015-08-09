@@ -24,15 +24,15 @@
 module Network.AWS.ECS.DescribeServices
     (
     -- * Creating a Request
-      DescribeServices
-    , describeServices
+      describeServices
+    , DescribeServices
     -- * Request Lenses
     , dCluster
     , dServices
 
     -- * Destructuring the Response
-    , DescribeServicesResponse
     , describeServicesResponse
+    , DescribeServicesResponse
     -- * Response Lenses
     , dssrsFailures
     , dssrsServices
@@ -46,19 +46,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeServices' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dCluster'
---
--- * 'dServices'
 data DescribeServices = DescribeServices'
     { _dCluster  :: !(Maybe Text)
     , _dServices :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeServices' smart constructor.
-describeServices :: DescribeServices
+-- | Creates a value of 'DescribeServices' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dCluster'
+--
+-- * 'dServices'
+describeServices
+    :: DescribeServices
 describeServices =
     DescribeServices'
     { _dCluster = Nothing
@@ -107,22 +108,24 @@ instance ToQuery DescribeServices where
         toQuery = const mempty
 
 -- | /See:/ 'describeServicesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dssrsFailures'
---
--- * 'dssrsServices'
---
--- * 'dssrsStatus'
 data DescribeServicesResponse = DescribeServicesResponse'
     { _dssrsFailures :: !(Maybe [Failure])
     , _dssrsServices :: !(Maybe [ContainerService])
     , _dssrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeServicesResponse' smart constructor.
-describeServicesResponse :: Int -> DescribeServicesResponse
+-- | Creates a value of 'DescribeServicesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dssrsFailures'
+--
+-- * 'dssrsServices'
+--
+-- * 'dssrsStatus'
+describeServicesResponse
+    :: Int -- ^ 'dssrsStatus'
+    -> DescribeServicesResponse
 describeServicesResponse pStatus_ =
     DescribeServicesResponse'
     { _dssrsFailures = Nothing
@@ -138,6 +141,6 @@ dssrsFailures = lens _dssrsFailures (\ s a -> s{_dssrsFailures = a}) . _Default 
 dssrsServices :: Lens' DescribeServicesResponse [ContainerService]
 dssrsServices = lens _dssrsServices (\ s a -> s{_dssrsServices = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dssrsStatus :: Lens' DescribeServicesResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

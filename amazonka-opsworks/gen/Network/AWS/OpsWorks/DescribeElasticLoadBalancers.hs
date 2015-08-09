@@ -32,15 +32,15 @@
 module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     (
     -- * Creating a Request
-      DescribeElasticLoadBalancers
-    , describeElasticLoadBalancers
+      describeElasticLoadBalancers
+    , DescribeElasticLoadBalancers
     -- * Request Lenses
     , delbLayerIds
     , delbStackId
 
     -- * Destructuring the Response
-    , DescribeElasticLoadBalancersResponse
     , describeElasticLoadBalancersResponse
+    , DescribeElasticLoadBalancersResponse
     -- * Response Lenses
     , delbrsElasticLoadBalancers
     , delbrsStatus
@@ -53,19 +53,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeElasticLoadBalancers' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delbLayerIds'
---
--- * 'delbStackId'
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'
     { _delbLayerIds :: !(Maybe [Text])
     , _delbStackId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeElasticLoadBalancers' smart constructor.
-describeElasticLoadBalancers :: DescribeElasticLoadBalancers
+-- | Creates a value of 'DescribeElasticLoadBalancers' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delbLayerIds'
+--
+-- * 'delbStackId'
+describeElasticLoadBalancers
+    :: DescribeElasticLoadBalancers
 describeElasticLoadBalancers =
     DescribeElasticLoadBalancers'
     { _delbLayerIds = Nothing
@@ -117,33 +118,35 @@ instance ToPath DescribeElasticLoadBalancers where
 instance ToQuery DescribeElasticLoadBalancers where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeElasticLoadBalancers@ request.
+-- | Contains the response to a 'DescribeElasticLoadBalancers' request.
 --
 -- /See:/ 'describeElasticLoadBalancersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delbrsElasticLoadBalancers'
---
--- * 'delbrsStatus'
 data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'
     { _delbrsElasticLoadBalancers :: !(Maybe [ElasticLoadBalancer])
     , _delbrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeElasticLoadBalancersResponse' smart constructor.
-describeElasticLoadBalancersResponse :: Int -> DescribeElasticLoadBalancersResponse
+-- | Creates a value of 'DescribeElasticLoadBalancersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delbrsElasticLoadBalancers'
+--
+-- * 'delbrsStatus'
+describeElasticLoadBalancersResponse
+    :: Int -- ^ 'delbrsStatus'
+    -> DescribeElasticLoadBalancersResponse
 describeElasticLoadBalancersResponse pStatus_ =
     DescribeElasticLoadBalancersResponse'
     { _delbrsElasticLoadBalancers = Nothing
     , _delbrsStatus = pStatus_
     }
 
--- | A list of @ElasticLoadBalancer@ objects that describe the specified
+-- | A list of 'ElasticLoadBalancer' objects that describe the specified
 -- Elastic Load Balancing instances.
 delbrsElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
 delbrsElasticLoadBalancers = lens _delbrsElasticLoadBalancers (\ s a -> s{_delbrsElasticLoadBalancers = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 delbrsStatus :: Lens' DescribeElasticLoadBalancersResponse Int
 delbrsStatus = lens _delbrsStatus (\ s a -> s{_delbrsStatus = a});

@@ -28,8 +28,8 @@
 module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     (
     -- * Creating a Request
-      ValidateConfigurationSettings
-    , validateConfigurationSettings
+      validateConfigurationSettings
+    , ValidateConfigurationSettings
     -- * Request Lenses
     , vcsTemplateName
     , vcsEnvironmentName
@@ -37,8 +37,8 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     , vcsOptionSettings
 
     -- * Destructuring the Response
-    , ValidateConfigurationSettingsResponse
     , validateConfigurationSettingsResponse
+    , ValidateConfigurationSettingsResponse
     -- * Response Lenses
     , vcsrsMessages
     , vcsrsStatus
@@ -53,8 +53,16 @@ import           Network.AWS.Response
 -- | A list of validation messages for a specified configuration template.
 --
 -- /See:/ 'validateConfigurationSettings' smart constructor.
+data ValidateConfigurationSettings = ValidateConfigurationSettings'
+    { _vcsTemplateName    :: !(Maybe Text)
+    , _vcsEnvironmentName :: !(Maybe Text)
+    , _vcsApplicationName :: !Text
+    , _vcsOptionSettings  :: ![ConfigurationOptionSetting]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ValidateConfigurationSettings' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vcsTemplateName'
 --
@@ -63,15 +71,9 @@ import           Network.AWS.Response
 -- * 'vcsApplicationName'
 --
 -- * 'vcsOptionSettings'
-data ValidateConfigurationSettings = ValidateConfigurationSettings'
-    { _vcsTemplateName    :: !(Maybe Text)
-    , _vcsEnvironmentName :: !(Maybe Text)
-    , _vcsApplicationName :: !Text
-    , _vcsOptionSettings  :: ![ConfigurationOptionSetting]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ValidateConfigurationSettings' smart constructor.
-validateConfigurationSettings :: Text -> ValidateConfigurationSettings
+validateConfigurationSettings
+    :: Text -- ^ 'vcsApplicationName'
+    -> ValidateConfigurationSettings
 validateConfigurationSettings pApplicationName_ =
     ValidateConfigurationSettings'
     { _vcsTemplateName = Nothing
@@ -140,19 +142,21 @@ instance ToQuery ValidateConfigurationSettings where
 -- | Provides a list of validation messages.
 --
 -- /See:/ 'validateConfigurationSettingsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vcsrsMessages'
---
--- * 'vcsrsStatus'
 data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
     { _vcsrsMessages :: !(Maybe [ValidationMessage])
     , _vcsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ValidateConfigurationSettingsResponse' smart constructor.
-validateConfigurationSettingsResponse :: Int -> ValidateConfigurationSettingsResponse
+-- | Creates a value of 'ValidateConfigurationSettingsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vcsrsMessages'
+--
+-- * 'vcsrsStatus'
+validateConfigurationSettingsResponse
+    :: Int -- ^ 'vcsrsStatus'
+    -> ValidateConfigurationSettingsResponse
 validateConfigurationSettingsResponse pStatus_ =
     ValidateConfigurationSettingsResponse'
     { _vcsrsMessages = Nothing
@@ -163,6 +167,6 @@ validateConfigurationSettingsResponse pStatus_ =
 vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 vcsrsStatus :: Lens' ValidateConfigurationSettingsResponse Int
 vcsrsStatus = lens _vcsrsStatus (\ s a -> s{_vcsrsStatus = a});

@@ -19,40 +19,40 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns AWS resource descriptions for running and deleted stacks. If
--- @StackName@ is specified, all the associated resources that are part of
--- the stack are returned. If @PhysicalResourceId@ is specified, the
+-- 'StackName' is specified, all the associated resources that are part of
+-- the stack are returned. If 'PhysicalResourceId' is specified, the
 -- associated resources of the stack that the resource belongs to are
 -- returned.
 --
 -- Only the first 100 resources will be returned. If your stack has more
--- resources than this, you should use @ListStackResources@ instead.
+-- resources than this, you should use 'ListStackResources' instead.
 --
--- For deleted stacks, @DescribeStackResources@ returns resource
+-- For deleted stacks, 'DescribeStackResources' returns resource
 -- information for up to 90 days after the stack has been deleted.
 --
--- You must specify either @StackName@ or @PhysicalResourceId@, but not
--- both. In addition, you can specify @LogicalResourceId@ to filter the
+-- You must specify either 'StackName' or 'PhysicalResourceId', but not
+-- both. In addition, you can specify 'LogicalResourceId' to filter the
 -- returned result. For more information about resources, the
--- @LogicalResourceId@ and @PhysicalResourceId@, go to the
+-- 'LogicalResourceId' and 'PhysicalResourceId', go to the
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide AWS CloudFormation User Guide>.
 --
--- A @ValidationError@ is returned if you specify both @StackName@ and
--- @PhysicalResourceId@ in the same request.
+-- A 'ValidationError' is returned if you specify both 'StackName' and
+-- 'PhysicalResourceId' in the same request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResources.html AWS API Reference> for DescribeStackResources.
 module Network.AWS.CloudFormation.DescribeStackResources
     (
     -- * Creating a Request
-      DescribeStackResources
-    , describeStackResources
+      describeStackResources
+    , DescribeStackResources
     -- * Request Lenses
     , dsrLogicalResourceId
     , dsrPhysicalResourceId
     , dsrStackName
 
     -- * Destructuring the Response
-    , DescribeStackResourcesResponse
     , describeStackResourcesResponse
+    , DescribeStackResourcesResponse
     -- * Response Lenses
     , drsStackResources
     , drsStatus
@@ -67,22 +67,23 @@ import           Network.AWS.Response
 -- | The input for DescribeStackResources action.
 --
 -- /See:/ 'describeStackResources' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrLogicalResourceId'
---
--- * 'dsrPhysicalResourceId'
---
--- * 'dsrStackName'
 data DescribeStackResources = DescribeStackResources'
     { _dsrLogicalResourceId  :: !(Maybe Text)
     , _dsrPhysicalResourceId :: !(Maybe Text)
     , _dsrStackName          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStackResources' smart constructor.
-describeStackResources :: DescribeStackResources
+-- | Creates a value of 'DescribeStackResources' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrLogicalResourceId'
+--
+-- * 'dsrPhysicalResourceId'
+--
+-- * 'dsrStackName'
+describeStackResources
+    :: DescribeStackResources
 describeStackResources =
     DescribeStackResources'
     { _dsrLogicalResourceId = Nothing
@@ -100,12 +101,12 @@ dsrLogicalResourceId = lens _dsrLogicalResourceId (\ s a -> s{_dsrLogicalResourc
 -- of a resource supported by AWS CloudFormation.
 --
 -- For example, for an Amazon Elastic Compute Cloud (EC2) instance,
--- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the
--- EC2 @InstanceId@ to @DescribeStackResources@ to find which stack the
+-- 'PhysicalResourceId' corresponds to the 'InstanceId'. You can pass the
+-- EC2 'InstanceId' to 'DescribeStackResources' to find which stack the
 -- instance belongs to and what other resources are part of the stack.
 --
--- Required: Conditional. If you do not specify @PhysicalResourceId@, you
--- must specify @StackName@.
+-- Required: Conditional. If you do not specify 'PhysicalResourceId', you
+-- must specify 'StackName'.
 --
 -- Default: There is no default value.
 dsrPhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
@@ -120,8 +121,8 @@ dsrPhysicalResourceId = lens _dsrPhysicalResourceId (\ s a -> s{_dsrPhysicalReso
 --
 -- Default: There is no default value.
 --
--- Required: Conditional. If you do not specify @StackName@, you must
--- specify @PhysicalResourceId@.
+-- Required: Conditional. If you do not specify 'StackName', you must
+-- specify 'PhysicalResourceId'.
 dsrStackName :: Lens' DescribeStackResources (Maybe Text)
 dsrStackName = lens _dsrStackName (\ s a -> s{_dsrStackName = a});
 
@@ -157,29 +158,31 @@ instance ToQuery DescribeStackResources where
 -- | The output for a DescribeStackResources action.
 --
 -- /See:/ 'describeStackResourcesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsStackResources'
---
--- * 'drsStatus'
 data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
     { _drsStackResources :: !(Maybe [StackResource])
     , _drsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStackResourcesResponse' smart constructor.
-describeStackResourcesResponse :: Int -> DescribeStackResourcesResponse
+-- | Creates a value of 'DescribeStackResourcesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsStackResources'
+--
+-- * 'drsStatus'
+describeStackResourcesResponse
+    :: Int -- ^ 'drsStatus'
+    -> DescribeStackResourcesResponse
 describeStackResourcesResponse pStatus_ =
     DescribeStackResourcesResponse'
     { _drsStackResources = Nothing
     , _drsStatus = pStatus_
     }
 
--- | A list of @StackResource@ structures.
+-- | A list of 'StackResource' structures.
 drsStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
 drsStackResources = lens _drsStackResources (\ s a -> s{_drsStackResources = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DescribeStackResourcesResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

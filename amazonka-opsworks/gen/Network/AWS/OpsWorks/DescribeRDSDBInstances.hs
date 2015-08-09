@@ -30,15 +30,15 @@
 module Network.AWS.OpsWorks.DescribeRDSDBInstances
     (
     -- * Creating a Request
-      DescribeRDSDBInstances
-    , describeRDSDBInstances
+      describeRDSDBInstances
+    , DescribeRDSDBInstances
     -- * Request Lenses
     , drdiRDSDBInstanceARNs
     , drdiStackId
 
     -- * Destructuring the Response
-    , DescribeRDSDBInstancesResponse
     , describeRDSDBInstancesResponse
+    , DescribeRDSDBInstancesResponse
     -- * Response Lenses
     , drdirsRDSDBInstances
     , drdirsStatus
@@ -51,19 +51,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeRDSDBInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drdiRDSDBInstanceARNs'
---
--- * 'drdiStackId'
 data DescribeRDSDBInstances = DescribeRDSDBInstances'
     { _drdiRDSDBInstanceARNs :: !(Maybe [Text])
     , _drdiStackId           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeRDSDBInstances' smart constructor.
-describeRDSDBInstances :: Text -> DescribeRDSDBInstances
+-- | Creates a value of 'DescribeRDSDBInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drdiRDSDBInstanceARNs'
+--
+-- * 'drdiStackId'
+describeRDSDBInstances
+    :: Text -- ^ 'drdiStackId'
+    -> DescribeRDSDBInstances
 describeRDSDBInstances pStackId_ =
     DescribeRDSDBInstances'
     { _drdiRDSDBInstanceARNs = Nothing
@@ -113,32 +115,34 @@ instance ToPath DescribeRDSDBInstances where
 instance ToQuery DescribeRDSDBInstances where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeRdsDbInstances@ request.
+-- | Contains the response to a 'DescribeRdsDbInstances' request.
 --
 -- /See:/ 'describeRDSDBInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drdirsRDSDBInstances'
---
--- * 'drdirsStatus'
 data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
     { _drdirsRDSDBInstances :: !(Maybe [RDSDBInstance])
     , _drdirsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeRDSDBInstancesResponse' smart constructor.
-describeRDSDBInstancesResponse :: Int -> DescribeRDSDBInstancesResponse
+-- | Creates a value of 'DescribeRDSDBInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drdirsRDSDBInstances'
+--
+-- * 'drdirsStatus'
+describeRDSDBInstancesResponse
+    :: Int -- ^ 'drdirsStatus'
+    -> DescribeRDSDBInstancesResponse
 describeRDSDBInstancesResponse pStatus_ =
     DescribeRDSDBInstancesResponse'
     { _drdirsRDSDBInstances = Nothing
     , _drdirsStatus = pStatus_
     }
 
--- | An a array of @RdsDbInstance@ objects that describe the instances.
+-- | An a array of 'RdsDbInstance' objects that describe the instances.
 drdirsRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
 drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\ s a -> s{_drdirsRDSDBInstances = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 drdirsStatus :: Lens' DescribeRDSDBInstancesResponse Int
 drdirsStatus = lens _drdirsStatus (\ s a -> s{_drdirsStatus = a});

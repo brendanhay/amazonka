@@ -34,15 +34,15 @@
 module Network.AWS.EC2.DeleteVPNConnection
     (
     -- * Creating a Request
-      DeleteVPNConnection
-    , deleteVPNConnection
+      deleteVPNConnection
+    , DeleteVPNConnection
     -- * Request Lenses
     , dvcDryRun
     , dvcVPNConnectionId
 
     -- * Destructuring the Response
-    , DeleteVPNConnectionResponse
     , deleteVPNConnectionResponse
+    , DeleteVPNConnectionResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,19 +52,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPNConnection' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvcDryRun'
---
--- * 'dvcVPNConnectionId'
 data DeleteVPNConnection = DeleteVPNConnection'
     { _dvcDryRun          :: !(Maybe Bool)
     , _dvcVPNConnectionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVPNConnection' smart constructor.
-deleteVPNConnection :: Text -> DeleteVPNConnection
+-- | Creates a value of 'DeleteVPNConnection' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvcDryRun'
+--
+-- * 'dvcVPNConnectionId'
+deleteVPNConnection
+    :: Text -- ^ 'dvcVPNConnectionId'
+    -> DeleteVPNConnection
 deleteVPNConnection pVPNConnectionId_ =
     DeleteVPNConnection'
     { _dvcDryRun = Nothing
@@ -73,8 +75,8 @@ deleteVPNConnection pVPNConnectionId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dvcDryRun :: Lens' DeleteVPNConnection (Maybe Bool)
 dvcDryRun = lens _dvcDryRun (\ s a -> s{_dvcDryRun = a});
 
@@ -108,6 +110,8 @@ data DeleteVPNConnectionResponse =
     DeleteVPNConnectionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVPNConnectionResponse' smart constructor.
-deleteVPNConnectionResponse :: DeleteVPNConnectionResponse
+-- | Creates a value of 'DeleteVPNConnectionResponse' with the minimum fields required to make a request.
+--
+deleteVPNConnectionResponse
+    :: DeleteVPNConnectionResponse
 deleteVPNConnectionResponse = DeleteVPNConnectionResponse'

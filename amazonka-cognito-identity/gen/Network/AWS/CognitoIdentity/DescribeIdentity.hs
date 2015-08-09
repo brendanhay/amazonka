@@ -27,14 +27,14 @@
 module Network.AWS.CognitoIdentity.DescribeIdentity
     (
     -- * Creating a Request
-      DescribeIdentity
-    , describeIdentity
+      describeIdentity
+    , DescribeIdentity
     -- * Request Lenses
     , diIdentityId
 
     -- * Destructuring the Response
-    , IdentityDescription
     , identityDescription
+    , IdentityDescription
     -- * Response Lenses
     , idLastModifiedDate
     , idCreationDate
@@ -48,19 +48,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the @DescribeIdentity@ action.
+-- | Input to the 'DescribeIdentity' action.
 --
 -- /See:/ 'describeIdentity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diIdentityId'
 newtype DescribeIdentity = DescribeIdentity'
     { _diIdentityId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeIdentity' smart constructor.
-describeIdentity :: Text -> DescribeIdentity
+-- | Creates a value of 'DescribeIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diIdentityId'
+describeIdentity
+    :: Text -- ^ 'diIdentityId'
+    -> DescribeIdentity
 describeIdentity pIdentityId_ =
     DescribeIdentity'
     { _diIdentityId = pIdentityId_

@@ -24,14 +24,14 @@
 module Network.AWS.S3.GetBucketTagging
     (
     -- * Creating a Request
-      GetBucketTagging
-    , getBucketTagging
+      getBucketTagging
+    , GetBucketTagging
     -- * Request Lenses
     , gbtBucket
 
     -- * Destructuring the Response
-    , GetBucketTaggingResponse
     , getBucketTaggingResponse
+    , GetBucketTaggingResponse
     -- * Response Lenses
     , gbtrsStatus
     , gbtrsTagSet
@@ -44,16 +44,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketTagging' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbtBucket'
 newtype GetBucketTagging = GetBucketTagging'
     { _gbtBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketTagging' smart constructor.
-getBucketTagging :: BucketName -> GetBucketTagging
+-- | Creates a value of 'GetBucketTagging' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbtBucket'
+getBucketTagging
+    :: BucketName -- ^ 'gbtBucket'
+    -> GetBucketTagging
 getBucketTagging pBucket_ =
     GetBucketTagging'
     { _gbtBucket = pBucket_
@@ -85,26 +87,28 @@ instance ToQuery GetBucketTagging where
         toQuery = const (mconcat ["tagging"])
 
 -- | /See:/ 'getBucketTaggingResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbtrsStatus'
---
--- * 'gbtrsTagSet'
 data GetBucketTaggingResponse = GetBucketTaggingResponse'
     { _gbtrsStatus :: !Int
     , _gbtrsTagSet :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketTaggingResponse' smart constructor.
-getBucketTaggingResponse :: Int -> GetBucketTaggingResponse
+-- | Creates a value of 'GetBucketTaggingResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbtrsStatus'
+--
+-- * 'gbtrsTagSet'
+getBucketTaggingResponse
+    :: Int -- ^ 'gbtrsStatus'
+    -> GetBucketTaggingResponse
 getBucketTaggingResponse pStatus_ =
     GetBucketTaggingResponse'
     { _gbtrsStatus = pStatus_
     , _gbtrsTagSet = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 gbtrsStatus :: Lens' GetBucketTaggingResponse Int
 gbtrsStatus = lens _gbtrsStatus (\ s a -> s{_gbtrsStatus = a});
 

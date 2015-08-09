@@ -32,16 +32,16 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
--- -   Constrain the following parameters by using a @Condition@ element
+-- -   Constrain the following parameters by using a 'Condition' element
 --     with the appropriate keys.
---     -   @workflowType.name@: String constraint. The key is
---         @swf:workflowType.name@.
---     -   @workflowType.version@: String constraint. The key is
---         @swf:workflowType.version@.
+--     -   'workflowType.name': String constraint. The key is
+--         'swf:workflowType.name'.
+--     -   'workflowType.version': String constraint. The key is
+--         'swf:workflowType.version'.
 --
 -- If the caller does not have sufficient permissions to invoke the action,
 -- or the parameter values fall outside the specified constraints, the
@@ -54,15 +54,15 @@
 module Network.AWS.SWF.DeprecateWorkflowType
     (
     -- * Creating a Request
-      DeprecateWorkflowType
-    , deprecateWorkflowType
+      deprecateWorkflowType
+    , DeprecateWorkflowType
     -- * Request Lenses
     , dDomain
     , dWorkflowType
 
     -- * Destructuring the Response
-    , DeprecateWorkflowTypeResponse
     , deprecateWorkflowTypeResponse
+    , DeprecateWorkflowTypeResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -72,19 +72,22 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'deprecateWorkflowType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dDomain'
---
--- * 'dWorkflowType'
 data DeprecateWorkflowType = DeprecateWorkflowType'
     { _dDomain       :: !Text
     , _dWorkflowType :: !WorkflowType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeprecateWorkflowType' smart constructor.
-deprecateWorkflowType :: Text -> WorkflowType -> DeprecateWorkflowType
+-- | Creates a value of 'DeprecateWorkflowType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dDomain'
+--
+-- * 'dWorkflowType'
+deprecateWorkflowType
+    :: Text -- ^ 'dDomain'
+    -> WorkflowType -- ^ 'dWorkflowType'
+    -> DeprecateWorkflowType
 deprecateWorkflowType pDomain_ pWorkflowType_ =
     DeprecateWorkflowType'
     { _dDomain = pDomain_
@@ -133,6 +136,8 @@ data DeprecateWorkflowTypeResponse =
     DeprecateWorkflowTypeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeprecateWorkflowTypeResponse' smart constructor.
-deprecateWorkflowTypeResponse :: DeprecateWorkflowTypeResponse
+-- | Creates a value of 'DeprecateWorkflowTypeResponse' with the minimum fields required to make a request.
+--
+deprecateWorkflowTypeResponse
+    :: DeprecateWorkflowTypeResponse
 deprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse'

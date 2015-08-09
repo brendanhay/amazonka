@@ -24,14 +24,14 @@
 module Network.AWS.ElasticBeanstalk.DescribeApplications
     (
     -- * Creating a Request
-      DescribeApplications
-    , describeApplications
+      describeApplications
+    , DescribeApplications
     -- * Request Lenses
     , daApplicationNames
 
     -- * Destructuring the Response
-    , DescribeApplicationsResponse
     , describeApplicationsResponse
+    , DescribeApplicationsResponse
     -- * Response Lenses
     , darsApplications
     , darsStatus
@@ -46,16 +46,17 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'describeApplications' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daApplicationNames'
 newtype DescribeApplications = DescribeApplications'
     { _daApplicationNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeApplications' smart constructor.
-describeApplications :: DescribeApplications
+-- | Creates a value of 'DescribeApplications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daApplicationNames'
+describeApplications
+    :: DescribeApplications
 describeApplications =
     DescribeApplications'
     { _daApplicationNames = Nothing
@@ -97,19 +98,21 @@ instance ToQuery DescribeApplications where
 -- | Result message containing a list of application descriptions.
 --
 -- /See:/ 'describeApplicationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'darsApplications'
---
--- * 'darsStatus'
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
     { _darsApplications :: !(Maybe [ApplicationDescription])
     , _darsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeApplicationsResponse' smart constructor.
-describeApplicationsResponse :: Int -> DescribeApplicationsResponse
+-- | Creates a value of 'DescribeApplicationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'darsApplications'
+--
+-- * 'darsStatus'
+describeApplicationsResponse
+    :: Int -- ^ 'darsStatus'
+    -> DescribeApplicationsResponse
 describeApplicationsResponse pStatus_ =
     DescribeApplicationsResponse'
     { _darsApplications = Nothing
@@ -120,6 +123,6 @@ describeApplicationsResponse pStatus_ =
 darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 darsStatus :: Lens' DescribeApplicationsResponse Int
 darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

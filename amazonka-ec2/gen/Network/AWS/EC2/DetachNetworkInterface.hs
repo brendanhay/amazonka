@@ -24,16 +24,16 @@
 module Network.AWS.EC2.DetachNetworkInterface
     (
     -- * Creating a Request
-      DetachNetworkInterface
-    , detachNetworkInterface
+      detachNetworkInterface
+    , DetachNetworkInterface
     -- * Request Lenses
     , dniForce
     , dniDryRun
     , dniAttachmentId
 
     -- * Destructuring the Response
-    , DetachNetworkInterfaceResponse
     , detachNetworkInterfaceResponse
+    , DetachNetworkInterfaceResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -43,22 +43,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachNetworkInterface' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dniForce'
---
--- * 'dniDryRun'
---
--- * 'dniAttachmentId'
 data DetachNetworkInterface = DetachNetworkInterface'
     { _dniForce        :: !(Maybe Bool)
     , _dniDryRun       :: !(Maybe Bool)
     , _dniAttachmentId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachNetworkInterface' smart constructor.
-detachNetworkInterface :: Text -> DetachNetworkInterface
+-- | Creates a value of 'DetachNetworkInterface' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dniForce'
+--
+-- * 'dniDryRun'
+--
+-- * 'dniAttachmentId'
+detachNetworkInterface
+    :: Text -- ^ 'dniAttachmentId'
+    -> DetachNetworkInterface
 detachNetworkInterface pAttachmentId_ =
     DetachNetworkInterface'
     { _dniForce = Nothing
@@ -72,8 +74,8 @@ dniForce = lens _dniForce (\ s a -> s{_dniForce = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dniDryRun :: Lens' DetachNetworkInterface (Maybe Bool)
 dniDryRun = lens _dniDryRun (\ s a -> s{_dniDryRun = a});
 
@@ -109,6 +111,8 @@ data DetachNetworkInterfaceResponse =
     DetachNetworkInterfaceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachNetworkInterfaceResponse' smart constructor.
-detachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse
+-- | Creates a value of 'DetachNetworkInterfaceResponse' with the minimum fields required to make a request.
+--
+detachNetworkInterfaceResponse
+    :: DetachNetworkInterfaceResponse
 detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse'

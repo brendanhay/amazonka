@@ -29,8 +29,8 @@
 module Network.AWS.EC2.DescribeAddresses
     (
     -- * Creating a Request
-      DescribeAddresses
-    , describeAddresses
+      describeAddresses
+    , DescribeAddresses
     -- * Request Lenses
     , daPublicIPs
     , daFilters
@@ -38,8 +38,8 @@ module Network.AWS.EC2.DescribeAddresses
     , daAllocationIds
 
     -- * Destructuring the Response
-    , DescribeAddressesResponse
     , describeAddressesResponse
+    , DescribeAddressesResponse
     -- * Response Lenses
     , darsAddresses
     , darsStatus
@@ -52,8 +52,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeAddresses' smart constructor.
+data DescribeAddresses = DescribeAddresses'
+    { _daPublicIPs     :: !(Maybe [Text])
+    , _daFilters       :: !(Maybe [Filter])
+    , _daDryRun        :: !(Maybe Bool)
+    , _daAllocationIds :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeAddresses' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'daPublicIPs'
 --
@@ -62,15 +70,8 @@ import           Network.AWS.Response
 -- * 'daDryRun'
 --
 -- * 'daAllocationIds'
-data DescribeAddresses = DescribeAddresses'
-    { _daPublicIPs     :: !(Maybe [Text])
-    , _daFilters       :: !(Maybe [Filter])
-    , _daDryRun        :: !(Maybe Bool)
-    , _daAllocationIds :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeAddresses' smart constructor.
-describeAddresses :: DescribeAddresses
+describeAddresses
+    :: DescribeAddresses
 describeAddresses =
     DescribeAddresses'
     { _daPublicIPs = Nothing
@@ -87,33 +88,33 @@ daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a}) . _Default . _Coe
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
--- -   @allocation-id@ - [EC2-VPC] The allocation ID for the address.
+-- -   'allocation-id' - [EC2-VPC] The allocation ID for the address.
 --
--- -   @association-id@ - [EC2-VPC] The association ID for the address.
+-- -   'association-id' - [EC2-VPC] The association ID for the address.
 --
--- -   @domain@ - Indicates whether the address is for use in EC2-Classic
---     (@standard@) or in a VPC (@vpc@).
+-- -   'domain' - Indicates whether the address is for use in EC2-Classic
+--     ('standard') or in a VPC ('vpc').
 --
--- -   @instance-id@ - The ID of the instance the address is associated
+-- -   'instance-id' - The ID of the instance the address is associated
 --     with, if any.
 --
--- -   @network-interface-id@ - [EC2-VPC] The ID of the network interface
+-- -   'network-interface-id' - [EC2-VPC] The ID of the network interface
 --     that the address is associated with, if any.
 --
--- -   @network-interface-owner-id@ - The AWS account ID of the owner.
+-- -   'network-interface-owner-id' - The AWS account ID of the owner.
 --
--- -   @private-ip-address@ - [EC2-VPC] The private IP address associated
+-- -   'private-ip-address' - [EC2-VPC] The private IP address associated
 --     with the Elastic IP address.
 --
--- -   @public-ip@ - The Elastic IP address.
+-- -   'public-ip' - The Elastic IP address.
 --
 daFilters :: Lens' DescribeAddresses [Filter]
 daFilters = lens _daFilters (\ s a -> s{_daFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 daDryRun :: Lens' DescribeAddresses (Maybe Bool)
 daDryRun = lens _daDryRun (\ s a -> s{_daDryRun = a});
 
@@ -153,19 +154,21 @@ instance ToQuery DescribeAddresses where
                  (toQueryList "AllocationId" <$> _daAllocationIds)]
 
 -- | /See:/ 'describeAddressesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'darsAddresses'
---
--- * 'darsStatus'
 data DescribeAddressesResponse = DescribeAddressesResponse'
     { _darsAddresses :: !(Maybe [Address])
     , _darsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAddressesResponse' smart constructor.
-describeAddressesResponse :: Int -> DescribeAddressesResponse
+-- | Creates a value of 'DescribeAddressesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'darsAddresses'
+--
+-- * 'darsStatus'
+describeAddressesResponse
+    :: Int -- ^ 'darsStatus'
+    -> DescribeAddressesResponse
 describeAddressesResponse pStatus_ =
     DescribeAddressesResponse'
     { _darsAddresses = Nothing
@@ -176,6 +179,6 @@ describeAddressesResponse pStatus_ =
 darsAddresses :: Lens' DescribeAddressesResponse [Address]
 darsAddresses = lens _darsAddresses (\ s a -> s{_darsAddresses = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 darsStatus :: Lens' DescribeAddressesResponse Int
 darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

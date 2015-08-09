@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a VPN connection between an existing virtual private gateway and
--- a VPN customer gateway. The only supported connection type is @ipsec.1@.
+-- a VPN customer gateway. The only supported connection type is 'ipsec.1'.
 --
 -- The response includes information that you need to give to your network
 -- administrator to configure your customer gateway.
@@ -40,8 +40,8 @@
 module Network.AWS.EC2.CreateVPNConnection
     (
     -- * Creating a Request
-      CreateVPNConnection
-    , createVPNConnection
+      createVPNConnection
+    , CreateVPNConnection
     -- * Request Lenses
     , cvcOptions
     , cvcDryRun
@@ -50,8 +50,8 @@ module Network.AWS.EC2.CreateVPNConnection
     , cvcVPNGatewayId
 
     -- * Destructuring the Response
-    , CreateVPNConnectionResponse
     , createVPNConnectionResponse
+    , CreateVPNConnectionResponse
     -- * Response Lenses
     , cvcrsVPNConnection
     , cvcrsStatus
@@ -64,8 +64,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createVPNConnection' smart constructor.
+data CreateVPNConnection = CreateVPNConnection'
+    { _cvcOptions           :: !(Maybe VPNConnectionOptionsSpecification)
+    , _cvcDryRun            :: !(Maybe Bool)
+    , _cvcType              :: !Text
+    , _cvcCustomerGatewayId :: !Text
+    , _cvcVPNGatewayId      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateVPNConnection' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cvcOptions'
 --
@@ -76,16 +85,11 @@ import           Network.AWS.Response
 -- * 'cvcCustomerGatewayId'
 --
 -- * 'cvcVPNGatewayId'
-data CreateVPNConnection = CreateVPNConnection'
-    { _cvcOptions           :: !(Maybe VPNConnectionOptionsSpecification)
-    , _cvcDryRun            :: !(Maybe Bool)
-    , _cvcType              :: !Text
-    , _cvcCustomerGatewayId :: !Text
-    , _cvcVPNGatewayId      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateVPNConnection' smart constructor.
-createVPNConnection :: Text -> Text -> Text -> CreateVPNConnection
+createVPNConnection
+    :: Text -- ^ 'cvcType'
+    -> Text -- ^ 'cvcCustomerGatewayId'
+    -> Text -- ^ 'cvcVPNGatewayId'
+    -> CreateVPNConnection
 createVPNConnection pType_ pCustomerGatewayId_ pVPNGatewayId_ =
     CreateVPNConnection'
     { _cvcOptions = Nothing
@@ -97,20 +101,20 @@ createVPNConnection pType_ pCustomerGatewayId_ pVPNGatewayId_ =
 
 -- | Indicates whether the VPN connection requires static routes. If you are
 -- creating a VPN connection for a device that does not support BGP, you
--- must specify @true@.
+-- must specify 'true'.
 --
--- Default: @false@
+-- Default: 'false'
 cvcOptions :: Lens' CreateVPNConnection (Maybe VPNConnectionOptionsSpecification)
 cvcOptions = lens _cvcOptions (\ s a -> s{_cvcOptions = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cvcDryRun :: Lens' CreateVPNConnection (Maybe Bool)
 cvcDryRun = lens _cvcDryRun (\ s a -> s{_cvcDryRun = a});
 
--- | The type of VPN connection (@ipsec.1@).
+-- | The type of VPN connection ('ipsec.1').
 cvcType :: Lens' CreateVPNConnection Text
 cvcType = lens _cvcType (\ s a -> s{_cvcType = a});
 
@@ -150,19 +154,21 @@ instance ToQuery CreateVPNConnection where
                "VpnGatewayId" =: _cvcVPNGatewayId]
 
 -- | /See:/ 'createVPNConnectionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvcrsVPNConnection'
---
--- * 'cvcrsStatus'
 data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
     { _cvcrsVPNConnection :: !(Maybe VPNConnection)
     , _cvcrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVPNConnectionResponse' smart constructor.
-createVPNConnectionResponse :: Int -> CreateVPNConnectionResponse
+-- | Creates a value of 'CreateVPNConnectionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvcrsVPNConnection'
+--
+-- * 'cvcrsStatus'
+createVPNConnectionResponse
+    :: Int -- ^ 'cvcrsStatus'
+    -> CreateVPNConnectionResponse
 createVPNConnectionResponse pStatus_ =
     CreateVPNConnectionResponse'
     { _cvcrsVPNConnection = Nothing
@@ -173,6 +179,6 @@ createVPNConnectionResponse pStatus_ =
 cvcrsVPNConnection :: Lens' CreateVPNConnectionResponse (Maybe VPNConnection)
 cvcrsVPNConnection = lens _cvcrsVPNConnection (\ s a -> s{_cvcrsVPNConnection = a});
 
--- | Undocumented member.
+-- | The response status code.
 cvcrsStatus :: Lens' CreateVPNConnectionResponse Int
 cvcrsStatus = lens _cvcrsStatus (\ s a -> s{_cvcrsStatus = a});

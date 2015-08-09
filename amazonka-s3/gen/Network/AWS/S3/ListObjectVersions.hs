@@ -21,11 +21,13 @@
 -- Returns metadata about all of the versions of objects in a bucket.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjectVersions.html AWS API Reference> for ListObjectVersions.
+--
+-- This operation returns paginated results.
 module Network.AWS.S3.ListObjectVersions
     (
     -- * Creating a Request
-      ListObjectVersions
-    , listObjectVersions
+      listObjectVersions
+    , ListObjectVersions
     -- * Request Lenses
     , lovKeyMarker
     , lovPrefix
@@ -36,8 +38,8 @@ module Network.AWS.S3.ListObjectVersions
     , lovBucket
 
     -- * Destructuring the Response
-    , ListObjectVersionsResponse
     , listObjectVersionsResponse
+    , ListObjectVersionsResponse
     -- * Response Lenses
     , lovrsNextVersionIdMarker
     , lovrsKeyMarker
@@ -63,8 +65,19 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listObjectVersions' smart constructor.
+data ListObjectVersions = ListObjectVersions'
+    { _lovKeyMarker       :: !(Maybe Text)
+    , _lovPrefix          :: !(Maybe Text)
+    , _lovEncodingType    :: !(Maybe EncodingType)
+    , _lovVersionIdMarker :: !(Maybe Text)
+    , _lovMaxKeys         :: !(Maybe Int)
+    , _lovDelimiter       :: !(Maybe Delimiter)
+    , _lovBucket          :: !BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListObjectVersions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lovKeyMarker'
 --
@@ -79,18 +92,9 @@ import           Network.AWS.S3.Types.Product
 -- * 'lovDelimiter'
 --
 -- * 'lovBucket'
-data ListObjectVersions = ListObjectVersions'
-    { _lovKeyMarker       :: !(Maybe Text)
-    , _lovPrefix          :: !(Maybe Text)
-    , _lovEncodingType    :: !(Maybe EncodingType)
-    , _lovVersionIdMarker :: !(Maybe Text)
-    , _lovMaxKeys         :: !(Maybe Int)
-    , _lovDelimiter       :: !(Maybe Delimiter)
-    , _lovBucket          :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListObjectVersions' smart constructor.
-listObjectVersions :: BucketName -> ListObjectVersions
+listObjectVersions
+    :: BucketName -- ^ 'lovBucket'
+    -> ListObjectVersions
 listObjectVersions pBucket_ =
     ListObjectVersions'
     { _lovKeyMarker = Nothing
@@ -183,8 +187,26 @@ instance ToQuery ListObjectVersions where
                "delimiter" =: _lovDelimiter, "versions"]
 
 -- | /See:/ 'listObjectVersionsResponse' smart constructor.
+data ListObjectVersionsResponse = ListObjectVersionsResponse'
+    { _lovrsNextVersionIdMarker :: !(Maybe Text)
+    , _lovrsKeyMarker           :: !(Maybe Text)
+    , _lovrsPrefix              :: !(Maybe Text)
+    , _lovrsDeleteMarkers       :: !(Maybe [DeleteMarkerEntry])
+    , _lovrsEncodingType        :: !(Maybe EncodingType)
+    , _lovrsCommonPrefixes      :: !(Maybe [CommonPrefix])
+    , _lovrsVersions            :: !(Maybe [ObjectVersion])
+    , _lovrsName                :: !(Maybe BucketName)
+    , _lovrsNextKeyMarker       :: !(Maybe Text)
+    , _lovrsVersionIdMarker     :: !(Maybe Text)
+    , _lovrsMaxKeys             :: !(Maybe Int)
+    , _lovrsIsTruncated         :: !(Maybe Bool)
+    , _lovrsDelimiter           :: !(Maybe Delimiter)
+    , _lovrsStatus              :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListObjectVersionsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lovrsNextVersionIdMarker'
 --
@@ -213,25 +235,9 @@ instance ToQuery ListObjectVersions where
 -- * 'lovrsDelimiter'
 --
 -- * 'lovrsStatus'
-data ListObjectVersionsResponse = ListObjectVersionsResponse'
-    { _lovrsNextVersionIdMarker :: !(Maybe Text)
-    , _lovrsKeyMarker           :: !(Maybe Text)
-    , _lovrsPrefix              :: !(Maybe Text)
-    , _lovrsDeleteMarkers       :: !(Maybe [DeleteMarkerEntry])
-    , _lovrsEncodingType        :: !(Maybe EncodingType)
-    , _lovrsCommonPrefixes      :: !(Maybe [CommonPrefix])
-    , _lovrsVersions            :: !(Maybe [ObjectVersion])
-    , _lovrsName                :: !(Maybe BucketName)
-    , _lovrsNextKeyMarker       :: !(Maybe Text)
-    , _lovrsVersionIdMarker     :: !(Maybe Text)
-    , _lovrsMaxKeys             :: !(Maybe Int)
-    , _lovrsIsTruncated         :: !(Maybe Bool)
-    , _lovrsDelimiter           :: !(Maybe Delimiter)
-    , _lovrsStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListObjectVersionsResponse' smart constructor.
-listObjectVersionsResponse :: Int -> ListObjectVersionsResponse
+listObjectVersionsResponse
+    :: Int -- ^ 'lovrsStatus'
+    -> ListObjectVersionsResponse
 listObjectVersionsResponse pStatus_ =
     ListObjectVersionsResponse'
     { _lovrsNextVersionIdMarker = Nothing
@@ -308,6 +314,6 @@ lovrsIsTruncated = lens _lovrsIsTruncated (\ s a -> s{_lovrsIsTruncated = a});
 lovrsDelimiter :: Lens' ListObjectVersionsResponse (Maybe Delimiter)
 lovrsDelimiter = lens _lovrsDelimiter (\ s a -> s{_lovrsDelimiter = a});
 
--- | Undocumented member.
+-- | The response status code.
 lovrsStatus :: Lens' ListObjectVersionsResponse Int
 lovrsStatus = lens _lovrsStatus (\ s a -> s{_lovrsStatus = a});

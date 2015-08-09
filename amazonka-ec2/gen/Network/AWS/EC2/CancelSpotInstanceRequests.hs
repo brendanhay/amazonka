@@ -33,15 +33,15 @@
 module Network.AWS.EC2.CancelSpotInstanceRequests
     (
     -- * Creating a Request
-      CancelSpotInstanceRequests
-    , cancelSpotInstanceRequests
+      cancelSpotInstanceRequests
+    , CancelSpotInstanceRequests
     -- * Request Lenses
     , csirDryRun
     , csirSpotInstanceRequestIds
 
     -- * Destructuring the Response
-    , CancelSpotInstanceRequestsResponse
     , cancelSpotInstanceRequestsResponse
+    , CancelSpotInstanceRequestsResponse
     -- * Response Lenses
     , csirrsCancelledSpotInstanceRequests
     , csirrsStatus
@@ -56,19 +56,20 @@ import           Network.AWS.Response
 -- | Contains the parameters for CancelSpotInstanceRequests.
 --
 -- /See:/ 'cancelSpotInstanceRequests' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csirDryRun'
---
--- * 'csirSpotInstanceRequestIds'
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
     { _csirDryRun                 :: !(Maybe Bool)
     , _csirSpotInstanceRequestIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelSpotInstanceRequests' smart constructor.
-cancelSpotInstanceRequests :: CancelSpotInstanceRequests
+-- | Creates a value of 'CancelSpotInstanceRequests' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csirDryRun'
+--
+-- * 'csirSpotInstanceRequestIds'
+cancelSpotInstanceRequests
+    :: CancelSpotInstanceRequests
 cancelSpotInstanceRequests =
     CancelSpotInstanceRequests'
     { _csirDryRun = Nothing
@@ -77,8 +78,8 @@ cancelSpotInstanceRequests =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 csirDryRun :: Lens' CancelSpotInstanceRequests (Maybe Bool)
 csirDryRun = lens _csirDryRun (\ s a -> s{_csirDryRun = a});
 
@@ -118,19 +119,21 @@ instance ToQuery CancelSpotInstanceRequests where
 -- | Contains the output of CancelSpotInstanceRequests.
 --
 -- /See:/ 'cancelSpotInstanceRequestsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csirrsCancelledSpotInstanceRequests'
---
--- * 'csirrsStatus'
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
     { _csirrsCancelledSpotInstanceRequests :: !(Maybe [CancelledSpotInstanceRequest])
     , _csirrsStatus                        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelSpotInstanceRequestsResponse' smart constructor.
-cancelSpotInstanceRequestsResponse :: Int -> CancelSpotInstanceRequestsResponse
+-- | Creates a value of 'CancelSpotInstanceRequestsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csirrsCancelledSpotInstanceRequests'
+--
+-- * 'csirrsStatus'
+cancelSpotInstanceRequestsResponse
+    :: Int -- ^ 'csirrsStatus'
+    -> CancelSpotInstanceRequestsResponse
 cancelSpotInstanceRequestsResponse pStatus_ =
     CancelSpotInstanceRequestsResponse'
     { _csirrsCancelledSpotInstanceRequests = Nothing
@@ -141,6 +144,6 @@ cancelSpotInstanceRequestsResponse pStatus_ =
 csirrsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
 csirrsCancelledSpotInstanceRequests = lens _csirrsCancelledSpotInstanceRequests (\ s a -> s{_csirrsCancelledSpotInstanceRequests = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 csirrsStatus :: Lens' CancelSpotInstanceRequestsResponse Int
 csirrsStatus = lens _csirrsStatus (\ s a -> s{_csirrsStatus = a});

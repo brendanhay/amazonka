@@ -25,16 +25,16 @@
 module Network.AWS.EC2.DescribeVPCAttribute
     (
     -- * Creating a Request
-      DescribeVPCAttribute
-    , describeVPCAttribute
+      describeVPCAttribute
+    , DescribeVPCAttribute
     -- * Request Lenses
     , dvpcaAttribute
     , dvpcaDryRun
     , dvpcaVPCId
 
     -- * Destructuring the Response
-    , DescribeVPCAttributeResponse
     , describeVPCAttributeResponse
+    , DescribeVPCAttributeResponse
     -- * Response Lenses
     , dvpcarsEnableDNSHostnames
     , dvpcarsEnableDNSSupport
@@ -49,22 +49,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeVPCAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvpcaAttribute'
---
--- * 'dvpcaDryRun'
---
--- * 'dvpcaVPCId'
 data DescribeVPCAttribute = DescribeVPCAttribute'
     { _dvpcaAttribute :: !(Maybe VPCAttributeName)
     , _dvpcaDryRun    :: !(Maybe Bool)
     , _dvpcaVPCId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVPCAttribute' smart constructor.
-describeVPCAttribute :: Text -> DescribeVPCAttribute
+-- | Creates a value of 'DescribeVPCAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvpcaAttribute'
+--
+-- * 'dvpcaDryRun'
+--
+-- * 'dvpcaVPCId'
+describeVPCAttribute
+    :: Text -- ^ 'dvpcaVPCId'
+    -> DescribeVPCAttribute
 describeVPCAttribute pVPCId_ =
     DescribeVPCAttribute'
     { _dvpcaAttribute = Nothing
@@ -78,8 +80,8 @@ dvpcaAttribute = lens _dvpcaAttribute (\ s a -> s{_dvpcaAttribute = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dvpcaDryRun :: Lens' DescribeVPCAttribute (Maybe Bool)
 dvpcaDryRun = lens _dvpcaDryRun (\ s a -> s{_dvpcaDryRun = a});
 
@@ -116,8 +118,16 @@ instance ToQuery DescribeVPCAttribute where
                "DryRun" =: _dvpcaDryRun, "VpcId" =: _dvpcaVPCId]
 
 -- | /See:/ 'describeVPCAttributeResponse' smart constructor.
+data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
+    { _dvpcarsEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
+    , _dvpcarsEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
+    , _dvpcarsVPCId              :: !(Maybe Text)
+    , _dvpcarsStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeVPCAttributeResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dvpcarsEnableDNSHostnames'
 --
@@ -126,15 +136,9 @@ instance ToQuery DescribeVPCAttribute where
 -- * 'dvpcarsVPCId'
 --
 -- * 'dvpcarsStatus'
-data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
-    { _dvpcarsEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
-    , _dvpcarsEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
-    , _dvpcarsVPCId              :: !(Maybe Text)
-    , _dvpcarsStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeVPCAttributeResponse' smart constructor.
-describeVPCAttributeResponse :: Int -> DescribeVPCAttributeResponse
+describeVPCAttributeResponse
+    :: Int -- ^ 'dvpcarsStatus'
+    -> DescribeVPCAttributeResponse
 describeVPCAttributeResponse pStatus_ =
     DescribeVPCAttributeResponse'
     { _dvpcarsEnableDNSHostnames = Nothing
@@ -144,13 +148,13 @@ describeVPCAttributeResponse pStatus_ =
     }
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames.
--- If this attribute is @true@, instances in the VPC get DNS hostnames;
+-- If this attribute is 'true', instances in the VPC get DNS hostnames;
 -- otherwise, they do not.
 dvpcarsEnableDNSHostnames :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
 dvpcarsEnableDNSHostnames = lens _dvpcarsEnableDNSHostnames (\ s a -> s{_dvpcarsEnableDNSHostnames = a});
 
 -- | Indicates whether DNS resolution is enabled for the VPC. If this
--- attribute is @true@, the Amazon DNS server resolves DNS hostnames for
+-- attribute is 'true', the Amazon DNS server resolves DNS hostnames for
 -- your instances to their corresponding IP addresses; otherwise, it does
 -- not.
 dvpcarsEnableDNSSupport :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
@@ -160,6 +164,6 @@ dvpcarsEnableDNSSupport = lens _dvpcarsEnableDNSSupport (\ s a -> s{_dvpcarsEnab
 dvpcarsVPCId :: Lens' DescribeVPCAttributeResponse (Maybe Text)
 dvpcarsVPCId = lens _dvpcarsVPCId (\ s a -> s{_dvpcarsVPCId = a});
 
--- | Undocumented member.
+-- | The response status code.
 dvpcarsStatus :: Lens' DescribeVPCAttributeResponse Int
 dvpcarsStatus = lens _dvpcarsStatus (\ s a -> s{_dvpcarsStatus = a});

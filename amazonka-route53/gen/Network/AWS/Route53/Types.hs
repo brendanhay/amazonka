@@ -301,7 +301,7 @@ _DelegationSetNotReusable = _ServiceError . hasCode "DelegationSetNotReusable"
 
 -- | The health check you are trying to create already exists. Route 53
 -- returns this error when a health check has already been created with the
--- specified @CallerReference@.
+-- specified 'CallerReference'.
 _HealthCheckAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _HealthCheckAlreadyExists =
     _ServiceError . hasStatus 409 . hasCode "HealthCheckAlreadyExists"
@@ -411,13 +411,13 @@ _NoSuchHealthCheck =
 
 -- | The hosted zone you are trying to create already exists. Route 53
 -- returns this error when a hosted zone has already been created with the
--- specified @CallerReference@.
+-- specified 'CallerReference'.
 _HostedZoneAlreadyExists :: AsError a => Getting (First ServiceError) a ServiceError
 _HostedZoneAlreadyExists =
     _ServiceError . hasStatus 409 . hasCode "HostedZoneAlreadyExists"
 
 -- | The hosted zone you are trying to create for your VPC_ID does not belong
--- to you. Route 53 returns this error when the VPC specified by @VPCId@
+-- to you. Route 53 returns this error when the VPC specified by 'VPCId'
 -- does not belong to you.
 _InvalidVPCId :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidVPCId = _ServiceError . hasStatus 400 . hasCode "InvalidVPCId"

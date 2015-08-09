@@ -24,15 +24,15 @@
 module Network.AWS.AutoScaling.DeleteScheduledAction
     (
     -- * Creating a Request
-      DeleteScheduledAction
-    , deleteScheduledAction
+      deleteScheduledAction
+    , DeleteScheduledAction
     -- * Request Lenses
     , dsaAutoScalingGroupName
     , dsaScheduledActionName
 
     -- * Destructuring the Response
-    , DeleteScheduledActionResponse
     , deleteScheduledActionResponse
+    , DeleteScheduledActionResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -42,19 +42,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteScheduledAction' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsaAutoScalingGroupName'
---
--- * 'dsaScheduledActionName'
 data DeleteScheduledAction = DeleteScheduledAction'
     { _dsaAutoScalingGroupName :: !(Maybe Text)
     , _dsaScheduledActionName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteScheduledAction' smart constructor.
-deleteScheduledAction :: Text -> DeleteScheduledAction
+-- | Creates a value of 'DeleteScheduledAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsaAutoScalingGroupName'
+--
+-- * 'dsaScheduledActionName'
+deleteScheduledAction
+    :: Text -- ^ 'dsaScheduledActionName'
+    -> DeleteScheduledAction
 deleteScheduledAction pScheduledActionName_ =
     DeleteScheduledAction'
     { _dsaAutoScalingGroupName = Nothing
@@ -95,6 +97,8 @@ data DeleteScheduledActionResponse =
     DeleteScheduledActionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteScheduledActionResponse' smart constructor.
-deleteScheduledActionResponse :: DeleteScheduledActionResponse
+-- | Creates a value of 'DeleteScheduledActionResponse' with the minimum fields required to make a request.
+--
+deleteScheduledActionResponse
+    :: DeleteScheduledActionResponse
 deleteScheduledActionResponse = DeleteScheduledActionResponse'

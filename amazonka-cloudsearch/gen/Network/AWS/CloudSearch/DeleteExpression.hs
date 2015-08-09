@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes an @Expression@ from the search domain. For more information,
+-- Removes an 'Expression' from the search domain. For more information,
 -- see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
 -- in the /Amazon CloudSearch Developer Guide/.
@@ -27,15 +27,15 @@
 module Network.AWS.CloudSearch.DeleteExpression
     (
     -- * Creating a Request
-      DeleteExpression
-    , deleteExpression
+      deleteExpression
+    , DeleteExpression
     -- * Request Lenses
     , delDomainName
     , delExpressionName
 
     -- * Destructuring the Response
-    , DeleteExpressionResponse
     , deleteExpressionResponse
+    , DeleteExpressionResponse
     -- * Response Lenses
     , delrsStatus
     , delrsExpression
@@ -47,24 +47,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DeleteExpression@ operation.
+-- | Container for the parameters to the 'DeleteExpression' operation.
 -- Specifies the name of the domain you want to update and the name of the
 -- expression you want to delete.
 --
 -- /See:/ 'deleteExpression' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delDomainName'
---
--- * 'delExpressionName'
 data DeleteExpression = DeleteExpression'
     { _delDomainName     :: !Text
     , _delExpressionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteExpression' smart constructor.
-deleteExpression :: Text -> Text -> DeleteExpression
+-- | Creates a value of 'DeleteExpression' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delDomainName'
+--
+-- * 'delExpressionName'
+deleteExpression
+    :: Text -- ^ 'delDomainName'
+    -> Text -- ^ 'delExpressionName'
+    -> DeleteExpression
 deleteExpression pDomainName_ pExpressionName_ =
     DeleteExpression'
     { _delDomainName = pDomainName_
@@ -75,7 +78,7 @@ deleteExpression pDomainName_ pExpressionName_ =
 delDomainName :: Lens' DeleteExpression Text
 delDomainName = lens _delDomainName (\ s a -> s{_delDomainName = a});
 
--- | The name of the @Expression@ to delete.
+-- | The name of the 'Expression' to delete.
 delExpressionName :: Lens' DeleteExpression Text
 delExpressionName = lens _delExpressionName (\ s a -> s{_delExpressionName = a});
 
@@ -103,30 +106,33 @@ instance ToQuery DeleteExpression where
                "DomainName" =: _delDomainName,
                "ExpressionName" =: _delExpressionName]
 
--- | The result of a @DeleteExpression@ request. Specifies the expression
+-- | The result of a 'DeleteExpression' request. Specifies the expression
 -- being deleted.
 --
 -- /See:/ 'deleteExpressionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delrsStatus'
---
--- * 'delrsExpression'
 data DeleteExpressionResponse = DeleteExpressionResponse'
     { _delrsStatus     :: !Int
     , _delrsExpression :: !ExpressionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteExpressionResponse' smart constructor.
-deleteExpressionResponse :: Int -> ExpressionStatus -> DeleteExpressionResponse
+-- | Creates a value of 'DeleteExpressionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delrsStatus'
+--
+-- * 'delrsExpression'
+deleteExpressionResponse
+    :: Int -- ^ 'delrsStatus'
+    -> ExpressionStatus -- ^ 'delrsExpression'
+    -> DeleteExpressionResponse
 deleteExpressionResponse pStatus_ pExpression_ =
     DeleteExpressionResponse'
     { _delrsStatus = pStatus_
     , _delrsExpression = pExpression_
     }
 
--- | Undocumented member.
+-- | The response status code.
 delrsStatus :: Lens' DeleteExpressionResponse Int
 delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});
 

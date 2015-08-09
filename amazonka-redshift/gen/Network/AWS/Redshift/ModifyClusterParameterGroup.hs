@@ -28,15 +28,15 @@
 module Network.AWS.Redshift.ModifyClusterParameterGroup
     (
     -- * Creating a Request
-      ModifyClusterParameterGroup
-    , modifyClusterParameterGroup
+      modifyClusterParameterGroup
+    , ModifyClusterParameterGroup
     -- * Request Lenses
     , mcpgParameterGroupName
     , mcpgParameters
 
     -- * Destructuring the Response
-    , ClusterParameterGroupNameMessage
     , clusterParameterGroupNameMessage
+    , ClusterParameterGroupNameMessage
     -- * Response Lenses
     , cpgnmParameterGroupStatus
     , cpgnmParameterGroupName
@@ -51,19 +51,21 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'modifyClusterParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mcpgParameterGroupName'
---
--- * 'mcpgParameters'
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup'
     { _mcpgParameterGroupName :: !Text
     , _mcpgParameters         :: ![Parameter]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyClusterParameterGroup' smart constructor.
-modifyClusterParameterGroup :: Text -> ModifyClusterParameterGroup
+-- | Creates a value of 'ModifyClusterParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mcpgParameterGroupName'
+--
+-- * 'mcpgParameters'
+modifyClusterParameterGroup
+    :: Text -- ^ 'mcpgParameterGroupName'
+    -> ModifyClusterParameterGroup
 modifyClusterParameterGroup pParameterGroupName_ =
     ModifyClusterParameterGroup'
     { _mcpgParameterGroupName = pParameterGroupName_

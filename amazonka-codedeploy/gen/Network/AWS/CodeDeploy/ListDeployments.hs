@@ -25,8 +25,8 @@
 module Network.AWS.CodeDeploy.ListDeployments
     (
     -- * Creating a Request
-      ListDeployments
-    , listDeployments
+      listDeployments
+    , ListDeployments
     -- * Request Lenses
     , ldCreateTimeRange
     , ldNextToken
@@ -35,8 +35,8 @@ module Network.AWS.CodeDeploy.ListDeployments
     , ldDeploymentGroupName
 
     -- * Destructuring the Response
-    , ListDeploymentsResponse
     , listDeploymentsResponse
+    , ListDeploymentsResponse
     -- * Response Lenses
     , ldrsNextToken
     , ldrsDeployments
@@ -52,8 +52,17 @@ import           Network.AWS.Response
 -- | Represents the input of a list deployments operation.
 --
 -- /See:/ 'listDeployments' smart constructor.
+data ListDeployments = ListDeployments'
+    { _ldCreateTimeRange     :: !(Maybe TimeRange)
+    , _ldNextToken           :: !(Maybe Text)
+    , _ldIncludeOnlyStatuses :: !(Maybe [DeploymentStatus])
+    , _ldApplicationName     :: !(Maybe Text)
+    , _ldDeploymentGroupName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListDeployments' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ldCreateTimeRange'
 --
@@ -64,16 +73,8 @@ import           Network.AWS.Response
 -- * 'ldApplicationName'
 --
 -- * 'ldDeploymentGroupName'
-data ListDeployments = ListDeployments'
-    { _ldCreateTimeRange     :: !(Maybe TimeRange)
-    , _ldNextToken           :: !(Maybe Text)
-    , _ldIncludeOnlyStatuses :: !(Maybe [DeploymentStatus])
-    , _ldApplicationName     :: !(Maybe Text)
-    , _ldDeploymentGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListDeployments' smart constructor.
-listDeployments :: ListDeployments
+listDeployments
+    :: ListDeployments
 listDeployments =
     ListDeployments'
     { _ldCreateTimeRange = Nothing
@@ -153,22 +154,24 @@ instance ToQuery ListDeployments where
 -- | Represents the output of a list deployments operation.
 --
 -- /See:/ 'listDeploymentsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldrsNextToken'
---
--- * 'ldrsDeployments'
---
--- * 'ldrsStatus'
 data ListDeploymentsResponse = ListDeploymentsResponse'
     { _ldrsNextToken   :: !(Maybe Text)
     , _ldrsDeployments :: !(Maybe [Text])
     , _ldrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDeploymentsResponse' smart constructor.
-listDeploymentsResponse :: Int -> ListDeploymentsResponse
+-- | Creates a value of 'ListDeploymentsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldrsNextToken'
+--
+-- * 'ldrsDeployments'
+--
+-- * 'ldrsStatus'
+listDeploymentsResponse
+    :: Int -- ^ 'ldrsStatus'
+    -> ListDeploymentsResponse
 listDeploymentsResponse pStatus_ =
     ListDeploymentsResponse'
     { _ldrsNextToken = Nothing
@@ -186,6 +189,6 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsDeployments :: Lens' ListDeploymentsResponse [Text]
 ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ldrsStatus :: Lens' ListDeploymentsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

@@ -24,15 +24,15 @@
 module Network.AWS.DeviceFarm.ListTests
     (
     -- * Creating a Request
-      ListTests
-    , listTests
+      listTests
+    , ListTests
     -- * Request Lenses
     , ltNextToken
     , ltArn
 
     -- * Destructuring the Response
-    , ListTestsResponse
     , listTestsResponse
+    , ListTestsResponse
     -- * Response Lenses
     , ltrsTests
     , ltrsNextToken
@@ -48,19 +48,21 @@ import           Network.AWS.Response
 -- | Represents a request to the list tests operation.
 --
 -- /See:/ 'listTests' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltNextToken'
---
--- * 'ltArn'
 data ListTests = ListTests'
     { _ltNextToken :: !(Maybe Text)
     , _ltArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTests' smart constructor.
-listTests :: Text -> ListTests
+-- | Creates a value of 'ListTests' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltNextToken'
+--
+-- * 'ltArn'
+listTests
+    :: Text -- ^ 'ltArn'
+    -> ListTests
 listTests pArn_ =
     ListTests'
     { _ltNextToken = Nothing
@@ -111,22 +113,24 @@ instance ToQuery ListTests where
 -- | Represents the result of a list tests request.
 --
 -- /See:/ 'listTestsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltrsTests'
---
--- * 'ltrsNextToken'
---
--- * 'ltrsStatus'
 data ListTestsResponse = ListTestsResponse'
     { _ltrsTests     :: !(Maybe [Test])
     , _ltrsNextToken :: !(Maybe Text)
     , _ltrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTestsResponse' smart constructor.
-listTestsResponse :: Int -> ListTestsResponse
+-- | Creates a value of 'ListTestsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltrsTests'
+--
+-- * 'ltrsNextToken'
+--
+-- * 'ltrsStatus'
+listTestsResponse
+    :: Int -- ^ 'ltrsStatus'
+    -> ListTestsResponse
 listTestsResponse pStatus_ =
     ListTestsResponse'
     { _ltrsTests = Nothing
@@ -144,6 +148,6 @@ ltrsTests = lens _ltrsTests (\ s a -> s{_ltrsTests = a}) . _Default . _Coerce;
 ltrsNextToken :: Lens' ListTestsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 ltrsStatus :: Lens' ListTestsResponse Int
 ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});

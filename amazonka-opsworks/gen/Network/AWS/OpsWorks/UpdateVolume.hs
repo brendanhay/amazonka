@@ -32,16 +32,16 @@
 module Network.AWS.OpsWorks.UpdateVolume
     (
     -- * Creating a Request
-      UpdateVolume
-    , updateVolume
+      updateVolume
+    , UpdateVolume
     -- * Request Lenses
     , uName
     , uMountPoint
     , uVolumeId
 
     -- * Destructuring the Response
-    , UpdateVolumeResponse
     , updateVolumeResponse
+    , UpdateVolumeResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -51,22 +51,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateVolume' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uName'
---
--- * 'uMountPoint'
---
--- * 'uVolumeId'
 data UpdateVolume = UpdateVolume'
     { _uName       :: !(Maybe Text)
     , _uMountPoint :: !(Maybe Text)
     , _uVolumeId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateVolume' smart constructor.
-updateVolume :: Text -> UpdateVolume
+-- | Creates a value of 'UpdateVolume' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uName'
+--
+-- * 'uMountPoint'
+--
+-- * 'uVolumeId'
+updateVolume
+    :: Text -- ^ 'uVolumeId'
+    -> UpdateVolume
 updateVolume pVolumeId_ =
     UpdateVolume'
     { _uName = Nothing
@@ -118,6 +120,8 @@ data UpdateVolumeResponse =
     UpdateVolumeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateVolumeResponse' smart constructor.
-updateVolumeResponse :: UpdateVolumeResponse
+-- | Creates a value of 'UpdateVolumeResponse' with the minimum fields required to make a request.
+--
+updateVolumeResponse
+    :: UpdateVolumeResponse
 updateVolumeResponse = UpdateVolumeResponse'

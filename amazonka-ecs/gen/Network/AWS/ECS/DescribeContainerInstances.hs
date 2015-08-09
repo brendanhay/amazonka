@@ -26,15 +26,15 @@
 module Network.AWS.ECS.DescribeContainerInstances
     (
     -- * Creating a Request
-      DescribeContainerInstances
-    , describeContainerInstances
+      describeContainerInstances
+    , DescribeContainerInstances
     -- * Request Lenses
     , dciCluster
     , dciContainerInstances
 
     -- * Destructuring the Response
-    , DescribeContainerInstancesResponse
     , describeContainerInstancesResponse
+    , DescribeContainerInstancesResponse
     -- * Response Lenses
     , dcisrsFailures
     , dcisrsContainerInstances
@@ -48,19 +48,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeContainerInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dciCluster'
---
--- * 'dciContainerInstances'
 data DescribeContainerInstances = DescribeContainerInstances'
     { _dciCluster            :: !(Maybe Text)
     , _dciContainerInstances :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeContainerInstances' smart constructor.
-describeContainerInstances :: DescribeContainerInstances
+-- | Creates a value of 'DescribeContainerInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dciCluster'
+--
+-- * 'dciContainerInstances'
+describeContainerInstances
+    :: DescribeContainerInstances
 describeContainerInstances =
     DescribeContainerInstances'
     { _dciCluster = Nothing
@@ -114,22 +115,24 @@ instance ToQuery DescribeContainerInstances where
         toQuery = const mempty
 
 -- | /See:/ 'describeContainerInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcisrsFailures'
---
--- * 'dcisrsContainerInstances'
---
--- * 'dcisrsStatus'
 data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
     { _dcisrsFailures           :: !(Maybe [Failure])
     , _dcisrsContainerInstances :: !(Maybe [ContainerInstance])
     , _dcisrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeContainerInstancesResponse' smart constructor.
-describeContainerInstancesResponse :: Int -> DescribeContainerInstancesResponse
+-- | Creates a value of 'DescribeContainerInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcisrsFailures'
+--
+-- * 'dcisrsContainerInstances'
+--
+-- * 'dcisrsStatus'
+describeContainerInstancesResponse
+    :: Int -- ^ 'dcisrsStatus'
+    -> DescribeContainerInstancesResponse
 describeContainerInstancesResponse pStatus_ =
     DescribeContainerInstancesResponse'
     { _dcisrsFailures = Nothing
@@ -145,6 +148,6 @@ dcisrsFailures = lens _dcisrsFailures (\ s a -> s{_dcisrsFailures = a}) . _Defau
 dcisrsContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
 dcisrsContainerInstances = lens _dcisrsContainerInstances (\ s a -> s{_dcisrsContainerInstances = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dcisrsStatus :: Lens' DescribeContainerInstancesResponse Int
 dcisrsStatus = lens _dcisrsStatus (\ s a -> s{_dcisrsStatus = a});

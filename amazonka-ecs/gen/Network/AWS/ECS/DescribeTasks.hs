@@ -24,15 +24,15 @@
 module Network.AWS.ECS.DescribeTasks
     (
     -- * Creating a Request
-      DescribeTasks
-    , describeTasks
+      describeTasks
+    , DescribeTasks
     -- * Request Lenses
     , dtCluster
     , dtTasks
 
     -- * Destructuring the Response
-    , DescribeTasksResponse
     , describeTasksResponse
+    , DescribeTasksResponse
     -- * Response Lenses
     , dtrsFailures
     , dtrsTasks
@@ -46,19 +46,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeTasks' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtCluster'
---
--- * 'dtTasks'
 data DescribeTasks = DescribeTasks'
     { _dtCluster :: !(Maybe Text)
     , _dtTasks   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTasks' smart constructor.
-describeTasks :: DescribeTasks
+-- | Creates a value of 'DescribeTasks' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtCluster'
+--
+-- * 'dtTasks'
+describeTasks
+    :: DescribeTasks
 describeTasks =
     DescribeTasks'
     { _dtCluster = Nothing
@@ -110,22 +111,24 @@ instance ToQuery DescribeTasks where
         toQuery = const mempty
 
 -- | /See:/ 'describeTasksResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtrsFailures'
---
--- * 'dtrsTasks'
---
--- * 'dtrsStatus'
 data DescribeTasksResponse = DescribeTasksResponse'
     { _dtrsFailures :: !(Maybe [Failure])
     , _dtrsTasks    :: !(Maybe [Task])
     , _dtrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTasksResponse' smart constructor.
-describeTasksResponse :: Int -> DescribeTasksResponse
+-- | Creates a value of 'DescribeTasksResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtrsFailures'
+--
+-- * 'dtrsTasks'
+--
+-- * 'dtrsStatus'
+describeTasksResponse
+    :: Int -- ^ 'dtrsStatus'
+    -> DescribeTasksResponse
 describeTasksResponse pStatus_ =
     DescribeTasksResponse'
     { _dtrsFailures = Nothing
@@ -141,6 +144,6 @@ dtrsFailures = lens _dtrsFailures (\ s a -> s{_dtrsFailures = a}) . _Default . _
 dtrsTasks :: Lens' DescribeTasksResponse [Task]
 dtrsTasks = lens _dtrsTasks (\ s a -> s{_dtrsTasks = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dtrsStatus :: Lens' DescribeTasksResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

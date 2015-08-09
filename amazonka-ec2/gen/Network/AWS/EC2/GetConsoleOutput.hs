@@ -43,15 +43,15 @@
 module Network.AWS.EC2.GetConsoleOutput
     (
     -- * Creating a Request
-      GetConsoleOutput
-    , getConsoleOutput
+      getConsoleOutput
+    , GetConsoleOutput
     -- * Request Lenses
     , gcoDryRun
     , gcoInstanceId
 
     -- * Destructuring the Response
-    , GetConsoleOutputResponse
     , getConsoleOutputResponse
+    , GetConsoleOutputResponse
     -- * Response Lenses
     , gcorsInstanceId
     , gcorsOutput
@@ -66,19 +66,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getConsoleOutput' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gcoDryRun'
---
--- * 'gcoInstanceId'
 data GetConsoleOutput = GetConsoleOutput'
     { _gcoDryRun     :: !(Maybe Bool)
     , _gcoInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetConsoleOutput' smart constructor.
-getConsoleOutput :: Text -> GetConsoleOutput
+-- | Creates a value of 'GetConsoleOutput' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcoDryRun'
+--
+-- * 'gcoInstanceId'
+getConsoleOutput
+    :: Text -- ^ 'gcoInstanceId'
+    -> GetConsoleOutput
 getConsoleOutput pInstanceId_ =
     GetConsoleOutput'
     { _gcoDryRun = Nothing
@@ -87,8 +89,8 @@ getConsoleOutput pInstanceId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 gcoDryRun :: Lens' GetConsoleOutput (Maybe Bool)
 gcoDryRun = lens _gcoDryRun (\ s a -> s{_gcoDryRun = a});
 
@@ -123,8 +125,16 @@ instance ToQuery GetConsoleOutput where
                "InstanceId" =: _gcoInstanceId]
 
 -- | /See:/ 'getConsoleOutputResponse' smart constructor.
+data GetConsoleOutputResponse = GetConsoleOutputResponse'
+    { _gcorsInstanceId :: !(Maybe Text)
+    , _gcorsOutput     :: !(Maybe Text)
+    , _gcorsTimestamp  :: !(Maybe ISO8601)
+    , _gcorsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetConsoleOutputResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gcorsInstanceId'
 --
@@ -133,15 +143,9 @@ instance ToQuery GetConsoleOutput where
 -- * 'gcorsTimestamp'
 --
 -- * 'gcorsStatus'
-data GetConsoleOutputResponse = GetConsoleOutputResponse'
-    { _gcorsInstanceId :: !(Maybe Text)
-    , _gcorsOutput     :: !(Maybe Text)
-    , _gcorsTimestamp  :: !(Maybe ISO8601)
-    , _gcorsStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetConsoleOutputResponse' smart constructor.
-getConsoleOutputResponse :: Int -> GetConsoleOutputResponse
+getConsoleOutputResponse
+    :: Int -- ^ 'gcorsStatus'
+    -> GetConsoleOutputResponse
 getConsoleOutputResponse pStatus_ =
     GetConsoleOutputResponse'
     { _gcorsInstanceId = Nothing
@@ -162,6 +166,6 @@ gcorsOutput = lens _gcorsOutput (\ s a -> s{_gcorsOutput = a});
 gcorsTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
 gcorsTimestamp = lens _gcorsTimestamp (\ s a -> s{_gcorsTimestamp = a}) . mapping _Time;
 
--- | Undocumented member.
+-- | The response status code.
 gcorsStatus :: Lens' GetConsoleOutputResponse Int
 gcorsStatus = lens _gcorsStatus (\ s a -> s{_gcorsStatus = a});

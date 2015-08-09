@@ -25,15 +25,15 @@
 module Network.AWS.SSM.DescribeAssociation
     (
     -- * Creating a Request
-      DescribeAssociation
-    , describeAssociation
+      describeAssociation
+    , DescribeAssociation
     -- * Request Lenses
     , daName
     , daInstanceId
 
     -- * Destructuring the Response
-    , DescribeAssociationResponse
     , describeAssociationResponse
+    , DescribeAssociationResponse
     -- * Response Lenses
     , darsAssociationDescription
     , darsStatus
@@ -46,19 +46,22 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'describeAssociation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daName'
---
--- * 'daInstanceId'
 data DescribeAssociation = DescribeAssociation'
     { _daName       :: !Text
     , _daInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAssociation' smart constructor.
-describeAssociation :: Text -> Text -> DescribeAssociation
+-- | Creates a value of 'DescribeAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daName'
+--
+-- * 'daInstanceId'
+describeAssociation
+    :: Text -- ^ 'daName'
+    -> Text -- ^ 'daInstanceId'
+    -> DescribeAssociation
 describeAssociation pName_ pInstanceId_ =
     DescribeAssociation'
     { _daName = pName_
@@ -106,19 +109,21 @@ instance ToQuery DescribeAssociation where
         toQuery = const mempty
 
 -- | /See:/ 'describeAssociationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'darsAssociationDescription'
---
--- * 'darsStatus'
 data DescribeAssociationResponse = DescribeAssociationResponse'
     { _darsAssociationDescription :: !(Maybe AssociationDescription)
     , _darsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAssociationResponse' smart constructor.
-describeAssociationResponse :: Int -> DescribeAssociationResponse
+-- | Creates a value of 'DescribeAssociationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'darsAssociationDescription'
+--
+-- * 'darsStatus'
+describeAssociationResponse
+    :: Int -- ^ 'darsStatus'
+    -> DescribeAssociationResponse
 describeAssociationResponse pStatus_ =
     DescribeAssociationResponse'
     { _darsAssociationDescription = Nothing
@@ -129,6 +134,6 @@ describeAssociationResponse pStatus_ =
 darsAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
 darsAssociationDescription = lens _darsAssociationDescription (\ s a -> s{_darsAssociationDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 darsStatus :: Lens' DescribeAssociationResponse Int
 darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

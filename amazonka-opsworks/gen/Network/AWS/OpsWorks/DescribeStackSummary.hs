@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the number of layers and apps in a specified stack, and the
--- number of instances in each state, such as @running_setup@ or @online@.
+-- number of instances in each state, such as 'running_setup' or 'online'.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a
 -- Show, Deploy, or Manage permissions level for the stack, or an attached
@@ -31,14 +31,14 @@
 module Network.AWS.OpsWorks.DescribeStackSummary
     (
     -- * Creating a Request
-      DescribeStackSummary
-    , describeStackSummary
+      describeStackSummary
+    , DescribeStackSummary
     -- * Request Lenses
     , dssStackId
 
     -- * Destructuring the Response
-    , DescribeStackSummaryResponse
     , describeStackSummaryResponse
+    , DescribeStackSummaryResponse
     -- * Response Lenses
     , dssrsStackSummary
     , dssrsStatus
@@ -51,16 +51,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeStackSummary' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dssStackId'
 newtype DescribeStackSummary = DescribeStackSummary'
     { _dssStackId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStackSummary' smart constructor.
-describeStackSummary :: Text -> DescribeStackSummary
+-- | Creates a value of 'DescribeStackSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dssStackId'
+describeStackSummary
+    :: Text -- ^ 'dssStackId'
+    -> DescribeStackSummary
 describeStackSummary pStackId_ =
     DescribeStackSummary'
     { _dssStackId = pStackId_
@@ -101,32 +103,34 @@ instance ToPath DescribeStackSummary where
 instance ToQuery DescribeStackSummary where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeStackSummary@ request.
+-- | Contains the response to a 'DescribeStackSummary' request.
 --
 -- /See:/ 'describeStackSummaryResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dssrsStackSummary'
---
--- * 'dssrsStatus'
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
     { _dssrsStackSummary :: !(Maybe StackSummary)
     , _dssrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStackSummaryResponse' smart constructor.
-describeStackSummaryResponse :: Int -> DescribeStackSummaryResponse
+-- | Creates a value of 'DescribeStackSummaryResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dssrsStackSummary'
+--
+-- * 'dssrsStatus'
+describeStackSummaryResponse
+    :: Int -- ^ 'dssrsStatus'
+    -> DescribeStackSummaryResponse
 describeStackSummaryResponse pStatus_ =
     DescribeStackSummaryResponse'
     { _dssrsStackSummary = Nothing
     , _dssrsStatus = pStatus_
     }
 
--- | A @StackSummary@ object that contains the results.
+-- | A 'StackSummary' object that contains the results.
 dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
 dssrsStackSummary = lens _dssrsStackSummary (\ s a -> s{_dssrsStackSummary = a});
 
--- | Undocumented member.
+-- | The response status code.
 dssrsStatus :: Lens' DescribeStackSummaryResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

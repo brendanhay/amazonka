@@ -30,14 +30,14 @@
 module Network.AWS.OpsWorks.StartStack
     (
     -- * Creating a Request
-      StartStack
-    , startStack
+      startStack
+    , StartStack
     -- * Request Lenses
     , staStackId
 
     -- * Destructuring the Response
-    , StartStackResponse
     , startStackResponse
+    , StartStackResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -47,16 +47,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'startStack' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'staStackId'
 newtype StartStack = StartStack'
     { _staStackId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartStack' smart constructor.
-startStack :: Text -> StartStack
+-- | Creates a value of 'StartStack' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'staStackId'
+startStack
+    :: Text -- ^ 'staStackId'
+    -> StartStack
 startStack pStackId_ =
     StartStack'
     { _staStackId = pStackId_
@@ -96,6 +98,8 @@ data StartStackResponse =
     StartStackResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartStackResponse' smart constructor.
-startStackResponse :: StartStackResponse
+-- | Creates a value of 'StartStackResponse' with the minimum fields required to make a request.
+--
+startStackResponse
+    :: StartStackResponse
 startStackResponse = StartStackResponse'

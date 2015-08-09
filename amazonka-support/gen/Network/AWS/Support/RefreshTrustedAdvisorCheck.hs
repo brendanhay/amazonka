@@ -35,14 +35,14 @@
 module Network.AWS.Support.RefreshTrustedAdvisorCheck
     (
     -- * Creating a Request
-      RefreshTrustedAdvisorCheck
-    , refreshTrustedAdvisorCheck
+      refreshTrustedAdvisorCheck
+    , RefreshTrustedAdvisorCheck
     -- * Request Lenses
     , rtacCheckId
 
     -- * Destructuring the Response
-    , RefreshTrustedAdvisorCheckResponse
     , refreshTrustedAdvisorCheckResponse
+    , RefreshTrustedAdvisorCheckResponse
     -- * Response Lenses
     , rtacrsStatus
     ) where
@@ -54,16 +54,18 @@ import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
 -- | /See:/ 'refreshTrustedAdvisorCheck' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtacCheckId'
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
     { _rtacCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RefreshTrustedAdvisorCheck' smart constructor.
-refreshTrustedAdvisorCheck :: Text -> RefreshTrustedAdvisorCheck
+-- | Creates a value of 'RefreshTrustedAdvisorCheck' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtacCheckId'
+refreshTrustedAdvisorCheck
+    :: Text -- ^ 'rtacCheckId'
+    -> RefreshTrustedAdvisorCheck
 refreshTrustedAdvisorCheck pCheckId_ =
     RefreshTrustedAdvisorCheck'
     { _rtacCheckId = pCheckId_
@@ -107,21 +109,23 @@ instance ToQuery RefreshTrustedAdvisorCheck where
 -- | The current refresh status of a Trusted Advisor check.
 --
 -- /See:/ 'refreshTrustedAdvisorCheckResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtacrsStatus'
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
     { _rtacrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RefreshTrustedAdvisorCheckResponse' smart constructor.
-refreshTrustedAdvisorCheckResponse :: Int -> RefreshTrustedAdvisorCheckResponse
+-- | Creates a value of 'RefreshTrustedAdvisorCheckResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtacrsStatus'
+refreshTrustedAdvisorCheckResponse
+    :: Int -- ^ 'rtacrsStatus'
+    -> RefreshTrustedAdvisorCheckResponse
 refreshTrustedAdvisorCheckResponse pStatus_ =
     RefreshTrustedAdvisorCheckResponse'
     { _rtacrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse Int
 rtacrsStatus = lens _rtacrsStatus (\ s a -> s{_rtacrsStatus = a});

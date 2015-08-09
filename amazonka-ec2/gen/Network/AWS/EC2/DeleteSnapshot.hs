@@ -40,15 +40,15 @@
 module Network.AWS.EC2.DeleteSnapshot
     (
     -- * Creating a Request
-      DeleteSnapshot
-    , deleteSnapshot
+      deleteSnapshot
+    , DeleteSnapshot
     -- * Request Lenses
     , deleDryRun
     , deleSnapshotId
 
     -- * Destructuring the Response
-    , DeleteSnapshotResponse
     , deleteSnapshotResponse
+    , DeleteSnapshotResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -58,19 +58,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'deleDryRun'
---
--- * 'deleSnapshotId'
 data DeleteSnapshot = DeleteSnapshot'
     { _deleDryRun     :: !(Maybe Bool)
     , _deleSnapshotId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSnapshot' smart constructor.
-deleteSnapshot :: Text -> DeleteSnapshot
+-- | Creates a value of 'DeleteSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'deleDryRun'
+--
+-- * 'deleSnapshotId'
+deleteSnapshot
+    :: Text -- ^ 'deleSnapshotId'
+    -> DeleteSnapshot
 deleteSnapshot pSnapshotId_ =
     DeleteSnapshot'
     { _deleDryRun = Nothing
@@ -79,8 +81,8 @@ deleteSnapshot pSnapshotId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 deleDryRun :: Lens' DeleteSnapshot (Maybe Bool)
 deleDryRun = lens _deleDryRun (\ s a -> s{_deleDryRun = a});
 
@@ -113,6 +115,8 @@ data DeleteSnapshotResponse =
     DeleteSnapshotResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSnapshotResponse' smart constructor.
-deleteSnapshotResponse :: DeleteSnapshotResponse
+-- | Creates a value of 'DeleteSnapshotResponse' with the minimum fields required to make a request.
+--
+deleteSnapshotResponse
+    :: DeleteSnapshotResponse
 deleteSnapshotResponse = DeleteSnapshotResponse'

@@ -21,8 +21,8 @@
 -- Launches the specified number of instances using an AMI for which you
 -- have permissions.
 --
--- When you launch an instance, it enters the @pending@ state. After the
--- instance is ready for you, it enters the @running@ state. To check the
+-- When you launch an instance, it enters the 'pending' state. After the
+-- instance is ready for you, it enters the 'running' state. To check the
 -- state of your instance, call DescribeInstances.
 --
 -- If you don\'t specify a security group when launching an instance,
@@ -43,11 +43,11 @@
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- If any of the AMIs have a product code attached for which the user has
--- not subscribed, @RunInstances@ fails.
+-- not subscribed, 'RunInstances' fails.
 --
 -- T2 instance types can only be launched into a VPC. If you do not have a
 -- default VPC, or if you do not specify a subnet ID in the request,
--- @RunInstances@ fails.
+-- 'RunInstances' fails.
 --
 -- For more information about troubleshooting, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html What To Do If An Instance Immediately Terminates>,
@@ -59,8 +59,8 @@
 module Network.AWS.EC2.RunInstances
     (
     -- * Creating a Request
-      RunInstances
-    , runInstances
+      runInstances
+    , RunInstances
     -- * Request Lenses
     , rSecurityGroupIds
     , rAdditionalInfo
@@ -87,8 +87,8 @@ module Network.AWS.EC2.RunInstances
     , rMaxCount
 
     -- * Destructuring the Response
-    , Reservation
     , reservation
+    , Reservation
     -- * Response Lenses
     , rGroups
     , rInstances
@@ -104,8 +104,35 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'runInstances' smart constructor.
+data RunInstances = RunInstances'
+    { _rSecurityGroupIds                  :: !(Maybe [Text])
+    , _rAdditionalInfo                    :: !(Maybe Text)
+    , _rSecurityGroups                    :: !(Maybe [Text])
+    , _rClientToken                       :: !(Maybe Text)
+    , _rDisableAPITermination             :: !(Maybe Bool)
+    , _rNetworkInterfaces                 :: !(Maybe [InstanceNetworkInterfaceSpecification])
+    , _rKeyName                           :: !(Maybe Text)
+    , _rRAMDiskId                         :: !(Maybe Text)
+    , _rKernelId                          :: !(Maybe Text)
+    , _rSubnetId                          :: !(Maybe Text)
+    , _rInstanceType                      :: !(Maybe InstanceType)
+    , _rEBSOptimized                      :: !(Maybe Bool)
+    , _rUserData                          :: !(Maybe Text)
+    , _rMonitoring                        :: !(Maybe RunInstancesMonitoringEnabled)
+    , _rIAMInstanceProfile                :: !(Maybe IAMInstanceProfileSpecification)
+    , _rInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
+    , _rPrivateIPAddress                  :: !(Maybe Text)
+    , _rBlockDeviceMappings               :: !(Maybe [BlockDeviceMapping])
+    , _rDryRun                            :: !(Maybe Bool)
+    , _rPlacement                         :: !(Maybe Placement)
+    , _rImageId                           :: !Text
+    , _rMinCount                          :: !Int
+    , _rMaxCount                          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RunInstances' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rSecurityGroupIds'
 --
@@ -152,34 +179,11 @@ import           Network.AWS.Response
 -- * 'rMinCount'
 --
 -- * 'rMaxCount'
-data RunInstances = RunInstances'
-    { _rSecurityGroupIds                  :: !(Maybe [Text])
-    , _rAdditionalInfo                    :: !(Maybe Text)
-    , _rSecurityGroups                    :: !(Maybe [Text])
-    , _rClientToken                       :: !(Maybe Text)
-    , _rDisableAPITermination             :: !(Maybe Bool)
-    , _rNetworkInterfaces                 :: !(Maybe [InstanceNetworkInterfaceSpecification])
-    , _rKeyName                           :: !(Maybe Text)
-    , _rRAMDiskId                         :: !(Maybe Text)
-    , _rKernelId                          :: !(Maybe Text)
-    , _rSubnetId                          :: !(Maybe Text)
-    , _rInstanceType                      :: !(Maybe InstanceType)
-    , _rEBSOptimized                      :: !(Maybe Bool)
-    , _rUserData                          :: !(Maybe Text)
-    , _rMonitoring                        :: !(Maybe RunInstancesMonitoringEnabled)
-    , _rIAMInstanceProfile                :: !(Maybe IAMInstanceProfileSpecification)
-    , _rInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
-    , _rPrivateIPAddress                  :: !(Maybe Text)
-    , _rBlockDeviceMappings               :: !(Maybe [BlockDeviceMapping])
-    , _rDryRun                            :: !(Maybe Bool)
-    , _rPlacement                         :: !(Maybe Placement)
-    , _rImageId                           :: !Text
-    , _rMinCount                          :: !Int
-    , _rMaxCount                          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RunInstances' smart constructor.
-runInstances :: Text -> Int -> Int -> RunInstances
+runInstances
+    :: Text -- ^ 'rImageId'
+    -> Int -- ^ 'rMinCount'
+    -> Int -- ^ 'rMaxCount'
+    -> RunInstances
 runInstances pImageId_ pMinCount_ pMaxCount_ =
     RunInstances'
     { _rSecurityGroupIds = Nothing
@@ -233,16 +237,16 @@ rSecurityGroups = lens _rSecurityGroups (\ s a -> s{_rSecurityGroups = a}) . _De
 rClientToken :: Lens' RunInstances (Maybe Text)
 rClientToken = lens _rClientToken (\ s a -> s{_rClientToken = a});
 
--- | If you set this parameter to @true@, you can\'t terminate the instance
+-- | If you set this parameter to 'true', you can\'t terminate the instance
 -- using the Amazon EC2 console, CLI, or API; otherwise, you can. If you
--- set this parameter to @true@ and then later want to be able to terminate
+-- set this parameter to 'true' and then later want to be able to terminate
 -- the instance, you must first change the value of the
--- @disableApiTermination@ attribute to @false@ using
+-- 'disableApiTermination' attribute to 'false' using
 -- ModifyInstanceAttribute. Alternatively, if you set
--- @InstanceInitiatedShutdownBehavior@ to @terminate@, you can terminate
+-- 'InstanceInitiatedShutdownBehavior' to 'terminate', you can terminate
 -- the instance by running the shutdown command from the instance.
 --
--- Default: @false@
+-- Default: 'false'
 rDisableAPITermination :: Lens' RunInstances (Maybe Bool)
 rDisableAPITermination = lens _rDisableAPITermination (\ s a -> s{_rDisableAPITermination = a});
 
@@ -285,7 +289,7 @@ rSubnetId = lens _rSubnetId (\ s a -> s{_rSubnetId = a});
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- Default: @m1.small@
+-- Default: 'm1.small'
 rInstanceType :: Lens' RunInstances (Maybe InstanceType)
 rInstanceType = lens _rInstanceType (\ s a -> s{_rInstanceType = a});
 
@@ -295,7 +299,7 @@ rInstanceType = lens _rInstanceType (\ s a -> s{_rInstanceType = a});
 -- This optimization isn\'t available with all instance types. Additional
 -- usage charges apply when using an EBS-optimized instance.
 --
--- Default: @false@
+-- Default: 'false'
 rEBSOptimized :: Lens' RunInstances (Maybe Bool)
 rEBSOptimized = lens _rEBSOptimized (\ s a -> s{_rEBSOptimized = a});
 
@@ -315,7 +319,7 @@ rIAMInstanceProfile = lens _rIAMInstanceProfile (\ s a -> s{_rIAMInstanceProfile
 -- shutdown from the instance (using the operating system command for
 -- system shutdown).
 --
--- Default: @stop@
+-- Default: 'stop'
 rInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavior)
 rInstanceInitiatedShutdownBehavior = lens _rInstanceInitiatedShutdownBehavior (\ s a -> s{_rInstanceInitiatedShutdownBehavior = a});
 
@@ -323,8 +327,8 @@ rInstanceInitiatedShutdownBehavior = lens _rInstanceInitiatedShutdownBehavior (\
 -- address range of the subnet.
 --
 -- Only one private IP address can be designated as primary. Therefore, you
--- can\'t specify this parameter if @PrivateIpAddresses.n.Primary@ is set
--- to @true@ and @PrivateIpAddresses.n.PrivateIpAddress@ is set to an IP
+-- can\'t specify this parameter if 'PrivateIpAddresses.n.Primary' is set
+-- to 'true' and 'PrivateIpAddresses.n.PrivateIpAddress' is set to an IP
 -- address.
 --
 -- Default: We select an IP address from the IP address range of the
@@ -338,8 +342,8 @@ rBlockDeviceMappings = lens _rBlockDeviceMappings (\ s a -> s{_rBlockDeviceMappi
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 rDryRun :: Lens' RunInstances (Maybe Bool)
 rDryRun = lens _rDryRun (\ s a -> s{_rDryRun = a});
 
@@ -365,7 +369,7 @@ rMinCount = lens _rMinCount (\ s a -> s{_rMinCount = a});
 
 -- | The maximum number of instances to launch. If you specify more instances
 -- than Amazon EC2 can launch in the target Availability Zone, Amazon EC2
--- launches the largest possible number of instances above @MinCount@.
+-- launches the largest possible number of instances above 'MinCount'.
 --
 -- Constraints: Between 1 and the maximum number you\'re allowed for the
 -- specified instance type. For more information about the default limits,

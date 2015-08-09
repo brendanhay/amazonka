@@ -30,8 +30,8 @@
 module Network.AWS.OpsWorks.UpdateApp
     (
     -- * Creating a Request
-      UpdateApp
-    , updateApp
+      updateApp
+    , UpdateApp
     -- * Request Lenses
     , uaSSLConfiguration
     , uaEnableSSL
@@ -46,8 +46,8 @@ module Network.AWS.OpsWorks.UpdateApp
     , uaAppId
 
     -- * Destructuring the Response
-    , UpdateAppResponse
     , updateAppResponse
+    , UpdateAppResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -57,8 +57,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateApp' smart constructor.
+data UpdateApp = UpdateApp'
+    { _uaSSLConfiguration :: !(Maybe SSLConfiguration)
+    , _uaEnableSSL        :: !(Maybe Bool)
+    , _uaEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _uaDataSources      :: !(Maybe [DataSource])
+    , _uaAppSource        :: !(Maybe Source)
+    , _uaName             :: !(Maybe Text)
+    , _uaAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _uaType             :: !(Maybe AppType)
+    , _uaDomains          :: !(Maybe [Text])
+    , _uaDescription      :: !(Maybe Text)
+    , _uaAppId            :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateApp' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uaSSLConfiguration'
 --
@@ -81,22 +96,9 @@ import           Network.AWS.Response
 -- * 'uaDescription'
 --
 -- * 'uaAppId'
-data UpdateApp = UpdateApp'
-    { _uaSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _uaEnableSSL        :: !(Maybe Bool)
-    , _uaEnvironment      :: !(Maybe [EnvironmentVariable])
-    , _uaDataSources      :: !(Maybe [DataSource])
-    , _uaAppSource        :: !(Maybe Source)
-    , _uaName             :: !(Maybe Text)
-    , _uaAttributes       :: !(Maybe (Map AppAttributesKeys Text))
-    , _uaType             :: !(Maybe AppType)
-    , _uaDomains          :: !(Maybe [Text])
-    , _uaDescription      :: !(Maybe Text)
-    , _uaAppId            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateApp' smart constructor.
-updateApp :: Text -> UpdateApp
+updateApp
+    :: Text -- ^ 'uaAppId'
+    -> UpdateApp
 updateApp pAppId_ =
     UpdateApp'
     { _uaSSLConfiguration = Nothing
@@ -112,7 +114,7 @@ updateApp pAppId_ =
     , _uaAppId = pAppId_
     }
 
--- | An @SslConfiguration@ object with the SSL configuration.
+-- | An 'SslConfiguration' object with the SSL configuration.
 uaSSLConfiguration :: Lens' UpdateApp (Maybe SSLConfiguration)
 uaSSLConfiguration = lens _uaSSLConfiguration (\ s a -> s{_uaSSLConfiguration = a});
 
@@ -120,7 +122,7 @@ uaSSLConfiguration = lens _uaSSLConfiguration (\ s a -> s{_uaSSLConfiguration = 
 uaEnableSSL :: Lens' UpdateApp (Maybe Bool)
 uaEnableSSL = lens _uaEnableSSL (\ s a -> s{_uaEnableSSL = a});
 
--- | An array of @EnvironmentVariable@ objects that specify environment
+-- | An array of 'EnvironmentVariable' objects that specify environment
 -- variables to be associated with the app. After you deploy the app, these
 -- variables are defined on the associated app server instances.For more
 -- information, see
@@ -143,7 +145,7 @@ uaEnvironment = lens _uaEnvironment (\ s a -> s{_uaEnvironment = a}) . _Default 
 uaDataSources :: Lens' UpdateApp [DataSource]
 uaDataSources = lens _uaDataSources (\ s a -> s{_uaDataSources = a}) . _Default . _Coerce;
 
--- | A @Source@ object that specifies the app repository.
+-- | A 'Source' object that specifies the app repository.
 uaAppSource :: Lens' UpdateApp (Maybe Source)
 uaAppSource = lens _uaAppSource (\ s a -> s{_uaAppSource = a});
 
@@ -161,7 +163,7 @@ uaType :: Lens' UpdateApp (Maybe AppType)
 uaType = lens _uaType (\ s a -> s{_uaType = a});
 
 -- | The app\'s virtual host settings, with multiple domains separated by
--- commas. For example: @\'www.example.com, example.com\'@
+-- commas. For example: '\'www.example.com, example.com\''
 uaDomains :: Lens' UpdateApp [Text]
 uaDomains = lens _uaDomains (\ s a -> s{_uaDomains = a}) . _Default . _Coerce;
 
@@ -211,6 +213,8 @@ data UpdateAppResponse =
     UpdateAppResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAppResponse' smart constructor.
-updateAppResponse :: UpdateAppResponse
+-- | Creates a value of 'UpdateAppResponse' with the minimum fields required to make a request.
+--
+updateAppResponse
+    :: UpdateAppResponse
 updateAppResponse = UpdateAppResponse'

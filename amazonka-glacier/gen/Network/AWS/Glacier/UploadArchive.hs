@@ -20,7 +20,7 @@
 --
 -- This operation adds an archive to a vault. This is a synchronous
 -- operation, and for a successful upload, your data is durably persisted.
--- Amazon Glacier returns the archive ID in the @x-amz-archive-id@ header
+-- Amazon Glacier returns the archive ID in the 'x-amz-archive-id' header
 -- of the response.
 --
 -- You must use the archive ID to access your data in Amazon Glacier. After
@@ -64,8 +64,8 @@
 module Network.AWS.Glacier.UploadArchive
     (
     -- * Creating a Request
-      UploadArchive
-    , uploadArchive
+      uploadArchive
+    , UploadArchive
     -- * Request Lenses
     , uaChecksum
     , uaArchiveDescription
@@ -74,8 +74,8 @@ module Network.AWS.Glacier.UploadArchive
     , uaBody
 
     -- * Destructuring the Response
-    , ArchiveCreationOutput
     , archiveCreationOutput
+    , ArchiveCreationOutput
     -- * Response Lenses
     , acoArchiveId
     , acoChecksum
@@ -91,8 +91,17 @@ import           Network.AWS.Response
 -- | Provides options to add an archive to a vault.
 --
 -- /See:/ 'uploadArchive' smart constructor.
+data UploadArchive = UploadArchive'
+    { _uaChecksum           :: !(Maybe Text)
+    , _uaArchiveDescription :: !(Maybe Text)
+    , _uaVaultName          :: !Text
+    , _uaAccountId          :: !Text
+    , _uaBody               :: !RqBody
+    } deriving (Show,Generic)
+
+-- | Creates a value of 'UploadArchive' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uaChecksum'
 --
@@ -103,16 +112,11 @@ import           Network.AWS.Response
 -- * 'uaAccountId'
 --
 -- * 'uaBody'
-data UploadArchive = UploadArchive'
-    { _uaChecksum           :: !(Maybe Text)
-    , _uaArchiveDescription :: !(Maybe Text)
-    , _uaVaultName          :: !Text
-    , _uaAccountId          :: !Text
-    , _uaBody               :: !RqBody
-    } deriving (Show,Generic)
-
--- | 'UploadArchive' smart constructor.
-uploadArchive :: Text -> Text -> RqBody -> UploadArchive
+uploadArchive
+    :: Text -- ^ 'uaVaultName'
+    -> Text -- ^ 'uaAccountId'
+    -> RqBody -- ^ 'uaBody'
+    -> UploadArchive
 uploadArchive pVaultName_ pAccountId_ pBody_ =
     UploadArchive'
     { _uaChecksum = Nothing
@@ -134,9 +138,9 @@ uaArchiveDescription = lens _uaArchiveDescription (\ s a -> s{_uaArchiveDescript
 uaVaultName :: Lens' UploadArchive Text
 uaVaultName = lens _uaVaultName (\ s a -> s{_uaVaultName = a});
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 uaAccountId :: Lens' UploadArchive Text

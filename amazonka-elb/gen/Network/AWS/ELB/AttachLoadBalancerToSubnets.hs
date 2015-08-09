@@ -30,15 +30,15 @@
 module Network.AWS.ELB.AttachLoadBalancerToSubnets
     (
     -- * Creating a Request
-      AttachLoadBalancerToSubnets
-    , attachLoadBalancerToSubnets
+      attachLoadBalancerToSubnets
+    , AttachLoadBalancerToSubnets
     -- * Request Lenses
     , albtsLoadBalancerName
     , albtsSubnets
 
     -- * Destructuring the Response
-    , AttachLoadBalancerToSubnetsResponse
     , attachLoadBalancerToSubnetsResponse
+    , AttachLoadBalancerToSubnetsResponse
     -- * Response Lenses
     , albtsrsSubnets
     , albtsrsStatus
@@ -51,19 +51,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachLoadBalancerToSubnets' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'albtsLoadBalancerName'
---
--- * 'albtsSubnets'
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
     { _albtsLoadBalancerName :: !Text
     , _albtsSubnets          :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachLoadBalancerToSubnets' smart constructor.
-attachLoadBalancerToSubnets :: Text -> AttachLoadBalancerToSubnets
+-- | Creates a value of 'AttachLoadBalancerToSubnets' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'albtsLoadBalancerName'
+--
+-- * 'albtsSubnets'
+attachLoadBalancerToSubnets
+    :: Text -- ^ 'albtsLoadBalancerName'
+    -> AttachLoadBalancerToSubnets
 attachLoadBalancerToSubnets pLoadBalancerName_ =
     AttachLoadBalancerToSubnets'
     { _albtsLoadBalancerName = pLoadBalancerName_
@@ -109,19 +111,21 @@ instance ToQuery AttachLoadBalancerToSubnets where
                "Subnets" =: toQueryList "member" _albtsSubnets]
 
 -- | /See:/ 'attachLoadBalancerToSubnetsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'albtsrsSubnets'
---
--- * 'albtsrsStatus'
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
     { _albtsrsSubnets :: !(Maybe [Text])
     , _albtsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachLoadBalancerToSubnetsResponse' smart constructor.
-attachLoadBalancerToSubnetsResponse :: Int -> AttachLoadBalancerToSubnetsResponse
+-- | Creates a value of 'AttachLoadBalancerToSubnetsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'albtsrsSubnets'
+--
+-- * 'albtsrsStatus'
+attachLoadBalancerToSubnetsResponse
+    :: Int -- ^ 'albtsrsStatus'
+    -> AttachLoadBalancerToSubnetsResponse
 attachLoadBalancerToSubnetsResponse pStatus_ =
     AttachLoadBalancerToSubnetsResponse'
     { _albtsrsSubnets = Nothing
@@ -132,6 +136,6 @@ attachLoadBalancerToSubnetsResponse pStatus_ =
 albtsrsSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrsSubnets = lens _albtsrsSubnets (\ s a -> s{_albtsrsSubnets = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 albtsrsStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
 albtsrsStatus = lens _albtsrsStatus (\ s a -> s{_albtsrsStatus = a});

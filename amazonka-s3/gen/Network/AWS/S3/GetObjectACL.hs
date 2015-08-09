@@ -24,8 +24,8 @@
 module Network.AWS.S3.GetObjectACL
     (
     -- * Creating a Request
-      GetObjectACL
-    , getObjectACL
+      getObjectACL
+    , GetObjectACL
     -- * Request Lenses
     , goaVersionId
     , goaRequestPayer
@@ -33,8 +33,8 @@ module Network.AWS.S3.GetObjectACL
     , goaKey
 
     -- * Destructuring the Response
-    , GetObjectACLResponse
     , getObjectACLResponse
+    , GetObjectACLResponse
     -- * Response Lenses
     , goarsRequestCharged
     , goarsGrants
@@ -49,8 +49,16 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getObjectACL' smart constructor.
+data GetObjectACL = GetObjectACL'
+    { _goaVersionId    :: !(Maybe ObjectVersionId)
+    , _goaRequestPayer :: !(Maybe RequestPayer)
+    , _goaBucket       :: !BucketName
+    , _goaKey          :: !ObjectKey
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetObjectACL' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'goaVersionId'
 --
@@ -59,15 +67,10 @@ import           Network.AWS.S3.Types.Product
 -- * 'goaBucket'
 --
 -- * 'goaKey'
-data GetObjectACL = GetObjectACL'
-    { _goaVersionId    :: !(Maybe ObjectVersionId)
-    , _goaRequestPayer :: !(Maybe RequestPayer)
-    , _goaBucket       :: !BucketName
-    , _goaKey          :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetObjectACL' smart constructor.
-getObjectACL :: BucketName -> ObjectKey -> GetObjectACL
+getObjectACL
+    :: BucketName -- ^ 'goaBucket'
+    -> ObjectKey -- ^ 'goaKey'
+    -> GetObjectACL
 getObjectACL pBucket_ pKey_ =
     GetObjectACL'
     { _goaVersionId = Nothing
@@ -119,8 +122,16 @@ instance ToQuery GetObjectACL where
           = mconcat ["versionId" =: _goaVersionId, "acl"]
 
 -- | /See:/ 'getObjectACLResponse' smart constructor.
+data GetObjectACLResponse = GetObjectACLResponse'
+    { _goarsRequestCharged :: !(Maybe RequestCharged)
+    , _goarsGrants         :: !(Maybe [Grant])
+    , _goarsOwner          :: !(Maybe Owner)
+    , _goarsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetObjectACLResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'goarsRequestCharged'
 --
@@ -129,15 +140,9 @@ instance ToQuery GetObjectACL where
 -- * 'goarsOwner'
 --
 -- * 'goarsStatus'
-data GetObjectACLResponse = GetObjectACLResponse'
-    { _goarsRequestCharged :: !(Maybe RequestCharged)
-    , _goarsGrants         :: !(Maybe [Grant])
-    , _goarsOwner          :: !(Maybe Owner)
-    , _goarsStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetObjectACLResponse' smart constructor.
-getObjectACLResponse :: Int -> GetObjectACLResponse
+getObjectACLResponse
+    :: Int -- ^ 'goarsStatus'
+    -> GetObjectACLResponse
 getObjectACLResponse pStatus_ =
     GetObjectACLResponse'
     { _goarsRequestCharged = Nothing
@@ -158,6 +163,6 @@ goarsGrants = lens _goarsGrants (\ s a -> s{_goarsGrants = a}) . _Default . _Coe
 goarsOwner :: Lens' GetObjectACLResponse (Maybe Owner)
 goarsOwner = lens _goarsOwner (\ s a -> s{_goarsOwner = a});
 
--- | Undocumented member.
+-- | The response status code.
 goarsStatus :: Lens' GetObjectACLResponse Int
 goarsStatus = lens _goarsStatus (\ s a -> s{_goarsStatus = a});

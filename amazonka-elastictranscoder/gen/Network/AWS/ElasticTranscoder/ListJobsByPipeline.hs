@@ -26,19 +26,21 @@
 -- satisfies the search criteria.
 --
 -- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByPipeline.html AWS API Reference> for ListJobsByPipeline.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     (
     -- * Creating a Request
-      ListJobsByPipeline
-    , listJobsByPipeline
+      listJobsByPipeline
+    , ListJobsByPipeline
     -- * Request Lenses
     , ljbpAscending
     , ljbpPageToken
     , ljbpPipelineId
 
     -- * Destructuring the Response
-    , ListJobsByPipelineResponse
     , listJobsByPipelineResponse
+    , ListJobsByPipelineResponse
     -- * Response Lenses
     , ljbprsNextPageToken
     , ljbprsJobs
@@ -52,25 +54,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @ListJobsByPipelineRequest@ structure.
+-- | The 'ListJobsByPipelineRequest' structure.
 --
 -- /See:/ 'listJobsByPipeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ljbpAscending'
---
--- * 'ljbpPageToken'
---
--- * 'ljbpPipelineId'
 data ListJobsByPipeline = ListJobsByPipeline'
     { _ljbpAscending  :: !(Maybe Text)
     , _ljbpPageToken  :: !(Maybe Text)
     , _ljbpPipelineId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListJobsByPipeline' smart constructor.
-listJobsByPipeline :: Text -> ListJobsByPipeline
+-- | Creates a value of 'ListJobsByPipeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ljbpAscending'
+--
+-- * 'ljbpPageToken'
+--
+-- * 'ljbpPipelineId'
+listJobsByPipeline
+    :: Text -- ^ 'ljbpPipelineId'
+    -> ListJobsByPipeline
 listJobsByPipeline pPipelineId_ =
     ListJobsByPipeline'
     { _ljbpAscending = Nothing
@@ -79,13 +83,13 @@ listJobsByPipeline pPipelineId_ =
     }
 
 -- | To list jobs in chronological order by the date and time that they were
--- submitted, enter @true@. To list jobs in reverse chronological order,
--- enter @false@.
+-- submitted, enter 'true'. To list jobs in reverse chronological order,
+-- enter 'false'.
 ljbpAscending :: Lens' ListJobsByPipeline (Maybe Text)
 ljbpAscending = lens _ljbpAscending (\ s a -> s{_ljbpAscending = a});
 
 -- | When Elastic Transcoder returns more than one page of results, use
--- @pageToken@ in subsequent @GET@ requests to get each successive page of
+-- 'pageToken' in subsequent 'GET' requests to get each successive page of
 -- results.
 ljbpPageToken :: Lens' ListJobsByPipeline (Maybe Text)
 ljbpPageToken = lens _ljbpPageToken (\ s a -> s{_ljbpPageToken = a});
@@ -128,25 +132,27 @@ instance ToQuery ListJobsByPipeline where
               ["Ascending" =: _ljbpAscending,
                "PageToken" =: _ljbpPageToken]
 
--- | The @ListJobsByPipelineResponse@ structure.
+-- | The 'ListJobsByPipelineResponse' structure.
 --
 -- /See:/ 'listJobsByPipelineResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ljbprsNextPageToken'
---
--- * 'ljbprsJobs'
---
--- * 'ljbprsStatus'
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
     { _ljbprsNextPageToken :: !(Maybe Text)
     , _ljbprsJobs          :: !(Maybe [Job'])
     , _ljbprsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListJobsByPipelineResponse' smart constructor.
-listJobsByPipelineResponse :: Int -> ListJobsByPipelineResponse
+-- | Creates a value of 'ListJobsByPipelineResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ljbprsNextPageToken'
+--
+-- * 'ljbprsJobs'
+--
+-- * 'ljbprsStatus'
+listJobsByPipelineResponse
+    :: Int -- ^ 'ljbprsStatus'
+    -> ListJobsByPipelineResponse
 listJobsByPipelineResponse pStatus_ =
     ListJobsByPipelineResponse'
     { _ljbprsNextPageToken = Nothing
@@ -157,14 +163,14 @@ listJobsByPipelineResponse pStatus_ =
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
 -- or when you\'ve reached the last page of results, the value of
--- @NextPageToken@ is @null@.
+-- 'NextPageToken' is 'null'.
 ljbprsNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
 ljbprsNextPageToken = lens _ljbprsNextPageToken (\ s a -> s{_ljbprsNextPageToken = a});
 
--- | An array of @Job@ objects that are in the specified pipeline.
+-- | An array of 'Job' objects that are in the specified pipeline.
 ljbprsJobs :: Lens' ListJobsByPipelineResponse [Job']
 ljbprsJobs = lens _ljbprsJobs (\ s a -> s{_ljbprsJobs = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ljbprsStatus :: Lens' ListJobsByPipelineResponse Int
 ljbprsStatus = lens _ljbprsStatus (\ s a -> s{_ljbprsStatus = a});

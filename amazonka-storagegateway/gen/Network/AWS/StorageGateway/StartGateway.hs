@@ -36,14 +36,14 @@
 module Network.AWS.StorageGateway.StartGateway
     (
     -- * Creating a Request
-      StartGateway
-    , startGateway
+      startGateway
+    , StartGateway
     -- * Request Lenses
     , sgGatewayARN
 
     -- * Destructuring the Response
-    , StartGatewayResponse
     , startGatewayResponse
+    , StartGatewayResponse
     -- * Response Lenses
     , srsGatewayARN
     , srsStatus
@@ -58,16 +58,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing the of the gateway to start.
 --
 -- /See:/ 'startGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sgGatewayARN'
 newtype StartGateway = StartGateway'
     { _sgGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartGateway' smart constructor.
-startGateway :: Text -> StartGateway
+-- | Creates a value of 'StartGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sgGatewayARN'
+startGateway
+    :: Text -- ^ 'sgGatewayARN'
+    -> StartGateway
 startGateway pGatewayARN_ =
     StartGateway'
     { _sgGatewayARN = pGatewayARN_
@@ -110,19 +112,21 @@ instance ToQuery StartGateway where
 -- | A JSON object containing the of the gateway that was restarted.
 --
 -- /See:/ 'startGatewayResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'srsGatewayARN'
---
--- * 'srsStatus'
 data StartGatewayResponse = StartGatewayResponse'
     { _srsGatewayARN :: !(Maybe Text)
     , _srsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartGatewayResponse' smart constructor.
-startGatewayResponse :: Int -> StartGatewayResponse
+-- | Creates a value of 'StartGatewayResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srsGatewayARN'
+--
+-- * 'srsStatus'
+startGatewayResponse
+    :: Int -- ^ 'srsStatus'
+    -> StartGatewayResponse
 startGatewayResponse pStatus_ =
     StartGatewayResponse'
     { _srsGatewayARN = Nothing
@@ -133,6 +137,6 @@ startGatewayResponse pStatus_ =
 srsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
 srsGatewayARN = lens _srsGatewayARN (\ s a -> s{_srsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 srsStatus :: Lens' StartGatewayResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

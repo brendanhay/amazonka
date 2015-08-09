@@ -33,14 +33,14 @@
 module Network.AWS.Route53Domains.EnableDomainAutoRenew
     (
     -- * Creating a Request
-      EnableDomainAutoRenew
-    , enableDomainAutoRenew
+      enableDomainAutoRenew
+    , EnableDomainAutoRenew
     -- * Request Lenses
     , edarDomainName
 
     -- * Destructuring the Response
-    , EnableDomainAutoRenewResponse
     , enableDomainAutoRenewResponse
+    , EnableDomainAutoRenewResponse
     -- * Response Lenses
     , edarrsStatus
     ) where
@@ -52,16 +52,18 @@ import           Network.AWS.Route53Domains.Types
 import           Network.AWS.Route53Domains.Types.Product
 
 -- | /See:/ 'enableDomainAutoRenew' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'edarDomainName'
 newtype EnableDomainAutoRenew = EnableDomainAutoRenew'
     { _edarDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableDomainAutoRenew' smart constructor.
-enableDomainAutoRenew :: Text -> EnableDomainAutoRenew
+-- | Creates a value of 'EnableDomainAutoRenew' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edarDomainName'
+enableDomainAutoRenew
+    :: Text -- ^ 'edarDomainName'
+    -> EnableDomainAutoRenew
 enableDomainAutoRenew pDomainName_ =
     EnableDomainAutoRenew'
     { _edarDomainName = pDomainName_
@@ -103,21 +105,23 @@ instance ToQuery EnableDomainAutoRenew where
         toQuery = const mempty
 
 -- | /See:/ 'enableDomainAutoRenewResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'edarrsStatus'
 newtype EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse'
     { _edarrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableDomainAutoRenewResponse' smart constructor.
-enableDomainAutoRenewResponse :: Int -> EnableDomainAutoRenewResponse
+-- | Creates a value of 'EnableDomainAutoRenewResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edarrsStatus'
+enableDomainAutoRenewResponse
+    :: Int -- ^ 'edarrsStatus'
+    -> EnableDomainAutoRenewResponse
 enableDomainAutoRenewResponse pStatus_ =
     EnableDomainAutoRenewResponse'
     { _edarrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 edarrsStatus :: Lens' EnableDomainAutoRenewResponse Int
 edarrsStatus = lens _edarrsStatus (\ s a -> s{_edarrsStatus = a});

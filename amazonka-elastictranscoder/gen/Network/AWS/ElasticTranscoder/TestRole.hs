@@ -20,7 +20,7 @@
 --
 -- The TestRole operation tests the IAM role used to create the pipeline.
 --
--- The @TestRole@ action lets you determine whether the IAM role you are
+-- The 'TestRole' action lets you determine whether the IAM role you are
 -- using has sufficient permissions to let Elastic Transcoder perform tasks
 -- associated with the transcoding process. The action attempts to assume
 -- the specified IAM role, checks read access to the input and output
@@ -31,8 +31,8 @@
 module Network.AWS.ElasticTranscoder.TestRole
     (
     -- * Creating a Request
-      TestRole
-    , testRole
+      testRole
+    , TestRole
     -- * Request Lenses
     , trRole
     , trInputBucket
@@ -40,8 +40,8 @@ module Network.AWS.ElasticTranscoder.TestRole
     , trTopics
 
     -- * Destructuring the Response
-    , TestRoleResponse
     , testRoleResponse
+    , TestRoleResponse
     -- * Response Lenses
     , trrsSuccess
     , trrsMessages
@@ -54,11 +54,19 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @TestRoleRequest@ structure.
+-- | The 'TestRoleRequest' structure.
 --
 -- /See:/ 'testRole' smart constructor.
+data TestRole = TestRole'
+    { _trRole         :: !Text
+    , _trInputBucket  :: !Text
+    , _trOutputBucket :: !Text
+    , _trTopics       :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TestRole' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'trRole'
 --
@@ -67,15 +75,11 @@ import           Network.AWS.Response
 -- * 'trOutputBucket'
 --
 -- * 'trTopics'
-data TestRole = TestRole'
-    { _trRole         :: !Text
-    , _trInputBucket  :: !Text
-    , _trOutputBucket :: !Text
-    , _trTopics       :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TestRole' smart constructor.
-testRole :: Text -> Text -> Text -> TestRole
+testRole
+    :: Text -- ^ 'trRole'
+    -> Text -- ^ 'trInputBucket'
+    -> Text -- ^ 'trOutputBucket'
+    -> TestRole
 testRole pRole_ pInputBucket_ pOutputBucket_ =
     TestRole'
     { _trRole = pRole_
@@ -131,25 +135,27 @@ instance ToPath TestRole where
 instance ToQuery TestRole where
         toQuery = const mempty
 
--- | The @TestRoleResponse@ structure.
+-- | The 'TestRoleResponse' structure.
 --
 -- /See:/ 'testRoleResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'trrsSuccess'
---
--- * 'trrsMessages'
---
--- * 'trrsStatus'
 data TestRoleResponse = TestRoleResponse'
     { _trrsSuccess  :: !(Maybe Text)
     , _trrsMessages :: !(Maybe [Text])
     , _trrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TestRoleResponse' smart constructor.
-testRoleResponse :: Int -> TestRoleResponse
+-- | Creates a value of 'TestRoleResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'trrsSuccess'
+--
+-- * 'trrsMessages'
+--
+-- * 'trrsStatus'
+testRoleResponse
+    :: Int -- ^ 'trrsStatus'
+    -> TestRoleResponse
 testRoleResponse pStatus_ =
     TestRoleResponse'
     { _trrsSuccess = Nothing
@@ -157,16 +163,16 @@ testRoleResponse pStatus_ =
     , _trrsStatus = pStatus_
     }
 
--- | If the operation is successful, this value is @true@; otherwise, the
--- value is @false@.
+-- | If the operation is successful, this value is 'true'; otherwise, the
+-- value is 'false'.
 trrsSuccess :: Lens' TestRoleResponse (Maybe Text)
 trrsSuccess = lens _trrsSuccess (\ s a -> s{_trrsSuccess = a});
 
--- | If the @Success@ element contains @false@, this value is an array of one
+-- | If the 'Success' element contains 'false', this value is an array of one
 -- or more error messages that were generated during the test process.
 trrsMessages :: Lens' TestRoleResponse [Text]
 trrsMessages = lens _trrsMessages (\ s a -> s{_trrsMessages = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 trrsStatus :: Lens' TestRoleResponse Int
 trrsStatus = lens _trrsStatus (\ s a -> s{_trrsStatus = a});

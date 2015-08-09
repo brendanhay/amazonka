@@ -24,19 +24,20 @@ import           Network.AWS.SNS.Types.Sum
 -- | Endpoint for mobile app and device.
 --
 -- /See:/ 'endpoint' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'eAttributes'
---
--- * 'eEndpointARN'
 data Endpoint = Endpoint'
     { _eAttributes  :: !(Maybe (Map Text Text))
     , _eEndpointARN :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Endpoint' smart constructor.
-endpoint :: Endpoint
+-- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eAttributes'
+--
+-- * 'eEndpointARN'
+endpoint
+    :: Endpoint
 endpoint =
     Endpoint'
     { _eAttributes = Nothing
@@ -79,22 +80,24 @@ instance ToQuery Endpoint where
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html Using Amazon SNS Message Attributes>.
 --
 -- /See:/ 'messageAttributeValue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mavBinaryValue'
---
--- * 'mavStringValue'
---
--- * 'mavDataType'
 data MessageAttributeValue = MessageAttributeValue'
     { _mavBinaryValue :: !(Maybe Base64)
     , _mavStringValue :: !(Maybe Text)
     , _mavDataType    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MessageAttributeValue' smart constructor.
-messageAttributeValue :: Text -> MessageAttributeValue
+-- | Creates a value of 'MessageAttributeValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mavBinaryValue'
+--
+-- * 'mavStringValue'
+--
+-- * 'mavDataType'
+messageAttributeValue
+    :: Text -- ^ 'mavDataType'
+    -> MessageAttributeValue
 messageAttributeValue pDataType_ =
     MessageAttributeValue'
     { _mavBinaryValue = Nothing
@@ -129,19 +132,20 @@ instance ToQuery MessageAttributeValue where
 -- | Platform application object.
 --
 -- /See:/ 'platformApplication' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'paPlatformApplicationARN'
---
--- * 'paAttributes'
 data PlatformApplication = PlatformApplication'
     { _paPlatformApplicationARN :: !(Maybe Text)
     , _paAttributes             :: !(Maybe (Map Text Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PlatformApplication' smart constructor.
-platformApplication :: PlatformApplication
+-- | Creates a value of 'PlatformApplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'paPlatformApplicationARN'
+--
+-- * 'paAttributes'
+platformApplication
+    :: PlatformApplication
 platformApplication =
     PlatformApplication'
     { _paPlatformApplicationARN = Nothing
@@ -166,8 +170,17 @@ instance FromXML PlatformApplication where
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
 --
 -- /See:/ 'subscription' smart constructor.
+data Subscription = Subscription'
+    { _sProtocol        :: !(Maybe Text)
+    , _sOwner           :: !(Maybe Text)
+    , _sTopicARN        :: !(Maybe Text)
+    , _sEndpoint        :: !(Maybe Endpoint)
+    , _sSubscriptionARN :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Subscription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sProtocol'
 --
@@ -178,16 +191,8 @@ instance FromXML PlatformApplication where
 -- * 'sEndpoint'
 --
 -- * 'sSubscriptionARN'
-data Subscription = Subscription'
-    { _sProtocol        :: !(Maybe Text)
-    , _sOwner           :: !(Maybe Text)
-    , _sTopicARN        :: !(Maybe Text)
-    , _sEndpoint        :: !(Maybe Endpoint)
-    , _sSubscriptionARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Subscription' smart constructor.
-subscription :: Subscription
+subscription
+    :: Subscription
 subscription =
     Subscription'
     { _sProtocol = Nothing
@@ -226,19 +231,20 @@ instance FromXML Subscription where
                 <*> (x .@? "SubscriptionArn")
 
 -- | A wrapper type for the topic\'s Amazon Resource Name (ARN). To retrieve
--- a topic\'s attributes, use @GetTopicAttributes@.
+-- a topic\'s attributes, use 'GetTopicAttributes'.
 --
 -- /See:/ 'topic' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tTopicARN'
 newtype Topic = Topic'
     { _tTopicARN :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Topic' smart constructor.
-topic :: Topic
+-- | Creates a value of 'Topic' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tTopicARN'
+topic
+    :: Topic
 topic =
     Topic'
     { _tTopicARN = Nothing

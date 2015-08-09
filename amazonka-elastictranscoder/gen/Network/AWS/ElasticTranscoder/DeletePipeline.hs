@@ -22,20 +22,20 @@
 --
 -- You can only delete a pipeline that has never been used or that is not
 -- currently in use (doesn\'t contain any active jobs). If the pipeline is
--- currently in use, @DeletePipeline@ returns an error.
+-- currently in use, 'DeletePipeline' returns an error.
 --
 -- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePipeline.html AWS API Reference> for DeletePipeline.
 module Network.AWS.ElasticTranscoder.DeletePipeline
     (
     -- * Creating a Request
-      DeletePipeline
-    , deletePipeline
+      deletePipeline
+    , DeletePipeline
     -- * Request Lenses
     , dId
 
     -- * Destructuring the Response
-    , DeletePipelineResponse
     , deletePipelineResponse
+    , DeletePipelineResponse
     -- * Response Lenses
     , drsStatus
     ) where
@@ -46,19 +46,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @DeletePipelineRequest@ structure.
+-- | The 'DeletePipelineRequest' structure.
 --
 -- /See:/ 'deletePipeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dId'
 newtype DeletePipeline = DeletePipeline'
     { _dId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePipeline' smart constructor.
-deletePipeline :: Text -> DeletePipeline
+-- | Creates a value of 'DeletePipeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dId'
+deletePipeline
+    :: Text -- ^ 'dId'
+    -> DeletePipeline
 deletePipeline pId_ =
     DeletePipeline'
     { _dId = pId_
@@ -87,24 +89,26 @@ instance ToPath DeletePipeline where
 instance ToQuery DeletePipeline where
         toQuery = const mempty
 
--- | The @DeletePipelineResponse@ structure.
+-- | The 'DeletePipelineResponse' structure.
 --
 -- /See:/ 'deletePipelineResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsStatus'
 newtype DeletePipelineResponse = DeletePipelineResponse'
     { _drsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePipelineResponse' smart constructor.
-deletePipelineResponse :: Int -> DeletePipelineResponse
+-- | Creates a value of 'DeletePipelineResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsStatus'
+deletePipelineResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeletePipelineResponse
 deletePipelineResponse pStatus_ =
     DeletePipelineResponse'
     { _drsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeletePipelineResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

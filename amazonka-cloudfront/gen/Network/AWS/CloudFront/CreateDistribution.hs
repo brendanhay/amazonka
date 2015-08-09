@@ -24,14 +24,14 @@
 module Network.AWS.CloudFront.CreateDistribution
     (
     -- * Creating a Request
-      CreateDistribution
-    , createDistribution
+      createDistribution
+    , CreateDistribution
     -- * Request Lenses
     , cdDistributionConfig
 
     -- * Destructuring the Response
-    , CreateDistributionResponse
     , createDistributionResponse
+    , CreateDistributionResponse
     -- * Response Lenses
     , cdrsETag
     , cdrsDistribution
@@ -48,16 +48,18 @@ import           Network.AWS.Response
 -- | The request to create a new distribution.
 --
 -- /See:/ 'createDistribution' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdDistributionConfig'
 newtype CreateDistribution = CreateDistribution'
     { _cdDistributionConfig :: DistributionConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDistribution' smart constructor.
-createDistribution :: DistributionConfig -> CreateDistribution
+-- | Creates a value of 'CreateDistribution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdDistributionConfig'
+createDistribution
+    :: DistributionConfig -- ^ 'cdDistributionConfig'
+    -> CreateDistribution
 createDistribution pDistributionConfig_ =
     CreateDistribution'
     { _cdDistributionConfig = pDistributionConfig_
@@ -99,8 +101,16 @@ instance ToQuery CreateDistribution where
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'createDistributionResponse' smart constructor.
+data CreateDistributionResponse = CreateDistributionResponse'
+    { _cdrsETag         :: !(Maybe Text)
+    , _cdrsDistribution :: !(Maybe Distribution)
+    , _cdrsLocation     :: !(Maybe Text)
+    , _cdrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDistributionResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdrsETag'
 --
@@ -109,15 +119,9 @@ instance ToQuery CreateDistribution where
 -- * 'cdrsLocation'
 --
 -- * 'cdrsStatus'
-data CreateDistributionResponse = CreateDistributionResponse'
-    { _cdrsETag         :: !(Maybe Text)
-    , _cdrsDistribution :: !(Maybe Distribution)
-    , _cdrsLocation     :: !(Maybe Text)
-    , _cdrsStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateDistributionResponse' smart constructor.
-createDistributionResponse :: Int -> CreateDistributionResponse
+createDistributionResponse
+    :: Int -- ^ 'cdrsStatus'
+    -> CreateDistributionResponse
 createDistributionResponse pStatus_ =
     CreateDistributionResponse'
     { _cdrsETag = Nothing
@@ -140,6 +144,6 @@ cdrsDistribution = lens _cdrsDistribution (\ s a -> s{_cdrsDistribution = a});
 cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
 cdrsLocation = lens _cdrsLocation (\ s a -> s{_cdrsLocation = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdrsStatus :: Lens' CreateDistributionResponse Int
 cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

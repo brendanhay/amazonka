@@ -26,14 +26,14 @@
 module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
     (
     -- * Creating a Request
-      DeleteRetentionPolicy
-    , deleteRetentionPolicy
+      deleteRetentionPolicy
+    , DeleteRetentionPolicy
     -- * Request Lenses
     , drpLogGroupName
 
     -- * Destructuring the Response
-    , DeleteRetentionPolicyResponse
     , deleteRetentionPolicyResponse
+    , DeleteRetentionPolicyResponse
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -43,16 +43,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteRetentionPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drpLogGroupName'
 newtype DeleteRetentionPolicy = DeleteRetentionPolicy'
     { _drpLogGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRetentionPolicy' smart constructor.
-deleteRetentionPolicy :: Text -> DeleteRetentionPolicy
+-- | Creates a value of 'DeleteRetentionPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drpLogGroupName'
+deleteRetentionPolicy
+    :: Text -- ^ 'drpLogGroupName'
+    -> DeleteRetentionPolicy
 deleteRetentionPolicy pLogGroupName_ =
     DeleteRetentionPolicy'
     { _drpLogGroupName = pLogGroupName_
@@ -95,6 +97,8 @@ data DeleteRetentionPolicyResponse =
     DeleteRetentionPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRetentionPolicyResponse' smart constructor.
-deleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse
+-- | Creates a value of 'DeleteRetentionPolicyResponse' with the minimum fields required to make a request.
+--
+deleteRetentionPolicyResponse
+    :: DeleteRetentionPolicyResponse
 deleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'

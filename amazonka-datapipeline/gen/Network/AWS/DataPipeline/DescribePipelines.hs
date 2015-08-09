@@ -33,14 +33,14 @@
 module Network.AWS.DataPipeline.DescribePipelines
     (
     -- * Creating a Request
-      DescribePipelines
-    , describePipelines
+      describePipelines
+    , DescribePipelines
     -- * Request Lenses
     , dpPipelineIds
 
     -- * Destructuring the Response
-    , DescribePipelinesResponse
     , describePipelinesResponse
+    , DescribePipelinesResponse
     -- * Response Lenses
     , dprsStatus
     , dprsPipelineDescriptionList
@@ -55,16 +55,17 @@ import           Network.AWS.Response
 -- | Contains the parameters for DescribePipelines.
 --
 -- /See:/ 'describePipelines' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpPipelineIds'
 newtype DescribePipelines = DescribePipelines'
     { _dpPipelineIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribePipelines' smart constructor.
-describePipelines :: DescribePipelines
+-- | Creates a value of 'DescribePipelines' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpPipelineIds'
+describePipelines
+    :: DescribePipelines
 describePipelines =
     DescribePipelines'
     { _dpPipelineIds = mempty
@@ -109,26 +110,28 @@ instance ToQuery DescribePipelines where
 -- | Contains the output of DescribePipelines.
 --
 -- /See:/ 'describePipelinesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dprsStatus'
---
--- * 'dprsPipelineDescriptionList'
 data DescribePipelinesResponse = DescribePipelinesResponse'
     { _dprsStatus                  :: !Int
     , _dprsPipelineDescriptionList :: ![PipelineDescription]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribePipelinesResponse' smart constructor.
-describePipelinesResponse :: Int -> DescribePipelinesResponse
+-- | Creates a value of 'DescribePipelinesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dprsStatus'
+--
+-- * 'dprsPipelineDescriptionList'
+describePipelinesResponse
+    :: Int -- ^ 'dprsStatus'
+    -> DescribePipelinesResponse
 describePipelinesResponse pStatus_ =
     DescribePipelinesResponse'
     { _dprsStatus = pStatus_
     , _dprsPipelineDescriptionList = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 dprsStatus :: Lens' DescribePipelinesResponse Int
 dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});
 

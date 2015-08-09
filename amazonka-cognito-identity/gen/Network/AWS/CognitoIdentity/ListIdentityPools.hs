@@ -26,15 +26,15 @@
 module Network.AWS.CognitoIdentity.ListIdentityPools
     (
     -- * Creating a Request
-      ListIdentityPools
-    , listIdentityPools
+      listIdentityPools
+    , ListIdentityPools
     -- * Request Lenses
     , lipNextToken
     , lipMaxResults
 
     -- * Destructuring the Response
-    , ListIdentityPoolsResponse
     , listIdentityPoolsResponse
+    , ListIdentityPoolsResponse
     -- * Response Lenses
     , liprsIdentityPools
     , liprsNextToken
@@ -50,19 +50,21 @@ import           Network.AWS.Response
 -- | Input to the ListIdentityPools action.
 --
 -- /See:/ 'listIdentityPools' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lipNextToken'
---
--- * 'lipMaxResults'
 data ListIdentityPools = ListIdentityPools'
     { _lipNextToken  :: !(Maybe Text)
     , _lipMaxResults :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListIdentityPools' smart constructor.
-listIdentityPools :: Natural -> ListIdentityPools
+-- | Creates a value of 'ListIdentityPools' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lipNextToken'
+--
+-- * 'lipMaxResults'
+listIdentityPools
+    :: Natural -- ^ 'lipMaxResults'
+    -> ListIdentityPools
 listIdentityPools pMaxResults_ =
     ListIdentityPools'
     { _lipNextToken = Nothing
@@ -114,22 +116,24 @@ instance ToQuery ListIdentityPools where
 -- | The result of a successful ListIdentityPools action.
 --
 -- /See:/ 'listIdentityPoolsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'liprsIdentityPools'
---
--- * 'liprsNextToken'
---
--- * 'liprsStatus'
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
     { _liprsIdentityPools :: !(Maybe [IdentityPoolShortDescription])
     , _liprsNextToken     :: !(Maybe Text)
     , _liprsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListIdentityPoolsResponse' smart constructor.
-listIdentityPoolsResponse :: Int -> ListIdentityPoolsResponse
+-- | Creates a value of 'ListIdentityPoolsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'liprsIdentityPools'
+--
+-- * 'liprsNextToken'
+--
+-- * 'liprsStatus'
+listIdentityPoolsResponse
+    :: Int -- ^ 'liprsStatus'
+    -> ListIdentityPoolsResponse
 listIdentityPoolsResponse pStatus_ =
     ListIdentityPoolsResponse'
     { _liprsIdentityPools = Nothing
@@ -145,6 +149,6 @@ liprsIdentityPools = lens _liprsIdentityPools (\ s a -> s{_liprsIdentityPools = 
 liprsNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
 liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 liprsStatus :: Lens' ListIdentityPoolsResponse Int
 liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});

@@ -62,7 +62,6 @@ module Network.AWS.AutoScaling
 
     -- ** DescribeTags (Paginated)
     , module Network.AWS.AutoScaling.DescribeTags
-    -- $pager
 
     -- ** DeleteLaunchConfiguration
     , module Network.AWS.AutoScaling.DeleteLaunchConfiguration
@@ -90,7 +89,6 @@ module Network.AWS.AutoScaling
 
     -- ** DescribeAutoScalingInstances (Paginated)
     , module Network.AWS.AutoScaling.DescribeAutoScalingInstances
-    -- $pager
 
     -- ** DetachInstances
     , module Network.AWS.AutoScaling.DetachInstances
@@ -115,7 +113,6 @@ module Network.AWS.AutoScaling
 
     -- ** DescribeAutoScalingGroups (Paginated)
     , module Network.AWS.AutoScaling.DescribeAutoScalingGroups
-    -- $pager
 
     -- ** SetDesiredCapacity
     , module Network.AWS.AutoScaling.SetDesiredCapacity
@@ -143,7 +140,6 @@ module Network.AWS.AutoScaling
 
     -- ** DescribeScheduledActions (Paginated)
     , module Network.AWS.AutoScaling.DescribeScheduledActions
-    -- $pager
 
     -- ** DeleteAutoScalingGroup
     , module Network.AWS.AutoScaling.DeleteAutoScalingGroup
@@ -177,22 +173,18 @@ module Network.AWS.AutoScaling
 
     -- ** DescribePolicies (Paginated)
     , module Network.AWS.AutoScaling.DescribePolicies
-    -- $pager
 
     -- ** DescribeNotificationConfigurations (Paginated)
     , module Network.AWS.AutoScaling.DescribeNotificationConfigurations
-    -- $pager
 
     -- ** DescribeLaunchConfigurations (Paginated)
     , module Network.AWS.AutoScaling.DescribeLaunchConfigurations
-    -- $pager
 
     -- ** DescribeLifecycleHookTypes
     , module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
 
     -- ** DescribeScalingActivities (Paginated)
     , module Network.AWS.AutoScaling.DescribeScalingActivities
-    -- $pager
 
     -- ** CreateAutoScalingGroup
     , module Network.AWS.AutoScaling.CreateAutoScalingGroup
@@ -525,8 +517,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

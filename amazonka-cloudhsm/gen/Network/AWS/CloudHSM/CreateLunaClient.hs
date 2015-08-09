@@ -24,15 +24,15 @@
 module Network.AWS.CloudHSM.CreateLunaClient
     (
     -- * Creating a Request
-      CreateLunaClient
-    , createLunaClient
+      createLunaClient
+    , CreateLunaClient
     -- * Request Lenses
     , clcLabel
     , clcCertificate
 
     -- * Destructuring the Response
-    , CreateLunaClientResponse
     , createLunaClientResponse
+    , CreateLunaClientResponse
     -- * Response Lenses
     , clcrsClientARN
     , clcrsStatus
@@ -47,19 +47,21 @@ import           Network.AWS.Response
 -- | Contains the inputs for the CreateLunaClient action.
 --
 -- /See:/ 'createLunaClient' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clcLabel'
---
--- * 'clcCertificate'
 data CreateLunaClient = CreateLunaClient'
     { _clcLabel       :: !(Maybe Text)
     , _clcCertificate :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLunaClient' smart constructor.
-createLunaClient :: Text -> CreateLunaClient
+-- | Creates a value of 'CreateLunaClient' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clcLabel'
+--
+-- * 'clcCertificate'
+createLunaClient
+    :: Text -- ^ 'clcCertificate'
+    -> CreateLunaClient
 createLunaClient pCertificate_ =
     CreateLunaClient'
     { _clcLabel = Nothing
@@ -110,19 +112,21 @@ instance ToQuery CreateLunaClient where
 -- | Contains the output of the CreateLunaClient action.
 --
 -- /See:/ 'createLunaClientResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clcrsClientARN'
---
--- * 'clcrsStatus'
 data CreateLunaClientResponse = CreateLunaClientResponse'
     { _clcrsClientARN :: !(Maybe Text)
     , _clcrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLunaClientResponse' smart constructor.
-createLunaClientResponse :: Int -> CreateLunaClientResponse
+-- | Creates a value of 'CreateLunaClientResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clcrsClientARN'
+--
+-- * 'clcrsStatus'
+createLunaClientResponse
+    :: Int -- ^ 'clcrsStatus'
+    -> CreateLunaClientResponse
 createLunaClientResponse pStatus_ =
     CreateLunaClientResponse'
     { _clcrsClientARN = Nothing
@@ -133,6 +137,6 @@ createLunaClientResponse pStatus_ =
 clcrsClientARN :: Lens' CreateLunaClientResponse (Maybe Text)
 clcrsClientARN = lens _clcrsClientARN (\ s a -> s{_clcrsClientARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 clcrsStatus :: Lens' CreateLunaClientResponse Int
 clcrsStatus = lens _clcrsStatus (\ s a -> s{_clcrsStatus = a});

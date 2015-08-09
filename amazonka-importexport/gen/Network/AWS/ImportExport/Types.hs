@@ -191,7 +191,7 @@ _MissingManifestFieldException =
 
 -- | Each account can create only a certain number of jobs per day. If you
 -- need to create more than this, please contact
--- awsimportexport\@amazon.com to explain your particular use case.
+-- awsimportexport\'amazon.com to explain your particular use case.
 _CreateJobQuotaExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 _CreateJobQuotaExceededException =
     _ServiceError . hasCode "CreateJobQuotaExceededException"

@@ -36,15 +36,15 @@
 module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     (
     -- * Creating a Request
-      DescribeVirtualInterfaces
-    , describeVirtualInterfaces
+      describeVirtualInterfaces
+    , DescribeVirtualInterfaces
     -- * Request Lenses
     , dviConnectionId
     , dviVirtualInterfaceId
 
     -- * Destructuring the Response
-    , DescribeVirtualInterfacesResponse
     , describeVirtualInterfacesResponse
+    , DescribeVirtualInterfacesResponse
     -- * Response Lenses
     , dvisrsVirtualInterfaces
     , dvisrsStatus
@@ -59,19 +59,20 @@ import           Network.AWS.Response
 -- | Container for the parameters to the DescribeVirtualInterfaces operation.
 --
 -- /See:/ 'describeVirtualInterfaces' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dviConnectionId'
---
--- * 'dviVirtualInterfaceId'
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
     { _dviConnectionId       :: !(Maybe Text)
     , _dviVirtualInterfaceId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVirtualInterfaces' smart constructor.
-describeVirtualInterfaces :: DescribeVirtualInterfaces
+-- | Creates a value of 'DescribeVirtualInterfaces' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dviConnectionId'
+--
+-- * 'dviVirtualInterfaceId'
+describeVirtualInterfaces
+    :: DescribeVirtualInterfaces
 describeVirtualInterfaces =
     DescribeVirtualInterfaces'
     { _dviConnectionId = Nothing
@@ -123,19 +124,21 @@ instance ToQuery DescribeVirtualInterfaces where
 -- | A structure containing a list of virtual interfaces.
 --
 -- /See:/ 'describeVirtualInterfacesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvisrsVirtualInterfaces'
---
--- * 'dvisrsStatus'
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
     { _dvisrsVirtualInterfaces :: !(Maybe [VirtualInterface])
     , _dvisrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVirtualInterfacesResponse' smart constructor.
-describeVirtualInterfacesResponse :: Int -> DescribeVirtualInterfacesResponse
+-- | Creates a value of 'DescribeVirtualInterfacesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvisrsVirtualInterfaces'
+--
+-- * 'dvisrsStatus'
+describeVirtualInterfacesResponse
+    :: Int -- ^ 'dvisrsStatus'
+    -> DescribeVirtualInterfacesResponse
 describeVirtualInterfacesResponse pStatus_ =
     DescribeVirtualInterfacesResponse'
     { _dvisrsVirtualInterfaces = Nothing
@@ -146,6 +149,6 @@ describeVirtualInterfacesResponse pStatus_ =
 dvisrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
 dvisrsVirtualInterfaces = lens _dvisrsVirtualInterfaces (\ s a -> s{_dvisrsVirtualInterfaces = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dvisrsStatus :: Lens' DescribeVirtualInterfacesResponse Int
 dvisrsStatus = lens _dvisrsStatus (\ s a -> s{_dvisrsStatus = a});

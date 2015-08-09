@@ -27,15 +27,15 @@
 module Network.AWS.IAM.UpdateSAMLProvider
     (
     -- * Creating a Request
-      UpdateSAMLProvider
-    , updateSAMLProvider
+      updateSAMLProvider
+    , UpdateSAMLProvider
     -- * Request Lenses
     , usamlpSAMLMetadataDocument
     , usamlpSAMLProviderARN
 
     -- * Destructuring the Response
-    , UpdateSAMLProviderResponse
     , updateSAMLProviderResponse
+    , UpdateSAMLProviderResponse
     -- * Response Lenses
     , usamlprsSAMLProviderARN
     , usamlprsStatus
@@ -48,19 +48,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateSAMLProvider' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'usamlpSAMLMetadataDocument'
---
--- * 'usamlpSAMLProviderARN'
 data UpdateSAMLProvider = UpdateSAMLProvider'
     { _usamlpSAMLMetadataDocument :: !Text
     , _usamlpSAMLProviderARN      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateSAMLProvider' smart constructor.
-updateSAMLProvider :: Text -> Text -> UpdateSAMLProvider
+-- | Creates a value of 'UpdateSAMLProvider' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'usamlpSAMLMetadataDocument'
+--
+-- * 'usamlpSAMLProviderARN'
+updateSAMLProvider
+    :: Text -- ^ 'usamlpSAMLMetadataDocument'
+    -> Text -- ^ 'usamlpSAMLProviderARN'
+    -> UpdateSAMLProvider
 updateSAMLProvider pSAMLMetadataDocument_ pSAMLProviderARN_ =
     UpdateSAMLProvider'
     { _usamlpSAMLMetadataDocument = pSAMLMetadataDocument_
@@ -109,19 +112,21 @@ instance ToQuery UpdateSAMLProvider where
 -- | Contains the response to a successful UpdateSAMLProvider request.
 --
 -- /See:/ 'updateSAMLProviderResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'usamlprsSAMLProviderARN'
---
--- * 'usamlprsStatus'
 data UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'
     { _usamlprsSAMLProviderARN :: !(Maybe Text)
     , _usamlprsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateSAMLProviderResponse' smart constructor.
-updateSAMLProviderResponse :: Int -> UpdateSAMLProviderResponse
+-- | Creates a value of 'UpdateSAMLProviderResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'usamlprsSAMLProviderARN'
+--
+-- * 'usamlprsStatus'
+updateSAMLProviderResponse
+    :: Int -- ^ 'usamlprsStatus'
+    -> UpdateSAMLProviderResponse
 updateSAMLProviderResponse pStatus_ =
     UpdateSAMLProviderResponse'
     { _usamlprsSAMLProviderARN = Nothing
@@ -132,6 +137,6 @@ updateSAMLProviderResponse pStatus_ =
 usamlprsSAMLProviderARN :: Lens' UpdateSAMLProviderResponse (Maybe Text)
 usamlprsSAMLProviderARN = lens _usamlprsSAMLProviderARN (\ s a -> s{_usamlprsSAMLProviderARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 usamlprsStatus :: Lens' UpdateSAMLProviderResponse Int
 usamlprsStatus = lens _usamlprsStatus (\ s a -> s{_usamlprsStatus = a});

@@ -21,21 +21,21 @@
 -- Deletes a stream and all its shards and data. You must shut down any
 -- applications that are operating on the stream before you delete the
 -- stream. If an application attempts to operate on a deleted stream, it
--- will receive the exception @ResourceNotFoundException@.
+-- will receive the exception 'ResourceNotFoundException'.
 --
--- If the stream is in the @ACTIVE@ state, you can delete it. After a
--- @DeleteStream@ request, the specified stream is in the @DELETING@ state
+-- If the stream is in the 'ACTIVE' state, you can delete it. After a
+-- 'DeleteStream' request, the specified stream is in the 'DELETING' state
 -- until Amazon Kinesis completes the deletion.
 --
 -- __Note:__ Amazon Kinesis might continue to accept data read and write
 -- operations, such as PutRecord, PutRecords, and GetRecords, on a stream
--- in the @DELETING@ state until the stream deletion is complete.
+-- in the 'DELETING' state until the stream deletion is complete.
 --
 -- When you delete a stream, any shards in that stream are also deleted,
 -- and any tags are dissociated from the stream.
 --
 -- You can use the DescribeStream operation to check the state of the
--- stream, which is returned in @StreamStatus@.
+-- stream, which is returned in 'StreamStatus'.
 --
 -- DeleteStream has a limit of 5 transactions per second per account.
 --
@@ -43,14 +43,14 @@
 module Network.AWS.Kinesis.DeleteStream
     (
     -- * Creating a Request
-      DeleteStream
-    , deleteStream
+      deleteStream
+    , DeleteStream
     -- * Request Lenses
     , dsStreamName
 
     -- * Destructuring the Response
-    , DeleteStreamResponse
     , deleteStreamResponse
+    , DeleteStreamResponse
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -59,19 +59,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for @DeleteStream@.
+-- | Represents the input for 'DeleteStream'.
 --
 -- /See:/ 'deleteStream' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsStreamName'
 newtype DeleteStream = DeleteStream'
     { _dsStreamName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteStream' smart constructor.
-deleteStream :: Text -> DeleteStream
+-- | Creates a value of 'DeleteStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsStreamName'
+deleteStream
+    :: Text -- ^ 'dsStreamName'
+    -> DeleteStream
 deleteStream pStreamName_ =
     DeleteStream'
     { _dsStreamName = pStreamName_
@@ -111,6 +113,8 @@ data DeleteStreamResponse =
     DeleteStreamResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteStreamResponse' smart constructor.
-deleteStreamResponse :: DeleteStreamResponse
+-- | Creates a value of 'DeleteStreamResponse' with the minimum fields required to make a request.
+--
+deleteStreamResponse
+    :: DeleteStreamResponse
 deleteStreamResponse = DeleteStreamResponse'

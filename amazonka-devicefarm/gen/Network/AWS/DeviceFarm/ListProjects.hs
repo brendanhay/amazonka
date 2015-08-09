@@ -24,15 +24,15 @@
 module Network.AWS.DeviceFarm.ListProjects
     (
     -- * Creating a Request
-      ListProjects
-    , listProjects
+      listProjects
+    , ListProjects
     -- * Request Lenses
     , lpArn
     , lpNextToken
 
     -- * Destructuring the Response
-    , ListProjectsResponse
     , listProjectsResponse
+    , ListProjectsResponse
     -- * Response Lenses
     , lprsNextToken
     , lprsProjects
@@ -48,19 +48,20 @@ import           Network.AWS.Response
 -- | Represents a request to the list projects operation.
 --
 -- /See:/ 'listProjects' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lpArn'
---
--- * 'lpNextToken'
 data ListProjects = ListProjects'
     { _lpArn       :: !(Maybe Text)
     , _lpNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListProjects' smart constructor.
-listProjects :: ListProjects
+-- | Creates a value of 'ListProjects' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpArn'
+--
+-- * 'lpNextToken'
+listProjects
+    :: ListProjects
 listProjects =
     ListProjects'
     { _lpArn = Nothing
@@ -111,22 +112,24 @@ instance ToQuery ListProjects where
 -- | Represents the result of a list projects request.
 --
 -- /See:/ 'listProjectsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lprsNextToken'
---
--- * 'lprsProjects'
---
--- * 'lprsStatus'
 data ListProjectsResponse = ListProjectsResponse'
     { _lprsNextToken :: !(Maybe Text)
     , _lprsProjects  :: !(Maybe [Project])
     , _lprsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListProjectsResponse' smart constructor.
-listProjectsResponse :: Int -> ListProjectsResponse
+-- | Creates a value of 'ListProjectsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lprsNextToken'
+--
+-- * 'lprsProjects'
+--
+-- * 'lprsStatus'
+listProjectsResponse
+    :: Int -- ^ 'lprsStatus'
+    -> ListProjectsResponse
 listProjectsResponse pStatus_ =
     ListProjectsResponse'
     { _lprsNextToken = Nothing
@@ -144,6 +147,6 @@ lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 lprsProjects :: Lens' ListProjectsResponse [Project]
 lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lprsStatus :: Lens' ListProjectsResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

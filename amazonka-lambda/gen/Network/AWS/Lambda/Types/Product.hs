@@ -25,8 +25,20 @@ import           Network.AWS.Prelude
 -- function.
 --
 -- /See:/ 'eventSourceMappingConfiguration' smart constructor.
+data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
+    { _esmcEventSourceARN        :: !(Maybe Text)
+    , _esmcFunctionARN           :: !(Maybe Text)
+    , _esmcState                 :: !(Maybe Text)
+    , _esmcUUId                  :: !(Maybe Text)
+    , _esmcLastProcessingResult  :: !(Maybe Text)
+    , _esmcBatchSize             :: !(Maybe Nat)
+    , _esmcStateTransitionReason :: !(Maybe Text)
+    , _esmcLastModified          :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EventSourceMappingConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'esmcEventSourceARN'
 --
@@ -43,19 +55,8 @@ import           Network.AWS.Prelude
 -- * 'esmcStateTransitionReason'
 --
 -- * 'esmcLastModified'
-data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
-    { _esmcEventSourceARN        :: !(Maybe Text)
-    , _esmcFunctionARN           :: !(Maybe Text)
-    , _esmcState                 :: !(Maybe Text)
-    , _esmcUUId                  :: !(Maybe Text)
-    , _esmcLastProcessingResult  :: !(Maybe Text)
-    , _esmcBatchSize             :: !(Maybe Nat)
-    , _esmcStateTransitionReason :: !(Maybe Text)
-    , _esmcLastModified          :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EventSourceMappingConfiguration' smart constructor.
-eventSourceMappingConfiguration :: EventSourceMappingConfiguration
+eventSourceMappingConfiguration
+    :: EventSourceMappingConfiguration
 eventSourceMappingConfiguration =
     EventSourceMappingConfiguration'
     { _esmcEventSourceARN = Nothing
@@ -125,8 +126,16 @@ instance FromJSON EventSourceMappingConfiguration
 -- | The code for the Lambda function.
 --
 -- /See:/ 'functionCode' smart constructor.
+data FunctionCode = FunctionCode'
+    { _fcS3ObjectVersion :: !(Maybe Text)
+    , _fcS3Key           :: !(Maybe Text)
+    , _fcZipFile         :: !(Maybe Base64)
+    , _fcS3Bucket        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'FunctionCode' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'fcS3ObjectVersion'
 --
@@ -135,15 +144,8 @@ instance FromJSON EventSourceMappingConfiguration
 -- * 'fcZipFile'
 --
 -- * 'fcS3Bucket'
-data FunctionCode = FunctionCode'
-    { _fcS3ObjectVersion :: !(Maybe Text)
-    , _fcS3Key           :: !(Maybe Text)
-    , _fcZipFile         :: !(Maybe Base64)
-    , _fcS3Bucket        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'FunctionCode' smart constructor.
-functionCode :: FunctionCode
+functionCode
+    :: FunctionCode
 functionCode =
     FunctionCode'
     { _fcS3ObjectVersion = Nothing
@@ -185,19 +187,20 @@ instance ToJSON FunctionCode where
 -- | The object for the Lambda function location.
 --
 -- /See:/ 'functionCodeLocation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fclLocation'
---
--- * 'fclRepositoryType'
 data FunctionCodeLocation = FunctionCodeLocation'
     { _fclLocation       :: !(Maybe Text)
     , _fclRepositoryType :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'FunctionCodeLocation' smart constructor.
-functionCodeLocation :: FunctionCodeLocation
+-- | Creates a value of 'FunctionCodeLocation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fclLocation'
+--
+-- * 'fclRepositoryType'
+functionCodeLocation
+    :: FunctionCodeLocation
 functionCodeLocation =
     FunctionCodeLocation'
     { _fclLocation = Nothing
@@ -223,8 +226,22 @@ instance FromJSON FunctionCodeLocation where
 -- | A complex type that describes function metadata.
 --
 -- /See:/ 'functionConfiguration' smart constructor.
+data FunctionConfiguration = FunctionConfiguration'
+    { _fcRuntime      :: !(Maybe Runtime)
+    , _fcMemorySize   :: !(Maybe Nat)
+    , _fcFunctionARN  :: !(Maybe Text)
+    , _fcRole         :: !(Maybe Text)
+    , _fcFunctionName :: !(Maybe Text)
+    , _fcCodeSize     :: !(Maybe Integer)
+    , _fcHandler      :: !(Maybe Text)
+    , _fcTimeout      :: !(Maybe Nat)
+    , _fcLastModified :: !(Maybe Text)
+    , _fcDescription  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'FunctionConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'fcRuntime'
 --
@@ -245,21 +262,8 @@ instance FromJSON FunctionCodeLocation where
 -- * 'fcLastModified'
 --
 -- * 'fcDescription'
-data FunctionConfiguration = FunctionConfiguration'
-    { _fcRuntime      :: !(Maybe Runtime)
-    , _fcMemorySize   :: !(Maybe Nat)
-    , _fcFunctionARN  :: !(Maybe Text)
-    , _fcRole         :: !(Maybe Text)
-    , _fcFunctionName :: !(Maybe Text)
-    , _fcCodeSize     :: !(Maybe Integer)
-    , _fcHandler      :: !(Maybe Text)
-    , _fcTimeout      :: !(Maybe Nat)
-    , _fcLastModified :: !(Maybe Text)
-    , _fcDescription  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'FunctionConfiguration' smart constructor.
-functionConfiguration :: FunctionConfiguration
+functionConfiguration
+    :: FunctionConfiguration
 functionConfiguration =
     FunctionConfiguration'
     { _fcRuntime = Nothing

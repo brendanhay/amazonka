@@ -24,15 +24,15 @@
 module Network.AWS.KMS.GetKeyPolicy
     (
     -- * Creating a Request
-      GetKeyPolicy
-    , getKeyPolicy
+      getKeyPolicy
+    , GetKeyPolicy
     -- * Request Lenses
     , gkpKeyId
     , gkpPolicyName
 
     -- * Destructuring the Response
-    , GetKeyPolicyResponse
     , getKeyPolicyResponse
+    , GetKeyPolicyResponse
     -- * Response Lenses
     , gkprsPolicy
     , gkprsStatus
@@ -45,19 +45,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getKeyPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gkpKeyId'
---
--- * 'gkpPolicyName'
 data GetKeyPolicy = GetKeyPolicy'
     { _gkpKeyId      :: !Text
     , _gkpPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetKeyPolicy' smart constructor.
-getKeyPolicy :: Text -> Text -> GetKeyPolicy
+-- | Creates a value of 'GetKeyPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gkpKeyId'
+--
+-- * 'gkpPolicyName'
+getKeyPolicy
+    :: Text -- ^ 'gkpKeyId'
+    -> Text -- ^ 'gkpPolicyName'
+    -> GetKeyPolicy
 getKeyPolicy pKeyId_ pPolicyName_ =
     GetKeyPolicy'
     { _gkpKeyId = pKeyId_
@@ -111,19 +114,21 @@ instance ToQuery GetKeyPolicy where
         toQuery = const mempty
 
 -- | /See:/ 'getKeyPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gkprsPolicy'
---
--- * 'gkprsStatus'
 data GetKeyPolicyResponse = GetKeyPolicyResponse'
     { _gkprsPolicy :: !(Maybe Text)
     , _gkprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetKeyPolicyResponse' smart constructor.
-getKeyPolicyResponse :: Int -> GetKeyPolicyResponse
+-- | Creates a value of 'GetKeyPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gkprsPolicy'
+--
+-- * 'gkprsStatus'
+getKeyPolicyResponse
+    :: Int -- ^ 'gkprsStatus'
+    -> GetKeyPolicyResponse
 getKeyPolicyResponse pStatus_ =
     GetKeyPolicyResponse'
     { _gkprsPolicy = Nothing
@@ -134,6 +139,6 @@ getKeyPolicyResponse pStatus_ =
 gkprsPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
 gkprsPolicy = lens _gkprsPolicy (\ s a -> s{_gkprsPolicy = a});
 
--- | Undocumented member.
+-- | The response status code.
 gkprsStatus :: Lens' GetKeyPolicyResponse Int
 gkprsStatus = lens _gkprsStatus (\ s a -> s{_gkprsStatus = a});

@@ -34,16 +34,16 @@
 module Network.AWS.OpsWorks.DeleteInstance
     (
     -- * Creating a Request
-      DeleteInstance
-    , deleteInstance
+      deleteInstance
+    , DeleteInstance
     -- * Request Lenses
     , diDeleteVolumes
     , diDeleteElasticIP
     , diInstanceId
 
     -- * Destructuring the Response
-    , DeleteInstanceResponse
     , deleteInstanceResponse
+    , DeleteInstanceResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -53,22 +53,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diDeleteVolumes'
---
--- * 'diDeleteElasticIP'
---
--- * 'diInstanceId'
 data DeleteInstance = DeleteInstance'
     { _diDeleteVolumes   :: !(Maybe Bool)
     , _diDeleteElasticIP :: !(Maybe Bool)
     , _diInstanceId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteInstance' smart constructor.
-deleteInstance :: Text -> DeleteInstance
+-- | Creates a value of 'DeleteInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diDeleteVolumes'
+--
+-- * 'diDeleteElasticIP'
+--
+-- * 'diInstanceId'
+deleteInstance
+    :: Text -- ^ 'diInstanceId'
+    -> DeleteInstance
 deleteInstance pInstanceId_ =
     DeleteInstance'
     { _diDeleteVolumes = Nothing
@@ -121,6 +123,8 @@ data DeleteInstanceResponse =
     DeleteInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteInstanceResponse' smart constructor.
-deleteInstanceResponse :: DeleteInstanceResponse
+-- | Creates a value of 'DeleteInstanceResponse' with the minimum fields required to make a request.
+--
+deleteInstanceResponse
+    :: DeleteInstanceResponse
 deleteInstanceResponse = DeleteInstanceResponse'

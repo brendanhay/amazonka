@@ -27,14 +27,14 @@
 module Network.AWS.IAM.CreateAccountAlias
     (
     -- * Creating a Request
-      CreateAccountAlias
-    , createAccountAlias
+      createAccountAlias
+    , CreateAccountAlias
     -- * Request Lenses
     , caaAccountAlias
 
     -- * Destructuring the Response
-    , CreateAccountAliasResponse
     , createAccountAliasResponse
+    , CreateAccountAliasResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -44,16 +44,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createAccountAlias' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'caaAccountAlias'
 newtype CreateAccountAlias = CreateAccountAlias'
     { _caaAccountAlias :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAccountAlias' smart constructor.
-createAccountAlias :: Text -> CreateAccountAlias
+-- | Creates a value of 'CreateAccountAlias' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caaAccountAlias'
+createAccountAlias
+    :: Text -- ^ 'caaAccountAlias'
+    -> CreateAccountAlias
 createAccountAlias pAccountAlias_ =
     CreateAccountAlias'
     { _caaAccountAlias = pAccountAlias_
@@ -88,6 +90,8 @@ data CreateAccountAliasResponse =
     CreateAccountAliasResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAccountAliasResponse' smart constructor.
-createAccountAliasResponse :: CreateAccountAliasResponse
+-- | Creates a value of 'CreateAccountAliasResponse' with the minimum fields required to make a request.
+--
+createAccountAliasResponse
+    :: CreateAccountAliasResponse
 createAccountAliasResponse = CreateAccountAliasResponse'

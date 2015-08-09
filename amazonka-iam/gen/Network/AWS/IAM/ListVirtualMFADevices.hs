@@ -20,26 +20,28 @@
 --
 -- Lists the virtual MFA devices under the AWS account by assignment
 -- status. If you do not specify an assignment status, the action returns a
--- list of all virtual MFA devices. Assignment status can be @Assigned@,
--- @Unassigned@, or @Any@.
+-- list of all virtual MFA devices. Assignment status can be 'Assigned',
+-- 'Unassigned', or 'Any'.
 --
--- You can paginate the results using the @MaxItems@ and @Marker@
+-- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListVirtualMFADevices.html AWS API Reference> for ListVirtualMFADevices.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListVirtualMFADevices
     (
     -- * Creating a Request
-      ListVirtualMFADevices
-    , listVirtualMFADevices
+      listVirtualMFADevices
+    , ListVirtualMFADevices
     -- * Request Lenses
     , lvmdAssignmentStatus
     , lvmdMaxItems
     , lvmdMarker
 
     -- * Destructuring the Response
-    , ListVirtualMFADevicesResponse
     , listVirtualMFADevicesResponse
+    , ListVirtualMFADevicesResponse
     -- * Response Lenses
     , lvmdrsMarker
     , lvmdrsIsTruncated
@@ -55,22 +57,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listVirtualMFADevices' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lvmdAssignmentStatus'
---
--- * 'lvmdMaxItems'
---
--- * 'lvmdMarker'
 data ListVirtualMFADevices = ListVirtualMFADevices'
     { _lvmdAssignmentStatus :: !(Maybe AssignmentStatusType)
     , _lvmdMaxItems         :: !(Maybe Nat)
     , _lvmdMarker           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListVirtualMFADevices' smart constructor.
-listVirtualMFADevices :: ListVirtualMFADevices
+-- | Creates a value of 'ListVirtualMFADevices' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lvmdAssignmentStatus'
+--
+-- * 'lvmdMaxItems'
+--
+-- * 'lvmdMarker'
+listVirtualMFADevices
+    :: ListVirtualMFADevices
 listVirtualMFADevices =
     ListVirtualMFADevices'
     { _lvmdAssignmentStatus = Nothing
@@ -79,14 +82,14 @@ listVirtualMFADevices =
     }
 
 -- | The status (unassigned or assigned) of the devices to list. If you do
--- not specify an @AssignmentStatus@, the action defaults to @Any@ which
+-- not specify an 'AssignmentStatus', the action defaults to 'Any' which
 -- lists both assigned and unassigned virtual MFA devices.
 lvmdAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
 lvmdAssignmentStatus = lens _lvmdAssignmentStatus (\ s a -> s{_lvmdAssignmentStatus = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -95,7 +98,7 @@ lvmdMaxItems = lens _lvmdMaxItems (\ s a -> s{_lvmdMaxItems = a}) . mapping _Nat
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 lvmdMarker :: Lens' ListVirtualMFADevices (Maybe Text)
 lvmdMarker = lens _lvmdMarker (\ s a -> s{_lvmdMarker = a});
 
@@ -138,8 +141,16 @@ instance ToQuery ListVirtualMFADevices where
 -- | Contains the response to a successful ListVirtualMFADevices request.
 --
 -- /See:/ 'listVirtualMFADevicesResponse' smart constructor.
+data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
+    { _lvmdrsMarker            :: !(Maybe Text)
+    , _lvmdrsIsTruncated       :: !(Maybe Bool)
+    , _lvmdrsStatus            :: !Int
+    , _lvmdrsVirtualMFADevices :: ![VirtualMFADevice]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListVirtualMFADevicesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lvmdrsMarker'
 --
@@ -148,15 +159,9 @@ instance ToQuery ListVirtualMFADevices where
 -- * 'lvmdrsStatus'
 --
 -- * 'lvmdrsVirtualMFADevices'
-data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
-    { _lvmdrsMarker            :: !(Maybe Text)
-    , _lvmdrsIsTruncated       :: !(Maybe Bool)
-    , _lvmdrsStatus            :: !Int
-    , _lvmdrsVirtualMFADevices :: ![VirtualMFADevice]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListVirtualMFADevicesResponse' smart constructor.
-listVirtualMFADevicesResponse :: Int -> ListVirtualMFADevicesResponse
+listVirtualMFADevicesResponse
+    :: Int -- ^ 'lvmdrsStatus'
+    -> ListVirtualMFADevicesResponse
 listVirtualMFADevicesResponse pStatus_ =
     ListVirtualMFADevicesResponse'
     { _lvmdrsMarker = Nothing
@@ -165,23 +170,23 @@ listVirtualMFADevicesResponse pStatus_ =
     , _lvmdrsVirtualMFADevices = mempty
     }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lvmdrsMarker :: Lens' ListVirtualMFADevicesResponse (Maybe Text)
 lvmdrsMarker = lens _lvmdrsMarker (\ s a -> s{_lvmdrsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 lvmdrsIsTruncated :: Lens' ListVirtualMFADevicesResponse (Maybe Bool)
 lvmdrsIsTruncated = lens _lvmdrsIsTruncated (\ s a -> s{_lvmdrsIsTruncated = a});
 
--- | Undocumented member.
+-- | The response status code.
 lvmdrsStatus :: Lens' ListVirtualMFADevicesResponse Int
 lvmdrsStatus = lens _lvmdrsStatus (\ s a -> s{_lvmdrsStatus = a});
 
 -- | The list of virtual MFA devices in the current account that match the
--- @AssignmentStatus@ value that was passed in the request.
+-- 'AssignmentStatus' value that was passed in the request.
 lvmdrsVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevice]
 lvmdrsVirtualMFADevices = lens _lvmdrsVirtualMFADevices (\ s a -> s{_lvmdrsVirtualMFADevices = a}) . _Coerce;

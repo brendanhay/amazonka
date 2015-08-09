@@ -24,16 +24,16 @@
 module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request
-      UpdateCloudFrontOriginAccessIdentity
-    , updateCloudFrontOriginAccessIdentity
+      updateCloudFrontOriginAccessIdentity
+    , UpdateCloudFrontOriginAccessIdentity
     -- * Request Lenses
     , ucfoaiIfMatch
     , ucfoaiCloudFrontOriginAccessIdentityConfig
     , ucfoaiId
 
     -- * Destructuring the Response
-    , UpdateCloudFrontOriginAccessIdentityResponse
     , updateCloudFrontOriginAccessIdentityResponse
+    , UpdateCloudFrontOriginAccessIdentityResponse
     -- * Response Lenses
     , ucfoairsETag
     , ucfoairsCloudFrontOriginAccessIdentity
@@ -49,22 +49,25 @@ import           Network.AWS.Response
 -- | The request to update an origin access identity.
 --
 -- /See:/ 'updateCloudFrontOriginAccessIdentity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ucfoaiIfMatch'
---
--- * 'ucfoaiCloudFrontOriginAccessIdentityConfig'
---
--- * 'ucfoaiId'
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity'
     { _ucfoaiIfMatch                              :: !(Maybe Text)
     , _ucfoaiCloudFrontOriginAccessIdentityConfig :: !CloudFrontOriginAccessIdentityConfig
     , _ucfoaiId                                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateCloudFrontOriginAccessIdentity' smart constructor.
-updateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -> Text -> UpdateCloudFrontOriginAccessIdentity
+-- | Creates a value of 'UpdateCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ucfoaiIfMatch'
+--
+-- * 'ucfoaiCloudFrontOriginAccessIdentityConfig'
+--
+-- * 'ucfoaiId'
+updateCloudFrontOriginAccessIdentity
+    :: CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
+    -> Text -- ^ 'ucfoaiId'
+    -> UpdateCloudFrontOriginAccessIdentity
 updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ pId_ =
     UpdateCloudFrontOriginAccessIdentity'
     { _ucfoaiIfMatch = Nothing
@@ -126,22 +129,24 @@ instance ToQuery UpdateCloudFrontOriginAccessIdentity
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'updateCloudFrontOriginAccessIdentityResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ucfoairsETag'
---
--- * 'ucfoairsCloudFrontOriginAccessIdentity'
---
--- * 'ucfoairsStatus'
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
     { _ucfoairsETag                           :: !(Maybe Text)
     , _ucfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
     , _ucfoairsStatus                         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateCloudFrontOriginAccessIdentityResponse' smart constructor.
-updateCloudFrontOriginAccessIdentityResponse :: Int -> UpdateCloudFrontOriginAccessIdentityResponse
+-- | Creates a value of 'UpdateCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ucfoairsETag'
+--
+-- * 'ucfoairsCloudFrontOriginAccessIdentity'
+--
+-- * 'ucfoairsStatus'
+updateCloudFrontOriginAccessIdentityResponse
+    :: Int -- ^ 'ucfoairsStatus'
+    -> UpdateCloudFrontOriginAccessIdentityResponse
 updateCloudFrontOriginAccessIdentityResponse pStatus_ =
     UpdateCloudFrontOriginAccessIdentityResponse'
     { _ucfoairsETag = Nothing
@@ -157,6 +162,6 @@ ucfoairsETag = lens _ucfoairsETag (\ s a -> s{_ucfoairsETag = a});
 ucfoairsCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
 ucfoairsCloudFrontOriginAccessIdentity = lens _ucfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_ucfoairsCloudFrontOriginAccessIdentity = a});
 
--- | Undocumented member.
+-- | The response status code.
 ucfoairsStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
 ucfoairsStatus = lens _ucfoairsStatus (\ s a -> s{_ucfoairsStatus = a});

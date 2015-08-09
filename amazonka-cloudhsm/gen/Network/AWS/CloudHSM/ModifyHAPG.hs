@@ -24,16 +24,16 @@
 module Network.AWS.CloudHSM.ModifyHAPG
     (
     -- * Creating a Request
-      ModifyHAPG
-    , modifyHAPG
+      modifyHAPG
+    , ModifyHAPG
     -- * Request Lenses
     , mhPartitionSerialList
     , mhLabel
     , mhHAPGARN
 
     -- * Destructuring the Response
-    , ModifyHAPGResponse
     , modifyHAPGResponse
+    , ModifyHAPGResponse
     -- * Response Lenses
     , mhrsHAPGARN
     , mhrsStatus
@@ -46,22 +46,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifyHAPG' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mhPartitionSerialList'
---
--- * 'mhLabel'
---
--- * 'mhHAPGARN'
 data ModifyHAPG = ModifyHAPG'
     { _mhPartitionSerialList :: !(Maybe [Text])
     , _mhLabel               :: !(Maybe Text)
     , _mhHAPGARN             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyHAPG' smart constructor.
-modifyHAPG :: Text -> ModifyHAPG
+-- | Creates a value of 'ModifyHAPG' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mhPartitionSerialList'
+--
+-- * 'mhLabel'
+--
+-- * 'mhHAPGARN'
+modifyHAPG
+    :: Text -- ^ 'mhHAPGARN'
+    -> ModifyHAPG
 modifyHAPG pHAPGARN_ =
     ModifyHAPG'
     { _mhPartitionSerialList = Nothing
@@ -114,19 +116,21 @@ instance ToQuery ModifyHAPG where
         toQuery = const mempty
 
 -- | /See:/ 'modifyHAPGResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mhrsHAPGARN'
---
--- * 'mhrsStatus'
 data ModifyHAPGResponse = ModifyHAPGResponse'
     { _mhrsHAPGARN :: !(Maybe Text)
     , _mhrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyHAPGResponse' smart constructor.
-modifyHAPGResponse :: Int -> ModifyHAPGResponse
+-- | Creates a value of 'ModifyHAPGResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mhrsHAPGARN'
+--
+-- * 'mhrsStatus'
+modifyHAPGResponse
+    :: Int -- ^ 'mhrsStatus'
+    -> ModifyHAPGResponse
 modifyHAPGResponse pStatus_ =
     ModifyHAPGResponse'
     { _mhrsHAPGARN = Nothing
@@ -137,6 +141,6 @@ modifyHAPGResponse pStatus_ =
 mhrsHAPGARN :: Lens' ModifyHAPGResponse (Maybe Text)
 mhrsHAPGARN = lens _mhrsHAPGARN (\ s a -> s{_mhrsHAPGARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 mhrsStatus :: Lens' ModifyHAPGResponse Int
 mhrsStatus = lens _mhrsStatus (\ s a -> s{_mhrsStatus = a});

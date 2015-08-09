@@ -24,14 +24,14 @@
 module Network.AWS.DeviceFarm.GetProject
     (
     -- * Creating a Request
-      GetProject
-    , getProject
+      getProject
+    , GetProject
     -- * Request Lenses
     , gpArn
 
     -- * Destructuring the Response
-    , GetProjectResponse
     , getProjectResponse
+    , GetProjectResponse
     -- * Response Lenses
     , gprsProject
     , gprsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents a request to the get project operation.
 --
 -- /See:/ 'getProject' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gpArn'
 newtype GetProject = GetProject'
     { _gpArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetProject' smart constructor.
-getProject :: Text -> GetProject
+-- | Creates a value of 'GetProject' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpArn'
+getProject
+    :: Text -- ^ 'gpArn'
+    -> GetProject
 getProject pArn_ =
     GetProject'
     { _gpArn = pArn_
@@ -96,19 +98,21 @@ instance ToQuery GetProject where
 -- | Represents the result of a get project request.
 --
 -- /See:/ 'getProjectResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gprsProject'
---
--- * 'gprsStatus'
 data GetProjectResponse = GetProjectResponse'
     { _gprsProject :: !(Maybe Project)
     , _gprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetProjectResponse' smart constructor.
-getProjectResponse :: Int -> GetProjectResponse
+-- | Creates a value of 'GetProjectResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gprsProject'
+--
+-- * 'gprsStatus'
+getProjectResponse
+    :: Int -- ^ 'gprsStatus'
+    -> GetProjectResponse
 getProjectResponse pStatus_ =
     GetProjectResponse'
     { _gprsProject = Nothing
@@ -119,6 +123,6 @@ getProjectResponse pStatus_ =
 gprsProject :: Lens' GetProjectResponse (Maybe Project)
 gprsProject = lens _gprsProject (\ s a -> s{_gprsProject = a});
 
--- | Undocumented member.
+-- | The response status code.
 gprsStatus :: Lens' GetProjectResponse Int
 gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

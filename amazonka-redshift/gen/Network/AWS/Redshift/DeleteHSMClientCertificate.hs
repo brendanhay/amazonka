@@ -24,14 +24,14 @@
 module Network.AWS.Redshift.DeleteHSMClientCertificate
     (
     -- * Creating a Request
-      DeleteHSMClientCertificate
-    , deleteHSMClientCertificate
+      deleteHSMClientCertificate
+    , DeleteHSMClientCertificate
     -- * Request Lenses
     , dhsmccHSMClientCertificateIdentifier
 
     -- * Destructuring the Response
-    , DeleteHSMClientCertificateResponse
     , deleteHSMClientCertificateResponse
+    , DeleteHSMClientCertificateResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -43,16 +43,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteHSMClientCertificate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhsmccHSMClientCertificateIdentifier'
 newtype DeleteHSMClientCertificate = DeleteHSMClientCertificate'
     { _dhsmccHSMClientCertificateIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteHSMClientCertificate' smart constructor.
-deleteHSMClientCertificate :: Text -> DeleteHSMClientCertificate
+-- | Creates a value of 'DeleteHSMClientCertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhsmccHSMClientCertificateIdentifier'
+deleteHSMClientCertificate
+    :: Text -- ^ 'dhsmccHSMClientCertificateIdentifier'
+    -> DeleteHSMClientCertificate
 deleteHSMClientCertificate pHSMClientCertificateIdentifier_ =
     DeleteHSMClientCertificate'
     { _dhsmccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_
@@ -90,6 +92,8 @@ data DeleteHSMClientCertificateResponse =
     DeleteHSMClientCertificateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteHSMClientCertificateResponse' smart constructor.
-deleteHSMClientCertificateResponse :: DeleteHSMClientCertificateResponse
+-- | Creates a value of 'DeleteHSMClientCertificateResponse' with the minimum fields required to make a request.
+--
+deleteHSMClientCertificateResponse
+    :: DeleteHSMClientCertificateResponse
 deleteHSMClientCertificateResponse = DeleteHSMClientCertificateResponse'

@@ -34,15 +34,15 @@
 module Network.AWS.ElastiCache.RebootCacheCluster
     (
     -- * Creating a Request
-      RebootCacheCluster
-    , rebootCacheCluster
+      rebootCacheCluster
+    , RebootCacheCluster
     -- * Request Lenses
     , rccCacheClusterId
     , rccCacheNodeIdsToReboot
 
     -- * Destructuring the Response
-    , RebootCacheClusterResponse
     , rebootCacheClusterResponse
+    , RebootCacheClusterResponse
     -- * Response Lenses
     , rccrsCacheCluster
     , rccrsStatus
@@ -57,19 +57,21 @@ import           Network.AWS.Response
 -- | Represents the input of a /RebootCacheCluster/ action.
 --
 -- /See:/ 'rebootCacheCluster' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rccCacheClusterId'
---
--- * 'rccCacheNodeIdsToReboot'
 data RebootCacheCluster = RebootCacheCluster'
     { _rccCacheClusterId       :: !Text
     , _rccCacheNodeIdsToReboot :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebootCacheCluster' smart constructor.
-rebootCacheCluster :: Text -> RebootCacheCluster
+-- | Creates a value of 'RebootCacheCluster' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rccCacheClusterId'
+--
+-- * 'rccCacheNodeIdsToReboot'
+rebootCacheCluster
+    :: Text -- ^ 'rccCacheClusterId'
+    -> RebootCacheCluster
 rebootCacheCluster pCacheClusterId_ =
     RebootCacheCluster'
     { _rccCacheClusterId = pCacheClusterId_
@@ -114,19 +116,21 @@ instance ToQuery RebootCacheCluster where
                  toQueryList "CacheNodeId" _rccCacheNodeIdsToReboot]
 
 -- | /See:/ 'rebootCacheClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rccrsCacheCluster'
---
--- * 'rccrsStatus'
 data RebootCacheClusterResponse = RebootCacheClusterResponse'
     { _rccrsCacheCluster :: !(Maybe CacheCluster)
     , _rccrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebootCacheClusterResponse' smart constructor.
-rebootCacheClusterResponse :: Int -> RebootCacheClusterResponse
+-- | Creates a value of 'RebootCacheClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rccrsCacheCluster'
+--
+-- * 'rccrsStatus'
+rebootCacheClusterResponse
+    :: Int -- ^ 'rccrsStatus'
+    -> RebootCacheClusterResponse
 rebootCacheClusterResponse pStatus_ =
     RebootCacheClusterResponse'
     { _rccrsCacheCluster = Nothing
@@ -137,6 +141,6 @@ rebootCacheClusterResponse pStatus_ =
 rccrsCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
 rccrsCacheCluster = lens _rccrsCacheCluster (\ s a -> s{_rccrsCacheCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 rccrsStatus :: Lens' RebootCacheClusterResponse Int
 rccrsStatus = lens _rccrsStatus (\ s a -> s{_rccrsStatus = a});

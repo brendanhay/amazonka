@@ -18,28 +18,28 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Assigns the @DELETED@ status to an @Evaluation@, rendering it unusable.
+-- Assigns the 'DELETED' status to an 'Evaluation', rendering it unusable.
 --
--- After invoking the @DeleteEvaluation@ operation, you can use the
--- GetEvaluation operation to verify that the status of the @Evaluation@
--- changed to @DELETED@.
+-- After invoking the 'DeleteEvaluation' operation, you can use the
+-- GetEvaluation operation to verify that the status of the 'Evaluation'
+-- changed to 'DELETED'.
 --
 -- Caution
 --
--- The results of the @DeleteEvaluation@ operation are irreversible.
+-- The results of the 'DeleteEvaluation' operation are irreversible.
 --
 -- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteEvaluation.html AWS API Reference> for DeleteEvaluation.
 module Network.AWS.MachineLearning.DeleteEvaluation
     (
     -- * Creating a Request
-      DeleteEvaluation
-    , deleteEvaluation
+      deleteEvaluation
+    , DeleteEvaluation
     -- * Request Lenses
     , deEvaluationId
 
     -- * Destructuring the Response
-    , DeleteEvaluationResponse
     , deleteEvaluationResponse
+    , DeleteEvaluationResponse
     -- * Response Lenses
     , dersEvaluationId
     , dersStatus
@@ -52,22 +52,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteEvaluation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'deEvaluationId'
 newtype DeleteEvaluation = DeleteEvaluation'
     { _deEvaluationId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEvaluation' smart constructor.
-deleteEvaluation :: Text -> DeleteEvaluation
+-- | Creates a value of 'DeleteEvaluation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'deEvaluationId'
+deleteEvaluation
+    :: Text -- ^ 'deEvaluationId'
+    -> DeleteEvaluation
 deleteEvaluation pEvaluationId_ =
     DeleteEvaluation'
     { _deEvaluationId = pEvaluationId_
     }
 
--- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
+-- | A user-supplied ID that uniquely identifies the 'Evaluation' to delete.
 deEvaluationId :: Lens' DeleteEvaluation Text
 deEvaluationId = lens _deEvaluationId (\ s a -> s{_deEvaluationId = a});
 
@@ -104,34 +106,36 @@ instance ToQuery DeleteEvaluation where
 -- indicates that Amazon Machine Learning (Amazon ML) received the request.
 --
 -- You can use the GetEvaluation operation and check the value of the
--- @Status@ parameter to see whether an @Evaluation@ is marked as
--- @DELETED@.
+-- 'Status' parameter to see whether an 'Evaluation' is marked as
+-- 'DELETED'.
 --
 -- /See:/ 'deleteEvaluationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dersEvaluationId'
---
--- * 'dersStatus'
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
     { _dersEvaluationId :: !(Maybe Text)
     , _dersStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEvaluationResponse' smart constructor.
-deleteEvaluationResponse :: Int -> DeleteEvaluationResponse
+-- | Creates a value of 'DeleteEvaluationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dersEvaluationId'
+--
+-- * 'dersStatus'
+deleteEvaluationResponse
+    :: Int -- ^ 'dersStatus'
+    -> DeleteEvaluationResponse
 deleteEvaluationResponse pStatus_ =
     DeleteEvaluationResponse'
     { _dersEvaluationId = Nothing
     , _dersStatus = pStatus_
     }
 
--- | A user-supplied ID that uniquely identifies the @Evaluation@. This value
--- should be identical to the value of the @EvaluationId@ in the request.
+-- | A user-supplied ID that uniquely identifies the 'Evaluation'. This value
+-- should be identical to the value of the 'EvaluationId' in the request.
 dersEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
 dersEvaluationId = lens _dersEvaluationId (\ s a -> s{_dersEvaluationId = a});
 
--- | Undocumented member.
+-- | The response status code.
 dersStatus :: Lens' DeleteEvaluationResponse Int
 dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

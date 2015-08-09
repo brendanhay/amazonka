@@ -24,16 +24,16 @@
 module Network.AWS.Kinesis.ListTagsForStream
     (
     -- * Creating a Request
-      ListTagsForStream
-    , listTagsForStream
+      listTagsForStream
+    , ListTagsForStream
     -- * Request Lenses
     , ltfsLimit
     , ltfsExclusiveStartTagKey
     , ltfsStreamName
 
     -- * Destructuring the Response
-    , ListTagsForStreamResponse
     , listTagsForStreamResponse
+    , ListTagsForStreamResponse
     -- * Response Lenses
     , ltfsrsStatus
     , ltfsrsTags
@@ -46,25 +46,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for @ListTagsForStream@.
+-- | Represents the input for 'ListTagsForStream'.
 --
 -- /See:/ 'listTagsForStream' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltfsLimit'
---
--- * 'ltfsExclusiveStartTagKey'
---
--- * 'ltfsStreamName'
 data ListTagsForStream = ListTagsForStream'
     { _ltfsLimit                :: !(Maybe Nat)
     , _ltfsExclusiveStartTagKey :: !(Maybe Text)
     , _ltfsStreamName           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTagsForStream' smart constructor.
-listTagsForStream :: Text -> ListTagsForStream
+-- | Creates a value of 'ListTagsForStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltfsLimit'
+--
+-- * 'ltfsExclusiveStartTagKey'
+--
+-- * 'ltfsStreamName'
+listTagsForStream
+    :: Text -- ^ 'ltfsStreamName'
+    -> ListTagsForStream
 listTagsForStream pStreamName_ =
     ListTagsForStream'
     { _ltfsLimit = Nothing
@@ -73,15 +75,15 @@ listTagsForStream pStreamName_ =
     }
 
 -- | The number of tags to return. If this number is less than the total
--- number of tags associated with the stream, @HasMoreTags@ is set to
--- @true@. To list additional tags, set @ExclusiveStartTagKey@ to the last
+-- number of tags associated with the stream, 'HasMoreTags' is set to
+-- 'true'. To list additional tags, set 'ExclusiveStartTagKey' to the last
 -- key in the response.
 ltfsLimit :: Lens' ListTagsForStream (Maybe Natural)
 ltfsLimit = lens _ltfsLimit (\ s a -> s{_ltfsLimit = a}) . mapping _Nat;
 
 -- | The key to use as the starting point for the list of tags. If this
--- parameter is set, @ListTagsForStream@ gets all tags that occur after
--- @ExclusiveStartTagKey@.
+-- parameter is set, 'ListTagsForStream' gets all tags that occur after
+-- 'ExclusiveStartTagKey'.
 ltfsExclusiveStartTagKey :: Lens' ListTagsForStream (Maybe Text)
 ltfsExclusiveStartTagKey = lens _ltfsExclusiveStartTagKey (\ s a -> s{_ltfsExclusiveStartTagKey = a});
 
@@ -122,25 +124,28 @@ instance ToPath ListTagsForStream where
 instance ToQuery ListTagsForStream where
         toQuery = const mempty
 
--- | Represents the output for @ListTagsForStream@.
+-- | Represents the output for 'ListTagsForStream'.
 --
 -- /See:/ 'listTagsForStreamResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltfsrsStatus'
---
--- * 'ltfsrsTags'
---
--- * 'ltfsrsHasMoreTags'
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
     { _ltfsrsStatus      :: !Int
     , _ltfsrsTags        :: ![Tag]
     , _ltfsrsHasMoreTags :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTagsForStreamResponse' smart constructor.
-listTagsForStreamResponse :: Int -> Bool -> ListTagsForStreamResponse
+-- | Creates a value of 'ListTagsForStreamResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltfsrsStatus'
+--
+-- * 'ltfsrsTags'
+--
+-- * 'ltfsrsHasMoreTags'
+listTagsForStreamResponse
+    :: Int -- ^ 'ltfsrsStatus'
+    -> Bool -- ^ 'ltfsrsHasMoreTags'
+    -> ListTagsForStreamResponse
 listTagsForStreamResponse pStatus_ pHasMoreTags_ =
     ListTagsForStreamResponse'
     { _ltfsrsStatus = pStatus_
@@ -148,16 +153,16 @@ listTagsForStreamResponse pStatus_ pHasMoreTags_ =
     , _ltfsrsHasMoreTags = pHasMoreTags_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ltfsrsStatus :: Lens' ListTagsForStreamResponse Int
 ltfsrsStatus = lens _ltfsrsStatus (\ s a -> s{_ltfsrsStatus = a});
 
--- | A list of tags associated with @StreamName@, starting with the first tag
--- after @ExclusiveStartTagKey@ and up to the specified @Limit@.
+-- | A list of tags associated with 'StreamName', starting with the first tag
+-- after 'ExclusiveStartTagKey' and up to the specified 'Limit'.
 ltfsrsTags :: Lens' ListTagsForStreamResponse [Tag]
 ltfsrsTags = lens _ltfsrsTags (\ s a -> s{_ltfsrsTags = a}) . _Coerce;
 
--- | If set to @true@, more tags are available. To request additional tags,
--- set @ExclusiveStartTagKey@ to the key of the last tag returned.
+-- | If set to 'true', more tags are available. To request additional tags,
+-- set 'ExclusiveStartTagKey' to the key of the last tag returned.
 ltfsrsHasMoreTags :: Lens' ListTagsForStreamResponse Bool
 ltfsrsHasMoreTags = lens _ltfsrsHasMoreTags (\ s a -> s{_ltfsrsHasMoreTags = a});

@@ -24,14 +24,14 @@
 module Network.AWS.AutoScaling.DeleteTags
     (
     -- * Creating a Request
-      DeleteTags
-    , deleteTags
+      deleteTags
+    , DeleteTags
     -- * Request Lenses
     , dtTags
 
     -- * Destructuring the Response
-    , DeleteTagsResponse
     , deleteTagsResponse
+    , DeleteTagsResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -41,16 +41,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtTags'
 newtype DeleteTags = DeleteTags'
     { _dtTags :: [Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTags' smart constructor.
-deleteTags :: DeleteTags
+-- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtTags'
+deleteTags
+    :: DeleteTags
 deleteTags =
     DeleteTags'
     { _dtTags = mempty
@@ -87,6 +88,8 @@ data DeleteTagsResponse =
     DeleteTagsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTagsResponse' smart constructor.
-deleteTagsResponse :: DeleteTagsResponse
+-- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
+--
+deleteTagsResponse
+    :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse'

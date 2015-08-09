@@ -18,22 +18,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve the health check status, send a @GET@ request to the
--- @2013-04-01\/healthcheck\/health check ID\/status@ resource. You can use
+-- To retrieve the health check status, send a 'GET' request to the
+-- '2013-04-01\/healthcheck\/health check ID\/status' resource. You can use
 -- this call to get a health check\'s current status.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckStatus.html AWS API Reference> for GetHealthCheckStatus.
 module Network.AWS.Route53.GetHealthCheckStatus
     (
     -- * Creating a Request
-      GetHealthCheckStatus
-    , getHealthCheckStatus
+      getHealthCheckStatus
+    , GetHealthCheckStatus
     -- * Request Lenses
     , ghcsHealthCheckId
 
     -- * Destructuring the Response
-    , GetHealthCheckStatusResponse
     , getHealthCheckStatusResponse
+    , GetHealthCheckStatusResponse
     -- * Response Lenses
     , ghcsrsStatus
     , ghcsrsHealthCheckObservations
@@ -49,16 +49,18 @@ import           Network.AWS.Route53.Types.Product
 -- check status for a health check.
 --
 -- /See:/ 'getHealthCheckStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ghcsHealthCheckId'
 newtype GetHealthCheckStatus = GetHealthCheckStatus'
     { _ghcsHealthCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetHealthCheckStatus' smart constructor.
-getHealthCheckStatus :: Text -> GetHealthCheckStatus
+-- | Creates a value of 'GetHealthCheckStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ghcsHealthCheckId'
+getHealthCheckStatus
+    :: Text -- ^ 'ghcsHealthCheckId'
+    -> GetHealthCheckStatus
 getHealthCheckStatus pHealthCheckId_ =
     GetHealthCheckStatus'
     { _ghcsHealthCheckId = pHealthCheckId_
@@ -98,30 +100,32 @@ instance ToQuery GetHealthCheckStatus where
 -- specified health check.
 --
 -- /See:/ 'getHealthCheckStatusResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ghcsrsStatus'
---
--- * 'ghcsrsHealthCheckObservations'
 data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
     { _ghcsrsStatus                  :: !Int
     , _ghcsrsHealthCheckObservations :: ![HealthCheckObservation]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetHealthCheckStatusResponse' smart constructor.
-getHealthCheckStatusResponse :: Int -> GetHealthCheckStatusResponse
+-- | Creates a value of 'GetHealthCheckStatusResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ghcsrsStatus'
+--
+-- * 'ghcsrsHealthCheckObservations'
+getHealthCheckStatusResponse
+    :: Int -- ^ 'ghcsrsStatus'
+    -> GetHealthCheckStatusResponse
 getHealthCheckStatusResponse pStatus_ =
     GetHealthCheckStatusResponse'
     { _ghcsrsStatus = pStatus_
     , _ghcsrsHealthCheckObservations = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 ghcsrsStatus :: Lens' GetHealthCheckStatusResponse Int
 ghcsrsStatus = lens _ghcsrsStatus (\ s a -> s{_ghcsrsStatus = a});
 
--- | A list that contains one @HealthCheckObservation@ element for each Route
+-- | A list that contains one 'HealthCheckObservation' element for each Route
 -- 53 health checker.
 ghcsrsHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
 ghcsrsHealthCheckObservations = lens _ghcsrsHealthCheckObservations (\ s a -> s{_ghcsrsHealthCheckObservations = a}) . _Coerce;

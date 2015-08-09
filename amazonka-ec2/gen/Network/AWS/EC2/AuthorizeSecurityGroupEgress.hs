@@ -45,8 +45,8 @@
 module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     (
     -- * Creating a Request
-      AuthorizeSecurityGroupEgress
-    , authorizeSecurityGroupEgress
+      authorizeSecurityGroupEgress
+    , AuthorizeSecurityGroupEgress
     -- * Request Lenses
     , asgeFromPort
     , asgeIPPermissions
@@ -59,8 +59,8 @@ module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     , asgeGroupId
 
     -- * Destructuring the Response
-    , AuthorizeSecurityGroupEgressResponse
     , authorizeSecurityGroupEgressResponse
+    , AuthorizeSecurityGroupEgressResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -70,8 +70,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'authorizeSecurityGroupEgress' smart constructor.
+data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
+    { _asgeFromPort                   :: !(Maybe Int)
+    , _asgeIPPermissions              :: !(Maybe [IPPermission])
+    , _asgeIPProtocol                 :: !(Maybe Text)
+    , _asgeToPort                     :: !(Maybe Int)
+    , _asgeCIdRIP                     :: !(Maybe Text)
+    , _asgeSourceSecurityGroupOwnerId :: !(Maybe Text)
+    , _asgeSourceSecurityGroupName    :: !(Maybe Text)
+    , _asgeDryRun                     :: !(Maybe Bool)
+    , _asgeGroupId                    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AuthorizeSecurityGroupEgress' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'asgeFromPort'
 --
@@ -90,20 +103,9 @@ import           Network.AWS.Response
 -- * 'asgeDryRun'
 --
 -- * 'asgeGroupId'
-data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
-    { _asgeFromPort                   :: !(Maybe Int)
-    , _asgeIPPermissions              :: !(Maybe [IPPermission])
-    , _asgeIPProtocol                 :: !(Maybe Text)
-    , _asgeToPort                     :: !(Maybe Int)
-    , _asgeCIdRIP                     :: !(Maybe Text)
-    , _asgeSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _asgeSourceSecurityGroupName    :: !(Maybe Text)
-    , _asgeDryRun                     :: !(Maybe Bool)
-    , _asgeGroupId                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AuthorizeSecurityGroupEgress' smart constructor.
-authorizeSecurityGroupEgress :: Text -> AuthorizeSecurityGroupEgress
+authorizeSecurityGroupEgress
+    :: Text -- ^ 'asgeGroupId'
+    -> AuthorizeSecurityGroupEgress
 authorizeSecurityGroupEgress pGroupId_ =
     AuthorizeSecurityGroupEgress'
     { _asgeFromPort = Nothing
@@ -118,7 +120,7 @@ authorizeSecurityGroupEgress pGroupId_ =
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use @-1@ to specify all ICMP types.
+-- number. For the ICMP type number, use '-1' to specify all ICMP types.
 asgeFromPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
 asgeFromPort = lens _asgeFromPort (\ s a -> s{_asgeFromPort = a});
 
@@ -127,14 +129,14 @@ asgeFromPort = lens _asgeFromPort (\ s a -> s{_asgeFromPort = a});
 asgeIPPermissions :: Lens' AuthorizeSecurityGroupEgress [IPPermission]
 asgeIPPermissions = lens _asgeIPPermissions (\ s a -> s{_asgeIPPermissions = a}) . _Default . _Coerce;
 
--- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
+-- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
--- Use @-1@ to specify all.
+-- Use '-1' to specify all.
 asgeIPProtocol :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeIPProtocol = lens _asgeIPProtocol (\ s a -> s{_asgeIPProtocol = a});
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use @-1@ to specify all ICMP codes for
+-- number. For the ICMP code number, use '-1' to specify all ICMP codes for
 -- the ICMP type.
 asgeToPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
 asgeToPort = lens _asgeToPort (\ s a -> s{_asgeToPort = a});
@@ -158,8 +160,8 @@ asgeSourceSecurityGroupName = lens _asgeSourceSecurityGroupName (\ s a -> s{_asg
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 asgeDryRun :: Lens' AuthorizeSecurityGroupEgress (Maybe Bool)
 asgeDryRun = lens _asgeDryRun (\ s a -> s{_asgeDryRun = a});
 
@@ -203,6 +205,8 @@ data AuthorizeSecurityGroupEgressResponse =
     AuthorizeSecurityGroupEgressResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AuthorizeSecurityGroupEgressResponse' smart constructor.
-authorizeSecurityGroupEgressResponse :: AuthorizeSecurityGroupEgressResponse
+-- | Creates a value of 'AuthorizeSecurityGroupEgressResponse' with the minimum fields required to make a request.
+--
+authorizeSecurityGroupEgressResponse
+    :: AuthorizeSecurityGroupEgressResponse
 authorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse'

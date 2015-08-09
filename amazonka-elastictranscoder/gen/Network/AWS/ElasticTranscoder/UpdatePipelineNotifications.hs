@@ -28,15 +28,15 @@
 module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     (
     -- * Creating a Request
-      UpdatePipelineNotifications
-    , updatePipelineNotifications
+      updatePipelineNotifications
+    , UpdatePipelineNotifications
     -- * Request Lenses
     , upnId
     , upnNotifications
 
     -- * Destructuring the Response
-    , UpdatePipelineNotificationsResponse
     , updatePipelineNotificationsResponse
+    , UpdatePipelineNotificationsResponse
     -- * Response Lenses
     , upnrsPipeline
     , upnrsStatus
@@ -48,22 +48,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @UpdatePipelineNotificationsRequest@ structure.
+-- | The 'UpdatePipelineNotificationsRequest' structure.
 --
 -- /See:/ 'updatePipelineNotifications' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'upnId'
---
--- * 'upnNotifications'
 data UpdatePipelineNotifications = UpdatePipelineNotifications'
     { _upnId            :: !Text
     , _upnNotifications :: !Notifications
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdatePipelineNotifications' smart constructor.
-updatePipelineNotifications :: Text -> Notifications -> UpdatePipelineNotifications
+-- | Creates a value of 'UpdatePipelineNotifications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'upnId'
+--
+-- * 'upnNotifications'
+updatePipelineNotifications
+    :: Text -- ^ 'upnId'
+    -> Notifications -- ^ 'upnNotifications'
+    -> UpdatePipelineNotifications
 updatePipelineNotifications pId_ pNotifications_ =
     UpdatePipelineNotifications'
     { _upnId = pId_
@@ -126,22 +129,24 @@ instance ToPath UpdatePipelineNotifications where
 instance ToQuery UpdatePipelineNotifications where
         toQuery = const mempty
 
--- | The @UpdatePipelineNotificationsResponse@ structure.
+-- | The 'UpdatePipelineNotificationsResponse' structure.
 --
 -- /See:/ 'updatePipelineNotificationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'upnrsPipeline'
---
--- * 'upnrsStatus'
 data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
     { _upnrsPipeline :: !(Maybe Pipeline)
     , _upnrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdatePipelineNotificationsResponse' smart constructor.
-updatePipelineNotificationsResponse :: Int -> UpdatePipelineNotificationsResponse
+-- | Creates a value of 'UpdatePipelineNotificationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'upnrsPipeline'
+--
+-- * 'upnrsStatus'
+updatePipelineNotificationsResponse
+    :: Int -- ^ 'upnrsStatus'
+    -> UpdatePipelineNotificationsResponse
 updatePipelineNotificationsResponse pStatus_ =
     UpdatePipelineNotificationsResponse'
     { _upnrsPipeline = Nothing
@@ -153,6 +158,6 @@ updatePipelineNotificationsResponse pStatus_ =
 upnrsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
 upnrsPipeline = lens _upnrsPipeline (\ s a -> s{_upnrsPipeline = a});
 
--- | Undocumented member.
+-- | The response status code.
 upnrsStatus :: Lens' UpdatePipelineNotificationsResponse Int
 upnrsStatus = lens _upnrsStatus (\ s a -> s{_upnrsStatus = a});

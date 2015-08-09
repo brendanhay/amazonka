@@ -20,21 +20,21 @@
 --
 -- If you want to learn why a health check is currently failing or why it
 -- failed most recently (if at all), you can get the failure reason for the
--- most recent failure. Send a @GET@ request to the
--- @2013-04-01\/healthcheck\/health check ID\/lastfailurereason@ resource.
+-- most recent failure. Send a 'GET' request to the
+-- '2013-04-01\/healthcheck\/health check ID\/lastfailurereason' resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheckLastFailureReason.html AWS API Reference> for GetHealthCheckLastFailureReason.
 module Network.AWS.Route53.GetHealthCheckLastFailureReason
     (
     -- * Creating a Request
-      GetHealthCheckLastFailureReason
-    , getHealthCheckLastFailureReason
+      getHealthCheckLastFailureReason
+    , GetHealthCheckLastFailureReason
     -- * Request Lenses
     , ghclfrHealthCheckId
 
     -- * Destructuring the Response
-    , GetHealthCheckLastFailureReasonResponse
     , getHealthCheckLastFailureReasonResponse
+    , GetHealthCheckLastFailureReasonResponse
     -- * Response Lenses
     , ghclfrrsStatus
     , ghclfrrsHealthCheckObservations
@@ -50,16 +50,18 @@ import           Network.AWS.Route53.Types.Product
 -- most recent failure reason for a health check.
 --
 -- /See:/ 'getHealthCheckLastFailureReason' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ghclfrHealthCheckId'
 newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason'
     { _ghclfrHealthCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetHealthCheckLastFailureReason' smart constructor.
-getHealthCheckLastFailureReason :: Text -> GetHealthCheckLastFailureReason
+-- | Creates a value of 'GetHealthCheckLastFailureReason' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ghclfrHealthCheckId'
+getHealthCheckLastFailureReason
+    :: Text -- ^ 'ghclfrHealthCheckId'
+    -> GetHealthCheckLastFailureReason
 getHealthCheckLastFailureReason pHealthCheckId_ =
     GetHealthCheckLastFailureReason'
     { _ghclfrHealthCheckId = pHealthCheckId_
@@ -102,30 +104,32 @@ instance ToQuery GetHealthCheckLastFailureReason
 -- for the specified health check.
 --
 -- /See:/ 'getHealthCheckLastFailureReasonResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ghclfrrsStatus'
---
--- * 'ghclfrrsHealthCheckObservations'
 data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
     { _ghclfrrsStatus                  :: !Int
     , _ghclfrrsHealthCheckObservations :: ![HealthCheckObservation]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetHealthCheckLastFailureReasonResponse' smart constructor.
-getHealthCheckLastFailureReasonResponse :: Int -> GetHealthCheckLastFailureReasonResponse
+-- | Creates a value of 'GetHealthCheckLastFailureReasonResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ghclfrrsStatus'
+--
+-- * 'ghclfrrsHealthCheckObservations'
+getHealthCheckLastFailureReasonResponse
+    :: Int -- ^ 'ghclfrrsStatus'
+    -> GetHealthCheckLastFailureReasonResponse
 getHealthCheckLastFailureReasonResponse pStatus_ =
     GetHealthCheckLastFailureReasonResponse'
     { _ghclfrrsStatus = pStatus_
     , _ghclfrrsHealthCheckObservations = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 ghclfrrsStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
 ghclfrrsStatus = lens _ghclfrrsStatus (\ s a -> s{_ghclfrrsStatus = a});
 
--- | A list that contains one @HealthCheckObservation@ element for each Route
+-- | A list that contains one 'HealthCheckObservation' element for each Route
 -- 53 health checker.
 ghclfrrsHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
 ghclfrrsHealthCheckObservations = lens _ghclfrrsHealthCheckObservations (\ s a -> s{_ghclfrrsHealthCheckObservations = a}) . _Coerce;

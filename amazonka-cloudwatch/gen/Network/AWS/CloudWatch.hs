@@ -109,18 +109,15 @@ module Network.AWS.CloudWatch
 
     -- ** DescribeAlarms (Paginated)
     , module Network.AWS.CloudWatch.DescribeAlarms
-    -- $pager
 
     -- ** ListMetrics (Paginated)
     , module Network.AWS.CloudWatch.ListMetrics
-    -- $pager
 
     -- ** DeleteAlarms
     , module Network.AWS.CloudWatch.DeleteAlarms
 
     -- ** DescribeAlarmHistory (Paginated)
     , module Network.AWS.CloudWatch.DescribeAlarmHistory
-    -- $pager
 
     -- ** GetMetricStatistics
     , module Network.AWS.CloudWatch.GetMetricStatistics
@@ -279,8 +276,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

@@ -25,14 +25,14 @@
 module Network.AWS.CloudHSM.DeleteHSM
     (
     -- * Creating a Request
-      DeleteHSM
-    , deleteHSM
+      deleteHSM
+    , DeleteHSM
     -- * Request Lenses
     , dhHSMARN
 
     -- * Destructuring the Response
-    , DeleteHSMResponse
     , deleteHSMResponse
+    , DeleteHSMResponse
     -- * Response Lenses
     , dhsmrsStatus
     ) where
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Contains the inputs for the DeleteHsm action.
 --
 -- /See:/ 'deleteHSM' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhHSMARN'
 newtype DeleteHSM = DeleteHSM'
     { _dhHSMARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteHSM' smart constructor.
-deleteHSM :: Text -> DeleteHSM
+-- | Creates a value of 'DeleteHSM' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhHSMARN'
+deleteHSM
+    :: Text -- ^ 'dhHSMARN'
+    -> DeleteHSM
 deleteHSM pHSMARN_ =
     DeleteHSM'
     { _dhHSMARN = pHSMARN_
@@ -96,21 +98,23 @@ instance ToQuery DeleteHSM where
 -- | Contains the output of the DeleteHsm action.
 --
 -- /See:/ 'deleteHSMResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhsmrsStatus'
 newtype DeleteHSMResponse = DeleteHSMResponse'
     { _dhsmrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteHSMResponse' smart constructor.
-deleteHSMResponse :: Int -> DeleteHSMResponse
+-- | Creates a value of 'DeleteHSMResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhsmrsStatus'
+deleteHSMResponse
+    :: Int -- ^ 'dhsmrsStatus'
+    -> DeleteHSMResponse
 deleteHSMResponse pStatus_ =
     DeleteHSMResponse'
     { _dhsmrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dhsmrsStatus :: Lens' DeleteHSMResponse Int
 dhsmrsStatus = lens _dhsmrsStatus (\ s a -> s{_dhsmrsStatus = a});

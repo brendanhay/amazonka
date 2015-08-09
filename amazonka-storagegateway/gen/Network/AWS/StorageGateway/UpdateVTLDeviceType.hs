@@ -27,15 +27,15 @@
 module Network.AWS.StorageGateway.UpdateVTLDeviceType
     (
     -- * Creating a Request
-      UpdateVTLDeviceType
-    , updateVTLDeviceType
+      updateVTLDeviceType
+    , UpdateVTLDeviceType
     -- * Request Lenses
     , uvtldtVTLDeviceARN
     , uvtldtDeviceType
 
     -- * Destructuring the Response
-    , UpdateVTLDeviceTypeResponse
     , updateVTLDeviceTypeResponse
+    , UpdateVTLDeviceTypeResponse
     -- * Response Lenses
     , uvtldtrsVTLDeviceARN
     , uvtldtrsStatus
@@ -50,19 +50,22 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | UpdateVTLDeviceTypeInput
 --
 -- /See:/ 'updateVTLDeviceType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uvtldtVTLDeviceARN'
---
--- * 'uvtldtDeviceType'
 data UpdateVTLDeviceType = UpdateVTLDeviceType'
     { _uvtldtVTLDeviceARN :: !Text
     , _uvtldtDeviceType   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateVTLDeviceType' smart constructor.
-updateVTLDeviceType :: Text -> Text -> UpdateVTLDeviceType
+-- | Creates a value of 'UpdateVTLDeviceType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uvtldtVTLDeviceARN'
+--
+-- * 'uvtldtDeviceType'
+updateVTLDeviceType
+    :: Text -- ^ 'uvtldtVTLDeviceARN'
+    -> Text -- ^ 'uvtldtDeviceType'
+    -> UpdateVTLDeviceType
 updateVTLDeviceType pVTLDeviceARN_ pDeviceType_ =
     UpdateVTLDeviceType'
     { _uvtldtVTLDeviceARN = pVTLDeviceARN_
@@ -115,19 +118,21 @@ instance ToQuery UpdateVTLDeviceType where
 -- | UpdateVTLDeviceTypeOutput
 --
 -- /See:/ 'updateVTLDeviceTypeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uvtldtrsVTLDeviceARN'
---
--- * 'uvtldtrsStatus'
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
     { _uvtldtrsVTLDeviceARN :: !(Maybe Text)
     , _uvtldtrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateVTLDeviceTypeResponse' smart constructor.
-updateVTLDeviceTypeResponse :: Int -> UpdateVTLDeviceTypeResponse
+-- | Creates a value of 'UpdateVTLDeviceTypeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uvtldtrsVTLDeviceARN'
+--
+-- * 'uvtldtrsStatus'
+updateVTLDeviceTypeResponse
+    :: Int -- ^ 'uvtldtrsStatus'
+    -> UpdateVTLDeviceTypeResponse
 updateVTLDeviceTypeResponse pStatus_ =
     UpdateVTLDeviceTypeResponse'
     { _uvtldtrsVTLDeviceARN = Nothing
@@ -138,6 +143,6 @@ updateVTLDeviceTypeResponse pStatus_ =
 uvtldtrsVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
 uvtldtrsVTLDeviceARN = lens _uvtldtrsVTLDeviceARN (\ s a -> s{_uvtldtrsVTLDeviceARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 uvtldtrsStatus :: Lens' UpdateVTLDeviceTypeResponse Int
 uvtldtrsStatus = lens _uvtldtrsStatus (\ s a -> s{_uvtldtrsStatus = a});

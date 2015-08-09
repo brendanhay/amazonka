@@ -24,15 +24,15 @@
 module Network.AWS.CodeDeploy.GetDeploymentGroup
     (
     -- * Creating a Request
-      GetDeploymentGroup
-    , getDeploymentGroup
+      getDeploymentGroup
+    , GetDeploymentGroup
     -- * Request Lenses
     , gdgApplicationName
     , gdgDeploymentGroupName
 
     -- * Destructuring the Response
-    , GetDeploymentGroupResponse
     , getDeploymentGroupResponse
+    , GetDeploymentGroupResponse
     -- * Response Lenses
     , gdgrsDeploymentGroupInfo
     , gdgrsStatus
@@ -47,19 +47,22 @@ import           Network.AWS.Response
 -- | Represents the input of a get deployment group operation.
 --
 -- /See:/ 'getDeploymentGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdgApplicationName'
---
--- * 'gdgDeploymentGroupName'
 data GetDeploymentGroup = GetDeploymentGroup'
     { _gdgApplicationName     :: !Text
     , _gdgDeploymentGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDeploymentGroup' smart constructor.
-getDeploymentGroup :: Text -> Text -> GetDeploymentGroup
+-- | Creates a value of 'GetDeploymentGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdgApplicationName'
+--
+-- * 'gdgDeploymentGroupName'
+getDeploymentGroup
+    :: Text -- ^ 'gdgApplicationName'
+    -> Text -- ^ 'gdgDeploymentGroupName'
+    -> GetDeploymentGroup
 getDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
     GetDeploymentGroup'
     { _gdgApplicationName = pApplicationName_
@@ -112,19 +115,21 @@ instance ToQuery GetDeploymentGroup where
 -- | Represents the output of a get deployment group operation.
 --
 -- /See:/ 'getDeploymentGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdgrsDeploymentGroupInfo'
---
--- * 'gdgrsStatus'
 data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
     { _gdgrsDeploymentGroupInfo :: !(Maybe DeploymentGroupInfo)
     , _gdgrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDeploymentGroupResponse' smart constructor.
-getDeploymentGroupResponse :: Int -> GetDeploymentGroupResponse
+-- | Creates a value of 'GetDeploymentGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdgrsDeploymentGroupInfo'
+--
+-- * 'gdgrsStatus'
+getDeploymentGroupResponse
+    :: Int -- ^ 'gdgrsStatus'
+    -> GetDeploymentGroupResponse
 getDeploymentGroupResponse pStatus_ =
     GetDeploymentGroupResponse'
     { _gdgrsDeploymentGroupInfo = Nothing
@@ -135,6 +140,6 @@ getDeploymentGroupResponse pStatus_ =
 gdgrsDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGroupInfo)
 gdgrsDeploymentGroupInfo = lens _gdgrsDeploymentGroupInfo (\ s a -> s{_gdgrsDeploymentGroupInfo = a});
 
--- | Undocumented member.
+-- | The response status code.
 gdgrsStatus :: Lens' GetDeploymentGroupResponse Int
 gdgrsStatus = lens _gdgrsStatus (\ s a -> s{_gdgrsStatus = a});

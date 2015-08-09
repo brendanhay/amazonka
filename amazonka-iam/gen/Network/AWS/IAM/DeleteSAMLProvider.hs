@@ -31,14 +31,14 @@
 module Network.AWS.IAM.DeleteSAMLProvider
     (
     -- * Creating a Request
-      DeleteSAMLProvider
-    , deleteSAMLProvider
+      deleteSAMLProvider
+    , DeleteSAMLProvider
     -- * Request Lenses
     , dsamlpSAMLProviderARN
 
     -- * Destructuring the Response
-    , DeleteSAMLProviderResponse
     , deleteSAMLProviderResponse
+    , DeleteSAMLProviderResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -48,16 +48,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteSAMLProvider' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsamlpSAMLProviderARN'
 newtype DeleteSAMLProvider = DeleteSAMLProvider'
     { _dsamlpSAMLProviderARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSAMLProvider' smart constructor.
-deleteSAMLProvider :: Text -> DeleteSAMLProvider
+-- | Creates a value of 'DeleteSAMLProvider' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsamlpSAMLProviderARN'
+deleteSAMLProvider
+    :: Text -- ^ 'dsamlpSAMLProviderARN'
+    -> DeleteSAMLProvider
 deleteSAMLProvider pSAMLProviderARN_ =
     DeleteSAMLProvider'
     { _dsamlpSAMLProviderARN = pSAMLProviderARN_
@@ -92,6 +94,8 @@ data DeleteSAMLProviderResponse =
     DeleteSAMLProviderResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSAMLProviderResponse' smart constructor.
-deleteSAMLProviderResponse :: DeleteSAMLProviderResponse
+-- | Creates a value of 'DeleteSAMLProviderResponse' with the minimum fields required to make a request.
+--
+deleteSAMLProviderResponse
+    :: DeleteSAMLProviderResponse
 deleteSAMLProviderResponse = DeleteSAMLProviderResponse'

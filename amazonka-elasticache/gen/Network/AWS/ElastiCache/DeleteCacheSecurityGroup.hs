@@ -27,14 +27,14 @@
 module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     (
     -- * Creating a Request
-      DeleteCacheSecurityGroup
-    , deleteCacheSecurityGroup
+      deleteCacheSecurityGroup
+    , DeleteCacheSecurityGroup
     -- * Request Lenses
     , dcsgCacheSecurityGroupName
 
     -- * Destructuring the Response
-    , DeleteCacheSecurityGroupResponse
     , deleteCacheSecurityGroupResponse
+    , DeleteCacheSecurityGroupResponse
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents the input of a /DeleteCacheSecurityGroup/ action.
 --
 -- /See:/ 'deleteCacheSecurityGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsgCacheSecurityGroupName'
 newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
     { _dcsgCacheSecurityGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCacheSecurityGroup' smart constructor.
-deleteCacheSecurityGroup :: Text -> DeleteCacheSecurityGroup
+-- | Creates a value of 'DeleteCacheSecurityGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsgCacheSecurityGroupName'
+deleteCacheSecurityGroup
+    :: Text -- ^ 'dcsgCacheSecurityGroupName'
+    -> DeleteCacheSecurityGroup
 deleteCacheSecurityGroup pCacheSecurityGroupName_ =
     DeleteCacheSecurityGroup'
     { _dcsgCacheSecurityGroupName = pCacheSecurityGroupName_
@@ -95,6 +97,8 @@ data DeleteCacheSecurityGroupResponse =
     DeleteCacheSecurityGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCacheSecurityGroupResponse' smart constructor.
-deleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse
+-- | Creates a value of 'DeleteCacheSecurityGroupResponse' with the minimum fields required to make a request.
+--
+deleteCacheSecurityGroupResponse
+    :: DeleteCacheSecurityGroupResponse
 deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse'

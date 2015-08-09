@@ -26,14 +26,14 @@
 module Network.AWS.CloudSearch.CreateDomain
     (
     -- * Creating a Request
-      CreateDomain
-    , createDomain
+      createDomain
+    , CreateDomain
     -- * Request Lenses
     , cdDomainName
 
     -- * Destructuring the Response
-    , CreateDomainResponse
     , createDomainResponse
+    , CreateDomainResponse
     -- * Response Lenses
     , cdrsDomainStatus
     , cdrsStatus
@@ -45,20 +45,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @CreateDomain@ operation. Specifies
+-- | Container for the parameters to the 'CreateDomain' operation. Specifies
 -- a name for the new search domain.
 --
 -- /See:/ 'createDomain' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdDomainName'
 newtype CreateDomain = CreateDomain'
     { _cdDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDomain' smart constructor.
-createDomain :: Text -> CreateDomain
+-- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdDomainName'
+createDomain
+    :: Text -- ^ 'cdDomainName'
+    -> CreateDomain
 createDomain pDomainName_ =
     CreateDomain'
     { _cdDomainName = pDomainName_
@@ -94,23 +96,25 @@ instance ToQuery CreateDomain where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _cdDomainName]
 
--- | The result of a @CreateDomainRequest@. Contains the status of a newly
+-- | The result of a 'CreateDomainRequest'. Contains the status of a newly
 -- created domain.
 --
 -- /See:/ 'createDomainResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdrsDomainStatus'
---
--- * 'cdrsStatus'
 data CreateDomainResponse = CreateDomainResponse'
     { _cdrsDomainStatus :: !(Maybe DomainStatus)
     , _cdrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDomainResponse' smart constructor.
-createDomainResponse :: Int -> CreateDomainResponse
+-- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdrsDomainStatus'
+--
+-- * 'cdrsStatus'
+createDomainResponse
+    :: Int -- ^ 'cdrsStatus'
+    -> CreateDomainResponse
 createDomainResponse pStatus_ =
     CreateDomainResponse'
     { _cdrsDomainStatus = Nothing
@@ -121,6 +125,6 @@ createDomainResponse pStatus_ =
 cdrsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdrsDomainStatus = lens _cdrsDomainStatus (\ s a -> s{_cdrsDomainStatus = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdrsStatus :: Lens' CreateDomainResponse Int
 cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

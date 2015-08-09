@@ -20,8 +20,8 @@
 --
 -- Resumes the specified suspended Auto Scaling processes for the specified
 -- Auto Scaling group. To resume specific processes, use the
--- @ScalingProcesses@ parameter. To resume all processes, omit the
--- @ScalingProcesses@ parameter. For more information, see
+-- 'ScalingProcesses' parameter. To resume all processes, omit the
+-- 'ScalingProcesses' parameter. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspend and Resume Auto Scaling Processes>
 -- in the /Auto Scaling Developer Guide/.
 --
@@ -29,15 +29,15 @@
 module Network.AWS.AutoScaling.ResumeProcesses
     (
     -- * Creating a Request
-      ResumeProcesses
-    , resumeProcesses
+      resumeProcesses
+    , ResumeProcesses
     -- * Request Lenses
     , rpScalingProcesses
     , rpAutoScalingGroupName
 
     -- * Destructuring the Response
-    , ResumeProcessesResponse
     , resumeProcessesResponse
+    , ResumeProcessesResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -47,19 +47,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'resumeProcesses' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rpScalingProcesses'
---
--- * 'rpAutoScalingGroupName'
 data ResumeProcesses = ResumeProcesses'
     { _rpScalingProcesses     :: !(Maybe [Text])
     , _rpAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResumeProcesses' smart constructor.
-resumeProcesses :: Text -> ResumeProcesses
+-- | Creates a value of 'ResumeProcesses' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpScalingProcesses'
+--
+-- * 'rpAutoScalingGroupName'
+resumeProcesses
+    :: Text -- ^ 'rpAutoScalingGroupName'
+    -> ResumeProcesses
 resumeProcesses pAutoScalingGroupName_ =
     ResumeProcesses'
     { _rpScalingProcesses = Nothing
@@ -68,21 +70,21 @@ resumeProcesses pAutoScalingGroupName_ =
 
 -- | One or more of the following processes:
 --
--- -   @Launch@
+-- -   'Launch'
 --
--- -   @Terminate@
+-- -   'Terminate'
 --
--- -   @HealthCheck@
+-- -   'HealthCheck'
 --
--- -   @ReplaceUnhealthy@
+-- -   'ReplaceUnhealthy'
 --
--- -   @AZRebalance@
+-- -   'AZRebalance'
 --
--- -   @AlarmNotification@
+-- -   'AlarmNotification'
 --
--- -   @ScheduledActions@
+-- -   'ScheduledActions'
 --
--- -   @AddToLoadBalancer@
+-- -   'AddToLoadBalancer'
 --
 rpScalingProcesses :: Lens' ResumeProcesses [Text]
 rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = a}) . _Default . _Coerce;
@@ -118,6 +120,8 @@ data ResumeProcessesResponse =
     ResumeProcessesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResumeProcessesResponse' smart constructor.
-resumeProcessesResponse :: ResumeProcessesResponse
+-- | Creates a value of 'ResumeProcessesResponse' with the minimum fields required to make a request.
+--
+resumeProcessesResponse
+    :: ResumeProcessesResponse
 resumeProcessesResponse = ResumeProcessesResponse'

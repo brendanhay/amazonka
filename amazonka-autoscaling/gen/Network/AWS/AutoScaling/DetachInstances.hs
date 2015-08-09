@@ -30,16 +30,16 @@
 module Network.AWS.AutoScaling.DetachInstances
     (
     -- * Creating a Request
-      DetachInstances
-    , detachInstances
+      detachInstances
+    , DetachInstances
     -- * Request Lenses
     , diInstanceIds
     , diAutoScalingGroupName
     , diShouldDecrementDesiredCapacity
 
     -- * Destructuring the Response
-    , DetachInstancesResponse
     , detachInstancesResponse
+    , DetachInstancesResponse
     -- * Response Lenses
     , dirsActivities
     , dirsStatus
@@ -52,22 +52,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diInstanceIds'
---
--- * 'diAutoScalingGroupName'
---
--- * 'diShouldDecrementDesiredCapacity'
 data DetachInstances = DetachInstances'
     { _diInstanceIds                    :: !(Maybe [Text])
     , _diAutoScalingGroupName           :: !Text
     , _diShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachInstances' smart constructor.
-detachInstances :: Text -> Bool -> DetachInstances
+-- | Creates a value of 'DetachInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diInstanceIds'
+--
+-- * 'diAutoScalingGroupName'
+--
+-- * 'diShouldDecrementDesiredCapacity'
+detachInstances
+    :: Text -- ^ 'diAutoScalingGroupName'
+    -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
+    -> DetachInstances
 detachInstances pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
     DetachInstances'
     { _diInstanceIds = Nothing
@@ -83,7 +86,7 @@ diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default 
 diAutoScalingGroupName :: Lens' DetachInstances Text
 diAutoScalingGroupName = lens _diAutoScalingGroupName (\ s a -> s{_diAutoScalingGroupName = a});
 
--- | If @True@, the Auto Scaling group decrements the desired capacity value
+-- | If 'True', the Auto Scaling group decrements the desired capacity value
 -- by the number of instances detached.
 diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
 diShouldDecrementDesiredCapacity = lens _diShouldDecrementDesiredCapacity (\ s a -> s{_diShouldDecrementDesiredCapacity = a});
@@ -118,19 +121,21 @@ instance ToQuery DetachInstances where
                  _diShouldDecrementDesiredCapacity]
 
 -- | /See:/ 'detachInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dirsActivities'
---
--- * 'dirsStatus'
 data DetachInstancesResponse = DetachInstancesResponse'
     { _dirsActivities :: !(Maybe [Activity])
     , _dirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachInstancesResponse' smart constructor.
-detachInstancesResponse :: Int -> DetachInstancesResponse
+-- | Creates a value of 'DetachInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dirsActivities'
+--
+-- * 'dirsStatus'
+detachInstancesResponse
+    :: Int -- ^ 'dirsStatus'
+    -> DetachInstancesResponse
 detachInstancesResponse pStatus_ =
     DetachInstancesResponse'
     { _dirsActivities = Nothing
@@ -142,6 +147,6 @@ detachInstancesResponse pStatus_ =
 dirsActivities :: Lens' DetachInstancesResponse [Activity]
 dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dirsStatus :: Lens' DetachInstancesResponse Int
 dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

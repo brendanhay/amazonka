@@ -20,15 +20,15 @@
 --
 -- Invokes a specified Lambda function.
 --
--- This operation requires permission for the @lambda:InvokeFunction@
+-- This operation requires permission for the 'lambda:InvokeFunction'
 -- action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS API Reference> for Invoke.
 module Network.AWS.Lambda.Invoke
     (
     -- * Creating a Request
-      Invoke
-    , invoke
+      invoke
+    , Invoke
     -- * Request Lenses
     , iInvocationType
     , iPayload
@@ -37,8 +37,8 @@ module Network.AWS.Lambda.Invoke
     , iFunctionName
 
     -- * Destructuring the Response
-    , InvokeResponse
     , invokeResponse
+    , InvokeResponse
     -- * Response Lenses
     , irsFunctionError
     , irsLogResult
@@ -53,8 +53,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'invoke' smart constructor.
+data Invoke = Invoke'
+    { _iInvocationType :: !(Maybe InvocationType)
+    , _iPayload        :: !(Maybe Base64)
+    , _iLogType        :: !(Maybe LogType)
+    , _iClientContext  :: !(Maybe Text)
+    , _iFunctionName   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Invoke' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iInvocationType'
 --
@@ -65,16 +74,9 @@ import           Network.AWS.Response
 -- * 'iClientContext'
 --
 -- * 'iFunctionName'
-data Invoke = Invoke'
-    { _iInvocationType :: !(Maybe InvocationType)
-    , _iPayload        :: !(Maybe Base64)
-    , _iLogType        :: !(Maybe LogType)
-    , _iClientContext  :: !(Maybe Text)
-    , _iFunctionName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Invoke' smart constructor.
-invoke :: Text -> Invoke
+invoke
+    :: Text -- ^ 'iFunctionName'
+    -> Invoke
 invoke pFunctionName_ =
     Invoke'
     { _iInvocationType = Nothing
@@ -84,13 +86,13 @@ invoke pFunctionName_ =
     , _iFunctionName = pFunctionName_
     }
 
--- | By default, the @Invoke@ API assumes \"RequestResponse\" invocation
+-- | By default, the 'Invoke' API assumes \"RequestResponse\" invocation
 -- type. You can optionally request asynchronous execution by specifying
--- \"Event\" as the @InvocationType@. You can also use this parameter to
+-- \"Event\" as the 'InvocationType'. You can also use this parameter to
 -- request AWS Lambda to not execute the function but do some verification,
 -- such as if the caller is authorized to invoke the function and if the
 -- inputs are valid. You request this by specifying \"DryRun\" as the
--- @InvocationType@. This is useful in a cross-account scenario when you
+-- 'InvocationType'. This is useful in a cross-account scenario when you
 -- want to verify access to a function without running it.
 iInvocationType :: Lens' Invoke (Maybe InvocationType)
 iInvocationType = lens _iInvocationType (\ s a -> s{_iInvocationType = a});
@@ -100,14 +102,14 @@ iPayload :: Lens' Invoke (Maybe ByteString)
 iPayload = lens _iPayload (\ s a -> s{_iPayload = a}) . mapping _Base64;
 
 -- | You can set this optional parameter to \"Tail\" in the request only if
--- you specify the @InvocationType@ parameter with value
+-- you specify the 'InvocationType' parameter with value
 -- \"RequestResponse\". In this case, AWS Lambda returns the base64-encoded
 -- last 4 KB of log data produced by your Lambda function in the
--- @x-amz-log-results@ header.
+-- 'x-amz-log-results' header.
 iLogType :: Lens' Invoke (Maybe LogType)
 iLogType = lens _iLogType (\ s a -> s{_iLogType = a});
 
--- | Using the @ClientContext@ you can pass client-specific information to
+-- | Using the 'ClientContext' you can pass client-specific information to
 -- the Lambda function you are invoking. You can then process the client
 -- information in your Lambda function as you choose through the context
 -- variable. For an example of a ClientContext JSON, go to
@@ -166,8 +168,16 @@ instance ToQuery Invoke where
 -- | Upon success, returns an empty response. Otherwise, throws an exception.
 --
 -- /See:/ 'invokeResponse' smart constructor.
+data InvokeResponse = InvokeResponse'
+    { _irsFunctionError :: !(Maybe Text)
+    , _irsLogResult     :: !(Maybe Text)
+    , _irsPayload       :: !(Maybe Base64)
+    , _irsStatusCode    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InvokeResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'irsFunctionError'
 --
@@ -176,15 +186,9 @@ instance ToQuery Invoke where
 -- * 'irsPayload'
 --
 -- * 'irsStatusCode'
-data InvokeResponse = InvokeResponse'
-    { _irsFunctionError :: !(Maybe Text)
-    , _irsLogResult     :: !(Maybe Text)
-    , _irsPayload       :: !(Maybe Base64)
-    , _irsStatusCode    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InvokeResponse' smart constructor.
-invokeResponse :: Int -> InvokeResponse
+invokeResponse
+    :: Int -- ^ 'irsStatusCode'
+    -> InvokeResponse
 invokeResponse pStatusCode_ =
     InvokeResponse'
     { _irsFunctionError = Nothing
@@ -194,11 +198,11 @@ invokeResponse pStatusCode_ =
     }
 
 -- | Indicates whether an error occurred while executing the Lambda function.
--- If an error occurred this field will have one of two values; @Handled@
--- or @Unhandled@. @Handled@ errors are errors that are reported by the
--- function while the @Unhandled@ errors are those detected and reported by
+-- If an error occurred this field will have one of two values; 'Handled'
+-- or 'Unhandled'. 'Handled' errors are errors that are reported by the
+-- function while the 'Unhandled' errors are those detected and reported by
 -- AWS Lambda. Unhandled errors include out of memory errors and function
--- timeouts. For information about how to report an @Handled@ error, see
+-- timeouts. For information about how to report an 'Handled' error, see
 -- <http://docs.aws.amazon.com/lambda/latest/dg/programming-model.html Programming Model>.
 irsFunctionError :: Lens' InvokeResponse (Maybe Text)
 irsFunctionError = lens _irsFunctionError (\ s a -> s{_irsFunctionError = a});
@@ -214,8 +218,8 @@ irsLogResult = lens _irsLogResult (\ s a -> s{_irsLogResult = a});
 -- \"RequestResponse\".
 --
 -- In the event of a function error this field contains a message
--- describing the error. For the @Handled@ errors the Lambda function will
--- report this message. For @Unhandled@ errors AWS Lambda reports the
+-- describing the error. For the 'Handled' errors the Lambda function will
+-- report this message. For 'Unhandled' errors AWS Lambda reports the
 -- message.
 irsPayload :: Lens' InvokeResponse (Maybe ByteString)
 irsPayload = lens _irsPayload (\ s a -> s{_irsPayload = a}) . mapping _Base64;

@@ -27,15 +27,15 @@
 module Network.AWS.EC2.DeleteDHCPOptions
     (
     -- * Creating a Request
-      DeleteDHCPOptions
-    , deleteDHCPOptions
+      deleteDHCPOptions
+    , DeleteDHCPOptions
     -- * Request Lenses
     , ddhcpoDryRun
     , ddhcpoDHCPOptionsId
 
     -- * Destructuring the Response
-    , DeleteDHCPOptionsResponse
     , deleteDHCPOptionsResponse
+    , DeleteDHCPOptionsResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -45,19 +45,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteDHCPOptions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddhcpoDryRun'
---
--- * 'ddhcpoDHCPOptionsId'
 data DeleteDHCPOptions = DeleteDHCPOptions'
     { _ddhcpoDryRun        :: !(Maybe Bool)
     , _ddhcpoDHCPOptionsId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDHCPOptions' smart constructor.
-deleteDHCPOptions :: Text -> DeleteDHCPOptions
+-- | Creates a value of 'DeleteDHCPOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddhcpoDryRun'
+--
+-- * 'ddhcpoDHCPOptionsId'
+deleteDHCPOptions
+    :: Text -- ^ 'ddhcpoDHCPOptionsId'
+    -> DeleteDHCPOptions
 deleteDHCPOptions pDHCPOptionsId_ =
     DeleteDHCPOptions'
     { _ddhcpoDryRun = Nothing
@@ -66,8 +68,8 @@ deleteDHCPOptions pDHCPOptionsId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 ddhcpoDryRun :: Lens' DeleteDHCPOptions (Maybe Bool)
 ddhcpoDryRun = lens _ddhcpoDryRun (\ s a -> s{_ddhcpoDryRun = a});
 
@@ -100,6 +102,8 @@ data DeleteDHCPOptionsResponse =
     DeleteDHCPOptionsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDHCPOptionsResponse' smart constructor.
-deleteDHCPOptionsResponse :: DeleteDHCPOptionsResponse
+-- | Creates a value of 'DeleteDHCPOptionsResponse' with the minimum fields required to make a request.
+--
+deleteDHCPOptionsResponse
+    :: DeleteDHCPOptionsResponse
 deleteDHCPOptionsResponse = DeleteDHCPOptionsResponse'

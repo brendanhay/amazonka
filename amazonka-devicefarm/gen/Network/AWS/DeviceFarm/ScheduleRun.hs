@@ -24,8 +24,8 @@
 module Network.AWS.DeviceFarm.ScheduleRun
     (
     -- * Creating a Request
-      ScheduleRun
-    , scheduleRun
+      scheduleRun
+    , ScheduleRun
     -- * Request Lenses
     , srName
     , srConfiguration
@@ -35,8 +35,8 @@ module Network.AWS.DeviceFarm.ScheduleRun
     , srTest
 
     -- * Destructuring the Response
-    , ScheduleRunResponse
     , scheduleRunResponse
+    , ScheduleRunResponse
     -- * Response Lenses
     , srrsRun
     , srrsStatus
@@ -51,8 +51,18 @@ import           Network.AWS.Response
 -- | Represents a request to the schedule run operation.
 --
 -- /See:/ 'scheduleRun' smart constructor.
+data ScheduleRun = ScheduleRun'
+    { _srName          :: !(Maybe Text)
+    , _srConfiguration :: !(Maybe ScheduleRunConfiguration)
+    , _srProjectARN    :: !Text
+    , _srAppARN        :: !Text
+    , _srDevicePoolARN :: !Text
+    , _srTest          :: !ScheduleRunTest
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ScheduleRun' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'srName'
 --
@@ -65,17 +75,12 @@ import           Network.AWS.Response
 -- * 'srDevicePoolARN'
 --
 -- * 'srTest'
-data ScheduleRun = ScheduleRun'
-    { _srName          :: !(Maybe Text)
-    , _srConfiguration :: !(Maybe ScheduleRunConfiguration)
-    , _srProjectARN    :: !Text
-    , _srAppARN        :: !Text
-    , _srDevicePoolARN :: !Text
-    , _srTest          :: !ScheduleRunTest
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ScheduleRun' smart constructor.
-scheduleRun :: Text -> Text -> Text -> ScheduleRunTest -> ScheduleRun
+scheduleRun
+    :: Text -- ^ 'srProjectARN'
+    -> Text -- ^ 'srAppARN'
+    -> Text -- ^ 'srDevicePoolARN'
+    -> ScheduleRunTest -- ^ 'srTest'
+    -> ScheduleRun
 scheduleRun pProjectARN_ pAppARN_ pDevicePoolARN_ pTest_ =
     ScheduleRun'
     { _srName = Nothing
@@ -147,19 +152,21 @@ instance ToQuery ScheduleRun where
 -- | Represents the result of a schedule run request.
 --
 -- /See:/ 'scheduleRunResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'srrsRun'
---
--- * 'srrsStatus'
 data ScheduleRunResponse = ScheduleRunResponse'
     { _srrsRun    :: !(Maybe Run)
     , _srrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ScheduleRunResponse' smart constructor.
-scheduleRunResponse :: Int -> ScheduleRunResponse
+-- | Creates a value of 'ScheduleRunResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srrsRun'
+--
+-- * 'srrsStatus'
+scheduleRunResponse
+    :: Int -- ^ 'srrsStatus'
+    -> ScheduleRunResponse
 scheduleRunResponse pStatus_ =
     ScheduleRunResponse'
     { _srrsRun = Nothing
@@ -170,6 +177,6 @@ scheduleRunResponse pStatus_ =
 srrsRun :: Lens' ScheduleRunResponse (Maybe Run)
 srrsRun = lens _srrsRun (\ s a -> s{_srrsRun = a});
 
--- | Undocumented member.
+-- | The response status code.
 srrsStatus :: Lens' ScheduleRunResponse Int
 srrsStatus = lens _srrsStatus (\ s a -> s{_srrsStatus = a});

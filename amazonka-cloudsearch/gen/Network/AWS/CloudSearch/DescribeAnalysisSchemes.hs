@@ -19,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the analysis schemes configured for a domain. An analysis scheme
--- defines language-specific text processing options for a @text@ field.
+-- defines language-specific text processing options for a 'text' field.
 -- Can be limited to specific analysis schemes by name. By default, shows
 -- all analysis schemes and includes any pending changes to the
--- configuration. Set the @Deployed@ option to @true@ to show the active
+-- configuration. Set the 'Deployed' option to 'true' to show the active
 -- configuration and exclude pending changes. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes>
 -- in the /Amazon CloudSearch Developer Guide/.
@@ -31,16 +31,16 @@
 module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     (
     -- * Creating a Request
-      DescribeAnalysisSchemes
-    , describeAnalysisSchemes
+      describeAnalysisSchemes
+    , DescribeAnalysisSchemes
     -- * Request Lenses
     , dassDeployed
     , dassAnalysisSchemeNames
     , dassDomainName
 
     -- * Destructuring the Response
-    , DescribeAnalysisSchemesResponse
     , describeAnalysisSchemesResponse
+    , DescribeAnalysisSchemesResponse
     -- * Response Lenses
     , dasrsStatus
     , dasrsAnalysisSchemes
@@ -52,29 +52,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DescribeAnalysisSchemes@ operation.
+-- | Container for the parameters to the 'DescribeAnalysisSchemes' operation.
 -- Specifies the name of the domain you want to describe. To limit the
 -- response to particular analysis schemes, specify the names of the
 -- analysis schemes you want to describe. To show the active configuration
--- and exclude any pending changes, set the @Deployed@ option to @true@.
+-- and exclude any pending changes, set the 'Deployed' option to 'true'.
 --
 -- /See:/ 'describeAnalysisSchemes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dassDeployed'
---
--- * 'dassAnalysisSchemeNames'
---
--- * 'dassDomainName'
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
     { _dassDeployed            :: !(Maybe Bool)
     , _dassAnalysisSchemeNames :: !(Maybe [Text])
     , _dassDomainName          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAnalysisSchemes' smart constructor.
-describeAnalysisSchemes :: Text -> DescribeAnalysisSchemes
+-- | Creates a value of 'DescribeAnalysisSchemes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dassDeployed'
+--
+-- * 'dassAnalysisSchemeNames'
+--
+-- * 'dassDomainName'
+describeAnalysisSchemes
+    :: Text -- ^ 'dassDomainName'
+    -> DescribeAnalysisSchemes
 describeAnalysisSchemes pDomainName_ =
     DescribeAnalysisSchemes'
     { _dassDeployed = Nothing
@@ -82,8 +84,8 @@ describeAnalysisSchemes pDomainName_ =
     , _dassDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration (@true@) or include any
--- pending changes (@false@). Defaults to @false@.
+-- | Whether to display the deployed configuration ('true') or include any
+-- pending changes ('false'). Defaults to 'false'.
 dassDeployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
 dassDeployed = lens _dassDeployed (\ s a -> s{_dassDeployed = a});
 
@@ -126,30 +128,32 @@ instance ToQuery DescribeAnalysisSchemes where
                    (toQueryList "member" <$> _dassAnalysisSchemeNames),
                "DomainName" =: _dassDomainName]
 
--- | The result of a @DescribeAnalysisSchemes@ request. Contains the analysis
+-- | The result of a 'DescribeAnalysisSchemes' request. Contains the analysis
 -- schemes configured for the domain specified in the request.
 --
 -- /See:/ 'describeAnalysisSchemesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dasrsStatus'
---
--- * 'dasrsAnalysisSchemes'
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
     { _dasrsStatus          :: !Int
     , _dasrsAnalysisSchemes :: ![AnalysisSchemeStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAnalysisSchemesResponse' smart constructor.
-describeAnalysisSchemesResponse :: Int -> DescribeAnalysisSchemesResponse
+-- | Creates a value of 'DescribeAnalysisSchemesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dasrsStatus'
+--
+-- * 'dasrsAnalysisSchemes'
+describeAnalysisSchemesResponse
+    :: Int -- ^ 'dasrsStatus'
+    -> DescribeAnalysisSchemesResponse
 describeAnalysisSchemesResponse pStatus_ =
     DescribeAnalysisSchemesResponse'
     { _dasrsStatus = pStatus_
     , _dasrsAnalysisSchemes = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 dasrsStatus :: Lens' DescribeAnalysisSchemesResponse Int
 dasrsStatus = lens _dasrsStatus (\ s a -> s{_dasrsStatus = a});
 

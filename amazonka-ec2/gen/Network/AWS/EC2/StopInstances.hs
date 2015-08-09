@@ -57,16 +57,16 @@
 module Network.AWS.EC2.StopInstances
     (
     -- * Creating a Request
-      StopInstances
-    , stopInstances
+      stopInstances
+    , StopInstances
     -- * Request Lenses
     , siForce
     , siDryRun
     , siInstanceIds
 
     -- * Destructuring the Response
-    , StopInstancesResponse
     , stopInstancesResponse
+    , StopInstancesResponse
     -- * Response Lenses
     , sirsStoppingInstances
     , sirsStatus
@@ -79,22 +79,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'stopInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'siForce'
---
--- * 'siDryRun'
---
--- * 'siInstanceIds'
 data StopInstances = StopInstances'
     { _siForce       :: !(Maybe Bool)
     , _siDryRun      :: !(Maybe Bool)
     , _siInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopInstances' smart constructor.
-stopInstances :: StopInstances
+-- | Creates a value of 'StopInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'siForce'
+--
+-- * 'siDryRun'
+--
+-- * 'siInstanceIds'
+stopInstances
+    :: StopInstances
 stopInstances =
     StopInstances'
     { _siForce = Nothing
@@ -107,14 +108,14 @@ stopInstances =
 -- option, you must perform file system check and repair procedures. This
 -- option is not recommended for Windows instances.
 --
--- Default: @false@
+-- Default: 'false'
 siForce :: Lens' StopInstances (Maybe Bool)
 siForce = lens _siForce (\ s a -> s{_siForce = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 siDryRun :: Lens' StopInstances (Maybe Bool)
 siDryRun = lens _siDryRun (\ s a -> s{_siDryRun = a});
 
@@ -149,19 +150,21 @@ instance ToQuery StopInstances where
                toQueryList "InstanceId" _siInstanceIds]
 
 -- | /See:/ 'stopInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sirsStoppingInstances'
---
--- * 'sirsStatus'
 data StopInstancesResponse = StopInstancesResponse'
     { _sirsStoppingInstances :: !(Maybe [InstanceStateChange])
     , _sirsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopInstancesResponse' smart constructor.
-stopInstancesResponse :: Int -> StopInstancesResponse
+-- | Creates a value of 'StopInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sirsStoppingInstances'
+--
+-- * 'sirsStatus'
+stopInstancesResponse
+    :: Int -- ^ 'sirsStatus'
+    -> StopInstancesResponse
 stopInstancesResponse pStatus_ =
     StopInstancesResponse'
     { _sirsStoppingInstances = Nothing
@@ -172,6 +175,6 @@ stopInstancesResponse pStatus_ =
 sirsStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 sirsStoppingInstances = lens _sirsStoppingInstances (\ s a -> s{_sirsStoppingInstances = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 sirsStatus :: Lens' StopInstancesResponse Int
 sirsStatus = lens _sirsStatus (\ s a -> s{_sirsStatus = a});

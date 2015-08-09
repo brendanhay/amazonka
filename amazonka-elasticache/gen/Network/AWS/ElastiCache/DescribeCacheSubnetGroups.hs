@@ -23,19 +23,21 @@
 -- contain only the description of that group.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSubnetGroups.html AWS API Reference> for DescribeCacheSubnetGroups.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     (
     -- * Creating a Request
-      DescribeCacheSubnetGroups
-    , describeCacheSubnetGroups
+      describeCacheSubnetGroups
+    , DescribeCacheSubnetGroups
     -- * Request Lenses
     , dcsgCacheSubnetGroupName
     , dcsgMaxRecords
     , dcsgMarker
 
     -- * Destructuring the Response
-    , DescribeCacheSubnetGroupsResponse
     , describeCacheSubnetGroupsResponse
+    , DescribeCacheSubnetGroupsResponse
     -- * Response Lenses
     , dcsgrsMarker
     , dcsgrsCacheSubnetGroups
@@ -52,22 +54,23 @@ import           Network.AWS.Response
 -- | Represents the input of a /DescribeCacheSubnetGroups/ action.
 --
 -- /See:/ 'describeCacheSubnetGroups' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsgCacheSubnetGroupName'
---
--- * 'dcsgMaxRecords'
---
--- * 'dcsgMarker'
 data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
     { _dcsgCacheSubnetGroupName :: !(Maybe Text)
     , _dcsgMaxRecords           :: !(Maybe Int)
     , _dcsgMarker               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCacheSubnetGroups' smart constructor.
-describeCacheSubnetGroups :: DescribeCacheSubnetGroups
+-- | Creates a value of 'DescribeCacheSubnetGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsgCacheSubnetGroupName'
+--
+-- * 'dcsgMaxRecords'
+--
+-- * 'dcsgMarker'
+describeCacheSubnetGroups
+    :: DescribeCacheSubnetGroups
 describeCacheSubnetGroups =
     DescribeCacheSubnetGroups'
     { _dcsgCacheSubnetGroupName = Nothing
@@ -80,7 +83,7 @@ dcsgCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgCacheSubnetGroupName = lens _dcsgCacheSubnetGroupName (\ s a -> s{_dcsgCacheSubnetGroupName = a});
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a marker is
+-- records exist than the specified 'MaxRecords' value, a marker is
 -- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
@@ -136,22 +139,24 @@ instance ToQuery DescribeCacheSubnetGroups where
 -- | Represents the output of a /DescribeCacheSubnetGroups/ action.
 --
 -- /See:/ 'describeCacheSubnetGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsgrsMarker'
---
--- * 'dcsgrsCacheSubnetGroups'
---
--- * 'dcsgrsStatus'
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
     { _dcsgrsMarker            :: !(Maybe Text)
     , _dcsgrsCacheSubnetGroups :: !(Maybe [CacheSubnetGroup])
     , _dcsgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCacheSubnetGroupsResponse' smart constructor.
-describeCacheSubnetGroupsResponse :: Int -> DescribeCacheSubnetGroupsResponse
+-- | Creates a value of 'DescribeCacheSubnetGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsgrsMarker'
+--
+-- * 'dcsgrsCacheSubnetGroups'
+--
+-- * 'dcsgrsStatus'
+describeCacheSubnetGroupsResponse
+    :: Int -- ^ 'dcsgrsStatus'
+    -> DescribeCacheSubnetGroupsResponse
 describeCacheSubnetGroupsResponse pStatus_ =
     DescribeCacheSubnetGroupsResponse'
     { _dcsgrsMarker = Nothing
@@ -168,6 +173,6 @@ dcsgrsMarker = lens _dcsgrsMarker (\ s a -> s{_dcsgrsMarker = a});
 dcsgrsCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
 dcsgrsCacheSubnetGroups = lens _dcsgrsCacheSubnetGroups (\ s a -> s{_dcsgrsCacheSubnetGroups = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dcsgrsStatus :: Lens' DescribeCacheSubnetGroupsResponse Int
 dcsgrsStatus = lens _dcsgrsStatus (\ s a -> s{_dcsgrsStatus = a});

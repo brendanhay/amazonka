@@ -26,12 +26,12 @@
 module Network.AWS.IAM.GetAccountPasswordPolicy
     (
     -- * Creating a Request
-      GetAccountPasswordPolicy
-    , getAccountPasswordPolicy
+      getAccountPasswordPolicy
+    , GetAccountPasswordPolicy
 
     -- * Destructuring the Response
-    , GetAccountPasswordPolicyResponse
     , getAccountPasswordPolicyResponse
+    , GetAccountPasswordPolicyResponse
     -- * Response Lenses
     , gapprsStatus
     , gapprsPasswordPolicy
@@ -48,8 +48,10 @@ data GetAccountPasswordPolicy =
     GetAccountPasswordPolicy'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetAccountPasswordPolicy' smart constructor.
-getAccountPasswordPolicy :: GetAccountPasswordPolicy
+-- | Creates a value of 'GetAccountPasswordPolicy' with the minimum fields required to make a request.
+--
+getAccountPasswordPolicy
+    :: GetAccountPasswordPolicy
 getAccountPasswordPolicy = GetAccountPasswordPolicy'
 
 instance AWSRequest GetAccountPasswordPolicy where
@@ -80,26 +82,29 @@ instance ToQuery GetAccountPasswordPolicy where
 -- | Contains the response to a successful GetAccountPasswordPolicy request.
 --
 -- /See:/ 'getAccountPasswordPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gapprsStatus'
---
--- * 'gapprsPasswordPolicy'
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
     { _gapprsStatus         :: !Int
     , _gapprsPasswordPolicy :: !PasswordPolicy
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetAccountPasswordPolicyResponse' smart constructor.
-getAccountPasswordPolicyResponse :: Int -> PasswordPolicy -> GetAccountPasswordPolicyResponse
+-- | Creates a value of 'GetAccountPasswordPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gapprsStatus'
+--
+-- * 'gapprsPasswordPolicy'
+getAccountPasswordPolicyResponse
+    :: Int -- ^ 'gapprsStatus'
+    -> PasswordPolicy -- ^ 'gapprsPasswordPolicy'
+    -> GetAccountPasswordPolicyResponse
 getAccountPasswordPolicyResponse pStatus_ pPasswordPolicy_ =
     GetAccountPasswordPolicyResponse'
     { _gapprsStatus = pStatus_
     , _gapprsPasswordPolicy = pPasswordPolicy_
     }
 
--- | Undocumented member.
+-- | The response status code.
 gapprsStatus :: Lens' GetAccountPasswordPolicyResponse Int
 gapprsStatus = lens _gapprsStatus (\ s a -> s{_gapprsStatus = a});
 

@@ -36,16 +36,16 @@
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     (
     -- * Creating a Request
-      DescribeConfigurationSettings
-    , describeConfigurationSettings
+      describeConfigurationSettings
+    , DescribeConfigurationSettings
     -- * Request Lenses
     , dcsTemplateName
     , dcsEnvironmentName
     , dcsApplicationName
 
     -- * Destructuring the Response
-    , DescribeConfigurationSettingsResponse
     , describeConfigurationSettingsResponse
+    , DescribeConfigurationSettingsResponse
     -- * Response Lenses
     , dcsrsConfigurationSettings
     , dcsrsStatus
@@ -61,22 +61,24 @@ import           Network.AWS.Response
 -- specified solution stack or configuration template.
 --
 -- /See:/ 'describeConfigurationSettings' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsTemplateName'
---
--- * 'dcsEnvironmentName'
---
--- * 'dcsApplicationName'
 data DescribeConfigurationSettings = DescribeConfigurationSettings'
     { _dcsTemplateName    :: !(Maybe Text)
     , _dcsEnvironmentName :: !(Maybe Text)
     , _dcsApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeConfigurationSettings' smart constructor.
-describeConfigurationSettings :: Text -> DescribeConfigurationSettings
+-- | Creates a value of 'DescribeConfigurationSettings' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsTemplateName'
+--
+-- * 'dcsEnvironmentName'
+--
+-- * 'dcsApplicationName'
+describeConfigurationSettings
+    :: Text -- ^ 'dcsApplicationName'
+    -> DescribeConfigurationSettings
 describeConfigurationSettings pApplicationName_ =
     DescribeConfigurationSettings'
     { _dcsTemplateName = Nothing
@@ -88,9 +90,9 @@ describeConfigurationSettings pApplicationName_ =
 --
 -- Conditional: You must specify either this parameter or an
 -- EnvironmentName, but not both. If you specify both, AWS Elastic
--- Beanstalk returns an @InvalidParameterCombination@ error. If you do not
+-- Beanstalk returns an 'InvalidParameterCombination' error. If you do not
 -- specify either, AWS Elastic Beanstalk returns a
--- @MissingRequiredParameter@ error.
+-- 'MissingRequiredParameter' error.
 dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsTemplateName = lens _dcsTemplateName (\ s a -> s{_dcsTemplateName = a});
 
@@ -98,8 +100,8 @@ dcsTemplateName = lens _dcsTemplateName (\ s a -> s{_dcsTemplateName = a});
 --
 -- Condition: You must specify either this or a TemplateName, but not both.
 -- If you specify both, AWS Elastic Beanstalk returns an
--- @InvalidParameterCombination@ error. If you do not specify either, AWS
--- Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- 'InvalidParameterCombination' error. If you do not specify either, AWS
+-- Elastic Beanstalk returns 'MissingRequiredParameter' error.
 dcsEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsEnvironmentName = lens _dcsEnvironmentName (\ s a -> s{_dcsEnvironmentName = a});
 
@@ -144,19 +146,21 @@ instance ToQuery DescribeConfigurationSettings where
 -- environment.
 --
 -- /See:/ 'describeConfigurationSettingsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsrsConfigurationSettings'
---
--- * 'dcsrsStatus'
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
     { _dcsrsConfigurationSettings :: !(Maybe [ConfigurationSettingsDescription])
     , _dcsrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeConfigurationSettingsResponse' smart constructor.
-describeConfigurationSettingsResponse :: Int -> DescribeConfigurationSettingsResponse
+-- | Creates a value of 'DescribeConfigurationSettingsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsrsConfigurationSettings'
+--
+-- * 'dcsrsStatus'
+describeConfigurationSettingsResponse
+    :: Int -- ^ 'dcsrsStatus'
+    -> DescribeConfigurationSettingsResponse
 describeConfigurationSettingsResponse pStatus_ =
     DescribeConfigurationSettingsResponse'
     { _dcsrsConfigurationSettings = Nothing
@@ -167,6 +171,6 @@ describeConfigurationSettingsResponse pStatus_ =
 dcsrsConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
 dcsrsConfigurationSettings = lens _dcsrsConfigurationSettings (\ s a -> s{_dcsrsConfigurationSettings = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dcsrsStatus :: Lens' DescribeConfigurationSettingsResponse Int
 dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});

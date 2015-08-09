@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation sets the transfer lock on the domain (specifically the
--- @clientTransferProhibited@ status) to prevent domain transfers.
+-- 'clientTransferProhibited' status) to prevent domain transfers.
 -- Successful submission returns an operation ID that you can use to track
 -- the progress and completion of the action. If the request is not
 -- completed successfully, the domain registrant will be notified by email.
@@ -28,14 +28,14 @@
 module Network.AWS.Route53Domains.EnableDomainTransferLock
     (
     -- * Creating a Request
-      EnableDomainTransferLock
-    , enableDomainTransferLock
+      enableDomainTransferLock
+    , EnableDomainTransferLock
     -- * Request Lenses
     , edtlDomainName
 
     -- * Destructuring the Response
-    , EnableDomainTransferLockResponse
     , enableDomainTransferLockResponse
+    , EnableDomainTransferLockResponse
     -- * Response Lenses
     , edtlrsStatus
     , edtlrsOperationId
@@ -50,16 +50,18 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The EnableDomainTransferLock request includes the following element.
 --
 -- /See:/ 'enableDomainTransferLock' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'edtlDomainName'
 newtype EnableDomainTransferLock = EnableDomainTransferLock'
     { _edtlDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableDomainTransferLock' smart constructor.
-enableDomainTransferLock :: Text -> EnableDomainTransferLock
+-- | Creates a value of 'EnableDomainTransferLock' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edtlDomainName'
+enableDomainTransferLock
+    :: Text -- ^ 'edtlDomainName'
+    -> EnableDomainTransferLock
 enableDomainTransferLock pDomainName_ =
     EnableDomainTransferLock'
     { _edtlDomainName = pDomainName_
@@ -113,26 +115,29 @@ instance ToQuery EnableDomainTransferLock where
 -- | The EnableDomainTransferLock response includes the following elements.
 --
 -- /See:/ 'enableDomainTransferLockResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'edtlrsStatus'
---
--- * 'edtlrsOperationId'
 data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
     { _edtlrsStatus      :: !Int
     , _edtlrsOperationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableDomainTransferLockResponse' smart constructor.
-enableDomainTransferLockResponse :: Int -> Text -> EnableDomainTransferLockResponse
+-- | Creates a value of 'EnableDomainTransferLockResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edtlrsStatus'
+--
+-- * 'edtlrsOperationId'
+enableDomainTransferLockResponse
+    :: Int -- ^ 'edtlrsStatus'
+    -> Text -- ^ 'edtlrsOperationId'
+    -> EnableDomainTransferLockResponse
 enableDomainTransferLockResponse pStatus_ pOperationId_ =
     EnableDomainTransferLockResponse'
     { _edtlrsStatus = pStatus_
     , _edtlrsOperationId = pOperationId_
     }
 
--- | Undocumented member.
+-- | The response status code.
 edtlrsStatus :: Lens' EnableDomainTransferLockResponse Int
 edtlrsStatus = lens _edtlrsStatus (\ s a -> s{_edtlrsStatus = a});
 

@@ -26,8 +26,8 @@
 module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     (
     -- * Creating a Request
-      UpdateMaintenanceStartTime
-    , updateMaintenanceStartTime
+      updateMaintenanceStartTime
+    , UpdateMaintenanceStartTime
     -- * Request Lenses
     , umstGatewayARN
     , umstHourOfDay
@@ -35,8 +35,8 @@ module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     , umstDayOfWeek
 
     -- * Destructuring the Response
-    , UpdateMaintenanceStartTimeResponse
     , updateMaintenanceStartTimeResponse
+    , UpdateMaintenanceStartTimeResponse
     -- * Response Lenses
     , umstrsGatewayARN
     , umstrsStatus
@@ -55,8 +55,16 @@ import           Network.AWS.StorageGateway.Types.Product
 -- -   UpdateMaintenanceStartTimeInput$MinuteOfHour
 --
 -- /See:/ 'updateMaintenanceStartTime' smart constructor.
+data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
+    { _umstGatewayARN   :: !Text
+    , _umstHourOfDay    :: !Nat
+    , _umstMinuteOfHour :: !Nat
+    , _umstDayOfWeek    :: !Nat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateMaintenanceStartTime' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'umstGatewayARN'
 --
@@ -65,15 +73,12 @@ import           Network.AWS.StorageGateway.Types.Product
 -- * 'umstMinuteOfHour'
 --
 -- * 'umstDayOfWeek'
-data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
-    { _umstGatewayARN   :: !Text
-    , _umstHourOfDay    :: !Nat
-    , _umstMinuteOfHour :: !Nat
-    , _umstDayOfWeek    :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateMaintenanceStartTime' smart constructor.
-updateMaintenanceStartTime :: Text -> Natural -> Natural -> Natural -> UpdateMaintenanceStartTime
+updateMaintenanceStartTime
+    :: Text -- ^ 'umstGatewayARN'
+    -> Natural -- ^ 'umstHourOfDay'
+    -> Natural -- ^ 'umstMinuteOfHour'
+    -> Natural -- ^ 'umstDayOfWeek'
+    -> UpdateMaintenanceStartTime
 updateMaintenanceStartTime pGatewayARN_ pHourOfDay_ pMinuteOfHour_ pDayOfWeek_ =
     UpdateMaintenanceStartTime'
     { _umstGatewayARN = pGatewayARN_
@@ -141,19 +146,21 @@ instance ToQuery UpdateMaintenanceStartTime where
 -- is updated.
 --
 -- /See:/ 'updateMaintenanceStartTimeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'umstrsGatewayARN'
---
--- * 'umstrsStatus'
 data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
     { _umstrsGatewayARN :: !(Maybe Text)
     , _umstrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateMaintenanceStartTimeResponse' smart constructor.
-updateMaintenanceStartTimeResponse :: Int -> UpdateMaintenanceStartTimeResponse
+-- | Creates a value of 'UpdateMaintenanceStartTimeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'umstrsGatewayARN'
+--
+-- * 'umstrsStatus'
+updateMaintenanceStartTimeResponse
+    :: Int -- ^ 'umstrsStatus'
+    -> UpdateMaintenanceStartTimeResponse
 updateMaintenanceStartTimeResponse pStatus_ =
     UpdateMaintenanceStartTimeResponse'
     { _umstrsGatewayARN = Nothing
@@ -164,6 +171,6 @@ updateMaintenanceStartTimeResponse pStatus_ =
 umstrsGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Maybe Text)
 umstrsGatewayARN = lens _umstrsGatewayARN (\ s a -> s{_umstrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 umstrsStatus :: Lens' UpdateMaintenanceStartTimeResponse Int
 umstrsStatus = lens _umstrsStatus (\ s a -> s{_umstrsStatus = a});

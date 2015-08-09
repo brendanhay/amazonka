@@ -27,15 +27,15 @@
 module Network.AWS.CloudHSM.ModifyLunaClient
     (
     -- * Creating a Request
-      ModifyLunaClient
-    , modifyLunaClient
+      modifyLunaClient
+    , ModifyLunaClient
     -- * Request Lenses
     , mlcClientARN
     , mlcCertificate
 
     -- * Destructuring the Response
-    , ModifyLunaClientResponse
     , modifyLunaClientResponse
+    , ModifyLunaClientResponse
     -- * Response Lenses
     , mlcrsClientARN
     , mlcrsStatus
@@ -48,19 +48,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifyLunaClient' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mlcClientARN'
---
--- * 'mlcCertificate'
 data ModifyLunaClient = ModifyLunaClient'
     { _mlcClientARN   :: !Text
     , _mlcCertificate :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyLunaClient' smart constructor.
-modifyLunaClient :: Text -> Text -> ModifyLunaClient
+-- | Creates a value of 'ModifyLunaClient' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mlcClientARN'
+--
+-- * 'mlcCertificate'
+modifyLunaClient
+    :: Text -- ^ 'mlcClientARN'
+    -> Text -- ^ 'mlcCertificate'
+    -> ModifyLunaClient
 modifyLunaClient pClientARN_ pCertificate_ =
     ModifyLunaClient'
     { _mlcClientARN = pClientARN_
@@ -108,19 +111,21 @@ instance ToQuery ModifyLunaClient where
         toQuery = const mempty
 
 -- | /See:/ 'modifyLunaClientResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mlcrsClientARN'
---
--- * 'mlcrsStatus'
 data ModifyLunaClientResponse = ModifyLunaClientResponse'
     { _mlcrsClientARN :: !(Maybe Text)
     , _mlcrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyLunaClientResponse' smart constructor.
-modifyLunaClientResponse :: Int -> ModifyLunaClientResponse
+-- | Creates a value of 'ModifyLunaClientResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mlcrsClientARN'
+--
+-- * 'mlcrsStatus'
+modifyLunaClientResponse
+    :: Int -- ^ 'mlcrsStatus'
+    -> ModifyLunaClientResponse
 modifyLunaClientResponse pStatus_ =
     ModifyLunaClientResponse'
     { _mlcrsClientARN = Nothing
@@ -131,6 +136,6 @@ modifyLunaClientResponse pStatus_ =
 mlcrsClientARN :: Lens' ModifyLunaClientResponse (Maybe Text)
 mlcrsClientARN = lens _mlcrsClientARN (\ s a -> s{_mlcrsClientARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 mlcrsStatus :: Lens' ModifyLunaClientResponse Int
 mlcrsStatus = lens _mlcrsStatus (\ s a -> s{_mlcrsStatus = a});

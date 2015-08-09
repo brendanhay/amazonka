@@ -21,15 +21,15 @@
 -- Enables or disables Easy DKIM signing of email sent from an identity:
 --
 -- -   If Easy DKIM signing is enabled for a domain name identity (e.g.,
---     @example.com@), then Amazon SES will DKIM-sign all email sent by
---     addresses under that domain name (e.g., @user\@example.com@).
+--     'example.com'), then Amazon SES will DKIM-sign all email sent by
+--     addresses under that domain name (e.g., 'user\'example.com').
 -- -   If Easy DKIM signing is enabled for an email address, then Amazon
 --     SES will DKIM-sign all email sent by that email address.
 --
--- For email addresses (e.g., @user\@example.com@), you can only enable
--- Easy DKIM signing if the corresponding domain (e.g., @example.com@) has
+-- For email addresses (e.g., 'user\'example.com'), you can only enable
+-- Easy DKIM signing if the corresponding domain (e.g., 'example.com') has
 -- been set up for Easy DKIM using the AWS Console or the
--- @VerifyDomainDkim@ action.
+-- 'VerifyDomainDkim' action.
 --
 -- This action is throttled at one request per second.
 --
@@ -40,15 +40,15 @@
 module Network.AWS.SES.SetIdentityDkimEnabled
     (
     -- * Creating a Request
-      SetIdentityDkimEnabled
-    , setIdentityDkimEnabled
+      setIdentityDkimEnabled
+    , SetIdentityDkimEnabled
     -- * Request Lenses
     , sideIdentity
     , sideDkimEnabled
 
     -- * Destructuring the Response
-    , SetIdentityDkimEnabledResponse
     , setIdentityDkimEnabledResponse
+    , SetIdentityDkimEnabledResponse
     -- * Response Lenses
     , sidersStatus
     ) where
@@ -63,19 +63,22 @@ import           Network.AWS.SES.Types.Product
 -- signing for an identity.
 --
 -- /See:/ 'setIdentityDkimEnabled' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sideIdentity'
---
--- * 'sideDkimEnabled'
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
     { _sideIdentity    :: !Text
     , _sideDkimEnabled :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetIdentityDkimEnabled' smart constructor.
-setIdentityDkimEnabled :: Text -> Bool -> SetIdentityDkimEnabled
+-- | Creates a value of 'SetIdentityDkimEnabled' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sideIdentity'
+--
+-- * 'sideDkimEnabled'
+setIdentityDkimEnabled
+    :: Text -- ^ 'sideIdentity'
+    -> Bool -- ^ 'sideDkimEnabled'
+    -> SetIdentityDkimEnabled
 setIdentityDkimEnabled pIdentity_ pDkimEnabled_ =
     SetIdentityDkimEnabled'
     { _sideIdentity = pIdentity_
@@ -86,8 +89,8 @@ setIdentityDkimEnabled pIdentity_ pDkimEnabled_ =
 sideIdentity :: Lens' SetIdentityDkimEnabled Text
 sideIdentity = lens _sideIdentity (\ s a -> s{_sideIdentity = a});
 
--- | Sets whether DKIM signing is enabled for an identity. Set to @true@ to
--- enable DKIM signing for this identity; @false@ to disable it.
+-- | Sets whether DKIM signing is enabled for an identity. Set to 'true' to
+-- enable DKIM signing for this identity; 'false' to disable it.
 sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
 sideDkimEnabled = lens _sideDkimEnabled (\ s a -> s{_sideDkimEnabled = a});
 
@@ -121,21 +124,23 @@ instance ToQuery SetIdentityDkimEnabled where
 -- completed successfully.
 --
 -- /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sidersStatus'
 newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
     { _sidersStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetIdentityDkimEnabledResponse' smart constructor.
-setIdentityDkimEnabledResponse :: Int -> SetIdentityDkimEnabledResponse
+-- | Creates a value of 'SetIdentityDkimEnabledResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sidersStatus'
+setIdentityDkimEnabledResponse
+    :: Int -- ^ 'sidersStatus'
+    -> SetIdentityDkimEnabledResponse
 setIdentityDkimEnabledResponse pStatus_ =
     SetIdentityDkimEnabledResponse'
     { _sidersStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 sidersStatus :: Lens' SetIdentityDkimEnabledResponse Int
 sidersStatus = lens _sidersStatus (\ s a -> s{_sidersStatus = a});

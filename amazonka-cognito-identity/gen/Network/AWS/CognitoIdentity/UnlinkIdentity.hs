@@ -28,16 +28,16 @@
 module Network.AWS.CognitoIdentity.UnlinkIdentity
     (
     -- * Creating a Request
-      UnlinkIdentity
-    , unlinkIdentity
+      unlinkIdentity
+    , UnlinkIdentity
     -- * Request Lenses
     , uiIdentityId
     , uiLogins
     , uiLoginsToRemove
 
     -- * Destructuring the Response
-    , UnlinkIdentityResponse
     , unlinkIdentityResponse
+    , UnlinkIdentityResponse
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -49,22 +49,24 @@ import           Network.AWS.Response
 -- | Input to the UnlinkIdentity action.
 --
 -- /See:/ 'unlinkIdentity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uiIdentityId'
---
--- * 'uiLogins'
---
--- * 'uiLoginsToRemove'
 data UnlinkIdentity = UnlinkIdentity'
     { _uiIdentityId     :: !Text
     , _uiLogins         :: !(Map Text Text)
     , _uiLoginsToRemove :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnlinkIdentity' smart constructor.
-unlinkIdentity :: Text -> UnlinkIdentity
+-- | Creates a value of 'UnlinkIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uiIdentityId'
+--
+-- * 'uiLogins'
+--
+-- * 'uiLoginsToRemove'
+unlinkIdentity
+    :: Text -- ^ 'uiIdentityId'
+    -> UnlinkIdentity
 unlinkIdentity pIdentityId_ =
     UnlinkIdentity'
     { _uiIdentityId = pIdentityId_
@@ -119,6 +121,8 @@ data UnlinkIdentityResponse =
     UnlinkIdentityResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnlinkIdentityResponse' smart constructor.
-unlinkIdentityResponse :: UnlinkIdentityResponse
+-- | Creates a value of 'UnlinkIdentityResponse' with the minimum fields required to make a request.
+--
+unlinkIdentityResponse
+    :: UnlinkIdentityResponse
 unlinkIdentityResponse = UnlinkIdentityResponse'

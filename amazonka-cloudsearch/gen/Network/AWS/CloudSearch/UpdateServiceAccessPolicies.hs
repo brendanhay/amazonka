@@ -26,15 +26,15 @@
 module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     (
     -- * Creating a Request
-      UpdateServiceAccessPolicies
-    , updateServiceAccessPolicies
+      updateServiceAccessPolicies
+    , UpdateServiceAccessPolicies
     -- * Request Lenses
     , usapDomainName
     , usapAccessPolicies
 
     -- * Destructuring the Response
-    , UpdateServiceAccessPoliciesResponse
     , updateServiceAccessPoliciesResponse
+    , UpdateServiceAccessPoliciesResponse
     -- * Response Lenses
     , usaprsStatus
     , usaprsAccessPolicies
@@ -46,24 +46,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @UpdateServiceAccessPolicies@
+-- | Container for the parameters to the 'UpdateServiceAccessPolicies'
 -- operation. Specifies the name of the domain you want to update and the
 -- access rules you want to configure.
 --
 -- /See:/ 'updateServiceAccessPolicies' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'usapDomainName'
---
--- * 'usapAccessPolicies'
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
     { _usapDomainName     :: !Text
     , _usapAccessPolicies :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateServiceAccessPolicies' smart constructor.
-updateServiceAccessPolicies :: Text -> Text -> UpdateServiceAccessPolicies
+-- | Creates a value of 'UpdateServiceAccessPolicies' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'usapDomainName'
+--
+-- * 'usapAccessPolicies'
+updateServiceAccessPolicies
+    :: Text -- ^ 'usapDomainName'
+    -> Text -- ^ 'usapAccessPolicies'
+    -> UpdateServiceAccessPolicies
 updateServiceAccessPolicies pDomainName_ pAccessPolicies_ =
     UpdateServiceAccessPolicies'
     { _usapDomainName = pDomainName_
@@ -106,30 +109,33 @@ instance ToQuery UpdateServiceAccessPolicies where
                "DomainName" =: _usapDomainName,
                "AccessPolicies" =: _usapAccessPolicies]
 
--- | The result of an @UpdateServiceAccessPolicies@ request. Contains the new
+-- | The result of an 'UpdateServiceAccessPolicies' request. Contains the new
 -- access policies.
 --
 -- /See:/ 'updateServiceAccessPoliciesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'usaprsStatus'
---
--- * 'usaprsAccessPolicies'
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
     { _usaprsStatus         :: !Int
     , _usaprsAccessPolicies :: !AccessPoliciesStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateServiceAccessPoliciesResponse' smart constructor.
-updateServiceAccessPoliciesResponse :: Int -> AccessPoliciesStatus -> UpdateServiceAccessPoliciesResponse
+-- | Creates a value of 'UpdateServiceAccessPoliciesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'usaprsStatus'
+--
+-- * 'usaprsAccessPolicies'
+updateServiceAccessPoliciesResponse
+    :: Int -- ^ 'usaprsStatus'
+    -> AccessPoliciesStatus -- ^ 'usaprsAccessPolicies'
+    -> UpdateServiceAccessPoliciesResponse
 updateServiceAccessPoliciesResponse pStatus_ pAccessPolicies_ =
     UpdateServiceAccessPoliciesResponse'
     { _usaprsStatus = pStatus_
     , _usaprsAccessPolicies = pAccessPolicies_
     }
 
--- | Undocumented member.
+-- | The response status code.
 usaprsStatus :: Lens' UpdateServiceAccessPoliciesResponse Int
 usaprsStatus = lens _usaprsStatus (\ s a -> s{_usaprsStatus = a});
 

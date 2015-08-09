@@ -25,15 +25,15 @@
 module Network.AWS.EC2.DeleteCustomerGateway
     (
     -- * Creating a Request
-      DeleteCustomerGateway
-    , deleteCustomerGateway
+      deleteCustomerGateway
+    , DeleteCustomerGateway
     -- * Request Lenses
     , dcgcDryRun
     , dcgcCustomerGatewayId
 
     -- * Destructuring the Response
-    , DeleteCustomerGatewayResponse
     , deleteCustomerGatewayResponse
+    , DeleteCustomerGatewayResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -43,19 +43,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteCustomerGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcgcDryRun'
---
--- * 'dcgcCustomerGatewayId'
 data DeleteCustomerGateway = DeleteCustomerGateway'
     { _dcgcDryRun            :: !(Maybe Bool)
     , _dcgcCustomerGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCustomerGateway' smart constructor.
-deleteCustomerGateway :: Text -> DeleteCustomerGateway
+-- | Creates a value of 'DeleteCustomerGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcgcDryRun'
+--
+-- * 'dcgcCustomerGatewayId'
+deleteCustomerGateway
+    :: Text -- ^ 'dcgcCustomerGatewayId'
+    -> DeleteCustomerGateway
 deleteCustomerGateway pCustomerGatewayId_ =
     DeleteCustomerGateway'
     { _dcgcDryRun = Nothing
@@ -64,8 +66,8 @@ deleteCustomerGateway pCustomerGatewayId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dcgcDryRun :: Lens' DeleteCustomerGateway (Maybe Bool)
 dcgcDryRun = lens _dcgcDryRun (\ s a -> s{_dcgcDryRun = a});
 
@@ -99,6 +101,8 @@ data DeleteCustomerGatewayResponse =
     DeleteCustomerGatewayResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCustomerGatewayResponse' smart constructor.
-deleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse
+-- | Creates a value of 'DeleteCustomerGatewayResponse' with the minimum fields required to make a request.
+--
+deleteCustomerGatewayResponse
+    :: DeleteCustomerGatewayResponse
 deleteCustomerGatewayResponse = DeleteCustomerGatewayResponse'

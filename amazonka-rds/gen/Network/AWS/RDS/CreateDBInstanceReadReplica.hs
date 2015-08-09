@@ -32,8 +32,8 @@
 module Network.AWS.RDS.CreateDBInstanceReadReplica
     (
     -- * Creating a Request
-      CreateDBInstanceReadReplica
-    , createDBInstanceReadReplica
+      createDBInstanceReadReplica
+    , CreateDBInstanceReadReplica
     -- * Request Lenses
     , cdirrAutoMinorVersionUpgrade
     , cdirrPubliclyAccessible
@@ -50,8 +50,8 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     , cdirrSourceDBInstanceIdentifier
 
     -- * Destructuring the Response
-    , CreateDBInstanceReadReplicaResponse
     , createDBInstanceReadReplicaResponse
+    , CreateDBInstanceReadReplicaResponse
     -- * Response Lenses
     , cdirrrsDBInstance
     , cdirrrsStatus
@@ -64,8 +64,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createDBInstanceReadReplica' smart constructor.
+data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
+    { _cdirrAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _cdirrPubliclyAccessible         :: !(Maybe Bool)
+    , _cdirrDBSubnetGroupName          :: !(Maybe Text)
+    , _cdirrIOPS                       :: !(Maybe Int)
+    , _cdirrDBInstanceClass            :: !(Maybe Text)
+    , _cdirrAvailabilityZone           :: !(Maybe Text)
+    , _cdirrOptionGroupName            :: !(Maybe Text)
+    , _cdirrCopyTagsToSnapshot         :: !(Maybe Bool)
+    , _cdirrTags                       :: !(Maybe [Tag])
+    , _cdirrPort                       :: !(Maybe Int)
+    , _cdirrStorageType                :: !(Maybe Text)
+    , _cdirrDBInstanceIdentifier       :: !Text
+    , _cdirrSourceDBInstanceIdentifier :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDBInstanceReadReplica' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdirrAutoMinorVersionUpgrade'
 --
@@ -92,24 +109,10 @@ import           Network.AWS.Response
 -- * 'cdirrDBInstanceIdentifier'
 --
 -- * 'cdirrSourceDBInstanceIdentifier'
-data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
-    { _cdirrAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _cdirrPubliclyAccessible         :: !(Maybe Bool)
-    , _cdirrDBSubnetGroupName          :: !(Maybe Text)
-    , _cdirrIOPS                       :: !(Maybe Int)
-    , _cdirrDBInstanceClass            :: !(Maybe Text)
-    , _cdirrAvailabilityZone           :: !(Maybe Text)
-    , _cdirrOptionGroupName            :: !(Maybe Text)
-    , _cdirrCopyTagsToSnapshot         :: !(Maybe Bool)
-    , _cdirrTags                       :: !(Maybe [Tag])
-    , _cdirrPort                       :: !(Maybe Int)
-    , _cdirrStorageType                :: !(Maybe Text)
-    , _cdirrDBInstanceIdentifier       :: !Text
-    , _cdirrSourceDBInstanceIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateDBInstanceReadReplica' smart constructor.
-createDBInstanceReadReplica :: Text -> Text -> CreateDBInstanceReadReplica
+createDBInstanceReadReplica
+    :: Text -- ^ 'cdirrDBInstanceIdentifier'
+    -> Text -- ^ 'cdirrSourceDBInstanceIdentifier'
+    -> CreateDBInstanceReadReplica
 createDBInstanceReadReplica pDBInstanceIdentifier_ pSourceDBInstanceIdentifier_ =
     CreateDBInstanceReadReplica'
     { _cdirrAutoMinorVersionUpgrade = Nothing
@@ -183,7 +186,7 @@ cdirrIOPS = lens _cdirrIOPS (\ s a -> s{_cdirrIOPS = a});
 -- | The compute and memory capacity of the Read Replica.
 --
 -- Valid Values:
--- @db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium@
+-- 'db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
 --
 -- Default: Inherits from the source DB instance.
 cdirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
@@ -195,7 +198,7 @@ cdirrDBInstanceClass = lens _cdirrDBInstanceClass (\ s a -> s{_cdirrDBInstanceCl
 -- Default: A random, system-chosen Availability Zone in the endpoint\'s
 -- region.
 --
--- Example: @us-east-1d@
+-- Example: 'us-east-1d'
 cdirrAvailabilityZone :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrAvailabilityZone = lens _cdirrAvailabilityZone (\ s a -> s{_cdirrAvailabilityZone = a});
 
@@ -216,19 +219,19 @@ cdirrTags = lens _cdirrTags (\ s a -> s{_cdirrTags = a}) . _Default . _Coerce;
 --
 -- Default: Inherits from the source DB instance
 --
--- Valid Values: @1150-65535@
+-- Valid Values: '1150-65535'
 cdirrPort :: Lens' CreateDBInstanceReadReplica (Maybe Int)
 cdirrPort = lens _cdirrPort (\ s a -> s{_cdirrPort = a});
 
 -- | Specifies the storage type to be associated with the Read Replica.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: 'standard | gp2 | io1'
 --
--- If you specify @io1@, you must also include a value for the @Iops@
+-- If you specify 'io1', you must also include a value for the 'Iops'
 -- parameter.
 --
--- Default: @io1@ if the @Iops@ parameter is specified; otherwise
--- @standard@
+-- Default: 'io1' if the 'Iops' parameter is specified; otherwise
+-- 'standard'
 cdirrStorageType :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrStorageType = lens _cdirrStorageType (\ s a -> s{_cdirrStorageType = a});
 
@@ -300,19 +303,21 @@ instance ToQuery CreateDBInstanceReadReplica where
                  _cdirrSourceDBInstanceIdentifier]
 
 -- | /See:/ 'createDBInstanceReadReplicaResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdirrrsDBInstance'
---
--- * 'cdirrrsStatus'
 data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
     { _cdirrrsDBInstance :: !(Maybe DBInstance)
     , _cdirrrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBInstanceReadReplicaResponse' smart constructor.
-createDBInstanceReadReplicaResponse :: Int -> CreateDBInstanceReadReplicaResponse
+-- | Creates a value of 'CreateDBInstanceReadReplicaResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdirrrsDBInstance'
+--
+-- * 'cdirrrsStatus'
+createDBInstanceReadReplicaResponse
+    :: Int -- ^ 'cdirrrsStatus'
+    -> CreateDBInstanceReadReplicaResponse
 createDBInstanceReadReplicaResponse pStatus_ =
     CreateDBInstanceReadReplicaResponse'
     { _cdirrrsDBInstance = Nothing
@@ -323,6 +328,6 @@ createDBInstanceReadReplicaResponse pStatus_ =
 cdirrrsDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
 cdirrrsDBInstance = lens _cdirrrsDBInstance (\ s a -> s{_cdirrrsDBInstance = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdirrrsStatus :: Lens' CreateDBInstanceReadReplicaResponse Int
 cdirrrsStatus = lens _cdirrrsStatus (\ s a -> s{_cdirrrsStatus = a});

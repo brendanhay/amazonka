@@ -36,15 +36,15 @@
 module Network.AWS.OpsWorks.AssignInstance
     (
     -- * Creating a Request
-      AssignInstance
-    , assignInstance
+      assignInstance
+    , AssignInstance
     -- * Request Lenses
     , aiInstanceId
     , aiLayerIds
 
     -- * Destructuring the Response
-    , AssignInstanceResponse
     , assignInstanceResponse
+    , AssignInstanceResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -54,19 +54,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'assignInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aiInstanceId'
---
--- * 'aiLayerIds'
 data AssignInstance = AssignInstance'
     { _aiInstanceId :: !Text
     , _aiLayerIds   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssignInstance' smart constructor.
-assignInstance :: Text -> AssignInstance
+-- | Creates a value of 'AssignInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aiInstanceId'
+--
+-- * 'aiLayerIds'
+assignInstance
+    :: Text -- ^ 'aiInstanceId'
+    -> AssignInstance
 assignInstance pInstanceId_ =
     AssignInstance'
     { _aiInstanceId = pInstanceId_
@@ -114,6 +116,8 @@ data AssignInstanceResponse =
     AssignInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssignInstanceResponse' smart constructor.
-assignInstanceResponse :: AssignInstanceResponse
+-- | Creates a value of 'AssignInstanceResponse' with the minimum fields required to make a request.
+--
+assignInstanceResponse
+    :: AssignInstanceResponse
 assignInstanceResponse = AssignInstanceResponse'

@@ -32,14 +32,14 @@
 module Network.AWS.OpsWorks.DeregisterVolume
     (
     -- * Creating a Request
-      DeregisterVolume
-    , deregisterVolume
+      deregisterVolume
+    , DeregisterVolume
     -- * Request Lenses
     , dvVolumeId
 
     -- * Destructuring the Response
-    , DeregisterVolumeResponse
     , deregisterVolumeResponse
+    , DeregisterVolumeResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -49,16 +49,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deregisterVolume' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvVolumeId'
 newtype DeregisterVolume = DeregisterVolume'
     { _dvVolumeId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterVolume' smart constructor.
-deregisterVolume :: Text -> DeregisterVolume
+-- | Creates a value of 'DeregisterVolume' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvVolumeId'
+deregisterVolume
+    :: Text -- ^ 'dvVolumeId'
+    -> DeregisterVolume
 deregisterVolume pVolumeId_ =
     DeregisterVolume'
     { _dvVolumeId = pVolumeId_
@@ -100,6 +102,8 @@ data DeregisterVolumeResponse =
     DeregisterVolumeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterVolumeResponse' smart constructor.
-deregisterVolumeResponse :: DeregisterVolumeResponse
+-- | Creates a value of 'DeregisterVolumeResponse' with the minimum fields required to make a request.
+--
+deregisterVolumeResponse
+    :: DeregisterVolumeResponse
 deregisterVolumeResponse = DeregisterVolumeResponse'

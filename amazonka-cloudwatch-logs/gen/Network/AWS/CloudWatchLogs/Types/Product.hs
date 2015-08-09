@@ -22,8 +22,18 @@ import           Network.AWS.CloudWatchLogs.Types.Sum
 import           Network.AWS.Prelude
 
 -- | /See:/ 'destination' smart constructor.
+data Destination = Destination'
+    { _dTargetARN       :: !(Maybe Text)
+    , _dCreationTime    :: !(Maybe Nat)
+    , _dArn             :: !(Maybe Text)
+    , _dAccessPolicy    :: !(Maybe Text)
+    , _dDestinationName :: !(Maybe Text)
+    , _dRoleARN         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Destination' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dTargetARN'
 --
@@ -36,17 +46,8 @@ import           Network.AWS.Prelude
 -- * 'dDestinationName'
 --
 -- * 'dRoleARN'
-data Destination = Destination'
-    { _dTargetARN       :: !(Maybe Text)
-    , _dCreationTime    :: !(Maybe Nat)
-    , _dArn             :: !(Maybe Text)
-    , _dAccessPolicy    :: !(Maybe Text)
-    , _dDestinationName :: !(Maybe Text)
-    , _dRoleARN         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Destination' smart constructor.
-destination :: Destination
+destination
+    :: Destination
 destination =
     Destination'
     { _dTargetARN = Nothing
@@ -92,11 +93,20 @@ instance FromJSON Destination where
                      <*> (x .:? "destinationName")
                      <*> (x .:? "roleArn"))
 
--- | Represents a matched event from a @FilterLogEvents@ request.
+-- | Represents a matched event from a 'FilterLogEvents' request.
 --
 -- /See:/ 'filteredLogEvent' smart constructor.
+data FilteredLogEvent = FilteredLogEvent'
+    { _fleIngestionTime :: !(Maybe Nat)
+    , _fleLogStreamName :: !(Maybe Text)
+    , _fleMessage       :: !(Maybe Text)
+    , _fleTimestamp     :: !(Maybe Nat)
+    , _fleEventId       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'FilteredLogEvent' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'fleIngestionTime'
 --
@@ -107,16 +117,8 @@ instance FromJSON Destination where
 -- * 'fleTimestamp'
 --
 -- * 'fleEventId'
-data FilteredLogEvent = FilteredLogEvent'
-    { _fleIngestionTime :: !(Maybe Nat)
-    , _fleLogStreamName :: !(Maybe Text)
-    , _fleMessage       :: !(Maybe Text)
-    , _fleTimestamp     :: !(Maybe Nat)
-    , _fleEventId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'FilteredLogEvent' smart constructor.
-filteredLogEvent :: FilteredLogEvent
+filteredLogEvent
+    :: FilteredLogEvent
 filteredLogEvent =
     FilteredLogEvent'
     { _fleIngestionTime = Nothing
@@ -162,19 +164,22 @@ instance FromJSON FilteredLogEvent where
 -- timestamp of when the event occurred, and the raw event message.
 --
 -- /See:/ 'inputLogEvent' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ileTimestamp'
---
--- * 'ileMessage'
 data InputLogEvent = InputLogEvent'
     { _ileTimestamp :: !Nat
     , _ileMessage   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InputLogEvent' smart constructor.
-inputLogEvent :: Natural -> Text -> InputLogEvent
+-- | Creates a value of 'InputLogEvent' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ileTimestamp'
+--
+-- * 'ileMessage'
+inputLogEvent
+    :: Natural -- ^ 'ileTimestamp'
+    -> Text -- ^ 'ileMessage'
+    -> InputLogEvent
 inputLogEvent pTimestamp_ pMessage_ =
     InputLogEvent'
     { _ileTimestamp = _Nat # pTimestamp_
@@ -196,8 +201,18 @@ instance ToJSON InputLogEvent where
                "message" .= _ileMessage]
 
 -- | /See:/ 'logGroup' smart constructor.
+data LogGroup = LogGroup'
+    { _lgCreationTime      :: !(Maybe Nat)
+    , _lgMetricFilterCount :: !(Maybe Int)
+    , _lgArn               :: !(Maybe Text)
+    , _lgLogGroupName      :: !(Maybe Text)
+    , _lgRetentionInDays   :: !(Maybe Int)
+    , _lgStoredBytes       :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LogGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lgCreationTime'
 --
@@ -210,17 +225,8 @@ instance ToJSON InputLogEvent where
 -- * 'lgRetentionInDays'
 --
 -- * 'lgStoredBytes'
-data LogGroup = LogGroup'
-    { _lgCreationTime      :: !(Maybe Nat)
-    , _lgMetricFilterCount :: !(Maybe Int)
-    , _lgArn               :: !(Maybe Text)
-    , _lgLogGroupName      :: !(Maybe Text)
-    , _lgRetentionInDays   :: !(Maybe Int)
-    , _lgStoredBytes       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LogGroup' smart constructor.
-logGroup :: LogGroup
+logGroup
+    :: LogGroup
 logGroup =
     LogGroup'
     { _lgCreationTime = Nothing
@@ -270,8 +276,20 @@ instance FromJSON LogGroup where
 -- | A log stream is sequence of log events from a single emitter of logs.
 --
 -- /See:/ 'logStream' smart constructor.
+data LogStream = LogStream'
+    { _lsCreationTime        :: !(Maybe Nat)
+    , _lsUploadSequenceToken :: !(Maybe Text)
+    , _lsArn                 :: !(Maybe Text)
+    , _lsFirstEventTimestamp :: !(Maybe Nat)
+    , _lsLogStreamName       :: !(Maybe Text)
+    , _lsStoredBytes         :: !(Maybe Nat)
+    , _lsLastIngestionTime   :: !(Maybe Nat)
+    , _lsLastEventTimestamp  :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LogStream' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lsCreationTime'
 --
@@ -288,19 +306,8 @@ instance FromJSON LogGroup where
 -- * 'lsLastIngestionTime'
 --
 -- * 'lsLastEventTimestamp'
-data LogStream = LogStream'
-    { _lsCreationTime        :: !(Maybe Nat)
-    , _lsUploadSequenceToken :: !(Maybe Text)
-    , _lsArn                 :: !(Maybe Text)
-    , _lsFirstEventTimestamp :: !(Maybe Nat)
-    , _lsLogStreamName       :: !(Maybe Text)
-    , _lsStoredBytes         :: !(Maybe Nat)
-    , _lsLastIngestionTime   :: !(Maybe Nat)
-    , _lsLastEventTimestamp  :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LogStream' smart constructor.
-logStream :: LogStream
+logStream
+    :: LogStream
 logStream =
     LogStream'
     { _lsCreationTime = Nothing
@@ -364,8 +371,16 @@ instance FromJSON LogStream where
 -- to metric data in a CloudWatch metric.
 --
 -- /See:/ 'metricFilter' smart constructor.
+data MetricFilter = MetricFilter'
+    { _mfCreationTime          :: !(Maybe Nat)
+    , _mfFilterName            :: !(Maybe Text)
+    , _mfFilterPattern         :: !(Maybe Text)
+    , _mfMetricTransformations :: !(Maybe (List1 MetricTransformation))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MetricFilter' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mfCreationTime'
 --
@@ -374,15 +389,8 @@ instance FromJSON LogStream where
 -- * 'mfFilterPattern'
 --
 -- * 'mfMetricTransformations'
-data MetricFilter = MetricFilter'
-    { _mfCreationTime          :: !(Maybe Nat)
-    , _mfFilterName            :: !(Maybe Text)
-    , _mfFilterPattern         :: !(Maybe Text)
-    , _mfMetricTransformations :: !(Maybe (List1 MetricTransformation))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'MetricFilter' smart constructor.
-metricFilter :: MetricFilter
+metricFilter
+    :: MetricFilter
 metricFilter =
     MetricFilter'
     { _mfCreationTime = Nothing
@@ -417,22 +425,23 @@ instance FromJSON MetricFilter where
                      <*> (x .:? "metricTransformations"))
 
 -- | /See:/ 'metricFilterMatchRecord' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mfmrExtractedValues'
---
--- * 'mfmrEventMessage'
---
--- * 'mfmrEventNumber'
 data MetricFilterMatchRecord = MetricFilterMatchRecord'
     { _mfmrExtractedValues :: !(Maybe (Map Text Text))
     , _mfmrEventMessage    :: !(Maybe Text)
     , _mfmrEventNumber     :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MetricFilterMatchRecord' smart constructor.
-metricFilterMatchRecord :: MetricFilterMatchRecord
+-- | Creates a value of 'MetricFilterMatchRecord' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mfmrExtractedValues'
+--
+-- * 'mfmrEventMessage'
+--
+-- * 'mfmrEventNumber'
+metricFilterMatchRecord
+    :: MetricFilterMatchRecord
 metricFilterMatchRecord =
     MetricFilterMatchRecord'
     { _mfmrExtractedValues = Nothing
@@ -462,22 +471,26 @@ instance FromJSON MetricFilterMatchRecord where
                      <*> (x .:? "eventNumber"))
 
 -- | /See:/ 'metricTransformation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mtMetricName'
---
--- * 'mtMetricNamespace'
---
--- * 'mtMetricValue'
 data MetricTransformation = MetricTransformation'
     { _mtMetricName      :: !Text
     , _mtMetricNamespace :: !Text
     , _mtMetricValue     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MetricTransformation' smart constructor.
-metricTransformation :: Text -> Text -> Text -> MetricTransformation
+-- | Creates a value of 'MetricTransformation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mtMetricName'
+--
+-- * 'mtMetricNamespace'
+--
+-- * 'mtMetricValue'
+metricTransformation
+    :: Text -- ^ 'mtMetricName'
+    -> Text -- ^ 'mtMetricNamespace'
+    -> Text -- ^ 'mtMetricValue'
+    -> MetricTransformation
 metricTransformation pMetricName_ pMetricNamespace_ pMetricValue_ =
     MetricTransformation'
     { _mtMetricName = pMetricName_
@@ -513,22 +526,23 @@ instance ToJSON MetricTransformation where
                "metricValue" .= _mtMetricValue]
 
 -- | /See:/ 'outputLogEvent' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'oleIngestionTime'
---
--- * 'oleMessage'
---
--- * 'oleTimestamp'
 data OutputLogEvent = OutputLogEvent'
     { _oleIngestionTime :: !(Maybe Nat)
     , _oleMessage       :: !(Maybe Text)
     , _oleTimestamp     :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'OutputLogEvent' smart constructor.
-outputLogEvent :: OutputLogEvent
+-- | Creates a value of 'OutputLogEvent' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'oleIngestionTime'
+--
+-- * 'oleMessage'
+--
+-- * 'oleTimestamp'
+outputLogEvent
+    :: OutputLogEvent
 outputLogEvent =
     OutputLogEvent'
     { _oleIngestionTime = Nothing
@@ -557,22 +571,23 @@ instance FromJSON OutputLogEvent where
                      (x .:? "timestamp"))
 
 -- | /See:/ 'rejectedLogEventsInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rleiTooOldLogEventEndIndex'
---
--- * 'rleiTooNewLogEventStartIndex'
---
--- * 'rleiExpiredLogEventEndIndex'
 data RejectedLogEventsInfo = RejectedLogEventsInfo'
     { _rleiTooOldLogEventEndIndex   :: !(Maybe Int)
     , _rleiTooNewLogEventStartIndex :: !(Maybe Int)
     , _rleiExpiredLogEventEndIndex  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RejectedLogEventsInfo' smart constructor.
-rejectedLogEventsInfo :: RejectedLogEventsInfo
+-- | Creates a value of 'RejectedLogEventsInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rleiTooOldLogEventEndIndex'
+--
+-- * 'rleiTooNewLogEventStartIndex'
+--
+-- * 'rleiExpiredLogEventEndIndex'
+rejectedLogEventsInfo
+    :: RejectedLogEventsInfo
 rejectedLogEventsInfo =
     RejectedLogEventsInfo'
     { _rleiTooOldLogEventEndIndex = Nothing
@@ -602,22 +617,23 @@ instance FromJSON RejectedLogEventsInfo where
                      <*> (x .:? "expiredLogEventEndIndex"))
 
 -- | An object indicating the search status of a log stream in a
--- @FilterLogEvents@ request.
+-- 'FilterLogEvents' request.
 --
 -- /See:/ 'searchedLogStream' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slsLogStreamName'
---
--- * 'slsSearchedCompletely'
 data SearchedLogStream = SearchedLogStream'
     { _slsLogStreamName      :: !(Maybe Text)
     , _slsSearchedCompletely :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SearchedLogStream' smart constructor.
-searchedLogStream :: SearchedLogStream
+-- | Creates a value of 'SearchedLogStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slsLogStreamName'
+--
+-- * 'slsSearchedCompletely'
+searchedLogStream
+    :: SearchedLogStream
 searchedLogStream =
     SearchedLogStream'
     { _slsLogStreamName = Nothing
@@ -642,8 +658,18 @@ instance FromJSON SearchedLogStream where
                      (x .:? "searchedCompletely"))
 
 -- | /See:/ 'subscriptionFilter' smart constructor.
+data SubscriptionFilter = SubscriptionFilter'
+    { _sfCreationTime   :: !(Maybe Nat)
+    , _sfFilterName     :: !(Maybe Text)
+    , _sfDestinationARN :: !(Maybe Text)
+    , _sfLogGroupName   :: !(Maybe Text)
+    , _sfFilterPattern  :: !(Maybe Text)
+    , _sfRoleARN        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SubscriptionFilter' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sfCreationTime'
 --
@@ -656,17 +682,8 @@ instance FromJSON SearchedLogStream where
 -- * 'sfFilterPattern'
 --
 -- * 'sfRoleARN'
-data SubscriptionFilter = SubscriptionFilter'
-    { _sfCreationTime   :: !(Maybe Nat)
-    , _sfFilterName     :: !(Maybe Text)
-    , _sfDestinationARN :: !(Maybe Text)
-    , _sfLogGroupName   :: !(Maybe Text)
-    , _sfFilterPattern  :: !(Maybe Text)
-    , _sfRoleARN        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SubscriptionFilter' smart constructor.
-subscriptionFilter :: SubscriptionFilter
+subscriptionFilter
+    :: SubscriptionFilter
 subscriptionFilter =
     SubscriptionFilter'
     { _sfCreationTime = Nothing

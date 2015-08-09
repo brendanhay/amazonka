@@ -24,14 +24,14 @@
 module Network.AWS.RDS.DeleteOptionGroup
     (
     -- * Creating a Request
-      DeleteOptionGroup
-    , deleteOptionGroup
+      deleteOptionGroup
+    , DeleteOptionGroup
     -- * Request Lenses
     , dOptionGroupName
 
     -- * Destructuring the Response
-    , DeleteOptionGroupResponse
     , deleteOptionGroupResponse
+    , DeleteOptionGroupResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -43,16 +43,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteOptionGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dOptionGroupName'
 newtype DeleteOptionGroup = DeleteOptionGroup'
     { _dOptionGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteOptionGroup' smart constructor.
-deleteOptionGroup :: Text -> DeleteOptionGroup
+-- | Creates a value of 'DeleteOptionGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dOptionGroupName'
+deleteOptionGroup
+    :: Text -- ^ 'dOptionGroupName'
+    -> DeleteOptionGroup
 deleteOptionGroup pOptionGroupName_ =
     DeleteOptionGroup'
     { _dOptionGroupName = pOptionGroupName_
@@ -88,6 +90,8 @@ data DeleteOptionGroupResponse =
     DeleteOptionGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteOptionGroupResponse' smart constructor.
-deleteOptionGroupResponse :: DeleteOptionGroupResponse
+-- | Creates a value of 'DeleteOptionGroupResponse' with the minimum fields required to make a request.
+--
+deleteOptionGroupResponse
+    :: DeleteOptionGroupResponse
 deleteOptionGroupResponse = DeleteOptionGroupResponse'

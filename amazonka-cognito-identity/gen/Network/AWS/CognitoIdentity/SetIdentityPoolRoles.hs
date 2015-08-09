@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the roles for an identity pool. These roles are used when making
--- calls to @GetCredentialsForIdentity@ action.
+-- calls to 'GetCredentialsForIdentity' action.
 --
 -- You must use AWS Developer credentials to call this API.
 --
@@ -27,15 +27,15 @@
 module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
     (
     -- * Creating a Request
-      SetIdentityPoolRoles
-    , setIdentityPoolRoles
+      setIdentityPoolRoles
+    , SetIdentityPoolRoles
     -- * Request Lenses
     , siprIdentityPoolId
     , siprRoles
 
     -- * Destructuring the Response
-    , SetIdentityPoolRolesResponse
     , setIdentityPoolRolesResponse
+    , SetIdentityPoolRolesResponse
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -44,22 +44,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the @SetIdentityPoolRoles@ action.
+-- | Input to the 'SetIdentityPoolRoles' action.
 --
 -- /See:/ 'setIdentityPoolRoles' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'siprIdentityPoolId'
---
--- * 'siprRoles'
 data SetIdentityPoolRoles = SetIdentityPoolRoles'
     { _siprIdentityPoolId :: !Text
     , _siprRoles          :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetIdentityPoolRoles' smart constructor.
-setIdentityPoolRoles :: Text -> SetIdentityPoolRoles
+-- | Creates a value of 'SetIdentityPoolRoles' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'siprIdentityPoolId'
+--
+-- * 'siprRoles'
+setIdentityPoolRoles
+    :: Text -- ^ 'siprIdentityPoolId'
+    -> SetIdentityPoolRoles
 setIdentityPoolRoles pIdentityPoolId_ =
     SetIdentityPoolRoles'
     { _siprIdentityPoolId = pIdentityPoolId_
@@ -110,6 +112,8 @@ data SetIdentityPoolRolesResponse =
     SetIdentityPoolRolesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetIdentityPoolRolesResponse' smart constructor.
-setIdentityPoolRolesResponse :: SetIdentityPoolRolesResponse
+-- | Creates a value of 'SetIdentityPoolRolesResponse' with the minimum fields required to make a request.
+--
+setIdentityPoolRolesResponse
+    :: SetIdentityPoolRolesResponse
 setIdentityPoolRolesResponse = SetIdentityPoolRolesResponse'

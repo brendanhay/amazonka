@@ -54,8 +54,8 @@
 module Network.AWS.EC2.AttachVolume
     (
     -- * Creating a Request
-      AttachVolume
-    , attachVolume
+      attachVolume
+    , AttachVolume
     -- * Request Lenses
     , avDryRun
     , avVolumeId
@@ -63,8 +63,8 @@ module Network.AWS.EC2.AttachVolume
     , avDevice
 
     -- * Destructuring the Response
-    , VolumeAttachment
     , volumeAttachment
+    , VolumeAttachment
     -- * Response Lenses
     , volInstanceId
     , volDeleteOnTermination
@@ -81,8 +81,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachVolume' smart constructor.
+data AttachVolume = AttachVolume'
+    { _avDryRun     :: !(Maybe Bool)
+    , _avVolumeId   :: !Text
+    , _avInstanceId :: !Text
+    , _avDevice     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AttachVolume' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'avDryRun'
 --
@@ -91,15 +99,11 @@ import           Network.AWS.Response
 -- * 'avInstanceId'
 --
 -- * 'avDevice'
-data AttachVolume = AttachVolume'
-    { _avDryRun     :: !(Maybe Bool)
-    , _avVolumeId   :: !Text
-    , _avInstanceId :: !Text
-    , _avDevice     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AttachVolume' smart constructor.
-attachVolume :: Text -> Text -> Text -> AttachVolume
+attachVolume
+    :: Text -- ^ 'avVolumeId'
+    -> Text -- ^ 'avInstanceId'
+    -> Text -- ^ 'avDevice'
+    -> AttachVolume
 attachVolume pVolumeId_ pInstanceId_ pDevice_ =
     AttachVolume'
     { _avDryRun = Nothing
@@ -110,8 +114,8 @@ attachVolume pVolumeId_ pInstanceId_ pDevice_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 avDryRun :: Lens' AttachVolume (Maybe Bool)
 avDryRun = lens _avDryRun (\ s a -> s{_avDryRun = a});
 
@@ -124,8 +128,8 @@ avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
 avInstanceId :: Lens' AttachVolume Text
 avInstanceId = lens _avInstanceId (\ s a -> s{_avInstanceId = a});
 
--- | The device name to expose to the instance (for example, @\/dev\/sdh@ or
--- @xvdh@).
+-- | The device name to expose to the instance (for example, '\/dev\/sdh' or
+-- 'xvdh').
 avDevice :: Lens' AttachVolume Text
 avDevice = lens _avDevice (\ s a -> s{_avDevice = a});
 

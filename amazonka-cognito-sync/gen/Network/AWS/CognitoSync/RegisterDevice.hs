@@ -27,8 +27,8 @@
 module Network.AWS.CognitoSync.RegisterDevice
     (
     -- * Creating a Request
-      RegisterDevice
-    , registerDevice
+      registerDevice
+    , RegisterDevice
     -- * Request Lenses
     , rdIdentityPoolId
     , rdIdentityId
@@ -36,8 +36,8 @@ module Network.AWS.CognitoSync.RegisterDevice
     , rdToken
 
     -- * Destructuring the Response
-    , RegisterDeviceResponse
     , registerDeviceResponse
+    , RegisterDeviceResponse
     -- * Response Lenses
     , rdrsDeviceId
     , rdrsStatus
@@ -52,8 +52,16 @@ import           Network.AWS.Response
 -- | A request to RegisterDevice.
 --
 -- /See:/ 'registerDevice' smart constructor.
+data RegisterDevice = RegisterDevice'
+    { _rdIdentityPoolId :: !Text
+    , _rdIdentityId     :: !Text
+    , _rdPlatform       :: !Platform
+    , _rdToken          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RegisterDevice' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rdIdentityPoolId'
 --
@@ -62,15 +70,12 @@ import           Network.AWS.Response
 -- * 'rdPlatform'
 --
 -- * 'rdToken'
-data RegisterDevice = RegisterDevice'
-    { _rdIdentityPoolId :: !Text
-    , _rdIdentityId     :: !Text
-    , _rdPlatform       :: !Platform
-    , _rdToken          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RegisterDevice' smart constructor.
-registerDevice :: Text -> Text -> Platform -> Text -> RegisterDevice
+registerDevice
+    :: Text -- ^ 'rdIdentityPoolId'
+    -> Text -- ^ 'rdIdentityId'
+    -> Platform -- ^ 'rdPlatform'
+    -> Text -- ^ 'rdToken'
+    -> RegisterDevice
 registerDevice pIdentityPoolId_ pIdentityId_ pPlatform_ pToken_ =
     RegisterDevice'
     { _rdIdentityPoolId = pIdentityPoolId_
@@ -131,19 +136,21 @@ instance ToQuery RegisterDevice where
 -- | Response to a RegisterDevice request.
 --
 -- /See:/ 'registerDeviceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdrsDeviceId'
---
--- * 'rdrsStatus'
 data RegisterDeviceResponse = RegisterDeviceResponse'
     { _rdrsDeviceId :: !(Maybe Text)
     , _rdrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterDeviceResponse' smart constructor.
-registerDeviceResponse :: Int -> RegisterDeviceResponse
+-- | Creates a value of 'RegisterDeviceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdrsDeviceId'
+--
+-- * 'rdrsStatus'
+registerDeviceResponse
+    :: Int -- ^ 'rdrsStatus'
+    -> RegisterDeviceResponse
 registerDeviceResponse pStatus_ =
     RegisterDeviceResponse'
     { _rdrsDeviceId = Nothing
@@ -154,6 +161,6 @@ registerDeviceResponse pStatus_ =
 rdrsDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 rdrsDeviceId = lens _rdrsDeviceId (\ s a -> s{_rdrsDeviceId = a});
 
--- | Undocumented member.
+-- | The response status code.
 rdrsStatus :: Lens' RegisterDeviceResponse Int
 rdrsStatus = lens _rdrsStatus (\ s a -> s{_rdrsStatus = a});

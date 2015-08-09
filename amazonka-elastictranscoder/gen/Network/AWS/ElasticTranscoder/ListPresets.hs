@@ -23,18 +23,20 @@
 -- region.
 --
 -- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPresets.html AWS API Reference> for ListPresets.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListPresets
     (
     -- * Creating a Request
-      ListPresets
-    , listPresets
+      listPresets
+    , ListPresets
     -- * Request Lenses
     , lAscending
     , lPageToken
 
     -- * Destructuring the Response
-    , ListPresetsResponse
     , listPresetsResponse
+    , ListPresetsResponse
     -- * Response Lenses
     , lrsNextPageToken
     , lrsPresets
@@ -48,22 +50,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @ListPresetsRequest@ structure.
+-- | The 'ListPresetsRequest' structure.
 --
 -- /See:/ 'listPresets' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lAscending'
---
--- * 'lPageToken'
 data ListPresets = ListPresets'
     { _lAscending :: !(Maybe Text)
     , _lPageToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListPresets' smart constructor.
-listPresets :: ListPresets
+-- | Creates a value of 'ListPresets' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lAscending'
+--
+-- * 'lPageToken'
+listPresets
+    :: ListPresets
 listPresets =
     ListPresets'
     { _lAscending = Nothing
@@ -71,13 +74,13 @@ listPresets =
     }
 
 -- | To list presets in chronological order by the date and time that they
--- were created, enter @true@. To list presets in reverse chronological
--- order, enter @false@.
+-- were created, enter 'true'. To list presets in reverse chronological
+-- order, enter 'false'.
 lAscending :: Lens' ListPresets (Maybe Text)
 lAscending = lens _lAscending (\ s a -> s{_lAscending = a});
 
 -- | When Elastic Transcoder returns more than one page of results, use
--- @pageToken@ in subsequent @GET@ requests to get each successive page of
+-- 'pageToken' in subsequent 'GET' requests to get each successive page of
 -- results.
 lPageToken :: Lens' ListPresets (Maybe Text)
 lPageToken = lens _lPageToken (\ s a -> s{_lPageToken = a});
@@ -113,25 +116,27 @@ instance ToQuery ListPresets where
               ["Ascending" =: _lAscending,
                "PageToken" =: _lPageToken]
 
--- | The @ListPresetsResponse@ structure.
+-- | The 'ListPresetsResponse' structure.
 --
 -- /See:/ 'listPresetsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lrsNextPageToken'
---
--- * 'lrsPresets'
---
--- * 'lrsStatus'
 data ListPresetsResponse = ListPresetsResponse'
     { _lrsNextPageToken :: !(Maybe Text)
     , _lrsPresets       :: !(Maybe [Preset])
     , _lrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListPresetsResponse' smart constructor.
-listPresetsResponse :: Int -> ListPresetsResponse
+-- | Creates a value of 'ListPresetsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lrsNextPageToken'
+--
+-- * 'lrsPresets'
+--
+-- * 'lrsStatus'
+listPresetsResponse
+    :: Int -- ^ 'lrsStatus'
+    -> ListPresetsResponse
 listPresetsResponse pStatus_ =
     ListPresetsResponse'
     { _lrsNextPageToken = Nothing
@@ -141,15 +146,15 @@ listPresetsResponse pStatus_ =
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the presets fit on one page or when you\'ve
--- reached the last page of results, the value of @NextPageToken@ is
--- @null@.
+-- reached the last page of results, the value of 'NextPageToken' is
+-- 'null'.
 lrsNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
 lrsNextPageToken = lens _lrsNextPageToken (\ s a -> s{_lrsNextPageToken = a});
 
--- | An array of @Preset@ objects.
+-- | An array of 'Preset' objects.
 lrsPresets :: Lens' ListPresetsResponse [Preset]
 lrsPresets = lens _lrsPresets (\ s a -> s{_lrsPresets = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lrsStatus :: Lens' ListPresetsResponse Int
 lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});

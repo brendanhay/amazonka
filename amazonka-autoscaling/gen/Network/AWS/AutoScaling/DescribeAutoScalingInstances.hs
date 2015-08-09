@@ -22,19 +22,21 @@
 -- the call describes all instances.
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html AWS API Reference> for DescribeAutoScalingInstances.
+--
+-- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     (
     -- * Creating a Request
-      DescribeAutoScalingInstances
-    , describeAutoScalingInstances
+      describeAutoScalingInstances
+    , DescribeAutoScalingInstances
     -- * Request Lenses
     , dasiNextToken
     , dasiInstanceIds
     , dasiMaxRecords
 
     -- * Destructuring the Response
-    , DescribeAutoScalingInstancesResponse
     , describeAutoScalingInstancesResponse
+    , DescribeAutoScalingInstancesResponse
     -- * Response Lenses
     , dasirsNextToken
     , dasirsAutoScalingInstances
@@ -49,22 +51,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeAutoScalingInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dasiNextToken'
---
--- * 'dasiInstanceIds'
---
--- * 'dasiMaxRecords'
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
     { _dasiNextToken   :: !(Maybe Text)
     , _dasiInstanceIds :: !(Maybe [Text])
     , _dasiMaxRecords  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAutoScalingInstances' smart constructor.
-describeAutoScalingInstances :: DescribeAutoScalingInstances
+-- | Creates a value of 'DescribeAutoScalingInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dasiNextToken'
+--
+-- * 'dasiInstanceIds'
+--
+-- * 'dasiMaxRecords'
+describeAutoScalingInstances
+    :: DescribeAutoScalingInstances
 describeAutoScalingInstances =
     DescribeAutoScalingInstances'
     { _dasiNextToken = Nothing
@@ -128,22 +131,24 @@ instance ToQuery DescribeAutoScalingInstances where
                "MaxRecords" =: _dasiMaxRecords]
 
 -- | /See:/ 'describeAutoScalingInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dasirsNextToken'
---
--- * 'dasirsAutoScalingInstances'
---
--- * 'dasirsStatus'
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
     { _dasirsNextToken            :: !(Maybe Text)
     , _dasirsAutoScalingInstances :: !(Maybe [AutoScalingInstanceDetails])
     , _dasirsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAutoScalingInstancesResponse' smart constructor.
-describeAutoScalingInstancesResponse :: Int -> DescribeAutoScalingInstancesResponse
+-- | Creates a value of 'DescribeAutoScalingInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dasirsNextToken'
+--
+-- * 'dasirsAutoScalingInstances'
+--
+-- * 'dasirsStatus'
+describeAutoScalingInstancesResponse
+    :: Int -- ^ 'dasirsStatus'
+    -> DescribeAutoScalingInstancesResponse
 describeAutoScalingInstancesResponse pStatus_ =
     DescribeAutoScalingInstancesResponse'
     { _dasirsNextToken = Nothing
@@ -160,6 +165,6 @@ dasirsNextToken = lens _dasirsNextToken (\ s a -> s{_dasirsNextToken = a});
 dasirsAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
 dasirsAutoScalingInstances = lens _dasirsAutoScalingInstances (\ s a -> s{_dasirsAutoScalingInstances = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dasirsStatus :: Lens' DescribeAutoScalingInstancesResponse Int
 dasirsStatus = lens _dasirsStatus (\ s a -> s{_dasirsStatus = a});

@@ -35,15 +35,15 @@
 module Network.AWS.IAM.GetPolicyVersion
     (
     -- * Creating a Request
-      GetPolicyVersion
-    , getPolicyVersion
+      getPolicyVersion
+    , GetPolicyVersion
     -- * Request Lenses
     , gpvPolicyARN
     , gpvVersionId
 
     -- * Destructuring the Response
-    , GetPolicyVersionResponse
     , getPolicyVersionResponse
+    , GetPolicyVersionResponse
     -- * Response Lenses
     , gpvrsPolicyVersion
     , gpvrsStatus
@@ -56,19 +56,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getPolicyVersion' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gpvPolicyARN'
---
--- * 'gpvVersionId'
 data GetPolicyVersion = GetPolicyVersion'
     { _gpvPolicyARN :: !Text
     , _gpvVersionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPolicyVersion' smart constructor.
-getPolicyVersion :: Text -> Text -> GetPolicyVersion
+-- | Creates a value of 'GetPolicyVersion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpvPolicyARN'
+--
+-- * 'gpvVersionId'
+getPolicyVersion
+    :: Text -- ^ 'gpvPolicyARN'
+    -> Text -- ^ 'gpvVersionId'
+    -> GetPolicyVersion
 getPolicyVersion pPolicyARN_ pVersionId_ =
     GetPolicyVersion'
     { _gpvPolicyARN = pPolicyARN_
@@ -110,19 +113,21 @@ instance ToQuery GetPolicyVersion where
 -- | Contains the response to a successful GetPolicyVersion request.
 --
 -- /See:/ 'getPolicyVersionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gpvrsPolicyVersion'
---
--- * 'gpvrsStatus'
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
     { _gpvrsPolicyVersion :: !(Maybe PolicyVersion)
     , _gpvrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPolicyVersionResponse' smart constructor.
-getPolicyVersionResponse :: Int -> GetPolicyVersionResponse
+-- | Creates a value of 'GetPolicyVersionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpvrsPolicyVersion'
+--
+-- * 'gpvrsStatus'
+getPolicyVersionResponse
+    :: Int -- ^ 'gpvrsStatus'
+    -> GetPolicyVersionResponse
 getPolicyVersionResponse pStatus_ =
     GetPolicyVersionResponse'
     { _gpvrsPolicyVersion = Nothing
@@ -137,6 +142,6 @@ getPolicyVersionResponse pStatus_ =
 gpvrsPolicyVersion :: Lens' GetPolicyVersionResponse (Maybe PolicyVersion)
 gpvrsPolicyVersion = lens _gpvrsPolicyVersion (\ s a -> s{_gpvrsPolicyVersion = a});
 
--- | Undocumented member.
+-- | The response status code.
 gpvrsStatus :: Lens' GetPolicyVersionResponse Int
 gpvrsStatus = lens _gpvrsStatus (\ s a -> s{_gpvrsStatus = a});

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Task runners call @EvaluateExpression@ to evaluate a string in the
+-- Task runners call 'EvaluateExpression' to evaluate a string in the
 -- context of the specified object. For example, a task runner can evaluate
 -- SQL queries stored in Amazon S3.
 --
@@ -26,16 +26,16 @@
 module Network.AWS.DataPipeline.EvaluateExpression
     (
     -- * Creating a Request
-      EvaluateExpression
-    , evaluateExpression
+      evaluateExpression
+    , EvaluateExpression
     -- * Request Lenses
     , eePipelineId
     , eeObjectId
     , eeExpression
 
     -- * Destructuring the Response
-    , EvaluateExpressionResponse
     , evaluateExpressionResponse
+    , EvaluateExpressionResponse
     -- * Response Lenses
     , eersStatus
     , eersEvaluatedExpression
@@ -50,22 +50,26 @@ import           Network.AWS.Response
 -- | Contains the parameters for EvaluateExpression.
 --
 -- /See:/ 'evaluateExpression' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'eePipelineId'
---
--- * 'eeObjectId'
---
--- * 'eeExpression'
 data EvaluateExpression = EvaluateExpression'
     { _eePipelineId :: !Text
     , _eeObjectId   :: !Text
     , _eeExpression :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EvaluateExpression' smart constructor.
-evaluateExpression :: Text -> Text -> Text -> EvaluateExpression
+-- | Creates a value of 'EvaluateExpression' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eePipelineId'
+--
+-- * 'eeObjectId'
+--
+-- * 'eeExpression'
+evaluateExpression
+    :: Text -- ^ 'eePipelineId'
+    -> Text -- ^ 'eeObjectId'
+    -> Text -- ^ 'eeExpression'
+    -> EvaluateExpression
 evaluateExpression pPipelineId_ pObjectId_ pExpression_ =
     EvaluateExpression'
     { _eePipelineId = pPipelineId_
@@ -122,26 +126,29 @@ instance ToQuery EvaluateExpression where
 -- | Contains the output of EvaluateExpression.
 --
 -- /See:/ 'evaluateExpressionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'eersStatus'
---
--- * 'eersEvaluatedExpression'
 data EvaluateExpressionResponse = EvaluateExpressionResponse'
     { _eersStatus              :: !Int
     , _eersEvaluatedExpression :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EvaluateExpressionResponse' smart constructor.
-evaluateExpressionResponse :: Int -> Text -> EvaluateExpressionResponse
+-- | Creates a value of 'EvaluateExpressionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eersStatus'
+--
+-- * 'eersEvaluatedExpression'
+evaluateExpressionResponse
+    :: Int -- ^ 'eersStatus'
+    -> Text -- ^ 'eersEvaluatedExpression'
+    -> EvaluateExpressionResponse
 evaluateExpressionResponse pStatus_ pEvaluatedExpression_ =
     EvaluateExpressionResponse'
     { _eersStatus = pStatus_
     , _eersEvaluatedExpression = pEvaluatedExpression_
     }
 
--- | Undocumented member.
+-- | The response status code.
 eersStatus :: Lens' EvaluateExpressionResponse Int
 eersStatus = lens _eersStatus (\ s a -> s{_eersStatus = a});
 

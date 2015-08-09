@@ -28,15 +28,15 @@
 module Network.AWS.EC2.RequestSpotFleet
     (
     -- * Creating a Request
-      RequestSpotFleet
-    , requestSpotFleet
+      requestSpotFleet
+    , RequestSpotFleet
     -- * Request Lenses
     , rsfDryRun
     , rsfSpotFleetRequestConfig
 
     -- * Destructuring the Response
-    , RequestSpotFleetResponse
     , requestSpotFleetResponse
+    , RequestSpotFleetResponse
     -- * Response Lenses
     , rsfrsStatus
     , rsfrsSpotFleetRequestId
@@ -51,19 +51,21 @@ import           Network.AWS.Response
 -- | Contains the parameters for RequestSpotFleet.
 --
 -- /See:/ 'requestSpotFleet' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rsfDryRun'
---
--- * 'rsfSpotFleetRequestConfig'
 data RequestSpotFleet = RequestSpotFleet'
     { _rsfDryRun                 :: !(Maybe Bool)
     , _rsfSpotFleetRequestConfig :: !SpotFleetRequestConfigData
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RequestSpotFleet' smart constructor.
-requestSpotFleet :: SpotFleetRequestConfigData -> RequestSpotFleet
+-- | Creates a value of 'RequestSpotFleet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsfDryRun'
+--
+-- * 'rsfSpotFleetRequestConfig'
+requestSpotFleet
+    :: SpotFleetRequestConfigData -- ^ 'rsfSpotFleetRequestConfig'
+    -> RequestSpotFleet
 requestSpotFleet pSpotFleetRequestConfig_ =
     RequestSpotFleet'
     { _rsfDryRun = Nothing
@@ -72,8 +74,8 @@ requestSpotFleet pSpotFleetRequestConfig_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 rsfDryRun :: Lens' RequestSpotFleet (Maybe Bool)
 rsfDryRun = lens _rsfDryRun (\ s a -> s{_rsfDryRun = a});
 
@@ -109,26 +111,29 @@ instance ToQuery RequestSpotFleet where
 -- | Contains the output of RequestSpotFleet.
 --
 -- /See:/ 'requestSpotFleetResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rsfrsStatus'
---
--- * 'rsfrsSpotFleetRequestId'
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
     { _rsfrsStatus             :: !Int
     , _rsfrsSpotFleetRequestId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RequestSpotFleetResponse' smart constructor.
-requestSpotFleetResponse :: Int -> Text -> RequestSpotFleetResponse
+-- | Creates a value of 'RequestSpotFleetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsfrsStatus'
+--
+-- * 'rsfrsSpotFleetRequestId'
+requestSpotFleetResponse
+    :: Int -- ^ 'rsfrsStatus'
+    -> Text -- ^ 'rsfrsSpotFleetRequestId'
+    -> RequestSpotFleetResponse
 requestSpotFleetResponse pStatus_ pSpotFleetRequestId_ =
     RequestSpotFleetResponse'
     { _rsfrsStatus = pStatus_
     , _rsfrsSpotFleetRequestId = pSpotFleetRequestId_
     }
 
--- | Undocumented member.
+-- | The response status code.
 rsfrsStatus :: Lens' RequestSpotFleetResponse Int
 rsfrsStatus = lens _rsfrsStatus (\ s a -> s{_rsfrsStatus = a});
 

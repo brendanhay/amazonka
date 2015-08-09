@@ -24,7 +24,7 @@
 --
 -- The request returns a list of all disks, specifying which are configured
 -- as working storage, cache storage, or stored volume or not configured at
--- all. The response includes a @DiskStatus@ field. This field can have a
+-- all. The response includes a 'DiskStatus' field. This field can have a
 -- value of present (the disk is available to use), missing (the disk is no
 -- longer connected to the gateway), or mismatch (the disk node is occupied
 -- by a disk that has incorrect metadata or the disk content is corrupted).
@@ -33,14 +33,14 @@
 module Network.AWS.StorageGateway.ListLocalDisks
     (
     -- * Creating a Request
-      ListLocalDisks
-    , listLocalDisks
+      listLocalDisks
+    , ListLocalDisks
     -- * Request Lenses
     , lldGatewayARN
 
     -- * Destructuring the Response
-    , ListLocalDisksResponse
     , listLocalDisksResponse
+    , ListLocalDisksResponse
     -- * Response Lenses
     , lldrsGatewayARN
     , lldrsDisks
@@ -56,16 +56,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing the of the gateway.
 --
 -- /See:/ 'listLocalDisks' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lldGatewayARN'
 newtype ListLocalDisks = ListLocalDisks'
     { _lldGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListLocalDisks' smart constructor.
-listLocalDisks :: Text -> ListLocalDisks
+-- | Creates a value of 'ListLocalDisks' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lldGatewayARN'
+listLocalDisks
+    :: Text -- ^ 'lldGatewayARN'
+    -> ListLocalDisks
 listLocalDisks pGatewayARN_ =
     ListLocalDisks'
     { _lldGatewayARN = pGatewayARN_
@@ -107,22 +109,24 @@ instance ToQuery ListLocalDisks where
         toQuery = const mempty
 
 -- | /See:/ 'listLocalDisksResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lldrsGatewayARN'
---
--- * 'lldrsDisks'
---
--- * 'lldrsStatus'
 data ListLocalDisksResponse = ListLocalDisksResponse'
     { _lldrsGatewayARN :: !(Maybe Text)
     , _lldrsDisks      :: !(Maybe [Disk])
     , _lldrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListLocalDisksResponse' smart constructor.
-listLocalDisksResponse :: Int -> ListLocalDisksResponse
+-- | Creates a value of 'ListLocalDisksResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lldrsGatewayARN'
+--
+-- * 'lldrsDisks'
+--
+-- * 'lldrsStatus'
+listLocalDisksResponse
+    :: Int -- ^ 'lldrsStatus'
+    -> ListLocalDisksResponse
 listLocalDisksResponse pStatus_ =
     ListLocalDisksResponse'
     { _lldrsGatewayARN = Nothing
@@ -138,6 +142,6 @@ lldrsGatewayARN = lens _lldrsGatewayARN (\ s a -> s{_lldrsGatewayARN = a});
 lldrsDisks :: Lens' ListLocalDisksResponse [Disk]
 lldrsDisks = lens _lldrsDisks (\ s a -> s{_lldrsDisks = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lldrsStatus :: Lens' ListLocalDisksResponse Int
 lldrsStatus = lens _lldrsStatus (\ s a -> s{_lldrsStatus = a});

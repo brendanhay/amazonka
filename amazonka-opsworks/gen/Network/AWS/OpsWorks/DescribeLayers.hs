@@ -32,15 +32,15 @@
 module Network.AWS.OpsWorks.DescribeLayers
     (
     -- * Creating a Request
-      DescribeLayers
-    , describeLayers
+      describeLayers
+    , DescribeLayers
     -- * Request Lenses
     , dlLayerIds
     , dlStackId
 
     -- * Destructuring the Response
-    , DescribeLayersResponse
     , describeLayersResponse
+    , DescribeLayersResponse
     -- * Response Lenses
     , dlrsLayers
     , dlrsStatus
@@ -53,19 +53,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeLayers' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlLayerIds'
---
--- * 'dlStackId'
 data DescribeLayers = DescribeLayers'
     { _dlLayerIds :: !(Maybe [Text])
     , _dlStackId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLayers' smart constructor.
-describeLayers :: DescribeLayers
+-- | Creates a value of 'DescribeLayers' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlLayerIds'
+--
+-- * 'dlStackId'
+describeLayers
+    :: DescribeLayers
 describeLayers =
     DescribeLayers'
     { _dlLayerIds = Nothing
@@ -73,7 +74,7 @@ describeLayers =
     }
 
 -- | An array of layer IDs that specify the layers to be described. If you
--- omit this parameter, @DescribeLayers@ returns a description of every
+-- omit this parameter, 'DescribeLayers' returns a description of every
 -- layer in the specified stack.
 dlLayerIds :: Lens' DescribeLayers [Text]
 dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a}) . _Default . _Coerce;
@@ -112,32 +113,34 @@ instance ToPath DescribeLayers where
 instance ToQuery DescribeLayers where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeLayers@ request.
+-- | Contains the response to a 'DescribeLayers' request.
 --
 -- /See:/ 'describeLayersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlrsLayers'
---
--- * 'dlrsStatus'
 data DescribeLayersResponse = DescribeLayersResponse'
     { _dlrsLayers :: !(Maybe [Layer])
     , _dlrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLayersResponse' smart constructor.
-describeLayersResponse :: Int -> DescribeLayersResponse
+-- | Creates a value of 'DescribeLayersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlrsLayers'
+--
+-- * 'dlrsStatus'
+describeLayersResponse
+    :: Int -- ^ 'dlrsStatus'
+    -> DescribeLayersResponse
 describeLayersResponse pStatus_ =
     DescribeLayersResponse'
     { _dlrsLayers = Nothing
     , _dlrsStatus = pStatus_
     }
 
--- | An array of @Layer@ objects that describe the layers.
+-- | An array of 'Layer' objects that describe the layers.
 dlrsLayers :: Lens' DescribeLayersResponse [Layer]
 dlrsLayers = lens _dlrsLayers (\ s a -> s{_dlrsLayers = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dlrsStatus :: Lens' DescribeLayersResponse Int
 dlrsStatus = lens _dlrsStatus (\ s a -> s{_dlrsStatus = a});

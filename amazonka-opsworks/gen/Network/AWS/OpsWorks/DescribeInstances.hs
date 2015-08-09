@@ -32,16 +32,16 @@
 module Network.AWS.OpsWorks.DescribeInstances
     (
     -- * Creating a Request
-      DescribeInstances
-    , describeInstances
+      describeInstances
+    , DescribeInstances
     -- * Request Lenses
     , diInstanceIds
     , diStackId
     , diLayerId
 
     -- * Destructuring the Response
-    , DescribeInstancesResponse
     , describeInstancesResponse
+    , DescribeInstancesResponse
     -- * Response Lenses
     , dirsInstances
     , dirsStatus
@@ -54,22 +54,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diInstanceIds'
---
--- * 'diStackId'
---
--- * 'diLayerId'
 data DescribeInstances = DescribeInstances'
     { _diInstanceIds :: !(Maybe [Text])
     , _diStackId     :: !(Maybe Text)
     , _diLayerId     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeInstances' smart constructor.
-describeInstances :: DescribeInstances
+-- | Creates a value of 'DescribeInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diInstanceIds'
+--
+-- * 'diStackId'
+--
+-- * 'diLayerId'
+describeInstances
+    :: DescribeInstances
 describeInstances =
     DescribeInstances'
     { _diInstanceIds = Nothing
@@ -78,17 +79,17 @@ describeInstances =
     }
 
 -- | An array of instance IDs to be described. If you use this parameter,
--- @DescribeInstances@ returns a description of the specified instances.
+-- 'DescribeInstances' returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
 diInstanceIds :: Lens' DescribeInstances [Text]
 diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default . _Coerce;
 
--- | A stack ID. If you use this parameter, @DescribeInstances@ returns
+-- | A stack ID. If you use this parameter, 'DescribeInstances' returns
 -- descriptions of the instances associated with the specified stack.
 diStackId :: Lens' DescribeInstances (Maybe Text)
 diStackId = lens _diStackId (\ s a -> s{_diStackId = a});
 
--- | A layer ID. If you use this parameter, @DescribeInstances@ returns
+-- | A layer ID. If you use this parameter, 'DescribeInstances' returns
 -- descriptions of the instances associated with the specified layer.
 diLayerId :: Lens' DescribeInstances (Maybe Text)
 diLayerId = lens _diLayerId (\ s a -> s{_diLayerId = a});
@@ -126,32 +127,34 @@ instance ToPath DescribeInstances where
 instance ToQuery DescribeInstances where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeInstances@ request.
+-- | Contains the response to a 'DescribeInstances' request.
 --
 -- /See:/ 'describeInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dirsInstances'
---
--- * 'dirsStatus'
 data DescribeInstancesResponse = DescribeInstancesResponse'
     { _dirsInstances :: !(Maybe [Instance])
     , _dirsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeInstancesResponse' smart constructor.
-describeInstancesResponse :: Int -> DescribeInstancesResponse
+-- | Creates a value of 'DescribeInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dirsInstances'
+--
+-- * 'dirsStatus'
+describeInstancesResponse
+    :: Int -- ^ 'dirsStatus'
+    -> DescribeInstancesResponse
 describeInstancesResponse pStatus_ =
     DescribeInstancesResponse'
     { _dirsInstances = Nothing
     , _dirsStatus = pStatus_
     }
 
--- | An array of @Instance@ objects that describe the instances.
+-- | An array of 'Instance' objects that describe the instances.
 dirsInstances :: Lens' DescribeInstancesResponse [Instance]
 dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dirsStatus :: Lens' DescribeInstancesResponse Int
 dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

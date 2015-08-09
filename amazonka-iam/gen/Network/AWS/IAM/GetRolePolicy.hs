@@ -37,15 +37,15 @@
 module Network.AWS.IAM.GetRolePolicy
     (
     -- * Creating a Request
-      GetRolePolicy
-    , getRolePolicy
+      getRolePolicy
+    , GetRolePolicy
     -- * Request Lenses
     , grpRoleName
     , grpPolicyName
 
     -- * Destructuring the Response
-    , GetRolePolicyResponse
     , getRolePolicyResponse
+    , GetRolePolicyResponse
     -- * Response Lenses
     , grprsStatus
     , grprsRoleName
@@ -60,19 +60,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getRolePolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grpRoleName'
---
--- * 'grpPolicyName'
 data GetRolePolicy = GetRolePolicy'
     { _grpRoleName   :: !Text
     , _grpPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetRolePolicy' smart constructor.
-getRolePolicy :: Text -> Text -> GetRolePolicy
+-- | Creates a value of 'GetRolePolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grpRoleName'
+--
+-- * 'grpPolicyName'
+getRolePolicy
+    :: Text -- ^ 'grpRoleName'
+    -> Text -- ^ 'grpPolicyName'
+    -> GetRolePolicy
 getRolePolicy pRoleName_ pPolicyName_ =
     GetRolePolicy'
     { _grpRoleName = pRoleName_
@@ -116,8 +119,16 @@ instance ToQuery GetRolePolicy where
 -- | Contains the response to a successful GetRolePolicy request.
 --
 -- /See:/ 'getRolePolicyResponse' smart constructor.
+data GetRolePolicyResponse = GetRolePolicyResponse'
+    { _grprsStatus         :: !Int
+    , _grprsRoleName       :: !Text
+    , _grprsPolicyName     :: !Text
+    , _grprsPolicyDocument :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetRolePolicyResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'grprsStatus'
 --
@@ -126,15 +137,12 @@ instance ToQuery GetRolePolicy where
 -- * 'grprsPolicyName'
 --
 -- * 'grprsPolicyDocument'
-data GetRolePolicyResponse = GetRolePolicyResponse'
-    { _grprsStatus         :: !Int
-    , _grprsRoleName       :: !Text
-    , _grprsPolicyName     :: !Text
-    , _grprsPolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetRolePolicyResponse' smart constructor.
-getRolePolicyResponse :: Int -> Text -> Text -> Text -> GetRolePolicyResponse
+getRolePolicyResponse
+    :: Int -- ^ 'grprsStatus'
+    -> Text -- ^ 'grprsRoleName'
+    -> Text -- ^ 'grprsPolicyName'
+    -> Text -- ^ 'grprsPolicyDocument'
+    -> GetRolePolicyResponse
 getRolePolicyResponse pStatus_ pRoleName_ pPolicyName_ pPolicyDocument_ =
     GetRolePolicyResponse'
     { _grprsStatus = pStatus_
@@ -143,7 +151,7 @@ getRolePolicyResponse pStatus_ pRoleName_ pPolicyName_ pPolicyDocument_ =
     , _grprsPolicyDocument = pPolicyDocument_
     }
 
--- | Undocumented member.
+-- | The response status code.
 grprsStatus :: Lens' GetRolePolicyResponse Int
 grprsStatus = lens _grprsStatus (\ s a -> s{_grprsStatus = a});
 

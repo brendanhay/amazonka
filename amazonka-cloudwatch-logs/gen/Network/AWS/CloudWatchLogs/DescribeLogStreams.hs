@@ -23,9 +23,9 @@
 -- name.
 --
 -- By default, this operation returns up to 50 log streams. If there are
--- more log streams to list, the response would contain a @nextToken@ value
+-- more log streams to list, the response would contain a 'nextToken' value
 -- in the response body. You can also limit the number of log streams
--- returned in the response by specifying the @limit@ parameter in the
+-- returned in the response by specifying the 'limit' parameter in the
 -- request. This operation has a limit of five transactions per second,
 -- after which transactions are throttled.
 --
@@ -33,8 +33,8 @@
 module Network.AWS.CloudWatchLogs.DescribeLogStreams
     (
     -- * Creating a Request
-      DescribeLogStreams
-    , describeLogStreams
+      describeLogStreams
+    , DescribeLogStreams
     -- * Request Lenses
     , dlssOrderBy
     , dlssDescending
@@ -44,8 +44,8 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     , dlssLogGroupName
 
     -- * Destructuring the Response
-    , DescribeLogStreamsResponse
     , describeLogStreamsResponse
+    , DescribeLogStreamsResponse
     -- * Response Lenses
     , dlsrsNextToken
     , dlsrsLogStreams
@@ -59,8 +59,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeLogStreams' smart constructor.
+data DescribeLogStreams = DescribeLogStreams'
+    { _dlssOrderBy             :: !(Maybe OrderBy)
+    , _dlssDescending          :: !(Maybe Bool)
+    , _dlssNextToken           :: !(Maybe Text)
+    , _dlssLogStreamNamePrefix :: !(Maybe Text)
+    , _dlssLimit               :: !(Maybe Nat)
+    , _dlssLogGroupName        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeLogStreams' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dlssOrderBy'
 --
@@ -73,17 +83,9 @@ import           Network.AWS.Response
 -- * 'dlssLimit'
 --
 -- * 'dlssLogGroupName'
-data DescribeLogStreams = DescribeLogStreams'
-    { _dlssOrderBy             :: !(Maybe OrderBy)
-    , _dlssDescending          :: !(Maybe Bool)
-    , _dlssNextToken           :: !(Maybe Text)
-    , _dlssLogStreamNamePrefix :: !(Maybe Text)
-    , _dlssLimit               :: !(Maybe Nat)
-    , _dlssLogGroupName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeLogStreams' smart constructor.
-describeLogStreams :: Text -> DescribeLogStreams
+describeLogStreams
+    :: Text -- ^ 'dlssLogGroupName'
+    -> DescribeLogStreams
 describeLogStreams pLogGroupName_ =
     DescribeLogStreams'
     { _dlssOrderBy = Nothing
@@ -109,7 +111,7 @@ dlssDescending = lens _dlssDescending (\ s a -> s{_dlssDescending = a});
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the response of the previous
--- @DescribeLogStreams@ request.
+-- 'DescribeLogStreams' request.
 dlssNextToken :: Lens' DescribeLogStreams (Maybe Text)
 dlssNextToken = lens _dlssNextToken (\ s a -> s{_dlssNextToken = a});
 
@@ -167,22 +169,24 @@ instance ToQuery DescribeLogStreams where
         toQuery = const mempty
 
 -- | /See:/ 'describeLogStreamsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlsrsNextToken'
---
--- * 'dlsrsLogStreams'
---
--- * 'dlsrsStatus'
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
     { _dlsrsNextToken  :: !(Maybe Text)
     , _dlsrsLogStreams :: !(Maybe [LogStream])
     , _dlsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLogStreamsResponse' smart constructor.
-describeLogStreamsResponse :: Int -> DescribeLogStreamsResponse
+-- | Creates a value of 'DescribeLogStreamsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlsrsNextToken'
+--
+-- * 'dlsrsLogStreams'
+--
+-- * 'dlsrsStatus'
+describeLogStreamsResponse
+    :: Int -- ^ 'dlsrsStatus'
+    -> DescribeLogStreamsResponse
 describeLogStreamsResponse pStatus_ =
     DescribeLogStreamsResponse'
     { _dlsrsNextToken = Nothing
@@ -198,6 +202,6 @@ dlsrsNextToken = lens _dlsrsNextToken (\ s a -> s{_dlsrsNextToken = a});
 dlsrsLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
 dlsrsLogStreams = lens _dlsrsLogStreams (\ s a -> s{_dlsrsLogStreams = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dlsrsStatus :: Lens' DescribeLogStreamsResponse Int
 dlsrsStatus = lens _dlsrsStatus (\ s a -> s{_dlsrsStatus = a});

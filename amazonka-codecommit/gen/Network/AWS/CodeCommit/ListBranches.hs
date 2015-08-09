@@ -24,15 +24,15 @@
 module Network.AWS.CodeCommit.ListBranches
     (
     -- * Creating a Request
-      ListBranches
-    , listBranches
+      listBranches
+    , ListBranches
     -- * Request Lenses
     , lbNextToken
     , lbRepositoryName
 
     -- * Destructuring the Response
-    , ListBranchesResponse
     , listBranchesResponse
+    , ListBranchesResponse
     -- * Response Lenses
     , lbrsBranches
     , lbrsNextToken
@@ -48,19 +48,21 @@ import           Network.AWS.Response
 -- | Represents the input of a list branches operation.
 --
 -- /See:/ 'listBranches' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lbNextToken'
---
--- * 'lbRepositoryName'
 data ListBranches = ListBranches'
     { _lbNextToken      :: !(Maybe Text)
     , _lbRepositoryName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListBranches' smart constructor.
-listBranches :: Text -> ListBranches
+-- | Creates a value of 'ListBranches' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbNextToken'
+--
+-- * 'lbRepositoryName'
+listBranches
+    :: Text -- ^ 'lbRepositoryName'
+    -> ListBranches
 listBranches pRepositoryName_ =
     ListBranches'
     { _lbNextToken = Nothing
@@ -110,22 +112,24 @@ instance ToQuery ListBranches where
 -- | Represents the output of a list branches operation.
 --
 -- /See:/ 'listBranchesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lbrsBranches'
---
--- * 'lbrsNextToken'
---
--- * 'lbrsStatus'
 data ListBranchesResponse = ListBranchesResponse'
     { _lbrsBranches  :: !(Maybe [Text])
     , _lbrsNextToken :: !(Maybe Text)
     , _lbrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListBranchesResponse' smart constructor.
-listBranchesResponse :: Int -> ListBranchesResponse
+-- | Creates a value of 'ListBranchesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbrsBranches'
+--
+-- * 'lbrsNextToken'
+--
+-- * 'lbrsStatus'
+listBranchesResponse
+    :: Int -- ^ 'lbrsStatus'
+    -> ListBranchesResponse
 listBranchesResponse pStatus_ =
     ListBranchesResponse'
     { _lbrsBranches = Nothing
@@ -141,6 +145,6 @@ lbrsBranches = lens _lbrsBranches (\ s a -> s{_lbrsBranches = a}) . _Default . _
 lbrsNextToken :: Lens' ListBranchesResponse (Maybe Text)
 lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 lbrsStatus :: Lens' ListBranchesResponse Int
 lbrsStatus = lens _lbrsStatus (\ s a -> s{_lbrsStatus = a});

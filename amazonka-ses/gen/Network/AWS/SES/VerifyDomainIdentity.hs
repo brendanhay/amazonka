@@ -26,14 +26,14 @@
 module Network.AWS.SES.VerifyDomainIdentity
     (
     -- * Creating a Request
-      VerifyDomainIdentity
-    , verifyDomainIdentity
+      verifyDomainIdentity
+    , VerifyDomainIdentity
     -- * Request Lenses
     , vdiDomain
 
     -- * Destructuring the Response
-    , VerifyDomainIdentityResponse
     , verifyDomainIdentityResponse
+    , VerifyDomainIdentityResponse
     -- * Response Lenses
     , vdirsStatus
     , vdirsVerificationToken
@@ -49,16 +49,18 @@ import           Network.AWS.SES.Types.Product
 -- verification.
 --
 -- /See:/ 'verifyDomainIdentity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vdiDomain'
 newtype VerifyDomainIdentity = VerifyDomainIdentity'
     { _vdiDomain :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VerifyDomainIdentity' smart constructor.
-verifyDomainIdentity :: Text -> VerifyDomainIdentity
+-- | Creates a value of 'VerifyDomainIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vdiDomain'
+verifyDomainIdentity
+    :: Text -- ^ 'vdiDomain'
+    -> VerifyDomainIdentity
 verifyDomainIdentity pDomain_ =
     VerifyDomainIdentity'
     { _vdiDomain = pDomain_
@@ -95,26 +97,29 @@ instance ToQuery VerifyDomainIdentity where
 -- | Represents a token used for domain ownership verification.
 --
 -- /See:/ 'verifyDomainIdentityResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vdirsStatus'
---
--- * 'vdirsVerificationToken'
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
     { _vdirsStatus            :: !Int
     , _vdirsVerificationToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VerifyDomainIdentityResponse' smart constructor.
-verifyDomainIdentityResponse :: Int -> Text -> VerifyDomainIdentityResponse
+-- | Creates a value of 'VerifyDomainIdentityResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vdirsStatus'
+--
+-- * 'vdirsVerificationToken'
+verifyDomainIdentityResponse
+    :: Int -- ^ 'vdirsStatus'
+    -> Text -- ^ 'vdirsVerificationToken'
+    -> VerifyDomainIdentityResponse
 verifyDomainIdentityResponse pStatus_ pVerificationToken_ =
     VerifyDomainIdentityResponse'
     { _vdirsStatus = pStatus_
     , _vdirsVerificationToken = pVerificationToken_
     }
 
--- | Undocumented member.
+-- | The response status code.
 vdirsStatus :: Lens' VerifyDomainIdentityResponse Int
 vdirsStatus = lens _vdirsStatus (\ s a -> s{_vdirsStatus = a});
 

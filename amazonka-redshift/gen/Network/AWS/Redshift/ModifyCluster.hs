@@ -37,8 +37,8 @@
 module Network.AWS.Redshift.ModifyCluster
     (
     -- * Creating a Request
-      ModifyCluster
-    , modifyCluster
+      modifyCluster
+    , ModifyCluster
     -- * Request Lenses
     , mcMasterUserPassword
     , mcHSMConfigurationIdentifier
@@ -57,8 +57,8 @@ module Network.AWS.Redshift.ModifyCluster
     , mcClusterIdentifier
 
     -- * Destructuring the Response
-    , ModifyClusterResponse
     , modifyClusterResponse
+    , ModifyClusterResponse
     -- * Response Lenses
     , mcrsCluster
     , mcrsStatus
@@ -73,8 +73,27 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'modifyCluster' smart constructor.
+data ModifyCluster = ModifyCluster'
+    { _mcMasterUserPassword               :: !(Maybe Text)
+    , _mcHSMConfigurationIdentifier       :: !(Maybe Text)
+    , _mcClusterSecurityGroups            :: !(Maybe [Text])
+    , _mcAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+    , _mcNumberOfNodes                    :: !(Maybe Int)
+    , _mcHSMClientCertificateIdentifier   :: !(Maybe Text)
+    , _mcPreferredMaintenanceWindow       :: !(Maybe Text)
+    , _mcVPCSecurityGroupIds              :: !(Maybe [Text])
+    , _mcClusterType                      :: !(Maybe Text)
+    , _mcNewClusterIdentifier             :: !(Maybe Text)
+    , _mcClusterVersion                   :: !(Maybe Text)
+    , _mcNodeType                         :: !(Maybe Text)
+    , _mcAllowVersionUpgrade              :: !(Maybe Bool)
+    , _mcClusterParameterGroupName        :: !(Maybe Text)
+    , _mcClusterIdentifier                :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyCluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mcMasterUserPassword'
 --
@@ -105,26 +124,9 @@ import           Network.AWS.Response
 -- * 'mcClusterParameterGroupName'
 --
 -- * 'mcClusterIdentifier'
-data ModifyCluster = ModifyCluster'
-    { _mcMasterUserPassword               :: !(Maybe Text)
-    , _mcHSMConfigurationIdentifier       :: !(Maybe Text)
-    , _mcClusterSecurityGroups            :: !(Maybe [Text])
-    , _mcAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _mcNumberOfNodes                    :: !(Maybe Int)
-    , _mcHSMClientCertificateIdentifier   :: !(Maybe Text)
-    , _mcPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _mcVPCSecurityGroupIds              :: !(Maybe [Text])
-    , _mcClusterType                      :: !(Maybe Text)
-    , _mcNewClusterIdentifier             :: !(Maybe Text)
-    , _mcClusterVersion                   :: !(Maybe Text)
-    , _mcNodeType                         :: !(Maybe Text)
-    , _mcAllowVersionUpgrade              :: !(Maybe Bool)
-    , _mcClusterParameterGroupName        :: !(Maybe Text)
-    , _mcClusterIdentifier                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifyCluster' smart constructor.
-modifyCluster :: Text -> ModifyCluster
+modifyCluster
+    :: Text -- ^ 'mcClusterIdentifier'
+    -> ModifyCluster
 modifyCluster pClusterIdentifier_ =
     ModifyCluster'
     { _mcMasterUserPassword = Nothing
@@ -146,8 +148,8 @@ modifyCluster pClusterIdentifier_ =
 
 -- | The new password for the cluster master user. This change is
 -- asynchronously applied as soon as possible. Between the time of the
--- request and the completion of the request, the @MasterUserPassword@
--- element exists in the @PendingModifiedValues@ element of the operation
+-- request and the completion of the request, the 'MasterUserPassword'
+-- element exists in the 'PendingModifiedValues' element of the operation
 -- response.
 --
 -- Operations never return the password, so this operation provides a way
@@ -163,7 +165,7 @@ modifyCluster pClusterIdentifier_ =
 -- -   Must contain at least one lowercase letter.
 -- -   Must contain one number.
 -- -   Can be any printable ASCII character (ASCII code 33 to 126) except
---     \' (single quote), \" (double quote), \\, \/, \@, or space.
+--     \' (single quote), \" (double quote), \\, \/, \', or space.
 mcMasterUserPassword :: Lens' ModifyCluster (Maybe Text)
 mcMasterUserPassword = lens _mcMasterUserPassword (\ s a -> s{_mcMasterUserPassword = a});
 
@@ -213,7 +215,7 @@ mcAutomatedSnapshotRetentionPeriod = lens _mcAutomatedSnapshotRetentionPeriod (\
 -- complete, the original access permissions for the cluster are restored.
 -- You can use DescribeResize to track the progress of the resize request.
 --
--- Valid Values: Integer greater than @0@.
+-- Valid Values: Integer greater than '0'.
 mcNumberOfNodes :: Lens' ModifyCluster (Maybe Int)
 mcNumberOfNodes = lens _mcNumberOfNodes (\ s a -> s{_mcNumberOfNodes = a});
 
@@ -233,7 +235,7 @@ mcHSMClientCertificateIdentifier = lens _mcHSMClientCertificateIdentifier (\ s a
 --
 -- Default: Uses existing setting.
 --
--- Format: ddd:hh24:mi-ddd:hh24:mi, for example @wed:07:30-wed:08:00@.
+-- Format: ddd:hh24:mi-ddd:hh24:mi, for example 'wed:07:30-wed:08:00'.
 --
 -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 --
@@ -255,7 +257,7 @@ mcVPCSecurityGroupIds = lens _mcVPCSecurityGroupIds (\ s a -> s{_mcVPCSecurityGr
 -- new cluster. You can use DescribeResize to track the progress of the
 -- resize request.
 --
--- Valid Values: @ multi-node | single-node @
+-- Valid Values: ' multi-node | single-node '
 mcClusterType :: Lens' ModifyCluster (Maybe Text)
 mcClusterType = lens _mcClusterType (\ s a -> s{_mcClusterType = a});
 
@@ -269,7 +271,7 @@ mcClusterType = lens _mcClusterType (\ s a -> s{_mcClusterType = a});
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 -- -   Must be unique for all clusters within an AWS account.
 --
--- Example: @examplecluster@
+-- Example: 'examplecluster'
 mcNewClusterIdentifier :: Lens' ModifyCluster (Maybe Text)
 mcNewClusterIdentifier = lens _mcNewClusterIdentifier (\ s a -> s{_mcNewClusterIdentifier = a});
 
@@ -284,7 +286,7 @@ mcNewClusterIdentifier = lens _mcNewClusterIdentifier (\ s a -> s{_mcNewClusterI
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- Example: @1.0@
+-- Example: '1.0'
 mcClusterVersion :: Lens' ModifyCluster (Maybe Text)
 mcClusterVersion = lens _mcClusterVersion (\ s a -> s{_mcClusterVersion = a});
 
@@ -299,15 +301,15 @@ mcClusterVersion = lens _mcClusterVersion (\ s a -> s{_mcClusterVersion = a});
 -- complete, the original access permissions for the cluster are restored.
 -- You can use DescribeResize to track the progress of the resize request.
 --
--- Valid Values: @ ds1.xlarge@ | @ds1.8xlarge@ | @ ds2.xlarge@ |
--- @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@.
+-- Valid Values: ' ds1.xlarge' | 'ds1.8xlarge' | ' ds2.xlarge' |
+-- 'ds2.8xlarge' | 'dc1.large' | 'dc1.8xlarge'.
 mcNodeType :: Lens' ModifyCluster (Maybe Text)
 mcNodeType = lens _mcNodeType (\ s a -> s{_mcNodeType = a});
 
--- | If @true@, major version upgrades will be applied automatically to the
+-- | If 'true', major version upgrades will be applied automatically to the
 -- cluster during the maintenance window.
 --
--- Default: @false@
+-- Default: 'false'
 mcAllowVersionUpgrade :: Lens' ModifyCluster (Maybe Bool)
 mcAllowVersionUpgrade = lens _mcAllowVersionUpgrade (\ s a -> s{_mcAllowVersionUpgrade = a});
 
@@ -324,7 +326,7 @@ mcClusterParameterGroupName = lens _mcClusterParameterGroupName (\ s a -> s{_mcC
 
 -- | The unique identifier of the cluster to be modified.
 --
--- Example: @examplecluster@
+-- Example: 'examplecluster'
 mcClusterIdentifier :: Lens' ModifyCluster Text
 mcClusterIdentifier = lens _mcClusterIdentifier (\ s a -> s{_mcClusterIdentifier = a});
 
@@ -377,19 +379,21 @@ instance ToQuery ModifyCluster where
                "ClusterIdentifier" =: _mcClusterIdentifier]
 
 -- | /See:/ 'modifyClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mcrsCluster'
---
--- * 'mcrsStatus'
 data ModifyClusterResponse = ModifyClusterResponse'
     { _mcrsCluster :: !(Maybe Cluster)
     , _mcrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyClusterResponse' smart constructor.
-modifyClusterResponse :: Int -> ModifyClusterResponse
+-- | Creates a value of 'ModifyClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mcrsCluster'
+--
+-- * 'mcrsStatus'
+modifyClusterResponse
+    :: Int -- ^ 'mcrsStatus'
+    -> ModifyClusterResponse
 modifyClusterResponse pStatus_ =
     ModifyClusterResponse'
     { _mcrsCluster = Nothing
@@ -400,6 +404,6 @@ modifyClusterResponse pStatus_ =
 mcrsCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 mcrsCluster = lens _mcrsCluster (\ s a -> s{_mcrsCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 mcrsStatus :: Lens' ModifyClusterResponse Int
 mcrsStatus = lens _mcrsStatus (\ s a -> s{_mcrsStatus = a});

@@ -44,8 +44,8 @@
 module Network.AWS.RDS.CreateEventSubscription
     (
     -- * Creating a Request
-      CreateEventSubscription
-    , createEventSubscription
+      createEventSubscription
+    , CreateEventSubscription
     -- * Request Lenses
     , cesEnabled
     , cesSourceType
@@ -56,8 +56,8 @@ module Network.AWS.RDS.CreateEventSubscription
     , cesSNSTopicARN
 
     -- * Destructuring the Response
-    , CreateEventSubscriptionResponse
     , createEventSubscriptionResponse
+    , CreateEventSubscriptionResponse
     -- * Response Lenses
     , cesrsEventSubscription
     , cesrsStatus
@@ -72,8 +72,19 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createEventSubscription' smart constructor.
+data CreateEventSubscription = CreateEventSubscription'
+    { _cesEnabled          :: !(Maybe Bool)
+    , _cesSourceType       :: !(Maybe Text)
+    , _cesEventCategories  :: !(Maybe [Text])
+    , _cesSourceIds        :: !(Maybe [Text])
+    , _cesTags             :: !(Maybe [Tag])
+    , _cesSubscriptionName :: !Text
+    , _cesSNSTopicARN      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateEventSubscription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cesEnabled'
 --
@@ -88,18 +99,10 @@ import           Network.AWS.Response
 -- * 'cesSubscriptionName'
 --
 -- * 'cesSNSTopicARN'
-data CreateEventSubscription = CreateEventSubscription'
-    { _cesEnabled          :: !(Maybe Bool)
-    , _cesSourceType       :: !(Maybe Text)
-    , _cesEventCategories  :: !(Maybe [Text])
-    , _cesSourceIds        :: !(Maybe [Text])
-    , _cesTags             :: !(Maybe [Tag])
-    , _cesSubscriptionName :: !Text
-    , _cesSNSTopicARN      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateEventSubscription' smart constructor.
-createEventSubscription :: Text -> Text -> CreateEventSubscription
+createEventSubscription
+    :: Text -- ^ 'cesSubscriptionName'
+    -> Text -- ^ 'cesSNSTopicARN'
+    -> CreateEventSubscription
 createEventSubscription pSubscriptionName_ pSNSTopicARN_ =
     CreateEventSubscription'
     { _cesEnabled = Nothing
@@ -143,13 +146,13 @@ cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = 
 -- Constraints:
 --
 -- -   If SourceIds are supplied, SourceType must also be provided.
--- -   If the source type is a DB instance, then a @DBInstanceIdentifier@
+-- -   If the source type is a DB instance, then a 'DBInstanceIdentifier'
 --     must be supplied.
--- -   If the source type is a DB security group, a @DBSecurityGroupName@
+-- -   If the source type is a DB security group, a 'DBSecurityGroupName'
 --     must be supplied.
--- -   If the source type is a DB parameter group, a @DBParameterGroupName@
+-- -   If the source type is a DB parameter group, a 'DBParameterGroupName'
 --     must be supplied.
--- -   If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must
+-- -   If the source type is a DB snapshot, a 'DBSnapshotIdentifier' must
 --     be supplied.
 cesSourceIds :: Lens' CreateEventSubscription [Text]
 cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a}) . _Default . _Coerce;
@@ -206,19 +209,21 @@ instance ToQuery CreateEventSubscription where
                "SnsTopicArn" =: _cesSNSTopicARN]
 
 -- | /See:/ 'createEventSubscriptionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cesrsEventSubscription'
---
--- * 'cesrsStatus'
 data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
     { _cesrsEventSubscription :: !(Maybe EventSubscription)
     , _cesrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateEventSubscriptionResponse' smart constructor.
-createEventSubscriptionResponse :: Int -> CreateEventSubscriptionResponse
+-- | Creates a value of 'CreateEventSubscriptionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cesrsEventSubscription'
+--
+-- * 'cesrsStatus'
+createEventSubscriptionResponse
+    :: Int -- ^ 'cesrsStatus'
+    -> CreateEventSubscriptionResponse
 createEventSubscriptionResponse pStatus_ =
     CreateEventSubscriptionResponse'
     { _cesrsEventSubscription = Nothing
@@ -229,6 +234,6 @@ createEventSubscriptionResponse pStatus_ =
 cesrsEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
 cesrsEventSubscription = lens _cesrsEventSubscription (\ s a -> s{_cesrsEventSubscription = a});
 
--- | Undocumented member.
+-- | The response status code.
 cesrsStatus :: Lens' CreateEventSubscriptionResponse Int
 cesrsStatus = lens _cesrsStatus (\ s a -> s{_cesrsStatus = a});

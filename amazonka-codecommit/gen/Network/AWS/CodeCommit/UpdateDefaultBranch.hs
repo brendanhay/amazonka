@@ -28,15 +28,15 @@
 module Network.AWS.CodeCommit.UpdateDefaultBranch
     (
     -- * Creating a Request
-      UpdateDefaultBranch
-    , updateDefaultBranch
+      updateDefaultBranch
+    , UpdateDefaultBranch
     -- * Request Lenses
     , udbRepositoryName
     , udbDefaultBranchName
 
     -- * Destructuring the Response
-    , UpdateDefaultBranchResponse
     , updateDefaultBranchResponse
+    , UpdateDefaultBranchResponse
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -48,19 +48,22 @@ import           Network.AWS.Response
 -- | Represents the input of an update default branch operation.
 --
 -- /See:/ 'updateDefaultBranch' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udbRepositoryName'
---
--- * 'udbDefaultBranchName'
 data UpdateDefaultBranch = UpdateDefaultBranch'
     { _udbRepositoryName    :: !Text
     , _udbDefaultBranchName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateDefaultBranch' smart constructor.
-updateDefaultBranch :: Text -> Text -> UpdateDefaultBranch
+-- | Creates a value of 'UpdateDefaultBranch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udbRepositoryName'
+--
+-- * 'udbDefaultBranchName'
+updateDefaultBranch
+    :: Text -- ^ 'udbRepositoryName'
+    -> Text -- ^ 'udbDefaultBranchName'
+    -> UpdateDefaultBranch
 updateDefaultBranch pRepositoryName_ pDefaultBranchName_ =
     UpdateDefaultBranch'
     { _udbRepositoryName = pRepositoryName_
@@ -109,6 +112,8 @@ data UpdateDefaultBranchResponse =
     UpdateDefaultBranchResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateDefaultBranchResponse' smart constructor.
-updateDefaultBranchResponse :: UpdateDefaultBranchResponse
+-- | Creates a value of 'UpdateDefaultBranchResponse' with the minimum fields required to make a request.
+--
+updateDefaultBranchResponse
+    :: UpdateDefaultBranchResponse
 updateDefaultBranchResponse = UpdateDefaultBranchResponse'

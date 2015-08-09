@@ -21,14 +21,23 @@ module Network.AWS.CloudWatch.Types.Product where
 import           Network.AWS.CloudWatch.Types.Sum
 import           Network.AWS.Prelude
 
--- | The @AlarmHistoryItem@ data type contains descriptive information about
+-- | The 'AlarmHistoryItem' data type contains descriptive information about
 -- the history of a specific alarm. If you call DescribeAlarmHistory,
 -- Amazon CloudWatch returns this data type as part of the
 -- DescribeAlarmHistoryResult data type.
 --
 -- /See:/ 'alarmHistoryItem' smart constructor.
+data AlarmHistoryItem = AlarmHistoryItem'
+    { _ahiAlarmName       :: !(Maybe Text)
+    , _ahiHistoryItemType :: !(Maybe HistoryItemType)
+    , _ahiHistoryData     :: !(Maybe Text)
+    , _ahiTimestamp       :: !(Maybe ISO8601)
+    , _ahiHistorySummary  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AlarmHistoryItem' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ahiAlarmName'
 --
@@ -39,16 +48,8 @@ import           Network.AWS.Prelude
 -- * 'ahiTimestamp'
 --
 -- * 'ahiHistorySummary'
-data AlarmHistoryItem = AlarmHistoryItem'
-    { _ahiAlarmName       :: !(Maybe Text)
-    , _ahiHistoryItemType :: !(Maybe HistoryItemType)
-    , _ahiHistoryData     :: !(Maybe Text)
-    , _ahiTimestamp       :: !(Maybe ISO8601)
-    , _ahiHistorySummary  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AlarmHistoryItem' smart constructor.
-alarmHistoryItem :: AlarmHistoryItem
+alarmHistoryItem
+    :: AlarmHistoryItem
 alarmHistoryItem =
     AlarmHistoryItem'
     { _ahiAlarmName = Nothing
@@ -91,12 +92,23 @@ instance FromXML AlarmHistoryItem where
                 <*> (x .@? "Timestamp")
                 <*> (x .@? "HistorySummary")
 
--- | The @Datapoint@ data type encapsulates the statistical data that Amazon
+-- | The 'Datapoint' data type encapsulates the statistical data that Amazon
 -- CloudWatch computes from metric data.
 --
 -- /See:/ 'datapoint' smart constructor.
+data Datapoint = Datapoint'
+    { _dSampleCount :: !(Maybe Double)
+    , _dMaximum     :: !(Maybe Double)
+    , _dAverage     :: !(Maybe Double)
+    , _dMinimum     :: !(Maybe Double)
+    , _dSum         :: !(Maybe Double)
+    , _dTimestamp   :: !(Maybe ISO8601)
+    , _dUnit        :: !(Maybe StandardUnit)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Datapoint' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dSampleCount'
 --
@@ -111,18 +123,8 @@ instance FromXML AlarmHistoryItem where
 -- * 'dTimestamp'
 --
 -- * 'dUnit'
-data Datapoint = Datapoint'
-    { _dSampleCount :: !(Maybe Double)
-    , _dMaximum     :: !(Maybe Double)
-    , _dAverage     :: !(Maybe Double)
-    , _dMinimum     :: !(Maybe Double)
-    , _dSum         :: !(Maybe Double)
-    , _dTimestamp   :: !(Maybe ISO8601)
-    , _dUnit        :: !(Maybe StandardUnit)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Datapoint' smart constructor.
-datapoint :: Datapoint
+datapoint
+    :: Datapoint
 datapoint =
     Datapoint'
     { _dSampleCount = Nothing
@@ -178,25 +180,28 @@ instance FromXML Datapoint where
                 <*> (x .@? "Timestamp")
                 <*> (x .@? "Unit")
 
--- | The @Dimension@ data type further expands on the identity of a metric
+-- | The 'Dimension' data type further expands on the identity of a metric
 -- using a Name, Value pair.
 --
 -- For examples that use one or more dimensions, see PutMetricData.
 --
 -- /See:/ 'dimension' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dName'
---
--- * 'dValue'
 data Dimension = Dimension'
     { _dName  :: !Text
     , _dValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Dimension' smart constructor.
-dimension :: Text -> Text -> Dimension
+-- | Creates a value of 'Dimension' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dName'
+--
+-- * 'dValue'
+dimension
+    :: Text -- ^ 'dName'
+    -> Text -- ^ 'dValue'
+    -> Dimension
 dimension pName_ pValue_ =
     Dimension'
     { _dName = pName_
@@ -219,22 +224,24 @@ instance ToQuery Dimension where
         toQuery Dimension'{..}
           = mconcat ["Name" =: _dName, "Value" =: _dValue]
 
--- | The @DimensionFilter@ data type is used to filter ListMetrics results.
+-- | The 'DimensionFilter' data type is used to filter ListMetrics results.
 --
 -- /See:/ 'dimensionFilter' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dfValue'
---
--- * 'dfName'
 data DimensionFilter = DimensionFilter'
     { _dfValue :: !(Maybe Text)
     , _dfName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DimensionFilter' smart constructor.
-dimensionFilter :: Text -> DimensionFilter
+-- | Creates a value of 'DimensionFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dfValue'
+--
+-- * 'dfName'
+dimensionFilter
+    :: Text -- ^ 'dfName'
+    -> DimensionFilter
 dimensionFilter pName_ =
     DimensionFilter'
     { _dfValue = Nothing
@@ -253,7 +260,7 @@ instance ToQuery DimensionFilter where
         toQuery DimensionFilter'{..}
           = mconcat ["Value" =: _dfValue, "Name" =: _dfName]
 
--- | The @Metric@ data type contains information about a specific metric. If
+-- | The 'Metric' data type contains information about a specific metric. If
 -- you call ListMetrics, Amazon CloudWatch returns information contained by
 -- this data type.
 --
@@ -262,22 +269,23 @@ instance ToQuery DimensionFilter where
 -- have two dimensions, InstanceID and InstanceType.
 --
 -- /See:/ 'metric' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mMetricName'
---
--- * 'mNamespace'
---
--- * 'mDimensions'
 data Metric = Metric'
     { _mMetricName :: !(Maybe Text)
     , _mNamespace  :: !(Maybe Text)
     , _mDimensions :: !(Maybe [Dimension])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Metric' smart constructor.
-metric :: Metric
+-- | Creates a value of 'Metric' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mMetricName'
+--
+-- * 'mNamespace'
+--
+-- * 'mDimensions'
+metric
+    :: Metric
 metric =
     Metric'
     { _mMetricName = Nothing
@@ -308,8 +316,33 @@ instance FromXML Metric where
 -- PutMetricAlarm to create or update an alarm.
 --
 -- /See:/ 'metricAlarm' smart constructor.
+data MetricAlarm = MetricAlarm'
+    { _maAlarmName                          :: !(Maybe Text)
+    , _maStateUpdatedTimestamp              :: !(Maybe ISO8601)
+    , _maAlarmDescription                   :: !(Maybe Text)
+    , _maPeriod                             :: !(Maybe Nat)
+    , _maEvaluationPeriods                  :: !(Maybe Nat)
+    , _maMetricName                         :: !(Maybe Text)
+    , _maNamespace                          :: !(Maybe Text)
+    , _maOKActions                          :: !(Maybe [Text])
+    , _maComparisonOperator                 :: !(Maybe ComparisonOperator)
+    , _maStateValue                         :: !(Maybe StateValue)
+    , _maThreshold                          :: !(Maybe Double)
+    , _maActionsEnabled                     :: !(Maybe Bool)
+    , _maAlarmConfigurationUpdatedTimestamp :: !(Maybe ISO8601)
+    , _maInsufficientDataActions            :: !(Maybe [Text])
+    , _maDimensions                         :: !(Maybe [Dimension])
+    , _maStateReasonData                    :: !(Maybe Text)
+    , _maStateReason                        :: !(Maybe Text)
+    , _maAlarmARN                           :: !(Maybe Text)
+    , _maAlarmActions                       :: !(Maybe [Text])
+    , _maStatistic                          :: !(Maybe Statistic)
+    , _maUnit                               :: !(Maybe StandardUnit)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MetricAlarm' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'maAlarmName'
 --
@@ -352,32 +385,8 @@ instance FromXML Metric where
 -- * 'maStatistic'
 --
 -- * 'maUnit'
-data MetricAlarm = MetricAlarm'
-    { _maAlarmName                          :: !(Maybe Text)
-    , _maStateUpdatedTimestamp              :: !(Maybe ISO8601)
-    , _maAlarmDescription                   :: !(Maybe Text)
-    , _maPeriod                             :: !(Maybe Nat)
-    , _maEvaluationPeriods                  :: !(Maybe Nat)
-    , _maMetricName                         :: !(Maybe Text)
-    , _maNamespace                          :: !(Maybe Text)
-    , _maOKActions                          :: !(Maybe [Text])
-    , _maComparisonOperator                 :: !(Maybe ComparisonOperator)
-    , _maStateValue                         :: !(Maybe StateValue)
-    , _maThreshold                          :: !(Maybe Double)
-    , _maActionsEnabled                     :: !(Maybe Bool)
-    , _maAlarmConfigurationUpdatedTimestamp :: !(Maybe ISO8601)
-    , _maInsufficientDataActions            :: !(Maybe [Text])
-    , _maDimensions                         :: !(Maybe [Dimension])
-    , _maStateReasonData                    :: !(Maybe Text)
-    , _maStateReason                        :: !(Maybe Text)
-    , _maAlarmARN                           :: !(Maybe Text)
-    , _maAlarmActions                       :: !(Maybe [Text])
-    , _maStatistic                          :: !(Maybe Statistic)
-    , _maUnit                               :: !(Maybe StandardUnit)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'MetricAlarm' smart constructor.
-metricAlarm :: MetricAlarm
+metricAlarm
+    :: MetricAlarm
 metricAlarm =
     MetricAlarm'
     { _maAlarmName = Nothing
@@ -437,15 +446,15 @@ maMetricName = lens _maMetricName (\ s a -> s{_maMetricName = a});
 maNamespace :: Lens' MetricAlarm (Maybe Text)
 maNamespace = lens _maNamespace (\ s a -> s{_maNamespace = a});
 
--- | The list of actions to execute when this alarm transitions into an @OK@
+-- | The list of actions to execute when this alarm transitions into an 'OK'
 -- state from any other state. Each action is specified as an Amazon
 -- Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
 maOKActions :: Lens' MetricAlarm [Text]
 maOKActions = lens _maOKActions (\ s a -> s{_maOKActions = a}) . _Default . _Coerce;
 
--- | The arithmetic operation to use when comparing the specified @Statistic@
--- and @Threshold@. The specified @Statistic@ value is used as the first
+-- | The arithmetic operation to use when comparing the specified 'Statistic'
+-- and 'Threshold'. The specified 'Statistic' value is used as the first
 -- operand.
 maComparisonOperator :: Lens' MetricAlarm (Maybe ComparisonOperator)
 maComparisonOperator = lens _maComparisonOperator (\ s a -> s{_maComparisonOperator = a});
@@ -473,12 +482,12 @@ maAlarmConfigurationUpdatedTimestamp :: Lens' MetricAlarm (Maybe UTCTime)
 maAlarmConfigurationUpdatedTimestamp = lens _maAlarmConfigurationUpdatedTimestamp (\ s a -> s{_maAlarmConfigurationUpdatedTimestamp = a}) . mapping _Time;
 
 -- | The list of actions to execute when this alarm transitions into an
--- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
+-- 'INSUFFICIENT_DATA' state from any other state. Each action is specified
 -- as an Amazon Resource Number (ARN). Currently the only actions supported
 -- are publishing to an Amazon SNS topic or triggering an Auto Scaling
 -- policy.
 --
--- The current WSDL lists this attribute as @UnknownActions@.
+-- The current WSDL lists this attribute as 'UnknownActions'.
 maInsufficientDataActions :: Lens' MetricAlarm [Text]
 maInsufficientDataActions = lens _maInsufficientDataActions (\ s a -> s{_maInsufficientDataActions = a}) . _Default . _Coerce;
 
@@ -499,7 +508,7 @@ maAlarmARN :: Lens' MetricAlarm (Maybe Text)
 maAlarmARN = lens _maAlarmARN (\ s a -> s{_maAlarmARN = a});
 
 -- | The list of actions to execute when this alarm transitions into an
--- @ALARM@ state from any other state. Each action is specified as an
+-- 'ALARM' state from any other state. Each action is specified as an
 -- Amazon Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
 maAlarmActions :: Lens' MetricAlarm [Text]
@@ -546,13 +555,23 @@ instance FromXML MetricAlarm where
                 <*> (x .@? "Statistic")
                 <*> (x .@? "Unit")
 
--- | The @MetricDatum@ data type encapsulates the information sent with
+-- | The 'MetricDatum' data type encapsulates the information sent with
 -- PutMetricData to either create a new metric or add new values to be
 -- aggregated into an existing metric.
 --
 -- /See:/ 'metricDatum' smart constructor.
+data MetricDatum = MetricDatum'
+    { _mdValue           :: !(Maybe Double)
+    , _mdDimensions      :: !(Maybe [Dimension])
+    , _mdTimestamp       :: !(Maybe ISO8601)
+    , _mdStatisticValues :: !(Maybe StatisticSet)
+    , _mdUnit            :: !(Maybe StandardUnit)
+    , _mdMetricName      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MetricDatum' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mdValue'
 --
@@ -565,17 +584,9 @@ instance FromXML MetricAlarm where
 -- * 'mdUnit'
 --
 -- * 'mdMetricName'
-data MetricDatum = MetricDatum'
-    { _mdValue           :: !(Maybe Double)
-    , _mdDimensions      :: !(Maybe [Dimension])
-    , _mdTimestamp       :: !(Maybe ISO8601)
-    , _mdStatisticValues :: !(Maybe StatisticSet)
-    , _mdUnit            :: !(Maybe StandardUnit)
-    , _mdMetricName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'MetricDatum' smart constructor.
-metricDatum :: Text -> MetricDatum
+metricDatum
+    :: Text -- ^ 'mdMetricName'
+    -> MetricDatum
 metricDatum pMetricName_ =
     MetricDatum'
     { _mdValue = Nothing
@@ -588,7 +599,7 @@ metricDatum pMetricName_ =
 
 -- | The value for the metric.
 --
--- Although the @Value@ parameter accepts numbers of type @Double@, Amazon
+-- Although the 'Value' parameter accepts numbers of type 'Double', Amazon
 -- CloudWatch truncates values with very large exponents. Values with
 -- base-10 exponents greater than 126 (1 x 10^126) are truncated. Likewise,
 -- values with base-10 exponents less than -130 (1 x 10^-130) are also
@@ -634,13 +645,21 @@ instance ToQuery MetricDatum where
                "StatisticValues" =: _mdStatisticValues,
                "Unit" =: _mdUnit, "MetricName" =: _mdMetricName]
 
--- | The @StatisticSet@ data type describes the @StatisticValues@ component
+-- | The 'StatisticSet' data type describes the 'StatisticValues' component
 -- of MetricDatum, and represents a set of statistics that describes a
 -- specific metric.
 --
 -- /See:/ 'statisticSet' smart constructor.
+data StatisticSet = StatisticSet'
+    { _ssSampleCount :: !Double
+    , _ssSum         :: !Double
+    , _ssMinimum     :: !Double
+    , _ssMaximum     :: !Double
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StatisticSet' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ssSampleCount'
 --
@@ -649,15 +668,12 @@ instance ToQuery MetricDatum where
 -- * 'ssMinimum'
 --
 -- * 'ssMaximum'
-data StatisticSet = StatisticSet'
-    { _ssSampleCount :: !Double
-    , _ssSum         :: !Double
-    , _ssMinimum     :: !Double
-    , _ssMaximum     :: !Double
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StatisticSet' smart constructor.
-statisticSet :: Double -> Double -> Double -> Double -> StatisticSet
+statisticSet
+    :: Double -- ^ 'ssSampleCount'
+    -> Double -- ^ 'ssSum'
+    -> Double -- ^ 'ssMinimum'
+    -> Double -- ^ 'ssMaximum'
+    -> StatisticSet
 statisticSet pSampleCount_ pSum_ pMinimum_ pMaximum_ =
     StatisticSet'
     { _ssSampleCount = pSampleCount_

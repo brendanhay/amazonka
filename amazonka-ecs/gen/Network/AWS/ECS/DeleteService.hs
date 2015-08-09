@@ -24,15 +24,15 @@
 module Network.AWS.ECS.DeleteService
     (
     -- * Creating a Request
-      DeleteService
-    , deleteService
+      deleteService
+    , DeleteService
     -- * Request Lenses
     , dsCluster
     , dsService
 
     -- * Destructuring the Response
-    , DeleteServiceResponse
     , deleteServiceResponse
+    , DeleteServiceResponse
     -- * Response Lenses
     , dsrsService
     , dsrsStatus
@@ -45,19 +45,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteService' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsCluster'
---
--- * 'dsService'
 data DeleteService = DeleteService'
     { _dsCluster :: !(Maybe Text)
     , _dsService :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteService' smart constructor.
-deleteService :: Text -> DeleteService
+-- | Creates a value of 'DeleteService' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsCluster'
+--
+-- * 'dsService'
+deleteService
+    :: Text -- ^ 'dsService'
+    -> DeleteService
 deleteService pService_ =
     DeleteService'
     { _dsCluster = Nothing
@@ -104,19 +106,21 @@ instance ToQuery DeleteService where
         toQuery = const mempty
 
 -- | /See:/ 'deleteServiceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrsService'
---
--- * 'dsrsStatus'
 data DeleteServiceResponse = DeleteServiceResponse'
     { _dsrsService :: !(Maybe ContainerService)
     , _dsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteServiceResponse' smart constructor.
-deleteServiceResponse :: Int -> DeleteServiceResponse
+-- | Creates a value of 'DeleteServiceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrsService'
+--
+-- * 'dsrsStatus'
+deleteServiceResponse
+    :: Int -- ^ 'dsrsStatus'
+    -> DeleteServiceResponse
 deleteServiceResponse pStatus_ =
     DeleteServiceResponse'
     { _dsrsService = Nothing
@@ -127,6 +131,6 @@ deleteServiceResponse pStatus_ =
 dsrsService :: Lens' DeleteServiceResponse (Maybe ContainerService)
 dsrsService = lens _dsrsService (\ s a -> s{_dsrsService = a});
 
--- | Undocumented member.
+-- | The response status code.
 dsrsStatus :: Lens' DeleteServiceResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

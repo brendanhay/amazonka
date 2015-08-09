@@ -28,22 +28,25 @@ import           Network.AWS.Prelude
 -- content.
 --
 -- /See:/ 'activeTrustedSigners' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atsItems'
---
--- * 'atsEnabled'
---
--- * 'atsQuantity'
 data ActiveTrustedSigners = ActiveTrustedSigners'
     { _atsItems    :: !(Maybe [Signer])
     , _atsEnabled  :: !Bool
     , _atsQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ActiveTrustedSigners' smart constructor.
-activeTrustedSigners :: Bool -> Int -> ActiveTrustedSigners
+-- | Creates a value of 'ActiveTrustedSigners' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atsItems'
+--
+-- * 'atsEnabled'
+--
+-- * 'atsQuantity'
+activeTrustedSigners
+    :: Bool -- ^ 'atsEnabled'
+    -> Int -- ^ 'atsQuantity'
+    -> ActiveTrustedSigners
 activeTrustedSigners pEnabled_ pQuantity_ =
     ActiveTrustedSigners'
     { _atsItems = Nothing
@@ -80,19 +83,21 @@ instance FromXML ActiveTrustedSigners where
 -- names), if any, for this distribution.
 --
 -- /See:/ 'aliases' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aItems'
---
--- * 'aQuantity'
 data Aliases = Aliases'
     { _aItems    :: !(Maybe [Text])
     , _aQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Aliases' smart constructor.
-aliases :: Int -> Aliases
+-- | Creates a value of 'Aliases' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aItems'
+--
+-- * 'aQuantity'
+aliases
+    :: Int -- ^ 'aQuantity'
+    -> Aliases
 aliases pQuantity_ =
     Aliases'
     { _aItems = Nothing
@@ -132,22 +137,24 @@ instance ToXML Aliases where
 -- permission to delete objects from your origin.
 --
 -- /See:/ 'allowedMethods' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'amCachedMethods'
---
--- * 'amQuantity'
---
--- * 'amItems'
 data AllowedMethods = AllowedMethods'
     { _amCachedMethods :: !(Maybe CachedMethods)
     , _amQuantity      :: !Int
     , _amItems         :: ![Method]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AllowedMethods' smart constructor.
-allowedMethods :: Int -> AllowedMethods
+-- | Creates a value of 'AllowedMethods' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'amCachedMethods'
+--
+-- * 'amQuantity'
+--
+-- * 'amItems'
+allowedMethods
+    :: Int -- ^ 'amQuantity'
+    -> AllowedMethods
 allowedMethods pQuantity_ =
     AllowedMethods'
     { _amCachedMethods = Nothing
@@ -202,8 +209,22 @@ instance ToXML AllowedMethods where
 -- include in the updated distribution.
 --
 -- /See:/ 'cacheBehavior' smart constructor.
+data CacheBehavior = CacheBehavior'
+    { _cbAllowedMethods       :: !(Maybe AllowedMethods)
+    , _cbMaxTTL               :: !(Maybe Integer)
+    , _cbSmoothStreaming      :: !(Maybe Bool)
+    , _cbDefaultTTL           :: !(Maybe Integer)
+    , _cbPathPattern          :: !Text
+    , _cbTargetOriginId       :: !Text
+    , _cbForwardedValues      :: !ForwardedValues
+    , _cbTrustedSigners       :: !TrustedSigners
+    , _cbViewerProtocolPolicy :: !ViewerProtocolPolicy
+    , _cbMinTTL               :: !Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CacheBehavior' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cbAllowedMethods'
 --
@@ -224,21 +245,14 @@ instance ToXML AllowedMethods where
 -- * 'cbViewerProtocolPolicy'
 --
 -- * 'cbMinTTL'
-data CacheBehavior = CacheBehavior'
-    { _cbAllowedMethods       :: !(Maybe AllowedMethods)
-    , _cbMaxTTL               :: !(Maybe Integer)
-    , _cbSmoothStreaming      :: !(Maybe Bool)
-    , _cbDefaultTTL           :: !(Maybe Integer)
-    , _cbPathPattern          :: !Text
-    , _cbTargetOriginId       :: !Text
-    , _cbForwardedValues      :: !ForwardedValues
-    , _cbTrustedSigners       :: !TrustedSigners
-    , _cbViewerProtocolPolicy :: !ViewerProtocolPolicy
-    , _cbMinTTL               :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CacheBehavior' smart constructor.
-cacheBehavior :: Text -> Text -> ForwardedValues -> TrustedSigners -> ViewerProtocolPolicy -> Integer -> CacheBehavior
+cacheBehavior
+    :: Text -- ^ 'cbPathPattern'
+    -> Text -- ^ 'cbTargetOriginId'
+    -> ForwardedValues -- ^ 'cbForwardedValues'
+    -> TrustedSigners -- ^ 'cbTrustedSigners'
+    -> ViewerProtocolPolicy -- ^ 'cbViewerProtocolPolicy'
+    -> Integer -- ^ 'cbMinTTL'
+    -> CacheBehavior
 cacheBehavior pPathPattern_ pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewerProtocolPolicy_ pMinTTL_ =
     CacheBehavior'
     { _cbAllowedMethods = Nothing
@@ -368,19 +382,21 @@ instance ToXML CacheBehavior where
 -- | A complex type that contains zero or more CacheBehavior elements.
 --
 -- /See:/ 'cacheBehaviors' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cbItems'
---
--- * 'cbQuantity'
 data CacheBehaviors = CacheBehaviors'
     { _cbItems    :: !(Maybe [CacheBehavior])
     , _cbQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CacheBehaviors' smart constructor.
-cacheBehaviors :: Int -> CacheBehaviors
+-- | Creates a value of 'CacheBehaviors' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cbItems'
+--
+-- * 'cbQuantity'
+cacheBehaviors
+    :: Int -- ^ 'cbQuantity'
+    -> CacheBehaviors
 cacheBehaviors pQuantity_ =
     CacheBehaviors'
     { _cbItems = Nothing
@@ -419,19 +435,21 @@ instance ToXML CacheBehaviors where
 -- headers for the responses to be cached correctly.
 --
 -- /See:/ 'cachedMethods' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cmQuantity'
---
--- * 'cmItems'
 data CachedMethods = CachedMethods'
     { _cmQuantity :: !Int
     , _cmItems    :: ![Method]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CachedMethods' smart constructor.
-cachedMethods :: Int -> CachedMethods
+-- | Creates a value of 'CachedMethods' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cmQuantity'
+--
+-- * 'cmItems'
+cachedMethods
+    :: Int -- ^ 'cmQuantity'
+    -> CachedMethods
 cachedMethods pQuantity_ =
     CachedMethods'
     { _cmQuantity = pQuantity_
@@ -465,22 +483,25 @@ instance ToXML CachedMethods where
 -- | CloudFront origin access identity.
 --
 -- /See:/ 'cloudFrontOriginAccessIdentity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cfoaiCloudFrontOriginAccessIdentityConfig'
---
--- * 'cfoaiId'
---
--- * 'cfoaiS3CanonicalUserId'
 data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity'
     { _cfoaiCloudFrontOriginAccessIdentityConfig :: !(Maybe CloudFrontOriginAccessIdentityConfig)
     , _cfoaiId                                   :: !Text
     , _cfoaiS3CanonicalUserId                    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CloudFrontOriginAccessIdentity' smart constructor.
-cloudFrontOriginAccessIdentity :: Text -> Text -> CloudFrontOriginAccessIdentity
+-- | Creates a value of 'CloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfoaiCloudFrontOriginAccessIdentityConfig'
+--
+-- * 'cfoaiId'
+--
+-- * 'cfoaiS3CanonicalUserId'
+cloudFrontOriginAccessIdentity
+    :: Text -- ^ 'cfoaiId'
+    -> Text -- ^ 'cfoaiS3CanonicalUserId'
+    -> CloudFrontOriginAccessIdentity
 cloudFrontOriginAccessIdentity pId_ pS3CanonicalUserId_ =
     CloudFrontOriginAccessIdentity'
     { _cfoaiCloudFrontOriginAccessIdentityConfig = Nothing
@@ -512,19 +533,22 @@ instance FromXML CloudFrontOriginAccessIdentity where
 -- | Origin access identity configuration.
 --
 -- /See:/ 'cloudFrontOriginAccessIdentityConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cfoaicCallerReference'
---
--- * 'cfoaicComment'
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig'
     { _cfoaicCallerReference :: !Text
     , _cfoaicComment         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CloudFrontOriginAccessIdentityConfig' smart constructor.
-cloudFrontOriginAccessIdentityConfig :: Text -> Text -> CloudFrontOriginAccessIdentityConfig
+-- | Creates a value of 'CloudFrontOriginAccessIdentityConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfoaicCallerReference'
+--
+-- * 'cfoaicComment'
+cloudFrontOriginAccessIdentityConfig
+    :: Text -- ^ 'cfoaicCallerReference'
+    -> Text -- ^ 'cfoaicComment'
+    -> CloudFrontOriginAccessIdentityConfig
 cloudFrontOriginAccessIdentityConfig pCallerReference_ pComment_ =
     CloudFrontOriginAccessIdentityConfig'
     { _cfoaicCallerReference = pCallerReference_
@@ -566,8 +590,18 @@ instance ToXML CloudFrontOriginAccessIdentityConfig
 -- | The CloudFrontOriginAccessIdentityList type.
 --
 -- /See:/ 'cloudFrontOriginAccessIdentityList' smart constructor.
+data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
+    { _cfoailItems       :: !(Maybe [CloudFrontOriginAccessIdentitySummary])
+    , _cfoailNextMarker  :: !(Maybe Text)
+    , _cfoailMarker      :: !Text
+    , _cfoailMaxItems    :: !Int
+    , _cfoailIsTruncated :: !Bool
+    , _cfoailQuantity    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloudFrontOriginAccessIdentityList' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cfoailItems'
 --
@@ -580,17 +614,12 @@ instance ToXML CloudFrontOriginAccessIdentityConfig
 -- * 'cfoailIsTruncated'
 --
 -- * 'cfoailQuantity'
-data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
-    { _cfoailItems       :: !(Maybe [CloudFrontOriginAccessIdentitySummary])
-    , _cfoailNextMarker  :: !(Maybe Text)
-    , _cfoailMarker      :: !Text
-    , _cfoailMaxItems    :: !Int
-    , _cfoailIsTruncated :: !Bool
-    , _cfoailQuantity    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CloudFrontOriginAccessIdentityList' smart constructor.
-cloudFrontOriginAccessIdentityList :: Text -> Int -> Bool -> Int -> CloudFrontOriginAccessIdentityList
+cloudFrontOriginAccessIdentityList
+    :: Text -- ^ 'cfoailMarker'
+    -> Int -- ^ 'cfoailMaxItems'
+    -> Bool -- ^ 'cfoailIsTruncated'
+    -> Int -- ^ 'cfoailQuantity'
+    -> CloudFrontOriginAccessIdentityList
 cloudFrontOriginAccessIdentityList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
     CloudFrontOriginAccessIdentityList'
     { _cfoailItems = Nothing
@@ -650,22 +679,26 @@ instance FromXML CloudFrontOriginAccessIdentityList
 -- | Summary of the information about a CloudFront origin access identity.
 --
 -- /See:/ 'cloudFrontOriginAccessIdentitySummary' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cfoaisId'
---
--- * 'cfoaisS3CanonicalUserId'
---
--- * 'cfoaisComment'
 data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySummary'
     { _cfoaisId                :: !Text
     , _cfoaisS3CanonicalUserId :: !Text
     , _cfoaisComment           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CloudFrontOriginAccessIdentitySummary' smart constructor.
-cloudFrontOriginAccessIdentitySummary :: Text -> Text -> Text -> CloudFrontOriginAccessIdentitySummary
+-- | Creates a value of 'CloudFrontOriginAccessIdentitySummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfoaisId'
+--
+-- * 'cfoaisS3CanonicalUserId'
+--
+-- * 'cfoaisComment'
+cloudFrontOriginAccessIdentitySummary
+    :: Text -- ^ 'cfoaisId'
+    -> Text -- ^ 'cfoaisS3CanonicalUserId'
+    -> Text -- ^ 'cfoaisComment'
+    -> CloudFrontOriginAccessIdentitySummary
 cloudFrontOriginAccessIdentitySummary pId_ pS3CanonicalUserId_ pComment_ =
     CloudFrontOriginAccessIdentitySummary'
     { _cfoaisId = pId_
@@ -700,19 +733,21 @@ instance FromXML
 -- cache behavior.
 --
 -- /See:/ 'cookieNames' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cnItems'
---
--- * 'cnQuantity'
 data CookieNames = CookieNames'
     { _cnItems    :: !(Maybe [Text])
     , _cnQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CookieNames' smart constructor.
-cookieNames :: Int -> CookieNames
+-- | Creates a value of 'CookieNames' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cnItems'
+--
+-- * 'cnQuantity'
+cookieNames
+    :: Int -- ^ 'cnQuantity'
+    -> CookieNames
 cookieNames pQuantity_ =
     CookieNames'
     { _cnItems = Nothing
@@ -745,19 +780,21 @@ instance ToXML CookieNames where
 -- this cache behavior.
 --
 -- /See:/ 'cookiePreference' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpWhitelistedNames'
---
--- * 'cpForward'
 data CookiePreference = CookiePreference'
     { _cpWhitelistedNames :: !(Maybe CookieNames)
     , _cpForward          :: !ItemSelection
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CookiePreference' smart constructor.
-cookiePreference :: ItemSelection -> CookiePreference
+-- | Creates a value of 'CookiePreference' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpWhitelistedNames'
+--
+-- * 'cpForward'
+cookiePreference
+    :: ItemSelection -- ^ 'cpForward'
+    -> CookiePreference
 cookiePreference pForward_ =
     CookiePreference'
     { _cpWhitelistedNames = Nothing
@@ -802,8 +839,16 @@ instance ToXML CookiePreference where
 -- the updated distribution.
 --
 -- /See:/ 'customErrorResponse' smart constructor.
+data CustomErrorResponse = CustomErrorResponse'
+    { _ceResponsePagePath   :: !(Maybe Text)
+    , _ceResponseCode       :: !(Maybe Text)
+    , _ceErrorCachingMinTTL :: !(Maybe Integer)
+    , _ceErrorCode          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CustomErrorResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ceResponsePagePath'
 --
@@ -812,15 +857,9 @@ instance ToXML CookiePreference where
 -- * 'ceErrorCachingMinTTL'
 --
 -- * 'ceErrorCode'
-data CustomErrorResponse = CustomErrorResponse'
-    { _ceResponsePagePath   :: !(Maybe Text)
-    , _ceResponseCode       :: !(Maybe Text)
-    , _ceErrorCachingMinTTL :: !(Maybe Integer)
-    , _ceErrorCode          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CustomErrorResponse' smart constructor.
-customErrorResponse :: Int -> CustomErrorResponse
+customErrorResponse
+    :: Int -- ^ 'ceErrorCode'
+    -> CustomErrorResponse
 customErrorResponse pErrorCode_ =
     CustomErrorResponse'
     { _ceResponsePagePath = Nothing
@@ -875,19 +914,21 @@ instance ToXML CustomErrorResponse where
 -- | A complex type that contains zero or more CustomErrorResponse elements.
 --
 -- /See:/ 'customErrorResponses' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cerItems'
---
--- * 'cerQuantity'
 data CustomErrorResponses = CustomErrorResponses'
     { _cerItems    :: !(Maybe [CustomErrorResponse])
     , _cerQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CustomErrorResponses' smart constructor.
-customErrorResponses :: Int -> CustomErrorResponses
+-- | Creates a value of 'CustomErrorResponses' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cerItems'
+--
+-- * 'cerQuantity'
+customErrorResponses
+    :: Int -- ^ 'cerQuantity'
+    -> CustomErrorResponses
 customErrorResponses pQuantity_ =
     CustomErrorResponses'
     { _cerItems = Nothing
@@ -921,22 +962,26 @@ instance ToXML CustomErrorResponses where
 -- | A customer origin.
 --
 -- /See:/ 'customOriginConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cocHTTPPort'
---
--- * 'cocHTTPSPort'
---
--- * 'cocOriginProtocolPolicy'
 data CustomOriginConfig = CustomOriginConfig'
     { _cocHTTPPort             :: !Int
     , _cocHTTPSPort            :: !Int
     , _cocOriginProtocolPolicy :: !OriginProtocolPolicy
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CustomOriginConfig' smart constructor.
-customOriginConfig :: Int -> Int -> OriginProtocolPolicy -> CustomOriginConfig
+-- | Creates a value of 'CustomOriginConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cocHTTPPort'
+--
+-- * 'cocHTTPSPort'
+--
+-- * 'cocOriginProtocolPolicy'
+customOriginConfig
+    :: Int -- ^ 'cocHTTPPort'
+    -> Int -- ^ 'cocHTTPSPort'
+    -> OriginProtocolPolicy -- ^ 'cocOriginProtocolPolicy'
+    -> CustomOriginConfig
 customOriginConfig pHTTPPort_ pHTTPSPort_ pOriginProtocolPolicy_ =
     CustomOriginConfig'
     { _cocHTTPPort = pHTTPPort_
@@ -975,8 +1020,21 @@ instance ToXML CustomOriginConfig where
 -- one default cache behavior.
 --
 -- /See:/ 'defaultCacheBehavior' smart constructor.
+data DefaultCacheBehavior = DefaultCacheBehavior'
+    { _dcbAllowedMethods       :: !(Maybe AllowedMethods)
+    , _dcbMaxTTL               :: !(Maybe Integer)
+    , _dcbSmoothStreaming      :: !(Maybe Bool)
+    , _dcbDefaultTTL           :: !(Maybe Integer)
+    , _dcbTargetOriginId       :: !Text
+    , _dcbForwardedValues      :: !ForwardedValues
+    , _dcbTrustedSigners       :: !TrustedSigners
+    , _dcbViewerProtocolPolicy :: !ViewerProtocolPolicy
+    , _dcbMinTTL               :: !Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DefaultCacheBehavior' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcbAllowedMethods'
 --
@@ -995,20 +1053,13 @@ instance ToXML CustomOriginConfig where
 -- * 'dcbViewerProtocolPolicy'
 --
 -- * 'dcbMinTTL'
-data DefaultCacheBehavior = DefaultCacheBehavior'
-    { _dcbAllowedMethods       :: !(Maybe AllowedMethods)
-    , _dcbMaxTTL               :: !(Maybe Integer)
-    , _dcbSmoothStreaming      :: !(Maybe Bool)
-    , _dcbDefaultTTL           :: !(Maybe Integer)
-    , _dcbTargetOriginId       :: !Text
-    , _dcbForwardedValues      :: !ForwardedValues
-    , _dcbTrustedSigners       :: !TrustedSigners
-    , _dcbViewerProtocolPolicy :: !ViewerProtocolPolicy
-    , _dcbMinTTL               :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DefaultCacheBehavior' smart constructor.
-defaultCacheBehavior :: Text -> ForwardedValues -> TrustedSigners -> ViewerProtocolPolicy -> Integer -> DefaultCacheBehavior
+defaultCacheBehavior
+    :: Text -- ^ 'dcbTargetOriginId'
+    -> ForwardedValues -- ^ 'dcbForwardedValues'
+    -> TrustedSigners -- ^ 'dcbTrustedSigners'
+    -> ViewerProtocolPolicy -- ^ 'dcbViewerProtocolPolicy'
+    -> Integer -- ^ 'dcbMinTTL'
+    -> DefaultCacheBehavior
 defaultCacheBehavior pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewerProtocolPolicy_ pMinTTL_ =
     DefaultCacheBehavior'
     { _dcbAllowedMethods = Nothing
@@ -1124,8 +1175,19 @@ instance ToXML DefaultCacheBehavior where
 -- | A distribution.
 --
 -- /See:/ 'distribution' smart constructor.
+data Distribution = Distribution'
+    { _dId                            :: !Text
+    , _dStatus                        :: !Text
+    , _dLastModifiedTime              :: !ISO8601
+    , _dInProgressInvalidationBatches :: !Int
+    , _dDomainName                    :: !Text
+    , _dActiveTrustedSigners          :: !ActiveTrustedSigners
+    , _dDistributionConfig            :: !DistributionConfig
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Distribution' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dId'
 --
@@ -1140,18 +1202,15 @@ instance ToXML DefaultCacheBehavior where
 -- * 'dActiveTrustedSigners'
 --
 -- * 'dDistributionConfig'
-data Distribution = Distribution'
-    { _dId                            :: !Text
-    , _dStatus                        :: !Text
-    , _dLastModifiedTime              :: !ISO8601
-    , _dInProgressInvalidationBatches :: !Int
-    , _dDomainName                    :: !Text
-    , _dActiveTrustedSigners          :: !ActiveTrustedSigners
-    , _dDistributionConfig            :: !DistributionConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Distribution' smart constructor.
-distribution :: Text -> Text -> UTCTime -> Int -> Text -> ActiveTrustedSigners -> DistributionConfig -> Distribution
+distribution
+    :: Text -- ^ 'dId'
+    -> Text -- ^ 'dStatus'
+    -> UTCTime -- ^ 'dLastModifiedTime'
+    -> Int -- ^ 'dInProgressInvalidationBatches'
+    -> Text -- ^ 'dDomainName'
+    -> ActiveTrustedSigners -- ^ 'dActiveTrustedSigners'
+    -> DistributionConfig -- ^ 'dDistributionConfig'
+    -> Distribution
 distribution pId_ pStatus_ pLastModifiedTime_ pInProgressInvalidationBatches_ pDomainName_ pActiveTrustedSigners_ pDistributionConfig_ =
     Distribution'
     { _dId = pId_
@@ -1215,8 +1274,25 @@ instance FromXML Distribution where
 -- | A distribution Configuration.
 --
 -- /See:/ 'distributionConfig' smart constructor.
+data DistributionConfig = DistributionConfig'
+    { _dcDefaultRootObject    :: !(Maybe Text)
+    , _dcAliases              :: !(Maybe Aliases)
+    , _dcCustomErrorResponses :: !(Maybe CustomErrorResponses)
+    , _dcPriceClass           :: !(Maybe PriceClass)
+    , _dcViewerCertificate    :: !(Maybe ViewerCertificate)
+    , _dcRestrictions         :: !(Maybe Restrictions)
+    , _dcCacheBehaviors       :: !(Maybe CacheBehaviors)
+    , _dcLogging              :: !(Maybe LoggingConfig)
+    , _dcCallerReference      :: !Text
+    , _dcOrigins              :: !Origins
+    , _dcDefaultCacheBehavior :: !DefaultCacheBehavior
+    , _dcComment              :: !Text
+    , _dcEnabled              :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DistributionConfig' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcDefaultRootObject'
 --
@@ -1243,24 +1319,13 @@ instance FromXML Distribution where
 -- * 'dcComment'
 --
 -- * 'dcEnabled'
-data DistributionConfig = DistributionConfig'
-    { _dcDefaultRootObject    :: !(Maybe Text)
-    , _dcAliases              :: !(Maybe Aliases)
-    , _dcCustomErrorResponses :: !(Maybe CustomErrorResponses)
-    , _dcPriceClass           :: !(Maybe PriceClass)
-    , _dcViewerCertificate    :: !(Maybe ViewerCertificate)
-    , _dcRestrictions         :: !(Maybe Restrictions)
-    , _dcCacheBehaviors       :: !(Maybe CacheBehaviors)
-    , _dcLogging              :: !(Maybe LoggingConfig)
-    , _dcCallerReference      :: !Text
-    , _dcOrigins              :: !Origins
-    , _dcDefaultCacheBehavior :: !DefaultCacheBehavior
-    , _dcComment              :: !Text
-    , _dcEnabled              :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DistributionConfig' smart constructor.
-distributionConfig :: Text -> Origins -> DefaultCacheBehavior -> Text -> Bool -> DistributionConfig
+distributionConfig
+    :: Text -- ^ 'dcCallerReference'
+    -> Origins -- ^ 'dcOrigins'
+    -> DefaultCacheBehavior -- ^ 'dcDefaultCacheBehavior'
+    -> Text -- ^ 'dcComment'
+    -> Bool -- ^ 'dcEnabled'
+    -> DistributionConfig
 distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ pEnabled_ =
     DistributionConfig'
     { _dcDefaultRootObject = Nothing
@@ -1392,8 +1457,18 @@ instance ToXML DistributionConfig where
 -- | A distribution list.
 --
 -- /See:/ 'distributionList' smart constructor.
+data DistributionList = DistributionList'
+    { _dlItems       :: !(Maybe [DistributionSummary])
+    , _dlNextMarker  :: !(Maybe Text)
+    , _dlMarker      :: !Text
+    , _dlMaxItems    :: !Int
+    , _dlIsTruncated :: !Bool
+    , _dlQuantity    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DistributionList' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dlItems'
 --
@@ -1406,17 +1481,12 @@ instance ToXML DistributionConfig where
 -- * 'dlIsTruncated'
 --
 -- * 'dlQuantity'
-data DistributionList = DistributionList'
-    { _dlItems       :: !(Maybe [DistributionSummary])
-    , _dlNextMarker  :: !(Maybe Text)
-    , _dlMarker      :: !Text
-    , _dlMaxItems    :: !Int
-    , _dlIsTruncated :: !Bool
-    , _dlQuantity    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DistributionList' smart constructor.
-distributionList :: Text -> Int -> Bool -> Int -> DistributionList
+distributionList
+    :: Text -- ^ 'dlMarker'
+    -> Int -- ^ 'dlMaxItems'
+    -> Bool -- ^ 'dlIsTruncated'
+    -> Int -- ^ 'dlQuantity'
+    -> DistributionList
 distributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
     DistributionList'
     { _dlItems = Nothing
@@ -1472,8 +1542,26 @@ instance FromXML DistributionList where
 -- | A summary of the information for an Amazon CloudFront distribution.
 --
 -- /See:/ 'distributionSummary' smart constructor.
+data DistributionSummary = DistributionSummary'
+    { _dsId                   :: !Text
+    , _dsStatus               :: !Text
+    , _dsLastModifiedTime     :: !ISO8601
+    , _dsDomainName           :: !Text
+    , _dsAliases              :: !Aliases
+    , _dsOrigins              :: !Origins
+    , _dsDefaultCacheBehavior :: !DefaultCacheBehavior
+    , _dsCacheBehaviors       :: !CacheBehaviors
+    , _dsCustomErrorResponses :: !CustomErrorResponses
+    , _dsComment              :: !Text
+    , _dsPriceClass           :: !PriceClass
+    , _dsEnabled              :: !Bool
+    , _dsViewerCertificate    :: !ViewerCertificate
+    , _dsRestrictions         :: !Restrictions
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DistributionSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsId'
 --
@@ -1502,25 +1590,22 @@ instance FromXML DistributionList where
 -- * 'dsViewerCertificate'
 --
 -- * 'dsRestrictions'
-data DistributionSummary = DistributionSummary'
-    { _dsId                   :: !Text
-    , _dsStatus               :: !Text
-    , _dsLastModifiedTime     :: !ISO8601
-    , _dsDomainName           :: !Text
-    , _dsAliases              :: !Aliases
-    , _dsOrigins              :: !Origins
-    , _dsDefaultCacheBehavior :: !DefaultCacheBehavior
-    , _dsCacheBehaviors       :: !CacheBehaviors
-    , _dsCustomErrorResponses :: !CustomErrorResponses
-    , _dsComment              :: !Text
-    , _dsPriceClass           :: !PriceClass
-    , _dsEnabled              :: !Bool
-    , _dsViewerCertificate    :: !ViewerCertificate
-    , _dsRestrictions         :: !Restrictions
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DistributionSummary' smart constructor.
-distributionSummary :: Text -> Text -> UTCTime -> Text -> Aliases -> Origins -> DefaultCacheBehavior -> CacheBehaviors -> CustomErrorResponses -> Text -> PriceClass -> Bool -> ViewerCertificate -> Restrictions -> DistributionSummary
+distributionSummary
+    :: Text -- ^ 'dsId'
+    -> Text -- ^ 'dsStatus'
+    -> UTCTime -- ^ 'dsLastModifiedTime'
+    -> Text -- ^ 'dsDomainName'
+    -> Aliases -- ^ 'dsAliases'
+    -> Origins -- ^ 'dsOrigins'
+    -> DefaultCacheBehavior -- ^ 'dsDefaultCacheBehavior'
+    -> CacheBehaviors -- ^ 'dsCacheBehaviors'
+    -> CustomErrorResponses -- ^ 'dsCustomErrorResponses'
+    -> Text -- ^ 'dsComment'
+    -> PriceClass -- ^ 'dsPriceClass'
+    -> Bool -- ^ 'dsEnabled'
+    -> ViewerCertificate -- ^ 'dsViewerCertificate'
+    -> Restrictions -- ^ 'dsRestrictions'
+    -> DistributionSummary
 distributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOrigins_ pDefaultCacheBehavior_ pCacheBehaviors_ pCustomErrorResponses_ pComment_ pPriceClass_ pEnabled_ pViewerCertificate_ pRestrictions_ =
     DistributionSummary'
     { _dsId = pId_
@@ -1625,22 +1710,25 @@ instance FromXML DistributionSummary where
 -- cookies and headers.
 --
 -- /See:/ 'forwardedValues' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fvHeaders'
---
--- * 'fvQueryString'
---
--- * 'fvCookies'
 data ForwardedValues = ForwardedValues'
     { _fvHeaders     :: !(Maybe Headers)
     , _fvQueryString :: !Bool
     , _fvCookies     :: !CookiePreference
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ForwardedValues' smart constructor.
-forwardedValues :: Bool -> CookiePreference -> ForwardedValues
+-- | Creates a value of 'ForwardedValues' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fvHeaders'
+--
+-- * 'fvQueryString'
+--
+-- * 'fvCookies'
+forwardedValues
+    :: Bool -- ^ 'fvQueryString'
+    -> CookiePreference -- ^ 'fvCookies'
+    -> ForwardedValues
 forwardedValues pQueryString_ pCookies_ =
     ForwardedValues'
     { _fvHeaders = Nothing
@@ -1684,22 +1772,25 @@ instance ToXML ForwardedValues where
 -- How accurate are your GeoIP databases? on the MaxMind website.
 --
 -- /See:/ 'geoRestriction' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grItems'
---
--- * 'grRestrictionType'
---
--- * 'grQuantity'
 data GeoRestriction = GeoRestriction'
     { _grItems           :: !(Maybe [Text])
     , _grRestrictionType :: !GeoRestrictionType
     , _grQuantity        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GeoRestriction' smart constructor.
-geoRestriction :: GeoRestrictionType -> Int -> GeoRestriction
+-- | Creates a value of 'GeoRestriction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grItems'
+--
+-- * 'grRestrictionType'
+--
+-- * 'grQuantity'
+geoRestriction
+    :: GeoRestrictionType -- ^ 'grRestrictionType'
+    -> Int -- ^ 'grQuantity'
+    -> GeoRestriction
 geoRestriction pRestrictionType_ pQuantity_ =
     GeoRestriction'
     { _grItems = Nothing
@@ -1763,19 +1854,21 @@ instance ToXML GeoRestriction where
 -- once for each header value.
 --
 -- /See:/ 'headers' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hItems'
---
--- * 'hQuantity'
 data Headers = Headers'
     { _hItems    :: !(Maybe [Text])
     , _hQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Headers' smart constructor.
-headers :: Int -> Headers
+-- | Creates a value of 'Headers' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hItems'
+--
+-- * 'hQuantity'
+headers
+    :: Int -- ^ 'hQuantity'
+    -> Headers
 headers pQuantity_ =
     Headers'
     { _hItems = Nothing
@@ -1814,8 +1907,16 @@ instance ToXML Headers where
 -- | An invalidation.
 --
 -- /See:/ 'invalidation' smart constructor.
+data Invalidation = Invalidation'
+    { _iId                :: !Text
+    , _iStatus            :: !Text
+    , _iCreateTime        :: !ISO8601
+    , _iInvalidationBatch :: !InvalidationBatch
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Invalidation' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iId'
 --
@@ -1824,15 +1925,12 @@ instance ToXML Headers where
 -- * 'iCreateTime'
 --
 -- * 'iInvalidationBatch'
-data Invalidation = Invalidation'
-    { _iId                :: !Text
-    , _iStatus            :: !Text
-    , _iCreateTime        :: !ISO8601
-    , _iInvalidationBatch :: !InvalidationBatch
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Invalidation' smart constructor.
-invalidation :: Text -> Text -> UTCTime -> InvalidationBatch -> Invalidation
+invalidation
+    :: Text -- ^ 'iId'
+    -> Text -- ^ 'iStatus'
+    -> UTCTime -- ^ 'iCreateTime'
+    -> InvalidationBatch -- ^ 'iInvalidationBatch'
+    -> Invalidation
 invalidation pId_ pStatus_ pCreateTime_ pInvalidationBatch_ =
     Invalidation'
     { _iId = pId_
@@ -1869,19 +1967,22 @@ instance FromXML Invalidation where
 -- | An invalidation batch.
 --
 -- /See:/ 'invalidationBatch' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ibPaths'
---
--- * 'ibCallerReference'
 data InvalidationBatch = InvalidationBatch'
     { _ibPaths           :: !Paths
     , _ibCallerReference :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InvalidationBatch' smart constructor.
-invalidationBatch :: Paths -> Text -> InvalidationBatch
+-- | Creates a value of 'InvalidationBatch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ibPaths'
+--
+-- * 'ibCallerReference'
+invalidationBatch
+    :: Paths -- ^ 'ibPaths'
+    -> Text -- ^ 'ibCallerReference'
+    -> InvalidationBatch
 invalidationBatch pPaths_ pCallerReference_ =
     InvalidationBatch'
     { _ibPaths = pPaths_
@@ -1925,8 +2026,18 @@ instance ToXML InvalidationBatch where
 -- | An invalidation list.
 --
 -- /See:/ 'invalidationList' smart constructor.
+data InvalidationList = InvalidationList'
+    { _ilItems       :: !(Maybe [InvalidationSummary])
+    , _ilNextMarker  :: !(Maybe Text)
+    , _ilMarker      :: !Text
+    , _ilMaxItems    :: !Int
+    , _ilIsTruncated :: !Bool
+    , _ilQuantity    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InvalidationList' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ilItems'
 --
@@ -1939,17 +2050,12 @@ instance ToXML InvalidationBatch where
 -- * 'ilIsTruncated'
 --
 -- * 'ilQuantity'
-data InvalidationList = InvalidationList'
-    { _ilItems       :: !(Maybe [InvalidationSummary])
-    , _ilNextMarker  :: !(Maybe Text)
-    , _ilMarker      :: !Text
-    , _ilMaxItems    :: !Int
-    , _ilIsTruncated :: !Bool
-    , _ilQuantity    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InvalidationList' smart constructor.
-invalidationList :: Text -> Int -> Bool -> Int -> InvalidationList
+invalidationList
+    :: Text -- ^ 'ilMarker'
+    -> Int -- ^ 'ilMaxItems'
+    -> Bool -- ^ 'ilIsTruncated'
+    -> Int -- ^ 'ilQuantity'
+    -> InvalidationList
 invalidationList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
     InvalidationList'
     { _ilItems = Nothing
@@ -2005,22 +2111,26 @@ instance FromXML InvalidationList where
 -- | Summary of an invalidation request.
 --
 -- /See:/ 'invalidationSummary' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'isId'
---
--- * 'isCreateTime'
---
--- * 'isStatus'
 data InvalidationSummary = InvalidationSummary'
     { _isId         :: !Text
     , _isCreateTime :: !ISO8601
     , _isStatus     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InvalidationSummary' smart constructor.
-invalidationSummary :: Text -> UTCTime -> Text -> InvalidationSummary
+-- | Creates a value of 'InvalidationSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'isId'
+--
+-- * 'isCreateTime'
+--
+-- * 'isStatus'
+invalidationSummary
+    :: Text -- ^ 'isId'
+    -> UTCTime -- ^ 'isCreateTime'
+    -> Text -- ^ 'isStatus'
+    -> InvalidationSummary
 invalidationSummary pId_ pCreateTime_ pStatus_ =
     InvalidationSummary'
     { _isId = pId_
@@ -2050,19 +2160,21 @@ instance FromXML InvalidationSummary where
 -- are associated with AwsAccountNumber.
 --
 -- /See:/ 'keyPairIds' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'kpiItems'
---
--- * 'kpiQuantity'
 data KeyPairIds = KeyPairIds'
     { _kpiItems    :: !(Maybe [Text])
     , _kpiQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'KeyPairIds' smart constructor.
-keyPairIds :: Int -> KeyPairIds
+-- | Creates a value of 'KeyPairIds' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'kpiItems'
+--
+-- * 'kpiQuantity'
+keyPairIds
+    :: Int -- ^ 'kpiQuantity'
+    -> KeyPairIds
 keyPairIds pQuantity_ =
     KeyPairIds'
     { _kpiItems = Nothing
@@ -2089,8 +2201,16 @@ instance FromXML KeyPairIds where
 -- distribution.
 --
 -- /See:/ 'loggingConfig' smart constructor.
+data LoggingConfig = LoggingConfig'
+    { _lcEnabled        :: !Bool
+    , _lcIncludeCookies :: !Bool
+    , _lcBucket         :: !Text
+    , _lcPrefix         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LoggingConfig' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lcEnabled'
 --
@@ -2099,15 +2219,12 @@ instance FromXML KeyPairIds where
 -- * 'lcBucket'
 --
 -- * 'lcPrefix'
-data LoggingConfig = LoggingConfig'
-    { _lcEnabled        :: !Bool
-    , _lcIncludeCookies :: !Bool
-    , _lcBucket         :: !Text
-    , _lcPrefix         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LoggingConfig' smart constructor.
-loggingConfig :: Bool -> Bool -> Text -> Text -> LoggingConfig
+loggingConfig
+    :: Bool -- ^ 'lcEnabled'
+    -> Bool -- ^ 'lcIncludeCookies'
+    -> Text -- ^ 'lcBucket'
+    -> Text -- ^ 'lcPrefix'
+    -> LoggingConfig
 loggingConfig pEnabled_ pIncludeCookies_ pBucket_ pPrefix_ =
     LoggingConfig'
     { _lcEnabled = pEnabled_
@@ -2166,8 +2283,17 @@ instance ToXML LoggingConfig where
 -- must create at least one origin.
 --
 -- /See:/ 'origin' smart constructor.
+data Origin = Origin'
+    { _oCustomOriginConfig :: !(Maybe CustomOriginConfig)
+    , _oS3OriginConfig     :: !(Maybe S3OriginConfig)
+    , _oOriginPath         :: !(Maybe Text)
+    , _oId                 :: !Text
+    , _oDomainName         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Origin' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'oCustomOriginConfig'
 --
@@ -2178,16 +2304,10 @@ instance ToXML LoggingConfig where
 -- * 'oId'
 --
 -- * 'oDomainName'
-data Origin = Origin'
-    { _oCustomOriginConfig :: !(Maybe CustomOriginConfig)
-    , _oS3OriginConfig     :: !(Maybe S3OriginConfig)
-    , _oOriginPath         :: !(Maybe Text)
-    , _oId                 :: !Text
-    , _oDomainName         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Origin' smart constructor.
-origin :: Text -> Text -> Origin
+origin
+    :: Text -- ^ 'oId'
+    -> Text -- ^ 'oDomainName'
+    -> Origin
 origin pId_ pDomainName_ =
     Origin'
     { _oCustomOriginConfig = Nothing
@@ -2252,19 +2372,21 @@ instance ToXML Origin where
 -- distribution.
 --
 -- /See:/ 'origins' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'oItems'
---
--- * 'oQuantity'
 data Origins = Origins'
     { _oItems    :: !(Maybe (List1 Origin))
     , _oQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Origins' smart constructor.
-origins :: Int -> Origins
+-- | Creates a value of 'Origins' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'oItems'
+--
+-- * 'oQuantity'
+origins
+    :: Int -- ^ 'oQuantity'
+    -> Origins
 origins pQuantity_ =
     Origins'
     { _oItems = Nothing
@@ -2296,19 +2418,21 @@ instance ToXML Origins where
 -- to invalidate.
 --
 -- /See:/ 'paths' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pItems'
---
--- * 'pQuantity'
 data Paths = Paths'
     { _pItems    :: !(Maybe [Text])
     , _pQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Paths' smart constructor.
-paths :: Int -> Paths
+-- | Creates a value of 'Paths' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pItems'
+--
+-- * 'pQuantity'
+paths
+    :: Int -- ^ 'pQuantity'
+    -> Paths
 paths pQuantity_ =
     Paths'
     { _pItems = Nothing
@@ -2341,16 +2465,18 @@ instance ToXML Paths where
 -- distribution of your content.
 --
 -- /See:/ 'restrictions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rGeoRestriction'
 newtype Restrictions = Restrictions'
     { _rGeoRestriction :: GeoRestriction
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Restrictions' smart constructor.
-restrictions :: GeoRestriction -> Restrictions
+-- | Creates a value of 'Restrictions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rGeoRestriction'
+restrictions
+    :: GeoRestriction -- ^ 'rGeoRestriction'
+    -> Restrictions
 restrictions pGeoRestriction_ =
     Restrictions'
     { _rGeoRestriction = pGeoRestriction_
@@ -2372,19 +2498,22 @@ instance ToXML Restrictions where
 -- which you want CloudFront to get your media files for distribution.
 --
 -- /See:/ 's3Origin' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'soDomainName'
---
--- * 'soOriginAccessIdentity'
 data S3Origin = S3Origin'
     { _soDomainName           :: !Text
     , _soOriginAccessIdentity :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'S3Origin' smart constructor.
-s3Origin :: Text -> Text -> S3Origin
+-- | Creates a value of 'S3Origin' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'soDomainName'
+--
+-- * 'soOriginAccessIdentity'
+s3Origin
+    :: Text -- ^ 'soDomainName'
+    -> Text -- ^ 'soOriginAccessIdentity'
+    -> S3Origin
 s3Origin pDomainName_ pOriginAccessIdentity_ =
     S3Origin'
     { _soDomainName = pDomainName_
@@ -2415,16 +2544,18 @@ instance ToXML S3Origin where
 -- instead.
 --
 -- /See:/ 's3OriginConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'socOriginAccessIdentity'
 newtype S3OriginConfig = S3OriginConfig'
     { _socOriginAccessIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'S3OriginConfig' smart constructor.
-s3OriginConfig :: Text -> S3OriginConfig
+-- | Creates a value of 'S3OriginConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'socOriginAccessIdentity'
+s3OriginConfig
+    :: Text -- ^ 'socOriginAccessIdentity'
+    -> S3OriginConfig
 s3OriginConfig pOriginAccessIdentity_ =
     S3OriginConfig'
     { _socOriginAccessIdentity = pOriginAccessIdentity_
@@ -2459,19 +2590,20 @@ instance ToXML S3OriginConfig where
 -- IDs, if any.
 --
 -- /See:/ 'signer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sAWSAccountNumber'
---
--- * 'sKeyPairIds'
 data Signer = Signer'
     { _sAWSAccountNumber :: !(Maybe Text)
     , _sKeyPairIds       :: !(Maybe KeyPairIds)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Signer' smart constructor.
-signer :: Signer
+-- | Creates a value of 'Signer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sAWSAccountNumber'
+--
+-- * 'sKeyPairIds'
+signer
+    :: Signer
 signer =
     Signer'
     { _sAWSAccountNumber = Nothing
@@ -2498,8 +2630,18 @@ instance FromXML Signer where
 -- | A streaming distribution.
 --
 -- /See:/ 'streamingDistribution' smart constructor.
+data StreamingDistribution = StreamingDistribution'
+    { _sdLastModifiedTime            :: !(Maybe ISO8601)
+    , _sdId                          :: !Text
+    , _sdStatus                      :: !Text
+    , _sdDomainName                  :: !Text
+    , _sdActiveTrustedSigners        :: !ActiveTrustedSigners
+    , _sdStreamingDistributionConfig :: !StreamingDistributionConfig
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StreamingDistribution' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sdLastModifiedTime'
 --
@@ -2512,17 +2654,13 @@ instance FromXML Signer where
 -- * 'sdActiveTrustedSigners'
 --
 -- * 'sdStreamingDistributionConfig'
-data StreamingDistribution = StreamingDistribution'
-    { _sdLastModifiedTime            :: !(Maybe ISO8601)
-    , _sdId                          :: !Text
-    , _sdStatus                      :: !Text
-    , _sdDomainName                  :: !Text
-    , _sdActiveTrustedSigners        :: !ActiveTrustedSigners
-    , _sdStreamingDistributionConfig :: !StreamingDistributionConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StreamingDistribution' smart constructor.
-streamingDistribution :: Text -> Text -> Text -> ActiveTrustedSigners -> StreamingDistributionConfig -> StreamingDistribution
+streamingDistribution
+    :: Text -- ^ 'sdId'
+    -> Text -- ^ 'sdStatus'
+    -> Text -- ^ 'sdDomainName'
+    -> ActiveTrustedSigners -- ^ 'sdActiveTrustedSigners'
+    -> StreamingDistributionConfig -- ^ 'sdStreamingDistributionConfig'
+    -> StreamingDistribution
 streamingDistribution pId_ pStatus_ pDomainName_ pActiveTrustedSigners_ pStreamingDistributionConfig_ =
     StreamingDistribution'
     { _sdLastModifiedTime = Nothing
@@ -2581,8 +2719,20 @@ instance FromXML StreamingDistribution where
 -- | The configuration for the streaming distribution.
 --
 -- /See:/ 'streamingDistributionConfig' smart constructor.
+data StreamingDistributionConfig = StreamingDistributionConfig'
+    { _sdcAliases         :: !(Maybe Aliases)
+    , _sdcPriceClass      :: !(Maybe PriceClass)
+    , _sdcLogging         :: !(Maybe StreamingLoggingConfig)
+    , _sdcCallerReference :: !Text
+    , _sdcS3Origin        :: !S3Origin
+    , _sdcComment         :: !Text
+    , _sdcTrustedSigners  :: !TrustedSigners
+    , _sdcEnabled         :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StreamingDistributionConfig' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sdcAliases'
 --
@@ -2599,19 +2749,13 @@ instance FromXML StreamingDistribution where
 -- * 'sdcTrustedSigners'
 --
 -- * 'sdcEnabled'
-data StreamingDistributionConfig = StreamingDistributionConfig'
-    { _sdcAliases         :: !(Maybe Aliases)
-    , _sdcPriceClass      :: !(Maybe PriceClass)
-    , _sdcLogging         :: !(Maybe StreamingLoggingConfig)
-    , _sdcCallerReference :: !Text
-    , _sdcS3Origin        :: !S3Origin
-    , _sdcComment         :: !Text
-    , _sdcTrustedSigners  :: !TrustedSigners
-    , _sdcEnabled         :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StreamingDistributionConfig' smart constructor.
-streamingDistributionConfig :: Text -> S3Origin -> Text -> TrustedSigners -> Bool -> StreamingDistributionConfig
+streamingDistributionConfig
+    :: Text -- ^ 'sdcCallerReference'
+    -> S3Origin -- ^ 'sdcS3Origin'
+    -> Text -- ^ 'sdcComment'
+    -> TrustedSigners -- ^ 'sdcTrustedSigners'
+    -> Bool -- ^ 'sdcEnabled'
+    -> StreamingDistributionConfig
 streamingDistributionConfig pCallerReference_ pS3Origin_ pComment_ pTrustedSigners_ pEnabled_ =
     StreamingDistributionConfig'
     { _sdcAliases = Nothing
@@ -2707,8 +2851,18 @@ instance ToXML StreamingDistributionConfig where
 -- | A streaming distribution list.
 --
 -- /See:/ 'streamingDistributionList' smart constructor.
+data StreamingDistributionList = StreamingDistributionList'
+    { _sdlItems       :: !(Maybe [StreamingDistributionSummary])
+    , _sdlNextMarker  :: !(Maybe Text)
+    , _sdlMarker      :: !Text
+    , _sdlMaxItems    :: !Int
+    , _sdlIsTruncated :: !Bool
+    , _sdlQuantity    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StreamingDistributionList' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sdlItems'
 --
@@ -2721,17 +2875,12 @@ instance ToXML StreamingDistributionConfig where
 -- * 'sdlIsTruncated'
 --
 -- * 'sdlQuantity'
-data StreamingDistributionList = StreamingDistributionList'
-    { _sdlItems       :: !(Maybe [StreamingDistributionSummary])
-    , _sdlNextMarker  :: !(Maybe Text)
-    , _sdlMarker      :: !Text
-    , _sdlMaxItems    :: !Int
-    , _sdlIsTruncated :: !Bool
-    , _sdlQuantity    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StreamingDistributionList' smart constructor.
-streamingDistributionList :: Text -> Int -> Bool -> Int -> StreamingDistributionList
+streamingDistributionList
+    :: Text -- ^ 'sdlMarker'
+    -> Int -- ^ 'sdlMaxItems'
+    -> Bool -- ^ 'sdlIsTruncated'
+    -> Int -- ^ 'sdlQuantity'
+    -> StreamingDistributionList
 streamingDistributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
     StreamingDistributionList'
     { _sdlItems = Nothing
@@ -2788,8 +2937,22 @@ instance FromXML StreamingDistributionList where
 -- distribution.
 --
 -- /See:/ 'streamingDistributionSummary' smart constructor.
+data StreamingDistributionSummary = StreamingDistributionSummary'
+    { _sdsId               :: !Text
+    , _sdsStatus           :: !Text
+    , _sdsLastModifiedTime :: !ISO8601
+    , _sdsDomainName       :: !Text
+    , _sdsS3Origin         :: !S3Origin
+    , _sdsAliases          :: !Aliases
+    , _sdsTrustedSigners   :: !TrustedSigners
+    , _sdsComment          :: !Text
+    , _sdsPriceClass       :: !PriceClass
+    , _sdsEnabled          :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StreamingDistributionSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sdsId'
 --
@@ -2810,21 +2973,18 @@ instance FromXML StreamingDistributionList where
 -- * 'sdsPriceClass'
 --
 -- * 'sdsEnabled'
-data StreamingDistributionSummary = StreamingDistributionSummary'
-    { _sdsId               :: !Text
-    , _sdsStatus           :: !Text
-    , _sdsLastModifiedTime :: !ISO8601
-    , _sdsDomainName       :: !Text
-    , _sdsS3Origin         :: !S3Origin
-    , _sdsAliases          :: !Aliases
-    , _sdsTrustedSigners   :: !TrustedSigners
-    , _sdsComment          :: !Text
-    , _sdsPriceClass       :: !PriceClass
-    , _sdsEnabled          :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StreamingDistributionSummary' smart constructor.
-streamingDistributionSummary :: Text -> Text -> UTCTime -> Text -> S3Origin -> Aliases -> TrustedSigners -> Text -> PriceClass -> Bool -> StreamingDistributionSummary
+streamingDistributionSummary
+    :: Text -- ^ 'sdsId'
+    -> Text -- ^ 'sdsStatus'
+    -> UTCTime -- ^ 'sdsLastModifiedTime'
+    -> Text -- ^ 'sdsDomainName'
+    -> S3Origin -- ^ 'sdsS3Origin'
+    -> Aliases -- ^ 'sdsAliases'
+    -> TrustedSigners -- ^ 'sdsTrustedSigners'
+    -> Text -- ^ 'sdsComment'
+    -> PriceClass -- ^ 'sdsPriceClass'
+    -> Bool -- ^ 'sdsEnabled'
+    -> StreamingDistributionSummary
 streamingDistributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pS3Origin_ pAliases_ pTrustedSigners_ pComment_ pPriceClass_ pEnabled_ =
     StreamingDistributionSummary'
     { _sdsId = pId_
@@ -2913,22 +3073,26 @@ instance FromXML StreamingDistributionSummary where
 -- streaming distribution.
 --
 -- /See:/ 'streamingLoggingConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slcEnabled'
---
--- * 'slcBucket'
---
--- * 'slcPrefix'
 data StreamingLoggingConfig = StreamingLoggingConfig'
     { _slcEnabled :: !Bool
     , _slcBucket  :: !Text
     , _slcPrefix  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StreamingLoggingConfig' smart constructor.
-streamingLoggingConfig :: Bool -> Text -> Text -> StreamingLoggingConfig
+-- | Creates a value of 'StreamingLoggingConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slcEnabled'
+--
+-- * 'slcBucket'
+--
+-- * 'slcPrefix'
+streamingLoggingConfig
+    :: Bool -- ^ 'slcEnabled'
+    -> Text -- ^ 'slcBucket'
+    -> Text -- ^ 'slcPrefix'
+    -> StreamingLoggingConfig
 streamingLoggingConfig pEnabled_ pBucket_ pPrefix_ =
     StreamingLoggingConfig'
     { _slcEnabled = pEnabled_
@@ -2984,22 +3148,25 @@ instance ToXML StreamingLoggingConfig where
 -- that you want to include in the updated distribution.
 --
 -- /See:/ 'trustedSigners' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tsItems'
---
--- * 'tsEnabled'
---
--- * 'tsQuantity'
 data TrustedSigners = TrustedSigners'
     { _tsItems    :: !(Maybe [Text])
     , _tsEnabled  :: !Bool
     , _tsQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TrustedSigners' smart constructor.
-trustedSigners :: Bool -> Int -> TrustedSigners
+-- | Creates a value of 'TrustedSigners' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tsItems'
+--
+-- * 'tsEnabled'
+--
+-- * 'tsQuantity'
+trustedSigners
+    :: Bool -- ^ 'tsEnabled'
+    -> Int -- ^ 'tsQuantity'
+    -> TrustedSigners
 trustedSigners pEnabled_ pQuantity_ =
     TrustedSigners'
     { _tsItems = Nothing
@@ -3040,8 +3207,16 @@ instance ToXML TrustedSigners where
 -- this distribution.
 --
 -- /See:/ 'viewerCertificate' smart constructor.
+data ViewerCertificate = ViewerCertificate'
+    { _vcSSLSupportMethod             :: !(Maybe SSLSupportMethod)
+    , _vcMinimumProtocolVersion       :: !(Maybe MinimumProtocolVersion)
+    , _vcIAMCertificateId             :: !(Maybe Text)
+    , _vcCloudFrontDefaultCertificate :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ViewerCertificate' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vcSSLSupportMethod'
 --
@@ -3050,15 +3225,8 @@ instance ToXML TrustedSigners where
 -- * 'vcIAMCertificateId'
 --
 -- * 'vcCloudFrontDefaultCertificate'
-data ViewerCertificate = ViewerCertificate'
-    { _vcSSLSupportMethod             :: !(Maybe SSLSupportMethod)
-    , _vcMinimumProtocolVersion       :: !(Maybe MinimumProtocolVersion)
-    , _vcIAMCertificateId             :: !(Maybe Text)
-    , _vcCloudFrontDefaultCertificate :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ViewerCertificate' smart constructor.
-viewerCertificate :: ViewerCertificate
+viewerCertificate
+    :: ViewerCertificate
 viewerCertificate =
     ViewerCertificate'
     { _vcSSLSupportMethod = Nothing

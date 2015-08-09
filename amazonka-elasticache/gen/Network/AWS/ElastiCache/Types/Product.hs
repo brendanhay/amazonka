@@ -24,16 +24,17 @@ import           Network.AWS.Prelude
 -- | Describes an Availability Zone in which the cache cluster is launched.
 --
 -- /See:/ 'availabilityZone' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'azName'
 newtype AvailabilityZone = AvailabilityZone'
     { _azName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AvailabilityZone' smart constructor.
-availabilityZone :: AvailabilityZone
+-- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'azName'
+availabilityZone
+    :: AvailabilityZone
 availabilityZone =
     AvailabilityZone'
     { _azName = Nothing
@@ -49,8 +50,34 @@ instance FromXML AvailabilityZone where
 -- | Contains all of the attributes of a specific cache cluster.
 --
 -- /See:/ 'cacheCluster' smart constructor.
+data CacheCluster = CacheCluster'
+    { _ccCacheNodeType              :: !(Maybe Text)
+    , _ccEngineVersion              :: !(Maybe Text)
+    , _ccCacheNodes                 :: !(Maybe [CacheNode])
+    , _ccCacheClusterCreateTime     :: !(Maybe ISO8601)
+    , _ccAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _ccSecurityGroups             :: !(Maybe [SecurityGroupMembership])
+    , _ccNotificationConfiguration  :: !(Maybe NotificationConfiguration)
+    , _ccSnapshotWindow             :: !(Maybe Text)
+    , _ccCacheClusterId             :: !(Maybe Text)
+    , _ccConfigurationEndpoint      :: !(Maybe Endpoint)
+    , _ccEngine                     :: !(Maybe Text)
+    , _ccCacheSecurityGroups        :: !(Maybe [CacheSecurityGroupMembership])
+    , _ccClientDownloadLandingPage  :: !(Maybe Text)
+    , _ccPreferredMaintenanceWindow :: !(Maybe Text)
+    , _ccCacheSubnetGroupName       :: !(Maybe Text)
+    , _ccCacheClusterStatus         :: !(Maybe Text)
+    , _ccPreferredAvailabilityZone  :: !(Maybe Text)
+    , _ccCacheParameterGroup        :: !(Maybe CacheParameterGroupStatus)
+    , _ccSnapshotRetentionLimit     :: !(Maybe Int)
+    , _ccReplicationGroupId         :: !(Maybe Text)
+    , _ccPendingModifiedValues      :: !(Maybe PendingModifiedValues)
+    , _ccNumCacheNodes              :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CacheCluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ccCacheNodeType'
 --
@@ -95,33 +122,8 @@ instance FromXML AvailabilityZone where
 -- * 'ccPendingModifiedValues'
 --
 -- * 'ccNumCacheNodes'
-data CacheCluster = CacheCluster'
-    { _ccCacheNodeType              :: !(Maybe Text)
-    , _ccEngineVersion              :: !(Maybe Text)
-    , _ccCacheNodes                 :: !(Maybe [CacheNode])
-    , _ccCacheClusterCreateTime     :: !(Maybe ISO8601)
-    , _ccAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _ccSecurityGroups             :: !(Maybe [SecurityGroupMembership])
-    , _ccNotificationConfiguration  :: !(Maybe NotificationConfiguration)
-    , _ccSnapshotWindow             :: !(Maybe Text)
-    , _ccCacheClusterId             :: !(Maybe Text)
-    , _ccConfigurationEndpoint      :: !(Maybe Endpoint)
-    , _ccEngine                     :: !(Maybe Text)
-    , _ccCacheSecurityGroups        :: !(Maybe [CacheSecurityGroupMembership])
-    , _ccClientDownloadLandingPage  :: !(Maybe Text)
-    , _ccPreferredMaintenanceWindow :: !(Maybe Text)
-    , _ccCacheSubnetGroupName       :: !(Maybe Text)
-    , _ccCacheClusterStatus         :: !(Maybe Text)
-    , _ccPreferredAvailabilityZone  :: !(Maybe Text)
-    , _ccCacheParameterGroup        :: !(Maybe CacheParameterGroupStatus)
-    , _ccSnapshotRetentionLimit     :: !(Maybe Int)
-    , _ccReplicationGroupId         :: !(Maybe Text)
-    , _ccPendingModifiedValues      :: !(Maybe PendingModifiedValues)
-    , _ccNumCacheNodes              :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CacheCluster' smart constructor.
-cacheCluster :: CacheCluster
+cacheCluster
+    :: CacheCluster
 cacheCluster =
     CacheCluster'
     { _ccCacheNodeType = Nothing
@@ -154,17 +156,17 @@ cacheCluster =
 -- Valid node types are as follows:
 --
 -- -   General purpose:
---     -   Current generation: @cache.t2.micro@, @cache.t2.small@,
---         @cache.t2.medium@, @cache.m3.medium@, @cache.m3.large@,
---         @cache.m3.xlarge@, @cache.m3.2xlarge@
---     -   Previous generation: @cache.t1.micro@, @cache.m1.small@,
---         @cache.m1.medium@, @cache.m1.large@, @cache.m1.xlarge@
--- -   Compute optimized: @cache.c1.xlarge@
+--     -   Current generation: 'cache.t2.micro', 'cache.t2.small',
+--         'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large',
+--         'cache.m3.xlarge', 'cache.m3.2xlarge'
+--     -   Previous generation: 'cache.t1.micro', 'cache.m1.small',
+--         'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+-- -   Compute optimized: 'cache.c1.xlarge'
 -- -   Memory optimized
---     -   Current generation: @cache.r3.large@, @cache.r3.xlarge@,
---         @cache.r3.2xlarge@, @cache.r3.4xlarge@, @cache.r3.8xlarge@
---     -   Previous generation: @cache.m2.xlarge@, @cache.m2.2xlarge@,
---         @cache.m2.4xlarge@
+--     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge',
+--         'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge',
+--         'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
@@ -211,7 +213,7 @@ ccNotificationConfiguration = lens _ccNotificationConfiguration (\ s a -> s{_ccN
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
 -- a daily snapshot of your cache cluster.
 --
--- Example: @05:00-09:00@
+-- Example: '05:00-09:00'
 ccSnapshotWindow :: Lens' CacheCluster (Maybe Text)
 ccSnapshotWindow = lens _ccSnapshotWindow (\ s a -> s{_ccSnapshotWindow = a});
 
@@ -242,17 +244,17 @@ ccClientDownloadLandingPage = lens _ccClientDownloadLandingPage (\ s a -> s{_ccC
 -- | Specifies the weekly time range during which maintenance on the cache
 -- cluster is performed. It is specified as a range in the format
 -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period. Valid values for @ddd@ are:
+-- is a 60 minute period. Valid values for 'ddd' are:
 --
--- -   @sun@
--- -   @mon@
--- -   @tue@
--- -   @wed@
--- -   @thu@
--- -   @fri@
--- -   @sat@
+-- -   'sun'
+-- -   'mon'
+-- -   'tue'
+-- -   'wed'
+-- -   'thu'
+-- -   'fri'
+-- -   'sat'
 --
--- Example: @sun:05:00-sun:09:00@
+-- Example: 'sun:05:00-sun:09:00'
 ccPreferredMaintenanceWindow :: Lens' CacheCluster (Maybe Text)
 ccPreferredMaintenanceWindow = lens _ccPreferredMaintenanceWindow (\ s a -> s{_ccPreferredMaintenanceWindow = a});
 
@@ -339,8 +341,17 @@ instance FromXML CacheCluster where
 -- | Provides all of the details about a particular cache engine version.
 --
 -- /See:/ 'cacheEngineVersion' smart constructor.
+data CacheEngineVersion = CacheEngineVersion'
+    { _cevCacheEngineDescription        :: !(Maybe Text)
+    , _cevCacheParameterGroupFamily     :: !(Maybe Text)
+    , _cevEngineVersion                 :: !(Maybe Text)
+    , _cevCacheEngineVersionDescription :: !(Maybe Text)
+    , _cevEngine                        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CacheEngineVersion' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cevCacheEngineDescription'
 --
@@ -351,16 +362,8 @@ instance FromXML CacheCluster where
 -- * 'cevCacheEngineVersionDescription'
 --
 -- * 'cevEngine'
-data CacheEngineVersion = CacheEngineVersion'
-    { _cevCacheEngineDescription        :: !(Maybe Text)
-    , _cevCacheParameterGroupFamily     :: !(Maybe Text)
-    , _cevEngineVersion                 :: !(Maybe Text)
-    , _cevCacheEngineVersionDescription :: !(Maybe Text)
-    , _cevEngine                        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CacheEngineVersion' smart constructor.
-cacheEngineVersion :: CacheEngineVersion
+cacheEngineVersion
+    :: CacheEngineVersion
 cacheEngineVersion =
     CacheEngineVersion'
     { _cevCacheEngineDescription = Nothing
@@ -407,17 +410,17 @@ instance FromXML CacheEngineVersion where
 -- Valid node types are as follows:
 --
 -- -   General purpose:
---     -   Current generation: @cache.t2.micro@, @cache.t2.small@,
---         @cache.t2.medium@, @cache.m3.medium@, @cache.m3.large@,
---         @cache.m3.xlarge@, @cache.m3.2xlarge@
---     -   Previous generation: @cache.t1.micro@, @cache.m1.small@,
---         @cache.m1.medium@, @cache.m1.large@, @cache.m1.xlarge@
--- -   Compute optimized: @cache.c1.xlarge@
+--     -   Current generation: 'cache.t2.micro', 'cache.t2.small',
+--         'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large',
+--         'cache.m3.xlarge', 'cache.m3.2xlarge'
+--     -   Previous generation: 'cache.t1.micro', 'cache.m1.small',
+--         'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+-- -   Compute optimized: 'cache.c1.xlarge'
 -- -   Memory optimized
---     -   Current generation: @cache.r3.large@, @cache.r3.xlarge@,
---         @cache.r3.2xlarge@, @cache.r3.4xlarge@, @cache.r3.8xlarge@
---     -   Previous generation: @cache.m2.xlarge@, @cache.m2.2xlarge@,
---         @cache.m2.4xlarge@
+--     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge',
+--         'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge',
+--         'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
@@ -435,8 +438,19 @@ instance FromXML CacheEngineVersion where
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
 --
 -- /See:/ 'cacheNode' smart constructor.
+data CacheNode = CacheNode'
+    { _cnSourceCacheNodeId        :: !(Maybe Text)
+    , _cnParameterGroupStatus     :: !(Maybe Text)
+    , _cnCacheNodeCreateTime      :: !(Maybe ISO8601)
+    , _cnCustomerAvailabilityZone :: !(Maybe Text)
+    , _cnCacheNodeId              :: !(Maybe Text)
+    , _cnCacheNodeStatus          :: !(Maybe Text)
+    , _cnEndpoint                 :: !(Maybe Endpoint)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CacheNode' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cnSourceCacheNodeId'
 --
@@ -451,18 +465,8 @@ instance FromXML CacheEngineVersion where
 -- * 'cnCacheNodeStatus'
 --
 -- * 'cnEndpoint'
-data CacheNode = CacheNode'
-    { _cnSourceCacheNodeId        :: !(Maybe Text)
-    , _cnParameterGroupStatus     :: !(Maybe Text)
-    , _cnCacheNodeCreateTime      :: !(Maybe ISO8601)
-    , _cnCustomerAvailabilityZone :: !(Maybe Text)
-    , _cnCacheNodeId              :: !(Maybe Text)
-    , _cnCacheNodeStatus          :: !(Maybe Text)
-    , _cnEndpoint                 :: !(Maybe Endpoint)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CacheNode' smart constructor.
-cacheNode :: CacheNode
+cacheNode
+    :: CacheNode
 cacheNode =
     CacheNode'
     { _cnSourceCacheNodeId = Nothing
@@ -523,8 +527,20 @@ instance FromXML CacheNode where
 -- /cache.m1.small/ type.
 --
 -- /See:/ 'cacheNodeTypeSpecificParameter' smart constructor.
+data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'
+    { _cntspCacheNodeTypeSpecificValues :: !(Maybe [CacheNodeTypeSpecificValue])
+    , _cntspMinimumEngineVersion        :: !(Maybe Text)
+    , _cntspSource                      :: !(Maybe Text)
+    , _cntspIsModifiable                :: !(Maybe Bool)
+    , _cntspAllowedValues               :: !(Maybe Text)
+    , _cntspDataType                    :: !(Maybe Text)
+    , _cntspParameterName               :: !(Maybe Text)
+    , _cntspDescription                 :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CacheNodeTypeSpecificParameter' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cntspCacheNodeTypeSpecificValues'
 --
@@ -541,19 +557,8 @@ instance FromXML CacheNode where
 -- * 'cntspParameterName'
 --
 -- * 'cntspDescription'
-data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'
-    { _cntspCacheNodeTypeSpecificValues :: !(Maybe [CacheNodeTypeSpecificValue])
-    , _cntspMinimumEngineVersion        :: !(Maybe Text)
-    , _cntspSource                      :: !(Maybe Text)
-    , _cntspIsModifiable                :: !(Maybe Bool)
-    , _cntspAllowedValues               :: !(Maybe Text)
-    , _cntspDataType                    :: !(Maybe Text)
-    , _cntspParameterName               :: !(Maybe Text)
-    , _cntspDescription                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CacheNodeTypeSpecificParameter' smart constructor.
-cacheNodeTypeSpecificParameter :: CacheNodeTypeSpecificParameter
+cacheNodeTypeSpecificParameter
+    :: CacheNodeTypeSpecificParameter
 cacheNodeTypeSpecificParameter =
     CacheNodeTypeSpecificParameter'
     { _cntspCacheNodeTypeSpecificValues = Nothing
@@ -579,7 +584,7 @@ cntspMinimumEngineVersion = lens _cntspMinimumEngineVersion (\ s a -> s{_cntspMi
 cntspSource :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
 cntspSource = lens _cntspSource (\ s a -> s{_cntspSource = a});
 
--- | Indicates whether (@true@) or not (@false@) the parameter can be
+-- | Indicates whether ('true') or not ('false') the parameter can be
 -- modified. Some parameters have security or operational implications that
 -- prevent them from being changed.
 cntspIsModifiable :: Lens' CacheNodeTypeSpecificParameter (Maybe Bool)
@@ -617,19 +622,20 @@ instance FromXML CacheNodeTypeSpecificParameter where
 -- | A value that applies only to a certain cache node type.
 --
 -- /See:/ 'cacheNodeTypeSpecificValue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cntsvCacheNodeType'
---
--- * 'cntsvValue'
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue'
     { _cntsvCacheNodeType :: !(Maybe Text)
     , _cntsvValue         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CacheNodeTypeSpecificValue' smart constructor.
-cacheNodeTypeSpecificValue :: CacheNodeTypeSpecificValue
+-- | Creates a value of 'CacheNodeTypeSpecificValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cntsvCacheNodeType'
+--
+-- * 'cntsvValue'
+cacheNodeTypeSpecificValue
+    :: CacheNodeTypeSpecificValue
 cacheNodeTypeSpecificValue =
     CacheNodeTypeSpecificValue'
     { _cntsvCacheNodeType = Nothing
@@ -652,22 +658,23 @@ instance FromXML CacheNodeTypeSpecificValue where
 -- | Represents the output of a /CreateCacheParameterGroup/ action.
 --
 -- /See:/ 'cacheParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpgCacheParameterGroupFamily'
---
--- * 'cpgCacheParameterGroupName'
---
--- * 'cpgDescription'
 data CacheParameterGroup = CacheParameterGroup'
     { _cpgCacheParameterGroupFamily :: !(Maybe Text)
     , _cpgCacheParameterGroupName   :: !(Maybe Text)
     , _cpgDescription               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CacheParameterGroup' smart constructor.
-cacheParameterGroup :: CacheParameterGroup
+-- | Creates a value of 'CacheParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpgCacheParameterGroupFamily'
+--
+-- * 'cpgCacheParameterGroupName'
+--
+-- * 'cpgDescription'
+cacheParameterGroup
+    :: CacheParameterGroup
 cacheParameterGroup =
     CacheParameterGroup'
     { _cpgCacheParameterGroupFamily = Nothing
@@ -701,16 +708,17 @@ instance FromXML CacheParameterGroup where
 -- -   /ResetCacheParameterGroup/
 --
 -- /See:/ 'cacheParameterGroupNameMessage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpgnmCacheParameterGroupName'
 newtype CacheParameterGroupNameMessage = CacheParameterGroupNameMessage'
     { _cpgnmCacheParameterGroupName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CacheParameterGroupNameMessage' smart constructor.
-cacheParameterGroupNameMessage :: CacheParameterGroupNameMessage
+-- | Creates a value of 'CacheParameterGroupNameMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpgnmCacheParameterGroupName'
+cacheParameterGroupNameMessage
+    :: CacheParameterGroupNameMessage
 cacheParameterGroupNameMessage =
     CacheParameterGroupNameMessage'
     { _cpgnmCacheParameterGroupName = Nothing
@@ -728,22 +736,23 @@ instance FromXML CacheParameterGroupNameMessage where
 -- | The status of the cache parameter group.
 --
 -- /See:/ 'cacheParameterGroupStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpgsCacheParameterGroupName'
---
--- * 'cpgsCacheNodeIdsToReboot'
---
--- * 'cpgsParameterApplyStatus'
 data CacheParameterGroupStatus = CacheParameterGroupStatus'
     { _cpgsCacheParameterGroupName :: !(Maybe Text)
     , _cpgsCacheNodeIdsToReboot    :: !(Maybe [Text])
     , _cpgsParameterApplyStatus    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CacheParameterGroupStatus' smart constructor.
-cacheParameterGroupStatus :: CacheParameterGroupStatus
+-- | Creates a value of 'CacheParameterGroupStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpgsCacheParameterGroupName'
+--
+-- * 'cpgsCacheNodeIdsToReboot'
+--
+-- * 'cpgsParameterApplyStatus'
+cacheParameterGroupStatus
+    :: CacheParameterGroupStatus
 cacheParameterGroupStatus =
     CacheParameterGroupStatus'
     { _cpgsCacheParameterGroupName = Nothing
@@ -780,8 +789,16 @@ instance FromXML CacheParameterGroupStatus where
 -- -   /RevokeCacheSecurityGroupIngress/
 --
 -- /See:/ 'cacheSecurityGroup' smart constructor.
+data CacheSecurityGroup = CacheSecurityGroup'
+    { _csgCacheSecurityGroupName :: !(Maybe Text)
+    , _csgOwnerId                :: !(Maybe Text)
+    , _csgEC2SecurityGroups      :: !(Maybe [EC2SecurityGroup])
+    , _csgDescription            :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CacheSecurityGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'csgCacheSecurityGroupName'
 --
@@ -790,15 +807,8 @@ instance FromXML CacheParameterGroupStatus where
 -- * 'csgEC2SecurityGroups'
 --
 -- * 'csgDescription'
-data CacheSecurityGroup = CacheSecurityGroup'
-    { _csgCacheSecurityGroupName :: !(Maybe Text)
-    , _csgOwnerId                :: !(Maybe Text)
-    , _csgEC2SecurityGroups      :: !(Maybe [EC2SecurityGroup])
-    , _csgDescription            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CacheSecurityGroup' smart constructor.
-cacheSecurityGroup :: CacheSecurityGroup
+cacheSecurityGroup
+    :: CacheSecurityGroup
 cacheSecurityGroup =
     CacheSecurityGroup'
     { _csgCacheSecurityGroupName = Nothing
@@ -838,19 +848,20 @@ instance FromXML CacheSecurityGroup where
 -- group.
 --
 -- /See:/ 'cacheSecurityGroupMembership' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csgmStatus'
---
--- * 'csgmCacheSecurityGroupName'
 data CacheSecurityGroupMembership = CacheSecurityGroupMembership'
     { _csgmStatus                 :: !(Maybe Text)
     , _csgmCacheSecurityGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CacheSecurityGroupMembership' smart constructor.
-cacheSecurityGroupMembership :: CacheSecurityGroupMembership
+-- | Creates a value of 'CacheSecurityGroupMembership' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csgmStatus'
+--
+-- * 'csgmCacheSecurityGroupName'
+cacheSecurityGroupMembership
+    :: CacheSecurityGroupMembership
 cacheSecurityGroupMembership =
     CacheSecurityGroupMembership'
     { _csgmStatus = Nothing
@@ -878,8 +889,16 @@ instance FromXML CacheSecurityGroupMembership where
 -- -   /ModifyCacheSubnetGroup/
 --
 -- /See:/ 'cacheSubnetGroup' smart constructor.
+data CacheSubnetGroup = CacheSubnetGroup'
+    { _csgVPCId                       :: !(Maybe Text)
+    , _csgSubnets                     :: !(Maybe [Subnet])
+    , _csgCacheSubnetGroupName        :: !(Maybe Text)
+    , _csgCacheSubnetGroupDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CacheSubnetGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'csgVPCId'
 --
@@ -888,15 +907,8 @@ instance FromXML CacheSecurityGroupMembership where
 -- * 'csgCacheSubnetGroupName'
 --
 -- * 'csgCacheSubnetGroupDescription'
-data CacheSubnetGroup = CacheSubnetGroup'
-    { _csgVPCId                       :: !(Maybe Text)
-    , _csgSubnets                     :: !(Maybe [Subnet])
-    , _csgCacheSubnetGroupName        :: !(Maybe Text)
-    , _csgCacheSubnetGroupDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CacheSubnetGroup' smart constructor.
-cacheSubnetGroup :: CacheSubnetGroup
+cacheSubnetGroup
+    :: CacheSubnetGroup
 cacheSubnetGroup =
     CacheSubnetGroup'
     { _csgVPCId = Nothing
@@ -935,22 +947,23 @@ instance FromXML CacheSubnetGroup where
 -- group.
 --
 -- /See:/ 'ec2SecurityGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'esgStatus'
---
--- * 'esgEC2SecurityGroupOwnerId'
---
--- * 'esgEC2SecurityGroupName'
 data EC2SecurityGroup = EC2SecurityGroup'
     { _esgStatus                  :: !(Maybe Text)
     , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
     , _esgEC2SecurityGroupName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EC2SecurityGroup' smart constructor.
-ec2SecurityGroup :: EC2SecurityGroup
+-- | Creates a value of 'EC2SecurityGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'esgStatus'
+--
+-- * 'esgEC2SecurityGroupOwnerId'
+--
+-- * 'esgEC2SecurityGroupName'
+ec2SecurityGroup
+    :: EC2SecurityGroup
 ec2SecurityGroup =
     EC2SecurityGroup'
     { _esgStatus = Nothing
@@ -981,19 +994,20 @@ instance FromXML EC2SecurityGroup where
 -- cache node.
 --
 -- /See:/ 'endpoint' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'eAddress'
---
--- * 'ePort'
 data Endpoint = Endpoint'
     { _eAddress :: !(Maybe Text)
     , _ePort    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Endpoint' smart constructor.
-endpoint :: Endpoint
+-- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eAddress'
+--
+-- * 'ePort'
+endpoint
+    :: Endpoint
 endpoint =
     Endpoint'
     { _eAddress = Nothing
@@ -1015,8 +1029,16 @@ instance FromXML Endpoint where
 -- | Represents the output of a /DescribeEngineDefaultParameters/ action.
 --
 -- /See:/ 'engineDefaults' smart constructor.
+data EngineDefaults = EngineDefaults'
+    { _edCacheParameterGroupFamily       :: !(Maybe Text)
+    , _edCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
+    , _edParameters                      :: !(Maybe [Parameter])
+    , _edMarker                          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EngineDefaults' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'edCacheParameterGroupFamily'
 --
@@ -1025,15 +1047,8 @@ instance FromXML Endpoint where
 -- * 'edParameters'
 --
 -- * 'edMarker'
-data EngineDefaults = EngineDefaults'
-    { _edCacheParameterGroupFamily       :: !(Maybe Text)
-    , _edCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
-    , _edParameters                      :: !(Maybe [Parameter])
-    , _edMarker                          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EngineDefaults' smart constructor.
-engineDefaults :: EngineDefaults
+engineDefaults
+    :: EngineDefaults
 engineDefaults =
     EngineDefaults'
     { _edCacheParameterGroupFamily = Nothing
@@ -1077,8 +1092,16 @@ instance FromXML EngineDefaults where
 -- removing a cache node, or rebooting a node.
 --
 -- /See:/ 'event' smart constructor.
+data Event = Event'
+    { _eSourceType       :: !(Maybe SourceType)
+    , _eSourceIdentifier :: !(Maybe Text)
+    , _eDate             :: !(Maybe ISO8601)
+    , _eMessage          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eSourceType'
 --
@@ -1087,15 +1110,8 @@ instance FromXML EngineDefaults where
 -- * 'eDate'
 --
 -- * 'eMessage'
-data Event = Event'
-    { _eSourceType       :: !(Maybe SourceType)
-    , _eSourceIdentifier :: !(Maybe Text)
-    , _eDate             :: !(Maybe ISO8601)
-    , _eMessage          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Event' smart constructor.
-event :: Event
+event
+    :: Event
 event =
     Event'
     { _eSourceType = Nothing
@@ -1133,8 +1149,16 @@ instance FromXML Event where
 -- | Represents a collection of cache nodes in a replication group.
 --
 -- /See:/ 'nodeGroup' smart constructor.
+data NodeGroup = NodeGroup'
+    { _ngStatus           :: !(Maybe Text)
+    , _ngPrimaryEndpoint  :: !(Maybe Endpoint)
+    , _ngNodeGroupMembers :: !(Maybe [NodeGroupMember])
+    , _ngNodeGroupId      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NodeGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ngStatus'
 --
@@ -1143,15 +1167,8 @@ instance FromXML Event where
 -- * 'ngNodeGroupMembers'
 --
 -- * 'ngNodeGroupId'
-data NodeGroup = NodeGroup'
-    { _ngStatus           :: !(Maybe Text)
-    , _ngPrimaryEndpoint  :: !(Maybe Endpoint)
-    , _ngNodeGroupMembers :: !(Maybe [NodeGroupMember])
-    , _ngNodeGroupId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NodeGroup' smart constructor.
-nodeGroup :: NodeGroup
+nodeGroup
+    :: NodeGroup
 nodeGroup =
     NodeGroup'
     { _ngStatus = Nothing
@@ -1190,8 +1207,17 @@ instance FromXML NodeGroup where
 -- | Represents a single node within a node group.
 --
 -- /See:/ 'nodeGroupMember' smart constructor.
+data NodeGroupMember = NodeGroupMember'
+    { _ngmCacheClusterId            :: !(Maybe Text)
+    , _ngmCacheNodeId               :: !(Maybe Text)
+    , _ngmPreferredAvailabilityZone :: !(Maybe Text)
+    , _ngmCurrentRole               :: !(Maybe Text)
+    , _ngmReadEndpoint              :: !(Maybe Endpoint)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NodeGroupMember' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ngmCacheClusterId'
 --
@@ -1202,16 +1228,8 @@ instance FromXML NodeGroup where
 -- * 'ngmCurrentRole'
 --
 -- * 'ngmReadEndpoint'
-data NodeGroupMember = NodeGroupMember'
-    { _ngmCacheClusterId            :: !(Maybe Text)
-    , _ngmCacheNodeId               :: !(Maybe Text)
-    , _ngmPreferredAvailabilityZone :: !(Maybe Text)
-    , _ngmCurrentRole               :: !(Maybe Text)
-    , _ngmReadEndpoint              :: !(Maybe Endpoint)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NodeGroupMember' smart constructor.
-nodeGroupMember :: NodeGroupMember
+nodeGroupMember
+    :: NodeGroupMember
 nodeGroupMember =
     NodeGroupMember'
     { _ngmCacheClusterId = Nothing
@@ -1254,8 +1272,16 @@ instance FromXML NodeGroupMember where
 -- | Represents an individual cache node in a snapshot of a cache cluster.
 --
 -- /See:/ 'nodeSnapshot' smart constructor.
+data NodeSnapshot = NodeSnapshot'
+    { _nsCacheNodeCreateTime :: !(Maybe ISO8601)
+    , _nsCacheNodeId         :: !(Maybe Text)
+    , _nsSnapshotCreateTime  :: !(Maybe ISO8601)
+    , _nsCacheSize           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NodeSnapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'nsCacheNodeCreateTime'
 --
@@ -1264,15 +1290,8 @@ instance FromXML NodeGroupMember where
 -- * 'nsSnapshotCreateTime'
 --
 -- * 'nsCacheSize'
-data NodeSnapshot = NodeSnapshot'
-    { _nsCacheNodeCreateTime :: !(Maybe ISO8601)
-    , _nsCacheNodeId         :: !(Maybe Text)
-    , _nsSnapshotCreateTime  :: !(Maybe ISO8601)
-    , _nsCacheSize           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NodeSnapshot' smart constructor.
-nodeSnapshot :: NodeSnapshot
+nodeSnapshot
+    :: NodeSnapshot
 nodeSnapshot =
     NodeSnapshot'
     { _nsCacheNodeCreateTime = Nothing
@@ -1312,19 +1331,20 @@ instance FromXML NodeSnapshot where
 -- Simple Notification Service (SNS).
 --
 -- /See:/ 'notificationConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ncTopicStatus'
---
--- * 'ncTopicARN'
 data NotificationConfiguration = NotificationConfiguration'
     { _ncTopicStatus :: !(Maybe Text)
     , _ncTopicARN    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'NotificationConfiguration' smart constructor.
-notificationConfiguration :: NotificationConfiguration
+-- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ncTopicStatus'
+--
+-- * 'ncTopicARN'
+notificationConfiguration
+    :: NotificationConfiguration
 notificationConfiguration =
     NotificationConfiguration'
     { _ncTopicStatus = Nothing
@@ -1348,8 +1368,20 @@ instance FromXML NotificationConfiguration where
 -- behavior.
 --
 -- /See:/ 'parameter' smart constructor.
+data Parameter = Parameter'
+    { _pParameterValue       :: !(Maybe Text)
+    , _pMinimumEngineVersion :: !(Maybe Text)
+    , _pSource               :: !(Maybe Text)
+    , _pIsModifiable         :: !(Maybe Bool)
+    , _pAllowedValues        :: !(Maybe Text)
+    , _pDataType             :: !(Maybe Text)
+    , _pParameterName        :: !(Maybe Text)
+    , _pDescription          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pParameterValue'
 --
@@ -1366,19 +1398,8 @@ instance FromXML NotificationConfiguration where
 -- * 'pParameterName'
 --
 -- * 'pDescription'
-data Parameter = Parameter'
-    { _pParameterValue       :: !(Maybe Text)
-    , _pMinimumEngineVersion :: !(Maybe Text)
-    , _pSource               :: !(Maybe Text)
-    , _pIsModifiable         :: !(Maybe Bool)
-    , _pAllowedValues        :: !(Maybe Text)
-    , _pDataType             :: !(Maybe Text)
-    , _pParameterName        :: !(Maybe Text)
-    , _pDescription          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Parameter' smart constructor.
-parameter :: Parameter
+parameter
+    :: Parameter
 parameter =
     Parameter'
     { _pParameterValue = Nothing
@@ -1403,7 +1424,7 @@ pMinimumEngineVersion = lens _pMinimumEngineVersion (\ s a -> s{_pMinimumEngineV
 pSource :: Lens' Parameter (Maybe Text)
 pSource = lens _pSource (\ s a -> s{_pSource = a});
 
--- | Indicates whether (@true@) or not (@false@) the parameter can be
+-- | Indicates whether ('true') or not ('false') the parameter can be
 -- modified. Some parameters have security or operational implications that
 -- prevent them from being changed.
 pIsModifiable :: Lens' Parameter (Maybe Bool)
@@ -1441,19 +1462,20 @@ instance FromXML Parameter where
 -- parameter.
 --
 -- /See:/ 'parameterNameValue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pnvParameterValue'
---
--- * 'pnvParameterName'
 data ParameterNameValue = ParameterNameValue'
     { _pnvParameterValue :: !(Maybe Text)
     , _pnvParameterName  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ParameterNameValue' smart constructor.
-parameterNameValue :: ParameterNameValue
+-- | Creates a value of 'ParameterNameValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pnvParameterValue'
+--
+-- * 'pnvParameterName'
+parameterNameValue
+    :: ParameterNameValue
 parameterNameValue =
     ParameterNameValue'
     { _pnvParameterValue = Nothing
@@ -1478,22 +1500,23 @@ instance ToQuery ParameterNameValue where
 -- future, or that are currently being applied.
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pmvEngineVersion'
---
--- * 'pmvCacheNodeIdsToRemove'
---
--- * 'pmvNumCacheNodes'
 data PendingModifiedValues = PendingModifiedValues'
     { _pmvEngineVersion        :: !(Maybe Text)
     , _pmvCacheNodeIdsToRemove :: !(Maybe [Text])
     , _pmvNumCacheNodes        :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PendingModifiedValues' smart constructor.
-pendingModifiedValues :: PendingModifiedValues
+-- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pmvEngineVersion'
+--
+-- * 'pmvCacheNodeIdsToRemove'
+--
+-- * 'pmvNumCacheNodes'
+pendingModifiedValues
+    :: PendingModifiedValues
 pendingModifiedValues =
     PendingModifiedValues'
     { _pmvEngineVersion = Nothing
@@ -1530,19 +1553,20 @@ instance FromXML PendingModifiedValues where
 -- reserved cache node, or for a reserved cache node offering.
 --
 -- /See:/ 'recurringCharge' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcRecurringChargeFrequency'
---
--- * 'rcRecurringChargeAmount'
 data RecurringCharge = RecurringCharge'
     { _rcRecurringChargeFrequency :: !(Maybe Text)
     , _rcRecurringChargeAmount    :: !(Maybe Double)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RecurringCharge' smart constructor.
-recurringCharge :: RecurringCharge
+-- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcRecurringChargeFrequency'
+--
+-- * 'rcRecurringChargeAmount'
+recurringCharge
+    :: RecurringCharge
 recurringCharge =
     RecurringCharge'
     { _rcRecurringChargeFrequency = Nothing
@@ -1566,8 +1590,20 @@ instance FromXML RecurringCharge where
 -- | Contains all of the attributes of a specific replication group.
 --
 -- /See:/ 'replicationGroup' smart constructor.
+data ReplicationGroup = ReplicationGroup'
+    { _rgNodeGroups            :: !(Maybe [NodeGroup])
+    , _rgStatus                :: !(Maybe Text)
+    , _rgSnapshottingClusterId :: !(Maybe Text)
+    , _rgMemberClusters        :: !(Maybe [Text])
+    , _rgReplicationGroupId    :: !(Maybe Text)
+    , _rgPendingModifiedValues :: !(Maybe ReplicationGroupPendingModifiedValues)
+    , _rgDescription           :: !(Maybe Text)
+    , _rgAutomaticFailover     :: !(Maybe AutomaticFailoverStatus)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReplicationGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rgNodeGroups'
 --
@@ -1584,19 +1620,8 @@ instance FromXML RecurringCharge where
 -- * 'rgDescription'
 --
 -- * 'rgAutomaticFailover'
-data ReplicationGroup = ReplicationGroup'
-    { _rgNodeGroups            :: !(Maybe [NodeGroup])
-    , _rgStatus                :: !(Maybe Text)
-    , _rgSnapshottingClusterId :: !(Maybe Text)
-    , _rgMemberClusters        :: !(Maybe [Text])
-    , _rgReplicationGroupId    :: !(Maybe Text)
-    , _rgPendingModifiedValues :: !(Maybe ReplicationGroupPendingModifiedValues)
-    , _rgDescription           :: !(Maybe Text)
-    , _rgAutomaticFailover     :: !(Maybe AutomaticFailoverStatus)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReplicationGroup' smart constructor.
-replicationGroup :: ReplicationGroup
+replicationGroup
+    :: ReplicationGroup
 replicationGroup =
     ReplicationGroup'
     { _rgNodeGroups = Nothing
@@ -1670,19 +1695,20 @@ instance FromXML ReplicationGroup where
 -- or during the next maintenance window.
 --
 -- /See:/ 'replicationGroupPendingModifiedValues' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rgpmvPrimaryClusterId'
---
--- * 'rgpmvAutomaticFailoverStatus'
 data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues'
     { _rgpmvPrimaryClusterId        :: !(Maybe Text)
     , _rgpmvAutomaticFailoverStatus :: !(Maybe PendingAutomaticFailoverStatus)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReplicationGroupPendingModifiedValues' smart constructor.
-replicationGroupPendingModifiedValues :: ReplicationGroupPendingModifiedValues
+-- | Creates a value of 'ReplicationGroupPendingModifiedValues' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rgpmvPrimaryClusterId'
+--
+-- * 'rgpmvAutomaticFailoverStatus'
+replicationGroupPendingModifiedValues
+    :: ReplicationGroupPendingModifiedValues
 replicationGroupPendingModifiedValues =
     ReplicationGroupPendingModifiedValues'
     { _rgpmvPrimaryClusterId = Nothing
@@ -1690,7 +1716,7 @@ replicationGroupPendingModifiedValues =
     }
 
 -- | The primary cluster ID which will be applied immediately (if
--- @--apply-immediately@ was specified), or during the next maintenance
+-- '--apply-immediately' was specified), or during the next maintenance
 -- window.
 rgpmvPrimaryClusterId :: Lens' ReplicationGroupPendingModifiedValues (Maybe Text)
 rgpmvPrimaryClusterId = lens _rgpmvPrimaryClusterId (\ s a -> s{_rgpmvPrimaryClusterId = a});
@@ -1714,8 +1740,24 @@ instance FromXML
 -- | Represents the output of a /PurchaseReservedCacheNodesOffering/ action.
 --
 -- /See:/ 'reservedCacheNode' smart constructor.
+data ReservedCacheNode = ReservedCacheNode'
+    { _rcnCacheNodeType                :: !(Maybe Text)
+    , _rcnState                        :: !(Maybe Text)
+    , _rcnProductDescription           :: !(Maybe Text)
+    , _rcnStartTime                    :: !(Maybe ISO8601)
+    , _rcnCacheNodeCount               :: !(Maybe Int)
+    , _rcnReservedCacheNodeId          :: !(Maybe Text)
+    , _rcnOfferingType                 :: !(Maybe Text)
+    , _rcnUsagePrice                   :: !(Maybe Double)
+    , _rcnRecurringCharges             :: !(Maybe [RecurringCharge])
+    , _rcnFixedPrice                   :: !(Maybe Double)
+    , _rcnDuration                     :: !(Maybe Int)
+    , _rcnReservedCacheNodesOfferingId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservedCacheNode' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rcnCacheNodeType'
 --
@@ -1740,23 +1782,8 @@ instance FromXML
 -- * 'rcnDuration'
 --
 -- * 'rcnReservedCacheNodesOfferingId'
-data ReservedCacheNode = ReservedCacheNode'
-    { _rcnCacheNodeType                :: !(Maybe Text)
-    , _rcnState                        :: !(Maybe Text)
-    , _rcnProductDescription           :: !(Maybe Text)
-    , _rcnStartTime                    :: !(Maybe ISO8601)
-    , _rcnCacheNodeCount               :: !(Maybe Int)
-    , _rcnReservedCacheNodeId          :: !(Maybe Text)
-    , _rcnOfferingType                 :: !(Maybe Text)
-    , _rcnUsagePrice                   :: !(Maybe Double)
-    , _rcnRecurringCharges             :: !(Maybe [RecurringCharge])
-    , _rcnFixedPrice                   :: !(Maybe Double)
-    , _rcnDuration                     :: !(Maybe Int)
-    , _rcnReservedCacheNodesOfferingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReservedCacheNode' smart constructor.
-reservedCacheNode :: ReservedCacheNode
+reservedCacheNode
+    :: ReservedCacheNode
 reservedCacheNode =
     ReservedCacheNode'
     { _rcnCacheNodeType = Nothing
@@ -1778,17 +1805,17 @@ reservedCacheNode =
 -- Valid node types are as follows:
 --
 -- -   General purpose:
---     -   Current generation: @cache.t2.micro@, @cache.t2.small@,
---         @cache.t2.medium@, @cache.m3.medium@, @cache.m3.large@,
---         @cache.m3.xlarge@, @cache.m3.2xlarge@
---     -   Previous generation: @cache.t1.micro@, @cache.m1.small@,
---         @cache.m1.medium@, @cache.m1.large@, @cache.m1.xlarge@
--- -   Compute optimized: @cache.c1.xlarge@
+--     -   Current generation: 'cache.t2.micro', 'cache.t2.small',
+--         'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large',
+--         'cache.m3.xlarge', 'cache.m3.2xlarge'
+--     -   Previous generation: 'cache.t1.micro', 'cache.m1.small',
+--         'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+-- -   Compute optimized: 'cache.c1.xlarge'
 -- -   Memory optimized
---     -   Current generation: @cache.r3.large@, @cache.r3.xlarge@,
---         @cache.r3.2xlarge@, @cache.r3.4xlarge@, @cache.r3.8xlarge@
---     -   Previous generation: @cache.m2.xlarge@, @cache.m2.2xlarge@,
---         @cache.m2.4xlarge@
+--     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge',
+--         'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge',
+--         'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
@@ -1871,8 +1898,20 @@ instance FromXML ReservedCacheNode where
 -- | Describes all of the attributes of a reserved cache node offering.
 --
 -- /See:/ 'reservedCacheNodesOffering' smart constructor.
+data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
+    { _rcnoCacheNodeType                :: !(Maybe Text)
+    , _rcnoProductDescription           :: !(Maybe Text)
+    , _rcnoOfferingType                 :: !(Maybe Text)
+    , _rcnoUsagePrice                   :: !(Maybe Double)
+    , _rcnoRecurringCharges             :: !(Maybe [RecurringCharge])
+    , _rcnoFixedPrice                   :: !(Maybe Double)
+    , _rcnoDuration                     :: !(Maybe Int)
+    , _rcnoReservedCacheNodesOfferingId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservedCacheNodesOffering' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rcnoCacheNodeType'
 --
@@ -1889,19 +1928,8 @@ instance FromXML ReservedCacheNode where
 -- * 'rcnoDuration'
 --
 -- * 'rcnoReservedCacheNodesOfferingId'
-data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
-    { _rcnoCacheNodeType                :: !(Maybe Text)
-    , _rcnoProductDescription           :: !(Maybe Text)
-    , _rcnoOfferingType                 :: !(Maybe Text)
-    , _rcnoUsagePrice                   :: !(Maybe Double)
-    , _rcnoRecurringCharges             :: !(Maybe [RecurringCharge])
-    , _rcnoFixedPrice                   :: !(Maybe Double)
-    , _rcnoDuration                     :: !(Maybe Int)
-    , _rcnoReservedCacheNodesOfferingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReservedCacheNodesOffering' smart constructor.
-reservedCacheNodesOffering :: ReservedCacheNodesOffering
+reservedCacheNodesOffering
+    :: ReservedCacheNodesOffering
 reservedCacheNodesOffering =
     ReservedCacheNodesOffering'
     { _rcnoCacheNodeType = Nothing
@@ -1919,17 +1947,17 @@ reservedCacheNodesOffering =
 -- Valid node types are as follows:
 --
 -- -   General purpose:
---     -   Current generation: @cache.t2.micro@, @cache.t2.small@,
---         @cache.t2.medium@, @cache.m3.medium@, @cache.m3.large@,
---         @cache.m3.xlarge@, @cache.m3.2xlarge@
---     -   Previous generation: @cache.t1.micro@, @cache.m1.small@,
---         @cache.m1.medium@, @cache.m1.large@, @cache.m1.xlarge@
--- -   Compute optimized: @cache.c1.xlarge@
+--     -   Current generation: 'cache.t2.micro', 'cache.t2.small',
+--         'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large',
+--         'cache.m3.xlarge', 'cache.m3.2xlarge'
+--     -   Previous generation: 'cache.t1.micro', 'cache.m1.small',
+--         'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+-- -   Compute optimized: 'cache.c1.xlarge'
 -- -   Memory optimized
---     -   Current generation: @cache.r3.large@, @cache.r3.xlarge@,
---         @cache.r3.2xlarge@, @cache.r3.4xlarge@, @cache.r3.8xlarge@
---     -   Previous generation: @cache.m2.xlarge@, @cache.m2.2xlarge@,
---         @cache.m2.4xlarge@
+--     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge',
+--         'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge',
+--         'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
@@ -1993,19 +2021,20 @@ instance FromXML ReservedCacheNodesOffering where
 -- | Represents a single cache security group and its status.
 --
 -- /See:/ 'securityGroupMembership' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sgmStatus'
---
--- * 'sgmSecurityGroupId'
 data SecurityGroupMembership = SecurityGroupMembership'
     { _sgmStatus          :: !(Maybe Text)
     , _sgmSecurityGroupId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SecurityGroupMembership' smart constructor.
-securityGroupMembership :: SecurityGroupMembership
+-- | Creates a value of 'SecurityGroupMembership' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sgmStatus'
+--
+-- * 'sgmSecurityGroupId'
+securityGroupMembership
+    :: SecurityGroupMembership
 securityGroupMembership =
     SecurityGroupMembership'
     { _sgmStatus = Nothing
@@ -2031,8 +2060,32 @@ instance FromXML SecurityGroupMembership where
 -- snapshot was taken.
 --
 -- /See:/ 'snapshot' smart constructor.
+data Snapshot = Snapshot'
+    { _sCacheNodeType              :: !(Maybe Text)
+    , _sEngineVersion              :: !(Maybe Text)
+    , _sCacheClusterCreateTime     :: !(Maybe ISO8601)
+    , _sAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _sCacheParameterGroupName    :: !(Maybe Text)
+    , _sSnapshotStatus             :: !(Maybe Text)
+    , _sSnapshotWindow             :: !(Maybe Text)
+    , _sVPCId                      :: !(Maybe Text)
+    , _sCacheClusterId             :: !(Maybe Text)
+    , _sEngine                     :: !(Maybe Text)
+    , _sPreferredMaintenanceWindow :: !(Maybe Text)
+    , _sTopicARN                   :: !(Maybe Text)
+    , _sCacheSubnetGroupName       :: !(Maybe Text)
+    , _sNodeSnapshots              :: !(Maybe [NodeSnapshot])
+    , _sPreferredAvailabilityZone  :: !(Maybe Text)
+    , _sSnapshotRetentionLimit     :: !(Maybe Int)
+    , _sSnapshotName               :: !(Maybe Text)
+    , _sSnapshotSource             :: !(Maybe Text)
+    , _sNumCacheNodes              :: !(Maybe Int)
+    , _sPort                       :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sCacheNodeType'
 --
@@ -2073,31 +2126,8 @@ instance FromXML SecurityGroupMembership where
 -- * 'sNumCacheNodes'
 --
 -- * 'sPort'
-data Snapshot = Snapshot'
-    { _sCacheNodeType              :: !(Maybe Text)
-    , _sEngineVersion              :: !(Maybe Text)
-    , _sCacheClusterCreateTime     :: !(Maybe ISO8601)
-    , _sAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _sCacheParameterGroupName    :: !(Maybe Text)
-    , _sSnapshotStatus             :: !(Maybe Text)
-    , _sSnapshotWindow             :: !(Maybe Text)
-    , _sVPCId                      :: !(Maybe Text)
-    , _sCacheClusterId             :: !(Maybe Text)
-    , _sEngine                     :: !(Maybe Text)
-    , _sPreferredMaintenanceWindow :: !(Maybe Text)
-    , _sTopicARN                   :: !(Maybe Text)
-    , _sCacheSubnetGroupName       :: !(Maybe Text)
-    , _sNodeSnapshots              :: !(Maybe [NodeSnapshot])
-    , _sPreferredAvailabilityZone  :: !(Maybe Text)
-    , _sSnapshotRetentionLimit     :: !(Maybe Int)
-    , _sSnapshotName               :: !(Maybe Text)
-    , _sSnapshotSource             :: !(Maybe Text)
-    , _sNumCacheNodes              :: !(Maybe Int)
-    , _sPort                       :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Snapshot' smart constructor.
-snapshot :: Snapshot
+snapshot
+    :: Snapshot
 snapshot =
     Snapshot'
     { _sCacheNodeType = Nothing
@@ -2128,17 +2158,17 @@ snapshot =
 -- Valid node types are as follows:
 --
 -- -   General purpose:
---     -   Current generation: @cache.t2.micro@, @cache.t2.small@,
---         @cache.t2.medium@, @cache.m3.medium@, @cache.m3.large@,
---         @cache.m3.xlarge@, @cache.m3.2xlarge@
---     -   Previous generation: @cache.t1.micro@, @cache.m1.small@,
---         @cache.m1.medium@, @cache.m1.large@, @cache.m1.xlarge@
--- -   Compute optimized: @cache.c1.xlarge@
+--     -   Current generation: 'cache.t2.micro', 'cache.t2.small',
+--         'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large',
+--         'cache.m3.xlarge', 'cache.m3.2xlarge'
+--     -   Previous generation: 'cache.t1.micro', 'cache.m1.small',
+--         'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+-- -   Compute optimized: 'cache.c1.xlarge'
 -- -   Memory optimized
---     -   Current generation: @cache.r3.large@, @cache.r3.xlarge@,
---         @cache.r3.2xlarge@, @cache.r3.4xlarge@, @cache.r3.8xlarge@
---     -   Previous generation: @cache.m2.xlarge@, @cache.m2.2xlarge@,
---         @cache.m2.4xlarge@
+--     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge',
+--         'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge',
+--         'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
@@ -2175,8 +2205,8 @@ sAutoMinorVersionUpgrade = lens _sAutoMinorVersionUpgrade (\ s a -> s{_sAutoMino
 sCacheParameterGroupName :: Lens' Snapshot (Maybe Text)
 sCacheParameterGroupName = lens _sCacheParameterGroupName (\ s a -> s{_sCacheParameterGroupName = a});
 
--- | The status of the snapshot. Valid values: @creating@ | @available@ |
--- @restoring@ | @copying@ | @deleting@.
+-- | The status of the snapshot. Valid values: 'creating' | 'available' |
+-- 'restoring' | 'copying' | 'deleting'.
 sSnapshotStatus :: Lens' Snapshot (Maybe Text)
 sSnapshotStatus = lens _sSnapshotStatus (\ s a -> s{_sSnapshotStatus = a});
 
@@ -2202,17 +2232,17 @@ sEngine = lens _sEngine (\ s a -> s{_sEngine = a});
 -- | Specifies the weekly time range during which maintenance on the cache
 -- cluster is performed. It is specified as a range in the format
 -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period. Valid values for @ddd@ are:
+-- is a 60 minute period. Valid values for 'ddd' are:
 --
--- -   @sun@
--- -   @mon@
--- -   @tue@
--- -   @wed@
--- -   @thu@
--- -   @fri@
--- -   @sat@
+-- -   'sun'
+-- -   'mon'
+-- -   'tue'
+-- -   'wed'
+-- -   'thu'
+-- -   'fri'
+-- -   'sat'
 --
--- Example: @sun:05:00-sun:09:00@
+-- Example: 'sun:05:00-sun:09:00'
 sPreferredMaintenanceWindow :: Lens' Snapshot (Maybe Text)
 sPreferredMaintenanceWindow = lens _sPreferredMaintenanceWindow (\ s a -> s{_sPreferredMaintenanceWindow = a});
 
@@ -2254,8 +2284,8 @@ sSnapshotRetentionLimit = lens _sSnapshotRetentionLimit (\ s a -> s{_sSnapshotRe
 sSnapshotName :: Lens' Snapshot (Maybe Text)
 sSnapshotName = lens _sSnapshotName (\ s a -> s{_sSnapshotName = a});
 
--- | Indicates whether the snapshot is from an automatic backup (@automated@)
--- or was created manually (@manual@).
+-- | Indicates whether the snapshot is from an automatic backup ('automated')
+-- or was created manually ('manual').
 sSnapshotSource :: Lens' Snapshot (Maybe Text)
 sSnapshotSource = lens _sSnapshotSource (\ s a -> s{_sSnapshotSource = a});
 
@@ -2300,19 +2330,20 @@ instance FromXML Snapshot where
 -- and used with ElastiCache.
 --
 -- /See:/ 'subnet' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sSubnetIdentifier'
---
--- * 'sSubnetAvailabilityZone'
 data Subnet = Subnet'
     { _sSubnetIdentifier       :: !(Maybe Text)
     , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Subnet' smart constructor.
-subnet :: Subnet
+-- | Creates a value of 'Subnet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sSubnetIdentifier'
+--
+-- * 'sSubnetAvailabilityZone'
+subnet
+    :: Subnet
 subnet =
     Subnet'
     { _sSubnetIdentifier = Nothing
@@ -2338,19 +2369,20 @@ instance FromXML Subnet where
 -- null Value is permitted.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagValue'
---
--- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Tag
 tag =
     Tag'
     { _tagValue = Nothing
@@ -2377,16 +2409,17 @@ instance ToQuery Tag where
 -- /ListTagsOnResource/, and /RemoveTagsFromResource/ actions.
 --
 -- /See:/ 'tagListMessage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tlmTagList'
 newtype TagListMessage = TagListMessage'
     { _tlmTagList :: Maybe [Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TagListMessage' smart constructor.
-tagListMessage :: TagListMessage
+-- | Creates a value of 'TagListMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tlmTagList'
+tagListMessage
+    :: TagListMessage
 tagListMessage =
     TagListMessage'
     { _tlmTagList = Nothing

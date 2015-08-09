@@ -24,15 +24,15 @@
 module Network.AWS.SNS.RemovePermission
     (
     -- * Creating a Request
-      RemovePermission
-    , removePermission
+      removePermission
+    , RemovePermission
     -- * Request Lenses
     , rpTopicARN
     , rpLabel
 
     -- * Destructuring the Response
-    , RemovePermissionResponse
     , removePermissionResponse
+    , RemovePermissionResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -44,19 +44,22 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for RemovePermission action.
 --
 -- /See:/ 'removePermission' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rpTopicARN'
---
--- * 'rpLabel'
 data RemovePermission = RemovePermission'
     { _rpTopicARN :: !Text
     , _rpLabel    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemovePermission' smart constructor.
-removePermission :: Text -> Text -> RemovePermission
+-- | Creates a value of 'RemovePermission' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpTopicARN'
+--
+-- * 'rpLabel'
+removePermission
+    :: Text -- ^ 'rpTopicARN'
+    -> Text -- ^ 'rpLabel'
+    -> RemovePermission
 removePermission pTopicARN_ pLabel_ =
     RemovePermission'
     { _rpTopicARN = pTopicARN_
@@ -95,6 +98,8 @@ data RemovePermissionResponse =
     RemovePermissionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemovePermissionResponse' smart constructor.
-removePermissionResponse :: RemovePermissionResponse
+-- | Creates a value of 'RemovePermissionResponse' with the minimum fields required to make a request.
+--
+removePermissionResponse
+    :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse'

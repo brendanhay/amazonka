@@ -21,22 +21,22 @@
 -- Adds or updates tags for the specified Amazon Kinesis stream. Each
 -- stream can have up to 10 tags.
 --
--- If tags have already been assigned to the stream, @AddTagsToStream@
+-- If tags have already been assigned to the stream, 'AddTagsToStream'
 -- overwrites any existing tags that correspond to the specified tag keys.
 --
 -- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_AddTagsToStream.html AWS API Reference> for AddTagsToStream.
 module Network.AWS.Kinesis.AddTagsToStream
     (
     -- * Creating a Request
-      AddTagsToStream
-    , addTagsToStream
+      addTagsToStream
+    , AddTagsToStream
     -- * Request Lenses
     , attsStreamName
     , attsTags
 
     -- * Destructuring the Response
-    , AddTagsToStreamResponse
     , addTagsToStreamResponse
+    , AddTagsToStreamResponse
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -45,22 +45,24 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for @AddTagsToStream@.
+-- | Represents the input for 'AddTagsToStream'.
 --
 -- /See:/ 'addTagsToStream' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'attsStreamName'
---
--- * 'attsTags'
 data AddTagsToStream = AddTagsToStream'
     { _attsStreamName :: !Text
     , _attsTags       :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTagsToStream' smart constructor.
-addTagsToStream :: Text -> AddTagsToStream
+-- | Creates a value of 'AddTagsToStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'attsStreamName'
+--
+-- * 'attsTags'
+addTagsToStream
+    :: Text -- ^ 'attsStreamName'
+    -> AddTagsToStream
 addTagsToStream pStreamName_ =
     AddTagsToStream'
     { _attsStreamName = pStreamName_
@@ -107,6 +109,8 @@ data AddTagsToStreamResponse =
     AddTagsToStreamResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTagsToStreamResponse' smart constructor.
-addTagsToStreamResponse :: AddTagsToStreamResponse
+-- | Creates a value of 'AddTagsToStreamResponse' with the minimum fields required to make a request.
+--
+addTagsToStreamResponse
+    :: AddTagsToStreamResponse
 addTagsToStreamResponse = AddTagsToStreamResponse'

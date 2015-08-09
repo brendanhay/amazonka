@@ -37,16 +37,16 @@
 module Network.AWS.IAM.CreatePolicyVersion
     (
     -- * Creating a Request
-      CreatePolicyVersion
-    , createPolicyVersion
+      createPolicyVersion
+    , CreatePolicyVersion
     -- * Request Lenses
     , cpvSetAsDefault
     , cpvPolicyARN
     , cpvPolicyDocument
 
     -- * Destructuring the Response
-    , CreatePolicyVersionResponse
     , createPolicyVersionResponse
+    , CreatePolicyVersionResponse
     -- * Response Lenses
     , cpvrsPolicyVersion
     , cpvrsStatus
@@ -59,22 +59,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createPolicyVersion' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpvSetAsDefault'
---
--- * 'cpvPolicyARN'
---
--- * 'cpvPolicyDocument'
 data CreatePolicyVersion = CreatePolicyVersion'
     { _cpvSetAsDefault   :: !(Maybe Bool)
     , _cpvPolicyARN      :: !Text
     , _cpvPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePolicyVersion' smart constructor.
-createPolicyVersion :: Text -> Text -> CreatePolicyVersion
+-- | Creates a value of 'CreatePolicyVersion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpvSetAsDefault'
+--
+-- * 'cpvPolicyARN'
+--
+-- * 'cpvPolicyDocument'
+createPolicyVersion
+    :: Text -- ^ 'cpvPolicyARN'
+    -> Text -- ^ 'cpvPolicyDocument'
+    -> CreatePolicyVersion
 createPolicyVersion pPolicyARN_ pPolicyDocument_ =
     CreatePolicyVersion'
     { _cpvSetAsDefault = Nothing
@@ -84,7 +87,7 @@ createPolicyVersion pPolicyARN_ pPolicyDocument_ =
 
 -- | Specifies whether to set this version as the policy\'s default version.
 --
--- When this parameter is @true@, the new policy version becomes the
+-- When this parameter is 'true', the new policy version becomes the
 -- operative version; that is, the version that is in effect for the IAM
 -- users, groups, and roles that the policy is attached to.
 --
@@ -131,19 +134,21 @@ instance ToQuery CreatePolicyVersion where
 -- | Contains the response to a successful CreatePolicyVersion request.
 --
 -- /See:/ 'createPolicyVersionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpvrsPolicyVersion'
---
--- * 'cpvrsStatus'
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
     { _cpvrsPolicyVersion :: !(Maybe PolicyVersion)
     , _cpvrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePolicyVersionResponse' smart constructor.
-createPolicyVersionResponse :: Int -> CreatePolicyVersionResponse
+-- | Creates a value of 'CreatePolicyVersionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpvrsPolicyVersion'
+--
+-- * 'cpvrsStatus'
+createPolicyVersionResponse
+    :: Int -- ^ 'cpvrsStatus'
+    -> CreatePolicyVersionResponse
 createPolicyVersionResponse pStatus_ =
     CreatePolicyVersionResponse'
     { _cpvrsPolicyVersion = Nothing
@@ -154,6 +159,6 @@ createPolicyVersionResponse pStatus_ =
 cpvrsPolicyVersion :: Lens' CreatePolicyVersionResponse (Maybe PolicyVersion)
 cpvrsPolicyVersion = lens _cpvrsPolicyVersion (\ s a -> s{_cpvrsPolicyVersion = a});
 
--- | Undocumented member.
+-- | The response status code.
 cpvrsStatus :: Lens' CreatePolicyVersionResponse Int
 cpvrsStatus = lens _cpvrsStatus (\ s a -> s{_cpvrsStatus = a});

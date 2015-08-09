@@ -30,15 +30,15 @@
 module Network.AWS.EC2.MoveAddressToVPC
     (
     -- * Creating a Request
-      MoveAddressToVPC
-    , moveAddressToVPC
+      moveAddressToVPC
+    , MoveAddressToVPC
     -- * Request Lenses
     , matvDryRun
     , matvPublicIP
 
     -- * Destructuring the Response
-    , MoveAddressToVPCResponse
     , moveAddressToVPCResponse
+    , MoveAddressToVPCResponse
     -- * Response Lenses
     , matvrsAllocationId
     , matvrsStatus
@@ -51,19 +51,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'moveAddressToVPC' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'matvDryRun'
---
--- * 'matvPublicIP'
 data MoveAddressToVPC = MoveAddressToVPC'
     { _matvDryRun   :: !(Maybe Bool)
     , _matvPublicIP :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MoveAddressToVPC' smart constructor.
-moveAddressToVPC :: Text -> MoveAddressToVPC
+-- | Creates a value of 'MoveAddressToVPC' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'matvDryRun'
+--
+-- * 'matvPublicIP'
+moveAddressToVPC
+    :: Text -- ^ 'matvPublicIP'
+    -> MoveAddressToVPC
 moveAddressToVPC pPublicIP_ =
     MoveAddressToVPC'
     { _matvDryRun = Nothing
@@ -72,8 +74,8 @@ moveAddressToVPC pPublicIP_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 matvDryRun :: Lens' MoveAddressToVPC (Maybe Bool)
 matvDryRun = lens _matvDryRun (\ s a -> s{_matvDryRun = a});
 
@@ -105,19 +107,21 @@ instance ToQuery MoveAddressToVPC where
                "DryRun" =: _matvDryRun, "PublicIp" =: _matvPublicIP]
 
 -- | /See:/ 'moveAddressToVPCResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'matvrsAllocationId'
---
--- * 'matvrsStatus'
 data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
     { _matvrsAllocationId :: !(Maybe Text)
     , _matvrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MoveAddressToVPCResponse' smart constructor.
-moveAddressToVPCResponse :: Int -> MoveAddressToVPCResponse
+-- | Creates a value of 'MoveAddressToVPCResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'matvrsAllocationId'
+--
+-- * 'matvrsStatus'
+moveAddressToVPCResponse
+    :: Int -- ^ 'matvrsStatus'
+    -> MoveAddressToVPCResponse
 moveAddressToVPCResponse pStatus_ =
     MoveAddressToVPCResponse'
     { _matvrsAllocationId = Nothing
@@ -128,6 +132,6 @@ moveAddressToVPCResponse pStatus_ =
 matvrsAllocationId :: Lens' MoveAddressToVPCResponse (Maybe Text)
 matvrsAllocationId = lens _matvrsAllocationId (\ s a -> s{_matvrsAllocationId = a});
 
--- | Undocumented member.
+-- | The response status code.
 matvrsStatus :: Lens' MoveAddressToVPCResponse Int
 matvrsStatus = lens _matvrsStatus (\ s a -> s{_matvrsStatus = a});

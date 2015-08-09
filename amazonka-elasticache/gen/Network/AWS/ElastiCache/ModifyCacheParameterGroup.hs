@@ -26,15 +26,15 @@
 module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     (
     -- * Creating a Request
-      ModifyCacheParameterGroup
-    , modifyCacheParameterGroup
+      modifyCacheParameterGroup
+    , ModifyCacheParameterGroup
     -- * Request Lenses
     , mcpgCacheParameterGroupName
     , mcpgParameterNameValues
 
     -- * Destructuring the Response
-    , CacheParameterGroupNameMessage
     , cacheParameterGroupNameMessage
+    , CacheParameterGroupNameMessage
     -- * Response Lenses
     , cpgnmCacheParameterGroupName
     ) where
@@ -48,19 +48,21 @@ import           Network.AWS.Response
 -- | Represents the input of a /ModifyCacheParameterGroup/ action.
 --
 -- /See:/ 'modifyCacheParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mcpgCacheParameterGroupName'
---
--- * 'mcpgParameterNameValues'
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
     { _mcpgCacheParameterGroupName :: !Text
     , _mcpgParameterNameValues     :: ![ParameterNameValue]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyCacheParameterGroup' smart constructor.
-modifyCacheParameterGroup :: Text -> ModifyCacheParameterGroup
+-- | Creates a value of 'ModifyCacheParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mcpgCacheParameterGroupName'
+--
+-- * 'mcpgParameterNameValues'
+modifyCacheParameterGroup
+    :: Text -- ^ 'mcpgCacheParameterGroupName'
+    -> ModifyCacheParameterGroup
 modifyCacheParameterGroup pCacheParameterGroupName_ =
     ModifyCacheParameterGroup'
     { _mcpgCacheParameterGroupName = pCacheParameterGroupName_

@@ -24,19 +24,20 @@ import           Network.AWS.SSM.Types.Sum
 -- | Describes an association of a configuration document and an instance.
 --
 -- /See:/ 'association' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aInstanceId'
---
--- * 'aName'
 data Association = Association'
     { _aInstanceId :: !(Maybe Text)
     , _aName       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Association' smart constructor.
-association :: Association
+-- | Creates a value of 'Association' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aInstanceId'
+--
+-- * 'aName'
+association
+    :: Association
 association =
     Association'
     { _aInstanceId = Nothing
@@ -61,8 +62,16 @@ instance FromJSON Association where
 -- | Describes an association.
 --
 -- /See:/ 'associationDescription' smart constructor.
+data AssociationDescription = AssociationDescription'
+    { _adInstanceId :: !(Maybe Text)
+    , _adStatus     :: !(Maybe AssociationStatus)
+    , _adDate       :: !(Maybe POSIX)
+    , _adName       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AssociationDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'adInstanceId'
 --
@@ -71,15 +80,8 @@ instance FromJSON Association where
 -- * 'adDate'
 --
 -- * 'adName'
-data AssociationDescription = AssociationDescription'
-    { _adInstanceId :: !(Maybe Text)
-    , _adStatus     :: !(Maybe AssociationStatus)
-    , _adDate       :: !(Maybe POSIX)
-    , _adName       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AssociationDescription' smart constructor.
-associationDescription :: AssociationDescription
+associationDescription
+    :: AssociationDescription
 associationDescription =
     AssociationDescription'
     { _adInstanceId = Nothing
@@ -116,19 +118,22 @@ instance FromJSON AssociationDescription where
 -- | Describes a filter.
 --
 -- /See:/ 'associationFilter' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'afKey'
---
--- * 'afValue'
 data AssociationFilter = AssociationFilter'
     { _afKey   :: !AssociationFilterKey
     , _afValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssociationFilter' smart constructor.
-associationFilter :: AssociationFilterKey -> Text -> AssociationFilter
+-- | Creates a value of 'AssociationFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'afKey'
+--
+-- * 'afValue'
+associationFilter
+    :: AssociationFilterKey -- ^ 'afKey'
+    -> Text -- ^ 'afValue'
+    -> AssociationFilter
 associationFilter pKey_ pValue_ =
     AssociationFilter'
     { _afKey = pKey_
@@ -150,8 +155,16 @@ instance ToJSON AssociationFilter where
 -- | Describes an association status.
 --
 -- /See:/ 'associationStatus' smart constructor.
+data AssociationStatus = AssociationStatus'
+    { _asAdditionalInfo :: !(Maybe Text)
+    , _asDate           :: !POSIX
+    , _asName           :: !AssociationStatusName
+    , _asMessage        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AssociationStatus' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'asAdditionalInfo'
 --
@@ -160,15 +173,11 @@ instance ToJSON AssociationFilter where
 -- * 'asName'
 --
 -- * 'asMessage'
-data AssociationStatus = AssociationStatus'
-    { _asAdditionalInfo :: !(Maybe Text)
-    , _asDate           :: !POSIX
-    , _asName           :: !AssociationStatusName
-    , _asMessage        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AssociationStatus' smart constructor.
-associationStatus :: UTCTime -> AssociationStatusName -> Text -> AssociationStatus
+associationStatus
+    :: UTCTime -- ^ 'asDate'
+    -> AssociationStatusName -- ^ 'asName'
+    -> Text -- ^ 'asMessage'
+    -> AssociationStatus
 associationStatus pDate_ pName_ pMessage_ =
     AssociationStatus'
     { _asAdditionalInfo = Nothing
@@ -212,19 +221,20 @@ instance ToJSON AssociationStatus where
 -- | Describes the association of a configuration document and an instance.
 --
 -- /See:/ 'createAssociationBatchRequestEntry' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cabreInstanceId'
---
--- * 'cabreName'
 data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     { _cabreInstanceId :: !(Maybe Text)
     , _cabreName       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAssociationBatchRequestEntry' smart constructor.
-createAssociationBatchRequestEntry :: CreateAssociationBatchRequestEntry
+-- | Creates a value of 'CreateAssociationBatchRequestEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cabreInstanceId'
+--
+-- * 'cabreName'
+createAssociationBatchRequestEntry
+    :: CreateAssociationBatchRequestEntry
 createAssociationBatchRequestEntry =
     CreateAssociationBatchRequestEntry'
     { _cabreInstanceId = Nothing
@@ -257,8 +267,16 @@ instance ToJSON CreateAssociationBatchRequestEntry
 -- | Describes a configuration document.
 --
 -- /See:/ 'documentDescription' smart constructor.
+data DocumentDescription = DocumentDescription'
+    { _dStatus      :: !(Maybe DocumentStatus)
+    , _dSha1        :: !(Maybe Text)
+    , _dCreatedDate :: !(Maybe POSIX)
+    , _dName        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DocumentDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dStatus'
 --
@@ -267,15 +285,8 @@ instance ToJSON CreateAssociationBatchRequestEntry
 -- * 'dCreatedDate'
 --
 -- * 'dName'
-data DocumentDescription = DocumentDescription'
-    { _dStatus      :: !(Maybe DocumentStatus)
-    , _dSha1        :: !(Maybe Text)
-    , _dCreatedDate :: !(Maybe POSIX)
-    , _dName        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DocumentDescription' smart constructor.
-documentDescription :: DocumentDescription
+documentDescription
+    :: DocumentDescription
 documentDescription =
     DocumentDescription'
     { _dStatus = Nothing
@@ -313,19 +324,22 @@ instance FromJSON DocumentDescription where
 -- | Describes a filter.
 --
 -- /See:/ 'documentFilter' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dfKey'
---
--- * 'dfValue'
 data DocumentFilter = DocumentFilter'
     { _dfKey   :: !DocumentFilterKey
     , _dfValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DocumentFilter' smart constructor.
-documentFilter :: DocumentFilterKey -> Text -> DocumentFilter
+-- | Creates a value of 'DocumentFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dfKey'
+--
+-- * 'dfValue'
+documentFilter
+    :: DocumentFilterKey -- ^ 'dfKey'
+    -> Text -- ^ 'dfValue'
+    -> DocumentFilter
 documentFilter pKey_ pValue_ =
     DocumentFilter'
     { _dfKey = pKey_
@@ -347,16 +361,17 @@ instance ToJSON DocumentFilter where
 -- | Describes the name of a configuration document.
 --
 -- /See:/ 'documentIdentifier' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diName'
 newtype DocumentIdentifier = DocumentIdentifier'
     { _diName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DocumentIdentifier' smart constructor.
-documentIdentifier :: DocumentIdentifier
+-- | Creates a value of 'DocumentIdentifier' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diName'
+documentIdentifier
+    :: DocumentIdentifier
 documentIdentifier =
     DocumentIdentifier'
     { _diName = Nothing
@@ -374,22 +389,23 @@ instance FromJSON DocumentIdentifier where
 -- | Describes a failed association.
 --
 -- /See:/ 'failedCreateAssociation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fcaEntry'
---
--- * 'fcaFault'
---
--- * 'fcaMessage'
 data FailedCreateAssociation = FailedCreateAssociation'
     { _fcaEntry   :: !(Maybe CreateAssociationBatchRequestEntry)
     , _fcaFault   :: !(Maybe Fault)
     , _fcaMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'FailedCreateAssociation' smart constructor.
-failedCreateAssociation :: FailedCreateAssociation
+-- | Creates a value of 'FailedCreateAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fcaEntry'
+--
+-- * 'fcaFault'
+--
+-- * 'fcaMessage'
+failedCreateAssociation
+    :: FailedCreateAssociation
 failedCreateAssociation =
     FailedCreateAssociation'
     { _fcaEntry = Nothing

@@ -26,14 +26,14 @@
 module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     (
     -- * Creating a Request
-      DescribeSpotDatafeedSubscription
-    , describeSpotDatafeedSubscription
+      describeSpotDatafeedSubscription
+    , DescribeSpotDatafeedSubscription
     -- * Request Lenses
     , dsdsDryRun
 
     -- * Destructuring the Response
-    , DescribeSpotDatafeedSubscriptionResponse
     , describeSpotDatafeedSubscriptionResponse
+    , DescribeSpotDatafeedSubscriptionResponse
     -- * Response Lenses
     , dsdsrsSpotDatafeedSubscription
     , dsdsrsStatus
@@ -48,16 +48,17 @@ import           Network.AWS.Response
 -- | Contains the parameters for DescribeSpotDatafeedSubscription.
 --
 -- /See:/ 'describeSpotDatafeedSubscription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsdsDryRun'
 newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'
     { _dsdsDryRun :: Maybe Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSpotDatafeedSubscription' smart constructor.
-describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
+-- | Creates a value of 'DescribeSpotDatafeedSubscription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsdsDryRun'
+describeSpotDatafeedSubscription
+    :: DescribeSpotDatafeedSubscription
 describeSpotDatafeedSubscription =
     DescribeSpotDatafeedSubscription'
     { _dsdsDryRun = Nothing
@@ -65,8 +66,8 @@ describeSpotDatafeedSubscription =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dsdsDryRun :: Lens' DescribeSpotDatafeedSubscription (Maybe Bool)
 dsdsDryRun = lens _dsdsDryRun (\ s a -> s{_dsdsDryRun = a});
 
@@ -103,19 +104,21 @@ instance ToQuery DescribeSpotDatafeedSubscription
 -- | Contains the output of DescribeSpotDatafeedSubscription.
 --
 -- /See:/ 'describeSpotDatafeedSubscriptionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsdsrsSpotDatafeedSubscription'
---
--- * 'dsdsrsStatus'
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'
     { _dsdsrsSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
     , _dsdsrsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSpotDatafeedSubscriptionResponse' smart constructor.
-describeSpotDatafeedSubscriptionResponse :: Int -> DescribeSpotDatafeedSubscriptionResponse
+-- | Creates a value of 'DescribeSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsdsrsSpotDatafeedSubscription'
+--
+-- * 'dsdsrsStatus'
+describeSpotDatafeedSubscriptionResponse
+    :: Int -- ^ 'dsdsrsStatus'
+    -> DescribeSpotDatafeedSubscriptionResponse
 describeSpotDatafeedSubscriptionResponse pStatus_ =
     DescribeSpotDatafeedSubscriptionResponse'
     { _dsdsrsSpotDatafeedSubscription = Nothing
@@ -126,6 +129,6 @@ describeSpotDatafeedSubscriptionResponse pStatus_ =
 dsdsrsSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 dsdsrsSpotDatafeedSubscription = lens _dsdsrsSpotDatafeedSubscription (\ s a -> s{_dsdsrsSpotDatafeedSubscription = a});
 
--- | Undocumented member.
+-- | The response status code.
 dsdsrsStatus :: Lens' DescribeSpotDatafeedSubscriptionResponse Int
 dsdsrsStatus = lens _dsdsrsStatus (\ s a -> s{_dsdsrsStatus = a});

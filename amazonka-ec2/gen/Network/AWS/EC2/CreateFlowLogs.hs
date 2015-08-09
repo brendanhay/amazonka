@@ -33,8 +33,8 @@
 module Network.AWS.EC2.CreateFlowLogs
     (
     -- * Creating a Request
-      CreateFlowLogs
-    , createFlowLogs
+      createFlowLogs
+    , CreateFlowLogs
     -- * Request Lenses
     , cflClientToken
     , cflResourceIds
@@ -44,8 +44,8 @@ module Network.AWS.EC2.CreateFlowLogs
     , cflDeliverLogsPermissionARN
 
     -- * Destructuring the Response
-    , CreateFlowLogsResponse
     , createFlowLogsResponse
+    , CreateFlowLogsResponse
     -- * Response Lenses
     , cflrsUnsuccessful
     , cflrsClientToken
@@ -60,8 +60,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createFlowLogs' smart constructor.
+data CreateFlowLogs = CreateFlowLogs'
+    { _cflClientToken              :: !(Maybe Text)
+    , _cflResourceIds              :: ![Text]
+    , _cflResourceType             :: !FlowLogsResourceType
+    , _cflTrafficType              :: !TrafficType
+    , _cflLogGroupName             :: !Text
+    , _cflDeliverLogsPermissionARN :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateFlowLogs' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cflClientToken'
 --
@@ -74,17 +84,12 @@ import           Network.AWS.Response
 -- * 'cflLogGroupName'
 --
 -- * 'cflDeliverLogsPermissionARN'
-data CreateFlowLogs = CreateFlowLogs'
-    { _cflClientToken              :: !(Maybe Text)
-    , _cflResourceIds              :: ![Text]
-    , _cflResourceType             :: !FlowLogsResourceType
-    , _cflTrafficType              :: !TrafficType
-    , _cflLogGroupName             :: !Text
-    , _cflDeliverLogsPermissionARN :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateFlowLogs' smart constructor.
-createFlowLogs :: FlowLogsResourceType -> TrafficType -> Text -> Text -> CreateFlowLogs
+createFlowLogs
+    :: FlowLogsResourceType -- ^ 'cflResourceType'
+    -> TrafficType -- ^ 'cflTrafficType'
+    -> Text -- ^ 'cflLogGroupName'
+    -> Text -- ^ 'cflDeliverLogsPermissionARN'
+    -> CreateFlowLogs
 createFlowLogs pResourceType_ pTrafficType_ pLogGroupName_ pDeliverLogsPermissionARN_ =
     CreateFlowLogs'
     { _cflClientToken = Nothing
@@ -158,8 +163,16 @@ instance ToQuery CreateFlowLogs where
                  _cflDeliverLogsPermissionARN]
 
 -- | /See:/ 'createFlowLogsResponse' smart constructor.
+data CreateFlowLogsResponse = CreateFlowLogsResponse'
+    { _cflrsUnsuccessful :: !(Maybe [UnsuccessfulItem])
+    , _cflrsClientToken  :: !(Maybe Text)
+    , _cflrsFlowLogIds   :: !(Maybe [Text])
+    , _cflrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateFlowLogsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cflrsUnsuccessful'
 --
@@ -168,15 +181,9 @@ instance ToQuery CreateFlowLogs where
 -- * 'cflrsFlowLogIds'
 --
 -- * 'cflrsStatus'
-data CreateFlowLogsResponse = CreateFlowLogsResponse'
-    { _cflrsUnsuccessful :: !(Maybe [UnsuccessfulItem])
-    , _cflrsClientToken  :: !(Maybe Text)
-    , _cflrsFlowLogIds   :: !(Maybe [Text])
-    , _cflrsStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateFlowLogsResponse' smart constructor.
-createFlowLogsResponse :: Int -> CreateFlowLogsResponse
+createFlowLogsResponse
+    :: Int -- ^ 'cflrsStatus'
+    -> CreateFlowLogsResponse
 createFlowLogsResponse pStatus_ =
     CreateFlowLogsResponse'
     { _cflrsUnsuccessful = Nothing
@@ -198,6 +205,6 @@ cflrsClientToken = lens _cflrsClientToken (\ s a -> s{_cflrsClientToken = a});
 cflrsFlowLogIds :: Lens' CreateFlowLogsResponse [Text]
 cflrsFlowLogIds = lens _cflrsFlowLogIds (\ s a -> s{_cflrsFlowLogIds = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 cflrsStatus :: Lens' CreateFlowLogsResponse Int
 cflrsStatus = lens _cflrsStatus (\ s a -> s{_cflrsStatus = a});

@@ -30,15 +30,15 @@
 module Network.AWS.CognitoIdentity.GetOpenIdToken
     (
     -- * Creating a Request
-      GetOpenIdToken
-    , getOpenIdToken
+      getOpenIdToken
+    , GetOpenIdToken
     -- * Request Lenses
     , goitLogins
     , goitIdentityId
 
     -- * Destructuring the Response
-    , GetOpenIdTokenResponse
     , getOpenIdTokenResponse
+    , GetOpenIdTokenResponse
     -- * Response Lenses
     , goitrsToken
     , goitrsIdentityId
@@ -54,19 +54,21 @@ import           Network.AWS.Response
 -- | Input to the GetOpenIdToken action.
 --
 -- /See:/ 'getOpenIdToken' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'goitLogins'
---
--- * 'goitIdentityId'
 data GetOpenIdToken = GetOpenIdToken'
     { _goitLogins     :: !(Maybe (Map Text Text))
     , _goitIdentityId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetOpenIdToken' smart constructor.
-getOpenIdToken :: Text -> GetOpenIdToken
+-- | Creates a value of 'GetOpenIdToken' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'goitLogins'
+--
+-- * 'goitIdentityId'
+getOpenIdToken
+    :: Text -- ^ 'goitIdentityId'
+    -> GetOpenIdToken
 getOpenIdToken pIdentityId_ =
     GetOpenIdToken'
     { _goitLogins = Nothing
@@ -121,22 +123,24 @@ instance ToQuery GetOpenIdToken where
 -- | Returned in response to a successful GetOpenIdToken request.
 --
 -- /See:/ 'getOpenIdTokenResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'goitrsToken'
---
--- * 'goitrsIdentityId'
---
--- * 'goitrsStatus'
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
     { _goitrsToken      :: !(Maybe Text)
     , _goitrsIdentityId :: !(Maybe Text)
     , _goitrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetOpenIdTokenResponse' smart constructor.
-getOpenIdTokenResponse :: Int -> GetOpenIdTokenResponse
+-- | Creates a value of 'GetOpenIdTokenResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'goitrsToken'
+--
+-- * 'goitrsIdentityId'
+--
+-- * 'goitrsStatus'
+getOpenIdTokenResponse
+    :: Int -- ^ 'goitrsStatus'
+    -> GetOpenIdTokenResponse
 getOpenIdTokenResponse pStatus_ =
     GetOpenIdTokenResponse'
     { _goitrsToken = Nothing
@@ -153,6 +157,6 @@ goitrsToken = lens _goitrsToken (\ s a -> s{_goitrsToken = a});
 goitrsIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrsIdentityId = lens _goitrsIdentityId (\ s a -> s{_goitrsIdentityId = a});
 
--- | Undocumented member.
+-- | The response status code.
 goitrsStatus :: Lens' GetOpenIdTokenResponse Int
 goitrsStatus = lens _goitrsStatus (\ s a -> s{_goitrsStatus = a});

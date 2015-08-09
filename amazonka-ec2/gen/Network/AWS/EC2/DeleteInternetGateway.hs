@@ -25,15 +25,15 @@
 module Network.AWS.EC2.DeleteInternetGateway
     (
     -- * Creating a Request
-      DeleteInternetGateway
-    , deleteInternetGateway
+      deleteInternetGateway
+    , DeleteInternetGateway
     -- * Request Lenses
     , digiDryRun
     , digiInternetGatewayId
 
     -- * Destructuring the Response
-    , DeleteInternetGatewayResponse
     , deleteInternetGatewayResponse
+    , DeleteInternetGatewayResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -43,19 +43,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteInternetGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'digiDryRun'
---
--- * 'digiInternetGatewayId'
 data DeleteInternetGateway = DeleteInternetGateway'
     { _digiDryRun            :: !(Maybe Bool)
     , _digiInternetGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteInternetGateway' smart constructor.
-deleteInternetGateway :: Text -> DeleteInternetGateway
+-- | Creates a value of 'DeleteInternetGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'digiDryRun'
+--
+-- * 'digiInternetGatewayId'
+deleteInternetGateway
+    :: Text -- ^ 'digiInternetGatewayId'
+    -> DeleteInternetGateway
 deleteInternetGateway pInternetGatewayId_ =
     DeleteInternetGateway'
     { _digiDryRun = Nothing
@@ -64,8 +66,8 @@ deleteInternetGateway pInternetGatewayId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 digiDryRun :: Lens' DeleteInternetGateway (Maybe Bool)
 digiDryRun = lens _digiDryRun (\ s a -> s{_digiDryRun = a});
 
@@ -99,6 +101,8 @@ data DeleteInternetGatewayResponse =
     DeleteInternetGatewayResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteInternetGatewayResponse' smart constructor.
-deleteInternetGatewayResponse :: DeleteInternetGatewayResponse
+-- | Creates a value of 'DeleteInternetGatewayResponse' with the minimum fields required to make a request.
+--
+deleteInternetGatewayResponse
+    :: DeleteInternetGatewayResponse
 deleteInternetGatewayResponse = DeleteInternetGatewayResponse'

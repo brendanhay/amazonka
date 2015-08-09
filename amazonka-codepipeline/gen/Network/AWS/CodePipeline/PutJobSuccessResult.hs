@@ -25,8 +25,8 @@
 module Network.AWS.CodePipeline.PutJobSuccessResult
     (
     -- * Creating a Request
-      PutJobSuccessResult
-    , putJobSuccessResult
+      putJobSuccessResult
+    , PutJobSuccessResult
     -- * Request Lenses
     , pjsrContinuationToken
     , pjsrExecutionDetails
@@ -34,8 +34,8 @@ module Network.AWS.CodePipeline.PutJobSuccessResult
     , pjsrJobId
 
     -- * Destructuring the Response
-    , PutJobSuccessResultResponse
     , putJobSuccessResultResponse
+    , PutJobSuccessResultResponse
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -47,8 +47,16 @@ import           Network.AWS.Response
 -- | Represents the input of a put job success result action.
 --
 -- /See:/ 'putJobSuccessResult' smart constructor.
+data PutJobSuccessResult = PutJobSuccessResult'
+    { _pjsrContinuationToken :: !(Maybe Text)
+    , _pjsrExecutionDetails  :: !(Maybe ExecutionDetails)
+    , _pjsrCurrentRevision   :: !(Maybe CurrentRevision)
+    , _pjsrJobId             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutJobSuccessResult' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pjsrContinuationToken'
 --
@@ -57,15 +65,9 @@ import           Network.AWS.Response
 -- * 'pjsrCurrentRevision'
 --
 -- * 'pjsrJobId'
-data PutJobSuccessResult = PutJobSuccessResult'
-    { _pjsrContinuationToken :: !(Maybe Text)
-    , _pjsrExecutionDetails  :: !(Maybe ExecutionDetails)
-    , _pjsrCurrentRevision   :: !(Maybe CurrentRevision)
-    , _pjsrJobId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutJobSuccessResult' smart constructor.
-putJobSuccessResult :: Text -> PutJobSuccessResult
+putJobSuccessResult
+    :: Text -- ^ 'pjsrJobId'
+    -> PutJobSuccessResult
 putJobSuccessResult pJobId_ =
     PutJobSuccessResult'
     { _pjsrContinuationToken = Nothing
@@ -130,6 +132,8 @@ data PutJobSuccessResultResponse =
     PutJobSuccessResultResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutJobSuccessResultResponse' smart constructor.
-putJobSuccessResultResponse :: PutJobSuccessResultResponse
+-- | Creates a value of 'PutJobSuccessResultResponse' with the minimum fields required to make a request.
+--
+putJobSuccessResultResponse
+    :: PutJobSuccessResultResponse
 putJobSuccessResultResponse = PutJobSuccessResultResponse'

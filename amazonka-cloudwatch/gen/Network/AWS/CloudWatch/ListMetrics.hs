@@ -23,11 +23,13 @@
 -- statistical data for a given metric.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html AWS API Reference> for ListMetrics.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatch.ListMetrics
     (
     -- * Creating a Request
-      ListMetrics
-    , listMetrics
+      listMetrics
+    , ListMetrics
     -- * Request Lenses
     , lmMetricName
     , lmNamespace
@@ -35,8 +37,8 @@ module Network.AWS.CloudWatch.ListMetrics
     , lmDimensions
 
     -- * Destructuring the Response
-    , ListMetricsResponse
     , listMetricsResponse
+    , ListMetricsResponse
     -- * Response Lenses
     , lmrsMetrics
     , lmrsNextToken
@@ -51,8 +53,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listMetrics' smart constructor.
+data ListMetrics = ListMetrics'
+    { _lmMetricName :: !(Maybe Text)
+    , _lmNamespace  :: !(Maybe Text)
+    , _lmNextToken  :: !(Maybe Text)
+    , _lmDimensions :: !(Maybe [DimensionFilter])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListMetrics' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lmMetricName'
 --
@@ -61,15 +71,8 @@ import           Network.AWS.Response
 -- * 'lmNextToken'
 --
 -- * 'lmDimensions'
-data ListMetrics = ListMetrics'
-    { _lmMetricName :: !(Maybe Text)
-    , _lmNamespace  :: !(Maybe Text)
-    , _lmNextToken  :: !(Maybe Text)
-    , _lmDimensions :: !(Maybe [DimensionFilter])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListMetrics' smart constructor.
-listMetrics :: ListMetrics
+listMetrics
+    :: ListMetrics
 listMetrics =
     ListMetrics'
     { _lmMetricName = Nothing
@@ -135,22 +138,24 @@ instance ToQuery ListMetrics where
 -- | The output for the ListMetrics action.
 --
 -- /See:/ 'listMetricsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lmrsMetrics'
---
--- * 'lmrsNextToken'
---
--- * 'lmrsStatus'
 data ListMetricsResponse = ListMetricsResponse'
     { _lmrsMetrics   :: !(Maybe [Metric])
     , _lmrsNextToken :: !(Maybe Text)
     , _lmrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListMetricsResponse' smart constructor.
-listMetricsResponse :: Int -> ListMetricsResponse
+-- | Creates a value of 'ListMetricsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lmrsMetrics'
+--
+-- * 'lmrsNextToken'
+--
+-- * 'lmrsStatus'
+listMetricsResponse
+    :: Int -- ^ 'lmrsStatus'
+    -> ListMetricsResponse
 listMetricsResponse pStatus_ =
     ListMetricsResponse'
     { _lmrsMetrics = Nothing
@@ -166,6 +171,6 @@ lmrsMetrics = lens _lmrsMetrics (\ s a -> s{_lmrsMetrics = a}) . _Default . _Coe
 lmrsNextToken :: Lens' ListMetricsResponse (Maybe Text)
 lmrsNextToken = lens _lmrsNextToken (\ s a -> s{_lmrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 lmrsStatus :: Lens' ListMetricsResponse Int
 lmrsStatus = lens _lmrsStatus (\ s a -> s{_lmrsStatus = a});

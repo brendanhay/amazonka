@@ -22,7 +22,7 @@
 -- to retrieve the URL of an Amazon SQS queue.
 --
 -- To access a queue that belongs to another AWS account, use the
--- @QueueOwnerAWSAccountId@ parameter to specify the account ID of the
+-- 'QueueOwnerAWSAccountId' parameter to specify the account ID of the
 -- queue\'s owner. The queue\'s owner must grant you permission to access
 -- the queue. For more information about shared queue access, see
 -- AddPermission or go to
@@ -33,15 +33,15 @@
 module Network.AWS.SQS.GetQueueURL
     (
     -- * Creating a Request
-      GetQueueURL
-    , getQueueURL
+      getQueueURL
+    , GetQueueURL
     -- * Request Lenses
     , gquQueueOwnerAWSAccountId
     , gquQueueName
 
     -- * Destructuring the Response
-    , GetQueueURLResponse
     , getQueueURLResponse
+    , GetQueueURLResponse
     -- * Response Lenses
     , gqursStatus
     , gqursQueueURL
@@ -54,19 +54,21 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'getQueueURL' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gquQueueOwnerAWSAccountId'
---
--- * 'gquQueueName'
 data GetQueueURL = GetQueueURL'
     { _gquQueueOwnerAWSAccountId :: !(Maybe Text)
     , _gquQueueName              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetQueueURL' smart constructor.
-getQueueURL :: Text -> GetQueueURL
+-- | Creates a value of 'GetQueueURL' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gquQueueOwnerAWSAccountId'
+--
+-- * 'gquQueueName'
+getQueueURL
+    :: Text -- ^ 'gquQueueName'
+    -> GetQueueURL
 getQueueURL pQueueName_ =
     GetQueueURL'
     { _gquQueueOwnerAWSAccountId = Nothing
@@ -112,26 +114,29 @@ instance ToQuery GetQueueURL where
 -- in the /Amazon SQS Developer Guide/.
 --
 -- /See:/ 'getQueueURLResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gqursStatus'
---
--- * 'gqursQueueURL'
 data GetQueueURLResponse = GetQueueURLResponse'
     { _gqursStatus   :: !Int
     , _gqursQueueURL :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetQueueURLResponse' smart constructor.
-getQueueURLResponse :: Int -> Text -> GetQueueURLResponse
+-- | Creates a value of 'GetQueueURLResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gqursStatus'
+--
+-- * 'gqursQueueURL'
+getQueueURLResponse
+    :: Int -- ^ 'gqursStatus'
+    -> Text -- ^ 'gqursQueueURL'
+    -> GetQueueURLResponse
 getQueueURLResponse pStatus_ pQueueURL_ =
     GetQueueURLResponse'
     { _gqursStatus = pStatus_
     , _gqursQueueURL = pQueueURL_
     }
 
--- | Undocumented member.
+-- | The response status code.
 gqursStatus :: Lens' GetQueueURLResponse Int
 gqursStatus = lens _gqursStatus (\ s a -> s{_gqursStatus = a});
 

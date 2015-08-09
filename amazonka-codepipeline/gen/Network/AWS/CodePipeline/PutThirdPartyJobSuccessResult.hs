@@ -25,8 +25,8 @@
 module Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
     (
     -- * Creating a Request
-      PutThirdPartyJobSuccessResult
-    , putThirdPartyJobSuccessResult
+      putThirdPartyJobSuccessResult
+    , PutThirdPartyJobSuccessResult
     -- * Request Lenses
     , ptpjsrContinuationToken
     , ptpjsrExecutionDetails
@@ -35,8 +35,8 @@ module Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
     , ptpjsrClientToken
 
     -- * Destructuring the Response
-    , PutThirdPartyJobSuccessResultResponse
     , putThirdPartyJobSuccessResultResponse
+    , PutThirdPartyJobSuccessResultResponse
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -48,8 +48,17 @@ import           Network.AWS.Response
 -- | Represents the input of a put third party job success result action.
 --
 -- /See:/ 'putThirdPartyJobSuccessResult' smart constructor.
+data PutThirdPartyJobSuccessResult = PutThirdPartyJobSuccessResult'
+    { _ptpjsrContinuationToken :: !(Maybe Text)
+    , _ptpjsrExecutionDetails  :: !(Maybe ExecutionDetails)
+    , _ptpjsrCurrentRevision   :: !(Maybe CurrentRevision)
+    , _ptpjsrJobId             :: !Text
+    , _ptpjsrClientToken       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutThirdPartyJobSuccessResult' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ptpjsrContinuationToken'
 --
@@ -60,16 +69,10 @@ import           Network.AWS.Response
 -- * 'ptpjsrJobId'
 --
 -- * 'ptpjsrClientToken'
-data PutThirdPartyJobSuccessResult = PutThirdPartyJobSuccessResult'
-    { _ptpjsrContinuationToken :: !(Maybe Text)
-    , _ptpjsrExecutionDetails  :: !(Maybe ExecutionDetails)
-    , _ptpjsrCurrentRevision   :: !(Maybe CurrentRevision)
-    , _ptpjsrJobId             :: !Text
-    , _ptpjsrClientToken       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutThirdPartyJobSuccessResult' smart constructor.
-putThirdPartyJobSuccessResult :: Text -> Text -> PutThirdPartyJobSuccessResult
+putThirdPartyJobSuccessResult
+    :: Text -- ^ 'ptpjsrJobId'
+    -> Text -- ^ 'ptpjsrClientToken'
+    -> PutThirdPartyJobSuccessResult
 putThirdPartyJobSuccessResult pJobId_ pClientToken_ =
     PutThirdPartyJobSuccessResult'
     { _ptpjsrContinuationToken = Nothing
@@ -143,6 +146,8 @@ data PutThirdPartyJobSuccessResultResponse =
     PutThirdPartyJobSuccessResultResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutThirdPartyJobSuccessResultResponse' smart constructor.
-putThirdPartyJobSuccessResultResponse :: PutThirdPartyJobSuccessResultResponse
+-- | Creates a value of 'PutThirdPartyJobSuccessResultResponse' with the minimum fields required to make a request.
+--
+putThirdPartyJobSuccessResultResponse
+    :: PutThirdPartyJobSuccessResultResponse
 putThirdPartyJobSuccessResultResponse = PutThirdPartyJobSuccessResultResponse'

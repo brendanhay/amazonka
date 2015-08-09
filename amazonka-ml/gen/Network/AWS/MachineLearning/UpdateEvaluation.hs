@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the @EvaluationName@ of an @Evaluation@.
+-- Updates the 'EvaluationName' of an 'Evaluation'.
 --
 -- You can use the GetEvaluation operation to view the contents of the
 -- updated data element.
@@ -27,15 +27,15 @@
 module Network.AWS.MachineLearning.UpdateEvaluation
     (
     -- * Creating a Request
-      UpdateEvaluation
-    , updateEvaluation
+      updateEvaluation
+    , UpdateEvaluation
     -- * Request Lenses
     , ueEvaluationId
     , ueEvaluationName
 
     -- * Destructuring the Response
-    , UpdateEvaluationResponse
     , updateEvaluationResponse
+    , UpdateEvaluationResponse
     -- * Response Lenses
     , uersEvaluationId
     , uersStatus
@@ -48,30 +48,33 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateEvaluation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ueEvaluationId'
---
--- * 'ueEvaluationName'
 data UpdateEvaluation = UpdateEvaluation'
     { _ueEvaluationId   :: !Text
     , _ueEvaluationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateEvaluation' smart constructor.
-updateEvaluation :: Text -> Text -> UpdateEvaluation
+-- | Creates a value of 'UpdateEvaluation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ueEvaluationId'
+--
+-- * 'ueEvaluationName'
+updateEvaluation
+    :: Text -- ^ 'ueEvaluationId'
+    -> Text -- ^ 'ueEvaluationName'
+    -> UpdateEvaluation
 updateEvaluation pEvaluationId_ pEvaluationName_ =
     UpdateEvaluation'
     { _ueEvaluationId = pEvaluationId_
     , _ueEvaluationName = pEvaluationName_
     }
 
--- | The ID assigned to the @Evaluation@ during creation.
+-- | The ID assigned to the 'Evaluation' during creation.
 ueEvaluationId :: Lens' UpdateEvaluation Text
 ueEvaluationId = lens _ueEvaluationId (\ s a -> s{_ueEvaluationId = a});
 
--- | A new user-supplied name or description of the @Evaluation@ that will
+-- | A new user-supplied name or description of the 'Evaluation' that will
 -- replace the current content.
 ueEvaluationName :: Lens' UpdateEvaluation Text
 ueEvaluationName = lens _ueEvaluationName (\ s a -> s{_ueEvaluationName = a});
@@ -112,30 +115,32 @@ instance ToQuery UpdateEvaluation where
 -- You can see the updated content by using the GetEvaluation operation.
 --
 -- /See:/ 'updateEvaluationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uersEvaluationId'
---
--- * 'uersStatus'
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
     { _uersEvaluationId :: !(Maybe Text)
     , _uersStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateEvaluationResponse' smart constructor.
-updateEvaluationResponse :: Int -> UpdateEvaluationResponse
+-- | Creates a value of 'UpdateEvaluationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uersEvaluationId'
+--
+-- * 'uersStatus'
+updateEvaluationResponse
+    :: Int -- ^ 'uersStatus'
+    -> UpdateEvaluationResponse
 updateEvaluationResponse pStatus_ =
     UpdateEvaluationResponse'
     { _uersEvaluationId = Nothing
     , _uersStatus = pStatus_
     }
 
--- | The ID assigned to the @Evaluation@ during creation. This value should
--- be identical to the value of the @Evaluation@ in the request.
+-- | The ID assigned to the 'Evaluation' during creation. This value should
+-- be identical to the value of the 'Evaluation' in the request.
 uersEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
 uersEvaluationId = lens _uersEvaluationId (\ s a -> s{_uersEvaluationId = a});
 
--- | Undocumented member.
+-- | The response status code.
 uersStatus :: Lens' UpdateEvaluationResponse Int
 uersStatus = lens _uersStatus (\ s a -> s{_uersStatus = a});

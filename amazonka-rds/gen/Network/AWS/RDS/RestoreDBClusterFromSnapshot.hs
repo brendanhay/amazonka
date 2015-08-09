@@ -31,8 +31,8 @@
 module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     (
     -- * Creating a Request
-      RestoreDBClusterFromSnapshot
-    , restoreDBClusterFromSnapshot
+      restoreDBClusterFromSnapshot
+    , RestoreDBClusterFromSnapshot
     -- * Request Lenses
     , rdcfsEngineVersion
     , rdcfsDBSubnetGroupName
@@ -47,8 +47,8 @@ module Network.AWS.RDS.RestoreDBClusterFromSnapshot
     , rdcfsEngine
 
     -- * Destructuring the Response
-    , RestoreDBClusterFromSnapshotResponse
     , restoreDBClusterFromSnapshotResponse
+    , RestoreDBClusterFromSnapshotResponse
     -- * Response Lenses
     , rdcfsrsDBCluster
     , rdcfsrsStatus
@@ -63,8 +63,23 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'restoreDBClusterFromSnapshot' smart constructor.
+data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
+    { _rdcfsEngineVersion       :: !(Maybe Text)
+    , _rdcfsDBSubnetGroupName   :: !(Maybe Text)
+    , _rdcfsAvailabilityZones   :: !(Maybe [Text])
+    , _rdcfsDatabaseName        :: !(Maybe Text)
+    , _rdcfsVPCSecurityGroupIds :: !(Maybe [Text])
+    , _rdcfsOptionGroupName     :: !(Maybe Text)
+    , _rdcfsTags                :: !(Maybe [Tag])
+    , _rdcfsPort                :: !(Maybe Int)
+    , _rdcfsDBClusterIdentifier :: !Text
+    , _rdcfsSnapshotIdentifier  :: !Text
+    , _rdcfsEngine              :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RestoreDBClusterFromSnapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rdcfsEngineVersion'
 --
@@ -87,22 +102,11 @@ import           Network.AWS.Response
 -- * 'rdcfsSnapshotIdentifier'
 --
 -- * 'rdcfsEngine'
-data RestoreDBClusterFromSnapshot = RestoreDBClusterFromSnapshot'
-    { _rdcfsEngineVersion       :: !(Maybe Text)
-    , _rdcfsDBSubnetGroupName   :: !(Maybe Text)
-    , _rdcfsAvailabilityZones   :: !(Maybe [Text])
-    , _rdcfsDatabaseName        :: !(Maybe Text)
-    , _rdcfsVPCSecurityGroupIds :: !(Maybe [Text])
-    , _rdcfsOptionGroupName     :: !(Maybe Text)
-    , _rdcfsTags                :: !(Maybe [Tag])
-    , _rdcfsPort                :: !(Maybe Int)
-    , _rdcfsDBClusterIdentifier :: !Text
-    , _rdcfsSnapshotIdentifier  :: !Text
-    , _rdcfsEngine              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RestoreDBClusterFromSnapshot' smart constructor.
-restoreDBClusterFromSnapshot :: Text -> Text -> Text -> RestoreDBClusterFromSnapshot
+restoreDBClusterFromSnapshot
+    :: Text -- ^ 'rdcfsDBClusterIdentifier'
+    -> Text -- ^ 'rdcfsSnapshotIdentifier'
+    -> Text -- ^ 'rdcfsEngine'
+    -> RestoreDBClusterFromSnapshot
 restoreDBClusterFromSnapshot pDBClusterIdentifier_ pSnapshotIdentifier_ pEngine_ =
     RestoreDBClusterFromSnapshot'
     { _rdcfsEngineVersion = Nothing
@@ -149,7 +153,7 @@ rdcfsTags = lens _rdcfsTags (\ s a -> s{_rdcfsTags = a}) . _Default . _Coerce;
 
 -- | The port number on which the new DB cluster accepts connections.
 --
--- Constraints: Value must be @1150-65535@
+-- Constraints: Value must be '1150-65535'
 --
 -- Default: The same port as the original DB cluster.
 rdcfsPort :: Lens' RestoreDBClusterFromSnapshot (Maybe Int)
@@ -164,7 +168,7 @@ rdcfsPort = lens _rdcfsPort (\ s a -> s{_rdcfsPort = a});
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- Example: @my-snapshot-id@
+-- Example: 'my-snapshot-id'
 rdcfsDBClusterIdentifier :: Lens' RestoreDBClusterFromSnapshot Text
 rdcfsDBClusterIdentifier = lens _rdcfsDBClusterIdentifier (\ s a -> s{_rdcfsDBClusterIdentifier = a});
 
@@ -230,19 +234,21 @@ instance ToQuery RestoreDBClusterFromSnapshot where
                "Engine" =: _rdcfsEngine]
 
 -- | /See:/ 'restoreDBClusterFromSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdcfsrsDBCluster'
---
--- * 'rdcfsrsStatus'
 data RestoreDBClusterFromSnapshotResponse = RestoreDBClusterFromSnapshotResponse'
     { _rdcfsrsDBCluster :: !(Maybe DBCluster)
     , _rdcfsrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestoreDBClusterFromSnapshotResponse' smart constructor.
-restoreDBClusterFromSnapshotResponse :: Int -> RestoreDBClusterFromSnapshotResponse
+-- | Creates a value of 'RestoreDBClusterFromSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdcfsrsDBCluster'
+--
+-- * 'rdcfsrsStatus'
+restoreDBClusterFromSnapshotResponse
+    :: Int -- ^ 'rdcfsrsStatus'
+    -> RestoreDBClusterFromSnapshotResponse
 restoreDBClusterFromSnapshotResponse pStatus_ =
     RestoreDBClusterFromSnapshotResponse'
     { _rdcfsrsDBCluster = Nothing
@@ -253,6 +259,6 @@ restoreDBClusterFromSnapshotResponse pStatus_ =
 rdcfsrsDBCluster :: Lens' RestoreDBClusterFromSnapshotResponse (Maybe DBCluster)
 rdcfsrsDBCluster = lens _rdcfsrsDBCluster (\ s a -> s{_rdcfsrsDBCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 rdcfsrsStatus :: Lens' RestoreDBClusterFromSnapshotResponse Int
 rdcfsrsStatus = lens _rdcfsrsStatus (\ s a -> s{_rdcfsrsStatus = a});

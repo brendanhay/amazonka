@@ -24,15 +24,15 @@
 module Network.AWS.IAM.AddUserToGroup
     (
     -- * Creating a Request
-      AddUserToGroup
-    , addUserToGroup
+      addUserToGroup
+    , AddUserToGroup
     -- * Request Lenses
     , autgGroupName
     , autgUserName
 
     -- * Destructuring the Response
-    , AddUserToGroupResponse
     , addUserToGroupResponse
+    , AddUserToGroupResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -42,19 +42,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'addUserToGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'autgGroupName'
---
--- * 'autgUserName'
 data AddUserToGroup = AddUserToGroup'
     { _autgGroupName :: !Text
     , _autgUserName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddUserToGroup' smart constructor.
-addUserToGroup :: Text -> Text -> AddUserToGroup
+-- | Creates a value of 'AddUserToGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'autgGroupName'
+--
+-- * 'autgUserName'
+addUserToGroup
+    :: Text -- ^ 'autgGroupName'
+    -> Text -- ^ 'autgUserName'
+    -> AddUserToGroup
 addUserToGroup pGroupName_ pUserName_ =
     AddUserToGroup'
     { _autgGroupName = pGroupName_
@@ -94,6 +97,8 @@ data AddUserToGroupResponse =
     AddUserToGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddUserToGroupResponse' smart constructor.
-addUserToGroupResponse :: AddUserToGroupResponse
+-- | Creates a value of 'AddUserToGroupResponse' with the minimum fields required to make a request.
+--
+addUserToGroupResponse
+    :: AddUserToGroupResponse
 addUserToGroupResponse = AddUserToGroupResponse'

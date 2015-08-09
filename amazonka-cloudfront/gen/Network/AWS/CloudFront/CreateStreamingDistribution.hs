@@ -24,14 +24,14 @@
 module Network.AWS.CloudFront.CreateStreamingDistribution
     (
     -- * Creating a Request
-      CreateStreamingDistribution
-    , createStreamingDistribution
+      createStreamingDistribution
+    , CreateStreamingDistribution
     -- * Request Lenses
     , csdStreamingDistributionConfig
 
     -- * Destructuring the Response
-    , CreateStreamingDistributionResponse
     , createStreamingDistributionResponse
+    , CreateStreamingDistributionResponse
     -- * Response Lenses
     , csdrsETag
     , csdrsLocation
@@ -48,16 +48,18 @@ import           Network.AWS.Response
 -- | The request to create a new streaming distribution.
 --
 -- /See:/ 'createStreamingDistribution' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csdStreamingDistributionConfig'
 newtype CreateStreamingDistribution = CreateStreamingDistribution'
     { _csdStreamingDistributionConfig :: StreamingDistributionConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateStreamingDistribution' smart constructor.
-createStreamingDistribution :: StreamingDistributionConfig -> CreateStreamingDistribution
+-- | Creates a value of 'CreateStreamingDistribution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csdStreamingDistributionConfig'
+createStreamingDistribution
+    :: StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
+    -> CreateStreamingDistribution
 createStreamingDistribution pStreamingDistributionConfig_ =
     CreateStreamingDistribution'
     { _csdStreamingDistributionConfig = pStreamingDistributionConfig_
@@ -99,8 +101,16 @@ instance ToQuery CreateStreamingDistribution where
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'createStreamingDistributionResponse' smart constructor.
+data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
+    { _csdrsETag                  :: !(Maybe Text)
+    , _csdrsLocation              :: !(Maybe Text)
+    , _csdrsStreamingDistribution :: !(Maybe StreamingDistribution)
+    , _csdrsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateStreamingDistributionResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'csdrsETag'
 --
@@ -109,15 +119,9 @@ instance ToQuery CreateStreamingDistribution where
 -- * 'csdrsStreamingDistribution'
 --
 -- * 'csdrsStatus'
-data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
-    { _csdrsETag                  :: !(Maybe Text)
-    , _csdrsLocation              :: !(Maybe Text)
-    , _csdrsStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _csdrsStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateStreamingDistributionResponse' smart constructor.
-createStreamingDistributionResponse :: Int -> CreateStreamingDistributionResponse
+createStreamingDistributionResponse
+    :: Int -- ^ 'csdrsStatus'
+    -> CreateStreamingDistributionResponse
 createStreamingDistributionResponse pStatus_ =
     CreateStreamingDistributionResponse'
     { _csdrsETag = Nothing
@@ -140,6 +144,6 @@ csdrsLocation = lens _csdrsLocation (\ s a -> s{_csdrsLocation = a});
 csdrsStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
 csdrsStreamingDistribution = lens _csdrsStreamingDistribution (\ s a -> s{_csdrsStreamingDistribution = a});
 
--- | Undocumented member.
+-- | The response status code.
 csdrsStatus :: Lens' CreateStreamingDistributionResponse Int
 csdrsStatus = lens _csdrsStatus (\ s a -> s{_csdrsStatus = a});

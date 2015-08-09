@@ -29,8 +29,8 @@
 module Network.AWS.ImportExport.CreateJob
     (
     -- * Creating a Request
-      CreateJob
-    , createJob
+      createJob
+    , CreateJob
     -- * Request Lenses
     , cjAPIVersion
     , cjManifestAddendum
@@ -39,8 +39,8 @@ module Network.AWS.ImportExport.CreateJob
     , cjValidateOnly
 
     -- * Destructuring the Response
-    , CreateJobResponse
     , createJobResponse
+    , CreateJobResponse
     -- * Response Lenses
     , cjrsSignature
     , cjrsJobType
@@ -60,8 +60,17 @@ import           Network.AWS.Response
 -- | Input structure for the CreateJob operation.
 --
 -- /See:/ 'createJob' smart constructor.
+data CreateJob = CreateJob'
+    { _cjAPIVersion       :: !(Maybe Text)
+    , _cjManifestAddendum :: !(Maybe Text)
+    , _cjJobType          :: !JobType
+    , _cjManifest         :: !Text
+    , _cjValidateOnly     :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cjAPIVersion'
 --
@@ -72,16 +81,11 @@ import           Network.AWS.Response
 -- * 'cjManifest'
 --
 -- * 'cjValidateOnly'
-data CreateJob = CreateJob'
-    { _cjAPIVersion       :: !(Maybe Text)
-    , _cjManifestAddendum :: !(Maybe Text)
-    , _cjJobType          :: !JobType
-    , _cjManifest         :: !Text
-    , _cjValidateOnly     :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateJob' smart constructor.
-createJob :: JobType -> Text -> Bool -> CreateJob
+createJob
+    :: JobType -- ^ 'cjJobType'
+    -> Text -- ^ 'cjManifest'
+    -> Bool -- ^ 'cjValidateOnly'
+    -> CreateJob
 createJob pJobType_ pManifest_ pValidateOnly_ =
     CreateJob'
     { _cjAPIVersion = Nothing
@@ -148,8 +152,19 @@ instance ToQuery CreateJob where
 -- | Output structure for the CreateJob operation.
 --
 -- /See:/ 'createJobResponse' smart constructor.
+data CreateJobResponse = CreateJobResponse'
+    { _cjrsSignature             :: !(Maybe Text)
+    , _cjrsJobType               :: !(Maybe JobType)
+    , _cjrsJobId                 :: !(Maybe Text)
+    , _cjrsSignatureFileContents :: !(Maybe Text)
+    , _cjrsWarningMessage        :: !(Maybe Text)
+    , _cjrsArtifactList          :: !(Maybe [Artifact])
+    , _cjrsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cjrsSignature'
 --
@@ -164,18 +179,9 @@ instance ToQuery CreateJob where
 -- * 'cjrsArtifactList'
 --
 -- * 'cjrsStatus'
-data CreateJobResponse = CreateJobResponse'
-    { _cjrsSignature             :: !(Maybe Text)
-    , _cjrsJobType               :: !(Maybe JobType)
-    , _cjrsJobId                 :: !(Maybe Text)
-    , _cjrsSignatureFileContents :: !(Maybe Text)
-    , _cjrsWarningMessage        :: !(Maybe Text)
-    , _cjrsArtifactList          :: !(Maybe [Artifact])
-    , _cjrsStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateJobResponse' smart constructor.
-createJobResponse :: Int -> CreateJobResponse
+createJobResponse
+    :: Int -- ^ 'cjrsStatus'
+    -> CreateJobResponse
 createJobResponse pStatus_ =
     CreateJobResponse'
     { _cjrsSignature = Nothing
@@ -211,6 +217,6 @@ cjrsWarningMessage = lens _cjrsWarningMessage (\ s a -> s{_cjrsWarningMessage = 
 cjrsArtifactList :: Lens' CreateJobResponse [Artifact]
 cjrsArtifactList = lens _cjrsArtifactList (\ s a -> s{_cjrsArtifactList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 cjrsStatus :: Lens' CreateJobResponse Int
 cjrsStatus = lens _cjrsStatus (\ s a -> s{_cjrsStatus = a});

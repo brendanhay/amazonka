@@ -34,16 +34,16 @@
 module Network.AWS.IAM.UpdateSSHPublicKey
     (
     -- * Creating a Request
-      UpdateSSHPublicKey
-    , updateSSHPublicKey
+      updateSSHPublicKey
+    , UpdateSSHPublicKey
     -- * Request Lenses
     , uspkUserName
     , uspkSSHPublicKeyId
     , uspkStatus
 
     -- * Destructuring the Response
-    , UpdateSSHPublicKeyResponse
     , updateSSHPublicKeyResponse
+    , UpdateSSHPublicKeyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -53,22 +53,26 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateSSHPublicKey' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uspkUserName'
---
--- * 'uspkSSHPublicKeyId'
---
--- * 'uspkStatus'
 data UpdateSSHPublicKey = UpdateSSHPublicKey'
     { _uspkUserName       :: !Text
     , _uspkSSHPublicKeyId :: !Text
     , _uspkStatus         :: !StatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateSSHPublicKey' smart constructor.
-updateSSHPublicKey :: Text -> Text -> StatusType -> UpdateSSHPublicKey
+-- | Creates a value of 'UpdateSSHPublicKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uspkUserName'
+--
+-- * 'uspkSSHPublicKeyId'
+--
+-- * 'uspkStatus'
+updateSSHPublicKey
+    :: Text -- ^ 'uspkUserName'
+    -> Text -- ^ 'uspkSSHPublicKeyId'
+    -> StatusType -- ^ 'uspkStatus'
+    -> UpdateSSHPublicKey
 updateSSHPublicKey pUserName_ pSSHPublicKeyId_ pStatus_ =
     UpdateSSHPublicKey'
     { _uspkUserName = pUserName_
@@ -84,8 +88,8 @@ uspkUserName = lens _uspkUserName (\ s a -> s{_uspkUserName = a});
 uspkSSHPublicKeyId :: Lens' UpdateSSHPublicKey Text
 uspkSSHPublicKeyId = lens _uspkSSHPublicKeyId (\ s a -> s{_uspkSSHPublicKeyId = a});
 
--- | The status to assign to the SSH public key. @Active@ means the key can
--- be used for authentication with an AWS CodeCommit repository. @Inactive@
+-- | The status to assign to the SSH public key. 'Active' means the key can
+-- be used for authentication with an AWS CodeCommit repository. 'Inactive'
 -- means the key cannot be used.
 uspkStatus :: Lens' UpdateSSHPublicKey StatusType
 uspkStatus = lens _uspkStatus (\ s a -> s{_uspkStatus = a});
@@ -117,6 +121,8 @@ data UpdateSSHPublicKeyResponse =
     UpdateSSHPublicKeyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateSSHPublicKeyResponse' smart constructor.
-updateSSHPublicKeyResponse :: UpdateSSHPublicKeyResponse
+-- | Creates a value of 'UpdateSSHPublicKeyResponse' with the minimum fields required to make a request.
+--
+updateSSHPublicKeyResponse
+    :: UpdateSSHPublicKeyResponse
 updateSSHPublicKeyResponse = UpdateSSHPublicKeyResponse'

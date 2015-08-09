@@ -27,7 +27,7 @@
 -- completes the job. That is, you can download the job output within the
 -- 24 hours period after Amazon Glacier completes the job.
 --
--- If the job output is large, then you can use the @Range@ request header
+-- If the job output is large, then you can use the 'Range' request header
 -- to retrieve a portion of the output. This allows you to download the
 -- entire output in smaller chunks of bytes. For example, suppose you have
 -- 1 GB of job output you want to download and you decide to download 128
@@ -35,7 +35,7 @@
 -- requests. You use the following process to download the job output:
 --
 -- 1.  Download a 128 MB chunk of output by specifying the appropriate byte
---     range using the @Range@ header.
+--     range using the 'Range' header.
 --
 -- 2.  Along with the data, the response includes a SHA256 tree hash of the
 --     payload. You compute the checksum of the payload on the client and
@@ -70,8 +70,8 @@
 module Network.AWS.Glacier.GetJobOutput
     (
     -- * Creating a Request
-      GetJobOutput
-    , getJobOutput
+      getJobOutput
+    , GetJobOutput
     -- * Request Lenses
     , gjoRange
     , gjoAccountId
@@ -79,8 +79,8 @@ module Network.AWS.Glacier.GetJobOutput
     , gjoJobId
 
     -- * Destructuring the Response
-    , GetJobOutputResponse
     , getJobOutputResponse
+    , GetJobOutputResponse
     -- * Response Lenses
     , gjorsChecksum
     , gjorsAcceptRanges
@@ -100,8 +100,16 @@ import           Network.AWS.Response
 -- | Provides options for downloading output of an Amazon Glacier job.
 --
 -- /See:/ 'getJobOutput' smart constructor.
+data GetJobOutput = GetJobOutput'
+    { _gjoRange     :: !(Maybe Text)
+    , _gjoAccountId :: !Text
+    , _gjoVaultName :: !Text
+    , _gjoJobId     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetJobOutput' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gjoRange'
 --
@@ -110,15 +118,11 @@ import           Network.AWS.Response
 -- * 'gjoVaultName'
 --
 -- * 'gjoJobId'
-data GetJobOutput = GetJobOutput'
-    { _gjoRange     :: !(Maybe Text)
-    , _gjoAccountId :: !Text
-    , _gjoVaultName :: !Text
-    , _gjoJobId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetJobOutput' smart constructor.
-getJobOutput :: Text -> Text -> Text -> GetJobOutput
+getJobOutput
+    :: Text -- ^ 'gjoAccountId'
+    -> Text -- ^ 'gjoVaultName'
+    -> Text -- ^ 'gjoJobId'
+    -> GetJobOutput
 getJobOutput pAccountId_ pVaultName_ pJobId_ =
     GetJobOutput'
     { _gjoRange = Nothing
@@ -134,9 +138,9 @@ getJobOutput pAccountId_ pVaultName_ pJobId_ =
 gjoRange :: Lens' GetJobOutput (Maybe Text)
 gjoRange = lens _gjoRange (\ s a -> s{_gjoRange = a});
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 gjoAccountId :: Lens' GetJobOutput Text
@@ -183,8 +187,19 @@ instance ToQuery GetJobOutput where
 -- | Contains the Amazon Glacier response to your request.
 --
 -- /See:/ 'getJobOutputResponse' smart constructor.
+data GetJobOutputResponse = GetJobOutputResponse'
+    { _gjorsChecksum           :: !(Maybe Text)
+    , _gjorsAcceptRanges       :: !(Maybe Text)
+    , _gjorsArchiveDescription :: !(Maybe Text)
+    , _gjorsContentRange       :: !(Maybe Text)
+    , _gjorsContentType        :: !(Maybe Text)
+    , _gjorsStatus             :: !Int
+    , _gjorsBody               :: !RsBody
+    } deriving (Show,Generic)
+
+-- | Creates a value of 'GetJobOutputResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gjorsChecksum'
 --
@@ -199,18 +214,10 @@ instance ToQuery GetJobOutput where
 -- * 'gjorsStatus'
 --
 -- * 'gjorsBody'
-data GetJobOutputResponse = GetJobOutputResponse'
-    { _gjorsChecksum           :: !(Maybe Text)
-    , _gjorsAcceptRanges       :: !(Maybe Text)
-    , _gjorsArchiveDescription :: !(Maybe Text)
-    , _gjorsContentRange       :: !(Maybe Text)
-    , _gjorsContentType        :: !(Maybe Text)
-    , _gjorsStatus             :: !Int
-    , _gjorsBody               :: !RsBody
-    } deriving (Show,Generic)
-
--- | 'GetJobOutputResponse' smart constructor.
-getJobOutputResponse :: Int -> RsBody -> GetJobOutputResponse
+getJobOutputResponse
+    :: Int -- ^ 'gjorsStatus'
+    -> RsBody -- ^ 'gjorsBody'
+    -> GetJobOutputResponse
 getJobOutputResponse pStatus_ pBody_ =
     GetJobOutputResponse'
     { _gjorsChecksum = Nothing

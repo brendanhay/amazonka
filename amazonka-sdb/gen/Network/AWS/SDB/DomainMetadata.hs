@@ -26,14 +26,14 @@
 module Network.AWS.SDB.DomainMetadata
     (
     -- * Creating a Request
-      DomainMetadata
-    , domainMetadata
+      domainMetadata
+    , DomainMetadata
     -- * Request Lenses
     , dmDomainName
 
     -- * Destructuring the Response
-    , DomainMetadataResponse
     , domainMetadataResponse
+    , DomainMetadataResponse
     -- * Response Lenses
     , dmrsItemNamesSizeBytes
     , dmrsAttributeNameCount
@@ -52,16 +52,18 @@ import           Network.AWS.SDB.Types
 import           Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'domainMetadata' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmDomainName'
 newtype DomainMetadata = DomainMetadata'
     { _dmDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DomainMetadata' smart constructor.
-domainMetadata :: Text -> DomainMetadata
+-- | Creates a value of 'DomainMetadata' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmDomainName'
+domainMetadata
+    :: Text -- ^ 'dmDomainName'
+    -> DomainMetadata
 domainMetadata pDomainName_ =
     DomainMetadata'
     { _dmDomainName = pDomainName_
@@ -102,8 +104,20 @@ instance ToQuery DomainMetadata where
                "DomainName" =: _dmDomainName]
 
 -- | /See:/ 'domainMetadataResponse' smart constructor.
+data DomainMetadataResponse = DomainMetadataResponse'
+    { _dmrsItemNamesSizeBytes       :: !(Maybe Integer)
+    , _dmrsAttributeNameCount       :: !(Maybe Int)
+    , _dmrsAttributeValuesSizeBytes :: !(Maybe Integer)
+    , _dmrsAttributeValueCount      :: !(Maybe Int)
+    , _dmrsAttributeNamesSizeBytes  :: !(Maybe Integer)
+    , _dmrsTimestamp                :: !(Maybe Int)
+    , _dmrsItemCount                :: !(Maybe Int)
+    , _dmrsStatus                   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DomainMetadataResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dmrsItemNamesSizeBytes'
 --
@@ -120,19 +134,9 @@ instance ToQuery DomainMetadata where
 -- * 'dmrsItemCount'
 --
 -- * 'dmrsStatus'
-data DomainMetadataResponse = DomainMetadataResponse'
-    { _dmrsItemNamesSizeBytes       :: !(Maybe Integer)
-    , _dmrsAttributeNameCount       :: !(Maybe Int)
-    , _dmrsAttributeValuesSizeBytes :: !(Maybe Integer)
-    , _dmrsAttributeValueCount      :: !(Maybe Int)
-    , _dmrsAttributeNamesSizeBytes  :: !(Maybe Integer)
-    , _dmrsTimestamp                :: !(Maybe Int)
-    , _dmrsItemCount                :: !(Maybe Int)
-    , _dmrsStatus                   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DomainMetadataResponse' smart constructor.
-domainMetadataResponse :: Int -> DomainMetadataResponse
+domainMetadataResponse
+    :: Int -- ^ 'dmrsStatus'
+    -> DomainMetadataResponse
 domainMetadataResponse pStatus_ =
     DomainMetadataResponse'
     { _dmrsItemNamesSizeBytes = Nothing
@@ -173,6 +177,6 @@ dmrsTimestamp = lens _dmrsTimestamp (\ s a -> s{_dmrsTimestamp = a});
 dmrsItemCount :: Lens' DomainMetadataResponse (Maybe Int)
 dmrsItemCount = lens _dmrsItemCount (\ s a -> s{_dmrsItemCount = a});
 
--- | Undocumented member.
+-- | The response status code.
 dmrsStatus :: Lens' DomainMetadataResponse Int
 dmrsStatus = lens _dmrsStatus (\ s a -> s{_dmrsStatus = a});

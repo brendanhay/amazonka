@@ -29,14 +29,14 @@
 module Network.AWS.OpsWorks.UpdateMyUserProfile
     (
     -- * Creating a Request
-      UpdateMyUserProfile
-    , updateMyUserProfile
+      updateMyUserProfile
+    , UpdateMyUserProfile
     -- * Request Lenses
     , umupSSHPublicKey
 
     -- * Destructuring the Response
-    , UpdateMyUserProfileResponse
     , updateMyUserProfileResponse
+    , UpdateMyUserProfileResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -46,16 +46,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateMyUserProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'umupSSHPublicKey'
 newtype UpdateMyUserProfile = UpdateMyUserProfile'
     { _umupSSHPublicKey :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateMyUserProfile' smart constructor.
-updateMyUserProfile :: UpdateMyUserProfile
+-- | Creates a value of 'UpdateMyUserProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'umupSSHPublicKey'
+updateMyUserProfile
+    :: UpdateMyUserProfile
 updateMyUserProfile =
     UpdateMyUserProfile'
     { _umupSSHPublicKey = Nothing
@@ -97,6 +98,8 @@ data UpdateMyUserProfileResponse =
     UpdateMyUserProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateMyUserProfileResponse' smart constructor.
-updateMyUserProfileResponse :: UpdateMyUserProfileResponse
+-- | Creates a value of 'UpdateMyUserProfileResponse' with the minimum fields required to make a request.
+--
+updateMyUserProfileResponse
+    :: UpdateMyUserProfileResponse
 updateMyUserProfileResponse = UpdateMyUserProfileResponse'

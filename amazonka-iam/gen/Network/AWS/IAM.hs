@@ -156,14 +156,12 @@ module Network.AWS.IAM
 
     -- ** ListInstanceProfilesForRole (Paginated)
     , module Network.AWS.IAM.ListInstanceProfilesForRole
-    -- $pager
 
     -- ** CreatePolicy
     , module Network.AWS.IAM.CreatePolicy
 
     -- ** ListPolicies (Paginated)
     , module Network.AWS.IAM.ListPolicies
-    -- $pager
 
     -- ** AttachRolePolicy
     , module Network.AWS.IAM.AttachRolePolicy
@@ -212,21 +210,18 @@ module Network.AWS.IAM
 
     -- ** ListRoles (Paginated)
     , module Network.AWS.IAM.ListRoles
-    -- $pager
 
     -- ** DeleteRole
     , module Network.AWS.IAM.DeleteRole
 
     -- ** ListUserPolicies (Paginated)
     , module Network.AWS.IAM.ListUserPolicies
-    -- $pager
 
     -- ** UploadSSHPublicKey
     , module Network.AWS.IAM.UploadSSHPublicKey
 
     -- ** ListUsers (Paginated)
     , module Network.AWS.IAM.ListUsers
-    -- $pager
 
     -- ** UpdateOpenIdConnectProviderThumbprint
     , module Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
@@ -263,7 +258,6 @@ module Network.AWS.IAM
 
     -- ** ListGroupPolicies (Paginated)
     , module Network.AWS.IAM.ListGroupPolicies
-    -- $pager
 
     -- ** GetAccountSummary
     , module Network.AWS.IAM.GetAccountSummary
@@ -309,7 +303,6 @@ module Network.AWS.IAM
 
     -- ** ListServerCertificates (Paginated)
     , module Network.AWS.IAM.ListServerCertificates
-    -- $pager
 
     -- ** UpdateAssumeRolePolicy
     , module Network.AWS.IAM.UpdateAssumeRolePolicy
@@ -319,7 +312,6 @@ module Network.AWS.IAM
 
     -- ** ListGroupsForUser (Paginated)
     , module Network.AWS.IAM.ListGroupsForUser
-    -- $pager
 
     -- ** GetPolicyVersion
     , module Network.AWS.IAM.GetPolicyVersion
@@ -359,18 +351,15 @@ module Network.AWS.IAM
 
     -- ** ListSigningCertificates (Paginated)
     , module Network.AWS.IAM.ListSigningCertificates
-    -- $pager
 
     -- ** RemoveClientIdFromOpenIdConnectProvider
     , module Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
 
     -- ** ListAccessKeys (Paginated)
     , module Network.AWS.IAM.ListAccessKeys
-    -- $pager
 
     -- ** ListVirtualMFADevices (Paginated)
     , module Network.AWS.IAM.ListVirtualMFADevices
-    -- $pager
 
     -- ** DeleteAccessKey
     , module Network.AWS.IAM.DeleteAccessKey
@@ -407,7 +396,6 @@ module Network.AWS.IAM
 
     -- ** ListRolePolicies (Paginated)
     , module Network.AWS.IAM.ListRolePolicies
-    -- $pager
 
     -- ** AddClientIdToOpenIdConnectProvider
     , module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
@@ -420,7 +408,6 @@ module Network.AWS.IAM
 
     -- ** ListAccountAliases (Paginated)
     , module Network.AWS.IAM.ListAccountAliases
-    -- $pager
 
     -- ** CreateAccountAlias
     , module Network.AWS.IAM.CreateAccountAlias
@@ -430,7 +417,6 @@ module Network.AWS.IAM
 
     -- ** ListMFADevices (Paginated)
     , module Network.AWS.IAM.ListMFADevices
-    -- $pager
 
     -- ** EnableMFADevice
     , module Network.AWS.IAM.EnableMFADevice
@@ -455,11 +441,9 @@ module Network.AWS.IAM
 
     -- ** ListInstanceProfiles (Paginated)
     , module Network.AWS.IAM.ListInstanceProfiles
-    -- $pager
 
     -- ** ListGroups (Paginated)
     , module Network.AWS.IAM.ListGroups
-    -- $pager
 
     -- ** DeleteGroup
     , module Network.AWS.IAM.DeleteGroup
@@ -478,7 +462,6 @@ module Network.AWS.IAM
 
     -- ** GetGroup (Paginated)
     , module Network.AWS.IAM.GetGroup
-    -- $pager
 
     -- ** DeleteServerCertificate
     , module Network.AWS.IAM.DeleteServerCertificate
@@ -918,8 +901,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

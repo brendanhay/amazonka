@@ -26,12 +26,12 @@
 module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     (
     -- * Creating a Request
-      CreateStorageLocation
-    , createStorageLocation
+      createStorageLocation
+    , CreateStorageLocation
 
     -- * Destructuring the Response
-    , CreateStorageLocationResponse
     , createStorageLocationResponse
+    , CreateStorageLocationResponse
     -- * Response Lenses
     , cslrsS3Bucket
     , cslrsStatus
@@ -48,8 +48,10 @@ data CreateStorageLocation =
     CreateStorageLocation'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateStorageLocation' smart constructor.
-createStorageLocation :: CreateStorageLocation
+-- | Creates a value of 'CreateStorageLocation' with the minimum fields required to make a request.
+--
+createStorageLocation
+    :: CreateStorageLocation
 createStorageLocation = CreateStorageLocation'
 
 instance AWSRequest CreateStorageLocation where
@@ -79,19 +81,21 @@ instance ToQuery CreateStorageLocation where
 -- | Results of a CreateStorageLocationResult call.
 --
 -- /See:/ 'createStorageLocationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cslrsS3Bucket'
---
--- * 'cslrsStatus'
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
     { _cslrsS3Bucket :: !(Maybe Text)
     , _cslrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateStorageLocationResponse' smart constructor.
-createStorageLocationResponse :: Int -> CreateStorageLocationResponse
+-- | Creates a value of 'CreateStorageLocationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cslrsS3Bucket'
+--
+-- * 'cslrsStatus'
+createStorageLocationResponse
+    :: Int -- ^ 'cslrsStatus'
+    -> CreateStorageLocationResponse
 createStorageLocationResponse pStatus_ =
     CreateStorageLocationResponse'
     { _cslrsS3Bucket = Nothing
@@ -102,6 +106,6 @@ createStorageLocationResponse pStatus_ =
 cslrsS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrsS3Bucket = lens _cslrsS3Bucket (\ s a -> s{_cslrsS3Bucket = a});
 
--- | Undocumented member.
+-- | The response status code.
 cslrsStatus :: Lens' CreateStorageLocationResponse Int
 cslrsStatus = lens _cslrsStatus (\ s a -> s{_cslrsStatus = a});

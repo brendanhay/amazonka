@@ -24,15 +24,15 @@
 module Network.AWS.AutoScaling.DescribeLifecycleHooks
     (
     -- * Creating a Request
-      DescribeLifecycleHooks
-    , describeLifecycleHooks
+      describeLifecycleHooks
+    , DescribeLifecycleHooks
     -- * Request Lenses
     , dlhLifecycleHookNames
     , dlhAutoScalingGroupName
 
     -- * Destructuring the Response
-    , DescribeLifecycleHooksResponse
     , describeLifecycleHooksResponse
+    , DescribeLifecycleHooksResponse
     -- * Response Lenses
     , dlhrsLifecycleHooks
     , dlhrsStatus
@@ -45,19 +45,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeLifecycleHooks' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlhLifecycleHookNames'
---
--- * 'dlhAutoScalingGroupName'
 data DescribeLifecycleHooks = DescribeLifecycleHooks'
     { _dlhLifecycleHookNames   :: !(Maybe [Text])
     , _dlhAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLifecycleHooks' smart constructor.
-describeLifecycleHooks :: Text -> DescribeLifecycleHooks
+-- | Creates a value of 'DescribeLifecycleHooks' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlhLifecycleHookNames'
+--
+-- * 'dlhAutoScalingGroupName'
+describeLifecycleHooks
+    :: Text -- ^ 'dlhAutoScalingGroupName'
+    -> DescribeLifecycleHooks
 describeLifecycleHooks pAutoScalingGroupName_ =
     DescribeLifecycleHooks'
     { _dlhLifecycleHookNames = Nothing
@@ -103,19 +105,21 @@ instance ToQuery DescribeLifecycleHooks where
                "AutoScalingGroupName" =: _dlhAutoScalingGroupName]
 
 -- | /See:/ 'describeLifecycleHooksResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlhrsLifecycleHooks'
---
--- * 'dlhrsStatus'
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
     { _dlhrsLifecycleHooks :: !(Maybe [LifecycleHook])
     , _dlhrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLifecycleHooksResponse' smart constructor.
-describeLifecycleHooksResponse :: Int -> DescribeLifecycleHooksResponse
+-- | Creates a value of 'DescribeLifecycleHooksResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlhrsLifecycleHooks'
+--
+-- * 'dlhrsStatus'
+describeLifecycleHooksResponse
+    :: Int -- ^ 'dlhrsStatus'
+    -> DescribeLifecycleHooksResponse
 describeLifecycleHooksResponse pStatus_ =
     DescribeLifecycleHooksResponse'
     { _dlhrsLifecycleHooks = Nothing
@@ -126,6 +130,6 @@ describeLifecycleHooksResponse pStatus_ =
 dlhrsLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
 dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\ s a -> s{_dlhrsLifecycleHooks = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dlhrsStatus :: Lens' DescribeLifecycleHooksResponse Int
 dlhrsStatus = lens _dlhrsStatus (\ s a -> s{_dlhrsStatus = a});

@@ -21,11 +21,11 @@
 -- Returns a set of temporary security credentials (consisting of an access
 -- key ID, a secret access key, and a security token) that you can use to
 -- access AWS resources that you might not normally have access to.
--- Typically, you use @AssumeRole@ for cross-account access or federation.
+-- Typically, you use 'AssumeRole' for cross-account access or federation.
 --
--- __Important:__ You cannot call @AssumeRole@ by using AWS account
+-- __Important:__ You cannot call 'AssumeRole' by using AWS account
 -- credentials; access will be denied. You must use IAM user credentials or
--- temporary security credentials to call @AssumeRole@.
+-- temporary security credentials to call 'AssumeRole'.
 --
 -- For cross-account access, imagine that you own multiple accounts and
 -- need to access resources in each account. You could create long-term
@@ -43,7 +43,7 @@
 -- authentication system in your corporate network, you don\'t have to
 -- recreate user identities in AWS in order to grant those user identities
 -- access to AWS. Instead, after a user has been authenticated, you call
--- @AssumeRole@ (and specify the role with the appropriate permissions) to
+-- 'AssumeRole' (and specify the role with the appropriate permissions) to
 -- get temporary security credentials for that user. With those temporary
 -- security credentials, you construct a sign-in URL that users can use to
 -- access the console. For more information, see
@@ -51,7 +51,7 @@
 -- in /Using Temporary Security Credentials/.
 --
 -- The temporary security credentials are valid for the duration that you
--- specified when calling @AssumeRole@, which can be from 900 seconds (15
+-- specified when calling 'AssumeRole', which can be from 900 seconds (15
 -- minutes) to 3600 seconds (1 hour). The default is 1 hour.
 --
 -- Optionally, you can pass an IAM access policy to this operation. If you
@@ -72,12 +72,12 @@
 -- To assume a role, your AWS account must be trusted by the role. The
 -- trust relationship is defined in the role\'s trust policy when the role
 -- is created. You must also have a policy that allows you to call
--- @sts:AssumeRole@.
+-- 'sts:AssumeRole'.
 --
 -- __Using MFA with AssumeRole__
 --
 -- You can optionally include multi-factor authentication (MFA) information
--- when you call @AssumeRole@. This is useful for cross-account scenarios
+-- when you call 'AssumeRole'. This is useful for cross-account scenarios
 -- in which you want to make sure that the user who is assuming the role
 -- has been authenticated using an AWS MFA device. In that scenario, the
 -- trust policy of the role being assumed includes a condition that tests
@@ -86,23 +86,23 @@
 -- a trust policy that tests for MFA authentication might look like the
 -- following example.
 --
--- @\"Condition\": {\"Bool\": {\"aws:MultiFactorAuthPresent\": true}}@
+-- '\"Condition\": {\"Bool\": {\"aws:MultiFactorAuthPresent\": true}}'
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/MFAProtectedAPI.html Configuring MFA-Protected API Access>
 -- in /Using IAM/ guide.
 --
--- To use MFA with @AssumeRole@, you pass values for the @SerialNumber@ and
--- @TokenCode@ parameters. The @SerialNumber@ value identifies the user\'s
--- hardware or virtual MFA device. The @TokenCode@ is the time-based
+-- To use MFA with 'AssumeRole', you pass values for the 'SerialNumber' and
+-- 'TokenCode' parameters. The 'SerialNumber' value identifies the user\'s
+-- hardware or virtual MFA device. The 'TokenCode' is the time-based
 -- one-time password (TOTP) that the MFA devices produces.
 --
 -- /See:/ <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html AWS API Reference> for AssumeRole.
 module Network.AWS.STS.AssumeRole
     (
     -- * Creating a Request
-      AssumeRole
-    , assumeRole
+      assumeRole
+    , AssumeRole
     -- * Request Lenses
     , arTokenCode
     , arDurationSeconds
@@ -113,8 +113,8 @@ module Network.AWS.STS.AssumeRole
     , arRoleSessionName
 
     -- * Destructuring the Response
-    , AssumeRoleResponse
     , assumeRoleResponse
+    , AssumeRoleResponse
     -- * Response Lenses
     , arrsPackedPolicySize
     , arrsCredentials
@@ -129,8 +129,19 @@ import           Network.AWS.STS.Types
 import           Network.AWS.STS.Types.Product
 
 -- | /See:/ 'assumeRole' smart constructor.
+data AssumeRole = AssumeRole'
+    { _arTokenCode       :: !(Maybe Text)
+    , _arDurationSeconds :: !(Maybe Nat)
+    , _arExternalId      :: !(Maybe Text)
+    , _arPolicy          :: !(Maybe Text)
+    , _arSerialNumber    :: !(Maybe Text)
+    , _arRoleARN         :: !Text
+    , _arRoleSessionName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AssumeRole' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'arTokenCode'
 --
@@ -145,18 +156,10 @@ import           Network.AWS.STS.Types.Product
 -- * 'arRoleARN'
 --
 -- * 'arRoleSessionName'
-data AssumeRole = AssumeRole'
-    { _arTokenCode       :: !(Maybe Text)
-    , _arDurationSeconds :: !(Maybe Nat)
-    , _arExternalId      :: !(Maybe Text)
-    , _arPolicy          :: !(Maybe Text)
-    , _arSerialNumber    :: !(Maybe Text)
-    , _arRoleARN         :: !Text
-    , _arRoleSessionName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AssumeRole' smart constructor.
-assumeRole :: Text -> Text -> AssumeRole
+assumeRole
+    :: Text -- ^ 'arRoleARN'
+    -> Text -- ^ 'arRoleSessionName'
+    -> AssumeRole
 assumeRole pRoleARN_ pRoleSessionName_ =
     AssumeRole'
     { _arTokenCode = Nothing
@@ -171,7 +174,7 @@ assumeRole pRoleARN_ pRoleSessionName_ =
 -- | The value provided by the MFA device, if the trust policy of the role
 -- being assumed requires MFA (that is, if the policy includes a condition
 -- that tests for MFA). If the role being assumed requires MFA and if the
--- @TokenCode@ value is missing or expired, the @AssumeRole@ call returns
+-- 'TokenCode' value is missing or expired, the 'AssumeRole' call returns
 -- an \"access denied\" error.
 arTokenCode :: Lens' AssumeRole (Maybe Text)
 arTokenCode = lens _arTokenCode (\ s a -> s{_arTokenCode = a});
@@ -217,12 +220,12 @@ arPolicy :: Lens' AssumeRole (Maybe Text)
 arPolicy = lens _arPolicy (\ s a -> s{_arPolicy = a});
 
 -- | The identification number of the MFA device that is associated with the
--- user who is making the @AssumeRole@ call. Specify this value if the
+-- user who is making the 'AssumeRole' call. Specify this value if the
 -- trust policy of the role being assumed includes a condition that
 -- requires MFA authentication. The value is either the serial number for a
--- hardware device (such as @GAHT12345678@) or an Amazon Resource Name
+-- hardware device (such as 'GAHT12345678') or an Amazon Resource Name
 -- (ARN) for a virtual device (such as
--- @arn:aws:iam::123456789012:mfa\/user@).
+-- 'arn:aws:iam::123456789012:mfa\/user').
 arSerialNumber :: Lens' AssumeRole (Maybe Text)
 arSerialNumber = lens _arSerialNumber (\ s a -> s{_arSerialNumber = a});
 
@@ -277,8 +280,16 @@ instance ToQuery AssumeRole where
 -- temporary AWS credentials that can be used to make AWS requests.
 --
 -- /See:/ 'assumeRoleResponse' smart constructor.
+data AssumeRoleResponse = AssumeRoleResponse'
+    { _arrsPackedPolicySize :: !(Maybe Nat)
+    , _arrsCredentials      :: !(Maybe Credentials)
+    , _arrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
+    , _arrsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AssumeRoleResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'arrsPackedPolicySize'
 --
@@ -287,15 +298,9 @@ instance ToQuery AssumeRole where
 -- * 'arrsAssumedRoleUser'
 --
 -- * 'arrsStatus'
-data AssumeRoleResponse = AssumeRoleResponse'
-    { _arrsPackedPolicySize :: !(Maybe Nat)
-    , _arrsCredentials      :: !(Maybe Credentials)
-    , _arrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
-    , _arrsStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AssumeRoleResponse' smart constructor.
-assumeRoleResponse :: Int -> AssumeRoleResponse
+assumeRoleResponse
+    :: Int -- ^ 'arrsStatus'
+    -> AssumeRoleResponse
 assumeRoleResponse pStatus_ =
     AssumeRoleResponse'
     { _arrsPackedPolicySize = Nothing
@@ -319,11 +324,11 @@ arrsCredentials = lens _arrsCredentials (\ s a -> s{_arrsCredentials = a});
 -- identifiers that you can use to refer to the resulting temporary
 -- security credentials. For example, you can reference these credentials
 -- as a principal in a resource-based policy by using the ARN or assumed
--- role ID. The ARN and ID include the @RoleSessionName@ that you specified
--- when you called @AssumeRole@.
+-- role ID. The ARN and ID include the 'RoleSessionName' that you specified
+-- when you called 'AssumeRole'.
 arrsAssumedRoleUser :: Lens' AssumeRoleResponse (Maybe AssumedRoleUser)
 arrsAssumedRoleUser = lens _arrsAssumedRoleUser (\ s a -> s{_arrsAssumedRoleUser = a});
 
--- | Undocumented member.
+-- | The response status code.
 arrsStatus :: Lens' AssumeRoleResponse Int
 arrsStatus = lens _arrsStatus (\ s a -> s{_arrsStatus = a});

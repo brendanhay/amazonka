@@ -20,10 +20,10 @@
 --
 -- This action creates a reusable delegationSet.
 --
--- To create a new reusable delegationSet, send a @POST@ request to the
--- @2013-04-01\/delegationset@ resource. The request body must include an
--- XML document with a @CreateReusableDelegationSetRequest@ element. The
--- response returns the @CreateReusableDelegationSetResponse@ element that
+-- To create a new reusable delegationSet, send a 'POST' request to the
+-- '2013-04-01\/delegationset' resource. The request body must include an
+-- XML document with a 'CreateReusableDelegationSetRequest' element. The
+-- response returns the 'CreateReusableDelegationSetResponse' element that
 -- contains metadata about the delegationSet.
 --
 -- If the optional parameter HostedZoneId is specified, it marks the
@@ -33,15 +33,15 @@
 module Network.AWS.Route53.CreateReusableDelegationSet
     (
     -- * Creating a Request
-      CreateReusableDelegationSet
-    , createReusableDelegationSet
+      createReusableDelegationSet
+    , CreateReusableDelegationSet
     -- * Request Lenses
     , crdsHostedZoneId
     , crdsCallerReference
 
     -- * Destructuring the Response
-    , CreateReusableDelegationSetResponse
     , createReusableDelegationSetResponse
+    , CreateReusableDelegationSetResponse
     -- * Response Lenses
     , crdsrsStatus
     , crdsrsDelegationSet
@@ -55,19 +55,21 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | /See:/ 'createReusableDelegationSet' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crdsHostedZoneId'
---
--- * 'crdsCallerReference'
 data CreateReusableDelegationSet = CreateReusableDelegationSet'
     { _crdsHostedZoneId    :: !(Maybe Text)
     , _crdsCallerReference :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateReusableDelegationSet' smart constructor.
-createReusableDelegationSet :: Text -> CreateReusableDelegationSet
+-- | Creates a value of 'CreateReusableDelegationSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crdsHostedZoneId'
+--
+-- * 'crdsCallerReference'
+createReusableDelegationSet
+    :: Text -- ^ 'crdsCallerReference'
+    -> CreateReusableDelegationSet
 createReusableDelegationSet pCallerReference_ =
     CreateReusableDelegationSet'
     { _crdsHostedZoneId = Nothing
@@ -80,11 +82,11 @@ crdsHostedZoneId :: Lens' CreateReusableDelegationSet (Maybe Text)
 crdsHostedZoneId = lens _crdsHostedZoneId (\ s a -> s{_crdsHostedZoneId = a});
 
 -- | A unique string that identifies the request and that allows failed
--- @CreateReusableDelegationSet@ requests to be retried without the risk of
--- executing the operation twice. You must use a unique @CallerReference@
+-- 'CreateReusableDelegationSet' requests to be retried without the risk of
+-- executing the operation twice. You must use a unique 'CallerReference'
 -- string every time you create a reusable delegation set.
--- @CallerReference@ can be any unique string; you might choose to use a
--- string that identifies your project, such as @DNSMigration_01@.
+-- 'CallerReference' can be any unique string; you might choose to use a
+-- string that identifies your project, such as 'DNSMigration_01'.
 --
 -- Valid characters are any Unicode code points that are legal in an XML
 -- 1.0 document. The UTF-8 encoding of the value must be less than 128
@@ -125,22 +127,26 @@ instance ToXML CreateReusableDelegationSet where
                "CallerReference" @= _crdsCallerReference]
 
 -- | /See:/ 'createReusableDelegationSetResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crdsrsStatus'
---
--- * 'crdsrsDelegationSet'
---
--- * 'crdsrsLocation'
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
     { _crdsrsStatus        :: !Int
     , _crdsrsDelegationSet :: !DelegationSet
     , _crdsrsLocation      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateReusableDelegationSetResponse' smart constructor.
-createReusableDelegationSetResponse :: Int -> DelegationSet -> Text -> CreateReusableDelegationSetResponse
+-- | Creates a value of 'CreateReusableDelegationSetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crdsrsStatus'
+--
+-- * 'crdsrsDelegationSet'
+--
+-- * 'crdsrsLocation'
+createReusableDelegationSetResponse
+    :: Int -- ^ 'crdsrsStatus'
+    -> DelegationSet -- ^ 'crdsrsDelegationSet'
+    -> Text -- ^ 'crdsrsLocation'
+    -> CreateReusableDelegationSetResponse
 createReusableDelegationSetResponse pStatus_ pDelegationSet_ pLocation_ =
     CreateReusableDelegationSetResponse'
     { _crdsrsStatus = pStatus_
@@ -148,7 +154,7 @@ createReusableDelegationSetResponse pStatus_ pDelegationSet_ pLocation_ =
     , _crdsrsLocation = pLocation_
     }
 
--- | Undocumented member.
+-- | The response status code.
 crdsrsStatus :: Lens' CreateReusableDelegationSetResponse Int
 crdsrsStatus = lens _crdsrsStatus (\ s a -> s{_crdsrsStatus = a});
 

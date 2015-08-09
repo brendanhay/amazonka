@@ -26,15 +26,15 @@
 module Network.AWS.StorageGateway.CancelRetrieval
     (
     -- * Creating a Request
-      CancelRetrieval
-    , cancelRetrieval
+      cancelRetrieval
+    , CancelRetrieval
     -- * Request Lenses
     , crGatewayARN
     , crTapeARN
 
     -- * Destructuring the Response
-    , CancelRetrievalResponse
     , cancelRetrievalResponse
+    , CancelRetrievalResponse
     -- * Response Lenses
     , crrsTapeARN
     , crrsStatus
@@ -49,19 +49,22 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | CancelRetrievalInput
 --
 -- /See:/ 'cancelRetrieval' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crGatewayARN'
---
--- * 'crTapeARN'
 data CancelRetrieval = CancelRetrieval'
     { _crGatewayARN :: !Text
     , _crTapeARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelRetrieval' smart constructor.
-cancelRetrieval :: Text -> Text -> CancelRetrieval
+-- | Creates a value of 'CancelRetrieval' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crGatewayARN'
+--
+-- * 'crTapeARN'
+cancelRetrieval
+    :: Text -- ^ 'crGatewayARN'
+    -> Text -- ^ 'crTapeARN'
+    -> CancelRetrieval
 cancelRetrieval pGatewayARN_ pTapeARN_ =
     CancelRetrieval'
     { _crGatewayARN = pGatewayARN_
@@ -112,19 +115,21 @@ instance ToQuery CancelRetrieval where
 -- | CancelRetrievalOutput
 --
 -- /See:/ 'cancelRetrievalResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crrsTapeARN'
---
--- * 'crrsStatus'
 data CancelRetrievalResponse = CancelRetrievalResponse'
     { _crrsTapeARN :: !(Maybe Text)
     , _crrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelRetrievalResponse' smart constructor.
-cancelRetrievalResponse :: Int -> CancelRetrievalResponse
+-- | Creates a value of 'CancelRetrievalResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crrsTapeARN'
+--
+-- * 'crrsStatus'
+cancelRetrievalResponse
+    :: Int -- ^ 'crrsStatus'
+    -> CancelRetrievalResponse
 cancelRetrievalResponse pStatus_ =
     CancelRetrievalResponse'
     { _crrsTapeARN = Nothing
@@ -136,6 +141,6 @@ cancelRetrievalResponse pStatus_ =
 crrsTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrsTapeARN = lens _crrsTapeARN (\ s a -> s{_crrsTapeARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 crrsStatus :: Lens' CancelRetrievalResponse Int
 crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});

@@ -31,15 +31,15 @@
 module Network.AWS.ElastiCache.DeleteCacheCluster
     (
     -- * Creating a Request
-      DeleteCacheCluster
-    , deleteCacheCluster
+      deleteCacheCluster
+    , DeleteCacheCluster
     -- * Request Lenses
     , dccFinalSnapshotIdentifier
     , dccCacheClusterId
 
     -- * Destructuring the Response
-    , DeleteCacheClusterResponse
     , deleteCacheClusterResponse
+    , DeleteCacheClusterResponse
     -- * Response Lenses
     , dccrsCacheCluster
     , dccrsStatus
@@ -54,19 +54,21 @@ import           Network.AWS.Response
 -- | Represents the input of a /DeleteCacheCluster/ action.
 --
 -- /See:/ 'deleteCacheCluster' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dccFinalSnapshotIdentifier'
---
--- * 'dccCacheClusterId'
 data DeleteCacheCluster = DeleteCacheCluster'
     { _dccFinalSnapshotIdentifier :: !(Maybe Text)
     , _dccCacheClusterId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCacheCluster' smart constructor.
-deleteCacheCluster :: Text -> DeleteCacheCluster
+-- | Creates a value of 'DeleteCacheCluster' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dccFinalSnapshotIdentifier'
+--
+-- * 'dccCacheClusterId'
+deleteCacheCluster
+    :: Text -- ^ 'dccCacheClusterId'
+    -> DeleteCacheCluster
 deleteCacheCluster pCacheClusterId_ =
     DeleteCacheCluster'
     { _dccFinalSnapshotIdentifier = Nothing
@@ -111,19 +113,21 @@ instance ToQuery DeleteCacheCluster where
                "CacheClusterId" =: _dccCacheClusterId]
 
 -- | /See:/ 'deleteCacheClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dccrsCacheCluster'
---
--- * 'dccrsStatus'
 data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
     { _dccrsCacheCluster :: !(Maybe CacheCluster)
     , _dccrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCacheClusterResponse' smart constructor.
-deleteCacheClusterResponse :: Int -> DeleteCacheClusterResponse
+-- | Creates a value of 'DeleteCacheClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dccrsCacheCluster'
+--
+-- * 'dccrsStatus'
+deleteCacheClusterResponse
+    :: Int -- ^ 'dccrsStatus'
+    -> DeleteCacheClusterResponse
 deleteCacheClusterResponse pStatus_ =
     DeleteCacheClusterResponse'
     { _dccrsCacheCluster = Nothing
@@ -134,6 +138,6 @@ deleteCacheClusterResponse pStatus_ =
 dccrsCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
 dccrsCacheCluster = lens _dccrsCacheCluster (\ s a -> s{_dccrsCacheCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 dccrsStatus :: Lens' DeleteCacheClusterResponse Int
 dccrsStatus = lens _dccrsStatus (\ s a -> s{_dccrsStatus = a});

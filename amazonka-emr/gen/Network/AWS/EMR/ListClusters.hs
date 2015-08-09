@@ -25,11 +25,13 @@
 -- track the paging of the cluster list across multiple ListClusters calls.
 --
 -- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListClusters.html AWS API Reference> for ListClusters.
+--
+-- This operation returns paginated results.
 module Network.AWS.EMR.ListClusters
     (
     -- * Creating a Request
-      ListClusters
-    , listClusters
+      listClusters
+    , ListClusters
     -- * Request Lenses
     , lcCreatedAfter
     , lcMarker
@@ -37,8 +39,8 @@ module Network.AWS.EMR.ListClusters
     , lcCreatedBefore
 
     -- * Destructuring the Response
-    , ListClustersResponse
     , listClustersResponse
+    , ListClustersResponse
     -- * Response Lenses
     , lcrsMarker
     , lcrsClusters
@@ -56,8 +58,16 @@ import           Network.AWS.Response
 -- clusters that it returns.
 --
 -- /See:/ 'listClusters' smart constructor.
+data ListClusters = ListClusters'
+    { _lcCreatedAfter  :: !(Maybe POSIX)
+    , _lcMarker        :: !(Maybe Text)
+    , _lcClusterStates :: !(Maybe [ClusterState])
+    , _lcCreatedBefore :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListClusters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lcCreatedAfter'
 --
@@ -66,15 +76,8 @@ import           Network.AWS.Response
 -- * 'lcClusterStates'
 --
 -- * 'lcCreatedBefore'
-data ListClusters = ListClusters'
-    { _lcCreatedAfter  :: !(Maybe POSIX)
-    , _lcMarker        :: !(Maybe Text)
-    , _lcClusterStates :: !(Maybe [ClusterState])
-    , _lcCreatedBefore :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListClusters' smart constructor.
-listClusters :: ListClusters
+listClusters
+    :: ListClusters
 listClusters =
     ListClusters'
     { _lcCreatedAfter = Nothing
@@ -144,22 +147,24 @@ instance ToQuery ListClusters where
 -- example, the cluster IDs, names, and status.
 --
 -- /See:/ 'listClustersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lcrsMarker'
---
--- * 'lcrsClusters'
---
--- * 'lcrsStatus'
 data ListClustersResponse = ListClustersResponse'
     { _lcrsMarker   :: !(Maybe Text)
     , _lcrsClusters :: !(Maybe [ClusterSummary])
     , _lcrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListClustersResponse' smart constructor.
-listClustersResponse :: Int -> ListClustersResponse
+-- | Creates a value of 'ListClustersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lcrsMarker'
+--
+-- * 'lcrsClusters'
+--
+-- * 'lcrsStatus'
+listClustersResponse
+    :: Int -- ^ 'lcrsStatus'
+    -> ListClustersResponse
 listClustersResponse pStatus_ =
     ListClustersResponse'
     { _lcrsMarker = Nothing
@@ -175,6 +180,6 @@ lcrsMarker = lens _lcrsMarker (\ s a -> s{_lcrsMarker = a});
 lcrsClusters :: Lens' ListClustersResponse [ClusterSummary]
 lcrsClusters = lens _lcrsClusters (\ s a -> s{_lcrsClusters = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lcrsStatus :: Lens' ListClustersResponse Int
 lcrsStatus = lens _lcrsStatus (\ s a -> s{_lcrsStatus = a});

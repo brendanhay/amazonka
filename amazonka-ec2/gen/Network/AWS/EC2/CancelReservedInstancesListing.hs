@@ -29,14 +29,14 @@
 module Network.AWS.EC2.CancelReservedInstancesListing
     (
     -- * Creating a Request
-      CancelReservedInstancesListing
-    , cancelReservedInstancesListing
+      cancelReservedInstancesListing
+    , CancelReservedInstancesListing
     -- * Request Lenses
     , crilReservedInstancesListingId
 
     -- * Destructuring the Response
-    , CancelReservedInstancesListingResponse
     , cancelReservedInstancesListingResponse
+    , CancelReservedInstancesListingResponse
     -- * Response Lenses
     , crilrsReservedInstancesListings
     , crilrsStatus
@@ -49,16 +49,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'cancelReservedInstancesListing' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crilReservedInstancesListingId'
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing'
     { _crilReservedInstancesListingId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelReservedInstancesListing' smart constructor.
-cancelReservedInstancesListing :: Text -> CancelReservedInstancesListing
+-- | Creates a value of 'CancelReservedInstancesListing' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crilReservedInstancesListingId'
+cancelReservedInstancesListing
+    :: Text -- ^ 'crilReservedInstancesListingId'
+    -> CancelReservedInstancesListing
 cancelReservedInstancesListing pReservedInstancesListingId_ =
     CancelReservedInstancesListing'
     { _crilReservedInstancesListingId = pReservedInstancesListingId_
@@ -99,19 +101,21 @@ instance ToQuery CancelReservedInstancesListing where
                  _crilReservedInstancesListingId]
 
 -- | /See:/ 'cancelReservedInstancesListingResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crilrsReservedInstancesListings'
---
--- * 'crilrsStatus'
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
     { _crilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _crilrsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelReservedInstancesListingResponse' smart constructor.
-cancelReservedInstancesListingResponse :: Int -> CancelReservedInstancesListingResponse
+-- | Creates a value of 'CancelReservedInstancesListingResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crilrsReservedInstancesListings'
+--
+-- * 'crilrsStatus'
+cancelReservedInstancesListingResponse
+    :: Int -- ^ 'crilrsStatus'
+    -> CancelReservedInstancesListingResponse
 cancelReservedInstancesListingResponse pStatus_ =
     CancelReservedInstancesListingResponse'
     { _crilrsReservedInstancesListings = Nothing
@@ -122,6 +126,6 @@ cancelReservedInstancesListingResponse pStatus_ =
 crilrsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
 crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 crilrsStatus :: Lens' CancelReservedInstancesListingResponse Int
 crilrsStatus = lens _crilrsStatus (\ s a -> s{_crilrsStatus = a});

@@ -21,7 +21,7 @@
 -- Returns a list of sending authorization policies that are attached to
 -- the given identity (email address or domain). This API returns only a
 -- list. If you want the actual policy content, you can use
--- @GetIdentityPolicies@.
+-- 'GetIdentityPolicies'.
 --
 -- This API is for the identity owner only. If you have not verified the
 -- identity, this API will return an error.
@@ -37,14 +37,14 @@
 module Network.AWS.SES.ListIdentityPolicies
     (
     -- * Creating a Request
-      ListIdentityPolicies
-    , listIdentityPolicies
+      listIdentityPolicies
+    , ListIdentityPolicies
     -- * Request Lenses
     , lipIdentity
 
     -- * Destructuring the Response
-    , ListIdentityPoliciesResponse
     , listIdentityPoliciesResponse
+    , ListIdentityPoliciesResponse
     -- * Response Lenses
     , liprsStatus
     , liprsPolicyNames
@@ -60,16 +60,18 @@ import           Network.AWS.SES.Types.Product
 -- policies, by name, applying to an identity.
 --
 -- /See:/ 'listIdentityPolicies' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lipIdentity'
 newtype ListIdentityPolicies = ListIdentityPolicies'
     { _lipIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListIdentityPolicies' smart constructor.
-listIdentityPolicies :: Text -> ListIdentityPolicies
+-- | Creates a value of 'ListIdentityPolicies' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lipIdentity'
+listIdentityPolicies
+    :: Text -- ^ 'lipIdentity'
+    -> ListIdentityPolicies
 listIdentityPolicies pIdentity_ =
     ListIdentityPolicies'
     { _lipIdentity = pIdentity_
@@ -77,9 +79,9 @@ listIdentityPolicies pIdentity_ =
 
 -- | The identity that is associated with the policy for which the policies
 -- will be listed. You can specify an identity by using its name or by
--- using its Amazon Resource Name (ARN). Examples: @user\@example.com@,
--- @example.com@,
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+-- using its Amazon Resource Name (ARN). Examples: 'user\'example.com',
+-- 'example.com',
+-- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
 --
 -- To successfully call this API, you must own the identity.
 lipIdentity :: Lens' ListIdentityPolicies Text
@@ -112,29 +114,31 @@ instance ToQuery ListIdentityPolicies where
                "Identity" =: _lipIdentity]
 
 -- | Represents a list of policy names returned from a successful
--- @ListIdentityPolicies@ request.
+-- 'ListIdentityPolicies' request.
 --
 -- /See:/ 'listIdentityPoliciesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'liprsStatus'
---
--- * 'liprsPolicyNames'
 data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
     { _liprsStatus      :: !Int
     , _liprsPolicyNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListIdentityPoliciesResponse' smart constructor.
-listIdentityPoliciesResponse :: Int -> ListIdentityPoliciesResponse
+-- | Creates a value of 'ListIdentityPoliciesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'liprsStatus'
+--
+-- * 'liprsPolicyNames'
+listIdentityPoliciesResponse
+    :: Int -- ^ 'liprsStatus'
+    -> ListIdentityPoliciesResponse
 listIdentityPoliciesResponse pStatus_ =
     ListIdentityPoliciesResponse'
     { _liprsStatus = pStatus_
     , _liprsPolicyNames = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 liprsStatus :: Lens' ListIdentityPoliciesResponse Int
 liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});
 

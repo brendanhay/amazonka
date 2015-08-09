@@ -25,15 +25,15 @@
 module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     (
     -- * Creating a Request
-      ModifySnapshotCopyRetentionPeriod
-    , modifySnapshotCopyRetentionPeriod
+      modifySnapshotCopyRetentionPeriod
+    , ModifySnapshotCopyRetentionPeriod
     -- * Request Lenses
     , mscrpClusterIdentifier
     , mscrpRetentionPeriod
 
     -- * Destructuring the Response
-    , ModifySnapshotCopyRetentionPeriodResponse
     , modifySnapshotCopyRetentionPeriodResponse
+    , ModifySnapshotCopyRetentionPeriodResponse
     -- * Response Lenses
     , mscrprsCluster
     , mscrprsStatus
@@ -48,19 +48,22 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'modifySnapshotCopyRetentionPeriod' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mscrpClusterIdentifier'
---
--- * 'mscrpRetentionPeriod'
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
     { _mscrpClusterIdentifier :: !Text
     , _mscrpRetentionPeriod   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifySnapshotCopyRetentionPeriod' smart constructor.
-modifySnapshotCopyRetentionPeriod :: Text -> Int -> ModifySnapshotCopyRetentionPeriod
+-- | Creates a value of 'ModifySnapshotCopyRetentionPeriod' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mscrpClusterIdentifier'
+--
+-- * 'mscrpRetentionPeriod'
+modifySnapshotCopyRetentionPeriod
+    :: Text -- ^ 'mscrpClusterIdentifier'
+    -> Int -- ^ 'mscrpRetentionPeriod'
+    -> ModifySnapshotCopyRetentionPeriod
 modifySnapshotCopyRetentionPeriod pClusterIdentifier_ pRetentionPeriod_ =
     ModifySnapshotCopyRetentionPeriod'
     { _mscrpClusterIdentifier = pClusterIdentifier_
@@ -120,19 +123,21 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod
                "RetentionPeriod" =: _mscrpRetentionPeriod]
 
 -- | /See:/ 'modifySnapshotCopyRetentionPeriodResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mscrprsCluster'
---
--- * 'mscrprsStatus'
 data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'
     { _mscrprsCluster :: !(Maybe Cluster)
     , _mscrprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifySnapshotCopyRetentionPeriodResponse' smart constructor.
-modifySnapshotCopyRetentionPeriodResponse :: Int -> ModifySnapshotCopyRetentionPeriodResponse
+-- | Creates a value of 'ModifySnapshotCopyRetentionPeriodResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mscrprsCluster'
+--
+-- * 'mscrprsStatus'
+modifySnapshotCopyRetentionPeriodResponse
+    :: Int -- ^ 'mscrprsStatus'
+    -> ModifySnapshotCopyRetentionPeriodResponse
 modifySnapshotCopyRetentionPeriodResponse pStatus_ =
     ModifySnapshotCopyRetentionPeriodResponse'
     { _mscrprsCluster = Nothing
@@ -143,6 +148,6 @@ modifySnapshotCopyRetentionPeriodResponse pStatus_ =
 mscrprsCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
 mscrprsCluster = lens _mscrprsCluster (\ s a -> s{_mscrprsCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 mscrprsStatus :: Lens' ModifySnapshotCopyRetentionPeriodResponse Int
 mscrprsStatus = lens _mscrprsStatus (\ s a -> s{_mscrprsStatus = a});

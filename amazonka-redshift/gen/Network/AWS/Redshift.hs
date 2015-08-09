@@ -302,7 +302,6 @@ module Network.AWS.Redshift
 
     -- ** DescribeClusters (Paginated)
     , module Network.AWS.Redshift.DescribeClusters
-    -- $pager
 
     -- ** DescribeTags
     , module Network.AWS.Redshift.DescribeTags
@@ -324,22 +323,18 @@ module Network.AWS.Redshift
 
     -- ** DescribeEvents (Paginated)
     , module Network.AWS.Redshift.DescribeEvents
-    -- $pager
 
     -- ** DescribeReservedNodeOfferings (Paginated)
     , module Network.AWS.Redshift.DescribeReservedNodeOfferings
-    -- $pager
 
     -- ** DescribeClusterParameterGroups (Paginated)
     , module Network.AWS.Redshift.DescribeClusterParameterGroups
-    -- $pager
 
     -- ** CreateClusterSubnetGroup
     , module Network.AWS.Redshift.CreateClusterSubnetGroup
 
     -- ** DescribeReservedNodes (Paginated)
     , module Network.AWS.Redshift.DescribeReservedNodes
-    -- $pager
 
     -- ** EnableLogging
     , module Network.AWS.Redshift.EnableLogging
@@ -349,7 +344,6 @@ module Network.AWS.Redshift
 
     -- ** DescribeClusterSecurityGroups (Paginated)
     , module Network.AWS.Redshift.DescribeClusterSecurityGroups
-    -- $pager
 
     -- ** DeleteClusterParameterGroup
     , module Network.AWS.Redshift.DeleteClusterParameterGroup
@@ -365,11 +359,9 @@ module Network.AWS.Redshift
 
     -- ** DescribeClusterSnapshots (Paginated)
     , module Network.AWS.Redshift.DescribeClusterSnapshots
-    -- $pager
 
     -- ** DescribeClusterSubnetGroups (Paginated)
     , module Network.AWS.Redshift.DescribeClusterSubnetGroups
-    -- $pager
 
     -- ** AuthorizeSnapshotAccess
     , module Network.AWS.Redshift.AuthorizeSnapshotAccess
@@ -382,7 +374,6 @@ module Network.AWS.Redshift
 
     -- ** DescribeOrderableClusterOptions (Paginated)
     , module Network.AWS.Redshift.DescribeOrderableClusterOptions
-    -- $pager
 
     -- ** DeleteCluster
     , module Network.AWS.Redshift.DeleteCluster
@@ -392,7 +383,6 @@ module Network.AWS.Redshift
 
     -- ** DescribeDefaultClusterParameters (Paginated)
     , module Network.AWS.Redshift.DescribeDefaultClusterParameters
-    -- $pager
 
     -- ** CreateCluster
     , module Network.AWS.Redshift.CreateCluster
@@ -405,11 +395,9 @@ module Network.AWS.Redshift
 
     -- ** DescribeEventSubscriptions (Paginated)
     , module Network.AWS.Redshift.DescribeEventSubscriptions
-    -- $pager
 
     -- ** DescribeHSMClientCertificates (Paginated)
     , module Network.AWS.Redshift.DescribeHSMClientCertificates
-    -- $pager
 
     -- ** ModifyClusterParameterGroup
     , module Network.AWS.Redshift.ModifyClusterParameterGroup
@@ -449,7 +437,6 @@ module Network.AWS.Redshift
 
     -- ** DescribeClusterParameters (Paginated)
     , module Network.AWS.Redshift.DescribeClusterParameters
-    -- $pager
 
     -- ** DisableSnapshotCopy
     , module Network.AWS.Redshift.DisableSnapshotCopy
@@ -459,7 +446,6 @@ module Network.AWS.Redshift
 
     -- ** DescribeHSMConfigurations (Paginated)
     , module Network.AWS.Redshift.DescribeHSMConfigurations
-    -- $pager
 
     -- ** CreateClusterParameterGroup
     , module Network.AWS.Redshift.CreateClusterParameterGroup
@@ -478,7 +464,6 @@ module Network.AWS.Redshift
 
     -- ** DescribeClusterVersions (Paginated)
     , module Network.AWS.Redshift.DescribeClusterVersions
-    -- $pager
 
     -- ** ModifyClusterSubnetGroup
     , module Network.AWS.Redshift.ModifyClusterSubnetGroup
@@ -958,8 +943,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

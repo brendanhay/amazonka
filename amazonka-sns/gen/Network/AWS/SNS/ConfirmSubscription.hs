@@ -19,25 +19,25 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Verifies an endpoint owner\'s intent to receive messages by validating
--- the token sent to the endpoint by an earlier @Subscribe@ action. If the
+-- the token sent to the endpoint by an earlier 'Subscribe' action. If the
 -- token is valid, the action creates a new subscription and returns its
 -- Amazon Resource Name (ARN). This call requires an AWS signature only
--- when the @AuthenticateOnUnsubscribe@ flag is set to \"true\".
+-- when the 'AuthenticateOnUnsubscribe' flag is set to \"true\".
 --
 -- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ConfirmSubscription.html AWS API Reference> for ConfirmSubscription.
 module Network.AWS.SNS.ConfirmSubscription
     (
     -- * Creating a Request
-      ConfirmSubscription
-    , confirmSubscription
+      confirmSubscription
+    , ConfirmSubscription
     -- * Request Lenses
     , csAuthenticateOnUnsubscribe
     , csTopicARN
     , csToken
 
     -- * Destructuring the Response
-    , ConfirmSubscriptionResponse
     , confirmSubscriptionResponse
+    , ConfirmSubscriptionResponse
     -- * Response Lenses
     , csrsSubscriptionARN
     , csrsStatus
@@ -52,22 +52,25 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for ConfirmSubscription action.
 --
 -- /See:/ 'confirmSubscription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csAuthenticateOnUnsubscribe'
---
--- * 'csTopicARN'
---
--- * 'csToken'
 data ConfirmSubscription = ConfirmSubscription'
     { _csAuthenticateOnUnsubscribe :: !(Maybe Text)
     , _csTopicARN                  :: !Text
     , _csToken                     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfirmSubscription' smart constructor.
-confirmSubscription :: Text -> Text -> ConfirmSubscription
+-- | Creates a value of 'ConfirmSubscription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csAuthenticateOnUnsubscribe'
+--
+-- * 'csTopicARN'
+--
+-- * 'csToken'
+confirmSubscription
+    :: Text -- ^ 'csTopicARN'
+    -> Text -- ^ 'csToken'
+    -> ConfirmSubscription
 confirmSubscription pTopicARN_ pToken_ =
     ConfirmSubscription'
     { _csAuthenticateOnUnsubscribe = Nothing
@@ -76,7 +79,7 @@ confirmSubscription pTopicARN_ pToken_ =
     }
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value
--- of this parameter is @true@ and the request has an AWS signature, then
+-- of this parameter is 'true' and the request has an AWS signature, then
 -- only the topic owner and the subscription owner can unsubscribe the
 -- endpoint. The unsubscribe action requires AWS authentication.
 csAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
@@ -86,7 +89,7 @@ csAuthenticateOnUnsubscribe = lens _csAuthenticateOnUnsubscribe (\ s a -> s{_csA
 csTopicARN :: Lens' ConfirmSubscription Text
 csTopicARN = lens _csTopicARN (\ s a -> s{_csTopicARN = a});
 
--- | Short-lived token sent to an endpoint during the @Subscribe@ action.
+-- | Short-lived token sent to an endpoint during the 'Subscribe' action.
 csToken :: Lens' ConfirmSubscription Text
 csToken = lens _csToken (\ s a -> s{_csToken = a});
 
@@ -119,19 +122,21 @@ instance ToQuery ConfirmSubscription where
 -- | Response for ConfirmSubscriptions action.
 --
 -- /See:/ 'confirmSubscriptionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csrsSubscriptionARN'
---
--- * 'csrsStatus'
 data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
     { _csrsSubscriptionARN :: !(Maybe Text)
     , _csrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfirmSubscriptionResponse' smart constructor.
-confirmSubscriptionResponse :: Int -> ConfirmSubscriptionResponse
+-- | Creates a value of 'ConfirmSubscriptionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csrsSubscriptionARN'
+--
+-- * 'csrsStatus'
+confirmSubscriptionResponse
+    :: Int -- ^ 'csrsStatus'
+    -> ConfirmSubscriptionResponse
 confirmSubscriptionResponse pStatus_ =
     ConfirmSubscriptionResponse'
     { _csrsSubscriptionARN = Nothing
@@ -142,6 +147,6 @@ confirmSubscriptionResponse pStatus_ =
 csrsSubscriptionARN :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrsSubscriptionARN = lens _csrsSubscriptionARN (\ s a -> s{_csrsSubscriptionARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 csrsStatus :: Lens' ConfirmSubscriptionResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

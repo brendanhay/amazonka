@@ -35,8 +35,8 @@
 module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     (
     -- * Creating a Request
-      UpdateDomainContactPrivacy
-    , updateDomainContactPrivacy
+      updateDomainContactPrivacy
+    , UpdateDomainContactPrivacy
     -- * Request Lenses
     , udcpTechPrivacy
     , udcpRegistrantPrivacy
@@ -44,8 +44,8 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     , udcpDomainName
 
     -- * Destructuring the Response
-    , UpdateDomainContactPrivacyResponse
     , updateDomainContactPrivacyResponse
+    , UpdateDomainContactPrivacyResponse
     -- * Response Lenses
     , udcprsStatus
     , udcprsOperationId
@@ -60,8 +60,16 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The UpdateDomainContactPrivacy request includes the following elements.
 --
 -- /See:/ 'updateDomainContactPrivacy' smart constructor.
+data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
+    { _udcpTechPrivacy       :: !(Maybe Bool)
+    , _udcpRegistrantPrivacy :: !(Maybe Bool)
+    , _udcpAdminPrivacy      :: !(Maybe Bool)
+    , _udcpDomainName        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateDomainContactPrivacy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'udcpTechPrivacy'
 --
@@ -70,15 +78,9 @@ import           Network.AWS.Route53Domains.Types.Product
 -- * 'udcpAdminPrivacy'
 --
 -- * 'udcpDomainName'
-data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
-    { _udcpTechPrivacy       :: !(Maybe Bool)
-    , _udcpRegistrantPrivacy :: !(Maybe Bool)
-    , _udcpAdminPrivacy      :: !(Maybe Bool)
-    , _udcpDomainName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateDomainContactPrivacy' smart constructor.
-updateDomainContactPrivacy :: Text -> UpdateDomainContactPrivacy
+updateDomainContactPrivacy
+    :: Text -- ^ 'udcpDomainName'
+    -> UpdateDomainContactPrivacy
 updateDomainContactPrivacy pDomainName_ =
     UpdateDomainContactPrivacy'
     { _udcpTechPrivacy = Nothing
@@ -96,7 +98,7 @@ updateDomainContactPrivacy pDomainName_ =
 --
 -- Default: None
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
 -- Required: No
 udcpTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
@@ -111,7 +113,7 @@ udcpTechPrivacy = lens _udcpTechPrivacy (\ s a -> s{_udcpTechPrivacy = a});
 --
 -- Default: None
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
 -- Required: No
 udcpRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
@@ -126,7 +128,7 @@ udcpRegistrantPrivacy = lens _udcpRegistrantPrivacy (\ s a -> s{_udcpRegistrantP
 --
 -- Default: None
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
 -- Required: No
 udcpAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
@@ -184,26 +186,29 @@ instance ToQuery UpdateDomainContactPrivacy where
 -- | The UpdateDomainContactPrivacy response includes the following element.
 --
 -- /See:/ 'updateDomainContactPrivacyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udcprsStatus'
---
--- * 'udcprsOperationId'
 data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
     { _udcprsStatus      :: !Int
     , _udcprsOperationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateDomainContactPrivacyResponse' smart constructor.
-updateDomainContactPrivacyResponse :: Int -> Text -> UpdateDomainContactPrivacyResponse
+-- | Creates a value of 'UpdateDomainContactPrivacyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udcprsStatus'
+--
+-- * 'udcprsOperationId'
+updateDomainContactPrivacyResponse
+    :: Int -- ^ 'udcprsStatus'
+    -> Text -- ^ 'udcprsOperationId'
+    -> UpdateDomainContactPrivacyResponse
 updateDomainContactPrivacyResponse pStatus_ pOperationId_ =
     UpdateDomainContactPrivacyResponse'
     { _udcprsStatus = pStatus_
     , _udcprsOperationId = pOperationId_
     }
 
--- | Undocumented member.
+-- | The response status code.
 udcprsStatus :: Lens' UpdateDomainContactPrivacyResponse Int
 udcprsStatus = lens _udcprsStatus (\ s a -> s{_udcprsStatus = a});
 

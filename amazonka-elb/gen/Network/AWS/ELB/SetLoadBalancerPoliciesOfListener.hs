@@ -26,16 +26,16 @@
 module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     (
     -- * Creating a Request
-      SetLoadBalancerPoliciesOfListener
-    , setLoadBalancerPoliciesOfListener
+      setLoadBalancerPoliciesOfListener
+    , SetLoadBalancerPoliciesOfListener
     -- * Request Lenses
     , slbpolLoadBalancerName
     , slbpolLoadBalancerPort
     , slbpolPolicyNames
 
     -- * Destructuring the Response
-    , SetLoadBalancerPoliciesOfListenerResponse
     , setLoadBalancerPoliciesOfListenerResponse
+    , SetLoadBalancerPoliciesOfListenerResponse
     -- * Response Lenses
     , slbpolrsStatus
     ) where
@@ -47,22 +47,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'setLoadBalancerPoliciesOfListener' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slbpolLoadBalancerName'
---
--- * 'slbpolLoadBalancerPort'
---
--- * 'slbpolPolicyNames'
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
     { _slbpolLoadBalancerName :: !Text
     , _slbpolLoadBalancerPort :: !Int
     , _slbpolPolicyNames      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetLoadBalancerPoliciesOfListener' smart constructor.
-setLoadBalancerPoliciesOfListener :: Text -> Int -> SetLoadBalancerPoliciesOfListener
+-- | Creates a value of 'SetLoadBalancerPoliciesOfListener' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slbpolLoadBalancerName'
+--
+-- * 'slbpolLoadBalancerPort'
+--
+-- * 'slbpolPolicyNames'
+setLoadBalancerPoliciesOfListener
+    :: Text -- ^ 'slbpolLoadBalancerName'
+    -> Int -- ^ 'slbpolLoadBalancerPort'
+    -> SetLoadBalancerPoliciesOfListener
 setLoadBalancerPoliciesOfListener pLoadBalancerName_ pLoadBalancerPort_ =
     SetLoadBalancerPoliciesOfListener'
     { _slbpolLoadBalancerName = pLoadBalancerName_
@@ -117,21 +120,23 @@ instance ToQuery SetLoadBalancerPoliciesOfListener
                  toQueryList "member" _slbpolPolicyNames]
 
 -- | /See:/ 'setLoadBalancerPoliciesOfListenerResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slbpolrsStatus'
 newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'
     { _slbpolrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetLoadBalancerPoliciesOfListenerResponse' smart constructor.
-setLoadBalancerPoliciesOfListenerResponse :: Int -> SetLoadBalancerPoliciesOfListenerResponse
+-- | Creates a value of 'SetLoadBalancerPoliciesOfListenerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slbpolrsStatus'
+setLoadBalancerPoliciesOfListenerResponse
+    :: Int -- ^ 'slbpolrsStatus'
+    -> SetLoadBalancerPoliciesOfListenerResponse
 setLoadBalancerPoliciesOfListenerResponse pStatus_ =
     SetLoadBalancerPoliciesOfListenerResponse'
     { _slbpolrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 slbpolrsStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
 slbpolrsStatus = lens _slbpolrsStatus (\ s a -> s{_slbpolrsStatus = a});

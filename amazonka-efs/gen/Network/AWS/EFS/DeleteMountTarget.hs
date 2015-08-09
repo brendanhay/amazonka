@@ -33,9 +33,9 @@
 -- This operation requires permission for the following action on the file
 -- system:
 --
--- -   @elasticfilesystem:DeleteMountTarget@
+-- -   'elasticfilesystem:DeleteMountTarget'
 --
--- The @DeleteMountTarget@ call returns while the mount target state is
+-- The 'DeleteMountTarget' call returns while the mount target state is
 -- still \"deleting\". You can check the mount target deletion by calling
 -- the DescribeMountTargets API, which returns a list of mount target
 -- descriptions for the given file system.
@@ -43,20 +43,20 @@
 -- The operation also requires permission for the following Amazon EC2
 -- action on the mount target\'s network interface:
 --
--- -   @ec2:DeleteNetworkInterface@
+-- -   'ec2:DeleteNetworkInterface'
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteMountTarget.html AWS API Reference> for DeleteMountTarget.
 module Network.AWS.EFS.DeleteMountTarget
     (
     -- * Creating a Request
-      DeleteMountTarget
-    , deleteMountTarget
+      deleteMountTarget
+    , DeleteMountTarget
     -- * Request Lenses
     , dmtMountTargetId
 
     -- * Destructuring the Response
-    , DeleteMountTargetResponse
     , deleteMountTargetResponse
+    , DeleteMountTargetResponse
     ) where
 
 import           Network.AWS.EFS.Types
@@ -66,16 +66,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteMountTarget' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmtMountTargetId'
 newtype DeleteMountTarget = DeleteMountTarget'
     { _dmtMountTargetId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteMountTarget' smart constructor.
-deleteMountTarget :: Text -> DeleteMountTarget
+-- | Creates a value of 'DeleteMountTarget' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmtMountTargetId'
+deleteMountTarget
+    :: Text -- ^ 'dmtMountTargetId'
+    -> DeleteMountTarget
 deleteMountTarget pMountTargetId_ =
     DeleteMountTarget'
     { _dmtMountTargetId = pMountTargetId_
@@ -108,6 +110,8 @@ data DeleteMountTargetResponse =
     DeleteMountTargetResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteMountTargetResponse' smart constructor.
-deleteMountTargetResponse :: DeleteMountTargetResponse
+-- | Creates a value of 'DeleteMountTargetResponse' with the minimum fields required to make a request.
+--
+deleteMountTargetResponse
+    :: DeleteMountTargetResponse
 deleteMountTargetResponse = DeleteMountTargetResponse'

@@ -34,14 +34,14 @@
 module Network.AWS.Config.PutDeliveryChannel
     (
     -- * Creating a Request
-      PutDeliveryChannel
-    , putDeliveryChannel
+      putDeliveryChannel
+    , PutDeliveryChannel
     -- * Request Lenses
     , pdcDeliveryChannel
 
     -- * Destructuring the Response
-    , PutDeliveryChannelResponse
     , putDeliveryChannelResponse
+    , PutDeliveryChannelResponse
     ) where
 
 import           Network.AWS.Config.Types
@@ -53,16 +53,18 @@ import           Network.AWS.Response
 -- | The input for the PutDeliveryChannel action.
 --
 -- /See:/ 'putDeliveryChannel' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pdcDeliveryChannel'
 newtype PutDeliveryChannel = PutDeliveryChannel'
     { _pdcDeliveryChannel :: DeliveryChannel
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutDeliveryChannel' smart constructor.
-putDeliveryChannel :: DeliveryChannel -> PutDeliveryChannel
+-- | Creates a value of 'PutDeliveryChannel' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pdcDeliveryChannel'
+putDeliveryChannel
+    :: DeliveryChannel -- ^ 'pdcDeliveryChannel'
+    -> PutDeliveryChannel
 putDeliveryChannel pDeliveryChannel_ =
     PutDeliveryChannel'
     { _pdcDeliveryChannel = pDeliveryChannel_
@@ -106,6 +108,8 @@ data PutDeliveryChannelResponse =
     PutDeliveryChannelResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutDeliveryChannelResponse' smart constructor.
-putDeliveryChannelResponse :: PutDeliveryChannelResponse
+-- | Creates a value of 'PutDeliveryChannelResponse' with the minimum fields required to make a request.
+--
+putDeliveryChannelResponse
+    :: PutDeliveryChannelResponse
 putDeliveryChannelResponse = PutDeliveryChannelResponse'

@@ -19,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Resets an attribute of an instance to its default value. To reset the
--- @kernel@ or @ramdisk@, the instance must be in a stopped state. To reset
--- the @SourceDestCheck@, the instance can be either running or stopped.
+-- 'kernel' or 'ramdisk', the instance must be in a stopped state. To reset
+-- the 'SourceDestCheck', the instance can be either running or stopped.
 --
--- The @SourceDestCheck@ attribute controls whether source\/destination
--- checking is enabled. The default value is @true@, which means checking
--- is enabled. This value must be @false@ for a NAT instance to perform
+-- The 'SourceDestCheck' attribute controls whether source\/destination
+-- checking is enabled. The default value is 'true', which means checking
+-- is enabled. This value must be 'false' for a NAT instance to perform
 -- NAT. For more information, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
 -- in the /Amazon Virtual Private Cloud User Guide/.
@@ -33,16 +33,16 @@
 module Network.AWS.EC2.ResetInstanceAttribute
     (
     -- * Creating a Request
-      ResetInstanceAttribute
-    , resetInstanceAttribute
+      resetInstanceAttribute
+    , ResetInstanceAttribute
     -- * Request Lenses
     , riaDryRun
     , riaInstanceId
     , riaAttribute
 
     -- * Destructuring the Response
-    , ResetInstanceAttributeResponse
     , resetInstanceAttributeResponse
+    , ResetInstanceAttributeResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,22 +52,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'resetInstanceAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'riaDryRun'
---
--- * 'riaInstanceId'
---
--- * 'riaAttribute'
 data ResetInstanceAttribute = ResetInstanceAttribute'
     { _riaDryRun     :: !(Maybe Bool)
     , _riaInstanceId :: !Text
     , _riaAttribute  :: !InstanceAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetInstanceAttribute' smart constructor.
-resetInstanceAttribute :: Text -> InstanceAttributeName -> ResetInstanceAttribute
+-- | Creates a value of 'ResetInstanceAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'riaDryRun'
+--
+-- * 'riaInstanceId'
+--
+-- * 'riaAttribute'
+resetInstanceAttribute
+    :: Text -- ^ 'riaInstanceId'
+    -> InstanceAttributeName -- ^ 'riaAttribute'
+    -> ResetInstanceAttribute
 resetInstanceAttribute pInstanceId_ pAttribute_ =
     ResetInstanceAttribute'
     { _riaDryRun = Nothing
@@ -77,8 +80,8 @@ resetInstanceAttribute pInstanceId_ pAttribute_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
 riaDryRun = lens _riaDryRun (\ s a -> s{_riaDryRun = a});
 
@@ -119,6 +122,8 @@ data ResetInstanceAttributeResponse =
     ResetInstanceAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetInstanceAttributeResponse' smart constructor.
-resetInstanceAttributeResponse :: ResetInstanceAttributeResponse
+-- | Creates a value of 'ResetInstanceAttributeResponse' with the minimum fields required to make a request.
+--
+resetInstanceAttributeResponse
+    :: ResetInstanceAttributeResponse
 resetInstanceAttributeResponse = ResetInstanceAttributeResponse'

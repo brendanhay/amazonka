@@ -61,7 +61,7 @@
 --
 -- By default, /BatchGetItem/ performs eventually consistent reads on every
 -- table in the request. If you want strongly consistent reads instead, you
--- can set /ConsistentRead/ to @true@ for any or all tables.
+-- can set /ConsistentRead/ to 'true' for any or all tables.
 --
 -- In order to minimize response latency, /BatchGetItem/ retrieves items in
 -- parallel.
@@ -81,15 +81,15 @@
 module Network.AWS.DynamoDB.BatchGetItem
     (
     -- * Creating a Request
-      BatchGetItem
-    , batchGetItem
+      batchGetItem
+    , BatchGetItem
     -- * Request Lenses
     , bgiReturnConsumedCapacity
     , bgiRequestItems
 
     -- * Destructuring the Response
-    , BatchGetItemResponse
     , batchGetItemResponse
+    , BatchGetItemResponse
     -- * Response Lenses
     , bgirsUnprocessedKeys
     , bgirsResponses
@@ -106,19 +106,20 @@ import           Network.AWS.Response
 -- | Represents the input of a /BatchGetItem/ operation.
 --
 -- /See:/ 'batchGetItem' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bgiReturnConsumedCapacity'
---
--- * 'bgiRequestItems'
 data BatchGetItem = BatchGetItem'
     { _bgiReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
     , _bgiRequestItems           :: !(Map Text KeysAndAttributes)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BatchGetItem' smart constructor.
-batchGetItem :: BatchGetItem
+-- | Creates a value of 'BatchGetItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgiReturnConsumedCapacity'
+--
+-- * 'bgiRequestItems'
+batchGetItem
+    :: BatchGetItem
 batchGetItem =
     BatchGetItem'
     { _bgiReturnConsumedCapacity = Nothing
@@ -135,8 +136,8 @@ bgiReturnConsumedCapacity = lens _bgiReturnConsumedCapacity (\ s a -> s{_bgiRetu
 --
 -- Each element in the map of items to retrieve consists of the following:
 --
--- -   /ConsistentRead/ - If @true@, a strongly consistent read is used; if
---     @false@ (the default), an eventually consistent read is used.
+-- -   /ConsistentRead/ - If 'true', a strongly consistent read is used; if
+--     'false' (the default), an eventually consistent read is used.
 --
 -- -   /ExpressionAttributeNames/ - One or more substitution tokens for
 --     attribute names in the /ProjectionExpression/ parameter. The
@@ -154,7 +155,7 @@ bgiReturnConsumedCapacity = lens _bgiReturnConsumedCapacity (\ s a -> s{_bgiRetu
 --     Use the __#__ character in an expression to dereference an attribute
 --     name. For example, consider the following attribute name:
 --
---     -   @Percentile@
+--     -   'Percentile'
 --
 --     The name of this attribute conflicts with a reserved word, so it
 --     cannot be used directly in an expression. (For the complete list of
@@ -163,12 +164,12 @@ bgiReturnConsumedCapacity = lens _bgiReturnConsumedCapacity (\ s a -> s{_bgiRetu
 --     in the /Amazon DynamoDB Developer Guide/). To work around this, you
 --     could specify the following for /ExpressionAttributeNames/:
 --
---     -   @{\"#P\":\"Percentile\"}@
+--     -   '{\"#P\":\"Percentile\"}'
 --
 --     You could then use this substitution in an expression, as in this
 --     example:
 --
---     -   @#P = :val@
+--     -   '#P = :val'
 --
 --     Tokens that begin with the __:__ character are /expression attribute
 --     values/, which are placeholders for the actual value at runtime.
@@ -260,8 +261,16 @@ instance ToQuery BatchGetItem where
 -- | Represents the output of a /BatchGetItem/ operation.
 --
 -- /See:/ 'batchGetItemResponse' smart constructor.
+data BatchGetItemResponse = BatchGetItemResponse'
+    { _bgirsUnprocessedKeys  :: !(Maybe (Map Text KeysAndAttributes))
+    , _bgirsResponses        :: !(Maybe (Map Text [Map Text AttributeValue]))
+    , _bgirsConsumedCapacity :: !(Maybe [ConsumedCapacity])
+    , _bgirsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BatchGetItemResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'bgirsUnprocessedKeys'
 --
@@ -270,15 +279,9 @@ instance ToQuery BatchGetItem where
 -- * 'bgirsConsumedCapacity'
 --
 -- * 'bgirsStatus'
-data BatchGetItemResponse = BatchGetItemResponse'
-    { _bgirsUnprocessedKeys  :: !(Maybe (Map Text KeysAndAttributes))
-    , _bgirsResponses        :: !(Maybe (Map Text [Map Text AttributeValue]))
-    , _bgirsConsumedCapacity :: !(Maybe [ConsumedCapacity])
-    , _bgirsStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'BatchGetItemResponse' smart constructor.
-batchGetItemResponse :: Int -> BatchGetItemResponse
+batchGetItemResponse
+    :: Int -- ^ 'bgirsStatus'
+    -> BatchGetItemResponse
 batchGetItemResponse pStatus_ =
     BatchGetItemResponse'
     { _bgirsUnprocessedKeys = Nothing
@@ -303,7 +306,7 @@ batchGetItemResponse pStatus_ =
 --     requested attribute is not found, it does not appear in the result.
 --
 -- -   /ConsistentRead/ - The consistency of a read operation. If set to
---     @true@, then a strongly consistent read is used; otherwise, an
+--     'true', then a strongly consistent read is used; otherwise, an
 --     eventually consistent read is used.
 --
 -- If there are no unprocessed keys remaining, the response contains an
@@ -328,6 +331,6 @@ bgirsResponses = lens _bgirsResponses (\ s a -> s{_bgirsResponses = a}) . _Defau
 bgirsConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
 bgirsConsumedCapacity = lens _bgirsConsumedCapacity (\ s a -> s{_bgirsConsumedCapacity = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 bgirsStatus :: Lens' BatchGetItemResponse Int
 bgirsStatus = lens _bgirsStatus (\ s a -> s{_bgirsStatus = a});

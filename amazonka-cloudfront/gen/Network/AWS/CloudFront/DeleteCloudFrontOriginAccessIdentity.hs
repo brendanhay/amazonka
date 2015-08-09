@@ -24,15 +24,15 @@
 module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request
-      DeleteCloudFrontOriginAccessIdentity
-    , deleteCloudFrontOriginAccessIdentity
+      deleteCloudFrontOriginAccessIdentity
+    , DeleteCloudFrontOriginAccessIdentity
     -- * Request Lenses
     , dcfoaiIfMatch
     , dcfoaiId
 
     -- * Destructuring the Response
-    , DeleteCloudFrontOriginAccessIdentityResponse
     , deleteCloudFrontOriginAccessIdentityResponse
+    , DeleteCloudFrontOriginAccessIdentityResponse
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -44,19 +44,21 @@ import           Network.AWS.Response
 -- | The request to delete a origin access identity.
 --
 -- /See:/ 'deleteCloudFrontOriginAccessIdentity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcfoaiIfMatch'
---
--- * 'dcfoaiId'
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'
     { _dcfoaiIfMatch :: !(Maybe Text)
     , _dcfoaiId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCloudFrontOriginAccessIdentity' smart constructor.
-deleteCloudFrontOriginAccessIdentity :: Text -> DeleteCloudFrontOriginAccessIdentity
+-- | Creates a value of 'DeleteCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcfoaiIfMatch'
+--
+-- * 'dcfoaiId'
+deleteCloudFrontOriginAccessIdentity
+    :: Text -- ^ 'dcfoaiId'
+    -> DeleteCloudFrontOriginAccessIdentity
 deleteCloudFrontOriginAccessIdentity pId_ =
     DeleteCloudFrontOriginAccessIdentity'
     { _dcfoaiIfMatch = Nothing
@@ -104,7 +106,9 @@ data DeleteCloudFrontOriginAccessIdentityResponse =
     DeleteCloudFrontOriginAccessIdentityResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCloudFrontOriginAccessIdentityResponse' smart constructor.
-deleteCloudFrontOriginAccessIdentityResponse :: DeleteCloudFrontOriginAccessIdentityResponse
+-- | Creates a value of 'DeleteCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
+--
+deleteCloudFrontOriginAccessIdentityResponse
+    :: DeleteCloudFrontOriginAccessIdentityResponse
 deleteCloudFrontOriginAccessIdentityResponse =
     DeleteCloudFrontOriginAccessIdentityResponse'

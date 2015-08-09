@@ -25,15 +25,15 @@
 module Network.AWS.CodePipeline.ListActionTypes
     (
     -- * Creating a Request
-      ListActionTypes
-    , listActionTypes
+      listActionTypes
+    , ListActionTypes
     -- * Request Lenses
     , latActionOwnerFilter
     , latNextToken
 
     -- * Destructuring the Response
-    , ListActionTypesResponse
     , listActionTypesResponse
+    , ListActionTypesResponse
     -- * Response Lenses
     , latrsNextToken
     , latrsStatus
@@ -49,19 +49,20 @@ import           Network.AWS.Response
 -- | Represents the input of a list action types action.
 --
 -- /See:/ 'listActionTypes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'latActionOwnerFilter'
---
--- * 'latNextToken'
 data ListActionTypes = ListActionTypes'
     { _latActionOwnerFilter :: !(Maybe ActionOwner)
     , _latNextToken         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListActionTypes' smart constructor.
-listActionTypes :: ListActionTypes
+-- | Creates a value of 'ListActionTypes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'latActionOwnerFilter'
+--
+-- * 'latNextToken'
+listActionTypes
+    :: ListActionTypes
 listActionTypes =
     ListActionTypes'
     { _latActionOwnerFilter = Nothing
@@ -114,22 +115,24 @@ instance ToQuery ListActionTypes where
 -- | Represents the output of a list action types action.
 --
 -- /See:/ 'listActionTypesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'latrsNextToken'
---
--- * 'latrsStatus'
---
--- * 'latrsActionTypes'
 data ListActionTypesResponse = ListActionTypesResponse'
     { _latrsNextToken   :: !(Maybe Text)
     , _latrsStatus      :: !Int
     , _latrsActionTypes :: ![ActionType]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListActionTypesResponse' smart constructor.
-listActionTypesResponse :: Int -> ListActionTypesResponse
+-- | Creates a value of 'ListActionTypesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'latrsNextToken'
+--
+-- * 'latrsStatus'
+--
+-- * 'latrsActionTypes'
+listActionTypesResponse
+    :: Int -- ^ 'latrsStatus'
+    -> ListActionTypesResponse
 listActionTypesResponse pStatus_ =
     ListActionTypesResponse'
     { _latrsNextToken = Nothing
@@ -143,7 +146,7 @@ listActionTypesResponse pStatus_ =
 latrsNextToken :: Lens' ListActionTypesResponse (Maybe Text)
 latrsNextToken = lens _latrsNextToken (\ s a -> s{_latrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 latrsStatus :: Lens' ListActionTypesResponse Int
 latrsStatus = lens _latrsStatus (\ s a -> s{_latrsStatus = a});
 

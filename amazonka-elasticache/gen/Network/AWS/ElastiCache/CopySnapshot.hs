@@ -24,15 +24,15 @@
 module Network.AWS.ElastiCache.CopySnapshot
     (
     -- * Creating a Request
-      CopySnapshot
-    , copySnapshot
+      copySnapshot
+    , CopySnapshot
     -- * Request Lenses
     , csSourceSnapshotName
     , csTargetSnapshotName
 
     -- * Destructuring the Response
-    , CopySnapshotResponse
     , copySnapshotResponse
+    , CopySnapshotResponse
     -- * Response Lenses
     , csrsSnapshot
     , csrsStatus
@@ -47,19 +47,22 @@ import           Network.AWS.Response
 -- | Represents the input of a /CopySnapshotMessage/ action.
 --
 -- /See:/ 'copySnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csSourceSnapshotName'
---
--- * 'csTargetSnapshotName'
 data CopySnapshot = CopySnapshot'
     { _csSourceSnapshotName :: !Text
     , _csTargetSnapshotName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CopySnapshot' smart constructor.
-copySnapshot :: Text -> Text -> CopySnapshot
+-- | Creates a value of 'CopySnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csSourceSnapshotName'
+--
+-- * 'csTargetSnapshotName'
+copySnapshot
+    :: Text -- ^ 'csSourceSnapshotName'
+    -> Text -- ^ 'csTargetSnapshotName'
+    -> CopySnapshot
 copySnapshot pSourceSnapshotName_ pTargetSnapshotName_ =
     CopySnapshot'
     { _csSourceSnapshotName = pSourceSnapshotName_
@@ -99,19 +102,21 @@ instance ToQuery CopySnapshot where
                "TargetSnapshotName" =: _csTargetSnapshotName]
 
 -- | /See:/ 'copySnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csrsSnapshot'
---
--- * 'csrsStatus'
 data CopySnapshotResponse = CopySnapshotResponse'
     { _csrsSnapshot :: !(Maybe Snapshot)
     , _csrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CopySnapshotResponse' smart constructor.
-copySnapshotResponse :: Int -> CopySnapshotResponse
+-- | Creates a value of 'CopySnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csrsSnapshot'
+--
+-- * 'csrsStatus'
+copySnapshotResponse
+    :: Int -- ^ 'csrsStatus'
+    -> CopySnapshotResponse
 copySnapshotResponse pStatus_ =
     CopySnapshotResponse'
     { _csrsSnapshot = Nothing
@@ -122,6 +127,6 @@ copySnapshotResponse pStatus_ =
 csrsSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
 csrsSnapshot = lens _csrsSnapshot (\ s a -> s{_csrsSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 csrsStatus :: Lens' CopySnapshotResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

@@ -30,14 +30,14 @@
 module Network.AWS.Route53Domains.DisableDomainAutoRenew
     (
     -- * Creating a Request
-      DisableDomainAutoRenew
-    , disableDomainAutoRenew
+      disableDomainAutoRenew
+    , DisableDomainAutoRenew
     -- * Request Lenses
     , ddarDomainName
 
     -- * Destructuring the Response
-    , DisableDomainAutoRenewResponse
     , disableDomainAutoRenewResponse
+    , DisableDomainAutoRenewResponse
     -- * Response Lenses
     , ddarrsStatus
     ) where
@@ -49,16 +49,18 @@ import           Network.AWS.Route53Domains.Types
 import           Network.AWS.Route53Domains.Types.Product
 
 -- | /See:/ 'disableDomainAutoRenew' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddarDomainName'
 newtype DisableDomainAutoRenew = DisableDomainAutoRenew'
     { _ddarDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableDomainAutoRenew' smart constructor.
-disableDomainAutoRenew :: Text -> DisableDomainAutoRenew
+-- | Creates a value of 'DisableDomainAutoRenew' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddarDomainName'
+disableDomainAutoRenew
+    :: Text -- ^ 'ddarDomainName'
+    -> DisableDomainAutoRenew
 disableDomainAutoRenew pDomainName_ =
     DisableDomainAutoRenew'
     { _ddarDomainName = pDomainName_
@@ -100,21 +102,23 @@ instance ToQuery DisableDomainAutoRenew where
         toQuery = const mempty
 
 -- | /See:/ 'disableDomainAutoRenewResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddarrsStatus'
 newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
     { _ddarrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableDomainAutoRenewResponse' smart constructor.
-disableDomainAutoRenewResponse :: Int -> DisableDomainAutoRenewResponse
+-- | Creates a value of 'DisableDomainAutoRenewResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddarrsStatus'
+disableDomainAutoRenewResponse
+    :: Int -- ^ 'ddarrsStatus'
+    -> DisableDomainAutoRenewResponse
 disableDomainAutoRenewResponse pStatus_ =
     DisableDomainAutoRenewResponse'
     { _ddarrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ddarrsStatus :: Lens' DisableDomainAutoRenewResponse Int
 ddarrsStatus = lens _ddarrsStatus (\ s a -> s{_ddarrsStatus = a});

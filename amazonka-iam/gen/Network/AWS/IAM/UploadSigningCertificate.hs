@@ -21,16 +21,16 @@
 -- Uploads an X.509 signing certificate and associates it with the
 -- specified user. Some AWS services use X.509 signing certificates to
 -- validate requests that are signed with a corresponding private key. When
--- you upload the certificate, its default status is @Active@.
+-- you upload the certificate, its default status is 'Active'.
 --
--- If the @UserName@ field is not specified, the user name is determined
+-- If the 'UserName' field is not specified, the user name is determined
 -- implicitly based on the AWS access key ID used to sign the request.
 -- Because this action works for access keys under the AWS account, you can
 -- use this action to manage root credentials even if the AWS account has
 -- no associated users.
 --
 -- Because the body of a X.509 certificate can be large, you should use
--- POST rather than GET when calling @UploadSigningCertificate@. For
+-- POST rather than GET when calling 'UploadSigningCertificate'. For
 -- information about setting up signatures and authorization through the
 -- API, go to
 -- <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>
@@ -43,15 +43,15 @@
 module Network.AWS.IAM.UploadSigningCertificate
     (
     -- * Creating a Request
-      UploadSigningCertificate
-    , uploadSigningCertificate
+      uploadSigningCertificate
+    , UploadSigningCertificate
     -- * Request Lenses
     , uplUserName
     , uplCertificateBody
 
     -- * Destructuring the Response
-    , UploadSigningCertificateResponse
     , uploadSigningCertificateResponse
+    , UploadSigningCertificateResponse
     -- * Response Lenses
     , uscrsStatus
     , uscrsCertificate
@@ -64,19 +64,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'uploadSigningCertificate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uplUserName'
---
--- * 'uplCertificateBody'
 data UploadSigningCertificate = UploadSigningCertificate'
     { _uplUserName        :: !(Maybe Text)
     , _uplCertificateBody :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UploadSigningCertificate' smart constructor.
-uploadSigningCertificate :: Text -> UploadSigningCertificate
+-- | Creates a value of 'UploadSigningCertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uplUserName'
+--
+-- * 'uplCertificateBody'
+uploadSigningCertificate
+    :: Text -- ^ 'uplCertificateBody'
+    -> UploadSigningCertificate
 uploadSigningCertificate pCertificateBody_ =
     UploadSigningCertificate'
     { _uplUserName = Nothing
@@ -120,26 +122,29 @@ instance ToQuery UploadSigningCertificate where
 -- | Contains the response to a successful UploadSigningCertificate request.
 --
 -- /See:/ 'uploadSigningCertificateResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uscrsStatus'
---
--- * 'uscrsCertificate'
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
     { _uscrsStatus      :: !Int
     , _uscrsCertificate :: !SigningCertificate
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UploadSigningCertificateResponse' smart constructor.
-uploadSigningCertificateResponse :: Int -> SigningCertificate -> UploadSigningCertificateResponse
+-- | Creates a value of 'UploadSigningCertificateResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uscrsStatus'
+--
+-- * 'uscrsCertificate'
+uploadSigningCertificateResponse
+    :: Int -- ^ 'uscrsStatus'
+    -> SigningCertificate -- ^ 'uscrsCertificate'
+    -> UploadSigningCertificateResponse
 uploadSigningCertificateResponse pStatus_ pCertificate_ =
     UploadSigningCertificateResponse'
     { _uscrsStatus = pStatus_
     , _uscrsCertificate = pCertificate_
     }
 
--- | Undocumented member.
+-- | The response status code.
 uscrsStatus :: Lens' UploadSigningCertificateResponse Int
 uscrsStatus = lens _uscrsStatus (\ s a -> s{_uscrsStatus = a});
 

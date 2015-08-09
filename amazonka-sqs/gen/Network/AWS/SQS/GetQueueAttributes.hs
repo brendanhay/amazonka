@@ -21,36 +21,36 @@
 -- Gets attributes for the specified queue. The following attributes are
 -- supported:
 --
--- -   @All@ - returns all values.
--- -   @ApproximateNumberOfMessages@ - returns the approximate number of
+-- -   'All' - returns all values.
+-- -   'ApproximateNumberOfMessages' - returns the approximate number of
 --     visible messages in a queue. For more information, see
 --     <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html Resources Required to Process Messages>
 --     in the /Amazon SQS Developer Guide/.
--- -   @ApproximateNumberOfMessagesNotVisible@ - returns the approximate
+-- -   'ApproximateNumberOfMessagesNotVisible' - returns the approximate
 --     number of messages that are not timed-out and not deleted. For more
 --     information, see
 --     <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html Resources Required to Process Messages>
 --     in the /Amazon SQS Developer Guide/.
--- -   @VisibilityTimeout@ - returns the visibility timeout for the queue.
+-- -   'VisibilityTimeout' - returns the visibility timeout for the queue.
 --     For more information about visibility timeout, see
 --     <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout>
 --     in the /Amazon SQS Developer Guide/.
--- -   @CreatedTimestamp@ - returns the time when the queue was created
+-- -   'CreatedTimestamp' - returns the time when the queue was created
 --     (epoch time in seconds).
--- -   @LastModifiedTimestamp@ - returns the time when the queue was last
+-- -   'LastModifiedTimestamp' - returns the time when the queue was last
 --     changed (epoch time in seconds).
--- -   @Policy@ - returns the queue\'s policy.
--- -   @MaximumMessageSize@ - returns the limit of how many bytes a message
+-- -   'Policy' - returns the queue\'s policy.
+-- -   'MaximumMessageSize' - returns the limit of how many bytes a message
 --     can contain before Amazon SQS rejects it.
--- -   @MessageRetentionPeriod@ - returns the number of seconds Amazon SQS
+-- -   'MessageRetentionPeriod' - returns the number of seconds Amazon SQS
 --     retains a message.
--- -   @QueueArn@ - returns the queue\'s Amazon resource name (ARN).
--- -   @ApproximateNumberOfMessagesDelayed@ - returns the approximate
+-- -   'QueueArn' - returns the queue\'s Amazon resource name (ARN).
+-- -   'ApproximateNumberOfMessagesDelayed' - returns the approximate
 --     number of messages that are pending to be added to the queue.
--- -   @DelaySeconds@ - returns the default delay on the queue in seconds.
--- -   @ReceiveMessageWaitTimeSeconds@ - returns the time for which a
+-- -   'DelaySeconds' - returns the default delay on the queue in seconds.
+-- -   'ReceiveMessageWaitTimeSeconds' - returns the time for which a
 --     ReceiveMessage call will wait for a message to arrive.
--- -   @RedrivePolicy@ - returns the parameters for dead letter queue
+-- -   'RedrivePolicy' - returns the parameters for dead letter queue
 --     functionality of the source queue. For more information about
 --     RedrivePolicy and dead letter queues, see
 --     <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>
@@ -61,26 +61,26 @@
 -- that it can handle new attributes gracefully.
 --
 -- Some API actions take lists of parameters. These lists are specified
--- using the @param.n@ notation. Values of @n@ are integers starting from
+-- using the 'param.n' notation. Values of 'n' are integers starting from
 -- 1. For example, a parameter list with two elements looks like this:
 --
--- @&Attribute.1=this@
+-- '&Attribute.1=this'
 --
--- @&Attribute.2=that@
+-- '&Attribute.2=that'
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.html AWS API Reference> for GetQueueAttributes.
 module Network.AWS.SQS.GetQueueAttributes
     (
     -- * Creating a Request
-      GetQueueAttributes
-    , getQueueAttributes
+      getQueueAttributes
+    , GetQueueAttributes
     -- * Request Lenses
     , gqaAttributeNames
     , gqaQueueURL
 
     -- * Destructuring the Response
-    , GetQueueAttributesResponse
     , getQueueAttributesResponse
+    , GetQueueAttributesResponse
     -- * Response Lenses
     , gqarsAttributes
     , gqarsStatus
@@ -93,19 +93,21 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'getQueueAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gqaAttributeNames'
---
--- * 'gqaQueueURL'
 data GetQueueAttributes = GetQueueAttributes'
     { _gqaAttributeNames :: !(Maybe [QueueAttributeName])
     , _gqaQueueURL       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetQueueAttributes' smart constructor.
-getQueueAttributes :: Text -> GetQueueAttributes
+-- | Creates a value of 'GetQueueAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gqaAttributeNames'
+--
+-- * 'gqaQueueURL'
+getQueueAttributes
+    :: Text -- ^ 'gqaQueueURL'
+    -> GetQueueAttributes
 getQueueAttributes pQueueURL_ =
     GetQueueAttributes'
     { _gqaAttributeNames = Nothing
@@ -150,19 +152,21 @@ instance ToQuery GetQueueAttributes where
 -- | A list of returned queue attributes.
 --
 -- /See:/ 'getQueueAttributesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gqarsAttributes'
---
--- * 'gqarsStatus'
 data GetQueueAttributesResponse = GetQueueAttributesResponse'
     { _gqarsAttributes :: !(Maybe (Map QueueAttributeName Text))
     , _gqarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetQueueAttributesResponse' smart constructor.
-getQueueAttributesResponse :: Int -> GetQueueAttributesResponse
+-- | Creates a value of 'GetQueueAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gqarsAttributes'
+--
+-- * 'gqarsStatus'
+getQueueAttributesResponse
+    :: Int -- ^ 'gqarsStatus'
+    -> GetQueueAttributesResponse
 getQueueAttributesResponse pStatus_ =
     GetQueueAttributesResponse'
     { _gqarsAttributes = Nothing
@@ -173,6 +177,6 @@ getQueueAttributesResponse pStatus_ =
 gqarsAttributes :: Lens' GetQueueAttributesResponse (HashMap QueueAttributeName Text)
 gqarsAttributes = lens _gqarsAttributes (\ s a -> s{_gqarsAttributes = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 gqarsStatus :: Lens' GetQueueAttributesResponse Int
 gqarsStatus = lens _gqarsStatus (\ s a -> s{_gqarsStatus = a});

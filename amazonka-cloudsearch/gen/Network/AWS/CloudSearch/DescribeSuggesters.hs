@@ -22,7 +22,7 @@
 -- display possible matches before users finish typing their queries. Can
 -- be limited to specific suggesters by name. By default, shows all
 -- suggesters and includes any pending changes to the configuration. Set
--- the @Deployed@ option to @true@ to show the active configuration and
+-- the 'Deployed' option to 'true' to show the active configuration and
 -- exclude pending changes. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions>
 -- in the /Amazon CloudSearch Developer Guide/.
@@ -31,16 +31,16 @@
 module Network.AWS.CloudSearch.DescribeSuggesters
     (
     -- * Creating a Request
-      DescribeSuggesters
-    , describeSuggesters
+      describeSuggesters
+    , DescribeSuggesters
     -- * Request Lenses
     , dssDeployed
     , dssSuggesterNames
     , dssDomainName
 
     -- * Destructuring the Response
-    , DescribeSuggestersResponse
     , describeSuggestersResponse
+    , DescribeSuggestersResponse
     -- * Response Lenses
     , dssrsStatus
     , dssrsSuggesters
@@ -52,29 +52,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DescribeSuggester@ operation.
+-- | Container for the parameters to the 'DescribeSuggester' operation.
 -- Specifies the name of the domain you want to describe. To restrict the
 -- response to particular suggesters, specify the names of the suggesters
 -- you want to describe. To show the active configuration and exclude any
--- pending changes, set the @Deployed@ option to @true@.
+-- pending changes, set the 'Deployed' option to 'true'.
 --
 -- /See:/ 'describeSuggesters' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dssDeployed'
---
--- * 'dssSuggesterNames'
---
--- * 'dssDomainName'
 data DescribeSuggesters = DescribeSuggesters'
     { _dssDeployed       :: !(Maybe Bool)
     , _dssSuggesterNames :: !(Maybe [Text])
     , _dssDomainName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSuggesters' smart constructor.
-describeSuggesters :: Text -> DescribeSuggesters
+-- | Creates a value of 'DescribeSuggesters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dssDeployed'
+--
+-- * 'dssSuggesterNames'
+--
+-- * 'dssDomainName'
+describeSuggesters
+    :: Text -- ^ 'dssDomainName'
+    -> DescribeSuggesters
 describeSuggesters pDomainName_ =
     DescribeSuggesters'
     { _dssDeployed = Nothing
@@ -82,8 +84,8 @@ describeSuggesters pDomainName_ =
     , _dssDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration (@true@) or include any
--- pending changes (@false@). Defaults to @false@.
+-- | Whether to display the deployed configuration ('true') or include any
+-- pending changes ('false'). Defaults to 'false'.
 dssDeployed :: Lens' DescribeSuggesters (Maybe Bool)
 dssDeployed = lens _dssDeployed (\ s a -> s{_dssDeployed = a});
 
@@ -125,29 +127,31 @@ instance ToQuery DescribeSuggesters where
                    (toQueryList "member" <$> _dssSuggesterNames),
                "DomainName" =: _dssDomainName]
 
--- | The result of a @DescribeSuggesters@ request.
+-- | The result of a 'DescribeSuggesters' request.
 --
 -- /See:/ 'describeSuggestersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dssrsStatus'
---
--- * 'dssrsSuggesters'
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
     { _dssrsStatus     :: !Int
     , _dssrsSuggesters :: ![SuggesterStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSuggestersResponse' smart constructor.
-describeSuggestersResponse :: Int -> DescribeSuggestersResponse
+-- | Creates a value of 'DescribeSuggestersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dssrsStatus'
+--
+-- * 'dssrsSuggesters'
+describeSuggestersResponse
+    :: Int -- ^ 'dssrsStatus'
+    -> DescribeSuggestersResponse
 describeSuggestersResponse pStatus_ =
     DescribeSuggestersResponse'
     { _dssrsStatus = pStatus_
     , _dssrsSuggesters = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 dssrsStatus :: Lens' DescribeSuggestersResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
 

@@ -24,14 +24,14 @@
 module Network.AWS.Redshift.RotateEncryptionKey
     (
     -- * Creating a Request
-      RotateEncryptionKey
-    , rotateEncryptionKey
+      rotateEncryptionKey
+    , RotateEncryptionKey
     -- * Request Lenses
     , rekClusterIdentifier
 
     -- * Destructuring the Response
-    , RotateEncryptionKeyResponse
     , rotateEncryptionKeyResponse
+    , RotateEncryptionKeyResponse
     -- * Response Lenses
     , rekrsCluster
     , rekrsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'rotateEncryptionKey' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rekClusterIdentifier'
 newtype RotateEncryptionKey = RotateEncryptionKey'
     { _rekClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RotateEncryptionKey' smart constructor.
-rotateEncryptionKey :: Text -> RotateEncryptionKey
+-- | Creates a value of 'RotateEncryptionKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rekClusterIdentifier'
+rotateEncryptionKey
+    :: Text -- ^ 'rekClusterIdentifier'
+    -> RotateEncryptionKey
 rotateEncryptionKey pClusterIdentifier_ =
     RotateEncryptionKey'
     { _rekClusterIdentifier = pClusterIdentifier_
@@ -94,19 +96,21 @@ instance ToQuery RotateEncryptionKey where
                "ClusterIdentifier" =: _rekClusterIdentifier]
 
 -- | /See:/ 'rotateEncryptionKeyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rekrsCluster'
---
--- * 'rekrsStatus'
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
     { _rekrsCluster :: !(Maybe Cluster)
     , _rekrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RotateEncryptionKeyResponse' smart constructor.
-rotateEncryptionKeyResponse :: Int -> RotateEncryptionKeyResponse
+-- | Creates a value of 'RotateEncryptionKeyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rekrsCluster'
+--
+-- * 'rekrsStatus'
+rotateEncryptionKeyResponse
+    :: Int -- ^ 'rekrsStatus'
+    -> RotateEncryptionKeyResponse
 rotateEncryptionKeyResponse pStatus_ =
     RotateEncryptionKeyResponse'
     { _rekrsCluster = Nothing
@@ -117,6 +121,6 @@ rotateEncryptionKeyResponse pStatus_ =
 rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 rekrsCluster = lens _rekrsCluster (\ s a -> s{_rekrsCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 rekrsStatus :: Lens' RotateEncryptionKeyResponse Int
 rekrsStatus = lens _rekrsStatus (\ s a -> s{_rekrsStatus = a});

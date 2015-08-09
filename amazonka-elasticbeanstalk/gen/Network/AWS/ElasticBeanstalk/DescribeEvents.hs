@@ -22,14 +22,16 @@
 -- weeks.
 --
 -- This action returns the most recent 1,000 events from the specified
--- @NextToken@.
+-- 'NextToken'.
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElasticBeanstalk.DescribeEvents
     (
     -- * Creating a Request
-      DescribeEvents
-    , describeEvents
+      describeEvents
+    , DescribeEvents
     -- * Request Lenses
     , deRequestId
     , deTemplateName
@@ -44,8 +46,8 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     , deEnvironmentId
 
     -- * Destructuring the Response
-    , DescribeEventsResponse
     , describeEventsResponse
+    , DescribeEventsResponse
     -- * Response Lenses
     , dersNextToken
     , dersEvents
@@ -62,8 +64,23 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'describeEvents' smart constructor.
+data DescribeEvents = DescribeEvents'
+    { _deRequestId       :: !(Maybe Text)
+    , _deTemplateName    :: !(Maybe Text)
+    , _deStartTime       :: !(Maybe ISO8601)
+    , _deSeverity        :: !(Maybe EventSeverity)
+    , _deNextToken       :: !(Maybe Text)
+    , _deVersionLabel    :: !(Maybe Text)
+    , _deMaxRecords      :: !(Maybe Nat)
+    , _deEnvironmentName :: !(Maybe Text)
+    , _deEndTime         :: !(Maybe ISO8601)
+    , _deApplicationName :: !(Maybe Text)
+    , _deEnvironmentId   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'deRequestId'
 --
@@ -86,22 +103,8 @@ import           Network.AWS.Response
 -- * 'deApplicationName'
 --
 -- * 'deEnvironmentId'
-data DescribeEvents = DescribeEvents'
-    { _deRequestId       :: !(Maybe Text)
-    , _deTemplateName    :: !(Maybe Text)
-    , _deStartTime       :: !(Maybe ISO8601)
-    , _deSeverity        :: !(Maybe EventSeverity)
-    , _deNextToken       :: !(Maybe Text)
-    , _deVersionLabel    :: !(Maybe Text)
-    , _deMaxRecords      :: !(Maybe Nat)
-    , _deEnvironmentName :: !(Maybe Text)
-    , _deEndTime         :: !(Maybe ISO8601)
-    , _deApplicationName :: !(Maybe Text)
-    , _deEnvironmentId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeEvents' smart constructor.
-describeEvents :: DescribeEvents
+describeEvents
+    :: DescribeEvents
 describeEvents =
     DescribeEvents'
     { _deRequestId = Nothing
@@ -158,7 +161,7 @@ deEnvironmentName :: Lens' DescribeEvents (Maybe Text)
 deEnvironmentName = lens _deEnvironmentName (\ s a -> s{_deEnvironmentName = a});
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those that occur up to, but not including, the @EndTime@.
+-- to those that occur up to, but not including, the 'EndTime'.
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
 
@@ -218,22 +221,24 @@ instance ToQuery DescribeEvents where
 -- | Result message wrapping a list of event descriptions.
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dersNextToken'
---
--- * 'dersEvents'
---
--- * 'dersStatus'
 data DescribeEventsResponse = DescribeEventsResponse'
     { _dersNextToken :: !(Maybe Text)
     , _dersEvents    :: !(Maybe [EventDescription])
     , _dersStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEventsResponse' smart constructor.
-describeEventsResponse :: Int -> DescribeEventsResponse
+-- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dersNextToken'
+--
+-- * 'dersEvents'
+--
+-- * 'dersStatus'
+describeEventsResponse
+    :: Int -- ^ 'dersStatus'
+    -> DescribeEventsResponse
 describeEventsResponse pStatus_ =
     DescribeEventsResponse'
     { _dersNextToken = Nothing
@@ -251,6 +256,6 @@ dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a});
 dersEvents :: Lens' DescribeEventsResponse [EventDescription]
 dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dersStatus :: Lens' DescribeEventsResponse Int
 dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

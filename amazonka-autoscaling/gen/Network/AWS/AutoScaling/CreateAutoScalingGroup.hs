@@ -32,8 +32,8 @@
 module Network.AWS.AutoScaling.CreateAutoScalingGroup
     (
     -- * Creating a Request
-      CreateAutoScalingGroup
-    , createAutoScalingGroup
+      createAutoScalingGroup
+    , CreateAutoScalingGroup
     -- * Request Lenses
     , casgInstanceId
     , casgTerminationPolicies
@@ -52,8 +52,8 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     , casgMaxSize
 
     -- * Destructuring the Response
-    , CreateAutoScalingGroupResponse
     , createAutoScalingGroupResponse
+    , CreateAutoScalingGroupResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -63,8 +63,27 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createAutoScalingGroup' smart constructor.
+data CreateAutoScalingGroup = CreateAutoScalingGroup'
+    { _casgInstanceId              :: !(Maybe Text)
+    , _casgTerminationPolicies     :: !(Maybe [Text])
+    , _casgHealthCheckGracePeriod  :: !(Maybe Int)
+    , _casgVPCZoneIdentifier       :: !(Maybe Text)
+    , _casgDefaultCooldown         :: !(Maybe Int)
+    , _casgDesiredCapacity         :: !(Maybe Int)
+    , _casgAvailabilityZones       :: !(Maybe (List1 Text))
+    , _casgHealthCheckType         :: !(Maybe Text)
+    , _casgLaunchConfigurationName :: !(Maybe Text)
+    , _casgPlacementGroup          :: !(Maybe Text)
+    , _casgLoadBalancerNames       :: !(Maybe [Text])
+    , _casgTags                    :: !(Maybe [Tag])
+    , _casgAutoScalingGroupName    :: !Text
+    , _casgMinSize                 :: !Int
+    , _casgMaxSize                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateAutoScalingGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'casgInstanceId'
 --
@@ -95,26 +114,11 @@ import           Network.AWS.Response
 -- * 'casgMinSize'
 --
 -- * 'casgMaxSize'
-data CreateAutoScalingGroup = CreateAutoScalingGroup'
-    { _casgInstanceId              :: !(Maybe Text)
-    , _casgTerminationPolicies     :: !(Maybe [Text])
-    , _casgHealthCheckGracePeriod  :: !(Maybe Int)
-    , _casgVPCZoneIdentifier       :: !(Maybe Text)
-    , _casgDefaultCooldown         :: !(Maybe Int)
-    , _casgDesiredCapacity         :: !(Maybe Int)
-    , _casgAvailabilityZones       :: !(Maybe (List1 Text))
-    , _casgHealthCheckType         :: !(Maybe Text)
-    , _casgLaunchConfigurationName :: !(Maybe Text)
-    , _casgPlacementGroup          :: !(Maybe Text)
-    , _casgLoadBalancerNames       :: !(Maybe [Text])
-    , _casgTags                    :: !(Maybe [Tag])
-    , _casgAutoScalingGroupName    :: !Text
-    , _casgMinSize                 :: !Int
-    , _casgMaxSize                 :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateAutoScalingGroup' smart constructor.
-createAutoScalingGroup :: Text -> Int -> Int -> CreateAutoScalingGroup
+createAutoScalingGroup
+    :: Text -- ^ 'casgAutoScalingGroupName'
+    -> Int -- ^ 'casgMinSize'
+    -> Int -- ^ 'casgMaxSize'
+    -> CreateAutoScalingGroup
 createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
     CreateAutoScalingGroup'
     { _casgInstanceId = Nothing
@@ -135,7 +139,7 @@ createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
     }
 
 -- | The ID of the EC2 instance used to create a launch configuration for the
--- group. Alternatively, use the @LaunchConfigurationName@ parameter to
+-- group. Alternatively, use the 'LaunchConfigurationName' parameter to
 -- specify a launch configuration instead of an EC2 instance.
 --
 -- When you specify an ID of an instance, Auto Scaling creates a new launch
@@ -163,7 +167,7 @@ casgTerminationPolicies = lens _casgTerminationPolicies (\ s a -> s{_casgTermina
 -- that Auto Scaling starts checking its health. During this time, any
 -- health check failures for the instance are ignored.
 --
--- This parameter is required if you are adding an @ELB@ health check.
+-- This parameter is required if you are adding an 'ELB' health check.
 -- Frequently, new instances need to warm up, briefly, before they can pass
 -- a health check. To provide ample warm-up time, set the health check
 -- grace period of the group to match the expected startup period of your
@@ -205,12 +209,12 @@ casgDesiredCapacity :: Lens' CreateAutoScalingGroup (Maybe Int)
 casgDesiredCapacity = lens _casgDesiredCapacity (\ s a -> s{_casgDesiredCapacity = a});
 
 -- | One or more Availability Zones for the group. This parameter is optional
--- if you specify subnets using the @VPCZoneIdentifier@ parameter.
+-- if you specify subnets using the 'VPCZoneIdentifier' parameter.
 casgAvailabilityZones :: Lens' CreateAutoScalingGroup (Maybe (NonEmpty Text))
 casgAvailabilityZones = lens _casgAvailabilityZones (\ s a -> s{_casgAvailabilityZones = a}) . mapping _List1;
 
--- | The service to use for the health checks. The valid values are @EC2@ and
--- @ELB@.
+-- | The service to use for the health checks. The valid values are 'EC2' and
+-- 'ELB'.
 --
 -- By default, health checks use Amazon EC2 instance status checks to
 -- determine the health of an instance. For more information, see
@@ -219,7 +223,7 @@ casgHealthCheckType :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgHealthCheckType = lens _casgHealthCheckType (\ s a -> s{_casgHealthCheckType = a});
 
 -- | The name of the launch configuration. Alternatively, use the
--- @InstanceId@ parameter to specify an EC2 instance instead of a launch
+-- 'InstanceId' parameter to specify an EC2 instance instead of a launch
 -- configuration.
 casgLaunchConfigurationName :: Lens' CreateAutoScalingGroup (Maybe Text)
 casgLaunchConfigurationName = lens _casgLaunchConfigurationName (\ s a -> s{_casgLaunchConfigurationName = a});
@@ -312,6 +316,8 @@ data CreateAutoScalingGroupResponse =
     CreateAutoScalingGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAutoScalingGroupResponse' smart constructor.
-createAutoScalingGroupResponse :: CreateAutoScalingGroupResponse
+-- | Creates a value of 'CreateAutoScalingGroupResponse' with the minimum fields required to make a request.
+--
+createAutoScalingGroupResponse
+    :: CreateAutoScalingGroupResponse
 createAutoScalingGroupResponse = CreateAutoScalingGroupResponse'

@@ -24,8 +24,8 @@
 module Network.AWS.EC2.AttachNetworkInterface
     (
     -- * Creating a Request
-      AttachNetworkInterface
-    , attachNetworkInterface
+      attachNetworkInterface
+    , AttachNetworkInterface
     -- * Request Lenses
     , aniDryRun
     , aniNetworkInterfaceId
@@ -33,8 +33,8 @@ module Network.AWS.EC2.AttachNetworkInterface
     , aniDeviceIndex
 
     -- * Destructuring the Response
-    , AttachNetworkInterfaceResponse
     , attachNetworkInterfaceResponse
+    , AttachNetworkInterfaceResponse
     -- * Response Lenses
     , anirsAttachmentId
     , anirsStatus
@@ -47,8 +47,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachNetworkInterface' smart constructor.
+data AttachNetworkInterface = AttachNetworkInterface'
+    { _aniDryRun             :: !(Maybe Bool)
+    , _aniNetworkInterfaceId :: !Text
+    , _aniInstanceId         :: !Text
+    , _aniDeviceIndex        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AttachNetworkInterface' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'aniDryRun'
 --
@@ -57,15 +65,11 @@ import           Network.AWS.Response
 -- * 'aniInstanceId'
 --
 -- * 'aniDeviceIndex'
-data AttachNetworkInterface = AttachNetworkInterface'
-    { _aniDryRun             :: !(Maybe Bool)
-    , _aniNetworkInterfaceId :: !Text
-    , _aniInstanceId         :: !Text
-    , _aniDeviceIndex        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AttachNetworkInterface' smart constructor.
-attachNetworkInterface :: Text -> Text -> Int -> AttachNetworkInterface
+attachNetworkInterface
+    :: Text -- ^ 'aniNetworkInterfaceId'
+    -> Text -- ^ 'aniInstanceId'
+    -> Int -- ^ 'aniDeviceIndex'
+    -> AttachNetworkInterface
 attachNetworkInterface pNetworkInterfaceId_ pInstanceId_ pDeviceIndex_ =
     AttachNetworkInterface'
     { _aniDryRun = Nothing
@@ -76,8 +80,8 @@ attachNetworkInterface pNetworkInterfaceId_ pInstanceId_ pDeviceIndex_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 aniDryRun :: Lens' AttachNetworkInterface (Maybe Bool)
 aniDryRun = lens _aniDryRun (\ s a -> s{_aniDryRun = a});
 
@@ -122,19 +126,21 @@ instance ToQuery AttachNetworkInterface where
                "DeviceIndex" =: _aniDeviceIndex]
 
 -- | /See:/ 'attachNetworkInterfaceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'anirsAttachmentId'
---
--- * 'anirsStatus'
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
     { _anirsAttachmentId :: !(Maybe Text)
     , _anirsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachNetworkInterfaceResponse' smart constructor.
-attachNetworkInterfaceResponse :: Int -> AttachNetworkInterfaceResponse
+-- | Creates a value of 'AttachNetworkInterfaceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'anirsAttachmentId'
+--
+-- * 'anirsStatus'
+attachNetworkInterfaceResponse
+    :: Int -- ^ 'anirsStatus'
+    -> AttachNetworkInterfaceResponse
 attachNetworkInterfaceResponse pStatus_ =
     AttachNetworkInterfaceResponse'
     { _anirsAttachmentId = Nothing
@@ -145,6 +151,6 @@ attachNetworkInterfaceResponse pStatus_ =
 anirsAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anirsAttachmentId = lens _anirsAttachmentId (\ s a -> s{_anirsAttachmentId = a});
 
--- | Undocumented member.
+-- | The response status code.
 anirsStatus :: Lens' AttachNetworkInterfaceResponse Int
 anirsStatus = lens _anirsStatus (\ s a -> s{_anirsStatus = a});

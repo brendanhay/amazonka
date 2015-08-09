@@ -25,15 +25,15 @@
 module Network.AWS.CloudWatchLogs.DeleteLogStream
     (
     -- * Creating a Request
-      DeleteLogStream
-    , deleteLogStream
+      deleteLogStream
+    , DeleteLogStream
     -- * Request Lenses
     , dlsLogGroupName
     , dlsLogStreamName
 
     -- * Destructuring the Response
-    , DeleteLogStreamResponse
     , deleteLogStreamResponse
+    , DeleteLogStreamResponse
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -43,19 +43,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteLogStream' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlsLogGroupName'
---
--- * 'dlsLogStreamName'
 data DeleteLogStream = DeleteLogStream'
     { _dlsLogGroupName  :: !Text
     , _dlsLogStreamName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLogStream' smart constructor.
-deleteLogStream :: Text -> Text -> DeleteLogStream
+-- | Creates a value of 'DeleteLogStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlsLogGroupName'
+--
+-- * 'dlsLogStreamName'
+deleteLogStream
+    :: Text -- ^ 'dlsLogGroupName'
+    -> Text -- ^ 'dlsLogStreamName'
+    -> DeleteLogStream
 deleteLogStream pLogGroupName_ pLogStreamName_ =
     DeleteLogStream'
     { _dlsLogGroupName = pLogGroupName_
@@ -102,6 +105,8 @@ data DeleteLogStreamResponse =
     DeleteLogStreamResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLogStreamResponse' smart constructor.
-deleteLogStreamResponse :: DeleteLogStreamResponse
+-- | Creates a value of 'DeleteLogStreamResponse' with the minimum fields required to make a request.
+--
+deleteLogStreamResponse
+    :: DeleteLogStreamResponse
 deleteLogStreamResponse = DeleteLogStreamResponse'

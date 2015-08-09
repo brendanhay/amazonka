@@ -27,14 +27,14 @@
 module Network.AWS.IAM.DeleteAccountAlias
     (
     -- * Creating a Request
-      DeleteAccountAlias
-    , deleteAccountAlias
+      deleteAccountAlias
+    , DeleteAccountAlias
     -- * Request Lenses
     , daaAccountAlias
 
     -- * Destructuring the Response
-    , DeleteAccountAliasResponse
     , deleteAccountAliasResponse
+    , DeleteAccountAliasResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -44,16 +44,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteAccountAlias' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daaAccountAlias'
 newtype DeleteAccountAlias = DeleteAccountAlias'
     { _daaAccountAlias :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAccountAlias' smart constructor.
-deleteAccountAlias :: Text -> DeleteAccountAlias
+-- | Creates a value of 'DeleteAccountAlias' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daaAccountAlias'
+deleteAccountAlias
+    :: Text -- ^ 'daaAccountAlias'
+    -> DeleteAccountAlias
 deleteAccountAlias pAccountAlias_ =
     DeleteAccountAlias'
     { _daaAccountAlias = pAccountAlias_
@@ -88,6 +90,8 @@ data DeleteAccountAliasResponse =
     DeleteAccountAliasResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAccountAliasResponse' smart constructor.
-deleteAccountAliasResponse :: DeleteAccountAliasResponse
+-- | Creates a value of 'DeleteAccountAliasResponse' with the minimum fields required to make a request.
+--
+deleteAccountAliasResponse
+    :: DeleteAccountAliasResponse
 deleteAccountAliasResponse = DeleteAccountAliasResponse'

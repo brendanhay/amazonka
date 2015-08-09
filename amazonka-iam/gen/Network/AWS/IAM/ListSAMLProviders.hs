@@ -27,12 +27,12 @@
 module Network.AWS.IAM.ListSAMLProviders
     (
     -- * Creating a Request
-      ListSAMLProviders
-    , listSAMLProviders
+      listSAMLProviders
+    , ListSAMLProviders
 
     -- * Destructuring the Response
-    , ListSAMLProvidersResponse
     , listSAMLProvidersResponse
+    , ListSAMLProvidersResponse
     -- * Response Lenses
     , lsamlprsSAMLProviderList
     , lsamlprsStatus
@@ -49,8 +49,10 @@ data ListSAMLProviders =
     ListSAMLProviders'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListSAMLProviders' smart constructor.
-listSAMLProviders :: ListSAMLProviders
+-- | Creates a value of 'ListSAMLProviders' with the minimum fields required to make a request.
+--
+listSAMLProviders
+    :: ListSAMLProviders
 listSAMLProviders = ListSAMLProviders'
 
 instance AWSRequest ListSAMLProviders where
@@ -81,19 +83,21 @@ instance ToQuery ListSAMLProviders where
 -- | Contains the response to a successful ListSAMLProviders request.
 --
 -- /See:/ 'listSAMLProvidersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsamlprsSAMLProviderList'
---
--- * 'lsamlprsStatus'
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
     { _lsamlprsSAMLProviderList :: !(Maybe [SAMLProviderListEntry])
     , _lsamlprsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListSAMLProvidersResponse' smart constructor.
-listSAMLProvidersResponse :: Int -> ListSAMLProvidersResponse
+-- | Creates a value of 'ListSAMLProvidersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsamlprsSAMLProviderList'
+--
+-- * 'lsamlprsStatus'
+listSAMLProvidersResponse
+    :: Int -- ^ 'lsamlprsStatus'
+    -> ListSAMLProvidersResponse
 listSAMLProvidersResponse pStatus_ =
     ListSAMLProvidersResponse'
     { _lsamlprsSAMLProviderList = Nothing
@@ -104,6 +108,6 @@ listSAMLProvidersResponse pStatus_ =
 lsamlprsSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
 lsamlprsSAMLProviderList = lens _lsamlprsSAMLProviderList (\ s a -> s{_lsamlprsSAMLProviderList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lsamlprsStatus :: Lens' ListSAMLProvidersResponse Int
 lsamlprsStatus = lens _lsamlprsStatus (\ s a -> s{_lsamlprsStatus = a});

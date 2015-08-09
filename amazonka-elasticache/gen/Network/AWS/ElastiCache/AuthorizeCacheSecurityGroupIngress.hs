@@ -30,16 +30,16 @@
 module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     (
     -- * Creating a Request
-      AuthorizeCacheSecurityGroupIngress
-    , authorizeCacheSecurityGroupIngress
+      authorizeCacheSecurityGroupIngress
+    , AuthorizeCacheSecurityGroupIngress
     -- * Request Lenses
     , acsgiCacheSecurityGroupName
     , acsgiEC2SecurityGroupName
     , acsgiEC2SecurityGroupOwnerId
 
     -- * Destructuring the Response
-    , AuthorizeCacheSecurityGroupIngressResponse
     , authorizeCacheSecurityGroupIngressResponse
+    , AuthorizeCacheSecurityGroupIngressResponse
     -- * Response Lenses
     , acsgirsCacheSecurityGroup
     , acsgirsStatus
@@ -54,22 +54,26 @@ import           Network.AWS.Response
 -- | Represents the input of an /AuthorizeCacheSecurityGroupIngress/ action.
 --
 -- /See:/ 'authorizeCacheSecurityGroupIngress' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'acsgiCacheSecurityGroupName'
---
--- * 'acsgiEC2SecurityGroupName'
---
--- * 'acsgiEC2SecurityGroupOwnerId'
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
     { _acsgiCacheSecurityGroupName  :: !Text
     , _acsgiEC2SecurityGroupName    :: !Text
     , _acsgiEC2SecurityGroupOwnerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AuthorizeCacheSecurityGroupIngress' smart constructor.
-authorizeCacheSecurityGroupIngress :: Text -> Text -> Text -> AuthorizeCacheSecurityGroupIngress
+-- | Creates a value of 'AuthorizeCacheSecurityGroupIngress' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acsgiCacheSecurityGroupName'
+--
+-- * 'acsgiEC2SecurityGroupName'
+--
+-- * 'acsgiEC2SecurityGroupOwnerId'
+authorizeCacheSecurityGroupIngress
+    :: Text -- ^ 'acsgiCacheSecurityGroupName'
+    -> Text -- ^ 'acsgiEC2SecurityGroupName'
+    -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
+    -> AuthorizeCacheSecurityGroupIngress
 authorizeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupName_ pEC2SecurityGroupOwnerId_ =
     AuthorizeCacheSecurityGroupIngress'
     { _acsgiCacheSecurityGroupName = pCacheSecurityGroupName_
@@ -128,19 +132,21 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress
                  _acsgiEC2SecurityGroupOwnerId]
 
 -- | /See:/ 'authorizeCacheSecurityGroupIngressResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'acsgirsCacheSecurityGroup'
---
--- * 'acsgirsStatus'
 data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'
     { _acsgirsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
     , _acsgirsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AuthorizeCacheSecurityGroupIngressResponse' smart constructor.
-authorizeCacheSecurityGroupIngressResponse :: Int -> AuthorizeCacheSecurityGroupIngressResponse
+-- | Creates a value of 'AuthorizeCacheSecurityGroupIngressResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acsgirsCacheSecurityGroup'
+--
+-- * 'acsgirsStatus'
+authorizeCacheSecurityGroupIngressResponse
+    :: Int -- ^ 'acsgirsStatus'
+    -> AuthorizeCacheSecurityGroupIngressResponse
 authorizeCacheSecurityGroupIngressResponse pStatus_ =
     AuthorizeCacheSecurityGroupIngressResponse'
     { _acsgirsCacheSecurityGroup = Nothing
@@ -151,6 +157,6 @@ authorizeCacheSecurityGroupIngressResponse pStatus_ =
 acsgirsCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 acsgirsCacheSecurityGroup = lens _acsgirsCacheSecurityGroup (\ s a -> s{_acsgirsCacheSecurityGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 acsgirsStatus :: Lens' AuthorizeCacheSecurityGroupIngressResponse Int
 acsgirsStatus = lens _acsgirsStatus (\ s a -> s{_acsgirsStatus = a});

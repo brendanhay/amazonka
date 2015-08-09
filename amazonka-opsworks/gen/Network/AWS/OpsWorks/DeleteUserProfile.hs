@@ -29,14 +29,14 @@
 module Network.AWS.OpsWorks.DeleteUserProfile
     (
     -- * Creating a Request
-      DeleteUserProfile
-    , deleteUserProfile
+      deleteUserProfile
+    , DeleteUserProfile
     -- * Request Lenses
     , dupIAMUserARN
 
     -- * Destructuring the Response
-    , DeleteUserProfileResponse
     , deleteUserProfileResponse
+    , DeleteUserProfileResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -46,16 +46,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteUserProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dupIAMUserARN'
 newtype DeleteUserProfile = DeleteUserProfile'
     { _dupIAMUserARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteUserProfile' smart constructor.
-deleteUserProfile :: Text -> DeleteUserProfile
+-- | Creates a value of 'DeleteUserProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dupIAMUserARN'
+deleteUserProfile
+    :: Text -- ^ 'dupIAMUserARN'
+    -> DeleteUserProfile
 deleteUserProfile pIAMUserARN_ =
     DeleteUserProfile'
     { _dupIAMUserARN = pIAMUserARN_
@@ -96,6 +98,8 @@ data DeleteUserProfileResponse =
     DeleteUserProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteUserProfileResponse' smart constructor.
-deleteUserProfileResponse :: DeleteUserProfileResponse
+-- | Creates a value of 'DeleteUserProfileResponse' with the minimum fields required to make a request.
+--
+deleteUserProfileResponse
+    :: DeleteUserProfileResponse
 deleteUserProfileResponse = DeleteUserProfileResponse'

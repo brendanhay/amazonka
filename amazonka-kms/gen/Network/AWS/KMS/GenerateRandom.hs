@@ -24,14 +24,14 @@
 module Network.AWS.KMS.GenerateRandom
     (
     -- * Creating a Request
-      GenerateRandom
-    , generateRandom
+      generateRandom
+    , GenerateRandom
     -- * Request Lenses
     , grNumberOfBytes
 
     -- * Destructuring the Response
-    , GenerateRandomResponse
     , generateRandomResponse
+    , GenerateRandomResponse
     -- * Response Lenses
     , grrsPlaintext
     , grrsStatus
@@ -44,16 +44,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'generateRandom' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grNumberOfBytes'
 newtype GenerateRandom = GenerateRandom'
     { _grNumberOfBytes :: Maybe Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GenerateRandom' smart constructor.
-generateRandom :: GenerateRandom
+-- | Creates a value of 'GenerateRandom' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grNumberOfBytes'
+generateRandom
+    :: GenerateRandom
 generateRandom =
     GenerateRandom'
     { _grNumberOfBytes = Nothing
@@ -94,19 +95,21 @@ instance ToQuery GenerateRandom where
         toQuery = const mempty
 
 -- | /See:/ 'generateRandomResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grrsPlaintext'
---
--- * 'grrsStatus'
 data GenerateRandomResponse = GenerateRandomResponse'
     { _grrsPlaintext :: !(Maybe (Sensitive Base64))
     , _grrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GenerateRandomResponse' smart constructor.
-generateRandomResponse :: Int -> GenerateRandomResponse
+-- | Creates a value of 'GenerateRandomResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grrsPlaintext'
+--
+-- * 'grrsStatus'
+generateRandomResponse
+    :: Int -- ^ 'grrsStatus'
+    -> GenerateRandomResponse
 generateRandomResponse pStatus_ =
     GenerateRandomResponse'
     { _grrsPlaintext = Nothing
@@ -117,6 +120,6 @@ generateRandomResponse pStatus_ =
 grrsPlaintext :: Lens' GenerateRandomResponse (Maybe ByteString)
 grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping (_Sensitive . _Base64);
 
--- | Undocumented member.
+-- | The response status code.
 grrsStatus :: Lens' GenerateRandomResponse Int
 grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});

@@ -33,16 +33,16 @@
 module Network.AWS.EC2.DisassociateAddress
     (
     -- * Creating a Request
-      DisassociateAddress
-    , disassociateAddress
+      disassociateAddress
+    , DisassociateAddress
     -- * Request Lenses
     , dasAssociationId
     , dasPublicIP
     , dasDryRun
 
     -- * Destructuring the Response
-    , DisassociateAddressResponse
     , disassociateAddressResponse
+    , DisassociateAddressResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,22 +52,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'disassociateAddress' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dasAssociationId'
---
--- * 'dasPublicIP'
---
--- * 'dasDryRun'
 data DisassociateAddress = DisassociateAddress'
     { _dasAssociationId :: !(Maybe Text)
     , _dasPublicIP      :: !(Maybe Text)
     , _dasDryRun        :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisassociateAddress' smart constructor.
-disassociateAddress :: DisassociateAddress
+-- | Creates a value of 'DisassociateAddress' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dasAssociationId'
+--
+-- * 'dasPublicIP'
+--
+-- * 'dasDryRun'
+disassociateAddress
+    :: DisassociateAddress
 disassociateAddress =
     DisassociateAddress'
     { _dasAssociationId = Nothing
@@ -85,8 +86,8 @@ dasPublicIP = lens _dasPublicIP (\ s a -> s{_dasPublicIP = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dasDryRun :: Lens' DisassociateAddress (Maybe Bool)
 dasDryRun = lens _dasDryRun (\ s a -> s{_dasDryRun = a});
 
@@ -116,6 +117,8 @@ data DisassociateAddressResponse =
     DisassociateAddressResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisassociateAddressResponse' smart constructor.
-disassociateAddressResponse :: DisassociateAddressResponse
+-- | Creates a value of 'DisassociateAddressResponse' with the minimum fields required to make a request.
+--
+disassociateAddressResponse
+    :: DisassociateAddressResponse
 disassociateAddressResponse = DisassociateAddressResponse'

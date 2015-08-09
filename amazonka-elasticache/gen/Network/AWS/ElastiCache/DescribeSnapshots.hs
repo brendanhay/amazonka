@@ -24,11 +24,13 @@
 -- associated with a particular cache cluster.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeSnapshots.html AWS API Reference> for DescribeSnapshots.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeSnapshots
     (
     -- * Creating a Request
-      DescribeSnapshots
-    , describeSnapshots
+      describeSnapshots
+    , DescribeSnapshots
     -- * Request Lenses
     , dsCacheClusterId
     , dsMaxRecords
@@ -37,8 +39,8 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     , dsSnapshotSource
 
     -- * Destructuring the Response
-    , DescribeSnapshotsResponse
     , describeSnapshotsResponse
+    , DescribeSnapshotsResponse
     -- * Response Lenses
     , dssrsSnapshots
     , dssrsMarker
@@ -55,8 +57,17 @@ import           Network.AWS.Response
 -- | Represents the input of a /DescribeSnapshotsMessage/ action.
 --
 -- /See:/ 'describeSnapshots' smart constructor.
+data DescribeSnapshots = DescribeSnapshots'
+    { _dsCacheClusterId :: !(Maybe Text)
+    , _dsMaxRecords     :: !(Maybe Int)
+    , _dsMarker         :: !(Maybe Text)
+    , _dsSnapshotName   :: !(Maybe Text)
+    , _dsSnapshotSource :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeSnapshots' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsCacheClusterId'
 --
@@ -67,16 +78,8 @@ import           Network.AWS.Response
 -- * 'dsSnapshotName'
 --
 -- * 'dsSnapshotSource'
-data DescribeSnapshots = DescribeSnapshots'
-    { _dsCacheClusterId :: !(Maybe Text)
-    , _dsMaxRecords     :: !(Maybe Int)
-    , _dsMarker         :: !(Maybe Text)
-    , _dsSnapshotName   :: !(Maybe Text)
-    , _dsSnapshotSource :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeSnapshots' smart constructor.
-describeSnapshots :: DescribeSnapshots
+describeSnapshots
+    :: DescribeSnapshots
 describeSnapshots =
     DescribeSnapshots'
     { _dsCacheClusterId = Nothing
@@ -92,7 +95,7 @@ dsCacheClusterId :: Lens' DescribeSnapshots (Maybe Text)
 dsCacheClusterId = lens _dsCacheClusterId (\ s a -> s{_dsCacheClusterId = a});
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a marker is
+-- records exist than the specified 'MaxRecords' value, a marker is
 -- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 50
@@ -113,8 +116,8 @@ dsMarker = lens _dsMarker (\ s a -> s{_dsMarker = a});
 dsSnapshotName :: Lens' DescribeSnapshots (Maybe Text)
 dsSnapshotName = lens _dsSnapshotName (\ s a -> s{_dsSnapshotName = a});
 
--- | If set to @system@, the output shows snapshots that were automatically
--- created by ElastiCache. If set to @user@ the output shows snapshots that
+-- | If set to 'system', the output shows snapshots that were automatically
+-- created by ElastiCache. If set to 'user' the output shows snapshots that
 -- were manually created. If omitted, the output shows both automatically
 -- and manually created snapshots.
 dsSnapshotSource :: Lens' DescribeSnapshots (Maybe Text)
@@ -159,22 +162,24 @@ instance ToQuery DescribeSnapshots where
 -- | Represents the output of a /DescribeSnapshots/ action.
 --
 -- /See:/ 'describeSnapshotsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dssrsSnapshots'
---
--- * 'dssrsMarker'
---
--- * 'dssrsStatus'
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
     { _dssrsSnapshots :: !(Maybe [Snapshot])
     , _dssrsMarker    :: !(Maybe Text)
     , _dssrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSnapshotsResponse' smart constructor.
-describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
+-- | Creates a value of 'DescribeSnapshotsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dssrsSnapshots'
+--
+-- * 'dssrsMarker'
+--
+-- * 'dssrsStatus'
+describeSnapshotsResponse
+    :: Int -- ^ 'dssrsStatus'
+    -> DescribeSnapshotsResponse
 describeSnapshotsResponse pStatus_ =
     DescribeSnapshotsResponse'
     { _dssrsSnapshots = Nothing
@@ -194,6 +199,6 @@ dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Defau
 dssrsMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dssrsMarker = lens _dssrsMarker (\ s a -> s{_dssrsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dssrsStatus :: Lens' DescribeSnapshotsResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

@@ -25,8 +25,18 @@ import           Network.AWS.Prelude
 -- request. The result includes a representation of a CloudTrail event.
 --
 -- /See:/ 'event' smart constructor.
+data Event = Event'
+    { _eUsername        :: !(Maybe Text)
+    , _eEventTime       :: !(Maybe POSIX)
+    , _eResources       :: !(Maybe [Resource])
+    , _eCloudTrailEvent :: !(Maybe Text)
+    , _eEventName       :: !(Maybe Text)
+    , _eEventId         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eUsername'
 --
@@ -39,17 +49,8 @@ import           Network.AWS.Prelude
 -- * 'eEventName'
 --
 -- * 'eEventId'
-data Event = Event'
-    { _eUsername        :: !(Maybe Text)
-    , _eEventTime       :: !(Maybe POSIX)
-    , _eResources       :: !(Maybe [Resource])
-    , _eCloudTrailEvent :: !(Maybe Text)
-    , _eEventName       :: !(Maybe Text)
-    , _eEventId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Event' smart constructor.
-event :: Event
+event
+    :: Event
 event =
     Event'
     { _eUsername = Nothing
@@ -99,19 +100,22 @@ instance FromJSON Event where
 -- | Specifies an attribute and value that filter the events returned.
 --
 -- /See:/ 'lookupAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'laAttributeKey'
---
--- * 'laAttributeValue'
 data LookupAttribute = LookupAttribute'
     { _laAttributeKey   :: !LookupAttributeKey
     , _laAttributeValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LookupAttribute' smart constructor.
-lookupAttribute :: LookupAttributeKey -> Text -> LookupAttribute
+-- | Creates a value of 'LookupAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'laAttributeKey'
+--
+-- * 'laAttributeValue'
+lookupAttribute
+    :: LookupAttributeKey -- ^ 'laAttributeKey'
+    -> Text -- ^ 'laAttributeValue'
+    -> LookupAttribute
 lookupAttribute pAttributeKey_ pAttributeValue_ =
     LookupAttribute'
     { _laAttributeKey = pAttributeKey_
@@ -135,19 +139,20 @@ instance ToJSON LookupAttribute where
 -- | Specifies the type and name of a resource referenced by an event.
 --
 -- /See:/ 'resource' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rResourceType'
---
--- * 'rResourceName'
 data Resource = Resource'
     { _rResourceType :: !(Maybe Text)
     , _rResourceName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Resource' smart constructor.
-resource :: Resource
+-- | Creates a value of 'Resource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rResourceType'
+--
+-- * 'rResourceName'
+resource
+    :: Resource
 resource =
     Resource'
     { _rResourceType = Nothing
@@ -180,8 +185,19 @@ instance FromJSON Resource where
 -- | The settings for a trail.
 --
 -- /See:/ 'trail' smart constructor.
+data Trail = Trail'
+    { _tS3KeyPrefix                :: !(Maybe Text)
+    , _tSNSTopicName               :: !(Maybe Text)
+    , _tCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _tName                       :: !(Maybe Text)
+    , _tIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _tCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _tS3BucketName               :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Trail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tS3KeyPrefix'
 --
@@ -196,18 +212,8 @@ instance FromJSON Resource where
 -- * 'tCloudWatchLogsRoleARN'
 --
 -- * 'tS3BucketName'
-data Trail = Trail'
-    { _tS3KeyPrefix                :: !(Maybe Text)
-    , _tSNSTopicName               :: !(Maybe Text)
-    , _tCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _tName                       :: !(Maybe Text)
-    , _tIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _tCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _tS3BucketName               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Trail' smart constructor.
-trail :: Trail
+trail
+    :: Trail
 trail =
     Trail'
     { _tS3KeyPrefix = Nothing

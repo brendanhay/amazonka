@@ -31,9 +31,9 @@
 -- the 5 MB limit. Submitting a large volume of single-document batches can
 -- overload a domain\'s document service.
 --
--- The endpoint for submitting @UploadDocuments@ requests is
+-- The endpoint for submitting 'UploadDocuments' requests is
 -- domain-specific. To get the document endpoint for your domain, use the
--- Amazon CloudSearch configuration service @DescribeDomains@ action. A
+-- Amazon CloudSearch configuration service 'DescribeDomains' action. A
 -- domain\'s endpoints are also displayed on the domain dashboard in the
 -- Amazon CloudSearch console.
 --
@@ -49,15 +49,15 @@
 module Network.AWS.CloudSearchDomains.UploadDocuments
     (
     -- * Creating a Request
-      UploadDocuments
-    , uploadDocuments
+      uploadDocuments
+    , UploadDocuments
     -- * Request Lenses
     , udContentType
     , udDocuments
 
     -- * Destructuring the Response
-    , UploadDocumentsResponse
     , uploadDocumentsResponse
+    , UploadDocumentsResponse
     -- * Response Lenses
     , udrsAdds
     , udrsWarnings
@@ -71,22 +71,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @UploadDocuments@ request.
+-- | Container for the parameters to the 'UploadDocuments' request.
 --
 -- /See:/ 'uploadDocuments' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udContentType'
---
--- * 'udDocuments'
 data UploadDocuments = UploadDocuments'
     { _udContentType :: !ContentType
     , _udDocuments   :: !RqBody
     } deriving (Show,Generic)
 
--- | 'UploadDocuments' smart constructor.
-uploadDocuments :: ContentType -> RqBody -> UploadDocuments
+-- | Creates a value of 'UploadDocuments' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udContentType'
+--
+-- * 'udDocuments'
+uploadDocuments
+    :: ContentType -- ^ 'udContentType'
+    -> RqBody -- ^ 'udDocuments'
+    -> UploadDocuments
 uploadDocuments pContentType_ pDocuments_ =
     UploadDocuments'
     { _udContentType = pContentType_
@@ -133,11 +136,19 @@ instance ToPath UploadDocuments where
 instance ToQuery UploadDocuments where
         toQuery = const (mconcat ["format=sdk"])
 
--- | Contains the response to an @UploadDocuments@ request.
+-- | Contains the response to an 'UploadDocuments' request.
 --
 -- /See:/ 'uploadDocumentsResponse' smart constructor.
+data UploadDocumentsResponse = UploadDocumentsResponse'
+    { _udrsAdds     :: !(Maybe Integer)
+    , _udrsWarnings :: !(Maybe [DocumentServiceWarning])
+    , _udrsDeletes  :: !(Maybe Integer)
+    , _udrsStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UploadDocumentsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'udrsAdds'
 --
@@ -146,15 +157,9 @@ instance ToQuery UploadDocuments where
 -- * 'udrsDeletes'
 --
 -- * 'udrsStatus'
-data UploadDocumentsResponse = UploadDocumentsResponse'
-    { _udrsAdds     :: !(Maybe Integer)
-    , _udrsWarnings :: !(Maybe [DocumentServiceWarning])
-    , _udrsDeletes  :: !(Maybe Integer)
-    , _udrsStatus   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UploadDocumentsResponse' smart constructor.
-uploadDocumentsResponse :: Int -> UploadDocumentsResponse
+uploadDocumentsResponse
+    :: Int -- ^ 'udrsStatus'
+    -> UploadDocumentsResponse
 uploadDocumentsResponse pStatus_ =
     UploadDocumentsResponse'
     { _udrsAdds = Nothing
@@ -176,6 +181,6 @@ udrsWarnings = lens _udrsWarnings (\ s a -> s{_udrsWarnings = a}) . _Default . _
 udrsDeletes :: Lens' UploadDocumentsResponse (Maybe Integer)
 udrsDeletes = lens _udrsDeletes (\ s a -> s{_udrsDeletes = a});
 
--- | Undocumented member.
+-- | The response status code.
 udrsStatus :: Lens' UploadDocumentsResponse Int
 udrsStatus = lens _udrsStatus (\ s a -> s{_udrsStatus = a});

@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes an @IndexField@ from the search domain. For more information,
+-- Removes an 'IndexField' from the search domain. For more information,
 -- see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
 -- in the /Amazon CloudSearch Developer Guide/.
@@ -27,15 +27,15 @@
 module Network.AWS.CloudSearch.DeleteIndexField
     (
     -- * Creating a Request
-      DeleteIndexField
-    , deleteIndexField
+      deleteIndexField
+    , DeleteIndexField
     -- * Request Lenses
     , difiDomainName
     , difiIndexFieldName
 
     -- * Destructuring the Response
-    , DeleteIndexFieldResponse
     , deleteIndexFieldResponse
+    , DeleteIndexFieldResponse
     -- * Response Lenses
     , difrsStatus
     , difrsIndexField
@@ -47,24 +47,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DeleteIndexField@ operation.
+-- | Container for the parameters to the 'DeleteIndexField' operation.
 -- Specifies the name of the domain you want to update and the name of the
 -- index field you want to delete.
 --
 -- /See:/ 'deleteIndexField' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'difiDomainName'
---
--- * 'difiIndexFieldName'
 data DeleteIndexField = DeleteIndexField'
     { _difiDomainName     :: !Text
     , _difiIndexFieldName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteIndexField' smart constructor.
-deleteIndexField :: Text -> Text -> DeleteIndexField
+-- | Creates a value of 'DeleteIndexField' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'difiDomainName'
+--
+-- * 'difiIndexFieldName'
+deleteIndexField
+    :: Text -- ^ 'difiDomainName'
+    -> Text -- ^ 'difiIndexFieldName'
+    -> DeleteIndexField
 deleteIndexField pDomainName_ pIndexFieldName_ =
     DeleteIndexField'
     { _difiDomainName = pDomainName_
@@ -104,29 +107,32 @@ instance ToQuery DeleteIndexField where
                "DomainName" =: _difiDomainName,
                "IndexFieldName" =: _difiIndexFieldName]
 
--- | The result of a @DeleteIndexField@ request.
+-- | The result of a 'DeleteIndexField' request.
 --
 -- /See:/ 'deleteIndexFieldResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'difrsStatus'
---
--- * 'difrsIndexField'
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
     { _difrsStatus     :: !Int
     , _difrsIndexField :: !IndexFieldStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteIndexFieldResponse' smart constructor.
-deleteIndexFieldResponse :: Int -> IndexFieldStatus -> DeleteIndexFieldResponse
+-- | Creates a value of 'DeleteIndexFieldResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'difrsStatus'
+--
+-- * 'difrsIndexField'
+deleteIndexFieldResponse
+    :: Int -- ^ 'difrsStatus'
+    -> IndexFieldStatus -- ^ 'difrsIndexField'
+    -> DeleteIndexFieldResponse
 deleteIndexFieldResponse pStatus_ pIndexField_ =
     DeleteIndexFieldResponse'
     { _difrsStatus = pStatus_
     , _difrsIndexField = pIndexField_
     }
 
--- | Undocumented member.
+-- | The response status code.
 difrsStatus :: Lens' DeleteIndexFieldResponse Int
 difrsStatus = lens _difrsStatus (\ s a -> s{_difrsStatus = a});
 

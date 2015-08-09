@@ -18,10 +18,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To update the hosted zone comment, send a @POST@ request to the
--- @2013-04-01\/hostedzone\/hosted zone ID@ resource. The request body must
--- include an XML document with a @UpdateHostedZoneCommentRequest@ element.
--- The response to this request includes the modified @HostedZone@ element.
+-- To update the hosted zone comment, send a 'POST' request to the
+-- '2013-04-01\/hostedzone\/hosted zone ID' resource. The request body must
+-- include an XML document with a 'UpdateHostedZoneCommentRequest' element.
+-- The response to this request includes the modified 'HostedZone' element.
 --
 -- The comment can have a maximum length of 256 characters.
 --
@@ -29,15 +29,15 @@
 module Network.AWS.Route53.UpdateHostedZoneComment
     (
     -- * Creating a Request
-      UpdateHostedZoneComment
-    , updateHostedZoneComment
+      updateHostedZoneComment
+    , UpdateHostedZoneComment
     -- * Request Lenses
     , uhzcComment
     , uhzcId
 
     -- * Destructuring the Response
-    , UpdateHostedZoneCommentResponse
     , updateHostedZoneCommentResponse
+    , UpdateHostedZoneCommentResponse
     -- * Response Lenses
     , uhzcrsStatus
     , uhzcrsHostedZone
@@ -53,19 +53,21 @@ import           Network.AWS.Route53.Types.Product
 -- hosted zone comment.
 --
 -- /See:/ 'updateHostedZoneComment' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uhzcComment'
---
--- * 'uhzcId'
 data UpdateHostedZoneComment = UpdateHostedZoneComment'
     { _uhzcComment :: !(Maybe Text)
     , _uhzcId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateHostedZoneComment' smart constructor.
-updateHostedZoneComment :: Text -> UpdateHostedZoneComment
+-- | Creates a value of 'UpdateHostedZoneComment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uhzcComment'
+--
+-- * 'uhzcId'
+updateHostedZoneComment
+    :: Text -- ^ 'uhzcId'
+    -> UpdateHostedZoneComment
 updateHostedZoneComment pId_ =
     UpdateHostedZoneComment'
     { _uhzcComment = Nothing
@@ -114,26 +116,29 @@ instance ToXML UpdateHostedZoneComment where
 -- after the update.
 --
 -- /See:/ 'updateHostedZoneCommentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uhzcrsStatus'
---
--- * 'uhzcrsHostedZone'
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
     { _uhzcrsStatus     :: !Int
     , _uhzcrsHostedZone :: !HostedZone
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateHostedZoneCommentResponse' smart constructor.
-updateHostedZoneCommentResponse :: Int -> HostedZone -> UpdateHostedZoneCommentResponse
+-- | Creates a value of 'UpdateHostedZoneCommentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uhzcrsStatus'
+--
+-- * 'uhzcrsHostedZone'
+updateHostedZoneCommentResponse
+    :: Int -- ^ 'uhzcrsStatus'
+    -> HostedZone -- ^ 'uhzcrsHostedZone'
+    -> UpdateHostedZoneCommentResponse
 updateHostedZoneCommentResponse pStatus_ pHostedZone_ =
     UpdateHostedZoneCommentResponse'
     { _uhzcrsStatus = pStatus_
     , _uhzcrsHostedZone = pHostedZone_
     }
 
--- | Undocumented member.
+-- | The response status code.
 uhzcrsStatus :: Lens' UpdateHostedZoneCommentResponse Int
 uhzcrsStatus = lens _uhzcrsStatus (\ s a -> s{_uhzcrsStatus = a});
 

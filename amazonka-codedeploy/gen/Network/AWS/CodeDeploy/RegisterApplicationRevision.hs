@@ -24,16 +24,16 @@
 module Network.AWS.CodeDeploy.RegisterApplicationRevision
     (
     -- * Creating a Request
-      RegisterApplicationRevision
-    , registerApplicationRevision
+      registerApplicationRevision
+    , RegisterApplicationRevision
     -- * Request Lenses
     , rarDescription
     , rarApplicationName
     , rarRevision
 
     -- * Destructuring the Response
-    , RegisterApplicationRevisionResponse
     , registerApplicationRevisionResponse
+    , RegisterApplicationRevisionResponse
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -45,22 +45,25 @@ import           Network.AWS.Response
 -- | Represents the input of a register application revision operation.
 --
 -- /See:/ 'registerApplicationRevision' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rarDescription'
---
--- * 'rarApplicationName'
---
--- * 'rarRevision'
 data RegisterApplicationRevision = RegisterApplicationRevision'
     { _rarDescription     :: !(Maybe Text)
     , _rarApplicationName :: !Text
     , _rarRevision        :: !RevisionLocation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterApplicationRevision' smart constructor.
-registerApplicationRevision :: Text -> RevisionLocation -> RegisterApplicationRevision
+-- | Creates a value of 'RegisterApplicationRevision' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rarDescription'
+--
+-- * 'rarApplicationName'
+--
+-- * 'rarRevision'
+registerApplicationRevision
+    :: Text -- ^ 'rarApplicationName'
+    -> RevisionLocation -- ^ 'rarRevision'
+    -> RegisterApplicationRevision
 registerApplicationRevision pApplicationName_ pRevision_ =
     RegisterApplicationRevision'
     { _rarDescription = Nothing
@@ -118,6 +121,8 @@ data RegisterApplicationRevisionResponse =
     RegisterApplicationRevisionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterApplicationRevisionResponse' smart constructor.
-registerApplicationRevisionResponse :: RegisterApplicationRevisionResponse
+-- | Creates a value of 'RegisterApplicationRevisionResponse' with the minimum fields required to make a request.
+--
+registerApplicationRevisionResponse
+    :: RegisterApplicationRevisionResponse
 registerApplicationRevisionResponse = RegisterApplicationRevisionResponse'

@@ -30,16 +30,16 @@
 module Network.AWS.EC2.CreateVPNGateway
     (
     -- * Creating a Request
-      CreateVPNGateway
-    , createVPNGateway
+      createVPNGateway
+    , CreateVPNGateway
     -- * Request Lenses
     , cvgAvailabilityZone
     , cvgDryRun
     , cvgType
 
     -- * Destructuring the Response
-    , CreateVPNGatewayResponse
     , createVPNGatewayResponse
+    , CreateVPNGatewayResponse
     -- * Response Lenses
     , cvgrsVPNGateway
     , cvgrsStatus
@@ -52,22 +52,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createVPNGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvgAvailabilityZone'
---
--- * 'cvgDryRun'
---
--- * 'cvgType'
 data CreateVPNGateway = CreateVPNGateway'
     { _cvgAvailabilityZone :: !(Maybe Text)
     , _cvgDryRun           :: !(Maybe Bool)
     , _cvgType             :: !GatewayType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVPNGateway' smart constructor.
-createVPNGateway :: GatewayType -> CreateVPNGateway
+-- | Creates a value of 'CreateVPNGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvgAvailabilityZone'
+--
+-- * 'cvgDryRun'
+--
+-- * 'cvgType'
+createVPNGateway
+    :: GatewayType -- ^ 'cvgType'
+    -> CreateVPNGateway
 createVPNGateway pType_ =
     CreateVPNGateway'
     { _cvgAvailabilityZone = Nothing
@@ -81,8 +83,8 @@ cvgAvailabilityZone = lens _cvgAvailabilityZone (\ s a -> s{_cvgAvailabilityZone
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cvgDryRun :: Lens' CreateVPNGateway (Maybe Bool)
 cvgDryRun = lens _cvgDryRun (\ s a -> s{_cvgDryRun = a});
 
@@ -115,19 +117,21 @@ instance ToQuery CreateVPNGateway where
                "DryRun" =: _cvgDryRun, "Type" =: _cvgType]
 
 -- | /See:/ 'createVPNGatewayResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvgrsVPNGateway'
---
--- * 'cvgrsStatus'
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
     { _cvgrsVPNGateway :: !(Maybe VPNGateway)
     , _cvgrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVPNGatewayResponse' smart constructor.
-createVPNGatewayResponse :: Int -> CreateVPNGatewayResponse
+-- | Creates a value of 'CreateVPNGatewayResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvgrsVPNGateway'
+--
+-- * 'cvgrsStatus'
+createVPNGatewayResponse
+    :: Int -- ^ 'cvgrsStatus'
+    -> CreateVPNGatewayResponse
 createVPNGatewayResponse pStatus_ =
     CreateVPNGatewayResponse'
     { _cvgrsVPNGateway = Nothing
@@ -138,6 +142,6 @@ createVPNGatewayResponse pStatus_ =
 cvgrsVPNGateway :: Lens' CreateVPNGatewayResponse (Maybe VPNGateway)
 cvgrsVPNGateway = lens _cvgrsVPNGateway (\ s a -> s{_cvgrsVPNGateway = a});
 
--- | Undocumented member.
+-- | The response status code.
 cvgrsStatus :: Lens' CreateVPNGatewayResponse Int
 cvgrsStatus = lens _cvgrsStatus (\ s a -> s{_cvgrsStatus = a});

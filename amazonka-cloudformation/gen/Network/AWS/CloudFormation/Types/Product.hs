@@ -24,22 +24,23 @@ import           Network.AWS.Prelude
 -- | The Output data type.
 --
 -- /See:/ 'output' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'oOutputValue'
---
--- * 'oOutputKey'
---
--- * 'oDescription'
 data Output = Output'
     { _oOutputValue :: !(Maybe Text)
     , _oOutputKey   :: !(Maybe Text)
     , _oDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Output' smart constructor.
-output :: Output
+-- | Creates a value of 'Output' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'oOutputValue'
+--
+-- * 'oOutputKey'
+--
+-- * 'oDescription'
+output
+    :: Output
 output =
     Output'
     { _oOutputValue = Nothing
@@ -68,22 +69,23 @@ instance FromXML Output where
 -- | The Parameter data type.
 --
 -- /See:/ 'parameter' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pParameterValue'
---
--- * 'pParameterKey'
---
--- * 'pUsePreviousValue'
 data Parameter = Parameter'
     { _pParameterValue   :: !(Maybe Text)
     , _pParameterKey     :: !(Maybe Text)
     , _pUsePreviousValue :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Parameter' smart constructor.
-parameter :: Parameter
+-- | Creates a value of 'Parameter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pParameterValue'
+--
+-- * 'pParameterKey'
+--
+-- * 'pUsePreviousValue'
+parameter
+    :: Parameter
 parameter =
     Parameter'
     { _pParameterValue = Nothing
@@ -102,7 +104,7 @@ pParameterKey :: Lens' Parameter (Maybe Text)
 pParameterKey = lens _pParameterKey (\ s a -> s{_pParameterKey = a});
 
 -- | During a stack update, use the existing parameter value that the stack
--- is using for a given parameter key. If you specify @true@, do not
+-- is using for a given parameter key. If you specify 'true', do not
 -- specify a parameter value.
 pUsePreviousValue :: Lens' Parameter (Maybe Bool)
 pUsePreviousValue = lens _pUsePreviousValue (\ s a -> s{_pUsePreviousValue = a});
@@ -122,19 +124,20 @@ instance ToQuery Parameter where
 
 -- | A set of criteria that AWS CloudFormation uses to validate parameter
 -- values. Although other constraints might be defined in the stack
--- template, AWS CloudFormation returns only the @AllowedValues@ property.
+-- template, AWS CloudFormation returns only the 'AllowedValues' property.
 --
 -- /See:/ 'parameterConstraints' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pcAllowedValues'
 newtype ParameterConstraints = ParameterConstraints'
     { _pcAllowedValues :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ParameterConstraints' smart constructor.
-parameterConstraints :: ParameterConstraints
+-- | Creates a value of 'ParameterConstraints' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcAllowedValues'
+parameterConstraints
+    :: ParameterConstraints
 parameterConstraints =
     ParameterConstraints'
     { _pcAllowedValues = Nothing
@@ -153,8 +156,18 @@ instance FromXML ParameterConstraints where
 -- | The ParameterDeclaration data type.
 --
 -- /See:/ 'parameterDeclaration' smart constructor.
+data ParameterDeclaration = ParameterDeclaration'
+    { _pdParameterKey         :: !(Maybe Text)
+    , _pdParameterType        :: !(Maybe Text)
+    , _pdParameterConstraints :: !(Maybe ParameterConstraints)
+    , _pdDefaultValue         :: !(Maybe Text)
+    , _pdNoEcho               :: !(Maybe Bool)
+    , _pdDescription          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ParameterDeclaration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pdParameterKey'
 --
@@ -167,17 +180,8 @@ instance FromXML ParameterConstraints where
 -- * 'pdNoEcho'
 --
 -- * 'pdDescription'
-data ParameterDeclaration = ParameterDeclaration'
-    { _pdParameterKey         :: !(Maybe Text)
-    , _pdParameterType        :: !(Maybe Text)
-    , _pdParameterConstraints :: !(Maybe ParameterConstraints)
-    , _pdDefaultValue         :: !(Maybe Text)
-    , _pdNoEcho               :: !(Maybe Bool)
-    , _pdDescription          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ParameterDeclaration' smart constructor.
-parameterDeclaration :: ParameterDeclaration
+parameterDeclaration
+    :: ParameterDeclaration
 parameterDeclaration =
     ParameterDeclaration'
     { _pdParameterKey = Nothing
@@ -225,8 +229,26 @@ instance FromXML ParameterDeclaration where
 -- | The Stack data type.
 --
 -- /See:/ 'stack' smart constructor.
+data Stack = Stack'
+    { _sDisableRollback   :: !(Maybe Bool)
+    , _sLastUpdatedTime   :: !(Maybe ISO8601)
+    , _sNotificationARNs  :: !(Maybe [Text])
+    , _sStackStatusReason :: !(Maybe Text)
+    , _sOutputs           :: !(Maybe [Output])
+    , _sParameters        :: !(Maybe [Parameter])
+    , _sStackId           :: !(Maybe Text)
+    , _sCapabilities      :: !(Maybe [Capability])
+    , _sDescription       :: !(Maybe Text)
+    , _sTags              :: !(Maybe [Tag])
+    , _sTimeoutInMinutes  :: !(Maybe Nat)
+    , _sStackName         :: !Text
+    , _sCreationTime      :: !ISO8601
+    , _sStackStatus       :: !StackStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Stack' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sDisableRollback'
 --
@@ -255,25 +277,11 @@ instance FromXML ParameterDeclaration where
 -- * 'sCreationTime'
 --
 -- * 'sStackStatus'
-data Stack = Stack'
-    { _sDisableRollback   :: !(Maybe Bool)
-    , _sLastUpdatedTime   :: !(Maybe ISO8601)
-    , _sNotificationARNs  :: !(Maybe [Text])
-    , _sStackStatusReason :: !(Maybe Text)
-    , _sOutputs           :: !(Maybe [Output])
-    , _sParameters        :: !(Maybe [Parameter])
-    , _sStackId           :: !(Maybe Text)
-    , _sCapabilities      :: !(Maybe [Capability])
-    , _sDescription       :: !(Maybe Text)
-    , _sTags              :: !(Maybe [Tag])
-    , _sTimeoutInMinutes  :: !(Maybe Nat)
-    , _sStackName         :: !Text
-    , _sCreationTime      :: !ISO8601
-    , _sStackStatus       :: !StackStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Stack' smart constructor.
-stack :: Text -> UTCTime -> StackStatus -> Stack
+stack
+    :: Text -- ^ 'sStackName'
+    -> UTCTime -- ^ 'sCreationTime'
+    -> StackStatus -- ^ 'sStackStatus'
+    -> Stack
 stack pStackName_ pCreationTime_ pStackStatus_ =
     Stack'
     { _sDisableRollback = Nothing
@@ -294,8 +302,8 @@ stack pStackName_ pCreationTime_ pStackStatus_ =
 
 -- | Boolean to enable or disable rollback on stack creation failures:
 --
--- -   @true@: disable rollback
--- -   @false@: enable rollback
+-- -   'true': disable rollback
+-- -   'false': enable rollback
 sDisableRollback :: Lens' Stack (Maybe Bool)
 sDisableRollback = lens _sDisableRollback (\ s a -> s{_sDisableRollback = a});
 
@@ -316,7 +324,7 @@ sStackStatusReason = lens _sStackStatusReason (\ s a -> s{_sStackStatusReason = 
 sOutputs :: Lens' Stack [Output]
 sOutputs = lens _sOutputs (\ s a -> s{_sOutputs = a}) . _Default . _Coerce;
 
--- | A list of @Parameter@ structures.
+-- | A list of 'Parameter' structures.
 sParameters :: Lens' Stack [Parameter]
 sParameters = lens _sParameters (\ s a -> s{_sParameters = a}) . _Default . _Coerce;
 
@@ -332,7 +340,7 @@ sCapabilities = lens _sCapabilities (\ s a -> s{_sCapabilities = a}) . _Default 
 sDescription :: Lens' Stack (Maybe Text)
 sDescription = lens _sDescription (\ s a -> s{_sDescription = a});
 
--- | A list of @Tag@s that specify cost allocation information for the stack.
+-- | A list of 'Tag's that specify cost allocation information for the stack.
 sTags :: Lens' Stack [Tag]
 sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
 
@@ -383,8 +391,22 @@ instance FromXML Stack where
 -- | The StackEvent data type.
 --
 -- /See:/ 'stackEvent' smart constructor.
+data StackEvent = StackEvent'
+    { _seLogicalResourceId    :: !(Maybe Text)
+    , _seResourceStatusReason :: !(Maybe Text)
+    , _seResourceType         :: !(Maybe Text)
+    , _sePhysicalResourceId   :: !(Maybe Text)
+    , _seResourceProperties   :: !(Maybe Text)
+    , _seResourceStatus       :: !(Maybe ResourceStatus)
+    , _seStackId              :: !Text
+    , _seEventId              :: !Text
+    , _seStackName            :: !Text
+    , _seTimestamp            :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackEvent' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'seLogicalResourceId'
 --
@@ -405,21 +427,12 @@ instance FromXML Stack where
 -- * 'seStackName'
 --
 -- * 'seTimestamp'
-data StackEvent = StackEvent'
-    { _seLogicalResourceId    :: !(Maybe Text)
-    , _seResourceStatusReason :: !(Maybe Text)
-    , _seResourceType         :: !(Maybe Text)
-    , _sePhysicalResourceId   :: !(Maybe Text)
-    , _seResourceProperties   :: !(Maybe Text)
-    , _seResourceStatus       :: !(Maybe ResourceStatus)
-    , _seStackId              :: !Text
-    , _seEventId              :: !Text
-    , _seStackName            :: !Text
-    , _seTimestamp            :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StackEvent' smart constructor.
-stackEvent :: Text -> Text -> Text -> UTCTime -> StackEvent
+stackEvent
+    :: Text -- ^ 'seStackId'
+    -> Text -- ^ 'seEventId'
+    -> Text -- ^ 'seStackName'
+    -> UTCTime -- ^ 'seTimestamp'
+    -> StackEvent
 stackEvent pStackId_ pEventId_ pStackName_ pTimestamp_ =
     StackEvent'
     { _seLogicalResourceId = Nothing
@@ -494,8 +507,21 @@ instance FromXML StackEvent where
 -- | The StackResource data type.
 --
 -- /See:/ 'stackResource' smart constructor.
+data StackResource = StackResource'
+    { _srResourceStatusReason :: !(Maybe Text)
+    , _srPhysicalResourceId   :: !(Maybe Text)
+    , _srStackId              :: !(Maybe Text)
+    , _srDescription          :: !(Maybe Text)
+    , _srStackName            :: !(Maybe Text)
+    , _srLogicalResourceId    :: !Text
+    , _srResourceType         :: !Text
+    , _srTimestamp            :: !ISO8601
+    , _srResourceStatus       :: !ResourceStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackResource' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'srResourceStatusReason'
 --
@@ -514,20 +540,12 @@ instance FromXML StackEvent where
 -- * 'srTimestamp'
 --
 -- * 'srResourceStatus'
-data StackResource = StackResource'
-    { _srResourceStatusReason :: !(Maybe Text)
-    , _srPhysicalResourceId   :: !(Maybe Text)
-    , _srStackId              :: !(Maybe Text)
-    , _srDescription          :: !(Maybe Text)
-    , _srStackName            :: !(Maybe Text)
-    , _srLogicalResourceId    :: !Text
-    , _srResourceType         :: !Text
-    , _srTimestamp            :: !ISO8601
-    , _srResourceStatus       :: !ResourceStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StackResource' smart constructor.
-stackResource :: Text -> Text -> UTCTime -> ResourceStatus -> StackResource
+stackResource
+    :: Text -- ^ 'srLogicalResourceId'
+    -> Text -- ^ 'srResourceType'
+    -> UTCTime -- ^ 'srTimestamp'
+    -> ResourceStatus -- ^ 'srResourceStatus'
+    -> StackResource
 stackResource pLogicalResourceId_ pResourceType_ pTimestamp_ pResourceStatus_ =
     StackResource'
     { _srResourceStatusReason = Nothing
@@ -596,8 +614,22 @@ instance FromXML StackResource where
 -- | Contains detailed information about the specified stack resource.
 --
 -- /See:/ 'stackResourceDetail' smart constructor.
+data StackResourceDetail = StackResourceDetail'
+    { _srdResourceStatusReason :: !(Maybe Text)
+    , _srdPhysicalResourceId   :: !(Maybe Text)
+    , _srdMetadata             :: !(Maybe Text)
+    , _srdStackId              :: !(Maybe Text)
+    , _srdDescription          :: !(Maybe Text)
+    , _srdStackName            :: !(Maybe Text)
+    , _srdLogicalResourceId    :: !Text
+    , _srdResourceType         :: !Text
+    , _srdLastUpdatedTimestamp :: !ISO8601
+    , _srdResourceStatus       :: !ResourceStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackResourceDetail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'srdResourceStatusReason'
 --
@@ -618,21 +650,12 @@ instance FromXML StackResource where
 -- * 'srdLastUpdatedTimestamp'
 --
 -- * 'srdResourceStatus'
-data StackResourceDetail = StackResourceDetail'
-    { _srdResourceStatusReason :: !(Maybe Text)
-    , _srdPhysicalResourceId   :: !(Maybe Text)
-    , _srdMetadata             :: !(Maybe Text)
-    , _srdStackId              :: !(Maybe Text)
-    , _srdDescription          :: !(Maybe Text)
-    , _srdStackName            :: !(Maybe Text)
-    , _srdLogicalResourceId    :: !Text
-    , _srdResourceType         :: !Text
-    , _srdLastUpdatedTimestamp :: !ISO8601
-    , _srdResourceStatus       :: !ResourceStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StackResourceDetail' smart constructor.
-stackResourceDetail :: Text -> Text -> UTCTime -> ResourceStatus -> StackResourceDetail
+stackResourceDetail
+    :: Text -- ^ 'srdLogicalResourceId'
+    -> Text -- ^ 'srdResourceType'
+    -> UTCTime -- ^ 'srdLastUpdatedTimestamp'
+    -> ResourceStatus -- ^ 'srdResourceStatus'
+    -> StackResourceDetail
 stackResourceDetail pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ pResourceStatus_ =
     StackResourceDetail'
     { _srdResourceStatusReason = Nothing
@@ -656,7 +679,7 @@ srdResourceStatusReason = lens _srdResourceStatusReason (\ s a -> s{_srdResource
 srdPhysicalResourceId :: Lens' StackResourceDetail (Maybe Text)
 srdPhysicalResourceId = lens _srdPhysicalResourceId (\ s a -> s{_srdPhysicalResourceId = a});
 
--- | The JSON format content of the @Metadata@ attribute declared for the
+-- | The JSON format content of the 'Metadata' attribute declared for the
 -- resource. For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute>
 -- in the AWS CloudFormation User Guide.
@@ -710,8 +733,18 @@ instance FromXML StackResourceDetail where
 -- | Contains high-level information about the specified stack resource.
 --
 -- /See:/ 'stackResourceSummary' smart constructor.
+data StackResourceSummary = StackResourceSummary'
+    { _srsResourceStatusReason :: !(Maybe Text)
+    , _srsPhysicalResourceId   :: !(Maybe Text)
+    , _srsLogicalResourceId    :: !Text
+    , _srsResourceType         :: !Text
+    , _srsLastUpdatedTimestamp :: !ISO8601
+    , _srsResourceStatus       :: !ResourceStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackResourceSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'srsResourceStatusReason'
 --
@@ -724,17 +757,12 @@ instance FromXML StackResourceDetail where
 -- * 'srsLastUpdatedTimestamp'
 --
 -- * 'srsResourceStatus'
-data StackResourceSummary = StackResourceSummary'
-    { _srsResourceStatusReason :: !(Maybe Text)
-    , _srsPhysicalResourceId   :: !(Maybe Text)
-    , _srsLogicalResourceId    :: !Text
-    , _srsResourceType         :: !Text
-    , _srsLastUpdatedTimestamp :: !ISO8601
-    , _srsResourceStatus       :: !ResourceStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StackResourceSummary' smart constructor.
-stackResourceSummary :: Text -> Text -> UTCTime -> ResourceStatus -> StackResourceSummary
+stackResourceSummary
+    :: Text -- ^ 'srsLogicalResourceId'
+    -> Text -- ^ 'srsResourceType'
+    -> UTCTime -- ^ 'srsLastUpdatedTimestamp'
+    -> ResourceStatus -- ^ 'srsResourceStatus'
+    -> StackResourceSummary
 stackResourceSummary pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ pResourceStatus_ =
     StackResourceSummary'
     { _srsResourceStatusReason = Nothing
@@ -785,8 +813,20 @@ instance FromXML StackResourceSummary where
 -- | The StackSummary Data Type
 --
 -- /See:/ 'stackSummary' smart constructor.
+data StackSummary = StackSummary'
+    { _ssLastUpdatedTime     :: !(Maybe ISO8601)
+    , _ssTemplateDescription :: !(Maybe Text)
+    , _ssStackStatusReason   :: !(Maybe Text)
+    , _ssDeletionTime        :: !(Maybe ISO8601)
+    , _ssStackId             :: !(Maybe Text)
+    , _ssStackName           :: !Text
+    , _ssCreationTime        :: !ISO8601
+    , _ssStackStatus         :: !StackStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StackSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ssLastUpdatedTime'
 --
@@ -803,19 +843,11 @@ instance FromXML StackResourceSummary where
 -- * 'ssCreationTime'
 --
 -- * 'ssStackStatus'
-data StackSummary = StackSummary'
-    { _ssLastUpdatedTime     :: !(Maybe ISO8601)
-    , _ssTemplateDescription :: !(Maybe Text)
-    , _ssStackStatusReason   :: !(Maybe Text)
-    , _ssDeletionTime        :: !(Maybe ISO8601)
-    , _ssStackId             :: !(Maybe Text)
-    , _ssStackName           :: !Text
-    , _ssCreationTime        :: !ISO8601
-    , _ssStackStatus         :: !StackStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StackSummary' smart constructor.
-stackSummary :: Text -> UTCTime -> StackStatus -> StackSummary
+stackSummary
+    :: Text -- ^ 'ssStackName'
+    -> UTCTime -- ^ 'ssCreationTime'
+    -> StackStatus -- ^ 'ssStackStatus'
+    -> StackSummary
 stackSummary pStackName_ pCreationTime_ pStackStatus_ =
     StackSummary'
     { _ssLastUpdatedTime = Nothing
@@ -873,24 +905,25 @@ instance FromXML StackSummary where
                 <*> (x .@ "CreationTime")
                 <*> (x .@ "StackStatus")
 
--- | The Tag type is used by @CreateStack@ in the @Tags@ parameter. It allows
+-- | The Tag type is used by 'CreateStack' in the 'Tags' parameter. It allows
 -- you to specify a key\/value pair that can be used to store information
 -- related to cost allocation for an AWS CloudFormation stack.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagValue'
---
--- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Tag
 tag =
     Tag'
     { _tagValue = Nothing
@@ -904,7 +937,7 @@ tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
 -- | /Required/. A string used to identify this tag. You can specify a
 -- maximum of 128 characters for a tag key. Tags owned by Amazon Web
--- Services (AWS) have the reserved prefix: @aws:@.
+-- Services (AWS) have the reserved prefix: 'aws:'.
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
@@ -919,8 +952,16 @@ instance ToQuery Tag where
 -- | The TemplateParameter data type.
 --
 -- /See:/ 'templateParameter' smart constructor.
+data TemplateParameter = TemplateParameter'
+    { _tpParameterKey :: !(Maybe Text)
+    , _tpDefaultValue :: !(Maybe Text)
+    , _tpNoEcho       :: !(Maybe Bool)
+    , _tpDescription  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TemplateParameter' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tpParameterKey'
 --
@@ -929,15 +970,8 @@ instance ToQuery Tag where
 -- * 'tpNoEcho'
 --
 -- * 'tpDescription'
-data TemplateParameter = TemplateParameter'
-    { _tpParameterKey :: !(Maybe Text)
-    , _tpDefaultValue :: !(Maybe Text)
-    , _tpNoEcho       :: !(Maybe Bool)
-    , _tpDescription  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TemplateParameter' smart constructor.
-templateParameter :: TemplateParameter
+templateParameter
+    :: TemplateParameter
 templateParameter =
     TemplateParameter'
     { _tpParameterKey = Nothing

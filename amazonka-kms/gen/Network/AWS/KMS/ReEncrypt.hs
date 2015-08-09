@@ -23,10 +23,10 @@
 -- decrypted and then encrypted. This operation can also be used to change
 -- the encryption context of a ciphertext.
 --
--- Unlike other actions, @ReEncrypt@ is authorized twice - once as
--- @ReEncryptFrom@ on the source key and once as @ReEncryptTo@ on the
+-- Unlike other actions, 'ReEncrypt' is authorized twice - once as
+-- 'ReEncryptFrom' on the source key and once as 'ReEncryptTo' on the
 -- destination key. We therefore recommend that you include the
--- @\"action\":\"kms:ReEncrypt*\"@ statement in your key policies to permit
+-- '\"action\":\"kms:ReEncrypt*\"' statement in your key policies to permit
 -- re-encryption from or to the key. The statement is included
 -- automatically when you authorize use of the key through the console but
 -- must be included manually when you set a policy by using the
@@ -36,8 +36,8 @@
 module Network.AWS.KMS.ReEncrypt
     (
     -- * Creating a Request
-      ReEncrypt
-    , reEncrypt
+      reEncrypt
+    , ReEncrypt
     -- * Request Lenses
     , reDestinationEncryptionContext
     , reSourceEncryptionContext
@@ -46,8 +46,8 @@ module Network.AWS.KMS.ReEncrypt
     , reDestinationKeyId
 
     -- * Destructuring the Response
-    , ReEncryptResponse
     , reEncryptResponse
+    , ReEncryptResponse
     -- * Response Lenses
     , rersSourceKeyId
     , rersKeyId
@@ -62,8 +62,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'reEncrypt' smart constructor.
+data ReEncrypt = ReEncrypt'
+    { _reDestinationEncryptionContext :: !(Maybe (Map Text Text))
+    , _reSourceEncryptionContext      :: !(Maybe (Map Text Text))
+    , _reGrantTokens                  :: !(Maybe [Text])
+    , _reCiphertextBlob               :: !Base64
+    , _reDestinationKeyId             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReEncrypt' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'reDestinationEncryptionContext'
 --
@@ -74,16 +83,10 @@ import           Network.AWS.Response
 -- * 'reCiphertextBlob'
 --
 -- * 'reDestinationKeyId'
-data ReEncrypt = ReEncrypt'
-    { _reDestinationEncryptionContext :: !(Maybe (Map Text Text))
-    , _reSourceEncryptionContext      :: !(Maybe (Map Text Text))
-    , _reGrantTokens                  :: !(Maybe [Text])
-    , _reCiphertextBlob               :: !Base64
-    , _reDestinationKeyId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReEncrypt' smart constructor.
-reEncrypt :: ByteString -> Text -> ReEncrypt
+reEncrypt
+    :: ByteString -- ^ 'reCiphertextBlob'
+    -> Text -- ^ 'reDestinationKeyId'
+    -> ReEncrypt
 reEncrypt pCiphertextBlob_ pDestinationKeyId_ =
     ReEncrypt'
     { _reDestinationEncryptionContext = Nothing
@@ -98,7 +101,7 @@ reDestinationEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
 reDestinationEncryptionContext = lens _reDestinationEncryptionContext (\ s a -> s{_reDestinationEncryptionContext = a}) . _Default . _Map;
 
 -- | Encryption context used to encrypt and decrypt the data specified in the
--- @CiphertextBlob@ parameter.
+-- 'CiphertextBlob' parameter.
 reSourceEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
 reSourceEncryptionContext = lens _reSourceEncryptionContext (\ s a -> s{_reSourceEncryptionContext = a}) . _Default . _Map;
 
@@ -165,8 +168,16 @@ instance ToQuery ReEncrypt where
         toQuery = const mempty
 
 -- | /See:/ 'reEncryptResponse' smart constructor.
+data ReEncryptResponse = ReEncryptResponse'
+    { _rersSourceKeyId    :: !(Maybe Text)
+    , _rersKeyId          :: !(Maybe Text)
+    , _rersCiphertextBlob :: !(Maybe Base64)
+    , _rersStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReEncryptResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rersSourceKeyId'
 --
@@ -175,15 +186,9 @@ instance ToQuery ReEncrypt where
 -- * 'rersCiphertextBlob'
 --
 -- * 'rersStatus'
-data ReEncryptResponse = ReEncryptResponse'
-    { _rersSourceKeyId    :: !(Maybe Text)
-    , _rersKeyId          :: !(Maybe Text)
-    , _rersCiphertextBlob :: !(Maybe Base64)
-    , _rersStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReEncryptResponse' smart constructor.
-reEncryptResponse :: Int -> ReEncryptResponse
+reEncryptResponse
+    :: Int -- ^ 'rersStatus'
+    -> ReEncryptResponse
 reEncryptResponse pStatus_ =
     ReEncryptResponse'
     { _rersSourceKeyId = Nothing
@@ -205,6 +210,6 @@ rersKeyId = lens _rersKeyId (\ s a -> s{_rersKeyId = a});
 rersCiphertextBlob :: Lens' ReEncryptResponse (Maybe ByteString)
 rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = a}) . mapping _Base64;
 
--- | Undocumented member.
+-- | The response status code.
 rersStatus :: Lens' ReEncryptResponse Int
 rersStatus = lens _rersStatus (\ s a -> s{_rersStatus = a});

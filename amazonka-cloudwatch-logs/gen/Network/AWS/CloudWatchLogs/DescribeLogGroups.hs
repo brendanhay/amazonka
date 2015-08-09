@@ -23,25 +23,25 @@
 -- log group name.
 --
 -- By default, this operation returns up to 50 log groups. If there are
--- more log groups to list, the response would contain a @nextToken@ value
+-- more log groups to list, the response would contain a 'nextToken' value
 -- in the response body. You can also limit the number of log groups
--- returned in the response by specifying the @limit@ parameter in the
+-- returned in the response by specifying the 'limit' parameter in the
 -- request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html AWS API Reference> for DescribeLogGroups.
 module Network.AWS.CloudWatchLogs.DescribeLogGroups
     (
     -- * Creating a Request
-      DescribeLogGroups
-    , describeLogGroups
+      describeLogGroups
+    , DescribeLogGroups
     -- * Request Lenses
     , dlgNextToken
     , dlgLogGroupNamePrefix
     , dlgLimit
 
     -- * Destructuring the Response
-    , DescribeLogGroupsResponse
     , describeLogGroupsResponse
+    , DescribeLogGroupsResponse
     -- * Response Lenses
     , dlgrsLogGroups
     , dlgrsNextToken
@@ -55,22 +55,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeLogGroups' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlgNextToken'
---
--- * 'dlgLogGroupNamePrefix'
---
--- * 'dlgLimit'
 data DescribeLogGroups = DescribeLogGroups'
     { _dlgNextToken          :: !(Maybe Text)
     , _dlgLogGroupNamePrefix :: !(Maybe Text)
     , _dlgLimit              :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLogGroups' smart constructor.
-describeLogGroups :: DescribeLogGroups
+-- | Creates a value of 'DescribeLogGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlgNextToken'
+--
+-- * 'dlgLogGroupNamePrefix'
+--
+-- * 'dlgLimit'
+describeLogGroups
+    :: DescribeLogGroups
 describeLogGroups =
     DescribeLogGroups'
     { _dlgNextToken = Nothing
@@ -80,7 +81,7 @@ describeLogGroups =
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the response of the previous
--- @DescribeLogGroups@ request.
+-- 'DescribeLogGroups' request.
 dlgNextToken :: Lens' DescribeLogGroups (Maybe Text)
 dlgNextToken = lens _dlgNextToken (\ s a -> s{_dlgNextToken = a});
 
@@ -129,22 +130,24 @@ instance ToQuery DescribeLogGroups where
         toQuery = const mempty
 
 -- | /See:/ 'describeLogGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlgrsLogGroups'
---
--- * 'dlgrsNextToken'
---
--- * 'dlgrsStatus'
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
     { _dlgrsLogGroups :: !(Maybe [LogGroup])
     , _dlgrsNextToken :: !(Maybe Text)
     , _dlgrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLogGroupsResponse' smart constructor.
-describeLogGroupsResponse :: Int -> DescribeLogGroupsResponse
+-- | Creates a value of 'DescribeLogGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlgrsLogGroups'
+--
+-- * 'dlgrsNextToken'
+--
+-- * 'dlgrsStatus'
+describeLogGroupsResponse
+    :: Int -- ^ 'dlgrsStatus'
+    -> DescribeLogGroupsResponse
 describeLogGroupsResponse pStatus_ =
     DescribeLogGroupsResponse'
     { _dlgrsLogGroups = Nothing
@@ -160,6 +163,6 @@ dlgrsLogGroups = lens _dlgrsLogGroups (\ s a -> s{_dlgrsLogGroups = a}) . _Defau
 dlgrsNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrsNextToken = lens _dlgrsNextToken (\ s a -> s{_dlgrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dlgrsStatus :: Lens' DescribeLogGroupsResponse Int
 dlgrsStatus = lens _dlgrsStatus (\ s a -> s{_dlgrsStatus = a});

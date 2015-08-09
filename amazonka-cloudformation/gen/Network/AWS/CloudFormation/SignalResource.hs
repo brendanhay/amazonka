@@ -30,8 +30,8 @@
 module Network.AWS.CloudFormation.SignalResource
     (
     -- * Creating a Request
-      SignalResource
-    , signalResource
+      signalResource
+    , SignalResource
     -- * Request Lenses
     , sigStackName
     , sigLogicalResourceId
@@ -39,8 +39,8 @@ module Network.AWS.CloudFormation.SignalResource
     , sigStatus
 
     -- * Destructuring the Response
-    , SignalResourceResponse
     , signalResourceResponse
+    , SignalResourceResponse
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -52,8 +52,16 @@ import           Network.AWS.Response
 -- | The input for the SignalResource action.
 --
 -- /See:/ 'signalResource' smart constructor.
+data SignalResource = SignalResource'
+    { _sigStackName         :: !Text
+    , _sigLogicalResourceId :: !Text
+    , _sigUniqueId          :: !Text
+    , _sigStatus            :: !ResourceSignalStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SignalResource' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sigStackName'
 --
@@ -62,15 +70,12 @@ import           Network.AWS.Response
 -- * 'sigUniqueId'
 --
 -- * 'sigStatus'
-data SignalResource = SignalResource'
-    { _sigStackName         :: !Text
-    , _sigLogicalResourceId :: !Text
-    , _sigUniqueId          :: !Text
-    , _sigStatus            :: !ResourceSignalStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SignalResource' smart constructor.
-signalResource :: Text -> Text -> Text -> ResourceSignalStatus -> SignalResource
+signalResource
+    :: Text -- ^ 'sigStackName'
+    -> Text -- ^ 'sigLogicalResourceId'
+    -> Text -- ^ 'sigUniqueId'
+    -> ResourceSignalStatus -- ^ 'sigStatus'
+    -> SignalResource
 signalResource pStackName_ pLogicalResourceId_ pUniqueId_ pStatus_ =
     SignalResource'
     { _sigStackName = pStackName_
@@ -128,6 +133,8 @@ data SignalResourceResponse =
     SignalResourceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SignalResourceResponse' smart constructor.
-signalResourceResponse :: SignalResourceResponse
+-- | Creates a value of 'SignalResourceResponse' with the minimum fields required to make a request.
+--
+signalResourceResponse
+    :: SignalResourceResponse
 signalResourceResponse = SignalResourceResponse'

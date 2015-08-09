@@ -25,14 +25,14 @@
 module Network.AWS.CloudWatchLogs.DeleteLogGroup
     (
     -- * Creating a Request
-      DeleteLogGroup
-    , deleteLogGroup
+      deleteLogGroup
+    , DeleteLogGroup
     -- * Request Lenses
     , dlgLogGroupName
 
     -- * Destructuring the Response
-    , DeleteLogGroupResponse
     , deleteLogGroupResponse
+    , DeleteLogGroupResponse
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -42,16 +42,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteLogGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlgLogGroupName'
 newtype DeleteLogGroup = DeleteLogGroup'
     { _dlgLogGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLogGroup' smart constructor.
-deleteLogGroup :: Text -> DeleteLogGroup
+-- | Creates a value of 'DeleteLogGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlgLogGroupName'
+deleteLogGroup
+    :: Text -- ^ 'dlgLogGroupName'
+    -> DeleteLogGroup
 deleteLogGroup pLogGroupName_ =
     DeleteLogGroup'
     { _dlgLogGroupName = pLogGroupName_
@@ -91,6 +93,8 @@ data DeleteLogGroupResponse =
     DeleteLogGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLogGroupResponse' smart constructor.
-deleteLogGroupResponse :: DeleteLogGroupResponse
+-- | Creates a value of 'DeleteLogGroupResponse' with the minimum fields required to make a request.
+--
+deleteLogGroupResponse
+    :: DeleteLogGroupResponse
 deleteLogGroupResponse = DeleteLogGroupResponse'

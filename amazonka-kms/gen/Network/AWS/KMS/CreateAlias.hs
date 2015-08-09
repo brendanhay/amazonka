@@ -36,15 +36,15 @@
 module Network.AWS.KMS.CreateAlias
     (
     -- * Creating a Request
-      CreateAlias
-    , createAlias
+      createAlias
+    , CreateAlias
     -- * Request Lenses
     , caAliasName
     , caTargetKeyId
 
     -- * Destructuring the Response
-    , CreateAliasResponse
     , createAliasResponse
+    , CreateAliasResponse
     ) where
 
 import           Network.AWS.KMS.Types
@@ -54,19 +54,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createAlias' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'caAliasName'
---
--- * 'caTargetKeyId'
 data CreateAlias = CreateAlias'
     { _caAliasName   :: !Text
     , _caTargetKeyId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAlias' smart constructor.
-createAlias :: Text -> Text -> CreateAlias
+-- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caAliasName'
+--
+-- * 'caTargetKeyId'
+createAlias
+    :: Text -- ^ 'caAliasName'
+    -> Text -- ^ 'caTargetKeyId'
+    -> CreateAlias
 createAlias pAliasName_ pTargetKeyId_ =
     CreateAlias'
     { _caAliasName = pAliasName_
@@ -122,6 +125,8 @@ data CreateAliasResponse =
     CreateAliasResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAliasResponse' smart constructor.
-createAliasResponse :: CreateAliasResponse
+-- | Creates a value of 'CreateAliasResponse' with the minimum fields required to make a request.
+--
+createAliasResponse
+    :: CreateAliasResponse
 createAliasResponse = CreateAliasResponse'

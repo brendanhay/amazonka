@@ -24,14 +24,14 @@
 module Network.AWS.Redshift.DeleteClusterSubnetGroup
     (
     -- * Creating a Request
-      DeleteClusterSubnetGroup
-    , deleteClusterSubnetGroup
+      deleteClusterSubnetGroup
+    , DeleteClusterSubnetGroup
     -- * Request Lenses
     , dcsgClusterSubnetGroupName
 
     -- * Destructuring the Response
-    , DeleteClusterSubnetGroupResponse
     , deleteClusterSubnetGroupResponse
+    , DeleteClusterSubnetGroupResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -41,16 +41,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteClusterSubnetGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsgClusterSubnetGroupName'
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
     { _dcsgClusterSubnetGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteClusterSubnetGroup' smart constructor.
-deleteClusterSubnetGroup :: Text -> DeleteClusterSubnetGroup
+-- | Creates a value of 'DeleteClusterSubnetGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsgClusterSubnetGroupName'
+deleteClusterSubnetGroup
+    :: Text -- ^ 'dcsgClusterSubnetGroupName'
+    -> DeleteClusterSubnetGroup
 deleteClusterSubnetGroup pClusterSubnetGroupName_ =
     DeleteClusterSubnetGroup'
     { _dcsgClusterSubnetGroupName = pClusterSubnetGroupName_
@@ -88,6 +90,8 @@ data DeleteClusterSubnetGroupResponse =
     DeleteClusterSubnetGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteClusterSubnetGroupResponse' smart constructor.
-deleteClusterSubnetGroupResponse :: DeleteClusterSubnetGroupResponse
+-- | Creates a value of 'DeleteClusterSubnetGroupResponse' with the minimum fields required to make a request.
+--
+deleteClusterSubnetGroupResponse
+    :: DeleteClusterSubnetGroupResponse
 deleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse'

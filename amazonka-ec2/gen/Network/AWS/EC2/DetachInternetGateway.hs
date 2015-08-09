@@ -26,16 +26,16 @@
 module Network.AWS.EC2.DetachInternetGateway
     (
     -- * Creating a Request
-      DetachInternetGateway
-    , detachInternetGateway
+      detachInternetGateway
+    , DetachInternetGateway
     -- * Request Lenses
     , digDryRun
     , digInternetGatewayId
     , digVPCId
 
     -- * Destructuring the Response
-    , DetachInternetGatewayResponse
     , detachInternetGatewayResponse
+    , DetachInternetGatewayResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -45,22 +45,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachInternetGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'digDryRun'
---
--- * 'digInternetGatewayId'
---
--- * 'digVPCId'
 data DetachInternetGateway = DetachInternetGateway'
     { _digDryRun            :: !(Maybe Bool)
     , _digInternetGatewayId :: !Text
     , _digVPCId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachInternetGateway' smart constructor.
-detachInternetGateway :: Text -> Text -> DetachInternetGateway
+-- | Creates a value of 'DetachInternetGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'digDryRun'
+--
+-- * 'digInternetGatewayId'
+--
+-- * 'digVPCId'
+detachInternetGateway
+    :: Text -- ^ 'digInternetGatewayId'
+    -> Text -- ^ 'digVPCId'
+    -> DetachInternetGateway
 detachInternetGateway pInternetGatewayId_ pVPCId_ =
     DetachInternetGateway'
     { _digDryRun = Nothing
@@ -70,8 +73,8 @@ detachInternetGateway pInternetGatewayId_ pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 digDryRun :: Lens' DetachInternetGateway (Maybe Bool)
 digDryRun = lens _digDryRun (\ s a -> s{_digDryRun = a});
 
@@ -110,6 +113,8 @@ data DetachInternetGatewayResponse =
     DetachInternetGatewayResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachInternetGatewayResponse' smart constructor.
-detachInternetGatewayResponse :: DetachInternetGatewayResponse
+-- | Creates a value of 'DetachInternetGatewayResponse' with the minimum fields required to make a request.
+--
+detachInternetGatewayResponse
+    :: DetachInternetGatewayResponse
 detachInternetGatewayResponse = DetachInternetGatewayResponse'

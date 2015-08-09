@@ -22,11 +22,13 @@
 -- for a particular cache parameter group.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameters.html AWS API Reference> for DescribeCacheParameters.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheParameters
     (
     -- * Creating a Request
-      DescribeCacheParameters
-    , describeCacheParameters
+      describeCacheParameters
+    , DescribeCacheParameters
     -- * Request Lenses
     , dcpMaxRecords
     , dcpMarker
@@ -34,8 +36,8 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     , dcpCacheParameterGroupName
 
     -- * Destructuring the Response
-    , DescribeCacheParametersResponse
     , describeCacheParametersResponse
+    , DescribeCacheParametersResponse
     -- * Response Lenses
     , dcprsCacheNodeTypeSpecificParameters
     , dcprsParameters
@@ -53,8 +55,16 @@ import           Network.AWS.Response
 -- | Represents the input of a /DescribeCacheParameters/ action.
 --
 -- /See:/ 'describeCacheParameters' smart constructor.
+data DescribeCacheParameters = DescribeCacheParameters'
+    { _dcpMaxRecords              :: !(Maybe Int)
+    , _dcpMarker                  :: !(Maybe Text)
+    , _dcpSource                  :: !(Maybe Text)
+    , _dcpCacheParameterGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeCacheParameters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcpMaxRecords'
 --
@@ -63,15 +73,9 @@ import           Network.AWS.Response
 -- * 'dcpSource'
 --
 -- * 'dcpCacheParameterGroupName'
-data DescribeCacheParameters = DescribeCacheParameters'
-    { _dcpMaxRecords              :: !(Maybe Int)
-    , _dcpMarker                  :: !(Maybe Text)
-    , _dcpSource                  :: !(Maybe Text)
-    , _dcpCacheParameterGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeCacheParameters' smart constructor.
-describeCacheParameters :: Text -> DescribeCacheParameters
+describeCacheParameters
+    :: Text -- ^ 'dcpCacheParameterGroupName'
+    -> DescribeCacheParameters
 describeCacheParameters pCacheParameterGroupName_ =
     DescribeCacheParameters'
     { _dcpMaxRecords = Nothing
@@ -81,7 +85,7 @@ describeCacheParameters pCacheParameterGroupName_ =
     }
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a marker is
+-- records exist than the specified 'MaxRecords' value, a marker is
 -- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
@@ -99,7 +103,7 @@ dcpMarker = lens _dcpMarker (\ s a -> s{_dcpMarker = a});
 
 -- | The parameter types to return.
 --
--- Valid values: @user@ | @system@ | @engine-default@
+-- Valid values: 'user' | 'system' | 'engine-default'
 dcpSource :: Lens' DescribeCacheParameters (Maybe Text)
 dcpSource = lens _dcpSource (\ s a -> s{_dcpSource = a});
 
@@ -152,8 +156,16 @@ instance ToQuery DescribeCacheParameters where
 -- | Represents the output of a /DescribeCacheParameters/ action.
 --
 -- /See:/ 'describeCacheParametersResponse' smart constructor.
+data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
+    { _dcprsCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
+    , _dcprsParameters                      :: !(Maybe [Parameter])
+    , _dcprsMarker                          :: !(Maybe Text)
+    , _dcprsStatus                          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeCacheParametersResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcprsCacheNodeTypeSpecificParameters'
 --
@@ -162,15 +174,9 @@ instance ToQuery DescribeCacheParameters where
 -- * 'dcprsMarker'
 --
 -- * 'dcprsStatus'
-data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
-    { _dcprsCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
-    , _dcprsParameters                      :: !(Maybe [Parameter])
-    , _dcprsMarker                          :: !(Maybe Text)
-    , _dcprsStatus                          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeCacheParametersResponse' smart constructor.
-describeCacheParametersResponse :: Int -> DescribeCacheParametersResponse
+describeCacheParametersResponse
+    :: Int -- ^ 'dcprsStatus'
+    -> DescribeCacheParametersResponse
 describeCacheParametersResponse pStatus_ =
     DescribeCacheParametersResponse'
     { _dcprsCacheNodeTypeSpecificParameters = Nothing
@@ -192,6 +198,6 @@ dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _De
 dcprsMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 dcprsMarker = lens _dcprsMarker (\ s a -> s{_dcprsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dcprsStatus :: Lens' DescribeCacheParametersResponse Int
 dcprsStatus = lens _dcprsStatus (\ s a -> s{_dcprsStatus = a});

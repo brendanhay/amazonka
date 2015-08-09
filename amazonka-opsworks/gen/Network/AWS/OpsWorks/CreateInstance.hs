@@ -31,8 +31,8 @@
 module Network.AWS.OpsWorks.CreateInstance
     (
     -- * Creating a Request
-      CreateInstance
-    , createInstance
+      createInstance
+    , CreateInstance
     -- * Request Lenses
     , ciInstallUpdatesOnBoot
     , ciVirtualizationType
@@ -53,8 +53,8 @@ module Network.AWS.OpsWorks.CreateInstance
     , ciInstanceType
 
     -- * Destructuring the Response
-    , CreateInstanceResponse
     , createInstanceResponse
+    , CreateInstanceResponse
     -- * Response Lenses
     , cirsInstanceId
     , cirsStatus
@@ -67,8 +67,29 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createInstance' smart constructor.
+data CreateInstance = CreateInstance'
+    { _ciInstallUpdatesOnBoot :: !(Maybe Bool)
+    , _ciVirtualizationType   :: !(Maybe Text)
+    , _ciHostname             :: !(Maybe Text)
+    , _ciSSHKeyName           :: !(Maybe Text)
+    , _ciAgentVersion         :: !(Maybe Text)
+    , _ciSubnetId             :: !(Maybe Text)
+    , _ciEBSOptimized         :: !(Maybe Bool)
+    , _ciOS                   :: !(Maybe Text)
+    , _ciAvailabilityZone     :: !(Maybe Text)
+    , _ciAutoScalingType      :: !(Maybe AutoScalingType)
+    , _ciArchitecture         :: !(Maybe Architecture)
+    , _ciAMIId                :: !(Maybe Text)
+    , _ciBlockDeviceMappings  :: !(Maybe [BlockDeviceMapping])
+    , _ciRootDeviceType       :: !(Maybe RootDeviceType)
+    , _ciStackId              :: !Text
+    , _ciLayerIds             :: ![Text]
+    , _ciInstanceType         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ciInstallUpdatesOnBoot'
 --
@@ -103,28 +124,10 @@ import           Network.AWS.Response
 -- * 'ciLayerIds'
 --
 -- * 'ciInstanceType'
-data CreateInstance = CreateInstance'
-    { _ciInstallUpdatesOnBoot :: !(Maybe Bool)
-    , _ciVirtualizationType   :: !(Maybe Text)
-    , _ciHostname             :: !(Maybe Text)
-    , _ciSSHKeyName           :: !(Maybe Text)
-    , _ciAgentVersion         :: !(Maybe Text)
-    , _ciSubnetId             :: !(Maybe Text)
-    , _ciEBSOptimized         :: !(Maybe Bool)
-    , _ciOS                   :: !(Maybe Text)
-    , _ciAvailabilityZone     :: !(Maybe Text)
-    , _ciAutoScalingType      :: !(Maybe AutoScalingType)
-    , _ciArchitecture         :: !(Maybe Architecture)
-    , _ciAMIId                :: !(Maybe Text)
-    , _ciBlockDeviceMappings  :: !(Maybe [BlockDeviceMapping])
-    , _ciRootDeviceType       :: !(Maybe RootDeviceType)
-    , _ciStackId              :: !Text
-    , _ciLayerIds             :: ![Text]
-    , _ciInstanceType         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateInstance' smart constructor.
-createInstance :: Text -> Text -> CreateInstance
+createInstance
+    :: Text -- ^ 'ciStackId'
+    -> Text -- ^ 'ciInstanceType'
+    -> CreateInstance
 createInstance pStackId_ pInstanceType_ =
     CreateInstance'
     { _ciInstallUpdatesOnBoot = Nothing
@@ -147,18 +150,18 @@ createInstance pStackId_ pInstanceType_ =
     }
 
 -- | Whether to install operating system and package updates when the
--- instance boots. The default value is @true@. To control when updates are
--- installed, set this value to @false@. You must then update your
+-- instance boots. The default value is 'true'. To control when updates are
+-- installed, set this value to 'false'. You must then update your
 -- instances manually by using CreateDeployment to run the
--- @update_dependencies@ stack command or by manually running @yum@ (Amazon
--- Linux) or @apt-get@ (Ubuntu) on the instances.
+-- 'update_dependencies' stack command or by manually running 'yum' (Amazon
+-- Linux) or 'apt-get' (Ubuntu) on the instances.
 --
--- We strongly recommend using the default value of @true@ to ensure that
+-- We strongly recommend using the default value of 'true' to ensure that
 -- your instances have the latest security updates.
 ciInstallUpdatesOnBoot :: Lens' CreateInstance (Maybe Bool)
 ciInstallUpdatesOnBoot = lens _ciInstallUpdatesOnBoot (\ s a -> s{_ciInstallUpdatesOnBoot = a});
 
--- | The instance\'s virtualization type, @paravirtual@ or @hvm@.
+-- | The instance\'s virtualization type, 'paravirtual' or 'hvm'.
 ciVirtualizationType :: Lens' CreateInstance (Maybe Text)
 ciVirtualizationType = lens _ciVirtualizationType (\ s a -> s{_ciVirtualizationType = a});
 
@@ -172,13 +175,13 @@ ciSSHKeyName = lens _ciSSHKeyName (\ s a -> s{_ciSSHKeyName = a});
 
 -- | The default AWS OpsWorks agent version. You have the following options:
 --
--- -   @INHERIT@ - Use the stack\'s default agent version setting.
+-- -   'INHERIT' - Use the stack\'s default agent version setting.
 -- -   /version_number/ - Use the specified agent version. This value
 --     overrides the stack\'s default setting. To update the agent version,
 --     edit the instance configuration and specify a new version. AWS
 --     OpsWorks then automatically installs that version on the instance.
 --
--- The default setting is @INHERIT@. To specify an agent version, you must
+-- The default setting is 'INHERIT'. To specify an agent version, you must
 -- use the complete version number, not the abbreviated number shown on the
 -- console. For a list of available agent version numbers, call
 -- DescribeAgentVersions.
@@ -199,16 +202,16 @@ ciEBSOptimized = lens _ciEBSOptimized (\ s a -> s{_ciEBSOptimized = a});
 -- following.
 --
 -- -   A supported Linux operating system: An Amazon Linux version, such as
---     @Amazon Linux 2015.03@, @Red Hat Enterprise Linux 7@,
---     @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
--- -   @Microsoft Windows Server 2012 R2 Base@.
--- -   A custom AMI: @Custom@.
+--     'Amazon Linux 2015.03', 'Red Hat Enterprise Linux 7',
+--     'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'.
+-- -   'Microsoft Windows Server 2012 R2 Base'.
+-- -   A custom AMI: 'Custom'.
 --
 -- For more information on the supported operating systems, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
 --
 -- The default option is the current Amazon Linux version. If you set this
--- parameter to @Custom@, you must use the CreateInstance action\'s AmiId
+-- parameter to 'Custom', you must use the CreateInstance action\'s AmiId
 -- parameter to specify the custom AMI that you want to use. For more
 -- information on the supported operating systems, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems>For
@@ -227,7 +230,7 @@ ciAvailabilityZone = lens _ciAvailabilityZone (\ s a -> s{_ciAvailabilityZone = 
 ciAutoScalingType :: Lens' CreateInstance (Maybe AutoScalingType)
 ciAutoScalingType = lens _ciAutoScalingType (\ s a -> s{_ciAutoScalingType = a});
 
--- | The instance architecture. The default option is @x86_64@. Instance
+-- | The instance architecture. The default option is 'x86_64'. Instance
 -- types do not necessarily support both architectures. For a list of the
 -- architectures that are supported by the different instance types, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
@@ -239,11 +242,11 @@ ciArchitecture = lens _ciArchitecture (\ s a -> s{_ciArchitecture = a});
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
 --
--- If you specify a custom AMI, you must set @Os@ to @Custom@.
+-- If you specify a custom AMI, you must set 'Os' to 'Custom'.
 ciAMIId :: Lens' CreateInstance (Maybe Text)
 ciAMIId = lens _ciAMIId (\ s a -> s{_ciAMIId = a});
 
--- | An array of @BlockDeviceMapping@ objects that specify the instance\'s
+-- | An array of 'BlockDeviceMapping' objects that specify the instance\'s
 -- block devices. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>.
 ciBlockDeviceMappings :: Lens' CreateInstance [BlockDeviceMapping]
@@ -262,7 +265,7 @@ ciStackId = lens _ciStackId (\ s a -> s{_ciStackId = a});
 ciLayerIds :: Lens' CreateInstance [Text]
 ciLayerIds = lens _ciLayerIds (\ s a -> s{_ciLayerIds = a}) . _Coerce;
 
--- | The instance type, such as @t2.micro@. For a list of supported instance
+-- | The instance type, such as 't2.micro'. For a list of supported instance
 -- types, open the stack in the console, choose __Instances__, and choose
 -- __+ Instance__. The __Size__ list contains the currently supported
 -- types. For more information, see
@@ -316,22 +319,24 @@ instance ToPath CreateInstance where
 instance ToQuery CreateInstance where
         toQuery = const mempty
 
--- | Contains the response to a @CreateInstance@ request.
+-- | Contains the response to a 'CreateInstance' request.
 --
 -- /See:/ 'createInstanceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cirsInstanceId'
---
--- * 'cirsStatus'
 data CreateInstanceResponse = CreateInstanceResponse'
     { _cirsInstanceId :: !(Maybe Text)
     , _cirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateInstanceResponse' smart constructor.
-createInstanceResponse :: Int -> CreateInstanceResponse
+-- | Creates a value of 'CreateInstanceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cirsInstanceId'
+--
+-- * 'cirsStatus'
+createInstanceResponse
+    :: Int -- ^ 'cirsStatus'
+    -> CreateInstanceResponse
 createInstanceResponse pStatus_ =
     CreateInstanceResponse'
     { _cirsInstanceId = Nothing
@@ -342,6 +347,6 @@ createInstanceResponse pStatus_ =
 cirsInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
 cirsInstanceId = lens _cirsInstanceId (\ s a -> s{_cirsInstanceId = a});
 
--- | Undocumented member.
+-- | The response status code.
 cirsStatus :: Lens' CreateInstanceResponse Int
 cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});

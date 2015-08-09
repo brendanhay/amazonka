@@ -24,11 +24,13 @@
 -- action.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html AWS API Reference> for DescribeAlarms.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarms
     (
     -- * Creating a Request
-      DescribeAlarms
-    , describeAlarms
+      describeAlarms
+    , DescribeAlarms
     -- * Request Lenses
     , daAlarmNamePrefix
     , daActionPrefix
@@ -38,8 +40,8 @@ module Network.AWS.CloudWatch.DescribeAlarms
     , daMaxRecords
 
     -- * Destructuring the Response
-    , DescribeAlarmsResponse
     , describeAlarmsResponse
+    , DescribeAlarmsResponse
     -- * Response Lenses
     , darsMetricAlarms
     , darsNextToken
@@ -54,8 +56,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeAlarms' smart constructor.
+data DescribeAlarms = DescribeAlarms'
+    { _daAlarmNamePrefix :: !(Maybe Text)
+    , _daActionPrefix    :: !(Maybe Text)
+    , _daNextToken       :: !(Maybe Text)
+    , _daStateValue      :: !(Maybe StateValue)
+    , _daAlarmNames      :: !(Maybe [Text])
+    , _daMaxRecords      :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeAlarms' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'daAlarmNamePrefix'
 --
@@ -68,17 +80,8 @@ import           Network.AWS.Response
 -- * 'daAlarmNames'
 --
 -- * 'daMaxRecords'
-data DescribeAlarms = DescribeAlarms'
-    { _daAlarmNamePrefix :: !(Maybe Text)
-    , _daActionPrefix    :: !(Maybe Text)
-    , _daNextToken       :: !(Maybe Text)
-    , _daStateValue      :: !(Maybe StateValue)
-    , _daAlarmNames      :: !(Maybe [Text])
-    , _daMaxRecords      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeAlarms' smart constructor.
-describeAlarms :: DescribeAlarms
+describeAlarms
+    :: DescribeAlarms
 describeAlarms =
     DescribeAlarms'
     { _daAlarmNamePrefix = Nothing
@@ -89,7 +92,7 @@ describeAlarms =
     , _daMaxRecords = Nothing
     }
 
--- | The alarm name prefix. @AlarmNames@ cannot be specified if this
+-- | The alarm name prefix. 'AlarmNames' cannot be specified if this
 -- parameter is specified.
 daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
 daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a});
@@ -157,22 +160,24 @@ instance ToQuery DescribeAlarms where
 -- | The output for the DescribeAlarms action.
 --
 -- /See:/ 'describeAlarmsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'darsMetricAlarms'
---
--- * 'darsNextToken'
---
--- * 'darsStatus'
 data DescribeAlarmsResponse = DescribeAlarmsResponse'
     { _darsMetricAlarms :: !(Maybe [MetricAlarm])
     , _darsNextToken    :: !(Maybe Text)
     , _darsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAlarmsResponse' smart constructor.
-describeAlarmsResponse :: Int -> DescribeAlarmsResponse
+-- | Creates a value of 'DescribeAlarmsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'darsMetricAlarms'
+--
+-- * 'darsNextToken'
+--
+-- * 'darsStatus'
+describeAlarmsResponse
+    :: Int -- ^ 'darsStatus'
+    -> DescribeAlarmsResponse
 describeAlarmsResponse pStatus_ =
     DescribeAlarmsResponse'
     { _darsMetricAlarms = Nothing
@@ -188,6 +193,6 @@ darsMetricAlarms = lens _darsMetricAlarms (\ s a -> s{_darsMetricAlarms = a}) . 
 darsNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 darsStatus :: Lens' DescribeAlarmsResponse Int
 darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

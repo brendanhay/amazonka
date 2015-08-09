@@ -26,14 +26,14 @@
 module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     (
     -- * Creating a Request
-      DescribeSnapshotSchedule
-    , describeSnapshotSchedule
+      describeSnapshotSchedule
+    , DescribeSnapshotSchedule
     -- * Request Lenses
     , dssVolumeARN
 
     -- * Destructuring the Response
-    , DescribeSnapshotScheduleResponse
     , describeSnapshotScheduleResponse
+    , DescribeSnapshotScheduleResponse
     -- * Response Lenses
     , dssrsVolumeARN
     , dssrsStartAt
@@ -53,16 +53,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- the volume.
 --
 -- /See:/ 'describeSnapshotSchedule' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dssVolumeARN'
 newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule'
     { _dssVolumeARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSnapshotSchedule' smart constructor.
-describeSnapshotSchedule :: Text -> DescribeSnapshotSchedule
+-- | Creates a value of 'DescribeSnapshotSchedule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dssVolumeARN'
+describeSnapshotSchedule
+    :: Text -- ^ 'dssVolumeARN'
+    -> DescribeSnapshotSchedule
 describeSnapshotSchedule pVolumeARN_ =
     DescribeSnapshotSchedule'
     { _dssVolumeARN = pVolumeARN_
@@ -109,8 +111,18 @@ instance ToQuery DescribeSnapshotSchedule where
         toQuery = const mempty
 
 -- | /See:/ 'describeSnapshotScheduleResponse' smart constructor.
+data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
+    { _dssrsVolumeARN         :: !(Maybe Text)
+    , _dssrsStartAt           :: !(Maybe Nat)
+    , _dssrsRecurrenceInHours :: !(Maybe Nat)
+    , _dssrsTimezone          :: !(Maybe Text)
+    , _dssrsDescription       :: !(Maybe Text)
+    , _dssrsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeSnapshotScheduleResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dssrsVolumeARN'
 --
@@ -123,17 +135,9 @@ instance ToQuery DescribeSnapshotSchedule where
 -- * 'dssrsDescription'
 --
 -- * 'dssrsStatus'
-data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
-    { _dssrsVolumeARN         :: !(Maybe Text)
-    , _dssrsStartAt           :: !(Maybe Nat)
-    , _dssrsRecurrenceInHours :: !(Maybe Nat)
-    , _dssrsTimezone          :: !(Maybe Text)
-    , _dssrsDescription       :: !(Maybe Text)
-    , _dssrsStatus            :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeSnapshotScheduleResponse' smart constructor.
-describeSnapshotScheduleResponse :: Int -> DescribeSnapshotScheduleResponse
+describeSnapshotScheduleResponse
+    :: Int -- ^ 'dssrsStatus'
+    -> DescribeSnapshotScheduleResponse
 describeSnapshotScheduleResponse pStatus_ =
     DescribeSnapshotScheduleResponse'
     { _dssrsVolumeARN = Nothing
@@ -164,6 +168,6 @@ dssrsTimezone = lens _dssrsTimezone (\ s a -> s{_dssrsTimezone = a});
 dssrsDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
 dssrsDescription = lens _dssrsDescription (\ s a -> s{_dssrsDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 dssrsStatus :: Lens' DescribeSnapshotScheduleResponse Int
 dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

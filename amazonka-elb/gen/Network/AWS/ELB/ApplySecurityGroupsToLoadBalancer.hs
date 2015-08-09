@@ -30,15 +30,15 @@
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (
     -- * Creating a Request
-      ApplySecurityGroupsToLoadBalancer
-    , applySecurityGroupsToLoadBalancer
+      applySecurityGroupsToLoadBalancer
+    , ApplySecurityGroupsToLoadBalancer
     -- * Request Lenses
     , asgtlbLoadBalancerName
     , asgtlbSecurityGroups
 
     -- * Destructuring the Response
-    , ApplySecurityGroupsToLoadBalancerResponse
     , applySecurityGroupsToLoadBalancerResponse
+    , ApplySecurityGroupsToLoadBalancerResponse
     -- * Response Lenses
     , asgtlbrsSecurityGroups
     , asgtlbrsStatus
@@ -51,19 +51,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'applySecurityGroupsToLoadBalancer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'asgtlbLoadBalancerName'
---
--- * 'asgtlbSecurityGroups'
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
     { _asgtlbLoadBalancerName :: !Text
     , _asgtlbSecurityGroups   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ApplySecurityGroupsToLoadBalancer' smart constructor.
-applySecurityGroupsToLoadBalancer :: Text -> ApplySecurityGroupsToLoadBalancer
+-- | Creates a value of 'ApplySecurityGroupsToLoadBalancer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asgtlbLoadBalancerName'
+--
+-- * 'asgtlbSecurityGroups'
+applySecurityGroupsToLoadBalancer
+    :: Text -- ^ 'asgtlbLoadBalancerName'
+    -> ApplySecurityGroupsToLoadBalancer
 applySecurityGroupsToLoadBalancer pLoadBalancerName_ =
     ApplySecurityGroupsToLoadBalancer'
     { _asgtlbLoadBalancerName = pLoadBalancerName_
@@ -114,19 +116,21 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
                  toQueryList "member" _asgtlbSecurityGroups]
 
 -- | /See:/ 'applySecurityGroupsToLoadBalancerResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'asgtlbrsSecurityGroups'
---
--- * 'asgtlbrsStatus'
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
     { _asgtlbrsSecurityGroups :: !(Maybe [Text])
     , _asgtlbrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ApplySecurityGroupsToLoadBalancerResponse' smart constructor.
-applySecurityGroupsToLoadBalancerResponse :: Int -> ApplySecurityGroupsToLoadBalancerResponse
+-- | Creates a value of 'ApplySecurityGroupsToLoadBalancerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asgtlbrsSecurityGroups'
+--
+-- * 'asgtlbrsStatus'
+applySecurityGroupsToLoadBalancerResponse
+    :: Int -- ^ 'asgtlbrsStatus'
+    -> ApplySecurityGroupsToLoadBalancerResponse
 applySecurityGroupsToLoadBalancerResponse pStatus_ =
     ApplySecurityGroupsToLoadBalancerResponse'
     { _asgtlbrsSecurityGroups = Nothing
@@ -137,6 +141,6 @@ applySecurityGroupsToLoadBalancerResponse pStatus_ =
 asgtlbrsSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecurityGroups = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 asgtlbrsStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
 asgtlbrsStatus = lens _asgtlbrsStatus (\ s a -> s{_asgtlbrsStatus = a});

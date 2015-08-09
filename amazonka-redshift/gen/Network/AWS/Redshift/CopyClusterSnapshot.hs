@@ -37,16 +37,16 @@
 module Network.AWS.Redshift.CopyClusterSnapshot
     (
     -- * Creating a Request
-      CopyClusterSnapshot
-    , copyClusterSnapshot
+      copyClusterSnapshot
+    , CopyClusterSnapshot
     -- * Request Lenses
     , ccsSourceSnapshotClusterIdentifier
     , ccsSourceSnapshotIdentifier
     , ccsTargetSnapshotIdentifier
 
     -- * Destructuring the Response
-    , CopyClusterSnapshotResponse
     , copyClusterSnapshotResponse
+    , CopyClusterSnapshotResponse
     -- * Response Lenses
     , ccsrsSnapshot
     , ccsrsStatus
@@ -61,22 +61,25 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'copyClusterSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccsSourceSnapshotClusterIdentifier'
---
--- * 'ccsSourceSnapshotIdentifier'
---
--- * 'ccsTargetSnapshotIdentifier'
 data CopyClusterSnapshot = CopyClusterSnapshot'
     { _ccsSourceSnapshotClusterIdentifier :: !(Maybe Text)
     , _ccsSourceSnapshotIdentifier        :: !Text
     , _ccsTargetSnapshotIdentifier        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CopyClusterSnapshot' smart constructor.
-copyClusterSnapshot :: Text -> Text -> CopyClusterSnapshot
+-- | Creates a value of 'CopyClusterSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccsSourceSnapshotClusterIdentifier'
+--
+-- * 'ccsSourceSnapshotIdentifier'
+--
+-- * 'ccsTargetSnapshotIdentifier'
+copyClusterSnapshot
+    :: Text -- ^ 'ccsSourceSnapshotIdentifier'
+    -> Text -- ^ 'ccsTargetSnapshotIdentifier'
+    -> CopyClusterSnapshot
 copyClusterSnapshot pSourceSnapshotIdentifier_ pTargetSnapshotIdentifier_ =
     CopyClusterSnapshot'
     { _ccsSourceSnapshotClusterIdentifier = Nothing
@@ -100,7 +103,7 @@ ccsSourceSnapshotClusterIdentifier = lens _ccsSourceSnapshotClusterIdentifier (\
 -- Constraints:
 --
 -- -   Must be the identifier for a valid automated snapshot whose state is
---     @available@.
+--     'available'.
 ccsSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
 ccsSourceSnapshotIdentifier = lens _ccsSourceSnapshotIdentifier (\ s a -> s{_ccsSourceSnapshotIdentifier = a});
 
@@ -146,19 +149,21 @@ instance ToQuery CopyClusterSnapshot where
                  _ccsTargetSnapshotIdentifier]
 
 -- | /See:/ 'copyClusterSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccsrsSnapshot'
---
--- * 'ccsrsStatus'
 data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
     { _ccsrsSnapshot :: !(Maybe Snapshot)
     , _ccsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CopyClusterSnapshotResponse' smart constructor.
-copyClusterSnapshotResponse :: Int -> CopyClusterSnapshotResponse
+-- | Creates a value of 'CopyClusterSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccsrsSnapshot'
+--
+-- * 'ccsrsStatus'
+copyClusterSnapshotResponse
+    :: Int -- ^ 'ccsrsStatus'
+    -> CopyClusterSnapshotResponse
 copyClusterSnapshotResponse pStatus_ =
     CopyClusterSnapshotResponse'
     { _ccsrsSnapshot = Nothing
@@ -169,6 +174,6 @@ copyClusterSnapshotResponse pStatus_ =
 ccsrsSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
 ccsrsSnapshot = lens _ccsrsSnapshot (\ s a -> s{_ccsrsSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 ccsrsStatus :: Lens' CopyClusterSnapshotResponse Int
 ccsrsStatus = lens _ccsrsStatus (\ s a -> s{_ccsrsStatus = a});

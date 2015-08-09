@@ -28,15 +28,15 @@
 module Network.AWS.AutoScaling.AttachInstances
     (
     -- * Creating a Request
-      AttachInstances
-    , attachInstances
+      attachInstances
+    , AttachInstances
     -- * Request Lenses
     , aiInstanceIds
     , aiAutoScalingGroupName
 
     -- * Destructuring the Response
-    , AttachInstancesResponse
     , attachInstancesResponse
+    , AttachInstancesResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -46,19 +46,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aiInstanceIds'
---
--- * 'aiAutoScalingGroupName'
 data AttachInstances = AttachInstances'
     { _aiInstanceIds          :: !(Maybe [Text])
     , _aiAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachInstances' smart constructor.
-attachInstances :: Text -> AttachInstances
+-- | Creates a value of 'AttachInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aiInstanceIds'
+--
+-- * 'aiAutoScalingGroupName'
+attachInstances
+    :: Text -- ^ 'aiAutoScalingGroupName'
+    -> AttachInstances
 attachInstances pAutoScalingGroupName_ =
     AttachInstances'
     { _aiInstanceIds = Nothing
@@ -99,6 +101,8 @@ data AttachInstancesResponse =
     AttachInstancesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachInstancesResponse' smart constructor.
-attachInstancesResponse :: AttachInstancesResponse
+-- | Creates a value of 'AttachInstancesResponse' with the minimum fields required to make a request.
+--
+attachInstancesResponse
+    :: AttachInstancesResponse
 attachInstancesResponse = AttachInstancesResponse'

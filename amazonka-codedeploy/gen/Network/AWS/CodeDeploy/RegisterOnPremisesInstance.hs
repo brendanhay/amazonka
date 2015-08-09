@@ -24,15 +24,15 @@
 module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
     (
     -- * Creating a Request
-      RegisterOnPremisesInstance
-    , registerOnPremisesInstance
+      registerOnPremisesInstance
+    , RegisterOnPremisesInstance
     -- * Request Lenses
     , ropiInstanceName
     , ropiIamUserARN
 
     -- * Destructuring the Response
-    , RegisterOnPremisesInstanceResponse
     , registerOnPremisesInstanceResponse
+    , RegisterOnPremisesInstanceResponse
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -44,19 +44,22 @@ import           Network.AWS.Response
 -- | Represents the input of register on-premises instance operation.
 --
 -- /See:/ 'registerOnPremisesInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ropiInstanceName'
---
--- * 'ropiIamUserARN'
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
     { _ropiInstanceName :: !Text
     , _ropiIamUserARN   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterOnPremisesInstance' smart constructor.
-registerOnPremisesInstance :: Text -> Text -> RegisterOnPremisesInstance
+-- | Creates a value of 'RegisterOnPremisesInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ropiInstanceName'
+--
+-- * 'ropiIamUserARN'
+registerOnPremisesInstance
+    :: Text -- ^ 'ropiInstanceName'
+    -> Text -- ^ 'ropiIamUserARN'
+    -> RegisterOnPremisesInstance
 registerOnPremisesInstance pInstanceName_ pIamUserARN_ =
     RegisterOnPremisesInstance'
     { _ropiInstanceName = pInstanceName_
@@ -106,6 +109,8 @@ data RegisterOnPremisesInstanceResponse =
     RegisterOnPremisesInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterOnPremisesInstanceResponse' smart constructor.
-registerOnPremisesInstanceResponse :: RegisterOnPremisesInstanceResponse
+-- | Creates a value of 'RegisterOnPremisesInstanceResponse' with the minimum fields required to make a request.
+--
+registerOnPremisesInstanceResponse
+    :: RegisterOnPremisesInstanceResponse
 registerOnPremisesInstanceResponse = RegisterOnPremisesInstanceResponse'

@@ -28,15 +28,15 @@
 module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
     (
     -- * Creating a Request
-      AddClientIdToOpenIdConnectProvider
-    , addClientIdToOpenIdConnectProvider
+      addClientIdToOpenIdConnectProvider
+    , AddClientIdToOpenIdConnectProvider
     -- * Request Lenses
     , acitoicpOpenIdConnectProviderARN
     , acitoicpClientId
 
     -- * Destructuring the Response
-    , AddClientIdToOpenIdConnectProviderResponse
     , addClientIdToOpenIdConnectProviderResponse
+    , AddClientIdToOpenIdConnectProviderResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -46,19 +46,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'addClientIdToOpenIdConnectProvider' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'acitoicpOpenIdConnectProviderARN'
---
--- * 'acitoicpClientId'
 data AddClientIdToOpenIdConnectProvider = AddClientIdToOpenIdConnectProvider'
     { _acitoicpOpenIdConnectProviderARN :: !Text
     , _acitoicpClientId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddClientIdToOpenIdConnectProvider' smart constructor.
-addClientIdToOpenIdConnectProvider :: Text -> Text -> AddClientIdToOpenIdConnectProvider
+-- | Creates a value of 'AddClientIdToOpenIdConnectProvider' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acitoicpOpenIdConnectProviderARN'
+--
+-- * 'acitoicpClientId'
+addClientIdToOpenIdConnectProvider
+    :: Text -- ^ 'acitoicpOpenIdConnectProviderARN'
+    -> Text -- ^ 'acitoicpClientId'
+    -> AddClientIdToOpenIdConnectProvider
 addClientIdToOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
     AddClientIdToOpenIdConnectProvider'
     { _acitoicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
@@ -110,7 +113,9 @@ data AddClientIdToOpenIdConnectProviderResponse =
     AddClientIdToOpenIdConnectProviderResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddClientIdToOpenIdConnectProviderResponse' smart constructor.
-addClientIdToOpenIdConnectProviderResponse :: AddClientIdToOpenIdConnectProviderResponse
+-- | Creates a value of 'AddClientIdToOpenIdConnectProviderResponse' with the minimum fields required to make a request.
+--
+addClientIdToOpenIdConnectProviderResponse
+    :: AddClientIdToOpenIdConnectProviderResponse
 addClientIdToOpenIdConnectProviderResponse =
     AddClientIdToOpenIdConnectProviderResponse'

@@ -25,15 +25,15 @@
 module Network.AWS.RDS.AddSourceIdentifierToSubscription
     (
     -- * Creating a Request
-      AddSourceIdentifierToSubscription
-    , addSourceIdentifierToSubscription
+      addSourceIdentifierToSubscription
+    , AddSourceIdentifierToSubscription
     -- * Request Lenses
     , asitsSubscriptionName
     , asitsSourceIdentifier
 
     -- * Destructuring the Response
-    , AddSourceIdentifierToSubscriptionResponse
     , addSourceIdentifierToSubscriptionResponse
+    , AddSourceIdentifierToSubscriptionResponse
     -- * Response Lenses
     , asitsrsEventSubscription
     , asitsrsStatus
@@ -48,19 +48,22 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'addSourceIdentifierToSubscription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'asitsSubscriptionName'
---
--- * 'asitsSourceIdentifier'
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
     { _asitsSubscriptionName :: !Text
     , _asitsSourceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddSourceIdentifierToSubscription' smart constructor.
-addSourceIdentifierToSubscription :: Text -> Text -> AddSourceIdentifierToSubscription
+-- | Creates a value of 'AddSourceIdentifierToSubscription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asitsSubscriptionName'
+--
+-- * 'asitsSourceIdentifier'
+addSourceIdentifierToSubscription
+    :: Text -- ^ 'asitsSubscriptionName'
+    -> Text -- ^ 'asitsSourceIdentifier'
+    -> AddSourceIdentifierToSubscription
 addSourceIdentifierToSubscription pSubscriptionName_ pSourceIdentifier_ =
     AddSourceIdentifierToSubscription'
     { _asitsSubscriptionName = pSubscriptionName_
@@ -78,13 +81,13 @@ asitsSubscriptionName = lens _asitsSubscriptionName (\ s a -> s{_asitsSubscripti
 --
 -- Constraints:
 --
--- -   If the source type is a DB instance, then a @DBInstanceIdentifier@
+-- -   If the source type is a DB instance, then a 'DBInstanceIdentifier'
 --     must be supplied.
--- -   If the source type is a DB security group, a @DBSecurityGroupName@
+-- -   If the source type is a DB security group, a 'DBSecurityGroupName'
 --     must be supplied.
--- -   If the source type is a DB parameter group, a @DBParameterGroupName@
+-- -   If the source type is a DB parameter group, a 'DBParameterGroupName'
 --     must be supplied.
--- -   If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must
+-- -   If the source type is a DB snapshot, a 'DBSnapshotIdentifier' must
 --     be supplied.
 asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
 asitsSourceIdentifier = lens _asitsSourceIdentifier (\ s a -> s{_asitsSourceIdentifier = a});
@@ -121,19 +124,21 @@ instance ToQuery AddSourceIdentifierToSubscription
                "SourceIdentifier" =: _asitsSourceIdentifier]
 
 -- | /See:/ 'addSourceIdentifierToSubscriptionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'asitsrsEventSubscription'
---
--- * 'asitsrsStatus'
 data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'
     { _asitsrsEventSubscription :: !(Maybe EventSubscription)
     , _asitsrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddSourceIdentifierToSubscriptionResponse' smart constructor.
-addSourceIdentifierToSubscriptionResponse :: Int -> AddSourceIdentifierToSubscriptionResponse
+-- | Creates a value of 'AddSourceIdentifierToSubscriptionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asitsrsEventSubscription'
+--
+-- * 'asitsrsStatus'
+addSourceIdentifierToSubscriptionResponse
+    :: Int -- ^ 'asitsrsStatus'
+    -> AddSourceIdentifierToSubscriptionResponse
 addSourceIdentifierToSubscriptionResponse pStatus_ =
     AddSourceIdentifierToSubscriptionResponse'
     { _asitsrsEventSubscription = Nothing
@@ -144,6 +149,6 @@ addSourceIdentifierToSubscriptionResponse pStatus_ =
 asitsrsEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
 asitsrsEventSubscription = lens _asitsrsEventSubscription (\ s a -> s{_asitsrsEventSubscription = a});
 
--- | Undocumented member.
+-- | The response status code.
 asitsrsStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
 asitsrsStatus = lens _asitsrsStatus (\ s a -> s{_asitsrsStatus = a});

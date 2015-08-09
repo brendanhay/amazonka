@@ -24,16 +24,16 @@
 module Network.AWS.DeviceFarm.ListDevicePools
     (
     -- * Creating a Request
-      ListDevicePools
-    , listDevicePools
+      listDevicePools
+    , ListDevicePools
     -- * Request Lenses
     , ldpNextToken
     , ldpType
     , ldpArn
 
     -- * Destructuring the Response
-    , ListDevicePoolsResponse
     , listDevicePoolsResponse
+    , ListDevicePoolsResponse
     -- * Response Lenses
     , ldprsDevicePools
     , ldprsNextToken
@@ -49,22 +49,24 @@ import           Network.AWS.Response
 -- | Represents the result of a list device pools request.
 --
 -- /See:/ 'listDevicePools' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldpNextToken'
---
--- * 'ldpType'
---
--- * 'ldpArn'
 data ListDevicePools = ListDevicePools'
     { _ldpNextToken :: !(Maybe Text)
     , _ldpType      :: !(Maybe DevicePoolType)
     , _ldpArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDevicePools' smart constructor.
-listDevicePools :: Text -> ListDevicePools
+-- | Creates a value of 'ListDevicePools' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldpNextToken'
+--
+-- * 'ldpType'
+--
+-- * 'ldpArn'
+listDevicePools
+    :: Text -- ^ 'ldpArn'
+    -> ListDevicePools
 listDevicePools pArn_ =
     ListDevicePools'
     { _ldpNextToken = Nothing
@@ -132,22 +134,24 @@ instance ToQuery ListDevicePools where
 -- | Represents the result of a list device pools request.
 --
 -- /See:/ 'listDevicePoolsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldprsDevicePools'
---
--- * 'ldprsNextToken'
---
--- * 'ldprsStatus'
 data ListDevicePoolsResponse = ListDevicePoolsResponse'
     { _ldprsDevicePools :: !(Maybe [DevicePool])
     , _ldprsNextToken   :: !(Maybe Text)
     , _ldprsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDevicePoolsResponse' smart constructor.
-listDevicePoolsResponse :: Int -> ListDevicePoolsResponse
+-- | Creates a value of 'ListDevicePoolsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldprsDevicePools'
+--
+-- * 'ldprsNextToken'
+--
+-- * 'ldprsStatus'
+listDevicePoolsResponse
+    :: Int -- ^ 'ldprsStatus'
+    -> ListDevicePoolsResponse
 listDevicePoolsResponse pStatus_ =
     ListDevicePoolsResponse'
     { _ldprsDevicePools = Nothing
@@ -165,6 +169,6 @@ ldprsDevicePools = lens _ldprsDevicePools (\ s a -> s{_ldprsDevicePools = a}) . 
 ldprsNextToken :: Lens' ListDevicePoolsResponse (Maybe Text)
 ldprsNextToken = lens _ldprsNextToken (\ s a -> s{_ldprsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 ldprsStatus :: Lens' ListDevicePoolsResponse Int
 ldprsStatus = lens _ldprsStatus (\ s a -> s{_ldprsStatus = a});

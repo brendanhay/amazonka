@@ -27,7 +27,7 @@
 -- in the /Amazon Redshift Cluster Management Guide/ .
 --
 -- If you want to shut down the cluster and retain it for future use, set
--- /SkipFinalClusterSnapshot/ to @false@ and specify a name for
+-- /SkipFinalClusterSnapshot/ to 'false' and specify a name for
 -- /FinalClusterSnapshotIdentifier/. You can later restore this snapshot to
 -- resume using the cluster. If a final cluster snapshot is requested, the
 -- status of the cluster will be \"final-snapshot\" while the snapshot is
@@ -42,16 +42,16 @@
 module Network.AWS.Redshift.DeleteCluster
     (
     -- * Creating a Request
-      DeleteCluster
-    , deleteCluster
+      deleteCluster
+    , DeleteCluster
     -- * Request Lenses
     , dSkipFinalClusterSnapshot
     , dFinalClusterSnapshotIdentifier
     , dClusterIdentifier
 
     -- * Destructuring the Response
-    , DeleteClusterResponse
     , deleteClusterResponse
+    , DeleteClusterResponse
     -- * Response Lenses
     , drsCluster
     , drsStatus
@@ -66,22 +66,24 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteCluster' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dSkipFinalClusterSnapshot'
---
--- * 'dFinalClusterSnapshotIdentifier'
---
--- * 'dClusterIdentifier'
 data DeleteCluster = DeleteCluster'
     { _dSkipFinalClusterSnapshot       :: !(Maybe Bool)
     , _dFinalClusterSnapshotIdentifier :: !(Maybe Text)
     , _dClusterIdentifier              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCluster' smart constructor.
-deleteCluster :: Text -> DeleteCluster
+-- | Creates a value of 'DeleteCluster' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dSkipFinalClusterSnapshot'
+--
+-- * 'dFinalClusterSnapshotIdentifier'
+--
+-- * 'dClusterIdentifier'
+deleteCluster
+    :: Text -- ^ 'dClusterIdentifier'
+    -> DeleteCluster
 deleteCluster pClusterIdentifier_ =
     DeleteCluster'
     { _dSkipFinalClusterSnapshot = Nothing
@@ -90,20 +92,20 @@ deleteCluster pClusterIdentifier_ =
     }
 
 -- | Determines whether a final snapshot of the cluster is created before
--- Amazon Redshift deletes the cluster. If @true@, a final cluster snapshot
--- is not created. If @false@, a final cluster snapshot is created before
+-- Amazon Redshift deletes the cluster. If 'true', a final cluster snapshot
+-- is not created. If 'false', a final cluster snapshot is created before
 -- the cluster is deleted.
 --
 -- The /FinalClusterSnapshotIdentifier/ parameter must be specified if
--- /SkipFinalClusterSnapshot/ is @false@.
+-- /SkipFinalClusterSnapshot/ is 'false'.
 --
--- Default: @false@
+-- Default: 'false'
 dSkipFinalClusterSnapshot :: Lens' DeleteCluster (Maybe Bool)
 dSkipFinalClusterSnapshot = lens _dSkipFinalClusterSnapshot (\ s a -> s{_dSkipFinalClusterSnapshot = a});
 
 -- | The identifier of the final snapshot that is to be created immediately
 -- before deleting the cluster. If this parameter is provided,
--- /SkipFinalClusterSnapshot/ must be @false@.
+-- /SkipFinalClusterSnapshot/ must be 'false'.
 --
 -- Constraints:
 --
@@ -152,19 +154,21 @@ instance ToQuery DeleteCluster where
                "ClusterIdentifier" =: _dClusterIdentifier]
 
 -- | /See:/ 'deleteClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsCluster'
---
--- * 'drsStatus'
 data DeleteClusterResponse = DeleteClusterResponse'
     { _drsCluster :: !(Maybe Cluster)
     , _drsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteClusterResponse' smart constructor.
-deleteClusterResponse :: Int -> DeleteClusterResponse
+-- | Creates a value of 'DeleteClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsCluster'
+--
+-- * 'drsStatus'
+deleteClusterResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeleteClusterResponse
 deleteClusterResponse pStatus_ =
     DeleteClusterResponse'
     { _drsCluster = Nothing
@@ -175,6 +179,6 @@ deleteClusterResponse pStatus_ =
 drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeleteClusterResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

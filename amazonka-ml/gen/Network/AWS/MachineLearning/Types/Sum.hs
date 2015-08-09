@@ -19,7 +19,7 @@ module Network.AWS.MachineLearning.Types.Sum where
 
 import           Network.AWS.Prelude
 
--- | The function used to train a @MLModel@. Training choices supported by
+-- | The function used to train a 'MLModel'. Training choices supported by
 -- Amazon ML include the following:
 --
 -- -   SGD - Stochastic Gradient Descent.
@@ -47,21 +47,21 @@ instance FromJSON Algorithm where
     parseJSON = parseJSONText "Algorithm"
 
 -- | A list of the variables to use in searching or filtering
--- @BatchPrediction@.
+-- 'BatchPrediction'.
 --
--- -   @CreatedAt@ - Sets the search criteria to @BatchPrediction@ creation
+-- -   'CreatedAt' - Sets the search criteria to 'BatchPrediction' creation
 --     date.
--- -   @Status@ - Sets the search criteria to @BatchPrediction@ status.
--- -   @Name@ - Sets the search criteria to the contents of
---     @BatchPrediction@ ____ @Name@.
--- -   @IAMUser@ - Sets the search criteria to the user account that
---     invoked the @BatchPrediction@ creation.
--- -   @MLModelId@ - Sets the search criteria to the @MLModel@ used in the
---     @BatchPrediction@.
--- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
---     in the @BatchPrediction@.
--- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
---     @BatchPrediction@. The URL can identify either a file or an Amazon
+-- -   'Status' - Sets the search criteria to 'BatchPrediction' status.
+-- -   'Name' - Sets the search criteria to the contents of
+--     'BatchPrediction' ____ 'Name'.
+-- -   'IAMUser' - Sets the search criteria to the user account that
+--     invoked the 'BatchPrediction' creation.
+-- -   'MLModelId' - Sets the search criteria to the 'MLModel' used in the
+--     'BatchPrediction'.
+-- -   'DataSourceId' - Sets the search criteria to the 'DataSource' used
+--     in the 'BatchPrediction'.
+-- -   'DataURI' - Sets the search criteria to the data file(s) used in the
+--     'BatchPrediction'. The URL can identify either a file or an Amazon
 --     Simple Storage Service (Amazon S3) bucket or directory.
 data BatchPredictionFilterVariable
     = BatchDataSourceId
@@ -106,22 +106,22 @@ instance ToHeader     BatchPredictionFilterVariable
 instance ToJSON BatchPredictionFilterVariable where
     toJSON = toJSONText
 
--- | A list of the variables to use in searching or filtering @DataSource@.
+-- | A list of the variables to use in searching or filtering 'DataSource'.
 --
--- -   @CreatedAt@ - Sets the search criteria to @DataSource@ creation
+-- -   'CreatedAt' - Sets the search criteria to 'DataSource' creation
 --     date.
--- -   @Status@ - Sets the search criteria to @DataSource@ status.
--- -   @Name@ - Sets the search criteria to the contents of @DataSource@
---     ____ @Name@.
--- -   @DataUri@ - Sets the search criteria to the URI of data files used
---     to create the @DataSource@. The URI can identify either a file or an
+-- -   'Status' - Sets the search criteria to 'DataSource' status.
+-- -   'Name' - Sets the search criteria to the contents of 'DataSource'
+--     ____ 'Name'.
+-- -   'DataUri' - Sets the search criteria to the URI of data files used
+--     to create the 'DataSource'. The URI can identify either a file or an
 --     Amazon Simple Storage Service (Amazon S3) bucket or directory.
--- -   @IAMUser@ - Sets the search criteria to the user account that
---     invoked the @DataSource@ creation.
+-- -   'IAMUser' - Sets the search criteria to the user account that
+--     invoked the 'DataSource' creation.
 --
 -- Note
 --
--- The variable names should match the variable names in the @DataSource@.
+-- The variable names should match the variable names in the 'DataSource'.
 data DataSourceFilterVariable
     = DataStatus
     | DataIAMUser
@@ -159,9 +159,9 @@ instance ToHeader     DataSourceFilterVariable
 instance ToJSON DataSourceFilterVariable where
     toJSON = toJSONText
 
--- | Contains the key values of @DetailsMap@: PredictiveModelType - Indicates
--- the type of the @MLModel@. Algorithm - Indicates the algorithm was used
--- for the @MLModel@.
+-- | Contains the key values of 'DetailsMap': PredictiveModelType - Indicates
+-- the type of the 'MLModel'. Algorithm - Indicates the algorithm was used
+-- for the 'MLModel'.
 data DetailsAttributes
     = Algorithm
     | PredictiveModelType
@@ -228,20 +228,20 @@ instance ToHeader     EntityStatus
 instance FromJSON EntityStatus where
     parseJSON = parseJSONText "EntityStatus"
 
--- | A list of the variables to use in searching or filtering @Evaluation@.
+-- | A list of the variables to use in searching or filtering 'Evaluation'.
 --
--- -   @CreatedAt@ - Sets the search criteria to @Evaluation@ creation
+-- -   'CreatedAt' - Sets the search criteria to 'Evaluation' creation
 --     date.
--- -   @Status@ - Sets the search criteria to @Evaluation@ status.
--- -   @Name@ - Sets the search criteria to the contents of @Evaluation@
---     ____ @Name@.
--- -   @IAMUser@ - Sets the search criteria to the user account that
+-- -   'Status' - Sets the search criteria to 'Evaluation' status.
+-- -   'Name' - Sets the search criteria to the contents of 'Evaluation'
+--     ____ 'Name'.
+-- -   'IAMUser' - Sets the search criteria to the user account that
 --     invoked an evaluation.
--- -   @MLModelId@ - Sets the search criteria to the @Predictor@ that was
+-- -   'MLModelId' - Sets the search criteria to the 'Predictor' that was
 --     evaluated.
--- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
+-- -   'DataSourceId' - Sets the search criteria to the 'DataSource' used
 --     in evaluation.
--- -   @DataUri@ - Sets the search criteria to the data file(s) used in
+-- -   'DataUri' - Sets the search criteria to the data file(s) used in
 --     evaluation. The URL can identify either a file or an Amazon Simple
 --     Storage Service (Amazon S3) bucket or directory.
 data EvaluationFilterVariable
@@ -401,8 +401,8 @@ instance FromJSON RealtimeEndpointStatus where
 -- | The sort order specified in a listing condition. Possible values include
 -- the following:
 --
--- -   @asc@ - Present the information in ascending order (from A-Z).
--- -   @dsc@ - Present the information in descending order (from Z-A).
+-- -   'asc' - Present the information in ascending order (from A-Z).
+-- -   'dsc' - Present the information in descending order (from Z-A).
 data SortOrder
     = Dsc
     | Asc

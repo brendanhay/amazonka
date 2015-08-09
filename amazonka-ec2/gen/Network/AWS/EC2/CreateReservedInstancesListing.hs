@@ -45,8 +45,8 @@
 module Network.AWS.EC2.CreateReservedInstancesListing
     (
     -- * Creating a Request
-      CreateReservedInstancesListing
-    , createReservedInstancesListing
+      createReservedInstancesListing
+    , CreateReservedInstancesListing
     -- * Request Lenses
     , crilReservedInstancesId
     , crilInstanceCount
@@ -54,8 +54,8 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     , crilClientToken
 
     -- * Destructuring the Response
-    , CreateReservedInstancesListingResponse
     , createReservedInstancesListingResponse
+    , CreateReservedInstancesListingResponse
     -- * Response Lenses
     , crersReservedInstancesListings
     , crersStatus
@@ -68,8 +68,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createReservedInstancesListing' smart constructor.
+data CreateReservedInstancesListing = CreateReservedInstancesListing'
+    { _crilReservedInstancesId :: !Text
+    , _crilInstanceCount       :: !Int
+    , _crilPriceSchedules      :: ![PriceScheduleSpecification]
+    , _crilClientToken         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateReservedInstancesListing' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'crilReservedInstancesId'
 --
@@ -78,15 +86,11 @@ import           Network.AWS.Response
 -- * 'crilPriceSchedules'
 --
 -- * 'crilClientToken'
-data CreateReservedInstancesListing = CreateReservedInstancesListing'
-    { _crilReservedInstancesId :: !Text
-    , _crilInstanceCount       :: !Int
-    , _crilPriceSchedules      :: ![PriceScheduleSpecification]
-    , _crilClientToken         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateReservedInstancesListing' smart constructor.
-createReservedInstancesListing :: Text -> Int -> Text -> CreateReservedInstancesListing
+createReservedInstancesListing
+    :: Text -- ^ 'crilReservedInstancesId'
+    -> Int -- ^ 'crilInstanceCount'
+    -> Text -- ^ 'crilClientToken'
+    -> CreateReservedInstancesListing
 createReservedInstancesListing pReservedInstancesId_ pInstanceCount_ pClientToken_ =
     CreateReservedInstancesListing'
     { _crilReservedInstancesId = pReservedInstancesId_
@@ -151,19 +155,21 @@ instance ToQuery CreateReservedInstancesListing where
                "ClientToken" =: _crilClientToken]
 
 -- | /See:/ 'createReservedInstancesListingResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crersReservedInstancesListings'
---
--- * 'crersStatus'
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
     { _crersReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _crersStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateReservedInstancesListingResponse' smart constructor.
-createReservedInstancesListingResponse :: Int -> CreateReservedInstancesListingResponse
+-- | Creates a value of 'CreateReservedInstancesListingResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crersReservedInstancesListings'
+--
+-- * 'crersStatus'
+createReservedInstancesListingResponse
+    :: Int -- ^ 'crersStatus'
+    -> CreateReservedInstancesListingResponse
 createReservedInstancesListingResponse pStatus_ =
     CreateReservedInstancesListingResponse'
     { _crersReservedInstancesListings = Nothing
@@ -174,6 +180,6 @@ createReservedInstancesListingResponse pStatus_ =
 crersReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
 crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> s{_crersReservedInstancesListings = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 crersStatus :: Lens' CreateReservedInstancesListingResponse Int
 crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

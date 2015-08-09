@@ -25,16 +25,16 @@
 module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
     (
     -- * Creating a Request
-      AcknowledgeThirdPartyJob
-    , acknowledgeThirdPartyJob
+      acknowledgeThirdPartyJob
+    , AcknowledgeThirdPartyJob
     -- * Request Lenses
     , atpjJobId
     , atpjNonce
     , atpjClientToken
 
     -- * Destructuring the Response
-    , AcknowledgeThirdPartyJobResponse
     , acknowledgeThirdPartyJobResponse
+    , AcknowledgeThirdPartyJobResponse
     -- * Response Lenses
     , atpjrsStatus
     ) where
@@ -48,22 +48,26 @@ import           Network.AWS.Response
 -- | Represents the input of an acknowledge third party job action.
 --
 -- /See:/ 'acknowledgeThirdPartyJob' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atpjJobId'
---
--- * 'atpjNonce'
---
--- * 'atpjClientToken'
 data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
     { _atpjJobId       :: !Text
     , _atpjNonce       :: !Text
     , _atpjClientToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AcknowledgeThirdPartyJob' smart constructor.
-acknowledgeThirdPartyJob :: Text -> Text -> Text -> AcknowledgeThirdPartyJob
+-- | Creates a value of 'AcknowledgeThirdPartyJob' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atpjJobId'
+--
+-- * 'atpjNonce'
+--
+-- * 'atpjClientToken'
+acknowledgeThirdPartyJob
+    :: Text -- ^ 'atpjJobId'
+    -> Text -- ^ 'atpjNonce'
+    -> Text -- ^ 'atpjClientToken'
+    -> AcknowledgeThirdPartyJob
 acknowledgeThirdPartyJob pJobId_ pNonce_ pClientToken_ =
     AcknowledgeThirdPartyJob'
     { _atpjJobId = pJobId_
@@ -123,21 +127,23 @@ instance ToQuery AcknowledgeThirdPartyJob where
 -- | Represents the output of an acknowledge third party job action.
 --
 -- /See:/ 'acknowledgeThirdPartyJobResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atpjrsStatus'
 newtype AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
     { _atpjrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AcknowledgeThirdPartyJobResponse' smart constructor.
-acknowledgeThirdPartyJobResponse :: Int -> AcknowledgeThirdPartyJobResponse
+-- | Creates a value of 'AcknowledgeThirdPartyJobResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atpjrsStatus'
+acknowledgeThirdPartyJobResponse
+    :: Int -- ^ 'atpjrsStatus'
+    -> AcknowledgeThirdPartyJobResponse
 acknowledgeThirdPartyJobResponse pStatus_ =
     AcknowledgeThirdPartyJobResponse'
     { _atpjrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 atpjrsStatus :: Lens' AcknowledgeThirdPartyJobResponse Int
 atpjrsStatus = lens _atpjrsStatus (\ s a -> s{_atpjrsStatus = a});

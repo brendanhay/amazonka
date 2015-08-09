@@ -31,14 +31,14 @@
 module Network.AWS.OpsWorks.RebootInstance
     (
     -- * Creating a Request
-      RebootInstance
-    , rebootInstance
+      rebootInstance
+    , RebootInstance
     -- * Request Lenses
     , riInstanceId
 
     -- * Destructuring the Response
-    , RebootInstanceResponse
     , rebootInstanceResponse
+    , RebootInstanceResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -48,16 +48,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'rebootInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'riInstanceId'
 newtype RebootInstance = RebootInstance'
     { _riInstanceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebootInstance' smart constructor.
-rebootInstance :: Text -> RebootInstance
+-- | Creates a value of 'RebootInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'riInstanceId'
+rebootInstance
+    :: Text -- ^ 'riInstanceId'
+    -> RebootInstance
 rebootInstance pInstanceId_ =
     RebootInstance'
     { _riInstanceId = pInstanceId_
@@ -97,6 +99,8 @@ data RebootInstanceResponse =
     RebootInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebootInstanceResponse' smart constructor.
-rebootInstanceResponse :: RebootInstanceResponse
+-- | Creates a value of 'RebootInstanceResponse' with the minimum fields required to make a request.
+--
+rebootInstanceResponse
+    :: RebootInstanceResponse
 rebootInstanceResponse = RebootInstanceResponse'

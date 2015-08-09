@@ -26,15 +26,15 @@
 module Network.AWS.Kinesis.RemoveTagsFromStream
     (
     -- * Creating a Request
-      RemoveTagsFromStream
-    , removeTagsFromStream
+      removeTagsFromStream
+    , RemoveTagsFromStream
     -- * Request Lenses
     , rtfsStreamName
     , rtfsTagKeys
 
     -- * Destructuring the Response
-    , RemoveTagsFromStreamResponse
     , removeTagsFromStreamResponse
+    , RemoveTagsFromStreamResponse
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -43,22 +43,25 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for @RemoveTagsFromStream@.
+-- | Represents the input for 'RemoveTagsFromStream'.
 --
 -- /See:/ 'removeTagsFromStream' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtfsStreamName'
---
--- * 'rtfsTagKeys'
 data RemoveTagsFromStream = RemoveTagsFromStream'
     { _rtfsStreamName :: !Text
     , _rtfsTagKeys    :: !(List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveTagsFromStream' smart constructor.
-removeTagsFromStream :: Text -> NonEmpty Text -> RemoveTagsFromStream
+-- | Creates a value of 'RemoveTagsFromStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtfsStreamName'
+--
+-- * 'rtfsTagKeys'
+removeTagsFromStream
+    :: Text -- ^ 'rtfsStreamName'
+    -> NonEmpty Text -- ^ 'rtfsTagKeys'
+    -> RemoveTagsFromStream
 removeTagsFromStream pStreamName_ pTagKeys_ =
     RemoveTagsFromStream'
     { _rtfsStreamName = pStreamName_
@@ -107,6 +110,8 @@ data RemoveTagsFromStreamResponse =
     RemoveTagsFromStreamResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveTagsFromStreamResponse' smart constructor.
-removeTagsFromStreamResponse :: RemoveTagsFromStreamResponse
+-- | Creates a value of 'RemoveTagsFromStreamResponse' with the minimum fields required to make a request.
+--
+removeTagsFromStreamResponse
+    :: RemoveTagsFromStreamResponse
 removeTagsFromStreamResponse = RemoveTagsFromStreamResponse'

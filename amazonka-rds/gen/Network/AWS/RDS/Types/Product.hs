@@ -25,22 +25,23 @@ import           Network.AWS.RDS.Types.Sum
 -- instances allowed.
 --
 -- /See:/ 'accountQuota' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aqMax'
---
--- * 'aqUsed'
---
--- * 'aqAccountQuotaName'
 data AccountQuota = AccountQuota'
     { _aqMax              :: !(Maybe Integer)
     , _aqUsed             :: !(Maybe Integer)
     , _aqAccountQuotaName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AccountQuota' smart constructor.
-accountQuota :: AccountQuota
+-- | Creates a value of 'AccountQuota' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aqMax'
+--
+-- * 'aqUsed'
+--
+-- * 'aqAccountQuotaName'
+accountQuota
+    :: AccountQuota
 accountQuota =
     AccountQuota'
     { _aqMax = Nothing
@@ -73,16 +74,17 @@ instance FromXML AccountQuota where
 -- -   OrderableDBInstanceOption
 --
 -- /See:/ 'availabilityZone' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'azName'
 newtype AvailabilityZone = AvailabilityZone'
     { _azName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AvailabilityZone' smart constructor.
-availabilityZone :: AvailabilityZone
+-- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'azName'
+availabilityZone
+    :: AvailabilityZone
 availabilityZone =
     AvailabilityZone'
     { _azName = Nothing
@@ -98,8 +100,17 @@ instance FromXML AvailabilityZone where
 -- | A CA certificate for an AWS account.
 --
 -- /See:/ 'certificate' smart constructor.
+data Certificate = Certificate'
+    { _cCertificateType       :: !(Maybe Text)
+    , _cValidTill             :: !(Maybe ISO8601)
+    , _cCertificateIdentifier :: !(Maybe Text)
+    , _cThumbprint            :: !(Maybe Text)
+    , _cValidFrom             :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Certificate' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cCertificateType'
 --
@@ -110,16 +121,8 @@ instance FromXML AvailabilityZone where
 -- * 'cThumbprint'
 --
 -- * 'cValidFrom'
-data Certificate = Certificate'
-    { _cCertificateType       :: !(Maybe Text)
-    , _cValidTill             :: !(Maybe ISO8601)
-    , _cCertificateIdentifier :: !(Maybe Text)
-    , _cThumbprint            :: !(Maybe Text)
-    , _cValidFrom             :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Certificate' smart constructor.
-certificate :: Certificate
+certificate
+    :: Certificate
 certificate =
     Certificate'
     { _cCertificateType = Nothing
@@ -161,19 +164,20 @@ instance FromXML Certificate where
 -- DescribeDBEngineVersions.
 --
 -- /See:/ 'characterSet' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csCharacterSetName'
---
--- * 'csCharacterSetDescription'
 data CharacterSet = CharacterSet'
     { _csCharacterSetName        :: !(Maybe Text)
     , _csCharacterSetDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CharacterSet' smart constructor.
-characterSet :: CharacterSet
+-- | Creates a value of 'CharacterSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csCharacterSetName'
+--
+-- * 'csCharacterSetDescription'
+characterSet
+    :: CharacterSet
 characterSet =
     CharacterSet'
     { _csCharacterSetName = Nothing
@@ -206,8 +210,34 @@ instance FromXML CharacterSet where
 -- action.
 --
 -- /See:/ 'dbCluster' smart constructor.
+data DBCluster = DBCluster'
+    { _dcEngineVersion                   :: !(Maybe Text)
+    , _dcStatus                          :: !(Maybe Text)
+    , _dcDBClusterIdentifier             :: !(Maybe Text)
+    , _dcDBClusterMembers                :: !(Maybe [DBClusterMember])
+    , _dcDBClusterParameterGroup         :: !(Maybe Text)
+    , _dcMasterUsername                  :: !(Maybe Text)
+    , _dcEarliestRestorableTime          :: !(Maybe ISO8601)
+    , _dcEngine                          :: !(Maybe Text)
+    , _dcLatestRestorableTime            :: !(Maybe ISO8601)
+    , _dcPreferredMaintenanceWindow      :: !(Maybe Text)
+    , _dcCharacterSetName                :: !(Maybe Text)
+    , _dcAvailabilityZones               :: !(Maybe [Text])
+    , _dcPreferredBackupWindow           :: !(Maybe Text)
+    , _dcVPCSecurityGroups               :: !(Maybe [VPCSecurityGroupMembership])
+    , _dcBackupRetentionPeriod           :: !(Maybe Int)
+    , _dcDatabaseName                    :: !(Maybe Text)
+    , _dcDBSubnetGroup                   :: !(Maybe Text)
+    , _dcAllocatedStorage                :: !(Maybe Int)
+    , _dcEndpoint                        :: !(Maybe Text)
+    , _dcPercentProgress                 :: !(Maybe Text)
+    , _dcPort                            :: !(Maybe Int)
+    , _dcDBClusterOptionGroupMemberships :: !(Maybe [DBClusterOptionGroupStatus])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBCluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcEngineVersion'
 --
@@ -252,33 +282,8 @@ instance FromXML CharacterSet where
 -- * 'dcPort'
 --
 -- * 'dcDBClusterOptionGroupMemberships'
-data DBCluster = DBCluster'
-    { _dcEngineVersion                   :: !(Maybe Text)
-    , _dcStatus                          :: !(Maybe Text)
-    , _dcDBClusterIdentifier             :: !(Maybe Text)
-    , _dcDBClusterMembers                :: !(Maybe [DBClusterMember])
-    , _dcDBClusterParameterGroup         :: !(Maybe Text)
-    , _dcMasterUsername                  :: !(Maybe Text)
-    , _dcEarliestRestorableTime          :: !(Maybe ISO8601)
-    , _dcEngine                          :: !(Maybe Text)
-    , _dcLatestRestorableTime            :: !(Maybe ISO8601)
-    , _dcPreferredMaintenanceWindow      :: !(Maybe Text)
-    , _dcCharacterSetName                :: !(Maybe Text)
-    , _dcAvailabilityZones               :: !(Maybe [Text])
-    , _dcPreferredBackupWindow           :: !(Maybe Text)
-    , _dcVPCSecurityGroups               :: !(Maybe [VPCSecurityGroupMembership])
-    , _dcBackupRetentionPeriod           :: !(Maybe Int)
-    , _dcDatabaseName                    :: !(Maybe Text)
-    , _dcDBSubnetGroup                   :: !(Maybe Text)
-    , _dcAllocatedStorage                :: !(Maybe Int)
-    , _dcEndpoint                        :: !(Maybe Text)
-    , _dcPercentProgress                 :: !(Maybe Text)
-    , _dcPort                            :: !(Maybe Int)
-    , _dcDBClusterOptionGroupMemberships :: !(Maybe [DBClusterOptionGroupStatus])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DBCluster' smart constructor.
-dbCluster :: DBCluster
+dbCluster
+    :: DBCluster
 dbCluster =
     DBCluster'
     { _dcEngineVersion = Nothing
@@ -361,7 +366,7 @@ dcAvailabilityZones = lens _dcAvailabilityZones (\ s a -> s{_dcAvailabilityZones
 
 -- | Specifies the daily time range during which automated backups are
 -- created if automated backups are enabled, as determined by the
--- @BackupRetentionPeriod@.
+-- 'BackupRetentionPeriod'.
 dcPreferredBackupWindow :: Lens' DBCluster (Maybe Text)
 dcPreferredBackupWindow = lens _dcPreferredBackupWindow (\ s a -> s{_dcPreferredBackupWindow = a});
 
@@ -443,22 +448,23 @@ instance FromXML DBCluster where
 -- | Contains information about an instance that is part of a DB cluster.
 --
 -- /See:/ 'dbClusterMember' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcmDBInstanceIdentifier'
---
--- * 'dcmIsClusterWriter'
---
--- * 'dcmDBClusterParameterGroupStatus'
 data DBClusterMember = DBClusterMember'
     { _dcmDBInstanceIdentifier          :: !(Maybe Text)
     , _dcmIsClusterWriter               :: !(Maybe Bool)
     , _dcmDBClusterParameterGroupStatus :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DBClusterMember' smart constructor.
-dbClusterMember :: DBClusterMember
+-- | Creates a value of 'DBClusterMember' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcmDBInstanceIdentifier'
+--
+-- * 'dcmIsClusterWriter'
+--
+-- * 'dcmDBClusterParameterGroupStatus'
+dbClusterMember
+    :: DBClusterMember
 dbClusterMember =
     DBClusterMember'
     { _dcmDBInstanceIdentifier = Nothing
@@ -470,8 +476,8 @@ dbClusterMember =
 dcmDBInstanceIdentifier :: Lens' DBClusterMember (Maybe Text)
 dcmDBInstanceIdentifier = lens _dcmDBInstanceIdentifier (\ s a -> s{_dcmDBInstanceIdentifier = a});
 
--- | Value that is @true@ if the cluster member is the primary instance for
--- the DB cluster and @false@ otherwise.
+-- | Value that is 'true' if the cluster member is the primary instance for
+-- the DB cluster and 'false' otherwise.
 dcmIsClusterWriter :: Lens' DBClusterMember (Maybe Bool)
 dcmIsClusterWriter = lens _dcmIsClusterWriter (\ s a -> s{_dcmIsClusterWriter = a});
 
@@ -490,19 +496,20 @@ instance FromXML DBClusterMember where
 -- | Contains status information for a DB cluster option group.
 --
 -- /See:/ 'dbClusterOptionGroupStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcogsStatus'
---
--- * 'dcogsDBClusterOptionGroupName'
 data DBClusterOptionGroupStatus = DBClusterOptionGroupStatus'
     { _dcogsStatus                   :: !(Maybe Text)
     , _dcogsDBClusterOptionGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DBClusterOptionGroupStatus' smart constructor.
-dbClusterOptionGroupStatus :: DBClusterOptionGroupStatus
+-- | Creates a value of 'DBClusterOptionGroupStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcogsStatus'
+--
+-- * 'dcogsDBClusterOptionGroupName'
+dbClusterOptionGroupStatus
+    :: DBClusterOptionGroupStatus
 dbClusterOptionGroupStatus =
     DBClusterOptionGroupStatus'
     { _dcogsStatus = Nothing
@@ -531,22 +538,23 @@ instance FromXML DBClusterOptionGroupStatus where
 -- DescribeDBClusterParameterGroups action.
 --
 -- /See:/ 'dbClusterParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcpgDBParameterGroupFamily'
---
--- * 'dcpgDBClusterParameterGroupName'
---
--- * 'dcpgDescription'
 data DBClusterParameterGroup = DBClusterParameterGroup'
     { _dcpgDBParameterGroupFamily      :: !(Maybe Text)
     , _dcpgDBClusterParameterGroupName :: !(Maybe Text)
     , _dcpgDescription                 :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DBClusterParameterGroup' smart constructor.
-dbClusterParameterGroup :: DBClusterParameterGroup
+-- | Creates a value of 'DBClusterParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcpgDBParameterGroupFamily'
+--
+-- * 'dcpgDBClusterParameterGroupName'
+--
+-- * 'dcpgDescription'
+dbClusterParameterGroup
+    :: DBClusterParameterGroup
 dbClusterParameterGroup =
     DBClusterParameterGroup'
     { _dcpgDBParameterGroupFamily = Nothing
@@ -578,16 +586,17 @@ instance FromXML DBClusterParameterGroup where
 -- |
 --
 -- /See:/ 'dbClusterParameterGroupNameMessage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcpgnmDBClusterParameterGroupName'
 newtype DBClusterParameterGroupNameMessage = DBClusterParameterGroupNameMessage'
     { _dcpgnmDBClusterParameterGroupName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DBClusterParameterGroupNameMessage' smart constructor.
-dbClusterParameterGroupNameMessage :: DBClusterParameterGroupNameMessage
+-- | Creates a value of 'DBClusterParameterGroupNameMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcpgnmDBClusterParameterGroupName'
+dbClusterParameterGroupNameMessage
+    :: DBClusterParameterGroupNameMessage
 dbClusterParameterGroupNameMessage =
     DBClusterParameterGroupNameMessage'
     { _dcpgnmDBClusterParameterGroupName = Nothing
@@ -620,8 +629,27 @@ instance FromXML DBClusterParameterGroupNameMessage
 -- DescribeDBClusterSnapshots action.
 --
 -- /See:/ 'dbClusterSnapshot' smart constructor.
+data DBClusterSnapshot = DBClusterSnapshot'
+    { _dcsEngineVersion               :: !(Maybe Text)
+    , _dcsStatus                      :: !(Maybe Text)
+    , _dcsDBClusterIdentifier         :: !(Maybe Text)
+    , _dcsMasterUsername              :: !(Maybe Text)
+    , _dcsVPCId                       :: !(Maybe Text)
+    , _dcsDBClusterSnapshotIdentifier :: !(Maybe Text)
+    , _dcsEngine                      :: !(Maybe Text)
+    , _dcsLicenseModel                :: !(Maybe Text)
+    , _dcsSnapshotType                :: !(Maybe Text)
+    , _dcsAvailabilityZones           :: !(Maybe [Text])
+    , _dcsSnapshotCreateTime          :: !(Maybe ISO8601)
+    , _dcsAllocatedStorage            :: !(Maybe Int)
+    , _dcsClusterCreateTime           :: !(Maybe ISO8601)
+    , _dcsPercentProgress             :: !(Maybe Int)
+    , _dcsPort                        :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBClusterSnapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcsEngineVersion'
 --
@@ -652,26 +680,8 @@ instance FromXML DBClusterParameterGroupNameMessage
 -- * 'dcsPercentProgress'
 --
 -- * 'dcsPort'
-data DBClusterSnapshot = DBClusterSnapshot'
-    { _dcsEngineVersion               :: !(Maybe Text)
-    , _dcsStatus                      :: !(Maybe Text)
-    , _dcsDBClusterIdentifier         :: !(Maybe Text)
-    , _dcsMasterUsername              :: !(Maybe Text)
-    , _dcsVPCId                       :: !(Maybe Text)
-    , _dcsDBClusterSnapshotIdentifier :: !(Maybe Text)
-    , _dcsEngine                      :: !(Maybe Text)
-    , _dcsLicenseModel                :: !(Maybe Text)
-    , _dcsSnapshotType                :: !(Maybe Text)
-    , _dcsAvailabilityZones           :: !(Maybe [Text])
-    , _dcsSnapshotCreateTime          :: !(Maybe ISO8601)
-    , _dcsAllocatedStorage            :: !(Maybe Int)
-    , _dcsClusterCreateTime           :: !(Maybe ISO8601)
-    , _dcsPercentProgress             :: !(Maybe Int)
-    , _dcsPort                        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DBClusterSnapshot' smart constructor.
-dbClusterSnapshot :: DBClusterSnapshot
+dbClusterSnapshot
+    :: DBClusterSnapshot
 dbClusterSnapshot =
     DBClusterSnapshot'
     { _dcsEngineVersion = Nothing
@@ -782,8 +792,19 @@ instance FromXML DBClusterSnapshot where
 -- DescribeDBEngineVersions.
 --
 -- /See:/ 'dbEngineVersion' smart constructor.
+data DBEngineVersion = DBEngineVersion'
+    { _devDBEngineVersionDescription :: !(Maybe Text)
+    , _devEngineVersion              :: !(Maybe Text)
+    , _devDefaultCharacterSet        :: !(Maybe CharacterSet)
+    , _devSupportedCharacterSets     :: !(Maybe [CharacterSet])
+    , _devEngine                     :: !(Maybe Text)
+    , _devDBParameterGroupFamily     :: !(Maybe Text)
+    , _devDBEngineDescription        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBEngineVersion' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'devDBEngineVersionDescription'
 --
@@ -798,18 +819,8 @@ instance FromXML DBClusterSnapshot where
 -- * 'devDBParameterGroupFamily'
 --
 -- * 'devDBEngineDescription'
-data DBEngineVersion = DBEngineVersion'
-    { _devDBEngineVersionDescription :: !(Maybe Text)
-    , _devEngineVersion              :: !(Maybe Text)
-    , _devDefaultCharacterSet        :: !(Maybe CharacterSet)
-    , _devSupportedCharacterSets     :: !(Maybe [CharacterSet])
-    , _devEngine                     :: !(Maybe Text)
-    , _devDBParameterGroupFamily     :: !(Maybe Text)
-    , _devDBEngineDescription        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DBEngineVersion' smart constructor.
-dbEngineVersion :: DBEngineVersion
+dbEngineVersion
+    :: DBEngineVersion
 dbEngineVersion =
     DBEngineVersion'
     { _devDBEngineVersionDescription = Nothing
@@ -830,13 +841,13 @@ devEngineVersion :: Lens' DBEngineVersion (Maybe Text)
 devEngineVersion = lens _devEngineVersion (\ s a -> s{_devEngineVersion = a});
 
 -- | The default character set for new instances of this engine version, if
--- the @CharacterSetName@ parameter of the CreateDBInstance API is not
+-- the 'CharacterSetName' parameter of the CreateDBInstance API is not
 -- specified.
 devDefaultCharacterSet :: Lens' DBEngineVersion (Maybe CharacterSet)
 devDefaultCharacterSet = lens _devDefaultCharacterSet (\ s a -> s{_devDefaultCharacterSet = a});
 
 -- | A list of the character sets supported by this engine for the
--- @CharacterSetName@ parameter of the CreateDBInstance API.
+-- 'CharacterSetName' parameter of the CreateDBInstance API.
 devSupportedCharacterSets :: Lens' DBEngineVersion [CharacterSet]
 devSupportedCharacterSets = lens _devSupportedCharacterSets (\ s a -> s{_devSupportedCharacterSets = a}) . _Default . _Coerce;
 
@@ -875,8 +886,53 @@ instance FromXML DBEngineVersion where
 -- action.
 --
 -- /See:/ 'dbInstance' smart constructor.
+data DBInstance = DBInstance'
+    { _diDBSecurityGroups                      :: !(Maybe [DBSecurityGroupMembership])
+    , _diEngineVersion                         :: !(Maybe Text)
+    , _diStorageEncrypted                      :: !(Maybe Bool)
+    , _diDBClusterIdentifier                   :: !(Maybe Text)
+    , _diAutoMinorVersionUpgrade               :: !(Maybe Bool)
+    , _diMasterUsername                        :: !(Maybe Text)
+    , _diPubliclyAccessible                    :: !(Maybe Bool)
+    , _diReadReplicaDBInstanceIdentifiers      :: !(Maybe [Text])
+    , _diIOPS                                  :: !(Maybe Int)
+    , _diInstanceCreateTime                    :: !(Maybe ISO8601)
+    , _diReadReplicaSourceDBInstanceIdentifier :: !(Maybe Text)
+    , _diEngine                                :: !(Maybe Text)
+    , _diLatestRestorableTime                  :: !(Maybe ISO8601)
+    , _diDBInstanceClass                       :: !(Maybe Text)
+    , _diLicenseModel                          :: !(Maybe Text)
+    , _diPreferredMaintenanceWindow            :: !(Maybe Text)
+    , _diCharacterSetName                      :: !(Maybe Text)
+    , _diDBInstanceIdentifier                  :: !(Maybe Text)
+    , _diCACertificateIdentifier               :: !(Maybe Text)
+    , _diPreferredBackupWindow                 :: !(Maybe Text)
+    , _diAvailabilityZone                      :: !(Maybe Text)
+    , _diVPCSecurityGroups                     :: !(Maybe [VPCSecurityGroupMembership])
+    , _diBackupRetentionPeriod                 :: !(Maybe Int)
+    , _diKMSKeyId                              :: !(Maybe Text)
+    , _diDBSubnetGroup                         :: !(Maybe DBSubnetGroup)
+    , _diMultiAZ                               :: !(Maybe Bool)
+    , _diSecondaryAvailabilityZone             :: !(Maybe Text)
+    , _diOptionGroupMemberships                :: !(Maybe [OptionGroupMembership])
+    , _diDBiResourceId                         :: !(Maybe Text)
+    , _diAllocatedStorage                      :: !(Maybe Int)
+    , _diEndpoint                              :: !(Maybe Endpoint)
+    , _diDBParameterGroups                     :: !(Maybe [DBParameterGroupStatus])
+    , _diTDECredentialARN                      :: !(Maybe Text)
+    , _diCopyTagsToSnapshot                    :: !(Maybe Bool)
+    , _diDBInstanceStatus                      :: !(Maybe Text)
+    , _diDBInstancePort                        :: !(Maybe Int)
+    , _diPendingModifiedValues                 :: !(Maybe PendingModifiedValues)
+    , _diStatusInfos                           :: !(Maybe [DBInstanceStatusInfo])
+    , _diDBName                                :: !(Maybe Text)
+    , _diDomainMemberships                     :: !(Maybe [DomainMembership])
+    , _diStorageType                           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'diDBSecurityGroups'
 --
@@ -959,52 +1015,8 @@ instance FromXML DBEngineVersion where
 -- * 'diDomainMemberships'
 --
 -- * 'diStorageType'
-data DBInstance = DBInstance'
-    { _diDBSecurityGroups                      :: !(Maybe [DBSecurityGroupMembership])
-    , _diEngineVersion                         :: !(Maybe Text)
-    , _diStorageEncrypted                      :: !(Maybe Bool)
-    , _diDBClusterIdentifier                   :: !(Maybe Text)
-    , _diAutoMinorVersionUpgrade               :: !(Maybe Bool)
-    , _diMasterUsername                        :: !(Maybe Text)
-    , _diPubliclyAccessible                    :: !(Maybe Bool)
-    , _diReadReplicaDBInstanceIdentifiers      :: !(Maybe [Text])
-    , _diIOPS                                  :: !(Maybe Int)
-    , _diInstanceCreateTime                    :: !(Maybe ISO8601)
-    , _diReadReplicaSourceDBInstanceIdentifier :: !(Maybe Text)
-    , _diEngine                                :: !(Maybe Text)
-    , _diLatestRestorableTime                  :: !(Maybe ISO8601)
-    , _diDBInstanceClass                       :: !(Maybe Text)
-    , _diLicenseModel                          :: !(Maybe Text)
-    , _diPreferredMaintenanceWindow            :: !(Maybe Text)
-    , _diCharacterSetName                      :: !(Maybe Text)
-    , _diDBInstanceIdentifier                  :: !(Maybe Text)
-    , _diCACertificateIdentifier               :: !(Maybe Text)
-    , _diPreferredBackupWindow                 :: !(Maybe Text)
-    , _diAvailabilityZone                      :: !(Maybe Text)
-    , _diVPCSecurityGroups                     :: !(Maybe [VPCSecurityGroupMembership])
-    , _diBackupRetentionPeriod                 :: !(Maybe Int)
-    , _diKMSKeyId                              :: !(Maybe Text)
-    , _diDBSubnetGroup                         :: !(Maybe DBSubnetGroup)
-    , _diMultiAZ                               :: !(Maybe Bool)
-    , _diSecondaryAvailabilityZone             :: !(Maybe Text)
-    , _diOptionGroupMemberships                :: !(Maybe [OptionGroupMembership])
-    , _diDBiResourceId                         :: !(Maybe Text)
-    , _diAllocatedStorage                      :: !(Maybe Int)
-    , _diEndpoint                              :: !(Maybe Endpoint)
-    , _diDBParameterGroups                     :: !(Maybe [DBParameterGroupStatus])
-    , _diTDECredentialARN                      :: !(Maybe Text)
-    , _diCopyTagsToSnapshot                    :: !(Maybe Bool)
-    , _diDBInstanceStatus                      :: !(Maybe Text)
-    , _diDBInstancePort                        :: !(Maybe Int)
-    , _diPendingModifiedValues                 :: !(Maybe PendingModifiedValues)
-    , _diStatusInfos                           :: !(Maybe [DBInstanceStatusInfo])
-    , _diDBName                                :: !(Maybe Text)
-    , _diDomainMemberships                     :: !(Maybe [DomainMembership])
-    , _diStorageType                           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DBInstance' smart constructor.
-dbInstance :: DBInstance
+dbInstance
+    :: DBInstance
 dbInstance =
     DBInstance'
     { _diDBSecurityGroups = Nothing
@@ -1051,7 +1063,7 @@ dbInstance =
     }
 
 -- | Provides List of DB security group elements containing only
--- @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
+-- 'DBSecurityGroup.Name' and 'DBSecurityGroup.Status' subelements.
 diDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
 diDBSecurityGroups = lens _diDBSecurityGroups (\ s a -> s{_diDBSecurityGroups = a}) . _Default . _Coerce;
 
@@ -1155,7 +1167,7 @@ diCACertificateIdentifier = lens _diCACertificateIdentifier (\ s a -> s{_diCACer
 
 -- | Specifies the daily time range during which automated backups are
 -- created if automated backups are enabled, as determined by the
--- @BackupRetentionPeriod@.
+-- 'BackupRetentionPeriod'.
 diPreferredBackupWindow :: Lens' DBInstance (Maybe Text)
 diPreferredBackupWindow = lens _diPreferredBackupWindow (\ s a -> s{_diPreferredBackupWindow = a});
 
@@ -1174,7 +1186,7 @@ diVPCSecurityGroups = lens _diVPCSecurityGroups (\ s a -> s{_diVPCSecurityGroups
 diBackupRetentionPeriod :: Lens' DBInstance (Maybe Int)
 diBackupRetentionPeriod = lens _diBackupRetentionPeriod (\ s a -> s{_diBackupRetentionPeriod = a});
 
--- | If @StorageEncrypted@ is true, the KMS key identifier for the encrypted
+-- | If 'StorageEncrypted' is true, the KMS key identifier for the encrypted
 -- DB instance.
 diKMSKeyId :: Lens' DBInstance (Maybe Text)
 diKMSKeyId = lens _diKMSKeyId (\ s a -> s{_diKMSKeyId = a});
@@ -1198,7 +1210,7 @@ diSecondaryAvailabilityZone = lens _diSecondaryAvailabilityZone (\ s a -> s{_diS
 diOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
 diOptionGroupMemberships = lens _diOptionGroupMemberships (\ s a -> s{_diOptionGroupMemberships = a}) . _Default . _Coerce;
 
--- | If @StorageEncrypted@ is true, the region-unique, immutable identifier
+-- | If 'StorageEncrypted' is true, the region-unique, immutable identifier
 -- for the encrypted DB instance. This identifier is found in AWS
 -- CloudTrail log entries whenever the KMS key for the DB instance is
 -- accessed.
@@ -1339,8 +1351,16 @@ instance FromXML DBInstance where
 -- | Provides a list of status information for a DB instance.
 --
 -- /See:/ 'dbInstanceStatusInfo' smart constructor.
+data DBInstanceStatusInfo = DBInstanceStatusInfo'
+    { _disiStatus     :: !(Maybe Text)
+    , _disiNormal     :: !(Maybe Bool)
+    , _disiStatusType :: !(Maybe Text)
+    , _disiMessage    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBInstanceStatusInfo' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'disiStatus'
 --
@@ -1349,15 +1369,8 @@ instance FromXML DBInstance where
 -- * 'disiStatusType'
 --
 -- * 'disiMessage'
-data DBInstanceStatusInfo = DBInstanceStatusInfo'
-    { _disiStatus     :: !(Maybe Text)
-    , _disiNormal     :: !(Maybe Bool)
-    , _disiStatusType :: !(Maybe Text)
-    , _disiMessage    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DBInstanceStatusInfo' smart constructor.
-dbInstanceStatusInfo :: DBInstanceStatusInfo
+dbInstanceStatusInfo
+    :: DBInstanceStatusInfo
 dbInstanceStatusInfo =
     DBInstanceStatusInfo'
     { _disiStatus = Nothing
@@ -1400,22 +1413,23 @@ instance FromXML DBInstanceStatusInfo where
 -- DescribeDBParameterGroups action.
 --
 -- /See:/ 'dbParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpgDBParameterGroupFamily'
---
--- * 'dpgDBParameterGroupName'
---
--- * 'dpgDescription'
 data DBParameterGroup = DBParameterGroup'
     { _dpgDBParameterGroupFamily :: !(Maybe Text)
     , _dpgDBParameterGroupName   :: !(Maybe Text)
     , _dpgDescription            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DBParameterGroup' smart constructor.
-dbParameterGroup :: DBParameterGroup
+-- | Creates a value of 'DBParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpgDBParameterGroupFamily'
+--
+-- * 'dpgDBParameterGroupName'
+--
+-- * 'dpgDescription'
+dbParameterGroup
+    :: DBParameterGroup
 dbParameterGroup =
     DBParameterGroup'
     { _dpgDBParameterGroupFamily = Nothing
@@ -1447,16 +1461,17 @@ instance FromXML DBParameterGroup where
 -- ModifyDBParameterGroup or ResetDBParameterGroup action.
 --
 -- /See:/ 'dbParameterGroupNameMessage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpgnmDBParameterGroupName'
 newtype DBParameterGroupNameMessage = DBParameterGroupNameMessage'
     { _dpgnmDBParameterGroupName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DBParameterGroupNameMessage' smart constructor.
-dbParameterGroupNameMessage :: DBParameterGroupNameMessage
+-- | Creates a value of 'DBParameterGroupNameMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpgnmDBParameterGroupName'
+dbParameterGroupNameMessage
+    :: DBParameterGroupNameMessage
 dbParameterGroupNameMessage =
     DBParameterGroupNameMessage'
     { _dpgnmDBParameterGroupName = Nothing
@@ -1483,19 +1498,20 @@ instance FromXML DBParameterGroupNameMessage where
 -- -   RestoreDBInstanceFromDBSnapshot
 --
 -- /See:/ 'dbParameterGroupStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpgsDBParameterGroupName'
---
--- * 'dpgsParameterApplyStatus'
 data DBParameterGroupStatus = DBParameterGroupStatus'
     { _dpgsDBParameterGroupName :: !(Maybe Text)
     , _dpgsParameterApplyStatus :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DBParameterGroupStatus' smart constructor.
-dbParameterGroupStatus :: DBParameterGroupStatus
+-- | Creates a value of 'DBParameterGroupStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpgsDBParameterGroupName'
+--
+-- * 'dpgsParameterApplyStatus'
+dbParameterGroupStatus
+    :: DBParameterGroupStatus
 dbParameterGroupStatus =
     DBParameterGroupStatus'
     { _dpgsDBParameterGroupName = Nothing
@@ -1527,8 +1543,18 @@ instance FromXML DBParameterGroupStatus where
 -- DescribeDBSecurityGroups action.
 --
 -- /See:/ 'dbSecurityGroup' smart constructor.
+data DBSecurityGroup = DBSecurityGroup'
+    { _dsgVPCId                      :: !(Maybe Text)
+    , _dsgOwnerId                    :: !(Maybe Text)
+    , _dsgIPRanges                   :: !(Maybe [IPRange])
+    , _dsgDBSecurityGroupName        :: !(Maybe Text)
+    , _dsgEC2SecurityGroups          :: !(Maybe [EC2SecurityGroup])
+    , _dsgDBSecurityGroupDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBSecurityGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsgVPCId'
 --
@@ -1541,17 +1567,8 @@ instance FromXML DBParameterGroupStatus where
 -- * 'dsgEC2SecurityGroups'
 --
 -- * 'dsgDBSecurityGroupDescription'
-data DBSecurityGroup = DBSecurityGroup'
-    { _dsgVPCId                      :: !(Maybe Text)
-    , _dsgOwnerId                    :: !(Maybe Text)
-    , _dsgIPRanges                   :: !(Maybe [IPRange])
-    , _dsgDBSecurityGroupName        :: !(Maybe Text)
-    , _dsgEC2SecurityGroups          :: !(Maybe [EC2SecurityGroup])
-    , _dsgDBSecurityGroupDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DBSecurityGroup' smart constructor.
-dbSecurityGroup :: DBSecurityGroup
+dbSecurityGroup
+    :: DBSecurityGroup
 dbSecurityGroup =
     DBSecurityGroup'
     { _dsgVPCId = Nothing
@@ -1606,19 +1623,20 @@ instance FromXML DBSecurityGroup where
 -- -   RestoreDBInstanceToPointInTime
 --
 -- /See:/ 'dbSecurityGroupMembership' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsgmStatus'
---
--- * 'dsgmDBSecurityGroupName'
 data DBSecurityGroupMembership = DBSecurityGroupMembership'
     { _dsgmStatus              :: !(Maybe Text)
     , _dsgmDBSecurityGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DBSecurityGroupMembership' smart constructor.
-dbSecurityGroupMembership :: DBSecurityGroupMembership
+-- | Creates a value of 'DBSecurityGroupMembership' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsgmStatus'
+--
+-- * 'dsgmDBSecurityGroupName'
+dbSecurityGroupMembership
+    :: DBSecurityGroupMembership
 dbSecurityGroupMembership =
     DBSecurityGroupMembership'
     { _dsgmStatus = Nothing
@@ -1647,8 +1665,35 @@ instance FromXML DBSecurityGroupMembership where
 -- action.
 --
 -- /See:/ 'dbSnapshot' smart constructor.
+data DBSnapshot = DBSnapshot'
+    { _dsEngineVersion              :: !(Maybe Text)
+    , _dsStatus                     :: !(Maybe Text)
+    , _dsMasterUsername             :: !(Maybe Text)
+    , _dsSourceRegion               :: !(Maybe Text)
+    , _dsIOPS                       :: !(Maybe Int)
+    , _dsInstanceCreateTime         :: !(Maybe ISO8601)
+    , _dsVPCId                      :: !(Maybe Text)
+    , _dsEngine                     :: !(Maybe Text)
+    , _dsEncrypted                  :: !(Maybe Bool)
+    , _dsDBSnapshotIdentifier       :: !(Maybe Text)
+    , _dsLicenseModel               :: !(Maybe Text)
+    , _dsSnapshotType               :: !(Maybe Text)
+    , _dsDBInstanceIdentifier       :: !(Maybe Text)
+    , _dsSourceDBSnapshotIdentifier :: !(Maybe Text)
+    , _dsAvailabilityZone           :: !(Maybe Text)
+    , _dsKMSKeyId                   :: !(Maybe Text)
+    , _dsSnapshotCreateTime         :: !(Maybe ISO8601)
+    , _dsAllocatedStorage           :: !(Maybe Int)
+    , _dsTDECredentialARN           :: !(Maybe Text)
+    , _dsOptionGroupName            :: !(Maybe Text)
+    , _dsPercentProgress            :: !(Maybe Int)
+    , _dsPort                       :: !(Maybe Int)
+    , _dsStorageType                :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBSnapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsEngineVersion'
 --
@@ -1695,34 +1740,8 @@ instance FromXML DBSecurityGroupMembership where
 -- * 'dsPort'
 --
 -- * 'dsStorageType'
-data DBSnapshot = DBSnapshot'
-    { _dsEngineVersion              :: !(Maybe Text)
-    , _dsStatus                     :: !(Maybe Text)
-    , _dsMasterUsername             :: !(Maybe Text)
-    , _dsSourceRegion               :: !(Maybe Text)
-    , _dsIOPS                       :: !(Maybe Int)
-    , _dsInstanceCreateTime         :: !(Maybe ISO8601)
-    , _dsVPCId                      :: !(Maybe Text)
-    , _dsEngine                     :: !(Maybe Text)
-    , _dsEncrypted                  :: !(Maybe Bool)
-    , _dsDBSnapshotIdentifier       :: !(Maybe Text)
-    , _dsLicenseModel               :: !(Maybe Text)
-    , _dsSnapshotType               :: !(Maybe Text)
-    , _dsDBInstanceIdentifier       :: !(Maybe Text)
-    , _dsSourceDBSnapshotIdentifier :: !(Maybe Text)
-    , _dsAvailabilityZone           :: !(Maybe Text)
-    , _dsKMSKeyId                   :: !(Maybe Text)
-    , _dsSnapshotCreateTime         :: !(Maybe ISO8601)
-    , _dsAllocatedStorage           :: !(Maybe Int)
-    , _dsTDECredentialARN           :: !(Maybe Text)
-    , _dsOptionGroupName            :: !(Maybe Text)
-    , _dsPercentProgress            :: !(Maybe Int)
-    , _dsPort                       :: !(Maybe Int)
-    , _dsStorageType                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DBSnapshot' smart constructor.
-dbSnapshot :: DBSnapshot
+dbSnapshot
+    :: DBSnapshot
 dbSnapshot =
     DBSnapshot'
     { _dsEngineVersion = Nothing
@@ -1815,7 +1834,7 @@ dsSourceDBSnapshotIdentifier = lens _dsSourceDBSnapshotIdentifier (\ s a -> s{_d
 dsAvailabilityZone :: Lens' DBSnapshot (Maybe Text)
 dsAvailabilityZone = lens _dsAvailabilityZone (\ s a -> s{_dsAvailabilityZone = a});
 
--- | If @Encrypted@ is true, the KMS key identifier for the encrypted DB
+-- | If 'Encrypted' is true, the KMS key identifier for the encrypted DB
 -- snapshot.
 dsKMSKeyId :: Lens' DBSnapshot (Maybe Text)
 dsKMSKeyId = lens _dsKMSKeyId (\ s a -> s{_dsKMSKeyId = a});
@@ -1888,8 +1907,17 @@ instance FromXML DBSnapshot where
 -- DescribeDBSubnetGroups action.
 --
 -- /See:/ 'dbSubnetGroup' smart constructor.
+data DBSubnetGroup = DBSubnetGroup'
+    { _dbsgDBSubnetGroupName        :: !(Maybe Text)
+    , _dbsgVPCId                    :: !(Maybe Text)
+    , _dbsgSubnets                  :: !(Maybe [Subnet])
+    , _dbsgDBSubnetGroupDescription :: !(Maybe Text)
+    , _dbsgSubnetGroupStatus        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DBSubnetGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dbsgDBSubnetGroupName'
 --
@@ -1900,16 +1928,8 @@ instance FromXML DBSnapshot where
 -- * 'dbsgDBSubnetGroupDescription'
 --
 -- * 'dbsgSubnetGroupStatus'
-data DBSubnetGroup = DBSubnetGroup'
-    { _dbsgDBSubnetGroupName        :: !(Maybe Text)
-    , _dbsgVPCId                    :: !(Maybe Text)
-    , _dbsgSubnets                  :: !(Maybe [Subnet])
-    , _dbsgDBSubnetGroupDescription :: !(Maybe Text)
-    , _dbsgSubnetGroupStatus        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DBSubnetGroup' smart constructor.
-dbSubnetGroup :: DBSubnetGroup
+dbSubnetGroup
+    :: DBSubnetGroup
 dbSubnetGroup =
     DBSubnetGroup'
     { _dbsgDBSubnetGroupName = Nothing
@@ -1951,22 +1971,23 @@ instance FromXML DBSubnetGroup where
 -- | This data type is used as a response element to DescribeDBLogFiles.
 --
 -- /See:/ 'describeDBLogFilesDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddlfdLastWritten'
---
--- * 'ddlfdSize'
---
--- * 'ddlfdLogFileName'
 data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'
     { _ddlfdLastWritten :: !(Maybe Integer)
     , _ddlfdSize        :: !(Maybe Integer)
     , _ddlfdLogFileName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDBLogFilesDetails' smart constructor.
-describeDBLogFilesDetails :: DescribeDBLogFilesDetails
+-- | Creates a value of 'DescribeDBLogFilesDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddlfdLastWritten'
+--
+-- * 'ddlfdSize'
+--
+-- * 'ddlfdLogFileName'
+describeDBLogFilesDetails
+    :: DescribeDBLogFilesDetails
 describeDBLogFilesDetails =
     DescribeDBLogFilesDetails'
     { _ddlfdLastWritten = Nothing
@@ -1996,22 +2017,23 @@ instance FromXML DescribeDBLogFilesDetails where
 -- instance.
 --
 -- /See:/ 'domainMembership' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmStatus'
---
--- * 'dmDomain'
---
--- * 'dmConnectivity'
 data DomainMembership = DomainMembership'
     { _dmStatus       :: !(Maybe Text)
     , _dmDomain       :: !(Maybe Text)
     , _dmConnectivity :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DomainMembership' smart constructor.
-domainMembership :: DomainMembership
+-- | Creates a value of 'DomainMembership' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmStatus'
+--
+-- * 'dmDomain'
+--
+-- * 'dmConnectivity'
+domainMembership
+    :: DomainMembership
 domainMembership =
     DomainMembership'
     { _dmStatus = Nothing
@@ -2045,8 +2067,16 @@ instance FromXML DomainMembership where
 -- -   RevokeDBSecurityGroupIngress
 --
 -- /See:/ 'ec2SecurityGroup' smart constructor.
+data EC2SecurityGroup = EC2SecurityGroup'
+    { _esgStatus                  :: !(Maybe Text)
+    , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
+    , _esgEC2SecurityGroupName    :: !(Maybe Text)
+    , _esgEC2SecurityGroupId      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EC2SecurityGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'esgStatus'
 --
@@ -2055,15 +2085,8 @@ instance FromXML DomainMembership where
 -- * 'esgEC2SecurityGroupName'
 --
 -- * 'esgEC2SecurityGroupId'
-data EC2SecurityGroup = EC2SecurityGroup'
-    { _esgStatus                  :: !(Maybe Text)
-    , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
-    , _esgEC2SecurityGroupName    :: !(Maybe Text)
-    , _esgEC2SecurityGroupId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EC2SecurityGroup' smart constructor.
-ec2SecurityGroup :: EC2SecurityGroup
+ec2SecurityGroup
+    :: EC2SecurityGroup
 ec2SecurityGroup =
     EC2SecurityGroup'
     { _esgStatus = Nothing
@@ -2078,7 +2101,7 @@ esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
 esgStatus = lens _esgStatus (\ s a -> s{_esgStatus = a});
 
 -- | Specifies the AWS ID of the owner of the EC2 security group specified in
--- the @EC2SecurityGroupName@ field.
+-- the 'EC2SecurityGroupName' field.
 esgEC2SecurityGroupOwnerId :: Lens' EC2SecurityGroup (Maybe Text)
 esgEC2SecurityGroupOwnerId = lens _esgEC2SecurityGroupOwnerId (\ s a -> s{_esgEC2SecurityGroupOwnerId = a});
 
@@ -2105,19 +2128,20 @@ instance FromXML EC2SecurityGroup where
 -- -   DeleteDBInstance
 --
 -- /See:/ 'endpoint' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'eAddress'
---
--- * 'ePort'
 data Endpoint = Endpoint'
     { _eAddress :: !(Maybe Text)
     , _ePort    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Endpoint' smart constructor.
-endpoint :: Endpoint
+-- | Creates a value of 'Endpoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eAddress'
+--
+-- * 'ePort'
+endpoint
+    :: Endpoint
 endpoint =
     Endpoint'
     { _eAddress = Nothing
@@ -2140,22 +2164,23 @@ instance FromXML Endpoint where
 -- DescribeEngineDefaultParameters action.
 --
 -- /See:/ 'engineDefaults' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'edDBParameterGroupFamily'
---
--- * 'edParameters'
---
--- * 'edMarker'
 data EngineDefaults = EngineDefaults'
     { _edDBParameterGroupFamily :: !(Maybe Text)
     , _edParameters             :: !(Maybe [Parameter])
     , _edMarker                 :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EngineDefaults' smart constructor.
-engineDefaults :: EngineDefaults
+-- | Creates a value of 'EngineDefaults' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edDBParameterGroupFamily'
+--
+-- * 'edParameters'
+--
+-- * 'edMarker'
+engineDefaults
+    :: EngineDefaults
 engineDefaults =
     EngineDefaults'
     { _edDBParameterGroupFamily = Nothing
@@ -2174,7 +2199,7 @@ edParameters = lens _edParameters (\ s a -> s{_edParameters = a}) . _Default . _
 
 -- | An optional pagination token provided by a previous EngineDefaults
 -- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@ .
+-- records beyond the marker, up to the value specified by 'MaxRecords' .
 edMarker :: Lens' EngineDefaults (Maybe Text)
 edMarker = lens _edMarker (\ s a -> s{_edMarker = a});
 
@@ -2190,8 +2215,17 @@ instance FromXML EngineDefaults where
 -- action.
 --
 -- /See:/ 'event' smart constructor.
+data Event = Event'
+    { _eSourceType       :: !(Maybe SourceType)
+    , _eSourceIdentifier :: !(Maybe Text)
+    , _eDate             :: !(Maybe ISO8601)
+    , _eEventCategories  :: !(Maybe [Text])
+    , _eMessage          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Event' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eSourceType'
 --
@@ -2202,16 +2236,8 @@ instance FromXML EngineDefaults where
 -- * 'eEventCategories'
 --
 -- * 'eMessage'
-data Event = Event'
-    { _eSourceType       :: !(Maybe SourceType)
-    , _eSourceIdentifier :: !(Maybe Text)
-    , _eDate             :: !(Maybe ISO8601)
-    , _eEventCategories  :: !(Maybe [Text])
-    , _eMessage          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Event' smart constructor.
-event :: Event
+event
+    :: Event
 event =
     Event'
     { _eSourceType = Nothing
@@ -2255,19 +2281,20 @@ instance FromXML Event where
 -- DescribeEventCategories action.
 --
 -- /See:/ 'eventCategoriesMap' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ecmSourceType'
---
--- * 'ecmEventCategories'
 data EventCategoriesMap = EventCategoriesMap'
     { _ecmSourceType      :: !(Maybe Text)
     , _ecmEventCategories :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EventCategoriesMap' smart constructor.
-eventCategoriesMap :: EventCategoriesMap
+-- | Creates a value of 'EventCategoriesMap' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ecmSourceType'
+--
+-- * 'ecmEventCategories'
+eventCategoriesMap
+    :: EventCategoriesMap
 eventCategoriesMap =
     EventCategoriesMap'
     { _ecmSourceType = Nothing
@@ -2293,8 +2320,21 @@ instance FromXML EventCategoriesMap where
 -- DescribeEventSubscriptions action.
 --
 -- /See:/ 'eventSubscription' smart constructor.
+data EventSubscription = EventSubscription'
+    { _esCustomerAWSId            :: !(Maybe Text)
+    , _esStatus                   :: !(Maybe Text)
+    , _esCustSubscriptionId       :: !(Maybe Text)
+    , _esSNSTopicARN              :: !(Maybe Text)
+    , _esEnabled                  :: !(Maybe Bool)
+    , _esSourceType               :: !(Maybe Text)
+    , _esSubscriptionCreationTime :: !(Maybe Text)
+    , _esEventCategoriesList      :: !(Maybe [Text])
+    , _esSourceIdsList            :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'esCustomerAWSId'
 --
@@ -2313,20 +2353,8 @@ instance FromXML EventCategoriesMap where
 -- * 'esEventCategoriesList'
 --
 -- * 'esSourceIdsList'
-data EventSubscription = EventSubscription'
-    { _esCustomerAWSId            :: !(Maybe Text)
-    , _esStatus                   :: !(Maybe Text)
-    , _esCustSubscriptionId       :: !(Maybe Text)
-    , _esSNSTopicARN              :: !(Maybe Text)
-    , _esEnabled                  :: !(Maybe Bool)
-    , _esSourceType               :: !(Maybe Text)
-    , _esSubscriptionCreationTime :: !(Maybe Text)
-    , _esEventCategoriesList      :: !(Maybe [Text])
-    , _esSourceIdsList            :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EventSubscription' smart constructor.
-eventSubscription :: EventSubscription
+eventSubscription
+    :: EventSubscription
 eventSubscription =
     EventSubscription'
     { _esCustomerAWSId = Nothing
@@ -2404,19 +2432,21 @@ instance FromXML EventSubscription where
                    may (parseXMLList "SourceId"))
 
 -- | /See:/ 'filter'' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fName'
---
--- * 'fValues'
 data Filter = Filter'
     { _fName   :: !Text
     , _fValues :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Filter' smart constructor.
-filter' :: Text -> Filter
+-- | Creates a value of 'Filter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fName'
+--
+-- * 'fValues'
+filter'
+    :: Text -- ^ 'fName'
+    -> Filter
 filter' pName_ =
     Filter'
     { _fName = pName_
@@ -2441,19 +2471,20 @@ instance ToQuery Filter where
 -- DescribeDBSecurityGroups action.
 --
 -- /See:/ 'ipRange' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'irStatus'
---
--- * 'irCIdRIP'
 data IPRange = IPRange'
     { _irStatus :: !(Maybe Text)
     , _irCIdRIP :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'IPRange' smart constructor.
-ipRange :: IPRange
+-- | Creates a value of 'IPRange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'irStatus'
+--
+-- * 'irCIdRIP'
+ipRange
+    :: IPRange
 ipRange =
     IPRange'
     { _irStatus = Nothing
@@ -2476,8 +2507,20 @@ instance FromXML IPRange where
 -- | Option details.
 --
 -- /See:/ 'option' smart constructor.
+data Option = Option'
+    { _oOptionName                  :: !(Maybe Text)
+    , _oPermanent                   :: !(Maybe Bool)
+    , _oPersistent                  :: !(Maybe Bool)
+    , _oOptionDescription           :: !(Maybe Text)
+    , _oOptionSettings              :: !(Maybe [OptionSetting])
+    , _oVPCSecurityGroupMemberships :: !(Maybe [VPCSecurityGroupMembership])
+    , _oDBSecurityGroupMemberships  :: !(Maybe [DBSecurityGroupMembership])
+    , _oPort                        :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Option' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'oOptionName'
 --
@@ -2494,19 +2537,8 @@ instance FromXML IPRange where
 -- * 'oDBSecurityGroupMemberships'
 --
 -- * 'oPort'
-data Option = Option'
-    { _oOptionName                  :: !(Maybe Text)
-    , _oPermanent                   :: !(Maybe Bool)
-    , _oPersistent                  :: !(Maybe Bool)
-    , _oOptionDescription           :: !(Maybe Text)
-    , _oOptionSettings              :: !(Maybe [OptionSetting])
-    , _oVPCSecurityGroupMemberships :: !(Maybe [VPCSecurityGroupMembership])
-    , _oDBSecurityGroupMemberships  :: !(Maybe [DBSecurityGroupMembership])
-    , _oPort                        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Option' smart constructor.
-option :: Option
+option
+    :: Option
 option =
     Option'
     { _oOptionName = Nothing
@@ -2573,8 +2605,17 @@ instance FromXML Option where
 -- | A list of all available options
 --
 -- /See:/ 'optionConfiguration' smart constructor.
+data OptionConfiguration = OptionConfiguration'
+    { _ocOptionSettings              :: !(Maybe [OptionSetting])
+    , _ocVPCSecurityGroupMemberships :: !(Maybe [Text])
+    , _ocDBSecurityGroupMemberships  :: !(Maybe [Text])
+    , _ocPort                        :: !(Maybe Int)
+    , _ocOptionName                  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OptionConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ocOptionSettings'
 --
@@ -2585,16 +2626,9 @@ instance FromXML Option where
 -- * 'ocPort'
 --
 -- * 'ocOptionName'
-data OptionConfiguration = OptionConfiguration'
-    { _ocOptionSettings              :: !(Maybe [OptionSetting])
-    , _ocVPCSecurityGroupMemberships :: !(Maybe [Text])
-    , _ocDBSecurityGroupMemberships  :: !(Maybe [Text])
-    , _ocPort                        :: !(Maybe Int)
-    , _ocOptionName                  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'OptionConfiguration' smart constructor.
-optionConfiguration :: Text -> OptionConfiguration
+optionConfiguration
+    :: Text -- ^ 'ocOptionName'
+    -> OptionConfiguration
 optionConfiguration pOptionName_ =
     OptionConfiguration'
     { _ocOptionSettings = Nothing
@@ -2643,8 +2677,19 @@ instance ToQuery OptionConfiguration where
 -- |
 --
 -- /See:/ 'optionGroup' smart constructor.
+data OptionGroup = OptionGroup'
+    { _ogOptionGroupDescription                :: !(Maybe Text)
+    , _ogVPCId                                 :: !(Maybe Text)
+    , _ogAllowsVPCAndNonVPCInstanceMemberships :: !(Maybe Bool)
+    , _ogEngineName                            :: !(Maybe Text)
+    , _ogMajorEngineVersion                    :: !(Maybe Text)
+    , _ogOptions                               :: !(Maybe [Option])
+    , _ogOptionGroupName                       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OptionGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ogOptionGroupDescription'
 --
@@ -2659,18 +2704,8 @@ instance ToQuery OptionConfiguration where
 -- * 'ogOptions'
 --
 -- * 'ogOptionGroupName'
-data OptionGroup = OptionGroup'
-    { _ogOptionGroupDescription                :: !(Maybe Text)
-    , _ogVPCId                                 :: !(Maybe Text)
-    , _ogAllowsVPCAndNonVPCInstanceMemberships :: !(Maybe Bool)
-    , _ogEngineName                            :: !(Maybe Text)
-    , _ogMajorEngineVersion                    :: !(Maybe Text)
-    , _ogOptions                               :: !(Maybe [Option])
-    , _ogOptionGroupName                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'OptionGroup' smart constructor.
-optionGroup :: OptionGroup
+optionGroup
+    :: OptionGroup
 optionGroup =
     OptionGroup'
     { _ogOptionGroupDescription = Nothing
@@ -2686,8 +2721,8 @@ optionGroup =
 ogOptionGroupDescription :: Lens' OptionGroup (Maybe Text)
 ogOptionGroupDescription = lens _ogOptionGroupDescription (\ s a -> s{_ogOptionGroupDescription = a});
 
--- | If __AllowsVpcAndNonVpcInstanceMemberships__ is @false@, this field is
--- blank. If __AllowsVpcAndNonVpcInstanceMemberships__ is @true@ and this
+-- | If __AllowsVpcAndNonVpcInstanceMemberships__ is 'false', this field is
+-- blank. If __AllowsVpcAndNonVpcInstanceMemberships__ is 'true' and this
 -- field is blank, then this option group can be applied to both VPC and
 -- non-VPC instances. If this field contains a value, then this option
 -- group can only be applied to instances that are in the VPC indicated by
@@ -2696,7 +2731,7 @@ ogVPCId :: Lens' OptionGroup (Maybe Text)
 ogVPCId = lens _ogVPCId (\ s a -> s{_ogVPCId = a});
 
 -- | Indicates whether this option group can be applied to both VPC and
--- non-VPC instances. The value @true@ indicates the option group can be
+-- non-VPC instances. The value 'true' indicates the option group can be
 -- applied to both VPC and non-VPC instances.
 ogAllowsVPCAndNonVPCInstanceMemberships :: Lens' OptionGroup (Maybe Bool)
 ogAllowsVPCAndNonVPCInstanceMemberships = lens _ogAllowsVPCAndNonVPCInstanceMemberships (\ s a -> s{_ogAllowsVPCAndNonVPCInstanceMemberships = a});
@@ -2734,19 +2769,20 @@ instance FromXML OptionGroup where
 -- of.
 --
 -- /See:/ 'optionGroupMembership' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ogmStatus'
---
--- * 'ogmOptionGroupName'
 data OptionGroupMembership = OptionGroupMembership'
     { _ogmStatus          :: !(Maybe Text)
     , _ogmOptionGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'OptionGroupMembership' smart constructor.
-optionGroupMembership :: OptionGroupMembership
+-- | Creates a value of 'OptionGroupMembership' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ogmStatus'
+--
+-- * 'ogmOptionGroupName'
+optionGroupMembership
+    :: OptionGroupMembership
 optionGroupMembership =
     OptionGroupMembership'
     { _ogmStatus = Nothing
@@ -2770,8 +2806,23 @@ instance FromXML OptionGroupMembership where
 -- | Available option.
 --
 -- /See:/ 'optionGroupOption' smart constructor.
+data OptionGroupOption = OptionGroupOption'
+    { _ogoMinimumRequiredMinorEngineVersion :: !(Maybe Text)
+    , _ogoPermanent                         :: !(Maybe Bool)
+    , _ogoPersistent                        :: !(Maybe Bool)
+    , _ogoEngineName                        :: !(Maybe Text)
+    , _ogoName                              :: !(Maybe Text)
+    , _ogoMajorEngineVersion                :: !(Maybe Text)
+    , _ogoDefaultPort                       :: !(Maybe Int)
+    , _ogoOptionGroupOptionSettings         :: !(Maybe [OptionGroupOptionSetting])
+    , _ogoPortRequired                      :: !(Maybe Bool)
+    , _ogoOptionsDependedOn                 :: !(Maybe [Text])
+    , _ogoDescription                       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OptionGroupOption' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ogoMinimumRequiredMinorEngineVersion'
 --
@@ -2794,22 +2845,8 @@ instance FromXML OptionGroupMembership where
 -- * 'ogoOptionsDependedOn'
 --
 -- * 'ogoDescription'
-data OptionGroupOption = OptionGroupOption'
-    { _ogoMinimumRequiredMinorEngineVersion :: !(Maybe Text)
-    , _ogoPermanent                         :: !(Maybe Bool)
-    , _ogoPersistent                        :: !(Maybe Bool)
-    , _ogoEngineName                        :: !(Maybe Text)
-    , _ogoName                              :: !(Maybe Text)
-    , _ogoMajorEngineVersion                :: !(Maybe Text)
-    , _ogoDefaultPort                       :: !(Maybe Int)
-    , _ogoOptionGroupOptionSettings         :: !(Maybe [OptionGroupOptionSetting])
-    , _ogoPortRequired                      :: !(Maybe Bool)
-    , _ogoOptionsDependedOn                 :: !(Maybe [Text])
-    , _ogoDescription                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'OptionGroupOption' smart constructor.
-optionGroupOption :: OptionGroupOption
+optionGroupOption
+    :: OptionGroupOption
 optionGroupOption =
     OptionGroupOption'
     { _ogoMinimumRequiredMinorEngineVersion = Nothing
@@ -2900,8 +2937,18 @@ instance FromXML OptionGroupOption where
 -- values are used with the DescribeOptionGroupOptions action.
 --
 -- /See:/ 'optionGroupOptionSetting' smart constructor.
+data OptionGroupOptionSetting = OptionGroupOptionSetting'
+    { _ogosApplyType          :: !(Maybe Text)
+    , _ogosSettingName        :: !(Maybe Text)
+    , _ogosDefaultValue       :: !(Maybe Text)
+    , _ogosIsModifiable       :: !(Maybe Bool)
+    , _ogosAllowedValues      :: !(Maybe Text)
+    , _ogosSettingDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OptionGroupOptionSetting' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ogosApplyType'
 --
@@ -2914,17 +2961,8 @@ instance FromXML OptionGroupOption where
 -- * 'ogosAllowedValues'
 --
 -- * 'ogosSettingDescription'
-data OptionGroupOptionSetting = OptionGroupOptionSetting'
-    { _ogosApplyType          :: !(Maybe Text)
-    , _ogosSettingName        :: !(Maybe Text)
-    , _ogosDefaultValue       :: !(Maybe Text)
-    , _ogosIsModifiable       :: !(Maybe Bool)
-    , _ogosAllowedValues      :: !(Maybe Text)
-    , _ogosSettingDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'OptionGroupOptionSetting' smart constructor.
-optionGroupOptionSetting :: OptionGroupOptionSetting
+optionGroupOptionSetting
+    :: OptionGroupOptionSetting
 optionGroupOptionSetting =
     OptionGroupOptionSetting'
     { _ogosApplyType = Nothing
@@ -2976,8 +3014,21 @@ instance FromXML OptionGroupOptionSetting where
 -- values.
 --
 -- /See:/ 'optionSetting' smart constructor.
+data OptionSetting = OptionSetting'
+    { _osIsCollection  :: !(Maybe Bool)
+    , _osApplyType     :: !(Maybe Text)
+    , _osValue         :: !(Maybe Text)
+    , _osName          :: !(Maybe Text)
+    , _osDefaultValue  :: !(Maybe Text)
+    , _osIsModifiable  :: !(Maybe Bool)
+    , _osAllowedValues :: !(Maybe Text)
+    , _osDataType      :: !(Maybe Text)
+    , _osDescription   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OptionSetting' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'osIsCollection'
 --
@@ -2996,20 +3047,8 @@ instance FromXML OptionGroupOptionSetting where
 -- * 'osDataType'
 --
 -- * 'osDescription'
-data OptionSetting = OptionSetting'
-    { _osIsCollection  :: !(Maybe Bool)
-    , _osApplyType     :: !(Maybe Text)
-    , _osValue         :: !(Maybe Text)
-    , _osName          :: !(Maybe Text)
-    , _osDefaultValue  :: !(Maybe Text)
-    , _osIsModifiable  :: !(Maybe Bool)
-    , _osAllowedValues :: !(Maybe Text)
-    , _osDataType      :: !(Maybe Text)
-    , _osDescription   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'OptionSetting' smart constructor.
-optionSetting :: OptionSetting
+optionSetting
+    :: OptionSetting
 optionSetting =
     OptionSetting'
     { _osIsCollection = Nothing
@@ -3089,8 +3128,23 @@ instance ToQuery OptionSetting where
 -- DescribeOrderableDBInstanceOptions action.
 --
 -- /See:/ 'orderableDBInstanceOption' smart constructor.
+data OrderableDBInstanceOption = OrderableDBInstanceOption'
+    { _odioEngineVersion             :: !(Maybe Text)
+    , _odioMultiAZCapable            :: !(Maybe Bool)
+    , _odioEngine                    :: !(Maybe Text)
+    , _odioSupportsIOPS              :: !(Maybe Bool)
+    , _odioDBInstanceClass           :: !(Maybe Text)
+    , _odioLicenseModel              :: !(Maybe Text)
+    , _odioAvailabilityZones         :: !(Maybe [AvailabilityZone])
+    , _odioReadReplicaCapable        :: !(Maybe Bool)
+    , _odioSupportsStorageEncryption :: !(Maybe Bool)
+    , _odioVPC                       :: !(Maybe Bool)
+    , _odioStorageType               :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OrderableDBInstanceOption' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'odioEngineVersion'
 --
@@ -3113,22 +3167,8 @@ instance ToQuery OptionSetting where
 -- * 'odioVPC'
 --
 -- * 'odioStorageType'
-data OrderableDBInstanceOption = OrderableDBInstanceOption'
-    { _odioEngineVersion             :: !(Maybe Text)
-    , _odioMultiAZCapable            :: !(Maybe Bool)
-    , _odioEngine                    :: !(Maybe Text)
-    , _odioSupportsIOPS              :: !(Maybe Bool)
-    , _odioDBInstanceClass           :: !(Maybe Text)
-    , _odioLicenseModel              :: !(Maybe Text)
-    , _odioAvailabilityZones         :: !(Maybe [AvailabilityZone])
-    , _odioReadReplicaCapable        :: !(Maybe Bool)
-    , _odioSupportsStorageEncryption :: !(Maybe Bool)
-    , _odioVPC                       :: !(Maybe Bool)
-    , _odioStorageType               :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'OrderableDBInstanceOption' smart constructor.
-orderableDBInstanceOption :: OrderableDBInstanceOption
+orderableDBInstanceOption
+    :: OrderableDBInstanceOption
 orderableDBInstanceOption =
     OrderableDBInstanceOption'
     { _odioEngineVersion = Nothing
@@ -3211,8 +3251,22 @@ instance FromXML OrderableDBInstanceOption where
 -- DescribeEngineDefaultParameters and DescribeDBParameters actions.
 --
 -- /See:/ 'parameter' smart constructor.
+data Parameter = Parameter'
+    { _pApplyType            :: !(Maybe Text)
+    , _pParameterValue       :: !(Maybe Text)
+    , _pApplyMethod          :: !(Maybe ApplyMethod)
+    , _pMinimumEngineVersion :: !(Maybe Text)
+    , _pSource               :: !(Maybe Text)
+    , _pIsModifiable         :: !(Maybe Bool)
+    , _pAllowedValues        :: !(Maybe Text)
+    , _pDataType             :: !(Maybe Text)
+    , _pParameterName        :: !(Maybe Text)
+    , _pDescription          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Parameter' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pApplyType'
 --
@@ -3233,21 +3287,8 @@ instance FromXML OrderableDBInstanceOption where
 -- * 'pParameterName'
 --
 -- * 'pDescription'
-data Parameter = Parameter'
-    { _pApplyType            :: !(Maybe Text)
-    , _pParameterValue       :: !(Maybe Text)
-    , _pApplyMethod          :: !(Maybe ApplyMethod)
-    , _pMinimumEngineVersion :: !(Maybe Text)
-    , _pSource               :: !(Maybe Text)
-    , _pIsModifiable         :: !(Maybe Bool)
-    , _pAllowedValues        :: !(Maybe Text)
-    , _pDataType             :: !(Maybe Text)
-    , _pParameterName        :: !(Maybe Text)
-    , _pDescription          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Parameter' smart constructor.
-parameter :: Parameter
+parameter
+    :: Parameter
 parameter =
     Parameter'
     { _pApplyType = Nothing
@@ -3282,7 +3323,7 @@ pMinimumEngineVersion = lens _pMinimumEngineVersion (\ s a -> s{_pMinimumEngineV
 pSource :: Lens' Parameter (Maybe Text)
 pSource = lens _pSource (\ s a -> s{_pSource = a});
 
--- | Indicates whether (@true@) or not (@false@) the parameter can be
+-- | Indicates whether ('true') or not ('false') the parameter can be
 -- modified. Some parameters have security or operational implications that
 -- prevent them from being changed.
 pIsModifiable :: Lens' Parameter (Maybe Bool)
@@ -3334,8 +3375,18 @@ instance ToQuery Parameter where
 -- | Provides information about a pending maintenance action for a resource.
 --
 -- /See:/ 'pendingMaintenanceAction' smart constructor.
+data PendingMaintenanceAction = PendingMaintenanceAction'
+    { _pmaAutoAppliedAfterDate :: !(Maybe ISO8601)
+    , _pmaAction               :: !(Maybe Text)
+    , _pmaOptInStatus          :: !(Maybe Text)
+    , _pmaDescription          :: !(Maybe Text)
+    , _pmaCurrentApplyDate     :: !(Maybe ISO8601)
+    , _pmaForcedApplyDate      :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PendingMaintenanceAction' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pmaAutoAppliedAfterDate'
 --
@@ -3348,17 +3399,8 @@ instance ToQuery Parameter where
 -- * 'pmaCurrentApplyDate'
 --
 -- * 'pmaForcedApplyDate'
-data PendingMaintenanceAction = PendingMaintenanceAction'
-    { _pmaAutoAppliedAfterDate :: !(Maybe ISO8601)
-    , _pmaAction               :: !(Maybe Text)
-    , _pmaOptInStatus          :: !(Maybe Text)
-    , _pmaDescription          :: !(Maybe Text)
-    , _pmaCurrentApplyDate     :: !(Maybe ISO8601)
-    , _pmaForcedApplyDate      :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PendingMaintenanceAction' smart constructor.
-pendingMaintenanceAction :: PendingMaintenanceAction
+pendingMaintenanceAction
+    :: PendingMaintenanceAction
 pendingMaintenanceAction =
     PendingMaintenanceAction'
     { _pmaAutoAppliedAfterDate = Nothing
@@ -3372,7 +3414,7 @@ pendingMaintenanceAction =
 -- | The date of the maintenance window when the action will be applied. The
 -- maintenance action will be applied to the resource during its first
 -- maintenance window after this date. If this date is specified, any
--- @next-maintenance@ opt-in requests are ignored.
+-- 'next-maintenance' opt-in requests are ignored.
 pmaAutoAppliedAfterDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
 pmaAutoAppliedAfterDate = lens _pmaAutoAppliedAfterDate (\ s a -> s{_pmaAutoAppliedAfterDate = a}) . mapping _Time;
 
@@ -3392,17 +3434,17 @@ pmaDescription = lens _pmaDescription (\ s a -> s{_pmaDescription = a});
 
 -- | The effective date when the pending maintenance action will be applied
 -- to the resource. This date takes into account opt-in requests received
--- from the ApplyPendingMaintenanceAction API, the @AutoAppliedAfterDate@,
--- and the @ForcedApplyDate@. This value is blank if an opt-in request has
+-- from the ApplyPendingMaintenanceAction API, the 'AutoAppliedAfterDate',
+-- and the 'ForcedApplyDate'. This value is blank if an opt-in request has
 -- not been received and nothing has been specified as
--- @AutoAppliedAfterDate@ or @ForcedApplyDate@.
+-- 'AutoAppliedAfterDate' or 'ForcedApplyDate'.
 pmaCurrentApplyDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
 pmaCurrentApplyDate = lens _pmaCurrentApplyDate (\ s a -> s{_pmaCurrentApplyDate = a}) . mapping _Time;
 
 -- | The date when the maintenance action will be automatically applied. The
 -- maintenance action will be applied to the resource on this date
 -- regardless of the maintenance window for the resource. If this date is
--- specified, any @immediate@ opt-in requests are ignored.
+-- specified, any 'immediate' opt-in requests are ignored.
 pmaForcedApplyDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
 pmaForcedApplyDate = lens _pmaForcedApplyDate (\ s a -> s{_pmaForcedApplyDate = a}) . mapping _Time;
 
@@ -3419,8 +3461,23 @@ instance FromXML PendingMaintenanceAction where
 -- action.
 --
 -- /See:/ 'pendingModifiedValues' smart constructor.
+data PendingModifiedValues = PendingModifiedValues'
+    { _pmvEngineVersion           :: !(Maybe Text)
+    , _pmvMasterUserPassword      :: !(Maybe Text)
+    , _pmvIOPS                    :: !(Maybe Int)
+    , _pmvDBInstanceClass         :: !(Maybe Text)
+    , _pmvDBInstanceIdentifier    :: !(Maybe Text)
+    , _pmvCACertificateIdentifier :: !(Maybe Text)
+    , _pmvBackupRetentionPeriod   :: !(Maybe Int)
+    , _pmvMultiAZ                 :: !(Maybe Bool)
+    , _pmvAllocatedStorage        :: !(Maybe Int)
+    , _pmvPort                    :: !(Maybe Int)
+    , _pmvStorageType             :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PendingModifiedValues' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pmvEngineVersion'
 --
@@ -3443,22 +3500,8 @@ instance FromXML PendingMaintenanceAction where
 -- * 'pmvPort'
 --
 -- * 'pmvStorageType'
-data PendingModifiedValues = PendingModifiedValues'
-    { _pmvEngineVersion           :: !(Maybe Text)
-    , _pmvMasterUserPassword      :: !(Maybe Text)
-    , _pmvIOPS                    :: !(Maybe Int)
-    , _pmvDBInstanceClass         :: !(Maybe Text)
-    , _pmvDBInstanceIdentifier    :: !(Maybe Text)
-    , _pmvCACertificateIdentifier :: !(Maybe Text)
-    , _pmvBackupRetentionPeriod   :: !(Maybe Int)
-    , _pmvMultiAZ                 :: !(Maybe Bool)
-    , _pmvAllocatedStorage        :: !(Maybe Int)
-    , _pmvPort                    :: !(Maybe Int)
-    , _pmvStorageType             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PendingModifiedValues' smart constructor.
-pendingModifiedValues :: PendingModifiedValues
+pendingModifiedValues
+    :: PendingModifiedValues
 pendingModifiedValues =
     PendingModifiedValues'
     { _pmvEngineVersion = Nothing
@@ -3488,12 +3531,12 @@ pmvMasterUserPassword = lens _pmvMasterUserPassword (\ s a -> s{_pmvMasterUserPa
 pmvIOPS :: Lens' PendingModifiedValues (Maybe Int)
 pmvIOPS = lens _pmvIOPS (\ s a -> s{_pmvIOPS = a});
 
--- | Contains the new @DBInstanceClass@ for the DB instance that will be
+-- | Contains the new 'DBInstanceClass' for the DB instance that will be
 -- applied or is in progress.
 pmvDBInstanceClass :: Lens' PendingModifiedValues (Maybe Text)
 pmvDBInstanceClass = lens _pmvDBInstanceClass (\ s a -> s{_pmvDBInstanceClass = a});
 
--- | Contains the new @DBInstanceIdentifier@ for the DB instance that will be
+-- | Contains the new 'DBInstanceIdentifier' for the DB instance that will be
 -- applied or is in progress.
 pmvDBInstanceIdentifier :: Lens' PendingModifiedValues (Maybe Text)
 pmvDBInstanceIdentifier = lens _pmvDBInstanceIdentifier (\ s a -> s{_pmvDBInstanceIdentifier = a});
@@ -3512,7 +3555,7 @@ pmvBackupRetentionPeriod = lens _pmvBackupRetentionPeriod (\ s a -> s{_pmvBackup
 pmvMultiAZ :: Lens' PendingModifiedValues (Maybe Bool)
 pmvMultiAZ = lens _pmvMultiAZ (\ s a -> s{_pmvMultiAZ = a});
 
--- | Contains the new @AllocatedStorage@ size for the DB instance that will
+-- | Contains the new 'AllocatedStorage' size for the DB instance that will
 -- be applied or is in progress.
 pmvAllocatedStorage :: Lens' PendingModifiedValues (Maybe Int)
 pmvAllocatedStorage = lens _pmvAllocatedStorage (\ s a -> s{_pmvAllocatedStorage = a});
@@ -3545,19 +3588,20 @@ instance FromXML PendingModifiedValues where
 -- actions.
 --
 -- /See:/ 'recurringCharge' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcRecurringChargeFrequency'
---
--- * 'rcRecurringChargeAmount'
 data RecurringCharge = RecurringCharge'
     { _rcRecurringChargeFrequency :: !(Maybe Text)
     , _rcRecurringChargeAmount    :: !(Maybe Double)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RecurringCharge' smart constructor.
-recurringCharge :: RecurringCharge
+-- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcRecurringChargeFrequency'
+--
+-- * 'rcRecurringChargeAmount'
+recurringCharge
+    :: RecurringCharge
 recurringCharge =
     RecurringCharge'
     { _rcRecurringChargeFrequency = Nothing
@@ -3583,8 +3627,26 @@ instance FromXML RecurringCharge where
 -- actions.
 --
 -- /See:/ 'reservedDBInstance' smart constructor.
+data ReservedDBInstance = ReservedDBInstance'
+    { _rdiDBInstanceCount               :: !(Maybe Int)
+    , _rdiState                         :: !(Maybe Text)
+    , _rdiCurrencyCode                  :: !(Maybe Text)
+    , _rdiProductDescription            :: !(Maybe Text)
+    , _rdiStartTime                     :: !(Maybe ISO8601)
+    , _rdiReservedDBInstanceId          :: !(Maybe Text)
+    , _rdiDBInstanceClass               :: !(Maybe Text)
+    , _rdiMultiAZ                       :: !(Maybe Bool)
+    , _rdiReservedDBInstancesOfferingId :: !(Maybe Text)
+    , _rdiOfferingType                  :: !(Maybe Text)
+    , _rdiUsagePrice                    :: !(Maybe Double)
+    , _rdiRecurringCharges              :: !(Maybe [RecurringCharge])
+    , _rdiFixedPrice                    :: !(Maybe Double)
+    , _rdiDuration                      :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservedDBInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rdiDBInstanceCount'
 --
@@ -3613,25 +3675,8 @@ instance FromXML RecurringCharge where
 -- * 'rdiFixedPrice'
 --
 -- * 'rdiDuration'
-data ReservedDBInstance = ReservedDBInstance'
-    { _rdiDBInstanceCount               :: !(Maybe Int)
-    , _rdiState                         :: !(Maybe Text)
-    , _rdiCurrencyCode                  :: !(Maybe Text)
-    , _rdiProductDescription            :: !(Maybe Text)
-    , _rdiStartTime                     :: !(Maybe ISO8601)
-    , _rdiReservedDBInstanceId          :: !(Maybe Text)
-    , _rdiDBInstanceClass               :: !(Maybe Text)
-    , _rdiMultiAZ                       :: !(Maybe Bool)
-    , _rdiReservedDBInstancesOfferingId :: !(Maybe Text)
-    , _rdiOfferingType                  :: !(Maybe Text)
-    , _rdiUsagePrice                    :: !(Maybe Double)
-    , _rdiRecurringCharges              :: !(Maybe [RecurringCharge])
-    , _rdiFixedPrice                    :: !(Maybe Double)
-    , _rdiDuration                      :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReservedDBInstance' smart constructor.
-reservedDBInstance :: ReservedDBInstance
+reservedDBInstance
+    :: ReservedDBInstance
 reservedDBInstance =
     ReservedDBInstance'
     { _rdiDBInstanceCount = Nothing
@@ -3729,8 +3774,22 @@ instance FromXML ReservedDBInstance where
 -- DescribeReservedDBInstancesOfferings action.
 --
 -- /See:/ 'reservedDBInstancesOffering' smart constructor.
+data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
+    { _rdioCurrencyCode                  :: !(Maybe Text)
+    , _rdioProductDescription            :: !(Maybe Text)
+    , _rdioDBInstanceClass               :: !(Maybe Text)
+    , _rdioMultiAZ                       :: !(Maybe Bool)
+    , _rdioReservedDBInstancesOfferingId :: !(Maybe Text)
+    , _rdioOfferingType                  :: !(Maybe Text)
+    , _rdioUsagePrice                    :: !(Maybe Double)
+    , _rdioRecurringCharges              :: !(Maybe [RecurringCharge])
+    , _rdioFixedPrice                    :: !(Maybe Double)
+    , _rdioDuration                      :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservedDBInstancesOffering' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rdioCurrencyCode'
 --
@@ -3751,21 +3810,8 @@ instance FromXML ReservedDBInstance where
 -- * 'rdioFixedPrice'
 --
 -- * 'rdioDuration'
-data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
-    { _rdioCurrencyCode                  :: !(Maybe Text)
-    , _rdioProductDescription            :: !(Maybe Text)
-    , _rdioDBInstanceClass               :: !(Maybe Text)
-    , _rdioMultiAZ                       :: !(Maybe Bool)
-    , _rdioReservedDBInstancesOfferingId :: !(Maybe Text)
-    , _rdioOfferingType                  :: !(Maybe Text)
-    , _rdioUsagePrice                    :: !(Maybe Double)
-    , _rdioRecurringCharges              :: !(Maybe [RecurringCharge])
-    , _rdioFixedPrice                    :: !(Maybe Double)
-    , _rdioDuration                      :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReservedDBInstancesOffering' smart constructor.
-reservedDBInstancesOffering :: ReservedDBInstancesOffering
+reservedDBInstancesOffering
+    :: ReservedDBInstancesOffering
 reservedDBInstancesOffering =
     ReservedDBInstancesOffering'
     { _rdioCurrencyCode = Nothing
@@ -3839,19 +3885,20 @@ instance FromXML ReservedDBInstancesOffering where
 -- | Describes the pending maintenance actions for a resource.
 --
 -- /See:/ 'resourcePendingMaintenanceActions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rpmaPendingMaintenanceActionDetails'
---
--- * 'rpmaResourceIdentifier'
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
     { _rpmaPendingMaintenanceActionDetails :: !(Maybe [PendingMaintenanceAction])
     , _rpmaResourceIdentifier              :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResourcePendingMaintenanceActions' smart constructor.
-resourcePendingMaintenanceActions :: ResourcePendingMaintenanceActions
+-- | Creates a value of 'ResourcePendingMaintenanceActions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rpmaPendingMaintenanceActionDetails'
+--
+-- * 'rpmaResourceIdentifier'
+resourcePendingMaintenanceActions
+    :: ResourcePendingMaintenanceActions
 resourcePendingMaintenanceActions =
     ResourcePendingMaintenanceActions'
     { _rpmaPendingMaintenanceActionDetails = Nothing
@@ -3879,22 +3926,23 @@ instance FromXML ResourcePendingMaintenanceActions
 -- DescribeDBSubnetGroups action.
 --
 -- /See:/ 'subnet' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sSubnetStatus'
---
--- * 'sSubnetIdentifier'
---
--- * 'sSubnetAvailabilityZone'
 data Subnet = Subnet'
     { _sSubnetStatus           :: !(Maybe Text)
     , _sSubnetIdentifier       :: !(Maybe Text)
     , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Subnet' smart constructor.
-subnet :: Subnet
+-- | Creates a value of 'Subnet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sSubnetStatus'
+--
+-- * 'sSubnetIdentifier'
+--
+-- * 'sSubnetAvailabilityZone'
+subnet
+    :: Subnet
 subnet =
     Subnet'
     { _sSubnetStatus = Nothing
@@ -3924,19 +3972,20 @@ instance FromXML Subnet where
 -- pair.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagValue'
---
--- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Tag
 tag =
     Tag'
     { _tagValue = Nothing
@@ -3971,19 +4020,20 @@ instance ToQuery Tag where
 -- group membership.
 --
 -- /See:/ 'vpcSecurityGroupMembership' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vsgmStatus'
---
--- * 'vsgmVPCSecurityGroupId'
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
     { _vsgmStatus             :: !(Maybe Text)
     , _vsgmVPCSecurityGroupId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VPCSecurityGroupMembership' smart constructor.
-vpcSecurityGroupMembership :: VPCSecurityGroupMembership
+-- | Creates a value of 'VPCSecurityGroupMembership' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vsgmStatus'
+--
+-- * 'vsgmVPCSecurityGroupId'
+vpcSecurityGroupMembership
+    :: VPCSecurityGroupMembership
 vpcSecurityGroupMembership =
     VPCSecurityGroupMembership'
     { _vsgmStatus = Nothing

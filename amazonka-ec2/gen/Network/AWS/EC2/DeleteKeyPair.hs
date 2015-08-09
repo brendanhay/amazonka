@@ -25,15 +25,15 @@
 module Network.AWS.EC2.DeleteKeyPair
     (
     -- * Creating a Request
-      DeleteKeyPair
-    , deleteKeyPair
+      deleteKeyPair
+    , DeleteKeyPair
     -- * Request Lenses
     , dkpDryRun
     , dkpKeyName
 
     -- * Destructuring the Response
-    , DeleteKeyPairResponse
     , deleteKeyPairResponse
+    , DeleteKeyPairResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -43,19 +43,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteKeyPair' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dkpDryRun'
---
--- * 'dkpKeyName'
 data DeleteKeyPair = DeleteKeyPair'
     { _dkpDryRun  :: !(Maybe Bool)
     , _dkpKeyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteKeyPair' smart constructor.
-deleteKeyPair :: Text -> DeleteKeyPair
+-- | Creates a value of 'DeleteKeyPair' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dkpDryRun'
+--
+-- * 'dkpKeyName'
+deleteKeyPair
+    :: Text -- ^ 'dkpKeyName'
+    -> DeleteKeyPair
 deleteKeyPair pKeyName_ =
     DeleteKeyPair'
     { _dkpDryRun = Nothing
@@ -64,8 +66,8 @@ deleteKeyPair pKeyName_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dkpDryRun :: Lens' DeleteKeyPair (Maybe Bool)
 dkpDryRun = lens _dkpDryRun (\ s a -> s{_dkpDryRun = a});
 
@@ -97,6 +99,8 @@ data DeleteKeyPairResponse =
     DeleteKeyPairResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteKeyPairResponse' smart constructor.
-deleteKeyPairResponse :: DeleteKeyPairResponse
+-- | Creates a value of 'DeleteKeyPairResponse' with the minimum fields required to make a request.
+--
+deleteKeyPairResponse
+    :: DeleteKeyPairResponse
 deleteKeyPairResponse = DeleteKeyPairResponse'

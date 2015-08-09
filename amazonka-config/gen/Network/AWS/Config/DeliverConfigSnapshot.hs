@@ -33,14 +33,14 @@
 module Network.AWS.Config.DeliverConfigSnapshot
     (
     -- * Creating a Request
-      DeliverConfigSnapshot
-    , deliverConfigSnapshot
+      deliverConfigSnapshot
+    , DeliverConfigSnapshot
     -- * Request Lenses
     , dcsDeliveryChannelName
 
     -- * Destructuring the Response
-    , DeliverConfigSnapshotResponse
     , deliverConfigSnapshotResponse
+    , DeliverConfigSnapshotResponse
     -- * Response Lenses
     , dcsrsConfigSnapshotId
     , dcsrsStatus
@@ -55,16 +55,18 @@ import           Network.AWS.Response
 -- | The input for the DeliverConfigSnapshot action.
 --
 -- /See:/ 'deliverConfigSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsDeliveryChannelName'
 newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
     { _dcsDeliveryChannelName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeliverConfigSnapshot' smart constructor.
-deliverConfigSnapshot :: Text -> DeliverConfigSnapshot
+-- | Creates a value of 'DeliverConfigSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsDeliveryChannelName'
+deliverConfigSnapshot
+    :: Text -- ^ 'dcsDeliveryChannelName'
+    -> DeliverConfigSnapshot
 deliverConfigSnapshot pDeliveryChannelName_ =
     DeliverConfigSnapshot'
     { _dcsDeliveryChannelName = pDeliveryChannelName_
@@ -110,19 +112,21 @@ instance ToQuery DeliverConfigSnapshot where
 -- | The output for the DeliverConfigSnapshot action in JSON format.
 --
 -- /See:/ 'deliverConfigSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsrsConfigSnapshotId'
---
--- * 'dcsrsStatus'
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
     { _dcsrsConfigSnapshotId :: !(Maybe Text)
     , _dcsrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeliverConfigSnapshotResponse' smart constructor.
-deliverConfigSnapshotResponse :: Int -> DeliverConfigSnapshotResponse
+-- | Creates a value of 'DeliverConfigSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsrsConfigSnapshotId'
+--
+-- * 'dcsrsStatus'
+deliverConfigSnapshotResponse
+    :: Int -- ^ 'dcsrsStatus'
+    -> DeliverConfigSnapshotResponse
 deliverConfigSnapshotResponse pStatus_ =
     DeliverConfigSnapshotResponse'
     { _dcsrsConfigSnapshotId = Nothing
@@ -133,6 +137,6 @@ deliverConfigSnapshotResponse pStatus_ =
 dcsrsConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
 dcsrsConfigSnapshotId = lens _dcsrsConfigSnapshotId (\ s a -> s{_dcsrsConfigSnapshotId = a});
 
--- | Undocumented member.
+-- | The response status code.
 dcsrsStatus :: Lens' DeliverConfigSnapshotResponse Int
 dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});

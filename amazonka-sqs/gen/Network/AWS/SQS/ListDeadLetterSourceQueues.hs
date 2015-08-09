@@ -28,14 +28,14 @@
 module Network.AWS.SQS.ListDeadLetterSourceQueues
     (
     -- * Creating a Request
-      ListDeadLetterSourceQueues
-    , listDeadLetterSourceQueues
+      listDeadLetterSourceQueues
+    , ListDeadLetterSourceQueues
     -- * Request Lenses
     , ldlsqQueueURL
 
     -- * Destructuring the Response
-    , ListDeadLetterSourceQueuesResponse
     , listDeadLetterSourceQueuesResponse
+    , ListDeadLetterSourceQueuesResponse
     -- * Response Lenses
     , ldlsqrsStatus
     , ldlsqrsQueueURLs
@@ -48,16 +48,18 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'listDeadLetterSourceQueues' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldlsqQueueURL'
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
     { _ldlsqQueueURL :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDeadLetterSourceQueues' smart constructor.
-listDeadLetterSourceQueues :: Text -> ListDeadLetterSourceQueues
+-- | Creates a value of 'ListDeadLetterSourceQueues' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldlsqQueueURL'
+listDeadLetterSourceQueues
+    :: Text -- ^ 'ldlsqQueueURL'
+    -> ListDeadLetterSourceQueues
 listDeadLetterSourceQueues pQueueURL_ =
     ListDeadLetterSourceQueues'
     { _ldlsqQueueURL = pQueueURL_
@@ -96,26 +98,28 @@ instance ToQuery ListDeadLetterSourceQueues where
 -- | A list of your dead letter source queues.
 --
 -- /See:/ 'listDeadLetterSourceQueuesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldlsqrsStatus'
---
--- * 'ldlsqrsQueueURLs'
 data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
     { _ldlsqrsStatus    :: !Int
     , _ldlsqrsQueueURLs :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDeadLetterSourceQueuesResponse' smart constructor.
-listDeadLetterSourceQueuesResponse :: Int -> ListDeadLetterSourceQueuesResponse
+-- | Creates a value of 'ListDeadLetterSourceQueuesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldlsqrsStatus'
+--
+-- * 'ldlsqrsQueueURLs'
+listDeadLetterSourceQueuesResponse
+    :: Int -- ^ 'ldlsqrsStatus'
+    -> ListDeadLetterSourceQueuesResponse
 listDeadLetterSourceQueuesResponse pStatus_ =
     ListDeadLetterSourceQueuesResponse'
     { _ldlsqrsStatus = pStatus_
     , _ldlsqrsQueueURLs = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 ldlsqrsStatus :: Lens' ListDeadLetterSourceQueuesResponse Int
 ldlsqrsStatus = lens _ldlsqrsStatus (\ s a -> s{_ldlsqrsStatus = a});
 

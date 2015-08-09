@@ -31,15 +31,15 @@
 module Network.AWS.IAM.DeleteSigningCertificate
     (
     -- * Creating a Request
-      DeleteSigningCertificate
-    , deleteSigningCertificate
+      deleteSigningCertificate
+    , DeleteSigningCertificate
     -- * Request Lenses
     , dscUserName
     , dscCertificateId
 
     -- * Destructuring the Response
-    , DeleteSigningCertificateResponse
     , deleteSigningCertificateResponse
+    , DeleteSigningCertificateResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -49,19 +49,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteSigningCertificate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dscUserName'
---
--- * 'dscCertificateId'
 data DeleteSigningCertificate = DeleteSigningCertificate'
     { _dscUserName      :: !(Maybe Text)
     , _dscCertificateId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSigningCertificate' smart constructor.
-deleteSigningCertificate :: Text -> DeleteSigningCertificate
+-- | Creates a value of 'DeleteSigningCertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dscUserName'
+--
+-- * 'dscCertificateId'
+deleteSigningCertificate
+    :: Text -- ^ 'dscCertificateId'
+    -> DeleteSigningCertificate
 deleteSigningCertificate pCertificateId_ =
     DeleteSigningCertificate'
     { _dscUserName = Nothing
@@ -104,6 +106,8 @@ data DeleteSigningCertificateResponse =
     DeleteSigningCertificateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSigningCertificateResponse' smart constructor.
-deleteSigningCertificateResponse :: DeleteSigningCertificateResponse
+-- | Creates a value of 'DeleteSigningCertificateResponse' with the minimum fields required to make a request.
+--
+deleteSigningCertificateResponse
+    :: DeleteSigningCertificateResponse
 deleteSigningCertificateResponse = DeleteSigningCertificateResponse'

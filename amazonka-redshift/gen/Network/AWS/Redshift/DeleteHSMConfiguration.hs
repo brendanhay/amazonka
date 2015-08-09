@@ -24,14 +24,14 @@
 module Network.AWS.Redshift.DeleteHSMConfiguration
     (
     -- * Creating a Request
-      DeleteHSMConfiguration
-    , deleteHSMConfiguration
+      deleteHSMConfiguration
+    , DeleteHSMConfiguration
     -- * Request Lenses
     , dhcHSMConfigurationIdentifier
 
     -- * Destructuring the Response
-    , DeleteHSMConfigurationResponse
     , deleteHSMConfigurationResponse
+    , DeleteHSMConfigurationResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -43,16 +43,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteHSMConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhcHSMConfigurationIdentifier'
 newtype DeleteHSMConfiguration = DeleteHSMConfiguration'
     { _dhcHSMConfigurationIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteHSMConfiguration' smart constructor.
-deleteHSMConfiguration :: Text -> DeleteHSMConfiguration
+-- | Creates a value of 'DeleteHSMConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhcHSMConfigurationIdentifier'
+deleteHSMConfiguration
+    :: Text -- ^ 'dhcHSMConfigurationIdentifier'
+    -> DeleteHSMConfiguration
 deleteHSMConfiguration pHSMConfigurationIdentifier_ =
     DeleteHSMConfiguration'
     { _dhcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_
@@ -90,6 +92,8 @@ data DeleteHSMConfigurationResponse =
     DeleteHSMConfigurationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteHSMConfigurationResponse' smart constructor.
-deleteHSMConfigurationResponse :: DeleteHSMConfigurationResponse
+-- | Creates a value of 'DeleteHSMConfigurationResponse' with the minimum fields required to make a request.
+--
+deleteHSMConfigurationResponse
+    :: DeleteHSMConfigurationResponse
 deleteHSMConfigurationResponse = DeleteHSMConfigurationResponse'

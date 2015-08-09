@@ -29,14 +29,14 @@
 module Network.AWS.Config.DeleteDeliveryChannel
     (
     -- * Creating a Request
-      DeleteDeliveryChannel
-    , deleteDeliveryChannel
+      deleteDeliveryChannel
+    , DeleteDeliveryChannel
     -- * Request Lenses
     , ddcDeliveryChannelName
 
     -- * Destructuring the Response
-    , DeleteDeliveryChannelResponse
     , deleteDeliveryChannelResponse
+    , DeleteDeliveryChannelResponse
     ) where
 
 import           Network.AWS.Config.Types
@@ -49,16 +49,18 @@ import           Network.AWS.Response
 -- following data in JSON format.
 --
 -- /See:/ 'deleteDeliveryChannel' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddcDeliveryChannelName'
 newtype DeleteDeliveryChannel = DeleteDeliveryChannel'
     { _ddcDeliveryChannelName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDeliveryChannel' smart constructor.
-deleteDeliveryChannel :: Text -> DeleteDeliveryChannel
+-- | Creates a value of 'DeleteDeliveryChannel' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddcDeliveryChannelName'
+deleteDeliveryChannel
+    :: Text -- ^ 'ddcDeliveryChannelName'
+    -> DeleteDeliveryChannel
 deleteDeliveryChannel pDeliveryChannelName_ =
     DeleteDeliveryChannel'
     { _ddcDeliveryChannelName = pDeliveryChannelName_
@@ -101,6 +103,8 @@ data DeleteDeliveryChannelResponse =
     DeleteDeliveryChannelResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDeliveryChannelResponse' smart constructor.
-deleteDeliveryChannelResponse :: DeleteDeliveryChannelResponse
+-- | Creates a value of 'DeleteDeliveryChannelResponse' with the minimum fields required to make a request.
+--
+deleteDeliveryChannelResponse
+    :: DeleteDeliveryChannelResponse
 deleteDeliveryChannelResponse = DeleteDeliveryChannelResponse'

@@ -24,14 +24,14 @@
 module Network.AWS.DeviceFarm.GetDevicePool
     (
     -- * Creating a Request
-      GetDevicePool
-    , getDevicePool
+      getDevicePool
+    , GetDevicePool
     -- * Request Lenses
     , gdpArn
 
     -- * Destructuring the Response
-    , GetDevicePoolResponse
     , getDevicePoolResponse
+    , GetDevicePoolResponse
     -- * Response Lenses
     , gdprsDevicePool
     , gdprsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents a request to the get device pool operation.
 --
 -- /See:/ 'getDevicePool' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdpArn'
 newtype GetDevicePool = GetDevicePool'
     { _gdpArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDevicePool' smart constructor.
-getDevicePool :: Text -> GetDevicePool
+-- | Creates a value of 'GetDevicePool' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdpArn'
+getDevicePool
+    :: Text -- ^ 'gdpArn'
+    -> GetDevicePool
 getDevicePool pArn_ =
     GetDevicePool'
     { _gdpArn = pArn_
@@ -96,19 +98,21 @@ instance ToQuery GetDevicePool where
 -- | Represents the result of a get device pool request.
 --
 -- /See:/ 'getDevicePoolResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdprsDevicePool'
---
--- * 'gdprsStatus'
 data GetDevicePoolResponse = GetDevicePoolResponse'
     { _gdprsDevicePool :: !(Maybe DevicePool)
     , _gdprsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDevicePoolResponse' smart constructor.
-getDevicePoolResponse :: Int -> GetDevicePoolResponse
+-- | Creates a value of 'GetDevicePoolResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdprsDevicePool'
+--
+-- * 'gdprsStatus'
+getDevicePoolResponse
+    :: Int -- ^ 'gdprsStatus'
+    -> GetDevicePoolResponse
 getDevicePoolResponse pStatus_ =
     GetDevicePoolResponse'
     { _gdprsDevicePool = Nothing
@@ -119,6 +123,6 @@ getDevicePoolResponse pStatus_ =
 gdprsDevicePool :: Lens' GetDevicePoolResponse (Maybe DevicePool)
 gdprsDevicePool = lens _gdprsDevicePool (\ s a -> s{_gdprsDevicePool = a});
 
--- | Undocumented member.
+-- | The response status code.
 gdprsStatus :: Lens' GetDevicePoolResponse Int
 gdprsStatus = lens _gdprsStatus (\ s a -> s{_gdprsStatus = a});

@@ -26,15 +26,15 @@
 module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     (
     -- * Creating a Request
-      CreatePrivateVirtualInterface
-    , createPrivateVirtualInterface
+      createPrivateVirtualInterface
+    , CreatePrivateVirtualInterface
     -- * Request Lenses
     , creConnectionId
     , creNewPrivateVirtualInterface
 
     -- * Destructuring the Response
-    , VirtualInterface
     , virtualInterface
+    , VirtualInterface
     -- * Response Lenses
     , viVirtualGatewayId
     , viRouteFilterPrefixes
@@ -63,19 +63,22 @@ import           Network.AWS.Response
 -- operation.
 --
 -- /See:/ 'createPrivateVirtualInterface' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'creConnectionId'
---
--- * 'creNewPrivateVirtualInterface'
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
     { _creConnectionId               :: !Text
     , _creNewPrivateVirtualInterface :: !NewPrivateVirtualInterface
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePrivateVirtualInterface' smart constructor.
-createPrivateVirtualInterface :: Text -> NewPrivateVirtualInterface -> CreatePrivateVirtualInterface
+-- | Creates a value of 'CreatePrivateVirtualInterface' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'creConnectionId'
+--
+-- * 'creNewPrivateVirtualInterface'
+createPrivateVirtualInterface
+    :: Text -- ^ 'creConnectionId'
+    -> NewPrivateVirtualInterface -- ^ 'creNewPrivateVirtualInterface'
+    -> CreatePrivateVirtualInterface
 createPrivateVirtualInterface pConnectionId_ pNewPrivateVirtualInterface_ =
     CreatePrivateVirtualInterface'
     { _creConnectionId = pConnectionId_

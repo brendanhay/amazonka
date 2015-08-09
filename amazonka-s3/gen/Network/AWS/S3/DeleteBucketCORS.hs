@@ -24,14 +24,14 @@
 module Network.AWS.S3.DeleteBucketCORS
     (
     -- * Creating a Request
-      DeleteBucketCORS
-    , deleteBucketCORS
+      deleteBucketCORS
+    , DeleteBucketCORS
     -- * Request Lenses
     , dbcBucket
 
     -- * Destructuring the Response
-    , DeleteBucketCORSResponse
     , deleteBucketCORSResponse
+    , DeleteBucketCORSResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -41,16 +41,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketCORS' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dbcBucket'
 newtype DeleteBucketCORS = DeleteBucketCORS'
     { _dbcBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucketCORS' smart constructor.
-deleteBucketCORS :: BucketName -> DeleteBucketCORS
+-- | Creates a value of 'DeleteBucketCORS' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dbcBucket'
+deleteBucketCORS
+    :: BucketName -- ^ 'dbcBucket'
+    -> DeleteBucketCORS
 deleteBucketCORS pBucket_ =
     DeleteBucketCORS'
     { _dbcBucket = pBucket_
@@ -81,6 +83,8 @@ data DeleteBucketCORSResponse =
     DeleteBucketCORSResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucketCORSResponse' smart constructor.
-deleteBucketCORSResponse :: DeleteBucketCORSResponse
+-- | Creates a value of 'DeleteBucketCORSResponse' with the minimum fields required to make a request.
+--
+deleteBucketCORSResponse
+    :: DeleteBucketCORSResponse
 deleteBucketCORSResponse = DeleteBucketCORSResponse'

@@ -34,15 +34,15 @@
 module Network.AWS.IAM.GetGroupPolicy
     (
     -- * Creating a Request
-      GetGroupPolicy
-    , getGroupPolicy
+      getGroupPolicy
+    , GetGroupPolicy
     -- * Request Lenses
     , ggpGroupName
     , ggpPolicyName
 
     -- * Destructuring the Response
-    , GetGroupPolicyResponse
     , getGroupPolicyResponse
+    , GetGroupPolicyResponse
     -- * Response Lenses
     , ggprsStatus
     , ggprsGroupName
@@ -57,19 +57,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getGroupPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ggpGroupName'
---
--- * 'ggpPolicyName'
 data GetGroupPolicy = GetGroupPolicy'
     { _ggpGroupName  :: !Text
     , _ggpPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetGroupPolicy' smart constructor.
-getGroupPolicy :: Text -> Text -> GetGroupPolicy
+-- | Creates a value of 'GetGroupPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ggpGroupName'
+--
+-- * 'ggpPolicyName'
+getGroupPolicy
+    :: Text -- ^ 'ggpGroupName'
+    -> Text -- ^ 'ggpPolicyName'
+    -> GetGroupPolicy
 getGroupPolicy pGroupName_ pPolicyName_ =
     GetGroupPolicy'
     { _ggpGroupName = pGroupName_
@@ -113,8 +116,16 @@ instance ToQuery GetGroupPolicy where
 -- | Contains the response to a successful GetGroupPolicy request.
 --
 -- /See:/ 'getGroupPolicyResponse' smart constructor.
+data GetGroupPolicyResponse = GetGroupPolicyResponse'
+    { _ggprsStatus         :: !Int
+    , _ggprsGroupName      :: !Text
+    , _ggprsPolicyName     :: !Text
+    , _ggprsPolicyDocument :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetGroupPolicyResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ggprsStatus'
 --
@@ -123,15 +134,12 @@ instance ToQuery GetGroupPolicy where
 -- * 'ggprsPolicyName'
 --
 -- * 'ggprsPolicyDocument'
-data GetGroupPolicyResponse = GetGroupPolicyResponse'
-    { _ggprsStatus         :: !Int
-    , _ggprsGroupName      :: !Text
-    , _ggprsPolicyName     :: !Text
-    , _ggprsPolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetGroupPolicyResponse' smart constructor.
-getGroupPolicyResponse :: Int -> Text -> Text -> Text -> GetGroupPolicyResponse
+getGroupPolicyResponse
+    :: Int -- ^ 'ggprsStatus'
+    -> Text -- ^ 'ggprsGroupName'
+    -> Text -- ^ 'ggprsPolicyName'
+    -> Text -- ^ 'ggprsPolicyDocument'
+    -> GetGroupPolicyResponse
 getGroupPolicyResponse pStatus_ pGroupName_ pPolicyName_ pPolicyDocument_ =
     GetGroupPolicyResponse'
     { _ggprsStatus = pStatus_
@@ -140,7 +148,7 @@ getGroupPolicyResponse pStatus_ pGroupName_ pPolicyName_ pPolicyDocument_ =
     , _ggprsPolicyDocument = pPolicyDocument_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ggprsStatus :: Lens' GetGroupPolicyResponse Int
 ggprsStatus = lens _ggprsStatus (\ s a -> s{_ggprsStatus = a});
 

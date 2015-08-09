@@ -25,8 +25,8 @@
 module Network.AWS.CodeDeploy.CreateDeploymentGroup
     (
     -- * Creating a Request
-      CreateDeploymentGroup
-    , createDeploymentGroup
+      createDeploymentGroup
+    , CreateDeploymentGroup
     -- * Request Lenses
     , cdgDeploymentConfigName
     , cdgEc2TagFilters
@@ -37,8 +37,8 @@ module Network.AWS.CodeDeploy.CreateDeploymentGroup
     , cdgServiceRoleARN
 
     -- * Destructuring the Response
-    , CreateDeploymentGroupResponse
     , createDeploymentGroupResponse
+    , CreateDeploymentGroupResponse
     -- * Response Lenses
     , cdgrsDeploymentGroupId
     , cdgrsStatus
@@ -53,8 +53,19 @@ import           Network.AWS.Response
 -- | Represents the input of a create deployment group operation.
 --
 -- /See:/ 'createDeploymentGroup' smart constructor.
+data CreateDeploymentGroup = CreateDeploymentGroup'
+    { _cdgDeploymentConfigName         :: !(Maybe Text)
+    , _cdgEc2TagFilters                :: !(Maybe [EC2TagFilter])
+    , _cdgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+    , _cdgAutoScalingGroups            :: !(Maybe [Text])
+    , _cdgApplicationName              :: !Text
+    , _cdgDeploymentGroupName          :: !Text
+    , _cdgServiceRoleARN               :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDeploymentGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdgDeploymentConfigName'
 --
@@ -69,18 +80,11 @@ import           Network.AWS.Response
 -- * 'cdgDeploymentGroupName'
 --
 -- * 'cdgServiceRoleARN'
-data CreateDeploymentGroup = CreateDeploymentGroup'
-    { _cdgDeploymentConfigName         :: !(Maybe Text)
-    , _cdgEc2TagFilters                :: !(Maybe [EC2TagFilter])
-    , _cdgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
-    , _cdgAutoScalingGroups            :: !(Maybe [Text])
-    , _cdgApplicationName              :: !Text
-    , _cdgDeploymentGroupName          :: !Text
-    , _cdgServiceRoleARN               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateDeploymentGroup' smart constructor.
-createDeploymentGroup :: Text -> Text -> Text -> CreateDeploymentGroup
+createDeploymentGroup
+    :: Text -- ^ 'cdgApplicationName'
+    -> Text -- ^ 'cdgDeploymentGroupName'
+    -> Text -- ^ 'cdgServiceRoleARN'
+    -> CreateDeploymentGroup
 createDeploymentGroup pApplicationName_ pDeploymentGroupName_ pServiceRoleARN_ =
     CreateDeploymentGroup'
     { _cdgDeploymentConfigName = Nothing
@@ -198,19 +202,21 @@ instance ToQuery CreateDeploymentGroup where
 -- | Represents the output of a create deployment group operation.
 --
 -- /See:/ 'createDeploymentGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdgrsDeploymentGroupId'
---
--- * 'cdgrsStatus'
 data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
     { _cdgrsDeploymentGroupId :: !(Maybe Text)
     , _cdgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDeploymentGroupResponse' smart constructor.
-createDeploymentGroupResponse :: Int -> CreateDeploymentGroupResponse
+-- | Creates a value of 'CreateDeploymentGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdgrsDeploymentGroupId'
+--
+-- * 'cdgrsStatus'
+createDeploymentGroupResponse
+    :: Int -- ^ 'cdgrsStatus'
+    -> CreateDeploymentGroupResponse
 createDeploymentGroupResponse pStatus_ =
     CreateDeploymentGroupResponse'
     { _cdgrsDeploymentGroupId = Nothing
@@ -221,6 +227,6 @@ createDeploymentGroupResponse pStatus_ =
 cdgrsDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
 cdgrsDeploymentGroupId = lens _cdgrsDeploymentGroupId (\ s a -> s{_cdgrsDeploymentGroupId = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdgrsStatus :: Lens' CreateDeploymentGroupResponse Int
 cdgrsStatus = lens _cdgrsStatus (\ s a -> s{_cdgrsStatus = a});

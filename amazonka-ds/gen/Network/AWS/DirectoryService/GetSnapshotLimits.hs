@@ -24,14 +24,14 @@
 module Network.AWS.DirectoryService.GetSnapshotLimits
     (
     -- * Creating a Request
-      GetSnapshotLimits
-    , getSnapshotLimits
+      getSnapshotLimits
+    , GetSnapshotLimits
     -- * Request Lenses
     , gslDirectoryId
 
     -- * Destructuring the Response
-    , GetSnapshotLimitsResponse
     , getSnapshotLimitsResponse
+    , GetSnapshotLimitsResponse
     -- * Response Lenses
     , gslrsSnapshotLimits
     , gslrsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Contains the inputs for the GetSnapshotLimits operation.
 --
 -- /See:/ 'getSnapshotLimits' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gslDirectoryId'
 newtype GetSnapshotLimits = GetSnapshotLimits'
     { _gslDirectoryId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSnapshotLimits' smart constructor.
-getSnapshotLimits :: Text -> GetSnapshotLimits
+-- | Creates a value of 'GetSnapshotLimits' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gslDirectoryId'
+getSnapshotLimits
+    :: Text -- ^ 'gslDirectoryId'
+    -> GetSnapshotLimits
 getSnapshotLimits pDirectoryId_ =
     GetSnapshotLimits'
     { _gslDirectoryId = pDirectoryId_
@@ -98,19 +100,21 @@ instance ToQuery GetSnapshotLimits where
 -- | Contains the results of the GetSnapshotLimits operation.
 --
 -- /See:/ 'getSnapshotLimitsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gslrsSnapshotLimits'
---
--- * 'gslrsStatus'
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
     { _gslrsSnapshotLimits :: !(Maybe SnapshotLimits)
     , _gslrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSnapshotLimitsResponse' smart constructor.
-getSnapshotLimitsResponse :: Int -> GetSnapshotLimitsResponse
+-- | Creates a value of 'GetSnapshotLimitsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gslrsSnapshotLimits'
+--
+-- * 'gslrsStatus'
+getSnapshotLimitsResponse
+    :: Int -- ^ 'gslrsStatus'
+    -> GetSnapshotLimitsResponse
 getSnapshotLimitsResponse pStatus_ =
     GetSnapshotLimitsResponse'
     { _gslrsSnapshotLimits = Nothing
@@ -122,6 +126,6 @@ getSnapshotLimitsResponse pStatus_ =
 gslrsSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
 gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits = a});
 
--- | Undocumented member.
+-- | The response status code.
 gslrsStatus :: Lens' GetSnapshotLimitsResponse Int
 gslrsStatus = lens _gslrsStatus (\ s a -> s{_gslrsStatus = a});

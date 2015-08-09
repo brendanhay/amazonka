@@ -21,11 +21,13 @@
 -- Lists the parts that have been uploaded for a specific multipart upload.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListParts.html AWS API Reference> for ListParts.
+--
+-- This operation returns paginated results.
 module Network.AWS.S3.ListParts
     (
     -- * Creating a Request
-      ListParts
-    , listParts
+      listParts
+    , ListParts
     -- * Request Lenses
     , lpMaxParts
     , lpRequestPayer
@@ -35,8 +37,8 @@ module Network.AWS.S3.ListParts
     , lpUploadId
 
     -- * Destructuring the Response
-    , ListPartsResponse
     , listPartsResponse
+    , ListPartsResponse
     -- * Response Lenses
     , lprsParts
     , lprsRequestCharged
@@ -61,8 +63,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'listParts' smart constructor.
+data ListParts = ListParts'
+    { _lpMaxParts         :: !(Maybe Int)
+    , _lpRequestPayer     :: !(Maybe RequestPayer)
+    , _lpPartNumberMarker :: !(Maybe Int)
+    , _lpBucket           :: !BucketName
+    , _lpKey              :: !ObjectKey
+    , _lpUploadId         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListParts' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lpMaxParts'
 --
@@ -75,17 +87,11 @@ import           Network.AWS.S3.Types.Product
 -- * 'lpKey'
 --
 -- * 'lpUploadId'
-data ListParts = ListParts'
-    { _lpMaxParts         :: !(Maybe Int)
-    , _lpRequestPayer     :: !(Maybe RequestPayer)
-    , _lpPartNumberMarker :: !(Maybe Int)
-    , _lpBucket           :: !BucketName
-    , _lpKey              :: !ObjectKey
-    , _lpUploadId         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListParts' smart constructor.
-listParts :: BucketName -> ObjectKey -> Text -> ListParts
+listParts
+    :: BucketName -- ^ 'lpBucket'
+    -> ObjectKey -- ^ 'lpKey'
+    -> Text -- ^ 'lpUploadId'
+    -> ListParts
 listParts pBucket_ pKey_ pUploadId_ =
     ListParts'
     { _lpMaxParts = Nothing
@@ -168,8 +174,25 @@ instance ToQuery ListParts where
                "uploadId" =: _lpUploadId]
 
 -- | /See:/ 'listPartsResponse' smart constructor.
+data ListPartsResponse = ListPartsResponse'
+    { _lprsParts                :: !(Maybe [Part])
+    , _lprsRequestCharged       :: !(Maybe RequestCharged)
+    , _lprsMaxParts             :: !(Maybe Int)
+    , _lprsInitiator            :: !(Maybe Initiator)
+    , _lprsBucket               :: !(Maybe BucketName)
+    , _lprsNextPartNumberMarker :: !(Maybe Int)
+    , _lprsOwner                :: !(Maybe Owner)
+    , _lprsKey                  :: !(Maybe ObjectKey)
+    , _lprsStorageClass         :: !(Maybe StorageClass)
+    , _lprsIsTruncated          :: !(Maybe Bool)
+    , _lprsPartNumberMarker     :: !(Maybe Int)
+    , _lprsUploadId             :: !(Maybe Text)
+    , _lprsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListPartsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lprsParts'
 --
@@ -196,24 +219,9 @@ instance ToQuery ListParts where
 -- * 'lprsUploadId'
 --
 -- * 'lprsStatus'
-data ListPartsResponse = ListPartsResponse'
-    { _lprsParts                :: !(Maybe [Part])
-    , _lprsRequestCharged       :: !(Maybe RequestCharged)
-    , _lprsMaxParts             :: !(Maybe Int)
-    , _lprsInitiator            :: !(Maybe Initiator)
-    , _lprsBucket               :: !(Maybe BucketName)
-    , _lprsNextPartNumberMarker :: !(Maybe Int)
-    , _lprsOwner                :: !(Maybe Owner)
-    , _lprsKey                  :: !(Maybe ObjectKey)
-    , _lprsStorageClass         :: !(Maybe StorageClass)
-    , _lprsIsTruncated          :: !(Maybe Bool)
-    , _lprsPartNumberMarker     :: !(Maybe Int)
-    , _lprsUploadId             :: !(Maybe Text)
-    , _lprsStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListPartsResponse' smart constructor.
-listPartsResponse :: Int -> ListPartsResponse
+listPartsResponse
+    :: Int -- ^ 'lprsStatus'
+    -> ListPartsResponse
 listPartsResponse pStatus_ =
     ListPartsResponse'
     { _lprsParts = Nothing
@@ -281,6 +289,6 @@ lprsPartNumberMarker = lens _lprsPartNumberMarker (\ s a -> s{_lprsPartNumberMar
 lprsUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprsUploadId = lens _lprsUploadId (\ s a -> s{_lprsUploadId = a});
 
--- | Undocumented member.
+-- | The response status code.
 lprsStatus :: Lens' ListPartsResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

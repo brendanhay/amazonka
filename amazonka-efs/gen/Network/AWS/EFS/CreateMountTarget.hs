@@ -44,7 +44,7 @@
 --     in the request.
 --
 -- After creating the mount target, Amazon EFS returns a response that
--- includes, a @MountTargetId@ and an @IpAddress@. You use this IP address
+-- includes, a 'MountTargetId' and an 'IpAddress'. You use this IP address
 -- when mounting the file system in an EC2 instance. You can also use the
 -- mount target\'s DNS name when mounting the file system. The EC2 instance
 -- on which you mount the file system via the mount target can resolve the
@@ -70,28 +70,28 @@
 -- -   Creates a new mount target in the specified subnet.
 -- -   Also creates a new network interface in the subnet as follows:
 --
---     -   If the request provides an @IpAddress@, Amazon EFS assigns that
+--     -   If the request provides an 'IpAddress', Amazon EFS assigns that
 --         IP address to the network interface. Otherwise, Amazon EFS
 --         assigns a free address in the subnet (in the same way that the
---         Amazon EC2 @CreateNetworkInterface@ call does when a request
+--         Amazon EC2 'CreateNetworkInterface' call does when a request
 --         does not specify a primary private IP address).
---     -   If the request provides @SecurityGroups@, this network interface
+--     -   If the request provides 'SecurityGroups', this network interface
 --         is associated with those security groups. Otherwise, it belongs
 --         to the default security group for the subnet\'s VPC.
 --     -   Assigns the description
---         @\"Mount target fsmt-id for file system fs-id\"@ where @fsmt-id@
---         is the mount target ID, and @fs-id@ is the @FileSystemId@.
---     -   Sets the @requesterManaged@ property of the network interface to
---         \"true\", and the @requesterId@ value to \"EFS\".
+--         '\"Mount target fsmt-id for file system fs-id\"' where 'fsmt-id'
+--         is the mount target ID, and 'fs-id' is the 'FileSystemId'.
+--     -   Sets the 'requesterManaged' property of the network interface to
+--         \"true\", and the 'requesterId' value to \"EFS\".
 --
 --     Each Amazon EFS mount target has one corresponding requestor-managed
 --     EC2 network interface. After the network interface is created,
---     Amazon EFS sets the @NetworkInterfaceId@ field in the mount
+--     Amazon EFS sets the 'NetworkInterfaceId' field in the mount
 --     target\'s description to the network interface ID, and the
---     @IpAddress@ field to its address. If network interface creation
---     fails, the entire @CreateMountTarget@ operation fails.
+--     'IpAddress' field to its address. If network interface creation
+--     fails, the entire 'CreateMountTarget' operation fails.
 --
--- The @CreateMountTarget@ call returns only after creating the network
+-- The 'CreateMountTarget' call returns only after creating the network
 -- interface, but while the mount target state is still \"creating\". You
 -- can check the mount target creation status by calling the
 -- DescribeFileSystems API, which among other things returns the mount
@@ -110,21 +110,21 @@
 -- This operation requires permission for the following action on the file
 -- system:
 --
--- -   @elasticfilesystem:CreateMountTarget@
+-- -   'elasticfilesystem:CreateMountTarget'
 --
 -- This operation also requires permission for the following Amazon EC2
 -- actions:
 --
--- -   @ec2:DescribeSubnets@
--- -   @ec2:DescribeNetworkInterfaces@
--- -   @ec2:CreateNetworkInterface@
+-- -   'ec2:DescribeSubnets'
+-- -   'ec2:DescribeNetworkInterfaces'
+-- -   'ec2:CreateNetworkInterface'
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateMountTarget.html AWS API Reference> for CreateMountTarget.
 module Network.AWS.EFS.CreateMountTarget
     (
     -- * Creating a Request
-      CreateMountTarget
-    , createMountTarget
+      createMountTarget
+    , CreateMountTarget
     -- * Request Lenses
     , cmtIPAddress
     , cmtSecurityGroups
@@ -132,8 +132,8 @@ module Network.AWS.EFS.CreateMountTarget
     , cmtSubnetId
 
     -- * Destructuring the Response
-    , MountTargetDescription
     , mountTargetDescription
+    , MountTargetDescription
     -- * Response Lenses
     , mtdIPAddress
     , mtdNetworkInterfaceId
@@ -151,8 +151,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createMountTarget' smart constructor.
+data CreateMountTarget = CreateMountTarget'
+    { _cmtIPAddress      :: !(Maybe Text)
+    , _cmtSecurityGroups :: !(Maybe [Text])
+    , _cmtFileSystemId   :: !Text
+    , _cmtSubnetId       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateMountTarget' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cmtIPAddress'
 --
@@ -161,15 +169,10 @@ import           Network.AWS.Response
 -- * 'cmtFileSystemId'
 --
 -- * 'cmtSubnetId'
-data CreateMountTarget = CreateMountTarget'
-    { _cmtIPAddress      :: !(Maybe Text)
-    , _cmtSecurityGroups :: !(Maybe [Text])
-    , _cmtFileSystemId   :: !Text
-    , _cmtSubnetId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateMountTarget' smart constructor.
-createMountTarget :: Text -> Text -> CreateMountTarget
+createMountTarget
+    :: Text -- ^ 'cmtFileSystemId'
+    -> Text -- ^ 'cmtSubnetId'
+    -> CreateMountTarget
 createMountTarget pFileSystemId_ pSubnetId_ =
     CreateMountTarget'
     { _cmtIPAddress = Nothing

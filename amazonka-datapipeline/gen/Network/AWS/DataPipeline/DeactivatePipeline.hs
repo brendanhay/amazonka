@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deactivates the specified running pipeline. The pipeline is set to the
--- @DEACTIVATING@ state until the deactivation process completes.
+-- 'DEACTIVATING' state until the deactivation process completes.
 --
 -- To resume a deactivated pipeline, use ActivatePipeline. By default, the
 -- pipeline resumes from the last completed execution. Optionally, you can
@@ -29,15 +29,15 @@
 module Network.AWS.DataPipeline.DeactivatePipeline
     (
     -- * Creating a Request
-      DeactivatePipeline
-    , deactivatePipeline
+      deactivatePipeline
+    , DeactivatePipeline
     -- * Request Lenses
     , dCancelActive
     , dPipelineId
 
     -- * Destructuring the Response
-    , DeactivatePipelineResponse
     , deactivatePipelineResponse
+    , DeactivatePipelineResponse
     -- * Response Lenses
     , drsStatus
     ) where
@@ -51,19 +51,21 @@ import           Network.AWS.Response
 -- | Contains the parameters for DeactivatePipeline.
 --
 -- /See:/ 'deactivatePipeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dCancelActive'
---
--- * 'dPipelineId'
 data DeactivatePipeline = DeactivatePipeline'
     { _dCancelActive :: !(Maybe Bool)
     , _dPipelineId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeactivatePipeline' smart constructor.
-deactivatePipeline :: Text -> DeactivatePipeline
+-- | Creates a value of 'DeactivatePipeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dCancelActive'
+--
+-- * 'dPipelineId'
+deactivatePipeline
+    :: Text -- ^ 'dPipelineId'
+    -> DeactivatePipeline
 deactivatePipeline pPipelineId_ =
     DeactivatePipeline'
     { _dCancelActive = Nothing
@@ -71,7 +73,7 @@ deactivatePipeline pPipelineId_ =
     }
 
 -- | Indicates whether to cancel any running objects. The default is true,
--- which sets the state of any running objects to @CANCELED@. If this value
+-- which sets the state of any running objects to 'CANCELED'. If this value
 -- is false, the pipeline is deactivated after all running objects finish.
 dCancelActive :: Lens' DeactivatePipeline (Maybe Bool)
 dCancelActive = lens _dCancelActive (\ s a -> s{_dCancelActive = a});
@@ -114,21 +116,23 @@ instance ToQuery DeactivatePipeline where
 -- | Contains the output of DeactivatePipeline.
 --
 -- /See:/ 'deactivatePipelineResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsStatus'
 newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
     { _drsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeactivatePipelineResponse' smart constructor.
-deactivatePipelineResponse :: Int -> DeactivatePipelineResponse
+-- | Creates a value of 'DeactivatePipelineResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsStatus'
+deactivatePipelineResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeactivatePipelineResponse
 deactivatePipelineResponse pStatus_ =
     DeactivatePipelineResponse'
     { _drsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeactivatePipelineResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

@@ -31,19 +31,21 @@
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
 -- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodeOfferings.html AWS API Reference> for DescribeReservedNodeOfferings.
+--
+-- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeReservedNodeOfferings
     (
     -- * Creating a Request
-      DescribeReservedNodeOfferings
-    , describeReservedNodeOfferings
+      describeReservedNodeOfferings
+    , DescribeReservedNodeOfferings
     -- * Request Lenses
     , drnoReservedNodeOfferingId
     , drnoMaxRecords
     , drnoMarker
 
     -- * Destructuring the Response
-    , DescribeReservedNodeOfferingsResponse
     , describeReservedNodeOfferingsResponse
+    , DescribeReservedNodeOfferingsResponse
     -- * Response Lenses
     , drnorsReservedNodeOfferings
     , drnorsMarker
@@ -60,22 +62,23 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeReservedNodeOfferings' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drnoReservedNodeOfferingId'
---
--- * 'drnoMaxRecords'
---
--- * 'drnoMarker'
 data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings'
     { _drnoReservedNodeOfferingId :: !(Maybe Text)
     , _drnoMaxRecords             :: !(Maybe Int)
     , _drnoMarker                 :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeReservedNodeOfferings' smart constructor.
-describeReservedNodeOfferings :: DescribeReservedNodeOfferings
+-- | Creates a value of 'DescribeReservedNodeOfferings' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drnoReservedNodeOfferingId'
+--
+-- * 'drnoMaxRecords'
+--
+-- * 'drnoMarker'
+describeReservedNodeOfferings
+    :: DescribeReservedNodeOfferings
 describeReservedNodeOfferings =
     DescribeReservedNodeOfferings'
     { _drnoReservedNodeOfferingId = Nothing
@@ -88,12 +91,12 @@ drnoReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferings (Maybe Text)
 drnoReservedNodeOfferingId = lens _drnoReservedNodeOfferingId (\ s a -> s{_drnoReservedNodeOfferingId = a});
 
 -- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified @MaxRecords@
--- value, a value is returned in a @marker@ field of the response. You can
+-- number of remaining response records exceeds the specified 'MaxRecords'
+-- value, a value is returned in a 'marker' field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value.
 --
--- Default: @100@
+-- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
 drnoMaxRecords :: Lens' DescribeReservedNodeOfferings (Maybe Int)
@@ -101,9 +104,9 @@ drnoMaxRecords = lens _drnoMaxRecords (\ s a -> s{_drnoMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeReservedNodeOfferings
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
+-- request exceed the value specified in 'MaxRecords', AWS returns a value
+-- in the 'Marker' field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the 'Marker'
 -- parameter and retrying the request.
 drnoMarker :: Lens' DescribeReservedNodeOfferings (Maybe Text)
 drnoMarker = lens _drnoMarker (\ s a -> s{_drnoMarker = a});
@@ -152,22 +155,24 @@ instance ToQuery DescribeReservedNodeOfferings where
 -- | Contains the output from the DescribeReservedNodeOfferings action.
 --
 -- /See:/ 'describeReservedNodeOfferingsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drnorsReservedNodeOfferings'
---
--- * 'drnorsMarker'
---
--- * 'drnorsStatus'
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'
     { _drnorsReservedNodeOfferings :: !(Maybe [ReservedNodeOffering])
     , _drnorsMarker                :: !(Maybe Text)
     , _drnorsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeReservedNodeOfferingsResponse' smart constructor.
-describeReservedNodeOfferingsResponse :: Int -> DescribeReservedNodeOfferingsResponse
+-- | Creates a value of 'DescribeReservedNodeOfferingsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drnorsReservedNodeOfferings'
+--
+-- * 'drnorsMarker'
+--
+-- * 'drnorsStatus'
+describeReservedNodeOfferingsResponse
+    :: Int -- ^ 'drnorsStatus'
+    -> DescribeReservedNodeOfferingsResponse
 describeReservedNodeOfferingsResponse pStatus_ =
     DescribeReservedNodeOfferingsResponse'
     { _drnorsReservedNodeOfferings = Nothing
@@ -182,12 +187,12 @@ drnorsReservedNodeOfferings = lens _drnorsReservedNodeOfferings (\ s a -> s{_drn
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
--- marker value in the @Marker@ parameter and retrying the command. If the
--- @Marker@ field is empty, all response records have been retrieved for
+-- marker value in the 'Marker' parameter and retrying the command. If the
+-- 'Marker' field is empty, all response records have been retrieved for
 -- the request.
 drnorsMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
 drnorsMarker = lens _drnorsMarker (\ s a -> s{_drnorsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 drnorsStatus :: Lens' DescribeReservedNodeOfferingsResponse Int
 drnorsStatus = lens _drnorsStatus (\ s a -> s{_drnorsStatus = a});

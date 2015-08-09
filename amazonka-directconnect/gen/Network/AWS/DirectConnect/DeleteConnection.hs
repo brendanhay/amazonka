@@ -29,14 +29,14 @@
 module Network.AWS.DirectConnect.DeleteConnection
     (
     -- * Creating a Request
-      DeleteConnection
-    , deleteConnection
+      deleteConnection
+    , DeleteConnection
     -- * Request Lenses
     , dcConnectionId
 
     -- * Destructuring the Response
-    , Connection
     , connection
+    , Connection
     -- * Response Lenses
     , cVlan
     , cLocation
@@ -58,16 +58,18 @@ import           Network.AWS.Response
 -- | Container for the parameters to the DeleteConnection operation.
 --
 -- /See:/ 'deleteConnection' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcConnectionId'
 newtype DeleteConnection = DeleteConnection'
     { _dcConnectionId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteConnection' smart constructor.
-deleteConnection :: Text -> DeleteConnection
+-- | Creates a value of 'DeleteConnection' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcConnectionId'
+deleteConnection
+    :: Text -- ^ 'dcConnectionId'
+    -> DeleteConnection
 deleteConnection pConnectionId_ =
     DeleteConnection'
     { _dcConnectionId = pConnectionId_

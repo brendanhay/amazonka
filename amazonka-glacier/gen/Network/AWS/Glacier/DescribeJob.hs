@@ -46,16 +46,16 @@
 module Network.AWS.Glacier.DescribeJob
     (
     -- * Creating a Request
-      DescribeJob
-    , describeJob
+      describeJob
+    , DescribeJob
     -- * Request Lenses
     , djAccountId
     , djVaultName
     , djJobId
 
     -- * Destructuring the Response
-    , GlacierJobDescription
     , glacierJobDescription
+    , GlacierJobDescription
     -- * Response Lenses
     , gjdArchiveId
     , gjdSHA256TreeHash
@@ -85,22 +85,26 @@ import           Network.AWS.Response
 -- | Provides options for retrieving a job description.
 --
 -- /See:/ 'describeJob' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'djAccountId'
---
--- * 'djVaultName'
---
--- * 'djJobId'
 data DescribeJob = DescribeJob'
     { _djAccountId :: !Text
     , _djVaultName :: !Text
     , _djJobId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeJob' smart constructor.
-describeJob :: Text -> Text -> Text -> DescribeJob
+-- | Creates a value of 'DescribeJob' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'djAccountId'
+--
+-- * 'djVaultName'
+--
+-- * 'djJobId'
+describeJob
+    :: Text -- ^ 'djAccountId'
+    -> Text -- ^ 'djVaultName'
+    -> Text -- ^ 'djJobId'
+    -> DescribeJob
 describeJob pAccountId_ pVaultName_ pJobId_ =
     DescribeJob'
     { _djAccountId = pAccountId_
@@ -108,9 +112,9 @@ describeJob pAccountId_ pVaultName_ pJobId_ =
     , _djJobId = pJobId_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 djAccountId :: Lens' DescribeJob Text

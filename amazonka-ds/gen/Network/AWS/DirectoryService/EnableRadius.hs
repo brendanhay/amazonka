@@ -25,15 +25,15 @@
 module Network.AWS.DirectoryService.EnableRadius
     (
     -- * Creating a Request
-      EnableRadius
-    , enableRadius
+      enableRadius
+    , EnableRadius
     -- * Request Lenses
     , erDirectoryId
     , erRadiusSettings
 
     -- * Destructuring the Response
-    , EnableRadiusResponse
     , enableRadiusResponse
+    , EnableRadiusResponse
     -- * Response Lenses
     , errsStatus
     ) where
@@ -47,19 +47,22 @@ import           Network.AWS.Response
 -- | Contains the inputs for the EnableRadius operation.
 --
 -- /See:/ 'enableRadius' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'erDirectoryId'
---
--- * 'erRadiusSettings'
 data EnableRadius = EnableRadius'
     { _erDirectoryId    :: !Text
     , _erRadiusSettings :: !RadiusSettings
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableRadius' smart constructor.
-enableRadius :: Text -> RadiusSettings -> EnableRadius
+-- | Creates a value of 'EnableRadius' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'erDirectoryId'
+--
+-- * 'erRadiusSettings'
+enableRadius
+    :: Text -- ^ 'erDirectoryId'
+    -> RadiusSettings -- ^ 'erRadiusSettings'
+    -> EnableRadius
 enableRadius pDirectoryId_ pRadiusSettings_ =
     EnableRadius'
     { _erDirectoryId = pDirectoryId_
@@ -109,21 +112,23 @@ instance ToQuery EnableRadius where
 -- | Contains the results of the EnableRadius operation.
 --
 -- /See:/ 'enableRadiusResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'errsStatus'
 newtype EnableRadiusResponse = EnableRadiusResponse'
     { _errsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableRadiusResponse' smart constructor.
-enableRadiusResponse :: Int -> EnableRadiusResponse
+-- | Creates a value of 'EnableRadiusResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'errsStatus'
+enableRadiusResponse
+    :: Int -- ^ 'errsStatus'
+    -> EnableRadiusResponse
 enableRadiusResponse pStatus_ =
     EnableRadiusResponse'
     { _errsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 errsStatus :: Lens' EnableRadiusResponse Int
 errsStatus = lens _errsStatus (\ s a -> s{_errsStatus = a});

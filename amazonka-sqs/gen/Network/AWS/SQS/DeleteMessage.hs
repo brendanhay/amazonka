@@ -19,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified message from the specified queue. You specify the
--- message by using the message\'s @receipt handle@ and not the
--- @message ID@ you received when you sent the message. Even if the message
+-- message by using the message\'s 'receipt handle' and not the
+-- 'message ID' you received when you sent the message. Even if the message
 -- is locked by another reader due to the visibility timeout setting, it is
 -- still deleted from the queue. If you leave a message in the queue for
 -- longer than the queue\'s configured retention period, Amazon SQS
@@ -29,7 +29,7 @@
 -- The receipt handle is associated with a specific instance of receiving
 -- the message. If you receive a message more than once, the receipt handle
 -- you get each time you receive the message is different. When you request
--- @DeleteMessage@, if you don\'t provide the most recently received
+-- 'DeleteMessage', if you don\'t provide the most recently received
 -- receipt handle for the message, the request will still succeed, but the
 -- message might not be deleted.
 --
@@ -45,15 +45,15 @@
 module Network.AWS.SQS.DeleteMessage
     (
     -- * Creating a Request
-      DeleteMessage
-    , deleteMessage
+      deleteMessage
+    , DeleteMessage
     -- * Request Lenses
     , dmQueueURL
     , dmReceiptHandle
 
     -- * Destructuring the Response
-    , DeleteMessageResponse
     , deleteMessageResponse
+    , DeleteMessageResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -63,19 +63,22 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'deleteMessage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmQueueURL'
---
--- * 'dmReceiptHandle'
 data DeleteMessage = DeleteMessage'
     { _dmQueueURL      :: !Text
     , _dmReceiptHandle :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteMessage' smart constructor.
-deleteMessage :: Text -> Text -> DeleteMessage
+-- | Creates a value of 'DeleteMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmQueueURL'
+--
+-- * 'dmReceiptHandle'
+deleteMessage
+    :: Text -- ^ 'dmQueueURL'
+    -> Text -- ^ 'dmReceiptHandle'
+    -> DeleteMessage
 deleteMessage pQueueURL_ pReceiptHandle_ =
     DeleteMessage'
     { _dmQueueURL = pQueueURL_
@@ -115,6 +118,8 @@ data DeleteMessageResponse =
     DeleteMessageResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteMessageResponse' smart constructor.
-deleteMessageResponse :: DeleteMessageResponse
+-- | Creates a value of 'DeleteMessageResponse' with the minimum fields required to make a request.
+--
+deleteMessageResponse
+    :: DeleteMessageResponse
 deleteMessageResponse = DeleteMessageResponse'

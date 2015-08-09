@@ -25,14 +25,14 @@
 module Network.AWS.KMS.DeleteAlias
     (
     -- * Creating a Request
-      DeleteAlias
-    , deleteAlias
+      deleteAlias
+    , DeleteAlias
     -- * Request Lenses
     , daAliasName
 
     -- * Destructuring the Response
-    , DeleteAliasResponse
     , deleteAliasResponse
+    , DeleteAliasResponse
     ) where
 
 import           Network.AWS.KMS.Types
@@ -42,16 +42,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteAlias' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daAliasName'
 newtype DeleteAlias = DeleteAlias'
     { _daAliasName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAlias' smart constructor.
-deleteAlias :: Text -> DeleteAlias
+-- | Creates a value of 'DeleteAlias' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daAliasName'
+deleteAlias
+    :: Text -- ^ 'daAliasName'
+    -> DeleteAlias
 deleteAlias pAliasName_ =
     DeleteAlias'
     { _daAliasName = pAliasName_
@@ -93,6 +95,8 @@ data DeleteAliasResponse =
     DeleteAliasResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAliasResponse' smart constructor.
-deleteAliasResponse :: DeleteAliasResponse
+-- | Creates a value of 'DeleteAliasResponse' with the minimum fields required to make a request.
+--
+deleteAliasResponse
+    :: DeleteAliasResponse
 deleteAliasResponse = DeleteAliasResponse'

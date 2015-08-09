@@ -32,16 +32,16 @@
 module Network.AWS.ElastiCache.DeleteReplicationGroup
     (
     -- * Creating a Request
-      DeleteReplicationGroup
-    , deleteReplicationGroup
+      deleteReplicationGroup
+    , DeleteReplicationGroup
     -- * Request Lenses
     , drgFinalSnapshotIdentifier
     , drgRetainPrimaryCluster
     , drgReplicationGroupId
 
     -- * Destructuring the Response
-    , DeleteReplicationGroupResponse
     , deleteReplicationGroupResponse
+    , DeleteReplicationGroupResponse
     -- * Response Lenses
     , delrsReplicationGroup
     , delrsStatus
@@ -56,22 +56,24 @@ import           Network.AWS.Response
 -- | Represents the input of a /DeleteReplicationGroup/ action.
 --
 -- /See:/ 'deleteReplicationGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drgFinalSnapshotIdentifier'
---
--- * 'drgRetainPrimaryCluster'
---
--- * 'drgReplicationGroupId'
 data DeleteReplicationGroup = DeleteReplicationGroup'
     { _drgFinalSnapshotIdentifier :: !(Maybe Text)
     , _drgRetainPrimaryCluster    :: !(Maybe Bool)
     , _drgReplicationGroupId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteReplicationGroup' smart constructor.
-deleteReplicationGroup :: Text -> DeleteReplicationGroup
+-- | Creates a value of 'DeleteReplicationGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drgFinalSnapshotIdentifier'
+--
+-- * 'drgRetainPrimaryCluster'
+--
+-- * 'drgReplicationGroupId'
+deleteReplicationGroup
+    :: Text -- ^ 'drgReplicationGroupId'
+    -> DeleteReplicationGroup
 deleteReplicationGroup pReplicationGroupId_ =
     DeleteReplicationGroup'
     { _drgFinalSnapshotIdentifier = Nothing
@@ -125,19 +127,21 @@ instance ToQuery DeleteReplicationGroup where
                "ReplicationGroupId" =: _drgReplicationGroupId]
 
 -- | /See:/ 'deleteReplicationGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delrsReplicationGroup'
---
--- * 'delrsStatus'
 data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
     { _delrsReplicationGroup :: !(Maybe ReplicationGroup)
     , _delrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteReplicationGroupResponse' smart constructor.
-deleteReplicationGroupResponse :: Int -> DeleteReplicationGroupResponse
+-- | Creates a value of 'DeleteReplicationGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delrsReplicationGroup'
+--
+-- * 'delrsStatus'
+deleteReplicationGroupResponse
+    :: Int -- ^ 'delrsStatus'
+    -> DeleteReplicationGroupResponse
 deleteReplicationGroupResponse pStatus_ =
     DeleteReplicationGroupResponse'
     { _delrsReplicationGroup = Nothing
@@ -148,6 +152,6 @@ deleteReplicationGroupResponse pStatus_ =
 delrsReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
 delrsReplicationGroup = lens _delrsReplicationGroup (\ s a -> s{_delrsReplicationGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 delrsStatus :: Lens' DeleteReplicationGroupResponse Int
 delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

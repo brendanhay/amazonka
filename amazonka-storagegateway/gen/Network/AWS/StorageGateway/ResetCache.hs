@@ -36,14 +36,14 @@
 module Network.AWS.StorageGateway.ResetCache
     (
     -- * Creating a Request
-      ResetCache
-    , resetCache
+      resetCache
+    , ResetCache
     -- * Request Lenses
     , rcGatewayARN
 
     -- * Destructuring the Response
-    , ResetCacheResponse
     , resetCacheResponse
+    , ResetCacheResponse
     -- * Response Lenses
     , rcrsGatewayARN
     , rcrsStatus
@@ -56,16 +56,18 @@ import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'resetCache' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcGatewayARN'
 newtype ResetCache = ResetCache'
     { _rcGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetCache' smart constructor.
-resetCache :: Text -> ResetCache
+-- | Creates a value of 'ResetCache' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcGatewayARN'
+resetCache
+    :: Text -- ^ 'rcGatewayARN'
+    -> ResetCache
 resetCache pGatewayARN_ =
     ResetCache'
     { _rcGatewayARN = pGatewayARN_
@@ -105,19 +107,21 @@ instance ToQuery ResetCache where
         toQuery = const mempty
 
 -- | /See:/ 'resetCacheResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcrsGatewayARN'
---
--- * 'rcrsStatus'
 data ResetCacheResponse = ResetCacheResponse'
     { _rcrsGatewayARN :: !(Maybe Text)
     , _rcrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetCacheResponse' smart constructor.
-resetCacheResponse :: Int -> ResetCacheResponse
+-- | Creates a value of 'ResetCacheResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcrsGatewayARN'
+--
+-- * 'rcrsStatus'
+resetCacheResponse
+    :: Int -- ^ 'rcrsStatus'
+    -> ResetCacheResponse
 resetCacheResponse pStatus_ =
     ResetCacheResponse'
     { _rcrsGatewayARN = Nothing
@@ -128,6 +132,6 @@ resetCacheResponse pStatus_ =
 rcrsGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
 rcrsGatewayARN = lens _rcrsGatewayARN (\ s a -> s{_rcrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 rcrsStatus :: Lens' ResetCacheResponse Int
 rcrsStatus = lens _rcrsStatus (\ s a -> s{_rcrsStatus = a});

@@ -27,8 +27,8 @@
 module Network.AWS.RDS.CreateDBCluster
     (
     -- * Creating a Request
-      CreateDBCluster
-    , createDBCluster
+      createDBCluster
+    , CreateDBCluster
     -- * Request Lenses
     , cdcEngineVersion
     , cdcDBClusterIdentifier
@@ -49,8 +49,8 @@ module Network.AWS.RDS.CreateDBCluster
     , cdcPort
 
     -- * Destructuring the Response
-    , CreateDBClusterResponse
     , createDBClusterResponse
+    , CreateDBClusterResponse
     -- * Response Lenses
     , cdcrsDBCluster
     , cdcrsStatus
@@ -65,8 +65,29 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createDBCluster' smart constructor.
+data CreateDBCluster = CreateDBCluster'
+    { _cdcEngineVersion               :: !(Maybe Text)
+    , _cdcDBClusterIdentifier         :: !(Maybe Text)
+    , _cdcMasterUserPassword          :: !(Maybe Text)
+    , _cdcMasterUsername              :: !(Maybe Text)
+    , _cdcDBSubnetGroupName           :: !(Maybe Text)
+    , _cdcEngine                      :: !(Maybe Text)
+    , _cdcPreferredMaintenanceWindow  :: !(Maybe Text)
+    , _cdcCharacterSetName            :: !(Maybe Text)
+    , _cdcAvailabilityZones           :: !(Maybe [Text])
+    , _cdcPreferredBackupWindow       :: !(Maybe Text)
+    , _cdcBackupRetentionPeriod       :: !(Maybe Int)
+    , _cdcDatabaseName                :: !(Maybe Text)
+    , _cdcVPCSecurityGroupIds         :: !(Maybe [Text])
+    , _cdcDBClusterParameterGroupName :: !(Maybe Text)
+    , _cdcOptionGroupName             :: !(Maybe Text)
+    , _cdcTags                        :: !(Maybe [Tag])
+    , _cdcPort                        :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDBCluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdcEngineVersion'
 --
@@ -101,28 +122,8 @@ import           Network.AWS.Response
 -- * 'cdcTags'
 --
 -- * 'cdcPort'
-data CreateDBCluster = CreateDBCluster'
-    { _cdcEngineVersion               :: !(Maybe Text)
-    , _cdcDBClusterIdentifier         :: !(Maybe Text)
-    , _cdcMasterUserPassword          :: !(Maybe Text)
-    , _cdcMasterUsername              :: !(Maybe Text)
-    , _cdcDBSubnetGroupName           :: !(Maybe Text)
-    , _cdcEngine                      :: !(Maybe Text)
-    , _cdcPreferredMaintenanceWindow  :: !(Maybe Text)
-    , _cdcCharacterSetName            :: !(Maybe Text)
-    , _cdcAvailabilityZones           :: !(Maybe [Text])
-    , _cdcPreferredBackupWindow       :: !(Maybe Text)
-    , _cdcBackupRetentionPeriod       :: !(Maybe Int)
-    , _cdcDatabaseName                :: !(Maybe Text)
-    , _cdcVPCSecurityGroupIds         :: !(Maybe [Text])
-    , _cdcDBClusterParameterGroupName :: !(Maybe Text)
-    , _cdcOptionGroupName             :: !(Maybe Text)
-    , _cdcTags                        :: !(Maybe [Tag])
-    , _cdcPort                        :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateDBCluster' smart constructor.
-createDBCluster :: CreateDBCluster
+createDBCluster
+    :: CreateDBCluster
 createDBCluster =
     CreateDBCluster'
     { _cdcEngineVersion = Nothing
@@ -148,7 +149,7 @@ createDBCluster =
 --
 -- __Aurora__
 --
--- Example: @5.6.0@
+-- Example: '5.6.0'
 cdcEngineVersion :: Lens' CreateDBCluster (Maybe Text)
 cdcEngineVersion = lens _cdcEngineVersion (\ s a -> s{_cdcEngineVersion = a});
 
@@ -161,12 +162,12 @@ cdcEngineVersion = lens _cdcEngineVersion (\ s a -> s{_cdcEngineVersion = a});
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- Example: @my-cluster1@
+-- Example: 'my-cluster1'
 cdcDBClusterIdentifier :: Lens' CreateDBCluster (Maybe Text)
 cdcDBClusterIdentifier = lens _cdcDBClusterIdentifier (\ s a -> s{_cdcDBClusterIdentifier = a});
 
 -- | The password for the master database user. This password can contain any
--- printable ASCII character except \"\/\", \"\"\", or \"\@\".
+-- printable ASCII character except \"\/\", \"\"\", or \"\'\".
 --
 -- Constraints: Must contain from 8 to 41 characters.
 cdcMasterUserPassword :: Lens' CreateDBCluster (Maybe Text)
@@ -188,14 +189,14 @@ cdcDBSubnetGroupName = lens _cdcDBSubnetGroupName (\ s a -> s{_cdcDBSubnetGroupN
 
 -- | The name of the database engine to be used for this DB cluster.
 --
--- Valid Values: @MySQL@
+-- Valid Values: 'MySQL'
 cdcEngine :: Lens' CreateDBCluster (Maybe Text)
 cdcEngine = lens _cdcEngine (\ s a -> s{_cdcEngine = a});
 
 -- | The weekly time range during which system maintenance can occur, in
 -- Universal Coordinated Time (UTC).
 --
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
+-- Format: 'ddd:hh24:mi-ddd:hh24:mi'
 --
 -- Default: A 30-minute window selected at random from an 8-hour block of
 -- time per region, occurring on a random day of the week. To see the time
@@ -221,7 +222,7 @@ cdcAvailabilityZones :: Lens' CreateDBCluster [Text]
 cdcAvailabilityZones = lens _cdcAvailabilityZones (\ s a -> s{_cdcAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | The daily time range during which automated backups are created if
--- automated backups are enabled using the @BackupRetentionPeriod@
+-- automated backups are enabled using the 'BackupRetentionPeriod'
 -- parameter.
 --
 -- Default: A 30-minute window selected at random from an 8-hour block of
@@ -231,7 +232,7 @@ cdcAvailabilityZones = lens _cdcAvailabilityZones (\ s a -> s{_cdcAvailabilityZo
 --
 -- Constraints:
 --
--- -   Must be in the format @hh24:mi-hh24:mi@.
+-- -   Must be in the format 'hh24:mi-hh24:mi'.
 -- -   Times should be in Universal Coordinated Time (UTC).
 -- -   Must not conflict with the preferred maintenance window.
 -- -   Must be at least 30 minutes.
@@ -261,7 +262,7 @@ cdcVPCSecurityGroupIds :: Lens' CreateDBCluster [Text]
 cdcVPCSecurityGroupIds = lens _cdcVPCSecurityGroupIds (\ s a -> s{_cdcVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | The name of the DB cluster parameter group to associate with this DB
--- cluster. If this argument is omitted, @default.aurora5.6@ for the
+-- cluster. If this argument is omitted, 'default.aurora5.6' for the
 -- specified engine will be used.
 --
 -- Constraints:
@@ -288,7 +289,7 @@ cdcTags = lens _cdcTags (\ s a -> s{_cdcTags = a}) . _Default . _Coerce;
 -- | The port number on which the instances in the DB cluster accept
 -- connections.
 --
--- Default: @3306@
+-- Default: '3306'
 cdcPort :: Lens' CreateDBCluster (Maybe Int)
 cdcPort = lens _cdcPort (\ s a -> s{_cdcPort = a});
 
@@ -340,19 +341,21 @@ instance ToQuery CreateDBCluster where
                "Port" =: _cdcPort]
 
 -- | /See:/ 'createDBClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdcrsDBCluster'
---
--- * 'cdcrsStatus'
 data CreateDBClusterResponse = CreateDBClusterResponse'
     { _cdcrsDBCluster :: !(Maybe DBCluster)
     , _cdcrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBClusterResponse' smart constructor.
-createDBClusterResponse :: Int -> CreateDBClusterResponse
+-- | Creates a value of 'CreateDBClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdcrsDBCluster'
+--
+-- * 'cdcrsStatus'
+createDBClusterResponse
+    :: Int -- ^ 'cdcrsStatus'
+    -> CreateDBClusterResponse
 createDBClusterResponse pStatus_ =
     CreateDBClusterResponse'
     { _cdcrsDBCluster = Nothing
@@ -363,6 +366,6 @@ createDBClusterResponse pStatus_ =
 cdcrsDBCluster :: Lens' CreateDBClusterResponse (Maybe DBCluster)
 cdcrsDBCluster = lens _cdcrsDBCluster (\ s a -> s{_cdcrsDBCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdcrsStatus :: Lens' CreateDBClusterResponse Int
 cdcrsStatus = lens _cdcrsStatus (\ s a -> s{_cdcrsStatus = a});

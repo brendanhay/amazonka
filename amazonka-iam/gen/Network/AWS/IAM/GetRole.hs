@@ -29,14 +29,14 @@
 module Network.AWS.IAM.GetRole
     (
     -- * Creating a Request
-      GetRole
-    , getRole
+      getRole
+    , GetRole
     -- * Request Lenses
     , grRoleName
 
     -- * Destructuring the Response
-    , GetRoleResponse
     , getRoleResponse
+    , GetRoleResponse
     -- * Response Lenses
     , grrsStatus
     , grrsRole
@@ -49,16 +49,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getRole' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grRoleName'
 newtype GetRole = GetRole'
     { _grRoleName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetRole' smart constructor.
-getRole :: Text -> GetRole
+-- | Creates a value of 'GetRole' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grRoleName'
+getRole
+    :: Text -- ^ 'grRoleName'
+    -> GetRole
 getRole pRoleName_ =
     GetRole'
     { _grRoleName = pRoleName_
@@ -94,26 +96,29 @@ instance ToQuery GetRole where
 -- | Contains the response to a successful GetRole request.
 --
 -- /See:/ 'getRoleResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grrsStatus'
---
--- * 'grrsRole'
 data GetRoleResponse = GetRoleResponse'
     { _grrsStatus :: !Int
     , _grrsRole   :: !Role
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetRoleResponse' smart constructor.
-getRoleResponse :: Int -> Role -> GetRoleResponse
+-- | Creates a value of 'GetRoleResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grrsStatus'
+--
+-- * 'grrsRole'
+getRoleResponse
+    :: Int -- ^ 'grrsStatus'
+    -> Role -- ^ 'grrsRole'
+    -> GetRoleResponse
 getRoleResponse pStatus_ pRole_ =
     GetRoleResponse'
     { _grrsStatus = pStatus_
     , _grrsRole = pRole_
     }
 
--- | Undocumented member.
+-- | The response status code.
 grrsStatus :: Lens' GetRoleResponse Int
 grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
 

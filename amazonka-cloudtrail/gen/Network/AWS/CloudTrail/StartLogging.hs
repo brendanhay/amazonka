@@ -24,14 +24,14 @@
 module Network.AWS.CloudTrail.StartLogging
     (
     -- * Creating a Request
-      StartLogging
-    , startLogging
+      startLogging
+    , StartLogging
     -- * Request Lenses
     , sName
 
     -- * Destructuring the Response
-    , StartLoggingResponse
     , startLoggingResponse
+    , StartLoggingResponse
     -- * Response Lenses
     , srsStatus
     ) where
@@ -45,16 +45,18 @@ import           Network.AWS.Response
 -- | The request to CloudTrail to start logging AWS API calls for an account.
 --
 -- /See:/ 'startLogging' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sName'
 newtype StartLogging = StartLogging'
     { _sName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartLogging' smart constructor.
-startLogging :: Text -> StartLogging
+-- | Creates a value of 'StartLogging' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sName'
+startLogging
+    :: Text -- ^ 'sName'
+    -> StartLogging
 startLogging pName_ =
     StartLogging'
     { _sName = pName_
@@ -96,21 +98,23 @@ instance ToQuery StartLogging where
 -- returns an error.
 --
 -- /See:/ 'startLoggingResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'srsStatus'
 newtype StartLoggingResponse = StartLoggingResponse'
     { _srsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartLoggingResponse' smart constructor.
-startLoggingResponse :: Int -> StartLoggingResponse
+-- | Creates a value of 'StartLoggingResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srsStatus'
+startLoggingResponse
+    :: Int -- ^ 'srsStatus'
+    -> StartLoggingResponse
 startLoggingResponse pStatus_ =
     StartLoggingResponse'
     { _srsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 srsStatus :: Lens' StartLoggingResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

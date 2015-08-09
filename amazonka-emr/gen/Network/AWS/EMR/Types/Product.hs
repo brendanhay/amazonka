@@ -41,8 +41,16 @@ import           Network.AWS.Prelude
 -- configuration for each application.
 --
 -- /See:/ 'application' smart constructor.
+data Application = Application'
+    { _aAdditionalInfo :: !(Maybe (Map Text Text))
+    , _aArgs           :: !(Maybe [Text])
+    , _aName           :: !(Maybe Text)
+    , _aVersion        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Application' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'aAdditionalInfo'
 --
@@ -51,15 +59,8 @@ import           Network.AWS.Prelude
 -- * 'aName'
 --
 -- * 'aVersion'
-data Application = Application'
-    { _aAdditionalInfo :: !(Maybe (Map Text Text))
-    , _aArgs           :: !(Maybe [Text])
-    , _aName           :: !(Maybe Text)
-    , _aVersion        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Application' smart constructor.
-application :: Application
+application
+    :: Application
 application =
     Application'
     { _aAdditionalInfo = Nothing
@@ -106,19 +107,22 @@ instance ToJSON Application where
 -- | Configuration of a bootstrap action.
 --
 -- /See:/ 'bootstrapActionConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bacName'
---
--- * 'bacScriptBootstrapAction'
 data BootstrapActionConfig = BootstrapActionConfig'
     { _bacName                  :: !Text
     , _bacScriptBootstrapAction :: !ScriptBootstrapActionConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BootstrapActionConfig' smart constructor.
-bootstrapActionConfig :: Text -> ScriptBootstrapActionConfig -> BootstrapActionConfig
+-- | Creates a value of 'BootstrapActionConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bacName'
+--
+-- * 'bacScriptBootstrapAction'
+bootstrapActionConfig
+    :: Text -- ^ 'bacName'
+    -> ScriptBootstrapActionConfig -- ^ 'bacScriptBootstrapAction'
+    -> BootstrapActionConfig
 bootstrapActionConfig pName_ pScriptBootstrapAction_ =
     BootstrapActionConfig'
     { _bacName = pName_
@@ -142,8 +146,29 @@ instance ToJSON BootstrapActionConfig where
 -- | The detailed description of the cluster.
 --
 -- /See:/ 'cluster' smart constructor.
+data Cluster = Cluster'
+    { _cluRequestedAMIVersion     :: !(Maybe Text)
+    , _cluEC2InstanceAttributes   :: !(Maybe EC2InstanceAttributes)
+    , _cluNormalizedInstanceHours :: !(Maybe Int)
+    , _cluConfigurations          :: !(Maybe [Configuration])
+    , _cluReleaseLabel            :: !(Maybe Text)
+    , _cluLogURI                  :: !(Maybe Text)
+    , _cluRunningAMIVersion       :: !(Maybe Text)
+    , _cluMasterPublicDNSName     :: !(Maybe Text)
+    , _cluAutoTerminate           :: !(Maybe Bool)
+    , _cluTerminationProtected    :: !(Maybe Bool)
+    , _cluVisibleToAllUsers       :: !(Maybe Bool)
+    , _cluApplications            :: !(Maybe [Application])
+    , _cluTags                    :: !(Maybe [Tag])
+    , _cluServiceRole             :: !(Maybe Text)
+    , _cluId                      :: !Text
+    , _cluName                    :: !Text
+    , _cluStatus                  :: !ClusterStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Cluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cluRequestedAMIVersion'
 --
@@ -178,28 +203,11 @@ instance ToJSON BootstrapActionConfig where
 -- * 'cluName'
 --
 -- * 'cluStatus'
-data Cluster = Cluster'
-    { _cluRequestedAMIVersion     :: !(Maybe Text)
-    , _cluEC2InstanceAttributes   :: !(Maybe EC2InstanceAttributes)
-    , _cluNormalizedInstanceHours :: !(Maybe Int)
-    , _cluConfigurations          :: !(Maybe [Configuration])
-    , _cluReleaseLabel            :: !(Maybe Text)
-    , _cluLogURI                  :: !(Maybe Text)
-    , _cluRunningAMIVersion       :: !(Maybe Text)
-    , _cluMasterPublicDNSName     :: !(Maybe Text)
-    , _cluAutoTerminate           :: !(Maybe Bool)
-    , _cluTerminationProtected    :: !(Maybe Bool)
-    , _cluVisibleToAllUsers       :: !(Maybe Bool)
-    , _cluApplications            :: !(Maybe [Application])
-    , _cluTags                    :: !(Maybe [Tag])
-    , _cluServiceRole             :: !(Maybe Text)
-    , _cluId                      :: !Text
-    , _cluName                    :: !Text
-    , _cluStatus                  :: !ClusterStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Cluster' smart constructor.
-cluster :: Text -> Text -> ClusterStatus -> Cluster
+cluster
+    :: Text -- ^ 'cluId'
+    -> Text -- ^ 'cluName'
+    -> ClusterStatus -- ^ 'cluStatus'
+    -> Cluster
 cluster pId_ pName_ pStatus_ =
     Cluster'
     { _cluRequestedAMIVersion = Nothing
@@ -274,9 +282,9 @@ cluTerminationProtected :: Lens' Cluster (Maybe Bool)
 cluTerminationProtected = lens _cluTerminationProtected (\ s a -> s{_cluTerminationProtected = a});
 
 -- | Indicates whether the job flow is visible to all IAM users of the AWS
--- account associated with the job flow. If this value is set to @true@,
+-- account associated with the job flow. If this value is set to 'true',
 -- all IAM users of that AWS account can view and manage the job flow if
--- they have the proper policy permissions set. If this value is @false@,
+-- they have the proper policy permissions set. If this value is 'false',
 -- only the IAM user that created the cluster can view and manage it. This
 -- value can be changed using the SetVisibleToAllUsers action.
 cluVisibleToAllUsers :: Lens' Cluster (Maybe Bool)
@@ -333,19 +341,20 @@ instance FromJSON Cluster where
 -- | The reason that the cluster changed to its current state.
 --
 -- /See:/ 'clusterStateChangeReason' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cscrCode'
---
--- * 'cscrMessage'
 data ClusterStateChangeReason = ClusterStateChangeReason'
     { _cscrCode    :: !(Maybe ClusterStateChangeReasonCode)
     , _cscrMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ClusterStateChangeReason' smart constructor.
-clusterStateChangeReason :: ClusterStateChangeReason
+-- | Creates a value of 'ClusterStateChangeReason' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cscrCode'
+--
+-- * 'cscrMessage'
+clusterStateChangeReason
+    :: ClusterStateChangeReason
 clusterStateChangeReason =
     ClusterStateChangeReason'
     { _cscrCode = Nothing
@@ -370,22 +379,23 @@ instance FromJSON ClusterStateChangeReason where
 -- | The detailed status of the cluster.
 --
 -- /See:/ 'clusterStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csState'
---
--- * 'csStateChangeReason'
---
--- * 'csTimeline'
 data ClusterStatus = ClusterStatus'
     { _csState             :: !(Maybe ClusterState)
     , _csStateChangeReason :: !(Maybe ClusterStateChangeReason)
     , _csTimeline          :: !(Maybe ClusterTimeline)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ClusterStatus' smart constructor.
-clusterStatus :: ClusterStatus
+-- | Creates a value of 'ClusterStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csState'
+--
+-- * 'csStateChangeReason'
+--
+-- * 'csTimeline'
+clusterStatus
+    :: ClusterStatus
 clusterStatus =
     ClusterStatus'
     { _csState = Nothing
@@ -417,8 +427,16 @@ instance FromJSON ClusterStatus where
 -- | The summary description of the cluster.
 --
 -- /See:/ 'clusterSummary' smart constructor.
+data ClusterSummary = ClusterSummary'
+    { _csStatus                  :: !(Maybe ClusterStatus)
+    , _csNormalizedInstanceHours :: !(Maybe Int)
+    , _csName                    :: !(Maybe Text)
+    , _csId                      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ClusterSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'csStatus'
 --
@@ -427,15 +445,8 @@ instance FromJSON ClusterStatus where
 -- * 'csName'
 --
 -- * 'csId'
-data ClusterSummary = ClusterSummary'
-    { _csStatus                  :: !(Maybe ClusterStatus)
-    , _csNormalizedInstanceHours :: !(Maybe Int)
-    , _csName                    :: !(Maybe Text)
-    , _csId                      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ClusterSummary' smart constructor.
-clusterSummary :: ClusterSummary
+clusterSummary
+    :: ClusterSummary
 clusterSummary =
     ClusterSummary'
     { _csStatus = Nothing
@@ -478,22 +489,23 @@ instance FromJSON ClusterSummary where
 -- | Represents the timeline of the cluster\'s lifecycle.
 --
 -- /See:/ 'clusterTimeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ctReadyDateTime'
---
--- * 'ctCreationDateTime'
---
--- * 'ctEndDateTime'
 data ClusterTimeline = ClusterTimeline'
     { _ctReadyDateTime    :: !(Maybe POSIX)
     , _ctCreationDateTime :: !(Maybe POSIX)
     , _ctEndDateTime      :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ClusterTimeline' smart constructor.
-clusterTimeline :: ClusterTimeline
+-- | Creates a value of 'ClusterTimeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctReadyDateTime'
+--
+-- * 'ctCreationDateTime'
+--
+-- * 'ctEndDateTime'
+clusterTimeline
+    :: ClusterTimeline
 clusterTimeline =
     ClusterTimeline'
     { _ctReadyDateTime = Nothing
@@ -525,22 +537,23 @@ instance FromJSON ClusterTimeline where
 -- | An entity describing an executable that runs on a cluster.
 --
 -- /See:/ 'command' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cArgs'
---
--- * 'cScriptPath'
---
--- * 'cName'
 data Command = Command'
     { _cArgs       :: !(Maybe [Text])
     , _cScriptPath :: !(Maybe Text)
     , _cName       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Command' smart constructor.
-command :: Command
+-- | Creates a value of 'Command' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cArgs'
+--
+-- * 'cScriptPath'
+--
+-- * 'cName'
+command
+    :: Command
 command =
     Command'
     { _cArgs = Nothing
@@ -578,22 +591,23 @@ instance FromJSON Command where
 -- listed.
 --
 -- /See:/ 'configuration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cConfigurations'
---
--- * 'cClassification'
---
--- * 'cProperties'
 data Configuration = Configuration'
     { _cConfigurations :: !(Maybe [Configuration])
     , _cClassification :: !(Maybe Text)
     , _cProperties     :: !(Maybe (Map Text Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Configuration' smart constructor.
-configuration :: Configuration
+-- | Creates a value of 'Configuration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cConfigurations'
+--
+-- * 'cClassification'
+--
+-- * 'cProperties'
+configuration
+    :: Configuration
 configuration =
     Configuration'
     { _cConfigurations = Nothing
@@ -635,8 +649,20 @@ instance ToJSON Configuration where
 -- on.
 --
 -- /See:/ 'ec2InstanceAttributes' smart constructor.
+data EC2InstanceAttributes = EC2InstanceAttributes'
+    { _eiaEC2KeyName                     :: !(Maybe Text)
+    , _eiaEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
+    , _eiaAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
+    , _eiaIAMInstanceProfile             :: !(Maybe Text)
+    , _eiaAdditionalMasterSecurityGroups :: !(Maybe [Text])
+    , _eiaEmrManagedMasterSecurityGroup  :: !(Maybe Text)
+    , _eiaEC2SubnetId                    :: !(Maybe Text)
+    , _eiaEC2AvailabilityZone            :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EC2InstanceAttributes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eiaEC2KeyName'
 --
@@ -653,19 +679,8 @@ instance ToJSON Configuration where
 -- * 'eiaEC2SubnetId'
 --
 -- * 'eiaEC2AvailabilityZone'
-data EC2InstanceAttributes = EC2InstanceAttributes'
-    { _eiaEC2KeyName                     :: !(Maybe Text)
-    , _eiaEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
-    , _eiaAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
-    , _eiaIAMInstanceProfile             :: !(Maybe Text)
-    , _eiaAdditionalMasterSecurityGroups :: !(Maybe [Text])
-    , _eiaEmrManagedMasterSecurityGroup  :: !(Maybe Text)
-    , _eiaEC2SubnetId                    :: !(Maybe Text)
-    , _eiaEC2AvailabilityZone            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EC2InstanceAttributes' smart constructor.
-ec2InstanceAttributes :: EC2InstanceAttributes
+ec2InstanceAttributes
+    :: EC2InstanceAttributes
 ec2InstanceAttributes =
     EC2InstanceAttributes'
     { _eiaEC2KeyName = Nothing
@@ -742,8 +757,16 @@ instance FromJSON EC2InstanceAttributes where
 -- waits for the job to finish or fail.
 --
 -- /See:/ 'hadoopJARStepConfig' smart constructor.
+data HadoopJARStepConfig = HadoopJARStepConfig'
+    { _hjscArgs       :: !(Maybe [Text])
+    , _hjscMainClass  :: !(Maybe Text)
+    , _hjscProperties :: !(Maybe [KeyValue])
+    , _hjscJAR        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HadoopJARStepConfig' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'hjscArgs'
 --
@@ -752,15 +775,9 @@ instance FromJSON EC2InstanceAttributes where
 -- * 'hjscProperties'
 --
 -- * 'hjscJAR'
-data HadoopJARStepConfig = HadoopJARStepConfig'
-    { _hjscArgs       :: !(Maybe [Text])
-    , _hjscMainClass  :: !(Maybe Text)
-    , _hjscProperties :: !(Maybe [KeyValue])
-    , _hjscJAR        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'HadoopJARStepConfig' smart constructor.
-hadoopJARStepConfig :: Text -> HadoopJARStepConfig
+hadoopJARStepConfig
+    :: Text -- ^ 'hjscJAR'
+    -> HadoopJARStepConfig
 hadoopJARStepConfig pJAR_ =
     HadoopJARStepConfig'
     { _hjscArgs = Nothing
@@ -799,8 +816,16 @@ instance ToJSON HadoopJARStepConfig where
 -- waits for the job to finish or fail.
 --
 -- /See:/ 'hadoopStepConfig' smart constructor.
+data HadoopStepConfig = HadoopStepConfig'
+    { _hscArgs       :: !(Maybe [Text])
+    , _hscJAR        :: !(Maybe Text)
+    , _hscMainClass  :: !(Maybe Text)
+    , _hscProperties :: !(Maybe (Map Text Text))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HadoopStepConfig' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'hscArgs'
 --
@@ -809,15 +834,8 @@ instance ToJSON HadoopJARStepConfig where
 -- * 'hscMainClass'
 --
 -- * 'hscProperties'
-data HadoopStepConfig = HadoopStepConfig'
-    { _hscArgs       :: !(Maybe [Text])
-    , _hscJAR        :: !(Maybe Text)
-    , _hscMainClass  :: !(Maybe Text)
-    , _hscProperties :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'HadoopStepConfig' smart constructor.
-hadoopStepConfig :: HadoopStepConfig
+hadoopStepConfig
+    :: HadoopStepConfig
 hadoopStepConfig =
     HadoopStepConfig'
     { _hscArgs = Nothing
@@ -857,8 +875,19 @@ instance FromJSON HadoopStepConfig where
 -- | Represents an EC2 instance provisioned as part of cluster.
 --
 -- /See:/ 'instance'' smart constructor.
+data Instance = Instance'
+    { _iStatus           :: !(Maybe InstanceStatus)
+    , _iPublicDNSName    :: !(Maybe Text)
+    , _iEC2InstanceId    :: !(Maybe Text)
+    , _iPrivateIPAddress :: !(Maybe Text)
+    , _iId               :: !(Maybe Text)
+    , _iPrivateDNSName   :: !(Maybe Text)
+    , _iPublicIPAddress  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iStatus'
 --
@@ -873,18 +902,8 @@ instance FromJSON HadoopStepConfig where
 -- * 'iPrivateDNSName'
 --
 -- * 'iPublicIPAddress'
-data Instance = Instance'
-    { _iStatus           :: !(Maybe InstanceStatus)
-    , _iPublicDNSName    :: !(Maybe Text)
-    , _iEC2InstanceId    :: !(Maybe Text)
-    , _iPrivateIPAddress :: !(Maybe Text)
-    , _iId               :: !(Maybe Text)
-    , _iPrivateDNSName   :: !(Maybe Text)
-    , _iPublicIPAddress  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Instance' smart constructor.
-instance' :: Instance
+instance'
+    :: Instance
 instance' =
     Instance'
     { _iStatus = Nothing
@@ -941,8 +960,22 @@ instance FromJSON Instance where
 -- HDFS.
 --
 -- /See:/ 'instanceGroup' smart constructor.
+data InstanceGroup = InstanceGroup'
+    { _igStatus                 :: !(Maybe InstanceGroupStatus)
+    , _igBidPrice               :: !(Maybe Text)
+    , _igRequestedInstanceCount :: !(Maybe Int)
+    , _igRunningInstanceCount   :: !(Maybe Int)
+    , _igConfigurations         :: !(Maybe [Configuration])
+    , _igInstanceGroupType      :: !(Maybe InstanceGroupType)
+    , _igInstanceType           :: !(Maybe Text)
+    , _igMarket                 :: !(Maybe MarketType)
+    , _igName                   :: !(Maybe Text)
+    , _igId                     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'igStatus'
 --
@@ -963,21 +996,8 @@ instance FromJSON Instance where
 -- * 'igName'
 --
 -- * 'igId'
-data InstanceGroup = InstanceGroup'
-    { _igStatus                 :: !(Maybe InstanceGroupStatus)
-    , _igBidPrice               :: !(Maybe Text)
-    , _igRequestedInstanceCount :: !(Maybe Int)
-    , _igRunningInstanceCount   :: !(Maybe Int)
-    , _igConfigurations         :: !(Maybe [Configuration])
-    , _igInstanceGroupType      :: !(Maybe InstanceGroupType)
-    , _igInstanceType           :: !(Maybe Text)
-    , _igMarket                 :: !(Maybe MarketType)
-    , _igName                   :: !(Maybe Text)
-    , _igId                     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstanceGroup' smart constructor.
-instanceGroup :: InstanceGroup
+instanceGroup
+    :: InstanceGroup
 instanceGroup =
     InstanceGroup'
     { _igStatus = Nothing
@@ -1056,8 +1076,19 @@ instance FromJSON InstanceGroup where
 -- | Configuration defining a new instance group.
 --
 -- /See:/ 'instanceGroupConfig' smart constructor.
+data InstanceGroupConfig = InstanceGroupConfig'
+    { _igcBidPrice       :: !(Maybe Text)
+    , _igcConfigurations :: !(Maybe [Configuration])
+    , _igcMarket         :: !(Maybe MarketType)
+    , _igcName           :: !(Maybe Text)
+    , _igcInstanceRole   :: !InstanceRoleType
+    , _igcInstanceType   :: !Text
+    , _igcInstanceCount  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceGroupConfig' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'igcBidPrice'
 --
@@ -1072,18 +1103,11 @@ instance FromJSON InstanceGroup where
 -- * 'igcInstanceType'
 --
 -- * 'igcInstanceCount'
-data InstanceGroupConfig = InstanceGroupConfig'
-    { _igcBidPrice       :: !(Maybe Text)
-    , _igcConfigurations :: !(Maybe [Configuration])
-    , _igcMarket         :: !(Maybe MarketType)
-    , _igcName           :: !(Maybe Text)
-    , _igcInstanceRole   :: !InstanceRoleType
-    , _igcInstanceType   :: !Text
-    , _igcInstanceCount  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstanceGroupConfig' smart constructor.
-instanceGroupConfig :: InstanceRoleType -> Text -> Int -> InstanceGroupConfig
+instanceGroupConfig
+    :: InstanceRoleType -- ^ 'igcInstanceRole'
+    -> Text -- ^ 'igcInstanceType'
+    -> Int -- ^ 'igcInstanceCount'
+    -> InstanceGroupConfig
 instanceGroupConfig pInstanceRole_ pInstanceType_ pInstanceCount_ =
     InstanceGroupConfig'
     { _igcBidPrice = Nothing
@@ -1141,22 +1165,24 @@ instance ToJSON InstanceGroupConfig where
 -- | Modify an instance group size.
 --
 -- /See:/ 'instanceGroupModifyConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'igmcInstanceCount'
---
--- * 'igmcEC2InstanceIdsToTerminate'
---
--- * 'igmcInstanceGroupId'
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
     { _igmcInstanceCount             :: !(Maybe Int)
     , _igmcEC2InstanceIdsToTerminate :: !(Maybe [Text])
     , _igmcInstanceGroupId           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceGroupModifyConfig' smart constructor.
-instanceGroupModifyConfig :: Text -> InstanceGroupModifyConfig
+-- | Creates a value of 'InstanceGroupModifyConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'igmcInstanceCount'
+--
+-- * 'igmcEC2InstanceIdsToTerminate'
+--
+-- * 'igmcInstanceGroupId'
+instanceGroupModifyConfig
+    :: Text -- ^ 'igmcInstanceGroupId'
+    -> InstanceGroupModifyConfig
 instanceGroupModifyConfig pInstanceGroupId_ =
     InstanceGroupModifyConfig'
     { _igmcInstanceCount = Nothing
@@ -1189,19 +1215,20 @@ instance ToJSON InstanceGroupModifyConfig where
 -- | The status change reason details for the instance group.
 --
 -- /See:/ 'instanceGroupStateChangeReason' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'igscrCode'
---
--- * 'igscrMessage'
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
     { _igscrCode    :: !(Maybe InstanceGroupStateChangeReasonCode)
     , _igscrMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceGroupStateChangeReason' smart constructor.
-instanceGroupStateChangeReason :: InstanceGroupStateChangeReason
+-- | Creates a value of 'InstanceGroupStateChangeReason' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'igscrCode'
+--
+-- * 'igscrMessage'
+instanceGroupStateChangeReason
+    :: InstanceGroupStateChangeReason
 instanceGroupStateChangeReason =
     InstanceGroupStateChangeReason'
     { _igscrCode = Nothing
@@ -1227,22 +1254,23 @@ instance FromJSON InstanceGroupStateChangeReason
 -- | The details of the instance group status.
 --
 -- /See:/ 'instanceGroupStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'igsState'
---
--- * 'igsStateChangeReason'
---
--- * 'igsTimeline'
 data InstanceGroupStatus = InstanceGroupStatus'
     { _igsState             :: !(Maybe InstanceGroupState)
     , _igsStateChangeReason :: !(Maybe InstanceGroupStateChangeReason)
     , _igsTimeline          :: !(Maybe InstanceGroupTimeline)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceGroupStatus' smart constructor.
-instanceGroupStatus :: InstanceGroupStatus
+-- | Creates a value of 'InstanceGroupStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'igsState'
+--
+-- * 'igsStateChangeReason'
+--
+-- * 'igsTimeline'
+instanceGroupStatus
+    :: InstanceGroupStatus
 instanceGroupStatus =
     InstanceGroupStatus'
     { _igsState = Nothing
@@ -1273,22 +1301,23 @@ instance FromJSON InstanceGroupStatus where
 -- | The timeline of the instance group lifecycle.
 --
 -- /See:/ 'instanceGroupTimeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'igtReadyDateTime'
---
--- * 'igtCreationDateTime'
---
--- * 'igtEndDateTime'
 data InstanceGroupTimeline = InstanceGroupTimeline'
     { _igtReadyDateTime    :: !(Maybe POSIX)
     , _igtCreationDateTime :: !(Maybe POSIX)
     , _igtEndDateTime      :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceGroupTimeline' smart constructor.
-instanceGroupTimeline :: InstanceGroupTimeline
+-- | Creates a value of 'InstanceGroupTimeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'igtReadyDateTime'
+--
+-- * 'igtCreationDateTime'
+--
+-- * 'igtEndDateTime'
+instanceGroupTimeline
+    :: InstanceGroupTimeline
 instanceGroupTimeline =
     InstanceGroupTimeline'
     { _igtReadyDateTime = Nothing
@@ -1320,19 +1349,20 @@ instance FromJSON InstanceGroupTimeline where
 -- | The details of the status change reason for the instance.
 --
 -- /See:/ 'instanceStateChangeReason' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iscrCode'
---
--- * 'iscrMessage'
 data InstanceStateChangeReason = InstanceStateChangeReason'
     { _iscrCode    :: !(Maybe InstanceStateChangeReasonCode)
     , _iscrMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceStateChangeReason' smart constructor.
-instanceStateChangeReason :: InstanceStateChangeReason
+-- | Creates a value of 'InstanceStateChangeReason' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iscrCode'
+--
+-- * 'iscrMessage'
+instanceStateChangeReason
+    :: InstanceStateChangeReason
 instanceStateChangeReason =
     InstanceStateChangeReason'
     { _iscrCode = Nothing
@@ -1357,22 +1387,23 @@ instance FromJSON InstanceStateChangeReason where
 -- | The instance status details.
 --
 -- /See:/ 'instanceStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'isState'
---
--- * 'isStateChangeReason'
---
--- * 'isTimeline'
 data InstanceStatus = InstanceStatus'
     { _isState             :: !(Maybe InstanceState)
     , _isStateChangeReason :: !(Maybe InstanceStateChangeReason)
     , _isTimeline          :: !(Maybe InstanceTimeline)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceStatus' smart constructor.
-instanceStatus :: InstanceStatus
+-- | Creates a value of 'InstanceStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'isState'
+--
+-- * 'isStateChangeReason'
+--
+-- * 'isTimeline'
+instanceStatus
+    :: InstanceStatus
 instanceStatus =
     InstanceStatus'
     { _isState = Nothing
@@ -1403,22 +1434,23 @@ instance FromJSON InstanceStatus where
 -- | The timeline of the instance lifecycle.
 --
 -- /See:/ 'instanceTimeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'itReadyDateTime'
---
--- * 'itCreationDateTime'
---
--- * 'itEndDateTime'
 data InstanceTimeline = InstanceTimeline'
     { _itReadyDateTime    :: !(Maybe POSIX)
     , _itCreationDateTime :: !(Maybe POSIX)
     , _itEndDateTime      :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceTimeline' smart constructor.
-instanceTimeline :: InstanceTimeline
+-- | Creates a value of 'InstanceTimeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'itReadyDateTime'
+--
+-- * 'itCreationDateTime'
+--
+-- * 'itEndDateTime'
+instanceTimeline
+    :: InstanceTimeline
 instanceTimeline =
     InstanceTimeline'
     { _itReadyDateTime = Nothing
@@ -1454,8 +1486,26 @@ instance FromJSON InstanceTimeline where
 -- be present).
 --
 -- /See:/ 'jobFlowInstancesConfig' smart constructor.
+data JobFlowInstancesConfig = JobFlowInstancesConfig'
+    { _jficSlaveInstanceType              :: !(Maybe Text)
+    , _jficEC2KeyName                     :: !(Maybe Text)
+    , _jficInstanceCount                  :: !(Maybe Int)
+    , _jficEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
+    , _jficAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
+    , _jficHadoopVersion                  :: !(Maybe Text)
+    , _jficAdditionalMasterSecurityGroups :: !(Maybe [Text])
+    , _jficEmrManagedMasterSecurityGroup  :: !(Maybe Text)
+    , _jficEC2SubnetId                    :: !(Maybe Text)
+    , _jficMasterInstanceType             :: !(Maybe Text)
+    , _jficInstanceGroups                 :: !(Maybe [InstanceGroupConfig])
+    , _jficKeepJobFlowAliveWhenNoSteps    :: !(Maybe Bool)
+    , _jficTerminationProtected           :: !(Maybe Bool)
+    , _jficPlacement                      :: !(Maybe PlacementType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'JobFlowInstancesConfig' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'jficSlaveInstanceType'
 --
@@ -1484,25 +1534,8 @@ instance FromJSON InstanceTimeline where
 -- * 'jficTerminationProtected'
 --
 -- * 'jficPlacement'
-data JobFlowInstancesConfig = JobFlowInstancesConfig'
-    { _jficSlaveInstanceType              :: !(Maybe Text)
-    , _jficEC2KeyName                     :: !(Maybe Text)
-    , _jficInstanceCount                  :: !(Maybe Int)
-    , _jficEmrManagedSlaveSecurityGroup   :: !(Maybe Text)
-    , _jficAdditionalSlaveSecurityGroups  :: !(Maybe [Text])
-    , _jficHadoopVersion                  :: !(Maybe Text)
-    , _jficAdditionalMasterSecurityGroups :: !(Maybe [Text])
-    , _jficEmrManagedMasterSecurityGroup  :: !(Maybe Text)
-    , _jficEC2SubnetId                    :: !(Maybe Text)
-    , _jficMasterInstanceType             :: !(Maybe Text)
-    , _jficInstanceGroups                 :: !(Maybe [InstanceGroupConfig])
-    , _jficKeepJobFlowAliveWhenNoSteps    :: !(Maybe Bool)
-    , _jficTerminationProtected           :: !(Maybe Bool)
-    , _jficPlacement                      :: !(Maybe PlacementType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'JobFlowInstancesConfig' smart constructor.
-jobFlowInstancesConfig :: JobFlowInstancesConfig
+jobFlowInstancesConfig
+    :: JobFlowInstancesConfig
 jobFlowInstancesConfig =
     JobFlowInstancesConfig'
     { _jficSlaveInstanceType = Nothing
@@ -1622,19 +1655,20 @@ instance ToJSON JobFlowInstancesConfig where
 -- | A key value pair.
 --
 -- /See:/ 'keyValue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'kvValue'
---
--- * 'kvKey'
 data KeyValue = KeyValue'
     { _kvValue :: !(Maybe Text)
     , _kvKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'KeyValue' smart constructor.
-keyValue :: KeyValue
+-- | Creates a value of 'KeyValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'kvValue'
+--
+-- * 'kvKey'
+keyValue
+    :: KeyValue
 keyValue =
     KeyValue'
     { _kvValue = Nothing
@@ -1656,16 +1690,18 @@ instance ToJSON KeyValue where
 -- | The Amazon EC2 location for the job flow.
 --
 -- /See:/ 'placementType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ptAvailabilityZone'
 newtype PlacementType = PlacementType'
     { _ptAvailabilityZone :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PlacementType' smart constructor.
-placementType :: Text -> PlacementType
+-- | Creates a value of 'PlacementType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ptAvailabilityZone'
+placementType
+    :: Text -- ^ 'ptAvailabilityZone'
+    -> PlacementType
 placementType pAvailabilityZone_ =
     PlacementType'
     { _ptAvailabilityZone = pAvailabilityZone_
@@ -1682,19 +1718,21 @@ instance ToJSON PlacementType where
 -- | Configuration of the script to run during a bootstrap action.
 --
 -- /See:/ 'scriptBootstrapActionConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sbacArgs'
---
--- * 'sbacPath'
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
     { _sbacArgs :: !(Maybe [Text])
     , _sbacPath :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ScriptBootstrapActionConfig' smart constructor.
-scriptBootstrapActionConfig :: Text -> ScriptBootstrapActionConfig
+-- | Creates a value of 'ScriptBootstrapActionConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sbacArgs'
+--
+-- * 'sbacPath'
+scriptBootstrapActionConfig
+    :: Text -- ^ 'sbacPath'
+    -> ScriptBootstrapActionConfig
 scriptBootstrapActionConfig pPath_ =
     ScriptBootstrapActionConfig'
     { _sbacArgs = Nothing
@@ -1717,8 +1755,17 @@ instance ToJSON ScriptBootstrapActionConfig where
 -- | This represents a step in a cluster.
 --
 -- /See:/ 'step' smart constructor.
+data Step = Step'
+    { _sStatus          :: !(Maybe StepStatus)
+    , _sActionOnFailure :: !(Maybe ActionOnFailure)
+    , _sConfig          :: !(Maybe HadoopStepConfig)
+    , _sName            :: !(Maybe Text)
+    , _sId              :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Step' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sStatus'
 --
@@ -1729,16 +1776,8 @@ instance ToJSON ScriptBootstrapActionConfig where
 -- * 'sName'
 --
 -- * 'sId'
-data Step = Step'
-    { _sStatus          :: !(Maybe StepStatus)
-    , _sActionOnFailure :: !(Maybe ActionOnFailure)
-    , _sConfig          :: !(Maybe HadoopStepConfig)
-    , _sName            :: !(Maybe Text)
-    , _sId              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Step' smart constructor.
-step :: Step
+step
+    :: Step
 step =
     Step'
     { _sStatus = Nothing
@@ -1782,22 +1821,25 @@ instance FromJSON Step where
 -- | Specification of a job flow step.
 --
 -- /See:/ 'stepConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'scActionOnFailure'
---
--- * 'scName'
---
--- * 'scHadoopJARStep'
 data StepConfig = StepConfig'
     { _scActionOnFailure :: !(Maybe ActionOnFailure)
     , _scName            :: !Text
     , _scHadoopJARStep   :: !HadoopJARStepConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StepConfig' smart constructor.
-stepConfig :: Text -> HadoopJARStepConfig -> StepConfig
+-- | Creates a value of 'StepConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scActionOnFailure'
+--
+-- * 'scName'
+--
+-- * 'scHadoopJARStep'
+stepConfig
+    :: Text -- ^ 'scName'
+    -> HadoopJARStepConfig -- ^ 'scHadoopJARStep'
+    -> StepConfig
 stepConfig pName_ pHadoopJARStep_ =
     StepConfig'
     { _scActionOnFailure = Nothing
@@ -1827,19 +1869,20 @@ instance ToJSON StepConfig where
 -- | The details of the step state change reason.
 --
 -- /See:/ 'stepStateChangeReason' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sscrCode'
---
--- * 'sscrMessage'
 data StepStateChangeReason = StepStateChangeReason'
     { _sscrCode    :: !(Maybe StepStateChangeReasonCode)
     , _sscrMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StepStateChangeReason' smart constructor.
-stepStateChangeReason :: StepStateChangeReason
+-- | Creates a value of 'StepStateChangeReason' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sscrCode'
+--
+-- * 'sscrMessage'
+stepStateChangeReason
+    :: StepStateChangeReason
 stepStateChangeReason =
     StepStateChangeReason'
     { _sscrCode = Nothing
@@ -1865,22 +1908,23 @@ instance FromJSON StepStateChangeReason where
 -- | The execution status details of the cluster step.
 --
 -- /See:/ 'stepStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ssState'
---
--- * 'ssStateChangeReason'
---
--- * 'ssTimeline'
 data StepStatus = StepStatus'
     { _ssState             :: !(Maybe StepState)
     , _ssStateChangeReason :: !(Maybe StepStateChangeReason)
     , _ssTimeline          :: !(Maybe StepTimeline)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StepStatus' smart constructor.
-stepStatus :: StepStatus
+-- | Creates a value of 'StepStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssState'
+--
+-- * 'ssStateChangeReason'
+--
+-- * 'ssTimeline'
+stepStatus
+    :: StepStatus
 stepStatus =
     StepStatus'
     { _ssState = Nothing
@@ -1911,8 +1955,17 @@ instance FromJSON StepStatus where
 -- | The summary of the cluster step.
 --
 -- /See:/ 'stepSummary' smart constructor.
+data StepSummary = StepSummary'
+    { _ssStatus          :: !(Maybe StepStatus)
+    , _ssActionOnFailure :: !(Maybe ActionOnFailure)
+    , _ssConfig          :: !(Maybe HadoopStepConfig)
+    , _ssName            :: !(Maybe Text)
+    , _ssId              :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StepSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ssStatus'
 --
@@ -1923,16 +1976,8 @@ instance FromJSON StepStatus where
 -- * 'ssName'
 --
 -- * 'ssId'
-data StepSummary = StepSummary'
-    { _ssStatus          :: !(Maybe StepStatus)
-    , _ssActionOnFailure :: !(Maybe ActionOnFailure)
-    , _ssConfig          :: !(Maybe HadoopStepConfig)
-    , _ssName            :: !(Maybe Text)
-    , _ssId              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StepSummary' smart constructor.
-stepSummary :: StepSummary
+stepSummary
+    :: StepSummary
 stepSummary =
     StepSummary'
     { _ssStatus = Nothing
@@ -1976,22 +2021,23 @@ instance FromJSON StepSummary where
 -- | The timeline of the cluster step lifecycle.
 --
 -- /See:/ 'stepTimeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'stCreationDateTime'
---
--- * 'stEndDateTime'
---
--- * 'stStartDateTime'
 data StepTimeline = StepTimeline'
     { _stCreationDateTime :: !(Maybe POSIX)
     , _stEndDateTime      :: !(Maybe POSIX)
     , _stStartDateTime    :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StepTimeline' smart constructor.
-stepTimeline :: StepTimeline
+-- | Creates a value of 'StepTimeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stCreationDateTime'
+--
+-- * 'stEndDateTime'
+--
+-- * 'stStartDateTime'
+stepTimeline
+    :: StepTimeline
 stepTimeline =
     StepTimeline'
     { _stCreationDateTime = Nothing
@@ -2024,19 +2070,20 @@ instance FromJSON StepTimeline where
 -- corresponding installation script as bootstrap action arguments.
 --
 -- /See:/ 'supportedProductConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'spcArgs'
---
--- * 'spcName'
 data SupportedProductConfig = SupportedProductConfig'
     { _spcArgs :: !(Maybe [Text])
     , _spcName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SupportedProductConfig' smart constructor.
-supportedProductConfig :: SupportedProductConfig
+-- | Creates a value of 'SupportedProductConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spcArgs'
+--
+-- * 'spcName'
+supportedProductConfig
+    :: SupportedProductConfig
 supportedProductConfig =
     SupportedProductConfig'
     { _spcArgs = Nothing
@@ -2062,19 +2109,20 @@ instance ToJSON SupportedProductConfig where
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagValue'
---
--- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Tag
 tag =
     Tag'
     { _tagValue = Nothing

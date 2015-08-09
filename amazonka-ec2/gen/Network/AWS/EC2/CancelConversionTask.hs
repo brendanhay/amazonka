@@ -32,16 +32,16 @@
 module Network.AWS.EC2.CancelConversionTask
     (
     -- * Creating a Request
-      CancelConversionTask
-    , cancelConversionTask
+      cancelConversionTask
+    , CancelConversionTask
     -- * Request Lenses
     , cctReasonMessage
     , cctDryRun
     , cctConversionTaskId
 
     -- * Destructuring the Response
-    , CancelConversionTaskResponse
     , cancelConversionTaskResponse
+    , CancelConversionTaskResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -51,22 +51,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'cancelConversionTask' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cctReasonMessage'
---
--- * 'cctDryRun'
---
--- * 'cctConversionTaskId'
 data CancelConversionTask = CancelConversionTask'
     { _cctReasonMessage    :: !(Maybe Text)
     , _cctDryRun           :: !(Maybe Bool)
     , _cctConversionTaskId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelConversionTask' smart constructor.
-cancelConversionTask :: Text -> CancelConversionTask
+-- | Creates a value of 'CancelConversionTask' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cctReasonMessage'
+--
+-- * 'cctDryRun'
+--
+-- * 'cctConversionTaskId'
+cancelConversionTask
+    :: Text -- ^ 'cctConversionTaskId'
+    -> CancelConversionTask
 cancelConversionTask pConversionTaskId_ =
     CancelConversionTask'
     { _cctReasonMessage = Nothing
@@ -80,8 +82,8 @@ cctReasonMessage = lens _cctReasonMessage (\ s a -> s{_cctReasonMessage = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cctDryRun :: Lens' CancelConversionTask (Maybe Bool)
 cctDryRun = lens _cctDryRun (\ s a -> s{_cctDryRun = a});
 
@@ -116,6 +118,8 @@ data CancelConversionTaskResponse =
     CancelConversionTaskResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelConversionTaskResponse' smart constructor.
-cancelConversionTaskResponse :: CancelConversionTaskResponse
+-- | Creates a value of 'CancelConversionTaskResponse' with the minimum fields required to make a request.
+--
+cancelConversionTaskResponse
+    :: CancelConversionTaskResponse
 cancelConversionTaskResponse = CancelConversionTaskResponse'

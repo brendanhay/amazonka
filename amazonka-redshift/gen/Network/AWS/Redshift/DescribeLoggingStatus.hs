@@ -25,14 +25,14 @@
 module Network.AWS.Redshift.DescribeLoggingStatus
     (
     -- * Creating a Request
-      DescribeLoggingStatus
-    , describeLoggingStatus
+      describeLoggingStatus
+    , DescribeLoggingStatus
     -- * Request Lenses
     , dlsClusterIdentifier
 
     -- * Destructuring the Response
-    , LoggingStatus
     , loggingStatus
+    , LoggingStatus
     -- * Response Lenses
     , lsLastSuccessfulDeliveryTime
     , lsLastFailureTime
@@ -51,16 +51,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeLoggingStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlsClusterIdentifier'
 newtype DescribeLoggingStatus = DescribeLoggingStatus'
     { _dlsClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoggingStatus' smart constructor.
-describeLoggingStatus :: Text -> DescribeLoggingStatus
+-- | Creates a value of 'DescribeLoggingStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlsClusterIdentifier'
+describeLoggingStatus
+    :: Text -- ^ 'dlsClusterIdentifier'
+    -> DescribeLoggingStatus
 describeLoggingStatus pClusterIdentifier_ =
     DescribeLoggingStatus'
     { _dlsClusterIdentifier = pClusterIdentifier_
@@ -68,7 +70,7 @@ describeLoggingStatus pClusterIdentifier_ =
 
 -- | The identifier of the cluster to get the logging status from.
 --
--- Example: @examplecluster@
+-- Example: 'examplecluster'
 dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
 dlsClusterIdentifier = lens _dlsClusterIdentifier (\ s a -> s{_dlsClusterIdentifier = a});
 

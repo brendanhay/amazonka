@@ -21,7 +21,7 @@
 -- Creates a new managed policy for your AWS account.
 --
 -- This operation creates a policy version with a version identifier of
--- @v1@ and sets v1 as the policy\'s default version. For more information
+-- 'v1' and sets v1 as the policy\'s default version. For more information
 -- about policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /Using IAM/ guide.
@@ -34,8 +34,8 @@
 module Network.AWS.IAM.CreatePolicy
     (
     -- * Creating a Request
-      CreatePolicy
-    , createPolicy
+      createPolicy
+    , CreatePolicy
     -- * Request Lenses
     , cpPath
     , cpDescription
@@ -43,8 +43,8 @@ module Network.AWS.IAM.CreatePolicy
     , cpPolicyDocument
 
     -- * Destructuring the Response
-    , CreatePolicyResponse
     , createPolicyResponse
+    , CreatePolicyResponse
     -- * Response Lenses
     , cprsPolicy
     , cprsStatus
@@ -57,8 +57,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createPolicy' smart constructor.
+data CreatePolicy = CreatePolicy'
+    { _cpPath           :: !(Maybe Text)
+    , _cpDescription    :: !(Maybe Text)
+    , _cpPolicyName     :: !Text
+    , _cpPolicyDocument :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreatePolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cpPath'
 --
@@ -67,15 +75,10 @@ import           Network.AWS.Response
 -- * 'cpPolicyName'
 --
 -- * 'cpPolicyDocument'
-data CreatePolicy = CreatePolicy'
-    { _cpPath           :: !(Maybe Text)
-    , _cpDescription    :: !(Maybe Text)
-    , _cpPolicyName     :: !Text
-    , _cpPolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreatePolicy' smart constructor.
-createPolicy :: Text -> Text -> CreatePolicy
+createPolicy
+    :: Text -- ^ 'cpPolicyName'
+    -> Text -- ^ 'cpPolicyDocument'
+    -> CreatePolicy
 createPolicy pPolicyName_ pPolicyDocument_ =
     CreatePolicy'
     { _cpPath = Nothing
@@ -141,19 +144,21 @@ instance ToQuery CreatePolicy where
 -- | Contains the response to a successful CreatePolicy request.
 --
 -- /See:/ 'createPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cprsPolicy'
---
--- * 'cprsStatus'
 data CreatePolicyResponse = CreatePolicyResponse'
     { _cprsPolicy :: !(Maybe Policy)
     , _cprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePolicyResponse' smart constructor.
-createPolicyResponse :: Int -> CreatePolicyResponse
+-- | Creates a value of 'CreatePolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cprsPolicy'
+--
+-- * 'cprsStatus'
+createPolicyResponse
+    :: Int -- ^ 'cprsStatus'
+    -> CreatePolicyResponse
 createPolicyResponse pStatus_ =
     CreatePolicyResponse'
     { _cprsPolicy = Nothing
@@ -164,6 +169,6 @@ createPolicyResponse pStatus_ =
 cprsPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
 cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a});
 
--- | Undocumented member.
+-- | The response status code.
 cprsStatus :: Lens' CreatePolicyResponse Int
 cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

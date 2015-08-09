@@ -28,7 +28,7 @@
 -- Support Center
 -- <https://console.aws.amazon.com/support/home#/case/create Create Case>
 -- page. The values in those fields, however, do not necessarily match the
--- service codes and categories returned by the @DescribeServices@ request.
+-- service codes and categories returned by the 'DescribeServices' request.
 -- Always use the service codes and categories obtained programmatically.
 -- This practice ensures that you always have the most recent set of
 -- service and category codes.
@@ -37,15 +37,15 @@
 module Network.AWS.Support.DescribeServices
     (
     -- * Creating a Request
-      DescribeServices
-    , describeServices
+      describeServices
+    , DescribeServices
     -- * Request Lenses
     , dsServiceCodeList
     , dsLanguage
 
     -- * Destructuring the Response
-    , DescribeServicesResponse
     , describeServicesResponse
+    , DescribeServicesResponse
     -- * Response Lenses
     , dsrsServices
     , dsrsStatus
@@ -58,19 +58,20 @@ import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
 -- | /See:/ 'describeServices' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsServiceCodeList'
---
--- * 'dsLanguage'
 data DescribeServices = DescribeServices'
     { _dsServiceCodeList :: !(Maybe [Text])
     , _dsLanguage        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeServices' smart constructor.
-describeServices :: DescribeServices
+-- | Creates a value of 'DescribeServices' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsServiceCodeList'
+--
+-- * 'dsLanguage'
+describeServices
+    :: DescribeServices
 describeServices =
     DescribeServices'
     { _dsServiceCodeList = Nothing
@@ -124,19 +125,21 @@ instance ToQuery DescribeServices where
 -- | The list of AWS services returned by the DescribeServices operation.
 --
 -- /See:/ 'describeServicesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrsServices'
---
--- * 'dsrsStatus'
 data DescribeServicesResponse = DescribeServicesResponse'
     { _dsrsServices :: !(Maybe [SupportService])
     , _dsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeServicesResponse' smart constructor.
-describeServicesResponse :: Int -> DescribeServicesResponse
+-- | Creates a value of 'DescribeServicesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrsServices'
+--
+-- * 'dsrsStatus'
+describeServicesResponse
+    :: Int -- ^ 'dsrsStatus'
+    -> DescribeServicesResponse
 describeServicesResponse pStatus_ =
     DescribeServicesResponse'
     { _dsrsServices = Nothing
@@ -147,6 +150,6 @@ describeServicesResponse pStatus_ =
 dsrsServices :: Lens' DescribeServicesResponse [SupportService]
 dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dsrsStatus :: Lens' DescribeServicesResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

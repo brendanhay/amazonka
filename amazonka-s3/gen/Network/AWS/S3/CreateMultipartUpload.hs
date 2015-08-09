@@ -30,8 +30,8 @@
 module Network.AWS.S3.CreateMultipartUpload
     (
     -- * Creating a Request
-      CreateMultipartUpload
-    , createMultipartUpload
+      createMultipartUpload
+    , CreateMultipartUpload
     -- * Request Lenses
     , cmuExpires
     , cmuSSECustomerAlgorithm
@@ -57,8 +57,8 @@ module Network.AWS.S3.CreateMultipartUpload
     , cmuKey
 
     -- * Destructuring the Response
-    , CreateMultipartUploadResponse
     , createMultipartUploadResponse
+    , CreateMultipartUploadResponse
     -- * Response Lenses
     , cmursRequestCharged
     , cmursSSECustomerAlgorithm
@@ -78,8 +78,34 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'createMultipartUpload' smart constructor.
+data CreateMultipartUpload = CreateMultipartUpload'
+    { _cmuExpires                 :: !(Maybe RFC822)
+    , _cmuSSECustomerAlgorithm    :: !(Maybe Text)
+    , _cmuGrantReadACP            :: !(Maybe Text)
+    , _cmuSSECustomerKey          :: !(Maybe (Sensitive Text))
+    , _cmuRequestPayer            :: !(Maybe RequestPayer)
+    , _cmuGrantWriteACP           :: !(Maybe Text)
+    , _cmuWebsiteRedirectLocation :: !(Maybe Text)
+    , _cmuGrantRead               :: !(Maybe Text)
+    , _cmuStorageClass            :: !(Maybe StorageClass)
+    , _cmuContentEncoding         :: !(Maybe Text)
+    , _cmuSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _cmuGrantFullControl        :: !(Maybe Text)
+    , _cmuSSECustomerKeyMD5       :: !(Maybe Text)
+    , _cmuMetadata                :: !(Map Text Text)
+    , _cmuCacheControl            :: !(Maybe Text)
+    , _cmuContentLanguage         :: !(Maybe Text)
+    , _cmuACL                     :: !(Maybe ObjectCannedACL)
+    , _cmuContentDisposition      :: !(Maybe Text)
+    , _cmuServerSideEncryption    :: !(Maybe ServerSideEncryption)
+    , _cmuContentType             :: !(Maybe Text)
+    , _cmuBucket                  :: !BucketName
+    , _cmuKey                     :: !ObjectKey
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateMultipartUpload' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cmuExpires'
 --
@@ -124,33 +150,10 @@ import           Network.AWS.S3.Types.Product
 -- * 'cmuBucket'
 --
 -- * 'cmuKey'
-data CreateMultipartUpload = CreateMultipartUpload'
-    { _cmuExpires                 :: !(Maybe RFC822)
-    , _cmuSSECustomerAlgorithm    :: !(Maybe Text)
-    , _cmuGrantReadACP            :: !(Maybe Text)
-    , _cmuSSECustomerKey          :: !(Maybe (Sensitive Text))
-    , _cmuRequestPayer            :: !(Maybe RequestPayer)
-    , _cmuGrantWriteACP           :: !(Maybe Text)
-    , _cmuWebsiteRedirectLocation :: !(Maybe Text)
-    , _cmuGrantRead               :: !(Maybe Text)
-    , _cmuStorageClass            :: !(Maybe StorageClass)
-    , _cmuContentEncoding         :: !(Maybe Text)
-    , _cmuSSEKMSKeyId             :: !(Maybe (Sensitive Text))
-    , _cmuGrantFullControl        :: !(Maybe Text)
-    , _cmuSSECustomerKeyMD5       :: !(Maybe Text)
-    , _cmuMetadata                :: !(Map Text Text)
-    , _cmuCacheControl            :: !(Maybe Text)
-    , _cmuContentLanguage         :: !(Maybe Text)
-    , _cmuACL                     :: !(Maybe ObjectCannedACL)
-    , _cmuContentDisposition      :: !(Maybe Text)
-    , _cmuServerSideEncryption    :: !(Maybe ServerSideEncryption)
-    , _cmuContentType             :: !(Maybe Text)
-    , _cmuBucket                  :: !BucketName
-    , _cmuKey                     :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateMultipartUpload' smart constructor.
-createMultipartUpload :: BucketName -> ObjectKey -> CreateMultipartUpload
+createMultipartUpload
+    :: BucketName -- ^ 'cmuBucket'
+    -> ObjectKey -- ^ 'cmuKey'
+    -> CreateMultipartUpload
 createMultipartUpload pBucket_ pKey_ =
     CreateMultipartUpload'
     { _cmuExpires = Nothing
@@ -343,8 +346,21 @@ instance ToQuery CreateMultipartUpload where
         toQuery = const (mconcat ["uploads"])
 
 -- | /See:/ 'createMultipartUploadResponse' smart constructor.
+data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
+    { _cmursRequestCharged       :: !(Maybe RequestCharged)
+    , _cmursSSECustomerAlgorithm :: !(Maybe Text)
+    , _cmursBucket               :: !(Maybe BucketName)
+    , _cmursKey                  :: !(Maybe ObjectKey)
+    , _cmursSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _cmursSSECustomerKeyMD5    :: !(Maybe Text)
+    , _cmursUploadId             :: !(Maybe Text)
+    , _cmursServerSideEncryption :: !(Maybe ServerSideEncryption)
+    , _cmursStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateMultipartUploadResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cmursRequestCharged'
 --
@@ -363,20 +379,9 @@ instance ToQuery CreateMultipartUpload where
 -- * 'cmursServerSideEncryption'
 --
 -- * 'cmursStatus'
-data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
-    { _cmursRequestCharged       :: !(Maybe RequestCharged)
-    , _cmursSSECustomerAlgorithm :: !(Maybe Text)
-    , _cmursBucket               :: !(Maybe BucketName)
-    , _cmursKey                  :: !(Maybe ObjectKey)
-    , _cmursSSEKMSKeyId          :: !(Maybe (Sensitive Text))
-    , _cmursSSECustomerKeyMD5    :: !(Maybe Text)
-    , _cmursUploadId             :: !(Maybe Text)
-    , _cmursServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _cmursStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateMultipartUploadResponse' smart constructor.
-createMultipartUploadResponse :: Int -> CreateMultipartUploadResponse
+createMultipartUploadResponse
+    :: Int -- ^ 'cmursStatus'
+    -> CreateMultipartUploadResponse
 createMultipartUploadResponse pStatus_ =
     CreateMultipartUploadResponse'
     { _cmursRequestCharged = Nothing
@@ -428,6 +433,6 @@ cmursUploadId = lens _cmursUploadId (\ s a -> s{_cmursUploadId = a});
 cmursServerSideEncryption :: Lens' CreateMultipartUploadResponse (Maybe ServerSideEncryption)
 cmursServerSideEncryption = lens _cmursServerSideEncryption (\ s a -> s{_cmursServerSideEncryption = a});
 
--- | Undocumented member.
+-- | The response status code.
 cmursStatus :: Lens' CreateMultipartUploadResponse Int
 cmursStatus = lens _cmursStatus (\ s a -> s{_cmursStatus = a});

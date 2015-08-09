@@ -22,23 +22,23 @@
 -- objects be updated in the specified pipeline. This update might not
 -- occur immediately, but is eventually consistent. The status that can be
 -- set depends on the type of object (for example, DataNode or Activity).
--- You cannot perform this operation on @FINISHED@ pipelines and attempting
--- to do so returns @InvalidRequestException@.
+-- You cannot perform this operation on 'FINISHED' pipelines and attempting
+-- to do so returns 'InvalidRequestException'.
 --
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetStatus.html AWS API Reference> for SetStatus.
 module Network.AWS.DataPipeline.SetStatus
     (
     -- * Creating a Request
-      SetStatus
-    , setStatus
+      setStatus
+    , SetStatus
     -- * Request Lenses
     , ssPipelineId
     , ssObjectIds
     , ssStatus
 
     -- * Destructuring the Response
-    , SetStatusResponse
     , setStatusResponse
+    , SetStatusResponse
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -50,22 +50,25 @@ import           Network.AWS.Response
 -- | Contains the parameters for SetStatus.
 --
 -- /See:/ 'setStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ssPipelineId'
---
--- * 'ssObjectIds'
---
--- * 'ssStatus'
 data SetStatus = SetStatus'
     { _ssPipelineId :: !Text
     , _ssObjectIds  :: ![Text]
     , _ssStatus     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetStatus' smart constructor.
-setStatus :: Text -> Text -> SetStatus
+-- | Creates a value of 'SetStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssPipelineId'
+--
+-- * 'ssObjectIds'
+--
+-- * 'ssStatus'
+setStatus
+    :: Text -- ^ 'ssPipelineId'
+    -> Text -- ^ 'ssStatus'
+    -> SetStatus
 setStatus pPipelineId_ pStatus_ =
     SetStatus'
     { _ssPipelineId = pPipelineId_
@@ -82,9 +85,9 @@ ssPipelineId = lens _ssPipelineId (\ s a -> s{_ssPipelineId = a});
 ssObjectIds :: Lens' SetStatus [Text]
 ssObjectIds = lens _ssObjectIds (\ s a -> s{_ssObjectIds = a}) . _Coerce;
 
--- | The status to be set on all the objects specified in @objectIds@. For
--- components, use @PAUSE@ or @RESUME@. For instances, use @TRY_CANCEL@,
--- @RERUN@, or @MARK_FINISHED@.
+-- | The status to be set on all the objects specified in 'objectIds'. For
+-- components, use 'PAUSE' or 'RESUME'. For instances, use 'TRY_CANCEL',
+-- 'RERUN', or 'MARK_FINISHED'.
 ssStatus :: Lens' SetStatus Text
 ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a});
 
@@ -120,6 +123,8 @@ data SetStatusResponse =
     SetStatusResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetStatusResponse' smart constructor.
-setStatusResponse :: SetStatusResponse
+-- | Creates a value of 'SetStatusResponse' with the minimum fields required to make a request.
+--
+setStatusResponse
+    :: SetStatusResponse
 setStatusResponse = SetStatusResponse'

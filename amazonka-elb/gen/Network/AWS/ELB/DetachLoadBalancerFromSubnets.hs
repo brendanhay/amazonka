@@ -22,7 +22,7 @@
 -- load balancer.
 --
 -- After a subnet is removed, all EC2 instances registered with the load
--- balancer in the removed subnet go into the @OutOfService@ state. Then,
+-- balancer in the removed subnet go into the 'OutOfService' state. Then,
 -- the load balancer balances the traffic among the remaining routable
 -- subnets.
 --
@@ -30,15 +30,15 @@
 module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     (
     -- * Creating a Request
-      DetachLoadBalancerFromSubnets
-    , detachLoadBalancerFromSubnets
+      detachLoadBalancerFromSubnets
+    , DetachLoadBalancerFromSubnets
     -- * Request Lenses
     , dlbfsLoadBalancerName
     , dlbfsSubnets
 
     -- * Destructuring the Response
-    , DetachLoadBalancerFromSubnetsResponse
     , detachLoadBalancerFromSubnetsResponse
+    , DetachLoadBalancerFromSubnetsResponse
     -- * Response Lenses
     , dlbfsrsSubnets
     , dlbfsrsStatus
@@ -51,19 +51,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachLoadBalancerFromSubnets' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbfsLoadBalancerName'
---
--- * 'dlbfsSubnets'
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
     { _dlbfsLoadBalancerName :: !Text
     , _dlbfsSubnets          :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachLoadBalancerFromSubnets' smart constructor.
-detachLoadBalancerFromSubnets :: Text -> DetachLoadBalancerFromSubnets
+-- | Creates a value of 'DetachLoadBalancerFromSubnets' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbfsLoadBalancerName'
+--
+-- * 'dlbfsSubnets'
+detachLoadBalancerFromSubnets
+    :: Text -- ^ 'dlbfsLoadBalancerName'
+    -> DetachLoadBalancerFromSubnets
 detachLoadBalancerFromSubnets pLoadBalancerName_ =
     DetachLoadBalancerFromSubnets'
     { _dlbfsLoadBalancerName = pLoadBalancerName_
@@ -110,19 +112,21 @@ instance ToQuery DetachLoadBalancerFromSubnets where
                "Subnets" =: toQueryList "member" _dlbfsSubnets]
 
 -- | /See:/ 'detachLoadBalancerFromSubnetsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbfsrsSubnets'
---
--- * 'dlbfsrsStatus'
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
     { _dlbfsrsSubnets :: !(Maybe [Text])
     , _dlbfsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachLoadBalancerFromSubnetsResponse' smart constructor.
-detachLoadBalancerFromSubnetsResponse :: Int -> DetachLoadBalancerFromSubnetsResponse
+-- | Creates a value of 'DetachLoadBalancerFromSubnetsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbfsrsSubnets'
+--
+-- * 'dlbfsrsStatus'
+detachLoadBalancerFromSubnetsResponse
+    :: Int -- ^ 'dlbfsrsStatus'
+    -> DetachLoadBalancerFromSubnetsResponse
 detachLoadBalancerFromSubnetsResponse pStatus_ =
     DetachLoadBalancerFromSubnetsResponse'
     { _dlbfsrsSubnets = Nothing
@@ -133,6 +137,6 @@ detachLoadBalancerFromSubnetsResponse pStatus_ =
 dlbfsrsSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrsSubnets = lens _dlbfsrsSubnets (\ s a -> s{_dlbfsrsSubnets = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dlbfsrsStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
 dlbfsrsStatus = lens _dlbfsrsStatus (\ s a -> s{_dlbfsrsStatus = a});

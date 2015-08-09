@@ -18,24 +18,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an @MLModel@ that includes detailed metadata, and data source
--- information as well as the current status of the @MLModel@.
+-- Returns an 'MLModel' that includes detailed metadata, and data source
+-- information as well as the current status of the 'MLModel'.
 --
--- @GetMLModel@ provides results in normal or verbose format.
+-- 'GetMLModel' provides results in normal or verbose format.
 --
 -- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetMLModel.html AWS API Reference> for GetMLModel.
 module Network.AWS.MachineLearning.GetMLModel
     (
     -- * Creating a Request
-      GetMLModel
-    , getMLModel
+      getMLModel
+    , GetMLModel
     -- * Request Lenses
     , gmlmVerbose
     , gmlmMLModelId
 
     -- * Destructuring the Response
-    , GetMLModelResponse
     , getMLModelResponse
+    , GetMLModelResponse
     -- * Response Lenses
     , gmlmrsTrainingParameters
     , gmlmrsLastUpdatedAt
@@ -64,34 +64,36 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getMLModel' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gmlmVerbose'
---
--- * 'gmlmMLModelId'
 data GetMLModel = GetMLModel'
     { _gmlmVerbose   :: !(Maybe Bool)
     , _gmlmMLModelId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetMLModel' smart constructor.
-getMLModel :: Text -> GetMLModel
+-- | Creates a value of 'GetMLModel' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gmlmVerbose'
+--
+-- * 'gmlmMLModelId'
+getMLModel
+    :: Text -- ^ 'gmlmMLModelId'
+    -> GetMLModel
 getMLModel pMLModelId_ =
     GetMLModel'
     { _gmlmVerbose = Nothing
     , _gmlmMLModelId = pMLModelId_
     }
 
--- | Specifies whether the @GetMLModel@ operation should return @Recipe@.
+-- | Specifies whether the 'GetMLModel' operation should return 'Recipe'.
 --
--- If true, @Recipe@ is returned.
+-- If true, 'Recipe' is returned.
 --
--- If false, @Recipe@ is not returned.
+-- If false, 'Recipe' is not returned.
 gmlmVerbose :: Lens' GetMLModel (Maybe Bool)
 gmlmVerbose = lens _gmlmVerbose (\ s a -> s{_gmlmVerbose = a});
 
--- | The ID assigned to the @MLModel@ at creation.
+-- | The ID assigned to the 'MLModel' at creation.
 gmlmMLModelId :: Lens' GetMLModel Text
 gmlmMLModelId = lens _gmlmMLModelId (\ s a -> s{_gmlmMLModelId = a});
 
@@ -144,11 +146,33 @@ instance ToQuery GetMLModel where
         toQuery = const mempty
 
 -- | Represents the output of a GetMLModel operation, and provides detailed
--- information about a @MLModel@.
+-- information about a 'MLModel'.
 --
 -- /See:/ 'getMLModelResponse' smart constructor.
+data GetMLModelResponse = GetMLModelResponse'
+    { _gmlmrsTrainingParameters          :: !(Maybe (Map Text Text))
+    , _gmlmrsLastUpdatedAt               :: !(Maybe POSIX)
+    , _gmlmrsCreatedAt                   :: !(Maybe POSIX)
+    , _gmlmrsScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
+    , _gmlmrsRecipe                      :: !(Maybe Text)
+    , _gmlmrsInputDataLocationS3         :: !(Maybe Text)
+    , _gmlmrsSizeInBytes                 :: !(Maybe Integer)
+    , _gmlmrsMLModelId                   :: !(Maybe Text)
+    , _gmlmrsSchema                      :: !(Maybe Text)
+    , _gmlmrsScoreThreshold              :: !(Maybe Double)
+    , _gmlmrsName                        :: !(Maybe Text)
+    , _gmlmrsCreatedByIAMUser            :: !(Maybe Text)
+    , _gmlmrsLogURI                      :: !(Maybe Text)
+    , _gmlmrsEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
+    , _gmlmrsTrainingDataSourceId        :: !(Maybe Text)
+    , _gmlmrsMessage                     :: !(Maybe Text)
+    , _gmlmrsMLModelType                 :: !(Maybe MLModelType)
+    , _gmlmrsStatus                      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetMLModelResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gmlmrsTrainingParameters'
 --
@@ -185,29 +209,9 @@ instance ToQuery GetMLModel where
 -- * 'gmlmrsMLModelType'
 --
 -- * 'gmlmrsStatus'
-data GetMLModelResponse = GetMLModelResponse'
-    { _gmlmrsTrainingParameters          :: !(Maybe (Map Text Text))
-    , _gmlmrsLastUpdatedAt               :: !(Maybe POSIX)
-    , _gmlmrsCreatedAt                   :: !(Maybe POSIX)
-    , _gmlmrsScoreThresholdLastUpdatedAt :: !(Maybe POSIX)
-    , _gmlmrsRecipe                      :: !(Maybe Text)
-    , _gmlmrsInputDataLocationS3         :: !(Maybe Text)
-    , _gmlmrsSizeInBytes                 :: !(Maybe Integer)
-    , _gmlmrsMLModelId                   :: !(Maybe Text)
-    , _gmlmrsSchema                      :: !(Maybe Text)
-    , _gmlmrsScoreThreshold              :: !(Maybe Double)
-    , _gmlmrsName                        :: !(Maybe Text)
-    , _gmlmrsCreatedByIAMUser            :: !(Maybe Text)
-    , _gmlmrsLogURI                      :: !(Maybe Text)
-    , _gmlmrsEndpointInfo                :: !(Maybe RealtimeEndpointInfo)
-    , _gmlmrsTrainingDataSourceId        :: !(Maybe Text)
-    , _gmlmrsMessage                     :: !(Maybe Text)
-    , _gmlmrsMLModelType                 :: !(Maybe MLModelType)
-    , _gmlmrsStatus                      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetMLModelResponse' smart constructor.
-getMLModelResponse :: Int -> GetMLModelResponse
+getMLModelResponse
+    :: Int -- ^ 'gmlmrsStatus'
+    -> GetMLModelResponse
 getMLModelResponse pStatus_ =
     GetMLModelResponse'
     { _gmlmrsTrainingParameters = Nothing
@@ -230,12 +234,12 @@ getMLModelResponse pStatus_ =
     , _gmlmrsStatus = pStatus_
     }
 
--- | A list of the training parameters in the @MLModel@. The list is
+-- | A list of the training parameters in the 'MLModel'. The list is
 -- implemented as a map of key\/value pairs.
 --
 -- The following is the current set of training parameters:
 --
--- -   @sgd.l1RegularizationAmount@ - Coefficient regularization L1 norm.
+-- -   'sgd.l1RegularizationAmount' - Coefficient regularization L1 norm.
 --     It controls overfitting the data by penalizing large coefficients.
 --     This tends to drive coefficients to zero, resulting in a sparse
 --     feature set. If you use this parameter, specify a small value, such
@@ -243,9 +247,9 @@ getMLModelResponse pStatus_ =
 --
 --     The value is a double that ranges from 0 to MAX_DOUBLE. The default
 --     is not to use L1 normalization. The parameter cannot be used when
---     @L2@ is specified. Use this parameter sparingly.
+--     'L2' is specified. Use this parameter sparingly.
 --
--- -   @sgd.l2RegularizationAmount@ - Coefficient regularization L2 norm.
+-- -   'sgd.l2RegularizationAmount' - Coefficient regularization L2 norm.
 --     It controls overfitting the data by penalizing large coefficients.
 --     This tends to drive coefficients to small, nonzero values. If you
 --     use this parameter, specify a small value, such as 1.0E-04 or
@@ -253,13 +257,13 @@ getMLModelResponse pStatus_ =
 --
 --     The value is a double that ranges from 0 to MAX_DOUBLE. The default
 --     is not to use L2 normalization. This parameter cannot be used when
---     @L1@ is specified. Use this parameter sparingly.
+--     'L1' is specified. Use this parameter sparingly.
 --
--- -   @sgd.maxPasses@ - The number of times that the training process
---     traverses the observations to build the @MLModel@. The value is an
+-- -   'sgd.maxPasses' - The number of times that the training process
+--     traverses the observations to build the 'MLModel'. The value is an
 --     integer that ranges from 1 to 10000. The default value is 10.
 --
--- -   @sgd.maxMLModelSizeInBytes@ - The maximum allowed size of the model.
+-- -   'sgd.maxMLModelSizeInBytes' - The maximum allowed size of the model.
 --     Depending on the input data, the model size might affect
 --     performance.
 --
@@ -269,22 +273,22 @@ getMLModelResponse pStatus_ =
 gmlmrsTrainingParameters :: Lens' GetMLModelResponse (HashMap Text Text)
 gmlmrsTrainingParameters = lens _gmlmrsTrainingParameters (\ s a -> s{_gmlmrsTrainingParameters = a}) . _Default . _Map;
 
--- | The time of the most recent edit to the @MLModel@. The time is expressed
+-- | The time of the most recent edit to the 'MLModel'. The time is expressed
 -- in epoch time.
 gmlmrsLastUpdatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
 gmlmrsLastUpdatedAt = lens _gmlmrsLastUpdatedAt (\ s a -> s{_gmlmrsLastUpdatedAt = a}) . mapping _Time;
 
--- | The time that the @MLModel@ was created. The time is expressed in epoch
+-- | The time that the 'MLModel' was created. The time is expressed in epoch
 -- time.
 gmlmrsCreatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
 gmlmrsCreatedAt = lens _gmlmrsCreatedAt (\ s a -> s{_gmlmrsCreatedAt = a}) . mapping _Time;
 
--- | The time of the most recent edit to the @ScoreThreshold@. The time is
+-- | The time of the most recent edit to the 'ScoreThreshold'. The time is
 -- expressed in epoch time.
 gmlmrsScoreThresholdLastUpdatedAt :: Lens' GetMLModelResponse (Maybe UTCTime)
 gmlmrsScoreThresholdLastUpdatedAt = lens _gmlmrsScoreThresholdLastUpdatedAt (\ s a -> s{_gmlmrsScoreThresholdLastUpdatedAt = a}) . mapping _Time;
 
--- | The recipe to use when training the @MLModel@. The @Recipe@ provides
+-- | The recipe to use when training the 'MLModel'. The 'Recipe' provides
 -- detailed information about the observation data to use during training,
 -- as well as manipulations to perform on the observation data during
 -- training.
@@ -304,11 +308,11 @@ gmlmrsInputDataLocationS3 = lens _gmlmrsInputDataLocationS3 (\ s a -> s{_gmlmrsI
 gmlmrsSizeInBytes :: Lens' GetMLModelResponse (Maybe Integer)
 gmlmrsSizeInBytes = lens _gmlmrsSizeInBytes (\ s a -> s{_gmlmrsSizeInBytes = a});
 
--- | The MLModel ID which is same as the @MLModelId@ in the request.
+-- | The MLModel ID which is same as the 'MLModelId' in the request.
 gmlmrsMLModelId :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsMLModelId = lens _gmlmrsMLModelId (\ s a -> s{_gmlmrsMLModelId = a});
 
--- | The schema used by all of the data files referenced by the @DataSource@.
+-- | The schema used by all of the data files referenced by the 'DataSource'.
 --
 -- Note
 --
@@ -316,43 +320,43 @@ gmlmrsMLModelId = lens _gmlmrsMLModelId (\ s a -> s{_gmlmrsMLModelId = a});
 gmlmrsSchema :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsSchema = lens _gmlmrsSchema (\ s a -> s{_gmlmrsSchema = a});
 
--- | The scoring threshold is used in binary classification @MLModel@s, and
+-- | The scoring threshold is used in binary classification 'MLModel's, and
 -- marks the boundary between a positive prediction and a negative
 -- prediction.
 --
 -- Output values greater than or equal to the threshold receive a positive
--- result from the MLModel, such as @true@. Output values less than the
--- threshold receive a negative response from the MLModel, such as @false@.
+-- result from the MLModel, such as 'true'. Output values less than the
+-- threshold receive a negative response from the MLModel, such as 'false'.
 gmlmrsScoreThreshold :: Lens' GetMLModelResponse (Maybe Double)
 gmlmrsScoreThreshold = lens _gmlmrsScoreThreshold (\ s a -> s{_gmlmrsScoreThreshold = a});
 
--- | A user-supplied name or description of the @MLModel@.
+-- | A user-supplied name or description of the 'MLModel'.
 gmlmrsName :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsName = lens _gmlmrsName (\ s a -> s{_gmlmrsName = a});
 
--- | The AWS user account from which the @MLModel@ was created. The account
+-- | The AWS user account from which the 'MLModel' was created. The account
 -- type can be either an AWS root account or an AWS Identity and Access
 -- Management (IAM) user account.
 gmlmrsCreatedByIAMUser :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsCreatedByIAMUser = lens _gmlmrsCreatedByIAMUser (\ s a -> s{_gmlmrsCreatedByIAMUser = a});
 
--- | A link to the file that contains logs of the @CreateMLModel@ operation.
+-- | A link to the file that contains logs of the 'CreateMLModel' operation.
 gmlmrsLogURI :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsLogURI = lens _gmlmrsLogURI (\ s a -> s{_gmlmrsLogURI = a});
 
--- | The current endpoint of the @MLModel@
+-- | The current endpoint of the 'MLModel'
 gmlmrsEndpointInfo :: Lens' GetMLModelResponse (Maybe RealtimeEndpointInfo)
 gmlmrsEndpointInfo = lens _gmlmrsEndpointInfo (\ s a -> s{_gmlmrsEndpointInfo = a});
 
--- | The ID of the training @DataSource@.
+-- | The ID of the training 'DataSource'.
 gmlmrsTrainingDataSourceId :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsTrainingDataSourceId = lens _gmlmrsTrainingDataSourceId (\ s a -> s{_gmlmrsTrainingDataSourceId = a});
 
--- | Description of the most recent details about accessing the @MLModel@.
+-- | Description of the most recent details about accessing the 'MLModel'.
 gmlmrsMessage :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrsMessage = lens _gmlmrsMessage (\ s a -> s{_gmlmrsMessage = a});
 
--- | Identifies the @MLModel@ category. The following are the available
+-- | Identifies the 'MLModel' category. The following are the available
 -- types:
 --
 -- -   REGRESSION -- Produces a numeric result. For example, \"What listing
@@ -364,6 +368,6 @@ gmlmrsMessage = lens _gmlmrsMessage (\ s a -> s{_gmlmrsMessage = a});
 gmlmrsMLModelType :: Lens' GetMLModelResponse (Maybe MLModelType)
 gmlmrsMLModelType = lens _gmlmrsMLModelType (\ s a -> s{_gmlmrsMLModelType = a});
 
--- | Undocumented member.
+-- | The response status code.
 gmlmrsStatus :: Lens' GetMLModelResponse Int
 gmlmrsStatus = lens _gmlmrsStatus (\ s a -> s{_gmlmrsStatus = a});

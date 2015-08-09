@@ -26,14 +26,14 @@
 module Network.AWS.CloudSearch.BuildSuggesters
     (
     -- * Creating a Request
-      BuildSuggesters
-    , buildSuggesters
+      buildSuggesters
+    , BuildSuggesters
     -- * Request Lenses
     , bsDomainName
 
     -- * Destructuring the Response
-    , BuildSuggestersResponse
     , buildSuggestersResponse
+    , BuildSuggestersResponse
     -- * Response Lenses
     , bsrsFieldNames
     , bsrsStatus
@@ -45,20 +45,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @BuildSuggester@ operation.
+-- | Container for the parameters to the 'BuildSuggester' operation.
 -- Specifies the name of the domain you want to update.
 --
 -- /See:/ 'buildSuggesters' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bsDomainName'
 newtype BuildSuggesters = BuildSuggesters'
     { _bsDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BuildSuggesters' smart constructor.
-buildSuggesters :: Text -> BuildSuggesters
+-- | Creates a value of 'BuildSuggesters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bsDomainName'
+buildSuggesters
+    :: Text -- ^ 'bsDomainName'
+    -> BuildSuggesters
 buildSuggesters pDomainName_ =
     BuildSuggesters'
     { _bsDomainName = pDomainName_
@@ -93,23 +95,25 @@ instance ToQuery BuildSuggesters where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _bsDomainName]
 
--- | The result of a @BuildSuggester@ request. Contains a list of the fields
+-- | The result of a 'BuildSuggester' request. Contains a list of the fields
 -- used for suggestions.
 --
 -- /See:/ 'buildSuggestersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bsrsFieldNames'
---
--- * 'bsrsStatus'
 data BuildSuggestersResponse = BuildSuggestersResponse'
     { _bsrsFieldNames :: !(Maybe [Text])
     , _bsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BuildSuggestersResponse' smart constructor.
-buildSuggestersResponse :: Int -> BuildSuggestersResponse
+-- | Creates a value of 'BuildSuggestersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bsrsFieldNames'
+--
+-- * 'bsrsStatus'
+buildSuggestersResponse
+    :: Int -- ^ 'bsrsStatus'
+    -> BuildSuggestersResponse
 buildSuggestersResponse pStatus_ =
     BuildSuggestersResponse'
     { _bsrsFieldNames = Nothing
@@ -120,6 +124,6 @@ buildSuggestersResponse pStatus_ =
 bsrsFieldNames :: Lens' BuildSuggestersResponse [Text]
 bsrsFieldNames = lens _bsrsFieldNames (\ s a -> s{_bsrsFieldNames = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 bsrsStatus :: Lens' BuildSuggestersResponse Int
 bsrsStatus = lens _bsrsStatus (\ s a -> s{_bsrsStatus = a});

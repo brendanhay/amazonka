@@ -24,14 +24,14 @@
 module Network.AWS.CloudFront.GetDistributionConfig
     (
     -- * Creating a Request
-      GetDistributionConfig
-    , getDistributionConfig
+      getDistributionConfig
+    , GetDistributionConfig
     -- * Request Lenses
     , gdcId
 
     -- * Destructuring the Response
-    , GetDistributionConfigResponse
     , getDistributionConfigResponse
+    , GetDistributionConfigResponse
     -- * Response Lenses
     , gdcrsETag
     , gdcrsDistributionConfig
@@ -47,16 +47,18 @@ import           Network.AWS.Response
 -- | The request to get a distribution configuration.
 --
 -- /See:/ 'getDistributionConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdcId'
 newtype GetDistributionConfig = GetDistributionConfig'
     { _gdcId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDistributionConfig' smart constructor.
-getDistributionConfig :: Text -> GetDistributionConfig
+-- | Creates a value of 'GetDistributionConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdcId'
+getDistributionConfig
+    :: Text -- ^ 'gdcId'
+    -> GetDistributionConfig
 getDistributionConfig pId_ =
     GetDistributionConfig'
     { _gdcId = pId_
@@ -92,22 +94,24 @@ instance ToQuery GetDistributionConfig where
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'getDistributionConfigResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdcrsETag'
---
--- * 'gdcrsDistributionConfig'
---
--- * 'gdcrsStatus'
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
     { _gdcrsETag               :: !(Maybe Text)
     , _gdcrsDistributionConfig :: !(Maybe DistributionConfig)
     , _gdcrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDistributionConfigResponse' smart constructor.
-getDistributionConfigResponse :: Int -> GetDistributionConfigResponse
+-- | Creates a value of 'GetDistributionConfigResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdcrsETag'
+--
+-- * 'gdcrsDistributionConfig'
+--
+-- * 'gdcrsStatus'
+getDistributionConfigResponse
+    :: Int -- ^ 'gdcrsStatus'
+    -> GetDistributionConfigResponse
 getDistributionConfigResponse pStatus_ =
     GetDistributionConfigResponse'
     { _gdcrsETag = Nothing
@@ -123,6 +127,6 @@ gdcrsETag = lens _gdcrsETag (\ s a -> s{_gdcrsETag = a});
 gdcrsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
 gdcrsDistributionConfig = lens _gdcrsDistributionConfig (\ s a -> s{_gdcrsDistributionConfig = a});
 
--- | Undocumented member.
+-- | The response status code.
 gdcrsStatus :: Lens' GetDistributionConfigResponse Int
 gdcrsStatus = lens _gdcrsStatus (\ s a -> s{_gdcrsStatus = a});

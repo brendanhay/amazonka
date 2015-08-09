@@ -32,8 +32,8 @@
 module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     (
     -- * Creating a Request
-      CreateConfigurationTemplate
-    , createConfigurationTemplate
+      createConfigurationTemplate
+    , CreateConfigurationTemplate
     -- * Request Lenses
     , cctOptionSettings
     , cctSourceConfiguration
@@ -44,8 +44,8 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     , cctTemplateName
 
     -- * Destructuring the Response
-    , ConfigurationSettingsDescription
     , configurationSettingsDescription
+    , ConfigurationSettingsDescription
     -- * Response Lenses
     , csdTemplateName
     , csdOptionSettings
@@ -67,8 +67,19 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'createConfigurationTemplate' smart constructor.
+data CreateConfigurationTemplate = CreateConfigurationTemplate'
+    { _cctOptionSettings      :: !(Maybe [ConfigurationOptionSetting])
+    , _cctSourceConfiguration :: !(Maybe SourceConfiguration)
+    , _cctEnvironmentId       :: !(Maybe Text)
+    , _cctSolutionStackName   :: !(Maybe Text)
+    , _cctDescription         :: !(Maybe Text)
+    , _cctApplicationName     :: !Text
+    , _cctTemplateName        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateConfigurationTemplate' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cctOptionSettings'
 --
@@ -83,18 +94,10 @@ import           Network.AWS.Response
 -- * 'cctApplicationName'
 --
 -- * 'cctTemplateName'
-data CreateConfigurationTemplate = CreateConfigurationTemplate'
-    { _cctOptionSettings      :: !(Maybe [ConfigurationOptionSetting])
-    , _cctSourceConfiguration :: !(Maybe SourceConfiguration)
-    , _cctEnvironmentId       :: !(Maybe Text)
-    , _cctSolutionStackName   :: !(Maybe Text)
-    , _cctDescription         :: !(Maybe Text)
-    , _cctApplicationName     :: !Text
-    , _cctTemplateName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateConfigurationTemplate' smart constructor.
-createConfigurationTemplate :: Text -> Text -> CreateConfigurationTemplate
+createConfigurationTemplate
+    :: Text -- ^ 'cctApplicationName'
+    -> Text -- ^ 'cctTemplateName'
+    -> CreateConfigurationTemplate
 createConfigurationTemplate pApplicationName_ pTemplateName_ =
     CreateConfigurationTemplate'
     { _cctOptionSettings = Nothing
@@ -115,16 +118,16 @@ cctOptionSettings = lens _cctOptionSettings (\ s a -> s{_cctOptionSettings = a})
 -- | If specified, AWS Elastic Beanstalk uses the configuration values from
 -- the specified configuration template to create a new configuration.
 --
--- Values specified in the @OptionSettings@ parameter of this call
--- overrides any values obtained from the @SourceConfiguration@.
+-- Values specified in the 'OptionSettings' parameter of this call
+-- overrides any values obtained from the 'SourceConfiguration'.
 --
 -- If no configuration template is found, returns an
--- @InvalidParameterValue@ error.
+-- 'InvalidParameterValue' error.
 --
 -- Constraint: If both the solution stack name parameter and the source
 -- configuration parameters are specified, the solution stack of the source
 -- configuration template must match the specified solution stack name or
--- else AWS Elastic Beanstalk returns an @InvalidParameterCombination@
+-- else AWS Elastic Beanstalk returns an 'InvalidParameterCombination'
 -- error.
 cctSourceConfiguration :: Lens' CreateConfigurationTemplate (Maybe SourceConfiguration)
 cctSourceConfiguration = lens _cctSourceConfiguration (\ s a -> s{_cctSourceConfiguration = a});
@@ -143,7 +146,7 @@ cctEnvironmentId = lens _cctEnvironmentId (\ s a -> s{_cctEnvironmentId = a});
 --
 -- A solution stack name or a source configuration parameter must be
 -- specified, otherwise AWS Elastic Beanstalk returns an
--- @InvalidParameterValue@ error.
+-- 'InvalidParameterValue' error.
 --
 -- If a solution stack name is not specified and the source configuration
 -- parameter is specified, AWS Elastic Beanstalk uses the same solution
@@ -157,7 +160,7 @@ cctDescription = lens _cctDescription (\ s a -> s{_cctDescription = a});
 
 -- | The name of the application to associate with this configuration
 -- template. If no application is found with this name, AWS Elastic
--- Beanstalk returns an @InvalidParameterValue@ error.
+-- Beanstalk returns an 'InvalidParameterValue' error.
 cctApplicationName :: Lens' CreateConfigurationTemplate Text
 cctApplicationName = lens _cctApplicationName (\ s a -> s{_cctApplicationName = a});
 
@@ -166,7 +169,7 @@ cctApplicationName = lens _cctApplicationName (\ s a -> s{_cctApplicationName = 
 -- Constraint: This name must be unique per application.
 --
 -- Default: If a configuration template already exists with this name, AWS
--- Elastic Beanstalk returns an @InvalidParameterValue@ error.
+-- Elastic Beanstalk returns an 'InvalidParameterValue' error.
 cctTemplateName :: Lens' CreateConfigurationTemplate Text
 cctTemplateName = lens _cctTemplateName (\ s a -> s{_cctTemplateName = a});
 

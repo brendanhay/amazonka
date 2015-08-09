@@ -28,16 +28,16 @@
 module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     (
     -- * Creating a Request
-      SetIdentityPoolConfiguration
-    , setIdentityPoolConfiguration
+      setIdentityPoolConfiguration
+    , SetIdentityPoolConfiguration
     -- * Request Lenses
     , sipcCognitoStreams
     , sipcPushSync
     , sipcIdentityPoolId
 
     -- * Destructuring the Response
-    , SetIdentityPoolConfigurationResponse
     , setIdentityPoolConfigurationResponse
+    , SetIdentityPoolConfigurationResponse
     -- * Response Lenses
     , sipcrsIdentityPoolId
     , sipcrsCognitoStreams
@@ -54,22 +54,24 @@ import           Network.AWS.Response
 -- | The input for the SetIdentityPoolConfiguration operation.
 --
 -- /See:/ 'setIdentityPoolConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sipcCognitoStreams'
---
--- * 'sipcPushSync'
---
--- * 'sipcIdentityPoolId'
 data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
     { _sipcCognitoStreams :: !(Maybe CognitoStreams)
     , _sipcPushSync       :: !(Maybe PushSync)
     , _sipcIdentityPoolId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetIdentityPoolConfiguration' smart constructor.
-setIdentityPoolConfiguration :: Text -> SetIdentityPoolConfiguration
+-- | Creates a value of 'SetIdentityPoolConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sipcCognitoStreams'
+--
+-- * 'sipcPushSync'
+--
+-- * 'sipcIdentityPoolId'
+setIdentityPoolConfiguration
+    :: Text -- ^ 'sipcIdentityPoolId'
+    -> SetIdentityPoolConfiguration
 setIdentityPoolConfiguration pIdentityPoolId_ =
     SetIdentityPoolConfiguration'
     { _sipcCognitoStreams = Nothing
@@ -130,8 +132,16 @@ instance ToQuery SetIdentityPoolConfiguration where
 -- | The output for the SetIdentityPoolConfiguration operation
 --
 -- /See:/ 'setIdentityPoolConfigurationResponse' smart constructor.
+data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse'
+    { _sipcrsIdentityPoolId :: !(Maybe Text)
+    , _sipcrsCognitoStreams :: !(Maybe CognitoStreams)
+    , _sipcrsPushSync       :: !(Maybe PushSync)
+    , _sipcrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SetIdentityPoolConfigurationResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sipcrsIdentityPoolId'
 --
@@ -140,15 +150,9 @@ instance ToQuery SetIdentityPoolConfiguration where
 -- * 'sipcrsPushSync'
 --
 -- * 'sipcrsStatus'
-data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse'
-    { _sipcrsIdentityPoolId :: !(Maybe Text)
-    , _sipcrsCognitoStreams :: !(Maybe CognitoStreams)
-    , _sipcrsPushSync       :: !(Maybe PushSync)
-    , _sipcrsStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SetIdentityPoolConfigurationResponse' smart constructor.
-setIdentityPoolConfigurationResponse :: Int -> SetIdentityPoolConfigurationResponse
+setIdentityPoolConfigurationResponse
+    :: Int -- ^ 'sipcrsStatus'
+    -> SetIdentityPoolConfigurationResponse
 setIdentityPoolConfigurationResponse pStatus_ =
     SetIdentityPoolConfigurationResponse'
     { _sipcrsIdentityPoolId = Nothing
@@ -171,6 +175,6 @@ sipcrsCognitoStreams = lens _sipcrsCognitoStreams (\ s a -> s{_sipcrsCognitoStre
 sipcrsPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
 sipcrsPushSync = lens _sipcrsPushSync (\ s a -> s{_sipcrsPushSync = a});
 
--- | Undocumented member.
+-- | The response status code.
 sipcrsStatus :: Lens' SetIdentityPoolConfigurationResponse Int
 sipcrsStatus = lens _sipcrsStatus (\ s a -> s{_sipcrsStatus = a});

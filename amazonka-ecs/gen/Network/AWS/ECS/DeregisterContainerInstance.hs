@@ -38,16 +38,16 @@
 module Network.AWS.ECS.DeregisterContainerInstance
     (
     -- * Creating a Request
-      DeregisterContainerInstance
-    , deregisterContainerInstance
+      deregisterContainerInstance
+    , DeregisterContainerInstance
     -- * Request Lenses
     , derCluster
     , derForce
     , derContainerInstance
 
     -- * Destructuring the Response
-    , DeregisterContainerInstanceResponse
     , deregisterContainerInstanceResponse
+    , DeregisterContainerInstanceResponse
     -- * Response Lenses
     , dcirsContainerInstance
     , dcirsStatus
@@ -60,22 +60,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deregisterContainerInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'derCluster'
---
--- * 'derForce'
---
--- * 'derContainerInstance'
 data DeregisterContainerInstance = DeregisterContainerInstance'
     { _derCluster           :: !(Maybe Text)
     , _derForce             :: !(Maybe Bool)
     , _derContainerInstance :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterContainerInstance' smart constructor.
-deregisterContainerInstance :: Text -> DeregisterContainerInstance
+-- | Creates a value of 'DeregisterContainerInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'derCluster'
+--
+-- * 'derForce'
+--
+-- * 'derContainerInstance'
+deregisterContainerInstance
+    :: Text -- ^ 'derContainerInstance'
+    -> DeregisterContainerInstance
 deregisterContainerInstance pContainerInstance_ =
     DeregisterContainerInstance'
     { _derCluster = Nothing
@@ -91,7 +93,7 @@ derCluster = lens _derCluster (\ s a -> s{_derCluster = a});
 
 -- | Force the deregistration of the container instance. If you have tasks
 -- running on the container instance when you deregister it with the
--- @force@ option, these tasks remain running and they will continue to
+-- 'force' option, these tasks remain running and they will continue to
 -- pass Elastic Load Balancing load balancer health checks until you
 -- terminate the instance or the tasks stop through some other means, but
 -- they are orphaned (no longer monitored or accounted for by Amazon ECS).
@@ -103,9 +105,9 @@ derForce = lens _derForce (\ s a -> s{_derForce = a});
 
 -- | The container instance UUID or full Amazon Resource Name (ARN) of the
 -- container instance you want to deregister. The ARN contains the
--- @arn:aws:ecs@ namespace, followed by the region of the container
+-- 'arn:aws:ecs' namespace, followed by the region of the container
 -- instance, the AWS account ID of the container instance owner, the
--- @container-instance@ namespace, and then the container instance UUID.
+-- 'container-instance' namespace, and then the container instance UUID.
 -- For example,
 -- arn:aws:ecs:/region/:/aws_account_id/:container-instance\//container_instance_UUID/.
 derContainerInstance :: Lens' DeregisterContainerInstance Text
@@ -145,19 +147,21 @@ instance ToQuery DeregisterContainerInstance where
         toQuery = const mempty
 
 -- | /See:/ 'deregisterContainerInstanceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcirsContainerInstance'
---
--- * 'dcirsStatus'
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
     { _dcirsContainerInstance :: !(Maybe ContainerInstance)
     , _dcirsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterContainerInstanceResponse' smart constructor.
-deregisterContainerInstanceResponse :: Int -> DeregisterContainerInstanceResponse
+-- | Creates a value of 'DeregisterContainerInstanceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcirsContainerInstance'
+--
+-- * 'dcirsStatus'
+deregisterContainerInstanceResponse
+    :: Int -- ^ 'dcirsStatus'
+    -> DeregisterContainerInstanceResponse
 deregisterContainerInstanceResponse pStatus_ =
     DeregisterContainerInstanceResponse'
     { _dcirsContainerInstance = Nothing
@@ -168,6 +172,6 @@ deregisterContainerInstanceResponse pStatus_ =
 dcirsContainerInstance :: Lens' DeregisterContainerInstanceResponse (Maybe ContainerInstance)
 dcirsContainerInstance = lens _dcirsContainerInstance (\ s a -> s{_dcirsContainerInstance = a});
 
--- | Undocumented member.
+-- | The response status code.
 dcirsStatus :: Lens' DeregisterContainerInstanceResponse Int
 dcirsStatus = lens _dcirsStatus (\ s a -> s{_dcirsStatus = a});

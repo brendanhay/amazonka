@@ -32,16 +32,16 @@
 module Network.AWS.RDS.DeleteDBCluster
     (
     -- * Creating a Request
-      DeleteDBCluster
-    , deleteDBCluster
+      deleteDBCluster
+    , DeleteDBCluster
     -- * Request Lenses
     , ddbcDBClusterIdentifier
     , ddbcFinalDBSnapshotIdentifier
     , ddbcSkipFinalSnapshot
 
     -- * Destructuring the Response
-    , DeleteDBClusterResponse
     , deleteDBClusterResponse
+    , DeleteDBClusterResponse
     -- * Response Lenses
     , ddbcrsDBCluster
     , ddbcrsStatus
@@ -56,22 +56,23 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteDBCluster' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddbcDBClusterIdentifier'
---
--- * 'ddbcFinalDBSnapshotIdentifier'
---
--- * 'ddbcSkipFinalSnapshot'
 data DeleteDBCluster = DeleteDBCluster'
     { _ddbcDBClusterIdentifier       :: !(Maybe Text)
     , _ddbcFinalDBSnapshotIdentifier :: !(Maybe Text)
     , _ddbcSkipFinalSnapshot         :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBCluster' smart constructor.
-deleteDBCluster :: DeleteDBCluster
+-- | Creates a value of 'DeleteDBCluster' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddbcDBClusterIdentifier'
+--
+-- * 'ddbcFinalDBSnapshotIdentifier'
+--
+-- * 'ddbcSkipFinalSnapshot'
+deleteDBCluster
+    :: DeleteDBCluster
 deleteDBCluster =
     DeleteDBCluster'
     { _ddbcDBClusterIdentifier = Nothing
@@ -91,9 +92,9 @@ ddbcDBClusterIdentifier :: Lens' DeleteDBCluster (Maybe Text)
 ddbcDBClusterIdentifier = lens _ddbcDBClusterIdentifier (\ s a -> s{_ddbcDBClusterIdentifier = a});
 
 -- | The DB cluster snapshot identifier of the new DB cluster snapshot
--- created when @SkipFinalSnapshot@ is set to @false@.
+-- created when 'SkipFinalSnapshot' is set to 'false'.
 --
--- Specifying this parameter and also setting the @SkipFinalShapshot@
+-- Specifying this parameter and also setting the 'SkipFinalShapshot'
 -- parameter to true results in an error.
 --
 -- Constraints:
@@ -105,14 +106,14 @@ ddbcFinalDBSnapshotIdentifier :: Lens' DeleteDBCluster (Maybe Text)
 ddbcFinalDBSnapshotIdentifier = lens _ddbcFinalDBSnapshotIdentifier (\ s a -> s{_ddbcFinalDBSnapshotIdentifier = a});
 
 -- | Determines whether a final DB cluster snapshot is created before the DB
--- cluster is deleted. If @true@ is specified, no DB cluster snapshot is
--- created. If @false@ is specified, a DB cluster snapshot is created
+-- cluster is deleted. If 'true' is specified, no DB cluster snapshot is
+-- created. If 'false' is specified, a DB cluster snapshot is created
 -- before the DB cluster is deleted.
 --
--- You must specify a @FinalDBSnapshotIdentifier@ parameter if
--- @SkipFinalSnapshot@ is @false@.
+-- You must specify a 'FinalDBSnapshotIdentifier' parameter if
+-- 'SkipFinalSnapshot' is 'false'.
 --
--- Default: @false@
+-- Default: 'false'
 ddbcSkipFinalSnapshot :: Lens' DeleteDBCluster (Maybe Bool)
 ddbcSkipFinalSnapshot = lens _ddbcSkipFinalSnapshot (\ s a -> s{_ddbcSkipFinalSnapshot = a});
 
@@ -143,19 +144,21 @@ instance ToQuery DeleteDBCluster where
                "SkipFinalSnapshot" =: _ddbcSkipFinalSnapshot]
 
 -- | /See:/ 'deleteDBClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddbcrsDBCluster'
---
--- * 'ddbcrsStatus'
 data DeleteDBClusterResponse = DeleteDBClusterResponse'
     { _ddbcrsDBCluster :: !(Maybe DBCluster)
     , _ddbcrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBClusterResponse' smart constructor.
-deleteDBClusterResponse :: Int -> DeleteDBClusterResponse
+-- | Creates a value of 'DeleteDBClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddbcrsDBCluster'
+--
+-- * 'ddbcrsStatus'
+deleteDBClusterResponse
+    :: Int -- ^ 'ddbcrsStatus'
+    -> DeleteDBClusterResponse
 deleteDBClusterResponse pStatus_ =
     DeleteDBClusterResponse'
     { _ddbcrsDBCluster = Nothing
@@ -166,6 +169,6 @@ deleteDBClusterResponse pStatus_ =
 ddbcrsDBCluster :: Lens' DeleteDBClusterResponse (Maybe DBCluster)
 ddbcrsDBCluster = lens _ddbcrsDBCluster (\ s a -> s{_ddbcrsDBCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 ddbcrsStatus :: Lens' DeleteDBClusterResponse Int
 ddbcrsStatus = lens _ddbcrsStatus (\ s a -> s{_ddbcrsStatus = a});

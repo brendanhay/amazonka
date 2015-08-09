@@ -24,18 +24,20 @@
 -- up to 90 days after the stack has been deleted.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStackResources.html AWS API Reference> for ListStackResources.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStackResources
     (
     -- * Creating a Request
-      ListStackResources
-    , listStackResources
+      listStackResources
+    , ListStackResources
     -- * Request Lenses
     , lsrNextToken
     , lsrStackName
 
     -- * Destructuring the Response
-    , ListStackResourcesResponse
     , listStackResourcesResponse
+    , ListStackResourcesResponse
     -- * Response Lenses
     , lsrrsNextToken
     , lsrrsStackResourceSummaries
@@ -52,19 +54,21 @@ import           Network.AWS.Response
 -- | The input for the ListStackResource action.
 --
 -- /See:/ 'listStackResources' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsrNextToken'
---
--- * 'lsrStackName'
 data ListStackResources = ListStackResources'
     { _lsrNextToken :: !(Maybe Text)
     , _lsrStackName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListStackResources' smart constructor.
-listStackResources :: Text -> ListStackResources
+-- | Creates a value of 'ListStackResources' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsrNextToken'
+--
+-- * 'lsrStackName'
+listStackResources
+    :: Text -- ^ 'lsrStackName'
+    -> ListStackResources
 listStackResources pStackName_ =
     ListStackResources'
     { _lsrNextToken = Nothing
@@ -127,22 +131,24 @@ instance ToQuery ListStackResources where
 -- | The output for a ListStackResources action.
 --
 -- /See:/ 'listStackResourcesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsrrsNextToken'
---
--- * 'lsrrsStackResourceSummaries'
---
--- * 'lsrrsStatus'
 data ListStackResourcesResponse = ListStackResourcesResponse'
     { _lsrrsNextToken              :: !(Maybe Text)
     , _lsrrsStackResourceSummaries :: !(Maybe [StackResourceSummary])
     , _lsrrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListStackResourcesResponse' smart constructor.
-listStackResourcesResponse :: Int -> ListStackResourcesResponse
+-- | Creates a value of 'ListStackResourcesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsrrsNextToken'
+--
+-- * 'lsrrsStackResourceSummaries'
+--
+-- * 'lsrrsStatus'
+listStackResourcesResponse
+    :: Int -- ^ 'lsrrsStatus'
+    -> ListStackResourcesResponse
 listStackResourcesResponse pStatus_ =
     ListStackResourcesResponse'
     { _lsrrsNextToken = Nothing
@@ -155,10 +161,10 @@ listStackResourcesResponse pStatus_ =
 lsrrsNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
 lsrrsNextToken = lens _lsrrsNextToken (\ s a -> s{_lsrrsNextToken = a});
 
--- | A list of @StackResourceSummary@ structures.
+-- | A list of 'StackResourceSummary' structures.
 lsrrsStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
 lsrrsStackResourceSummaries = lens _lsrrsStackResourceSummaries (\ s a -> s{_lsrrsStackResourceSummaries = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lsrrsStatus :: Lens' ListStackResourcesResponse Int
 lsrrsStatus = lens _lsrrsStatus (\ s a -> s{_lsrrsStatus = a});

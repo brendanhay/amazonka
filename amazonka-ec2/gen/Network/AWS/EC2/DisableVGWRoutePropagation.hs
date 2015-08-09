@@ -25,15 +25,15 @@
 module Network.AWS.EC2.DisableVGWRoutePropagation
     (
     -- * Creating a Request
-      DisableVGWRoutePropagation
-    , disableVGWRoutePropagation
+      disableVGWRoutePropagation
+    , DisableVGWRoutePropagation
     -- * Request Lenses
     , dvrpRouteTableId
     , dvrpGatewayId
 
     -- * Destructuring the Response
-    , DisableVGWRoutePropagationResponse
     , disableVGWRoutePropagationResponse
+    , DisableVGWRoutePropagationResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -43,19 +43,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'disableVGWRoutePropagation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvrpRouteTableId'
---
--- * 'dvrpGatewayId'
 data DisableVGWRoutePropagation = DisableVGWRoutePropagation'
     { _dvrpRouteTableId :: !Text
     , _dvrpGatewayId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableVGWRoutePropagation' smart constructor.
-disableVGWRoutePropagation :: Text -> Text -> DisableVGWRoutePropagation
+-- | Creates a value of 'DisableVGWRoutePropagation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvrpRouteTableId'
+--
+-- * 'dvrpGatewayId'
+disableVGWRoutePropagation
+    :: Text -- ^ 'dvrpRouteTableId'
+    -> Text -- ^ 'dvrpGatewayId'
+    -> DisableVGWRoutePropagation
 disableVGWRoutePropagation pRouteTableId_ pGatewayId_ =
     DisableVGWRoutePropagation'
     { _dvrpRouteTableId = pRouteTableId_
@@ -98,6 +101,8 @@ data DisableVGWRoutePropagationResponse =
     DisableVGWRoutePropagationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableVGWRoutePropagationResponse' smart constructor.
-disableVGWRoutePropagationResponse :: DisableVGWRoutePropagationResponse
+-- | Creates a value of 'DisableVGWRoutePropagationResponse' with the minimum fields required to make a request.
+--
+disableVGWRoutePropagationResponse
+    :: DisableVGWRoutePropagationResponse
 disableVGWRoutePropagationResponse = DisableVGWRoutePropagationResponse'

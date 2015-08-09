@@ -282,7 +282,6 @@ module Network.AWS.RDS
 
     -- ** DescribeDBEngineVersions (Paginated)
     , module Network.AWS.RDS.DescribeDBEngineVersions
-    -- $pager
 
     -- ** DescribeDBClusterParameterGroups
     , module Network.AWS.RDS.DescribeDBClusterParameterGroups
@@ -307,11 +306,9 @@ module Network.AWS.RDS
 
     -- ** DescribeEvents (Paginated)
     , module Network.AWS.RDS.DescribeEvents
-    -- $pager
 
     -- ** DescribeEngineDefaultParameters (Paginated)
     , module Network.AWS.RDS.DescribeEngineDefaultParameters
-    -- $pager
 
     -- ** DescribeDBClusters
     , module Network.AWS.RDS.DescribeDBClusters
@@ -321,14 +318,12 @@ module Network.AWS.RDS
 
     -- ** DescribeDBLogFiles (Paginated)
     , module Network.AWS.RDS.DescribeDBLogFiles
-    -- $pager
 
     -- ** ListTagsForResource
     , module Network.AWS.RDS.ListTagsForResource
 
     -- ** DescribeOptionGroups (Paginated)
     , module Network.AWS.RDS.DescribeOptionGroups
-    -- $pager
 
     -- ** DeleteDBCluster
     , module Network.AWS.RDS.DeleteDBCluster
@@ -341,7 +336,6 @@ module Network.AWS.RDS
 
     -- ** DescribeReservedDBInstances (Paginated)
     , module Network.AWS.RDS.DescribeReservedDBInstances
-    -- $pager
 
     -- ** DeleteOptionGroup
     , module Network.AWS.RDS.DeleteOptionGroup
@@ -384,40 +378,33 @@ module Network.AWS.RDS
 
     -- ** DescribeDBParameterGroups (Paginated)
     , module Network.AWS.RDS.DescribeDBParameterGroups
-    -- $pager
 
     -- ** DescribeOrderableDBInstanceOptions (Paginated)
     , module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
-    -- $pager
 
     -- ** CreateDBClusterParameterGroup
     , module Network.AWS.RDS.CreateDBClusterParameterGroup
 
     -- ** DescribeEventSubscriptions (Paginated)
     , module Network.AWS.RDS.DescribeEventSubscriptions
-    -- $pager
 
     -- ** AddTagsToResource
     , module Network.AWS.RDS.AddTagsToResource
 
     -- ** DescribeOptionGroupOptions (Paginated)
     , module Network.AWS.RDS.DescribeOptionGroupOptions
-    -- $pager
 
     -- ** DescribeDBParameters (Paginated)
     , module Network.AWS.RDS.DescribeDBParameters
-    -- $pager
 
     -- ** DeleteDBClusterSnapshot
     , module Network.AWS.RDS.DeleteDBClusterSnapshot
 
     -- ** DescribeDBSnapshots (Paginated)
     , module Network.AWS.RDS.DescribeDBSnapshots
-    -- $pager
 
     -- ** DescribeDBSubnetGroups (Paginated)
     , module Network.AWS.RDS.DescribeDBSubnetGroups
-    -- $pager
 
     -- ** CreateDBParameterGroup
     , module Network.AWS.RDS.CreateDBParameterGroup
@@ -496,21 +483,18 @@ module Network.AWS.RDS
 
     -- ** DescribeReservedDBInstancesOfferings (Paginated)
     , module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
-    -- $pager
 
     -- ** DeleteDBInstance
     , module Network.AWS.RDS.DeleteDBInstance
 
     -- ** DescribeDBInstances (Paginated)
     , module Network.AWS.RDS.DescribeDBInstances
-    -- $pager
 
     -- ** CopyOptionGroup
     , module Network.AWS.RDS.CopyOptionGroup
 
     -- ** DownloadDBLogFilePortion (Paginated)
     , module Network.AWS.RDS.DownloadDBLogFilePortion
-    -- $pager
 
     -- ** CreateDBInstanceReadReplica
     , module Network.AWS.RDS.CreateDBInstanceReadReplica
@@ -523,7 +507,6 @@ module Network.AWS.RDS
 
     -- ** DescribeDBSecurityGroups (Paginated)
     , module Network.AWS.RDS.DescribeDBSecurityGroups
-    -- $pager
 
     -- * Types
 
@@ -1140,8 +1123,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

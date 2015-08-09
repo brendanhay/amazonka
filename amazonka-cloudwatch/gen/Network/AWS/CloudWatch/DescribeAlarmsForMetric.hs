@@ -25,8 +25,8 @@
 module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     (
     -- * Creating a Request
-      DescribeAlarmsForMetric
-    , describeAlarmsForMetric
+      describeAlarmsForMetric
+    , DescribeAlarmsForMetric
     -- * Request Lenses
     , dafmPeriod
     , dafmDimensions
@@ -36,8 +36,8 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     , dafmNamespace
 
     -- * Destructuring the Response
-    , DescribeAlarmsForMetricResponse
     , describeAlarmsForMetricResponse
+    , DescribeAlarmsForMetricResponse
     -- * Response Lenses
     , dafmrsMetricAlarms
     , dafmrsStatus
@@ -50,8 +50,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeAlarmsForMetric' smart constructor.
+data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
+    { _dafmPeriod     :: !(Maybe Nat)
+    , _dafmDimensions :: !(Maybe [Dimension])
+    , _dafmStatistic  :: !(Maybe Statistic)
+    , _dafmUnit       :: !(Maybe StandardUnit)
+    , _dafmMetricName :: !Text
+    , _dafmNamespace  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeAlarmsForMetric' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dafmPeriod'
 --
@@ -64,17 +74,10 @@ import           Network.AWS.Response
 -- * 'dafmMetricName'
 --
 -- * 'dafmNamespace'
-data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
-    { _dafmPeriod     :: !(Maybe Nat)
-    , _dafmDimensions :: !(Maybe [Dimension])
-    , _dafmStatistic  :: !(Maybe Statistic)
-    , _dafmUnit       :: !(Maybe StandardUnit)
-    , _dafmMetricName :: !Text
-    , _dafmNamespace  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeAlarmsForMetric' smart constructor.
-describeAlarmsForMetric :: Text -> Text -> DescribeAlarmsForMetric
+describeAlarmsForMetric
+    :: Text -- ^ 'dafmMetricName'
+    -> Text -- ^ 'dafmNamespace'
+    -> DescribeAlarmsForMetric
 describeAlarmsForMetric pMetricName_ pNamespace_ =
     DescribeAlarmsForMetric'
     { _dafmPeriod = Nothing
@@ -144,19 +147,21 @@ instance ToQuery DescribeAlarmsForMetric where
 -- | The output for the DescribeAlarmsForMetric action.
 --
 -- /See:/ 'describeAlarmsForMetricResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dafmrsMetricAlarms'
---
--- * 'dafmrsStatus'
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
     { _dafmrsMetricAlarms :: !(Maybe [MetricAlarm])
     , _dafmrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAlarmsForMetricResponse' smart constructor.
-describeAlarmsForMetricResponse :: Int -> DescribeAlarmsForMetricResponse
+-- | Creates a value of 'DescribeAlarmsForMetricResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dafmrsMetricAlarms'
+--
+-- * 'dafmrsStatus'
+describeAlarmsForMetricResponse
+    :: Int -- ^ 'dafmrsStatus'
+    -> DescribeAlarmsForMetricResponse
 describeAlarmsForMetricResponse pStatus_ =
     DescribeAlarmsForMetricResponse'
     { _dafmrsMetricAlarms = Nothing
@@ -167,6 +172,6 @@ describeAlarmsForMetricResponse pStatus_ =
 dafmrsMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrsMetricAlarms = lens _dafmrsMetricAlarms (\ s a -> s{_dafmrsMetricAlarms = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dafmrsStatus :: Lens' DescribeAlarmsForMetricResponse Int
 dafmrsStatus = lens _dafmrsStatus (\ s a -> s{_dafmrsStatus = a});

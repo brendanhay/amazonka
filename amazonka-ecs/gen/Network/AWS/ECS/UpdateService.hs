@@ -22,15 +22,15 @@
 --
 -- You can add to or subtract from the number of instantiations of a task
 -- definition in a service by specifying the cluster that the service is
--- running in and a new @desiredCount@ parameter.
+-- running in and a new 'desiredCount' parameter.
 --
--- You can use @UpdateService@ to modify your task definition and deploy a
+-- You can use 'UpdateService' to modify your task definition and deploy a
 -- new version of your service, one task at a time. If you modify the task
--- definition with @UpdateService@, Amazon ECS spawns a task with the new
+-- definition with 'UpdateService', Amazon ECS spawns a task with the new
 -- version of the task definition and then stops an old task after the new
--- version is running. Because @UpdateService@ starts a new version of the
+-- version is running. Because 'UpdateService' starts a new version of the
 -- task before stopping an old version, your cluster must have capacity to
--- support one more instantiation of the task when @UpdateService@ is run.
+-- support one more instantiation of the task when 'UpdateService' is run.
 -- If your cluster cannot support another instantiation of the task used in
 -- your service, you can reduce the desired count of your service by one
 -- before modifying the task definition.
@@ -39,8 +39,8 @@
 module Network.AWS.ECS.UpdateService
     (
     -- * Creating a Request
-      UpdateService
-    , updateService
+      updateService
+    , UpdateService
     -- * Request Lenses
     , usCluster
     , usDesiredCount
@@ -48,8 +48,8 @@ module Network.AWS.ECS.UpdateService
     , usService
 
     -- * Destructuring the Response
-    , UpdateServiceResponse
     , updateServiceResponse
+    , UpdateServiceResponse
     -- * Response Lenses
     , usrsService
     , usrsStatus
@@ -62,8 +62,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateService' smart constructor.
+data UpdateService = UpdateService'
+    { _usCluster        :: !(Maybe Text)
+    , _usDesiredCount   :: !(Maybe Int)
+    , _usTaskDefinition :: !(Maybe Text)
+    , _usService        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateService' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'usCluster'
 --
@@ -72,15 +80,9 @@ import           Network.AWS.Response
 -- * 'usTaskDefinition'
 --
 -- * 'usService'
-data UpdateService = UpdateService'
-    { _usCluster        :: !(Maybe Text)
-    , _usDesiredCount   :: !(Maybe Int)
-    , _usTaskDefinition :: !(Maybe Text)
-    , _usService        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateService' smart constructor.
-updateService :: Text -> UpdateService
+updateService
+    :: Text -- ^ 'usService'
+    -> UpdateService
 updateService pService_ =
     UpdateService'
     { _usCluster = Nothing
@@ -100,10 +102,10 @@ usCluster = lens _usCluster (\ s a -> s{_usCluster = a});
 usDesiredCount :: Lens' UpdateService (Maybe Int)
 usDesiredCount = lens _usDesiredCount (\ s a -> s{_usDesiredCount = a});
 
--- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
+-- | The 'family' and 'revision' ('family:revision') or full Amazon Resource
 -- Name (ARN) of the task definition that you want to run in your service.
--- If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
--- If you modify the task definition with @UpdateService@, Amazon ECS
+-- If a 'revision' is not specified, the latest 'ACTIVE' revision is used.
+-- If you modify the task definition with 'UpdateService', Amazon ECS
 -- spawns a task with the new version of the task definition and then stops
 -- an old task after the new version is running.
 usTaskDefinition :: Lens' UpdateService (Maybe Text)
@@ -148,19 +150,21 @@ instance ToQuery UpdateService where
         toQuery = const mempty
 
 -- | /See:/ 'updateServiceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'usrsService'
---
--- * 'usrsStatus'
 data UpdateServiceResponse = UpdateServiceResponse'
     { _usrsService :: !(Maybe ContainerService)
     , _usrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateServiceResponse' smart constructor.
-updateServiceResponse :: Int -> UpdateServiceResponse
+-- | Creates a value of 'UpdateServiceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'usrsService'
+--
+-- * 'usrsStatus'
+updateServiceResponse
+    :: Int -- ^ 'usrsStatus'
+    -> UpdateServiceResponse
 updateServiceResponse pStatus_ =
     UpdateServiceResponse'
     { _usrsService = Nothing
@@ -171,6 +175,6 @@ updateServiceResponse pStatus_ =
 usrsService :: Lens' UpdateServiceResponse (Maybe ContainerService)
 usrsService = lens _usrsService (\ s a -> s{_usrsService = a});
 
--- | Undocumented member.
+-- | The response status code.
 usrsStatus :: Lens' UpdateServiceResponse Int
 usrsStatus = lens _usrsStatus (\ s a -> s{_usrsStatus = a});

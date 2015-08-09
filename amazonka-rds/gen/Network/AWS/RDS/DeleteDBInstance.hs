@@ -26,7 +26,7 @@
 --
 -- If a final DB snapshot is requested the status of the RDS instance will
 -- be \"deleting\" until the DB snapshot is created. The API action
--- @DescribeDBInstance@ is used to monitor the status of this operation.
+-- 'DescribeDBInstance' is used to monitor the status of this operation.
 -- The action cannot be canceled or reverted once submitted.
 --
 -- Note that when a DB instance is in a failure state and has a status of
@@ -38,16 +38,16 @@
 module Network.AWS.RDS.DeleteDBInstance
     (
     -- * Creating a Request
-      DeleteDBInstance
-    , deleteDBInstance
+      deleteDBInstance
+    , DeleteDBInstance
     -- * Request Lenses
     , ddiFinalDBSnapshotIdentifier
     , ddiSkipFinalSnapshot
     , ddiDBInstanceIdentifier
 
     -- * Destructuring the Response
-    , DeleteDBInstanceResponse
     , deleteDBInstanceResponse
+    , DeleteDBInstanceResponse
     -- * Response Lenses
     , ddirsDBInstance
     , ddirsStatus
@@ -62,22 +62,24 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteDBInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddiFinalDBSnapshotIdentifier'
---
--- * 'ddiSkipFinalSnapshot'
---
--- * 'ddiDBInstanceIdentifier'
 data DeleteDBInstance = DeleteDBInstance'
     { _ddiFinalDBSnapshotIdentifier :: !(Maybe Text)
     , _ddiSkipFinalSnapshot         :: !(Maybe Bool)
     , _ddiDBInstanceIdentifier      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBInstance' smart constructor.
-deleteDBInstance :: Text -> DeleteDBInstance
+-- | Creates a value of 'DeleteDBInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddiFinalDBSnapshotIdentifier'
+--
+-- * 'ddiSkipFinalSnapshot'
+--
+-- * 'ddiDBInstanceIdentifier'
+deleteDBInstance
+    :: Text -- ^ 'ddiDBInstanceIdentifier'
+    -> DeleteDBInstance
 deleteDBInstance pDBInstanceIdentifier_ =
     DeleteDBInstance'
     { _ddiFinalDBSnapshotIdentifier = Nothing
@@ -86,7 +88,7 @@ deleteDBInstance pDBInstanceIdentifier_ =
     }
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when
--- SkipFinalSnapshot is set to @false@.
+-- SkipFinalSnapshot is set to 'false'.
 --
 -- Specifying this parameter and also setting the SkipFinalShapshot
 -- parameter to true results in an error.
@@ -101,7 +103,7 @@ ddiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
 ddiFinalDBSnapshotIdentifier = lens _ddiFinalDBSnapshotIdentifier (\ s a -> s{_ddiFinalDBSnapshotIdentifier = a});
 
 -- | Determines whether a final DB snapshot is created before the DB instance
--- is deleted. If @true@ is specified, no DBSnapshot is created. If @false@
+-- is deleted. If 'true' is specified, no DBSnapshot is created. If 'false'
 -- is specified, a DB snapshot is created before the DB instance is
 -- deleted.
 --
@@ -110,12 +112,12 @@ ddiFinalDBSnapshotIdentifier = lens _ddiFinalDBSnapshotIdentifier (\ s a -> s{_d
 -- can only be deleted when the SkipFinalSnapshot parameter is set to
 -- \"true\".
 --
--- Specify @true@ when deleting a Read Replica.
+-- Specify 'true' when deleting a Read Replica.
 --
 -- The FinalDBSnapshotIdentifier parameter must be specified if
--- SkipFinalSnapshot is @false@.
+-- SkipFinalSnapshot is 'false'.
 --
--- Default: @false@
+-- Default: 'false'
 ddiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
 ddiSkipFinalSnapshot = lens _ddiSkipFinalSnapshot (\ s a -> s{_ddiSkipFinalSnapshot = a});
 
@@ -157,19 +159,21 @@ instance ToQuery DeleteDBInstance where
                "DBInstanceIdentifier" =: _ddiDBInstanceIdentifier]
 
 -- | /See:/ 'deleteDBInstanceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddirsDBInstance'
---
--- * 'ddirsStatus'
 data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
     { _ddirsDBInstance :: !(Maybe DBInstance)
     , _ddirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBInstanceResponse' smart constructor.
-deleteDBInstanceResponse :: Int -> DeleteDBInstanceResponse
+-- | Creates a value of 'DeleteDBInstanceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddirsDBInstance'
+--
+-- * 'ddirsStatus'
+deleteDBInstanceResponse
+    :: Int -- ^ 'ddirsStatus'
+    -> DeleteDBInstanceResponse
 deleteDBInstanceResponse pStatus_ =
     DeleteDBInstanceResponse'
     { _ddirsDBInstance = Nothing
@@ -180,6 +184,6 @@ deleteDBInstanceResponse pStatus_ =
 ddirsDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
 ddirsDBInstance = lens _ddirsDBInstance (\ s a -> s{_ddirsDBInstance = a});
 
--- | Undocumented member.
+-- | The response status code.
 ddirsStatus :: Lens' DeleteDBInstanceResponse Int
 ddirsStatus = lens _ddirsStatus (\ s a -> s{_ddirsStatus = a});

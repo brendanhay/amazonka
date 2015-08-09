@@ -25,14 +25,14 @@
 module Network.AWS.S3.HeadBucket
     (
     -- * Creating a Request
-      HeadBucket
-    , headBucket
+      headBucket
+    , HeadBucket
     -- * Request Lenses
     , hbBucket
 
     -- * Destructuring the Response
-    , HeadBucketResponse
     , headBucketResponse
+    , HeadBucketResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -42,16 +42,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'headBucket' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hbBucket'
 newtype HeadBucket = HeadBucket'
     { _hbBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'HeadBucket' smart constructor.
-headBucket :: BucketName -> HeadBucket
+-- | Creates a value of 'HeadBucket' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hbBucket'
+headBucket
+    :: BucketName -- ^ 'hbBucket'
+    -> HeadBucket
 headBucket pBucket_ =
     HeadBucket'
     { _hbBucket = pBucket_
@@ -82,6 +84,8 @@ data HeadBucketResponse =
     HeadBucketResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'HeadBucketResponse' smart constructor.
-headBucketResponse :: HeadBucketResponse
+-- | Creates a value of 'HeadBucketResponse' with the minimum fields required to make a request.
+--
+headBucketResponse
+    :: HeadBucketResponse
 headBucketResponse = HeadBucketResponse'

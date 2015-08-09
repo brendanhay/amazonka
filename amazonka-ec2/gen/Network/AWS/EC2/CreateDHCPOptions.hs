@@ -25,26 +25,26 @@
 -- information about the options, see
 -- <http://www.ietf.org/rfc/rfc2132.txt RFC 2132>.
 --
--- -   @domain-name-servers@ - The IP addresses of up to four domain name
---     servers, or @AmazonProvidedDNS@. The default DHCP option set
---     specifies @AmazonProvidedDNS@. If specifying more than one domain
+-- -   'domain-name-servers' - The IP addresses of up to four domain name
+--     servers, or 'AmazonProvidedDNS'. The default DHCP option set
+--     specifies 'AmazonProvidedDNS'. If specifying more than one domain
 --     name server, specify the IP addresses in a single parameter,
 --     separated by commas.
--- -   @domain-name@ - If you\'re using AmazonProvidedDNS in @us-east-1@,
---     specify @ec2.internal@. If you\'re using AmazonProvidedDNS in
---     another region, specify @region.compute.internal@ (for example,
---     @ap-northeast-1.compute.internal@). Otherwise, specify a domain name
---     (for example, @MyCompany.com@). __Important__: Some Linux operating
+-- -   'domain-name' - If you\'re using AmazonProvidedDNS in 'us-east-1',
+--     specify 'ec2.internal'. If you\'re using AmazonProvidedDNS in
+--     another region, specify 'region.compute.internal' (for example,
+--     'ap-northeast-1.compute.internal'). Otherwise, specify a domain name
+--     (for example, 'MyCompany.com'). __Important__: Some Linux operating
 --     systems accept multiple domain names separated by spaces. However,
 --     Windows and other Linux operating systems treat the value as a
 --     single domain, which results in unexpected behavior. If your DHCP
 --     options set is associated with a VPC that has instances with
 --     multiple operating systems, specify only one domain name.
--- -   @ntp-servers@ - The IP addresses of up to four Network Time Protocol
+-- -   'ntp-servers' - The IP addresses of up to four Network Time Protocol
 --     (NTP) servers.
--- -   @netbios-name-servers@ - The IP addresses of up to four NetBIOS name
+-- -   'netbios-name-servers' - The IP addresses of up to four NetBIOS name
 --     servers.
--- -   @netbios-node-type@ - The NetBIOS node type (1, 2, 4, or 8). We
+-- -   'netbios-node-type' - The NetBIOS node type (1, 2, 4, or 8). We
 --     recommend that you specify 2 (broadcast and multicast are not
 --     currently supported). For more information about these node types,
 --     see <http://www.ietf.org/rfc/rfc2132.txt RFC 2132>.
@@ -52,8 +52,8 @@
 -- Your VPC automatically starts out with a set of DHCP options that
 -- includes only a DNS server that we provide (AmazonProvidedDNS). If you
 -- create a set of options, and if your VPC has an Internet gateway, make
--- sure to set the @domain-name-servers@ option either to
--- @AmazonProvidedDNS@ or to a domain name server of your choice. For more
+-- sure to set the 'domain-name-servers' option either to
+-- 'AmazonProvidedDNS' or to a domain name server of your choice. For more
 -- information about DHCP options, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html DHCP Options Sets>
 -- in the /Amazon Virtual Private Cloud User Guide/.
@@ -62,15 +62,15 @@
 module Network.AWS.EC2.CreateDHCPOptions
     (
     -- * Creating a Request
-      CreateDHCPOptions
-    , createDHCPOptions
+      createDHCPOptions
+    , CreateDHCPOptions
     -- * Request Lenses
     , cdoDryRun
     , cdoDHCPConfigurations
 
     -- * Destructuring the Response
-    , CreateDHCPOptionsResponse
     , createDHCPOptionsResponse
+    , CreateDHCPOptionsResponse
     -- * Response Lenses
     , cdorsDHCPOptions
     , cdorsStatus
@@ -83,19 +83,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createDHCPOptions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdoDryRun'
---
--- * 'cdoDHCPConfigurations'
 data CreateDHCPOptions = CreateDHCPOptions'
     { _cdoDryRun             :: !(Maybe Bool)
     , _cdoDHCPConfigurations :: ![NewDHCPConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDHCPOptions' smart constructor.
-createDHCPOptions :: CreateDHCPOptions
+-- | Creates a value of 'CreateDHCPOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdoDryRun'
+--
+-- * 'cdoDHCPConfigurations'
+createDHCPOptions
+    :: CreateDHCPOptions
 createDHCPOptions =
     CreateDHCPOptions'
     { _cdoDryRun = Nothing
@@ -104,8 +105,8 @@ createDHCPOptions =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cdoDryRun :: Lens' CreateDHCPOptions (Maybe Bool)
 cdoDryRun = lens _cdoDryRun (\ s a -> s{_cdoDryRun = a});
 
@@ -138,19 +139,21 @@ instance ToQuery CreateDHCPOptions where
                toQueryList "item" _cdoDHCPConfigurations]
 
 -- | /See:/ 'createDHCPOptionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdorsDHCPOptions'
---
--- * 'cdorsStatus'
 data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
     { _cdorsDHCPOptions :: !(Maybe DHCPOptions)
     , _cdorsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDHCPOptionsResponse' smart constructor.
-createDHCPOptionsResponse :: Int -> CreateDHCPOptionsResponse
+-- | Creates a value of 'CreateDHCPOptionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdorsDHCPOptions'
+--
+-- * 'cdorsStatus'
+createDHCPOptionsResponse
+    :: Int -- ^ 'cdorsStatus'
+    -> CreateDHCPOptionsResponse
 createDHCPOptionsResponse pStatus_ =
     CreateDHCPOptionsResponse'
     { _cdorsDHCPOptions = Nothing
@@ -161,6 +164,6 @@ createDHCPOptionsResponse pStatus_ =
 cdorsDHCPOptions :: Lens' CreateDHCPOptionsResponse (Maybe DHCPOptions)
 cdorsDHCPOptions = lens _cdorsDHCPOptions (\ s a -> s{_cdorsDHCPOptions = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdorsStatus :: Lens' CreateDHCPOptionsResponse Int
 cdorsStatus = lens _cdorsStatus (\ s a -> s{_cdorsStatus = a});

@@ -25,8 +25,8 @@
 module Network.AWS.SNS.AddPermission
     (
     -- * Creating a Request
-      AddPermission
-    , addPermission
+      addPermission
+    , AddPermission
     -- * Request Lenses
     , apTopicARN
     , apLabel
@@ -34,8 +34,8 @@ module Network.AWS.SNS.AddPermission
     , apActionName
 
     -- * Destructuring the Response
-    , AddPermissionResponse
     , addPermissionResponse
+    , AddPermissionResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -45,8 +45,16 @@ import           Network.AWS.SNS.Types
 import           Network.AWS.SNS.Types.Product
 
 -- | /See:/ 'addPermission' smart constructor.
+data AddPermission = AddPermission'
+    { _apTopicARN     :: !Text
+    , _apLabel        :: !Text
+    , _apAWSAccountId :: ![Text]
+    , _apActionName   :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'apTopicARN'
 --
@@ -55,15 +63,10 @@ import           Network.AWS.SNS.Types.Product
 -- * 'apAWSAccountId'
 --
 -- * 'apActionName'
-data AddPermission = AddPermission'
-    { _apTopicARN     :: !Text
-    , _apLabel        :: !Text
-    , _apAWSAccountId :: ![Text]
-    , _apActionName   :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AddPermission' smart constructor.
-addPermission :: Text -> Text -> AddPermission
+addPermission
+    :: Text -- ^ 'apTopicARN'
+    -> Text -- ^ 'apLabel'
+    -> AddPermission
 addPermission pTopicARN_ pLabel_ =
     AddPermission'
     { _apTopicARN = pTopicARN_
@@ -119,6 +122,8 @@ data AddPermissionResponse =
     AddPermissionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddPermissionResponse' smart constructor.
-addPermissionResponse :: AddPermissionResponse
+-- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
+--
+addPermissionResponse
+    :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse'

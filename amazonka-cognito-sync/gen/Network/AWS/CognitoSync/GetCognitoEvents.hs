@@ -29,14 +29,14 @@
 module Network.AWS.CognitoSync.GetCognitoEvents
     (
     -- * Creating a Request
-      GetCognitoEvents
-    , getCognitoEvents
+      getCognitoEvents
+    , GetCognitoEvents
     -- * Request Lenses
     , gceIdentityPoolId
 
     -- * Destructuring the Response
-    , GetCognitoEventsResponse
     , getCognitoEventsResponse
+    , GetCognitoEventsResponse
     -- * Response Lenses
     , gcersEvents
     , gcersStatus
@@ -51,16 +51,18 @@ import           Network.AWS.Response
 -- | A request for a list of the configured Cognito Events
 --
 -- /See:/ 'getCognitoEvents' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gceIdentityPoolId'
 newtype GetCognitoEvents = GetCognitoEvents'
     { _gceIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetCognitoEvents' smart constructor.
-getCognitoEvents :: Text -> GetCognitoEvents
+-- | Creates a value of 'GetCognitoEvents' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gceIdentityPoolId'
+getCognitoEvents
+    :: Text -- ^ 'gceIdentityPoolId'
+    -> GetCognitoEvents
 getCognitoEvents pIdentityPoolId_ =
     GetCognitoEvents'
     { _gceIdentityPoolId = pIdentityPoolId_
@@ -99,19 +101,21 @@ instance ToQuery GetCognitoEvents where
 -- | The response from the GetCognitoEvents request
 --
 -- /See:/ 'getCognitoEventsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gcersEvents'
---
--- * 'gcersStatus'
 data GetCognitoEventsResponse = GetCognitoEventsResponse'
     { _gcersEvents :: !(Maybe (Map Text Text))
     , _gcersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetCognitoEventsResponse' smart constructor.
-getCognitoEventsResponse :: Int -> GetCognitoEventsResponse
+-- | Creates a value of 'GetCognitoEventsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcersEvents'
+--
+-- * 'gcersStatus'
+getCognitoEventsResponse
+    :: Int -- ^ 'gcersStatus'
+    -> GetCognitoEventsResponse
 getCognitoEventsResponse pStatus_ =
     GetCognitoEventsResponse'
     { _gcersEvents = Nothing
@@ -122,6 +126,6 @@ getCognitoEventsResponse pStatus_ =
 gcersEvents :: Lens' GetCognitoEventsResponse (HashMap Text Text)
 gcersEvents = lens _gcersEvents (\ s a -> s{_gcersEvents = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 gcersStatus :: Lens' GetCognitoEventsResponse Int
 gcersStatus = lens _gcersStatus (\ s a -> s{_gcersStatus = a});

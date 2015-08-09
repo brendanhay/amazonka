@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates or updates an access policy associated with an existing
--- @Destination@. An access policy is an
+-- 'Destination'. An access policy is an
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html IAM policy document>
 -- that is used to authorize claims to register a subscription filter
 -- against a given destination.
@@ -28,15 +28,15 @@
 module Network.AWS.CloudWatchLogs.PutDestinationPolicy
     (
     -- * Creating a Request
-      PutDestinationPolicy
-    , putDestinationPolicy
+      putDestinationPolicy
+    , PutDestinationPolicy
     -- * Request Lenses
     , pdpDestinationName
     , pdpAccessPolicy
 
     -- * Destructuring the Response
-    , PutDestinationPolicyResponse
     , putDestinationPolicyResponse
+    , PutDestinationPolicyResponse
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -46,19 +46,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putDestinationPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pdpDestinationName'
---
--- * 'pdpAccessPolicy'
 data PutDestinationPolicy = PutDestinationPolicy'
     { _pdpDestinationName :: !Text
     , _pdpAccessPolicy    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutDestinationPolicy' smart constructor.
-putDestinationPolicy :: Text -> Text -> PutDestinationPolicy
+-- | Creates a value of 'PutDestinationPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pdpDestinationName'
+--
+-- * 'pdpAccessPolicy'
+putDestinationPolicy
+    :: Text -- ^ 'pdpDestinationName'
+    -> Text -- ^ 'pdpAccessPolicy'
+    -> PutDestinationPolicy
 putDestinationPolicy pDestinationName_ pAccessPolicy_ =
     PutDestinationPolicy'
     { _pdpDestinationName = pDestinationName_
@@ -107,6 +110,8 @@ data PutDestinationPolicyResponse =
     PutDestinationPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutDestinationPolicyResponse' smart constructor.
-putDestinationPolicyResponse :: PutDestinationPolicyResponse
+-- | Creates a value of 'PutDestinationPolicyResponse' with the minimum fields required to make a request.
+--
+putDestinationPolicyResponse
+    :: PutDestinationPolicyResponse
 putDestinationPolicyResponse = PutDestinationPolicyResponse'

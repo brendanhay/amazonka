@@ -32,8 +32,8 @@
 module Network.AWS.OpsWorks.DescribeVolumes
     (
     -- * Creating a Request
-      DescribeVolumes
-    , describeVolumes
+      describeVolumes
+    , DescribeVolumes
     -- * Request Lenses
     , dvInstanceId
     , dvVolumeIds
@@ -41,8 +41,8 @@ module Network.AWS.OpsWorks.DescribeVolumes
     , dvStackId
 
     -- * Destructuring the Response
-    , DescribeVolumesResponse
     , describeVolumesResponse
+    , DescribeVolumesResponse
     -- * Response Lenses
     , dvrsVolumes
     , dvrsStatus
@@ -55,8 +55,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeVolumes' smart constructor.
+data DescribeVolumes = DescribeVolumes'
+    { _dvInstanceId  :: !(Maybe Text)
+    , _dvVolumeIds   :: !(Maybe [Text])
+    , _dvRAIdArrayId :: !(Maybe Text)
+    , _dvStackId     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeVolumes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dvInstanceId'
 --
@@ -65,15 +73,8 @@ import           Network.AWS.Response
 -- * 'dvRAIdArrayId'
 --
 -- * 'dvStackId'
-data DescribeVolumes = DescribeVolumes'
-    { _dvInstanceId  :: !(Maybe Text)
-    , _dvVolumeIds   :: !(Maybe [Text])
-    , _dvRAIdArrayId :: !(Maybe Text)
-    , _dvStackId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeVolumes' smart constructor.
-describeVolumes :: DescribeVolumes
+describeVolumes
+    :: DescribeVolumes
 describeVolumes =
     DescribeVolumes'
     { _dvInstanceId = Nothing
@@ -82,18 +83,18 @@ describeVolumes =
     , _dvStackId = Nothing
     }
 
--- | The instance ID. If you use this parameter, @DescribeVolumes@ returns
+-- | The instance ID. If you use this parameter, 'DescribeVolumes' returns
 -- descriptions of the volumes associated with the specified instance.
 dvInstanceId :: Lens' DescribeVolumes (Maybe Text)
 dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a});
 
--- | Am array of volume IDs. If you use this parameter, @DescribeVolumes@
+-- | Am array of volume IDs. If you use this parameter, 'DescribeVolumes'
 -- returns descriptions of the specified volumes. Otherwise, it returns a
 -- description of every volume.
 dvVolumeIds :: Lens' DescribeVolumes [Text]
 dvVolumeIds = lens _dvVolumeIds (\ s a -> s{_dvVolumeIds = a}) . _Default . _Coerce;
 
--- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns
+-- | The RAID array ID. If you use this parameter, 'DescribeVolumes' returns
 -- descriptions of the volumes associated with the specified RAID array.
 dvRAIdArrayId :: Lens' DescribeVolumes (Maybe Text)
 dvRAIdArrayId = lens _dvRAIdArrayId (\ s a -> s{_dvRAIdArrayId = a});
@@ -136,22 +137,24 @@ instance ToPath DescribeVolumes where
 instance ToQuery DescribeVolumes where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeVolumes@ request.
+-- | Contains the response to a 'DescribeVolumes' request.
 --
 -- /See:/ 'describeVolumesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvrsVolumes'
---
--- * 'dvrsStatus'
 data DescribeVolumesResponse = DescribeVolumesResponse'
     { _dvrsVolumes :: !(Maybe [Volume])
     , _dvrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVolumesResponse' smart constructor.
-describeVolumesResponse :: Int -> DescribeVolumesResponse
+-- | Creates a value of 'DescribeVolumesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvrsVolumes'
+--
+-- * 'dvrsStatus'
+describeVolumesResponse
+    :: Int -- ^ 'dvrsStatus'
+    -> DescribeVolumesResponse
 describeVolumesResponse pStatus_ =
     DescribeVolumesResponse'
     { _dvrsVolumes = Nothing
@@ -162,6 +165,6 @@ describeVolumesResponse pStatus_ =
 dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrsVolumes = lens _dvrsVolumes (\ s a -> s{_dvrsVolumes = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dvrsStatus :: Lens' DescribeVolumesResponse Int
 dvrsStatus = lens _dvrsStatus (\ s a -> s{_dvrsStatus = a});

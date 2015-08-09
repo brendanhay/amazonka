@@ -27,14 +27,14 @@
 module Network.AWS.DirectConnect.DescribeConnections
     (
     -- * Creating a Request
-      DescribeConnections
-    , describeConnections
+      describeConnections
+    , DescribeConnections
     -- * Request Lenses
     , dConnectionId
 
     -- * Destructuring the Response
-    , Connections
     , connections
+    , Connections
     -- * Response Lenses
     , cConnections
     ) where
@@ -48,16 +48,17 @@ import           Network.AWS.Response
 -- | Container for the parameters to the DescribeConnections operation.
 --
 -- /See:/ 'describeConnections' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dConnectionId'
 newtype DescribeConnections = DescribeConnections'
     { _dConnectionId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeConnections' smart constructor.
-describeConnections :: DescribeConnections
+-- | Creates a value of 'DescribeConnections' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dConnectionId'
+describeConnections
+    :: DescribeConnections
 describeConnections =
     DescribeConnections'
     { _dConnectionId = Nothing

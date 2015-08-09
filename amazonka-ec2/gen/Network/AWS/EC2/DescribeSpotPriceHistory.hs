@@ -31,11 +31,13 @@
 -- price changed.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotPriceHistory.html AWS API Reference> for DescribeSpotPriceHistory.
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeSpotPriceHistory
     (
     -- * Creating a Request
-      DescribeSpotPriceHistory
-    , describeSpotPriceHistory
+      describeSpotPriceHistory
+    , DescribeSpotPriceHistory
     -- * Request Lenses
     , dsphInstanceTypes
     , dsphStartTime
@@ -48,8 +50,8 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     , dsphMaxResults
 
     -- * Destructuring the Response
-    , DescribeSpotPriceHistoryResponse
     , describeSpotPriceHistoryResponse
+    , DescribeSpotPriceHistoryResponse
     -- * Response Lenses
     , dsphrsNextToken
     , dsphrsSpotPriceHistory
@@ -66,8 +68,21 @@ import           Network.AWS.Response
 -- | Contains the parameters for DescribeSpotPriceHistory.
 --
 -- /See:/ 'describeSpotPriceHistory' smart constructor.
+data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
+    { _dsphInstanceTypes       :: !(Maybe [InstanceType])
+    , _dsphStartTime           :: !(Maybe ISO8601)
+    , _dsphFilters             :: !(Maybe [Filter])
+    , _dsphNextToken           :: !(Maybe Text)
+    , _dsphAvailabilityZone    :: !(Maybe Text)
+    , _dsphEndTime             :: !(Maybe ISO8601)
+    , _dsphProductDescriptions :: !(Maybe [Text])
+    , _dsphDryRun              :: !(Maybe Bool)
+    , _dsphMaxResults          :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeSpotPriceHistory' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsphInstanceTypes'
 --
@@ -86,20 +101,8 @@ import           Network.AWS.Response
 -- * 'dsphDryRun'
 --
 -- * 'dsphMaxResults'
-data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
-    { _dsphInstanceTypes       :: !(Maybe [InstanceType])
-    , _dsphStartTime           :: !(Maybe ISO8601)
-    , _dsphFilters             :: !(Maybe [Filter])
-    , _dsphNextToken           :: !(Maybe Text)
-    , _dsphAvailabilityZone    :: !(Maybe Text)
-    , _dsphEndTime             :: !(Maybe ISO8601)
-    , _dsphProductDescriptions :: !(Maybe [Text])
-    , _dsphDryRun              :: !(Maybe Bool)
-    , _dsphMaxResults          :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeSpotPriceHistory' smart constructor.
-describeSpotPriceHistory :: DescribeSpotPriceHistory
+describeSpotPriceHistory
+    :: DescribeSpotPriceHistory
 describeSpotPriceHistory =
     DescribeSpotPriceHistory'
     { _dsphInstanceTypes = Nothing
@@ -125,20 +128,20 @@ dsphStartTime = lens _dsphStartTime (\ s a -> s{_dsphStartTime = a}) . mapping _
 
 -- | One or more filters.
 --
--- -   @availability-zone@ - The Availability Zone for which prices should
+-- -   'availability-zone' - The Availability Zone for which prices should
 --     be returned.
 --
--- -   @instance-type@ - The type of instance (for example, @m1.small@).
+-- -   'instance-type' - The type of instance (for example, 'm1.small').
 --
--- -   @product-description@ - The product description for the Spot Price
---     (@Linux\/UNIX@ | @SUSE Linux@ | @Windows@ |
---     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux (Amazon VPC)@ |
---     @Windows (Amazon VPC)@).
+-- -   'product-description' - The product description for the Spot Price
+--     ('Linux\/UNIX' | 'SUSE Linux' | 'Windows' |
+--     'Linux\/UNIX (Amazon VPC)' | 'SUSE Linux (Amazon VPC)' |
+--     'Windows (Amazon VPC)').
 --
--- -   @spot-price@ - The Spot Price. The value must match exactly (or use
+-- -   'spot-price' - The Spot Price. The value must match exactly (or use
 --     wildcards; greater than or less than comparison is not supported).
 --
--- -   @timestamp@ - The timestamp of the Spot Price history, in UTC format
+-- -   'timestamp' - The timestamp of the Spot Price history, in UTC format
 --     (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). You can use
 --     wildcards (* and ?). Greater than or less than comparison is not
 --     supported.
@@ -166,14 +169,14 @@ dsphProductDescriptions = lens _dsphProductDescriptions (\ s a -> s{_dsphProduct
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dsphDryRun :: Lens' DescribeSpotPriceHistory (Maybe Bool)
 dsphDryRun = lens _dsphDryRun (\ s a -> s{_dsphDryRun = a});
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
+-- remaining results, make another call with the returned 'NextToken'
 -- value.
 dsphMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Int)
 dsphMaxResults = lens _dsphMaxResults (\ s a -> s{_dsphMaxResults = a});
@@ -227,22 +230,24 @@ instance ToQuery DescribeSpotPriceHistory where
 -- | Contains the output of DescribeSpotPriceHistory.
 --
 -- /See:/ 'describeSpotPriceHistoryResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsphrsNextToken'
---
--- * 'dsphrsSpotPriceHistory'
---
--- * 'dsphrsStatus'
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
     { _dsphrsNextToken        :: !(Maybe Text)
     , _dsphrsSpotPriceHistory :: !(Maybe [SpotPrice])
     , _dsphrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSpotPriceHistoryResponse' smart constructor.
-describeSpotPriceHistoryResponse :: Int -> DescribeSpotPriceHistoryResponse
+-- | Creates a value of 'DescribeSpotPriceHistoryResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsphrsNextToken'
+--
+-- * 'dsphrsSpotPriceHistory'
+--
+-- * 'dsphrsStatus'
+describeSpotPriceHistoryResponse
+    :: Int -- ^ 'dsphrsStatus'
+    -> DescribeSpotPriceHistoryResponse
 describeSpotPriceHistoryResponse pStatus_ =
     DescribeSpotPriceHistoryResponse'
     { _dsphrsNextToken = Nothing
@@ -251,7 +256,7 @@ describeSpotPriceHistoryResponse pStatus_ =
     }
 
 -- | The token required to retrieve the next set of results. This value is
--- @null@ when there are no more results to return.
+-- 'null' when there are no more results to return.
 dsphrsNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
 dsphrsNextToken = lens _dsphrsNextToken (\ s a -> s{_dsphrsNextToken = a});
 
@@ -259,6 +264,6 @@ dsphrsNextToken = lens _dsphrsNextToken (\ s a -> s{_dsphrsNextToken = a});
 dsphrsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphrsSpotPriceHistory = lens _dsphrsSpotPriceHistory (\ s a -> s{_dsphrsSpotPriceHistory = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dsphrsStatus :: Lens' DescribeSpotPriceHistoryResponse Int
 dsphrsStatus = lens _dsphrsStatus (\ s a -> s{_dsphrsStatus = a});

@@ -24,20 +24,20 @@
 -- environment.
 --
 -- Attempting to update both the release and configuration is not allowed
--- and AWS Elastic Beanstalk returns an @InvalidParameterCombination@
+-- and AWS Elastic Beanstalk returns an 'InvalidParameterCombination'
 -- error.
 --
 -- When updating the configuration settings to a new template or individual
 -- settings, a draft configuration is created and
 -- DescribeConfigurationSettings for this environment returns two setting
--- descriptions with different @DeploymentStatus@ values.
+-- descriptions with different 'DeploymentStatus' values.
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateEnvironment.html AWS API Reference> for UpdateEnvironment.
 module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     (
     -- * Creating a Request
-      UpdateEnvironment
-    , updateEnvironment
+      updateEnvironment
+    , UpdateEnvironment
     -- * Request Lenses
     , ueTemplateName
     , ueOptionsToRemove
@@ -50,8 +50,8 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     , ueDescription
 
     -- * Destructuring the Response
-    , EnvironmentDescription
     , environmentDescription
+    , EnvironmentDescription
     -- * Response Lenses
     , eCNAME
     , eStatus
@@ -80,8 +80,21 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'updateEnvironment' smart constructor.
+data UpdateEnvironment = UpdateEnvironment'
+    { _ueTemplateName      :: !(Maybe Text)
+    , _ueOptionsToRemove   :: !(Maybe [OptionSpecification])
+    , _ueOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
+    , _ueVersionLabel      :: !(Maybe Text)
+    , _ueTier              :: !(Maybe EnvironmentTier)
+    , _ueEnvironmentName   :: !(Maybe Text)
+    , _ueEnvironmentId     :: !(Maybe Text)
+    , _ueSolutionStackName :: !(Maybe Text)
+    , _ueDescription       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateEnvironment' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ueTemplateName'
 --
@@ -100,20 +113,8 @@ import           Network.AWS.Response
 -- * 'ueSolutionStackName'
 --
 -- * 'ueDescription'
-data UpdateEnvironment = UpdateEnvironment'
-    { _ueTemplateName      :: !(Maybe Text)
-    , _ueOptionsToRemove   :: !(Maybe [OptionSpecification])
-    , _ueOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
-    , _ueVersionLabel      :: !(Maybe Text)
-    , _ueTier              :: !(Maybe EnvironmentTier)
-    , _ueEnvironmentName   :: !(Maybe Text)
-    , _ueEnvironmentId     :: !(Maybe Text)
-    , _ueSolutionStackName :: !(Maybe Text)
-    , _ueDescription       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateEnvironment' smart constructor.
-updateEnvironment :: UpdateEnvironment
+updateEnvironment
+    :: UpdateEnvironment
 updateEnvironment =
     UpdateEnvironment'
     { _ueTemplateName = Nothing
@@ -130,7 +131,7 @@ updateEnvironment =
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys this
 -- configuration template to the environment. If no such configuration
 -- template is found, AWS Elastic Beanstalk returns an
--- @InvalidParameterValue@ error.
+-- 'InvalidParameterValue' error.
 ueTemplateName :: Lens' UpdateEnvironment (Maybe Text)
 ueTemplateName = lens _ueTemplateName (\ s a -> s{_ueTemplateName = a});
 
@@ -147,34 +148,34 @@ ueOptionSettings = lens _ueOptionSettings (\ s a -> s{_ueOptionSettings = a}) . 
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys the named
 -- application version to the environment. If no such application version
--- is found, returns an @InvalidParameterValue@ error.
+-- is found, returns an 'InvalidParameterValue' error.
 ueVersionLabel :: Lens' UpdateEnvironment (Maybe Text)
 ueVersionLabel = lens _ueVersionLabel (\ s a -> s{_ueVersionLabel = a});
 
 -- | This specifies the tier to use to update the environment.
 --
 -- Condition: At this time, if you change the tier version, name, or type,
--- AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
+-- AWS Elastic Beanstalk returns 'InvalidParameterValue' error.
 ueTier :: Lens' UpdateEnvironment (Maybe EnvironmentTier)
 ueTier = lens _ueTier (\ s a -> s{_ueTier = a});
 
 -- | The name of the environment to update. If no environment with this name
--- exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
+-- exists, AWS Elastic Beanstalk returns an 'InvalidParameterValue' error.
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
+-- 'MissingRequiredParameter' error.
 ueEnvironmentName :: Lens' UpdateEnvironment (Maybe Text)
 ueEnvironmentName = lens _ueEnvironmentName (\ s a -> s{_ueEnvironmentName = a});
 
 -- | The ID of the environment to update.
 --
 -- If no environment with this ID exists, AWS Elastic Beanstalk returns an
--- @InvalidParameterValue@ error.
+-- 'InvalidParameterValue' error.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
+-- 'MissingRequiredParameter' error.
 ueEnvironmentId :: Lens' UpdateEnvironment (Maybe Text)
 ueEnvironmentId = lens _ueEnvironmentId (\ s a -> s{_ueEnvironmentId = a});
 

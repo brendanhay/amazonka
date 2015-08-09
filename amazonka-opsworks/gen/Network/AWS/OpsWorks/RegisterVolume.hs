@@ -34,15 +34,15 @@
 module Network.AWS.OpsWorks.RegisterVolume
     (
     -- * Creating a Request
-      RegisterVolume
-    , registerVolume
+      registerVolume
+    , RegisterVolume
     -- * Request Lenses
     , rvEC2VolumeId
     , rvStackId
 
     -- * Destructuring the Response
-    , RegisterVolumeResponse
     , registerVolumeResponse
+    , RegisterVolumeResponse
     -- * Response Lenses
     , rvrsVolumeId
     , rvrsStatus
@@ -55,19 +55,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'registerVolume' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rvEC2VolumeId'
---
--- * 'rvStackId'
 data RegisterVolume = RegisterVolume'
     { _rvEC2VolumeId :: !(Maybe Text)
     , _rvStackId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterVolume' smart constructor.
-registerVolume :: Text -> RegisterVolume
+-- | Creates a value of 'RegisterVolume' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rvEC2VolumeId'
+--
+-- * 'rvStackId'
+registerVolume
+    :: Text -- ^ 'rvStackId'
+    -> RegisterVolume
 registerVolume pStackId_ =
     RegisterVolume'
     { _rvEC2VolumeId = Nothing
@@ -113,22 +115,24 @@ instance ToPath RegisterVolume where
 instance ToQuery RegisterVolume where
         toQuery = const mempty
 
--- | Contains the response to a @RegisterVolume@ request.
+-- | Contains the response to a 'RegisterVolume' request.
 --
 -- /See:/ 'registerVolumeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rvrsVolumeId'
---
--- * 'rvrsStatus'
 data RegisterVolumeResponse = RegisterVolumeResponse'
     { _rvrsVolumeId :: !(Maybe Text)
     , _rvrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterVolumeResponse' smart constructor.
-registerVolumeResponse :: Int -> RegisterVolumeResponse
+-- | Creates a value of 'RegisterVolumeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rvrsVolumeId'
+--
+-- * 'rvrsStatus'
+registerVolumeResponse
+    :: Int -- ^ 'rvrsStatus'
+    -> RegisterVolumeResponse
 registerVolumeResponse pStatus_ =
     RegisterVolumeResponse'
     { _rvrsVolumeId = Nothing
@@ -139,6 +143,6 @@ registerVolumeResponse pStatus_ =
 rvrsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
 rvrsVolumeId = lens _rvrsVolumeId (\ s a -> s{_rvrsVolumeId = a});
 
--- | Undocumented member.
+-- | The response status code.
 rvrsStatus :: Lens' RegisterVolumeResponse Int
 rvrsStatus = lens _rvrsStatus (\ s a -> s{_rvrsStatus = a});

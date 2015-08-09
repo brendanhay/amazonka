@@ -24,15 +24,15 @@
 module Network.AWS.DeviceFarm.ListJobs
     (
     -- * Creating a Request
-      ListJobs
-    , listJobs
+      listJobs
+    , ListJobs
     -- * Request Lenses
     , ljNextToken
     , ljArn
 
     -- * Destructuring the Response
-    , ListJobsResponse
     , listJobsResponse
+    , ListJobsResponse
     -- * Response Lenses
     , ljrsJobs
     , ljrsNextToken
@@ -48,19 +48,21 @@ import           Network.AWS.Response
 -- | Represents a request to the list jobs operation.
 --
 -- /See:/ 'listJobs' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ljNextToken'
---
--- * 'ljArn'
 data ListJobs = ListJobs'
     { _ljNextToken :: !(Maybe Text)
     , _ljArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListJobs' smart constructor.
-listJobs :: Text -> ListJobs
+-- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ljNextToken'
+--
+-- * 'ljArn'
+listJobs
+    :: Text -- ^ 'ljArn'
+    -> ListJobs
 listJobs pArn_ =
     ListJobs'
     { _ljNextToken = Nothing
@@ -111,22 +113,24 @@ instance ToQuery ListJobs where
 -- | Represents the result of a list jobs request.
 --
 -- /See:/ 'listJobsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ljrsJobs'
---
--- * 'ljrsNextToken'
---
--- * 'ljrsStatus'
 data ListJobsResponse = ListJobsResponse'
     { _ljrsJobs      :: !(Maybe [Job])
     , _ljrsNextToken :: !(Maybe Text)
     , _ljrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListJobsResponse' smart constructor.
-listJobsResponse :: Int -> ListJobsResponse
+-- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ljrsJobs'
+--
+-- * 'ljrsNextToken'
+--
+-- * 'ljrsStatus'
+listJobsResponse
+    :: Int -- ^ 'ljrsStatus'
+    -> ListJobsResponse
 listJobsResponse pStatus_ =
     ListJobsResponse'
     { _ljrsJobs = Nothing
@@ -144,6 +148,6 @@ ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
 ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
 ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 ljrsStatus :: Lens' ListJobsResponse Int
 ljrsStatus = lens _ljrsStatus (\ s a -> s{_ljrsStatus = a});

@@ -21,11 +21,13 @@
 -- Returns a list of the available DB engines.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBEngineVersions.html AWS API Reference> for DescribeDBEngineVersions.
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeDBEngineVersions
     (
     -- * Creating a Request
-      DescribeDBEngineVersions
-    , describeDBEngineVersions
+      describeDBEngineVersions
+    , DescribeDBEngineVersions
     -- * Request Lenses
     , ddevEngineVersion
     , ddevDefaultOnly
@@ -37,8 +39,8 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     , ddevMarker
 
     -- * Destructuring the Response
-    , DescribeDBEngineVersionsResponse
     , describeDBEngineVersionsResponse
+    , DescribeDBEngineVersionsResponse
     -- * Response Lenses
     , ddevrsMarker
     , ddevrsDBEngineVersions
@@ -53,8 +55,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeDBEngineVersions' smart constructor.
+data DescribeDBEngineVersions = DescribeDBEngineVersions'
+    { _ddevEngineVersion              :: !(Maybe Text)
+    , _ddevDefaultOnly                :: !(Maybe Bool)
+    , _ddevFilters                    :: !(Maybe [Filter])
+    , _ddevEngine                     :: !(Maybe Text)
+    , _ddevDBParameterGroupFamily     :: !(Maybe Text)
+    , _ddevListSupportedCharacterSets :: !(Maybe Bool)
+    , _ddevMaxRecords                 :: !(Maybe Int)
+    , _ddevMarker                     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeDBEngineVersions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ddevEngineVersion'
 --
@@ -71,19 +85,8 @@ import           Network.AWS.Response
 -- * 'ddevMaxRecords'
 --
 -- * 'ddevMarker'
-data DescribeDBEngineVersions = DescribeDBEngineVersions'
-    { _ddevEngineVersion              :: !(Maybe Text)
-    , _ddevDefaultOnly                :: !(Maybe Bool)
-    , _ddevFilters                    :: !(Maybe [Filter])
-    , _ddevEngine                     :: !(Maybe Text)
-    , _ddevDBParameterGroupFamily     :: !(Maybe Text)
-    , _ddevListSupportedCharacterSets :: !(Maybe Bool)
-    , _ddevMaxRecords                 :: !(Maybe Int)
-    , _ddevMarker                     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeDBEngineVersions' smart constructor.
-describeDBEngineVersions :: DescribeDBEngineVersions
+describeDBEngineVersions
+    :: DescribeDBEngineVersions
 describeDBEngineVersions =
     DescribeDBEngineVersions'
     { _ddevEngineVersion = Nothing
@@ -98,7 +101,7 @@ describeDBEngineVersions =
 
 -- | The database engine version to return.
 --
--- Example: @5.1.49@
+-- Example: '5.1.49'
 ddevEngineVersion :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddevEngineVersion = lens _ddevEngineVersion (\ s a -> s{_ddevEngineVersion = a});
 
@@ -132,7 +135,7 @@ ddevListSupportedCharacterSets :: Lens' DescribeDBEngineVersions (Maybe Bool)
 ddevListSupportedCharacterSets = lens _ddevListSupportedCharacterSets (\ s a -> s{_ddevListSupportedCharacterSets = a});
 
 -- | The maximum number of records to include in the response. If more than
--- the @MaxRecords@ value is available, a pagination token called a marker
+-- the 'MaxRecords' value is available, a pagination token called a marker
 -- is included in the response so that the following results can be
 -- retrieved.
 --
@@ -144,7 +147,7 @@ ddevMaxRecords = lens _ddevMaxRecords (\ s a -> s{_ddevMaxRecords = a});
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- marker, up to the value specified by 'MaxRecords'.
 ddevMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
 ddevMarker = lens _ddevMarker (\ s a -> s{_ddevMarker = a});
 
@@ -197,22 +200,24 @@ instance ToQuery DescribeDBEngineVersions where
 -- DescribeDBEngineVersions action.
 --
 -- /See:/ 'describeDBEngineVersionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddevrsMarker'
---
--- * 'ddevrsDBEngineVersions'
---
--- * 'ddevrsStatus'
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
     { _ddevrsMarker           :: !(Maybe Text)
     , _ddevrsDBEngineVersions :: !(Maybe [DBEngineVersion])
     , _ddevrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDBEngineVersionsResponse' smart constructor.
-describeDBEngineVersionsResponse :: Int -> DescribeDBEngineVersionsResponse
+-- | Creates a value of 'DescribeDBEngineVersionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddevrsMarker'
+--
+-- * 'ddevrsDBEngineVersions'
+--
+-- * 'ddevrsStatus'
+describeDBEngineVersionsResponse
+    :: Int -- ^ 'ddevrsStatus'
+    -> DescribeDBEngineVersionsResponse
 describeDBEngineVersionsResponse pStatus_ =
     DescribeDBEngineVersionsResponse'
     { _ddevrsMarker = Nothing
@@ -222,14 +227,14 @@ describeDBEngineVersionsResponse pStatus_ =
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- marker, up to the value specified by 'MaxRecords'.
 ddevrsMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
 ddevrsMarker = lens _ddevrsMarker (\ s a -> s{_ddevrsMarker = a});
 
--- | A list of @DBEngineVersion@ elements.
+-- | A list of 'DBEngineVersion' elements.
 ddevrsDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
 ddevrsDBEngineVersions = lens _ddevrsDBEngineVersions (\ s a -> s{_ddevrsDBEngineVersions = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ddevrsStatus :: Lens' DescribeDBEngineVersionsResponse Int
 ddevrsStatus = lens _ddevrsStatus (\ s a -> s{_ddevrsStatus = a});

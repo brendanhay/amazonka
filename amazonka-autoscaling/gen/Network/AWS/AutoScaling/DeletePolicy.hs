@@ -24,15 +24,15 @@
 module Network.AWS.AutoScaling.DeletePolicy
     (
     -- * Creating a Request
-      DeletePolicy
-    , deletePolicy
+      deletePolicy
+    , DeletePolicy
     -- * Request Lenses
     , dpAutoScalingGroupName
     , dpPolicyName
 
     -- * Destructuring the Response
-    , DeletePolicyResponse
     , deletePolicyResponse
+    , DeletePolicyResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -44,19 +44,21 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deletePolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpAutoScalingGroupName'
---
--- * 'dpPolicyName'
 data DeletePolicy = DeletePolicy'
     { _dpAutoScalingGroupName :: !(Maybe Text)
     , _dpPolicyName           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePolicy' smart constructor.
-deletePolicy :: Text -> DeletePolicy
+-- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpAutoScalingGroupName'
+--
+-- * 'dpPolicyName'
+deletePolicy
+    :: Text -- ^ 'dpPolicyName'
+    -> DeletePolicy
 deletePolicy pPolicyName_ =
     DeletePolicy'
     { _dpAutoScalingGroupName = Nothing
@@ -96,6 +98,8 @@ data DeletePolicyResponse =
     DeletePolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePolicyResponse' smart constructor.
-deletePolicyResponse :: DeletePolicyResponse
+-- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
+--
+deletePolicyResponse
+    :: DeletePolicyResponse
 deletePolicyResponse = DeletePolicyResponse'

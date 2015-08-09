@@ -33,15 +33,15 @@
 module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     (
     -- * Creating a Request
-      DeregisterInstancesFromLoadBalancer
-    , deregisterInstancesFromLoadBalancer
+      deregisterInstancesFromLoadBalancer
+    , DeregisterInstancesFromLoadBalancer
     -- * Request Lenses
     , diflbLoadBalancerName
     , diflbInstances
 
     -- * Destructuring the Response
-    , DeregisterInstancesFromLoadBalancerResponse
     , deregisterInstancesFromLoadBalancerResponse
+    , DeregisterInstancesFromLoadBalancerResponse
     -- * Response Lenses
     , diflbrsInstances
     , diflbrsStatus
@@ -54,19 +54,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deregisterInstancesFromLoadBalancer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diflbLoadBalancerName'
---
--- * 'diflbInstances'
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
     { _diflbLoadBalancerName :: !Text
     , _diflbInstances        :: ![Instance]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterInstancesFromLoadBalancer' smart constructor.
-deregisterInstancesFromLoadBalancer :: Text -> DeregisterInstancesFromLoadBalancer
+-- | Creates a value of 'DeregisterInstancesFromLoadBalancer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diflbLoadBalancerName'
+--
+-- * 'diflbInstances'
+deregisterInstancesFromLoadBalancer
+    :: Text -- ^ 'diflbLoadBalancerName'
+    -> DeregisterInstancesFromLoadBalancer
 deregisterInstancesFromLoadBalancer pLoadBalancerName_ =
     DeregisterInstancesFromLoadBalancer'
     { _diflbLoadBalancerName = pLoadBalancerName_
@@ -116,19 +118,21 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
                "Instances" =: toQueryList "member" _diflbInstances]
 
 -- | /See:/ 'deregisterInstancesFromLoadBalancerResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diflbrsInstances'
---
--- * 'diflbrsStatus'
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
     { _diflbrsInstances :: !(Maybe [Instance])
     , _diflbrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterInstancesFromLoadBalancerResponse' smart constructor.
-deregisterInstancesFromLoadBalancerResponse :: Int -> DeregisterInstancesFromLoadBalancerResponse
+-- | Creates a value of 'DeregisterInstancesFromLoadBalancerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diflbrsInstances'
+--
+-- * 'diflbrsStatus'
+deregisterInstancesFromLoadBalancerResponse
+    :: Int -- ^ 'diflbrsStatus'
+    -> DeregisterInstancesFromLoadBalancerResponse
 deregisterInstancesFromLoadBalancerResponse pStatus_ =
     DeregisterInstancesFromLoadBalancerResponse'
     { _diflbrsInstances = Nothing
@@ -139,6 +143,6 @@ deregisterInstancesFromLoadBalancerResponse pStatus_ =
 diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
 diflbrsInstances = lens _diflbrsInstances (\ s a -> s{_diflbrsInstances = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 diflbrsStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
 diflbrsStatus = lens _diflbrsStatus (\ s a -> s{_diflbrsStatus = a});

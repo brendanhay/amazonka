@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the available AWS OpsWorks agent versions. You must specify a
--- stack ID or a configuration manager. @DescribeAgentVersions@ returns a
+-- stack ID or a configuration manager. 'DescribeAgentVersions' returns a
 -- list of available agent versions for the specified stack or
 -- configuration manager.
 --
@@ -27,15 +27,15 @@
 module Network.AWS.OpsWorks.DescribeAgentVersions
     (
     -- * Creating a Request
-      DescribeAgentVersions
-    , describeAgentVersions
+      describeAgentVersions
+    , DescribeAgentVersions
     -- * Request Lenses
     , davConfigurationManager
     , davStackId
 
     -- * Destructuring the Response
-    , DescribeAgentVersionsResponse
     , describeAgentVersionsResponse
+    , DescribeAgentVersionsResponse
     -- * Response Lenses
     , davrsAgentVersions
     , davrsStatus
@@ -48,19 +48,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeAgentVersions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'davConfigurationManager'
---
--- * 'davStackId'
 data DescribeAgentVersions = DescribeAgentVersions'
     { _davConfigurationManager :: !(Maybe StackConfigurationManager)
     , _davStackId              :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAgentVersions' smart constructor.
-describeAgentVersions :: DescribeAgentVersions
+-- | Creates a value of 'DescribeAgentVersions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'davConfigurationManager'
+--
+-- * 'davStackId'
+describeAgentVersions
+    :: DescribeAgentVersions
 describeAgentVersions =
     DescribeAgentVersions'
     { _davConfigurationManager = Nothing
@@ -109,22 +110,24 @@ instance ToPath DescribeAgentVersions where
 instance ToQuery DescribeAgentVersions where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeAgentVersions@ request.
+-- | Contains the response to a 'DescribeAgentVersions' request.
 --
 -- /See:/ 'describeAgentVersionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'davrsAgentVersions'
---
--- * 'davrsStatus'
 data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
     { _davrsAgentVersions :: !(Maybe [AgentVersion])
     , _davrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAgentVersionsResponse' smart constructor.
-describeAgentVersionsResponse :: Int -> DescribeAgentVersionsResponse
+-- | Creates a value of 'DescribeAgentVersionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'davrsAgentVersions'
+--
+-- * 'davrsStatus'
+describeAgentVersionsResponse
+    :: Int -- ^ 'davrsStatus'
+    -> DescribeAgentVersionsResponse
 describeAgentVersionsResponse pStatus_ =
     DescribeAgentVersionsResponse'
     { _davrsAgentVersions = Nothing
@@ -137,6 +140,6 @@ describeAgentVersionsResponse pStatus_ =
 davrsAgentVersions :: Lens' DescribeAgentVersionsResponse [AgentVersion]
 davrsAgentVersions = lens _davrsAgentVersions (\ s a -> s{_davrsAgentVersions = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 davrsStatus :: Lens' DescribeAgentVersionsResponse Int
 davrsStatus = lens _davrsStatus (\ s a -> s{_davrsStatus = a});

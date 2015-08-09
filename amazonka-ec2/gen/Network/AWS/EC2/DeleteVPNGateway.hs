@@ -28,15 +28,15 @@
 module Network.AWS.EC2.DeleteVPNGateway
     (
     -- * Creating a Request
-      DeleteVPNGateway
-    , deleteVPNGateway
+      deleteVPNGateway
+    , DeleteVPNGateway
     -- * Request Lenses
     , dvgDryRun
     , dvgVPNGatewayId
 
     -- * Destructuring the Response
-    , DeleteVPNGatewayResponse
     , deleteVPNGatewayResponse
+    , DeleteVPNGatewayResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -46,19 +46,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPNGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvgDryRun'
---
--- * 'dvgVPNGatewayId'
 data DeleteVPNGateway = DeleteVPNGateway'
     { _dvgDryRun       :: !(Maybe Bool)
     , _dvgVPNGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVPNGateway' smart constructor.
-deleteVPNGateway :: Text -> DeleteVPNGateway
+-- | Creates a value of 'DeleteVPNGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvgDryRun'
+--
+-- * 'dvgVPNGatewayId'
+deleteVPNGateway
+    :: Text -- ^ 'dvgVPNGatewayId'
+    -> DeleteVPNGateway
 deleteVPNGateway pVPNGatewayId_ =
     DeleteVPNGateway'
     { _dvgDryRun = Nothing
@@ -67,8 +69,8 @@ deleteVPNGateway pVPNGatewayId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dvgDryRun :: Lens' DeleteVPNGateway (Maybe Bool)
 dvgDryRun = lens _dvgDryRun (\ s a -> s{_dvgDryRun = a});
 
@@ -101,6 +103,8 @@ data DeleteVPNGatewayResponse =
     DeleteVPNGatewayResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVPNGatewayResponse' smart constructor.
-deleteVPNGatewayResponse :: DeleteVPNGatewayResponse
+-- | Creates a value of 'DeleteVPNGatewayResponse' with the minimum fields required to make a request.
+--
+deleteVPNGatewayResponse
+    :: DeleteVPNGatewayResponse
 deleteVPNGatewayResponse = DeleteVPNGatewayResponse'

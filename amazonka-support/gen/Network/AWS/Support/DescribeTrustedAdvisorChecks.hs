@@ -28,14 +28,14 @@
 module Network.AWS.Support.DescribeTrustedAdvisorChecks
     (
     -- * Creating a Request
-      DescribeTrustedAdvisorChecks
-    , describeTrustedAdvisorChecks
+      describeTrustedAdvisorChecks
+    , DescribeTrustedAdvisorChecks
     -- * Request Lenses
     , dtacLanguage
 
     -- * Destructuring the Response
-    , DescribeTrustedAdvisorChecksResponse
     , describeTrustedAdvisorChecksResponse
+    , DescribeTrustedAdvisorChecksResponse
     -- * Response Lenses
     , dtacrsStatus
     , dtacrsChecks
@@ -48,16 +48,18 @@ import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
 -- | /See:/ 'describeTrustedAdvisorChecks' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtacLanguage'
 newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks'
     { _dtacLanguage :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTrustedAdvisorChecks' smart constructor.
-describeTrustedAdvisorChecks :: Text -> DescribeTrustedAdvisorChecks
+-- | Creates a value of 'DescribeTrustedAdvisorChecks' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtacLanguage'
+describeTrustedAdvisorChecks
+    :: Text -- ^ 'dtacLanguage'
+    -> DescribeTrustedAdvisorChecks
 describeTrustedAdvisorChecks pLanguage_ =
     DescribeTrustedAdvisorChecks'
     { _dtacLanguage = pLanguage_
@@ -106,26 +108,28 @@ instance ToQuery DescribeTrustedAdvisorChecks where
 -- DescribeTrustedAdvisorChecks operation.
 --
 -- /See:/ 'describeTrustedAdvisorChecksResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtacrsStatus'
---
--- * 'dtacrsChecks'
 data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'
     { _dtacrsStatus :: !Int
     , _dtacrsChecks :: ![TrustedAdvisorCheckDescription]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTrustedAdvisorChecksResponse' smart constructor.
-describeTrustedAdvisorChecksResponse :: Int -> DescribeTrustedAdvisorChecksResponse
+-- | Creates a value of 'DescribeTrustedAdvisorChecksResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtacrsStatus'
+--
+-- * 'dtacrsChecks'
+describeTrustedAdvisorChecksResponse
+    :: Int -- ^ 'dtacrsStatus'
+    -> DescribeTrustedAdvisorChecksResponse
 describeTrustedAdvisorChecksResponse pStatus_ =
     DescribeTrustedAdvisorChecksResponse'
     { _dtacrsStatus = pStatus_
     , _dtacrsChecks = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 dtacrsStatus :: Lens' DescribeTrustedAdvisorChecksResponse Int
 dtacrsStatus = lens _dtacrsStatus (\ s a -> s{_dtacrsStatus = a});
 

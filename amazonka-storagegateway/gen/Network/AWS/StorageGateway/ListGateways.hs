@@ -32,18 +32,20 @@
 -- next page of gateways.
 --
 -- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListGateways.html AWS API Reference> for ListGateways.
+--
+-- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListGateways
     (
     -- * Creating a Request
-      ListGateways
-    , listGateways
+      listGateways
+    , ListGateways
     -- * Request Lenses
     , lgMarker
     , lgLimit
 
     -- * Destructuring the Response
-    , ListGatewaysResponse
     , listGatewaysResponse
+    , ListGatewaysResponse
     -- * Response Lenses
     , lgrsMarker
     , lgrsGateways
@@ -63,19 +65,20 @@ import           Network.AWS.StorageGateway.Types.Product
 -- -   ListGatewaysInput$Marker
 --
 -- /See:/ 'listGateways' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lgMarker'
---
--- * 'lgLimit'
 data ListGateways = ListGateways'
     { _lgMarker :: !(Maybe Text)
     , _lgLimit  :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListGateways' smart constructor.
-listGateways :: ListGateways
+-- | Creates a value of 'ListGateways' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lgMarker'
+--
+-- * 'lgLimit'
+listGateways
+    :: ListGateways
 listGateways =
     ListGateways'
     { _lgMarker = Nothing
@@ -131,22 +134,24 @@ instance ToQuery ListGateways where
         toQuery = const mempty
 
 -- | /See:/ 'listGatewaysResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lgrsMarker'
---
--- * 'lgrsGateways'
---
--- * 'lgrsStatus'
 data ListGatewaysResponse = ListGatewaysResponse'
     { _lgrsMarker   :: !(Maybe Text)
     , _lgrsGateways :: !(Maybe [GatewayInfo])
     , _lgrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListGatewaysResponse' smart constructor.
-listGatewaysResponse :: Int -> ListGatewaysResponse
+-- | Creates a value of 'ListGatewaysResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lgrsMarker'
+--
+-- * 'lgrsGateways'
+--
+-- * 'lgrsStatus'
+listGatewaysResponse
+    :: Int -- ^ 'lgrsStatus'
+    -> ListGatewaysResponse
 listGatewaysResponse pStatus_ =
     ListGatewaysResponse'
     { _lgrsMarker = Nothing
@@ -162,6 +167,6 @@ lgrsMarker = lens _lgrsMarker (\ s a -> s{_lgrsMarker = a});
 lgrsGateways :: Lens' ListGatewaysResponse [GatewayInfo]
 lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lgrsStatus :: Lens' ListGatewaysResponse Int
 lgrsStatus = lens _lgrsStatus (\ s a -> s{_lgrsStatus = a});

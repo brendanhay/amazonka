@@ -33,14 +33,14 @@
 module Network.AWS.OpsWorks.UnassignInstance
     (
     -- * Creating a Request
-      UnassignInstance
-    , unassignInstance
+      unassignInstance
+    , UnassignInstance
     -- * Request Lenses
     , uInstanceId
 
     -- * Destructuring the Response
-    , UnassignInstanceResponse
     , unassignInstanceResponse
+    , UnassignInstanceResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -50,16 +50,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'unassignInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uInstanceId'
 newtype UnassignInstance = UnassignInstance'
     { _uInstanceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnassignInstance' smart constructor.
-unassignInstance :: Text -> UnassignInstance
+-- | Creates a value of 'UnassignInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uInstanceId'
+unassignInstance
+    :: Text -- ^ 'uInstanceId'
+    -> UnassignInstance
 unassignInstance pInstanceId_ =
     UnassignInstance'
     { _uInstanceId = pInstanceId_
@@ -99,6 +101,8 @@ data UnassignInstanceResponse =
     UnassignInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnassignInstanceResponse' smart constructor.
-unassignInstanceResponse :: UnassignInstanceResponse
+-- | Creates a value of 'UnassignInstanceResponse' with the minimum fields required to make a request.
+--
+unassignInstanceResponse
+    :: UnassignInstanceResponse
 unassignInstanceResponse = UnassignInstanceResponse'

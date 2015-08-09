@@ -14,9 +14,9 @@
 -- You use the AmazonCloudSearch2013 API to upload documents to a search
 -- domain and search those documents.
 --
--- The endpoints for submitting @UploadDocuments@, @Search@, and @Suggest@
+-- The endpoints for submitting 'UploadDocuments', 'Search', and 'Suggest'
 -- requests are domain-specific. To get the endpoints for your domain, use
--- the Amazon CloudSearch configuration service @DescribeDomains@ action.
+-- the Amazon CloudSearch configuration service 'DescribeDomains' action.
 -- The domain endpoints are also displayed on the domain dashboard in the
 -- Amazon CloudSearch console. You submit suggest requests to the search
 -- endpoint.
@@ -155,8 +155,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

@@ -30,15 +30,15 @@
 module Network.AWS.StorageGateway.AddUploadBuffer
     (
     -- * Creating a Request
-      AddUploadBuffer
-    , addUploadBuffer
+      addUploadBuffer
+    , AddUploadBuffer
     -- * Request Lenses
     , aubGatewayARN
     , aubDiskIds
 
     -- * Destructuring the Response
-    , AddUploadBufferResponse
     , addUploadBufferResponse
+    , AddUploadBufferResponse
     -- * Response Lenses
     , aubrsGatewayARN
     , aubrsStatus
@@ -51,19 +51,21 @@ import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'addUploadBuffer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aubGatewayARN'
---
--- * 'aubDiskIds'
 data AddUploadBuffer = AddUploadBuffer'
     { _aubGatewayARN :: !Text
     , _aubDiskIds    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddUploadBuffer' smart constructor.
-addUploadBuffer :: Text -> AddUploadBuffer
+-- | Creates a value of 'AddUploadBuffer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aubGatewayARN'
+--
+-- * 'aubDiskIds'
+addUploadBuffer
+    :: Text -- ^ 'aubGatewayARN'
+    -> AddUploadBuffer
 addUploadBuffer pGatewayARN_ =
     AddUploadBuffer'
     { _aubGatewayARN = pGatewayARN_
@@ -111,19 +113,21 @@ instance ToQuery AddUploadBuffer where
         toQuery = const mempty
 
 -- | /See:/ 'addUploadBufferResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aubrsGatewayARN'
---
--- * 'aubrsStatus'
 data AddUploadBufferResponse = AddUploadBufferResponse'
     { _aubrsGatewayARN :: !(Maybe Text)
     , _aubrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddUploadBufferResponse' smart constructor.
-addUploadBufferResponse :: Int -> AddUploadBufferResponse
+-- | Creates a value of 'AddUploadBufferResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aubrsGatewayARN'
+--
+-- * 'aubrsStatus'
+addUploadBufferResponse
+    :: Int -- ^ 'aubrsStatus'
+    -> AddUploadBufferResponse
 addUploadBufferResponse pStatus_ =
     AddUploadBufferResponse'
     { _aubrsGatewayARN = Nothing
@@ -134,6 +138,6 @@ addUploadBufferResponse pStatus_ =
 aubrsGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 aubrsGatewayARN = lens _aubrsGatewayARN (\ s a -> s{_aubrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 aubrsStatus :: Lens' AddUploadBufferResponse Int
 aubrsStatus = lens _aubrsStatus (\ s a -> s{_aubrsStatus = a});

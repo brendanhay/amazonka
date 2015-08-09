@@ -33,14 +33,14 @@
 module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
     (
     -- * Creating a Request
-      DescribeTimeBasedAutoScaling
-    , describeTimeBasedAutoScaling
+      describeTimeBasedAutoScaling
+    , DescribeTimeBasedAutoScaling
     -- * Request Lenses
     , dtbasInstanceIds
 
     -- * Destructuring the Response
-    , DescribeTimeBasedAutoScalingResponse
     , describeTimeBasedAutoScalingResponse
+    , DescribeTimeBasedAutoScalingResponse
     -- * Response Lenses
     , dtbasrsTimeBasedAutoScalingConfigurations
     , dtbasrsStatus
@@ -53,16 +53,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeTimeBasedAutoScaling' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtbasInstanceIds'
 newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'
     { _dtbasInstanceIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTimeBasedAutoScaling' smart constructor.
-describeTimeBasedAutoScaling :: DescribeTimeBasedAutoScaling
+-- | Creates a value of 'DescribeTimeBasedAutoScaling' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtbasInstanceIds'
+describeTimeBasedAutoScaling
+    :: DescribeTimeBasedAutoScaling
 describeTimeBasedAutoScaling =
     DescribeTimeBasedAutoScaling'
     { _dtbasInstanceIds = mempty
@@ -106,33 +107,35 @@ instance ToPath DescribeTimeBasedAutoScaling where
 instance ToQuery DescribeTimeBasedAutoScaling where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeTimeBasedAutoScaling@ request.
+-- | Contains the response to a 'DescribeTimeBasedAutoScaling' request.
 --
 -- /See:/ 'describeTimeBasedAutoScalingResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtbasrsTimeBasedAutoScalingConfigurations'
---
--- * 'dtbasrsStatus'
 data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'
     { _dtbasrsTimeBasedAutoScalingConfigurations :: !(Maybe [TimeBasedAutoScalingConfiguration])
     , _dtbasrsStatus                             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTimeBasedAutoScalingResponse' smart constructor.
-describeTimeBasedAutoScalingResponse :: Int -> DescribeTimeBasedAutoScalingResponse
+-- | Creates a value of 'DescribeTimeBasedAutoScalingResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtbasrsTimeBasedAutoScalingConfigurations'
+--
+-- * 'dtbasrsStatus'
+describeTimeBasedAutoScalingResponse
+    :: Int -- ^ 'dtbasrsStatus'
+    -> DescribeTimeBasedAutoScalingResponse
 describeTimeBasedAutoScalingResponse pStatus_ =
     DescribeTimeBasedAutoScalingResponse'
     { _dtbasrsTimeBasedAutoScalingConfigurations = Nothing
     , _dtbasrsStatus = pStatus_
     }
 
--- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe
+-- | An array of 'TimeBasedAutoScalingConfiguration' objects that describe
 -- the configuration for the specified instances.
 dtbasrsTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
 dtbasrsTimeBasedAutoScalingConfigurations = lens _dtbasrsTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrsTimeBasedAutoScalingConfigurations = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dtbasrsStatus :: Lens' DescribeTimeBasedAutoScalingResponse Int
 dtbasrsStatus = lens _dtbasrsStatus (\ s a -> s{_dtbasrsStatus = a});

@@ -49,16 +49,16 @@
 module Network.AWS.Glacier.DeleteArchive
     (
     -- * Creating a Request
-      DeleteArchive
-    , deleteArchive
+      deleteArchive
+    , DeleteArchive
     -- * Request Lenses
     , daAccountId
     , daVaultName
     , daArchiveId
 
     -- * Destructuring the Response
-    , DeleteArchiveResponse
     , deleteArchiveResponse
+    , DeleteArchiveResponse
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -70,22 +70,26 @@ import           Network.AWS.Response
 -- | Provides options for deleting an archive from an Amazon Glacier vault.
 --
 -- /See:/ 'deleteArchive' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daAccountId'
---
--- * 'daVaultName'
---
--- * 'daArchiveId'
 data DeleteArchive = DeleteArchive'
     { _daAccountId :: !Text
     , _daVaultName :: !Text
     , _daArchiveId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteArchive' smart constructor.
-deleteArchive :: Text -> Text -> Text -> DeleteArchive
+-- | Creates a value of 'DeleteArchive' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daAccountId'
+--
+-- * 'daVaultName'
+--
+-- * 'daArchiveId'
+deleteArchive
+    :: Text -- ^ 'daAccountId'
+    -> Text -- ^ 'daVaultName'
+    -> Text -- ^ 'daArchiveId'
+    -> DeleteArchive
 deleteArchive pAccountId_ pVaultName_ pArchiveId_ =
     DeleteArchive'
     { _daAccountId = pAccountId_
@@ -93,9 +97,9 @@ deleteArchive pAccountId_ pVaultName_ pArchiveId_ =
     , _daArchiveId = pArchiveId_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 daAccountId :: Lens' DeleteArchive Text
@@ -132,6 +136,8 @@ data DeleteArchiveResponse =
     DeleteArchiveResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteArchiveResponse' smart constructor.
-deleteArchiveResponse :: DeleteArchiveResponse
+-- | Creates a value of 'DeleteArchiveResponse' with the minimum fields required to make a request.
+--
+deleteArchiveResponse
+    :: DeleteArchiveResponse
 deleteArchiveResponse = DeleteArchiveResponse'

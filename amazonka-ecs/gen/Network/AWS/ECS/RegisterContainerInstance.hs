@@ -28,8 +28,8 @@
 module Network.AWS.ECS.RegisterContainerInstance
     (
     -- * Creating a Request
-      RegisterContainerInstance
-    , registerContainerInstance
+      registerContainerInstance
+    , RegisterContainerInstance
     -- * Request Lenses
     , rciInstanceIdentityDocumentSignature
     , rciCluster
@@ -39,8 +39,8 @@ module Network.AWS.ECS.RegisterContainerInstance
     , rciTotalResources
 
     -- * Destructuring the Response
-    , RegisterContainerInstanceResponse
     , registerContainerInstanceResponse
+    , RegisterContainerInstanceResponse
     -- * Response Lenses
     , rcirsContainerInstance
     , rcirsStatus
@@ -53,8 +53,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'registerContainerInstance' smart constructor.
+data RegisterContainerInstance = RegisterContainerInstance'
+    { _rciInstanceIdentityDocumentSignature :: !(Maybe Text)
+    , _rciCluster                           :: !(Maybe Text)
+    , _rciInstanceIdentityDocument          :: !(Maybe Text)
+    , _rciContainerInstanceARN              :: !(Maybe Text)
+    , _rciVersionInfo                       :: !(Maybe VersionInfo)
+    , _rciTotalResources                    :: !(Maybe [Resource])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RegisterContainerInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rciInstanceIdentityDocumentSignature'
 --
@@ -67,17 +77,8 @@ import           Network.AWS.Response
 -- * 'rciVersionInfo'
 --
 -- * 'rciTotalResources'
-data RegisterContainerInstance = RegisterContainerInstance'
-    { _rciInstanceIdentityDocumentSignature :: !(Maybe Text)
-    , _rciCluster                           :: !(Maybe Text)
-    , _rciInstanceIdentityDocument          :: !(Maybe Text)
-    , _rciContainerInstanceARN              :: !(Maybe Text)
-    , _rciVersionInfo                       :: !(Maybe VersionInfo)
-    , _rciTotalResources                    :: !(Maybe [Resource])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RegisterContainerInstance' smart constructor.
-registerContainerInstance :: RegisterContainerInstance
+registerContainerInstance
+    :: RegisterContainerInstance
 registerContainerInstance =
     RegisterContainerInstance'
     { _rciInstanceIdentityDocumentSignature = Nothing
@@ -91,7 +92,7 @@ registerContainerInstance =
 -- | The instance identity document signature for the Amazon EC2 instance to
 -- register. This signature can be found by running the following command
 -- from the instance:
--- @curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/signature\/@
+-- 'curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/signature\/'
 rciInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
 rciInstanceIdentityDocumentSignature = lens _rciInstanceIdentityDocumentSignature (\ s a -> s{_rciInstanceIdentityDocumentSignature = a});
 
@@ -104,7 +105,7 @@ rciCluster = lens _rciCluster (\ s a -> s{_rciCluster = a});
 -- | The instance identity document for the Amazon EC2 instance to register.
 -- This document can be found by running the following command from the
 -- instance:
--- @curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/document\/@
+-- 'curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/document\/'
 rciInstanceIdentityDocument :: Lens' RegisterContainerInstance (Maybe Text)
 rciInstanceIdentityDocument = lens _rciInstanceIdentityDocument (\ s a -> s{_rciInstanceIdentityDocument = a});
 
@@ -162,19 +163,21 @@ instance ToQuery RegisterContainerInstance where
         toQuery = const mempty
 
 -- | /See:/ 'registerContainerInstanceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcirsContainerInstance'
---
--- * 'rcirsStatus'
 data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
     { _rcirsContainerInstance :: !(Maybe ContainerInstance)
     , _rcirsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterContainerInstanceResponse' smart constructor.
-registerContainerInstanceResponse :: Int -> RegisterContainerInstanceResponse
+-- | Creates a value of 'RegisterContainerInstanceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcirsContainerInstance'
+--
+-- * 'rcirsStatus'
+registerContainerInstanceResponse
+    :: Int -- ^ 'rcirsStatus'
+    -> RegisterContainerInstanceResponse
 registerContainerInstanceResponse pStatus_ =
     RegisterContainerInstanceResponse'
     { _rcirsContainerInstance = Nothing
@@ -185,6 +188,6 @@ registerContainerInstanceResponse pStatus_ =
 rcirsContainerInstance :: Lens' RegisterContainerInstanceResponse (Maybe ContainerInstance)
 rcirsContainerInstance = lens _rcirsContainerInstance (\ s a -> s{_rcirsContainerInstance = a});
 
--- | Undocumented member.
+-- | The response status code.
 rcirsStatus :: Lens' RegisterContainerInstanceResponse Int
 rcirsStatus = lens _rcirsStatus (\ s a -> s{_rcirsStatus = a});

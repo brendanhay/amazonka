@@ -24,8 +24,8 @@
 module Network.AWS.DeviceFarm.CreateDevicePool
     (
     -- * Creating a Request
-      CreateDevicePool
-    , createDevicePool
+      createDevicePool
+    , CreateDevicePool
     -- * Request Lenses
     , cdpDescription
     , cdpProjectARN
@@ -33,8 +33,8 @@ module Network.AWS.DeviceFarm.CreateDevicePool
     , cdpRules
 
     -- * Destructuring the Response
-    , CreateDevicePoolResponse
     , createDevicePoolResponse
+    , CreateDevicePoolResponse
     -- * Response Lenses
     , cdprsDevicePool
     , cdprsStatus
@@ -49,8 +49,16 @@ import           Network.AWS.Response
 -- | Represents a request to the create device pool operation.
 --
 -- /See:/ 'createDevicePool' smart constructor.
+data CreateDevicePool = CreateDevicePool'
+    { _cdpDescription :: !(Maybe Text)
+    , _cdpProjectARN  :: !Text
+    , _cdpName        :: !Text
+    , _cdpRules       :: ![Rule]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDevicePool' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdpDescription'
 --
@@ -59,15 +67,10 @@ import           Network.AWS.Response
 -- * 'cdpName'
 --
 -- * 'cdpRules'
-data CreateDevicePool = CreateDevicePool'
-    { _cdpDescription :: !(Maybe Text)
-    , _cdpProjectARN  :: !Text
-    , _cdpName        :: !Text
-    , _cdpRules       :: ![Rule]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateDevicePool' smart constructor.
-createDevicePool :: Text -> Text -> CreateDevicePool
+createDevicePool
+    :: Text -- ^ 'cdpProjectARN'
+    -> Text -- ^ 'cdpName'
+    -> CreateDevicePool
 createDevicePool pProjectARN_ pName_ =
     CreateDevicePool'
     { _cdpDescription = Nothing
@@ -128,19 +131,21 @@ instance ToQuery CreateDevicePool where
 -- | Represents the result of a create device pool request.
 --
 -- /See:/ 'createDevicePoolResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdprsDevicePool'
---
--- * 'cdprsStatus'
 data CreateDevicePoolResponse = CreateDevicePoolResponse'
     { _cdprsDevicePool :: !(Maybe DevicePool)
     , _cdprsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDevicePoolResponse' smart constructor.
-createDevicePoolResponse :: Int -> CreateDevicePoolResponse
+-- | Creates a value of 'CreateDevicePoolResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdprsDevicePool'
+--
+-- * 'cdprsStatus'
+createDevicePoolResponse
+    :: Int -- ^ 'cdprsStatus'
+    -> CreateDevicePoolResponse
 createDevicePoolResponse pStatus_ =
     CreateDevicePoolResponse'
     { _cdprsDevicePool = Nothing
@@ -151,6 +156,6 @@ createDevicePoolResponse pStatus_ =
 cdprsDevicePool :: Lens' CreateDevicePoolResponse (Maybe DevicePool)
 cdprsDevicePool = lens _cdprsDevicePool (\ s a -> s{_cdprsDevicePool = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdprsStatus :: Lens' CreateDevicePoolResponse Int
 cdprsStatus = lens _cdprsStatus (\ s a -> s{_cdprsStatus = a});

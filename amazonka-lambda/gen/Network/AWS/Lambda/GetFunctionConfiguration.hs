@@ -23,20 +23,20 @@
 -- by using CreateFunction.
 --
 -- This operation requires permission for the
--- @lambda:GetFunctionConfiguration@ operation.
+-- 'lambda:GetFunctionConfiguration' operation.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetFunctionConfiguration.html AWS API Reference> for GetFunctionConfiguration.
 module Network.AWS.Lambda.GetFunctionConfiguration
     (
     -- * Creating a Request
-      GetFunctionConfiguration
-    , getFunctionConfiguration
+      getFunctionConfiguration
+    , GetFunctionConfiguration
     -- * Request Lenses
     , gfcFunctionName
 
     -- * Destructuring the Response
-    , FunctionConfiguration
     , functionConfiguration
+    , FunctionConfiguration
     -- * Response Lenses
     , fcRuntime
     , fcMemorySize
@@ -57,16 +57,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getFunctionConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gfcFunctionName'
 newtype GetFunctionConfiguration = GetFunctionConfiguration'
     { _gfcFunctionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetFunctionConfiguration' smart constructor.
-getFunctionConfiguration :: Text -> GetFunctionConfiguration
+-- | Creates a value of 'GetFunctionConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gfcFunctionName'
+getFunctionConfiguration
+    :: Text -- ^ 'gfcFunctionName'
+    -> GetFunctionConfiguration
 getFunctionConfiguration pFunctionName_ =
     GetFunctionConfiguration'
     { _gfcFunctionName = pFunctionName_

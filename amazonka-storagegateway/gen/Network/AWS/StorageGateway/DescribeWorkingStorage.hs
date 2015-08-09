@@ -34,14 +34,14 @@
 module Network.AWS.StorageGateway.DescribeWorkingStorage
     (
     -- * Creating a Request
-      DescribeWorkingStorage
-    , describeWorkingStorage
+      describeWorkingStorage
+    , DescribeWorkingStorage
     -- * Request Lenses
     , dwsGatewayARN
 
     -- * Destructuring the Response
-    , DescribeWorkingStorageResponse
     , describeWorkingStorageResponse
+    , DescribeWorkingStorageResponse
     -- * Response Lenses
     , dwsrsGatewayARN
     , dwsrsDiskIds
@@ -59,16 +59,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing the of the gateway.
 --
 -- /See:/ 'describeWorkingStorage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dwsGatewayARN'
 newtype DescribeWorkingStorage = DescribeWorkingStorage'
     { _dwsGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeWorkingStorage' smart constructor.
-describeWorkingStorage :: Text -> DescribeWorkingStorage
+-- | Creates a value of 'DescribeWorkingStorage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dwsGatewayARN'
+describeWorkingStorage
+    :: Text -- ^ 'dwsGatewayARN'
+    -> DescribeWorkingStorage
 describeWorkingStorage pGatewayARN_ =
     DescribeWorkingStorage'
     { _dwsGatewayARN = pGatewayARN_
@@ -115,8 +117,17 @@ instance ToQuery DescribeWorkingStorage where
 -- | A JSON object containing the following fields:
 --
 -- /See:/ 'describeWorkingStorageResponse' smart constructor.
+data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
+    { _dwsrsGatewayARN                     :: !(Maybe Text)
+    , _dwsrsDiskIds                        :: !(Maybe [Text])
+    , _dwsrsWorkingStorageAllocatedInBytes :: !(Maybe Integer)
+    , _dwsrsWorkingStorageUsedInBytes      :: !(Maybe Integer)
+    , _dwsrsStatus                         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeWorkingStorageResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dwsrsGatewayARN'
 --
@@ -127,16 +138,9 @@ instance ToQuery DescribeWorkingStorage where
 -- * 'dwsrsWorkingStorageUsedInBytes'
 --
 -- * 'dwsrsStatus'
-data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
-    { _dwsrsGatewayARN                     :: !(Maybe Text)
-    , _dwsrsDiskIds                        :: !(Maybe [Text])
-    , _dwsrsWorkingStorageAllocatedInBytes :: !(Maybe Integer)
-    , _dwsrsWorkingStorageUsedInBytes      :: !(Maybe Integer)
-    , _dwsrsStatus                         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeWorkingStorageResponse' smart constructor.
-describeWorkingStorageResponse :: Int -> DescribeWorkingStorageResponse
+describeWorkingStorageResponse
+    :: Int -- ^ 'dwsrsStatus'
+    -> DescribeWorkingStorageResponse
 describeWorkingStorageResponse pStatus_ =
     DescribeWorkingStorageResponse'
     { _dwsrsGatewayARN = Nothing
@@ -167,6 +171,6 @@ dwsrsWorkingStorageAllocatedInBytes = lens _dwsrsWorkingStorageAllocatedInBytes 
 dwsrsWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
 dwsrsWorkingStorageUsedInBytes = lens _dwsrsWorkingStorageUsedInBytes (\ s a -> s{_dwsrsWorkingStorageUsedInBytes = a});
 
--- | Undocumented member.
+-- | The response status code.
 dwsrsStatus :: Lens' DescribeWorkingStorageResponse Int
 dwsrsStatus = lens _dwsrsStatus (\ s a -> s{_dwsrsStatus = a});

@@ -38,8 +38,8 @@
 module Network.AWS.CloudTrail.LookupEvents
     (
     -- * Creating a Request
-      LookupEvents
-    , lookupEvents
+      lookupEvents
+    , LookupEvents
     -- * Request Lenses
     , leStartTime
     , leLookupAttributes
@@ -48,8 +48,8 @@ module Network.AWS.CloudTrail.LookupEvents
     , leMaxResults
 
     -- * Destructuring the Response
-    , LookupEventsResponse
     , lookupEventsResponse
+    , LookupEventsResponse
     -- * Response Lenses
     , lersNextToken
     , lersEvents
@@ -65,8 +65,17 @@ import           Network.AWS.Response
 -- | Contains a request for LookupEvents.
 --
 -- /See:/ 'lookupEvents' smart constructor.
+data LookupEvents = LookupEvents'
+    { _leStartTime        :: !(Maybe POSIX)
+    , _leLookupAttributes :: !(Maybe [LookupAttribute])
+    , _leNextToken        :: !(Maybe Text)
+    , _leEndTime          :: !(Maybe POSIX)
+    , _leMaxResults       :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LookupEvents' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'leStartTime'
 --
@@ -77,16 +86,8 @@ import           Network.AWS.Response
 -- * 'leEndTime'
 --
 -- * 'leMaxResults'
-data LookupEvents = LookupEvents'
-    { _leStartTime        :: !(Maybe POSIX)
-    , _leLookupAttributes :: !(Maybe [LookupAttribute])
-    , _leNextToken        :: !(Maybe Text)
-    , _leEndTime          :: !(Maybe POSIX)
-    , _leMaxResults       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LookupEvents' smart constructor.
-lookupEvents :: LookupEvents
+lookupEvents
+    :: LookupEvents
 lookupEvents =
     LookupEvents'
     { _leStartTime = Nothing
@@ -164,22 +165,24 @@ instance ToQuery LookupEvents where
 -- | Contains a response to a LookupEvents action.
 --
 -- /See:/ 'lookupEventsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lersNextToken'
---
--- * 'lersEvents'
---
--- * 'lersStatus'
 data LookupEventsResponse = LookupEventsResponse'
     { _lersNextToken :: !(Maybe Text)
     , _lersEvents    :: !(Maybe [Event])
     , _lersStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LookupEventsResponse' smart constructor.
-lookupEventsResponse :: Int -> LookupEventsResponse
+-- | Creates a value of 'LookupEventsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lersNextToken'
+--
+-- * 'lersEvents'
+--
+-- * 'lersStatus'
+lookupEventsResponse
+    :: Int -- ^ 'lersStatus'
+    -> LookupEventsResponse
 lookupEventsResponse pStatus_ =
     LookupEventsResponse'
     { _lersNextToken = Nothing
@@ -202,6 +205,6 @@ lersNextToken = lens _lersNextToken (\ s a -> s{_lersNextToken = a});
 lersEvents :: Lens' LookupEventsResponse [Event]
 lersEvents = lens _lersEvents (\ s a -> s{_lersEvents = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lersStatus :: Lens' LookupEventsResponse Int
 lersStatus = lens _lersStatus (\ s a -> s{_lersStatus = a});

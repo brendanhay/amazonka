@@ -19,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the definition of the specified pipeline. You can call
--- @GetPipelineDefinition@ to retrieve the pipeline definition that you
+-- 'GetPipelineDefinition' to retrieve the pipeline definition that you
 -- provided using PutPipelineDefinition.
 --
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html AWS API Reference> for GetPipelineDefinition.
 module Network.AWS.DataPipeline.GetPipelineDefinition
     (
     -- * Creating a Request
-      GetPipelineDefinition
-    , getPipelineDefinition
+      getPipelineDefinition
+    , GetPipelineDefinition
     -- * Request Lenses
     , gpdVersion
     , gpdPipelineId
 
     -- * Destructuring the Response
-    , GetPipelineDefinitionResponse
     , getPipelineDefinitionResponse
+    , GetPipelineDefinitionResponse
     -- * Response Lenses
     , gpdrsPipelineObjects
     , gpdrsParameterObjects
@@ -51,19 +51,21 @@ import           Network.AWS.Response
 -- | Contains the parameters for GetPipelineDefinition.
 --
 -- /See:/ 'getPipelineDefinition' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gpdVersion'
---
--- * 'gpdPipelineId'
 data GetPipelineDefinition = GetPipelineDefinition'
     { _gpdVersion    :: !(Maybe Text)
     , _gpdPipelineId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPipelineDefinition' smart constructor.
-getPipelineDefinition :: Text -> GetPipelineDefinition
+-- | Creates a value of 'GetPipelineDefinition' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpdVersion'
+--
+-- * 'gpdPipelineId'
+getPipelineDefinition
+    :: Text -- ^ 'gpdPipelineId'
+    -> GetPipelineDefinition
 getPipelineDefinition pPipelineId_ =
     GetPipelineDefinition'
     { _gpdVersion = Nothing
@@ -71,8 +73,8 @@ getPipelineDefinition pPipelineId_ =
     }
 
 -- | The version of the pipeline definition to retrieve. Set this parameter
--- to @latest@ (default) to use the last definition saved to the pipeline
--- or @active@ to use the last definition that was activated.
+-- to 'latest' (default) to use the last definition saved to the pipeline
+-- or 'active' to use the last definition that was activated.
 gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
 gpdVersion = lens _gpdVersion (\ s a -> s{_gpdVersion = a});
 
@@ -118,8 +120,16 @@ instance ToQuery GetPipelineDefinition where
 -- | Contains the output of GetPipelineDefinition.
 --
 -- /See:/ 'getPipelineDefinitionResponse' smart constructor.
+data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
+    { _gpdrsPipelineObjects  :: !(Maybe [PipelineObject])
+    , _gpdrsParameterObjects :: !(Maybe [ParameterObject])
+    , _gpdrsParameterValues  :: !(Maybe [ParameterValue])
+    , _gpdrsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetPipelineDefinitionResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gpdrsPipelineObjects'
 --
@@ -128,15 +138,9 @@ instance ToQuery GetPipelineDefinition where
 -- * 'gpdrsParameterValues'
 --
 -- * 'gpdrsStatus'
-data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
-    { _gpdrsPipelineObjects  :: !(Maybe [PipelineObject])
-    , _gpdrsParameterObjects :: !(Maybe [ParameterObject])
-    , _gpdrsParameterValues  :: !(Maybe [ParameterValue])
-    , _gpdrsStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetPipelineDefinitionResponse' smart constructor.
-getPipelineDefinitionResponse :: Int -> GetPipelineDefinitionResponse
+getPipelineDefinitionResponse
+    :: Int -- ^ 'gpdrsStatus'
+    -> GetPipelineDefinitionResponse
 getPipelineDefinitionResponse pStatus_ =
     GetPipelineDefinitionResponse'
     { _gpdrsPipelineObjects = Nothing
@@ -157,6 +161,6 @@ gpdrsParameterObjects = lens _gpdrsParameterObjects (\ s a -> s{_gpdrsParameterO
 gpdrsParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
 gpdrsParameterValues = lens _gpdrsParameterValues (\ s a -> s{_gpdrsParameterValues = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 gpdrsStatus :: Lens' GetPipelineDefinitionResponse Int
 gpdrsStatus = lens _gpdrsStatus (\ s a -> s{_gpdrsStatus = a});

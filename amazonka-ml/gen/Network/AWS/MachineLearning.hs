@@ -93,7 +93,6 @@ module Network.AWS.MachineLearning
 
     -- ** DescribeBatchPredictions (Paginated)
     , module Network.AWS.MachineLearning.DescribeBatchPredictions
-    -- $pager
 
     -- ** UpdateEvaluation
     , module Network.AWS.MachineLearning.UpdateEvaluation
@@ -121,7 +120,6 @@ module Network.AWS.MachineLearning
 
     -- ** DescribeEvaluations (Paginated)
     , module Network.AWS.MachineLearning.DescribeEvaluations
-    -- $pager
 
     -- ** GetEvaluation
     , module Network.AWS.MachineLearning.GetEvaluation
@@ -131,11 +129,9 @@ module Network.AWS.MachineLearning
 
     -- ** DescribeMLModels (Paginated)
     , module Network.AWS.MachineLearning.DescribeMLModels
-    -- $pager
 
     -- ** DescribeDataSources (Paginated)
     , module Network.AWS.MachineLearning.DescribeDataSources
-    -- $pager
 
     -- * Types
 
@@ -391,8 +387,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

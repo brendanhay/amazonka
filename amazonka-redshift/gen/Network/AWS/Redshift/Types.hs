@@ -552,7 +552,7 @@ _AuthorizationAlreadyExistsFault :: AsError a => Getting (First ServiceError) a 
 _AuthorizationAlreadyExistsFault =
     _ServiceError . hasStatus 400 . hasCode "AuthorizationAlreadyExists"
 
--- | The state of the cluster security group is not @available@.
+-- | The state of the cluster security group is not 'available'.
 _InvalidClusterSecurityGroupStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClusterSecurityGroupStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidClusterSecurityGroupState"
@@ -578,7 +578,7 @@ _HSMConfigurationNotFoundFault :: AsError a => Getting (First ServiceError) a Se
 _HSMConfigurationNotFoundFault =
     _ServiceError . hasStatus 400 . hasCode "HsmConfigurationNotFoundFault"
 
--- | The specified HSM configuration is not in the @available@ state, or it
+-- | The specified HSM configuration is not in the 'available' state, or it
 -- is still in use by one or more Amazon Redshift clusters.
 _InvalidHSMConfigurationStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidHSMConfigurationStateFault =
@@ -731,7 +731,7 @@ _SnapshotCopyGrantNotFoundFault :: AsError a => Getting (First ServiceError) a S
 _SnapshotCopyGrantNotFoundFault =
     _ServiceError . hasStatus 400 . hasCode "SnapshotCopyGrantNotFoundFault"
 
--- | The specified cluster is not in the @available@ state.
+-- | The specified cluster is not in the 'available' state.
 _InvalidClusterStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClusterStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidClusterState"
@@ -813,7 +813,7 @@ _InvalidClusterSubnetGroupStateFault =
     _ServiceError .
     hasStatus 400 . hasCode "InvalidClusterSubnetGroupStateFault"
 
--- | The state of the cluster snapshot is not @available@, or other accounts
+-- | The state of the cluster snapshot is not 'available', or other accounts
 -- are authorized to access the snapshot.
 _InvalidClusterSnapshotStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidClusterSnapshotStateFault =
@@ -923,7 +923,7 @@ _HSMClientCertificateAlreadyExistsFault =
     _ServiceError .
     hasStatus 400 . hasCode "HsmClientCertificateAlreadyExistsFault"
 
--- | The specified HSM client certificate is not in the @available@ state, or
+-- | The specified HSM client certificate is not in the 'available' state, or
 -- it is still in use by one or more Amazon Redshift clusters.
 _InvalidHSMClientCertificateStateFault :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidHSMClientCertificateStateFault =

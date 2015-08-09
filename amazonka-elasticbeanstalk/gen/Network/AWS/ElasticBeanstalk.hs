@@ -96,7 +96,6 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** DescribeEvents (Paginated)
     , module Network.AWS.ElasticBeanstalk.DescribeEvents
-    -- $pager
 
     -- ** RequestEnvironmentInfo
     , module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
@@ -476,8 +475,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

@@ -24,15 +24,15 @@
 module Network.AWS.IAM.RemoveUserFromGroup
     (
     -- * Creating a Request
-      RemoveUserFromGroup
-    , removeUserFromGroup
+      removeUserFromGroup
+    , RemoveUserFromGroup
     -- * Request Lenses
     , rufgGroupName
     , rufgUserName
 
     -- * Destructuring the Response
-    , RemoveUserFromGroupResponse
     , removeUserFromGroupResponse
+    , RemoveUserFromGroupResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -42,19 +42,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'removeUserFromGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rufgGroupName'
---
--- * 'rufgUserName'
 data RemoveUserFromGroup = RemoveUserFromGroup'
     { _rufgGroupName :: !Text
     , _rufgUserName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveUserFromGroup' smart constructor.
-removeUserFromGroup :: Text -> Text -> RemoveUserFromGroup
+-- | Creates a value of 'RemoveUserFromGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rufgGroupName'
+--
+-- * 'rufgUserName'
+removeUserFromGroup
+    :: Text -- ^ 'rufgGroupName'
+    -> Text -- ^ 'rufgUserName'
+    -> RemoveUserFromGroup
 removeUserFromGroup pGroupName_ pUserName_ =
     RemoveUserFromGroup'
     { _rufgGroupName = pGroupName_
@@ -95,6 +98,8 @@ data RemoveUserFromGroupResponse =
     RemoveUserFromGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveUserFromGroupResponse' smart constructor.
-removeUserFromGroupResponse :: RemoveUserFromGroupResponse
+-- | Creates a value of 'RemoveUserFromGroupResponse' with the minimum fields required to make a request.
+--
+removeUserFromGroupResponse
+    :: RemoveUserFromGroupResponse
 removeUserFromGroupResponse = RemoveUserFromGroupResponse'

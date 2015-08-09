@@ -23,19 +23,21 @@
 -- specified, the list will contain only the description of that group.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSecurityGroups.html AWS API Reference> for DescribeCacheSecurityGroups.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     (
     -- * Creating a Request
-      DescribeCacheSecurityGroups
-    , describeCacheSecurityGroups
+      describeCacheSecurityGroups
+    , DescribeCacheSecurityGroups
     -- * Request Lenses
     , dcsgsCacheSecurityGroupName
     , dcsgsMaxRecords
     , dcsgsMarker
 
     -- * Destructuring the Response
-    , DescribeCacheSecurityGroupsResponse
     , describeCacheSecurityGroupsResponse
+    , DescribeCacheSecurityGroupsResponse
     -- * Response Lenses
     , dcsgsrsCacheSecurityGroups
     , dcsgsrsMarker
@@ -52,22 +54,23 @@ import           Network.AWS.Response
 -- | Represents the input of a /DescribeCacheSecurityGroups/ action.
 --
 -- /See:/ 'describeCacheSecurityGroups' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsgsCacheSecurityGroupName'
---
--- * 'dcsgsMaxRecords'
---
--- * 'dcsgsMarker'
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
     { _dcsgsCacheSecurityGroupName :: !(Maybe Text)
     , _dcsgsMaxRecords             :: !(Maybe Int)
     , _dcsgsMarker                 :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCacheSecurityGroups' smart constructor.
-describeCacheSecurityGroups :: DescribeCacheSecurityGroups
+-- | Creates a value of 'DescribeCacheSecurityGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsgsCacheSecurityGroupName'
+--
+-- * 'dcsgsMaxRecords'
+--
+-- * 'dcsgsMarker'
+describeCacheSecurityGroups
+    :: DescribeCacheSecurityGroups
 describeCacheSecurityGroups =
     DescribeCacheSecurityGroups'
     { _dcsgsCacheSecurityGroupName = Nothing
@@ -80,7 +83,7 @@ dcsgsCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsgsCacheSecurityGroupName = lens _dcsgsCacheSecurityGroupName (\ s a -> s{_dcsgsCacheSecurityGroupName = a});
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a marker is
+-- records exist than the specified 'MaxRecords' value, a marker is
 -- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
@@ -138,22 +141,24 @@ instance ToQuery DescribeCacheSecurityGroups where
 -- | Represents the output of a /DescribeCacheSecurityGroups/ action.
 --
 -- /See:/ 'describeCacheSecurityGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsgsrsCacheSecurityGroups'
---
--- * 'dcsgsrsMarker'
---
--- * 'dcsgsrsStatus'
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
     { _dcsgsrsCacheSecurityGroups :: !(Maybe [CacheSecurityGroup])
     , _dcsgsrsMarker              :: !(Maybe Text)
     , _dcsgsrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCacheSecurityGroupsResponse' smart constructor.
-describeCacheSecurityGroupsResponse :: Int -> DescribeCacheSecurityGroupsResponse
+-- | Creates a value of 'DescribeCacheSecurityGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsgsrsCacheSecurityGroups'
+--
+-- * 'dcsgsrsMarker'
+--
+-- * 'dcsgsrsStatus'
+describeCacheSecurityGroupsResponse
+    :: Int -- ^ 'dcsgsrsStatus'
+    -> DescribeCacheSecurityGroupsResponse
 describeCacheSecurityGroupsResponse pStatus_ =
     DescribeCacheSecurityGroupsResponse'
     { _dcsgsrsCacheSecurityGroups = Nothing
@@ -170,6 +175,6 @@ dcsgsrsCacheSecurityGroups = lens _dcsgsrsCacheSecurityGroups (\ s a -> s{_dcsgs
 dcsgsrsMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
 dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dcsgsrsStatus :: Lens' DescribeCacheSecurityGroupsResponse Int
 dcsgsrsStatus = lens _dcsgsrsStatus (\ s a -> s{_dcsgsrsStatus = a});

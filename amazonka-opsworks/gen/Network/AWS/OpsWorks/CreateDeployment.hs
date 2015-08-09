@@ -33,8 +33,8 @@
 module Network.AWS.OpsWorks.CreateDeployment
     (
     -- * Creating a Request
-      CreateDeployment
-    , createDeployment
+      createDeployment
+    , CreateDeployment
     -- * Request Lenses
     , cdCustomJSON
     , cdAppId
@@ -44,8 +44,8 @@ module Network.AWS.OpsWorks.CreateDeployment
     , cdCommand
 
     -- * Destructuring the Response
-    , CreateDeploymentResponse
     , createDeploymentResponse
+    , CreateDeploymentResponse
     -- * Response Lenses
     , cdrsDeploymentId
     , cdrsStatus
@@ -58,8 +58,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createDeployment' smart constructor.
+data CreateDeployment = CreateDeployment'
+    { _cdCustomJSON  :: !(Maybe Text)
+    , _cdAppId       :: !(Maybe Text)
+    , _cdInstanceIds :: !(Maybe [Text])
+    , _cdComment     :: !(Maybe Text)
+    , _cdStackId     :: !Text
+    , _cdCommand     :: !DeploymentCommand
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDeployment' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdCustomJSON'
 --
@@ -72,17 +82,10 @@ import           Network.AWS.Response
 -- * 'cdStackId'
 --
 -- * 'cdCommand'
-data CreateDeployment = CreateDeployment'
-    { _cdCustomJSON  :: !(Maybe Text)
-    , _cdAppId       :: !(Maybe Text)
-    , _cdInstanceIds :: !(Maybe [Text])
-    , _cdComment     :: !(Maybe Text)
-    , _cdStackId     :: !Text
-    , _cdCommand     :: !DeploymentCommand
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateDeployment' smart constructor.
-createDeployment :: Text -> DeploymentCommand -> CreateDeployment
+createDeployment
+    :: Text -- ^ 'cdStackId'
+    -> DeploymentCommand -- ^ 'cdCommand'
+    -> CreateDeployment
 createDeployment pStackId_ pCommand_ =
     CreateDeployment'
     { _cdCustomJSON = Nothing
@@ -98,7 +101,7 @@ createDeployment pStackId_ pCommand_ =
 -- should be in the following format and must escape characters such as
 -- \'\"\':
 --
--- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
+-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'
 --
 -- For more information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
@@ -122,7 +125,7 @@ cdComment = lens _cdComment (\ s a -> s{_cdComment = a});
 cdStackId :: Lens' CreateDeployment Text
 cdStackId = lens _cdStackId (\ s a -> s{_cdStackId = a});
 
--- | A @DeploymentCommand@ object that specifies the deployment command and
+-- | A 'DeploymentCommand' object that specifies the deployment command and
 -- any associated arguments.
 cdCommand :: Lens' CreateDeployment DeploymentCommand
 cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a});
@@ -160,22 +163,24 @@ instance ToPath CreateDeployment where
 instance ToQuery CreateDeployment where
         toQuery = const mempty
 
--- | Contains the response to a @CreateDeployment@ request.
+-- | Contains the response to a 'CreateDeployment' request.
 --
 -- /See:/ 'createDeploymentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdrsDeploymentId'
---
--- * 'cdrsStatus'
 data CreateDeploymentResponse = CreateDeploymentResponse'
     { _cdrsDeploymentId :: !(Maybe Text)
     , _cdrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDeploymentResponse' smart constructor.
-createDeploymentResponse :: Int -> CreateDeploymentResponse
+-- | Creates a value of 'CreateDeploymentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdrsDeploymentId'
+--
+-- * 'cdrsStatus'
+createDeploymentResponse
+    :: Int -- ^ 'cdrsStatus'
+    -> CreateDeploymentResponse
 createDeploymentResponse pStatus_ =
     CreateDeploymentResponse'
     { _cdrsDeploymentId = Nothing
@@ -187,6 +192,6 @@ createDeploymentResponse pStatus_ =
 cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
 cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdrsStatus :: Lens' CreateDeploymentResponse Int
 cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

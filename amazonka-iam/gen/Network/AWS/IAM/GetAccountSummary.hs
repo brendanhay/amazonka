@@ -29,12 +29,12 @@
 module Network.AWS.IAM.GetAccountSummary
     (
     -- * Creating a Request
-      GetAccountSummary
-    , getAccountSummary
+      getAccountSummary
+    , GetAccountSummary
 
     -- * Destructuring the Response
-    , GetAccountSummaryResponse
     , getAccountSummaryResponse
+    , GetAccountSummaryResponse
     -- * Response Lenses
     , gasrsSummaryMap
     , gasrsStatus
@@ -51,8 +51,10 @@ data GetAccountSummary =
     GetAccountSummary'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetAccountSummary' smart constructor.
-getAccountSummary :: GetAccountSummary
+-- | Creates a value of 'GetAccountSummary' with the minimum fields required to make a request.
+--
+getAccountSummary
+    :: GetAccountSummary
 getAccountSummary = GetAccountSummary'
 
 instance AWSRequest GetAccountSummary where
@@ -83,19 +85,21 @@ instance ToQuery GetAccountSummary where
 -- | Contains the response to a successful GetAccountSummary request.
 --
 -- /See:/ 'getAccountSummaryResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gasrsSummaryMap'
---
--- * 'gasrsStatus'
 data GetAccountSummaryResponse = GetAccountSummaryResponse'
     { _gasrsSummaryMap :: !(Maybe (Map SummaryKeyType Int))
     , _gasrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetAccountSummaryResponse' smart constructor.
-getAccountSummaryResponse :: Int -> GetAccountSummaryResponse
+-- | Creates a value of 'GetAccountSummaryResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gasrsSummaryMap'
+--
+-- * 'gasrsStatus'
+getAccountSummaryResponse
+    :: Int -- ^ 'gasrsStatus'
+    -> GetAccountSummaryResponse
 getAccountSummaryResponse pStatus_ =
     GetAccountSummaryResponse'
     { _gasrsSummaryMap = Nothing
@@ -105,7 +109,7 @@ getAccountSummaryResponse pStatus_ =
 -- | A set of key value pairs containing information about IAM entity usage
 -- and IAM quotas.
 --
--- @SummaryMap@ contains the following keys:
+-- 'SummaryMap' contains the following keys:
 --
 -- -   __AccessKeysPerUserQuota__
 --
@@ -258,6 +262,6 @@ getAccountSummaryResponse pStatus_ =
 gasrsSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
 gasrsSummaryMap = lens _gasrsSummaryMap (\ s a -> s{_gasrsSummaryMap = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 gasrsStatus :: Lens' GetAccountSummaryResponse Int
 gasrsStatus = lens _gasrsStatus (\ s a -> s{_gasrsStatus = a});

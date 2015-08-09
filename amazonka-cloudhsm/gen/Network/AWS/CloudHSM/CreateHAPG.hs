@@ -26,14 +26,14 @@
 module Network.AWS.CloudHSM.CreateHAPG
     (
     -- * Creating a Request
-      CreateHAPG
-    , createHAPG
+      createHAPG
+    , CreateHAPG
     -- * Request Lenses
     , chLabel
 
     -- * Destructuring the Response
-    , CreateHAPGResponse
     , createHAPGResponse
+    , CreateHAPGResponse
     -- * Response Lenses
     , chrsHAPGARN
     , chrsStatus
@@ -48,16 +48,18 @@ import           Network.AWS.Response
 -- | Contains the inputs for the CreateHapgRequest action.
 --
 -- /See:/ 'createHAPG' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'chLabel'
 newtype CreateHAPG = CreateHAPG'
     { _chLabel :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateHAPG' smart constructor.
-createHAPG :: Text -> CreateHAPG
+-- | Creates a value of 'CreateHAPG' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'chLabel'
+createHAPG
+    :: Text -- ^ 'chLabel'
+    -> CreateHAPG
 createHAPG pLabel_ =
     CreateHAPG'
     { _chLabel = pLabel_
@@ -98,19 +100,21 @@ instance ToQuery CreateHAPG where
 -- | Contains the output of the CreateHAPartitionGroup action.
 --
 -- /See:/ 'createHAPGResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'chrsHAPGARN'
---
--- * 'chrsStatus'
 data CreateHAPGResponse = CreateHAPGResponse'
     { _chrsHAPGARN :: !(Maybe Text)
     , _chrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateHAPGResponse' smart constructor.
-createHAPGResponse :: Int -> CreateHAPGResponse
+-- | Creates a value of 'CreateHAPGResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'chrsHAPGARN'
+--
+-- * 'chrsStatus'
+createHAPGResponse
+    :: Int -- ^ 'chrsStatus'
+    -> CreateHAPGResponse
 createHAPGResponse pStatus_ =
     CreateHAPGResponse'
     { _chrsHAPGARN = Nothing
@@ -121,6 +125,6 @@ createHAPGResponse pStatus_ =
 chrsHAPGARN :: Lens' CreateHAPGResponse (Maybe Text)
 chrsHAPGARN = lens _chrsHAPGARN (\ s a -> s{_chrsHAPGARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 chrsStatus :: Lens' CreateHAPGResponse Int
 chrsStatus = lens _chrsStatus (\ s a -> s{_chrsStatus = a});

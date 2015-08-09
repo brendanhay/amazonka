@@ -25,15 +25,15 @@
 module Network.AWS.CodeCommit.GetBranch
     (
     -- * Creating a Request
-      GetBranch
-    , getBranch
+      getBranch
+    , GetBranch
     -- * Request Lenses
     , gbBranchName
     , gbRepositoryName
 
     -- * Destructuring the Response
-    , GetBranchResponse
     , getBranchResponse
+    , GetBranchResponse
     -- * Response Lenses
     , gbrsBranch
     , gbrsStatus
@@ -48,19 +48,20 @@ import           Network.AWS.Response
 -- | Represents the input of a get branch operation.
 --
 -- /See:/ 'getBranch' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbBranchName'
---
--- * 'gbRepositoryName'
 data GetBranch = GetBranch'
     { _gbBranchName     :: !(Maybe Text)
     , _gbRepositoryName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBranch' smart constructor.
-getBranch :: GetBranch
+-- | Creates a value of 'GetBranch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbBranchName'
+--
+-- * 'gbRepositoryName'
+getBranch
+    :: GetBranch
 getBranch =
     GetBranch'
     { _gbBranchName = Nothing
@@ -109,19 +110,21 @@ instance ToQuery GetBranch where
 -- | Represents the output of a get branch operation.
 --
 -- /See:/ 'getBranchResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbrsBranch'
---
--- * 'gbrsStatus'
 data GetBranchResponse = GetBranchResponse'
     { _gbrsBranch :: !(Maybe BranchInfo)
     , _gbrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBranchResponse' smart constructor.
-getBranchResponse :: Int -> GetBranchResponse
+-- | Creates a value of 'GetBranchResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbrsBranch'
+--
+-- * 'gbrsStatus'
+getBranchResponse
+    :: Int -- ^ 'gbrsStatus'
+    -> GetBranchResponse
 getBranchResponse pStatus_ =
     GetBranchResponse'
     { _gbrsBranch = Nothing
@@ -132,6 +135,6 @@ getBranchResponse pStatus_ =
 gbrsBranch :: Lens' GetBranchResponse (Maybe BranchInfo)
 gbrsBranch = lens _gbrsBranch (\ s a -> s{_gbrsBranch = a});
 
--- | Undocumented member.
+-- | The response status code.
 gbrsStatus :: Lens' GetBranchResponse Int
 gbrsStatus = lens _gbrsStatus (\ s a -> s{_gbrsStatus = a});

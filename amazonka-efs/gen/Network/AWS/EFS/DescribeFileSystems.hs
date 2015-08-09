@@ -19,40 +19,40 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the description of a specific Amazon EFS file system if either
--- the file system @CreationToken@ or the @FileSystemId@ is provided;
+-- the file system 'CreationToken' or the 'FileSystemId' is provided;
 -- otherwise, returns descriptions of all file systems owned by the
 -- caller\'s AWS account in the AWS region of the endpoint that you\'re
 -- calling.
 --
 -- When retrieving all file system descriptions, you can optionally specify
--- the @MaxItems@ parameter to limit the number of descriptions in a
+-- the 'MaxItems' parameter to limit the number of descriptions in a
 -- response. If more file system descriptions remain, Amazon EFS returns a
--- @NextMarker@, an opaque token, in the response. In this case, you should
--- send a subsequent request with the @Marker@ request parameter set to the
--- value of @NextMarker@.
+-- 'NextMarker', an opaque token, in the response. In this case, you should
+-- send a subsequent request with the 'Marker' request parameter set to the
+-- value of 'NextMarker'.
 --
 -- So to retrieve a list of your file system descriptions, the expected
 -- usage of this API is an iterative process of first calling
--- @DescribeFileSystems@ without the @Marker@ and then continuing to call
--- it with the @Marker@ parameter set to the value of the @NextMarker@ from
--- the previous response until the response has no @NextMarker@.
+-- 'DescribeFileSystems' without the 'Marker' and then continuing to call
+-- it with the 'Marker' parameter set to the value of the 'NextMarker' from
+-- the previous response until the response has no 'NextMarker'.
 --
--- Note that the implementation may return fewer than @MaxItems@ file
--- system descriptions while still including a @NextMarker@ value.
+-- Note that the implementation may return fewer than 'MaxItems' file
+-- system descriptions while still including a 'NextMarker' value.
 --
 -- The order of file systems returned in the response of one
--- @DescribeFileSystems@ call, and the order of file systems returned
+-- 'DescribeFileSystems' call, and the order of file systems returned
 -- across the responses of a multi-call iteration, is unspecified.
 --
 -- This operation requires permission for the
--- @elasticfilesystem:DescribeFileSystems@ action.
+-- 'elasticfilesystem:DescribeFileSystems' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeFileSystems.html AWS API Reference> for DescribeFileSystems.
 module Network.AWS.EFS.DescribeFileSystems
     (
     -- * Creating a Request
-      DescribeFileSystems
-    , describeFileSystems
+      describeFileSystems
+    , DescribeFileSystems
     -- * Request Lenses
     , dfsFileSystemId
     , dfsMaxItems
@@ -60,8 +60,8 @@ module Network.AWS.EFS.DescribeFileSystems
     , dfsMarker
 
     -- * Destructuring the Response
-    , DescribeFileSystemsResponse
     , describeFileSystemsResponse
+    , DescribeFileSystemsResponse
     -- * Response Lenses
     , dfsrsFileSystems
     , dfsrsMarker
@@ -76,8 +76,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeFileSystems' smart constructor.
+data DescribeFileSystems = DescribeFileSystems'
+    { _dfsFileSystemId  :: !(Maybe Text)
+    , _dfsMaxItems      :: !(Maybe Nat)
+    , _dfsCreationToken :: !(Maybe Text)
+    , _dfsMarker        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeFileSystems' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dfsFileSystemId'
 --
@@ -86,15 +94,8 @@ import           Network.AWS.Response
 -- * 'dfsCreationToken'
 --
 -- * 'dfsMarker'
-data DescribeFileSystems = DescribeFileSystems'
-    { _dfsFileSystemId  :: !(Maybe Text)
-    , _dfsMaxItems      :: !(Maybe Nat)
-    , _dfsCreationToken :: !(Maybe Text)
-    , _dfsMarker        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeFileSystems' smart constructor.
-describeFileSystems :: DescribeFileSystems
+describeFileSystems
+    :: DescribeFileSystems
 describeFileSystems =
     DescribeFileSystems'
     { _dfsFileSystemId = Nothing
@@ -109,7 +110,7 @@ dfsFileSystemId = lens _dfsFileSystemId (\ s a -> s{_dfsFileSystemId = a});
 
 -- | Optional integer. Specifies the maximum number of file systems to return
 -- in the response. This parameter value must be greater than 0. The number
--- of items Amazon EFS returns will be the minimum of the @MaxItems@
+-- of items Amazon EFS returns will be the minimum of the 'MaxItems'
 -- parameter specified in the request and the service\'s internal maximum
 -- number of items per page.
 dfsMaxItems :: Lens' DescribeFileSystems (Maybe Natural)
@@ -122,7 +123,7 @@ dfsCreationToken :: Lens' DescribeFileSystems (Maybe Text)
 dfsCreationToken = lens _dfsCreationToken (\ s a -> s{_dfsCreationToken = a});
 
 -- | Optional string. Opaque pagination token returned from a previous
--- @DescribeFileSystems@ operation. If present, specifies to continue the
+-- 'DescribeFileSystems' operation. If present, specifies to continue the
 -- list from where the returning call had left off.
 dfsMarker :: Lens' DescribeFileSystems (Maybe Text)
 dfsMarker = lens _dfsMarker (\ s a -> s{_dfsMarker = a});
@@ -155,8 +156,16 @@ instance ToQuery DescribeFileSystems where
                "Marker" =: _dfsMarker]
 
 -- | /See:/ 'describeFileSystemsResponse' smart constructor.
+data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
+    { _dfsrsFileSystems :: !(Maybe [FileSystemDescription])
+    , _dfsrsMarker      :: !(Maybe Text)
+    , _dfsrsNextMarker  :: !(Maybe Text)
+    , _dfsrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeFileSystemsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dfsrsFileSystems'
 --
@@ -165,15 +174,9 @@ instance ToQuery DescribeFileSystems where
 -- * 'dfsrsNextMarker'
 --
 -- * 'dfsrsStatus'
-data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
-    { _dfsrsFileSystems :: !(Maybe [FileSystemDescription])
-    , _dfsrsMarker      :: !(Maybe Text)
-    , _dfsrsNextMarker  :: !(Maybe Text)
-    , _dfsrsStatus      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeFileSystemsResponse' smart constructor.
-describeFileSystemsResponse :: Int -> DescribeFileSystemsResponse
+describeFileSystemsResponse
+    :: Int -- ^ 'dfsrsStatus'
+    -> DescribeFileSystemsResponse
 describeFileSystemsResponse pStatus_ =
     DescribeFileSystemsResponse'
     { _dfsrsFileSystems = Nothing
@@ -191,11 +194,11 @@ dfsrsMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)
 dfsrsMarker = lens _dfsrsMarker (\ s a -> s{_dfsrsMarker = a});
 
 -- | A string, present if there are more file systems than returned in the
--- response. You can use the @NextMarker@ in the subsequent request to
+-- response. You can use the 'NextMarker' in the subsequent request to
 -- fetch the descriptions.
 dfsrsNextMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)
 dfsrsNextMarker = lens _dfsrsNextMarker (\ s a -> s{_dfsrsNextMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dfsrsStatus :: Lens' DescribeFileSystemsResponse Int
 dfsrsStatus = lens _dfsrsStatus (\ s a -> s{_dfsrsStatus = a});

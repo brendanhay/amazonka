@@ -44,14 +44,14 @@
 module Network.AWS.SES.GetIdentityDkimAttributes
     (
     -- * Creating a Request
-      GetIdentityDkimAttributes
-    , getIdentityDkimAttributes
+      getIdentityDkimAttributes
+    , GetIdentityDkimAttributes
     -- * Request Lenses
     , gidaIdentities
 
     -- * Destructuring the Response
-    , GetIdentityDkimAttributesResponse
     , getIdentityDkimAttributesResponse
+    , GetIdentityDkimAttributesResponse
     -- * Response Lenses
     , gidarsStatus
     , gidarsDkimAttributes
@@ -71,16 +71,17 @@ import           Network.AWS.SES.Types.Product
 -- in the domain name\'s DNS.
 --
 -- /See:/ 'getIdentityDkimAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gidaIdentities'
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes'
     { _gidaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetIdentityDkimAttributes' smart constructor.
-getIdentityDkimAttributes :: GetIdentityDkimAttributes
+-- | Creates a value of 'GetIdentityDkimAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gidaIdentities'
+getIdentityDkimAttributes
+    :: GetIdentityDkimAttributes
 getIdentityDkimAttributes =
     GetIdentityDkimAttributes'
     { _gidaIdentities = mempty
@@ -121,26 +122,28 @@ instance ToQuery GetIdentityDkimAttributes where
 -- | Represents a list of all the DKIM attributes for the specified identity.
 --
 -- /See:/ 'getIdentityDkimAttributesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gidarsStatus'
---
--- * 'gidarsDkimAttributes'
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
     { _gidarsStatus         :: !Int
     , _gidarsDkimAttributes :: !(Map Text IdentityDkimAttributes)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetIdentityDkimAttributesResponse' smart constructor.
-getIdentityDkimAttributesResponse :: Int -> GetIdentityDkimAttributesResponse
+-- | Creates a value of 'GetIdentityDkimAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gidarsStatus'
+--
+-- * 'gidarsDkimAttributes'
+getIdentityDkimAttributesResponse
+    :: Int -- ^ 'gidarsStatus'
+    -> GetIdentityDkimAttributesResponse
 getIdentityDkimAttributesResponse pStatus_ =
     GetIdentityDkimAttributesResponse'
     { _gidarsStatus = pStatus_
     , _gidarsDkimAttributes = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 gidarsStatus :: Lens' GetIdentityDkimAttributesResponse Int
 gidarsStatus = lens _gidarsStatus (\ s a -> s{_gidarsStatus = a});
 

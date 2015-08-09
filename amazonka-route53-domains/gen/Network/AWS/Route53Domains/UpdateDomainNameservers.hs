@@ -32,16 +32,16 @@
 module Network.AWS.Route53Domains.UpdateDomainNameservers
     (
     -- * Creating a Request
-      UpdateDomainNameservers
-    , updateDomainNameservers
+      updateDomainNameservers
+    , UpdateDomainNameservers
     -- * Request Lenses
     , udnFIAuthKey
     , udnDomainName
     , udnNameservers
 
     -- * Destructuring the Response
-    , UpdateDomainNameserversResponse
     , updateDomainNameserversResponse
+    , UpdateDomainNameserversResponse
     -- * Response Lenses
     , udnrsStatus
     , udnrsOperationId
@@ -56,22 +56,24 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The UpdateDomainNameserver request includes the following elements.
 --
 -- /See:/ 'updateDomainNameservers' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udnFIAuthKey'
---
--- * 'udnDomainName'
---
--- * 'udnNameservers'
 data UpdateDomainNameservers = UpdateDomainNameservers'
     { _udnFIAuthKey   :: !(Maybe Text)
     , _udnDomainName  :: !Text
     , _udnNameservers :: ![Nameserver]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateDomainNameservers' smart constructor.
-updateDomainNameservers :: Text -> UpdateDomainNameservers
+-- | Creates a value of 'UpdateDomainNameservers' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udnFIAuthKey'
+--
+-- * 'udnDomainName'
+--
+-- * 'udnNameservers'
+updateDomainNameservers
+    :: Text -- ^ 'udnDomainName'
+    -> UpdateDomainNameservers
 updateDomainNameservers pDomainName_ =
     UpdateDomainNameservers'
     { _udnFIAuthKey = Nothing
@@ -101,7 +103,7 @@ udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
 --
 -- Type: Complex
 --
--- Children: @Name@, @GlueIps@
+-- Children: 'Name', 'GlueIps'
 --
 -- Required: Yes
 udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
@@ -144,26 +146,29 @@ instance ToQuery UpdateDomainNameservers where
 -- | The UpdateDomainNameservers response includes the following element.
 --
 -- /See:/ 'updateDomainNameserversResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udnrsStatus'
---
--- * 'udnrsOperationId'
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
     { _udnrsStatus      :: !Int
     , _udnrsOperationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateDomainNameserversResponse' smart constructor.
-updateDomainNameserversResponse :: Int -> Text -> UpdateDomainNameserversResponse
+-- | Creates a value of 'UpdateDomainNameserversResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udnrsStatus'
+--
+-- * 'udnrsOperationId'
+updateDomainNameserversResponse
+    :: Int -- ^ 'udnrsStatus'
+    -> Text -- ^ 'udnrsOperationId'
+    -> UpdateDomainNameserversResponse
 updateDomainNameserversResponse pStatus_ pOperationId_ =
     UpdateDomainNameserversResponse'
     { _udnrsStatus = pStatus_
     , _udnrsOperationId = pOperationId_
     }
 
--- | Undocumented member.
+-- | The response status code.
 udnrsStatus :: Lens' UpdateDomainNameserversResponse Int
 udnrsStatus = lens _udnrsStatus (\ s a -> s{_udnrsStatus = a});
 

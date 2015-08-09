@@ -31,8 +31,8 @@
 module Network.AWS.OpsWorks.CreateApp
     (
     -- * Creating a Request
-      CreateApp
-    , createApp
+      createApp
+    , CreateApp
     -- * Request Lenses
     , caSSLConfiguration
     , caShortname
@@ -48,8 +48,8 @@ module Network.AWS.OpsWorks.CreateApp
     , caType
 
     -- * Destructuring the Response
-    , CreateAppResponse
     , createAppResponse
+    , CreateAppResponse
     -- * Response Lenses
     , carsAppId
     , carsStatus
@@ -62,8 +62,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createApp' smart constructor.
+data CreateApp = CreateApp'
+    { _caSSLConfiguration :: !(Maybe SSLConfiguration)
+    , _caShortname        :: !(Maybe Text)
+    , _caEnableSSL        :: !(Maybe Bool)
+    , _caEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _caDataSources      :: !(Maybe [DataSource])
+    , _caAppSource        :: !(Maybe Source)
+    , _caAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _caDomains          :: !(Maybe [Text])
+    , _caDescription      :: !(Maybe Text)
+    , _caStackId          :: !Text
+    , _caName             :: !Text
+    , _caType             :: !AppType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'caSSLConfiguration'
 --
@@ -88,23 +104,11 @@ import           Network.AWS.Response
 -- * 'caName'
 --
 -- * 'caType'
-data CreateApp = CreateApp'
-    { _caSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _caShortname        :: !(Maybe Text)
-    , _caEnableSSL        :: !(Maybe Bool)
-    , _caEnvironment      :: !(Maybe [EnvironmentVariable])
-    , _caDataSources      :: !(Maybe [DataSource])
-    , _caAppSource        :: !(Maybe Source)
-    , _caAttributes       :: !(Maybe (Map AppAttributesKeys Text))
-    , _caDomains          :: !(Maybe [Text])
-    , _caDescription      :: !(Maybe Text)
-    , _caStackId          :: !Text
-    , _caName             :: !Text
-    , _caType             :: !AppType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateApp' smart constructor.
-createApp :: Text -> Text -> AppType -> CreateApp
+createApp
+    :: Text -- ^ 'caStackId'
+    -> Text -- ^ 'caName'
+    -> AppType -- ^ 'caType'
+    -> CreateApp
 createApp pStackId_ pName_ pType_ =
     CreateApp'
     { _caSSLConfiguration = Nothing
@@ -121,7 +125,7 @@ createApp pStackId_ pName_ pType_ =
     , _caType = pType_
     }
 
--- | An @SslConfiguration@ object with the SSL configuration.
+-- | An 'SslConfiguration' object with the SSL configuration.
 caSSLConfiguration :: Lens' CreateApp (Maybe SSLConfiguration)
 caSSLConfiguration = lens _caSSLConfiguration (\ s a -> s{_caSSLConfiguration = a});
 
@@ -133,7 +137,7 @@ caShortname = lens _caShortname (\ s a -> s{_caShortname = a});
 caEnableSSL :: Lens' CreateApp (Maybe Bool)
 caEnableSSL = lens _caEnableSSL (\ s a -> s{_caEnableSSL = a});
 
--- | An array of @EnvironmentVariable@ objects that specify environment
+-- | An array of 'EnvironmentVariable' objects that specify environment
 -- variables to be associated with the app. After you deploy the app, these
 -- variables are defined on the associated app server instance. For more
 -- information, see
@@ -156,7 +160,7 @@ caEnvironment = lens _caEnvironment (\ s a -> s{_caEnvironment = a}) . _Default 
 caDataSources :: Lens' CreateApp [DataSource]
 caDataSources = lens _caDataSources (\ s a -> s{_caDataSources = a}) . _Default . _Coerce;
 
--- | A @Source@ object that specifies the app repository.
+-- | A 'Source' object that specifies the app repository.
 caAppSource :: Lens' CreateApp (Maybe Source)
 caAppSource = lens _caAppSource (\ s a -> s{_caAppSource = a});
 
@@ -166,7 +170,7 @@ caAttributes :: Lens' CreateApp (HashMap AppAttributesKeys Text)
 caAttributes = lens _caAttributes (\ s a -> s{_caAttributes = a}) . _Default . _Map;
 
 -- | The app virtual host settings, with multiple domains separated by
--- commas. For example: @\'www.example.com, example.com\'@
+-- commas. For example: '\'www.example.com, example.com\''
 caDomains :: Lens' CreateApp [Text]
 caDomains = lens _caDomains (\ s a -> s{_caDomains = a}) . _Default . _Coerce;
 
@@ -186,7 +190,7 @@ caName = lens _caName (\ s a -> s{_caName = a});
 -- For example, PHP applications are associated with a PHP layer. AWS
 -- OpsWorks deploys an application to those instances that are members of
 -- the corresponding layer. If your app isn\'t one of the standard types,
--- or you prefer to implement your own Deploy recipes, specify @other@.
+-- or you prefer to implement your own Deploy recipes, specify 'other'.
 caType :: Lens' CreateApp AppType
 caType = lens _caType (\ s a -> s{_caType = a});
 
@@ -230,22 +234,24 @@ instance ToPath CreateApp where
 instance ToQuery CreateApp where
         toQuery = const mempty
 
--- | Contains the response to a @CreateApp@ request.
+-- | Contains the response to a 'CreateApp' request.
 --
 -- /See:/ 'createAppResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'carsAppId'
---
--- * 'carsStatus'
 data CreateAppResponse = CreateAppResponse'
     { _carsAppId  :: !(Maybe Text)
     , _carsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAppResponse' smart constructor.
-createAppResponse :: Int -> CreateAppResponse
+-- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'carsAppId'
+--
+-- * 'carsStatus'
+createAppResponse
+    :: Int -- ^ 'carsStatus'
+    -> CreateAppResponse
 createAppResponse pStatus_ =
     CreateAppResponse'
     { _carsAppId = Nothing
@@ -256,6 +262,6 @@ createAppResponse pStatus_ =
 carsAppId :: Lens' CreateAppResponse (Maybe Text)
 carsAppId = lens _carsAppId (\ s a -> s{_carsAppId = a});
 
--- | Undocumented member.
+-- | The response status code.
 carsStatus :: Lens' CreateAppResponse Int
 carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

@@ -32,14 +32,14 @@
 module Network.AWS.DynamoDB.DescribeTable
     (
     -- * Creating a Request
-      DescribeTable
-    , describeTable
+      describeTable
+    , DescribeTable
     -- * Request Lenses
     , dTableName
 
     -- * Destructuring the Response
-    , DescribeTableResponse
     , describeTableResponse
+    , DescribeTableResponse
     -- * Response Lenses
     , drsTable
     , drsStatus
@@ -54,16 +54,18 @@ import           Network.AWS.Response
 -- | Represents the input of a /DescribeTable/ operation.
 --
 -- /See:/ 'describeTable' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dTableName'
 newtype DescribeTable = DescribeTable'
     { _dTableName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTable' smart constructor.
-describeTable :: Text -> DescribeTable
+-- | Creates a value of 'DescribeTable' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dTableName'
+describeTable
+    :: Text -- ^ 'dTableName'
+    -> DescribeTable
 describeTable pTableName_ =
     DescribeTable'
     { _dTableName = pTableName_
@@ -105,19 +107,21 @@ instance ToQuery DescribeTable where
 -- | Represents the output of a /DescribeTable/ operation.
 --
 -- /See:/ 'describeTableResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsTable'
---
--- * 'drsStatus'
 data DescribeTableResponse = DescribeTableResponse'
     { _drsTable  :: !(Maybe TableDescription)
     , _drsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTableResponse' smart constructor.
-describeTableResponse :: Int -> DescribeTableResponse
+-- | Creates a value of 'DescribeTableResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsTable'
+--
+-- * 'drsStatus'
+describeTableResponse
+    :: Int -- ^ 'drsStatus'
+    -> DescribeTableResponse
 describeTableResponse pStatus_ =
     DescribeTableResponse'
     { _drsTable = Nothing
@@ -128,6 +132,6 @@ describeTableResponse pStatus_ =
 drsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
 drsTable = lens _drsTable (\ s a -> s{_drsTable = a});
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DescribeTableResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

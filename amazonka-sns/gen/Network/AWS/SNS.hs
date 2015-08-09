@@ -86,7 +86,6 @@ module Network.AWS.SNS
 
     -- ** ListSubscriptionsByTopic (Paginated)
     , module Network.AWS.SNS.ListSubscriptionsByTopic
-    -- $pager
 
     -- ** GetTopicAttributes
     , module Network.AWS.SNS.GetTopicAttributes
@@ -96,14 +95,12 @@ module Network.AWS.SNS
 
     -- ** ListTopics (Paginated)
     , module Network.AWS.SNS.ListTopics
-    -- $pager
 
     -- ** CreatePlatformApplication
     , module Network.AWS.SNS.CreatePlatformApplication
 
     -- ** ListEndpointsByPlatformApplication (Paginated)
     , module Network.AWS.SNS.ListEndpointsByPlatformApplication
-    -- $pager
 
     -- ** GetPlatformApplicationAttributes
     , module Network.AWS.SNS.GetPlatformApplicationAttributes
@@ -113,7 +110,6 @@ module Network.AWS.SNS
 
     -- ** ListPlatformApplications (Paginated)
     , module Network.AWS.SNS.ListPlatformApplications
-    -- $pager
 
     -- ** SetTopicAttributes
     , module Network.AWS.SNS.SetTopicAttributes
@@ -129,7 +125,6 @@ module Network.AWS.SNS
 
     -- ** ListSubscriptions (Paginated)
     , module Network.AWS.SNS.ListSubscriptions
-    -- $pager
 
     -- ** CreateTopic
     , module Network.AWS.SNS.CreateTopic
@@ -244,8 +239,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

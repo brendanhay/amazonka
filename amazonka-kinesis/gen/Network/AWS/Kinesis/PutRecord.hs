@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Puts (writes) a single data record from a producer into an Amazon
--- Kinesis stream. Call @PutRecord@ to send data from the producer into the
+-- Kinesis stream. Call 'PutRecord' to send data from the producer into the
 -- Amazon Kinesis stream for real-time ingestion and subsequent processing,
 -- one record at a time. Each shard can support up to 1000 records written
 -- per second, up to a maximum total of 1 MB data written per second.
@@ -41,22 +41,22 @@
 -- keys to 128-bit integer values and to map associated data records to
 -- shards using the hash key ranges of the shards. You can override hashing
 -- the partition key to determine the shard by explicitly specifying a hash
--- value using the @ExplicitHashKey@ parameter. For more information, see
+-- value using the 'ExplicitHashKey' parameter. For more information, see
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html Adding Data to a Stream>
 -- in the /Amazon Kinesis Developer Guide/.
 --
--- @PutRecord@ returns the shard ID of where the data record was placed and
+-- 'PutRecord' returns the shard ID of where the data record was placed and
 -- the sequence number that was assigned to the data record.
 --
 -- Sequence numbers generally increase over time. To guarantee strictly
--- increasing ordering, use the @SequenceNumberForOrdering@ parameter. For
+-- increasing ordering, use the 'SequenceNumberForOrdering' parameter. For
 -- more information, see
 -- <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html Adding Data to a Stream>
 -- in the /Amazon Kinesis Developer Guide/.
 --
--- If a @PutRecord@ request cannot be processed because of insufficient
--- provisioned throughput on the shard involved in the request, @PutRecord@
--- throws @ProvisionedThroughputExceededException@.
+-- If a 'PutRecord' request cannot be processed because of insufficient
+-- provisioned throughput on the shard involved in the request, 'PutRecord'
+-- throws 'ProvisionedThroughputExceededException'.
 --
 -- Data records are accessible for only 24 hours from the time that they
 -- are added to an Amazon Kinesis stream.
@@ -65,8 +65,8 @@
 module Network.AWS.Kinesis.PutRecord
     (
     -- * Creating a Request
-      PutRecord
-    , putRecord
+      putRecord
+    , PutRecord
     -- * Request Lenses
     , prExplicitHashKey
     , prSequenceNumberForOrdering
@@ -75,8 +75,8 @@ module Network.AWS.Kinesis.PutRecord
     , prPartitionKey
 
     -- * Destructuring the Response
-    , PutRecordResponse
     , putRecordResponse
+    , PutRecordResponse
     -- * Response Lenses
     , prrsStatus
     , prrsShardId
@@ -89,11 +89,20 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for @PutRecord@.
+-- | Represents the input for 'PutRecord'.
 --
 -- /See:/ 'putRecord' smart constructor.
+data PutRecord = PutRecord'
+    { _prExplicitHashKey           :: !(Maybe Text)
+    , _prSequenceNumberForOrdering :: !(Maybe Text)
+    , _prStreamName                :: !Text
+    , _prData                      :: !Base64
+    , _prPartitionKey              :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutRecord' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'prExplicitHashKey'
 --
@@ -104,16 +113,11 @@ import           Network.AWS.Response
 -- * 'prData'
 --
 -- * 'prPartitionKey'
-data PutRecord = PutRecord'
-    { _prExplicitHashKey           :: !(Maybe Text)
-    , _prSequenceNumberForOrdering :: !(Maybe Text)
-    , _prStreamName                :: !Text
-    , _prData                      :: !Base64
-    , _prPartitionKey              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutRecord' smart constructor.
-putRecord :: Text -> ByteString -> Text -> PutRecord
+putRecord
+    :: Text -- ^ 'prStreamName'
+    -> ByteString -- ^ 'prData'
+    -> Text -- ^ 'prPartitionKey'
+    -> PutRecord
 putRecord pStreamName_ pData_ pPartitionKey_ =
     PutRecord'
     { _prExplicitHashKey = Nothing
@@ -130,7 +134,7 @@ prExplicitHashKey = lens _prExplicitHashKey (\ s a -> s{_prExplicitHashKey = a})
 
 -- | Guarantees strictly increasing sequence numbers, for puts from the same
 -- client and to the same partition key. Usage: set the
--- @SequenceNumberForOrdering@ of record /n/ to the sequence number of
+-- 'SequenceNumberForOrdering' of record /n/ to the sequence number of
 -- record /n-1/ (as returned in the result when putting record /n-1/). If
 -- this parameter is not set, records will be coarsely ordered based on
 -- arrival time.
@@ -194,25 +198,29 @@ instance ToPath PutRecord where
 instance ToQuery PutRecord where
         toQuery = const mempty
 
--- | Represents the output for @PutRecord@.
+-- | Represents the output for 'PutRecord'.
 --
 -- /See:/ 'putRecordResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prrsStatus'
---
--- * 'prrsShardId'
---
--- * 'prrsSequenceNumber'
 data PutRecordResponse = PutRecordResponse'
     { _prrsStatus         :: !Int
     , _prrsShardId        :: !Text
     , _prrsSequenceNumber :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutRecordResponse' smart constructor.
-putRecordResponse :: Int -> Text -> Text -> PutRecordResponse
+-- | Creates a value of 'PutRecordResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prrsStatus'
+--
+-- * 'prrsShardId'
+--
+-- * 'prrsSequenceNumber'
+putRecordResponse
+    :: Int -- ^ 'prrsStatus'
+    -> Text -- ^ 'prrsShardId'
+    -> Text -- ^ 'prrsSequenceNumber'
+    -> PutRecordResponse
 putRecordResponse pStatus_ pShardId_ pSequenceNumber_ =
     PutRecordResponse'
     { _prrsStatus = pStatus_
@@ -220,7 +228,7 @@ putRecordResponse pStatus_ pShardId_ pSequenceNumber_ =
     , _prrsSequenceNumber = pSequenceNumber_
     }
 
--- | Undocumented member.
+-- | The response status code.
 prrsStatus :: Lens' PutRecordResponse Int
 prrsStatus = lens _prrsStatus (\ s a -> s{_prrsStatus = a});
 

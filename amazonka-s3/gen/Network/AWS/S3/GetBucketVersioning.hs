@@ -24,14 +24,14 @@
 module Network.AWS.S3.GetBucketVersioning
     (
     -- * Creating a Request
-      GetBucketVersioning
-    , getBucketVersioning
+      getBucketVersioning
+    , GetBucketVersioning
     -- * Request Lenses
     , gbvBucket
 
     -- * Destructuring the Response
-    , GetBucketVersioningResponse
     , getBucketVersioningResponse
+    , GetBucketVersioningResponse
     -- * Response Lenses
     , gbvrsMFADelete
     , gbvrsStatus
@@ -44,16 +44,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketVersioning' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbvBucket'
 newtype GetBucketVersioning = GetBucketVersioning'
     { _gbvBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketVersioning' smart constructor.
-getBucketVersioning :: BucketName -> GetBucketVersioning
+-- | Creates a value of 'GetBucketVersioning' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbvBucket'
+getBucketVersioning
+    :: BucketName -- ^ 'gbvBucket'
+    -> GetBucketVersioning
 getBucketVersioning pBucket_ =
     GetBucketVersioning'
     { _gbvBucket = pBucket_
@@ -85,19 +87,21 @@ instance ToQuery GetBucketVersioning where
         toQuery = const (mconcat ["versioning"])
 
 -- | /See:/ 'getBucketVersioningResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbvrsMFADelete'
---
--- * 'gbvrsStatus'
 data GetBucketVersioningResponse = GetBucketVersioningResponse'
     { _gbvrsMFADelete :: !(Maybe MFADeleteStatus)
     , _gbvrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketVersioningResponse' smart constructor.
-getBucketVersioningResponse :: Int -> GetBucketVersioningResponse
+-- | Creates a value of 'GetBucketVersioningResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbvrsMFADelete'
+--
+-- * 'gbvrsStatus'
+getBucketVersioningResponse
+    :: Int -- ^ 'gbvrsStatus'
+    -> GetBucketVersioningResponse
 getBucketVersioningResponse pStatus_ =
     GetBucketVersioningResponse'
     { _gbvrsMFADelete = Nothing
@@ -111,6 +115,6 @@ getBucketVersioningResponse pStatus_ =
 gbvrsMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
 gbvrsMFADelete = lens _gbvrsMFADelete (\ s a -> s{_gbvrsMFADelete = a});
 
--- | Undocumented member.
+-- | The response status code.
 gbvrsStatus :: Lens' GetBucketVersioningResponse Int
 gbvrsStatus = lens _gbvrsStatus (\ s a -> s{_gbvrsStatus = a});

@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures an analysis scheme that can be applied to a @text@ or
--- @text-array@ field to define language-specific text processing options.
+-- Configures an analysis scheme that can be applied to a 'text' or
+-- 'text-array' field to define language-specific text processing options.
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes>
 -- in the /Amazon CloudSearch Developer Guide/.
@@ -28,15 +28,15 @@
 module Network.AWS.CloudSearch.DefineAnalysisScheme
     (
     -- * Creating a Request
-      DefineAnalysisScheme
-    , defineAnalysisScheme
+      defineAnalysisScheme
+    , DefineAnalysisScheme
     -- * Request Lenses
     , dasaDomainName
     , dasaAnalysisScheme
 
     -- * Destructuring the Response
-    , DefineAnalysisSchemeResponse
     , defineAnalysisSchemeResponse
+    , DefineAnalysisSchemeResponse
     -- * Response Lenses
     , defersStatus
     , defersAnalysisScheme
@@ -48,24 +48,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DefineAnalysisScheme@ operation.
+-- | Container for the parameters to the 'DefineAnalysisScheme' operation.
 -- Specifies the name of the domain you want to update and the analysis
 -- scheme configuration.
 --
 -- /See:/ 'defineAnalysisScheme' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dasaDomainName'
---
--- * 'dasaAnalysisScheme'
 data DefineAnalysisScheme = DefineAnalysisScheme'
     { _dasaDomainName     :: !Text
     , _dasaAnalysisScheme :: !AnalysisScheme
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DefineAnalysisScheme' smart constructor.
-defineAnalysisScheme :: Text -> AnalysisScheme -> DefineAnalysisScheme
+-- | Creates a value of 'DefineAnalysisScheme' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dasaDomainName'
+--
+-- * 'dasaAnalysisScheme'
+defineAnalysisScheme
+    :: Text -- ^ 'dasaDomainName'
+    -> AnalysisScheme -- ^ 'dasaAnalysisScheme'
+    -> DefineAnalysisScheme
 defineAnalysisScheme pDomainName_ pAnalysisScheme_ =
     DefineAnalysisScheme'
     { _dasaDomainName = pDomainName_
@@ -105,30 +108,33 @@ instance ToQuery DefineAnalysisScheme where
                "DomainName" =: _dasaDomainName,
                "AnalysisScheme" =: _dasaAnalysisScheme]
 
--- | The result of a @DefineAnalysisScheme@ request. Contains the status of
+-- | The result of a 'DefineAnalysisScheme' request. Contains the status of
 -- the newly-configured analysis scheme.
 --
 -- /See:/ 'defineAnalysisSchemeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'defersStatus'
---
--- * 'defersAnalysisScheme'
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
     { _defersStatus         :: !Int
     , _defersAnalysisScheme :: !AnalysisSchemeStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DefineAnalysisSchemeResponse' smart constructor.
-defineAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DefineAnalysisSchemeResponse
+-- | Creates a value of 'DefineAnalysisSchemeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'defersStatus'
+--
+-- * 'defersAnalysisScheme'
+defineAnalysisSchemeResponse
+    :: Int -- ^ 'defersStatus'
+    -> AnalysisSchemeStatus -- ^ 'defersAnalysisScheme'
+    -> DefineAnalysisSchemeResponse
 defineAnalysisSchemeResponse pStatus_ pAnalysisScheme_ =
     DefineAnalysisSchemeResponse'
     { _defersStatus = pStatus_
     , _defersAnalysisScheme = pAnalysisScheme_
     }
 
--- | Undocumented member.
+-- | The response status code.
 defersStatus :: Lens' DefineAnalysisSchemeResponse Int
 defersStatus = lens _defersStatus (\ s a -> s{_defersStatus = a});
 

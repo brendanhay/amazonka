@@ -27,8 +27,8 @@
 module Network.AWS.ElastiCache.ModifyCacheCluster
     (
     -- * Creating a Request
-      ModifyCacheCluster
-    , modifyCacheCluster
+      modifyCacheCluster
+    , ModifyCacheCluster
     -- * Request Lenses
     , mccEngineVersion
     , mccSecurityGroupIds
@@ -48,8 +48,8 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     , mccCacheClusterId
 
     -- * Destructuring the Response
-    , ModifyCacheClusterResponse
     , modifyCacheClusterResponse
+    , ModifyCacheClusterResponse
     -- * Response Lenses
     , mccrsCacheCluster
     , mccrsStatus
@@ -64,8 +64,28 @@ import           Network.AWS.Response
 -- | Represents the input of a /ModifyCacheCluster/ action.
 --
 -- /See:/ 'modifyCacheCluster' smart constructor.
+data ModifyCacheCluster = ModifyCacheCluster'
+    { _mccEngineVersion              :: !(Maybe Text)
+    , _mccSecurityGroupIds           :: !(Maybe [Text])
+    , _mccAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _mccCacheParameterGroupName    :: !(Maybe Text)
+    , _mccNewAvailabilityZones       :: !(Maybe [Text])
+    , _mccSnapshotWindow             :: !(Maybe Text)
+    , _mccPreferredMaintenanceWindow :: !(Maybe Text)
+    , _mccCacheNodeIdsToRemove       :: !(Maybe [Text])
+    , _mccSnapshotRetentionLimit     :: !(Maybe Int)
+    , _mccAZMode                     :: !(Maybe AZMode)
+    , _mccNotificationTopicStatus    :: !(Maybe Text)
+    , _mccApplyImmediately           :: !(Maybe Bool)
+    , _mccNotificationTopicARN       :: !(Maybe Text)
+    , _mccNumCacheNodes              :: !(Maybe Int)
+    , _mccCacheSecurityGroupNames    :: !(Maybe [Text])
+    , _mccCacheClusterId             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyCacheCluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mccEngineVersion'
 --
@@ -98,27 +118,9 @@ import           Network.AWS.Response
 -- * 'mccCacheSecurityGroupNames'
 --
 -- * 'mccCacheClusterId'
-data ModifyCacheCluster = ModifyCacheCluster'
-    { _mccEngineVersion              :: !(Maybe Text)
-    , _mccSecurityGroupIds           :: !(Maybe [Text])
-    , _mccAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _mccCacheParameterGroupName    :: !(Maybe Text)
-    , _mccNewAvailabilityZones       :: !(Maybe [Text])
-    , _mccSnapshotWindow             :: !(Maybe Text)
-    , _mccPreferredMaintenanceWindow :: !(Maybe Text)
-    , _mccCacheNodeIdsToRemove       :: !(Maybe [Text])
-    , _mccSnapshotRetentionLimit     :: !(Maybe Int)
-    , _mccAZMode                     :: !(Maybe AZMode)
-    , _mccNotificationTopicStatus    :: !(Maybe Text)
-    , _mccApplyImmediately           :: !(Maybe Bool)
-    , _mccNotificationTopicARN       :: !(Maybe Text)
-    , _mccNumCacheNodes              :: !(Maybe Int)
-    , _mccCacheSecurityGroupNames    :: !(Maybe [Text])
-    , _mccCacheClusterId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifyCacheCluster' smart constructor.
-modifyCacheCluster :: Text -> ModifyCacheCluster
+modifyCacheCluster
+    :: Text -- ^ 'mccCacheClusterId'
+    -> ModifyCacheCluster
 modifyCacheCluster pCacheClusterId_ =
     ModifyCacheCluster'
     { _mccEngineVersion = Nothing
@@ -175,19 +177,19 @@ mccCacheParameterGroupName = lens _mccCacheParameterGroupName (\ s a -> s{_mccCa
 -- Scenarios:
 --
 -- -   __Scenario 1:__ You have 3 active nodes and wish to add 2 nodes.
---      Specify @NumCacheNodes=5@ (3 + 2) and optionally specify two
+--      Specify 'NumCacheNodes=5' (3 + 2) and optionally specify two
 --     Availability Zones for the two new nodes.
 -- -   __Scenario 2:__ You have 3 active nodes and 2 nodes pending creation
 --     (from the scenario 1 call) and want to add 1 more node.
---      Specify @NumCacheNodes=6@ ((3 + 2) + 1)
+--      Specify 'NumCacheNodes=6' ((3 + 2) + 1)
 -- -   __Scenario 3:__ You want to cancel all pending actions.
---      Specify @NumCacheNodes=3@ to cancel all pending actions.
+--      Specify 'NumCacheNodes=3' to cancel all pending actions.
 --
 -- The Availability Zone placement of nodes pending creation cannot be
 -- modified. If you wish to cancel any nodes pending creation, add 0 nodes
--- by setting @NumCacheNodes@ to the number of current nodes.
+-- by setting 'NumCacheNodes' to the number of current nodes.
 --
--- If @cross-az@ is specified, existing Memcached nodes remain in their
+-- If 'cross-az' is specified, existing Memcached nodes remain in their
 -- current Availability Zone. Only newly created nodes can be located in
 -- different Availability Zones. For guidance on how to move existing
 -- Memcached nodes to different Availability Zones, see the __Availability
@@ -211,7 +213,7 @@ mccCacheParameterGroupName = lens _mccCacheParameterGroupName (\ s a -> s{_mccCa
 -- >   --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --
 -- Example:
--- @NewAvailabilityZones.member.1=us-west-2a&NewAvailabilityZones.member.2=us-west-2b&NewAvailabilityZones.member.3=us-west-2c@
+-- 'NewAvailabilityZones.member.1=us-west-2a&NewAvailabilityZones.member.2=us-west-2b&NewAvailabilityZones.member.3=us-west-2c'
 mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
 mccNewAvailabilityZones = lens _mccNewAvailabilityZones (\ s a -> s{_mccNewAvailabilityZones = a}) . _Default . _Coerce;
 
@@ -223,17 +225,17 @@ mccSnapshotWindow = lens _mccSnapshotWindow (\ s a -> s{_mccSnapshotWindow = a})
 -- | Specifies the weekly time range during which maintenance on the cache
 -- cluster is performed. It is specified as a range in the format
 -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period. Valid values for @ddd@ are:
+-- is a 60 minute period. Valid values for 'ddd' are:
 --
--- -   @sun@
--- -   @mon@
--- -   @tue@
--- -   @wed@
--- -   @thu@
--- -   @fri@
--- -   @sat@
+-- -   'sun'
+-- -   'mon'
+-- -   'tue'
+-- -   'wed'
+-- -   'thu'
+-- -   'fri'
+-- -   'sat'
 --
--- Example: @sun:05:00-sun:09:00@
+-- Example: 'sun:05:00-sun:09:00'
 mccPreferredMaintenanceWindow :: Lens' ModifyCacheCluster (Maybe Text)
 mccPreferredMaintenanceWindow = lens _mccPreferredMaintenanceWindow (\ s a -> s{_mccPreferredMaintenanceWindow = a});
 
@@ -246,7 +248,7 @@ mccPreferredMaintenanceWindow = lens _mccPreferredMaintenanceWindow (\ s a -> s{
 -- /NumCacheNodes/ in the request.
 --
 -- For example: If you have 3 active cache nodes, 7 pending cache nodes,
--- and the number of cache nodes in this @ModifyCacheCluser@ call is 5, you
+-- and the number of cache nodes in this 'ModifyCacheCluser' call is 5, you
 -- must list 2 (7 - 5) cache node IDs to remove.
 mccCacheNodeIdsToRemove :: Lens' ModifyCacheCluster [Text]
 mccCacheNodeIdsToRemove = lens _mccCacheNodeIdsToRemove (\ s a -> s{_mccCacheNodeIdsToRemove = a}) . _Default . _Coerce;
@@ -266,12 +268,12 @@ mccSnapshotRetentionLimit = lens _mccSnapshotRetentionLimit (\ s a -> s{_mccSnap
 -- created in a single Availability Zone or created across multiple
 -- Availability Zones.
 --
--- Valid values: @single-az@ | @cross-az@.
+-- Valid values: 'single-az' | 'cross-az'.
 --
 -- This option is only supported for Memcached cache clusters.
 --
--- You cannot specify @single-az@ if the Memcached cache cluster already
--- has cache nodes in different Availability Zones. If @cross-az@ is
+-- You cannot specify 'single-az' if the Memcached cache cluster already
+-- has cache nodes in different Availability Zones. If 'cross-az' is
 -- specified, existing Memcached nodes remain in their current Availability
 -- Zone.
 --
@@ -286,24 +288,24 @@ mccAZMode = lens _mccAZMode (\ s a -> s{_mccAZMode = a});
 -- | The status of the Amazon SNS notification topic. Notifications are sent
 -- only if the status is /active/.
 --
--- Valid values: @active@ | @inactive@
+-- Valid values: 'active' | 'inactive'
 mccNotificationTopicStatus :: Lens' ModifyCacheCluster (Maybe Text)
 mccNotificationTopicStatus = lens _mccNotificationTopicStatus (\ s a -> s{_mccNotificationTopicStatus = a});
 
--- | If @true@, this parameter causes the modifications in this request and
+-- | If 'true', this parameter causes the modifications in this request and
 -- any pending modifications to be applied, asynchronously and as soon as
 -- possible, regardless of the /PreferredMaintenanceWindow/ setting for the
 -- cache cluster.
 --
--- If @false@, then changes to the cache cluster are applied on the next
+-- If 'false', then changes to the cache cluster are applied on the next
 -- maintenance reboot, or the next failure reboot, whichever occurs first.
 --
--- If you perform a @ModifyCacheCluster@ before a pending modification is
+-- If you perform a 'ModifyCacheCluster' before a pending modification is
 -- applied, the pending modification is replaced by the newer modification.
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
--- Default: @false@
+-- Default: 'false'
 mccApplyImmediately :: Lens' ModifyCacheCluster (Maybe Bool)
 mccApplyImmediately = lens _mccApplyImmediately (\ s a -> s{_mccApplyImmediately = a});
 
@@ -315,14 +317,14 @@ mccNotificationTopicARN :: Lens' ModifyCacheCluster (Maybe Text)
 mccNotificationTopicARN = lens _mccNotificationTopicARN (\ s a -> s{_mccNotificationTopicARN = a});
 
 -- | The number of cache nodes that the cache cluster should have. If the
--- value for @NumCacheNodes@ is greater than the sum of the number of
+-- value for 'NumCacheNodes' is greater than the sum of the number of
 -- current cache nodes and the number of cache nodes pending creation
 -- (which may be zero), then more nodes will be added. If the value is less
 -- than the number of existing cache nodes, then nodes will be removed. If
 -- the value is equal to the number of current cache nodes, then any
 -- pending add or remove requests are canceled.
 --
--- If you are removing cache nodes, you must use the @CacheNodeIdsToRemove@
+-- If you are removing cache nodes, you must use the 'CacheNodeIdsToRemove'
 -- parameter to provide the IDs of the specific cache nodes to remove.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
@@ -330,7 +332,7 @@ mccNotificationTopicARN = lens _mccNotificationTopicARN (\ s a -> s{_mccNotifica
 --
 -- __Note:__
 -- Adding or removing Memcached cache nodes can be applied immediately or
--- as a pending action. See @ApplyImmediately@.
+-- as a pending action. See 'ApplyImmediately'.
 --  A pending action to modify the number of cache nodes in a cluster
 -- during its maintenance window, whether by adding or removing nodes in
 -- accordance with the scale out architecture, is not queued. The
@@ -346,7 +348,7 @@ mccNotificationTopicARN = lens _mccNotificationTopicARN (\ s a -> s{_mccNotifica
 -- previous pending action to add more nodes or explicitly cancel the
 -- pending request and retry the new request. To cancel pending actions to
 -- modify the number of cache nodes in a cluster, use the
--- @ModifyCacheCluster@ request and set /NumCacheNodes/ equal to the number
+-- 'ModifyCacheCluster' request and set /NumCacheNodes/ equal to the number
 -- of cache nodes currently in the cache cluster.
 mccNumCacheNodes :: Lens' ModifyCacheCluster (Maybe Int)
 mccNumCacheNodes = lens _mccNumCacheNodes (\ s a -> s{_mccNumCacheNodes = a});
@@ -424,19 +426,21 @@ instance ToQuery ModifyCacheCluster where
                "CacheClusterId" =: _mccCacheClusterId]
 
 -- | /See:/ 'modifyCacheClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mccrsCacheCluster'
---
--- * 'mccrsStatus'
 data ModifyCacheClusterResponse = ModifyCacheClusterResponse'
     { _mccrsCacheCluster :: !(Maybe CacheCluster)
     , _mccrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyCacheClusterResponse' smart constructor.
-modifyCacheClusterResponse :: Int -> ModifyCacheClusterResponse
+-- | Creates a value of 'ModifyCacheClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mccrsCacheCluster'
+--
+-- * 'mccrsStatus'
+modifyCacheClusterResponse
+    :: Int -- ^ 'mccrsStatus'
+    -> ModifyCacheClusterResponse
 modifyCacheClusterResponse pStatus_ =
     ModifyCacheClusterResponse'
     { _mccrsCacheCluster = Nothing
@@ -447,6 +451,6 @@ modifyCacheClusterResponse pStatus_ =
 mccrsCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
 mccrsCacheCluster = lens _mccrsCacheCluster (\ s a -> s{_mccrsCacheCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 mccrsStatus :: Lens' ModifyCacheClusterResponse Int
 mccrsStatus = lens _mccrsStatus (\ s a -> s{_mccrsStatus = a});

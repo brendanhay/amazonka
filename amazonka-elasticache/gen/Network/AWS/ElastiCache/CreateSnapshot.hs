@@ -25,15 +25,15 @@
 module Network.AWS.ElastiCache.CreateSnapshot
     (
     -- * Creating a Request
-      CreateSnapshot
-    , createSnapshot
+      createSnapshot
+    , CreateSnapshot
     -- * Request Lenses
     , csCacheClusterId
     , csSnapshotName
 
     -- * Destructuring the Response
-    , CreateSnapshotResponse
     , createSnapshotResponse
+    , CreateSnapshotResponse
     -- * Response Lenses
     , crersSnapshot
     , crersStatus
@@ -48,19 +48,22 @@ import           Network.AWS.Response
 -- | Represents the input of a /CreateSnapshot/ action.
 --
 -- /See:/ 'createSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csCacheClusterId'
---
--- * 'csSnapshotName'
 data CreateSnapshot = CreateSnapshot'
     { _csCacheClusterId :: !Text
     , _csSnapshotName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSnapshot' smart constructor.
-createSnapshot :: Text -> Text -> CreateSnapshot
+-- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csCacheClusterId'
+--
+-- * 'csSnapshotName'
+createSnapshot
+    :: Text -- ^ 'csCacheClusterId'
+    -> Text -- ^ 'csSnapshotName'
+    -> CreateSnapshot
 createSnapshot pCacheClusterId_ pSnapshotName_ =
     CreateSnapshot'
     { _csCacheClusterId = pCacheClusterId_
@@ -101,19 +104,21 @@ instance ToQuery CreateSnapshot where
                "SnapshotName" =: _csSnapshotName]
 
 -- | /See:/ 'createSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crersSnapshot'
---
--- * 'crersStatus'
 data CreateSnapshotResponse = CreateSnapshotResponse'
     { _crersSnapshot :: !(Maybe Snapshot)
     , _crersStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSnapshotResponse' smart constructor.
-createSnapshotResponse :: Int -> CreateSnapshotResponse
+-- | Creates a value of 'CreateSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crersSnapshot'
+--
+-- * 'crersStatus'
+createSnapshotResponse
+    :: Int -- ^ 'crersStatus'
+    -> CreateSnapshotResponse
 createSnapshotResponse pStatus_ =
     CreateSnapshotResponse'
     { _crersSnapshot = Nothing
@@ -124,6 +129,6 @@ createSnapshotResponse pStatus_ =
 crersSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
 crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 crersStatus :: Lens' CreateSnapshotResponse Int
 crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

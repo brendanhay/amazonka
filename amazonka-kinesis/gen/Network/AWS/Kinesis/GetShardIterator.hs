@@ -29,32 +29,32 @@
 -- record is put into the stream.
 --
 -- You must specify the shard iterator type. For example, you can set the
--- @ShardIteratorType@ parameter to read exactly from the position denoted
--- by a specific sequence number by using the @AT_SEQUENCE_NUMBER@ shard
+-- 'ShardIteratorType' parameter to read exactly from the position denoted
+-- by a specific sequence number by using the 'AT_SEQUENCE_NUMBER' shard
 -- iterator type, or right after the sequence number by using the
--- @AFTER_SEQUENCE_NUMBER@ shard iterator type, using sequence numbers
+-- 'AFTER_SEQUENCE_NUMBER' shard iterator type, using sequence numbers
 -- returned by earlier calls to PutRecord, PutRecords, GetRecords, or
--- DescribeStream. You can specify the shard iterator type @TRIM_HORIZON@
--- in the request to cause @ShardIterator@ to point to the last untrimmed
+-- DescribeStream. You can specify the shard iterator type 'TRIM_HORIZON'
+-- in the request to cause 'ShardIterator' to point to the last untrimmed
 -- record in the shard in the system, which is the oldest data record in
 -- the shard. Or you can point to just after the most recent record in the
--- shard, by using the shard iterator type @LATEST@, so that you always
+-- shard, by using the shard iterator type 'LATEST', so that you always
 -- read the most recent data in the shard.
 --
 -- When you repeatedly read from an Amazon Kinesis stream use a
 -- GetShardIterator request to get the first shard iterator for use in your
 -- first GetRecords request and then use the shard iterator returned by the
--- GetRecords request in @NextShardIterator@ for subsequent reads. A new
+-- GetRecords request in 'NextShardIterator' for subsequent reads. A new
 -- shard iterator is returned by every GetRecords request in
--- @NextShardIterator@, which you use in the @ShardIterator@ parameter of
+-- 'NextShardIterator', which you use in the 'ShardIterator' parameter of
 -- the next GetRecords request.
 --
 -- If a GetShardIterator request is made too often, you receive a
--- @ProvisionedThroughputExceededException@. For more information about
+-- 'ProvisionedThroughputExceededException'. For more information about
 -- throughput limits, see GetRecords.
 --
 -- If the shard is closed, the iterator can\'t return more data, and
--- GetShardIterator returns @null@ for its @ShardIterator@. A shard can be
+-- GetShardIterator returns 'null' for its 'ShardIterator'. A shard can be
 -- closed using SplitShard or MergeShards.
 --
 -- GetShardIterator has a limit of 5 transactions per second per account
@@ -64,8 +64,8 @@
 module Network.AWS.Kinesis.GetShardIterator
     (
     -- * Creating a Request
-      GetShardIterator
-    , getShardIterator
+      getShardIterator
+    , GetShardIterator
     -- * Request Lenses
     , gsiStartingSequenceNumber
     , gsiStreamName
@@ -73,8 +73,8 @@ module Network.AWS.Kinesis.GetShardIterator
     , gsiShardIteratorType
 
     -- * Destructuring the Response
-    , GetShardIteratorResponse
     , getShardIteratorResponse
+    , GetShardIteratorResponse
     -- * Response Lenses
     , gsirsShardIterator
     , gsirsStatus
@@ -86,11 +86,19 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Represents the input for @GetShardIterator@.
+-- | Represents the input for 'GetShardIterator'.
 --
 -- /See:/ 'getShardIterator' smart constructor.
+data GetShardIterator = GetShardIterator'
+    { _gsiStartingSequenceNumber :: !(Maybe Text)
+    , _gsiStreamName             :: !Text
+    , _gsiShardId                :: !Text
+    , _gsiShardIteratorType      :: !ShardIteratorType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetShardIterator' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gsiStartingSequenceNumber'
 --
@@ -99,15 +107,11 @@ import           Network.AWS.Response
 -- * 'gsiShardId'
 --
 -- * 'gsiShardIteratorType'
-data GetShardIterator = GetShardIterator'
-    { _gsiStartingSequenceNumber :: !(Maybe Text)
-    , _gsiStreamName             :: !Text
-    , _gsiShardId                :: !Text
-    , _gsiShardIteratorType      :: !ShardIteratorType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetShardIterator' smart constructor.
-getShardIterator :: Text -> Text -> ShardIteratorType -> GetShardIterator
+getShardIterator
+    :: Text -- ^ 'gsiStreamName'
+    -> Text -- ^ 'gsiShardId'
+    -> ShardIteratorType -- ^ 'gsiShardIteratorType'
+    -> GetShardIterator
 getShardIterator pStreamName_ pShardId_ pShardIteratorType_ =
     GetShardIterator'
     { _gsiStartingSequenceNumber = Nothing
@@ -179,22 +183,24 @@ instance ToPath GetShardIterator where
 instance ToQuery GetShardIterator where
         toQuery = const mempty
 
--- | Represents the output for @GetShardIterator@.
+-- | Represents the output for 'GetShardIterator'.
 --
 -- /See:/ 'getShardIteratorResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsirsShardIterator'
---
--- * 'gsirsStatus'
 data GetShardIteratorResponse = GetShardIteratorResponse'
     { _gsirsShardIterator :: !(Maybe Text)
     , _gsirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetShardIteratorResponse' smart constructor.
-getShardIteratorResponse :: Int -> GetShardIteratorResponse
+-- | Creates a value of 'GetShardIteratorResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsirsShardIterator'
+--
+-- * 'gsirsStatus'
+getShardIteratorResponse
+    :: Int -- ^ 'gsirsStatus'
+    -> GetShardIteratorResponse
 getShardIteratorResponse pStatus_ =
     GetShardIteratorResponse'
     { _gsirsShardIterator = Nothing
@@ -207,6 +213,6 @@ getShardIteratorResponse pStatus_ =
 gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirsShardIterator = lens _gsirsShardIterator (\ s a -> s{_gsirsShardIterator = a});
 
--- | Undocumented member.
+-- | The response status code.
 gsirsStatus :: Lens' GetShardIteratorResponse Int
 gsirsStatus = lens _gsirsStatus (\ s a -> s{_gsirsStatus = a});

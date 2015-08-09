@@ -22,20 +22,20 @@
 -- invoke the function for events in the associated source.
 --
 -- This operation requires permission for the
--- @lambda:DeleteEventSourceMapping@ action.
+-- 'lambda:DeleteEventSourceMapping' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteEventSourceMapping.html AWS API Reference> for DeleteEventSourceMapping.
 module Network.AWS.Lambda.DeleteEventSourceMapping
     (
     -- * Creating a Request
-      DeleteEventSourceMapping
-    , deleteEventSourceMapping
+      deleteEventSourceMapping
+    , DeleteEventSourceMapping
     -- * Request Lenses
     , desmUUId
 
     -- * Destructuring the Response
-    , EventSourceMappingConfiguration
     , eventSourceMappingConfiguration
+    , EventSourceMappingConfiguration
     -- * Response Lenses
     , esmcEventSourceARN
     , esmcFunctionARN
@@ -54,16 +54,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteEventSourceMapping' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'desmUUId'
 newtype DeleteEventSourceMapping = DeleteEventSourceMapping'
     { _desmUUId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEventSourceMapping' smart constructor.
-deleteEventSourceMapping :: Text -> DeleteEventSourceMapping
+-- | Creates a value of 'DeleteEventSourceMapping' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'desmUUId'
+deleteEventSourceMapping
+    :: Text -- ^ 'desmUUId'
+    -> DeleteEventSourceMapping
 deleteEventSourceMapping pUUId_ =
     DeleteEventSourceMapping'
     { _desmUUId = pUUId_

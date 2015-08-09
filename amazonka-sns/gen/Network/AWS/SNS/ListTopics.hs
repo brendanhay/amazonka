@@ -19,22 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of the requester\'s topics. Each call returns a limited
--- list of topics, up to 100. If there are more topics, a @NextToken@ is
--- also returned. Use the @NextToken@ parameter in a new @ListTopics@ call
+-- list of topics, up to 100. If there are more topics, a 'NextToken' is
+-- also returned. Use the 'NextToken' parameter in a new 'ListTopics' call
 -- to get further results.
 --
 -- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html AWS API Reference> for ListTopics.
+--
+-- This operation returns paginated results.
 module Network.AWS.SNS.ListTopics
     (
     -- * Creating a Request
-      ListTopics
-    , listTopics
+      listTopics
+    , ListTopics
     -- * Request Lenses
     , ltNextToken
 
     -- * Destructuring the Response
-    , ListTopicsResponse
     , listTopicsResponse
+    , ListTopicsResponse
     -- * Response Lenses
     , ltrsTopics
     , ltrsNextToken
@@ -49,22 +51,23 @@ import           Network.AWS.SNS.Types
 import           Network.AWS.SNS.Types.Product
 
 -- | /See:/ 'listTopics' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltNextToken'
 newtype ListTopics = ListTopics'
     { _ltNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTopics' smart constructor.
-listTopics :: ListTopics
+-- | Creates a value of 'ListTopics' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltNextToken'
+listTopics
+    :: ListTopics
 listTopics =
     ListTopics'
     { _ltNextToken = Nothing
     }
 
--- | Token returned by the previous @ListTopics@ request.
+-- | Token returned by the previous 'ListTopics' request.
 ltNextToken :: Lens' ListTopics (Maybe Text)
 ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
@@ -104,22 +107,24 @@ instance ToQuery ListTopics where
 -- | Response for ListTopics action.
 --
 -- /See:/ 'listTopicsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltrsTopics'
---
--- * 'ltrsNextToken'
---
--- * 'ltrsStatus'
 data ListTopicsResponse = ListTopicsResponse'
     { _ltrsTopics    :: !(Maybe [Topic])
     , _ltrsNextToken :: !(Maybe Text)
     , _ltrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTopicsResponse' smart constructor.
-listTopicsResponse :: Int -> ListTopicsResponse
+-- | Creates a value of 'ListTopicsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltrsTopics'
+--
+-- * 'ltrsNextToken'
+--
+-- * 'ltrsStatus'
+listTopicsResponse
+    :: Int -- ^ 'ltrsStatus'
+    -> ListTopicsResponse
 listTopicsResponse pStatus_ =
     ListTopicsResponse'
     { _ltrsTopics = Nothing
@@ -131,11 +136,11 @@ listTopicsResponse pStatus_ =
 ltrsTopics :: Lens' ListTopicsResponse [Topic]
 ltrsTopics = lens _ltrsTopics (\ s a -> s{_ltrsTopics = a}) . _Default . _Coerce;
 
--- | Token to pass along to the next @ListTopics@ request. This element is
+-- | Token to pass along to the next 'ListTopics' request. This element is
 -- returned if there are additional topics to retrieve.
 ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
 ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 ltrsStatus :: Lens' ListTopicsResponse Int
 ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});

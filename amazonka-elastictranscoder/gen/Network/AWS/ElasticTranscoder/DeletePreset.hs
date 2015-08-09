@@ -28,14 +28,14 @@
 module Network.AWS.ElasticTranscoder.DeletePreset
     (
     -- * Creating a Request
-      DeletePreset
-    , deletePreset
+      deletePreset
+    , DeletePreset
     -- * Request Lenses
     , dpId
 
     -- * Destructuring the Response
-    , DeletePresetResponse
     , deletePresetResponse
+    , DeletePresetResponse
     -- * Response Lenses
     , dprsStatus
     ) where
@@ -46,19 +46,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @DeletePresetRequest@ structure.
+-- | The 'DeletePresetRequest' structure.
 --
 -- /See:/ 'deletePreset' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpId'
 newtype DeletePreset = DeletePreset'
     { _dpId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePreset' smart constructor.
-deletePreset :: Text -> DeletePreset
+-- | Creates a value of 'DeletePreset' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpId'
+deletePreset
+    :: Text -- ^ 'dpId'
+    -> DeletePreset
 deletePreset pId_ =
     DeletePreset'
     { _dpId = pId_
@@ -88,24 +90,26 @@ instance ToPath DeletePreset where
 instance ToQuery DeletePreset where
         toQuery = const mempty
 
--- | The @DeletePresetResponse@ structure.
+-- | The 'DeletePresetResponse' structure.
 --
 -- /See:/ 'deletePresetResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dprsStatus'
 newtype DeletePresetResponse = DeletePresetResponse'
     { _dprsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePresetResponse' smart constructor.
-deletePresetResponse :: Int -> DeletePresetResponse
+-- | Creates a value of 'DeletePresetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dprsStatus'
+deletePresetResponse
+    :: Int -- ^ 'dprsStatus'
+    -> DeletePresetResponse
 deletePresetResponse pStatus_ =
     DeletePresetResponse'
     { _dprsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dprsStatus :: Lens' DeletePresetResponse Int
 dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});

@@ -24,16 +24,16 @@
 module Network.AWS.EC2.CancelImportTask
     (
     -- * Creating a Request
-      CancelImportTask
-    , cancelImportTask
+      cancelImportTask
+    , CancelImportTask
     -- * Request Lenses
     , citCancelReason
     , citImportTaskId
     , citDryRun
 
     -- * Destructuring the Response
-    , CancelImportTaskResponse
     , cancelImportTaskResponse
+    , CancelImportTaskResponse
     -- * Response Lenses
     , citrsState
     , citrsImportTaskId
@@ -48,22 +48,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'cancelImportTask' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'citCancelReason'
---
--- * 'citImportTaskId'
---
--- * 'citDryRun'
 data CancelImportTask = CancelImportTask'
     { _citCancelReason :: !(Maybe Text)
     , _citImportTaskId :: !(Maybe Text)
     , _citDryRun       :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelImportTask' smart constructor.
-cancelImportTask :: CancelImportTask
+-- | Creates a value of 'CancelImportTask' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'citCancelReason'
+--
+-- * 'citImportTaskId'
+--
+-- * 'citDryRun'
+cancelImportTask
+    :: CancelImportTask
 cancelImportTask =
     CancelImportTask'
     { _citCancelReason = Nothing
@@ -81,8 +82,8 @@ citImportTaskId = lens _citImportTaskId (\ s a -> s{_citImportTaskId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 citDryRun :: Lens' CancelImportTask (Maybe Bool)
 citDryRun = lens _citDryRun (\ s a -> s{_citDryRun = a});
 
@@ -114,8 +115,16 @@ instance ToQuery CancelImportTask where
                "DryRun" =: _citDryRun]
 
 -- | /See:/ 'cancelImportTaskResponse' smart constructor.
+data CancelImportTaskResponse = CancelImportTaskResponse'
+    { _citrsState         :: !(Maybe Text)
+    , _citrsImportTaskId  :: !(Maybe Text)
+    , _citrsPreviousState :: !(Maybe Text)
+    , _citrsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CancelImportTaskResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'citrsState'
 --
@@ -124,15 +133,9 @@ instance ToQuery CancelImportTask where
 -- * 'citrsPreviousState'
 --
 -- * 'citrsStatus'
-data CancelImportTaskResponse = CancelImportTaskResponse'
-    { _citrsState         :: !(Maybe Text)
-    , _citrsImportTaskId  :: !(Maybe Text)
-    , _citrsPreviousState :: !(Maybe Text)
-    , _citrsStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CancelImportTaskResponse' smart constructor.
-cancelImportTaskResponse :: Int -> CancelImportTaskResponse
+cancelImportTaskResponse
+    :: Int -- ^ 'citrsStatus'
+    -> CancelImportTaskResponse
 cancelImportTaskResponse pStatus_ =
     CancelImportTaskResponse'
     { _citrsState = Nothing
@@ -153,6 +156,6 @@ citrsImportTaskId = lens _citrsImportTaskId (\ s a -> s{_citrsImportTaskId = a})
 citrsPreviousState :: Lens' CancelImportTaskResponse (Maybe Text)
 citrsPreviousState = lens _citrsPreviousState (\ s a -> s{_citrsPreviousState = a});
 
--- | Undocumented member.
+-- | The response status code.
 citrsStatus :: Lens' CancelImportTaskResponse Int
 citrsStatus = lens _citrsStatus (\ s a -> s{_citrsStatus = a});

@@ -34,16 +34,16 @@
 module Network.AWS.EC2.ModifyVolumeAttribute
     (
     -- * Creating a Request
-      ModifyVolumeAttribute
-    , modifyVolumeAttribute
+      modifyVolumeAttribute
+    , ModifyVolumeAttribute
     -- * Request Lenses
     , mvaAutoEnableIO
     , mvaDryRun
     , mvaVolumeId
 
     -- * Destructuring the Response
-    , ModifyVolumeAttributeResponse
     , modifyVolumeAttributeResponse
+    , ModifyVolumeAttributeResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,22 +53,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifyVolumeAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mvaAutoEnableIO'
---
--- * 'mvaDryRun'
---
--- * 'mvaVolumeId'
 data ModifyVolumeAttribute = ModifyVolumeAttribute'
     { _mvaAutoEnableIO :: !(Maybe AttributeBooleanValue)
     , _mvaDryRun       :: !(Maybe Bool)
     , _mvaVolumeId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyVolumeAttribute' smart constructor.
-modifyVolumeAttribute :: Text -> ModifyVolumeAttribute
+-- | Creates a value of 'ModifyVolumeAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mvaAutoEnableIO'
+--
+-- * 'mvaDryRun'
+--
+-- * 'mvaVolumeId'
+modifyVolumeAttribute
+    :: Text -- ^ 'mvaVolumeId'
+    -> ModifyVolumeAttribute
 modifyVolumeAttribute pVolumeId_ =
     ModifyVolumeAttribute'
     { _mvaAutoEnableIO = Nothing
@@ -82,8 +84,8 @@ mvaAutoEnableIO = lens _mvaAutoEnableIO (\ s a -> s{_mvaAutoEnableIO = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 mvaDryRun :: Lens' ModifyVolumeAttribute (Maybe Bool)
 mvaDryRun = lens _mvaDryRun (\ s a -> s{_mvaDryRun = a});
 
@@ -117,6 +119,8 @@ data ModifyVolumeAttributeResponse =
     ModifyVolumeAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyVolumeAttributeResponse' smart constructor.
-modifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse
+-- | Creates a value of 'ModifyVolumeAttributeResponse' with the minimum fields required to make a request.
+--
+modifyVolumeAttributeResponse
+    :: ModifyVolumeAttributeResponse
 modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse'

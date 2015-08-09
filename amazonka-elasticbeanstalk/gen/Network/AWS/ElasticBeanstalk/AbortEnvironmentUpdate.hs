@@ -25,15 +25,15 @@
 module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
     (
     -- * Creating a Request
-      AbortEnvironmentUpdate
-    , abortEnvironmentUpdate
+      abortEnvironmentUpdate
+    , AbortEnvironmentUpdate
     -- * Request Lenses
     , aeuEnvironmentName
     , aeuEnvironmentId
 
     -- * Destructuring the Response
-    , AbortEnvironmentUpdateResponse
     , abortEnvironmentUpdateResponse
+    , AbortEnvironmentUpdateResponse
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -45,19 +45,20 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'abortEnvironmentUpdate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aeuEnvironmentName'
---
--- * 'aeuEnvironmentId'
 data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
     { _aeuEnvironmentName :: !(Maybe Text)
     , _aeuEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AbortEnvironmentUpdate' smart constructor.
-abortEnvironmentUpdate :: AbortEnvironmentUpdate
+-- | Creates a value of 'AbortEnvironmentUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aeuEnvironmentName'
+--
+-- * 'aeuEnvironmentId'
+abortEnvironmentUpdate
+    :: AbortEnvironmentUpdate
 abortEnvironmentUpdate =
     AbortEnvironmentUpdate'
     { _aeuEnvironmentName = Nothing
@@ -102,6 +103,8 @@ data AbortEnvironmentUpdateResponse =
     AbortEnvironmentUpdateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AbortEnvironmentUpdateResponse' smart constructor.
-abortEnvironmentUpdateResponse :: AbortEnvironmentUpdateResponse
+-- | Creates a value of 'AbortEnvironmentUpdateResponse' with the minimum fields required to make a request.
+--
+abortEnvironmentUpdateResponse
+    :: AbortEnvironmentUpdateResponse
 abortEnvironmentUpdateResponse = AbortEnvironmentUpdateResponse'

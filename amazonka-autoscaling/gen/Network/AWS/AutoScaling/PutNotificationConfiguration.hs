@@ -32,16 +32,16 @@
 module Network.AWS.AutoScaling.PutNotificationConfiguration
     (
     -- * Creating a Request
-      PutNotificationConfiguration
-    , putNotificationConfiguration
+      putNotificationConfiguration
+    , PutNotificationConfiguration
     -- * Request Lenses
     , pncAutoScalingGroupName
     , pncTopicARN
     , pncNotificationTypes
 
     -- * Destructuring the Response
-    , PutNotificationConfigurationResponse
     , putNotificationConfigurationResponse
+    , PutNotificationConfigurationResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -51,22 +51,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putNotificationConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pncAutoScalingGroupName'
---
--- * 'pncTopicARN'
---
--- * 'pncNotificationTypes'
 data PutNotificationConfiguration = PutNotificationConfiguration'
     { _pncAutoScalingGroupName :: !Text
     , _pncTopicARN             :: !Text
     , _pncNotificationTypes    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutNotificationConfiguration' smart constructor.
-putNotificationConfiguration :: Text -> Text -> PutNotificationConfiguration
+-- | Creates a value of 'PutNotificationConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pncAutoScalingGroupName'
+--
+-- * 'pncTopicARN'
+--
+-- * 'pncNotificationTypes'
+putNotificationConfiguration
+    :: Text -- ^ 'pncAutoScalingGroupName'
+    -> Text -- ^ 'pncTopicARN'
+    -> PutNotificationConfiguration
 putNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
     PutNotificationConfiguration'
     { _pncAutoScalingGroupName = pAutoScalingGroupName_
@@ -120,6 +123,8 @@ data PutNotificationConfigurationResponse =
     PutNotificationConfigurationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutNotificationConfigurationResponse' smart constructor.
-putNotificationConfigurationResponse :: PutNotificationConfigurationResponse
+-- | Creates a value of 'PutNotificationConfigurationResponse' with the minimum fields required to make a request.
+--
+putNotificationConfigurationResponse
+    :: PutNotificationConfigurationResponse
 putNotificationConfigurationResponse = PutNotificationConfigurationResponse'

@@ -22,19 +22,21 @@
 -- specified, the call describes all of your load balancers.
 --
 -- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancers.html AWS API Reference> for DescribeLoadBalancers.
+--
+-- This operation returns paginated results.
 module Network.AWS.ELB.DescribeLoadBalancers
     (
     -- * Creating a Request
-      DescribeLoadBalancers
-    , describeLoadBalancers
+      describeLoadBalancers
+    , DescribeLoadBalancers
     -- * Request Lenses
     , dlbMarker
     , dlbPageSize
     , dlbLoadBalancerNames
 
     -- * Destructuring the Response
-    , DescribeLoadBalancersResponse
     , describeLoadBalancersResponse
+    , DescribeLoadBalancersResponse
     -- * Response Lenses
     , dlbrsLoadBalancerDescriptions
     , dlbrsNextMarker
@@ -49,22 +51,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancers' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbMarker'
---
--- * 'dlbPageSize'
---
--- * 'dlbLoadBalancerNames'
 data DescribeLoadBalancers = DescribeLoadBalancers'
     { _dlbMarker            :: !(Maybe Text)
     , _dlbPageSize          :: !(Maybe Nat)
     , _dlbLoadBalancerNames :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoadBalancers' smart constructor.
-describeLoadBalancers :: DescribeLoadBalancers
+-- | Creates a value of 'DescribeLoadBalancers' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbMarker'
+--
+-- * 'dlbPageSize'
+--
+-- * 'dlbLoadBalancerNames'
+describeLoadBalancers
+    :: DescribeLoadBalancers
 describeLoadBalancers =
     DescribeLoadBalancers'
     { _dlbMarker = Nothing
@@ -125,22 +128,24 @@ instance ToQuery DescribeLoadBalancers where
                    (toQueryList "member" <$> _dlbLoadBalancerNames)]
 
 -- | /See:/ 'describeLoadBalancersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbrsLoadBalancerDescriptions'
---
--- * 'dlbrsNextMarker'
---
--- * 'dlbrsStatus'
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancerDescriptions :: !(Maybe [LoadBalancerDescription])
     , _dlbrsNextMarker               :: !(Maybe Text)
     , _dlbrsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoadBalancersResponse' smart constructor.
-describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
+-- | Creates a value of 'DescribeLoadBalancersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbrsLoadBalancerDescriptions'
+--
+-- * 'dlbrsNextMarker'
+--
+-- * 'dlbrsStatus'
+describeLoadBalancersResponse
+    :: Int -- ^ 'dlbrsStatus'
+    -> DescribeLoadBalancersResponse
 describeLoadBalancersResponse pStatus_ =
     DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancerDescriptions = Nothing
@@ -157,6 +162,6 @@ dlbrsLoadBalancerDescriptions = lens _dlbrsLoadBalancerDescriptions (\ s a -> s{
 dlbrsNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrsNextMarker = lens _dlbrsNextMarker (\ s a -> s{_dlbrsNextMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dlbrsStatus :: Lens' DescribeLoadBalancersResponse Int
 dlbrsStatus = lens _dlbrsStatus (\ s a -> s{_dlbrsStatus = a});

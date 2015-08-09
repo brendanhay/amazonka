@@ -31,15 +31,15 @@
 module Network.AWS.CognitoSync.SetCognitoEvents
     (
     -- * Creating a Request
-      SetCognitoEvents
-    , setCognitoEvents
+      setCognitoEvents
+    , SetCognitoEvents
     -- * Request Lenses
     , sceIdentityPoolId
     , sceEvents
 
     -- * Destructuring the Response
-    , SetCognitoEventsResponse
     , setCognitoEventsResponse
+    , SetCognitoEventsResponse
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -53,19 +53,21 @@ import           Network.AWS.Response
 -- \"
 --
 -- /See:/ 'setCognitoEvents' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sceIdentityPoolId'
---
--- * 'sceEvents'
 data SetCognitoEvents = SetCognitoEvents'
     { _sceIdentityPoolId :: !Text
     , _sceEvents         :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetCognitoEvents' smart constructor.
-setCognitoEvents :: Text -> SetCognitoEvents
+-- | Creates a value of 'SetCognitoEvents' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sceIdentityPoolId'
+--
+-- * 'sceEvents'
+setCognitoEvents
+    :: Text -- ^ 'sceIdentityPoolId'
+    -> SetCognitoEvents
 setCognitoEvents pIdentityPoolId_ =
     SetCognitoEvents'
     { _sceIdentityPoolId = pIdentityPoolId_
@@ -111,6 +113,8 @@ data SetCognitoEventsResponse =
     SetCognitoEventsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetCognitoEventsResponse' smart constructor.
-setCognitoEventsResponse :: SetCognitoEventsResponse
+-- | Creates a value of 'SetCognitoEventsResponse' with the minimum fields required to make a request.
+--
+setCognitoEventsResponse
+    :: SetCognitoEventsResponse
 setCognitoEventsResponse = SetCognitoEventsResponse'

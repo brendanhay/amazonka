@@ -29,14 +29,14 @@
 module Network.AWS.CodeCommit.DeleteRepository
     (
     -- * Creating a Request
-      DeleteRepository
-    , deleteRepository
+      deleteRepository
+    , DeleteRepository
     -- * Request Lenses
     , drRepositoryName
 
     -- * Destructuring the Response
-    , DeleteRepositoryResponse
     , deleteRepositoryResponse
+    , DeleteRepositoryResponse
     -- * Response Lenses
     , drrsRepositoryId
     , drrsStatus
@@ -51,16 +51,18 @@ import           Network.AWS.Response
 -- | Represents the input of a delete repository operation.
 --
 -- /See:/ 'deleteRepository' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drRepositoryName'
 newtype DeleteRepository = DeleteRepository'
     { _drRepositoryName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRepository' smart constructor.
-deleteRepository :: Text -> DeleteRepository
+-- | Creates a value of 'DeleteRepository' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drRepositoryName'
+deleteRepository
+    :: Text -- ^ 'drRepositoryName'
+    -> DeleteRepository
 deleteRepository pRepositoryName_ =
     DeleteRepository'
     { _drRepositoryName = pRepositoryName_
@@ -103,19 +105,21 @@ instance ToQuery DeleteRepository where
 -- | Represents the output of a delete repository operation.
 --
 -- /See:/ 'deleteRepositoryResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drrsRepositoryId'
---
--- * 'drrsStatus'
 data DeleteRepositoryResponse = DeleteRepositoryResponse'
     { _drrsRepositoryId :: !(Maybe Text)
     , _drrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRepositoryResponse' smart constructor.
-deleteRepositoryResponse :: Int -> DeleteRepositoryResponse
+-- | Creates a value of 'DeleteRepositoryResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drrsRepositoryId'
+--
+-- * 'drrsStatus'
+deleteRepositoryResponse
+    :: Int -- ^ 'drrsStatus'
+    -> DeleteRepositoryResponse
 deleteRepositoryResponse pStatus_ =
     DeleteRepositoryResponse'
     { _drrsRepositoryId = Nothing
@@ -126,6 +130,6 @@ deleteRepositoryResponse pStatus_ =
 drrsRepositoryId :: Lens' DeleteRepositoryResponse (Maybe Text)
 drrsRepositoryId = lens _drrsRepositoryId (\ s a -> s{_drrsRepositoryId = a});
 
--- | Undocumented member.
+-- | The response status code.
 drrsStatus :: Lens' DeleteRepositoryResponse Int
 drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});

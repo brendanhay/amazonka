@@ -24,8 +24,8 @@
 module Network.AWS.CodeDeploy.ListApplicationRevisions
     (
     -- * Creating a Request
-      ListApplicationRevisions
-    , listApplicationRevisions
+      listApplicationRevisions
+    , ListApplicationRevisions
     -- * Request Lenses
     , larS3KeyPrefix
     , larDeployed
@@ -36,8 +36,8 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     , larApplicationName
 
     -- * Destructuring the Response
-    , ListApplicationRevisionsResponse
     , listApplicationRevisionsResponse
+    , ListApplicationRevisionsResponse
     -- * Response Lenses
     , larrsNextToken
     , larrsRevisions
@@ -53,8 +53,19 @@ import           Network.AWS.Response
 -- | Represents the input of a list application revisions operation.
 --
 -- /See:/ 'listApplicationRevisions' smart constructor.
+data ListApplicationRevisions = ListApplicationRevisions'
+    { _larS3KeyPrefix     :: !(Maybe Text)
+    , _larDeployed        :: !(Maybe ListStateFilterAction)
+    , _larNextToken       :: !(Maybe Text)
+    , _larSortOrder       :: !(Maybe SortOrder)
+    , _larS3Bucket        :: !(Maybe Text)
+    , _larSortBy          :: !(Maybe ApplicationRevisionSortBy)
+    , _larApplicationName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListApplicationRevisions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'larS3KeyPrefix'
 --
@@ -69,18 +80,9 @@ import           Network.AWS.Response
 -- * 'larSortBy'
 --
 -- * 'larApplicationName'
-data ListApplicationRevisions = ListApplicationRevisions'
-    { _larS3KeyPrefix     :: !(Maybe Text)
-    , _larDeployed        :: !(Maybe ListStateFilterAction)
-    , _larNextToken       :: !(Maybe Text)
-    , _larSortOrder       :: !(Maybe SortOrder)
-    , _larS3Bucket        :: !(Maybe Text)
-    , _larSortBy          :: !(Maybe ApplicationRevisionSortBy)
-    , _larApplicationName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListApplicationRevisions' smart constructor.
-listApplicationRevisions :: Text -> ListApplicationRevisions
+listApplicationRevisions
+    :: Text -- ^ 'larApplicationName'
+    -> ListApplicationRevisions
 listApplicationRevisions pApplicationName_ =
     ListApplicationRevisions'
     { _larS3KeyPrefix = Nothing
@@ -193,22 +195,24 @@ instance ToQuery ListApplicationRevisions where
 -- | Represents the output of a list application revisions operation.
 --
 -- /See:/ 'listApplicationRevisionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'larrsNextToken'
---
--- * 'larrsRevisions'
---
--- * 'larrsStatus'
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
     { _larrsNextToken :: !(Maybe Text)
     , _larrsRevisions :: !(Maybe [RevisionLocation])
     , _larrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListApplicationRevisionsResponse' smart constructor.
-listApplicationRevisionsResponse :: Int -> ListApplicationRevisionsResponse
+-- | Creates a value of 'ListApplicationRevisionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'larrsNextToken'
+--
+-- * 'larrsRevisions'
+--
+-- * 'larrsStatus'
+listApplicationRevisionsResponse
+    :: Int -- ^ 'larrsStatus'
+    -> ListApplicationRevisionsResponse
 listApplicationRevisionsResponse pStatus_ =
     ListApplicationRevisionsResponse'
     { _larrsNextToken = Nothing
@@ -227,6 +231,6 @@ larrsNextToken = lens _larrsNextToken (\ s a -> s{_larrsNextToken = a});
 larrsRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
 larrsRevisions = lens _larrsRevisions (\ s a -> s{_larrsRevisions = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 larrsStatus :: Lens' ListApplicationRevisionsResponse Int
 larrsStatus = lens _larrsStatus (\ s a -> s{_larrsStatus = a});

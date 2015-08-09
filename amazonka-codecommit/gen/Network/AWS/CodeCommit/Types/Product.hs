@@ -24,19 +24,20 @@ import           Network.AWS.Prelude
 -- | Returns information about a branch.
 --
 -- /See:/ 'branchInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'biCommitId'
---
--- * 'biBranchName'
 data BranchInfo = BranchInfo'
     { _biCommitId   :: !(Maybe Text)
     , _biBranchName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BranchInfo' smart constructor.
-branchInfo :: BranchInfo
+-- | Creates a value of 'BranchInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'biCommitId'
+--
+-- * 'biBranchName'
+branchInfo
+    :: BranchInfo
 branchInfo =
     BranchInfo'
     { _biCommitId = Nothing
@@ -61,8 +62,22 @@ instance FromJSON BranchInfo where
 -- | Information about a repository.
 --
 -- /See:/ 'repositoryMetadata' smart constructor.
+data RepositoryMetadata = RepositoryMetadata'
+    { _rmRepositoryDescription :: !(Maybe Text)
+    , _rmLastModifiedDate      :: !(Maybe POSIX)
+    , _rmARN                   :: !(Maybe Text)
+    , _rmCloneURLHTTP          :: !(Maybe Text)
+    , _rmAccountId             :: !(Maybe Text)
+    , _rmDefaultBranch         :: !(Maybe Text)
+    , _rmRepositoryId          :: !(Maybe Text)
+    , _rmCreationDate          :: !(Maybe POSIX)
+    , _rmRepositoryName        :: !(Maybe Text)
+    , _rmCloneURLSSH           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RepositoryMetadata' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rmRepositoryDescription'
 --
@@ -83,21 +98,8 @@ instance FromJSON BranchInfo where
 -- * 'rmRepositoryName'
 --
 -- * 'rmCloneURLSSH'
-data RepositoryMetadata = RepositoryMetadata'
-    { _rmRepositoryDescription :: !(Maybe Text)
-    , _rmLastModifiedDate      :: !(Maybe POSIX)
-    , _rmARN                   :: !(Maybe Text)
-    , _rmCloneURLHTTP          :: !(Maybe Text)
-    , _rmAccountId             :: !(Maybe Text)
-    , _rmDefaultBranch         :: !(Maybe Text)
-    , _rmRepositoryId          :: !(Maybe Text)
-    , _rmCreationDate          :: !(Maybe POSIX)
-    , _rmRepositoryName        :: !(Maybe Text)
-    , _rmCloneURLSSH           :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RepositoryMetadata' smart constructor.
-repositoryMetadata :: RepositoryMetadata
+repositoryMetadata
+    :: RepositoryMetadata
 repositoryMetadata =
     RepositoryMetadata'
     { _rmRepositoryDescription = Nothing
@@ -171,19 +173,20 @@ instance FromJSON RepositoryMetadata where
 -- | Information about a repository name and ID.
 --
 -- /See:/ 'repositoryNameIdPair' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rnipRepositoryId'
---
--- * 'rnipRepositoryName'
 data RepositoryNameIdPair = RepositoryNameIdPair'
     { _rnipRepositoryId   :: !(Maybe Text)
     , _rnipRepositoryName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RepositoryNameIdPair' smart constructor.
-repositoryNameIdPair :: RepositoryNameIdPair
+-- | Creates a value of 'RepositoryNameIdPair' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rnipRepositoryId'
+--
+-- * 'rnipRepositoryName'
+repositoryNameIdPair
+    :: RepositoryNameIdPair
 repositoryNameIdPair =
     RepositoryNameIdPair'
     { _rnipRepositoryId = Nothing

@@ -26,12 +26,12 @@
 module Network.AWS.DirectConnect.DescribeLocations
     (
     -- * Creating a Request
-      DescribeLocations
-    , describeLocations
+      describeLocations
+    , DescribeLocations
 
     -- * Destructuring the Response
-    , DescribeLocationsResponse
     , describeLocationsResponse
+    , DescribeLocationsResponse
     -- * Response Lenses
     , dlrsLocations
     , dlrsStatus
@@ -48,8 +48,10 @@ data DescribeLocations =
     DescribeLocations'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLocations' smart constructor.
-describeLocations :: DescribeLocations
+-- | Creates a value of 'DescribeLocations' with the minimum fields required to make a request.
+--
+describeLocations
+    :: DescribeLocations
 describeLocations = DescribeLocations'
 
 instance AWSRequest DescribeLocations where
@@ -82,19 +84,21 @@ instance ToQuery DescribeLocations where
         toQuery = const mempty
 
 -- | /See:/ 'describeLocationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlrsLocations'
---
--- * 'dlrsStatus'
 data DescribeLocationsResponse = DescribeLocationsResponse'
     { _dlrsLocations :: !(Maybe [Location])
     , _dlrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLocationsResponse' smart constructor.
-describeLocationsResponse :: Int -> DescribeLocationsResponse
+-- | Creates a value of 'DescribeLocationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlrsLocations'
+--
+-- * 'dlrsStatus'
+describeLocationsResponse
+    :: Int -- ^ 'dlrsStatus'
+    -> DescribeLocationsResponse
 describeLocationsResponse pStatus_ =
     DescribeLocationsResponse'
     { _dlrsLocations = Nothing
@@ -105,6 +109,6 @@ describeLocationsResponse pStatus_ =
 dlrsLocations :: Lens' DescribeLocationsResponse [Location]
 dlrsLocations = lens _dlrsLocations (\ s a -> s{_dlrsLocations = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dlrsStatus :: Lens' DescribeLocationsResponse Int
 dlrsStatus = lens _dlrsStatus (\ s a -> s{_dlrsStatus = a});

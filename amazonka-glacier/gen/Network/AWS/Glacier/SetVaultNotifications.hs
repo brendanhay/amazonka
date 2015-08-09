@@ -22,7 +22,7 @@
 -- events happen to a vault. By default, you don\'t get any notifications.
 --
 -- To configure vault notifications, send a PUT request to the
--- @notification-configuration@ subresource of the vault. The request
+-- 'notification-configuration' subresource of the vault. The request
 -- should include a JSON document that provides an Amazon SNS topic and
 -- specific events for which you want Amazon Glacier to send notifications
 -- to the topic.
@@ -58,16 +58,16 @@
 module Network.AWS.Glacier.SetVaultNotifications
     (
     -- * Creating a Request
-      SetVaultNotifications
-    , setVaultNotifications
+      setVaultNotifications
+    , SetVaultNotifications
     -- * Request Lenses
     , svnVaultNotificationConfig
     , svnAccountId
     , svnVaultName
 
     -- * Destructuring the Response
-    , SetVaultNotificationsResponse
     , setVaultNotificationsResponse
+    , SetVaultNotificationsResponse
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -80,22 +80,25 @@ import           Network.AWS.Response
 -- specific events happen to a vault.
 --
 -- /See:/ 'setVaultNotifications' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'svnVaultNotificationConfig'
---
--- * 'svnAccountId'
---
--- * 'svnVaultName'
 data SetVaultNotifications = SetVaultNotifications'
     { _svnVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
     , _svnAccountId               :: !Text
     , _svnVaultName               :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetVaultNotifications' smart constructor.
-setVaultNotifications :: Text -> Text -> SetVaultNotifications
+-- | Creates a value of 'SetVaultNotifications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'svnVaultNotificationConfig'
+--
+-- * 'svnAccountId'
+--
+-- * 'svnVaultName'
+setVaultNotifications
+    :: Text -- ^ 'svnAccountId'
+    -> Text -- ^ 'svnVaultName'
+    -> SetVaultNotifications
 setVaultNotifications pAccountId_ pVaultName_ =
     SetVaultNotifications'
     { _svnVaultNotificationConfig = Nothing
@@ -107,9 +110,9 @@ setVaultNotifications pAccountId_ pVaultName_ =
 svnVaultNotificationConfig :: Lens' SetVaultNotifications (Maybe VaultNotificationConfig)
 svnVaultNotificationConfig = lens _svnVaultNotificationConfig (\ s a -> s{_svnVaultNotificationConfig = a});
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 svnAccountId :: Lens' SetVaultNotifications Text
@@ -149,6 +152,8 @@ data SetVaultNotificationsResponse =
     SetVaultNotificationsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetVaultNotificationsResponse' smart constructor.
-setVaultNotificationsResponse :: SetVaultNotificationsResponse
+-- | Creates a value of 'SetVaultNotificationsResponse' with the minimum fields required to make a request.
+--
+setVaultNotificationsResponse
+    :: SetVaultNotificationsResponse
 setVaultNotificationsResponse = SetVaultNotificationsResponse'

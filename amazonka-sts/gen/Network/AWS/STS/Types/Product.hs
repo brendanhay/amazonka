@@ -25,19 +25,22 @@ import           Network.AWS.STS.Types.Sum
 -- operation returns.
 --
 -- /See:/ 'assumedRoleUser' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aruAssumedRoleId'
---
--- * 'aruARN'
 data AssumedRoleUser = AssumedRoleUser'
     { _aruAssumedRoleId :: !Text
     , _aruARN           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssumedRoleUser' smart constructor.
-assumedRoleUser :: Text -> Text -> AssumedRoleUser
+-- | Creates a value of 'AssumedRoleUser' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aruAssumedRoleId'
+--
+-- * 'aruARN'
+assumedRoleUser
+    :: Text -- ^ 'aruAssumedRoleId'
+    -> Text -- ^ 'aruARN'
+    -> AssumedRoleUser
 assumedRoleUser pAssumedRoleId_ pARN_ =
     AssumedRoleUser'
     { _aruAssumedRoleId = pAssumedRoleId_
@@ -66,8 +69,16 @@ instance FromXML AssumedRoleUser where
 -- | AWS credentials for API authentication.
 --
 -- /See:/ 'credentials' smart constructor.
+data Credentials = Credentials'
+    { _cAccessKeyId     :: !Text
+    , _cSecretAccessKey :: !Text
+    , _cSessionToken    :: !Text
+    , _cExpiration      :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Credentials' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cAccessKeyId'
 --
@@ -76,15 +87,12 @@ instance FromXML AssumedRoleUser where
 -- * 'cSessionToken'
 --
 -- * 'cExpiration'
-data Credentials = Credentials'
-    { _cAccessKeyId     :: !Text
-    , _cSecretAccessKey :: !Text
-    , _cSessionToken    :: !Text
-    , _cExpiration      :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Credentials' smart constructor.
-credentials :: Text -> Text -> Text -> UTCTime -> Credentials
+credentials
+    :: Text -- ^ 'cAccessKeyId'
+    -> Text -- ^ 'cSecretAccessKey'
+    -> Text -- ^ 'cSessionToken'
+    -> UTCTime -- ^ 'cExpiration'
+    -> Credentials
 credentials pAccessKeyId_ pSecretAccessKey_ pSessionToken_ pExpiration_ =
     Credentials'
     { _cAccessKeyId = pAccessKeyId_
@@ -121,19 +129,22 @@ instance FromXML Credentials where
 -- credentials.
 --
 -- /See:/ 'federatedUser' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fuFederatedUserId'
---
--- * 'fuARN'
 data FederatedUser = FederatedUser'
     { _fuFederatedUserId :: !Text
     , _fuARN             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'FederatedUser' smart constructor.
-federatedUser :: Text -> Text -> FederatedUser
+-- | Creates a value of 'FederatedUser' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fuFederatedUserId'
+--
+-- * 'fuARN'
+federatedUser
+    :: Text -- ^ 'fuFederatedUserId'
+    -> Text -- ^ 'fuARN'
+    -> FederatedUser
 federatedUser pFederatedUserId_ pARN_ =
     FederatedUser'
     { _fuFederatedUserId = pFederatedUserId_

@@ -27,20 +27,20 @@
 -- no longer delivered to back-end instances.
 --
 -- If the load balancer does not exist or has already been deleted, the
--- call to @DeleteLoadBalancer@ still succeeds.
+-- call to 'DeleteLoadBalancer' still succeeds.
 --
 -- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancer.html AWS API Reference> for DeleteLoadBalancer.
 module Network.AWS.ELB.DeleteLoadBalancer
     (
     -- * Creating a Request
-      DeleteLoadBalancer
-    , deleteLoadBalancer
+      deleteLoadBalancer
+    , DeleteLoadBalancer
     -- * Request Lenses
     , dlbLoadBalancerName
 
     -- * Destructuring the Response
-    , DeleteLoadBalancerResponse
     , deleteLoadBalancerResponse
+    , DeleteLoadBalancerResponse
     -- * Response Lenses
     , drsStatus
     ) where
@@ -52,16 +52,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteLoadBalancer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbLoadBalancerName'
 newtype DeleteLoadBalancer = DeleteLoadBalancer'
     { _dlbLoadBalancerName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLoadBalancer' smart constructor.
-deleteLoadBalancer :: Text -> DeleteLoadBalancer
+-- | Creates a value of 'DeleteLoadBalancer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbLoadBalancerName'
+deleteLoadBalancer
+    :: Text -- ^ 'dlbLoadBalancerName'
+    -> DeleteLoadBalancer
 deleteLoadBalancer pLoadBalancerName_ =
     DeleteLoadBalancer'
     { _dlbLoadBalancerName = pLoadBalancerName_
@@ -95,21 +97,23 @@ instance ToQuery DeleteLoadBalancer where
                "LoadBalancerName" =: _dlbLoadBalancerName]
 
 -- | /See:/ 'deleteLoadBalancerResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsStatus'
 newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
     { _drsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLoadBalancerResponse' smart constructor.
-deleteLoadBalancerResponse :: Int -> DeleteLoadBalancerResponse
+-- | Creates a value of 'DeleteLoadBalancerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsStatus'
+deleteLoadBalancerResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeleteLoadBalancerResponse
 deleteLoadBalancerResponse pStatus_ =
     DeleteLoadBalancerResponse'
     { _drsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeleteLoadBalancerResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

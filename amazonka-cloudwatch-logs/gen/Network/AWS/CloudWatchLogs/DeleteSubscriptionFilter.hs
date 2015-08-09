@@ -24,15 +24,15 @@
 module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
     (
     -- * Creating a Request
-      DeleteSubscriptionFilter
-    , deleteSubscriptionFilter
+      deleteSubscriptionFilter
+    , DeleteSubscriptionFilter
     -- * Request Lenses
     , dLogGroupName
     , dFilterName
 
     -- * Destructuring the Response
-    , DeleteSubscriptionFilterResponse
     , deleteSubscriptionFilterResponse
+    , DeleteSubscriptionFilterResponse
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -42,19 +42,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteSubscriptionFilter' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dLogGroupName'
---
--- * 'dFilterName'
 data DeleteSubscriptionFilter = DeleteSubscriptionFilter'
     { _dLogGroupName :: !Text
     , _dFilterName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSubscriptionFilter' smart constructor.
-deleteSubscriptionFilter :: Text -> Text -> DeleteSubscriptionFilter
+-- | Creates a value of 'DeleteSubscriptionFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dLogGroupName'
+--
+-- * 'dFilterName'
+deleteSubscriptionFilter
+    :: Text -- ^ 'dLogGroupName'
+    -> Text -- ^ 'dFilterName'
+    -> DeleteSubscriptionFilter
 deleteSubscriptionFilter pLogGroupName_ pFilterName_ =
     DeleteSubscriptionFilter'
     { _dLogGroupName = pLogGroupName_
@@ -105,6 +108,8 @@ data DeleteSubscriptionFilterResponse =
     DeleteSubscriptionFilterResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSubscriptionFilterResponse' smart constructor.
-deleteSubscriptionFilterResponse :: DeleteSubscriptionFilterResponse
+-- | Creates a value of 'DeleteSubscriptionFilterResponse' with the minimum fields required to make a request.
+--
+deleteSubscriptionFilterResponse
+    :: DeleteSubscriptionFilterResponse
 deleteSubscriptionFilterResponse = DeleteSubscriptionFilterResponse'

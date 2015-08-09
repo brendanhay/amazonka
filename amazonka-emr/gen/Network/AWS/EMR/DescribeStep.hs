@@ -24,15 +24,15 @@
 module Network.AWS.EMR.DescribeStep
     (
     -- * Creating a Request
-      DescribeStep
-    , describeStep
+      describeStep
+    , DescribeStep
     -- * Request Lenses
     , dsClusterId
     , dsStepId
 
     -- * Destructuring the Response
-    , DescribeStepResponse
     , describeStepResponse
+    , DescribeStepResponse
     -- * Response Lenses
     , dsrsStep
     , dsrsStatus
@@ -47,19 +47,22 @@ import           Network.AWS.Response
 -- | This input determines which step to describe.
 --
 -- /See:/ 'describeStep' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsClusterId'
---
--- * 'dsStepId'
 data DescribeStep = DescribeStep'
     { _dsClusterId :: !Text
     , _dsStepId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStep' smart constructor.
-describeStep :: Text -> Text -> DescribeStep
+-- | Creates a value of 'DescribeStep' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsClusterId'
+--
+-- * 'dsStepId'
+describeStep
+    :: Text -- ^ 'dsClusterId'
+    -> Text -- ^ 'dsStepId'
+    -> DescribeStep
 describeStep pClusterId_ pStepId_ =
     DescribeStep'
     { _dsClusterId = pClusterId_
@@ -107,19 +110,21 @@ instance ToQuery DescribeStep where
 -- | This output contains the description of the cluster step.
 --
 -- /See:/ 'describeStepResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrsStep'
---
--- * 'dsrsStatus'
 data DescribeStepResponse = DescribeStepResponse'
     { _dsrsStep   :: !(Maybe Step)
     , _dsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStepResponse' smart constructor.
-describeStepResponse :: Int -> DescribeStepResponse
+-- | Creates a value of 'DescribeStepResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrsStep'
+--
+-- * 'dsrsStatus'
+describeStepResponse
+    :: Int -- ^ 'dsrsStatus'
+    -> DescribeStepResponse
 describeStepResponse pStatus_ =
     DescribeStepResponse'
     { _dsrsStep = Nothing
@@ -130,6 +135,6 @@ describeStepResponse pStatus_ =
 dsrsStep :: Lens' DescribeStepResponse (Maybe Step)
 dsrsStep = lens _dsrsStep (\ s a -> s{_dsrsStep = a});
 
--- | Undocumented member.
+-- | The response status code.
 dsrsStatus :: Lens' DescribeStepResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

@@ -26,8 +26,8 @@
 module Network.AWS.CognitoIdentity.ListIdentities
     (
     -- * Creating a Request
-      ListIdentities
-    , listIdentities
+      listIdentities
+    , ListIdentities
     -- * Request Lenses
     , liHideDisabled
     , liNextToken
@@ -35,8 +35,8 @@ module Network.AWS.CognitoIdentity.ListIdentities
     , liMaxResults
 
     -- * Destructuring the Response
-    , ListIdentitiesResponse
     , listIdentitiesResponse
+    , ListIdentitiesResponse
     -- * Response Lenses
     , lirsIdentityPoolId
     , lirsNextToken
@@ -53,8 +53,16 @@ import           Network.AWS.Response
 -- | Input to the ListIdentities action.
 --
 -- /See:/ 'listIdentities' smart constructor.
+data ListIdentities = ListIdentities'
+    { _liHideDisabled   :: !(Maybe Bool)
+    , _liNextToken      :: !(Maybe Text)
+    , _liIdentityPoolId :: !Text
+    , _liMaxResults     :: !Nat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListIdentities' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'liHideDisabled'
 --
@@ -63,15 +71,10 @@ import           Network.AWS.Response
 -- * 'liIdentityPoolId'
 --
 -- * 'liMaxResults'
-data ListIdentities = ListIdentities'
-    { _liHideDisabled   :: !(Maybe Bool)
-    , _liNextToken      :: !(Maybe Text)
-    , _liIdentityPoolId :: !Text
-    , _liMaxResults     :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListIdentities' smart constructor.
-listIdentities :: Text -> Natural -> ListIdentities
+listIdentities
+    :: Text -- ^ 'liIdentityPoolId'
+    -> Natural -- ^ 'liMaxResults'
+    -> ListIdentities
 listIdentities pIdentityPoolId_ pMaxResults_ =
     ListIdentities'
     { _liHideDisabled = Nothing
@@ -137,8 +140,16 @@ instance ToQuery ListIdentities where
 -- | The response to a ListIdentities request.
 --
 -- /See:/ 'listIdentitiesResponse' smart constructor.
+data ListIdentitiesResponse = ListIdentitiesResponse'
+    { _lirsIdentityPoolId :: !(Maybe Text)
+    , _lirsNextToken      :: !(Maybe Text)
+    , _lirsIdentities     :: !(Maybe [IdentityDescription])
+    , _lirsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListIdentitiesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lirsIdentityPoolId'
 --
@@ -147,15 +158,9 @@ instance ToQuery ListIdentities where
 -- * 'lirsIdentities'
 --
 -- * 'lirsStatus'
-data ListIdentitiesResponse = ListIdentitiesResponse'
-    { _lirsIdentityPoolId :: !(Maybe Text)
-    , _lirsNextToken      :: !(Maybe Text)
-    , _lirsIdentities     :: !(Maybe [IdentityDescription])
-    , _lirsStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListIdentitiesResponse' smart constructor.
-listIdentitiesResponse :: Int -> ListIdentitiesResponse
+listIdentitiesResponse
+    :: Int -- ^ 'lirsStatus'
+    -> ListIdentitiesResponse
 listIdentitiesResponse pStatus_ =
     ListIdentitiesResponse'
     { _lirsIdentityPoolId = Nothing
@@ -176,6 +181,6 @@ lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
 lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lirsStatus :: Lens' ListIdentitiesResponse Int
 lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});

@@ -25,14 +25,14 @@
 module Network.AWS.CloudFormation.GetStackPolicy
     (
     -- * Creating a Request
-      GetStackPolicy
-    , getStackPolicy
+      getStackPolicy
+    , GetStackPolicy
     -- * Request Lenses
     , gspStackName
 
     -- * Destructuring the Response
-    , GetStackPolicyResponse
     , getStackPolicyResponse
+    , GetStackPolicyResponse
     -- * Response Lenses
     , gsprsStackPolicyBody
     , gsprsStatus
@@ -47,16 +47,18 @@ import           Network.AWS.Response
 -- | The input for the GetStackPolicy action.
 --
 -- /See:/ 'getStackPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gspStackName'
 newtype GetStackPolicy = GetStackPolicy'
     { _gspStackName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetStackPolicy' smart constructor.
-getStackPolicy :: Text -> GetStackPolicy
+-- | Creates a value of 'GetStackPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gspStackName'
+getStackPolicy
+    :: Text -- ^ 'gspStackName'
+    -> GetStackPolicy
 getStackPolicy pStackName_ =
     GetStackPolicy'
     { _gspStackName = pStackName_
@@ -93,19 +95,21 @@ instance ToQuery GetStackPolicy where
 -- | The output for the GetStackPolicy action.
 --
 -- /See:/ 'getStackPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsprsStackPolicyBody'
---
--- * 'gsprsStatus'
 data GetStackPolicyResponse = GetStackPolicyResponse'
     { _gsprsStackPolicyBody :: !(Maybe Text)
     , _gsprsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetStackPolicyResponse' smart constructor.
-getStackPolicyResponse :: Int -> GetStackPolicyResponse
+-- | Creates a value of 'GetStackPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsprsStackPolicyBody'
+--
+-- * 'gsprsStatus'
+getStackPolicyResponse
+    :: Int -- ^ 'gsprsStatus'
+    -> GetStackPolicyResponse
 getStackPolicyResponse pStatus_ =
     GetStackPolicyResponse'
     { _gsprsStackPolicyBody = Nothing
@@ -118,6 +122,6 @@ getStackPolicyResponse pStatus_ =
 gsprsStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprsStackPolicyBody = lens _gsprsStackPolicyBody (\ s a -> s{_gsprsStackPolicyBody = a});
 
--- | Undocumented member.
+-- | The response status code.
 gsprsStatus :: Lens' GetStackPolicyResponse Int
 gsprsStatus = lens _gsprsStatus (\ s a -> s{_gsprsStatus = a});

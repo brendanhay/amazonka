@@ -47,16 +47,16 @@
 module Network.AWS.EC2.DescribeReservedInstancesListings
     (
     -- * Creating a Request
-      DescribeReservedInstancesListings
-    , describeReservedInstancesListings
+      describeReservedInstancesListings
+    , DescribeReservedInstancesListings
     -- * Request Lenses
     , drilFilters
     , drilReservedInstancesId
     , drilReservedInstancesListingId
 
     -- * Destructuring the Response
-    , DescribeReservedInstancesListingsResponse
     , describeReservedInstancesListingsResponse
+    , DescribeReservedInstancesListingsResponse
     -- * Response Lenses
     , drilrsReservedInstancesListings
     , drilrsStatus
@@ -69,22 +69,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeReservedInstancesListings' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drilFilters'
---
--- * 'drilReservedInstancesId'
---
--- * 'drilReservedInstancesListingId'
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
     { _drilFilters                    :: !(Maybe [Filter])
     , _drilReservedInstancesId        :: !(Maybe Text)
     , _drilReservedInstancesListingId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeReservedInstancesListings' smart constructor.
-describeReservedInstancesListings :: DescribeReservedInstancesListings
+-- | Creates a value of 'DescribeReservedInstancesListings' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drilFilters'
+--
+-- * 'drilReservedInstancesId'
+--
+-- * 'drilReservedInstancesListingId'
+describeReservedInstancesListings
+    :: DescribeReservedInstancesListings
 describeReservedInstancesListings =
     DescribeReservedInstancesListings'
     { _drilFilters = Nothing
@@ -94,15 +95,15 @@ describeReservedInstancesListings =
 
 -- | One or more filters.
 --
--- -   @reserved-instances-id@ - The ID of the Reserved Instances.
+-- -   'reserved-instances-id' - The ID of the Reserved Instances.
 --
--- -   @reserved-instances-listing-id@ - The ID of the Reserved Instances
+-- -   'reserved-instances-listing-id' - The ID of the Reserved Instances
 --     listing.
 --
--- -   @status@ - The status of the Reserved Instance listing (@pending@ |
---     @active@ | @cancelled@ | @closed@).
+-- -   'status' - The status of the Reserved Instance listing ('pending' |
+--     'active' | 'cancelled' | 'closed').
 --
--- -   @status-message@ - The reason for the status.
+-- -   'status-message' - The reason for the status.
 --
 drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
 drilFilters = lens _drilFilters (\ s a -> s{_drilFilters = a}) . _Default . _Coerce;
@@ -150,19 +151,21 @@ instance ToQuery DescribeReservedInstancesListings
                  _drilReservedInstancesListingId]
 
 -- | /See:/ 'describeReservedInstancesListingsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drilrsReservedInstancesListings'
---
--- * 'drilrsStatus'
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
     { _drilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _drilrsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeReservedInstancesListingsResponse' smart constructor.
-describeReservedInstancesListingsResponse :: Int -> DescribeReservedInstancesListingsResponse
+-- | Creates a value of 'DescribeReservedInstancesListingsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drilrsReservedInstancesListings'
+--
+-- * 'drilrsStatus'
+describeReservedInstancesListingsResponse
+    :: Int -- ^ 'drilrsStatus'
+    -> DescribeReservedInstancesListingsResponse
 describeReservedInstancesListingsResponse pStatus_ =
     DescribeReservedInstancesListingsResponse'
     { _drilrsReservedInstancesListings = Nothing
@@ -173,6 +176,6 @@ describeReservedInstancesListingsResponse pStatus_ =
 drilrsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
 drilrsReservedInstancesListings = lens _drilrsReservedInstancesListings (\ s a -> s{_drilrsReservedInstancesListings = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 drilrsStatus :: Lens' DescribeReservedInstancesListingsResponse Int
 drilrsStatus = lens _drilrsStatus (\ s a -> s{_drilrsStatus = a});

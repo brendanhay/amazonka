@@ -32,14 +32,14 @@
 module Network.AWS.OpsWorks.DeregisterEcsCluster
     (
     -- * Creating a Request
-      DeregisterEcsCluster
-    , deregisterEcsCluster
+      deregisterEcsCluster
+    , DeregisterEcsCluster
     -- * Request Lenses
     , decEcsClusterARN
 
     -- * Destructuring the Response
-    , DeregisterEcsClusterResponse
     , deregisterEcsClusterResponse
+    , DeregisterEcsClusterResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -49,16 +49,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deregisterEcsCluster' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'decEcsClusterARN'
 newtype DeregisterEcsCluster = DeregisterEcsCluster'
     { _decEcsClusterARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterEcsCluster' smart constructor.
-deregisterEcsCluster :: Text -> DeregisterEcsCluster
+-- | Creates a value of 'DeregisterEcsCluster' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'decEcsClusterARN'
+deregisterEcsCluster
+    :: Text -- ^ 'decEcsClusterARN'
+    -> DeregisterEcsCluster
 deregisterEcsCluster pEcsClusterARN_ =
     DeregisterEcsCluster'
     { _decEcsClusterARN = pEcsClusterARN_
@@ -100,6 +102,8 @@ data DeregisterEcsClusterResponse =
     DeregisterEcsClusterResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterEcsClusterResponse' smart constructor.
-deregisterEcsClusterResponse :: DeregisterEcsClusterResponse
+-- | Creates a value of 'DeregisterEcsClusterResponse' with the minimum fields required to make a request.
+--
+deregisterEcsClusterResponse
+    :: DeregisterEcsClusterResponse
 deregisterEcsClusterResponse = DeregisterEcsClusterResponse'

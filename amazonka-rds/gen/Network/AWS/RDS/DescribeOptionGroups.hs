@@ -21,11 +21,13 @@
 -- Describes the available option groups.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOptionGroups.html AWS API Reference> for DescribeOptionGroups.
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeOptionGroups
     (
     -- * Creating a Request
-      DescribeOptionGroups
-    , describeOptionGroups
+      describeOptionGroups
+    , DescribeOptionGroups
     -- * Request Lenses
     , dogFilters
     , dogEngineName
@@ -35,8 +37,8 @@ module Network.AWS.RDS.DescribeOptionGroups
     , dogOptionGroupName
 
     -- * Destructuring the Response
-    , DescribeOptionGroupsResponse
     , describeOptionGroupsResponse
+    , DescribeOptionGroupsResponse
     -- * Response Lenses
     , dogrsMarker
     , dogrsOptionGroupsList
@@ -53,8 +55,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeOptionGroups' smart constructor.
+data DescribeOptionGroups = DescribeOptionGroups'
+    { _dogFilters            :: !(Maybe [Filter])
+    , _dogEngineName         :: !(Maybe Text)
+    , _dogMajorEngineVersion :: !(Maybe Text)
+    , _dogMaxRecords         :: !(Maybe Int)
+    , _dogMarker             :: !(Maybe Text)
+    , _dogOptionGroupName    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeOptionGroups' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dogFilters'
 --
@@ -67,17 +79,8 @@ import           Network.AWS.Response
 -- * 'dogMarker'
 --
 -- * 'dogOptionGroupName'
-data DescribeOptionGroups = DescribeOptionGroups'
-    { _dogFilters            :: !(Maybe [Filter])
-    , _dogEngineName         :: !(Maybe Text)
-    , _dogMajorEngineVersion :: !(Maybe Text)
-    , _dogMaxRecords         :: !(Maybe Int)
-    , _dogMarker             :: !(Maybe Text)
-    , _dogOptionGroupName    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeOptionGroups' smart constructor.
-describeOptionGroups :: DescribeOptionGroups
+describeOptionGroups
+    :: DescribeOptionGroups
 describeOptionGroups =
     DescribeOptionGroups'
     { _dogFilters = Nothing
@@ -104,7 +107,7 @@ dogMajorEngineVersion :: Lens' DescribeOptionGroups (Maybe Text)
 dogMajorEngineVersion = lens _dogMajorEngineVersion (\ s a -> s{_dogMajorEngineVersion = a});
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
+-- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 --
@@ -116,7 +119,7 @@ dogMaxRecords = lens _dogMaxRecords (\ s a -> s{_dogMaxRecords = a});
 
 -- | An optional pagination token provided by a previous DescribeOptionGroups
 -- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
+-- records beyond the marker, up to the value specified by 'MaxRecords'.
 dogMarker :: Lens' DescribeOptionGroups (Maybe Text)
 dogMarker = lens _dogMarker (\ s a -> s{_dogMarker = a});
 
@@ -168,22 +171,24 @@ instance ToQuery DescribeOptionGroups where
 -- | List of option groups.
 --
 -- /See:/ 'describeOptionGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dogrsMarker'
---
--- * 'dogrsOptionGroupsList'
---
--- * 'dogrsStatus'
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
     { _dogrsMarker           :: !(Maybe Text)
     , _dogrsOptionGroupsList :: !(Maybe [OptionGroup])
     , _dogrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeOptionGroupsResponse' smart constructor.
-describeOptionGroupsResponse :: Int -> DescribeOptionGroupsResponse
+-- | Creates a value of 'DescribeOptionGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dogrsMarker'
+--
+-- * 'dogrsOptionGroupsList'
+--
+-- * 'dogrsStatus'
+describeOptionGroupsResponse
+    :: Int -- ^ 'dogrsStatus'
+    -> DescribeOptionGroupsResponse
 describeOptionGroupsResponse pStatus_ =
     DescribeOptionGroupsResponse'
     { _dogrsMarker = Nothing
@@ -193,7 +198,7 @@ describeOptionGroupsResponse pStatus_ =
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
+-- marker, up to the value specified by 'MaxRecords'.
 dogrsMarker :: Lens' DescribeOptionGroupsResponse (Maybe Text)
 dogrsMarker = lens _dogrsMarker (\ s a -> s{_dogrsMarker = a});
 
@@ -201,6 +206,6 @@ dogrsMarker = lens _dogrsMarker (\ s a -> s{_dogrsMarker = a});
 dogrsOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
 dogrsOptionGroupsList = lens _dogrsOptionGroupsList (\ s a -> s{_dogrsOptionGroupsList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dogrsStatus :: Lens' DescribeOptionGroupsResponse Int
 dogrsStatus = lens _dogrsStatus (\ s a -> s{_dogrsStatus = a});

@@ -31,15 +31,15 @@
 module Network.AWS.StorageGateway.AddCache
     (
     -- * Creating a Request
-      AddCache
-    , addCache
+      addCache
+    , AddCache
     -- * Request Lenses
     , acGatewayARN
     , acDiskIds
 
     -- * Destructuring the Response
-    , AddCacheResponse
     , addCacheResponse
+    , AddCacheResponse
     -- * Response Lenses
     , acrsGatewayARN
     , acrsStatus
@@ -52,19 +52,21 @@ import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'addCache' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'acGatewayARN'
---
--- * 'acDiskIds'
 data AddCache = AddCache'
     { _acGatewayARN :: !Text
     , _acDiskIds    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddCache' smart constructor.
-addCache :: Text -> AddCache
+-- | Creates a value of 'AddCache' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acGatewayARN'
+--
+-- * 'acDiskIds'
+addCache
+    :: Text -- ^ 'acGatewayARN'
+    -> AddCache
 addCache pGatewayARN_ =
     AddCache'
     { _acGatewayARN = pGatewayARN_
@@ -111,19 +113,21 @@ instance ToQuery AddCache where
         toQuery = const mempty
 
 -- | /See:/ 'addCacheResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'acrsGatewayARN'
---
--- * 'acrsStatus'
 data AddCacheResponse = AddCacheResponse'
     { _acrsGatewayARN :: !(Maybe Text)
     , _acrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddCacheResponse' smart constructor.
-addCacheResponse :: Int -> AddCacheResponse
+-- | Creates a value of 'AddCacheResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acrsGatewayARN'
+--
+-- * 'acrsStatus'
+addCacheResponse
+    :: Int -- ^ 'acrsStatus'
+    -> AddCacheResponse
 addCacheResponse pStatus_ =
     AddCacheResponse'
     { _acrsGatewayARN = Nothing
@@ -134,6 +138,6 @@ addCacheResponse pStatus_ =
 acrsGatewayARN :: Lens' AddCacheResponse (Maybe Text)
 acrsGatewayARN = lens _acrsGatewayARN (\ s a -> s{_acrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 acrsStatus :: Lens' AddCacheResponse Int
 acrsStatus = lens _acrsStatus (\ s a -> s{_acrsStatus = a});

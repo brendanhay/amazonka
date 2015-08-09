@@ -27,14 +27,14 @@
 module Network.AWS.SES.VerifyEmailIdentity
     (
     -- * Creating a Request
-      VerifyEmailIdentity
-    , verifyEmailIdentity
+      verifyEmailIdentity
+    , VerifyEmailIdentity
     -- * Request Lenses
     , veiEmailAddress
 
     -- * Destructuring the Response
-    , VerifyEmailIdentityResponse
     , verifyEmailIdentityResponse
+    , VerifyEmailIdentityResponse
     -- * Response Lenses
     , veirsStatus
     ) where
@@ -49,16 +49,18 @@ import           Network.AWS.SES.Types.Product
 -- verification.
 --
 -- /See:/ 'verifyEmailIdentity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'veiEmailAddress'
 newtype VerifyEmailIdentity = VerifyEmailIdentity'
     { _veiEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VerifyEmailIdentity' smart constructor.
-verifyEmailIdentity :: Text -> VerifyEmailIdentity
+-- | Creates a value of 'VerifyEmailIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'veiEmailAddress'
+verifyEmailIdentity
+    :: Text -- ^ 'veiEmailAddress'
+    -> VerifyEmailIdentity
 verifyEmailIdentity pEmailAddress_ =
     VerifyEmailIdentity'
     { _veiEmailAddress = pEmailAddress_
@@ -95,21 +97,23 @@ instance ToQuery VerifyEmailIdentity where
 -- completed successfully.
 --
 -- /See:/ 'verifyEmailIdentityResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'veirsStatus'
 newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
     { _veirsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VerifyEmailIdentityResponse' smart constructor.
-verifyEmailIdentityResponse :: Int -> VerifyEmailIdentityResponse
+-- | Creates a value of 'VerifyEmailIdentityResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'veirsStatus'
+verifyEmailIdentityResponse
+    :: Int -- ^ 'veirsStatus'
+    -> VerifyEmailIdentityResponse
 verifyEmailIdentityResponse pStatus_ =
     VerifyEmailIdentityResponse'
     { _veirsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 veirsStatus :: Lens' VerifyEmailIdentityResponse Int
 veirsStatus = lens _veirsStatus (\ s a -> s{_veirsStatus = a});

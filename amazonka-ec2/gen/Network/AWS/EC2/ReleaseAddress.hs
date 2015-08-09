@@ -24,7 +24,7 @@
 -- pool and might be unavailable to you. Be sure to update your DNS records
 -- and any servers or devices that communicate with the address. If you
 -- attempt to release an Elastic IP address that you already released,
--- you\'ll get an @AuthFailure@ error if the address is already allocated
+-- you\'ll get an 'AuthFailure' error if the address is already allocated
 -- to another AWS account.
 --
 -- [EC2-Classic, default VPC] Releasing an Elastic IP address automatically
@@ -34,22 +34,22 @@
 --
 -- [Nondefault VPC] You must use DisassociateAddress to disassociate the
 -- Elastic IP address before you try to release it. Otherwise, Amazon EC2
--- returns an error (@InvalidIPAddress.InUse@).
+-- returns an error ('InvalidIPAddress.InUse').
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReleaseAddress.html AWS API Reference> for ReleaseAddress.
 module Network.AWS.EC2.ReleaseAddress
     (
     -- * Creating a Request
-      ReleaseAddress
-    , releaseAddress
+      releaseAddress
+    , ReleaseAddress
     -- * Request Lenses
     , raAllocationId
     , raPublicIP
     , raDryRun
 
     -- * Destructuring the Response
-    , ReleaseAddressResponse
     , releaseAddressResponse
+    , ReleaseAddressResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -59,22 +59,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'releaseAddress' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'raAllocationId'
---
--- * 'raPublicIP'
---
--- * 'raDryRun'
 data ReleaseAddress = ReleaseAddress'
     { _raAllocationId :: !(Maybe Text)
     , _raPublicIP     :: !(Maybe Text)
     , _raDryRun       :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReleaseAddress' smart constructor.
-releaseAddress :: ReleaseAddress
+-- | Creates a value of 'ReleaseAddress' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'raAllocationId'
+--
+-- * 'raPublicIP'
+--
+-- * 'raDryRun'
+releaseAddress
+    :: ReleaseAddress
 releaseAddress =
     ReleaseAddress'
     { _raAllocationId = Nothing
@@ -92,8 +93,8 @@ raPublicIP = lens _raPublicIP (\ s a -> s{_raPublicIP = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 raDryRun :: Lens' ReleaseAddress (Maybe Bool)
 raDryRun = lens _raDryRun (\ s a -> s{_raDryRun = a});
 
@@ -122,6 +123,8 @@ data ReleaseAddressResponse =
     ReleaseAddressResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReleaseAddressResponse' smart constructor.
-releaseAddressResponse :: ReleaseAddressResponse
+-- | Creates a value of 'ReleaseAddressResponse' with the minimum fields required to make a request.
+--
+releaseAddressResponse
+    :: ReleaseAddressResponse
 releaseAddressResponse = ReleaseAddressResponse'

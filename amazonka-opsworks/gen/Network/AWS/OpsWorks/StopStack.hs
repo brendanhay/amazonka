@@ -30,14 +30,14 @@
 module Network.AWS.OpsWorks.StopStack
     (
     -- * Creating a Request
-      StopStack
-    , stopStack
+      stopStack
+    , StopStack
     -- * Request Lenses
     , stoStackId
 
     -- * Destructuring the Response
-    , StopStackResponse
     , stopStackResponse
+    , StopStackResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -47,16 +47,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'stopStack' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'stoStackId'
 newtype StopStack = StopStack'
     { _stoStackId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopStack' smart constructor.
-stopStack :: Text -> StopStack
+-- | Creates a value of 'StopStack' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stoStackId'
+stopStack
+    :: Text -- ^ 'stoStackId'
+    -> StopStack
 stopStack pStackId_ =
     StopStack'
     { _stoStackId = pStackId_
@@ -96,6 +98,8 @@ data StopStackResponse =
     StopStackResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopStackResponse' smart constructor.
-stopStackResponse :: StopStackResponse
+-- | Creates a value of 'StopStackResponse' with the minimum fields required to make a request.
+--
+stopStackResponse
+    :: StopStackResponse
 stopStackResponse = StopStackResponse'

@@ -25,19 +25,22 @@ import           Network.AWS.Prelude
 -- indexes.
 --
 -- /See:/ 'attributeDefinition' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'adAttributeName'
---
--- * 'adAttributeType'
 data AttributeDefinition = AttributeDefinition'
     { _adAttributeName :: !Text
     , _adAttributeType :: !ScalarAttributeType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttributeDefinition' smart constructor.
-attributeDefinition :: Text -> ScalarAttributeType -> AttributeDefinition
+-- | Creates a value of 'AttributeDefinition' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'adAttributeName'
+--
+-- * 'adAttributeType'
+attributeDefinition
+    :: Text -- ^ 'adAttributeName'
+    -> ScalarAttributeType -- ^ 'adAttributeType'
+    -> AttributeDefinition
 attributeDefinition pAttributeName_ pAttributeType_ =
     AttributeDefinition'
     { _adAttributeName = pAttributeName_
@@ -75,8 +78,22 @@ instance ToJSON AttributeDefinition where
 -- allowed.
 --
 -- /See:/ 'attributeValue' smart constructor.
+data AttributeValue = AttributeValue'
+    { _avL    :: !(Maybe [AttributeValue])
+    , _avM    :: !(Maybe (Map Text AttributeValue))
+    , _avNS   :: !(Maybe [Text])
+    , _avNULL :: !(Maybe Bool)
+    , _avN    :: !(Maybe Text)
+    , _avBS   :: !(Maybe [Base64])
+    , _avB    :: !(Maybe Base64)
+    , _avSS   :: !(Maybe [Text])
+    , _avS    :: !(Maybe Text)
+    , _avBOOL :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'avL'
 --
@@ -97,21 +114,8 @@ instance ToJSON AttributeDefinition where
 -- * 'avS'
 --
 -- * 'avBOOL'
-data AttributeValue = AttributeValue'
-    { _avL    :: !(Maybe [AttributeValue])
-    , _avM    :: !(Maybe (Map Text AttributeValue))
-    , _avNS   :: !(Maybe [Text])
-    , _avNULL :: !(Maybe Bool)
-    , _avN    :: !(Maybe Text)
-    , _avBS   :: !(Maybe [Base64])
-    , _avB    :: !(Maybe Base64)
-    , _avSS   :: !(Maybe [Text])
-    , _avS    :: !(Maybe Text)
-    , _avBOOL :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AttributeValue' smart constructor.
-attributeValue :: AttributeValue
+attributeValue
+    :: AttributeValue
 attributeValue =
     AttributeValue'
     { _avL = Nothing
@@ -202,19 +206,20 @@ instance ToJSON AttributeValue where
 -- /ValidationException/ exception.
 --
 -- /See:/ 'attributeValueUpdate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'avuValue'
---
--- * 'avuAction'
 data AttributeValueUpdate = AttributeValueUpdate'
     { _avuValue  :: !(Maybe AttributeValue)
     , _avuAction :: !(Maybe AttributeAction)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttributeValueUpdate' smart constructor.
-attributeValueUpdate :: AttributeValueUpdate
+-- | Creates a value of 'AttributeValueUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avuValue'
+--
+-- * 'avuAction'
+attributeValueUpdate
+    :: AttributeValueUpdate
 attributeValueUpdate =
     AttributeValueUpdate'
     { _avuValue = Nothing
@@ -225,27 +230,27 @@ attributeValueUpdate =
 avuValue :: Lens' AttributeValueUpdate (Maybe AttributeValue)
 avuValue = lens _avuValue (\ s a -> s{_avuValue = a});
 
--- | Specifies how to perform the update. Valid values are @PUT@ (default),
--- @DELETE@, and @ADD@. The behavior depends on whether the specified
+-- | Specifies how to perform the update. Valid values are 'PUT' (default),
+-- 'DELETE', and 'ADD'. The behavior depends on whether the specified
 -- primary key already exists in the table.
 --
 -- __If an item with the specified /Key/ is found in the table:__
 --
--- -   @PUT@ - Adds the specified attribute to the item. If the attribute
+-- -   'PUT' - Adds the specified attribute to the item. If the attribute
 --     already exists, it is replaced by the new value.
 --
--- -   @DELETE@ - If no value is specified, the attribute and its value are
+-- -   'DELETE' - If no value is specified, the attribute and its value are
 --     removed from the item. The data type of the specified value must
 --     match the existing value\'s data type.
 --
 --     If a /set/ of values is specified, then those values are subtracted
 --     from the old set. For example, if the attribute value was the set
---     @[a,b,c]@ and the /DELETE/ action specified @[a,c]@, then the final
---     attribute value would be @[b]@. Specifying an empty set is an error.
+--     '[a,b,c]' and the /DELETE/ action specified '[a,c]', then the final
+--     attribute value would be '[b]'. Specifying an empty set is an error.
 --
--- -   @ADD@ - If the attribute does not already exist, then the attribute
+-- -   'ADD' - If the attribute does not already exist, then the attribute
 --     and its values are added to the item. If the attribute does exist,
---     then the behavior of @ADD@ depends on the data type of the
+--     then the behavior of 'ADD' depends on the data type of the
 --     attribute:
 --
 --     -   If the existing attribute is a number, and if /Value/ is also a
@@ -253,27 +258,27 @@ avuValue = lens _avuValue (\ s a -> s{_avuValue = a});
 --         attribute. If /Value/ is a negative number, then it is
 --         subtracted from the existing attribute.
 --
---         If you use @ADD@ to increment or decrement a number value for an
+--         If you use 'ADD' to increment or decrement a number value for an
 --         item that doesn\'t exist before the update, DynamoDB uses 0 as
 --         the initial value.
 --
---         In addition, if you use @ADD@ to update an existing item, and
+--         In addition, if you use 'ADD' to update an existing item, and
 --         intend to increment or decrement an attribute value which does
---         not yet exist, DynamoDB uses @0@ as the initial value. For
+--         not yet exist, DynamoDB uses '0' as the initial value. For
 --         example, suppose that the item you want to update does not yet
---         have an attribute named /itemcount/, but you decide to @ADD@ the
---         number @3@ to this attribute anyway, even though it currently
+--         have an attribute named /itemcount/, but you decide to 'ADD' the
+--         number '3' to this attribute anyway, even though it currently
 --         does not exist. DynamoDB will create the /itemcount/ attribute,
---         set its initial value to @0@, and finally add @3@ to it. The
+--         set its initial value to '0', and finally add '3' to it. The
 --         result will be a new /itemcount/ attribute in the item, with a
---         value of @3@.
+--         value of '3'.
 --
 --     -   If the existing data type is a set, and if the /Value/ is also a
 --         set, then the /Value/ is added to the existing set. (This is a
 --         /set/ operation, not mathematical addition.) For example, if the
---         attribute value was the set @[1,2]@, and the @ADD@ action
---         specified @[3]@, then the final attribute value would be
---         @[1,2,3]@. An error occurs if an Add action is specified for a
+--         attribute value was the set '[1,2]', and the 'ADD' action
+--         specified '[3]', then the final attribute value would be
+--         '[1,2,3]'. An error occurs if an Add action is specified for a
 --         set attribute and the attribute type specified does not match
 --         the existing set type.
 --
@@ -283,16 +288,16 @@ avuValue = lens _avuValue (\ s a -> s{_avuValue = a});
 --         and binary sets.
 --
 --     This action is only valid for an existing attribute whose data type
---     is number or is a set. Do not use @ADD@ for any other data types.
+--     is number or is a set. Do not use 'ADD' for any other data types.
 --
 -- __If no item with the specified /Key/ is found:__
 --
--- -   @PUT@ - DynamoDB creates a new item with the specified primary key,
+-- -   'PUT' - DynamoDB creates a new item with the specified primary key,
 --     and then adds the attribute.
 --
--- -   @DELETE@ - Nothing happens; there is no attribute to delete.
+-- -   'DELETE' - Nothing happens; there is no attribute to delete.
 --
--- -   @ADD@ - DynamoDB creates an item with the supplied primary key and
+-- -   'ADD' - DynamoDB creates an item with the supplied primary key and
 --     number (or set of numbers) for the attribute value. The only data
 --     types allowed are number and number set; no other data types can be
 --     specified.
@@ -309,16 +314,17 @@ instance ToJSON AttributeValueUpdate where
 -- table or an index.
 --
 -- /See:/ 'capacity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cCapacityUnits'
 newtype Capacity = Capacity'
     { _cCapacityUnits :: Maybe Double
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Capacity' smart constructor.
-capacity :: Capacity
+-- | Creates a value of 'Capacity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cCapacityUnits'
+capacity
+    :: Capacity
 capacity =
     Capacity'
     { _cCapacityUnits = Nothing
@@ -340,7 +346,7 @@ instance FromJSON Capacity where
 --     /KeyConditions/, only the following comparison operators are
 --     supported:
 --
---     @EQ | LE | LT | GE | GT | BEGINS_WITH | BETWEEN@
+--     'EQ | LE | LT | GE | GT | BEGINS_WITH | BETWEEN'
 --
 --     /Condition/ is also used in a /QueryFilter/, which evaluates the
 --     query results and returns only the desired values.
@@ -350,19 +356,21 @@ instance FromJSON Capacity where
 --
 --
 -- /See:/ 'condition' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cAttributeValueList'
---
--- * 'cComparisonOperator'
 data Condition = Condition'
     { _cAttributeValueList :: !(Maybe [AttributeValue])
     , _cComparisonOperator :: !ComparisonOperator
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Condition' smart constructor.
-condition :: ComparisonOperator -> Condition
+-- | Creates a value of 'Condition' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cAttributeValueList'
+--
+-- * 'cComparisonOperator'
+condition
+    :: ComparisonOperator -- ^ 'cComparisonOperator'
+    -> Condition
 condition pComparisonOperator_ =
     Condition'
     { _cAttributeValueList = Nothing
@@ -376,8 +384,8 @@ condition pComparisonOperator_ =
 -- For type Number, value comparisons are numeric.
 --
 -- String value comparisons for greater than, equals, or less than are
--- based on ASCII character code values. For example, @a@ is greater than
--- @A@, and @a@ is greater than @B@. For a list of code values, see
+-- based on ASCII character code values. For example, 'a' is greater than
+-- 'A', and 'a' is greater than 'B'. For a list of code values, see
 -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned
@@ -390,89 +398,89 @@ cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList
 --
 -- The following comparison operators are available:
 --
--- @EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN@
+-- 'EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN'
 --
 -- The following are descriptions of each comparison operator.
 --
--- -   @EQ@ : Equal. @EQ@ is supported for all datatypes, including lists
+-- -   'EQ' : Equal. 'EQ' is supported for all datatypes, including lists
 --     and maps.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ element
 --     of type String, Number, Binary, String Set, Number Set, or Binary
 --     Set. If an item contains an /AttributeValue/ element of a different
 --     type than the one provided in the request, the value does not match.
---     For example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---     @{\"N\":\"6\"}@ does not equal @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--     For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--     '{\"N\":\"6\"}' does not equal '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   @NE@ : Not equal. @NE@ is supported for all datatypes, including
+-- -   'NE' : Not equal. 'NE' is supported for all datatypes, including
 --     lists and maps.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ of type
 --     String, Number, Binary, String Set, Number Set, or Binary Set. If an
 --     item contains an /AttributeValue/ of a different type than the one
 --     provided in the request, the value does not match. For example,
---     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---     @{\"N\":\"6\"}@ does not equal @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--     '{\"N\":\"6\"}' does not equal '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   @LE@ : Less than or equal.
+-- -   'LE' : Less than or equal.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ element
 --     of type String, Number, or Binary (not a set type). If an item
 --     contains an /AttributeValue/ element of a different type than the
 --     one provided in the request, the value does not match. For example,
---     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---     @{\"N\":\"6\"}@ does not compare to
---     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--     '{\"N\":\"6\"}' does not compare to
+--     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   @LT@ : Less than.
+-- -   'LT' : Less than.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ of type
 --     String, Number, or Binary (not a set type). If an item contains an
 --     /AttributeValue/ element of a different type than the one provided
 --     in the request, the value does not match. For example,
---     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---     @{\"N\":\"6\"}@ does not compare to
---     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--     '{\"N\":\"6\"}' does not compare to
+--     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   @GE@ : Greater than or equal.
---
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, or Binary (not a set type). If an item
---     contains an /AttributeValue/ element of a different type than the
---     one provided in the request, the value does not match. For example,
---     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---     @{\"N\":\"6\"}@ does not compare to
---     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
---
--- -   @GT@ : Greater than.
+-- -   'GE' : Greater than or equal.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ element
 --     of type String, Number, or Binary (not a set type). If an item
 --     contains an /AttributeValue/ element of a different type than the
 --     one provided in the request, the value does not match. For example,
---     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---     @{\"N\":\"6\"}@ does not compare to
---     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--     '{\"N\":\"6\"}' does not compare to
+--     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   @NOT_NULL@ : The attribute exists. @NOT_NULL@ is supported for all
+-- -   'GT' : Greater than.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, or Binary (not a set type). If an item
+--     contains an /AttributeValue/ element of a different type than the
+--     one provided in the request, the value does not match. For example,
+--     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--     '{\"N\":\"6\"}' does not compare to
+--     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--
+-- -   'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for all
 --     datatypes, including lists and maps.
 --
 --     This operator tests for the existence of an attribute, not its data
---     type. If the data type of attribute \"@a@\" is null, and you
---     evaluate it using @NOT_NULL@, the result is a Boolean /true/. This
---     result is because the attribute \"@a@\" exists; its data type is not
---     relevant to the @NOT_NULL@ comparison operator.
+--     type. If the data type of attribute \"'a'\" is null, and you
+--     evaluate it using 'NOT_NULL', the result is a Boolean /true/. This
+--     result is because the attribute \"'a'\" exists; its data type is not
+--     relevant to the 'NOT_NULL' comparison operator.
 --
--- -   @NULL@ : The attribute does not exist. @NULL@ is supported for all
+-- -   'NULL' : The attribute does not exist. 'NULL' is supported for all
 --     datatypes, including lists and maps.
 --
 --     This operator tests for the nonexistence of an attribute, not its
---     data type. If the data type of attribute \"@a@\" is null, and you
---     evaluate it using @NULL@, the result is a Boolean /false/. This is
---     because the attribute \"@a@\" exists; its data type is not relevant
---     to the @NULL@ comparison operator.
+--     data type. If the data type of attribute \"'a'\" is null, and you
+--     evaluate it using 'NULL', the result is a Boolean /false/. This is
+--     because the attribute \"'a'\" exists; its data type is not relevant
+--     to the 'NULL' comparison operator.
 --
--- -   @CONTAINS@ : Checks for a subsequence, or value in a set.
+-- -   'CONTAINS' : Checks for a subsequence, or value in a set.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ element
 --     of type String, Number, or Binary (not a set type). If the target
@@ -480,15 +488,15 @@ cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList
 --     checks for a substring match. If the target attribute of the
 --     comparison is of type Binary, then the operator looks for a
 --     subsequence of the target that matches the input. If the target
---     attribute of the comparison is a set (\"@SS@\", \"@NS@\", or
---     \"@BS@\"), then the operator evaluates to true if it finds an exact
+--     attribute of the comparison is a set (\"'SS'\", \"'NS'\", or
+--     \"'BS'\"), then the operator evaluates to true if it finds an exact
 --     match with any member of the set.
 --
---     CONTAINS is supported for lists: When evaluating \"@a CONTAINS b@\",
---     \"@a@\" can be a list; however, \"@b@\" cannot be a set, a map, or a
+--     CONTAINS is supported for lists: When evaluating \"'a CONTAINS b'\",
+--     \"'a'\" can be a list; however, \"'b'\" cannot be a set, a map, or a
 --     list.
 --
--- -   @NOT_CONTAINS@ : Checks for absence of a subsequence, or absence of
+-- -   'NOT_CONTAINS' : Checks for absence of a subsequence, or absence of
 --     a value in a set.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ element
@@ -497,22 +505,22 @@ cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList
 --     for the absence of a substring match. If the target attribute of the
 --     comparison is Binary, then the operator checks for the absence of a
 --     subsequence of the target that matches the input. If the target
---     attribute of the comparison is a set (\"@SS@\", \"@NS@\", or
---     \"@BS@\"), then the operator evaluates to true if it /does not/ find
+--     attribute of the comparison is a set (\"'SS'\", \"'NS'\", or
+--     \"'BS'\"), then the operator evaluates to true if it /does not/ find
 --     an exact match with any member of the set.
 --
 --     NOT_CONTAINS is supported for lists: When evaluating
---     \"@a NOT CONTAINS b@\", \"@a@\" can be a list; however, \"@b@\"
+--     \"'a NOT CONTAINS b'\", \"'a'\" can be a list; however, \"'b'\"
 --     cannot be a set, a map, or a list.
 --
--- -   @BEGINS_WITH@ : Checks for a prefix.
+-- -   'BEGINS_WITH' : Checks for a prefix.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ of type
 --     String or Binary (not a Number or a set type). The target attribute
 --     of the comparison must be of type String or Binary (not a Number or
 --     a set type).
 --
--- -   @IN@ : Checks for matching elements within two sets.
+-- -   'IN' : Checks for matching elements within two sets.
 --
 --     /AttributeValueList/ can contain one or more /AttributeValue/
 --     elements of type String, Number, or Binary (not a set type). These
@@ -520,7 +528,7 @@ cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList
 --     item. If any elements of the input set are present in the item
 --     attribute, the expression evaluates to true.
 --
--- -   @BETWEEN@ : Greater than or equal to the first value, and less than
+-- -   'BETWEEN' : Greater than or equal to the first value, and less than
 --     or equal to the second value.
 --
 --     /AttributeValueList/ must contain two /AttributeValue/ elements of
@@ -529,9 +537,9 @@ cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList
 --     equal to, the first element and less than, or equal to, the second
 --     element. If an item contains an /AttributeValue/ element of a
 --     different type than the one provided in the request, the value does
---     not match. For example, @{\"S\":\"6\"}@ does not compare to
---     @{\"N\":\"6\"}@. Also, @{\"N\":\"6\"}@ does not compare to
---     @{\"NS\":[\"6\", \"2\", \"1\"]}@
+--     not match. For example, '{\"S\":\"6\"}' does not compare to
+--     '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to
+--     '{\"NS\":[\"6\", \"2\", \"1\"]}'
 --
 -- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters>
@@ -553,8 +561,17 @@ instance ToJSON Condition where
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- /See:/ 'consumedCapacity' smart constructor.
+data ConsumedCapacity = ConsumedCapacity'
+    { _ccCapacityUnits          :: !(Maybe Double)
+    , _ccGlobalSecondaryIndexes :: !(Maybe (Map Text Capacity))
+    , _ccLocalSecondaryIndexes  :: !(Maybe (Map Text Capacity))
+    , _ccTable                  :: !(Maybe Capacity)
+    , _ccTableName              :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConsumedCapacity' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ccCapacityUnits'
 --
@@ -565,16 +582,8 @@ instance ToJSON Condition where
 -- * 'ccTable'
 --
 -- * 'ccTableName'
-data ConsumedCapacity = ConsumedCapacity'
-    { _ccCapacityUnits          :: !(Maybe Double)
-    , _ccGlobalSecondaryIndexes :: !(Maybe (Map Text Capacity))
-    , _ccLocalSecondaryIndexes  :: !(Maybe (Map Text Capacity))
-    , _ccTable                  :: !(Maybe Capacity)
-    , _ccTableName              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ConsumedCapacity' smart constructor.
-consumedCapacity :: ConsumedCapacity
+consumedCapacity
+    :: ConsumedCapacity
 consumedCapacity =
     ConsumedCapacity'
     { _ccCapacityUnits = Nothing
@@ -622,8 +631,16 @@ instance FromJSON ConsumedCapacity where
 -- table.
 --
 -- /See:/ 'createGlobalSecondaryIndexAction' smart constructor.
+data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
+    { _cgsiaIndexName             :: !Text
+    , _cgsiaKeySchema             :: !(List1 KeySchemaElement)
+    , _cgsiaProjection            :: !Projection
+    , _cgsiaProvisionedThroughput :: !ProvisionedThroughput
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateGlobalSecondaryIndexAction' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cgsiaIndexName'
 --
@@ -632,15 +649,12 @@ instance FromJSON ConsumedCapacity where
 -- * 'cgsiaProjection'
 --
 -- * 'cgsiaProvisionedThroughput'
-data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
-    { _cgsiaIndexName             :: !Text
-    , _cgsiaKeySchema             :: !(List1 KeySchemaElement)
-    , _cgsiaProjection            :: !Projection
-    , _cgsiaProvisionedThroughput :: !ProvisionedThroughput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateGlobalSecondaryIndexAction' smart constructor.
-createGlobalSecondaryIndexAction :: Text -> NonEmpty KeySchemaElement -> Projection -> ProvisionedThroughput -> CreateGlobalSecondaryIndexAction
+createGlobalSecondaryIndexAction
+    :: Text -- ^ 'cgsiaIndexName'
+    -> NonEmpty KeySchemaElement -- ^ 'cgsiaKeySchema'
+    -> Projection -- ^ 'cgsiaProjection'
+    -> ProvisionedThroughput -- ^ 'cgsiaProvisionedThroughput'
+    -> CreateGlobalSecondaryIndexAction
 createGlobalSecondaryIndexAction pIndexName_ pKeySchema_ pProjection_ pProvisionedThroughput_ =
     CreateGlobalSecondaryIndexAction'
     { _cgsiaIndexName = pIndexName_
@@ -679,16 +693,18 @@ instance ToJSON CreateGlobalSecondaryIndexAction
 -- table.
 --
 -- /See:/ 'deleteGlobalSecondaryIndexAction' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dgsiaIndexName'
 newtype DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction'
     { _dgsiaIndexName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteGlobalSecondaryIndexAction' smart constructor.
-deleteGlobalSecondaryIndexAction :: Text -> DeleteGlobalSecondaryIndexAction
+-- | Creates a value of 'DeleteGlobalSecondaryIndexAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dgsiaIndexName'
+deleteGlobalSecondaryIndexAction
+    :: Text -- ^ 'dgsiaIndexName'
+    -> DeleteGlobalSecondaryIndexAction
 deleteGlobalSecondaryIndexAction pIndexName_ =
     DeleteGlobalSecondaryIndexAction'
     { _dgsiaIndexName = pIndexName_
@@ -706,16 +722,17 @@ instance ToJSON DeleteGlobalSecondaryIndexAction
 -- | Represents a request to perform a /DeleteItem/ operation on an item.
 --
 -- /See:/ 'deleteRequest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drKey'
 newtype DeleteRequest = DeleteRequest'
     { _drKey :: Map Text AttributeValue
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRequest' smart constructor.
-deleteRequest :: DeleteRequest
+-- | Creates a value of 'DeleteRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drKey'
+deleteRequest
+    :: DeleteRequest
 deleteRequest =
     DeleteRequest'
     { _drKey = mempty
@@ -760,8 +777,16 @@ instance ToJSON DeleteRequest where
 -- once, DynamoDB will return a /ValidationException/ exception.
 --
 -- /See:/ 'expectedAttributeValue' smart constructor.
+data ExpectedAttributeValue = ExpectedAttributeValue'
+    { _eavAttributeValueList :: !(Maybe [AttributeValue])
+    , _eavExists             :: !(Maybe Bool)
+    , _eavValue              :: !(Maybe AttributeValue)
+    , _eavComparisonOperator :: !(Maybe ComparisonOperator)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ExpectedAttributeValue' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eavAttributeValueList'
 --
@@ -770,15 +795,8 @@ instance ToJSON DeleteRequest where
 -- * 'eavValue'
 --
 -- * 'eavComparisonOperator'
-data ExpectedAttributeValue = ExpectedAttributeValue'
-    { _eavAttributeValueList :: !(Maybe [AttributeValue])
-    , _eavExists             :: !(Maybe Bool)
-    , _eavValue              :: !(Maybe AttributeValue)
-    , _eavComparisonOperator :: !(Maybe ComparisonOperator)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ExpectedAttributeValue' smart constructor.
-expectedAttributeValue :: ExpectedAttributeValue
+expectedAttributeValue
+    :: ExpectedAttributeValue
 expectedAttributeValue =
     ExpectedAttributeValue'
     { _eavAttributeValueList = Nothing
@@ -794,8 +812,8 @@ expectedAttributeValue =
 -- For type Number, value comparisons are numeric.
 --
 -- String value comparisons for greater than, equals, or less than are
--- based on ASCII character code values. For example, @a@ is greater than
--- @A@, and @a@ is greater than @B@. For a list of code values, see
+-- based on ASCII character code values. For example, 'a' is greater than
+-- 'A', and 'a' is greater than 'B'. For a list of code values, see
 -- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned
@@ -810,27 +828,27 @@ eavAttributeValueList = lens _eavAttributeValueList (\ s a -> s{_eavAttributeVal
 -- | Causes DynamoDB to evaluate the value before attempting a conditional
 -- operation:
 --
--- -   If /Exists/ is @true@, DynamoDB will check to see if that attribute
+-- -   If /Exists/ is 'true', DynamoDB will check to see if that attribute
 --     value already exists in the table. If it is found, then the
 --     operation succeeds. If it is not found, the operation fails with a
 --     /ConditionalCheckFailedException/.
 --
--- -   If /Exists/ is @false@, DynamoDB assumes that the attribute value
+-- -   If /Exists/ is 'false', DynamoDB assumes that the attribute value
 --     does not exist in the table. If in fact the value does not exist,
 --     then the assumption is valid and the operation succeeds. If the
 --     value is found, despite the assumption that it does not exist, the
 --     operation fails with a /ConditionalCheckFailedException/.
 --
--- The default setting for /Exists/ is @true@. If you supply a /Value/ all
+-- The default setting for /Exists/ is 'true'. If you supply a /Value/ all
 -- by itself, DynamoDB assumes the attribute exists: You don\'t have to set
--- /Exists/ to @true@, because it is implied.
+-- /Exists/ to 'true', because it is implied.
 --
 -- DynamoDB returns a /ValidationException/ if:
 --
--- -   /Exists/ is @true@ but there is no /Value/ to check. (You expect a
+-- -   /Exists/ is 'true' but there is no /Value/ to check. (You expect a
 --     value to exist, but don\'t specify what that value is.)
 --
--- -   /Exists/ is @false@ but you also provide a /Value/. (You cannot
+-- -   /Exists/ is 'false' but you also provide a /Value/. (You cannot
 --     expect an attribute to have a value, while also expecting it not to
 --     exist.)
 --
@@ -846,89 +864,89 @@ eavValue = lens _eavValue (\ s a -> s{_eavValue = a});
 --
 -- The following comparison operators are available:
 --
--- @EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN@
+-- 'EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN'
 --
 -- The following are descriptions of each comparison operator.
 --
--- -   @EQ@ : Equal. @EQ@ is supported for all datatypes, including lists
+-- -   'EQ' : Equal. 'EQ' is supported for all datatypes, including lists
 --     and maps.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ element
 --     of type String, Number, Binary, String Set, Number Set, or Binary
 --     Set. If an item contains an /AttributeValue/ element of a different
 --     type than the one provided in the request, the value does not match.
---     For example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---     @{\"N\":\"6\"}@ does not equal @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--     For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--     '{\"N\":\"6\"}' does not equal '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   @NE@ : Not equal. @NE@ is supported for all datatypes, including
+-- -   'NE' : Not equal. 'NE' is supported for all datatypes, including
 --     lists and maps.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ of type
 --     String, Number, Binary, String Set, Number Set, or Binary Set. If an
 --     item contains an /AttributeValue/ of a different type than the one
 --     provided in the request, the value does not match. For example,
---     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---     @{\"N\":\"6\"}@ does not equal @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--     '{\"N\":\"6\"}' does not equal '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   @LE@ : Less than or equal.
+-- -   'LE' : Less than or equal.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ element
 --     of type String, Number, or Binary (not a set type). If an item
 --     contains an /AttributeValue/ element of a different type than the
 --     one provided in the request, the value does not match. For example,
---     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---     @{\"N\":\"6\"}@ does not compare to
---     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--     '{\"N\":\"6\"}' does not compare to
+--     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   @LT@ : Less than.
+-- -   'LT' : Less than.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ of type
 --     String, Number, or Binary (not a set type). If an item contains an
 --     /AttributeValue/ element of a different type than the one provided
 --     in the request, the value does not match. For example,
---     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---     @{\"N\":\"6\"}@ does not compare to
---     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--     '{\"N\":\"6\"}' does not compare to
+--     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   @GE@ : Greater than or equal.
---
---     /AttributeValueList/ can contain only one /AttributeValue/ element
---     of type String, Number, or Binary (not a set type). If an item
---     contains an /AttributeValue/ element of a different type than the
---     one provided in the request, the value does not match. For example,
---     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---     @{\"N\":\"6\"}@ does not compare to
---     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
---
--- -   @GT@ : Greater than.
+-- -   'GE' : Greater than or equal.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ element
 --     of type String, Number, or Binary (not a set type). If an item
 --     contains an /AttributeValue/ element of a different type than the
 --     one provided in the request, the value does not match. For example,
---     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---     @{\"N\":\"6\"}@ does not compare to
---     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--     '{\"N\":\"6\"}' does not compare to
+--     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
--- -   @NOT_NULL@ : The attribute exists. @NOT_NULL@ is supported for all
+-- -   'GT' : Greater than.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, or Binary (not a set type). If an item
+--     contains an /AttributeValue/ element of a different type than the
+--     one provided in the request, the value does not match. For example,
+--     '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--     '{\"N\":\"6\"}' does not compare to
+--     '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--
+-- -   'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for all
 --     datatypes, including lists and maps.
 --
 --     This operator tests for the existence of an attribute, not its data
---     type. If the data type of attribute \"@a@\" is null, and you
---     evaluate it using @NOT_NULL@, the result is a Boolean /true/. This
---     result is because the attribute \"@a@\" exists; its data type is not
---     relevant to the @NOT_NULL@ comparison operator.
+--     type. If the data type of attribute \"'a'\" is null, and you
+--     evaluate it using 'NOT_NULL', the result is a Boolean /true/. This
+--     result is because the attribute \"'a'\" exists; its data type is not
+--     relevant to the 'NOT_NULL' comparison operator.
 --
--- -   @NULL@ : The attribute does not exist. @NULL@ is supported for all
+-- -   'NULL' : The attribute does not exist. 'NULL' is supported for all
 --     datatypes, including lists and maps.
 --
 --     This operator tests for the nonexistence of an attribute, not its
---     data type. If the data type of attribute \"@a@\" is null, and you
---     evaluate it using @NULL@, the result is a Boolean /false/. This is
---     because the attribute \"@a@\" exists; its data type is not relevant
---     to the @NULL@ comparison operator.
+--     data type. If the data type of attribute \"'a'\" is null, and you
+--     evaluate it using 'NULL', the result is a Boolean /false/. This is
+--     because the attribute \"'a'\" exists; its data type is not relevant
+--     to the 'NULL' comparison operator.
 --
--- -   @CONTAINS@ : Checks for a subsequence, or value in a set.
+-- -   'CONTAINS' : Checks for a subsequence, or value in a set.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ element
 --     of type String, Number, or Binary (not a set type). If the target
@@ -936,15 +954,15 @@ eavValue = lens _eavValue (\ s a -> s{_eavValue = a});
 --     checks for a substring match. If the target attribute of the
 --     comparison is of type Binary, then the operator looks for a
 --     subsequence of the target that matches the input. If the target
---     attribute of the comparison is a set (\"@SS@\", \"@NS@\", or
---     \"@BS@\"), then the operator evaluates to true if it finds an exact
+--     attribute of the comparison is a set (\"'SS'\", \"'NS'\", or
+--     \"'BS'\"), then the operator evaluates to true if it finds an exact
 --     match with any member of the set.
 --
---     CONTAINS is supported for lists: When evaluating \"@a CONTAINS b@\",
---     \"@a@\" can be a list; however, \"@b@\" cannot be a set, a map, or a
+--     CONTAINS is supported for lists: When evaluating \"'a CONTAINS b'\",
+--     \"'a'\" can be a list; however, \"'b'\" cannot be a set, a map, or a
 --     list.
 --
--- -   @NOT_CONTAINS@ : Checks for absence of a subsequence, or absence of
+-- -   'NOT_CONTAINS' : Checks for absence of a subsequence, or absence of
 --     a value in a set.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ element
@@ -953,22 +971,22 @@ eavValue = lens _eavValue (\ s a -> s{_eavValue = a});
 --     for the absence of a substring match. If the target attribute of the
 --     comparison is Binary, then the operator checks for the absence of a
 --     subsequence of the target that matches the input. If the target
---     attribute of the comparison is a set (\"@SS@\", \"@NS@\", or
---     \"@BS@\"), then the operator evaluates to true if it /does not/ find
+--     attribute of the comparison is a set (\"'SS'\", \"'NS'\", or
+--     \"'BS'\"), then the operator evaluates to true if it /does not/ find
 --     an exact match with any member of the set.
 --
 --     NOT_CONTAINS is supported for lists: When evaluating
---     \"@a NOT CONTAINS b@\", \"@a@\" can be a list; however, \"@b@\"
+--     \"'a NOT CONTAINS b'\", \"'a'\" can be a list; however, \"'b'\"
 --     cannot be a set, a map, or a list.
 --
--- -   @BEGINS_WITH@ : Checks for a prefix.
+-- -   'BEGINS_WITH' : Checks for a prefix.
 --
 --     /AttributeValueList/ can contain only one /AttributeValue/ of type
 --     String or Binary (not a Number or a set type). The target attribute
 --     of the comparison must be of type String or Binary (not a Number or
 --     a set type).
 --
--- -   @IN@ : Checks for matching elements within two sets.
+-- -   'IN' : Checks for matching elements within two sets.
 --
 --     /AttributeValueList/ can contain one or more /AttributeValue/
 --     elements of type String, Number, or Binary (not a set type). These
@@ -976,7 +994,7 @@ eavValue = lens _eavValue (\ s a -> s{_eavValue = a});
 --     item. If any elements of the input set are present in the item
 --     attribute, the expression evaluates to true.
 --
--- -   @BETWEEN@ : Greater than or equal to the first value, and less than
+-- -   'BETWEEN' : Greater than or equal to the first value, and less than
 --     or equal to the second value.
 --
 --     /AttributeValueList/ must contain two /AttributeValue/ elements of
@@ -985,9 +1003,9 @@ eavValue = lens _eavValue (\ s a -> s{_eavValue = a});
 --     equal to, the first element and less than, or equal to, the second
 --     element. If an item contains an /AttributeValue/ element of a
 --     different type than the one provided in the request, the value does
---     not match. For example, @{\"S\":\"6\"}@ does not compare to
---     @{\"N\":\"6\"}@. Also, @{\"N\":\"6\"}@ does not compare to
---     @{\"NS\":[\"6\", \"2\", \"1\"]}@
+--     not match. For example, '{\"S\":\"6\"}' does not compare to
+--     '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not compare to
+--     '{\"NS\":[\"6\", \"2\", \"1\"]}'
 --
 eavComparisonOperator :: Lens' ExpectedAttributeValue (Maybe ComparisonOperator)
 eavComparisonOperator = lens _eavComparisonOperator (\ s a -> s{_eavComparisonOperator = a});
@@ -1002,8 +1020,16 @@ instance ToJSON ExpectedAttributeValue where
 -- | Represents the properties of a global secondary index.
 --
 -- /See:/ 'globalSecondaryIndex' smart constructor.
+data GlobalSecondaryIndex = GlobalSecondaryIndex'
+    { _gsiIndexName             :: !Text
+    , _gsiKeySchema             :: !(List1 KeySchemaElement)
+    , _gsiProjection            :: !Projection
+    , _gsiProvisionedThroughput :: !ProvisionedThroughput
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GlobalSecondaryIndex' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gsiIndexName'
 --
@@ -1012,15 +1038,12 @@ instance ToJSON ExpectedAttributeValue where
 -- * 'gsiProjection'
 --
 -- * 'gsiProvisionedThroughput'
-data GlobalSecondaryIndex = GlobalSecondaryIndex'
-    { _gsiIndexName             :: !Text
-    , _gsiKeySchema             :: !(List1 KeySchemaElement)
-    , _gsiProjection            :: !Projection
-    , _gsiProvisionedThroughput :: !ProvisionedThroughput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GlobalSecondaryIndex' smart constructor.
-globalSecondaryIndex :: Text -> NonEmpty KeySchemaElement -> Projection -> ProvisionedThroughput -> GlobalSecondaryIndex
+globalSecondaryIndex
+    :: Text -- ^ 'gsiIndexName'
+    -> NonEmpty KeySchemaElement -- ^ 'gsiKeySchema'
+    -> Projection -- ^ 'gsiProjection'
+    -> ProvisionedThroughput -- ^ 'gsiProvisionedThroughput'
+    -> GlobalSecondaryIndex
 globalSecondaryIndex pIndexName_ pKeySchema_ pProjection_ pProvisionedThroughput_ =
     GlobalSecondaryIndex'
     { _gsiIndexName = pIndexName_
@@ -1035,7 +1058,7 @@ gsiIndexName :: Lens' GlobalSecondaryIndex Text
 gsiIndexName = lens _gsiIndexName (\ s a -> s{_gsiIndexName = a});
 
 -- | The complete key schema for a global secondary index, which consists of
--- one or more pairs of attribute names and key types (@HASH@ or @RANGE@).
+-- one or more pairs of attribute names and key types ('HASH' or 'RANGE').
 gsiKeySchema :: Lens' GlobalSecondaryIndex (NonEmpty KeySchemaElement)
 gsiKeySchema = lens _gsiKeySchema (\ s a -> s{_gsiKeySchema = a}) . _List1;
 
@@ -1058,8 +1081,21 @@ instance ToJSON GlobalSecondaryIndex where
 -- | Represents the properties of a global secondary index.
 --
 -- /See:/ 'globalSecondaryIndexDescription' smart constructor.
+data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
+    { _gsidBackfilling           :: !(Maybe Bool)
+    , _gsidProvisionedThroughput :: !(Maybe ProvisionedThroughputDescription)
+    , _gsidIndexStatus           :: !(Maybe IndexStatus)
+    , _gsidIndexSizeBytes        :: !(Maybe Integer)
+    , _gsidIndexARN              :: !(Maybe Text)
+    , _gsidKeySchema             :: !(Maybe (List1 KeySchemaElement))
+    , _gsidProjection            :: !(Maybe Projection)
+    , _gsidItemCount             :: !(Maybe Integer)
+    , _gsidIndexName             :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GlobalSecondaryIndexDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gsidBackfilling'
 --
@@ -1078,20 +1114,8 @@ instance ToJSON GlobalSecondaryIndex where
 -- * 'gsidItemCount'
 --
 -- * 'gsidIndexName'
-data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
-    { _gsidBackfilling           :: !(Maybe Bool)
-    , _gsidProvisionedThroughput :: !(Maybe ProvisionedThroughputDescription)
-    , _gsidIndexStatus           :: !(Maybe IndexStatus)
-    , _gsidIndexSizeBytes        :: !(Maybe Integer)
-    , _gsidIndexARN              :: !(Maybe Text)
-    , _gsidKeySchema             :: !(Maybe (List1 KeySchemaElement))
-    , _gsidProjection            :: !(Maybe Projection)
-    , _gsidItemCount             :: !(Maybe Integer)
-    , _gsidIndexName             :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GlobalSecondaryIndexDescription' smart constructor.
-globalSecondaryIndexDescription :: GlobalSecondaryIndexDescription
+globalSecondaryIndexDescription
+    :: GlobalSecondaryIndexDescription
 globalSecondaryIndexDescription =
     GlobalSecondaryIndexDescription'
     { _gsidBackfilling = Nothing
@@ -1145,7 +1169,7 @@ gsidIndexARN :: Lens' GlobalSecondaryIndexDescription (Maybe Text)
 gsidIndexARN = lens _gsidIndexARN (\ s a -> s{_gsidIndexARN = a});
 
 -- | The complete key schema for the global secondary index, consisting of
--- one or more pairs of attribute names and key types (@HASH@ or @RANGE@).
+-- one or more pairs of attribute names and key types ('HASH' or 'RANGE').
 gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
 gsidKeySchema = lens _gsidKeySchema (\ s a -> s{_gsidKeySchema = a}) . mapping _List1;
 
@@ -1191,22 +1215,23 @@ instance FromJSON GlobalSecondaryIndexDescription
 --
 --
 -- /See:/ 'globalSecondaryIndexUpdate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsiuCreate'
---
--- * 'gsiuDelete'
---
--- * 'gsiuUpdate'
 data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'
     { _gsiuCreate :: !(Maybe CreateGlobalSecondaryIndexAction)
     , _gsiuDelete :: !(Maybe DeleteGlobalSecondaryIndexAction)
     , _gsiuUpdate :: !(Maybe UpdateGlobalSecondaryIndexAction)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GlobalSecondaryIndexUpdate' smart constructor.
-globalSecondaryIndexUpdate :: GlobalSecondaryIndexUpdate
+-- | Creates a value of 'GlobalSecondaryIndexUpdate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsiuCreate'
+--
+-- * 'gsiuDelete'
+--
+-- * 'gsiuUpdate'
+globalSecondaryIndexUpdate
+    :: GlobalSecondaryIndexUpdate
 globalSecondaryIndexUpdate =
     GlobalSecondaryIndexUpdate'
     { _gsiuCreate = Nothing
@@ -1217,15 +1242,15 @@ globalSecondaryIndexUpdate =
 -- | The parameters required for creating a global secondary index on an
 -- existing table:
 --
--- -   @IndexName @
+-- -   'IndexName '
 --
--- -   @KeySchema @
+-- -   'KeySchema '
 --
--- -   @AttributeDefinitions @
+-- -   'AttributeDefinitions '
 --
--- -   @Projection @
+-- -   'Projection '
 --
--- -   @ProvisionedThroughput @
+-- -   'ProvisionedThroughput '
 --
 gsiuCreate :: Lens' GlobalSecondaryIndexUpdate (Maybe CreateGlobalSecondaryIndexAction)
 gsiuCreate = lens _gsiuCreate (\ s a -> s{_gsiuCreate = a});
@@ -1251,19 +1276,20 @@ instance ToJSON GlobalSecondaryIndexUpdate where
 -- information is not returned in the response.
 --
 -- /See:/ 'itemCollectionMetrics' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'icmItemCollectionKey'
---
--- * 'icmSizeEstimateRangeGB'
 data ItemCollectionMetrics = ItemCollectionMetrics'
     { _icmItemCollectionKey   :: !(Maybe (Map Text AttributeValue))
     , _icmSizeEstimateRangeGB :: !(Maybe [Double])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ItemCollectionMetrics' smart constructor.
-itemCollectionMetrics :: ItemCollectionMetrics
+-- | Creates a value of 'ItemCollectionMetrics' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'icmItemCollectionKey'
+--
+-- * 'icmSizeEstimateRangeGB'
+itemCollectionMetrics
+    :: ItemCollectionMetrics
 itemCollectionMetrics =
     ItemCollectionMetrics'
     { _icmItemCollectionKey = Nothing
@@ -1306,19 +1332,22 @@ instance FromJSON ItemCollectionMetrics where
 -- /KeySchemaElement/ for the range attribute.
 --
 -- /See:/ 'keySchemaElement' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'kseAttributeName'
---
--- * 'kseKeyType'
 data KeySchemaElement = KeySchemaElement'
     { _kseAttributeName :: !Text
     , _kseKeyType       :: !KeyType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'KeySchemaElement' smart constructor.
-keySchemaElement :: Text -> KeyType -> KeySchemaElement
+-- | Creates a value of 'KeySchemaElement' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'kseAttributeName'
+--
+-- * 'kseKeyType'
+keySchemaElement
+    :: Text -- ^ 'kseAttributeName'
+    -> KeyType -- ^ 'kseKeyType'
+    -> KeySchemaElement
 keySchemaElement pAttributeName_ pKeyType_ =
     KeySchemaElement'
     { _kseAttributeName = pAttributeName_
@@ -1356,8 +1385,17 @@ instance ToJSON KeySchemaElement where
 -- /both/ the hash attribute and the range attribute.
 --
 -- /See:/ 'keysAndAttributes' smart constructor.
+data KeysAndAttributes = KeysAndAttributes'
+    { _kaaProjectionExpression     :: !(Maybe Text)
+    , _kaaConsistentRead           :: !(Maybe Bool)
+    , _kaaExpressionAttributeNames :: !(Maybe (Map Text Text))
+    , _kaaAttributesToGet          :: !(Maybe (List1 Text))
+    , _kaaKeys                     :: !(List1 (Map Text AttributeValue))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'KeysAndAttributes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'kaaProjectionExpression'
 --
@@ -1368,16 +1406,9 @@ instance ToJSON KeySchemaElement where
 -- * 'kaaAttributesToGet'
 --
 -- * 'kaaKeys'
-data KeysAndAttributes = KeysAndAttributes'
-    { _kaaProjectionExpression     :: !(Maybe Text)
-    , _kaaConsistentRead           :: !(Maybe Bool)
-    , _kaaExpressionAttributeNames :: !(Maybe (Map Text Text))
-    , _kaaAttributesToGet          :: !(Maybe (List1 Text))
-    , _kaaKeys                     :: !(List1 (Map Text AttributeValue))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'KeysAndAttributes' smart constructor.
-keysAndAttributes :: NonEmpty (HashMap Text AttributeValue) -> KeysAndAttributes
+keysAndAttributes
+    :: NonEmpty (HashMap Text AttributeValue) -- ^ 'kaaKeys'
+    -> KeysAndAttributes
 keysAndAttributes pKeys_ =
     KeysAndAttributes'
     { _kaaProjectionExpression = Nothing
@@ -1404,7 +1435,7 @@ keysAndAttributes pKeys_ =
 kaaProjectionExpression :: Lens' KeysAndAttributes (Maybe Text)
 kaaProjectionExpression = lens _kaaProjectionExpression (\ s a -> s{_kaaProjectionExpression = a});
 
--- | The consistency of a read operation. If set to @true@, then a strongly
+-- | The consistency of a read operation. If set to 'true', then a strongly
 -- consistent read is used; otherwise, an eventually consistent read is
 -- used.
 kaaConsistentRead :: Lens' KeysAndAttributes (Maybe Bool)
@@ -1425,7 +1456,7 @@ kaaConsistentRead = lens _kaaConsistentRead (\ s a -> s{_kaaConsistentRead = a})
 -- Use the __#__ character in an expression to dereference an attribute
 -- name. For example, consider the following attribute name:
 --
--- -   @Percentile@
+-- -   'Percentile'
 --
 -- The name of this attribute conflicts with a reserved word, so it cannot
 -- be used directly in an expression. (For the complete list of reserved
@@ -1434,12 +1465,12 @@ kaaConsistentRead = lens _kaaConsistentRead (\ s a -> s{_kaaConsistentRead = a})
 -- in the /Amazon DynamoDB Developer Guide/). To work around this, you
 -- could specify the following for /ExpressionAttributeNames/:
 --
--- -   @{\"#P\":\"Percentile\"}@
+-- -   '{\"#P\":\"Percentile\"}'
 --
 -- You could then use this substitution in an expression, as in this
 -- example:
 --
--- -   @#P = :val@
+-- -   '#P = :val'
 --
 -- Tokens that begin with the __:__ character are /expression attribute
 -- values/, which are placeholders for the actual value at runtime.
@@ -1486,22 +1517,26 @@ instance ToJSON KeysAndAttributes where
 -- | Represents the properties of a local secondary index.
 --
 -- /See:/ 'localSecondaryIndex' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsiIndexName'
---
--- * 'lsiKeySchema'
---
--- * 'lsiProjection'
 data LocalSecondaryIndex = LocalSecondaryIndex'
     { _lsiIndexName  :: !Text
     , _lsiKeySchema  :: !(List1 KeySchemaElement)
     , _lsiProjection :: !Projection
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LocalSecondaryIndex' smart constructor.
-localSecondaryIndex :: Text -> NonEmpty KeySchemaElement -> Projection -> LocalSecondaryIndex
+-- | Creates a value of 'LocalSecondaryIndex' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsiIndexName'
+--
+-- * 'lsiKeySchema'
+--
+-- * 'lsiProjection'
+localSecondaryIndex
+    :: Text -- ^ 'lsiIndexName'
+    -> NonEmpty KeySchemaElement -- ^ 'lsiKeySchema'
+    -> Projection -- ^ 'lsiProjection'
+    -> LocalSecondaryIndex
 localSecondaryIndex pIndexName_ pKeySchema_ pProjection_ =
     LocalSecondaryIndex'
     { _lsiIndexName = pIndexName_
@@ -1515,7 +1550,7 @@ lsiIndexName :: Lens' LocalSecondaryIndex Text
 lsiIndexName = lens _lsiIndexName (\ s a -> s{_lsiIndexName = a});
 
 -- | The complete key schema for the local secondary index, consisting of one
--- or more pairs of attribute names and key types (@HASH@ or @RANGE@).
+-- or more pairs of attribute names and key types ('HASH' or 'RANGE').
 lsiKeySchema :: Lens' LocalSecondaryIndex (NonEmpty KeySchemaElement)
 lsiKeySchema = lens _lsiKeySchema (\ s a -> s{_lsiKeySchema = a}) . _List1;
 
@@ -1533,8 +1568,18 @@ instance ToJSON LocalSecondaryIndex where
 -- | Represents the properties of a local secondary index.
 --
 -- /See:/ 'localSecondaryIndexDescription' smart constructor.
+data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
+    { _lsidIndexSizeBytes :: !(Maybe Integer)
+    , _lsidIndexARN       :: !(Maybe Text)
+    , _lsidKeySchema      :: !(Maybe (List1 KeySchemaElement))
+    , _lsidProjection     :: !(Maybe Projection)
+    , _lsidItemCount      :: !(Maybe Integer)
+    , _lsidIndexName      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LocalSecondaryIndexDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lsidIndexSizeBytes'
 --
@@ -1547,17 +1592,8 @@ instance ToJSON LocalSecondaryIndex where
 -- * 'lsidItemCount'
 --
 -- * 'lsidIndexName'
-data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
-    { _lsidIndexSizeBytes :: !(Maybe Integer)
-    , _lsidIndexARN       :: !(Maybe Text)
-    , _lsidKeySchema      :: !(Maybe (List1 KeySchemaElement))
-    , _lsidProjection     :: !(Maybe Projection)
-    , _lsidItemCount      :: !(Maybe Integer)
-    , _lsidIndexName      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LocalSecondaryIndexDescription' smart constructor.
-localSecondaryIndexDescription :: LocalSecondaryIndexDescription
+localSecondaryIndexDescription
+    :: LocalSecondaryIndexDescription
 localSecondaryIndexDescription =
     LocalSecondaryIndexDescription'
     { _lsidIndexSizeBytes = Nothing
@@ -1579,7 +1615,7 @@ lsidIndexARN :: Lens' LocalSecondaryIndexDescription (Maybe Text)
 lsidIndexARN = lens _lsidIndexARN (\ s a -> s{_lsidIndexARN = a});
 
 -- | The complete index key schema, which consists of one or more pairs of
--- attribute names and key types (@HASH@ or @RANGE@).
+-- attribute names and key types ('HASH' or 'RANGE').
 lsidKeySchema :: Lens' LocalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
 lsidKeySchema = lens _lsidKeySchema (\ s a -> s{_lsidKeySchema = a}) . mapping _List1;
 
@@ -1614,19 +1650,20 @@ instance FromJSON LocalSecondaryIndexDescription
 -- attributes, which are automatically projected.
 --
 -- /See:/ 'projection' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pProjectionType'
---
--- * 'pNonKeyAttributes'
 data Projection = Projection'
     { _pProjectionType   :: !(Maybe ProjectionType)
     , _pNonKeyAttributes :: !(Maybe (List1 Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Projection' smart constructor.
-projection :: Projection
+-- | Creates a value of 'Projection' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pProjectionType'
+--
+-- * 'pNonKeyAttributes'
+projection
+    :: Projection
 projection =
     Projection'
     { _pProjectionType = Nothing
@@ -1635,14 +1672,14 @@ projection =
 
 -- | The set of attributes that are projected into the index:
 --
--- -   @KEYS_ONLY@ - Only the index and primary keys are projected into the
+-- -   'KEYS_ONLY' - Only the index and primary keys are projected into the
 --     index.
 --
--- -   @INCLUDE@ - Only the specified table attributes are projected into
+-- -   'INCLUDE' - Only the specified table attributes are projected into
 --     the index. The list of projected attributes are in
 --     /NonKeyAttributes/.
 --
--- -   @ALL@ - All of the table attributes are projected into the index.
+-- -   'ALL' - All of the table attributes are projected into the index.
 --
 pProjectionType :: Lens' Projection (Maybe ProjectionType)
 pProjectionType = lens _pProjectionType (\ s a -> s{_pProjectionType = a});
@@ -1679,19 +1716,22 @@ instance ToJSON Projection where
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- /See:/ 'provisionedThroughput' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ptReadCapacityUnits'
---
--- * 'ptWriteCapacityUnits'
 data ProvisionedThroughput = ProvisionedThroughput'
     { _ptReadCapacityUnits  :: !Nat
     , _ptWriteCapacityUnits :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ProvisionedThroughput' smart constructor.
-provisionedThroughput :: Natural -> Natural -> ProvisionedThroughput
+-- | Creates a value of 'ProvisionedThroughput' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ptReadCapacityUnits'
+--
+-- * 'ptWriteCapacityUnits'
+provisionedThroughput
+    :: Natural -- ^ 'ptReadCapacityUnits'
+    -> Natural -- ^ 'ptWriteCapacityUnits'
+    -> ProvisionedThroughput
 provisionedThroughput pReadCapacityUnits_ pWriteCapacityUnits_ =
     ProvisionedThroughput'
     { _ptReadCapacityUnits = _Nat # pReadCapacityUnits_
@@ -1724,8 +1764,17 @@ instance ToJSON ProvisionedThroughput where
 -- decreases.
 --
 -- /See:/ 'provisionedThroughputDescription' smart constructor.
+data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
+    { _ptdReadCapacityUnits      :: !(Maybe Nat)
+    , _ptdLastDecreaseDateTime   :: !(Maybe POSIX)
+    , _ptdWriteCapacityUnits     :: !(Maybe Nat)
+    , _ptdNumberOfDecreasesToday :: !(Maybe Nat)
+    , _ptdLastIncreaseDateTime   :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ProvisionedThroughputDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ptdReadCapacityUnits'
 --
@@ -1736,16 +1785,8 @@ instance ToJSON ProvisionedThroughput where
 -- * 'ptdNumberOfDecreasesToday'
 --
 -- * 'ptdLastIncreaseDateTime'
-data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
-    { _ptdReadCapacityUnits      :: !(Maybe Nat)
-    , _ptdLastDecreaseDateTime   :: !(Maybe POSIX)
-    , _ptdWriteCapacityUnits     :: !(Maybe Nat)
-    , _ptdNumberOfDecreasesToday :: !(Maybe Nat)
-    , _ptdLastIncreaseDateTime   :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ProvisionedThroughputDescription' smart constructor.
-provisionedThroughputDescription :: ProvisionedThroughputDescription
+provisionedThroughputDescription
+    :: ProvisionedThroughputDescription
 provisionedThroughputDescription =
     ProvisionedThroughputDescription'
     { _ptdReadCapacityUnits = Nothing
@@ -1801,16 +1842,17 @@ instance FromJSON ProvisionedThroughputDescription
 -- | Represents a request to perform a /PutItem/ operation on an item.
 --
 -- /See:/ 'putRequest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prItem'
 newtype PutRequest = PutRequest'
     { _prItem :: Map Text AttributeValue
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutRequest' smart constructor.
-putRequest :: PutRequest
+-- | Creates a value of 'PutRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prItem'
+putRequest
+    :: PutRequest
 putRequest =
     PutRequest'
     { _prItem = mempty
@@ -1836,19 +1878,20 @@ instance ToJSON PutRequest where
 -- | Represents the DynamoDB Streams configuration for a table in DynamoDB.
 --
 -- /See:/ 'streamSpecification' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ssStreamEnabled'
---
--- * 'ssStreamViewType'
 data StreamSpecification = StreamSpecification'
     { _ssStreamEnabled  :: !(Maybe Bool)
     , _ssStreamViewType :: !(Maybe StreamViewType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StreamSpecification' smart constructor.
-streamSpecification :: StreamSpecification
+-- | Creates a value of 'StreamSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssStreamEnabled'
+--
+-- * 'ssStreamViewType'
+streamSpecification
+    :: StreamSpecification
 streamSpecification =
     StreamSpecification'
     { _ssStreamEnabled = Nothing
@@ -1900,8 +1943,26 @@ instance ToJSON StreamSpecification where
 -- | Represents the properties of a table.
 --
 -- /See:/ 'tableDescription' smart constructor.
+data TableDescription = TableDescription'
+    { _tdProvisionedThroughput  :: !(Maybe ProvisionedThroughputDescription)
+    , _tdAttributeDefinitions   :: !(Maybe [AttributeDefinition])
+    , _tdLatestStreamARN        :: !(Maybe Text)
+    , _tdTableSizeBytes         :: !(Maybe Integer)
+    , _tdTableStatus            :: !(Maybe TableStatus)
+    , _tdTableARN               :: !(Maybe Text)
+    , _tdKeySchema              :: !(Maybe (List1 KeySchemaElement))
+    , _tdLatestStreamLabel      :: !(Maybe Text)
+    , _tdGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndexDescription])
+    , _tdLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndexDescription])
+    , _tdCreationDateTime       :: !(Maybe POSIX)
+    , _tdItemCount              :: !(Maybe Integer)
+    , _tdTableName              :: !(Maybe Text)
+    , _tdStreamSpecification    :: !(Maybe StreamSpecification)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TableDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tdProvisionedThroughput'
 --
@@ -1930,25 +1991,8 @@ instance ToJSON StreamSpecification where
 -- * 'tdTableName'
 --
 -- * 'tdStreamSpecification'
-data TableDescription = TableDescription'
-    { _tdProvisionedThroughput  :: !(Maybe ProvisionedThroughputDescription)
-    , _tdAttributeDefinitions   :: !(Maybe [AttributeDefinition])
-    , _tdLatestStreamARN        :: !(Maybe Text)
-    , _tdTableSizeBytes         :: !(Maybe Integer)
-    , _tdTableStatus            :: !(Maybe TableStatus)
-    , _tdTableARN               :: !(Maybe Text)
-    , _tdKeySchema              :: !(Maybe (List1 KeySchemaElement))
-    , _tdLatestStreamLabel      :: !(Maybe Text)
-    , _tdGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndexDescription])
-    , _tdLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndexDescription])
-    , _tdCreationDateTime       :: !(Maybe POSIX)
-    , _tdItemCount              :: !(Maybe Integer)
-    , _tdTableName              :: !(Maybe Text)
-    , _tdStreamSpecification    :: !(Maybe StreamSpecification)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TableDescription' smart constructor.
-tableDescription :: TableDescription
+tableDescription
+    :: TableDescription
 tableDescription =
     TableDescription'
     { _tdProvisionedThroughput = Nothing
@@ -2017,8 +2061,8 @@ tdTableARN = lens _tdTableARN (\ s a -> s{_tdTableARN = a});
 --
 -- -   /AttributeName/ - The name of the attribute.
 --
--- -   /KeyType/ - The key type for the attribute. Can be either @HASH@ or
---     @RANGE@.
+-- -   /KeyType/ - The key type for the attribute. Can be either 'HASH' or
+--     'RANGE'.
 --
 -- For more information about primary keys, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key>
@@ -2084,14 +2128,14 @@ tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel
 --
 --     -   /ProjectionType/ - One of the following:
 --
---         -   @KEYS_ONLY@ - Only the index and primary keys are projected
+--         -   'KEYS_ONLY' - Only the index and primary keys are projected
 --             into the index.
 --
---         -   @INCLUDE@ - Only the specified table attributes are
+--         -   'INCLUDE' - Only the specified table attributes are
 --             projected into the index. The list of projected attributes
 --             are in /NonKeyAttributes/.
 --
---         -   @ALL@ - All of the table attributes are projected into the
+--         -   'ALL' - All of the table attributes are projected into the
 --             index.
 --
 --     -   /NonKeyAttributes/ - A list of one or more non-key attribute
@@ -2105,7 +2149,7 @@ tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel
 --     the global secondary index, consisting of read and write capacity
 --     units, along with data about increases and decreases.
 --
--- If the table is in the @DELETING@ state, no information about indexes
+-- If the table is in the 'DELETING' state, no information about indexes
 -- will be returned.
 tdGlobalSecondaryIndexes :: Lens' TableDescription [GlobalSecondaryIndexDescription]
 tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalSecondaryIndexes = a}) . _Default . _Coerce;
@@ -2130,14 +2174,14 @@ tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalS
 --
 --     -   /ProjectionType/ - One of the following:
 --
---         -   @KEYS_ONLY@ - Only the index and primary keys are projected
+--         -   'KEYS_ONLY' - Only the index and primary keys are projected
 --             into the index.
 --
---         -   @INCLUDE@ - Only the specified table attributes are
+--         -   'INCLUDE' - Only the specified table attributes are
 --             projected into the index. The list of projected attributes
 --             are in /NonKeyAttributes/.
 --
---         -   @ALL@ - All of the table attributes are projected into the
+--         -   'ALL' - All of the table attributes are projected into the
 --             index.
 --
 --     -   /NonKeyAttributes/ - A list of one or more non-key attribute
@@ -2155,7 +2199,7 @@ tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalS
 --     updates this value approximately every six hours. Recent changes
 --     might not be reflected in this value.
 --
--- If the table is in the @DELETING@ state, no information about indexes
+-- If the table is in the 'DELETING' state, no information about indexes
 -- will be returned.
 tdLocalSecondaryIndexes :: Lens' TableDescription [LocalSecondaryIndexDescription]
 tdLocalSecondaryIndexes = lens _tdLocalSecondaryIndexes (\ s a -> s{_tdLocalSecondaryIndexes = a}) . _Default . _Coerce;
@@ -2203,19 +2247,22 @@ instance FromJSON TableDescription where
 -- global secondary index.
 --
 -- /See:/ 'updateGlobalSecondaryIndexAction' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ugsiaIndexName'
---
--- * 'ugsiaProvisionedThroughput'
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'
     { _ugsiaIndexName             :: !Text
     , _ugsiaProvisionedThroughput :: !ProvisionedThroughput
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateGlobalSecondaryIndexAction' smart constructor.
-updateGlobalSecondaryIndexAction :: Text -> ProvisionedThroughput -> UpdateGlobalSecondaryIndexAction
+-- | Creates a value of 'UpdateGlobalSecondaryIndexAction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ugsiaIndexName'
+--
+-- * 'ugsiaProvisionedThroughput'
+updateGlobalSecondaryIndexAction
+    :: Text -- ^ 'ugsiaIndexName'
+    -> ProvisionedThroughput -- ^ 'ugsiaProvisionedThroughput'
+    -> UpdateGlobalSecondaryIndexAction
 updateGlobalSecondaryIndexAction pIndexName_ pProvisionedThroughput_ =
     UpdateGlobalSecondaryIndexAction'
     { _ugsiaIndexName = pIndexName_
@@ -2244,19 +2291,20 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
 -- will need to provide two separate /WriteRequest/ objects.
 --
 -- /See:/ 'writeRequest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'wrPutRequest'
---
--- * 'wrDeleteRequest'
 data WriteRequest = WriteRequest'
     { _wrPutRequest    :: !(Maybe PutRequest)
     , _wrDeleteRequest :: !(Maybe DeleteRequest)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'WriteRequest' smart constructor.
-writeRequest :: WriteRequest
+-- | Creates a value of 'WriteRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'wrPutRequest'
+--
+-- * 'wrDeleteRequest'
+writeRequest
+    :: WriteRequest
 writeRequest =
     WriteRequest'
     { _wrPutRequest = Nothing

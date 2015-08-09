@@ -24,14 +24,14 @@
 module Network.AWS.ElasticTranscoder.ReadPipeline
     (
     -- * Creating a Request
-      ReadPipeline
-    , readPipeline
+      readPipeline
+    , ReadPipeline
     -- * Request Lenses
     , rId
 
     -- * Destructuring the Response
-    , ReadPipelineResponse
     , readPipelineResponse
+    , ReadPipelineResponse
     -- * Response Lenses
     , rrsWarnings
     , rrsPipeline
@@ -44,19 +44,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @ReadPipelineRequest@ structure.
+-- | The 'ReadPipelineRequest' structure.
 --
 -- /See:/ 'readPipeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rId'
 newtype ReadPipeline = ReadPipeline'
     { _rId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReadPipeline' smart constructor.
-readPipeline :: Text -> ReadPipeline
+-- | Creates a value of 'ReadPipeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rId'
+readPipeline
+    :: Text -- ^ 'rId'
+    -> ReadPipeline
 readPipeline pId_ =
     ReadPipeline'
     { _rId = pId_
@@ -87,25 +89,27 @@ instance ToPath ReadPipeline where
 instance ToQuery ReadPipeline where
         toQuery = const mempty
 
--- | The @ReadPipelineResponse@ structure.
+-- | The 'ReadPipelineResponse' structure.
 --
 -- /See:/ 'readPipelineResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rrsWarnings'
---
--- * 'rrsPipeline'
---
--- * 'rrsStatus'
 data ReadPipelineResponse = ReadPipelineResponse'
     { _rrsWarnings :: !(Maybe [Warning])
     , _rrsPipeline :: !(Maybe Pipeline)
     , _rrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReadPipelineResponse' smart constructor.
-readPipelineResponse :: Int -> ReadPipelineResponse
+-- | Creates a value of 'ReadPipelineResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rrsWarnings'
+--
+-- * 'rrsPipeline'
+--
+-- * 'rrsStatus'
+readPipelineResponse
+    :: Int -- ^ 'rrsStatus'
+    -> ReadPipelineResponse
 readPipelineResponse pStatus_ =
     ReadPipelineResponse'
     { _rrsWarnings = Nothing
@@ -127,6 +131,6 @@ rrsWarnings = lens _rrsWarnings (\ s a -> s{_rrsWarnings = a}) . _Default . _Coe
 rrsPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 rrsPipeline = lens _rrsPipeline (\ s a -> s{_rrsPipeline = a});
 
--- | Undocumented member.
+-- | The response status code.
 rrsStatus :: Lens' ReadPipelineResponse Int
 rrsStatus = lens _rrsStatus (\ s a -> s{_rrsStatus = a});

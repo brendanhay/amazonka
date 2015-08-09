@@ -24,8 +24,8 @@
 module Network.AWS.Route53.ChangeTagsForResource
     (
     -- * Creating a Request
-      ChangeTagsForResource
-    , changeTagsForResource
+      changeTagsForResource
+    , ChangeTagsForResource
     -- * Request Lenses
     , ctfrRemoveTagKeys
     , ctfrAddTags
@@ -33,8 +33,8 @@ module Network.AWS.Route53.ChangeTagsForResource
     , ctfrResourceId
 
     -- * Destructuring the Response
-    , ChangeTagsForResourceResponse
     , changeTagsForResourceResponse
+    , ChangeTagsForResourceResponse
     -- * Response Lenses
     , ctfrrsStatus
     ) where
@@ -49,8 +49,16 @@ import           Network.AWS.Route53.Types.Product
 -- delete the tags that are associated with a resource.
 --
 -- /See:/ 'changeTagsForResource' smart constructor.
+data ChangeTagsForResource = ChangeTagsForResource'
+    { _ctfrRemoveTagKeys :: !(Maybe (List1 Text))
+    , _ctfrAddTags       :: !(Maybe (List1 Tag))
+    , _ctfrResourceType  :: !TagResourceType
+    , _ctfrResourceId    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ChangeTagsForResource' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ctfrRemoveTagKeys'
 --
@@ -59,15 +67,10 @@ import           Network.AWS.Route53.Types.Product
 -- * 'ctfrResourceType'
 --
 -- * 'ctfrResourceId'
-data ChangeTagsForResource = ChangeTagsForResource'
-    { _ctfrRemoveTagKeys :: !(Maybe (List1 Text))
-    , _ctfrAddTags       :: !(Maybe (List1 Tag))
-    , _ctfrResourceType  :: !TagResourceType
-    , _ctfrResourceId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ChangeTagsForResource' smart constructor.
-changeTagsForResource :: TagResourceType -> Text -> ChangeTagsForResource
+changeTagsForResource
+    :: TagResourceType -- ^ 'ctfrResourceType'
+    -> Text -- ^ 'ctfrResourceId'
+    -> ChangeTagsForResource
 changeTagsForResource pResourceType_ pResourceId_ =
     ChangeTagsForResource'
     { _ctfrRemoveTagKeys = Nothing
@@ -76,12 +79,12 @@ changeTagsForResource pResourceType_ pResourceId_ =
     , _ctfrResourceId = pResourceId_
     }
 
--- | A list of @Tag@ keys that you want to remove from the specified
+-- | A list of 'Tag' keys that you want to remove from the specified
 -- resource.
 ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (NonEmpty Text))
 ctfrRemoveTagKeys = lens _ctfrRemoveTagKeys (\ s a -> s{_ctfrRemoveTagKeys = a}) . mapping _List1;
 
--- | A complex type that contains a list of @Tag@ elements. Each @Tag@
+-- | A complex type that contains a list of 'Tag' elements. Each 'Tag'
 -- element identifies a tag that you want to add or update for the
 -- specified resource.
 ctfrAddTags :: Lens' ChangeTagsForResource (Maybe (NonEmpty Tag))
@@ -89,9 +92,9 @@ ctfrAddTags = lens _ctfrAddTags (\ s a -> s{_ctfrAddTags = a}) . mapping _List1;
 
 -- | The type of the resource.
 --
--- - The resource type for health checks is @healthcheck@.
+-- - The resource type for health checks is 'healthcheck'.
 --
--- - The resource type for hosted zones is @hostedzone@.
+-- - The resource type for hosted zones is 'hostedzone'.
 ctfrResourceType :: Lens' ChangeTagsForResource TagResourceType
 ctfrResourceType = lens _ctfrResourceType (\ s a -> s{_ctfrResourceType = a});
 
@@ -139,21 +142,23 @@ instance ToXML ChangeTagsForResource where
 -- | Empty response for the request.
 --
 -- /See:/ 'changeTagsForResourceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ctfrrsStatus'
 newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
     { _ctfrrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangeTagsForResourceResponse' smart constructor.
-changeTagsForResourceResponse :: Int -> ChangeTagsForResourceResponse
+-- | Creates a value of 'ChangeTagsForResourceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctfrrsStatus'
+changeTagsForResourceResponse
+    :: Int -- ^ 'ctfrrsStatus'
+    -> ChangeTagsForResourceResponse
 changeTagsForResourceResponse pStatus_ =
     ChangeTagsForResourceResponse'
     { _ctfrrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ctfrrsStatus :: Lens' ChangeTagsForResourceResponse Int
 ctfrrsStatus = lens _ctfrrsStatus (\ s a -> s{_ctfrrsStatus = a});

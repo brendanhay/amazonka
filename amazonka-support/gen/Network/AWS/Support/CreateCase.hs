@@ -27,9 +27,9 @@
 --     either \"customer-service\" or \"technical.\" If you do not indicate
 --     a value, the default is \"technical.\"
 -- 2.  __ServiceCode.__ The code for an AWS service. You obtain the
---     @ServiceCode@ by calling DescribeServices.
+--     'ServiceCode' by calling DescribeServices.
 -- 3.  __CategoryCode.__ The category for the service defined for the
---     @ServiceCode@ value. You also obtain the category code for a service
+--     'ServiceCode' value. You also obtain the category code for a service
 --     by calling DescribeServices. Each AWS service defines its own set of
 --     category codes.
 -- 4.  __SeverityCode.__ A value that indicates the urgency of the case,
@@ -66,8 +66,8 @@
 module Network.AWS.Support.CreateCase
     (
     -- * Creating a Request
-      CreateCase
-    , createCase
+      createCase
+    , CreateCase
     -- * Request Lenses
     , ccSeverityCode
     , ccIssueType
@@ -80,8 +80,8 @@ module Network.AWS.Support.CreateCase
     , ccCommunicationBody
 
     -- * Destructuring the Response
-    , CreateCaseResponse
     , createCaseResponse
+    , CreateCaseResponse
     -- * Response Lenses
     , ccrsCaseId
     , ccrsStatus
@@ -94,8 +94,21 @@ import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
 -- | /See:/ 'createCase' smart constructor.
+data CreateCase = CreateCase'
+    { _ccSeverityCode      :: !(Maybe Text)
+    , _ccIssueType         :: !(Maybe Text)
+    , _ccCcEmailAddresses  :: !(Maybe [Text])
+    , _ccLanguage          :: !(Maybe Text)
+    , _ccCategoryCode      :: !(Maybe Text)
+    , _ccServiceCode       :: !(Maybe Text)
+    , _ccAttachmentSetId   :: !(Maybe Text)
+    , _ccSubject           :: !Text
+    , _ccCommunicationBody :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateCase' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ccSeverityCode'
 --
@@ -114,20 +127,10 @@ import           Network.AWS.Support.Types.Product
 -- * 'ccSubject'
 --
 -- * 'ccCommunicationBody'
-data CreateCase = CreateCase'
-    { _ccSeverityCode      :: !(Maybe Text)
-    , _ccIssueType         :: !(Maybe Text)
-    , _ccCcEmailAddresses  :: !(Maybe [Text])
-    , _ccLanguage          :: !(Maybe Text)
-    , _ccCategoryCode      :: !(Maybe Text)
-    , _ccServiceCode       :: !(Maybe Text)
-    , _ccAttachmentSetId   :: !(Maybe Text)
-    , _ccSubject           :: !Text
-    , _ccCommunicationBody :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateCase' smart constructor.
-createCase :: Text -> Text -> CreateCase
+createCase
+    :: Text -- ^ 'ccSubject'
+    -> Text -- ^ 'ccCommunicationBody'
+    -> CreateCase
 createCase pSubject_ pCommunicationBody_ =
     CreateCase'
     { _ccSeverityCode = Nothing
@@ -232,19 +235,21 @@ instance ToQuery CreateCase where
 -- CreateCase operation.
 --
 -- /See:/ 'createCaseResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccrsCaseId'
---
--- * 'ccrsStatus'
 data CreateCaseResponse = CreateCaseResponse'
     { _ccrsCaseId :: !(Maybe Text)
     , _ccrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateCaseResponse' smart constructor.
-createCaseResponse :: Int -> CreateCaseResponse
+-- | Creates a value of 'CreateCaseResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccrsCaseId'
+--
+-- * 'ccrsStatus'
+createCaseResponse
+    :: Int -- ^ 'ccrsStatus'
+    -> CreateCaseResponse
 createCaseResponse pStatus_ =
     CreateCaseResponse'
     { _ccrsCaseId = Nothing
@@ -257,6 +262,6 @@ createCaseResponse pStatus_ =
 ccrsCaseId :: Lens' CreateCaseResponse (Maybe Text)
 ccrsCaseId = lens _ccrsCaseId (\ s a -> s{_ccrsCaseId = a});
 
--- | Undocumented member.
+-- | The response status code.
 ccrsStatus :: Lens' CreateCaseResponse Int
 ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

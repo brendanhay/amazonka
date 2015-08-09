@@ -27,15 +27,15 @@
 module Network.AWS.RDS.RemoveTagsFromResource
     (
     -- * Creating a Request
-      RemoveTagsFromResource
-    , removeTagsFromResource
+      removeTagsFromResource
+    , RemoveTagsFromResource
     -- * Request Lenses
     , rtfrResourceName
     , rtfrTagKeys
 
     -- * Destructuring the Response
-    , RemoveTagsFromResourceResponse
     , removeTagsFromResourceResponse
+    , RemoveTagsFromResourceResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -47,19 +47,21 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'removeTagsFromResource' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtfrResourceName'
---
--- * 'rtfrTagKeys'
 data RemoveTagsFromResource = RemoveTagsFromResource'
     { _rtfrResourceName :: !Text
     , _rtfrTagKeys      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveTagsFromResource' smart constructor.
-removeTagsFromResource :: Text -> RemoveTagsFromResource
+-- | Creates a value of 'RemoveTagsFromResource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtfrResourceName'
+--
+-- * 'rtfrTagKeys'
+removeTagsFromResource
+    :: Text -- ^ 'rtfrResourceName'
+    -> RemoveTagsFromResource
 removeTagsFromResource pResourceName_ =
     RemoveTagsFromResource'
     { _rtfrResourceName = pResourceName_
@@ -104,6 +106,8 @@ data RemoveTagsFromResourceResponse =
     RemoveTagsFromResourceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveTagsFromResourceResponse' smart constructor.
-removeTagsFromResourceResponse :: RemoveTagsFromResourceResponse
+-- | Creates a value of 'RemoveTagsFromResourceResponse' with the minimum fields required to make a request.
+--
+removeTagsFromResourceResponse
+    :: RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse = RemoveTagsFromResourceResponse'

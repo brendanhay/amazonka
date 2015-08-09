@@ -70,8 +70,8 @@
 module Network.AWS.Glacier.CompleteMultipartUpload
     (
     -- * Creating a Request
-      CompleteMultipartUpload
-    , completeMultipartUpload
+      completeMultipartUpload
+    , CompleteMultipartUpload
     -- * Request Lenses
     , cmuChecksum
     , cmuArchiveSize
@@ -80,8 +80,8 @@ module Network.AWS.Glacier.CompleteMultipartUpload
     , cmuUploadId
 
     -- * Destructuring the Response
-    , ArchiveCreationOutput
     , archiveCreationOutput
+    , ArchiveCreationOutput
     -- * Response Lenses
     , acoArchiveId
     , acoChecksum
@@ -101,8 +101,17 @@ import           Network.AWS.Response
 -- the URI path of the newly created archive resource.
 --
 -- /See:/ 'completeMultipartUpload' smart constructor.
+data CompleteMultipartUpload = CompleteMultipartUpload'
+    { _cmuChecksum    :: !(Maybe Text)
+    , _cmuArchiveSize :: !(Maybe Text)
+    , _cmuAccountId   :: !Text
+    , _cmuVaultName   :: !Text
+    , _cmuUploadId    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CompleteMultipartUpload' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cmuChecksum'
 --
@@ -113,16 +122,11 @@ import           Network.AWS.Response
 -- * 'cmuVaultName'
 --
 -- * 'cmuUploadId'
-data CompleteMultipartUpload = CompleteMultipartUpload'
-    { _cmuChecksum    :: !(Maybe Text)
-    , _cmuArchiveSize :: !(Maybe Text)
-    , _cmuAccountId   :: !Text
-    , _cmuVaultName   :: !Text
-    , _cmuUploadId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CompleteMultipartUpload' smart constructor.
-completeMultipartUpload :: Text -> Text -> Text -> CompleteMultipartUpload
+completeMultipartUpload
+    :: Text -- ^ 'cmuAccountId'
+    -> Text -- ^ 'cmuVaultName'
+    -> Text -- ^ 'cmuUploadId'
+    -> CompleteMultipartUpload
 completeMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
     CompleteMultipartUpload'
     { _cmuChecksum = Nothing
@@ -145,9 +149,9 @@ cmuChecksum = lens _cmuChecksum (\ s a -> s{_cmuChecksum = a});
 cmuArchiveSize :: Lens' CompleteMultipartUpload (Maybe Text)
 cmuArchiveSize = lens _cmuArchiveSize (\ s a -> s{_cmuArchiveSize = a});
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 cmuAccountId :: Lens' CompleteMultipartUpload Text

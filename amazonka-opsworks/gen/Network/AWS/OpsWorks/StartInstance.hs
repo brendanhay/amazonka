@@ -31,14 +31,14 @@
 module Network.AWS.OpsWorks.StartInstance
     (
     -- * Creating a Request
-      StartInstance
-    , startInstance
+      startInstance
+    , StartInstance
     -- * Request Lenses
     , sInstanceId
 
     -- * Destructuring the Response
-    , StartInstanceResponse
     , startInstanceResponse
+    , StartInstanceResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -48,16 +48,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'startInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sInstanceId'
 newtype StartInstance = StartInstance'
     { _sInstanceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartInstance' smart constructor.
-startInstance :: Text -> StartInstance
+-- | Creates a value of 'StartInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sInstanceId'
+startInstance
+    :: Text -- ^ 'sInstanceId'
+    -> StartInstance
 startInstance pInstanceId_ =
     StartInstance'
     { _sInstanceId = pInstanceId_
@@ -97,6 +99,8 @@ data StartInstanceResponse =
     StartInstanceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartInstanceResponse' smart constructor.
-startInstanceResponse :: StartInstanceResponse
+-- | Creates a value of 'StartInstanceResponse' with the minimum fields required to make a request.
+--
+startInstanceResponse
+    :: StartInstanceResponse
 startInstanceResponse = StartInstanceResponse'

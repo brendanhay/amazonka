@@ -26,16 +26,16 @@
 module Network.AWS.S3.PutBucketLogging
     (
     -- * Creating a Request
-      PutBucketLogging
-    , putBucketLogging
+      putBucketLogging
+    , PutBucketLogging
     -- * Request Lenses
     , pblContentMD5
     , pblBucket
     , pblBucketLoggingStatus
 
     -- * Destructuring the Response
-    , PutBucketLoggingResponse
     , putBucketLoggingResponse
+    , PutBucketLoggingResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -45,22 +45,25 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketLogging' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pblContentMD5'
---
--- * 'pblBucket'
---
--- * 'pblBucketLoggingStatus'
 data PutBucketLogging = PutBucketLogging'
     { _pblContentMD5          :: !(Maybe Text)
     , _pblBucket              :: !BucketName
     , _pblBucketLoggingStatus :: !BucketLoggingStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketLogging' smart constructor.
-putBucketLogging :: BucketName -> BucketLoggingStatus -> PutBucketLogging
+-- | Creates a value of 'PutBucketLogging' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pblContentMD5'
+--
+-- * 'pblBucket'
+--
+-- * 'pblBucketLoggingStatus'
+putBucketLogging
+    :: BucketName -- ^ 'pblBucket'
+    -> BucketLoggingStatus -- ^ 'pblBucketLoggingStatus'
+    -> PutBucketLogging
 putBucketLogging pBucket_ pBucketLoggingStatus_ =
     PutBucketLogging'
     { _pblContentMD5 = Nothing
@@ -109,6 +112,8 @@ data PutBucketLoggingResponse =
     PutBucketLoggingResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketLoggingResponse' smart constructor.
-putBucketLoggingResponse :: PutBucketLoggingResponse
+-- | Creates a value of 'PutBucketLoggingResponse' with the minimum fields required to make a request.
+--
+putBucketLoggingResponse
+    :: PutBucketLoggingResponse
 putBucketLoggingResponse = PutBucketLoggingResponse'

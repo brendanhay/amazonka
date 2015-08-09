@@ -24,15 +24,15 @@
 --
 -- /GetItem/ provides an eventually consistent read by default. If your
 -- application requires a strongly consistent read, set /ConsistentRead/ to
--- @true@. Although a strongly consistent read might take more time than an
+-- 'true'. Although a strongly consistent read might take more time than an
 -- eventually consistent read, it always returns the last updated value.
 --
 -- /See:/ <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_GetItem.html AWS API Reference> for GetItem.
 module Network.AWS.DynamoDB.GetItem
     (
     -- * Creating a Request
-      GetItem
-    , getItem
+      getItem
+    , GetItem
     -- * Request Lenses
     , giProjectionExpression
     , giConsistentRead
@@ -43,8 +43,8 @@ module Network.AWS.DynamoDB.GetItem
     , giKey
 
     -- * Destructuring the Response
-    , GetItemResponse
     , getItemResponse
+    , GetItemResponse
     -- * Response Lenses
     , girsConsumedCapacity
     , girsItem
@@ -60,8 +60,19 @@ import           Network.AWS.Response
 -- | Represents the input of a /GetItem/ operation.
 --
 -- /See:/ 'getItem' smart constructor.
+data GetItem = GetItem'
+    { _giProjectionExpression     :: !(Maybe Text)
+    , _giConsistentRead           :: !(Maybe Bool)
+    , _giExpressionAttributeNames :: !(Maybe (Map Text Text))
+    , _giAttributesToGet          :: !(Maybe (List1 Text))
+    , _giReturnConsumedCapacity   :: !(Maybe ReturnConsumedCapacity)
+    , _giTableName                :: !Text
+    , _giKey                      :: !(Map Text AttributeValue)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetItem' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'giProjectionExpression'
 --
@@ -76,18 +87,9 @@ import           Network.AWS.Response
 -- * 'giTableName'
 --
 -- * 'giKey'
-data GetItem = GetItem'
-    { _giProjectionExpression     :: !(Maybe Text)
-    , _giConsistentRead           :: !(Maybe Bool)
-    , _giExpressionAttributeNames :: !(Maybe (Map Text Text))
-    , _giAttributesToGet          :: !(Maybe (List1 Text))
-    , _giReturnConsumedCapacity   :: !(Maybe ReturnConsumedCapacity)
-    , _giTableName                :: !Text
-    , _giKey                      :: !(Map Text AttributeValue)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetItem' smart constructor.
-getItem :: Text -> GetItem
+getItem
+    :: Text -- ^ 'giTableName'
+    -> GetItem
 getItem pTableName_ =
     GetItem'
     { _giProjectionExpression = Nothing
@@ -115,7 +117,7 @@ getItem pTableName_ =
 giProjectionExpression :: Lens' GetItem (Maybe Text)
 giProjectionExpression = lens _giProjectionExpression (\ s a -> s{_giProjectionExpression = a});
 
--- | Determines the read consistency model: If set to @true@, then the
+-- | Determines the read consistency model: If set to 'true', then the
 -- operation uses strongly consistent reads; otherwise, the operation uses
 -- eventually consistent reads.
 giConsistentRead :: Lens' GetItem (Maybe Bool)
@@ -136,7 +138,7 @@ giConsistentRead = lens _giConsistentRead (\ s a -> s{_giConsistentRead = a});
 -- Use the __#__ character in an expression to dereference an attribute
 -- name. For example, consider the following attribute name:
 --
--- -   @Percentile@
+-- -   'Percentile'
 --
 -- The name of this attribute conflicts with a reserved word, so it cannot
 -- be used directly in an expression. (For the complete list of reserved
@@ -145,12 +147,12 @@ giConsistentRead = lens _giConsistentRead (\ s a -> s{_giConsistentRead = a});
 -- in the /Amazon DynamoDB Developer Guide/). To work around this, you
 -- could specify the following for /ExpressionAttributeNames/:
 --
--- -   @{\"#P\":\"Percentile\"}@
+-- -   '{\"#P\":\"Percentile\"}'
 --
 -- You could then use this substitution in an expression, as in this
 -- example:
 --
--- -   @#P = :val@
+-- -   '#P = :val'
 --
 -- Tokens that begin with the __:__ character are /expression attribute
 -- values/, which are placeholders for the actual value at runtime.
@@ -239,22 +241,24 @@ instance ToQuery GetItem where
 -- | Represents the output of a /GetItem/ operation.
 --
 -- /See:/ 'getItemResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'girsConsumedCapacity'
---
--- * 'girsItem'
---
--- * 'girsStatus'
 data GetItemResponse = GetItemResponse'
     { _girsConsumedCapacity :: !(Maybe ConsumedCapacity)
     , _girsItem             :: !(Maybe (Map Text AttributeValue))
     , _girsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetItemResponse' smart constructor.
-getItemResponse :: Int -> GetItemResponse
+-- | Creates a value of 'GetItemResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'girsConsumedCapacity'
+--
+-- * 'girsItem'
+--
+-- * 'girsStatus'
+getItemResponse
+    :: Int -- ^ 'girsStatus'
+    -> GetItemResponse
 getItemResponse pStatus_ =
     GetItemResponse'
     { _girsConsumedCapacity = Nothing
@@ -271,6 +275,6 @@ girsConsumedCapacity = lens _girsConsumedCapacity (\ s a -> s{_girsConsumedCapac
 girsItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
 girsItem = lens _girsItem (\ s a -> s{_girsItem = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 girsStatus :: Lens' GetItemResponse Int
 girsStatus = lens _girsStatus (\ s a -> s{_girsStatus = a});

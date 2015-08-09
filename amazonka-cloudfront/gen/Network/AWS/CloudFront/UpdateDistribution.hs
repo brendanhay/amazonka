@@ -24,16 +24,16 @@
 module Network.AWS.CloudFront.UpdateDistribution
     (
     -- * Creating a Request
-      UpdateDistribution
-    , updateDistribution
+      updateDistribution
+    , UpdateDistribution
     -- * Request Lenses
     , udIfMatch
     , udDistributionConfig
     , udId
 
     -- * Destructuring the Response
-    , UpdateDistributionResponse
     , updateDistributionResponse
+    , UpdateDistributionResponse
     -- * Response Lenses
     , udrsETag
     , udrsDistribution
@@ -49,22 +49,25 @@ import           Network.AWS.Response
 -- | The request to update a distribution.
 --
 -- /See:/ 'updateDistribution' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udIfMatch'
---
--- * 'udDistributionConfig'
---
--- * 'udId'
 data UpdateDistribution = UpdateDistribution'
     { _udIfMatch            :: !(Maybe Text)
     , _udDistributionConfig :: !DistributionConfig
     , _udId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateDistribution' smart constructor.
-updateDistribution :: DistributionConfig -> Text -> UpdateDistribution
+-- | Creates a value of 'UpdateDistribution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udIfMatch'
+--
+-- * 'udDistributionConfig'
+--
+-- * 'udId'
+updateDistribution
+    :: DistributionConfig -- ^ 'udDistributionConfig'
+    -> Text -- ^ 'udId'
+    -> UpdateDistribution
 updateDistribution pDistributionConfig_ pId_ =
     UpdateDistribution'
     { _udIfMatch = Nothing
@@ -119,22 +122,24 @@ instance ToQuery UpdateDistribution where
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'updateDistributionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udrsETag'
---
--- * 'udrsDistribution'
---
--- * 'udrsStatus'
 data UpdateDistributionResponse = UpdateDistributionResponse'
     { _udrsETag         :: !(Maybe Text)
     , _udrsDistribution :: !(Maybe Distribution)
     , _udrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateDistributionResponse' smart constructor.
-updateDistributionResponse :: Int -> UpdateDistributionResponse
+-- | Creates a value of 'UpdateDistributionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udrsETag'
+--
+-- * 'udrsDistribution'
+--
+-- * 'udrsStatus'
+updateDistributionResponse
+    :: Int -- ^ 'udrsStatus'
+    -> UpdateDistributionResponse
 updateDistributionResponse pStatus_ =
     UpdateDistributionResponse'
     { _udrsETag = Nothing
@@ -150,6 +155,6 @@ udrsETag = lens _udrsETag (\ s a -> s{_udrsETag = a});
 udrsDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
 udrsDistribution = lens _udrsDistribution (\ s a -> s{_udrsDistribution = a});
 
--- | Undocumented member.
+-- | The response status code.
 udrsStatus :: Lens' UpdateDistributionResponse Int
 udrsStatus = lens _udrsStatus (\ s a -> s{_udrsStatus = a});

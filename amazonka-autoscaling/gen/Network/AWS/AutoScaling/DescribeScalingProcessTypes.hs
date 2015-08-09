@@ -25,12 +25,12 @@
 module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     (
     -- * Creating a Request
-      DescribeScalingProcessTypes
-    , describeScalingProcessTypes
+      describeScalingProcessTypes
+    , DescribeScalingProcessTypes
 
     -- * Destructuring the Response
-    , DescribeScalingProcessTypesResponse
     , describeScalingProcessTypesResponse
+    , DescribeScalingProcessTypesResponse
     -- * Response Lenses
     , dsptrsProcesses
     , dsptrsStatus
@@ -47,8 +47,10 @@ data DescribeScalingProcessTypes =
     DescribeScalingProcessTypes'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeScalingProcessTypes' smart constructor.
-describeScalingProcessTypes :: DescribeScalingProcessTypes
+-- | Creates a value of 'DescribeScalingProcessTypes' with the minimum fields required to make a request.
+--
+describeScalingProcessTypes
+    :: DescribeScalingProcessTypes
 describeScalingProcessTypes = DescribeScalingProcessTypes'
 
 instance AWSRequest DescribeScalingProcessTypes where
@@ -80,19 +82,21 @@ instance ToQuery DescribeScalingProcessTypes where
                   "Version" =: ("2011-01-01" :: ByteString)])
 
 -- | /See:/ 'describeScalingProcessTypesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsptrsProcesses'
---
--- * 'dsptrsStatus'
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
     { _dsptrsProcesses :: !(Maybe [ProcessType])
     , _dsptrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeScalingProcessTypesResponse' smart constructor.
-describeScalingProcessTypesResponse :: Int -> DescribeScalingProcessTypesResponse
+-- | Creates a value of 'DescribeScalingProcessTypesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsptrsProcesses'
+--
+-- * 'dsptrsStatus'
+describeScalingProcessTypesResponse
+    :: Int -- ^ 'dsptrsStatus'
+    -> DescribeScalingProcessTypesResponse
 describeScalingProcessTypesResponse pStatus_ =
     DescribeScalingProcessTypesResponse'
     { _dsptrsProcesses = Nothing
@@ -103,6 +107,6 @@ describeScalingProcessTypesResponse pStatus_ =
 dsptrsProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
 dsptrsProcesses = lens _dsptrsProcesses (\ s a -> s{_dsptrsProcesses = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dsptrsStatus :: Lens' DescribeScalingProcessTypesResponse Int
 dsptrsStatus = lens _dsptrsStatus (\ s a -> s{_dsptrsStatus = a});

@@ -35,8 +35,8 @@
 module Network.AWS.ElastiCache.CreateReplicationGroup
     (
     -- * Creating a Request
-      CreateReplicationGroup
-    , createReplicationGroup
+      createReplicationGroup
+    , CreateReplicationGroup
     -- * Request Lenses
     , crgAutomaticFailoverEnabled
     , crgCacheNodeType
@@ -62,8 +62,8 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     , crgReplicationGroupDescription
 
     -- * Destructuring the Response
-    , CreateReplicationGroupResponse
     , createReplicationGroupResponse
+    , CreateReplicationGroupResponse
     -- * Response Lenses
     , crgrsReplicationGroup
     , crgrsStatus
@@ -78,8 +78,34 @@ import           Network.AWS.Response
 -- | Represents the input of a /CreateReplicationGroup/ action.
 --
 -- /See:/ 'createReplicationGroup' smart constructor.
+data CreateReplicationGroup = CreateReplicationGroup'
+    { _crgAutomaticFailoverEnabled    :: !(Maybe Bool)
+    , _crgCacheNodeType               :: !(Maybe Text)
+    , _crgEngineVersion               :: !(Maybe Text)
+    , _crgSecurityGroupIds            :: !(Maybe [Text])
+    , _crgAutoMinorVersionUpgrade     :: !(Maybe Bool)
+    , _crgSnapshotARNs                :: !(Maybe [Text])
+    , _crgCacheParameterGroupName     :: !(Maybe Text)
+    , _crgSnapshotWindow              :: !(Maybe Text)
+    , _crgPrimaryClusterId            :: !(Maybe Text)
+    , _crgEngine                      :: !(Maybe Text)
+    , _crgPreferredMaintenanceWindow  :: !(Maybe Text)
+    , _crgCacheSubnetGroupName        :: !(Maybe Text)
+    , _crgSnapshotRetentionLimit      :: !(Maybe Int)
+    , _crgSnapshotName                :: !(Maybe Text)
+    , _crgPreferredCacheClusterAZs    :: !(Maybe [Text])
+    , _crgNumCacheClusters            :: !(Maybe Int)
+    , _crgNotificationTopicARN        :: !(Maybe Text)
+    , _crgTags                        :: !(Maybe [Tag])
+    , _crgCacheSecurityGroupNames     :: !(Maybe [Text])
+    , _crgPort                        :: !(Maybe Int)
+    , _crgReplicationGroupId          :: !Text
+    , _crgReplicationGroupDescription :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateReplicationGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'crgAutomaticFailoverEnabled'
 --
@@ -124,33 +150,10 @@ import           Network.AWS.Response
 -- * 'crgReplicationGroupId'
 --
 -- * 'crgReplicationGroupDescription'
-data CreateReplicationGroup = CreateReplicationGroup'
-    { _crgAutomaticFailoverEnabled    :: !(Maybe Bool)
-    , _crgCacheNodeType               :: !(Maybe Text)
-    , _crgEngineVersion               :: !(Maybe Text)
-    , _crgSecurityGroupIds            :: !(Maybe [Text])
-    , _crgAutoMinorVersionUpgrade     :: !(Maybe Bool)
-    , _crgSnapshotARNs                :: !(Maybe [Text])
-    , _crgCacheParameterGroupName     :: !(Maybe Text)
-    , _crgSnapshotWindow              :: !(Maybe Text)
-    , _crgPrimaryClusterId            :: !(Maybe Text)
-    , _crgEngine                      :: !(Maybe Text)
-    , _crgPreferredMaintenanceWindow  :: !(Maybe Text)
-    , _crgCacheSubnetGroupName        :: !(Maybe Text)
-    , _crgSnapshotRetentionLimit      :: !(Maybe Int)
-    , _crgSnapshotName                :: !(Maybe Text)
-    , _crgPreferredCacheClusterAZs    :: !(Maybe [Text])
-    , _crgNumCacheClusters            :: !(Maybe Int)
-    , _crgNotificationTopicARN        :: !(Maybe Text)
-    , _crgTags                        :: !(Maybe [Tag])
-    , _crgCacheSecurityGroupNames     :: !(Maybe [Text])
-    , _crgPort                        :: !(Maybe Int)
-    , _crgReplicationGroupId          :: !Text
-    , _crgReplicationGroupDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateReplicationGroup' smart constructor.
-createReplicationGroup :: Text -> Text -> CreateReplicationGroup
+createReplicationGroup
+    :: Text -- ^ 'crgReplicationGroupId'
+    -> Text -- ^ 'crgReplicationGroupDescription'
+    -> CreateReplicationGroup
 createReplicationGroup pReplicationGroupId_ pReplicationGroupDescription_ =
     CreateReplicationGroup'
     { _crgAutomaticFailoverEnabled = Nothing
@@ -180,7 +183,7 @@ createReplicationGroup pReplicationGroupId_ pReplicationGroupDescription_ =
 -- | Specifies whether a read-only replica will be automatically promoted to
 -- read\/write primary if the existing primary fails.
 --
--- If @true@, Multi-AZ is enabled for this replication group. If @false@,
+-- If 'true', Multi-AZ is enabled for this replication group. If 'false',
 -- Multi-AZ is disabled for this replication group.
 --
 -- Default: false
@@ -197,17 +200,17 @@ crgAutomaticFailoverEnabled = lens _crgAutomaticFailoverEnabled (\ s a -> s{_crg
 -- Valid node types are as follows:
 --
 -- -   General purpose:
---     -   Current generation: @cache.t2.micro@, @cache.t2.small@,
---         @cache.t2.medium@, @cache.m3.medium@, @cache.m3.large@,
---         @cache.m3.xlarge@, @cache.m3.2xlarge@
---     -   Previous generation: @cache.t1.micro@, @cache.m1.small@,
---         @cache.m1.medium@, @cache.m1.large@, @cache.m1.xlarge@
--- -   Compute optimized: @cache.c1.xlarge@
+--     -   Current generation: 'cache.t2.micro', 'cache.t2.small',
+--         'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large',
+--         'cache.m3.xlarge', 'cache.m3.2xlarge'
+--     -   Previous generation: 'cache.t1.micro', 'cache.m1.small',
+--         'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'
+-- -   Compute optimized: 'cache.c1.xlarge'
 -- -   Memory optimized
---     -   Current generation: @cache.r3.large@, @cache.r3.xlarge@,
---         @cache.r3.2xlarge@, @cache.r3.4xlarge@, @cache.r3.8xlarge@
---     -   Previous generation: @cache.m2.xlarge@, @cache.m2.2xlarge@,
---         @cache.m2.4xlarge@
+--     -   Current generation: 'cache.r3.large', 'cache.r3.xlarge',
+--         'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge'
+--     -   Previous generation: 'cache.m2.xlarge', 'cache.m2.2xlarge',
+--         'cache.m2.4xlarge'
 --
 -- __Notes:__
 --
@@ -249,10 +252,10 @@ crgAutoMinorVersionUpgrade = lens _crgAutoMinorVersionUpgrade (\ s a -> s{_crgAu
 -- The snapshot file will be used to populate the node group. The Amazon S3
 -- object name in the ARN cannot contain any commas.
 --
--- __Note:__ This parameter is only valid if the @Engine@ parameter is
--- @redis@.
+-- __Note:__ This parameter is only valid if the 'Engine' parameter is
+-- 'redis'.
 --
--- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket\/snapshot1.rdb@
+-- Example of an Amazon S3 ARN: 'arn:aws:s3:::my_bucket\/snapshot1.rdb'
 crgSnapshotARNs :: Lens' CreateReplicationGroup [Text]
 crgSnapshotARNs = lens _crgSnapshotARNs (\ s a -> s{_crgSnapshotARNs = a}) . _Default . _Coerce;
 
@@ -265,13 +268,13 @@ crgCacheParameterGroupName = lens _crgCacheParameterGroupName (\ s a -> s{_crgCa
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
 -- a daily snapshot of your node group.
 --
--- Example: @05:00-09:00@
+-- Example: '05:00-09:00'
 --
 -- If you do not specify this parameter, then ElastiCache will
 -- automatically choose an appropriate time range.
 --
--- __Note:__ This parameter is only valid if the @Engine@ parameter is
--- @redis@.
+-- __Note:__ This parameter is only valid if the 'Engine' parameter is
+-- 'redis'.
 crgSnapshotWindow :: Lens' CreateReplicationGroup (Maybe Text)
 crgSnapshotWindow = lens _crgSnapshotWindow (\ s a -> s{_crgSnapshotWindow = a});
 
@@ -293,17 +296,17 @@ crgEngine = lens _crgEngine (\ s a -> s{_crgEngine = a});
 -- | Specifies the weekly time range during which maintenance on the cache
 -- cluster is performed. It is specified as a range in the format
 -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period. Valid values for @ddd@ are:
+-- is a 60 minute period. Valid values for 'ddd' are:
 --
--- -   @sun@
--- -   @mon@
--- -   @tue@
--- -   @wed@
--- -   @thu@
--- -   @fri@
--- -   @sat@
+-- -   'sun'
+-- -   'mon'
+-- -   'tue'
+-- -   'wed'
+-- -   'thu'
+-- -   'fri'
+-- -   'sat'
 --
--- Example: @sun:05:00-sun:09:00@
+-- Example: 'sun:05:00-sun:09:00'
 crgPreferredMaintenanceWindow :: Lens' CreateReplicationGroup (Maybe Text)
 crgPreferredMaintenanceWindow = lens _crgPreferredMaintenanceWindow (\ s a -> s{_crgPreferredMaintenanceWindow = a});
 
@@ -312,12 +315,12 @@ crgCacheSubnetGroupName :: Lens' CreateReplicationGroup (Maybe Text)
 crgCacheSubnetGroupName = lens _crgCacheSubnetGroupName (\ s a -> s{_crgCacheSubnetGroupName = a});
 
 -- | The number of days for which ElastiCache will retain automatic snapshots
--- before deleting them. For example, if you set @SnapshotRetentionLimit@
+-- before deleting them. For example, if you set 'SnapshotRetentionLimit'
 -- to 5, then a snapshot that was taken today will be retained for 5 days
 -- before being deleted.
 --
--- __Note:__ This parameter is only valid if the @Engine@ parameter is
--- @redis@.
+-- __Note:__ This parameter is only valid if the 'Engine' parameter is
+-- 'redis'.
 --
 -- Default: 0 (i.e., automatic backups are disabled for this cache
 -- cluster).
@@ -325,11 +328,11 @@ crgSnapshotRetentionLimit :: Lens' CreateReplicationGroup (Maybe Int)
 crgSnapshotRetentionLimit = lens _crgSnapshotRetentionLimit (\ s a -> s{_crgSnapshotRetentionLimit = a});
 
 -- | The name of a snapshot from which to restore data into the new node
--- group. The snapshot status changes to @restoring@ while the new node
+-- group. The snapshot status changes to 'restoring' while the new node
 -- group is being created.
 --
--- __Note:__ This parameter is only valid if the @Engine@ parameter is
--- @redis@.
+-- __Note:__ This parameter is only valid if the 'Engine' parameter is
+-- 'redis'.
 crgSnapshotName :: Lens' CreateReplicationGroup (Maybe Text)
 crgSnapshotName = lens _crgSnapshotName (\ s a -> s{_crgSnapshotName = a});
 
@@ -355,7 +358,7 @@ crgPreferredCacheClusterAZs = lens _crgPreferredCacheClusterAZs (\ s a -> s{_crg
 
 -- | The number of cache clusters this replication group will initially have.
 --
--- If /Multi-AZ/ is @enabled@, the value of this parameter must be at least
+-- If /Multi-AZ/ is 'enabled', the value of this parameter must be at least
 -- 2.
 --
 -- The maximum permitted value for /NumCacheClusters/ is 6 (primary plus 5
@@ -466,19 +469,21 @@ instance ToQuery CreateReplicationGroup where
                  _crgReplicationGroupDescription]
 
 -- | /See:/ 'createReplicationGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crgrsReplicationGroup'
---
--- * 'crgrsStatus'
 data CreateReplicationGroupResponse = CreateReplicationGroupResponse'
     { _crgrsReplicationGroup :: !(Maybe ReplicationGroup)
     , _crgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateReplicationGroupResponse' smart constructor.
-createReplicationGroupResponse :: Int -> CreateReplicationGroupResponse
+-- | Creates a value of 'CreateReplicationGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crgrsReplicationGroup'
+--
+-- * 'crgrsStatus'
+createReplicationGroupResponse
+    :: Int -- ^ 'crgrsStatus'
+    -> CreateReplicationGroupResponse
 createReplicationGroupResponse pStatus_ =
     CreateReplicationGroupResponse'
     { _crgrsReplicationGroup = Nothing
@@ -489,6 +494,6 @@ createReplicationGroupResponse pStatus_ =
 crgrsReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
 crgrsReplicationGroup = lens _crgrsReplicationGroup (\ s a -> s{_crgrsReplicationGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 crgrsStatus :: Lens' CreateReplicationGroupResponse Int
 crgrsStatus = lens _crgrsStatus (\ s a -> s{_crgrsStatus = a});

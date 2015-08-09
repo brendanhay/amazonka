@@ -25,8 +25,8 @@
 module Network.AWS.S3.PutBucketVersioning
     (
     -- * Creating a Request
-      PutBucketVersioning
-    , putBucketVersioning
+      putBucketVersioning
+    , PutBucketVersioning
     -- * Request Lenses
     , pbvMFA
     , pbvContentMD5
@@ -34,8 +34,8 @@ module Network.AWS.S3.PutBucketVersioning
     , pbvVersioningConfiguration
 
     -- * Destructuring the Response
-    , PutBucketVersioningResponse
     , putBucketVersioningResponse
+    , PutBucketVersioningResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -45,8 +45,16 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketVersioning' smart constructor.
+data PutBucketVersioning = PutBucketVersioning'
+    { _pbvMFA                     :: !(Maybe Text)
+    , _pbvContentMD5              :: !(Maybe Text)
+    , _pbvBucket                  :: !BucketName
+    , _pbvVersioningConfiguration :: !VersioningConfiguration
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutBucketVersioning' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pbvMFA'
 --
@@ -55,15 +63,10 @@ import           Network.AWS.S3.Types.Product
 -- * 'pbvBucket'
 --
 -- * 'pbvVersioningConfiguration'
-data PutBucketVersioning = PutBucketVersioning'
-    { _pbvMFA                     :: !(Maybe Text)
-    , _pbvContentMD5              :: !(Maybe Text)
-    , _pbvBucket                  :: !BucketName
-    , _pbvVersioningConfiguration :: !VersioningConfiguration
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutBucketVersioning' smart constructor.
-putBucketVersioning :: BucketName -> VersioningConfiguration -> PutBucketVersioning
+putBucketVersioning
+    :: BucketName -- ^ 'pbvBucket'
+    -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
+    -> PutBucketVersioning
 putBucketVersioning pBucket_ pVersioningConfiguration_ =
     PutBucketVersioning'
     { _pbvMFA = Nothing
@@ -121,6 +124,8 @@ data PutBucketVersioningResponse =
     PutBucketVersioningResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketVersioningResponse' smart constructor.
-putBucketVersioningResponse :: PutBucketVersioningResponse
+-- | Creates a value of 'PutBucketVersioningResponse' with the minimum fields required to make a request.
+--
+putBucketVersioningResponse
+    :: PutBucketVersioningResponse
 putBucketVersioningResponse = PutBucketVersioningResponse'

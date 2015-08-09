@@ -24,16 +24,16 @@
 module Network.AWS.DirectoryService.DisableSSO
     (
     -- * Creating a Request
-      DisableSSO
-    , disableSSO
+      disableSSO
+    , DisableSSO
     -- * Request Lenses
     , dssoUserName
     , dssoPassword
     , dssoDirectoryId
 
     -- * Destructuring the Response
-    , DisableSSOResponse
     , disableSSOResponse
+    , DisableSSOResponse
     -- * Response Lenses
     , dssorsStatus
     ) where
@@ -47,22 +47,24 @@ import           Network.AWS.Response
 -- | Contains the inputs for the DisableSso operation.
 --
 -- /See:/ 'disableSSO' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dssoUserName'
---
--- * 'dssoPassword'
---
--- * 'dssoDirectoryId'
 data DisableSSO = DisableSSO'
     { _dssoUserName    :: !(Maybe Text)
     , _dssoPassword    :: !(Maybe (Sensitive Text))
     , _dssoDirectoryId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableSSO' smart constructor.
-disableSSO :: Text -> DisableSSO
+-- | Creates a value of 'DisableSSO' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dssoUserName'
+--
+-- * 'dssoPassword'
+--
+-- * 'dssoDirectoryId'
+disableSSO
+    :: Text -- ^ 'dssoDirectoryId'
+    -> DisableSSO
 disableSSO pDirectoryId_ =
     DisableSSO'
     { _dssoUserName = Nothing
@@ -127,21 +129,23 @@ instance ToQuery DisableSSO where
 -- | Contains the results of the DisableSso operation.
 --
 -- /See:/ 'disableSSOResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dssorsStatus'
 newtype DisableSSOResponse = DisableSSOResponse'
     { _dssorsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableSSOResponse' smart constructor.
-disableSSOResponse :: Int -> DisableSSOResponse
+-- | Creates a value of 'DisableSSOResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dssorsStatus'
+disableSSOResponse
+    :: Int -- ^ 'dssorsStatus'
+    -> DisableSSOResponse
 disableSSOResponse pStatus_ =
     DisableSSOResponse'
     { _dssorsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dssorsStatus :: Lens' DisableSSOResponse Int
 dssorsStatus = lens _dssorsStatus (\ s a -> s{_dssorsStatus = a});

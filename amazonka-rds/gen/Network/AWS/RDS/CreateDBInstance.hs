@@ -24,8 +24,8 @@
 module Network.AWS.RDS.CreateDBInstance
     (
     -- * Creating a Request
-      CreateDBInstance
-    , createDBInstance
+      createDBInstance
+    , CreateDBInstance
     -- * Request Lenses
     , cdiDBSecurityGroups
     , cdiEngineVersion
@@ -62,8 +62,8 @@ module Network.AWS.RDS.CreateDBInstance
     , cdiEngine
 
     -- * Destructuring the Response
-    , CreateDBInstanceResponse
     , createDBInstanceResponse
+    , CreateDBInstanceResponse
     -- * Response Lenses
     , cdirsDBInstance
     , cdirsStatus
@@ -78,8 +78,45 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createDBInstance' smart constructor.
+data CreateDBInstance = CreateDBInstance'
+    { _cdiDBSecurityGroups           :: !(Maybe [Text])
+    , _cdiEngineVersion              :: !(Maybe Text)
+    , _cdiStorageEncrypted           :: !(Maybe Bool)
+    , _cdiDBClusterIdentifier        :: !(Maybe Text)
+    , _cdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _cdiMasterUserPassword         :: !(Maybe Text)
+    , _cdiMasterUsername             :: !(Maybe Text)
+    , _cdiPubliclyAccessible         :: !(Maybe Bool)
+    , _cdiDBSubnetGroupName          :: !(Maybe Text)
+    , _cdiIOPS                       :: !(Maybe Int)
+    , _cdiDomain                     :: !(Maybe Text)
+    , _cdiTDECredentialPassword      :: !(Maybe Text)
+    , _cdiLicenseModel               :: !(Maybe Text)
+    , _cdiPreferredMaintenanceWindow :: !(Maybe Text)
+    , _cdiCharacterSetName           :: !(Maybe Text)
+    , _cdiPreferredBackupWindow      :: !(Maybe Text)
+    , _cdiAvailabilityZone           :: !(Maybe Text)
+    , _cdiBackupRetentionPeriod      :: !(Maybe Int)
+    , _cdiKMSKeyId                   :: !(Maybe Text)
+    , _cdiDBParameterGroupName       :: !(Maybe Text)
+    , _cdiVPCSecurityGroupIds        :: !(Maybe [Text])
+    , _cdiMultiAZ                    :: !(Maybe Bool)
+    , _cdiAllocatedStorage           :: !(Maybe Int)
+    , _cdiTDECredentialARN           :: !(Maybe Text)
+    , _cdiOptionGroupName            :: !(Maybe Text)
+    , _cdiCopyTagsToSnapshot         :: !(Maybe Bool)
+    , _cdiDBName                     :: !(Maybe Text)
+    , _cdiTags                       :: !(Maybe [Tag])
+    , _cdiPort                       :: !(Maybe Int)
+    , _cdiStorageType                :: !(Maybe Text)
+    , _cdiDBInstanceIdentifier       :: !Text
+    , _cdiDBInstanceClass            :: !Text
+    , _cdiEngine                     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDBInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdiDBSecurityGroups'
 --
@@ -146,44 +183,11 @@ import           Network.AWS.Response
 -- * 'cdiDBInstanceClass'
 --
 -- * 'cdiEngine'
-data CreateDBInstance = CreateDBInstance'
-    { _cdiDBSecurityGroups           :: !(Maybe [Text])
-    , _cdiEngineVersion              :: !(Maybe Text)
-    , _cdiStorageEncrypted           :: !(Maybe Bool)
-    , _cdiDBClusterIdentifier        :: !(Maybe Text)
-    , _cdiAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _cdiMasterUserPassword         :: !(Maybe Text)
-    , _cdiMasterUsername             :: !(Maybe Text)
-    , _cdiPubliclyAccessible         :: !(Maybe Bool)
-    , _cdiDBSubnetGroupName          :: !(Maybe Text)
-    , _cdiIOPS                       :: !(Maybe Int)
-    , _cdiDomain                     :: !(Maybe Text)
-    , _cdiTDECredentialPassword      :: !(Maybe Text)
-    , _cdiLicenseModel               :: !(Maybe Text)
-    , _cdiPreferredMaintenanceWindow :: !(Maybe Text)
-    , _cdiCharacterSetName           :: !(Maybe Text)
-    , _cdiPreferredBackupWindow      :: !(Maybe Text)
-    , _cdiAvailabilityZone           :: !(Maybe Text)
-    , _cdiBackupRetentionPeriod      :: !(Maybe Int)
-    , _cdiKMSKeyId                   :: !(Maybe Text)
-    , _cdiDBParameterGroupName       :: !(Maybe Text)
-    , _cdiVPCSecurityGroupIds        :: !(Maybe [Text])
-    , _cdiMultiAZ                    :: !(Maybe Bool)
-    , _cdiAllocatedStorage           :: !(Maybe Int)
-    , _cdiTDECredentialARN           :: !(Maybe Text)
-    , _cdiOptionGroupName            :: !(Maybe Text)
-    , _cdiCopyTagsToSnapshot         :: !(Maybe Bool)
-    , _cdiDBName                     :: !(Maybe Text)
-    , _cdiTags                       :: !(Maybe [Tag])
-    , _cdiPort                       :: !(Maybe Int)
-    , _cdiStorageType                :: !(Maybe Text)
-    , _cdiDBInstanceIdentifier       :: !Text
-    , _cdiDBInstanceClass            :: !Text
-    , _cdiEngine                     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateDBInstance' smart constructor.
-createDBInstance :: Text -> Text -> Text -> CreateDBInstance
+createDBInstance
+    :: Text -- ^ 'cdiDBInstanceIdentifier'
+    -> Text -- ^ 'cdiDBInstanceClass'
+    -> Text -- ^ 'cdiEngine'
+    -> CreateDBInstance
 createDBInstance pDBInstanceIdentifier_ pDBInstanceClass_ pEngine_ =
     CreateDBInstance'
     { _cdiDBSecurityGroups = Nothing
@@ -237,217 +241,217 @@ cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups
 --
 -- -   __Version 5.1 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ @ 5.1.73a | 5.1.73b@
+--     sa-east-1, us-west-1, us-west-2):__ ' 5.1.73a | 5.1.73b'
 -- -   __Version 5.5 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ @ 5.5.40 | 5.5.40a@
+--     sa-east-1, us-west-1, us-west-2):__ ' 5.5.40 | 5.5.40a'
 -- -   __Version 5.5 (Available in all regions):__
---     @ 5.5.40b | 5.5.41 | 5.5.42@
+--     ' 5.5.40b | 5.5.41 | 5.5.42'
 -- -   __Version 5.6 (Available in all regions):__
---     @ 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23@
+--     ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23'
 --
 -- __MySQL__
 --
 -- -   __Version 5.1 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ @ 5.1.73a | 5.1.73b@
+--     sa-east-1, us-west-1, us-west-2):__ ' 5.1.73a | 5.1.73b'
 -- -   __Version 5.5 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ @ 5.5.40 | 5.5.40a@
+--     sa-east-1, us-west-1, us-west-2):__ ' 5.5.40 | 5.5.40a'
 -- -   __Version 5.5 (Available in all regions):__
---     @ 5.5.40b | 5.5.41 | 5.5.42@
+--     ' 5.5.40b | 5.5.41 | 5.5.42'
 -- -   __Version 5.6 (Available in all regions):__
---     @ 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23@
+--     ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23'
 --
 -- __MySQL__
 --
 -- -   __Version 5.1 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ @ 5.1.73a | 5.1.73b@
+--     sa-east-1, us-west-1, us-west-2):__ ' 5.1.73a | 5.1.73b'
 -- -   __Version 5.5 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ @ 5.5.40 | 5.5.40a@
+--     sa-east-1, us-west-1, us-west-2):__ ' 5.5.40 | 5.5.40a'
 -- -   __Version 5.5 (Available in all regions):__
---     @ 5.5.40b | 5.5.41 | 5.5.42@
+--     ' 5.5.40b | 5.5.41 | 5.5.42'
 -- -   __Version 5.6 (Available in all regions):__
---     @ 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23@
+--     ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23'
 --
 -- __MySQL__
 --
 -- -   __Version 5.1 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ @ 5.1.73a | 5.1.73b@
+--     sa-east-1, us-west-1, us-west-2):__ ' 5.1.73a | 5.1.73b'
 -- -   __Version 5.5 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ @ 5.5.40 | 5.5.40a@
+--     sa-east-1, us-west-1, us-west-2):__ ' 5.5.40 | 5.5.40a'
 -- -   __Version 5.5 (Available in all regions):__
---     @ 5.5.40b | 5.5.41 | 5.5.42@
+--     ' 5.5.40b | 5.5.41 | 5.5.42'
 -- -   __Version 5.6 (Available in all regions):__
---     @ 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23@
+--     ' 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22 | 5.6.23'
 --
 -- __Oracle Database Enterprise Edition (oracle-ee)__
 --
 -- -   __Version 11.2 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
 --     sa-east-1, us-west-1, us-west-2):__
---     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
+--     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
 -- -   __Version 11.2 (Available in all regions):__
---     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
--- -   __Version 12.1 (Available in all regions):__ @ 12.1.0.1.v1@
+--     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
+-- -   __Version 12.1 (Available in all regions):__ ' 12.1.0.1.v1'
 --
 -- __Oracle Database Enterprise Edition (oracle-ee)__
 --
 -- -   __Version 11.2 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
 --     sa-east-1, us-west-1, us-west-2):__
---     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
+--     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
 -- -   __Version 11.2 (Available in all regions):__
---     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
--- -   __Version 12.1 (Available in all regions):__ @ 12.1.0.1.v1@
+--     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
+-- -   __Version 12.1 (Available in all regions):__ ' 12.1.0.1.v1'
 --
 -- __Oracle Database Enterprise Edition (oracle-ee)__
 --
 -- -   __Version 11.2 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
 --     sa-east-1, us-west-1, us-west-2):__
---     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
+--     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
 -- -   __Version 11.2 (Available in all regions):__
---     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
--- -   __Version 12.1 (Available in all regions):__ @ 12.1.0.1.v1@
+--     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
+-- -   __Version 12.1 (Available in all regions):__ ' 12.1.0.1.v1'
 --
 -- __Oracle Database Standard Edition (oracle-se)__
 --
 -- -   __Version 11.2 (Only available in the following regions:
 --     us-west-1):__
---     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
+--     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
 -- -   __Version 11.2 (Only available in the following regions:
 --     eu-central-1, us-west-1):__
---     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+--     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
 -- -   __Version 12.1 (Only available in the following regions:
---     eu-central-1, us-west-1):__ @ 12.1.0.1.v1@
+--     eu-central-1, us-west-1):__ ' 12.1.0.1.v1'
 --
 -- __Oracle Database Standard Edition (oracle-se)__
 --
 -- -   __Version 11.2 (Only available in the following regions:
 --     us-west-1):__
---     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
+--     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
 -- -   __Version 11.2 (Only available in the following regions:
 --     eu-central-1, us-west-1):__
---     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+--     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
 -- -   __Version 12.1 (Only available in the following regions:
---     eu-central-1, us-west-1):__ @ 12.1.0.1.v1@
+--     eu-central-1, us-west-1):__ ' 12.1.0.1.v1'
 --
 -- __Oracle Database Standard Edition (oracle-se)__
 --
 -- -   __Version 11.2 (Only available in the following regions:
 --     us-west-1):__
---     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
+--     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
 -- -   __Version 11.2 (Only available in the following regions:
 --     eu-central-1, us-west-1):__
---     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+--     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
 -- -   __Version 12.1 (Only available in the following regions:
---     eu-central-1, us-west-1):__ @ 12.1.0.1.v1@
+--     eu-central-1, us-west-1):__ ' 12.1.0.1.v1'
 --
 -- __Oracle Database Standard Edition One (oracle-se1)__
 --
 -- -   __Version 11.2 (Only available in the following regions:
 --     us-west-1):__
---     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
+--     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
 -- -   __Version 11.2 (Only available in the following regions:
 --     eu-central-1, us-west-1):__
---     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+--     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
 -- -   __Version 12.1 (Only available in the following regions:
---     eu-central-1, us-west-1):__ @ 12.1.0.1.v1@
+--     eu-central-1, us-west-1):__ ' 12.1.0.1.v1'
 --
 -- __Oracle Database Standard Edition One (oracle-se1)__
 --
 -- -   __Version 11.2 (Only available in the following regions:
 --     us-west-1):__
---     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
+--     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
 -- -   __Version 11.2 (Only available in the following regions:
 --     eu-central-1, us-west-1):__
---     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+--     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
 -- -   __Version 12.1 (Only available in the following regions:
---     eu-central-1, us-west-1):__ @ 12.1.0.1.v1@
+--     eu-central-1, us-west-1):__ ' 12.1.0.1.v1'
 --
 -- __Oracle Database Standard Edition One (oracle-se1)__
 --
 -- -   __Version 11.2 (Only available in the following regions:
 --     us-west-1):__
---     @ 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7@
+--     ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'
 -- -   __Version 11.2 (Only available in the following regions:
 --     eu-central-1, us-west-1):__
---     @ 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3@
+--     ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'
 -- -   __Version 12.1 (Only available in the following regions:
---     eu-central-1, us-west-1):__ @ 12.1.0.1.v1@
+--     eu-central-1, us-west-1):__ ' 12.1.0.1.v1'
 --
 -- __PostgreSQL__
 --
 -- -   __Version 9.3 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ @ 9.3.1 | 9.3.2@
--- -   __Version 9.3 (Available in all regions):__ @ 9.3.3 | 9.3.5 | 9.3.6@
--- -   __Version 9.4 (Available in all regions):__ @ 9.4.1@
+--     sa-east-1, us-west-1, us-west-2):__ ' 9.3.1 | 9.3.2'
+-- -   __Version 9.3 (Available in all regions):__ ' 9.3.3 | 9.3.5 | 9.3.6'
+-- -   __Version 9.4 (Available in all regions):__ ' 9.4.1'
 --
 -- __PostgreSQL__
 --
 -- -   __Version 9.3 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ @ 9.3.1 | 9.3.2@
--- -   __Version 9.3 (Available in all regions):__ @ 9.3.3 | 9.3.5 | 9.3.6@
--- -   __Version 9.4 (Available in all regions):__ @ 9.4.1@
+--     sa-east-1, us-west-1, us-west-2):__ ' 9.3.1 | 9.3.2'
+-- -   __Version 9.3 (Available in all regions):__ ' 9.3.3 | 9.3.5 | 9.3.6'
+-- -   __Version 9.4 (Available in all regions):__ ' 9.4.1'
 --
 -- __PostgreSQL__
 --
 -- -   __Version 9.3 (Only available in the following regions:
 --     ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1,
---     sa-east-1, us-west-1, us-west-2):__ @ 9.3.1 | 9.3.2@
--- -   __Version 9.3 (Available in all regions):__ @ 9.3.3 | 9.3.5 | 9.3.6@
--- -   __Version 9.4 (Available in all regions):__ @ 9.4.1@
+--     sa-east-1, us-west-1, us-west-2):__ ' 9.3.1 | 9.3.2'
+-- -   __Version 9.3 (Available in all regions):__ ' 9.3.3 | 9.3.5 | 9.3.6'
+-- -   __Version 9.4 (Available in all regions):__ ' 9.4.1'
 --
 -- __Microsoft SQL Server Enterprise Edition (sqlserver-ee)__
 --
 -- -   __Version 10.50 (Only available in the following regions:
---     eu-central-1, us-west-1):__ @ 10.50.2789.0.v1@
+--     eu-central-1, us-west-1):__ ' 10.50.2789.0.v1'
 -- -   __Version 11.00 (Only available in the following regions:
---     eu-central-1, us-west-1):__ @ 11.00.2100.60.v1@
+--     eu-central-1, us-west-1):__ ' 11.00.2100.60.v1'
 --
 -- __Microsoft SQL Server Enterprise Edition (sqlserver-ee)__
 --
 -- -   __Version 10.50 (Only available in the following regions:
---     eu-central-1, us-west-1):__ @ 10.50.2789.0.v1@
+--     eu-central-1, us-west-1):__ ' 10.50.2789.0.v1'
 -- -   __Version 11.00 (Only available in the following regions:
---     eu-central-1, us-west-1):__ @ 11.00.2100.60.v1@
+--     eu-central-1, us-west-1):__ ' 11.00.2100.60.v1'
 --
 -- __Microsoft SQL Server Express Edition (sqlserver-ex)__
 --
--- -   __Version 10.50 (Available in all regions):__ @ 10.50.2789.0.v1@
--- -   __Version 11.00 (Available in all regions):__ @ 11.00.2100.60.v1@
+-- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
+-- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
 --
 -- __Microsoft SQL Server Express Edition (sqlserver-ex)__
 --
--- -   __Version 10.50 (Available in all regions):__ @ 10.50.2789.0.v1@
--- -   __Version 11.00 (Available in all regions):__ @ 11.00.2100.60.v1@
+-- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
+-- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
 --
 -- __Microsoft SQL Server Standard Edition (sqlserver-se)__
 --
--- -   __Version 10.50 (Available in all regions):__ @ 10.50.2789.0.v1@
--- -   __Version 11.00 (Available in all regions):__ @ 11.00.2100.60.v1@
+-- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
+-- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
 --
 -- __Microsoft SQL Server Standard Edition (sqlserver-se)__
 --
--- -   __Version 10.50 (Available in all regions):__ @ 10.50.2789.0.v1@
--- -   __Version 11.00 (Available in all regions):__ @ 11.00.2100.60.v1@
+-- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
+-- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
 --
 -- __Microsoft SQL Server Web Edition (sqlserver-web)__
 --
--- -   __Version 10.50 (Available in all regions):__ @ 10.50.2789.0.v1@
--- -   __Version 11.00 (Available in all regions):__ @ 11.00.2100.60.v1@
+-- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
+-- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
 --
 -- __Microsoft SQL Server Web Edition (sqlserver-web)__
 --
--- -   __Version 10.50 (Available in all regions):__ @ 10.50.2789.0.v1@
--- -   __Version 11.00 (Available in all regions):__ @ 11.00.2100.60.v1@
+-- -   __Version 10.50 (Available in all regions):__ ' 10.50.2789.0.v1'
+-- -   __Version 11.00 (Available in all regions):__ ' 11.00.2100.60.v1'
 cdiEngineVersion :: Lens' CreateDBInstance (Maybe Text)
 cdiEngineVersion = lens _cdiEngineVersion (\ s a -> s{_cdiEngineVersion = a});
 
@@ -468,12 +472,12 @@ cdiDBClusterIdentifier = lens _cdiDBClusterIdentifier (\ s a -> s{_cdiDBClusterI
 -- | Indicates that minor engine upgrades will be applied automatically to
 -- the DB instance during the maintenance window.
 --
--- Default: @true@
+-- Default: 'true'
 cdiAutoMinorVersionUpgrade :: Lens' CreateDBInstance (Maybe Bool)
 cdiAutoMinorVersionUpgrade = lens _cdiAutoMinorVersionUpgrade (\ s a -> s{_cdiAutoMinorVersionUpgrade = a});
 
 -- | The password for the master database user. Can be any printable ASCII
--- character except \"\/\", \"\"\", or \"\@\".
+-- character except \"\/\", \"\"\", or \"\'\".
 --
 -- Type: String
 --
@@ -579,8 +583,8 @@ cdiTDECredentialPassword = lens _cdiTDECredentialPassword (\ s a -> s{_cdiTDECre
 
 -- | License model information for this DB instance.
 --
--- Valid values: @license-included@ | @bring-your-own-license@ |
--- @general-public-license@
+-- Valid values: 'license-included' | 'bring-your-own-license' |
+-- 'general-public-license'
 cdiLicenseModel :: Lens' CreateDBInstance (Maybe Text)
 cdiLicenseModel = lens _cdiLicenseModel (\ s a -> s{_cdiLicenseModel = a});
 
@@ -588,7 +592,7 @@ cdiLicenseModel = lens _cdiLicenseModel (\ s a -> s{_cdiLicenseModel = a});
 -- Universal Coordinated Time (UTC). For more information, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBMaintenance.html DB Instance Maintenance>.
 --
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
+-- Format: 'ddd:hh24:mi-ddd:hh24:mi'
 --
 -- Default: A 30-minute window selected at random from an 8-hour block of
 -- time per region, occurring on a random day of the week. To see the time
@@ -608,7 +612,7 @@ cdiCharacterSetName :: Lens' CreateDBInstance (Maybe Text)
 cdiCharacterSetName = lens _cdiCharacterSetName (\ s a -> s{_cdiCharacterSetName = a});
 
 -- | The daily time range during which automated backups are created if
--- automated backups are enabled, using the @BackupRetentionPeriod@
+-- automated backups are enabled, using the 'BackupRetentionPeriod'
 -- parameter. For more information, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html DB Instance Backups>.
 --
@@ -619,7 +623,7 @@ cdiCharacterSetName = lens _cdiCharacterSetName (\ s a -> s{_cdiCharacterSetName
 --
 -- Constraints:
 --
--- -   Must be in the format @hh24:mi-hh24:mi@.
+-- -   Must be in the format 'hh24:mi-hh24:mi'.
 -- -   Times should be in Universal Coordinated Time (UTC).
 -- -   Must not conflict with the preferred maintenance window.
 -- -   Must be at least 30 minutes.
@@ -633,10 +637,10 @@ cdiPreferredBackupWindow = lens _cdiPreferredBackupWindow (\ s a -> s{_cdiPrefer
 -- Default: A random, system-chosen Availability Zone in the endpoint\'s
 -- region.
 --
--- Example: @us-east-1d@
+-- Example: 'us-east-1d'
 --
 -- Constraint: The AvailabilityZone parameter cannot be specified if the
--- MultiAZ parameter is set to @true@. The specified Availability Zone must
+-- MultiAZ parameter is set to 'true'. The specified Availability Zone must
 -- be in the same region as the current endpoint.
 cdiAvailabilityZone :: Lens' CreateDBInstance (Maybe Text)
 cdiAvailabilityZone = lens _cdiAvailabilityZone (\ s a -> s{_cdiAvailabilityZone = a});
@@ -662,8 +666,8 @@ cdiBackupRetentionPeriod = lens _cdiBackupRetentionPeriod (\ s a -> s{_cdiBackup
 -- instance, then you can use the KMS key alias instead of the ARN for the
 -- KM encryption key.
 --
--- If the @StorageEncrypted@ parameter is true, and you do not specify a
--- value for the @KmsKeyId@ parameter, then Amazon RDS will use your
+-- If the 'StorageEncrypted' parameter is true, and you do not specify a
+-- value for the 'KmsKeyId' parameter, then Amazon RDS will use your
 -- default encryption key. AWS KMS creates the default encryption key for
 -- your AWS account. Your AWS account has a different default encryption
 -- key for each AWS region.
@@ -773,7 +777,7 @@ cdiCopyTagsToSnapshot = lens _cdiCopyTagsToSnapshot (\ s a -> s{_cdiCopyTagsToSn
 --
 -- The Oracle System ID (SID) of the created DB instance.
 --
--- Default: @ORCL@
+-- Default: 'ORCL'
 --
 -- Constraints:
 --
@@ -793,44 +797,44 @@ cdiTags = lens _cdiTags (\ s a -> s{_cdiTags = a}) . _Default . _Coerce;
 --
 -- __MySQL__
 --
--- Default: @3306@
+-- Default: '3306'
 --
--- Valid Values: @1150-65535@
+-- Valid Values: '1150-65535'
 --
 -- Type: Integer
 --
 -- __PostgreSQL__
 --
--- Default: @5432@
+-- Default: '5432'
 --
--- Valid Values: @1150-65535@
+-- Valid Values: '1150-65535'
 --
 -- Type: Integer
 --
 -- __Oracle__
 --
--- Default: @1521@
+-- Default: '1521'
 --
--- Valid Values: @1150-65535@
+-- Valid Values: '1150-65535'
 --
 -- __SQL Server__
 --
--- Default: @1433@
+-- Default: '1433'
 --
--- Valid Values: @1150-65535@ except for @1434@, @3389@, @47001@, @49152@,
--- and @49152@ through @49156@.
+-- Valid Values: '1150-65535' except for '1434', '3389', '47001', '49152',
+-- and '49152' through '49156'.
 cdiPort :: Lens' CreateDBInstance (Maybe Int)
 cdiPort = lens _cdiPort (\ s a -> s{_cdiPort = a});
 
 -- | Specifies the storage type to be associated with the DB instance.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: 'standard | gp2 | io1'
 --
--- If you specify @io1@, you must also include a value for the @Iops@
+-- If you specify 'io1', you must also include a value for the 'Iops'
 -- parameter.
 --
--- Default: @io1@ if the @Iops@ parameter is specified; otherwise
--- @standard@
+-- Default: 'io1' if the 'Iops' parameter is specified; otherwise
+-- 'standard'
 cdiStorageType :: Lens' CreateDBInstance (Maybe Text)
 cdiStorageType = lens _cdiStorageType (\ s a -> s{_cdiStorageType = a});
 
@@ -844,22 +848,22 @@ cdiStorageType = lens _cdiStorageType (\ s a -> s{_cdiStorageType = a});
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 --
--- Example: @mydbinstance@
+-- Example: 'mydbinstance'
 cdiDBInstanceIdentifier :: Lens' CreateDBInstance Text
 cdiDBInstanceIdentifier = lens _cdiDBInstanceIdentifier (\ s a -> s{_cdiDBInstanceIdentifier = a});
 
 -- | The compute and memory capacity of the DB instance.
 --
 -- Valid Values:
--- @db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium@
+-- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
 cdiDBInstanceClass :: Lens' CreateDBInstance Text
 cdiDBInstanceClass = lens _cdiDBInstanceClass (\ s a -> s{_cdiDBInstanceClass = a});
 
 -- | The name of the database engine to be used for this instance.
 --
--- Valid Values: @MySQL@ | @oracle-se1@ | @oracle-se@ | @oracle-ee@ |
--- @sqlserver-ee@ | @sqlserver-se@ | @sqlserver-ex@ | @sqlserver-web@ |
--- @postgres@
+-- Valid Values: 'MySQL' | 'oracle-se1' | 'oracle-se' | 'oracle-ee' |
+-- 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' | 'sqlserver-web' |
+-- 'postgres'
 --
 -- Not every database engine is available for every AWS region.
 cdiEngine :: Lens' CreateDBInstance Text
@@ -927,19 +931,21 @@ instance ToQuery CreateDBInstance where
                "Engine" =: _cdiEngine]
 
 -- | /See:/ 'createDBInstanceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdirsDBInstance'
---
--- * 'cdirsStatus'
 data CreateDBInstanceResponse = CreateDBInstanceResponse'
     { _cdirsDBInstance :: !(Maybe DBInstance)
     , _cdirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBInstanceResponse' smart constructor.
-createDBInstanceResponse :: Int -> CreateDBInstanceResponse
+-- | Creates a value of 'CreateDBInstanceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdirsDBInstance'
+--
+-- * 'cdirsStatus'
+createDBInstanceResponse
+    :: Int -- ^ 'cdirsStatus'
+    -> CreateDBInstanceResponse
 createDBInstanceResponse pStatus_ =
     CreateDBInstanceResponse'
     { _cdirsDBInstance = Nothing
@@ -950,6 +956,6 @@ createDBInstanceResponse pStatus_ =
 cdirsDBInstance :: Lens' CreateDBInstanceResponse (Maybe DBInstance)
 cdirsDBInstance = lens _cdirsDBInstance (\ s a -> s{_cdirsDBInstance = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdirsStatus :: Lens' CreateDBInstanceResponse Int
 cdirsStatus = lens _cdirsStatus (\ s a -> s{_cdirsStatus = a});

@@ -32,14 +32,14 @@
 module Network.AWS.CognitoSync.BulkPublish
     (
     -- * Creating a Request
-      BulkPublish
-    , bulkPublish
+      bulkPublish
+    , BulkPublish
     -- * Request Lenses
     , bpIdentityPoolId
 
     -- * Destructuring the Response
-    , BulkPublishResponse
     , bulkPublishResponse
+    , BulkPublishResponse
     -- * Response Lenses
     , bprsIdentityPoolId
     , bprsStatus
@@ -54,16 +54,18 @@ import           Network.AWS.Response
 -- | The input for the BulkPublish operation.
 --
 -- /See:/ 'bulkPublish' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bpIdentityPoolId'
 newtype BulkPublish = BulkPublish'
     { _bpIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BulkPublish' smart constructor.
-bulkPublish :: Text -> BulkPublish
+-- | Creates a value of 'BulkPublish' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bpIdentityPoolId'
+bulkPublish
+    :: Text -- ^ 'bpIdentityPoolId'
+    -> BulkPublish
 bulkPublish pIdentityPoolId_ =
     BulkPublish'
     { _bpIdentityPoolId = pIdentityPoolId_
@@ -107,19 +109,21 @@ instance ToQuery BulkPublish where
 -- | The output for the BulkPublish operation.
 --
 -- /See:/ 'bulkPublishResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bprsIdentityPoolId'
---
--- * 'bprsStatus'
 data BulkPublishResponse = BulkPublishResponse'
     { _bprsIdentityPoolId :: !(Maybe Text)
     , _bprsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BulkPublishResponse' smart constructor.
-bulkPublishResponse :: Int -> BulkPublishResponse
+-- | Creates a value of 'BulkPublishResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bprsIdentityPoolId'
+--
+-- * 'bprsStatus'
+bulkPublishResponse
+    :: Int -- ^ 'bprsStatus'
+    -> BulkPublishResponse
 bulkPublishResponse pStatus_ =
     BulkPublishResponse'
     { _bprsIdentityPoolId = Nothing
@@ -132,6 +136,6 @@ bulkPublishResponse pStatus_ =
 bprsIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
 bprsIdentityPoolId = lens _bprsIdentityPoolId (\ s a -> s{_bprsIdentityPoolId = a});
 
--- | Undocumented member.
+-- | The response status code.
 bprsStatus :: Lens' BulkPublishResponse Int
 bprsStatus = lens _bprsStatus (\ s a -> s{_bprsStatus = a});

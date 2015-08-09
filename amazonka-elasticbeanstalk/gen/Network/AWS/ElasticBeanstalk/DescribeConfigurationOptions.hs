@@ -28,8 +28,8 @@
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     (
     -- * Creating a Request
-      DescribeConfigurationOptions
-    , describeConfigurationOptions
+      describeConfigurationOptions
+    , DescribeConfigurationOptions
     -- * Request Lenses
     , dcoTemplateName
     , dcoEnvironmentName
@@ -38,8 +38,8 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     , dcoSolutionStackName
 
     -- * Destructuring the Response
-    , DescribeConfigurationOptionsResponse
     , describeConfigurationOptionsResponse
+    , DescribeConfigurationOptionsResponse
     -- * Response Lenses
     , dcorsOptions
     , dcorsSolutionStackName
@@ -55,8 +55,17 @@ import           Network.AWS.Response
 -- | Result message containig a list of application version descriptions.
 --
 -- /See:/ 'describeConfigurationOptions' smart constructor.
+data DescribeConfigurationOptions = DescribeConfigurationOptions'
+    { _dcoTemplateName      :: !(Maybe Text)
+    , _dcoEnvironmentName   :: !(Maybe Text)
+    , _dcoApplicationName   :: !(Maybe Text)
+    , _dcoOptions           :: !(Maybe [OptionSpecification])
+    , _dcoSolutionStackName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeConfigurationOptions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcoTemplateName'
 --
@@ -67,16 +76,8 @@ import           Network.AWS.Response
 -- * 'dcoOptions'
 --
 -- * 'dcoSolutionStackName'
-data DescribeConfigurationOptions = DescribeConfigurationOptions'
-    { _dcoTemplateName      :: !(Maybe Text)
-    , _dcoEnvironmentName   :: !(Maybe Text)
-    , _dcoApplicationName   :: !(Maybe Text)
-    , _dcoOptions           :: !(Maybe [OptionSpecification])
-    , _dcoSolutionStackName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeConfigurationOptions' smart constructor.
-describeConfigurationOptions :: DescribeConfigurationOptions
+describeConfigurationOptions
+    :: DescribeConfigurationOptions
 describeConfigurationOptions =
     DescribeConfigurationOptions'
     { _dcoTemplateName = Nothing
@@ -151,22 +152,24 @@ instance ToQuery DescribeConfigurationOptions where
 -- | Describes the settings for a specified configuration set.
 --
 -- /See:/ 'describeConfigurationOptionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcorsOptions'
---
--- * 'dcorsSolutionStackName'
---
--- * 'dcorsStatus'
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
     { _dcorsOptions           :: !(Maybe [ConfigurationOptionDescription])
     , _dcorsSolutionStackName :: !(Maybe Text)
     , _dcorsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeConfigurationOptionsResponse' smart constructor.
-describeConfigurationOptionsResponse :: Int -> DescribeConfigurationOptionsResponse
+-- | Creates a value of 'DescribeConfigurationOptionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcorsOptions'
+--
+-- * 'dcorsSolutionStackName'
+--
+-- * 'dcorsStatus'
+describeConfigurationOptionsResponse
+    :: Int -- ^ 'dcorsStatus'
+    -> DescribeConfigurationOptionsResponse
 describeConfigurationOptionsResponse pStatus_ =
     DescribeConfigurationOptionsResponse'
     { _dcorsOptions = Nothing
@@ -182,6 +185,6 @@ dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default . _
 dcorsSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorsSolutionStackName = lens _dcorsSolutionStackName (\ s a -> s{_dcorsSolutionStackName = a});
 
--- | Undocumented member.
+-- | The response status code.
 dcorsStatus :: Lens' DescribeConfigurationOptionsResponse Int
 dcorsStatus = lens _dcorsStatus (\ s a -> s{_dcorsStatus = a});

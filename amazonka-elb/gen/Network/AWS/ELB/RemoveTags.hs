@@ -24,15 +24,15 @@
 module Network.AWS.ELB.RemoveTags
     (
     -- * Creating a Request
-      RemoveTags
-    , removeTags
+      removeTags
+    , RemoveTags
     -- * Request Lenses
     , rtLoadBalancerNames
     , rtTags
 
     -- * Destructuring the Response
-    , RemoveTagsResponse
     , removeTagsResponse
+    , RemoveTagsResponse
     -- * Response Lenses
     , rtrsStatus
     ) where
@@ -44,19 +44,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'removeTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtLoadBalancerNames'
---
--- * 'rtTags'
 data RemoveTags = RemoveTags'
     { _rtLoadBalancerNames :: ![Text]
     , _rtTags              :: !(List1 TagKeyOnly)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveTags' smart constructor.
-removeTags :: NonEmpty TagKeyOnly -> RemoveTags
+-- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtLoadBalancerNames'
+--
+-- * 'rtTags'
+removeTags
+    :: NonEmpty TagKeyOnly -- ^ 'rtTags'
+    -> RemoveTags
 removeTags pTags_ =
     RemoveTags'
     { _rtLoadBalancerNames = mempty
@@ -97,21 +99,23 @@ instance ToQuery RemoveTags where
                "Tags" =: toQueryList "member" _rtTags]
 
 -- | /See:/ 'removeTagsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtrsStatus'
 newtype RemoveTagsResponse = RemoveTagsResponse'
     { _rtrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveTagsResponse' smart constructor.
-removeTagsResponse :: Int -> RemoveTagsResponse
+-- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtrsStatus'
+removeTagsResponse
+    :: Int -- ^ 'rtrsStatus'
+    -> RemoveTagsResponse
 removeTagsResponse pStatus_ =
     RemoveTagsResponse'
     { _rtrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 rtrsStatus :: Lens' RemoveTagsResponse Int
 rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});

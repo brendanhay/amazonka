@@ -24,14 +24,14 @@
 module Network.AWS.DeviceFarm.GetJob
     (
     -- * Creating a Request
-      GetJob
-    , getJob
+      getJob
+    , GetJob
     -- * Request Lenses
     , gjArn
 
     -- * Destructuring the Response
-    , GetJobResponse
     , getJobResponse
+    , GetJobResponse
     -- * Response Lenses
     , gjrsJob
     , gjrsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents a request to the get job operation.
 --
 -- /See:/ 'getJob' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gjArn'
 newtype GetJob = GetJob'
     { _gjArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetJob' smart constructor.
-getJob :: Text -> GetJob
+-- | Creates a value of 'GetJob' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gjArn'
+getJob
+    :: Text -- ^ 'gjArn'
+    -> GetJob
 getJob pArn_ =
     GetJob'
     { _gjArn = pArn_
@@ -96,19 +98,21 @@ instance ToQuery GetJob where
 -- | Represents the result of a get job request.
 --
 -- /See:/ 'getJobResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gjrsJob'
---
--- * 'gjrsStatus'
 data GetJobResponse = GetJobResponse'
     { _gjrsJob    :: !(Maybe Job)
     , _gjrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetJobResponse' smart constructor.
-getJobResponse :: Int -> GetJobResponse
+-- | Creates a value of 'GetJobResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gjrsJob'
+--
+-- * 'gjrsStatus'
+getJobResponse
+    :: Int -- ^ 'gjrsStatus'
+    -> GetJobResponse
 getJobResponse pStatus_ =
     GetJobResponse'
     { _gjrsJob = Nothing
@@ -119,6 +123,6 @@ getJobResponse pStatus_ =
 gjrsJob :: Lens' GetJobResponse (Maybe Job)
 gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a});
 
--- | Undocumented member.
+-- | The response status code.
 gjrsStatus :: Lens' GetJobResponse Int
 gjrsStatus = lens _gjrsStatus (\ s a -> s{_gjrsStatus = a});

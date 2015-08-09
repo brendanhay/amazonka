@@ -25,19 +25,20 @@ import           Network.AWS.Support.Types.Sum
 -- file name and the content of the file.
 --
 -- /See:/ 'attachment' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aData'
---
--- * 'aFileName'
 data Attachment = Attachment'
     { _aData     :: !(Maybe Base64)
     , _aFileName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Attachment' smart constructor.
-attachment :: Attachment
+-- | Creates a value of 'Attachment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aData'
+--
+-- * 'aFileName'
+attachment
+    :: Attachment
 attachment =
     Attachment'
     { _aData = Nothing
@@ -68,19 +69,20 @@ instance ToJSON Attachment where
 -- operation.
 --
 -- /See:/ 'attachmentDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'adAttachmentId'
---
--- * 'adFileName'
 data AttachmentDetails = AttachmentDetails'
     { _adAttachmentId :: !(Maybe Text)
     , _adFileName     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachmentDetails' smart constructor.
-attachmentDetails :: AttachmentDetails
+-- | Creates a value of 'AttachmentDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'adAttachmentId'
+--
+-- * 'adFileName'
+attachmentDetails
+    :: AttachmentDetails
 attachmentDetails =
     AttachmentDetails'
     { _adAttachmentId = Nothing
@@ -119,8 +121,8 @@ instance FromJSON AttachmentDetails where
 --     and Japanese (\"ja\"). Language parameters must be passed explicitly
 --     for operations that take them.
 -- 5.  __RecentCommunications.__ One or more Communication objects. Fields
---     of these objects are @Attachments@, @Body@, @CaseId@, @SubmittedBy@,
---     and @TimeCreated@.
+--     of these objects are 'Attachments', 'Body', 'CaseId', 'SubmittedBy',
+--     and 'TimeCreated'.
 -- 6.  __NextToken.__ A resumption point for pagination.
 -- 7.  __ServiceCode.__ The identifier for the AWS service that corresponds
 --     to the service code defined in the call to DescribeServices.
@@ -133,8 +135,24 @@ instance FromJSON AttachmentDetails where
 -- 12. __TimeCreated.__ The time the case was created, in ISO-8601 format.
 --
 -- /See:/ 'caseDetails' smart constructor.
+data CaseDetails = CaseDetails'
+    { _cdSubject              :: !(Maybe Text)
+    , _cdStatus               :: !(Maybe Text)
+    , _cdRecentCommunications :: !(Maybe RecentCaseCommunications)
+    , _cdSeverityCode         :: !(Maybe Text)
+    , _cdCaseId               :: !(Maybe Text)
+    , _cdCcEmailAddresses     :: !(Maybe [Text])
+    , _cdDisplayId            :: !(Maybe Text)
+    , _cdSubmittedBy          :: !(Maybe Text)
+    , _cdLanguage             :: !(Maybe Text)
+    , _cdCategoryCode         :: !(Maybe Text)
+    , _cdTimeCreated          :: !(Maybe Text)
+    , _cdServiceCode          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CaseDetails' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdSubject'
 --
@@ -159,23 +177,8 @@ instance FromJSON AttachmentDetails where
 -- * 'cdTimeCreated'
 --
 -- * 'cdServiceCode'
-data CaseDetails = CaseDetails'
-    { _cdSubject              :: !(Maybe Text)
-    , _cdStatus               :: !(Maybe Text)
-    , _cdRecentCommunications :: !(Maybe RecentCaseCommunications)
-    , _cdSeverityCode         :: !(Maybe Text)
-    , _cdCaseId               :: !(Maybe Text)
-    , _cdCcEmailAddresses     :: !(Maybe [Text])
-    , _cdDisplayId            :: !(Maybe Text)
-    , _cdSubmittedBy          :: !(Maybe Text)
-    , _cdLanguage             :: !(Maybe Text)
-    , _cdCategoryCode         :: !(Maybe Text)
-    , _cdTimeCreated          :: !(Maybe Text)
-    , _cdServiceCode          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CaseDetails' smart constructor.
-caseDetails :: CaseDetails
+caseDetails
+    :: CaseDetails
 caseDetails =
     CaseDetails'
     { _cdSubject = Nothing
@@ -202,7 +205,7 @@ cdStatus = lens _cdStatus (\ s a -> s{_cdStatus = a});
 
 -- | The five most recent communications between you and AWS Support Center,
 -- including the IDs of any attachments to the communications. Also
--- includes a @nextToken@ that you can use to retrieve earlier
+-- includes a 'nextToken' that you can use to retrieve earlier
 -- communications.
 cdRecentCommunications :: Lens' CaseDetails (Maybe RecentCaseCommunications)
 cdRecentCommunications = lens _cdRecentCommunications (\ s a -> s{_cdRecentCommunications = a});
@@ -272,19 +275,20 @@ instance FromJSON CaseDetails where
 -- response for each AWS service.
 --
 -- /See:/ 'category' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cName'
---
--- * 'cCode'
 data Category = Category'
     { _cName :: !(Maybe Text)
     , _cCode :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Category' smart constructor.
-category :: Category
+-- | Creates a value of 'Category' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cName'
+--
+-- * 'cCode'
+category
+    :: Category
 category =
     Category'
     { _cName = Nothing
@@ -310,8 +314,17 @@ instance FromJSON Category where
 -- account email address, and the date and time of the communication.
 --
 -- /See:/ 'communication' smart constructor.
+data Communication = Communication'
+    { _cBody          :: !(Maybe Text)
+    , _cCaseId        :: !(Maybe Text)
+    , _cSubmittedBy   :: !(Maybe Text)
+    , _cTimeCreated   :: !(Maybe Text)
+    , _cAttachmentSet :: !(Maybe [AttachmentDetails])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Communication' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cBody'
 --
@@ -322,16 +335,8 @@ instance FromJSON Category where
 -- * 'cTimeCreated'
 --
 -- * 'cAttachmentSet'
-data Communication = Communication'
-    { _cBody          :: !(Maybe Text)
-    , _cCaseId        :: !(Maybe Text)
-    , _cSubmittedBy   :: !(Maybe Text)
-    , _cTimeCreated   :: !(Maybe Text)
-    , _cAttachmentSet :: !(Maybe [AttachmentDetails])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Communication' smart constructor.
-communication :: Communication
+communication
+    :: Communication
 communication =
     Communication'
     { _cBody = Nothing
@@ -376,19 +381,20 @@ instance FromJSON Communication where
 -- | The five most recent communications associated with the case.
 --
 -- /See:/ 'recentCaseCommunications' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rccNextToken'
---
--- * 'rccCommunications'
 data RecentCaseCommunications = RecentCaseCommunications'
     { _rccNextToken      :: !(Maybe Text)
     , _rccCommunications :: !(Maybe [Communication])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RecentCaseCommunications' smart constructor.
-recentCaseCommunications :: RecentCaseCommunications
+-- | Creates a value of 'RecentCaseCommunications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rccNextToken'
+--
+-- * 'rccCommunications'
+recentCaseCommunications
+    :: RecentCaseCommunications
 recentCaseCommunications =
     RecentCaseCommunications'
     { _rccNextToken = Nothing
@@ -415,19 +421,20 @@ instance FromJSON RecentCaseCommunications where
 -- to a support case.
 --
 -- /See:/ 'severityLevel' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slName'
---
--- * 'slCode'
 data SeverityLevel = SeverityLevel'
     { _slName :: !(Maybe Text)
     , _slCode :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SeverityLevel' smart constructor.
-severityLevel :: SeverityLevel
+-- | Creates a value of 'SeverityLevel' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slName'
+--
+-- * 'slCode'
+severityLevel
+    :: SeverityLevel
 severityLevel =
     SeverityLevel'
     { _slName = Nothing
@@ -441,7 +448,7 @@ slName = lens _slName (\ s a -> s{_slName = a});
 
 -- | One of four values: \"low,\" \"medium,\" \"high,\" and \"urgent\". These
 -- values correspond to response times returned to the caller in
--- @SeverityLevel.name@.
+-- 'SeverityLevel.name'.
 slCode :: Lens' SeverityLevel (Maybe Text)
 slCode = lens _slCode (\ s a -> s{_slCode = a});
 
@@ -455,22 +462,23 @@ instance FromJSON SeverityLevel where
 -- operation.
 --
 -- /See:/ 'supportService' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ssCategories'
---
--- * 'ssName'
---
--- * 'ssCode'
 data SupportService = SupportService'
     { _ssCategories :: !(Maybe [Category])
     , _ssName       :: !(Maybe Text)
     , _ssCode       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SupportService' smart constructor.
-supportService :: SupportService
+-- | Creates a value of 'SupportService' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssCategories'
+--
+-- * 'ssName'
+--
+-- * 'ssCode'
+supportService
+    :: SupportService
 supportService =
     SupportService'
     { _ssCategories = Nothing
@@ -485,13 +493,13 @@ supportService =
 ssCategories :: Lens' SupportService [Category]
 ssCategories = lens _ssCategories (\ s a -> s{_ssCategories = a}) . _Default . _Coerce;
 
--- | The friendly name for an AWS service. The @Code@ element contains the
+-- | The friendly name for an AWS service. The 'Code' element contains the
 -- corresponding code.
 ssName :: Lens' SupportService (Maybe Text)
 ssName = lens _ssName (\ s a -> s{_ssName = a});
 
 -- | The code for an AWS service returned by the DescribeServices response.
--- The @Name@ element contains the corresponding friendly name.
+-- The 'Name' element contains the corresponding friendly name.
 ssCode :: Lens' SupportService (Maybe Text)
 ssCode = lens _ssCode (\ s a -> s{_ssCode = a});
 
@@ -507,16 +515,17 @@ instance FromJSON SupportService where
 -- the Trusted Advisor check.
 --
 -- /See:/ 'trustedAdvisorCategorySpecificSummary' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tacssCostOptimizing'
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary'
     { _tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TrustedAdvisorCategorySpecificSummary' smart constructor.
-trustedAdvisorCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
+-- | Creates a value of 'TrustedAdvisorCategorySpecificSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tacssCostOptimizing'
+trustedAdvisorCategorySpecificSummary
+    :: TrustedAdvisorCategorySpecificSummary
 trustedAdvisorCategorySpecificSummary =
     TrustedAdvisorCategorySpecificSummary'
     { _tacssCostOptimizing = Nothing
@@ -538,8 +547,17 @@ instance FromJSON
 -- | The description and metadata for a Trusted Advisor check.
 --
 -- /See:/ 'trustedAdvisorCheckDescription' smart constructor.
+data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'
+    { _tacdId          :: !Text
+    , _tacdName        :: !Text
+    , _tacdDescription :: !Text
+    , _tacdCategory    :: !Text
+    , _tacdMetadata    :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TrustedAdvisorCheckDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tacdId'
 --
@@ -550,16 +568,12 @@ instance FromJSON
 -- * 'tacdCategory'
 --
 -- * 'tacdMetadata'
-data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'
-    { _tacdId          :: !Text
-    , _tacdName        :: !Text
-    , _tacdDescription :: !Text
-    , _tacdCategory    :: !Text
-    , _tacdMetadata    :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TrustedAdvisorCheckDescription' smart constructor.
-trustedAdvisorCheckDescription :: Text -> Text -> Text -> Text -> TrustedAdvisorCheckDescription
+trustedAdvisorCheckDescription
+    :: Text -- ^ 'tacdId'
+    -> Text -- ^ 'tacdName'
+    -> Text -- ^ 'tacdDescription'
+    -> Text -- ^ 'tacdCategory'
+    -> TrustedAdvisorCheckDescription
 trustedAdvisorCheckDescription pId_ pName_ pDescription_ pCategory_ =
     TrustedAdvisorCheckDescription'
     { _tacdId = pId_
@@ -608,22 +622,26 @@ instance FromJSON TrustedAdvisorCheckDescription
 -- | The refresh status of a Trusted Advisor check.
 --
 -- /See:/ 'trustedAdvisorCheckRefreshStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tacrsCheckId'
---
--- * 'tacrsStatus'
---
--- * 'tacrsMillisUntilNextRefreshable'
 data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
     { _tacrsCheckId                    :: !Text
     , _tacrsStatus                     :: !Text
     , _tacrsMillisUntilNextRefreshable :: !Integer
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TrustedAdvisorCheckRefreshStatus' smart constructor.
-trustedAdvisorCheckRefreshStatus :: Text -> Text -> Integer -> TrustedAdvisorCheckRefreshStatus
+-- | Creates a value of 'TrustedAdvisorCheckRefreshStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tacrsCheckId'
+--
+-- * 'tacrsStatus'
+--
+-- * 'tacrsMillisUntilNextRefreshable'
+trustedAdvisorCheckRefreshStatus
+    :: Text -- ^ 'tacrsCheckId'
+    -> Text -- ^ 'tacrsStatus'
+    -> Integer -- ^ 'tacrsMillisUntilNextRefreshable'
+    -> TrustedAdvisorCheckRefreshStatus
 trustedAdvisorCheckRefreshStatus pCheckId_ pStatus_ pMillisUntilNextRefreshable_ =
     TrustedAdvisorCheckRefreshStatus'
     { _tacrsCheckId = pCheckId_
@@ -659,8 +677,18 @@ instance FromJSON TrustedAdvisorCheckRefreshStatus
 -- DescribeTrustedAdvisorCheckResult.
 --
 -- /See:/ 'trustedAdvisorCheckResult' smart constructor.
+data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'
+    { _tacrCheckId                 :: !Text
+    , _tacrTimestamp               :: !Text
+    , _tacrStatus                  :: !Text
+    , _tacrResourcesSummary        :: !TrustedAdvisorResourcesSummary
+    , _tacrCategorySpecificSummary :: !TrustedAdvisorCategorySpecificSummary
+    , _tacrFlaggedResources        :: ![TrustedAdvisorResourceDetail]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TrustedAdvisorCheckResult' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tacrCheckId'
 --
@@ -673,17 +701,13 @@ instance FromJSON TrustedAdvisorCheckRefreshStatus
 -- * 'tacrCategorySpecificSummary'
 --
 -- * 'tacrFlaggedResources'
-data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'
-    { _tacrCheckId                 :: !Text
-    , _tacrTimestamp               :: !Text
-    , _tacrStatus                  :: !Text
-    , _tacrResourcesSummary        :: !TrustedAdvisorResourcesSummary
-    , _tacrCategorySpecificSummary :: !TrustedAdvisorCategorySpecificSummary
-    , _tacrFlaggedResources        :: ![TrustedAdvisorResourceDetail]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TrustedAdvisorCheckResult' smart constructor.
-trustedAdvisorCheckResult :: Text -> Text -> Text -> TrustedAdvisorResourcesSummary -> TrustedAdvisorCategorySpecificSummary -> TrustedAdvisorCheckResult
+trustedAdvisorCheckResult
+    :: Text -- ^ 'tacrCheckId'
+    -> Text -- ^ 'tacrTimestamp'
+    -> Text -- ^ 'tacrStatus'
+    -> TrustedAdvisorResourcesSummary -- ^ 'tacrResourcesSummary'
+    -> TrustedAdvisorCategorySpecificSummary -- ^ 'tacrCategorySpecificSummary'
+    -> TrustedAdvisorCheckResult
 trustedAdvisorCheckResult pCheckId_ pTimestamp_ pStatus_ pResourcesSummary_ pCategorySpecificSummary_ =
     TrustedAdvisorCheckResult'
     { _tacrCheckId = pCheckId_
@@ -735,8 +759,18 @@ instance FromJSON TrustedAdvisorCheckResult where
 -- last refresh, and number of resources examined.
 --
 -- /See:/ 'trustedAdvisorCheckSummary' smart constructor.
+data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
+    { _tacsHasFlaggedResources     :: !(Maybe Bool)
+    , _tacsCheckId                 :: !Text
+    , _tacsTimestamp               :: !Text
+    , _tacsStatus                  :: !Text
+    , _tacsResourcesSummary        :: !TrustedAdvisorResourcesSummary
+    , _tacsCategorySpecificSummary :: !TrustedAdvisorCategorySpecificSummary
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TrustedAdvisorCheckSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tacsHasFlaggedResources'
 --
@@ -749,17 +783,13 @@ instance FromJSON TrustedAdvisorCheckResult where
 -- * 'tacsResourcesSummary'
 --
 -- * 'tacsCategorySpecificSummary'
-data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
-    { _tacsHasFlaggedResources     :: !(Maybe Bool)
-    , _tacsCheckId                 :: !Text
-    , _tacsTimestamp               :: !Text
-    , _tacsStatus                  :: !Text
-    , _tacsResourcesSummary        :: !TrustedAdvisorResourcesSummary
-    , _tacsCategorySpecificSummary :: !TrustedAdvisorCategorySpecificSummary
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TrustedAdvisorCheckSummary' smart constructor.
-trustedAdvisorCheckSummary :: Text -> Text -> Text -> TrustedAdvisorResourcesSummary -> TrustedAdvisorCategorySpecificSummary -> TrustedAdvisorCheckSummary
+trustedAdvisorCheckSummary
+    :: Text -- ^ 'tacsCheckId'
+    -> Text -- ^ 'tacsTimestamp'
+    -> Text -- ^ 'tacsStatus'
+    -> TrustedAdvisorResourcesSummary -- ^ 'tacsResourcesSummary'
+    -> TrustedAdvisorCategorySpecificSummary -- ^ 'tacsCategorySpecificSummary'
+    -> TrustedAdvisorCheckSummary
 trustedAdvisorCheckSummary pCheckId_ pTimestamp_ pStatus_ pResourcesSummary_ pCategorySpecificSummary_ =
     TrustedAdvisorCheckSummary'
     { _tacsHasFlaggedResources = Nothing
@@ -811,19 +841,22 @@ instance FromJSON TrustedAdvisorCheckSummary where
 -- actions are taken.
 --
 -- /See:/ 'trustedAdvisorCostOptimizingSummary' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tacosEstimatedMonthlySavings'
---
--- * 'tacosEstimatedPercentMonthlySavings'
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'
     { _tacosEstimatedMonthlySavings        :: !Double
     , _tacosEstimatedPercentMonthlySavings :: !Double
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TrustedAdvisorCostOptimizingSummary' smart constructor.
-trustedAdvisorCostOptimizingSummary :: Double -> Double -> TrustedAdvisorCostOptimizingSummary
+-- | Creates a value of 'TrustedAdvisorCostOptimizingSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tacosEstimatedMonthlySavings'
+--
+-- * 'tacosEstimatedPercentMonthlySavings'
+trustedAdvisorCostOptimizingSummary
+    :: Double -- ^ 'tacosEstimatedMonthlySavings'
+    -> Double -- ^ 'tacosEstimatedPercentMonthlySavings'
+    -> TrustedAdvisorCostOptimizingSummary
 trustedAdvisorCostOptimizingSummary pEstimatedMonthlySavings_ pEstimatedPercentMonthlySavings_ =
     TrustedAdvisorCostOptimizingSummary'
     { _tacosEstimatedMonthlySavings = pEstimatedMonthlySavings_
@@ -853,8 +886,17 @@ instance FromJSON TrustedAdvisorCostOptimizingSummary
 -- check.
 --
 -- /See:/ 'trustedAdvisorResourceDetail' smart constructor.
+data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
+    { _tardIsSuppressed :: !(Maybe Bool)
+    , _tardStatus       :: !Text
+    , _tardRegion       :: !Text
+    , _tardResourceId   :: !Text
+    , _tardMetadata     :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TrustedAdvisorResourceDetail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tardIsSuppressed'
 --
@@ -865,16 +907,11 @@ instance FromJSON TrustedAdvisorCostOptimizingSummary
 -- * 'tardResourceId'
 --
 -- * 'tardMetadata'
-data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
-    { _tardIsSuppressed :: !(Maybe Bool)
-    , _tardStatus       :: !Text
-    , _tardRegion       :: !Text
-    , _tardResourceId   :: !Text
-    , _tardMetadata     :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TrustedAdvisorResourceDetail' smart constructor.
-trustedAdvisorResourceDetail :: Text -> Text -> Text -> TrustedAdvisorResourceDetail
+trustedAdvisorResourceDetail
+    :: Text -- ^ 'tardStatus'
+    -> Text -- ^ 'tardRegion'
+    -> Text -- ^ 'tardResourceId'
+    -> TrustedAdvisorResourceDetail
 trustedAdvisorResourceDetail pStatus_ pRegion_ pResourceId_ =
     TrustedAdvisorResourceDetail'
     { _tardIsSuppressed = Nothing
@@ -925,8 +962,16 @@ instance FromJSON TrustedAdvisorResourceDetail where
 -- Advisor DescribeTrustedAdvisorCheckSummaries.
 --
 -- /See:/ 'trustedAdvisorResourcesSummary' smart constructor.
+data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'
+    { _tarsResourcesProcessed  :: !Integer
+    , _tarsResourcesFlagged    :: !Integer
+    , _tarsResourcesIgnored    :: !Integer
+    , _tarsResourcesSuppressed :: !Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TrustedAdvisorResourcesSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tarsResourcesProcessed'
 --
@@ -935,15 +980,12 @@ instance FromJSON TrustedAdvisorResourceDetail where
 -- * 'tarsResourcesIgnored'
 --
 -- * 'tarsResourcesSuppressed'
-data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'
-    { _tarsResourcesProcessed  :: !Integer
-    , _tarsResourcesFlagged    :: !Integer
-    , _tarsResourcesIgnored    :: !Integer
-    , _tarsResourcesSuppressed :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TrustedAdvisorResourcesSummary' smart constructor.
-trustedAdvisorResourcesSummary :: Integer -> Integer -> Integer -> Integer -> TrustedAdvisorResourcesSummary
+trustedAdvisorResourcesSummary
+    :: Integer -- ^ 'tarsResourcesProcessed'
+    -> Integer -- ^ 'tarsResourcesFlagged'
+    -> Integer -- ^ 'tarsResourcesIgnored'
+    -> Integer -- ^ 'tarsResourcesSuppressed'
+    -> TrustedAdvisorResourcesSummary
 trustedAdvisorResourcesSummary pResourcesProcessed_ pResourcesFlagged_ pResourcesIgnored_ pResourcesSuppressed_ =
     TrustedAdvisorResourcesSummary'
     { _tarsResourcesProcessed = pResourcesProcessed_

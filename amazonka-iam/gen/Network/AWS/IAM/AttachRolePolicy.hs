@@ -36,15 +36,15 @@
 module Network.AWS.IAM.AttachRolePolicy
     (
     -- * Creating a Request
-      AttachRolePolicy
-    , attachRolePolicy
+      attachRolePolicy
+    , AttachRolePolicy
     -- * Request Lenses
     , arpRoleName
     , arpPolicyARN
 
     -- * Destructuring the Response
-    , AttachRolePolicyResponse
     , attachRolePolicyResponse
+    , AttachRolePolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -54,19 +54,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachRolePolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'arpRoleName'
---
--- * 'arpPolicyARN'
 data AttachRolePolicy = AttachRolePolicy'
     { _arpRoleName  :: !Text
     , _arpPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachRolePolicy' smart constructor.
-attachRolePolicy :: Text -> Text -> AttachRolePolicy
+-- | Creates a value of 'AttachRolePolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arpRoleName'
+--
+-- * 'arpPolicyARN'
+attachRolePolicy
+    :: Text -- ^ 'arpRoleName'
+    -> Text -- ^ 'arpPolicyARN'
+    -> AttachRolePolicy
 attachRolePolicy pRoleName_ pPolicyARN_ =
     AttachRolePolicy'
     { _arpRoleName = pRoleName_
@@ -106,6 +109,8 @@ data AttachRolePolicyResponse =
     AttachRolePolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachRolePolicyResponse' smart constructor.
-attachRolePolicyResponse :: AttachRolePolicyResponse
+-- | Creates a value of 'AttachRolePolicyResponse' with the minimum fields required to make a request.
+--
+attachRolePolicyResponse
+    :: AttachRolePolicyResponse
 attachRolePolicyResponse = AttachRolePolicyResponse'

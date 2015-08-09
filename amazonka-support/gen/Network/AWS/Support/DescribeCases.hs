@@ -20,8 +20,8 @@
 --
 -- Returns a list of cases that you specify by passing one or more case
 -- IDs. In addition, you can filter the cases by date by setting values for
--- the @AfterTime@ and @BeforeTime@ request parameters. You can set values
--- for the @IncludeResolvedCases@ and @IncludeCommunications@ request
+-- the 'AfterTime' and 'BeforeTime' request parameters. You can set values
+-- for the 'IncludeResolvedCases' and 'IncludeCommunications' request
 -- parameters to control how much information is returned.
 --
 -- Case data is available for 12 months after creation. If a case was
@@ -31,15 +31,17 @@
 -- The response returns the following in JSON format:
 --
 -- 1.  One or more CaseDetails data types.
--- 2.  One or more @NextToken@ values, which specify where to paginate the
---     returned records represented by the @CaseDetails@ objects.
+-- 2.  One or more 'NextToken' values, which specify where to paginate the
+--     returned records represented by the 'CaseDetails' objects.
 --
 -- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeCases.html AWS API Reference> for DescribeCases.
+--
+-- This operation returns paginated results.
 module Network.AWS.Support.DescribeCases
     (
     -- * Creating a Request
-      DescribeCases
-    , describeCases
+      describeCases
+    , DescribeCases
     -- * Request Lenses
     , dcIncludeResolvedCases
     , dcCaseIdList
@@ -52,8 +54,8 @@ module Network.AWS.Support.DescribeCases
     , dcMaxResults
 
     -- * Destructuring the Response
-    , DescribeCasesResponse
     , describeCasesResponse
+    , DescribeCasesResponse
     -- * Response Lenses
     , drsCases
     , drsNextToken
@@ -68,8 +70,21 @@ import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
 -- | /See:/ 'describeCases' smart constructor.
+data DescribeCases = DescribeCases'
+    { _dcIncludeResolvedCases  :: !(Maybe Bool)
+    , _dcCaseIdList            :: !(Maybe [Text])
+    , _dcAfterTime             :: !(Maybe Text)
+    , _dcNextToken             :: !(Maybe Text)
+    , _dcBeforeTime            :: !(Maybe Text)
+    , _dcIncludeCommunications :: !(Maybe Bool)
+    , _dcDisplayId             :: !(Maybe Text)
+    , _dcLanguage              :: !(Maybe Text)
+    , _dcMaxResults            :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeCases' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcIncludeResolvedCases'
 --
@@ -88,20 +103,8 @@ import           Network.AWS.Support.Types.Product
 -- * 'dcLanguage'
 --
 -- * 'dcMaxResults'
-data DescribeCases = DescribeCases'
-    { _dcIncludeResolvedCases  :: !(Maybe Bool)
-    , _dcCaseIdList            :: !(Maybe [Text])
-    , _dcAfterTime             :: !(Maybe Text)
-    , _dcNextToken             :: !(Maybe Text)
-    , _dcBeforeTime            :: !(Maybe Text)
-    , _dcIncludeCommunications :: !(Maybe Bool)
-    , _dcDisplayId             :: !(Maybe Text)
-    , _dcLanguage              :: !(Maybe Text)
-    , _dcMaxResults            :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeCases' smart constructor.
-describeCases :: DescribeCases
+describeCases
+    :: DescribeCases
 describeCases =
     DescribeCases'
     { _dcIncludeResolvedCases = Nothing
@@ -206,26 +209,28 @@ instance ToPath DescribeCases where
 instance ToQuery DescribeCases where
         toQuery = const mempty
 
--- | Returns an array of CaseDetails objects and a @NextToken@ that defines a
+-- | Returns an array of CaseDetails objects and a 'NextToken' that defines a
 -- point for pagination in the result set.
 --
 -- /See:/ 'describeCasesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsCases'
---
--- * 'drsNextToken'
---
--- * 'drsStatus'
 data DescribeCasesResponse = DescribeCasesResponse'
     { _drsCases     :: !(Maybe [CaseDetails])
     , _drsNextToken :: !(Maybe Text)
     , _drsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCasesResponse' smart constructor.
-describeCasesResponse :: Int -> DescribeCasesResponse
+-- | Creates a value of 'DescribeCasesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsCases'
+--
+-- * 'drsNextToken'
+--
+-- * 'drsStatus'
+describeCasesResponse
+    :: Int -- ^ 'drsStatus'
+    -> DescribeCasesResponse
 describeCasesResponse pStatus_ =
     DescribeCasesResponse'
     { _drsCases = Nothing
@@ -241,6 +246,6 @@ drsCases = lens _drsCases (\ s a -> s{_drsCases = a}) . _Default . _Coerce;
 drsNextToken :: Lens' DescribeCasesResponse (Maybe Text)
 drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DescribeCasesResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

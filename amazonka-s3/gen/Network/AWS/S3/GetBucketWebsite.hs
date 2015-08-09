@@ -24,14 +24,14 @@
 module Network.AWS.S3.GetBucketWebsite
     (
     -- * Creating a Request
-      GetBucketWebsite
-    , getBucketWebsite
+      getBucketWebsite
+    , GetBucketWebsite
     -- * Request Lenses
     , gbwBucket
 
     -- * Destructuring the Response
-    , GetBucketWebsiteResponse
     , getBucketWebsiteResponse
+    , GetBucketWebsiteResponse
     -- * Response Lenses
     , gbwrsRedirectAllRequestsTo
     , gbwrsErrorDocument
@@ -47,16 +47,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketWebsite' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbwBucket'
 newtype GetBucketWebsite = GetBucketWebsite'
     { _gbwBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketWebsite' smart constructor.
-getBucketWebsite :: BucketName -> GetBucketWebsite
+-- | Creates a value of 'GetBucketWebsite' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbwBucket'
+getBucketWebsite
+    :: BucketName -- ^ 'gbwBucket'
+    -> GetBucketWebsite
 getBucketWebsite pBucket_ =
     GetBucketWebsite'
     { _gbwBucket = pBucket_
@@ -93,8 +95,17 @@ instance ToQuery GetBucketWebsite where
         toQuery = const (mconcat ["website"])
 
 -- | /See:/ 'getBucketWebsiteResponse' smart constructor.
+data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
+    { _gbwrsRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
+    , _gbwrsErrorDocument         :: !(Maybe ErrorDocument)
+    , _gbwrsRoutingRules          :: !(Maybe [RoutingRule])
+    , _gbwrsIndexDocument         :: !(Maybe IndexDocument)
+    , _gbwrsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetBucketWebsiteResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gbwrsRedirectAllRequestsTo'
 --
@@ -105,16 +116,9 @@ instance ToQuery GetBucketWebsite where
 -- * 'gbwrsIndexDocument'
 --
 -- * 'gbwrsStatus'
-data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
-    { _gbwrsRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
-    , _gbwrsErrorDocument         :: !(Maybe ErrorDocument)
-    , _gbwrsRoutingRules          :: !(Maybe [RoutingRule])
-    , _gbwrsIndexDocument         :: !(Maybe IndexDocument)
-    , _gbwrsStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetBucketWebsiteResponse' smart constructor.
-getBucketWebsiteResponse :: Int -> GetBucketWebsiteResponse
+getBucketWebsiteResponse
+    :: Int -- ^ 'gbwrsStatus'
+    -> GetBucketWebsiteResponse
 getBucketWebsiteResponse pStatus_ =
     GetBucketWebsiteResponse'
     { _gbwrsRedirectAllRequestsTo = Nothing
@@ -140,6 +144,6 @@ gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a})
 gbwrsIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
 gbwrsIndexDocument = lens _gbwrsIndexDocument (\ s a -> s{_gbwrsIndexDocument = a});
 
--- | Undocumented member.
+-- | The response status code.
 gbwrsStatus :: Lens' GetBucketWebsiteResponse Int
 gbwrsStatus = lens _gbwrsStatus (\ s a -> s{_gbwrsStatus = a});

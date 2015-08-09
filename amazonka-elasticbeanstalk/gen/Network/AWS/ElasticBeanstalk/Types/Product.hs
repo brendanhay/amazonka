@@ -24,8 +24,18 @@ import           Network.AWS.Prelude
 -- | Describes the properties of an application.
 --
 -- /See:/ 'applicationDescription' smart constructor.
+data ApplicationDescription = ApplicationDescription'
+    { _adDateUpdated            :: !(Maybe ISO8601)
+    , _adVersions               :: !(Maybe [Text])
+    , _adDateCreated            :: !(Maybe ISO8601)
+    , _adApplicationName        :: !(Maybe Text)
+    , _adConfigurationTemplates :: !(Maybe [Text])
+    , _adDescription            :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ApplicationDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'adDateUpdated'
 --
@@ -38,17 +48,8 @@ import           Network.AWS.Prelude
 -- * 'adConfigurationTemplates'
 --
 -- * 'adDescription'
-data ApplicationDescription = ApplicationDescription'
-    { _adDateUpdated            :: !(Maybe ISO8601)
-    , _adVersions               :: !(Maybe [Text])
-    , _adDateCreated            :: !(Maybe ISO8601)
-    , _adApplicationName        :: !(Maybe Text)
-    , _adConfigurationTemplates :: !(Maybe [Text])
-    , _adDescription            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ApplicationDescription' smart constructor.
-applicationDescription :: ApplicationDescription
+applicationDescription
+    :: ApplicationDescription
 applicationDescription =
     ApplicationDescription'
     { _adDateUpdated = Nothing
@@ -100,16 +101,17 @@ instance FromXML ApplicationDescription where
 -- | Result message containing a single description of an application.
 --
 -- /See:/ 'applicationDescriptionMessage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'admApplication'
 newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage'
     { _admApplication :: Maybe ApplicationDescription
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ApplicationDescriptionMessage' smart constructor.
-applicationDescriptionMessage :: ApplicationDescriptionMessage
+-- | Creates a value of 'ApplicationDescriptionMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'admApplication'
+applicationDescriptionMessage
+    :: ApplicationDescriptionMessage
 applicationDescriptionMessage =
     ApplicationDescriptionMessage'
     { _admApplication = Nothing
@@ -127,8 +129,18 @@ instance FromXML ApplicationDescriptionMessage where
 -- | Describes the properties of an application version.
 --
 -- /See:/ 'applicationVersionDescription' smart constructor.
+data ApplicationVersionDescription = ApplicationVersionDescription'
+    { _avdDateUpdated     :: !(Maybe ISO8601)
+    , _avdSourceBundle    :: !(Maybe S3Location)
+    , _avdVersionLabel    :: !(Maybe Text)
+    , _avdDateCreated     :: !(Maybe ISO8601)
+    , _avdApplicationName :: !(Maybe Text)
+    , _avdDescription     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ApplicationVersionDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'avdDateUpdated'
 --
@@ -141,17 +153,8 @@ instance FromXML ApplicationDescriptionMessage where
 -- * 'avdApplicationName'
 --
 -- * 'avdDescription'
-data ApplicationVersionDescription = ApplicationVersionDescription'
-    { _avdDateUpdated     :: !(Maybe ISO8601)
-    , _avdSourceBundle    :: !(Maybe S3Location)
-    , _avdVersionLabel    :: !(Maybe Text)
-    , _avdDateCreated     :: !(Maybe ISO8601)
-    , _avdApplicationName :: !(Maybe Text)
-    , _avdDescription     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ApplicationVersionDescription' smart constructor.
-applicationVersionDescription :: ApplicationVersionDescription
+applicationVersionDescription
+    :: ApplicationVersionDescription
 applicationVersionDescription =
     ApplicationVersionDescription'
     { _avdDateUpdated = Nothing
@@ -198,16 +201,17 @@ instance FromXML ApplicationVersionDescription where
 -- | Result message wrapping a single description of an application version.
 --
 -- /See:/ 'applicationVersionDescriptionMessage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'avdmApplicationVersion'
 newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage'
     { _avdmApplicationVersion :: Maybe ApplicationVersionDescription
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ApplicationVersionDescriptionMessage' smart constructor.
-applicationVersionDescriptionMessage :: ApplicationVersionDescriptionMessage
+-- | Creates a value of 'ApplicationVersionDescriptionMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avdmApplicationVersion'
+applicationVersionDescriptionMessage
+    :: ApplicationVersionDescriptionMessage
 applicationVersionDescriptionMessage =
     ApplicationVersionDescriptionMessage'
     { _avdmApplicationVersion = Nothing
@@ -226,22 +230,23 @@ instance FromXML ApplicationVersionDescriptionMessage
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'autoScalingGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'asgName'
 newtype AutoScalingGroup = AutoScalingGroup'
     { _asgName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AutoScalingGroup' smart constructor.
-autoScalingGroup :: AutoScalingGroup
+-- | Creates a value of 'AutoScalingGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asgName'
+autoScalingGroup
+    :: AutoScalingGroup
 autoScalingGroup =
     AutoScalingGroup'
     { _asgName = Nothing
     }
 
--- | The name of the @AutoScalingGroup@ .
+-- | The name of the 'AutoScalingGroup' .
 asgName :: Lens' AutoScalingGroup (Maybe Text)
 asgName = lens _asgName (\ s a -> s{_asgName = a});
 
@@ -251,8 +256,23 @@ instance FromXML AutoScalingGroup where
 -- | Describes the possible values for a configuration option.
 --
 -- /See:/ 'configurationOptionDescription' smart constructor.
+data ConfigurationOptionDescription = ConfigurationOptionDescription'
+    { _codMaxValue       :: !(Maybe Int)
+    , _codRegex          :: !(Maybe OptionRestrictionRegex)
+    , _codUserDefined    :: !(Maybe Bool)
+    , _codMaxLength      :: !(Maybe Int)
+    , _codValueOptions   :: !(Maybe [Text])
+    , _codNamespace      :: !(Maybe Text)
+    , _codName           :: !(Maybe Text)
+    , _codChangeSeverity :: !(Maybe Text)
+    , _codDefaultValue   :: !(Maybe Text)
+    , _codValueType      :: !(Maybe ConfigurationOptionValueType)
+    , _codMinValue       :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConfigurationOptionDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'codMaxValue'
 --
@@ -275,22 +295,8 @@ instance FromXML AutoScalingGroup where
 -- * 'codValueType'
 --
 -- * 'codMinValue'
-data ConfigurationOptionDescription = ConfigurationOptionDescription'
-    { _codMaxValue       :: !(Maybe Int)
-    , _codRegex          :: !(Maybe OptionRestrictionRegex)
-    , _codUserDefined    :: !(Maybe Bool)
-    , _codMaxLength      :: !(Maybe Int)
-    , _codValueOptions   :: !(Maybe [Text])
-    , _codNamespace      :: !(Maybe Text)
-    , _codName           :: !(Maybe Text)
-    , _codChangeSeverity :: !(Maybe Text)
-    , _codDefaultValue   :: !(Maybe Text)
-    , _codValueType      :: !(Maybe ConfigurationOptionValueType)
-    , _codMinValue       :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ConfigurationOptionDescription' smart constructor.
-configurationOptionDescription :: ConfigurationOptionDescription
+configurationOptionDescription
+    :: ConfigurationOptionDescription
 configurationOptionDescription =
     ConfigurationOptionDescription'
     { _codMaxValue = Nothing
@@ -318,22 +324,22 @@ codRegex = lens _codRegex (\ s a -> s{_codRegex = a});
 
 -- | An indication of whether the user defined this configuration option:
 --
--- @true@ : This configuration option was defined by the user. It is a
+-- 'true' : This configuration option was defined by the user. It is a
 -- valid choice for specifying this as an Option to Remove when updating
 -- configuration settings.
 --
--- @false@ : This configuration was not defined by the user.
+-- 'false' : This configuration was not defined by the user.
 --
--- -   @true@ : This configuration option was defined by the user. It is a
---     valid choice for specifying if this as an @Option to Remove@ when
+-- -   'true' : This configuration option was defined by the user. It is a
+--     valid choice for specifying if this as an 'Option to Remove' when
 --     updating configuration settings.
 --
--- -   @false@ : This configuration was not defined by the user.
+-- -   'false' : This configuration was not defined by the user.
 --
--- Constraint: You can remove only @UserDefined@ options from a
+-- Constraint: You can remove only 'UserDefined' options from a
 -- configuration.
 --
--- Valid Values: @true@ | @false@
+-- Valid Values: 'true' | 'false'
 codUserDefined :: Lens' ConfigurationOptionDescription (Maybe Bool)
 codUserDefined = lens _codUserDefined (\ s a -> s{_codUserDefined = a});
 
@@ -369,12 +375,12 @@ codName = lens _codName (\ s a -> s{_codName = a});
 -- However, a short application outage occurs when the application servers
 -- on the running Amazon EC2 instances are restarted.
 --
--- -   @NoInterruption@ : There is no interruption to the environment or
+-- -   'NoInterruption' : There is no interruption to the environment or
 --     application availability.
--- -   @RestartEnvironment@ : The environment is entirely restarted, all
+-- -   'RestartEnvironment' : The environment is entirely restarted, all
 --     AWS resources are deleted and recreated, and the environment is
 --     unavailable during the process.
--- -   @RestartApplicationServer@ : The environment is available the entire
+-- -   'RestartApplicationServer' : The environment is available the entire
 --     time. However, a short application outage occurs when the
 --     application servers on the running Amazon EC2 instances are
 --     restarted.
@@ -388,21 +394,21 @@ codDefaultValue = lens _codDefaultValue (\ s a -> s{_codDefaultValue = a});
 -- | An indication of which type of values this option has and whether it is
 -- allowable to select one or more than one of the possible values:
 --
--- @Scalar@ : Values for this option are a single selection from the
+-- 'Scalar' : Values for this option are a single selection from the
 -- possible values, or a unformatted string or numeric value governed by
 -- the MIN\/MAX\/Regex constraints:
 --
--- @List@ : Values for this option are multiple selections of the possible
+-- 'List' : Values for this option are multiple selections of the possible
 -- values.
 --
--- @Boolean@ : Values for this option are either @true@ or @false@ .
+-- 'Boolean' : Values for this option are either 'true' or 'false' .
 --
--- -   @Scalar@ : Values for this option are a single selection from the
+-- -   'Scalar' : Values for this option are a single selection from the
 --     possible values, or an unformatted string, or numeric value governed
---     by the @MIN\/MAX\/Regex@ constraints.
--- -   @List@ : Values for this option are multiple selections from the
+--     by the 'MIN\/MAX\/Regex' constraints.
+-- -   'List' : Values for this option are multiple selections from the
 --     possible values.
--- -   @Boolean@ : Values for this option are either @true@ or @false@ .
+-- -   'Boolean' : Values for this option are either 'true' or 'false' .
 codValueType :: Lens' ConfigurationOptionDescription (Maybe ConfigurationOptionValueType)
 codValueType = lens _codValueType (\ s a -> s{_codValueType = a});
 
@@ -433,8 +439,16 @@ instance FromXML ConfigurationOptionDescription where
 -- in the /AWS Elastic Beanstalk Developer Guide/.
 --
 -- /See:/ 'configurationOptionSetting' smart constructor.
+data ConfigurationOptionSetting = ConfigurationOptionSetting'
+    { _cosOptionName   :: !(Maybe Text)
+    , _cosResourceName :: !(Maybe Text)
+    , _cosValue        :: !(Maybe Text)
+    , _cosNamespace    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConfigurationOptionSetting' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cosOptionName'
 --
@@ -443,15 +457,8 @@ instance FromXML ConfigurationOptionDescription where
 -- * 'cosValue'
 --
 -- * 'cosNamespace'
-data ConfigurationOptionSetting = ConfigurationOptionSetting'
-    { _cosOptionName   :: !(Maybe Text)
-    , _cosResourceName :: !(Maybe Text)
-    , _cosValue        :: !(Maybe Text)
-    , _cosNamespace    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ConfigurationOptionSetting' smart constructor.
-configurationOptionSetting :: ConfigurationOptionSetting
+configurationOptionSetting
+    :: ConfigurationOptionSetting
 configurationOptionSetting =
     ConfigurationOptionSetting'
     { _cosOptionName = Nothing
@@ -493,8 +500,21 @@ instance ToQuery ConfigurationOptionSetting where
 -- | Describes the settings for a configuration set.
 --
 -- /See:/ 'configurationSettingsDescription' smart constructor.
+data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
+    { _csdTemplateName      :: !(Maybe Text)
+    , _csdOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
+    , _csdDateUpdated       :: !(Maybe ISO8601)
+    , _csdDateCreated       :: !(Maybe ISO8601)
+    , _csdEnvironmentName   :: !(Maybe Text)
+    , _csdApplicationName   :: !(Maybe Text)
+    , _csdDeploymentStatus  :: !(Maybe ConfigurationDeploymentStatus)
+    , _csdSolutionStackName :: !(Maybe Text)
+    , _csdDescription       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConfigurationSettingsDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'csdTemplateName'
 --
@@ -513,20 +533,8 @@ instance ToQuery ConfigurationOptionSetting where
 -- * 'csdSolutionStackName'
 --
 -- * 'csdDescription'
-data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
-    { _csdTemplateName      :: !(Maybe Text)
-    , _csdOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
-    , _csdDateUpdated       :: !(Maybe ISO8601)
-    , _csdDateCreated       :: !(Maybe ISO8601)
-    , _csdEnvironmentName   :: !(Maybe Text)
-    , _csdApplicationName   :: !(Maybe Text)
-    , _csdDeploymentStatus  :: !(Maybe ConfigurationDeploymentStatus)
-    , _csdSolutionStackName :: !(Maybe Text)
-    , _csdDescription       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ConfigurationSettingsDescription' smart constructor.
-configurationSettingsDescription :: ConfigurationSettingsDescription
+configurationSettingsDescription
+    :: ConfigurationSettingsDescription
 configurationSettingsDescription =
     ConfigurationSettingsDescription'
     { _csdTemplateName = Nothing
@@ -540,7 +548,7 @@ configurationSettingsDescription =
     , _csdDescription = Nothing
     }
 
--- | If not @null@, the name of the configuration template for this
+-- | If not 'null', the name of the configuration template for this
 -- configuration set.
 csdTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdTemplateName = lens _csdTemplateName (\ s a -> s{_csdTemplateName = a});
@@ -558,7 +566,7 @@ csdDateUpdated = lens _csdDateUpdated (\ s a -> s{_csdDateUpdated = a}) . mappin
 csdDateCreated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
 csdDateCreated = lens _csdDateCreated (\ s a -> s{_csdDateCreated = a}) . mapping _Time;
 
--- | If not @null@, the name of the environment for this configuration set.
+-- | If not 'null', the name of the environment for this configuration set.
 csdEnvironmentName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdEnvironmentName = lens _csdEnvironmentName (\ s a -> s{_csdEnvironmentName = a});
 
@@ -567,27 +575,27 @@ csdApplicationName :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdApplicationName = lens _csdApplicationName (\ s a -> s{_csdApplicationName = a});
 
 -- | If this configuration set is associated with an environment, the
--- @DeploymentStatus@ parameter indicates the deployment status of this
+-- 'DeploymentStatus' parameter indicates the deployment status of this
 -- configuration set:
 --
--- @null@: This configuration is not associated with a running environment.
+-- 'null': This configuration is not associated with a running environment.
 --
--- @pending@: This is a draft configuration that is not deployed to the
+-- 'pending': This is a draft configuration that is not deployed to the
 -- associated environment but is in the process of deploying.
 --
--- @deployed@: This is the configuration that is currently deployed to the
+-- 'deployed': This is the configuration that is currently deployed to the
 -- associated running environment.
 --
--- @failed@: This is a draft configuration, that failed to successfully
+-- 'failed': This is a draft configuration, that failed to successfully
 -- deploy.
 --
--- -   @null@: This configuration is not associated with a running
+-- -   'null': This configuration is not associated with a running
 --     environment.
--- -   @pending@: This is a draft configuration that is not deployed to the
+-- -   'pending': This is a draft configuration that is not deployed to the
 --     associated environment but is in the process of deploying.
--- -   @deployed@: This is the configuration that is currently deployed to
+-- -   'deployed': This is the configuration that is currently deployed to
 --     the associated running environment.
--- -   @failed@: This is a draft configuration that failed to successfully
+-- -   'failed': This is a draft configuration that failed to successfully
 --     deploy.
 csdDeploymentStatus :: Lens' ConfigurationSettingsDescription (Maybe ConfigurationDeploymentStatus)
 csdDeploymentStatus = lens _csdDeploymentStatus (\ s a -> s{_csdDeploymentStatus = a});
@@ -618,8 +626,28 @@ instance FromXML ConfigurationSettingsDescription
 -- | Describes the properties of an environment.
 --
 -- /See:/ 'environmentDescription' smart constructor.
+data EnvironmentDescription = EnvironmentDescription'
+    { _eCNAME                        :: !(Maybe Text)
+    , _eStatus                       :: !(Maybe EnvironmentStatus)
+    , _eTemplateName                 :: !(Maybe Text)
+    , _eAbortableOperationInProgress :: !(Maybe Bool)
+    , _eEndpointURL                  :: !(Maybe Text)
+    , _eDateUpdated                  :: !(Maybe ISO8601)
+    , _eResources                    :: !(Maybe EnvironmentResourcesDescription)
+    , _eHealth                       :: !(Maybe EnvironmentHealth)
+    , _eVersionLabel                 :: !(Maybe Text)
+    , _eDateCreated                  :: !(Maybe ISO8601)
+    , _eTier                         :: !(Maybe EnvironmentTier)
+    , _eEnvironmentName              :: !(Maybe Text)
+    , _eApplicationName              :: !(Maybe Text)
+    , _eEnvironmentId                :: !(Maybe Text)
+    , _eSolutionStackName            :: !(Maybe Text)
+    , _eDescription                  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnvironmentDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eCNAME'
 --
@@ -652,27 +680,8 @@ instance FromXML ConfigurationSettingsDescription
 -- * 'eSolutionStackName'
 --
 -- * 'eDescription'
-data EnvironmentDescription = EnvironmentDescription'
-    { _eCNAME                        :: !(Maybe Text)
-    , _eStatus                       :: !(Maybe EnvironmentStatus)
-    , _eTemplateName                 :: !(Maybe Text)
-    , _eAbortableOperationInProgress :: !(Maybe Bool)
-    , _eEndpointURL                  :: !(Maybe Text)
-    , _eDateUpdated                  :: !(Maybe ISO8601)
-    , _eResources                    :: !(Maybe EnvironmentResourcesDescription)
-    , _eHealth                       :: !(Maybe EnvironmentHealth)
-    , _eVersionLabel                 :: !(Maybe Text)
-    , _eDateCreated                  :: !(Maybe ISO8601)
-    , _eTier                         :: !(Maybe EnvironmentTier)
-    , _eEnvironmentName              :: !(Maybe Text)
-    , _eApplicationName              :: !(Maybe Text)
-    , _eEnvironmentId                :: !(Maybe Text)
-    , _eSolutionStackName            :: !(Maybe Text)
-    , _eDescription                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EnvironmentDescription' smart constructor.
-environmentDescription :: EnvironmentDescription
+environmentDescription
+    :: EnvironmentDescription
 environmentDescription =
     EnvironmentDescription'
     { _eCNAME = Nothing
@@ -699,13 +708,13 @@ eCNAME = lens _eCNAME (\ s a -> s{_eCNAME = a});
 
 -- | The current operational status of the environment:
 --
--- -   @Launching@: Environment is in the process of initial deployment.
--- -   @Updating@: Environment is in the process of updating its
+-- -   'Launching': Environment is in the process of initial deployment.
+-- -   'Updating': Environment is in the process of updating its
 --     configuration settings or application version.
--- -   @Ready@: Environment is available to have an action performed on it,
+-- -   'Ready': Environment is available to have an action performed on it,
 --     such as update or terminate.
--- -   @Terminating@: Environment is in the shut-down process.
--- -   @Terminated@: Environment is not running.
+-- -   'Terminating': Environment is in the shut-down process.
+-- -   'Terminated': Environment is not running.
 eStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
 eStatus = lens _eStatus (\ s a -> s{_eStatus = a});
 
@@ -717,9 +726,9 @@ eTemplateName = lens _eTemplateName (\ s a -> s{_eTemplateName = a});
 -- | Indicates if there is an in-progress environment configuration update or
 -- application version deployment that you can cancel.
 --
--- @true:@ There is an update in progress.
+-- 'true:' There is an update in progress.
 --
--- @false:@ There are no updates currently in progress.
+-- 'false:' There are no updates currently in progress.
 eAbortableOperationInProgress :: Lens' EnvironmentDescription (Maybe Bool)
 eAbortableOperationInProgress = lens _eAbortableOperationInProgress (\ s a -> s{_eAbortableOperationInProgress = a});
 
@@ -740,24 +749,24 @@ eResources = lens _eResources (\ s a -> s{_eResources = a});
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
 -- indicates the failure levels for a running environment:
 --
--- @Red@ : Indicates the environment is not working.
+-- 'Red' : Indicates the environment is not working.
 --
--- @Yellow@: Indicates that something is wrong, the application might not
+-- 'Yellow': Indicates that something is wrong, the application might not
 -- be available, but the instances appear running.
 --
--- @Green@: Indicates the environment is healthy and fully functional.
+-- 'Green': Indicates the environment is healthy and fully functional.
 --
--- -   @Red@: Indicates the environment is not responsive. Occurs when
+-- -   'Red': Indicates the environment is not responsive. Occurs when
 --     three or more consecutive failures occur for an environment.
--- -   @Yellow@: Indicates that something is wrong. Occurs when two
+-- -   'Yellow': Indicates that something is wrong. Occurs when two
 --     consecutive failures occur for an environment.
--- -   @Green@: Indicates the environment is healthy and fully functional.
--- -   @Grey@: Default health for a new environment. The environment is not
+-- -   'Green': Indicates the environment is healthy and fully functional.
+-- -   'Grey': Default health for a new environment. The environment is not
 --     fully launched and health checks have not started or health checks
---     are suspended during an @UpdateEnvironment@ or @RestartEnvironement@
+--     are suspended during an 'UpdateEnvironment' or 'RestartEnvironement'
 --     request.
 --
--- Default: @Grey@
+-- Default: 'Grey'
 eHealth :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
 eHealth = lens _eHealth (\ s a -> s{_eHealth = a});
 
@@ -785,7 +794,7 @@ eApplicationName = lens _eApplicationName (\ s a -> s{_eApplicationName = a});
 eEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
 eEnvironmentId = lens _eEnvironmentId (\ s a -> s{_eEnvironmentId = a});
 
--- | The name of the @SolutionStack@ deployed with this environment.
+-- | The name of the 'SolutionStack' deployed with this environment.
 eSolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
 eSolutionStackName = lens _eSolutionStackName (\ s a -> s{_eSolutionStackName = a});
 
@@ -815,8 +824,16 @@ instance FromXML EnvironmentDescription where
 -- | The information retrieved from the Amazon EC2 instances.
 --
 -- /See:/ 'environmentInfoDescription' smart constructor.
+data EnvironmentInfoDescription = EnvironmentInfoDescription'
+    { _eidSampleTimestamp :: !(Maybe ISO8601)
+    , _eidEC2InstanceId   :: !(Maybe Text)
+    , _eidInfoType        :: !(Maybe EnvironmentInfoType)
+    , _eidMessage         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnvironmentInfoDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eidSampleTimestamp'
 --
@@ -825,15 +842,8 @@ instance FromXML EnvironmentDescription where
 -- * 'eidInfoType'
 --
 -- * 'eidMessage'
-data EnvironmentInfoDescription = EnvironmentInfoDescription'
-    { _eidSampleTimestamp :: !(Maybe ISO8601)
-    , _eidEC2InstanceId   :: !(Maybe Text)
-    , _eidInfoType        :: !(Maybe EnvironmentInfoType)
-    , _eidMessage         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EnvironmentInfoDescription' smart constructor.
-environmentInfoDescription :: EnvironmentInfoDescription
+environmentInfoDescription
+    :: EnvironmentInfoDescription
 environmentInfoDescription =
     EnvironmentInfoDescription'
     { _eidSampleTimestamp = Nothing
@@ -869,8 +879,19 @@ instance FromXML EnvironmentInfoDescription where
 -- live.
 --
 -- /See:/ 'environmentResourceDescription' smart constructor.
+data EnvironmentResourceDescription = EnvironmentResourceDescription'
+    { _erdQueues               :: !(Maybe [Queue])
+    , _erdTriggers             :: !(Maybe [Trigger])
+    , _erdLoadBalancers        :: !(Maybe [LoadBalancer])
+    , _erdInstances            :: !(Maybe [Instance])
+    , _erdEnvironmentName      :: !(Maybe Text)
+    , _erdLaunchConfigurations :: !(Maybe [LaunchConfiguration])
+    , _erdAutoScalingGroups    :: !(Maybe [AutoScalingGroup])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnvironmentResourceDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'erdQueues'
 --
@@ -885,18 +906,8 @@ instance FromXML EnvironmentInfoDescription where
 -- * 'erdLaunchConfigurations'
 --
 -- * 'erdAutoScalingGroups'
-data EnvironmentResourceDescription = EnvironmentResourceDescription'
-    { _erdQueues               :: !(Maybe [Queue])
-    , _erdTriggers             :: !(Maybe [Trigger])
-    , _erdLoadBalancers        :: !(Maybe [LoadBalancer])
-    , _erdInstances            :: !(Maybe [Instance])
-    , _erdEnvironmentName      :: !(Maybe Text)
-    , _erdLaunchConfigurations :: !(Maybe [LaunchConfiguration])
-    , _erdAutoScalingGroups    :: !(Maybe [AutoScalingGroup])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EnvironmentResourceDescription' smart constructor.
-environmentResourceDescription :: EnvironmentResourceDescription
+environmentResourceDescription
+    :: EnvironmentResourceDescription
 environmentResourceDescription =
     EnvironmentResourceDescription'
     { _erdQueues = Nothing
@@ -912,7 +923,7 @@ environmentResourceDescription =
 erdQueues :: Lens' EnvironmentResourceDescription [Queue]
 erdQueues = lens _erdQueues (\ s a -> s{_erdQueues = a}) . _Default . _Coerce;
 
--- | The @AutoScaling@ triggers in use by this environment.
+-- | The 'AutoScaling' triggers in use by this environment.
 erdTriggers :: Lens' EnvironmentResourceDescription [Trigger]
 erdTriggers = lens _erdTriggers (\ s a -> s{_erdTriggers = a}) . _Default . _Coerce;
 
@@ -932,7 +943,7 @@ erdEnvironmentName = lens _erdEnvironmentName (\ s a -> s{_erdEnvironmentName = 
 erdLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
 erdLaunchConfigurations = lens _erdLaunchConfigurations (\ s a -> s{_erdLaunchConfigurations = a}) . _Default . _Coerce;
 
--- | The @AutoScalingGroups@ used by this environment.
+-- | The 'AutoScalingGroups' used by this environment.
 erdAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
 erdAutoScalingGroups = lens _erdAutoScalingGroups (\ s a -> s{_erdAutoScalingGroups = a}) . _Default . _Coerce;
 
@@ -962,16 +973,17 @@ instance FromXML EnvironmentResourceDescription where
 -- live data.
 --
 -- /See:/ 'environmentResourcesDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'erdLoadBalancer'
 newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription'
     { _erdLoadBalancer :: Maybe LoadBalancerDescription
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnvironmentResourcesDescription' smart constructor.
-environmentResourcesDescription :: EnvironmentResourcesDescription
+-- | Creates a value of 'EnvironmentResourcesDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'erdLoadBalancer'
+environmentResourcesDescription
+    :: EnvironmentResourcesDescription
 environmentResourcesDescription =
     EnvironmentResourcesDescription'
     { _erdLoadBalancer = Nothing
@@ -990,22 +1002,23 @@ instance FromXML EnvironmentResourcesDescription
 -- | Describes the properties of an environment tier
 --
 -- /See:/ 'environmentTier' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'etName'
---
--- * 'etVersion'
---
--- * 'etType'
 data EnvironmentTier = EnvironmentTier'
     { _etName    :: !(Maybe Text)
     , _etVersion :: !(Maybe Text)
     , _etType    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnvironmentTier' smart constructor.
-environmentTier :: EnvironmentTier
+-- | Creates a value of 'EnvironmentTier' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'etName'
+--
+-- * 'etVersion'
+--
+-- * 'etType'
+environmentTier
+    :: EnvironmentTier
 environmentTier =
     EnvironmentTier'
     { _etName = Nothing
@@ -1040,8 +1053,20 @@ instance ToQuery EnvironmentTier where
 -- | Describes an event.
 --
 -- /See:/ 'eventDescription' smart constructor.
+data EventDescription = EventDescription'
+    { _edRequestId       :: !(Maybe Text)
+    , _edTemplateName    :: !(Maybe Text)
+    , _edSeverity        :: !(Maybe EventSeverity)
+    , _edVersionLabel    :: !(Maybe Text)
+    , _edEnvironmentName :: !(Maybe Text)
+    , _edApplicationName :: !(Maybe Text)
+    , _edEventDate       :: !(Maybe ISO8601)
+    , _edMessage         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EventDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'edRequestId'
 --
@@ -1058,19 +1083,8 @@ instance ToQuery EnvironmentTier where
 -- * 'edEventDate'
 --
 -- * 'edMessage'
-data EventDescription = EventDescription'
-    { _edRequestId       :: !(Maybe Text)
-    , _edTemplateName    :: !(Maybe Text)
-    , _edSeverity        :: !(Maybe EventSeverity)
-    , _edVersionLabel    :: !(Maybe Text)
-    , _edEnvironmentName :: !(Maybe Text)
-    , _edApplicationName :: !(Maybe Text)
-    , _edEventDate       :: !(Maybe ISO8601)
-    , _edMessage         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EventDescription' smart constructor.
-eventDescription :: EventDescription
+eventDescription
+    :: EventDescription
 eventDescription =
     EventDescription'
     { _edRequestId = Nothing
@@ -1130,16 +1144,17 @@ instance FromXML EventDescription where
 -- | The description of an Amazon EC2 instance.
 --
 -- /See:/ 'instance'' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iId'
 newtype Instance = Instance'
     { _iId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Instance' smart constructor.
-instance' :: Instance
+-- | Creates a value of 'Instance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iId'
+instance'
+    :: Instance
 instance' =
     Instance'
     { _iId = Nothing
@@ -1155,16 +1170,17 @@ instance FromXML Instance where
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'launchConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lcName'
 newtype LaunchConfiguration = LaunchConfiguration'
     { _lcName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LaunchConfiguration' smart constructor.
-launchConfiguration :: LaunchConfiguration
+-- | Creates a value of 'LaunchConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lcName'
+launchConfiguration
+    :: LaunchConfiguration
 launchConfiguration =
     LaunchConfiguration'
     { _lcName = Nothing
@@ -1180,19 +1196,20 @@ instance FromXML LaunchConfiguration where
 -- | Describes the properties of a Listener for the LoadBalancer.
 --
 -- /See:/ 'listener' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lProtocol'
---
--- * 'lPort'
 data Listener = Listener'
     { _lProtocol :: !(Maybe Text)
     , _lPort     :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Listener' smart constructor.
-listener :: Listener
+-- | Creates a value of 'Listener' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lProtocol'
+--
+-- * 'lPort'
+listener
+    :: Listener
 listener =
     Listener'
     { _lProtocol = Nothing
@@ -1214,16 +1231,17 @@ instance FromXML Listener where
 -- | Describes a LoadBalancer.
 --
 -- /See:/ 'loadBalancer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lbName'
 newtype LoadBalancer = LoadBalancer'
     { _lbName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LoadBalancer' smart constructor.
-loadBalancer :: LoadBalancer
+-- | Creates a value of 'LoadBalancer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbName'
+loadBalancer
+    :: LoadBalancer
 loadBalancer =
     LoadBalancer'
     { _lbName = Nothing
@@ -1239,22 +1257,23 @@ instance FromXML LoadBalancer where
 -- | Describes the details of a LoadBalancer.
 --
 -- /See:/ 'loadBalancerDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lbdLoadBalancerName'
---
--- * 'lbdDomain'
---
--- * 'lbdListeners'
 data LoadBalancerDescription = LoadBalancerDescription'
     { _lbdLoadBalancerName :: !(Maybe Text)
     , _lbdDomain           :: !(Maybe Text)
     , _lbdListeners        :: !(Maybe [Listener])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LoadBalancerDescription' smart constructor.
-loadBalancerDescription :: LoadBalancerDescription
+-- | Creates a value of 'LoadBalancerDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lbdLoadBalancerName'
+--
+-- * 'lbdDomain'
+--
+-- * 'lbdListeners'
+loadBalancerDescription
+    :: LoadBalancerDescription
 loadBalancerDescription =
     LoadBalancerDescription'
     { _lbdLoadBalancerName = Nothing
@@ -1285,19 +1304,20 @@ instance FromXML LoadBalancerDescription where
 -- configuration option value.
 --
 -- /See:/ 'optionRestrictionRegex' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'orrPattern'
---
--- * 'orrLabel'
 data OptionRestrictionRegex = OptionRestrictionRegex'
     { _orrPattern :: !(Maybe Text)
     , _orrLabel   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'OptionRestrictionRegex' smart constructor.
-optionRestrictionRegex :: OptionRestrictionRegex
+-- | Creates a value of 'OptionRestrictionRegex' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'orrPattern'
+--
+-- * 'orrLabel'
+optionRestrictionRegex
+    :: OptionRestrictionRegex
 optionRestrictionRegex =
     OptionRestrictionRegex'
     { _orrPattern = Nothing
@@ -1321,22 +1341,23 @@ instance FromXML OptionRestrictionRegex where
 -- | A specification identifying an individual configuration option.
 --
 -- /See:/ 'optionSpecification' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'osOptionName'
---
--- * 'osResourceName'
---
--- * 'osNamespace'
 data OptionSpecification = OptionSpecification'
     { _osOptionName   :: !(Maybe Text)
     , _osResourceName :: !(Maybe Text)
     , _osNamespace    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'OptionSpecification' smart constructor.
-optionSpecification :: OptionSpecification
+-- | Creates a value of 'OptionSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'osOptionName'
+--
+-- * 'osResourceName'
+--
+-- * 'osNamespace'
+optionSpecification
+    :: OptionSpecification
 optionSpecification =
     OptionSpecification'
     { _osOptionName = Nothing
@@ -1366,19 +1387,20 @@ instance ToQuery OptionSpecification where
 -- | Describes a queue.
 --
 -- /See:/ 'queue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'qURL'
---
--- * 'qName'
 data Queue = Queue'
     { _qURL  :: !(Maybe Text)
     , _qName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Queue' smart constructor.
-queue :: Queue
+-- | Creates a value of 'Queue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'qURL'
+--
+-- * 'qName'
+queue
+    :: Queue
 queue =
     Queue'
     { _qURL = Nothing
@@ -1400,19 +1422,20 @@ instance FromXML Queue where
 -- | A specification of a location in Amazon S3.
 --
 -- /See:/ 's3Location' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slS3Key'
---
--- * 'slS3Bucket'
 data S3Location = S3Location'
     { _slS3Key    :: !(Maybe Text)
     , _slS3Bucket :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'S3Location' smart constructor.
-s3Location :: S3Location
+-- | Creates a value of 'S3Location' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slS3Key'
+--
+-- * 'slS3Bucket'
+s3Location
+    :: S3Location
 s3Location =
     S3Location'
     { _slS3Key = Nothing
@@ -1440,19 +1463,20 @@ instance ToQuery S3Location where
 -- | Describes the solution stack.
 --
 -- /See:/ 'solutionStackDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ssdPermittedFileTypes'
---
--- * 'ssdSolutionStackName'
 data SolutionStackDescription = SolutionStackDescription'
     { _ssdPermittedFileTypes :: !(Maybe [Text])
     , _ssdSolutionStackName  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SolutionStackDescription' smart constructor.
-solutionStackDescription :: SolutionStackDescription
+-- | Creates a value of 'SolutionStackDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssdPermittedFileTypes'
+--
+-- * 'ssdSolutionStackName'
+solutionStackDescription
+    :: SolutionStackDescription
 solutionStackDescription =
     SolutionStackDescription'
     { _ssdPermittedFileTypes = Nothing
@@ -1477,19 +1501,20 @@ instance FromXML SolutionStackDescription where
 -- | A specification for an environment configuration
 --
 -- /See:/ 'sourceConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'scTemplateName'
---
--- * 'scApplicationName'
 data SourceConfiguration = SourceConfiguration'
     { _scTemplateName    :: !(Maybe Text)
     , _scApplicationName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SourceConfiguration' smart constructor.
-sourceConfiguration :: SourceConfiguration
+-- | Creates a value of 'SourceConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scTemplateName'
+--
+-- * 'scApplicationName'
+sourceConfiguration
+    :: SourceConfiguration
 sourceConfiguration =
     SourceConfiguration'
     { _scTemplateName = Nothing
@@ -1513,19 +1538,20 @@ instance ToQuery SourceConfiguration where
 -- | Describes a tag applied to a resource in an environment.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagValue'
---
--- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Tag
 tag =
     Tag'
     { _tagValue = Nothing
@@ -1547,16 +1573,17 @@ instance ToQuery Tag where
 -- | Describes a trigger.
 --
 -- /See:/ 'trigger' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tName'
 newtype Trigger = Trigger'
     { _tName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Trigger' smart constructor.
-trigger :: Trigger
+-- | Creates a value of 'Trigger' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tName'
+trigger
+    :: Trigger
 trigger =
     Trigger'
     { _tName = Nothing
@@ -1572,8 +1599,16 @@ instance FromXML Trigger where
 -- | An error or warning for a desired configuration option value.
 --
 -- /See:/ 'validationMessage' smart constructor.
+data ValidationMessage = ValidationMessage'
+    { _vmOptionName :: !(Maybe Text)
+    , _vmSeverity   :: !(Maybe ValidationSeverity)
+    , _vmNamespace  :: !(Maybe Text)
+    , _vmMessage    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ValidationMessage' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vmOptionName'
 --
@@ -1582,15 +1617,8 @@ instance FromXML Trigger where
 -- * 'vmNamespace'
 --
 -- * 'vmMessage'
-data ValidationMessage = ValidationMessage'
-    { _vmOptionName :: !(Maybe Text)
-    , _vmSeverity   :: !(Maybe ValidationSeverity)
-    , _vmNamespace  :: !(Maybe Text)
-    , _vmMessage    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ValidationMessage' smart constructor.
-validationMessage :: ValidationMessage
+validationMessage
+    :: ValidationMessage
 validationMessage =
     ValidationMessage'
     { _vmOptionName = Nothing

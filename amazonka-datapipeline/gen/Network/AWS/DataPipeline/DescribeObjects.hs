@@ -23,11 +23,13 @@
 -- the properties of the object.
 --
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribeObjects.html AWS API Reference> for DescribeObjects.
+--
+-- This operation returns paginated results.
 module Network.AWS.DataPipeline.DescribeObjects
     (
     -- * Creating a Request
-      DescribeObjects
-    , describeObjects
+      describeObjects
+    , DescribeObjects
     -- * Request Lenses
     , doEvaluateExpressions
     , doMarker
@@ -35,8 +37,8 @@ module Network.AWS.DataPipeline.DescribeObjects
     , doObjectIds
 
     -- * Destructuring the Response
-    , DescribeObjectsResponse
     , describeObjectsResponse
+    , DescribeObjectsResponse
     -- * Response Lenses
     , dorsHasMoreResults
     , dorsMarker
@@ -54,8 +56,16 @@ import           Network.AWS.Response
 -- | Contains the parameters for DescribeObjects.
 --
 -- /See:/ 'describeObjects' smart constructor.
+data DescribeObjects = DescribeObjects'
+    { _doEvaluateExpressions :: !(Maybe Bool)
+    , _doMarker              :: !(Maybe Text)
+    , _doPipelineId          :: !Text
+    , _doObjectIds           :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeObjects' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'doEvaluateExpressions'
 --
@@ -64,15 +74,9 @@ import           Network.AWS.Response
 -- * 'doPipelineId'
 --
 -- * 'doObjectIds'
-data DescribeObjects = DescribeObjects'
-    { _doEvaluateExpressions :: !(Maybe Bool)
-    , _doMarker              :: !(Maybe Text)
-    , _doPipelineId          :: !Text
-    , _doObjectIds           :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeObjects' smart constructor.
-describeObjects :: Text -> DescribeObjects
+describeObjects
+    :: Text -- ^ 'doPipelineId'
+    -> DescribeObjects
 describeObjects pPipelineId_ =
     DescribeObjects'
     { _doEvaluateExpressions = Nothing
@@ -88,7 +92,7 @@ doEvaluateExpressions = lens _doEvaluateExpressions (\ s a -> s{_doEvaluateExpre
 
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
--- to call @DescribeObjects@ with the marker value from the previous call
+-- to call 'DescribeObjects' with the marker value from the previous call
 -- to retrieve the next set of results.
 doMarker :: Lens' DescribeObjects (Maybe Text)
 doMarker = lens _doMarker (\ s a -> s{_doMarker = a});
@@ -99,7 +103,7 @@ doPipelineId = lens _doPipelineId (\ s a -> s{_doPipelineId = a});
 
 -- | The IDs of the pipeline objects that contain the definitions to be
 -- described. You can pass as many as 25 identifiers in a single call to
--- @DescribeObjects@.
+-- 'DescribeObjects'.
 doObjectIds :: Lens' DescribeObjects [Text]
 doObjectIds = lens _doObjectIds (\ s a -> s{_doObjectIds = a}) . _Coerce;
 
@@ -147,8 +151,16 @@ instance ToQuery DescribeObjects where
 -- | Contains the output of DescribeObjects.
 --
 -- /See:/ 'describeObjectsResponse' smart constructor.
+data DescribeObjectsResponse = DescribeObjectsResponse'
+    { _dorsHasMoreResults  :: !(Maybe Bool)
+    , _dorsMarker          :: !(Maybe Text)
+    , _dorsStatus          :: !Int
+    , _dorsPipelineObjects :: ![PipelineObject]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeObjectsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dorsHasMoreResults'
 --
@@ -157,15 +169,9 @@ instance ToQuery DescribeObjects where
 -- * 'dorsStatus'
 --
 -- * 'dorsPipelineObjects'
-data DescribeObjectsResponse = DescribeObjectsResponse'
-    { _dorsHasMoreResults  :: !(Maybe Bool)
-    , _dorsMarker          :: !(Maybe Text)
-    , _dorsStatus          :: !Int
-    , _dorsPipelineObjects :: ![PipelineObject]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeObjectsResponse' smart constructor.
-describeObjectsResponse :: Int -> DescribeObjectsResponse
+describeObjectsResponse
+    :: Int -- ^ 'dorsStatus'
+    -> DescribeObjectsResponse
 describeObjectsResponse pStatus_ =
     DescribeObjectsResponse'
     { _dorsHasMoreResults = Nothing
@@ -179,12 +185,12 @@ dorsHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
 dorsHasMoreResults = lens _dorsHasMoreResults (\ s a -> s{_dorsHasMoreResults = a});
 
 -- | The starting point for the next page of results. To view the next page
--- of results, call @DescribeObjects@ again with this marker value. If the
+-- of results, call 'DescribeObjects' again with this marker value. If the
 -- value is null, there are no more results.
 dorsMarker :: Lens' DescribeObjectsResponse (Maybe Text)
 dorsMarker = lens _dorsMarker (\ s a -> s{_dorsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dorsStatus :: Lens' DescribeObjectsResponse Int
 dorsStatus = lens _dorsStatus (\ s a -> s{_dorsStatus = a});
 

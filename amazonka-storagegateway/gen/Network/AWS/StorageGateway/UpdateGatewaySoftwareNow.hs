@@ -21,10 +21,10 @@
 -- This operation updates the gateway virtual machine (VM) software. The
 -- request immediately triggers the software update.
 --
--- When you make this request, you get a @200 OK@ success response
+-- When you make this request, you get a '200 OK' success response
 -- immediately. However, it might take some time for the update to
 -- complete. You can call DescribeGatewayInformation to verify the gateway
--- is in the @STATE_RUNNING@ state.
+-- is in the 'STATE_RUNNING' state.
 --
 -- A software update forces a system restart of your gateway. You can
 -- minimize the chance of any disruption to your applications by increasing
@@ -39,14 +39,14 @@
 module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     (
     -- * Creating a Request
-      UpdateGatewaySoftwareNow
-    , updateGatewaySoftwareNow
+      updateGatewaySoftwareNow
+    , UpdateGatewaySoftwareNow
     -- * Request Lenses
     , ugsnGatewayARN
 
     -- * Destructuring the Response
-    , UpdateGatewaySoftwareNowResponse
     , updateGatewaySoftwareNowResponse
+    , UpdateGatewaySoftwareNowResponse
     -- * Response Lenses
     , ugsnrsGatewayARN
     , ugsnrsStatus
@@ -61,16 +61,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing the of the gateway to update.
 --
 -- /See:/ 'updateGatewaySoftwareNow' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ugsnGatewayARN'
 newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
     { _ugsnGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateGatewaySoftwareNow' smart constructor.
-updateGatewaySoftwareNow :: Text -> UpdateGatewaySoftwareNow
+-- | Creates a value of 'UpdateGatewaySoftwareNow' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ugsnGatewayARN'
+updateGatewaySoftwareNow
+    :: Text -- ^ 'ugsnGatewayARN'
+    -> UpdateGatewaySoftwareNow
 updateGatewaySoftwareNow pGatewayARN_ =
     UpdateGatewaySoftwareNow'
     { _ugsnGatewayARN = pGatewayARN_
@@ -114,19 +116,21 @@ instance ToQuery UpdateGatewaySoftwareNow where
 -- | A JSON object containing the of the gateway that was updated.
 --
 -- /See:/ 'updateGatewaySoftwareNowResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ugsnrsGatewayARN'
---
--- * 'ugsnrsStatus'
 data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
     { _ugsnrsGatewayARN :: !(Maybe Text)
     , _ugsnrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateGatewaySoftwareNowResponse' smart constructor.
-updateGatewaySoftwareNowResponse :: Int -> UpdateGatewaySoftwareNowResponse
+-- | Creates a value of 'UpdateGatewaySoftwareNowResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ugsnrsGatewayARN'
+--
+-- * 'ugsnrsStatus'
+updateGatewaySoftwareNowResponse
+    :: Int -- ^ 'ugsnrsStatus'
+    -> UpdateGatewaySoftwareNowResponse
 updateGatewaySoftwareNowResponse pStatus_ =
     UpdateGatewaySoftwareNowResponse'
     { _ugsnrsGatewayARN = Nothing
@@ -137,6 +141,6 @@ updateGatewaySoftwareNowResponse pStatus_ =
 ugsnrsGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
 ugsnrsGatewayARN = lens _ugsnrsGatewayARN (\ s a -> s{_ugsnrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 ugsnrsStatus :: Lens' UpdateGatewaySoftwareNowResponse Int
 ugsnrsStatus = lens _ugsnrsStatus (\ s a -> s{_ugsnrsStatus = a});

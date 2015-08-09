@@ -25,15 +25,15 @@
 module Network.AWS.CloudHSM.DescribeHSM
     (
     -- * Creating a Request
-      DescribeHSM
-    , describeHSM
+      describeHSM
+    , DescribeHSM
     -- * Request Lenses
     , dhsmHSMSerialNumber
     , dhsmHSMARN
 
     -- * Destructuring the Response
-    , DescribeHSMResponse
     , describeHSMResponse
+    , DescribeHSMResponse
     -- * Response Lenses
     , desrsIAMRoleARN
     , desrsEniId
@@ -67,19 +67,20 @@ import           Network.AWS.Response
 -- | Contains the inputs for the DescribeHsm action.
 --
 -- /See:/ 'describeHSM' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhsmHSMSerialNumber'
---
--- * 'dhsmHSMARN'
 data DescribeHSM = DescribeHSM'
     { _dhsmHSMSerialNumber :: !(Maybe Text)
     , _dhsmHSMARN          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeHSM' smart constructor.
-describeHSM :: DescribeHSM
+-- | Creates a value of 'DescribeHSM' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhsmHSMSerialNumber'
+--
+-- * 'dhsmHSMARN'
+describeHSM
+    :: DescribeHSM
 describeHSM =
     DescribeHSM'
     { _dhsmHSMSerialNumber = Nothing
@@ -150,8 +151,33 @@ instance ToQuery DescribeHSM where
 -- | Contains the output of the DescribeHsm action.
 --
 -- /See:/ 'describeHSMResponse' smart constructor.
+data DescribeHSMResponse = DescribeHSMResponse'
+    { _desrsIAMRoleARN            :: !(Maybe Text)
+    , _desrsEniId                 :: !(Maybe Text)
+    , _desrsSubscriptionEndDate   :: !(Maybe Text)
+    , _desrsVPCId                 :: !(Maybe Text)
+    , _desrsSSHKeyLastUpdated     :: !(Maybe Text)
+    , _desrsServerCertURI         :: !(Maybe Text)
+    , _desrsSubscriptionType      :: !(Maybe SubscriptionType)
+    , _desrsStatusDetails         :: !(Maybe Text)
+    , _desrsSSHPublicKey          :: !(Maybe Text)
+    , _desrsSubnetId              :: !(Maybe Text)
+    , _desrsPartitions            :: !(Maybe [Text])
+    , _desrsAvailabilityZone      :: !(Maybe Text)
+    , _desrsSubscriptionStartDate :: !(Maybe Text)
+    , _desrsServerCertLastUpdated :: !(Maybe Text)
+    , _desrsSoftwareVersion       :: !(Maybe Text)
+    , _desrsSerialNumber          :: !(Maybe Text)
+    , _desrsVendorName            :: !(Maybe Text)
+    , _desrsHSMARN                :: !(Maybe Text)
+    , _desrsEniIP                 :: !(Maybe Text)
+    , _desrsHSMType               :: !(Maybe Text)
+    , _desrsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeHSMResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'desrsIAMRoleARN'
 --
@@ -194,32 +220,9 @@ instance ToQuery DescribeHSM where
 -- * 'desrsHSMType'
 --
 -- * 'desrsStatus'
-data DescribeHSMResponse = DescribeHSMResponse'
-    { _desrsIAMRoleARN            :: !(Maybe Text)
-    , _desrsEniId                 :: !(Maybe Text)
-    , _desrsSubscriptionEndDate   :: !(Maybe Text)
-    , _desrsVPCId                 :: !(Maybe Text)
-    , _desrsSSHKeyLastUpdated     :: !(Maybe Text)
-    , _desrsServerCertURI         :: !(Maybe Text)
-    , _desrsSubscriptionType      :: !(Maybe SubscriptionType)
-    , _desrsStatusDetails         :: !(Maybe Text)
-    , _desrsSSHPublicKey          :: !(Maybe Text)
-    , _desrsSubnetId              :: !(Maybe Text)
-    , _desrsPartitions            :: !(Maybe [Text])
-    , _desrsAvailabilityZone      :: !(Maybe Text)
-    , _desrsSubscriptionStartDate :: !(Maybe Text)
-    , _desrsServerCertLastUpdated :: !(Maybe Text)
-    , _desrsSoftwareVersion       :: !(Maybe Text)
-    , _desrsSerialNumber          :: !(Maybe Text)
-    , _desrsVendorName            :: !(Maybe Text)
-    , _desrsHSMARN                :: !(Maybe Text)
-    , _desrsEniIP                 :: !(Maybe Text)
-    , _desrsHSMType               :: !(Maybe Text)
-    , _desrsStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeHSMResponse' smart constructor.
-describeHSMResponse :: Int -> DescribeHSMResponse
+describeHSMResponse
+    :: Int -- ^ 'desrsStatus'
+    -> DescribeHSMResponse
 describeHSMResponse pStatus_ =
     DescribeHSMResponse'
     { _desrsIAMRoleARN = Nothing
@@ -326,6 +329,6 @@ desrsEniIP = lens _desrsEniIP (\ s a -> s{_desrsEniIP = a});
 desrsHSMType :: Lens' DescribeHSMResponse (Maybe Text)
 desrsHSMType = lens _desrsHSMType (\ s a -> s{_desrsHSMType = a});
 
--- | Undocumented member.
+-- | The response status code.
 desrsStatus :: Lens' DescribeHSMResponse Int
 desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

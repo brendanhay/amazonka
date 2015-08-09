@@ -26,14 +26,14 @@
 module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     (
     -- * Creating a Request
-      DescribeMaintenanceStartTime
-    , describeMaintenanceStartTime
+      describeMaintenanceStartTime
+    , DescribeMaintenanceStartTime
     -- * Request Lenses
     , dmstGatewayARN
 
     -- * Destructuring the Response
-    , DescribeMaintenanceStartTimeResponse
     , describeMaintenanceStartTimeResponse
+    , DescribeMaintenanceStartTimeResponse
     -- * Response Lenses
     , dmstrsGatewayARN
     , dmstrsMinuteOfHour
@@ -52,16 +52,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing the of the gateway.
 --
 -- /See:/ 'describeMaintenanceStartTime' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmstGatewayARN'
 newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime'
     { _dmstGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeMaintenanceStartTime' smart constructor.
-describeMaintenanceStartTime :: Text -> DescribeMaintenanceStartTime
+-- | Creates a value of 'DescribeMaintenanceStartTime' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmstGatewayARN'
+describeMaintenanceStartTime
+    :: Text -- ^ 'dmstGatewayARN'
+    -> DescribeMaintenanceStartTime
 describeMaintenanceStartTime pGatewayARN_ =
     DescribeMaintenanceStartTime'
     { _dmstGatewayARN = pGatewayARN_
@@ -108,8 +110,18 @@ instance ToQuery DescribeMaintenanceStartTime where
         toQuery = const mempty
 
 -- | /See:/ 'describeMaintenanceStartTimeResponse' smart constructor.
+data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'
+    { _dmstrsGatewayARN   :: !(Maybe Text)
+    , _dmstrsMinuteOfHour :: !(Maybe Nat)
+    , _dmstrsHourOfDay    :: !(Maybe Nat)
+    , _dmstrsTimezone     :: !(Maybe Text)
+    , _dmstrsDayOfWeek    :: !(Maybe Nat)
+    , _dmstrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeMaintenanceStartTimeResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dmstrsGatewayARN'
 --
@@ -122,17 +134,9 @@ instance ToQuery DescribeMaintenanceStartTime where
 -- * 'dmstrsDayOfWeek'
 --
 -- * 'dmstrsStatus'
-data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'
-    { _dmstrsGatewayARN   :: !(Maybe Text)
-    , _dmstrsMinuteOfHour :: !(Maybe Nat)
-    , _dmstrsHourOfDay    :: !(Maybe Nat)
-    , _dmstrsTimezone     :: !(Maybe Text)
-    , _dmstrsDayOfWeek    :: !(Maybe Nat)
-    , _dmstrsStatus       :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeMaintenanceStartTimeResponse' smart constructor.
-describeMaintenanceStartTimeResponse :: Int -> DescribeMaintenanceStartTimeResponse
+describeMaintenanceStartTimeResponse
+    :: Int -- ^ 'dmstrsStatus'
+    -> DescribeMaintenanceStartTimeResponse
 describeMaintenanceStartTimeResponse pStatus_ =
     DescribeMaintenanceStartTimeResponse'
     { _dmstrsGatewayARN = Nothing
@@ -163,6 +167,6 @@ dmstrsTimezone = lens _dmstrsTimezone (\ s a -> s{_dmstrsTimezone = a});
 dmstrsDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrsDayOfWeek = lens _dmstrsDayOfWeek (\ s a -> s{_dmstrsDayOfWeek = a}) . mapping _Nat;
 
--- | Undocumented member.
+-- | The response status code.
 dmstrsStatus :: Lens' DescribeMaintenanceStartTimeResponse Int
 dmstrsStatus = lens _dmstrsStatus (\ s a -> s{_dmstrsStatus = a});

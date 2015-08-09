@@ -24,15 +24,15 @@
 module Network.AWS.CodeDeploy.GetDeploymentInstance
     (
     -- * Creating a Request
-      GetDeploymentInstance
-    , getDeploymentInstance
+      getDeploymentInstance
+    , GetDeploymentInstance
     -- * Request Lenses
     , gdiDeploymentId
     , gdiInstanceId
 
     -- * Destructuring the Response
-    , GetDeploymentInstanceResponse
     , getDeploymentInstanceResponse
+    , GetDeploymentInstanceResponse
     -- * Response Lenses
     , gdirsInstanceSummary
     , gdirsStatus
@@ -47,19 +47,22 @@ import           Network.AWS.Response
 -- | Represents the input of a get deployment instance operation.
 --
 -- /See:/ 'getDeploymentInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdiDeploymentId'
---
--- * 'gdiInstanceId'
 data GetDeploymentInstance = GetDeploymentInstance'
     { _gdiDeploymentId :: !Text
     , _gdiInstanceId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDeploymentInstance' smart constructor.
-getDeploymentInstance :: Text -> Text -> GetDeploymentInstance
+-- | Creates a value of 'GetDeploymentInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdiDeploymentId'
+--
+-- * 'gdiInstanceId'
+getDeploymentInstance
+    :: Text -- ^ 'gdiDeploymentId'
+    -> Text -- ^ 'gdiInstanceId'
+    -> GetDeploymentInstance
 getDeploymentInstance pDeploymentId_ pInstanceId_ =
     GetDeploymentInstance'
     { _gdiDeploymentId = pDeploymentId_
@@ -110,19 +113,21 @@ instance ToQuery GetDeploymentInstance where
 -- | Represents the output of a get deployment instance operation.
 --
 -- /See:/ 'getDeploymentInstanceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdirsInstanceSummary'
---
--- * 'gdirsStatus'
 data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
     { _gdirsInstanceSummary :: !(Maybe InstanceSummary)
     , _gdirsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDeploymentInstanceResponse' smart constructor.
-getDeploymentInstanceResponse :: Int -> GetDeploymentInstanceResponse
+-- | Creates a value of 'GetDeploymentInstanceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdirsInstanceSummary'
+--
+-- * 'gdirsStatus'
+getDeploymentInstanceResponse
+    :: Int -- ^ 'gdirsStatus'
+    -> GetDeploymentInstanceResponse
 getDeploymentInstanceResponse pStatus_ =
     GetDeploymentInstanceResponse'
     { _gdirsInstanceSummary = Nothing
@@ -133,6 +138,6 @@ getDeploymentInstanceResponse pStatus_ =
 gdirsInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummary)
 gdirsInstanceSummary = lens _gdirsInstanceSummary (\ s a -> s{_gdirsInstanceSummary = a});
 
--- | Undocumented member.
+-- | The response status code.
 gdirsStatus :: Lens' GetDeploymentInstanceResponse Int
 gdirsStatus = lens _gdirsStatus (\ s a -> s{_gdirsStatus = a});

@@ -47,7 +47,7 @@
 -- __Chef Versions__
 --
 -- When you call CreateStack, CloneStack, or UpdateStack we recommend you
--- use the @ConfigurationManager@ parameter to specify the Chef version.
+-- use the 'ConfigurationManager' parameter to specify the Chef version.
 -- The recommended value for Linux stacks, which is also the default value,
 -- is currently 11.10. Windows stacks use Chef 12.2. For more information,
 -- see
@@ -876,8 +876,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

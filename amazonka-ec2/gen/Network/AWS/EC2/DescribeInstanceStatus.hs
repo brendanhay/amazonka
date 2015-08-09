@@ -44,11 +44,13 @@
 --
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html AWS API Reference> for DescribeInstanceStatus.
+--
+-- This operation returns paginated results.
 module Network.AWS.EC2.DescribeInstanceStatus
     (
     -- * Creating a Request
-      DescribeInstanceStatus
-    , describeInstanceStatus
+      describeInstanceStatus
+    , DescribeInstanceStatus
     -- * Request Lenses
     , disIncludeAllInstances
     , disFilters
@@ -58,8 +60,8 @@ module Network.AWS.EC2.DescribeInstanceStatus
     , disMaxResults
 
     -- * Destructuring the Response
-    , DescribeInstanceStatusResponse
     , describeInstanceStatusResponse
+    , DescribeInstanceStatusResponse
     -- * Response Lenses
     , disrsInstanceStatuses
     , disrsNextToken
@@ -74,8 +76,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeInstanceStatus' smart constructor.
+data DescribeInstanceStatus = DescribeInstanceStatus'
+    { _disIncludeAllInstances :: !(Maybe Bool)
+    , _disFilters             :: !(Maybe [Filter])
+    , _disNextToken           :: !(Maybe Text)
+    , _disInstanceIds         :: !(Maybe [Text])
+    , _disDryRun              :: !(Maybe Bool)
+    , _disMaxResults          :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeInstanceStatus' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'disIncludeAllInstances'
 --
@@ -88,17 +100,8 @@ import           Network.AWS.Response
 -- * 'disDryRun'
 --
 -- * 'disMaxResults'
-data DescribeInstanceStatus = DescribeInstanceStatus'
-    { _disIncludeAllInstances :: !(Maybe Bool)
-    , _disFilters             :: !(Maybe [Filter])
-    , _disNextToken           :: !(Maybe Text)
-    , _disInstanceIds         :: !(Maybe [Text])
-    , _disDryRun              :: !(Maybe Bool)
-    , _disMaxResults          :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeInstanceStatus' smart constructor.
-describeInstanceStatus :: DescribeInstanceStatus
+describeInstanceStatus
+    :: DescribeInstanceStatus
 describeInstanceStatus =
     DescribeInstanceStatus'
     { _disIncludeAllInstances = Nothing
@@ -109,54 +112,54 @@ describeInstanceStatus =
     , _disMaxResults = Nothing
     }
 
--- | When @true@, includes the health status for all instances. When @false@,
+-- | When 'true', includes the health status for all instances. When 'false',
 -- includes the health status for running instances only.
 --
--- Default: @false@
+-- Default: 'false'
 disIncludeAllInstances :: Lens' DescribeInstanceStatus (Maybe Bool)
 disIncludeAllInstances = lens _disIncludeAllInstances (\ s a -> s{_disIncludeAllInstances = a});
 
 -- | One or more filters.
 --
--- -   @availability-zone@ - The Availability Zone of the instance.
+-- -   'availability-zone' - The Availability Zone of the instance.
 --
--- -   @event.code@ - The code for the scheduled event (@instance-reboot@ |
---     @system-reboot@ | @system-maintenance@ | @instance-retirement@ |
---     @instance-stop@).
+-- -   'event.code' - The code for the scheduled event ('instance-reboot' |
+--     'system-reboot' | 'system-maintenance' | 'instance-retirement' |
+--     'instance-stop').
 --
--- -   @event.description@ - A description of the event.
+-- -   'event.description' - A description of the event.
 --
--- -   @event.not-after@ - The latest end time for the scheduled event (for
---     example, @2014-09-15T17:15:20.000Z@).
+-- -   'event.not-after' - The latest end time for the scheduled event (for
+--     example, '2014-09-15T17:15:20.000Z').
 --
--- -   @event.not-before@ - The earliest start time for the scheduled event
---     (for example, @2014-09-15T17:15:20.000Z@).
+-- -   'event.not-before' - The earliest start time for the scheduled event
+--     (for example, '2014-09-15T17:15:20.000Z').
 --
--- -   @instance-state-code@ - The code for the instance state, as a 16-bit
+-- -   'instance-state-code' - The code for the instance state, as a 16-bit
 --     unsigned integer. The high byte is an opaque internal value and
 --     should be ignored. The low byte is set based on the state
 --     represented. The valid values are 0 (pending), 16 (running), 32
 --     (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
 --
--- -   @instance-state-name@ - The state of the instance (@pending@ |
---     @running@ | @shutting-down@ | @terminated@ | @stopping@ |
---     @stopped@).
+-- -   'instance-state-name' - The state of the instance ('pending' |
+--     'running' | 'shutting-down' | 'terminated' | 'stopping' |
+--     'stopped').
 --
--- -   @instance-status.reachability@ - Filters on instance status where
---     the name is @reachability@ (@passed@ | @failed@ | @initializing@ |
---     @insufficient-data@).
+-- -   'instance-status.reachability' - Filters on instance status where
+--     the name is 'reachability' ('passed' | 'failed' | 'initializing' |
+--     'insufficient-data').
 --
--- -   @instance-status.status@ - The status of the instance (@ok@ |
---     @impaired@ | @initializing@ | @insufficient-data@ |
---     @not-applicable@).
+-- -   'instance-status.status' - The status of the instance ('ok' |
+--     'impaired' | 'initializing' | 'insufficient-data' |
+--     'not-applicable').
 --
--- -   @system-status.reachability@ - Filters on system status where the
---     name is @reachability@ (@passed@ | @failed@ | @initializing@ |
---     @insufficient-data@).
+-- -   'system-status.reachability' - Filters on system status where the
+--     name is 'reachability' ('passed' | 'failed' | 'initializing' |
+--     'insufficient-data').
 --
--- -   @system-status.status@ - The system status of the instance (@ok@ |
---     @impaired@ | @initializing@ | @insufficient-data@ |
---     @not-applicable@).
+-- -   'system-status.status' - The system status of the instance ('ok' |
+--     'impaired' | 'initializing' | 'insufficient-data' |
+--     'not-applicable').
 --
 disFilters :: Lens' DescribeInstanceStatus [Filter]
 disFilters = lens _disFilters (\ s a -> s{_disFilters = a}) . _Default . _Coerce;
@@ -175,15 +178,15 @@ disInstanceIds = lens _disInstanceIds (\ s a -> s{_disInstanceIds = a}) . _Defau
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 disDryRun :: Lens' DescribeInstanceStatus (Maybe Bool)
 disDryRun = lens _disDryRun (\ s a -> s{_disDryRun = a});
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results of the initial request can be seen by
--- sending another request with the returned @NextToken@ value. This value
--- can be between 5 and 1000; if @MaxResults@ is given a value larger than
+-- sending another request with the returned 'NextToken' value. This value
+-- can be between 5 and 1000; if 'MaxResults' is given a value larger than
 -- 1000, only 1000 results are returned. You cannot specify this parameter
 -- and the instance IDs parameter in the same request.
 disMaxResults :: Lens' DescribeInstanceStatus (Maybe Int)
@@ -231,22 +234,24 @@ instance ToQuery DescribeInstanceStatus where
                "MaxResults" =: _disMaxResults]
 
 -- | /See:/ 'describeInstanceStatusResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'disrsInstanceStatuses'
---
--- * 'disrsNextToken'
---
--- * 'disrsStatus'
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
     { _disrsInstanceStatuses :: !(Maybe [InstanceStatus])
     , _disrsNextToken        :: !(Maybe Text)
     , _disrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeInstanceStatusResponse' smart constructor.
-describeInstanceStatusResponse :: Int -> DescribeInstanceStatusResponse
+-- | Creates a value of 'DescribeInstanceStatusResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'disrsInstanceStatuses'
+--
+-- * 'disrsNextToken'
+--
+-- * 'disrsStatus'
+describeInstanceStatusResponse
+    :: Int -- ^ 'disrsStatus'
+    -> DescribeInstanceStatusResponse
 describeInstanceStatusResponse pStatus_ =
     DescribeInstanceStatusResponse'
     { _disrsInstanceStatuses = Nothing
@@ -259,10 +264,10 @@ disrsInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
 disrsInstanceStatuses = lens _disrsInstanceStatuses (\ s a -> s{_disrsInstanceStatuses = a}) . _Default . _Coerce;
 
 -- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'null' when there are no more results to return.
 disrsNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 disrsNextToken = lens _disrsNextToken (\ s a -> s{_disrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 disrsStatus :: Lens' DescribeInstanceStatusResponse Int
 disrsStatus = lens _disrsStatus (\ s a -> s{_disrsStatus = a});

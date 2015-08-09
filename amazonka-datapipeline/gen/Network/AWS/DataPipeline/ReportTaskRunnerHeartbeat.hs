@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Task runners call @ReportTaskRunnerHeartbeat@ every 15 minutes to
+-- Task runners call 'ReportTaskRunnerHeartbeat' every 15 minutes to
 -- indicate that they are operational. If the AWS Data Pipeline Task Runner
 -- is launched on a resource managed by AWS Data Pipeline, the web service
 -- can use this call to detect when the task runner application has failed
@@ -28,16 +28,16 @@
 module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     (
     -- * Creating a Request
-      ReportTaskRunnerHeartbeat
-    , reportTaskRunnerHeartbeat
+      reportTaskRunnerHeartbeat
+    , ReportTaskRunnerHeartbeat
     -- * Request Lenses
     , rtrhHostname
     , rtrhWorkerGroup
     , rtrhTaskrunnerId
 
     -- * Destructuring the Response
-    , ReportTaskRunnerHeartbeatResponse
     , reportTaskRunnerHeartbeatResponse
+    , ReportTaskRunnerHeartbeatResponse
     -- * Response Lenses
     , rtrhrsStatus
     , rtrhrsTerminate
@@ -52,22 +52,24 @@ import           Network.AWS.Response
 -- | Contains the parameters for ReportTaskRunnerHeartbeat.
 --
 -- /See:/ 'reportTaskRunnerHeartbeat' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtrhHostname'
---
--- * 'rtrhWorkerGroup'
---
--- * 'rtrhTaskrunnerId'
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
     { _rtrhHostname     :: !(Maybe Text)
     , _rtrhWorkerGroup  :: !(Maybe Text)
     , _rtrhTaskrunnerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReportTaskRunnerHeartbeat' smart constructor.
-reportTaskRunnerHeartbeat :: Text -> ReportTaskRunnerHeartbeat
+-- | Creates a value of 'ReportTaskRunnerHeartbeat' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtrhHostname'
+--
+-- * 'rtrhWorkerGroup'
+--
+-- * 'rtrhTaskrunnerId'
+reportTaskRunnerHeartbeat
+    :: Text -- ^ 'rtrhTaskrunnerId'
+    -> ReportTaskRunnerHeartbeat
 reportTaskRunnerHeartbeat pTaskrunnerId_ =
     ReportTaskRunnerHeartbeat'
     { _rtrhHostname = Nothing
@@ -81,8 +83,8 @@ rtrhHostname = lens _rtrhHostname (\ s a -> s{_rtrhHostname = a});
 
 -- | The type of task the task runner is configured to accept and process.
 -- The worker group is set as a field on objects in the pipeline when they
--- are created. You can only specify a single value for @workerGroup@.
--- There are no wildcard values permitted in @workerGroup@; the string must
+-- are created. You can only specify a single value for 'workerGroup'.
+-- There are no wildcard values permitted in 'workerGroup'; the string must
 -- be an exact, case-sensitive, match.
 rtrhWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
 rtrhWorkerGroup = lens _rtrhWorkerGroup (\ s a -> s{_rtrhWorkerGroup = a});
@@ -133,26 +135,29 @@ instance ToQuery ReportTaskRunnerHeartbeat where
 -- | Contains the output of ReportTaskRunnerHeartbeat.
 --
 -- /See:/ 'reportTaskRunnerHeartbeatResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtrhrsStatus'
---
--- * 'rtrhrsTerminate'
 data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
     { _rtrhrsStatus    :: !Int
     , _rtrhrsTerminate :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReportTaskRunnerHeartbeatResponse' smart constructor.
-reportTaskRunnerHeartbeatResponse :: Int -> Bool -> ReportTaskRunnerHeartbeatResponse
+-- | Creates a value of 'ReportTaskRunnerHeartbeatResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtrhrsStatus'
+--
+-- * 'rtrhrsTerminate'
+reportTaskRunnerHeartbeatResponse
+    :: Int -- ^ 'rtrhrsStatus'
+    -> Bool -- ^ 'rtrhrsTerminate'
+    -> ReportTaskRunnerHeartbeatResponse
 reportTaskRunnerHeartbeatResponse pStatus_ pTerminate_ =
     ReportTaskRunnerHeartbeatResponse'
     { _rtrhrsStatus = pStatus_
     , _rtrhrsTerminate = pTerminate_
     }
 
--- | Undocumented member.
+-- | The response status code.
 rtrhrsStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
 rtrhrsStatus = lens _rtrhrsStatus (\ s a -> s{_rtrhrsStatus = a});
 

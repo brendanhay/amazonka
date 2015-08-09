@@ -20,7 +20,7 @@
 --
 -- Records a heartbeat for the lifecycle action associated with a specific
 -- token. This extends the timeout by the length of time defined by the
--- @HeartbeatTimeout@ parameter of PutLifecycleHook.
+-- 'HeartbeatTimeout' parameter of PutLifecycleHook.
 --
 -- This operation is a part of the basic sequence for adding a lifecycle
 -- hook to an Auto Scaling group:
@@ -45,16 +45,16 @@
 module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     (
     -- * Creating a Request
-      RecordLifecycleActionHeartbeat
-    , recordLifecycleActionHeartbeat
+      recordLifecycleActionHeartbeat
+    , RecordLifecycleActionHeartbeat
     -- * Request Lenses
     , rlahLifecycleHookName
     , rlahAutoScalingGroupName
     , rlahLifecycleActionToken
 
     -- * Destructuring the Response
-    , RecordLifecycleActionHeartbeatResponse
     , recordLifecycleActionHeartbeatResponse
+    , RecordLifecycleActionHeartbeatResponse
     -- * Response Lenses
     , rlahrsStatus
     ) where
@@ -66,22 +66,26 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'recordLifecycleActionHeartbeat' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rlahLifecycleHookName'
---
--- * 'rlahAutoScalingGroupName'
---
--- * 'rlahLifecycleActionToken'
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
     { _rlahLifecycleHookName    :: !Text
     , _rlahAutoScalingGroupName :: !Text
     , _rlahLifecycleActionToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RecordLifecycleActionHeartbeat' smart constructor.
-recordLifecycleActionHeartbeat :: Text -> Text -> Text -> RecordLifecycleActionHeartbeat
+-- | Creates a value of 'RecordLifecycleActionHeartbeat' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rlahLifecycleHookName'
+--
+-- * 'rlahAutoScalingGroupName'
+--
+-- * 'rlahLifecycleActionToken'
+recordLifecycleActionHeartbeat
+    :: Text -- ^ 'rlahLifecycleHookName'
+    -> Text -- ^ 'rlahAutoScalingGroupName'
+    -> Text -- ^ 'rlahLifecycleActionToken'
+    -> RecordLifecycleActionHeartbeat
 recordLifecycleActionHeartbeat pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleActionToken_ =
     RecordLifecycleActionHeartbeat'
     { _rlahLifecycleHookName = pLifecycleHookName_
@@ -134,21 +138,23 @@ instance ToQuery RecordLifecycleActionHeartbeat where
                "LifecycleActionToken" =: _rlahLifecycleActionToken]
 
 -- | /See:/ 'recordLifecycleActionHeartbeatResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rlahrsStatus'
 newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'
     { _rlahrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RecordLifecycleActionHeartbeatResponse' smart constructor.
-recordLifecycleActionHeartbeatResponse :: Int -> RecordLifecycleActionHeartbeatResponse
+-- | Creates a value of 'RecordLifecycleActionHeartbeatResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rlahrsStatus'
+recordLifecycleActionHeartbeatResponse
+    :: Int -- ^ 'rlahrsStatus'
+    -> RecordLifecycleActionHeartbeatResponse
 recordLifecycleActionHeartbeatResponse pStatus_ =
     RecordLifecycleActionHeartbeatResponse'
     { _rlahrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 rlahrsStatus :: Lens' RecordLifecycleActionHeartbeatResponse Int
 rlahrsStatus = lens _rlahrsStatus (\ s a -> s{_rlahrsStatus = a});

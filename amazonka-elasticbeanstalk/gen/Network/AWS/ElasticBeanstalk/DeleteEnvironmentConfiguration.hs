@@ -23,7 +23,7 @@
 -- Updating a running environment with any configuration changes creates a
 -- draft configuration set. You can get the draft configuration using
 -- DescribeConfigurationSettings while the update is in progress or if the
--- update fails. The @DeploymentStatus@ for the draft configuration
+-- update fails. The 'DeploymentStatus' for the draft configuration
 -- indicates whether the deployment is in process or has failed. The draft
 -- configuration remains in existence until it is deleted with this action.
 --
@@ -31,15 +31,15 @@
 module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     (
     -- * Creating a Request
-      DeleteEnvironmentConfiguration
-    , deleteEnvironmentConfiguration
+      deleteEnvironmentConfiguration
+    , DeleteEnvironmentConfiguration
     -- * Request Lenses
     , decApplicationName
     , decEnvironmentName
 
     -- * Destructuring the Response
-    , DeleteEnvironmentConfigurationResponse
     , deleteEnvironmentConfigurationResponse
+    , DeleteEnvironmentConfigurationResponse
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -51,19 +51,22 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'deleteEnvironmentConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'decApplicationName'
---
--- * 'decEnvironmentName'
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
     { _decApplicationName :: !Text
     , _decEnvironmentName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEnvironmentConfiguration' smart constructor.
-deleteEnvironmentConfiguration :: Text -> Text -> DeleteEnvironmentConfiguration
+-- | Creates a value of 'DeleteEnvironmentConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'decApplicationName'
+--
+-- * 'decEnvironmentName'
+deleteEnvironmentConfiguration
+    :: Text -- ^ 'decApplicationName'
+    -> Text -- ^ 'decEnvironmentName'
+    -> DeleteEnvironmentConfiguration
 deleteEnvironmentConfiguration pApplicationName_ pEnvironmentName_ =
     DeleteEnvironmentConfiguration'
     { _decApplicationName = pApplicationName_
@@ -109,7 +112,9 @@ data DeleteEnvironmentConfigurationResponse =
     DeleteEnvironmentConfigurationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEnvironmentConfigurationResponse' smart constructor.
-deleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse
+-- | Creates a value of 'DeleteEnvironmentConfigurationResponse' with the minimum fields required to make a request.
+--
+deleteEnvironmentConfigurationResponse
+    :: DeleteEnvironmentConfigurationResponse
 deleteEnvironmentConfigurationResponse =
     DeleteEnvironmentConfigurationResponse'

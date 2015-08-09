@@ -24,15 +24,15 @@
 module Network.AWS.StorageGateway.DeleteTape
     (
     -- * Creating a Request
-      DeleteTape
-    , deleteTape
+      deleteTape
+    , DeleteTape
     -- * Request Lenses
     , dttGatewayARN
     , dttTapeARN
 
     -- * Destructuring the Response
-    , DeleteTapeResponse
     , deleteTapeResponse
+    , DeleteTapeResponse
     -- * Response Lenses
     , dtrsTapeARN
     , dtrsStatus
@@ -47,19 +47,22 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | DeleteTapeInput
 --
 -- /See:/ 'deleteTape' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dttGatewayARN'
---
--- * 'dttTapeARN'
 data DeleteTape = DeleteTape'
     { _dttGatewayARN :: !Text
     , _dttTapeARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTape' smart constructor.
-deleteTape :: Text -> Text -> DeleteTape
+-- | Creates a value of 'DeleteTape' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dttGatewayARN'
+--
+-- * 'dttTapeARN'
+deleteTape
+    :: Text -- ^ 'dttGatewayARN'
+    -> Text -- ^ 'dttTapeARN'
+    -> DeleteTape
 deleteTape pGatewayARN_ pTapeARN_ =
     DeleteTape'
     { _dttGatewayARN = pGatewayARN_
@@ -110,19 +113,21 @@ instance ToQuery DeleteTape where
 -- | DeleteTapeOutput
 --
 -- /See:/ 'deleteTapeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtrsTapeARN'
---
--- * 'dtrsStatus'
 data DeleteTapeResponse = DeleteTapeResponse'
     { _dtrsTapeARN :: !(Maybe Text)
     , _dtrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTapeResponse' smart constructor.
-deleteTapeResponse :: Int -> DeleteTapeResponse
+-- | Creates a value of 'DeleteTapeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtrsTapeARN'
+--
+-- * 'dtrsStatus'
+deleteTapeResponse
+    :: Int -- ^ 'dtrsStatus'
+    -> DeleteTapeResponse
 deleteTapeResponse pStatus_ =
     DeleteTapeResponse'
     { _dtrsTapeARN = Nothing
@@ -133,6 +138,6 @@ deleteTapeResponse pStatus_ =
 dtrsTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrsTapeARN = lens _dtrsTapeARN (\ s a -> s{_dtrsTapeARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 dtrsStatus :: Lens' DeleteTapeResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

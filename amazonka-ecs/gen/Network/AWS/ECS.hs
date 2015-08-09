@@ -85,7 +85,6 @@ module Network.AWS.ECS
 
     -- ** ListServices (Paginated)
     , module Network.AWS.ECS.ListServices
-    -- $pager
 
     -- ** DescribeClusters
     , module Network.AWS.ECS.DescribeClusters
@@ -122,18 +121,15 @@ module Network.AWS.ECS
 
     -- ** ListTaskDefinitions (Paginated)
     , module Network.AWS.ECS.ListTaskDefinitions
-    -- $pager
 
     -- ** ListTasks (Paginated)
     , module Network.AWS.ECS.ListTasks
-    -- $pager
 
     -- ** RunTask
     , module Network.AWS.ECS.RunTask
 
     -- ** ListContainerInstances (Paginated)
     , module Network.AWS.ECS.ListContainerInstances
-    -- $pager
 
     -- ** RegisterContainerInstance
     , module Network.AWS.ECS.RegisterContainerInstance
@@ -143,7 +139,6 @@ module Network.AWS.ECS
 
     -- ** ListTaskDefinitionFamilies (Paginated)
     , module Network.AWS.ECS.ListTaskDefinitionFamilies
-    -- $pager
 
     -- ** StartTask
     , module Network.AWS.ECS.StartTask
@@ -156,7 +151,6 @@ module Network.AWS.ECS
 
     -- ** ListClusters (Paginated)
     , module Network.AWS.ECS.ListClusters
-    -- $pager
 
     -- ** DescribeServices
     , module Network.AWS.ECS.DescribeServices
@@ -443,8 +437,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

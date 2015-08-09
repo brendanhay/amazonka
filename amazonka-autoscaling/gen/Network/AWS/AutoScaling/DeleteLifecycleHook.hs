@@ -21,22 +21,22 @@
 -- Deletes the specified lifecycle hook.
 --
 -- If there are any outstanding lifecycle actions, they are completed first
--- (@ABANDON@ for launching instances, @CONTINUE@ for terminating
+-- ('ABANDON' for launching instances, 'CONTINUE' for terminating
 -- instances).
 --
 -- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLifecycleHook.html AWS API Reference> for DeleteLifecycleHook.
 module Network.AWS.AutoScaling.DeleteLifecycleHook
     (
     -- * Creating a Request
-      DeleteLifecycleHook
-    , deleteLifecycleHook
+      deleteLifecycleHook
+    , DeleteLifecycleHook
     -- * Request Lenses
     , delLifecycleHookName
     , delAutoScalingGroupName
 
     -- * Destructuring the Response
-    , DeleteLifecycleHookResponse
     , deleteLifecycleHookResponse
+    , DeleteLifecycleHookResponse
     -- * Response Lenses
     , drsStatus
     ) where
@@ -48,19 +48,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteLifecycleHook' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delLifecycleHookName'
---
--- * 'delAutoScalingGroupName'
 data DeleteLifecycleHook = DeleteLifecycleHook'
     { _delLifecycleHookName    :: !Text
     , _delAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLifecycleHook' smart constructor.
-deleteLifecycleHook :: Text -> Text -> DeleteLifecycleHook
+-- | Creates a value of 'DeleteLifecycleHook' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delLifecycleHookName'
+--
+-- * 'delAutoScalingGroupName'
+deleteLifecycleHook
+    :: Text -- ^ 'delLifecycleHookName'
+    -> Text -- ^ 'delAutoScalingGroupName'
+    -> DeleteLifecycleHook
 deleteLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
     DeleteLifecycleHook'
     { _delLifecycleHookName = pLifecycleHookName_
@@ -100,21 +103,23 @@ instance ToQuery DeleteLifecycleHook where
                "AutoScalingGroupName" =: _delAutoScalingGroupName]
 
 -- | /See:/ 'deleteLifecycleHookResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsStatus'
 newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
     { _drsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLifecycleHookResponse' smart constructor.
-deleteLifecycleHookResponse :: Int -> DeleteLifecycleHookResponse
+-- | Creates a value of 'DeleteLifecycleHookResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsStatus'
+deleteLifecycleHookResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeleteLifecycleHookResponse
 deleteLifecycleHookResponse pStatus_ =
     DeleteLifecycleHookResponse'
     { _drsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeleteLifecycleHookResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

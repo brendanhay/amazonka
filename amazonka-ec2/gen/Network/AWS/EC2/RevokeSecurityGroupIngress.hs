@@ -34,8 +34,8 @@
 module Network.AWS.EC2.RevokeSecurityGroupIngress
     (
     -- * Creating a Request
-      RevokeSecurityGroupIngress
-    , revokeSecurityGroupIngress
+      revokeSecurityGroupIngress
+    , RevokeSecurityGroupIngress
     -- * Request Lenses
     , rsgiFromPort
     , rsgiIPPermissions
@@ -49,8 +49,8 @@ module Network.AWS.EC2.RevokeSecurityGroupIngress
     , rsgiDryRun
 
     -- * Destructuring the Response
-    , RevokeSecurityGroupIngressResponse
     , revokeSecurityGroupIngressResponse
+    , RevokeSecurityGroupIngressResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -60,8 +60,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'revokeSecurityGroupIngress' smart constructor.
+data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
+    { _rsgiFromPort                   :: !(Maybe Int)
+    , _rsgiIPPermissions              :: !(Maybe [IPPermission])
+    , _rsgiIPProtocol                 :: !(Maybe Text)
+    , _rsgiGroupId                    :: !(Maybe Text)
+    , _rsgiToPort                     :: !(Maybe Int)
+    , _rsgiCIdRIP                     :: !(Maybe Text)
+    , _rsgiGroupName                  :: !(Maybe Text)
+    , _rsgiSourceSecurityGroupOwnerId :: !(Maybe Text)
+    , _rsgiSourceSecurityGroupName    :: !(Maybe Text)
+    , _rsgiDryRun                     :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RevokeSecurityGroupIngress' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rsgiFromPort'
 --
@@ -82,21 +96,8 @@ import           Network.AWS.Response
 -- * 'rsgiSourceSecurityGroupName'
 --
 -- * 'rsgiDryRun'
-data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
-    { _rsgiFromPort                   :: !(Maybe Int)
-    , _rsgiIPPermissions              :: !(Maybe [IPPermission])
-    , _rsgiIPProtocol                 :: !(Maybe Text)
-    , _rsgiGroupId                    :: !(Maybe Text)
-    , _rsgiToPort                     :: !(Maybe Int)
-    , _rsgiCIdRIP                     :: !(Maybe Text)
-    , _rsgiGroupName                  :: !(Maybe Text)
-    , _rsgiSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _rsgiSourceSecurityGroupName    :: !(Maybe Text)
-    , _rsgiDryRun                     :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RevokeSecurityGroupIngress' smart constructor.
-revokeSecurityGroupIngress :: RevokeSecurityGroupIngress
+revokeSecurityGroupIngress
+    :: RevokeSecurityGroupIngress
 revokeSecurityGroupIngress =
     RevokeSecurityGroupIngress'
     { _rsgiFromPort = Nothing
@@ -112,7 +113,7 @@ revokeSecurityGroupIngress =
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use @-1@ to specify all ICMP types.
+-- number. For the ICMP type number, use '-1' to specify all ICMP types.
 rsgiFromPort :: Lens' RevokeSecurityGroupIngress (Maybe Int)
 rsgiFromPort = lens _rsgiFromPort (\ s a -> s{_rsgiFromPort = a});
 
@@ -121,9 +122,9 @@ rsgiFromPort = lens _rsgiFromPort (\ s a -> s{_rsgiFromPort = a});
 rsgiIPPermissions :: Lens' RevokeSecurityGroupIngress [IPPermission]
 rsgiIPPermissions = lens _rsgiIPPermissions (\ s a -> s{_rsgiIPPermissions = a}) . _Default . _Coerce;
 
--- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
+-- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
--- Use @-1@ to specify all.
+-- Use '-1' to specify all.
 rsgiIPProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiIPProtocol = lens _rsgiIPProtocol (\ s a -> s{_rsgiIPProtocol = a});
 
@@ -133,7 +134,7 @@ rsgiGroupId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiGroupId = lens _rsgiGroupId (\ s a -> s{_rsgiGroupId = a});
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use @-1@ to specify all ICMP codes for
+-- number. For the ICMP code number, use '-1' to specify all ICMP codes for
 -- the ICMP type.
 rsgiToPort :: Lens' RevokeSecurityGroupIngress (Maybe Int)
 rsgiToPort = lens _rsgiToPort (\ s a -> s{_rsgiToPort = a});
@@ -166,8 +167,8 @@ rsgiSourceSecurityGroupName = lens _rsgiSourceSecurityGroupName (\ s a -> s{_rsg
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 rsgiDryRun :: Lens' RevokeSecurityGroupIngress (Maybe Bool)
 rsgiDryRun = lens _rsgiDryRun (\ s a -> s{_rsgiDryRun = a});
 
@@ -208,6 +209,8 @@ data RevokeSecurityGroupIngressResponse =
     RevokeSecurityGroupIngressResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RevokeSecurityGroupIngressResponse' smart constructor.
-revokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse
+-- | Creates a value of 'RevokeSecurityGroupIngressResponse' with the minimum fields required to make a request.
+--
+revokeSecurityGroupIngressResponse
+    :: RevokeSecurityGroupIngressResponse
 revokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse'

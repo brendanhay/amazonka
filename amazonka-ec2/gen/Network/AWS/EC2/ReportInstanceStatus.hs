@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Submits feedback about the status of an instance. The instance must be
--- in the @running@ state. If your experience with the instance differs
+-- in the 'running' state. If your experience with the instance differs
 -- from the instance status returned by DescribeInstanceStatus, use
 -- ReportInstanceStatus to report your experience with the instance. Amazon
 -- EC2 collects this information to improve the accuracy of status checks.
@@ -31,8 +31,8 @@
 module Network.AWS.EC2.ReportInstanceStatus
     (
     -- * Creating a Request
-      ReportInstanceStatus
-    , reportInstanceStatus
+      reportInstanceStatus
+    , ReportInstanceStatus
     -- * Request Lenses
     , risStartTime
     , risEndTime
@@ -43,8 +43,8 @@ module Network.AWS.EC2.ReportInstanceStatus
     , risReasonCodes
 
     -- * Destructuring the Response
-    , ReportInstanceStatusResponse
     , reportInstanceStatusResponse
+    , ReportInstanceStatusResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -54,8 +54,19 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'reportInstanceStatus' smart constructor.
+data ReportInstanceStatus = ReportInstanceStatus'
+    { _risStartTime   :: !(Maybe ISO8601)
+    , _risEndTime     :: !(Maybe ISO8601)
+    , _risDryRun      :: !(Maybe Bool)
+    , _risDescription :: !(Maybe Text)
+    , _risInstances   :: ![Text]
+    , _risStatus      :: !ReportStatusType
+    , _risReasonCodes :: ![ReportInstanceReasonCodes]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReportInstanceStatus' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'risStartTime'
 --
@@ -70,18 +81,9 @@ import           Network.AWS.Response
 -- * 'risStatus'
 --
 -- * 'risReasonCodes'
-data ReportInstanceStatus = ReportInstanceStatus'
-    { _risStartTime   :: !(Maybe ISO8601)
-    , _risEndTime     :: !(Maybe ISO8601)
-    , _risDryRun      :: !(Maybe Bool)
-    , _risDescription :: !(Maybe Text)
-    , _risInstances   :: ![Text]
-    , _risStatus      :: !ReportStatusType
-    , _risReasonCodes :: ![ReportInstanceReasonCodes]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReportInstanceStatus' smart constructor.
-reportInstanceStatus :: ReportStatusType -> ReportInstanceStatus
+reportInstanceStatus
+    :: ReportStatusType -- ^ 'risStatus'
+    -> ReportInstanceStatus
 reportInstanceStatus pStatus_ =
     ReportInstanceStatus'
     { _risStartTime = Nothing
@@ -103,8 +105,8 @@ risEndTime = lens _risEndTime (\ s a -> s{_risEndTime = a}) . mapping _Time;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 risDryRun :: Lens' ReportInstanceStatus (Maybe Bool)
 risDryRun = lens _risDryRun (\ s a -> s{_risDryRun = a});
 
@@ -123,30 +125,30 @@ risStatus = lens _risStatus (\ s a -> s{_risStatus = a});
 -- | One or more reason codes that describes the health state of your
 -- instance.
 --
--- -   @instance-stuck-in-state@: My instance is stuck in a state.
+-- -   'instance-stuck-in-state': My instance is stuck in a state.
 --
--- -   @unresponsive@: My instance is unresponsive.
+-- -   'unresponsive': My instance is unresponsive.
 --
--- -   @not-accepting-credentials@: My instance is not accepting my
+-- -   'not-accepting-credentials': My instance is not accepting my
 --     credentials.
 --
--- -   @password-not-available@: A password is not available for my
+-- -   'password-not-available': A password is not available for my
 --     instance.
 --
--- -   @performance-network@: My instance is experiencing performance
+-- -   'performance-network': My instance is experiencing performance
 --     problems which I believe are network related.
 --
--- -   @performance-instance-store@: My instance is experiencing
+-- -   'performance-instance-store': My instance is experiencing
 --     performance problems which I believe are related to the instance
 --     stores.
 --
--- -   @performance-ebs-volume@: My instance is experiencing performance
+-- -   'performance-ebs-volume': My instance is experiencing performance
 --     problems which I believe are related to an EBS volume.
 --
--- -   @performance-other@: My instance is experiencing performance
+-- -   'performance-other': My instance is experiencing performance
 --     problems.
 --
--- -   @other@: [explain using the description parameter]
+-- -   'other': [explain using the description parameter]
 --
 risReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
 risReasonCodes = lens _risReasonCodes (\ s a -> s{_risReasonCodes = a}) . _Coerce;
@@ -181,6 +183,8 @@ data ReportInstanceStatusResponse =
     ReportInstanceStatusResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReportInstanceStatusResponse' smart constructor.
-reportInstanceStatusResponse :: ReportInstanceStatusResponse
+-- | Creates a value of 'ReportInstanceStatusResponse' with the minimum fields required to make a request.
+--
+reportInstanceStatusResponse
+    :: ReportInstanceStatusResponse
 reportInstanceStatusResponse = ReportInstanceStatusResponse'

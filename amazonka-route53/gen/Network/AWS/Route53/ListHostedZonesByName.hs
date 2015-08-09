@@ -19,12 +19,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- To retrieve a list of your hosted zones in lexicographic order, send a
--- @GET@ request to the @2013-04-01\/hostedzonesbyname@ resource. The
--- response to this request includes a @HostedZones@ element with zero or
--- more @HostedZone@ child elements lexicographically ordered by DNS name.
+-- 'GET' request to the '2013-04-01\/hostedzonesbyname' resource. The
+-- response to this request includes a 'HostedZones' element with zero or
+-- more 'HostedZone' child elements lexicographically ordered by DNS name.
 -- By default, the list of hosted zones is displayed on a single page. You
 -- can control the length of the page that is displayed by using the
--- @MaxItems@ parameter. You can use the @DNSName@ and @HostedZoneId@
+-- 'MaxItems' parameter. You can use the 'DNSName' and 'HostedZoneId'
 -- parameters to control the hosted zone that the list begins with.
 --
 -- Amazon Route 53 returns a maximum of 100 items. If you set MaxItems to a
@@ -34,16 +34,16 @@
 module Network.AWS.Route53.ListHostedZonesByName
     (
     -- * Creating a Request
-      ListHostedZonesByName
-    , listHostedZonesByName
+      listHostedZonesByName
+    , ListHostedZonesByName
     -- * Request Lenses
     , lhzbnHostedZoneId
     , lhzbnMaxItems
     , lhzbnDNSName
 
     -- * Destructuring the Response
-    , ListHostedZonesByNameResponse
     , listHostedZonesByNameResponse
+    , ListHostedZonesByNameResponse
     -- * Response Lenses
     , lhzbnrsHostedZoneId
     , lhzbnrsNextHostedZoneId
@@ -62,12 +62,12 @@ import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
 -- | To retrieve a list of your hosted zones in lexicographic order, send a
--- @GET@ request to the @2013-04-01\/hostedzonesbyname@ resource. The
--- response to this request includes a @HostedZones@ element with zero or
--- more @HostedZone@ child elements lexicographically ordered by DNS name.
+-- 'GET' request to the '2013-04-01\/hostedzonesbyname' resource. The
+-- response to this request includes a 'HostedZones' element with zero or
+-- more 'HostedZone' child elements lexicographically ordered by DNS name.
 -- By default, the list of hosted zones is displayed on a single page. You
 -- can control the length of the page that is displayed by using the
--- @MaxItems@ parameter. You can use the @DNSName@ and @HostedZoneId@
+-- 'MaxItems' parameter. You can use the 'DNSName' and 'HostedZoneId'
 -- parameters to control the hosted zone that the list begins with.
 --
 -- For more information about listing hosted zones, see
@@ -75,22 +75,23 @@ import           Network.AWS.Route53.Types.Product
 -- in the /Amazon Route 53 Developer Guide/.
 --
 -- /See:/ 'listHostedZonesByName' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lhzbnHostedZoneId'
---
--- * 'lhzbnMaxItems'
---
--- * 'lhzbnDNSName'
 data ListHostedZonesByName = ListHostedZonesByName'
     { _lhzbnHostedZoneId :: !(Maybe Text)
     , _lhzbnMaxItems     :: !(Maybe Text)
     , _lhzbnDNSName      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListHostedZonesByName' smart constructor.
-listHostedZonesByName :: ListHostedZonesByName
+-- | Creates a value of 'ListHostedZonesByName' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lhzbnHostedZoneId'
+--
+-- * 'lhzbnMaxItems'
+--
+-- * 'lhzbnDNSName'
+listHostedZonesByName
+    :: ListHostedZonesByName
 listHostedZonesByName =
     ListHostedZonesByName'
     { _lhzbnHostedZoneId = Nothing
@@ -99,8 +100,8 @@ listHostedZonesByName =
     }
 
 -- | If the request returned more than one page of results, submit another
--- request and specify the value of @NextDNSName@ and @NextHostedZoneId@
--- from the last response in the @DNSName@ and @HostedZoneId@ parameters to
+-- request and specify the value of 'NextDNSName' and 'NextHostedZoneId'
+-- from the last response in the 'DNSName' and 'HostedZoneId' parameters to
 -- get the next page of results.
 lhzbnHostedZoneId :: Lens' ListHostedZonesByName (Maybe Text)
 lhzbnHostedZoneId = lens _lhzbnHostedZoneId (\ s a -> s{_lhzbnHostedZoneId = a});
@@ -111,11 +112,11 @@ lhzbnMaxItems :: Lens' ListHostedZonesByName (Maybe Text)
 lhzbnMaxItems = lens _lhzbnMaxItems (\ s a -> s{_lhzbnMaxItems = a});
 
 -- | The first name in the lexicographic ordering of domain names that you
--- want the @ListHostedZonesByNameRequest@ request to list.
+-- want the 'ListHostedZonesByNameRequest' request to list.
 --
 -- If the request returned more than one page of results, submit another
--- request and specify the value of @NextDNSName@ and @NextHostedZoneId@
--- from the last response in the @DNSName@ and @HostedZoneId@ parameters to
+-- request and specify the value of 'NextDNSName' and 'NextHostedZoneId'
+-- from the last response in the 'DNSName' and 'HostedZoneId' parameters to
 -- get the next page of results.
 lhzbnDNSName :: Lens' ListHostedZonesByName (Maybe Text)
 lhzbnDNSName = lens _lhzbnDNSName (\ s a -> s{_lhzbnDNSName = a});
@@ -155,8 +156,20 @@ instance ToQuery ListHostedZonesByName where
 -- | A complex type that contains the response for the request.
 --
 -- /See:/ 'listHostedZonesByNameResponse' smart constructor.
+data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
+    { _lhzbnrsHostedZoneId     :: !(Maybe Text)
+    , _lhzbnrsNextHostedZoneId :: !(Maybe Text)
+    , _lhzbnrsDNSName          :: !(Maybe Text)
+    , _lhzbnrsNextDNSName      :: !(Maybe Text)
+    , _lhzbnrsStatus           :: !Int
+    , _lhzbnrsHostedZones      :: ![HostedZone]
+    , _lhzbnrsIsTruncated      :: !Bool
+    , _lhzbnrsMaxItems         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListHostedZonesByNameResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lhzbnrsHostedZoneId'
 --
@@ -173,19 +186,11 @@ instance ToQuery ListHostedZonesByName where
 -- * 'lhzbnrsIsTruncated'
 --
 -- * 'lhzbnrsMaxItems'
-data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
-    { _lhzbnrsHostedZoneId     :: !(Maybe Text)
-    , _lhzbnrsNextHostedZoneId :: !(Maybe Text)
-    , _lhzbnrsDNSName          :: !(Maybe Text)
-    , _lhzbnrsNextDNSName      :: !(Maybe Text)
-    , _lhzbnrsStatus           :: !Int
-    , _lhzbnrsHostedZones      :: ![HostedZone]
-    , _lhzbnrsIsTruncated      :: !Bool
-    , _lhzbnrsMaxItems         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListHostedZonesByNameResponse' smart constructor.
-listHostedZonesByNameResponse :: Int -> Bool -> Text -> ListHostedZonesByNameResponse
+listHostedZonesByNameResponse
+    :: Int -- ^ 'lhzbnrsStatus'
+    -> Bool -- ^ 'lhzbnrsIsTruncated'
+    -> Text -- ^ 'lhzbnrsMaxItems'
+    -> ListHostedZonesByNameResponse
 listHostedZonesByNameResponse pStatus_ pIsTruncated_ pMaxItems_ =
     ListHostedZonesByNameResponse'
     { _lhzbnrsHostedZoneId = Nothing
@@ -198,13 +203,13 @@ listHostedZonesByNameResponse pStatus_ pIsTruncated_ pMaxItems_ =
     , _lhzbnrsMaxItems = pMaxItems_
     }
 
--- | The @HostedZoneId@ value sent in the request.
+-- | The 'HostedZoneId' value sent in the request.
 lhzbnrsHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)
 lhzbnrsHostedZoneId = lens _lhzbnrsHostedZoneId (\ s a -> s{_lhzbnrsHostedZoneId = a});
 
--- | If ListHostedZonesByNameResponse$IsTruncated is @true@, there are more
+-- | If ListHostedZonesByNameResponse$IsTruncated is 'true', there are more
 -- hosted zones associated with the current AWS account. To get the next
--- page of results, make another request to @ListHostedZonesByName@.
+-- page of results, make another request to 'ListHostedZonesByName'.
 -- Specify the value of ListHostedZonesByNameResponse$NextDNSName in the
 -- ListHostedZonesByNameRequest$DNSName element and
 -- ListHostedZonesByNameResponse$NextHostedZoneId in the
@@ -212,13 +217,13 @@ lhzbnrsHostedZoneId = lens _lhzbnrsHostedZoneId (\ s a -> s{_lhzbnrsHostedZoneId
 lhzbnrsNextHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)
 lhzbnrsNextHostedZoneId = lens _lhzbnrsNextHostedZoneId (\ s a -> s{_lhzbnrsNextHostedZoneId = a});
 
--- | The @DNSName@ value sent in the request.
+-- | The 'DNSName' value sent in the request.
 lhzbnrsDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
 lhzbnrsDNSName = lens _lhzbnrsDNSName (\ s a -> s{_lhzbnrsDNSName = a});
 
--- | If ListHostedZonesByNameResponse$IsTruncated is @true@, there are more
+-- | If ListHostedZonesByNameResponse$IsTruncated is 'true', there are more
 -- hosted zones associated with the current AWS account. To get the next
--- page of results, make another request to @ListHostedZonesByName@.
+-- page of results, make another request to 'ListHostedZonesByName'.
 -- Specify the value of ListHostedZonesByNameResponse$NextDNSName in the
 -- ListHostedZonesByNameRequest$DNSName element and
 -- ListHostedZonesByNameResponse$NextHostedZoneId in the
@@ -226,7 +231,7 @@ lhzbnrsDNSName = lens _lhzbnrsDNSName (\ s a -> s{_lhzbnrsDNSName = a});
 lhzbnrsNextDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
 lhzbnrsNextDNSName = lens _lhzbnrsNextDNSName (\ s a -> s{_lhzbnrsNextDNSName = a});
 
--- | Undocumented member.
+-- | The response status code.
 lhzbnrsStatus :: Lens' ListHostedZonesByNameResponse Int
 lhzbnrsStatus = lens _lhzbnrsStatus (\ s a -> s{_lhzbnrsStatus = a});
 
@@ -237,17 +242,17 @@ lhzbnrsHostedZones = lens _lhzbnrsHostedZones (\ s a -> s{_lhzbnrsHostedZones = 
 
 -- | A flag indicating whether there are more hosted zones to be listed. If
 -- your results were truncated, you can make a follow-up request for the
--- next page of results by using the @NextDNSName@ and @NextHostedZoneId@
+-- next page of results by using the 'NextDNSName' and 'NextHostedZoneId'
 -- elements.
 --
--- Valid Values: @true@ | @false@
+-- Valid Values: 'true' | 'false'
 lhzbnrsIsTruncated :: Lens' ListHostedZonesByNameResponse Bool
 lhzbnrsIsTruncated = lens _lhzbnrsIsTruncated (\ s a -> s{_lhzbnrsIsTruncated = a});
 
 -- | The maximum number of hosted zones to be included in the response body.
 -- If the number of hosted zones associated with this AWS account exceeds
--- @MaxItems@, the value of ListHostedZonesByNameResponse$IsTruncated in
--- the response is @true@. Call @ListHostedZonesByName@ again and specify
+-- 'MaxItems', the value of ListHostedZonesByNameResponse$IsTruncated in
+-- the response is 'true'. Call 'ListHostedZonesByName' again and specify
 -- the value of ListHostedZonesByNameResponse$NextDNSName and
 -- ListHostedZonesByNameResponse$NextHostedZoneId elements respectively to
 -- get the next page of results.

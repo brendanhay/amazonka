@@ -27,16 +27,16 @@
 module Network.AWS.EC2.DescribePlacementGroups
     (
     -- * Creating a Request
-      DescribePlacementGroups
-    , describePlacementGroups
+      describePlacementGroups
+    , DescribePlacementGroups
     -- * Request Lenses
     , dpgsGroupNames
     , dpgsFilters
     , dpgsDryRun
 
     -- * Destructuring the Response
-    , DescribePlacementGroupsResponse
     , describePlacementGroupsResponse
+    , DescribePlacementGroupsResponse
     -- * Response Lenses
     , dpgrsPlacementGroups
     , dpgrsStatus
@@ -49,22 +49,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describePlacementGroups' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpgsGroupNames'
---
--- * 'dpgsFilters'
---
--- * 'dpgsDryRun'
 data DescribePlacementGroups = DescribePlacementGroups'
     { _dpgsGroupNames :: !(Maybe [Text])
     , _dpgsFilters    :: !(Maybe [Filter])
     , _dpgsDryRun     :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribePlacementGroups' smart constructor.
-describePlacementGroups :: DescribePlacementGroups
+-- | Creates a value of 'DescribePlacementGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpgsGroupNames'
+--
+-- * 'dpgsFilters'
+--
+-- * 'dpgsDryRun'
+describePlacementGroups
+    :: DescribePlacementGroups
 describePlacementGroups =
     DescribePlacementGroups'
     { _dpgsGroupNames = Nothing
@@ -81,20 +82,20 @@ dpgsGroupNames = lens _dpgsGroupNames (\ s a -> s{_dpgsGroupNames = a}) . _Defau
 
 -- | One or more filters.
 --
--- -   @group-name@ - The name of the placement group.
+-- -   'group-name' - The name of the placement group.
 --
--- -   @state@ - The state of the placement group (@pending@ | @available@
---     | @deleting@ | @deleted@).
+-- -   'state' - The state of the placement group ('pending' | 'available'
+--     | 'deleting' | 'deleted').
 --
--- -   @strategy@ - The strategy of the placement group (@cluster@).
+-- -   'strategy' - The strategy of the placement group ('cluster').
 --
 dpgsFilters :: Lens' DescribePlacementGroups [Filter]
 dpgsFilters = lens _dpgsFilters (\ s a -> s{_dpgsFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dpgsDryRun :: Lens' DescribePlacementGroups (Maybe Bool)
 dpgsDryRun = lens _dpgsDryRun (\ s a -> s{_dpgsDryRun = a});
 
@@ -129,19 +130,21 @@ instance ToQuery DescribePlacementGroups where
                "DryRun" =: _dpgsDryRun]
 
 -- | /See:/ 'describePlacementGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpgrsPlacementGroups'
---
--- * 'dpgrsStatus'
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
     { _dpgrsPlacementGroups :: !(Maybe [PlacementGroup])
     , _dpgrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribePlacementGroupsResponse' smart constructor.
-describePlacementGroupsResponse :: Int -> DescribePlacementGroupsResponse
+-- | Creates a value of 'DescribePlacementGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpgrsPlacementGroups'
+--
+-- * 'dpgrsStatus'
+describePlacementGroupsResponse
+    :: Int -- ^ 'dpgrsStatus'
+    -> DescribePlacementGroupsResponse
 describePlacementGroupsResponse pStatus_ =
     DescribePlacementGroupsResponse'
     { _dpgrsPlacementGroups = Nothing
@@ -152,6 +155,6 @@ describePlacementGroupsResponse pStatus_ =
 dpgrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrsPlacementGroups = lens _dpgrsPlacementGroups (\ s a -> s{_dpgrsPlacementGroups = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dpgrsStatus :: Lens' DescribePlacementGroupsResponse Int
 dpgrsStatus = lens _dpgrsStatus (\ s a -> s{_dpgrsStatus = a});

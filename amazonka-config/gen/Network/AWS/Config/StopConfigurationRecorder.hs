@@ -25,14 +25,14 @@
 module Network.AWS.Config.StopConfigurationRecorder
     (
     -- * Creating a Request
-      StopConfigurationRecorder
-    , stopConfigurationRecorder
+      stopConfigurationRecorder
+    , StopConfigurationRecorder
     -- * Request Lenses
     , scrConfigurationRecorderName
 
     -- * Destructuring the Response
-    , StopConfigurationRecorderResponse
     , stopConfigurationRecorderResponse
+    , StopConfigurationRecorderResponse
     ) where
 
 import           Network.AWS.Config.Types
@@ -44,16 +44,18 @@ import           Network.AWS.Response
 -- | The input for the StopConfigurationRecorder action.
 --
 -- /See:/ 'stopConfigurationRecorder' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'scrConfigurationRecorderName'
 newtype StopConfigurationRecorder = StopConfigurationRecorder'
     { _scrConfigurationRecorderName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopConfigurationRecorder' smart constructor.
-stopConfigurationRecorder :: Text -> StopConfigurationRecorder
+-- | Creates a value of 'StopConfigurationRecorder' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scrConfigurationRecorderName'
+stopConfigurationRecorder
+    :: Text -- ^ 'scrConfigurationRecorderName'
+    -> StopConfigurationRecorder
 stopConfigurationRecorder pConfigurationRecorderName_ =
     StopConfigurationRecorder'
     { _scrConfigurationRecorderName = pConfigurationRecorderName_
@@ -99,6 +101,8 @@ data StopConfigurationRecorderResponse =
     StopConfigurationRecorderResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopConfigurationRecorderResponse' smart constructor.
-stopConfigurationRecorderResponse :: StopConfigurationRecorderResponse
+-- | Creates a value of 'StopConfigurationRecorderResponse' with the minimum fields required to make a request.
+--
+stopConfigurationRecorderResponse
+    :: StopConfigurationRecorderResponse
 stopConfigurationRecorderResponse = StopConfigurationRecorderResponse'

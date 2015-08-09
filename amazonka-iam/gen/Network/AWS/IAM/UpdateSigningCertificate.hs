@@ -22,7 +22,7 @@
 -- disabled, or vice versa. This action can be used to disable a user\'s
 -- signing certificate as part of a certificate rotation work flow.
 --
--- If the @UserName@ field is not specified, the UserName is determined
+-- If the 'UserName' field is not specified, the UserName is determined
 -- implicitly based on the AWS access key ID used to sign the request.
 -- Because this action works for access keys under the AWS account, you can
 -- use this action to manage root credentials even if the AWS account has
@@ -32,16 +32,16 @@
 module Network.AWS.IAM.UpdateSigningCertificate
     (
     -- * Creating a Request
-      UpdateSigningCertificate
-    , updateSigningCertificate
+      updateSigningCertificate
+    , UpdateSigningCertificate
     -- * Request Lenses
     , uscUserName
     , uscCertificateId
     , uscStatus
 
     -- * Destructuring the Response
-    , UpdateSigningCertificateResponse
     , updateSigningCertificateResponse
+    , UpdateSigningCertificateResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -51,22 +51,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateSigningCertificate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uscUserName'
---
--- * 'uscCertificateId'
---
--- * 'uscStatus'
 data UpdateSigningCertificate = UpdateSigningCertificate'
     { _uscUserName      :: !(Maybe Text)
     , _uscCertificateId :: !Text
     , _uscStatus        :: !StatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateSigningCertificate' smart constructor.
-updateSigningCertificate :: Text -> StatusType -> UpdateSigningCertificate
+-- | Creates a value of 'UpdateSigningCertificate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uscUserName'
+--
+-- * 'uscCertificateId'
+--
+-- * 'uscStatus'
+updateSigningCertificate
+    :: Text -- ^ 'uscCertificateId'
+    -> StatusType -- ^ 'uscStatus'
+    -> UpdateSigningCertificate
 updateSigningCertificate pCertificateId_ pStatus_ =
     UpdateSigningCertificate'
     { _uscUserName = Nothing
@@ -82,8 +85,8 @@ uscUserName = lens _uscUserName (\ s a -> s{_uscUserName = a});
 uscCertificateId :: Lens' UpdateSigningCertificate Text
 uscCertificateId = lens _uscCertificateId (\ s a -> s{_uscCertificateId = a});
 
--- | The status you want to assign to the certificate. @Active@ means the
--- certificate can be used for API calls to AWS, while @Inactive@ means the
+-- | The status you want to assign to the certificate. 'Active' means the
+-- certificate can be used for API calls to AWS, while 'Inactive' means the
 -- certificate cannot be used.
 uscStatus :: Lens' UpdateSigningCertificate StatusType
 uscStatus = lens _uscStatus (\ s a -> s{_uscStatus = a});
@@ -117,6 +120,8 @@ data UpdateSigningCertificateResponse =
     UpdateSigningCertificateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateSigningCertificateResponse' smart constructor.
-updateSigningCertificateResponse :: UpdateSigningCertificateResponse
+-- | Creates a value of 'UpdateSigningCertificateResponse' with the minimum fields required to make a request.
+--
+updateSigningCertificateResponse
+    :: UpdateSigningCertificateResponse
 updateSigningCertificateResponse = UpdateSigningCertificateResponse'

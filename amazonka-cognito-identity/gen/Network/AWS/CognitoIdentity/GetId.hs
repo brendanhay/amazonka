@@ -29,16 +29,16 @@
 module Network.AWS.CognitoIdentity.GetId
     (
     -- * Creating a Request
-      GetId
-    , getId
+      getId
+    , GetId
     -- * Request Lenses
     , giAccountId
     , giLogins
     , giIdentityPoolId
 
     -- * Destructuring the Response
-    , GetIdResponse
     , getIdResponse
+    , GetIdResponse
     -- * Response Lenses
     , girsIdentityId
     , girsStatus
@@ -53,22 +53,24 @@ import           Network.AWS.Response
 -- | Input to the GetId action.
 --
 -- /See:/ 'getId' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'giAccountId'
---
--- * 'giLogins'
---
--- * 'giIdentityPoolId'
 data GetId = GetId'
     { _giAccountId      :: !(Maybe Text)
     , _giLogins         :: !(Maybe (Map Text Text))
     , _giIdentityPoolId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetId' smart constructor.
-getId :: Text -> GetId
+-- | Creates a value of 'GetId' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'giAccountId'
+--
+-- * 'giLogins'
+--
+-- * 'giIdentityPoolId'
+getId
+    :: Text -- ^ 'giIdentityPoolId'
+    -> GetId
 getId pIdentityPoolId_ =
     GetId'
     { _giAccountId = Nothing
@@ -83,13 +85,13 @@ giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
 --
--- The available provider names for @Logins@ are as follows:
+-- The available provider names for 'Logins' are as follows:
 --
--- -   Facebook: @graph.facebook.com@
--- -   Google: @accounts.google.com@
--- -   Amazon: @www.amazon.com@
--- -   Twitter: @www.twitter.com@
--- -   Digits: @www.digits.com@
+-- -   Facebook: 'graph.facebook.com'
+-- -   Google: 'accounts.google.com'
+-- -   Amazon: 'www.amazon.com'
+-- -   Twitter: 'www.twitter.com'
+-- -   Digits: 'www.digits.com'
 giLogins :: Lens' GetId (HashMap Text Text)
 giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Default . _Map;
 
@@ -131,19 +133,21 @@ instance ToQuery GetId where
 -- | Returned in response to a GetId request.
 --
 -- /See:/ 'getIdResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'girsIdentityId'
---
--- * 'girsStatus'
 data GetIdResponse = GetIdResponse'
     { _girsIdentityId :: !(Maybe Text)
     , _girsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetIdResponse' smart constructor.
-getIdResponse :: Int -> GetIdResponse
+-- | Creates a value of 'GetIdResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'girsIdentityId'
+--
+-- * 'girsStatus'
+getIdResponse
+    :: Int -- ^ 'girsStatus'
+    -> GetIdResponse
 getIdResponse pStatus_ =
     GetIdResponse'
     { _girsIdentityId = Nothing
@@ -154,6 +158,6 @@ getIdResponse pStatus_ =
 girsIdentityId :: Lens' GetIdResponse (Maybe Text)
 girsIdentityId = lens _girsIdentityId (\ s a -> s{_girsIdentityId = a});
 
--- | Undocumented member.
+-- | The response status code.
 girsStatus :: Lens' GetIdResponse Int
 girsStatus = lens _girsStatus (\ s a -> s{_girsStatus = a});

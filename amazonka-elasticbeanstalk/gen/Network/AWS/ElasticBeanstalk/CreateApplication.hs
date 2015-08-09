@@ -19,21 +19,21 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an application that has one configuration template named
--- @default@ and no application versions.
+-- 'default' and no application versions.
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplication.html AWS API Reference> for CreateApplication.
 module Network.AWS.ElasticBeanstalk.CreateApplication
     (
     -- * Creating a Request
-      CreateApplication
-    , createApplication
+      createApplication
+    , CreateApplication
     -- * Request Lenses
     , caDescription
     , caApplicationName
 
     -- * Destructuring the Response
-    , ApplicationDescriptionMessage
     , applicationDescriptionMessage
+    , ApplicationDescriptionMessage
     -- * Response Lenses
     , admApplication
     ) where
@@ -47,19 +47,21 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'createApplication' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'caDescription'
---
--- * 'caApplicationName'
 data CreateApplication = CreateApplication'
     { _caDescription     :: !(Maybe Text)
     , _caApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateApplication' smart constructor.
-createApplication :: Text -> CreateApplication
+-- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caDescription'
+--
+-- * 'caApplicationName'
+createApplication
+    :: Text -- ^ 'caApplicationName'
+    -> CreateApplication
 createApplication pApplicationName_ =
     CreateApplication'
     { _caDescription = Nothing
@@ -74,7 +76,7 @@ caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
 --
 -- Constraint: This name must be unique within your account. If the
 -- specified name already exists, the action returns an
--- @InvalidParameterValue@ error.
+-- 'InvalidParameterValue' error.
 caApplicationName :: Lens' CreateApplication Text
 caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
 

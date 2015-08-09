@@ -20,7 +20,7 @@
 --
 -- Starts a new task from the specified task definition on the specified
 -- container instance or instances. If you want to use the default Amazon
--- ECS scheduler to place your task, use @RunTask@ instead.
+-- ECS scheduler to place your task, use 'RunTask' instead.
 --
 -- The list of container instances to start tasks on is limited to 10.
 --
@@ -28,8 +28,8 @@
 module Network.AWS.ECS.StartTask
     (
     -- * Creating a Request
-      StartTask
-    , startTask
+      startTask
+    , StartTask
     -- * Request Lenses
     , sOverrides
     , sCluster
@@ -38,8 +38,8 @@ module Network.AWS.ECS.StartTask
     , sContainerInstances
 
     -- * Destructuring the Response
-    , StartTaskResponse
     , startTaskResponse
+    , StartTaskResponse
     -- * Response Lenses
     , strsFailures
     , strsTasks
@@ -53,8 +53,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'startTask' smart constructor.
+data StartTask = StartTask'
+    { _sOverrides          :: !(Maybe TaskOverride)
+    , _sCluster            :: !(Maybe Text)
+    , _sStartedBy          :: !(Maybe Text)
+    , _sTaskDefinition     :: !Text
+    , _sContainerInstances :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StartTask' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sOverrides'
 --
@@ -65,16 +74,9 @@ import           Network.AWS.Response
 -- * 'sTaskDefinition'
 --
 -- * 'sContainerInstances'
-data StartTask = StartTask'
-    { _sOverrides          :: !(Maybe TaskOverride)
-    , _sCluster            :: !(Maybe Text)
-    , _sStartedBy          :: !(Maybe Text)
-    , _sTaskDefinition     :: !Text
-    , _sContainerInstances :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StartTask' smart constructor.
-startTask :: Text -> StartTask
+startTask
+    :: Text -- ^ 'sTaskDefinition'
+    -> StartTask
 startTask pTaskDefinition_ =
     StartTask'
     { _sOverrides = Nothing
@@ -87,10 +89,10 @@ startTask pTaskDefinition_ =
 -- | A list of container overrides in JSON format that specify the name of a
 -- container in the specified task definition and the overrides it should
 -- receive. You can override the default command for a container (that is
--- specified in the task definition or Docker image) with a @command@
+-- specified in the task definition or Docker image) with a 'command'
 -- override. You can also override existing environment variables (that are
 -- specified in the task definition or Docker image) on a container or add
--- new environment variables to it with an @environment@ override.
+-- new environment variables to it with an 'environment' override.
 --
 -- A total of 8192 characters are allowed for overrides. This limit
 -- includes the JSON formatting characters of the override structure.
@@ -105,18 +107,18 @@ sCluster = lens _sCluster (\ s a -> s{_sCluster = a});
 
 -- | An optional tag specified when a task is started. For example if you
 -- automatically trigger a task to run a batch process job, you could apply
--- a unique identifier for that job to your task with the @startedBy@
+-- a unique identifier for that job to your task with the 'startedBy'
 -- parameter. You can then identify which tasks belong to that job by
--- filtering the results of a ListTasks call with the @startedBy@ value.
+-- filtering the results of a ListTasks call with the 'startedBy' value.
 --
--- If a task is started by an Amazon ECS service, then the @startedBy@
+-- If a task is started by an Amazon ECS service, then the 'startedBy'
 -- parameter contains the deployment ID of the service that starts it.
 sStartedBy :: Lens' StartTask (Maybe Text)
 sStartedBy = lens _sStartedBy (\ s a -> s{_sStartedBy = a});
 
--- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
+-- | The 'family' and 'revision' ('family:revision') or full Amazon Resource
 -- Name (ARN) of the task definition that you want to start. If a
--- @revision@ is not specified, the latest @ACTIVE@ revision is used.
+-- 'revision' is not specified, the latest 'ACTIVE' revision is used.
 sTaskDefinition :: Lens' StartTask Text
 sTaskDefinition = lens _sTaskDefinition (\ s a -> s{_sTaskDefinition = a});
 
@@ -164,22 +166,24 @@ instance ToQuery StartTask where
         toQuery = const mempty
 
 -- | /See:/ 'startTaskResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'strsFailures'
---
--- * 'strsTasks'
---
--- * 'strsStatus'
 data StartTaskResponse = StartTaskResponse'
     { _strsFailures :: !(Maybe [Failure])
     , _strsTasks    :: !(Maybe [Task])
     , _strsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartTaskResponse' smart constructor.
-startTaskResponse :: Int -> StartTaskResponse
+-- | Creates a value of 'StartTaskResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'strsFailures'
+--
+-- * 'strsTasks'
+--
+-- * 'strsStatus'
+startTaskResponse
+    :: Int -- ^ 'strsStatus'
+    -> StartTaskResponse
 startTaskResponse pStatus_ =
     StartTaskResponse'
     { _strsFailures = Nothing
@@ -187,7 +191,7 @@ startTaskResponse pStatus_ =
     , _strsStatus = pStatus_
     }
 
--- | Any failed tasks from your @StartTask@ action are listed here.
+-- | Any failed tasks from your 'StartTask' action are listed here.
 strsFailures :: Lens' StartTaskResponse [Failure]
 strsFailures = lens _strsFailures (\ s a -> s{_strsFailures = a}) . _Default . _Coerce;
 
@@ -196,6 +200,6 @@ strsFailures = lens _strsFailures (\ s a -> s{_strsFailures = a}) . _Default . _
 strsTasks :: Lens' StartTaskResponse [Task]
 strsTasks = lens _strsTasks (\ s a -> s{_strsTasks = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 strsStatus :: Lens' StartTaskResponse Int
 strsStatus = lens _strsStatus (\ s a -> s{_strsStatus = a});

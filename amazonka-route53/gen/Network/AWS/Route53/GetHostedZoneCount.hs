@@ -18,19 +18,19 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve a count of all your hosted zones, send a @GET@ request to
--- the @2013-04-01\/hostedzonecount@ resource.
+-- To retrieve a count of all your hosted zones, send a 'GET' request to
+-- the '2013-04-01\/hostedzonecount' resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html AWS API Reference> for GetHostedZoneCount.
 module Network.AWS.Route53.GetHostedZoneCount
     (
     -- * Creating a Request
-      GetHostedZoneCount
-    , getHostedZoneCount
+      getHostedZoneCount
+    , GetHostedZoneCount
 
     -- * Destructuring the Response
-    , GetHostedZoneCountResponse
     , getHostedZoneCountResponse
+    , GetHostedZoneCountResponse
     -- * Response Lenses
     , ghzcrsStatus
     , ghzcrsHostedZoneCount
@@ -42,16 +42,18 @@ import           Network.AWS.Response
 import           Network.AWS.Route53.Types
 import           Network.AWS.Route53.Types.Product
 
--- | To retrieve a count of all your hosted zones, send a @GET@ request to
--- the @2013-04-01\/hostedzonecount@ resource.
+-- | To retrieve a count of all your hosted zones, send a 'GET' request to
+-- the '2013-04-01\/hostedzonecount' resource.
 --
 -- /See:/ 'getHostedZoneCount' smart constructor.
 data GetHostedZoneCount =
     GetHostedZoneCount'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetHostedZoneCount' smart constructor.
-getHostedZoneCount :: GetHostedZoneCount
+-- | Creates a value of 'GetHostedZoneCount' with the minimum fields required to make a request.
+--
+getHostedZoneCount
+    :: GetHostedZoneCount
 getHostedZoneCount = GetHostedZoneCount'
 
 instance AWSRequest GetHostedZoneCount where
@@ -78,26 +80,29 @@ instance ToQuery GetHostedZoneCount where
 -- the current AWS account.
 --
 -- /See:/ 'getHostedZoneCountResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ghzcrsStatus'
---
--- * 'ghzcrsHostedZoneCount'
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
     { _ghzcrsStatus          :: !Int
     , _ghzcrsHostedZoneCount :: !Integer
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetHostedZoneCountResponse' smart constructor.
-getHostedZoneCountResponse :: Int -> Integer -> GetHostedZoneCountResponse
+-- | Creates a value of 'GetHostedZoneCountResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ghzcrsStatus'
+--
+-- * 'ghzcrsHostedZoneCount'
+getHostedZoneCountResponse
+    :: Int -- ^ 'ghzcrsStatus'
+    -> Integer -- ^ 'ghzcrsHostedZoneCount'
+    -> GetHostedZoneCountResponse
 getHostedZoneCountResponse pStatus_ pHostedZoneCount_ =
     GetHostedZoneCountResponse'
     { _ghzcrsStatus = pStatus_
     , _ghzcrsHostedZoneCount = pHostedZoneCount_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ghzcrsStatus :: Lens' GetHostedZoneCountResponse Int
 ghzcrsStatus = lens _ghzcrsStatus (\ s a -> s{_ghzcrsStatus = a});
 

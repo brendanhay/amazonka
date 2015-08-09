@@ -18,21 +18,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Takes a @CaseId@ and returns the initial state of the case along with
+-- Takes a 'CaseId' and returns the initial state of the case along with
 -- the state of the case after the call to ResolveCase completed.
 --
 -- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html AWS API Reference> for ResolveCase.
 module Network.AWS.Support.ResolveCase
     (
     -- * Creating a Request
-      ResolveCase
-    , resolveCase
+      resolveCase
+    , ResolveCase
     -- * Request Lenses
     , rcCaseId
 
     -- * Destructuring the Response
-    , ResolveCaseResponse
     , resolveCaseResponse
+    , ResolveCaseResponse
     -- * Response Lenses
     , rcrsInitialCaseStatus
     , rcrsFinalCaseStatus
@@ -46,16 +46,17 @@ import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
 -- | /See:/ 'resolveCase' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcCaseId'
 newtype ResolveCase = ResolveCase'
     { _rcCaseId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResolveCase' smart constructor.
-resolveCase :: ResolveCase
+-- | Creates a value of 'ResolveCase' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcCaseId'
+resolveCase
+    :: ResolveCase
 resolveCase =
     ResolveCase'
     { _rcCaseId = Nothing
@@ -101,22 +102,24 @@ instance ToQuery ResolveCase where
 -- | The status of the case returned by the ResolveCase operation.
 --
 -- /See:/ 'resolveCaseResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcrsInitialCaseStatus'
---
--- * 'rcrsFinalCaseStatus'
---
--- * 'rcrsStatus'
 data ResolveCaseResponse = ResolveCaseResponse'
     { _rcrsInitialCaseStatus :: !(Maybe Text)
     , _rcrsFinalCaseStatus   :: !(Maybe Text)
     , _rcrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResolveCaseResponse' smart constructor.
-resolveCaseResponse :: Int -> ResolveCaseResponse
+-- | Creates a value of 'ResolveCaseResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcrsInitialCaseStatus'
+--
+-- * 'rcrsFinalCaseStatus'
+--
+-- * 'rcrsStatus'
+resolveCaseResponse
+    :: Int -- ^ 'rcrsStatus'
+    -> ResolveCaseResponse
 resolveCaseResponse pStatus_ =
     ResolveCaseResponse'
     { _rcrsInitialCaseStatus = Nothing
@@ -132,6 +135,6 @@ rcrsInitialCaseStatus = lens _rcrsInitialCaseStatus (\ s a -> s{_rcrsInitialCase
 rcrsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
 rcrsFinalCaseStatus = lens _rcrsFinalCaseStatus (\ s a -> s{_rcrsFinalCaseStatus = a});
 
--- | Undocumented member.
+-- | The response status code.
 rcrsStatus :: Lens' ResolveCaseResponse Int
 rcrsStatus = lens _rcrsStatus (\ s a -> s{_rcrsStatus = a});

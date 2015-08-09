@@ -147,13 +147,13 @@ _ProvisionedThroughputExceededException =
     _ServiceError . hasCode "ProvisionedThroughputExceededException"
 
 -- | The requested resource could not be found. It might not be specified
--- correctly, or it might not be in the @ACTIVE@ state.
+-- correctly, or it might not be in the 'ACTIVE' state.
 _ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceNotFoundException =
     _ServiceError . hasCode "ResourceNotFoundException"
 
 -- | The resource is not available for this operation. For example, you
--- attempted to split a shard but the stream is not in the @ACTIVE@ state.
+-- attempted to split a shard but the stream is not in the 'ACTIVE' state.
 _ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
 _ResourceInUseException = _ServiceError . hasCode "ResourceInUseException"
 

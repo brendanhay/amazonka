@@ -19,22 +19,22 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the access policy, containing a list of permissions granted via
--- the @AddPermission@ API, associated with the specified bucket.
+-- the 'AddPermission' API, associated with the specified bucket.
 --
--- You need permission for the @lambda:GetPolicy action.@
+-- You need permission for the 'lambda:GetPolicy action.'
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_GetPolicy.html AWS API Reference> for GetPolicy.
 module Network.AWS.Lambda.GetPolicy
     (
     -- * Creating a Request
-      GetPolicy
-    , getPolicy
+      getPolicy
+    , GetPolicy
     -- * Request Lenses
     , gpFunctionName
 
     -- * Destructuring the Response
-    , GetPolicyResponse
     , getPolicyResponse
+    , GetPolicyResponse
     -- * Response Lenses
     , gprsPolicy
     , gprsStatus
@@ -47,16 +47,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gpFunctionName'
 newtype GetPolicy = GetPolicy'
     { _gpFunctionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPolicy' smart constructor.
-getPolicy :: Text -> GetPolicy
+-- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpFunctionName'
+getPolicy
+    :: Text -- ^ 'gpFunctionName'
+    -> GetPolicy
 getPolicy pFunctionName_ =
     GetPolicy'
     { _gpFunctionName = pFunctionName_
@@ -98,19 +100,21 @@ instance ToQuery GetPolicy where
         toQuery = const mempty
 
 -- | /See:/ 'getPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gprsPolicy'
---
--- * 'gprsStatus'
 data GetPolicyResponse = GetPolicyResponse'
     { _gprsPolicy :: !(Maybe Text)
     , _gprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPolicyResponse' smart constructor.
-getPolicyResponse :: Int -> GetPolicyResponse
+-- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gprsPolicy'
+--
+-- * 'gprsStatus'
+getPolicyResponse
+    :: Int -- ^ 'gprsStatus'
+    -> GetPolicyResponse
 getPolicyResponse pStatus_ =
     GetPolicyResponse'
     { _gprsPolicy = Nothing
@@ -123,6 +127,6 @@ getPolicyResponse pStatus_ =
 gprsPolicy :: Lens' GetPolicyResponse (Maybe Text)
 gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 
--- | Undocumented member.
+-- | The response status code.
 gprsStatus :: Lens' GetPolicyResponse Int
 gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

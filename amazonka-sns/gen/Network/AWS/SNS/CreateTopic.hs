@@ -29,14 +29,14 @@
 module Network.AWS.SNS.CreateTopic
     (
     -- * Creating a Request
-      CreateTopic
-    , createTopic
+      createTopic
+    , CreateTopic
     -- * Request Lenses
     , ctName
 
     -- * Destructuring the Response
-    , CreateTopicResponse
     , createTopicResponse
+    , CreateTopicResponse
     -- * Response Lenses
     , ctrsTopicARN
     , ctrsStatus
@@ -51,16 +51,18 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for CreateTopic action.
 --
 -- /See:/ 'createTopic' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ctName'
 newtype CreateTopic = CreateTopic'
     { _ctName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateTopic' smart constructor.
-createTopic :: Text -> CreateTopic
+-- | Creates a value of 'CreateTopic' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctName'
+createTopic
+    :: Text -- ^ 'ctName'
+    -> CreateTopic
 createTopic pName_ =
     CreateTopic'
     { _ctName = pName_
@@ -100,19 +102,21 @@ instance ToQuery CreateTopic where
 -- | Response from CreateTopic action.
 --
 -- /See:/ 'createTopicResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ctrsTopicARN'
---
--- * 'ctrsStatus'
 data CreateTopicResponse = CreateTopicResponse'
     { _ctrsTopicARN :: !(Maybe Text)
     , _ctrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateTopicResponse' smart constructor.
-createTopicResponse :: Int -> CreateTopicResponse
+-- | Creates a value of 'CreateTopicResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctrsTopicARN'
+--
+-- * 'ctrsStatus'
+createTopicResponse
+    :: Int -- ^ 'ctrsStatus'
+    -> CreateTopicResponse
 createTopicResponse pStatus_ =
     CreateTopicResponse'
     { _ctrsTopicARN = Nothing
@@ -123,6 +127,6 @@ createTopicResponse pStatus_ =
 ctrsTopicARN :: Lens' CreateTopicResponse (Maybe Text)
 ctrsTopicARN = lens _ctrsTopicARN (\ s a -> s{_ctrsTopicARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 ctrsStatus :: Lens' CreateTopicResponse Int
 ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});

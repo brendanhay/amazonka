@@ -120,7 +120,7 @@ _MountTargetNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _MountTargetNotFound =
     _ServiceError . hasStatus 404 . hasCode "MountTargetNotFound"
 
--- | Returned if the size of @SecurityGroups@ specified in the request is
+-- | Returned if the size of 'SecurityGroups' specified in the request is
 -- greater than five.
 _SecurityGroupLimitExceeded :: AsError a => Getting (First ServiceError) a ServiceError
 _SecurityGroupLimitExceeded =
@@ -165,13 +165,13 @@ _NetworkInterfaceLimitExceeded :: AsError a => Getting (First ServiceError) a Se
 _NetworkInterfaceLimitExceeded =
     _ServiceError . hasStatus 409 . hasCode "NetworkInterfaceLimitExceeded"
 
--- | Returned if the specified @FileSystemId@ does not exist in the
+-- | Returned if the specified 'FileSystemId' does not exist in the
 -- requester\'s AWS account.
 _FileSystemNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _FileSystemNotFound =
     _ServiceError . hasStatus 404 . hasCode "FileSystemNotFound"
 
--- | Returned if there is no subnet with ID @SubnetId@ provided in the
+-- | Returned if there is no subnet with ID 'SubnetId' provided in the
 -- request.
 _SubnetNotFound :: AsError a => Getting (First ServiceError) a ServiceError
 _SubnetNotFound = _ServiceError . hasStatus 400 . hasCode "SubnetNotFound"
@@ -186,7 +186,7 @@ _IncorrectFileSystemLifeCycleState =
 _BadRequest :: AsError a => Getting (First ServiceError) a ServiceError
 _BadRequest = _ServiceError . hasStatus 400 . hasCode "BadRequest"
 
--- | Returned if @IpAddress@ was not specified in the request and there are
+-- | Returned if 'IpAddress' was not specified in the request and there are
 -- no free IP addresses in the subnet.
 _NoFreeAddressesInSubnet :: AsError a => Getting (First ServiceError) a ServiceError
 _NoFreeAddressesInSubnet =
@@ -213,7 +213,7 @@ _InternalServerError :: AsError a => Getting (First ServiceError) a ServiceError
 _InternalServerError =
     _ServiceError . hasStatus 500 . hasCode "InternalServerError"
 
--- | Returned if the request specified an @IpAddress@ that is already in use
+-- | Returned if the request specified an 'IpAddress' that is already in use
 -- in the subnet.
 _IPAddressInUse :: AsError a => Getting (First ServiceError) a ServiceError
 _IPAddressInUse = _ServiceError . hasStatus 409 . hasCode "IpAddressInUse"

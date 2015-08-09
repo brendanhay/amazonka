@@ -21,20 +21,20 @@
 -- Deletes one or more attributes associated with an item. If all
 -- attributes of the item are deleted, the item is deleted.
 --
--- @DeleteAttributes@ is an idempotent operation; running it multiple times
+-- 'DeleteAttributes' is an idempotent operation; running it multiple times
 -- on the same item or attribute does not result in an error response.
 --
 -- Because Amazon SimpleDB makes multiple copies of item data and uses an
 -- eventual consistency update model, performing a GetAttributes or Select
--- operation (read) immediately after a @DeleteAttributes@ or PutAttributes
+-- operation (read) immediately after a 'DeleteAttributes' or PutAttributes
 -- operation (write) might not return updated item data.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteAttributes.html AWS API Reference> for DeleteAttributes.
 module Network.AWS.SDB.DeleteAttributes
     (
     -- * Creating a Request
-      DeleteAttributes
-    , deleteAttributes
+      deleteAttributes
+    , DeleteAttributes
     -- * Request Lenses
     , daAttributes
     , daExpected
@@ -42,8 +42,8 @@ module Network.AWS.SDB.DeleteAttributes
     , daItemName
 
     -- * Destructuring the Response
-    , DeleteAttributesResponse
     , deleteAttributesResponse
+    , DeleteAttributesResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -53,8 +53,16 @@ import           Network.AWS.SDB.Types
 import           Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'deleteAttributes' smart constructor.
+data DeleteAttributes = DeleteAttributes'
+    { _daAttributes :: !(Maybe [Attribute])
+    , _daExpected   :: !(Maybe UpdateCondition)
+    , _daDomainName :: !Text
+    , _daItemName   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteAttributes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'daAttributes'
 --
@@ -63,15 +71,10 @@ import           Network.AWS.SDB.Types.Product
 -- * 'daDomainName'
 --
 -- * 'daItemName'
-data DeleteAttributes = DeleteAttributes'
-    { _daAttributes :: !(Maybe [Attribute])
-    , _daExpected   :: !(Maybe UpdateCondition)
-    , _daDomainName :: !Text
-    , _daItemName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeleteAttributes' smart constructor.
-deleteAttributes :: Text -> Text -> DeleteAttributes
+deleteAttributes
+    :: Text -- ^ 'daDomainName'
+    -> Text -- ^ 'daItemName'
+    -> DeleteAttributes
 deleteAttributes pDomainName_ pItemName_ =
     DeleteAttributes'
     { _daAttributes = Nothing
@@ -128,6 +131,8 @@ data DeleteAttributesResponse =
     DeleteAttributesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAttributesResponse' smart constructor.
-deleteAttributesResponse :: DeleteAttributesResponse
+-- | Creates a value of 'DeleteAttributesResponse' with the minimum fields required to make a request.
+--
+deleteAttributesResponse
+    :: DeleteAttributesResponse
 deleteAttributesResponse = DeleteAttributesResponse'

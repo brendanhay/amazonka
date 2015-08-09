@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- From the command line, use @create-subscription@.
+-- From the command line, use 'create-subscription'.
 --
 -- Creates a trail that specifies the settings for delivery of log data to
 -- an Amazon S3 bucket.
@@ -27,8 +27,8 @@
 module Network.AWS.CloudTrail.CreateTrail
     (
     -- * Creating a Request
-      CreateTrail
-    , createTrail
+      createTrail
+    , CreateTrail
     -- * Request Lenses
     , ctS3KeyPrefix
     , ctSNSTopicName
@@ -39,8 +39,8 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctS3BucketName
 
     -- * Destructuring the Response
-    , CreateTrailResponse
     , createTrailResponse
+    , CreateTrailResponse
     -- * Response Lenses
     , ctrsS3KeyPrefix
     , ctrsSNSTopicName
@@ -61,8 +61,19 @@ import           Network.AWS.Response
 -- | Specifies the settings for each trail.
 --
 -- /See:/ 'createTrail' smart constructor.
+data CreateTrail = CreateTrail'
+    { _ctS3KeyPrefix                :: !(Maybe Text)
+    , _ctSNSTopicName               :: !(Maybe Text)
+    , _ctCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _ctIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _ctCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _ctName                       :: !Text
+    , _ctS3BucketName               :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateTrail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ctS3KeyPrefix'
 --
@@ -77,18 +88,10 @@ import           Network.AWS.Response
 -- * 'ctName'
 --
 -- * 'ctS3BucketName'
-data CreateTrail = CreateTrail'
-    { _ctS3KeyPrefix                :: !(Maybe Text)
-    , _ctSNSTopicName               :: !(Maybe Text)
-    , _ctCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _ctIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _ctCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _ctName                       :: !Text
-    , _ctS3BucketName               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateTrail' smart constructor.
-createTrail :: Text -> Text -> CreateTrail
+createTrail
+    :: Text -- ^ 'ctName'
+    -> Text -- ^ 'ctS3BucketName'
+    -> CreateTrail
 createTrail pName_ pS3BucketName_ =
     CreateTrail'
     { _ctS3KeyPrefix = Nothing
@@ -183,8 +186,20 @@ instance ToQuery CreateTrail where
 -- returns an error.
 --
 -- /See:/ 'createTrailResponse' smart constructor.
+data CreateTrailResponse = CreateTrailResponse'
+    { _ctrsS3KeyPrefix                :: !(Maybe Text)
+    , _ctrsSNSTopicName               :: !(Maybe Text)
+    , _ctrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _ctrsName                       :: !(Maybe Text)
+    , _ctrsIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _ctrsCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _ctrsS3BucketName               :: !(Maybe Text)
+    , _ctrsStatus                     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateTrailResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ctrsS3KeyPrefix'
 --
@@ -201,19 +216,9 @@ instance ToQuery CreateTrail where
 -- * 'ctrsS3BucketName'
 --
 -- * 'ctrsStatus'
-data CreateTrailResponse = CreateTrailResponse'
-    { _ctrsS3KeyPrefix                :: !(Maybe Text)
-    , _ctrsSNSTopicName               :: !(Maybe Text)
-    , _ctrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _ctrsName                       :: !(Maybe Text)
-    , _ctrsIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _ctrsCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _ctrsS3BucketName               :: !(Maybe Text)
-    , _ctrsStatus                     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateTrailResponse' smart constructor.
-createTrailResponse :: Int -> CreateTrailResponse
+createTrailResponse
+    :: Int -- ^ 'ctrsStatus'
+    -> CreateTrailResponse
 createTrailResponse pStatus_ =
     CreateTrailResponse'
     { _ctrsS3KeyPrefix = Nothing
@@ -260,6 +265,6 @@ ctrsCloudWatchLogsRoleARN = lens _ctrsCloudWatchLogsRoleARN (\ s a -> s{_ctrsClo
 ctrsS3BucketName :: Lens' CreateTrailResponse (Maybe Text)
 ctrsS3BucketName = lens _ctrsS3BucketName (\ s a -> s{_ctrsS3BucketName = a});
 
--- | Undocumented member.
+-- | The response status code.
 ctrsStatus :: Lens' CreateTrailResponse Int
 ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});

@@ -28,14 +28,14 @@
 module Network.AWS.Config.StartConfigurationRecorder
     (
     -- * Creating a Request
-      StartConfigurationRecorder
-    , startConfigurationRecorder
+      startConfigurationRecorder
+    , StartConfigurationRecorder
     -- * Request Lenses
     , sConfigurationRecorderName
 
     -- * Destructuring the Response
-    , StartConfigurationRecorderResponse
     , startConfigurationRecorderResponse
+    , StartConfigurationRecorderResponse
     ) where
 
 import           Network.AWS.Config.Types
@@ -47,16 +47,18 @@ import           Network.AWS.Response
 -- | The input for the StartConfigurationRecorder action.
 --
 -- /See:/ 'startConfigurationRecorder' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sConfigurationRecorderName'
 newtype StartConfigurationRecorder = StartConfigurationRecorder'
     { _sConfigurationRecorderName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartConfigurationRecorder' smart constructor.
-startConfigurationRecorder :: Text -> StartConfigurationRecorder
+-- | Creates a value of 'StartConfigurationRecorder' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sConfigurationRecorderName'
+startConfigurationRecorder
+    :: Text -- ^ 'sConfigurationRecorderName'
+    -> StartConfigurationRecorder
 startConfigurationRecorder pConfigurationRecorderName_ =
     StartConfigurationRecorder'
     { _sConfigurationRecorderName = pConfigurationRecorderName_
@@ -102,6 +104,8 @@ data StartConfigurationRecorderResponse =
     StartConfigurationRecorderResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartConfigurationRecorderResponse' smart constructor.
-startConfigurationRecorderResponse :: StartConfigurationRecorderResponse
+-- | Creates a value of 'StartConfigurationRecorderResponse' with the minimum fields required to make a request.
+--
+startConfigurationRecorderResponse
+    :: StartConfigurationRecorderResponse
 startConfigurationRecorderResponse = StartConfigurationRecorderResponse'

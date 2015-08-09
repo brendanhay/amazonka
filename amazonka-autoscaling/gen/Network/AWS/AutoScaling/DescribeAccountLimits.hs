@@ -28,12 +28,12 @@
 module Network.AWS.AutoScaling.DescribeAccountLimits
     (
     -- * Creating a Request
-      DescribeAccountLimits
-    , describeAccountLimits
+      describeAccountLimits
+    , DescribeAccountLimits
 
     -- * Destructuring the Response
-    , DescribeAccountLimitsResponse
     , describeAccountLimitsResponse
+    , DescribeAccountLimitsResponse
     -- * Response Lenses
     , dalrsMaxNumberOfLaunchConfigurations
     , dalrsMaxNumberOfAutoScalingGroups
@@ -51,8 +51,10 @@ data DescribeAccountLimits =
     DescribeAccountLimits'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAccountLimits' smart constructor.
-describeAccountLimits :: DescribeAccountLimits
+-- | Creates a value of 'DescribeAccountLimits' with the minimum fields required to make a request.
+--
+describeAccountLimits
+    :: DescribeAccountLimits
 describeAccountLimits = DescribeAccountLimits'
 
 instance AWSRequest DescribeAccountLimits where
@@ -82,22 +84,24 @@ instance ToQuery DescribeAccountLimits where
                   "Version" =: ("2011-01-01" :: ByteString)])
 
 -- | /See:/ 'describeAccountLimitsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dalrsMaxNumberOfLaunchConfigurations'
---
--- * 'dalrsMaxNumberOfAutoScalingGroups'
---
--- * 'dalrsStatus'
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
     { _dalrsMaxNumberOfLaunchConfigurations :: !(Maybe Int)
     , _dalrsMaxNumberOfAutoScalingGroups    :: !(Maybe Int)
     , _dalrsStatus                          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAccountLimitsResponse' smart constructor.
-describeAccountLimitsResponse :: Int -> DescribeAccountLimitsResponse
+-- | Creates a value of 'DescribeAccountLimitsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dalrsMaxNumberOfLaunchConfigurations'
+--
+-- * 'dalrsMaxNumberOfAutoScalingGroups'
+--
+-- * 'dalrsStatus'
+describeAccountLimitsResponse
+    :: Int -- ^ 'dalrsStatus'
+    -> DescribeAccountLimitsResponse
 describeAccountLimitsResponse pStatus_ =
     DescribeAccountLimitsResponse'
     { _dalrsMaxNumberOfLaunchConfigurations = Nothing
@@ -115,6 +119,6 @@ dalrsMaxNumberOfLaunchConfigurations = lens _dalrsMaxNumberOfLaunchConfiguration
 dalrsMaxNumberOfAutoScalingGroups :: Lens' DescribeAccountLimitsResponse (Maybe Int)
 dalrsMaxNumberOfAutoScalingGroups = lens _dalrsMaxNumberOfAutoScalingGroups (\ s a -> s{_dalrsMaxNumberOfAutoScalingGroups = a});
 
--- | Undocumented member.
+-- | The response status code.
 dalrsStatus :: Lens' DescribeAccountLimitsResponse Int
 dalrsStatus = lens _dalrsStatus (\ s a -> s{_dalrsStatus = a});

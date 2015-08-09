@@ -24,8 +24,8 @@
 module Network.AWS.S3.RestoreObject
     (
     -- * Creating a Request
-      RestoreObject
-    , restoreObject
+      restoreObject
+    , RestoreObject
     -- * Request Lenses
     , roVersionId
     , roRequestPayer
@@ -34,8 +34,8 @@ module Network.AWS.S3.RestoreObject
     , roKey
 
     -- * Destructuring the Response
-    , RestoreObjectResponse
     , restoreObjectResponse
+    , RestoreObjectResponse
     -- * Response Lenses
     , rorsRequestCharged
     , rorsStatus
@@ -48,8 +48,17 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'restoreObject' smart constructor.
+data RestoreObject = RestoreObject'
+    { _roVersionId      :: !(Maybe ObjectVersionId)
+    , _roRequestPayer   :: !(Maybe RequestPayer)
+    , _roRestoreRequest :: !(Maybe RestoreRequest)
+    , _roBucket         :: !BucketName
+    , _roKey            :: !ObjectKey
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RestoreObject' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'roVersionId'
 --
@@ -60,16 +69,10 @@ import           Network.AWS.S3.Types.Product
 -- * 'roBucket'
 --
 -- * 'roKey'
-data RestoreObject = RestoreObject'
-    { _roVersionId      :: !(Maybe ObjectVersionId)
-    , _roRequestPayer   :: !(Maybe RequestPayer)
-    , _roRestoreRequest :: !(Maybe RestoreRequest)
-    , _roBucket         :: !BucketName
-    , _roKey            :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RestoreObject' smart constructor.
-restoreObject :: BucketName -> ObjectKey -> RestoreObject
+restoreObject
+    :: BucketName -- ^ 'roBucket'
+    -> ObjectKey -- ^ 'roKey'
+    -> RestoreObject
 restoreObject pBucket_ pKey_ =
     RestoreObject'
     { _roVersionId = Nothing
@@ -130,19 +133,21 @@ instance ToQuery RestoreObject where
           = mconcat ["versionId" =: _roVersionId, "restore"]
 
 -- | /See:/ 'restoreObjectResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rorsRequestCharged'
---
--- * 'rorsStatus'
 data RestoreObjectResponse = RestoreObjectResponse'
     { _rorsRequestCharged :: !(Maybe RequestCharged)
     , _rorsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestoreObjectResponse' smart constructor.
-restoreObjectResponse :: Int -> RestoreObjectResponse
+-- | Creates a value of 'RestoreObjectResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rorsRequestCharged'
+--
+-- * 'rorsStatus'
+restoreObjectResponse
+    :: Int -- ^ 'rorsStatus'
+    -> RestoreObjectResponse
 restoreObjectResponse pStatus_ =
     RestoreObjectResponse'
     { _rorsRequestCharged = Nothing
@@ -153,6 +158,6 @@ restoreObjectResponse pStatus_ =
 rorsRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
 rorsRequestCharged = lens _rorsRequestCharged (\ s a -> s{_rorsRequestCharged = a});
 
--- | Undocumented member.
+-- | The response status code.
 rorsStatus :: Lens' RestoreObjectResponse Int
 rorsStatus = lens _rorsStatus (\ s a -> s{_rorsStatus = a});

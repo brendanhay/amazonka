@@ -24,7 +24,7 @@
 -- There must be at least one Availability Zone registered with a load
 -- balancer at all times. After an Availability Zone is removed, all
 -- instances registered with the load balancer that are in the removed
--- Availability Zone go into the @OutOfService@ state. Then, the load
+-- Availability Zone go into the 'OutOfService' state. Then, the load
 -- balancer attempts to equally balance the traffic among its remaining
 -- Availability Zones.
 --
@@ -36,15 +36,15 @@
 module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     (
     -- * Creating a Request
-      DisableAvailabilityZonesForLoadBalancer
-    , disableAvailabilityZonesForLoadBalancer
+      disableAvailabilityZonesForLoadBalancer
+    , DisableAvailabilityZonesForLoadBalancer
     -- * Request Lenses
     , dazflbLoadBalancerName
     , dazflbAvailabilityZones
 
     -- * Destructuring the Response
-    , DisableAvailabilityZonesForLoadBalancerResponse
     , disableAvailabilityZonesForLoadBalancerResponse
+    , DisableAvailabilityZonesForLoadBalancerResponse
     -- * Response Lenses
     , dazflbrsAvailabilityZones
     , dazflbrsStatus
@@ -57,19 +57,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'disableAvailabilityZonesForLoadBalancer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dazflbLoadBalancerName'
---
--- * 'dazflbAvailabilityZones'
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer'
     { _dazflbLoadBalancerName  :: !Text
     , _dazflbAvailabilityZones :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableAvailabilityZonesForLoadBalancer' smart constructor.
-disableAvailabilityZonesForLoadBalancer :: Text -> DisableAvailabilityZonesForLoadBalancer
+-- | Creates a value of 'DisableAvailabilityZonesForLoadBalancer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dazflbLoadBalancerName'
+--
+-- * 'dazflbAvailabilityZones'
+disableAvailabilityZonesForLoadBalancer
+    :: Text -- ^ 'dazflbLoadBalancerName'
+    -> DisableAvailabilityZonesForLoadBalancer
 disableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
     DisableAvailabilityZonesForLoadBalancer'
     { _dazflbLoadBalancerName = pLoadBalancerName_
@@ -120,19 +122,21 @@ instance ToQuery
                  toQueryList "member" _dazflbAvailabilityZones]
 
 -- | /See:/ 'disableAvailabilityZonesForLoadBalancerResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dazflbrsAvailabilityZones'
---
--- * 'dazflbrsStatus'
 data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse'
     { _dazflbrsAvailabilityZones :: !(Maybe [Text])
     , _dazflbrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableAvailabilityZonesForLoadBalancerResponse' smart constructor.
-disableAvailabilityZonesForLoadBalancerResponse :: Int -> DisableAvailabilityZonesForLoadBalancerResponse
+-- | Creates a value of 'DisableAvailabilityZonesForLoadBalancerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dazflbrsAvailabilityZones'
+--
+-- * 'dazflbrsStatus'
+disableAvailabilityZonesForLoadBalancerResponse
+    :: Int -- ^ 'dazflbrsStatus'
+    -> DisableAvailabilityZonesForLoadBalancerResponse
 disableAvailabilityZonesForLoadBalancerResponse pStatus_ =
     DisableAvailabilityZonesForLoadBalancerResponse'
     { _dazflbrsAvailabilityZones = Nothing
@@ -143,6 +147,6 @@ disableAvailabilityZonesForLoadBalancerResponse pStatus_ =
 dazflbrsAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
 dazflbrsAvailabilityZones = lens _dazflbrsAvailabilityZones (\ s a -> s{_dazflbrsAvailabilityZones = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dazflbrsStatus :: Lens' DisableAvailabilityZonesForLoadBalancerResponse Int
 dazflbrsStatus = lens _dazflbrsStatus (\ s a -> s{_dazflbrsStatus = a});

@@ -24,16 +24,16 @@
 module Network.AWS.EC2.DescribeVPCClassicLink
     (
     -- * Creating a Request
-      DescribeVPCClassicLink
-    , describeVPCClassicLink
+      describeVPCClassicLink
+    , DescribeVPCClassicLink
     -- * Request Lenses
     , dvclFilters
     , dvclVPCIds
     , dvclDryRun
 
     -- * Destructuring the Response
-    , DescribeVPCClassicLinkResponse
     , describeVPCClassicLinkResponse
+    , DescribeVPCClassicLinkResponse
     -- * Response Lenses
     , dvclrsVPCs
     , dvclrsStatus
@@ -46,22 +46,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeVPCClassicLink' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvclFilters'
---
--- * 'dvclVPCIds'
---
--- * 'dvclDryRun'
 data DescribeVPCClassicLink = DescribeVPCClassicLink'
     { _dvclFilters :: !(Maybe [Filter])
     , _dvclVPCIds  :: !(Maybe [Text])
     , _dvclDryRun  :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVPCClassicLink' smart constructor.
-describeVPCClassicLink :: DescribeVPCClassicLink
+-- | Creates a value of 'DescribeVPCClassicLink' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvclFilters'
+--
+-- * 'dvclVPCIds'
+--
+-- * 'dvclDryRun'
+describeVPCClassicLink
+    :: DescribeVPCClassicLink
 describeVPCClassicLink =
     DescribeVPCClassicLink'
     { _dvclFilters = Nothing
@@ -71,22 +72,22 @@ describeVPCClassicLink =
 
 -- | One or more filters.
 --
--- -   @is-classic-link-enabled@ - Whether the VPC is enabled for
---     ClassicLink (@true@ | @false@).
+-- -   'is-classic-link-enabled' - Whether the VPC is enabled for
+--     ClassicLink ('true' | 'false').
 --
--- -   @tag@:/key/=/value/ - The key\/value combination of a tag assigned
+-- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
 --     to the resource.
 --
--- -   @tag-key@ - The key of a tag assigned to the resource. This filter
---     is independent of the @tag-value@ filter. For example, if you use
+-- -   'tag-key' - The key of a tag assigned to the resource. This filter
+--     is independent of the 'tag-value' filter. For example, if you use
 --     both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\",
 --     you get any resources assigned both the tag key Purpose (regardless
 --     of what the tag\'s value is), and the tag value X (regardless of
 --     what the tag\'s key is). If you want to list only resources where
---     Purpose is X, see the @tag@:/key/=/value/ filter.
+--     Purpose is X, see the 'tag':/key/=/value/ filter.
 --
--- -   @tag-value@ - The value of a tag assigned to the resource. This
---     filter is independent of the @tag-key@ filter.
+-- -   'tag-value' - The value of a tag assigned to the resource. This
+--     filter is independent of the 'tag-key' filter.
 --
 dvclFilters :: Lens' DescribeVPCClassicLink [Filter]
 dvclFilters = lens _dvclFilters (\ s a -> s{_dvclFilters = a}) . _Default . _Coerce;
@@ -97,8 +98,8 @@ dvclVPCIds = lens _dvclVPCIds (\ s a -> s{_dvclVPCIds = a}) . _Default . _Coerce
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dvclDryRun :: Lens' DescribeVPCClassicLink (Maybe Bool)
 dvclDryRun = lens _dvclDryRun (\ s a -> s{_dvclDryRun = a});
 
@@ -132,19 +133,21 @@ instance ToQuery DescribeVPCClassicLink where
                "DryRun" =: _dvclDryRun]
 
 -- | /See:/ 'describeVPCClassicLinkResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvclrsVPCs'
---
--- * 'dvclrsStatus'
 data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
     { _dvclrsVPCs   :: !(Maybe [VPCClassicLink])
     , _dvclrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVPCClassicLinkResponse' smart constructor.
-describeVPCClassicLinkResponse :: Int -> DescribeVPCClassicLinkResponse
+-- | Creates a value of 'DescribeVPCClassicLinkResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvclrsVPCs'
+--
+-- * 'dvclrsStatus'
+describeVPCClassicLinkResponse
+    :: Int -- ^ 'dvclrsStatus'
+    -> DescribeVPCClassicLinkResponse
 describeVPCClassicLinkResponse pStatus_ =
     DescribeVPCClassicLinkResponse'
     { _dvclrsVPCs = Nothing
@@ -155,6 +158,6 @@ describeVPCClassicLinkResponse pStatus_ =
 dvclrsVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
 dvclrsVPCs = lens _dvclrsVPCs (\ s a -> s{_dvclrsVPCs = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dvclrsStatus :: Lens' DescribeVPCClassicLinkResponse Int
 dvclrsStatus = lens _dvclrsStatus (\ s a -> s{_dvclrsStatus = a});

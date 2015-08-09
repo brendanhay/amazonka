@@ -30,8 +30,8 @@
 module Network.AWS.OpsWorks.UpdateStack
     (
     -- * Creating a Request
-      UpdateStack
-    , updateStack
+      updateStack
+    , UpdateStack
     -- * Request Lenses
     , usDefaultInstanceProfileARN
     , usServiceRoleARN
@@ -53,8 +53,8 @@ module Network.AWS.OpsWorks.UpdateStack
     , usStackId
 
     -- * Destructuring the Response
-    , UpdateStackResponse
     , updateStackResponse
+    , UpdateStackResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -64,8 +64,30 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateStack' smart constructor.
+data UpdateStack = UpdateStack'
+    { _usDefaultInstanceProfileARN :: !(Maybe Text)
+    , _usServiceRoleARN            :: !(Maybe Text)
+    , _usDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+    , _usChefConfiguration         :: !(Maybe ChefConfiguration)
+    , _usAgentVersion              :: !(Maybe Text)
+    , _usDefaultSSHKeyName         :: !(Maybe Text)
+    , _usCustomJSON                :: !(Maybe Text)
+    , _usCustomCookbooksSource     :: !(Maybe Source)
+    , _usDefaultAvailabilityZone   :: !(Maybe Text)
+    , _usName                      :: !(Maybe Text)
+    , _usUseOpsworksSecurityGroups :: !(Maybe Bool)
+    , _usDefaultOS                 :: !(Maybe Text)
+    , _usAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _usUseCustomCookbooks        :: !(Maybe Bool)
+    , _usDefaultSubnetId           :: !(Maybe Text)
+    , _usConfigurationManager      :: !(Maybe StackConfigurationManager)
+    , _usHostnameTheme             :: !(Maybe Text)
+    , _usStackId                   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateStack' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'usDefaultInstanceProfileARN'
 --
@@ -102,29 +124,9 @@ import           Network.AWS.Response
 -- * 'usHostnameTheme'
 --
 -- * 'usStackId'
-data UpdateStack = UpdateStack'
-    { _usDefaultInstanceProfileARN :: !(Maybe Text)
-    , _usServiceRoleARN            :: !(Maybe Text)
-    , _usDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _usChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _usAgentVersion              :: !(Maybe Text)
-    , _usDefaultSSHKeyName         :: !(Maybe Text)
-    , _usCustomJSON                :: !(Maybe Text)
-    , _usCustomCookbooksSource     :: !(Maybe Source)
-    , _usDefaultAvailabilityZone   :: !(Maybe Text)
-    , _usName                      :: !(Maybe Text)
-    , _usUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _usDefaultOS                 :: !(Maybe Text)
-    , _usAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _usUseCustomCookbooks        :: !(Maybe Bool)
-    , _usDefaultSubnetId           :: !(Maybe Text)
-    , _usConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _usHostnameTheme             :: !(Maybe Text)
-    , _usStackId                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateStack' smart constructor.
-updateStack :: Text -> UpdateStack
+updateStack
+    :: Text -- ^ 'usStackId'
+    -> UpdateStack
 updateStack pStackId_ =
     UpdateStack'
     { _usDefaultInstanceProfileARN = Nothing
@@ -164,7 +166,7 @@ usServiceRoleARN = lens _usServiceRoleARN (\ s a -> s{_usServiceRoleARN = a});
 usDefaultRootDeviceType :: Lens' UpdateStack (Maybe RootDeviceType)
 usDefaultRootDeviceType = lens _usDefaultRootDeviceType (\ s a -> s{_usDefaultRootDeviceType = a});
 
--- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf
 -- and the Berkshelf version on Chef 11.10 stacks. For more information,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
@@ -173,7 +175,7 @@ usChefConfiguration = lens _usChefConfiguration (\ s a -> s{_usChefConfiguration
 
 -- | The default AWS OpsWorks agent version. You have the following options:
 --
--- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks
+-- -   Auto-update - Set this parameter to 'LATEST'. AWS OpsWorks
 --     automatically installs new agent versions on the stack\'s instances
 --     as soon as they are available.
 -- -   Fixed version - Set this parameter to your preferred agent version.
@@ -181,7 +183,7 @@ usChefConfiguration = lens _usChefConfiguration (\ s a -> s{_usChefConfiguration
 --     and specify a new version. AWS OpsWorks then automatically installs
 --     that version on the stack\'s instances.
 --
--- The default setting is @LATEST@. To specify an agent version, you must
+-- The default setting is 'LATEST'. To specify an agent version, you must
 -- use the complete version number, not the abbreviated number shown on the
 -- console. For a list of available agent version numbers, call
 -- DescribeAgentVersions.
@@ -191,7 +193,7 @@ usChefConfiguration = lens _usChefConfiguration (\ s a -> s{_usChefConfiguration
 usAgentVersion :: Lens' UpdateStack (Maybe Text)
 usAgentVersion = lens _usAgentVersion (\ s a -> s{_usAgentVersion = a});
 
--- | A default Amazon EC2 key-pair name. The default value is @none@. If you
+-- | A default Amazon EC2 key-pair name. The default value is 'none'. If you
 -- specify a key-pair name, AWS OpsWorks installs the public key on the
 -- instance and you can use the private key with an SSH client to log in to
 -- the instance. For more information, see
@@ -209,7 +211,7 @@ usDefaultSSHKeyName = lens _usDefaultSSHKeyName (\ s a -> s{_usDefaultSSHKeyName
 -- pass data to recipes. The string should be in the following format and
 -- escape characters such as \'\"\':
 --
--- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
+-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'
 --
 -- For more information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
@@ -223,7 +225,7 @@ usCustomCookbooksSource = lens _usCustomCookbooksSource (\ s a -> s{_usCustomCoo
 -- | The stack\'s default Availability Zone, which must be in the stack\'s
 -- region. For more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
--- If you also specify a value for @DefaultSubnetId@, the subnet must be in
+-- If you also specify a value for 'DefaultSubnetId', the subnet must be in
 -- the same zone. For more information, see CreateStack.
 usDefaultAvailabilityZone :: Lens' UpdateStack (Maybe Text)
 usDefaultAvailabilityZone = lens _usDefaultAvailabilityZone (\ s a -> s{_usDefaultAvailabilityZone = a});
@@ -237,9 +239,9 @@ usName = lens _usName (\ s a -> s{_usName = a});
 --
 -- AWS OpsWorks provides a standard set of built-in security groups, one
 -- for each layer, which are associated with layers by default.
--- @UseOpsworksSecurityGroups@ allows you to provide your own custom
+-- 'UseOpsworksSecurityGroups' allows you to provide your own custom
 -- security groups instead of using the built-in groups.
--- @UseOpsworksSecurityGroups@ has the following settings:
+-- 'UseOpsworksSecurityGroups' has the following settings:
 --
 -- -   True - AWS OpsWorks automatically associates the appropriate
 --     built-in security group with each layer (default setting). You can
@@ -261,10 +263,10 @@ usUseOpsworksSecurityGroups = lens _usUseOpsworksSecurityGroups (\ s a -> s{_usU
 -- following:
 --
 -- -   A supported Linux operating system: An Amazon Linux version, such as
---     @Amazon Linux 2015.03@, @Red Hat Enterprise Linux 7@,
---     @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
--- -   @Microsoft Windows Server 2012 R2 Base@.
--- -   A custom AMI: @Custom@. You specify the custom AMI you want to use
+--     'Amazon Linux 2015.03', 'Red Hat Enterprise Linux 7',
+--     'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'.
+-- -   'Microsoft Windows Server 2012 R2 Base'.
+-- -   A custom AMI: 'Custom'. You specify the custom AMI you want to use
 --     when you create instances. For more information on how to use custom
 --     AMIs with OpsWorks, see
 --     <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
@@ -285,11 +287,11 @@ usUseCustomCookbooks :: Lens' UpdateStack (Maybe Bool)
 usUseCustomCookbooks = lens _usUseCustomCookbooks (\ s a -> s{_usUseCustomCookbooks = a});
 
 -- | The stack\'s default VPC subnet ID. This parameter is required if you
--- specify a value for the @VpcId@ parameter. All instances are launched
+-- specify a value for the 'VpcId' parameter. All instances are launched
 -- into this subnet unless you specify otherwise when you create the
--- instance. If you also specify a value for @DefaultAvailabilityZone@, the
+-- instance. If you also specify a value for 'DefaultAvailabilityZone', the
 -- subnet must be in that zone. For information on default values and when
--- this parameter is required, see the @VpcId@ parameter description.
+-- this parameter is required, see the 'VpcId' parameter description.
 usDefaultSubnetId :: Lens' UpdateStack (Maybe Text)
 usDefaultSubnetId = lens _usDefaultSubnetId (\ s a -> s{_usDefaultSubnetId = a});
 
@@ -301,23 +303,23 @@ usConfigurationManager = lens _usConfigurationManager (\ s a -> s{_usConfigurati
 
 -- | The stack\'s new host name theme, with spaces replaced by underscores.
 -- The theme is used to generate host names for the stack\'s instances. By
--- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
+-- default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host
 -- names by appending integers to the layer\'s short name. The other themes
 -- are:
 --
--- -   @Baked_Goods@
--- -   @Clouds@
--- -   @Europe_Cities@
--- -   @Fruits@
--- -   @Greek_Deities@
--- -   @Legendary_creatures_from_Japan@
--- -   @Planets_and_Moons@
--- -   @Roman_Deities@
--- -   @Scottish_Islands@
--- -   @US_Cities@
--- -   @Wild_Cats@
+-- -   'Baked_Goods'
+-- -   'Clouds'
+-- -   'Europe_Cities'
+-- -   'Fruits'
+-- -   'Greek_Deities'
+-- -   'Legendary_creatures_from_Japan'
+-- -   'Planets_and_Moons'
+-- -   'Roman_Deities'
+-- -   'Scottish_Islands'
+-- -   'US_Cities'
+-- -   'Wild_Cats'
 --
--- To obtain a generated host name, call @GetHostNameSuggestion@, which
+-- To obtain a generated host name, call 'GetHostNameSuggestion', which
 -- returns a host name based on the current theme.
 usHostnameTheme :: Lens' UpdateStack (Maybe Text)
 usHostnameTheme = lens _usHostnameTheme (\ s a -> s{_usHostnameTheme = a});
@@ -377,6 +379,8 @@ data UpdateStackResponse =
     UpdateStackResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateStackResponse' smart constructor.
-updateStackResponse :: UpdateStackResponse
+-- | Creates a value of 'UpdateStackResponse' with the minimum fields required to make a request.
+--
+updateStackResponse
+    :: UpdateStackResponse
 updateStackResponse = UpdateStackResponse'

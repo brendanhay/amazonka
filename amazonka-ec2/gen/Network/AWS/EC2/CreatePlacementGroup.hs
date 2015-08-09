@@ -30,16 +30,16 @@
 module Network.AWS.EC2.CreatePlacementGroup
     (
     -- * Creating a Request
-      CreatePlacementGroup
-    , createPlacementGroup
+      createPlacementGroup
+    , CreatePlacementGroup
     -- * Request Lenses
     , cpgDryRun
     , cpgGroupName
     , cpgStrategy
 
     -- * Destructuring the Response
-    , CreatePlacementGroupResponse
     , createPlacementGroupResponse
+    , CreatePlacementGroupResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -49,22 +49,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createPlacementGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpgDryRun'
---
--- * 'cpgGroupName'
---
--- * 'cpgStrategy'
 data CreatePlacementGroup = CreatePlacementGroup'
     { _cpgDryRun    :: !(Maybe Bool)
     , _cpgGroupName :: !Text
     , _cpgStrategy  :: !PlacementStrategy
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePlacementGroup' smart constructor.
-createPlacementGroup :: Text -> PlacementStrategy -> CreatePlacementGroup
+-- | Creates a value of 'CreatePlacementGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpgDryRun'
+--
+-- * 'cpgGroupName'
+--
+-- * 'cpgStrategy'
+createPlacementGroup
+    :: Text -- ^ 'cpgGroupName'
+    -> PlacementStrategy -- ^ 'cpgStrategy'
+    -> CreatePlacementGroup
 createPlacementGroup pGroupName_ pStrategy_ =
     CreatePlacementGroup'
     { _cpgDryRun = Nothing
@@ -74,8 +77,8 @@ createPlacementGroup pGroupName_ pStrategy_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cpgDryRun :: Lens' CreatePlacementGroup (Maybe Bool)
 cpgDryRun = lens _cpgDryRun (\ s a -> s{_cpgDryRun = a});
 
@@ -115,6 +118,8 @@ data CreatePlacementGroupResponse =
     CreatePlacementGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePlacementGroupResponse' smart constructor.
-createPlacementGroupResponse :: CreatePlacementGroupResponse
+-- | Creates a value of 'CreatePlacementGroupResponse' with the minimum fields required to make a request.
+--
+createPlacementGroupResponse
+    :: CreatePlacementGroupResponse
 createPlacementGroupResponse = CreatePlacementGroupResponse'

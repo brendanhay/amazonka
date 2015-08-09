@@ -26,12 +26,12 @@
 --
 -- The List Multipart Uploads operation supports pagination. By default,
 -- this operation returns up to 1,000 multipart uploads in the response.
--- You should always check the response for a @marker@ at which to continue
--- the list; if there are no more items the @marker@ is @null@. To return a
+-- You should always check the response for a 'marker' at which to continue
+-- the list; if there are no more items the 'marker' is 'null'. To return a
 -- list of multipart uploads that begins at a specific upload, set the
--- @marker@ request parameter to the value you obtained from a previous
+-- 'marker' request parameter to the value you obtained from a previous
 -- List Multipart Upload request. You can also limit the number of uploads
--- returned in the response by specifying the @limit@ parameter in the
+-- returned in the response by specifying the 'limit' parameter in the
 -- request.
 --
 -- Note the difference between this operation and listing parts
@@ -56,8 +56,8 @@
 module Network.AWS.Glacier.ListMultipartUploads
     (
     -- * Creating a Request
-      ListMultipartUploads
-    , listMultipartUploads
+      listMultipartUploads
+    , ListMultipartUploads
     -- * Request Lenses
     , lmuMarker
     , lmuLimit
@@ -65,8 +65,8 @@ module Network.AWS.Glacier.ListMultipartUploads
     , lmuVaultName
 
     -- * Destructuring the Response
-    , ListMultipartUploadsResponse
     , listMultipartUploadsResponse
+    , ListMultipartUploadsResponse
     -- * Response Lenses
     , lmursUploadsList
     , lmursMarker
@@ -83,8 +83,16 @@ import           Network.AWS.Response
 -- for an Amazon Glacier vault.
 --
 -- /See:/ 'listMultipartUploads' smart constructor.
+data ListMultipartUploads = ListMultipartUploads'
+    { _lmuMarker    :: !(Maybe Text)
+    , _lmuLimit     :: !(Maybe Text)
+    , _lmuAccountId :: !Text
+    , _lmuVaultName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListMultipartUploads' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lmuMarker'
 --
@@ -93,15 +101,10 @@ import           Network.AWS.Response
 -- * 'lmuAccountId'
 --
 -- * 'lmuVaultName'
-data ListMultipartUploads = ListMultipartUploads'
-    { _lmuMarker    :: !(Maybe Text)
-    , _lmuLimit     :: !(Maybe Text)
-    , _lmuAccountId :: !Text
-    , _lmuVaultName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListMultipartUploads' smart constructor.
-listMultipartUploads :: Text -> Text -> ListMultipartUploads
+listMultipartUploads
+    :: Text -- ^ 'lmuAccountId'
+    -> Text -- ^ 'lmuVaultName'
+    -> ListMultipartUploads
 listMultipartUploads pAccountId_ pVaultName_ =
     ListMultipartUploads'
     { _lmuMarker = Nothing
@@ -124,9 +127,9 @@ lmuMarker = lens _lmuMarker (\ s a -> s{_lmuMarker = a});
 lmuLimit :: Lens' ListMultipartUploads (Maybe Text)
 lmuLimit = lens _lmuLimit (\ s a -> s{_lmuLimit = a});
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 lmuAccountId :: Lens' ListMultipartUploads Text
@@ -165,22 +168,24 @@ instance ToQuery ListMultipartUploads where
 -- | Contains the Amazon Glacier response to your request.
 --
 -- /See:/ 'listMultipartUploadsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lmursUploadsList'
---
--- * 'lmursMarker'
---
--- * 'lmursStatus'
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     { _lmursUploadsList :: !(Maybe [UploadListElement])
     , _lmursMarker      :: !(Maybe Text)
     , _lmursStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListMultipartUploadsResponse' smart constructor.
-listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse
+-- | Creates a value of 'ListMultipartUploadsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lmursUploadsList'
+--
+-- * 'lmursMarker'
+--
+-- * 'lmursStatus'
+listMultipartUploadsResponse
+    :: Int -- ^ 'lmursStatus'
+    -> ListMultipartUploadsResponse
 listMultipartUploadsResponse pStatus_ =
     ListMultipartUploadsResponse'
     { _lmursUploadsList = Nothing
@@ -195,10 +200,10 @@ lmursUploadsList = lens _lmursUploadsList (\ s a -> s{_lmursUploadsList = a}) . 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use the marker in a new List Multipart Uploads request to
 -- obtain more uploads in the list. If there are no more uploads, this
--- value is @null@.
+-- value is 'null'.
 lmursMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursMarker = lens _lmursMarker (\ s a -> s{_lmursMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 lmursStatus :: Lens' ListMultipartUploadsResponse Int
 lmursStatus = lens _lmursStatus (\ s a -> s{_lmursStatus = a});

@@ -34,8 +34,8 @@
 module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     (
     -- * Creating a Request
-      UpdateSnapshotSchedule
-    , updateSnapshotSchedule
+      updateSnapshotSchedule
+    , UpdateSnapshotSchedule
     -- * Request Lenses
     , ussDescription
     , ussVolumeARN
@@ -43,8 +43,8 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     , ussRecurrenceInHours
 
     -- * Destructuring the Response
-    , UpdateSnapshotScheduleResponse
     , updateSnapshotScheduleResponse
+    , UpdateSnapshotScheduleResponse
     -- * Response Lenses
     , ussrsVolumeARN
     , ussrsStatus
@@ -64,8 +64,16 @@ import           Network.AWS.StorageGateway.Types.Product
 -- -   UpdateSnapshotScheduleInput$VolumeARN
 --
 -- /See:/ 'updateSnapshotSchedule' smart constructor.
+data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
+    { _ussDescription       :: !(Maybe Text)
+    , _ussVolumeARN         :: !Text
+    , _ussStartAt           :: !Nat
+    , _ussRecurrenceInHours :: !Nat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateSnapshotSchedule' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ussDescription'
 --
@@ -74,15 +82,11 @@ import           Network.AWS.StorageGateway.Types.Product
 -- * 'ussStartAt'
 --
 -- * 'ussRecurrenceInHours'
-data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
-    { _ussDescription       :: !(Maybe Text)
-    , _ussVolumeARN         :: !Text
-    , _ussStartAt           :: !Nat
-    , _ussRecurrenceInHours :: !Nat
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateSnapshotSchedule' smart constructor.
-updateSnapshotSchedule :: Text -> Natural -> Natural -> UpdateSnapshotSchedule
+updateSnapshotSchedule
+    :: Text -- ^ 'ussVolumeARN'
+    -> Natural -- ^ 'ussStartAt'
+    -> Natural -- ^ 'ussRecurrenceInHours'
+    -> UpdateSnapshotSchedule
 updateSnapshotSchedule pVolumeARN_ pStartAt_ pRecurrenceInHours_ =
     UpdateSnapshotSchedule'
     { _ussDescription = Nothing
@@ -149,19 +153,21 @@ instance ToQuery UpdateSnapshotSchedule where
 -- | A JSON object containing the of the updated storage volume.
 --
 -- /See:/ 'updateSnapshotScheduleResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ussrsVolumeARN'
---
--- * 'ussrsStatus'
 data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
     { _ussrsVolumeARN :: !(Maybe Text)
     , _ussrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateSnapshotScheduleResponse' smart constructor.
-updateSnapshotScheduleResponse :: Int -> UpdateSnapshotScheduleResponse
+-- | Creates a value of 'UpdateSnapshotScheduleResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ussrsVolumeARN'
+--
+-- * 'ussrsStatus'
+updateSnapshotScheduleResponse
+    :: Int -- ^ 'ussrsStatus'
+    -> UpdateSnapshotScheduleResponse
 updateSnapshotScheduleResponse pStatus_ =
     UpdateSnapshotScheduleResponse'
     { _ussrsVolumeARN = Nothing
@@ -172,6 +178,6 @@ updateSnapshotScheduleResponse pStatus_ =
 ussrsVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
 ussrsVolumeARN = lens _ussrsVolumeARN (\ s a -> s{_ussrsVolumeARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 ussrsStatus :: Lens' UpdateSnapshotScheduleResponse Int
 ussrsStatus = lens _ussrsStatus (\ s a -> s{_ussrsStatus = a});

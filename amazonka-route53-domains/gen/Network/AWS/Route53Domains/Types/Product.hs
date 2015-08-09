@@ -24,8 +24,26 @@ import           Network.AWS.Route53Domains.Types.Sum
 -- | ContactDetail includes the following elements.
 --
 -- /See:/ 'contactDetail' smart constructor.
+data ContactDetail = ContactDetail'
+    { _cdOrganizationName :: !(Maybe Text)
+    , _cdEmail            :: !(Maybe Text)
+    , _cdFax              :: !(Maybe Text)
+    , _cdState            :: !(Maybe Text)
+    , _cdLastName         :: !(Maybe Text)
+    , _cdExtraParams      :: !(Maybe [ExtraParam])
+    , _cdZipCode          :: !(Maybe Text)
+    , _cdAddressLine1     :: !(Maybe Text)
+    , _cdCity             :: !(Maybe Text)
+    , _cdPhoneNumber      :: !(Maybe Text)
+    , _cdAddressLine2     :: !(Maybe Text)
+    , _cdFirstName        :: !(Maybe Text)
+    , _cdCountryCode      :: !(Maybe CountryCode)
+    , _cdContactType      :: !(Maybe ContactType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ContactDetail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdOrganizationName'
 --
@@ -54,25 +72,8 @@ import           Network.AWS.Route53Domains.Types.Sum
 -- * 'cdCountryCode'
 --
 -- * 'cdContactType'
-data ContactDetail = ContactDetail'
-    { _cdOrganizationName :: !(Maybe Text)
-    , _cdEmail            :: !(Maybe Text)
-    , _cdFax              :: !(Maybe Text)
-    , _cdState            :: !(Maybe Text)
-    , _cdLastName         :: !(Maybe Text)
-    , _cdExtraParams      :: !(Maybe [ExtraParam])
-    , _cdZipCode          :: !(Maybe Text)
-    , _cdAddressLine1     :: !(Maybe Text)
-    , _cdCity             :: !(Maybe Text)
-    , _cdPhoneNumber      :: !(Maybe Text)
-    , _cdAddressLine2     :: !(Maybe Text)
-    , _cdFirstName        :: !(Maybe Text)
-    , _cdCountryCode      :: !(Maybe CountryCode)
-    , _cdContactType      :: !(Maybe ContactType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ContactDetail' smart constructor.
-contactDetail :: ContactDetail
+contactDetail
+    :: ContactDetail
 contactDetail =
     ContactDetail'
     { _cdOrganizationName = Nothing
@@ -91,15 +92,15 @@ contactDetail =
     , _cdContactType = Nothing
     }
 
--- | Name of the organization for contact types other than @PERSON@.
+-- | Name of the organization for contact types other than 'PERSON'.
 --
 -- Type: String
 --
 -- Default: None
 --
--- Constraints: Maximum 255 characters. Contact type must not be @PERSON@.
+-- Constraints: Maximum 255 characters. Contact type must not be 'PERSON'.
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: No
 cdOrganizationName :: Lens' ContactDetail (Maybe Text)
@@ -113,7 +114,7 @@ cdOrganizationName = lens _cdOrganizationName (\ s a -> s{_cdOrganizationName = 
 --
 -- Constraints: Maximum 254 characters.
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
 cdEmail :: Lens' ContactDetail (Maybe Text)
@@ -127,9 +128,9 @@ cdEmail = lens _cdEmail (\ s a -> s{_cdEmail = a});
 --
 -- Constraints: Phone number must be specified in the format \"+[country
 -- dialing code].[number including any area code]\". For example, a US
--- phone number might appear as @\"+1.1234567890\"@.
+-- phone number might appear as '\"+1.1234567890\"'.
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: No
 cdFax :: Lens' ContactDetail (Maybe Text)
@@ -143,7 +144,7 @@ cdFax = lens _cdFax (\ s a -> s{_cdFax = a});
 --
 -- Constraints: Maximum 255 characters.
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: No
 cdState :: Lens' ContactDetail (Maybe Text)
@@ -157,7 +158,7 @@ cdState = lens _cdState (\ s a -> s{_cdState = a});
 --
 -- Constraints: Maximum 255 characters.
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
 cdLastName :: Lens' ContactDetail (Maybe Text)
@@ -170,9 +171,9 @@ cdLastName = lens _cdLastName (\ s a -> s{_cdLastName = a});
 --
 -- Default: None
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
--- Children: @Name@, @Value@
+-- Children: 'Name', 'Value'
 --
 -- Required: No
 cdExtraParams :: Lens' ContactDetail [ExtraParam]
@@ -186,7 +187,7 @@ cdExtraParams = lens _cdExtraParams (\ s a -> s{_cdExtraParams = a}) . _Default 
 --
 -- Constraints: Maximum 255 characters.
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: No
 cdZipCode :: Lens' ContactDetail (Maybe Text)
@@ -200,7 +201,7 @@ cdZipCode = lens _cdZipCode (\ s a -> s{_cdZipCode = a});
 --
 -- Constraints: Maximum 255 characters.
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
 cdAddressLine1 :: Lens' ContactDetail (Maybe Text)
@@ -214,7 +215,7 @@ cdAddressLine1 = lens _cdAddressLine1 (\ s a -> s{_cdAddressLine1 = a});
 --
 -- Constraints: Maximum 255 characters.
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
 cdCity :: Lens' ContactDetail (Maybe Text)
@@ -228,9 +229,9 @@ cdCity = lens _cdCity (\ s a -> s{_cdCity = a});
 --
 -- Constraints: Phone number must be specified in the format \"+[country
 -- dialing code].[number including any area code>]\". For example, a US
--- phone number might appear as @\"+1.1234567890\"@.
+-- phone number might appear as '\"+1.1234567890\"'.
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
 cdPhoneNumber :: Lens' ContactDetail (Maybe Text)
@@ -244,7 +245,7 @@ cdPhoneNumber = lens _cdPhoneNumber (\ s a -> s{_cdPhoneNumber = a});
 --
 -- Constraints: Maximum 255 characters.
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: No
 cdAddressLine2 :: Lens' ContactDetail (Maybe Text)
@@ -258,7 +259,7 @@ cdAddressLine2 = lens _cdAddressLine2 (\ s a -> s{_cdAddressLine2 = a});
 --
 -- Constraints: Maximum 255 characters.
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
 cdFirstName :: Lens' ContactDetail (Maybe Text)
@@ -272,14 +273,14 @@ cdFirstName = lens _cdFirstName (\ s a -> s{_cdFirstName = a});
 --
 -- Constraints: Maximum 255 characters.
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
 cdCountryCode :: Lens' ContactDetail (Maybe CountryCode)
 cdCountryCode = lens _cdCountryCode (\ s a -> s{_cdCountryCode = a});
 
 -- | Indicates whether the contact is a person, company, association, or
--- public organization. If you choose an option other than @PERSON@, you
+-- public organization. If you choose an option other than 'PERSON', you
 -- must enter an organization name, and you can\'t enable privacy
 -- protection for the contact.
 --
@@ -289,9 +290,9 @@ cdCountryCode = lens _cdCountryCode (\ s a -> s{_cdCountryCode = a});
 --
 -- Constraints: Maximum 255 characters.
 --
--- Valid values: @PERSON@ | @COMPANY@ | @ASSOCIATION@ | @PUBLIC_BODY@
+-- Valid values: 'PERSON' | 'COMPANY' | 'ASSOCIATION' | 'PUBLIC_BODY'
 --
--- Parents: @RegistrantContact@, @AdminContact@, @TechContact@
+-- Parents: 'RegistrantContact', 'AdminContact', 'TechContact'
 --
 -- Required: Yes
 cdContactType :: Lens' ContactDetail (Maybe ContactType)
@@ -332,8 +333,16 @@ instance ToJSON ContactDetail where
                "ContactType" .= _cdContactType]
 
 -- | /See:/ 'domainSummary' smart constructor.
+data DomainSummary = DomainSummary'
+    { _dsExpiry       :: !(Maybe POSIX)
+    , _dsTransferLock :: !(Maybe Bool)
+    , _dsAutoRenew    :: !(Maybe Bool)
+    , _dsDomainName   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DomainSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsExpiry'
 --
@@ -342,15 +351,9 @@ instance ToJSON ContactDetail where
 -- * 'dsAutoRenew'
 --
 -- * 'dsDomainName'
-data DomainSummary = DomainSummary'
-    { _dsExpiry       :: !(Maybe POSIX)
-    , _dsTransferLock :: !(Maybe Bool)
-    , _dsAutoRenew    :: !(Maybe Bool)
-    , _dsDomainName   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DomainSummary' smart constructor.
-domainSummary :: Text -> DomainSummary
+domainSummary
+    :: Text -- ^ 'dsDomainName'
+    -> DomainSummary
 domainSummary pDomainName_ =
     DomainSummary'
     { _dsExpiry = Nothing
@@ -370,7 +373,7 @@ dsExpiry = lens _dsExpiry (\ s a -> s{_dsExpiry = a}) . mapping _Time;
 --
 -- Type: Boolean
 --
--- Valid values: @True@ | @False@
+-- Valid values: 'True' | 'False'
 dsTransferLock :: Lens' DomainSummary (Maybe Bool)
 dsTransferLock = lens _dsTransferLock (\ s a -> s{_dsTransferLock = a});
 
@@ -378,7 +381,7 @@ dsTransferLock = lens _dsTransferLock (\ s a -> s{_dsTransferLock = a});
 --
 -- Type: Boolean
 --
--- Valid values: @True@ | @False@
+-- Valid values: 'True' | 'False'
 dsAutoRenew :: Lens' DomainSummary (Maybe Bool)
 dsAutoRenew = lens _dsAutoRenew (\ s a -> s{_dsAutoRenew = a});
 
@@ -400,19 +403,22 @@ instance FromJSON DomainSummary where
 -- | ExtraParam includes the following elements.
 --
 -- /See:/ 'extraParam' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'epName'
---
--- * 'epValue'
 data ExtraParam = ExtraParam'
     { _epName  :: !ExtraParamName
     , _epValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ExtraParam' smart constructor.
-extraParam :: ExtraParamName -> Text -> ExtraParam
+-- | Creates a value of 'ExtraParam' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'epName'
+--
+-- * 'epValue'
+extraParam
+    :: ExtraParamName -- ^ 'epName'
+    -> Text -- ^ 'epValue'
+    -> ExtraParam
 extraParam pName_ pValue_ =
     ExtraParam'
     { _epName = pName_
@@ -425,14 +431,14 @@ extraParam pName_ pValue_ =
 --
 -- Default: None
 --
--- Valid values: @DUNS_NUMBER@ | @BRAND_NUMBER@ | @BIRTH_DEPARTMENT@ |
--- @BIRTH_DATE_IN_YYYY_MM_DD@ | @BIRTH_COUNTRY@ | @BIRTH_CITY@ |
--- @DOCUMENT_NUMBER@ | @AU_ID_NUMBER@ | @AU_ID_TYPE@ | @CA_LEGAL_TYPE@ |
--- @ES_IDENTIFICATION@ | @ES_IDENTIFICATION_TYPE@ | @ES_LEGAL_FORM@ |
--- @FI_BUSINESS_NUMBER@ | @FI_ID_NUMBER@ | @IT_PIN@ | @RU_PASSPORT_DATA@ |
--- @SE_ID_NUMBER@ | @SG_ID_NUMBER@ | @VAT_NUMBER@
+-- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' |
+-- 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' |
+-- 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' |
+-- 'ES_IDENTIFICATION' | 'ES_IDENTIFICATION_TYPE' | 'ES_LEGAL_FORM' |
+-- 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA' |
+-- 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'
 --
--- Parent: @ExtraParams@
+-- Parent: 'ExtraParams'
 --
 -- Required: Yes
 epName :: Lens' ExtraParam ExtraParamName
@@ -447,7 +453,7 @@ epName = lens _epName (\ s a -> s{_epName = a});
 --
 -- Constraints: Maximum 2048 characters.
 --
--- Parent: @ExtraParams@
+-- Parent: 'ExtraParams'
 --
 -- Required: Yes
 epValue :: Lens' ExtraParam Text
@@ -466,19 +472,21 @@ instance ToJSON ExtraParam where
 -- | Nameserver includes the following elements.
 --
 -- /See:/ 'nameserver' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nGlueIPs'
---
--- * 'nName'
 data Nameserver = Nameserver'
     { _nGlueIPs :: !(Maybe [Text])
     , _nName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Nameserver' smart constructor.
-nameserver :: Text -> Nameserver
+-- | Creates a value of 'Nameserver' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'nGlueIPs'
+--
+-- * 'nName'
+nameserver
+    :: Text -- ^ 'nName'
+    -> Nameserver
 nameserver pName_ =
     Nameserver'
     { _nGlueIPs = Nothing
@@ -495,7 +503,7 @@ nameserver pName_ =
 --
 -- Constraints: The list can contain only one IPv4 and one IPv6 address.
 --
--- Parent: @Nameservers@
+-- Parent: 'Nameservers'
 nGlueIPs :: Lens' Nameserver [Text]
 nGlueIPs = lens _nGlueIPs (\ s a -> s{_nGlueIPs = a}) . _Default . _Coerce;
 
@@ -505,7 +513,7 @@ nGlueIPs = lens _nGlueIPs (\ s a -> s{_nGlueIPs = a}) . _Default . _Coerce;
 --
 -- Constraint: Maximum 255 characterss
 --
--- Parent: @Nameservers@
+-- Parent: 'Nameservers'
 nName :: Lens' Nameserver Text
 nName = lens _nName (\ s a -> s{_nName = a});
 
@@ -523,8 +531,16 @@ instance ToJSON Nameserver where
 -- | OperationSummary includes the following elements.
 --
 -- /See:/ 'operationSummary' smart constructor.
+data OperationSummary = OperationSummary'
+    { _osOperationId   :: !Text
+    , _osStatus        :: !OperationStatus
+    , _osType          :: !OperationType
+    , _osSubmittedDate :: !POSIX
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'OperationSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'osOperationId'
 --
@@ -533,15 +549,12 @@ instance ToJSON Nameserver where
 -- * 'osType'
 --
 -- * 'osSubmittedDate'
-data OperationSummary = OperationSummary'
-    { _osOperationId   :: !Text
-    , _osStatus        :: !OperationStatus
-    , _osType          :: !OperationType
-    , _osSubmittedDate :: !POSIX
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'OperationSummary' smart constructor.
-operationSummary :: Text -> OperationStatus -> OperationType -> UTCTime -> OperationSummary
+operationSummary
+    :: Text -- ^ 'osOperationId'
+    -> OperationStatus -- ^ 'osStatus'
+    -> OperationType -- ^ 'osType'
+    -> UTCTime -- ^ 'osSubmittedDate'
+    -> OperationSummary
 operationSummary pOperationId_ pStatus_ pType_ pSubmittedDate_ =
     OperationSummary'
     { _osOperationId = pOperationId_
@@ -566,9 +579,9 @@ osStatus = lens _osStatus (\ s a -> s{_osStatus = a});
 --
 -- Type: String
 --
--- Valid values: @REGISTER_DOMAIN@ | @DELETE_DOMAIN@ | @TRANSFER_IN_DOMAIN@
--- | @UPDATE_DOMAIN_CONTACT@ | @UPDATE_NAMESERVER@ |
--- @CHANGE_PRIVACY_PROTECTION@ | @DOMAIN_LOCK@
+-- Valid values: 'REGISTER_DOMAIN' | 'DELETE_DOMAIN' | 'TRANSFER_IN_DOMAIN'
+-- | 'UPDATE_DOMAIN_CONTACT' | 'UPDATE_NAMESERVER' |
+-- 'CHANGE_PRIVACY_PROTECTION' | 'DOMAIN_LOCK'
 osType :: Lens' OperationSummary OperationType
 osType = lens _osType (\ s a -> s{_osType = a});
 
@@ -588,19 +601,20 @@ instance FromJSON OperationSummary where
 -- | Each tag includes the following elements.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagValue'
---
--- * 'tagKey'
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagValue'
+--
+-- * 'tagKey'
+tag
+    :: Tag
 tag =
     Tag'
     { _tagValue = Nothing
@@ -613,7 +627,7 @@ tag =
 --
 -- Default: None
 --
--- Valid values: A-Z, a-z, 0-9, space, \".:\/=+\\-\@\"
+-- Valid values: A-Z, a-z, 0-9, space, \".:\/=+\\-\'\"
 --
 -- Constraints: Each value can be 0-256 characters long.
 --
@@ -627,7 +641,7 @@ tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 --
 -- Default: None
 --
--- Valid values: A-Z, a-z, 0-9, space, \".:\/=+\\-\@\"
+-- Valid values: A-Z, a-z, 0-9, space, \".:\/=+\\-\'\"
 --
 -- Constraints: Each key can be 1-128 characters long.
 --

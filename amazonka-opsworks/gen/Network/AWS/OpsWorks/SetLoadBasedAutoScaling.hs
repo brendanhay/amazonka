@@ -37,8 +37,8 @@
 module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     (
     -- * Creating a Request
-      SetLoadBasedAutoScaling
-    , setLoadBasedAutoScaling
+      setLoadBasedAutoScaling
+    , SetLoadBasedAutoScaling
     -- * Request Lenses
     , slbasUpScaling
     , slbasEnable
@@ -46,8 +46,8 @@ module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     , slbasLayerId
 
     -- * Destructuring the Response
-    , SetLoadBasedAutoScalingResponse
     , setLoadBasedAutoScalingResponse
+    , SetLoadBasedAutoScalingResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -57,8 +57,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'setLoadBasedAutoScaling' smart constructor.
+data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'
+    { _slbasUpScaling   :: !(Maybe AutoScalingThresholds)
+    , _slbasEnable      :: !(Maybe Bool)
+    , _slbasDownScaling :: !(Maybe AutoScalingThresholds)
+    , _slbasLayerId     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SetLoadBasedAutoScaling' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'slbasUpScaling'
 --
@@ -67,15 +75,9 @@ import           Network.AWS.Response
 -- * 'slbasDownScaling'
 --
 -- * 'slbasLayerId'
-data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'
-    { _slbasUpScaling   :: !(Maybe AutoScalingThresholds)
-    , _slbasEnable      :: !(Maybe Bool)
-    , _slbasDownScaling :: !(Maybe AutoScalingThresholds)
-    , _slbasLayerId     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SetLoadBasedAutoScaling' smart constructor.
-setLoadBasedAutoScaling :: Text -> SetLoadBasedAutoScaling
+setLoadBasedAutoScaling
+    :: Text -- ^ 'slbasLayerId'
+    -> SetLoadBasedAutoScaling
 setLoadBasedAutoScaling pLayerId_ =
     SetLoadBasedAutoScaling'
     { _slbasUpScaling = Nothing
@@ -84,7 +86,7 @@ setLoadBasedAutoScaling pLayerId_ =
     , _slbasLayerId = pLayerId_
     }
 
--- | An @AutoScalingThresholds@ object with the upscaling threshold
+-- | An 'AutoScalingThresholds' object with the upscaling threshold
 -- configuration. If the load exceeds these thresholds for a specified
 -- amount of time, AWS OpsWorks starts a specified number of instances.
 slbasUpScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
@@ -94,7 +96,7 @@ slbasUpScaling = lens _slbasUpScaling (\ s a -> s{_slbasUpScaling = a});
 slbasEnable :: Lens' SetLoadBasedAutoScaling (Maybe Bool)
 slbasEnable = lens _slbasEnable (\ s a -> s{_slbasEnable = a});
 
--- | An @AutoScalingThresholds@ object with the downscaling threshold
+-- | An 'AutoScalingThresholds' object with the downscaling threshold
 -- configuration. If the load falls below these thresholds for a specified
 -- amount of time, AWS OpsWorks stops a specified number of instances.
 slbasDownScaling :: Lens' SetLoadBasedAutoScaling (Maybe AutoScalingThresholds)
@@ -141,6 +143,8 @@ data SetLoadBasedAutoScalingResponse =
     SetLoadBasedAutoScalingResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetLoadBasedAutoScalingResponse' smart constructor.
-setLoadBasedAutoScalingResponse :: SetLoadBasedAutoScalingResponse
+-- | Creates a value of 'SetLoadBasedAutoScalingResponse' with the minimum fields required to make a request.
+--
+setLoadBasedAutoScalingResponse
+    :: SetLoadBasedAutoScalingResponse
 setLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse'

@@ -50,8 +50,8 @@
 module Network.AWS.EC2.CreateSubnet
     (
     -- * Creating a Request
-      CreateSubnet
-    , createSubnet
+      createSubnet
+    , CreateSubnet
     -- * Request Lenses
     , cssAvailabilityZone
     , cssDryRun
@@ -59,8 +59,8 @@ module Network.AWS.EC2.CreateSubnet
     , cssCIdRBlock
 
     -- * Destructuring the Response
-    , CreateSubnetResponse
     , createSubnetResponse
+    , CreateSubnetResponse
     -- * Response Lenses
     , crsSubnet
     , crsStatus
@@ -73,8 +73,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createSubnet' smart constructor.
+data CreateSubnet = CreateSubnet'
+    { _cssAvailabilityZone :: !(Maybe Text)
+    , _cssDryRun           :: !(Maybe Bool)
+    , _cssVPCId            :: !Text
+    , _cssCIdRBlock        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateSubnet' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cssAvailabilityZone'
 --
@@ -83,15 +91,10 @@ import           Network.AWS.Response
 -- * 'cssVPCId'
 --
 -- * 'cssCIdRBlock'
-data CreateSubnet = CreateSubnet'
-    { _cssAvailabilityZone :: !(Maybe Text)
-    , _cssDryRun           :: !(Maybe Bool)
-    , _cssVPCId            :: !Text
-    , _cssCIdRBlock        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateSubnet' smart constructor.
-createSubnet :: Text -> Text -> CreateSubnet
+createSubnet
+    :: Text -- ^ 'cssVPCId'
+    -> Text -- ^ 'cssCIdRBlock'
+    -> CreateSubnet
 createSubnet pVPCId_ pCIdRBlock_ =
     CreateSubnet'
     { _cssAvailabilityZone = Nothing
@@ -108,8 +111,8 @@ cssAvailabilityZone = lens _cssAvailabilityZone (\ s a -> s{_cssAvailabilityZone
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cssDryRun :: Lens' CreateSubnet (Maybe Bool)
 cssDryRun = lens _cssDryRun (\ s a -> s{_cssDryRun = a});
 
@@ -118,7 +121,7 @@ cssVPCId :: Lens' CreateSubnet Text
 cssVPCId = lens _cssVPCId (\ s a -> s{_cssVPCId = a});
 
 -- | The network range for the subnet, in CIDR notation. For example,
--- @10.0.0.0\/24@.
+-- '10.0.0.0\/24'.
 cssCIdRBlock :: Lens' CreateSubnet Text
 cssCIdRBlock = lens _cssCIdRBlock (\ s a -> s{_cssCIdRBlock = a});
 
@@ -148,19 +151,21 @@ instance ToQuery CreateSubnet where
                "CidrBlock" =: _cssCIdRBlock]
 
 -- | /See:/ 'createSubnetResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crsSubnet'
---
--- * 'crsStatus'
 data CreateSubnetResponse = CreateSubnetResponse'
     { _crsSubnet :: !(Maybe Subnet)
     , _crsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSubnetResponse' smart constructor.
-createSubnetResponse :: Int -> CreateSubnetResponse
+-- | Creates a value of 'CreateSubnetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crsSubnet'
+--
+-- * 'crsStatus'
+createSubnetResponse
+    :: Int -- ^ 'crsStatus'
+    -> CreateSubnetResponse
 createSubnetResponse pStatus_ =
     CreateSubnetResponse'
     { _crsSubnet = Nothing
@@ -171,6 +176,6 @@ createSubnetResponse pStatus_ =
 crsSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
 crsSubnet = lens _crsSubnet (\ s a -> s{_crsSubnet = a});
 
--- | Undocumented member.
+-- | The response status code.
 crsStatus :: Lens' CreateSubnetResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

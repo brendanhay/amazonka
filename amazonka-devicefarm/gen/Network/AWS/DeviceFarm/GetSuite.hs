@@ -24,14 +24,14 @@
 module Network.AWS.DeviceFarm.GetSuite
     (
     -- * Creating a Request
-      GetSuite
-    , getSuite
+      getSuite
+    , GetSuite
     -- * Request Lenses
     , gsArn
 
     -- * Destructuring the Response
-    , GetSuiteResponse
     , getSuiteResponse
+    , GetSuiteResponse
     -- * Response Lenses
     , gsrsSuite
     , gsrsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents a request to the get suite operation.
 --
 -- /See:/ 'getSuite' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsArn'
 newtype GetSuite = GetSuite'
     { _gsArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSuite' smart constructor.
-getSuite :: Text -> GetSuite
+-- | Creates a value of 'GetSuite' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsArn'
+getSuite
+    :: Text -- ^ 'gsArn'
+    -> GetSuite
 getSuite pArn_ =
     GetSuite'
     { _gsArn = pArn_
@@ -96,19 +98,21 @@ instance ToQuery GetSuite where
 -- | Represents the result of a get suite request.
 --
 -- /See:/ 'getSuiteResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsrsSuite'
---
--- * 'gsrsStatus'
 data GetSuiteResponse = GetSuiteResponse'
     { _gsrsSuite  :: !(Maybe Suite)
     , _gsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSuiteResponse' smart constructor.
-getSuiteResponse :: Int -> GetSuiteResponse
+-- | Creates a value of 'GetSuiteResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsrsSuite'
+--
+-- * 'gsrsStatus'
+getSuiteResponse
+    :: Int -- ^ 'gsrsStatus'
+    -> GetSuiteResponse
 getSuiteResponse pStatus_ =
     GetSuiteResponse'
     { _gsrsSuite = Nothing
@@ -119,6 +123,6 @@ getSuiteResponse pStatus_ =
 gsrsSuite :: Lens' GetSuiteResponse (Maybe Suite)
 gsrsSuite = lens _gsrsSuite (\ s a -> s{_gsrsSuite = a});
 
--- | Undocumented member.
+-- | The response status code.
 gsrsStatus :: Lens' GetSuiteResponse Int
 gsrsStatus = lens _gsrsStatus (\ s a -> s{_gsrsStatus = a});

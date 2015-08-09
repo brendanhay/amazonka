@@ -32,16 +32,16 @@
 module Network.AWS.EC2.ImportKeyPair
     (
     -- * Creating a Request
-      ImportKeyPair
-    , importKeyPair
+      importKeyPair
+    , ImportKeyPair
     -- * Request Lenses
     , ikpDryRun
     , ikpKeyName
     , ikpPublicKeyMaterial
 
     -- * Destructuring the Response
-    , ImportKeyPairResponse
     , importKeyPairResponse
+    , ImportKeyPairResponse
     -- * Response Lenses
     , ikprsKeyFingerprint
     , ikprsKeyName
@@ -55,22 +55,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'importKeyPair' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ikpDryRun'
---
--- * 'ikpKeyName'
---
--- * 'ikpPublicKeyMaterial'
 data ImportKeyPair = ImportKeyPair'
     { _ikpDryRun            :: !(Maybe Bool)
     , _ikpKeyName           :: !Text
     , _ikpPublicKeyMaterial :: !Base64
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ImportKeyPair' smart constructor.
-importKeyPair :: Text -> ByteString -> ImportKeyPair
+-- | Creates a value of 'ImportKeyPair' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ikpDryRun'
+--
+-- * 'ikpKeyName'
+--
+-- * 'ikpPublicKeyMaterial'
+importKeyPair
+    :: Text -- ^ 'ikpKeyName'
+    -> ByteString -- ^ 'ikpPublicKeyMaterial'
+    -> ImportKeyPair
 importKeyPair pKeyName_ pPublicKeyMaterial_ =
     ImportKeyPair'
     { _ikpDryRun = Nothing
@@ -80,8 +83,8 @@ importKeyPair pKeyName_ pPublicKeyMaterial_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 ikpDryRun :: Lens' ImportKeyPair (Maybe Bool)
 ikpDryRun = lens _ikpDryRun (\ s a -> s{_ikpDryRun = a});
 
@@ -120,22 +123,24 @@ instance ToQuery ImportKeyPair where
                "PublicKeyMaterial" =: _ikpPublicKeyMaterial]
 
 -- | /See:/ 'importKeyPairResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ikprsKeyFingerprint'
---
--- * 'ikprsKeyName'
---
--- * 'ikprsStatus'
 data ImportKeyPairResponse = ImportKeyPairResponse'
     { _ikprsKeyFingerprint :: !(Maybe Text)
     , _ikprsKeyName        :: !(Maybe Text)
     , _ikprsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ImportKeyPairResponse' smart constructor.
-importKeyPairResponse :: Int -> ImportKeyPairResponse
+-- | Creates a value of 'ImportKeyPairResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ikprsKeyFingerprint'
+--
+-- * 'ikprsKeyName'
+--
+-- * 'ikprsStatus'
+importKeyPairResponse
+    :: Int -- ^ 'ikprsStatus'
+    -> ImportKeyPairResponse
 importKeyPairResponse pStatus_ =
     ImportKeyPairResponse'
     { _ikprsKeyFingerprint = Nothing
@@ -151,6 +156,6 @@ ikprsKeyFingerprint = lens _ikprsKeyFingerprint (\ s a -> s{_ikprsKeyFingerprint
 ikprsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprsKeyName = lens _ikprsKeyName (\ s a -> s{_ikprsKeyName = a});
 
--- | Undocumented member.
+-- | The response status code.
 ikprsStatus :: Lens' ImportKeyPairResponse Int
 ikprsStatus = lens _ikprsStatus (\ s a -> s{_ikprsStatus = a});

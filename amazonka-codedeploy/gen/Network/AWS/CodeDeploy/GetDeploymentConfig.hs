@@ -24,14 +24,14 @@
 module Network.AWS.CodeDeploy.GetDeploymentConfig
     (
     -- * Creating a Request
-      GetDeploymentConfig
-    , getDeploymentConfig
+      getDeploymentConfig
+    , GetDeploymentConfig
     -- * Request Lenses
     , gdcDeploymentConfigName
 
     -- * Destructuring the Response
-    , GetDeploymentConfigResponse
     , getDeploymentConfigResponse
+    , GetDeploymentConfigResponse
     -- * Response Lenses
     , gdcrsDeploymentConfigInfo
     , gdcrsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents the input of a get deployment configuration operation.
 --
 -- /See:/ 'getDeploymentConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdcDeploymentConfigName'
 newtype GetDeploymentConfig = GetDeploymentConfig'
     { _gdcDeploymentConfigName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDeploymentConfig' smart constructor.
-getDeploymentConfig :: Text -> GetDeploymentConfig
+-- | Creates a value of 'GetDeploymentConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdcDeploymentConfigName'
+getDeploymentConfig
+    :: Text -- ^ 'gdcDeploymentConfigName'
+    -> GetDeploymentConfig
 getDeploymentConfig pDeploymentConfigName_ =
     GetDeploymentConfig'
     { _gdcDeploymentConfigName = pDeploymentConfigName_
@@ -102,19 +104,21 @@ instance ToQuery GetDeploymentConfig where
 -- | Represents the output of a get deployment configuration operation.
 --
 -- /See:/ 'getDeploymentConfigResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdcrsDeploymentConfigInfo'
---
--- * 'gdcrsStatus'
 data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
     { _gdcrsDeploymentConfigInfo :: !(Maybe DeploymentConfigInfo)
     , _gdcrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDeploymentConfigResponse' smart constructor.
-getDeploymentConfigResponse :: Int -> GetDeploymentConfigResponse
+-- | Creates a value of 'GetDeploymentConfigResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdcrsDeploymentConfigInfo'
+--
+-- * 'gdcrsStatus'
+getDeploymentConfigResponse
+    :: Int -- ^ 'gdcrsStatus'
+    -> GetDeploymentConfigResponse
 getDeploymentConfigResponse pStatus_ =
     GetDeploymentConfigResponse'
     { _gdcrsDeploymentConfigInfo = Nothing
@@ -125,6 +129,6 @@ getDeploymentConfigResponse pStatus_ =
 gdcrsDeploymentConfigInfo :: Lens' GetDeploymentConfigResponse (Maybe DeploymentConfigInfo)
 gdcrsDeploymentConfigInfo = lens _gdcrsDeploymentConfigInfo (\ s a -> s{_gdcrsDeploymentConfigInfo = a});
 
--- | Undocumented member.
+-- | The response status code.
 gdcrsStatus :: Lens' GetDeploymentConfigResponse Int
 gdcrsStatus = lens _gdcrsStatus (\ s a -> s{_gdcrsStatus = a});

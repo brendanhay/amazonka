@@ -25,16 +25,16 @@
 module Network.AWS.SSM.ListAssociations
     (
     -- * Creating a Request
-      ListAssociations
-    , listAssociations
+      listAssociations
+    , ListAssociations
     -- * Request Lenses
     , laNextToken
     , laMaxResults
     , laAssociationFilterList
 
     -- * Destructuring the Response
-    , ListAssociationsResponse
     , listAssociationsResponse
+    , ListAssociationsResponse
     -- * Response Lenses
     , larsNextToken
     , larsAssociations
@@ -48,22 +48,24 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'listAssociations' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'laNextToken'
---
--- * 'laMaxResults'
---
--- * 'laAssociationFilterList'
 data ListAssociations = ListAssociations'
     { _laNextToken             :: !(Maybe Text)
     , _laMaxResults            :: !(Maybe Nat)
     , _laAssociationFilterList :: !(List1 AssociationFilter)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListAssociations' smart constructor.
-listAssociations :: NonEmpty AssociationFilter -> ListAssociations
+-- | Creates a value of 'ListAssociations' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'laNextToken'
+--
+-- * 'laMaxResults'
+--
+-- * 'laAssociationFilterList'
+listAssociations
+    :: NonEmpty AssociationFilter -- ^ 'laAssociationFilterList'
+    -> ListAssociations
 listAssociations pAssociationFilterList_ =
     ListAssociations'
     { _laNextToken = Nothing
@@ -122,22 +124,24 @@ instance ToQuery ListAssociations where
         toQuery = const mempty
 
 -- | /See:/ 'listAssociationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'larsNextToken'
---
--- * 'larsAssociations'
---
--- * 'larsStatus'
 data ListAssociationsResponse = ListAssociationsResponse'
     { _larsNextToken    :: !(Maybe Text)
     , _larsAssociations :: !(Maybe [Association])
     , _larsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListAssociationsResponse' smart constructor.
-listAssociationsResponse :: Int -> ListAssociationsResponse
+-- | Creates a value of 'ListAssociationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'larsNextToken'
+--
+-- * 'larsAssociations'
+--
+-- * 'larsStatus'
+listAssociationsResponse
+    :: Int -- ^ 'larsStatus'
+    -> ListAssociationsResponse
 listAssociationsResponse pStatus_ =
     ListAssociationsResponse'
     { _larsNextToken = Nothing
@@ -154,6 +158,6 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 larsAssociations :: Lens' ListAssociationsResponse [Association]
 larsAssociations = lens _larsAssociations (\ s a -> s{_larsAssociations = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 larsStatus :: Lens' ListAssociationsResponse Int
 larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

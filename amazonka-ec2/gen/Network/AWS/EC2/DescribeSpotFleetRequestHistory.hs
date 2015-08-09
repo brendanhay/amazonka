@@ -29,8 +29,8 @@
 module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     (
     -- * Creating a Request
-      DescribeSpotFleetRequestHistory
-    , describeSpotFleetRequestHistory
+      describeSpotFleetRequestHistory
+    , DescribeSpotFleetRequestHistory
     -- * Request Lenses
     , dsfrhNextToken
     , dsfrhEventType
@@ -40,8 +40,8 @@ module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     , dsfrhStartTime
 
     -- * Destructuring the Response
-    , DescribeSpotFleetRequestHistoryResponse
     , describeSpotFleetRequestHistoryResponse
+    , DescribeSpotFleetRequestHistoryResponse
     -- * Response Lenses
     , dsfrhrsNextToken
     , dsfrhrsStatus
@@ -60,8 +60,18 @@ import           Network.AWS.Response
 -- | Contains the parameters for DescribeSpotFleetRequestHistory.
 --
 -- /See:/ 'describeSpotFleetRequestHistory' smart constructor.
+data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
+    { _dsfrhNextToken          :: !(Maybe Text)
+    , _dsfrhEventType          :: !(Maybe EventType)
+    , _dsfrhDryRun             :: !(Maybe Bool)
+    , _dsfrhMaxResults         :: !(Maybe Int)
+    , _dsfrhSpotFleetRequestId :: !Text
+    , _dsfrhStartTime          :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeSpotFleetRequestHistory' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsfrhNextToken'
 --
@@ -74,17 +84,10 @@ import           Network.AWS.Response
 -- * 'dsfrhSpotFleetRequestId'
 --
 -- * 'dsfrhStartTime'
-data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
-    { _dsfrhNextToken          :: !(Maybe Text)
-    , _dsfrhEventType          :: !(Maybe EventType)
-    , _dsfrhDryRun             :: !(Maybe Bool)
-    , _dsfrhMaxResults         :: !(Maybe Int)
-    , _dsfrhSpotFleetRequestId :: !Text
-    , _dsfrhStartTime          :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeSpotFleetRequestHistory' smart constructor.
-describeSpotFleetRequestHistory :: Text -> UTCTime -> DescribeSpotFleetRequestHistory
+describeSpotFleetRequestHistory
+    :: Text -- ^ 'dsfrhSpotFleetRequestId'
+    -> UTCTime -- ^ 'dsfrhStartTime'
+    -> DescribeSpotFleetRequestHistory
 describeSpotFleetRequestHistory pSpotFleetRequestId_ pStartTime_ =
     DescribeSpotFleetRequestHistory'
     { _dsfrhNextToken = Nothing
@@ -105,14 +108,14 @@ dsfrhEventType = lens _dsfrhEventType (\ s a -> s{_dsfrhEventType = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dsfrhDryRun :: Lens' DescribeSpotFleetRequestHistory (Maybe Bool)
 dsfrhDryRun = lens _dsfrhDryRun (\ s a -> s{_dsfrhDryRun = a});
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
--- remaining results, make another call with the returned @NextToken@
+-- remaining results, make another call with the returned 'NextToken'
 -- value.
 dsfrhMaxResults :: Lens' DescribeSpotFleetRequestHistory (Maybe Int)
 dsfrhMaxResults = lens _dsfrhMaxResults (\ s a -> s{_dsfrhMaxResults = a});
@@ -168,8 +171,18 @@ instance ToQuery DescribeSpotFleetRequestHistory
 -- | Contains the output of DescribeSpotFleetRequestHistory.
 --
 -- /See:/ 'describeSpotFleetRequestHistoryResponse' smart constructor.
+data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
+    { _dsfrhrsNextToken          :: !(Maybe Text)
+    , _dsfrhrsStatus             :: !Int
+    , _dsfrhrsSpotFleetRequestId :: !Text
+    , _dsfrhrsStartTime          :: !ISO8601
+    , _dsfrhrsLastEvaluatedTime  :: !ISO8601
+    , _dsfrhrsHistoryRecords     :: ![HistoryRecord]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeSpotFleetRequestHistoryResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsfrhrsNextToken'
 --
@@ -182,17 +195,12 @@ instance ToQuery DescribeSpotFleetRequestHistory
 -- * 'dsfrhrsLastEvaluatedTime'
 --
 -- * 'dsfrhrsHistoryRecords'
-data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
-    { _dsfrhrsNextToken          :: !(Maybe Text)
-    , _dsfrhrsStatus             :: !Int
-    , _dsfrhrsSpotFleetRequestId :: !Text
-    , _dsfrhrsStartTime          :: !ISO8601
-    , _dsfrhrsLastEvaluatedTime  :: !ISO8601
-    , _dsfrhrsHistoryRecords     :: ![HistoryRecord]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeSpotFleetRequestHistoryResponse' smart constructor.
-describeSpotFleetRequestHistoryResponse :: Int -> Text -> UTCTime -> UTCTime -> DescribeSpotFleetRequestHistoryResponse
+describeSpotFleetRequestHistoryResponse
+    :: Int -- ^ 'dsfrhrsStatus'
+    -> Text -- ^ 'dsfrhrsSpotFleetRequestId'
+    -> UTCTime -- ^ 'dsfrhrsStartTime'
+    -> UTCTime -- ^ 'dsfrhrsLastEvaluatedTime'
+    -> DescribeSpotFleetRequestHistoryResponse
 describeSpotFleetRequestHistoryResponse pStatus_ pSpotFleetRequestId_ pStartTime_ pLastEvaluatedTime_ =
     DescribeSpotFleetRequestHistoryResponse'
     { _dsfrhrsNextToken = Nothing
@@ -204,11 +212,11 @@ describeSpotFleetRequestHistoryResponse pStatus_ pSpotFleetRequestId_ pStartTime
     }
 
 -- | The token required to retrieve the next set of results. This value is
--- @null@ when there are no more results to return.
+-- 'null' when there are no more results to return.
 dsfrhrsNextToken :: Lens' DescribeSpotFleetRequestHistoryResponse (Maybe Text)
 dsfrhrsNextToken = lens _dsfrhrsNextToken (\ s a -> s{_dsfrhrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 dsfrhrsStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Int
 dsfrhrsStatus = lens _dsfrhrsStatus (\ s a -> s{_dsfrhrsStatus = a});
 
@@ -225,7 +233,7 @@ dsfrhrsStartTime = lens _dsfrhrsStartTime (\ s a -> s{_dsfrhrsStartTime = a}) . 
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). All records up to this time were
 -- retrieved.
 --
--- If @nextToken@ indicates that there are more results, this value is not
+-- If 'nextToken' indicates that there are more results, this value is not
 -- present.
 dsfrhrsLastEvaluatedTime :: Lens' DescribeSpotFleetRequestHistoryResponse UTCTime
 dsfrhrsLastEvaluatedTime = lens _dsfrhrsLastEvaluatedTime (\ s a -> s{_dsfrhrsLastEvaluatedTime = a}) . _Time;

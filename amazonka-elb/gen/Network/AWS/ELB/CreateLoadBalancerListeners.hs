@@ -31,15 +31,15 @@
 module Network.AWS.ELB.CreateLoadBalancerListeners
     (
     -- * Creating a Request
-      CreateLoadBalancerListeners
-    , createLoadBalancerListeners
+      createLoadBalancerListeners
+    , CreateLoadBalancerListeners
     -- * Request Lenses
     , clblLoadBalancerName
     , clblListeners
 
     -- * Destructuring the Response
-    , CreateLoadBalancerListenersResponse
     , createLoadBalancerListenersResponse
+    , CreateLoadBalancerListenersResponse
     -- * Response Lenses
     , clblrsStatus
     ) where
@@ -51,19 +51,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createLoadBalancerListeners' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clblLoadBalancerName'
---
--- * 'clblListeners'
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
     { _clblLoadBalancerName :: !Text
     , _clblListeners        :: ![Listener]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLoadBalancerListeners' smart constructor.
-createLoadBalancerListeners :: Text -> CreateLoadBalancerListeners
+-- | Creates a value of 'CreateLoadBalancerListeners' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clblLoadBalancerName'
+--
+-- * 'clblListeners'
+createLoadBalancerListeners
+    :: Text -- ^ 'clblLoadBalancerName'
+    -> CreateLoadBalancerListeners
 createLoadBalancerListeners pLoadBalancerName_ =
     CreateLoadBalancerListeners'
     { _clblLoadBalancerName = pLoadBalancerName_
@@ -106,21 +108,23 @@ instance ToQuery CreateLoadBalancerListeners where
                "Listeners" =: toQueryList "member" _clblListeners]
 
 -- | /See:/ 'createLoadBalancerListenersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clblrsStatus'
 newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
     { _clblrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLoadBalancerListenersResponse' smart constructor.
-createLoadBalancerListenersResponse :: Int -> CreateLoadBalancerListenersResponse
+-- | Creates a value of 'CreateLoadBalancerListenersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clblrsStatus'
+createLoadBalancerListenersResponse
+    :: Int -- ^ 'clblrsStatus'
+    -> CreateLoadBalancerListenersResponse
 createLoadBalancerListenersResponse pStatus_ =
     CreateLoadBalancerListenersResponse'
     { _clblrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 clblrsStatus :: Lens' CreateLoadBalancerListenersResponse Int
 clblrsStatus = lens _clblrsStatus (\ s a -> s{_clblrsStatus = a});

@@ -27,15 +27,15 @@
 module Network.AWS.CloudFormation.DescribeStackResource
     (
     -- * Creating a Request
-      DescribeStackResource
-    , describeStackResource
+      describeStackResource
+    , DescribeStackResource
     -- * Request Lenses
     , desStackName
     , desLogicalResourceId
 
     -- * Destructuring the Response
-    , DescribeStackResourceResponse
     , describeStackResourceResponse
+    , DescribeStackResourceResponse
     -- * Response Lenses
     , dsrrsStackResourceDetail
     , dsrrsStatus
@@ -50,19 +50,22 @@ import           Network.AWS.Response
 -- | The input for DescribeStackResource action.
 --
 -- /See:/ 'describeStackResource' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'desStackName'
---
--- * 'desLogicalResourceId'
 data DescribeStackResource = DescribeStackResource'
     { _desStackName         :: !Text
     , _desLogicalResourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStackResource' smart constructor.
-describeStackResource :: Text -> Text -> DescribeStackResource
+-- | Creates a value of 'DescribeStackResource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'desStackName'
+--
+-- * 'desLogicalResourceId'
+describeStackResource
+    :: Text -- ^ 'desStackName'
+    -> Text -- ^ 'desLogicalResourceId'
+    -> DescribeStackResource
 describeStackResource pStackName_ pLogicalResourceId_ =
     DescribeStackResource'
     { _desStackName = pStackName_
@@ -115,30 +118,32 @@ instance ToQuery DescribeStackResource where
 -- | The output for a DescribeStackResource action.
 --
 -- /See:/ 'describeStackResourceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrrsStackResourceDetail'
---
--- * 'dsrrsStatus'
 data DescribeStackResourceResponse = DescribeStackResourceResponse'
     { _dsrrsStackResourceDetail :: !(Maybe StackResourceDetail)
     , _dsrrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStackResourceResponse' smart constructor.
-describeStackResourceResponse :: Int -> DescribeStackResourceResponse
+-- | Creates a value of 'DescribeStackResourceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrrsStackResourceDetail'
+--
+-- * 'dsrrsStatus'
+describeStackResourceResponse
+    :: Int -- ^ 'dsrrsStatus'
+    -> DescribeStackResourceResponse
 describeStackResourceResponse pStatus_ =
     DescribeStackResourceResponse'
     { _dsrrsStackResourceDetail = Nothing
     , _dsrrsStatus = pStatus_
     }
 
--- | A @StackResourceDetail@ structure containing the description of the
+-- | A 'StackResourceDetail' structure containing the description of the
 -- specified resource in the specified stack.
 dsrrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
 dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\ s a -> s{_dsrrsStackResourceDetail = a});
 
--- | Undocumented member.
+-- | The response status code.
 dsrrsStatus :: Lens' DescribeStackResourceResponse Int
 dsrrsStatus = lens _dsrrsStatus (\ s a -> s{_dsrrsStatus = a});

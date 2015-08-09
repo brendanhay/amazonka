@@ -33,15 +33,15 @@
 module Network.AWS.SSM.CreateAssociation
     (
     -- * Creating a Request
-      CreateAssociation
-    , createAssociation
+      createAssociation
+    , CreateAssociation
     -- * Request Lenses
     , caName
     , caInstanceId
 
     -- * Destructuring the Response
-    , CreateAssociationResponse
     , createAssociationResponse
+    , CreateAssociationResponse
     -- * Response Lenses
     , carsAssociationDescription
     , carsStatus
@@ -54,19 +54,22 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createAssociation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'caName'
---
--- * 'caInstanceId'
 data CreateAssociation = CreateAssociation'
     { _caName       :: !Text
     , _caInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAssociation' smart constructor.
-createAssociation :: Text -> Text -> CreateAssociation
+-- | Creates a value of 'CreateAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caName'
+--
+-- * 'caInstanceId'
+createAssociation
+    :: Text -- ^ 'caName'
+    -> Text -- ^ 'caInstanceId'
+    -> CreateAssociation
 createAssociation pName_ pInstanceId_ =
     CreateAssociation'
     { _caName = pName_
@@ -113,19 +116,21 @@ instance ToQuery CreateAssociation where
         toQuery = const mempty
 
 -- | /See:/ 'createAssociationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'carsAssociationDescription'
---
--- * 'carsStatus'
 data CreateAssociationResponse = CreateAssociationResponse'
     { _carsAssociationDescription :: !(Maybe AssociationDescription)
     , _carsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAssociationResponse' smart constructor.
-createAssociationResponse :: Int -> CreateAssociationResponse
+-- | Creates a value of 'CreateAssociationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'carsAssociationDescription'
+--
+-- * 'carsStatus'
+createAssociationResponse
+    :: Int -- ^ 'carsStatus'
+    -> CreateAssociationResponse
 createAssociationResponse pStatus_ =
     CreateAssociationResponse'
     { _carsAssociationDescription = Nothing
@@ -136,6 +141,6 @@ createAssociationResponse pStatus_ =
 carsAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
 carsAssociationDescription = lens _carsAssociationDescription (\ s a -> s{_carsAssociationDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 carsStatus :: Lens' CreateAssociationResponse Int
 carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

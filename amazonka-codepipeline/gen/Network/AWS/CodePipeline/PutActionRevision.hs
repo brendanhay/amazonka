@@ -25,8 +25,8 @@
 module Network.AWS.CodePipeline.PutActionRevision
     (
     -- * Creating a Request
-      PutActionRevision
-    , putActionRevision
+      putActionRevision
+    , PutActionRevision
     -- * Request Lenses
     , parPipelineName
     , parStageName
@@ -34,8 +34,8 @@ module Network.AWS.CodePipeline.PutActionRevision
     , parActionRevision
 
     -- * Destructuring the Response
-    , PutActionRevisionResponse
     , putActionRevisionResponse
+    , PutActionRevisionResponse
     -- * Response Lenses
     , parrsNewRevision
     , parrsPipelineExecutionId
@@ -51,8 +51,16 @@ import           Network.AWS.Response
 -- | Represents the input of a put action revision action.
 --
 -- /See:/ 'putActionRevision' smart constructor.
+data PutActionRevision = PutActionRevision'
+    { _parPipelineName   :: !Text
+    , _parStageName      :: !Text
+    , _parActionName     :: !Text
+    , _parActionRevision :: !ActionRevision
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutActionRevision' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'parPipelineName'
 --
@@ -61,15 +69,12 @@ import           Network.AWS.Response
 -- * 'parActionName'
 --
 -- * 'parActionRevision'
-data PutActionRevision = PutActionRevision'
-    { _parPipelineName   :: !Text
-    , _parStageName      :: !Text
-    , _parActionName     :: !Text
-    , _parActionRevision :: !ActionRevision
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutActionRevision' smart constructor.
-putActionRevision :: Text -> Text -> Text -> ActionRevision -> PutActionRevision
+putActionRevision
+    :: Text -- ^ 'parPipelineName'
+    -> Text -- ^ 'parStageName'
+    -> Text -- ^ 'parActionName'
+    -> ActionRevision -- ^ 'parActionRevision'
+    -> PutActionRevision
 putActionRevision pPipelineName_ pStageName_ pActionName_ pActionRevision_ =
     PutActionRevision'
     { _parPipelineName = pPipelineName_
@@ -135,22 +140,24 @@ instance ToQuery PutActionRevision where
 -- | Represents the output of a put action revision action.
 --
 -- /See:/ 'putActionRevisionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'parrsNewRevision'
---
--- * 'parrsPipelineExecutionId'
---
--- * 'parrsStatus'
 data PutActionRevisionResponse = PutActionRevisionResponse'
     { _parrsNewRevision         :: !(Maybe Bool)
     , _parrsPipelineExecutionId :: !(Maybe Text)
     , _parrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutActionRevisionResponse' smart constructor.
-putActionRevisionResponse :: Int -> PutActionRevisionResponse
+-- | Creates a value of 'PutActionRevisionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'parrsNewRevision'
+--
+-- * 'parrsPipelineExecutionId'
+--
+-- * 'parrsStatus'
+putActionRevisionResponse
+    :: Int -- ^ 'parrsStatus'
+    -> PutActionRevisionResponse
 putActionRevisionResponse pStatus_ =
     PutActionRevisionResponse'
     { _parrsNewRevision = Nothing
@@ -167,6 +174,6 @@ parrsNewRevision = lens _parrsNewRevision (\ s a -> s{_parrsNewRevision = a});
 parrsPipelineExecutionId :: Lens' PutActionRevisionResponse (Maybe Text)
 parrsPipelineExecutionId = lens _parrsPipelineExecutionId (\ s a -> s{_parrsPipelineExecutionId = a});
 
--- | Undocumented member.
+-- | The response status code.
 parrsStatus :: Lens' PutActionRevisionResponse Int
 parrsStatus = lens _parrsStatus (\ s a -> s{_parrsStatus = a});

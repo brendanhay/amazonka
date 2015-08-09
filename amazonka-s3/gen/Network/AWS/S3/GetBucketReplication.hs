@@ -24,14 +24,14 @@
 module Network.AWS.S3.GetBucketReplication
     (
     -- * Creating a Request
-      GetBucketReplication
-    , getBucketReplication
+      getBucketReplication
+    , GetBucketReplication
     -- * Request Lenses
     , gbrBucket
 
     -- * Destructuring the Response
-    , GetBucketReplicationResponse
     , getBucketReplicationResponse
+    , GetBucketReplicationResponse
     -- * Response Lenses
     , gbrrsReplicationConfiguration
     , gbrrsStatus
@@ -44,16 +44,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketReplication' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbrBucket'
 newtype GetBucketReplication = GetBucketReplication'
     { _gbrBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketReplication' smart constructor.
-getBucketReplication :: BucketName -> GetBucketReplication
+-- | Creates a value of 'GetBucketReplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbrBucket'
+getBucketReplication
+    :: BucketName -- ^ 'gbrBucket'
+    -> GetBucketReplication
 getBucketReplication pBucket_ =
     GetBucketReplication'
     { _gbrBucket = pBucket_
@@ -85,19 +87,21 @@ instance ToQuery GetBucketReplication where
         toQuery = const (mconcat ["replication"])
 
 -- | /See:/ 'getBucketReplicationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbrrsReplicationConfiguration'
---
--- * 'gbrrsStatus'
 data GetBucketReplicationResponse = GetBucketReplicationResponse'
     { _gbrrsReplicationConfiguration :: !(Maybe ReplicationConfiguration)
     , _gbrrsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketReplicationResponse' smart constructor.
-getBucketReplicationResponse :: Int -> GetBucketReplicationResponse
+-- | Creates a value of 'GetBucketReplicationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbrrsReplicationConfiguration'
+--
+-- * 'gbrrsStatus'
+getBucketReplicationResponse
+    :: Int -- ^ 'gbrrsStatus'
+    -> GetBucketReplicationResponse
 getBucketReplicationResponse pStatus_ =
     GetBucketReplicationResponse'
     { _gbrrsReplicationConfiguration = Nothing
@@ -108,6 +112,6 @@ getBucketReplicationResponse pStatus_ =
 gbrrsReplicationConfiguration :: Lens' GetBucketReplicationResponse (Maybe ReplicationConfiguration)
 gbrrsReplicationConfiguration = lens _gbrrsReplicationConfiguration (\ s a -> s{_gbrrsReplicationConfiguration = a});
 
--- | Undocumented member.
+-- | The response status code.
 gbrrsStatus :: Lens' GetBucketReplicationResponse Int
 gbrrsStatus = lens _gbrrsStatus (\ s a -> s{_gbrrsStatus = a});

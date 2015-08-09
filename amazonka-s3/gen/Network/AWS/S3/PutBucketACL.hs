@@ -24,8 +24,8 @@
 module Network.AWS.S3.PutBucketACL
     (
     -- * Creating a Request
-      PutBucketACL
-    , putBucketACL
+      putBucketACL
+    , PutBucketACL
     -- * Request Lenses
     , pbaGrantReadACP
     , pbaGrantWriteACP
@@ -38,8 +38,8 @@ module Network.AWS.S3.PutBucketACL
     , pbaBucket
 
     -- * Destructuring the Response
-    , PutBucketACLResponse
     , putBucketACLResponse
+    , PutBucketACLResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -49,8 +49,21 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketACL' smart constructor.
+data PutBucketACL = PutBucketACL'
+    { _pbaGrantReadACP        :: !(Maybe Text)
+    , _pbaGrantWriteACP       :: !(Maybe Text)
+    , _pbaGrantRead           :: !(Maybe Text)
+    , _pbaGrantFullControl    :: !(Maybe Text)
+    , _pbaContentMD5          :: !(Maybe Text)
+    , _pbaAccessControlPolicy :: !(Maybe AccessControlPolicy)
+    , _pbaGrantWrite          :: !(Maybe Text)
+    , _pbaACL                 :: !(Maybe BucketCannedACL)
+    , _pbaBucket              :: !BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutBucketACL' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pbaGrantReadACP'
 --
@@ -69,20 +82,9 @@ import           Network.AWS.S3.Types.Product
 -- * 'pbaACL'
 --
 -- * 'pbaBucket'
-data PutBucketACL = PutBucketACL'
-    { _pbaGrantReadACP        :: !(Maybe Text)
-    , _pbaGrantWriteACP       :: !(Maybe Text)
-    , _pbaGrantRead           :: !(Maybe Text)
-    , _pbaGrantFullControl    :: !(Maybe Text)
-    , _pbaContentMD5          :: !(Maybe Text)
-    , _pbaAccessControlPolicy :: !(Maybe AccessControlPolicy)
-    , _pbaGrantWrite          :: !(Maybe Text)
-    , _pbaACL                 :: !(Maybe BucketCannedACL)
-    , _pbaBucket              :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutBucketACL' smart constructor.
-putBucketACL :: BucketName -> PutBucketACL
+putBucketACL
+    :: BucketName -- ^ 'pbaBucket'
+    -> PutBucketACL
 putBucketACL pBucket_ =
     PutBucketACL'
     { _pbaGrantReadACP = Nothing
@@ -170,6 +172,8 @@ data PutBucketACLResponse =
     PutBucketACLResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketACLResponse' smart constructor.
-putBucketACLResponse :: PutBucketACLResponse
+-- | Creates a value of 'PutBucketACLResponse' with the minimum fields required to make a request.
+--
+putBucketACLResponse
+    :: PutBucketACLResponse
 putBucketACLResponse = PutBucketACLResponse'

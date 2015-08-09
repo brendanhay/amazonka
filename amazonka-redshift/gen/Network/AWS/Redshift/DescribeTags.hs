@@ -22,19 +22,19 @@
 -- specifying an ARN, or you can return all tags for a given type of
 -- resource, such as clusters, snapshots, and so on.
 --
--- The following are limitations for @DescribeTags@:
+-- The following are limitations for 'DescribeTags':
 --
 -- -   You cannot specify an ARN and a resource-type value together in the
 --     same request.
--- -   You cannot use the @MaxRecords@ and @Marker@ parameters together
+-- -   You cannot use the 'MaxRecords' and 'Marker' parameters together
 --     with the ARN parameter.
--- -   The @MaxRecords@ parameter can be a range from 10 to 50 results to
+-- -   The 'MaxRecords' parameter can be a range from 10 to 50 results to
 --     return in a request.
 --
 -- If you specify both tag keys and tag values in the same request, Amazon
 -- Redshift returns all resources that match any combination of the
--- specified keys and values. For example, if you have @owner@ and
--- @environment@ for tag keys, and @admin@ and @test@ for tag values, all
+-- specified keys and values. For example, if you have 'owner' and
+-- 'environment' for tag keys, and 'admin' and 'test' for tag values, all
 -- resources that have any combination of those values are returned.
 --
 -- If both tag keys and values are omitted from the request, resources are
@@ -45,8 +45,8 @@
 module Network.AWS.Redshift.DescribeTags
     (
     -- * Creating a Request
-      DescribeTags
-    , describeTags
+      describeTags
+    , DescribeTags
     -- * Request Lenses
     , dtResourceType
     , dtTagValues
@@ -56,8 +56,8 @@ module Network.AWS.Redshift.DescribeTags
     , dtMarker
 
     -- * Destructuring the Response
-    , DescribeTagsResponse
     , describeTagsResponse
+    , DescribeTagsResponse
     -- * Response Lenses
     , dtrsMarker
     , dtrsTaggedResources
@@ -70,11 +70,21 @@ import           Network.AWS.Redshift.Types.Product
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Contains the output from the @DescribeTags@ action.
+-- | Contains the output from the 'DescribeTags' action.
 --
 -- /See:/ 'describeTags' smart constructor.
+data DescribeTags = DescribeTags'
+    { _dtResourceType :: !(Maybe Text)
+    , _dtTagValues    :: !(Maybe [Text])
+    , _dtResourceName :: !(Maybe Text)
+    , _dtTagKeys      :: !(Maybe [Text])
+    , _dtMaxRecords   :: !(Maybe Int)
+    , _dtMarker       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dtResourceType'
 --
@@ -87,17 +97,8 @@ import           Network.AWS.Response
 -- * 'dtMaxRecords'
 --
 -- * 'dtMarker'
-data DescribeTags = DescribeTags'
-    { _dtResourceType :: !(Maybe Text)
-    , _dtTagValues    :: !(Maybe [Text])
-    , _dtResourceName :: !(Maybe Text)
-    , _dtTagKeys      :: !(Maybe [Text])
-    , _dtMaxRecords   :: !(Maybe Int)
-    , _dtMarker       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeTags' smart constructor.
-describeTags :: DescribeTags
+describeTags
+    :: DescribeTags
 describeTags =
     DescribeTags'
     { _dtResourceType = Nothing
@@ -132,39 +133,39 @@ dtResourceType = lens _dtResourceType (\ s a -> s{_dtResourceType = a});
 -- | A tag value or values for which you want to return all matching
 -- resources that are associated with the specified value or values. For
 -- example, suppose that you have resources tagged with values called
--- @admin@ and @test@. If you specify both of these tag values in the
+-- 'admin' and 'test'. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with all resources that have
 -- either or both of these tag values associated with them.
 dtTagValues :: Lens' DescribeTags [Text]
 dtTagValues = lens _dtTagValues (\ s a -> s{_dtTagValues = a}) . _Default . _Coerce;
 
 -- | The Amazon Resource Name (ARN) for which you want to describe the tag or
--- tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
+-- tags. For example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
 dtResourceName :: Lens' DescribeTags (Maybe Text)
 dtResourceName = lens _dtResourceName (\ s a -> s{_dtResourceName = a});
 
 -- | A tag key or keys for which you want to return all matching resources
 -- that are associated with the specified key or keys. For example, suppose
--- that you have resources tagged with keys called @owner@ and
--- @environment@. If you specify both of these tag keys in the request,
+-- that you have resources tagged with keys called 'owner' and
+-- 'environment'. If you specify both of these tag keys in the request,
 -- Amazon Redshift returns a response with all resources that have either
 -- or both of these tag keys associated with them.
 dtTagKeys :: Lens' DescribeTags [Text]
 dtTagKeys = lens _dtTagKeys (\ s a -> s{_dtTagKeys = a}) . _Default . _Coerce;
 
 -- | The maximum number or response records to return in each call. If the
--- number of remaining response records exceeds the specified @MaxRecords@
--- value, a value is returned in a @marker@ field of the response. You can
+-- number of remaining response records exceeds the specified 'MaxRecords'
+-- value, a value is returned in a 'marker' field of the response. You can
 -- retrieve the next set of records by retrying the command with the
--- returned @marker@ value.
+-- returned 'marker' value.
 dtMaxRecords :: Lens' DescribeTags (Maybe Int)
 dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
--- marker value in the @marker@ parameter and retrying the command. If the
--- @marker@ field is empty, all response records have been retrieved for
+-- marker value in the 'marker' parameter and retrying the command. If the
+-- 'marker' field is empty, all response records have been retrieved for
 -- the request.
 dtMarker :: Lens' DescribeTags (Maybe Text)
 dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
@@ -201,25 +202,27 @@ instance ToQuery DescribeTags where
                  toQuery (toQueryList "TagKey" <$> _dtTagKeys),
                "MaxRecords" =: _dtMaxRecords, "Marker" =: _dtMarker]
 
--- | Contains the output from the @DescribeTags@ action.
+-- | Contains the output from the 'DescribeTags' action.
 --
 -- /See:/ 'describeTagsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtrsMarker'
---
--- * 'dtrsTaggedResources'
---
--- * 'dtrsStatus'
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsMarker          :: !(Maybe Text)
     , _dtrsTaggedResources :: !(Maybe [TaggedResource])
     , _dtrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTagsResponse' smart constructor.
-describeTagsResponse :: Int -> DescribeTagsResponse
+-- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtrsMarker'
+--
+-- * 'dtrsTaggedResources'
+--
+-- * 'dtrsStatus'
+describeTagsResponse
+    :: Int -- ^ 'dtrsStatus'
+    -> DescribeTagsResponse
 describeTagsResponse pStatus_ =
     DescribeTagsResponse'
     { _dtrsMarker = Nothing
@@ -230,8 +233,8 @@ describeTagsResponse pStatus_ =
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
--- marker value in the @Marker@ parameter and retrying the command. If the
--- @Marker@ field is empty, all response records have been retrieved for
+-- marker value in the 'Marker' parameter and retrying the command. If the
+-- 'Marker' field is empty, all response records have been retrieved for
 -- the request.
 dtrsMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsMarker = lens _dtrsMarker (\ s a -> s{_dtrsMarker = a});
@@ -240,6 +243,6 @@ dtrsMarker = lens _dtrsMarker (\ s a -> s{_dtrsMarker = a});
 dtrsTaggedResources :: Lens' DescribeTagsResponse [TaggedResource]
 dtrsTaggedResources = lens _dtrsTaggedResources (\ s a -> s{_dtrsTaggedResources = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dtrsStatus :: Lens' DescribeTagsResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

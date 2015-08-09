@@ -30,8 +30,8 @@
 module Network.AWS.CognitoSync.ListDatasets
     (
     -- * Creating a Request
-      ListDatasets
-    , listDatasets
+      listDatasets
+    , ListDatasets
     -- * Request Lenses
     , ldNextToken
     , ldMaxResults
@@ -39,8 +39,8 @@ module Network.AWS.CognitoSync.ListDatasets
     , ldIdentityPoolId
 
     -- * Destructuring the Response
-    , ListDatasetsResponse
     , listDatasetsResponse
+    , ListDatasetsResponse
     -- * Response Lenses
     , ldrsCount
     , ldrsNextToken
@@ -57,8 +57,16 @@ import           Network.AWS.Response
 -- | Request for a list of datasets for an identity.
 --
 -- /See:/ 'listDatasets' smart constructor.
+data ListDatasets = ListDatasets'
+    { _ldNextToken      :: !(Maybe Text)
+    , _ldMaxResults     :: !(Maybe Int)
+    , _ldIdentityId     :: !Text
+    , _ldIdentityPoolId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListDatasets' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ldNextToken'
 --
@@ -67,15 +75,10 @@ import           Network.AWS.Response
 -- * 'ldIdentityId'
 --
 -- * 'ldIdentityPoolId'
-data ListDatasets = ListDatasets'
-    { _ldNextToken      :: !(Maybe Text)
-    , _ldMaxResults     :: !(Maybe Int)
-    , _ldIdentityId     :: !Text
-    , _ldIdentityPoolId :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListDatasets' smart constructor.
-listDatasets :: Text -> Text -> ListDatasets
+listDatasets
+    :: Text -- ^ 'ldIdentityId'
+    -> Text -- ^ 'ldIdentityPoolId'
+    -> ListDatasets
 listDatasets pIdentityId_ pIdentityPoolId_ =
     ListDatasets'
     { _ldNextToken = Nothing
@@ -138,8 +141,16 @@ instance ToQuery ListDatasets where
 -- | Returned for a successful ListDatasets request.
 --
 -- /See:/ 'listDatasetsResponse' smart constructor.
+data ListDatasetsResponse = ListDatasetsResponse'
+    { _ldrsCount     :: !(Maybe Int)
+    , _ldrsNextToken :: !(Maybe Text)
+    , _ldrsDatasets  :: !(Maybe [Dataset])
+    , _ldrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListDatasetsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ldrsCount'
 --
@@ -148,15 +159,9 @@ instance ToQuery ListDatasets where
 -- * 'ldrsDatasets'
 --
 -- * 'ldrsStatus'
-data ListDatasetsResponse = ListDatasetsResponse'
-    { _ldrsCount     :: !(Maybe Int)
-    , _ldrsNextToken :: !(Maybe Text)
-    , _ldrsDatasets  :: !(Maybe [Dataset])
-    , _ldrsStatus    :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListDatasetsResponse' smart constructor.
-listDatasetsResponse :: Int -> ListDatasetsResponse
+listDatasetsResponse
+    :: Int -- ^ 'ldrsStatus'
+    -> ListDatasetsResponse
 listDatasetsResponse pStatus_ =
     ListDatasetsResponse'
     { _ldrsCount = Nothing
@@ -177,6 +182,6 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsDatasets :: Lens' ListDatasetsResponse [Dataset]
 ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ldrsStatus :: Lens' ListDatasetsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

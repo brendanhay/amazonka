@@ -27,15 +27,15 @@
 module Network.AWS.Route53Domains.UpdateTagsForDomain
     (
     -- * Creating a Request
-      UpdateTagsForDomain
-    , updateTagsForDomain
+      updateTagsForDomain
+    , UpdateTagsForDomain
     -- * Request Lenses
     , utfdTagsToUpdate
     , utfdDomainName
 
     -- * Destructuring the Response
-    , UpdateTagsForDomainResponse
     , updateTagsForDomainResponse
+    , UpdateTagsForDomainResponse
     -- * Response Lenses
     , utfdrsStatus
     ) where
@@ -49,19 +49,21 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The UpdateTagsForDomainRequest includes the following elements.
 --
 -- /See:/ 'updateTagsForDomain' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'utfdTagsToUpdate'
---
--- * 'utfdDomainName'
 data UpdateTagsForDomain = UpdateTagsForDomain'
     { _utfdTagsToUpdate :: !(Maybe [Tag])
     , _utfdDomainName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateTagsForDomain' smart constructor.
-updateTagsForDomain :: Text -> UpdateTagsForDomain
+-- | Creates a value of 'UpdateTagsForDomain' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'utfdTagsToUpdate'
+--
+-- * 'utfdDomainName'
+updateTagsForDomain
+    :: Text -- ^ 'utfdDomainName'
+    -> UpdateTagsForDomain
 updateTagsForDomain pDomainName_ =
     UpdateTagsForDomain'
     { _utfdTagsToUpdate = Nothing
@@ -91,7 +93,7 @@ updateTagsForDomain pDomainName_ =
 --     Default: None
 --
 --     Valid values: Unicode characters including alphanumeric, space, and
---     \".:\/=+\\-\@\"
+--     \".:\/=+\\-\'\"
 --
 --     Constraints: Each key can be 1-128 characters long.
 --
@@ -106,7 +108,7 @@ updateTagsForDomain pDomainName_ =
 --     Default: None
 --
 --     Valid values: Unicode characters including alphanumeric, space, and
---     \".:\/=+\\-\@\"
+--     \".:\/=+\\-\'\"
 --
 --     Constraints: Each value can be 0-256 characters long.
 --
@@ -166,21 +168,23 @@ instance ToQuery UpdateTagsForDomain where
         toQuery = const mempty
 
 -- | /See:/ 'updateTagsForDomainResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'utfdrsStatus'
 newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
     { _utfdrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateTagsForDomainResponse' smart constructor.
-updateTagsForDomainResponse :: Int -> UpdateTagsForDomainResponse
+-- | Creates a value of 'UpdateTagsForDomainResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'utfdrsStatus'
+updateTagsForDomainResponse
+    :: Int -- ^ 'utfdrsStatus'
+    -> UpdateTagsForDomainResponse
 updateTagsForDomainResponse pStatus_ =
     UpdateTagsForDomainResponse'
     { _utfdrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 utfdrsStatus :: Lens' UpdateTagsForDomainResponse Int
 utfdrsStatus = lens _utfdrsStatus (\ s a -> s{_utfdrsStatus = a});

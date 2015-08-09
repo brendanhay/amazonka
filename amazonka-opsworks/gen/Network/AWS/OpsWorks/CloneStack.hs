@@ -32,8 +32,8 @@
 module Network.AWS.OpsWorks.CloneStack
     (
     -- * Creating a Request
-      CloneStack
-    , cloneStack
+      cloneStack
+    , CloneStack
     -- * Request Lenses
     , cCloneAppIds
     , cDefaultInstanceProfileARN
@@ -59,8 +59,8 @@ module Network.AWS.OpsWorks.CloneStack
     , cServiceRoleARN
 
     -- * Destructuring the Response
-    , CloneStackResponse
     , cloneStackResponse
+    , CloneStackResponse
     -- * Response Lenses
     , csrsStackId
     , csrsStatus
@@ -73,8 +73,34 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'cloneStack' smart constructor.
+data CloneStack = CloneStack'
+    { _cCloneAppIds               :: !(Maybe [Text])
+    , _cDefaultInstanceProfileARN :: !(Maybe Text)
+    , _cDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+    , _cChefConfiguration         :: !(Maybe ChefConfiguration)
+    , _cVPCId                     :: !(Maybe Text)
+    , _cAgentVersion              :: !(Maybe Text)
+    , _cDefaultSSHKeyName         :: !(Maybe Text)
+    , _cCustomJSON                :: !(Maybe Text)
+    , _cClonePermissions          :: !(Maybe Bool)
+    , _cCustomCookbooksSource     :: !(Maybe Source)
+    , _cDefaultAvailabilityZone   :: !(Maybe Text)
+    , _cName                      :: !(Maybe Text)
+    , _cUseOpsworksSecurityGroups :: !(Maybe Bool)
+    , _cDefaultOS                 :: !(Maybe Text)
+    , _cAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _cUseCustomCookbooks        :: !(Maybe Bool)
+    , _cDefaultSubnetId           :: !(Maybe Text)
+    , _cRegion                    :: !(Maybe Text)
+    , _cConfigurationManager      :: !(Maybe StackConfigurationManager)
+    , _cHostnameTheme             :: !(Maybe Text)
+    , _cSourceStackId             :: !Text
+    , _cServiceRoleARN            :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CloneStack' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cCloneAppIds'
 --
@@ -119,33 +145,10 @@ import           Network.AWS.Response
 -- * 'cSourceStackId'
 --
 -- * 'cServiceRoleARN'
-data CloneStack = CloneStack'
-    { _cCloneAppIds               :: !(Maybe [Text])
-    , _cDefaultInstanceProfileARN :: !(Maybe Text)
-    , _cDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _cChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _cVPCId                     :: !(Maybe Text)
-    , _cAgentVersion              :: !(Maybe Text)
-    , _cDefaultSSHKeyName         :: !(Maybe Text)
-    , _cCustomJSON                :: !(Maybe Text)
-    , _cClonePermissions          :: !(Maybe Bool)
-    , _cCustomCookbooksSource     :: !(Maybe Source)
-    , _cDefaultAvailabilityZone   :: !(Maybe Text)
-    , _cName                      :: !(Maybe Text)
-    , _cUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _cDefaultOS                 :: !(Maybe Text)
-    , _cAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _cUseCustomCookbooks        :: !(Maybe Bool)
-    , _cDefaultSubnetId           :: !(Maybe Text)
-    , _cRegion                    :: !(Maybe Text)
-    , _cConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _cHostnameTheme             :: !(Maybe Text)
-    , _cSourceStackId             :: !Text
-    , _cServiceRoleARN            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CloneStack' smart constructor.
-cloneStack :: Text -> Text -> CloneStack
+cloneStack
+    :: Text -- ^ 'cSourceStackId'
+    -> Text -- ^ 'cServiceRoleARN'
+    -> CloneStack
 cloneStack pSourceStackId_ pServiceRoleARN_ =
     CloneStack'
     { _cCloneAppIds = Nothing
@@ -190,7 +193,7 @@ cDefaultInstanceProfileARN = lens _cDefaultInstanceProfileARN (\ s a -> s{_cDefa
 cDefaultRootDeviceType :: Lens' CloneStack (Maybe RootDeviceType)
 cDefaultRootDeviceType = lens _cDefaultRootDeviceType (\ s a -> s{_cDefaultRootDeviceType = a});
 
--- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- | A 'ChefConfiguration' object that specifies whether to enable Berkshelf
 -- and the Berkshelf version on Chef 11.10 stacks. For more information,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
@@ -206,7 +209,7 @@ cChefConfiguration = lens _cChefConfiguration (\ s a -> s{_cChefConfiguration = 
 --     the default VPC for the specified region.
 --
 -- If the VPC ID corresponds to a default VPC and you have specified either
--- the @DefaultAvailabilityZone@ or the @DefaultSubnetId@ parameter only,
+-- the 'DefaultAvailabilityZone' or the 'DefaultSubnetId' parameter only,
 -- AWS OpsWorks infers the value of the other parameter. If you specify
 -- neither parameter, AWS OpsWorks sets these parameters to the first valid
 -- Availability Zone for the specified region and the corresponding default
@@ -216,7 +219,7 @@ cChefConfiguration = lens _cChefConfiguration (\ s a -> s{_cChefConfiguration = 
 --
 -- -   It must belong to a VPC in your account that is in the specified
 --     region.
--- -   You must specify a value for @DefaultSubnetId@.
+-- -   You must specify a value for 'DefaultSubnetId'.
 --
 -- For more information on how to use AWS OpsWorks with a VPC, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
@@ -227,7 +230,7 @@ cVPCId = lens _cVPCId (\ s a -> s{_cVPCId = a});
 
 -- | The default AWS OpsWorks agent version. You have the following options:
 --
--- -   Auto-update - Set this parameter to @LATEST@. AWS OpsWorks
+-- -   Auto-update - Set this parameter to 'LATEST'. AWS OpsWorks
 --     automatically installs new agent versions on the stack\'s instances
 --     as soon as they are available.
 -- -   Fixed version - Set this parameter to your preferred agent version.
@@ -235,7 +238,7 @@ cVPCId = lens _cVPCId (\ s a -> s{_cVPCId = a});
 --     and specify a new version. AWS OpsWorks then automatically installs
 --     that version on the stack\'s instances.
 --
--- The default setting is @LATEST@. To specify an agent version, you must
+-- The default setting is 'LATEST'. To specify an agent version, you must
 -- use the complete version number, not the abbreviated number shown on the
 -- console. For a list of available agent version numbers, call
 -- DescribeAgentVersions.
@@ -263,7 +266,7 @@ cDefaultSSHKeyName = lens _cDefaultSSHKeyName (\ s a -> s{_cDefaultSSHKeyName = 
 -- should be in the following format and must escape characters such as
 -- \'\"\':
 --
--- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
+-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'
 --
 -- For more information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
@@ -281,8 +284,8 @@ cCustomCookbooksSource = lens _cCustomCookbooksSource (\ s a -> s{_cCustomCookbo
 -- | The cloned stack\'s default Availability Zone, which must be in the
 -- specified region. For more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
--- If you also specify a value for @DefaultSubnetId@, the subnet must be in
--- the same zone. For more information, see the @VpcId@ parameter
+-- If you also specify a value for 'DefaultSubnetId', the subnet must be in
+-- the same zone. For more information, see the 'VpcId' parameter
 -- description.
 cDefaultAvailabilityZone :: Lens' CloneStack (Maybe Text)
 cDefaultAvailabilityZone = lens _cDefaultAvailabilityZone (\ s a -> s{_cDefaultAvailabilityZone = a});
@@ -296,8 +299,8 @@ cName = lens _cName (\ s a -> s{_cName = a});
 --
 -- AWS OpsWorks provides a standard set of built-in security groups, one
 -- for each layer, which are associated with layers by default. With
--- @UseOpsworksSecurityGroups@ you can instead provide your own custom
--- security groups. @UseOpsworksSecurityGroups@ has the following settings:
+-- 'UseOpsworksSecurityGroups' you can instead provide your own custom
+-- security groups. 'UseOpsworksSecurityGroups' has the following settings:
 --
 -- -   True - AWS OpsWorks automatically associates the appropriate
 --     built-in security group with each layer (default setting). You can
@@ -320,10 +323,10 @@ cUseOpsworksSecurityGroups = lens _cUseOpsworksSecurityGroups (\ s a -> s{_cUseO
 -- following.
 --
 -- -   A supported Linux operating system: An Amazon Linux version, such as
---     @Amazon Linux 2015.03@, @Red Hat Enterprise Linux 7@,
---     @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
--- -   @Microsoft Windows Server 2012 R2 Base@.
--- -   A custom AMI: @Custom@. You specify the custom AMI you want to use
+--     'Amazon Linux 2015.03', 'Red Hat Enterprise Linux 7',
+--     'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'.
+-- -   'Microsoft Windows Server 2012 R2 Base'.
+-- -   A custom AMI: 'Custom'. You specify the custom AMI you want to use
 --     when you create instances. For more information on how to use custom
 --     AMIs with OpsWorks, see
 --     <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
@@ -347,11 +350,11 @@ cUseCustomCookbooks :: Lens' CloneStack (Maybe Bool)
 cUseCustomCookbooks = lens _cUseCustomCookbooks (\ s a -> s{_cUseCustomCookbooks = a});
 
 -- | The stack\'s default VPC subnet ID. This parameter is required if you
--- specify a value for the @VpcId@ parameter. All instances are launched
+-- specify a value for the 'VpcId' parameter. All instances are launched
 -- into this subnet unless you specify otherwise when you create the
--- instance. If you also specify a value for @DefaultAvailabilityZone@, the
+-- instance. If you also specify a value for 'DefaultAvailabilityZone', the
 -- subnet must be in that zone. For information on default values and when
--- this parameter is required, see the @VpcId@ parameter description.
+-- this parameter is required, see the 'VpcId' parameter description.
 cDefaultSubnetId :: Lens' CloneStack (Maybe Text)
 cDefaultSubnetId = lens _cDefaultSubnetId (\ s a -> s{_cDefaultSubnetId = a});
 
@@ -369,23 +372,23 @@ cConfigurationManager = lens _cConfigurationManager (\ s a -> s{_cConfigurationM
 
 -- | The stack\'s host name theme, with spaces are replaced by underscores.
 -- The theme is used to generate host names for the stack\'s instances. By
--- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
+-- default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host
 -- names by appending integers to the layer\'s short name. The other themes
 -- are:
 --
--- -   @Baked_Goods@
--- -   @Clouds@
--- -   @Europe_Cities@
--- -   @Fruits@
--- -   @Greek_Deities@
--- -   @Legendary_creatures_from_Japan@
--- -   @Planets_and_Moons@
--- -   @Roman_Deities@
--- -   @Scottish_Islands@
--- -   @US_Cities@
--- -   @Wild_Cats@
+-- -   'Baked_Goods'
+-- -   'Clouds'
+-- -   'Europe_Cities'
+-- -   'Fruits'
+-- -   'Greek_Deities'
+-- -   'Legendary_creatures_from_Japan'
+-- -   'Planets_and_Moons'
+-- -   'Roman_Deities'
+-- -   'Scottish_Islands'
+-- -   'US_Cities'
+-- -   'Wild_Cats'
 --
--- To obtain a generated host name, call @GetHostNameSuggestion@, which
+-- To obtain a generated host name, call 'GetHostNameSuggestion', which
 -- returns a host name based on the current theme.
 cHostnameTheme :: Lens' CloneStack (Maybe Text)
 cHostnameTheme = lens _cHostnameTheme (\ s a -> s{_cHostnameTheme = a});
@@ -462,22 +465,24 @@ instance ToPath CloneStack where
 instance ToQuery CloneStack where
         toQuery = const mempty
 
--- | Contains the response to a @CloneStack@ request.
+-- | Contains the response to a 'CloneStack' request.
 --
 -- /See:/ 'cloneStackResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csrsStackId'
---
--- * 'csrsStatus'
 data CloneStackResponse = CloneStackResponse'
     { _csrsStackId :: !(Maybe Text)
     , _csrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CloneStackResponse' smart constructor.
-cloneStackResponse :: Int -> CloneStackResponse
+-- | Creates a value of 'CloneStackResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csrsStackId'
+--
+-- * 'csrsStatus'
+cloneStackResponse
+    :: Int -- ^ 'csrsStatus'
+    -> CloneStackResponse
 cloneStackResponse pStatus_ =
     CloneStackResponse'
     { _csrsStackId = Nothing
@@ -488,6 +493,6 @@ cloneStackResponse pStatus_ =
 csrsStackId :: Lens' CloneStackResponse (Maybe Text)
 csrsStackId = lens _csrsStackId (\ s a -> s{_csrsStackId = a});
 
--- | Undocumented member.
+-- | The response status code.
 csrsStatus :: Lens' CloneStackResponse Int
 csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

@@ -24,15 +24,15 @@
 module Network.AWS.DeviceFarm.ListSuites
     (
     -- * Creating a Request
-      ListSuites
-    , listSuites
+      listSuites
+    , ListSuites
     -- * Request Lenses
     , lNextToken
     , lArn
 
     -- * Destructuring the Response
-    , ListSuitesResponse
     , listSuitesResponse
+    , ListSuitesResponse
     -- * Response Lenses
     , lrsNextToken
     , lrsSuites
@@ -48,19 +48,21 @@ import           Network.AWS.Response
 -- | Represents a request to the list suites operation.
 --
 -- /See:/ 'listSuites' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lNextToken'
---
--- * 'lArn'
 data ListSuites = ListSuites'
     { _lNextToken :: !(Maybe Text)
     , _lArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListSuites' smart constructor.
-listSuites :: Text -> ListSuites
+-- | Creates a value of 'ListSuites' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lNextToken'
+--
+-- * 'lArn'
+listSuites
+    :: Text -- ^ 'lArn'
+    -> ListSuites
 listSuites pArn_ =
     ListSuites'
     { _lNextToken = Nothing
@@ -110,22 +112,24 @@ instance ToQuery ListSuites where
 -- | Represents the result of a list suites request.
 --
 -- /See:/ 'listSuitesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lrsNextToken'
---
--- * 'lrsSuites'
---
--- * 'lrsStatus'
 data ListSuitesResponse = ListSuitesResponse'
     { _lrsNextToken :: !(Maybe Text)
     , _lrsSuites    :: !(Maybe [Suite])
     , _lrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListSuitesResponse' smart constructor.
-listSuitesResponse :: Int -> ListSuitesResponse
+-- | Creates a value of 'ListSuitesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lrsNextToken'
+--
+-- * 'lrsSuites'
+--
+-- * 'lrsStatus'
+listSuitesResponse
+    :: Int -- ^ 'lrsStatus'
+    -> ListSuitesResponse
 listSuitesResponse pStatus_ =
     ListSuitesResponse'
     { _lrsNextToken = Nothing
@@ -143,6 +147,6 @@ lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
 lrsSuites :: Lens' ListSuitesResponse [Suite]
 lrsSuites = lens _lrsSuites (\ s a -> s{_lrsSuites = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lrsStatus :: Lens' ListSuitesResponse Int
 lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});

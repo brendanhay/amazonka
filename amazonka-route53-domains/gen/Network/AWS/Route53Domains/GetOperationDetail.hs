@@ -25,14 +25,14 @@
 module Network.AWS.Route53Domains.GetOperationDetail
     (
     -- * Creating a Request
-      GetOperationDetail
-    , getOperationDetail
+      getOperationDetail
+    , GetOperationDetail
     -- * Request Lenses
     , godOperationId
 
     -- * Destructuring the Response
-    , GetOperationDetailResponse
     , getOperationDetailResponse
+    , GetOperationDetailResponse
     -- * Response Lenses
     , godrsSubmittedDate
     , godrsDomainName
@@ -51,16 +51,18 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The GetOperationDetail request includes the following element.
 --
 -- /See:/ 'getOperationDetail' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'godOperationId'
 newtype GetOperationDetail = GetOperationDetail'
     { _godOperationId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetOperationDetail' smart constructor.
-getOperationDetail :: Text -> GetOperationDetail
+-- | Creates a value of 'GetOperationDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'godOperationId'
+getOperationDetail
+    :: Text -- ^ 'godOperationId'
+    -> GetOperationDetail
 getOperationDetail pOperationId_ =
     GetOperationDetail'
     { _godOperationId = pOperationId_
@@ -116,8 +118,18 @@ instance ToQuery GetOperationDetail where
 -- | The GetOperationDetail response includes the following elements.
 --
 -- /See:/ 'getOperationDetailResponse' smart constructor.
+data GetOperationDetailResponse = GetOperationDetailResponse'
+    { _godrsSubmittedDate :: !(Maybe POSIX)
+    , _godrsDomainName    :: !(Maybe Text)
+    , _godrsOperationId   :: !(Maybe Text)
+    , _godrsType          :: !(Maybe OperationType)
+    , _godrsMessage       :: !(Maybe Text)
+    , _godrsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetOperationDetailResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'godrsSubmittedDate'
 --
@@ -130,17 +142,9 @@ instance ToQuery GetOperationDetail where
 -- * 'godrsMessage'
 --
 -- * 'godrsStatus'
-data GetOperationDetailResponse = GetOperationDetailResponse'
-    { _godrsSubmittedDate :: !(Maybe POSIX)
-    , _godrsDomainName    :: !(Maybe Text)
-    , _godrsOperationId   :: !(Maybe Text)
-    , _godrsType          :: !(Maybe OperationType)
-    , _godrsMessage       :: !(Maybe Text)
-    , _godrsStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetOperationDetailResponse' smart constructor.
-getOperationDetailResponse :: Int -> GetOperationDetailResponse
+getOperationDetailResponse
+    :: Int -- ^ 'godrsStatus'
+    -> GetOperationDetailResponse
 getOperationDetailResponse pStatus_ =
     GetOperationDetailResponse'
     { _godrsSubmittedDate = Nothing
@@ -179,6 +183,6 @@ godrsType = lens _godrsType (\ s a -> s{_godrsType = a});
 godrsMessage :: Lens' GetOperationDetailResponse (Maybe Text)
 godrsMessage = lens _godrsMessage (\ s a -> s{_godrsMessage = a});
 
--- | Undocumented member.
+-- | The response status code.
 godrsStatus :: Lens' GetOperationDetailResponse Int
 godrsStatus = lens _godrsStatus (\ s a -> s{_godrsStatus = a});

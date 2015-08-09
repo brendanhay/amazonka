@@ -20,20 +20,20 @@
 --
 -- Retrieves the user name and password-creation date for the specified
 -- user. If the user has not been assigned a password, the action returns a
--- 404 (@NoSuchEntity@) error.
+-- 404 ('NoSuchEntity') error.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html AWS API Reference> for GetLoginProfile.
 module Network.AWS.IAM.GetLoginProfile
     (
     -- * Creating a Request
-      GetLoginProfile
-    , getLoginProfile
+      getLoginProfile
+    , GetLoginProfile
     -- * Request Lenses
     , glpUserName
 
     -- * Destructuring the Response
-    , GetLoginProfileResponse
     , getLoginProfileResponse
+    , GetLoginProfileResponse
     -- * Response Lenses
     , glprsStatus
     , glprsLoginProfile
@@ -46,16 +46,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getLoginProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'glpUserName'
 newtype GetLoginProfile = GetLoginProfile'
     { _glpUserName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetLoginProfile' smart constructor.
-getLoginProfile :: Text -> GetLoginProfile
+-- | Creates a value of 'GetLoginProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'glpUserName'
+getLoginProfile
+    :: Text -- ^ 'glpUserName'
+    -> GetLoginProfile
 getLoginProfile pUserName_ =
     GetLoginProfile'
     { _glpUserName = pUserName_
@@ -91,26 +93,29 @@ instance ToQuery GetLoginProfile where
 -- | Contains the response to a successful GetLoginProfile request.
 --
 -- /See:/ 'getLoginProfileResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'glprsStatus'
---
--- * 'glprsLoginProfile'
 data GetLoginProfileResponse = GetLoginProfileResponse'
     { _glprsStatus       :: !Int
     , _glprsLoginProfile :: !LoginProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetLoginProfileResponse' smart constructor.
-getLoginProfileResponse :: Int -> LoginProfile -> GetLoginProfileResponse
+-- | Creates a value of 'GetLoginProfileResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'glprsStatus'
+--
+-- * 'glprsLoginProfile'
+getLoginProfileResponse
+    :: Int -- ^ 'glprsStatus'
+    -> LoginProfile -- ^ 'glprsLoginProfile'
+    -> GetLoginProfileResponse
 getLoginProfileResponse pStatus_ pLoginProfile_ =
     GetLoginProfileResponse'
     { _glprsStatus = pStatus_
     , _glprsLoginProfile = pLoginProfile_
     }
 
--- | Undocumented member.
+-- | The response status code.
 glprsStatus :: Lens' GetLoginProfileResponse Int
 glprsStatus = lens _glprsStatus (\ s a -> s{_glprsStatus = a});
 

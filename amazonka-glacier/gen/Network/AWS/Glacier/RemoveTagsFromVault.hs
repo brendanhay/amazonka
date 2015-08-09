@@ -28,16 +28,16 @@
 module Network.AWS.Glacier.RemoveTagsFromVault
     (
     -- * Creating a Request
-      RemoveTagsFromVault
-    , removeTagsFromVault
+      removeTagsFromVault
+    , RemoveTagsFromVault
     -- * Request Lenses
     , rtfvTagKeys
     , rtfvAccountId
     , rtfvVaultName
 
     -- * Destructuring the Response
-    , RemoveTagsFromVaultResponse
     , removeTagsFromVaultResponse
+    , RemoveTagsFromVaultResponse
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -46,25 +46,28 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input value for @RemoveTagsFromVaultInput@.
+-- | The input value for 'RemoveTagsFromVaultInput'.
 --
 -- /See:/ 'removeTagsFromVault' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtfvTagKeys'
---
--- * 'rtfvAccountId'
---
--- * 'rtfvVaultName'
 data RemoveTagsFromVault = RemoveTagsFromVault'
     { _rtfvTagKeys   :: !(Maybe [Text])
     , _rtfvAccountId :: !Text
     , _rtfvVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveTagsFromVault' smart constructor.
-removeTagsFromVault :: Text -> Text -> RemoveTagsFromVault
+-- | Creates a value of 'RemoveTagsFromVault' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtfvTagKeys'
+--
+-- * 'rtfvAccountId'
+--
+-- * 'rtfvVaultName'
+removeTagsFromVault
+    :: Text -- ^ 'rtfvAccountId'
+    -> Text -- ^ 'rtfvVaultName'
+    -> RemoveTagsFromVault
 removeTagsFromVault pAccountId_ pVaultName_ =
     RemoveTagsFromVault'
     { _rtfvTagKeys = Nothing
@@ -76,9 +79,9 @@ removeTagsFromVault pAccountId_ pVaultName_ =
 rtfvTagKeys :: Lens' RemoveTagsFromVault [Text]
 rtfvTagKeys = lens _rtfvTagKeys (\ s a -> s{_rtfvTagKeys = a}) . _Default . _Coerce;
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 rtfvAccountId :: Lens' RemoveTagsFromVault Text
@@ -116,6 +119,8 @@ data RemoveTagsFromVaultResponse =
     RemoveTagsFromVaultResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveTagsFromVaultResponse' smart constructor.
-removeTagsFromVaultResponse :: RemoveTagsFromVaultResponse
+-- | Creates a value of 'RemoveTagsFromVaultResponse' with the minimum fields required to make a request.
+--
+removeTagsFromVaultResponse
+    :: RemoveTagsFromVaultResponse
 removeTagsFromVaultResponse = RemoveTagsFromVaultResponse'

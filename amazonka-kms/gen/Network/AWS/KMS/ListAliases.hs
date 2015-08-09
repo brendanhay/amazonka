@@ -24,15 +24,15 @@
 module Network.AWS.KMS.ListAliases
     (
     -- * Creating a Request
-      ListAliases
-    , listAliases
+      listAliases
+    , ListAliases
     -- * Request Lenses
     , laMarker
     , laLimit
 
     -- * Destructuring the Response
-    , ListAliasesResponse
     , listAliasesResponse
+    , ListAliasesResponse
     -- * Response Lenses
     , larsTruncated
     , larsAliases
@@ -47,19 +47,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listAliases' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'laMarker'
---
--- * 'laLimit'
 data ListAliases = ListAliases'
     { _laMarker :: !(Maybe Text)
     , _laLimit  :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListAliases' smart constructor.
-listAliases :: ListAliases
+-- | Creates a value of 'ListAliases' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'laMarker'
+--
+-- * 'laLimit'
+listAliases
+    :: ListAliases
 listAliases =
     ListAliases'
     { _laMarker = Nothing
@@ -68,15 +69,15 @@ listAliases =
 
 -- | Use this parameter when paginating results, and only in a subsequent
 -- request after you\'ve received a response where the results are
--- truncated. Set it to the value of the @NextMarker@ element in the
+-- truncated. Set it to the value of the 'NextMarker' element in the
 -- response you just received.
 laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
 
 -- | Specify this parameter when paginating results to indicate the maximum
 -- number of aliases you want in each response. If there are additional
--- aliases beyond the maximum you specify, the @Truncated@ response element
--- will be set to @true.@
+-- aliases beyond the maximum you specify, the 'Truncated' response element
+-- will be set to 'true.'
 laLimit :: Lens' ListAliases (Maybe Natural)
 laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
 
@@ -112,8 +113,16 @@ instance ToQuery ListAliases where
         toQuery = const mempty
 
 -- | /See:/ 'listAliasesResponse' smart constructor.
+data ListAliasesResponse = ListAliasesResponse'
+    { _larsTruncated  :: !(Maybe Bool)
+    , _larsAliases    :: !(Maybe [AliasListEntry])
+    , _larsNextMarker :: !(Maybe Text)
+    , _larsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListAliasesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'larsTruncated'
 --
@@ -122,15 +131,9 @@ instance ToQuery ListAliases where
 -- * 'larsNextMarker'
 --
 -- * 'larsStatus'
-data ListAliasesResponse = ListAliasesResponse'
-    { _larsTruncated  :: !(Maybe Bool)
-    , _larsAliases    :: !(Maybe [AliasListEntry])
-    , _larsNextMarker :: !(Maybe Text)
-    , _larsStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListAliasesResponse' smart constructor.
-listAliasesResponse :: Int -> ListAliasesResponse
+listAliasesResponse
+    :: Int -- ^ 'larsStatus'
+    -> ListAliasesResponse
 listAliasesResponse pStatus_ =
     ListAliasesResponse'
     { _larsTruncated = Nothing
@@ -141,7 +144,7 @@ listAliasesResponse pStatus_ =
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more aliases in the
+-- using the 'Marker' request parameter to retrieve more aliases in the
 -- list.
 larsTruncated :: Lens' ListAliasesResponse (Maybe Bool)
 larsTruncated = lens _larsTruncated (\ s a -> s{_larsTruncated = a});
@@ -150,12 +153,12 @@ larsTruncated = lens _larsTruncated (\ s a -> s{_larsTruncated = a});
 larsAliases :: Lens' ListAliasesResponse [AliasListEntry]
 larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce;
 
--- | If @Truncated@ is true, this value is present and contains the value to
--- use for the @Marker@ request parameter in a subsequent pagination
+-- | If 'Truncated' is true, this value is present and contains the value to
+-- use for the 'Marker' request parameter in a subsequent pagination
 -- request.
 larsNextMarker :: Lens' ListAliasesResponse (Maybe Text)
 larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 larsStatus :: Lens' ListAliasesResponse Int
 larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

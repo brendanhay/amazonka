@@ -24,19 +24,20 @@ import           Network.AWS.Prelude
 -- | Describes an account attribute.
 --
 -- /See:/ 'accountAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aaAttributeValues'
---
--- * 'aaAttributeName'
 data AccountAttribute = AccountAttribute'
     { _aaAttributeValues :: !(Maybe [AccountAttributeValue])
     , _aaAttributeName   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AccountAttribute' smart constructor.
-accountAttribute :: AccountAttribute
+-- | Creates a value of 'AccountAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aaAttributeValues'
+--
+-- * 'aaAttributeName'
+accountAttribute
+    :: AccountAttribute
 accountAttribute =
     AccountAttribute'
     { _aaAttributeValues = Nothing
@@ -61,16 +62,17 @@ instance FromXML AccountAttribute where
 -- | Describes a value of an account attribute.
 --
 -- /See:/ 'accountAttributeValue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aavAttributeValue'
 newtype AccountAttributeValue = AccountAttributeValue'
     { _aavAttributeValue :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AccountAttributeValue' smart constructor.
-accountAttributeValue :: AccountAttributeValue
+-- | Creates a value of 'AccountAttributeValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aavAttributeValue'
+accountAttributeValue
+    :: AccountAttributeValue
 accountAttributeValue =
     AccountAttributeValue'
     { _aavAttributeValue = Nothing
@@ -87,22 +89,23 @@ instance FromXML AccountAttributeValue where
 -- | Describes a running instance in a Spot fleet.
 --
 -- /See:/ 'activeInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aiInstanceId'
---
--- * 'aiInstanceType'
---
--- * 'aiSpotInstanceRequestId'
 data ActiveInstance = ActiveInstance'
     { _aiInstanceId            :: !(Maybe Text)
     , _aiInstanceType          :: !(Maybe Text)
     , _aiSpotInstanceRequestId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ActiveInstance' smart constructor.
-activeInstance :: ActiveInstance
+-- | Creates a value of 'ActiveInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aiInstanceId'
+--
+-- * 'aiInstanceType'
+--
+-- * 'aiSpotInstanceRequestId'
+activeInstance
+    :: ActiveInstance
 activeInstance =
     ActiveInstance'
     { _aiInstanceId = Nothing
@@ -131,8 +134,20 @@ instance FromXML ActiveInstance where
 -- | Describes an Elastic IP address.
 --
 -- /See:/ 'address' smart constructor.
+data Address = Address'
+    { _aInstanceId              :: !(Maybe Text)
+    , _aAssociationId           :: !(Maybe Text)
+    , _aNetworkInterfaceOwnerId :: !(Maybe Text)
+    , _aAllocationId            :: !(Maybe Text)
+    , _aDomain                  :: !(Maybe DomainType)
+    , _aNetworkInterfaceId      :: !(Maybe Text)
+    , _aPrivateIPAddress        :: !(Maybe Text)
+    , _aPublicIP                :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Address' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'aInstanceId'
 --
@@ -149,19 +164,8 @@ instance FromXML ActiveInstance where
 -- * 'aPrivateIPAddress'
 --
 -- * 'aPublicIP'
-data Address = Address'
-    { _aInstanceId              :: !(Maybe Text)
-    , _aAssociationId           :: !(Maybe Text)
-    , _aNetworkInterfaceOwnerId :: !(Maybe Text)
-    , _aAllocationId            :: !(Maybe Text)
-    , _aDomain                  :: !(Maybe DomainType)
-    , _aNetworkInterfaceId      :: !(Maybe Text)
-    , _aPrivateIPAddress        :: !(Maybe Text)
-    , _aPublicIP                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Address' smart constructor.
-address :: Address
+address
+    :: Address
 address =
     Address'
     { _aInstanceId = Nothing
@@ -192,7 +196,7 @@ aAllocationId :: Lens' Address (Maybe Text)
 aAllocationId = lens _aAllocationId (\ s a -> s{_aAllocationId = a});
 
 -- | Indicates whether this Elastic IP address is for use with instances in
--- EC2-Classic (@standard@) or instances in a VPC (@vpc@).
+-- EC2-Classic ('standard') or instances in a VPC ('vpc').
 aDomain :: Lens' Address (Maybe DomainType)
 aDomain = lens _aDomain (\ s a -> s{_aDomain = a});
 
@@ -222,22 +226,23 @@ instance FromXML Address where
 -- | The value to use when a resource attribute accepts a Boolean value.
 --
 -- /See:/ 'attributeBooleanValue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'abvValue'
 newtype AttributeBooleanValue = AttributeBooleanValue'
     { _abvValue :: Maybe Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttributeBooleanValue' smart constructor.
-attributeBooleanValue :: AttributeBooleanValue
+-- | Creates a value of 'AttributeBooleanValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'abvValue'
+attributeBooleanValue
+    :: AttributeBooleanValue
 attributeBooleanValue =
     AttributeBooleanValue'
     { _abvValue = Nothing
     }
 
--- | Valid values are @true@ or @false@.
+-- | Valid values are 'true' or 'false'.
 abvValue :: Lens' AttributeBooleanValue (Maybe Bool)
 abvValue = lens _abvValue (\ s a -> s{_abvValue = a});
 
@@ -252,16 +257,17 @@ instance ToQuery AttributeBooleanValue where
 -- | The value to use for a resource attribute.
 --
 -- /See:/ 'attributeValue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'avValue'
 newtype AttributeValue = AttributeValue'
     { _avValue :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttributeValue' smart constructor.
-attributeValue :: AttributeValue
+-- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avValue'
+attributeValue
+    :: AttributeValue
 attributeValue =
     AttributeValue'
     { _avValue = Nothing
@@ -281,8 +287,16 @@ instance ToQuery AttributeValue where
 -- | Describes an Availability Zone.
 --
 -- /See:/ 'availabilityZone' smart constructor.
+data AvailabilityZone = AvailabilityZone'
+    { _azRegionName :: !(Maybe Text)
+    , _azState      :: !(Maybe AvailabilityZoneState)
+    , _azZoneName   :: !(Maybe Text)
+    , _azMessages   :: !(Maybe [AvailabilityZoneMessage])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'azRegionName'
 --
@@ -291,15 +305,8 @@ instance ToQuery AttributeValue where
 -- * 'azZoneName'
 --
 -- * 'azMessages'
-data AvailabilityZone = AvailabilityZone'
-    { _azRegionName :: !(Maybe Text)
-    , _azState      :: !(Maybe AvailabilityZoneState)
-    , _azZoneName   :: !(Maybe Text)
-    , _azMessages   :: !(Maybe [AvailabilityZoneMessage])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AvailabilityZone' smart constructor.
-availabilityZone :: AvailabilityZone
+availabilityZone
+    :: AvailabilityZone
 availabilityZone =
     AvailabilityZone'
     { _azRegionName = Nothing
@@ -312,8 +319,8 @@ availabilityZone =
 azRegionName :: Lens' AvailabilityZone (Maybe Text)
 azRegionName = lens _azRegionName (\ s a -> s{_azRegionName = a});
 
--- | The state of the Availability Zone (@available@ | @impaired@ |
--- @unavailable@).
+-- | The state of the Availability Zone ('available' | 'impaired' |
+-- 'unavailable').
 azState :: Lens' AvailabilityZone (Maybe AvailabilityZoneState)
 azState = lens _azState (\ s a -> s{_azState = a});
 
@@ -337,16 +344,17 @@ instance FromXML AvailabilityZone where
 -- | Describes a message about an Availability Zone.
 --
 -- /See:/ 'availabilityZoneMessage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'azmMessage'
 newtype AvailabilityZoneMessage = AvailabilityZoneMessage'
     { _azmMessage :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AvailabilityZoneMessage' smart constructor.
-availabilityZoneMessage :: AvailabilityZoneMessage
+-- | Creates a value of 'AvailabilityZoneMessage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'azmMessage'
+availabilityZoneMessage
+    :: AvailabilityZoneMessage
 availabilityZoneMessage =
     AvailabilityZoneMessage'
     { _azmMessage = Nothing
@@ -361,16 +369,17 @@ instance FromXML AvailabilityZoneMessage where
           = AvailabilityZoneMessage' <$> (x .@? "message")
 
 -- | /See:/ 'blobAttributeValue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bavValue'
 newtype BlobAttributeValue = BlobAttributeValue'
     { _bavValue :: Maybe Base64
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BlobAttributeValue' smart constructor.
-blobAttributeValue :: BlobAttributeValue
+-- | Creates a value of 'BlobAttributeValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bavValue'
+blobAttributeValue
+    :: BlobAttributeValue
 blobAttributeValue =
     BlobAttributeValue'
     { _bavValue = Nothing
@@ -387,8 +396,16 @@ instance ToQuery BlobAttributeValue where
 -- | Describes a block device mapping.
 --
 -- /See:/ 'blockDeviceMapping' smart constructor.
+data BlockDeviceMapping = BlockDeviceMapping'
+    { _bdmVirtualName :: !(Maybe Text)
+    , _bdmNoDevice    :: !(Maybe Text)
+    , _bdmEBS         :: !(Maybe EBSBlockDevice)
+    , _bdmDeviceName  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BlockDeviceMapping' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'bdmVirtualName'
 --
@@ -397,15 +414,9 @@ instance ToQuery BlobAttributeValue where
 -- * 'bdmEBS'
 --
 -- * 'bdmDeviceName'
-data BlockDeviceMapping = BlockDeviceMapping'
-    { _bdmVirtualName :: !(Maybe Text)
-    , _bdmNoDevice    :: !(Maybe Text)
-    , _bdmEBS         :: !(Maybe EBSBlockDevice)
-    , _bdmDeviceName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'BlockDeviceMapping' smart constructor.
-blockDeviceMapping :: Text -> BlockDeviceMapping
+blockDeviceMapping
+    :: Text -- ^ 'bdmDeviceName'
+    -> BlockDeviceMapping
 blockDeviceMapping pDeviceName_ =
     BlockDeviceMapping'
     { _bdmVirtualName = Nothing
@@ -414,9 +425,9 @@ blockDeviceMapping pDeviceName_ =
     , _bdmDeviceName = pDeviceName_
     }
 
--- | The virtual device name (@ephemeral@N). Instance store volumes are
+-- | The virtual device name ('ephemeral'N). Instance store volumes are
 -- numbered starting from 0. An instance type with 2 available instance
--- store volumes can specify mappings for @ephemeral0@ and @ephemeral1@.The
+-- store volumes can specify mappings for 'ephemeral0' and 'ephemeral1'.The
 -- number of available instance store volumes depends on the instance type.
 -- After you connect to the instance, you must mount the volume.
 --
@@ -437,8 +448,8 @@ bdmNoDevice = lens _bdmNoDevice (\ s a -> s{_bdmNoDevice = a});
 bdmEBS :: Lens' BlockDeviceMapping (Maybe EBSBlockDevice)
 bdmEBS = lens _bdmEBS (\ s a -> s{_bdmEBS = a});
 
--- | The device name exposed to the instance (for example, @\/dev\/sdh@ or
--- @xvdh@).
+-- | The device name exposed to the instance (for example, '\/dev\/sdh' or
+-- 'xvdh').
 bdmDeviceName :: Lens' BlockDeviceMapping Text
 bdmDeviceName = lens _bdmDeviceName (\ s a -> s{_bdmDeviceName = a});
 
@@ -459,8 +470,20 @@ instance ToQuery BlockDeviceMapping where
 -- | Describes a bundle task.
 --
 -- /See:/ 'bundleTask' smart constructor.
+data BundleTask = BundleTask'
+    { _btBundleTaskError :: !(Maybe BundleTaskError)
+    , _btBundleId        :: !Text
+    , _btInstanceId      :: !Text
+    , _btProgress        :: !Text
+    , _btStartTime       :: !ISO8601
+    , _btState           :: !BundleTaskState
+    , _btStorage         :: !Storage
+    , _btUpdateTime      :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BundleTask' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'btBundleTaskError'
 --
@@ -477,19 +500,15 @@ instance ToQuery BlockDeviceMapping where
 -- * 'btStorage'
 --
 -- * 'btUpdateTime'
-data BundleTask = BundleTask'
-    { _btBundleTaskError :: !(Maybe BundleTaskError)
-    , _btBundleId        :: !Text
-    , _btInstanceId      :: !Text
-    , _btProgress        :: !Text
-    , _btStartTime       :: !ISO8601
-    , _btState           :: !BundleTaskState
-    , _btStorage         :: !Storage
-    , _btUpdateTime      :: !ISO8601
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'BundleTask' smart constructor.
-bundleTask :: Text -> Text -> Text -> UTCTime -> BundleTaskState -> Storage -> UTCTime -> BundleTask
+bundleTask
+    :: Text -- ^ 'btBundleId'
+    -> Text -- ^ 'btInstanceId'
+    -> Text -- ^ 'btProgress'
+    -> UTCTime -- ^ 'btStartTime'
+    -> BundleTaskState -- ^ 'btState'
+    -> Storage -- ^ 'btStorage'
+    -> UTCTime -- ^ 'btUpdateTime'
+    -> BundleTask
 bundleTask pBundleId_ pInstanceId_ pProgress_ pStartTime_ pState_ pStorage_ pUpdateTime_ =
     BundleTask'
     { _btBundleTaskError = Nothing
@@ -548,19 +567,20 @@ instance FromXML BundleTask where
 -- | Describes an error for BundleInstance.
 --
 -- /See:/ 'bundleTaskError' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bteCode'
---
--- * 'bteMessage'
 data BundleTaskError = BundleTaskError'
     { _bteCode    :: !(Maybe Text)
     , _bteMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BundleTaskError' smart constructor.
-bundleTaskError :: BundleTaskError
+-- | Creates a value of 'BundleTaskError' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bteCode'
+--
+-- * 'bteMessage'
+bundleTaskError
+    :: BundleTaskError
 bundleTaskError =
     BundleTaskError'
     { _bteCode = Nothing
@@ -583,19 +603,22 @@ instance FromXML BundleTaskError where
 -- | Describes a Spot fleet error.
 --
 -- /See:/ 'cancelSpotFleetRequestsError' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csfreCode'
---
--- * 'csfreMessage'
 data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError'
     { _csfreCode    :: !CancelBatchErrorCode
     , _csfreMessage :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelSpotFleetRequestsError' smart constructor.
-cancelSpotFleetRequestsError :: CancelBatchErrorCode -> Text -> CancelSpotFleetRequestsError
+-- | Creates a value of 'CancelSpotFleetRequestsError' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csfreCode'
+--
+-- * 'csfreMessage'
+cancelSpotFleetRequestsError
+    :: CancelBatchErrorCode -- ^ 'csfreCode'
+    -> Text -- ^ 'csfreMessage'
+    -> CancelSpotFleetRequestsError
 cancelSpotFleetRequestsError pCode_ pMessage_ =
     CancelSpotFleetRequestsError'
     { _csfreCode = pCode_
@@ -618,19 +641,22 @@ instance FromXML CancelSpotFleetRequestsError where
 -- | Describes a Spot fleet request that was not successfully canceled.
 --
 -- /See:/ 'cancelSpotFleetRequestsErrorItem' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csfreiSpotFleetRequestId'
---
--- * 'csfreiError'
 data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
     { _csfreiSpotFleetRequestId :: !Text
     , _csfreiError              :: !CancelSpotFleetRequestsError
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelSpotFleetRequestsErrorItem' smart constructor.
-cancelSpotFleetRequestsErrorItem :: Text -> CancelSpotFleetRequestsError -> CancelSpotFleetRequestsErrorItem
+-- | Creates a value of 'CancelSpotFleetRequestsErrorItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csfreiSpotFleetRequestId'
+--
+-- * 'csfreiError'
+cancelSpotFleetRequestsErrorItem
+    :: Text -- ^ 'csfreiSpotFleetRequestId'
+    -> CancelSpotFleetRequestsError -- ^ 'csfreiError'
+    -> CancelSpotFleetRequestsErrorItem
 cancelSpotFleetRequestsErrorItem pSpotFleetRequestId_ pError_ =
     CancelSpotFleetRequestsErrorItem'
     { _csfreiSpotFleetRequestId = pSpotFleetRequestId_
@@ -654,22 +680,26 @@ instance FromXML CancelSpotFleetRequestsErrorItem
 -- | Describes a Spot fleet request that was successfully canceled.
 --
 -- /See:/ 'cancelSpotFleetRequestsSuccessItem' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csfrsiSpotFleetRequestId'
---
--- * 'csfrsiCurrentSpotFleetRequestState'
---
--- * 'csfrsiPreviousSpotFleetRequestState'
 data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'
     { _csfrsiSpotFleetRequestId            :: !Text
     , _csfrsiCurrentSpotFleetRequestState  :: !BatchState
     , _csfrsiPreviousSpotFleetRequestState :: !BatchState
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelSpotFleetRequestsSuccessItem' smart constructor.
-cancelSpotFleetRequestsSuccessItem :: Text -> BatchState -> BatchState -> CancelSpotFleetRequestsSuccessItem
+-- | Creates a value of 'CancelSpotFleetRequestsSuccessItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csfrsiSpotFleetRequestId'
+--
+-- * 'csfrsiCurrentSpotFleetRequestState'
+--
+-- * 'csfrsiPreviousSpotFleetRequestState'
+cancelSpotFleetRequestsSuccessItem
+    :: Text -- ^ 'csfrsiSpotFleetRequestId'
+    -> BatchState -- ^ 'csfrsiCurrentSpotFleetRequestState'
+    -> BatchState -- ^ 'csfrsiPreviousSpotFleetRequestState'
+    -> CancelSpotFleetRequestsSuccessItem
 cancelSpotFleetRequestsSuccessItem pSpotFleetRequestId_ pCurrentSpotFleetRequestState_ pPreviousSpotFleetRequestState_ =
     CancelSpotFleetRequestsSuccessItem'
     { _csfrsiSpotFleetRequestId = pSpotFleetRequestId_
@@ -700,19 +730,20 @@ instance FromXML CancelSpotFleetRequestsSuccessItem
 -- | Describes a request to cancel a Spot Instance.
 --
 -- /See:/ 'cancelledSpotInstanceRequest' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csirState'
---
--- * 'csirSpotInstanceRequestId'
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest'
     { _csirState                 :: !(Maybe CancelSpotInstanceRequestState)
     , _csirSpotInstanceRequestId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelledSpotInstanceRequest' smart constructor.
-cancelledSpotInstanceRequest :: CancelledSpotInstanceRequest
+-- | Creates a value of 'CancelledSpotInstanceRequest' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csirState'
+--
+-- * 'csirSpotInstanceRequestId'
+cancelledSpotInstanceRequest
+    :: CancelledSpotInstanceRequest
 cancelledSpotInstanceRequest =
     CancelledSpotInstanceRequest'
     { _csirState = Nothing
@@ -735,8 +766,16 @@ instance FromXML CancelledSpotInstanceRequest where
 -- | Describes a linked EC2-Classic instance.
 --
 -- /See:/ 'classicLinkInstance' smart constructor.
+data ClassicLinkInstance = ClassicLinkInstance'
+    { _cliInstanceId :: !(Maybe Text)
+    , _cliGroups     :: !(Maybe [GroupIdentifier])
+    , _cliVPCId      :: !(Maybe Text)
+    , _cliTags       :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ClassicLinkInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cliInstanceId'
 --
@@ -745,15 +784,8 @@ instance FromXML CancelledSpotInstanceRequest where
 -- * 'cliVPCId'
 --
 -- * 'cliTags'
-data ClassicLinkInstance = ClassicLinkInstance'
-    { _cliInstanceId :: !(Maybe Text)
-    , _cliGroups     :: !(Maybe [GroupIdentifier])
-    , _cliVPCId      :: !(Maybe Text)
-    , _cliTags       :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ClassicLinkInstance' smart constructor.
-classicLinkInstance :: ClassicLinkInstance
+classicLinkInstance
+    :: ClassicLinkInstance
 classicLinkInstance =
     ClassicLinkInstance'
     { _cliInstanceId = Nothing
@@ -792,8 +824,16 @@ instance FromXML ClassicLinkInstance where
 -- | Describes the client-specific data.
 --
 -- /See:/ 'clientData' smart constructor.
+data ClientData = ClientData'
+    { _cdUploadStart :: !(Maybe ISO8601)
+    , _cdUploadSize  :: !(Maybe Double)
+    , _cdUploadEnd   :: !(Maybe ISO8601)
+    , _cdComment     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ClientData' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdUploadStart'
 --
@@ -802,15 +842,8 @@ instance FromXML ClassicLinkInstance where
 -- * 'cdUploadEnd'
 --
 -- * 'cdComment'
-data ClientData = ClientData'
-    { _cdUploadStart :: !(Maybe ISO8601)
-    , _cdUploadSize  :: !(Maybe Double)
-    , _cdUploadEnd   :: !(Maybe ISO8601)
-    , _cdComment     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ClientData' smart constructor.
-clientData :: ClientData
+clientData
+    :: ClientData
 clientData =
     ClientData'
     { _cdUploadStart = Nothing
@@ -845,8 +878,19 @@ instance ToQuery ClientData where
 -- | Describes a conversion task.
 --
 -- /See:/ 'conversionTask' smart constructor.
+data ConversionTask = ConversionTask'
+    { _ctImportInstance   :: !(Maybe ImportInstanceTaskDetails)
+    , _ctStatusMessage    :: !(Maybe Text)
+    , _ctImportVolume     :: !(Maybe ImportVolumeTaskDetails)
+    , _ctExpirationTime   :: !(Maybe Text)
+    , _ctTags             :: !(Maybe [Tag])
+    , _ctConversionTaskId :: !Text
+    , _ctState            :: !ConversionTaskState
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConversionTask' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ctImportInstance'
 --
@@ -861,18 +905,10 @@ instance ToQuery ClientData where
 -- * 'ctConversionTaskId'
 --
 -- * 'ctState'
-data ConversionTask = ConversionTask'
-    { _ctImportInstance   :: !(Maybe ImportInstanceTaskDetails)
-    , _ctStatusMessage    :: !(Maybe Text)
-    , _ctImportVolume     :: !(Maybe ImportVolumeTaskDetails)
-    , _ctExpirationTime   :: !(Maybe Text)
-    , _ctTags             :: !(Maybe [Tag])
-    , _ctConversionTaskId :: !Text
-    , _ctState            :: !ConversionTaskState
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ConversionTask' smart constructor.
-conversionTask :: Text -> ConversionTaskState -> ConversionTask
+conversionTask
+    :: Text -- ^ 'ctConversionTaskId'
+    -> ConversionTaskState -- ^ 'ctState'
+    -> ConversionTask
 conversionTask pConversionTaskId_ pState_ =
     ConversionTask'
     { _ctImportInstance = Nothing
@@ -931,19 +967,20 @@ instance FromXML ConversionTask where
 -- for a volume.
 --
 -- /See:/ 'createVolumePermission' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvpGroup'
---
--- * 'cvpUserId'
 data CreateVolumePermission = CreateVolumePermission'
     { _cvpGroup  :: !(Maybe PermissionGroup)
     , _cvpUserId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVolumePermission' smart constructor.
-createVolumePermission :: CreateVolumePermission
+-- | Creates a value of 'CreateVolumePermission' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvpGroup'
+--
+-- * 'cvpUserId'
+createVolumePermission
+    :: CreateVolumePermission
 createVolumePermission =
     CreateVolumePermission'
     { _cvpGroup = Nothing
@@ -973,19 +1010,20 @@ instance ToQuery CreateVolumePermission where
 -- | Describes modifications to the permissions for a volume.
 --
 -- /See:/ 'createVolumePermissionModifications' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvpmRemove'
---
--- * 'cvpmAdd'
 data CreateVolumePermissionModifications = CreateVolumePermissionModifications'
     { _cvpmRemove :: !(Maybe [CreateVolumePermission])
     , _cvpmAdd    :: !(Maybe [CreateVolumePermission])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVolumePermissionModifications' smart constructor.
-createVolumePermissionModifications :: CreateVolumePermissionModifications
+-- | Creates a value of 'CreateVolumePermissionModifications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvpmRemove'
+--
+-- * 'cvpmAdd'
+createVolumePermissionModifications
+    :: CreateVolumePermissionModifications
 createVolumePermissionModifications =
     CreateVolumePermissionModifications'
     { _cvpmRemove = Nothing
@@ -1012,8 +1050,18 @@ instance ToQuery CreateVolumePermissionModifications
 -- | Describes a customer gateway.
 --
 -- /See:/ 'customerGateway' smart constructor.
+data CustomerGateway = CustomerGateway'
+    { _cgTags              :: !(Maybe [Tag])
+    , _cgBGPASN            :: !Text
+    , _cgCustomerGatewayId :: !Text
+    , _cgIPAddress         :: !Text
+    , _cgState             :: !Text
+    , _cgType              :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CustomerGateway' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cgTags'
 --
@@ -1026,17 +1074,13 @@ instance ToQuery CreateVolumePermissionModifications
 -- * 'cgState'
 --
 -- * 'cgType'
-data CustomerGateway = CustomerGateway'
-    { _cgTags              :: !(Maybe [Tag])
-    , _cgBGPASN            :: !Text
-    , _cgCustomerGatewayId :: !Text
-    , _cgIPAddress         :: !Text
-    , _cgState             :: !Text
-    , _cgType              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CustomerGateway' smart constructor.
-customerGateway :: Text -> Text -> Text -> Text -> Text -> CustomerGateway
+customerGateway
+    :: Text -- ^ 'cgBGPASN'
+    -> Text -- ^ 'cgCustomerGatewayId'
+    -> Text -- ^ 'cgIPAddress'
+    -> Text -- ^ 'cgState'
+    -> Text -- ^ 'cgType'
+    -> CustomerGateway
 customerGateway pBGPASN_ pCustomerGatewayId_ pIPAddress_ pState_ pType_ =
     CustomerGateway'
     { _cgTags = Nothing
@@ -1066,11 +1110,11 @@ cgIPAddress :: Lens' CustomerGateway Text
 cgIPAddress = lens _cgIPAddress (\ s a -> s{_cgIPAddress = a});
 
 -- | The current state of the customer gateway
--- (@pending | available | deleting | deleted@).
+-- ('pending | available | deleting | deleted').
 cgState :: Lens' CustomerGateway Text
 cgState = lens _cgState (\ s a -> s{_cgState = a});
 
--- | The type of VPN connection the customer gateway supports (@ipsec.1@).
+-- | The type of VPN connection the customer gateway supports ('ipsec.1').
 cgType :: Lens' CustomerGateway Text
 cgType = lens _cgType (\ s a -> s{_cgType = a});
 
@@ -1088,19 +1132,20 @@ instance FromXML CustomerGateway where
 -- | Describes a DHCP configuration option.
 --
 -- /See:/ 'dhcpConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcValues'
---
--- * 'dcKey'
 data DHCPConfiguration = DHCPConfiguration'
     { _dcValues :: !(Maybe [AttributeValue])
     , _dcKey    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DHCPConfiguration' smart constructor.
-dhcpConfiguration :: DHCPConfiguration
+-- | Creates a value of 'DHCPConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcValues'
+--
+-- * 'dcKey'
+dhcpConfiguration
+    :: DHCPConfiguration
 dhcpConfiguration =
     DHCPConfiguration'
     { _dcValues = Nothing
@@ -1125,22 +1170,23 @@ instance FromXML DHCPConfiguration where
 -- | Describes a set of DHCP options.
 --
 -- /See:/ 'dhcpOptions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'doDHCPConfigurations'
---
--- * 'doDHCPOptionsId'
---
--- * 'doTags'
 data DHCPOptions = DHCPOptions'
     { _doDHCPConfigurations :: !(Maybe [DHCPConfiguration])
     , _doDHCPOptionsId      :: !(Maybe Text)
     , _doTags               :: !(Maybe [Tag])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DHCPOptions' smart constructor.
-dhcpOptions :: DHCPOptions
+-- | Creates a value of 'DHCPOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'doDHCPConfigurations'
+--
+-- * 'doDHCPOptionsId'
+--
+-- * 'doTags'
+dhcpOptions
+    :: DHCPOptions
 dhcpOptions =
     DHCPOptions'
     { _doDHCPConfigurations = Nothing
@@ -1173,22 +1219,23 @@ instance FromXML DHCPOptions where
 -- | Describes a disk image.
 --
 -- /See:/ 'diskImage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diImage'
---
--- * 'diVolume'
---
--- * 'diDescription'
 data DiskImage = DiskImage'
     { _diImage       :: !(Maybe DiskImageDetail)
     , _diVolume      :: !(Maybe VolumeDetail)
     , _diDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DiskImage' smart constructor.
-diskImage :: DiskImage
+-- | Creates a value of 'DiskImage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diImage'
+--
+-- * 'diVolume'
+--
+-- * 'diDescription'
+diskImage
+    :: DiskImage
 diskImage =
     DiskImage'
     { _diImage = Nothing
@@ -1217,8 +1264,16 @@ instance ToQuery DiskImage where
 -- | Describes a disk image.
 --
 -- /See:/ 'diskImageDescription' smart constructor.
+data DiskImageDescription = DiskImageDescription'
+    { _dChecksum          :: !(Maybe Text)
+    , _dFormat            :: !DiskImageFormat
+    , _dSize              :: !Integer
+    , _dImportManifestURL :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DiskImageDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dChecksum'
 --
@@ -1227,15 +1282,11 @@ instance ToQuery DiskImage where
 -- * 'dSize'
 --
 -- * 'dImportManifestURL'
-data DiskImageDescription = DiskImageDescription'
-    { _dChecksum          :: !(Maybe Text)
-    , _dFormat            :: !DiskImageFormat
-    , _dSize              :: !Integer
-    , _dImportManifestURL :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DiskImageDescription' smart constructor.
-diskImageDescription :: DiskImageFormat -> Integer -> Text -> DiskImageDescription
+diskImageDescription
+    :: DiskImageFormat -- ^ 'dFormat'
+    -> Integer -- ^ 'dSize'
+    -> Text -- ^ 'dImportManifestURL'
+    -> DiskImageDescription
 diskImageDescription pFormat_ pSize_ pImportManifestURL_ =
     DiskImageDescription'
     { _dChecksum = Nothing
@@ -1274,22 +1325,26 @@ instance FromXML DiskImageDescription where
 -- | Describes a disk image.
 --
 -- /See:/ 'diskImageDetail' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'didFormat'
---
--- * 'didBytes'
---
--- * 'didImportManifestURL'
 data DiskImageDetail = DiskImageDetail'
     { _didFormat            :: !DiskImageFormat
     , _didBytes             :: !Integer
     , _didImportManifestURL :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DiskImageDetail' smart constructor.
-diskImageDetail :: DiskImageFormat -> Integer -> Text -> DiskImageDetail
+-- | Creates a value of 'DiskImageDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'didFormat'
+--
+-- * 'didBytes'
+--
+-- * 'didImportManifestURL'
+diskImageDetail
+    :: DiskImageFormat -- ^ 'didFormat'
+    -> Integer -- ^ 'didBytes'
+    -> Text -- ^ 'didImportManifestURL'
+    -> DiskImageDetail
 diskImageDetail pFormat_ pBytes_ pImportManifestURL_ =
     DiskImageDetail'
     { _didFormat = pFormat_
@@ -1323,19 +1378,21 @@ instance ToQuery DiskImageDetail where
 -- | Describes a disk image volume.
 --
 -- /See:/ 'diskImageVolumeDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'divdSize'
---
--- * 'divdId'
 data DiskImageVolumeDescription = DiskImageVolumeDescription'
     { _divdSize :: !(Maybe Integer)
     , _divdId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DiskImageVolumeDescription' smart constructor.
-diskImageVolumeDescription :: Text -> DiskImageVolumeDescription
+-- | Creates a value of 'DiskImageVolumeDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'divdSize'
+--
+-- * 'divdId'
+diskImageVolumeDescription
+    :: Text -- ^ 'divdId'
+    -> DiskImageVolumeDescription
 diskImageVolumeDescription pId_ =
     DiskImageVolumeDescription'
     { _divdSize = Nothing
@@ -1358,8 +1415,18 @@ instance FromXML DiskImageVolumeDescription where
 -- | Describes a block device for an EBS volume.
 --
 -- /See:/ 'ebsBlockDevice' smart constructor.
+data EBSBlockDevice = EBSBlockDevice'
+    { _ebdDeleteOnTermination :: !(Maybe Bool)
+    , _ebdVolumeSize          :: !(Maybe Int)
+    , _ebdIOPS                :: !(Maybe Int)
+    , _ebdEncrypted           :: !(Maybe Bool)
+    , _ebdVolumeType          :: !(Maybe VolumeType)
+    , _ebdSnapshotId          :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EBSBlockDevice' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ebdDeleteOnTermination'
 --
@@ -1372,17 +1439,8 @@ instance FromXML DiskImageVolumeDescription where
 -- * 'ebdVolumeType'
 --
 -- * 'ebdSnapshotId'
-data EBSBlockDevice = EBSBlockDevice'
-    { _ebdDeleteOnTermination :: !(Maybe Bool)
-    , _ebdVolumeSize          :: !(Maybe Int)
-    , _ebdIOPS                :: !(Maybe Int)
-    , _ebdEncrypted           :: !(Maybe Bool)
-    , _ebdVolumeType          :: !(Maybe VolumeType)
-    , _ebdSnapshotId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EBSBlockDevice' smart constructor.
-ebsBlockDevice :: EBSBlockDevice
+ebsBlockDevice
+    :: EBSBlockDevice
 ebsBlockDevice =
     EBSBlockDevice'
     { _ebdDeleteOnTermination = Nothing
@@ -1399,8 +1457,8 @@ ebdDeleteOnTermination = lens _ebdDeleteOnTermination (\ s a -> s{_ebdDeleteOnTe
 
 -- | The size of the volume, in GiB.
 --
--- Constraints: @1-1024@ for @standard@ volumes, @1-16384@ for @gp2@
--- volumes, and @4-16384@ for @io1@ volumes. If you specify a snapshot, the
+-- Constraints: '1-1024' for 'standard' volumes, '1-16384' for 'gp2'
+-- volumes, and '4-16384' for 'io1' volumes. If you specify a snapshot, the
 -- volume size must be equal to or larger than the snapshot size.
 --
 -- Default: If you\'re creating the volume from a snapshot and don\'t
@@ -1421,8 +1479,8 @@ ebdVolumeSize = lens _ebdVolumeSize (\ s a -> s{_ebdVolumeSize = a});
 -- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and
 -- 3 to 10000 for General Purpose (SSD) volumes.
 --
--- Condition: This parameter is required for requests to create @io1@
--- volumes; it is not used in requests to create @standard@ or @gp2@
+-- Condition: This parameter is required for requests to create 'io1'
+-- volumes; it is not used in requests to create 'standard' or 'gp2'
 -- volumes.
 ebdIOPS :: Lens' EBSBlockDevice (Maybe Int)
 ebdIOPS = lens _ebdIOPS (\ s a -> s{_ebdIOPS = a});
@@ -1433,10 +1491,10 @@ ebdIOPS = lens _ebdIOPS (\ s a -> s{_ebdIOPS = a});
 ebdEncrypted :: Lens' EBSBlockDevice (Maybe Bool)
 ebdEncrypted = lens _ebdEncrypted (\ s a -> s{_ebdEncrypted = a});
 
--- | The volume type. @gp2@ for General Purpose (SSD) volumes, @io1@ for
--- Provisioned IOPS (SSD) volumes, and @standard@ for Magnetic volumes.
+-- | The volume type. 'gp2' for General Purpose (SSD) volumes, 'io1' for
+-- Provisioned IOPS (SSD) volumes, and 'standard' for Magnetic volumes.
 --
--- Default: @standard@
+-- Default: 'standard'
 ebdVolumeType :: Lens' EBSBlockDevice (Maybe VolumeType)
 ebdVolumeType = lens _ebdVolumeType (\ s a -> s{_ebdVolumeType = a});
 
@@ -1467,8 +1525,16 @@ instance ToQuery EBSBlockDevice where
 -- mapping.
 --
 -- /See:/ 'ebsInstanceBlockDevice' smart constructor.
+data EBSInstanceBlockDevice = EBSInstanceBlockDevice'
+    { _eibdDeleteOnTermination :: !(Maybe Bool)
+    , _eibdStatus              :: !(Maybe AttachmentStatus)
+    , _eibdVolumeId            :: !(Maybe Text)
+    , _eibdAttachTime          :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EBSInstanceBlockDevice' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'eibdDeleteOnTermination'
 --
@@ -1477,15 +1543,8 @@ instance ToQuery EBSBlockDevice where
 -- * 'eibdVolumeId'
 --
 -- * 'eibdAttachTime'
-data EBSInstanceBlockDevice = EBSInstanceBlockDevice'
-    { _eibdDeleteOnTermination :: !(Maybe Bool)
-    , _eibdStatus              :: !(Maybe AttachmentStatus)
-    , _eibdVolumeId            :: !(Maybe Text)
-    , _eibdAttachTime          :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'EBSInstanceBlockDevice' smart constructor.
-ebsInstanceBlockDevice :: EBSInstanceBlockDevice
+ebsInstanceBlockDevice
+    :: EBSInstanceBlockDevice
 ebsInstanceBlockDevice =
     EBSInstanceBlockDevice'
     { _eibdDeleteOnTermination = Nothing
@@ -1518,19 +1577,20 @@ instance FromXML EBSInstanceBlockDevice where
                 <*> (x .@? "attachTime")
 
 -- | /See:/ 'ebsInstanceBlockDeviceSpecification' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'eibdsDeleteOnTermination'
---
--- * 'eibdsVolumeId'
 data EBSInstanceBlockDeviceSpecification = EBSInstanceBlockDeviceSpecification'
     { _eibdsDeleteOnTermination :: !(Maybe Bool)
     , _eibdsVolumeId            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EBSInstanceBlockDeviceSpecification' smart constructor.
-ebsInstanceBlockDeviceSpecification :: EBSInstanceBlockDeviceSpecification
+-- | Creates a value of 'EBSInstanceBlockDeviceSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eibdsDeleteOnTermination'
+--
+-- * 'eibdsVolumeId'
+ebsInstanceBlockDeviceSpecification
+    :: EBSInstanceBlockDeviceSpecification
 ebsInstanceBlockDeviceSpecification =
     EBSInstanceBlockDeviceSpecification'
     { _eibdsDeleteOnTermination = Nothing
@@ -1555,22 +1615,23 @@ instance ToQuery EBSInstanceBlockDeviceSpecification
 -- | Describes a Spot fleet event.
 --
 -- /See:/ 'eventInformation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'eiInstanceId'
---
--- * 'eiEventDescription'
---
--- * 'eiEventSubType'
 data EventInformation = EventInformation'
     { _eiInstanceId       :: !(Maybe Text)
     , _eiEventDescription :: !(Maybe Text)
     , _eiEventSubType     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EventInformation' smart constructor.
-eventInformation :: EventInformation
+-- | Creates a value of 'EventInformation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'eiInstanceId'
+--
+-- * 'eiEventDescription'
+--
+-- * 'eiEventSubType'
+eventInformation
+    :: EventInformation
 eventInformation =
     EventInformation'
     { _eiInstanceId = Nothing
@@ -1579,7 +1640,7 @@ eventInformation =
     }
 
 -- | The ID of the instance. This information is available only for
--- @instanceChange@ events.
+-- 'instanceChange' events.
 eiInstanceId :: Lens' EventInformation (Maybe Text)
 eiInstanceId = lens _eiInstanceId (\ s a -> s{_eiInstanceId = a});
 
@@ -1589,48 +1650,48 @@ eiEventDescription = lens _eiEventDescription (\ s a -> s{_eiEventDescription = 
 
 -- | The event.
 --
--- The following are the @error@ events.
+-- The following are the 'error' events.
 --
--- -   @iamFleetRoleInvalid@ - Spot fleet did not have the required
+-- -   'iamFleetRoleInvalid' - Spot fleet did not have the required
 --     permissions either to launch or terminate an instance.
 --
--- -   @spotFleetRequestConfigurationInvalid@ - The configuration is not
+-- -   'spotFleetRequestConfigurationInvalid' - The configuration is not
 --     valid. For more information, see the description.
 --
--- -   @spotInstanceCountLimitExceeded@ - You\'ve reached the limit on the
+-- -   'spotInstanceCountLimitExceeded' - You\'ve reached the limit on the
 --     number of Spot Instances that you can launch.
 --
--- The following are the @fleetRequestChange@ events.
+-- The following are the 'fleetRequestChange' events.
 --
--- -   @active@ - The Spot fleet has been validated and Amazon EC2 is
+-- -   'active' - The Spot fleet has been validated and Amazon EC2 is
 --     attempting to maintain the target number of running Spot Instances.
 --
--- -   @cancelled@ - The Spot fleet is canceled and has no running Spot
+-- -   'cancelled' - The Spot fleet is canceled and has no running Spot
 --     Instances. The Spot fleet will be deleted two days after its
 --     instances were terminated.
 --
--- -   @cancelled_running@ - The Spot fleet is canceled and will not launch
+-- -   'cancelled_running' - The Spot fleet is canceled and will not launch
 --     additional Spot Instances, but its existing Spot Instances will
 --     continue to run until they are interrupted or terminated.
 --
--- -   @cancelled_terminating@ - The Spot fleet is canceled and its Spot
+-- -   'cancelled_terminating' - The Spot fleet is canceled and its Spot
 --     Instances are terminating.
 --
--- -   @expired@ - The Spot fleet request has expired. A subsequent event
+-- -   'expired' - The Spot fleet request has expired. A subsequent event
 --     indicates that the instances were terminated, if the request was
---     created with @terminateInstancesWithExpiration@ set.
+--     created with 'terminateInstancesWithExpiration' set.
 --
--- -   @price_update@ - The bid price for a launch configuration was
+-- -   'price_update' - The bid price for a launch configuration was
 --     adjusted because it was too high. This change is permanent.
 --
--- -   @submitted@ - The Spot fleet request is being evaluated and Amazon
+-- -   'submitted' - The Spot fleet request is being evaluated and Amazon
 --     EC2 is preparing to launch the target number of Spot Instances.
 --
--- The following are the @instanceChange@ events.
+-- The following are the 'instanceChange' events.
 --
--- -   @launched@ - A bid was fulfilled and a new instance was launched.
+-- -   'launched' - A bid was fulfilled and a new instance was launched.
 --
--- -   @terminated@ - An instance was terminated by the user.
+-- -   'terminated' - An instance was terminated by the user.
 --
 eiEventSubType :: Lens' EventInformation (Maybe Text)
 eiEventSubType = lens _eiEventSubType (\ s a -> s{_eiEventSubType = a});
@@ -1644,8 +1705,18 @@ instance FromXML EventInformation where
 -- | Describes an instance export task.
 --
 -- /See:/ 'exportTask' smart constructor.
+data ExportTask = ExportTask'
+    { _etDescription           :: !Text
+    , _etExportTaskId          :: !Text
+    , _etExportToS3Task        :: !ExportToS3Task
+    , _etInstanceExportDetails :: !InstanceExportDetails
+    , _etState                 :: !ExportTaskState
+    , _etStatusMessage         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ExportTask' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'etDescription'
 --
@@ -1658,17 +1729,14 @@ instance FromXML EventInformation where
 -- * 'etState'
 --
 -- * 'etStatusMessage'
-data ExportTask = ExportTask'
-    { _etDescription           :: !Text
-    , _etExportTaskId          :: !Text
-    , _etExportToS3Task        :: !ExportToS3Task
-    , _etInstanceExportDetails :: !InstanceExportDetails
-    , _etState                 :: !ExportTaskState
-    , _etStatusMessage         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ExportTask' smart constructor.
-exportTask :: Text -> Text -> ExportToS3Task -> InstanceExportDetails -> ExportTaskState -> Text -> ExportTask
+exportTask
+    :: Text -- ^ 'etDescription'
+    -> Text -- ^ 'etExportTaskId'
+    -> ExportToS3Task -- ^ 'etExportToS3Task'
+    -> InstanceExportDetails -- ^ 'etInstanceExportDetails'
+    -> ExportTaskState -- ^ 'etState'
+    -> Text -- ^ 'etStatusMessage'
+    -> ExportTask
 exportTask pDescription_ pExportTaskId_ pExportToS3Task_ pInstanceExportDetails_ pState_ pStatusMessage_ =
     ExportTask'
     { _etDescription = pDescription_
@@ -1715,8 +1783,16 @@ instance FromXML ExportTask where
 -- | Describes the format and location for an instance export task.
 --
 -- /See:/ 'exportToS3Task' smart constructor.
+data ExportToS3Task = ExportToS3Task'
+    { _etstS3Key           :: !(Maybe Text)
+    , _etstContainerFormat :: !(Maybe ContainerFormat)
+    , _etstS3Bucket        :: !(Maybe Text)
+    , _etstDiskImageFormat :: !(Maybe DiskImageFormat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ExportToS3Task' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'etstS3Key'
 --
@@ -1725,15 +1801,8 @@ instance FromXML ExportTask where
 -- * 'etstS3Bucket'
 --
 -- * 'etstDiskImageFormat'
-data ExportToS3Task = ExportToS3Task'
-    { _etstS3Key           :: !(Maybe Text)
-    , _etstContainerFormat :: !(Maybe ContainerFormat)
-    , _etstS3Bucket        :: !(Maybe Text)
-    , _etstDiskImageFormat :: !(Maybe DiskImageFormat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ExportToS3Task' smart constructor.
-exportToS3Task :: ExportToS3Task
+exportToS3Task
+    :: ExportToS3Task
 exportToS3Task =
     ExportToS3Task'
     { _etstS3Key = Nothing
@@ -1753,7 +1822,7 @@ etstContainerFormat = lens _etstContainerFormat (\ s a -> s{_etstContainerFormat
 
 -- | The S3 bucket for the destination image. The destination bucket must
 -- exist and grant WRITE and READ_ACP permissions to the AWS account
--- @vm-import-export\@amazon.com@.
+-- 'vm-import-export\'amazon.com'.
 etstS3Bucket :: Lens' ExportToS3Task (Maybe Text)
 etstS3Bucket = lens _etstS3Bucket (\ s a -> s{_etstS3Bucket = a});
 
@@ -1771,8 +1840,16 @@ instance FromXML ExportToS3Task where
 -- | Describes an instance export task.
 --
 -- /See:/ 'exportToS3TaskSpecification' smart constructor.
+data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
+    { _etstsContainerFormat :: !(Maybe ContainerFormat)
+    , _etstsS3Prefix        :: !(Maybe Text)
+    , _etstsS3Bucket        :: !(Maybe Text)
+    , _etstsDiskImageFormat :: !(Maybe DiskImageFormat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ExportToS3TaskSpecification' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'etstsContainerFormat'
 --
@@ -1781,15 +1858,8 @@ instance FromXML ExportToS3Task where
 -- * 'etstsS3Bucket'
 --
 -- * 'etstsDiskImageFormat'
-data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
-    { _etstsContainerFormat :: !(Maybe ContainerFormat)
-    , _etstsS3Prefix        :: !(Maybe Text)
-    , _etstsS3Bucket        :: !(Maybe Text)
-    , _etstsDiskImageFormat :: !(Maybe DiskImageFormat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ExportToS3TaskSpecification' smart constructor.
-exportToS3TaskSpecification :: ExportToS3TaskSpecification
+exportToS3TaskSpecification
+    :: ExportToS3TaskSpecification
 exportToS3TaskSpecification =
     ExportToS3TaskSpecification'
     { _etstsContainerFormat = Nothing
@@ -1810,7 +1880,7 @@ etstsS3Prefix = lens _etstsS3Prefix (\ s a -> s{_etstsS3Prefix = a});
 
 -- | The S3 bucket for the destination image. The destination bucket must
 -- exist and grant WRITE and READ_ACP permissions to the AWS account
--- @vm-import-export\@amazon.com@.
+-- 'vm-import-export\'amazon.com'.
 etstsS3Bucket :: Lens' ExportToS3TaskSpecification (Maybe Text)
 etstsS3Bucket = lens _etstsS3Bucket (\ s a -> s{_etstsS3Bucket = a});
 
@@ -1831,19 +1901,21 @@ instance ToQuery ExportToS3TaskSpecification where
 -- criteria, such as tags, attributes, or IDs.
 --
 -- /See:/ 'filter'' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fValues'
---
--- * 'fName'
 data Filter = Filter'
     { _fValues :: !(Maybe [Text])
     , _fName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Filter' smart constructor.
-filter' :: Text -> Filter
+-- | Creates a value of 'Filter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fValues'
+--
+-- * 'fName'
+filter'
+    :: Text -- ^ 'fName'
+    -> Filter
 filter' pName_ =
     Filter'
     { _fValues = Nothing
@@ -1867,8 +1939,21 @@ instance ToQuery Filter where
 -- | Describes a flow log.
 --
 -- /See:/ 'flowLog' smart constructor.
+data FlowLog = FlowLog'
+    { _flCreationTime             :: !(Maybe ISO8601)
+    , _flResourceId               :: !(Maybe Text)
+    , _flFlowLogStatus            :: !(Maybe Text)
+    , _flTrafficType              :: !(Maybe TrafficType)
+    , _flDeliverLogsStatus        :: !(Maybe Text)
+    , _flDeliverLogsErrorMessage  :: !(Maybe Text)
+    , _flDeliverLogsPermissionARN :: !(Maybe Text)
+    , _flLogGroupName             :: !(Maybe Text)
+    , _flFlowLogId                :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'FlowLog' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'flCreationTime'
 --
@@ -1887,20 +1972,8 @@ instance ToQuery Filter where
 -- * 'flLogGroupName'
 --
 -- * 'flFlowLogId'
-data FlowLog = FlowLog'
-    { _flCreationTime             :: !(Maybe ISO8601)
-    , _flResourceId               :: !(Maybe Text)
-    , _flFlowLogStatus            :: !(Maybe Text)
-    , _flTrafficType              :: !(Maybe TrafficType)
-    , _flDeliverLogsStatus        :: !(Maybe Text)
-    , _flDeliverLogsErrorMessage  :: !(Maybe Text)
-    , _flDeliverLogsPermissionARN :: !(Maybe Text)
-    , _flLogGroupName             :: !(Maybe Text)
-    , _flFlowLogId                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'FlowLog' smart constructor.
-flowLog :: FlowLog
+flowLog
+    :: FlowLog
 flowLog =
     FlowLog'
     { _flCreationTime = Nothing
@@ -1922,7 +1995,7 @@ flCreationTime = lens _flCreationTime (\ s a -> s{_flCreationTime = a}) . mappin
 flResourceId :: Lens' FlowLog (Maybe Text)
 flResourceId = lens _flResourceId (\ s a -> s{_flResourceId = a});
 
--- | The status of the flow log (@ACTIVE@).
+-- | The status of the flow log ('ACTIVE').
 flFlowLogStatus :: Lens' FlowLog (Maybe Text)
 flFlowLogStatus = lens _flFlowLogStatus (\ s a -> s{_flFlowLogStatus = a});
 
@@ -1930,15 +2003,15 @@ flFlowLogStatus = lens _flFlowLogStatus (\ s a -> s{_flFlowLogStatus = a});
 flTrafficType :: Lens' FlowLog (Maybe TrafficType)
 flTrafficType = lens _flTrafficType (\ s a -> s{_flTrafficType = a});
 
--- | The status of the logs delivery (@SUCCESS@ | @FAILED@).
+-- | The status of the logs delivery ('SUCCESS' | 'FAILED').
 flDeliverLogsStatus :: Lens' FlowLog (Maybe Text)
 flDeliverLogsStatus = lens _flDeliverLogsStatus (\ s a -> s{_flDeliverLogsStatus = a});
 
--- | Information about the error that occurred. @Rate limited@ indicates that
+-- | Information about the error that occurred. 'Rate limited' indicates that
 -- CloudWatch logs throttling has been applied for one or more network
--- interfaces. @Access error@ indicates that the IAM role associated with
+-- interfaces. 'Access error' indicates that the IAM role associated with
 -- the flow log does not have sufficient permissions to publish to
--- CloudWatch Logs. @Unknown error@ indicates an internal error.
+-- CloudWatch Logs. 'Unknown error' indicates an internal error.
 flDeliverLogsErrorMessage :: Lens' FlowLog (Maybe Text)
 flDeliverLogsErrorMessage = lens _flDeliverLogsErrorMessage (\ s a -> s{_flDeliverLogsErrorMessage = a});
 
@@ -1969,19 +2042,20 @@ instance FromXML FlowLog where
 -- | Describes a security group.
 --
 -- /See:/ 'groupIdentifier' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'giGroupId'
---
--- * 'giGroupName'
 data GroupIdentifier = GroupIdentifier'
     { _giGroupId   :: !(Maybe Text)
     , _giGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GroupIdentifier' smart constructor.
-groupIdentifier :: GroupIdentifier
+-- | Creates a value of 'GroupIdentifier' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'giGroupId'
+--
+-- * 'giGroupName'
+groupIdentifier
+    :: GroupIdentifier
 groupIdentifier =
     GroupIdentifier'
     { _giGroupId = Nothing
@@ -2010,22 +2084,26 @@ instance ToQuery GroupIdentifier where
 -- | Describes an event in the history of the Spot fleet request.
 --
 -- /See:/ 'historyRecord' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hrTimestamp'
---
--- * 'hrEventType'
---
--- * 'hrEventInformation'
 data HistoryRecord = HistoryRecord'
     { _hrTimestamp        :: !ISO8601
     , _hrEventType        :: !EventType
     , _hrEventInformation :: !EventInformation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'HistoryRecord' smart constructor.
-historyRecord :: UTCTime -> EventType -> EventInformation -> HistoryRecord
+-- | Creates a value of 'HistoryRecord' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'hrTimestamp'
+--
+-- * 'hrEventType'
+--
+-- * 'hrEventInformation'
+historyRecord
+    :: UTCTime -- ^ 'hrTimestamp'
+    -> EventType -- ^ 'hrEventType'
+    -> EventInformation -- ^ 'hrEventInformation'
+    -> HistoryRecord
 historyRecord pTimestamp_ pEventType_ pEventInformation_ =
     HistoryRecord'
     { _hrTimestamp = _Time # pTimestamp_
@@ -2040,12 +2118,12 @@ hrTimestamp = lens _hrTimestamp (\ s a -> s{_hrTimestamp = a}) . _Time;
 
 -- | The event type.
 --
--- -   @error@ - Indicates an error with the Spot fleet request.
+-- -   'error' - Indicates an error with the Spot fleet request.
 --
--- -   @fleetRequestChange@ - Indicates a change in the status or
+-- -   'fleetRequestChange' - Indicates a change in the status or
 --     configuration of the Spot fleet request.
 --
--- -   @instanceChange@ - Indicates that an instance was launched or
+-- -   'instanceChange' - Indicates that an instance was launched or
 --     terminated.
 --
 hrEventType :: Lens' HistoryRecord EventType
@@ -2064,19 +2142,20 @@ instance FromXML HistoryRecord where
 -- | Describes an IAM instance profile.
 --
 -- /See:/ 'iamInstanceProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iapARN'
---
--- * 'iapId'
 data IAMInstanceProfile = IAMInstanceProfile'
     { _iapARN :: !(Maybe Text)
     , _iapId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'IAMInstanceProfile' smart constructor.
-iamInstanceProfile :: IAMInstanceProfile
+-- | Creates a value of 'IAMInstanceProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iapARN'
+--
+-- * 'iapId'
+iamInstanceProfile
+    :: IAMInstanceProfile
 iamInstanceProfile =
     IAMInstanceProfile'
     { _iapARN = Nothing
@@ -2099,19 +2178,20 @@ instance FromXML IAMInstanceProfile where
 -- | Describes an IAM instance profile.
 --
 -- /See:/ 'iamInstanceProfileSpecification' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iapsARN'
---
--- * 'iapsName'
 data IAMInstanceProfileSpecification = IAMInstanceProfileSpecification'
     { _iapsARN  :: !(Maybe Text)
     , _iapsName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'IAMInstanceProfileSpecification' smart constructor.
-iamInstanceProfileSpecification :: IAMInstanceProfileSpecification
+-- | Creates a value of 'IAMInstanceProfileSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iapsARN'
+--
+-- * 'iapsName'
+iamInstanceProfileSpecification
+    :: IAMInstanceProfileSpecification
 iamInstanceProfileSpecification =
     IAMInstanceProfileSpecification'
     { _iapsARN = Nothing
@@ -2140,19 +2220,20 @@ instance ToQuery IAMInstanceProfileSpecification
 -- | Describes the ICMP type and code.
 --
 -- /See:/ 'icmpTypeCode' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'itcCode'
---
--- * 'itcType'
 data ICMPTypeCode = ICMPTypeCode'
     { _itcCode :: !(Maybe Int)
     , _itcType :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ICMPTypeCode' smart constructor.
-icmpTypeCode :: ICMPTypeCode
+-- | Creates a value of 'ICMPTypeCode' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'itcCode'
+--
+-- * 'itcType'
+icmpTypeCode
+    :: ICMPTypeCode
 icmpTypeCode =
     ICMPTypeCode'
     { _itcCode = Nothing
@@ -2179,8 +2260,18 @@ instance ToQuery ICMPTypeCode where
 -- | Describes a security group rule.
 --
 -- /See:/ 'ipPermission' smart constructor.
+data IPPermission = IPPermission'
+    { _ipFromPort         :: !(Maybe Int)
+    , _ipUserIdGroupPairs :: !(Maybe [UserIdGroupPair])
+    , _ipPrefixListIds    :: !(Maybe [PrefixListId])
+    , _ipToPort           :: !(Maybe Int)
+    , _ipIPRanges         :: !(Maybe [IPRange])
+    , _ipIPProtocol       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IPPermission' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ipFromPort'
 --
@@ -2193,17 +2284,9 @@ instance ToQuery ICMPTypeCode where
 -- * 'ipIPRanges'
 --
 -- * 'ipIPProtocol'
-data IPPermission = IPPermission'
-    { _ipFromPort         :: !(Maybe Int)
-    , _ipUserIdGroupPairs :: !(Maybe [UserIdGroupPair])
-    , _ipPrefixListIds    :: !(Maybe [PrefixListId])
-    , _ipToPort           :: !(Maybe Int)
-    , _ipIPRanges         :: !(Maybe [IPRange])
-    , _ipIPProtocol       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'IPPermission' smart constructor.
-ipPermission :: Text -> IPPermission
+ipPermission
+    :: Text -- ^ 'ipIPProtocol'
+    -> IPPermission
 ipPermission pIPProtocol_ =
     IPPermission'
     { _ipFromPort = Nothing
@@ -2215,7 +2298,7 @@ ipPermission pIPProtocol_ =
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. A value of @-1@ indicates all ICMP types.
+-- number. A value of '-1' indicates all ICMP types.
 ipFromPort :: Lens' IPPermission (Maybe Int)
 ipFromPort = lens _ipFromPort (\ s a -> s{_ipFromPort = a});
 
@@ -2232,7 +2315,7 @@ ipPrefixListIds :: Lens' IPPermission [PrefixListId]
 ipPrefixListIds = lens _ipPrefixListIds (\ s a -> s{_ipPrefixListIds = a}) . _Default . _Coerce;
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code. A
--- value of @-1@ indicates all ICMP codes for the specified ICMP type.
+-- value of '-1' indicates all ICMP codes for the specified ICMP type.
 ipToPort :: Lens' IPPermission (Maybe Int)
 ipToPort = lens _ipToPort (\ s a -> s{_ipToPort = a});
 
@@ -2244,10 +2327,10 @@ ipIPRanges = lens _ipIPRanges (\ s a -> s{_ipIPRanges = a}) . _Default . _Coerce
 --
 -- When you call DescribeSecurityGroups, the protocol value returned is the
 -- number. Exception: For TCP, UDP, and ICMP, the value returned is the
--- name (for example, @tcp@, @udp@, or @icmp@). For a list of protocol
+-- name (for example, 'tcp', 'udp', or 'icmp'). For a list of protocol
 -- numbers, see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>.
--- (VPC only) When you call AuthorizeSecurityGroupIngress, you can use @-1@
+-- (VPC only) When you call AuthorizeSecurityGroupIngress, you can use '-1'
 -- to specify all.
 ipIPProtocol :: Lens' IPPermission Text
 ipIPProtocol = lens _ipIPProtocol (\ s a -> s{_ipIPProtocol = a});
@@ -2280,16 +2363,18 @@ instance ToQuery IPPermission where
 -- | Describes an IP range.
 --
 -- /See:/ 'ipRange' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'irCIdRIP'
 newtype IPRange = IPRange'
     { _irCIdRIP :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'IPRange' smart constructor.
-ipRange :: Text -> IPRange
+-- | Creates a value of 'IPRange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'irCIdRIP'
+ipRange
+    :: Text -- ^ 'irCIdRIP'
+    -> IPRange
 ipRange pCIdRIP_ =
     IPRange'
     { _irCIdRIP = pCIdRIP_
@@ -2310,8 +2395,35 @@ instance ToQuery IPRange where
 -- | Describes an image.
 --
 -- /See:/ 'image' smart constructor.
+data Image = Image'
+    { _iPlatform            :: !(Maybe PlatformValues)
+    , _iImageOwnerAlias     :: !(Maybe Text)
+    , _iRAMDiskId           :: !(Maybe Text)
+    , _iKernelId            :: !(Maybe Text)
+    , _iRootDeviceName      :: !(Maybe Text)
+    , _iSRIOVNetSupport     :: !(Maybe Text)
+    , _iName                :: !(Maybe Text)
+    , _iCreationDate        :: !(Maybe Text)
+    , _iProductCodes        :: !(Maybe [ProductCode])
+    , _iStateReason         :: !(Maybe StateReason)
+    , _iBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _iDescription         :: !(Maybe Text)
+    , _iTags                :: !(Maybe [Tag])
+    , _iImageId             :: !Text
+    , _iImageLocation       :: !Text
+    , _iState               :: !ImageState
+    , _iOwnerId             :: !Text
+    , _iPublic              :: !Bool
+    , _iArchitecture        :: !ArchitectureValues
+    , _iImageType           :: !ImageTypeValues
+    , _iRootDeviceType      :: !DeviceType
+    , _iVirtualizationType  :: !VirtualizationType
+    , _iHypervisor          :: !HypervisorType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Image' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iPlatform'
 --
@@ -2358,34 +2470,18 @@ instance ToQuery IPRange where
 -- * 'iVirtualizationType'
 --
 -- * 'iHypervisor'
-data Image = Image'
-    { _iPlatform            :: !(Maybe PlatformValues)
-    , _iImageOwnerAlias     :: !(Maybe Text)
-    , _iRAMDiskId           :: !(Maybe Text)
-    , _iKernelId            :: !(Maybe Text)
-    , _iRootDeviceName      :: !(Maybe Text)
-    , _iSRIOVNetSupport     :: !(Maybe Text)
-    , _iName                :: !(Maybe Text)
-    , _iCreationDate        :: !(Maybe Text)
-    , _iProductCodes        :: !(Maybe [ProductCode])
-    , _iStateReason         :: !(Maybe StateReason)
-    , _iBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _iDescription         :: !(Maybe Text)
-    , _iTags                :: !(Maybe [Tag])
-    , _iImageId             :: !Text
-    , _iImageLocation       :: !Text
-    , _iState               :: !ImageState
-    , _iOwnerId             :: !Text
-    , _iPublic              :: !Bool
-    , _iArchitecture        :: !ArchitectureValues
-    , _iImageType           :: !ImageTypeValues
-    , _iRootDeviceType      :: !DeviceType
-    , _iVirtualizationType  :: !VirtualizationType
-    , _iHypervisor          :: !HypervisorType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Image' smart constructor.
-image :: Text -> Text -> ImageState -> Text -> Bool -> ArchitectureValues -> ImageTypeValues -> DeviceType -> VirtualizationType -> HypervisorType -> Image
+image
+    :: Text -- ^ 'iImageId'
+    -> Text -- ^ 'iImageLocation'
+    -> ImageState -- ^ 'iState'
+    -> Text -- ^ 'iOwnerId'
+    -> Bool -- ^ 'iPublic'
+    -> ArchitectureValues -- ^ 'iArchitecture'
+    -> ImageTypeValues -- ^ 'iImageType'
+    -> DeviceType -- ^ 'iRootDeviceType'
+    -> VirtualizationType -- ^ 'iVirtualizationType'
+    -> HypervisorType -- ^ 'iHypervisor'
+    -> Image
 image pImageId_ pImageLocation_ pState_ pOwnerId_ pPublic_ pArchitecture_ pImageType_ pRootDeviceType_ pVirtualizationType_ pHypervisor_ =
     Image'
     { _iPlatform = Nothing
@@ -2413,11 +2509,11 @@ image pImageId_ pImageLocation_ pState_ pOwnerId_ pPublic_ pArchitecture_ pImage
     , _iHypervisor = pHypervisor_
     }
 
--- | The value is @Windows@ for Windows AMIs; otherwise blank.
+-- | The value is 'Windows' for Windows AMIs; otherwise blank.
 iPlatform :: Lens' Image (Maybe PlatformValues)
 iPlatform = lens _iPlatform (\ s a -> s{_iPlatform = a});
 
--- | The AWS account alias (for example, @amazon@, @self@) or the AWS account
+-- | The AWS account alias (for example, 'amazon', 'self') or the AWS account
 -- ID of the AMI owner.
 iImageOwnerAlias :: Lens' Image (Maybe Text)
 iImageOwnerAlias = lens _iImageOwnerAlias (\ s a -> s{_iImageOwnerAlias = a});
@@ -2432,8 +2528,8 @@ iRAMDiskId = lens _iRAMDiskId (\ s a -> s{_iRAMDiskId = a});
 iKernelId :: Lens' Image (Maybe Text)
 iKernelId = lens _iKernelId (\ s a -> s{_iKernelId = a});
 
--- | The device name of the root device (for example, @\/dev\/sda1@ or
--- @\/dev\/xvda@).
+-- | The device name of the root device (for example, '\/dev\/sda1' or
+-- '\/dev\/xvda').
 iRootDeviceName :: Lens' Image (Maybe Text)
 iRootDeviceName = lens _iRootDeviceName (\ s a -> s{_iRootDeviceName = a});
 
@@ -2477,7 +2573,7 @@ iImageId = lens _iImageId (\ s a -> s{_iImageId = a});
 iImageLocation :: Lens' Image Text
 iImageLocation = lens _iImageLocation (\ s a -> s{_iImageLocation = a});
 
--- | The current state of the AMI. If the state is @available@, the image is
+-- | The current state of the AMI. If the state is 'available', the image is
 -- successfully registered and can be used to launch an instance.
 iState :: Lens' Image ImageState
 iState = lens _iState (\ s a -> s{_iState = a});
@@ -2487,7 +2583,7 @@ iOwnerId :: Lens' Image Text
 iOwnerId = lens _iOwnerId (\ s a -> s{_iOwnerId = a});
 
 -- | Indicates whether the image has public launch permissions. The value is
--- @true@ if this image has public launch permissions or @false@ if it has
+-- 'true' if this image has public launch permissions or 'false' if it has
 -- only implicit and explicit launch permissions.
 iPublic :: Lens' Image Bool
 iPublic = lens _iPublic (\ s a -> s{_iPublic = a});
@@ -2548,8 +2644,18 @@ instance FromXML Image where
 -- | Describes the disk container object for an import image task.
 --
 -- /See:/ 'imageDiskContainer' smart constructor.
+data ImageDiskContainer = ImageDiskContainer'
+    { _idcURL         :: !(Maybe Text)
+    , _idcFormat      :: !(Maybe Text)
+    , _idcDeviceName  :: !(Maybe Text)
+    , _idcUserBucket  :: !(Maybe UserBucket)
+    , _idcDescription :: !(Maybe Text)
+    , _idcSnapshotId  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImageDiskContainer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'idcURL'
 --
@@ -2562,17 +2668,8 @@ instance FromXML Image where
 -- * 'idcDescription'
 --
 -- * 'idcSnapshotId'
-data ImageDiskContainer = ImageDiskContainer'
-    { _idcURL         :: !(Maybe Text)
-    , _idcFormat      :: !(Maybe Text)
-    , _idcDeviceName  :: !(Maybe Text)
-    , _idcUserBucket  :: !(Maybe UserBucket)
-    , _idcDescription :: !(Maybe Text)
-    , _idcSnapshotId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ImageDiskContainer' smart constructor.
-imageDiskContainer :: ImageDiskContainer
+imageDiskContainer
+    :: ImageDiskContainer
 imageDiskContainer =
     ImageDiskContainer'
     { _idcURL = Nothing
@@ -2590,7 +2687,7 @@ idcURL = lens _idcURL (\ s a -> s{_idcURL = a});
 
 -- | The format of the disk image being imported.
 --
--- Valid values: @RAW@ | @VHD@ | @VMDK@ | @OVA@
+-- Valid values: 'RAW' | 'VHD' | 'VMDK' | 'OVA'
 idcFormat :: Lens' ImageDiskContainer (Maybe Text)
 idcFormat = lens _idcFormat (\ s a -> s{_idcFormat = a});
 
@@ -2622,8 +2719,23 @@ instance ToQuery ImageDiskContainer where
 -- | Describes an import image task.
 --
 -- /See:/ 'importImageTask' smart constructor.
+data ImportImageTask = ImportImageTask'
+    { _iitStatus          :: !(Maybe Text)
+    , _iitHypervisor      :: !(Maybe Text)
+    , _iitPlatform        :: !(Maybe Text)
+    , _iitProgress        :: !(Maybe Text)
+    , _iitLicenseType     :: !(Maybe Text)
+    , _iitSnapshotDetails :: !(Maybe [SnapshotDetail])
+    , _iitStatusMessage   :: !(Maybe Text)
+    , _iitImageId         :: !(Maybe Text)
+    , _iitImportTaskId    :: !(Maybe Text)
+    , _iitArchitecture    :: !(Maybe Text)
+    , _iitDescription     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImportImageTask' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iitStatus'
 --
@@ -2646,22 +2758,8 @@ instance ToQuery ImageDiskContainer where
 -- * 'iitArchitecture'
 --
 -- * 'iitDescription'
-data ImportImageTask = ImportImageTask'
-    { _iitStatus          :: !(Maybe Text)
-    , _iitHypervisor      :: !(Maybe Text)
-    , _iitPlatform        :: !(Maybe Text)
-    , _iitProgress        :: !(Maybe Text)
-    , _iitLicenseType     :: !(Maybe Text)
-    , _iitSnapshotDetails :: !(Maybe [SnapshotDetail])
-    , _iitStatusMessage   :: !(Maybe Text)
-    , _iitImageId         :: !(Maybe Text)
-    , _iitImportTaskId    :: !(Maybe Text)
-    , _iitArchitecture    :: !(Maybe Text)
-    , _iitDescription     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ImportImageTask' smart constructor.
-importImageTask :: ImportImageTask
+importImageTask
+    :: ImportImageTask
 importImageTask =
     ImportImageTask'
     { _iitStatus = Nothing
@@ -2683,7 +2781,7 @@ iitStatus = lens _iitStatus (\ s a -> s{_iitStatus = a});
 
 -- | The target hypervisor for the import task.
 --
--- Valid values: @xen@
+-- Valid values: 'xen'
 iitHypervisor :: Lens' ImportImageTask (Maybe Text)
 iitHypervisor = lens _iitHypervisor (\ s a -> s{_iitHypervisor = a});
 
@@ -2718,7 +2816,7 @@ iitImportTaskId = lens _iitImportTaskId (\ s a -> s{_iitImportTaskId = a});
 
 -- | The architecture of the virtual machine.
 --
--- Valid values: @i386@ | @x86_64@
+-- Valid values: 'i386' | 'x86_64'
 iitArchitecture :: Lens' ImportImageTask (Maybe Text)
 iitArchitecture = lens _iitArchitecture (\ s a -> s{_iitArchitecture = a});
 
@@ -2745,8 +2843,23 @@ instance FromXML ImportImageTask where
 -- | Describes the launch specification for VM import.
 --
 -- /See:/ 'importInstanceLaunchSpecification' smart constructor.
+data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
+    { _iilsAdditionalInfo                    :: !(Maybe Text)
+    , _iilsGroupNames                        :: !(Maybe [Text])
+    , _iilsSubnetId                          :: !(Maybe Text)
+    , _iilsGroupIds                          :: !(Maybe [Text])
+    , _iilsInstanceType                      :: !(Maybe InstanceType)
+    , _iilsUserData                          :: !(Maybe UserData)
+    , _iilsMonitoring                        :: !(Maybe Bool)
+    , _iilsInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
+    , _iilsPrivateIPAddress                  :: !(Maybe Text)
+    , _iilsArchitecture                      :: !(Maybe ArchitectureValues)
+    , _iilsPlacement                         :: !(Maybe Placement)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImportInstanceLaunchSpecification' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iilsAdditionalInfo'
 --
@@ -2769,22 +2882,8 @@ instance FromXML ImportImageTask where
 -- * 'iilsArchitecture'
 --
 -- * 'iilsPlacement'
-data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
-    { _iilsAdditionalInfo                    :: !(Maybe Text)
-    , _iilsGroupNames                        :: !(Maybe [Text])
-    , _iilsSubnetId                          :: !(Maybe Text)
-    , _iilsGroupIds                          :: !(Maybe [Text])
-    , _iilsInstanceType                      :: !(Maybe InstanceType)
-    , _iilsUserData                          :: !(Maybe UserData)
-    , _iilsMonitoring                        :: !(Maybe Bool)
-    , _iilsInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
-    , _iilsPrivateIPAddress                  :: !(Maybe Text)
-    , _iilsArchitecture                      :: !(Maybe ArchitectureValues)
-    , _iilsPlacement                         :: !(Maybe Placement)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ImportInstanceLaunchSpecification' smart constructor.
-importInstanceLaunchSpecification :: ImportInstanceLaunchSpecification
+importInstanceLaunchSpecification
+    :: ImportInstanceLaunchSpecification
 importInstanceLaunchSpecification =
     ImportInstanceLaunchSpecification'
     { _iilsAdditionalInfo = Nothing
@@ -2872,8 +2971,16 @@ instance ToQuery ImportInstanceLaunchSpecification
 -- | Describes an import instance task.
 --
 -- /See:/ 'importInstanceTaskDetails' smart constructor.
+data ImportInstanceTaskDetails = ImportInstanceTaskDetails'
+    { _iitdInstanceId  :: !(Maybe Text)
+    , _iitdPlatform    :: !(Maybe PlatformValues)
+    , _iitdDescription :: !(Maybe Text)
+    , _iitdVolumes     :: ![ImportInstanceVolumeDetailItem]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImportInstanceTaskDetails' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iitdInstanceId'
 --
@@ -2882,15 +2989,8 @@ instance ToQuery ImportInstanceLaunchSpecification
 -- * 'iitdDescription'
 --
 -- * 'iitdVolumes'
-data ImportInstanceTaskDetails = ImportInstanceTaskDetails'
-    { _iitdInstanceId  :: !(Maybe Text)
-    , _iitdPlatform    :: !(Maybe PlatformValues)
-    , _iitdDescription :: !(Maybe Text)
-    , _iitdVolumes     :: ![ImportInstanceVolumeDetailItem]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ImportInstanceTaskDetails' smart constructor.
-importInstanceTaskDetails :: ImportInstanceTaskDetails
+importInstanceTaskDetails
+    :: ImportInstanceTaskDetails
 importInstanceTaskDetails =
     ImportInstanceTaskDetails'
     { _iitdInstanceId = Nothing
@@ -2926,8 +3026,19 @@ instance FromXML ImportInstanceTaskDetails where
 -- | Describes an import volume task.
 --
 -- /See:/ 'importInstanceVolumeDetailItem' smart constructor.
+data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
+    { _iivdiStatusMessage    :: !(Maybe Text)
+    , _iivdiDescription      :: !(Maybe Text)
+    , _iivdiBytesConverted   :: !Integer
+    , _iivdiAvailabilityZone :: !Text
+    , _iivdiImage            :: !DiskImageDescription
+    , _iivdiVolume           :: !DiskImageVolumeDescription
+    , _iivdiStatus           :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImportInstanceVolumeDetailItem' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iivdiStatusMessage'
 --
@@ -2942,18 +3053,13 @@ instance FromXML ImportInstanceTaskDetails where
 -- * 'iivdiVolume'
 --
 -- * 'iivdiStatus'
-data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
-    { _iivdiStatusMessage    :: !(Maybe Text)
-    , _iivdiDescription      :: !(Maybe Text)
-    , _iivdiBytesConverted   :: !Integer
-    , _iivdiAvailabilityZone :: !Text
-    , _iivdiImage            :: !DiskImageDescription
-    , _iivdiVolume           :: !DiskImageVolumeDescription
-    , _iivdiStatus           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ImportInstanceVolumeDetailItem' smart constructor.
-importInstanceVolumeDetailItem :: Integer -> Text -> DiskImageDescription -> DiskImageVolumeDescription -> Text -> ImportInstanceVolumeDetailItem
+importInstanceVolumeDetailItem
+    :: Integer -- ^ 'iivdiBytesConverted'
+    -> Text -- ^ 'iivdiAvailabilityZone'
+    -> DiskImageDescription -- ^ 'iivdiImage'
+    -> DiskImageVolumeDescription -- ^ 'iivdiVolume'
+    -> Text -- ^ 'iivdiStatus'
+    -> ImportInstanceVolumeDetailItem
 importInstanceVolumeDetailItem pBytesConverted_ pAvailabilityZone_ pImage_ pVolume_ pStatus_ =
     ImportInstanceVolumeDetailItem'
     { _iivdiStatusMessage = Nothing
@@ -3006,22 +3112,23 @@ instance FromXML ImportInstanceVolumeDetailItem where
 -- | Describes an import snapshot task.
 --
 -- /See:/ 'importSnapshotTask' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'istSnapshotTaskDetail'
---
--- * 'istImportTaskId'
---
--- * 'istDescription'
 data ImportSnapshotTask = ImportSnapshotTask'
     { _istSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
     , _istImportTaskId       :: !(Maybe Text)
     , _istDescription        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ImportSnapshotTask' smart constructor.
-importSnapshotTask :: ImportSnapshotTask
+-- | Creates a value of 'ImportSnapshotTask' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'istSnapshotTaskDetail'
+--
+-- * 'istImportTaskId'
+--
+-- * 'istDescription'
+importSnapshotTask
+    :: ImportSnapshotTask
 importSnapshotTask =
     ImportSnapshotTask'
     { _istSnapshotTaskDetail = Nothing
@@ -3051,8 +3158,17 @@ instance FromXML ImportSnapshotTask where
 -- | Describes an import volume task.
 --
 -- /See:/ 'importVolumeTaskDetails' smart constructor.
+data ImportVolumeTaskDetails = ImportVolumeTaskDetails'
+    { _ivtdDescription      :: !(Maybe Text)
+    , _ivtdBytesConverted   :: !Integer
+    , _ivtdAvailabilityZone :: !Text
+    , _ivtdImage            :: !DiskImageDescription
+    , _ivtdVolume           :: !DiskImageVolumeDescription
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImportVolumeTaskDetails' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ivtdDescription'
 --
@@ -3063,16 +3179,12 @@ instance FromXML ImportSnapshotTask where
 -- * 'ivtdImage'
 --
 -- * 'ivtdVolume'
-data ImportVolumeTaskDetails = ImportVolumeTaskDetails'
-    { _ivtdDescription      :: !(Maybe Text)
-    , _ivtdBytesConverted   :: !Integer
-    , _ivtdAvailabilityZone :: !Text
-    , _ivtdImage            :: !DiskImageDescription
-    , _ivtdVolume           :: !DiskImageVolumeDescription
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ImportVolumeTaskDetails' smart constructor.
-importVolumeTaskDetails :: Integer -> Text -> DiskImageDescription -> DiskImageVolumeDescription -> ImportVolumeTaskDetails
+importVolumeTaskDetails
+    :: Integer -- ^ 'ivtdBytesConverted'
+    -> Text -- ^ 'ivtdAvailabilityZone'
+    -> DiskImageDescription -- ^ 'ivtdImage'
+    -> DiskImageVolumeDescription -- ^ 'ivtdVolume'
+    -> ImportVolumeTaskDetails
 importVolumeTaskDetails pBytesConverted_ pAvailabilityZone_ pImage_ pVolume_ =
     ImportVolumeTaskDetails'
     { _ivtdDescription = Nothing
@@ -3113,8 +3225,49 @@ instance FromXML ImportVolumeTaskDetails where
 -- | Describes an instance.
 --
 -- /See:/ 'instance'' smart constructor.
+data Instance = Instance'
+    { _insPublicDNSName         :: !(Maybe Text)
+    , _insPlatform              :: !(Maybe PlatformValues)
+    , _insSecurityGroups        :: !(Maybe [GroupIdentifier])
+    , _insClientToken           :: !(Maybe Text)
+    , _insSourceDestCheck       :: !(Maybe Bool)
+    , _insVPCId                 :: !(Maybe Text)
+    , _insNetworkInterfaces     :: !(Maybe [InstanceNetworkInterface])
+    , _insKeyName               :: !(Maybe Text)
+    , _insRAMDiskId             :: !(Maybe Text)
+    , _insKernelId              :: !(Maybe Text)
+    , _insSubnetId              :: !(Maybe Text)
+    , _insRootDeviceName        :: !(Maybe Text)
+    , _insEBSOptimized          :: !(Maybe Bool)
+    , _insSRIOVNetSupport       :: !(Maybe Text)
+    , _insStateTransitionReason :: !(Maybe Text)
+    , _insIAMInstanceProfile    :: !(Maybe IAMInstanceProfile)
+    , _insInstanceLifecycle     :: !(Maybe InstanceLifecycleType)
+    , _insPrivateIPAddress      :: !(Maybe Text)
+    , _insProductCodes          :: !(Maybe [ProductCode])
+    , _insSpotInstanceRequestId :: !(Maybe Text)
+    , _insPrivateDNSName        :: !(Maybe Text)
+    , _insStateReason           :: !(Maybe StateReason)
+    , _insBlockDeviceMappings   :: !(Maybe [InstanceBlockDeviceMapping])
+    , _insPublicIPAddress       :: !(Maybe Text)
+    , _insTags                  :: !(Maybe [Tag])
+    , _insInstanceId            :: !Text
+    , _insImageId               :: !Text
+    , _insAMILaunchIndex        :: !Int
+    , _insInstanceType          :: !InstanceType
+    , _insLaunchTime            :: !ISO8601
+    , _insPlacement             :: !Placement
+    , _insMonitoring            :: !Monitoring
+    , _insArchitecture          :: !ArchitectureValues
+    , _insRootDeviceType        :: !DeviceType
+    , _insVirtualizationType    :: !VirtualizationType
+    , _insHypervisor            :: !HypervisorType
+    , _insState                 :: !InstanceState
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'insPublicDNSName'
 --
@@ -3189,48 +3342,20 @@ instance FromXML ImportVolumeTaskDetails where
 -- * 'insHypervisor'
 --
 -- * 'insState'
-data Instance = Instance'
-    { _insPublicDNSName         :: !(Maybe Text)
-    , _insPlatform              :: !(Maybe PlatformValues)
-    , _insSecurityGroups        :: !(Maybe [GroupIdentifier])
-    , _insClientToken           :: !(Maybe Text)
-    , _insSourceDestCheck       :: !(Maybe Bool)
-    , _insVPCId                 :: !(Maybe Text)
-    , _insNetworkInterfaces     :: !(Maybe [InstanceNetworkInterface])
-    , _insKeyName               :: !(Maybe Text)
-    , _insRAMDiskId             :: !(Maybe Text)
-    , _insKernelId              :: !(Maybe Text)
-    , _insSubnetId              :: !(Maybe Text)
-    , _insRootDeviceName        :: !(Maybe Text)
-    , _insEBSOptimized          :: !(Maybe Bool)
-    , _insSRIOVNetSupport       :: !(Maybe Text)
-    , _insStateTransitionReason :: !(Maybe Text)
-    , _insIAMInstanceProfile    :: !(Maybe IAMInstanceProfile)
-    , _insInstanceLifecycle     :: !(Maybe InstanceLifecycleType)
-    , _insPrivateIPAddress      :: !(Maybe Text)
-    , _insProductCodes          :: !(Maybe [ProductCode])
-    , _insSpotInstanceRequestId :: !(Maybe Text)
-    , _insPrivateDNSName        :: !(Maybe Text)
-    , _insStateReason           :: !(Maybe StateReason)
-    , _insBlockDeviceMappings   :: !(Maybe [InstanceBlockDeviceMapping])
-    , _insPublicIPAddress       :: !(Maybe Text)
-    , _insTags                  :: !(Maybe [Tag])
-    , _insInstanceId            :: !Text
-    , _insImageId               :: !Text
-    , _insAMILaunchIndex        :: !Int
-    , _insInstanceType          :: !InstanceType
-    , _insLaunchTime            :: !ISO8601
-    , _insPlacement             :: !Placement
-    , _insMonitoring            :: !Monitoring
-    , _insArchitecture          :: !ArchitectureValues
-    , _insRootDeviceType        :: !DeviceType
-    , _insVirtualizationType    :: !VirtualizationType
-    , _insHypervisor            :: !HypervisorType
-    , _insState                 :: !InstanceState
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Instance' smart constructor.
-instance' :: Text -> Text -> Int -> InstanceType -> UTCTime -> Placement -> Monitoring -> ArchitectureValues -> DeviceType -> VirtualizationType -> HypervisorType -> InstanceState -> Instance
+instance'
+    :: Text -- ^ 'insInstanceId'
+    -> Text -- ^ 'insImageId'
+    -> Int -- ^ 'insAMILaunchIndex'
+    -> InstanceType -- ^ 'insInstanceType'
+    -> UTCTime -- ^ 'insLaunchTime'
+    -> Placement -- ^ 'insPlacement'
+    -> Monitoring -- ^ 'insMonitoring'
+    -> ArchitectureValues -- ^ 'insArchitecture'
+    -> DeviceType -- ^ 'insRootDeviceType'
+    -> VirtualizationType -- ^ 'insVirtualizationType'
+    -> HypervisorType -- ^ 'insHypervisor'
+    -> InstanceState -- ^ 'insState'
+    -> Instance
 instance' pInstanceId_ pImageId_ pAMILaunchIndex_ pInstanceType_ pLaunchTime_ pPlacement_ pMonitoring_ pArchitecture_ pRootDeviceType_ pVirtualizationType_ pHypervisor_ pState_ =
     Instance'
     { _insPublicDNSName = Nothing
@@ -3273,11 +3398,11 @@ instance' pInstanceId_ pImageId_ pAMILaunchIndex_ pInstanceType_ pLaunchTime_ pP
     }
 
 -- | The public DNS name assigned to the instance. This name is not available
--- until the instance enters the @running@ state.
+-- until the instance enters the 'running' state.
 insPublicDNSName :: Lens' Instance (Maybe Text)
 insPublicDNSName = lens _insPublicDNSName (\ s a -> s{_insPublicDNSName = a});
 
--- | The value is @Windows@ for Windows instances; otherwise blank.
+-- | The value is 'Windows' for Windows instances; otherwise blank.
 insPlatform :: Lens' Instance (Maybe PlatformValues)
 insPlatform = lens _insPlatform (\ s a -> s{_insPlatform = a});
 
@@ -3291,8 +3416,8 @@ insClientToken = lens _insClientToken (\ s a -> s{_insClientToken = a});
 
 -- | Specifies whether to enable an instance launched in a VPC to perform
 -- NAT. This controls whether source\/destination checking is enabled on
--- the instance. A value of @true@ means checking is enabled, and @false@
--- means checking is disabled. The value must be @false@ for the instance
+-- the instance. A value of 'true' means checking is enabled, and 'false'
+-- means checking is disabled. The value must be 'false' for the instance
 -- to perform NAT. For more information, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
 -- in the /Amazon Virtual Private Cloud User Guide/.
@@ -3324,7 +3449,7 @@ insKernelId = lens _insKernelId (\ s a -> s{_insKernelId = a});
 insSubnetId :: Lens' Instance (Maybe Text)
 insSubnetId = lens _insSubnetId (\ s a -> s{_insSubnetId = a});
 
--- | The root device name (for example, @\/dev\/sda1@ or @\/dev\/xvda@).
+-- | The root device name (for example, '\/dev\/sda1' or '\/dev\/xvda').
 insRootDeviceName :: Lens' Instance (Maybe Text)
 insRootDeviceName = lens _insRootDeviceName (\ s a -> s{_insRootDeviceName = a});
 
@@ -3367,7 +3492,7 @@ insSpotInstanceRequestId = lens _insSpotInstanceRequestId (\ s a -> s{_insSpotIn
 
 -- | The private DNS name assigned to the instance. This DNS name can only be
 -- used inside the Amazon EC2 network. This name is not available until the
--- instance enters the @running@ state.
+-- instance enters the 'running' state.
 insPrivateDNSName :: Lens' Instance (Maybe Text)
 insPrivateDNSName = lens _insPrivateDNSName (\ s a -> s{_insPrivateDNSName = a});
 
@@ -3489,19 +3614,20 @@ instance FromXML Instance where
 -- | Describes a block device mapping.
 --
 -- /See:/ 'instanceBlockDeviceMapping' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ibdmEBS'
---
--- * 'ibdmDeviceName'
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping'
     { _ibdmEBS        :: !(Maybe EBSInstanceBlockDevice)
     , _ibdmDeviceName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceBlockDeviceMapping' smart constructor.
-instanceBlockDeviceMapping :: InstanceBlockDeviceMapping
+-- | Creates a value of 'InstanceBlockDeviceMapping' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ibdmEBS'
+--
+-- * 'ibdmDeviceName'
+instanceBlockDeviceMapping
+    :: InstanceBlockDeviceMapping
 instanceBlockDeviceMapping =
     InstanceBlockDeviceMapping'
     { _ibdmEBS = Nothing
@@ -3513,8 +3639,8 @@ instanceBlockDeviceMapping =
 ibdmEBS :: Lens' InstanceBlockDeviceMapping (Maybe EBSInstanceBlockDevice)
 ibdmEBS = lens _ibdmEBS (\ s a -> s{_ibdmEBS = a});
 
--- | The device name exposed to the instance (for example, @\/dev\/sdh@ or
--- @xvdh@).
+-- | The device name exposed to the instance (for example, '\/dev\/sdh' or
+-- 'xvdh').
 ibdmDeviceName :: Lens' InstanceBlockDeviceMapping (Maybe Text)
 ibdmDeviceName = lens _ibdmDeviceName (\ s a -> s{_ibdmDeviceName = a});
 
@@ -3526,8 +3652,16 @@ instance FromXML InstanceBlockDeviceMapping where
 -- | Describes a block device mapping entry.
 --
 -- /See:/ 'instanceBlockDeviceMappingSpecification' smart constructor.
+data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification'
+    { _ibdmsVirtualName :: !(Maybe Text)
+    , _ibdmsNoDevice    :: !(Maybe Text)
+    , _ibdmsEBS         :: !(Maybe EBSInstanceBlockDeviceSpecification)
+    , _ibdmsDeviceName  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceBlockDeviceMappingSpecification' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ibdmsVirtualName'
 --
@@ -3536,15 +3670,8 @@ instance FromXML InstanceBlockDeviceMapping where
 -- * 'ibdmsEBS'
 --
 -- * 'ibdmsDeviceName'
-data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification'
-    { _ibdmsVirtualName :: !(Maybe Text)
-    , _ibdmsNoDevice    :: !(Maybe Text)
-    , _ibdmsEBS         :: !(Maybe EBSInstanceBlockDeviceSpecification)
-    , _ibdmsDeviceName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstanceBlockDeviceMappingSpecification' smart constructor.
-instanceBlockDeviceMappingSpecification :: InstanceBlockDeviceMappingSpecification
+instanceBlockDeviceMappingSpecification
+    :: InstanceBlockDeviceMappingSpecification
 instanceBlockDeviceMappingSpecification =
     InstanceBlockDeviceMappingSpecification'
     { _ibdmsVirtualName = Nothing
@@ -3566,8 +3693,8 @@ ibdmsNoDevice = lens _ibdmsNoDevice (\ s a -> s{_ibdmsNoDevice = a});
 ibdmsEBS :: Lens' InstanceBlockDeviceMappingSpecification (Maybe EBSInstanceBlockDeviceSpecification)
 ibdmsEBS = lens _ibdmsEBS (\ s a -> s{_ibdmsEBS = a});
 
--- | The device name exposed to the instance (for example, @\/dev\/sdh@ or
--- @xvdh@).
+-- | The device name exposed to the instance (for example, '\/dev\/sdh' or
+-- 'xvdh').
 ibdmsDeviceName :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
 ibdmsDeviceName = lens _ibdmsDeviceName (\ s a -> s{_ibdmsDeviceName = a});
 
@@ -3582,19 +3709,20 @@ instance ToQuery
 -- | Describes a Reserved Instance listing state.
 --
 -- /See:/ 'instanceCount' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'icState'
---
--- * 'icInstanceCount'
 data InstanceCount = InstanceCount'
     { _icState         :: !(Maybe ListingState)
     , _icInstanceCount :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceCount' smart constructor.
-instanceCount :: InstanceCount
+-- | Creates a value of 'InstanceCount' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'icState'
+--
+-- * 'icInstanceCount'
+instanceCount
+    :: InstanceCount
 instanceCount =
     InstanceCount'
     { _icState = Nothing
@@ -3606,7 +3734,7 @@ icState :: Lens' InstanceCount (Maybe ListingState)
 icState = lens _icState (\ s a -> s{_icState = a});
 
 -- | The number of listed Reserved Instances in the state specified by the
--- @state@.
+-- 'state'.
 icInstanceCount :: Lens' InstanceCount (Maybe Int)
 icInstanceCount = lens _icInstanceCount (\ s a -> s{_icInstanceCount = a});
 
@@ -3618,19 +3746,20 @@ instance FromXML InstanceCount where
 -- | Describes an instance to export.
 --
 -- /See:/ 'instanceExportDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iedInstanceId'
---
--- * 'iedTargetEnvironment'
 data InstanceExportDetails = InstanceExportDetails'
     { _iedInstanceId        :: !(Maybe Text)
     , _iedTargetEnvironment :: !(Maybe ExportEnvironment)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceExportDetails' smart constructor.
-instanceExportDetails :: InstanceExportDetails
+-- | Creates a value of 'InstanceExportDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iedInstanceId'
+--
+-- * 'iedTargetEnvironment'
+instanceExportDetails
+    :: InstanceExportDetails
 instanceExportDetails =
     InstanceExportDetails'
     { _iedInstanceId = Nothing
@@ -3653,19 +3782,20 @@ instance FromXML InstanceExportDetails where
 -- | Describes the monitoring information of the instance.
 --
 -- /See:/ 'instanceMonitoring' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'imInstanceId'
---
--- * 'imMonitoring'
 data InstanceMonitoring = InstanceMonitoring'
     { _imInstanceId :: !(Maybe Text)
     , _imMonitoring :: !(Maybe Monitoring)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceMonitoring' smart constructor.
-instanceMonitoring :: InstanceMonitoring
+-- | Creates a value of 'InstanceMonitoring' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'imInstanceId'
+--
+-- * 'imMonitoring'
+instanceMonitoring
+    :: InstanceMonitoring
 instanceMonitoring =
     InstanceMonitoring'
     { _imInstanceId = Nothing
@@ -3688,8 +3818,26 @@ instance FromXML InstanceMonitoring where
 -- | Describes a network interface.
 --
 -- /See:/ 'instanceNetworkInterface' smart constructor.
+data InstanceNetworkInterface = InstanceNetworkInterface'
+    { _iniPrivateIPAddresses :: !(Maybe [InstancePrivateIPAddress])
+    , _iniStatus             :: !(Maybe NetworkInterfaceStatus)
+    , _iniGroups             :: !(Maybe [GroupIdentifier])
+    , _iniSourceDestCheck    :: !(Maybe Bool)
+    , _iniVPCId              :: !(Maybe Text)
+    , _iniNetworkInterfaceId :: !(Maybe Text)
+    , _iniSubnetId           :: !(Maybe Text)
+    , _iniAttachment         :: !(Maybe InstanceNetworkInterfaceAttachment)
+    , _iniMACAddress         :: !(Maybe Text)
+    , _iniOwnerId            :: !(Maybe Text)
+    , _iniPrivateIPAddress   :: !(Maybe Text)
+    , _iniPrivateDNSName     :: !(Maybe Text)
+    , _iniDescription        :: !(Maybe Text)
+    , _iniAssociation        :: !(Maybe InstanceNetworkInterfaceAssociation)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceNetworkInterface' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iniPrivateIPAddresses'
 --
@@ -3718,25 +3866,8 @@ instance FromXML InstanceMonitoring where
 -- * 'iniDescription'
 --
 -- * 'iniAssociation'
-data InstanceNetworkInterface = InstanceNetworkInterface'
-    { _iniPrivateIPAddresses :: !(Maybe [InstancePrivateIPAddress])
-    , _iniStatus             :: !(Maybe NetworkInterfaceStatus)
-    , _iniGroups             :: !(Maybe [GroupIdentifier])
-    , _iniSourceDestCheck    :: !(Maybe Bool)
-    , _iniVPCId              :: !(Maybe Text)
-    , _iniNetworkInterfaceId :: !(Maybe Text)
-    , _iniSubnetId           :: !(Maybe Text)
-    , _iniAttachment         :: !(Maybe InstanceNetworkInterfaceAttachment)
-    , _iniMACAddress         :: !(Maybe Text)
-    , _iniOwnerId            :: !(Maybe Text)
-    , _iniPrivateIPAddress   :: !(Maybe Text)
-    , _iniPrivateDNSName     :: !(Maybe Text)
-    , _iniDescription        :: !(Maybe Text)
-    , _iniAssociation        :: !(Maybe InstanceNetworkInterfaceAssociation)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstanceNetworkInterface' smart constructor.
-instanceNetworkInterface :: InstanceNetworkInterface
+instanceNetworkInterface
+    :: InstanceNetworkInterface
 instanceNetworkInterface =
     InstanceNetworkInterface'
     { _iniPrivateIPAddresses = Nothing
@@ -3837,22 +3968,23 @@ instance FromXML InstanceNetworkInterface where
 -- | Describes association information for an Elastic IP address.
 --
 -- /See:/ 'instanceNetworkInterfaceAssociation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iniaPublicDNSName'
---
--- * 'iniaIPOwnerId'
---
--- * 'iniaPublicIP'
 data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation'
     { _iniaPublicDNSName :: !(Maybe Text)
     , _iniaIPOwnerId     :: !(Maybe Text)
     , _iniaPublicIP      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceNetworkInterfaceAssociation' smart constructor.
-instanceNetworkInterfaceAssociation :: InstanceNetworkInterfaceAssociation
+-- | Creates a value of 'InstanceNetworkInterfaceAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iniaPublicDNSName'
+--
+-- * 'iniaIPOwnerId'
+--
+-- * 'iniaPublicIP'
+instanceNetworkInterfaceAssociation
+    :: InstanceNetworkInterfaceAssociation
 instanceNetworkInterfaceAssociation =
     InstanceNetworkInterfaceAssociation'
     { _iniaPublicDNSName = Nothing
@@ -3883,8 +4015,17 @@ instance FromXML InstanceNetworkInterfaceAssociation
 -- | Describes a network interface attachment.
 --
 -- /See:/ 'instanceNetworkInterfaceAttachment' smart constructor.
+data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'
+    { _iniaDeleteOnTermination :: !(Maybe Bool)
+    , _iniaStatus              :: !(Maybe AttachmentStatus)
+    , _iniaAttachmentId        :: !(Maybe Text)
+    , _iniaAttachTime          :: !(Maybe ISO8601)
+    , _iniaDeviceIndex         :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceNetworkInterfaceAttachment' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iniaDeleteOnTermination'
 --
@@ -3895,16 +4036,8 @@ instance FromXML InstanceNetworkInterfaceAssociation
 -- * 'iniaAttachTime'
 --
 -- * 'iniaDeviceIndex'
-data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'
-    { _iniaDeleteOnTermination :: !(Maybe Bool)
-    , _iniaStatus              :: !(Maybe AttachmentStatus)
-    , _iniaAttachmentId        :: !(Maybe Text)
-    , _iniaAttachTime          :: !(Maybe ISO8601)
-    , _iniaDeviceIndex         :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstanceNetworkInterfaceAttachment' smart constructor.
-instanceNetworkInterfaceAttachment :: InstanceNetworkInterfaceAttachment
+instanceNetworkInterfaceAttachment
+    :: InstanceNetworkInterfaceAttachment
 instanceNetworkInterfaceAttachment =
     InstanceNetworkInterfaceAttachment'
     { _iniaDeleteOnTermination = Nothing
@@ -3948,8 +4081,22 @@ instance FromXML InstanceNetworkInterfaceAttachment
 -- | Describes a network interface.
 --
 -- /See:/ 'instanceNetworkInterfaceSpecification' smart constructor.
+data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'
+    { _inisPrivateIPAddresses             :: !(Maybe [PrivateIPAddressSpecification])
+    , _inisDeleteOnTermination            :: !(Maybe Bool)
+    , _inisGroups                         :: !(Maybe [Text])
+    , _inisAssociatePublicIPAddress       :: !(Maybe Bool)
+    , _inisNetworkInterfaceId             :: !(Maybe Text)
+    , _inisSubnetId                       :: !(Maybe Text)
+    , _inisPrivateIPAddress               :: !(Maybe Text)
+    , _inisSecondaryPrivateIPAddressCount :: !(Maybe Int)
+    , _inisDeviceIndex                    :: !(Maybe Int)
+    , _inisDescription                    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceNetworkInterfaceSpecification' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'inisPrivateIPAddresses'
 --
@@ -3970,21 +4117,8 @@ instance FromXML InstanceNetworkInterfaceAttachment
 -- * 'inisDeviceIndex'
 --
 -- * 'inisDescription'
-data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'
-    { _inisPrivateIPAddresses             :: !(Maybe [PrivateIPAddressSpecification])
-    , _inisDeleteOnTermination            :: !(Maybe Bool)
-    , _inisGroups                         :: !(Maybe [Text])
-    , _inisAssociatePublicIPAddress       :: !(Maybe Bool)
-    , _inisNetworkInterfaceId             :: !(Maybe Text)
-    , _inisSubnetId                       :: !(Maybe Text)
-    , _inisPrivateIPAddress               :: !(Maybe Text)
-    , _inisSecondaryPrivateIPAddressCount :: !(Maybe Int)
-    , _inisDeviceIndex                    :: !(Maybe Int)
-    , _inisDescription                    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstanceNetworkInterfaceSpecification' smart constructor.
-instanceNetworkInterfaceSpecification :: InstanceNetworkInterfaceSpecification
+instanceNetworkInterfaceSpecification
+    :: InstanceNetworkInterfaceSpecification
 instanceNetworkInterfaceSpecification =
     InstanceNetworkInterfaceSpecification'
     { _inisPrivateIPAddresses = Nothing
@@ -4004,8 +4138,8 @@ instanceNetworkInterfaceSpecification =
 inisPrivateIPAddresses :: Lens' InstanceNetworkInterfaceSpecification [PrivateIPAddressSpecification]
 inisPrivateIPAddresses = lens _inisPrivateIPAddresses (\ s a -> s{_inisPrivateIPAddresses = a}) . _Default . _Coerce;
 
--- | If set to @true@, the interface is deleted when the instance is
--- terminated. You can specify @true@ only if creating a new network
+-- | If set to 'true', the interface is deleted when the instance is
+-- terminated. You can specify 'true' only if creating a new network
 -- interface when launching an instance.
 inisDeleteOnTermination :: Lens' InstanceNetworkInterfaceSpecification (Maybe Bool)
 inisDeleteOnTermination = lens _inisDeleteOnTermination (\ s a -> s{_inisDeleteOnTermination = a});
@@ -4020,7 +4154,7 @@ inisGroups = lens _inisGroups (\ s a -> s{_inisGroups = a}) . _Default . _Coerce
 -- interface for eth0, and can only be assigned to a new network interface,
 -- not an existing one. You cannot specify more than one network interface
 -- in the request. If launching into a default subnet, the default value is
--- @true@.
+-- 'true'.
 inisAssociatePublicIPAddress :: Lens' InstanceNetworkInterfaceSpecification (Maybe Bool)
 inisAssociatePublicIPAddress = lens _inisAssociatePublicIPAddress (\ s a -> s{_inisAssociatePublicIPAddress = a});
 
@@ -4095,8 +4229,16 @@ instance ToQuery
 -- | Describes a private IP address.
 --
 -- /See:/ 'instancePrivateIPAddress' smart constructor.
+data InstancePrivateIPAddress = InstancePrivateIPAddress'
+    { _ipiaPrimary          :: !(Maybe Bool)
+    , _ipiaPrivateIPAddress :: !(Maybe Text)
+    , _ipiaPrivateDNSName   :: !(Maybe Text)
+    , _ipiaAssociation      :: !(Maybe InstanceNetworkInterfaceAssociation)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstancePrivateIPAddress' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ipiaPrimary'
 --
@@ -4105,15 +4247,8 @@ instance ToQuery
 -- * 'ipiaPrivateDNSName'
 --
 -- * 'ipiaAssociation'
-data InstancePrivateIPAddress = InstancePrivateIPAddress'
-    { _ipiaPrimary          :: !(Maybe Bool)
-    , _ipiaPrivateIPAddress :: !(Maybe Text)
-    , _ipiaPrivateDNSName   :: !(Maybe Text)
-    , _ipiaAssociation      :: !(Maybe InstanceNetworkInterfaceAssociation)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstancePrivateIPAddress' smart constructor.
-instancePrivateIPAddress :: InstancePrivateIPAddress
+instancePrivateIPAddress
+    :: InstancePrivateIPAddress
 instancePrivateIPAddress =
     InstancePrivateIPAddress'
     { _ipiaPrimary = Nothing
@@ -4150,19 +4285,22 @@ instance FromXML InstancePrivateIPAddress where
 -- | Describes the current state of the instance.
 --
 -- /See:/ 'instanceState' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'isName'
---
--- * 'isCode'
 data InstanceState = InstanceState'
     { _isName :: !InstanceStateName
     , _isCode :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceState' smart constructor.
-instanceState :: InstanceStateName -> Int -> InstanceState
+-- | Creates a value of 'InstanceState' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'isName'
+--
+-- * 'isCode'
+instanceState
+    :: InstanceStateName -- ^ 'isName'
+    -> Int -- ^ 'isCode'
+    -> InstanceState
 instanceState pName_ pCode_ =
     InstanceState'
     { _isName = pName_
@@ -4176,17 +4314,17 @@ isName = lens _isName (\ s a -> s{_isName = a});
 -- | The low byte represents the state. The high byte is an opaque internal
 -- value and should be ignored.
 --
--- -   @0@ : @pending@
+-- -   '0' : 'pending'
 --
--- -   @16@ : @running@
+-- -   '16' : 'running'
 --
--- -   @32@ : @shutting-down@
+-- -   '32' : 'shutting-down'
 --
--- -   @48@ : @terminated@
+-- -   '48' : 'terminated'
 --
--- -   @64@ : @stopping@
+-- -   '64' : 'stopping'
 --
--- -   @80@ : @stopped@
+-- -   '80' : 'stopped'
 --
 isCode :: Lens' InstanceState Int
 isCode = lens _isCode (\ s a -> s{_isCode = a});
@@ -4198,22 +4336,23 @@ instance FromXML InstanceState where
 -- | Describes an instance state change.
 --
 -- /See:/ 'instanceStateChange' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iscInstanceId'
---
--- * 'iscCurrentState'
---
--- * 'iscPreviousState'
 data InstanceStateChange = InstanceStateChange'
     { _iscInstanceId    :: !(Maybe Text)
     , _iscCurrentState  :: !(Maybe InstanceState)
     , _iscPreviousState :: !(Maybe InstanceState)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceStateChange' smart constructor.
-instanceStateChange :: InstanceStateChange
+-- | Creates a value of 'InstanceStateChange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iscInstanceId'
+--
+-- * 'iscCurrentState'
+--
+-- * 'iscPreviousState'
+instanceStateChange
+    :: InstanceStateChange
 instanceStateChange =
     InstanceStateChange'
     { _iscInstanceId = Nothing
@@ -4242,8 +4381,18 @@ instance FromXML InstanceStateChange where
 -- | Describes the status of an instance.
 --
 -- /See:/ 'instanceStatus' smart constructor.
+data InstanceStatus = InstanceStatus'
+    { _isInstanceId       :: !(Maybe Text)
+    , _isSystemStatus     :: !(Maybe InstanceStatusSummary)
+    , _isAvailabilityZone :: !(Maybe Text)
+    , _isEvents           :: !(Maybe [InstanceStatusEvent])
+    , _isInstanceStatus   :: !(Maybe InstanceStatusSummary)
+    , _isInstanceState    :: !(Maybe InstanceState)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceStatus' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'isInstanceId'
 --
@@ -4256,17 +4405,8 @@ instance FromXML InstanceStateChange where
 -- * 'isInstanceStatus'
 --
 -- * 'isInstanceState'
-data InstanceStatus = InstanceStatus'
-    { _isInstanceId       :: !(Maybe Text)
-    , _isSystemStatus     :: !(Maybe InstanceStatusSummary)
-    , _isAvailabilityZone :: !(Maybe Text)
-    , _isEvents           :: !(Maybe [InstanceStatusEvent])
-    , _isInstanceStatus   :: !(Maybe InstanceStatusSummary)
-    , _isInstanceState    :: !(Maybe InstanceState)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstanceStatus' smart constructor.
-instanceStatus :: InstanceStatus
+instanceStatus
+    :: InstanceStatus
 instanceStatus =
     InstanceStatus'
     { _isInstanceId = Nothing
@@ -4301,7 +4441,7 @@ isInstanceStatus :: Lens' InstanceStatus (Maybe InstanceStatusSummary)
 isInstanceStatus = lens _isInstanceStatus (\ s a -> s{_isInstanceStatus = a});
 
 -- | The intended state of the instance. DescribeInstanceStatus requires that
--- an instance be in the @running@ state.
+-- an instance be in the 'running' state.
 isInstanceState :: Lens' InstanceStatus (Maybe InstanceState)
 isInstanceState = lens _isInstanceState (\ s a -> s{_isInstanceState = a});
 
@@ -4319,22 +4459,23 @@ instance FromXML InstanceStatus where
 -- | Describes the instance status.
 --
 -- /See:/ 'instanceStatusDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'isdStatus'
---
--- * 'isdImpairedSince'
---
--- * 'isdName'
 data InstanceStatusDetails = InstanceStatusDetails'
     { _isdStatus        :: !(Maybe StatusType)
     , _isdImpairedSince :: !(Maybe ISO8601)
     , _isdName          :: !(Maybe StatusName)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceStatusDetails' smart constructor.
-instanceStatusDetails :: InstanceStatusDetails
+-- | Creates a value of 'InstanceStatusDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'isdStatus'
+--
+-- * 'isdImpairedSince'
+--
+-- * 'isdName'
+instanceStatusDetails
+    :: InstanceStatusDetails
 instanceStatusDetails =
     InstanceStatusDetails'
     { _isdStatus = Nothing
@@ -4364,8 +4505,16 @@ instance FromXML InstanceStatusDetails where
 -- | Describes a scheduled event for an instance.
 --
 -- /See:/ 'instanceStatusEvent' smart constructor.
+data InstanceStatusEvent = InstanceStatusEvent'
+    { _iseNotBefore   :: !(Maybe ISO8601)
+    , _iseCode        :: !(Maybe EventCode)
+    , _iseDescription :: !(Maybe Text)
+    , _iseNotAfter    :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceStatusEvent' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iseNotBefore'
 --
@@ -4374,15 +4523,8 @@ instance FromXML InstanceStatusDetails where
 -- * 'iseDescription'
 --
 -- * 'iseNotAfter'
-data InstanceStatusEvent = InstanceStatusEvent'
-    { _iseNotBefore   :: !(Maybe ISO8601)
-    , _iseCode        :: !(Maybe EventCode)
-    , _iseDescription :: !(Maybe Text)
-    , _iseNotAfter    :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'InstanceStatusEvent' smart constructor.
-instanceStatusEvent :: InstanceStatusEvent
+instanceStatusEvent
+    :: InstanceStatusEvent
 instanceStatusEvent =
     InstanceStatusEvent'
     { _iseNotBefore = Nothing
@@ -4421,19 +4563,21 @@ instance FromXML InstanceStatusEvent where
 -- | Describes the status of an instance.
 --
 -- /See:/ 'instanceStatusSummary' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'issDetails'
---
--- * 'issStatus'
 data InstanceStatusSummary = InstanceStatusSummary'
     { _issDetails :: !(Maybe [InstanceStatusDetails])
     , _issStatus  :: !SummaryStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceStatusSummary' smart constructor.
-instanceStatusSummary :: SummaryStatus -> InstanceStatusSummary
+-- | Creates a value of 'InstanceStatusSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'issDetails'
+--
+-- * 'issStatus'
+instanceStatusSummary
+    :: SummaryStatus -- ^ 'issStatus'
+    -> InstanceStatusSummary
 instanceStatusSummary pStatus_ =
     InstanceStatusSummary'
     { _issDetails = Nothing
@@ -4458,22 +4602,24 @@ instance FromXML InstanceStatusSummary where
 -- | Describes an Internet gateway.
 --
 -- /See:/ 'internetGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'igAttachments'
---
--- * 'igTags'
---
--- * 'igInternetGatewayId'
 data InternetGateway = InternetGateway'
     { _igAttachments       :: !(Maybe [InternetGatewayAttachment])
     , _igTags              :: !(Maybe [Tag])
     , _igInternetGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InternetGateway' smart constructor.
-internetGateway :: Text -> InternetGateway
+-- | Creates a value of 'InternetGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'igAttachments'
+--
+-- * 'igTags'
+--
+-- * 'igInternetGatewayId'
+internetGateway
+    :: Text -- ^ 'igInternetGatewayId'
+    -> InternetGateway
 internetGateway pInternetGatewayId_ =
     InternetGateway'
     { _igAttachments = Nothing
@@ -4506,19 +4652,22 @@ instance FromXML InternetGateway where
 -- | Describes the attachment of a VPC to an Internet gateway.
 --
 -- /See:/ 'internetGatewayAttachment' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'igaState'
---
--- * 'igaVPCId'
 data InternetGatewayAttachment = InternetGatewayAttachment'
     { _igaState :: !AttachmentStatus
     , _igaVPCId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InternetGatewayAttachment' smart constructor.
-internetGatewayAttachment :: AttachmentStatus -> Text -> InternetGatewayAttachment
+-- | Creates a value of 'InternetGatewayAttachment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'igaState'
+--
+-- * 'igaVPCId'
+internetGatewayAttachment
+    :: AttachmentStatus -- ^ 'igaState'
+    -> Text -- ^ 'igaVPCId'
+    -> InternetGatewayAttachment
 internetGatewayAttachment pState_ pVPCId_ =
     InternetGatewayAttachment'
     { _igaState = pState_
@@ -4541,19 +4690,20 @@ instance FromXML InternetGatewayAttachment where
 -- | Describes a key pair.
 --
 -- /See:/ 'keyPairInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'kpiKeyFingerprint'
---
--- * 'kpiKeyName'
 data KeyPairInfo = KeyPairInfo'
     { _kpiKeyFingerprint :: !(Maybe Text)
     , _kpiKeyName        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'KeyPairInfo' smart constructor.
-keyPairInfo :: KeyPairInfo
+-- | Creates a value of 'KeyPairInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'kpiKeyFingerprint'
+--
+-- * 'kpiKeyName'
+keyPairInfo
+    :: KeyPairInfo
 keyPairInfo =
     KeyPairInfo'
     { _kpiKeyFingerprint = Nothing
@@ -4579,19 +4729,20 @@ instance FromXML KeyPairInfo where
 -- | Describes a launch permission.
 --
 -- /See:/ 'launchPermission' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lpGroup'
---
--- * 'lpUserId'
 data LaunchPermission = LaunchPermission'
     { _lpGroup  :: !(Maybe PermissionGroup)
     , _lpUserId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LaunchPermission' smart constructor.
-launchPermission :: LaunchPermission
+-- | Creates a value of 'LaunchPermission' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpGroup'
+--
+-- * 'lpUserId'
+launchPermission
+    :: LaunchPermission
 launchPermission =
     LaunchPermission'
     { _lpGroup = Nothing
@@ -4619,19 +4770,20 @@ instance ToQuery LaunchPermission where
 -- | Describes a launch permission modification.
 --
 -- /See:/ 'launchPermissionModifications' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lpmRemove'
---
--- * 'lpmAdd'
 data LaunchPermissionModifications = LaunchPermissionModifications'
     { _lpmRemove :: !(Maybe [LaunchPermission])
     , _lpmAdd    :: !(Maybe [LaunchPermission])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'LaunchPermissionModifications' smart constructor.
-launchPermissionModifications :: LaunchPermissionModifications
+-- | Creates a value of 'LaunchPermissionModifications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpmRemove'
+--
+-- * 'lpmAdd'
+launchPermissionModifications
+    :: LaunchPermissionModifications
 launchPermissionModifications =
     LaunchPermissionModifications'
     { _lpmRemove = Nothing
@@ -4656,8 +4808,27 @@ instance ToQuery LaunchPermissionModifications where
 -- | Describes the launch specification for an instance.
 --
 -- /See:/ 'launchSpecification' smart constructor.
+data LaunchSpecification = LaunchSpecification'
+    { _lsSecurityGroups      :: !(Maybe [GroupIdentifier])
+    , _lsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
+    , _lsKeyName             :: !(Maybe Text)
+    , _lsRAMDiskId           :: !(Maybe Text)
+    , _lsKernelId            :: !(Maybe Text)
+    , _lsSubnetId            :: !(Maybe Text)
+    , _lsInstanceType        :: !(Maybe InstanceType)
+    , _lsEBSOptimized        :: !(Maybe Bool)
+    , _lsUserData            :: !(Maybe Text)
+    , _lsMonitoring          :: !(Maybe RunInstancesMonitoringEnabled)
+    , _lsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
+    , _lsImageId             :: !(Maybe Text)
+    , _lsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _lsAddressingType      :: !(Maybe Text)
+    , _lsPlacement           :: !(Maybe SpotPlacement)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LaunchSpecification' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lsSecurityGroups'
 --
@@ -4688,26 +4859,8 @@ instance ToQuery LaunchPermissionModifications where
 -- * 'lsAddressingType'
 --
 -- * 'lsPlacement'
-data LaunchSpecification = LaunchSpecification'
-    { _lsSecurityGroups      :: !(Maybe [GroupIdentifier])
-    , _lsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
-    , _lsKeyName             :: !(Maybe Text)
-    , _lsRAMDiskId           :: !(Maybe Text)
-    , _lsKernelId            :: !(Maybe Text)
-    , _lsSubnetId            :: !(Maybe Text)
-    , _lsInstanceType        :: !(Maybe InstanceType)
-    , _lsEBSOptimized        :: !(Maybe Bool)
-    , _lsUserData            :: !(Maybe Text)
-    , _lsMonitoring          :: !(Maybe RunInstancesMonitoringEnabled)
-    , _lsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
-    , _lsImageId             :: !(Maybe Text)
-    , _lsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _lsAddressingType      :: !(Maybe Text)
-    , _lsPlacement           :: !(Maybe SpotPlacement)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LaunchSpecification' smart constructor.
-launchSpecification :: LaunchSpecification
+launchSpecification
+    :: LaunchSpecification
 launchSpecification =
     LaunchSpecification'
     { _lsSecurityGroups = Nothing
@@ -4764,7 +4917,7 @@ lsInstanceType = lens _lsInstanceType (\ s a -> s{_lsInstanceType = a});
 -- This optimization isn\'t available with all instance types. Additional
 -- usage charges apply when using an EBS Optimized instance.
 --
--- Default: @false@
+-- Default: 'false'
 lsEBSOptimized :: Lens' LaunchSpecification (Maybe Bool)
 lsEBSOptimized = lens _lsEBSOptimized (\ s a -> s{_lsEBSOptimized = a});
 
@@ -4823,16 +4976,17 @@ instance FromXML LaunchSpecification where
 -- | Describes the monitoring for the instance.
 --
 -- /See:/ 'monitoring' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mState'
 newtype Monitoring = Monitoring'
     { _mState :: Maybe MonitoringState
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Monitoring' smart constructor.
-monitoring :: Monitoring
+-- | Creates a value of 'Monitoring' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mState'
+monitoring
+    :: Monitoring
 monitoring =
     Monitoring'
     { _mState = Nothing
@@ -4848,19 +5002,20 @@ instance FromXML Monitoring where
 -- | Describes the status of a moving Elastic IP address.
 --
 -- /See:/ 'movingAddressStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'masMoveStatus'
---
--- * 'masPublicIP'
 data MovingAddressStatus = MovingAddressStatus'
     { _masMoveStatus :: !(Maybe MoveStatus)
     , _masPublicIP   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'MovingAddressStatus' smart constructor.
-movingAddressStatus :: MovingAddressStatus
+-- | Creates a value of 'MovingAddressStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'masMoveStatus'
+--
+-- * 'masPublicIP'
+movingAddressStatus
+    :: MovingAddressStatus
 movingAddressStatus =
     MovingAddressStatus'
     { _masMoveStatus = Nothing
@@ -4884,8 +5039,18 @@ instance FromXML MovingAddressStatus where
 -- | Describes a network ACL.
 --
 -- /See:/ 'networkACL' smart constructor.
+data NetworkACL = NetworkACL'
+    { _naEntries      :: !(Maybe [NetworkACLEntry])
+    , _naNetworkACLId :: !(Maybe Text)
+    , _naVPCId        :: !(Maybe Text)
+    , _naAssociations :: !(Maybe [NetworkACLAssociation])
+    , _naIsDefault    :: !(Maybe Bool)
+    , _naTags         :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NetworkACL' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'naEntries'
 --
@@ -4898,17 +5063,8 @@ instance FromXML MovingAddressStatus where
 -- * 'naIsDefault'
 --
 -- * 'naTags'
-data NetworkACL = NetworkACL'
-    { _naEntries      :: !(Maybe [NetworkACLEntry])
-    , _naNetworkACLId :: !(Maybe Text)
-    , _naVPCId        :: !(Maybe Text)
-    , _naAssociations :: !(Maybe [NetworkACLAssociation])
-    , _naIsDefault    :: !(Maybe Bool)
-    , _naTags         :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NetworkACL' smart constructor.
-networkACL :: NetworkACL
+networkACL
+    :: NetworkACL
 networkACL =
     NetworkACL'
     { _naEntries = Nothing
@@ -4961,22 +5117,23 @@ instance FromXML NetworkACL where
 -- | Describes an association between a network ACL and a subnet.
 --
 -- /See:/ 'networkACLAssociation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'naaNetworkACLId'
---
--- * 'naaSubnetId'
---
--- * 'naaNetworkACLAssociationId'
 data NetworkACLAssociation = NetworkACLAssociation'
     { _naaNetworkACLId            :: !(Maybe Text)
     , _naaSubnetId                :: !(Maybe Text)
     , _naaNetworkACLAssociationId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'NetworkACLAssociation' smart constructor.
-networkACLAssociation :: NetworkACLAssociation
+-- | Creates a value of 'NetworkACLAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'naaNetworkACLId'
+--
+-- * 'naaSubnetId'
+--
+-- * 'naaNetworkACLAssociationId'
+networkACLAssociation
+    :: NetworkACLAssociation
 networkACLAssociation =
     NetworkACLAssociation'
     { _naaNetworkACLId = Nothing
@@ -5005,8 +5162,19 @@ instance FromXML NetworkACLAssociation where
 -- | Describes an entry in a network ACL.
 --
 -- /See:/ 'networkACLEntry' smart constructor.
+data NetworkACLEntry = NetworkACLEntry'
+    { _naeICMPTypeCode :: !(Maybe ICMPTypeCode)
+    , _naeRuleNumber   :: !(Maybe Int)
+    , _naeRuleAction   :: !(Maybe RuleAction)
+    , _naeProtocol     :: !(Maybe Text)
+    , _naePortRange    :: !(Maybe PortRange)
+    , _naeCIdRBlock    :: !(Maybe Text)
+    , _naeEgress       :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NetworkACLEntry' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'naeICMPTypeCode'
 --
@@ -5021,18 +5189,8 @@ instance FromXML NetworkACLAssociation where
 -- * 'naeCIdRBlock'
 --
 -- * 'naeEgress'
-data NetworkACLEntry = NetworkACLEntry'
-    { _naeICMPTypeCode :: !(Maybe ICMPTypeCode)
-    , _naeRuleNumber   :: !(Maybe Int)
-    , _naeRuleAction   :: !(Maybe RuleAction)
-    , _naeProtocol     :: !(Maybe Text)
-    , _naePortRange    :: !(Maybe PortRange)
-    , _naeCIdRBlock    :: !(Maybe Text)
-    , _naeEgress       :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NetworkACLEntry' smart constructor.
-networkACLEntry :: NetworkACLEntry
+networkACLEntry
+    :: NetworkACLEntry
 networkACLEntry =
     NetworkACLEntry'
     { _naeICMPTypeCode = Nothing
@@ -5057,7 +5215,7 @@ naeRuleNumber = lens _naeRuleNumber (\ s a -> s{_naeRuleNumber = a});
 naeRuleAction :: Lens' NetworkACLEntry (Maybe RuleAction)
 naeRuleAction = lens _naeRuleAction (\ s a -> s{_naeRuleAction = a});
 
--- | The protocol. A value of @-1@ means all protocols.
+-- | The protocol. A value of '-1' means all protocols.
 naeProtocol :: Lens' NetworkACLEntry (Maybe Text)
 naeProtocol = lens _naeProtocol (\ s a -> s{_naeProtocol = a});
 
@@ -5087,8 +5245,30 @@ instance FromXML NetworkACLEntry where
 -- | Describes a network interface.
 --
 -- /See:/ 'networkInterface' smart constructor.
+data NetworkInterface = NetworkInterface'
+    { _niPrivateIPAddresses :: !(Maybe [NetworkInterfacePrivateIPAddress])
+    , _niStatus             :: !(Maybe NetworkInterfaceStatus)
+    , _niGroups             :: !(Maybe [GroupIdentifier])
+    , _niSourceDestCheck    :: !(Maybe Bool)
+    , _niTagSet             :: !(Maybe [Tag])
+    , _niVPCId              :: !(Maybe Text)
+    , _niRequesterManaged   :: !(Maybe Bool)
+    , _niNetworkInterfaceId :: !(Maybe Text)
+    , _niSubnetId           :: !(Maybe Text)
+    , _niAttachment         :: !(Maybe NetworkInterfaceAttachment)
+    , _niMACAddress         :: !(Maybe Text)
+    , _niOwnerId            :: !(Maybe Text)
+    , _niAvailabilityZone   :: !(Maybe Text)
+    , _niPrivateIPAddress   :: !(Maybe Text)
+    , _niPrivateDNSName     :: !(Maybe Text)
+    , _niRequesterId        :: !(Maybe Text)
+    , _niDescription        :: !(Maybe Text)
+    , _niAssociation        :: !(Maybe NetworkInterfaceAssociation)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'niPrivateIPAddresses'
 --
@@ -5125,29 +5305,8 @@ instance FromXML NetworkACLEntry where
 -- * 'niDescription'
 --
 -- * 'niAssociation'
-data NetworkInterface = NetworkInterface'
-    { _niPrivateIPAddresses :: !(Maybe [NetworkInterfacePrivateIPAddress])
-    , _niStatus             :: !(Maybe NetworkInterfaceStatus)
-    , _niGroups             :: !(Maybe [GroupIdentifier])
-    , _niSourceDestCheck    :: !(Maybe Bool)
-    , _niTagSet             :: !(Maybe [Tag])
-    , _niVPCId              :: !(Maybe Text)
-    , _niRequesterManaged   :: !(Maybe Bool)
-    , _niNetworkInterfaceId :: !(Maybe Text)
-    , _niSubnetId           :: !(Maybe Text)
-    , _niAttachment         :: !(Maybe NetworkInterfaceAttachment)
-    , _niMACAddress         :: !(Maybe Text)
-    , _niOwnerId            :: !(Maybe Text)
-    , _niAvailabilityZone   :: !(Maybe Text)
-    , _niPrivateIPAddress   :: !(Maybe Text)
-    , _niPrivateDNSName     :: !(Maybe Text)
-    , _niRequesterId        :: !(Maybe Text)
-    , _niDescription        :: !(Maybe Text)
-    , _niAssociation        :: !(Maybe NetworkInterfaceAssociation)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NetworkInterface' smart constructor.
-networkInterface :: NetworkInterface
+networkInterface
+    :: NetworkInterface
 networkInterface =
     NetworkInterface'
     { _niPrivateIPAddresses = Nothing
@@ -5274,8 +5433,17 @@ instance FromXML NetworkInterface where
 -- | Describes association information for an Elastic IP address.
 --
 -- /See:/ 'networkInterfaceAssociation' smart constructor.
+data NetworkInterfaceAssociation = NetworkInterfaceAssociation'
+    { _niaAssociationId :: !(Maybe Text)
+    , _niaPublicDNSName :: !(Maybe Text)
+    , _niaAllocationId  :: !(Maybe Text)
+    , _niaIPOwnerId     :: !(Maybe Text)
+    , _niaPublicIP      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NetworkInterfaceAssociation' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'niaAssociationId'
 --
@@ -5286,16 +5454,8 @@ instance FromXML NetworkInterface where
 -- * 'niaIPOwnerId'
 --
 -- * 'niaPublicIP'
-data NetworkInterfaceAssociation = NetworkInterfaceAssociation'
-    { _niaAssociationId :: !(Maybe Text)
-    , _niaPublicDNSName :: !(Maybe Text)
-    , _niaAllocationId  :: !(Maybe Text)
-    , _niaIPOwnerId     :: !(Maybe Text)
-    , _niaPublicIP      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NetworkInterfaceAssociation' smart constructor.
-networkInterfaceAssociation :: NetworkInterfaceAssociation
+networkInterfaceAssociation
+    :: NetworkInterfaceAssociation
 networkInterfaceAssociation =
     NetworkInterfaceAssociation'
     { _niaAssociationId = Nothing
@@ -5336,8 +5496,19 @@ instance FromXML NetworkInterfaceAssociation where
 -- | Describes a network interface attachment.
 --
 -- /See:/ 'networkInterfaceAttachment' smart constructor.
+data NetworkInterfaceAttachment = NetworkInterfaceAttachment'
+    { _niaInstanceId          :: !(Maybe Text)
+    , _niaDeleteOnTermination :: !(Maybe Bool)
+    , _niaStatus              :: !(Maybe AttachmentStatus)
+    , _niaAttachmentId        :: !(Maybe Text)
+    , _niaInstanceOwnerId     :: !(Maybe Text)
+    , _niaAttachTime          :: !(Maybe ISO8601)
+    , _niaDeviceIndex         :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NetworkInterfaceAttachment' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'niaInstanceId'
 --
@@ -5352,18 +5523,8 @@ instance FromXML NetworkInterfaceAssociation where
 -- * 'niaAttachTime'
 --
 -- * 'niaDeviceIndex'
-data NetworkInterfaceAttachment = NetworkInterfaceAttachment'
-    { _niaInstanceId          :: !(Maybe Text)
-    , _niaDeleteOnTermination :: !(Maybe Bool)
-    , _niaStatus              :: !(Maybe AttachmentStatus)
-    , _niaAttachmentId        :: !(Maybe Text)
-    , _niaInstanceOwnerId     :: !(Maybe Text)
-    , _niaAttachTime          :: !(Maybe ISO8601)
-    , _niaDeviceIndex         :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NetworkInterfaceAttachment' smart constructor.
-networkInterfaceAttachment :: NetworkInterfaceAttachment
+networkInterfaceAttachment
+    :: NetworkInterfaceAttachment
 networkInterfaceAttachment =
     NetworkInterfaceAttachment'
     { _niaInstanceId = Nothing
@@ -5418,19 +5579,20 @@ instance FromXML NetworkInterfaceAttachment where
 -- | Describes an attachment change.
 --
 -- /See:/ 'networkInterfaceAttachmentChanges' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'niacDeleteOnTermination'
---
--- * 'niacAttachmentId'
 data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges'
     { _niacDeleteOnTermination :: !(Maybe Bool)
     , _niacAttachmentId        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'NetworkInterfaceAttachmentChanges' smart constructor.
-networkInterfaceAttachmentChanges :: NetworkInterfaceAttachmentChanges
+-- | Creates a value of 'NetworkInterfaceAttachmentChanges' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'niacDeleteOnTermination'
+--
+-- * 'niacAttachmentId'
+networkInterfaceAttachmentChanges
+    :: NetworkInterfaceAttachmentChanges
 networkInterfaceAttachmentChanges =
     NetworkInterfaceAttachmentChanges'
     { _niacDeleteOnTermination = Nothing
@@ -5456,8 +5618,16 @@ instance ToQuery NetworkInterfaceAttachmentChanges
 -- | Describes the private IP address of a network interface.
 --
 -- /See:/ 'networkInterfacePrivateIPAddress' smart constructor.
+data NetworkInterfacePrivateIPAddress = NetworkInterfacePrivateIPAddress'
+    { _nipiaPrimary          :: !(Maybe Bool)
+    , _nipiaPrivateIPAddress :: !(Maybe Text)
+    , _nipiaPrivateDNSName   :: !(Maybe Text)
+    , _nipiaAssociation      :: !(Maybe NetworkInterfaceAssociation)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NetworkInterfacePrivateIPAddress' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'nipiaPrimary'
 --
@@ -5466,15 +5636,8 @@ instance ToQuery NetworkInterfaceAttachmentChanges
 -- * 'nipiaPrivateDNSName'
 --
 -- * 'nipiaAssociation'
-data NetworkInterfacePrivateIPAddress = NetworkInterfacePrivateIPAddress'
-    { _nipiaPrimary          :: !(Maybe Bool)
-    , _nipiaPrivateIPAddress :: !(Maybe Text)
-    , _nipiaPrivateDNSName   :: !(Maybe Text)
-    , _nipiaAssociation      :: !(Maybe NetworkInterfaceAssociation)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'NetworkInterfacePrivateIPAddress' smart constructor.
-networkInterfacePrivateIPAddress :: NetworkInterfacePrivateIPAddress
+networkInterfacePrivateIPAddress
+    :: NetworkInterfacePrivateIPAddress
 networkInterfacePrivateIPAddress =
     NetworkInterfacePrivateIPAddress'
     { _nipiaPrimary = Nothing
@@ -5510,19 +5673,20 @@ instance FromXML NetworkInterfacePrivateIPAddress
                 <*> (x .@? "association")
 
 -- | /See:/ 'newDHCPConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ndcValues'
---
--- * 'ndcKey'
 data NewDHCPConfiguration = NewDHCPConfiguration'
     { _ndcValues :: !(Maybe [Text])
     , _ndcKey    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'NewDHCPConfiguration' smart constructor.
-newDHCPConfiguration :: NewDHCPConfiguration
+-- | Creates a value of 'NewDHCPConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ndcValues'
+--
+-- * 'ndcKey'
+newDHCPConfiguration
+    :: NewDHCPConfiguration
 newDHCPConfiguration =
     NewDHCPConfiguration'
     { _ndcValues = Nothing
@@ -5546,22 +5710,23 @@ instance ToQuery NewDHCPConfiguration where
 -- | Describes the placement for the instance.
 --
 -- /See:/ 'placement' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pAvailabilityZone'
---
--- * 'pTenancy'
---
--- * 'pGroupName'
 data Placement = Placement'
     { _pAvailabilityZone :: !(Maybe Text)
     , _pTenancy          :: !(Maybe Tenancy)
     , _pGroupName        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Placement' smart constructor.
-placement :: Placement
+-- | Creates a value of 'Placement' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pAvailabilityZone'
+--
+-- * 'pTenancy'
+--
+-- * 'pGroupName'
+placement
+    :: Placement
 placement =
     Placement'
     { _pAvailabilityZone = Nothing
@@ -5574,7 +5739,7 @@ pAvailabilityZone :: Lens' Placement (Maybe Text)
 pAvailabilityZone = lens _pAvailabilityZone (\ s a -> s{_pAvailabilityZone = a});
 
 -- | The tenancy of the instance (if the instance is running in a VPC). An
--- instance with a tenancy of @dedicated@ runs on single-tenant hardware.
+-- instance with a tenancy of 'dedicated' runs on single-tenant hardware.
 pTenancy :: Lens' Placement (Maybe Tenancy)
 pTenancy = lens _pTenancy (\ s a -> s{_pTenancy = a});
 
@@ -5598,22 +5763,23 @@ instance ToQuery Placement where
 -- | Describes a placement group.
 --
 -- /See:/ 'placementGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pgState'
---
--- * 'pgStrategy'
---
--- * 'pgGroupName'
 data PlacementGroup = PlacementGroup'
     { _pgState     :: !(Maybe PlacementGroupState)
     , _pgStrategy  :: !(Maybe PlacementStrategy)
     , _pgGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PlacementGroup' smart constructor.
-placementGroup :: PlacementGroup
+-- | Creates a value of 'PlacementGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pgState'
+--
+-- * 'pgStrategy'
+--
+-- * 'pgGroupName'
+placementGroup
+    :: PlacementGroup
 placementGroup =
     PlacementGroup'
     { _pgState = Nothing
@@ -5642,19 +5808,20 @@ instance FromXML PlacementGroup where
 -- | Describes a range of ports.
 --
 -- /See:/ 'portRange' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prTo'
---
--- * 'prFrom'
 data PortRange = PortRange'
     { _prTo   :: !(Maybe Int)
     , _prFrom :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PortRange' smart constructor.
-portRange :: PortRange
+-- | Creates a value of 'PortRange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prTo'
+--
+-- * 'prFrom'
+portRange
+    :: PortRange
 portRange =
     PortRange'
     { _prTo = Nothing
@@ -5680,22 +5847,23 @@ instance ToQuery PortRange where
 -- | Describes prefixes for AWS services.
 --
 -- /See:/ 'prefixList' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'plCIdRs'
---
--- * 'plPrefixListId'
---
--- * 'plPrefixListName'
 data PrefixList = PrefixList'
     { _plCIdRs          :: !(Maybe [Text])
     , _plPrefixListId   :: !(Maybe Text)
     , _plPrefixListName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PrefixList' smart constructor.
-prefixList :: PrefixList
+-- | Creates a value of 'PrefixList' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'plCIdRs'
+--
+-- * 'plPrefixListId'
+--
+-- * 'plPrefixListName'
+prefixList
+    :: PrefixList
 prefixList =
     PrefixList'
     { _plCIdRs = Nothing
@@ -5726,16 +5894,17 @@ instance FromXML PrefixList where
 -- | The ID of the prefix.
 --
 -- /See:/ 'prefixListId' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pliPrefixListId'
 newtype PrefixListId = PrefixListId'
     { _pliPrefixListId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PrefixListId' smart constructor.
-prefixListId :: PrefixListId
+-- | Creates a value of 'PrefixListId' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pliPrefixListId'
+prefixListId
+    :: PrefixListId
 prefixListId =
     PrefixListId'
     { _pliPrefixListId = Nothing
@@ -5755,8 +5924,16 @@ instance ToQuery PrefixListId where
 -- | Describes the price for a Reserved Instance.
 --
 -- /See:/ 'priceSchedule' smart constructor.
+data PriceSchedule = PriceSchedule'
+    { _psCurrencyCode :: !(Maybe CurrencyCodeValues)
+    , _psTerm         :: !(Maybe Integer)
+    , _psActive       :: !(Maybe Bool)
+    , _psPrice        :: !(Maybe Double)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PriceSchedule' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'psCurrencyCode'
 --
@@ -5765,15 +5942,8 @@ instance ToQuery PrefixListId where
 -- * 'psActive'
 --
 -- * 'psPrice'
-data PriceSchedule = PriceSchedule'
-    { _psCurrencyCode :: !(Maybe CurrencyCodeValues)
-    , _psTerm         :: !(Maybe Integer)
-    , _psActive       :: !(Maybe Bool)
-    , _psPrice        :: !(Maybe Double)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PriceSchedule' smart constructor.
-priceSchedule :: PriceSchedule
+priceSchedule
+    :: PriceSchedule
 priceSchedule =
     PriceSchedule'
     { _psCurrencyCode = Nothing
@@ -5783,7 +5953,7 @@ priceSchedule =
     }
 
 -- | The currency for transacting the Reserved Instance resale. At this time,
--- the only supported currency is @USD@.
+-- the only supported currency is 'USD'.
 psCurrencyCode :: Lens' PriceSchedule (Maybe CurrencyCodeValues)
 psCurrencyCode = lens _psCurrencyCode (\ s a -> s{_psCurrencyCode = a});
 
@@ -5819,22 +5989,23 @@ instance FromXML PriceSchedule where
 -- | Describes the price for a Reserved Instance.
 --
 -- /See:/ 'priceScheduleSpecification' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pssCurrencyCode'
---
--- * 'pssTerm'
---
--- * 'pssPrice'
 data PriceScheduleSpecification = PriceScheduleSpecification'
     { _pssCurrencyCode :: !(Maybe CurrencyCodeValues)
     , _pssTerm         :: !(Maybe Integer)
     , _pssPrice        :: !(Maybe Double)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PriceScheduleSpecification' smart constructor.
-priceScheduleSpecification :: PriceScheduleSpecification
+-- | Creates a value of 'PriceScheduleSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pssCurrencyCode'
+--
+-- * 'pssTerm'
+--
+-- * 'pssPrice'
+priceScheduleSpecification
+    :: PriceScheduleSpecification
 priceScheduleSpecification =
     PriceScheduleSpecification'
     { _pssCurrencyCode = Nothing
@@ -5843,7 +6014,7 @@ priceScheduleSpecification =
     }
 
 -- | The currency for transacting the Reserved Instance resale. At this time,
--- the only supported currency is @USD@.
+-- the only supported currency is 'USD'.
 pssCurrencyCode :: Lens' PriceScheduleSpecification (Maybe CurrencyCodeValues)
 pssCurrencyCode = lens _pssCurrencyCode (\ s a -> s{_pssCurrencyCode = a});
 
@@ -5865,19 +6036,20 @@ instance ToQuery PriceScheduleSpecification where
 -- | Describes a Reserved Instance offering.
 --
 -- /See:/ 'pricingDetail' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pdCount'
---
--- * 'pdPrice'
 data PricingDetail = PricingDetail'
     { _pdCount :: !(Maybe Int)
     , _pdPrice :: !(Maybe Double)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PricingDetail' smart constructor.
-pricingDetail :: PricingDetail
+-- | Creates a value of 'PricingDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pdCount'
+--
+-- * 'pdPrice'
+pricingDetail
+    :: PricingDetail
 pricingDetail =
     PricingDetail'
     { _pdCount = Nothing
@@ -5900,19 +6072,21 @@ instance FromXML PricingDetail where
 -- | Describes a secondary private IP address for a network interface.
 --
 -- /See:/ 'privateIPAddressSpecification' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'piasPrimary'
---
--- * 'piasPrivateIPAddress'
 data PrivateIPAddressSpecification = PrivateIPAddressSpecification'
     { _piasPrimary          :: !(Maybe Bool)
     , _piasPrivateIPAddress :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PrivateIPAddressSpecification' smart constructor.
-privateIPAddressSpecification :: Text -> PrivateIPAddressSpecification
+-- | Creates a value of 'PrivateIPAddressSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'piasPrimary'
+--
+-- * 'piasPrivateIPAddress'
+privateIPAddressSpecification
+    :: Text -- ^ 'piasPrivateIPAddress'
+    -> PrivateIPAddressSpecification
 privateIPAddressSpecification pPrivateIPAddress_ =
     PrivateIPAddressSpecification'
     { _piasPrimary = Nothing
@@ -5942,19 +6116,20 @@ instance ToQuery PrivateIPAddressSpecification where
 -- | Describes a product code.
 --
 -- /See:/ 'productCode' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pcProductCodeType'
---
--- * 'pcProductCodeId'
 data ProductCode = ProductCode'
     { _pcProductCodeType :: !(Maybe ProductCodeValues)
     , _pcProductCodeId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ProductCode' smart constructor.
-productCode :: ProductCode
+-- | Creates a value of 'ProductCode' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcProductCodeType'
+--
+-- * 'pcProductCodeId'
+productCode
+    :: ProductCode
 productCode =
     ProductCode'
     { _pcProductCodeType = Nothing
@@ -5977,16 +6152,17 @@ instance FromXML ProductCode where
 -- | Describes a virtual private gateway propagating route.
 --
 -- /See:/ 'propagatingVGW' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pvGatewayId'
 newtype PropagatingVGW = PropagatingVGW'
     { _pvGatewayId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PropagatingVGW' smart constructor.
-propagatingVGW :: PropagatingVGW
+-- | Creates a value of 'PropagatingVGW' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pvGatewayId'
+propagatingVGW
+    :: PropagatingVGW
 propagatingVGW =
     PropagatingVGW'
     { _pvGatewayId = Nothing
@@ -6002,19 +6178,20 @@ instance FromXML PropagatingVGW where
 -- | Describes a recurring charge.
 --
 -- /See:/ 'recurringCharge' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcFrequency'
---
--- * 'rcAmount'
 data RecurringCharge = RecurringCharge'
     { _rcFrequency :: !(Maybe RecurringChargeFrequency)
     , _rcAmount    :: !(Maybe Double)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RecurringCharge' smart constructor.
-recurringCharge :: RecurringCharge
+-- | Creates a value of 'RecurringCharge' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcFrequency'
+--
+-- * 'rcAmount'
+recurringCharge
+    :: RecurringCharge
 recurringCharge =
     RecurringCharge'
     { _rcFrequency = Nothing
@@ -6037,19 +6214,20 @@ instance FromXML RecurringCharge where
 -- | Describes a region.
 --
 -- /See:/ 'regionInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'riRegionName'
---
--- * 'riEndpoint'
 data RegionInfo = RegionInfo'
     { _riRegionName :: !(Maybe Text)
     , _riEndpoint   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegionInfo' smart constructor.
-regionInfo :: RegionInfo
+-- | Creates a value of 'RegionInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'riRegionName'
+--
+-- * 'riEndpoint'
+regionInfo
+    :: RegionInfo
 regionInfo =
     RegionInfo'
     { _riRegionName = Nothing
@@ -6072,8 +6250,28 @@ instance FromXML RegionInfo where
 -- | Describes the launch specification for an instance.
 --
 -- /See:/ 'requestSpotLaunchSpecification' smart constructor.
+data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
+    { _rslsSecurityGroupIds    :: !(Maybe [Text])
+    , _rslsSecurityGroups      :: !(Maybe [Text])
+    , _rslsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
+    , _rslsKeyName             :: !(Maybe Text)
+    , _rslsRAMDiskId           :: !(Maybe Text)
+    , _rslsKernelId            :: !(Maybe Text)
+    , _rslsSubnetId            :: !(Maybe Text)
+    , _rslsInstanceType        :: !(Maybe InstanceType)
+    , _rslsEBSOptimized        :: !(Maybe Bool)
+    , _rslsUserData            :: !(Maybe Text)
+    , _rslsMonitoring          :: !(Maybe RunInstancesMonitoringEnabled)
+    , _rslsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
+    , _rslsImageId             :: !(Maybe Text)
+    , _rslsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _rslsAddressingType      :: !(Maybe Text)
+    , _rslsPlacement           :: !(Maybe SpotPlacement)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RequestSpotLaunchSpecification' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rslsSecurityGroupIds'
 --
@@ -6106,27 +6304,8 @@ instance FromXML RegionInfo where
 -- * 'rslsAddressingType'
 --
 -- * 'rslsPlacement'
-data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
-    { _rslsSecurityGroupIds    :: !(Maybe [Text])
-    , _rslsSecurityGroups      :: !(Maybe [Text])
-    , _rslsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
-    , _rslsKeyName             :: !(Maybe Text)
-    , _rslsRAMDiskId           :: !(Maybe Text)
-    , _rslsKernelId            :: !(Maybe Text)
-    , _rslsSubnetId            :: !(Maybe Text)
-    , _rslsInstanceType        :: !(Maybe InstanceType)
-    , _rslsEBSOptimized        :: !(Maybe Bool)
-    , _rslsUserData            :: !(Maybe Text)
-    , _rslsMonitoring          :: !(Maybe RunInstancesMonitoringEnabled)
-    , _rslsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
-    , _rslsImageId             :: !(Maybe Text)
-    , _rslsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _rslsAddressingType      :: !(Maybe Text)
-    , _rslsPlacement           :: !(Maybe SpotPlacement)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RequestSpotLaunchSpecification' smart constructor.
-requestSpotLaunchSpecification :: RequestSpotLaunchSpecification
+requestSpotLaunchSpecification
+    :: RequestSpotLaunchSpecification
 requestSpotLaunchSpecification =
     RequestSpotLaunchSpecification'
     { _rslsSecurityGroupIds = Nothing
@@ -6185,7 +6364,7 @@ rslsInstanceType = lens _rslsInstanceType (\ s a -> s{_rslsInstanceType = a});
 -- This optimization isn\'t available with all instance types. Additional
 -- usage charges apply when using an EBS Optimized instance.
 --
--- Default: @false@
+-- Default: 'false'
 rslsEBSOptimized :: Lens' RequestSpotLaunchSpecification (Maybe Bool)
 rslsEBSOptimized = lens _rslsEBSOptimized (\ s a -> s{_rslsEBSOptimized = a});
 
@@ -6243,8 +6422,17 @@ instance ToQuery RequestSpotLaunchSpecification where
 -- | Describes a reservation.
 --
 -- /See:/ 'reservation' smart constructor.
+data Reservation = Reservation'
+    { _rGroups        :: !(Maybe [GroupIdentifier])
+    , _rInstances     :: !(Maybe [Instance])
+    , _rRequesterId   :: !(Maybe Text)
+    , _rReservationId :: !Text
+    , _rOwnerId       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Reservation' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rGroups'
 --
@@ -6255,16 +6443,10 @@ instance ToQuery RequestSpotLaunchSpecification where
 -- * 'rReservationId'
 --
 -- * 'rOwnerId'
-data Reservation = Reservation'
-    { _rGroups        :: !(Maybe [GroupIdentifier])
-    , _rInstances     :: !(Maybe [Instance])
-    , _rRequesterId   :: !(Maybe Text)
-    , _rReservationId :: !Text
-    , _rOwnerId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Reservation' smart constructor.
-reservation :: Text -> Text -> Reservation
+reservation
+    :: Text -- ^ 'rReservationId'
+    -> Text -- ^ 'rOwnerId'
+    -> Reservation
 reservation pReservationId_ pOwnerId_ =
     Reservation'
     { _rGroups = Nothing
@@ -6310,19 +6492,20 @@ instance FromXML Reservation where
 -- | Describes the limit price of a Reserved Instance offering.
 --
 -- /See:/ 'reservedInstanceLimitPrice' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rilpAmount'
---
--- * 'rilpCurrencyCode'
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice'
     { _rilpAmount       :: !(Maybe Double)
     , _rilpCurrencyCode :: !(Maybe CurrencyCodeValues)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReservedInstanceLimitPrice' smart constructor.
-reservedInstanceLimitPrice :: ReservedInstanceLimitPrice
+-- | Creates a value of 'ReservedInstanceLimitPrice' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rilpAmount'
+--
+-- * 'rilpCurrencyCode'
+reservedInstanceLimitPrice
+    :: ReservedInstanceLimitPrice
 reservedInstanceLimitPrice =
     ReservedInstanceLimitPrice'
     { _rilpAmount = Nothing
@@ -6334,8 +6517,8 @@ reservedInstanceLimitPrice =
 rilpAmount :: Lens' ReservedInstanceLimitPrice (Maybe Double)
 rilpAmount = lens _rilpAmount (\ s a -> s{_rilpAmount = a});
 
--- | The currency in which the @limitPrice@ amount is specified. At this
--- time, the only supported currency is @USD@.
+-- | The currency in which the 'limitPrice' amount is specified. At this
+-- time, the only supported currency is 'USD'.
 rilpCurrencyCode :: Lens' ReservedInstanceLimitPrice (Maybe CurrencyCodeValues)
 rilpCurrencyCode = lens _rilpCurrencyCode (\ s a -> s{_rilpCurrencyCode = a});
 
@@ -6348,8 +6531,28 @@ instance ToQuery ReservedInstanceLimitPrice where
 -- | Describes a Reserved Instance.
 --
 -- /See:/ 'reservedInstances' smart constructor.
+data ReservedInstances = ReservedInstances'
+    { _riState               :: !(Maybe ReservedInstanceState)
+    , _riCurrencyCode        :: !(Maybe CurrencyCodeValues)
+    , _riInstanceCount       :: !(Maybe Int)
+    , _riProductDescription  :: !(Maybe RIProductDescription)
+    , _riStart               :: !(Maybe ISO8601)
+    , _riInstanceType        :: !(Maybe InstanceType)
+    , _riAvailabilityZone    :: !(Maybe Text)
+    , _riEnd                 :: !(Maybe ISO8601)
+    , _riOfferingType        :: !(Maybe OfferingTypeValues)
+    , _riUsagePrice          :: !(Maybe Double)
+    , _riRecurringCharges    :: !(Maybe [RecurringCharge])
+    , _riInstanceTenancy     :: !(Maybe Tenancy)
+    , _riFixedPrice          :: !(Maybe Double)
+    , _riReservedInstancesId :: !(Maybe Text)
+    , _riDuration            :: !(Maybe Integer)
+    , _riTags                :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservedInstances' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'riState'
 --
@@ -6382,27 +6585,8 @@ instance ToQuery ReservedInstanceLimitPrice where
 -- * 'riDuration'
 --
 -- * 'riTags'
-data ReservedInstances = ReservedInstances'
-    { _riState               :: !(Maybe ReservedInstanceState)
-    , _riCurrencyCode        :: !(Maybe CurrencyCodeValues)
-    , _riInstanceCount       :: !(Maybe Int)
-    , _riProductDescription  :: !(Maybe RIProductDescription)
-    , _riStart               :: !(Maybe ISO8601)
-    , _riInstanceType        :: !(Maybe InstanceType)
-    , _riAvailabilityZone    :: !(Maybe Text)
-    , _riEnd                 :: !(Maybe ISO8601)
-    , _riOfferingType        :: !(Maybe OfferingTypeValues)
-    , _riUsagePrice          :: !(Maybe Double)
-    , _riRecurringCharges    :: !(Maybe [RecurringCharge])
-    , _riInstanceTenancy     :: !(Maybe Tenancy)
-    , _riFixedPrice          :: !(Maybe Double)
-    , _riReservedInstancesId :: !(Maybe Text)
-    , _riDuration            :: !(Maybe Integer)
-    , _riTags                :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReservedInstances' smart constructor.
-reservedInstances :: ReservedInstances
+reservedInstances
+    :: ReservedInstances
 reservedInstances =
     ReservedInstances'
     { _riState = Nothing
@@ -6429,7 +6613,7 @@ riState = lens _riState (\ s a -> s{_riState = a});
 
 -- | The currency of the Reserved Instance. It\'s specified using ISO 4217
 -- standard currency codes. At this time, the only supported currency is
--- @USD@.
+-- 'USD'.
 riCurrencyCode :: Lens' ReservedInstances (Maybe CurrencyCodeValues)
 riCurrencyCode = lens _riCurrencyCode (\ s a -> s{_riCurrencyCode = a});
 
@@ -6516,8 +6700,16 @@ instance FromXML ReservedInstances where
 -- Instances.
 --
 -- /See:/ 'reservedInstancesConfiguration' smart constructor.
+data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
+    { _ricPlatform         :: !(Maybe Text)
+    , _ricInstanceCount    :: !(Maybe Int)
+    , _ricInstanceType     :: !(Maybe InstanceType)
+    , _ricAvailabilityZone :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservedInstancesConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ricPlatform'
 --
@@ -6526,15 +6718,8 @@ instance FromXML ReservedInstances where
 -- * 'ricInstanceType'
 --
 -- * 'ricAvailabilityZone'
-data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
-    { _ricPlatform         :: !(Maybe Text)
-    , _ricInstanceCount    :: !(Maybe Int)
-    , _ricInstanceType     :: !(Maybe InstanceType)
-    , _ricAvailabilityZone :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReservedInstancesConfiguration' smart constructor.
-reservedInstancesConfiguration :: ReservedInstancesConfiguration
+reservedInstancesConfiguration
+    :: ReservedInstancesConfiguration
 reservedInstancesConfiguration =
     ReservedInstancesConfiguration'
     { _ricPlatform = Nothing
@@ -6578,16 +6763,17 @@ instance ToQuery ReservedInstancesConfiguration where
 -- | Describes the ID of a Reserved Instance.
 --
 -- /See:/ 'reservedInstancesId' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'riiReservedInstancesId'
 newtype ReservedInstancesId = ReservedInstancesId'
     { _riiReservedInstancesId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReservedInstancesId' smart constructor.
-reservedInstancesId :: ReservedInstancesId
+-- | Creates a value of 'ReservedInstancesId' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'riiReservedInstancesId'
+reservedInstancesId
+    :: ReservedInstancesId
 reservedInstancesId =
     ReservedInstancesId'
     { _riiReservedInstancesId = Nothing
@@ -6605,8 +6791,22 @@ instance FromXML ReservedInstancesId where
 -- | Describes a Reserved Instance listing.
 --
 -- /See:/ 'reservedInstancesListing' smart constructor.
+data ReservedInstancesListing = ReservedInstancesListing'
+    { _rilStatus                     :: !(Maybe ListingStatus)
+    , _rilClientToken                :: !(Maybe Text)
+    , _rilUpdateDate                 :: !(Maybe ISO8601)
+    , _rilCreateDate                 :: !(Maybe ISO8601)
+    , _rilPriceSchedules             :: !(Maybe [PriceSchedule])
+    , _rilStatusMessage              :: !(Maybe Text)
+    , _rilReservedInstancesId        :: !(Maybe Text)
+    , _rilInstanceCounts             :: !(Maybe [InstanceCount])
+    , _rilReservedInstancesListingId :: !(Maybe Text)
+    , _rilTags                       :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservedInstancesListing' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rilStatus'
 --
@@ -6627,21 +6827,8 @@ instance FromXML ReservedInstancesId where
 -- * 'rilReservedInstancesListingId'
 --
 -- * 'rilTags'
-data ReservedInstancesListing = ReservedInstancesListing'
-    { _rilStatus                     :: !(Maybe ListingStatus)
-    , _rilClientToken                :: !(Maybe Text)
-    , _rilUpdateDate                 :: !(Maybe ISO8601)
-    , _rilCreateDate                 :: !(Maybe ISO8601)
-    , _rilPriceSchedules             :: !(Maybe [PriceSchedule])
-    , _rilStatusMessage              :: !(Maybe Text)
-    , _rilReservedInstancesId        :: !(Maybe Text)
-    , _rilInstanceCounts             :: !(Maybe [InstanceCount])
-    , _rilReservedInstancesListingId :: !(Maybe Text)
-    , _rilTags                       :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReservedInstancesListing' smart constructor.
-reservedInstancesListing :: ReservedInstancesListing
+reservedInstancesListing
+    :: ReservedInstancesListing
 reservedInstancesListing =
     ReservedInstancesListing'
     { _rilStatus = Nothing
@@ -6721,8 +6908,21 @@ instance FromXML ReservedInstancesListing where
 -- | Describes a Reserved Instance modification.
 --
 -- /See:/ 'reservedInstancesModification' smart constructor.
+data ReservedInstancesModification = ReservedInstancesModification'
+    { _rimModificationResults             :: !(Maybe [ReservedInstancesModificationResult])
+    , _rimStatus                          :: !(Maybe Text)
+    , _rimClientToken                     :: !(Maybe Text)
+    , _rimUpdateDate                      :: !(Maybe ISO8601)
+    , _rimCreateDate                      :: !(Maybe ISO8601)
+    , _rimEffectiveDate                   :: !(Maybe ISO8601)
+    , _rimStatusMessage                   :: !(Maybe Text)
+    , _rimReservedInstancesModificationId :: !(Maybe Text)
+    , _rimReservedInstancesIds            :: !(Maybe [ReservedInstancesId])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservedInstancesModification' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rimModificationResults'
 --
@@ -6741,20 +6941,8 @@ instance FromXML ReservedInstancesListing where
 -- * 'rimReservedInstancesModificationId'
 --
 -- * 'rimReservedInstancesIds'
-data ReservedInstancesModification = ReservedInstancesModification'
-    { _rimModificationResults             :: !(Maybe [ReservedInstancesModificationResult])
-    , _rimStatus                          :: !(Maybe Text)
-    , _rimClientToken                     :: !(Maybe Text)
-    , _rimUpdateDate                      :: !(Maybe ISO8601)
-    , _rimCreateDate                      :: !(Maybe ISO8601)
-    , _rimEffectiveDate                   :: !(Maybe ISO8601)
-    , _rimStatusMessage                   :: !(Maybe Text)
-    , _rimReservedInstancesModificationId :: !(Maybe Text)
-    , _rimReservedInstancesIds            :: !(Maybe [ReservedInstancesId])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReservedInstancesModification' smart constructor.
-reservedInstancesModification :: ReservedInstancesModification
+reservedInstancesModification
+    :: ReservedInstancesModification
 reservedInstancesModification =
     ReservedInstancesModification'
     { _rimModificationResults = Nothing
@@ -6824,19 +7012,20 @@ instance FromXML ReservedInstancesModification where
                    may (parseXMLList "item"))
 
 -- | /See:/ 'reservedInstancesModificationResult' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rimrReservedInstancesId'
---
--- * 'rimrTargetConfiguration'
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult'
     { _rimrReservedInstancesId :: !(Maybe Text)
     , _rimrTargetConfiguration :: !(Maybe ReservedInstancesConfiguration)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReservedInstancesModificationResult' smart constructor.
-reservedInstancesModificationResult :: ReservedInstancesModificationResult
+-- | Creates a value of 'ReservedInstancesModificationResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rimrReservedInstancesId'
+--
+-- * 'rimrTargetConfiguration'
+reservedInstancesModificationResult
+    :: ReservedInstancesModificationResult
 reservedInstancesModificationResult =
     ReservedInstancesModificationResult'
     { _rimrReservedInstancesId = Nothing
@@ -6864,8 +7053,25 @@ instance FromXML ReservedInstancesModificationResult
 -- | Describes a Reserved Instance offering.
 --
 -- /See:/ 'reservedInstancesOffering' smart constructor.
+data ReservedInstancesOffering = ReservedInstancesOffering'
+    { _rioMarketplace                 :: !(Maybe Bool)
+    , _rioCurrencyCode                :: !(Maybe CurrencyCodeValues)
+    , _rioProductDescription          :: !(Maybe RIProductDescription)
+    , _rioInstanceType                :: !(Maybe InstanceType)
+    , _rioAvailabilityZone            :: !(Maybe Text)
+    , _rioPricingDetails              :: !(Maybe [PricingDetail])
+    , _rioOfferingType                :: !(Maybe OfferingTypeValues)
+    , _rioUsagePrice                  :: !(Maybe Double)
+    , _rioRecurringCharges            :: !(Maybe [RecurringCharge])
+    , _rioReservedInstancesOfferingId :: !(Maybe Text)
+    , _rioInstanceTenancy             :: !(Maybe Tenancy)
+    , _rioFixedPrice                  :: !(Maybe Double)
+    , _rioDuration                    :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReservedInstancesOffering' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rioMarketplace'
 --
@@ -6892,24 +7098,8 @@ instance FromXML ReservedInstancesModificationResult
 -- * 'rioFixedPrice'
 --
 -- * 'rioDuration'
-data ReservedInstancesOffering = ReservedInstancesOffering'
-    { _rioMarketplace                 :: !(Maybe Bool)
-    , _rioCurrencyCode                :: !(Maybe CurrencyCodeValues)
-    , _rioProductDescription          :: !(Maybe RIProductDescription)
-    , _rioInstanceType                :: !(Maybe InstanceType)
-    , _rioAvailabilityZone            :: !(Maybe Text)
-    , _rioPricingDetails              :: !(Maybe [PricingDetail])
-    , _rioOfferingType                :: !(Maybe OfferingTypeValues)
-    , _rioUsagePrice                  :: !(Maybe Double)
-    , _rioRecurringCharges            :: !(Maybe [RecurringCharge])
-    , _rioReservedInstancesOfferingId :: !(Maybe Text)
-    , _rioInstanceTenancy             :: !(Maybe Tenancy)
-    , _rioFixedPrice                  :: !(Maybe Double)
-    , _rioDuration                    :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReservedInstancesOffering' smart constructor.
-reservedInstancesOffering :: ReservedInstancesOffering
+reservedInstancesOffering
+    :: ReservedInstancesOffering
 reservedInstancesOffering =
     ReservedInstancesOffering'
     { _rioMarketplace = Nothing
@@ -6929,13 +7119,13 @@ reservedInstancesOffering =
 
 -- | Indicates whether the offering is available through the Reserved
 -- Instance Marketplace (resale) or AWS. If it\'s a Reserved Instance
--- Marketplace offering, this is @true@.
+-- Marketplace offering, this is 'true'.
 rioMarketplace :: Lens' ReservedInstancesOffering (Maybe Bool)
 rioMarketplace = lens _rioMarketplace (\ s a -> s{_rioMarketplace = a});
 
 -- | The currency of the Reserved Instance offering you are purchasing. It\'s
 -- specified using ISO 4217 standard currency codes. At this time, the only
--- supported currency is @USD@.
+-- supported currency is 'USD'.
 rioCurrencyCode :: Lens' ReservedInstancesOffering (Maybe CurrencyCodeValues)
 rioCurrencyCode = lens _rioCurrencyCode (\ s a -> s{_rioCurrencyCode = a});
 
@@ -7006,8 +7196,21 @@ instance FromXML ReservedInstancesOffering where
 -- | Describes a route in a route table.
 --
 -- /See:/ 'route' smart constructor.
+data Route = Route'
+    { _rInstanceId              :: !(Maybe Text)
+    , _rOrigin                  :: !(Maybe RouteOrigin)
+    , _rVPCPeeringConnectionId  :: !(Maybe Text)
+    , _rState                   :: !(Maybe RouteState)
+    , _rNetworkInterfaceId      :: !(Maybe Text)
+    , _rGatewayId               :: !(Maybe Text)
+    , _rInstanceOwnerId         :: !(Maybe Text)
+    , _rDestinationPrefixListId :: !(Maybe Text)
+    , _rDestinationCIdRBlock    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Route' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rInstanceId'
 --
@@ -7026,20 +7229,8 @@ instance FromXML ReservedInstancesOffering where
 -- * 'rDestinationPrefixListId'
 --
 -- * 'rDestinationCIdRBlock'
-data Route = Route'
-    { _rInstanceId              :: !(Maybe Text)
-    , _rOrigin                  :: !(Maybe RouteOrigin)
-    , _rVPCPeeringConnectionId  :: !(Maybe Text)
-    , _rState                   :: !(Maybe RouteState)
-    , _rNetworkInterfaceId      :: !(Maybe Text)
-    , _rGatewayId               :: !(Maybe Text)
-    , _rInstanceOwnerId         :: !(Maybe Text)
-    , _rDestinationPrefixListId :: !(Maybe Text)
-    , _rDestinationCIdRBlock    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Route' smart constructor.
-route :: Route
+route
+    :: Route
 route =
     Route'
     { _rInstanceId = Nothing
@@ -7059,11 +7250,11 @@ rInstanceId = lens _rInstanceId (\ s a -> s{_rInstanceId = a});
 
 -- | Describes how the route was created.
 --
--- -   @CreateRouteTable@ indicates that route was automatically created
+-- -   'CreateRouteTable' indicates that route was automatically created
 --     when the route table was created.
--- -   @CreateRoute@ indicates that the route was manually added to the
+-- -   'CreateRoute' indicates that the route was manually added to the
 --     route table.
--- -   @EnableVgwRoutePropagation@ indicates that the route was propagated
+-- -   'EnableVgwRoutePropagation' indicates that the route was propagated
 --     by route propagation.
 rOrigin :: Lens' Route (Maybe RouteOrigin)
 rOrigin = lens _rOrigin (\ s a -> s{_rOrigin = a});
@@ -7072,7 +7263,7 @@ rOrigin = lens _rOrigin (\ s a -> s{_rOrigin = a});
 rVPCPeeringConnectionId :: Lens' Route (Maybe Text)
 rVPCPeeringConnectionId = lens _rVPCPeeringConnectionId (\ s a -> s{_rVPCPeeringConnectionId = a});
 
--- | The state of the route. The @blackhole@ state indicates that the
+-- | The state of the route. The 'blackhole' state indicates that the
 -- route\'s target isn\'t available (for example, the specified gateway
 -- isn\'t attached to the VPC, or the specified NAT instance has been
 -- terminated).
@@ -7114,8 +7305,18 @@ instance FromXML Route where
 -- | Describes a route table.
 --
 -- /See:/ 'routeTable' smart constructor.
+data RouteTable = RouteTable'
+    { _rtRoutes          :: !(Maybe [Route])
+    , _rtRouteTableId    :: !(Maybe Text)
+    , _rtVPCId           :: !(Maybe Text)
+    , _rtPropagatingVGWs :: !(Maybe [PropagatingVGW])
+    , _rtAssociations    :: !(Maybe [RouteTableAssociation])
+    , _rtTags            :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RouteTable' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rtRoutes'
 --
@@ -7128,17 +7329,8 @@ instance FromXML Route where
 -- * 'rtAssociations'
 --
 -- * 'rtTags'
-data RouteTable = RouteTable'
-    { _rtRoutes          :: !(Maybe [Route])
-    , _rtRouteTableId    :: !(Maybe Text)
-    , _rtVPCId           :: !(Maybe Text)
-    , _rtPropagatingVGWs :: !(Maybe [PropagatingVGW])
-    , _rtAssociations    :: !(Maybe [RouteTableAssociation])
-    , _rtTags            :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RouteTable' smart constructor.
-routeTable :: RouteTable
+routeTable
+    :: RouteTable
 routeTable =
     RouteTable'
     { _rtRoutes = Nothing
@@ -7193,8 +7385,16 @@ instance FromXML RouteTable where
 -- | Describes an association between a route table and a subnet.
 --
 -- /See:/ 'routeTableAssociation' smart constructor.
+data RouteTableAssociation = RouteTableAssociation'
+    { _rtaRouteTableId            :: !(Maybe Text)
+    , _rtaRouteTableAssociationId :: !(Maybe Text)
+    , _rtaMain                    :: !(Maybe Bool)
+    , _rtaSubnetId                :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RouteTableAssociation' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rtaRouteTableId'
 --
@@ -7203,15 +7403,8 @@ instance FromXML RouteTable where
 -- * 'rtaMain'
 --
 -- * 'rtaSubnetId'
-data RouteTableAssociation = RouteTableAssociation'
-    { _rtaRouteTableId            :: !(Maybe Text)
-    , _rtaRouteTableAssociationId :: !(Maybe Text)
-    , _rtaMain                    :: !(Maybe Bool)
-    , _rtaSubnetId                :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RouteTableAssociation' smart constructor.
-routeTableAssociation :: RouteTableAssociation
+routeTableAssociation
+    :: RouteTableAssociation
 routeTableAssociation =
     RouteTableAssociation'
     { _rtaRouteTableId = Nothing
@@ -7248,16 +7441,18 @@ instance FromXML RouteTableAssociation where
 -- | Describes the monitoring for the instance.
 --
 -- /See:/ 'runInstancesMonitoringEnabled' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rimeEnabled'
 newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled'
     { _rimeEnabled :: Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RunInstancesMonitoringEnabled' smart constructor.
-runInstancesMonitoringEnabled :: Bool -> RunInstancesMonitoringEnabled
+-- | Creates a value of 'RunInstancesMonitoringEnabled' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rimeEnabled'
+runInstancesMonitoringEnabled
+    :: Bool -- ^ 'rimeEnabled'
+    -> RunInstancesMonitoringEnabled
 runInstancesMonitoringEnabled pEnabled_ =
     RunInstancesMonitoringEnabled'
     { _rimeEnabled = pEnabled_
@@ -7279,8 +7474,17 @@ instance ToQuery RunInstancesMonitoringEnabled where
 -- store-backed AMI.
 --
 -- /See:/ 's3Storage' smart constructor.
+data S3Storage = S3Storage'
+    { _ssPrefix                :: !(Maybe Text)
+    , _ssUploadPolicy          :: !(Maybe Base64)
+    , _ssBucket                :: !(Maybe Text)
+    , _ssUploadPolicySignature :: !(Maybe Text)
+    , _ssAWSAccessKeyId        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'S3Storage' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ssPrefix'
 --
@@ -7291,16 +7495,8 @@ instance ToQuery RunInstancesMonitoringEnabled where
 -- * 'ssUploadPolicySignature'
 --
 -- * 'ssAWSAccessKeyId'
-data S3Storage = S3Storage'
-    { _ssPrefix                :: !(Maybe Text)
-    , _ssUploadPolicy          :: !(Maybe Base64)
-    , _ssBucket                :: !(Maybe Text)
-    , _ssUploadPolicySignature :: !(Maybe Text)
-    , _ssAWSAccessKeyId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'S3Storage' smart constructor.
-s3Storage :: S3Storage
+s3Storage
+    :: S3Storage
 s3Storage =
     S3Storage'
     { _ssPrefix = Nothing
@@ -7356,8 +7552,20 @@ instance ToQuery S3Storage where
 -- | Describes a security group
 --
 -- /See:/ 'securityGroup' smart constructor.
+data SecurityGroup = SecurityGroup'
+    { _sgVPCId               :: !(Maybe Text)
+    , _sgIPPermissions       :: !(Maybe [IPPermission])
+    , _sgIPPermissionsEgress :: !(Maybe [IPPermission])
+    , _sgTags                :: !(Maybe [Tag])
+    , _sgOwnerId             :: !Text
+    , _sgGroupId             :: !Text
+    , _sgGroupName           :: !Text
+    , _sgDescription         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SecurityGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sgVPCId'
 --
@@ -7374,19 +7582,12 @@ instance ToQuery S3Storage where
 -- * 'sgGroupName'
 --
 -- * 'sgDescription'
-data SecurityGroup = SecurityGroup'
-    { _sgVPCId               :: !(Maybe Text)
-    , _sgIPPermissions       :: !(Maybe [IPPermission])
-    , _sgIPPermissionsEgress :: !(Maybe [IPPermission])
-    , _sgTags                :: !(Maybe [Tag])
-    , _sgOwnerId             :: !Text
-    , _sgGroupId             :: !Text
-    , _sgGroupName           :: !Text
-    , _sgDescription         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SecurityGroup' smart constructor.
-securityGroup :: Text -> Text -> Text -> Text -> SecurityGroup
+securityGroup
+    :: Text -- ^ 'sgOwnerId'
+    -> Text -- ^ 'sgGroupId'
+    -> Text -- ^ 'sgGroupName'
+    -> Text -- ^ 'sgDescription'
+    -> SecurityGroup
 securityGroup pOwnerId_ pGroupId_ pGroupName_ pDescription_ =
     SecurityGroup'
     { _sgVPCId = Nothing
@@ -7451,8 +7652,24 @@ instance FromXML SecurityGroup where
 -- | Describes a snapshot.
 --
 -- /See:/ 'snapshot' smart constructor.
+data Snapshot = Snapshot'
+    { _sOwnerAlias  :: !(Maybe Text)
+    , _sKMSKeyId    :: !(Maybe Text)
+    , _sTags        :: !(Maybe [Tag])
+    , _sSnapshotId  :: !Text
+    , _sOwnerId     :: !Text
+    , _sVolumeId    :: !Text
+    , _sVolumeSize  :: !Int
+    , _sDescription :: !Text
+    , _sStartTime   :: !ISO8601
+    , _sProgress    :: !Text
+    , _sState       :: !SnapshotState
+    , _sEncrypted   :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sOwnerAlias'
 --
@@ -7477,23 +7694,17 @@ instance FromXML SecurityGroup where
 -- * 'sState'
 --
 -- * 'sEncrypted'
-data Snapshot = Snapshot'
-    { _sOwnerAlias  :: !(Maybe Text)
-    , _sKMSKeyId    :: !(Maybe Text)
-    , _sTags        :: !(Maybe [Tag])
-    , _sSnapshotId  :: !Text
-    , _sOwnerId     :: !Text
-    , _sVolumeId    :: !Text
-    , _sVolumeSize  :: !Int
-    , _sDescription :: !Text
-    , _sStartTime   :: !ISO8601
-    , _sProgress    :: !Text
-    , _sState       :: !SnapshotState
-    , _sEncrypted   :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Snapshot' smart constructor.
-snapshot :: Text -> Text -> Text -> Int -> Text -> UTCTime -> Text -> SnapshotState -> Bool -> Snapshot
+snapshot
+    :: Text -- ^ 'sSnapshotId'
+    -> Text -- ^ 'sOwnerId'
+    -> Text -- ^ 'sVolumeId'
+    -> Int -- ^ 'sVolumeSize'
+    -> Text -- ^ 'sDescription'
+    -> UTCTime -- ^ 'sStartTime'
+    -> Text -- ^ 'sProgress'
+    -> SnapshotState -- ^ 'sState'
+    -> Bool -- ^ 'sEncrypted'
+    -> Snapshot
 snapshot pSnapshotId_ pOwnerId_ pVolumeId_ pVolumeSize_ pDescription_ pStartTime_ pProgress_ pState_ pEncrypted_ =
     Snapshot'
     { _sOwnerAlias = Nothing
@@ -7510,7 +7721,7 @@ snapshot pSnapshotId_ pOwnerId_ pVolumeId_ pVolumeSize_ pDescription_ pStartTime
     , _sEncrypted = pEncrypted_
     }
 
--- | The AWS account alias (for example, @amazon@, @self@) or AWS account ID
+-- | The AWS account alias (for example, 'amazon', 'self') or AWS account ID
 -- that owns the snapshot.
 sOwnerAlias :: Lens' Snapshot (Maybe Text)
 sOwnerAlias = lens _sOwnerAlias (\ s a -> s{_sOwnerAlias = a});
@@ -7580,8 +7791,22 @@ instance FromXML Snapshot where
 -- | Describes the snapshot created from the imported disk.
 --
 -- /See:/ 'snapshotDetail' smart constructor.
+data SnapshotDetail = SnapshotDetail'
+    { _sdStatus        :: !(Maybe Text)
+    , _sdProgress      :: !(Maybe Text)
+    , _sdURL           :: !(Maybe Text)
+    , _sdFormat        :: !(Maybe Text)
+    , _sdDeviceName    :: !(Maybe Text)
+    , _sdUserBucket    :: !(Maybe UserBucketDetails)
+    , _sdDiskImageSize :: !(Maybe Double)
+    , _sdStatusMessage :: !(Maybe Text)
+    , _sdDescription   :: !(Maybe Text)
+    , _sdSnapshotId    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SnapshotDetail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sdStatus'
 --
@@ -7602,21 +7827,8 @@ instance FromXML Snapshot where
 -- * 'sdDescription'
 --
 -- * 'sdSnapshotId'
-data SnapshotDetail = SnapshotDetail'
-    { _sdStatus        :: !(Maybe Text)
-    , _sdProgress      :: !(Maybe Text)
-    , _sdURL           :: !(Maybe Text)
-    , _sdFormat        :: !(Maybe Text)
-    , _sdDeviceName    :: !(Maybe Text)
-    , _sdUserBucket    :: !(Maybe UserBucketDetails)
-    , _sdDiskImageSize :: !(Maybe Double)
-    , _sdStatusMessage :: !(Maybe Text)
-    , _sdDescription   :: !(Maybe Text)
-    , _sdSnapshotId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SnapshotDetail' smart constructor.
-snapshotDetail :: SnapshotDetail
+snapshotDetail
+    :: SnapshotDetail
 snapshotDetail =
     SnapshotDetail'
     { _sdStatus = Nothing
@@ -7687,8 +7899,16 @@ instance FromXML SnapshotDetail where
 -- | The disk container object for the import snapshot request.
 --
 -- /See:/ 'snapshotDiskContainer' smart constructor.
+data SnapshotDiskContainer = SnapshotDiskContainer'
+    { _sdcURL         :: !(Maybe Text)
+    , _sdcFormat      :: !(Maybe Text)
+    , _sdcUserBucket  :: !(Maybe UserBucket)
+    , _sdcDescription :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SnapshotDiskContainer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sdcURL'
 --
@@ -7697,15 +7917,8 @@ instance FromXML SnapshotDetail where
 -- * 'sdcUserBucket'
 --
 -- * 'sdcDescription'
-data SnapshotDiskContainer = SnapshotDiskContainer'
-    { _sdcURL         :: !(Maybe Text)
-    , _sdcFormat      :: !(Maybe Text)
-    , _sdcUserBucket  :: !(Maybe UserBucket)
-    , _sdcDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SnapshotDiskContainer' smart constructor.
-snapshotDiskContainer :: SnapshotDiskContainer
+snapshotDiskContainer
+    :: SnapshotDiskContainer
 snapshotDiskContainer =
     SnapshotDiskContainer'
     { _sdcURL = Nothing
@@ -7721,7 +7934,7 @@ sdcURL = lens _sdcURL (\ s a -> s{_sdcURL = a});
 
 -- | The format of the disk image being imported.
 --
--- Valid values: @RAW@ | @VHD@ | @VMDK@ | @OVA@
+-- Valid values: 'RAW' | 'VHD' | 'VMDK' | 'OVA'
 sdcFormat :: Lens' SnapshotDiskContainer (Maybe Text)
 sdcFormat = lens _sdcFormat (\ s a -> s{_sdcFormat = a});
 
@@ -7743,8 +7956,21 @@ instance ToQuery SnapshotDiskContainer where
 -- | Details about the import snapshot task.
 --
 -- /See:/ 'snapshotTaskDetail' smart constructor.
+data SnapshotTaskDetail = SnapshotTaskDetail'
+    { _stdStatus        :: !(Maybe Text)
+    , _stdProgress      :: !(Maybe Text)
+    , _stdURL           :: !(Maybe Text)
+    , _stdFormat        :: !(Maybe Text)
+    , _stdUserBucket    :: !(Maybe UserBucketDetails)
+    , _stdDiskImageSize :: !(Maybe Double)
+    , _stdStatusMessage :: !(Maybe Text)
+    , _stdDescription   :: !(Maybe Text)
+    , _stdSnapshotId    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SnapshotTaskDetail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'stdStatus'
 --
@@ -7763,20 +7989,8 @@ instance ToQuery SnapshotDiskContainer where
 -- * 'stdDescription'
 --
 -- * 'stdSnapshotId'
-data SnapshotTaskDetail = SnapshotTaskDetail'
-    { _stdStatus        :: !(Maybe Text)
-    , _stdProgress      :: !(Maybe Text)
-    , _stdURL           :: !(Maybe Text)
-    , _stdFormat        :: !(Maybe Text)
-    , _stdUserBucket    :: !(Maybe UserBucketDetails)
-    , _stdDiskImageSize :: !(Maybe Double)
-    , _stdStatusMessage :: !(Maybe Text)
-    , _stdDescription   :: !(Maybe Text)
-    , _stdSnapshotId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SnapshotTaskDetail' smart constructor.
-snapshotTaskDetail :: SnapshotTaskDetail
+snapshotTaskDetail
+    :: SnapshotTaskDetail
 snapshotTaskDetail =
     SnapshotTaskDetail'
     { _stdStatus = Nothing
@@ -7841,8 +8055,17 @@ instance FromXML SnapshotTaskDetail where
 -- | Describes the data feed for a Spot Instance.
 --
 -- /See:/ 'spotDatafeedSubscription' smart constructor.
+data SpotDatafeedSubscription = SpotDatafeedSubscription'
+    { _sdsState   :: !(Maybe DatafeedSubscriptionState)
+    , _sdsPrefix  :: !(Maybe Text)
+    , _sdsBucket  :: !(Maybe Text)
+    , _sdsOwnerId :: !(Maybe Text)
+    , _sdsFault   :: !(Maybe SpotInstanceStateFault)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SpotDatafeedSubscription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sdsState'
 --
@@ -7853,16 +8076,8 @@ instance FromXML SnapshotTaskDetail where
 -- * 'sdsOwnerId'
 --
 -- * 'sdsFault'
-data SpotDatafeedSubscription = SpotDatafeedSubscription'
-    { _sdsState   :: !(Maybe DatafeedSubscriptionState)
-    , _sdsPrefix  :: !(Maybe Text)
-    , _sdsBucket  :: !(Maybe Text)
-    , _sdsOwnerId :: !(Maybe Text)
-    , _sdsFault   :: !(Maybe SpotInstanceStateFault)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SpotDatafeedSubscription' smart constructor.
-spotDatafeedSubscription :: SpotDatafeedSubscription
+spotDatafeedSubscription
+    :: SpotDatafeedSubscription
 spotDatafeedSubscription =
     SpotDatafeedSubscription'
     { _sdsState = Nothing
@@ -7903,8 +8118,27 @@ instance FromXML SpotDatafeedSubscription where
 -- | Describes the launch specification for an instance.
 --
 -- /See:/ 'spotFleetLaunchSpecification' smart constructor.
+data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
+    { _sflsSecurityGroups      :: !(Maybe [GroupIdentifier])
+    , _sflsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
+    , _sflsKeyName             :: !(Maybe Text)
+    , _sflsRAMDiskId           :: !(Maybe Text)
+    , _sflsKernelId            :: !(Maybe Text)
+    , _sflsSubnetId            :: !(Maybe Text)
+    , _sflsInstanceType        :: !(Maybe InstanceType)
+    , _sflsEBSOptimized        :: !(Maybe Bool)
+    , _sflsUserData            :: !(Maybe Text)
+    , _sflsMonitoring          :: !(Maybe SpotFleetMonitoring)
+    , _sflsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
+    , _sflsImageId             :: !(Maybe Text)
+    , _sflsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _sflsAddressingType      :: !(Maybe Text)
+    , _sflsPlacement           :: !(Maybe SpotPlacement)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SpotFleetLaunchSpecification' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sflsSecurityGroups'
 --
@@ -7935,26 +8169,8 @@ instance FromXML SpotDatafeedSubscription where
 -- * 'sflsAddressingType'
 --
 -- * 'sflsPlacement'
-data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
-    { _sflsSecurityGroups      :: !(Maybe [GroupIdentifier])
-    , _sflsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
-    , _sflsKeyName             :: !(Maybe Text)
-    , _sflsRAMDiskId           :: !(Maybe Text)
-    , _sflsKernelId            :: !(Maybe Text)
-    , _sflsSubnetId            :: !(Maybe Text)
-    , _sflsInstanceType        :: !(Maybe InstanceType)
-    , _sflsEBSOptimized        :: !(Maybe Bool)
-    , _sflsUserData            :: !(Maybe Text)
-    , _sflsMonitoring          :: !(Maybe SpotFleetMonitoring)
-    , _sflsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
-    , _sflsImageId             :: !(Maybe Text)
-    , _sflsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _sflsAddressingType      :: !(Maybe Text)
-    , _sflsPlacement           :: !(Maybe SpotPlacement)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SpotFleetLaunchSpecification' smart constructor.
-spotFleetLaunchSpecification :: SpotFleetLaunchSpecification
+spotFleetLaunchSpecification
+    :: SpotFleetLaunchSpecification
 spotFleetLaunchSpecification =
     SpotFleetLaunchSpecification'
     { _sflsSecurityGroups = Nothing
@@ -8011,7 +8227,7 @@ sflsInstanceType = lens _sflsInstanceType (\ s a -> s{_sflsInstanceType = a});
 -- This optimization isn\'t available with all instance types. Additional
 -- usage charges apply when using an EBS Optimized instance.
 --
--- Default: @false@
+-- Default: 'false'
 sflsEBSOptimized :: Lens' SpotFleetLaunchSpecification (Maybe Bool)
 sflsEBSOptimized = lens _sflsEBSOptimized (\ s a -> s{_sflsEBSOptimized = a});
 
@@ -8092,16 +8308,17 @@ instance ToQuery SpotFleetLaunchSpecification where
 -- | Describes whether monitoring is enabled.
 --
 -- /See:/ 'spotFleetMonitoring' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sfmEnabled'
 newtype SpotFleetMonitoring = SpotFleetMonitoring'
     { _sfmEnabled :: Maybe Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SpotFleetMonitoring' smart constructor.
-spotFleetMonitoring :: SpotFleetMonitoring
+-- | Creates a value of 'SpotFleetMonitoring' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sfmEnabled'
+spotFleetMonitoring
+    :: SpotFleetMonitoring
 spotFleetMonitoring =
     SpotFleetMonitoring'
     { _sfmEnabled = Nothing
@@ -8109,7 +8326,7 @@ spotFleetMonitoring =
 
 -- | Enables monitoring for the instance.
 --
--- Default: @false@
+-- Default: 'false'
 sfmEnabled :: Lens' SpotFleetMonitoring (Maybe Bool)
 sfmEnabled = lens _sfmEnabled (\ s a -> s{_sfmEnabled = a});
 
@@ -8124,22 +8341,26 @@ instance ToQuery SpotFleetMonitoring where
 -- | Describes a Spot fleet request.
 --
 -- /See:/ 'spotFleetRequestConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sfrcSpotFleetRequestId'
---
--- * 'sfrcSpotFleetRequestState'
---
--- * 'sfrcSpotFleetRequestConfig'
 data SpotFleetRequestConfig = SpotFleetRequestConfig'
     { _sfrcSpotFleetRequestId     :: !Text
     , _sfrcSpotFleetRequestState  :: !BatchState
     , _sfrcSpotFleetRequestConfig :: !SpotFleetRequestConfigData
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SpotFleetRequestConfig' smart constructor.
-spotFleetRequestConfig :: Text -> BatchState -> SpotFleetRequestConfigData -> SpotFleetRequestConfig
+-- | Creates a value of 'SpotFleetRequestConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sfrcSpotFleetRequestId'
+--
+-- * 'sfrcSpotFleetRequestState'
+--
+-- * 'sfrcSpotFleetRequestConfig'
+spotFleetRequestConfig
+    :: Text -- ^ 'sfrcSpotFleetRequestId'
+    -> BatchState -- ^ 'sfrcSpotFleetRequestState'
+    -> SpotFleetRequestConfigData -- ^ 'sfrcSpotFleetRequestConfig'
+    -> SpotFleetRequestConfig
 spotFleetRequestConfig pSpotFleetRequestId_ pSpotFleetRequestState_ pSpotFleetRequestConfig_ =
     SpotFleetRequestConfig'
     { _sfrcSpotFleetRequestId = pSpotFleetRequestId_
@@ -8169,8 +8390,20 @@ instance FromXML SpotFleetRequestConfig where
 -- | Describes the configuration of a Spot fleet request.
 --
 -- /See:/ 'spotFleetRequestConfigData' smart constructor.
+data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
+    { _sfrcdClientToken                      :: !(Maybe Text)
+    , _sfrcdValidUntil                       :: !(Maybe ISO8601)
+    , _sfrcdTerminateInstancesWithExpiration :: !(Maybe Bool)
+    , _sfrcdValidFrom                        :: !(Maybe ISO8601)
+    , _sfrcdSpotPrice                        :: !Text
+    , _sfrcdTargetCapacity                   :: !Int
+    , _sfrcdIAMFleetRole                     :: !Text
+    , _sfrcdLaunchSpecifications             :: !(List1 SpotFleetLaunchSpecification)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SpotFleetRequestConfigData' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sfrcdClientToken'
 --
@@ -8187,19 +8420,12 @@ instance FromXML SpotFleetRequestConfig where
 -- * 'sfrcdIAMFleetRole'
 --
 -- * 'sfrcdLaunchSpecifications'
-data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
-    { _sfrcdClientToken                      :: !(Maybe Text)
-    , _sfrcdValidUntil                       :: !(Maybe ISO8601)
-    , _sfrcdTerminateInstancesWithExpiration :: !(Maybe Bool)
-    , _sfrcdValidFrom                        :: !(Maybe ISO8601)
-    , _sfrcdSpotPrice                        :: !Text
-    , _sfrcdTargetCapacity                   :: !Int
-    , _sfrcdIAMFleetRole                     :: !Text
-    , _sfrcdLaunchSpecifications             :: !(List1 SpotFleetLaunchSpecification)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SpotFleetRequestConfigData' smart constructor.
-spotFleetRequestConfigData :: Text -> Int -> Text -> NonEmpty SpotFleetLaunchSpecification -> SpotFleetRequestConfigData
+spotFleetRequestConfigData
+    :: Text -- ^ 'sfrcdSpotPrice'
+    -> Int -- ^ 'sfrcdTargetCapacity'
+    -> Text -- ^ 'sfrcdIAMFleetRole'
+    -> NonEmpty SpotFleetLaunchSpecification -- ^ 'sfrcdLaunchSpecifications'
+    -> SpotFleetRequestConfigData
 spotFleetRequestConfigData pSpotPrice_ pTargetCapacity_ pIAMFleetRole_ pLaunchSpecifications_ =
     SpotFleetRequestConfigData'
     { _sfrcdClientToken = Nothing
@@ -8248,7 +8474,7 @@ sfrcdTargetCapacity = lens _sfrcdTargetCapacity (\ s a -> s{_sfrcdTargetCapacity
 -- | Grants the Spot fleet service permission to terminate instances on your
 -- behalf when you cancel a Spot fleet request using
 -- CancelSpotFleetRequests or when the Spot fleet request expires, if you
--- set @terminateInstancesWithExpiration@.
+-- set 'terminateInstancesWithExpiration'.
 sfrcdIAMFleetRole :: Lens' SpotFleetRequestConfigData Text
 sfrcdIAMFleetRole = lens _sfrcdIAMFleetRole (\ s a -> s{_sfrcdIAMFleetRole = a});
 
@@ -8285,8 +8511,28 @@ instance ToQuery SpotFleetRequestConfigData where
 -- | Describe a Spot Instance request.
 --
 -- /See:/ 'spotInstanceRequest' smart constructor.
+data SpotInstanceRequest = SpotInstanceRequest'
+    { _sirInstanceId               :: !(Maybe Text)
+    , _sirStatus                   :: !(Maybe SpotInstanceStatus)
+    , _sirState                    :: !(Maybe SpotInstanceState)
+    , _sirProductDescription       :: !(Maybe RIProductDescription)
+    , _sirSpotPrice                :: !(Maybe Text)
+    , _sirAvailabilityZoneGroup    :: !(Maybe Text)
+    , _sirLaunchSpecification      :: !(Maybe LaunchSpecification)
+    , _sirLaunchedAvailabilityZone :: !(Maybe Text)
+    , _sirValidUntil               :: !(Maybe ISO8601)
+    , _sirFault                    :: !(Maybe SpotInstanceStateFault)
+    , _sirLaunchGroup              :: !(Maybe Text)
+    , _sirSpotInstanceRequestId    :: !(Maybe Text)
+    , _sirType                     :: !(Maybe SpotInstanceType)
+    , _sirValidFrom                :: !(Maybe ISO8601)
+    , _sirTags                     :: !(Maybe [Tag])
+    , _sirCreateTime               :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SpotInstanceRequest' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sirInstanceId'
 --
@@ -8319,27 +8565,8 @@ instance ToQuery SpotFleetRequestConfigData where
 -- * 'sirTags'
 --
 -- * 'sirCreateTime'
-data SpotInstanceRequest = SpotInstanceRequest'
-    { _sirInstanceId               :: !(Maybe Text)
-    , _sirStatus                   :: !(Maybe SpotInstanceStatus)
-    , _sirState                    :: !(Maybe SpotInstanceState)
-    , _sirProductDescription       :: !(Maybe RIProductDescription)
-    , _sirSpotPrice                :: !(Maybe Text)
-    , _sirAvailabilityZoneGroup    :: !(Maybe Text)
-    , _sirLaunchSpecification      :: !(Maybe LaunchSpecification)
-    , _sirLaunchedAvailabilityZone :: !(Maybe Text)
-    , _sirValidUntil               :: !(Maybe ISO8601)
-    , _sirFault                    :: !(Maybe SpotInstanceStateFault)
-    , _sirLaunchGroup              :: !(Maybe Text)
-    , _sirSpotInstanceRequestId    :: !(Maybe Text)
-    , _sirType                     :: !(Maybe SpotInstanceType)
-    , _sirValidFrom                :: !(Maybe ISO8601)
-    , _sirTags                     :: !(Maybe [Tag])
-    , _sirCreateTime               :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SpotInstanceRequest' smart constructor.
-spotInstanceRequest :: SpotInstanceRequest
+spotInstanceRequest
+    :: SpotInstanceRequest
 spotInstanceRequest =
     SpotInstanceRequest'
     { _sirInstanceId = Nothing
@@ -8466,19 +8693,20 @@ instance FromXML SpotInstanceRequest where
 -- | Describes a Spot Instance state change.
 --
 -- /See:/ 'spotInstanceStateFault' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sisfCode'
---
--- * 'sisfMessage'
 data SpotInstanceStateFault = SpotInstanceStateFault'
     { _sisfCode    :: !(Maybe Text)
     , _sisfMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SpotInstanceStateFault' smart constructor.
-spotInstanceStateFault :: SpotInstanceStateFault
+-- | Creates a value of 'SpotInstanceStateFault' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sisfCode'
+--
+-- * 'sisfMessage'
+spotInstanceStateFault
+    :: SpotInstanceStateFault
 spotInstanceStateFault =
     SpotInstanceStateFault'
     { _sisfCode = Nothing
@@ -8501,22 +8729,23 @@ instance FromXML SpotInstanceStateFault where
 -- | Describes the status of a Spot Instance request.
 --
 -- /See:/ 'spotInstanceStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sisUpdateTime'
---
--- * 'sisCode'
---
--- * 'sisMessage'
 data SpotInstanceStatus = SpotInstanceStatus'
     { _sisUpdateTime :: !(Maybe ISO8601)
     , _sisCode       :: !(Maybe Text)
     , _sisMessage    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SpotInstanceStatus' smart constructor.
-spotInstanceStatus :: SpotInstanceStatus
+-- | Creates a value of 'SpotInstanceStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sisUpdateTime'
+--
+-- * 'sisCode'
+--
+-- * 'sisMessage'
+spotInstanceStatus
+    :: SpotInstanceStatus
 spotInstanceStatus =
     SpotInstanceStatus'
     { _sisUpdateTime = Nothing
@@ -8546,19 +8775,20 @@ instance FromXML SpotInstanceStatus where
 -- | Describes Spot Instance placement.
 --
 -- /See:/ 'spotPlacement' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'spAvailabilityZone'
---
--- * 'spGroupName'
 data SpotPlacement = SpotPlacement'
     { _spAvailabilityZone :: !(Maybe Text)
     , _spGroupName        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SpotPlacement' smart constructor.
-spotPlacement :: SpotPlacement
+-- | Creates a value of 'SpotPlacement' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spAvailabilityZone'
+--
+-- * 'spGroupName'
+spotPlacement
+    :: SpotPlacement
 spotPlacement =
     SpotPlacement'
     { _spAvailabilityZone = Nothing
@@ -8588,8 +8818,17 @@ instance ToQuery SpotPlacement where
 -- to fulfill the request.
 --
 -- /See:/ 'spotPrice' smart constructor.
+data SpotPrice = SpotPrice'
+    { _sProductDescription :: !(Maybe RIProductDescription)
+    , _sSpotPrice          :: !(Maybe Text)
+    , _sInstanceType       :: !(Maybe InstanceType)
+    , _sAvailabilityZone   :: !(Maybe Text)
+    , _sTimestamp          :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SpotPrice' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sProductDescription'
 --
@@ -8600,16 +8839,8 @@ instance ToQuery SpotPlacement where
 -- * 'sAvailabilityZone'
 --
 -- * 'sTimestamp'
-data SpotPrice = SpotPrice'
-    { _sProductDescription :: !(Maybe RIProductDescription)
-    , _sSpotPrice          :: !(Maybe Text)
-    , _sInstanceType       :: !(Maybe InstanceType)
-    , _sAvailabilityZone   :: !(Maybe Text)
-    , _sTimestamp          :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SpotPrice' smart constructor.
-spotPrice :: SpotPrice
+spotPrice
+    :: SpotPrice
 spotPrice =
     SpotPrice'
     { _sProductDescription = Nothing
@@ -8651,19 +8882,20 @@ instance FromXML SpotPrice where
 -- | Describes a state change.
 --
 -- /See:/ 'stateReason' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'srCode'
---
--- * 'srMessage'
 data StateReason = StateReason'
     { _srCode    :: !(Maybe Text)
     , _srMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StateReason' smart constructor.
-stateReason :: StateReason
+-- | Creates a value of 'StateReason' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srCode'
+--
+-- * 'srMessage'
+stateReason
+    :: StateReason
 stateReason =
     StateReason'
     { _srCode = Nothing
@@ -8676,27 +8908,27 @@ srCode = lens _srCode (\ s a -> s{_srCode = a});
 
 -- | The message for the state change.
 --
--- -   @Server.SpotInstanceTermination@: A Spot Instance was terminated due
+-- -   'Server.SpotInstanceTermination': A Spot Instance was terminated due
 --     to an increase in the market price.
 --
--- -   @Server.InternalError@: An internal error occurred during instance
+-- -   'Server.InternalError': An internal error occurred during instance
 --     launch, resulting in termination.
 --
--- -   @Server.InsufficientInstanceCapacity@: There was insufficient
+-- -   'Server.InsufficientInstanceCapacity': There was insufficient
 --     instance capacity to satisfy the launch request.
 --
--- -   @Client.InternalError@: A client error caused the instance to
+-- -   'Client.InternalError': A client error caused the instance to
 --     terminate on launch.
 --
--- -   @Client.InstanceInitiatedShutdown@: The instance was shut down using
---     the @shutdown -h@ command from the instance.
+-- -   'Client.InstanceInitiatedShutdown': The instance was shut down using
+--     the 'shutdown -h' command from the instance.
 --
--- -   @Client.UserInitiatedShutdown@: The instance was shut down using the
+-- -   'Client.UserInitiatedShutdown': The instance was shut down using the
 --     Amazon EC2 API.
 --
--- -   @Client.VolumeLimitExceeded@: The volume limit was exceeded.
+-- -   'Client.VolumeLimitExceeded': The volume limit was exceeded.
 --
--- -   @Client.InvalidSnapshot.NotFound@: The specified snapshot was not
+-- -   'Client.InvalidSnapshot.NotFound': The specified snapshot was not
 --     found.
 --
 srMessage :: Lens' StateReason (Maybe Text)
@@ -8710,16 +8942,17 @@ instance FromXML StateReason where
 -- | Describes the storage location for an instance store-backed AMI.
 --
 -- /See:/ 'storage' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sS3'
 newtype Storage = Storage'
     { _sS3 :: Maybe S3Storage
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Storage' smart constructor.
-storage :: Storage
+-- | Creates a value of 'Storage' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sS3'
+storage
+    :: Storage
 storage =
     Storage'
     { _sS3 = Nothing
@@ -8738,8 +8971,21 @@ instance ToQuery Storage where
 -- | Describes a subnet.
 --
 -- /See:/ 'subnet' smart constructor.
+data Subnet = Subnet'
+    { _subTags                    :: !(Maybe [Tag])
+    , _subAvailabilityZone        :: !Text
+    , _subAvailableIPAddressCount :: !Int
+    , _subCIdRBlock               :: !Text
+    , _subDefaultForAz            :: !Bool
+    , _subMapPublicIPOnLaunch     :: !Bool
+    , _subState                   :: !SubnetState
+    , _subSubnetId                :: !Text
+    , _subVPCId                   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Subnet' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'subTags'
 --
@@ -8758,20 +9004,16 @@ instance ToQuery Storage where
 -- * 'subSubnetId'
 --
 -- * 'subVPCId'
-data Subnet = Subnet'
-    { _subTags                    :: !(Maybe [Tag])
-    , _subAvailabilityZone        :: !Text
-    , _subAvailableIPAddressCount :: !Int
-    , _subCIdRBlock               :: !Text
-    , _subDefaultForAz            :: !Bool
-    , _subMapPublicIPOnLaunch     :: !Bool
-    , _subState                   :: !SubnetState
-    , _subSubnetId                :: !Text
-    , _subVPCId                   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Subnet' smart constructor.
-subnet :: Text -> Int -> Text -> Bool -> Bool -> SubnetState -> Text -> Text -> Subnet
+subnet
+    :: Text -- ^ 'subAvailabilityZone'
+    -> Int -- ^ 'subAvailableIPAddressCount'
+    -> Text -- ^ 'subCIdRBlock'
+    -> Bool -- ^ 'subDefaultForAz'
+    -> Bool -- ^ 'subMapPublicIPOnLaunch'
+    -> SubnetState -- ^ 'subState'
+    -> Text -- ^ 'subSubnetId'
+    -> Text -- ^ 'subVPCId'
+    -> Subnet
 subnet pAvailabilityZone_ pAvailableIPAddressCount_ pCIdRBlock_ pDefaultForAz_ pMapPublicIPOnLaunch_ pState_ pSubnetId_ pVPCId_ =
     Subnet'
     { _subTags = Nothing
@@ -8840,19 +9082,22 @@ instance FromXML Subnet where
 -- | Describes a tag.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagKey'
---
--- * 'tagValue'
 data Tag = Tag'
     { _tagKey   :: !Text
     , _tagValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Text -> Text -> Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagKey'
+--
+-- * 'tagValue'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
 tag pKey_ pValue_ =
     Tag'
     { _tagKey = pKey_
@@ -8862,7 +9107,7 @@ tag pKey_ pValue_ =
 -- | The key of the tag.
 --
 -- Constraints: Tag keys are case-sensitive and accept a maximum of 127
--- Unicode characters. May not begin with @aws:@
+-- Unicode characters. May not begin with 'aws:'
 tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
@@ -8883,8 +9128,16 @@ instance ToQuery Tag where
 -- | Describes a tag.
 --
 -- /See:/ 'tagDescription' smart constructor.
+data TagDescription = TagDescription'
+    { _tdResourceId   :: !Text
+    , _tdResourceType :: !ResourceType
+    , _tdKey          :: !Text
+    , _tdValue        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TagDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tdResourceId'
 --
@@ -8893,15 +9146,12 @@ instance ToQuery Tag where
 -- * 'tdKey'
 --
 -- * 'tdValue'
-data TagDescription = TagDescription'
-    { _tdResourceId   :: !Text
-    , _tdResourceType :: !ResourceType
-    , _tdKey          :: !Text
-    , _tdValue        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TagDescription' smart constructor.
-tagDescription :: Text -> ResourceType -> Text -> Text -> TagDescription
+tagDescription
+    :: Text -- ^ 'tdResourceId'
+    -> ResourceType -- ^ 'tdResourceType'
+    -> Text -- ^ 'tdKey'
+    -> Text -- ^ 'tdValue'
+    -> TagDescription
 tagDescription pResourceId_ pResourceType_ pKey_ pValue_ =
     TagDescription'
     { _tdResourceId = pResourceId_
@@ -8910,7 +9160,7 @@ tagDescription pResourceId_ pResourceType_ pKey_ pValue_ =
     , _tdValue = pValue_
     }
 
--- | The ID of the resource. For example, @ami-1a2b3c4d@.
+-- | The ID of the resource. For example, 'ami-1a2b3c4d'.
 tdResourceId :: Lens' TagDescription Text
 tdResourceId = lens _tdResourceId (\ s a -> s{_tdResourceId = a});
 
@@ -8937,19 +9187,21 @@ instance FromXML TagDescription where
 -- call.
 --
 -- /See:/ 'unsuccessfulItem' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uiResourceId'
---
--- * 'uiError'
 data UnsuccessfulItem = UnsuccessfulItem'
     { _uiResourceId :: !(Maybe Text)
     , _uiError      :: !UnsuccessfulItemError
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnsuccessfulItem' smart constructor.
-unsuccessfulItem :: UnsuccessfulItemError -> UnsuccessfulItem
+-- | Creates a value of 'UnsuccessfulItem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uiResourceId'
+--
+-- * 'uiError'
+unsuccessfulItem
+    :: UnsuccessfulItemError -- ^ 'uiError'
+    -> UnsuccessfulItem
 unsuccessfulItem pError_ =
     UnsuccessfulItem'
     { _uiResourceId = Nothing
@@ -8974,19 +9226,22 @@ instance FromXML UnsuccessfulItem where
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html Error Codes>.
 --
 -- /See:/ 'unsuccessfulItemError' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uieCode'
---
--- * 'uieMessage'
 data UnsuccessfulItemError = UnsuccessfulItemError'
     { _uieCode    :: !Text
     , _uieMessage :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnsuccessfulItemError' smart constructor.
-unsuccessfulItemError :: Text -> Text -> UnsuccessfulItemError
+-- | Creates a value of 'UnsuccessfulItemError' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uieCode'
+--
+-- * 'uieMessage'
+unsuccessfulItemError
+    :: Text -- ^ 'uieCode'
+    -> Text -- ^ 'uieMessage'
+    -> UnsuccessfulItemError
 unsuccessfulItemError pCode_ pMessage_ =
     UnsuccessfulItemError'
     { _uieCode = pCode_
@@ -9009,19 +9264,20 @@ instance FromXML UnsuccessfulItemError where
 -- | Describes the S3 bucket for the disk image.
 --
 -- /See:/ 'userBucket' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ubS3Key'
---
--- * 'ubS3Bucket'
 data UserBucket = UserBucket'
     { _ubS3Key    :: !(Maybe Text)
     , _ubS3Bucket :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UserBucket' smart constructor.
-userBucket :: UserBucket
+-- | Creates a value of 'UserBucket' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ubS3Key'
+--
+-- * 'ubS3Bucket'
+userBucket
+    :: UserBucket
 userBucket =
     UserBucket'
     { _ubS3Key = Nothing
@@ -9044,19 +9300,20 @@ instance ToQuery UserBucket where
 -- | Describes the S3 bucket for the disk image.
 --
 -- /See:/ 'userBucketDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ubdS3Key'
---
--- * 'ubdS3Bucket'
 data UserBucketDetails = UserBucketDetails'
     { _ubdS3Key    :: !(Maybe Text)
     , _ubdS3Bucket :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UserBucketDetails' smart constructor.
-userBucketDetails :: UserBucketDetails
+-- | Creates a value of 'UserBucketDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ubdS3Key'
+--
+-- * 'ubdS3Bucket'
+userBucketDetails
+    :: UserBucketDetails
 userBucketDetails =
     UserBucketDetails'
     { _ubdS3Key = Nothing
@@ -9079,16 +9336,17 @@ instance FromXML UserBucketDetails where
 -- | Describes the user data to be made available to an instance.
 --
 -- /See:/ 'userData' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udData'
 newtype UserData = UserData'
     { _udData :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UserData' smart constructor.
-userData :: UserData
+-- | Creates a value of 'UserData' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udData'
+userData
+    :: UserData
 userData =
     UserData'
     { _udData = Nothing
@@ -9104,22 +9362,23 @@ instance ToQuery UserData where
 -- | Describes a security group and AWS account ID pair.
 --
 -- /See:/ 'userIdGroupPair' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uigpUserId'
---
--- * 'uigpGroupId'
---
--- * 'uigpGroupName'
 data UserIdGroupPair = UserIdGroupPair'
     { _uigpUserId    :: !(Maybe Text)
     , _uigpGroupId   :: !(Maybe Text)
     , _uigpGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UserIdGroupPair' smart constructor.
-userIdGroupPair :: UserIdGroupPair
+-- | Creates a value of 'UserIdGroupPair' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uigpUserId'
+--
+-- * 'uigpGroupId'
+--
+-- * 'uigpGroupName'
+userIdGroupPair
+    :: UserIdGroupPair
 userIdGroupPair =
     UserIdGroupPair'
     { _uigpUserId = Nothing
@@ -9137,7 +9396,7 @@ uigpGroupId = lens _uigpGroupId (\ s a -> s{_uigpGroupId = a});
 
 -- | The name of the security group. In a request, use this parameter for a
 -- security group in EC2-Classic or a default VPC only. For a security
--- group in a nondefault VPC, use @GroupId@.
+-- group in a nondefault VPC, use 'GroupId'.
 uigpGroupName :: Lens' UserIdGroupPair (Maybe Text)
 uigpGroupName = lens _uigpGroupName (\ s a -> s{_uigpGroupName = a});
 
@@ -9156,8 +9415,17 @@ instance ToQuery UserIdGroupPair where
 -- | Describes telemetry for a VPN tunnel.
 --
 -- /See:/ 'vgwTelemetry' smart constructor.
+data VGWTelemetry = VGWTelemetry'
+    { _vtStatus             :: !(Maybe TelemetryStatus)
+    , _vtOutsideIPAddress   :: !(Maybe Text)
+    , _vtLastStatusChange   :: !(Maybe ISO8601)
+    , _vtAcceptedRouteCount :: !(Maybe Int)
+    , _vtStatusMessage      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VGWTelemetry' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vtStatus'
 --
@@ -9168,16 +9436,8 @@ instance ToQuery UserIdGroupPair where
 -- * 'vtAcceptedRouteCount'
 --
 -- * 'vtStatusMessage'
-data VGWTelemetry = VGWTelemetry'
-    { _vtStatus             :: !(Maybe TelemetryStatus)
-    , _vtOutsideIPAddress   :: !(Maybe Text)
-    , _vtLastStatusChange   :: !(Maybe ISO8601)
-    , _vtAcceptedRouteCount :: !(Maybe Int)
-    , _vtStatusMessage      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VGWTelemetry' smart constructor.
-vgwTelemetry :: VGWTelemetry
+vgwTelemetry
+    :: VGWTelemetry
 vgwTelemetry =
     VGWTelemetry'
     { _vtStatus = Nothing
@@ -9219,8 +9479,19 @@ instance FromXML VGWTelemetry where
 -- | Describes a VPC.
 --
 -- /See:/ 'vpc' smart constructor.
+data VPC = VPC'
+    { _vpcTags            :: !(Maybe [Tag])
+    , _vpcCIdRBlock       :: !Text
+    , _vpcDHCPOptionsId   :: !Text
+    , _vpcInstanceTenancy :: !Tenancy
+    , _vpcIsDefault       :: !Bool
+    , _vpcState           :: !VPCState
+    , _vpcVPCId           :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VPC' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vpcTags'
 --
@@ -9235,18 +9506,14 @@ instance FromXML VGWTelemetry where
 -- * 'vpcState'
 --
 -- * 'vpcVPCId'
-data VPC = VPC'
-    { _vpcTags            :: !(Maybe [Tag])
-    , _vpcCIdRBlock       :: !Text
-    , _vpcDHCPOptionsId   :: !Text
-    , _vpcInstanceTenancy :: !Tenancy
-    , _vpcIsDefault       :: !Bool
-    , _vpcState           :: !VPCState
-    , _vpcVPCId           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VPC' smart constructor.
-vpc :: Text -> Text -> Tenancy -> Bool -> VPCState -> Text -> VPC
+vpc
+    :: Text -- ^ 'vpcCIdRBlock'
+    -> Text -- ^ 'vpcDHCPOptionsId'
+    -> Tenancy -- ^ 'vpcInstanceTenancy'
+    -> Bool -- ^ 'vpcIsDefault'
+    -> VPCState -- ^ 'vpcState'
+    -> Text -- ^ 'vpcVPCId'
+    -> VPC
 vpc pCIdRBlock_ pDHCPOptionsId_ pInstanceTenancy_ pIsDefault_ pState_ pVPCId_ =
     VPC'
     { _vpcTags = Nothing
@@ -9267,7 +9534,7 @@ vpcCIdRBlock :: Lens' VPC Text
 vpcCIdRBlock = lens _vpcCIdRBlock (\ s a -> s{_vpcCIdRBlock = a});
 
 -- | The ID of the set of DHCP options you\'ve associated with the VPC (or
--- @default@ if the default options are associated with the VPC).
+-- 'default' if the default options are associated with the VPC).
 vpcDHCPOptionsId :: Lens' VPC Text
 vpcDHCPOptionsId = lens _vpcDHCPOptionsId (\ s a -> s{_vpcDHCPOptionsId = a});
 
@@ -9302,19 +9569,20 @@ instance FromXML VPC where
 -- | Describes an attachment between a virtual private gateway and a VPC.
 --
 -- /See:/ 'vpcAttachment' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vaState'
---
--- * 'vaVPCId'
 data VPCAttachment = VPCAttachment'
     { _vaState :: !(Maybe AttachmentStatus)
     , _vaVPCId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VPCAttachment' smart constructor.
-vpcAttachment :: VPCAttachment
+-- | Creates a value of 'VPCAttachment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vaState'
+--
+-- * 'vaVPCId'
+vpcAttachment
+    :: VPCAttachment
 vpcAttachment =
     VPCAttachment'
     { _vaState = Nothing
@@ -9337,22 +9605,23 @@ instance FromXML VPCAttachment where
 -- | Describes whether a VPC is enabled for ClassicLink.
 --
 -- /See:/ 'vpcClassicLink' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vclVPCId'
---
--- * 'vclTags'
---
--- * 'vclClassicLinkEnabled'
 data VPCClassicLink = VPCClassicLink'
     { _vclVPCId              :: !(Maybe Text)
     , _vclTags               :: !(Maybe [Tag])
     , _vclClassicLinkEnabled :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VPCClassicLink' smart constructor.
-vpcClassicLink :: VPCClassicLink
+-- | Creates a value of 'VPCClassicLink' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vclVPCId'
+--
+-- * 'vclTags'
+--
+-- * 'vclClassicLinkEnabled'
+vpcClassicLink
+    :: VPCClassicLink
 vpcClassicLink =
     VPCClassicLink'
     { _vclVPCId = Nothing
@@ -9383,8 +9652,19 @@ instance FromXML VPCClassicLink where
 -- | Describes a VPC endpoint.
 --
 -- /See:/ 'vpcEndpoint' smart constructor.
+data VPCEndpoint = VPCEndpoint'
+    { _vePolicyDocument    :: !(Maybe Text)
+    , _veState             :: !(Maybe State)
+    , _veVPCId             :: !(Maybe Text)
+    , _veCreationTimestamp :: !(Maybe ISO8601)
+    , _veServiceName       :: !(Maybe Text)
+    , _veVPCEndpointId     :: !(Maybe Text)
+    , _veRouteTableIds     :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VPCEndpoint' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vePolicyDocument'
 --
@@ -9399,18 +9679,8 @@ instance FromXML VPCClassicLink where
 -- * 'veVPCEndpointId'
 --
 -- * 'veRouteTableIds'
-data VPCEndpoint = VPCEndpoint'
-    { _vePolicyDocument    :: !(Maybe Text)
-    , _veState             :: !(Maybe State)
-    , _veVPCId             :: !(Maybe Text)
-    , _veCreationTimestamp :: !(Maybe ISO8601)
-    , _veServiceName       :: !(Maybe Text)
-    , _veVPCEndpointId     :: !(Maybe Text)
-    , _veRouteTableIds     :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VPCEndpoint' smart constructor.
-vpcEndpoint :: VPCEndpoint
+vpcEndpoint
+    :: VPCEndpoint
 vpcEndpoint =
     VPCEndpoint'
     { _vePolicyDocument = Nothing
@@ -9465,8 +9735,18 @@ instance FromXML VPCEndpoint where
 -- | Describes a VPC peering connection.
 --
 -- /See:/ 'vpcPeeringConnection' smart constructor.
+data VPCPeeringConnection = VPCPeeringConnection'
+    { _vpcpcStatus                 :: !(Maybe VPCPeeringConnectionStateReason)
+    , _vpcpcVPCPeeringConnectionId :: !(Maybe Text)
+    , _vpcpcAccepterVPCInfo        :: !(Maybe VPCPeeringConnectionVPCInfo)
+    , _vpcpcRequesterVPCInfo       :: !(Maybe VPCPeeringConnectionVPCInfo)
+    , _vpcpcExpirationTime         :: !(Maybe ISO8601)
+    , _vpcpcTags                   :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VPCPeeringConnection' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vpcpcStatus'
 --
@@ -9479,17 +9759,8 @@ instance FromXML VPCEndpoint where
 -- * 'vpcpcExpirationTime'
 --
 -- * 'vpcpcTags'
-data VPCPeeringConnection = VPCPeeringConnection'
-    { _vpcpcStatus                 :: !(Maybe VPCPeeringConnectionStateReason)
-    , _vpcpcVPCPeeringConnectionId :: !(Maybe Text)
-    , _vpcpcAccepterVPCInfo        :: !(Maybe VPCPeeringConnectionVPCInfo)
-    , _vpcpcRequesterVPCInfo       :: !(Maybe VPCPeeringConnectionVPCInfo)
-    , _vpcpcExpirationTime         :: !(Maybe ISO8601)
-    , _vpcpcTags                   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VPCPeeringConnection' smart constructor.
-vpcPeeringConnection :: VPCPeeringConnection
+vpcPeeringConnection
+    :: VPCPeeringConnection
 vpcPeeringConnection =
     VPCPeeringConnection'
     { _vpcpcStatus = Nothing
@@ -9538,19 +9809,20 @@ instance FromXML VPCPeeringConnection where
 -- | Describes the status of a VPC peering connection.
 --
 -- /See:/ 'vpcPeeringConnectionStateReason' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vpcsrCode'
---
--- * 'vpcsrMessage'
 data VPCPeeringConnectionStateReason = VPCPeeringConnectionStateReason'
     { _vpcsrCode    :: !(Maybe VPCPeeringConnectionStateReasonCode)
     , _vpcsrMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VPCPeeringConnectionStateReason' smart constructor.
-vpcPeeringConnectionStateReason :: VPCPeeringConnectionStateReason
+-- | Creates a value of 'VPCPeeringConnectionStateReason' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vpcsrCode'
+--
+-- * 'vpcsrMessage'
+vpcPeeringConnectionStateReason
+    :: VPCPeeringConnectionStateReason
 vpcPeeringConnectionStateReason =
     VPCPeeringConnectionStateReason'
     { _vpcsrCode = Nothing
@@ -9575,22 +9847,23 @@ instance FromXML VPCPeeringConnectionStateReason
 -- | Describes a VPC in a VPC peering connection.
 --
 -- /See:/ 'vpcPeeringConnectionVPCInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vpcviVPCId'
---
--- * 'vpcviOwnerId'
---
--- * 'vpcviCIdRBlock'
 data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
     { _vpcviVPCId     :: !(Maybe Text)
     , _vpcviOwnerId   :: !(Maybe Text)
     , _vpcviCIdRBlock :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VPCPeeringConnectionVPCInfo' smart constructor.
-vpcPeeringConnectionVPCInfo :: VPCPeeringConnectionVPCInfo
+-- | Creates a value of 'VPCPeeringConnectionVPCInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vpcviVPCId'
+--
+-- * 'vpcviOwnerId'
+--
+-- * 'vpcviCIdRBlock'
+vpcPeeringConnectionVPCInfo
+    :: VPCPeeringConnectionVPCInfo
 vpcPeeringConnectionVPCInfo =
     VPCPeeringConnectionVPCInfo'
     { _vpcviVPCId = Nothing
@@ -9619,8 +9892,22 @@ instance FromXML VPCPeeringConnectionVPCInfo where
 -- | Describes a VPN connection.
 --
 -- /See:/ 'vpnConnection' smart constructor.
+data VPNConnection = VPNConnection'
+    { _vcRoutes                       :: !(Maybe [VPNStaticRoute])
+    , _vcVPNGatewayId                 :: !(Maybe Text)
+    , _vcOptions                      :: !(Maybe VPNConnectionOptions)
+    , _vcVGWTelemetry                 :: !(Maybe [VGWTelemetry])
+    , _vcTags                         :: !(Maybe [Tag])
+    , _vcVPNConnectionId              :: !Text
+    , _vcCustomerGatewayId            :: !Text
+    , _vcCustomerGatewayConfiguration :: !Text
+    , _vcState                        :: !VPNState
+    , _vcType                         :: !GatewayType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VPNConnection' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vcRoutes'
 --
@@ -9641,21 +9928,13 @@ instance FromXML VPCPeeringConnectionVPCInfo where
 -- * 'vcState'
 --
 -- * 'vcType'
-data VPNConnection = VPNConnection'
-    { _vcRoutes                       :: !(Maybe [VPNStaticRoute])
-    , _vcVPNGatewayId                 :: !(Maybe Text)
-    , _vcOptions                      :: !(Maybe VPNConnectionOptions)
-    , _vcVGWTelemetry                 :: !(Maybe [VGWTelemetry])
-    , _vcTags                         :: !(Maybe [Tag])
-    , _vcVPNConnectionId              :: !Text
-    , _vcCustomerGatewayId            :: !Text
-    , _vcCustomerGatewayConfiguration :: !Text
-    , _vcState                        :: !VPNState
-    , _vcType                         :: !GatewayType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VPNConnection' smart constructor.
-vpnConnection :: Text -> Text -> Text -> VPNState -> GatewayType -> VPNConnection
+vpnConnection
+    :: Text -- ^ 'vcVPNConnectionId'
+    -> Text -- ^ 'vcCustomerGatewayId'
+    -> Text -- ^ 'vcCustomerGatewayConfiguration'
+    -> VPNState -- ^ 'vcState'
+    -> GatewayType -- ^ 'vcType'
+    -> VPNConnection
 vpnConnection pVPNConnectionId_ pCustomerGatewayId_ pCustomerGatewayConfiguration_ pState_ pType_ =
     VPNConnection'
     { _vcRoutes = Nothing
@@ -9703,7 +9982,7 @@ vcCustomerGatewayId = lens _vcCustomerGatewayId (\ s a -> s{_vcCustomerGatewayId
 -- (in the native XML format). This element is always present in the
 -- CreateVpnConnection response; however, it\'s present in the
 -- DescribeVpnConnections response only if the VPN connection is in the
--- @pending@ or @available@ state.
+-- 'pending' or 'available' state.
 vcCustomerGatewayConfiguration :: Lens' VPNConnection Text
 vcCustomerGatewayConfiguration = lens _vcCustomerGatewayConfiguration (\ s a -> s{_vcCustomerGatewayConfiguration = a});
 
@@ -9737,16 +10016,17 @@ instance FromXML VPNConnection where
 -- | Describes VPN connection options.
 --
 -- /See:/ 'vpnConnectionOptions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vcoStaticRoutesOnly'
 newtype VPNConnectionOptions = VPNConnectionOptions'
     { _vcoStaticRoutesOnly :: Maybe Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VPNConnectionOptions' smart constructor.
-vpnConnectionOptions :: VPNConnectionOptions
+-- | Creates a value of 'VPNConnectionOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vcoStaticRoutesOnly'
+vpnConnectionOptions
+    :: VPNConnectionOptions
 vpnConnectionOptions =
     VPNConnectionOptions'
     { _vcoStaticRoutesOnly = Nothing
@@ -9765,16 +10045,17 @@ instance FromXML VPNConnectionOptions where
 -- | Describes VPN connection options.
 --
 -- /See:/ 'vpnConnectionOptionsSpecification' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vcosStaticRoutesOnly'
 newtype VPNConnectionOptionsSpecification = VPNConnectionOptionsSpecification'
     { _vcosStaticRoutesOnly :: Maybe Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VPNConnectionOptionsSpecification' smart constructor.
-vpnConnectionOptionsSpecification :: VPNConnectionOptionsSpecification
+-- | Creates a value of 'VPNConnectionOptionsSpecification' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vcosStaticRoutesOnly'
+vpnConnectionOptionsSpecification
+    :: VPNConnectionOptionsSpecification
 vpnConnectionOptionsSpecification =
     VPNConnectionOptionsSpecification'
     { _vcosStaticRoutesOnly = Nothing
@@ -9794,8 +10075,18 @@ instance ToQuery VPNConnectionOptionsSpecification
 -- | Describes a virtual private gateway.
 --
 -- /See:/ 'vpnGateway' smart constructor.
+data VPNGateway = VPNGateway'
+    { _vgVPCAttachments   :: !(Maybe [VPCAttachment])
+    , _vgState            :: !(Maybe VPNState)
+    , _vgVPNGatewayId     :: !(Maybe Text)
+    , _vgAvailabilityZone :: !(Maybe Text)
+    , _vgType             :: !(Maybe GatewayType)
+    , _vgTags             :: !(Maybe [Tag])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VPNGateway' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vgVPCAttachments'
 --
@@ -9808,17 +10099,8 @@ instance ToQuery VPNConnectionOptionsSpecification
 -- * 'vgType'
 --
 -- * 'vgTags'
-data VPNGateway = VPNGateway'
-    { _vgVPCAttachments   :: !(Maybe [VPCAttachment])
-    , _vgState            :: !(Maybe VPNState)
-    , _vgVPNGatewayId     :: !(Maybe Text)
-    , _vgAvailabilityZone :: !(Maybe Text)
-    , _vgType             :: !(Maybe GatewayType)
-    , _vgTags             :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VPNGateway' smart constructor.
-vpnGateway :: VPNGateway
+vpnGateway
+    :: VPNGateway
 vpnGateway =
     VPNGateway'
     { _vgVPCAttachments = Nothing
@@ -9869,22 +10151,23 @@ instance FromXML VPNGateway where
 -- | Describes a static route for a VPN connection.
 --
 -- /See:/ 'vpnStaticRoute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vsrState'
---
--- * 'vsrSource'
---
--- * 'vsrDestinationCIdRBlock'
 data VPNStaticRoute = VPNStaticRoute'
     { _vsrState                :: !(Maybe VPNState)
     , _vsrSource               :: !(Maybe VPNStaticRouteSource)
     , _vsrDestinationCIdRBlock :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VPNStaticRoute' smart constructor.
-vpnStaticRoute :: VPNStaticRoute
+-- | Creates a value of 'VPNStaticRoute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vsrState'
+--
+-- * 'vsrSource'
+--
+-- * 'vsrDestinationCIdRBlock'
+vpnStaticRoute
+    :: VPNStaticRoute
 vpnStaticRoute =
     VPNStaticRoute'
     { _vsrState = Nothing
@@ -9914,8 +10197,24 @@ instance FromXML VPNStaticRoute where
 -- | Describes a volume.
 --
 -- /See:/ 'volume' smart constructor.
+data Volume = Volume'
+    { _vAttachments      :: !(Maybe [VolumeAttachment])
+    , _vIOPS             :: !(Maybe Int)
+    , _vKMSKeyId         :: !(Maybe Text)
+    , _vTags             :: !(Maybe [Tag])
+    , _vAvailabilityZone :: !Text
+    , _vCreateTime       :: !ISO8601
+    , _vEncrypted        :: !Bool
+    , _vSize             :: !Int
+    , _vSnapshotId       :: !Text
+    , _vState            :: !VolumeState
+    , _vVolumeId         :: !Text
+    , _vVolumeType       :: !VolumeType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Volume' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vAttachments'
 --
@@ -9940,23 +10239,16 @@ instance FromXML VPNStaticRoute where
 -- * 'vVolumeId'
 --
 -- * 'vVolumeType'
-data Volume = Volume'
-    { _vAttachments      :: !(Maybe [VolumeAttachment])
-    , _vIOPS             :: !(Maybe Int)
-    , _vKMSKeyId         :: !(Maybe Text)
-    , _vTags             :: !(Maybe [Tag])
-    , _vAvailabilityZone :: !Text
-    , _vCreateTime       :: !ISO8601
-    , _vEncrypted        :: !Bool
-    , _vSize             :: !Int
-    , _vSnapshotId       :: !Text
-    , _vState            :: !VolumeState
-    , _vVolumeId         :: !Text
-    , _vVolumeType       :: !VolumeType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Volume' smart constructor.
-volume :: Text -> UTCTime -> Bool -> Int -> Text -> VolumeState -> Text -> VolumeType -> Volume
+volume
+    :: Text -- ^ 'vAvailabilityZone'
+    -> UTCTime -- ^ 'vCreateTime'
+    -> Bool -- ^ 'vEncrypted'
+    -> Int -- ^ 'vSize'
+    -> Text -- ^ 'vSnapshotId'
+    -> VolumeState -- ^ 'vState'
+    -> Text -- ^ 'vVolumeId'
+    -> VolumeType -- ^ 'vVolumeType'
+    -> Volume
 volume pAvailabilityZone_ pCreateTime_ pEncrypted_ pSize_ pSnapshotId_ pState_ pVolumeId_ pVolumeType_ =
     Volume'
     { _vAttachments = Nothing
@@ -9990,8 +10282,8 @@ vAttachments = lens _vAttachments (\ s a -> s{_vAttachments = a}) . _Default . _
 -- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and
 -- 3 to 10000 for General Purpose (SSD) volumes.
 --
--- Condition: This parameter is required for requests to create @io1@
--- volumes; it is not used in requests to create @standard@ or @gp2@
+-- Condition: This parameter is required for requests to create 'io1'
+-- volumes; it is not used in requests to create 'standard' or 'gp2'
 -- volumes.
 vIOPS :: Lens' Volume (Maybe Int)
 vIOPS = lens _vIOPS (\ s a -> s{_vIOPS = a});
@@ -10034,8 +10326,8 @@ vState = lens _vState (\ s a -> s{_vState = a});
 vVolumeId :: Lens' Volume Text
 vVolumeId = lens _vVolumeId (\ s a -> s{_vVolumeId = a});
 
--- | The volume type. This can be @gp2@ for General Purpose (SSD) volumes,
--- @io1@ for Provisioned IOPS (SSD) volumes, or @standard@ for Magnetic
+-- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes,
+-- 'io1' for Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic
 -- volumes.
 vVolumeType :: Lens' Volume VolumeType
 vVolumeType = lens _vVolumeType (\ s a -> s{_vVolumeType = a});
@@ -10062,8 +10354,18 @@ instance FromXML Volume where
 -- | Describes volume attachment details.
 --
 -- /See:/ 'volumeAttachment' smart constructor.
+data VolumeAttachment = VolumeAttachment'
+    { _volInstanceId          :: !(Maybe Text)
+    , _volDeleteOnTermination :: !(Maybe Bool)
+    , _volState               :: !(Maybe VolumeAttachmentState)
+    , _volDevice              :: !(Maybe Text)
+    , _volVolumeId            :: !(Maybe Text)
+    , _volAttachTime          :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VolumeAttachment' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'volInstanceId'
 --
@@ -10076,17 +10378,8 @@ instance FromXML Volume where
 -- * 'volVolumeId'
 --
 -- * 'volAttachTime'
-data VolumeAttachment = VolumeAttachment'
-    { _volInstanceId          :: !(Maybe Text)
-    , _volDeleteOnTermination :: !(Maybe Bool)
-    , _volState               :: !(Maybe VolumeAttachmentState)
-    , _volDevice              :: !(Maybe Text)
-    , _volVolumeId            :: !(Maybe Text)
-    , _volAttachTime          :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VolumeAttachment' smart constructor.
-volumeAttachment :: VolumeAttachment
+volumeAttachment
+    :: VolumeAttachment
 volumeAttachment =
     VolumeAttachment'
     { _volInstanceId = Nothing
@@ -10134,16 +10427,18 @@ instance FromXML VolumeAttachment where
 -- | Describes an EBS volume.
 --
 -- /See:/ 'volumeDetail' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vdSize'
 newtype VolumeDetail = VolumeDetail'
     { _vdSize :: Integer
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VolumeDetail' smart constructor.
-volumeDetail :: Integer -> VolumeDetail
+-- | Creates a value of 'VolumeDetail' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vdSize'
+volumeDetail
+    :: Integer -- ^ 'vdSize'
+    -> VolumeDetail
 volumeDetail pSize_ =
     VolumeDetail'
     { _vdSize = pSize_
@@ -10160,8 +10455,16 @@ instance ToQuery VolumeDetail where
 -- | Describes a volume status operation code.
 --
 -- /See:/ 'volumeStatusAction' smart constructor.
+data VolumeStatusAction = VolumeStatusAction'
+    { _vsaEventType   :: !(Maybe Text)
+    , _vsaCode        :: !(Maybe Text)
+    , _vsaDescription :: !(Maybe Text)
+    , _vsaEventId     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VolumeStatusAction' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vsaEventType'
 --
@@ -10170,15 +10473,8 @@ instance ToQuery VolumeDetail where
 -- * 'vsaDescription'
 --
 -- * 'vsaEventId'
-data VolumeStatusAction = VolumeStatusAction'
-    { _vsaEventType   :: !(Maybe Text)
-    , _vsaCode        :: !(Maybe Text)
-    , _vsaDescription :: !(Maybe Text)
-    , _vsaEventId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VolumeStatusAction' smart constructor.
-volumeStatusAction :: VolumeStatusAction
+volumeStatusAction
+    :: VolumeStatusAction
 volumeStatusAction =
     VolumeStatusAction'
     { _vsaEventType = Nothing
@@ -10191,7 +10487,7 @@ volumeStatusAction =
 vsaEventType :: Lens' VolumeStatusAction (Maybe Text)
 vsaEventType = lens _vsaEventType (\ s a -> s{_vsaEventType = a});
 
--- | The code identifying the operation, for example, @enable-volume-io@.
+-- | The code identifying the operation, for example, 'enable-volume-io'.
 vsaCode :: Lens' VolumeStatusAction (Maybe Text)
 vsaCode = lens _vsaCode (\ s a -> s{_vsaCode = a});
 
@@ -10213,19 +10509,20 @@ instance FromXML VolumeStatusAction where
 -- | Describes a volume status.
 --
 -- /See:/ 'volumeStatusDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vsdStatus'
---
--- * 'vsdName'
 data VolumeStatusDetails = VolumeStatusDetails'
     { _vsdStatus :: !(Maybe Text)
     , _vsdName   :: !(Maybe VolumeStatusName)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VolumeStatusDetails' smart constructor.
-volumeStatusDetails :: VolumeStatusDetails
+-- | Creates a value of 'VolumeStatusDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vsdStatus'
+--
+-- * 'vsdName'
+volumeStatusDetails
+    :: VolumeStatusDetails
 volumeStatusDetails =
     VolumeStatusDetails'
     { _vsdStatus = Nothing
@@ -10248,8 +10545,17 @@ instance FromXML VolumeStatusDetails where
 -- | Describes a volume status event.
 --
 -- /See:/ 'volumeStatusEvent' smart constructor.
+data VolumeStatusEvent = VolumeStatusEvent'
+    { _vseNotBefore   :: !(Maybe ISO8601)
+    , _vseEventType   :: !(Maybe Text)
+    , _vseDescription :: !(Maybe Text)
+    , _vseNotAfter    :: !(Maybe ISO8601)
+    , _vseEventId     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VolumeStatusEvent' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vseNotBefore'
 --
@@ -10260,16 +10566,8 @@ instance FromXML VolumeStatusDetails where
 -- * 'vseNotAfter'
 --
 -- * 'vseEventId'
-data VolumeStatusEvent = VolumeStatusEvent'
-    { _vseNotBefore   :: !(Maybe ISO8601)
-    , _vseEventType   :: !(Maybe Text)
-    , _vseDescription :: !(Maybe Text)
-    , _vseNotAfter    :: !(Maybe ISO8601)
-    , _vseEventId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VolumeStatusEvent' smart constructor.
-volumeStatusEvent :: VolumeStatusEvent
+volumeStatusEvent
+    :: VolumeStatusEvent
 volumeStatusEvent =
     VolumeStatusEvent'
     { _vseNotBefore = Nothing
@@ -10310,19 +10608,20 @@ instance FromXML VolumeStatusEvent where
 -- | Describes the status of a volume.
 --
 -- /See:/ 'volumeStatusInfo' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vsiStatus'
---
--- * 'vsiDetails'
 data VolumeStatusInfo = VolumeStatusInfo'
     { _vsiStatus  :: !(Maybe VolumeStatusInfoStatus)
     , _vsiDetails :: !(Maybe [VolumeStatusDetails])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VolumeStatusInfo' smart constructor.
-volumeStatusInfo :: VolumeStatusInfo
+-- | Creates a value of 'VolumeStatusInfo' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vsiStatus'
+--
+-- * 'vsiDetails'
+volumeStatusInfo
+    :: VolumeStatusInfo
 volumeStatusInfo =
     VolumeStatusInfo'
     { _vsiStatus = Nothing
@@ -10347,8 +10646,17 @@ instance FromXML VolumeStatusInfo where
 -- | Describes the volume status.
 --
 -- /See:/ 'volumeStatusItem' smart constructor.
+data VolumeStatusItem = VolumeStatusItem'
+    { _vsiVolumeStatus     :: !(Maybe VolumeStatusInfo)
+    , _vsiActions          :: !(Maybe [VolumeStatusAction])
+    , _vsiAvailabilityZone :: !(Maybe Text)
+    , _vsiEvents           :: !(Maybe [VolumeStatusEvent])
+    , _vsiVolumeId         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VolumeStatusItem' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'vsiVolumeStatus'
 --
@@ -10359,16 +10667,8 @@ instance FromXML VolumeStatusInfo where
 -- * 'vsiEvents'
 --
 -- * 'vsiVolumeId'
-data VolumeStatusItem = VolumeStatusItem'
-    { _vsiVolumeStatus     :: !(Maybe VolumeStatusInfo)
-    , _vsiActions          :: !(Maybe [VolumeStatusAction])
-    , _vsiAvailabilityZone :: !(Maybe Text)
-    , _vsiEvents           :: !(Maybe [VolumeStatusEvent])
-    , _vsiVolumeId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'VolumeStatusItem' smart constructor.
-volumeStatusItem :: VolumeStatusItem
+volumeStatusItem
+    :: VolumeStatusItem
 volumeStatusItem =
     VolumeStatusItem'
     { _vsiVolumeStatus = Nothing

@@ -34,8 +34,8 @@
 module Network.AWS.StorageGateway.ActivateGateway
     (
     -- * Creating a Request
-      ActivateGateway
-    , activateGateway
+      activateGateway
+    , ActivateGateway
     -- * Request Lenses
     , agMediumChangerType
     , agTapeDriveType
@@ -46,8 +46,8 @@ module Network.AWS.StorageGateway.ActivateGateway
     , agGatewayRegion
 
     -- * Destructuring the Response
-    , ActivateGatewayResponse
     , activateGatewayResponse
+    , ActivateGatewayResponse
     -- * Response Lenses
     , agrsGatewayARN
     , agrsStatus
@@ -70,8 +70,19 @@ import           Network.AWS.StorageGateway.Types.Product
 -- -   ActivateGatewayInput$MediumChangerType
 --
 -- /See:/ 'activateGateway' smart constructor.
+data ActivateGateway = ActivateGateway'
+    { _agMediumChangerType :: !(Maybe Text)
+    , _agTapeDriveType     :: !(Maybe Text)
+    , _agGatewayType       :: !(Maybe Text)
+    , _agActivationKey     :: !Text
+    , _agGatewayName       :: !Text
+    , _agGatewayTimezone   :: !Text
+    , _agGatewayRegion     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ActivateGateway' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'agMediumChangerType'
 --
@@ -86,18 +97,12 @@ import           Network.AWS.StorageGateway.Types.Product
 -- * 'agGatewayTimezone'
 --
 -- * 'agGatewayRegion'
-data ActivateGateway = ActivateGateway'
-    { _agMediumChangerType :: !(Maybe Text)
-    , _agTapeDriveType     :: !(Maybe Text)
-    , _agGatewayType       :: !(Maybe Text)
-    , _agActivationKey     :: !Text
-    , _agGatewayName       :: !Text
-    , _agGatewayTimezone   :: !Text
-    , _agGatewayRegion     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ActivateGateway' smart constructor.
-activateGateway :: Text -> Text -> Text -> Text -> ActivateGateway
+activateGateway
+    :: Text -- ^ 'agActivationKey'
+    -> Text -- ^ 'agGatewayName'
+    -> Text -- ^ 'agGatewayTimezone'
+    -> Text -- ^ 'agGatewayRegion'
+    -> ActivateGateway
 activateGateway pActivationKey_ pGatewayName_ pGatewayTimezone_ pGatewayRegion_ =
     ActivateGateway'
     { _agMediumChangerType = Nothing
@@ -125,7 +130,7 @@ agTapeDriveType = lens _agTapeDriveType (\ s a -> s{_agTapeDriveType = a});
 
 -- | One of the values that defines the type of gateway to activate. The type
 -- specified is critical to all later functions of the gateway and cannot
--- be changed after activation. The default value is @STORED@.
+-- be changed after activation. The default value is 'STORED'.
 agGatewayType :: Lens' ActivateGateway (Maybe Text)
 agGatewayType = lens _agGatewayType (\ s a -> s{_agGatewayType = a});
 
@@ -133,9 +138,9 @@ agGatewayType = lens _agGatewayType (\ s a -> s{_agGatewayType = a});
 -- sending an HTTP GET request with redirects enabled to the gateway IP
 -- address (port 80). The redirect URL returned in the response provides
 -- you the activation key for your gateway in the query string parameter
--- @activationKey@. It may also include other activation-related
+-- 'activationKey'. It may also include other activation-related
 -- parameters, however, these are merely defaults -- the arguments you pass
--- to the @ActivateGateway@ API call determine the actual configuration of
+-- to the 'ActivateGateway' API call determine the actual configuration of
 -- your gateway.
 agActivationKey :: Lens' ActivateGateway Text
 agActivationKey = lens _agActivationKey (\ s a -> s{_agActivationKey = a});
@@ -152,7 +157,7 @@ agGatewayTimezone = lens _agGatewayTimezone (\ s a -> s{_agGatewayTimezone = a})
 
 -- | One of the values that indicates the region where you want to store the
 -- snapshot backups. The gateway region specified must be the same region
--- as the region in your @Host@ header in the request. For more information
+-- as the region in your 'Host' header in the request. For more information
 -- about available regions and endpoints for AWS Storage Gateway, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region Regions and Endpoints>
 -- in the /Amazon Web Services Glossary/.
@@ -206,19 +211,21 @@ instance ToQuery ActivateGateway where
 -- gateway in other API operations as well as resource-based authorization.
 --
 -- /See:/ 'activateGatewayResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'agrsGatewayARN'
---
--- * 'agrsStatus'
 data ActivateGatewayResponse = ActivateGatewayResponse'
     { _agrsGatewayARN :: !(Maybe Text)
     , _agrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ActivateGatewayResponse' smart constructor.
-activateGatewayResponse :: Int -> ActivateGatewayResponse
+-- | Creates a value of 'ActivateGatewayResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'agrsGatewayARN'
+--
+-- * 'agrsStatus'
+activateGatewayResponse
+    :: Int -- ^ 'agrsStatus'
+    -> ActivateGatewayResponse
 activateGatewayResponse pStatus_ =
     ActivateGatewayResponse'
     { _agrsGatewayARN = Nothing
@@ -229,6 +236,6 @@ activateGatewayResponse pStatus_ =
 agrsGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
 agrsGatewayARN = lens _agrsGatewayARN (\ s a -> s{_agrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 agrsStatus :: Lens' ActivateGatewayResponse Int
 agrsStatus = lens _agrsStatus (\ s a -> s{_agrsStatus = a});

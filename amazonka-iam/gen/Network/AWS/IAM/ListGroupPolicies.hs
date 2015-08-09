@@ -27,24 +27,26 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- You can paginate the results using the @MaxItems@ and @Marker@
+-- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters. If there are no inline policies embedded with the specified
 -- group, the action returns an empty list.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html AWS API Reference> for ListGroupPolicies.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListGroupPolicies
     (
     -- * Creating a Request
-      ListGroupPolicies
-    , listGroupPolicies
+      listGroupPolicies
+    , ListGroupPolicies
     -- * Request Lenses
     , lgpMaxItems
     , lgpMarker
     , lgpGroupName
 
     -- * Destructuring the Response
-    , ListGroupPoliciesResponse
     , listGroupPoliciesResponse
+    , ListGroupPoliciesResponse
     -- * Response Lenses
     , lgprsMarker
     , lgprsIsTruncated
@@ -60,22 +62,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listGroupPolicies' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lgpMaxItems'
---
--- * 'lgpMarker'
---
--- * 'lgpGroupName'
 data ListGroupPolicies = ListGroupPolicies'
     { _lgpMaxItems  :: !(Maybe Nat)
     , _lgpMarker    :: !(Maybe Text)
     , _lgpGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListGroupPolicies' smart constructor.
-listGroupPolicies :: Text -> ListGroupPolicies
+-- | Creates a value of 'ListGroupPolicies' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lgpMaxItems'
+--
+-- * 'lgpMarker'
+--
+-- * 'lgpGroupName'
+listGroupPolicies
+    :: Text -- ^ 'lgpGroupName'
+    -> ListGroupPolicies
 listGroupPolicies pGroupName_ =
     ListGroupPolicies'
     { _lgpMaxItems = Nothing
@@ -85,7 +89,7 @@ listGroupPolicies pGroupName_ =
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -94,7 +98,7 @@ lgpMaxItems = lens _lgpMaxItems (\ s a -> s{_lgpMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 lgpMarker :: Lens' ListGroupPolicies (Maybe Text)
 lgpMarker = lens _lgpMarker (\ s a -> s{_lgpMarker = a});
 
@@ -140,8 +144,16 @@ instance ToQuery ListGroupPolicies where
 -- | Contains the response to a successful ListGroupPolicies request.
 --
 -- /See:/ 'listGroupPoliciesResponse' smart constructor.
+data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
+    { _lgprsMarker      :: !(Maybe Text)
+    , _lgprsIsTruncated :: !(Maybe Bool)
+    , _lgprsStatus      :: !Int
+    , _lgprsPolicyNames :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListGroupPoliciesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lgprsMarker'
 --
@@ -150,15 +162,9 @@ instance ToQuery ListGroupPolicies where
 -- * 'lgprsStatus'
 --
 -- * 'lgprsPolicyNames'
-data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
-    { _lgprsMarker      :: !(Maybe Text)
-    , _lgprsIsTruncated :: !(Maybe Bool)
-    , _lgprsStatus      :: !Int
-    , _lgprsPolicyNames :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListGroupPoliciesResponse' smart constructor.
-listGroupPoliciesResponse :: Int -> ListGroupPoliciesResponse
+listGroupPoliciesResponse
+    :: Int -- ^ 'lgprsStatus'
+    -> ListGroupPoliciesResponse
 listGroupPoliciesResponse pStatus_ =
     ListGroupPoliciesResponse'
     { _lgprsMarker = Nothing
@@ -167,19 +173,19 @@ listGroupPoliciesResponse pStatus_ =
     , _lgprsPolicyNames = mempty
     }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lgprsMarker :: Lens' ListGroupPoliciesResponse (Maybe Text)
 lgprsMarker = lens _lgprsMarker (\ s a -> s{_lgprsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 lgprsIsTruncated :: Lens' ListGroupPoliciesResponse (Maybe Bool)
 lgprsIsTruncated = lens _lgprsIsTruncated (\ s a -> s{_lgprsIsTruncated = a});
 
--- | Undocumented member.
+-- | The response status code.
 lgprsStatus :: Lens' ListGroupPoliciesResponse Int
 lgprsStatus = lens _lgprsStatus (\ s a -> s{_lgprsStatus = a});
 

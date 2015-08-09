@@ -29,15 +29,15 @@
 module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     (
     -- * Creating a Request
-      DeleteConfigurationTemplate
-    , deleteConfigurationTemplate
+      deleteConfigurationTemplate
+    , DeleteConfigurationTemplate
     -- * Request Lenses
     , dctApplicationName
     , dctTemplateName
 
     -- * Destructuring the Response
-    , DeleteConfigurationTemplateResponse
     , deleteConfigurationTemplateResponse
+    , DeleteConfigurationTemplateResponse
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -49,19 +49,22 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'deleteConfigurationTemplate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dctApplicationName'
---
--- * 'dctTemplateName'
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
     { _dctApplicationName :: !Text
     , _dctTemplateName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteConfigurationTemplate' smart constructor.
-deleteConfigurationTemplate :: Text -> Text -> DeleteConfigurationTemplate
+-- | Creates a value of 'DeleteConfigurationTemplate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dctApplicationName'
+--
+-- * 'dctTemplateName'
+deleteConfigurationTemplate
+    :: Text -- ^ 'dctApplicationName'
+    -> Text -- ^ 'dctTemplateName'
+    -> DeleteConfigurationTemplate
 deleteConfigurationTemplate pApplicationName_ pTemplateName_ =
     DeleteConfigurationTemplate'
     { _dctApplicationName = pApplicationName_
@@ -105,6 +108,8 @@ data DeleteConfigurationTemplateResponse =
     DeleteConfigurationTemplateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteConfigurationTemplateResponse' smart constructor.
-deleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse
+-- | Creates a value of 'DeleteConfigurationTemplateResponse' with the minimum fields required to make a request.
+--
+deleteConfigurationTemplateResponse
+    :: DeleteConfigurationTemplateResponse
 deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse'

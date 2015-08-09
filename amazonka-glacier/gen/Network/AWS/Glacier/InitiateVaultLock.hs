@@ -23,7 +23,7 @@
 --
 -- -   Installing a vault lock policy on the specified vault.
 --
--- -   Setting the lock state of vault lock to @InProgress@.
+-- -   Setting the lock state of vault lock to 'InProgress'.
 --
 -- -   Returning a lock ID, which is used to complete the vault locking
 --     process.
@@ -33,13 +33,13 @@
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies>.
 --
 -- You must complete the vault locking process within 24 hours after the
--- vault lock enters the @InProgress@ state. After the 24 hour window ends,
--- the lock ID expires, the vault automatically exits the @InProgress@
+-- vault lock enters the 'InProgress' state. After the 24 hour window ends,
+-- the lock ID expires, the vault automatically exits the 'InProgress'
 -- state, and the vault lock policy is removed from the vault. You call
 -- CompleteVaultLock to complete the vault locking process by setting the
--- state of the vault lock to @Locked@.
+-- state of the vault lock to 'Locked'.
 --
--- After a vault lock is in the @Locked@ state, you cannot initiate a new
+-- After a vault lock is in the 'Locked' state, you cannot initiate a new
 -- vault lock for the vault.
 --
 -- You can abort the vault locking process by calling AbortVaultLock. You
@@ -47,25 +47,25 @@
 -- information about the vault locking process,
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock>.
 --
--- If this operation is called when the vault lock is in the @InProgress@
--- state, the operation returns an @AccessDeniedException@ error. When the
--- vault lock is in the @InProgress@ state you must call AbortVaultLock
+-- If this operation is called when the vault lock is in the 'InProgress'
+-- state, the operation returns an 'AccessDeniedException' error. When the
+-- vault lock is in the 'InProgress' state you must call AbortVaultLock
 -- before you can initiate a new vault lock policy.
 --
 -- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-InitiateVaultLock.html AWS API Reference> for InitiateVaultLock.
 module Network.AWS.Glacier.InitiateVaultLock
     (
     -- * Creating a Request
-      InitiateVaultLock
-    , initiateVaultLock
+      initiateVaultLock
+    , InitiateVaultLock
     -- * Request Lenses
     , ivlPolicy
     , ivlAccountId
     , ivlVaultName
 
     -- * Destructuring the Response
-    , InitiateVaultLockResponse
     , initiateVaultLockResponse
+    , InitiateVaultLockResponse
     -- * Response Lenses
     , ivlrsLockId
     , ivlrsStatus
@@ -77,25 +77,28 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input values for @InitiateVaultLock@.
+-- | The input values for 'InitiateVaultLock'.
 --
 -- /See:/ 'initiateVaultLock' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ivlPolicy'
---
--- * 'ivlAccountId'
---
--- * 'ivlVaultName'
 data InitiateVaultLock = InitiateVaultLock'
     { _ivlPolicy    :: !(Maybe VaultLockPolicy)
     , _ivlAccountId :: !Text
     , _ivlVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InitiateVaultLock' smart constructor.
-initiateVaultLock :: Text -> Text -> InitiateVaultLock
+-- | Creates a value of 'InitiateVaultLock' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ivlPolicy'
+--
+-- * 'ivlAccountId'
+--
+-- * 'ivlVaultName'
+initiateVaultLock
+    :: Text -- ^ 'ivlAccountId'
+    -> Text -- ^ 'ivlVaultName'
+    -> InitiateVaultLock
 initiateVaultLock pAccountId_ pVaultName_ =
     InitiateVaultLock'
     { _ivlPolicy = Nothing
@@ -108,10 +111,10 @@ initiateVaultLock pAccountId_ pVaultName_ =
 ivlPolicy :: Lens' InitiateVaultLock (Maybe VaultLockPolicy)
 ivlPolicy = lens _ivlPolicy (\ s a -> s{_ivlPolicy = a});
 
--- | The @AccountId@ value is the AWS account ID. This value must match the
+-- | The 'AccountId' value is the AWS account ID. This value must match the
 -- AWS account ID associated with the credentials used to sign the request.
 -- You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you
 -- specify your account ID, do not include any hyphens (apos-apos) in the
 -- ID.
@@ -151,19 +154,21 @@ instance ToQuery InitiateVaultLock where
 -- | Contains the Amazon Glacier response to your request.
 --
 -- /See:/ 'initiateVaultLockResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ivlrsLockId'
---
--- * 'ivlrsStatus'
 data InitiateVaultLockResponse = InitiateVaultLockResponse'
     { _ivlrsLockId :: !(Maybe Text)
     , _ivlrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InitiateVaultLockResponse' smart constructor.
-initiateVaultLockResponse :: Int -> InitiateVaultLockResponse
+-- | Creates a value of 'InitiateVaultLockResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ivlrsLockId'
+--
+-- * 'ivlrsStatus'
+initiateVaultLockResponse
+    :: Int -- ^ 'ivlrsStatus'
+    -> InitiateVaultLockResponse
 initiateVaultLockResponse pStatus_ =
     InitiateVaultLockResponse'
     { _ivlrsLockId = Nothing
@@ -174,6 +179,6 @@ initiateVaultLockResponse pStatus_ =
 ivlrsLockId :: Lens' InitiateVaultLockResponse (Maybe Text)
 ivlrsLockId = lens _ivlrsLockId (\ s a -> s{_ivlrsLockId = a});
 
--- | Undocumented member.
+-- | The response status code.
 ivlrsStatus :: Lens' InitiateVaultLockResponse Int
 ivlrsStatus = lens _ivlrsStatus (\ s a -> s{_ivlrsStatus = a});

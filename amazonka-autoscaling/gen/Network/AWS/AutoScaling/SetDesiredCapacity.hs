@@ -28,16 +28,16 @@
 module Network.AWS.AutoScaling.SetDesiredCapacity
     (
     -- * Creating a Request
-      SetDesiredCapacity
-    , setDesiredCapacity
+      setDesiredCapacity
+    , SetDesiredCapacity
     -- * Request Lenses
     , sdcHonorCooldown
     , sdcAutoScalingGroupName
     , sdcDesiredCapacity
 
     -- * Destructuring the Response
-    , SetDesiredCapacityResponse
     , setDesiredCapacityResponse
+    , SetDesiredCapacityResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -47,22 +47,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'setDesiredCapacity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sdcHonorCooldown'
---
--- * 'sdcAutoScalingGroupName'
---
--- * 'sdcDesiredCapacity'
 data SetDesiredCapacity = SetDesiredCapacity'
     { _sdcHonorCooldown        :: !(Maybe Bool)
     , _sdcAutoScalingGroupName :: !Text
     , _sdcDesiredCapacity      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetDesiredCapacity' smart constructor.
-setDesiredCapacity :: Text -> Int -> SetDesiredCapacity
+-- | Creates a value of 'SetDesiredCapacity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdcHonorCooldown'
+--
+-- * 'sdcAutoScalingGroupName'
+--
+-- * 'sdcDesiredCapacity'
+setDesiredCapacity
+    :: Text -- ^ 'sdcAutoScalingGroupName'
+    -> Int -- ^ 'sdcDesiredCapacity'
+    -> SetDesiredCapacity
 setDesiredCapacity pAutoScalingGroupName_ pDesiredCapacity_ =
     SetDesiredCapacity'
     { _sdcHonorCooldown = Nothing
@@ -70,8 +73,8 @@ setDesiredCapacity pAutoScalingGroupName_ pDesiredCapacity_ =
     , _sdcDesiredCapacity = pDesiredCapacity_
     }
 
--- | By default, @SetDesiredCapacity@ overrides any cooldown period
--- associated with the Auto Scaling group. Specify @True@ to make Auto
+-- | By default, 'SetDesiredCapacity' overrides any cooldown period
+-- associated with the Auto Scaling group. Specify 'True' to make Auto
 -- Scaling to wait for the cool-down period associated with the Auto
 -- Scaling group to complete before initiating a scaling activity to set
 -- your Auto Scaling group to its new capacity.
@@ -114,6 +117,8 @@ data SetDesiredCapacityResponse =
     SetDesiredCapacityResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetDesiredCapacityResponse' smart constructor.
-setDesiredCapacityResponse :: SetDesiredCapacityResponse
+-- | Creates a value of 'SetDesiredCapacityResponse' with the minimum fields required to make a request.
+--
+setDesiredCapacityResponse
+    :: SetDesiredCapacityResponse
 setDesiredCapacityResponse = SetDesiredCapacityResponse'

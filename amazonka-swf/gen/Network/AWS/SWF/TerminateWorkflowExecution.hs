@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Records a @WorkflowExecutionTerminated@ event and forces closure of the
+-- Records a 'WorkflowExecutionTerminated' event and forces closure of the
 -- workflow execution identified by the given domain, runId, and
 -- workflowId. The child policy, registered with the workflow type or
 -- specified when starting this execution, is applied to any open child
@@ -27,7 +27,7 @@
 -- If the identified workflow execution was in progress, it is terminated
 -- immediately.
 --
--- If a runId is not specified, then the @WorkflowExecutionTerminated@
+-- If a runId is not specified, then the 'WorkflowExecutionTerminated'
 -- event is recorded in the history of the current open workflow with the
 -- matching workflowId in the domain.
 --
@@ -40,9 +40,9 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
 -- -   You cannot use an IAM policy to constrain this action\'s parameters.
 --
@@ -57,8 +57,8 @@
 module Network.AWS.SWF.TerminateWorkflowExecution
     (
     -- * Creating a Request
-      TerminateWorkflowExecution
-    , terminateWorkflowExecution
+      terminateWorkflowExecution
+    , TerminateWorkflowExecution
     -- * Request Lenses
     , tweRunId
     , tweReason
@@ -68,8 +68,8 @@ module Network.AWS.SWF.TerminateWorkflowExecution
     , tweWorkflowId
 
     -- * Destructuring the Response
-    , TerminateWorkflowExecutionResponse
     , terminateWorkflowExecutionResponse
+    , TerminateWorkflowExecutionResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -79,8 +79,18 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'terminateWorkflowExecution' smart constructor.
+data TerminateWorkflowExecution = TerminateWorkflowExecution'
+    { _tweRunId       :: !(Maybe Text)
+    , _tweReason      :: !(Maybe Text)
+    , _tweDetails     :: !(Maybe Text)
+    , _tweChildPolicy :: !(Maybe ChildPolicy)
+    , _tweDomain      :: !Text
+    , _tweWorkflowId  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TerminateWorkflowExecution' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tweRunId'
 --
@@ -93,17 +103,10 @@ import           Network.AWS.SWF.Types.Product
 -- * 'tweDomain'
 --
 -- * 'tweWorkflowId'
-data TerminateWorkflowExecution = TerminateWorkflowExecution'
-    { _tweRunId       :: !(Maybe Text)
-    , _tweReason      :: !(Maybe Text)
-    , _tweDetails     :: !(Maybe Text)
-    , _tweChildPolicy :: !(Maybe ChildPolicy)
-    , _tweDomain      :: !Text
-    , _tweWorkflowId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TerminateWorkflowExecution' smart constructor.
-terminateWorkflowExecution :: Text -> Text -> TerminateWorkflowExecution
+terminateWorkflowExecution
+    :: Text -- ^ 'tweDomain'
+    -> Text -- ^ 'tweWorkflowId'
+    -> TerminateWorkflowExecution
 terminateWorkflowExecution pDomain_ pWorkflowId_ =
     TerminateWorkflowExecution'
     { _tweRunId = Nothing
@@ -135,7 +138,7 @@ tweDetails = lens _tweDetails (\ s a -> s{_tweDetails = a});
 --
 -- -   __TERMINATE:__ the child executions will be terminated.
 -- -   __REQUEST_CANCEL:__ a request to cancel will be attempted for each
---     child execution by recording a @WorkflowExecutionCancelRequested@
+--     child execution by recording a 'WorkflowExecutionCancelRequested'
 --     event in its history. It is up to the decider to take appropriate
 --     actions when it receives an execution history with this event.
 -- -   __ABANDON:__ no action will be taken. The child executions will
@@ -194,6 +197,8 @@ data TerminateWorkflowExecutionResponse =
     TerminateWorkflowExecutionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TerminateWorkflowExecutionResponse' smart constructor.
-terminateWorkflowExecutionResponse :: TerminateWorkflowExecutionResponse
+-- | Creates a value of 'TerminateWorkflowExecutionResponse' with the minimum fields required to make a request.
+--
+terminateWorkflowExecutionResponse
+    :: TerminateWorkflowExecutionResponse
 terminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse'

@@ -24,8 +24,8 @@
 module Network.AWS.S3.CreateBucket
     (
     -- * Creating a Request
-      CreateBucket
-    , createBucket
+      createBucket
+    , CreateBucket
     -- * Request Lenses
     , cbGrantReadACP
     , cbGrantWriteACP
@@ -37,8 +37,8 @@ module Network.AWS.S3.CreateBucket
     , cbBucket
 
     -- * Destructuring the Response
-    , CreateBucketResponse
     , createBucketResponse
+    , CreateBucketResponse
     -- * Response Lenses
     , cbrsLocation
     , cbrsStatus
@@ -51,8 +51,20 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'createBucket' smart constructor.
+data CreateBucket = CreateBucket'
+    { _cbGrantReadACP              :: !(Maybe Text)
+    , _cbGrantWriteACP             :: !(Maybe Text)
+    , _cbGrantRead                 :: !(Maybe Text)
+    , _cbGrantFullControl          :: !(Maybe Text)
+    , _cbCreateBucketConfiguration :: !(Maybe CreateBucketConfiguration)
+    , _cbGrantWrite                :: !(Maybe Text)
+    , _cbACL                       :: !(Maybe BucketCannedACL)
+    , _cbBucket                    :: !BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateBucket' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cbGrantReadACP'
 --
@@ -69,19 +81,9 @@ import           Network.AWS.S3.Types.Product
 -- * 'cbACL'
 --
 -- * 'cbBucket'
-data CreateBucket = CreateBucket'
-    { _cbGrantReadACP              :: !(Maybe Text)
-    , _cbGrantWriteACP             :: !(Maybe Text)
-    , _cbGrantRead                 :: !(Maybe Text)
-    , _cbGrantFullControl          :: !(Maybe Text)
-    , _cbCreateBucketConfiguration :: !(Maybe CreateBucketConfiguration)
-    , _cbGrantWrite                :: !(Maybe Text)
-    , _cbACL                       :: !(Maybe BucketCannedACL)
-    , _cbBucket                    :: !BucketName
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateBucket' smart constructor.
-createBucket :: BucketName -> CreateBucket
+createBucket
+    :: BucketName -- ^ 'cbBucket'
+    -> CreateBucket
 createBucket pBucket_ =
     CreateBucket'
     { _cbGrantReadACP = Nothing
@@ -163,19 +165,21 @@ instance ToQuery CreateBucket where
         toQuery = const mempty
 
 -- | /See:/ 'createBucketResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cbrsLocation'
---
--- * 'cbrsStatus'
 data CreateBucketResponse = CreateBucketResponse'
     { _cbrsLocation :: !(Maybe Text)
     , _cbrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateBucketResponse' smart constructor.
-createBucketResponse :: Int -> CreateBucketResponse
+-- | Creates a value of 'CreateBucketResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cbrsLocation'
+--
+-- * 'cbrsStatus'
+createBucketResponse
+    :: Int -- ^ 'cbrsStatus'
+    -> CreateBucketResponse
 createBucketResponse pStatus_ =
     CreateBucketResponse'
     { _cbrsLocation = Nothing
@@ -186,6 +190,6 @@ createBucketResponse pStatus_ =
 cbrsLocation :: Lens' CreateBucketResponse (Maybe Text)
 cbrsLocation = lens _cbrsLocation (\ s a -> s{_cbrsLocation = a});
 
--- | Undocumented member.
+-- | The response status code.
 cbrsStatus :: Lens' CreateBucketResponse Int
 cbrsStatus = lens _cbrsStatus (\ s a -> s{_cbrsStatus = a});

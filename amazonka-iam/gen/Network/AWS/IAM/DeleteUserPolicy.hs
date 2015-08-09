@@ -31,15 +31,15 @@
 module Network.AWS.IAM.DeleteUserPolicy
     (
     -- * Creating a Request
-      DeleteUserPolicy
-    , deleteUserPolicy
+      deleteUserPolicy
+    , DeleteUserPolicy
     -- * Request Lenses
     , dupUserName
     , dupPolicyName
 
     -- * Destructuring the Response
-    , DeleteUserPolicyResponse
     , deleteUserPolicyResponse
+    , DeleteUserPolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -49,19 +49,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteUserPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dupUserName'
---
--- * 'dupPolicyName'
 data DeleteUserPolicy = DeleteUserPolicy'
     { _dupUserName   :: !Text
     , _dupPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteUserPolicy' smart constructor.
-deleteUserPolicy :: Text -> Text -> DeleteUserPolicy
+-- | Creates a value of 'DeleteUserPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dupUserName'
+--
+-- * 'dupPolicyName'
+deleteUserPolicy
+    :: Text -- ^ 'dupUserName'
+    -> Text -- ^ 'dupPolicyName'
+    -> DeleteUserPolicy
 deleteUserPolicy pUserName_ pPolicyName_ =
     DeleteUserPolicy'
     { _dupUserName = pUserName_
@@ -102,6 +105,8 @@ data DeleteUserPolicyResponse =
     DeleteUserPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteUserPolicyResponse' smart constructor.
-deleteUserPolicyResponse :: DeleteUserPolicyResponse
+-- | Creates a value of 'DeleteUserPolicyResponse' with the minimum fields required to make a request.
+--
+deleteUserPolicyResponse
+    :: DeleteUserPolicyResponse
 deleteUserPolicyResponse = DeleteUserPolicyResponse'

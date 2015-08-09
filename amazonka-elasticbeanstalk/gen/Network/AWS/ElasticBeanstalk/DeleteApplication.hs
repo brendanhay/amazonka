@@ -28,15 +28,15 @@
 module Network.AWS.ElasticBeanstalk.DeleteApplication
     (
     -- * Creating a Request
-      DeleteApplication
-    , deleteApplication
+      deleteApplication
+    , DeleteApplication
     -- * Request Lenses
     , daTerminateEnvByForce
     , daApplicationName
 
     -- * Destructuring the Response
-    , DeleteApplicationResponse
     , deleteApplicationResponse
+    , DeleteApplicationResponse
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -48,19 +48,21 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'deleteApplication' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daTerminateEnvByForce'
---
--- * 'daApplicationName'
 data DeleteApplication = DeleteApplication'
     { _daTerminateEnvByForce :: !(Maybe Bool)
     , _daApplicationName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteApplication' smart constructor.
-deleteApplication :: Text -> DeleteApplication
+-- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daTerminateEnvByForce'
+--
+-- * 'daApplicationName'
+deleteApplication
+    :: Text -- ^ 'daApplicationName'
+    -> DeleteApplication
 deleteApplication pApplicationName_ =
     DeleteApplication'
     { _daTerminateEnvByForce = Nothing
@@ -101,6 +103,8 @@ data DeleteApplicationResponse =
     DeleteApplicationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteApplicationResponse' smart constructor.
-deleteApplicationResponse :: DeleteApplicationResponse
+-- | Creates a value of 'DeleteApplicationResponse' with the minimum fields required to make a request.
+--
+deleteApplicationResponse
+    :: DeleteApplicationResponse
 deleteApplicationResponse = DeleteApplicationResponse'

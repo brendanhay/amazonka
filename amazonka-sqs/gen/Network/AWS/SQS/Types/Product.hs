@@ -25,8 +25,16 @@ import           Network.AWS.SQS.Types.Sum
 -- description of the result of an action on each entry in the request.
 --
 -- /See:/ 'batchResultErrorEntry' smart constructor.
+data BatchResultErrorEntry = BatchResultErrorEntry'
+    { _breeMessage     :: !(Maybe Text)
+    , _breeId          :: !Text
+    , _breeSenderFault :: !Bool
+    , _breeCode        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BatchResultErrorEntry' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'breeMessage'
 --
@@ -35,15 +43,11 @@ import           Network.AWS.SQS.Types.Sum
 -- * 'breeSenderFault'
 --
 -- * 'breeCode'
-data BatchResultErrorEntry = BatchResultErrorEntry'
-    { _breeMessage     :: !(Maybe Text)
-    , _breeId          :: !Text
-    , _breeSenderFault :: !Bool
-    , _breeCode        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'BatchResultErrorEntry' smart constructor.
-batchResultErrorEntry :: Text -> Bool -> Text -> BatchResultErrorEntry
+batchResultErrorEntry
+    :: Text -- ^ 'breeId'
+    -> Bool -- ^ 'breeSenderFault'
+    -> Text -- ^ 'breeCode'
+    -> BatchResultErrorEntry
 batchResultErrorEntry pId_ pSenderFault_ pCode_ =
     BatchResultErrorEntry'
     { _breeMessage = Nothing
@@ -79,33 +83,36 @@ instance FromXML BatchResultErrorEntry where
 -- ChangeMessageVisibilityBatch.
 --
 -- All of the following parameters are list parameters that must be
--- prefixed with @ChangeMessageVisibilityBatchRequestEntry.n@, where @n@ is
+-- prefixed with 'ChangeMessageVisibilityBatchRequestEntry.n', where 'n' is
 -- an integer value starting with 1. For example, a parameter list for this
 -- action might look like this:
 --
--- @&ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2@
+-- '&ChangeMessageVisibilityBatchRequestEntry.1.Id=change_visibility_msg_2'
 --
--- @&ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=Your_Receipt_Handle@
+-- '&ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=Your_Receipt_Handle'
 --
--- @&ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45@
+-- '&ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45'
 --
 -- /See:/ 'changeMessageVisibilityBatchRequestEntry' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cVisibilityTimeout'
---
--- * 'cId'
---
--- * 'cReceiptHandle'
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'
     { _cVisibilityTimeout :: !(Maybe Int)
     , _cId                :: !Text
     , _cReceiptHandle     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangeMessageVisibilityBatchRequestEntry' smart constructor.
-changeMessageVisibilityBatchRequestEntry :: Text -> Text -> ChangeMessageVisibilityBatchRequestEntry
+-- | Creates a value of 'ChangeMessageVisibilityBatchRequestEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cVisibilityTimeout'
+--
+-- * 'cId'
+--
+-- * 'cReceiptHandle'
+changeMessageVisibilityBatchRequestEntry
+    :: Text -- ^ 'cId'
+    -> Text -- ^ 'cReceiptHandle'
+    -> ChangeMessageVisibilityBatchRequestEntry
 changeMessageVisibilityBatchRequestEntry pId_ pReceiptHandle_ =
     ChangeMessageVisibilityBatchRequestEntry'
     { _cVisibilityTimeout = Nothing
@@ -118,7 +125,7 @@ cVisibilityTimeout :: Lens' ChangeMessageVisibilityBatchRequestEntry (Maybe Int)
 cVisibilityTimeout = lens _cVisibilityTimeout (\ s a -> s{_cVisibilityTimeout = a});
 
 -- | An identifier for this particular receipt handle. This is used to
--- communicate the result. Note that the @Id@s of a batch request need to
+-- communicate the result. Note that the 'Id's of a batch request need to
 -- be unique within the request.
 cId :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
 cId = lens _cId (\ s a -> s{_cId = a});
@@ -137,16 +144,18 @@ instance ToQuery
 -- | Encloses the id of an entry in ChangeMessageVisibilityBatch.
 --
 -- /See:/ 'changeMessageVisibilityBatchResultEntry' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cmvbreId'
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry'
     { _cmvbreId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangeMessageVisibilityBatchResultEntry' smart constructor.
-changeMessageVisibilityBatchResultEntry :: Text -> ChangeMessageVisibilityBatchResultEntry
+-- | Creates a value of 'ChangeMessageVisibilityBatchResultEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cmvbreId'
+changeMessageVisibilityBatchResultEntry
+    :: Text -- ^ 'cmvbreId'
+    -> ChangeMessageVisibilityBatchResultEntry
 changeMessageVisibilityBatchResultEntry pId_ =
     ChangeMessageVisibilityBatchResultEntry'
     { _cmvbreId = pId_
@@ -166,19 +175,22 @@ instance FromXML
 -- | Encloses a receipt handle and an identifier for it.
 --
 -- /See:/ 'deleteMessageBatchRequestEntry' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmbreId'
---
--- * 'dmbreReceiptHandle'
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
     { _dmbreId            :: !Text
     , _dmbreReceiptHandle :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteMessageBatchRequestEntry' smart constructor.
-deleteMessageBatchRequestEntry :: Text -> Text -> DeleteMessageBatchRequestEntry
+-- | Creates a value of 'DeleteMessageBatchRequestEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmbreId'
+--
+-- * 'dmbreReceiptHandle'
+deleteMessageBatchRequestEntry
+    :: Text -- ^ 'dmbreId'
+    -> Text -- ^ 'dmbreReceiptHandle'
+    -> DeleteMessageBatchRequestEntry
 deleteMessageBatchRequestEntry pId_ pReceiptHandle_ =
     DeleteMessageBatchRequestEntry'
     { _dmbreId = pId_
@@ -186,7 +198,7 @@ deleteMessageBatchRequestEntry pId_ pReceiptHandle_ =
     }
 
 -- | An identifier for this particular receipt handle. This is used to
--- communicate the result. Note that the @Id@s of a batch request need to
+-- communicate the result. Note that the 'Id's of a batch request need to
 -- be unique within the request.
 dmbreId :: Lens' DeleteMessageBatchRequestEntry Text
 dmbreId = lens _dmbreId (\ s a -> s{_dmbreId = a});
@@ -204,16 +216,18 @@ instance ToQuery DeleteMessageBatchRequestEntry where
 -- | Encloses the id an entry in DeleteMessageBatch.
 --
 -- /See:/ 'deleteMessageBatchResultEntry' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dId'
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'
     { _dId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteMessageBatchResultEntry' smart constructor.
-deleteMessageBatchResultEntry :: Text -> DeleteMessageBatchResultEntry
+-- | Creates a value of 'DeleteMessageBatchResultEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dId'
+deleteMessageBatchResultEntry
+    :: Text -- ^ 'dId'
+    -> DeleteMessageBatchResultEntry
 deleteMessageBatchResultEntry pId_ =
     DeleteMessageBatchResultEntry'
     { _dId = pId_
@@ -230,8 +244,19 @@ instance FromXML DeleteMessageBatchResultEntry where
 -- | An Amazon SQS message.
 --
 -- /See:/ 'message' smart constructor.
+data Message = Message'
+    { _mMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
+    , _mMD5OfBody              :: !(Maybe Text)
+    , _mBody                   :: !(Maybe Text)
+    , _mAttributes             :: !(Maybe (Map QueueAttributeName Text))
+    , _mMessageId              :: !(Maybe Text)
+    , _mReceiptHandle          :: !(Maybe Text)
+    , _mMD5OfMessageAttributes :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Message' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mMessageAttributes'
 --
@@ -246,18 +271,8 @@ instance FromXML DeleteMessageBatchResultEntry where
 -- * 'mReceiptHandle'
 --
 -- * 'mMD5OfMessageAttributes'
-data Message = Message'
-    { _mMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
-    , _mMD5OfBody              :: !(Maybe Text)
-    , _mBody                   :: !(Maybe Text)
-    , _mAttributes             :: !(Maybe (Map QueueAttributeName Text))
-    , _mMessageId              :: !(Maybe Text)
-    , _mReceiptHandle          :: !(Maybe Text)
-    , _mMD5OfMessageAttributes :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Message' smart constructor.
-message :: Message
+message
+    :: Message
 message =
     Message'
     { _mMessageAttributes = Nothing
@@ -283,9 +298,9 @@ mMD5OfBody = lens _mMD5OfBody (\ s a -> s{_mMD5OfBody = a});
 mBody :: Lens' Message (Maybe Text)
 mBody = lens _mBody (\ s a -> s{_mBody = a});
 
--- | @SenderId@, @SentTimestamp@, @ApproximateReceiveCount@, and\/or
--- @ApproximateFirstReceiveTimestamp@. @SentTimestamp@ and
--- @ApproximateFirstReceiveTimestamp@ are each returned as an integer
+-- | 'SenderId', 'SentTimestamp', 'ApproximateReceiveCount', and\/or
+-- 'ApproximateFirstReceiveTimestamp'. 'SentTimestamp' and
+-- 'ApproximateFirstReceiveTimestamp' are each returned as an integer
 -- representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in
 -- milliseconds.
 mAttributes :: Lens' Message (HashMap QueueAttributeName Text)
@@ -333,8 +348,17 @@ instance FromXML Message where
 -- size restriction, which is currently 256 KB (262,144 bytes).
 --
 -- /See:/ 'messageAttributeValue' smart constructor.
+data MessageAttributeValue = MessageAttributeValue'
+    { _mavBinaryValue      :: !(Maybe Base64)
+    , _mavStringListValues :: !(Maybe [Text])
+    , _mavStringValue      :: !(Maybe Text)
+    , _mavBinaryListValues :: !(Maybe [Base64])
+    , _mavDataType         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'MessageAttributeValue' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mavBinaryValue'
 --
@@ -345,16 +369,9 @@ instance FromXML Message where
 -- * 'mavBinaryListValues'
 --
 -- * 'mavDataType'
-data MessageAttributeValue = MessageAttributeValue'
-    { _mavBinaryValue      :: !(Maybe Base64)
-    , _mavStringListValues :: !(Maybe [Text])
-    , _mavStringValue      :: !(Maybe Text)
-    , _mavBinaryListValues :: !(Maybe [Base64])
-    , _mavDataType         :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'MessageAttributeValue' smart constructor.
-messageAttributeValue :: Text -> MessageAttributeValue
+messageAttributeValue
+    :: Text -- ^ 'mavDataType'
+    -> MessageAttributeValue
 messageAttributeValue pDataType_ =
     MessageAttributeValue'
     { _mavBinaryValue = Nothing
@@ -417,11 +434,19 @@ instance ToQuery MessageAttributeValue where
                       _mavBinaryListValues),
                "DataType" =: _mavDataType]
 
--- | Contains the details of a single Amazon SQS message along with a @Id@.
+-- | Contains the details of a single Amazon SQS message along with a 'Id'.
 --
 -- /See:/ 'sendMessageBatchRequestEntry' smart constructor.
+data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
+    { _sMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    , _sDelaySeconds      :: !(Maybe Int)
+    , _sId                :: !Text
+    , _sMessageBody       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SendMessageBatchRequestEntry' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sMessageAttributes'
 --
@@ -430,15 +455,10 @@ instance ToQuery MessageAttributeValue where
 -- * 'sId'
 --
 -- * 'sMessageBody'
-data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
-    { _sMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
-    , _sDelaySeconds      :: !(Maybe Int)
-    , _sId                :: !Text
-    , _sMessageBody       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SendMessageBatchRequestEntry' smart constructor.
-sendMessageBatchRequestEntry :: Text -> Text -> SendMessageBatchRequestEntry
+sendMessageBatchRequestEntry
+    :: Text -- ^ 'sId'
+    -> Text -- ^ 'sMessageBody'
+    -> SendMessageBatchRequestEntry
 sendMessageBatchRequestEntry pId_ pMessageBody_ =
     SendMessageBatchRequestEntry'
     { _sMessageAttributes = Nothing
@@ -458,7 +478,7 @@ sDelaySeconds :: Lens' SendMessageBatchRequestEntry (Maybe Int)
 sDelaySeconds = lens _sDelaySeconds (\ s a -> s{_sDelaySeconds = a});
 
 -- | An identifier for the message in this batch. This is used to communicate
--- the result. Note that the @Id@s of a batch request need to be unique
+-- the result. Note that the 'Id's of a batch request need to be unique
 -- within the request.
 sId :: Lens' SendMessageBatchRequestEntry Text
 sId = lens _sId (\ s a -> s{_sId = a});
@@ -480,8 +500,16 @@ instance ToQuery SendMessageBatchRequestEntry where
 -- SendMessageBatch.
 --
 -- /See:/ 'sendMessageBatchResultEntry' smart constructor.
+data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
+    { _smbreMD5OfMessageAttributes :: !(Maybe Text)
+    , _smbreId                     :: !Text
+    , _smbreMessageId              :: !Text
+    , _smbreMD5OfMessageBody       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SendMessageBatchResultEntry' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'smbreMD5OfMessageAttributes'
 --
@@ -490,15 +518,11 @@ instance ToQuery SendMessageBatchRequestEntry where
 -- * 'smbreMessageId'
 --
 -- * 'smbreMD5OfMessageBody'
-data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
-    { _smbreMD5OfMessageAttributes :: !(Maybe Text)
-    , _smbreId                     :: !Text
-    , _smbreMessageId              :: !Text
-    , _smbreMD5OfMessageBody       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SendMessageBatchResultEntry' smart constructor.
-sendMessageBatchResultEntry :: Text -> Text -> Text -> SendMessageBatchResultEntry
+sendMessageBatchResultEntry
+    :: Text -- ^ 'smbreId'
+    -> Text -- ^ 'smbreMessageId'
+    -> Text -- ^ 'smbreMD5OfMessageBody'
+    -> SendMessageBatchResultEntry
 sendMessageBatchResultEntry pId_ pMessageId_ pMD5OfMessageBody_ =
     SendMessageBatchResultEntry'
     { _smbreMD5OfMessageAttributes = Nothing

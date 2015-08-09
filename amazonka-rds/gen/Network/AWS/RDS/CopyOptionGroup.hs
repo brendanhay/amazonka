@@ -24,8 +24,8 @@
 module Network.AWS.RDS.CopyOptionGroup
     (
     -- * Creating a Request
-      CopyOptionGroup
-    , copyOptionGroup
+      copyOptionGroup
+    , CopyOptionGroup
     -- * Request Lenses
     , cTags
     , cSourceOptionGroupIdentifier
@@ -33,8 +33,8 @@ module Network.AWS.RDS.CopyOptionGroup
     , cTargetOptionGroupDescription
 
     -- * Destructuring the Response
-    , CopyOptionGroupResponse
     , copyOptionGroupResponse
+    , CopyOptionGroupResponse
     -- * Response Lenses
     , cogrsOptionGroup
     , cogrsStatus
@@ -49,8 +49,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'copyOptionGroup' smart constructor.
+data CopyOptionGroup = CopyOptionGroup'
+    { _cTags                         :: !(Maybe [Tag])
+    , _cSourceOptionGroupIdentifier  :: !Text
+    , _cTargetOptionGroupIdentifier  :: !Text
+    , _cTargetOptionGroupDescription :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CopyOptionGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cTags'
 --
@@ -59,15 +67,11 @@ import           Network.AWS.Response
 -- * 'cTargetOptionGroupIdentifier'
 --
 -- * 'cTargetOptionGroupDescription'
-data CopyOptionGroup = CopyOptionGroup'
-    { _cTags                         :: !(Maybe [Tag])
-    , _cSourceOptionGroupIdentifier  :: !Text
-    , _cTargetOptionGroupIdentifier  :: !Text
-    , _cTargetOptionGroupDescription :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CopyOptionGroup' smart constructor.
-copyOptionGroup :: Text -> Text -> Text -> CopyOptionGroup
+copyOptionGroup
+    :: Text -- ^ 'cSourceOptionGroupIdentifier'
+    -> Text -- ^ 'cTargetOptionGroupIdentifier'
+    -> Text -- ^ 'cTargetOptionGroupDescription'
+    -> CopyOptionGroup
 copyOptionGroup pSourceOptionGroupIdentifier_ pTargetOptionGroupIdentifier_ pTargetOptionGroupDescription_ =
     CopyOptionGroup'
     { _cTags = Nothing
@@ -89,10 +93,10 @@ cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 -- -   Must specify a valid option group.
 -- -   If the source option group is in the same region as the copy,
 --     specify a valid option group identifier, for example
---     @my-option-group@, or a valid ARN.
+--     'my-option-group', or a valid ARN.
 -- -   If the source option group is in a different region than the copy,
 --     specify a valid option group ARN, for example
---     @arn:aws:rds:us-west-2:123456789012:og:special-options@.
+--     'arn:aws:rds:us-west-2:123456789012:og:special-options'.
 cSourceOptionGroupIdentifier :: Lens' CopyOptionGroup Text
 cSourceOptionGroupIdentifier = lens _cSourceOptionGroupIdentifier (\ s a -> s{_cSourceOptionGroupIdentifier = a});
 
@@ -105,7 +109,7 @@ cSourceOptionGroupIdentifier = lens _cSourceOptionGroupIdentifier (\ s a -> s{_c
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- Example: @my-option-group@
+-- Example: 'my-option-group'
 cTargetOptionGroupIdentifier :: Lens' CopyOptionGroup Text
 cTargetOptionGroupIdentifier = lens _cTargetOptionGroupIdentifier (\ s a -> s{_cTargetOptionGroupIdentifier = a});
 
@@ -143,19 +147,21 @@ instance ToQuery CopyOptionGroup where
                  _cTargetOptionGroupDescription]
 
 -- | /See:/ 'copyOptionGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cogrsOptionGroup'
---
--- * 'cogrsStatus'
 data CopyOptionGroupResponse = CopyOptionGroupResponse'
     { _cogrsOptionGroup :: !(Maybe OptionGroup)
     , _cogrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CopyOptionGroupResponse' smart constructor.
-copyOptionGroupResponse :: Int -> CopyOptionGroupResponse
+-- | Creates a value of 'CopyOptionGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cogrsOptionGroup'
+--
+-- * 'cogrsStatus'
+copyOptionGroupResponse
+    :: Int -- ^ 'cogrsStatus'
+    -> CopyOptionGroupResponse
 copyOptionGroupResponse pStatus_ =
     CopyOptionGroupResponse'
     { _cogrsOptionGroup = Nothing
@@ -166,6 +172,6 @@ copyOptionGroupResponse pStatus_ =
 cogrsOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
 cogrsOptionGroup = lens _cogrsOptionGroup (\ s a -> s{_cogrsOptionGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 cogrsStatus :: Lens' CopyOptionGroupResponse Int
 cogrsStatus = lens _cogrsStatus (\ s a -> s{_cogrsStatus = a});

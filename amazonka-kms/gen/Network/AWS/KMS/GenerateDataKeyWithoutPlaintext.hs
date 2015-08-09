@@ -28,8 +28,8 @@
 module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     (
     -- * Creating a Request
-      GenerateDataKeyWithoutPlaintext
-    , generateDataKeyWithoutPlaintext
+      generateDataKeyWithoutPlaintext
+    , GenerateDataKeyWithoutPlaintext
     -- * Request Lenses
     , gdkwpKeySpec
     , gdkwpEncryptionContext
@@ -38,8 +38,8 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     , gdkwpKeyId
 
     -- * Destructuring the Response
-    , GenerateDataKeyWithoutPlaintextResponse
     , generateDataKeyWithoutPlaintextResponse
+    , GenerateDataKeyWithoutPlaintextResponse
     -- * Response Lenses
     , gdkwprsKeyId
     , gdkwprsCiphertextBlob
@@ -53,8 +53,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'generateDataKeyWithoutPlaintext' smart constructor.
+data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
+    { _gdkwpKeySpec           :: !(Maybe DataKeySpec)
+    , _gdkwpEncryptionContext :: !(Maybe (Map Text Text))
+    , _gdkwpNumberOfBytes     :: !(Maybe Nat)
+    , _gdkwpGrantTokens       :: !(Maybe [Text])
+    , _gdkwpKeyId             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GenerateDataKeyWithoutPlaintext' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gdkwpKeySpec'
 --
@@ -65,16 +74,9 @@ import           Network.AWS.Response
 -- * 'gdkwpGrantTokens'
 --
 -- * 'gdkwpKeyId'
-data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
-    { _gdkwpKeySpec           :: !(Maybe DataKeySpec)
-    , _gdkwpEncryptionContext :: !(Maybe (Map Text Text))
-    , _gdkwpNumberOfBytes     :: !(Maybe Nat)
-    , _gdkwpGrantTokens       :: !(Maybe [Text])
-    , _gdkwpKeyId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GenerateDataKeyWithoutPlaintext' smart constructor.
-generateDataKeyWithoutPlaintext :: Text -> GenerateDataKeyWithoutPlaintext
+generateDataKeyWithoutPlaintext
+    :: Text -- ^ 'gdkwpKeyId'
+    -> GenerateDataKeyWithoutPlaintext
 generateDataKeyWithoutPlaintext pKeyId_ =
     GenerateDataKeyWithoutPlaintext'
     { _gdkwpKeySpec = Nothing
@@ -95,7 +97,7 @@ gdkwpEncryptionContext :: Lens' GenerateDataKeyWithoutPlaintext (HashMap Text Te
 gdkwpEncryptionContext = lens _gdkwpEncryptionContext (\ s a -> s{_gdkwpEncryptionContext = a}) . _Default . _Map;
 
 -- | Integer that contains the number of bytes to generate. Common values are
--- 128, 256, 512, 1024 and so on. We recommend that you use the @KeySpec@
+-- 128, 256, 512, 1024 and so on. We recommend that you use the 'KeySpec'
 -- parameter instead.
 gdkwpNumberOfBytes :: Lens' GenerateDataKeyWithoutPlaintext (Maybe Natural)
 gdkwpNumberOfBytes = lens _gdkwpNumberOfBytes (\ s a -> s{_gdkwpNumberOfBytes = a}) . mapping _Nat;
@@ -160,22 +162,24 @@ instance ToQuery GenerateDataKeyWithoutPlaintext
         toQuery = const mempty
 
 -- | /See:/ 'generateDataKeyWithoutPlaintextResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdkwprsKeyId'
---
--- * 'gdkwprsCiphertextBlob'
---
--- * 'gdkwprsStatus'
 data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'
     { _gdkwprsKeyId          :: !(Maybe Text)
     , _gdkwprsCiphertextBlob :: !(Maybe Base64)
     , _gdkwprsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GenerateDataKeyWithoutPlaintextResponse' smart constructor.
-generateDataKeyWithoutPlaintextResponse :: Int -> GenerateDataKeyWithoutPlaintextResponse
+-- | Creates a value of 'GenerateDataKeyWithoutPlaintextResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdkwprsKeyId'
+--
+-- * 'gdkwprsCiphertextBlob'
+--
+-- * 'gdkwprsStatus'
+generateDataKeyWithoutPlaintextResponse
+    :: Int -- ^ 'gdkwprsStatus'
+    -> GenerateDataKeyWithoutPlaintextResponse
 generateDataKeyWithoutPlaintextResponse pStatus_ =
     GenerateDataKeyWithoutPlaintextResponse'
     { _gdkwprsKeyId = Nothing
@@ -197,6 +201,6 @@ gdkwprsKeyId = lens _gdkwprsKeyId (\ s a -> s{_gdkwprsKeyId = a});
 gdkwprsCiphertextBlob :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe ByteString)
 gdkwprsCiphertextBlob = lens _gdkwprsCiphertextBlob (\ s a -> s{_gdkwprsCiphertextBlob = a}) . mapping _Base64;
 
--- | Undocumented member.
+-- | The response status code.
 gdkwprsStatus :: Lens' GenerateDataKeyWithoutPlaintextResponse Int
 gdkwprsStatus = lens _gdkwprsStatus (\ s a -> s{_gdkwprsStatus = a});

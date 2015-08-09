@@ -24,15 +24,15 @@
 module Network.AWS.CodeDeploy.GetApplicationRevision
     (
     -- * Creating a Request
-      GetApplicationRevision
-    , getApplicationRevision
+      getApplicationRevision
+    , GetApplicationRevision
     -- * Request Lenses
     , garApplicationName
     , garRevision
 
     -- * Destructuring the Response
-    , GetApplicationRevisionResponse
     , getApplicationRevisionResponse
+    , GetApplicationRevisionResponse
     -- * Response Lenses
     , garrsRevisionInfo
     , garrsApplicationName
@@ -49,19 +49,22 @@ import           Network.AWS.Response
 -- | Represents the input of a get application revision operation.
 --
 -- /See:/ 'getApplicationRevision' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'garApplicationName'
---
--- * 'garRevision'
 data GetApplicationRevision = GetApplicationRevision'
     { _garApplicationName :: !Text
     , _garRevision        :: !RevisionLocation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetApplicationRevision' smart constructor.
-getApplicationRevision :: Text -> RevisionLocation -> GetApplicationRevision
+-- | Creates a value of 'GetApplicationRevision' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'garApplicationName'
+--
+-- * 'garRevision'
+getApplicationRevision
+    :: Text -- ^ 'garApplicationName'
+    -> RevisionLocation -- ^ 'garRevision'
+    -> GetApplicationRevision
 getApplicationRevision pApplicationName_ pRevision_ =
     GetApplicationRevision'
     { _garApplicationName = pApplicationName_
@@ -115,8 +118,16 @@ instance ToQuery GetApplicationRevision where
 -- | Represents the output of a get application revision operation.
 --
 -- /See:/ 'getApplicationRevisionResponse' smart constructor.
+data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
+    { _garrsRevisionInfo    :: !(Maybe GenericRevisionInfo)
+    , _garrsApplicationName :: !(Maybe Text)
+    , _garrsRevision        :: !(Maybe RevisionLocation)
+    , _garrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetApplicationRevisionResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'garrsRevisionInfo'
 --
@@ -125,15 +136,9 @@ instance ToQuery GetApplicationRevision where
 -- * 'garrsRevision'
 --
 -- * 'garrsStatus'
-data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
-    { _garrsRevisionInfo    :: !(Maybe GenericRevisionInfo)
-    , _garrsApplicationName :: !(Maybe Text)
-    , _garrsRevision        :: !(Maybe RevisionLocation)
-    , _garrsStatus          :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetApplicationRevisionResponse' smart constructor.
-getApplicationRevisionResponse :: Int -> GetApplicationRevisionResponse
+getApplicationRevisionResponse
+    :: Int -- ^ 'garrsStatus'
+    -> GetApplicationRevisionResponse
 getApplicationRevisionResponse pStatus_ =
     GetApplicationRevisionResponse'
     { _garrsRevisionInfo = Nothing
@@ -155,6 +160,6 @@ garrsApplicationName = lens _garrsApplicationName (\ s a -> s{_garrsApplicationN
 garrsRevision :: Lens' GetApplicationRevisionResponse (Maybe RevisionLocation)
 garrsRevision = lens _garrsRevision (\ s a -> s{_garrsRevision = a});
 
--- | Undocumented member.
+-- | The response status code.
 garrsStatus :: Lens' GetApplicationRevisionResponse Int
 garrsStatus = lens _garrsStatus (\ s a -> s{_garrsStatus = a});

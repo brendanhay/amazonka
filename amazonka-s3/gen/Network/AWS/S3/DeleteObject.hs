@@ -26,8 +26,8 @@
 module Network.AWS.S3.DeleteObject
     (
     -- * Creating a Request
-      DeleteObject
-    , deleteObject
+      deleteObject
+    , DeleteObject
     -- * Request Lenses
     , doVersionId
     , doMFA
@@ -36,8 +36,8 @@ module Network.AWS.S3.DeleteObject
     , doKey
 
     -- * Destructuring the Response
-    , DeleteObjectResponse
     , deleteObjectResponse
+    , DeleteObjectResponse
     -- * Response Lenses
     , dorsVersionId
     , dorsRequestCharged
@@ -52,8 +52,17 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteObject' smart constructor.
+data DeleteObject = DeleteObject'
+    { _doVersionId    :: !(Maybe ObjectVersionId)
+    , _doMFA          :: !(Maybe Text)
+    , _doRequestPayer :: !(Maybe RequestPayer)
+    , _doBucket       :: !BucketName
+    , _doKey          :: !ObjectKey
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteObject' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'doVersionId'
 --
@@ -64,16 +73,10 @@ import           Network.AWS.S3.Types.Product
 -- * 'doBucket'
 --
 -- * 'doKey'
-data DeleteObject = DeleteObject'
-    { _doVersionId    :: !(Maybe ObjectVersionId)
-    , _doMFA          :: !(Maybe Text)
-    , _doRequestPayer :: !(Maybe RequestPayer)
-    , _doBucket       :: !BucketName
-    , _doKey          :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeleteObject' smart constructor.
-deleteObject :: BucketName -> ObjectKey -> DeleteObject
+deleteObject
+    :: BucketName -- ^ 'doBucket'
+    -> ObjectKey -- ^ 'doKey'
+    -> DeleteObject
 deleteObject pBucket_ pKey_ =
     DeleteObject'
     { _doVersionId = Nothing
@@ -132,8 +135,16 @@ instance ToQuery DeleteObject where
           = mconcat ["versionId" =: _doVersionId]
 
 -- | /See:/ 'deleteObjectResponse' smart constructor.
+data DeleteObjectResponse = DeleteObjectResponse'
+    { _dorsVersionId      :: !(Maybe ObjectVersionId)
+    , _dorsRequestCharged :: !(Maybe RequestCharged)
+    , _dorsDeleteMarker   :: !(Maybe Bool)
+    , _dorsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteObjectResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dorsVersionId'
 --
@@ -142,15 +153,9 @@ instance ToQuery DeleteObject where
 -- * 'dorsDeleteMarker'
 --
 -- * 'dorsStatus'
-data DeleteObjectResponse = DeleteObjectResponse'
-    { _dorsVersionId      :: !(Maybe ObjectVersionId)
-    , _dorsRequestCharged :: !(Maybe RequestCharged)
-    , _dorsDeleteMarker   :: !(Maybe Bool)
-    , _dorsStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeleteObjectResponse' smart constructor.
-deleteObjectResponse :: Int -> DeleteObjectResponse
+deleteObjectResponse
+    :: Int -- ^ 'dorsStatus'
+    -> DeleteObjectResponse
 deleteObjectResponse pStatus_ =
     DeleteObjectResponse'
     { _dorsVersionId = Nothing
@@ -173,6 +178,6 @@ dorsRequestCharged = lens _dorsRequestCharged (\ s a -> s{_dorsRequestCharged = 
 dorsDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dorsDeleteMarker = lens _dorsDeleteMarker (\ s a -> s{_dorsDeleteMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dorsStatus :: Lens' DeleteObjectResponse Int
 dorsStatus = lens _dorsStatus (\ s a -> s{_dorsStatus = a});

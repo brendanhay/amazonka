@@ -32,8 +32,8 @@
 module Network.AWS.AutoScaling.CreateLaunchConfiguration
     (
     -- * Creating a Request
-      CreateLaunchConfiguration
-    , createLaunchConfiguration
+      createLaunchConfiguration
+    , CreateLaunchConfiguration
     -- * Request Lenses
     , clcInstanceId
     , clcSecurityGroups
@@ -55,8 +55,8 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     , clcLaunchConfigurationName
 
     -- * Destructuring the Response
-    , CreateLaunchConfigurationResponse
     , createLaunchConfigurationResponse
+    , CreateLaunchConfigurationResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -66,8 +66,30 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createLaunchConfiguration' smart constructor.
+data CreateLaunchConfiguration = CreateLaunchConfiguration'
+    { _clcInstanceId                   :: !(Maybe Text)
+    , _clcSecurityGroups               :: !(Maybe [Text])
+    , _clcAssociatePublicIPAddress     :: !(Maybe Bool)
+    , _clcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
+    , _clcSpotPrice                    :: !(Maybe Text)
+    , _clcKeyName                      :: !(Maybe Text)
+    , _clcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
+    , _clcRAMDiskId                    :: !(Maybe Text)
+    , _clcKernelId                     :: !(Maybe Text)
+    , _clcInstanceType                 :: !(Maybe Text)
+    , _clcEBSOptimized                 :: !(Maybe Bool)
+    , _clcUserData                     :: !(Maybe Text)
+    , _clcClassicLinkVPCId             :: !(Maybe Text)
+    , _clcIAMInstanceProfile           :: !(Maybe Text)
+    , _clcImageId                      :: !(Maybe Text)
+    , _clcPlacementTenancy             :: !(Maybe Text)
+    , _clcBlockDeviceMappings          :: !(Maybe [BlockDeviceMapping])
+    , _clcLaunchConfigurationName      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateLaunchConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'clcInstanceId'
 --
@@ -104,29 +126,9 @@ import           Network.AWS.Response
 -- * 'clcBlockDeviceMappings'
 --
 -- * 'clcLaunchConfigurationName'
-data CreateLaunchConfiguration = CreateLaunchConfiguration'
-    { _clcInstanceId                   :: !(Maybe Text)
-    , _clcSecurityGroups               :: !(Maybe [Text])
-    , _clcAssociatePublicIPAddress     :: !(Maybe Bool)
-    , _clcInstanceMonitoring           :: !(Maybe InstanceMonitoring)
-    , _clcSpotPrice                    :: !(Maybe Text)
-    , _clcKeyName                      :: !(Maybe Text)
-    , _clcClassicLinkVPCSecurityGroups :: !(Maybe [Text])
-    , _clcRAMDiskId                    :: !(Maybe Text)
-    , _clcKernelId                     :: !(Maybe Text)
-    , _clcInstanceType                 :: !(Maybe Text)
-    , _clcEBSOptimized                 :: !(Maybe Bool)
-    , _clcUserData                     :: !(Maybe Text)
-    , _clcClassicLinkVPCId             :: !(Maybe Text)
-    , _clcIAMInstanceProfile           :: !(Maybe Text)
-    , _clcImageId                      :: !(Maybe Text)
-    , _clcPlacementTenancy             :: !(Maybe Text)
-    , _clcBlockDeviceMappings          :: !(Maybe [BlockDeviceMapping])
-    , _clcLaunchConfigurationName      :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateLaunchConfiguration' smart constructor.
-createLaunchConfiguration :: Text -> CreateLaunchConfiguration
+createLaunchConfiguration
+    :: Text -- ^ 'clcLaunchConfigurationName'
+    -> CreateLaunchConfiguration
 createLaunchConfiguration pLaunchConfigurationName_ =
     CreateLaunchConfiguration'
     { _clcInstanceId = Nothing
@@ -189,8 +191,8 @@ clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a})
 -- group.
 --
 -- Default: If the instance is launched into a default subnet, the default
--- is @true@. If the instance is launched into a nondefault subnet, the
--- default is @false@. For more information, see
+-- is 'true'. If the instance is launched into a nondefault subnet, the
+-- default is 'false'. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 clcAssociatePublicIPAddress :: Lens' CreateLaunchConfiguration (Maybe Bool)
@@ -201,7 +203,7 @@ clcAssociatePublicIPAddress = lens _clcAssociatePublicIPAddress (\ s a -> s{_clc
 --
 -- When detailed monitoring is enabled, Amazon CloudWatch generates metrics
 -- every minute and your account is charged a fee. When you disable
--- detailed monitoring, by specifying @False@, CloudWatch generates metrics
+-- detailed monitoring, by specifying 'False', CloudWatch generates metrics
 -- every 5 minutes. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html Monitor Your Auto Scaling Instances>
 -- in the /Auto Scaling Developer Guide/.
@@ -223,7 +225,7 @@ clcKeyName :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcKeyName = lens _clcKeyName (\ s a -> s{_clcKeyName = a});
 
 -- | The IDs of one or more security groups for the VPC specified in
--- @ClassicLinkVPCId@. This parameter is required if @ClassicLinkVPCId@ is
+-- 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is
 -- specified, and is not supported otherwise. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -293,12 +295,12 @@ clcIAMInstanceProfile = lens _clcIAMInstanceProfile (\ s a -> s{_clcIAMInstanceP
 clcImageId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcImageId = lens _clcImageId (\ s a -> s{_clcImageId = a});
 
--- | The tenancy of the instance. An instance with a tenancy of @dedicated@
+-- | The tenancy of the instance. An instance with a tenancy of 'dedicated'
 -- runs on single-tenant hardware and can only be launched into a VPC.
 --
--- You must set the value of this parameter to @dedicated@ if want to
+-- You must set the value of this parameter to 'dedicated' if want to
 -- launch Dedicated Instances into a shared tenancy VPC (VPC with instance
--- placement tenancy attribute set to @default@).
+-- placement tenancy attribute set to 'default').
 --
 -- If you specify a value for this parameter, be sure to specify at least
 -- one subnet using the /VPCZoneIdentifier/ parameter when you create your
@@ -308,7 +310,7 @@ clcImageId = lens _clcImageId (\ s a -> s{_clcImageId = a});
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon Virtual Private Cloud>
 -- in the /Auto Scaling Developer Guide/.
 --
--- Valid values: @default@ | @dedicated@
+-- Valid values: 'default' | 'dedicated'
 clcPlacementTenancy :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcPlacementTenancy = lens _clcPlacementTenancy (\ s a -> s{_clcPlacementTenancy = a});
 
@@ -377,6 +379,8 @@ data CreateLaunchConfigurationResponse =
     CreateLaunchConfigurationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLaunchConfigurationResponse' smart constructor.
-createLaunchConfigurationResponse :: CreateLaunchConfigurationResponse
+-- | Creates a value of 'CreateLaunchConfigurationResponse' with the minimum fields required to make a request.
+--
+createLaunchConfigurationResponse
+    :: CreateLaunchConfigurationResponse
 createLaunchConfigurationResponse = CreateLaunchConfigurationResponse'

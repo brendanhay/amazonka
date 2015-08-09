@@ -44,16 +44,16 @@
 module Network.AWS.EC2.StartInstances
     (
     -- * Creating a Request
-      StartInstances
-    , startInstances
+      startInstances
+    , StartInstances
     -- * Request Lenses
     , sAdditionalInfo
     , sDryRun
     , sInstanceIds
 
     -- * Destructuring the Response
-    , StartInstancesResponse
     , startInstancesResponse
+    , StartInstancesResponse
     -- * Response Lenses
     , srsStartingInstances
     , srsStatus
@@ -66,22 +66,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'startInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sAdditionalInfo'
---
--- * 'sDryRun'
---
--- * 'sInstanceIds'
 data StartInstances = StartInstances'
     { _sAdditionalInfo :: !(Maybe Text)
     , _sDryRun         :: !(Maybe Bool)
     , _sInstanceIds    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartInstances' smart constructor.
-startInstances :: StartInstances
+-- | Creates a value of 'StartInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sAdditionalInfo'
+--
+-- * 'sDryRun'
+--
+-- * 'sInstanceIds'
+startInstances
+    :: StartInstances
 startInstances =
     StartInstances'
     { _sAdditionalInfo = Nothing
@@ -95,8 +96,8 @@ sAdditionalInfo = lens _sAdditionalInfo (\ s a -> s{_sAdditionalInfo = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 sDryRun :: Lens' StartInstances (Maybe Bool)
 sDryRun = lens _sDryRun (\ s a -> s{_sDryRun = a});
 
@@ -132,19 +133,21 @@ instance ToQuery StartInstances where
                toQueryList "InstanceId" _sInstanceIds]
 
 -- | /See:/ 'startInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'srsStartingInstances'
---
--- * 'srsStatus'
 data StartInstancesResponse = StartInstancesResponse'
     { _srsStartingInstances :: !(Maybe [InstanceStateChange])
     , _srsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartInstancesResponse' smart constructor.
-startInstancesResponse :: Int -> StartInstancesResponse
+-- | Creates a value of 'StartInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'srsStartingInstances'
+--
+-- * 'srsStatus'
+startInstancesResponse
+    :: Int -- ^ 'srsStatus'
+    -> StartInstancesResponse
 startInstancesResponse pStatus_ =
     StartInstancesResponse'
     { _srsStartingInstances = Nothing
@@ -155,6 +158,6 @@ startInstancesResponse pStatus_ =
 srsStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
 srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstances = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 srsStatus :: Lens' StartInstancesResponse Int
 srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

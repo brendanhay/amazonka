@@ -24,14 +24,14 @@
 module Network.AWS.S3.GetBucketNotificationConfiguration
     (
     -- * Creating a Request
-      GetBucketNotificationConfiguration
-    , getBucketNotificationConfiguration
+      getBucketNotificationConfiguration
+    , GetBucketNotificationConfiguration
     -- * Request Lenses
     , gbncBucket
 
     -- * Destructuring the Response
-    , NotificationConfiguration
     , notificationConfiguration
+    , NotificationConfiguration
     -- * Response Lenses
     , ncQueueConfigurations
     , ncTopicConfigurations
@@ -45,16 +45,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketNotificationConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbncBucket'
 newtype GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
     { _gbncBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketNotificationConfiguration' smart constructor.
-getBucketNotificationConfiguration :: BucketName -> GetBucketNotificationConfiguration
+-- | Creates a value of 'GetBucketNotificationConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbncBucket'
+getBucketNotificationConfiguration
+    :: BucketName -- ^ 'gbncBucket'
+    -> GetBucketNotificationConfiguration
 getBucketNotificationConfiguration pBucket_ =
     GetBucketNotificationConfiguration'
     { _gbncBucket = pBucket_

@@ -24,16 +24,16 @@
 module Network.AWS.EC2.ModifyVPCAttribute
     (
     -- * Creating a Request
-      ModifyVPCAttribute
-    , modifyVPCAttribute
+      modifyVPCAttribute
+    , ModifyVPCAttribute
     -- * Request Lenses
     , mvaEnableDNSHostnames
     , mvaEnableDNSSupport
     , mvaVPCId
 
     -- * Destructuring the Response
-    , ModifyVPCAttributeResponse
     , modifyVPCAttributeResponse
+    , ModifyVPCAttributeResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -43,22 +43,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifyVPCAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mvaEnableDNSHostnames'
---
--- * 'mvaEnableDNSSupport'
---
--- * 'mvaVPCId'
 data ModifyVPCAttribute = ModifyVPCAttribute'
     { _mvaEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
     , _mvaEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
     , _mvaVPCId              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyVPCAttribute' smart constructor.
-modifyVPCAttribute :: Text -> ModifyVPCAttribute
+-- | Creates a value of 'ModifyVPCAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mvaEnableDNSHostnames'
+--
+-- * 'mvaEnableDNSSupport'
+--
+-- * 'mvaVPCId'
+modifyVPCAttribute
+    :: Text -- ^ 'mvaVPCId'
+    -> ModifyVPCAttribute
 modifyVPCAttribute pVPCId_ =
     ModifyVPCAttribute'
     { _mvaEnableDNSHostnames = Nothing
@@ -114,6 +116,8 @@ data ModifyVPCAttributeResponse =
     ModifyVPCAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyVPCAttributeResponse' smart constructor.
-modifyVPCAttributeResponse :: ModifyVPCAttributeResponse
+-- | Creates a value of 'ModifyVPCAttributeResponse' with the minimum fields required to make a request.
+--
+modifyVPCAttributeResponse
+    :: ModifyVPCAttributeResponse
 modifyVPCAttributeResponse = ModifyVPCAttributeResponse'

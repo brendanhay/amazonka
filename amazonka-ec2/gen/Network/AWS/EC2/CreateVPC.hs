@@ -36,16 +36,16 @@
 module Network.AWS.EC2.CreateVPC
     (
     -- * Creating a Request
-      CreateVPC
-    , createVPC
+      createVPC
+    , CreateVPC
     -- * Request Lenses
     , cvInstanceTenancy
     , cvDryRun
     , cvCIdRBlock
 
     -- * Destructuring the Response
-    , CreateVPCResponse
     , createVPCResponse
+    , CreateVPCResponse
     -- * Response Lenses
     , cvrsVPC
     , cvrsStatus
@@ -58,22 +58,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createVPC' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvInstanceTenancy'
---
--- * 'cvDryRun'
---
--- * 'cvCIdRBlock'
 data CreateVPC = CreateVPC'
     { _cvInstanceTenancy :: !(Maybe Tenancy)
     , _cvDryRun          :: !(Maybe Bool)
     , _cvCIdRBlock       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVPC' smart constructor.
-createVPC :: Text -> CreateVPC
+-- | Creates a value of 'CreateVPC' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvInstanceTenancy'
+--
+-- * 'cvDryRun'
+--
+-- * 'cvCIdRBlock'
+createVPC
+    :: Text -- ^ 'cvCIdRBlock'
+    -> CreateVPC
 createVPC pCIdRBlock_ =
     CreateVPC'
     { _cvInstanceTenancy = Nothing
@@ -82,25 +84,25 @@ createVPC pCIdRBlock_ =
     }
 
 -- | The supported tenancy options for instances launched into the VPC. A
--- value of @default@ means that instances can be launched with any
--- tenancy; a value of @dedicated@ means all instances launched into the
+-- value of 'default' means that instances can be launched with any
+-- tenancy; a value of 'dedicated' means all instances launched into the
 -- VPC are launched as dedicated tenancy instances regardless of the
 -- tenancy assigned to the instance at launch. Dedicated tenancy instances
 -- run on single-tenant hardware.
 --
--- Default: @default@
+-- Default: 'default'
 cvInstanceTenancy :: Lens' CreateVPC (Maybe Tenancy)
 cvInstanceTenancy = lens _cvInstanceTenancy (\ s a -> s{_cvInstanceTenancy = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cvDryRun :: Lens' CreateVPC (Maybe Bool)
 cvDryRun = lens _cvDryRun (\ s a -> s{_cvDryRun = a});
 
 -- | The network range for the VPC, in CIDR notation. For example,
--- @10.0.0.0\/16@.
+-- '10.0.0.0\/16'.
 cvCIdRBlock :: Lens' CreateVPC Text
 cvCIdRBlock = lens _cvCIdRBlock (\ s a -> s{_cvCIdRBlock = a});
 
@@ -129,19 +131,21 @@ instance ToQuery CreateVPC where
                "DryRun" =: _cvDryRun, "CidrBlock" =: _cvCIdRBlock]
 
 -- | /See:/ 'createVPCResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvrsVPC'
---
--- * 'cvrsStatus'
 data CreateVPCResponse = CreateVPCResponse'
     { _cvrsVPC    :: !(Maybe VPC)
     , _cvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVPCResponse' smart constructor.
-createVPCResponse :: Int -> CreateVPCResponse
+-- | Creates a value of 'CreateVPCResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvrsVPC'
+--
+-- * 'cvrsStatus'
+createVPCResponse
+    :: Int -- ^ 'cvrsStatus'
+    -> CreateVPCResponse
 createVPCResponse pStatus_ =
     CreateVPCResponse'
     { _cvrsVPC = Nothing
@@ -152,6 +156,6 @@ createVPCResponse pStatus_ =
 cvrsVPC :: Lens' CreateVPCResponse (Maybe VPC)
 cvrsVPC = lens _cvrsVPC (\ s a -> s{_cvrsVPC = a});
 
--- | Undocumented member.
+-- | The response status code.
 cvrsStatus :: Lens' CreateVPCResponse Int
 cvrsStatus = lens _cvrsStatus (\ s a -> s{_cvrsStatus = a});

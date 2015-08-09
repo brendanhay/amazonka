@@ -24,19 +24,21 @@
 -- This action is throttled at one request per second.
 --
 -- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListIdentities.html AWS API Reference> for ListIdentities.
+--
+-- This operation returns paginated results.
 module Network.AWS.SES.ListIdentities
     (
     -- * Creating a Request
-      ListIdentities
-    , listIdentities
+      listIdentities
+    , ListIdentities
     -- * Request Lenses
     , liIdentityType
     , liNextToken
     , liMaxItems
 
     -- * Destructuring the Response
-    , ListIdentitiesResponse
     , listIdentitiesResponse
+    , ListIdentitiesResponse
     -- * Response Lenses
     , lirsNextToken
     , lirsStatus
@@ -54,22 +56,23 @@ import           Network.AWS.SES.Types.Product
 -- the AWS Account.
 --
 -- /See:/ 'listIdentities' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'liIdentityType'
---
--- * 'liNextToken'
---
--- * 'liMaxItems'
 data ListIdentities = ListIdentities'
     { _liIdentityType :: !(Maybe IdentityType)
     , _liNextToken    :: !(Maybe Text)
     , _liMaxItems     :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListIdentities' smart constructor.
-listIdentities :: ListIdentities
+-- | Creates a value of 'ListIdentities' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'liIdentityType'
+--
+-- * 'liNextToken'
+--
+-- * 'liMaxItems'
+listIdentities
+    :: ListIdentities
 listIdentities =
     ListIdentities'
     { _liIdentityType = Nothing
@@ -129,22 +132,24 @@ instance ToQuery ListIdentities where
 -- | Represents a list of all verified identities for the AWS Account.
 --
 -- /See:/ 'listIdentitiesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lirsNextToken'
---
--- * 'lirsStatus'
---
--- * 'lirsIdentities'
 data ListIdentitiesResponse = ListIdentitiesResponse'
     { _lirsNextToken  :: !(Maybe Text)
     , _lirsStatus     :: !Int
     , _lirsIdentities :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListIdentitiesResponse' smart constructor.
-listIdentitiesResponse :: Int -> ListIdentitiesResponse
+-- | Creates a value of 'ListIdentitiesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lirsNextToken'
+--
+-- * 'lirsStatus'
+--
+-- * 'lirsIdentities'
+listIdentitiesResponse
+    :: Int -- ^ 'lirsStatus'
+    -> ListIdentitiesResponse
 listIdentitiesResponse pStatus_ =
     ListIdentitiesResponse'
     { _lirsNextToken = Nothing
@@ -156,7 +161,7 @@ listIdentitiesResponse pStatus_ =
 lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 lirsStatus :: Lens' ListIdentitiesResponse Int
 lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
 

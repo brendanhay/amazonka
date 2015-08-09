@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation retrieves the @notification-configuration@ subresource of
+-- This operation retrieves the 'notification-configuration' subresource of
 -- the specified vault.
 --
 -- For information about setting a notification configuration on a vault,
 -- see SetVaultNotifications. If a notification configuration for a vault
--- is not set, the operation returns a @404 Not Found@ error. For more
+-- is not set, the operation returns a '404 Not Found' error. For more
 -- information about vault notifications, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html Configuring Vault Notifications in Amazon Glacier>.
 --
@@ -43,15 +43,15 @@
 module Network.AWS.Glacier.GetVaultNotifications
     (
     -- * Creating a Request
-      GetVaultNotifications
-    , getVaultNotifications
+      getVaultNotifications
+    , GetVaultNotifications
     -- * Request Lenses
     , gvnAccountId
     , gvnVaultName
 
     -- * Destructuring the Response
-    , GetVaultNotificationsResponse
     , getVaultNotificationsResponse
+    , GetVaultNotificationsResponse
     -- * Response Lenses
     , gvnrsVaultNotificationConfig
     , gvnrsStatus
@@ -67,28 +67,31 @@ import           Network.AWS.Response
 -- Amazon Glacier vault.
 --
 -- /See:/ 'getVaultNotifications' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gvnAccountId'
---
--- * 'gvnVaultName'
 data GetVaultNotifications = GetVaultNotifications'
     { _gvnAccountId :: !Text
     , _gvnVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetVaultNotifications' smart constructor.
-getVaultNotifications :: Text -> Text -> GetVaultNotifications
+-- | Creates a value of 'GetVaultNotifications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gvnAccountId'
+--
+-- * 'gvnVaultName'
+getVaultNotifications
+    :: Text -- ^ 'gvnAccountId'
+    -> Text -- ^ 'gvnVaultName'
+    -> GetVaultNotifications
 getVaultNotifications pAccountId_ pVaultName_ =
     GetVaultNotifications'
     { _gvnAccountId = pAccountId_
     , _gvnVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 gvnAccountId :: Lens' GetVaultNotifications Text
@@ -125,19 +128,21 @@ instance ToQuery GetVaultNotifications where
 -- | Contains the Amazon Glacier response to your request.
 --
 -- /See:/ 'getVaultNotificationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gvnrsVaultNotificationConfig'
---
--- * 'gvnrsStatus'
 data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
     { _gvnrsVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
     , _gvnrsStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetVaultNotificationsResponse' smart constructor.
-getVaultNotificationsResponse :: Int -> GetVaultNotificationsResponse
+-- | Creates a value of 'GetVaultNotificationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gvnrsVaultNotificationConfig'
+--
+-- * 'gvnrsStatus'
+getVaultNotificationsResponse
+    :: Int -- ^ 'gvnrsStatus'
+    -> GetVaultNotificationsResponse
 getVaultNotificationsResponse pStatus_ =
     GetVaultNotificationsResponse'
     { _gvnrsVaultNotificationConfig = Nothing
@@ -148,6 +153,6 @@ getVaultNotificationsResponse pStatus_ =
 gvnrsVaultNotificationConfig :: Lens' GetVaultNotificationsResponse (Maybe VaultNotificationConfig)
 gvnrsVaultNotificationConfig = lens _gvnrsVaultNotificationConfig (\ s a -> s{_gvnrsVaultNotificationConfig = a});
 
--- | Undocumented member.
+-- | The response status code.
 gvnrsStatus :: Lens' GetVaultNotificationsResponse Int
 gvnrsStatus = lens _gvnrsStatus (\ s a -> s{_gvnrsStatus = a});

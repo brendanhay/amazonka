@@ -29,8 +29,8 @@
 module Network.AWS.OpsWorks.CreateUserProfile
     (
     -- * Creating a Request
-      CreateUserProfile
-    , createUserProfile
+      createUserProfile
+    , CreateUserProfile
     -- * Request Lenses
     , cupSSHUsername
     , cupSSHPublicKey
@@ -38,8 +38,8 @@ module Network.AWS.OpsWorks.CreateUserProfile
     , cupIAMUserARN
 
     -- * Destructuring the Response
-    , CreateUserProfileResponse
     , createUserProfileResponse
+    , CreateUserProfileResponse
     -- * Response Lenses
     , cuprsIAMUserARN
     , cuprsStatus
@@ -52,8 +52,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createUserProfile' smart constructor.
+data CreateUserProfile = CreateUserProfile'
+    { _cupSSHUsername         :: !(Maybe Text)
+    , _cupSSHPublicKey        :: !(Maybe Text)
+    , _cupAllowSelfManagement :: !(Maybe Bool)
+    , _cupIAMUserARN          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateUserProfile' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cupSSHUsername'
 --
@@ -62,15 +70,9 @@ import           Network.AWS.Response
 -- * 'cupAllowSelfManagement'
 --
 -- * 'cupIAMUserARN'
-data CreateUserProfile = CreateUserProfile'
-    { _cupSSHUsername         :: !(Maybe Text)
-    , _cupSSHPublicKey        :: !(Maybe Text)
-    , _cupAllowSelfManagement :: !(Maybe Bool)
-    , _cupIAMUserARN          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateUserProfile' smart constructor.
-createUserProfile :: Text -> CreateUserProfile
+createUserProfile
+    :: Text -- ^ 'cupIAMUserARN'
+    -> CreateUserProfile
 createUserProfile pIAMUserARN_ =
     CreateUserProfile'
     { _cupSSHUsername = Nothing
@@ -81,8 +83,8 @@ createUserProfile pIAMUserARN_ =
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
 -- [0-9], \'-\', and \'_\'. If the specified name includes other
--- punctuation marks, AWS OpsWorks removes them. For example, @my.name@
--- will be changed to @myname@. If you do not specify an SSH user name, AWS
+-- punctuation marks, AWS OpsWorks removes them. For example, 'my.name'
+-- will be changed to 'myname'. If you do not specify an SSH user name, AWS
 -- OpsWorks generates one from the IAM user name.
 cupSSHUsername :: Lens' CreateUserProfile (Maybe Text)
 cupSSHUsername = lens _cupSSHUsername (\ s a -> s{_cupSSHUsername = a});
@@ -135,22 +137,24 @@ instance ToPath CreateUserProfile where
 instance ToQuery CreateUserProfile where
         toQuery = const mempty
 
--- | Contains the response to a @CreateUserProfile@ request.
+-- | Contains the response to a 'CreateUserProfile' request.
 --
 -- /See:/ 'createUserProfileResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cuprsIAMUserARN'
---
--- * 'cuprsStatus'
 data CreateUserProfileResponse = CreateUserProfileResponse'
     { _cuprsIAMUserARN :: !(Maybe Text)
     , _cuprsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateUserProfileResponse' smart constructor.
-createUserProfileResponse :: Int -> CreateUserProfileResponse
+-- | Creates a value of 'CreateUserProfileResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cuprsIAMUserARN'
+--
+-- * 'cuprsStatus'
+createUserProfileResponse
+    :: Int -- ^ 'cuprsStatus'
+    -> CreateUserProfileResponse
 createUserProfileResponse pStatus_ =
     CreateUserProfileResponse'
     { _cuprsIAMUserARN = Nothing
@@ -161,6 +165,6 @@ createUserProfileResponse pStatus_ =
 cuprsIAMUserARN :: Lens' CreateUserProfileResponse (Maybe Text)
 cuprsIAMUserARN = lens _cuprsIAMUserARN (\ s a -> s{_cuprsIAMUserARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 cuprsStatus :: Lens' CreateUserProfileResponse Int
 cuprsStatus = lens _cuprsStatus (\ s a -> s{_cuprsStatus = a});

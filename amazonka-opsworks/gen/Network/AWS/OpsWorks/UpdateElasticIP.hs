@@ -32,15 +32,15 @@
 module Network.AWS.OpsWorks.UpdateElasticIP
     (
     -- * Creating a Request
-      UpdateElasticIP
-    , updateElasticIP
+      updateElasticIP
+    , UpdateElasticIP
     -- * Request Lenses
     , ueiName
     , ueiElasticIP
 
     -- * Destructuring the Response
-    , UpdateElasticIPResponse
     , updateElasticIPResponse
+    , UpdateElasticIPResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -50,19 +50,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateElasticIP' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ueiName'
---
--- * 'ueiElasticIP'
 data UpdateElasticIP = UpdateElasticIP'
     { _ueiName      :: !(Maybe Text)
     , _ueiElasticIP :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateElasticIP' smart constructor.
-updateElasticIP :: Text -> UpdateElasticIP
+-- | Creates a value of 'UpdateElasticIP' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ueiName'
+--
+-- * 'ueiElasticIP'
+updateElasticIP
+    :: Text -- ^ 'ueiElasticIP'
+    -> UpdateElasticIP
 updateElasticIP pElasticIP_ =
     UpdateElasticIP'
     { _ueiName = Nothing
@@ -108,6 +110,8 @@ data UpdateElasticIPResponse =
     UpdateElasticIPResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateElasticIPResponse' smart constructor.
-updateElasticIPResponse :: UpdateElasticIPResponse
+-- | Creates a value of 'UpdateElasticIPResponse' with the minimum fields required to make a request.
+--
+updateElasticIPResponse
+    :: UpdateElasticIPResponse
 updateElasticIPResponse = UpdateElasticIPResponse'

@@ -28,14 +28,14 @@
 module Network.AWS.IAM.GetUser
     (
     -- * Creating a Request
-      GetUser
-    , getUser
+      getUser
+    , GetUser
     -- * Request Lenses
     , guUserName
 
     -- * Destructuring the Response
-    , GetUserResponse
     , getUserResponse
+    , GetUserResponse
     -- * Response Lenses
     , gursStatus
     , gursUser
@@ -48,16 +48,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getUser' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'guUserName'
 newtype GetUser = GetUser'
     { _guUserName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetUser' smart constructor.
-getUser :: GetUser
+-- | Creates a value of 'GetUser' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'guUserName'
+getUser
+    :: GetUser
 getUser =
     GetUser'
     { _guUserName = Nothing
@@ -96,26 +97,29 @@ instance ToQuery GetUser where
 -- | Contains the response to a successful GetUser request.
 --
 -- /See:/ 'getUserResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gursStatus'
---
--- * 'gursUser'
 data GetUserResponse = GetUserResponse'
     { _gursStatus :: !Int
     , _gursUser   :: !User
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetUserResponse' smart constructor.
-getUserResponse :: Int -> User -> GetUserResponse
+-- | Creates a value of 'GetUserResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gursStatus'
+--
+-- * 'gursUser'
+getUserResponse
+    :: Int -- ^ 'gursStatus'
+    -> User -- ^ 'gursUser'
+    -> GetUserResponse
 getUserResponse pStatus_ pUser_ =
     GetUserResponse'
     { _gursStatus = pStatus_
     , _gursUser = pUser_
     }
 
--- | Undocumented member.
+-- | The response status code.
 gursStatus :: Lens' GetUserResponse Int
 gursStatus = lens _gursStatus (\ s a -> s{_gursStatus = a});
 

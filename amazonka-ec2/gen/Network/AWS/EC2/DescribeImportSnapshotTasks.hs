@@ -24,8 +24,8 @@
 module Network.AWS.EC2.DescribeImportSnapshotTasks
     (
     -- * Creating a Request
-      DescribeImportSnapshotTasks
-    , describeImportSnapshotTasks
+      describeImportSnapshotTasks
+    , DescribeImportSnapshotTasks
     -- * Request Lenses
     , distFilters
     , distImportTaskIds
@@ -34,8 +34,8 @@ module Network.AWS.EC2.DescribeImportSnapshotTasks
     , distMaxResults
 
     -- * Destructuring the Response
-    , DescribeImportSnapshotTasksResponse
     , describeImportSnapshotTasksResponse
+    , DescribeImportSnapshotTasksResponse
     -- * Response Lenses
     , distrsNextToken
     , distrsImportSnapshotTasks
@@ -49,8 +49,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeImportSnapshotTasks' smart constructor.
+data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
+    { _distFilters       :: !(Maybe [Filter])
+    , _distImportTaskIds :: !(Maybe [Text])
+    , _distNextToken     :: !(Maybe Text)
+    , _distDryRun        :: !(Maybe Bool)
+    , _distMaxResults    :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeImportSnapshotTasks' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'distFilters'
 --
@@ -61,16 +70,8 @@ import           Network.AWS.Response
 -- * 'distDryRun'
 --
 -- * 'distMaxResults'
-data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
-    { _distFilters       :: !(Maybe [Filter])
-    , _distImportTaskIds :: !(Maybe [Text])
-    , _distNextToken     :: !(Maybe Text)
-    , _distDryRun        :: !(Maybe Bool)
-    , _distMaxResults    :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeImportSnapshotTasks' smart constructor.
-describeImportSnapshotTasks :: DescribeImportSnapshotTasks
+describeImportSnapshotTasks
+    :: DescribeImportSnapshotTasks
 describeImportSnapshotTasks =
     DescribeImportSnapshotTasks'
     { _distFilters = Nothing
@@ -94,8 +95,8 @@ distNextToken = lens _distNextToken (\ s a -> s{_distNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 distDryRun :: Lens' DescribeImportSnapshotTasks (Maybe Bool)
 distDryRun = lens _distDryRun (\ s a -> s{_distDryRun = a});
 
@@ -137,22 +138,24 @@ instance ToQuery DescribeImportSnapshotTasks where
                "MaxResults" =: _distMaxResults]
 
 -- | /See:/ 'describeImportSnapshotTasksResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'distrsNextToken'
---
--- * 'distrsImportSnapshotTasks'
---
--- * 'distrsStatus'
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
     { _distrsNextToken           :: !(Maybe Text)
     , _distrsImportSnapshotTasks :: !(Maybe [ImportSnapshotTask])
     , _distrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeImportSnapshotTasksResponse' smart constructor.
-describeImportSnapshotTasksResponse :: Int -> DescribeImportSnapshotTasksResponse
+-- | Creates a value of 'DescribeImportSnapshotTasksResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'distrsNextToken'
+--
+-- * 'distrsImportSnapshotTasks'
+--
+-- * 'distrsStatus'
+describeImportSnapshotTasksResponse
+    :: Int -- ^ 'distrsStatus'
+    -> DescribeImportSnapshotTasksResponse
 describeImportSnapshotTasksResponse pStatus_ =
     DescribeImportSnapshotTasksResponse'
     { _distrsNextToken = Nothing
@@ -160,7 +163,7 @@ describeImportSnapshotTasksResponse pStatus_ =
     , _distrsStatus = pStatus_
     }
 
--- | The token to use to get the next page of results. This value is @null@
+-- | The token to use to get the next page of results. This value is 'null'
 -- when there are no more results to return.
 distrsNextToken :: Lens' DescribeImportSnapshotTasksResponse (Maybe Text)
 distrsNextToken = lens _distrsNextToken (\ s a -> s{_distrsNextToken = a});
@@ -170,6 +173,6 @@ distrsNextToken = lens _distrsNextToken (\ s a -> s{_distrsNextToken = a});
 distrsImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSnapshotTask]
 distrsImportSnapshotTasks = lens _distrsImportSnapshotTasks (\ s a -> s{_distrsImportSnapshotTasks = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 distrsStatus :: Lens' DescribeImportSnapshotTasksResponse Int
 distrsStatus = lens _distrsStatus (\ s a -> s{_distrsStatus = a});

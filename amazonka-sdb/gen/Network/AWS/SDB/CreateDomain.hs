@@ -18,9 +18,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @CreateDomain@ operation creates a new domain. The domain name
+-- The 'CreateDomain' operation creates a new domain. The domain name
 -- should be unique among the domains associated with the Access Key ID
--- provided in the request. The @CreateDomain@ operation may take 10 or
+-- provided in the request. The 'CreateDomain' operation may take 10 or
 -- more seconds to complete.
 --
 -- The client can create up to 100 domains per account.
@@ -32,14 +32,14 @@
 module Network.AWS.SDB.CreateDomain
     (
     -- * Creating a Request
-      CreateDomain
-    , createDomain
+      createDomain
+    , CreateDomain
     -- * Request Lenses
     , cdDomainName
 
     -- * Destructuring the Response
-    , CreateDomainResponse
     , createDomainResponse
+    , CreateDomainResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -49,16 +49,18 @@ import           Network.AWS.SDB.Types
 import           Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'createDomain' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdDomainName'
 newtype CreateDomain = CreateDomain'
     { _cdDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDomain' smart constructor.
-createDomain :: Text -> CreateDomain
+-- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdDomainName'
+createDomain
+    :: Text -- ^ 'cdDomainName'
+    -> CreateDomain
 createDomain pDomainName_ =
     CreateDomain'
     { _cdDomainName = pDomainName_
@@ -94,6 +96,8 @@ data CreateDomainResponse =
     CreateDomainResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDomainResponse' smart constructor.
-createDomainResponse :: CreateDomainResponse
+-- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
+--
+createDomainResponse
+    :: CreateDomainResponse
 createDomainResponse = CreateDomainResponse'

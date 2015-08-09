@@ -24,16 +24,16 @@
 module Network.AWS.KMS.ListGrants
     (
     -- * Creating a Request
-      ListGrants
-    , listGrants
+      listGrants
+    , ListGrants
     -- * Request Lenses
     , lgMarker
     , lgLimit
     , lgKeyId
 
     -- * Destructuring the Response
-    , ListGrantsResponse
     , listGrantsResponse
+    , ListGrantsResponse
     -- * Response Lenses
     , lgrsTruncated
     , lgrsGrants
@@ -48,22 +48,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listGrants' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lgMarker'
---
--- * 'lgLimit'
---
--- * 'lgKeyId'
 data ListGrants = ListGrants'
     { _lgMarker :: !(Maybe Text)
     , _lgLimit  :: !(Maybe Nat)
     , _lgKeyId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListGrants' smart constructor.
-listGrants :: Text -> ListGrants
+-- | Creates a value of 'ListGrants' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lgMarker'
+--
+-- * 'lgLimit'
+--
+-- * 'lgKeyId'
+listGrants
+    :: Text -- ^ 'lgKeyId'
+    -> ListGrants
 listGrants pKeyId_ =
     ListGrants'
     { _lgMarker = Nothing
@@ -73,15 +75,15 @@ listGrants pKeyId_ =
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
--- are truncated. Set it to the value of the @NextMarker@ in the response
+-- are truncated. Set it to the value of the 'NextMarker' in the response
 -- you just received.
 lgMarker :: Lens' ListGrants (Maybe Text)
 lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 
 -- | Specify this parameter only when paginating results to indicate the
 -- maximum number of grants you want listed in the response. If there are
--- additional grants beyond the maximum you specify, the @Truncated@
--- response element will be set to @true.@
+-- additional grants beyond the maximum you specify, the 'Truncated'
+-- response element will be set to 'true.'
 lgLimit :: Lens' ListGrants (Maybe Natural)
 lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
 
@@ -129,8 +131,16 @@ instance ToQuery ListGrants where
         toQuery = const mempty
 
 -- | /See:/ 'listGrantsResponse' smart constructor.
+data ListGrantsResponse = ListGrantsResponse'
+    { _lgrsTruncated  :: !(Maybe Bool)
+    , _lgrsGrants     :: !(Maybe [GrantListEntry])
+    , _lgrsNextMarker :: !(Maybe Text)
+    , _lgrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListGrantsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lgrsTruncated'
 --
@@ -139,15 +149,9 @@ instance ToQuery ListGrants where
 -- * 'lgrsNextMarker'
 --
 -- * 'lgrsStatus'
-data ListGrantsResponse = ListGrantsResponse'
-    { _lgrsTruncated  :: !(Maybe Bool)
-    , _lgrsGrants     :: !(Maybe [GrantListEntry])
-    , _lgrsNextMarker :: !(Maybe Text)
-    , _lgrsStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListGrantsResponse' smart constructor.
-listGrantsResponse :: Int -> ListGrantsResponse
+listGrantsResponse
+    :: Int -- ^ 'lgrsStatus'
+    -> ListGrantsResponse
 listGrantsResponse pStatus_ =
     ListGrantsResponse'
     { _lgrsTruncated = Nothing
@@ -158,7 +162,7 @@ listGrantsResponse pStatus_ =
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more grants in the
+-- using the 'Marker' request parameter to retrieve more grants in the
 -- list.
 lgrsTruncated :: Lens' ListGrantsResponse (Maybe Bool)
 lgrsTruncated = lens _lgrsTruncated (\ s a -> s{_lgrsTruncated = a});
@@ -167,12 +171,12 @@ lgrsTruncated = lens _lgrsTruncated (\ s a -> s{_lgrsTruncated = a});
 lgrsGrants :: Lens' ListGrantsResponse [GrantListEntry]
 lgrsGrants = lens _lgrsGrants (\ s a -> s{_lgrsGrants = a}) . _Default . _Coerce;
 
--- | If @Truncated@ is true, this value is present and contains the value to
--- use for the @Marker@ request parameter in a subsequent pagination
+-- | If 'Truncated' is true, this value is present and contains the value to
+-- use for the 'Marker' request parameter in a subsequent pagination
 -- request.
 lgrsNextMarker :: Lens' ListGrantsResponse (Maybe Text)
 lgrsNextMarker = lens _lgrsNextMarker (\ s a -> s{_lgrsNextMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 lgrsStatus :: Lens' ListGrantsResponse Int
 lgrsStatus = lens _lgrsStatus (\ s a -> s{_lgrsStatus = a});

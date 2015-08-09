@@ -30,8 +30,8 @@
 module Network.AWS.EC2.ModifyInstanceAttribute
     (
     -- * Creating a Request
-      ModifyInstanceAttribute
-    , modifyInstanceAttribute
+      modifyInstanceAttribute
+    , ModifyInstanceAttribute
     -- * Request Lenses
     , mAttribute
     , mGroups
@@ -50,8 +50,8 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     , mInstanceId
 
     -- * Destructuring the Response
-    , ModifyInstanceAttributeResponse
     , modifyInstanceAttributeResponse
+    , ModifyInstanceAttributeResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -61,8 +61,27 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifyInstanceAttribute' smart constructor.
+data ModifyInstanceAttribute = ModifyInstanceAttribute'
+    { _mAttribute                         :: !(Maybe InstanceAttributeName)
+    , _mGroups                            :: !(Maybe [Text])
+    , _mSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
+    , _mDisableAPITermination             :: !(Maybe AttributeBooleanValue)
+    , _mRAMDisk                           :: !(Maybe AttributeValue)
+    , _mValue                             :: !(Maybe Text)
+    , _mKernel                            :: !(Maybe AttributeValue)
+    , _mInstanceType                      :: !(Maybe AttributeValue)
+    , _mEBSOptimized                      :: !(Maybe AttributeBooleanValue)
+    , _mUserData                          :: !(Maybe BlobAttributeValue)
+    , _mSRIOVNetSupport                   :: !(Maybe AttributeValue)
+    , _mInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
+    , _mBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMappingSpecification])
+    , _mDryRun                            :: !(Maybe Bool)
+    , _mInstanceId                        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyInstanceAttribute' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mAttribute'
 --
@@ -93,26 +112,9 @@ import           Network.AWS.Response
 -- * 'mDryRun'
 --
 -- * 'mInstanceId'
-data ModifyInstanceAttribute = ModifyInstanceAttribute'
-    { _mAttribute                         :: !(Maybe InstanceAttributeName)
-    , _mGroups                            :: !(Maybe [Text])
-    , _mSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
-    , _mDisableAPITermination             :: !(Maybe AttributeBooleanValue)
-    , _mRAMDisk                           :: !(Maybe AttributeValue)
-    , _mValue                             :: !(Maybe Text)
-    , _mKernel                            :: !(Maybe AttributeValue)
-    , _mInstanceType                      :: !(Maybe AttributeValue)
-    , _mEBSOptimized                      :: !(Maybe AttributeBooleanValue)
-    , _mUserData                          :: !(Maybe BlobAttributeValue)
-    , _mSRIOVNetSupport                   :: !(Maybe AttributeValue)
-    , _mInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
-    , _mBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMappingSpecification])
-    , _mDryRun                            :: !(Maybe Bool)
-    , _mInstanceId                        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifyInstanceAttribute' smart constructor.
-modifyInstanceAttribute :: Text -> ModifyInstanceAttribute
+modifyInstanceAttribute
+    :: Text -- ^ 'mInstanceId'
+    -> ModifyInstanceAttribute
 modifyInstanceAttribute pInstanceId_ =
     ModifyInstanceAttribute'
     { _mAttribute = Nothing
@@ -144,12 +146,12 @@ mGroups :: Lens' ModifyInstanceAttribute [Text]
 mGroups = lens _mGroups (\ s a -> s{_mGroups = a}) . _Default . _Coerce;
 
 -- | Specifies whether source\/destination checking is enabled. A value of
--- @true@ means that checking is enabled, and @false@ means checking is
--- disabled. This value must be @false@ for a NAT instance to perform NAT.
+-- 'true' means that checking is enabled, and 'false' means checking is
+-- disabled. This value must be 'false' for a NAT instance to perform NAT.
 mSourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mSourceDestCheck = lens _mSourceDestCheck (\ s a -> s{_mSourceDestCheck = a});
 
--- | If the value is @true@, you can\'t terminate the instance using the
+-- | If the value is 'true', you can\'t terminate the instance using the
 -- Amazon EC2 console, CLI, or API; otherwise, you can.
 mDisableAPITermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
 mDisableAPITermination = lens _mDisableAPITermination (\ s a -> s{_mDisableAPITermination = a});
@@ -161,9 +163,9 @@ mDisableAPITermination = lens _mDisableAPITermination (\ s a -> s{_mDisableAPITe
 mRAMDisk :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mRAMDisk = lens _mRAMDisk (\ s a -> s{_mRAMDisk = a});
 
--- | A new value for the attribute. Use only with the @kernel@, @ramdisk@,
--- @userData@, @disableApiTermination@, or
--- @intanceInitiateShutdownBehavior@ attribute.
+-- | A new value for the attribute. Use only with the 'kernel', 'ramdisk',
+-- 'userData', 'disableApiTermination', or
+-- 'intanceInitiateShutdownBehavior' attribute.
 mValue :: Lens' ModifyInstanceAttribute (Maybe Text)
 mValue = lens _mValue (\ s a -> s{_mValue = a});
 
@@ -178,7 +180,7 @@ mKernel = lens _mKernel (\ s a -> s{_mKernel = a});
 -- see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types>.
 -- If the instance type is not valid, the error returned is
--- @InvalidInstanceAttributeValue@.
+-- 'InvalidInstanceAttributeValue'.
 mInstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mInstanceType = lens _mInstanceType (\ s a -> s{_mInstanceType = a});
 
@@ -194,7 +196,7 @@ mEBSOptimized = lens _mEBSOptimized (\ s a -> s{_mEBSOptimized = a});
 mUserData :: Lens' ModifyInstanceAttribute (Maybe BlobAttributeValue)
 mUserData = lens _mUserData (\ s a -> s{_mUserData = a});
 
--- | Set to @simple@ to enable enhanced networking for the instance.
+-- | Set to 'simple' to enable enhanced networking for the instance.
 --
 -- There is no way to disable enhanced networking at this time.
 --
@@ -209,9 +211,9 @@ mSRIOVNetSupport = lens _mSRIOVNetSupport (\ s a -> s{_mSRIOVNetSupport = a});
 mInstanceInitiatedShutdownBehavior :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
 mInstanceInitiatedShutdownBehavior = lens _mInstanceInitiatedShutdownBehavior (\ s a -> s{_mInstanceInitiatedShutdownBehavior = a});
 
--- | Modifies the @DeleteOnTermination@ attribute for volumes that are
+-- | Modifies the 'DeleteOnTermination' attribute for volumes that are
 -- currently attached. The volume must be owned by the caller. If no value
--- is specified for @DeleteOnTermination@, the default is @true@ and the
+-- is specified for 'DeleteOnTermination', the default is 'true' and the
 -- volume is deleted when the instance is terminated.
 --
 -- To add instance store volumes to an Amazon EBS-backed instance, you must
@@ -223,8 +225,8 @@ mBlockDeviceMappings = lens _mBlockDeviceMappings (\ s a -> s{_mBlockDeviceMappi
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 mDryRun :: Lens' ModifyInstanceAttribute (Maybe Bool)
 mDryRun = lens _mDryRun (\ s a -> s{_mDryRun = a});
 
@@ -273,6 +275,8 @@ data ModifyInstanceAttributeResponse =
     ModifyInstanceAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyInstanceAttributeResponse' smart constructor.
-modifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse
+-- | Creates a value of 'ModifyInstanceAttributeResponse' with the minimum fields required to make a request.
+--
+modifyInstanceAttributeResponse
+    :: ModifyInstanceAttributeResponse
 modifyInstanceAttributeResponse = ModifyInstanceAttributeResponse'

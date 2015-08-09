@@ -20,16 +20,16 @@
 --
 -- Start a task using random placement and the default Amazon ECS
 -- scheduler. If you want to use your own scheduler or place a task on a
--- specific container instance, use @StartTask@ instead.
+-- specific container instance, use 'StartTask' instead.
 --
--- The @count@ parameter is limited to 10 tasks per call.
+-- The 'count' parameter is limited to 10 tasks per call.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html AWS API Reference> for RunTask.
 module Network.AWS.ECS.RunTask
     (
     -- * Creating a Request
-      RunTask
-    , runTask
+      runTask
+    , RunTask
     -- * Request Lenses
     , rtOverrides
     , rtCluster
@@ -38,8 +38,8 @@ module Network.AWS.ECS.RunTask
     , rtTaskDefinition
 
     -- * Destructuring the Response
-    , RunTaskResponse
     , runTaskResponse
+    , RunTaskResponse
     -- * Response Lenses
     , rtrsFailures
     , rtrsTasks
@@ -53,8 +53,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'runTask' smart constructor.
+data RunTask = RunTask'
+    { _rtOverrides      :: !(Maybe TaskOverride)
+    , _rtCluster        :: !(Maybe Text)
+    , _rtCount          :: !(Maybe Int)
+    , _rtStartedBy      :: !(Maybe Text)
+    , _rtTaskDefinition :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RunTask' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rtOverrides'
 --
@@ -65,16 +74,9 @@ import           Network.AWS.Response
 -- * 'rtStartedBy'
 --
 -- * 'rtTaskDefinition'
-data RunTask = RunTask'
-    { _rtOverrides      :: !(Maybe TaskOverride)
-    , _rtCluster        :: !(Maybe Text)
-    , _rtCount          :: !(Maybe Int)
-    , _rtStartedBy      :: !(Maybe Text)
-    , _rtTaskDefinition :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RunTask' smart constructor.
-runTask :: Text -> RunTask
+runTask
+    :: Text -- ^ 'rtTaskDefinition'
+    -> RunTask
 runTask pTaskDefinition_ =
     RunTask'
     { _rtOverrides = Nothing
@@ -87,10 +89,10 @@ runTask pTaskDefinition_ =
 -- | A list of container overrides in JSON format that specify the name of a
 -- container in the specified task definition and the overrides it should
 -- receive. You can override the default command for a container (that is
--- specified in the task definition or Docker image) with a @command@
+-- specified in the task definition or Docker image) with a 'command'
 -- override. You can also override existing environment variables (that are
 -- specified in the task definition or Docker image) on a container or add
--- new environment variables to it with an @environment@ override.
+-- new environment variables to it with an 'environment' override.
 --
 -- A total of 8192 characters are allowed for overrides. This limit
 -- includes the JSON formatting characters of the override structure.
@@ -106,24 +108,24 @@ rtCluster = lens _rtCluster (\ s a -> s{_rtCluster = a});
 -- | The number of instantiations of the specified task that you would like
 -- to place on your cluster.
 --
--- The @count@ parameter is limited to 10 tasks per call.
+-- The 'count' parameter is limited to 10 tasks per call.
 rtCount :: Lens' RunTask (Maybe Int)
 rtCount = lens _rtCount (\ s a -> s{_rtCount = a});
 
 -- | An optional tag specified when a task is started. For example if you
 -- automatically trigger a task to run a batch process job, you could apply
--- a unique identifier for that job to your task with the @startedBy@
+-- a unique identifier for that job to your task with the 'startedBy'
 -- parameter. You can then identify which tasks belong to that job by
--- filtering the results of a ListTasks call with the @startedBy@ value.
+-- filtering the results of a ListTasks call with the 'startedBy' value.
 --
--- If a task is started by an Amazon ECS service, then the @startedBy@
+-- If a task is started by an Amazon ECS service, then the 'startedBy'
 -- parameter contains the deployment ID of the service that starts it.
 rtStartedBy :: Lens' RunTask (Maybe Text)
 rtStartedBy = lens _rtStartedBy (\ s a -> s{_rtStartedBy = a});
 
--- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
--- Name (ARN) of the task definition that you want to run. If a @revision@
--- is not specified, the latest @ACTIVE@ revision is used.
+-- | The 'family' and 'revision' ('family:revision') or full Amazon Resource
+-- Name (ARN) of the task definition that you want to run. If a 'revision'
+-- is not specified, the latest 'ACTIVE' revision is used.
 rtTaskDefinition :: Lens' RunTask Text
 rtTaskDefinition = lens _rtTaskDefinition (\ s a -> s{_rtTaskDefinition = a});
 
@@ -164,22 +166,24 @@ instance ToQuery RunTask where
         toQuery = const mempty
 
 -- | /See:/ 'runTaskResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtrsFailures'
---
--- * 'rtrsTasks'
---
--- * 'rtrsStatus'
 data RunTaskResponse = RunTaskResponse'
     { _rtrsFailures :: !(Maybe [Failure])
     , _rtrsTasks    :: !(Maybe [Task])
     , _rtrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RunTaskResponse' smart constructor.
-runTaskResponse :: Int -> RunTaskResponse
+-- | Creates a value of 'RunTaskResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtrsFailures'
+--
+-- * 'rtrsTasks'
+--
+-- * 'rtrsStatus'
+runTaskResponse
+    :: Int -- ^ 'rtrsStatus'
+    -> RunTaskResponse
 runTaskResponse pStatus_ =
     RunTaskResponse'
     { _rtrsFailures = Nothing
@@ -187,7 +191,7 @@ runTaskResponse pStatus_ =
     , _rtrsStatus = pStatus_
     }
 
--- | Any failed tasks from your @RunTask@ action are listed here.
+-- | Any failed tasks from your 'RunTask' action are listed here.
 rtrsFailures :: Lens' RunTaskResponse [Failure]
 rtrsFailures = lens _rtrsFailures (\ s a -> s{_rtrsFailures = a}) . _Default . _Coerce;
 
@@ -196,6 +200,6 @@ rtrsFailures = lens _rtrsFailures (\ s a -> s{_rtrsFailures = a}) . _Default . _
 rtrsTasks :: Lens' RunTaskResponse [Task]
 rtrsTasks = lens _rtrsTasks (\ s a -> s{_rtrsTasks = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 rtrsStatus :: Lens' RunTaskResponse Int
 rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});

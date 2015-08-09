@@ -31,15 +31,15 @@
 module Network.AWS.IAM.AttachUserPolicy
     (
     -- * Creating a Request
-      AttachUserPolicy
-    , attachUserPolicy
+      attachUserPolicy
+    , AttachUserPolicy
     -- * Request Lenses
     , aupUserName
     , aupPolicyARN
 
     -- * Destructuring the Response
-    , AttachUserPolicyResponse
     , attachUserPolicyResponse
+    , AttachUserPolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -49,19 +49,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachUserPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aupUserName'
---
--- * 'aupPolicyARN'
 data AttachUserPolicy = AttachUserPolicy'
     { _aupUserName  :: !Text
     , _aupPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachUserPolicy' smart constructor.
-attachUserPolicy :: Text -> Text -> AttachUserPolicy
+-- | Creates a value of 'AttachUserPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aupUserName'
+--
+-- * 'aupPolicyARN'
+attachUserPolicy
+    :: Text -- ^ 'aupUserName'
+    -> Text -- ^ 'aupPolicyARN'
+    -> AttachUserPolicy
 attachUserPolicy pUserName_ pPolicyARN_ =
     AttachUserPolicy'
     { _aupUserName = pUserName_
@@ -101,6 +104,8 @@ data AttachUserPolicyResponse =
     AttachUserPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachUserPolicyResponse' smart constructor.
-attachUserPolicyResponse :: AttachUserPolicyResponse
+-- | Creates a value of 'AttachUserPolicyResponse' with the minimum fields required to make a request.
+--
+attachUserPolicyResponse
+    :: AttachUserPolicyResponse
 attachUserPolicyResponse = AttachUserPolicyResponse'

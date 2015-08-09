@@ -24,7 +24,7 @@
 -- basis. This API enables you to delete a snapshot schedule for a volume.
 -- For more information, see
 -- <http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html Working with Snapshots>.
--- In the @DeleteSnapshotSchedule@ request, you identify the volume by
+-- In the 'DeleteSnapshotSchedule' request, you identify the volume by
 -- providing its Amazon Resource Name (ARN).
 --
 -- To list or delete a snapshot, you must use the Amazon EC2 API. in
@@ -34,14 +34,14 @@
 module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     (
     -- * Creating a Request
-      DeleteSnapshotSchedule
-    , deleteSnapshotSchedule
+      deleteSnapshotSchedule
+    , DeleteSnapshotSchedule
     -- * Request Lenses
     , dVolumeARN
 
     -- * Destructuring the Response
-    , DeleteSnapshotScheduleResponse
     , deleteSnapshotScheduleResponse
+    , DeleteSnapshotScheduleResponse
     -- * Response Lenses
     , dsssrsVolumeARN
     , dsssrsStatus
@@ -54,16 +54,18 @@ import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'deleteSnapshotSchedule' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dVolumeARN'
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'
     { _dVolumeARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSnapshotSchedule' smart constructor.
-deleteSnapshotSchedule :: Text -> DeleteSnapshotSchedule
+-- | Creates a value of 'DeleteSnapshotSchedule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dVolumeARN'
+deleteSnapshotSchedule
+    :: Text -- ^ 'dVolumeARN'
+    -> DeleteSnapshotSchedule
 deleteSnapshotSchedule pVolumeARN_ =
     DeleteSnapshotSchedule'
     { _dVolumeARN = pVolumeARN_
@@ -105,19 +107,21 @@ instance ToQuery DeleteSnapshotSchedule where
         toQuery = const mempty
 
 -- | /See:/ 'deleteSnapshotScheduleResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsssrsVolumeARN'
---
--- * 'dsssrsStatus'
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
     { _dsssrsVolumeARN :: !(Maybe Text)
     , _dsssrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSnapshotScheduleResponse' smart constructor.
-deleteSnapshotScheduleResponse :: Int -> DeleteSnapshotScheduleResponse
+-- | Creates a value of 'DeleteSnapshotScheduleResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsssrsVolumeARN'
+--
+-- * 'dsssrsStatus'
+deleteSnapshotScheduleResponse
+    :: Int -- ^ 'dsssrsStatus'
+    -> DeleteSnapshotScheduleResponse
 deleteSnapshotScheduleResponse pStatus_ =
     DeleteSnapshotScheduleResponse'
     { _dsssrsVolumeARN = Nothing
@@ -128,6 +132,6 @@ deleteSnapshotScheduleResponse pStatus_ =
 dsssrsVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dsssrsVolumeARN = lens _dsssrsVolumeARN (\ s a -> s{_dsssrsVolumeARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 dsssrsStatus :: Lens' DeleteSnapshotScheduleResponse Int
 dsssrsStatus = lens _dsssrsStatus (\ s a -> s{_dsssrsStatus = a});

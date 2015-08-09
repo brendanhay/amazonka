@@ -37,16 +37,16 @@
 module Network.AWS.DirectoryService.DescribeDirectories
     (
     -- * Creating a Request
-      DescribeDirectories
-    , describeDirectories
+      describeDirectories
+    , DescribeDirectories
     -- * Request Lenses
     , ddNextToken
     , ddDirectoryIds
     , ddLimit
 
     -- * Destructuring the Response
-    , DescribeDirectoriesResponse
     , describeDirectoriesResponse
+    , DescribeDirectoriesResponse
     -- * Response Lenses
     , ddrsDirectoryDescriptions
     , ddrsNextToken
@@ -62,22 +62,23 @@ import           Network.AWS.Response
 -- | Contains the inputs for the DescribeDirectories operation.
 --
 -- /See:/ 'describeDirectories' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddNextToken'
---
--- * 'ddDirectoryIds'
---
--- * 'ddLimit'
 data DescribeDirectories = DescribeDirectories'
     { _ddNextToken    :: !(Maybe Text)
     , _ddDirectoryIds :: !(Maybe [Text])
     , _ddLimit        :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDirectories' smart constructor.
-describeDirectories :: DescribeDirectories
+-- | Creates a value of 'DescribeDirectories' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddNextToken'
+--
+-- * 'ddDirectoryIds'
+--
+-- * 'ddLimit'
+describeDirectories
+    :: DescribeDirectories
 describeDirectories =
     DescribeDirectories'
     { _ddNextToken = Nothing
@@ -94,7 +95,7 @@ ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
 -- If this member is null, all directories that belong to the current
 -- account are returned.
 --
--- An empty list results in an @InvalidParameterException@ being thrown.
+-- An empty list results in an 'InvalidParameterException' being thrown.
 ddDirectoryIds :: Lens' DescribeDirectories [Text]
 ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a}) . _Default . _Coerce;
 
@@ -143,22 +144,24 @@ instance ToQuery DescribeDirectories where
 -- | Contains the results of the DescribeDirectories operation.
 --
 -- /See:/ 'describeDirectoriesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddrsDirectoryDescriptions'
---
--- * 'ddrsNextToken'
---
--- * 'ddrsStatus'
 data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
     { _ddrsDirectoryDescriptions :: !(Maybe [DirectoryDescription])
     , _ddrsNextToken             :: !(Maybe Text)
     , _ddrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDirectoriesResponse' smart constructor.
-describeDirectoriesResponse :: Int -> DescribeDirectoriesResponse
+-- | Creates a value of 'DescribeDirectoriesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddrsDirectoryDescriptions'
+--
+-- * 'ddrsNextToken'
+--
+-- * 'ddrsStatus'
+describeDirectoriesResponse
+    :: Int -- ^ 'ddrsStatus'
+    -> DescribeDirectoriesResponse
 describeDirectoriesResponse pStatus_ =
     DescribeDirectoriesResponse'
     { _ddrsDirectoryDescriptions = Nothing
@@ -181,6 +184,6 @@ ddrsDirectoryDescriptions = lens _ddrsDirectoryDescriptions (\ s a -> s{_ddrsDir
 ddrsNextToken :: Lens' DescribeDirectoriesResponse (Maybe Text)
 ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 ddrsStatus :: Lens' DescribeDirectoriesResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

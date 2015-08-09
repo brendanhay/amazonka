@@ -22,18 +22,20 @@
 -- the current AWS account.
 --
 -- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPipelines.html AWS API Reference> for ListPipelines.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListPipelines
     (
     -- * Creating a Request
-      ListPipelines
-    , listPipelines
+      listPipelines
+    , ListPipelines
     -- * Request Lenses
     , lpAscending
     , lpPageToken
 
     -- * Destructuring the Response
-    , ListPipelinesResponse
     , listPipelinesResponse
+    , ListPipelinesResponse
     -- * Response Lenses
     , lprsNextPageToken
     , lprsPipelines
@@ -47,22 +49,23 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @ListPipelineRequest@ structure.
+-- | The 'ListPipelineRequest' structure.
 --
 -- /See:/ 'listPipelines' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lpAscending'
---
--- * 'lpPageToken'
 data ListPipelines = ListPipelines'
     { _lpAscending :: !(Maybe Text)
     , _lpPageToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListPipelines' smart constructor.
-listPipelines :: ListPipelines
+-- | Creates a value of 'ListPipelines' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpAscending'
+--
+-- * 'lpPageToken'
+listPipelines
+    :: ListPipelines
 listPipelines =
     ListPipelines'
     { _lpAscending = Nothing
@@ -70,13 +73,13 @@ listPipelines =
     }
 
 -- | To list pipelines in chronological order by the date and time that they
--- were created, enter @true@. To list pipelines in reverse chronological
--- order, enter @false@.
+-- were created, enter 'true'. To list pipelines in reverse chronological
+-- order, enter 'false'.
 lpAscending :: Lens' ListPipelines (Maybe Text)
 lpAscending = lens _lpAscending (\ s a -> s{_lpAscending = a});
 
 -- | When Elastic Transcoder returns more than one page of results, use
--- @pageToken@ in subsequent @GET@ requests to get each successive page of
+-- 'pageToken' in subsequent 'GET' requests to get each successive page of
 -- results.
 lpPageToken :: Lens' ListPipelines (Maybe Text)
 lpPageToken = lens _lpPageToken (\ s a -> s{_lpPageToken = a});
@@ -115,22 +118,24 @@ instance ToQuery ListPipelines where
 -- | A list of the pipelines associated with the current AWS account.
 --
 -- /See:/ 'listPipelinesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lprsNextPageToken'
---
--- * 'lprsPipelines'
---
--- * 'lprsStatus'
 data ListPipelinesResponse = ListPipelinesResponse'
     { _lprsNextPageToken :: !(Maybe Text)
     , _lprsPipelines     :: !(Maybe [Pipeline])
     , _lprsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListPipelinesResponse' smart constructor.
-listPipelinesResponse :: Int -> ListPipelinesResponse
+-- | Creates a value of 'ListPipelinesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lprsNextPageToken'
+--
+-- * 'lprsPipelines'
+--
+-- * 'lprsStatus'
+listPipelinesResponse
+    :: Int -- ^ 'lprsStatus'
+    -> ListPipelinesResponse
 listPipelinesResponse pStatus_ =
     ListPipelinesResponse'
     { _lprsNextPageToken = Nothing
@@ -140,15 +145,15 @@ listPipelinesResponse pStatus_ =
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the pipelines fit on one page or when you\'ve
--- reached the last page of results, the value of @NextPageToken@ is
--- @null@.
+-- reached the last page of results, the value of 'NextPageToken' is
+-- 'null'.
 lprsNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
 lprsNextPageToken = lens _lprsNextPageToken (\ s a -> s{_lprsNextPageToken = a});
 
--- | An array of @Pipeline@ objects.
+-- | An array of 'Pipeline' objects.
 lprsPipelines :: Lens' ListPipelinesResponse [Pipeline]
 lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lprsStatus :: Lens' ListPipelinesResponse Int
 lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

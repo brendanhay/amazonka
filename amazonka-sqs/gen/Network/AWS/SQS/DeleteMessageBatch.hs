@@ -27,26 +27,26 @@
 -- call returns an HTTP status code of 200.
 --
 -- Some API actions take lists of parameters. These lists are specified
--- using the @param.n@ notation. Values of @n@ are integers starting from
+-- using the 'param.n' notation. Values of 'n' are integers starting from
 -- 1. For example, a parameter list with two elements looks like this:
 --
--- @&Attribute.1=this@
+-- '&Attribute.1=this'
 --
--- @&Attribute.2=that@
+-- '&Attribute.2=that'
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html AWS API Reference> for DeleteMessageBatch.
 module Network.AWS.SQS.DeleteMessageBatch
     (
     -- * Creating a Request
-      DeleteMessageBatch
-    , deleteMessageBatch
+      deleteMessageBatch
+    , DeleteMessageBatch
     -- * Request Lenses
     , dmbQueueURL
     , dmbEntries
 
     -- * Destructuring the Response
-    , DeleteMessageBatchResponse
     , deleteMessageBatchResponse
+    , DeleteMessageBatchResponse
     -- * Response Lenses
     , dmbrsStatus
     , dmbrsSuccessful
@@ -60,19 +60,21 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'deleteMessageBatch' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmbQueueURL'
---
--- * 'dmbEntries'
 data DeleteMessageBatch = DeleteMessageBatch'
     { _dmbQueueURL :: !Text
     , _dmbEntries  :: ![DeleteMessageBatchRequestEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteMessageBatch' smart constructor.
-deleteMessageBatch :: Text -> DeleteMessageBatch
+-- | Creates a value of 'DeleteMessageBatch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmbQueueURL'
+--
+-- * 'dmbEntries'
+deleteMessageBatch
+    :: Text -- ^ 'dmbQueueURL'
+    -> DeleteMessageBatch
 deleteMessageBatch pQueueURL_ =
     DeleteMessageBatch'
     { _dmbQueueURL = pQueueURL_
@@ -120,22 +122,24 @@ instance ToQuery DeleteMessageBatch where
 -- BatchResultErrorEntry tag if the message cannot be deleted.
 --
 -- /See:/ 'deleteMessageBatchResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmbrsStatus'
---
--- * 'dmbrsSuccessful'
---
--- * 'dmbrsFailed'
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
     { _dmbrsStatus     :: !Int
     , _dmbrsSuccessful :: ![DeleteMessageBatchResultEntry]
     , _dmbrsFailed     :: ![BatchResultErrorEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteMessageBatchResponse' smart constructor.
-deleteMessageBatchResponse :: Int -> DeleteMessageBatchResponse
+-- | Creates a value of 'DeleteMessageBatchResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmbrsStatus'
+--
+-- * 'dmbrsSuccessful'
+--
+-- * 'dmbrsFailed'
+deleteMessageBatchResponse
+    :: Int -- ^ 'dmbrsStatus'
+    -> DeleteMessageBatchResponse
 deleteMessageBatchResponse pStatus_ =
     DeleteMessageBatchResponse'
     { _dmbrsStatus = pStatus_
@@ -143,7 +147,7 @@ deleteMessageBatchResponse pStatus_ =
     , _dmbrsFailed = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 dmbrsStatus :: Lens' DeleteMessageBatchResponse Int
 dmbrsStatus = lens _dmbrsStatus (\ s a -> s{_dmbrsStatus = a});
 

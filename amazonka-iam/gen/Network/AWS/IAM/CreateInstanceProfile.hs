@@ -31,15 +31,15 @@
 module Network.AWS.IAM.CreateInstanceProfile
     (
     -- * Creating a Request
-      CreateInstanceProfile
-    , createInstanceProfile
+      createInstanceProfile
+    , CreateInstanceProfile
     -- * Request Lenses
     , cipPath
     , cipInstanceProfileName
 
     -- * Destructuring the Response
-    , CreateInstanceProfileResponse
     , createInstanceProfileResponse
+    , CreateInstanceProfileResponse
     -- * Response Lenses
     , ciprsStatus
     , ciprsInstanceProfile
@@ -52,19 +52,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createInstanceProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cipPath'
---
--- * 'cipInstanceProfileName'
 data CreateInstanceProfile = CreateInstanceProfile'
     { _cipPath                :: !(Maybe Text)
     , _cipInstanceProfileName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateInstanceProfile' smart constructor.
-createInstanceProfile :: Text -> CreateInstanceProfile
+-- | Creates a value of 'CreateInstanceProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cipPath'
+--
+-- * 'cipInstanceProfileName'
+createInstanceProfile
+    :: Text -- ^ 'cipInstanceProfileName'
+    -> CreateInstanceProfile
 createInstanceProfile pInstanceProfileName_ =
     CreateInstanceProfile'
     { _cipPath = Nothing
@@ -112,26 +114,29 @@ instance ToQuery CreateInstanceProfile where
 -- | Contains the response to a successful CreateInstanceProfile request.
 --
 -- /See:/ 'createInstanceProfileResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ciprsStatus'
---
--- * 'ciprsInstanceProfile'
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
     { _ciprsStatus          :: !Int
     , _ciprsInstanceProfile :: !InstanceProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateInstanceProfileResponse' smart constructor.
-createInstanceProfileResponse :: Int -> InstanceProfile -> CreateInstanceProfileResponse
+-- | Creates a value of 'CreateInstanceProfileResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ciprsStatus'
+--
+-- * 'ciprsInstanceProfile'
+createInstanceProfileResponse
+    :: Int -- ^ 'ciprsStatus'
+    -> InstanceProfile -- ^ 'ciprsInstanceProfile'
+    -> CreateInstanceProfileResponse
 createInstanceProfileResponse pStatus_ pInstanceProfile_ =
     CreateInstanceProfileResponse'
     { _ciprsStatus = pStatus_
     , _ciprsInstanceProfile = pInstanceProfile_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ciprsStatus :: Lens' CreateInstanceProfileResponse Int
 ciprsStatus = lens _ciprsStatus (\ s a -> s{_ciprsStatus = a});
 

@@ -32,16 +32,16 @@
 module Network.AWS.OpsWorks.DescribeCommands
     (
     -- * Creating a Request
-      DescribeCommands
-    , describeCommands
+      describeCommands
+    , DescribeCommands
     -- * Request Lenses
     , dcInstanceId
     , dcDeploymentId
     , dcCommandIds
 
     -- * Destructuring the Response
-    , DescribeCommandsResponse
     , describeCommandsResponse
+    , DescribeCommandsResponse
     -- * Response Lenses
     , dcrsCommands
     , dcrsStatus
@@ -54,22 +54,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeCommands' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcInstanceId'
---
--- * 'dcDeploymentId'
---
--- * 'dcCommandIds'
 data DescribeCommands = DescribeCommands'
     { _dcInstanceId   :: !(Maybe Text)
     , _dcDeploymentId :: !(Maybe Text)
     , _dcCommandIds   :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCommands' smart constructor.
-describeCommands :: DescribeCommands
+-- | Creates a value of 'DescribeCommands' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcInstanceId'
+--
+-- * 'dcDeploymentId'
+--
+-- * 'dcCommandIds'
+describeCommands
+    :: DescribeCommands
 describeCommands =
     DescribeCommands'
     { _dcInstanceId = Nothing
@@ -77,20 +78,20 @@ describeCommands =
     , _dcCommandIds = Nothing
     }
 
--- | The instance ID. If you include this parameter, @DescribeCommands@
+-- | The instance ID. If you include this parameter, 'DescribeCommands'
 -- returns a description of the commands associated with the specified
 -- instance.
 dcInstanceId :: Lens' DescribeCommands (Maybe Text)
 dcInstanceId = lens _dcInstanceId (\ s a -> s{_dcInstanceId = a});
 
--- | The deployment ID. If you include this parameter, @DescribeCommands@
+-- | The deployment ID. If you include this parameter, 'DescribeCommands'
 -- returns a description of the commands associated with the specified
 -- deployment.
 dcDeploymentId :: Lens' DescribeCommands (Maybe Text)
 dcDeploymentId = lens _dcDeploymentId (\ s a -> s{_dcDeploymentId = a});
 
 -- | An array of command IDs. If you include this parameter,
--- @DescribeCommands@ returns a description of the specified commands.
+-- 'DescribeCommands' returns a description of the specified commands.
 -- Otherwise, it returns a description of every command.
 dcCommandIds :: Lens' DescribeCommands [Text]
 dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a}) . _Default . _Coerce;
@@ -128,33 +129,35 @@ instance ToPath DescribeCommands where
 instance ToQuery DescribeCommands where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeCommands@ request.
+-- | Contains the response to a 'DescribeCommands' request.
 --
 -- /See:/ 'describeCommandsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcrsCommands'
---
--- * 'dcrsStatus'
 data DescribeCommandsResponse = DescribeCommandsResponse'
     { _dcrsCommands :: !(Maybe [Command])
     , _dcrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCommandsResponse' smart constructor.
-describeCommandsResponse :: Int -> DescribeCommandsResponse
+-- | Creates a value of 'DescribeCommandsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcrsCommands'
+--
+-- * 'dcrsStatus'
+describeCommandsResponse
+    :: Int -- ^ 'dcrsStatus'
+    -> DescribeCommandsResponse
 describeCommandsResponse pStatus_ =
     DescribeCommandsResponse'
     { _dcrsCommands = Nothing
     , _dcrsStatus = pStatus_
     }
 
--- | An array of @Command@ objects that describe each of the specified
+-- | An array of 'Command' objects that describe each of the specified
 -- commands.
 dcrsCommands :: Lens' DescribeCommandsResponse [Command]
 dcrsCommands = lens _dcrsCommands (\ s a -> s{_dcrsCommands = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dcrsStatus :: Lens' DescribeCommandsResponse Int
 dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

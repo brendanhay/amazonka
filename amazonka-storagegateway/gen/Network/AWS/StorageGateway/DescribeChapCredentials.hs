@@ -26,14 +26,14 @@
 module Network.AWS.StorageGateway.DescribeChapCredentials
     (
     -- * Creating a Request
-      DescribeChapCredentials
-    , describeChapCredentials
+      describeChapCredentials
+    , DescribeChapCredentials
     -- * Request Lenses
     , dccTargetARN
 
     -- * Destructuring the Response
-    , DescribeChapCredentialsResponse
     , describeChapCredentialsResponse
+    , DescribeChapCredentialsResponse
     -- * Response Lenses
     , dccrsChapCredentials
     , dccrsStatus
@@ -49,16 +49,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- volume target.
 --
 -- /See:/ 'describeChapCredentials' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dccTargetARN'
 newtype DescribeChapCredentials = DescribeChapCredentials'
     { _dccTargetARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeChapCredentials' smart constructor.
-describeChapCredentials :: Text -> DescribeChapCredentials
+-- | Creates a value of 'DescribeChapCredentials' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dccTargetARN'
+describeChapCredentials
+    :: Text -- ^ 'dccTargetARN'
+    -> DescribeChapCredentials
 describeChapCredentials pTargetARN_ =
     DescribeChapCredentials'
     { _dccTargetARN = pTargetARN_
@@ -105,19 +107,21 @@ instance ToQuery DescribeChapCredentials where
 -- | A JSON object containing a .
 --
 -- /See:/ 'describeChapCredentialsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dccrsChapCredentials'
---
--- * 'dccrsStatus'
 data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
     { _dccrsChapCredentials :: !(Maybe [ChapInfo])
     , _dccrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeChapCredentialsResponse' smart constructor.
-describeChapCredentialsResponse :: Int -> DescribeChapCredentialsResponse
+-- | Creates a value of 'DescribeChapCredentialsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dccrsChapCredentials'
+--
+-- * 'dccrsStatus'
+describeChapCredentialsResponse
+    :: Int -- ^ 'dccrsStatus'
+    -> DescribeChapCredentialsResponse
 describeChapCredentialsResponse pStatus_ =
     DescribeChapCredentialsResponse'
     { _dccrsChapCredentials = Nothing
@@ -145,6 +149,6 @@ describeChapCredentialsResponse pStatus_ =
 dccrsChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
 dccrsChapCredentials = lens _dccrsChapCredentials (\ s a -> s{_dccrsChapCredentials = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dccrsStatus :: Lens' DescribeChapCredentialsResponse Int
 dccrsStatus = lens _dccrsStatus (\ s a -> s{_dccrsStatus = a});

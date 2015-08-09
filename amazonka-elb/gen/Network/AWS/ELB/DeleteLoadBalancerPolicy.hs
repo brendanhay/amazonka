@@ -25,15 +25,15 @@
 module Network.AWS.ELB.DeleteLoadBalancerPolicy
     (
     -- * Creating a Request
-      DeleteLoadBalancerPolicy
-    , deleteLoadBalancerPolicy
+      deleteLoadBalancerPolicy
+    , DeleteLoadBalancerPolicy
     -- * Request Lenses
     , dLoadBalancerName
     , dPolicyName
 
     -- * Destructuring the Response
-    , DeleteLoadBalancerPolicyResponse
     , deleteLoadBalancerPolicyResponse
+    , DeleteLoadBalancerPolicyResponse
     -- * Response Lenses
     , delrsStatus
     ) where
@@ -47,19 +47,22 @@ import           Network.AWS.Response
 -- | =
 --
 -- /See:/ 'deleteLoadBalancerPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dLoadBalancerName'
---
--- * 'dPolicyName'
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
     { _dLoadBalancerName :: !Text
     , _dPolicyName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLoadBalancerPolicy' smart constructor.
-deleteLoadBalancerPolicy :: Text -> Text -> DeleteLoadBalancerPolicy
+-- | Creates a value of 'DeleteLoadBalancerPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dLoadBalancerName'
+--
+-- * 'dPolicyName'
+deleteLoadBalancerPolicy
+    :: Text -- ^ 'dLoadBalancerName'
+    -> Text -- ^ 'dPolicyName'
+    -> DeleteLoadBalancerPolicy
 deleteLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ =
     DeleteLoadBalancerPolicy'
     { _dLoadBalancerName = pLoadBalancerName_
@@ -101,21 +104,23 @@ instance ToQuery DeleteLoadBalancerPolicy where
                "PolicyName" =: _dPolicyName]
 
 -- | /See:/ 'deleteLoadBalancerPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delrsStatus'
 newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
     { _delrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLoadBalancerPolicyResponse' smart constructor.
-deleteLoadBalancerPolicyResponse :: Int -> DeleteLoadBalancerPolicyResponse
+-- | Creates a value of 'DeleteLoadBalancerPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delrsStatus'
+deleteLoadBalancerPolicyResponse
+    :: Int -- ^ 'delrsStatus'
+    -> DeleteLoadBalancerPolicyResponse
 deleteLoadBalancerPolicyResponse pStatus_ =
     DeleteLoadBalancerPolicyResponse'
     { _delrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 delrsStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
 delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

@@ -21,22 +21,22 @@
 -- Adds a permission to the access policy associated with the specified AWS
 -- Lambda function. In a \"push event\" model, the access policy attached
 -- to the Lambda function grants Amazon S3 or a user application permission
--- for the Lambda @lambda:Invoke@ action. For information about the push
+-- for the Lambda 'lambda:Invoke' action. For information about the push
 -- model, see
 -- <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>.
 -- Each Lambda function has one access policy associated with it. You can
--- use the @AddPermission@ API to add a permission to the policy. You have
+-- use the 'AddPermission' API to add a permission to the policy. You have
 -- one access policy but it can have multiple permission statements.
 --
--- This operation requires permission for the @lambda:AddPermission@
+-- This operation requires permission for the 'lambda:AddPermission'
 -- action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html AWS API Reference> for AddPermission.
 module Network.AWS.Lambda.AddPermission
     (
     -- * Creating a Request
-      AddPermission
-    , addPermission
+      addPermission
+    , AddPermission
     -- * Request Lenses
     , apSourceAccount
     , apSourceARN
@@ -46,8 +46,8 @@ module Network.AWS.Lambda.AddPermission
     , apPrincipal
 
     -- * Destructuring the Response
-    , AddPermissionResponse
     , addPermissionResponse
+    , AddPermissionResponse
     -- * Response Lenses
     , aprsStatement
     , aprsStatus
@@ -60,8 +60,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'addPermission' smart constructor.
+data AddPermission = AddPermission'
+    { _apSourceAccount :: !(Maybe Text)
+    , _apSourceARN     :: !(Maybe Text)
+    , _apFunctionName  :: !Text
+    , _apStatementId   :: !Text
+    , _apAction        :: !Text
+    , _apPrincipal     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'apSourceAccount'
 --
@@ -74,17 +84,12 @@ import           Network.AWS.Response
 -- * 'apAction'
 --
 -- * 'apPrincipal'
-data AddPermission = AddPermission'
-    { _apSourceAccount :: !(Maybe Text)
-    , _apSourceARN     :: !(Maybe Text)
-    , _apFunctionName  :: !Text
-    , _apStatementId   :: !Text
-    , _apAction        :: !Text
-    , _apPrincipal     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AddPermission' smart constructor.
-addPermission :: Text -> Text -> Text -> Text -> AddPermission
+addPermission
+    :: Text -- ^ 'apFunctionName'
+    -> Text -- ^ 'apStatementId'
+    -> Text -- ^ 'apAction'
+    -> Text -- ^ 'apPrincipal'
+    -> AddPermission
 addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
     AddPermission'
     { _apSourceAccount = Nothing
@@ -96,12 +101,12 @@ addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
     }
 
 -- | The AWS account ID (without a hyphen) of the source owner. For example,
--- if the @SourceArn@ identifies a bucket, then this is the bucket owner\'s
+-- if the 'SourceArn' identifies a bucket, then this is the bucket owner\'s
 -- account ID. You can use this additional condition to ensure the bucket
 -- you specify is owned by a specific account (it is possible the bucket
 -- owner deleted the bucket and some other AWS account created the bucket).
 -- You can also use this condition to specify all sources (that is, you
--- don\'t specify the @SourceArn@) owned by a specific account.
+-- don\'t specify the 'SourceArn') owned by a specific account.
 apSourceAccount :: Lens' AddPermission (Maybe Text)
 apSourceAccount = lens _apSourceAccount (\ s a -> s{_apSourceAccount = a});
 
@@ -182,19 +187,21 @@ instance ToQuery AddPermission where
         toQuery = const mempty
 
 -- | /See:/ 'addPermissionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aprsStatement'
---
--- * 'aprsStatus'
 data AddPermissionResponse = AddPermissionResponse'
     { _aprsStatement :: !(Maybe Text)
     , _aprsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddPermissionResponse' smart constructor.
-addPermissionResponse :: Int -> AddPermissionResponse
+-- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aprsStatement'
+--
+-- * 'aprsStatus'
+addPermissionResponse
+    :: Int -- ^ 'aprsStatus'
+    -> AddPermissionResponse
 addPermissionResponse pStatus_ =
     AddPermissionResponse'
     { _aprsStatement = Nothing
@@ -207,6 +214,6 @@ addPermissionResponse pStatus_ =
 aprsStatement :: Lens' AddPermissionResponse (Maybe Text)
 aprsStatement = lens _aprsStatement (\ s a -> s{_aprsStatement = a});
 
--- | Undocumented member.
+-- | The response status code.
 aprsStatus :: Lens' AddPermissionResponse Int
 aprsStatus = lens _aprsStatus (\ s a -> s{_aprsStatus = a});

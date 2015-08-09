@@ -25,16 +25,16 @@
 module Network.AWS.S3.PutBucketPolicy
     (
     -- * Creating a Request
-      PutBucketPolicy
-    , putBucketPolicy
+      putBucketPolicy
+    , PutBucketPolicy
     -- * Request Lenses
     , pbpContentMD5
     , pbpBucket
     , pbpPolicy
 
     -- * Destructuring the Response
-    , PutBucketPolicyResponse
     , putBucketPolicyResponse
+    , PutBucketPolicyResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -44,22 +44,25 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pbpContentMD5'
---
--- * 'pbpBucket'
---
--- * 'pbpPolicy'
 data PutBucketPolicy = PutBucketPolicy'
     { _pbpContentMD5 :: !(Maybe Text)
     , _pbpBucket     :: !BucketName
     , _pbpPolicy     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketPolicy' smart constructor.
-putBucketPolicy :: BucketName -> Text -> PutBucketPolicy
+-- | Creates a value of 'PutBucketPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pbpContentMD5'
+--
+-- * 'pbpBucket'
+--
+-- * 'pbpPolicy'
+putBucketPolicy
+    :: BucketName -- ^ 'pbpBucket'
+    -> Text -- ^ 'pbpPolicy'
+    -> PutBucketPolicy
 putBucketPolicy pBucket_ pPolicy_ =
     PutBucketPolicy'
     { _pbpContentMD5 = Nothing
@@ -104,6 +107,8 @@ data PutBucketPolicyResponse =
     PutBucketPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketPolicyResponse' smart constructor.
-putBucketPolicyResponse :: PutBucketPolicyResponse
+-- | Creates a value of 'PutBucketPolicyResponse' with the minimum fields required to make a request.
+--
+putBucketPolicyResponse
+    :: PutBucketPolicyResponse
 putBucketPolicyResponse = PutBucketPolicyResponse'

@@ -24,20 +24,20 @@
 -- For deleted stacks, GetTemplate returns the template for up to 90 days
 -- after the stack has been deleted.
 --
--- If the template does not exist, a @ValidationError@ is returned.
+-- If the template does not exist, a 'ValidationError' is returned.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplate.html AWS API Reference> for GetTemplate.
 module Network.AWS.CloudFormation.GetTemplate
     (
     -- * Creating a Request
-      GetTemplate
-    , getTemplate
+      getTemplate
+    , GetTemplate
     -- * Request Lenses
     , gtStackName
 
     -- * Destructuring the Response
-    , GetTemplateResponse
     , getTemplateResponse
+    , GetTemplateResponse
     -- * Response Lenses
     , gtrsTemplateBody
     , gtrsStatus
@@ -52,16 +52,18 @@ import           Network.AWS.Response
 -- | The input for a GetTemplate action.
 --
 -- /See:/ 'getTemplate' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gtStackName'
 newtype GetTemplate = GetTemplate'
     { _gtStackName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetTemplate' smart constructor.
-getTemplate :: Text -> GetTemplate
+-- | Creates a value of 'GetTemplate' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtStackName'
+getTemplate
+    :: Text -- ^ 'gtStackName'
+    -> GetTemplate
 getTemplate pStackName_ =
     GetTemplate'
     { _gtStackName = pStackName_
@@ -104,19 +106,21 @@ instance ToQuery GetTemplate where
 -- | The output for GetTemplate action.
 --
 -- /See:/ 'getTemplateResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gtrsTemplateBody'
---
--- * 'gtrsStatus'
 data GetTemplateResponse = GetTemplateResponse'
     { _gtrsTemplateBody :: !(Maybe Text)
     , _gtrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetTemplateResponse' smart constructor.
-getTemplateResponse :: Int -> GetTemplateResponse
+-- | Creates a value of 'GetTemplateResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtrsTemplateBody'
+--
+-- * 'gtrsStatus'
+getTemplateResponse
+    :: Int -- ^ 'gtrsStatus'
+    -> GetTemplateResponse
 getTemplateResponse pStatus_ =
     GetTemplateResponse'
     { _gtrsTemplateBody = Nothing
@@ -129,6 +133,6 @@ getTemplateResponse pStatus_ =
 gtrsTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrsTemplateBody = lens _gtrsTemplateBody (\ s a -> s{_gtrsTemplateBody = a});
 
--- | Undocumented member.
+-- | The response status code.
 gtrsStatus :: Lens' GetTemplateResponse Int
 gtrsStatus = lens _gtrsStatus (\ s a -> s{_gtrsStatus = a});

@@ -30,12 +30,12 @@
 module Network.AWS.DirectConnect.DescribeVirtualGateways
     (
     -- * Creating a Request
-      DescribeVirtualGateways
-    , describeVirtualGateways
+      describeVirtualGateways
+    , DescribeVirtualGateways
 
     -- * Destructuring the Response
-    , DescribeVirtualGatewaysResponse
     , describeVirtualGatewaysResponse
+    , DescribeVirtualGatewaysResponse
     -- * Response Lenses
     , dvgrsVirtualGateways
     , dvgrsStatus
@@ -52,8 +52,10 @@ data DescribeVirtualGateways =
     DescribeVirtualGateways'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVirtualGateways' smart constructor.
-describeVirtualGateways :: DescribeVirtualGateways
+-- | Creates a value of 'DescribeVirtualGateways' with the minimum fields required to make a request.
+--
+describeVirtualGateways
+    :: DescribeVirtualGateways
 describeVirtualGateways = DescribeVirtualGateways'
 
 instance AWSRequest DescribeVirtualGateways where
@@ -90,19 +92,21 @@ instance ToQuery DescribeVirtualGateways where
 -- | A structure containing a list of virtual private gateways.
 --
 -- /See:/ 'describeVirtualGatewaysResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvgrsVirtualGateways'
---
--- * 'dvgrsStatus'
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
     { _dvgrsVirtualGateways :: !(Maybe [VirtualGateway])
     , _dvgrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVirtualGatewaysResponse' smart constructor.
-describeVirtualGatewaysResponse :: Int -> DescribeVirtualGatewaysResponse
+-- | Creates a value of 'DescribeVirtualGatewaysResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvgrsVirtualGateways'
+--
+-- * 'dvgrsStatus'
+describeVirtualGatewaysResponse
+    :: Int -- ^ 'dvgrsStatus'
+    -> DescribeVirtualGatewaysResponse
 describeVirtualGatewaysResponse pStatus_ =
     DescribeVirtualGatewaysResponse'
     { _dvgrsVirtualGateways = Nothing
@@ -113,6 +117,6 @@ describeVirtualGatewaysResponse pStatus_ =
 dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
 dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGateways = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dvgrsStatus :: Lens' DescribeVirtualGatewaysResponse Int
 dvgrsStatus = lens _dvgrsStatus (\ s a -> s{_dvgrsStatus = a});

@@ -25,8 +25,8 @@
 module Network.AWS.CodePipeline.CreateCustomActionType
     (
     -- * Creating a Request
-      CreateCustomActionType
-    , createCustomActionType
+      createCustomActionType
+    , CreateCustomActionType
     -- * Request Lenses
     , ccatSettings
     , ccatConfigurationProperties
@@ -37,8 +37,8 @@ module Network.AWS.CodePipeline.CreateCustomActionType
     , ccatOutputArtifactDetails
 
     -- * Destructuring the Response
-    , CreateCustomActionTypeResponse
     , createCustomActionTypeResponse
+    , CreateCustomActionTypeResponse
     -- * Response Lenses
     , ccatrsStatus
     , ccatrsActionType
@@ -53,8 +53,19 @@ import           Network.AWS.Response
 -- | Represents the input of a create custom action operation.
 --
 -- /See:/ 'createCustomActionType' smart constructor.
+data CreateCustomActionType = CreateCustomActionType'
+    { _ccatSettings                :: !(Maybe ActionTypeSettings)
+    , _ccatConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
+    , _ccatCategory                :: !ActionCategory
+    , _ccatProvider                :: !Text
+    , _ccatVersion                 :: !Text
+    , _ccatInputArtifactDetails    :: !ArtifactDetails
+    , _ccatOutputArtifactDetails   :: !ArtifactDetails
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateCustomActionType' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ccatSettings'
 --
@@ -69,18 +80,13 @@ import           Network.AWS.Response
 -- * 'ccatInputArtifactDetails'
 --
 -- * 'ccatOutputArtifactDetails'
-data CreateCustomActionType = CreateCustomActionType'
-    { _ccatSettings                :: !(Maybe ActionTypeSettings)
-    , _ccatConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
-    , _ccatCategory                :: !ActionCategory
-    , _ccatProvider                :: !Text
-    , _ccatVersion                 :: !Text
-    , _ccatInputArtifactDetails    :: !ArtifactDetails
-    , _ccatOutputArtifactDetails   :: !ArtifactDetails
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateCustomActionType' smart constructor.
-createCustomActionType :: ActionCategory -> Text -> Text -> ArtifactDetails -> ArtifactDetails -> CreateCustomActionType
+createCustomActionType
+    :: ActionCategory -- ^ 'ccatCategory'
+    -> Text -- ^ 'ccatProvider'
+    -> Text -- ^ 'ccatVersion'
+    -> ArtifactDetails -- ^ 'ccatInputArtifactDetails'
+    -> ArtifactDetails -- ^ 'ccatOutputArtifactDetails'
+    -> CreateCustomActionType
 createCustomActionType pCategory_ pProvider_ pVersion_ pInputArtifactDetails_ pOutputArtifactDetails_ =
     CreateCustomActionType'
     { _ccatSettings = Nothing
@@ -113,7 +119,7 @@ ccatProvider = lens _ccatProvider (\ s a -> s{_ccatProvider = a});
 -- | The version number of the custom action.
 --
 -- A newly-created custom action is always assigned a version number of
--- @1@. This is required.
+-- '1'. This is required.
 ccatVersion :: Lens' CreateCustomActionType Text
 ccatVersion = lens _ccatVersion (\ s a -> s{_ccatVersion = a});
 
@@ -168,26 +174,29 @@ instance ToQuery CreateCustomActionType where
 -- | Represents the output of a create custom action operation.
 --
 -- /See:/ 'createCustomActionTypeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccatrsStatus'
---
--- * 'ccatrsActionType'
 data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
     { _ccatrsStatus     :: !Int
     , _ccatrsActionType :: !ActionType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateCustomActionTypeResponse' smart constructor.
-createCustomActionTypeResponse :: Int -> ActionType -> CreateCustomActionTypeResponse
+-- | Creates a value of 'CreateCustomActionTypeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccatrsStatus'
+--
+-- * 'ccatrsActionType'
+createCustomActionTypeResponse
+    :: Int -- ^ 'ccatrsStatus'
+    -> ActionType -- ^ 'ccatrsActionType'
+    -> CreateCustomActionTypeResponse
 createCustomActionTypeResponse pStatus_ pActionType_ =
     CreateCustomActionTypeResponse'
     { _ccatrsStatus = pStatus_
     , _ccatrsActionType = pActionType_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ccatrsStatus :: Lens' CreateCustomActionTypeResponse Int
 ccatrsStatus = lens _ccatrsStatus (\ s a -> s{_ccatrsStatus = a});
 

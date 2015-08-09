@@ -32,14 +32,14 @@
 module Network.AWS.OpsWorks.DeleteStack
     (
     -- * Creating a Request
-      DeleteStack
-    , deleteStack
+      deleteStack
+    , DeleteStack
     -- * Request Lenses
     , dsStackId
 
     -- * Destructuring the Response
-    , DeleteStackResponse
     , deleteStackResponse
+    , DeleteStackResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -49,16 +49,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteStack' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsStackId'
 newtype DeleteStack = DeleteStack'
     { _dsStackId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteStack' smart constructor.
-deleteStack :: Text -> DeleteStack
+-- | Creates a value of 'DeleteStack' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsStackId'
+deleteStack
+    :: Text -- ^ 'dsStackId'
+    -> DeleteStack
 deleteStack pStackId_ =
     DeleteStack'
     { _dsStackId = pStackId_
@@ -98,6 +100,8 @@ data DeleteStackResponse =
     DeleteStackResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteStackResponse' smart constructor.
-deleteStackResponse :: DeleteStackResponse
+-- | Creates a value of 'DeleteStackResponse' with the minimum fields required to make a request.
+--
+deleteStackResponse
+    :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse'

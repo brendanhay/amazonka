@@ -26,15 +26,15 @@
 module Network.AWS.EC2.DeleteRouteTable
     (
     -- * Creating a Request
-      DeleteRouteTable
-    , deleteRouteTable
+      deleteRouteTable
+    , DeleteRouteTable
     -- * Request Lenses
     , drtrDryRun
     , drtrRouteTableId
 
     -- * Destructuring the Response
-    , DeleteRouteTableResponse
     , deleteRouteTableResponse
+    , DeleteRouteTableResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -44,19 +44,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteRouteTable' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drtrDryRun'
---
--- * 'drtrRouteTableId'
 data DeleteRouteTable = DeleteRouteTable'
     { _drtrDryRun       :: !(Maybe Bool)
     , _drtrRouteTableId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRouteTable' smart constructor.
-deleteRouteTable :: Text -> DeleteRouteTable
+-- | Creates a value of 'DeleteRouteTable' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drtrDryRun'
+--
+-- * 'drtrRouteTableId'
+deleteRouteTable
+    :: Text -- ^ 'drtrRouteTableId'
+    -> DeleteRouteTable
 deleteRouteTable pRouteTableId_ =
     DeleteRouteTable'
     { _drtrDryRun = Nothing
@@ -65,8 +67,8 @@ deleteRouteTable pRouteTableId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 drtrDryRun :: Lens' DeleteRouteTable (Maybe Bool)
 drtrDryRun = lens _drtrDryRun (\ s a -> s{_drtrDryRun = a});
 
@@ -99,6 +101,8 @@ data DeleteRouteTableResponse =
     DeleteRouteTableResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRouteTableResponse' smart constructor.
-deleteRouteTableResponse :: DeleteRouteTableResponse
+-- | Creates a value of 'DeleteRouteTableResponse' with the minimum fields required to make a request.
+--
+deleteRouteTableResponse
+    :: DeleteRouteTableResponse
 deleteRouteTableResponse = DeleteRouteTableResponse'

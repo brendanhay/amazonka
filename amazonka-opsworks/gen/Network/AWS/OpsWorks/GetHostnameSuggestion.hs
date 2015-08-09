@@ -31,14 +31,14 @@
 module Network.AWS.OpsWorks.GetHostnameSuggestion
     (
     -- * Creating a Request
-      GetHostnameSuggestion
-    , getHostnameSuggestion
+      getHostnameSuggestion
+    , GetHostnameSuggestion
     -- * Request Lenses
     , ghsLayerId
 
     -- * Destructuring the Response
-    , GetHostnameSuggestionResponse
     , getHostnameSuggestionResponse
+    , GetHostnameSuggestionResponse
     -- * Response Lenses
     , ghsrsHostname
     , ghsrsLayerId
@@ -52,16 +52,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getHostnameSuggestion' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ghsLayerId'
 newtype GetHostnameSuggestion = GetHostnameSuggestion'
     { _ghsLayerId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetHostnameSuggestion' smart constructor.
-getHostnameSuggestion :: Text -> GetHostnameSuggestion
+-- | Creates a value of 'GetHostnameSuggestion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ghsLayerId'
+getHostnameSuggestion
+    :: Text -- ^ 'ghsLayerId'
+    -> GetHostnameSuggestion
 getHostnameSuggestion pLayerId_ =
     GetHostnameSuggestion'
     { _ghsLayerId = pLayerId_
@@ -103,25 +105,27 @@ instance ToPath GetHostnameSuggestion where
 instance ToQuery GetHostnameSuggestion where
         toQuery = const mempty
 
--- | Contains the response to a @GetHostnameSuggestion@ request.
+-- | Contains the response to a 'GetHostnameSuggestion' request.
 --
 -- /See:/ 'getHostnameSuggestionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ghsrsHostname'
---
--- * 'ghsrsLayerId'
---
--- * 'ghsrsStatus'
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
     { _ghsrsHostname :: !(Maybe Text)
     , _ghsrsLayerId  :: !(Maybe Text)
     , _ghsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetHostnameSuggestionResponse' smart constructor.
-getHostnameSuggestionResponse :: Int -> GetHostnameSuggestionResponse
+-- | Creates a value of 'GetHostnameSuggestionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ghsrsHostname'
+--
+-- * 'ghsrsLayerId'
+--
+-- * 'ghsrsStatus'
+getHostnameSuggestionResponse
+    :: Int -- ^ 'ghsrsStatus'
+    -> GetHostnameSuggestionResponse
 getHostnameSuggestionResponse pStatus_ =
     GetHostnameSuggestionResponse'
     { _ghsrsHostname = Nothing
@@ -137,6 +141,6 @@ ghsrsHostname = lens _ghsrsHostname (\ s a -> s{_ghsrsHostname = a});
 ghsrsLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
 ghsrsLayerId = lens _ghsrsLayerId (\ s a -> s{_ghsrsLayerId = a});
 
--- | Undocumented member.
+-- | The response status code.
 ghsrsStatus :: Lens' GetHostnameSuggestionResponse Int
 ghsrsStatus = lens _ghsrsStatus (\ s a -> s{_ghsrsStatus = a});

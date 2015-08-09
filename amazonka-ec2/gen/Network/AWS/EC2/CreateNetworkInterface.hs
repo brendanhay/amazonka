@@ -28,8 +28,8 @@
 module Network.AWS.EC2.CreateNetworkInterface
     (
     -- * Creating a Request
-      CreateNetworkInterface
-    , createNetworkInterface
+      createNetworkInterface
+    , CreateNetworkInterface
     -- * Request Lenses
     , cniPrivateIPAddresses
     , cniGroups
@@ -40,8 +40,8 @@ module Network.AWS.EC2.CreateNetworkInterface
     , cniSubnetId
 
     -- * Destructuring the Response
-    , CreateNetworkInterfaceResponse
     , createNetworkInterfaceResponse
+    , CreateNetworkInterfaceResponse
     -- * Response Lenses
     , cnirsNetworkInterface
     , cnirsStatus
@@ -54,8 +54,19 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createNetworkInterface' smart constructor.
+data CreateNetworkInterface = CreateNetworkInterface'
+    { _cniPrivateIPAddresses             :: !(Maybe [PrivateIPAddressSpecification])
+    , _cniGroups                         :: !(Maybe [Text])
+    , _cniPrivateIPAddress               :: !(Maybe Text)
+    , _cniSecondaryPrivateIPAddressCount :: !(Maybe Int)
+    , _cniDryRun                         :: !(Maybe Bool)
+    , _cniDescription                    :: !(Maybe Text)
+    , _cniSubnetId                       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateNetworkInterface' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cniPrivateIPAddresses'
 --
@@ -70,18 +81,9 @@ import           Network.AWS.Response
 -- * 'cniDescription'
 --
 -- * 'cniSubnetId'
-data CreateNetworkInterface = CreateNetworkInterface'
-    { _cniPrivateIPAddresses             :: !(Maybe [PrivateIPAddressSpecification])
-    , _cniGroups                         :: !(Maybe [Text])
-    , _cniPrivateIPAddress               :: !(Maybe Text)
-    , _cniSecondaryPrivateIPAddressCount :: !(Maybe Int)
-    , _cniDryRun                         :: !(Maybe Bool)
-    , _cniDescription                    :: !(Maybe Text)
-    , _cniSubnetId                       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateNetworkInterface' smart constructor.
-createNetworkInterface :: Text -> CreateNetworkInterface
+createNetworkInterface
+    :: Text -- ^ 'cniSubnetId'
+    -> CreateNetworkInterface
 createNetworkInterface pSubnetId_ =
     CreateNetworkInterface'
     { _cniPrivateIPAddresses = Nothing
@@ -104,7 +106,7 @@ cniGroups = lens _cniGroups (\ s a -> s{_cniGroups = a}) . _Default . _Coerce;
 -- | The primary private IP address of the network interface. If you don\'t
 -- specify an IP address, Amazon EC2 selects one for you from the subnet
 -- range. If you specify an IP address, you cannot indicate any IP
--- addresses specified in @privateIpAddresses@ as primary (only one IP
+-- addresses specified in 'privateIpAddresses' as primary (only one IP
 -- address can be designated as primary).
 cniPrivateIPAddress :: Lens' CreateNetworkInterface (Maybe Text)
 cniPrivateIPAddress = lens _cniPrivateIPAddress (\ s a -> s{_cniPrivateIPAddress = a});
@@ -113,7 +115,7 @@ cniPrivateIPAddress = lens _cniPrivateIPAddress (\ s a -> s{_cniPrivateIPAddress
 -- interface. When you specify a number of secondary IP addresses, Amazon
 -- EC2 selects these IP addresses within the subnet range. You can\'t
 -- specify this option and specify more than one private IP address using
--- @privateIpAddresses@.
+-- 'privateIpAddresses'.
 --
 -- The number of IP addresses you can assign to a network interface varies
 -- by instance type. For more information, see
@@ -124,8 +126,8 @@ cniSecondaryPrivateIPAddressCount = lens _cniSecondaryPrivateIPAddressCount (\ s
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cniDryRun :: Lens' CreateNetworkInterface (Maybe Bool)
 cniDryRun = lens _cniDryRun (\ s a -> s{_cniDryRun = a});
 
@@ -172,19 +174,21 @@ instance ToQuery CreateNetworkInterface where
                "SubnetId" =: _cniSubnetId]
 
 -- | /See:/ 'createNetworkInterfaceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cnirsNetworkInterface'
---
--- * 'cnirsStatus'
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
     { _cnirsNetworkInterface :: !(Maybe NetworkInterface)
     , _cnirsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateNetworkInterfaceResponse' smart constructor.
-createNetworkInterfaceResponse :: Int -> CreateNetworkInterfaceResponse
+-- | Creates a value of 'CreateNetworkInterfaceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cnirsNetworkInterface'
+--
+-- * 'cnirsStatus'
+createNetworkInterfaceResponse
+    :: Int -- ^ 'cnirsStatus'
+    -> CreateNetworkInterfaceResponse
 createNetworkInterfaceResponse pStatus_ =
     CreateNetworkInterfaceResponse'
     { _cnirsNetworkInterface = Nothing
@@ -195,6 +199,6 @@ createNetworkInterfaceResponse pStatus_ =
 cnirsNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
 cnirsNetworkInterface = lens _cnirsNetworkInterface (\ s a -> s{_cnirsNetworkInterface = a});
 
--- | Undocumented member.
+-- | The response status code.
 cnirsStatus :: Lens' CreateNetworkInterfaceResponse Int
 cnirsStatus = lens _cnirsStatus (\ s a -> s{_cnirsStatus = a});

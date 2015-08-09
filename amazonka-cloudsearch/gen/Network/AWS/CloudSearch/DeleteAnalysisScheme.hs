@@ -26,15 +26,15 @@
 module Network.AWS.CloudSearch.DeleteAnalysisScheme
     (
     -- * Creating a Request
-      DeleteAnalysisScheme
-    , deleteAnalysisScheme
+      deleteAnalysisScheme
+    , DeleteAnalysisScheme
     -- * Request Lenses
     , dasDomainName
     , dasAnalysisSchemeName
 
     -- * Destructuring the Response
-    , DeleteAnalysisSchemeResponse
     , deleteAnalysisSchemeResponse
+    , DeleteAnalysisSchemeResponse
     -- * Response Lenses
     , dasarsStatus
     , dasarsAnalysisScheme
@@ -46,24 +46,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DeleteAnalysisScheme@ operation.
+-- | Container for the parameters to the 'DeleteAnalysisScheme' operation.
 -- Specifies the name of the domain you want to update and the analysis
 -- scheme you want to delete.
 --
 -- /See:/ 'deleteAnalysisScheme' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dasDomainName'
---
--- * 'dasAnalysisSchemeName'
 data DeleteAnalysisScheme = DeleteAnalysisScheme'
     { _dasDomainName         :: !Text
     , _dasAnalysisSchemeName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAnalysisScheme' smart constructor.
-deleteAnalysisScheme :: Text -> Text -> DeleteAnalysisScheme
+-- | Creates a value of 'DeleteAnalysisScheme' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dasDomainName'
+--
+-- * 'dasAnalysisSchemeName'
+deleteAnalysisScheme
+    :: Text -- ^ 'dasDomainName'
+    -> Text -- ^ 'dasAnalysisSchemeName'
+    -> DeleteAnalysisScheme
 deleteAnalysisScheme pDomainName_ pAnalysisSchemeName_ =
     DeleteAnalysisScheme'
     { _dasDomainName = pDomainName_
@@ -103,30 +106,33 @@ instance ToQuery DeleteAnalysisScheme where
                "DomainName" =: _dasDomainName,
                "AnalysisSchemeName" =: _dasAnalysisSchemeName]
 
--- | The result of a @DeleteAnalysisScheme@ request. Contains the status of
+-- | The result of a 'DeleteAnalysisScheme' request. Contains the status of
 -- the deleted analysis scheme.
 --
 -- /See:/ 'deleteAnalysisSchemeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dasarsStatus'
---
--- * 'dasarsAnalysisScheme'
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
     { _dasarsStatus         :: !Int
     , _dasarsAnalysisScheme :: !AnalysisSchemeStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAnalysisSchemeResponse' smart constructor.
-deleteAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DeleteAnalysisSchemeResponse
+-- | Creates a value of 'DeleteAnalysisSchemeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dasarsStatus'
+--
+-- * 'dasarsAnalysisScheme'
+deleteAnalysisSchemeResponse
+    :: Int -- ^ 'dasarsStatus'
+    -> AnalysisSchemeStatus -- ^ 'dasarsAnalysisScheme'
+    -> DeleteAnalysisSchemeResponse
 deleteAnalysisSchemeResponse pStatus_ pAnalysisScheme_ =
     DeleteAnalysisSchemeResponse'
     { _dasarsStatus = pStatus_
     , _dasarsAnalysisScheme = pAnalysisScheme_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dasarsStatus :: Lens' DeleteAnalysisSchemeResponse Int
 dasarsStatus = lens _dasarsStatus (\ s a -> s{_dasarsStatus = a});
 

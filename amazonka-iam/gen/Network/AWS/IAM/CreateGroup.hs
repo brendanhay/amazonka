@@ -28,15 +28,15 @@
 module Network.AWS.IAM.CreateGroup
     (
     -- * Creating a Request
-      CreateGroup
-    , createGroup
+      createGroup
+    , CreateGroup
     -- * Request Lenses
     , cgPath
     , cgGroupName
 
     -- * Destructuring the Response
-    , CreateGroupResponse
     , createGroupResponse
+    , CreateGroupResponse
     -- * Response Lenses
     , cgrsStatus
     , cgrsGroup
@@ -49,19 +49,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cgPath'
---
--- * 'cgGroupName'
 data CreateGroup = CreateGroup'
     { _cgPath      :: !(Maybe Text)
     , _cgGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateGroup' smart constructor.
-createGroup :: Text -> CreateGroup
+-- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cgPath'
+--
+-- * 'cgGroupName'
+createGroup
+    :: Text -- ^ 'cgGroupName'
+    -> CreateGroup
 createGroup pGroupName_ =
     CreateGroup'
     { _cgPath = Nothing
@@ -107,26 +109,29 @@ instance ToQuery CreateGroup where
 -- | Contains the response to a successful CreateGroup request.
 --
 -- /See:/ 'createGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cgrsStatus'
---
--- * 'cgrsGroup'
 data CreateGroupResponse = CreateGroupResponse'
     { _cgrsStatus :: !Int
     , _cgrsGroup  :: !Group
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateGroupResponse' smart constructor.
-createGroupResponse :: Int -> Group -> CreateGroupResponse
+-- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cgrsStatus'
+--
+-- * 'cgrsGroup'
+createGroupResponse
+    :: Int -- ^ 'cgrsStatus'
+    -> Group -- ^ 'cgrsGroup'
+    -> CreateGroupResponse
 createGroupResponse pStatus_ pGroup_ =
     CreateGroupResponse'
     { _cgrsStatus = pStatus_
     , _cgrsGroup = pGroup_
     }
 
--- | Undocumented member.
+-- | The response status code.
 cgrsStatus :: Lens' CreateGroupResponse Int
 cgrsStatus = lens _cgrsStatus (\ s a -> s{_cgrsStatus = a});
 

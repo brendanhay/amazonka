@@ -25,14 +25,14 @@
 module Network.AWS.Redshift.DeleteClusterParameterGroup
     (
     -- * Creating a Request
-      DeleteClusterParameterGroup
-    , deleteClusterParameterGroup
+      deleteClusterParameterGroup
+    , DeleteClusterParameterGroup
     -- * Request Lenses
     , dParameterGroupName
 
     -- * Destructuring the Response
-    , DeleteClusterParameterGroupResponse
     , deleteClusterParameterGroupResponse
+    , DeleteClusterParameterGroupResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -44,16 +44,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteClusterParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dParameterGroupName'
 newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup'
     { _dParameterGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteClusterParameterGroup' smart constructor.
-deleteClusterParameterGroup :: Text -> DeleteClusterParameterGroup
+-- | Creates a value of 'DeleteClusterParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dParameterGroupName'
+deleteClusterParameterGroup
+    :: Text -- ^ 'dParameterGroupName'
+    -> DeleteClusterParameterGroup
 deleteClusterParameterGroup pParameterGroupName_ =
     DeleteClusterParameterGroup'
     { _dParameterGroupName = pParameterGroupName_
@@ -95,6 +97,8 @@ data DeleteClusterParameterGroupResponse =
     DeleteClusterParameterGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteClusterParameterGroupResponse' smart constructor.
-deleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse
+-- | Creates a value of 'DeleteClusterParameterGroupResponse' with the minimum fields required to make a request.
+--
+deleteClusterParameterGroupResponse
+    :: DeleteClusterParameterGroupResponse
 deleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse'

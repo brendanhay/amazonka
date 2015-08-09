@@ -30,15 +30,15 @@
 module Network.AWS.CloudSearch.DefineSuggester
     (
     -- * Creating a Request
-      DefineSuggester
-    , defineSuggester
+      defineSuggester
+    , DefineSuggester
     -- * Request Lenses
     , defDomainName
     , defSuggester
 
     -- * Destructuring the Response
-    , DefineSuggesterResponse
     , defineSuggesterResponse
+    , DefineSuggesterResponse
     -- * Response Lenses
     , dsrsStatus
     , dsrsSuggester
@@ -50,24 +50,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DefineSuggester@ operation.
+-- | Container for the parameters to the 'DefineSuggester' operation.
 -- Specifies the name of the domain you want to update and the suggester
 -- configuration.
 --
 -- /See:/ 'defineSuggester' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'defDomainName'
---
--- * 'defSuggester'
 data DefineSuggester = DefineSuggester'
     { _defDomainName :: !Text
     , _defSuggester  :: !Suggester
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DefineSuggester' smart constructor.
-defineSuggester :: Text -> Suggester -> DefineSuggester
+-- | Creates a value of 'DefineSuggester' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'defDomainName'
+--
+-- * 'defSuggester'
+defineSuggester
+    :: Text -- ^ 'defDomainName'
+    -> Suggester -- ^ 'defSuggester'
+    -> DefineSuggester
 defineSuggester pDomainName_ pSuggester_ =
     DefineSuggester'
     { _defDomainName = pDomainName_
@@ -106,30 +109,33 @@ instance ToQuery DefineSuggester where
                "DomainName" =: _defDomainName,
                "Suggester" =: _defSuggester]
 
--- | The result of a @DefineSuggester@ request. Contains the status of the
+-- | The result of a 'DefineSuggester' request. Contains the status of the
 -- newly-configured suggester.
 --
 -- /See:/ 'defineSuggesterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrsStatus'
---
--- * 'dsrsSuggester'
 data DefineSuggesterResponse = DefineSuggesterResponse'
     { _dsrsStatus    :: !Int
     , _dsrsSuggester :: !SuggesterStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DefineSuggesterResponse' smart constructor.
-defineSuggesterResponse :: Int -> SuggesterStatus -> DefineSuggesterResponse
+-- | Creates a value of 'DefineSuggesterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrsStatus'
+--
+-- * 'dsrsSuggester'
+defineSuggesterResponse
+    :: Int -- ^ 'dsrsStatus'
+    -> SuggesterStatus -- ^ 'dsrsSuggester'
+    -> DefineSuggesterResponse
 defineSuggesterResponse pStatus_ pSuggester_ =
     DefineSuggesterResponse'
     { _dsrsStatus = pStatus_
     , _dsrsSuggester = pSuggester_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dsrsStatus :: Lens' DefineSuggesterResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
 

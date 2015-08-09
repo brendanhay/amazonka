@@ -28,14 +28,14 @@
 module Network.AWS.StorageGateway.DescribeCache
     (
     -- * Creating a Request
-      DescribeCache
-    , describeCache
+      describeCache
+    , DescribeCache
     -- * Request Lenses
     , dcGatewayARN
 
     -- * Destructuring the Response
-    , DescribeCacheResponse
     , describeCacheResponse
+    , DescribeCacheResponse
     -- * Response Lenses
     , dcrsGatewayARN
     , dcrsDiskIds
@@ -54,16 +54,18 @@ import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'describeCache' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcGatewayARN'
 newtype DescribeCache = DescribeCache'
     { _dcGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCache' smart constructor.
-describeCache :: Text -> DescribeCache
+-- | Creates a value of 'DescribeCache' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcGatewayARN'
+describeCache
+    :: Text -- ^ 'dcGatewayARN'
+    -> DescribeCache
 describeCache pGatewayARN_ =
     DescribeCache'
     { _dcGatewayARN = pGatewayARN_
@@ -110,8 +112,20 @@ instance ToQuery DescribeCache where
         toQuery = const mempty
 
 -- | /See:/ 'describeCacheResponse' smart constructor.
+data DescribeCacheResponse = DescribeCacheResponse'
+    { _dcrsGatewayARN            :: !(Maybe Text)
+    , _dcrsDiskIds               :: !(Maybe [Text])
+    , _dcrsCacheUsedPercentage   :: !(Maybe Double)
+    , _dcrsCacheHitPercentage    :: !(Maybe Double)
+    , _dcrsCacheMissPercentage   :: !(Maybe Double)
+    , _dcrsCacheAllocatedInBytes :: !(Maybe Integer)
+    , _dcrsCacheDirtyPercentage  :: !(Maybe Double)
+    , _dcrsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeCacheResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcrsGatewayARN'
 --
@@ -128,19 +142,9 @@ instance ToQuery DescribeCache where
 -- * 'dcrsCacheDirtyPercentage'
 --
 -- * 'dcrsStatus'
-data DescribeCacheResponse = DescribeCacheResponse'
-    { _dcrsGatewayARN            :: !(Maybe Text)
-    , _dcrsDiskIds               :: !(Maybe [Text])
-    , _dcrsCacheUsedPercentage   :: !(Maybe Double)
-    , _dcrsCacheHitPercentage    :: !(Maybe Double)
-    , _dcrsCacheMissPercentage   :: !(Maybe Double)
-    , _dcrsCacheAllocatedInBytes :: !(Maybe Integer)
-    , _dcrsCacheDirtyPercentage  :: !(Maybe Double)
-    , _dcrsStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeCacheResponse' smart constructor.
-describeCacheResponse :: Int -> DescribeCacheResponse
+describeCacheResponse
+    :: Int -- ^ 'dcrsStatus'
+    -> DescribeCacheResponse
 describeCacheResponse pStatus_ =
     DescribeCacheResponse'
     { _dcrsGatewayARN = Nothing
@@ -181,6 +185,6 @@ dcrsCacheAllocatedInBytes = lens _dcrsCacheAllocatedInBytes (\ s a -> s{_dcrsCac
 dcrsCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
 dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\ s a -> s{_dcrsCacheDirtyPercentage = a});
 
--- | Undocumented member.
+-- | The response status code.
 dcrsStatus :: Lens' DescribeCacheResponse Int
 dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

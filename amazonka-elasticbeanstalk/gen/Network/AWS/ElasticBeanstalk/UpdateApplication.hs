@@ -20,22 +20,22 @@
 --
 -- Updates the specified application to have the specified properties.
 --
--- If a property (for example, @description@) is not provided, the value
+-- If a property (for example, 'description') is not provided, the value
 -- remains unchanged. To clear these properties, specify an empty string.
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplication.html AWS API Reference> for UpdateApplication.
 module Network.AWS.ElasticBeanstalk.UpdateApplication
     (
     -- * Creating a Request
-      UpdateApplication
-    , updateApplication
+      updateApplication
+    , UpdateApplication
     -- * Request Lenses
     , uaDescription
     , uaApplicationName
 
     -- * Destructuring the Response
-    , ApplicationDescriptionMessage
     , applicationDescriptionMessage
+    , ApplicationDescriptionMessage
     -- * Response Lenses
     , admApplication
     ) where
@@ -49,19 +49,21 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'updateApplication' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uaDescription'
---
--- * 'uaApplicationName'
 data UpdateApplication = UpdateApplication'
     { _uaDescription     :: !(Maybe Text)
     , _uaApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateApplication' smart constructor.
-updateApplication :: Text -> UpdateApplication
+-- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uaDescription'
+--
+-- * 'uaApplicationName'
+updateApplication
+    :: Text -- ^ 'uaApplicationName'
+    -> UpdateApplication
 updateApplication pApplicationName_ =
     UpdateApplication'
     { _uaDescription = Nothing
@@ -76,7 +78,7 @@ uaDescription :: Lens' UpdateApplication (Maybe Text)
 uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
 
 -- | The name of the application to update. If no such application is found,
--- @UpdateApplication@ returns an @InvalidParameterValue@ error.
+-- 'UpdateApplication' returns an 'InvalidParameterValue' error.
 uaApplicationName :: Lens' UpdateApplication Text
 uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 

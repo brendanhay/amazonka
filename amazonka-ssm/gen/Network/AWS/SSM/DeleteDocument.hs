@@ -27,14 +27,14 @@
 module Network.AWS.SSM.DeleteDocument
     (
     -- * Creating a Request
-      DeleteDocument
-    , deleteDocument
+      deleteDocument
+    , DeleteDocument
     -- * Request Lenses
     , dddName
 
     -- * Destructuring the Response
-    , DeleteDocumentResponse
     , deleteDocumentResponse
+    , DeleteDocumentResponse
     -- * Response Lenses
     , ddrsStatus
     ) where
@@ -46,16 +46,18 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'deleteDocument' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dddName'
 newtype DeleteDocument = DeleteDocument'
     { _dddName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDocument' smart constructor.
-deleteDocument :: Text -> DeleteDocument
+-- | Creates a value of 'DeleteDocument' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dddName'
+deleteDocument
+    :: Text -- ^ 'dddName'
+    -> DeleteDocument
 deleteDocument pName_ =
     DeleteDocument'
     { _dddName = pName_
@@ -94,21 +96,23 @@ instance ToQuery DeleteDocument where
         toQuery = const mempty
 
 -- | /See:/ 'deleteDocumentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddrsStatus'
 newtype DeleteDocumentResponse = DeleteDocumentResponse'
     { _ddrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDocumentResponse' smart constructor.
-deleteDocumentResponse :: Int -> DeleteDocumentResponse
+-- | Creates a value of 'DeleteDocumentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddrsStatus'
+deleteDocumentResponse
+    :: Int -- ^ 'ddrsStatus'
+    -> DeleteDocumentResponse
 deleteDocumentResponse pStatus_ =
     DeleteDocumentResponse'
     { _ddrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ddrsStatus :: Lens' DeleteDocumentResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

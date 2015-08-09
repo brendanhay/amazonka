@@ -38,14 +38,14 @@
 module Network.AWS.StorageGateway.DeleteVolume
     (
     -- * Creating a Request
-      DeleteVolume
-    , deleteVolume
+      deleteVolume
+    , DeleteVolume
     -- * Request Lenses
     , dvVolumeARN
 
     -- * Destructuring the Response
-    , DeleteVolumeResponse
     , deleteVolumeResponse
+    , DeleteVolumeResponse
     -- * Response Lenses
     , dvrsVolumeARN
     , dvrsStatus
@@ -60,16 +60,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing the DeleteVolumeInput$VolumeARN to delete.
 --
 -- /See:/ 'deleteVolume' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvVolumeARN'
 newtype DeleteVolume = DeleteVolume'
     { _dvVolumeARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVolume' smart constructor.
-deleteVolume :: Text -> DeleteVolume
+-- | Creates a value of 'DeleteVolume' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvVolumeARN'
+deleteVolume
+    :: Text -- ^ 'dvVolumeARN'
+    -> DeleteVolume
 deleteVolume pVolumeARN_ =
     DeleteVolume'
     { _dvVolumeARN = pVolumeARN_
@@ -113,19 +115,21 @@ instance ToQuery DeleteVolume where
 -- | A JSON object containing the of the storage volume that was deleted
 --
 -- /See:/ 'deleteVolumeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvrsVolumeARN'
---
--- * 'dvrsStatus'
 data DeleteVolumeResponse = DeleteVolumeResponse'
     { _dvrsVolumeARN :: !(Maybe Text)
     , _dvrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVolumeResponse' smart constructor.
-deleteVolumeResponse :: Int -> DeleteVolumeResponse
+-- | Creates a value of 'DeleteVolumeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvrsVolumeARN'
+--
+-- * 'dvrsStatus'
+deleteVolumeResponse
+    :: Int -- ^ 'dvrsStatus'
+    -> DeleteVolumeResponse
 deleteVolumeResponse pStatus_ =
     DeleteVolumeResponse'
     { _dvrsVolumeARN = Nothing
@@ -137,6 +141,6 @@ deleteVolumeResponse pStatus_ =
 dvrsVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvrsVolumeARN = lens _dvrsVolumeARN (\ s a -> s{_dvrsVolumeARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 dvrsStatus :: Lens' DeleteVolumeResponse Int
 dvrsStatus = lens _dvrsStatus (\ s a -> s{_dvrsStatus = a});

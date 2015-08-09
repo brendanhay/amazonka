@@ -27,15 +27,15 @@
 module Network.AWS.Route53Domains.DeleteTagsForDomain
     (
     -- * Creating a Request
-      DeleteTagsForDomain
-    , deleteTagsForDomain
+      deleteTagsForDomain
+    , DeleteTagsForDomain
     -- * Request Lenses
     , dtfdDomainName
     , dtfdTagsToDelete
 
     -- * Destructuring the Response
-    , DeleteTagsForDomainResponse
     , deleteTagsForDomainResponse
+    , DeleteTagsForDomainResponse
     -- * Response Lenses
     , dtfdrsStatus
     ) where
@@ -49,19 +49,21 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The DeleteTagsForDomainRequest includes the following elements.
 --
 -- /See:/ 'deleteTagsForDomain' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtfdDomainName'
---
--- * 'dtfdTagsToDelete'
 data DeleteTagsForDomain = DeleteTagsForDomain'
     { _dtfdDomainName   :: !Text
     , _dtfdTagsToDelete :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTagsForDomain' smart constructor.
-deleteTagsForDomain :: Text -> DeleteTagsForDomain
+-- | Creates a value of 'DeleteTagsForDomain' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtfdDomainName'
+--
+-- * 'dtfdTagsToDelete'
+deleteTagsForDomain
+    :: Text -- ^ 'dtfdDomainName'
+    -> DeleteTagsForDomain
 deleteTagsForDomain pDomainName_ =
     DeleteTagsForDomain'
     { _dtfdDomainName = pDomainName_
@@ -131,21 +133,23 @@ instance ToQuery DeleteTagsForDomain where
         toQuery = const mempty
 
 -- | /See:/ 'deleteTagsForDomainResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtfdrsStatus'
 newtype DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'
     { _dtfdrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTagsForDomainResponse' smart constructor.
-deleteTagsForDomainResponse :: Int -> DeleteTagsForDomainResponse
+-- | Creates a value of 'DeleteTagsForDomainResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtfdrsStatus'
+deleteTagsForDomainResponse
+    :: Int -- ^ 'dtfdrsStatus'
+    -> DeleteTagsForDomainResponse
 deleteTagsForDomainResponse pStatus_ =
     DeleteTagsForDomainResponse'
     { _dtfdrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dtfdrsStatus :: Lens' DeleteTagsForDomainResponse Int
 dtfdrsStatus = lens _dtfdrsStatus (\ s a -> s{_dtfdrsStatus = a});

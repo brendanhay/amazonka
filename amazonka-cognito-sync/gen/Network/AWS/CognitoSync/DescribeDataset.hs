@@ -31,16 +31,16 @@
 module Network.AWS.CognitoSync.DescribeDataset
     (
     -- * Creating a Request
-      DescribeDataset
-    , describeDataset
+      describeDataset
+    , DescribeDataset
     -- * Request Lenses
     , ddIdentityPoolId
     , ddIdentityId
     , ddDatasetName
 
     -- * Destructuring the Response
-    , DescribeDatasetResponse
     , describeDatasetResponse
+    , DescribeDatasetResponse
     -- * Response Lenses
     , ddrsDataset
     , ddrsStatus
@@ -56,22 +56,26 @@ import           Network.AWS.Response
 -- records, size) by owner and dataset name.
 --
 -- /See:/ 'describeDataset' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddIdentityPoolId'
---
--- * 'ddIdentityId'
---
--- * 'ddDatasetName'
 data DescribeDataset = DescribeDataset'
     { _ddIdentityPoolId :: !Text
     , _ddIdentityId     :: !Text
     , _ddDatasetName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDataset' smart constructor.
-describeDataset :: Text -> Text -> Text -> DescribeDataset
+-- | Creates a value of 'DescribeDataset' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddIdentityPoolId'
+--
+-- * 'ddIdentityId'
+--
+-- * 'ddDatasetName'
+describeDataset
+    :: Text -- ^ 'ddIdentityPoolId'
+    -> Text -- ^ 'ddIdentityId'
+    -> Text -- ^ 'ddDatasetName'
+    -> DescribeDataset
 describeDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
     DescribeDataset'
     { _ddIdentityPoolId = pIdentityPoolId_
@@ -126,19 +130,21 @@ instance ToQuery DescribeDataset where
 -- | Response to a successful DescribeDataset request.
 --
 -- /See:/ 'describeDatasetResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddrsDataset'
---
--- * 'ddrsStatus'
 data DescribeDatasetResponse = DescribeDatasetResponse'
     { _ddrsDataset :: !(Maybe Dataset)
     , _ddrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDatasetResponse' smart constructor.
-describeDatasetResponse :: Int -> DescribeDatasetResponse
+-- | Creates a value of 'DescribeDatasetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddrsDataset'
+--
+-- * 'ddrsStatus'
+describeDatasetResponse
+    :: Int -- ^ 'ddrsStatus'
+    -> DescribeDatasetResponse
 describeDatasetResponse pStatus_ =
     DescribeDatasetResponse'
     { _ddrsDataset = Nothing
@@ -153,6 +159,6 @@ describeDatasetResponse pStatus_ =
 ddrsDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
 ddrsDataset = lens _ddrsDataset (\ s a -> s{_ddrsDataset = a});
 
--- | Undocumented member.
+-- | The response status code.
 ddrsStatus :: Lens' DescribeDatasetResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

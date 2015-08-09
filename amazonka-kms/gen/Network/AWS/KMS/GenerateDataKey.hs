@@ -20,33 +20,33 @@
 --
 -- Generates a data key that you can use in your application to locally
 -- encrypt data. This call returns a plaintext version of the key in the
--- @Plaintext@ field of the response object and an encrypted copy of the
--- key in the @CiphertextBlob@ field. The key is encrypted by using the
--- master key specified by the @KeyId@ field. To decrypt the encrypted key,
--- pass it to the @Decrypt@ API.
+-- 'Plaintext' field of the response object and an encrypted copy of the
+-- key in the 'CiphertextBlob' field. The key is encrypted by using the
+-- master key specified by the 'KeyId' field. To decrypt the encrypted key,
+-- pass it to the 'Decrypt' API.
 --
 -- We recommend that you use the following pattern to locally encrypt data:
--- call the @GenerateDataKey@ API, use the key returned in the @Plaintext@
+-- call the 'GenerateDataKey' API, use the key returned in the 'Plaintext'
 -- response field to locally encrypt data, and then erase the plaintext
 -- data key from memory. Store the encrypted data key (contained in the
--- @CiphertextBlob@ field) alongside of the locally encrypted data.
+-- 'CiphertextBlob' field) alongside of the locally encrypted data.
 --
--- You should not call the @Encrypt@ function to re-encrypt your data keys
--- within a region. @GenerateDataKey@ always returns the data key encrypted
+-- You should not call the 'Encrypt' function to re-encrypt your data keys
+-- within a region. 'GenerateDataKey' always returns the data key encrypted
 -- and tied to the customer master key that will be used to decrypt it.
 -- There is no need to decrypt it twice.
 --
--- If you decide to use the optional @EncryptionContext@ parameter, you
+-- If you decide to use the optional 'EncryptionContext' parameter, you
 -- must also store the context in full or at least store enough information
 -- along with the encrypted data to be able to reconstruct the context when
--- submitting the ciphertext to the @Decrypt@ API. It is a good practice to
+-- submitting the ciphertext to the 'Decrypt' API. It is a good practice to
 -- choose a context that you can reconstruct on the fly to better secure
 -- the ciphertext. For more information about how this parameter is used,
 -- see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
 --
--- To decrypt data, pass the encrypted data key to the @Decrypt@ API.
--- @Decrypt@ uses the associated master key to decrypt the encrypted data
+-- To decrypt data, pass the encrypted data key to the 'Decrypt' API.
+-- 'Decrypt' uses the associated master key to decrypt the encrypted data
 -- key and returns it as plaintext. Use the plaintext data key to locally
 -- decrypt your data and then erase the key from memory. You must specify
 -- the encryption context, if any, that you specified when you generated
@@ -57,8 +57,8 @@
 module Network.AWS.KMS.GenerateDataKey
     (
     -- * Creating a Request
-      GenerateDataKey
-    , generateDataKey
+      generateDataKey
+    , GenerateDataKey
     -- * Request Lenses
     , gdkKeySpec
     , gdkEncryptionContext
@@ -67,8 +67,8 @@ module Network.AWS.KMS.GenerateDataKey
     , gdkKeyId
 
     -- * Destructuring the Response
-    , GenerateDataKeyResponse
     , generateDataKeyResponse
+    , GenerateDataKeyResponse
     -- * Response Lenses
     , gdkrsKeyId
     , gdkrsPlaintext
@@ -83,8 +83,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'generateDataKey' smart constructor.
+data GenerateDataKey = GenerateDataKey'
+    { _gdkKeySpec           :: !(Maybe DataKeySpec)
+    , _gdkEncryptionContext :: !(Maybe (Map Text Text))
+    , _gdkNumberOfBytes     :: !(Maybe Nat)
+    , _gdkGrantTokens       :: !(Maybe [Text])
+    , _gdkKeyId             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GenerateDataKey' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gdkKeySpec'
 --
@@ -95,16 +104,9 @@ import           Network.AWS.Response
 -- * 'gdkGrantTokens'
 --
 -- * 'gdkKeyId'
-data GenerateDataKey = GenerateDataKey'
-    { _gdkKeySpec           :: !(Maybe DataKeySpec)
-    , _gdkEncryptionContext :: !(Maybe (Map Text Text))
-    , _gdkNumberOfBytes     :: !(Maybe Nat)
-    , _gdkGrantTokens       :: !(Maybe [Text])
-    , _gdkKeyId             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GenerateDataKey' smart constructor.
-generateDataKey :: Text -> GenerateDataKey
+generateDataKey
+    :: Text -- ^ 'gdkKeyId'
+    -> GenerateDataKey
 generateDataKey pKeyId_ =
     GenerateDataKey'
     { _gdkKeySpec = Nothing
@@ -128,7 +130,7 @@ gdkEncryptionContext = lens _gdkEncryptionContext (\ s a -> s{_gdkEncryptionCont
 
 -- | Integer that contains the number of bytes to generate. Common values are
 -- 128, 256, 512, and 1024. 1024 is the current limit. We recommend that
--- you use the @KeySpec@ parameter instead.
+-- you use the 'KeySpec' parameter instead.
 gdkNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
 gdkNumberOfBytes = lens _gdkNumberOfBytes (\ s a -> s{_gdkNumberOfBytes = a}) . mapping _Nat;
 
@@ -188,8 +190,16 @@ instance ToQuery GenerateDataKey where
         toQuery = const mempty
 
 -- | /See:/ 'generateDataKeyResponse' smart constructor.
+data GenerateDataKeyResponse = GenerateDataKeyResponse'
+    { _gdkrsKeyId          :: !(Maybe Text)
+    , _gdkrsPlaintext      :: !(Maybe (Sensitive Base64))
+    , _gdkrsCiphertextBlob :: !(Maybe Base64)
+    , _gdkrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GenerateDataKeyResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gdkrsKeyId'
 --
@@ -198,15 +208,9 @@ instance ToQuery GenerateDataKey where
 -- * 'gdkrsCiphertextBlob'
 --
 -- * 'gdkrsStatus'
-data GenerateDataKeyResponse = GenerateDataKeyResponse'
-    { _gdkrsKeyId          :: !(Maybe Text)
-    , _gdkrsPlaintext      :: !(Maybe (Sensitive Base64))
-    , _gdkrsCiphertextBlob :: !(Maybe Base64)
-    , _gdkrsStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GenerateDataKeyResponse' smart constructor.
-generateDataKeyResponse :: Int -> GenerateDataKeyResponse
+generateDataKeyResponse
+    :: Int -- ^ 'gdkrsStatus'
+    -> GenerateDataKeyResponse
 generateDataKeyResponse pStatus_ =
     GenerateDataKeyResponse'
     { _gdkrsKeyId = Nothing
@@ -236,6 +240,6 @@ gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . mappin
 gdkrsCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe ByteString)
 gdkrsCiphertextBlob = lens _gdkrsCiphertextBlob (\ s a -> s{_gdkrsCiphertextBlob = a}) . mapping _Base64;
 
--- | Undocumented member.
+-- | The response status code.
 gdkrsStatus :: Lens' GenerateDataKeyResponse Int
 gdkrsStatus = lens _gdkrsStatus (\ s a -> s{_gdkrsStatus = a});

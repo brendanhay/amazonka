@@ -31,8 +31,8 @@
 module Network.AWS.EC2.DescribeSecurityGroups
     (
     -- * Creating a Request
-      DescribeSecurityGroups
-    , describeSecurityGroups
+      describeSecurityGroups
+    , DescribeSecurityGroups
     -- * Request Lenses
     , dsgsGroupNames
     , dsgsFilters
@@ -40,8 +40,8 @@ module Network.AWS.EC2.DescribeSecurityGroups
     , dsgsDryRun
 
     -- * Destructuring the Response
-    , DescribeSecurityGroupsResponse
     , describeSecurityGroupsResponse
+    , DescribeSecurityGroupsResponse
     -- * Response Lenses
     , dsgrsSecurityGroups
     , dsgrsStatus
@@ -54,8 +54,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeSecurityGroups' smart constructor.
+data DescribeSecurityGroups = DescribeSecurityGroups'
+    { _dsgsGroupNames :: !(Maybe [Text])
+    , _dsgsFilters    :: !(Maybe [Filter])
+    , _dsgsGroupIds   :: !(Maybe [Text])
+    , _dsgsDryRun     :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeSecurityGroups' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dsgsGroupNames'
 --
@@ -64,15 +72,8 @@ import           Network.AWS.Response
 -- * 'dsgsGroupIds'
 --
 -- * 'dsgsDryRun'
-data DescribeSecurityGroups = DescribeSecurityGroups'
-    { _dsgsGroupNames :: !(Maybe [Text])
-    , _dsgsFilters    :: !(Maybe [Filter])
-    , _dsgsGroupIds   :: !(Maybe [Text])
-    , _dsgsDryRun     :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeSecurityGroups' smart constructor.
-describeSecurityGroups :: DescribeSecurityGroups
+describeSecurityGroups
+    :: DescribeSecurityGroups
 describeSecurityGroups =
     DescribeSecurityGroups'
     { _dsgsGroupNames = Nothing
@@ -83,7 +84,7 @@ describeSecurityGroups =
 
 -- | [EC2-Classic and default VPC only] One or more security group names. You
 -- can specify either the security group name or the security group ID. For
--- security groups in a nondefault VPC, use the @group-name@ filter to
+-- security groups in a nondefault VPC, use the 'group-name' filter to
 -- describe security groups by name.
 --
 -- Default: Describes all your security groups.
@@ -92,43 +93,43 @@ dsgsGroupNames = lens _dsgsGroupNames (\ s a -> s{_dsgsGroupNames = a}) . _Defau
 
 -- | One or more filters.
 --
--- -   @description@ - The description of the security group.
+-- -   'description' - The description of the security group.
 --
--- -   @egress.ip-permission.prefix-list-id@ - The ID (prefix) of the AWS
+-- -   'egress.ip-permission.prefix-list-id' - The ID (prefix) of the AWS
 --     service to which the security group allows access.
 --
--- -   @group-id@ - The ID of the security group.
+-- -   'group-id' - The ID of the security group.
 --
--- -   @group-name@ - The name of the security group.
+-- -   'group-name' - The name of the security group.
 --
--- -   @ip-permission.cidr@ - A CIDR range that has been granted
+-- -   'ip-permission.cidr' - A CIDR range that has been granted
 --     permission.
 --
--- -   @ip-permission.from-port@ - The start of port range for the TCP and
+-- -   'ip-permission.from-port' - The start of port range for the TCP and
 --     UDP protocols, or an ICMP type number.
 --
--- -   @ip-permission.group-id@ - The ID of a security group that has been
+-- -   'ip-permission.group-id' - The ID of a security group that has been
 --     granted permission.
 --
--- -   @ip-permission.group-name@ - The name of a security group that has
+-- -   'ip-permission.group-name' - The name of a security group that has
 --     been granted permission.
 --
--- -   @ip-permission.protocol@ - The IP protocol for the permission (@tcp@
---     | @udp@ | @icmp@ or a protocol number).
+-- -   'ip-permission.protocol' - The IP protocol for the permission ('tcp'
+--     | 'udp' | 'icmp' or a protocol number).
 --
--- -   @ip-permission.to-port@ - The end of port range for the TCP and UDP
+-- -   'ip-permission.to-port' - The end of port range for the TCP and UDP
 --     protocols, or an ICMP code.
 --
--- -   @ip-permission.user-id@ - The ID of an AWS account that has been
+-- -   'ip-permission.user-id' - The ID of an AWS account that has been
 --     granted permission.
 --
--- -   @owner-id@ - The AWS account ID of the owner of the security group.
+-- -   'owner-id' - The AWS account ID of the owner of the security group.
 --
--- -   @tag-key@ - The key of a tag assigned to the security group.
+-- -   'tag-key' - The key of a tag assigned to the security group.
 --
--- -   @tag-value@ - The value of a tag assigned to the security group.
+-- -   'tag-value' - The value of a tag assigned to the security group.
 --
--- -   @vpc-id@ - The ID of the VPC specified when the security group was
+-- -   'vpc-id' - The ID of the VPC specified when the security group was
 --     created.
 --
 dsgsFilters :: Lens' DescribeSecurityGroups [Filter]
@@ -143,8 +144,8 @@ dsgsGroupIds = lens _dsgsGroupIds (\ s a -> s{_dsgsGroupIds = a}) . _Default . _
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dsgsDryRun :: Lens' DescribeSecurityGroups (Maybe Bool)
 dsgsDryRun = lens _dsgsDryRun (\ s a -> s{_dsgsDryRun = a});
 
@@ -180,19 +181,21 @@ instance ToQuery DescribeSecurityGroups where
                "DryRun" =: _dsgsDryRun]
 
 -- | /See:/ 'describeSecurityGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsgrsSecurityGroups'
---
--- * 'dsgrsStatus'
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
     { _dsgrsSecurityGroups :: !(Maybe [SecurityGroup])
     , _dsgrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSecurityGroupsResponse' smart constructor.
-describeSecurityGroupsResponse :: Int -> DescribeSecurityGroupsResponse
+-- | Creates a value of 'DescribeSecurityGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsgrsSecurityGroups'
+--
+-- * 'dsgrsStatus'
+describeSecurityGroupsResponse
+    :: Int -- ^ 'dsgrsStatus'
+    -> DescribeSecurityGroupsResponse
 describeSecurityGroupsResponse pStatus_ =
     DescribeSecurityGroupsResponse'
     { _dsgrsSecurityGroups = Nothing
@@ -203,6 +206,6 @@ describeSecurityGroupsResponse pStatus_ =
 dsgrsSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrsSecurityGroups = lens _dsgrsSecurityGroups (\ s a -> s{_dsgrsSecurityGroups = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dsgrsStatus :: Lens' DescribeSecurityGroupsResponse Int
 dsgrsStatus = lens _dsgrsStatus (\ s a -> s{_dsgrsStatus = a});

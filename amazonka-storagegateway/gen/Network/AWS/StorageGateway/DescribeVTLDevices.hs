@@ -25,11 +25,13 @@
 -- The list of VTL devices must be from one gateway.
 --
 -- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeVTLDevices.html AWS API Reference> for DescribeVTLDevices.
+--
+-- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeVTLDevices
     (
     -- * Creating a Request
-      DescribeVTLDevices
-    , describeVTLDevices
+      describeVTLDevices
+    , DescribeVTLDevices
     -- * Request Lenses
     , dvtldMarker
     , dvtldLimit
@@ -37,8 +39,8 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     , dvtldGatewayARN
 
     -- * Destructuring the Response
-    , DescribeVTLDevicesResponse
     , describeVTLDevicesResponse
+    , DescribeVTLDevicesResponse
     -- * Response Lenses
     , dvtldrsGatewayARN
     , dvtldrsVTLDevices
@@ -56,8 +58,16 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | DescribeVTLDevicesInput
 --
 -- /See:/ 'describeVTLDevices' smart constructor.
+data DescribeVTLDevices = DescribeVTLDevices'
+    { _dvtldMarker        :: !(Maybe Text)
+    , _dvtldLimit         :: !(Maybe Nat)
+    , _dvtldVTLDeviceARNs :: !(Maybe [Text])
+    , _dvtldGatewayARN    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeVTLDevices' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dvtldMarker'
 --
@@ -66,15 +76,9 @@ import           Network.AWS.StorageGateway.Types.Product
 -- * 'dvtldVTLDeviceARNs'
 --
 -- * 'dvtldGatewayARN'
-data DescribeVTLDevices = DescribeVTLDevices'
-    { _dvtldMarker        :: !(Maybe Text)
-    , _dvtldLimit         :: !(Maybe Nat)
-    , _dvtldVTLDeviceARNs :: !(Maybe [Text])
-    , _dvtldGatewayARN    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeVTLDevices' smart constructor.
-describeVTLDevices :: Text -> DescribeVTLDevices
+describeVTLDevices
+    :: Text -- ^ 'dvtldGatewayARN'
+    -> DescribeVTLDevices
 describeVTLDevices pGatewayARN_ =
     DescribeVTLDevices'
     { _dvtldMarker = Nothing
@@ -153,8 +157,16 @@ instance ToQuery DescribeVTLDevices where
 -- | DescribeVTLDevicesOutput
 --
 -- /See:/ 'describeVTLDevicesResponse' smart constructor.
+data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
+    { _dvtldrsGatewayARN :: !(Maybe Text)
+    , _dvtldrsVTLDevices :: !(Maybe [VTLDevice])
+    , _dvtldrsMarker     :: !(Maybe Text)
+    , _dvtldrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeVTLDevicesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dvtldrsGatewayARN'
 --
@@ -163,15 +175,9 @@ instance ToQuery DescribeVTLDevices where
 -- * 'dvtldrsMarker'
 --
 -- * 'dvtldrsStatus'
-data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
-    { _dvtldrsGatewayARN :: !(Maybe Text)
-    , _dvtldrsVTLDevices :: !(Maybe [VTLDevice])
-    , _dvtldrsMarker     :: !(Maybe Text)
-    , _dvtldrsStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeVTLDevicesResponse' smart constructor.
-describeVTLDevicesResponse :: Int -> DescribeVTLDevicesResponse
+describeVTLDevicesResponse
+    :: Int -- ^ 'dvtldrsStatus'
+    -> DescribeVTLDevicesResponse
 describeVTLDevicesResponse pStatus_ =
     DescribeVTLDevicesResponse'
     { _dvtldrsGatewayARN = Nothing
@@ -197,6 +203,6 @@ dvtldrsVTLDevices = lens _dvtldrsVTLDevices (\ s a -> s{_dvtldrsVTLDevices = a})
 dvtldrsMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldrsMarker = lens _dvtldrsMarker (\ s a -> s{_dvtldrsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dvtldrsStatus :: Lens' DescribeVTLDevicesResponse Int
 dvtldrsStatus = lens _dvtldrsStatus (\ s a -> s{_dvtldrsStatus = a});

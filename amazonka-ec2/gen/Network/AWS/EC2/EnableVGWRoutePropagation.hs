@@ -25,15 +25,15 @@
 module Network.AWS.EC2.EnableVGWRoutePropagation
     (
     -- * Creating a Request
-      EnableVGWRoutePropagation
-    , enableVGWRoutePropagation
+      enableVGWRoutePropagation
+    , EnableVGWRoutePropagation
     -- * Request Lenses
     , evrpRouteTableId
     , evrpGatewayId
 
     -- * Destructuring the Response
-    , EnableVGWRoutePropagationResponse
     , enableVGWRoutePropagationResponse
+    , EnableVGWRoutePropagationResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -43,19 +43,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'enableVGWRoutePropagation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'evrpRouteTableId'
---
--- * 'evrpGatewayId'
 data EnableVGWRoutePropagation = EnableVGWRoutePropagation'
     { _evrpRouteTableId :: !Text
     , _evrpGatewayId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableVGWRoutePropagation' smart constructor.
-enableVGWRoutePropagation :: Text -> Text -> EnableVGWRoutePropagation
+-- | Creates a value of 'EnableVGWRoutePropagation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'evrpRouteTableId'
+--
+-- * 'evrpGatewayId'
+enableVGWRoutePropagation
+    :: Text -- ^ 'evrpRouteTableId'
+    -> Text -- ^ 'evrpGatewayId'
+    -> EnableVGWRoutePropagation
 enableVGWRoutePropagation pRouteTableId_ pGatewayId_ =
     EnableVGWRoutePropagation'
     { _evrpRouteTableId = pRouteTableId_
@@ -98,6 +101,8 @@ data EnableVGWRoutePropagationResponse =
     EnableVGWRoutePropagationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableVGWRoutePropagationResponse' smart constructor.
-enableVGWRoutePropagationResponse :: EnableVGWRoutePropagationResponse
+-- | Creates a value of 'EnableVGWRoutePropagationResponse' with the minimum fields required to make a request.
+--
+enableVGWRoutePropagationResponse
+    :: EnableVGWRoutePropagationResponse
 enableVGWRoutePropagationResponse = EnableVGWRoutePropagationResponse'

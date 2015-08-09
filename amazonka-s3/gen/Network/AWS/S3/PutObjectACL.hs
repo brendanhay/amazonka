@@ -25,8 +25,8 @@
 module Network.AWS.S3.PutObjectACL
     (
     -- * Creating a Request
-      PutObjectACL
-    , putObjectACL
+      putObjectACL
+    , PutObjectACL
     -- * Request Lenses
     , poaGrantReadACP
     , poaRequestPayer
@@ -41,8 +41,8 @@ module Network.AWS.S3.PutObjectACL
     , poaKey
 
     -- * Destructuring the Response
-    , PutObjectACLResponse
     , putObjectACLResponse
+    , PutObjectACLResponse
     -- * Response Lenses
     , poarsRequestCharged
     , poarsStatus
@@ -55,8 +55,23 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putObjectACL' smart constructor.
+data PutObjectACL = PutObjectACL'
+    { _poaGrantReadACP        :: !(Maybe Text)
+    , _poaRequestPayer        :: !(Maybe RequestPayer)
+    , _poaGrantWriteACP       :: !(Maybe Text)
+    , _poaGrantRead           :: !(Maybe Text)
+    , _poaGrantFullControl    :: !(Maybe Text)
+    , _poaContentMD5          :: !(Maybe Text)
+    , _poaAccessControlPolicy :: !(Maybe AccessControlPolicy)
+    , _poaGrantWrite          :: !(Maybe Text)
+    , _poaACL                 :: !(Maybe ObjectCannedACL)
+    , _poaBucket              :: !BucketName
+    , _poaKey                 :: !ObjectKey
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutObjectACL' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'poaGrantReadACP'
 --
@@ -79,22 +94,10 @@ import           Network.AWS.S3.Types.Product
 -- * 'poaBucket'
 --
 -- * 'poaKey'
-data PutObjectACL = PutObjectACL'
-    { _poaGrantReadACP        :: !(Maybe Text)
-    , _poaRequestPayer        :: !(Maybe RequestPayer)
-    , _poaGrantWriteACP       :: !(Maybe Text)
-    , _poaGrantRead           :: !(Maybe Text)
-    , _poaGrantFullControl    :: !(Maybe Text)
-    , _poaContentMD5          :: !(Maybe Text)
-    , _poaAccessControlPolicy :: !(Maybe AccessControlPolicy)
-    , _poaGrantWrite          :: !(Maybe Text)
-    , _poaACL                 :: !(Maybe ObjectCannedACL)
-    , _poaBucket              :: !BucketName
-    , _poaKey                 :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutObjectACL' smart constructor.
-putObjectACL :: BucketName -> ObjectKey -> PutObjectACL
+putObjectACL
+    :: BucketName -- ^ 'poaBucket'
+    -> ObjectKey -- ^ 'poaKey'
+    -> PutObjectACL
 putObjectACL pBucket_ pKey_ =
     PutObjectACL'
     { _poaGrantReadACP = Nothing
@@ -194,19 +197,21 @@ instance ToQuery PutObjectACL where
         toQuery = const (mconcat ["acl"])
 
 -- | /See:/ 'putObjectACLResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'poarsRequestCharged'
---
--- * 'poarsStatus'
 data PutObjectACLResponse = PutObjectACLResponse'
     { _poarsRequestCharged :: !(Maybe RequestCharged)
     , _poarsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutObjectACLResponse' smart constructor.
-putObjectACLResponse :: Int -> PutObjectACLResponse
+-- | Creates a value of 'PutObjectACLResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'poarsRequestCharged'
+--
+-- * 'poarsStatus'
+putObjectACLResponse
+    :: Int -- ^ 'poarsStatus'
+    -> PutObjectACLResponse
 putObjectACLResponse pStatus_ =
     PutObjectACLResponse'
     { _poarsRequestCharged = Nothing
@@ -217,6 +222,6 @@ putObjectACLResponse pStatus_ =
 poarsRequestCharged :: Lens' PutObjectACLResponse (Maybe RequestCharged)
 poarsRequestCharged = lens _poarsRequestCharged (\ s a -> s{_poarsRequestCharged = a});
 
--- | Undocumented member.
+-- | The response status code.
 poarsStatus :: Lens' PutObjectACLResponse Int
 poarsStatus = lens _poarsStatus (\ s a -> s{_poarsStatus = a});

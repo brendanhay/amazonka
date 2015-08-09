@@ -25,8 +25,8 @@
 module Network.AWS.ImportExport.GetShippingLabel
     (
     -- * Creating a Request
-      GetShippingLabel
-    , getShippingLabel
+      getShippingLabel
+    , GetShippingLabel
     -- * Request Lenses
     , gslStreet3
     , gslAPIVersion
@@ -42,8 +42,8 @@ module Network.AWS.ImportExport.GetShippingLabel
     , gslJobIds
 
     -- * Destructuring the Response
-    , GetShippingLabelResponse
     , getShippingLabelResponse
+    , GetShippingLabelResponse
     -- * Response Lenses
     , gslrsShippingLabelURL
     , gslrsWarning
@@ -57,8 +57,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getShippingLabel' smart constructor.
+data GetShippingLabel = GetShippingLabel'
+    { _gslStreet3         :: !(Maybe Text)
+    , _gslAPIVersion      :: !(Maybe Text)
+    , _gslPostalCode      :: !(Maybe Text)
+    , _gslCountry         :: !(Maybe Text)
+    , _gslStateOrProvince :: !(Maybe Text)
+    , _gslStreet2         :: !(Maybe Text)
+    , _gslName            :: !(Maybe Text)
+    , _gslCompany         :: !(Maybe Text)
+    , _gslCity            :: !(Maybe Text)
+    , _gslPhoneNumber     :: !(Maybe Text)
+    , _gslStreet1         :: !(Maybe Text)
+    , _gslJobIds          :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetShippingLabel' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gslStreet3'
 --
@@ -83,23 +99,8 @@ import           Network.AWS.Response
 -- * 'gslStreet1'
 --
 -- * 'gslJobIds'
-data GetShippingLabel = GetShippingLabel'
-    { _gslStreet3         :: !(Maybe Text)
-    , _gslAPIVersion      :: !(Maybe Text)
-    , _gslPostalCode      :: !(Maybe Text)
-    , _gslCountry         :: !(Maybe Text)
-    , _gslStateOrProvince :: !(Maybe Text)
-    , _gslStreet2         :: !(Maybe Text)
-    , _gslName            :: !(Maybe Text)
-    , _gslCompany         :: !(Maybe Text)
-    , _gslCity            :: !(Maybe Text)
-    , _gslPhoneNumber     :: !(Maybe Text)
-    , _gslStreet1         :: !(Maybe Text)
-    , _gslJobIds          :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetShippingLabel' smart constructor.
-getShippingLabel :: GetShippingLabel
+getShippingLabel
+    :: GetShippingLabel
 getShippingLabel =
     GetShippingLabel'
     { _gslStreet3 = Nothing
@@ -199,22 +200,24 @@ instance ToQuery GetShippingLabel where
                "jobIds" =: toQueryList "member" _gslJobIds]
 
 -- | /See:/ 'getShippingLabelResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gslrsShippingLabelURL'
---
--- * 'gslrsWarning'
---
--- * 'gslrsStatus'
 data GetShippingLabelResponse = GetShippingLabelResponse'
     { _gslrsShippingLabelURL :: !(Maybe Text)
     , _gslrsWarning          :: !(Maybe Text)
     , _gslrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetShippingLabelResponse' smart constructor.
-getShippingLabelResponse :: Int -> GetShippingLabelResponse
+-- | Creates a value of 'GetShippingLabelResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gslrsShippingLabelURL'
+--
+-- * 'gslrsWarning'
+--
+-- * 'gslrsStatus'
+getShippingLabelResponse
+    :: Int -- ^ 'gslrsStatus'
+    -> GetShippingLabelResponse
 getShippingLabelResponse pStatus_ =
     GetShippingLabelResponse'
     { _gslrsShippingLabelURL = Nothing
@@ -230,6 +233,6 @@ gslrsShippingLabelURL = lens _gslrsShippingLabelURL (\ s a -> s{_gslrsShippingLa
 gslrsWarning :: Lens' GetShippingLabelResponse (Maybe Text)
 gslrsWarning = lens _gslrsWarning (\ s a -> s{_gslrsWarning = a});
 
--- | Undocumented member.
+-- | The response status code.
 gslrsStatus :: Lens' GetShippingLabelResponse Int
 gslrsStatus = lens _gslrsStatus (\ s a -> s{_gslrsStatus = a});

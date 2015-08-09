@@ -26,8 +26,8 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- You can paginate the results using the @MaxItems@ and @Marker@
--- parameters. You can use the @PathPrefix@ parameter to limit the list of
+-- You can paginate the results using the 'MaxItems' and 'Marker'
+-- parameters. You can use the 'PathPrefix' parameter to limit the list of
 -- policies to only those matching the specified path prefix. If there are
 -- no policies attached to the specified group (or none that match the
 -- specified path prefix), the action returns an empty list.
@@ -36,8 +36,8 @@
 module Network.AWS.IAM.ListAttachedGroupPolicies
     (
     -- * Creating a Request
-      ListAttachedGroupPolicies
-    , listAttachedGroupPolicies
+      listAttachedGroupPolicies
+    , ListAttachedGroupPolicies
     -- * Request Lenses
     , lagpPathPrefix
     , lagpMaxItems
@@ -45,8 +45,8 @@ module Network.AWS.IAM.ListAttachedGroupPolicies
     , lagpGroupName
 
     -- * Destructuring the Response
-    , ListAttachedGroupPoliciesResponse
     , listAttachedGroupPoliciesResponse
+    , ListAttachedGroupPoliciesResponse
     -- * Response Lenses
     , lagprsAttachedPolicies
     , lagprsMarker
@@ -61,8 +61,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listAttachedGroupPolicies' smart constructor.
+data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
+    { _lagpPathPrefix :: !(Maybe Text)
+    , _lagpMaxItems   :: !(Maybe Nat)
+    , _lagpMarker     :: !(Maybe Text)
+    , _lagpGroupName  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListAttachedGroupPolicies' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lagpPathPrefix'
 --
@@ -71,15 +79,9 @@ import           Network.AWS.Response
 -- * 'lagpMarker'
 --
 -- * 'lagpGroupName'
-data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
-    { _lagpPathPrefix :: !(Maybe Text)
-    , _lagpMaxItems   :: !(Maybe Nat)
-    , _lagpMarker     :: !(Maybe Text)
-    , _lagpGroupName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListAttachedGroupPolicies' smart constructor.
-listAttachedGroupPolicies :: Text -> ListAttachedGroupPolicies
+listAttachedGroupPolicies
+    :: Text -- ^ 'lagpGroupName'
+    -> ListAttachedGroupPolicies
 listAttachedGroupPolicies pGroupName_ =
     ListAttachedGroupPolicies'
     { _lagpPathPrefix = Nothing
@@ -96,7 +98,7 @@ lagpPathPrefix = lens _lagpPathPrefix (\ s a -> s{_lagpPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -105,7 +107,7 @@ lagpMaxItems = lens _lagpMaxItems (\ s a -> s{_lagpMaxItems = a}) . mapping _Nat
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 lagpMarker :: Lens' ListAttachedGroupPolicies (Maybe Text)
 lagpMarker = lens _lagpMarker (\ s a -> s{_lagpMarker = a});
 
@@ -148,8 +150,16 @@ instance ToQuery ListAttachedGroupPolicies where
 -- | Contains the response to a successful ListAttachedGroupPolicies request.
 --
 -- /See:/ 'listAttachedGroupPoliciesResponse' smart constructor.
+data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
+    { _lagprsAttachedPolicies :: !(Maybe [AttachedPolicy])
+    , _lagprsMarker           :: !(Maybe Text)
+    , _lagprsIsTruncated      :: !(Maybe Bool)
+    , _lagprsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListAttachedGroupPoliciesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lagprsAttachedPolicies'
 --
@@ -158,15 +168,9 @@ instance ToQuery ListAttachedGroupPolicies where
 -- * 'lagprsIsTruncated'
 --
 -- * 'lagprsStatus'
-data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
-    { _lagprsAttachedPolicies :: !(Maybe [AttachedPolicy])
-    , _lagprsMarker           :: !(Maybe Text)
-    , _lagprsIsTruncated      :: !(Maybe Bool)
-    , _lagprsStatus           :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListAttachedGroupPoliciesResponse' smart constructor.
-listAttachedGroupPoliciesResponse :: Int -> ListAttachedGroupPoliciesResponse
+listAttachedGroupPoliciesResponse
+    :: Int -- ^ 'lagprsStatus'
+    -> ListAttachedGroupPoliciesResponse
 listAttachedGroupPoliciesResponse pStatus_ =
     ListAttachedGroupPoliciesResponse'
     { _lagprsAttachedPolicies = Nothing
@@ -179,18 +183,18 @@ listAttachedGroupPoliciesResponse pStatus_ =
 lagprsAttachedPolicies :: Lens' ListAttachedGroupPoliciesResponse [AttachedPolicy]
 lagprsAttachedPolicies = lens _lagprsAttachedPolicies (\ s a -> s{_lagprsAttachedPolicies = a}) . _Default . _Coerce;
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lagprsMarker :: Lens' ListAttachedGroupPoliciesResponse (Maybe Text)
 lagprsMarker = lens _lagprsMarker (\ s a -> s{_lagprsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 lagprsIsTruncated :: Lens' ListAttachedGroupPoliciesResponse (Maybe Bool)
 lagprsIsTruncated = lens _lagprsIsTruncated (\ s a -> s{_lagprsIsTruncated = a});
 
--- | Undocumented member.
+-- | The response status code.
 lagprsStatus :: Lens' ListAttachedGroupPoliciesResponse Int
 lagprsStatus = lens _lagprsStatus (\ s a -> s{_lagprsStatus = a});

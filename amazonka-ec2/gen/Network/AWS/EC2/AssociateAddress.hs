@@ -43,8 +43,8 @@
 module Network.AWS.EC2.AssociateAddress
     (
     -- * Creating a Request
-      AssociateAddress
-    , associateAddress
+      associateAddress
+    , AssociateAddress
     -- * Request Lenses
     , aasInstanceId
     , aasAllocationId
@@ -55,8 +55,8 @@ module Network.AWS.EC2.AssociateAddress
     , aasDryRun
 
     -- * Destructuring the Response
-    , AssociateAddressResponse
     , associateAddressResponse
+    , AssociateAddressResponse
     -- * Response Lenses
     , arsAssociationId
     , arsStatus
@@ -69,8 +69,19 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'associateAddress' smart constructor.
+data AssociateAddress = AssociateAddress'
+    { _aasInstanceId         :: !(Maybe Text)
+    , _aasAllocationId       :: !(Maybe Text)
+    , _aasNetworkInterfaceId :: !(Maybe Text)
+    , _aasAllowReassociation :: !(Maybe Bool)
+    , _aasPrivateIPAddress   :: !(Maybe Text)
+    , _aasPublicIP           :: !(Maybe Text)
+    , _aasDryRun             :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AssociateAddress' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'aasInstanceId'
 --
@@ -85,18 +96,8 @@ import           Network.AWS.Response
 -- * 'aasPublicIP'
 --
 -- * 'aasDryRun'
-data AssociateAddress = AssociateAddress'
-    { _aasInstanceId         :: !(Maybe Text)
-    , _aasAllocationId       :: !(Maybe Text)
-    , _aasNetworkInterfaceId :: !(Maybe Text)
-    , _aasAllowReassociation :: !(Maybe Bool)
-    , _aasPrivateIPAddress   :: !(Maybe Text)
-    , _aasPublicIP           :: !(Maybe Text)
-    , _aasDryRun             :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AssociateAddress' smart constructor.
-associateAddress :: AssociateAddress
+associateAddress
+    :: AssociateAddress
 associateAddress =
     AssociateAddress'
     { _aasInstanceId = Nothing
@@ -128,7 +129,7 @@ aasNetworkInterfaceId = lens _aasNetworkInterfaceId (\ s a -> s{_aasNetworkInter
 -- an instance or network interface to be re-associated with the specified
 -- instance or network interface. Otherwise, the operation fails.
 --
--- Default: @false@
+-- Default: 'false'
 aasAllowReassociation :: Lens' AssociateAddress (Maybe Bool)
 aasAllowReassociation = lens _aasAllowReassociation (\ s a -> s{_aasAllowReassociation = a});
 
@@ -144,8 +145,8 @@ aasPublicIP = lens _aasPublicIP (\ s a -> s{_aasPublicIP = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 aasDryRun :: Lens' AssociateAddress (Maybe Bool)
 aasDryRun = lens _aasDryRun (\ s a -> s{_aasDryRun = a});
 
@@ -178,19 +179,21 @@ instance ToQuery AssociateAddress where
                "PublicIp" =: _aasPublicIP, "DryRun" =: _aasDryRun]
 
 -- | /See:/ 'associateAddressResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'arsAssociationId'
---
--- * 'arsStatus'
 data AssociateAddressResponse = AssociateAddressResponse'
     { _arsAssociationId :: !(Maybe Text)
     , _arsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssociateAddressResponse' smart constructor.
-associateAddressResponse :: Int -> AssociateAddressResponse
+-- | Creates a value of 'AssociateAddressResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arsAssociationId'
+--
+-- * 'arsStatus'
+associateAddressResponse
+    :: Int -- ^ 'arsStatus'
+    -> AssociateAddressResponse
 associateAddressResponse pStatus_ =
     AssociateAddressResponse'
     { _arsAssociationId = Nothing
@@ -202,6 +205,6 @@ associateAddressResponse pStatus_ =
 arsAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
 arsAssociationId = lens _arsAssociationId (\ s a -> s{_arsAssociationId = a});
 
--- | Undocumented member.
+-- | The response status code.
 arsStatus :: Lens' AssociateAddressResponse Int
 arsStatus = lens _arsStatus (\ s a -> s{_arsStatus = a});

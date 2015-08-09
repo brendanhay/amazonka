@@ -28,8 +28,8 @@
 module Network.AWS.ImportExport.UpdateJob
     (
     -- * Creating a Request
-      UpdateJob
-    , updateJob
+      updateJob
+    , UpdateJob
     -- * Request Lenses
     , ujAPIVersion
     , ujJobId
@@ -38,8 +38,8 @@ module Network.AWS.ImportExport.UpdateJob
     , ujValidateOnly
 
     -- * Destructuring the Response
-    , UpdateJobResponse
     , updateJobResponse
+    , UpdateJobResponse
     -- * Response Lenses
     , ujrsSuccess
     , ujrsWarningMessage
@@ -56,8 +56,17 @@ import           Network.AWS.Response
 -- | Input structure for the UpateJob operation.
 --
 -- /See:/ 'updateJob' smart constructor.
+data UpdateJob = UpdateJob'
+    { _ujAPIVersion   :: !(Maybe Text)
+    , _ujJobId        :: !Text
+    , _ujManifest     :: !Text
+    , _ujJobType      :: !JobType
+    , _ujValidateOnly :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ujAPIVersion'
 --
@@ -68,16 +77,12 @@ import           Network.AWS.Response
 -- * 'ujJobType'
 --
 -- * 'ujValidateOnly'
-data UpdateJob = UpdateJob'
-    { _ujAPIVersion   :: !(Maybe Text)
-    , _ujJobId        :: !Text
-    , _ujManifest     :: !Text
-    , _ujJobType      :: !JobType
-    , _ujValidateOnly :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateJob' smart constructor.
-updateJob :: Text -> Text -> JobType -> Bool -> UpdateJob
+updateJob
+    :: Text -- ^ 'ujJobId'
+    -> Text -- ^ 'ujManifest'
+    -> JobType -- ^ 'ujJobType'
+    -> Bool -- ^ 'ujValidateOnly'
+    -> UpdateJob
 updateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ =
     UpdateJob'
     { _ujAPIVersion = Nothing
@@ -139,8 +144,16 @@ instance ToQuery UpdateJob where
 -- | Output structure for the UpateJob operation.
 --
 -- /See:/ 'updateJobResponse' smart constructor.
+data UpdateJobResponse = UpdateJobResponse'
+    { _ujrsSuccess        :: !(Maybe Bool)
+    , _ujrsWarningMessage :: !(Maybe Text)
+    , _ujrsArtifactList   :: !(Maybe [Artifact])
+    , _ujrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ujrsSuccess'
 --
@@ -149,15 +162,9 @@ instance ToQuery UpdateJob where
 -- * 'ujrsArtifactList'
 --
 -- * 'ujrsStatus'
-data UpdateJobResponse = UpdateJobResponse'
-    { _ujrsSuccess        :: !(Maybe Bool)
-    , _ujrsWarningMessage :: !(Maybe Text)
-    , _ujrsArtifactList   :: !(Maybe [Artifact])
-    , _ujrsStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateJobResponse' smart constructor.
-updateJobResponse :: Int -> UpdateJobResponse
+updateJobResponse
+    :: Int -- ^ 'ujrsStatus'
+    -> UpdateJobResponse
 updateJobResponse pStatus_ =
     UpdateJobResponse'
     { _ujrsSuccess = Nothing
@@ -178,6 +185,6 @@ ujrsWarningMessage = lens _ujrsWarningMessage (\ s a -> s{_ujrsWarningMessage = 
 ujrsArtifactList :: Lens' UpdateJobResponse [Artifact]
 ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ujrsStatus :: Lens' UpdateJobResponse Int
 ujrsStatus = lens _ujrsStatus (\ s a -> s{_ujrsStatus = a});

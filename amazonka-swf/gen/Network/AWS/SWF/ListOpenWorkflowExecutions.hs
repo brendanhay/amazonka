@@ -31,18 +31,18 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
--- -   Constrain the following parameters by using a @Condition@ element
+-- -   Constrain the following parameters by using a 'Condition' element
 --     with the appropriate keys.
---     -   @tagFilter.tag@: String constraint. The key is
---         @swf:tagFilter.tag@.
---     -   @typeFilter.name@: String constraint. The key is
---         @swf:typeFilter.name@.
---     -   @typeFilter.version@: String constraint. The key is
---         @swf:typeFilter.version@.
+--     -   'tagFilter.tag': String constraint. The key is
+--         'swf:tagFilter.tag'.
+--     -   'typeFilter.name': String constraint. The key is
+--         'swf:typeFilter.name'.
+--     -   'typeFilter.version': String constraint. The key is
+--         'swf:typeFilter.version'.
 --
 -- If the caller does not have sufficient permissions to invoke the action,
 -- or the parameter values fall outside the specified constraints, the
@@ -52,11 +52,13 @@
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
 --
 -- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_ListOpenWorkflowExecutions.html AWS API Reference> for ListOpenWorkflowExecutions.
+--
+-- This operation returns paginated results.
 module Network.AWS.SWF.ListOpenWorkflowExecutions
     (
     -- * Creating a Request
-      ListOpenWorkflowExecutions
-    , listOpenWorkflowExecutions
+      listOpenWorkflowExecutions
+    , ListOpenWorkflowExecutions
     -- * Request Lenses
     , loweNextPageToken
     , loweExecutionFilter
@@ -68,8 +70,8 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
     , loweStartTimeFilter
 
     -- * Destructuring the Response
-    , WorkflowExecutionInfos
     , workflowExecutionInfos
+    , WorkflowExecutionInfos
     -- * Response Lenses
     , weiNextPageToken
     , weiExecutionInfos
@@ -83,8 +85,20 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'listOpenWorkflowExecutions' smart constructor.
+data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions'
+    { _loweNextPageToken   :: !(Maybe Text)
+    , _loweExecutionFilter :: !(Maybe WorkflowExecutionFilter)
+    , _loweTypeFilter      :: !(Maybe WorkflowTypeFilter)
+    , _loweReverseOrder    :: !(Maybe Bool)
+    , _loweTagFilter       :: !(Maybe TagFilter)
+    , _loweMaximumPageSize :: !(Maybe Nat)
+    , _loweDomain          :: !Text
+    , _loweStartTimeFilter :: !ExecutionTimeFilter
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListOpenWorkflowExecutions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'loweNextPageToken'
 --
@@ -101,19 +115,10 @@ import           Network.AWS.SWF.Types.Product
 -- * 'loweDomain'
 --
 -- * 'loweStartTimeFilter'
-data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions'
-    { _loweNextPageToken   :: !(Maybe Text)
-    , _loweExecutionFilter :: !(Maybe WorkflowExecutionFilter)
-    , _loweTypeFilter      :: !(Maybe WorkflowTypeFilter)
-    , _loweReverseOrder    :: !(Maybe Bool)
-    , _loweTagFilter       :: !(Maybe TagFilter)
-    , _loweMaximumPageSize :: !(Maybe Nat)
-    , _loweDomain          :: !Text
-    , _loweStartTimeFilter :: !ExecutionTimeFilter
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListOpenWorkflowExecutions' smart constructor.
-listOpenWorkflowExecutions :: Text -> ExecutionTimeFilter -> ListOpenWorkflowExecutions
+listOpenWorkflowExecutions
+    :: Text -- ^ 'loweDomain'
+    -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
+    -> ListOpenWorkflowExecutions
 listOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
     ListOpenWorkflowExecutions'
     { _loweNextPageToken = Nothing
@@ -126,12 +131,12 @@ listOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
     , _loweStartTimeFilter = pStartTimeFilter_
     }
 
--- | If a @NextPageToken@ was returned by a previous call, there are more
+-- | If a 'NextPageToken' was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
--- again using the returned token in @nextPageToken@. Keep all other
+-- again using the returned token in 'nextPageToken'. Keep all other
 -- arguments unchanged.
 --
--- The configured @maximumPageSize@ determines how many results can be
+-- The configured 'maximumPageSize' determines how many results can be
 -- returned in a single call.
 loweNextPageToken :: Lens' ListOpenWorkflowExecutions (Maybe Text)
 loweNextPageToken = lens _loweNextPageToken (\ s a -> s{_loweNextPageToken = a});
@@ -139,7 +144,7 @@ loweNextPageToken = lens _loweNextPageToken (\ s a -> s{_loweNextPageToken = a})
 -- | If specified, only workflow executions matching the workflow ID
 -- specified in the filter are returned.
 --
--- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
+-- 'executionFilter', 'typeFilter' and 'tagFilter' are mutually exclusive.
 -- You can specify at most one of these in a request.
 loweExecutionFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
 loweExecutionFilter = lens _loweExecutionFilter (\ s a -> s{_loweExecutionFilter = a});
@@ -147,12 +152,12 @@ loweExecutionFilter = lens _loweExecutionFilter (\ s a -> s{_loweExecutionFilter
 -- | If specified, only executions of the type specified in the filter are
 -- returned.
 --
--- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
+-- 'executionFilter', 'typeFilter' and 'tagFilter' are mutually exclusive.
 -- You can specify at most one of these in a request.
 loweTypeFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
 loweTypeFilter = lens _loweTypeFilter (\ s a -> s{_loweTypeFilter = a});
 
--- | When set to @true@, returns the results in reverse order. By default the
+-- | When set to 'true', returns the results in reverse order. By default the
 -- results are returned in descending order of the start time of the
 -- executions.
 loweReverseOrder :: Lens' ListOpenWorkflowExecutions (Maybe Bool)
@@ -160,13 +165,13 @@ loweReverseOrder = lens _loweReverseOrder (\ s a -> s{_loweReverseOrder = a});
 
 -- | If specified, only executions that have the matching tag are listed.
 --
--- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
+-- 'executionFilter', 'typeFilter' and 'tagFilter' are mutually exclusive.
 -- You can specify at most one of these in a request.
 loweTagFilter :: Lens' ListOpenWorkflowExecutions (Maybe TagFilter)
 loweTagFilter = lens _loweTagFilter (\ s a -> s{_loweTagFilter = a});
 
 -- | The maximum number of results that will be returned per call.
--- @nextPageToken@ can be used to obtain futher pages of results. The
+-- 'nextPageToken' can be used to obtain futher pages of results. The
 -- default is 1000, which is the maximum allowed page size. You can,
 -- however, specify a page size /smaller/ than the maximum.
 --

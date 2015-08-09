@@ -29,8 +29,8 @@
 module Network.AWS.RDS.DescribeDBClusterParameters
     (
     -- * Creating a Request
-      DescribeDBClusterParameters
-    , describeDBClusterParameters
+      describeDBClusterParameters
+    , DescribeDBClusterParameters
     -- * Request Lenses
     , ddcpFilters
     , ddcpMaxRecords
@@ -39,8 +39,8 @@ module Network.AWS.RDS.DescribeDBClusterParameters
     , ddcpDBClusterParameterGroupName
 
     -- * Destructuring the Response
-    , DescribeDBClusterParametersResponse
     , describeDBClusterParametersResponse
+    , DescribeDBClusterParametersResponse
     -- * Response Lenses
     , ddcprsParameters
     , ddcprsMarker
@@ -56,8 +56,17 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeDBClusterParameters' smart constructor.
+data DescribeDBClusterParameters = DescribeDBClusterParameters'
+    { _ddcpFilters                     :: !(Maybe [Filter])
+    , _ddcpMaxRecords                  :: !(Maybe Int)
+    , _ddcpMarker                      :: !(Maybe Text)
+    , _ddcpSource                      :: !(Maybe Text)
+    , _ddcpDBClusterParameterGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeDBClusterParameters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ddcpFilters'
 --
@@ -68,16 +77,9 @@ import           Network.AWS.Response
 -- * 'ddcpSource'
 --
 -- * 'ddcpDBClusterParameterGroupName'
-data DescribeDBClusterParameters = DescribeDBClusterParameters'
-    { _ddcpFilters                     :: !(Maybe [Filter])
-    , _ddcpMaxRecords                  :: !(Maybe Int)
-    , _ddcpMarker                      :: !(Maybe Text)
-    , _ddcpSource                      :: !(Maybe Text)
-    , _ddcpDBClusterParameterGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeDBClusterParameters' smart constructor.
-describeDBClusterParameters :: Text -> DescribeDBClusterParameters
+describeDBClusterParameters
+    :: Text -- ^ 'ddcpDBClusterParameterGroupName'
+    -> DescribeDBClusterParameters
 describeDBClusterParameters pDBClusterParameterGroupName_ =
     DescribeDBClusterParameters'
     { _ddcpFilters = Nothing
@@ -92,7 +94,7 @@ ddcpFilters :: Lens' DescribeDBClusterParameters [Filter]
 ddcpFilters = lens _ddcpFilters (\ s a -> s{_ddcpFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
+-- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 --
@@ -103,14 +105,14 @@ ddcpMaxRecords :: Lens' DescribeDBClusterParameters (Maybe Int)
 ddcpMaxRecords = lens _ddcpMaxRecords (\ s a -> s{_ddcpMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
--- @DescribeDBClusterParameters@ request. If this parameter is specified,
+-- 'DescribeDBClusterParameters' request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@.
+-- specified by 'MaxRecords'.
 ddcpMarker :: Lens' DescribeDBClusterParameters (Maybe Text)
 ddcpMarker = lens _ddcpMarker (\ s a -> s{_ddcpMarker = a});
 
 -- | A value that indicates to return only parameters for a specific source.
--- Parameter sources can be @engine@, @service@, or @customer@.
+-- Parameter sources can be 'engine', 'service', or 'customer'.
 ddcpSource :: Lens' DescribeDBClusterParameters (Maybe Text)
 ddcpSource = lens _ddcpSource (\ s a -> s{_ddcpSource = a});
 
@@ -163,22 +165,24 @@ instance ToQuery DescribeDBClusterParameters where
 -- parameters in the DB cluster parameter group.
 --
 -- /See:/ 'describeDBClusterParametersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddcprsParameters'
---
--- * 'ddcprsMarker'
---
--- * 'ddcprsStatus'
 data DescribeDBClusterParametersResponse = DescribeDBClusterParametersResponse'
     { _ddcprsParameters :: !(Maybe [Parameter])
     , _ddcprsMarker     :: !(Maybe Text)
     , _ddcprsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDBClusterParametersResponse' smart constructor.
-describeDBClusterParametersResponse :: Int -> DescribeDBClusterParametersResponse
+-- | Creates a value of 'DescribeDBClusterParametersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddcprsParameters'
+--
+-- * 'ddcprsMarker'
+--
+-- * 'ddcprsStatus'
+describeDBClusterParametersResponse
+    :: Int -- ^ 'ddcprsStatus'
+    -> DescribeDBClusterParametersResponse
 describeDBClusterParametersResponse pStatus_ =
     DescribeDBClusterParametersResponse'
     { _ddcprsParameters = Nothing
@@ -193,10 +197,10 @@ ddcprsParameters = lens _ddcprsParameters (\ s a -> s{_ddcprsParameters = a}) . 
 -- | An optional pagination token provided by a previous
 -- DescribeDBClusterParameters request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
--- specified by @MaxRecords@ .
+-- specified by 'MaxRecords' .
 ddcprsMarker :: Lens' DescribeDBClusterParametersResponse (Maybe Text)
 ddcprsMarker = lens _ddcprsMarker (\ s a -> s{_ddcprsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 ddcprsStatus :: Lens' DescribeDBClusterParametersResponse Int
 ddcprsStatus = lens _ddcprsStatus (\ s a -> s{_ddcprsStatus = a});

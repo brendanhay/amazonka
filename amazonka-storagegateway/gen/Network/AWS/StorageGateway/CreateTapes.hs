@@ -29,8 +29,8 @@
 module Network.AWS.StorageGateway.CreateTapes
     (
     -- * Creating a Request
-      CreateTapes
-    , createTapes
+      createTapes
+    , CreateTapes
     -- * Request Lenses
     , ctGatewayARN
     , ctTapeSizeInBytes
@@ -39,8 +39,8 @@ module Network.AWS.StorageGateway.CreateTapes
     , ctTapeBarcodePrefix
 
     -- * Destructuring the Response
-    , CreateTapesResponse
     , createTapesResponse
+    , CreateTapesResponse
     -- * Response Lenses
     , ctrsTapeARNs
     , ctrsStatus
@@ -55,8 +55,17 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | CreateTapesInput
 --
 -- /See:/ 'createTapes' smart constructor.
+data CreateTapes = CreateTapes'
+    { _ctGatewayARN        :: !Text
+    , _ctTapeSizeInBytes   :: !Integer
+    , _ctClientToken       :: !Text
+    , _ctNumTapesToCreate  :: !Nat
+    , _ctTapeBarcodePrefix :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateTapes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ctGatewayARN'
 --
@@ -67,16 +76,13 @@ import           Network.AWS.StorageGateway.Types.Product
 -- * 'ctNumTapesToCreate'
 --
 -- * 'ctTapeBarcodePrefix'
-data CreateTapes = CreateTapes'
-    { _ctGatewayARN        :: !Text
-    , _ctTapeSizeInBytes   :: !Integer
-    , _ctClientToken       :: !Text
-    , _ctNumTapesToCreate  :: !Nat
-    , _ctTapeBarcodePrefix :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateTapes' smart constructor.
-createTapes :: Text -> Integer -> Text -> Natural -> Text -> CreateTapes
+createTapes
+    :: Text -- ^ 'ctGatewayARN'
+    -> Integer -- ^ 'ctTapeSizeInBytes'
+    -> Text -- ^ 'ctClientToken'
+    -> Natural -- ^ 'ctNumTapesToCreate'
+    -> Text -- ^ 'ctTapeBarcodePrefix'
+    -> CreateTapes
 createTapes pGatewayARN_ pTapeSizeInBytes_ pClientToken_ pNumTapesToCreate_ pTapeBarcodePrefix_ =
     CreateTapes'
     { _ctGatewayARN = pGatewayARN_
@@ -99,10 +105,10 @@ ctTapeSizeInBytes :: Lens' CreateTapes Integer
 ctTapeSizeInBytes = lens _ctTapeSizeInBytes (\ s a -> s{_ctTapeSizeInBytes = a});
 
 -- | A unique identifier that you use to retry a request. If you retry a
--- request, use the same @ClientToken@ you specified in the initial
+-- request, use the same 'ClientToken' you specified in the initial
 -- request.
 --
--- Using the same @ClientToken@ prevents creating the tape multiple times.
+-- Using the same 'ClientToken' prevents creating the tape multiple times.
 ctClientToken :: Lens' CreateTapes Text
 ctClientToken = lens _ctClientToken (\ s a -> s{_ctClientToken = a});
 
@@ -157,19 +163,21 @@ instance ToQuery CreateTapes where
 -- | CreateTapeOutput
 --
 -- /See:/ 'createTapesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ctrsTapeARNs'
---
--- * 'ctrsStatus'
 data CreateTapesResponse = CreateTapesResponse'
     { _ctrsTapeARNs :: !(Maybe [Text])
     , _ctrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateTapesResponse' smart constructor.
-createTapesResponse :: Int -> CreateTapesResponse
+-- | Creates a value of 'CreateTapesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctrsTapeARNs'
+--
+-- * 'ctrsStatus'
+createTapesResponse
+    :: Int -- ^ 'ctrsStatus'
+    -> CreateTapesResponse
 createTapesResponse pStatus_ =
     CreateTapesResponse'
     { _ctrsTapeARNs = Nothing
@@ -181,6 +189,6 @@ createTapesResponse pStatus_ =
 ctrsTapeARNs :: Lens' CreateTapesResponse [Text]
 ctrsTapeARNs = lens _ctrsTapeARNs (\ s a -> s{_ctrsTapeARNs = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ctrsStatus :: Lens' CreateTapesResponse Int
 ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});

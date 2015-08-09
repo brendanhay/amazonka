@@ -30,12 +30,12 @@
 module Network.AWS.SES.GetSendStatistics
     (
     -- * Creating a Request
-      GetSendStatistics
-    , getSendStatistics
+      getSendStatistics
+    , GetSendStatistics
 
     -- * Destructuring the Response
-    , GetSendStatisticsResponse
     , getSendStatisticsResponse
+    , GetSendStatisticsResponse
     -- * Response Lenses
     , gssrsSendDataPoints
     , gssrsStatus
@@ -52,8 +52,10 @@ data GetSendStatistics =
     GetSendStatistics'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSendStatistics' smart constructor.
-getSendStatistics :: GetSendStatistics
+-- | Creates a value of 'GetSendStatistics' with the minimum fields required to make a request.
+--
+getSendStatistics
+    :: GetSendStatistics
 getSendStatistics = GetSendStatistics'
 
 instance AWSRequest GetSendStatistics where
@@ -81,24 +83,26 @@ instance ToQuery GetSendStatistics where
                  ["Action" =: ("GetSendStatistics" :: ByteString),
                   "Version" =: ("2010-12-01" :: ByteString)])
 
--- | Represents a list of @SendDataPoint@ items returned from a successful
--- @GetSendStatistics@ request. This list contains aggregated data from the
+-- | Represents a list of 'SendDataPoint' items returned from a successful
+-- 'GetSendStatistics' request. This list contains aggregated data from the
 -- previous two weeks of sending activity.
 --
 -- /See:/ 'getSendStatisticsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gssrsSendDataPoints'
---
--- * 'gssrsStatus'
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
     { _gssrsSendDataPoints :: !(Maybe [SendDataPoint])
     , _gssrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSendStatisticsResponse' smart constructor.
-getSendStatisticsResponse :: Int -> GetSendStatisticsResponse
+-- | Creates a value of 'GetSendStatisticsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gssrsSendDataPoints'
+--
+-- * 'gssrsStatus'
+getSendStatisticsResponse
+    :: Int -- ^ 'gssrsStatus'
+    -> GetSendStatisticsResponse
 getSendStatisticsResponse pStatus_ =
     GetSendStatisticsResponse'
     { _gssrsSendDataPoints = Nothing
@@ -109,6 +113,6 @@ getSendStatisticsResponse pStatus_ =
 gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 gssrsStatus :: Lens' GetSendStatisticsResponse Int
 gssrsStatus = lens _gssrsStatus (\ s a -> s{_gssrsStatus = a});

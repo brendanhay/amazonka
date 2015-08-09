@@ -19,27 +19,27 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the tags associated with a file system. The order of tags
--- returned in the response of one @DescribeTags@ call, and the order of
+-- returned in the response of one 'DescribeTags' call, and the order of
 -- tags returned across the responses of a multi-call iteration (when using
 -- pagination), is unspecified.
 --
 -- This operation requires permission for the
--- @elasticfilesystem:DescribeTags@ action.
+-- 'elasticfilesystem:DescribeTags' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DescribeTags.html AWS API Reference> for DescribeTags.
 module Network.AWS.EFS.DescribeTags
     (
     -- * Creating a Request
-      DescribeTags
-    , describeTags
+      describeTags
+    , DescribeTags
     -- * Request Lenses
     , dtMaxItems
     , dtMarker
     , dtFileSystemId
 
     -- * Destructuring the Response
-    , DescribeTagsResponse
     , describeTagsResponse
+    , DescribeTagsResponse
     -- * Response Lenses
     , dtrsMarker
     , dtrsNextMarker
@@ -54,22 +54,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtMaxItems'
---
--- * 'dtMarker'
---
--- * 'dtFileSystemId'
 data DescribeTags = DescribeTags'
     { _dtMaxItems     :: !(Maybe Nat)
     , _dtMarker       :: !(Maybe Text)
     , _dtFileSystemId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTags' smart constructor.
-describeTags :: Text -> DescribeTags
+-- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtMaxItems'
+--
+-- * 'dtMarker'
+--
+-- * 'dtFileSystemId'
+describeTags
+    :: Text -- ^ 'dtFileSystemId'
+    -> DescribeTags
 describeTags pFileSystemId_ =
     DescribeTags'
     { _dtMaxItems = Nothing
@@ -83,7 +85,7 @@ dtMaxItems :: Lens' DescribeTags (Maybe Natural)
 dtMaxItems = lens _dtMaxItems (\ s a -> s{_dtMaxItems = a}) . mapping _Nat;
 
 -- | Optional. String. Opaque pagination token returned from a previous
--- @DescribeTags@ operation. If present, it specifies to continue the list
+-- 'DescribeTags' operation. If present, it specifies to continue the list
 -- from where the previous call left off.
 dtMarker :: Lens' DescribeTags (Maybe Text)
 dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
@@ -118,8 +120,16 @@ instance ToQuery DescribeTags where
               ["MaxItems" =: _dtMaxItems, "Marker" =: _dtMarker]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
+data DescribeTagsResponse = DescribeTagsResponse'
+    { _dtrsMarker     :: !(Maybe Text)
+    , _dtrsNextMarker :: !(Maybe Text)
+    , _dtrsStatus     :: !Int
+    , _dtrsTags       :: ![Tag]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dtrsMarker'
 --
@@ -128,15 +138,9 @@ instance ToQuery DescribeTags where
 -- * 'dtrsStatus'
 --
 -- * 'dtrsTags'
-data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrsMarker     :: !(Maybe Text)
-    , _dtrsNextMarker :: !(Maybe Text)
-    , _dtrsStatus     :: !Int
-    , _dtrsTags       :: ![Tag]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeTagsResponse' smart constructor.
-describeTagsResponse :: Int -> DescribeTagsResponse
+describeTagsResponse
+    :: Int -- ^ 'dtrsStatus'
+    -> DescribeTagsResponse
 describeTagsResponse pStatus_ =
     DescribeTagsResponse'
     { _dtrsMarker = Nothing
@@ -145,23 +149,23 @@ describeTagsResponse pStatus_ =
     , _dtrsTags = mempty
     }
 
--- | If the request included a @Marker@, the response returns that value in
+-- | If the request included a 'Marker', the response returns that value in
 -- this field.
 dtrsMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsMarker = lens _dtrsMarker (\ s a -> s{_dtrsMarker = a});
 
 -- | If a value is present, there are more tags to return. In a subsequent
--- request, you can provide the value of @NextMarker@ as the value of the
--- @Marker@ parameter in your next request to retrieve the next set of
+-- request, you can provide the value of 'NextMarker' as the value of the
+-- 'Marker' parameter in your next request to retrieve the next set of
 -- tags.
 dtrsNextMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrsNextMarker = lens _dtrsNextMarker (\ s a -> s{_dtrsNextMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dtrsStatus :: Lens' DescribeTagsResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
 
--- | Returns tags associated with the file system as an array of @Tag@
+-- | Returns tags associated with the file system as an array of 'Tag'
 -- objects.
 dtrsTags :: Lens' DescribeTagsResponse [Tag]
 dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Coerce;

@@ -25,11 +25,13 @@
 -- default, the past hour of events are returned.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeEvents
     (
     -- * Creating a Request
-      DescribeEvents
-    , describeEvents
+      describeEvents
+    , DescribeEvents
     -- * Request Lenses
     , deStartTime
     , deSourceType
@@ -42,8 +44,8 @@ module Network.AWS.RDS.DescribeEvents
     , deDuration
 
     -- * Destructuring the Response
-    , DescribeEventsResponse
     , describeEventsResponse
+    , DescribeEventsResponse
     -- * Response Lenses
     , dersEvents
     , dersMarker
@@ -60,8 +62,21 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeEvents' smart constructor.
+data DescribeEvents = DescribeEvents'
+    { _deStartTime        :: !(Maybe ISO8601)
+    , _deSourceType       :: !(Maybe SourceType)
+    , _deFilters          :: !(Maybe [Filter])
+    , _deSourceIdentifier :: !(Maybe Text)
+    , _deMaxRecords       :: !(Maybe Int)
+    , _deEventCategories  :: !(Maybe [Text])
+    , _deEndTime          :: !(Maybe ISO8601)
+    , _deMarker           :: !(Maybe Text)
+    , _deDuration         :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'deStartTime'
 --
@@ -80,20 +95,8 @@ import           Network.AWS.Response
 -- * 'deMarker'
 --
 -- * 'deDuration'
-data DescribeEvents = DescribeEvents'
-    { _deStartTime        :: !(Maybe ISO8601)
-    , _deSourceType       :: !(Maybe SourceType)
-    , _deFilters          :: !(Maybe [Filter])
-    , _deSourceIdentifier :: !(Maybe Text)
-    , _deMaxRecords       :: !(Maybe Int)
-    , _deEventCategories  :: !(Maybe [Text])
-    , _deEndTime          :: !(Maybe ISO8601)
-    , _deMarker           :: !(Maybe Text)
-    , _deDuration         :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeEvents' smart constructor.
-describeEvents :: DescribeEvents
+describeEvents
+    :: DescribeEvents
 describeEvents =
     DescribeEvents'
     { _deStartTime = Nothing
@@ -130,20 +133,20 @@ deFilters = lens _deFilters (\ s a -> s{_deFilters = a}) . _Default . _Coerce;
 -- Constraints:
 --
 -- -   If SourceIdentifier is supplied, SourceType must also be provided.
--- -   If the source type is @DBInstance@, then a @DBInstanceIdentifier@
+-- -   If the source type is 'DBInstance', then a 'DBInstanceIdentifier'
 --     must be supplied.
--- -   If the source type is @DBSecurityGroup@, a @DBSecurityGroupName@
+-- -   If the source type is 'DBSecurityGroup', a 'DBSecurityGroupName'
 --     must be supplied.
--- -   If the source type is @DBParameterGroup@, a @DBParameterGroupName@
+-- -   If the source type is 'DBParameterGroup', a 'DBParameterGroupName'
 --     must be supplied.
--- -   If the source type is @DBSnapshot@, a @DBSnapshotIdentifier@ must be
+-- -   If the source type is 'DBSnapshot', a 'DBSnapshotIdentifier' must be
 --     supplied.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
 deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
+-- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 --
@@ -168,7 +171,7 @@ deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
 
 -- | An optional pagination token provided by a previous DescribeEvents
 -- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
+-- records beyond the marker, up to the value specified by 'MaxRecords'.
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 
@@ -225,22 +228,24 @@ instance ToQuery DescribeEvents where
 -- action.
 --
 -- /See:/ 'describeEventsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dersEvents'
---
--- * 'dersMarker'
---
--- * 'dersStatus'
 data DescribeEventsResponse = DescribeEventsResponse'
     { _dersEvents :: !(Maybe [Event])
     , _dersMarker :: !(Maybe Text)
     , _dersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEventsResponse' smart constructor.
-describeEventsResponse :: Int -> DescribeEventsResponse
+-- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dersEvents'
+--
+-- * 'dersMarker'
+--
+-- * 'dersStatus'
+describeEventsResponse
+    :: Int -- ^ 'dersStatus'
+    -> DescribeEventsResponse
 describeEventsResponse pStatus_ =
     DescribeEventsResponse'
     { _dersEvents = Nothing
@@ -254,10 +259,10 @@ dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce
 
 -- | An optional pagination token provided by a previous Events request. If
 -- this parameter is specified, the response includes only records beyond
--- the marker, up to the value specified by @MaxRecords@ .
+-- the marker, up to the value specified by 'MaxRecords' .
 dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
 dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dersStatus :: Lens' DescribeEventsResponse Int
 dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

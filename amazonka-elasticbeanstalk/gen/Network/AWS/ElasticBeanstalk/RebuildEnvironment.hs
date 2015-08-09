@@ -26,15 +26,15 @@
 module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     (
     -- * Creating a Request
-      RebuildEnvironment
-    , rebuildEnvironment
+      rebuildEnvironment
+    , RebuildEnvironment
     -- * Request Lenses
     , reEnvironmentName
     , reEnvironmentId
 
     -- * Destructuring the Response
-    , RebuildEnvironmentResponse
     , rebuildEnvironmentResponse
+    , RebuildEnvironmentResponse
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -46,19 +46,20 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'rebuildEnvironment' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'reEnvironmentName'
---
--- * 'reEnvironmentId'
 data RebuildEnvironment = RebuildEnvironment'
     { _reEnvironmentName :: !(Maybe Text)
     , _reEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebuildEnvironment' smart constructor.
-rebuildEnvironment :: RebuildEnvironment
+-- | Creates a value of 'RebuildEnvironment' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'reEnvironmentName'
+--
+-- * 'reEnvironmentId'
+rebuildEnvironment
+    :: RebuildEnvironment
 rebuildEnvironment =
     RebuildEnvironment'
     { _reEnvironmentName = Nothing
@@ -69,7 +70,7 @@ rebuildEnvironment =
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
+-- 'MissingRequiredParameter' error.
 reEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
 reEnvironmentName = lens _reEnvironmentName (\ s a -> s{_reEnvironmentName = a});
 
@@ -77,7 +78,7 @@ reEnvironmentName = lens _reEnvironmentName (\ s a -> s{_reEnvironmentName = a})
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
+-- 'MissingRequiredParameter' error.
 reEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
 reEnvironmentId = lens _reEnvironmentId (\ s a -> s{_reEnvironmentId = a});
 
@@ -107,6 +108,8 @@ data RebuildEnvironmentResponse =
     RebuildEnvironmentResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebuildEnvironmentResponse' smart constructor.
-rebuildEnvironmentResponse :: RebuildEnvironmentResponse
+-- | Creates a value of 'RebuildEnvironmentResponse' with the minimum fields required to make a request.
+--
+rebuildEnvironmentResponse
+    :: RebuildEnvironmentResponse
 rebuildEnvironmentResponse = RebuildEnvironmentResponse'

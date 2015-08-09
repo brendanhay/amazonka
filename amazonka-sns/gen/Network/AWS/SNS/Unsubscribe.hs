@@ -20,24 +20,24 @@
 --
 -- Deletes a subscription. If the subscription requires authentication for
 -- deletion, only the owner of the subscription or the topic\'s owner can
--- unsubscribe, and an AWS signature is required. If the @Unsubscribe@ call
+-- unsubscribe, and an AWS signature is required. If the 'Unsubscribe' call
 -- does not require authentication and the requester is not the
 -- subscription owner, a final cancellation message is delivered to the
 -- endpoint, so that the endpoint owner can easily resubscribe to the topic
--- if the @Unsubscribe@ request was unintended.
+-- if the 'Unsubscribe' request was unintended.
 --
 -- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html AWS API Reference> for Unsubscribe.
 module Network.AWS.SNS.Unsubscribe
     (
     -- * Creating a Request
-      Unsubscribe
-    , unsubscribe
+      unsubscribe
+    , Unsubscribe
     -- * Request Lenses
     , uSubscriptionARN
 
     -- * Destructuring the Response
-    , UnsubscribeResponse
     , unsubscribeResponse
+    , UnsubscribeResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -49,16 +49,18 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for Unsubscribe action.
 --
 -- /See:/ 'unsubscribe' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uSubscriptionARN'
 newtype Unsubscribe = Unsubscribe'
     { _uSubscriptionARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Unsubscribe' smart constructor.
-unsubscribe :: Text -> Unsubscribe
+-- | Creates a value of 'Unsubscribe' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uSubscriptionARN'
+unsubscribe
+    :: Text -- ^ 'uSubscriptionARN'
+    -> Unsubscribe
 unsubscribe pSubscriptionARN_ =
     Unsubscribe'
     { _uSubscriptionARN = pSubscriptionARN_
@@ -92,6 +94,8 @@ data UnsubscribeResponse =
     UnsubscribeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnsubscribeResponse' smart constructor.
-unsubscribeResponse :: UnsubscribeResponse
+-- | Creates a value of 'UnsubscribeResponse' with the minimum fields required to make a request.
+--
+unsubscribeResponse
+    :: UnsubscribeResponse
 unsubscribeResponse = UnsubscribeResponse'

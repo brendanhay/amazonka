@@ -34,8 +34,8 @@
 module Network.AWS.EC2.RevokeSecurityGroupEgress
     (
     -- * Creating a Request
-      RevokeSecurityGroupEgress
-    , revokeSecurityGroupEgress
+      revokeSecurityGroupEgress
+    , RevokeSecurityGroupEgress
     -- * Request Lenses
     , rsgeFromPort
     , rsgeIPPermissions
@@ -48,8 +48,8 @@ module Network.AWS.EC2.RevokeSecurityGroupEgress
     , rsgeGroupId
 
     -- * Destructuring the Response
-    , RevokeSecurityGroupEgressResponse
     , revokeSecurityGroupEgressResponse
+    , RevokeSecurityGroupEgressResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -59,8 +59,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'revokeSecurityGroupEgress' smart constructor.
+data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
+    { _rsgeFromPort                   :: !(Maybe Int)
+    , _rsgeIPPermissions              :: !(Maybe [IPPermission])
+    , _rsgeIPProtocol                 :: !(Maybe Text)
+    , _rsgeToPort                     :: !(Maybe Int)
+    , _rsgeCIdRIP                     :: !(Maybe Text)
+    , _rsgeSourceSecurityGroupOwnerId :: !(Maybe Text)
+    , _rsgeSourceSecurityGroupName    :: !(Maybe Text)
+    , _rsgeDryRun                     :: !(Maybe Bool)
+    , _rsgeGroupId                    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RevokeSecurityGroupEgress' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rsgeFromPort'
 --
@@ -79,20 +92,9 @@ import           Network.AWS.Response
 -- * 'rsgeDryRun'
 --
 -- * 'rsgeGroupId'
-data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
-    { _rsgeFromPort                   :: !(Maybe Int)
-    , _rsgeIPPermissions              :: !(Maybe [IPPermission])
-    , _rsgeIPProtocol                 :: !(Maybe Text)
-    , _rsgeToPort                     :: !(Maybe Int)
-    , _rsgeCIdRIP                     :: !(Maybe Text)
-    , _rsgeSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _rsgeSourceSecurityGroupName    :: !(Maybe Text)
-    , _rsgeDryRun                     :: !(Maybe Bool)
-    , _rsgeGroupId                    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RevokeSecurityGroupEgress' smart constructor.
-revokeSecurityGroupEgress :: Text -> RevokeSecurityGroupEgress
+revokeSecurityGroupEgress
+    :: Text -- ^ 'rsgeGroupId'
+    -> RevokeSecurityGroupEgress
 revokeSecurityGroupEgress pGroupId_ =
     RevokeSecurityGroupEgress'
     { _rsgeFromPort = Nothing
@@ -107,7 +109,7 @@ revokeSecurityGroupEgress pGroupId_ =
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
--- number. For the ICMP type number, use @-1@ to specify all ICMP types.
+-- number. For the ICMP type number, use '-1' to specify all ICMP types.
 rsgeFromPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeFromPort = lens _rsgeFromPort (\ s a -> s{_rsgeFromPort = a});
 
@@ -116,14 +118,14 @@ rsgeFromPort = lens _rsgeFromPort (\ s a -> s{_rsgeFromPort = a});
 rsgeIPPermissions :: Lens' RevokeSecurityGroupEgress [IPPermission]
 rsgeIPPermissions = lens _rsgeIPPermissions (\ s a -> s{_rsgeIPPermissions = a}) . _Default . _Coerce;
 
--- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
+-- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
--- Use @-1@ to specify all.
+-- Use '-1' to specify all.
 rsgeIPProtocol :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeIPProtocol = lens _rsgeIPProtocol (\ s a -> s{_rsgeIPProtocol = a});
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
--- number. For the ICMP code number, use @-1@ to specify all ICMP codes for
+-- number. For the ICMP code number, use '-1' to specify all ICMP codes for
 -- the ICMP type.
 rsgeToPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeToPort = lens _rsgeToPort (\ s a -> s{_rsgeToPort = a});
@@ -147,8 +149,8 @@ rsgeSourceSecurityGroupName = lens _rsgeSourceSecurityGroupName (\ s a -> s{_rsg
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 rsgeDryRun :: Lens' RevokeSecurityGroupEgress (Maybe Bool)
 rsgeDryRun = lens _rsgeDryRun (\ s a -> s{_rsgeDryRun = a});
 
@@ -191,6 +193,8 @@ data RevokeSecurityGroupEgressResponse =
     RevokeSecurityGroupEgressResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RevokeSecurityGroupEgressResponse' smart constructor.
-revokeSecurityGroupEgressResponse :: RevokeSecurityGroupEgressResponse
+-- | Creates a value of 'RevokeSecurityGroupEgressResponse' with the minimum fields required to make a request.
+--
+revokeSecurityGroupEgressResponse
+    :: RevokeSecurityGroupEgressResponse
 revokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse'

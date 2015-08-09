@@ -23,16 +23,16 @@
 -- Amazon Simple Notification Service resources with the alarm.
 --
 -- When this operation creates an alarm, the alarm state is immediately set
--- to @INSUFFICIENT_DATA@. The alarm is evaluated and its @StateValue@ is
--- set appropriately. Any actions associated with the @StateValue@ is then
+-- to 'INSUFFICIENT_DATA'. The alarm is evaluated and its 'StateValue' is
+-- set appropriately. Any actions associated with the 'StateValue' is then
 -- executed.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html AWS API Reference> for PutMetricAlarm.
 module Network.AWS.CloudWatch.PutMetricAlarm
     (
     -- * Creating a Request
-      PutMetricAlarm
-    , putMetricAlarm
+      putMetricAlarm
+    , PutMetricAlarm
     -- * Request Lenses
     , pmaAlarmDescription
     , pmaOKActions
@@ -51,8 +51,8 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     , pmaComparisonOperator
 
     -- * Destructuring the Response
-    , PutMetricAlarmResponse
     , putMetricAlarmResponse
+    , PutMetricAlarmResponse
     ) where
 
 import           Network.AWS.CloudWatch.Types
@@ -62,8 +62,27 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putMetricAlarm' smart constructor.
+data PutMetricAlarm = PutMetricAlarm'
+    { _pmaAlarmDescription        :: !(Maybe Text)
+    , _pmaOKActions               :: !(Maybe [Text])
+    , _pmaActionsEnabled          :: !(Maybe Bool)
+    , _pmaInsufficientDataActions :: !(Maybe [Text])
+    , _pmaDimensions              :: !(Maybe [Dimension])
+    , _pmaAlarmActions            :: !(Maybe [Text])
+    , _pmaUnit                    :: !(Maybe StandardUnit)
+    , _pmaAlarmName               :: !Text
+    , _pmaMetricName              :: !Text
+    , _pmaNamespace               :: !Text
+    , _pmaStatistic               :: !Statistic
+    , _pmaPeriod                  :: !Nat
+    , _pmaEvaluationPeriods       :: !Nat
+    , _pmaThreshold               :: !Double
+    , _pmaComparisonOperator      :: !ComparisonOperator
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutMetricAlarm' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pmaAlarmDescription'
 --
@@ -94,26 +113,16 @@ import           Network.AWS.Response
 -- * 'pmaThreshold'
 --
 -- * 'pmaComparisonOperator'
-data PutMetricAlarm = PutMetricAlarm'
-    { _pmaAlarmDescription        :: !(Maybe Text)
-    , _pmaOKActions               :: !(Maybe [Text])
-    , _pmaActionsEnabled          :: !(Maybe Bool)
-    , _pmaInsufficientDataActions :: !(Maybe [Text])
-    , _pmaDimensions              :: !(Maybe [Dimension])
-    , _pmaAlarmActions            :: !(Maybe [Text])
-    , _pmaUnit                    :: !(Maybe StandardUnit)
-    , _pmaAlarmName               :: !Text
-    , _pmaMetricName              :: !Text
-    , _pmaNamespace               :: !Text
-    , _pmaStatistic               :: !Statistic
-    , _pmaPeriod                  :: !Nat
-    , _pmaEvaluationPeriods       :: !Nat
-    , _pmaThreshold               :: !Double
-    , _pmaComparisonOperator      :: !ComparisonOperator
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutMetricAlarm' smart constructor.
-putMetricAlarm :: Text -> Text -> Text -> Statistic -> Natural -> Natural -> Double -> ComparisonOperator -> PutMetricAlarm
+putMetricAlarm
+    :: Text -- ^ 'pmaAlarmName'
+    -> Text -- ^ 'pmaMetricName'
+    -> Text -- ^ 'pmaNamespace'
+    -> Statistic -- ^ 'pmaStatistic'
+    -> Natural -- ^ 'pmaPeriod'
+    -> Natural -- ^ 'pmaEvaluationPeriods'
+    -> Double -- ^ 'pmaThreshold'
+    -> ComparisonOperator -- ^ 'pmaComparisonOperator'
+    -> PutMetricAlarm
 putMetricAlarm pAlarmName_ pMetricName_ pNamespace_ pStatistic_ pPeriod_ pEvaluationPeriods_ pThreshold_ pComparisonOperator_ =
     PutMetricAlarm'
     { _pmaAlarmDescription = Nothing
@@ -137,7 +146,7 @@ putMetricAlarm pAlarmName_ pMetricName_ pNamespace_ pStatistic_ pPeriod_ pEvalua
 pmaAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
 pmaAlarmDescription = lens _pmaAlarmDescription (\ s a -> s{_pmaAlarmDescription = a});
 
--- | The list of actions to execute when this alarm transitions into an @OK@
+-- | The list of actions to execute when this alarm transitions into an 'OK'
 -- state from any other state. Each action is specified as an Amazon
 -- Resource Number (ARN). Currently the only action supported is publishing
 -- to an Amazon SNS topic or an Amazon Auto Scaling policy.
@@ -150,7 +159,7 @@ pmaActionsEnabled :: Lens' PutMetricAlarm (Maybe Bool)
 pmaActionsEnabled = lens _pmaActionsEnabled (\ s a -> s{_pmaActionsEnabled = a});
 
 -- | The list of actions to execute when this alarm transitions into an
--- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
+-- 'INSUFFICIENT_DATA' state from any other state. Each action is specified
 -- as an Amazon Resource Number (ARN). Currently the only action supported
 -- is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
 pmaInsufficientDataActions :: Lens' PutMetricAlarm [Text]
@@ -161,7 +170,7 @@ pmaDimensions :: Lens' PutMetricAlarm [Dimension]
 pmaDimensions = lens _pmaDimensions (\ s a -> s{_pmaDimensions = a}) . _Default . _Coerce;
 
 -- | The list of actions to execute when this alarm transitions into an
--- @ALARM@ state from any other state. Each action is specified as an
+-- 'ALARM' state from any other state. Each action is specified as an
 -- Amazon Resource Number (ARN). Currently the only action supported is
 -- publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
 pmaAlarmActions :: Lens' PutMetricAlarm [Text]
@@ -201,8 +210,8 @@ pmaEvaluationPeriods = lens _pmaEvaluationPeriods (\ s a -> s{_pmaEvaluationPeri
 pmaThreshold :: Lens' PutMetricAlarm Double
 pmaThreshold = lens _pmaThreshold (\ s a -> s{_pmaThreshold = a});
 
--- | The arithmetic operation to use when comparing the specified @Statistic@
--- and @Threshold@. The specified @Statistic@ value is used as the first
+-- | The arithmetic operation to use when comparing the specified 'Statistic'
+-- and 'Threshold'. The specified 'Statistic' value is used as the first
 -- operand.
 pmaComparisonOperator :: Lens' PutMetricAlarm ComparisonOperator
 pmaComparisonOperator = lens _pmaComparisonOperator (\ s a -> s{_pmaComparisonOperator = a});
@@ -249,6 +258,8 @@ data PutMetricAlarmResponse =
     PutMetricAlarmResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutMetricAlarmResponse' smart constructor.
-putMetricAlarmResponse :: PutMetricAlarmResponse
+-- | Creates a value of 'PutMetricAlarmResponse' with the minimum fields required to make a request.
+--
+putMetricAlarmResponse
+    :: PutMetricAlarmResponse
 putMetricAlarmResponse = PutMetricAlarmResponse'

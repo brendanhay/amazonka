@@ -29,7 +29,7 @@
 -- This action is throttled at one request per second.
 --
 -- To enable or disable Easy DKIM signing for a domain, use the
--- @SetIdentityDkimEnabled@ action.
+-- 'SetIdentityDkimEnabled' action.
 --
 -- For more information about creating DNS records using DKIM tokens, go to
 -- the
@@ -39,14 +39,14 @@
 module Network.AWS.SES.VerifyDomainDkim
     (
     -- * Creating a Request
-      VerifyDomainDkim
-    , verifyDomainDkim
+      verifyDomainDkim
+    , VerifyDomainDkim
     -- * Request Lenses
     , vddDomain
 
     -- * Destructuring the Response
-    , VerifyDomainDkimResponse
     , verifyDomainDkimResponse
+    , VerifyDomainDkimResponse
     -- * Response Lenses
     , vddrsStatus
     , vddrsDkimTokens
@@ -62,16 +62,18 @@ import           Network.AWS.SES.Types.Product
 -- for a domain.
 --
 -- /See:/ 'verifyDomainDkim' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vddDomain'
 newtype VerifyDomainDkim = VerifyDomainDkim'
     { _vddDomain :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VerifyDomainDkim' smart constructor.
-verifyDomainDkim :: Text -> VerifyDomainDkim
+-- | Creates a value of 'VerifyDomainDkim' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vddDomain'
+verifyDomainDkim
+    :: Text -- ^ 'vddDomain'
+    -> VerifyDomainDkim
 verifyDomainDkim pDomain_ =
     VerifyDomainDkim'
     { _vddDomain = pDomain_
@@ -110,26 +112,28 @@ instance ToQuery VerifyDomainDkim where
 -- DNS to complete DKIM setup.
 --
 -- /See:/ 'verifyDomainDkimResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vddrsStatus'
---
--- * 'vddrsDkimTokens'
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
     { _vddrsStatus     :: !Int
     , _vddrsDkimTokens :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VerifyDomainDkimResponse' smart constructor.
-verifyDomainDkimResponse :: Int -> VerifyDomainDkimResponse
+-- | Creates a value of 'VerifyDomainDkimResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vddrsStatus'
+--
+-- * 'vddrsDkimTokens'
+verifyDomainDkimResponse
+    :: Int -- ^ 'vddrsStatus'
+    -> VerifyDomainDkimResponse
 verifyDomainDkimResponse pStatus_ =
     VerifyDomainDkimResponse'
     { _vddrsStatus = pStatus_
     , _vddrsDkimTokens = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 vddrsStatus :: Lens' VerifyDomainDkimResponse Int
 vddrsStatus = lens _vddrsStatus (\ s a -> s{_vddrsStatus = a});
 

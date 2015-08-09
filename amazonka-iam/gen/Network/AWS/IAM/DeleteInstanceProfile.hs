@@ -33,14 +33,14 @@
 module Network.AWS.IAM.DeleteInstanceProfile
     (
     -- * Creating a Request
-      DeleteInstanceProfile
-    , deleteInstanceProfile
+      deleteInstanceProfile
+    , DeleteInstanceProfile
     -- * Request Lenses
     , dipInstanceProfileName
 
     -- * Destructuring the Response
-    , DeleteInstanceProfileResponse
     , deleteInstanceProfileResponse
+    , DeleteInstanceProfileResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -50,16 +50,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteInstanceProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dipInstanceProfileName'
 newtype DeleteInstanceProfile = DeleteInstanceProfile'
     { _dipInstanceProfileName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteInstanceProfile' smart constructor.
-deleteInstanceProfile :: Text -> DeleteInstanceProfile
+-- | Creates a value of 'DeleteInstanceProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dipInstanceProfileName'
+deleteInstanceProfile
+    :: Text -- ^ 'dipInstanceProfileName'
+    -> DeleteInstanceProfile
 deleteInstanceProfile pInstanceProfileName_ =
     DeleteInstanceProfile'
     { _dipInstanceProfileName = pInstanceProfileName_
@@ -94,6 +96,8 @@ data DeleteInstanceProfileResponse =
     DeleteInstanceProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteInstanceProfileResponse' smart constructor.
-deleteInstanceProfileResponse :: DeleteInstanceProfileResponse
+-- | Creates a value of 'DeleteInstanceProfileResponse' with the minimum fields required to make a request.
+--
+deleteInstanceProfileResponse
+    :: DeleteInstanceProfileResponse
 deleteInstanceProfileResponse = DeleteInstanceProfileResponse'

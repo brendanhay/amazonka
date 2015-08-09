@@ -30,15 +30,15 @@
 module Network.AWS.IAM.ChangePassword
     (
     -- * Creating a Request
-      ChangePassword
-    , changePassword
+      changePassword
+    , ChangePassword
     -- * Request Lenses
     , cpOldPassword
     , cpNewPassword
 
     -- * Destructuring the Response
-    , ChangePasswordResponse
     , changePasswordResponse
+    , ChangePasswordResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -48,19 +48,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'changePassword' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpOldPassword'
---
--- * 'cpNewPassword'
 data ChangePassword = ChangePassword'
     { _cpOldPassword :: !(Sensitive Text)
     , _cpNewPassword :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangePassword' smart constructor.
-changePassword :: Text -> Text -> ChangePassword
+-- | Creates a value of 'ChangePassword' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpOldPassword'
+--
+-- * 'cpNewPassword'
+changePassword
+    :: Text -- ^ 'cpOldPassword'
+    -> Text -- ^ 'cpNewPassword'
+    -> ChangePassword
 changePassword pOldPassword_ pNewPassword_ =
     ChangePassword'
     { _cpOldPassword = _Sensitive # pOldPassword_
@@ -101,6 +104,8 @@ data ChangePasswordResponse =
     ChangePasswordResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangePasswordResponse' smart constructor.
-changePasswordResponse :: ChangePasswordResponse
+-- | Creates a value of 'ChangePasswordResponse' with the minimum fields required to make a request.
+--
+changePasswordResponse
+    :: ChangePasswordResponse
 changePasswordResponse = ChangePasswordResponse'

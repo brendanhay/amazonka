@@ -28,26 +28,26 @@
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html Shared Queues>
 -- in the /Amazon SQS Developer Guide/.
 --
--- @AddPermission@ writes an Amazon SQS-generated policy. If you want to
+-- 'AddPermission' writes an Amazon SQS-generated policy. If you want to
 -- write your own policy, use SetQueueAttributes to upload your policy. For
 -- more information about writing your own policy, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AccessPolicyLanguage.html Using The Access Policy Language>
 -- in the /Amazon SQS Developer Guide/.
 --
 -- Some API actions take lists of parameters. These lists are specified
--- using the @param.n@ notation. Values of @n@ are integers starting from
+-- using the 'param.n' notation. Values of 'n' are integers starting from
 -- 1. For example, a parameter list with two elements looks like this:
 --
--- @&Attribute.1=this@
+-- '&Attribute.1=this'
 --
--- @&Attribute.2=that@
+-- '&Attribute.2=that'
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_AddPermission.html AWS API Reference> for AddPermission.
 module Network.AWS.SQS.AddPermission
     (
     -- * Creating a Request
-      AddPermission
-    , addPermission
+      addPermission
+    , AddPermission
     -- * Request Lenses
     , apQueueURL
     , apLabel
@@ -55,8 +55,8 @@ module Network.AWS.SQS.AddPermission
     , apActions
 
     -- * Destructuring the Response
-    , AddPermissionResponse
     , addPermissionResponse
+    , AddPermissionResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -66,8 +66,16 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'addPermission' smart constructor.
+data AddPermission = AddPermission'
+    { _apQueueURL      :: !Text
+    , _apLabel         :: !Text
+    , _apAWSAccountIds :: ![Text]
+    , _apActions       :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'apQueueURL'
 --
@@ -76,15 +84,10 @@ import           Network.AWS.SQS.Types.Product
 -- * 'apAWSAccountIds'
 --
 -- * 'apActions'
-data AddPermission = AddPermission'
-    { _apQueueURL      :: !Text
-    , _apLabel         :: !Text
-    , _apAWSAccountIds :: ![Text]
-    , _apActions       :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AddPermission' smart constructor.
-addPermission :: Text -> Text -> AddPermission
+addPermission
+    :: Text -- ^ 'apQueueURL'
+    -> Text -- ^ 'apLabel'
+    -> AddPermission
 addPermission pQueueURL_ pLabel_ =
     AddPermission'
     { _apQueueURL = pQueueURL_
@@ -98,7 +101,7 @@ apQueueURL :: Lens' AddPermission Text
 apQueueURL = lens _apQueueURL (\ s a -> s{_apQueueURL = a});
 
 -- | The unique identification of the permission you\'re setting (e.g.,
--- @AliceSendMessage@). Constraints: Maximum 80 characters; alphanumeric
+-- 'AliceSendMessage'). Constraints: Maximum 80 characters; alphanumeric
 -- characters, hyphens (-), and underscores (_) are allowed.
 apLabel :: Lens' AddPermission Text
 apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
@@ -115,15 +118,15 @@ apAWSAccountIds = lens _apAWSAccountIds (\ s a -> s{_apAWSAccountIds = a}) . _Co
 
 -- | The action the client wants to allow for the specified principal. The
 -- following are valid values:
--- @* | SendMessage | ReceiveMessage | DeleteMessage | ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl@.
+-- '* | SendMessage | ReceiveMessage | DeleteMessage | ChangeMessageVisibility | GetQueueAttributes | GetQueueUrl'.
 -- For more information about these actions, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes Understanding Permissions>
 -- in the /Amazon SQS Developer Guide/.
 --
--- Specifying @SendMessage@, @DeleteMessage@, or @ChangeMessageVisibility@
--- for the @ActionName.n@ also grants permissions for the corresponding
--- batch versions of those actions: @SendMessageBatch@,
--- @DeleteMessageBatch@, and @ChangeMessageVisibilityBatch@.
+-- Specifying 'SendMessage', 'DeleteMessage', or 'ChangeMessageVisibility'
+-- for the 'ActionName.n' also grants permissions for the corresponding
+-- batch versions of those actions: 'SendMessageBatch',
+-- 'DeleteMessageBatch', and 'ChangeMessageVisibilityBatch'.
 apActions :: Lens' AddPermission [Text]
 apActions = lens _apActions (\ s a -> s{_apActions = a}) . _Coerce;
 
@@ -153,6 +156,8 @@ data AddPermissionResponse =
     AddPermissionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddPermissionResponse' smart constructor.
-addPermissionResponse :: AddPermissionResponse
+-- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
+--
+addPermissionResponse
+    :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse'

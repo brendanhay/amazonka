@@ -25,14 +25,14 @@
 module Network.AWS.CodeDeploy.ListApplications
     (
     -- * Creating a Request
-      ListApplications
-    , listApplications
+      listApplications
+    , ListApplications
     -- * Request Lenses
     , laNextToken
 
     -- * Destructuring the Response
-    , ListApplicationsResponse
     , listApplicationsResponse
+    , ListApplicationsResponse
     -- * Response Lenses
     , larsNextToken
     , larsApplications
@@ -48,16 +48,17 @@ import           Network.AWS.Response
 -- | Represents the input of a list applications operation.
 --
 -- /See:/ 'listApplications' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'laNextToken'
 newtype ListApplications = ListApplications'
     { _laNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListApplications' smart constructor.
-listApplications :: ListApplications
+-- | Creates a value of 'ListApplications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'laNextToken'
+listApplications
+    :: ListApplications
 listApplications =
     ListApplications'
     { _laNextToken = Nothing
@@ -104,22 +105,24 @@ instance ToQuery ListApplications where
 -- | Represents the output of a list applications operation.
 --
 -- /See:/ 'listApplicationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'larsNextToken'
---
--- * 'larsApplications'
---
--- * 'larsStatus'
 data ListApplicationsResponse = ListApplicationsResponse'
     { _larsNextToken    :: !(Maybe Text)
     , _larsApplications :: !(Maybe [Text])
     , _larsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListApplicationsResponse' smart constructor.
-listApplicationsResponse :: Int -> ListApplicationsResponse
+-- | Creates a value of 'ListApplicationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'larsNextToken'
+--
+-- * 'larsApplications'
+--
+-- * 'larsStatus'
+listApplicationsResponse
+    :: Int -- ^ 'larsStatus'
+    -> ListApplicationsResponse
 listApplicationsResponse pStatus_ =
     ListApplicationsResponse'
     { _larsNextToken = Nothing
@@ -137,6 +140,6 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 larsApplications :: Lens' ListApplicationsResponse [Text]
 larsApplications = lens _larsApplications (\ s a -> s{_larsApplications = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 larsStatus :: Lens' ListApplicationsResponse Int
 larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

@@ -28,14 +28,14 @@
 module Network.AWS.Config.DescribeConfigurationRecorderStatus
     (
     -- * Creating a Request
-      DescribeConfigurationRecorderStatus
-    , describeConfigurationRecorderStatus
+      describeConfigurationRecorderStatus
+    , DescribeConfigurationRecorderStatus
     -- * Request Lenses
     , dcrsConfigurationRecorderNames
 
     -- * Destructuring the Response
-    , DescribeConfigurationRecorderStatusResponse
     , describeConfigurationRecorderStatusResponse
+    , DescribeConfigurationRecorderStatusResponse
     -- * Response Lenses
     , dcrsrsConfigurationRecordersStatus
     , dcrsrsStatus
@@ -50,16 +50,17 @@ import           Network.AWS.Response
 -- | The input for the DescribeConfigurationRecorderStatus action.
 --
 -- /See:/ 'describeConfigurationRecorderStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcrsConfigurationRecorderNames'
 newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'
     { _dcrsConfigurationRecorderNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeConfigurationRecorderStatus' smart constructor.
-describeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatus
+-- | Creates a value of 'DescribeConfigurationRecorderStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcrsConfigurationRecorderNames'
+describeConfigurationRecorderStatus
+    :: DescribeConfigurationRecorderStatus
 describeConfigurationRecorderStatus =
     DescribeConfigurationRecorderStatus'
     { _dcrsConfigurationRecorderNames = Nothing
@@ -114,19 +115,21 @@ instance ToQuery DescribeConfigurationRecorderStatus
 -- format.
 --
 -- /See:/ 'describeConfigurationRecorderStatusResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcrsrsConfigurationRecordersStatus'
---
--- * 'dcrsrsStatus'
 data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'
     { _dcrsrsConfigurationRecordersStatus :: !(Maybe [ConfigurationRecorderStatus])
     , _dcrsrsStatus                       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeConfigurationRecorderStatusResponse' smart constructor.
-describeConfigurationRecorderStatusResponse :: Int -> DescribeConfigurationRecorderStatusResponse
+-- | Creates a value of 'DescribeConfigurationRecorderStatusResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcrsrsConfigurationRecordersStatus'
+--
+-- * 'dcrsrsStatus'
+describeConfigurationRecorderStatusResponse
+    :: Int -- ^ 'dcrsrsStatus'
+    -> DescribeConfigurationRecorderStatusResponse
 describeConfigurationRecorderStatusResponse pStatus_ =
     DescribeConfigurationRecorderStatusResponse'
     { _dcrsrsConfigurationRecordersStatus = Nothing
@@ -137,6 +140,6 @@ describeConfigurationRecorderStatusResponse pStatus_ =
 dcrsrsConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
 dcrsrsConfigurationRecordersStatus = lens _dcrsrsConfigurationRecordersStatus (\ s a -> s{_dcrsrsConfigurationRecordersStatus = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dcrsrsStatus :: Lens' DescribeConfigurationRecorderStatusResponse Int
 dcrsrsStatus = lens _dcrsrsStatus (\ s a -> s{_dcrsrsStatus = a});

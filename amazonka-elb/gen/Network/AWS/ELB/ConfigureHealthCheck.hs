@@ -29,15 +29,15 @@
 module Network.AWS.ELB.ConfigureHealthCheck
     (
     -- * Creating a Request
-      ConfigureHealthCheck
-    , configureHealthCheck
+      configureHealthCheck
+    , ConfigureHealthCheck
     -- * Request Lenses
     , chcLoadBalancerName
     , chcHealthCheck
 
     -- * Destructuring the Response
-    , ConfigureHealthCheckResponse
     , configureHealthCheckResponse
+    , ConfigureHealthCheckResponse
     -- * Response Lenses
     , chcrsHealthCheck
     , chcrsStatus
@@ -50,19 +50,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'configureHealthCheck' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'chcLoadBalancerName'
---
--- * 'chcHealthCheck'
 data ConfigureHealthCheck = ConfigureHealthCheck'
     { _chcLoadBalancerName :: !Text
     , _chcHealthCheck      :: !HealthCheck
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfigureHealthCheck' smart constructor.
-configureHealthCheck :: Text -> HealthCheck -> ConfigureHealthCheck
+-- | Creates a value of 'ConfigureHealthCheck' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'chcLoadBalancerName'
+--
+-- * 'chcHealthCheck'
+configureHealthCheck
+    :: Text -- ^ 'chcLoadBalancerName'
+    -> HealthCheck -- ^ 'chcHealthCheck'
+    -> ConfigureHealthCheck
 configureHealthCheck pLoadBalancerName_ pHealthCheck_ =
     ConfigureHealthCheck'
     { _chcLoadBalancerName = pLoadBalancerName_
@@ -103,19 +106,21 @@ instance ToQuery ConfigureHealthCheck where
                "HealthCheck" =: _chcHealthCheck]
 
 -- | /See:/ 'configureHealthCheckResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'chcrsHealthCheck'
---
--- * 'chcrsStatus'
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
     { _chcrsHealthCheck :: !(Maybe HealthCheck)
     , _chcrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfigureHealthCheckResponse' smart constructor.
-configureHealthCheckResponse :: Int -> ConfigureHealthCheckResponse
+-- | Creates a value of 'ConfigureHealthCheckResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'chcrsHealthCheck'
+--
+-- * 'chcrsStatus'
+configureHealthCheckResponse
+    :: Int -- ^ 'chcrsStatus'
+    -> ConfigureHealthCheckResponse
 configureHealthCheckResponse pStatus_ =
     ConfigureHealthCheckResponse'
     { _chcrsHealthCheck = Nothing
@@ -126,6 +131,6 @@ configureHealthCheckResponse pStatus_ =
 chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 
--- | Undocumented member.
+-- | The response status code.
 chcrsStatus :: Lens' ConfigureHealthCheckResponse Int
 chcrsStatus = lens _chcrsStatus (\ s a -> s{_chcrsStatus = a});

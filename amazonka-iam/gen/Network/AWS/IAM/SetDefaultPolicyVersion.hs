@@ -33,15 +33,15 @@
 module Network.AWS.IAM.SetDefaultPolicyVersion
     (
     -- * Creating a Request
-      SetDefaultPolicyVersion
-    , setDefaultPolicyVersion
+      setDefaultPolicyVersion
+    , SetDefaultPolicyVersion
     -- * Request Lenses
     , sdpvPolicyARN
     , sdpvVersionId
 
     -- * Destructuring the Response
-    , SetDefaultPolicyVersionResponse
     , setDefaultPolicyVersionResponse
+    , SetDefaultPolicyVersionResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -51,19 +51,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'setDefaultPolicyVersion' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sdpvPolicyARN'
---
--- * 'sdpvVersionId'
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
     { _sdpvPolicyARN :: !Text
     , _sdpvVersionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetDefaultPolicyVersion' smart constructor.
-setDefaultPolicyVersion :: Text -> Text -> SetDefaultPolicyVersion
+-- | Creates a value of 'SetDefaultPolicyVersion' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdpvPolicyARN'
+--
+-- * 'sdpvVersionId'
+setDefaultPolicyVersion
+    :: Text -- ^ 'sdpvPolicyARN'
+    -> Text -- ^ 'sdpvVersionId'
+    -> SetDefaultPolicyVersion
 setDefaultPolicyVersion pPolicyARN_ pVersionId_ =
     SetDefaultPolicyVersion'
     { _sdpvPolicyARN = pPolicyARN_
@@ -110,6 +113,8 @@ data SetDefaultPolicyVersionResponse =
     SetDefaultPolicyVersionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetDefaultPolicyVersionResponse' smart constructor.
-setDefaultPolicyVersionResponse :: SetDefaultPolicyVersionResponse
+-- | Creates a value of 'SetDefaultPolicyVersionResponse' with the minimum fields required to make a request.
+--
+setDefaultPolicyVersionResponse
+    :: SetDefaultPolicyVersionResponse
 setDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'

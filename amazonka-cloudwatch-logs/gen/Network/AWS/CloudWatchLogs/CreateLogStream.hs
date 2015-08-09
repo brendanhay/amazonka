@@ -31,15 +31,15 @@
 module Network.AWS.CloudWatchLogs.CreateLogStream
     (
     -- * Creating a Request
-      CreateLogStream
-    , createLogStream
+      createLogStream
+    , CreateLogStream
     -- * Request Lenses
     , clsLogGroupName
     , clsLogStreamName
 
     -- * Destructuring the Response
-    , CreateLogStreamResponse
     , createLogStreamResponse
+    , CreateLogStreamResponse
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -49,19 +49,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createLogStream' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'clsLogGroupName'
---
--- * 'clsLogStreamName'
 data CreateLogStream = CreateLogStream'
     { _clsLogGroupName  :: !Text
     , _clsLogStreamName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLogStream' smart constructor.
-createLogStream :: Text -> Text -> CreateLogStream
+-- | Creates a value of 'CreateLogStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'clsLogGroupName'
+--
+-- * 'clsLogStreamName'
+createLogStream
+    :: Text -- ^ 'clsLogGroupName'
+    -> Text -- ^ 'clsLogStreamName'
+    -> CreateLogStream
 createLogStream pLogGroupName_ pLogStreamName_ =
     CreateLogStream'
     { _clsLogGroupName = pLogGroupName_
@@ -108,6 +111,8 @@ data CreateLogStreamResponse =
     CreateLogStreamResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLogStreamResponse' smart constructor.
-createLogStreamResponse :: CreateLogStreamResponse
+-- | Creates a value of 'CreateLogStreamResponse' with the minimum fields required to make a request.
+--
+createLogStreamResponse
+    :: CreateLogStreamResponse
 createLogStreamResponse = CreateLogStreamResponse'

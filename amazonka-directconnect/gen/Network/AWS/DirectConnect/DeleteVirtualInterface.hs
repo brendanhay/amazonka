@@ -24,14 +24,14 @@
 module Network.AWS.DirectConnect.DeleteVirtualInterface
     (
     -- * Creating a Request
-      DeleteVirtualInterface
-    , deleteVirtualInterface
+      deleteVirtualInterface
+    , DeleteVirtualInterface
     -- * Request Lenses
     , dVirtualInterfaceId
 
     -- * Destructuring the Response
-    , DeleteVirtualInterfaceResponse
     , deleteVirtualInterfaceResponse
+    , DeleteVirtualInterfaceResponse
     -- * Response Lenses
     , dvirsVirtualInterfaceState
     , dvirsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Container for the parameters to the DeleteVirtualInterface operation.
 --
 -- /See:/ 'deleteVirtualInterface' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dVirtualInterfaceId'
 newtype DeleteVirtualInterface = DeleteVirtualInterface'
     { _dVirtualInterfaceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVirtualInterface' smart constructor.
-deleteVirtualInterface :: Text -> DeleteVirtualInterface
+-- | Creates a value of 'DeleteVirtualInterface' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dVirtualInterfaceId'
+deleteVirtualInterface
+    :: Text -- ^ 'dVirtualInterfaceId'
+    -> DeleteVirtualInterface
 deleteVirtualInterface pVirtualInterfaceId_ =
     DeleteVirtualInterface'
     { _dVirtualInterfaceId = pVirtualInterfaceId_
@@ -101,19 +103,21 @@ instance ToQuery DeleteVirtualInterface where
 -- | The response received when DeleteVirtualInterface is called.
 --
 -- /See:/ 'deleteVirtualInterfaceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvirsVirtualInterfaceState'
---
--- * 'dvirsStatus'
 data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
     { _dvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
     , _dvirsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVirtualInterfaceResponse' smart constructor.
-deleteVirtualInterfaceResponse :: Int -> DeleteVirtualInterfaceResponse
+-- | Creates a value of 'DeleteVirtualInterfaceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvirsVirtualInterfaceState'
+--
+-- * 'dvirsStatus'
+deleteVirtualInterfaceResponse
+    :: Int -- ^ 'dvirsStatus'
+    -> DeleteVirtualInterfaceResponse
 deleteVirtualInterfaceResponse pStatus_ =
     DeleteVirtualInterfaceResponse'
     { _dvirsVirtualInterfaceState = Nothing
@@ -124,6 +128,6 @@ deleteVirtualInterfaceResponse pStatus_ =
 dvirsVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 dvirsVirtualInterfaceState = lens _dvirsVirtualInterfaceState (\ s a -> s{_dvirsVirtualInterfaceState = a});
 
--- | Undocumented member.
+-- | The response status code.
 dvirsStatus :: Lens' DeleteVirtualInterfaceResponse Int
 dvirsStatus = lens _dvirsStatus (\ s a -> s{_dvirsStatus = a});

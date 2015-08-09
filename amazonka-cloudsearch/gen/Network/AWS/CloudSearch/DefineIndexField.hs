@@ -18,12 +18,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Configures an @IndexField@ for the search domain. Used to create new
+-- Configures an 'IndexField' for the search domain. Used to create new
 -- fields and modify existing ones. You must specify the name of the domain
 -- you are configuring and an index field configuration. The index field
 -- configuration specifies a unique name, the index field type, and the
 -- options you want to configure for the field. The options you can specify
--- depend on the @IndexFieldType@. If the field exists, the new
+-- depend on the 'IndexFieldType'. If the field exists, the new
 -- configuration replaces the old one. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
 -- in the /Amazon CloudSearch Developer Guide/.
@@ -32,15 +32,15 @@
 module Network.AWS.CloudSearch.DefineIndexField
     (
     -- * Creating a Request
-      DefineIndexField
-    , defineIndexField
+      defineIndexField
+    , DefineIndexField
     -- * Request Lenses
     , defeDomainName
     , defeIndexField
 
     -- * Destructuring the Response
-    , DefineIndexFieldResponse
     , defineIndexFieldResponse
+    , DefineIndexFieldResponse
     -- * Response Lenses
     , defrsStatus
     , defrsIndexField
@@ -52,24 +52,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DefineIndexField@ operation.
+-- | Container for the parameters to the 'DefineIndexField' operation.
 -- Specifies the name of the domain you want to update and the index field
 -- configuration.
 --
 -- /See:/ 'defineIndexField' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'defeDomainName'
---
--- * 'defeIndexField'
 data DefineIndexField = DefineIndexField'
     { _defeDomainName :: !Text
     , _defeIndexField :: !IndexField
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DefineIndexField' smart constructor.
-defineIndexField :: Text -> IndexField -> DefineIndexField
+-- | Creates a value of 'DefineIndexField' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'defeDomainName'
+--
+-- * 'defeIndexField'
+defineIndexField
+    :: Text -- ^ 'defeDomainName'
+    -> IndexField -- ^ 'defeIndexField'
+    -> DefineIndexField
 defineIndexField pDomainName_ pIndexField_ =
     DefineIndexField'
     { _defeDomainName = pDomainName_
@@ -108,30 +111,33 @@ instance ToQuery DefineIndexField where
                "DomainName" =: _defeDomainName,
                "IndexField" =: _defeIndexField]
 
--- | The result of a @DefineIndexField@ request. Contains the status of the
+-- | The result of a 'DefineIndexField' request. Contains the status of the
 -- newly-configured index field.
 --
 -- /See:/ 'defineIndexFieldResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'defrsStatus'
---
--- * 'defrsIndexField'
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
     { _defrsStatus     :: !Int
     , _defrsIndexField :: !IndexFieldStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DefineIndexFieldResponse' smart constructor.
-defineIndexFieldResponse :: Int -> IndexFieldStatus -> DefineIndexFieldResponse
+-- | Creates a value of 'DefineIndexFieldResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'defrsStatus'
+--
+-- * 'defrsIndexField'
+defineIndexFieldResponse
+    :: Int -- ^ 'defrsStatus'
+    -> IndexFieldStatus -- ^ 'defrsIndexField'
+    -> DefineIndexFieldResponse
 defineIndexFieldResponse pStatus_ pIndexField_ =
     DefineIndexFieldResponse'
     { _defrsStatus = pStatus_
     , _defrsIndexField = pIndexField_
     }
 
--- | Undocumented member.
+-- | The response status code.
 defrsStatus :: Lens' DefineIndexFieldResponse Int
 defrsStatus = lens _defrsStatus (\ s a -> s{_defrsStatus = a});
 

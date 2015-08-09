@@ -24,21 +24,21 @@
 --
 -- Deleting a pipeline cannot be undone. You cannot query or restore a
 -- deleted pipeline. To temporarily pause a pipeline instead of deleting
--- it, call SetStatus with the status set to @PAUSE@ on individual
+-- it, call SetStatus with the status set to 'PAUSE' on individual
 -- components. Components that are paused by SetStatus can be resumed.
 --
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeletePipeline.html AWS API Reference> for DeletePipeline.
 module Network.AWS.DataPipeline.DeletePipeline
     (
     -- * Creating a Request
-      DeletePipeline
-    , deletePipeline
+      deletePipeline
+    , DeletePipeline
     -- * Request Lenses
     , dpPipelineId
 
     -- * Destructuring the Response
-    , DeletePipelineResponse
     , deletePipelineResponse
+    , DeletePipelineResponse
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -50,16 +50,18 @@ import           Network.AWS.Response
 -- | Contains the parameters for DeletePipeline.
 --
 -- /See:/ 'deletePipeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpPipelineId'
 newtype DeletePipeline = DeletePipeline'
     { _dpPipelineId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePipeline' smart constructor.
-deletePipeline :: Text -> DeletePipeline
+-- | Creates a value of 'DeletePipeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpPipelineId'
+deletePipeline
+    :: Text -- ^ 'dpPipelineId'
+    -> DeletePipeline
 deletePipeline pPipelineId_ =
     DeletePipeline'
     { _dpPipelineId = pPipelineId_
@@ -99,6 +101,8 @@ data DeletePipelineResponse =
     DeletePipelineResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePipelineResponse' smart constructor.
-deletePipelineResponse :: DeletePipelineResponse
+-- | Creates a value of 'DeletePipelineResponse' with the minimum fields required to make a request.
+--
+deletePipelineResponse
+    :: DeletePipelineResponse
 deletePipelineResponse = DeletePipelineResponse'

@@ -24,16 +24,16 @@
 module Network.AWS.S3.PutBucketCORS
     (
     -- * Creating a Request
-      PutBucketCORS
-    , putBucketCORS
+      putBucketCORS
+    , PutBucketCORS
     -- * Request Lenses
     , pbcContentMD5
     , pbcCORSConfiguration
     , pbcBucket
 
     -- * Destructuring the Response
-    , PutBucketCORSResponse
     , putBucketCORSResponse
+    , PutBucketCORSResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -43,22 +43,24 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketCORS' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pbcContentMD5'
---
--- * 'pbcCORSConfiguration'
---
--- * 'pbcBucket'
 data PutBucketCORS = PutBucketCORS'
     { _pbcContentMD5        :: !(Maybe Text)
     , _pbcCORSConfiguration :: !(Maybe CORSConfiguration)
     , _pbcBucket            :: !BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketCORS' smart constructor.
-putBucketCORS :: BucketName -> PutBucketCORS
+-- | Creates a value of 'PutBucketCORS' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pbcContentMD5'
+--
+-- * 'pbcCORSConfiguration'
+--
+-- * 'pbcBucket'
+putBucketCORS
+    :: BucketName -- ^ 'pbcBucket'
+    -> PutBucketCORS
 putBucketCORS pBucket_ =
     PutBucketCORS'
     { _pbcContentMD5 = Nothing
@@ -107,6 +109,8 @@ data PutBucketCORSResponse =
     PutBucketCORSResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketCORSResponse' smart constructor.
-putBucketCORSResponse :: PutBucketCORSResponse
+-- | Creates a value of 'PutBucketCORSResponse' with the minimum fields required to make a request.
+--
+putBucketCORSResponse
+    :: PutBucketCORSResponse
 putBucketCORSResponse = PutBucketCORSResponse'

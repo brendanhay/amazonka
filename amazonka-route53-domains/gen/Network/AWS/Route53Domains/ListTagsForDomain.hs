@@ -28,14 +28,14 @@
 module Network.AWS.Route53Domains.ListTagsForDomain
     (
     -- * Creating a Request
-      ListTagsForDomain
-    , listTagsForDomain
+      listTagsForDomain
+    , ListTagsForDomain
     -- * Request Lenses
     , ltfdDomainName
 
     -- * Destructuring the Response
-    , ListTagsForDomainResponse
     , listTagsForDomainResponse
+    , ListTagsForDomainResponse
     -- * Response Lenses
     , ltfdrsStatus
     , ltfdrsTagList
@@ -50,16 +50,18 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The ListTagsForDomainRequest includes the following elements.
 --
 -- /See:/ 'listTagsForDomain' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltfdDomainName'
 newtype ListTagsForDomain = ListTagsForDomain'
     { _ltfdDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTagsForDomain' smart constructor.
-listTagsForDomain :: Text -> ListTagsForDomain
+-- | Creates a value of 'ListTagsForDomain' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltfdDomainName'
+listTagsForDomain
+    :: Text -- ^ 'ltfdDomainName'
+    -> ListTagsForDomain
 listTagsForDomain pDomainName_ =
     ListTagsForDomain'
     { _ltfdDomainName = pDomainName_
@@ -102,26 +104,28 @@ instance ToQuery ListTagsForDomain where
 -- | The ListTagsForDomain response includes the following elements.
 --
 -- /See:/ 'listTagsForDomainResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltfdrsStatus'
---
--- * 'ltfdrsTagList'
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
     { _ltfdrsStatus  :: !Int
     , _ltfdrsTagList :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTagsForDomainResponse' smart constructor.
-listTagsForDomainResponse :: Int -> ListTagsForDomainResponse
+-- | Creates a value of 'ListTagsForDomainResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltfdrsStatus'
+--
+-- * 'ltfdrsTagList'
+listTagsForDomainResponse
+    :: Int -- ^ 'ltfdrsStatus'
+    -> ListTagsForDomainResponse
 listTagsForDomainResponse pStatus_ =
     ListTagsForDomainResponse'
     { _ltfdrsStatus = pStatus_
     , _ltfdrsTagList = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 ltfdrsStatus :: Lens' ListTagsForDomainResponse Int
 ltfdrsStatus = lens _ltfdrsStatus (\ s a -> s{_ltfdrsStatus = a});
 

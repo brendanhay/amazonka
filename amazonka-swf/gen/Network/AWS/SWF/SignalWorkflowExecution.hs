@@ -18,27 +18,27 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Records a @WorkflowExecutionSignaled@ event in the workflow execution
+-- Records a 'WorkflowExecutionSignaled' event in the workflow execution
 -- history and creates a decision task for the workflow execution
 -- identified by the given domain, workflowId and runId. The event is
 -- recorded with the specified user defined signalName and input (if
 -- provided).
 --
--- If a runId is not specified, then the @WorkflowExecutionSignaled@ event
+-- If a runId is not specified, then the 'WorkflowExecutionSignaled' event
 -- is recorded in the history of the current open workflow with the
 -- matching workflowId in the domain.
 --
 -- If the specified workflow execution is not open, this method fails with
--- @UnknownResource@.
+-- 'UnknownResource'.
 --
 -- __Access Control__
 --
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
 -- -   You cannot use an IAM policy to constrain this action\'s parameters.
 --
@@ -53,8 +53,8 @@
 module Network.AWS.SWF.SignalWorkflowExecution
     (
     -- * Creating a Request
-      SignalWorkflowExecution
-    , signalWorkflowExecution
+      signalWorkflowExecution
+    , SignalWorkflowExecution
     -- * Request Lenses
     , sweInput
     , sweRunId
@@ -63,8 +63,8 @@ module Network.AWS.SWF.SignalWorkflowExecution
     , sweSignalName
 
     -- * Destructuring the Response
-    , SignalWorkflowExecutionResponse
     , signalWorkflowExecutionResponse
+    , SignalWorkflowExecutionResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -74,8 +74,17 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'signalWorkflowExecution' smart constructor.
+data SignalWorkflowExecution = SignalWorkflowExecution'
+    { _sweInput      :: !(Maybe Text)
+    , _sweRunId      :: !(Maybe Text)
+    , _sweDomain     :: !Text
+    , _sweWorkflowId :: !Text
+    , _sweSignalName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SignalWorkflowExecution' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sweInput'
 --
@@ -86,16 +95,11 @@ import           Network.AWS.SWF.Types.Product
 -- * 'sweWorkflowId'
 --
 -- * 'sweSignalName'
-data SignalWorkflowExecution = SignalWorkflowExecution'
-    { _sweInput      :: !(Maybe Text)
-    , _sweRunId      :: !(Maybe Text)
-    , _sweDomain     :: !Text
-    , _sweWorkflowId :: !Text
-    , _sweSignalName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SignalWorkflowExecution' smart constructor.
-signalWorkflowExecution :: Text -> Text -> Text -> SignalWorkflowExecution
+signalWorkflowExecution
+    :: Text -- ^ 'sweDomain'
+    -> Text -- ^ 'sweWorkflowId'
+    -> Text -- ^ 'sweSignalName'
+    -> SignalWorkflowExecution
 signalWorkflowExecution pDomain_ pWorkflowId_ pSignalName_ =
     SignalWorkflowExecution'
     { _sweInput = Nothing
@@ -105,7 +109,7 @@ signalWorkflowExecution pDomain_ pWorkflowId_ pSignalName_ =
     , _sweSignalName = pSignalName_
     }
 
--- | Data to attach to the @WorkflowExecutionSignaled@ event in the target
+-- | Data to attach to the 'WorkflowExecutionSignaled' event in the target
 -- workflow execution\'s history.
 sweInput :: Lens' SignalWorkflowExecution (Maybe Text)
 sweInput = lens _sweInput (\ s a -> s{_sweInput = a});
@@ -164,6 +168,8 @@ data SignalWorkflowExecutionResponse =
     SignalWorkflowExecutionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SignalWorkflowExecutionResponse' smart constructor.
-signalWorkflowExecutionResponse :: SignalWorkflowExecutionResponse
+-- | Creates a value of 'SignalWorkflowExecutionResponse' with the minimum fields required to make a request.
+--
+signalWorkflowExecutionResponse
+    :: SignalWorkflowExecutionResponse
 signalWorkflowExecutionResponse = SignalWorkflowExecutionResponse'

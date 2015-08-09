@@ -24,15 +24,15 @@
 module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     (
     -- * Creating a Request
-      DeleteMetricFilter
-    , deleteMetricFilter
+      deleteMetricFilter
+    , DeleteMetricFilter
     -- * Request Lenses
     , delLogGroupName
     , delFilterName
 
     -- * Destructuring the Response
-    , DeleteMetricFilterResponse
     , deleteMetricFilterResponse
+    , DeleteMetricFilterResponse
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -42,19 +42,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteMetricFilter' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delLogGroupName'
---
--- * 'delFilterName'
 data DeleteMetricFilter = DeleteMetricFilter'
     { _delLogGroupName :: !Text
     , _delFilterName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteMetricFilter' smart constructor.
-deleteMetricFilter :: Text -> Text -> DeleteMetricFilter
+-- | Creates a value of 'DeleteMetricFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delLogGroupName'
+--
+-- * 'delFilterName'
+deleteMetricFilter
+    :: Text -- ^ 'delLogGroupName'
+    -> Text -- ^ 'delFilterName'
+    -> DeleteMetricFilter
 deleteMetricFilter pLogGroupName_ pFilterName_ =
     DeleteMetricFilter'
     { _delLogGroupName = pLogGroupName_
@@ -103,6 +106,8 @@ data DeleteMetricFilterResponse =
     DeleteMetricFilterResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteMetricFilterResponse' smart constructor.
-deleteMetricFilterResponse :: DeleteMetricFilterResponse
+-- | Creates a value of 'DeleteMetricFilterResponse' with the minimum fields required to make a request.
+--
+deleteMetricFilterResponse
+    :: DeleteMetricFilterResponse
 deleteMetricFilterResponse = DeleteMetricFilterResponse'

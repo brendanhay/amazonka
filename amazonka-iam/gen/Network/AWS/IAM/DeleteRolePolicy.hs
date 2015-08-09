@@ -31,15 +31,15 @@
 module Network.AWS.IAM.DeleteRolePolicy
     (
     -- * Creating a Request
-      DeleteRolePolicy
-    , deleteRolePolicy
+      deleteRolePolicy
+    , DeleteRolePolicy
     -- * Request Lenses
     , delRoleName
     , delPolicyName
 
     -- * Destructuring the Response
-    , DeleteRolePolicyResponse
     , deleteRolePolicyResponse
+    , DeleteRolePolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -49,19 +49,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteRolePolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delRoleName'
---
--- * 'delPolicyName'
 data DeleteRolePolicy = DeleteRolePolicy'
     { _delRoleName   :: !Text
     , _delPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRolePolicy' smart constructor.
-deleteRolePolicy :: Text -> Text -> DeleteRolePolicy
+-- | Creates a value of 'DeleteRolePolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delRoleName'
+--
+-- * 'delPolicyName'
+deleteRolePolicy
+    :: Text -- ^ 'delRoleName'
+    -> Text -- ^ 'delPolicyName'
+    -> DeleteRolePolicy
 deleteRolePolicy pRoleName_ pPolicyName_ =
     DeleteRolePolicy'
     { _delRoleName = pRoleName_
@@ -102,6 +105,8 @@ data DeleteRolePolicyResponse =
     DeleteRolePolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRolePolicyResponse' smart constructor.
-deleteRolePolicyResponse :: DeleteRolePolicyResponse
+-- | Creates a value of 'DeleteRolePolicyResponse' with the minimum fields required to make a request.
+--
+deleteRolePolicyResponse
+    :: DeleteRolePolicyResponse
 deleteRolePolicyResponse = DeleteRolePolicyResponse'

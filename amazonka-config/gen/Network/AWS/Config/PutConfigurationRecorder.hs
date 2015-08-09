@@ -21,13 +21,13 @@
 -- Creates a new configuration recorder to record the selected resource
 -- configurations.
 --
--- You can use this action to change the role @roleARN@ and\/or the
--- @recordingGroup@ of an existing recorder. To change the role, call the
+-- You can use this action to change the role 'roleARN' and\/or the
+-- 'recordingGroup' of an existing recorder. To change the role, call the
 -- action on the existing configuration recorder and specify a role.
 --
 -- Currently, you can specify only one configuration recorder per account.
 --
--- If @ConfigurationRecorder@ does not have the __recordingGroup__
+-- If 'ConfigurationRecorder' does not have the __recordingGroup__
 -- parameter specified, the default is to record all supported resource
 -- types.
 --
@@ -35,14 +35,14 @@
 module Network.AWS.Config.PutConfigurationRecorder
     (
     -- * Creating a Request
-      PutConfigurationRecorder
-    , putConfigurationRecorder
+      putConfigurationRecorder
+    , PutConfigurationRecorder
     -- * Request Lenses
     , pcrConfigurationRecorder
 
     -- * Destructuring the Response
-    , PutConfigurationRecorderResponse
     , putConfigurationRecorderResponse
+    , PutConfigurationRecorderResponse
     ) where
 
 import           Network.AWS.Config.Types
@@ -54,16 +54,18 @@ import           Network.AWS.Response
 -- | The input for the PutConfigurationRecorder action.
 --
 -- /See:/ 'putConfigurationRecorder' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pcrConfigurationRecorder'
 newtype PutConfigurationRecorder = PutConfigurationRecorder'
     { _pcrConfigurationRecorder :: ConfigurationRecorder
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutConfigurationRecorder' smart constructor.
-putConfigurationRecorder :: ConfigurationRecorder -> PutConfigurationRecorder
+-- | Creates a value of 'PutConfigurationRecorder' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcrConfigurationRecorder'
+putConfigurationRecorder
+    :: ConfigurationRecorder -- ^ 'pcrConfigurationRecorder'
+    -> PutConfigurationRecorder
 putConfigurationRecorder pConfigurationRecorder_ =
     PutConfigurationRecorder'
     { _pcrConfigurationRecorder = pConfigurationRecorder_
@@ -109,6 +111,8 @@ data PutConfigurationRecorderResponse =
     PutConfigurationRecorderResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutConfigurationRecorderResponse' smart constructor.
-putConfigurationRecorderResponse :: PutConfigurationRecorderResponse
+-- | Creates a value of 'PutConfigurationRecorderResponse' with the minimum fields required to make a request.
+--
+putConfigurationRecorderResponse
+    :: PutConfigurationRecorderResponse
 putConfigurationRecorderResponse = PutConfigurationRecorderResponse'

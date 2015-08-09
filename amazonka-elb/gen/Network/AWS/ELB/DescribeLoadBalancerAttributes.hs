@@ -24,14 +24,14 @@
 module Network.AWS.ELB.DescribeLoadBalancerAttributes
     (
     -- * Creating a Request
-      DescribeLoadBalancerAttributes
-    , describeLoadBalancerAttributes
+      describeLoadBalancerAttributes
+    , DescribeLoadBalancerAttributes
     -- * Request Lenses
     , dlbaLoadBalancerName
 
     -- * Destructuring the Response
-    , DescribeLoadBalancerAttributesResponse
     , describeLoadBalancerAttributesResponse
+    , DescribeLoadBalancerAttributesResponse
     -- * Response Lenses
     , dlbarsLoadBalancerAttributes
     , dlbarsStatus
@@ -44,16 +44,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeLoadBalancerAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbaLoadBalancerName'
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
     { _dlbaLoadBalancerName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoadBalancerAttributes' smart constructor.
-describeLoadBalancerAttributes :: Text -> DescribeLoadBalancerAttributes
+-- | Creates a value of 'DescribeLoadBalancerAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbaLoadBalancerName'
+describeLoadBalancerAttributes
+    :: Text -- ^ 'dlbaLoadBalancerName'
+    -> DescribeLoadBalancerAttributes
 describeLoadBalancerAttributes pLoadBalancerName_ =
     DescribeLoadBalancerAttributes'
     { _dlbaLoadBalancerName = pLoadBalancerName_
@@ -93,19 +95,21 @@ instance ToQuery DescribeLoadBalancerAttributes where
                "LoadBalancerName" =: _dlbaLoadBalancerName]
 
 -- | /See:/ 'describeLoadBalancerAttributesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlbarsLoadBalancerAttributes'
---
--- * 'dlbarsStatus'
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
     { _dlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
     , _dlbarsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLoadBalancerAttributesResponse' smart constructor.
-describeLoadBalancerAttributesResponse :: Int -> DescribeLoadBalancerAttributesResponse
+-- | Creates a value of 'DescribeLoadBalancerAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlbarsLoadBalancerAttributes'
+--
+-- * 'dlbarsStatus'
+describeLoadBalancerAttributesResponse
+    :: Int -- ^ 'dlbarsStatus'
+    -> DescribeLoadBalancerAttributesResponse
 describeLoadBalancerAttributesResponse pStatus_ =
     DescribeLoadBalancerAttributesResponse'
     { _dlbarsLoadBalancerAttributes = Nothing
@@ -116,6 +120,6 @@ describeLoadBalancerAttributesResponse pStatus_ =
 dlbarsLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
 dlbarsLoadBalancerAttributes = lens _dlbarsLoadBalancerAttributes (\ s a -> s{_dlbarsLoadBalancerAttributes = a});
 
--- | Undocumented member.
+-- | The response status code.
 dlbarsStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
 dlbarsStatus = lens _dlbarsStatus (\ s a -> s{_dlbarsStatus = a});

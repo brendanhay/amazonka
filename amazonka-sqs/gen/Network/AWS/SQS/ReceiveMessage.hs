@@ -20,17 +20,17 @@
 --
 -- Retrieves one or more messages, with a maximum limit of 10 messages,
 -- from the specified queue. Long poll support is enabled by using the
--- @WaitTimeSeconds@ parameter. For more information, see
+-- 'WaitTimeSeconds' parameter. For more information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html Amazon SQS Long Poll>
 -- in the /Amazon SQS Developer Guide/.
 --
 -- Short poll is the default behavior where a weighted random set of
--- machines is sampled on a @ReceiveMessage@ call. This means only the
+-- machines is sampled on a 'ReceiveMessage' call. This means only the
 -- messages on the sampled machines are returned. If the number of messages
 -- in the queue is small (less than 1000), it is likely you will get fewer
--- messages than you requested per @ReceiveMessage@ call. If the number of
+-- messages than you requested per 'ReceiveMessage' call. If the number of
 -- messages in the queue is extremely small, you might not receive any
--- messages in a particular @ReceiveMessage@ response; in which case you
+-- messages in a particular 'ReceiveMessage' response; in which case you
 -- should repeat the request.
 --
 -- For each message returned, the response includes the following:
@@ -53,7 +53,7 @@
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html Queue and Message Identifiers>
 -- in the /Amazon SQS Developer Guide/.
 --
--- You can provide the @VisibilityTimeout@ parameter in your request, which
+-- You can provide the 'VisibilityTimeout' parameter in your request, which
 -- will be applied to the messages that Amazon SQS returns in the response.
 -- If you do not include the parameter, the overall visibility timeout for
 -- the queue is used for the returned messages. For more information, see
@@ -68,8 +68,8 @@
 module Network.AWS.SQS.ReceiveMessage
     (
     -- * Creating a Request
-      ReceiveMessage
-    , receiveMessage
+      receiveMessage
+    , ReceiveMessage
     -- * Request Lenses
     , rmVisibilityTimeout
     , rmMessageAttributeNames
@@ -79,8 +79,8 @@ module Network.AWS.SQS.ReceiveMessage
     , rmQueueURL
 
     -- * Destructuring the Response
-    , ReceiveMessageResponse
     , receiveMessageResponse
+    , ReceiveMessageResponse
     -- * Response Lenses
     , rmrsMessages
     , rmrsStatus
@@ -93,8 +93,18 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'receiveMessage' smart constructor.
+data ReceiveMessage = ReceiveMessage'
+    { _rmVisibilityTimeout     :: !(Maybe Int)
+    , _rmMessageAttributeNames :: !(Maybe [Text])
+    , _rmWaitTimeSeconds       :: !(Maybe Int)
+    , _rmAttributeNames        :: !(Maybe [QueueAttributeName])
+    , _rmMaxNumberOfMessages   :: !(Maybe Int)
+    , _rmQueueURL              :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReceiveMessage' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rmVisibilityTimeout'
 --
@@ -107,17 +117,9 @@ import           Network.AWS.SQS.Types.Product
 -- * 'rmMaxNumberOfMessages'
 --
 -- * 'rmQueueURL'
-data ReceiveMessage = ReceiveMessage'
-    { _rmVisibilityTimeout     :: !(Maybe Int)
-    , _rmMessageAttributeNames :: !(Maybe [Text])
-    , _rmWaitTimeSeconds       :: !(Maybe Int)
-    , _rmAttributeNames        :: !(Maybe [QueueAttributeName])
-    , _rmMaxNumberOfMessages   :: !(Maybe Int)
-    , _rmQueueURL              :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReceiveMessage' smart constructor.
-receiveMessage :: Text -> ReceiveMessage
+receiveMessage
+    :: Text -- ^ 'rmQueueURL'
+    -> ReceiveMessage
 receiveMessage pQueueURL_ =
     ReceiveMessage'
     { _rmVisibilityTimeout = Nothing
@@ -129,7 +131,7 @@ receiveMessage pQueueURL_ =
     }
 
 -- | The duration (in seconds) that the received messages are hidden from
--- subsequent retrieve requests after being retrieved by a @ReceiveMessage@
+-- subsequent retrieve requests after being retrieved by a 'ReceiveMessage'
 -- request.
 rmVisibilityTimeout :: Lens' ReceiveMessage (Maybe Int)
 rmVisibilityTimeout = lens _rmVisibilityTimeout (\ s a -> s{_rmVisibilityTimeout = a});
@@ -143,7 +145,7 @@ rmVisibilityTimeout = lens _rmVisibilityTimeout (\ s a -> s{_rmVisibilityTimeout
 -- start with \"AWS.\" or \"Amazon.\" (or any variations in casing),
 -- because these prefixes are reserved for use by Amazon Web Services.
 --
--- When using @ReceiveMessage@, you can send a list of attribute names to
+-- When using 'ReceiveMessage', you can send a list of attribute names to
 -- receive, or you can return all of the attributes by specifying \"All\"
 -- or \".*\" in your request. You can also use \"foo.*\" to return all
 -- message attributes starting with the \"foo\" prefix.
@@ -161,15 +163,15 @@ rmWaitTimeSeconds = lens _rmWaitTimeSeconds (\ s a -> s{_rmWaitTimeSeconds = a})
 -- The following lists the names and descriptions of the attributes that
 -- can be returned:
 --
--- -   @All@ - returns all values.
--- -   @ApproximateFirstReceiveTimestamp@ - returns the time when the
+-- -   'All' - returns all values.
+-- -   'ApproximateFirstReceiveTimestamp' - returns the time when the
 --     message was first received from the queue (epoch time in
 --     milliseconds).
--- -   @ApproximateReceiveCount@ - returns the number of times a message
+-- -   'ApproximateReceiveCount' - returns the number of times a message
 --     has been received from the queue but not deleted.
--- -   @SenderId@ - returns the AWS account number (or the IP address, if
+-- -   'SenderId' - returns the AWS account number (or the IP address, if
 --     anonymous access is allowed) of the sender.
--- -   @SentTimestamp@ - returns the time when the message was sent to the
+-- -   'SentTimestamp' - returns the time when the message was sent to the
 --     queue (epoch time in milliseconds).
 rmAttributeNames :: Lens' ReceiveMessage [QueueAttributeName]
 rmAttributeNames = lens _rmAttributeNames (\ s a -> s{_rmAttributeNames = a}) . _Default . _Coerce;
@@ -221,19 +223,21 @@ instance ToQuery ReceiveMessage where
 -- | A list of received messages.
 --
 -- /See:/ 'receiveMessageResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rmrsMessages'
---
--- * 'rmrsStatus'
 data ReceiveMessageResponse = ReceiveMessageResponse'
     { _rmrsMessages :: !(Maybe [Message])
     , _rmrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReceiveMessageResponse' smart constructor.
-receiveMessageResponse :: Int -> ReceiveMessageResponse
+-- | Creates a value of 'ReceiveMessageResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rmrsMessages'
+--
+-- * 'rmrsStatus'
+receiveMessageResponse
+    :: Int -- ^ 'rmrsStatus'
+    -> ReceiveMessageResponse
 receiveMessageResponse pStatus_ =
     ReceiveMessageResponse'
     { _rmrsMessages = Nothing
@@ -244,6 +248,6 @@ receiveMessageResponse pStatus_ =
 rmrsMessages :: Lens' ReceiveMessageResponse [Message]
 rmrsMessages = lens _rmrsMessages (\ s a -> s{_rmrsMessages = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 rmrsStatus :: Lens' ReceiveMessageResponse Int
 rmrsStatus = lens _rmrsStatus (\ s a -> s{_rmrsStatus = a});

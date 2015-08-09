@@ -24,14 +24,14 @@
 module Network.AWS.S3.DeleteBucketWebsite
     (
     -- * Creating a Request
-      DeleteBucketWebsite
-    , deleteBucketWebsite
+      deleteBucketWebsite
+    , DeleteBucketWebsite
     -- * Request Lenses
     , dbwBucket
 
     -- * Destructuring the Response
-    , DeleteBucketWebsiteResponse
     , deleteBucketWebsiteResponse
+    , DeleteBucketWebsiteResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -41,16 +41,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketWebsite' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dbwBucket'
 newtype DeleteBucketWebsite = DeleteBucketWebsite'
     { _dbwBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucketWebsite' smart constructor.
-deleteBucketWebsite :: BucketName -> DeleteBucketWebsite
+-- | Creates a value of 'DeleteBucketWebsite' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dbwBucket'
+deleteBucketWebsite
+    :: BucketName -- ^ 'dbwBucket'
+    -> DeleteBucketWebsite
 deleteBucketWebsite pBucket_ =
     DeleteBucketWebsite'
     { _dbwBucket = pBucket_
@@ -82,6 +84,8 @@ data DeleteBucketWebsiteResponse =
     DeleteBucketWebsiteResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucketWebsiteResponse' smart constructor.
-deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse
+-- | Creates a value of 'DeleteBucketWebsiteResponse' with the minimum fields required to make a request.
+--
+deleteBucketWebsiteResponse
+    :: DeleteBucketWebsiteResponse
 deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse'

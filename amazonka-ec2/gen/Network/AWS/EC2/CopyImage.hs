@@ -31,8 +31,8 @@
 module Network.AWS.EC2.CopyImage
     (
     -- * Creating a Request
-      CopyImage
-    , copyImage
+      copyImage
+    , CopyImage
     -- * Request Lenses
     , ciClientToken
     , ciDryRun
@@ -42,8 +42,8 @@ module Network.AWS.EC2.CopyImage
     , ciName
 
     -- * Destructuring the Response
-    , CopyImageResponse
     , copyImageResponse
+    , CopyImageResponse
     -- * Response Lenses
     , coprsImageId
     , coprsStatus
@@ -56,8 +56,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'copyImage' smart constructor.
+data CopyImage = CopyImage'
+    { _ciClientToken   :: !(Maybe Text)
+    , _ciDryRun        :: !(Maybe Bool)
+    , _ciDescription   :: !(Maybe Text)
+    , _ciSourceRegion  :: !Text
+    , _ciSourceImageId :: !Text
+    , _ciName          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CopyImage' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ciClientToken'
 --
@@ -70,17 +80,11 @@ import           Network.AWS.Response
 -- * 'ciSourceImageId'
 --
 -- * 'ciName'
-data CopyImage = CopyImage'
-    { _ciClientToken   :: !(Maybe Text)
-    , _ciDryRun        :: !(Maybe Bool)
-    , _ciDescription   :: !(Maybe Text)
-    , _ciSourceRegion  :: !Text
-    , _ciSourceImageId :: !Text
-    , _ciName          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CopyImage' smart constructor.
-copyImage :: Text -> Text -> Text -> CopyImage
+copyImage
+    :: Text -- ^ 'ciSourceRegion'
+    -> Text -- ^ 'ciSourceImageId'
+    -> Text -- ^ 'ciName'
+    -> CopyImage
 copyImage pSourceRegion_ pSourceImageId_ pName_ =
     CopyImage'
     { _ciClientToken = Nothing
@@ -100,8 +104,8 @@ ciClientToken = lens _ciClientToken (\ s a -> s{_ciClientToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 ciDryRun :: Lens' CopyImage (Maybe Bool)
 ciDryRun = lens _ciDryRun (\ s a -> s{_ciDryRun = a});
 
@@ -150,19 +154,21 @@ instance ToQuery CopyImage where
                "Name" =: _ciName]
 
 -- | /See:/ 'copyImageResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'coprsImageId'
---
--- * 'coprsStatus'
 data CopyImageResponse = CopyImageResponse'
     { _coprsImageId :: !(Maybe Text)
     , _coprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CopyImageResponse' smart constructor.
-copyImageResponse :: Int -> CopyImageResponse
+-- | Creates a value of 'CopyImageResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'coprsImageId'
+--
+-- * 'coprsStatus'
+copyImageResponse
+    :: Int -- ^ 'coprsStatus'
+    -> CopyImageResponse
 copyImageResponse pStatus_ =
     CopyImageResponse'
     { _coprsImageId = Nothing
@@ -173,6 +179,6 @@ copyImageResponse pStatus_ =
 coprsImageId :: Lens' CopyImageResponse (Maybe Text)
 coprsImageId = lens _coprsImageId (\ s a -> s{_coprsImageId = a});
 
--- | Undocumented member.
+-- | The response status code.
 coprsStatus :: Lens' CopyImageResponse Int
 coprsStatus = lens _coprsStatus (\ s a -> s{_coprsStatus = a});

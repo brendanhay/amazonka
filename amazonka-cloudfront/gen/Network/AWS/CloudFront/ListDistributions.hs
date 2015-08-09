@@ -24,15 +24,15 @@
 module Network.AWS.CloudFront.ListDistributions
     (
     -- * Creating a Request
-      ListDistributions
-    , listDistributions
+      listDistributions
+    , ListDistributions
     -- * Request Lenses
     , ldMaxItems
     , ldMarker
 
     -- * Destructuring the Response
-    , ListDistributionsResponse
     , listDistributionsResponse
+    , ListDistributionsResponse
     -- * Response Lenses
     , ldrsStatus
     , ldrsDistributionList
@@ -47,19 +47,20 @@ import           Network.AWS.Response
 -- | The request to list your distributions.
 --
 -- /See:/ 'listDistributions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldMaxItems'
---
--- * 'ldMarker'
 data ListDistributions = ListDistributions'
     { _ldMaxItems :: !(Maybe Text)
     , _ldMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDistributions' smart constructor.
-listDistributions :: ListDistributions
+-- | Creates a value of 'ListDistributions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldMaxItems'
+--
+-- * 'ldMarker'
+listDistributions
+    :: ListDistributions
 listDistributions =
     ListDistributions'
     { _ldMaxItems = Nothing
@@ -102,26 +103,29 @@ instance ToQuery ListDistributions where
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'listDistributionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldrsStatus'
---
--- * 'ldrsDistributionList'
 data ListDistributionsResponse = ListDistributionsResponse'
     { _ldrsStatus           :: !Int
     , _ldrsDistributionList :: !DistributionList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDistributionsResponse' smart constructor.
-listDistributionsResponse :: Int -> DistributionList -> ListDistributionsResponse
+-- | Creates a value of 'ListDistributionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldrsStatus'
+--
+-- * 'ldrsDistributionList'
+listDistributionsResponse
+    :: Int -- ^ 'ldrsStatus'
+    -> DistributionList -- ^ 'ldrsDistributionList'
+    -> ListDistributionsResponse
 listDistributionsResponse pStatus_ pDistributionList_ =
     ListDistributionsResponse'
     { _ldrsStatus = pStatus_
     , _ldrsDistributionList = pDistributionList_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ldrsStatus :: Lens' ListDistributionsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
 

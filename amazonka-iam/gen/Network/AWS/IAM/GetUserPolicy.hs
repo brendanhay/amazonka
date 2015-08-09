@@ -34,15 +34,15 @@
 module Network.AWS.IAM.GetUserPolicy
     (
     -- * Creating a Request
-      GetUserPolicy
-    , getUserPolicy
+      getUserPolicy
+    , GetUserPolicy
     -- * Request Lenses
     , gupUserName
     , gupPolicyName
 
     -- * Destructuring the Response
-    , GetUserPolicyResponse
     , getUserPolicyResponse
+    , GetUserPolicyResponse
     -- * Response Lenses
     , guprsStatus
     , guprsUserName
@@ -57,19 +57,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getUserPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gupUserName'
---
--- * 'gupPolicyName'
 data GetUserPolicy = GetUserPolicy'
     { _gupUserName   :: !Text
     , _gupPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetUserPolicy' smart constructor.
-getUserPolicy :: Text -> Text -> GetUserPolicy
+-- | Creates a value of 'GetUserPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gupUserName'
+--
+-- * 'gupPolicyName'
+getUserPolicy
+    :: Text -- ^ 'gupUserName'
+    -> Text -- ^ 'gupPolicyName'
+    -> GetUserPolicy
 getUserPolicy pUserName_ pPolicyName_ =
     GetUserPolicy'
     { _gupUserName = pUserName_
@@ -113,8 +116,16 @@ instance ToQuery GetUserPolicy where
 -- | Contains the response to a successful GetUserPolicy request.
 --
 -- /See:/ 'getUserPolicyResponse' smart constructor.
+data GetUserPolicyResponse = GetUserPolicyResponse'
+    { _guprsStatus         :: !Int
+    , _guprsUserName       :: !Text
+    , _guprsPolicyName     :: !Text
+    , _guprsPolicyDocument :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetUserPolicyResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'guprsStatus'
 --
@@ -123,15 +134,12 @@ instance ToQuery GetUserPolicy where
 -- * 'guprsPolicyName'
 --
 -- * 'guprsPolicyDocument'
-data GetUserPolicyResponse = GetUserPolicyResponse'
-    { _guprsStatus         :: !Int
-    , _guprsUserName       :: !Text
-    , _guprsPolicyName     :: !Text
-    , _guprsPolicyDocument :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetUserPolicyResponse' smart constructor.
-getUserPolicyResponse :: Int -> Text -> Text -> Text -> GetUserPolicyResponse
+getUserPolicyResponse
+    :: Int -- ^ 'guprsStatus'
+    -> Text -- ^ 'guprsUserName'
+    -> Text -- ^ 'guprsPolicyName'
+    -> Text -- ^ 'guprsPolicyDocument'
+    -> GetUserPolicyResponse
 getUserPolicyResponse pStatus_ pUserName_ pPolicyName_ pPolicyDocument_ =
     GetUserPolicyResponse'
     { _guprsStatus = pStatus_
@@ -140,7 +148,7 @@ getUserPolicyResponse pStatus_ pUserName_ pPolicyName_ pPolicyDocument_ =
     , _guprsPolicyDocument = pPolicyDocument_
     }
 
--- | Undocumented member.
+-- | The response status code.
 guprsStatus :: Lens' GetUserPolicyResponse Int
 guprsStatus = lens _guprsStatus (\ s a -> s{_guprsStatus = a});
 

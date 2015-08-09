@@ -33,22 +33,22 @@
 -- Because trust for the OpenID Connect provider is ultimately derived from
 -- the provider\'s certificate and is validated by the thumbprint, it is a
 -- best practice to limit access to the
--- @UpdateOpenIDConnectProviderThumbprint@ action to highly-privileged
+-- 'UpdateOpenIDConnectProviderThumbprint' action to highly-privileged
 -- users.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIdConnectProviderThumbprint.html AWS API Reference> for UpdateOpenIdConnectProviderThumbprint.
 module Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
     (
     -- * Creating a Request
-      UpdateOpenIdConnectProviderThumbprint
-    , updateOpenIdConnectProviderThumbprint
+      updateOpenIdConnectProviderThumbprint
+    , UpdateOpenIdConnectProviderThumbprint
     -- * Request Lenses
     , uoicptOpenIdConnectProviderARN
     , uoicptThumbprintList
 
     -- * Destructuring the Response
-    , UpdateOpenIdConnectProviderThumbprintResponse
     , updateOpenIdConnectProviderThumbprintResponse
+    , UpdateOpenIdConnectProviderThumbprintResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -58,19 +58,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateOpenIdConnectProviderThumbprint' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uoicptOpenIdConnectProviderARN'
---
--- * 'uoicptThumbprintList'
 data UpdateOpenIdConnectProviderThumbprint = UpdateOpenIdConnectProviderThumbprint'
     { _uoicptOpenIdConnectProviderARN :: !Text
     , _uoicptThumbprintList           :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateOpenIdConnectProviderThumbprint' smart constructor.
-updateOpenIdConnectProviderThumbprint :: Text -> UpdateOpenIdConnectProviderThumbprint
+-- | Creates a value of 'UpdateOpenIdConnectProviderThumbprint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uoicptOpenIdConnectProviderARN'
+--
+-- * 'uoicptThumbprintList'
+updateOpenIdConnectProviderThumbprint
+    :: Text -- ^ 'uoicptOpenIdConnectProviderARN'
+    -> UpdateOpenIdConnectProviderThumbprint
 updateOpenIdConnectProviderThumbprint pOpenIdConnectProviderARN_ =
     UpdateOpenIdConnectProviderThumbprint'
     { _uoicptOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
@@ -125,7 +127,9 @@ data UpdateOpenIdConnectProviderThumbprintResponse =
     UpdateOpenIdConnectProviderThumbprintResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateOpenIdConnectProviderThumbprintResponse' smart constructor.
-updateOpenIdConnectProviderThumbprintResponse :: UpdateOpenIdConnectProviderThumbprintResponse
+-- | Creates a value of 'UpdateOpenIdConnectProviderThumbprintResponse' with the minimum fields required to make a request.
+--
+updateOpenIdConnectProviderThumbprintResponse
+    :: UpdateOpenIdConnectProviderThumbprintResponse
 updateOpenIdConnectProviderThumbprintResponse =
     UpdateOpenIdConnectProviderThumbprintResponse'

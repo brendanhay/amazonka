@@ -38,8 +38,8 @@
 module Network.AWS.EC2.DetachVolume
     (
     -- * Creating a Request
-      DetachVolume
-    , detachVolume
+      detachVolume
+    , DetachVolume
     -- * Request Lenses
     , dvInstanceId
     , dvForce
@@ -48,8 +48,8 @@ module Network.AWS.EC2.DetachVolume
     , dvVolumeId
 
     -- * Destructuring the Response
-    , VolumeAttachment
     , volumeAttachment
+    , VolumeAttachment
     -- * Response Lenses
     , volInstanceId
     , volDeleteOnTermination
@@ -66,8 +66,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachVolume' smart constructor.
+data DetachVolume = DetachVolume'
+    { _dvInstanceId :: !(Maybe Text)
+    , _dvForce      :: !(Maybe Bool)
+    , _dvDevice     :: !(Maybe Text)
+    , _dvDryRun     :: !(Maybe Bool)
+    , _dvVolumeId   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DetachVolume' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dvInstanceId'
 --
@@ -78,16 +87,9 @@ import           Network.AWS.Response
 -- * 'dvDryRun'
 --
 -- * 'dvVolumeId'
-data DetachVolume = DetachVolume'
-    { _dvInstanceId :: !(Maybe Text)
-    , _dvForce      :: !(Maybe Bool)
-    , _dvDevice     :: !(Maybe Text)
-    , _dvDryRun     :: !(Maybe Bool)
-    , _dvVolumeId   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DetachVolume' smart constructor.
-detachVolume :: Text -> DetachVolume
+detachVolume
+    :: Text -- ^ 'dvVolumeId'
+    -> DetachVolume
 detachVolume pVolumeId_ =
     DetachVolume'
     { _dvInstanceId = Nothing
@@ -117,8 +119,8 @@ dvDevice = lens _dvDevice (\ s a -> s{_dvDevice = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dvDryRun :: Lens' DetachVolume (Maybe Bool)
 dvDryRun = lens _dvDryRun (\ s a -> s{_dvDryRun = a});
 

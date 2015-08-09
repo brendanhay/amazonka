@@ -31,14 +31,14 @@
 module Network.AWS.IAM.DeleteRole
     (
     -- * Creating a Request
-      DeleteRole
-    , deleteRole
+      deleteRole
+    , DeleteRole
     -- * Request Lenses
     , drRoleName
 
     -- * Destructuring the Response
-    , DeleteRoleResponse
     , deleteRoleResponse
+    , DeleteRoleResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -48,16 +48,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteRole' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drRoleName'
 newtype DeleteRole = DeleteRole'
     { _drRoleName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRole' smart constructor.
-deleteRole :: Text -> DeleteRole
+-- | Creates a value of 'DeleteRole' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drRoleName'
+deleteRole
+    :: Text -- ^ 'drRoleName'
+    -> DeleteRole
 deleteRole pRoleName_ =
     DeleteRole'
     { _drRoleName = pRoleName_
@@ -91,6 +93,8 @@ data DeleteRoleResponse =
     DeleteRoleResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRoleResponse' smart constructor.
-deleteRoleResponse :: DeleteRoleResponse
+-- | Creates a value of 'DeleteRoleResponse' with the minimum fields required to make a request.
+--
+deleteRoleResponse
+    :: DeleteRoleResponse
 deleteRoleResponse = DeleteRoleResponse'

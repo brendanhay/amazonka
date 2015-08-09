@@ -27,14 +27,14 @@
 module Network.AWS.DirectConnect.DescribeInterconnects
     (
     -- * Creating a Request
-      DescribeInterconnects
-    , describeInterconnects
+      describeInterconnects
+    , DescribeInterconnects
     -- * Request Lenses
     , diInterconnectId
 
     -- * Destructuring the Response
-    , DescribeInterconnectsResponse
     , describeInterconnectsResponse
+    , DescribeInterconnectsResponse
     -- * Response Lenses
     , dirsInterconnects
     , dirsStatus
@@ -49,16 +49,17 @@ import           Network.AWS.Response
 -- | Container for the parameters to the DescribeInterconnects operation.
 --
 -- /See:/ 'describeInterconnects' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diInterconnectId'
 newtype DescribeInterconnects = DescribeInterconnects'
     { _diInterconnectId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeInterconnects' smart constructor.
-describeInterconnects :: DescribeInterconnects
+-- | Creates a value of 'DescribeInterconnects' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diInterconnectId'
+describeInterconnects
+    :: DescribeInterconnects
 describeInterconnects =
     DescribeInterconnects'
     { _diInterconnectId = Nothing
@@ -103,19 +104,21 @@ instance ToQuery DescribeInterconnects where
 -- | A structure containing a list of interconnects.
 --
 -- /See:/ 'describeInterconnectsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dirsInterconnects'
---
--- * 'dirsStatus'
 data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
     { _dirsInterconnects :: !(Maybe [Interconnect])
     , _dirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeInterconnectsResponse' smart constructor.
-describeInterconnectsResponse :: Int -> DescribeInterconnectsResponse
+-- | Creates a value of 'DescribeInterconnectsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dirsInterconnects'
+--
+-- * 'dirsStatus'
+describeInterconnectsResponse
+    :: Int -- ^ 'dirsStatus'
+    -> DescribeInterconnectsResponse
 describeInterconnectsResponse pStatus_ =
     DescribeInterconnectsResponse'
     { _dirsInterconnects = Nothing
@@ -126,6 +129,6 @@ describeInterconnectsResponse pStatus_ =
 dirsInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
 dirsInterconnects = lens _dirsInterconnects (\ s a -> s{_dirsInterconnects = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dirsStatus :: Lens' DescribeInterconnectsResponse Int
 dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

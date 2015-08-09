@@ -27,22 +27,26 @@ import           Network.AWS.Prelude
 -- bucket used to store artifact for the pipeline in AWS CodePipeline.
 --
 -- /See:/ 'awsSessionCredentials' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ascAccessKeyId'
---
--- * 'ascSecretAccessKey'
---
--- * 'ascSessionToken'
 data AWSSessionCredentials = AWSSessionCredentials'
     { _ascAccessKeyId     :: !Text
     , _ascSecretAccessKey :: !Text
     , _ascSessionToken    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AWSSessionCredentials' smart constructor.
-awsSessionCredentials :: Text -> Text -> Text -> AWSSessionCredentials
+-- | Creates a value of 'AWSSessionCredentials' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ascAccessKeyId'
+--
+-- * 'ascSecretAccessKey'
+--
+-- * 'ascSessionToken'
+awsSessionCredentials
+    :: Text -- ^ 'ascAccessKeyId'
+    -> Text -- ^ 'ascSecretAccessKey'
+    -> Text -- ^ 'ascSessionToken'
+    -> AWSSessionCredentials
 awsSessionCredentials pAccessKeyId_ pSecretAccessKey_ pSessionToken_ =
     AWSSessionCredentials'
     { _ascAccessKeyId = pAccessKeyId_
@@ -73,16 +77,17 @@ instance FromJSON AWSSessionCredentials where
 -- | Represents information about an action configuration.
 --
 -- /See:/ 'actionConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'acConfiguration'
 newtype ActionConfiguration = ActionConfiguration'
     { _acConfiguration :: Maybe (Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ActionConfiguration' smart constructor.
-actionConfiguration :: ActionConfiguration
+-- | Creates a value of 'ActionConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acConfiguration'
+actionConfiguration
+    :: ActionConfiguration
 actionConfiguration =
     ActionConfiguration'
     { _acConfiguration = Nothing
@@ -102,8 +107,19 @@ instance FromJSON ActionConfiguration where
 -- | Represents information about an action configuration property.
 --
 -- /See:/ 'actionConfigurationProperty' smart constructor.
+data ActionConfigurationProperty = ActionConfigurationProperty'
+    { _acpQueryable   :: !(Maybe Bool)
+    , _acpType        :: !(Maybe ActionConfigurationPropertyType)
+    , _acpDescription :: !(Maybe Text)
+    , _acpName        :: !Text
+    , _acpRequired    :: !Bool
+    , _acpKey         :: !Bool
+    , _acpSecret      :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ActionConfigurationProperty' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'acpQueryable'
 --
@@ -118,18 +134,12 @@ instance FromJSON ActionConfiguration where
 -- * 'acpKey'
 --
 -- * 'acpSecret'
-data ActionConfigurationProperty = ActionConfigurationProperty'
-    { _acpQueryable   :: !(Maybe Bool)
-    , _acpType        :: !(Maybe ActionConfigurationPropertyType)
-    , _acpDescription :: !(Maybe Text)
-    , _acpName        :: !Text
-    , _acpRequired    :: !Bool
-    , _acpKey         :: !Bool
-    , _acpSecret      :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ActionConfigurationProperty' smart constructor.
-actionConfigurationProperty :: Text -> Bool -> Bool -> Bool -> ActionConfigurationProperty
+actionConfigurationProperty
+    :: Text -- ^ 'acpName'
+    -> Bool -- ^ 'acpRequired'
+    -> Bool -- ^ 'acpKey'
+    -> Bool -- ^ 'acpSecret'
+    -> ActionConfigurationProperty
 actionConfigurationProperty pName_ pRequired_ pKey_ pSecret_ =
     ActionConfigurationProperty'
     { _acpQueryable = Nothing
@@ -208,16 +218,17 @@ instance ToJSON ActionConfigurationProperty where
 -- job worker.
 --
 -- /See:/ 'actionContext' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'acName'
 newtype ActionContext = ActionContext'
     { _acName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ActionContext' smart constructor.
-actionContext :: ActionContext
+-- | Creates a value of 'ActionContext' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acName'
+actionContext
+    :: ActionContext
 actionContext =
     ActionContext'
     { _acName = Nothing
@@ -235,8 +246,19 @@ instance FromJSON ActionContext where
 -- | Represents information about an action declaration.
 --
 -- /See:/ 'actionDeclaration' smart constructor.
+data ActionDeclaration = ActionDeclaration'
+    { _adOutputArtifacts :: !(Maybe [OutputArtifact])
+    , _adRunOrder        :: !(Maybe Nat)
+    , _adConfiguration   :: !(Maybe (Map Text Text))
+    , _adInputArtifacts  :: !(Maybe [InputArtifact])
+    , _adRoleARN         :: !(Maybe Text)
+    , _adName            :: !Text
+    , _adActionTypeId    :: !ActionTypeId
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ActionDeclaration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'adOutputArtifacts'
 --
@@ -251,18 +273,10 @@ instance FromJSON ActionContext where
 -- * 'adName'
 --
 -- * 'adActionTypeId'
-data ActionDeclaration = ActionDeclaration'
-    { _adOutputArtifacts :: !(Maybe [OutputArtifact])
-    , _adRunOrder        :: !(Maybe Nat)
-    , _adConfiguration   :: !(Maybe (Map Text Text))
-    , _adInputArtifacts  :: !(Maybe [InputArtifact])
-    , _adRoleARN         :: !(Maybe Text)
-    , _adName            :: !Text
-    , _adActionTypeId    :: !ActionTypeId
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ActionDeclaration' smart constructor.
-actionDeclaration :: Text -> ActionTypeId -> ActionDeclaration
+actionDeclaration
+    :: Text -- ^ 'adName'
+    -> ActionTypeId -- ^ 'adActionTypeId'
+    -> ActionDeclaration
 actionDeclaration pName_ pActionTypeId_ =
     ActionDeclaration'
     { _adOutputArtifacts = Nothing
@@ -331,8 +345,19 @@ instance ToJSON ActionDeclaration where
 -- | Represents information about how an action runs.
 --
 -- /See:/ 'actionExecution' smart constructor.
+data ActionExecution = ActionExecution'
+    { _aeSummary              :: !(Maybe Text)
+    , _aeStatus               :: !(Maybe ActionExecutionStatus)
+    , _aeLastStatusChange     :: !(Maybe POSIX)
+    , _aeExternalExecutionURL :: !(Maybe Text)
+    , _aePercentComplete      :: !(Maybe Nat)
+    , _aeErrorDetails         :: !(Maybe ErrorDetails)
+    , _aeExternalExecutionId  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ActionExecution' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'aeSummary'
 --
@@ -347,18 +372,8 @@ instance ToJSON ActionDeclaration where
 -- * 'aeErrorDetails'
 --
 -- * 'aeExternalExecutionId'
-data ActionExecution = ActionExecution'
-    { _aeSummary              :: !(Maybe Text)
-    , _aeStatus               :: !(Maybe ActionExecutionStatus)
-    , _aeLastStatusChange     :: !(Maybe POSIX)
-    , _aeExternalExecutionURL :: !(Maybe Text)
-    , _aePercentComplete      :: !(Maybe Nat)
-    , _aeErrorDetails         :: !(Maybe ErrorDetails)
-    , _aeExternalExecutionId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ActionExecution' smart constructor.
-actionExecution :: ActionExecution
+actionExecution
+    :: ActionExecution
 actionExecution =
     ActionExecution'
     { _aeSummary = Nothing
@@ -415,22 +430,25 @@ instance FromJSON ActionExecution where
 -- | Represents information about the version (or revision) of an action.
 --
 -- /See:/ 'actionRevision' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'arRevisionChangeId'
---
--- * 'arRevisionId'
---
--- * 'arCreated'
 data ActionRevision = ActionRevision'
     { _arRevisionChangeId :: !(Maybe Text)
     , _arRevisionId       :: !Text
     , _arCreated          :: !POSIX
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ActionRevision' smart constructor.
-actionRevision :: Text -> UTCTime -> ActionRevision
+-- | Creates a value of 'ActionRevision' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'arRevisionChangeId'
+--
+-- * 'arRevisionId'
+--
+-- * 'arCreated'
+actionRevision
+    :: Text -- ^ 'arRevisionId'
+    -> UTCTime -- ^ 'arCreated'
+    -> ActionRevision
 actionRevision pRevisionId_ pCreated_ =
     ActionRevision'
     { _arRevisionChangeId = Nothing
@@ -471,8 +489,17 @@ instance ToJSON ActionRevision where
 -- | Represents information about the state of an action.
 --
 -- /See:/ 'actionState' smart constructor.
+data ActionState = ActionState'
+    { _asEntityURL       :: !(Maybe Text)
+    , _asRevisionURL     :: !(Maybe Text)
+    , _asActionName      :: !(Maybe Text)
+    , _asCurrentRevision :: !(Maybe ActionRevision)
+    , _asLatestExecution :: !(Maybe ActionExecution)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ActionState' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'asEntityURL'
 --
@@ -483,16 +510,8 @@ instance ToJSON ActionRevision where
 -- * 'asCurrentRevision'
 --
 -- * 'asLatestExecution'
-data ActionState = ActionState'
-    { _asEntityURL       :: !(Maybe Text)
-    , _asRevisionURL     :: !(Maybe Text)
-    , _asActionName      :: !(Maybe Text)
-    , _asCurrentRevision :: !(Maybe ActionRevision)
-    , _asLatestExecution :: !(Maybe ActionExecution)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ActionState' smart constructor.
-actionState :: ActionState
+actionState
+    :: ActionState
 actionState =
     ActionState'
     { _asEntityURL = Nothing
@@ -537,8 +556,17 @@ instance FromJSON ActionState where
 -- | Returns information about the details of an action type.
 --
 -- /See:/ 'actionType' smart constructor.
+data ActionType = ActionType'
+    { _atSettings                      :: !(Maybe ActionTypeSettings)
+    , _atActionConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
+    , _atId                            :: !ActionTypeId
+    , _atInputArtifactDetails          :: !ArtifactDetails
+    , _atOutputArtifactDetails         :: !ArtifactDetails
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ActionType' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'atSettings'
 --
@@ -549,16 +577,11 @@ instance FromJSON ActionState where
 -- * 'atInputArtifactDetails'
 --
 -- * 'atOutputArtifactDetails'
-data ActionType = ActionType'
-    { _atSettings                      :: !(Maybe ActionTypeSettings)
-    , _atActionConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
-    , _atId                            :: !ActionTypeId
-    , _atInputArtifactDetails          :: !ArtifactDetails
-    , _atOutputArtifactDetails         :: !ArtifactDetails
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ActionType' smart constructor.
-actionType :: ActionTypeId -> ArtifactDetails -> ArtifactDetails -> ActionType
+actionType
+    :: ActionTypeId -- ^ 'atId'
+    -> ArtifactDetails -- ^ 'atInputArtifactDetails'
+    -> ArtifactDetails -- ^ 'atOutputArtifactDetails'
+    -> ActionType
 actionType pId_ pInputArtifactDetails_ pOutputArtifactDetails_ =
     ActionType'
     { _atSettings = Nothing
@@ -602,8 +625,16 @@ instance FromJSON ActionType where
 -- | Represents information about an action type.
 --
 -- /See:/ 'actionTypeId' smart constructor.
+data ActionTypeId = ActionTypeId'
+    { _atiCategory :: !ActionCategory
+    , _atiOwner    :: !ActionOwner
+    , _atiProvider :: !Text
+    , _atiVersion  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ActionTypeId' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'atiCategory'
 --
@@ -612,15 +643,12 @@ instance FromJSON ActionType where
 -- * 'atiProvider'
 --
 -- * 'atiVersion'
-data ActionTypeId = ActionTypeId'
-    { _atiCategory :: !ActionCategory
-    , _atiOwner    :: !ActionOwner
-    , _atiProvider :: !Text
-    , _atiVersion  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ActionTypeId' smart constructor.
-actionTypeId :: ActionCategory -> ActionOwner -> Text -> Text -> ActionTypeId
+actionTypeId
+    :: ActionCategory -- ^ 'atiCategory'
+    -> ActionOwner -- ^ 'atiOwner'
+    -> Text -- ^ 'atiProvider'
+    -> Text -- ^ 'atiVersion'
+    -> ActionTypeId
 actionTypeId pCategory_ pOwner_ pProvider_ pVersion_ =
     ActionTypeId'
     { _atiCategory = pCategory_
@@ -668,8 +696,16 @@ instance ToJSON ActionTypeId where
 -- | Returns information about the settings for an action type.
 --
 -- /See:/ 'actionTypeSettings' smart constructor.
+data ActionTypeSettings = ActionTypeSettings'
+    { _atsThirdPartyConfigurationURL :: !(Maybe Text)
+    , _atsExecutionURLTemplate       :: !(Maybe Text)
+    , _atsEntityURLTemplate          :: !(Maybe Text)
+    , _atsRevisionURLTemplate        :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ActionTypeSettings' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'atsThirdPartyConfigurationURL'
 --
@@ -678,15 +714,8 @@ instance ToJSON ActionTypeId where
 -- * 'atsEntityURLTemplate'
 --
 -- * 'atsRevisionURLTemplate'
-data ActionTypeSettings = ActionTypeSettings'
-    { _atsThirdPartyConfigurationURL :: !(Maybe Text)
-    , _atsExecutionURLTemplate       :: !(Maybe Text)
-    , _atsEntityURLTemplate          :: !(Maybe Text)
-    , _atsRevisionURLTemplate        :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ActionTypeSettings' smart constructor.
-actionTypeSettings :: ActionTypeSettings
+actionTypeSettings
+    :: ActionTypeSettings
 actionTypeSettings =
     ActionTypeSettings'
     { _atsThirdPartyConfigurationURL = Nothing
@@ -745,22 +774,23 @@ instance ToJSON ActionTypeSettings where
 -- actions in the pipeline.
 --
 -- /See:/ 'artifact' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aLocation'
---
--- * 'aName'
---
--- * 'aRevision'
 data Artifact = Artifact'
     { _aLocation :: !(Maybe ArtifactLocation)
     , _aName     :: !(Maybe Text)
     , _aRevision :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Artifact' smart constructor.
-artifact :: Artifact
+-- | Creates a value of 'Artifact' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aLocation'
+--
+-- * 'aName'
+--
+-- * 'aRevision'
+artifact
+    :: Artifact
 artifact =
     Artifact'
     { _aLocation = Nothing
@@ -792,19 +822,22 @@ instance FromJSON Artifact where
 -- | Returns information about the details of an artifact.
 --
 -- /See:/ 'artifactDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'adMinimumCount'
---
--- * 'adMaximumCount'
 data ArtifactDetails = ArtifactDetails'
     { _adMinimumCount :: !Nat
     , _adMaximumCount :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ArtifactDetails' smart constructor.
-artifactDetails :: Natural -> Natural -> ArtifactDetails
+-- | Creates a value of 'ArtifactDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'adMinimumCount'
+--
+-- * 'adMaximumCount'
+artifactDetails
+    :: Natural -- ^ 'adMinimumCount'
+    -> Natural -- ^ 'adMaximumCount'
+    -> ArtifactDetails
 artifactDetails pMinimumCount_ pMaximumCount_ =
     ArtifactDetails'
     { _adMinimumCount = _Nat # pMinimumCount_
@@ -835,19 +868,20 @@ instance ToJSON ArtifactDetails where
 -- | Represents information about the location of an artifact.
 --
 -- /See:/ 'artifactLocation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'alS3Location'
---
--- * 'alType'
 data ArtifactLocation = ArtifactLocation'
     { _alS3Location :: !(Maybe S3ArtifactLocation)
     , _alType       :: !(Maybe ArtifactLocationType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ArtifactLocation' smart constructor.
-artifactLocation :: ArtifactLocation
+-- | Creates a value of 'ArtifactLocation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'alS3Location'
+--
+-- * 'alType'
+artifactLocation
+    :: ArtifactLocation
 artifactLocation =
     ArtifactLocation'
     { _alS3Location = Nothing
@@ -874,19 +908,22 @@ instance FromJSON ArtifactLocation where
 -- for AWS CodePipeline. For more information, see the Concepts.
 --
 -- /See:/ 'artifactStore' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'asType'
---
--- * 'asLocation'
 data ArtifactStore = ArtifactStore'
     { _asType     :: !ArtifactStoreType
     , _asLocation :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ArtifactStore' smart constructor.
-artifactStore :: ArtifactStoreType -> Text -> ArtifactStore
+-- | Creates a value of 'ArtifactStore' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asType'
+--
+-- * 'asLocation'
+artifactStore
+    :: ArtifactStoreType -- ^ 'asType'
+    -> Text -- ^ 'asLocation'
+    -> ArtifactStore
 artifactStore pType_ pLocation_ =
     ArtifactStore'
     { _asType = pType_
@@ -917,19 +954,22 @@ instance ToJSON ArtifactStore where
 -- | Represents information about a gate declaration.
 --
 -- /See:/ 'blockerDeclaration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bdName'
---
--- * 'bdType'
 data BlockerDeclaration = BlockerDeclaration'
     { _bdName :: !Text
     , _bdType :: !BlockerType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BlockerDeclaration' smart constructor.
-blockerDeclaration :: Text -> BlockerType -> BlockerDeclaration
+-- | Creates a value of 'BlockerDeclaration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bdName'
+--
+-- * 'bdType'
+blockerDeclaration
+    :: Text -- ^ 'bdName'
+    -> BlockerType -- ^ 'bdType'
+    -> BlockerDeclaration
 blockerDeclaration pName_ pType_ =
     BlockerDeclaration'
     { _bdName = pName_
@@ -958,19 +998,22 @@ instance ToJSON BlockerDeclaration where
 -- | Represents information about a current revision.
 --
 -- /See:/ 'currentRevision' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crRevision'
---
--- * 'crChangeIdentifier'
 data CurrentRevision = CurrentRevision'
     { _crRevision         :: !Text
     , _crChangeIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CurrentRevision' smart constructor.
-currentRevision :: Text -> Text -> CurrentRevision
+-- | Creates a value of 'CurrentRevision' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crRevision'
+--
+-- * 'crChangeIdentifier'
+currentRevision
+    :: Text -- ^ 'crRevision'
+    -> Text -- ^ 'crChangeIdentifier'
+    -> CurrentRevision
 currentRevision pRevision_ pChangeIdentifier_ =
     CurrentRevision'
     { _crRevision = pRevision_
@@ -994,19 +1037,20 @@ instance ToJSON CurrentRevision where
 -- | Represents information about an error in AWS CodePipeline.
 --
 -- /See:/ 'errorDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'edCode'
---
--- * 'edMessage'
 data ErrorDetails = ErrorDetails'
     { _edCode    :: !(Maybe Text)
     , _edMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ErrorDetails' smart constructor.
-errorDetails :: ErrorDetails
+-- | Creates a value of 'ErrorDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edCode'
+--
+-- * 'edMessage'
+errorDetails
+    :: ErrorDetails
 errorDetails =
     ErrorDetails'
     { _edCode = Nothing
@@ -1032,22 +1076,23 @@ instance FromJSON ErrorDetails where
 -- it passes through stages in the pipeline.
 --
 -- /See:/ 'executionDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'edSummary'
---
--- * 'edPercentComplete'
---
--- * 'edExternalExecutionId'
 data ExecutionDetails = ExecutionDetails'
     { _edSummary             :: !(Maybe Text)
     , _edPercentComplete     :: !(Maybe Nat)
     , _edExternalExecutionId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ExecutionDetails' smart constructor.
-executionDetails :: ExecutionDetails
+-- | Creates a value of 'ExecutionDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'edSummary'
+--
+-- * 'edPercentComplete'
+--
+-- * 'edExternalExecutionId'
+executionDetails
+    :: ExecutionDetails
 executionDetails =
     ExecutionDetails'
     { _edSummary = Nothing
@@ -1079,22 +1124,24 @@ instance ToJSON ExecutionDetails where
 -- | Represents information about failure details.
 --
 -- /See:/ 'failureDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fdExternalExecutionId'
---
--- * 'fdMessage'
---
--- * 'fdType'
 data FailureDetails = FailureDetails'
     { _fdExternalExecutionId :: !(Maybe Text)
     , _fdMessage             :: !(Maybe Text)
     , _fdType                :: !FailureType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'FailureDetails' smart constructor.
-failureDetails :: FailureType -> FailureDetails
+-- | Creates a value of 'FailureDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fdExternalExecutionId'
+--
+-- * 'fdMessage'
+--
+-- * 'fdType'
+failureDetails
+    :: FailureType -- ^ 'fdType'
+    -> FailureDetails
 failureDetails pType_ =
     FailureDetails'
     { _fdExternalExecutionId = Nothing
@@ -1124,16 +1171,18 @@ instance ToJSON FailureDetails where
 -- or build artifact.
 --
 -- /See:/ 'inputArtifact' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iaName'
 newtype InputArtifact = InputArtifact'
     { _iaName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InputArtifact' smart constructor.
-inputArtifact :: Text -> InputArtifact
+-- | Creates a value of 'InputArtifact' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iaName'
+inputArtifact
+    :: Text -- ^ 'iaName'
+    -> InputArtifact
 inputArtifact pName_ =
     InputArtifact'
     { _iaName = pName_
@@ -1161,8 +1210,16 @@ instance ToJSON InputArtifact where
 -- | Represents information about a job.
 --
 -- /See:/ 'job' smart constructor.
+data Job = Job'
+    { _jData      :: !(Maybe JobData)
+    , _jAccountId :: !(Maybe Text)
+    , _jId        :: !(Maybe Text)
+    , _jNonce     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Job' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'jData'
 --
@@ -1171,15 +1228,8 @@ instance ToJSON InputArtifact where
 -- * 'jId'
 --
 -- * 'jNonce'
-data Job = Job'
-    { _jData      :: !(Maybe JobData)
-    , _jAccountId :: !(Maybe Text)
-    , _jId        :: !(Maybe Text)
-    , _jNonce     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Job' smart constructor.
-job :: Job
+job
+    :: Job
 job =
     Job'
     { _jData = Nothing
@@ -1219,8 +1269,19 @@ instance FromJSON Job where
 -- to complete the job.
 --
 -- /See:/ 'jobData' smart constructor.
+data JobData = JobData'
+    { _jdContinuationToken   :: !(Maybe Text)
+    , _jdOutputArtifacts     :: !(Maybe [Artifact])
+    , _jdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
+    , _jdPipelineContext     :: !(Maybe PipelineContext)
+    , _jdActionTypeId        :: !(Maybe ActionTypeId)
+    , _jdInputArtifacts      :: !(Maybe [Artifact])
+    , _jdActionConfiguration :: !(Maybe ActionConfiguration)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'JobData' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'jdContinuationToken'
 --
@@ -1235,18 +1296,8 @@ instance FromJSON Job where
 -- * 'jdInputArtifacts'
 --
 -- * 'jdActionConfiguration'
-data JobData = JobData'
-    { _jdContinuationToken   :: !(Maybe Text)
-    , _jdOutputArtifacts     :: !(Maybe [Artifact])
-    , _jdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
-    , _jdPipelineContext     :: !(Maybe PipelineContext)
-    , _jdActionTypeId        :: !(Maybe ActionTypeId)
-    , _jdInputArtifacts      :: !(Maybe [Artifact])
-    , _jdActionConfiguration :: !(Maybe ActionConfiguration)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'JobData' smart constructor.
-jobData :: JobData
+jobData
+    :: JobData
 jobData =
     JobData'
     { _jdContinuationToken = Nothing
@@ -1303,22 +1354,23 @@ instance FromJSON JobData where
 -- | Represents information about the details of a job.
 --
 -- /See:/ 'jobDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'jdData'
---
--- * 'jdAccountId'
---
--- * 'jdId'
 data JobDetails = JobDetails'
     { _jdData      :: !(Maybe JobData)
     , _jdAccountId :: !(Maybe Text)
     , _jdId        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'JobDetails' smart constructor.
-jobDetails :: JobDetails
+-- | Creates a value of 'JobDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'jdData'
+--
+-- * 'jdAccountId'
+--
+-- * 'jdId'
+jobDetails
+    :: JobDetails
 jobDetails =
     JobDetails'
     { _jdData = Nothing
@@ -1349,16 +1401,18 @@ instance FromJSON JobDetails where
 -- | Represents information about the output of an action.
 --
 -- /See:/ 'outputArtifact' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'oaName'
 newtype OutputArtifact = OutputArtifact'
     { _oaName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'OutputArtifact' smart constructor.
-outputArtifact :: Text -> OutputArtifact
+-- | Creates a value of 'OutputArtifact' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'oaName'
+outputArtifact
+    :: Text -- ^ 'oaName'
+    -> OutputArtifact
 outputArtifact pName_ =
     OutputArtifact'
     { _oaName = pName_
@@ -1388,22 +1442,23 @@ instance ToJSON OutputArtifact where
 -- | Represents information about a pipeline to a job worker.
 --
 -- /See:/ 'pipelineContext' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pcStage'
---
--- * 'pcPipelineName'
---
--- * 'pcAction'
 data PipelineContext = PipelineContext'
     { _pcStage        :: !(Maybe StageContext)
     , _pcPipelineName :: !(Maybe Text)
     , _pcAction       :: !(Maybe ActionContext)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PipelineContext' smart constructor.
-pipelineContext :: PipelineContext
+-- | Creates a value of 'PipelineContext' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pcStage'
+--
+-- * 'pcPipelineName'
+--
+-- * 'pcAction'
+pipelineContext
+    :: PipelineContext
 pipelineContext =
     PipelineContext'
     { _pcStage = Nothing
@@ -1437,8 +1492,17 @@ instance FromJSON PipelineContext where
 -- pipeline.
 --
 -- /See:/ 'pipelineDeclaration' smart constructor.
+data PipelineDeclaration = PipelineDeclaration'
+    { _pdVersion       :: !(Maybe Nat)
+    , _pdName          :: !Text
+    , _pdRoleARN       :: !Text
+    , _pdArtifactStore :: !ArtifactStore
+    , _pdStages        :: ![StageDeclaration]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PipelineDeclaration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pdVersion'
 --
@@ -1449,16 +1513,11 @@ instance FromJSON PipelineContext where
 -- * 'pdArtifactStore'
 --
 -- * 'pdStages'
-data PipelineDeclaration = PipelineDeclaration'
-    { _pdVersion       :: !(Maybe Nat)
-    , _pdName          :: !Text
-    , _pdRoleARN       :: !Text
-    , _pdArtifactStore :: !ArtifactStore
-    , _pdStages        :: ![StageDeclaration]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PipelineDeclaration' smart constructor.
-pipelineDeclaration :: Text -> Text -> ArtifactStore -> PipelineDeclaration
+pipelineDeclaration
+    :: Text -- ^ 'pdName'
+    -> Text -- ^ 'pdRoleARN'
+    -> ArtifactStore -- ^ 'pdArtifactStore'
+    -> PipelineDeclaration
 pipelineDeclaration pName_ pRoleARN_ pArtifactStore_ =
     PipelineDeclaration'
     { _pdVersion = Nothing
@@ -1513,8 +1572,16 @@ instance ToJSON PipelineDeclaration where
 -- | Returns a summary of a pipeline.
 --
 -- /See:/ 'pipelineSummary' smart constructor.
+data PipelineSummary = PipelineSummary'
+    { _psCreated :: !(Maybe POSIX)
+    , _psName    :: !(Maybe Text)
+    , _psVersion :: !(Maybe Nat)
+    , _psUpdated :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PipelineSummary' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'psCreated'
 --
@@ -1523,15 +1590,8 @@ instance ToJSON PipelineDeclaration where
 -- * 'psVersion'
 --
 -- * 'psUpdated'
-data PipelineSummary = PipelineSummary'
-    { _psCreated :: !(Maybe POSIX)
-    , _psName    :: !(Maybe Text)
-    , _psVersion :: !(Maybe Nat)
-    , _psUpdated :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PipelineSummary' smart constructor.
-pipelineSummary :: PipelineSummary
+pipelineSummary
+    :: PipelineSummary
 pipelineSummary =
     PipelineSummary'
     { _psCreated = Nothing
@@ -1569,19 +1629,22 @@ instance FromJSON PipelineSummary where
 -- | The location of the Amazon S3 bucket that contains a revision.
 --
 -- /See:/ 's3ArtifactLocation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'salBucketName'
---
--- * 'salObjectKey'
 data S3ArtifactLocation = S3ArtifactLocation'
     { _salBucketName :: !Text
     , _salObjectKey  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'S3ArtifactLocation' smart constructor.
-s3ArtifactLocation :: Text -> Text -> S3ArtifactLocation
+-- | Creates a value of 'S3ArtifactLocation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'salBucketName'
+--
+-- * 'salObjectKey'
+s3ArtifactLocation
+    :: Text -- ^ 'salBucketName'
+    -> Text -- ^ 'salObjectKey'
+    -> S3ArtifactLocation
 s3ArtifactLocation pBucketName_ pObjectKey_ =
     S3ArtifactLocation'
     { _salBucketName = pBucketName_
@@ -1607,16 +1670,17 @@ instance FromJSON S3ArtifactLocation where
 -- | Represents information about a stage to a job worker.
 --
 -- /See:/ 'stageContext' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'scName'
 newtype StageContext = StageContext'
     { _scName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StageContext' smart constructor.
-stageContext :: StageContext
+-- | Creates a value of 'StageContext' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scName'
+stageContext
+    :: StageContext
 stageContext =
     StageContext'
     { _scName = Nothing
@@ -1634,22 +1698,24 @@ instance FromJSON StageContext where
 -- | Represents information about a stage and its definition.
 --
 -- /See:/ 'stageDeclaration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sdBlockers'
---
--- * 'sdName'
---
--- * 'sdActions'
 data StageDeclaration = StageDeclaration'
     { _sdBlockers :: !(Maybe [BlockerDeclaration])
     , _sdName     :: !Text
     , _sdActions  :: ![ActionDeclaration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StageDeclaration' smart constructor.
-stageDeclaration :: Text -> StageDeclaration
+-- | Creates a value of 'StageDeclaration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdBlockers'
+--
+-- * 'sdName'
+--
+-- * 'sdActions'
+stageDeclaration
+    :: Text -- ^ 'sdName'
+    -> StageDeclaration
 stageDeclaration pName_ =
     StageDeclaration'
     { _sdBlockers = Nothing
@@ -1686,22 +1752,23 @@ instance ToJSON StageDeclaration where
 -- | Represents information about the state of the stage.
 --
 -- /See:/ 'stageState' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ssInboundTransitionState'
---
--- * 'ssActionStates'
---
--- * 'ssStageName'
 data StageState = StageState'
     { _ssInboundTransitionState :: !(Maybe TransitionState)
     , _ssActionStates           :: !(Maybe [ActionState])
     , _ssStageName              :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StageState' smart constructor.
-stageState :: StageState
+-- | Creates a value of 'StageState' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssInboundTransitionState'
+--
+-- * 'ssActionStates'
+--
+-- * 'ssStageName'
+stageState
+    :: StageState
 stageState =
     StageState'
     { _ssInboundTransitionState = Nothing
@@ -1735,19 +1802,20 @@ instance FromJSON StageState where
 -- CodePipeline when there is a job to be worked upon by a partner action.
 --
 -- /See:/ 'thirdPartyJob' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tpjClientId'
---
--- * 'tpjJobId'
 data ThirdPartyJob = ThirdPartyJob'
     { _tpjClientId :: !(Maybe Text)
     , _tpjJobId    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ThirdPartyJob' smart constructor.
-thirdPartyJob :: ThirdPartyJob
+-- | Creates a value of 'ThirdPartyJob' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tpjClientId'
+--
+-- * 'tpjJobId'
+thirdPartyJob
+    :: ThirdPartyJob
 thirdPartyJob =
     ThirdPartyJob'
     { _tpjClientId = Nothing
@@ -1774,8 +1842,19 @@ instance FromJSON ThirdPartyJob where
 -- | Represents information about the job data for a partner action.
 --
 -- /See:/ 'thirdPartyJobData' smart constructor.
+data ThirdPartyJobData = ThirdPartyJobData'
+    { _tpjdContinuationToken   :: !(Maybe Text)
+    , _tpjdOutputArtifacts     :: !(Maybe [Artifact])
+    , _tpjdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
+    , _tpjdPipelineContext     :: !(Maybe PipelineContext)
+    , _tpjdActionTypeId        :: !(Maybe ActionTypeId)
+    , _tpjdInputArtifacts      :: !(Maybe [Artifact])
+    , _tpjdActionConfiguration :: !(Maybe ActionConfiguration)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ThirdPartyJobData' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tpjdContinuationToken'
 --
@@ -1790,18 +1869,8 @@ instance FromJSON ThirdPartyJob where
 -- * 'tpjdInputArtifacts'
 --
 -- * 'tpjdActionConfiguration'
-data ThirdPartyJobData = ThirdPartyJobData'
-    { _tpjdContinuationToken   :: !(Maybe Text)
-    , _tpjdOutputArtifacts     :: !(Maybe [Artifact])
-    , _tpjdArtifactCredentials :: !(Maybe (Sensitive AWSSessionCredentials))
-    , _tpjdPipelineContext     :: !(Maybe PipelineContext)
-    , _tpjdActionTypeId        :: !(Maybe ActionTypeId)
-    , _tpjdInputArtifacts      :: !(Maybe [Artifact])
-    , _tpjdActionConfiguration :: !(Maybe ActionConfiguration)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ThirdPartyJobData' smart constructor.
-thirdPartyJobData :: ThirdPartyJobData
+thirdPartyJobData
+    :: ThirdPartyJobData
 thirdPartyJobData =
     ThirdPartyJobData'
     { _tpjdContinuationToken = Nothing
@@ -1865,22 +1934,23 @@ instance FromJSON ThirdPartyJobData where
 -- request.
 --
 -- /See:/ 'thirdPartyJobDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tpjdData'
---
--- * 'tpjdId'
---
--- * 'tpjdNonce'
 data ThirdPartyJobDetails = ThirdPartyJobDetails'
     { _tpjdData  :: !(Maybe ThirdPartyJobData)
     , _tpjdId    :: !(Maybe Text)
     , _tpjdNonce :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ThirdPartyJobDetails' smart constructor.
-thirdPartyJobDetails :: ThirdPartyJobDetails
+-- | Creates a value of 'ThirdPartyJobDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tpjdData'
+--
+-- * 'tpjdId'
+--
+-- * 'tpjdNonce'
+thirdPartyJobDetails
+    :: ThirdPartyJobDetails
 thirdPartyJobDetails =
     ThirdPartyJobDetails'
     { _tpjdData = Nothing
@@ -1913,8 +1983,16 @@ instance FromJSON ThirdPartyJobDetails where
 -- and another stage.
 --
 -- /See:/ 'transitionState' smart constructor.
+data TransitionState = TransitionState'
+    { _tsEnabled        :: !(Maybe Bool)
+    , _tsDisabledReason :: !(Maybe Text)
+    , _tsLastChangedAt  :: !(Maybe POSIX)
+    , _tsLastChangedBy  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TransitionState' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'tsEnabled'
 --
@@ -1923,15 +2001,8 @@ instance FromJSON ThirdPartyJobDetails where
 -- * 'tsLastChangedAt'
 --
 -- * 'tsLastChangedBy'
-data TransitionState = TransitionState'
-    { _tsEnabled        :: !(Maybe Bool)
-    , _tsDisabledReason :: !(Maybe Text)
-    , _tsLastChangedAt  :: !(Maybe POSIX)
-    , _tsLastChangedBy  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TransitionState' smart constructor.
-transitionState :: TransitionState
+transitionState
+    :: TransitionState
 transitionState =
     TransitionState'
     { _tsEnabled = Nothing

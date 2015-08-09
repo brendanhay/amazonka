@@ -25,15 +25,15 @@
 module Network.AWS.EC2.DeleteSubnet
     (
     -- * Creating a Request
-      DeleteSubnet
-    , deleteSubnet
+      deleteSubnet
+    , DeleteSubnet
     -- * Request Lenses
     , ddDryRun
     , ddSubnetId
 
     -- * Destructuring the Response
-    , DeleteSubnetResponse
     , deleteSubnetResponse
+    , DeleteSubnetResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -43,19 +43,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteSubnet' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddDryRun'
---
--- * 'ddSubnetId'
 data DeleteSubnet = DeleteSubnet'
     { _ddDryRun   :: !(Maybe Bool)
     , _ddSubnetId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSubnet' smart constructor.
-deleteSubnet :: Text -> DeleteSubnet
+-- | Creates a value of 'DeleteSubnet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddDryRun'
+--
+-- * 'ddSubnetId'
+deleteSubnet
+    :: Text -- ^ 'ddSubnetId'
+    -> DeleteSubnet
 deleteSubnet pSubnetId_ =
     DeleteSubnet'
     { _ddDryRun = Nothing
@@ -64,8 +66,8 @@ deleteSubnet pSubnetId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 ddDryRun :: Lens' DeleteSubnet (Maybe Bool)
 ddDryRun = lens _ddDryRun (\ s a -> s{_ddDryRun = a});
 
@@ -97,6 +99,8 @@ data DeleteSubnetResponse =
     DeleteSubnetResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSubnetResponse' smart constructor.
-deleteSubnetResponse :: DeleteSubnetResponse
+-- | Creates a value of 'DeleteSubnetResponse' with the minimum fields required to make a request.
+--
+deleteSubnetResponse
+    :: DeleteSubnetResponse
 deleteSubnetResponse = DeleteSubnetResponse'

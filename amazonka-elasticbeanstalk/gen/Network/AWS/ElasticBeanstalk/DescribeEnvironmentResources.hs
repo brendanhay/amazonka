@@ -24,15 +24,15 @@
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     (
     -- * Creating a Request
-      DescribeEnvironmentResources
-    , describeEnvironmentResources
+      describeEnvironmentResources
+    , DescribeEnvironmentResources
     -- * Request Lenses
     , derEnvironmentName
     , derEnvironmentId
 
     -- * Destructuring the Response
-    , DescribeEnvironmentResourcesResponse
     , describeEnvironmentResourcesResponse
+    , DescribeEnvironmentResourcesResponse
     -- * Response Lenses
     , derrsEnvironmentResources
     , derrsStatus
@@ -47,19 +47,20 @@ import           Network.AWS.Response
 -- | This documentation target is not reported in the API reference.
 --
 -- /See:/ 'describeEnvironmentResources' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'derEnvironmentName'
---
--- * 'derEnvironmentId'
 data DescribeEnvironmentResources = DescribeEnvironmentResources'
     { _derEnvironmentName :: !(Maybe Text)
     , _derEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEnvironmentResources' smart constructor.
-describeEnvironmentResources :: DescribeEnvironmentResources
+-- | Creates a value of 'DescribeEnvironmentResources' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'derEnvironmentName'
+--
+-- * 'derEnvironmentId'
+describeEnvironmentResources
+    :: DescribeEnvironmentResources
 describeEnvironmentResources =
     DescribeEnvironmentResources'
     { _derEnvironmentName = Nothing
@@ -70,7 +71,7 @@ describeEnvironmentResources =
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
+-- 'MissingRequiredParameter' error.
 derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
 derEnvironmentName = lens _derEnvironmentName (\ s a -> s{_derEnvironmentName = a});
 
@@ -78,7 +79,7 @@ derEnvironmentName = lens _derEnvironmentName (\ s a -> s{_derEnvironmentName = 
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
+-- 'MissingRequiredParameter' error.
 derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
 derEnvironmentId = lens _derEnvironmentId (\ s a -> s{_derEnvironmentId = a});
 
@@ -115,19 +116,21 @@ instance ToQuery DescribeEnvironmentResources where
 -- | Result message containing a list of environment resource descriptions.
 --
 -- /See:/ 'describeEnvironmentResourcesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'derrsEnvironmentResources'
---
--- * 'derrsStatus'
 data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
     { _derrsEnvironmentResources :: !(Maybe EnvironmentResourceDescription)
     , _derrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEnvironmentResourcesResponse' smart constructor.
-describeEnvironmentResourcesResponse :: Int -> DescribeEnvironmentResourcesResponse
+-- | Creates a value of 'DescribeEnvironmentResourcesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'derrsEnvironmentResources'
+--
+-- * 'derrsStatus'
+describeEnvironmentResourcesResponse
+    :: Int -- ^ 'derrsStatus'
+    -> DescribeEnvironmentResourcesResponse
 describeEnvironmentResourcesResponse pStatus_ =
     DescribeEnvironmentResourcesResponse'
     { _derrsEnvironmentResources = Nothing
@@ -138,6 +141,6 @@ describeEnvironmentResourcesResponse pStatus_ =
 derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
 derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEnvironmentResources = a});
 
--- | Undocumented member.
+-- | The response status code.
 derrsStatus :: Lens' DescribeEnvironmentResourcesResponse Int
 derrsStatus = lens _derrsStatus (\ s a -> s{_derrsStatus = a});

@@ -28,14 +28,14 @@
 module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     (
     -- * Creating a Request
-      GetIdentityPoolConfiguration
-    , getIdentityPoolConfiguration
+      getIdentityPoolConfiguration
+    , GetIdentityPoolConfiguration
     -- * Request Lenses
     , gipcIdentityPoolId
 
     -- * Destructuring the Response
-    , GetIdentityPoolConfigurationResponse
     , getIdentityPoolConfigurationResponse
+    , GetIdentityPoolConfigurationResponse
     -- * Response Lenses
     , gipcrsIdentityPoolId
     , gipcrsCognitoStreams
@@ -52,16 +52,18 @@ import           Network.AWS.Response
 -- | The input for the GetIdentityPoolConfiguration operation.
 --
 -- /See:/ 'getIdentityPoolConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gipcIdentityPoolId'
 newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
     { _gipcIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetIdentityPoolConfiguration' smart constructor.
-getIdentityPoolConfiguration :: Text -> GetIdentityPoolConfiguration
+-- | Creates a value of 'GetIdentityPoolConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gipcIdentityPoolId'
+getIdentityPoolConfiguration
+    :: Text -- ^ 'gipcIdentityPoolId'
+    -> GetIdentityPoolConfiguration
 getIdentityPoolConfiguration pIdentityPoolId_ =
     GetIdentityPoolConfiguration'
     { _gipcIdentityPoolId = pIdentityPoolId_
@@ -106,8 +108,16 @@ instance ToQuery GetIdentityPoolConfiguration where
 -- | The output for the GetIdentityPoolConfiguration operation.
 --
 -- /See:/ 'getIdentityPoolConfigurationResponse' smart constructor.
+data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'
+    { _gipcrsIdentityPoolId :: !(Maybe Text)
+    , _gipcrsCognitoStreams :: !(Maybe CognitoStreams)
+    , _gipcrsPushSync       :: !(Maybe PushSync)
+    , _gipcrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetIdentityPoolConfigurationResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gipcrsIdentityPoolId'
 --
@@ -116,15 +126,9 @@ instance ToQuery GetIdentityPoolConfiguration where
 -- * 'gipcrsPushSync'
 --
 -- * 'gipcrsStatus'
-data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'
-    { _gipcrsIdentityPoolId :: !(Maybe Text)
-    , _gipcrsCognitoStreams :: !(Maybe CognitoStreams)
-    , _gipcrsPushSync       :: !(Maybe PushSync)
-    , _gipcrsStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetIdentityPoolConfigurationResponse' smart constructor.
-getIdentityPoolConfigurationResponse :: Int -> GetIdentityPoolConfigurationResponse
+getIdentityPoolConfigurationResponse
+    :: Int -- ^ 'gipcrsStatus'
+    -> GetIdentityPoolConfigurationResponse
 getIdentityPoolConfigurationResponse pStatus_ =
     GetIdentityPoolConfigurationResponse'
     { _gipcrsIdentityPoolId = Nothing
@@ -147,6 +151,6 @@ gipcrsCognitoStreams = lens _gipcrsCognitoStreams (\ s a -> s{_gipcrsCognitoStre
 gipcrsPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
 gipcrsPushSync = lens _gipcrsPushSync (\ s a -> s{_gipcrsPushSync = a});
 
--- | Undocumented member.
+-- | The response status code.
 gipcrsStatus :: Lens' GetIdentityPoolConfigurationResponse Int
 gipcrsStatus = lens _gipcrsStatus (\ s a -> s{_gipcrsStatus = a});

@@ -30,15 +30,15 @@
 module Network.AWS.IAM.DetachGroupPolicy
     (
     -- * Creating a Request
-      DetachGroupPolicy
-    , detachGroupPolicy
+      detachGroupPolicy
+    , DetachGroupPolicy
     -- * Request Lenses
     , dgpGroupName
     , dgpPolicyARN
 
     -- * Destructuring the Response
-    , DetachGroupPolicyResponse
     , detachGroupPolicyResponse
+    , DetachGroupPolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -48,19 +48,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachGroupPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dgpGroupName'
---
--- * 'dgpPolicyARN'
 data DetachGroupPolicy = DetachGroupPolicy'
     { _dgpGroupName :: !Text
     , _dgpPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachGroupPolicy' smart constructor.
-detachGroupPolicy :: Text -> Text -> DetachGroupPolicy
+-- | Creates a value of 'DetachGroupPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dgpGroupName'
+--
+-- * 'dgpPolicyARN'
+detachGroupPolicy
+    :: Text -- ^ 'dgpGroupName'
+    -> Text -- ^ 'dgpPolicyARN'
+    -> DetachGroupPolicy
 detachGroupPolicy pGroupName_ pPolicyARN_ =
     DetachGroupPolicy'
     { _dgpGroupName = pGroupName_
@@ -101,6 +104,8 @@ data DetachGroupPolicyResponse =
     DetachGroupPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachGroupPolicyResponse' smart constructor.
-detachGroupPolicyResponse :: DetachGroupPolicyResponse
+-- | Creates a value of 'DetachGroupPolicyResponse' with the minimum fields required to make a request.
+--
+detachGroupPolicyResponse
+    :: DetachGroupPolicyResponse
 detachGroupPolicyResponse = DetachGroupPolicyResponse'

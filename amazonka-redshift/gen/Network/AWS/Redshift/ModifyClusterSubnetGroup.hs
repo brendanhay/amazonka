@@ -26,16 +26,16 @@
 module Network.AWS.Redshift.ModifyClusterSubnetGroup
     (
     -- * Creating a Request
-      ModifyClusterSubnetGroup
-    , modifyClusterSubnetGroup
+      modifyClusterSubnetGroup
+    , ModifyClusterSubnetGroup
     -- * Request Lenses
     , mcsgDescription
     , mcsgClusterSubnetGroupName
     , mcsgSubnetIds
 
     -- * Destructuring the Response
-    , ModifyClusterSubnetGroupResponse
     , modifyClusterSubnetGroupResponse
+    , ModifyClusterSubnetGroupResponse
     -- * Response Lenses
     , mcsgrsClusterSubnetGroup
     , mcsgrsStatus
@@ -50,22 +50,24 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'modifyClusterSubnetGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mcsgDescription'
---
--- * 'mcsgClusterSubnetGroupName'
---
--- * 'mcsgSubnetIds'
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup'
     { _mcsgDescription            :: !(Maybe Text)
     , _mcsgClusterSubnetGroupName :: !Text
     , _mcsgSubnetIds              :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyClusterSubnetGroup' smart constructor.
-modifyClusterSubnetGroup :: Text -> ModifyClusterSubnetGroup
+-- | Creates a value of 'ModifyClusterSubnetGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mcsgDescription'
+--
+-- * 'mcsgClusterSubnetGroupName'
+--
+-- * 'mcsgSubnetIds'
+modifyClusterSubnetGroup
+    :: Text -- ^ 'mcsgClusterSubnetGroupName'
+    -> ModifyClusterSubnetGroup
 modifyClusterSubnetGroup pClusterSubnetGroupName_ =
     ModifyClusterSubnetGroup'
     { _mcsgDescription = Nothing
@@ -116,19 +118,21 @@ instance ToQuery ModifyClusterSubnetGroup where
                  toQueryList "SubnetIdentifier" _mcsgSubnetIds]
 
 -- | /See:/ 'modifyClusterSubnetGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mcsgrsClusterSubnetGroup'
---
--- * 'mcsgrsStatus'
 data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
     { _mcsgrsClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
     , _mcsgrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyClusterSubnetGroupResponse' smart constructor.
-modifyClusterSubnetGroupResponse :: Int -> ModifyClusterSubnetGroupResponse
+-- | Creates a value of 'ModifyClusterSubnetGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mcsgrsClusterSubnetGroup'
+--
+-- * 'mcsgrsStatus'
+modifyClusterSubnetGroupResponse
+    :: Int -- ^ 'mcsgrsStatus'
+    -> ModifyClusterSubnetGroupResponse
 modifyClusterSubnetGroupResponse pStatus_ =
     ModifyClusterSubnetGroupResponse'
     { _mcsgrsClusterSubnetGroup = Nothing
@@ -139,6 +143,6 @@ modifyClusterSubnetGroupResponse pStatus_ =
 mcsgrsClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 mcsgrsClusterSubnetGroup = lens _mcsgrsClusterSubnetGroup (\ s a -> s{_mcsgrsClusterSubnetGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 mcsgrsStatus :: Lens' ModifyClusterSubnetGroupResponse Int
 mcsgrsStatus = lens _mcsgrsStatus (\ s a -> s{_mcsgrsStatus = a});

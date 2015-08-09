@@ -24,15 +24,15 @@
 module Network.AWS.DeviceFarm.ListSamples
     (
     -- * Creating a Request
-      ListSamples
-    , listSamples
+      listSamples
+    , ListSamples
     -- * Request Lenses
     , lsNextToken
     , lsArn
 
     -- * Destructuring the Response
-    , ListSamplesResponse
     , listSamplesResponse
+    , ListSamplesResponse
     -- * Response Lenses
     , lsrsNextToken
     , lsrsSamples
@@ -48,19 +48,21 @@ import           Network.AWS.Response
 -- | Represents a request to the list samples operation.
 --
 -- /See:/ 'listSamples' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsNextToken'
---
--- * 'lsArn'
 data ListSamples = ListSamples'
     { _lsNextToken :: !(Maybe Text)
     , _lsArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListSamples' smart constructor.
-listSamples :: Text -> ListSamples
+-- | Creates a value of 'ListSamples' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsNextToken'
+--
+-- * 'lsArn'
+listSamples
+    :: Text -- ^ 'lsArn'
+    -> ListSamples
 listSamples pArn_ =
     ListSamples'
     { _lsNextToken = Nothing
@@ -111,22 +113,24 @@ instance ToQuery ListSamples where
 -- | Represents the result of a list samples request.
 --
 -- /See:/ 'listSamplesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsrsNextToken'
---
--- * 'lsrsSamples'
---
--- * 'lsrsStatus'
 data ListSamplesResponse = ListSamplesResponse'
     { _lsrsNextToken :: !(Maybe Text)
     , _lsrsSamples   :: !(Maybe [Sample])
     , _lsrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListSamplesResponse' smart constructor.
-listSamplesResponse :: Int -> ListSamplesResponse
+-- | Creates a value of 'ListSamplesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsrsNextToken'
+--
+-- * 'lsrsSamples'
+--
+-- * 'lsrsStatus'
+listSamplesResponse
+    :: Int -- ^ 'lsrsStatus'
+    -> ListSamplesResponse
 listSamplesResponse pStatus_ =
     ListSamplesResponse'
     { _lsrsNextToken = Nothing
@@ -144,6 +148,6 @@ lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 lsrsSamples :: Lens' ListSamplesResponse [Sample]
 lsrsSamples = lens _lsrsSamples (\ s a -> s{_lsrsSamples = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lsrsStatus :: Lens' ListSamplesResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

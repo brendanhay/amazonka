@@ -21,7 +21,7 @@
 -- Gets information about the index fields configured for the search
 -- domain. Can be limited to specific fields by name. By default, shows all
 -- fields and includes any pending changes to the configuration. Set the
--- @Deployed@ option to @true@ to show the active configuration and exclude
+-- 'Deployed' option to 'true' to show the active configuration and exclude
 -- pending changes. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Domain Information>
 -- in the /Amazon CloudSearch Developer Guide/.
@@ -30,16 +30,16 @@
 module Network.AWS.CloudSearch.DescribeIndexFields
     (
     -- * Creating a Request
-      DescribeIndexFields
-    , describeIndexFields
+      describeIndexFields
+    , DescribeIndexFields
     -- * Request Lenses
     , difDeployed
     , difFieldNames
     , difDomainName
 
     -- * Destructuring the Response
-    , DescribeIndexFieldsResponse
     , describeIndexFieldsResponse
+    , DescribeIndexFieldsResponse
     -- * Response Lenses
     , difsrsStatus
     , difsrsIndexFields
@@ -51,29 +51,31 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DescribeIndexFields@ operation.
+-- | Container for the parameters to the 'DescribeIndexFields' operation.
 -- Specifies the name of the domain you want to describe. To restrict the
 -- response to particular index fields, specify the names of the index
 -- fields you want to describe. To show the active configuration and
--- exclude any pending changes, set the @Deployed@ option to @true@.
+-- exclude any pending changes, set the 'Deployed' option to 'true'.
 --
 -- /See:/ 'describeIndexFields' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'difDeployed'
---
--- * 'difFieldNames'
---
--- * 'difDomainName'
 data DescribeIndexFields = DescribeIndexFields'
     { _difDeployed   :: !(Maybe Bool)
     , _difFieldNames :: !(Maybe [Text])
     , _difDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeIndexFields' smart constructor.
-describeIndexFields :: Text -> DescribeIndexFields
+-- | Creates a value of 'DescribeIndexFields' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'difDeployed'
+--
+-- * 'difFieldNames'
+--
+-- * 'difDomainName'
+describeIndexFields
+    :: Text -- ^ 'difDomainName'
+    -> DescribeIndexFields
 describeIndexFields pDomainName_ =
     DescribeIndexFields'
     { _difDeployed = Nothing
@@ -81,8 +83,8 @@ describeIndexFields pDomainName_ =
     , _difDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration (@true@) or include any
--- pending changes (@false@). Defaults to @false@.
+-- | Whether to display the deployed configuration ('true') or include any
+-- pending changes ('false'). Defaults to 'false'.
 difDeployed :: Lens' DescribeIndexFields (Maybe Bool)
 difDeployed = lens _difDeployed (\ s a -> s{_difDeployed = a});
 
@@ -124,30 +126,32 @@ instance ToQuery DescribeIndexFields where
                  toQuery (toQueryList "member" <$> _difFieldNames),
                "DomainName" =: _difDomainName]
 
--- | The result of a @DescribeIndexFields@ request. Contains the index fields
+-- | The result of a 'DescribeIndexFields' request. Contains the index fields
 -- configured for the domain specified in the request.
 --
 -- /See:/ 'describeIndexFieldsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'difsrsStatus'
---
--- * 'difsrsIndexFields'
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
     { _difsrsStatus      :: !Int
     , _difsrsIndexFields :: ![IndexFieldStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeIndexFieldsResponse' smart constructor.
-describeIndexFieldsResponse :: Int -> DescribeIndexFieldsResponse
+-- | Creates a value of 'DescribeIndexFieldsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'difsrsStatus'
+--
+-- * 'difsrsIndexFields'
+describeIndexFieldsResponse
+    :: Int -- ^ 'difsrsStatus'
+    -> DescribeIndexFieldsResponse
 describeIndexFieldsResponse pStatus_ =
     DescribeIndexFieldsResponse'
     { _difsrsStatus = pStatus_
     , _difsrsIndexFields = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 difsrsStatus :: Lens' DescribeIndexFieldsResponse Int
 difsrsStatus = lens _difsrsStatus (\ s a -> s{_difsrsStatus = a});
 

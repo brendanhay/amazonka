@@ -18,8 +18,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of @DBClusterParameterGroup@ descriptions. If a
--- @DBClusterParameterGroupName@ parameter is specified, the list will
+-- Returns a list of 'DBClusterParameterGroup' descriptions. If a
+-- 'DBClusterParameterGroupName' parameter is specified, the list will
 -- contain only the description of the specified DB cluster parameter
 -- group.
 --
@@ -31,8 +31,8 @@
 module Network.AWS.RDS.DescribeDBClusterParameterGroups
     (
     -- * Creating a Request
-      DescribeDBClusterParameterGroups
-    , describeDBClusterParameterGroups
+      describeDBClusterParameterGroups
+    , DescribeDBClusterParameterGroups
     -- * Request Lenses
     , ddcpgFilters
     , ddcpgMaxRecords
@@ -40,8 +40,8 @@ module Network.AWS.RDS.DescribeDBClusterParameterGroups
     , ddcpgDBClusterParameterGroupName
 
     -- * Destructuring the Response
-    , DescribeDBClusterParameterGroupsResponse
     , describeDBClusterParameterGroupsResponse
+    , DescribeDBClusterParameterGroupsResponse
     -- * Response Lenses
     , ddcpgrsMarker
     , ddcpgrsDBClusterParameterGroups
@@ -57,8 +57,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeDBClusterParameterGroups' smart constructor.
+data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
+    { _ddcpgFilters                     :: !(Maybe [Filter])
+    , _ddcpgMaxRecords                  :: !(Maybe Int)
+    , _ddcpgMarker                      :: !(Maybe Text)
+    , _ddcpgDBClusterParameterGroupName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeDBClusterParameterGroups' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ddcpgFilters'
 --
@@ -67,15 +75,8 @@ import           Network.AWS.Response
 -- * 'ddcpgMarker'
 --
 -- * 'ddcpgDBClusterParameterGroupName'
-data DescribeDBClusterParameterGroups = DescribeDBClusterParameterGroups'
-    { _ddcpgFilters                     :: !(Maybe [Filter])
-    , _ddcpgMaxRecords                  :: !(Maybe Int)
-    , _ddcpgMarker                      :: !(Maybe Text)
-    , _ddcpgDBClusterParameterGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeDBClusterParameterGroups' smart constructor.
-describeDBClusterParameterGroups :: DescribeDBClusterParameterGroups
+describeDBClusterParameterGroups
+    :: DescribeDBClusterParameterGroups
 describeDBClusterParameterGroups =
     DescribeDBClusterParameterGroups'
     { _ddcpgFilters = Nothing
@@ -89,7 +90,7 @@ ddcpgFilters :: Lens' DescribeDBClusterParameterGroups [Filter]
 ddcpgFilters = lens _ddcpgFilters (\ s a -> s{_ddcpgFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
+-- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 --
@@ -100,9 +101,9 @@ ddcpgMaxRecords :: Lens' DescribeDBClusterParameterGroups (Maybe Int)
 ddcpgMaxRecords = lens _ddcpgMaxRecords (\ s a -> s{_ddcpgMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
--- @DescribeDBClusterParameterGroups@ request. If this parameter is
+-- 'DescribeDBClusterParameterGroups' request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
+-- the value specified by 'MaxRecords'.
 ddcpgMarker :: Lens' DescribeDBClusterParameterGroups (Maybe Text)
 ddcpgMarker = lens _ddcpgMarker (\ s a -> s{_ddcpgMarker = a});
 
@@ -157,22 +158,24 @@ instance ToQuery DescribeDBClusterParameterGroups
 -- |
 --
 -- /See:/ 'describeDBClusterParameterGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddcpgrsMarker'
---
--- * 'ddcpgrsDBClusterParameterGroups'
---
--- * 'ddcpgrsStatus'
 data DescribeDBClusterParameterGroupsResponse = DescribeDBClusterParameterGroupsResponse'
     { _ddcpgrsMarker                   :: !(Maybe Text)
     , _ddcpgrsDBClusterParameterGroups :: !(Maybe [DBClusterParameterGroup])
     , _ddcpgrsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDBClusterParameterGroupsResponse' smart constructor.
-describeDBClusterParameterGroupsResponse :: Int -> DescribeDBClusterParameterGroupsResponse
+-- | Creates a value of 'DescribeDBClusterParameterGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddcpgrsMarker'
+--
+-- * 'ddcpgrsDBClusterParameterGroups'
+--
+-- * 'ddcpgrsStatus'
+describeDBClusterParameterGroupsResponse
+    :: Int -- ^ 'ddcpgrsStatus'
+    -> DescribeDBClusterParameterGroupsResponse
 describeDBClusterParameterGroupsResponse pStatus_ =
     DescribeDBClusterParameterGroupsResponse'
     { _ddcpgrsMarker = Nothing
@@ -181,9 +184,9 @@ describeDBClusterParameterGroupsResponse pStatus_ =
     }
 
 -- | An optional pagination token provided by a previous
--- @DescribeDBClusterParameterGroups@ request. If this parameter is
+-- 'DescribeDBClusterParameterGroups' request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
+-- the value specified by 'MaxRecords'.
 ddcpgrsMarker :: Lens' DescribeDBClusterParameterGroupsResponse (Maybe Text)
 ddcpgrsMarker = lens _ddcpgrsMarker (\ s a -> s{_ddcpgrsMarker = a});
 
@@ -191,6 +194,6 @@ ddcpgrsMarker = lens _ddcpgrsMarker (\ s a -> s{_ddcpgrsMarker = a});
 ddcpgrsDBClusterParameterGroups :: Lens' DescribeDBClusterParameterGroupsResponse [DBClusterParameterGroup]
 ddcpgrsDBClusterParameterGroups = lens _ddcpgrsDBClusterParameterGroups (\ s a -> s{_ddcpgrsDBClusterParameterGroups = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ddcpgrsStatus :: Lens' DescribeDBClusterParameterGroupsResponse Int
 ddcpgrsStatus = lens _ddcpgrsStatus (\ s a -> s{_ddcpgrsStatus = a});

@@ -20,21 +20,21 @@
 --
 -- Returns a list of your queues. The maximum number of queues that can be
 -- returned is 1000. If you specify a value for the optional
--- @QueueNamePrefix@ parameter, only queues with a name beginning with the
+-- 'QueueNamePrefix' parameter, only queues with a name beginning with the
 -- specified value are returned.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueues.html AWS API Reference> for ListQueues.
 module Network.AWS.SQS.ListQueues
     (
     -- * Creating a Request
-      ListQueues
-    , listQueues
+      listQueues
+    , ListQueues
     -- * Request Lenses
     , lqQueueNamePrefix
 
     -- * Destructuring the Response
-    , ListQueuesResponse
     , listQueuesResponse
+    , ListQueuesResponse
     -- * Response Lenses
     , lqrsQueueURLs
     , lqrsStatus
@@ -47,16 +47,17 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'listQueues' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lqQueueNamePrefix'
 newtype ListQueues = ListQueues'
     { _lqQueueNamePrefix :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListQueues' smart constructor.
-listQueues :: ListQueues
+-- | Creates a value of 'ListQueues' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lqQueueNamePrefix'
+listQueues
+    :: ListQueues
 listQueues =
     ListQueues'
     { _lqQueueNamePrefix = Nothing
@@ -94,19 +95,21 @@ instance ToQuery ListQueues where
 -- | A list of your queues.
 --
 -- /See:/ 'listQueuesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lqrsQueueURLs'
---
--- * 'lqrsStatus'
 data ListQueuesResponse = ListQueuesResponse'
     { _lqrsQueueURLs :: !(Maybe [Text])
     , _lqrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListQueuesResponse' smart constructor.
-listQueuesResponse :: Int -> ListQueuesResponse
+-- | Creates a value of 'ListQueuesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lqrsQueueURLs'
+--
+-- * 'lqrsStatus'
+listQueuesResponse
+    :: Int -- ^ 'lqrsStatus'
+    -> ListQueuesResponse
 listQueuesResponse pStatus_ =
     ListQueuesResponse'
     { _lqrsQueueURLs = Nothing
@@ -117,6 +120,6 @@ listQueuesResponse pStatus_ =
 lqrsQueueURLs :: Lens' ListQueuesResponse [Text]
 lqrsQueueURLs = lens _lqrsQueueURLs (\ s a -> s{_lqrsQueueURLs = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lqrsStatus :: Lens' ListQueuesResponse Int
 lqrsStatus = lens _lqrsStatus (\ s a -> s{_lqrsStatus = a});

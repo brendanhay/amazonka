@@ -34,16 +34,16 @@
 module Network.AWS.EC2.ReplaceRouteTableAssociation
     (
     -- * Creating a Request
-      ReplaceRouteTableAssociation
-    , replaceRouteTableAssociation
+      replaceRouteTableAssociation
+    , ReplaceRouteTableAssociation
     -- * Request Lenses
     , rrtaDryRun
     , rrtaAssociationId
     , rrtaRouteTableId
 
     -- * Destructuring the Response
-    , ReplaceRouteTableAssociationResponse
     , replaceRouteTableAssociationResponse
+    , ReplaceRouteTableAssociationResponse
     -- * Response Lenses
     , rrtarsNewAssociationId
     , rrtarsStatus
@@ -56,22 +56,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'replaceRouteTableAssociation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rrtaDryRun'
---
--- * 'rrtaAssociationId'
---
--- * 'rrtaRouteTableId'
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
     { _rrtaDryRun        :: !(Maybe Bool)
     , _rrtaAssociationId :: !Text
     , _rrtaRouteTableId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReplaceRouteTableAssociation' smart constructor.
-replaceRouteTableAssociation :: Text -> Text -> ReplaceRouteTableAssociation
+-- | Creates a value of 'ReplaceRouteTableAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rrtaDryRun'
+--
+-- * 'rrtaAssociationId'
+--
+-- * 'rrtaRouteTableId'
+replaceRouteTableAssociation
+    :: Text -- ^ 'rrtaAssociationId'
+    -> Text -- ^ 'rrtaRouteTableId'
+    -> ReplaceRouteTableAssociation
 replaceRouteTableAssociation pAssociationId_ pRouteTableId_ =
     ReplaceRouteTableAssociation'
     { _rrtaDryRun = Nothing
@@ -81,8 +84,8 @@ replaceRouteTableAssociation pAssociationId_ pRouteTableId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 rrtaDryRun :: Lens' ReplaceRouteTableAssociation (Maybe Bool)
 rrtaDryRun = lens _rrtaDryRun (\ s a -> s{_rrtaDryRun = a});
 
@@ -123,19 +126,21 @@ instance ToQuery ReplaceRouteTableAssociation where
                "RouteTableId" =: _rrtaRouteTableId]
 
 -- | /See:/ 'replaceRouteTableAssociationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rrtarsNewAssociationId'
---
--- * 'rrtarsStatus'
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
     { _rrtarsNewAssociationId :: !(Maybe Text)
     , _rrtarsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReplaceRouteTableAssociationResponse' smart constructor.
-replaceRouteTableAssociationResponse :: Int -> ReplaceRouteTableAssociationResponse
+-- | Creates a value of 'ReplaceRouteTableAssociationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rrtarsNewAssociationId'
+--
+-- * 'rrtarsStatus'
+replaceRouteTableAssociationResponse
+    :: Int -- ^ 'rrtarsStatus'
+    -> ReplaceRouteTableAssociationResponse
 replaceRouteTableAssociationResponse pStatus_ =
     ReplaceRouteTableAssociationResponse'
     { _rrtarsNewAssociationId = Nothing
@@ -146,6 +151,6 @@ replaceRouteTableAssociationResponse pStatus_ =
 rrtarsNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtarsNewAssociationId = lens _rrtarsNewAssociationId (\ s a -> s{_rrtarsNewAssociationId = a});
 
--- | Undocumented member.
+-- | The response status code.
 rrtarsStatus :: Lens' ReplaceRouteTableAssociationResponse Int
 rrtarsStatus = lens _rrtarsStatus (\ s a -> s{_rrtarsStatus = a});

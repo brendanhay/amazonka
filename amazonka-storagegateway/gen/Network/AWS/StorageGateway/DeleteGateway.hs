@@ -41,14 +41,14 @@
 module Network.AWS.StorageGateway.DeleteGateway
     (
     -- * Creating a Request
-      DeleteGateway
-    , deleteGateway
+      deleteGateway
+    , DeleteGateway
     -- * Request Lenses
     , dgGatewayARN
 
     -- * Destructuring the Response
-    , DeleteGatewayResponse
     , deleteGatewayResponse
+    , DeleteGatewayResponse
     -- * Response Lenses
     , dgrsGatewayARN
     , dgrsStatus
@@ -63,16 +63,18 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | A JSON object containing the id of the gateway to delete.
 --
 -- /See:/ 'deleteGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dgGatewayARN'
 newtype DeleteGateway = DeleteGateway'
     { _dgGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteGateway' smart constructor.
-deleteGateway :: Text -> DeleteGateway
+-- | Creates a value of 'DeleteGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dgGatewayARN'
+deleteGateway
+    :: Text -- ^ 'dgGatewayARN'
+    -> DeleteGateway
 deleteGateway pGatewayARN_ =
     DeleteGateway'
     { _dgGatewayARN = pGatewayARN_
@@ -115,19 +117,21 @@ instance ToQuery DeleteGateway where
 -- | A JSON object containing the id of the deleted gateway.
 --
 -- /See:/ 'deleteGatewayResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dgrsGatewayARN'
---
--- * 'dgrsStatus'
 data DeleteGatewayResponse = DeleteGatewayResponse'
     { _dgrsGatewayARN :: !(Maybe Text)
     , _dgrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteGatewayResponse' smart constructor.
-deleteGatewayResponse :: Int -> DeleteGatewayResponse
+-- | Creates a value of 'DeleteGatewayResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dgrsGatewayARN'
+--
+-- * 'dgrsStatus'
+deleteGatewayResponse
+    :: Int -- ^ 'dgrsStatus'
+    -> DeleteGatewayResponse
 deleteGatewayResponse pStatus_ =
     DeleteGatewayResponse'
     { _dgrsGatewayARN = Nothing
@@ -138,6 +142,6 @@ deleteGatewayResponse pStatus_ =
 dgrsGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
 dgrsGatewayARN = lens _dgrsGatewayARN (\ s a -> s{_dgrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 dgrsStatus :: Lens' DeleteGatewayResponse Int
 dgrsStatus = lens _dgrsStatus (\ s a -> s{_dgrsStatus = a});

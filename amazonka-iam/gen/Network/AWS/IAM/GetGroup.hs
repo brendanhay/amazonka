@@ -19,22 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of users that are in the specified group. You can
--- paginate the results using the @MaxItems@ and @Marker@ parameters.
+-- paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html AWS API Reference> for GetGroup.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.GetGroup
     (
     -- * Creating a Request
-      GetGroup
-    , getGroup
+      getGroup
+    , GetGroup
     -- * Request Lenses
     , ggMaxItems
     , ggMarker
     , ggGroupName
 
     -- * Destructuring the Response
-    , GetGroupResponse
     , getGroupResponse
+    , GetGroupResponse
     -- * Response Lenses
     , ggrsMarker
     , ggrsIsTruncated
@@ -51,22 +53,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ggMaxItems'
---
--- * 'ggMarker'
---
--- * 'ggGroupName'
 data GetGroup = GetGroup'
     { _ggMaxItems  :: !(Maybe Nat)
     , _ggMarker    :: !(Maybe Text)
     , _ggGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetGroup' smart constructor.
-getGroup :: Text -> GetGroup
+-- | Creates a value of 'GetGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ggMaxItems'
+--
+-- * 'ggMarker'
+--
+-- * 'ggGroupName'
+getGroup
+    :: Text -- ^ 'ggGroupName'
+    -> GetGroup
 getGroup pGroupName_ =
     GetGroup'
     { _ggMaxItems = Nothing
@@ -76,7 +80,7 @@ getGroup pGroupName_ =
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -85,7 +89,7 @@ ggMaxItems = lens _ggMaxItems (\ s a -> s{_ggMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 ggMarker :: Lens' GetGroup (Maybe Text)
 ggMarker = lens _ggMarker (\ s a -> s{_ggMarker = a});
 
@@ -131,8 +135,17 @@ instance ToQuery GetGroup where
 -- | Contains the response to a successful GetGroup request.
 --
 -- /See:/ 'getGroupResponse' smart constructor.
+data GetGroupResponse = GetGroupResponse'
+    { _ggrsMarker      :: !(Maybe Text)
+    , _ggrsIsTruncated :: !(Maybe Bool)
+    , _ggrsStatus      :: !Int
+    , _ggrsGroup       :: !Group
+    , _ggrsUsers       :: ![User]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ggrsMarker'
 --
@@ -143,16 +156,10 @@ instance ToQuery GetGroup where
 -- * 'ggrsGroup'
 --
 -- * 'ggrsUsers'
-data GetGroupResponse = GetGroupResponse'
-    { _ggrsMarker      :: !(Maybe Text)
-    , _ggrsIsTruncated :: !(Maybe Bool)
-    , _ggrsStatus      :: !Int
-    , _ggrsGroup       :: !Group
-    , _ggrsUsers       :: ![User]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetGroupResponse' smart constructor.
-getGroupResponse :: Int -> Group -> GetGroupResponse
+getGroupResponse
+    :: Int -- ^ 'ggrsStatus'
+    -> Group -- ^ 'ggrsGroup'
+    -> GetGroupResponse
 getGroupResponse pStatus_ pGroup_ =
     GetGroupResponse'
     { _ggrsMarker = Nothing
@@ -162,19 +169,19 @@ getGroupResponse pStatus_ pGroup_ =
     , _ggrsUsers = mempty
     }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 ggrsMarker :: Lens' GetGroupResponse (Maybe Text)
 ggrsMarker = lens _ggrsMarker (\ s a -> s{_ggrsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 ggrsIsTruncated :: Lens' GetGroupResponse (Maybe Bool)
 ggrsIsTruncated = lens _ggrsIsTruncated (\ s a -> s{_ggrsIsTruncated = a});
 
--- | Undocumented member.
+-- | The response status code.
 ggrsStatus :: Lens' GetGroupResponse Int
 ggrsStatus = lens _ggrsStatus (\ s a -> s{_ggrsStatus = a});
 

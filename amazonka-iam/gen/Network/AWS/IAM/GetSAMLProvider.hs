@@ -28,14 +28,14 @@
 module Network.AWS.IAM.GetSAMLProvider
     (
     -- * Creating a Request
-      GetSAMLProvider
-    , getSAMLProvider
+      getSAMLProvider
+    , GetSAMLProvider
     -- * Request Lenses
     , gsamlpSAMLProviderARN
 
     -- * Destructuring the Response
-    , GetSAMLProviderResponse
     , getSAMLProviderResponse
+    , GetSAMLProviderResponse
     -- * Response Lenses
     , gsamlprsCreateDate
     , gsamlprsValidUntil
@@ -50,16 +50,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getSAMLProvider' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsamlpSAMLProviderARN'
 newtype GetSAMLProvider = GetSAMLProvider'
     { _gsamlpSAMLProviderARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSAMLProvider' smart constructor.
-getSAMLProvider :: Text -> GetSAMLProvider
+-- | Creates a value of 'GetSAMLProvider' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsamlpSAMLProviderARN'
+getSAMLProvider
+    :: Text -- ^ 'gsamlpSAMLProviderARN'
+    -> GetSAMLProvider
 getSAMLProvider pSAMLProviderARN_ =
     GetSAMLProvider'
     { _gsamlpSAMLProviderARN = pSAMLProviderARN_
@@ -98,8 +100,16 @@ instance ToQuery GetSAMLProvider where
 -- | Contains the response to a successful GetSAMLProvider request.
 --
 -- /See:/ 'getSAMLProviderResponse' smart constructor.
+data GetSAMLProviderResponse = GetSAMLProviderResponse'
+    { _gsamlprsCreateDate           :: !(Maybe ISO8601)
+    , _gsamlprsValidUntil           :: !(Maybe ISO8601)
+    , _gsamlprsSAMLMetadataDocument :: !(Maybe Text)
+    , _gsamlprsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetSAMLProviderResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gsamlprsCreateDate'
 --
@@ -108,15 +118,9 @@ instance ToQuery GetSAMLProvider where
 -- * 'gsamlprsSAMLMetadataDocument'
 --
 -- * 'gsamlprsStatus'
-data GetSAMLProviderResponse = GetSAMLProviderResponse'
-    { _gsamlprsCreateDate           :: !(Maybe ISO8601)
-    , _gsamlprsValidUntil           :: !(Maybe ISO8601)
-    , _gsamlprsSAMLMetadataDocument :: !(Maybe Text)
-    , _gsamlprsStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetSAMLProviderResponse' smart constructor.
-getSAMLProviderResponse :: Int -> GetSAMLProviderResponse
+getSAMLProviderResponse
+    :: Int -- ^ 'gsamlprsStatus'
+    -> GetSAMLProviderResponse
 getSAMLProviderResponse pStatus_ =
     GetSAMLProviderResponse'
     { _gsamlprsCreateDate = Nothing
@@ -138,6 +142,6 @@ gsamlprsValidUntil = lens _gsamlprsValidUntil (\ s a -> s{_gsamlprsValidUntil = 
 gsamlprsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
 gsamlprsSAMLMetadataDocument = lens _gsamlprsSAMLMetadataDocument (\ s a -> s{_gsamlprsSAMLMetadataDocument = a});
 
--- | Undocumented member.
+-- | The response status code.
 gsamlprsStatus :: Lens' GetSAMLProviderResponse Int
 gsamlprsStatus = lens _gsamlprsStatus (\ s a -> s{_gsamlprsStatus = a});

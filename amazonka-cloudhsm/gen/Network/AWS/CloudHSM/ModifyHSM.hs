@@ -24,8 +24,8 @@
 module Network.AWS.CloudHSM.ModifyHSM
     (
     -- * Creating a Request
-      ModifyHSM
-    , modifyHSM
+      modifyHSM
+    , ModifyHSM
     -- * Request Lenses
     , mhIAMRoleARN
     , mhSubnetId
@@ -35,8 +35,8 @@ module Network.AWS.CloudHSM.ModifyHSM
     , mhHSMARN
 
     -- * Destructuring the Response
-    , ModifyHSMResponse
     , modifyHSMResponse
+    , ModifyHSMResponse
     -- * Response Lenses
     , mhsmrsHSMARN
     , mhsmrsStatus
@@ -51,8 +51,18 @@ import           Network.AWS.Response
 -- | Contains the inputs for the ModifyHsm action.
 --
 -- /See:/ 'modifyHSM' smart constructor.
+data ModifyHSM = ModifyHSM'
+    { _mhIAMRoleARN :: !(Maybe Text)
+    , _mhSubnetId   :: !(Maybe Text)
+    , _mhSyslogIP   :: !(Maybe Text)
+    , _mhExternalId :: !(Maybe Text)
+    , _mhEniIP      :: !(Maybe Text)
+    , _mhHSMARN     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyHSM' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mhIAMRoleARN'
 --
@@ -65,17 +75,9 @@ import           Network.AWS.Response
 -- * 'mhEniIP'
 --
 -- * 'mhHSMARN'
-data ModifyHSM = ModifyHSM'
-    { _mhIAMRoleARN :: !(Maybe Text)
-    , _mhSubnetId   :: !(Maybe Text)
-    , _mhSyslogIP   :: !(Maybe Text)
-    , _mhExternalId :: !(Maybe Text)
-    , _mhEniIP      :: !(Maybe Text)
-    , _mhHSMARN     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifyHSM' smart constructor.
-modifyHSM :: Text -> ModifyHSM
+modifyHSM
+    :: Text -- ^ 'mhHSMARN'
+    -> ModifyHSM
 modifyHSM pHSMARN_ =
     ModifyHSM'
     { _mhIAMRoleARN = Nothing
@@ -147,19 +149,21 @@ instance ToQuery ModifyHSM where
 -- | Contains the output of the ModifyHsm action.
 --
 -- /See:/ 'modifyHSMResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mhsmrsHSMARN'
---
--- * 'mhsmrsStatus'
 data ModifyHSMResponse = ModifyHSMResponse'
     { _mhsmrsHSMARN :: !(Maybe Text)
     , _mhsmrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyHSMResponse' smart constructor.
-modifyHSMResponse :: Int -> ModifyHSMResponse
+-- | Creates a value of 'ModifyHSMResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mhsmrsHSMARN'
+--
+-- * 'mhsmrsStatus'
+modifyHSMResponse
+    :: Int -- ^ 'mhsmrsStatus'
+    -> ModifyHSMResponse
 modifyHSMResponse pStatus_ =
     ModifyHSMResponse'
     { _mhsmrsHSMARN = Nothing
@@ -170,6 +174,6 @@ modifyHSMResponse pStatus_ =
 mhsmrsHSMARN :: Lens' ModifyHSMResponse (Maybe Text)
 mhsmrsHSMARN = lens _mhsmrsHSMARN (\ s a -> s{_mhsmrsHSMARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 mhsmrsStatus :: Lens' ModifyHSMResponse Int
 mhsmrsStatus = lens _mhsmrsStatus (\ s a -> s{_mhsmrsStatus = a});

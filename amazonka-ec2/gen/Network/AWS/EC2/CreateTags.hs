@@ -31,16 +31,16 @@
 module Network.AWS.EC2.CreateTags
     (
     -- * Creating a Request
-      CreateTags
-    , createTags
+      createTags
+    , CreateTags
     -- * Request Lenses
     , cDryRun
     , cResources
     , cTags
 
     -- * Destructuring the Response
-    , CreateTagsResponse
     , createTagsResponse
+    , CreateTagsResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -50,22 +50,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cDryRun'
---
--- * 'cResources'
---
--- * 'cTags'
 data CreateTags = CreateTags'
     { _cDryRun    :: !(Maybe Bool)
     , _cResources :: ![Text]
     , _cTags      :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateTags' smart constructor.
-createTags :: CreateTags
+-- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cDryRun'
+--
+-- * 'cResources'
+--
+-- * 'cTags'
+createTags
+    :: CreateTags
 createTags =
     CreateTags'
     { _cDryRun = Nothing
@@ -75,8 +76,8 @@ createTags =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cDryRun :: Lens' CreateTags (Maybe Bool)
 cDryRun = lens _cDryRun (\ s a -> s{_cDryRun = a});
 
@@ -84,7 +85,7 @@ cDryRun = lens _cDryRun (\ s a -> s{_cDryRun = a});
 cResources :: Lens' CreateTags [Text]
 cResources = lens _cResources (\ s a -> s{_cResources = a}) . _Coerce;
 
--- | One or more tags. The @value@ parameter is required, but if you don\'t
+-- | One or more tags. The 'value' parameter is required, but if you don\'t
 -- want the tag to have a value, specify the parameter with no value, and
 -- we set the value to an empty string.
 cTags :: Lens' CreateTags [Tag]
@@ -116,6 +117,8 @@ data CreateTagsResponse =
     CreateTagsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateTagsResponse' smart constructor.
-createTagsResponse :: CreateTagsResponse
+-- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
+--
+createTagsResponse
+    :: CreateTagsResponse
 createTagsResponse = CreateTagsResponse'

@@ -29,14 +29,14 @@
 module Network.AWS.IAM.GetInstanceProfile
     (
     -- * Creating a Request
-      GetInstanceProfile
-    , getInstanceProfile
+      getInstanceProfile
+    , GetInstanceProfile
     -- * Request Lenses
     , gipInstanceProfileName
 
     -- * Destructuring the Response
-    , GetInstanceProfileResponse
     , getInstanceProfileResponse
+    , GetInstanceProfileResponse
     -- * Response Lenses
     , giprsStatus
     , giprsInstanceProfile
@@ -49,16 +49,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getInstanceProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gipInstanceProfileName'
 newtype GetInstanceProfile = GetInstanceProfile'
     { _gipInstanceProfileName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetInstanceProfile' smart constructor.
-getInstanceProfile :: Text -> GetInstanceProfile
+-- | Creates a value of 'GetInstanceProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gipInstanceProfileName'
+getInstanceProfile
+    :: Text -- ^ 'gipInstanceProfileName'
+    -> GetInstanceProfile
 getInstanceProfile pInstanceProfileName_ =
     GetInstanceProfile'
     { _gipInstanceProfileName = pInstanceProfileName_
@@ -95,26 +97,29 @@ instance ToQuery GetInstanceProfile where
 -- | Contains the response to a successful GetInstanceProfile request.
 --
 -- /See:/ 'getInstanceProfileResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'giprsStatus'
---
--- * 'giprsInstanceProfile'
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
     { _giprsStatus          :: !Int
     , _giprsInstanceProfile :: !InstanceProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetInstanceProfileResponse' smart constructor.
-getInstanceProfileResponse :: Int -> InstanceProfile -> GetInstanceProfileResponse
+-- | Creates a value of 'GetInstanceProfileResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'giprsStatus'
+--
+-- * 'giprsInstanceProfile'
+getInstanceProfileResponse
+    :: Int -- ^ 'giprsStatus'
+    -> InstanceProfile -- ^ 'giprsInstanceProfile'
+    -> GetInstanceProfileResponse
 getInstanceProfileResponse pStatus_ pInstanceProfile_ =
     GetInstanceProfileResponse'
     { _giprsStatus = pStatus_
     , _giprsInstanceProfile = pInstanceProfile_
     }
 
--- | Undocumented member.
+-- | The response status code.
 giprsStatus :: Lens' GetInstanceProfileResponse Int
 giprsStatus = lens _giprsStatus (\ s a -> s{_giprsStatus = a});
 

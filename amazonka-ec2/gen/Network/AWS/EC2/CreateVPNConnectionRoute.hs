@@ -31,15 +31,15 @@
 module Network.AWS.EC2.CreateVPNConnectionRoute
     (
     -- * Creating a Request
-      CreateVPNConnectionRoute
-    , createVPNConnectionRoute
+      createVPNConnectionRoute
+    , CreateVPNConnectionRoute
     -- * Request Lenses
     , cvcrVPNConnectionId
     , cvcrDestinationCIdRBlock
 
     -- * Destructuring the Response
-    , CreateVPNConnectionRouteResponse
     , createVPNConnectionRouteResponse
+    , CreateVPNConnectionRouteResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -49,19 +49,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createVPNConnectionRoute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvcrVPNConnectionId'
---
--- * 'cvcrDestinationCIdRBlock'
 data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
     { _cvcrVPNConnectionId      :: !Text
     , _cvcrDestinationCIdRBlock :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVPNConnectionRoute' smart constructor.
-createVPNConnectionRoute :: Text -> Text -> CreateVPNConnectionRoute
+-- | Creates a value of 'CreateVPNConnectionRoute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvcrVPNConnectionId'
+--
+-- * 'cvcrDestinationCIdRBlock'
+createVPNConnectionRoute
+    :: Text -- ^ 'cvcrVPNConnectionId'
+    -> Text -- ^ 'cvcrDestinationCIdRBlock'
+    -> CreateVPNConnectionRoute
 createVPNConnectionRoute pVPNConnectionId_ pDestinationCIdRBlock_ =
     CreateVPNConnectionRoute'
     { _cvcrVPNConnectionId = pVPNConnectionId_
@@ -104,6 +107,8 @@ data CreateVPNConnectionRouteResponse =
     CreateVPNConnectionRouteResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVPNConnectionRouteResponse' smart constructor.
-createVPNConnectionRouteResponse :: CreateVPNConnectionRouteResponse
+-- | Creates a value of 'CreateVPNConnectionRouteResponse' with the minimum fields required to make a request.
+--
+createVPNConnectionRouteResponse
+    :: CreateVPNConnectionRouteResponse
 createVPNConnectionRouteResponse = CreateVPNConnectionRouteResponse'

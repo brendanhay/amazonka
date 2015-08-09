@@ -18,18 +18,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Task runners call @SetTaskStatus@ to notify AWS Data Pipeline that a
+-- Task runners call 'SetTaskStatus' to notify AWS Data Pipeline that a
 -- task is completed and provide information about the final status. A task
 -- runner makes this call regardless of whether the task was sucessful. A
--- task runner does not need to call @SetTaskStatus@ for tasks that are
+-- task runner does not need to call 'SetTaskStatus' for tasks that are
 -- canceled by the web service during a call to ReportTaskProgress.
 --
 -- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetTaskStatus.html AWS API Reference> for SetTaskStatus.
 module Network.AWS.DataPipeline.SetTaskStatus
     (
     -- * Creating a Request
-      SetTaskStatus
-    , setTaskStatus
+      setTaskStatus
+    , SetTaskStatus
     -- * Request Lenses
     , stsErrorStackTrace
     , stsErrorId
@@ -38,8 +38,8 @@ module Network.AWS.DataPipeline.SetTaskStatus
     , stsTaskStatus
 
     -- * Destructuring the Response
-    , SetTaskStatusResponse
     , setTaskStatusResponse
+    , SetTaskStatusResponse
     -- * Response Lenses
     , stsrsStatus
     ) where
@@ -53,8 +53,17 @@ import           Network.AWS.Response
 -- | Contains the parameters for SetTaskStatus.
 --
 -- /See:/ 'setTaskStatus' smart constructor.
+data SetTaskStatus = SetTaskStatus'
+    { _stsErrorStackTrace :: !(Maybe Text)
+    , _stsErrorId         :: !(Maybe Text)
+    , _stsErrorMessage    :: !(Maybe Text)
+    , _stsTaskId          :: !Text
+    , _stsTaskStatus      :: !TaskStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SetTaskStatus' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'stsErrorStackTrace'
 --
@@ -65,16 +74,10 @@ import           Network.AWS.Response
 -- * 'stsTaskId'
 --
 -- * 'stsTaskStatus'
-data SetTaskStatus = SetTaskStatus'
-    { _stsErrorStackTrace :: !(Maybe Text)
-    , _stsErrorId         :: !(Maybe Text)
-    , _stsErrorMessage    :: !(Maybe Text)
-    , _stsTaskId          :: !Text
-    , _stsTaskStatus      :: !TaskStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SetTaskStatus' smart constructor.
-setTaskStatus :: Text -> TaskStatus -> SetTaskStatus
+setTaskStatus
+    :: Text -- ^ 'stsTaskId'
+    -> TaskStatus -- ^ 'stsTaskStatus'
+    -> SetTaskStatus
 setTaskStatus pTaskId_ pTaskStatus_ =
     SetTaskStatus'
     { _stsErrorStackTrace = Nothing
@@ -110,7 +113,7 @@ stsErrorMessage = lens _stsErrorMessage (\ s a -> s{_stsErrorMessage = a});
 stsTaskId :: Lens' SetTaskStatus Text
 stsTaskId = lens _stsTaskId (\ s a -> s{_stsTaskId = a});
 
--- | If @FINISHED@, the task successfully completed. If @FAILED@, the task
+-- | If 'FINISHED', the task successfully completed. If 'FAILED', the task
 -- ended unsuccessfully. Preconditions use false.
 stsTaskStatus :: Lens' SetTaskStatus TaskStatus
 stsTaskStatus = lens _stsTaskStatus (\ s a -> s{_stsTaskStatus = a});
@@ -151,21 +154,23 @@ instance ToQuery SetTaskStatus where
 -- | Contains the output of SetTaskStatus.
 --
 -- /See:/ 'setTaskStatusResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'stsrsStatus'
 newtype SetTaskStatusResponse = SetTaskStatusResponse'
     { _stsrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetTaskStatusResponse' smart constructor.
-setTaskStatusResponse :: Int -> SetTaskStatusResponse
+-- | Creates a value of 'SetTaskStatusResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stsrsStatus'
+setTaskStatusResponse
+    :: Int -- ^ 'stsrsStatus'
+    -> SetTaskStatusResponse
 setTaskStatusResponse pStatus_ =
     SetTaskStatusResponse'
     { _stsrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 stsrsStatus :: Lens' SetTaskStatusResponse Int
 stsrsStatus = lens _stsrsStatus (\ s a -> s{_stsrsStatus = a});

@@ -26,14 +26,14 @@
 module Network.AWS.CloudWatch.DisableAlarmActions
     (
     -- * Creating a Request
-      DisableAlarmActions
-    , disableAlarmActions
+      disableAlarmActions
+    , DisableAlarmActions
     -- * Request Lenses
     , daaAlarmNames
 
     -- * Destructuring the Response
-    , DisableAlarmActionsResponse
     , disableAlarmActionsResponse
+    , DisableAlarmActionsResponse
     ) where
 
 import           Network.AWS.CloudWatch.Types
@@ -45,16 +45,17 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'disableAlarmActions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daaAlarmNames'
 newtype DisableAlarmActions = DisableAlarmActions'
     { _daaAlarmNames :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableAlarmActions' smart constructor.
-disableAlarmActions :: DisableAlarmActions
+-- | Creates a value of 'DisableAlarmActions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daaAlarmNames'
+disableAlarmActions
+    :: DisableAlarmActions
 disableAlarmActions =
     DisableAlarmActions'
     { _daaAlarmNames = mempty
@@ -89,6 +90,8 @@ data DisableAlarmActionsResponse =
     DisableAlarmActionsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableAlarmActionsResponse' smart constructor.
-disableAlarmActionsResponse :: DisableAlarmActionsResponse
+-- | Creates a value of 'DisableAlarmActionsResponse' with the minimum fields required to make a request.
+--
+disableAlarmActionsResponse
+    :: DisableAlarmActionsResponse
 disableAlarmActionsResponse = DisableAlarmActionsResponse'

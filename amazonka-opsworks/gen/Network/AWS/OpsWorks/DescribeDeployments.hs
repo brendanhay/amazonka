@@ -32,16 +32,16 @@
 module Network.AWS.OpsWorks.DescribeDeployments
     (
     -- * Creating a Request
-      DescribeDeployments
-    , describeDeployments
+      describeDeployments
+    , DescribeDeployments
     -- * Request Lenses
     , ddAppId
     , ddDeploymentIds
     , ddStackId
 
     -- * Destructuring the Response
-    , DescribeDeploymentsResponse
     , describeDeploymentsResponse
+    , DescribeDeploymentsResponse
     -- * Response Lenses
     , ddrsDeployments
     , ddrsStatus
@@ -54,22 +54,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeDeployments' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddAppId'
---
--- * 'ddDeploymentIds'
---
--- * 'ddStackId'
 data DescribeDeployments = DescribeDeployments'
     { _ddAppId         :: !(Maybe Text)
     , _ddDeploymentIds :: !(Maybe [Text])
     , _ddStackId       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDeployments' smart constructor.
-describeDeployments :: DescribeDeployments
+-- | Creates a value of 'DescribeDeployments' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddAppId'
+--
+-- * 'ddDeploymentIds'
+--
+-- * 'ddStackId'
+describeDeployments
+    :: DescribeDeployments
 describeDeployments =
     DescribeDeployments'
     { _ddAppId = Nothing
@@ -77,18 +78,18 @@ describeDeployments =
     , _ddStackId = Nothing
     }
 
--- | The app ID. If you include this parameter, @DescribeDeployments@ returns
+-- | The app ID. If you include this parameter, 'DescribeDeployments' returns
 -- a description of the commands associated with the specified app.
 ddAppId :: Lens' DescribeDeployments (Maybe Text)
 ddAppId = lens _ddAppId (\ s a -> s{_ddAppId = a});
 
 -- | An array of deployment IDs to be described. If you include this
--- parameter, @DescribeDeployments@ returns a description of the specified
+-- parameter, 'DescribeDeployments' returns a description of the specified
 -- deployments. Otherwise, it returns a description of every deployment.
 ddDeploymentIds :: Lens' DescribeDeployments [Text]
 ddDeploymentIds = lens _ddDeploymentIds (\ s a -> s{_ddDeploymentIds = a}) . _Default . _Coerce;
 
--- | The stack ID. If you include this parameter, @DescribeDeployments@
+-- | The stack ID. If you include this parameter, 'DescribeDeployments'
 -- returns a description of the commands associated with the specified
 -- stack.
 ddStackId :: Lens' DescribeDeployments (Maybe Text)
@@ -129,32 +130,34 @@ instance ToPath DescribeDeployments where
 instance ToQuery DescribeDeployments where
         toQuery = const mempty
 
--- | Contains the response to a @DescribeDeployments@ request.
+-- | Contains the response to a 'DescribeDeployments' request.
 --
 -- /See:/ 'describeDeploymentsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddrsDeployments'
---
--- * 'ddrsStatus'
 data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
     { _ddrsDeployments :: !(Maybe [Deployment])
     , _ddrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDeploymentsResponse' smart constructor.
-describeDeploymentsResponse :: Int -> DescribeDeploymentsResponse
+-- | Creates a value of 'DescribeDeploymentsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddrsDeployments'
+--
+-- * 'ddrsStatus'
+describeDeploymentsResponse
+    :: Int -- ^ 'ddrsStatus'
+    -> DescribeDeploymentsResponse
 describeDeploymentsResponse pStatus_ =
     DescribeDeploymentsResponse'
     { _ddrsDeployments = Nothing
     , _ddrsStatus = pStatus_
     }
 
--- | An array of @Deployment@ objects that describe the deployments.
+-- | An array of 'Deployment' objects that describe the deployments.
 ddrsDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
 ddrsDeployments = lens _ddrsDeployments (\ s a -> s{_ddrsDeployments = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ddrsStatus :: Lens' DescribeDeploymentsResponse Int
 ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

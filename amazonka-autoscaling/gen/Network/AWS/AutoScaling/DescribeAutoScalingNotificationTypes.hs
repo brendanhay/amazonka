@@ -24,12 +24,12 @@
 module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     (
     -- * Creating a Request
-      DescribeAutoScalingNotificationTypes
-    , describeAutoScalingNotificationTypes
+      describeAutoScalingNotificationTypes
+    , DescribeAutoScalingNotificationTypes
 
     -- * Destructuring the Response
-    , DescribeAutoScalingNotificationTypesResponse
     , describeAutoScalingNotificationTypesResponse
+    , DescribeAutoScalingNotificationTypesResponse
     -- * Response Lenses
     , dasntrsAutoScalingNotificationTypes
     , dasntrsStatus
@@ -46,8 +46,10 @@ data DescribeAutoScalingNotificationTypes =
     DescribeAutoScalingNotificationTypes'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAutoScalingNotificationTypes' smart constructor.
-describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
+-- | Creates a value of 'DescribeAutoScalingNotificationTypes' with the minimum fields required to make a request.
+--
+describeAutoScalingNotificationTypes
+    :: DescribeAutoScalingNotificationTypes
 describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes'
 
 instance AWSRequest
@@ -85,19 +87,21 @@ instance ToQuery DescribeAutoScalingNotificationTypes
                   "Version" =: ("2011-01-01" :: ByteString)])
 
 -- | /See:/ 'describeAutoScalingNotificationTypesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dasntrsAutoScalingNotificationTypes'
---
--- * 'dasntrsStatus'
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
     { _dasntrsAutoScalingNotificationTypes :: !(Maybe [Text])
     , _dasntrsStatus                       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAutoScalingNotificationTypesResponse' smart constructor.
-describeAutoScalingNotificationTypesResponse :: Int -> DescribeAutoScalingNotificationTypesResponse
+-- | Creates a value of 'DescribeAutoScalingNotificationTypesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dasntrsAutoScalingNotificationTypes'
+--
+-- * 'dasntrsStatus'
+describeAutoScalingNotificationTypesResponse
+    :: Int -- ^ 'dasntrsStatus'
+    -> DescribeAutoScalingNotificationTypesResponse
 describeAutoScalingNotificationTypesResponse pStatus_ =
     DescribeAutoScalingNotificationTypesResponse'
     { _dasntrsAutoScalingNotificationTypes = Nothing
@@ -106,19 +110,19 @@ describeAutoScalingNotificationTypesResponse pStatus_ =
 
 -- | One or more of the following notification types:
 --
--- -   @autoscaling:EC2_INSTANCE_LAUNCH@
+-- -   'autoscaling:EC2_INSTANCE_LAUNCH'
 --
--- -   @autoscaling:EC2_INSTANCE_LAUNCH_ERROR@
+-- -   'autoscaling:EC2_INSTANCE_LAUNCH_ERROR'
 --
--- -   @autoscaling:EC2_INSTANCE_TERMINATE@
+-- -   'autoscaling:EC2_INSTANCE_TERMINATE'
 --
--- -   @autoscaling:EC2_INSTANCE_TERMINATE_ERROR@
+-- -   'autoscaling:EC2_INSTANCE_TERMINATE_ERROR'
 --
--- -   @autoscaling:TEST_NOTIFICATION@
+-- -   'autoscaling:TEST_NOTIFICATION'
 --
 dasntrsAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
 dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes (\ s a -> s{_dasntrsAutoScalingNotificationTypes = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dasntrsStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int
 dasntrsStatus = lens _dasntrsStatus (\ s a -> s{_dasntrsStatus = a});

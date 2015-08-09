@@ -21,7 +21,7 @@
 -- Assigns one of the stack\'s registered Amazon EBS volumes to a specified
 -- instance. The volume must first be registered with the stack by calling
 -- RegisterVolume. After you register the volume, you must call
--- UpdateVolume to specify a mount point before calling @AssignVolume@. For
+-- UpdateVolume to specify a mount point before calling 'AssignVolume'. For
 -- more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --
@@ -35,15 +35,15 @@
 module Network.AWS.OpsWorks.AssignVolume
     (
     -- * Creating a Request
-      AssignVolume
-    , assignVolume
+      assignVolume
+    , AssignVolume
     -- * Request Lenses
     , avInstanceId
     , avVolumeId
 
     -- * Destructuring the Response
-    , AssignVolumeResponse
     , assignVolumeResponse
+    , AssignVolumeResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -53,19 +53,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'assignVolume' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'avInstanceId'
---
--- * 'avVolumeId'
 data AssignVolume = AssignVolume'
     { _avInstanceId :: !(Maybe Text)
     , _avVolumeId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssignVolume' smart constructor.
-assignVolume :: Text -> AssignVolume
+-- | Creates a value of 'AssignVolume' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avInstanceId'
+--
+-- * 'avVolumeId'
+assignVolume
+    :: Text -- ^ 'avVolumeId'
+    -> AssignVolume
 assignVolume pVolumeId_ =
     AssignVolume'
     { _avInstanceId = Nothing
@@ -112,6 +114,8 @@ data AssignVolumeResponse =
     AssignVolumeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssignVolumeResponse' smart constructor.
-assignVolumeResponse :: AssignVolumeResponse
+-- | Creates a value of 'AssignVolumeResponse' with the minimum fields required to make a request.
+--
+assignVolumeResponse
+    :: AssignVolumeResponse
 assignVolumeResponse = AssignVolumeResponse'

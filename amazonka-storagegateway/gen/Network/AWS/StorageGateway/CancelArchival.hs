@@ -25,15 +25,15 @@
 module Network.AWS.StorageGateway.CancelArchival
     (
     -- * Creating a Request
-      CancelArchival
-    , cancelArchival
+      cancelArchival
+    , CancelArchival
     -- * Request Lenses
     , caGatewayARN
     , caTapeARN
 
     -- * Destructuring the Response
-    , CancelArchivalResponse
     , cancelArchivalResponse
+    , CancelArchivalResponse
     -- * Response Lenses
     , carsTapeARN
     , carsStatus
@@ -48,19 +48,22 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | CancelArchivalInput
 --
 -- /See:/ 'cancelArchival' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'caGatewayARN'
---
--- * 'caTapeARN'
 data CancelArchival = CancelArchival'
     { _caGatewayARN :: !Text
     , _caTapeARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelArchival' smart constructor.
-cancelArchival :: Text -> Text -> CancelArchival
+-- | Creates a value of 'CancelArchival' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caGatewayARN'
+--
+-- * 'caTapeARN'
+cancelArchival
+    :: Text -- ^ 'caGatewayARN'
+    -> Text -- ^ 'caTapeARN'
+    -> CancelArchival
 cancelArchival pGatewayARN_ pTapeARN_ =
     CancelArchival'
     { _caGatewayARN = pGatewayARN_
@@ -111,19 +114,21 @@ instance ToQuery CancelArchival where
 -- | CancelArchivalOutput
 --
 -- /See:/ 'cancelArchivalResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'carsTapeARN'
---
--- * 'carsStatus'
 data CancelArchivalResponse = CancelArchivalResponse'
     { _carsTapeARN :: !(Maybe Text)
     , _carsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelArchivalResponse' smart constructor.
-cancelArchivalResponse :: Int -> CancelArchivalResponse
+-- | Creates a value of 'CancelArchivalResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'carsTapeARN'
+--
+-- * 'carsStatus'
+cancelArchivalResponse
+    :: Int -- ^ 'carsStatus'
+    -> CancelArchivalResponse
 cancelArchivalResponse pStatus_ =
     CancelArchivalResponse'
     { _carsTapeARN = Nothing
@@ -135,6 +140,6 @@ cancelArchivalResponse pStatus_ =
 carsTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carsTapeARN = lens _carsTapeARN (\ s a -> s{_carsTapeARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 carsStatus :: Lens' CancelArchivalResponse Int
 carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

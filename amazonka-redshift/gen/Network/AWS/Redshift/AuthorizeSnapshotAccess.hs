@@ -29,16 +29,16 @@
 module Network.AWS.Redshift.AuthorizeSnapshotAccess
     (
     -- * Creating a Request
-      AuthorizeSnapshotAccess
-    , authorizeSnapshotAccess
+      authorizeSnapshotAccess
+    , AuthorizeSnapshotAccess
     -- * Request Lenses
     , asaSnapshotClusterIdentifier
     , asaSnapshotIdentifier
     , asaAccountWithRestoreAccess
 
     -- * Destructuring the Response
-    , AuthorizeSnapshotAccessResponse
     , authorizeSnapshotAccessResponse
+    , AuthorizeSnapshotAccessResponse
     -- * Response Lenses
     , asarsSnapshot
     , asarsStatus
@@ -53,22 +53,25 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'authorizeSnapshotAccess' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'asaSnapshotClusterIdentifier'
---
--- * 'asaSnapshotIdentifier'
---
--- * 'asaAccountWithRestoreAccess'
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
     { _asaSnapshotClusterIdentifier :: !(Maybe Text)
     , _asaSnapshotIdentifier        :: !Text
     , _asaAccountWithRestoreAccess  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AuthorizeSnapshotAccess' smart constructor.
-authorizeSnapshotAccess :: Text -> Text -> AuthorizeSnapshotAccess
+-- | Creates a value of 'AuthorizeSnapshotAccess' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asaSnapshotClusterIdentifier'
+--
+-- * 'asaSnapshotIdentifier'
+--
+-- * 'asaAccountWithRestoreAccess'
+authorizeSnapshotAccess
+    :: Text -- ^ 'asaSnapshotIdentifier'
+    -> Text -- ^ 'asaAccountWithRestoreAccess'
+    -> AuthorizeSnapshotAccess
 authorizeSnapshotAccess pSnapshotIdentifier_ pAccountWithRestoreAccess_ =
     AuthorizeSnapshotAccess'
     { _asaSnapshotClusterIdentifier = Nothing
@@ -122,19 +125,21 @@ instance ToQuery AuthorizeSnapshotAccess where
                  _asaAccountWithRestoreAccess]
 
 -- | /See:/ 'authorizeSnapshotAccessResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'asarsSnapshot'
---
--- * 'asarsStatus'
 data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
     { _asarsSnapshot :: !(Maybe Snapshot)
     , _asarsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AuthorizeSnapshotAccessResponse' smart constructor.
-authorizeSnapshotAccessResponse :: Int -> AuthorizeSnapshotAccessResponse
+-- | Creates a value of 'AuthorizeSnapshotAccessResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'asarsSnapshot'
+--
+-- * 'asarsStatus'
+authorizeSnapshotAccessResponse
+    :: Int -- ^ 'asarsStatus'
+    -> AuthorizeSnapshotAccessResponse
 authorizeSnapshotAccessResponse pStatus_ =
     AuthorizeSnapshotAccessResponse'
     { _asarsSnapshot = Nothing
@@ -145,6 +150,6 @@ authorizeSnapshotAccessResponse pStatus_ =
 asarsSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 asarsSnapshot = lens _asarsSnapshot (\ s a -> s{_asarsSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 asarsStatus :: Lens' AuthorizeSnapshotAccessResponse Int
 asarsStatus = lens _asarsStatus (\ s a -> s{_asarsStatus = a});

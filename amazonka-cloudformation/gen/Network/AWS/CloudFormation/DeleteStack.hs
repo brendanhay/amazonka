@@ -26,14 +26,14 @@
 module Network.AWS.CloudFormation.DeleteStack
     (
     -- * Creating a Request
-      DeleteStack
-    , deleteStack
+      deleteStack
+    , DeleteStack
     -- * Request Lenses
     , dsStackName
 
     -- * Destructuring the Response
-    , DeleteStackResponse
     , deleteStackResponse
+    , DeleteStackResponse
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -45,16 +45,18 @@ import           Network.AWS.Response
 -- | The input for DeleteStack action.
 --
 -- /See:/ 'deleteStack' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsStackName'
 newtype DeleteStack = DeleteStack'
     { _dsStackName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteStack' smart constructor.
-deleteStack :: Text -> DeleteStack
+-- | Creates a value of 'DeleteStack' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsStackName'
+deleteStack
+    :: Text -- ^ 'dsStackName'
+    -> DeleteStack
 deleteStack pStackName_ =
     DeleteStack'
     { _dsStackName = pStackName_
@@ -88,6 +90,8 @@ data DeleteStackResponse =
     DeleteStackResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteStackResponse' smart constructor.
-deleteStackResponse :: DeleteStackResponse
+-- | Creates a value of 'DeleteStackResponse' with the minimum fields required to make a request.
+--
+deleteStackResponse
+    :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse'

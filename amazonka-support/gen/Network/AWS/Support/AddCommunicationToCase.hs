@@ -19,9 +19,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds additional customer communication to an AWS Support case. You use
--- the @CaseId@ value to identify the case to add communication to. You can
+-- the 'CaseId' value to identify the case to add communication to. You can
 -- list a set of email addresses to copy on the communication using the
--- @CcEmailAddresses@ value. The @CommunicationBody@ value contains the
+-- 'CcEmailAddresses' value. The 'CommunicationBody' value contains the
 -- text of the communication.
 --
 -- The response indicates the success or failure of the request.
@@ -33,8 +33,8 @@
 module Network.AWS.Support.AddCommunicationToCase
     (
     -- * Creating a Request
-      AddCommunicationToCase
-    , addCommunicationToCase
+      addCommunicationToCase
+    , AddCommunicationToCase
     -- * Request Lenses
     , actcCaseId
     , actcCcEmailAddresses
@@ -42,8 +42,8 @@ module Network.AWS.Support.AddCommunicationToCase
     , actcCommunicationBody
 
     -- * Destructuring the Response
-    , AddCommunicationToCaseResponse
     , addCommunicationToCaseResponse
+    , AddCommunicationToCaseResponse
     -- * Response Lenses
     , actcrsResult
     , actcrsStatus
@@ -58,8 +58,16 @@ import           Network.AWS.Support.Types.Product
 -- | To be written.
 --
 -- /See:/ 'addCommunicationToCase' smart constructor.
+data AddCommunicationToCase = AddCommunicationToCase'
+    { _actcCaseId            :: !(Maybe Text)
+    , _actcCcEmailAddresses  :: !(Maybe [Text])
+    , _actcAttachmentSetId   :: !(Maybe Text)
+    , _actcCommunicationBody :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AddCommunicationToCase' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'actcCaseId'
 --
@@ -68,15 +76,9 @@ import           Network.AWS.Support.Types.Product
 -- * 'actcAttachmentSetId'
 --
 -- * 'actcCommunicationBody'
-data AddCommunicationToCase = AddCommunicationToCase'
-    { _actcCaseId            :: !(Maybe Text)
-    , _actcCcEmailAddresses  :: !(Maybe [Text])
-    , _actcAttachmentSetId   :: !(Maybe Text)
-    , _actcCommunicationBody :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AddCommunicationToCase' smart constructor.
-addCommunicationToCase :: Text -> AddCommunicationToCase
+addCommunicationToCase
+    :: Text -- ^ 'actcCommunicationBody'
+    -> AddCommunicationToCase
 addCommunicationToCase pCommunicationBody_ =
     AddCommunicationToCase'
     { _actcCaseId = Nothing
@@ -143,19 +145,21 @@ instance ToQuery AddCommunicationToCase where
 -- | The result of the AddCommunicationToCase operation.
 --
 -- /See:/ 'addCommunicationToCaseResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'actcrsResult'
---
--- * 'actcrsStatus'
 data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
     { _actcrsResult :: !(Maybe Bool)
     , _actcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddCommunicationToCaseResponse' smart constructor.
-addCommunicationToCaseResponse :: Int -> AddCommunicationToCaseResponse
+-- | Creates a value of 'AddCommunicationToCaseResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'actcrsResult'
+--
+-- * 'actcrsStatus'
+addCommunicationToCaseResponse
+    :: Int -- ^ 'actcrsStatus'
+    -> AddCommunicationToCaseResponse
 addCommunicationToCaseResponse pStatus_ =
     AddCommunicationToCaseResponse'
     { _actcrsResult = Nothing
@@ -166,6 +170,6 @@ addCommunicationToCaseResponse pStatus_ =
 actcrsResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
 actcrsResult = lens _actcrsResult (\ s a -> s{_actcrsResult = a});
 
--- | Undocumented member.
+-- | The response status code.
 actcrsStatus :: Lens' AddCommunicationToCaseResponse Int
 actcrsStatus = lens _actcrsStatus (\ s a -> s{_actcrsStatus = a});

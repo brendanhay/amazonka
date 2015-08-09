@@ -27,16 +27,16 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
--- -   Constrain the following parameters by using a @Condition@ element
+-- -   Constrain the following parameters by using a 'Condition' element
 --     with the appropriate keys.
---     -   @workflowType.name@: String constraint. The key is
---         @swf:workflowType.name@.
---     -   @workflowType.version@: String constraint. The key is
---         @swf:workflowType.version@.
+--     -   'workflowType.name': String constraint. The key is
+--         'swf:workflowType.name'.
+--     -   'workflowType.version': String constraint. The key is
+--         'swf:workflowType.version'.
 --
 -- If the caller does not have sufficient permissions to invoke the action,
 -- or the parameter values fall outside the specified constraints, the
@@ -49,15 +49,15 @@
 module Network.AWS.SWF.DescribeWorkflowType
     (
     -- * Creating a Request
-      DescribeWorkflowType
-    , describeWorkflowType
+      describeWorkflowType
+    , DescribeWorkflowType
     -- * Request Lenses
     , dwtDomain
     , dwtWorkflowType
 
     -- * Destructuring the Response
-    , DescribeWorkflowTypeResponse
     , describeWorkflowTypeResponse
+    , DescribeWorkflowTypeResponse
     -- * Response Lenses
     , dwtrsStatus
     , dwtrsTypeInfo
@@ -71,19 +71,22 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeWorkflowType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dwtDomain'
---
--- * 'dwtWorkflowType'
 data DescribeWorkflowType = DescribeWorkflowType'
     { _dwtDomain       :: !Text
     , _dwtWorkflowType :: !WorkflowType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeWorkflowType' smart constructor.
-describeWorkflowType :: Text -> WorkflowType -> DescribeWorkflowType
+-- | Creates a value of 'DescribeWorkflowType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dwtDomain'
+--
+-- * 'dwtWorkflowType'
+describeWorkflowType
+    :: Text -- ^ 'dwtDomain'
+    -> WorkflowType -- ^ 'dwtWorkflowType'
+    -> DescribeWorkflowType
 describeWorkflowType pDomain_ pWorkflowType_ =
     DescribeWorkflowType'
     { _dwtDomain = pDomain_
@@ -135,22 +138,26 @@ instance ToQuery DescribeWorkflowType where
 -- | Contains details about a workflow type.
 --
 -- /See:/ 'describeWorkflowTypeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dwtrsStatus'
---
--- * 'dwtrsTypeInfo'
---
--- * 'dwtrsConfiguration'
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
     { _dwtrsStatus        :: !Int
     , _dwtrsTypeInfo      :: !WorkflowTypeInfo
     , _dwtrsConfiguration :: !WorkflowTypeConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeWorkflowTypeResponse' smart constructor.
-describeWorkflowTypeResponse :: Int -> WorkflowTypeInfo -> WorkflowTypeConfiguration -> DescribeWorkflowTypeResponse
+-- | Creates a value of 'DescribeWorkflowTypeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dwtrsStatus'
+--
+-- * 'dwtrsTypeInfo'
+--
+-- * 'dwtrsConfiguration'
+describeWorkflowTypeResponse
+    :: Int -- ^ 'dwtrsStatus'
+    -> WorkflowTypeInfo -- ^ 'dwtrsTypeInfo'
+    -> WorkflowTypeConfiguration -- ^ 'dwtrsConfiguration'
+    -> DescribeWorkflowTypeResponse
 describeWorkflowTypeResponse pStatus_ pTypeInfo_ pConfiguration_ =
     DescribeWorkflowTypeResponse'
     { _dwtrsStatus = pStatus_
@@ -158,7 +165,7 @@ describeWorkflowTypeResponse pStatus_ pTypeInfo_ pConfiguration_ =
     , _dwtrsConfiguration = pConfiguration_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dwtrsStatus :: Lens' DescribeWorkflowTypeResponse Int
 dwtrsStatus = lens _dwtrsStatus (\ s a -> s{_dwtrsStatus = a});
 

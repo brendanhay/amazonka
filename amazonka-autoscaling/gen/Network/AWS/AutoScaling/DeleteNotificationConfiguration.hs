@@ -24,15 +24,15 @@
 module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     (
     -- * Creating a Request
-      DeleteNotificationConfiguration
-    , deleteNotificationConfiguration
+      deleteNotificationConfiguration
+    , DeleteNotificationConfiguration
     -- * Request Lenses
     , dncAutoScalingGroupName
     , dncTopicARN
 
     -- * Destructuring the Response
-    , DeleteNotificationConfigurationResponse
     , deleteNotificationConfigurationResponse
+    , DeleteNotificationConfigurationResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -42,19 +42,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteNotificationConfiguration' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dncAutoScalingGroupName'
---
--- * 'dncTopicARN'
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
     { _dncAutoScalingGroupName :: !Text
     , _dncTopicARN             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteNotificationConfiguration' smart constructor.
-deleteNotificationConfiguration :: Text -> Text -> DeleteNotificationConfiguration
+-- | Creates a value of 'DeleteNotificationConfiguration' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dncAutoScalingGroupName'
+--
+-- * 'dncTopicARN'
+deleteNotificationConfiguration
+    :: Text -- ^ 'dncAutoScalingGroupName'
+    -> Text -- ^ 'dncTopicARN'
+    -> DeleteNotificationConfiguration
 deleteNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
     DeleteNotificationConfiguration'
     { _dncAutoScalingGroupName = pAutoScalingGroupName_
@@ -102,7 +105,9 @@ data DeleteNotificationConfigurationResponse =
     DeleteNotificationConfigurationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteNotificationConfigurationResponse' smart constructor.
-deleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse
+-- | Creates a value of 'DeleteNotificationConfigurationResponse' with the minimum fields required to make a request.
+--
+deleteNotificationConfigurationResponse
+    :: DeleteNotificationConfigurationResponse
 deleteNotificationConfigurationResponse =
     DeleteNotificationConfigurationResponse'

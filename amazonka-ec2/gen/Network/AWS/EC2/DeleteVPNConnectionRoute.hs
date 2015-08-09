@@ -27,15 +27,15 @@
 module Network.AWS.EC2.DeleteVPNConnectionRoute
     (
     -- * Creating a Request
-      DeleteVPNConnectionRoute
-    , deleteVPNConnectionRoute
+      deleteVPNConnectionRoute
+    , DeleteVPNConnectionRoute
     -- * Request Lenses
     , dvcrVPNConnectionId
     , dvcrDestinationCIdRBlock
 
     -- * Destructuring the Response
-    , DeleteVPNConnectionRouteResponse
     , deleteVPNConnectionRouteResponse
+    , DeleteVPNConnectionRouteResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -45,19 +45,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPNConnectionRoute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvcrVPNConnectionId'
---
--- * 'dvcrDestinationCIdRBlock'
 data DeleteVPNConnectionRoute = DeleteVPNConnectionRoute'
     { _dvcrVPNConnectionId      :: !Text
     , _dvcrDestinationCIdRBlock :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVPNConnectionRoute' smart constructor.
-deleteVPNConnectionRoute :: Text -> Text -> DeleteVPNConnectionRoute
+-- | Creates a value of 'DeleteVPNConnectionRoute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvcrVPNConnectionId'
+--
+-- * 'dvcrDestinationCIdRBlock'
+deleteVPNConnectionRoute
+    :: Text -- ^ 'dvcrVPNConnectionId'
+    -> Text -- ^ 'dvcrDestinationCIdRBlock'
+    -> DeleteVPNConnectionRoute
 deleteVPNConnectionRoute pVPNConnectionId_ pDestinationCIdRBlock_ =
     DeleteVPNConnectionRoute'
     { _dvcrVPNConnectionId = pVPNConnectionId_
@@ -100,6 +103,8 @@ data DeleteVPNConnectionRouteResponse =
     DeleteVPNConnectionRouteResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVPNConnectionRouteResponse' smart constructor.
-deleteVPNConnectionRouteResponse :: DeleteVPNConnectionRouteResponse
+-- | Creates a value of 'DeleteVPNConnectionRouteResponse' with the minimum fields required to make a request.
+--
+deleteVPNConnectionRouteResponse
+    :: DeleteVPNConnectionRouteResponse
 deleteVPNConnectionRouteResponse = DeleteVPNConnectionRouteResponse'

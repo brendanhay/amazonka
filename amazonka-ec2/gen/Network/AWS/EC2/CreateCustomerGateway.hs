@@ -32,8 +32,8 @@
 -- already, you can use a private ASN (in the 64512 - 65534 range).
 --
 -- Amazon EC2 supports all 2-byte ASN numbers in the range of 1 - 65534,
--- with the exception of 7224, which is reserved in the @us-east-1@ region,
--- and 9059, which is reserved in the @eu-west-1@ region.
+-- with the exception of 7224, which is reserved in the 'us-east-1' region,
+-- and 9059, which is reserved in the 'eu-west-1' region.
 --
 -- For more information about VPN customer gateways, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
@@ -50,8 +50,8 @@
 module Network.AWS.EC2.CreateCustomerGateway
     (
     -- * Creating a Request
-      CreateCustomerGateway
-    , createCustomerGateway
+      createCustomerGateway
+    , CreateCustomerGateway
     -- * Request Lenses
     , ccgDryRun
     , ccgType
@@ -59,8 +59,8 @@ module Network.AWS.EC2.CreateCustomerGateway
     , ccgBGPASN
 
     -- * Destructuring the Response
-    , CreateCustomerGatewayResponse
     , createCustomerGatewayResponse
+    , CreateCustomerGatewayResponse
     -- * Response Lenses
     , ccgrsCustomerGateway
     , ccgrsStatus
@@ -73,8 +73,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createCustomerGateway' smart constructor.
+data CreateCustomerGateway = CreateCustomerGateway'
+    { _ccgDryRun   :: !(Maybe Bool)
+    , _ccgType     :: !GatewayType
+    , _ccgPublicIP :: !Text
+    , _ccgBGPASN   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateCustomerGateway' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ccgDryRun'
 --
@@ -83,15 +91,11 @@ import           Network.AWS.Response
 -- * 'ccgPublicIP'
 --
 -- * 'ccgBGPASN'
-data CreateCustomerGateway = CreateCustomerGateway'
-    { _ccgDryRun   :: !(Maybe Bool)
-    , _ccgType     :: !GatewayType
-    , _ccgPublicIP :: !Text
-    , _ccgBGPASN   :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateCustomerGateway' smart constructor.
-createCustomerGateway :: GatewayType -> Text -> Int -> CreateCustomerGateway
+createCustomerGateway
+    :: GatewayType -- ^ 'ccgType'
+    -> Text -- ^ 'ccgPublicIP'
+    -> Int -- ^ 'ccgBGPASN'
+    -> CreateCustomerGateway
 createCustomerGateway pType_ pPublicIP_ pBGPASN_ =
     CreateCustomerGateway'
     { _ccgDryRun = Nothing
@@ -102,13 +106,13 @@ createCustomerGateway pType_ pPublicIP_ pBGPASN_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 ccgDryRun :: Lens' CreateCustomerGateway (Maybe Bool)
 ccgDryRun = lens _ccgDryRun (\ s a -> s{_ccgDryRun = a});
 
 -- | The type of VPN connection that this customer gateway supports
--- (@ipsec.1@).
+-- ('ipsec.1').
 ccgType :: Lens' CreateCustomerGateway GatewayType
 ccgType = lens _ccgType (\ s a -> s{_ccgType = a});
 
@@ -149,19 +153,21 @@ instance ToQuery CreateCustomerGateway where
                "IpAddress" =: _ccgPublicIP, "BgpAsn" =: _ccgBGPASN]
 
 -- | /See:/ 'createCustomerGatewayResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccgrsCustomerGateway'
---
--- * 'ccgrsStatus'
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
     { _ccgrsCustomerGateway :: !(Maybe CustomerGateway)
     , _ccgrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateCustomerGatewayResponse' smart constructor.
-createCustomerGatewayResponse :: Int -> CreateCustomerGatewayResponse
+-- | Creates a value of 'CreateCustomerGatewayResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccgrsCustomerGateway'
+--
+-- * 'ccgrsStatus'
+createCustomerGatewayResponse
+    :: Int -- ^ 'ccgrsStatus'
+    -> CreateCustomerGatewayResponse
 createCustomerGatewayResponse pStatus_ =
     CreateCustomerGatewayResponse'
     { _ccgrsCustomerGateway = Nothing
@@ -172,6 +178,6 @@ createCustomerGatewayResponse pStatus_ =
 ccgrsCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
 ccgrsCustomerGateway = lens _ccgrsCustomerGateway (\ s a -> s{_ccgrsCustomerGateway = a});
 
--- | Undocumented member.
+-- | The response status code.
 ccgrsStatus :: Lens' CreateCustomerGatewayResponse Int
 ccgrsStatus = lens _ccgrsStatus (\ s a -> s{_ccgrsStatus = a});

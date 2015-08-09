@@ -24,27 +24,27 @@
 --
 -- You can call /DescribeStream/ at a maximum rate of 10 times per second.
 --
--- Each shard in the stream has a @SequenceNumberRange@ associated with it.
--- If the @SequenceNumberRange@ has a @StartingSequenceNumber@ but no
--- @EndingSequenceNumber@, then the shard is still open (able to receive
--- more stream records). If both @StartingSequenceNumber@ and
--- @EndingSequenceNumber@ are present, the that shared is closed and can no
+-- Each shard in the stream has a 'SequenceNumberRange' associated with it.
+-- If the 'SequenceNumberRange' has a 'StartingSequenceNumber' but no
+-- 'EndingSequenceNumber', then the shard is still open (able to receive
+-- more stream records). If both 'StartingSequenceNumber' and
+-- 'EndingSequenceNumber' are present, the that shared is closed and can no
 -- longer receive more data.
 --
 -- /See:/ <http://dynamodb-preview.s3-website-us-west-2.amazonaws.com/docs/streams-api/API_DescribeStream.html AWS API Reference> for DescribeStream.
 module Network.AWS.DynamoDBStreams.DescribeStream
     (
     -- * Creating a Request
-      DescribeStream
-    , describeStream
+      describeStream
+    , DescribeStream
     -- * Request Lenses
     , dsExclusiveStartShardId
     , dsLimit
     , dsStreamARN
 
     -- * Destructuring the Response
-    , DescribeStreamResponse
     , describeStreamResponse
+    , DescribeStreamResponse
     -- * Response Lenses
     , dsrsStreamDescription
     , dsrsStatus
@@ -59,22 +59,24 @@ import           Network.AWS.Response
 -- | Represents the input of a /DescribeStream/ operation.
 --
 -- /See:/ 'describeStream' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsExclusiveStartShardId'
---
--- * 'dsLimit'
---
--- * 'dsStreamARN'
 data DescribeStream = DescribeStream'
     { _dsExclusiveStartShardId :: !(Maybe Text)
     , _dsLimit                 :: !(Maybe Nat)
     , _dsStreamARN             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStream' smart constructor.
-describeStream :: Text -> DescribeStream
+-- | Creates a value of 'DescribeStream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsExclusiveStartShardId'
+--
+-- * 'dsLimit'
+--
+-- * 'dsStreamARN'
+describeStream
+    :: Text -- ^ 'dsStreamARN'
+    -> DescribeStream
 describeStream pStreamARN_ =
     DescribeStream'
     { _dsExclusiveStartShardId = Nothing
@@ -83,7 +85,7 @@ describeStream pStreamARN_ =
     }
 
 -- | The shard ID of the first item that this operation will evaluate. Use
--- the value that was returned for @LastEvaluatedShardId@ in the previous
+-- the value that was returned for 'LastEvaluatedShardId' in the previous
 -- operation.
 dsExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
 dsExclusiveStartShardId = lens _dsExclusiveStartShardId (\ s a -> s{_dsExclusiveStartShardId = a});
@@ -131,19 +133,21 @@ instance ToQuery DescribeStream where
 -- | Represents the output of a /DescribeStream/ operation.
 --
 -- /See:/ 'describeStreamResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrsStreamDescription'
---
--- * 'dsrsStatus'
 data DescribeStreamResponse = DescribeStreamResponse'
     { _dsrsStreamDescription :: !(Maybe StreamDescription)
     , _dsrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStreamResponse' smart constructor.
-describeStreamResponse :: Int -> DescribeStreamResponse
+-- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrsStreamDescription'
+--
+-- * 'dsrsStatus'
+describeStreamResponse
+    :: Int -- ^ 'dsrsStatus'
+    -> DescribeStreamResponse
 describeStreamResponse pStatus_ =
     DescribeStreamResponse'
     { _dsrsStreamDescription = Nothing
@@ -157,6 +161,6 @@ describeStreamResponse pStatus_ =
 dsrsStreamDescription :: Lens' DescribeStreamResponse (Maybe StreamDescription)
 dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 dsrsStatus :: Lens' DescribeStreamResponse Int
 dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

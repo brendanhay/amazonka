@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Unlinks a @DeveloperUserIdentifier@ from an existing identity. Unlinked
+-- Unlinks a 'DeveloperUserIdentifier' from an existing identity. Unlinked
 -- developer users will be considered new identities next time they are
 -- seen. If, for a given Cognito identity, you remove all federated
 -- identities as well as the developer user identifier, the Cognito
@@ -30,8 +30,8 @@
 module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     (
     -- * Creating a Request
-      UnlinkDeveloperIdentity
-    , unlinkDeveloperIdentity
+      unlinkDeveloperIdentity
+    , UnlinkDeveloperIdentity
     -- * Request Lenses
     , udiIdentityId
     , udiIdentityPoolId
@@ -39,8 +39,8 @@ module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     , udiDeveloperUserIdentifier
 
     -- * Destructuring the Response
-    , UnlinkDeveloperIdentityResponse
     , unlinkDeveloperIdentityResponse
+    , UnlinkDeveloperIdentityResponse
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -49,11 +49,19 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the @UnlinkDeveloperIdentity@ action.
+-- | Input to the 'UnlinkDeveloperIdentity' action.
 --
 -- /See:/ 'unlinkDeveloperIdentity' smart constructor.
+data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
+    { _udiIdentityId              :: !Text
+    , _udiIdentityPoolId          :: !Text
+    , _udiDeveloperProviderName   :: !Text
+    , _udiDeveloperUserIdentifier :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UnlinkDeveloperIdentity' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'udiIdentityId'
 --
@@ -62,15 +70,12 @@ import           Network.AWS.Response
 -- * 'udiDeveloperProviderName'
 --
 -- * 'udiDeveloperUserIdentifier'
-data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
-    { _udiIdentityId              :: !Text
-    , _udiIdentityPoolId          :: !Text
-    , _udiDeveloperProviderName   :: !Text
-    , _udiDeveloperUserIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UnlinkDeveloperIdentity' smart constructor.
-unlinkDeveloperIdentity :: Text -> Text -> Text -> Text -> UnlinkDeveloperIdentity
+unlinkDeveloperIdentity
+    :: Text -- ^ 'udiIdentityId'
+    -> Text -- ^ 'udiIdentityPoolId'
+    -> Text -- ^ 'udiDeveloperProviderName'
+    -> Text -- ^ 'udiDeveloperUserIdentifier'
+    -> UnlinkDeveloperIdentity
 unlinkDeveloperIdentity pIdentityId_ pIdentityPoolId_ pDeveloperProviderName_ pDeveloperUserIdentifier_ =
     UnlinkDeveloperIdentity'
     { _udiIdentityId = pIdentityId_
@@ -134,6 +139,8 @@ data UnlinkDeveloperIdentityResponse =
     UnlinkDeveloperIdentityResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnlinkDeveloperIdentityResponse' smart constructor.
-unlinkDeveloperIdentityResponse :: UnlinkDeveloperIdentityResponse
+-- | Creates a value of 'UnlinkDeveloperIdentityResponse' with the minimum fields required to make a request.
+--
+unlinkDeveloperIdentityResponse
+    :: UnlinkDeveloperIdentityResponse
 unlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse'

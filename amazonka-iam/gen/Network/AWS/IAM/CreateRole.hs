@@ -33,16 +33,16 @@
 module Network.AWS.IAM.CreateRole
     (
     -- * Creating a Request
-      CreateRole
-    , createRole
+      createRole
+    , CreateRole
     -- * Request Lenses
     , crPath
     , crRoleName
     , crAssumeRolePolicyDocument
 
     -- * Destructuring the Response
-    , CreateRoleResponse
     , createRoleResponse
+    , CreateRoleResponse
     -- * Response Lenses
     , crrsStatus
     , crrsRole
@@ -55,22 +55,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createRole' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crPath'
---
--- * 'crRoleName'
---
--- * 'crAssumeRolePolicyDocument'
 data CreateRole = CreateRole'
     { _crPath                     :: !(Maybe Text)
     , _crRoleName                 :: !Text
     , _crAssumeRolePolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateRole' smart constructor.
-createRole :: Text -> Text -> CreateRole
+-- | Creates a value of 'CreateRole' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crPath'
+--
+-- * 'crRoleName'
+--
+-- * 'crAssumeRolePolicyDocument'
+createRole
+    :: Text -- ^ 'crRoleName'
+    -> Text -- ^ 'crAssumeRolePolicyDocument'
+    -> CreateRole
 createRole pRoleName_ pAssumeRolePolicyDocument_ =
     CreateRole'
     { _crPath = Nothing
@@ -123,26 +126,29 @@ instance ToQuery CreateRole where
 -- | Contains the response to a successful CreateRole request.
 --
 -- /See:/ 'createRoleResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crrsStatus'
---
--- * 'crrsRole'
 data CreateRoleResponse = CreateRoleResponse'
     { _crrsStatus :: !Int
     , _crrsRole   :: !Role
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateRoleResponse' smart constructor.
-createRoleResponse :: Int -> Role -> CreateRoleResponse
+-- | Creates a value of 'CreateRoleResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crrsStatus'
+--
+-- * 'crrsRole'
+createRoleResponse
+    :: Int -- ^ 'crrsStatus'
+    -> Role -- ^ 'crrsRole'
+    -> CreateRoleResponse
 createRoleResponse pStatus_ pRole_ =
     CreateRoleResponse'
     { _crrsStatus = pStatus_
     , _crrsRole = pRole_
     }
 
--- | Undocumented member.
+-- | The response status code.
 crrsStatus :: Lens' CreateRoleResponse Int
 crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});
 

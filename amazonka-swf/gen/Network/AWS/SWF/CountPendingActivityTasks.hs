@@ -28,12 +28,12 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
--- -   Constrain the @taskList.name@ parameter by using a __Condition__
---     element with the @swf:taskList.name@ key to allow the action to
+-- -   Constrain the 'taskList.name' parameter by using a __Condition__
+--     element with the 'swf:taskList.name' key to allow the action to
 --     access only certain task lists.
 --
 -- If the caller does not have sufficient permissions to invoke the action,
@@ -47,15 +47,15 @@
 module Network.AWS.SWF.CountPendingActivityTasks
     (
     -- * Creating a Request
-      CountPendingActivityTasks
-    , countPendingActivityTasks
+      countPendingActivityTasks
+    , CountPendingActivityTasks
     -- * Request Lenses
     , cpatDomain
     , cpatTaskList
 
     -- * Destructuring the Response
-    , PendingTaskCount
     , pendingTaskCount
+    , PendingTaskCount
     -- * Response Lenses
     , ptcTruncated
     , ptcCount
@@ -68,19 +68,22 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'countPendingActivityTasks' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpatDomain'
---
--- * 'cpatTaskList'
 data CountPendingActivityTasks = CountPendingActivityTasks'
     { _cpatDomain   :: !Text
     , _cpatTaskList :: !TaskList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CountPendingActivityTasks' smart constructor.
-countPendingActivityTasks :: Text -> TaskList -> CountPendingActivityTasks
+-- | Creates a value of 'CountPendingActivityTasks' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpatDomain'
+--
+-- * 'cpatTaskList'
+countPendingActivityTasks
+    :: Text -- ^ 'cpatDomain'
+    -> TaskList -- ^ 'cpatTaskList'
+    -> CountPendingActivityTasks
 countPendingActivityTasks pDomain_ pTaskList_ =
     CountPendingActivityTasks'
     { _cpatDomain = pDomain_

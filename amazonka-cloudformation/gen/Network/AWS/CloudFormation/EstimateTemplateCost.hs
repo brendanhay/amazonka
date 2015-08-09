@@ -26,16 +26,16 @@
 module Network.AWS.CloudFormation.EstimateTemplateCost
     (
     -- * Creating a Request
-      EstimateTemplateCost
-    , estimateTemplateCost
+      estimateTemplateCost
+    , EstimateTemplateCost
     -- * Request Lenses
     , etcParameters
     , etcTemplateBody
     , etcTemplateURL
 
     -- * Destructuring the Response
-    , EstimateTemplateCostResponse
     , estimateTemplateCostResponse
+    , EstimateTemplateCostResponse
     -- * Response Lenses
     , etcrsURL
     , etcrsStatus
@@ -48,22 +48,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'estimateTemplateCost' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'etcParameters'
---
--- * 'etcTemplateBody'
---
--- * 'etcTemplateURL'
 data EstimateTemplateCost = EstimateTemplateCost'
     { _etcParameters   :: !(Maybe [Parameter])
     , _etcTemplateBody :: !(Maybe Text)
     , _etcTemplateURL  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EstimateTemplateCost' smart constructor.
-estimateTemplateCost :: EstimateTemplateCost
+-- | Creates a value of 'EstimateTemplateCost' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'etcParameters'
+--
+-- * 'etcTemplateBody'
+--
+-- * 'etcTemplateURL'
+estimateTemplateCost
+    :: EstimateTemplateCost
 estimateTemplateCost =
     EstimateTemplateCost'
     { _etcParameters = Nothing
@@ -71,7 +72,7 @@ estimateTemplateCost =
     , _etcTemplateURL = Nothing
     }
 
--- | A list of @Parameter@ structures that specify input parameters.
+-- | A list of 'Parameter' structures that specify input parameters.
 etcParameters :: Lens' EstimateTemplateCost [Parameter]
 etcParameters = lens _etcParameters (\ s a -> s{_etcParameters = a}) . _Default . _Coerce;
 
@@ -80,8 +81,8 @@ etcParameters = lens _etcParameters (\ s a -> s{_etcParameters = a}) . _Default 
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the AWS CloudFormation User Guide.)
 --
--- Conditional: You must pass @TemplateBody@ or @TemplateURL@. If both are
--- passed, only @TemplateBody@ is used.
+-- Conditional: You must pass 'TemplateBody' or 'TemplateURL'. If both are
+-- passed, only 'TemplateBody' is used.
 etcTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateBody = lens _etcTemplateBody (\ s a -> s{_etcTemplateBody = a});
 
@@ -91,8 +92,8 @@ etcTemplateBody = lens _etcTemplateBody (\ s a -> s{_etcTemplateBody = a});
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the AWS CloudFormation User Guide.
 --
--- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
--- passed, only @TemplateBody@ is used.
+-- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are
+-- passed, only 'TemplateBody' is used.
 etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateURL = lens _etcTemplateURL (\ s a -> s{_etcTemplateURL = a});
 
@@ -126,19 +127,21 @@ instance ToQuery EstimateTemplateCost where
 -- | The output for a EstimateTemplateCost action.
 --
 -- /See:/ 'estimateTemplateCostResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'etcrsURL'
---
--- * 'etcrsStatus'
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
     { _etcrsURL    :: !(Maybe Text)
     , _etcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EstimateTemplateCostResponse' smart constructor.
-estimateTemplateCostResponse :: Int -> EstimateTemplateCostResponse
+-- | Creates a value of 'EstimateTemplateCostResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'etcrsURL'
+--
+-- * 'etcrsStatus'
+estimateTemplateCostResponse
+    :: Int -- ^ 'etcrsStatus'
+    -> EstimateTemplateCostResponse
 estimateTemplateCostResponse pStatus_ =
     EstimateTemplateCostResponse'
     { _etcrsURL = Nothing
@@ -150,6 +153,6 @@ estimateTemplateCostResponse pStatus_ =
 etcrsURL :: Lens' EstimateTemplateCostResponse (Maybe Text)
 etcrsURL = lens _etcrsURL (\ s a -> s{_etcrsURL = a});
 
--- | Undocumented member.
+-- | The response status code.
 etcrsStatus :: Lens' EstimateTemplateCostResponse Int
 etcrsStatus = lens _etcrsStatus (\ s a -> s{_etcrsStatus = a});

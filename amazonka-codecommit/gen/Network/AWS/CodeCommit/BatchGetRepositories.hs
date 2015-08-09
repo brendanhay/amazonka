@@ -31,14 +31,14 @@
 module Network.AWS.CodeCommit.BatchGetRepositories
     (
     -- * Creating a Request
-      BatchGetRepositories
-    , batchGetRepositories
+      batchGetRepositories
+    , BatchGetRepositories
     -- * Request Lenses
     , bgrRepositoryNames
 
     -- * Destructuring the Response
-    , BatchGetRepositoriesResponse
     , batchGetRepositoriesResponse
+    , BatchGetRepositoriesResponse
     -- * Response Lenses
     , bgrrsRepositories
     , bgrrsRepositoriesNotFound
@@ -54,16 +54,17 @@ import           Network.AWS.Response
 -- | Represents the input of a batch get repositories operation.
 --
 -- /See:/ 'batchGetRepositories' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bgrRepositoryNames'
 newtype BatchGetRepositories = BatchGetRepositories'
     { _bgrRepositoryNames :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BatchGetRepositories' smart constructor.
-batchGetRepositories :: BatchGetRepositories
+-- | Creates a value of 'BatchGetRepositories' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgrRepositoryNames'
+batchGetRepositories
+    :: BatchGetRepositories
 batchGetRepositories =
     BatchGetRepositories'
     { _bgrRepositoryNames = mempty
@@ -109,22 +110,24 @@ instance ToQuery BatchGetRepositories where
 -- | Represents the output of a batch get repositories operation.
 --
 -- /See:/ 'batchGetRepositoriesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bgrrsRepositories'
---
--- * 'bgrrsRepositoriesNotFound'
---
--- * 'bgrrsStatus'
 data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
     { _bgrrsRepositories         :: !(Maybe [RepositoryMetadata])
     , _bgrrsRepositoriesNotFound :: !(Maybe [Text])
     , _bgrrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BatchGetRepositoriesResponse' smart constructor.
-batchGetRepositoriesResponse :: Int -> BatchGetRepositoriesResponse
+-- | Creates a value of 'BatchGetRepositoriesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgrrsRepositories'
+--
+-- * 'bgrrsRepositoriesNotFound'
+--
+-- * 'bgrrsStatus'
+batchGetRepositoriesResponse
+    :: Int -- ^ 'bgrrsStatus'
+    -> BatchGetRepositoriesResponse
 batchGetRepositoriesResponse pStatus_ =
     BatchGetRepositoriesResponse'
     { _bgrrsRepositories = Nothing
@@ -141,6 +144,6 @@ bgrrsRepositories = lens _bgrrsRepositories (\ s a -> s{_bgrrsRepositories = a})
 bgrrsRepositoriesNotFound :: Lens' BatchGetRepositoriesResponse [Text]
 bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRepositoriesNotFound = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 bgrrsStatus :: Lens' BatchGetRepositoriesResponse Int
 bgrrsStatus = lens _bgrrsStatus (\ s a -> s{_bgrrsStatus = a});

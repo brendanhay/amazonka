@@ -24,15 +24,15 @@
 module Network.AWS.CloudFront.DeleteStreamingDistribution
     (
     -- * Creating a Request
-      DeleteStreamingDistribution
-    , deleteStreamingDistribution
+      deleteStreamingDistribution
+    , DeleteStreamingDistribution
     -- * Request Lenses
     , dsdIfMatch
     , dsdId
 
     -- * Destructuring the Response
-    , DeleteStreamingDistributionResponse
     , deleteStreamingDistributionResponse
+    , DeleteStreamingDistributionResponse
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -44,19 +44,21 @@ import           Network.AWS.Response
 -- | The request to delete a streaming distribution.
 --
 -- /See:/ 'deleteStreamingDistribution' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsdIfMatch'
---
--- * 'dsdId'
 data DeleteStreamingDistribution = DeleteStreamingDistribution'
     { _dsdIfMatch :: !(Maybe Text)
     , _dsdId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteStreamingDistribution' smart constructor.
-deleteStreamingDistribution :: Text -> DeleteStreamingDistribution
+-- | Creates a value of 'DeleteStreamingDistribution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsdIfMatch'
+--
+-- * 'dsdId'
+deleteStreamingDistribution
+    :: Text -- ^ 'dsdId'
+    -> DeleteStreamingDistribution
 deleteStreamingDistribution pId_ =
     DeleteStreamingDistribution'
     { _dsdIfMatch = Nothing
@@ -97,6 +99,8 @@ data DeleteStreamingDistributionResponse =
     DeleteStreamingDistributionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteStreamingDistributionResponse' smart constructor.
-deleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse
+-- | Creates a value of 'DeleteStreamingDistributionResponse' with the minimum fields required to make a request.
+--
+deleteStreamingDistributionResponse
+    :: DeleteStreamingDistributionResponse
 deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse'

@@ -25,14 +25,14 @@
 module Network.AWS.S3.GetBucketLogging
     (
     -- * Creating a Request
-      GetBucketLogging
-    , getBucketLogging
+      getBucketLogging
+    , GetBucketLogging
     -- * Request Lenses
     , getBucket
 
     -- * Destructuring the Response
-    , GetBucketLoggingResponse
     , getBucketLoggingResponse
+    , GetBucketLoggingResponse
     -- * Response Lenses
     , grsLoggingEnabled
     , grsStatus
@@ -45,16 +45,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketLogging' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'getBucket'
 newtype GetBucketLogging = GetBucketLogging'
     { _getBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketLogging' smart constructor.
-getBucketLogging :: BucketName -> GetBucketLogging
+-- | Creates a value of 'GetBucketLogging' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'getBucket'
+getBucketLogging
+    :: BucketName -- ^ 'getBucket'
+    -> GetBucketLogging
 getBucketLogging pBucket_ =
     GetBucketLogging'
     { _getBucket = pBucket_
@@ -85,19 +87,21 @@ instance ToQuery GetBucketLogging where
         toQuery = const (mconcat ["logging"])
 
 -- | /See:/ 'getBucketLoggingResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grsLoggingEnabled'
---
--- * 'grsStatus'
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
     { _grsLoggingEnabled :: !(Maybe LoggingEnabled)
     , _grsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketLoggingResponse' smart constructor.
-getBucketLoggingResponse :: Int -> GetBucketLoggingResponse
+-- | Creates a value of 'GetBucketLoggingResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grsLoggingEnabled'
+--
+-- * 'grsStatus'
+getBucketLoggingResponse
+    :: Int -- ^ 'grsStatus'
+    -> GetBucketLoggingResponse
 getBucketLoggingResponse pStatus_ =
     GetBucketLoggingResponse'
     { _grsLoggingEnabled = Nothing
@@ -108,6 +112,6 @@ getBucketLoggingResponse pStatus_ =
 grsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
 grsLoggingEnabled = lens _grsLoggingEnabled (\ s a -> s{_grsLoggingEnabled = a});
 
--- | Undocumented member.
+-- | The response status code.
 grsStatus :: Lens' GetBucketLoggingResponse Int
 grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});

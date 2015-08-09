@@ -24,15 +24,15 @@
 module Network.AWS.Route53.ListTagsForResource
     (
     -- * Creating a Request
-      ListTagsForResource
-    , listTagsForResource
+      listTagsForResource
+    , ListTagsForResource
     -- * Request Lenses
     , ltfrResourceType
     , ltfrResourceId
 
     -- * Destructuring the Response
-    , ListTagsForResourceResponse
     , listTagsForResourceResponse
+    , ListTagsForResourceResponse
     -- * Response Lenses
     , ltfrrsStatus
     , ltfrrsResourceTagSet
@@ -48,19 +48,22 @@ import           Network.AWS.Route53.Types.Product
 -- tags that are associated with an individual resource.
 --
 -- /See:/ 'listTagsForResource' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltfrResourceType'
---
--- * 'ltfrResourceId'
 data ListTagsForResource = ListTagsForResource'
     { _ltfrResourceType :: !TagResourceType
     , _ltfrResourceId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTagsForResource' smart constructor.
-listTagsForResource :: TagResourceType -> Text -> ListTagsForResource
+-- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltfrResourceType'
+--
+-- * 'ltfrResourceId'
+listTagsForResource
+    :: TagResourceType -- ^ 'ltfrResourceType'
+    -> Text -- ^ 'ltfrResourceId'
+    -> ListTagsForResource
 listTagsForResource pResourceType_ pResourceId_ =
     ListTagsForResource'
     { _ltfrResourceType = pResourceType_
@@ -69,9 +72,9 @@ listTagsForResource pResourceType_ pResourceId_ =
 
 -- | The type of the resource.
 --
--- - The resource type for health checks is @healthcheck@.
+-- - The resource type for health checks is 'healthcheck'.
 --
--- - The resource type for hosted zones is @hostedzone@.
+-- - The resource type for hosted zones is 'hostedzone'.
 ltfrResourceType :: Lens' ListTagsForResource TagResourceType
 ltfrResourceType = lens _ltfrResourceType (\ s a -> s{_ltfrResourceType = a});
 
@@ -105,30 +108,33 @@ instance ToQuery ListTagsForResource where
 -- | A complex type containing tags for the specified resource.
 --
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltfrrsStatus'
---
--- * 'ltfrrsResourceTagSet'
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
     { _ltfrrsStatus         :: !Int
     , _ltfrrsResourceTagSet :: !ResourceTagSet
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTagsForResourceResponse' smart constructor.
-listTagsForResourceResponse :: Int -> ResourceTagSet -> ListTagsForResourceResponse
+-- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltfrrsStatus'
+--
+-- * 'ltfrrsResourceTagSet'
+listTagsForResourceResponse
+    :: Int -- ^ 'ltfrrsStatus'
+    -> ResourceTagSet -- ^ 'ltfrrsResourceTagSet'
+    -> ListTagsForResourceResponse
 listTagsForResourceResponse pStatus_ pResourceTagSet_ =
     ListTagsForResourceResponse'
     { _ltfrrsStatus = pStatus_
     , _ltfrrsResourceTagSet = pResourceTagSet_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ltfrrsStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsStatus = lens _ltfrrsStatus (\ s a -> s{_ltfrrsStatus = a});
 
--- | A @ResourceTagSet@ containing tags associated with the specified
+-- | A 'ResourceTagSet' containing tags associated with the specified
 -- resource.
 ltfrrsResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
 ltfrrsResourceTagSet = lens _ltfrrsResourceTagSet (\ s a -> s{_ltfrrsResourceTagSet = a});

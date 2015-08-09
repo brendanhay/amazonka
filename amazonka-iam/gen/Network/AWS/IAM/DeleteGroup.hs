@@ -25,14 +25,14 @@
 module Network.AWS.IAM.DeleteGroup
     (
     -- * Creating a Request
-      DeleteGroup
-    , deleteGroup
+      deleteGroup
+    , DeleteGroup
     -- * Request Lenses
     , dgGroupName
 
     -- * Destructuring the Response
-    , DeleteGroupResponse
     , deleteGroupResponse
+    , DeleteGroupResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -42,16 +42,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dgGroupName'
 newtype DeleteGroup = DeleteGroup'
     { _dgGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteGroup' smart constructor.
-deleteGroup :: Text -> DeleteGroup
+-- | Creates a value of 'DeleteGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dgGroupName'
+deleteGroup
+    :: Text -- ^ 'dgGroupName'
+    -> DeleteGroup
 deleteGroup pGroupName_ =
     DeleteGroup'
     { _dgGroupName = pGroupName_
@@ -85,6 +87,8 @@ data DeleteGroupResponse =
     DeleteGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteGroupResponse' smart constructor.
-deleteGroupResponse :: DeleteGroupResponse
+-- | Creates a value of 'DeleteGroupResponse' with the minimum fields required to make a request.
+--
+deleteGroupResponse
+    :: DeleteGroupResponse
 deleteGroupResponse = DeleteGroupResponse'

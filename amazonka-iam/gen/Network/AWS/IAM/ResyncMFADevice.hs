@@ -29,8 +29,8 @@
 module Network.AWS.IAM.ResyncMFADevice
     (
     -- * Creating a Request
-      ResyncMFADevice
-    , resyncMFADevice
+      resyncMFADevice
+    , ResyncMFADevice
     -- * Request Lenses
     , rmdUserName
     , rmdSerialNumber
@@ -38,8 +38,8 @@ module Network.AWS.IAM.ResyncMFADevice
     , rmdAuthenticationCode2
 
     -- * Destructuring the Response
-    , ResyncMFADeviceResponse
     , resyncMFADeviceResponse
+    , ResyncMFADeviceResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -49,8 +49,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'resyncMFADevice' smart constructor.
+data ResyncMFADevice = ResyncMFADevice'
+    { _rmdUserName            :: !Text
+    , _rmdSerialNumber        :: !Text
+    , _rmdAuthenticationCode1 :: !Text
+    , _rmdAuthenticationCode2 :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResyncMFADevice' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rmdUserName'
 --
@@ -59,15 +67,12 @@ import           Network.AWS.Response
 -- * 'rmdAuthenticationCode1'
 --
 -- * 'rmdAuthenticationCode2'
-data ResyncMFADevice = ResyncMFADevice'
-    { _rmdUserName            :: !Text
-    , _rmdSerialNumber        :: !Text
-    , _rmdAuthenticationCode1 :: !Text
-    , _rmdAuthenticationCode2 :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ResyncMFADevice' smart constructor.
-resyncMFADevice :: Text -> Text -> Text -> Text -> ResyncMFADevice
+resyncMFADevice
+    :: Text -- ^ 'rmdUserName'
+    -> Text -- ^ 'rmdSerialNumber'
+    -> Text -- ^ 'rmdAuthenticationCode1'
+    -> Text -- ^ 'rmdAuthenticationCode2'
+    -> ResyncMFADevice
 resyncMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationCode2_ =
     ResyncMFADevice'
     { _rmdUserName = pUserName_
@@ -119,6 +124,8 @@ data ResyncMFADeviceResponse =
     ResyncMFADeviceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResyncMFADeviceResponse' smart constructor.
-resyncMFADeviceResponse :: ResyncMFADeviceResponse
+-- | Creates a value of 'ResyncMFADeviceResponse' with the minimum fields required to make a request.
+--
+resyncMFADeviceResponse
+    :: ResyncMFADeviceResponse
 resyncMFADeviceResponse = ResyncMFADeviceResponse'

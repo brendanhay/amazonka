@@ -29,18 +29,18 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
--- -   Constrain the following parameters by using a @Condition@ element
+-- -   Constrain the following parameters by using a 'Condition' element
 --     with the appropriate keys.
---     -   @tagFilter.tag@: String constraint. The key is
---         @swf:tagFilter.tag@.
---     -   @typeFilter.name@: String constraint. The key is
---         @swf:typeFilter.name@.
---     -   @typeFilter.version@: String constraint. The key is
---         @swf:typeFilter.version@.
+--     -   'tagFilter.tag': String constraint. The key is
+--         'swf:tagFilter.tag'.
+--     -   'typeFilter.name': String constraint. The key is
+--         'swf:typeFilter.name'.
+--     -   'typeFilter.version': String constraint. The key is
+--         'swf:typeFilter.version'.
 --
 -- If the caller does not have sufficient permissions to invoke the action,
 -- or the parameter values fall outside the specified constraints, the
@@ -53,8 +53,8 @@
 module Network.AWS.SWF.CountClosedWorkflowExecutions
     (
     -- * Creating a Request
-      CountClosedWorkflowExecutions
-    , countClosedWorkflowExecutions
+      countClosedWorkflowExecutions
+    , CountClosedWorkflowExecutions
     -- * Request Lenses
     , ccweCloseStatusFilter
     , ccweExecutionFilter
@@ -65,8 +65,8 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
     , ccweDomain
 
     -- * Destructuring the Response
-    , WorkflowExecutionCount
     , workflowExecutionCount
+    , WorkflowExecutionCount
     -- * Response Lenses
     , wecTruncated
     , wecCount
@@ -79,8 +79,19 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'countClosedWorkflowExecutions' smart constructor.
+data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions'
+    { _ccweCloseStatusFilter :: !(Maybe CloseStatusFilter)
+    , _ccweExecutionFilter   :: !(Maybe WorkflowExecutionFilter)
+    , _ccweTypeFilter        :: !(Maybe WorkflowTypeFilter)
+    , _ccweCloseTimeFilter   :: !(Maybe ExecutionTimeFilter)
+    , _ccweTagFilter         :: !(Maybe TagFilter)
+    , _ccweStartTimeFilter   :: !(Maybe ExecutionTimeFilter)
+    , _ccweDomain            :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CountClosedWorkflowExecutions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ccweCloseStatusFilter'
 --
@@ -95,18 +106,9 @@ import           Network.AWS.SWF.Types.Product
 -- * 'ccweStartTimeFilter'
 --
 -- * 'ccweDomain'
-data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions'
-    { _ccweCloseStatusFilter :: !(Maybe CloseStatusFilter)
-    , _ccweExecutionFilter   :: !(Maybe WorkflowExecutionFilter)
-    , _ccweTypeFilter        :: !(Maybe WorkflowTypeFilter)
-    , _ccweCloseTimeFilter   :: !(Maybe ExecutionTimeFilter)
-    , _ccweTagFilter         :: !(Maybe TagFilter)
-    , _ccweStartTimeFilter   :: !(Maybe ExecutionTimeFilter)
-    , _ccweDomain            :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CountClosedWorkflowExecutions' smart constructor.
-countClosedWorkflowExecutions :: Text -> CountClosedWorkflowExecutions
+countClosedWorkflowExecutions
+    :: Text -- ^ 'ccweDomain'
+    -> CountClosedWorkflowExecutions
 countClosedWorkflowExecutions pDomain_ =
     CountClosedWorkflowExecutions'
     { _ccweCloseStatusFilter = Nothing
@@ -119,18 +121,18 @@ countClosedWorkflowExecutions pDomain_ =
     }
 
 -- | If specified, only workflow executions that match this close status are
--- counted. This filter has an affect only if @executionStatus@ is
--- specified as @CLOSED@.
+-- counted. This filter has an affect only if 'executionStatus' is
+-- specified as 'CLOSED'.
 --
--- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- 'closeStatusFilter', 'executionFilter', 'typeFilter' and 'tagFilter' are
 -- mutually exclusive. You can specify at most one of these in a request.
 ccweCloseStatusFilter :: Lens' CountClosedWorkflowExecutions (Maybe CloseStatusFilter)
 ccweCloseStatusFilter = lens _ccweCloseStatusFilter (\ s a -> s{_ccweCloseStatusFilter = a});
 
--- | If specified, only workflow executions matching the @WorkflowId@ in the
+-- | If specified, only workflow executions matching the 'WorkflowId' in the
 -- filter are counted.
 --
--- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- 'closeStatusFilter', 'executionFilter', 'typeFilter' and 'tagFilter' are
 -- mutually exclusive. You can specify at most one of these in a request.
 ccweExecutionFilter :: Lens' CountClosedWorkflowExecutions (Maybe WorkflowExecutionFilter)
 ccweExecutionFilter = lens _ccweExecutionFilter (\ s a -> s{_ccweExecutionFilter = a});
@@ -138,7 +140,7 @@ ccweExecutionFilter = lens _ccweExecutionFilter (\ s a -> s{_ccweExecutionFilter
 -- | If specified, indicates the type of the workflow executions to be
 -- counted.
 --
--- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- 'closeStatusFilter', 'executionFilter', 'typeFilter' and 'tagFilter' are
 -- mutually exclusive. You can specify at most one of these in a request.
 ccweTypeFilter :: Lens' CountClosedWorkflowExecutions (Maybe WorkflowTypeFilter)
 ccweTypeFilter = lens _ccweTypeFilter (\ s a -> s{_ccweTypeFilter = a});
@@ -146,7 +148,7 @@ ccweTypeFilter = lens _ccweTypeFilter (\ s a -> s{_ccweTypeFilter = a});
 -- | If specified, only workflow executions that meet the close time criteria
 -- of the filter are counted.
 --
--- @startTimeFilter@ and @closeTimeFilter@ are mutually exclusive. You must
+-- 'startTimeFilter' and 'closeTimeFilter' are mutually exclusive. You must
 -- specify one of these in a request but not both.
 ccweCloseTimeFilter :: Lens' CountClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
 ccweCloseTimeFilter = lens _ccweCloseTimeFilter (\ s a -> s{_ccweCloseTimeFilter = a});
@@ -154,7 +156,7 @@ ccweCloseTimeFilter = lens _ccweCloseTimeFilter (\ s a -> s{_ccweCloseTimeFilter
 -- | If specified, only executions that have a tag that matches the filter
 -- are counted.
 --
--- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- 'closeStatusFilter', 'executionFilter', 'typeFilter' and 'tagFilter' are
 -- mutually exclusive. You can specify at most one of these in a request.
 ccweTagFilter :: Lens' CountClosedWorkflowExecutions (Maybe TagFilter)
 ccweTagFilter = lens _ccweTagFilter (\ s a -> s{_ccweTagFilter = a});
@@ -162,7 +164,7 @@ ccweTagFilter = lens _ccweTagFilter (\ s a -> s{_ccweTagFilter = a});
 -- | If specified, only workflow executions that meet the start time criteria
 -- of the filter are counted.
 --
--- @startTimeFilter@ and @closeTimeFilter@ are mutually exclusive. You must
+-- 'startTimeFilter' and 'closeTimeFilter' are mutually exclusive. You must
 -- specify one of these in a request but not both.
 ccweStartTimeFilter :: Lens' CountClosedWorkflowExecutions (Maybe ExecutionTimeFilter)
 ccweStartTimeFilter = lens _ccweStartTimeFilter (\ s a -> s{_ccweStartTimeFilter = a});

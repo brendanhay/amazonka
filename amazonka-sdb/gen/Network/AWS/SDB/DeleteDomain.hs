@@ -18,22 +18,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @DeleteDomain@ operation deletes a domain. Any items (and their
--- attributes) in the domain are deleted as well. The @DeleteDomain@
+-- The 'DeleteDomain' operation deletes a domain. Any items (and their
+-- attributes) in the domain are deleted as well. The 'DeleteDomain'
 -- operation might take 10 or more seconds to complete.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteDomain.html AWS API Reference> for DeleteDomain.
 module Network.AWS.SDB.DeleteDomain
     (
     -- * Creating a Request
-      DeleteDomain
-    , deleteDomain
+      deleteDomain
+    , DeleteDomain
     -- * Request Lenses
     , ddDomainName
 
     -- * Destructuring the Response
-    , DeleteDomainResponse
     , deleteDomainResponse
+    , DeleteDomainResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -43,16 +43,18 @@ import           Network.AWS.SDB.Types
 import           Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'deleteDomain' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddDomainName'
 newtype DeleteDomain = DeleteDomain'
     { _ddDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDomain' smart constructor.
-deleteDomain :: Text -> DeleteDomain
+-- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddDomainName'
+deleteDomain
+    :: Text -- ^ 'ddDomainName'
+    -> DeleteDomain
 deleteDomain pDomainName_ =
     DeleteDomain'
     { _ddDomainName = pDomainName_
@@ -86,6 +88,8 @@ data DeleteDomainResponse =
     DeleteDomainResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDomainResponse' smart constructor.
-deleteDomainResponse :: DeleteDomainResponse
+-- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
+--
+deleteDomainResponse
+    :: DeleteDomainResponse
 deleteDomainResponse = DeleteDomainResponse'

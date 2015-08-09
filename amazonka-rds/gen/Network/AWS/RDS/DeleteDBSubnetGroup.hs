@@ -27,14 +27,14 @@
 module Network.AWS.RDS.DeleteDBSubnetGroup
     (
     -- * Creating a Request
-      DeleteDBSubnetGroup
-    , deleteDBSubnetGroup
+      deleteDBSubnetGroup
+    , DeleteDBSubnetGroup
     -- * Request Lenses
     , ddbsgDBSubnetGroupName
 
     -- * Destructuring the Response
-    , DeleteDBSubnetGroupResponse
     , deleteDBSubnetGroupResponse
+    , DeleteDBSubnetGroupResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteDBSubnetGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddbsgDBSubnetGroupName'
 newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup'
     { _ddbsgDBSubnetGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBSubnetGroup' smart constructor.
-deleteDBSubnetGroup :: Text -> DeleteDBSubnetGroup
+-- | Creates a value of 'DeleteDBSubnetGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddbsgDBSubnetGroupName'
+deleteDBSubnetGroup
+    :: Text -- ^ 'ddbsgDBSubnetGroupName'
+    -> DeleteDBSubnetGroup
 deleteDBSubnetGroup pDBSubnetGroupName_ =
     DeleteDBSubnetGroup'
     { _ddbsgDBSubnetGroupName = pDBSubnetGroupName_
@@ -98,6 +100,8 @@ data DeleteDBSubnetGroupResponse =
     DeleteDBSubnetGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBSubnetGroupResponse' smart constructor.
-deleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse
+-- | Creates a value of 'DeleteDBSubnetGroupResponse' with the minimum fields required to make a request.
+--
+deleteDBSubnetGroupResponse
+    :: DeleteDBSubnetGroupResponse
 deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse'

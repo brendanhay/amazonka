@@ -24,14 +24,14 @@
 module Network.AWS.S3.GetBucketLocation
     (
     -- * Creating a Request
-      GetBucketLocation
-    , getBucketLocation
+      getBucketLocation
+    , GetBucketLocation
     -- * Request Lenses
     , gblBucket
 
     -- * Destructuring the Response
-    , GetBucketLocationResponse
     , getBucketLocationResponse
+    , GetBucketLocationResponse
     -- * Response Lenses
     , getrsLocationConstraint
     , getrsStatus
@@ -44,16 +44,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketLocation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gblBucket'
 newtype GetBucketLocation = GetBucketLocation'
     { _gblBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketLocation' smart constructor.
-getBucketLocation :: BucketName -> GetBucketLocation
+-- | Creates a value of 'GetBucketLocation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gblBucket'
+getBucketLocation
+    :: BucketName -- ^ 'gblBucket'
+    -> GetBucketLocation
 getBucketLocation pBucket_ =
     GetBucketLocation'
     { _gblBucket = pBucket_
@@ -84,19 +86,21 @@ instance ToQuery GetBucketLocation where
         toQuery = const (mconcat ["location"])
 
 -- | /See:/ 'getBucketLocationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'getrsLocationConstraint'
---
--- * 'getrsStatus'
 data GetBucketLocationResponse = GetBucketLocationResponse'
     { _getrsLocationConstraint :: !(Maybe Region)
     , _getrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketLocationResponse' smart constructor.
-getBucketLocationResponse :: Int -> GetBucketLocationResponse
+-- | Creates a value of 'GetBucketLocationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'getrsLocationConstraint'
+--
+-- * 'getrsStatus'
+getBucketLocationResponse
+    :: Int -- ^ 'getrsStatus'
+    -> GetBucketLocationResponse
 getBucketLocationResponse pStatus_ =
     GetBucketLocationResponse'
     { _getrsLocationConstraint = Nothing
@@ -107,6 +111,6 @@ getBucketLocationResponse pStatus_ =
 getrsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
 getrsLocationConstraint = lens _getrsLocationConstraint (\ s a -> s{_getrsLocationConstraint = a});
 
--- | Undocumented member.
+-- | The response status code.
 getrsStatus :: Lens' GetBucketLocationResponse Int
 getrsStatus = lens _getrsStatus (\ s a -> s{_getrsStatus = a});

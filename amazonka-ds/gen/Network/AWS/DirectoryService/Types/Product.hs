@@ -24,19 +24,20 @@ import           Network.AWS.Prelude
 -- | Represents a named directory attribute.
 --
 -- /See:/ 'attribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aValue'
---
--- * 'aName'
 data Attribute = Attribute'
     { _aValue :: !(Maybe Text)
     , _aName  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Attribute' smart constructor.
-attribute :: Attribute
+-- | Creates a value of 'Attribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aValue'
+--
+-- * 'aName'
+attribute
+    :: Attribute
 attribute =
     Attribute'
     { _aValue = Nothing
@@ -64,22 +65,23 @@ instance ToJSON Attribute where
 -- | Contains information about a computer account in a directory.
 --
 -- /See:/ 'computer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cComputerId'
---
--- * 'cComputerAttributes'
---
--- * 'cComputerName'
 data Computer = Computer'
     { _cComputerId         :: !(Maybe Text)
     , _cComputerAttributes :: !(Maybe [Attribute])
     , _cComputerName       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Computer' smart constructor.
-computer :: Computer
+-- | Creates a value of 'Computer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cComputerId'
+--
+-- * 'cComputerAttributes'
+--
+-- * 'cComputerName'
+computer
+    :: Computer
 computer =
     Computer'
     { _cComputerId = Nothing
@@ -113,8 +115,16 @@ instance FromJSON Computer where
 -- Connector directory is being created.
 --
 -- /See:/ 'directoryConnectSettings' smart constructor.
+data DirectoryConnectSettings = DirectoryConnectSettings'
+    { _dcsVPCId            :: !Text
+    , _dcsSubnetIds        :: ![Text]
+    , _dcsCustomerDNSIPs   :: ![Text]
+    , _dcsCustomerUserName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DirectoryConnectSettings' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcsVPCId'
 --
@@ -123,15 +133,10 @@ instance FromJSON Computer where
 -- * 'dcsCustomerDNSIPs'
 --
 -- * 'dcsCustomerUserName'
-data DirectoryConnectSettings = DirectoryConnectSettings'
-    { _dcsVPCId            :: !Text
-    , _dcsSubnetIds        :: ![Text]
-    , _dcsCustomerDNSIPs   :: ![Text]
-    , _dcsCustomerUserName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DirectoryConnectSettings' smart constructor.
-directoryConnectSettings :: Text -> Text -> DirectoryConnectSettings
+directoryConnectSettings
+    :: Text -- ^ 'dcsVPCId'
+    -> Text -- ^ 'dcsCustomerUserName'
+    -> DirectoryConnectSettings
 directoryConnectSettings pVPCId_ pCustomerUserName_ =
     DirectoryConnectSettings'
     { _dcsVPCId = pVPCId_
@@ -174,8 +179,18 @@ instance ToJSON DirectoryConnectSettings where
 -- | Contains information about an AD Connector directory.
 --
 -- /See:/ 'directoryConnectSettingsDescription' smart constructor.
+data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
+    { _dcsdCustomerUserName  :: !(Maybe Text)
+    , _dcsdSubnetIds         :: !(Maybe [Text])
+    , _dcsdVPCId             :: !(Maybe Text)
+    , _dcsdConnectIPs        :: !(Maybe [Text])
+    , _dcsdSecurityGroupId   :: !(Maybe Text)
+    , _dcsdAvailabilityZones :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DirectoryConnectSettingsDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcsdCustomerUserName'
 --
@@ -188,17 +203,8 @@ instance ToJSON DirectoryConnectSettings where
 -- * 'dcsdSecurityGroupId'
 --
 -- * 'dcsdAvailabilityZones'
-data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
-    { _dcsdCustomerUserName  :: !(Maybe Text)
-    , _dcsdSubnetIds         :: !(Maybe [Text])
-    , _dcsdVPCId             :: !(Maybe Text)
-    , _dcsdConnectIPs        :: !(Maybe [Text])
-    , _dcsdSecurityGroupId   :: !(Maybe Text)
-    , _dcsdAvailabilityZones :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DirectoryConnectSettingsDescription' smart constructor.
-directoryConnectSettingsDescription :: DirectoryConnectSettingsDescription
+directoryConnectSettingsDescription
+    :: DirectoryConnectSettingsDescription
 directoryConnectSettingsDescription =
     DirectoryConnectSettingsDescription'
     { _dcsdCustomerUserName = Nothing
@@ -249,8 +255,30 @@ instance FromJSON DirectoryConnectSettingsDescription
 -- | Contains information about an AWS Directory Service directory.
 --
 -- /See:/ 'directoryDescription' smart constructor.
+data DirectoryDescription = DirectoryDescription'
+    { _ddRadiusStatus             :: !(Maybe RadiusStatus)
+    , _ddDirectoryId              :: !(Maybe Text)
+    , _ddStage                    :: !(Maybe DirectoryStage)
+    , _ddAccessURL                :: !(Maybe Text)
+    , _ddShortName                :: !(Maybe Text)
+    , _ddSize                     :: !(Maybe DirectorySize)
+    , _ddRadiusSettings           :: !(Maybe RadiusSettings)
+    , _ddLaunchTime               :: !(Maybe POSIX)
+    , _ddAlias                    :: !(Maybe Text)
+    , _ddName                     :: !(Maybe Text)
+    , _ddSSOEnabled               :: !(Maybe Bool)
+    , _ddStageLastUpdatedDateTime :: !(Maybe POSIX)
+    , _ddStageReason              :: !(Maybe Text)
+    , _ddDNSIPAddrs               :: !(Maybe [Text])
+    , _ddVPCSettings              :: !(Maybe DirectoryVPCSettingsDescription)
+    , _ddType                     :: !(Maybe DirectoryType)
+    , _ddConnectSettings          :: !(Maybe DirectoryConnectSettingsDescription)
+    , _ddDescription              :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DirectoryDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ddRadiusStatus'
 --
@@ -287,29 +315,8 @@ instance FromJSON DirectoryConnectSettingsDescription
 -- * 'ddConnectSettings'
 --
 -- * 'ddDescription'
-data DirectoryDescription = DirectoryDescription'
-    { _ddRadiusStatus             :: !(Maybe RadiusStatus)
-    , _ddDirectoryId              :: !(Maybe Text)
-    , _ddStage                    :: !(Maybe DirectoryStage)
-    , _ddAccessURL                :: !(Maybe Text)
-    , _ddShortName                :: !(Maybe Text)
-    , _ddSize                     :: !(Maybe DirectorySize)
-    , _ddRadiusSettings           :: !(Maybe RadiusSettings)
-    , _ddLaunchTime               :: !(Maybe POSIX)
-    , _ddAlias                    :: !(Maybe Text)
-    , _ddName                     :: !(Maybe Text)
-    , _ddSSOEnabled               :: !(Maybe Bool)
-    , _ddStageLastUpdatedDateTime :: !(Maybe POSIX)
-    , _ddStageReason              :: !(Maybe Text)
-    , _ddDNSIPAddrs               :: !(Maybe [Text])
-    , _ddVPCSettings              :: !(Maybe DirectoryVPCSettingsDescription)
-    , _ddType                     :: !(Maybe DirectoryType)
-    , _ddConnectSettings          :: !(Maybe DirectoryConnectSettingsDescription)
-    , _ddDescription              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DirectoryDescription' smart constructor.
-directoryDescription :: DirectoryDescription
+directoryDescription
+    :: DirectoryDescription
 directoryDescription =
     DirectoryDescription'
     { _ddRadiusStatus = Nothing
@@ -345,7 +352,7 @@ ddStage :: Lens' DirectoryDescription (Maybe DirectoryStage)
 ddStage = lens _ddStage (\ s a -> s{_ddStage = a});
 
 -- | The access URL for the directory, such as
--- @http:\/\/\<alias>.awsapps.com@.
+-- 'http:\/\/\<alias>.awsapps.com'.
 ddAccessURL :: Lens' DirectoryDescription (Maybe Text)
 ddAccessURL = lens _ddAccessURL (\ s a -> s{_ddAccessURL = a});
 
@@ -441,8 +448,18 @@ instance FromJSON DirectoryDescription where
 -- | Contains directory limit information for a region.
 --
 -- /See:/ 'directoryLimits' smart constructor.
+data DirectoryLimits = DirectoryLimits'
+    { _dlConnectedDirectoriesCurrentCount :: !(Maybe Nat)
+    , _dlConnectedDirectoriesLimit        :: !(Maybe Nat)
+    , _dlConnectedDirectoriesLimitReached :: !(Maybe Bool)
+    , _dlCloudOnlyDirectoriesLimit        :: !(Maybe Nat)
+    , _dlCloudOnlyDirectoriesCurrentCount :: !(Maybe Nat)
+    , _dlCloudOnlyDirectoriesLimitReached :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DirectoryLimits' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dlConnectedDirectoriesCurrentCount'
 --
@@ -455,17 +472,8 @@ instance FromJSON DirectoryDescription where
 -- * 'dlCloudOnlyDirectoriesCurrentCount'
 --
 -- * 'dlCloudOnlyDirectoriesLimitReached'
-data DirectoryLimits = DirectoryLimits'
-    { _dlConnectedDirectoriesCurrentCount :: !(Maybe Nat)
-    , _dlConnectedDirectoriesLimit        :: !(Maybe Nat)
-    , _dlConnectedDirectoriesLimitReached :: !(Maybe Bool)
-    , _dlCloudOnlyDirectoriesLimit        :: !(Maybe Nat)
-    , _dlCloudOnlyDirectoriesCurrentCount :: !(Maybe Nat)
-    , _dlCloudOnlyDirectoriesLimitReached :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DirectoryLimits' smart constructor.
-directoryLimits :: DirectoryLimits
+directoryLimits
+    :: DirectoryLimits
 directoryLimits =
     DirectoryLimits'
     { _dlConnectedDirectoriesCurrentCount = Nothing
@@ -516,19 +524,21 @@ instance FromJSON DirectoryLimits where
 -- directory is being created.
 --
 -- /See:/ 'directoryVPCSettings' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvsVPCId'
---
--- * 'dvsSubnetIds'
 data DirectoryVPCSettings = DirectoryVPCSettings'
     { _dvsVPCId     :: !Text
     , _dvsSubnetIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DirectoryVPCSettings' smart constructor.
-directoryVPCSettings :: Text -> DirectoryVPCSettings
+-- | Creates a value of 'DirectoryVPCSettings' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvsVPCId'
+--
+-- * 'dvsSubnetIds'
+directoryVPCSettings
+    :: Text -- ^ 'dvsVPCId'
+    -> DirectoryVPCSettings
 directoryVPCSettings pVPCId_ =
     DirectoryVPCSettings'
     { _dvsVPCId = pVPCId_
@@ -553,8 +563,16 @@ instance ToJSON DirectoryVPCSettings where
 -- | Contains information about a Simple AD directory.
 --
 -- /See:/ 'directoryVPCSettingsDescription' smart constructor.
+data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
+    { _dvsdSubnetIds         :: !(Maybe [Text])
+    , _dvsdVPCId             :: !(Maybe Text)
+    , _dvsdSecurityGroupId   :: !(Maybe Text)
+    , _dvsdAvailabilityZones :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DirectoryVPCSettingsDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dvsdSubnetIds'
 --
@@ -563,15 +581,8 @@ instance ToJSON DirectoryVPCSettings where
 -- * 'dvsdSecurityGroupId'
 --
 -- * 'dvsdAvailabilityZones'
-data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
-    { _dvsdSubnetIds         :: !(Maybe [Text])
-    , _dvsdVPCId             :: !(Maybe Text)
-    , _dvsdSecurityGroupId   :: !(Maybe Text)
-    , _dvsdAvailabilityZones :: !(Maybe [Text])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DirectoryVPCSettingsDescription' smart constructor.
-directoryVPCSettingsDescription :: DirectoryVPCSettingsDescription
+directoryVPCSettingsDescription
+    :: DirectoryVPCSettingsDescription
 directoryVPCSettingsDescription =
     DirectoryVPCSettingsDescription'
     { _dvsdSubnetIds = Nothing
@@ -610,8 +621,20 @@ instance FromJSON DirectoryVPCSettingsDescription
 -- (RADIUS) server.
 --
 -- /See:/ 'radiusSettings' smart constructor.
+data RadiusSettings = RadiusSettings'
+    { _rsDisplayLabel           :: !(Maybe Text)
+    , _rsRadiusServers          :: !(Maybe [Text])
+    , _rsRadiusRetries          :: !(Maybe Nat)
+    , _rsAuthenticationProtocol :: !(Maybe RadiusAuthenticationProtocol)
+    , _rsUseSameUsername        :: !(Maybe Bool)
+    , _rsSharedSecret           :: !(Maybe (Sensitive Text))
+    , _rsRadiusTimeout          :: !(Maybe Nat)
+    , _rsRadiusPort             :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RadiusSettings' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rsDisplayLabel'
 --
@@ -628,19 +651,8 @@ instance FromJSON DirectoryVPCSettingsDescription
 -- * 'rsRadiusTimeout'
 --
 -- * 'rsRadiusPort'
-data RadiusSettings = RadiusSettings'
-    { _rsDisplayLabel           :: !(Maybe Text)
-    , _rsRadiusServers          :: !(Maybe [Text])
-    , _rsRadiusRetries          :: !(Maybe Nat)
-    , _rsAuthenticationProtocol :: !(Maybe RadiusAuthenticationProtocol)
-    , _rsUseSameUsername        :: !(Maybe Bool)
-    , _rsSharedSecret           :: !(Maybe (Sensitive Text))
-    , _rsRadiusTimeout          :: !(Maybe Nat)
-    , _rsRadiusPort             :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RadiusSettings' smart constructor.
-radiusSettings :: RadiusSettings
+radiusSettings
+    :: RadiusSettings
 radiusSettings =
     RadiusSettings'
     { _rsDisplayLabel = Nothing
@@ -721,8 +733,18 @@ instance ToJSON RadiusSettings where
 -- | Describes a directory snapshot.
 --
 -- /See:/ 'snapshot' smart constructor.
+data Snapshot = Snapshot'
+    { _sDirectoryId :: !(Maybe Text)
+    , _sStatus      :: !(Maybe SnapshotStatus)
+    , _sStartTime   :: !(Maybe POSIX)
+    , _sName        :: !(Maybe Text)
+    , _sType        :: !(Maybe SnapshotType)
+    , _sSnapshotId  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Snapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sDirectoryId'
 --
@@ -735,17 +757,8 @@ instance ToJSON RadiusSettings where
 -- * 'sType'
 --
 -- * 'sSnapshotId'
-data Snapshot = Snapshot'
-    { _sDirectoryId :: !(Maybe Text)
-    , _sStatus      :: !(Maybe SnapshotStatus)
-    , _sStartTime   :: !(Maybe POSIX)
-    , _sName        :: !(Maybe Text)
-    , _sType        :: !(Maybe SnapshotType)
-    , _sSnapshotId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Snapshot' smart constructor.
-snapshot :: Snapshot
+snapshot
+    :: Snapshot
 snapshot =
     Snapshot'
     { _sDirectoryId = Nothing
@@ -794,22 +807,23 @@ instance FromJSON Snapshot where
 -- | Contains manual snapshot limit information for a directory.
 --
 -- /See:/ 'snapshotLimits' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slManualSnapshotsLimitReached'
---
--- * 'slManualSnapshotsCurrentCount'
---
--- * 'slManualSnapshotsLimit'
 data SnapshotLimits = SnapshotLimits'
     { _slManualSnapshotsLimitReached :: !(Maybe Bool)
     , _slManualSnapshotsCurrentCount :: !(Maybe Nat)
     , _slManualSnapshotsLimit        :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SnapshotLimits' smart constructor.
-snapshotLimits :: SnapshotLimits
+-- | Creates a value of 'SnapshotLimits' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slManualSnapshotsLimitReached'
+--
+-- * 'slManualSnapshotsCurrentCount'
+--
+-- * 'slManualSnapshotsLimit'
+snapshotLimits
+    :: SnapshotLimits
 snapshotLimits =
     SnapshotLimits'
     { _slManualSnapshotsLimitReached = Nothing

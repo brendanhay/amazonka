@@ -26,16 +26,16 @@
 module Network.AWS.EC2.AttachVPNGateway
     (
     -- * Creating a Request
-      AttachVPNGateway
-    , attachVPNGateway
+      attachVPNGateway
+    , AttachVPNGateway
     -- * Request Lenses
     , avgDryRun
     , avgVPNGatewayId
     , avgVPCId
 
     -- * Destructuring the Response
-    , AttachVPNGatewayResponse
     , attachVPNGatewayResponse
+    , AttachVPNGatewayResponse
     -- * Response Lenses
     , avgrsVPCAttachment
     , avgrsStatus
@@ -48,22 +48,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachVPNGateway' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'avgDryRun'
---
--- * 'avgVPNGatewayId'
---
--- * 'avgVPCId'
 data AttachVPNGateway = AttachVPNGateway'
     { _avgDryRun       :: !(Maybe Bool)
     , _avgVPNGatewayId :: !Text
     , _avgVPCId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachVPNGateway' smart constructor.
-attachVPNGateway :: Text -> Text -> AttachVPNGateway
+-- | Creates a value of 'AttachVPNGateway' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avgDryRun'
+--
+-- * 'avgVPNGatewayId'
+--
+-- * 'avgVPCId'
+attachVPNGateway
+    :: Text -- ^ 'avgVPNGatewayId'
+    -> Text -- ^ 'avgVPCId'
+    -> AttachVPNGateway
 attachVPNGateway pVPNGatewayId_ pVPCId_ =
     AttachVPNGateway'
     { _avgDryRun = Nothing
@@ -73,8 +76,8 @@ attachVPNGateway pVPNGatewayId_ pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 avgDryRun :: Lens' AttachVPNGateway (Maybe Bool)
 avgDryRun = lens _avgDryRun (\ s a -> s{_avgDryRun = a});
 
@@ -112,19 +115,21 @@ instance ToQuery AttachVPNGateway where
                "VpcId" =: _avgVPCId]
 
 -- | /See:/ 'attachVPNGatewayResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'avgrsVPCAttachment'
---
--- * 'avgrsStatus'
 data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
     { _avgrsVPCAttachment :: !(Maybe VPCAttachment)
     , _avgrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachVPNGatewayResponse' smart constructor.
-attachVPNGatewayResponse :: Int -> AttachVPNGatewayResponse
+-- | Creates a value of 'AttachVPNGatewayResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'avgrsVPCAttachment'
+--
+-- * 'avgrsStatus'
+attachVPNGatewayResponse
+    :: Int -- ^ 'avgrsStatus'
+    -> AttachVPNGatewayResponse
 attachVPNGatewayResponse pStatus_ =
     AttachVPNGatewayResponse'
     { _avgrsVPCAttachment = Nothing
@@ -135,6 +140,6 @@ attachVPNGatewayResponse pStatus_ =
 avgrsVPCAttachment :: Lens' AttachVPNGatewayResponse (Maybe VPCAttachment)
 avgrsVPCAttachment = lens _avgrsVPCAttachment (\ s a -> s{_avgrsVPCAttachment = a});
 
--- | Undocumented member.
+-- | The response status code.
 avgrsStatus :: Lens' AttachVPNGatewayResponse Int
 avgrsStatus = lens _avgrsStatus (\ s a -> s{_avgrsStatus = a});

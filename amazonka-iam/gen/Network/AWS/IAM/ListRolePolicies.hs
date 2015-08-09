@@ -27,24 +27,26 @@
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- You can paginate the results using the @MaxItems@ and @Marker@
+-- You can paginate the results using the 'MaxItems' and 'Marker'
 -- parameters. If there are no inline policies embedded with the specified
 -- role, the action returns an empty list.
 --
 -- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListRolePolicies.html AWS API Reference> for ListRolePolicies.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListRolePolicies
     (
     -- * Creating a Request
-      ListRolePolicies
-    , listRolePolicies
+      listRolePolicies
+    , ListRolePolicies
     -- * Request Lenses
     , lrpMaxItems
     , lrpMarker
     , lrpRoleName
 
     -- * Destructuring the Response
-    , ListRolePoliciesResponse
     , listRolePoliciesResponse
+    , ListRolePoliciesResponse
     -- * Response Lenses
     , lrprsMarker
     , lrprsIsTruncated
@@ -60,22 +62,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listRolePolicies' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lrpMaxItems'
---
--- * 'lrpMarker'
---
--- * 'lrpRoleName'
 data ListRolePolicies = ListRolePolicies'
     { _lrpMaxItems :: !(Maybe Nat)
     , _lrpMarker   :: !(Maybe Text)
     , _lrpRoleName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListRolePolicies' smart constructor.
-listRolePolicies :: Text -> ListRolePolicies
+-- | Creates a value of 'ListRolePolicies' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lrpMaxItems'
+--
+-- * 'lrpMarker'
+--
+-- * 'lrpRoleName'
+listRolePolicies
+    :: Text -- ^ 'lrpRoleName'
+    -> ListRolePolicies
 listRolePolicies pRoleName_ =
     ListRolePolicies'
     { _lrpMaxItems = Nothing
@@ -85,7 +89,7 @@ listRolePolicies pRoleName_ =
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@.
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
@@ -94,7 +98,7 @@ lrpMaxItems = lens _lrpMaxItems (\ s a -> s{_lrpMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
--- of the @Marker@ element in the response you just received.
+-- of the 'Marker' element in the response you just received.
 lrpMarker :: Lens' ListRolePolicies (Maybe Text)
 lrpMarker = lens _lrpMarker (\ s a -> s{_lrpMarker = a});
 
@@ -140,8 +144,16 @@ instance ToQuery ListRolePolicies where
 -- | Contains the response to a successful ListRolePolicies request.
 --
 -- /See:/ 'listRolePoliciesResponse' smart constructor.
+data ListRolePoliciesResponse = ListRolePoliciesResponse'
+    { _lrprsMarker      :: !(Maybe Text)
+    , _lrprsIsTruncated :: !(Maybe Bool)
+    , _lrprsStatus      :: !Int
+    , _lrprsPolicyNames :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListRolePoliciesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lrprsMarker'
 --
@@ -150,15 +162,9 @@ instance ToQuery ListRolePolicies where
 -- * 'lrprsStatus'
 --
 -- * 'lrprsPolicyNames'
-data ListRolePoliciesResponse = ListRolePoliciesResponse'
-    { _lrprsMarker      :: !(Maybe Text)
-    , _lrprsIsTruncated :: !(Maybe Bool)
-    , _lrprsStatus      :: !Int
-    , _lrprsPolicyNames :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListRolePoliciesResponse' smart constructor.
-listRolePoliciesResponse :: Int -> ListRolePoliciesResponse
+listRolePoliciesResponse
+    :: Int -- ^ 'lrprsStatus'
+    -> ListRolePoliciesResponse
 listRolePoliciesResponse pStatus_ =
     ListRolePoliciesResponse'
     { _lrprsMarker = Nothing
@@ -167,19 +173,19 @@ listRolePoliciesResponse pStatus_ =
     , _lrprsPolicyNames = mempty
     }
 
--- | When @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
 -- request.
 lrprsMarker :: Lens' ListRolePoliciesResponse (Maybe Text)
 lrprsMarker = lens _lrprsMarker (\ s a -> s{_lrprsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items.
+-- using the 'Marker' request parameter to retrieve more items.
 lrprsIsTruncated :: Lens' ListRolePoliciesResponse (Maybe Bool)
 lrprsIsTruncated = lens _lrprsIsTruncated (\ s a -> s{_lrprsIsTruncated = a});
 
--- | Undocumented member.
+-- | The response status code.
 lrprsStatus :: Lens' ListRolePoliciesResponse Int
 lrprsStatus = lens _lrprsStatus (\ s a -> s{_lrprsStatus = a});
 

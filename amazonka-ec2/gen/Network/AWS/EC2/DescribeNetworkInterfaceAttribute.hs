@@ -25,16 +25,16 @@
 module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     (
     -- * Creating a Request
-      DescribeNetworkInterfaceAttribute
-    , describeNetworkInterfaceAttribute
+      describeNetworkInterfaceAttribute
+    , DescribeNetworkInterfaceAttribute
     -- * Request Lenses
     , dniaAttribute
     , dniaDryRun
     , dniaNetworkInterfaceId
 
     -- * Destructuring the Response
-    , DescribeNetworkInterfaceAttributeResponse
     , describeNetworkInterfaceAttributeResponse
+    , DescribeNetworkInterfaceAttributeResponse
     -- * Response Lenses
     , dniarsGroups
     , dniarsSourceDestCheck
@@ -51,22 +51,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeNetworkInterfaceAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dniaAttribute'
---
--- * 'dniaDryRun'
---
--- * 'dniaNetworkInterfaceId'
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
     { _dniaAttribute          :: !(Maybe NetworkInterfaceAttribute)
     , _dniaDryRun             :: !(Maybe Bool)
     , _dniaNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeNetworkInterfaceAttribute' smart constructor.
-describeNetworkInterfaceAttribute :: Text -> DescribeNetworkInterfaceAttribute
+-- | Creates a value of 'DescribeNetworkInterfaceAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dniaAttribute'
+--
+-- * 'dniaDryRun'
+--
+-- * 'dniaNetworkInterfaceId'
+describeNetworkInterfaceAttribute
+    :: Text -- ^ 'dniaNetworkInterfaceId'
+    -> DescribeNetworkInterfaceAttribute
 describeNetworkInterfaceAttribute pNetworkInterfaceId_ =
     DescribeNetworkInterfaceAttribute'
     { _dniaAttribute = Nothing
@@ -80,8 +82,8 @@ dniaAttribute = lens _dniaAttribute (\ s a -> s{_dniaAttribute = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dniaDryRun :: Lens' DescribeNetworkInterfaceAttribute (Maybe Bool)
 dniaDryRun = lens _dniaDryRun (\ s a -> s{_dniaDryRun = a});
 
@@ -127,8 +129,18 @@ instance ToQuery DescribeNetworkInterfaceAttribute
                "NetworkInterfaceId" =: _dniaNetworkInterfaceId]
 
 -- | /See:/ 'describeNetworkInterfaceAttributeResponse' smart constructor.
+data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'
+    { _dniarsGroups             :: !(Maybe [GroupIdentifier])
+    , _dniarsSourceDestCheck    :: !(Maybe AttributeBooleanValue)
+    , _dniarsNetworkInterfaceId :: !(Maybe Text)
+    , _dniarsAttachment         :: !(Maybe NetworkInterfaceAttachment)
+    , _dniarsDescription        :: !(Maybe AttributeValue)
+    , _dniarsStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeNetworkInterfaceAttributeResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dniarsGroups'
 --
@@ -141,17 +153,9 @@ instance ToQuery DescribeNetworkInterfaceAttribute
 -- * 'dniarsDescription'
 --
 -- * 'dniarsStatus'
-data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'
-    { _dniarsGroups             :: !(Maybe [GroupIdentifier])
-    , _dniarsSourceDestCheck    :: !(Maybe AttributeBooleanValue)
-    , _dniarsNetworkInterfaceId :: !(Maybe Text)
-    , _dniarsAttachment         :: !(Maybe NetworkInterfaceAttachment)
-    , _dniarsDescription        :: !(Maybe AttributeValue)
-    , _dniarsStatus             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeNetworkInterfaceAttributeResponse' smart constructor.
-describeNetworkInterfaceAttributeResponse :: Int -> DescribeNetworkInterfaceAttributeResponse
+describeNetworkInterfaceAttributeResponse
+    :: Int -- ^ 'dniarsStatus'
+    -> DescribeNetworkInterfaceAttributeResponse
 describeNetworkInterfaceAttributeResponse pStatus_ =
     DescribeNetworkInterfaceAttributeResponse'
     { _dniarsGroups = Nothing
@@ -182,6 +186,6 @@ dniarsAttachment = lens _dniarsAttachment (\ s a -> s{_dniarsAttachment = a});
 dniarsDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
 dniarsDescription = lens _dniarsDescription (\ s a -> s{_dniarsDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 dniarsStatus :: Lens' DescribeNetworkInterfaceAttributeResponse Int
 dniarsStatus = lens _dniarsStatus (\ s a -> s{_dniarsStatus = a});

@@ -29,8 +29,8 @@
 module Network.AWS.EC2.CreateInstanceExportTask
     (
     -- * Creating a Request
-      CreateInstanceExportTask
-    , createInstanceExportTask
+      createInstanceExportTask
+    , CreateInstanceExportTask
     -- * Request Lenses
     , cietTargetEnvironment
     , cietExportToS3Task
@@ -38,8 +38,8 @@ module Network.AWS.EC2.CreateInstanceExportTask
     , cietInstanceId
 
     -- * Destructuring the Response
-    , CreateInstanceExportTaskResponse
     , createInstanceExportTaskResponse
+    , CreateInstanceExportTaskResponse
     -- * Response Lenses
     , cietrsExportTask
     , cietrsStatus
@@ -52,8 +52,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createInstanceExportTask' smart constructor.
+data CreateInstanceExportTask = CreateInstanceExportTask'
+    { _cietTargetEnvironment :: !(Maybe ExportEnvironment)
+    , _cietExportToS3Task    :: !(Maybe ExportToS3TaskSpecification)
+    , _cietDescription       :: !(Maybe Text)
+    , _cietInstanceId        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateInstanceExportTask' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cietTargetEnvironment'
 --
@@ -62,15 +70,9 @@ import           Network.AWS.Response
 -- * 'cietDescription'
 --
 -- * 'cietInstanceId'
-data CreateInstanceExportTask = CreateInstanceExportTask'
-    { _cietTargetEnvironment :: !(Maybe ExportEnvironment)
-    , _cietExportToS3Task    :: !(Maybe ExportToS3TaskSpecification)
-    , _cietDescription       :: !(Maybe Text)
-    , _cietInstanceId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateInstanceExportTask' smart constructor.
-createInstanceExportTask :: Text -> CreateInstanceExportTask
+createInstanceExportTask
+    :: Text -- ^ 'cietInstanceId'
+    -> CreateInstanceExportTask
 createInstanceExportTask pInstanceId_ =
     CreateInstanceExportTask'
     { _cietTargetEnvironment = Nothing
@@ -125,19 +127,21 @@ instance ToQuery CreateInstanceExportTask where
                "InstanceId" =: _cietInstanceId]
 
 -- | /See:/ 'createInstanceExportTaskResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cietrsExportTask'
---
--- * 'cietrsStatus'
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
     { _cietrsExportTask :: !(Maybe ExportTask)
     , _cietrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateInstanceExportTaskResponse' smart constructor.
-createInstanceExportTaskResponse :: Int -> CreateInstanceExportTaskResponse
+-- | Creates a value of 'CreateInstanceExportTaskResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cietrsExportTask'
+--
+-- * 'cietrsStatus'
+createInstanceExportTaskResponse
+    :: Int -- ^ 'cietrsStatus'
+    -> CreateInstanceExportTaskResponse
 createInstanceExportTaskResponse pStatus_ =
     CreateInstanceExportTaskResponse'
     { _cietrsExportTask = Nothing
@@ -148,6 +152,6 @@ createInstanceExportTaskResponse pStatus_ =
 cietrsExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietrsExportTask = lens _cietrsExportTask (\ s a -> s{_cietrsExportTask = a});
 
--- | Undocumented member.
+-- | The response status code.
 cietrsStatus :: Lens' CreateInstanceExportTaskResponse Int
 cietrsStatus = lens _cietrsStatus (\ s a -> s{_cietrsStatus = a});

@@ -38,8 +38,8 @@
 module Network.AWS.EC2.PurchaseReservedInstancesOffering
     (
     -- * Creating a Request
-      PurchaseReservedInstancesOffering
-    , purchaseReservedInstancesOffering
+      purchaseReservedInstancesOffering
+    , PurchaseReservedInstancesOffering
     -- * Request Lenses
     , prioLimitPrice
     , prioDryRun
@@ -47,8 +47,8 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     , prioInstanceCount
 
     -- * Destructuring the Response
-    , PurchaseReservedInstancesOfferingResponse
     , purchaseReservedInstancesOfferingResponse
+    , PurchaseReservedInstancesOfferingResponse
     -- * Response Lenses
     , priorsReservedInstancesId
     , priorsStatus
@@ -61,8 +61,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'purchaseReservedInstancesOffering' smart constructor.
+data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
+    { _prioLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
+    , _prioDryRun                      :: !(Maybe Bool)
+    , _prioReservedInstancesOfferingId :: !Text
+    , _prioInstanceCount               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PurchaseReservedInstancesOffering' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'prioLimitPrice'
 --
@@ -71,15 +79,10 @@ import           Network.AWS.Response
 -- * 'prioReservedInstancesOfferingId'
 --
 -- * 'prioInstanceCount'
-data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
-    { _prioLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
-    , _prioDryRun                      :: !(Maybe Bool)
-    , _prioReservedInstancesOfferingId :: !Text
-    , _prioInstanceCount               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PurchaseReservedInstancesOffering' smart constructor.
-purchaseReservedInstancesOffering :: Text -> Int -> PurchaseReservedInstancesOffering
+purchaseReservedInstancesOffering
+    :: Text -- ^ 'prioReservedInstancesOfferingId'
+    -> Int -- ^ 'prioInstanceCount'
+    -> PurchaseReservedInstancesOffering
 purchaseReservedInstancesOffering pReservedInstancesOfferingId_ pInstanceCount_ =
     PurchaseReservedInstancesOffering'
     { _prioLimitPrice = Nothing
@@ -96,8 +99,8 @@ prioLimitPrice = lens _prioLimitPrice (\ s a -> s{_prioLimitPrice = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 prioDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
 prioDryRun = lens _prioDryRun (\ s a -> s{_prioDryRun = a});
 
@@ -144,19 +147,21 @@ instance ToQuery PurchaseReservedInstancesOffering
                "InstanceCount" =: _prioInstanceCount]
 
 -- | /See:/ 'purchaseReservedInstancesOfferingResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'priorsReservedInstancesId'
---
--- * 'priorsStatus'
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
     { _priorsReservedInstancesId :: !(Maybe Text)
     , _priorsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PurchaseReservedInstancesOfferingResponse' smart constructor.
-purchaseReservedInstancesOfferingResponse :: Int -> PurchaseReservedInstancesOfferingResponse
+-- | Creates a value of 'PurchaseReservedInstancesOfferingResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'priorsReservedInstancesId'
+--
+-- * 'priorsStatus'
+purchaseReservedInstancesOfferingResponse
+    :: Int -- ^ 'priorsStatus'
+    -> PurchaseReservedInstancesOfferingResponse
 purchaseReservedInstancesOfferingResponse pStatus_ =
     PurchaseReservedInstancesOfferingResponse'
     { _priorsReservedInstancesId = Nothing
@@ -167,6 +172,6 @@ purchaseReservedInstancesOfferingResponse pStatus_ =
 priorsReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
 priorsReservedInstancesId = lens _priorsReservedInstancesId (\ s a -> s{_priorsReservedInstancesId = a});
 
--- | Undocumented member.
+-- | The response status code.
 priorsStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
 priorsStatus = lens _priorsStatus (\ s a -> s{_priorsStatus = a});

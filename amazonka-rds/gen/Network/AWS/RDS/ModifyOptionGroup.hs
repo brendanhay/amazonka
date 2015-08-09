@@ -24,8 +24,8 @@
 module Network.AWS.RDS.ModifyOptionGroup
     (
     -- * Creating a Request
-      ModifyOptionGroup
-    , modifyOptionGroup
+      modifyOptionGroup
+    , ModifyOptionGroup
     -- * Request Lenses
     , mogOptionsToInclude
     , mogOptionsToRemove
@@ -33,8 +33,8 @@ module Network.AWS.RDS.ModifyOptionGroup
     , mogOptionGroupName
 
     -- * Destructuring the Response
-    , ModifyOptionGroupResponse
     , modifyOptionGroupResponse
+    , ModifyOptionGroupResponse
     -- * Response Lenses
     , mogrsOptionGroup
     , mogrsStatus
@@ -49,8 +49,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'modifyOptionGroup' smart constructor.
+data ModifyOptionGroup = ModifyOptionGroup'
+    { _mogOptionsToInclude :: !(Maybe [OptionConfiguration])
+    , _mogOptionsToRemove  :: !(Maybe [Text])
+    , _mogApplyImmediately :: !(Maybe Bool)
+    , _mogOptionGroupName  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyOptionGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mogOptionsToInclude'
 --
@@ -59,15 +67,9 @@ import           Network.AWS.Response
 -- * 'mogApplyImmediately'
 --
 -- * 'mogOptionGroupName'
-data ModifyOptionGroup = ModifyOptionGroup'
-    { _mogOptionsToInclude :: !(Maybe [OptionConfiguration])
-    , _mogOptionsToRemove  :: !(Maybe [Text])
-    , _mogApplyImmediately :: !(Maybe Bool)
-    , _mogOptionGroupName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifyOptionGroup' smart constructor.
-modifyOptionGroup :: Text -> ModifyOptionGroup
+modifyOptionGroup
+    :: Text -- ^ 'mogOptionGroupName'
+    -> ModifyOptionGroup
 modifyOptionGroup pOptionGroupName_ =
     ModifyOptionGroup'
     { _mogOptionsToInclude = Nothing
@@ -133,19 +135,21 @@ instance ToQuery ModifyOptionGroup where
                "OptionGroupName" =: _mogOptionGroupName]
 
 -- | /See:/ 'modifyOptionGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mogrsOptionGroup'
---
--- * 'mogrsStatus'
 data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
     { _mogrsOptionGroup :: !(Maybe OptionGroup)
     , _mogrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyOptionGroupResponse' smart constructor.
-modifyOptionGroupResponse :: Int -> ModifyOptionGroupResponse
+-- | Creates a value of 'ModifyOptionGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mogrsOptionGroup'
+--
+-- * 'mogrsStatus'
+modifyOptionGroupResponse
+    :: Int -- ^ 'mogrsStatus'
+    -> ModifyOptionGroupResponse
 modifyOptionGroupResponse pStatus_ =
     ModifyOptionGroupResponse'
     { _mogrsOptionGroup = Nothing
@@ -156,6 +160,6 @@ modifyOptionGroupResponse pStatus_ =
 mogrsOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
 mogrsOptionGroup = lens _mogrsOptionGroup (\ s a -> s{_mogrsOptionGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 mogrsStatus :: Lens' ModifyOptionGroupResponse Int
 mogrsStatus = lens _mogrsStatus (\ s a -> s{_mogrsStatus = a});

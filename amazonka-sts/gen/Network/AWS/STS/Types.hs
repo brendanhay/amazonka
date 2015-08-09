@@ -98,7 +98,7 @@ _PackedPolicyTooLargeException :: AsError a => Getting (First ServiceError) a Se
 _PackedPolicyTooLargeException =
     _ServiceError . hasStatus 400 . hasCode "PackedPolicyTooLarge"
 
--- | The error returned if the message passed to @DecodeAuthorizationMessage@
+-- | The error returned if the message passed to 'DecodeAuthorizationMessage'
 -- was invalid. This can happen if the token contains invalid characters,
 -- such as linebreaks.
 _InvalidAuthorizationMessageException :: AsError a => Getting (First ServiceError) a ServiceError
@@ -133,7 +133,7 @@ _InvalidIdentityTokenException =
 -- | The identity provider (IdP) reported that authentication failed. This
 -- might be because the claim is invalid.
 --
--- If this error is returned for the @AssumeRoleWithWebIdentity@ operation,
+-- If this error is returned for the 'AssumeRoleWithWebIdentity' operation,
 -- it can also mean that the claim has expired or has been explicitly
 -- revoked.
 _IdPRejectedClaimException :: AsError a => Getting (First ServiceError) a ServiceError

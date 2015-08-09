@@ -35,15 +35,15 @@
 module Network.AWS.ElastiCache.AddTagsToResource
     (
     -- * Creating a Request
-      AddTagsToResource
-    , addTagsToResource
+      addTagsToResource
+    , AddTagsToResource
     -- * Request Lenses
     , attrResourceName
     , attrTags
 
     -- * Destructuring the Response
-    , TagListMessage
     , tagListMessage
+    , TagListMessage
     -- * Response Lenses
     , tlmTagList
     ) where
@@ -57,19 +57,21 @@ import           Network.AWS.Response
 -- | Represents the input of an /AddTagsToResource/ action.
 --
 -- /See:/ 'addTagsToResource' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'attrResourceName'
---
--- * 'attrTags'
 data AddTagsToResource = AddTagsToResource'
     { _attrResourceName :: !Text
     , _attrTags         :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTagsToResource' smart constructor.
-addTagsToResource :: Text -> AddTagsToResource
+-- | Creates a value of 'AddTagsToResource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'attrResourceName'
+--
+-- * 'attrTags'
+addTagsToResource
+    :: Text -- ^ 'attrResourceName'
+    -> AddTagsToResource
 addTagsToResource pResourceName_ =
     AddTagsToResource'
     { _attrResourceName = pResourceName_
@@ -77,7 +79,7 @@ addTagsToResource pResourceName_ =
     }
 
 -- | The name of the resource to which the tags are to be added, for example
--- @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@.
+-- 'arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster'.
 attrResourceName :: Lens' AddTagsToResource Text
 attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
 

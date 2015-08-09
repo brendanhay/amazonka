@@ -27,8 +27,8 @@
 module Network.AWS.S3.HeadObject
     (
     -- * Creating a Request
-      HeadObject
-    , headObject
+      headObject
+    , HeadObject
     -- * Request Lenses
     , hoIfMatch
     , hoVersionId
@@ -44,8 +44,8 @@ module Network.AWS.S3.HeadObject
     , hoKey
 
     -- * Destructuring the Response
-    , HeadObjectResponse
     , headObjectResponse
+    , HeadObjectResponse
     -- * Response Lenses
     , horsVersionId
     , horsETag
@@ -81,8 +81,24 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'headObject' smart constructor.
+data HeadObject = HeadObject'
+    { _hoIfMatch              :: !(Maybe Text)
+    , _hoVersionId            :: !(Maybe ObjectVersionId)
+    , _hoSSECustomerAlgorithm :: !(Maybe Text)
+    , _hoSSECustomerKey       :: !(Maybe (Sensitive Text))
+    , _hoRequestPayer         :: !(Maybe RequestPayer)
+    , _hoIfModifiedSince      :: !(Maybe RFC822)
+    , _hoRange                :: !(Maybe Text)
+    , _hoIfUnmodifiedSince    :: !(Maybe RFC822)
+    , _hoSSECustomerKeyMD5    :: !(Maybe Text)
+    , _hoIfNoneMatch          :: !(Maybe Text)
+    , _hoBucket               :: !BucketName
+    , _hoKey                  :: !ObjectKey
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HeadObject' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'hoIfMatch'
 --
@@ -107,23 +123,10 @@ import           Network.AWS.S3.Types.Product
 -- * 'hoBucket'
 --
 -- * 'hoKey'
-data HeadObject = HeadObject'
-    { _hoIfMatch              :: !(Maybe Text)
-    , _hoVersionId            :: !(Maybe ObjectVersionId)
-    , _hoSSECustomerAlgorithm :: !(Maybe Text)
-    , _hoSSECustomerKey       :: !(Maybe (Sensitive Text))
-    , _hoRequestPayer         :: !(Maybe RequestPayer)
-    , _hoIfModifiedSince      :: !(Maybe RFC822)
-    , _hoRange                :: !(Maybe Text)
-    , _hoIfUnmodifiedSince    :: !(Maybe RFC822)
-    , _hoSSECustomerKeyMD5    :: !(Maybe Text)
-    , _hoIfNoneMatch          :: !(Maybe Text)
-    , _hoBucket               :: !BucketName
-    , _hoKey                  :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'HeadObject' smart constructor.
-headObject :: BucketName -> ObjectKey -> HeadObject
+headObject
+    :: BucketName -- ^ 'hoBucket'
+    -> ObjectKey -- ^ 'hoKey'
+    -> HeadObject
 headObject pBucket_ pKey_ =
     HeadObject'
     { _hoIfMatch = Nothing
@@ -264,8 +267,37 @@ instance ToQuery HeadObject where
           = mconcat ["versionId" =: _hoVersionId]
 
 -- | /See:/ 'headObjectResponse' smart constructor.
+data HeadObjectResponse = HeadObjectResponse'
+    { _horsVersionId               :: !(Maybe ObjectVersionId)
+    , _horsETag                    :: !(Maybe ETag)
+    , _horsRequestCharged          :: !(Maybe RequestCharged)
+    , _horsContentLength           :: !(Maybe Int)
+    , _horsRestore                 :: !(Maybe Text)
+    , _horsExpires                 :: !(Maybe RFC822)
+    , _horsDeleteMarker            :: !(Maybe Bool)
+    , _horsExpiration              :: !(Maybe Text)
+    , _horsSSECustomerAlgorithm    :: !(Maybe Text)
+    , _horsMissingMeta             :: !(Maybe Int)
+    , _horsWebsiteRedirectLocation :: !(Maybe Text)
+    , _horsAcceptRanges            :: !(Maybe Text)
+    , _horsStorageClass            :: !(Maybe StorageClass)
+    , _horsContentEncoding         :: !(Maybe Text)
+    , _horsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _horsSSECustomerKeyMD5       :: !(Maybe Text)
+    , _horsMetadata                :: !(Map Text Text)
+    , _horsReplicationStatus       :: !(Maybe ReplicationStatus)
+    , _horsCacheControl            :: !(Maybe Text)
+    , _horsContentLanguage         :: !(Maybe Text)
+    , _horsLastModified            :: !(Maybe RFC822)
+    , _horsContentDisposition      :: !(Maybe Text)
+    , _horsServerSideEncryption    :: !(Maybe ServerSideEncryption)
+    , _horsContentType             :: !(Maybe Text)
+    , _horsStatus                  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HeadObjectResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'horsVersionId'
 --
@@ -316,36 +348,9 @@ instance ToQuery HeadObject where
 -- * 'horsContentType'
 --
 -- * 'horsStatus'
-data HeadObjectResponse = HeadObjectResponse'
-    { _horsVersionId               :: !(Maybe ObjectVersionId)
-    , _horsETag                    :: !(Maybe ETag)
-    , _horsRequestCharged          :: !(Maybe RequestCharged)
-    , _horsContentLength           :: !(Maybe Int)
-    , _horsRestore                 :: !(Maybe Text)
-    , _horsExpires                 :: !(Maybe RFC822)
-    , _horsDeleteMarker            :: !(Maybe Bool)
-    , _horsExpiration              :: !(Maybe Text)
-    , _horsSSECustomerAlgorithm    :: !(Maybe Text)
-    , _horsMissingMeta             :: !(Maybe Int)
-    , _horsWebsiteRedirectLocation :: !(Maybe Text)
-    , _horsAcceptRanges            :: !(Maybe Text)
-    , _horsStorageClass            :: !(Maybe StorageClass)
-    , _horsContentEncoding         :: !(Maybe Text)
-    , _horsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
-    , _horsSSECustomerKeyMD5       :: !(Maybe Text)
-    , _horsMetadata                :: !(Map Text Text)
-    , _horsReplicationStatus       :: !(Maybe ReplicationStatus)
-    , _horsCacheControl            :: !(Maybe Text)
-    , _horsContentLanguage         :: !(Maybe Text)
-    , _horsLastModified            :: !(Maybe RFC822)
-    , _horsContentDisposition      :: !(Maybe Text)
-    , _horsServerSideEncryption    :: !(Maybe ServerSideEncryption)
-    , _horsContentType             :: !(Maybe Text)
-    , _horsStatus                  :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'HeadObjectResponse' smart constructor.
-headObjectResponse :: Int -> HeadObjectResponse
+headObjectResponse
+    :: Int -- ^ 'horsStatus'
+    -> HeadObjectResponse
 headObjectResponse pStatus_ =
     HeadObjectResponse'
     { _horsVersionId = Nothing
@@ -492,6 +497,6 @@ horsServerSideEncryption = lens _horsServerSideEncryption (\ s a -> s{_horsServe
 horsContentType :: Lens' HeadObjectResponse (Maybe Text)
 horsContentType = lens _horsContentType (\ s a -> s{_horsContentType = a});
 
--- | Undocumented member.
+-- | The response status code.
 horsStatus :: Lens' HeadObjectResponse Int
 horsStatus = lens _horsStatus (\ s a -> s{_horsStatus = a});

@@ -23,15 +23,15 @@
 -- file in the request body. If the function name already exists, the
 -- operation will fail. Note that the function name is case-sensitive.
 --
--- This operation requires permission for the @lambda:CreateFunction@
+-- This operation requires permission for the 'lambda:CreateFunction'
 -- action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html AWS API Reference> for CreateFunction.
 module Network.AWS.Lambda.CreateFunction
     (
     -- * Creating a Request
-      CreateFunction
-    , createFunction
+      createFunction
+    , CreateFunction
     -- * Request Lenses
     , cfMemorySize
     , cfTimeout
@@ -43,8 +43,8 @@ module Network.AWS.Lambda.CreateFunction
     , cfCode
 
     -- * Destructuring the Response
-    , FunctionConfiguration
     , functionConfiguration
+    , FunctionConfiguration
     -- * Response Lenses
     , fcRuntime
     , fcMemorySize
@@ -65,8 +65,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createFunction' smart constructor.
+data CreateFunction = CreateFunction'
+    { _cfMemorySize   :: !(Maybe Nat)
+    , _cfTimeout      :: !(Maybe Nat)
+    , _cfDescription  :: !(Maybe Text)
+    , _cfFunctionName :: !Text
+    , _cfRuntime      :: !Runtime
+    , _cfRole         :: !Text
+    , _cfHandler      :: !Text
+    , _cfCode         :: !FunctionCode
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateFunction' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cfMemorySize'
 --
@@ -83,19 +95,13 @@ import           Network.AWS.Response
 -- * 'cfHandler'
 --
 -- * 'cfCode'
-data CreateFunction = CreateFunction'
-    { _cfMemorySize   :: !(Maybe Nat)
-    , _cfTimeout      :: !(Maybe Nat)
-    , _cfDescription  :: !(Maybe Text)
-    , _cfFunctionName :: !Text
-    , _cfRuntime      :: !Runtime
-    , _cfRole         :: !Text
-    , _cfHandler      :: !Text
-    , _cfCode         :: !FunctionCode
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateFunction' smart constructor.
-createFunction :: Text -> Runtime -> Text -> Text -> FunctionCode -> CreateFunction
+createFunction
+    :: Text -- ^ 'cfFunctionName'
+    -> Runtime -- ^ 'cfRuntime'
+    -> Text -- ^ 'cfRole'
+    -> Text -- ^ 'cfHandler'
+    -> FunctionCode -- ^ 'cfCode'
+    -> CreateFunction
 createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
     CreateFunction'
     { _cfMemorySize = Nothing
@@ -156,7 +162,7 @@ cfRole = lens _cfRole (\ s a -> s{_cfRole = a});
 
 -- | The function within your code that Lambda calls to begin execution. For
 -- Node.js, it is the /module-name/./export/ value in your function. For
--- Java, it can be @package.class-name::handler@ or @package.class-name@.
+-- Java, it can be 'package.class-name::handler' or 'package.class-name'.
 -- For more information, see
 -- <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)>.
 cfHandler :: Lens' CreateFunction Text

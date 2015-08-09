@@ -25,16 +25,16 @@
 module Network.AWS.RDS.CreateDBSecurityGroup
     (
     -- * Creating a Request
-      CreateDBSecurityGroup
-    , createDBSecurityGroup
+      createDBSecurityGroup
+    , CreateDBSecurityGroup
     -- * Request Lenses
     , cdsgTags
     , cdsgDBSecurityGroupName
     , cdsgDBSecurityGroupDescription
 
     -- * Destructuring the Response
-    , CreateDBSecurityGroupResponse
     , createDBSecurityGroupResponse
+    , CreateDBSecurityGroupResponse
     -- * Response Lenses
     , cdbsgrsDBSecurityGroup
     , cdbsgrsStatus
@@ -49,22 +49,25 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createDBSecurityGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdsgTags'
---
--- * 'cdsgDBSecurityGroupName'
---
--- * 'cdsgDBSecurityGroupDescription'
 data CreateDBSecurityGroup = CreateDBSecurityGroup'
     { _cdsgTags                       :: !(Maybe [Tag])
     , _cdsgDBSecurityGroupName        :: !Text
     , _cdsgDBSecurityGroupDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBSecurityGroup' smart constructor.
-createDBSecurityGroup :: Text -> Text -> CreateDBSecurityGroup
+-- | Creates a value of 'CreateDBSecurityGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdsgTags'
+--
+-- * 'cdsgDBSecurityGroupName'
+--
+-- * 'cdsgDBSecurityGroupDescription'
+createDBSecurityGroup
+    :: Text -- ^ 'cdsgDBSecurityGroupName'
+    -> Text -- ^ 'cdsgDBSecurityGroupDescription'
+    -> CreateDBSecurityGroup
 createDBSecurityGroup pDBSecurityGroupName_ pDBSecurityGroupDescription_ =
     CreateDBSecurityGroup'
     { _cdsgTags = Nothing
@@ -87,7 +90,7 @@ cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default . _Coerce;
 -- -   Must not be \"Default\"
 -- -   Cannot contain spaces
 --
--- Example: @mysecuritygroup@
+-- Example: 'mysecuritygroup'
 cdsgDBSecurityGroupName :: Lens' CreateDBSecurityGroup Text
 cdsgDBSecurityGroupName = lens _cdsgDBSecurityGroupName (\ s a -> s{_cdsgDBSecurityGroupName = a});
 
@@ -123,19 +126,21 @@ instance ToQuery CreateDBSecurityGroup where
                  _cdsgDBSecurityGroupDescription]
 
 -- | /See:/ 'createDBSecurityGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdbsgrsDBSecurityGroup'
---
--- * 'cdbsgrsStatus'
 data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
     { _cdbsgrsDBSecurityGroup :: !(Maybe DBSecurityGroup)
     , _cdbsgrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBSecurityGroupResponse' smart constructor.
-createDBSecurityGroupResponse :: Int -> CreateDBSecurityGroupResponse
+-- | Creates a value of 'CreateDBSecurityGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdbsgrsDBSecurityGroup'
+--
+-- * 'cdbsgrsStatus'
+createDBSecurityGroupResponse
+    :: Int -- ^ 'cdbsgrsStatus'
+    -> CreateDBSecurityGroupResponse
 createDBSecurityGroupResponse pStatus_ =
     CreateDBSecurityGroupResponse'
     { _cdbsgrsDBSecurityGroup = Nothing
@@ -146,6 +151,6 @@ createDBSecurityGroupResponse pStatus_ =
 cdbsgrsDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
 cdbsgrsDBSecurityGroup = lens _cdbsgrsDBSecurityGroup (\ s a -> s{_cdbsgrsDBSecurityGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdbsgrsStatus :: Lens' CreateDBSecurityGroupResponse Int
 cdbsgrsStatus = lens _cdbsgrsStatus (\ s a -> s{_cdbsgrsStatus = a});

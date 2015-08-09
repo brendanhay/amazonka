@@ -20,25 +20,25 @@
 --
 -- Describes the specified attribute of the specified instance. You can
 -- specify only one attribute at a time. Valid attribute values are:
--- @instanceType@ | @kernel@ | @ramdisk@ | @userData@ |
--- @disableApiTermination@ | @instanceInitiatedShutdownBehavior@ |
--- @rootDeviceName@ | @blockDeviceMapping@ | @productCodes@ |
--- @sourceDestCheck@ | @groupSet@ | @ebsOptimized@ | @sriovNetSupport@
+-- 'instanceType' | 'kernel' | 'ramdisk' | 'userData' |
+-- 'disableApiTermination' | 'instanceInitiatedShutdownBehavior' |
+-- 'rootDeviceName' | 'blockDeviceMapping' | 'productCodes' |
+-- 'sourceDestCheck' | 'groupSet' | 'ebsOptimized' | 'sriovNetSupport'
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceAttribute.html AWS API Reference> for DescribeInstanceAttribute.
 module Network.AWS.EC2.DescribeInstanceAttribute
     (
     -- * Creating a Request
-      DescribeInstanceAttribute
-    , describeInstanceAttribute
+      describeInstanceAttribute
+    , DescribeInstanceAttribute
     -- * Request Lenses
     , diaDryRun
     , diaInstanceId
     , diaAttribute
 
     -- * Destructuring the Response
-    , DescribeInstanceAttributeResponse
     , describeInstanceAttributeResponse
+    , DescribeInstanceAttributeResponse
     -- * Response Lenses
     , drsInstanceId
     , drsGroups
@@ -64,22 +64,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeInstanceAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diaDryRun'
---
--- * 'diaInstanceId'
---
--- * 'diaAttribute'
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
     { _diaDryRun     :: !(Maybe Bool)
     , _diaInstanceId :: !Text
     , _diaAttribute  :: !InstanceAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeInstanceAttribute' smart constructor.
-describeInstanceAttribute :: Text -> InstanceAttributeName -> DescribeInstanceAttribute
+-- | Creates a value of 'DescribeInstanceAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diaDryRun'
+--
+-- * 'diaInstanceId'
+--
+-- * 'diaAttribute'
+describeInstanceAttribute
+    :: Text -- ^ 'diaInstanceId'
+    -> InstanceAttributeName -- ^ 'diaAttribute'
+    -> DescribeInstanceAttribute
 describeInstanceAttribute pInstanceId_ pAttribute_ =
     DescribeInstanceAttribute'
     { _diaDryRun = Nothing
@@ -89,8 +92,8 @@ describeInstanceAttribute pInstanceId_ pAttribute_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 diaDryRun :: Lens' DescribeInstanceAttribute (Maybe Bool)
 diaDryRun = lens _diaDryRun (\ s a -> s{_diaDryRun = a});
 
@@ -151,8 +154,27 @@ instance ToQuery DescribeInstanceAttribute where
 -- | Describes an instance attribute.
 --
 -- /See:/ 'describeInstanceAttributeResponse' smart constructor.
+data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
+    { _drsInstanceId                        :: !(Maybe Text)
+    , _drsGroups                            :: !(Maybe [GroupIdentifier])
+    , _drsSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
+    , _drsDisableAPITermination             :: !(Maybe AttributeBooleanValue)
+    , _drsRAMDiskId                         :: !(Maybe AttributeValue)
+    , _drsKernelId                          :: !(Maybe AttributeValue)
+    , _drsInstanceType                      :: !(Maybe AttributeValue)
+    , _drsRootDeviceName                    :: !(Maybe AttributeValue)
+    , _drsEBSOptimized                      :: !(Maybe AttributeBooleanValue)
+    , _drsUserData                          :: !(Maybe AttributeValue)
+    , _drsSRIOVNetSupport                   :: !(Maybe AttributeValue)
+    , _drsInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
+    , _drsProductCodes                      :: !(Maybe [ProductCode])
+    , _drsBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMapping])
+    , _drsStatus                            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeInstanceAttributeResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'drsInstanceId'
 --
@@ -183,26 +205,9 @@ instance ToQuery DescribeInstanceAttribute where
 -- * 'drsBlockDeviceMappings'
 --
 -- * 'drsStatus'
-data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
-    { _drsInstanceId                        :: !(Maybe Text)
-    , _drsGroups                            :: !(Maybe [GroupIdentifier])
-    , _drsSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
-    , _drsDisableAPITermination             :: !(Maybe AttributeBooleanValue)
-    , _drsRAMDiskId                         :: !(Maybe AttributeValue)
-    , _drsKernelId                          :: !(Maybe AttributeValue)
-    , _drsInstanceType                      :: !(Maybe AttributeValue)
-    , _drsRootDeviceName                    :: !(Maybe AttributeValue)
-    , _drsEBSOptimized                      :: !(Maybe AttributeBooleanValue)
-    , _drsUserData                          :: !(Maybe AttributeValue)
-    , _drsSRIOVNetSupport                   :: !(Maybe AttributeValue)
-    , _drsInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
-    , _drsProductCodes                      :: !(Maybe [ProductCode])
-    , _drsBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMapping])
-    , _drsStatus                            :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeInstanceAttributeResponse' smart constructor.
-describeInstanceAttributeResponse :: Int -> DescribeInstanceAttributeResponse
+describeInstanceAttributeResponse
+    :: Int -- ^ 'drsStatus'
+    -> DescribeInstanceAttributeResponse
 describeInstanceAttributeResponse pStatus_ =
     DescribeInstanceAttributeResponse'
     { _drsInstanceId = Nothing
@@ -231,12 +236,12 @@ drsGroups :: Lens' DescribeInstanceAttributeResponse [GroupIdentifier]
 drsGroups = lens _drsGroups (\ s a -> s{_drsGroups = a}) . _Default . _Coerce;
 
 -- | Indicates whether source\/destination checking is enabled. A value of
--- @true@ means checking is enabled, and @false@ means checking is
--- disabled. This value must be @false@ for a NAT instance to perform NAT.
+-- 'true' means checking is enabled, and 'false' means checking is
+-- disabled. This value must be 'false' for a NAT instance to perform NAT.
 drsSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 drsSourceDestCheck = lens _drsSourceDestCheck (\ s a -> s{_drsSourceDestCheck = a});
 
--- | If the value is @true@, you can\'t terminate the instance through the
+-- | If the value is 'true', you can\'t terminate the instance through the
 -- Amazon EC2 console, CLI, or API; otherwise, you can.
 drsDisableAPITermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
 drsDisableAPITermination = lens _drsDisableAPITermination (\ s a -> s{_drsDisableAPITermination = a});
@@ -253,8 +258,8 @@ drsKernelId = lens _drsKernelId (\ s a -> s{_drsKernelId = a});
 drsInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsInstanceType = lens _drsInstanceType (\ s a -> s{_drsInstanceType = a});
 
--- | The name of the root device (for example, @\/dev\/sda1@ or
--- @\/dev\/xvda@).
+-- | The name of the root device (for example, '\/dev\/sda1' or
+-- '\/dev\/xvda').
 drsRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 drsRootDeviceName = lens _drsRootDeviceName (\ s a -> s{_drsRootDeviceName = a});
 
@@ -284,6 +289,6 @@ drsProductCodes = lens _drsProductCodes (\ s a -> s{_drsProductCodes = a}) . _De
 drsBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
 drsBlockDeviceMappings = lens _drsBlockDeviceMappings (\ s a -> s{_drsBlockDeviceMappings = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DescribeInstanceAttributeResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

@@ -33,14 +33,14 @@
 module Network.AWS.EMR.TerminateJobFlows
     (
     -- * Creating a Request
-      TerminateJobFlows
-    , terminateJobFlows
+      terminateJobFlows
+    , TerminateJobFlows
     -- * Request Lenses
     , tjfJobFlowIds
 
     -- * Destructuring the Response
-    , TerminateJobFlowsResponse
     , terminateJobFlowsResponse
+    , TerminateJobFlowsResponse
     ) where
 
 import           Network.AWS.EMR.Types
@@ -52,16 +52,17 @@ import           Network.AWS.Response
 -- | Input to the TerminateJobFlows operation.
 --
 -- /See:/ 'terminateJobFlows' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tjfJobFlowIds'
 newtype TerminateJobFlows = TerminateJobFlows'
     { _tjfJobFlowIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TerminateJobFlows' smart constructor.
-terminateJobFlows :: TerminateJobFlows
+-- | Creates a value of 'TerminateJobFlows' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tjfJobFlowIds'
+terminateJobFlows
+    :: TerminateJobFlows
 terminateJobFlows =
     TerminateJobFlows'
     { _tjfJobFlowIds = mempty
@@ -101,6 +102,8 @@ data TerminateJobFlowsResponse =
     TerminateJobFlowsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TerminateJobFlowsResponse' smart constructor.
-terminateJobFlowsResponse :: TerminateJobFlowsResponse
+-- | Creates a value of 'TerminateJobFlowsResponse' with the minimum fields required to make a request.
+--
+terminateJobFlowsResponse
+    :: TerminateJobFlowsResponse
 terminateJobFlowsResponse = TerminateJobFlowsResponse'

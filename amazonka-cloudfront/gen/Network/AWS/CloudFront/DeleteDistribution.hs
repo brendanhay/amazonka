@@ -24,15 +24,15 @@
 module Network.AWS.CloudFront.DeleteDistribution
     (
     -- * Creating a Request
-      DeleteDistribution
-    , deleteDistribution
+      deleteDistribution
+    , DeleteDistribution
     -- * Request Lenses
     , ddIfMatch
     , ddId
 
     -- * Destructuring the Response
-    , DeleteDistributionResponse
     , deleteDistributionResponse
+    , DeleteDistributionResponse
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -44,19 +44,21 @@ import           Network.AWS.Response
 -- | The request to delete a distribution.
 --
 -- /See:/ 'deleteDistribution' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddIfMatch'
---
--- * 'ddId'
 data DeleteDistribution = DeleteDistribution'
     { _ddIfMatch :: !(Maybe Text)
     , _ddId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDistribution' smart constructor.
-deleteDistribution :: Text -> DeleteDistribution
+-- | Creates a value of 'DeleteDistribution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddIfMatch'
+--
+-- * 'ddId'
+deleteDistribution
+    :: Text -- ^ 'ddId'
+    -> DeleteDistribution
 deleteDistribution pId_ =
     DeleteDistribution'
     { _ddIfMatch = Nothing
@@ -95,6 +97,8 @@ data DeleteDistributionResponse =
     DeleteDistributionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDistributionResponse' smart constructor.
-deleteDistributionResponse :: DeleteDistributionResponse
+-- | Creates a value of 'DeleteDistributionResponse' with the minimum fields required to make a request.
+--
+deleteDistributionResponse
+    :: DeleteDistributionResponse
 deleteDistributionResponse = DeleteDistributionResponse'

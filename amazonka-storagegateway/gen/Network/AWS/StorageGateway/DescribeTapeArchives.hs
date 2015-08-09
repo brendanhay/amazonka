@@ -21,24 +21,26 @@
 -- Returns a description of specified virtual tapes in the virtual tape
 -- shelf (VTS).
 --
--- If a specific @TapeARN@ is not specified, AWS Storage Gateway returns a
+-- If a specific 'TapeARN' is not specified, AWS Storage Gateway returns a
 -- description of all virtual tapes found in the VTS associated with your
 -- account.
 --
 -- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapeArchives.html AWS API Reference> for DescribeTapeArchives.
+--
+-- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeTapeArchives
     (
     -- * Creating a Request
-      DescribeTapeArchives
-    , describeTapeArchives
+      describeTapeArchives
+    , DescribeTapeArchives
     -- * Request Lenses
     , dtaMarker
     , dtaLimit
     , dtaTapeARNs
 
     -- * Destructuring the Response
-    , DescribeTapeArchivesResponse
     , describeTapeArchivesResponse
+    , DescribeTapeArchivesResponse
     -- * Response Lenses
     , dtarsTapeArchives
     , dtarsMarker
@@ -55,22 +57,23 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | DescribeTapeArchivesInput
 --
 -- /See:/ 'describeTapeArchives' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtaMarker'
---
--- * 'dtaLimit'
---
--- * 'dtaTapeARNs'
 data DescribeTapeArchives = DescribeTapeArchives'
     { _dtaMarker   :: !(Maybe Text)
     , _dtaLimit    :: !(Maybe Nat)
     , _dtaTapeARNs :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTapeArchives' smart constructor.
-describeTapeArchives :: DescribeTapeArchives
+-- | Creates a value of 'DescribeTapeArchives' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtaMarker'
+--
+-- * 'dtaLimit'
+--
+-- * 'dtaTapeARNs'
+describeTapeArchives
+    :: DescribeTapeArchives
 describeTapeArchives =
     DescribeTapeArchives'
     { _dtaMarker = Nothing
@@ -138,22 +141,24 @@ instance ToQuery DescribeTapeArchives where
 -- | DescribeTapeArchivesOutput
 --
 -- /See:/ 'describeTapeArchivesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtarsTapeArchives'
---
--- * 'dtarsMarker'
---
--- * 'dtarsStatus'
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
     { _dtarsTapeArchives :: !(Maybe [TapeArchive])
     , _dtarsMarker       :: !(Maybe Text)
     , _dtarsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTapeArchivesResponse' smart constructor.
-describeTapeArchivesResponse :: Int -> DescribeTapeArchivesResponse
+-- | Creates a value of 'DescribeTapeArchivesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtarsTapeArchives'
+--
+-- * 'dtarsMarker'
+--
+-- * 'dtarsStatus'
+describeTapeArchivesResponse
+    :: Int -- ^ 'dtarsStatus'
+    -> DescribeTapeArchivesResponse
 describeTapeArchivesResponse pStatus_ =
     DescribeTapeArchivesResponse'
     { _dtarsTapeArchives = Nothing
@@ -177,6 +182,6 @@ dtarsTapeArchives = lens _dtarsTapeArchives (\ s a -> s{_dtarsTapeArchives = a})
 dtarsMarker :: Lens' DescribeTapeArchivesResponse (Maybe Text)
 dtarsMarker = lens _dtarsMarker (\ s a -> s{_dtarsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 dtarsStatus :: Lens' DescribeTapeArchivesResponse Int
 dtarsStatus = lens _dtarsStatus (\ s a -> s{_dtarsStatus = a});

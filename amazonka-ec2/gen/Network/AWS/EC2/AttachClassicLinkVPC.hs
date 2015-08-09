@@ -21,7 +21,7 @@
 -- Links an EC2-Classic instance to a ClassicLink-enabled VPC through one
 -- or more of the VPC\'s security groups. You cannot link an EC2-Classic
 -- instance to more than one VPC at a time. You can only link an instance
--- that\'s in the @running@ state. An instance is automatically unlinked
+-- that\'s in the 'running' state. An instance is automatically unlinked
 -- from a VPC when it\'s stopped - you can link it to the VPC again when
 -- you restart it.
 --
@@ -36,8 +36,8 @@
 module Network.AWS.EC2.AttachClassicLinkVPC
     (
     -- * Creating a Request
-      AttachClassicLinkVPC
-    , attachClassicLinkVPC
+      attachClassicLinkVPC
+    , AttachClassicLinkVPC
     -- * Request Lenses
     , aclvDryRun
     , aclvInstanceId
@@ -45,8 +45,8 @@ module Network.AWS.EC2.AttachClassicLinkVPC
     , aclvGroups
 
     -- * Destructuring the Response
-    , AttachClassicLinkVPCResponse
     , attachClassicLinkVPCResponse
+    , AttachClassicLinkVPCResponse
     -- * Response Lenses
     , aclvrsReturn
     , aclvrsStatus
@@ -59,8 +59,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'attachClassicLinkVPC' smart constructor.
+data AttachClassicLinkVPC = AttachClassicLinkVPC'
+    { _aclvDryRun     :: !(Maybe Bool)
+    , _aclvInstanceId :: !Text
+    , _aclvVPCId      :: !Text
+    , _aclvGroups     :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AttachClassicLinkVPC' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'aclvDryRun'
 --
@@ -69,15 +77,10 @@ import           Network.AWS.Response
 -- * 'aclvVPCId'
 --
 -- * 'aclvGroups'
-data AttachClassicLinkVPC = AttachClassicLinkVPC'
-    { _aclvDryRun     :: !(Maybe Bool)
-    , _aclvInstanceId :: !Text
-    , _aclvVPCId      :: !Text
-    , _aclvGroups     :: ![Text]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AttachClassicLinkVPC' smart constructor.
-attachClassicLinkVPC :: Text -> Text -> AttachClassicLinkVPC
+attachClassicLinkVPC
+    :: Text -- ^ 'aclvInstanceId'
+    -> Text -- ^ 'aclvVPCId'
+    -> AttachClassicLinkVPC
 attachClassicLinkVPC pInstanceId_ pVPCId_ =
     AttachClassicLinkVPC'
     { _aclvDryRun = Nothing
@@ -88,8 +91,8 @@ attachClassicLinkVPC pInstanceId_ pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 aclvDryRun :: Lens' AttachClassicLinkVPC (Maybe Bool)
 aclvDryRun = lens _aclvDryRun (\ s a -> s{_aclvDryRun = a});
 
@@ -135,29 +138,31 @@ instance ToQuery AttachClassicLinkVPC where
                toQueryList "groupId" _aclvGroups]
 
 -- | /See:/ 'attachClassicLinkVPCResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aclvrsReturn'
---
--- * 'aclvrsStatus'
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
     { _aclvrsReturn :: !(Maybe Bool)
     , _aclvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AttachClassicLinkVPCResponse' smart constructor.
-attachClassicLinkVPCResponse :: Int -> AttachClassicLinkVPCResponse
+-- | Creates a value of 'AttachClassicLinkVPCResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aclvrsReturn'
+--
+-- * 'aclvrsStatus'
+attachClassicLinkVPCResponse
+    :: Int -- ^ 'aclvrsStatus'
+    -> AttachClassicLinkVPCResponse
 attachClassicLinkVPCResponse pStatus_ =
     AttachClassicLinkVPCResponse'
     { _aclvrsReturn = Nothing
     , _aclvrsStatus = pStatus_
     }
 
--- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- | Returns 'true' if the request succeeds; otherwise, it returns an error.
 aclvrsReturn :: Lens' AttachClassicLinkVPCResponse (Maybe Bool)
 aclvrsReturn = lens _aclvrsReturn (\ s a -> s{_aclvrsReturn = a});
 
--- | Undocumented member.
+-- | The response status code.
 aclvrsStatus :: Lens' AttachClassicLinkVPCResponse Int
 aclvrsStatus = lens _aclvrsStatus (\ s a -> s{_aclvrsStatus = a});

@@ -29,15 +29,15 @@
 module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     (
     -- * Creating a Request
-      ConfirmPrivateVirtualInterface
-    , confirmPrivateVirtualInterface
+      confirmPrivateVirtualInterface
+    , ConfirmPrivateVirtualInterface
     -- * Request Lenses
     , cpviVirtualInterfaceId
     , cpviVirtualGatewayId
 
     -- * Destructuring the Response
-    , ConfirmPrivateVirtualInterfaceResponse
     , confirmPrivateVirtualInterfaceResponse
+    , ConfirmPrivateVirtualInterfaceResponse
     -- * Response Lenses
     , cpvirsVirtualInterfaceState
     , cpvirsStatus
@@ -53,19 +53,22 @@ import           Network.AWS.Response
 -- operation.
 --
 -- /See:/ 'confirmPrivateVirtualInterface' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpviVirtualInterfaceId'
---
--- * 'cpviVirtualGatewayId'
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
     { _cpviVirtualInterfaceId :: !Text
     , _cpviVirtualGatewayId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfirmPrivateVirtualInterface' smart constructor.
-confirmPrivateVirtualInterface :: Text -> Text -> ConfirmPrivateVirtualInterface
+-- | Creates a value of 'ConfirmPrivateVirtualInterface' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpviVirtualInterfaceId'
+--
+-- * 'cpviVirtualGatewayId'
+confirmPrivateVirtualInterface
+    :: Text -- ^ 'cpviVirtualInterfaceId'
+    -> Text -- ^ 'cpviVirtualGatewayId'
+    -> ConfirmPrivateVirtualInterface
 confirmPrivateVirtualInterface pVirtualInterfaceId_ pVirtualGatewayId_ =
     ConfirmPrivateVirtualInterface'
     { _cpviVirtualInterfaceId = pVirtualInterfaceId_
@@ -128,19 +131,21 @@ instance ToQuery ConfirmPrivateVirtualInterface where
 -- | The response received when ConfirmPrivateVirtualInterface is called.
 --
 -- /See:/ 'confirmPrivateVirtualInterfaceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpvirsVirtualInterfaceState'
---
--- * 'cpvirsStatus'
 data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
     { _cpvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
     , _cpvirsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfirmPrivateVirtualInterfaceResponse' smart constructor.
-confirmPrivateVirtualInterfaceResponse :: Int -> ConfirmPrivateVirtualInterfaceResponse
+-- | Creates a value of 'ConfirmPrivateVirtualInterfaceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpvirsVirtualInterfaceState'
+--
+-- * 'cpvirsStatus'
+confirmPrivateVirtualInterfaceResponse
+    :: Int -- ^ 'cpvirsStatus'
+    -> ConfirmPrivateVirtualInterfaceResponse
 confirmPrivateVirtualInterfaceResponse pStatus_ =
     ConfirmPrivateVirtualInterfaceResponse'
     { _cpvirsVirtualInterfaceState = Nothing
@@ -151,6 +156,6 @@ confirmPrivateVirtualInterfaceResponse pStatus_ =
 cpvirsVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
 cpvirsVirtualInterfaceState = lens _cpvirsVirtualInterfaceState (\ s a -> s{_cpvirsVirtualInterfaceState = a});
 
--- | Undocumented member.
+-- | The response status code.
 cpvirsStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
 cpvirsStatus = lens _cpvirsStatus (\ s a -> s{_cpvirsStatus = a});

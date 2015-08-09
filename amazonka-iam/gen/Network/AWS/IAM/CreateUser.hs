@@ -29,15 +29,15 @@
 module Network.AWS.IAM.CreateUser
     (
     -- * Creating a Request
-      CreateUser
-    , createUser
+      createUser
+    , CreateUser
     -- * Request Lenses
     , cuPath
     , cuUserName
 
     -- * Destructuring the Response
-    , CreateUserResponse
     , createUserResponse
+    , CreateUserResponse
     -- * Response Lenses
     , cursUser
     , cursStatus
@@ -50,19 +50,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createUser' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cuPath'
---
--- * 'cuUserName'
 data CreateUser = CreateUser'
     { _cuPath     :: !(Maybe Text)
     , _cuUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateUser' smart constructor.
-createUser :: Text -> CreateUser
+-- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cuPath'
+--
+-- * 'cuUserName'
+createUser
+    :: Text -- ^ 'cuUserName'
+    -> CreateUser
 createUser pUserName_ =
     CreateUser'
     { _cuPath = Nothing
@@ -108,19 +110,21 @@ instance ToQuery CreateUser where
 -- | Contains the response to a successful CreateUser request.
 --
 -- /See:/ 'createUserResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cursUser'
---
--- * 'cursStatus'
 data CreateUserResponse = CreateUserResponse'
     { _cursUser   :: !(Maybe User)
     , _cursStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateUserResponse' smart constructor.
-createUserResponse :: Int -> CreateUserResponse
+-- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cursUser'
+--
+-- * 'cursStatus'
+createUserResponse
+    :: Int -- ^ 'cursStatus'
+    -> CreateUserResponse
 createUserResponse pStatus_ =
     CreateUserResponse'
     { _cursUser = Nothing
@@ -131,6 +135,6 @@ createUserResponse pStatus_ =
 cursUser :: Lens' CreateUserResponse (Maybe User)
 cursUser = lens _cursUser (\ s a -> s{_cursUser = a});
 
--- | Undocumented member.
+-- | The response status code.
 cursStatus :: Lens' CreateUserResponse Int
 cursStatus = lens _cursStatus (\ s a -> s{_cursStatus = a});

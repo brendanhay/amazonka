@@ -26,16 +26,16 @@
 module Network.AWS.StorageGateway.UpdateGatewayInformation
     (
     -- * Creating a Request
-      UpdateGatewayInformation
-    , updateGatewayInformation
+      updateGatewayInformation
+    , UpdateGatewayInformation
     -- * Request Lenses
     , ugiGatewayName
     , ugiGatewayTimezone
     , ugiGatewayARN
 
     -- * Destructuring the Response
-    , UpdateGatewayInformationResponse
     , updateGatewayInformationResponse
+    , UpdateGatewayInformationResponse
     -- * Response Lenses
     , ugirsGatewayARN
     , ugirsStatus
@@ -48,22 +48,24 @@ import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'updateGatewayInformation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ugiGatewayName'
---
--- * 'ugiGatewayTimezone'
---
--- * 'ugiGatewayARN'
 data UpdateGatewayInformation = UpdateGatewayInformation'
     { _ugiGatewayName     :: !(Maybe Text)
     , _ugiGatewayTimezone :: !(Maybe Text)
     , _ugiGatewayARN      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateGatewayInformation' smart constructor.
-updateGatewayInformation :: Text -> UpdateGatewayInformation
+-- | Creates a value of 'UpdateGatewayInformation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ugiGatewayName'
+--
+-- * 'ugiGatewayTimezone'
+--
+-- * 'ugiGatewayARN'
+updateGatewayInformation
+    :: Text -- ^ 'ugiGatewayARN'
+    -> UpdateGatewayInformation
 updateGatewayInformation pGatewayARN_ =
     UpdateGatewayInformation'
     { _ugiGatewayName = Nothing
@@ -120,19 +122,21 @@ instance ToQuery UpdateGatewayInformation where
 -- | A JSON object containing the of the gateway that was updated.
 --
 -- /See:/ 'updateGatewayInformationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ugirsGatewayARN'
---
--- * 'ugirsStatus'
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
     { _ugirsGatewayARN :: !(Maybe Text)
     , _ugirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateGatewayInformationResponse' smart constructor.
-updateGatewayInformationResponse :: Int -> UpdateGatewayInformationResponse
+-- | Creates a value of 'UpdateGatewayInformationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ugirsGatewayARN'
+--
+-- * 'ugirsStatus'
+updateGatewayInformationResponse
+    :: Int -- ^ 'ugirsStatus'
+    -> UpdateGatewayInformationResponse
 updateGatewayInformationResponse pStatus_ =
     UpdateGatewayInformationResponse'
     { _ugirsGatewayARN = Nothing
@@ -143,6 +147,6 @@ updateGatewayInformationResponse pStatus_ =
 ugirsGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirsGatewayARN = lens _ugirsGatewayARN (\ s a -> s{_ugirsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 ugirsStatus :: Lens' UpdateGatewayInformationResponse Int
 ugirsStatus = lens _ugirsStatus (\ s a -> s{_ugirsStatus = a});

@@ -24,12 +24,12 @@
 module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     (
     -- * Creating a Request
-      DescribeAdjustmentTypes
-    , describeAdjustmentTypes
+      describeAdjustmentTypes
+    , DescribeAdjustmentTypes
 
     -- * Destructuring the Response
-    , DescribeAdjustmentTypesResponse
     , describeAdjustmentTypesResponse
+    , DescribeAdjustmentTypesResponse
     -- * Response Lenses
     , datrsAdjustmentTypes
     , datrsStatus
@@ -46,8 +46,10 @@ data DescribeAdjustmentTypes =
     DescribeAdjustmentTypes'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAdjustmentTypes' smart constructor.
-describeAdjustmentTypes :: DescribeAdjustmentTypes
+-- | Creates a value of 'DescribeAdjustmentTypes' with the minimum fields required to make a request.
+--
+describeAdjustmentTypes
+    :: DescribeAdjustmentTypes
 describeAdjustmentTypes = DescribeAdjustmentTypes'
 
 instance AWSRequest DescribeAdjustmentTypes where
@@ -78,19 +80,21 @@ instance ToQuery DescribeAdjustmentTypes where
                   "Version" =: ("2011-01-01" :: ByteString)])
 
 -- | /See:/ 'describeAdjustmentTypesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'datrsAdjustmentTypes'
---
--- * 'datrsStatus'
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
     { _datrsAdjustmentTypes :: !(Maybe [AdjustmentType])
     , _datrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAdjustmentTypesResponse' smart constructor.
-describeAdjustmentTypesResponse :: Int -> DescribeAdjustmentTypesResponse
+-- | Creates a value of 'DescribeAdjustmentTypesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'datrsAdjustmentTypes'
+--
+-- * 'datrsStatus'
+describeAdjustmentTypesResponse
+    :: Int -- ^ 'datrsStatus'
+    -> DescribeAdjustmentTypesResponse
 describeAdjustmentTypesResponse pStatus_ =
     DescribeAdjustmentTypesResponse'
     { _datrsAdjustmentTypes = Nothing
@@ -101,6 +105,6 @@ describeAdjustmentTypesResponse pStatus_ =
 datrsAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrsAdjustmentTypes = lens _datrsAdjustmentTypes (\ s a -> s{_datrsAdjustmentTypes = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 datrsStatus :: Lens' DescribeAdjustmentTypesResponse Int
 datrsStatus = lens _datrsStatus (\ s a -> s{_datrsStatus = a});

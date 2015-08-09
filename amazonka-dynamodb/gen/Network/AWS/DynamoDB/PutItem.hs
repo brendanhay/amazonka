@@ -40,7 +40,7 @@
 -- For more information, see the /ReturnValues/ description below.
 --
 -- To prevent a new item from replacing an existing item, use a conditional
--- put operation with /ComparisonOperator/ set to @NULL@ for the primary
+-- put operation with /ComparisonOperator/ set to 'NULL' for the primary
 -- key attribute, or attributes.
 --
 -- For more information about using this API, see
@@ -51,8 +51,8 @@
 module Network.AWS.DynamoDB.PutItem
     (
     -- * Creating a Request
-      PutItem
-    , putItem
+      putItem
+    , PutItem
     -- * Request Lenses
     , piReturnValues
     , piExpressionAttributeNames
@@ -66,8 +66,8 @@ module Network.AWS.DynamoDB.PutItem
     , piItem
 
     -- * Destructuring the Response
-    , PutItemResponse
     , putItemResponse
+    , PutItemResponse
     -- * Response Lenses
     , pirsConsumedCapacity
     , pirsItemCollectionMetrics
@@ -84,8 +84,22 @@ import           Network.AWS.Response
 -- | Represents the input of a /PutItem/ operation.
 --
 -- /See:/ 'putItem' smart constructor.
+data PutItem = PutItem'
+    { _piReturnValues                :: !(Maybe ReturnValue)
+    , _piExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _piReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _piExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+    , _piReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+    , _piConditionExpression         :: !(Maybe Text)
+    , _piConditionalOperator         :: !(Maybe ConditionalOperator)
+    , _piExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+    , _piTableName                   :: !Text
+    , _piItem                        :: !(Map Text AttributeValue)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutItem' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'piReturnValues'
 --
@@ -106,21 +120,9 @@ import           Network.AWS.Response
 -- * 'piTableName'
 --
 -- * 'piItem'
-data PutItem = PutItem'
-    { _piReturnValues                :: !(Maybe ReturnValue)
-    , _piExpressionAttributeNames    :: !(Maybe (Map Text Text))
-    , _piReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _piExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
-    , _piReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _piConditionExpression         :: !(Maybe Text)
-    , _piConditionalOperator         :: !(Maybe ConditionalOperator)
-    , _piExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
-    , _piTableName                   :: !Text
-    , _piItem                        :: !(Map Text AttributeValue)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutItem' smart constructor.
-putItem :: Text -> PutItem
+putItem
+    :: Text -- ^ 'piTableName'
+    -> PutItem
 putItem pTableName_ =
     PutItem'
     { _piReturnValues = Nothing
@@ -139,11 +141,11 @@ putItem pTableName_ =
 -- appeared before they were updated with the /PutItem/ request. For
 -- /PutItem/, the valid values are:
 --
--- -   @NONE@ - If /ReturnValues/ is not specified, or if its value is
---     @NONE@, then nothing is returned. (This setting is the default for
+-- -   'NONE' - If /ReturnValues/ is not specified, or if its value is
+--     'NONE', then nothing is returned. (This setting is the default for
 --     /ReturnValues/.)
 --
--- -   @ALL_OLD@ - If /PutItem/ overwrote an attribute name-value pair,
+-- -   'ALL_OLD' - If /PutItem/ overwrote an attribute name-value pair,
 --     then the content of the old item is returned.
 --
 -- Other \"Valid Values\" are not relevant to PutItem.
@@ -165,7 +167,7 @@ piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
 -- Use the __#__ character in an expression to dereference an attribute
 -- name. For example, consider the following attribute name:
 --
--- -   @Percentile@
+-- -   'Percentile'
 --
 -- The name of this attribute conflicts with a reserved word, so it cannot
 -- be used directly in an expression. (For the complete list of reserved
@@ -174,12 +176,12 @@ piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
 -- in the /Amazon DynamoDB Developer Guide/). To work around this, you
 -- could specify the following for /ExpressionAttributeNames/:
 --
--- -   @{\"#P\":\"Percentile\"}@
+-- -   '{\"#P\":\"Percentile\"}'
 --
 -- You could then use this substitution in an expression, as in this
 -- example:
 --
--- -   @#P = :val@
+-- -   '#P = :val'
 --
 -- Tokens that begin with the __:__ character are /expression attribute
 -- values/, which are placeholders for the actual value at runtime.
@@ -200,15 +202,15 @@ piReturnConsumedCapacity = lens _piReturnConsumedCapacity (\ s a -> s{_piReturnC
 -- attribute value. For example, suppose that you wanted to check whether
 -- the value of the /ProductStatus/ attribute was one of the following:
 --
--- @Available | Backordered | Discontinued@
+-- 'Available | Backordered | Discontinued'
 --
 -- You would first need to specify /ExpressionAttributeValues/ as follows:
 --
--- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
+-- '{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }'
 --
 -- You could then use these values in an expression, such as this:
 --
--- @ProductStatus IN (:avail, :back, :disc)@
+-- 'ProductStatus IN (:avail, :back, :disc)'
 --
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
@@ -217,9 +219,9 @@ piExpressionAttributeValues :: Lens' PutItem (HashMap Text AttributeValue)
 piExpressionAttributeValues = lens _piExpressionAttributeValues (\ s a -> s{_piExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | Determines whether item collection metrics are returned. If set to
--- @SIZE@, the response includes statistics about item collections, if any,
+-- 'SIZE', the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
--- set to @NONE@ (the default), no statistics are returned.
+-- set to 'NONE' (the default), no statistics are returned.
 piReturnItemCollectionMetrics :: Lens' PutItem (Maybe ReturnItemCollectionMetrics)
 piReturnItemCollectionMetrics = lens _piReturnItemCollectionMetrics (\ s a -> s{_piReturnItemCollectionMetrics = a});
 
@@ -229,13 +231,13 @@ piReturnItemCollectionMetrics = lens _piReturnItemCollectionMetrics (\ s a -> s{
 -- An expression can contain any of the following:
 --
 -- -   Functions:
---     @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
+--     'attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size'
 --
 --     These function names are case-sensitive.
 --
--- -   Comparison operators: @ = | \<> | \< | > | \<= | >= | BETWEEN | IN@
+-- -   Comparison operators: ' = | \<> | \< | > | \<= | >= | BETWEEN | IN'
 --
--- -   Logical operators: @AND | OR | NOT@
+-- -   Logical operators: 'AND | OR | NOT'
 --
 -- For more information on condition expressions, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
@@ -253,13 +255,13 @@ piConditionExpression = lens _piConditionExpression (\ s a -> s{_piConditionExpr
 --
 -- A logical operator to apply to the conditions in the /Expected/ map:
 --
--- -   @AND@ - If all of the conditions evaluate to true, then the entire
+-- -   'AND' - If all of the conditions evaluate to true, then the entire
 --     map evaluates to true.
 --
--- -   @OR@ - If at least one of the conditions evaluate to true, then the
+-- -   'OR' - If at least one of the conditions evaluate to true, then the
 --     entire map evaluates to true.
 --
--- If you omit /ConditionalOperator/, then @AND@ is the default.
+-- If you omit /ConditionalOperator/, then 'AND' is the default.
 --
 -- The operation will succeed only if the entire map evaluates to true.
 --
@@ -301,8 +303,8 @@ piConditionalOperator = lens _piConditionalOperator (\ s a -> s{_piConditionalOp
 --     For type Number, value comparisons are numeric.
 --
 --     String value comparisons for greater than, equals, or less than are
---     based on ASCII character code values. For example, @a@ is greater
---     than @A@, and @a@ is greater than @B@. For a list of code values,
+--     based on ASCII character code values. For example, 'a' is greater
+--     than 'A', and 'a' is greater than 'B'. For a list of code values,
 --     see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 --     For type Binary, DynamoDB treats each byte of the binary data as
@@ -314,91 +316,91 @@ piConditionalOperator = lens _piConditionalOperator (\ s a -> s{_piConditionalOp
 --
 --     The following comparison operators are available:
 --
---     @EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN@
+--     'EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN'
 --
 --     The following are descriptions of each comparison operator.
 --
---     -   @EQ@ : Equal. @EQ@ is supported for all datatypes, including
+--     -   'EQ' : Equal. 'EQ' is supported for all datatypes, including
 --         lists and maps.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/
 --         element of type String, Number, Binary, String Set, Number Set,
 --         or Binary Set. If an item contains an /AttributeValue/ element
 --         of a different type than the one provided in the request, the
---         value does not match. For example, @{\"S\":\"6\"}@ does not
---         equal @{\"N\":\"6\"}@. Also, @{\"N\":\"6\"}@ does not equal
---         @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--         value does not match. For example, '{\"S\":\"6\"}' does not
+--         equal '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does not equal
+--         '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
---     -   @NE@ : Not equal. @NE@ is supported for all datatypes, including
+--     -   'NE' : Not equal. 'NE' is supported for all datatypes, including
 --         lists and maps.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/ of
 --         type String, Number, Binary, String Set, Number Set, or Binary
 --         Set. If an item contains an /AttributeValue/ of a different type
 --         than the one provided in the request, the value does not match.
---         For example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@.
---         Also, @{\"N\":\"6\"}@ does not equal
---         @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--         For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'.
+--         Also, '{\"N\":\"6\"}' does not equal
+--         '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
---     -   @LE@ : Less than or equal.
+--     -   'LE' : Less than or equal.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/
 --         element of type String, Number, or Binary (not a set type). If
 --         an item contains an /AttributeValue/ element of a different type
 --         than the one provided in the request, the value does not match.
---         For example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@.
---         Also, @{\"N\":\"6\"}@ does not compare to
---         @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--         For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'.
+--         Also, '{\"N\":\"6\"}' does not compare to
+--         '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
---     -   @LT@ : Less than.
+--     -   'LT' : Less than.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/ of
 --         type String, Number, or Binary (not a set type). If an item
 --         contains an /AttributeValue/ element of a different type than
 --         the one provided in the request, the value does not match. For
---         example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
---         @{\"N\":\"6\"}@ does not compare to
---         @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--         example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'. Also,
+--         '{\"N\":\"6\"}' does not compare to
+--         '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
---     -   @GE@ : Greater than or equal.
---
---         /AttributeValueList/ can contain only one /AttributeValue/
---         element of type String, Number, or Binary (not a set type). If
---         an item contains an /AttributeValue/ element of a different type
---         than the one provided in the request, the value does not match.
---         For example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@.
---         Also, @{\"N\":\"6\"}@ does not compare to
---         @{\"NS\":[\"6\", \"2\", \"1\"]}@.
---
---     -   @GT@ : Greater than.
+--     -   'GE' : Greater than or equal.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/
 --         element of type String, Number, or Binary (not a set type). If
 --         an item contains an /AttributeValue/ element of a different type
 --         than the one provided in the request, the value does not match.
---         For example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@.
---         Also, @{\"N\":\"6\"}@ does not compare to
---         @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--         For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'.
+--         Also, '{\"N\":\"6\"}' does not compare to
+--         '{\"NS\":[\"6\", \"2\", \"1\"]}'.
 --
---     -   @NOT_NULL@ : The attribute exists. @NOT_NULL@ is supported for
+--     -   'GT' : Greater than.
+--
+--         /AttributeValueList/ can contain only one /AttributeValue/
+--         element of type String, Number, or Binary (not a set type). If
+--         an item contains an /AttributeValue/ element of a different type
+--         than the one provided in the request, the value does not match.
+--         For example, '{\"S\":\"6\"}' does not equal '{\"N\":\"6\"}'.
+--         Also, '{\"N\":\"6\"}' does not compare to
+--         '{\"NS\":[\"6\", \"2\", \"1\"]}'.
+--
+--     -   'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for
 --         all datatypes, including lists and maps.
 --
 --         This operator tests for the existence of an attribute, not its
---         data type. If the data type of attribute \"@a@\" is null, and
---         you evaluate it using @NOT_NULL@, the result is a Boolean
---         /true/. This result is because the attribute \"@a@\" exists; its
---         data type is not relevant to the @NOT_NULL@ comparison operator.
+--         data type. If the data type of attribute \"'a'\" is null, and
+--         you evaluate it using 'NOT_NULL', the result is a Boolean
+--         /true/. This result is because the attribute \"'a'\" exists; its
+--         data type is not relevant to the 'NOT_NULL' comparison operator.
 --
---     -   @NULL@ : The attribute does not exist. @NULL@ is supported for
+--     -   'NULL' : The attribute does not exist. 'NULL' is supported for
 --         all datatypes, including lists and maps.
 --
 --         This operator tests for the nonexistence of an attribute, not
---         its data type. If the data type of attribute \"@a@\" is null,
---         and you evaluate it using @NULL@, the result is a Boolean
---         /false/. This is because the attribute \"@a@\" exists; its data
---         type is not relevant to the @NULL@ comparison operator.
+--         its data type. If the data type of attribute \"'a'\" is null,
+--         and you evaluate it using 'NULL', the result is a Boolean
+--         /false/. This is because the attribute \"'a'\" exists; its data
+--         type is not relevant to the 'NULL' comparison operator.
 --
---     -   @CONTAINS@ : Checks for a subsequence, or value in a set.
+--     -   'CONTAINS' : Checks for a subsequence, or value in a set.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/
 --         element of type String, Number, or Binary (not a set type). If
@@ -406,15 +408,15 @@ piConditionalOperator = lens _piConditionalOperator (\ s a -> s{_piConditionalOp
 --         the operator checks for a substring match. If the target
 --         attribute of the comparison is of type Binary, then the operator
 --         looks for a subsequence of the target that matches the input. If
---         the target attribute of the comparison is a set (\"@SS@\",
---         \"@NS@\", or \"@BS@\"), then the operator evaluates to true if
+--         the target attribute of the comparison is a set (\"'SS'\",
+--         \"'NS'\", or \"'BS'\"), then the operator evaluates to true if
 --         it finds an exact match with any member of the set.
 --
 --         CONTAINS is supported for lists: When evaluating
---         \"@a CONTAINS b@\", \"@a@\" can be a list; however, \"@b@\"
+--         \"'a CONTAINS b'\", \"'a'\" can be a list; however, \"'b'\"
 --         cannot be a set, a map, or a list.
 --
---     -   @NOT_CONTAINS@ : Checks for absence of a subsequence, or absence
+--     -   'NOT_CONTAINS' : Checks for absence of a subsequence, or absence
 --         of a value in a set.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/
@@ -424,22 +426,22 @@ piConditionalOperator = lens _piConditionalOperator (\ s a -> s{_piConditionalOp
 --         target attribute of the comparison is Binary, then the operator
 --         checks for the absence of a subsequence of the target that
 --         matches the input. If the target attribute of the comparison is
---         a set (\"@SS@\", \"@NS@\", or \"@BS@\"), then the operator
+--         a set (\"'SS'\", \"'NS'\", or \"'BS'\"), then the operator
 --         evaluates to true if it /does not/ find an exact match with any
 --         member of the set.
 --
 --         NOT_CONTAINS is supported for lists: When evaluating
---         \"@a NOT CONTAINS b@\", \"@a@\" can be a list; however, \"@b@\"
+--         \"'a NOT CONTAINS b'\", \"'a'\" can be a list; however, \"'b'\"
 --         cannot be a set, a map, or a list.
 --
---     -   @BEGINS_WITH@ : Checks for a prefix.
+--     -   'BEGINS_WITH' : Checks for a prefix.
 --
 --         /AttributeValueList/ can contain only one /AttributeValue/ of
 --         type String or Binary (not a Number or a set type). The target
 --         attribute of the comparison must be of type String or Binary
 --         (not a Number or a set type).
 --
---     -   @IN@ : Checks for matching elements within two sets.
+--     -   'IN' : Checks for matching elements within two sets.
 --
 --         /AttributeValueList/ can contain one or more /AttributeValue/
 --         elements of type String, Number, or Binary (not a set type).
@@ -447,7 +449,7 @@ piConditionalOperator = lens _piConditionalOperator (\ s a -> s{_piConditionalOp
 --         attribute of an item. If any elements of the input set are
 --         present in the item attribute, the expression evaluates to true.
 --
---     -   @BETWEEN@ : Greater than or equal to the first value, and less
+--     -   'BETWEEN' : Greater than or equal to the first value, and less
 --         than or equal to the second value.
 --
 --         /AttributeValueList/ must contain two /AttributeValue/ elements
@@ -456,9 +458,9 @@ piConditionalOperator = lens _piConditionalOperator (\ s a -> s{_piConditionalOp
 --         than, or equal to, the first element and less than, or equal to,
 --         the second element. If an item contains an /AttributeValue/
 --         element of a different type than the one provided in the
---         request, the value does not match. For example, @{\"S\":\"6\"}@
---         does not compare to @{\"N\":\"6\"}@. Also, @{\"N\":\"6\"}@ does
---         not compare to @{\"NS\":[\"6\", \"2\", \"1\"]}@
+--         request, the value does not match. For example, '{\"S\":\"6\"}'
+--         does not compare to '{\"N\":\"6\"}'. Also, '{\"N\":\"6\"}' does
+--         not compare to '{\"NS\":[\"6\", \"2\", \"1\"]}'
 --
 -- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters>
@@ -473,18 +475,18 @@ piConditionalOperator = lens _piConditionalOperator (\ s a -> s{_piConditionalOp
 -- -   /Exists/ - A Boolean value that causes DynamoDB to evaluate the
 --     value before attempting the conditional operation:
 --
---     -   If /Exists/ is @true@, DynamoDB will check to see if that
+--     -   If /Exists/ is 'true', DynamoDB will check to see if that
 --         attribute value already exists in the table. If it is found,
 --         then the condition evaluates to true; otherwise the condition
 --         evaluate to false.
 --
---     -   If /Exists/ is @false@, DynamoDB assumes that the attribute
+--     -   If /Exists/ is 'false', DynamoDB assumes that the attribute
 --         value does /not/ exist in the table. If in fact the value does
 --         not exist, then the assumption is valid and the condition
 --         evaluates to true. If the value is found, despite the assumption
 --         that it does not exist, the condition evaluates to false.
 --
---     Note that the default value for /Exists/ is @true@.
+--     Note that the default value for /Exists/ is 'true'.
 --
 -- The /Value/ and /Exists/ parameters are incompatible with
 -- /AttributeValueList/ and /ComparisonOperator/. Note that if you use both
@@ -566,8 +568,16 @@ instance ToQuery PutItem where
 -- | Represents the output of a /PutItem/ operation.
 --
 -- /See:/ 'putItemResponse' smart constructor.
+data PutItemResponse = PutItemResponse'
+    { _pirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
+    , _pirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    , _pirsAttributes            :: !(Maybe (Map Text AttributeValue))
+    , _pirsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutItemResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pirsConsumedCapacity'
 --
@@ -576,15 +586,9 @@ instance ToQuery PutItem where
 -- * 'pirsAttributes'
 --
 -- * 'pirsStatus'
-data PutItemResponse = PutItemResponse'
-    { _pirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
-    , _pirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
-    , _pirsAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _pirsStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutItemResponse' smart constructor.
-putItemResponse :: Int -> PutItemResponse
+putItemResponse
+    :: Int -- ^ 'pirsStatus'
+    -> PutItemResponse
 putItemResponse pStatus_ =
     PutItemResponse'
     { _pirsConsumedCapacity = Nothing
@@ -622,11 +626,11 @@ pirsItemCollectionMetrics :: Lens' PutItemResponse (Maybe ItemCollectionMetrics)
 pirsItemCollectionMetrics = lens _pirsItemCollectionMetrics (\ s a -> s{_pirsItemCollectionMetrics = a});
 
 -- | The attribute values as they appeared before the /PutItem/ operation,
--- but only if /ReturnValues/ is specified as @ALL_OLD@ in the request.
+-- but only if /ReturnValues/ is specified as 'ALL_OLD' in the request.
 -- Each element consists of an attribute name and an attribute value.
 pirsAttributes :: Lens' PutItemResponse (HashMap Text AttributeValue)
 pirsAttributes = lens _pirsAttributes (\ s a -> s{_pirsAttributes = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 pirsStatus :: Lens' PutItemResponse Int
 pirsStatus = lens _pirsStatus (\ s a -> s{_pirsStatus = a});

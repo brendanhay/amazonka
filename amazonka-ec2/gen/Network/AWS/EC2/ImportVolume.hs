@@ -20,7 +20,7 @@
 --
 -- Creates an import volume task using metadata from the specified disk
 -- image. After importing the image, you then upload it using the
--- @ec2-import-volume@ command in the Amazon EC2 command-line interface
+-- 'ec2-import-volume' command in the Amazon EC2 command-line interface
 -- (CLI) tools. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
@@ -29,8 +29,8 @@
 module Network.AWS.EC2.ImportVolume
     (
     -- * Creating a Request
-      ImportVolume
-    , importVolume
+      importVolume
+    , ImportVolume
     -- * Request Lenses
     , ivDryRun
     , ivDescription
@@ -39,8 +39,8 @@ module Network.AWS.EC2.ImportVolume
     , ivVolume
 
     -- * Destructuring the Response
-    , ImportVolumeResponse
     , importVolumeResponse
+    , ImportVolumeResponse
     -- * Response Lenses
     , ivrsConversionTask
     , ivrsStatus
@@ -53,8 +53,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'importVolume' smart constructor.
+data ImportVolume = ImportVolume'
+    { _ivDryRun           :: !(Maybe Bool)
+    , _ivDescription      :: !(Maybe Text)
+    , _ivAvailabilityZone :: !Text
+    , _ivImage            :: !DiskImageDetail
+    , _ivVolume           :: !VolumeDetail
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImportVolume' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ivDryRun'
 --
@@ -65,16 +74,11 @@ import           Network.AWS.Response
 -- * 'ivImage'
 --
 -- * 'ivVolume'
-data ImportVolume = ImportVolume'
-    { _ivDryRun           :: !(Maybe Bool)
-    , _ivDescription      :: !(Maybe Text)
-    , _ivAvailabilityZone :: !Text
-    , _ivImage            :: !DiskImageDetail
-    , _ivVolume           :: !VolumeDetail
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ImportVolume' smart constructor.
-importVolume :: Text -> DiskImageDetail -> VolumeDetail -> ImportVolume
+importVolume
+    :: Text -- ^ 'ivAvailabilityZone'
+    -> DiskImageDetail -- ^ 'ivImage'
+    -> VolumeDetail -- ^ 'ivVolume'
+    -> ImportVolume
 importVolume pAvailabilityZone_ pImage_ pVolume_ =
     ImportVolume'
     { _ivDryRun = Nothing
@@ -86,8 +90,8 @@ importVolume pAvailabilityZone_ pImage_ pVolume_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 ivDryRun :: Lens' ImportVolume (Maybe Bool)
 ivDryRun = lens _ivDryRun (\ s a -> s{_ivDryRun = a});
 
@@ -134,19 +138,21 @@ instance ToQuery ImportVolume where
                "Image" =: _ivImage, "Volume" =: _ivVolume]
 
 -- | /See:/ 'importVolumeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ivrsConversionTask'
---
--- * 'ivrsStatus'
 data ImportVolumeResponse = ImportVolumeResponse'
     { _ivrsConversionTask :: !(Maybe ConversionTask)
     , _ivrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ImportVolumeResponse' smart constructor.
-importVolumeResponse :: Int -> ImportVolumeResponse
+-- | Creates a value of 'ImportVolumeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ivrsConversionTask'
+--
+-- * 'ivrsStatus'
+importVolumeResponse
+    :: Int -- ^ 'ivrsStatus'
+    -> ImportVolumeResponse
 importVolumeResponse pStatus_ =
     ImportVolumeResponse'
     { _ivrsConversionTask = Nothing
@@ -157,6 +163,6 @@ importVolumeResponse pStatus_ =
 ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = a});
 
--- | Undocumented member.
+-- | The response status code.
 ivrsStatus :: Lens' ImportVolumeResponse Int
 ivrsStatus = lens _ivrsStatus (\ s a -> s{_ivrsStatus = a});

@@ -24,8 +24,8 @@
 --
 -- If you specify both tag keys and tag values in the same request, Amazon
 -- Redshift returns all HSM connections that match any combination of the
--- specified keys and values. For example, if you have @owner@ and
--- @environment@ for tag keys, and @admin@ and @test@ for tag values, all
+-- specified keys and values. For example, if you have 'owner' and
+-- 'environment' for tag keys, and 'admin' and 'test' for tag values, all
 -- HSM connections that have any combination of those values are returned.
 --
 -- If both tag keys and values are omitted from the request, HSM
@@ -33,11 +33,13 @@
 -- values associated with them.
 --
 -- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeHSMConfigurations.html AWS API Reference> for DescribeHSMConfigurations.
+--
+-- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeHSMConfigurations
     (
     -- * Creating a Request
-      DescribeHSMConfigurations
-    , describeHSMConfigurations
+      describeHSMConfigurations
+    , DescribeHSMConfigurations
     -- * Request Lenses
     , dhsmcTagValues
     , dhsmcHSMConfigurationIdentifier
@@ -46,8 +48,8 @@ module Network.AWS.Redshift.DescribeHSMConfigurations
     , dhsmcMarker
 
     -- * Destructuring the Response
-    , DescribeHSMConfigurationsResponse
     , describeHSMConfigurationsResponse
+    , DescribeHSMConfigurationsResponse
     -- * Response Lenses
     , dhcrsMarker
     , dhcrsHSMConfigurations
@@ -64,8 +66,17 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeHSMConfigurations' smart constructor.
+data DescribeHSMConfigurations = DescribeHSMConfigurations'
+    { _dhsmcTagValues                  :: !(Maybe [Text])
+    , _dhsmcHSMConfigurationIdentifier :: !(Maybe Text)
+    , _dhsmcTagKeys                    :: !(Maybe [Text])
+    , _dhsmcMaxRecords                 :: !(Maybe Int)
+    , _dhsmcMarker                     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeHSMConfigurations' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dhsmcTagValues'
 --
@@ -76,16 +87,8 @@ import           Network.AWS.Response
 -- * 'dhsmcMaxRecords'
 --
 -- * 'dhsmcMarker'
-data DescribeHSMConfigurations = DescribeHSMConfigurations'
-    { _dhsmcTagValues                  :: !(Maybe [Text])
-    , _dhsmcHSMConfigurationIdentifier :: !(Maybe Text)
-    , _dhsmcTagKeys                    :: !(Maybe [Text])
-    , _dhsmcMaxRecords                 :: !(Maybe Int)
-    , _dhsmcMarker                     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeHSMConfigurations' smart constructor.
-describeHSMConfigurations :: DescribeHSMConfigurations
+describeHSMConfigurations
+    :: DescribeHSMConfigurations
 describeHSMConfigurations =
     DescribeHSMConfigurations'
     { _dhsmcTagValues = Nothing
@@ -98,7 +101,7 @@ describeHSMConfigurations =
 -- | A tag value or values for which you want to return all matching HSM
 -- configurations that are associated with the specified tag value or
 -- values. For example, suppose that you have HSM configurations that are
--- tagged with values called @admin@ and @test@. If you specify both of
+-- tagged with values called 'admin' and 'test'. If you specify both of
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the HSM configurations that have either or both of these tag values
 -- associated with them.
@@ -114,7 +117,7 @@ dhsmcHSMConfigurationIdentifier = lens _dhsmcHSMConfigurationIdentifier (\ s a -
 -- | A tag key or keys for which you want to return all matching HSM
 -- configurations that are associated with the specified key or keys. For
 -- example, suppose that you have HSM configurations that are tagged with
--- keys called @owner@ and @environment@. If you specify both of these tag
+-- keys called 'owner' and 'environment'. If you specify both of these tag
 -- keys in the request, Amazon Redshift returns a response with the HSM
 -- configurations that have either or both of these tag keys associated
 -- with them.
@@ -122,12 +125,12 @@ dhsmcTagKeys :: Lens' DescribeHSMConfigurations [Text]
 dhsmcTagKeys = lens _dhsmcTagKeys (\ s a -> s{_dhsmcTagKeys = a}) . _Default . _Coerce;
 
 -- | The maximum number of response records to return in each call. If the
--- number of remaining response records exceeds the specified @MaxRecords@
--- value, a value is returned in a @marker@ field of the response. You can
+-- number of remaining response records exceeds the specified 'MaxRecords'
+-- value, a value is returned in a 'marker' field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value.
 --
--- Default: @100@
+-- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
 dhsmcMaxRecords :: Lens' DescribeHSMConfigurations (Maybe Int)
@@ -135,9 +138,9 @@ dhsmcMaxRecords = lens _dhsmcMaxRecords (\ s a -> s{_dhsmcMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeHsmConfigurations
--- request exceed the value specified in @MaxRecords@, AWS returns a value
--- in the @Marker@ field of the response. You can retrieve the next set of
--- response records by providing the returned marker value in the @Marker@
+-- request exceed the value specified in 'MaxRecords', AWS returns a value
+-- in the 'Marker' field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the 'Marker'
 -- parameter and retrying the request.
 dhsmcMarker :: Lens' DescribeHSMConfigurations (Maybe Text)
 dhsmcMarker = lens _dhsmcMarker (\ s a -> s{_dhsmcMarker = a});
@@ -187,22 +190,24 @@ instance ToQuery DescribeHSMConfigurations where
 -- |
 --
 -- /See:/ 'describeHSMConfigurationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhcrsMarker'
---
--- * 'dhcrsHSMConfigurations'
---
--- * 'dhcrsStatus'
 data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
     { _dhcrsMarker            :: !(Maybe Text)
     , _dhcrsHSMConfigurations :: !(Maybe [HSMConfiguration])
     , _dhcrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeHSMConfigurationsResponse' smart constructor.
-describeHSMConfigurationsResponse :: Int -> DescribeHSMConfigurationsResponse
+-- | Creates a value of 'DescribeHSMConfigurationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhcrsMarker'
+--
+-- * 'dhcrsHSMConfigurations'
+--
+-- * 'dhcrsStatus'
+describeHSMConfigurationsResponse
+    :: Int -- ^ 'dhcrsStatus'
+    -> DescribeHSMConfigurationsResponse
 describeHSMConfigurationsResponse pStatus_ =
     DescribeHSMConfigurationsResponse'
     { _dhcrsMarker = Nothing
@@ -213,8 +218,8 @@ describeHSMConfigurationsResponse pStatus_ =
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
 -- you can retrieve the next set of records by providing this returned
--- marker value in the @Marker@ parameter and retrying the command. If the
--- @Marker@ field is empty, all response records have been retrieved for
+-- marker value in the 'Marker' parameter and retrying the command. If the
+-- 'Marker' field is empty, all response records have been retrieved for
 -- the request.
 dhcrsMarker :: Lens' DescribeHSMConfigurationsResponse (Maybe Text)
 dhcrsMarker = lens _dhcrsMarker (\ s a -> s{_dhcrsMarker = a});
@@ -223,6 +228,6 @@ dhcrsMarker = lens _dhcrsMarker (\ s a -> s{_dhcrsMarker = a});
 dhcrsHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfiguration]
 dhcrsHSMConfigurations = lens _dhcrsHSMConfigurations (\ s a -> s{_dhcrsHSMConfigurations = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dhcrsStatus :: Lens' DescribeHSMConfigurationsResponse Int
 dhcrsStatus = lens _dhcrsStatus (\ s a -> s{_dhcrsStatus = a});

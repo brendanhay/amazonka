@@ -20,12 +20,12 @@
 --
 -- Modifies the parameters of a DB cluster parameter group to the default
 -- value. To reset specific parameters submit a list of the following:
--- @ParameterName@ and @ApplyMethod@. To reset the entire DB cluster
--- parameter group, specify the @DBClusterParameterGroupName@ and
--- @ResetAllParameters@ parameters.
+-- 'ParameterName' and 'ApplyMethod'. To reset the entire DB cluster
+-- parameter group, specify the 'DBClusterParameterGroupName' and
+-- 'ResetAllParameters' parameters.
 --
 -- When resetting the entire group, dynamic parameters are updated
--- immediately and static parameters are set to @pending-reboot@ to take
+-- immediately and static parameters are set to 'pending-reboot' to take
 -- effect on the next DB instance restart or RebootDBInstance request. You
 -- must call RebootDBInstance for every DB instance in your DB cluster that
 -- you want the updated static parameter to apply to.
@@ -38,16 +38,16 @@
 module Network.AWS.RDS.ResetDBClusterParameterGroup
     (
     -- * Creating a Request
-      ResetDBClusterParameterGroup
-    , resetDBClusterParameterGroup
+      resetDBClusterParameterGroup
+    , ResetDBClusterParameterGroup
     -- * Request Lenses
     , rdcpgResetAllParameters
     , rdcpgParameters
     , rdcpgDBClusterParameterGroupName
 
     -- * Destructuring the Response
-    , DBClusterParameterGroupNameMessage
     , dbClusterParameterGroupNameMessage
+    , DBClusterParameterGroupNameMessage
     -- * Response Lenses
     , dcpgnmDBClusterParameterGroupName
     ) where
@@ -61,22 +61,24 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'resetDBClusterParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdcpgResetAllParameters'
---
--- * 'rdcpgParameters'
---
--- * 'rdcpgDBClusterParameterGroupName'
 data ResetDBClusterParameterGroup = ResetDBClusterParameterGroup'
     { _rdcpgResetAllParameters          :: !(Maybe Bool)
     , _rdcpgParameters                  :: !(Maybe [Parameter])
     , _rdcpgDBClusterParameterGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetDBClusterParameterGroup' smart constructor.
-resetDBClusterParameterGroup :: Text -> ResetDBClusterParameterGroup
+-- | Creates a value of 'ResetDBClusterParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdcpgResetAllParameters'
+--
+-- * 'rdcpgParameters'
+--
+-- * 'rdcpgDBClusterParameterGroupName'
+resetDBClusterParameterGroup
+    :: Text -- ^ 'rdcpgDBClusterParameterGroupName'
+    -> ResetDBClusterParameterGroup
 resetDBClusterParameterGroup pDBClusterParameterGroupName_ =
     ResetDBClusterParameterGroup'
     { _rdcpgResetAllParameters = Nothing
@@ -84,16 +86,16 @@ resetDBClusterParameterGroup pDBClusterParameterGroupName_ =
     , _rdcpgDBClusterParameterGroupName = pDBClusterParameterGroupName_
     }
 
--- | A value that is set to @true@ to reset all parameters in the DB cluster
--- parameter group to their default values, and @false@ otherwise. You
+-- | A value that is set to 'true' to reset all parameters in the DB cluster
+-- parameter group to their default values, and 'false' otherwise. You
 -- cannot use this parameter if there is a list of parameter names
--- specified for the @Parameters@ parameter.
+-- specified for the 'Parameters' parameter.
 rdcpgResetAllParameters :: Lens' ResetDBClusterParameterGroup (Maybe Bool)
 rdcpgResetAllParameters = lens _rdcpgResetAllParameters (\ s a -> s{_rdcpgResetAllParameters = a});
 
 -- | A list of parameter names in the DB cluster parameter group to reset to
 -- the default values. You cannot use this parameter if the
--- @ResetAllParameters@ parameter is set to @true@.
+-- 'ResetAllParameters' parameter is set to 'true'.
 rdcpgParameters :: Lens' ResetDBClusterParameterGroup [Parameter]
 rdcpgParameters = lens _rdcpgParameters (\ s a -> s{_rdcpgParameters = a}) . _Default . _Coerce;
 

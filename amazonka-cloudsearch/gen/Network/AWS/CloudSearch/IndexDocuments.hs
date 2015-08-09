@@ -20,20 +20,20 @@
 --
 -- Tells the search domain to start indexing its documents using the latest
 -- indexing options. This operation must be invoked to activate options
--- whose OptionStatus is @RequiresIndexDocuments@.
+-- whose OptionStatus is 'RequiresIndexDocuments'.
 --
 -- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_IndexDocuments.html AWS API Reference> for IndexDocuments.
 module Network.AWS.CloudSearch.IndexDocuments
     (
     -- * Creating a Request
-      IndexDocuments
-    , indexDocuments
+      indexDocuments
+    , IndexDocuments
     -- * Request Lenses
     , idDomainName
 
     -- * Destructuring the Response
-    , IndexDocumentsResponse
     , indexDocumentsResponse
+    , IndexDocumentsResponse
     -- * Response Lenses
     , idrsFieldNames
     , idrsStatus
@@ -45,20 +45,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @IndexDocuments@ operation.
+-- | Container for the parameters to the 'IndexDocuments' operation.
 -- Specifies the name of the domain you want to re-index.
 --
 -- /See:/ 'indexDocuments' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'idDomainName'
 newtype IndexDocuments = IndexDocuments'
     { _idDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'IndexDocuments' smart constructor.
-indexDocuments :: Text -> IndexDocuments
+-- | Creates a value of 'IndexDocuments' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'idDomainName'
+indexDocuments
+    :: Text -- ^ 'idDomainName'
+    -> IndexDocuments
 indexDocuments pDomainName_ =
     IndexDocuments'
     { _idDomainName = pDomainName_
@@ -93,23 +95,25 @@ instance ToQuery IndexDocuments where
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainName" =: _idDomainName]
 
--- | The result of an @IndexDocuments@ request. Contains the status of the
+-- | The result of an 'IndexDocuments' request. Contains the status of the
 -- indexing operation, including the fields being indexed.
 --
 -- /See:/ 'indexDocumentsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'idrsFieldNames'
---
--- * 'idrsStatus'
 data IndexDocumentsResponse = IndexDocumentsResponse'
     { _idrsFieldNames :: !(Maybe [Text])
     , _idrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'IndexDocumentsResponse' smart constructor.
-indexDocumentsResponse :: Int -> IndexDocumentsResponse
+-- | Creates a value of 'IndexDocumentsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'idrsFieldNames'
+--
+-- * 'idrsStatus'
+indexDocumentsResponse
+    :: Int -- ^ 'idrsStatus'
+    -> IndexDocumentsResponse
 indexDocumentsResponse pStatus_ =
     IndexDocumentsResponse'
     { _idrsFieldNames = Nothing
@@ -120,6 +124,6 @@ indexDocumentsResponse pStatus_ =
 idrsFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrsFieldNames = lens _idrsFieldNames (\ s a -> s{_idrsFieldNames = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 idrsStatus :: Lens' IndexDocumentsResponse Int
 idrsStatus = lens _idrsStatus (\ s a -> s{_idrsStatus = a});

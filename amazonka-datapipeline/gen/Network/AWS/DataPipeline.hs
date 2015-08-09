@@ -70,7 +70,6 @@ module Network.AWS.DataPipeline
 
     -- ** QueryObjects (Paginated)
     , module Network.AWS.DataPipeline.QueryObjects
-    -- $pager
 
     -- ** RemoveTags
     , module Network.AWS.DataPipeline.RemoveTags
@@ -80,7 +79,6 @@ module Network.AWS.DataPipeline
 
     -- ** ListPipelines (Paginated)
     , module Network.AWS.DataPipeline.ListPipelines
-    -- $pager
 
     -- ** GetPipelineDefinition
     , module Network.AWS.DataPipeline.GetPipelineDefinition
@@ -99,7 +97,6 @@ module Network.AWS.DataPipeline
 
     -- ** DescribeObjects (Paginated)
     , module Network.AWS.DataPipeline.DescribeObjects
-    -- $pager
 
     -- ** ReportTaskRunnerHeartbeat
     , module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
@@ -280,8 +277,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

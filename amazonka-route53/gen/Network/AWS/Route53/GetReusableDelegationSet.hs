@@ -18,21 +18,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve the reusable delegation set, send a @GET@ request to the
--- @2013-04-01\/delegationset\/delegation set ID@ resource.
+-- To retrieve the reusable delegation set, send a 'GET' request to the
+-- '2013-04-01\/delegationset\/delegation set ID' resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html AWS API Reference> for GetReusableDelegationSet.
 module Network.AWS.Route53.GetReusableDelegationSet
     (
     -- * Creating a Request
-      GetReusableDelegationSet
-    , getReusableDelegationSet
+      getReusableDelegationSet
+    , GetReusableDelegationSet
     -- * Request Lenses
     , grdsId
 
     -- * Destructuring the Response
-    , GetReusableDelegationSetResponse
     , getReusableDelegationSetResponse
+    , GetReusableDelegationSetResponse
     -- * Response Lenses
     , grdsrsStatus
     , grdsrsDelegationSet
@@ -47,16 +47,18 @@ import           Network.AWS.Route53.Types.Product
 -- | The input for a GetReusableDelegationSet request.
 --
 -- /See:/ 'getReusableDelegationSet' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grdsId'
 newtype GetReusableDelegationSet = GetReusableDelegationSet'
     { _grdsId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetReusableDelegationSet' smart constructor.
-getReusableDelegationSet :: Text -> GetReusableDelegationSet
+-- | Creates a value of 'GetReusableDelegationSet' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grdsId'
+getReusableDelegationSet
+    :: Text -- ^ 'grdsId'
+    -> GetReusableDelegationSet
 getReusableDelegationSet pId_ =
     GetReusableDelegationSet'
     { _grdsId = pId_
@@ -93,26 +95,29 @@ instance ToQuery GetReusableDelegationSet where
 -- delegation set.
 --
 -- /See:/ 'getReusableDelegationSetResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grdsrsStatus'
---
--- * 'grdsrsDelegationSet'
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
     { _grdsrsStatus        :: !Int
     , _grdsrsDelegationSet :: !DelegationSet
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetReusableDelegationSetResponse' smart constructor.
-getReusableDelegationSetResponse :: Int -> DelegationSet -> GetReusableDelegationSetResponse
+-- | Creates a value of 'GetReusableDelegationSetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grdsrsStatus'
+--
+-- * 'grdsrsDelegationSet'
+getReusableDelegationSetResponse
+    :: Int -- ^ 'grdsrsStatus'
+    -> DelegationSet -- ^ 'grdsrsDelegationSet'
+    -> GetReusableDelegationSetResponse
 getReusableDelegationSetResponse pStatus_ pDelegationSet_ =
     GetReusableDelegationSetResponse'
     { _grdsrsStatus = pStatus_
     , _grdsrsDelegationSet = pDelegationSet_
     }
 
--- | Undocumented member.
+-- | The response status code.
 grdsrsStatus :: Lens' GetReusableDelegationSetResponse Int
 grdsrsStatus = lens _grdsrsStatus (\ s a -> s{_grdsrsStatus = a});
 

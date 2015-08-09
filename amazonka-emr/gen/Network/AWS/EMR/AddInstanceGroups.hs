@@ -24,15 +24,15 @@
 module Network.AWS.EMR.AddInstanceGroups
     (
     -- * Creating a Request
-      AddInstanceGroups
-    , addInstanceGroups
+      addInstanceGroups
+    , AddInstanceGroups
     -- * Request Lenses
     , aigInstanceGroups
     , aigJobFlowId
 
     -- * Destructuring the Response
-    , AddInstanceGroupsResponse
     , addInstanceGroupsResponse
+    , AddInstanceGroupsResponse
     -- * Response Lenses
     , aigrsJobFlowId
     , aigrsInstanceGroupIds
@@ -48,19 +48,21 @@ import           Network.AWS.Response
 -- | Input to an AddInstanceGroups call.
 --
 -- /See:/ 'addInstanceGroups' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aigInstanceGroups'
---
--- * 'aigJobFlowId'
 data AddInstanceGroups = AddInstanceGroups'
     { _aigInstanceGroups :: ![InstanceGroupConfig]
     , _aigJobFlowId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddInstanceGroups' smart constructor.
-addInstanceGroups :: Text -> AddInstanceGroups
+-- | Creates a value of 'AddInstanceGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aigInstanceGroups'
+--
+-- * 'aigJobFlowId'
+addInstanceGroups
+    :: Text -- ^ 'aigJobFlowId'
+    -> AddInstanceGroups
 addInstanceGroups pJobFlowId_ =
     AddInstanceGroups'
     { _aigInstanceGroups = mempty
@@ -111,22 +113,24 @@ instance ToQuery AddInstanceGroups where
 -- | Output from an AddInstanceGroups call.
 --
 -- /See:/ 'addInstanceGroupsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aigrsJobFlowId'
---
--- * 'aigrsInstanceGroupIds'
---
--- * 'aigrsStatus'
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
     { _aigrsJobFlowId        :: !(Maybe Text)
     , _aigrsInstanceGroupIds :: !(Maybe [Text])
     , _aigrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddInstanceGroupsResponse' smart constructor.
-addInstanceGroupsResponse :: Int -> AddInstanceGroupsResponse
+-- | Creates a value of 'AddInstanceGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aigrsJobFlowId'
+--
+-- * 'aigrsInstanceGroupIds'
+--
+-- * 'aigrsStatus'
+addInstanceGroupsResponse
+    :: Int -- ^ 'aigrsStatus'
+    -> AddInstanceGroupsResponse
 addInstanceGroupsResponse pStatus_ =
     AddInstanceGroupsResponse'
     { _aigrsJobFlowId = Nothing
@@ -142,6 +146,6 @@ aigrsJobFlowId = lens _aigrsJobFlowId (\ s a -> s{_aigrsJobFlowId = a});
 aigrsInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
 aigrsInstanceGroupIds = lens _aigrsInstanceGroupIds (\ s a -> s{_aigrsInstanceGroupIds = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 aigrsStatus :: Lens' AddInstanceGroupsResponse Int
 aigrsStatus = lens _aigrsStatus (\ s a -> s{_aigrsStatus = a});

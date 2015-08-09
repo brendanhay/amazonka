@@ -29,14 +29,14 @@
 module Network.AWS.CloudHSM.ListLunaClients
     (
     -- * Creating a Request
-      ListLunaClients
-    , listLunaClients
+      listLunaClients
+    , ListLunaClients
     -- * Request Lenses
     , llcNextToken
 
     -- * Destructuring the Response
-    , ListLunaClientsResponse
     , listLunaClientsResponse
+    , ListLunaClientsResponse
     -- * Response Lenses
     , llcrsNextToken
     , llcrsStatus
@@ -50,16 +50,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listLunaClients' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'llcNextToken'
 newtype ListLunaClients = ListLunaClients'
     { _llcNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListLunaClients' smart constructor.
-listLunaClients :: ListLunaClients
+-- | Creates a value of 'ListLunaClients' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'llcNextToken'
+listLunaClients
+    :: ListLunaClients
 listLunaClients =
     ListLunaClients'
     { _llcNextToken = Nothing
@@ -102,22 +103,24 @@ instance ToQuery ListLunaClients where
         toQuery = const mempty
 
 -- | /See:/ 'listLunaClientsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'llcrsNextToken'
---
--- * 'llcrsStatus'
---
--- * 'llcrsClientList'
 data ListLunaClientsResponse = ListLunaClientsResponse'
     { _llcrsNextToken  :: !(Maybe Text)
     , _llcrsStatus     :: !Int
     , _llcrsClientList :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListLunaClientsResponse' smart constructor.
-listLunaClientsResponse :: Int -> ListLunaClientsResponse
+-- | Creates a value of 'ListLunaClientsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'llcrsNextToken'
+--
+-- * 'llcrsStatus'
+--
+-- * 'llcrsClientList'
+listLunaClientsResponse
+    :: Int -- ^ 'llcrsStatus'
+    -> ListLunaClientsResponse
 listLunaClientsResponse pStatus_ =
     ListLunaClientsResponse'
     { _llcrsNextToken = Nothing
@@ -130,7 +133,7 @@ listLunaClientsResponse pStatus_ =
 llcrsNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
 llcrsNextToken = lens _llcrsNextToken (\ s a -> s{_llcrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 llcrsStatus :: Lens' ListLunaClientsResponse Int
 llcrsStatus = lens _llcrsStatus (\ s a -> s{_llcrsStatus = a});
 

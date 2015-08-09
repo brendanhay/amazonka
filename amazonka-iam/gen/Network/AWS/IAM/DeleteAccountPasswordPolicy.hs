@@ -24,12 +24,12 @@
 module Network.AWS.IAM.DeleteAccountPasswordPolicy
     (
     -- * Creating a Request
-      DeleteAccountPasswordPolicy
-    , deleteAccountPasswordPolicy
+      deleteAccountPasswordPolicy
+    , DeleteAccountPasswordPolicy
 
     -- * Destructuring the Response
-    , DeleteAccountPasswordPolicyResponse
     , deleteAccountPasswordPolicyResponse
+    , DeleteAccountPasswordPolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -43,8 +43,10 @@ data DeleteAccountPasswordPolicy =
     DeleteAccountPasswordPolicy'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAccountPasswordPolicy' smart constructor.
-deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
+-- | Creates a value of 'DeleteAccountPasswordPolicy' with the minimum fields required to make a request.
+--
+deleteAccountPasswordPolicy
+    :: DeleteAccountPasswordPolicy
 deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy'
 
 instance AWSRequest DeleteAccountPasswordPolicy where
@@ -74,6 +76,8 @@ data DeleteAccountPasswordPolicyResponse =
     DeleteAccountPasswordPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAccountPasswordPolicyResponse' smart constructor.
-deleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse
+-- | Creates a value of 'DeleteAccountPasswordPolicyResponse' with the minimum fields required to make a request.
+--
+deleteAccountPasswordPolicyResponse
+    :: DeleteAccountPasswordPolicyResponse
 deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse'

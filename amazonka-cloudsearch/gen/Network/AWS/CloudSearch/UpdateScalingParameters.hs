@@ -32,15 +32,15 @@
 module Network.AWS.CloudSearch.UpdateScalingParameters
     (
     -- * Creating a Request
-      UpdateScalingParameters
-    , updateScalingParameters
+      updateScalingParameters
+    , UpdateScalingParameters
     -- * Request Lenses
     , uspDomainName
     , uspScalingParameters
 
     -- * Destructuring the Response
-    , UpdateScalingParametersResponse
     , updateScalingParametersResponse
+    , UpdateScalingParametersResponse
     -- * Response Lenses
     , usprsStatus
     , usprsScalingParameters
@@ -52,24 +52,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @UpdateScalingParameters@ operation.
+-- | Container for the parameters to the 'UpdateScalingParameters' operation.
 -- Specifies the name of the domain you want to update and the scaling
 -- parameters you want to configure.
 --
 -- /See:/ 'updateScalingParameters' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uspDomainName'
---
--- * 'uspScalingParameters'
 data UpdateScalingParameters = UpdateScalingParameters'
     { _uspDomainName        :: !Text
     , _uspScalingParameters :: !ScalingParameters
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateScalingParameters' smart constructor.
-updateScalingParameters :: Text -> ScalingParameters -> UpdateScalingParameters
+-- | Creates a value of 'UpdateScalingParameters' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uspDomainName'
+--
+-- * 'uspScalingParameters'
+updateScalingParameters
+    :: Text -- ^ 'uspDomainName'
+    -> ScalingParameters -- ^ 'uspScalingParameters'
+    -> UpdateScalingParameters
 updateScalingParameters pDomainName_ pScalingParameters_ =
     UpdateScalingParameters'
     { _uspDomainName = pDomainName_
@@ -110,30 +113,33 @@ instance ToQuery UpdateScalingParameters where
                "DomainName" =: _uspDomainName,
                "ScalingParameters" =: _uspScalingParameters]
 
--- | The result of a @UpdateScalingParameters@ request. Contains the status
+-- | The result of a 'UpdateScalingParameters' request. Contains the status
 -- of the newly-configured scaling parameters.
 --
 -- /See:/ 'updateScalingParametersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'usprsStatus'
---
--- * 'usprsScalingParameters'
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
     { _usprsStatus            :: !Int
     , _usprsScalingParameters :: !ScalingParametersStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateScalingParametersResponse' smart constructor.
-updateScalingParametersResponse :: Int -> ScalingParametersStatus -> UpdateScalingParametersResponse
+-- | Creates a value of 'UpdateScalingParametersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'usprsStatus'
+--
+-- * 'usprsScalingParameters'
+updateScalingParametersResponse
+    :: Int -- ^ 'usprsStatus'
+    -> ScalingParametersStatus -- ^ 'usprsScalingParameters'
+    -> UpdateScalingParametersResponse
 updateScalingParametersResponse pStatus_ pScalingParameters_ =
     UpdateScalingParametersResponse'
     { _usprsStatus = pStatus_
     , _usprsScalingParameters = pScalingParameters_
     }
 
--- | Undocumented member.
+-- | The response status code.
 usprsStatus :: Lens' UpdateScalingParametersResponse Int
 usprsStatus = lens _usprsStatus (\ s a -> s{_usprsStatus = a});
 

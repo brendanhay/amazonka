@@ -33,8 +33,8 @@
 module Network.AWS.Redshift.CreateHSMConfiguration
     (
     -- * Creating a Request
-      CreateHSMConfiguration
-    , createHSMConfiguration
+      createHSMConfiguration
+    , CreateHSMConfiguration
     -- * Request Lenses
     , chcTags
     , chcHSMConfigurationIdentifier
@@ -45,8 +45,8 @@ module Network.AWS.Redshift.CreateHSMConfiguration
     , chcHSMServerPublicCertificate
 
     -- * Destructuring the Response
-    , CreateHSMConfigurationResponse
     , createHSMConfigurationResponse
+    , CreateHSMConfigurationResponse
     -- * Response Lenses
     , chcrsHSMConfiguration
     , chcrsStatus
@@ -61,8 +61,19 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createHSMConfiguration' smart constructor.
+data CreateHSMConfiguration = CreateHSMConfiguration'
+    { _chcTags                       :: !(Maybe [Tag])
+    , _chcHSMConfigurationIdentifier :: !Text
+    , _chcDescription                :: !Text
+    , _chcHSMIPAddress               :: !Text
+    , _chcHSMPartitionName           :: !Text
+    , _chcHSMPartitionPassword       :: !Text
+    , _chcHSMServerPublicCertificate :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateHSMConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'chcTags'
 --
@@ -77,18 +88,14 @@ import           Network.AWS.Response
 -- * 'chcHSMPartitionPassword'
 --
 -- * 'chcHSMServerPublicCertificate'
-data CreateHSMConfiguration = CreateHSMConfiguration'
-    { _chcTags                       :: !(Maybe [Tag])
-    , _chcHSMConfigurationIdentifier :: !Text
-    , _chcDescription                :: !Text
-    , _chcHSMIPAddress               :: !Text
-    , _chcHSMPartitionName           :: !Text
-    , _chcHSMPartitionPassword       :: !Text
-    , _chcHSMServerPublicCertificate :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateHSMConfiguration' smart constructor.
-createHSMConfiguration :: Text -> Text -> Text -> Text -> Text -> Text -> CreateHSMConfiguration
+createHSMConfiguration
+    :: Text -- ^ 'chcHSMConfigurationIdentifier'
+    -> Text -- ^ 'chcDescription'
+    -> Text -- ^ 'chcHSMIPAddress'
+    -> Text -- ^ 'chcHSMPartitionName'
+    -> Text -- ^ 'chcHSMPartitionPassword'
+    -> Text -- ^ 'chcHSMServerPublicCertificate'
+    -> CreateHSMConfiguration
 createHSMConfiguration pHSMConfigurationIdentifier_ pDescription_ pHSMIPAddress_ pHSMPartitionName_ pHSMPartitionPassword_ pHSMServerPublicCertificate_ =
     CreateHSMConfiguration'
     { _chcTags = Nothing
@@ -166,19 +173,21 @@ instance ToQuery CreateHSMConfiguration where
                  _chcHSMServerPublicCertificate]
 
 -- | /See:/ 'createHSMConfigurationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'chcrsHSMConfiguration'
---
--- * 'chcrsStatus'
 data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'
     { _chcrsHSMConfiguration :: !(Maybe HSMConfiguration)
     , _chcrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateHSMConfigurationResponse' smart constructor.
-createHSMConfigurationResponse :: Int -> CreateHSMConfigurationResponse
+-- | Creates a value of 'CreateHSMConfigurationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'chcrsHSMConfiguration'
+--
+-- * 'chcrsStatus'
+createHSMConfigurationResponse
+    :: Int -- ^ 'chcrsStatus'
+    -> CreateHSMConfigurationResponse
 createHSMConfigurationResponse pStatus_ =
     CreateHSMConfigurationResponse'
     { _chcrsHSMConfiguration = Nothing
@@ -189,6 +198,6 @@ createHSMConfigurationResponse pStatus_ =
 chcrsHSMConfiguration :: Lens' CreateHSMConfigurationResponse (Maybe HSMConfiguration)
 chcrsHSMConfiguration = lens _chcrsHSMConfiguration (\ s a -> s{_chcrsHSMConfiguration = a});
 
--- | Undocumented member.
+-- | The response status code.
 chcrsStatus :: Lens' CreateHSMConfigurationResponse Int
 chcrsStatus = lens _chcrsStatus (\ s a -> s{_chcrsStatus = a});

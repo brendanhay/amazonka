@@ -25,14 +25,14 @@
 --
 -- /CreateTable/ is an asynchronous operation. Upon receiving a
 -- /CreateTable/ request, DynamoDB immediately returns a response with a
--- /TableStatus/ of @CREATING@. After the table is created, DynamoDB sets
--- the /TableStatus/ to @ACTIVE@. You can perform read and write operations
--- only on an @ACTIVE@ table.
+-- /TableStatus/ of 'CREATING'. After the table is created, DynamoDB sets
+-- the /TableStatus/ to 'ACTIVE'. You can perform read and write operations
+-- only on an 'ACTIVE' table.
 --
 -- You can optionally define secondary indexes on the new table, as part of
 -- the /CreateTable/ operation. If you want to create multiple tables with
 -- secondary indexes on them, you must create the tables sequentially. Only
--- one table with secondary indexes can be in the @CREATING@ state at any
+-- one table with secondary indexes can be in the 'CREATING' state at any
 -- given time.
 --
 -- You can use the /DescribeTable/ API to check the table status.
@@ -41,8 +41,8 @@
 module Network.AWS.DynamoDB.CreateTable
     (
     -- * Creating a Request
-      CreateTable
-    , createTable
+      createTable
+    , CreateTable
     -- * Request Lenses
     , ctGlobalSecondaryIndexes
     , ctLocalSecondaryIndexes
@@ -53,8 +53,8 @@ module Network.AWS.DynamoDB.CreateTable
     , ctProvisionedThroughput
 
     -- * Destructuring the Response
-    , CreateTableResponse
     , createTableResponse
+    , CreateTableResponse
     -- * Response Lenses
     , ctrsTableDescription
     , ctrsStatus
@@ -69,8 +69,19 @@ import           Network.AWS.Response
 -- | Represents the input of a /CreateTable/ operation.
 --
 -- /See:/ 'createTable' smart constructor.
+data CreateTable = CreateTable'
+    { _ctGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndex])
+    , _ctLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndex])
+    , _ctStreamSpecification    :: !(Maybe StreamSpecification)
+    , _ctAttributeDefinitions   :: ![AttributeDefinition]
+    , _ctTableName              :: !Text
+    , _ctKeySchema              :: !(List1 KeySchemaElement)
+    , _ctProvisionedThroughput  :: !ProvisionedThroughput
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateTable' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ctGlobalSecondaryIndexes'
 --
@@ -85,18 +96,11 @@ import           Network.AWS.Response
 -- * 'ctKeySchema'
 --
 -- * 'ctProvisionedThroughput'
-data CreateTable = CreateTable'
-    { _ctGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndex])
-    , _ctLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndex])
-    , _ctStreamSpecification    :: !(Maybe StreamSpecification)
-    , _ctAttributeDefinitions   :: ![AttributeDefinition]
-    , _ctTableName              :: !Text
-    , _ctKeySchema              :: !(List1 KeySchemaElement)
-    , _ctProvisionedThroughput  :: !ProvisionedThroughput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateTable' smart constructor.
-createTable :: Text -> NonEmpty KeySchemaElement -> ProvisionedThroughput -> CreateTable
+createTable
+    :: Text -- ^ 'ctTableName'
+    -> NonEmpty KeySchemaElement -- ^ 'ctKeySchema'
+    -> ProvisionedThroughput -- ^ 'ctProvisionedThroughput'
+    -> CreateTable
 createTable pTableName_ pKeySchema_ pProvisionedThroughput_ =
     CreateTable'
     { _ctGlobalSecondaryIndexes = Nothing
@@ -125,14 +129,14 @@ createTable pTableName_ pKeySchema_ pProvisionedThroughput_ =
 --
 --     -   /ProjectionType/ - One of the following:
 --
---         -   @KEYS_ONLY@ - Only the index and primary keys are projected
+--         -   'KEYS_ONLY' - Only the index and primary keys are projected
 --             into the index.
 --
---         -   @INCLUDE@ - Only the specified table attributes are
+--         -   'INCLUDE' - Only the specified table attributes are
 --             projected into the index. The list of projected attributes
 --             are in /NonKeyAttributes/.
 --
---         -   @ALL@ - All of the table attributes are projected into the
+--         -   'ALL' - All of the table attributes are projected into the
 --             index.
 --
 --     -   /NonKeyAttributes/ - A list of one or more non-key attribute
@@ -170,14 +174,14 @@ ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalS
 --
 --     -   /ProjectionType/ - One of the following:
 --
---         -   @KEYS_ONLY@ - Only the index and primary keys are projected
+--         -   'KEYS_ONLY' - Only the index and primary keys are projected
 --             into the index.
 --
---         -   @INCLUDE@ - Only the specified table attributes are
+--         -   'INCLUDE' - Only the specified table attributes are
 --             projected into the index. The list of projected attributes
 --             are in /NonKeyAttributes/.
 --
---         -   @ALL@ - All of the table attributes are projected into the
+--         -   'ALL' - All of the table attributes are projected into the
 --             index.
 --
 --     -   /NonKeyAttributes/ - A list of one or more non-key attribute
@@ -234,16 +238,16 @@ ctTableName = lens _ctTableName (\ s a -> s{_ctTableName = a});
 --
 -- -   /AttributeName/ - The name of this key attribute.
 --
--- -   /KeyType/ - Determines whether the key attribute is @HASH@ or
---     @RANGE@.
+-- -   /KeyType/ - Determines whether the key attribute is 'HASH' or
+--     'RANGE'.
 --
 -- For a primary key that consists of a hash attribute, you must provide
--- exactly one element with a /KeyType/ of @HASH@.
+-- exactly one element with a /KeyType/ of 'HASH'.
 --
 -- For a primary key that consists of hash and range attributes, you must
 -- provide exactly two elements, in this order: The first element must have
--- a /KeyType/ of @HASH@, and the second element must have a /KeyType/ of
--- @RANGE@.
+-- a /KeyType/ of 'HASH', and the second element must have a /KeyType/ of
+-- 'RANGE'.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Specifying the Primary Key>
@@ -295,19 +299,21 @@ instance ToQuery CreateTable where
 -- | Represents the output of a /CreateTable/ operation.
 --
 -- /See:/ 'createTableResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ctrsTableDescription'
---
--- * 'ctrsStatus'
 data CreateTableResponse = CreateTableResponse'
     { _ctrsTableDescription :: !(Maybe TableDescription)
     , _ctrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateTableResponse' smart constructor.
-createTableResponse :: Int -> CreateTableResponse
+-- | Creates a value of 'CreateTableResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ctrsTableDescription'
+--
+-- * 'ctrsStatus'
+createTableResponse
+    :: Int -- ^ 'ctrsStatus'
+    -> CreateTableResponse
 createTableResponse pStatus_ =
     CreateTableResponse'
     { _ctrsTableDescription = Nothing
@@ -318,6 +324,6 @@ createTableResponse pStatus_ =
 ctrsTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
 ctrsTableDescription = lens _ctrsTableDescription (\ s a -> s{_ctrsTableDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 ctrsStatus :: Lens' CreateTableResponse Int
 ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});

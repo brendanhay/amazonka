@@ -45,15 +45,15 @@
 module Network.AWS.Glacier.DescribeVault
     (
     -- * Creating a Request
-      DescribeVault
-    , describeVault
+      describeVault
+    , DescribeVault
     -- * Request Lenses
     , dvAccountId
     , dvVaultName
 
     -- * Destructuring the Response
-    , DescribeVaultOutput
     , describeVaultOutput
+    , DescribeVaultOutput
     -- * Response Lenses
     , dvoVaultName
     , dvoSizeInBytes
@@ -73,28 +73,31 @@ import           Network.AWS.Response
 -- Glacier.
 --
 -- /See:/ 'describeVault' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvAccountId'
---
--- * 'dvVaultName'
 data DescribeVault = DescribeVault'
     { _dvAccountId :: !Text
     , _dvVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVault' smart constructor.
-describeVault :: Text -> Text -> DescribeVault
+-- | Creates a value of 'DescribeVault' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvAccountId'
+--
+-- * 'dvVaultName'
+describeVault
+    :: Text -- ^ 'dvAccountId'
+    -> Text -- ^ 'dvVaultName'
+    -> DescribeVault
 describeVault pAccountId_ pVaultName_ =
     DescribeVault'
     { _dvAccountId = pAccountId_
     , _dvVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 dvAccountId :: Lens' DescribeVault Text

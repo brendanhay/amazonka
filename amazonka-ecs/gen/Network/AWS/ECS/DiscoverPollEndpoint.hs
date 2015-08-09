@@ -28,15 +28,15 @@
 module Network.AWS.ECS.DiscoverPollEndpoint
     (
     -- * Creating a Request
-      DiscoverPollEndpoint
-    , discoverPollEndpoint
+      discoverPollEndpoint
+    , DiscoverPollEndpoint
     -- * Request Lenses
     , dpeCluster
     , dpeContainerInstance
 
     -- * Destructuring the Response
-    , DiscoverPollEndpointResponse
     , discoverPollEndpointResponse
+    , DiscoverPollEndpointResponse
     -- * Response Lenses
     , dpersTelemetryEndpoint
     , dpersEndpoint
@@ -50,19 +50,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'discoverPollEndpoint' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpeCluster'
---
--- * 'dpeContainerInstance'
 data DiscoverPollEndpoint = DiscoverPollEndpoint'
     { _dpeCluster           :: !(Maybe Text)
     , _dpeContainerInstance :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DiscoverPollEndpoint' smart constructor.
-discoverPollEndpoint :: DiscoverPollEndpoint
+-- | Creates a value of 'DiscoverPollEndpoint' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpeCluster'
+--
+-- * 'dpeContainerInstance'
+discoverPollEndpoint
+    :: DiscoverPollEndpoint
 discoverPollEndpoint =
     DiscoverPollEndpoint'
     { _dpeCluster = Nothing
@@ -74,9 +75,9 @@ dpeCluster :: Lens' DiscoverPollEndpoint (Maybe Text)
 dpeCluster = lens _dpeCluster (\ s a -> s{_dpeCluster = a});
 
 -- | The container instance UUID or full Amazon Resource Name (ARN) of the
--- container instance. The ARN contains the @arn:aws:ecs@ namespace,
+-- container instance. The ARN contains the 'arn:aws:ecs' namespace,
 -- followed by the region of the container instance, the AWS account ID of
--- the container instance owner, the @container-instance@ namespace, and
+-- the container instance owner, the 'container-instance' namespace, and
 -- then the container instance UUID. For example,
 -- arn:aws:ecs:/region/:/aws_account_id/:container-instance\//container_instance_UUID/.
 dpeContainerInstance :: Lens' DiscoverPollEndpoint (Maybe Text)
@@ -117,22 +118,24 @@ instance ToQuery DiscoverPollEndpoint where
         toQuery = const mempty
 
 -- | /See:/ 'discoverPollEndpointResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpersTelemetryEndpoint'
---
--- * 'dpersEndpoint'
---
--- * 'dpersStatus'
 data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
     { _dpersTelemetryEndpoint :: !(Maybe Text)
     , _dpersEndpoint          :: !(Maybe Text)
     , _dpersStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DiscoverPollEndpointResponse' smart constructor.
-discoverPollEndpointResponse :: Int -> DiscoverPollEndpointResponse
+-- | Creates a value of 'DiscoverPollEndpointResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpersTelemetryEndpoint'
+--
+-- * 'dpersEndpoint'
+--
+-- * 'dpersStatus'
+discoverPollEndpointResponse
+    :: Int -- ^ 'dpersStatus'
+    -> DiscoverPollEndpointResponse
 discoverPollEndpointResponse pStatus_ =
     DiscoverPollEndpointResponse'
     { _dpersTelemetryEndpoint = Nothing
@@ -148,6 +151,6 @@ dpersTelemetryEndpoint = lens _dpersTelemetryEndpoint (\ s a -> s{_dpersTelemetr
 dpersEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
 dpersEndpoint = lens _dpersEndpoint (\ s a -> s{_dpersEndpoint = a});
 
--- | Undocumented member.
+-- | The response status code.
 dpersStatus :: Lens' DiscoverPollEndpointResponse Int
 dpersStatus = lens _dpersStatus (\ s a -> s{_dpersStatus = a});

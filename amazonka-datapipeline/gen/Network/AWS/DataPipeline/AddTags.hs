@@ -24,15 +24,15 @@
 module Network.AWS.DataPipeline.AddTags
     (
     -- * Creating a Request
-      AddTags
-    , addTags
+      addTags
+    , AddTags
     -- * Request Lenses
     , atPipelineId
     , atTags
 
     -- * Destructuring the Response
-    , AddTagsResponse
     , addTagsResponse
+    , AddTagsResponse
     -- * Response Lenses
     , atrsStatus
     ) where
@@ -46,19 +46,21 @@ import           Network.AWS.Response
 -- | Contains the parameters for AddTags.
 --
 -- /See:/ 'addTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atPipelineId'
---
--- * 'atTags'
 data AddTags = AddTags'
     { _atPipelineId :: !Text
     , _atTags       :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTags' smart constructor.
-addTags :: Text -> AddTags
+-- | Creates a value of 'AddTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atPipelineId'
+--
+-- * 'atTags'
+addTags
+    :: Text -- ^ 'atPipelineId'
+    -> AddTags
 addTags pPipelineId_ =
     AddTags'
     { _atPipelineId = pPipelineId_
@@ -104,21 +106,23 @@ instance ToQuery AddTags where
 -- | Contains the output of AddTags.
 --
 -- /See:/ 'addTagsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'atrsStatus'
 newtype AddTagsResponse = AddTagsResponse'
     { _atrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTagsResponse' smart constructor.
-addTagsResponse :: Int -> AddTagsResponse
+-- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'atrsStatus'
+addTagsResponse
+    :: Int -- ^ 'atrsStatus'
+    -> AddTagsResponse
 addTagsResponse pStatus_ =
     AddTagsResponse'
     { _atrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 atrsStatus :: Lens' AddTagsResponse Int
 atrsStatus = lens _atrsStatus (\ s a -> s{_atrsStatus = a});

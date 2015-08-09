@@ -24,8 +24,8 @@
 module Network.AWS.DirectoryService.ConnectDirectory
     (
     -- * Creating a Request
-      ConnectDirectory
-    , connectDirectory
+      connectDirectory
+    , ConnectDirectory
     -- * Request Lenses
     , cdShortName
     , cdDescription
@@ -35,8 +35,8 @@ module Network.AWS.DirectoryService.ConnectDirectory
     , cdConnectSettings
 
     -- * Destructuring the Response
-    , ConnectDirectoryResponse
     , connectDirectoryResponse
+    , ConnectDirectoryResponse
     -- * Response Lenses
     , cdrsDirectoryId
     , cdrsStatus
@@ -51,8 +51,18 @@ import           Network.AWS.Response
 -- | Contains the inputs for the ConnectDirectory operation.
 --
 -- /See:/ 'connectDirectory' smart constructor.
+data ConnectDirectory = ConnectDirectory'
+    { _cdShortName       :: !(Maybe Text)
+    , _cdDescription     :: !(Maybe Text)
+    , _cdName            :: !Text
+    , _cdPassword        :: !(Sensitive Text)
+    , _cdSize            :: !DirectorySize
+    , _cdConnectSettings :: !DirectoryConnectSettings
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConnectDirectory' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdShortName'
 --
@@ -65,17 +75,12 @@ import           Network.AWS.Response
 -- * 'cdSize'
 --
 -- * 'cdConnectSettings'
-data ConnectDirectory = ConnectDirectory'
-    { _cdShortName       :: !(Maybe Text)
-    , _cdDescription     :: !(Maybe Text)
-    , _cdName            :: !Text
-    , _cdPassword        :: !(Sensitive Text)
-    , _cdSize            :: !DirectorySize
-    , _cdConnectSettings :: !DirectoryConnectSettings
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ConnectDirectory' smart constructor.
-connectDirectory :: Text -> Text -> DirectorySize -> DirectoryConnectSettings -> ConnectDirectory
+connectDirectory
+    :: Text -- ^ 'cdName'
+    -> Text -- ^ 'cdPassword'
+    -> DirectorySize -- ^ 'cdSize'
+    -> DirectoryConnectSettings -- ^ 'cdConnectSettings'
+    -> ConnectDirectory
 connectDirectory pName_ pPassword_ pSize_ pConnectSettings_ =
     ConnectDirectory'
     { _cdShortName = Nothing
@@ -86,7 +91,7 @@ connectDirectory pName_ pPassword_ pSize_ pConnectSettings_ =
     , _cdConnectSettings = pConnectSettings_
     }
 
--- | The NetBIOS name of the on-premises directory, such as @CORP@.
+-- | The NetBIOS name of the on-premises directory, such as 'CORP'.
 cdShortName :: Lens' ConnectDirectory (Maybe Text)
 cdShortName = lens _cdShortName (\ s a -> s{_cdShortName = a});
 
@@ -95,7 +100,7 @@ cdDescription :: Lens' ConnectDirectory (Maybe Text)
 cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 
 -- | The fully-qualified name of the on-premises directory, such as
--- @corp.example.com@.
+-- 'corp.example.com'.
 cdName :: Lens' ConnectDirectory Text
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
@@ -149,19 +154,21 @@ instance ToQuery ConnectDirectory where
 -- | Contains the results of the ConnectDirectory operation.
 --
 -- /See:/ 'connectDirectoryResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdrsDirectoryId'
---
--- * 'cdrsStatus'
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
     { _cdrsDirectoryId :: !(Maybe Text)
     , _cdrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConnectDirectoryResponse' smart constructor.
-connectDirectoryResponse :: Int -> ConnectDirectoryResponse
+-- | Creates a value of 'ConnectDirectoryResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdrsDirectoryId'
+--
+-- * 'cdrsStatus'
+connectDirectoryResponse
+    :: Int -- ^ 'cdrsStatus'
+    -> ConnectDirectoryResponse
 connectDirectoryResponse pStatus_ =
     ConnectDirectoryResponse'
     { _cdrsDirectoryId = Nothing
@@ -172,6 +179,6 @@ connectDirectoryResponse pStatus_ =
 cdrsDirectoryId :: Lens' ConnectDirectoryResponse (Maybe Text)
 cdrsDirectoryId = lens _cdrsDirectoryId (\ s a -> s{_cdrsDirectoryId = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdrsStatus :: Lens' ConnectDirectoryResponse Int
 cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

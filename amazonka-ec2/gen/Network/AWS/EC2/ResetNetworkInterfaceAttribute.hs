@@ -25,16 +25,16 @@
 module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     (
     -- * Creating a Request
-      ResetNetworkInterfaceAttribute
-    , resetNetworkInterfaceAttribute
+      resetNetworkInterfaceAttribute
+    , ResetNetworkInterfaceAttribute
     -- * Request Lenses
     , rniaSourceDestCheck
     , rniaDryRun
     , rniaNetworkInterfaceId
 
     -- * Destructuring the Response
-    , ResetNetworkInterfaceAttributeResponse
     , resetNetworkInterfaceAttributeResponse
+    , ResetNetworkInterfaceAttributeResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -44,22 +44,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'resetNetworkInterfaceAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rniaSourceDestCheck'
---
--- * 'rniaDryRun'
---
--- * 'rniaNetworkInterfaceId'
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
     { _rniaSourceDestCheck    :: !(Maybe Text)
     , _rniaDryRun             :: !(Maybe Bool)
     , _rniaNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetNetworkInterfaceAttribute' smart constructor.
-resetNetworkInterfaceAttribute :: Text -> ResetNetworkInterfaceAttribute
+-- | Creates a value of 'ResetNetworkInterfaceAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rniaSourceDestCheck'
+--
+-- * 'rniaDryRun'
+--
+-- * 'rniaNetworkInterfaceId'
+resetNetworkInterfaceAttribute
+    :: Text -- ^ 'rniaNetworkInterfaceId'
+    -> ResetNetworkInterfaceAttribute
 resetNetworkInterfaceAttribute pNetworkInterfaceId_ =
     ResetNetworkInterfaceAttribute'
     { _rniaSourceDestCheck = Nothing
@@ -67,14 +69,14 @@ resetNetworkInterfaceAttribute pNetworkInterfaceId_ =
     , _rniaNetworkInterfaceId = pNetworkInterfaceId_
     }
 
--- | The source\/destination checking attribute. Resets the value to @true@.
+-- | The source\/destination checking attribute. Resets the value to 'true'.
 rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
 rniaSourceDestCheck = lens _rniaSourceDestCheck (\ s a -> s{_rniaSourceDestCheck = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 rniaDryRun :: Lens' ResetNetworkInterfaceAttribute (Maybe Bool)
 rniaDryRun = lens _rniaDryRun (\ s a -> s{_rniaDryRun = a});
 
@@ -113,7 +115,9 @@ data ResetNetworkInterfaceAttributeResponse =
     ResetNetworkInterfaceAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetNetworkInterfaceAttributeResponse' smart constructor.
-resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
+-- | Creates a value of 'ResetNetworkInterfaceAttributeResponse' with the minimum fields required to make a request.
+--
+resetNetworkInterfaceAttributeResponse
+    :: ResetNetworkInterfaceAttributeResponse
 resetNetworkInterfaceAttributeResponse =
     ResetNetworkInterfaceAttributeResponse'

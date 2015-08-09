@@ -28,16 +28,16 @@
 module Network.AWS.EC2.ReplaceNetworkACLAssociation
     (
     -- * Creating a Request
-      ReplaceNetworkACLAssociation
-    , replaceNetworkACLAssociation
+      replaceNetworkACLAssociation
+    , ReplaceNetworkACLAssociation
     -- * Request Lenses
     , rnaaDryRun
     , rnaaAssociationId
     , rnaaNetworkACLId
 
     -- * Destructuring the Response
-    , ReplaceNetworkACLAssociationResponse
     , replaceNetworkACLAssociationResponse
+    , ReplaceNetworkACLAssociationResponse
     -- * Response Lenses
     , rnaarsNewAssociationId
     , rnaarsStatus
@@ -50,22 +50,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'replaceNetworkACLAssociation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rnaaDryRun'
---
--- * 'rnaaAssociationId'
---
--- * 'rnaaNetworkACLId'
 data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
     { _rnaaDryRun        :: !(Maybe Bool)
     , _rnaaAssociationId :: !Text
     , _rnaaNetworkACLId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReplaceNetworkACLAssociation' smart constructor.
-replaceNetworkACLAssociation :: Text -> Text -> ReplaceNetworkACLAssociation
+-- | Creates a value of 'ReplaceNetworkACLAssociation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rnaaDryRun'
+--
+-- * 'rnaaAssociationId'
+--
+-- * 'rnaaNetworkACLId'
+replaceNetworkACLAssociation
+    :: Text -- ^ 'rnaaAssociationId'
+    -> Text -- ^ 'rnaaNetworkACLId'
+    -> ReplaceNetworkACLAssociation
 replaceNetworkACLAssociation pAssociationId_ pNetworkACLId_ =
     ReplaceNetworkACLAssociation'
     { _rnaaDryRun = Nothing
@@ -75,8 +78,8 @@ replaceNetworkACLAssociation pAssociationId_ pNetworkACLId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 rnaaDryRun :: Lens' ReplaceNetworkACLAssociation (Maybe Bool)
 rnaaDryRun = lens _rnaaDryRun (\ s a -> s{_rnaaDryRun = a});
 
@@ -118,19 +121,21 @@ instance ToQuery ReplaceNetworkACLAssociation where
                "NetworkAclId" =: _rnaaNetworkACLId]
 
 -- | /See:/ 'replaceNetworkACLAssociationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rnaarsNewAssociationId'
---
--- * 'rnaarsStatus'
 data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
     { _rnaarsNewAssociationId :: !(Maybe Text)
     , _rnaarsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReplaceNetworkACLAssociationResponse' smart constructor.
-replaceNetworkACLAssociationResponse :: Int -> ReplaceNetworkACLAssociationResponse
+-- | Creates a value of 'ReplaceNetworkACLAssociationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rnaarsNewAssociationId'
+--
+-- * 'rnaarsStatus'
+replaceNetworkACLAssociationResponse
+    :: Int -- ^ 'rnaarsStatus'
+    -> ReplaceNetworkACLAssociationResponse
 replaceNetworkACLAssociationResponse pStatus_ =
     ReplaceNetworkACLAssociationResponse'
     { _rnaarsNewAssociationId = Nothing
@@ -141,6 +146,6 @@ replaceNetworkACLAssociationResponse pStatus_ =
 rnaarsNewAssociationId :: Lens' ReplaceNetworkACLAssociationResponse (Maybe Text)
 rnaarsNewAssociationId = lens _rnaarsNewAssociationId (\ s a -> s{_rnaarsNewAssociationId = a});
 
--- | Undocumented member.
+-- | The response status code.
 rnaarsStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
 rnaarsStatus = lens _rnaarsStatus (\ s a -> s{_rnaarsStatus = a});

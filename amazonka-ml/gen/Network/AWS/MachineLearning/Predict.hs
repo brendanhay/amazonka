@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Generates a prediction for the observation using the specified
--- @MLModel@.
+-- 'MLModel'.
 --
 -- Note
 --
@@ -30,16 +30,16 @@
 module Network.AWS.MachineLearning.Predict
     (
     -- * Creating a Request
-      Predict
-    , predict
+      predict
+    , Predict
     -- * Request Lenses
     , pMLModelId
     , pRecord
     , pPredictEndpoint
 
     -- * Destructuring the Response
-    , PredictResponse
     , predictResponse
+    , PredictResponse
     -- * Response Lenses
     , prsPrediction
     , prsStatus
@@ -52,22 +52,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'predict' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pMLModelId'
---
--- * 'pRecord'
---
--- * 'pPredictEndpoint'
 data Predict = Predict'
     { _pMLModelId       :: !Text
     , _pRecord          :: !(Map Text Text)
     , _pPredictEndpoint :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Predict' smart constructor.
-predict :: Text -> Text -> Predict
+-- | Creates a value of 'Predict' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pMLModelId'
+--
+-- * 'pRecord'
+--
+-- * 'pPredictEndpoint'
+predict
+    :: Text -- ^ 'pMLModelId'
+    -> Text -- ^ 'pPredictEndpoint'
+    -> Predict
 predict pMLModelId_ pPredictEndpoint_ =
     Predict'
     { _pMLModelId = pMLModelId_
@@ -75,7 +78,7 @@ predict pMLModelId_ pPredictEndpoint_ =
     , _pPredictEndpoint = pPredictEndpoint_
     }
 
--- | A unique identifier of the @MLModel@.
+-- | A unique identifier of the 'MLModel'.
 pMLModelId :: Lens' Predict Text
 pMLModelId = lens _pMLModelId (\ s a -> s{_pMLModelId = a});
 
@@ -119,19 +122,21 @@ instance ToQuery Predict where
         toQuery = const mempty
 
 -- | /See:/ 'predictResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prsPrediction'
---
--- * 'prsStatus'
 data PredictResponse = PredictResponse'
     { _prsPrediction :: !(Maybe Prediction)
     , _prsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PredictResponse' smart constructor.
-predictResponse :: Int -> PredictResponse
+-- | Creates a value of 'PredictResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prsPrediction'
+--
+-- * 'prsStatus'
+predictResponse
+    :: Int -- ^ 'prsStatus'
+    -> PredictResponse
 predictResponse pStatus_ =
     PredictResponse'
     { _prsPrediction = Nothing
@@ -142,6 +147,6 @@ predictResponse pStatus_ =
 prsPrediction :: Lens' PredictResponse (Maybe Prediction)
 prsPrediction = lens _prsPrediction (\ s a -> s{_prsPrediction = a});
 
--- | Undocumented member.
+-- | The response status code.
 prsStatus :: Lens' PredictResponse Int
 prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});

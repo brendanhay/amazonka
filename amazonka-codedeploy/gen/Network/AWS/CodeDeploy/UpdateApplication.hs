@@ -24,15 +24,15 @@
 module Network.AWS.CodeDeploy.UpdateApplication
     (
     -- * Creating a Request
-      UpdateApplication
-    , updateApplication
+      updateApplication
+    , UpdateApplication
     -- * Request Lenses
     , uaNewApplicationName
     , uaApplicationName
 
     -- * Destructuring the Response
-    , UpdateApplicationResponse
     , updateApplicationResponse
+    , UpdateApplicationResponse
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -44,19 +44,20 @@ import           Network.AWS.Response
 -- | Represents the input of an update application operation.
 --
 -- /See:/ 'updateApplication' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uaNewApplicationName'
---
--- * 'uaApplicationName'
 data UpdateApplication = UpdateApplication'
     { _uaNewApplicationName :: !(Maybe Text)
     , _uaApplicationName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateApplication' smart constructor.
-updateApplication :: UpdateApplication
+-- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uaNewApplicationName'
+--
+-- * 'uaApplicationName'
+updateApplication
+    :: UpdateApplication
 updateApplication =
     UpdateApplication'
     { _uaNewApplicationName = Nothing
@@ -104,6 +105,8 @@ data UpdateApplicationResponse =
     UpdateApplicationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateApplicationResponse' smart constructor.
-updateApplicationResponse :: UpdateApplicationResponse
+-- | Creates a value of 'UpdateApplicationResponse' with the minimum fields required to make a request.
+--
+updateApplicationResponse
+    :: UpdateApplicationResponse
 updateApplicationResponse = UpdateApplicationResponse'

@@ -24,22 +24,23 @@ import           Network.AWS.Prelude
 -- | Configuration options for configure Cognito streams.
 --
 -- /See:/ 'cognitoStreams' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csStreamingStatus'
---
--- * 'csStreamName'
---
--- * 'csRoleARN'
 data CognitoStreams = CognitoStreams'
     { _csStreamingStatus :: !(Maybe StreamingStatus)
     , _csStreamName      :: !(Maybe Text)
     , _csRoleARN         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CognitoStreams' smart constructor.
-cognitoStreams :: CognitoStreams
+-- | Creates a value of 'CognitoStreams' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'csStreamingStatus'
+--
+-- * 'csStreamName'
+--
+-- * 'csRoleARN'
+cognitoStreams
+    :: CognitoStreams
 cognitoStreams =
     CognitoStreams'
     { _csStreamingStatus = Nothing
@@ -89,8 +90,19 @@ instance ToJSON CognitoStreams where
 -- synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
 --
 -- /See:/ 'dataset' smart constructor.
+data Dataset = Dataset'
+    { _dLastModifiedDate :: !(Maybe POSIX)
+    , _dNumRecords       :: !(Maybe Integer)
+    , _dDataStorage      :: !(Maybe Integer)
+    , _dDatasetName      :: !(Maybe Text)
+    , _dCreationDate     :: !(Maybe POSIX)
+    , _dLastModifiedBy   :: !(Maybe Text)
+    , _dIdentityId       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Dataset' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dLastModifiedDate'
 --
@@ -105,18 +117,8 @@ instance ToJSON CognitoStreams where
 -- * 'dLastModifiedBy'
 --
 -- * 'dIdentityId'
-data Dataset = Dataset'
-    { _dLastModifiedDate :: !(Maybe POSIX)
-    , _dNumRecords       :: !(Maybe Integer)
-    , _dDataStorage      :: !(Maybe Integer)
-    , _dDatasetName      :: !(Maybe Text)
-    , _dCreationDate     :: !(Maybe POSIX)
-    , _dLastModifiedBy   :: !(Maybe Text)
-    , _dIdentityId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Dataset' smart constructor.
-dataset :: Dataset
+dataset
+    :: Dataset
 dataset =
     Dataset'
     { _dLastModifiedDate = Nothing
@@ -174,8 +176,16 @@ instance FromJSON Dataset where
 -- | Usage information for the identity pool.
 --
 -- /See:/ 'identityPoolUsage' smart constructor.
+data IdentityPoolUsage = IdentityPoolUsage'
+    { _ipuLastModifiedDate  :: !(Maybe POSIX)
+    , _ipuIdentityPoolId    :: !(Maybe Text)
+    , _ipuDataStorage       :: !(Maybe Integer)
+    , _ipuSyncSessionsCount :: !(Maybe Integer)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IdentityPoolUsage' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ipuLastModifiedDate'
 --
@@ -184,15 +194,8 @@ instance FromJSON Dataset where
 -- * 'ipuDataStorage'
 --
 -- * 'ipuSyncSessionsCount'
-data IdentityPoolUsage = IdentityPoolUsage'
-    { _ipuLastModifiedDate  :: !(Maybe POSIX)
-    , _ipuIdentityPoolId    :: !(Maybe Text)
-    , _ipuDataStorage       :: !(Maybe Integer)
-    , _ipuSyncSessionsCount :: !(Maybe Integer)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'IdentityPoolUsage' smart constructor.
-identityPoolUsage :: IdentityPoolUsage
+identityPoolUsage
+    :: IdentityPoolUsage
 identityPoolUsage =
     IdentityPoolUsage'
     { _ipuLastModifiedDate = Nothing
@@ -232,8 +235,17 @@ instance FromJSON IdentityPoolUsage where
 -- | Usage information for the identity.
 --
 -- /See:/ 'identityUsage' smart constructor.
+data IdentityUsage = IdentityUsage'
+    { _iuLastModifiedDate :: !(Maybe POSIX)
+    , _iuIdentityPoolId   :: !(Maybe Text)
+    , _iuDatasetCount     :: !(Maybe Int)
+    , _iuDataStorage      :: !(Maybe Integer)
+    , _iuIdentityId       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'IdentityUsage' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'iuLastModifiedDate'
 --
@@ -244,16 +256,8 @@ instance FromJSON IdentityPoolUsage where
 -- * 'iuDataStorage'
 --
 -- * 'iuIdentityId'
-data IdentityUsage = IdentityUsage'
-    { _iuLastModifiedDate :: !(Maybe POSIX)
-    , _iuIdentityPoolId   :: !(Maybe Text)
-    , _iuDatasetCount     :: !(Maybe Int)
-    , _iuDataStorage      :: !(Maybe Integer)
-    , _iuIdentityId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'IdentityUsage' smart constructor.
-identityUsage :: IdentityUsage
+identityUsage
+    :: IdentityUsage
 identityUsage =
     IdentityUsage'
     { _iuLastModifiedDate = Nothing
@@ -301,19 +305,20 @@ instance FromJSON IdentityUsage where
 -- | Configuration options to be applied to the identity pool.
 --
 -- /See:/ 'pushSync' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'psApplicationARNs'
---
--- * 'psRoleARN'
 data PushSync = PushSync'
     { _psApplicationARNs :: !(Maybe [Text])
     , _psRoleARN         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PushSync' smart constructor.
-pushSync :: PushSync
+-- | Creates a value of 'PushSync' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'psApplicationARNs'
+--
+-- * 'psRoleARN'
+pushSync
+    :: PushSync
 pushSync =
     PushSync'
     { _psApplicationARNs = Nothing
@@ -346,8 +351,18 @@ instance ToJSON PushSync where
 -- | The basic data structure of a dataset.
 --
 -- /See:/ 'record' smart constructor.
+data Record = Record'
+    { _rSyncCount              :: !(Maybe Integer)
+    , _rLastModifiedDate       :: !(Maybe POSIX)
+    , _rDeviceLastModifiedDate :: !(Maybe POSIX)
+    , _rValue                  :: !(Maybe Text)
+    , _rKey                    :: !(Maybe Text)
+    , _rLastModifiedBy         :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Record' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rSyncCount'
 --
@@ -360,17 +375,8 @@ instance ToJSON PushSync where
 -- * 'rKey'
 --
 -- * 'rLastModifiedBy'
-data Record = Record'
-    { _rSyncCount              :: !(Maybe Integer)
-    , _rLastModifiedDate       :: !(Maybe POSIX)
-    , _rDeviceLastModifiedDate :: !(Maybe POSIX)
-    , _rValue                  :: !(Maybe Text)
-    , _rKey                    :: !(Maybe Text)
-    , _rLastModifiedBy         :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Record' smart constructor.
-record :: Record
+record
+    :: Record
 record =
     Record'
     { _rSyncCount = Nothing
@@ -419,8 +425,17 @@ instance FromJSON Record where
 -- | An update operation for a record.
 --
 -- /See:/ 'recordPatch' smart constructor.
+data RecordPatch = RecordPatch'
+    { _rpDeviceLastModifiedDate :: !(Maybe POSIX)
+    , _rpValue                  :: !(Maybe Text)
+    , _rpOp                     :: !Operation
+    , _rpKey                    :: !Text
+    , _rpSyncCount              :: !Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RecordPatch' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rpDeviceLastModifiedDate'
 --
@@ -431,16 +446,11 @@ instance FromJSON Record where
 -- * 'rpKey'
 --
 -- * 'rpSyncCount'
-data RecordPatch = RecordPatch'
-    { _rpDeviceLastModifiedDate :: !(Maybe POSIX)
-    , _rpValue                  :: !(Maybe Text)
-    , _rpOp                     :: !Operation
-    , _rpKey                    :: !Text
-    , _rpSyncCount              :: !Integer
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RecordPatch' smart constructor.
-recordPatch :: Operation -> Text -> Integer -> RecordPatch
+recordPatch
+    :: Operation -- ^ 'rpOp'
+    -> Text -- ^ 'rpKey'
+    -> Integer -- ^ 'rpSyncCount'
+    -> RecordPatch
 recordPatch pOp_ pKey_ pSyncCount_ =
     RecordPatch'
     { _rpDeviceLastModifiedDate = Nothing

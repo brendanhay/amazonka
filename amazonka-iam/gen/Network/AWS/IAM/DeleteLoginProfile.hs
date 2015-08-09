@@ -32,14 +32,14 @@
 module Network.AWS.IAM.DeleteLoginProfile
     (
     -- * Creating a Request
-      DeleteLoginProfile
-    , deleteLoginProfile
+      deleteLoginProfile
+    , DeleteLoginProfile
     -- * Request Lenses
     , dlpUserName
 
     -- * Destructuring the Response
-    , DeleteLoginProfileResponse
     , deleteLoginProfileResponse
+    , DeleteLoginProfileResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -49,16 +49,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteLoginProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dlpUserName'
 newtype DeleteLoginProfile = DeleteLoginProfile'
     { _dlpUserName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLoginProfile' smart constructor.
-deleteLoginProfile :: Text -> DeleteLoginProfile
+-- | Creates a value of 'DeleteLoginProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dlpUserName'
+deleteLoginProfile
+    :: Text -- ^ 'dlpUserName'
+    -> DeleteLoginProfile
 deleteLoginProfile pUserName_ =
     DeleteLoginProfile'
     { _dlpUserName = pUserName_
@@ -93,6 +95,8 @@ data DeleteLoginProfileResponse =
     DeleteLoginProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLoginProfileResponse' smart constructor.
-deleteLoginProfileResponse :: DeleteLoginProfileResponse
+-- | Creates a value of 'DeleteLoginProfileResponse' with the minimum fields required to make a request.
+--
+deleteLoginProfileResponse
+    :: DeleteLoginProfileResponse
 deleteLoginProfileResponse = DeleteLoginProfileResponse'

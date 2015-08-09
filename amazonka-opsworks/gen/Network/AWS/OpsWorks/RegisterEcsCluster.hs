@@ -33,15 +33,15 @@
 module Network.AWS.OpsWorks.RegisterEcsCluster
     (
     -- * Creating a Request
-      RegisterEcsCluster
-    , registerEcsCluster
+      registerEcsCluster
+    , RegisterEcsCluster
     -- * Request Lenses
     , recEcsClusterARN
     , recStackId
 
     -- * Destructuring the Response
-    , RegisterEcsClusterResponse
     , registerEcsClusterResponse
+    , RegisterEcsClusterResponse
     -- * Response Lenses
     , recrsEcsClusterARN
     , recrsStatus
@@ -54,19 +54,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'registerEcsCluster' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'recEcsClusterARN'
---
--- * 'recStackId'
 data RegisterEcsCluster = RegisterEcsCluster'
     { _recEcsClusterARN :: !Text
     , _recStackId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterEcsCluster' smart constructor.
-registerEcsCluster :: Text -> Text -> RegisterEcsCluster
+-- | Creates a value of 'RegisterEcsCluster' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'recEcsClusterARN'
+--
+-- * 'recStackId'
+registerEcsCluster
+    :: Text -- ^ 'recEcsClusterARN'
+    -> Text -- ^ 'recStackId'
+    -> RegisterEcsCluster
 registerEcsCluster pEcsClusterARN_ pStackId_ =
     RegisterEcsCluster'
     { _recEcsClusterARN = pEcsClusterARN_
@@ -114,22 +117,24 @@ instance ToPath RegisterEcsCluster where
 instance ToQuery RegisterEcsCluster where
         toQuery = const mempty
 
--- | Contains the response to a @RegisterEcsCluster@ request.
+-- | Contains the response to a 'RegisterEcsCluster' request.
 --
 -- /See:/ 'registerEcsClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'recrsEcsClusterARN'
---
--- * 'recrsStatus'
 data RegisterEcsClusterResponse = RegisterEcsClusterResponse'
     { _recrsEcsClusterARN :: !(Maybe Text)
     , _recrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterEcsClusterResponse' smart constructor.
-registerEcsClusterResponse :: Int -> RegisterEcsClusterResponse
+-- | Creates a value of 'RegisterEcsClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'recrsEcsClusterARN'
+--
+-- * 'recrsStatus'
+registerEcsClusterResponse
+    :: Int -- ^ 'recrsStatus'
+    -> RegisterEcsClusterResponse
 registerEcsClusterResponse pStatus_ =
     RegisterEcsClusterResponse'
     { _recrsEcsClusterARN = Nothing
@@ -140,6 +145,6 @@ registerEcsClusterResponse pStatus_ =
 recrsEcsClusterARN :: Lens' RegisterEcsClusterResponse (Maybe Text)
 recrsEcsClusterARN = lens _recrsEcsClusterARN (\ s a -> s{_recrsEcsClusterARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 recrsStatus :: Lens' RegisterEcsClusterResponse Int
 recrsStatus = lens _recrsStatus (\ s a -> s{_recrsStatus = a});

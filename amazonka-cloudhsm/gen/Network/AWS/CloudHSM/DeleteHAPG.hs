@@ -24,14 +24,14 @@
 module Network.AWS.CloudHSM.DeleteHAPG
     (
     -- * Creating a Request
-      DeleteHAPG
-    , deleteHAPG
+      deleteHAPG
+    , DeleteHAPG
     -- * Request Lenses
     , dhHAPGARN
 
     -- * Destructuring the Response
-    , DeleteHAPGResponse
     , deleteHAPGResponse
+    , DeleteHAPGResponse
     -- * Response Lenses
     , dhrsStatus
     ) where
@@ -45,16 +45,18 @@ import           Network.AWS.Response
 -- | Contains the inputs for the DeleteHapg action.
 --
 -- /See:/ 'deleteHAPG' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhHAPGARN'
 newtype DeleteHAPG = DeleteHAPG'
     { _dhHAPGARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteHAPG' smart constructor.
-deleteHAPG :: Text -> DeleteHAPG
+-- | Creates a value of 'DeleteHAPG' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhHAPGARN'
+deleteHAPG
+    :: Text -- ^ 'dhHAPGARN'
+    -> DeleteHAPG
 deleteHAPG pHAPGARN_ =
     DeleteHAPG'
     { _dhHAPGARN = pHAPGARN_
@@ -95,21 +97,23 @@ instance ToQuery DeleteHAPG where
 -- | Contains the output of the DeleteHapg action.
 --
 -- /See:/ 'deleteHAPGResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dhrsStatus'
 newtype DeleteHAPGResponse = DeleteHAPGResponse'
     { _dhrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteHAPGResponse' smart constructor.
-deleteHAPGResponse :: Int -> DeleteHAPGResponse
+-- | Creates a value of 'DeleteHAPGResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dhrsStatus'
+deleteHAPGResponse
+    :: Int -- ^ 'dhrsStatus'
+    -> DeleteHAPGResponse
 deleteHAPGResponse pStatus_ =
     DeleteHAPGResponse'
     { _dhrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 dhrsStatus :: Lens' DeleteHAPGResponse Int
 dhrsStatus = lens _dhrsStatus (\ s a -> s{_dhrsStatus = a});

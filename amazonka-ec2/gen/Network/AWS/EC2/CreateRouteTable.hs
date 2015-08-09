@@ -29,15 +29,15 @@
 module Network.AWS.EC2.CreateRouteTable
     (
     -- * Creating a Request
-      CreateRouteTable
-    , createRouteTable
+      createRouteTable
+    , CreateRouteTable
     -- * Request Lenses
     , crtDryRun
     , crtVPCId
 
     -- * Destructuring the Response
-    , CreateRouteTableResponse
     , createRouteTableResponse
+    , CreateRouteTableResponse
     -- * Response Lenses
     , crtrsRouteTable
     , crtrsStatus
@@ -50,19 +50,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createRouteTable' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crtDryRun'
---
--- * 'crtVPCId'
 data CreateRouteTable = CreateRouteTable'
     { _crtDryRun :: !(Maybe Bool)
     , _crtVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateRouteTable' smart constructor.
-createRouteTable :: Text -> CreateRouteTable
+-- | Creates a value of 'CreateRouteTable' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crtDryRun'
+--
+-- * 'crtVPCId'
+createRouteTable
+    :: Text -- ^ 'crtVPCId'
+    -> CreateRouteTable
 createRouteTable pVPCId_ =
     CreateRouteTable'
     { _crtDryRun = Nothing
@@ -71,8 +73,8 @@ createRouteTable pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 crtDryRun :: Lens' CreateRouteTable (Maybe Bool)
 crtDryRun = lens _crtDryRun (\ s a -> s{_crtDryRun = a});
 
@@ -104,19 +106,21 @@ instance ToQuery CreateRouteTable where
                "DryRun" =: _crtDryRun, "VpcId" =: _crtVPCId]
 
 -- | /See:/ 'createRouteTableResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crtrsRouteTable'
---
--- * 'crtrsStatus'
 data CreateRouteTableResponse = CreateRouteTableResponse'
     { _crtrsRouteTable :: !(Maybe RouteTable)
     , _crtrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateRouteTableResponse' smart constructor.
-createRouteTableResponse :: Int -> CreateRouteTableResponse
+-- | Creates a value of 'CreateRouteTableResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crtrsRouteTable'
+--
+-- * 'crtrsStatus'
+createRouteTableResponse
+    :: Int -- ^ 'crtrsStatus'
+    -> CreateRouteTableResponse
 createRouteTableResponse pStatus_ =
     CreateRouteTableResponse'
     { _crtrsRouteTable = Nothing
@@ -127,6 +131,6 @@ createRouteTableResponse pStatus_ =
 crtrsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrsRouteTable = lens _crtrsRouteTable (\ s a -> s{_crtrsRouteTable = a});
 
--- | Undocumented member.
+-- | The response status code.
 crtrsStatus :: Lens' CreateRouteTableResponse Int
 crtrsStatus = lens _crtrsStatus (\ s a -> s{_crtrsStatus = a});

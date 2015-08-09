@@ -27,7 +27,7 @@
 -- snapshot. Any AWS Marketplace product codes from the snapshot are
 -- propagated to the volume.
 --
--- You can create encrypted volumes with the @Encrypted@ parameter.
+-- You can create encrypted volumes with the 'Encrypted' parameter.
 -- Encrypted volumes may only be attached to instances that support Amazon
 -- EBS encryption. Volumes that are created from encrypted snapshots are
 -- also automatically encrypted. For more information, see
@@ -42,8 +42,8 @@
 module Network.AWS.EC2.CreateVolume
     (
     -- * Creating a Request
-      CreateVolume
-    , createVolume
+      createVolume
+    , CreateVolume
     -- * Request Lenses
     , creSize
     , creIOPS
@@ -55,8 +55,8 @@ module Network.AWS.EC2.CreateVolume
     , creAvailabilityZone
 
     -- * Destructuring the Response
-    , Volume
     , volume
+    , Volume
     -- * Response Lenses
     , vAttachments
     , vIOPS
@@ -79,8 +79,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createVolume' smart constructor.
+data CreateVolume = CreateVolume'
+    { _creSize             :: !(Maybe Int)
+    , _creIOPS             :: !(Maybe Int)
+    , _creEncrypted        :: !(Maybe Bool)
+    , _creKMSKeyId         :: !(Maybe Text)
+    , _creVolumeType       :: !(Maybe VolumeType)
+    , _creDryRun           :: !(Maybe Bool)
+    , _creSnapshotId       :: !(Maybe Text)
+    , _creAvailabilityZone :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateVolume' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'creSize'
 --
@@ -97,19 +109,9 @@ import           Network.AWS.Response
 -- * 'creSnapshotId'
 --
 -- * 'creAvailabilityZone'
-data CreateVolume = CreateVolume'
-    { _creSize             :: !(Maybe Int)
-    , _creIOPS             :: !(Maybe Int)
-    , _creEncrypted        :: !(Maybe Bool)
-    , _creKMSKeyId         :: !(Maybe Text)
-    , _creVolumeType       :: !(Maybe VolumeType)
-    , _creDryRun           :: !(Maybe Bool)
-    , _creSnapshotId       :: !(Maybe Text)
-    , _creAvailabilityZone :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateVolume' smart constructor.
-createVolume :: Text -> CreateVolume
+createVolume
+    :: Text -- ^ 'creAvailabilityZone'
+    -> CreateVolume
 createVolume pAvailabilityZone_ =
     CreateVolume'
     { _creSize = Nothing
@@ -124,8 +126,8 @@ createVolume pAvailabilityZone_ =
 
 -- | The size of the volume, in GiBs.
 --
--- Constraints: @1-1024@ for @standard@ volumes, @1-16384@ for @gp2@
--- volumes, and @4-16384@ for @io1@ volumes. If you specify a snapshot, the
+-- Constraints: '1-1024' for 'standard' volumes, '1-16384' for 'gp2'
+-- volumes, and '4-16384' for 'io1' volumes. If you specify a snapshot, the
 -- volume size must be equal to or larger than the snapshot size.
 --
 -- Default: If you\'re creating the volume from a snapshot and don\'t
@@ -157,26 +159,26 @@ creEncrypted = lens _creEncrypted (\ s a -> s{_creEncrypted = a});
 -- key (CMK) to use when creating the encrypted volume. This parameter is
 -- only required if you want to use a non-default CMK; if this parameter is
 -- not specified, the default CMK for EBS is used. The ARN contains the
--- @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS
--- account ID of the CMK owner, the @key@ namespace, and then the CMK ID.
+-- 'arn:aws:kms' namespace, followed by the region of the CMK, the AWS
+-- account ID of the CMK owner, the 'key' namespace, and then the CMK ID.
 -- For example,
 -- arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.
--- If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
+-- If a 'KmsKeyId' is specified, the 'Encrypted' flag must also be set.
 creKMSKeyId :: Lens' CreateVolume (Maybe Text)
 creKMSKeyId = lens _creKMSKeyId (\ s a -> s{_creKMSKeyId = a});
 
--- | The volume type. This can be @gp2@ for General Purpose (SSD) volumes,
--- @io1@ for Provisioned IOPS (SSD) volumes, or @standard@ for Magnetic
+-- | The volume type. This can be 'gp2' for General Purpose (SSD) volumes,
+-- 'io1' for Provisioned IOPS (SSD) volumes, or 'standard' for Magnetic
 -- volumes.
 --
--- Default: @standard@
+-- Default: 'standard'
 creVolumeType :: Lens' CreateVolume (Maybe VolumeType)
 creVolumeType = lens _creVolumeType (\ s a -> s{_creVolumeType = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 creDryRun :: Lens' CreateVolume (Maybe Bool)
 creDryRun = lens _creDryRun (\ s a -> s{_creDryRun = a});
 

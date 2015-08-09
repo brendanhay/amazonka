@@ -27,15 +27,15 @@
 module Network.AWS.CodePipeline.GetPipeline
     (
     -- * Creating a Request
-      GetPipeline
-    , getPipeline
+      getPipeline
+    , GetPipeline
     -- * Request Lenses
     , gpVersion
     , gpName
 
     -- * Destructuring the Response
-    , GetPipelineResponse
     , getPipelineResponse
+    , GetPipelineResponse
     -- * Response Lenses
     , gprsPipeline
     , gprsStatus
@@ -50,19 +50,21 @@ import           Network.AWS.Response
 -- | Represents the input of a get pipeline action.
 --
 -- /See:/ 'getPipeline' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gpVersion'
---
--- * 'gpName'
 data GetPipeline = GetPipeline'
     { _gpVersion :: !(Maybe Nat)
     , _gpName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPipeline' smart constructor.
-getPipeline :: Text -> GetPipeline
+-- | Creates a value of 'GetPipeline' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpVersion'
+--
+-- * 'gpName'
+getPipeline
+    :: Text -- ^ 'gpName'
+    -> GetPipeline
 getPipeline pName_ =
     GetPipeline'
     { _gpVersion = Nothing
@@ -111,19 +113,21 @@ instance ToQuery GetPipeline where
 -- | Represents the output of a get pipeline action.
 --
 -- /See:/ 'getPipelineResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gprsPipeline'
---
--- * 'gprsStatus'
 data GetPipelineResponse = GetPipelineResponse'
     { _gprsPipeline :: !(Maybe PipelineDeclaration)
     , _gprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPipelineResponse' smart constructor.
-getPipelineResponse :: Int -> GetPipelineResponse
+-- | Creates a value of 'GetPipelineResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gprsPipeline'
+--
+-- * 'gprsStatus'
+getPipelineResponse
+    :: Int -- ^ 'gprsStatus'
+    -> GetPipelineResponse
 getPipelineResponse pStatus_ =
     GetPipelineResponse'
     { _gprsPipeline = Nothing
@@ -134,6 +138,6 @@ getPipelineResponse pStatus_ =
 gprsPipeline :: Lens' GetPipelineResponse (Maybe PipelineDeclaration)
 gprsPipeline = lens _gprsPipeline (\ s a -> s{_gprsPipeline = a});
 
--- | Undocumented member.
+-- | The response status code.
 gprsStatus :: Lens' GetPipelineResponse Int
 gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

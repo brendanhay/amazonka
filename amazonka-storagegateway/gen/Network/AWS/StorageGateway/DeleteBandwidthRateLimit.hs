@@ -28,15 +28,15 @@
 module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     (
     -- * Creating a Request
-      DeleteBandwidthRateLimit
-    , deleteBandwidthRateLimit
+      deleteBandwidthRateLimit
+    , DeleteBandwidthRateLimit
     -- * Request Lenses
     , delGatewayARN
     , delBandwidthType
 
     -- * Destructuring the Response
-    , DeleteBandwidthRateLimitResponse
     , deleteBandwidthRateLimitResponse
+    , DeleteBandwidthRateLimitResponse
     -- * Response Lenses
     , delrsGatewayARN
     , delrsStatus
@@ -49,19 +49,22 @@ import           Network.AWS.StorageGateway.Types
 import           Network.AWS.StorageGateway.Types.Product
 
 -- | /See:/ 'deleteBandwidthRateLimit' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delGatewayARN'
---
--- * 'delBandwidthType'
 data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'
     { _delGatewayARN    :: !Text
     , _delBandwidthType :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBandwidthRateLimit' smart constructor.
-deleteBandwidthRateLimit :: Text -> Text -> DeleteBandwidthRateLimit
+-- | Creates a value of 'DeleteBandwidthRateLimit' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delGatewayARN'
+--
+-- * 'delBandwidthType'
+deleteBandwidthRateLimit
+    :: Text -- ^ 'delGatewayARN'
+    -> Text -- ^ 'delBandwidthType'
+    -> DeleteBandwidthRateLimit
 deleteBandwidthRateLimit pGatewayARN_ pBandwidthType_ =
     DeleteBandwidthRateLimit'
     { _delGatewayARN = pGatewayARN_
@@ -113,19 +116,21 @@ instance ToQuery DeleteBandwidthRateLimit where
 -- information was deleted.
 --
 -- /See:/ 'deleteBandwidthRateLimitResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delrsGatewayARN'
---
--- * 'delrsStatus'
 data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
     { _delrsGatewayARN :: !(Maybe Text)
     , _delrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBandwidthRateLimitResponse' smart constructor.
-deleteBandwidthRateLimitResponse :: Int -> DeleteBandwidthRateLimitResponse
+-- | Creates a value of 'DeleteBandwidthRateLimitResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delrsGatewayARN'
+--
+-- * 'delrsStatus'
+deleteBandwidthRateLimitResponse
+    :: Int -- ^ 'delrsStatus'
+    -> DeleteBandwidthRateLimitResponse
 deleteBandwidthRateLimitResponse pStatus_ =
     DeleteBandwidthRateLimitResponse'
     { _delrsGatewayARN = Nothing
@@ -136,6 +141,6 @@ deleteBandwidthRateLimitResponse pStatus_ =
 delrsGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
 delrsGatewayARN = lens _delrsGatewayARN (\ s a -> s{_delrsGatewayARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 delrsStatus :: Lens' DeleteBandwidthRateLimitResponse Int
 delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

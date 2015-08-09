@@ -24,8 +24,8 @@
 module Network.AWS.AutoScaling.ExecutePolicy
     (
     -- * Creating a Request
-      ExecutePolicy
-    , executePolicy
+      executePolicy
+    , ExecutePolicy
     -- * Request Lenses
     , epHonorCooldown
     , epMetricValue
@@ -34,8 +34,8 @@ module Network.AWS.AutoScaling.ExecutePolicy
     , epPolicyName
 
     -- * Destructuring the Response
-    , ExecutePolicyResponse
     , executePolicyResponse
+    , ExecutePolicyResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -45,8 +45,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'executePolicy' smart constructor.
+data ExecutePolicy = ExecutePolicy'
+    { _epHonorCooldown        :: !(Maybe Bool)
+    , _epMetricValue          :: !(Maybe Double)
+    , _epAutoScalingGroupName :: !(Maybe Text)
+    , _epBreachThreshold      :: !(Maybe Double)
+    , _epPolicyName           :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ExecutePolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'epHonorCooldown'
 --
@@ -57,16 +66,9 @@ import           Network.AWS.Response
 -- * 'epBreachThreshold'
 --
 -- * 'epPolicyName'
-data ExecutePolicy = ExecutePolicy'
-    { _epHonorCooldown        :: !(Maybe Bool)
-    , _epMetricValue          :: !(Maybe Double)
-    , _epAutoScalingGroupName :: !(Maybe Text)
-    , _epBreachThreshold      :: !(Maybe Double)
-    , _epPolicyName           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ExecutePolicy' smart constructor.
-executePolicy :: Text -> ExecutePolicy
+executePolicy
+    :: Text -- ^ 'epPolicyName'
+    -> ExecutePolicy
 executePolicy pPolicyName_ =
     ExecutePolicy'
     { _epHonorCooldown = Nothing
@@ -80,7 +82,7 @@ executePolicy pPolicyName_ =
 -- complete before executing the policy. Otherwise, Auto Scaling executes
 -- the policy without waiting for the cooldown period to complete.
 --
--- This parameter is not supported if the policy type is @StepScaling@.
+-- This parameter is not supported if the policy type is 'StepScaling'.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
@@ -88,8 +90,8 @@ executePolicy pPolicyName_ =
 epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
 epHonorCooldown = lens _epHonorCooldown (\ s a -> s{_epHonorCooldown = a});
 
--- | The metric value to compare to @BreachThreshold@. This enables you to
--- execute a policy of type @StepScaling@ and determine which step
+-- | The metric value to compare to 'BreachThreshold'. This enables you to
+-- execute a policy of type 'StepScaling' and determine which step
 -- adjustment to use. For example, if the breach threshold is 50 and you
 -- want to use a step adjustment with a lower bound of 0 and an upper bound
 -- of 10, you can set the metric value to 59.
@@ -97,7 +99,7 @@ epHonorCooldown = lens _epHonorCooldown (\ s a -> s{_epHonorCooldown = a});
 -- If you specify a metric value that doesn\'t correspond to a step
 -- adjustment for the policy, the call returns an error.
 --
--- This parameter is required if the policy type is @StepScaling@ and not
+-- This parameter is required if the policy type is 'StepScaling' and not
 -- supported otherwise.
 epMetricValue :: Lens' ExecutePolicy (Maybe Double)
 epMetricValue = lens _epMetricValue (\ s a -> s{_epMetricValue = a});
@@ -108,7 +110,7 @@ epAutoScalingGroupName = lens _epAutoScalingGroupName (\ s a -> s{_epAutoScaling
 
 -- | The breach threshold for the alarm.
 --
--- This parameter is required if the policy type is @StepScaling@ and not
+-- This parameter is required if the policy type is 'StepScaling' and not
 -- supported otherwise.
 epBreachThreshold :: Lens' ExecutePolicy (Maybe Double)
 epBreachThreshold = lens _epBreachThreshold (\ s a -> s{_epBreachThreshold = a});
@@ -145,6 +147,8 @@ data ExecutePolicyResponse =
     ExecutePolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ExecutePolicyResponse' smart constructor.
-executePolicyResponse :: ExecutePolicyResponse
+-- | Creates a value of 'ExecutePolicyResponse' with the minimum fields required to make a request.
+--
+executePolicyResponse
+    :: ExecutePolicyResponse
 executePolicyResponse = ExecutePolicyResponse'

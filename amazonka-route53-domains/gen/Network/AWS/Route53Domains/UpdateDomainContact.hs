@@ -31,8 +31,8 @@
 module Network.AWS.Route53Domains.UpdateDomainContact
     (
     -- * Creating a Request
-      UpdateDomainContact
-    , updateDomainContact
+      updateDomainContact
+    , UpdateDomainContact
     -- * Request Lenses
     , udcRegistrantContact
     , udcAdminContact
@@ -40,8 +40,8 @@ module Network.AWS.Route53Domains.UpdateDomainContact
     , udcDomainName
 
     -- * Destructuring the Response
-    , UpdateDomainContactResponse
     , updateDomainContactResponse
+    , UpdateDomainContactResponse
     -- * Response Lenses
     , udcrsStatus
     , udcrsOperationId
@@ -56,8 +56,16 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The UpdateDomainContact request includes the following elements.
 --
 -- /See:/ 'updateDomainContact' smart constructor.
+data UpdateDomainContact = UpdateDomainContact'
+    { _udcRegistrantContact :: !(Maybe (Sensitive ContactDetail))
+    , _udcAdminContact      :: !(Maybe (Sensitive ContactDetail))
+    , _udcTechContact       :: !(Maybe (Sensitive ContactDetail))
+    , _udcDomainName        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateDomainContact' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'udcRegistrantContact'
 --
@@ -66,15 +74,9 @@ import           Network.AWS.Route53Domains.Types.Product
 -- * 'udcTechContact'
 --
 -- * 'udcDomainName'
-data UpdateDomainContact = UpdateDomainContact'
-    { _udcRegistrantContact :: !(Maybe (Sensitive ContactDetail))
-    , _udcAdminContact      :: !(Maybe (Sensitive ContactDetail))
-    , _udcTechContact       :: !(Maybe (Sensitive ContactDetail))
-    , _udcDomainName        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateDomainContact' smart constructor.
-updateDomainContact :: Text -> UpdateDomainContact
+updateDomainContact
+    :: Text -- ^ 'udcDomainName'
+    -> UpdateDomainContact
 updateDomainContact pDomainName_ =
     UpdateDomainContact'
     { _udcRegistrantContact = Nothing
@@ -87,9 +89,9 @@ updateDomainContact pDomainName_ =
 --
 -- Type: Complex
 --
--- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
--- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
--- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
+-- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType',
+-- 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State',
+-- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
 udcRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
@@ -99,9 +101,9 @@ udcRegistrantContact = lens _udcRegistrantContact (\ s a -> s{_udcRegistrantCont
 --
 -- Type: Complex
 --
--- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
--- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
--- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
+-- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType',
+-- 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State',
+-- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
 udcAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
@@ -111,9 +113,9 @@ udcAdminContact = lens _udcAdminContact (\ s a -> s{_udcAdminContact = a}) . map
 --
 -- Type: Complex
 --
--- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
--- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
--- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
+-- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType',
+-- 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State',
+-- 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
 --
 -- Required: Yes
 udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
@@ -171,26 +173,29 @@ instance ToQuery UpdateDomainContact where
 -- | The UpdateDomainContact response includes the following element.
 --
 -- /See:/ 'updateDomainContactResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udcrsStatus'
---
--- * 'udcrsOperationId'
 data UpdateDomainContactResponse = UpdateDomainContactResponse'
     { _udcrsStatus      :: !Int
     , _udcrsOperationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateDomainContactResponse' smart constructor.
-updateDomainContactResponse :: Int -> Text -> UpdateDomainContactResponse
+-- | Creates a value of 'UpdateDomainContactResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udcrsStatus'
+--
+-- * 'udcrsOperationId'
+updateDomainContactResponse
+    :: Int -- ^ 'udcrsStatus'
+    -> Text -- ^ 'udcrsOperationId'
+    -> UpdateDomainContactResponse
 updateDomainContactResponse pStatus_ pOperationId_ =
     UpdateDomainContactResponse'
     { _udcrsStatus = pStatus_
     , _udcrsOperationId = pOperationId_
     }
 
--- | Undocumented member.
+-- | The response status code.
 udcrsStatus :: Lens' UpdateDomainContactResponse Int
 udcrsStatus = lens _udcrsStatus (\ s a -> s{_udcrsStatus = a});
 

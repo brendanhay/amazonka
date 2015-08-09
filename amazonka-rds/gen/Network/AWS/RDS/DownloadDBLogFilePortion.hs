@@ -22,11 +22,13 @@
 -- size.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DownloadDBLogFilePortion.html AWS API Reference> for DownloadDBLogFilePortion.
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DownloadDBLogFilePortion
     (
     -- * Creating a Request
-      DownloadDBLogFilePortion
-    , downloadDBLogFilePortion
+      downloadDBLogFilePortion
+    , DownloadDBLogFilePortion
     -- * Request Lenses
     , ddlfpNumberOfLines
     , ddlfpMarker
@@ -34,8 +36,8 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     , ddlfpLogFileName
 
     -- * Destructuring the Response
-    , DownloadDBLogFilePortionResponse
     , downloadDBLogFilePortionResponse
+    , DownloadDBLogFilePortionResponse
     -- * Response Lenses
     , ddlfprsLogFileData
     , ddlfprsAdditionalDataPending
@@ -53,8 +55,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'downloadDBLogFilePortion' smart constructor.
+data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
+    { _ddlfpNumberOfLines        :: !(Maybe Int)
+    , _ddlfpMarker               :: !(Maybe Text)
+    , _ddlfpDBInstanceIdentifier :: !Text
+    , _ddlfpLogFileName          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DownloadDBLogFilePortion' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ddlfpNumberOfLines'
 --
@@ -63,15 +73,10 @@ import           Network.AWS.Response
 -- * 'ddlfpDBInstanceIdentifier'
 --
 -- * 'ddlfpLogFileName'
-data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
-    { _ddlfpNumberOfLines        :: !(Maybe Int)
-    , _ddlfpMarker               :: !(Maybe Text)
-    , _ddlfpDBInstanceIdentifier :: !Text
-    , _ddlfpLogFileName          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DownloadDBLogFilePortion' smart constructor.
-downloadDBLogFilePortion :: Text -> Text -> DownloadDBLogFilePortion
+downloadDBLogFilePortion
+    :: Text -- ^ 'ddlfpDBInstanceIdentifier'
+    -> Text -- ^ 'ddlfpLogFileName'
+    -> DownloadDBLogFilePortion
 downloadDBLogFilePortion pDBInstanceIdentifier_ pLogFileName_ =
     DownloadDBLogFilePortion'
     { _ddlfpNumberOfLines = Nothing
@@ -170,8 +175,16 @@ instance ToQuery DownloadDBLogFilePortion where
 -- DownloadDBLogFilePortion.
 --
 -- /See:/ 'downloadDBLogFilePortionResponse' smart constructor.
+data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
+    { _ddlfprsLogFileData           :: !(Maybe Text)
+    , _ddlfprsAdditionalDataPending :: !(Maybe Bool)
+    , _ddlfprsMarker                :: !(Maybe Text)
+    , _ddlfprsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DownloadDBLogFilePortionResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ddlfprsLogFileData'
 --
@@ -180,15 +193,9 @@ instance ToQuery DownloadDBLogFilePortion where
 -- * 'ddlfprsMarker'
 --
 -- * 'ddlfprsStatus'
-data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
-    { _ddlfprsLogFileData           :: !(Maybe Text)
-    , _ddlfprsAdditionalDataPending :: !(Maybe Bool)
-    , _ddlfprsMarker                :: !(Maybe Text)
-    , _ddlfprsStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DownloadDBLogFilePortionResponse' smart constructor.
-downloadDBLogFilePortionResponse :: Int -> DownloadDBLogFilePortionResponse
+downloadDBLogFilePortionResponse
+    :: Int -- ^ 'ddlfprsStatus'
+    -> DownloadDBLogFilePortionResponse
 downloadDBLogFilePortionResponse pStatus_ =
     DownloadDBLogFilePortionResponse'
     { _ddlfprsLogFileData = Nothing
@@ -211,6 +218,6 @@ ddlfprsAdditionalDataPending = lens _ddlfprsAdditionalDataPending (\ s a -> s{_d
 ddlfprsMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 ddlfprsMarker = lens _ddlfprsMarker (\ s a -> s{_ddlfprsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 ddlfprsStatus :: Lens' DownloadDBLogFilePortionResponse Int
 ddlfprsStatus = lens _ddlfprsStatus (\ s a -> s{_ddlfprsStatus = a});

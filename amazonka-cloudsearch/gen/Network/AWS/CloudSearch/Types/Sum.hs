@@ -51,7 +51,7 @@ instance FromXML AlgorithmicStemming where
     parseXML = parseXMLText "AlgorithmicStemming"
 
 -- | An <http://tools.ietf.org/html/rfc4646 IETF RFC 4646> language code or
--- @mul@ for multiple languages.
+-- 'mul' for multiple languages.
 data AnalysisSchemeLanguage
     = Mul
     | KO
@@ -275,7 +275,7 @@ instance ToHeader     OptionState
 instance FromXML OptionState where
     parseXML = parseXMLText "OptionState"
 
--- | The instance type (such as @search.m1.small@) on which an index
+-- | The instance type (such as 'search.m1.small') on which an index
 -- partition is hosted.
 data PartitionInstanceType
     = Search_M1_Large

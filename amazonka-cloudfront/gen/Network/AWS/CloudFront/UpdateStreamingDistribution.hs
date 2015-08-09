@@ -24,16 +24,16 @@
 module Network.AWS.CloudFront.UpdateStreamingDistribution
     (
     -- * Creating a Request
-      UpdateStreamingDistribution
-    , updateStreamingDistribution
+      updateStreamingDistribution
+    , UpdateStreamingDistribution
     -- * Request Lenses
     , usdIfMatch
     , usdStreamingDistributionConfig
     , usdId
 
     -- * Destructuring the Response
-    , UpdateStreamingDistributionResponse
     , updateStreamingDistributionResponse
+    , UpdateStreamingDistributionResponse
     -- * Response Lenses
     , usdrsETag
     , usdrsStreamingDistribution
@@ -49,22 +49,25 @@ import           Network.AWS.Response
 -- | The request to update a streaming distribution.
 --
 -- /See:/ 'updateStreamingDistribution' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'usdIfMatch'
---
--- * 'usdStreamingDistributionConfig'
---
--- * 'usdId'
 data UpdateStreamingDistribution = UpdateStreamingDistribution'
     { _usdIfMatch                     :: !(Maybe Text)
     , _usdStreamingDistributionConfig :: !StreamingDistributionConfig
     , _usdId                          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateStreamingDistribution' smart constructor.
-updateStreamingDistribution :: StreamingDistributionConfig -> Text -> UpdateStreamingDistribution
+-- | Creates a value of 'UpdateStreamingDistribution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'usdIfMatch'
+--
+-- * 'usdStreamingDistributionConfig'
+--
+-- * 'usdId'
+updateStreamingDistribution
+    :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
+    -> Text -- ^ 'usdId'
+    -> UpdateStreamingDistribution
 updateStreamingDistribution pStreamingDistributionConfig_ pId_ =
     UpdateStreamingDistribution'
     { _usdIfMatch = Nothing
@@ -120,22 +123,24 @@ instance ToQuery UpdateStreamingDistribution where
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'updateStreamingDistributionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'usdrsETag'
---
--- * 'usdrsStreamingDistribution'
---
--- * 'usdrsStatus'
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
     { _usdrsETag                  :: !(Maybe Text)
     , _usdrsStreamingDistribution :: !(Maybe StreamingDistribution)
     , _usdrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateStreamingDistributionResponse' smart constructor.
-updateStreamingDistributionResponse :: Int -> UpdateStreamingDistributionResponse
+-- | Creates a value of 'UpdateStreamingDistributionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'usdrsETag'
+--
+-- * 'usdrsStreamingDistribution'
+--
+-- * 'usdrsStatus'
+updateStreamingDistributionResponse
+    :: Int -- ^ 'usdrsStatus'
+    -> UpdateStreamingDistributionResponse
 updateStreamingDistributionResponse pStatus_ =
     UpdateStreamingDistributionResponse'
     { _usdrsETag = Nothing
@@ -151,6 +156,6 @@ usdrsETag = lens _usdrsETag (\ s a -> s{_usdrsETag = a});
 usdrsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
 usdrsStreamingDistribution = lens _usdrsStreamingDistribution (\ s a -> s{_usdrsStreamingDistribution = a});
 
--- | Undocumented member.
+-- | The response status code.
 usdrsStatus :: Lens' UpdateStreamingDistributionResponse Int
 usdrsStatus = lens _usdrsStatus (\ s a -> s{_usdrsStatus = a});

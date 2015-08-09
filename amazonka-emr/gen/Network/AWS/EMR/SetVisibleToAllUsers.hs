@@ -21,7 +21,7 @@
 -- Sets whether all AWS Identity and Access Management (IAM) users under
 -- your account can access the specified job flows. This action works on
 -- running job flows. You can also set the visibility of a job flow when
--- you launch it using the @VisibleToAllUsers@ parameter of RunJobFlow. The
+-- you launch it using the 'VisibleToAllUsers' parameter of RunJobFlow. The
 -- SetVisibleToAllUsers action can be called only by an IAM user who
 -- created the job flow or the AWS account that owns the job flow.
 --
@@ -29,15 +29,15 @@
 module Network.AWS.EMR.SetVisibleToAllUsers
     (
     -- * Creating a Request
-      SetVisibleToAllUsers
-    , setVisibleToAllUsers
+      setVisibleToAllUsers
+    , SetVisibleToAllUsers
     -- * Request Lenses
     , svtauJobFlowIds
     , svtauVisibleToAllUsers
 
     -- * Destructuring the Response
-    , SetVisibleToAllUsersResponse
     , setVisibleToAllUsersResponse
+    , SetVisibleToAllUsersResponse
     ) where
 
 import           Network.AWS.EMR.Types
@@ -49,19 +49,21 @@ import           Network.AWS.Response
 -- | The input to the SetVisibleToAllUsers action.
 --
 -- /See:/ 'setVisibleToAllUsers' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'svtauJobFlowIds'
---
--- * 'svtauVisibleToAllUsers'
 data SetVisibleToAllUsers = SetVisibleToAllUsers'
     { _svtauJobFlowIds        :: ![Text]
     , _svtauVisibleToAllUsers :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetVisibleToAllUsers' smart constructor.
-setVisibleToAllUsers :: Bool -> SetVisibleToAllUsers
+-- | Creates a value of 'SetVisibleToAllUsers' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'svtauJobFlowIds'
+--
+-- * 'svtauVisibleToAllUsers'
+setVisibleToAllUsers
+    :: Bool -- ^ 'svtauVisibleToAllUsers'
+    -> SetVisibleToAllUsers
 setVisibleToAllUsers pVisibleToAllUsers_ =
     SetVisibleToAllUsers'
     { _svtauJobFlowIds = mempty
@@ -114,6 +116,8 @@ data SetVisibleToAllUsersResponse =
     SetVisibleToAllUsersResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetVisibleToAllUsersResponse' smart constructor.
-setVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse
+-- | Creates a value of 'SetVisibleToAllUsersResponse' with the minimum fields required to make a request.
+--
+setVisibleToAllUsersResponse
+    :: SetVisibleToAllUsersResponse
 setVisibleToAllUsersResponse = SetVisibleToAllUsersResponse'

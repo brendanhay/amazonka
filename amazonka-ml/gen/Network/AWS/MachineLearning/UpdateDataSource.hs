@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the @DataSourceName@ of a @DataSource@.
+-- Updates the 'DataSourceName' of a 'DataSource'.
 --
 -- You can use the GetDataSource operation to view the contents of the
 -- updated data element.
@@ -27,15 +27,15 @@
 module Network.AWS.MachineLearning.UpdateDataSource
     (
     -- * Creating a Request
-      UpdateDataSource
-    , updateDataSource
+      updateDataSource
+    , UpdateDataSource
     -- * Request Lenses
     , udsDataSourceId
     , udsDataSourceName
 
     -- * Destructuring the Response
-    , UpdateDataSourceResponse
     , updateDataSourceResponse
+    , UpdateDataSourceResponse
     -- * Response Lenses
     , udsrsDataSourceId
     , udsrsStatus
@@ -48,30 +48,33 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateDataSource' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udsDataSourceId'
---
--- * 'udsDataSourceName'
 data UpdateDataSource = UpdateDataSource'
     { _udsDataSourceId   :: !Text
     , _udsDataSourceName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateDataSource' smart constructor.
-updateDataSource :: Text -> Text -> UpdateDataSource
+-- | Creates a value of 'UpdateDataSource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udsDataSourceId'
+--
+-- * 'udsDataSourceName'
+updateDataSource
+    :: Text -- ^ 'udsDataSourceId'
+    -> Text -- ^ 'udsDataSourceName'
+    -> UpdateDataSource
 updateDataSource pDataSourceId_ pDataSourceName_ =
     UpdateDataSource'
     { _udsDataSourceId = pDataSourceId_
     , _udsDataSourceName = pDataSourceName_
     }
 
--- | The ID assigned to the @DataSource@ during creation.
+-- | The ID assigned to the 'DataSource' during creation.
 udsDataSourceId :: Lens' UpdateDataSource Text
 udsDataSourceId = lens _udsDataSourceId (\ s a -> s{_udsDataSourceId = a});
 
--- | A new user-supplied name or description of the @DataSource@ that will
+-- | A new user-supplied name or description of the 'DataSource' that will
 -- replace the current description.
 udsDataSourceName :: Lens' UpdateDataSource Text
 udsDataSourceName = lens _udsDataSourceName (\ s a -> s{_udsDataSourceName = a});
@@ -113,30 +116,32 @@ instance ToQuery UpdateDataSource where
 -- operation.
 --
 -- /See:/ 'updateDataSourceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udsrsDataSourceId'
---
--- * 'udsrsStatus'
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
     { _udsrsDataSourceId :: !(Maybe Text)
     , _udsrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateDataSourceResponse' smart constructor.
-updateDataSourceResponse :: Int -> UpdateDataSourceResponse
+-- | Creates a value of 'UpdateDataSourceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udsrsDataSourceId'
+--
+-- * 'udsrsStatus'
+updateDataSourceResponse
+    :: Int -- ^ 'udsrsStatus'
+    -> UpdateDataSourceResponse
 updateDataSourceResponse pStatus_ =
     UpdateDataSourceResponse'
     { _udsrsDataSourceId = Nothing
     , _udsrsStatus = pStatus_
     }
 
--- | The ID assigned to the @DataSource@ during creation. This value should
--- be identical to the value of the @DataSourceID@ in the request.
+-- | The ID assigned to the 'DataSource' during creation. This value should
+-- be identical to the value of the 'DataSourceID' in the request.
 udsrsDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
 udsrsDataSourceId = lens _udsrsDataSourceId (\ s a -> s{_udsrsDataSourceId = a});
 
--- | Undocumented member.
+-- | The response status code.
 udsrsStatus :: Lens' UpdateDataSourceResponse Int
 udsrsStatus = lens _udsrsStatus (\ s a -> s{_udsrsStatus = a});

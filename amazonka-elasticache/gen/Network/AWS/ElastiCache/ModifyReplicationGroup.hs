@@ -25,8 +25,8 @@
 module Network.AWS.ElastiCache.ModifyReplicationGroup
     (
     -- * Creating a Request
-      ModifyReplicationGroup
-    , modifyReplicationGroup
+      modifyReplicationGroup
+    , ModifyReplicationGroup
     -- * Request Lenses
     , mrgAutomaticFailoverEnabled
     , mrgEngineVersion
@@ -46,8 +46,8 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     , mrgReplicationGroupId
 
     -- * Destructuring the Response
-    , ModifyReplicationGroupResponse
     , modifyReplicationGroupResponse
+    , ModifyReplicationGroupResponse
     -- * Response Lenses
     , mrgrsReplicationGroup
     , mrgrsStatus
@@ -62,8 +62,28 @@ import           Network.AWS.Response
 -- | Represents the input of a /ModifyReplicationGroups/ action.
 --
 -- /See:/ 'modifyReplicationGroup' smart constructor.
+data ModifyReplicationGroup = ModifyReplicationGroup'
+    { _mrgAutomaticFailoverEnabled    :: !(Maybe Bool)
+    , _mrgEngineVersion               :: !(Maybe Text)
+    , _mrgSnapshottingClusterId       :: !(Maybe Text)
+    , _mrgSecurityGroupIds            :: !(Maybe [Text])
+    , _mrgAutoMinorVersionUpgrade     :: !(Maybe Bool)
+    , _mrgReplicationGroupDescription :: !(Maybe Text)
+    , _mrgCacheParameterGroupName     :: !(Maybe Text)
+    , _mrgSnapshotWindow              :: !(Maybe Text)
+    , _mrgPrimaryClusterId            :: !(Maybe Text)
+    , _mrgPreferredMaintenanceWindow  :: !(Maybe Text)
+    , _mrgSnapshotRetentionLimit      :: !(Maybe Int)
+    , _mrgNotificationTopicStatus     :: !(Maybe Text)
+    , _mrgApplyImmediately            :: !(Maybe Bool)
+    , _mrgNotificationTopicARN        :: !(Maybe Text)
+    , _mrgCacheSecurityGroupNames     :: !(Maybe [Text])
+    , _mrgReplicationGroupId          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyReplicationGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'mrgAutomaticFailoverEnabled'
 --
@@ -96,27 +116,9 @@ import           Network.AWS.Response
 -- * 'mrgCacheSecurityGroupNames'
 --
 -- * 'mrgReplicationGroupId'
-data ModifyReplicationGroup = ModifyReplicationGroup'
-    { _mrgAutomaticFailoverEnabled    :: !(Maybe Bool)
-    , _mrgEngineVersion               :: !(Maybe Text)
-    , _mrgSnapshottingClusterId       :: !(Maybe Text)
-    , _mrgSecurityGroupIds            :: !(Maybe [Text])
-    , _mrgAutoMinorVersionUpgrade     :: !(Maybe Bool)
-    , _mrgReplicationGroupDescription :: !(Maybe Text)
-    , _mrgCacheParameterGroupName     :: !(Maybe Text)
-    , _mrgSnapshotWindow              :: !(Maybe Text)
-    , _mrgPrimaryClusterId            :: !(Maybe Text)
-    , _mrgPreferredMaintenanceWindow  :: !(Maybe Text)
-    , _mrgSnapshotRetentionLimit      :: !(Maybe Int)
-    , _mrgNotificationTopicStatus     :: !(Maybe Text)
-    , _mrgApplyImmediately            :: !(Maybe Bool)
-    , _mrgNotificationTopicARN        :: !(Maybe Text)
-    , _mrgCacheSecurityGroupNames     :: !(Maybe [Text])
-    , _mrgReplicationGroupId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ModifyReplicationGroup' smart constructor.
-modifyReplicationGroup :: Text -> ModifyReplicationGroup
+modifyReplicationGroup
+    :: Text -- ^ 'mrgReplicationGroupId'
+    -> ModifyReplicationGroup
 modifyReplicationGroup pReplicationGroupId_ =
     ModifyReplicationGroup'
     { _mrgAutomaticFailoverEnabled = Nothing
@@ -140,7 +142,7 @@ modifyReplicationGroup pReplicationGroupId_ =
 -- | Whether a read replica will be automatically promoted to read\/write
 -- primary if the existing primary encounters a failure.
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
 -- ElastiCache Multi-AZ replication groups are not supported on:
 --
@@ -186,7 +188,7 @@ mrgCacheParameterGroupName = lens _mrgCacheParameterGroupName (\ s a -> s{_mrgCa
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
 -- a daily snapshot of the node group specified by /SnapshottingClusterId/.
 --
--- Example: @05:00-09:00@
+-- Example: '05:00-09:00'
 --
 -- If you do not specify this parameter, then ElastiCache will
 -- automatically choose an appropriate time range.
@@ -203,17 +205,17 @@ mrgPrimaryClusterId = lens _mrgPrimaryClusterId (\ s a -> s{_mrgPrimaryClusterId
 -- | Specifies the weekly time range during which maintenance on the cache
 -- cluster is performed. It is specified as a range in the format
 -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period. Valid values for @ddd@ are:
+-- is a 60 minute period. Valid values for 'ddd' are:
 --
--- -   @sun@
--- -   @mon@
--- -   @tue@
--- -   @wed@
--- -   @thu@
--- -   @fri@
--- -   @sat@
+-- -   'sun'
+-- -   'mon'
+-- -   'tue'
+-- -   'wed'
+-- -   'thu'
+-- -   'fri'
+-- -   'sat'
 --
--- Example: @sun:05:00-sun:09:00@
+-- Example: 'sun:05:00-sun:09:00'
 mrgPreferredMaintenanceWindow :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgPreferredMaintenanceWindow = lens _mrgPreferredMaintenanceWindow (\ s a -> s{_mrgPreferredMaintenanceWindow = a});
 
@@ -231,22 +233,22 @@ mrgSnapshotRetentionLimit = lens _mrgSnapshotRetentionLimit (\ s a -> s{_mrgSnap
 -- | The status of the Amazon SNS notification topic for the replication
 -- group. Notifications are sent only if the status is /active/.
 --
--- Valid values: @active@ | @inactive@
+-- Valid values: 'active' | 'inactive'
 mrgNotificationTopicStatus :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgNotificationTopicStatus = lens _mrgNotificationTopicStatus (\ s a -> s{_mrgNotificationTopicStatus = a});
 
--- | If @true@, this parameter causes the modifications in this request and
+-- | If 'true', this parameter causes the modifications in this request and
 -- any pending modifications to be applied, asynchronously and as soon as
 -- possible, regardless of the /PreferredMaintenanceWindow/ setting for the
 -- replication group.
 --
--- If @false@, then changes to the nodes in the replication group are
+-- If 'false', then changes to the nodes in the replication group are
 -- applied on the next maintenance reboot, or the next failure reboot,
 -- whichever occurs first.
 --
--- Valid values: @true@ | @false@
+-- Valid values: 'true' | 'false'
 --
--- Default: @false@
+-- Default: 'false'
 mrgApplyImmediately :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgApplyImmediately = lens _mrgApplyImmediately (\ s a -> s{_mrgApplyImmediately = a});
 
@@ -327,19 +329,21 @@ instance ToQuery ModifyReplicationGroup where
                "ReplicationGroupId" =: _mrgReplicationGroupId]
 
 -- | /See:/ 'modifyReplicationGroupResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mrgrsReplicationGroup'
---
--- * 'mrgrsStatus'
 data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
     { _mrgrsReplicationGroup :: !(Maybe ReplicationGroup)
     , _mrgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyReplicationGroupResponse' smart constructor.
-modifyReplicationGroupResponse :: Int -> ModifyReplicationGroupResponse
+-- | Creates a value of 'ModifyReplicationGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mrgrsReplicationGroup'
+--
+-- * 'mrgrsStatus'
+modifyReplicationGroupResponse
+    :: Int -- ^ 'mrgrsStatus'
+    -> ModifyReplicationGroupResponse
 modifyReplicationGroupResponse pStatus_ =
     ModifyReplicationGroupResponse'
     { _mrgrsReplicationGroup = Nothing
@@ -350,6 +354,6 @@ modifyReplicationGroupResponse pStatus_ =
 mrgrsReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationGroup)
 mrgrsReplicationGroup = lens _mrgrsReplicationGroup (\ s a -> s{_mrgrsReplicationGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 mrgrsStatus :: Lens' ModifyReplicationGroupResponse Int
 mrgrsStatus = lens _mrgrsStatus (\ s a -> s{_mrgrsStatus = a});

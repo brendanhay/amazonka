@@ -31,15 +31,15 @@
 module Network.AWS.IAM.DeleteSSHPublicKey
     (
     -- * Creating a Request
-      DeleteSSHPublicKey
-    , deleteSSHPublicKey
+      deleteSSHPublicKey
+    , DeleteSSHPublicKey
     -- * Request Lenses
     , dspkUserName
     , dspkSSHPublicKeyId
 
     -- * Destructuring the Response
-    , DeleteSSHPublicKeyResponse
     , deleteSSHPublicKeyResponse
+    , DeleteSSHPublicKeyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -49,19 +49,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteSSHPublicKey' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dspkUserName'
---
--- * 'dspkSSHPublicKeyId'
 data DeleteSSHPublicKey = DeleteSSHPublicKey'
     { _dspkUserName       :: !Text
     , _dspkSSHPublicKeyId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSSHPublicKey' smart constructor.
-deleteSSHPublicKey :: Text -> Text -> DeleteSSHPublicKey
+-- | Creates a value of 'DeleteSSHPublicKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dspkUserName'
+--
+-- * 'dspkSSHPublicKeyId'
+deleteSSHPublicKey
+    :: Text -- ^ 'dspkUserName'
+    -> Text -- ^ 'dspkSSHPublicKeyId'
+    -> DeleteSSHPublicKey
 deleteSSHPublicKey pUserName_ pSSHPublicKeyId_ =
     DeleteSSHPublicKey'
     { _dspkUserName = pUserName_
@@ -102,6 +105,8 @@ data DeleteSSHPublicKeyResponse =
     DeleteSSHPublicKeyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSSHPublicKeyResponse' smart constructor.
-deleteSSHPublicKeyResponse :: DeleteSSHPublicKeyResponse
+-- | Creates a value of 'DeleteSSHPublicKeyResponse' with the minimum fields required to make a request.
+--
+deleteSSHPublicKeyResponse
+    :: DeleteSSHPublicKeyResponse
 deleteSSHPublicKeyResponse = DeleteSSHPublicKeyResponse'

@@ -24,14 +24,14 @@
 module Network.AWS.CodeDeploy.GetOnPremisesInstance
     (
     -- * Creating a Request
-      GetOnPremisesInstance
-    , getOnPremisesInstance
+      getOnPremisesInstance
+    , GetOnPremisesInstance
     -- * Request Lenses
     , gopiInstanceName
 
     -- * Destructuring the Response
-    , GetOnPremisesInstanceResponse
     , getOnPremisesInstanceResponse
+    , GetOnPremisesInstanceResponse
     -- * Response Lenses
     , gopirsInstanceInfo
     , gopirsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents the input of a get on-premises instance operation.
 --
 -- /See:/ 'getOnPremisesInstance' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gopiInstanceName'
 newtype GetOnPremisesInstance = GetOnPremisesInstance'
     { _gopiInstanceName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetOnPremisesInstance' smart constructor.
-getOnPremisesInstance :: Text -> GetOnPremisesInstance
+-- | Creates a value of 'GetOnPremisesInstance' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gopiInstanceName'
+getOnPremisesInstance
+    :: Text -- ^ 'gopiInstanceName'
+    -> GetOnPremisesInstance
 getOnPremisesInstance pInstanceName_ =
     GetOnPremisesInstance'
     { _gopiInstanceName = pInstanceName_
@@ -99,19 +101,21 @@ instance ToQuery GetOnPremisesInstance where
 -- | Represents the output of a get on-premises instance operation.
 --
 -- /See:/ 'getOnPremisesInstanceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gopirsInstanceInfo'
---
--- * 'gopirsStatus'
 data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
     { _gopirsInstanceInfo :: !(Maybe InstanceInfo)
     , _gopirsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetOnPremisesInstanceResponse' smart constructor.
-getOnPremisesInstanceResponse :: Int -> GetOnPremisesInstanceResponse
+-- | Creates a value of 'GetOnPremisesInstanceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gopirsInstanceInfo'
+--
+-- * 'gopirsStatus'
+getOnPremisesInstanceResponse
+    :: Int -- ^ 'gopirsStatus'
+    -> GetOnPremisesInstanceResponse
 getOnPremisesInstanceResponse pStatus_ =
     GetOnPremisesInstanceResponse'
     { _gopirsInstanceInfo = Nothing
@@ -122,6 +126,6 @@ getOnPremisesInstanceResponse pStatus_ =
 gopirsInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
 gopirsInstanceInfo = lens _gopirsInstanceInfo (\ s a -> s{_gopirsInstanceInfo = a});
 
--- | Undocumented member.
+-- | The response status code.
 gopirsStatus :: Lens' GetOnPremisesInstanceResponse Int
 gopirsStatus = lens _gopirsStatus (\ s a -> s{_gopirsStatus = a});

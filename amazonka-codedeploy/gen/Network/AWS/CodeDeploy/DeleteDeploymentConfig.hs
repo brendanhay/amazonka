@@ -27,14 +27,14 @@
 module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     (
     -- * Creating a Request
-      DeleteDeploymentConfig
-    , deleteDeploymentConfig
+      deleteDeploymentConfig
+    , DeleteDeploymentConfig
     -- * Request Lenses
     , ddcDeploymentConfigName
 
     -- * Destructuring the Response
-    , DeleteDeploymentConfigResponse
     , deleteDeploymentConfigResponse
+    , DeleteDeploymentConfigResponse
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents the input of a delete deployment configuration operation.
 --
 -- /See:/ 'deleteDeploymentConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddcDeploymentConfigName'
 newtype DeleteDeploymentConfig = DeleteDeploymentConfig'
     { _ddcDeploymentConfigName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDeploymentConfig' smart constructor.
-deleteDeploymentConfig :: Text -> DeleteDeploymentConfig
+-- | Creates a value of 'DeleteDeploymentConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddcDeploymentConfigName'
+deleteDeploymentConfig
+    :: Text -- ^ 'ddcDeploymentConfigName'
+    -> DeleteDeploymentConfig
 deleteDeploymentConfig pDeploymentConfigName_ =
     DeleteDeploymentConfig'
     { _ddcDeploymentConfigName = pDeploymentConfigName_
@@ -100,6 +102,8 @@ data DeleteDeploymentConfigResponse =
     DeleteDeploymentConfigResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDeploymentConfigResponse' smart constructor.
-deleteDeploymentConfigResponse :: DeleteDeploymentConfigResponse
+-- | Creates a value of 'DeleteDeploymentConfigResponse' with the minimum fields required to make a request.
+--
+deleteDeploymentConfigResponse
+    :: DeleteDeploymentConfigResponse
 deleteDeploymentConfigResponse = DeleteDeploymentConfigResponse'

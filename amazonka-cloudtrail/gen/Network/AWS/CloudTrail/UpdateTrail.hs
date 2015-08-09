@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- From the command line, use @update-subscription@.
+-- From the command line, use 'update-subscription'.
 --
 -- Updates the settings that specify delivery of log files. Changes to a
 -- trail do not require stopping the CloudTrail service. Use this action to
@@ -30,8 +30,8 @@
 module Network.AWS.CloudTrail.UpdateTrail
     (
     -- * Creating a Request
-      UpdateTrail
-    , updateTrail
+      updateTrail
+    , UpdateTrail
     -- * Request Lenses
     , utS3KeyPrefix
     , utSNSTopicName
@@ -42,8 +42,8 @@ module Network.AWS.CloudTrail.UpdateTrail
     , utName
 
     -- * Destructuring the Response
-    , UpdateTrailResponse
     , updateTrailResponse
+    , UpdateTrailResponse
     -- * Response Lenses
     , utrsS3KeyPrefix
     , utrsSNSTopicName
@@ -64,8 +64,19 @@ import           Network.AWS.Response
 -- | Specifies settings to update for the trail.
 --
 -- /See:/ 'updateTrail' smart constructor.
+data UpdateTrail = UpdateTrail'
+    { _utS3KeyPrefix                :: !(Maybe Text)
+    , _utSNSTopicName               :: !(Maybe Text)
+    , _utCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _utIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _utCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _utS3BucketName               :: !(Maybe Text)
+    , _utName                       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateTrail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'utS3KeyPrefix'
 --
@@ -80,18 +91,9 @@ import           Network.AWS.Response
 -- * 'utS3BucketName'
 --
 -- * 'utName'
-data UpdateTrail = UpdateTrail'
-    { _utS3KeyPrefix                :: !(Maybe Text)
-    , _utSNSTopicName               :: !(Maybe Text)
-    , _utCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _utIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _utCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _utS3BucketName               :: !(Maybe Text)
-    , _utName                       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateTrail' smart constructor.
-updateTrail :: Text -> UpdateTrail
+updateTrail
+    :: Text -- ^ 'utName'
+    -> UpdateTrail
 updateTrail pName_ =
     UpdateTrail'
     { _utS3KeyPrefix = Nothing
@@ -186,8 +188,20 @@ instance ToQuery UpdateTrail where
 -- returns an error.
 --
 -- /See:/ 'updateTrailResponse' smart constructor.
+data UpdateTrailResponse = UpdateTrailResponse'
+    { _utrsS3KeyPrefix                :: !(Maybe Text)
+    , _utrsSNSTopicName               :: !(Maybe Text)
+    , _utrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _utrsName                       :: !(Maybe Text)
+    , _utrsIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _utrsCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _utrsS3BucketName               :: !(Maybe Text)
+    , _utrsStatus                     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateTrailResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'utrsS3KeyPrefix'
 --
@@ -204,19 +218,9 @@ instance ToQuery UpdateTrail where
 -- * 'utrsS3BucketName'
 --
 -- * 'utrsStatus'
-data UpdateTrailResponse = UpdateTrailResponse'
-    { _utrsS3KeyPrefix                :: !(Maybe Text)
-    , _utrsSNSTopicName               :: !(Maybe Text)
-    , _utrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _utrsName                       :: !(Maybe Text)
-    , _utrsIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _utrsCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _utrsS3BucketName               :: !(Maybe Text)
-    , _utrsStatus                     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateTrailResponse' smart constructor.
-updateTrailResponse :: Int -> UpdateTrailResponse
+updateTrailResponse
+    :: Int -- ^ 'utrsStatus'
+    -> UpdateTrailResponse
 updateTrailResponse pStatus_ =
     UpdateTrailResponse'
     { _utrsS3KeyPrefix = Nothing
@@ -263,6 +267,6 @@ utrsCloudWatchLogsRoleARN = lens _utrsCloudWatchLogsRoleARN (\ s a -> s{_utrsClo
 utrsS3BucketName :: Lens' UpdateTrailResponse (Maybe Text)
 utrsS3BucketName = lens _utrsS3BucketName (\ s a -> s{_utrsS3BucketName = a});
 
--- | Undocumented member.
+-- | The response status code.
 utrsStatus :: Lens' UpdateTrailResponse Int
 utrsStatus = lens _utrsStatus (\ s a -> s{_utrsStatus = a});

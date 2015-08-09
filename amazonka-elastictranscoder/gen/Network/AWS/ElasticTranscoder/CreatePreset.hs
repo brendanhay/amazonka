@@ -25,7 +25,7 @@
 -- meet Elastic Transcoder requirements and to determine whether they
 -- comply with H.264 standards. If your settings are not valid for Elastic
 -- Transcoder, Elastic Transcoder returns an HTTP 400 response
--- (@ValidationException@) and does not create the preset. If the settings
+-- ('ValidationException') and does not create the preset. If the settings
 -- are valid for Elastic Transcoder but aren\'t strictly compliant with the
 -- H.264 standard, Elastic Transcoder creates the preset and returns a
 -- warning message in the response. This helps you determine whether your
@@ -41,8 +41,8 @@
 module Network.AWS.ElasticTranscoder.CreatePreset
     (
     -- * Creating a Request
-      CreatePreset
-    , createPreset
+      createPreset
+    , CreatePreset
     -- * Request Lenses
     , cpVideo
     , cpThumbnails
@@ -52,8 +52,8 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     , cpContainer
 
     -- * Destructuring the Response
-    , CreatePresetResponse
     , createPresetResponse
+    , CreatePresetResponse
     -- * Response Lenses
     , cprsWarning
     , cprsPreset
@@ -66,11 +66,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @CreatePresetRequest@ structure.
+-- | The 'CreatePresetRequest' structure.
 --
 -- /See:/ 'createPreset' smart constructor.
+data CreatePreset = CreatePreset'
+    { _cpVideo       :: !(Maybe VideoParameters)
+    , _cpThumbnails  :: !(Maybe Thumbnails)
+    , _cpAudio       :: !(Maybe AudioParameters)
+    , _cpDescription :: !(Maybe Text)
+    , _cpName        :: !Text
+    , _cpContainer   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreatePreset' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cpVideo'
 --
@@ -83,17 +93,10 @@ import           Network.AWS.Response
 -- * 'cpName'
 --
 -- * 'cpContainer'
-data CreatePreset = CreatePreset'
-    { _cpVideo       :: !(Maybe VideoParameters)
-    , _cpThumbnails  :: !(Maybe Thumbnails)
-    , _cpAudio       :: !(Maybe AudioParameters)
-    , _cpDescription :: !(Maybe Text)
-    , _cpName        :: !Text
-    , _cpContainer   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreatePreset' smart constructor.
-createPreset :: Text -> Text -> CreatePreset
+createPreset
+    :: Text -- ^ 'cpName'
+    -> Text -- ^ 'cpContainer'
+    -> CreatePreset
 createPreset pName_ pContainer_ =
     CreatePreset'
     { _cpVideo = Nothing
@@ -126,9 +129,9 @@ cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
 cpName :: Lens' CreatePreset Text
 cpName = lens _cpName (\ s a -> s{_cpName = a});
 
--- | The container type for the output file. Valid values include @flac@,
--- @flv@, @fmp4@, @gif@, @mp3@, @mp4@, @mpg@, @mxf@, @oga@, @ogg@, @ts@,
--- and @webm@.
+-- | The container type for the output file. Valid values include 'flac',
+-- 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'mxf', 'oga', 'ogg', 'ts',
+-- and 'webm'.
 cpContainer :: Lens' CreatePreset Text
 cpContainer = lens _cpContainer (\ s a -> s{_cpContainer = a});
 
@@ -159,25 +162,27 @@ instance ToPath CreatePreset where
 instance ToQuery CreatePreset where
         toQuery = const mempty
 
--- | The @CreatePresetResponse@ structure.
+-- | The 'CreatePresetResponse' structure.
 --
 -- /See:/ 'createPresetResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cprsWarning'
---
--- * 'cprsPreset'
---
--- * 'cprsStatus'
 data CreatePresetResponse = CreatePresetResponse'
     { _cprsWarning :: !(Maybe Text)
     , _cprsPreset  :: !(Maybe Preset)
     , _cprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePresetResponse' smart constructor.
-createPresetResponse :: Int -> CreatePresetResponse
+-- | Creates a value of 'CreatePresetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cprsWarning'
+--
+-- * 'cprsPreset'
+--
+-- * 'cprsStatus'
+createPresetResponse
+    :: Int -- ^ 'cprsStatus'
+    -> CreatePresetResponse
 createPresetResponse pStatus_ =
     CreatePresetResponse'
     { _cprsWarning = Nothing
@@ -198,6 +203,6 @@ cprsWarning = lens _cprsWarning (\ s a -> s{_cprsWarning = a});
 cprsPreset :: Lens' CreatePresetResponse (Maybe Preset)
 cprsPreset = lens _cprsPreset (\ s a -> s{_cprsPreset = a});
 
--- | Undocumented member.
+-- | The response status code.
 cprsStatus :: Lens' CreatePresetResponse Int
 cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

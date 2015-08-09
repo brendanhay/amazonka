@@ -20,9 +20,9 @@
 --
 -- Returns information about the last resize operation for the specified
 -- cluster. If no resize operation has ever been initiated for the
--- specified cluster, a @HTTP 404@ error is returned. If a resize operation
+-- specified cluster, a 'HTTP 404' error is returned. If a resize operation
 -- was initiated and completed, the status of the resize remains as
--- @SUCCEEDED@ until the next resize.
+-- 'SUCCEEDED' until the next resize.
 --
 -- A resize operation can be requested using ModifyCluster and specifying a
 -- different number or type of nodes for the cluster.
@@ -31,14 +31,14 @@
 module Network.AWS.Redshift.DescribeResize
     (
     -- * Creating a Request
-      DescribeResize
-    , describeResize
+      describeResize
+    , DescribeResize
     -- * Request Lenses
     , drClusterIdentifier
 
     -- * Destructuring the Response
-    , DescribeResizeResponse
     , describeResizeResponse
+    , DescribeResizeResponse
     -- * Response Lenses
     , drrsEstimatedTimeToCompletionInSeconds
     , drrsImportTablesNotStarted
@@ -63,16 +63,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeResize' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drClusterIdentifier'
 newtype DescribeResize = DescribeResize'
     { _drClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeResize' smart constructor.
-describeResize :: Text -> DescribeResize
+-- | Creates a value of 'DescribeResize' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drClusterIdentifier'
+describeResize
+    :: Text -- ^ 'drClusterIdentifier'
+    -> DescribeResize
 describeResize pClusterIdentifier_ =
     DescribeResize'
     { _drClusterIdentifier = pClusterIdentifier_
@@ -128,8 +130,24 @@ instance ToQuery DescribeResize where
 -- | Describes the result of a cluster resize operation.
 --
 -- /See:/ 'describeResizeResponse' smart constructor.
+data DescribeResizeResponse = DescribeResizeResponse'
+    { _drrsEstimatedTimeToCompletionInSeconds :: !(Maybe Integer)
+    , _drrsImportTablesNotStarted             :: !(Maybe [Text])
+    , _drrsAvgResizeRateInMegaBytesPerSecond  :: !(Maybe Double)
+    , _drrsTargetNumberOfNodes                :: !(Maybe Int)
+    , _drrsTargetNodeType                     :: !(Maybe Text)
+    , _drrsImportTablesInProgress             :: !(Maybe [Text])
+    , _drrsImportTablesCompleted              :: !(Maybe [Text])
+    , _drrsProgressInMegaBytes                :: !(Maybe Integer)
+    , _drrsTotalResizeDataInMegaBytes         :: !(Maybe Integer)
+    , _drrsElapsedTimeInSeconds               :: !(Maybe Integer)
+    , _drrsTargetClusterType                  :: !(Maybe Text)
+    , _drrsStatus                             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeResizeResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'drrsEstimatedTimeToCompletionInSeconds'
 --
@@ -154,23 +172,9 @@ instance ToQuery DescribeResize where
 -- * 'drrsTargetClusterType'
 --
 -- * 'drrsStatus'
-data DescribeResizeResponse = DescribeResizeResponse'
-    { _drrsEstimatedTimeToCompletionInSeconds :: !(Maybe Integer)
-    , _drrsImportTablesNotStarted             :: !(Maybe [Text])
-    , _drrsAvgResizeRateInMegaBytesPerSecond  :: !(Maybe Double)
-    , _drrsTargetNumberOfNodes                :: !(Maybe Int)
-    , _drrsTargetNodeType                     :: !(Maybe Text)
-    , _drrsImportTablesInProgress             :: !(Maybe [Text])
-    , _drrsImportTablesCompleted              :: !(Maybe [Text])
-    , _drrsProgressInMegaBytes                :: !(Maybe Integer)
-    , _drrsTotalResizeDataInMegaBytes         :: !(Maybe Integer)
-    , _drrsElapsedTimeInSeconds               :: !(Maybe Integer)
-    , _drrsTargetClusterType                  :: !(Maybe Text)
-    , _drrsStatus                             :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeResizeResponse' smart constructor.
-describeResizeResponse :: Int -> DescribeResizeResponse
+describeResizeResponse
+    :: Int -- ^ 'drrsStatus'
+    -> DescribeResizeResponse
 describeResizeResponse pStatus_ =
     DescribeResizeResponse'
     { _drrsEstimatedTimeToCompletionInSeconds = Nothing
@@ -250,10 +254,10 @@ drrsElapsedTimeInSeconds = lens _drrsElapsedTimeInSeconds (\ s a -> s{_drrsElaps
 
 -- | The cluster type after the resize operation is complete.
 --
--- Valid Values: @multi-node@ | @single-node@
+-- Valid Values: 'multi-node' | 'single-node'
 drrsTargetClusterType :: Lens' DescribeResizeResponse (Maybe Text)
 drrsTargetClusterType = lens _drrsTargetClusterType (\ s a -> s{_drrsTargetClusterType = a});
 
--- | Undocumented member.
+-- | The response status code.
 drrsStatus :: Lens' DescribeResizeResponse Int
 drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});

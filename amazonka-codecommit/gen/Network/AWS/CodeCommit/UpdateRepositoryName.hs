@@ -24,15 +24,15 @@
 module Network.AWS.CodeCommit.UpdateRepositoryName
     (
     -- * Creating a Request
-      UpdateRepositoryName
-    , updateRepositoryName
+      updateRepositoryName
+    , UpdateRepositoryName
     -- * Request Lenses
     , urnOldName
     , urnNewName
 
     -- * Destructuring the Response
-    , UpdateRepositoryNameResponse
     , updateRepositoryNameResponse
+    , UpdateRepositoryNameResponse
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -44,19 +44,22 @@ import           Network.AWS.Response
 -- | Represents the input of an update repository description operation.
 --
 -- /See:/ 'updateRepositoryName' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'urnOldName'
---
--- * 'urnNewName'
 data UpdateRepositoryName = UpdateRepositoryName'
     { _urnOldName :: !Text
     , _urnNewName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateRepositoryName' smart constructor.
-updateRepositoryName :: Text -> Text -> UpdateRepositoryName
+-- | Creates a value of 'UpdateRepositoryName' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'urnOldName'
+--
+-- * 'urnNewName'
+updateRepositoryName
+    :: Text -- ^ 'urnOldName'
+    -> Text -- ^ 'urnNewName'
+    -> UpdateRepositoryName
 updateRepositoryName pOldName_ pNewName_ =
     UpdateRepositoryName'
     { _urnOldName = pOldName_
@@ -104,6 +107,8 @@ data UpdateRepositoryNameResponse =
     UpdateRepositoryNameResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateRepositoryNameResponse' smart constructor.
-updateRepositoryNameResponse :: UpdateRepositoryNameResponse
+-- | Creates a value of 'UpdateRepositoryNameResponse' with the minimum fields required to make a request.
+--
+updateRepositoryNameResponse
+    :: UpdateRepositoryNameResponse
 updateRepositoryNameResponse = UpdateRepositoryNameResponse'

@@ -31,8 +31,8 @@
 module Network.AWS.Redshift.CreateCluster
     (
     -- * Creating a Request
-      CreateCluster
-    , createCluster
+      createCluster
+    , CreateCluster
     -- * Request Lenses
     , ccPubliclyAccessible
     , ccHSMConfigurationIdentifier
@@ -60,8 +60,8 @@ module Network.AWS.Redshift.CreateCluster
     , ccMasterUserPassword
 
     -- * Destructuring the Response
-    , CreateClusterResponse
     , createClusterResponse
+    , CreateClusterResponse
     -- * Response Lenses
     , ccrsCluster
     , ccrsStatus
@@ -76,8 +76,36 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'createCluster' smart constructor.
+data CreateCluster = CreateCluster'
+    { _ccPubliclyAccessible               :: !(Maybe Bool)
+    , _ccHSMConfigurationIdentifier       :: !(Maybe Text)
+    , _ccClusterSecurityGroups            :: !(Maybe [Text])
+    , _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+    , _ccEncrypted                        :: !(Maybe Bool)
+    , _ccNumberOfNodes                    :: !(Maybe Int)
+    , _ccHSMClientCertificateIdentifier   :: !(Maybe Text)
+    , _ccClusterSubnetGroupName           :: !(Maybe Text)
+    , _ccElasticIP                        :: !(Maybe Text)
+    , _ccPreferredMaintenanceWindow       :: !(Maybe Text)
+    , _ccAvailabilityZone                 :: !(Maybe Text)
+    , _ccKMSKeyId                         :: !(Maybe Text)
+    , _ccVPCSecurityGroupIds              :: !(Maybe [Text])
+    , _ccClusterType                      :: !(Maybe Text)
+    , _ccClusterVersion                   :: !(Maybe Text)
+    , _ccAllowVersionUpgrade              :: !(Maybe Bool)
+    , _ccClusterParameterGroupName        :: !(Maybe Text)
+    , _ccDBName                           :: !(Maybe Text)
+    , _ccTags                             :: !(Maybe [Tag])
+    , _ccPort                             :: !(Maybe Int)
+    , _ccClusterIdentifier                :: !Text
+    , _ccNodeType                         :: !Text
+    , _ccMasterUsername                   :: !Text
+    , _ccMasterUserPassword               :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ccPubliclyAccessible'
 --
@@ -126,35 +154,12 @@ import           Network.AWS.Response
 -- * 'ccMasterUsername'
 --
 -- * 'ccMasterUserPassword'
-data CreateCluster = CreateCluster'
-    { _ccPubliclyAccessible               :: !(Maybe Bool)
-    , _ccHSMConfigurationIdentifier       :: !(Maybe Text)
-    , _ccClusterSecurityGroups            :: !(Maybe [Text])
-    , _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _ccEncrypted                        :: !(Maybe Bool)
-    , _ccNumberOfNodes                    :: !(Maybe Int)
-    , _ccHSMClientCertificateIdentifier   :: !(Maybe Text)
-    , _ccClusterSubnetGroupName           :: !(Maybe Text)
-    , _ccElasticIP                        :: !(Maybe Text)
-    , _ccPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _ccAvailabilityZone                 :: !(Maybe Text)
-    , _ccKMSKeyId                         :: !(Maybe Text)
-    , _ccVPCSecurityGroupIds              :: !(Maybe [Text])
-    , _ccClusterType                      :: !(Maybe Text)
-    , _ccClusterVersion                   :: !(Maybe Text)
-    , _ccAllowVersionUpgrade              :: !(Maybe Bool)
-    , _ccClusterParameterGroupName        :: !(Maybe Text)
-    , _ccDBName                           :: !(Maybe Text)
-    , _ccTags                             :: !(Maybe [Tag])
-    , _ccPort                             :: !(Maybe Int)
-    , _ccClusterIdentifier                :: !Text
-    , _ccNodeType                         :: !Text
-    , _ccMasterUsername                   :: !Text
-    , _ccMasterUserPassword               :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateCluster' smart constructor.
-createCluster :: Text -> Text -> Text -> Text -> CreateCluster
+createCluster
+    :: Text -- ^ 'ccClusterIdentifier'
+    -> Text -- ^ 'ccNodeType'
+    -> Text -- ^ 'ccMasterUsername'
+    -> Text -- ^ 'ccMasterUserPassword'
+    -> CreateCluster
 createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPassword_ =
     CreateCluster'
     { _ccPubliclyAccessible = Nothing
@@ -183,7 +188,7 @@ createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPasswor
     , _ccMasterUserPassword = pMasterUserPassword_
     }
 
--- | If @true@, the cluster can be accessed from a public network.
+-- | If 'true', the cluster can be accessed from a public network.
 ccPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
 ccPubliclyAccessible = lens _ccPubliclyAccessible (\ s a -> s{_ccPubliclyAccessible = a});
 
@@ -204,20 +209,20 @@ ccClusterSecurityGroups = lens _ccClusterSecurityGroups (\ s a -> s{_ccClusterSe
 -- disabled, you can still create manual snapshots when you want with
 -- CreateClusterSnapshot.
 --
--- Default: @1@
+-- Default: '1'
 --
 -- Constraints: Must be a value from 0 to 35.
 ccAutomatedSnapshotRetentionPeriod :: Lens' CreateCluster (Maybe Int)
 ccAutomatedSnapshotRetentionPeriod = lens _ccAutomatedSnapshotRetentionPeriod (\ s a -> s{_ccAutomatedSnapshotRetentionPeriod = a});
 
--- | If @true@, the data in the cluster is encrypted at rest.
+-- | If 'true', the data in the cluster is encrypted at rest.
 --
 -- Default: false
 ccEncrypted :: Lens' CreateCluster (Maybe Bool)
 ccEncrypted = lens _ccEncrypted (\ s a -> s{_ccEncrypted = a});
 
 -- | The number of compute nodes in the cluster. This parameter is required
--- when the __ClusterType__ parameter is specified as @multi-node@.
+-- when the __ClusterType__ parameter is specified as 'multi-node'.
 --
 -- For information about determining how many nodes you need, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
@@ -227,7 +232,7 @@ ccEncrypted = lens _ccEncrypted (\ s a -> s{_ccEncrypted = a});
 -- When requesting a multi-node cluster, you must specify the number of
 -- nodes that you want in the cluster.
 --
--- Default: @1@
+-- Default: '1'
 --
 -- Constraints: Value must be at least 1 and no more than 100.
 ccNumberOfNodes :: Lens' CreateCluster (Maybe Int)
@@ -258,7 +263,7 @@ ccElasticIP = lens _ccElasticIP (\ s a -> s{_ccElasticIP = a});
 -- | The weekly time range (in UTC) during which automated cluster
 -- maintenance can occur.
 --
--- Format: @ddd:hh24:mi-ddd:hh24:mi@
+-- Format: 'ddd:hh24:mi-ddd:hh24:mi'
 --
 -- Default: A 30-minute window selected at random from an 8-hour block of
 -- time per region, occurring on a random day of the week. For more
@@ -280,7 +285,7 @@ ccPreferredMaintenanceWindow = lens _ccPreferredMaintenanceWindow (\ s a -> s{_c
 -- Default: A random, system-chosen Availability Zone in the region that is
 -- specified by the endpoint.
 --
--- Example: @us-east-1d@
+-- Example: 'us-east-1d'
 --
 -- Constraint: The specified Availability Zone must be in the same region
 -- as the current endpoint.
@@ -301,12 +306,12 @@ ccVPCSecurityGroupIds = lens _ccVPCSecurityGroupIds (\ s a -> s{_ccVPCSecurityGr
 
 -- | The type of the cluster. When cluster type is specified as
 --
--- -   @single-node@, the __NumberOfNodes__ parameter is not required.
--- -   @multi-node@, the __NumberOfNodes__ parameter is required.
+-- -   'single-node', the __NumberOfNodes__ parameter is not required.
+-- -   'multi-node', the __NumberOfNodes__ parameter is required.
 --
--- Valid Values: @multi-node@ | @single-node@
+-- Valid Values: 'multi-node' | 'single-node'
 --
--- Default: @multi-node@
+-- Default: 'multi-node'
 ccClusterType :: Lens' CreateCluster (Maybe Text)
 ccClusterType = lens _ccClusterType (\ s a -> s{_ccClusterType = a});
 
@@ -317,11 +322,11 @@ ccClusterType = lens _ccClusterType (\ s a -> s{_ccClusterType = a});
 --
 -- Constraints: Only version 1.0 is currently available.
 --
--- Example: @1.0@
+-- Example: '1.0'
 ccClusterVersion :: Lens' CreateCluster (Maybe Text)
 ccClusterVersion = lens _ccClusterVersion (\ s a -> s{_ccClusterVersion = a});
 
--- | If @true@, major version upgrades can be applied during the maintenance
+-- | If 'true', major version upgrades can be applied during the maintenance
 -- window to the Amazon Redshift engine that is running on the cluster.
 --
 -- When a new major version of the Amazon Redshift engine is released, you
@@ -329,7 +334,7 @@ ccClusterVersion = lens _ccClusterVersion (\ s a -> s{_ccClusterVersion = a});
 -- maintenance window to the Amazon Redshift engine that is running on your
 -- cluster.
 --
--- Default: @true@
+-- Default: 'true'
 ccAllowVersionUpgrade :: Lens' CreateCluster (Maybe Bool)
 ccAllowVersionUpgrade = lens _ccAllowVersionUpgrade (\ s a -> s{_ccAllowVersionUpgrade = a});
 
@@ -356,7 +361,7 @@ ccClusterParameterGroupName = lens _ccClusterParameterGroupName (\ s a -> s{_ccC
 -- <http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database>
 -- in the Amazon Redshift Database Developer Guide.
 --
--- Default: @dev@
+-- Default: 'dev'
 --
 -- Constraints:
 --
@@ -379,9 +384,9 @@ ccTags = lens _ccTags (\ s a -> s{_ccTags = a}) . _Default . _Coerce;
 -- Part of the connection string requires the port on which the cluster
 -- will listen for incoming connections.
 --
--- Default: @5439@
+-- Default: '5439'
 --
--- Valid Values: @1150-65535@
+-- Valid Values: '1150-65535'
 ccPort :: Lens' CreateCluster (Maybe Int)
 ccPort = lens _ccPort (\ s a -> s{_ccPort = a});
 
@@ -397,7 +402,7 @@ ccPort = lens _ccPort (\ s a -> s{_ccPort = a});
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 -- -   Must be unique for all clusters within an AWS account.
 --
--- Example: @myexamplecluster@
+-- Example: 'myexamplecluster'
 ccClusterIdentifier :: Lens' CreateCluster Text
 ccClusterIdentifier = lens _ccClusterIdentifier (\ s a -> s{_ccClusterIdentifier = a});
 
@@ -406,8 +411,8 @@ ccClusterIdentifier = lens _ccClusterIdentifier (\ s a -> s{_ccClusterIdentifier
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
--- Valid Values: @ds1.xlarge@ | @ds1.8xlarge@ | @ds2.xlarge@ |
--- @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@.
+-- Valid Values: 'ds1.xlarge' | 'ds1.8xlarge' | 'ds2.xlarge' |
+-- 'ds2.8xlarge' | 'dc1.large' | 'dc1.8xlarge'.
 ccNodeType :: Lens' CreateCluster Text
 ccNodeType = lens _ccNodeType (\ s a -> s{_ccNodeType = a});
 
@@ -434,7 +439,7 @@ ccMasterUsername = lens _ccMasterUsername (\ s a -> s{_ccMasterUsername = a});
 -- -   Must contain at least one lowercase letter.
 -- -   Must contain one number.
 -- -   Can be any printable ASCII character (ASCII code 33 to 126) except
---     \' (single quote), \" (double quote), \\, \/, \@, or space.
+--     \' (single quote), \" (double quote), \\, \/, \', or space.
 ccMasterUserPassword :: Lens' CreateCluster Text
 ccMasterUserPassword = lens _ccMasterUserPassword (\ s a -> s{_ccMasterUserPassword = a});
 
@@ -497,19 +502,21 @@ instance ToQuery CreateCluster where
                "MasterUserPassword" =: _ccMasterUserPassword]
 
 -- | /See:/ 'createClusterResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccrsCluster'
---
--- * 'ccrsStatus'
 data CreateClusterResponse = CreateClusterResponse'
     { _ccrsCluster :: !(Maybe Cluster)
     , _ccrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateClusterResponse' smart constructor.
-createClusterResponse :: Int -> CreateClusterResponse
+-- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccrsCluster'
+--
+-- * 'ccrsStatus'
+createClusterResponse
+    :: Int -- ^ 'ccrsStatus'
+    -> CreateClusterResponse
 createClusterResponse pStatus_ =
     CreateClusterResponse'
     { _ccrsCluster = Nothing
@@ -520,6 +527,6 @@ createClusterResponse pStatus_ =
 ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 ccrsStatus :: Lens' CreateClusterResponse Int
 ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

@@ -21,7 +21,7 @@
 -- Deletes a DB cluster snapshot. If the snapshot is being copied, the copy
 -- operation is terminated.
 --
--- The DB cluster snapshot must be in the @available@ state to be deleted.
+-- The DB cluster snapshot must be in the 'available' state to be deleted.
 --
 -- For more information on Amazon Aurora, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html Aurora on Amazon RDS>
@@ -31,14 +31,14 @@
 module Network.AWS.RDS.DeleteDBClusterSnapshot
     (
     -- * Creating a Request
-      DeleteDBClusterSnapshot
-    , deleteDBClusterSnapshot
+      deleteDBClusterSnapshot
+    , DeleteDBClusterSnapshot
     -- * Request Lenses
     , ddcsDBClusterSnapshotIdentifier
 
     -- * Destructuring the Response
-    , DeleteDBClusterSnapshotResponse
     , deleteDBClusterSnapshotResponse
+    , DeleteDBClusterSnapshotResponse
     -- * Response Lenses
     , ddcsrsDBClusterSnapshot
     , ddcsrsStatus
@@ -53,16 +53,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'deleteDBClusterSnapshot' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddcsDBClusterSnapshotIdentifier'
 newtype DeleteDBClusterSnapshot = DeleteDBClusterSnapshot'
     { _ddcsDBClusterSnapshotIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBClusterSnapshot' smart constructor.
-deleteDBClusterSnapshot :: Text -> DeleteDBClusterSnapshot
+-- | Creates a value of 'DeleteDBClusterSnapshot' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddcsDBClusterSnapshotIdentifier'
+deleteDBClusterSnapshot
+    :: Text -- ^ 'ddcsDBClusterSnapshotIdentifier'
+    -> DeleteDBClusterSnapshot
 deleteDBClusterSnapshot pDBClusterSnapshotIdentifier_ =
     DeleteDBClusterSnapshot'
     { _ddcsDBClusterSnapshotIdentifier = pDBClusterSnapshotIdentifier_
@@ -71,7 +73,7 @@ deleteDBClusterSnapshot pDBClusterSnapshotIdentifier_ =
 -- | The identifier of the DB cluster snapshot to delete.
 --
 -- Constraints: Must be the name of an existing DB cluster snapshot in the
--- @available@ state.
+-- 'available' state.
 ddcsDBClusterSnapshotIdentifier :: Lens' DeleteDBClusterSnapshot Text
 ddcsDBClusterSnapshotIdentifier = lens _ddcsDBClusterSnapshotIdentifier (\ s a -> s{_ddcsDBClusterSnapshotIdentifier = a});
 
@@ -102,19 +104,21 @@ instance ToQuery DeleteDBClusterSnapshot where
                  _ddcsDBClusterSnapshotIdentifier]
 
 -- | /See:/ 'deleteDBClusterSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddcsrsDBClusterSnapshot'
---
--- * 'ddcsrsStatus'
 data DeleteDBClusterSnapshotResponse = DeleteDBClusterSnapshotResponse'
     { _ddcsrsDBClusterSnapshot :: !(Maybe DBClusterSnapshot)
     , _ddcsrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBClusterSnapshotResponse' smart constructor.
-deleteDBClusterSnapshotResponse :: Int -> DeleteDBClusterSnapshotResponse
+-- | Creates a value of 'DeleteDBClusterSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddcsrsDBClusterSnapshot'
+--
+-- * 'ddcsrsStatus'
+deleteDBClusterSnapshotResponse
+    :: Int -- ^ 'ddcsrsStatus'
+    -> DeleteDBClusterSnapshotResponse
 deleteDBClusterSnapshotResponse pStatus_ =
     DeleteDBClusterSnapshotResponse'
     { _ddcsrsDBClusterSnapshot = Nothing
@@ -125,6 +129,6 @@ deleteDBClusterSnapshotResponse pStatus_ =
 ddcsrsDBClusterSnapshot :: Lens' DeleteDBClusterSnapshotResponse (Maybe DBClusterSnapshot)
 ddcsrsDBClusterSnapshot = lens _ddcsrsDBClusterSnapshot (\ s a -> s{_ddcsrsDBClusterSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 ddcsrsStatus :: Lens' DeleteDBClusterSnapshotResponse Int
 ddcsrsStatus = lens _ddcsrsStatus (\ s a -> s{_ddcsrsStatus = a});

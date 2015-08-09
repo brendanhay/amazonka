@@ -24,15 +24,15 @@
 module Network.AWS.DeviceFarm.ListUniqueProblems
     (
     -- * Creating a Request
-      ListUniqueProblems
-    , listUniqueProblems
+      listUniqueProblems
+    , ListUniqueProblems
     -- * Request Lenses
     , lupNextToken
     , lupArn
 
     -- * Destructuring the Response
-    , ListUniqueProblemsResponse
     , listUniqueProblemsResponse
+    , ListUniqueProblemsResponse
     -- * Response Lenses
     , luprsNextToken
     , luprsUniqueProblems
@@ -48,19 +48,21 @@ import           Network.AWS.Response
 -- | Represents a request to the list unique problems operation.
 --
 -- /See:/ 'listUniqueProblems' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lupNextToken'
---
--- * 'lupArn'
 data ListUniqueProblems = ListUniqueProblems'
     { _lupNextToken :: !(Maybe Text)
     , _lupArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListUniqueProblems' smart constructor.
-listUniqueProblems :: Text -> ListUniqueProblems
+-- | Creates a value of 'ListUniqueProblems' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lupNextToken'
+--
+-- * 'lupArn'
+listUniqueProblems
+    :: Text -- ^ 'lupArn'
+    -> ListUniqueProblems
 listUniqueProblems pArn_ =
     ListUniqueProblems'
     { _lupNextToken = Nothing
@@ -114,22 +116,24 @@ instance ToQuery ListUniqueProblems where
 -- | Represents the result of a list unique problems request.
 --
 -- /See:/ 'listUniqueProblemsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'luprsNextToken'
---
--- * 'luprsUniqueProblems'
---
--- * 'luprsStatus'
 data ListUniqueProblemsResponse = ListUniqueProblemsResponse'
     { _luprsNextToken      :: !(Maybe Text)
     , _luprsUniqueProblems :: !(Maybe (Map ExecutionResult [UniqueProblem]))
     , _luprsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListUniqueProblemsResponse' smart constructor.
-listUniqueProblemsResponse :: Int -> ListUniqueProblemsResponse
+-- | Creates a value of 'ListUniqueProblemsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'luprsNextToken'
+--
+-- * 'luprsUniqueProblems'
+--
+-- * 'luprsStatus'
+listUniqueProblemsResponse
+    :: Int -- ^ 'luprsStatus'
+    -> ListUniqueProblemsResponse
 listUniqueProblemsResponse pStatus_ =
     ListUniqueProblemsResponse'
     { _luprsNextToken = Nothing
@@ -164,6 +168,6 @@ luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a});
 luprsUniqueProblems :: Lens' ListUniqueProblemsResponse (HashMap ExecutionResult [UniqueProblem])
 luprsUniqueProblems = lens _luprsUniqueProblems (\ s a -> s{_luprsUniqueProblems = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 luprsStatus :: Lens' ListUniqueProblemsResponse Int
 luprsStatus = lens _luprsStatus (\ s a -> s{_luprsStatus = a});

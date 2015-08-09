@@ -18,21 +18,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- To retrieve the health check, send a @GET@ request to the
--- @2013-04-01\/healthcheck\/health check ID@ resource.
+-- To retrieve the health check, send a 'GET' request to the
+-- '2013-04-01\/healthcheck\/health check ID' resource.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html AWS API Reference> for GetHealthCheck.
 module Network.AWS.Route53.GetHealthCheck
     (
     -- * Creating a Request
-      GetHealthCheck
-    , getHealthCheck
+      getHealthCheck
+    , GetHealthCheck
     -- * Request Lenses
     , ghcHealthCheckId
 
     -- * Destructuring the Response
-    , GetHealthCheckResponse
     , getHealthCheckResponse
+    , GetHealthCheckResponse
     -- * Response Lenses
     , ghcrsStatus
     , ghcrsHealthCheck
@@ -48,16 +48,18 @@ import           Network.AWS.Route53.Types.Product
 -- health check.
 --
 -- /See:/ 'getHealthCheck' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ghcHealthCheckId'
 newtype GetHealthCheck = GetHealthCheck'
     { _ghcHealthCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetHealthCheck' smart constructor.
-getHealthCheck :: Text -> GetHealthCheck
+-- | Creates a value of 'GetHealthCheck' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ghcHealthCheckId'
+getHealthCheck
+    :: Text -- ^ 'ghcHealthCheckId'
+    -> GetHealthCheck
 getHealthCheck pHealthCheckId_ =
     GetHealthCheck'
     { _ghcHealthCheckId = pHealthCheckId_
@@ -91,26 +93,29 @@ instance ToQuery GetHealthCheck where
 -- | A complex type containing information about the specified health check.
 --
 -- /See:/ 'getHealthCheckResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ghcrsStatus'
---
--- * 'ghcrsHealthCheck'
 data GetHealthCheckResponse = GetHealthCheckResponse'
     { _ghcrsStatus      :: !Int
     , _ghcrsHealthCheck :: !HealthCheck
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetHealthCheckResponse' smart constructor.
-getHealthCheckResponse :: Int -> HealthCheck -> GetHealthCheckResponse
+-- | Creates a value of 'GetHealthCheckResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ghcrsStatus'
+--
+-- * 'ghcrsHealthCheck'
+getHealthCheckResponse
+    :: Int -- ^ 'ghcrsStatus'
+    -> HealthCheck -- ^ 'ghcrsHealthCheck'
+    -> GetHealthCheckResponse
 getHealthCheckResponse pStatus_ pHealthCheck_ =
     GetHealthCheckResponse'
     { _ghcrsStatus = pStatus_
     , _ghcrsHealthCheck = pHealthCheck_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ghcrsStatus :: Lens' GetHealthCheckResponse Int
 ghcrsStatus = lens _ghcrsStatus (\ s a -> s{_ghcrsStatus = a});
 

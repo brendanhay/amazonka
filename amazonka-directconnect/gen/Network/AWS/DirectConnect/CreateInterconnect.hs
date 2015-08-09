@@ -40,16 +40,16 @@
 module Network.AWS.DirectConnect.CreateInterconnect
     (
     -- * Creating a Request
-      CreateInterconnect
-    , createInterconnect
+      createInterconnect
+    , CreateInterconnect
     -- * Request Lenses
     , ciInterconnectName
     , ciBandwidth
     , ciLocation
 
     -- * Destructuring the Response
-    , Interconnect
     , interconnect
+    , Interconnect
     -- * Response Lenses
     , iInterconnectId
     , iInterconnectName
@@ -68,22 +68,26 @@ import           Network.AWS.Response
 -- | Container for the parameters to the CreateInterconnect operation.
 --
 -- /See:/ 'createInterconnect' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ciInterconnectName'
---
--- * 'ciBandwidth'
---
--- * 'ciLocation'
 data CreateInterconnect = CreateInterconnect'
     { _ciInterconnectName :: !Text
     , _ciBandwidth        :: !Text
     , _ciLocation         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateInterconnect' smart constructor.
-createInterconnect :: Text -> Text -> Text -> CreateInterconnect
+-- | Creates a value of 'CreateInterconnect' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ciInterconnectName'
+--
+-- * 'ciBandwidth'
+--
+-- * 'ciLocation'
+createInterconnect
+    :: Text -- ^ 'ciInterconnectName'
+    -> Text -- ^ 'ciBandwidth'
+    -> Text -- ^ 'ciLocation'
+    -> CreateInterconnect
 createInterconnect pInterconnectName_ pBandwidth_ pLocation_ =
     CreateInterconnect'
     { _ciInterconnectName = pInterconnectName_

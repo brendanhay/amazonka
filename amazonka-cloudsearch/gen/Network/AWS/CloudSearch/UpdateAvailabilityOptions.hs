@@ -30,15 +30,15 @@
 module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     (
     -- * Creating a Request
-      UpdateAvailabilityOptions
-    , updateAvailabilityOptions
+      updateAvailabilityOptions
+    , UpdateAvailabilityOptions
     -- * Request Lenses
     , uaoDomainName
     , uaoMultiAZ
 
     -- * Destructuring the Response
-    , UpdateAvailabilityOptionsResponse
     , updateAvailabilityOptionsResponse
+    , UpdateAvailabilityOptionsResponse
     -- * Response Lenses
     , uaorsAvailabilityOptions
     , uaorsStatus
@@ -50,24 +50,27 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @UpdateAvailabilityOptions@
+-- | Container for the parameters to the 'UpdateAvailabilityOptions'
 -- operation. Specifies the name of the domain you want to update and the
 -- Multi-AZ availability option.
 --
 -- /See:/ 'updateAvailabilityOptions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uaoDomainName'
---
--- * 'uaoMultiAZ'
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions'
     { _uaoDomainName :: !Text
     , _uaoMultiAZ    :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAvailabilityOptions' smart constructor.
-updateAvailabilityOptions :: Text -> Bool -> UpdateAvailabilityOptions
+-- | Creates a value of 'UpdateAvailabilityOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uaoDomainName'
+--
+-- * 'uaoMultiAZ'
+updateAvailabilityOptions
+    :: Text -- ^ 'uaoDomainName'
+    -> Bool -- ^ 'uaoMultiAZ'
+    -> UpdateAvailabilityOptions
 updateAvailabilityOptions pDomainName_ pMultiAZ_ =
     UpdateAvailabilityOptions'
     { _uaoDomainName = pDomainName_
@@ -81,7 +84,7 @@ uaoDomainName = lens _uaoDomainName (\ s a -> s{_uaoDomainName = a});
 -- | You expand an existing search domain to a second Availability Zone by
 -- setting the Multi-AZ option to true. Similarly, you can turn off the
 -- Multi-AZ option to downgrade the domain to a single Availability Zone by
--- setting the Multi-AZ option to @false@.
+-- setting the Multi-AZ option to 'false'.
 uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
 uaoMultiAZ = lens _uaoMultiAZ (\ s a -> s{_uaoMultiAZ = a});
 
@@ -112,23 +115,25 @@ instance ToQuery UpdateAvailabilityOptions where
                "DomainName" =: _uaoDomainName,
                "MultiAZ" =: _uaoMultiAZ]
 
--- | The result of a @UpdateAvailabilityOptions@ request. Contains the status
+-- | The result of a 'UpdateAvailabilityOptions' request. Contains the status
 -- of the domain\'s availability options.
 --
 -- /See:/ 'updateAvailabilityOptionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uaorsAvailabilityOptions'
---
--- * 'uaorsStatus'
 data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
     { _uaorsAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
     , _uaorsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAvailabilityOptionsResponse' smart constructor.
-updateAvailabilityOptionsResponse :: Int -> UpdateAvailabilityOptionsResponse
+-- | Creates a value of 'UpdateAvailabilityOptionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uaorsAvailabilityOptions'
+--
+-- * 'uaorsStatus'
+updateAvailabilityOptionsResponse
+    :: Int -- ^ 'uaorsStatus'
+    -> UpdateAvailabilityOptionsResponse
 updateAvailabilityOptionsResponse pStatus_ =
     UpdateAvailabilityOptionsResponse'
     { _uaorsAvailabilityOptions = Nothing
@@ -140,6 +145,6 @@ updateAvailabilityOptionsResponse pStatus_ =
 uaorsAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 uaorsAvailabilityOptions = lens _uaorsAvailabilityOptions (\ s a -> s{_uaorsAvailabilityOptions = a});
 
--- | Undocumented member.
+-- | The response status code.
 uaorsStatus :: Lens' UpdateAvailabilityOptionsResponse Int
 uaorsStatus = lens _uaorsStatus (\ s a -> s{_uaorsStatus = a});

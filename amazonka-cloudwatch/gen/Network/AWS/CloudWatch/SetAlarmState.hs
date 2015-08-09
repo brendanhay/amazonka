@@ -18,7 +18,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Temporarily sets the state of an alarm. When the updated @StateValue@
+-- Temporarily sets the state of an alarm. When the updated 'StateValue'
 -- differs from the previous value, the action configured for the
 -- appropriate state is invoked. This is not a permanent change. The next
 -- periodic alarm check (in about a minute) will set the alarm to its
@@ -28,8 +28,8 @@
 module Network.AWS.CloudWatch.SetAlarmState
     (
     -- * Creating a Request
-      SetAlarmState
-    , setAlarmState
+      setAlarmState
+    , SetAlarmState
     -- * Request Lenses
     , sasStateReasonData
     , sasAlarmName
@@ -37,8 +37,8 @@ module Network.AWS.CloudWatch.SetAlarmState
     , sasStateReason
 
     -- * Destructuring the Response
-    , SetAlarmStateResponse
     , setAlarmStateResponse
+    , SetAlarmStateResponse
     ) where
 
 import           Network.AWS.CloudWatch.Types
@@ -48,8 +48,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'setAlarmState' smart constructor.
+data SetAlarmState = SetAlarmState'
+    { _sasStateReasonData :: !(Maybe Text)
+    , _sasAlarmName       :: !Text
+    , _sasStateValue      :: !StateValue
+    , _sasStateReason     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SetAlarmState' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sasStateReasonData'
 --
@@ -58,15 +66,11 @@ import           Network.AWS.Response
 -- * 'sasStateValue'
 --
 -- * 'sasStateReason'
-data SetAlarmState = SetAlarmState'
-    { _sasStateReasonData :: !(Maybe Text)
-    , _sasAlarmName       :: !Text
-    , _sasStateValue      :: !StateValue
-    , _sasStateReason     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SetAlarmState' smart constructor.
-setAlarmState :: Text -> StateValue -> Text -> SetAlarmState
+setAlarmState
+    :: Text -- ^ 'sasAlarmName'
+    -> StateValue -- ^ 'sasStateValue'
+    -> Text -- ^ 'sasStateReason'
+    -> SetAlarmState
 setAlarmState pAlarmName_ pStateValue_ pStateReason_ =
     SetAlarmState'
     { _sasStateReasonData = Nothing
@@ -121,6 +125,8 @@ data SetAlarmStateResponse =
     SetAlarmStateResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetAlarmStateResponse' smart constructor.
-setAlarmStateResponse :: SetAlarmStateResponse
+-- | Creates a value of 'SetAlarmStateResponse' with the minimum fields required to make a request.
+--
+setAlarmStateResponse
+    :: SetAlarmStateResponse
 setAlarmStateResponse = SetAlarmStateResponse'

@@ -26,15 +26,15 @@
 module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     (
     -- * Creating a Request
-      PutRetentionPolicy
-    , putRetentionPolicy
+      putRetentionPolicy
+    , PutRetentionPolicy
     -- * Request Lenses
     , prpLogGroupName
     , prpRetentionInDays
 
     -- * Destructuring the Response
-    , PutRetentionPolicyResponse
     , putRetentionPolicyResponse
+    , PutRetentionPolicyResponse
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -44,19 +44,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putRetentionPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prpLogGroupName'
---
--- * 'prpRetentionInDays'
 data PutRetentionPolicy = PutRetentionPolicy'
     { _prpLogGroupName    :: !Text
     , _prpRetentionInDays :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutRetentionPolicy' smart constructor.
-putRetentionPolicy :: Text -> Int -> PutRetentionPolicy
+-- | Creates a value of 'PutRetentionPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prpLogGroupName'
+--
+-- * 'prpRetentionInDays'
+putRetentionPolicy
+    :: Text -- ^ 'prpLogGroupName'
+    -> Int -- ^ 'prpRetentionInDays'
+    -> PutRetentionPolicy
 putRetentionPolicy pLogGroupName_ pRetentionInDays_ =
     PutRetentionPolicy'
     { _prpLogGroupName = pLogGroupName_
@@ -104,6 +107,8 @@ data PutRetentionPolicyResponse =
     PutRetentionPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutRetentionPolicyResponse' smart constructor.
-putRetentionPolicyResponse :: PutRetentionPolicyResponse
+-- | Creates a value of 'PutRetentionPolicyResponse' with the minimum fields required to make a request.
+--
+putRetentionPolicyResponse
+    :: PutRetentionPolicyResponse
 putRetentionPolicyResponse = PutRetentionPolicyResponse'

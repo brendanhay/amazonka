@@ -24,14 +24,14 @@
 module Network.AWS.DirectConnect.DeleteInterconnect
     (
     -- * Creating a Request
-      DeleteInterconnect
-    , deleteInterconnect
+      deleteInterconnect
+    , DeleteInterconnect
     -- * Request Lenses
     , dInterconnectId
 
     -- * Destructuring the Response
-    , DeleteInterconnectResponse
     , deleteInterconnectResponse
+    , DeleteInterconnectResponse
     -- * Response Lenses
     , drsInterconnectState
     , drsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Container for the parameters to the DeleteInterconnect operation.
 --
 -- /See:/ 'deleteInterconnect' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dInterconnectId'
 newtype DeleteInterconnect = DeleteInterconnect'
     { _dInterconnectId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteInterconnect' smart constructor.
-deleteInterconnect :: Text -> DeleteInterconnect
+-- | Creates a value of 'DeleteInterconnect' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dInterconnectId'
+deleteInterconnect
+    :: Text -- ^ 'dInterconnectId'
+    -> DeleteInterconnect
 deleteInterconnect pInterconnectId_ =
     DeleteInterconnect'
     { _dInterconnectId = pInterconnectId_
@@ -98,19 +100,21 @@ instance ToQuery DeleteInterconnect where
 -- | The response received when DeleteInterconnect is called.
 --
 -- /See:/ 'deleteInterconnectResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsInterconnectState'
---
--- * 'drsStatus'
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
     { _drsInterconnectState :: !(Maybe InterconnectState)
     , _drsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteInterconnectResponse' smart constructor.
-deleteInterconnectResponse :: Int -> DeleteInterconnectResponse
+-- | Creates a value of 'DeleteInterconnectResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsInterconnectState'
+--
+-- * 'drsStatus'
+deleteInterconnectResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeleteInterconnectResponse
 deleteInterconnectResponse pStatus_ =
     DeleteInterconnectResponse'
     { _drsInterconnectState = Nothing
@@ -121,6 +125,6 @@ deleteInterconnectResponse pStatus_ =
 drsInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
 drsInterconnectState = lens _drsInterconnectState (\ s a -> s{_drsInterconnectState = a});
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeleteInterconnectResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

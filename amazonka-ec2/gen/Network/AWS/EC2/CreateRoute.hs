@@ -26,13 +26,13 @@
 --
 -- When determining how to route traffic, we use the route with the most
 -- specific match. For example, let\'s say the traffic is destined for
--- @192.0.2.3@, and the route table includes the following two routes:
+-- '192.0.2.3', and the route table includes the following two routes:
 --
--- -   @192.0.2.0\/24@ (goes to some target A)
+-- -   '192.0.2.0\/24' (goes to some target A)
 --
--- -   @192.0.2.0\/28@ (goes to some target B)
+-- -   '192.0.2.0\/28' (goes to some target B)
 --
--- Both routes apply to the traffic destined for @192.0.2.3@. However, the
+-- Both routes apply to the traffic destined for '192.0.2.3'. However, the
 -- second route in the list covers a smaller number of IP addresses and is
 -- therefore more specific, so we use that route to determine where to
 -- target the traffic.
@@ -45,8 +45,8 @@
 module Network.AWS.EC2.CreateRoute
     (
     -- * Creating a Request
-      CreateRoute
-    , createRoute
+      createRoute
+    , CreateRoute
     -- * Request Lenses
     , crInstanceId
     , crVPCPeeringConnectionId
@@ -57,8 +57,8 @@ module Network.AWS.EC2.CreateRoute
     , crDestinationCIdRBlock
 
     -- * Destructuring the Response
-    , CreateRouteResponse
     , createRouteResponse
+    , CreateRouteResponse
     -- * Response Lenses
     , crrsReturn
     , crrsStatus
@@ -71,8 +71,19 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createRoute' smart constructor.
+data CreateRoute = CreateRoute'
+    { _crInstanceId             :: !(Maybe Text)
+    , _crVPCPeeringConnectionId :: !(Maybe Text)
+    , _crNetworkInterfaceId     :: !(Maybe Text)
+    , _crGatewayId              :: !(Maybe Text)
+    , _crDryRun                 :: !(Maybe Bool)
+    , _crRouteTableId           :: !Text
+    , _crDestinationCIdRBlock   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateRoute' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'crInstanceId'
 --
@@ -87,18 +98,10 @@ import           Network.AWS.Response
 -- * 'crRouteTableId'
 --
 -- * 'crDestinationCIdRBlock'
-data CreateRoute = CreateRoute'
-    { _crInstanceId             :: !(Maybe Text)
-    , _crVPCPeeringConnectionId :: !(Maybe Text)
-    , _crNetworkInterfaceId     :: !(Maybe Text)
-    , _crGatewayId              :: !(Maybe Text)
-    , _crDryRun                 :: !(Maybe Bool)
-    , _crRouteTableId           :: !Text
-    , _crDestinationCIdRBlock   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateRoute' smart constructor.
-createRoute :: Text -> Text -> CreateRoute
+createRoute
+    :: Text -- ^ 'crRouteTableId'
+    -> Text -- ^ 'crDestinationCIdRBlock'
+    -> CreateRoute
 createRoute pRouteTableId_ pDestinationCIdRBlock_ =
     CreateRoute'
     { _crInstanceId = Nothing
@@ -130,8 +133,8 @@ crGatewayId = lens _crGatewayId (\ s a -> s{_crGatewayId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 crDryRun :: Lens' CreateRoute (Maybe Bool)
 crDryRun = lens _crDryRun (\ s a -> s{_crDryRun = a});
 
@@ -174,29 +177,31 @@ instance ToQuery CreateRoute where
                "DestinationCidrBlock" =: _crDestinationCIdRBlock]
 
 -- | /See:/ 'createRouteResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crrsReturn'
---
--- * 'crrsStatus'
 data CreateRouteResponse = CreateRouteResponse'
     { _crrsReturn :: !(Maybe Bool)
     , _crrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateRouteResponse' smart constructor.
-createRouteResponse :: Int -> CreateRouteResponse
+-- | Creates a value of 'CreateRouteResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crrsReturn'
+--
+-- * 'crrsStatus'
+createRouteResponse
+    :: Int -- ^ 'crrsStatus'
+    -> CreateRouteResponse
 createRouteResponse pStatus_ =
     CreateRouteResponse'
     { _crrsReturn = Nothing
     , _crrsStatus = pStatus_
     }
 
--- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- | Returns 'true' if the request succeeds; otherwise, it returns an error.
 crrsReturn :: Lens' CreateRouteResponse (Maybe Bool)
 crrsReturn = lens _crrsReturn (\ s a -> s{_crrsReturn = a});
 
--- | Undocumented member.
+-- | The response status code.
 crrsStatus :: Lens' CreateRouteResponse Int
 crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});

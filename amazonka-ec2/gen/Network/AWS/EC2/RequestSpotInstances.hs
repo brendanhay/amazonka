@@ -30,8 +30,8 @@
 module Network.AWS.EC2.RequestSpotInstances
     (
     -- * Creating a Request
-      RequestSpotInstances
-    , requestSpotInstances
+      requestSpotInstances
+    , RequestSpotInstances
     -- * Request Lenses
     , rsiInstanceCount
     , rsiClientToken
@@ -45,8 +45,8 @@ module Network.AWS.EC2.RequestSpotInstances
     , rsiSpotPrice
 
     -- * Destructuring the Response
-    , RequestSpotInstancesResponse
     , requestSpotInstancesResponse
+    , RequestSpotInstancesResponse
     -- * Response Lenses
     , rsirsSpotInstanceRequests
     , rsirsStatus
@@ -61,8 +61,22 @@ import           Network.AWS.Response
 -- | Contains the parameters for RequestSpotInstances.
 --
 -- /See:/ 'requestSpotInstances' smart constructor.
+data RequestSpotInstances = RequestSpotInstances'
+    { _rsiInstanceCount         :: !(Maybe Int)
+    , _rsiClientToken           :: !(Maybe Text)
+    , _rsiAvailabilityZoneGroup :: !(Maybe Text)
+    , _rsiLaunchSpecification   :: !(Maybe RequestSpotLaunchSpecification)
+    , _rsiValidUntil            :: !(Maybe ISO8601)
+    , _rsiLaunchGroup           :: !(Maybe Text)
+    , _rsiType                  :: !(Maybe SpotInstanceType)
+    , _rsiValidFrom             :: !(Maybe ISO8601)
+    , _rsiDryRun                :: !(Maybe Bool)
+    , _rsiSpotPrice             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RequestSpotInstances' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rsiInstanceCount'
 --
@@ -83,21 +97,9 @@ import           Network.AWS.Response
 -- * 'rsiDryRun'
 --
 -- * 'rsiSpotPrice'
-data RequestSpotInstances = RequestSpotInstances'
-    { _rsiInstanceCount         :: !(Maybe Int)
-    , _rsiClientToken           :: !(Maybe Text)
-    , _rsiAvailabilityZoneGroup :: !(Maybe Text)
-    , _rsiLaunchSpecification   :: !(Maybe RequestSpotLaunchSpecification)
-    , _rsiValidUntil            :: !(Maybe ISO8601)
-    , _rsiLaunchGroup           :: !(Maybe Text)
-    , _rsiType                  :: !(Maybe SpotInstanceType)
-    , _rsiValidFrom             :: !(Maybe ISO8601)
-    , _rsiDryRun                :: !(Maybe Bool)
-    , _rsiSpotPrice             :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RequestSpotInstances' smart constructor.
-requestSpotInstances :: Text -> RequestSpotInstances
+requestSpotInstances
+    :: Text -- ^ 'rsiSpotPrice'
+    -> RequestSpotInstances
 requestSpotInstances pSpotPrice_ =
     RequestSpotInstances'
     { _rsiInstanceCount = Nothing
@@ -170,7 +172,7 @@ rsiLaunchGroup = lens _rsiLaunchGroup (\ s a -> s{_rsiLaunchGroup = a});
 
 -- | The Spot Instance request type.
 --
--- Default: @one-time@
+-- Default: 'one-time'
 rsiType :: Lens' RequestSpotInstances (Maybe SpotInstanceType)
 rsiType = lens _rsiType (\ s a -> s{_rsiType = a});
 
@@ -186,8 +188,8 @@ rsiValidFrom = lens _rsiValidFrom (\ s a -> s{_rsiValidFrom = a}) . mapping _Tim
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 rsiDryRun :: Lens' RequestSpotInstances (Maybe Bool)
 rsiDryRun = lens _rsiDryRun (\ s a -> s{_rsiDryRun = a});
 
@@ -232,19 +234,21 @@ instance ToQuery RequestSpotInstances where
 -- | Contains the output of RequestSpotInstances.
 --
 -- /See:/ 'requestSpotInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rsirsSpotInstanceRequests'
---
--- * 'rsirsStatus'
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
     { _rsirsSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
     , _rsirsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RequestSpotInstancesResponse' smart constructor.
-requestSpotInstancesResponse :: Int -> RequestSpotInstancesResponse
+-- | Creates a value of 'RequestSpotInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsirsSpotInstanceRequests'
+--
+-- * 'rsirsStatus'
+requestSpotInstancesResponse
+    :: Int -- ^ 'rsirsStatus'
+    -> RequestSpotInstancesResponse
 requestSpotInstancesResponse pStatus_ =
     RequestSpotInstancesResponse'
     { _rsirsSpotInstanceRequests = Nothing
@@ -255,6 +259,6 @@ requestSpotInstancesResponse pStatus_ =
 rsirsSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
 rsirsSpotInstanceRequests = lens _rsirsSpotInstanceRequests (\ s a -> s{_rsirsSpotInstanceRequests = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 rsirsStatus :: Lens' RequestSpotInstancesResponse Int
 rsirsStatus = lens _rsirsStatus (\ s a -> s{_rsirsStatus = a});

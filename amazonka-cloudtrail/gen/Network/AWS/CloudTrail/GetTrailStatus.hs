@@ -26,14 +26,14 @@
 module Network.AWS.CloudTrail.GetTrailStatus
     (
     -- * Creating a Request
-      GetTrailStatus
-    , getTrailStatus
+      getTrailStatus
+    , GetTrailStatus
     -- * Request Lenses
     , gtsName
 
     -- * Destructuring the Response
-    , GetTrailStatusResponse
     , getTrailStatusResponse
+    , GetTrailStatusResponse
     -- * Response Lenses
     , gtsrsLatestDeliveryError
     , gtsrsStartLoggingTime
@@ -56,16 +56,18 @@ import           Network.AWS.Response
 -- | The name of a trail about which you want the current status.
 --
 -- /See:/ 'getTrailStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gtsName'
 newtype GetTrailStatus = GetTrailStatus'
     { _gtsName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetTrailStatus' smart constructor.
-getTrailStatus :: Text -> GetTrailStatus
+-- | Creates a value of 'GetTrailStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtsName'
+getTrailStatus
+    :: Text -- ^ 'gtsName'
+    -> GetTrailStatus
 getTrailStatus pName_ =
     GetTrailStatus'
     { _gtsName = pName_
@@ -118,8 +120,22 @@ instance ToQuery GetTrailStatus where
 -- returns an error.
 --
 -- /See:/ 'getTrailStatusResponse' smart constructor.
+data GetTrailStatusResponse = GetTrailStatusResponse'
+    { _gtsrsLatestDeliveryError               :: !(Maybe Text)
+    , _gtsrsStartLoggingTime                  :: !(Maybe POSIX)
+    , _gtsrsLatestNotificationError           :: !(Maybe Text)
+    , _gtsrsIsLogging                         :: !(Maybe Bool)
+    , _gtsrsLatestDeliveryTime                :: !(Maybe POSIX)
+    , _gtsrsLatestCloudWatchLogsDeliveryTime  :: !(Maybe POSIX)
+    , _gtsrsLatestCloudWatchLogsDeliveryError :: !(Maybe Text)
+    , _gtsrsLatestNotificationTime            :: !(Maybe POSIX)
+    , _gtsrsStopLoggingTime                   :: !(Maybe POSIX)
+    , _gtsrsStatus                            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetTrailStatusResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gtsrsLatestDeliveryError'
 --
@@ -140,21 +156,9 @@ instance ToQuery GetTrailStatus where
 -- * 'gtsrsStopLoggingTime'
 --
 -- * 'gtsrsStatus'
-data GetTrailStatusResponse = GetTrailStatusResponse'
-    { _gtsrsLatestDeliveryError               :: !(Maybe Text)
-    , _gtsrsStartLoggingTime                  :: !(Maybe POSIX)
-    , _gtsrsLatestNotificationError           :: !(Maybe Text)
-    , _gtsrsIsLogging                         :: !(Maybe Bool)
-    , _gtsrsLatestDeliveryTime                :: !(Maybe POSIX)
-    , _gtsrsLatestCloudWatchLogsDeliveryTime  :: !(Maybe POSIX)
-    , _gtsrsLatestCloudWatchLogsDeliveryError :: !(Maybe Text)
-    , _gtsrsLatestNotificationTime            :: !(Maybe POSIX)
-    , _gtsrsStopLoggingTime                   :: !(Maybe POSIX)
-    , _gtsrsStatus                            :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetTrailStatusResponse' smart constructor.
-getTrailStatusResponse :: Int -> GetTrailStatusResponse
+getTrailStatusResponse
+    :: Int -- ^ 'gtsrsStatus'
+    -> GetTrailStatusResponse
 getTrailStatusResponse pStatus_ =
     GetTrailStatusResponse'
     { _gtsrsLatestDeliveryError = Nothing
@@ -219,6 +223,6 @@ gtsrsLatestNotificationTime = lens _gtsrsLatestNotificationTime (\ s a -> s{_gts
 gtsrsStopLoggingTime :: Lens' GetTrailStatusResponse (Maybe UTCTime)
 gtsrsStopLoggingTime = lens _gtsrsStopLoggingTime (\ s a -> s{_gtsrsStopLoggingTime = a}) . mapping _Time;
 
--- | Undocumented member.
+-- | The response status code.
 gtsrsStatus :: Lens' GetTrailStatusResponse Int
 gtsrsStatus = lens _gtsrsStatus (\ s a -> s{_gtsrsStatus = a});

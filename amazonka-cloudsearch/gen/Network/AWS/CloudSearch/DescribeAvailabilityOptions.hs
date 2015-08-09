@@ -19,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the availability options configured for a domain. By default, shows
--- the configuration with any pending changes. Set the @Deployed@ option to
--- @true@ to show the active configuration and exclude pending changes. For
+-- the configuration with any pending changes. Set the 'Deployed' option to
+-- 'true' to show the active configuration and exclude pending changes. For
 -- more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-availability-options.html Configuring Availability Options>
 -- in the /Amazon CloudSearch Developer Guide/.
@@ -29,15 +29,15 @@
 module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     (
     -- * Creating a Request
-      DescribeAvailabilityOptions
-    , describeAvailabilityOptions
+      describeAvailabilityOptions
+    , DescribeAvailabilityOptions
     -- * Request Lenses
     , daoDeployed
     , daoDomainName
 
     -- * Destructuring the Response
-    , DescribeAvailabilityOptionsResponse
     , describeAvailabilityOptionsResponse
+    , DescribeAvailabilityOptionsResponse
     -- * Response Lenses
     , daorsAvailabilityOptions
     , daorsStatus
@@ -49,33 +49,35 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Container for the parameters to the @DescribeAvailabilityOptions@
+-- | Container for the parameters to the 'DescribeAvailabilityOptions'
 -- operation. Specifies the name of the domain you want to describe. To
 -- show the active configuration and exclude any pending changes, set the
--- Deployed option to @true@.
+-- Deployed option to 'true'.
 --
 -- /See:/ 'describeAvailabilityOptions' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daoDeployed'
---
--- * 'daoDomainName'
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions'
     { _daoDeployed   :: !(Maybe Bool)
     , _daoDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAvailabilityOptions' smart constructor.
-describeAvailabilityOptions :: Text -> DescribeAvailabilityOptions
+-- | Creates a value of 'DescribeAvailabilityOptions' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daoDeployed'
+--
+-- * 'daoDomainName'
+describeAvailabilityOptions
+    :: Text -- ^ 'daoDomainName'
+    -> DescribeAvailabilityOptions
 describeAvailabilityOptions pDomainName_ =
     DescribeAvailabilityOptions'
     { _daoDeployed = Nothing
     , _daoDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration (@true@) or include any
--- pending changes (@false@). Defaults to @false@.
+-- | Whether to display the deployed configuration ('true') or include any
+-- pending changes ('false'). Defaults to 'false'.
 daoDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
 daoDeployed = lens _daoDeployed (\ s a -> s{_daoDeployed = a});
 
@@ -111,24 +113,26 @@ instance ToQuery DescribeAvailabilityOptions where
                "Deployed" =: _daoDeployed,
                "DomainName" =: _daoDomainName]
 
--- | The result of a @DescribeAvailabilityOptions@ request. Indicates whether
+-- | The result of a 'DescribeAvailabilityOptions' request. Indicates whether
 -- or not the Multi-AZ option is enabled for the domain specified in the
 -- request.
 --
 -- /See:/ 'describeAvailabilityOptionsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daorsAvailabilityOptions'
---
--- * 'daorsStatus'
 data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
     { _daorsAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
     , _daorsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAvailabilityOptionsResponse' smart constructor.
-describeAvailabilityOptionsResponse :: Int -> DescribeAvailabilityOptionsResponse
+-- | Creates a value of 'DescribeAvailabilityOptionsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daorsAvailabilityOptions'
+--
+-- * 'daorsStatus'
+describeAvailabilityOptionsResponse
+    :: Int -- ^ 'daorsStatus'
+    -> DescribeAvailabilityOptionsResponse
 describeAvailabilityOptionsResponse pStatus_ =
     DescribeAvailabilityOptionsResponse'
     { _daorsAvailabilityOptions = Nothing
@@ -140,6 +144,6 @@ describeAvailabilityOptionsResponse pStatus_ =
 daorsAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 daorsAvailabilityOptions = lens _daorsAvailabilityOptions (\ s a -> s{_daorsAvailabilityOptions = a});
 
--- | Undocumented member.
+-- | The response status code.
 daorsStatus :: Lens' DescribeAvailabilityOptionsResponse Int
 daorsStatus = lens _daorsStatus (\ s a -> s{_daorsStatus = a});

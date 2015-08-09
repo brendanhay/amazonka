@@ -32,15 +32,15 @@
 module Network.AWS.Glacier.SetDataRetrievalPolicy
     (
     -- * Creating a Request
-      SetDataRetrievalPolicy
-    , setDataRetrievalPolicy
+      setDataRetrievalPolicy
+    , SetDataRetrievalPolicy
     -- * Request Lenses
     , sdrpPolicy
     , sdrpAccountId
 
     -- * Destructuring the Response
-    , SetDataRetrievalPolicyResponse
     , setDataRetrievalPolicyResponse
+    , SetDataRetrievalPolicyResponse
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -52,19 +52,21 @@ import           Network.AWS.Response
 -- | SetDataRetrievalPolicy input.
 --
 -- /See:/ 'setDataRetrievalPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sdrpPolicy'
---
--- * 'sdrpAccountId'
 data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
     { _sdrpPolicy    :: !(Maybe DataRetrievalPolicy)
     , _sdrpAccountId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetDataRetrievalPolicy' smart constructor.
-setDataRetrievalPolicy :: Text -> SetDataRetrievalPolicy
+-- | Creates a value of 'SetDataRetrievalPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdrpPolicy'
+--
+-- * 'sdrpAccountId'
+setDataRetrievalPolicy
+    :: Text -- ^ 'sdrpAccountId'
+    -> SetDataRetrievalPolicy
 setDataRetrievalPolicy pAccountId_ =
     SetDataRetrievalPolicy'
     { _sdrpPolicy = Nothing
@@ -75,10 +77,10 @@ setDataRetrievalPolicy pAccountId_ =
 sdrpPolicy :: Lens' SetDataRetrievalPolicy (Maybe DataRetrievalPolicy)
 sdrpPolicy = lens _sdrpPolicy (\ s a -> s{_sdrpPolicy = a});
 
--- | The @AccountId@ value is the AWS account ID. This value must match the
+-- | The 'AccountId' value is the AWS account ID. This value must match the
 -- AWS account ID associated with the credentials used to sign the request.
 -- You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you
 -- specify your account ID, do not include any hyphens (apos-apos) in the
 -- ID.
@@ -114,6 +116,8 @@ data SetDataRetrievalPolicyResponse =
     SetDataRetrievalPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetDataRetrievalPolicyResponse' smart constructor.
-setDataRetrievalPolicyResponse :: SetDataRetrievalPolicyResponse
+-- | Creates a value of 'SetDataRetrievalPolicyResponse' with the minimum fields required to make a request.
+--
+setDataRetrievalPolicyResponse
+    :: SetDataRetrievalPolicyResponse
 setDataRetrievalPolicyResponse = SetDataRetrievalPolicyResponse'

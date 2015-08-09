@@ -31,14 +31,14 @@
 module Network.AWS.SES.GetIdentityNotificationAttributes
     (
     -- * Creating a Request
-      GetIdentityNotificationAttributes
-    , getIdentityNotificationAttributes
+      getIdentityNotificationAttributes
+    , GetIdentityNotificationAttributes
     -- * Request Lenses
     , ginaIdentities
 
     -- * Destructuring the Response
-    , GetIdentityNotificationAttributesResponse
     , getIdentityNotificationAttributesResponse
+    , GetIdentityNotificationAttributesResponse
     -- * Response Lenses
     , ginarsStatus
     , ginarsNotificationAttributes
@@ -51,16 +51,17 @@ import           Network.AWS.SES.Types
 import           Network.AWS.SES.Types.Product
 
 -- | /See:/ 'getIdentityNotificationAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ginaIdentities'
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes'
     { _ginaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetIdentityNotificationAttributes' smart constructor.
-getIdentityNotificationAttributes :: GetIdentityNotificationAttributes
+-- | Creates a value of 'GetIdentityNotificationAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ginaIdentities'
+getIdentityNotificationAttributes
+    :: GetIdentityNotificationAttributes
 getIdentityNotificationAttributes =
     GetIdentityNotificationAttributes'
     { _ginaIdentities = mempty
@@ -68,8 +69,8 @@ getIdentityNotificationAttributes =
 
 -- | A list of one or more identities. You can specify an identity by using
 -- its name or by using its Amazon Resource Name (ARN). Examples:
--- @user\@example.com@, @example.com@,
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+-- 'user\'example.com', 'example.com',
+-- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com'.
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
 ginaIdentities = lens _ginaIdentities (\ s a -> s{_ginaIdentities = a}) . _Coerce;
 
@@ -111,26 +112,28 @@ instance ToQuery GetIdentityNotificationAttributes
 -- bounce and complaint notifications.
 --
 -- /See:/ 'getIdentityNotificationAttributesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ginarsStatus'
---
--- * 'ginarsNotificationAttributes'
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
     { _ginarsStatus                 :: !Int
     , _ginarsNotificationAttributes :: !(Map Text IdentityNotificationAttributes)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetIdentityNotificationAttributesResponse' smart constructor.
-getIdentityNotificationAttributesResponse :: Int -> GetIdentityNotificationAttributesResponse
+-- | Creates a value of 'GetIdentityNotificationAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ginarsStatus'
+--
+-- * 'ginarsNotificationAttributes'
+getIdentityNotificationAttributesResponse
+    :: Int -- ^ 'ginarsStatus'
+    -> GetIdentityNotificationAttributesResponse
 getIdentityNotificationAttributesResponse pStatus_ =
     GetIdentityNotificationAttributesResponse'
     { _ginarsStatus = pStatus_
     , _ginarsNotificationAttributes = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 ginarsStatus :: Lens' GetIdentityNotificationAttributesResponse Int
 ginarsStatus = lens _ginarsStatus (\ s a -> s{_ginarsStatus = a});
 

@@ -24,16 +24,16 @@
 module Network.AWS.KMS.PutKeyPolicy
     (
     -- * Creating a Request
-      PutKeyPolicy
-    , putKeyPolicy
+      putKeyPolicy
+    , PutKeyPolicy
     -- * Request Lenses
     , pkpKeyId
     , pkpPolicyName
     , pkpPolicy
 
     -- * Destructuring the Response
-    , PutKeyPolicyResponse
     , putKeyPolicyResponse
+    , PutKeyPolicyResponse
     ) where
 
 import           Network.AWS.KMS.Types
@@ -43,22 +43,26 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putKeyPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pkpKeyId'
---
--- * 'pkpPolicyName'
---
--- * 'pkpPolicy'
 data PutKeyPolicy = PutKeyPolicy'
     { _pkpKeyId      :: !Text
     , _pkpPolicyName :: !Text
     , _pkpPolicy     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutKeyPolicy' smart constructor.
-putKeyPolicy :: Text -> Text -> Text -> PutKeyPolicy
+-- | Creates a value of 'PutKeyPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pkpKeyId'
+--
+-- * 'pkpPolicyName'
+--
+-- * 'pkpPolicy'
+putKeyPolicy
+    :: Text -- ^ 'pkpKeyId'
+    -> Text -- ^ 'pkpPolicyName'
+    -> Text -- ^ 'pkpPolicy'
+    -> PutKeyPolicy
 putKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
     PutKeyPolicy'
     { _pkpKeyId = pKeyId_
@@ -118,6 +122,8 @@ data PutKeyPolicyResponse =
     PutKeyPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutKeyPolicyResponse' smart constructor.
-putKeyPolicyResponse :: PutKeyPolicyResponse
+-- | Creates a value of 'PutKeyPolicyResponse' with the minimum fields required to make a request.
+--
+putKeyPolicyResponse
+    :: PutKeyPolicyResponse
 putKeyPolicyResponse = PutKeyPolicyResponse'

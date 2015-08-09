@@ -24,15 +24,15 @@
 module Network.AWS.CloudFront.GetInvalidation
     (
     -- * Creating a Request
-      GetInvalidation
-    , getInvalidation
+      getInvalidation
+    , GetInvalidation
     -- * Request Lenses
     , giDistributionId
     , giId
 
     -- * Destructuring the Response
-    , GetInvalidationResponse
     , getInvalidationResponse
+    , GetInvalidationResponse
     -- * Response Lenses
     , girsInvalidation
     , girsStatus
@@ -47,19 +47,22 @@ import           Network.AWS.Response
 -- | The request to get an invalidation\'s information.
 --
 -- /See:/ 'getInvalidation' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'giDistributionId'
---
--- * 'giId'
 data GetInvalidation = GetInvalidation'
     { _giDistributionId :: !Text
     , _giId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetInvalidation' smart constructor.
-getInvalidation :: Text -> Text -> GetInvalidation
+-- | Creates a value of 'GetInvalidation' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'giDistributionId'
+--
+-- * 'giId'
+getInvalidation
+    :: Text -- ^ 'giDistributionId'
+    -> Text -- ^ 'giId'
+    -> GetInvalidation
 getInvalidation pDistributionId_ pId_ =
     GetInvalidation'
     { _giDistributionId = pDistributionId_
@@ -99,19 +102,21 @@ instance ToQuery GetInvalidation where
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'getInvalidationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'girsInvalidation'
---
--- * 'girsStatus'
 data GetInvalidationResponse = GetInvalidationResponse'
     { _girsInvalidation :: !(Maybe Invalidation)
     , _girsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetInvalidationResponse' smart constructor.
-getInvalidationResponse :: Int -> GetInvalidationResponse
+-- | Creates a value of 'GetInvalidationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'girsInvalidation'
+--
+-- * 'girsStatus'
+getInvalidationResponse
+    :: Int -- ^ 'girsStatus'
+    -> GetInvalidationResponse
 getInvalidationResponse pStatus_ =
     GetInvalidationResponse'
     { _girsInvalidation = Nothing
@@ -122,6 +127,6 @@ getInvalidationResponse pStatus_ =
 girsInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
 girsInvalidation = lens _girsInvalidation (\ s a -> s{_girsInvalidation = a});
 
--- | Undocumented member.
+-- | The response status code.
 girsStatus :: Lens' GetInvalidationResponse Int
 girsStatus = lens _girsStatus (\ s a -> s{_girsStatus = a});

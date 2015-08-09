@@ -48,15 +48,15 @@
 module Network.AWS.Glacier.DeleteVault
     (
     -- * Creating a Request
-      DeleteVault
-    , deleteVault
+      deleteVault
+    , DeleteVault
     -- * Request Lenses
     , dAccountId
     , dVaultName
 
     -- * Destructuring the Response
-    , DeleteVaultResponse
     , deleteVaultResponse
+    , DeleteVaultResponse
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -68,28 +68,31 @@ import           Network.AWS.Response
 -- | Provides options for deleting a vault from Amazon Glacier.
 --
 -- /See:/ 'deleteVault' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dAccountId'
---
--- * 'dVaultName'
 data DeleteVault = DeleteVault'
     { _dAccountId :: !Text
     , _dVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVault' smart constructor.
-deleteVault :: Text -> Text -> DeleteVault
+-- | Creates a value of 'DeleteVault' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dAccountId'
+--
+-- * 'dVaultName'
+deleteVault
+    :: Text -- ^ 'dAccountId'
+    -> Text -- ^ 'dVaultName'
+    -> DeleteVault
 deleteVault pAccountId_ pVaultName_ =
     DeleteVault'
     { _dAccountId = pAccountId_
     , _dVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 dAccountId :: Lens' DeleteVault Text
@@ -121,6 +124,8 @@ data DeleteVaultResponse =
     DeleteVaultResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVaultResponse' smart constructor.
-deleteVaultResponse :: DeleteVaultResponse
+-- | Creates a value of 'DeleteVaultResponse' with the minimum fields required to make a request.
+--
+deleteVaultResponse
+    :: DeleteVaultResponse
 deleteVaultResponse = DeleteVaultResponse'

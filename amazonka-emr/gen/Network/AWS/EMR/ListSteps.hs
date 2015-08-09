@@ -21,11 +21,13 @@
 -- Provides a list of steps for the cluster.
 --
 -- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListSteps.html AWS API Reference> for ListSteps.
+--
+-- This operation returns paginated results.
 module Network.AWS.EMR.ListSteps
     (
     -- * Creating a Request
-      ListSteps
-    , listSteps
+      listSteps
+    , ListSteps
     -- * Request Lenses
     , lsStepIds
     , lsStepStates
@@ -33,8 +35,8 @@ module Network.AWS.EMR.ListSteps
     , lsClusterId
 
     -- * Destructuring the Response
-    , ListStepsResponse
     , listStepsResponse
+    , ListStepsResponse
     -- * Response Lenses
     , lsrsSteps
     , lsrsMarker
@@ -51,8 +53,16 @@ import           Network.AWS.Response
 -- | This input determines which steps to list.
 --
 -- /See:/ 'listSteps' smart constructor.
+data ListSteps = ListSteps'
+    { _lsStepIds    :: !(Maybe [Text])
+    , _lsStepStates :: !(Maybe [StepState])
+    , _lsMarker     :: !(Maybe Text)
+    , _lsClusterId  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListSteps' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lsStepIds'
 --
@@ -61,15 +71,9 @@ import           Network.AWS.Response
 -- * 'lsMarker'
 --
 -- * 'lsClusterId'
-data ListSteps = ListSteps'
-    { _lsStepIds    :: !(Maybe [Text])
-    , _lsStepStates :: !(Maybe [StepState])
-    , _lsMarker     :: !(Maybe Text)
-    , _lsClusterId  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListSteps' smart constructor.
-listSteps :: Text -> ListSteps
+listSteps
+    :: Text -- ^ 'lsClusterId'
+    -> ListSteps
 listSteps pClusterId_ =
     ListSteps'
     { _lsStepIds = Nothing
@@ -137,22 +141,24 @@ instance ToQuery ListSteps where
 -- | This output contains the list of steps.
 --
 -- /See:/ 'listStepsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsrsSteps'
---
--- * 'lsrsMarker'
---
--- * 'lsrsStatus'
 data ListStepsResponse = ListStepsResponse'
     { _lsrsSteps  :: !(Maybe [StepSummary])
     , _lsrsMarker :: !(Maybe Text)
     , _lsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListStepsResponse' smart constructor.
-listStepsResponse :: Int -> ListStepsResponse
+-- | Creates a value of 'ListStepsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsrsSteps'
+--
+-- * 'lsrsMarker'
+--
+-- * 'lsrsStatus'
+listStepsResponse
+    :: Int -- ^ 'lsrsStatus'
+    -> ListStepsResponse
 listStepsResponse pStatus_ =
     ListStepsResponse'
     { _lsrsSteps = Nothing
@@ -168,6 +174,6 @@ lsrsSteps = lens _lsrsSteps (\ s a -> s{_lsrsSteps = a}) . _Default . _Coerce;
 lsrsMarker :: Lens' ListStepsResponse (Maybe Text)
 lsrsMarker = lens _lsrsMarker (\ s a -> s{_lsrsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 lsrsStatus :: Lens' ListStepsResponse Int
 lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

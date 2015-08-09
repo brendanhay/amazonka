@@ -31,8 +31,22 @@ import           Network.AWS.Prelude
 -- allowed.
 --
 -- /See:/ 'attributeValue' smart constructor.
+data AttributeValue = AttributeValue'
+    { _avL    :: !(Maybe [AttributeValue])
+    , _avM    :: !(Maybe (Map Text AttributeValue))
+    , _avNS   :: !(Maybe [Text])
+    , _avNULL :: !(Maybe Bool)
+    , _avN    :: !(Maybe Text)
+    , _avBS   :: !(Maybe [Base64])
+    , _avB    :: !(Maybe Base64)
+    , _avSS   :: !(Maybe [Text])
+    , _avS    :: !(Maybe Text)
+    , _avBOOL :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'avL'
 --
@@ -53,21 +67,8 @@ import           Network.AWS.Prelude
 -- * 'avS'
 --
 -- * 'avBOOL'
-data AttributeValue = AttributeValue'
-    { _avL    :: !(Maybe [AttributeValue])
-    , _avM    :: !(Maybe (Map Text AttributeValue))
-    , _avNS   :: !(Maybe [Text])
-    , _avNULL :: !(Maybe Bool)
-    , _avN    :: !(Maybe Text)
-    , _avBS   :: !(Maybe [Base64])
-    , _avB    :: !(Maybe Base64)
-    , _avSS   :: !(Maybe [Text])
-    , _avS    :: !(Maybe Text)
-    , _avBOOL :: !(Maybe Bool)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AttributeValue' smart constructor.
-attributeValue :: AttributeValue
+attributeValue
+    :: AttributeValue
 attributeValue =
     AttributeValue'
     { _avL = Nothing
@@ -148,19 +149,22 @@ instance FromJSON AttributeValue where
 -- /KeySchemaElement/ for the range attribute.
 --
 -- /See:/ 'keySchemaElement' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'kseAttributeName'
---
--- * 'kseKeyType'
 data KeySchemaElement = KeySchemaElement'
     { _kseAttributeName :: !Text
     , _kseKeyType       :: !KeyType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'KeySchemaElement' smart constructor.
-keySchemaElement :: Text -> KeyType -> KeySchemaElement
+-- | Creates a value of 'KeySchemaElement' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'kseAttributeName'
+--
+-- * 'kseKeyType'
+keySchemaElement
+    :: Text -- ^ 'kseAttributeName'
+    -> KeyType -- ^ 'kseKeyType'
+    -> KeySchemaElement
 keySchemaElement pAttributeName_ pKeyType_ =
     KeySchemaElement'
     { _kseAttributeName = pAttributeName_
@@ -186,8 +190,18 @@ instance FromJSON KeySchemaElement where
 -- | A description of a unique event within a stream.
 --
 -- /See:/ 'record' smart constructor.
+data Record = Record'
+    { _rEventVersion :: !(Maybe Text)
+    , _rDynamodb     :: !(Maybe StreamRecord)
+    , _rAwsRegion    :: !(Maybe Text)
+    , _rEventName    :: !(Maybe OperationType)
+    , _rEventSource  :: !(Maybe Text)
+    , _rEventId      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Record' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rEventVersion'
 --
@@ -200,17 +214,8 @@ instance FromJSON KeySchemaElement where
 -- * 'rEventSource'
 --
 -- * 'rEventId'
-data Record = Record'
-    { _rEventVersion :: !(Maybe Text)
-    , _rDynamodb     :: !(Maybe StreamRecord)
-    , _rAwsRegion    :: !(Maybe Text)
-    , _rEventName    :: !(Maybe OperationType)
-    , _rEventSource  :: !(Maybe Text)
-    , _rEventId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'Record' smart constructor.
-record :: Record
+record
+    :: Record
 record =
     Record'
     { _rEventVersion = Nothing
@@ -237,11 +242,11 @@ rAwsRegion = lens _rAwsRegion (\ s a -> s{_rAwsRegion = a});
 
 -- | The type of data modification that was performed on the DynamoDB table:
 --
--- -   @INSERT@ - a new item was added to the table.
+-- -   'INSERT' - a new item was added to the table.
 --
--- -   @MODIFY@ - one or more of the item\'s attributes were updated.
+-- -   'MODIFY' - one or more of the item\'s attributes were updated.
 --
--- -   @REMOVE@ - the item was deleted from the table
+-- -   'REMOVE' - the item was deleted from the table
 --
 rEventName :: Lens' Record (Maybe OperationType)
 rEventName = lens _rEventName (\ s a -> s{_rEventName = a});
@@ -271,19 +276,20 @@ instance FromJSON Record where
 -- contained within a shard.
 --
 -- /See:/ 'sequenceNumberRange' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'snrStartingSequenceNumber'
---
--- * 'snrEndingSequenceNumber'
 data SequenceNumberRange = SequenceNumberRange'
     { _snrStartingSequenceNumber :: !(Maybe Text)
     , _snrEndingSequenceNumber   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SequenceNumberRange' smart constructor.
-sequenceNumberRange :: SequenceNumberRange
+-- | Creates a value of 'SequenceNumberRange' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'snrStartingSequenceNumber'
+--
+-- * 'snrEndingSequenceNumber'
+sequenceNumberRange
+    :: SequenceNumberRange
 sequenceNumberRange =
     SequenceNumberRange'
     { _snrStartingSequenceNumber = Nothing
@@ -309,22 +315,23 @@ instance FromJSON SequenceNumberRange where
 -- | A uniquely identified group of stream records within a stream.
 --
 -- /See:/ 'shard' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sParentShardId'
---
--- * 'sSequenceNumberRange'
---
--- * 'sShardId'
 data Shard = Shard'
     { _sParentShardId       :: !(Maybe Text)
     , _sSequenceNumberRange :: !(Maybe SequenceNumberRange)
     , _sShardId             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Shard' smart constructor.
-shard :: Shard
+-- | Creates a value of 'Shard' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sParentShardId'
+--
+-- * 'sSequenceNumberRange'
+--
+-- * 'sShardId'
+shard
+    :: Shard
 shard =
     Shard'
     { _sParentShardId = Nothing
@@ -356,22 +363,23 @@ instance FromJSON Shard where
 -- | Represents all of the data describing a particular stream.
 --
 -- /See:/ 'stream' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sStreamLabel'
---
--- * 'sStreamARN'
---
--- * 'sTableName'
 data Stream = Stream'
     { _sStreamLabel :: !(Maybe Text)
     , _sStreamARN   :: !(Maybe Text)
     , _sTableName   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Stream' smart constructor.
-stream :: Stream
+-- | Creates a value of 'Stream' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sStreamLabel'
+--
+-- * 'sStreamARN'
+--
+-- * 'sTableName'
+stream
+    :: Stream
 stream =
     Stream'
     { _sStreamLabel = Nothing
@@ -414,8 +422,21 @@ instance FromJSON Stream where
 -- | Represents all of the data describing a particular stream.
 --
 -- /See:/ 'streamDescription' smart constructor.
+data StreamDescription = StreamDescription'
+    { _sdLastEvaluatedShardId    :: !(Maybe Text)
+    , _sdStreamLabel             :: !(Maybe Text)
+    , _sdStreamStatus            :: !(Maybe StreamStatus)
+    , _sdKeySchema               :: !(Maybe (List1 KeySchemaElement))
+    , _sdStreamARN               :: !(Maybe Text)
+    , _sdStreamViewType          :: !(Maybe StreamViewType)
+    , _sdShards                  :: !(Maybe [Shard])
+    , _sdTableName               :: !(Maybe Text)
+    , _sdCreationRequestDateTime :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StreamDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'sdLastEvaluatedShardId'
 --
@@ -434,20 +455,8 @@ instance FromJSON Stream where
 -- * 'sdTableName'
 --
 -- * 'sdCreationRequestDateTime'
-data StreamDescription = StreamDescription'
-    { _sdLastEvaluatedShardId    :: !(Maybe Text)
-    , _sdStreamLabel             :: !(Maybe Text)
-    , _sdStreamStatus            :: !(Maybe StreamStatus)
-    , _sdKeySchema               :: !(Maybe (List1 KeySchemaElement))
-    , _sdStreamARN               :: !(Maybe Text)
-    , _sdStreamViewType          :: !(Maybe StreamViewType)
-    , _sdShards                  :: !(Maybe [Shard])
-    , _sdTableName               :: !(Maybe Text)
-    , _sdCreationRequestDateTime :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StreamDescription' smart constructor.
-streamDescription :: StreamDescription
+streamDescription
+    :: StreamDescription
 streamDescription =
     StreamDescription'
     { _sdLastEvaluatedShardId = Nothing
@@ -465,12 +474,12 @@ streamDescription =
 -- previous result set. Use this value to start a new operation, excluding
 -- this value in the new request.
 --
--- If @LastEvaluatedShardId@ is empty, then the \"last page\" of results
+-- If 'LastEvaluatedShardId' is empty, then the \"last page\" of results
 -- has been processed and there is currently no more data to be retrieved.
 --
--- If @LastEvaluatedShardId@ is not empty, it does not necessarily mean
+-- If 'LastEvaluatedShardId' is not empty, it does not necessarily mean
 -- that there is more data in the result set. The only way to know when you
--- have reached the end of the result set is when @LastEvaluatedShardId@ is
+-- have reached the end of the result set is when 'LastEvaluatedShardId' is
 -- empty.
 sdLastEvaluatedShardId :: Lens' StreamDescription (Maybe Text)
 sdLastEvaluatedShardId = lens _sdLastEvaluatedShardId (\ s a -> s{_sdLastEvaluatedShardId = a});
@@ -493,15 +502,15 @@ sdStreamLabel = lens _sdStreamLabel (\ s a -> s{_sdStreamLabel = a});
 
 -- | Indicates the current status of the stream:
 --
--- -   @ENABLING@ - Streams is currently being enabled on the DynamoDB
+-- -   'ENABLING' - Streams is currently being enabled on the DynamoDB
 --     table.
 --
--- -   @ENABLING@ - the stream is enabled.
+-- -   'ENABLING' - the stream is enabled.
 --
--- -   @DISABLING@ - Streams is currently being disabled on the DynamoDB
+-- -   'DISABLING' - Streams is currently being disabled on the DynamoDB
 --     table.
 --
--- -   @DISABLED@ - the stream is disabled.
+-- -   'DISABLED' - the stream is disabled.
 --
 sdStreamStatus :: Lens' StreamDescription (Maybe StreamStatus)
 sdStreamStatus = lens _sdStreamStatus (\ s a -> s{_sdStreamStatus = a});
@@ -516,16 +525,16 @@ sdStreamARN = lens _sdStreamARN (\ s a -> s{_sdStreamARN = a});
 
 -- | Indicates the format of the records within this stream:
 --
--- -   @KEYS_ONLY@ - only the key attributes of items that were modified in
+-- -   'KEYS_ONLY' - only the key attributes of items that were modified in
 --     the DynamoDB table.
 --
--- -   @NEW_IMAGE@ - entire item from the table, as it appeared after they
+-- -   'NEW_IMAGE' - entire item from the table, as it appeared after they
 --     were modified.
 --
--- -   @OLD_IMAGE@ - entire item from the table, as it appeared before they
+-- -   'OLD_IMAGE' - entire item from the table, as it appeared before they
 --     were modified.
 --
--- -   @NEW_AND_OLD_IMAGES@ - both the new and the old images of the items
+-- -   'NEW_AND_OLD_IMAGES' - both the new and the old images of the items
 --     from the table.
 --
 sdStreamViewType :: Lens' StreamDescription (Maybe StreamViewType)
@@ -562,8 +571,18 @@ instance FromJSON StreamDescription where
 -- item in a DynamoDB table.
 --
 -- /See:/ 'streamRecord' smart constructor.
+data StreamRecord = StreamRecord'
+    { _srSequenceNumber :: !(Maybe Text)
+    , _srSizeBytes      :: !(Maybe Nat)
+    , _srStreamViewType :: !(Maybe StreamViewType)
+    , _srKeys           :: !(Maybe (Map Text AttributeValue))
+    , _srOldImage       :: !(Maybe (Map Text AttributeValue))
+    , _srNewImage       :: !(Maybe (Map Text AttributeValue))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StreamRecord' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'srSequenceNumber'
 --
@@ -576,17 +595,8 @@ instance FromJSON StreamDescription where
 -- * 'srOldImage'
 --
 -- * 'srNewImage'
-data StreamRecord = StreamRecord'
-    { _srSequenceNumber :: !(Maybe Text)
-    , _srSizeBytes      :: !(Maybe Nat)
-    , _srStreamViewType :: !(Maybe StreamViewType)
-    , _srKeys           :: !(Maybe (Map Text AttributeValue))
-    , _srOldImage       :: !(Maybe (Map Text AttributeValue))
-    , _srNewImage       :: !(Maybe (Map Text AttributeValue))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'StreamRecord' smart constructor.
-streamRecord :: StreamRecord
+streamRecord
+    :: StreamRecord
 streamRecord =
     StreamRecord'
     { _srSequenceNumber = Nothing
@@ -608,14 +618,14 @@ srSizeBytes = lens _srSizeBytes (\ s a -> s{_srSizeBytes = a}) . mapping _Nat;
 -- | The type of data from the modified DynamoDB item that was captured in
 -- this stream record:
 --
--- -   @KEYS_ONLY@ - only the key attributes of the modified item.
+-- -   'KEYS_ONLY' - only the key attributes of the modified item.
 --
--- -   @NEW_IMAGE@ - the entire item, as it appears after it was modified.
+-- -   'NEW_IMAGE' - the entire item, as it appears after it was modified.
 --
--- -   @OLD_IMAGE@ - the entire item, as it appeared before it was
+-- -   'OLD_IMAGE' - the entire item, as it appeared before it was
 --     modified.
 --
--- -   @NEW_AND_OLD_IMAGES@ — both the new and the old item images of the
+-- -   'NEW_AND_OLD_IMAGES' — both the new and the old item images of the
 --     item.
 --
 srStreamViewType :: Lens' StreamRecord (Maybe StreamViewType)

@@ -30,8 +30,8 @@
 module Network.AWS.EC2.ReplaceRoute
     (
     -- * Creating a Request
-      ReplaceRoute
-    , replaceRoute
+      replaceRoute
+    , ReplaceRoute
     -- * Request Lenses
     , rrInstanceId
     , rrVPCPeeringConnectionId
@@ -42,8 +42,8 @@ module Network.AWS.EC2.ReplaceRoute
     , rrDestinationCIdRBlock
 
     -- * Destructuring the Response
-    , ReplaceRouteResponse
     , replaceRouteResponse
+    , ReplaceRouteResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,8 +53,19 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'replaceRoute' smart constructor.
+data ReplaceRoute = ReplaceRoute'
+    { _rrInstanceId             :: !(Maybe Text)
+    , _rrVPCPeeringConnectionId :: !(Maybe Text)
+    , _rrNetworkInterfaceId     :: !(Maybe Text)
+    , _rrGatewayId              :: !(Maybe Text)
+    , _rrDryRun                 :: !(Maybe Bool)
+    , _rrRouteTableId           :: !Text
+    , _rrDestinationCIdRBlock   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReplaceRoute' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rrInstanceId'
 --
@@ -69,18 +80,10 @@ import           Network.AWS.Response
 -- * 'rrRouteTableId'
 --
 -- * 'rrDestinationCIdRBlock'
-data ReplaceRoute = ReplaceRoute'
-    { _rrInstanceId             :: !(Maybe Text)
-    , _rrVPCPeeringConnectionId :: !(Maybe Text)
-    , _rrNetworkInterfaceId     :: !(Maybe Text)
-    , _rrGatewayId              :: !(Maybe Text)
-    , _rrDryRun                 :: !(Maybe Bool)
-    , _rrRouteTableId           :: !Text
-    , _rrDestinationCIdRBlock   :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReplaceRoute' smart constructor.
-replaceRoute :: Text -> Text -> ReplaceRoute
+replaceRoute
+    :: Text -- ^ 'rrRouteTableId'
+    -> Text -- ^ 'rrDestinationCIdRBlock'
+    -> ReplaceRoute
 replaceRoute pRouteTableId_ pDestinationCIdRBlock_ =
     ReplaceRoute'
     { _rrInstanceId = Nothing
@@ -110,8 +113,8 @@ rrGatewayId = lens _rrGatewayId (\ s a -> s{_rrGatewayId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 rrDryRun :: Lens' ReplaceRoute (Maybe Bool)
 rrDryRun = lens _rrDryRun (\ s a -> s{_rrDryRun = a});
 
@@ -154,6 +157,8 @@ data ReplaceRouteResponse =
     ReplaceRouteResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReplaceRouteResponse' smart constructor.
-replaceRouteResponse :: ReplaceRouteResponse
+-- | Creates a value of 'ReplaceRouteResponse' with the minimum fields required to make a request.
+--
+replaceRouteResponse
+    :: ReplaceRouteResponse
 replaceRouteResponse = ReplaceRouteResponse'

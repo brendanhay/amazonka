@@ -19,10 +19,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Use this action to create or change your authoritative DNS information.
--- To use this action, send a @POST@ request to the
--- @2013-04-01\/hostedzone\/hosted Zone ID\/rrset@ resource. The request
+-- To use this action, send a 'POST' request to the
+-- '2013-04-01\/hostedzone\/hosted Zone ID\/rrset' resource. The request
 -- body must include an XML document with a
--- @ChangeResourceRecordSetsRequest@ element.
+-- 'ChangeResourceRecordSetsRequest' element.
 --
 -- Changes are a list of change items and are considered transactional. For
 -- more information on transactional changes, also known as change batches,
@@ -33,36 +33,36 @@
 -- Due to the nature of transactional changes, you cannot delete the same
 -- resource record set more than once in a single change batch. If you
 -- attempt to delete the same change batch more than once, Route 53 returns
--- an @InvalidChangeBatch@ error.
+-- an 'InvalidChangeBatch' error.
 --
--- In response to a @ChangeResourceRecordSets@ request, your DNS data is
+-- In response to a 'ChangeResourceRecordSets' request, your DNS data is
 -- changed on all Route 53 DNS servers. Initially, the status of a change
--- is @PENDING@. This means the change has not yet propagated to all the
+-- is 'PENDING'. This means the change has not yet propagated to all the
 -- authoritative Route 53 DNS servers. When the change is propagated to all
--- hosts, the change returns a status of @INSYNC@.
+-- hosts, the change returns a status of 'INSYNC'.
 --
--- Note the following limitations on a @ChangeResourceRecordSets@ request:
+-- Note the following limitations on a 'ChangeResourceRecordSets' request:
 --
 -- - A request cannot contain more than 100 Change elements.
 --
 -- - A request cannot contain more than 1000 ResourceRecord elements.
 --
--- The sum of the number of characters (including spaces) in all @Value@
+-- The sum of the number of characters (including spaces) in all 'Value'
 -- elements in a request cannot exceed 32,000 characters.
 --
 -- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html AWS API Reference> for ChangeResourceRecordSets.
 module Network.AWS.Route53.ChangeResourceRecordSets
     (
     -- * Creating a Request
-      ChangeResourceRecordSets
-    , changeResourceRecordSets
+      changeResourceRecordSets
+    , ChangeResourceRecordSets
     -- * Request Lenses
     , crrsHostedZoneId
     , crrsChangeBatch
 
     -- * Destructuring the Response
-    , ChangeResourceRecordSetsResponse
     , changeResourceRecordSetsResponse
+    , ChangeResourceRecordSetsResponse
     -- * Response Lenses
     , crrsrsStatus
     , crrsrsChangeInfo
@@ -77,19 +77,22 @@ import           Network.AWS.Route53.Types.Product
 -- | A complex type that contains a change batch.
 --
 -- /See:/ 'changeResourceRecordSets' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crrsHostedZoneId'
---
--- * 'crrsChangeBatch'
 data ChangeResourceRecordSets = ChangeResourceRecordSets'
     { _crrsHostedZoneId :: !Text
     , _crrsChangeBatch  :: !ChangeBatch
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangeResourceRecordSets' smart constructor.
-changeResourceRecordSets :: Text -> ChangeBatch -> ChangeResourceRecordSets
+-- | Creates a value of 'ChangeResourceRecordSets' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crrsHostedZoneId'
+--
+-- * 'crrsChangeBatch'
+changeResourceRecordSets
+    :: Text -- ^ 'crrsHostedZoneId'
+    -> ChangeBatch -- ^ 'crrsChangeBatch'
+    -> ChangeResourceRecordSets
 changeResourceRecordSets pHostedZoneId_ pChangeBatch_ =
     ChangeResourceRecordSets'
     { _crrsHostedZoneId = pHostedZoneId_
@@ -101,7 +104,7 @@ changeResourceRecordSets pHostedZoneId_ pChangeBatch_ =
 crrsHostedZoneId :: Lens' ChangeResourceRecordSets Text
 crrsHostedZoneId = lens _crrsHostedZoneId (\ s a -> s{_crrsHostedZoneId = a});
 
--- | A complex type that contains an optional comment and the @Changes@
+-- | A complex type that contains an optional comment and the 'Changes'
 -- element.
 crrsChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
 crrsChangeBatch = lens _crrsChangeBatch (\ s a -> s{_crrsChangeBatch = a});
@@ -141,26 +144,29 @@ instance ToXML ChangeResourceRecordSets where
 -- | A complex type containing the response for the request.
 --
 -- /See:/ 'changeResourceRecordSetsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crrsrsStatus'
---
--- * 'crrsrsChangeInfo'
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
     { _crrsrsStatus     :: !Int
     , _crrsrsChangeInfo :: !ChangeInfo
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangeResourceRecordSetsResponse' smart constructor.
-changeResourceRecordSetsResponse :: Int -> ChangeInfo -> ChangeResourceRecordSetsResponse
+-- | Creates a value of 'ChangeResourceRecordSetsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crrsrsStatus'
+--
+-- * 'crrsrsChangeInfo'
+changeResourceRecordSetsResponse
+    :: Int -- ^ 'crrsrsStatus'
+    -> ChangeInfo -- ^ 'crrsrsChangeInfo'
+    -> ChangeResourceRecordSetsResponse
 changeResourceRecordSetsResponse pStatus_ pChangeInfo_ =
     ChangeResourceRecordSetsResponse'
     { _crrsrsStatus = pStatus_
     , _crrsrsChangeInfo = pChangeInfo_
     }
 
--- | Undocumented member.
+-- | The response status code.
 crrsrsStatus :: Lens' ChangeResourceRecordSetsResponse Int
 crrsrsStatus = lens _crrsrsStatus (\ s a -> s{_crrsrsStatus = a});
 

@@ -27,15 +27,15 @@
 module Network.AWS.ImportExport.GetStatus
     (
     -- * Creating a Request
-      GetStatus
-    , getStatus
+      getStatus
+    , GetStatus
     -- * Request Lenses
     , gsAPIVersion
     , gsJobId
 
     -- * Destructuring the Response
-    , GetStatusResponse
     , getStatusResponse
+    , GetStatusResponse
     -- * Response Lenses
     , gsrsCarrier
     , gsrsSignature
@@ -65,19 +65,21 @@ import           Network.AWS.Response
 -- | Input structure for the GetStatus operation.
 --
 -- /See:/ 'getStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsAPIVersion'
---
--- * 'gsJobId'
 data GetStatus = GetStatus'
     { _gsAPIVersion :: !(Maybe Text)
     , _gsJobId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetStatus' smart constructor.
-getStatus :: Text -> GetStatus
+-- | Creates a value of 'GetStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsAPIVersion'
+--
+-- * 'gsJobId'
+getStatus
+    :: Text -- ^ 'gsJobId'
+    -> GetStatus
 getStatus pJobId_ =
     GetStatus'
     { _gsAPIVersion = Nothing
@@ -136,8 +138,29 @@ instance ToQuery GetStatus where
 -- | Output structure for the GetStatus operation.
 --
 -- /See:/ 'getStatusResponse' smart constructor.
+data GetStatusResponse = GetStatusResponse'
+    { _gsrsCarrier               :: !(Maybe Text)
+    , _gsrsSignature             :: !(Maybe Text)
+    , _gsrsTrackingNumber        :: !(Maybe Text)
+    , _gsrsJobType               :: !(Maybe JobType)
+    , _gsrsJobId                 :: !(Maybe Text)
+    , _gsrsSignatureFileContents :: !(Maybe Text)
+    , _gsrsErrorCount            :: !(Maybe Int)
+    , _gsrsCurrentManifest       :: !(Maybe Text)
+    , _gsrsArtifactList          :: !(Maybe [Artifact])
+    , _gsrsLogBucket             :: !(Maybe Text)
+    , _gsrsCreationDate          :: !(Maybe ISO8601)
+    , _gsrsProgressCode          :: !(Maybe Text)
+    , _gsrsLocationCode          :: !(Maybe Text)
+    , _gsrsLogKey                :: !(Maybe Text)
+    , _gsrsProgressMessage       :: !(Maybe Text)
+    , _gsrsLocationMessage       :: !(Maybe Text)
+    , _gsrsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetStatusResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gsrsCarrier'
 --
@@ -172,28 +195,9 @@ instance ToQuery GetStatus where
 -- * 'gsrsLocationMessage'
 --
 -- * 'gsrsStatus'
-data GetStatusResponse = GetStatusResponse'
-    { _gsrsCarrier               :: !(Maybe Text)
-    , _gsrsSignature             :: !(Maybe Text)
-    , _gsrsTrackingNumber        :: !(Maybe Text)
-    , _gsrsJobType               :: !(Maybe JobType)
-    , _gsrsJobId                 :: !(Maybe Text)
-    , _gsrsSignatureFileContents :: !(Maybe Text)
-    , _gsrsErrorCount            :: !(Maybe Int)
-    , _gsrsCurrentManifest       :: !(Maybe Text)
-    , _gsrsArtifactList          :: !(Maybe [Artifact])
-    , _gsrsLogBucket             :: !(Maybe Text)
-    , _gsrsCreationDate          :: !(Maybe ISO8601)
-    , _gsrsProgressCode          :: !(Maybe Text)
-    , _gsrsLocationCode          :: !(Maybe Text)
-    , _gsrsLogKey                :: !(Maybe Text)
-    , _gsrsProgressMessage       :: !(Maybe Text)
-    , _gsrsLocationMessage       :: !(Maybe Text)
-    , _gsrsStatus                :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetStatusResponse' smart constructor.
-getStatusResponse :: Int -> GetStatusResponse
+getStatusResponse
+    :: Int -- ^ 'gsrsStatus'
+    -> GetStatusResponse
 getStatusResponse pStatus_ =
     GetStatusResponse'
     { _gsrsCarrier = Nothing
@@ -279,6 +283,6 @@ gsrsProgressMessage = lens _gsrsProgressMessage (\ s a -> s{_gsrsProgressMessage
 gsrsLocationMessage :: Lens' GetStatusResponse (Maybe Text)
 gsrsLocationMessage = lens _gsrsLocationMessage (\ s a -> s{_gsrsLocationMessage = a});
 
--- | Undocumented member.
+-- | The response status code.
 gsrsStatus :: Lens' GetStatusResponse Int
 gsrsStatus = lens _gsrsStatus (\ s a -> s{_gsrsStatus = a});

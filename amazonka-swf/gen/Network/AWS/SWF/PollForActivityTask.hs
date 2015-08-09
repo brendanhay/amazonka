@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Used by workers to get an ActivityTask from the specified activity
--- @taskList@. This initiates a long poll, where the service holds the HTTP
+-- 'taskList'. This initiates a long poll, where the service holds the HTTP
 -- connection open and responds as soon as a task becomes available. The
 -- maximum time the service holds on to the request before responding is 60
 -- seconds. If no task is available within 60 seconds, the poll will return
@@ -37,12 +37,12 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
--- -   Constrain the @taskList.name@ parameter by using a __Condition__
---     element with the @swf:taskList.name@ key to allow the action to
+-- -   Constrain the 'taskList.name' parameter by using a __Condition__
+--     element with the 'swf:taskList.name' key to allow the action to
 --     access only certain task lists.
 --
 -- If the caller does not have sufficient permissions to invoke the action,
@@ -56,16 +56,16 @@
 module Network.AWS.SWF.PollForActivityTask
     (
     -- * Creating a Request
-      PollForActivityTask
-    , pollForActivityTask
+      pollForActivityTask
+    , PollForActivityTask
     -- * Request Lenses
     , pfatIdentity
     , pfatDomain
     , pfatTaskList
 
     -- * Destructuring the Response
-    , PollForActivityTaskResponse
     , pollForActivityTaskResponse
+    , PollForActivityTaskResponse
     -- * Response Lenses
     , pfatrsInput
     , pfatrsStatus
@@ -83,22 +83,25 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'pollForActivityTask' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pfatIdentity'
---
--- * 'pfatDomain'
---
--- * 'pfatTaskList'
 data PollForActivityTask = PollForActivityTask'
     { _pfatIdentity :: !(Maybe Text)
     , _pfatDomain   :: !Text
     , _pfatTaskList :: !TaskList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PollForActivityTask' smart constructor.
-pollForActivityTask :: Text -> TaskList -> PollForActivityTask
+-- | Creates a value of 'PollForActivityTask' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pfatIdentity'
+--
+-- * 'pfatDomain'
+--
+-- * 'pfatTaskList'
+pollForActivityTask
+    :: Text -- ^ 'pfatDomain'
+    -> TaskList -- ^ 'pfatTaskList'
+    -> PollForActivityTask
 pollForActivityTask pDomain_ pTaskList_ =
     PollForActivityTask'
     { _pfatIdentity = Nothing
@@ -107,7 +110,7 @@ pollForActivityTask pDomain_ pTaskList_ =
     }
 
 -- | Identity of the worker making the request, recorded in the
--- @ActivityTaskStarted@ event in the workflow history. This enables
+-- 'ActivityTaskStarted' event in the workflow history. This enables
 -- diagnostic tracing when problems arise. The form of this identity is
 -- user defined.
 pfatIdentity :: Lens' PollForActivityTask (Maybe Text)
@@ -120,7 +123,7 @@ pfatDomain = lens _pfatDomain (\ s a -> s{_pfatDomain = a});
 -- | Specifies the task list to poll for activity tasks.
 --
 -- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
+-- contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
 pfatTaskList :: Lens' PollForActivityTask TaskList
@@ -167,8 +170,19 @@ instance ToQuery PollForActivityTask where
 -- | Unit of work sent to an activity worker.
 --
 -- /See:/ 'pollForActivityTaskResponse' smart constructor.
+data PollForActivityTaskResponse = PollForActivityTaskResponse'
+    { _pfatrsInput             :: !(Maybe Text)
+    , _pfatrsStatus            :: !Int
+    , _pfatrsTaskToken         :: !Text
+    , _pfatrsActivityId        :: !Text
+    , _pfatrsStartedEventId    :: !Integer
+    , _pfatrsWorkflowExecution :: !WorkflowExecution
+    , _pfatrsActivityType      :: !ActivityType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PollForActivityTaskResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pfatrsInput'
 --
@@ -183,18 +197,14 @@ instance ToQuery PollForActivityTask where
 -- * 'pfatrsWorkflowExecution'
 --
 -- * 'pfatrsActivityType'
-data PollForActivityTaskResponse = PollForActivityTaskResponse'
-    { _pfatrsInput             :: !(Maybe Text)
-    , _pfatrsStatus            :: !Int
-    , _pfatrsTaskToken         :: !Text
-    , _pfatrsActivityId        :: !Text
-    , _pfatrsStartedEventId    :: !Integer
-    , _pfatrsWorkflowExecution :: !WorkflowExecution
-    , _pfatrsActivityType      :: !ActivityType
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PollForActivityTaskResponse' smart constructor.
-pollForActivityTaskResponse :: Int -> Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> PollForActivityTaskResponse
+pollForActivityTaskResponse
+    :: Int -- ^ 'pfatrsStatus'
+    -> Text -- ^ 'pfatrsTaskToken'
+    -> Text -- ^ 'pfatrsActivityId'
+    -> Integer -- ^ 'pfatrsStartedEventId'
+    -> WorkflowExecution -- ^ 'pfatrsWorkflowExecution'
+    -> ActivityType -- ^ 'pfatrsActivityType'
+    -> PollForActivityTaskResponse
 pollForActivityTaskResponse pStatus_ pTaskToken_ pActivityId_ pStartedEventId_ pWorkflowExecution_ pActivityType_ =
     PollForActivityTaskResponse'
     { _pfatrsInput = Nothing
@@ -212,7 +222,7 @@ pollForActivityTaskResponse pStatus_ pTaskToken_ pActivityId_ pStartedEventId_ p
 pfatrsInput :: Lens' PollForActivityTaskResponse (Maybe Text)
 pfatrsInput = lens _pfatrsInput (\ s a -> s{_pfatrsInput = a});
 
--- | Undocumented member.
+-- | The response status code.
 pfatrsStatus :: Lens' PollForActivityTaskResponse Int
 pfatrsStatus = lens _pfatrsStatus (\ s a -> s{_pfatrsStatus = a});
 
@@ -226,7 +236,7 @@ pfatrsTaskToken = lens _pfatrsTaskToken (\ s a -> s{_pfatrsTaskToken = a});
 pfatrsActivityId :: Lens' PollForActivityTaskResponse Text
 pfatrsActivityId = lens _pfatrsActivityId (\ s a -> s{_pfatrsActivityId = a});
 
--- | The ID of the @ActivityTaskStarted@ event recorded in the history.
+-- | The ID of the 'ActivityTaskStarted' event recorded in the history.
 pfatrsStartedEventId :: Lens' PollForActivityTaskResponse Integer
 pfatrsStartedEventId = lens _pfatrsStartedEventId (\ s a -> s{_pfatrsStartedEventId = a});
 

@@ -29,16 +29,16 @@
 module Network.AWS.RDS.PromoteReadReplica
     (
     -- * Creating a Request
-      PromoteReadReplica
-    , promoteReadReplica
+      promoteReadReplica
+    , PromoteReadReplica
     -- * Request Lenses
     , prrPreferredBackupWindow
     , prrBackupRetentionPeriod
     , prrDBInstanceIdentifier
 
     -- * Destructuring the Response
-    , PromoteReadReplicaResponse
     , promoteReadReplicaResponse
+    , PromoteReadReplicaResponse
     -- * Response Lenses
     , prrrsDBInstance
     , prrrsStatus
@@ -53,22 +53,24 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'promoteReadReplica' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prrPreferredBackupWindow'
---
--- * 'prrBackupRetentionPeriod'
---
--- * 'prrDBInstanceIdentifier'
 data PromoteReadReplica = PromoteReadReplica'
     { _prrPreferredBackupWindow :: !(Maybe Text)
     , _prrBackupRetentionPeriod :: !(Maybe Int)
     , _prrDBInstanceIdentifier  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PromoteReadReplica' smart constructor.
-promoteReadReplica :: Text -> PromoteReadReplica
+-- | Creates a value of 'PromoteReadReplica' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prrPreferredBackupWindow'
+--
+-- * 'prrBackupRetentionPeriod'
+--
+-- * 'prrDBInstanceIdentifier'
+promoteReadReplica
+    :: Text -- ^ 'prrDBInstanceIdentifier'
+    -> PromoteReadReplica
 promoteReadReplica pDBInstanceIdentifier_ =
     PromoteReadReplica'
     { _prrPreferredBackupWindow = Nothing
@@ -77,7 +79,7 @@ promoteReadReplica pDBInstanceIdentifier_ =
     }
 
 -- | The daily time range during which automated backups are created if
--- automated backups are enabled, using the @BackupRetentionPeriod@
+-- automated backups are enabled, using the 'BackupRetentionPeriod'
 -- parameter.
 --
 -- Default: A 30-minute window selected at random from an 8-hour block of
@@ -87,7 +89,7 @@ promoteReadReplica pDBInstanceIdentifier_ =
 --
 -- Constraints:
 --
--- -   Must be in the format @hh24:mi-hh24:mi@.
+-- -   Must be in the format 'hh24:mi-hh24:mi'.
 -- -   Times should be in Universal Coordinated Time (UTC).
 -- -   Must not conflict with the preferred maintenance window.
 -- -   Must be at least 30 minutes.
@@ -146,19 +148,21 @@ instance ToQuery PromoteReadReplica where
                "DBInstanceIdentifier" =: _prrDBInstanceIdentifier]
 
 -- | /See:/ 'promoteReadReplicaResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prrrsDBInstance'
---
--- * 'prrrsStatus'
 data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
     { _prrrsDBInstance :: !(Maybe DBInstance)
     , _prrrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PromoteReadReplicaResponse' smart constructor.
-promoteReadReplicaResponse :: Int -> PromoteReadReplicaResponse
+-- | Creates a value of 'PromoteReadReplicaResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prrrsDBInstance'
+--
+-- * 'prrrsStatus'
+promoteReadReplicaResponse
+    :: Int -- ^ 'prrrsStatus'
+    -> PromoteReadReplicaResponse
 promoteReadReplicaResponse pStatus_ =
     PromoteReadReplicaResponse'
     { _prrrsDBInstance = Nothing
@@ -169,6 +173,6 @@ promoteReadReplicaResponse pStatus_ =
 prrrsDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
 prrrsDBInstance = lens _prrrsDBInstance (\ s a -> s{_prrrsDBInstance = a});
 
--- | Undocumented member.
+-- | The response status code.
 prrrsStatus :: Lens' PromoteReadReplicaResponse Int
 prrrsStatus = lens _prrrsStatus (\ s a -> s{_prrrsStatus = a});

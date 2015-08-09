@@ -24,14 +24,14 @@
 module Network.AWS.EC2.DescribeExportTasks
     (
     -- * Creating a Request
-      DescribeExportTasks
-    , describeExportTasks
+      describeExportTasks
+    , DescribeExportTasks
     -- * Request Lenses
     , detExportTaskIds
 
     -- * Destructuring the Response
-    , DescribeExportTasksResponse
     , describeExportTasksResponse
+    , DescribeExportTasksResponse
     -- * Response Lenses
     , detrsExportTasks
     , detrsStatus
@@ -44,16 +44,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeExportTasks' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'detExportTaskIds'
 newtype DescribeExportTasks = DescribeExportTasks'
     { _detExportTaskIds :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeExportTasks' smart constructor.
-describeExportTasks :: DescribeExportTasks
+-- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'detExportTaskIds'
+describeExportTasks
+    :: DescribeExportTasks
 describeExportTasks =
     DescribeExportTasks'
     { _detExportTaskIds = Nothing
@@ -91,19 +92,21 @@ instance ToQuery DescribeExportTasks where
                  (toQueryList "ExportTaskId" <$> _detExportTaskIds)]
 
 -- | /See:/ 'describeExportTasksResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'detrsExportTasks'
---
--- * 'detrsStatus'
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
     { _detrsExportTasks :: !(Maybe [ExportTask])
     , _detrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeExportTasksResponse' smart constructor.
-describeExportTasksResponse :: Int -> DescribeExportTasksResponse
+-- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'detrsExportTasks'
+--
+-- * 'detrsStatus'
+describeExportTasksResponse
+    :: Int -- ^ 'detrsStatus'
+    -> DescribeExportTasksResponse
 describeExportTasksResponse pStatus_ =
     DescribeExportTasksResponse'
     { _detrsExportTasks = Nothing
@@ -114,6 +117,6 @@ describeExportTasksResponse pStatus_ =
 detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 detrsStatus :: Lens' DescribeExportTasksResponse Int
 detrsStatus = lens _detrsStatus (\ s a -> s{_detrsStatus = a});

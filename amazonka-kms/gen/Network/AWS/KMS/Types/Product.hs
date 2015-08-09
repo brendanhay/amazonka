@@ -24,22 +24,23 @@ import           Network.AWS.Prelude
 -- | Contains information about an alias.
 --
 -- /See:/ 'aliasListEntry' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aleTargetKeyId'
---
--- * 'aleAliasName'
---
--- * 'aleAliasARN'
 data AliasListEntry = AliasListEntry'
     { _aleTargetKeyId :: !(Maybe Text)
     , _aleAliasName   :: !(Maybe Text)
     , _aleAliasARN    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AliasListEntry' smart constructor.
-aliasListEntry :: AliasListEntry
+-- | Creates a value of 'AliasListEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'aleTargetKeyId'
+--
+-- * 'aleAliasName'
+--
+-- * 'aleAliasARN'
+aliasListEntry
+    :: AliasListEntry
 aliasListEntry =
     AliasListEntry'
     { _aleTargetKeyId = Nothing
@@ -70,19 +71,20 @@ instance FromJSON AliasListEntry where
 -- | Contains constraints on the grant.
 --
 -- /See:/ 'grantConstraints' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gcEncryptionContextEquals'
---
--- * 'gcEncryptionContextSubset'
 data GrantConstraints = GrantConstraints'
     { _gcEncryptionContextEquals :: !(Maybe (Map Text Text))
     , _gcEncryptionContextSubset :: !(Maybe (Map Text Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GrantConstraints' smart constructor.
-grantConstraints :: GrantConstraints
+-- | Creates a value of 'GrantConstraints' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcEncryptionContextEquals'
+--
+-- * 'gcEncryptionContextSubset'
+grantConstraints
+    :: GrantConstraints
 grantConstraints =
     GrantConstraints'
     { _gcEncryptionContextEquals = Nothing
@@ -117,8 +119,18 @@ instance ToJSON GrantConstraints where
 -- | Contains information about each entry in the grant list.
 --
 -- /See:/ 'grantListEntry' smart constructor.
+data GrantListEntry = GrantListEntry'
+    { _gleRetiringPrincipal :: !(Maybe Text)
+    , _gleIssuingAccount    :: !(Maybe Text)
+    , _gleGrantId           :: !(Maybe Text)
+    , _gleConstraints       :: !(Maybe GrantConstraints)
+    , _gleGranteePrincipal  :: !(Maybe Text)
+    , _gleOperations        :: !(Maybe [GrantOperation])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GrantListEntry' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gleRetiringPrincipal'
 --
@@ -131,17 +143,8 @@ instance ToJSON GrantConstraints where
 -- * 'gleGranteePrincipal'
 --
 -- * 'gleOperations'
-data GrantListEntry = GrantListEntry'
-    { _gleRetiringPrincipal :: !(Maybe Text)
-    , _gleIssuingAccount    :: !(Maybe Text)
-    , _gleGrantId           :: !(Maybe Text)
-    , _gleConstraints       :: !(Maybe GrantConstraints)
-    , _gleGranteePrincipal  :: !(Maybe Text)
-    , _gleOperations        :: !(Maybe [GrantOperation])
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GrantListEntry' smart constructor.
-grantListEntry :: GrantListEntry
+grantListEntry
+    :: GrantListEntry
 grantListEntry =
     GrantListEntry'
     { _gleRetiringPrincipal = Nothing
@@ -165,7 +168,7 @@ gleGrantId :: Lens' GrantListEntry (Maybe Text)
 gleGrantId = lens _gleGrantId (\ s a -> s{_gleGrantId = a});
 
 -- | Specifies the conditions under which the actions specified by the
--- @Operations@ parameter are allowed.
+-- 'Operations' parameter are allowed.
 gleConstraints :: Lens' GrantListEntry (Maybe GrantConstraints)
 gleConstraints = lens _gleConstraints (\ s a -> s{_gleConstraints = a});
 
@@ -201,19 +204,20 @@ instance FromJSON GrantListEntry where
 -- | Contains information about each entry in the key list.
 --
 -- /See:/ 'keyListEntry' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'kleKeyARN'
---
--- * 'kleKeyId'
 data KeyListEntry = KeyListEntry'
     { _kleKeyARN :: !(Maybe Text)
     , _kleKeyId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'KeyListEntry' smart constructor.
-keyListEntry :: KeyListEntry
+-- | Creates a value of 'KeyListEntry' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'kleKeyARN'
+--
+-- * 'kleKeyId'
+keyListEntry
+    :: KeyListEntry
 keyListEntry =
     KeyListEntry'
     { _kleKeyARN = Nothing
@@ -238,8 +242,19 @@ instance FromJSON KeyListEntry where
 -- | Contains metadata associated with a specific key.
 --
 -- /See:/ 'keyMetadata' smart constructor.
+data KeyMetadata = KeyMetadata'
+    { _kmARN          :: !(Maybe Text)
+    , _kmEnabled      :: !(Maybe Bool)
+    , _kmAWSAccountId :: !(Maybe Text)
+    , _kmKeyUsage     :: !(Maybe KeyUsageType)
+    , _kmCreationDate :: !(Maybe POSIX)
+    , _kmDescription  :: !(Maybe Text)
+    , _kmKeyId        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'KeyMetadata' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'kmARN'
 --
@@ -254,18 +269,9 @@ instance FromJSON KeyListEntry where
 -- * 'kmDescription'
 --
 -- * 'kmKeyId'
-data KeyMetadata = KeyMetadata'
-    { _kmARN          :: !(Maybe Text)
-    , _kmEnabled      :: !(Maybe Bool)
-    , _kmAWSAccountId :: !(Maybe Text)
-    , _kmKeyUsage     :: !(Maybe KeyUsageType)
-    , _kmCreationDate :: !(Maybe POSIX)
-    , _kmDescription  :: !(Maybe Text)
-    , _kmKeyId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'KeyMetadata' smart constructor.
-keyMetadata :: Text -> KeyMetadata
+keyMetadata
+    :: Text -- ^ 'kmKeyId'
+    -> KeyMetadata
 keyMetadata pKeyId_ =
     KeyMetadata'
     { _kmARN = Nothing

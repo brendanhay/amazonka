@@ -26,28 +26,28 @@
 -- -   Encrypt
 --
 -- Note that if a caller has been granted access permissions to all keys
--- (through, for example, IAM user policies that grant @Decrypt@ permission
+-- (through, for example, IAM user policies that grant 'Decrypt' permission
 -- on all resources), then ciphertext encrypted by using keys in other
 -- accounts where the key grants access to the caller can be decrypted. To
--- remedy this, we recommend that you do not grant @Decrypt@ access in an
--- IAM user policy. Instead grant @Decrypt@ access only in key policies. If
--- you must grant @Decrypt@ access in an IAM user policy, you should scope
+-- remedy this, we recommend that you do not grant 'Decrypt' access in an
+-- IAM user policy. Instead grant 'Decrypt' access only in key policies. If
+-- you must grant 'Decrypt' access in an IAM user policy, you should scope
 -- the resource to specific keys or to specific trusted accounts.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html AWS API Reference> for Decrypt.
 module Network.AWS.KMS.Decrypt
     (
     -- * Creating a Request
-      Decrypt
-    , decrypt
+      decrypt
+    , Decrypt
     -- * Request Lenses
     , dEncryptionContext
     , dGrantTokens
     , dCiphertextBlob
 
     -- * Destructuring the Response
-    , DecryptResponse
     , decryptResponse
+    , DecryptResponse
     -- * Response Lenses
     , drsKeyId
     , drsPlaintext
@@ -61,22 +61,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'decrypt' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dEncryptionContext'
---
--- * 'dGrantTokens'
---
--- * 'dCiphertextBlob'
 data Decrypt = Decrypt'
     { _dEncryptionContext :: !(Maybe (Map Text Text))
     , _dGrantTokens       :: !(Maybe [Text])
     , _dCiphertextBlob    :: !Base64
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Decrypt' smart constructor.
-decrypt :: ByteString -> Decrypt
+-- | Creates a value of 'Decrypt' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dEncryptionContext'
+--
+-- * 'dGrantTokens'
+--
+-- * 'dCiphertextBlob'
+decrypt
+    :: ByteString -- ^ 'dCiphertextBlob'
+    -> Decrypt
 decrypt pCiphertextBlob_ =
     Decrypt'
     { _dEncryptionContext = Nothing
@@ -134,22 +136,24 @@ instance ToQuery Decrypt where
         toQuery = const mempty
 
 -- | /See:/ 'decryptResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drsKeyId'
---
--- * 'drsPlaintext'
---
--- * 'drsStatus'
 data DecryptResponse = DecryptResponse'
     { _drsKeyId     :: !(Maybe Text)
     , _drsPlaintext :: !(Maybe (Sensitive Base64))
     , _drsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DecryptResponse' smart constructor.
-decryptResponse :: Int -> DecryptResponse
+-- | Creates a value of 'DecryptResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsKeyId'
+--
+-- * 'drsPlaintext'
+--
+-- * 'drsStatus'
+decryptResponse
+    :: Int -- ^ 'drsStatus'
+    -> DecryptResponse
 decryptResponse pStatus_ =
     DecryptResponse'
     { _drsKeyId = Nothing
@@ -167,6 +171,6 @@ drsKeyId = lens _drsKeyId (\ s a -> s{_drsKeyId = a});
 drsPlaintext :: Lens' DecryptResponse (Maybe ByteString)
 drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping (_Sensitive . _Base64);
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DecryptResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

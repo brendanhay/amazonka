@@ -23,21 +23,21 @@
 -- When you delete a function the associated access policy is also deleted.
 -- You will need to delete the event source mappings explicitly.
 --
--- This operation requires permission for the @lambda:DeleteFunction@
+-- This operation requires permission for the 'lambda:DeleteFunction'
 -- action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteFunction.html AWS API Reference> for DeleteFunction.
 module Network.AWS.Lambda.DeleteFunction
     (
     -- * Creating a Request
-      DeleteFunction
-    , deleteFunction
+      deleteFunction
+    , DeleteFunction
     -- * Request Lenses
     , dfFunctionName
 
     -- * Destructuring the Response
-    , DeleteFunctionResponse
     , deleteFunctionResponse
+    , DeleteFunctionResponse
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -47,16 +47,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteFunction' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dfFunctionName'
 newtype DeleteFunction = DeleteFunction'
     { _dfFunctionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteFunction' smart constructor.
-deleteFunction :: Text -> DeleteFunction
+-- | Creates a value of 'DeleteFunction' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dfFunctionName'
+deleteFunction
+    :: Text -- ^ 'dfFunctionName'
+    -> DeleteFunction
 deleteFunction pFunctionName_ =
     DeleteFunction'
     { _dfFunctionName = pFunctionName_
@@ -97,6 +99,8 @@ data DeleteFunctionResponse =
     DeleteFunctionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteFunctionResponse' smart constructor.
-deleteFunctionResponse :: DeleteFunctionResponse
+-- | Creates a value of 'DeleteFunctionResponse' with the minimum fields required to make a request.
+--
+deleteFunctionResponse
+    :: DeleteFunctionResponse
 deleteFunctionResponse = DeleteFunctionResponse'

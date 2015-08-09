@@ -25,14 +25,14 @@
 module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     (
     -- * Creating a Request
-      RetrieveDomainAuthCode
-    , retrieveDomainAuthCode
+      retrieveDomainAuthCode
+    , RetrieveDomainAuthCode
     -- * Request Lenses
     , rdacDomainName
 
     -- * Destructuring the Response
-    , RetrieveDomainAuthCodeResponse
     , retrieveDomainAuthCodeResponse
+    , RetrieveDomainAuthCodeResponse
     -- * Response Lenses
     , rdacrsStatus
     , rdacrsAuthCode
@@ -47,16 +47,18 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The RetrieveDomainAuthCode request includes the following element.
 --
 -- /See:/ 'retrieveDomainAuthCode' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdacDomainName'
 newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'
     { _rdacDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RetrieveDomainAuthCode' smart constructor.
-retrieveDomainAuthCode :: Text -> RetrieveDomainAuthCode
+-- | Creates a value of 'RetrieveDomainAuthCode' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdacDomainName'
+retrieveDomainAuthCode
+    :: Text -- ^ 'rdacDomainName'
+    -> RetrieveDomainAuthCode
 retrieveDomainAuthCode pDomainName_ =
     RetrieveDomainAuthCode'
     { _rdacDomainName = pDomainName_
@@ -110,26 +112,29 @@ instance ToQuery RetrieveDomainAuthCode where
 -- | The RetrieveDomainAuthCode response includes the following element.
 --
 -- /See:/ 'retrieveDomainAuthCodeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdacrsStatus'
---
--- * 'rdacrsAuthCode'
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
     { _rdacrsStatus   :: !Int
     , _rdacrsAuthCode :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RetrieveDomainAuthCodeResponse' smart constructor.
-retrieveDomainAuthCodeResponse :: Int -> Text -> RetrieveDomainAuthCodeResponse
+-- | Creates a value of 'RetrieveDomainAuthCodeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdacrsStatus'
+--
+-- * 'rdacrsAuthCode'
+retrieveDomainAuthCodeResponse
+    :: Int -- ^ 'rdacrsStatus'
+    -> Text -- ^ 'rdacrsAuthCode'
+    -> RetrieveDomainAuthCodeResponse
 retrieveDomainAuthCodeResponse pStatus_ pAuthCode_ =
     RetrieveDomainAuthCodeResponse'
     { _rdacrsStatus = pStatus_
     , _rdacrsAuthCode = _Sensitive # pAuthCode_
     }
 
--- | Undocumented member.
+-- | The response status code.
 rdacrsStatus :: Lens' RetrieveDomainAuthCodeResponse Int
 rdacrsStatus = lens _rdacrsStatus (\ s a -> s{_rdacrsStatus = a});
 

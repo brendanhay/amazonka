@@ -25,15 +25,15 @@
 module Network.AWS.AutoScaling.DisableMetricsCollection
     (
     -- * Creating a Request
-      DisableMetricsCollection
-    , disableMetricsCollection
+      disableMetricsCollection
+    , DisableMetricsCollection
     -- * Request Lenses
     , dmcMetrics
     , dmcAutoScalingGroupName
 
     -- * Destructuring the Response
-    , DisableMetricsCollectionResponse
     , disableMetricsCollectionResponse
+    , DisableMetricsCollectionResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -43,19 +43,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'disableMetricsCollection' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmcMetrics'
---
--- * 'dmcAutoScalingGroupName'
 data DisableMetricsCollection = DisableMetricsCollection'
     { _dmcMetrics              :: !(Maybe [Text])
     , _dmcAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableMetricsCollection' smart constructor.
-disableMetricsCollection :: Text -> DisableMetricsCollection
+-- | Creates a value of 'DisableMetricsCollection' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmcMetrics'
+--
+-- * 'dmcAutoScalingGroupName'
+disableMetricsCollection
+    :: Text -- ^ 'dmcAutoScalingGroupName'
+    -> DisableMetricsCollection
 disableMetricsCollection pAutoScalingGroupName_ =
     DisableMetricsCollection'
     { _dmcMetrics = Nothing
@@ -65,21 +67,21 @@ disableMetricsCollection pAutoScalingGroupName_ =
 -- | One or more metrics. If you omit this parameter, all metrics are
 -- disabled.
 --
--- -   @GroupMinSize@
+-- -   'GroupMinSize'
 --
--- -   @GroupMaxSize@
+-- -   'GroupMaxSize'
 --
--- -   @GroupDesiredCapacity@
+-- -   'GroupDesiredCapacity'
 --
--- -   @GroupInServiceInstances@
+-- -   'GroupInServiceInstances'
 --
--- -   @GroupPendingInstances@
+-- -   'GroupPendingInstances'
 --
--- -   @GroupStandbyInstances@
+-- -   'GroupStandbyInstances'
 --
--- -   @GroupTerminatingInstances@
+-- -   'GroupTerminatingInstances'
 --
--- -   @GroupTotalInstances@
+-- -   'GroupTotalInstances'
 --
 dmcMetrics :: Lens' DisableMetricsCollection [Text]
 dmcMetrics = lens _dmcMetrics (\ s a -> s{_dmcMetrics = a}) . _Default . _Coerce;
@@ -117,6 +119,8 @@ data DisableMetricsCollectionResponse =
     DisableMetricsCollectionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableMetricsCollectionResponse' smart constructor.
-disableMetricsCollectionResponse :: DisableMetricsCollectionResponse
+-- | Creates a value of 'DisableMetricsCollectionResponse' with the minimum fields required to make a request.
+--
+disableMetricsCollectionResponse
+    :: DisableMetricsCollectionResponse
 disableMetricsCollectionResponse = DisableMetricsCollectionResponse'

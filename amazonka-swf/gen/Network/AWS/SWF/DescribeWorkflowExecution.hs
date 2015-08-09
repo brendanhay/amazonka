@@ -29,9 +29,9 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
 -- -   You cannot use an IAM policy to constrain this action\'s parameters.
 --
@@ -46,15 +46,15 @@
 module Network.AWS.SWF.DescribeWorkflowExecution
     (
     -- * Creating a Request
-      DescribeWorkflowExecution
-    , describeWorkflowExecution
+      describeWorkflowExecution
+    , DescribeWorkflowExecution
     -- * Request Lenses
     , dweDomain
     , dweExecution
 
     -- * Destructuring the Response
-    , DescribeWorkflowExecutionResponse
     , describeWorkflowExecutionResponse
+    , DescribeWorkflowExecutionResponse
     -- * Response Lenses
     , dwersLatestActivityTaskTimestamp
     , dwersLatestExecutionContext
@@ -71,19 +71,22 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeWorkflowExecution' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dweDomain'
---
--- * 'dweExecution'
 data DescribeWorkflowExecution = DescribeWorkflowExecution'
     { _dweDomain    :: !Text
     , _dweExecution :: !WorkflowExecution
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeWorkflowExecution' smart constructor.
-describeWorkflowExecution :: Text -> WorkflowExecution -> DescribeWorkflowExecution
+-- | Creates a value of 'DescribeWorkflowExecution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dweDomain'
+--
+-- * 'dweExecution'
+describeWorkflowExecution
+    :: Text -- ^ 'dweDomain'
+    -> WorkflowExecution -- ^ 'dweExecution'
+    -> DescribeWorkflowExecution
 describeWorkflowExecution pDomain_ pExecution_ =
     DescribeWorkflowExecution'
     { _dweDomain = pDomain_
@@ -139,8 +142,18 @@ instance ToQuery DescribeWorkflowExecution where
 -- | Contains details about a workflow execution.
 --
 -- /See:/ 'describeWorkflowExecutionResponse' smart constructor.
+data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
+    { _dwersLatestActivityTaskTimestamp :: !(Maybe POSIX)
+    , _dwersLatestExecutionContext      :: !(Maybe Text)
+    , _dwersStatus                      :: !Int
+    , _dwersExecutionInfo               :: !WorkflowExecutionInfo
+    , _dwersExecutionConfiguration      :: !WorkflowExecutionConfiguration
+    , _dwersOpenCounts                  :: !WorkflowExecutionOpenCounts
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeWorkflowExecutionResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dwersLatestActivityTaskTimestamp'
 --
@@ -153,17 +166,12 @@ instance ToQuery DescribeWorkflowExecution where
 -- * 'dwersExecutionConfiguration'
 --
 -- * 'dwersOpenCounts'
-data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
-    { _dwersLatestActivityTaskTimestamp :: !(Maybe POSIX)
-    , _dwersLatestExecutionContext      :: !(Maybe Text)
-    , _dwersStatus                      :: !Int
-    , _dwersExecutionInfo               :: !WorkflowExecutionInfo
-    , _dwersExecutionConfiguration      :: !WorkflowExecutionConfiguration
-    , _dwersOpenCounts                  :: !WorkflowExecutionOpenCounts
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeWorkflowExecutionResponse' smart constructor.
-describeWorkflowExecutionResponse :: Int -> WorkflowExecutionInfo -> WorkflowExecutionConfiguration -> WorkflowExecutionOpenCounts -> DescribeWorkflowExecutionResponse
+describeWorkflowExecutionResponse
+    :: Int -- ^ 'dwersStatus'
+    -> WorkflowExecutionInfo -- ^ 'dwersExecutionInfo'
+    -> WorkflowExecutionConfiguration -- ^ 'dwersExecutionConfiguration'
+    -> WorkflowExecutionOpenCounts -- ^ 'dwersOpenCounts'
+    -> DescribeWorkflowExecutionResponse
 describeWorkflowExecutionResponse pStatus_ pExecutionInfo_ pExecutionConfiguration_ pOpenCounts_ =
     DescribeWorkflowExecutionResponse'
     { _dwersLatestActivityTaskTimestamp = Nothing
@@ -187,7 +195,7 @@ dwersLatestActivityTaskTimestamp = lens _dwersLatestActivityTaskTimestamp (\ s a
 dwersLatestExecutionContext :: Lens' DescribeWorkflowExecutionResponse (Maybe Text)
 dwersLatestExecutionContext = lens _dwersLatestExecutionContext (\ s a -> s{_dwersLatestExecutionContext = a});
 
--- | Undocumented member.
+-- | The response status code.
 dwersStatus :: Lens' DescribeWorkflowExecutionResponse Int
 dwersStatus = lens _dwersStatus (\ s a -> s{_dwersStatus = a});
 

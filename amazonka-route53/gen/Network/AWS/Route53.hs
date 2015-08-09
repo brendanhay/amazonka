@@ -173,7 +173,6 @@ module Network.AWS.Route53
 
     -- ** ListHostedZones (Paginated)
     , module Network.AWS.Route53.ListHostedZones
-    -- $pager
 
     -- ** DisassociateVPCFromHostedZone
     , module Network.AWS.Route53.DisassociateVPCFromHostedZone
@@ -189,7 +188,6 @@ module Network.AWS.Route53
 
     -- ** ListResourceRecordSets (Paginated)
     , module Network.AWS.Route53.ListResourceRecordSets
-    -- $pager
 
     -- ** GetHealthCheckCount
     , module Network.AWS.Route53.GetHealthCheckCount
@@ -211,7 +209,6 @@ module Network.AWS.Route53
 
     -- ** ListHealthChecks (Paginated)
     , module Network.AWS.Route53.ListHealthChecks
-    -- $pager
 
     -- ** DeleteHostedZone
     , module Network.AWS.Route53.DeleteHostedZone
@@ -448,8 +445,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

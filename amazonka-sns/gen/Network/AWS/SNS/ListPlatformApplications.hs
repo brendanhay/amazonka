@@ -20,26 +20,28 @@
 --
 -- Lists the platform application objects for the supported push
 -- notification services, such as APNS and GCM. The results for
--- @ListPlatformApplications@ are paginated and return a limited list of
+-- 'ListPlatformApplications' are paginated and return a limited list of
 -- applications, up to 100. If additional records are available after the
 -- first page results, then a NextToken string will be returned. To receive
--- the next page, you call @ListPlatformApplications@ using the NextToken
+-- the next page, you call 'ListPlatformApplications' using the NextToken
 -- string received from the previous call. When there are no more records
 -- to return, NextToken will be null. For more information, see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
 -- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_ListPlatformApplications.html AWS API Reference> for ListPlatformApplications.
+--
+-- This operation returns paginated results.
 module Network.AWS.SNS.ListPlatformApplications
     (
     -- * Creating a Request
-      ListPlatformApplications
-    , listPlatformApplications
+      listPlatformApplications
+    , ListPlatformApplications
     -- * Request Lenses
     , lpaNextToken
 
     -- * Destructuring the Response
-    , ListPlatformApplicationsResponse
     , listPlatformApplicationsResponse
+    , ListPlatformApplicationsResponse
     -- * Response Lenses
     , lparsPlatformApplications
     , lparsNextToken
@@ -56,16 +58,17 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for ListPlatformApplications action.
 --
 -- /See:/ 'listPlatformApplications' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lpaNextToken'
 newtype ListPlatformApplications = ListPlatformApplications'
     { _lpaNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListPlatformApplications' smart constructor.
-listPlatformApplications :: ListPlatformApplications
+-- | Creates a value of 'ListPlatformApplications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lpaNextToken'
+listPlatformApplications
+    :: ListPlatformApplications
 listPlatformApplications =
     ListPlatformApplications'
     { _lpaNextToken = Nothing
@@ -115,22 +118,24 @@ instance ToQuery ListPlatformApplications where
 -- | Response for ListPlatformApplications action.
 --
 -- /See:/ 'listPlatformApplicationsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lparsPlatformApplications'
---
--- * 'lparsNextToken'
---
--- * 'lparsStatus'
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
     { _lparsPlatformApplications :: !(Maybe [PlatformApplication])
     , _lparsNextToken            :: !(Maybe Text)
     , _lparsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListPlatformApplicationsResponse' smart constructor.
-listPlatformApplicationsResponse :: Int -> ListPlatformApplicationsResponse
+-- | Creates a value of 'ListPlatformApplicationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lparsPlatformApplications'
+--
+-- * 'lparsNextToken'
+--
+-- * 'lparsStatus'
+listPlatformApplicationsResponse
+    :: Int -- ^ 'lparsStatus'
+    -> ListPlatformApplicationsResponse
 listPlatformApplicationsResponse pStatus_ =
     ListPlatformApplicationsResponse'
     { _lparsPlatformApplications = Nothing
@@ -148,6 +153,6 @@ lparsPlatformApplications = lens _lparsPlatformApplications (\ s a -> s{_lparsPl
 lparsNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
 lparsNextToken = lens _lparsNextToken (\ s a -> s{_lparsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 lparsStatus :: Lens' ListPlatformApplicationsResponse Int
 lparsStatus = lens _lparsStatus (\ s a -> s{_lparsStatus = a});

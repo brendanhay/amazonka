@@ -21,7 +21,7 @@
 -- Composes an email message based on input data, and then immediately
 -- queues the message for sending.
 --
--- There are several important points to know about @SendEmail@:
+-- There are several important points to know about 'SendEmail':
 --
 -- -   You can only send email from verified email addresses and domains;
 --     otherwise, you will get an \"Email address not verified\" error. If
@@ -48,8 +48,8 @@
 module Network.AWS.SES.SendEmail
     (
     -- * Creating a Request
-      SendEmail
-    , sendEmail
+      sendEmail
+    , SendEmail
     -- * Request Lenses
     , seReturnPath
     , seSourceARN
@@ -60,8 +60,8 @@ module Network.AWS.SES.SendEmail
     , seMessage
 
     -- * Destructuring the Response
-    , SendEmailResponse
     , sendEmailResponse
+    , SendEmailResponse
     -- * Response Lenses
     , sersStatus
     , sersMessageId
@@ -78,11 +78,22 @@ import           Network.AWS.SES.Types.Product
 --
 -- This datatype can be used in application code to compose a message
 -- consisting of source, destination, message, reply-to, and return-path
--- parts. This object can then be sent using the @SendEmail@ action.
+-- parts. This object can then be sent using the 'SendEmail' action.
 --
 -- /See:/ 'sendEmail' smart constructor.
+data SendEmail = SendEmail'
+    { _seReturnPath       :: !(Maybe Text)
+    , _seSourceARN        :: !(Maybe Text)
+    , _seReturnPathARN    :: !(Maybe Text)
+    , _seReplyToAddresses :: !(Maybe [Text])
+    , _seSource           :: !Text
+    , _seDestination      :: !Destination
+    , _seMessage          :: !Message
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SendEmail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'seReturnPath'
 --
@@ -97,18 +108,11 @@ import           Network.AWS.SES.Types.Product
 -- * 'seDestination'
 --
 -- * 'seMessage'
-data SendEmail = SendEmail'
-    { _seReturnPath       :: !(Maybe Text)
-    , _seSourceARN        :: !(Maybe Text)
-    , _seReturnPathARN    :: !(Maybe Text)
-    , _seReplyToAddresses :: !(Maybe [Text])
-    , _seSource           :: !Text
-    , _seDestination      :: !Destination
-    , _seMessage          :: !Message
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SendEmail' smart constructor.
-sendEmail :: Text -> Destination -> Message -> SendEmail
+sendEmail
+    :: Text -- ^ 'seSource'
+    -> Destination -- ^ 'seDestination'
+    -> Message -- ^ 'seMessage'
+    -> SendEmail
 sendEmail pSource_ pDestination_ pMessage_ =
     SendEmail'
     { _seReturnPath = Nothing
@@ -124,7 +128,7 @@ sendEmail pSource_ pDestination_ pMessage_ =
 -- when feedback forwarding is enabled. If the message cannot be delivered
 -- to the recipient, then an error message will be returned from the
 -- recipient\'s ISP; this message will then be forwarded to the email
--- address specified by the @ReturnPath@ parameter. The @ReturnPath@
+-- address specified by the 'ReturnPath' parameter. The 'ReturnPath'
 -- parameter is never overwritten. This email address must be either
 -- individually verified with Amazon SES, or from a domain that has been
 -- verified with Amazon SES.
@@ -133,15 +137,15 @@ seReturnPath = lens _seReturnPath (\ s a -> s{_seReturnPath = a});
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
--- that permits you to send for the email address specified in the @Source@
+-- that permits you to send for the email address specified in the 'Source'
 -- parameter.
 --
--- For example, if the owner of @example.com@ (which has ARN
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
--- policy to it that authorizes you to send from @user\@example.com@, then
--- you would specify the @SourceArn@ to be
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
--- @Source@ to be @user\@example.com@.
+-- For example, if the owner of 'example.com' (which has ARN
+-- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com') attaches a
+-- policy to it that authorizes you to send from 'user\'example.com', then
+-- you would specify the 'SourceArn' to be
+-- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com', and the
+-- 'Source' to be 'user\'example.com'.
 --
 -- For more information about sending authorization, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
@@ -150,15 +154,15 @@ seSourceARN = lens _seSourceARN (\ s a -> s{_seSourceARN = a});
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
--- that permits you to use the email address specified in the @ReturnPath@
+-- that permits you to use the email address specified in the 'ReturnPath'
 -- parameter.
 --
--- For example, if the owner of @example.com@ (which has ARN
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@) attaches a
--- policy to it that authorizes you to use @feedback\@example.com@, then
--- you would specify the @ReturnPathArn@ to be
--- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@, and the
--- @ReturnPath@ to be @feedback\@example.com@.
+-- For example, if the owner of 'example.com' (which has ARN
+-- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com') attaches a
+-- policy to it that authorizes you to use 'feedback\'example.com', then
+-- you would specify the 'ReturnPathArn' to be
+-- 'arn:aws:ses:us-east-1:123456789012:identity\/example.com', and the
+-- 'ReturnPath' to be 'feedback\'example.com'.
 --
 -- For more information about sending authorization, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
@@ -178,14 +182,14 @@ seReplyToAddresses = lens _seReplyToAddresses (\ s a -> s{_seReplyToAddresses = 
 --
 -- If you are sending on behalf of another user and have been permitted to
 -- do so by a sending authorization policy, then you must also specify the
--- @SourceArn@ parameter. For more information about sending authorization,
+-- 'SourceArn' parameter. For more information about sending authorization,
 -- see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
 --
 -- In all cases, the email address must be 7-bit ASCII. If the text must
 -- contain any other characters, then you must use MIME encoded-word syntax
 -- (RFC 2047) instead of a literal string. MIME encoded-word syntax uses
--- the following form: @=?charset?encoding?encoded-text?=@. For more
+-- the following form: '=?charset?encoding?encoded-text?='. For more
 -- information, see <http://tools.ietf.org/html/rfc2047 RFC 2047>.
 seSource :: Lens' SendEmail Text
 seSource = lens _seSource (\ s a -> s{_seSource = a});
@@ -229,33 +233,36 @@ instance ToQuery SendEmail where
                "Destination" =: _seDestination,
                "Message" =: _seMessage]
 
--- | Represents a unique message ID returned from a successful @SendEmail@
+-- | Represents a unique message ID returned from a successful 'SendEmail'
 -- request.
 --
 -- /See:/ 'sendEmailResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sersStatus'
---
--- * 'sersMessageId'
 data SendEmailResponse = SendEmailResponse'
     { _sersStatus    :: !Int
     , _sersMessageId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SendEmailResponse' smart constructor.
-sendEmailResponse :: Int -> Text -> SendEmailResponse
+-- | Creates a value of 'SendEmailResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sersStatus'
+--
+-- * 'sersMessageId'
+sendEmailResponse
+    :: Int -- ^ 'sersStatus'
+    -> Text -- ^ 'sersMessageId'
+    -> SendEmailResponse
 sendEmailResponse pStatus_ pMessageId_ =
     SendEmailResponse'
     { _sersStatus = pStatus_
     , _sersMessageId = pMessageId_
     }
 
--- | Undocumented member.
+-- | The response status code.
 sersStatus :: Lens' SendEmailResponse Int
 sersStatus = lens _sersStatus (\ s a -> s{_sersStatus = a});
 
--- | The unique message identifier returned from the @SendEmail@ action.
+-- | The unique message identifier returned from the 'SendEmail' action.
 sersMessageId :: Lens' SendEmailResponse Text
 sersMessageId = lens _sersMessageId (\ s a -> s{_sersMessageId = a});

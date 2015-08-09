@@ -25,14 +25,14 @@
 module Network.AWS.CodeDeploy.ListDeploymentConfigs
     (
     -- * Creating a Request
-      ListDeploymentConfigs
-    , listDeploymentConfigs
+      listDeploymentConfigs
+    , ListDeploymentConfigs
     -- * Request Lenses
     , ldcNextToken
 
     -- * Destructuring the Response
-    , ListDeploymentConfigsResponse
     , listDeploymentConfigsResponse
+    , ListDeploymentConfigsResponse
     -- * Response Lenses
     , ldcrsNextToken
     , ldcrsDeploymentConfigsList
@@ -48,16 +48,17 @@ import           Network.AWS.Response
 -- | Represents the input of a list deployment configurations operation.
 --
 -- /See:/ 'listDeploymentConfigs' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldcNextToken'
 newtype ListDeploymentConfigs = ListDeploymentConfigs'
     { _ldcNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDeploymentConfigs' smart constructor.
-listDeploymentConfigs :: ListDeploymentConfigs
+-- | Creates a value of 'ListDeploymentConfigs' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldcNextToken'
+listDeploymentConfigs
+    :: ListDeploymentConfigs
 listDeploymentConfigs =
     ListDeploymentConfigs'
     { _ldcNextToken = Nothing
@@ -105,22 +106,24 @@ instance ToQuery ListDeploymentConfigs where
 -- | Represents the output of a list deployment configurations operation.
 --
 -- /See:/ 'listDeploymentConfigsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldcrsNextToken'
---
--- * 'ldcrsDeploymentConfigsList'
---
--- * 'ldcrsStatus'
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
     { _ldcrsNextToken             :: !(Maybe Text)
     , _ldcrsDeploymentConfigsList :: !(Maybe [Text])
     , _ldcrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDeploymentConfigsResponse' smart constructor.
-listDeploymentConfigsResponse :: Int -> ListDeploymentConfigsResponse
+-- | Creates a value of 'ListDeploymentConfigsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldcrsNextToken'
+--
+-- * 'ldcrsDeploymentConfigsList'
+--
+-- * 'ldcrsStatus'
+listDeploymentConfigsResponse
+    :: Int -- ^ 'ldcrsStatus'
+    -> ListDeploymentConfigsResponse
 listDeploymentConfigsResponse pStatus_ =
     ListDeploymentConfigsResponse'
     { _ldcrsNextToken = Nothing
@@ -140,6 +143,6 @@ ldcrsNextToken = lens _ldcrsNextToken (\ s a -> s{_ldcrsNextToken = a});
 ldcrsDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
 ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrsDeploymentConfigsList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ldcrsStatus :: Lens' ListDeploymentConfigsResponse Int
 ldcrsStatus = lens _ldcrsStatus (\ s a -> s{_ldcrsStatus = a});

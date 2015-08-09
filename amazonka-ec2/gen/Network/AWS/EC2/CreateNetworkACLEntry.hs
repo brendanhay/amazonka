@@ -42,8 +42,8 @@
 module Network.AWS.EC2.CreateNetworkACLEntry
     (
     -- * Creating a Request
-      CreateNetworkACLEntry
-    , createNetworkACLEntry
+      createNetworkACLEntry
+    , CreateNetworkACLEntry
     -- * Request Lenses
     , cnaeICMPTypeCode
     , cnaePortRange
@@ -56,8 +56,8 @@ module Network.AWS.EC2.CreateNetworkACLEntry
     , cnaeCIdRBlock
 
     -- * Destructuring the Response
-    , CreateNetworkACLEntryResponse
     , createNetworkACLEntryResponse
+    , CreateNetworkACLEntryResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -67,8 +67,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createNetworkACLEntry' smart constructor.
+data CreateNetworkACLEntry = CreateNetworkACLEntry'
+    { _cnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
+    , _cnaePortRange    :: !(Maybe PortRange)
+    , _cnaeDryRun       :: !(Maybe Bool)
+    , _cnaeNetworkACLId :: !Text
+    , _cnaeRuleNumber   :: !Int
+    , _cnaeProtocol     :: !Text
+    , _cnaeRuleAction   :: !RuleAction
+    , _cnaeEgress       :: !Bool
+    , _cnaeCIdRBlock    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateNetworkACLEntry' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cnaeICMPTypeCode'
 --
@@ -87,20 +100,14 @@ import           Network.AWS.Response
 -- * 'cnaeEgress'
 --
 -- * 'cnaeCIdRBlock'
-data CreateNetworkACLEntry = CreateNetworkACLEntry'
-    { _cnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
-    , _cnaePortRange    :: !(Maybe PortRange)
-    , _cnaeDryRun       :: !(Maybe Bool)
-    , _cnaeNetworkACLId :: !Text
-    , _cnaeRuleNumber   :: !Int
-    , _cnaeProtocol     :: !Text
-    , _cnaeRuleAction   :: !RuleAction
-    , _cnaeEgress       :: !Bool
-    , _cnaeCIdRBlock    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateNetworkACLEntry' smart constructor.
-createNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> CreateNetworkACLEntry
+createNetworkACLEntry
+    :: Text -- ^ 'cnaeNetworkACLId'
+    -> Int -- ^ 'cnaeRuleNumber'
+    -> Text -- ^ 'cnaeProtocol'
+    -> RuleAction -- ^ 'cnaeRuleAction'
+    -> Bool -- ^ 'cnaeEgress'
+    -> Text -- ^ 'cnaeCIdRBlock'
+    -> CreateNetworkACLEntry
 createNetworkACLEntry pNetworkACLId_ pRuleNumber_ pProtocol_ pRuleAction_ pEgress_ pCIdRBlock_ =
     CreateNetworkACLEntry'
     { _cnaeICMPTypeCode = Nothing
@@ -125,8 +132,8 @@ cnaePortRange = lens _cnaePortRange (\ s a -> s{_cnaePortRange = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 cnaeDryRun :: Lens' CreateNetworkACLEntry (Maybe Bool)
 cnaeDryRun = lens _cnaeDryRun (\ s a -> s{_cnaeDryRun = a});
 
@@ -155,7 +162,7 @@ cnaeEgress :: Lens' CreateNetworkACLEntry Bool
 cnaeEgress = lens _cnaeEgress (\ s a -> s{_cnaeEgress = a});
 
 -- | The network range to allow or deny, in CIDR notation (for example
--- @172.16.0.0\/24@).
+-- '172.16.0.0\/24').
 cnaeCIdRBlock :: Lens' CreateNetworkACLEntry Text
 cnaeCIdRBlock = lens _cnaeCIdRBlock (\ s a -> s{_cnaeCIdRBlock = a});
 
@@ -192,6 +199,8 @@ data CreateNetworkACLEntryResponse =
     CreateNetworkACLEntryResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateNetworkACLEntryResponse' smart constructor.
-createNetworkACLEntryResponse :: CreateNetworkACLEntryResponse
+-- | Creates a value of 'CreateNetworkACLEntryResponse' with the minimum fields required to make a request.
+--
+createNetworkACLEntryResponse
+    :: CreateNetworkACLEntryResponse
 createNetworkACLEntryResponse = CreateNetworkACLEntryResponse'

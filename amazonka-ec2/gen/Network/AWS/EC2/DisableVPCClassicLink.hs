@@ -25,15 +25,15 @@
 module Network.AWS.EC2.DisableVPCClassicLink
     (
     -- * Creating a Request
-      DisableVPCClassicLink
-    , disableVPCClassicLink
+      disableVPCClassicLink
+    , DisableVPCClassicLink
     -- * Request Lenses
     , dvpcclDryRun
     , dvpcclVPCId
 
     -- * Destructuring the Response
-    , DisableVPCClassicLinkResponse
     , disableVPCClassicLinkResponse
+    , DisableVPCClassicLinkResponse
     -- * Response Lenses
     , dvpcclrsReturn
     , dvpcclrsStatus
@@ -46,19 +46,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'disableVPCClassicLink' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvpcclDryRun'
---
--- * 'dvpcclVPCId'
 data DisableVPCClassicLink = DisableVPCClassicLink'
     { _dvpcclDryRun :: !(Maybe Bool)
     , _dvpcclVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableVPCClassicLink' smart constructor.
-disableVPCClassicLink :: Text -> DisableVPCClassicLink
+-- | Creates a value of 'DisableVPCClassicLink' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvpcclDryRun'
+--
+-- * 'dvpcclVPCId'
+disableVPCClassicLink
+    :: Text -- ^ 'dvpcclVPCId'
+    -> DisableVPCClassicLink
 disableVPCClassicLink pVPCId_ =
     DisableVPCClassicLink'
     { _dvpcclDryRun = Nothing
@@ -67,8 +69,8 @@ disableVPCClassicLink pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dvpcclDryRun :: Lens' DisableVPCClassicLink (Maybe Bool)
 dvpcclDryRun = lens _dvpcclDryRun (\ s a -> s{_dvpcclDryRun = a});
 
@@ -101,29 +103,31 @@ instance ToQuery DisableVPCClassicLink where
                "DryRun" =: _dvpcclDryRun, "VpcId" =: _dvpcclVPCId]
 
 -- | /See:/ 'disableVPCClassicLinkResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvpcclrsReturn'
---
--- * 'dvpcclrsStatus'
 data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
     { _dvpcclrsReturn :: !(Maybe Bool)
     , _dvpcclrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableVPCClassicLinkResponse' smart constructor.
-disableVPCClassicLinkResponse :: Int -> DisableVPCClassicLinkResponse
+-- | Creates a value of 'DisableVPCClassicLinkResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvpcclrsReturn'
+--
+-- * 'dvpcclrsStatus'
+disableVPCClassicLinkResponse
+    :: Int -- ^ 'dvpcclrsStatus'
+    -> DisableVPCClassicLinkResponse
 disableVPCClassicLinkResponse pStatus_ =
     DisableVPCClassicLinkResponse'
     { _dvpcclrsReturn = Nothing
     , _dvpcclrsStatus = pStatus_
     }
 
--- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- | Returns 'true' if the request succeeds; otherwise, it returns an error.
 dvpcclrsReturn :: Lens' DisableVPCClassicLinkResponse (Maybe Bool)
 dvpcclrsReturn = lens _dvpcclrsReturn (\ s a -> s{_dvpcclrsReturn = a});
 
--- | Undocumented member.
+-- | The response status code.
 dvpcclrsStatus :: Lens' DisableVPCClassicLinkResponse Int
 dvpcclrsStatus = lens _dvpcclrsStatus (\ s a -> s{_dvpcclrsStatus = a});

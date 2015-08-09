@@ -22,26 +22,28 @@ import           Network.AWS.DataPipeline.Types.Sum
 import           Network.AWS.Prelude
 
 -- | A key-value pair that describes a property of a pipeline object. The
--- value is specified as either a string value (@StringValue@) or a
--- reference to another object (@RefValue@) but not as both.
+-- value is specified as either a string value ('StringValue') or a
+-- reference to another object ('RefValue') but not as both.
 --
 -- /See:/ 'field' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fRefValue'
---
--- * 'fStringValue'
---
--- * 'fKey'
 data Field = Field'
     { _fRefValue    :: !(Maybe Text)
     , _fStringValue :: !(Maybe Text)
     , _fKey         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Field' smart constructor.
-field :: Text -> Field
+-- | Creates a value of 'Field' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'fRefValue'
+--
+-- * 'fStringValue'
+--
+-- * 'fKey'
+field
+    :: Text -- ^ 'fKey'
+    -> Field
 field pKey_ =
     Field'
     { _fRefValue = Nothing
@@ -85,19 +87,20 @@ instance ToJSON Field where
 -- pipeline.
 --
 -- /See:/ 'instanceIdentity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iiSignature'
---
--- * 'iiDocument'
 data InstanceIdentity = InstanceIdentity'
     { _iiSignature :: !(Maybe Text)
     , _iiDocument  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'InstanceIdentity' smart constructor.
-instanceIdentity :: InstanceIdentity
+-- | Creates a value of 'InstanceIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iiSignature'
+--
+-- * 'iiDocument'
+instanceIdentity
+    :: InstanceIdentity
 instanceIdentity =
     InstanceIdentity'
     { _iiSignature = Nothing
@@ -125,19 +128,20 @@ instance ToJSON InstanceIdentity where
 -- specified value.
 --
 -- /See:/ 'operator' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'oValues'
---
--- * 'oType'
 data Operator = Operator'
     { _oValues :: !(Maybe [Text])
     , _oType   :: !(Maybe OperatorType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Operator' smart constructor.
-operator :: Operator
+-- | Creates a value of 'Operator' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'oValues'
+--
+-- * 'oType'
+operator
+    :: Operator
 operator =
     Operator'
     { _oValues = Nothing
@@ -148,9 +152,9 @@ operator =
 oValues :: Lens' Operator [Text]
 oValues = lens _oValues (\ s a -> s{_oValues = a}) . _Default . _Coerce;
 
--- | The logical operation to be performed: equal (@EQ@), equal reference
--- (@REF_EQ@), less than or equal (@LE@), greater than or equal (@GE@), or
--- between (@BETWEEN@). Equal reference (@REF_EQ@) can be used only with
+-- | The logical operation to be performed: equal ('EQ'), equal reference
+-- ('REF_EQ'), less than or equal ('LE'), greater than or equal ('GE'), or
+-- between ('BETWEEN'). Equal reference ('REF_EQ') can be used only with
 -- reference fields. The other comparison types can be used only with
 -- String fields. The comparison types you can use apply only to certain
 -- object fields, as detailed below.
@@ -158,25 +162,25 @@ oValues = lens _oValues (\ s a -> s{_oValues = a}) . _Default . _Coerce;
 -- The comparison operators EQ and REF_EQ act on the following fields:
 --
 -- -   name
--- -   \@sphere
+-- -   \'sphere
 -- -   parent
--- -   \@componentParent
--- -   \@instanceParent
--- -   \@status
--- -   \@scheduledStartTime
--- -   \@scheduledEndTime
--- -   \@actualStartTime
--- -   \@actualEndTime
+-- -   \'componentParent
+-- -   \'instanceParent
+-- -   \'status
+-- -   \'scheduledStartTime
+-- -   \'scheduledEndTime
+-- -   \'actualStartTime
+-- -   \'actualEndTime
 --
--- The comparison operators @GE@, @LE@, and @BETWEEN@ act on the following
+-- The comparison operators 'GE', 'LE', and 'BETWEEN' act on the following
 -- fields:
 --
--- -   \@scheduledStartTime
--- -   \@scheduledEndTime
--- -   \@actualStartTime
--- -   \@actualEndTime
+-- -   \'scheduledStartTime
+-- -   \'scheduledEndTime
+-- -   \'actualStartTime
+-- -   \'actualEndTime
 --
--- Note that fields beginning with the at sign (\@) are read-only and set
+-- Note that fields beginning with the at sign (\') are read-only and set
 -- by the web service. When you name fields, you should choose names
 -- containing only alpha-numeric values, as symbols may be reserved by AWS
 -- Data Pipeline. User-defined fields that you add to a pipeline should
@@ -191,19 +195,22 @@ instance ToJSON Operator where
 -- | The attributes allowed or specified with a parameter object.
 --
 -- /See:/ 'parameterAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'paKey'
---
--- * 'paStringValue'
 data ParameterAttribute = ParameterAttribute'
     { _paKey         :: !Text
     , _paStringValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ParameterAttribute' smart constructor.
-parameterAttribute :: Text -> Text -> ParameterAttribute
+-- | Creates a value of 'ParameterAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'paKey'
+--
+-- * 'paStringValue'
+parameterAttribute
+    :: Text -- ^ 'paKey'
+    -> Text -- ^ 'paStringValue'
+    -> ParameterAttribute
 parameterAttribute pKey_ pStringValue_ =
     ParameterAttribute'
     { _paKey = pKey_
@@ -233,19 +240,21 @@ instance ToJSON ParameterAttribute where
 -- | Contains information about a parameter object.
 --
 -- /See:/ 'parameterObject' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'poId'
---
--- * 'poAttributes'
 data ParameterObject = ParameterObject'
     { _poId         :: !Text
     , _poAttributes :: ![ParameterAttribute]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ParameterObject' smart constructor.
-parameterObject :: Text -> ParameterObject
+-- | Creates a value of 'ParameterObject' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'poId'
+--
+-- * 'poAttributes'
+parameterObject
+    :: Text -- ^ 'poId'
+    -> ParameterObject
 parameterObject pId_ =
     ParameterObject'
     { _poId = pId_
@@ -275,19 +284,22 @@ instance ToJSON ParameterObject where
 -- | A value or list of parameter values.
 --
 -- /See:/ 'parameterValue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pvId'
---
--- * 'pvStringValue'
 data ParameterValue = ParameterValue'
     { _pvId          :: !Text
     , _pvStringValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ParameterValue' smart constructor.
-parameterValue :: Text -> Text -> ParameterValue
+-- | Creates a value of 'ParameterValue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pvId'
+--
+-- * 'pvStringValue'
+parameterValue
+    :: Text -- ^ 'pvId'
+    -> Text -- ^ 'pvStringValue'
+    -> ParameterValue
 parameterValue pId_ pStringValue_ =
     ParameterValue'
     { _pvId = pId_
@@ -317,8 +329,17 @@ instance ToJSON ParameterValue where
 -- | Contains pipeline metadata.
 --
 -- /See:/ 'pipelineDescription' smart constructor.
+data PipelineDescription = PipelineDescription'
+    { _pdDescription :: !(Maybe Text)
+    , _pdTags        :: !(Maybe [Tag])
+    , _pdPipelineId  :: !Text
+    , _pdName        :: !Text
+    , _pdFields      :: ![Field]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PipelineDescription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'pdDescription'
 --
@@ -329,16 +350,10 @@ instance ToJSON ParameterValue where
 -- * 'pdName'
 --
 -- * 'pdFields'
-data PipelineDescription = PipelineDescription'
-    { _pdDescription :: !(Maybe Text)
-    , _pdTags        :: !(Maybe [Tag])
-    , _pdPipelineId  :: !Text
-    , _pdName        :: !Text
-    , _pdFields      :: ![Field]
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PipelineDescription' smart constructor.
-pipelineDescription :: Text -> Text -> PipelineDescription
+pipelineDescription
+    :: Text -- ^ 'pdPipelineId'
+    -> Text -- ^ 'pdName'
+    -> PipelineDescription
 pipelineDescription pPipelineId_ pName_ =
     PipelineDescription'
     { _pdDescription = Nothing
@@ -360,7 +375,7 @@ pdTags :: Lens' PipelineDescription [Tag]
 pdTags = lens _pdTags (\ s a -> s{_pdTags = a}) . _Default . _Coerce;
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is
--- a string of the form @df-297EG78HU43EEXAMPLE@.
+-- a string of the form 'df-297EG78HU43EEXAMPLE'.
 pdPipelineId :: Lens' PipelineDescription Text
 pdPipelineId = lens _pdPipelineId (\ s a -> s{_pdPipelineId = a});
 
@@ -369,7 +384,7 @@ pdName :: Lens' PipelineDescription Text
 pdName = lens _pdName (\ s a -> s{_pdName = a});
 
 -- | A list of read-only fields that contain metadata about the pipeline:
--- \@userId, \@accountId, and \@pipelineState.
+-- \'userId, \'accountId, and \'pipelineState.
 pdFields :: Lens' PipelineDescription [Field]
 pdFields = lens _pdFields (\ s a -> s{_pdFields = a}) . _Coerce;
 
@@ -386,19 +401,20 @@ instance FromJSON PipelineDescription where
 -- | Contains the name and identifier of a pipeline.
 --
 -- /See:/ 'pipelineIdName' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pinName'
---
--- * 'pinId'
 data PipelineIdName = PipelineIdName'
     { _pinName :: !(Maybe Text)
     , _pinId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PipelineIdName' smart constructor.
-pipelineIdName :: PipelineIdName
+-- | Creates a value of 'PipelineIdName' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pinName'
+--
+-- * 'pinId'
+pipelineIdName
+    :: PipelineIdName
 pipelineIdName =
     PipelineIdName'
     { _pinName = Nothing
@@ -410,7 +426,7 @@ pinName :: Lens' PipelineIdName (Maybe Text)
 pinName = lens _pinName (\ s a -> s{_pinName = a});
 
 -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a
--- string of the form @df-297EG78HU43EEXAMPLE@.
+-- string of the form 'df-297EG78HU43EEXAMPLE'.
 pinId :: Lens' PipelineIdName (Maybe Text)
 pinId = lens _pinId (\ s a -> s{_pinId = a});
 
@@ -425,22 +441,25 @@ instance FromJSON PipelineIdName where
 -- components of a pipeline defines the pipeline.
 --
 -- /See:/ 'pipelineObject' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pId'
---
--- * 'pName'
---
--- * 'pFields'
 data PipelineObject = PipelineObject'
     { _pId     :: !Text
     , _pName   :: !Text
     , _pFields :: ![Field]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PipelineObject' smart constructor.
-pipelineObject :: Text -> Text -> PipelineObject
+-- | Creates a value of 'PipelineObject' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pId'
+--
+-- * 'pName'
+--
+-- * 'pFields'
+pipelineObject
+    :: Text -- ^ 'pId'
+    -> Text -- ^ 'pName'
+    -> PipelineObject
 pipelineObject pId_ pName_ =
     PipelineObject'
     { _pId = pId_
@@ -477,16 +496,17 @@ instance ToJSON PipelineObject where
 -- | Defines the query to run against an object.
 --
 -- /See:/ 'query' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'qSelectors'
 newtype Query = Query'
     { _qSelectors :: Maybe [Selector]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Query' smart constructor.
-query :: Query
+-- | Creates a value of 'Query' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'qSelectors'
+query
+    :: Query
 query =
     Query'
     { _qSelectors = Nothing
@@ -505,19 +525,20 @@ instance ToJSON Query where
 -- this object.
 --
 -- /See:/ 'selector' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sOperator'
---
--- * 'sFieldName'
 data Selector = Selector'
     { _sOperator  :: !(Maybe Operator)
     , _sFieldName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Selector' smart constructor.
-selector :: Selector
+-- | Creates a value of 'Selector' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sOperator'
+--
+-- * 'sFieldName'
+selector
+    :: Selector
 selector =
     Selector'
     { _sOperator = Nothing
@@ -548,19 +569,22 @@ instance ToJSON Selector where
 -- in the /AWS Data Pipeline Developer Guide/.
 --
 -- /See:/ 'tag' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tagKey'
---
--- * 'tagValue'
 data Tag = Tag'
     { _tagKey   :: !Text
     , _tagValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Tag' smart constructor.
-tag :: Text -> Text -> Tag
+-- | Creates a value of 'Tag' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tagKey'
+--
+-- * 'tagValue'
+tag
+    :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
 tag pKey_ pValue_ =
     Tag'
     { _tagKey = pKey_
@@ -593,8 +617,16 @@ instance ToJSON Tag where
 -- runner.
 --
 -- /See:/ 'taskObject' smart constructor.
+data TaskObject = TaskObject'
+    { _toPipelineId :: !(Maybe Text)
+    , _toTaskId     :: !(Maybe Text)
+    , _toAttemptId  :: !(Maybe Text)
+    , _toObjects    :: !(Maybe (Map Text PipelineObject))
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'TaskObject' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'toPipelineId'
 --
@@ -603,15 +635,8 @@ instance ToJSON Tag where
 -- * 'toAttemptId'
 --
 -- * 'toObjects'
-data TaskObject = TaskObject'
-    { _toPipelineId :: !(Maybe Text)
-    , _toTaskId     :: !(Maybe Text)
-    , _toAttemptId  :: !(Maybe Text)
-    , _toObjects    :: !(Maybe (Map Text PipelineObject))
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'TaskObject' smart constructor.
-taskObject :: TaskObject
+taskObject
+    :: TaskObject
 taskObject =
     TaskObject'
     { _toPipelineId = Nothing
@@ -653,19 +678,20 @@ instance FromJSON TaskObject where
 -- defined by AWS Data Pipeline.
 --
 -- /See:/ 'validationError' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'veId'
---
--- * 'veErrors'
 data ValidationError = ValidationError'
     { _veId     :: !(Maybe Text)
     , _veErrors :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ValidationError' smart constructor.
-validationError :: ValidationError
+-- | Creates a value of 'ValidationError' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'veId'
+--
+-- * 'veErrors'
+validationError
+    :: ValidationError
 validationError =
     ValidationError'
     { _veId = Nothing
@@ -692,19 +718,20 @@ instance FromJSON ValidationError where
 -- are defined by AWS Data Pipeline.
 --
 -- /See:/ 'validationWarning' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vwWarnings'
---
--- * 'vwId'
 data ValidationWarning = ValidationWarning'
     { _vwWarnings :: !(Maybe [Text])
     , _vwId       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ValidationWarning' smart constructor.
-validationWarning :: ValidationWarning
+-- | Creates a value of 'ValidationWarning' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'vwWarnings'
+--
+-- * 'vwId'
+validationWarning
+    :: ValidationWarning
 validationWarning =
     ValidationWarning'
     { _vwWarnings = Nothing

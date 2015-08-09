@@ -30,8 +30,8 @@
 module Network.AWS.OpsWorks.UpdateLayer
     (
     -- * Creating a Request
-      UpdateLayer
-    , updateLayer
+      updateLayer
+    , UpdateLayer
     -- * Request Lenses
     , ulCustomInstanceProfileARN
     , ulInstallUpdatesOnBoot
@@ -51,8 +51,8 @@ module Network.AWS.OpsWorks.UpdateLayer
     , ulLayerId
 
     -- * Destructuring the Response
-    , UpdateLayerResponse
     , updateLayerResponse
+    , UpdateLayerResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -62,8 +62,28 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateLayer' smart constructor.
+data UpdateLayer = UpdateLayer'
+    { _ulCustomInstanceProfileARN    :: !(Maybe Text)
+    , _ulInstallUpdatesOnBoot        :: !(Maybe Bool)
+    , _ulCustomSecurityGroupIds      :: !(Maybe [Text])
+    , _ulLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+    , _ulShortname                   :: !(Maybe Text)
+    , _ulCustomRecipes               :: !(Maybe Recipes)
+    , _ulVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
+    , _ulCustomJSON                  :: !(Maybe Text)
+    , _ulEnableAutoHealing           :: !(Maybe Bool)
+    , _ulPackages                    :: !(Maybe [Text])
+    , _ulName                        :: !(Maybe Text)
+    , _ulAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
+    , _ulAutoAssignPublicIPs         :: !(Maybe Bool)
+    , _ulUseEBSOptimizedInstances    :: !(Maybe Bool)
+    , _ulAutoAssignElasticIPs        :: !(Maybe Bool)
+    , _ulLayerId                     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateLayer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ulCustomInstanceProfileARN'
 --
@@ -96,27 +116,9 @@ import           Network.AWS.Response
 -- * 'ulAutoAssignElasticIPs'
 --
 -- * 'ulLayerId'
-data UpdateLayer = UpdateLayer'
-    { _ulCustomInstanceProfileARN    :: !(Maybe Text)
-    , _ulInstallUpdatesOnBoot        :: !(Maybe Bool)
-    , _ulCustomSecurityGroupIds      :: !(Maybe [Text])
-    , _ulLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
-    , _ulShortname                   :: !(Maybe Text)
-    , _ulCustomRecipes               :: !(Maybe Recipes)
-    , _ulVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
-    , _ulCustomJSON                  :: !(Maybe Text)
-    , _ulEnableAutoHealing           :: !(Maybe Bool)
-    , _ulPackages                    :: !(Maybe [Text])
-    , _ulName                        :: !(Maybe Text)
-    , _ulAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
-    , _ulAutoAssignPublicIPs         :: !(Maybe Bool)
-    , _ulUseEBSOptimizedInstances    :: !(Maybe Bool)
-    , _ulAutoAssignElasticIPs        :: !(Maybe Bool)
-    , _ulLayerId                     :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateLayer' smart constructor.
-updateLayer :: Text -> UpdateLayer
+updateLayer
+    :: Text -- ^ 'ulLayerId'
+    -> UpdateLayer
 updateLayer pLayerId_ =
     UpdateLayer'
     { _ulCustomInstanceProfileARN = Nothing
@@ -144,13 +146,13 @@ ulCustomInstanceProfileARN :: Lens' UpdateLayer (Maybe Text)
 ulCustomInstanceProfileARN = lens _ulCustomInstanceProfileARN (\ s a -> s{_ulCustomInstanceProfileARN = a});
 
 -- | Whether to install operating system and package updates when the
--- instance boots. The default value is @true@. To control when updates are
--- installed, set this value to @false@. You must then update your
+-- instance boots. The default value is 'true'. To control when updates are
+-- installed, set this value to 'false'. You must then update your
 -- instances manually by using CreateDeployment to run the
--- @update_dependencies@ stack command or manually running @yum@ (Amazon
--- Linux) or @apt-get@ (Ubuntu) on the instances.
+-- 'update_dependencies' stack command or manually running 'yum' (Amazon
+-- Linux) or 'apt-get' (Ubuntu) on the instances.
 --
--- We strongly recommend using the default value of @true@, to ensure that
+-- We strongly recommend using the default value of 'true', to ensure that
 -- your instances have the latest security updates.
 ulInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
 ulInstallUpdatesOnBoot = lens _ulInstallUpdatesOnBoot (\ s a -> s{_ulInstallUpdatesOnBoot = a});
@@ -175,12 +177,12 @@ ulLifecycleEventConfiguration = lens _ulLifecycleEventConfiguration (\ s a -> s{
 ulShortname :: Lens' UpdateLayer (Maybe Text)
 ulShortname = lens _ulShortname (\ s a -> s{_ulShortname = a});
 
--- | A @LayerCustomRecipes@ object that specifies the layer\'s custom
+-- | A 'LayerCustomRecipes' object that specifies the layer\'s custom
 -- recipes.
 ulCustomRecipes :: Lens' UpdateLayer (Maybe Recipes)
 ulCustomRecipes = lens _ulCustomRecipes (\ s a -> s{_ulCustomRecipes = a});
 
--- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+-- | A 'VolumeConfigurations' object that describes the layer\'s Amazon EBS
 -- volumes.
 ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
 ulVolumeConfigurations = lens _ulVolumeConfigurations (\ s a -> s{_ulVolumeConfigurations = a}) . _Default . _Coerce;
@@ -196,7 +198,7 @@ ulCustomJSON = lens _ulCustomJSON (\ s a -> s{_ulCustomJSON = a});
 ulEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
 ulEnableAutoHealing = lens _ulEnableAutoHealing (\ s a -> s{_ulEnableAutoHealing = a});
 
--- | An array of @Package@ objects that describe the layer\'s packages.
+-- | An array of 'Package' objects that describe the layer\'s packages.
 ulPackages :: Lens' UpdateLayer [Text]
 ulPackages = lens _ulPackages (\ s a -> s{_ulPackages = a}) . _Default . _Coerce;
 
@@ -279,6 +281,8 @@ data UpdateLayerResponse =
     UpdateLayerResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateLayerResponse' smart constructor.
-updateLayerResponse :: UpdateLayerResponse
+-- | Creates a value of 'UpdateLayerResponse' with the minimum fields required to make a request.
+--
+updateLayerResponse
+    :: UpdateLayerResponse
 updateLayerResponse = UpdateLayerResponse'

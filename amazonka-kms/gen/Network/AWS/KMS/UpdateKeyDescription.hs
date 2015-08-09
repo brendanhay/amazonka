@@ -24,15 +24,15 @@
 module Network.AWS.KMS.UpdateKeyDescription
     (
     -- * Creating a Request
-      UpdateKeyDescription
-    , updateKeyDescription
+      updateKeyDescription
+    , UpdateKeyDescription
     -- * Request Lenses
     , ukdKeyId
     , ukdDescription
 
     -- * Destructuring the Response
-    , UpdateKeyDescriptionResponse
     , updateKeyDescriptionResponse
+    , UpdateKeyDescriptionResponse
     ) where
 
 import           Network.AWS.KMS.Types
@@ -42,19 +42,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateKeyDescription' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ukdKeyId'
---
--- * 'ukdDescription'
 data UpdateKeyDescription = UpdateKeyDescription'
     { _ukdKeyId       :: !Text
     , _ukdDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateKeyDescription' smart constructor.
-updateKeyDescription :: Text -> Text -> UpdateKeyDescription
+-- | Creates a value of 'UpdateKeyDescription' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ukdKeyId'
+--
+-- * 'ukdDescription'
+updateKeyDescription
+    :: Text -- ^ 'ukdKeyId'
+    -> Text -- ^ 'ukdDescription'
+    -> UpdateKeyDescription
 updateKeyDescription pKeyId_ pDescription_ =
     UpdateKeyDescription'
     { _ukdKeyId = pKeyId_
@@ -108,6 +111,8 @@ data UpdateKeyDescriptionResponse =
     UpdateKeyDescriptionResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateKeyDescriptionResponse' smart constructor.
-updateKeyDescriptionResponse :: UpdateKeyDescriptionResponse
+-- | Creates a value of 'UpdateKeyDescriptionResponse' with the minimum fields required to make a request.
+--
+updateKeyDescriptionResponse
+    :: UpdateKeyDescriptionResponse
 updateKeyDescriptionResponse = UpdateKeyDescriptionResponse'

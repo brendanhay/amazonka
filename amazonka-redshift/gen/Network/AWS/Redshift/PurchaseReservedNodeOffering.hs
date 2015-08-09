@@ -33,15 +33,15 @@
 module Network.AWS.Redshift.PurchaseReservedNodeOffering
     (
     -- * Creating a Request
-      PurchaseReservedNodeOffering
-    , purchaseReservedNodeOffering
+      purchaseReservedNodeOffering
+    , PurchaseReservedNodeOffering
     -- * Request Lenses
     , prnoNodeCount
     , prnoReservedNodeOfferingId
 
     -- * Destructuring the Response
-    , PurchaseReservedNodeOfferingResponse
     , purchaseReservedNodeOfferingResponse
+    , PurchaseReservedNodeOfferingResponse
     -- * Response Lenses
     , prnorsReservedNode
     , prnorsStatus
@@ -56,19 +56,21 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'purchaseReservedNodeOffering' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prnoNodeCount'
---
--- * 'prnoReservedNodeOfferingId'
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
     { _prnoNodeCount              :: !(Maybe Int)
     , _prnoReservedNodeOfferingId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PurchaseReservedNodeOffering' smart constructor.
-purchaseReservedNodeOffering :: Text -> PurchaseReservedNodeOffering
+-- | Creates a value of 'PurchaseReservedNodeOffering' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prnoNodeCount'
+--
+-- * 'prnoReservedNodeOfferingId'
+purchaseReservedNodeOffering
+    :: Text -- ^ 'prnoReservedNodeOfferingId'
+    -> PurchaseReservedNodeOffering
 purchaseReservedNodeOffering pReservedNodeOfferingId_ =
     PurchaseReservedNodeOffering'
     { _prnoNodeCount = Nothing
@@ -77,7 +79,7 @@ purchaseReservedNodeOffering pReservedNodeOfferingId_ =
 
 -- | The number of reserved nodes you want to purchase.
 --
--- Default: @1@
+-- Default: '1'
 prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
 prnoNodeCount = lens _prnoNodeCount (\ s a -> s{_prnoNodeCount = a});
 
@@ -116,19 +118,21 @@ instance ToQuery PurchaseReservedNodeOffering where
                  _prnoReservedNodeOfferingId]
 
 -- | /See:/ 'purchaseReservedNodeOfferingResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prnorsReservedNode'
---
--- * 'prnorsStatus'
 data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
     { _prnorsReservedNode :: !(Maybe ReservedNode)
     , _prnorsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PurchaseReservedNodeOfferingResponse' smart constructor.
-purchaseReservedNodeOfferingResponse :: Int -> PurchaseReservedNodeOfferingResponse
+-- | Creates a value of 'PurchaseReservedNodeOfferingResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prnorsReservedNode'
+--
+-- * 'prnorsStatus'
+purchaseReservedNodeOfferingResponse
+    :: Int -- ^ 'prnorsStatus'
+    -> PurchaseReservedNodeOfferingResponse
 purchaseReservedNodeOfferingResponse pStatus_ =
     PurchaseReservedNodeOfferingResponse'
     { _prnorsReservedNode = Nothing
@@ -139,6 +143,6 @@ purchaseReservedNodeOfferingResponse pStatus_ =
 prnorsReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
 prnorsReservedNode = lens _prnorsReservedNode (\ s a -> s{_prnorsReservedNode = a});
 
--- | Undocumented member.
+-- | The response status code.
 prnorsStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
 prnorsStatus = lens _prnorsStatus (\ s a -> s{_prnorsStatus = a});

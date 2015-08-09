@@ -21,22 +21,22 @@
 -- Describes attributes of your AWS account. The following are the
 -- supported account attributes:
 --
--- -   @supported-platforms@: Indicates whether your account can launch
+-- -   'supported-platforms': Indicates whether your account can launch
 --     instances into EC2-Classic and EC2-VPC, or only into EC2-VPC.
 --
--- -   @default-vpc@: The ID of the default VPC for your account, or
---     @none@.
+-- -   'default-vpc': The ID of the default VPC for your account, or
+--     'none'.
 --
--- -   @max-instances@: The maximum number of On-Demand instances that you
+-- -   'max-instances': The maximum number of On-Demand instances that you
 --     can run.
 --
--- -   @vpc-max-security-groups-per-interface@: The maximum number of
+-- -   'vpc-max-security-groups-per-interface': The maximum number of
 --     security groups that you can assign to a network interface.
 --
--- -   @max-elastic-ips@: The maximum number of Elastic IP addresses that
+-- -   'max-elastic-ips': The maximum number of Elastic IP addresses that
 --     you can allocate for use with EC2-Classic.
 --
--- -   @vpc-max-elastic-ips@: The maximum number of Elastic IP addresses
+-- -   'vpc-max-elastic-ips': The maximum number of Elastic IP addresses
 --     that you can allocate for use with EC2-VPC.
 --
 --
@@ -44,15 +44,15 @@
 module Network.AWS.EC2.DescribeAccountAttributes
     (
     -- * Creating a Request
-      DescribeAccountAttributes
-    , describeAccountAttributes
+      describeAccountAttributes
+    , DescribeAccountAttributes
     -- * Request Lenses
     , daaAttributeNames
     , daaDryRun
 
     -- * Destructuring the Response
-    , DescribeAccountAttributesResponse
     , describeAccountAttributesResponse
+    , DescribeAccountAttributesResponse
     -- * Response Lenses
     , daarsAccountAttributes
     , daarsStatus
@@ -65,19 +65,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeAccountAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daaAttributeNames'
---
--- * 'daaDryRun'
 data DescribeAccountAttributes = DescribeAccountAttributes'
     { _daaAttributeNames :: !(Maybe [AccountAttributeName])
     , _daaDryRun         :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAccountAttributes' smart constructor.
-describeAccountAttributes :: DescribeAccountAttributes
+-- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daaAttributeNames'
+--
+-- * 'daaDryRun'
+describeAccountAttributes
+    :: DescribeAccountAttributes
 describeAccountAttributes =
     DescribeAccountAttributes'
     { _daaAttributeNames = Nothing
@@ -90,8 +91,8 @@ daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a})
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
 daaDryRun = lens _daaDryRun (\ s a -> s{_daaDryRun = a});
 
@@ -125,19 +126,21 @@ instance ToQuery DescribeAccountAttributes where
                "DryRun" =: _daaDryRun]
 
 -- | /See:/ 'describeAccountAttributesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daarsAccountAttributes'
---
--- * 'daarsStatus'
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     { _daarsAccountAttributes :: !(Maybe [AccountAttribute])
     , _daarsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAccountAttributesResponse' smart constructor.
-describeAccountAttributesResponse :: Int -> DescribeAccountAttributesResponse
+-- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'daarsAccountAttributes'
+--
+-- * 'daarsStatus'
+describeAccountAttributesResponse
+    :: Int -- ^ 'daarsStatus'
+    -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pStatus_ =
     DescribeAccountAttributesResponse'
     { _daarsAccountAttributes = Nothing
@@ -148,6 +151,6 @@ describeAccountAttributesResponse pStatus_ =
 daarsAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
 daarsAccountAttributes = lens _daarsAccountAttributes (\ s a -> s{_daarsAccountAttributes = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 daarsStatus :: Lens' DescribeAccountAttributesResponse Int
 daarsStatus = lens _daarsStatus (\ s a -> s{_daarsStatus = a});

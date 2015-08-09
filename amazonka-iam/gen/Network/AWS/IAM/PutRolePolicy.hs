@@ -40,7 +40,7 @@
 -- in the /Using IAM/ guide.
 --
 -- Because policy documents can be large, you should use POST rather than
--- GET when calling @PutRolePolicy@. For general information about using
+-- GET when calling 'PutRolePolicy'. For general information about using
 -- the Query API with IAM, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
 -- in the /Using IAM/ guide.
@@ -49,16 +49,16 @@
 module Network.AWS.IAM.PutRolePolicy
     (
     -- * Creating a Request
-      PutRolePolicy
-    , putRolePolicy
+      putRolePolicy
+    , PutRolePolicy
     -- * Request Lenses
     , prpRoleName
     , prpPolicyName
     , prpPolicyDocument
 
     -- * Destructuring the Response
-    , PutRolePolicyResponse
     , putRolePolicyResponse
+    , PutRolePolicyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -68,22 +68,26 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putRolePolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prpRoleName'
---
--- * 'prpPolicyName'
---
--- * 'prpPolicyDocument'
 data PutRolePolicy = PutRolePolicy'
     { _prpRoleName       :: !Text
     , _prpPolicyName     :: !Text
     , _prpPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutRolePolicy' smart constructor.
-putRolePolicy :: Text -> Text -> Text -> PutRolePolicy
+-- | Creates a value of 'PutRolePolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prpRoleName'
+--
+-- * 'prpPolicyName'
+--
+-- * 'prpPolicyDocument'
+putRolePolicy
+    :: Text -- ^ 'prpRoleName'
+    -> Text -- ^ 'prpPolicyName'
+    -> Text -- ^ 'prpPolicyDocument'
+    -> PutRolePolicy
 putRolePolicy pRoleName_ pPolicyName_ pPolicyDocument_ =
     PutRolePolicy'
     { _prpRoleName = pRoleName_
@@ -129,6 +133,8 @@ data PutRolePolicyResponse =
     PutRolePolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutRolePolicyResponse' smart constructor.
-putRolePolicyResponse :: PutRolePolicyResponse
+-- | Creates a value of 'PutRolePolicyResponse' with the minimum fields required to make a request.
+--
+putRolePolicyResponse
+    :: PutRolePolicyResponse
 putRolePolicyResponse = PutRolePolicyResponse'

@@ -27,16 +27,16 @@
 module Network.AWS.EC2.DetachClassicLinkVPC
     (
     -- * Creating a Request
-      DetachClassicLinkVPC
-    , detachClassicLinkVPC
+      detachClassicLinkVPC
+    , DetachClassicLinkVPC
     -- * Request Lenses
     , dclvDryRun
     , dclvInstanceId
     , dclvVPCId
 
     -- * Destructuring the Response
-    , DetachClassicLinkVPCResponse
     , detachClassicLinkVPCResponse
+    , DetachClassicLinkVPCResponse
     -- * Response Lenses
     , dclvrsReturn
     , dclvrsStatus
@@ -49,22 +49,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'detachClassicLinkVPC' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dclvDryRun'
---
--- * 'dclvInstanceId'
---
--- * 'dclvVPCId'
 data DetachClassicLinkVPC = DetachClassicLinkVPC'
     { _dclvDryRun     :: !(Maybe Bool)
     , _dclvInstanceId :: !Text
     , _dclvVPCId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachClassicLinkVPC' smart constructor.
-detachClassicLinkVPC :: Text -> Text -> DetachClassicLinkVPC
+-- | Creates a value of 'DetachClassicLinkVPC' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dclvDryRun'
+--
+-- * 'dclvInstanceId'
+--
+-- * 'dclvVPCId'
+detachClassicLinkVPC
+    :: Text -- ^ 'dclvInstanceId'
+    -> Text -- ^ 'dclvVPCId'
+    -> DetachClassicLinkVPC
 detachClassicLinkVPC pInstanceId_ pVPCId_ =
     DetachClassicLinkVPC'
     { _dclvDryRun = Nothing
@@ -74,8 +77,8 @@ detachClassicLinkVPC pInstanceId_ pVPCId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dclvDryRun :: Lens' DetachClassicLinkVPC (Maybe Bool)
 dclvDryRun = lens _dclvDryRun (\ s a -> s{_dclvDryRun = a});
 
@@ -114,29 +117,31 @@ instance ToQuery DetachClassicLinkVPC where
                "VpcId" =: _dclvVPCId]
 
 -- | /See:/ 'detachClassicLinkVPCResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dclvrsReturn'
---
--- * 'dclvrsStatus'
 data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
     { _dclvrsReturn :: !(Maybe Bool)
     , _dclvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachClassicLinkVPCResponse' smart constructor.
-detachClassicLinkVPCResponse :: Int -> DetachClassicLinkVPCResponse
+-- | Creates a value of 'DetachClassicLinkVPCResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dclvrsReturn'
+--
+-- * 'dclvrsStatus'
+detachClassicLinkVPCResponse
+    :: Int -- ^ 'dclvrsStatus'
+    -> DetachClassicLinkVPCResponse
 detachClassicLinkVPCResponse pStatus_ =
     DetachClassicLinkVPCResponse'
     { _dclvrsReturn = Nothing
     , _dclvrsStatus = pStatus_
     }
 
--- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+-- | Returns 'true' if the request succeeds; otherwise, it returns an error.
 dclvrsReturn :: Lens' DetachClassicLinkVPCResponse (Maybe Bool)
 dclvrsReturn = lens _dclvrsReturn (\ s a -> s{_dclvrsReturn = a});
 
--- | Undocumented member.
+-- | The response status code.
 dclvrsStatus :: Lens' DetachClassicLinkVPCResponse Int
 dclvrsStatus = lens _dclvrsStatus (\ s a -> s{_dclvrsStatus = a});

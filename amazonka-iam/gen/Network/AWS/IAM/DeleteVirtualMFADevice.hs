@@ -28,14 +28,14 @@
 module Network.AWS.IAM.DeleteVirtualMFADevice
     (
     -- * Creating a Request
-      DeleteVirtualMFADevice
-    , deleteVirtualMFADevice
+      deleteVirtualMFADevice
+    , DeleteVirtualMFADevice
     -- * Request Lenses
     , dvmdSerialNumber
 
     -- * Destructuring the Response
-    , DeleteVirtualMFADeviceResponse
     , deleteVirtualMFADeviceResponse
+    , DeleteVirtualMFADeviceResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -45,16 +45,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteVirtualMFADevice' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvmdSerialNumber'
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice'
     { _dvmdSerialNumber :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVirtualMFADevice' smart constructor.
-deleteVirtualMFADevice :: Text -> DeleteVirtualMFADevice
+-- | Creates a value of 'DeleteVirtualMFADevice' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvmdSerialNumber'
+deleteVirtualMFADevice
+    :: Text -- ^ 'dvmdSerialNumber'
+    -> DeleteVirtualMFADevice
 deleteVirtualMFADevice pSerialNumber_ =
     DeleteVirtualMFADevice'
     { _dvmdSerialNumber = pSerialNumber_
@@ -92,6 +94,8 @@ data DeleteVirtualMFADeviceResponse =
     DeleteVirtualMFADeviceResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVirtualMFADeviceResponse' smart constructor.
-deleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse
+-- | Creates a value of 'DeleteVirtualMFADeviceResponse' with the minimum fields required to make a request.
+--
+deleteVirtualMFADeviceResponse
+    :: DeleteVirtualMFADeviceResponse
 deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse'

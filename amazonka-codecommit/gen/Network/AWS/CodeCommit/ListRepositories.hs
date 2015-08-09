@@ -24,16 +24,16 @@
 module Network.AWS.CodeCommit.ListRepositories
     (
     -- * Creating a Request
-      ListRepositories
-    , listRepositories
+      listRepositories
+    , ListRepositories
     -- * Request Lenses
     , lrNextToken
     , lrOrder
     , lrSortBy
 
     -- * Destructuring the Response
-    , ListRepositoriesResponse
     , listRepositoriesResponse
+    , ListRepositoriesResponse
     -- * Response Lenses
     , lrrsNextToken
     , lrrsRepositories
@@ -49,22 +49,23 @@ import           Network.AWS.Response
 -- | Represents the input of a list repositories operation.
 --
 -- /See:/ 'listRepositories' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lrNextToken'
---
--- * 'lrOrder'
---
--- * 'lrSortBy'
 data ListRepositories = ListRepositories'
     { _lrNextToken :: !(Maybe Text)
     , _lrOrder     :: !(Maybe OrderEnum)
     , _lrSortBy    :: !(Maybe SortByEnum)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListRepositories' smart constructor.
-listRepositories :: ListRepositories
+-- | Creates a value of 'ListRepositories' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lrNextToken'
+--
+-- * 'lrOrder'
+--
+-- * 'lrSortBy'
+listRepositories
+    :: ListRepositories
 listRepositories =
     ListRepositories'
     { _lrNextToken = Nothing
@@ -124,22 +125,24 @@ instance ToQuery ListRepositories where
 -- | Represents the output of a list repositories operation.
 --
 -- /See:/ 'listRepositoriesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lrrsNextToken'
---
--- * 'lrrsRepositories'
---
--- * 'lrrsStatus'
 data ListRepositoriesResponse = ListRepositoriesResponse'
     { _lrrsNextToken    :: !(Maybe Text)
     , _lrrsRepositories :: !(Maybe [RepositoryNameIdPair])
     , _lrrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListRepositoriesResponse' smart constructor.
-listRepositoriesResponse :: Int -> ListRepositoriesResponse
+-- | Creates a value of 'ListRepositoriesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lrrsNextToken'
+--
+-- * 'lrrsRepositories'
+--
+-- * 'lrrsStatus'
+listRepositoriesResponse
+    :: Int -- ^ 'lrrsStatus'
+    -> ListRepositoriesResponse
 listRepositoriesResponse pStatus_ =
     ListRepositoriesResponse'
     { _lrrsNextToken = Nothing
@@ -158,6 +161,6 @@ lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 lrrsRepositories :: Lens' ListRepositoriesResponse [RepositoryNameIdPair]
 lrrsRepositories = lens _lrrsRepositories (\ s a -> s{_lrrsRepositories = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lrrsStatus :: Lens' ListRepositoriesResponse Int
 lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});

@@ -136,8 +136,8 @@ _InvalidRequestContentException =
     _ServiceError . hasStatus 400 . hasCode "InvalidRequestContentException"
 
 -- | One of the parameters in the request is invalid. For example, if you
--- provided an IAM role for AWS Lambda to assume in the @CreateFunction@ or
--- the @UpdateFunctionConfiguration@ API, that AWS Lambda is unable to
+-- provided an IAM role for AWS Lambda to assume in the 'CreateFunction' or
+-- the 'UpdateFunctionConfiguration' API, that AWS Lambda is unable to
 -- assume you will get this exception.
 _InvalidParameterValueException :: AsError a => Getting (First ServiceError) a ServiceError
 _InvalidParameterValueException =

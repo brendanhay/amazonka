@@ -33,15 +33,15 @@
 module Network.AWS.Glacier.DeleteVaultAccessPolicy
     (
     -- * Creating a Request
-      DeleteVaultAccessPolicy
-    , deleteVaultAccessPolicy
+      deleteVaultAccessPolicy
+    , DeleteVaultAccessPolicy
     -- * Request Lenses
     , dvapAccountId
     , dvapVaultName
 
     -- * Destructuring the Response
-    , DeleteVaultAccessPolicyResponse
     , deleteVaultAccessPolicyResponse
+    , DeleteVaultAccessPolicyResponse
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -53,28 +53,31 @@ import           Network.AWS.Response
 -- | DeleteVaultAccessPolicy input.
 --
 -- /See:/ 'deleteVaultAccessPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvapAccountId'
---
--- * 'dvapVaultName'
 data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
     { _dvapAccountId :: !Text
     , _dvapVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVaultAccessPolicy' smart constructor.
-deleteVaultAccessPolicy :: Text -> Text -> DeleteVaultAccessPolicy
+-- | Creates a value of 'DeleteVaultAccessPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvapAccountId'
+--
+-- * 'dvapVaultName'
+deleteVaultAccessPolicy
+    :: Text -- ^ 'dvapAccountId'
+    -> Text -- ^ 'dvapVaultName'
+    -> DeleteVaultAccessPolicy
 deleteVaultAccessPolicy pAccountId_ pVaultName_ =
     DeleteVaultAccessPolicy'
     { _dvapAccountId = pAccountId_
     , _dvapVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 dvapAccountId :: Lens' DeleteVaultAccessPolicy Text
@@ -109,6 +112,8 @@ data DeleteVaultAccessPolicyResponse =
     DeleteVaultAccessPolicyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVaultAccessPolicyResponse' smart constructor.
-deleteVaultAccessPolicyResponse :: DeleteVaultAccessPolicyResponse
+-- | Creates a value of 'DeleteVaultAccessPolicyResponse' with the minimum fields required to make a request.
+--
+deleteVaultAccessPolicyResponse
+    :: DeleteVaultAccessPolicyResponse
 deleteVaultAccessPolicyResponse = DeleteVaultAccessPolicyResponse'

@@ -32,14 +32,14 @@
 module Network.AWS.OpsWorks.DeregisterElasticIP
     (
     -- * Creating a Request
-      DeregisterElasticIP
-    , deregisterElasticIP
+      deregisterElasticIP
+    , DeregisterElasticIP
     -- * Request Lenses
     , deipElasticIP
 
     -- * Destructuring the Response
-    , DeregisterElasticIPResponse
     , deregisterElasticIPResponse
+    , DeregisterElasticIPResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -49,16 +49,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deregisterElasticIP' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'deipElasticIP'
 newtype DeregisterElasticIP = DeregisterElasticIP'
     { _deipElasticIP :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterElasticIP' smart constructor.
-deregisterElasticIP :: Text -> DeregisterElasticIP
+-- | Creates a value of 'DeregisterElasticIP' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'deipElasticIP'
+deregisterElasticIP
+    :: Text -- ^ 'deipElasticIP'
+    -> DeregisterElasticIP
 deregisterElasticIP pElasticIP_ =
     DeregisterElasticIP'
     { _deipElasticIP = pElasticIP_
@@ -100,6 +102,8 @@ data DeregisterElasticIPResponse =
     DeregisterElasticIPResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterElasticIPResponse' smart constructor.
-deregisterElasticIPResponse :: DeregisterElasticIPResponse
+-- | Creates a value of 'DeregisterElasticIPResponse' with the minimum fields required to make a request.
+--
+deregisterElasticIPResponse
+    :: DeregisterElasticIPResponse
 deregisterElasticIPResponse = DeregisterElasticIPResponse'

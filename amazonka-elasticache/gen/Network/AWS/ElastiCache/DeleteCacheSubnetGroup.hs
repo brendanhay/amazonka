@@ -27,14 +27,14 @@
 module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     (
     -- * Creating a Request
-      DeleteCacheSubnetGroup
-    , deleteCacheSubnetGroup
+      deleteCacheSubnetGroup
+    , DeleteCacheSubnetGroup
     -- * Request Lenses
     , dCacheSubnetGroupName
 
     -- * Destructuring the Response
-    , DeleteCacheSubnetGroupResponse
     , deleteCacheSubnetGroupResponse
+    , DeleteCacheSubnetGroupResponse
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents the input of a /DeleteCacheSubnetGroup/ action.
 --
 -- /See:/ 'deleteCacheSubnetGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dCacheSubnetGroupName'
 newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup'
     { _dCacheSubnetGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCacheSubnetGroup' smart constructor.
-deleteCacheSubnetGroup :: Text -> DeleteCacheSubnetGroup
+-- | Creates a value of 'DeleteCacheSubnetGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dCacheSubnetGroupName'
+deleteCacheSubnetGroup
+    :: Text -- ^ 'dCacheSubnetGroupName'
+    -> DeleteCacheSubnetGroup
 deleteCacheSubnetGroup pCacheSubnetGroupName_ =
     DeleteCacheSubnetGroup'
     { _dCacheSubnetGroupName = pCacheSubnetGroupName_
@@ -95,6 +97,8 @@ data DeleteCacheSubnetGroupResponse =
     DeleteCacheSubnetGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCacheSubnetGroupResponse' smart constructor.
-deleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse
+-- | Creates a value of 'DeleteCacheSubnetGroupResponse' with the minimum fields required to make a request.
+--
+deleteCacheSubnetGroupResponse
+    :: DeleteCacheSubnetGroupResponse
 deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse'

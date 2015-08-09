@@ -32,14 +32,14 @@
 module Network.AWS.OpsWorks.DisassociateElasticIP
     (
     -- * Creating a Request
-      DisassociateElasticIP
-    , disassociateElasticIP
+      disassociateElasticIP
+    , DisassociateElasticIP
     -- * Request Lenses
     , deiElasticIP
 
     -- * Destructuring the Response
-    , DisassociateElasticIPResponse
     , disassociateElasticIPResponse
+    , DisassociateElasticIPResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -49,16 +49,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'disassociateElasticIP' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'deiElasticIP'
 newtype DisassociateElasticIP = DisassociateElasticIP'
     { _deiElasticIP :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisassociateElasticIP' smart constructor.
-disassociateElasticIP :: Text -> DisassociateElasticIP
+-- | Creates a value of 'DisassociateElasticIP' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'deiElasticIP'
+disassociateElasticIP
+    :: Text -- ^ 'deiElasticIP'
+    -> DisassociateElasticIP
 disassociateElasticIP pElasticIP_ =
     DisassociateElasticIP'
     { _deiElasticIP = pElasticIP_
@@ -100,6 +102,8 @@ data DisassociateElasticIPResponse =
     DisassociateElasticIPResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisassociateElasticIPResponse' smart constructor.
-disassociateElasticIPResponse :: DisassociateElasticIPResponse
+-- | Creates a value of 'DisassociateElasticIPResponse' with the minimum fields required to make a request.
+--
+disassociateElasticIPResponse
+    :: DisassociateElasticIPResponse
 disassociateElasticIPResponse = DisassociateElasticIPResponse'

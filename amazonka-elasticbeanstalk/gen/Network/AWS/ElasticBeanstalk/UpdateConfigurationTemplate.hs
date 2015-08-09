@@ -21,7 +21,7 @@
 -- Updates the specified configuration template to have the specified
 -- properties or configuration option values.
 --
--- If a property (for example, @ApplicationName@) is not provided, its
+-- If a property (for example, 'ApplicationName') is not provided, its
 -- value remains unchanged. To clear such properties, specify an empty
 -- string.
 --
@@ -33,8 +33,8 @@
 module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     (
     -- * Creating a Request
-      UpdateConfigurationTemplate
-    , updateConfigurationTemplate
+      updateConfigurationTemplate
+    , UpdateConfigurationTemplate
     -- * Request Lenses
     , uctOptionsToRemove
     , uctOptionSettings
@@ -43,8 +43,8 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     , uctTemplateName
 
     -- * Destructuring the Response
-    , ConfigurationSettingsDescription
     , configurationSettingsDescription
+    , ConfigurationSettingsDescription
     -- * Response Lenses
     , csdTemplateName
     , csdOptionSettings
@@ -67,8 +67,17 @@ import           Network.AWS.Response
 -- stack.
 --
 -- /See:/ 'updateConfigurationTemplate' smart constructor.
+data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
+    { _uctOptionsToRemove :: !(Maybe [OptionSpecification])
+    , _uctOptionSettings  :: !(Maybe [ConfigurationOptionSetting])
+    , _uctDescription     :: !(Maybe Text)
+    , _uctApplicationName :: !Text
+    , _uctTemplateName    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateConfigurationTemplate' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uctOptionsToRemove'
 --
@@ -79,16 +88,10 @@ import           Network.AWS.Response
 -- * 'uctApplicationName'
 --
 -- * 'uctTemplateName'
-data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
-    { _uctOptionsToRemove :: !(Maybe [OptionSpecification])
-    , _uctOptionSettings  :: !(Maybe [ConfigurationOptionSetting])
-    , _uctDescription     :: !(Maybe Text)
-    , _uctApplicationName :: !Text
-    , _uctTemplateName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateConfigurationTemplate' smart constructor.
-updateConfigurationTemplate :: Text -> Text -> UpdateConfigurationTemplate
+updateConfigurationTemplate
+    :: Text -- ^ 'uctApplicationName'
+    -> Text -- ^ 'uctTemplateName'
+    -> UpdateConfigurationTemplate
 updateConfigurationTemplate pApplicationName_ pTemplateName_ =
     UpdateConfigurationTemplate'
     { _uctOptionsToRemove = Nothing
@@ -100,7 +103,7 @@ updateConfigurationTemplate pApplicationName_ pTemplateName_ =
 
 -- | A list of configuration options to remove from the configuration set.
 --
--- Constraint: You can remove only @UserDefined@ configuration options.
+-- Constraint: You can remove only 'UserDefined' configuration options.
 uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
 uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a}) . _Default . _Coerce;
 
@@ -116,15 +119,15 @@ uctDescription = lens _uctDescription (\ s a -> s{_uctDescription = a});
 -- | The name of the application associated with the configuration template
 -- to update.
 --
--- If no application is found with this name, @UpdateConfigurationTemplate@
--- returns an @InvalidParameterValue@ error.
+-- If no application is found with this name, 'UpdateConfigurationTemplate'
+-- returns an 'InvalidParameterValue' error.
 uctApplicationName :: Lens' UpdateConfigurationTemplate Text
 uctApplicationName = lens _uctApplicationName (\ s a -> s{_uctApplicationName = a});
 
 -- | The name of the configuration template to update.
 --
 -- If no configuration template is found with this name,
--- @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
+-- 'UpdateConfigurationTemplate' returns an 'InvalidParameterValue' error.
 uctTemplateName :: Lens' UpdateConfigurationTemplate Text
 uctTemplateName = lens _uctTemplateName (\ s a -> s{_uctTemplateName = a});
 

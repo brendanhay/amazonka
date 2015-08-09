@@ -24,12 +24,12 @@
 module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     (
     -- * Creating a Request
-      ListAvailableSolutionStacks
-    , listAvailableSolutionStacks
+      listAvailableSolutionStacks
+    , ListAvailableSolutionStacks
 
     -- * Destructuring the Response
-    , ListAvailableSolutionStacksResponse
     , listAvailableSolutionStacksResponse
+    , ListAvailableSolutionStacksResponse
     -- * Response Lenses
     , lassrsSolutionStacks
     , lassrsSolutionStackDetails
@@ -47,8 +47,10 @@ data ListAvailableSolutionStacks =
     ListAvailableSolutionStacks'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListAvailableSolutionStacks' smart constructor.
-listAvailableSolutionStacks :: ListAvailableSolutionStacks
+-- | Creates a value of 'ListAvailableSolutionStacks' with the minimum fields required to make a request.
+--
+listAvailableSolutionStacks
+    :: ListAvailableSolutionStacks
 listAvailableSolutionStacks = ListAvailableSolutionStacks'
 
 instance AWSRequest ListAvailableSolutionStacks where
@@ -86,22 +88,24 @@ instance ToQuery ListAvailableSolutionStacks where
 -- | A list of available AWS Elastic Beanstalk solution stacks.
 --
 -- /See:/ 'listAvailableSolutionStacksResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lassrsSolutionStacks'
---
--- * 'lassrsSolutionStackDetails'
---
--- * 'lassrsStatus'
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
     { _lassrsSolutionStacks       :: !(Maybe [Text])
     , _lassrsSolutionStackDetails :: !(Maybe [SolutionStackDescription])
     , _lassrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListAvailableSolutionStacksResponse' smart constructor.
-listAvailableSolutionStacksResponse :: Int -> ListAvailableSolutionStacksResponse
+-- | Creates a value of 'ListAvailableSolutionStacksResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lassrsSolutionStacks'
+--
+-- * 'lassrsSolutionStackDetails'
+--
+-- * 'lassrsStatus'
+listAvailableSolutionStacksResponse
+    :: Int -- ^ 'lassrsStatus'
+    -> ListAvailableSolutionStacksResponse
 listAvailableSolutionStacksResponse pStatus_ =
     ListAvailableSolutionStacksResponse'
     { _lassrsSolutionStacks = Nothing
@@ -117,6 +121,6 @@ lassrsSolutionStacks = lens _lassrsSolutionStacks (\ s a -> s{_lassrsSolutionSta
 lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
 lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\ s a -> s{_lassrsSolutionStackDetails = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 lassrsStatus :: Lens' ListAvailableSolutionStacksResponse Int
 lassrsStatus = lens _lassrsStatus (\ s a -> s{_lassrsStatus = a});

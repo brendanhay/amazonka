@@ -27,15 +27,15 @@
 module Network.AWS.EC2.UnmonitorInstances
     (
     -- * Creating a Request
-      UnmonitorInstances
-    , unmonitorInstances
+      unmonitorInstances
+    , UnmonitorInstances
     -- * Request Lenses
     , uiDryRun
     , uiInstanceIds
 
     -- * Destructuring the Response
-    , UnmonitorInstancesResponse
     , unmonitorInstancesResponse
+    , UnmonitorInstancesResponse
     -- * Response Lenses
     , uirsInstanceMonitorings
     , uirsStatus
@@ -48,19 +48,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'unmonitorInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uiDryRun'
---
--- * 'uiInstanceIds'
 data UnmonitorInstances = UnmonitorInstances'
     { _uiDryRun      :: !(Maybe Bool)
     , _uiInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnmonitorInstances' smart constructor.
-unmonitorInstances :: UnmonitorInstances
+-- | Creates a value of 'UnmonitorInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uiDryRun'
+--
+-- * 'uiInstanceIds'
+unmonitorInstances
+    :: UnmonitorInstances
 unmonitorInstances =
     UnmonitorInstances'
     { _uiDryRun = Nothing
@@ -69,8 +70,8 @@ unmonitorInstances =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 uiDryRun :: Lens' UnmonitorInstances (Maybe Bool)
 uiDryRun = lens _uiDryRun (\ s a -> s{_uiDryRun = a});
 
@@ -106,19 +107,21 @@ instance ToQuery UnmonitorInstances where
                toQueryList "InstanceId" _uiInstanceIds]
 
 -- | /See:/ 'unmonitorInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uirsInstanceMonitorings'
---
--- * 'uirsStatus'
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
     { _uirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
     , _uirsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnmonitorInstancesResponse' smart constructor.
-unmonitorInstancesResponse :: Int -> UnmonitorInstancesResponse
+-- | Creates a value of 'UnmonitorInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uirsInstanceMonitorings'
+--
+-- * 'uirsStatus'
+unmonitorInstancesResponse
+    :: Int -- ^ 'uirsStatus'
+    -> UnmonitorInstancesResponse
 unmonitorInstancesResponse pStatus_ =
     UnmonitorInstancesResponse'
     { _uirsInstanceMonitorings = Nothing
@@ -129,6 +132,6 @@ unmonitorInstancesResponse pStatus_ =
 uirsInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanceMonitorings = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 uirsStatus :: Lens' UnmonitorInstancesResponse Int
 uirsStatus = lens _uirsStatus (\ s a -> s{_uirsStatus = a});

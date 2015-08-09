@@ -20,7 +20,7 @@
 --
 -- The CancelJob operation cancels an unfinished job.
 --
--- You can only cancel a job that has a status of @Submitted@. To prevent a
+-- You can only cancel a job that has a status of 'Submitted'. To prevent a
 -- pipeline from starting to process a job while you\'re getting the job
 -- identifier, use UpdatePipelineStatus to temporarily pause the pipeline.
 --
@@ -28,14 +28,14 @@
 module Network.AWS.ElasticTranscoder.CancelJob
     (
     -- * Creating a Request
-      CancelJob
-    , cancelJob
+      cancelJob
+    , CancelJob
     -- * Request Lenses
     , cjId
 
     -- * Destructuring the Response
-    , CancelJobResponse
     , cancelJobResponse
+    , CancelJobResponse
     -- * Response Lenses
     , canrsStatus
     ) where
@@ -46,19 +46,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @CancelJobRequest@ structure.
+-- | The 'CancelJobRequest' structure.
 --
 -- /See:/ 'cancelJob' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cjId'
 newtype CancelJob = CancelJob'
     { _cjId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelJob' smart constructor.
-cancelJob :: Text -> CancelJob
+-- | Creates a value of 'CancelJob' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cjId'
+cancelJob
+    :: Text -- ^ 'cjId'
+    -> CancelJob
 cancelJob pId_ =
     CancelJob'
     { _cjId = pId_
@@ -66,8 +68,8 @@ cancelJob pId_ =
 
 -- | The identifier of the job that you want to cancel.
 --
--- To get a list of the jobs (including their @jobId@) that have a status
--- of @Submitted@, use the ListJobsByStatus API action.
+-- To get a list of the jobs (including their 'jobId') that have a status
+-- of 'Submitted', use the ListJobsByStatus API action.
 cjId :: Lens' CancelJob Text
 cjId = lens _cjId (\ s a -> s{_cjId = a});
 
@@ -91,24 +93,26 @@ instance ToQuery CancelJob where
         toQuery = const mempty
 
 -- | The response body contains a JSON object. If the job is successfully
--- canceled, the value of @Success@ is @true@.
+-- canceled, the value of 'Success' is 'true'.
 --
 -- /See:/ 'cancelJobResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'canrsStatus'
 newtype CancelJobResponse = CancelJobResponse'
     { _canrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelJobResponse' smart constructor.
-cancelJobResponse :: Int -> CancelJobResponse
+-- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'canrsStatus'
+cancelJobResponse
+    :: Int -- ^ 'canrsStatus'
+    -> CancelJobResponse
 cancelJobResponse pStatus_ =
     CancelJobResponse'
     { _canrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 canrsStatus :: Lens' CancelJobResponse Int
 canrsStatus = lens _canrsStatus (\ s a -> s{_canrsStatus = a});

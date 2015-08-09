@@ -18,16 +18,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the @IdentityID@ associated with a @DeveloperUserIdentifier@
--- or the list of @DeveloperUserIdentifier@s associated with an
--- @IdentityId@ for an existing identity. Either @IdentityID@ or
--- @DeveloperUserIdentifier@ must not be null. If you supply only one of
+-- Retrieves the 'IdentityID' associated with a 'DeveloperUserIdentifier'
+-- or the list of 'DeveloperUserIdentifier's associated with an
+-- 'IdentityId' for an existing identity. Either 'IdentityID' or
+-- 'DeveloperUserIdentifier' must not be null. If you supply only one of
 -- these values, the other value will be searched in the database and
 -- returned as a part of the response. If you supply both,
--- @DeveloperUserIdentifier@ will be matched against @IdentityID@. If the
+-- 'DeveloperUserIdentifier' will be matched against 'IdentityID'. If the
 -- values are verified against the database, the response returns both
 -- values and is the same as the request. Otherwise a
--- @ResourceConflictException@ is thrown.
+-- 'ResourceConflictException' is thrown.
 --
 -- You must use AWS Developer credentials to call this API.
 --
@@ -35,8 +35,8 @@
 module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     (
     -- * Creating a Request
-      LookupDeveloperIdentity
-    , lookupDeveloperIdentity
+      lookupDeveloperIdentity
+    , LookupDeveloperIdentity
     -- * Request Lenses
     , ldiDeveloperUserIdentifier
     , ldiNextToken
@@ -45,8 +45,8 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     , ldiIdentityPoolId
 
     -- * Destructuring the Response
-    , LookupDeveloperIdentityResponse
     , lookupDeveloperIdentityResponse
+    , LookupDeveloperIdentityResponse
     -- * Response Lenses
     , ldirsNextToken
     , ldirsIdentityId
@@ -60,11 +60,20 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the @LookupDeveloperIdentityInput@ action.
+-- | Input to the 'LookupDeveloperIdentityInput' action.
 --
 -- /See:/ 'lookupDeveloperIdentity' smart constructor.
+data LookupDeveloperIdentity = LookupDeveloperIdentity'
+    { _ldiDeveloperUserIdentifier :: !(Maybe Text)
+    , _ldiNextToken               :: !(Maybe Text)
+    , _ldiIdentityId              :: !(Maybe Text)
+    , _ldiMaxResults              :: !(Maybe Nat)
+    , _ldiIdentityPoolId          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LookupDeveloperIdentity' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ldiDeveloperUserIdentifier'
 --
@@ -75,16 +84,9 @@ import           Network.AWS.Response
 -- * 'ldiMaxResults'
 --
 -- * 'ldiIdentityPoolId'
-data LookupDeveloperIdentity = LookupDeveloperIdentity'
-    { _ldiDeveloperUserIdentifier :: !(Maybe Text)
-    , _ldiNextToken               :: !(Maybe Text)
-    , _ldiIdentityId              :: !(Maybe Text)
-    , _ldiMaxResults              :: !(Maybe Nat)
-    , _ldiIdentityPoolId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LookupDeveloperIdentity' smart constructor.
-lookupDeveloperIdentity :: Text -> LookupDeveloperIdentity
+lookupDeveloperIdentity
+    :: Text -- ^ 'ldiIdentityPoolId'
+    -> LookupDeveloperIdentity
 lookupDeveloperIdentity pIdentityPoolId_ =
     LookupDeveloperIdentity'
     { _ldiDeveloperUserIdentifier = Nothing
@@ -100,9 +102,9 @@ lookupDeveloperIdentity pIdentityPoolId_ =
 ldiDeveloperUserIdentifier :: Lens' LookupDeveloperIdentity (Maybe Text)
 ldiDeveloperUserIdentifier = lens _ldiDeveloperUserIdentifier (\ s a -> s{_ldiDeveloperUserIdentifier = a});
 
--- | A pagination token. The first call you make will have @NextToken@ set to
--- null. After that the service will return @NextToken@ values as needed.
--- For example, let\'s say you make a request with @MaxResults@ set to 10,
+-- | A pagination token. The first call you make will have 'NextToken' set to
+-- null. After that the service will return 'NextToken' values as needed.
+-- For example, let\'s say you make a request with 'MaxResults' set to 10,
 -- and there are 20 matches in the database. The service will return a
 -- pagination token as a part of the response. This token can be used to
 -- call the API again and get results starting from the 11th match.
@@ -160,11 +162,19 @@ instance ToPath LookupDeveloperIdentity where
 instance ToQuery LookupDeveloperIdentity where
         toQuery = const mempty
 
--- | Returned in response to a successful @LookupDeveloperIdentity@ action.
+-- | Returned in response to a successful 'LookupDeveloperIdentity' action.
 --
 -- /See:/ 'lookupDeveloperIdentityResponse' smart constructor.
+data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
+    { _ldirsNextToken                   :: !(Maybe Text)
+    , _ldirsIdentityId                  :: !(Maybe Text)
+    , _ldirsDeveloperUserIdentifierList :: !(Maybe [Text])
+    , _ldirsStatus                      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'LookupDeveloperIdentityResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ldirsNextToken'
 --
@@ -173,15 +183,9 @@ instance ToQuery LookupDeveloperIdentity where
 -- * 'ldirsDeveloperUserIdentifierList'
 --
 -- * 'ldirsStatus'
-data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
-    { _ldirsNextToken                   :: !(Maybe Text)
-    , _ldirsIdentityId                  :: !(Maybe Text)
-    , _ldirsDeveloperUserIdentifierList :: !(Maybe [Text])
-    , _ldirsStatus                      :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'LookupDeveloperIdentityResponse' smart constructor.
-lookupDeveloperIdentityResponse :: Int -> LookupDeveloperIdentityResponse
+lookupDeveloperIdentityResponse
+    :: Int -- ^ 'ldirsStatus'
+    -> LookupDeveloperIdentityResponse
 lookupDeveloperIdentityResponse pStatus_ =
     LookupDeveloperIdentityResponse'
     { _ldirsNextToken = Nothing
@@ -190,9 +194,9 @@ lookupDeveloperIdentityResponse pStatus_ =
     , _ldirsStatus = pStatus_
     }
 
--- | A pagination token. The first call you make will have @NextToken@ set to
--- null. After that the service will return @NextToken@ values as needed.
--- For example, let\'s say you make a request with @MaxResults@ set to 10,
+-- | A pagination token. The first call you make will have 'NextToken' set to
+-- null. After that the service will return 'NextToken' values as needed.
+-- For example, let\'s say you make a request with 'MaxResults' set to 10,
 -- and there are 20 matches in the database. The service will return a
 -- pagination token as a part of the response. This token can be used to
 -- call the API again and get results starting from the 11th match.
@@ -209,6 +213,6 @@ ldirsIdentityId = lens _ldirsIdentityId (\ s a -> s{_ldirsIdentityId = a});
 ldirsDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
 ldirsDeveloperUserIdentifierList = lens _ldirsDeveloperUserIdentifierList (\ s a -> s{_ldirsDeveloperUserIdentifierList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ldirsStatus :: Lens' LookupDeveloperIdentityResponse Int
 ldirsStatus = lens _ldirsStatus (\ s a -> s{_ldirsStatus = a});

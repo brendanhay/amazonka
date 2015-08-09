@@ -25,15 +25,15 @@
 module Network.AWS.EC2.DeleteNetworkACL
     (
     -- * Creating a Request
-      DeleteNetworkACL
-    , deleteNetworkACL
+      deleteNetworkACL
+    , DeleteNetworkACL
     -- * Request Lenses
     , dnaDryRun
     , dnaNetworkACLId
 
     -- * Destructuring the Response
-    , DeleteNetworkACLResponse
     , deleteNetworkACLResponse
+    , DeleteNetworkACLResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -43,19 +43,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteNetworkACL' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dnaDryRun'
---
--- * 'dnaNetworkACLId'
 data DeleteNetworkACL = DeleteNetworkACL'
     { _dnaDryRun       :: !(Maybe Bool)
     , _dnaNetworkACLId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteNetworkACL' smart constructor.
-deleteNetworkACL :: Text -> DeleteNetworkACL
+-- | Creates a value of 'DeleteNetworkACL' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dnaDryRun'
+--
+-- * 'dnaNetworkACLId'
+deleteNetworkACL
+    :: Text -- ^ 'dnaNetworkACLId'
+    -> DeleteNetworkACL
 deleteNetworkACL pNetworkACLId_ =
     DeleteNetworkACL'
     { _dnaDryRun = Nothing
@@ -64,8 +66,8 @@ deleteNetworkACL pNetworkACLId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dnaDryRun :: Lens' DeleteNetworkACL (Maybe Bool)
 dnaDryRun = lens _dnaDryRun (\ s a -> s{_dnaDryRun = a});
 
@@ -98,6 +100,8 @@ data DeleteNetworkACLResponse =
     DeleteNetworkACLResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteNetworkACLResponse' smart constructor.
-deleteNetworkACLResponse :: DeleteNetworkACLResponse
+-- | Creates a value of 'DeleteNetworkACLResponse' with the minimum fields required to make a request.
+--
+deleteNetworkACLResponse
+    :: DeleteNetworkACLResponse
 deleteNetworkACLResponse = DeleteNetworkACLResponse'

@@ -25,16 +25,16 @@
 module Network.AWS.SSM.UpdateAssociationStatus
     (
     -- * Creating a Request
-      UpdateAssociationStatus
-    , updateAssociationStatus
+      updateAssociationStatus
+    , UpdateAssociationStatus
     -- * Request Lenses
     , uasName
     , uasInstanceId
     , uasAssociationStatus
 
     -- * Destructuring the Response
-    , UpdateAssociationStatusResponse
     , updateAssociationStatusResponse
+    , UpdateAssociationStatusResponse
     -- * Response Lenses
     , uasrsAssociationDescription
     , uasrsStatus
@@ -47,22 +47,26 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'updateAssociationStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uasName'
---
--- * 'uasInstanceId'
---
--- * 'uasAssociationStatus'
 data UpdateAssociationStatus = UpdateAssociationStatus'
     { _uasName              :: !Text
     , _uasInstanceId        :: !Text
     , _uasAssociationStatus :: !AssociationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAssociationStatus' smart constructor.
-updateAssociationStatus :: Text -> Text -> AssociationStatus -> UpdateAssociationStatus
+-- | Creates a value of 'UpdateAssociationStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uasName'
+--
+-- * 'uasInstanceId'
+--
+-- * 'uasAssociationStatus'
+updateAssociationStatus
+    :: Text -- ^ 'uasName'
+    -> Text -- ^ 'uasInstanceId'
+    -> AssociationStatus -- ^ 'uasAssociationStatus'
+    -> UpdateAssociationStatus
 updateAssociationStatus pName_ pInstanceId_ pAssociationStatus_ =
     UpdateAssociationStatus'
     { _uasName = pName_
@@ -116,19 +120,21 @@ instance ToQuery UpdateAssociationStatus where
         toQuery = const mempty
 
 -- | /See:/ 'updateAssociationStatusResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uasrsAssociationDescription'
---
--- * 'uasrsStatus'
 data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
     { _uasrsAssociationDescription :: !(Maybe AssociationDescription)
     , _uasrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAssociationStatusResponse' smart constructor.
-updateAssociationStatusResponse :: Int -> UpdateAssociationStatusResponse
+-- | Creates a value of 'UpdateAssociationStatusResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uasrsAssociationDescription'
+--
+-- * 'uasrsStatus'
+updateAssociationStatusResponse
+    :: Int -- ^ 'uasrsStatus'
+    -> UpdateAssociationStatusResponse
 updateAssociationStatusResponse pStatus_ =
     UpdateAssociationStatusResponse'
     { _uasrsAssociationDescription = Nothing
@@ -139,6 +145,6 @@ updateAssociationStatusResponse pStatus_ =
 uasrsAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe AssociationDescription)
 uasrsAssociationDescription = lens _uasrsAssociationDescription (\ s a -> s{_uasrsAssociationDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 uasrsStatus :: Lens' UpdateAssociationStatusResponse Int
 uasrsStatus = lens _uasrsStatus (\ s a -> s{_uasrsStatus = a});

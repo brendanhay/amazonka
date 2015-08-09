@@ -24,16 +24,16 @@
 module Network.AWS.S3.PutBucketWebsite
     (
     -- * Creating a Request
-      PutBucketWebsite
-    , putBucketWebsite
+      putBucketWebsite
+    , PutBucketWebsite
     -- * Request Lenses
     , pbwContentMD5
     , pbwBucket
     , pbwWebsiteConfiguration
 
     -- * Destructuring the Response
-    , PutBucketWebsiteResponse
     , putBucketWebsiteResponse
+    , PutBucketWebsiteResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -43,22 +43,25 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'putBucketWebsite' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pbwContentMD5'
---
--- * 'pbwBucket'
---
--- * 'pbwWebsiteConfiguration'
 data PutBucketWebsite = PutBucketWebsite'
     { _pbwContentMD5           :: !(Maybe Text)
     , _pbwBucket               :: !BucketName
     , _pbwWebsiteConfiguration :: !WebsiteConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketWebsite' smart constructor.
-putBucketWebsite :: BucketName -> WebsiteConfiguration -> PutBucketWebsite
+-- | Creates a value of 'PutBucketWebsite' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pbwContentMD5'
+--
+-- * 'pbwBucket'
+--
+-- * 'pbwWebsiteConfiguration'
+putBucketWebsite
+    :: BucketName -- ^ 'pbwBucket'
+    -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'
+    -> PutBucketWebsite
 putBucketWebsite pBucket_ pWebsiteConfiguration_ =
     PutBucketWebsite'
     { _pbwContentMD5 = Nothing
@@ -107,6 +110,8 @@ data PutBucketWebsiteResponse =
     PutBucketWebsiteResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketWebsiteResponse' smart constructor.
-putBucketWebsiteResponse :: PutBucketWebsiteResponse
+-- | Creates a value of 'PutBucketWebsiteResponse' with the minimum fields required to make a request.
+--
+putBucketWebsiteResponse
+    :: PutBucketWebsiteResponse
 putBucketWebsiteResponse = PutBucketWebsiteResponse'

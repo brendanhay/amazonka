@@ -42,8 +42,8 @@
 module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     (
     -- * Creating a Request
-      RestoreDBInstanceFromDBSnapshot
-    , restoreDBInstanceFromDBSnapshot
+      restoreDBInstanceFromDBSnapshot
+    , RestoreDBInstanceFromDBSnapshot
     -- * Request Lenses
     , rdifdsDBSecurityGroups
     , rdifdsAutoMinorVersionUpgrade
@@ -69,8 +69,8 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     , rdifdsDBSnapshotIdentifier
 
     -- * Destructuring the Response
-    , RestoreDBInstanceFromDBSnapshotResponse
     , restoreDBInstanceFromDBSnapshotResponse
+    , RestoreDBInstanceFromDBSnapshotResponse
     -- * Response Lenses
     , rdifdsrsDBInstance
     , rdifdsrsStatus
@@ -85,8 +85,34 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'restoreDBInstanceFromDBSnapshot' smart constructor.
+data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
+    { _rdifdsDBSecurityGroups        :: !(Maybe [Text])
+    , _rdifdsAutoMinorVersionUpgrade :: !(Maybe Bool)
+    , _rdifdsPubliclyAccessible      :: !(Maybe Bool)
+    , _rdifdsDBSubnetGroupName       :: !(Maybe Text)
+    , _rdifdsIOPS                    :: !(Maybe Int)
+    , _rdifdsDomain                  :: !(Maybe Text)
+    , _rdifdsEngine                  :: !(Maybe Text)
+    , _rdifdsTDECredentialPassword   :: !(Maybe Text)
+    , _rdifdsDBInstanceClass         :: !(Maybe Text)
+    , _rdifdsLicenseModel            :: !(Maybe Text)
+    , _rdifdsAvailabilityZone        :: !(Maybe Text)
+    , _rdifdsVPCSecurityGroupIds     :: !(Maybe [Text])
+    , _rdifdsMultiAZ                 :: !(Maybe Bool)
+    , _rdifdsTDECredentialARN        :: !(Maybe Text)
+    , _rdifdsOptionGroupName         :: !(Maybe Text)
+    , _rdifdsCopyTagsToSnapshot      :: !(Maybe Bool)
+    , _rdifdsDBName                  :: !(Maybe Text)
+    , _rdifdsTags                    :: !(Maybe [Tag])
+    , _rdifdsPort                    :: !(Maybe Int)
+    , _rdifdsStorageType             :: !(Maybe Text)
+    , _rdifdsDBInstanceIdentifier    :: !Text
+    , _rdifdsDBSnapshotIdentifier    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RestoreDBInstanceFromDBSnapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rdifdsDBSecurityGroups'
 --
@@ -131,33 +157,10 @@ import           Network.AWS.Response
 -- * 'rdifdsDBInstanceIdentifier'
 --
 -- * 'rdifdsDBSnapshotIdentifier'
-data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
-    { _rdifdsDBSecurityGroups        :: !(Maybe [Text])
-    , _rdifdsAutoMinorVersionUpgrade :: !(Maybe Bool)
-    , _rdifdsPubliclyAccessible      :: !(Maybe Bool)
-    , _rdifdsDBSubnetGroupName       :: !(Maybe Text)
-    , _rdifdsIOPS                    :: !(Maybe Int)
-    , _rdifdsDomain                  :: !(Maybe Text)
-    , _rdifdsEngine                  :: !(Maybe Text)
-    , _rdifdsTDECredentialPassword   :: !(Maybe Text)
-    , _rdifdsDBInstanceClass         :: !(Maybe Text)
-    , _rdifdsLicenseModel            :: !(Maybe Text)
-    , _rdifdsAvailabilityZone        :: !(Maybe Text)
-    , _rdifdsVPCSecurityGroupIds     :: !(Maybe [Text])
-    , _rdifdsMultiAZ                 :: !(Maybe Bool)
-    , _rdifdsTDECredentialARN        :: !(Maybe Text)
-    , _rdifdsOptionGroupName         :: !(Maybe Text)
-    , _rdifdsCopyTagsToSnapshot      :: !(Maybe Bool)
-    , _rdifdsDBName                  :: !(Maybe Text)
-    , _rdifdsTags                    :: !(Maybe [Tag])
-    , _rdifdsPort                    :: !(Maybe Int)
-    , _rdifdsStorageType             :: !(Maybe Text)
-    , _rdifdsDBInstanceIdentifier    :: !Text
-    , _rdifdsDBSnapshotIdentifier    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RestoreDBInstanceFromDBSnapshot' smart constructor.
-restoreDBInstanceFromDBSnapshot :: Text -> Text -> RestoreDBInstanceFromDBSnapshot
+restoreDBInstanceFromDBSnapshot
+    :: Text -- ^ 'rdifdsDBInstanceIdentifier'
+    -> Text -- ^ 'rdifdsDBSnapshotIdentifier'
+    -> RestoreDBInstanceFromDBSnapshot
 restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier_ pDBSnapshotIdentifier_ =
     RestoreDBInstanceFromDBSnapshot'
     { _rdifdsDBSecurityGroups = Nothing
@@ -246,9 +249,9 @@ rdifdsDomain = lens _rdifdsDomain (\ s a -> s{_rdifdsDomain = a});
 --
 -- Constraint: Must be compatible with the engine of the source
 --
--- Valid Values: @MySQL@ | @oracle-se1@ | @oracle-se@ | @oracle-ee@ |
--- @sqlserver-ee@ | @sqlserver-se@ | @sqlserver-ex@ | @sqlserver-web@ |
--- @postgres@
+-- Valid Values: 'MySQL' | 'oracle-se1' | 'oracle-se' | 'oracle-ee' |
+-- 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' | 'sqlserver-web' |
+-- 'postgres'
 rdifdsEngine :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsEngine = lens _rdifdsEngine (\ s a -> s{_rdifdsEngine = a});
 
@@ -260,7 +263,7 @@ rdifdsTDECredentialPassword = lens _rdifdsTDECredentialPassword (\ s a -> s{_rdi
 -- | The compute and memory capacity of the Amazon RDS DB instance.
 --
 -- Valid Values:
--- @db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium@
+-- 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
 rdifdsDBInstanceClass :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsDBInstanceClass = lens _rdifdsDBInstanceClass (\ s a -> s{_rdifdsDBInstanceClass = a});
 
@@ -268,8 +271,8 @@ rdifdsDBInstanceClass = lens _rdifdsDBInstanceClass (\ s a -> s{_rdifdsDBInstanc
 --
 -- Default: Same as source.
 --
--- Valid values: @license-included@ | @bring-your-own-license@ |
--- @general-public-license@
+-- Valid values: 'license-included' | 'bring-your-own-license' |
+-- 'general-public-license'
 rdifdsLicenseModel :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsLicenseModel = lens _rdifdsLicenseModel (\ s a -> s{_rdifdsLicenseModel = a});
 
@@ -278,9 +281,9 @@ rdifdsLicenseModel = lens _rdifdsLicenseModel (\ s a -> s{_rdifdsLicenseModel = 
 -- Default: A random, system-chosen Availability Zone.
 --
 -- Constraint: You cannot specify the AvailabilityZone parameter if the
--- MultiAZ parameter is set to @true@.
+-- MultiAZ parameter is set to 'true'.
 --
--- Example: @us-east-1a@
+-- Example: 'us-east-1a'
 rdifdsAvailabilityZone :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsAvailabilityZone = lens _rdifdsAvailabilityZone (\ s a -> s{_rdifdsAvailabilityZone = a});
 
@@ -294,7 +297,7 @@ rdifdsVPCSecurityGroupIds = lens _rdifdsVPCSecurityGroupIds (\ s a -> s{_rdifdsV
 -- | Specifies if the DB instance is a Multi-AZ deployment.
 --
 -- Constraint: You cannot specify the AvailabilityZone parameter if the
--- MultiAZ parameter is set to @true@.
+-- MultiAZ parameter is set to 'true'.
 rdifdsMultiAZ :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Bool)
 rdifdsMultiAZ = lens _rdifdsMultiAZ (\ s a -> s{_rdifdsMultiAZ = a});
 
@@ -330,19 +333,19 @@ rdifdsTags = lens _rdifdsTags (\ s a -> s{_rdifdsTags = a}) . _Default . _Coerce
 --
 -- Default: The same port as the original DB instance
 --
--- Constraints: Value must be @1150-65535@
+-- Constraints: Value must be '1150-65535'
 rdifdsPort :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Int)
 rdifdsPort = lens _rdifdsPort (\ s a -> s{_rdifdsPort = a});
 
 -- | Specifies the storage type to be associated with the DB instance.
 --
--- Valid values: @standard | gp2 | io1@
+-- Valid values: 'standard | gp2 | io1'
 --
--- If you specify @io1@, you must also include a value for the @Iops@
+-- If you specify 'io1', you must also include a value for the 'Iops'
 -- parameter.
 --
--- Default: @io1@ if the @Iops@ parameter is specified; otherwise
--- @standard@
+-- Default: 'io1' if the 'Iops' parameter is specified; otherwise
+-- 'standard'
 rdifdsStorageType :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsStorageType = lens _rdifdsStorageType (\ s a -> s{_rdifdsStorageType = a});
 
@@ -355,7 +358,7 @@ rdifdsStorageType = lens _rdifdsStorageType (\ s a -> s{_rdifdsStorageType = a})
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- Example: @my-snapshot-id@
+-- Example: 'my-snapshot-id'
 rdifdsDBInstanceIdentifier :: Lens' RestoreDBInstanceFromDBSnapshot Text
 rdifdsDBInstanceIdentifier = lens _rdifdsDBInstanceIdentifier (\ s a -> s{_rdifdsDBInstanceIdentifier = a});
 
@@ -430,19 +433,21 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
                  _rdifdsDBSnapshotIdentifier]
 
 -- | /See:/ 'restoreDBInstanceFromDBSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdifdsrsDBInstance'
---
--- * 'rdifdsrsStatus'
 data RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse'
     { _rdifdsrsDBInstance :: !(Maybe DBInstance)
     , _rdifdsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestoreDBInstanceFromDBSnapshotResponse' smart constructor.
-restoreDBInstanceFromDBSnapshotResponse :: Int -> RestoreDBInstanceFromDBSnapshotResponse
+-- | Creates a value of 'RestoreDBInstanceFromDBSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rdifdsrsDBInstance'
+--
+-- * 'rdifdsrsStatus'
+restoreDBInstanceFromDBSnapshotResponse
+    :: Int -- ^ 'rdifdsrsStatus'
+    -> RestoreDBInstanceFromDBSnapshotResponse
 restoreDBInstanceFromDBSnapshotResponse pStatus_ =
     RestoreDBInstanceFromDBSnapshotResponse'
     { _rdifdsrsDBInstance = Nothing
@@ -453,6 +458,6 @@ restoreDBInstanceFromDBSnapshotResponse pStatus_ =
 rdifdsrsDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBInstance)
 rdifdsrsDBInstance = lens _rdifdsrsDBInstance (\ s a -> s{_rdifdsrsDBInstance = a});
 
--- | Undocumented member.
+-- | The response status code.
 rdifdsrsStatus :: Lens' RestoreDBInstanceFromDBSnapshotResponse Int
 rdifdsrsStatus = lens _rdifdsrsStatus (\ s a -> s{_rdifdsrsStatus = a});

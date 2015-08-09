@@ -25,15 +25,15 @@
 module Network.AWS.ImportExport.CancelJob
     (
     -- * Creating a Request
-      CancelJob
-    , cancelJob
+      cancelJob
+    , CancelJob
     -- * Request Lenses
     , cAPIVersion
     , cJobId
 
     -- * Destructuring the Response
-    , CancelJobResponse
     , cancelJobResponse
+    , CancelJobResponse
     -- * Response Lenses
     , crsSuccess
     , crsStatus
@@ -48,19 +48,21 @@ import           Network.AWS.Response
 -- | Input structure for the CancelJob operation.
 --
 -- /See:/ 'cancelJob' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cAPIVersion'
---
--- * 'cJobId'
 data CancelJob = CancelJob'
     { _cAPIVersion :: !(Maybe Text)
     , _cJobId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelJob' smart constructor.
-cancelJob :: Text -> CancelJob
+-- | Creates a value of 'CancelJob' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cAPIVersion'
+--
+-- * 'cJobId'
+cancelJob
+    :: Text -- ^ 'cJobId'
+    -> CancelJob
 cancelJob pJobId_ =
     CancelJob'
     { _cAPIVersion = Nothing
@@ -102,19 +104,21 @@ instance ToQuery CancelJob where
 -- | Output structure for the CancelJob operation.
 --
 -- /See:/ 'cancelJobResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'crsSuccess'
---
--- * 'crsStatus'
 data CancelJobResponse = CancelJobResponse'
     { _crsSuccess :: !(Maybe Bool)
     , _crsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelJobResponse' smart constructor.
-cancelJobResponse :: Int -> CancelJobResponse
+-- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crsSuccess'
+--
+-- * 'crsStatus'
+cancelJobResponse
+    :: Int -- ^ 'crsStatus'
+    -> CancelJobResponse
 cancelJobResponse pStatus_ =
     CancelJobResponse'
     { _crsSuccess = Nothing
@@ -125,6 +129,6 @@ cancelJobResponse pStatus_ =
 crsSuccess :: Lens' CancelJobResponse (Maybe Bool)
 crsSuccess = lens _crsSuccess (\ s a -> s{_crsSuccess = a});
 
--- | Undocumented member.
+-- | The response status code.
 crsStatus :: Lens' CancelJobResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

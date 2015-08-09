@@ -35,8 +35,8 @@
 module Network.AWS.EC2.CreateImage
     (
     -- * Creating a Request
-      CreateImage
-    , createImage
+      createImage
+    , CreateImage
     -- * Request Lenses
     , ciiNoReboot
     , ciiBlockDeviceMappings
@@ -46,8 +46,8 @@ module Network.AWS.EC2.CreateImage
     , ciiName
 
     -- * Destructuring the Response
-    , CreateImageResponse
     , createImageResponse
+    , CreateImageResponse
     -- * Response Lenses
     , cirsImageId
     , cirsStatus
@@ -60,8 +60,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createImage' smart constructor.
+data CreateImage = CreateImage'
+    { _ciiNoReboot            :: !(Maybe Bool)
+    , _ciiBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _ciiDryRun              :: !(Maybe Bool)
+    , _ciiDescription         :: !(Maybe Text)
+    , _ciiInstanceId          :: !Text
+    , _ciiName                :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateImage' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ciiNoReboot'
 --
@@ -74,17 +84,10 @@ import           Network.AWS.Response
 -- * 'ciiInstanceId'
 --
 -- * 'ciiName'
-data CreateImage = CreateImage'
-    { _ciiNoReboot            :: !(Maybe Bool)
-    , _ciiBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _ciiDryRun              :: !(Maybe Bool)
-    , _ciiDescription         :: !(Maybe Text)
-    , _ciiInstanceId          :: !Text
-    , _ciiName                :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateImage' smart constructor.
-createImage :: Text -> Text -> CreateImage
+createImage
+    :: Text -- ^ 'ciiInstanceId'
+    -> Text -- ^ 'ciiName'
+    -> CreateImage
 createImage pInstanceId_ pName_ =
     CreateImage'
     { _ciiNoReboot = Nothing
@@ -95,9 +98,9 @@ createImage pInstanceId_ pName_ =
     , _ciiName = pName_
     }
 
--- | By default, this parameter is set to @false@, which means Amazon EC2
+-- | By default, this parameter is set to 'false', which means Amazon EC2
 -- attempts to shut down the instance cleanly before image creation and
--- then reboots the instance. When the parameter is set to @true@, Amazon
+-- then reboots the instance. When the parameter is set to 'true', Amazon
 -- EC2 doesn\'t shut down the instance before creating the image. When this
 -- option is used, file system integrity on the created image can\'t be
 -- guaranteed.
@@ -110,8 +113,8 @@ ciiBlockDeviceMappings = lens _ciiBlockDeviceMappings (\ s a -> s{_ciiBlockDevic
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 ciiDryRun :: Lens' CreateImage (Maybe Bool)
 ciiDryRun = lens _ciiDryRun (\ s a -> s{_ciiDryRun = a});
 
@@ -127,7 +130,7 @@ ciiInstanceId = lens _ciiInstanceId (\ s a -> s{_ciiInstanceId = a});
 --
 -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
 -- brackets ([]), spaces ( ), periods (.), slashes (\/), dashes (-), single
--- quotes (\'), at-signs (\@), or underscores(_)
+-- quotes (\'), at-signs (\'), or underscores(_)
 ciiName :: Lens' CreateImage Text
 ciiName = lens _ciiName (\ s a -> s{_ciiName = a});
 
@@ -161,19 +164,21 @@ instance ToQuery CreateImage where
                "InstanceId" =: _ciiInstanceId, "Name" =: _ciiName]
 
 -- | /See:/ 'createImageResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cirsImageId'
---
--- * 'cirsStatus'
 data CreateImageResponse = CreateImageResponse'
     { _cirsImageId :: !(Maybe Text)
     , _cirsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateImageResponse' smart constructor.
-createImageResponse :: Int -> CreateImageResponse
+-- | Creates a value of 'CreateImageResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cirsImageId'
+--
+-- * 'cirsStatus'
+createImageResponse
+    :: Int -- ^ 'cirsStatus'
+    -> CreateImageResponse
 createImageResponse pStatus_ =
     CreateImageResponse'
     { _cirsImageId = Nothing
@@ -184,6 +189,6 @@ createImageResponse pStatus_ =
 cirsImageId :: Lens' CreateImageResponse (Maybe Text)
 cirsImageId = lens _cirsImageId (\ s a -> s{_cirsImageId = a});
 
--- | Undocumented member.
+-- | The response status code.
 cirsStatus :: Lens' CreateImageResponse Int
 cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});

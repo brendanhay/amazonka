@@ -24,8 +24,8 @@
 module Network.AWS.EC2.DescribeVPCEndpoints
     (
     -- * Creating a Request
-      DescribeVPCEndpoints
-    , describeVPCEndpoints
+      describeVPCEndpoints
+    , DescribeVPCEndpoints
     -- * Request Lenses
     , dvpceFilters
     , dvpceNextToken
@@ -34,8 +34,8 @@ module Network.AWS.EC2.DescribeVPCEndpoints
     , dvpceMaxResults
 
     -- * Destructuring the Response
-    , DescribeVPCEndpointsResponse
     , describeVPCEndpointsResponse
+    , DescribeVPCEndpointsResponse
     -- * Response Lenses
     , dvpcersNextToken
     , dvpcersVPCEndpoints
@@ -49,8 +49,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeVPCEndpoints' smart constructor.
+data DescribeVPCEndpoints = DescribeVPCEndpoints'
+    { _dvpceFilters        :: !(Maybe [Filter])
+    , _dvpceNextToken      :: !(Maybe Text)
+    , _dvpceVPCEndpointIds :: !(Maybe [Text])
+    , _dvpceDryRun         :: !(Maybe Bool)
+    , _dvpceMaxResults     :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeVPCEndpoints' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dvpceFilters'
 --
@@ -61,16 +70,8 @@ import           Network.AWS.Response
 -- * 'dvpceDryRun'
 --
 -- * 'dvpceMaxResults'
-data DescribeVPCEndpoints = DescribeVPCEndpoints'
-    { _dvpceFilters        :: !(Maybe [Filter])
-    , _dvpceNextToken      :: !(Maybe Text)
-    , _dvpceVPCEndpointIds :: !(Maybe [Text])
-    , _dvpceDryRun         :: !(Maybe Bool)
-    , _dvpceMaxResults     :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeVPCEndpoints' smart constructor.
-describeVPCEndpoints :: DescribeVPCEndpoints
+describeVPCEndpoints
+    :: DescribeVPCEndpoints
 describeVPCEndpoints =
     DescribeVPCEndpoints'
     { _dvpceFilters = Nothing
@@ -82,14 +83,14 @@ describeVPCEndpoints =
 
 -- | One or more filters.
 --
--- -   @service-name@: The name of the AWS service.
+-- -   'service-name': The name of the AWS service.
 --
--- -   @vpc-id@: The ID of the VPC in which the endpoint resides.
+-- -   'vpc-id': The ID of the VPC in which the endpoint resides.
 --
--- -   @vpc-endpoint-id@: The ID of the endpoint.
+-- -   'vpc-endpoint-id': The ID of the endpoint.
 --
--- -   @vpc-endpoint-state@: The state of the endpoint. (@pending@ |
---     @available@ | @deleting@ | @deleted@)
+-- -   'vpc-endpoint-state': The state of the endpoint. ('pending' |
+--     'available' | 'deleting' | 'deleted')
 --
 dvpceFilters :: Lens' DescribeVPCEndpoints [Filter]
 dvpceFilters = lens _dvpceFilters (\ s a -> s{_dvpceFilters = a}) . _Default . _Coerce;
@@ -105,8 +106,8 @@ dvpceVPCEndpointIds = lens _dvpceVPCEndpointIds (\ s a -> s{_dvpceVPCEndpointIds
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dvpceDryRun :: Lens' DescribeVPCEndpoints (Maybe Bool)
 dvpceDryRun = lens _dvpceDryRun (\ s a -> s{_dvpceDryRun = a});
 
@@ -152,22 +153,24 @@ instance ToQuery DescribeVPCEndpoints where
                "MaxResults" =: _dvpceMaxResults]
 
 -- | /See:/ 'describeVPCEndpointsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvpcersNextToken'
---
--- * 'dvpcersVPCEndpoints'
---
--- * 'dvpcersStatus'
 data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'
     { _dvpcersNextToken    :: !(Maybe Text)
     , _dvpcersVPCEndpoints :: !(Maybe [VPCEndpoint])
     , _dvpcersStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVPCEndpointsResponse' smart constructor.
-describeVPCEndpointsResponse :: Int -> DescribeVPCEndpointsResponse
+-- | Creates a value of 'DescribeVPCEndpointsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvpcersNextToken'
+--
+-- * 'dvpcersVPCEndpoints'
+--
+-- * 'dvpcersStatus'
+describeVPCEndpointsResponse
+    :: Int -- ^ 'dvpcersStatus'
+    -> DescribeVPCEndpointsResponse
 describeVPCEndpointsResponse pStatus_ =
     DescribeVPCEndpointsResponse'
     { _dvpcersNextToken = Nothing
@@ -184,6 +187,6 @@ dvpcersNextToken = lens _dvpcersNextToken (\ s a -> s{_dvpcersNextToken = a});
 dvpcersVPCEndpoints :: Lens' DescribeVPCEndpointsResponse [VPCEndpoint]
 dvpcersVPCEndpoints = lens _dvpcersVPCEndpoints (\ s a -> s{_dvpcersVPCEndpoints = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dvpcersStatus :: Lens' DescribeVPCEndpointsResponse Int
 dvpcersStatus = lens _dvpcersStatus (\ s a -> s{_dvpcersStatus = a});

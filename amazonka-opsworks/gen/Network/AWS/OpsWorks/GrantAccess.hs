@@ -26,15 +26,15 @@
 module Network.AWS.OpsWorks.GrantAccess
     (
     -- * Creating a Request
-      GrantAccess
-    , grantAccess
+      grantAccess
+    , GrantAccess
     -- * Request Lenses
     , gaValidForInMinutes
     , gaInstanceId
 
     -- * Destructuring the Response
-    , GrantAccessResponse
     , grantAccessResponse
+    , GrantAccessResponse
     -- * Response Lenses
     , garsTemporaryCredential
     , garsStatus
@@ -47,19 +47,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'grantAccess' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gaValidForInMinutes'
---
--- * 'gaInstanceId'
 data GrantAccess = GrantAccess'
     { _gaValidForInMinutes :: !(Maybe Nat)
     , _gaInstanceId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GrantAccess' smart constructor.
-grantAccess :: Text -> GrantAccess
+-- | Creates a value of 'GrantAccess' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gaValidForInMinutes'
+--
+-- * 'gaInstanceId'
+grantAccess
+    :: Text -- ^ 'gaInstanceId'
+    -> GrantAccess
 grantAccess pInstanceId_ =
     GrantAccess'
     { _gaValidForInMinutes = Nothing
@@ -109,34 +111,36 @@ instance ToPath GrantAccess where
 instance ToQuery GrantAccess where
         toQuery = const mempty
 
--- | Contains the response to a @GrantAccess@ request.
+-- | Contains the response to a 'GrantAccess' request.
 --
 -- /See:/ 'grantAccessResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'garsTemporaryCredential'
---
--- * 'garsStatus'
 data GrantAccessResponse = GrantAccessResponse'
     { _garsTemporaryCredential :: !(Maybe TemporaryCredential)
     , _garsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GrantAccessResponse' smart constructor.
-grantAccessResponse :: Int -> GrantAccessResponse
+-- | Creates a value of 'GrantAccessResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'garsTemporaryCredential'
+--
+-- * 'garsStatus'
+grantAccessResponse
+    :: Int -- ^ 'garsStatus'
+    -> GrantAccessResponse
 grantAccessResponse pStatus_ =
     GrantAccessResponse'
     { _garsTemporaryCredential = Nothing
     , _garsStatus = pStatus_
     }
 
--- | A @TemporaryCredential@ object that contains the data needed to log in
+-- | A 'TemporaryCredential' object that contains the data needed to log in
 -- to the instance by RDP clients, such as the Microsoft Remote Desktop
 -- Connection.
 garsTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
 garsTemporaryCredential = lens _garsTemporaryCredential (\ s a -> s{_garsTemporaryCredential = a});
 
--- | Undocumented member.
+-- | The response status code.
 garsStatus :: Lens' GrantAccessResponse Int
 garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});

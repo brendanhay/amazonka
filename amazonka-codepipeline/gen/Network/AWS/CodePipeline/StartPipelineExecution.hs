@@ -25,14 +25,14 @@
 module Network.AWS.CodePipeline.StartPipelineExecution
     (
     -- * Creating a Request
-      StartPipelineExecution
-    , startPipelineExecution
+      startPipelineExecution
+    , StartPipelineExecution
     -- * Request Lenses
     , speName
 
     -- * Destructuring the Response
-    , StartPipelineExecutionResponse
     , startPipelineExecutionResponse
+    , StartPipelineExecutionResponse
     -- * Response Lenses
     , spersPipelineExecutionId
     , spersStatus
@@ -47,16 +47,18 @@ import           Network.AWS.Response
 -- | Represents the input of a start pipeline execution action.
 --
 -- /See:/ 'startPipelineExecution' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'speName'
 newtype StartPipelineExecution = StartPipelineExecution'
     { _speName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartPipelineExecution' smart constructor.
-startPipelineExecution :: Text -> StartPipelineExecution
+-- | Creates a value of 'StartPipelineExecution' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'speName'
+startPipelineExecution
+    :: Text -- ^ 'speName'
+    -> StartPipelineExecution
 startPipelineExecution pName_ =
     StartPipelineExecution'
     { _speName = pName_
@@ -101,19 +103,21 @@ instance ToQuery StartPipelineExecution where
 -- | Represents the output of a start pipeline execution action.
 --
 -- /See:/ 'startPipelineExecutionResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'spersPipelineExecutionId'
---
--- * 'spersStatus'
 data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
     { _spersPipelineExecutionId :: !(Maybe Text)
     , _spersStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartPipelineExecutionResponse' smart constructor.
-startPipelineExecutionResponse :: Int -> StartPipelineExecutionResponse
+-- | Creates a value of 'StartPipelineExecutionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spersPipelineExecutionId'
+--
+-- * 'spersStatus'
+startPipelineExecutionResponse
+    :: Int -- ^ 'spersStatus'
+    -> StartPipelineExecutionResponse
 startPipelineExecutionResponse pStatus_ =
     StartPipelineExecutionResponse'
     { _spersPipelineExecutionId = Nothing
@@ -124,6 +128,6 @@ startPipelineExecutionResponse pStatus_ =
 spersPipelineExecutionId :: Lens' StartPipelineExecutionResponse (Maybe Text)
 spersPipelineExecutionId = lens _spersPipelineExecutionId (\ s a -> s{_spersPipelineExecutionId = a});
 
--- | Undocumented member.
+-- | The response status code.
 spersStatus :: Lens' StartPipelineExecutionResponse Int
 spersStatus = lens _spersStatus (\ s a -> s{_spersStatus = a});

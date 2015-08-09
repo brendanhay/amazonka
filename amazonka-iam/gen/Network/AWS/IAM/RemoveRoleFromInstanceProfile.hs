@@ -34,15 +34,15 @@
 module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     (
     -- * Creating a Request
-      RemoveRoleFromInstanceProfile
-    , removeRoleFromInstanceProfile
+      removeRoleFromInstanceProfile
+    , RemoveRoleFromInstanceProfile
     -- * Request Lenses
     , rrfipInstanceProfileName
     , rrfipRoleName
 
     -- * Destructuring the Response
-    , RemoveRoleFromInstanceProfileResponse
     , removeRoleFromInstanceProfileResponse
+    , RemoveRoleFromInstanceProfileResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -52,19 +52,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'removeRoleFromInstanceProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rrfipInstanceProfileName'
---
--- * 'rrfipRoleName'
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile'
     { _rrfipInstanceProfileName :: !Text
     , _rrfipRoleName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveRoleFromInstanceProfile' smart constructor.
-removeRoleFromInstanceProfile :: Text -> Text -> RemoveRoleFromInstanceProfile
+-- | Creates a value of 'RemoveRoleFromInstanceProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rrfipInstanceProfileName'
+--
+-- * 'rrfipRoleName'
+removeRoleFromInstanceProfile
+    :: Text -- ^ 'rrfipInstanceProfileName'
+    -> Text -- ^ 'rrfipRoleName'
+    -> RemoveRoleFromInstanceProfile
 removeRoleFromInstanceProfile pInstanceProfileName_ pRoleName_ =
     RemoveRoleFromInstanceProfile'
     { _rrfipInstanceProfileName = pInstanceProfileName_
@@ -109,6 +112,8 @@ data RemoveRoleFromInstanceProfileResponse =
     RemoveRoleFromInstanceProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveRoleFromInstanceProfileResponse' smart constructor.
-removeRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse
+-- | Creates a value of 'RemoveRoleFromInstanceProfileResponse' with the minimum fields required to make a request.
+--
+removeRoleFromInstanceProfileResponse
+    :: RemoveRoleFromInstanceProfileResponse
 removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse'

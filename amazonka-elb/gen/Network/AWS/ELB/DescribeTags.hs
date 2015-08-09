@@ -24,14 +24,14 @@
 module Network.AWS.ELB.DescribeTags
     (
     -- * Creating a Request
-      DescribeTags
-    , describeTags
+      describeTags
+    , DescribeTags
     -- * Request Lenses
     , dtLoadBalancerNames
 
     -- * Destructuring the Response
-    , DescribeTagsResponse
     , describeTagsResponse
+    , DescribeTagsResponse
     -- * Response Lenses
     , dtrsTagDescriptions
     , dtrsStatus
@@ -44,16 +44,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeTags' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtLoadBalancerNames'
 newtype DescribeTags = DescribeTags'
     { _dtLoadBalancerNames :: List1 Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTags' smart constructor.
-describeTags :: NonEmpty Text -> DescribeTags
+-- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtLoadBalancerNames'
+describeTags
+    :: NonEmpty Text -- ^ 'dtLoadBalancerNames'
+    -> DescribeTags
 describeTags pLoadBalancerNames_ =
     DescribeTags'
     { _dtLoadBalancerNames = _List1 # pLoadBalancerNames_
@@ -90,19 +92,21 @@ instance ToQuery DescribeTags where
                  toQueryList "member" _dtLoadBalancerNames]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtrsTagDescriptions'
---
--- * 'dtrsStatus'
 data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrsTagDescriptions :: !(Maybe [TagDescription])
     , _dtrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTagsResponse' smart constructor.
-describeTagsResponse :: Int -> DescribeTagsResponse
+-- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtrsTagDescriptions'
+--
+-- * 'dtrsStatus'
+describeTagsResponse
+    :: Int -- ^ 'dtrsStatus'
+    -> DescribeTagsResponse
 describeTagsResponse pStatus_ =
     DescribeTagsResponse'
     { _dtrsTagDescriptions = Nothing
@@ -113,6 +117,6 @@ describeTagsResponse pStatus_ =
 dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrsTagDescriptions = lens _dtrsTagDescriptions (\ s a -> s{_dtrsTagDescriptions = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dtrsStatus :: Lens' DescribeTagsResponse Int
 dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

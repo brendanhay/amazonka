@@ -31,14 +31,14 @@
 module Network.AWS.ElastiCache.ListTagsForResource
     (
     -- * Creating a Request
-      ListTagsForResource
-    , listTagsForResource
+      listTagsForResource
+    , ListTagsForResource
     -- * Request Lenses
     , ltfrResourceName
 
     -- * Destructuring the Response
-    , TagListMessage
     , tagListMessage
+    , TagListMessage
     -- * Response Lenses
     , tlmTagList
     ) where
@@ -52,23 +52,25 @@ import           Network.AWS.Response
 -- | The input parameters for the /ListTagsForResource/ action.
 --
 -- /See:/ 'listTagsForResource' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltfrResourceName'
 newtype ListTagsForResource = ListTagsForResource'
     { _ltfrResourceName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTagsForResource' smart constructor.
-listTagsForResource :: Text -> ListTagsForResource
+-- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltfrResourceName'
+listTagsForResource
+    :: Text -- ^ 'ltfrResourceName'
+    -> ListTagsForResource
 listTagsForResource pResourceName_ =
     ListTagsForResource'
     { _ltfrResourceName = pResourceName_
     }
 
 -- | The name of the resource for which you want the list of tags, for
--- example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@.
+-- example 'arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster'.
 ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a});
 

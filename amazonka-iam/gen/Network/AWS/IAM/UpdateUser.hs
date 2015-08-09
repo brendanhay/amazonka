@@ -36,16 +36,16 @@
 module Network.AWS.IAM.UpdateUser
     (
     -- * Creating a Request
-      UpdateUser
-    , updateUser
+      updateUser
+    , UpdateUser
     -- * Request Lenses
     , uuNewUserName
     , uuNewPath
     , uuUserName
 
     -- * Destructuring the Response
-    , UpdateUserResponse
     , updateUserResponse
+    , UpdateUserResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -55,22 +55,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateUser' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uuNewUserName'
---
--- * 'uuNewPath'
---
--- * 'uuUserName'
 data UpdateUser = UpdateUser'
     { _uuNewUserName :: !(Maybe Text)
     , _uuNewPath     :: !(Maybe Text)
     , _uuUserName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateUser' smart constructor.
-updateUser :: Text -> UpdateUser
+-- | Creates a value of 'UpdateUser' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uuNewUserName'
+--
+-- * 'uuNewPath'
+--
+-- * 'uuUserName'
+updateUser
+    :: Text -- ^ 'uuUserName'
+    -> UpdateUser
 updateUser pUserName_ =
     UpdateUser'
     { _uuNewUserName = Nothing
@@ -118,6 +120,8 @@ data UpdateUserResponse =
     UpdateUserResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateUserResponse' smart constructor.
-updateUserResponse :: UpdateUserResponse
+-- | Creates a value of 'UpdateUserResponse' with the minimum fields required to make a request.
+--
+updateUserResponse
+    :: UpdateUserResponse
 updateUserResponse = UpdateUserResponse'

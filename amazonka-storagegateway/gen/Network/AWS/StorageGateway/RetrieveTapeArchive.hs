@@ -31,15 +31,15 @@
 module Network.AWS.StorageGateway.RetrieveTapeArchive
     (
     -- * Creating a Request
-      RetrieveTapeArchive
-    , retrieveTapeArchive
+      retrieveTapeArchive
+    , RetrieveTapeArchive
     -- * Request Lenses
     , rtaTapeARN
     , rtaGatewayARN
 
     -- * Destructuring the Response
-    , RetrieveTapeArchiveResponse
     , retrieveTapeArchiveResponse
+    , RetrieveTapeArchiveResponse
     -- * Response Lenses
     , rtarsTapeARN
     , rtarsStatus
@@ -54,19 +54,22 @@ import           Network.AWS.StorageGateway.Types.Product
 -- | RetrieveTapeArchiveInput
 --
 -- /See:/ 'retrieveTapeArchive' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtaTapeARN'
---
--- * 'rtaGatewayARN'
 data RetrieveTapeArchive = RetrieveTapeArchive'
     { _rtaTapeARN    :: !Text
     , _rtaGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RetrieveTapeArchive' smart constructor.
-retrieveTapeArchive :: Text -> Text -> RetrieveTapeArchive
+-- | Creates a value of 'RetrieveTapeArchive' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtaTapeARN'
+--
+-- * 'rtaGatewayARN'
+retrieveTapeArchive
+    :: Text -- ^ 'rtaTapeARN'
+    -> Text -- ^ 'rtaGatewayARN'
+    -> RetrieveTapeArchive
 retrieveTapeArchive pTapeARN_ pGatewayARN_ =
     RetrieveTapeArchive'
     { _rtaTapeARN = pTapeARN_
@@ -123,19 +126,21 @@ instance ToQuery RetrieveTapeArchive where
 -- | RetrieveTapeArchiveOutput
 --
 -- /See:/ 'retrieveTapeArchiveResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtarsTapeARN'
---
--- * 'rtarsStatus'
 data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
     { _rtarsTapeARN :: !(Maybe Text)
     , _rtarsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RetrieveTapeArchiveResponse' smart constructor.
-retrieveTapeArchiveResponse :: Int -> RetrieveTapeArchiveResponse
+-- | Creates a value of 'RetrieveTapeArchiveResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtarsTapeARN'
+--
+-- * 'rtarsStatus'
+retrieveTapeArchiveResponse
+    :: Int -- ^ 'rtarsStatus'
+    -> RetrieveTapeArchiveResponse
 retrieveTapeArchiveResponse pStatus_ =
     RetrieveTapeArchiveResponse'
     { _rtarsTapeARN = Nothing
@@ -146,6 +151,6 @@ retrieveTapeArchiveResponse pStatus_ =
 rtarsTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
 rtarsTapeARN = lens _rtarsTapeARN (\ s a -> s{_rtarsTapeARN = a});
 
--- | Undocumented member.
+-- | The response status code.
 rtarsStatus :: Lens' RetrieveTapeArchiveResponse Int
 rtarsStatus = lens _rtarsStatus (\ s a -> s{_rtarsStatus = a});

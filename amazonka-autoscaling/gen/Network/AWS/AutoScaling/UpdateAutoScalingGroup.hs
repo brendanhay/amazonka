@@ -21,7 +21,7 @@
 -- Updates the configuration for the specified Auto Scaling group.
 --
 -- To update an Auto Scaling group with a launch configuration with
--- @InstanceMonitoring@ set to @False@, you must first disable the
+-- 'InstanceMonitoring' set to 'False', you must first disable the
 -- collection of group metrics. Otherwise, you will get an error. If you
 -- have previously enabled the collection of group metrics, you can disable
 -- it using DisableMetricsCollection.
@@ -33,15 +33,15 @@
 --
 -- Note the following:
 --
--- -   If you specify a new value for @MinSize@ without specifying a value
---     for @DesiredCapacity@, and the new @MinSize@ is larger than the
+-- -   If you specify a new value for 'MinSize' without specifying a value
+--     for 'DesiredCapacity', and the new 'MinSize' is larger than the
 --     current size of the group, we implicitly call SetDesiredCapacity to
---     set the size of the group to the new value of @MinSize@.
+--     set the size of the group to the new value of 'MinSize'.
 --
--- -   If you specify a new value for @MaxSize@ without specifying a value
---     for @DesiredCapacity@, and the new @MaxSize@ is smaller than the
+-- -   If you specify a new value for 'MaxSize' without specifying a value
+--     for 'DesiredCapacity', and the new 'MaxSize' is smaller than the
 --     current size of the group, we implicitly call SetDesiredCapacity to
---     set the size of the group to the new value of @MaxSize@.
+--     set the size of the group to the new value of 'MaxSize'.
 --
 -- -   All other optional parameters are left unchanged if not specified.
 --
@@ -50,8 +50,8 @@
 module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     (
     -- * Creating a Request
-      UpdateAutoScalingGroup
-    , updateAutoScalingGroup
+      updateAutoScalingGroup
+    , UpdateAutoScalingGroup
     -- * Request Lenses
     , uasgTerminationPolicies
     , uasgHealthCheckGracePeriod
@@ -67,8 +67,8 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     , uasgAutoScalingGroupName
 
     -- * Destructuring the Response
-    , UpdateAutoScalingGroupResponse
     , updateAutoScalingGroupResponse
+    , UpdateAutoScalingGroupResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -78,8 +78,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateAutoScalingGroup' smart constructor.
+data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
+    { _uasgTerminationPolicies     :: !(Maybe [Text])
+    , _uasgHealthCheckGracePeriod  :: !(Maybe Int)
+    , _uasgVPCZoneIdentifier       :: !(Maybe Text)
+    , _uasgDefaultCooldown         :: !(Maybe Int)
+    , _uasgMaxSize                 :: !(Maybe Int)
+    , _uasgDesiredCapacity         :: !(Maybe Int)
+    , _uasgAvailabilityZones       :: !(Maybe (List1 Text))
+    , _uasgMinSize                 :: !(Maybe Int)
+    , _uasgHealthCheckType         :: !(Maybe Text)
+    , _uasgLaunchConfigurationName :: !(Maybe Text)
+    , _uasgPlacementGroup          :: !(Maybe Text)
+    , _uasgAutoScalingGroupName    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateAutoScalingGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'uasgTerminationPolicies'
 --
@@ -104,23 +120,9 @@ import           Network.AWS.Response
 -- * 'uasgPlacementGroup'
 --
 -- * 'uasgAutoScalingGroupName'
-data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
-    { _uasgTerminationPolicies     :: !(Maybe [Text])
-    , _uasgHealthCheckGracePeriod  :: !(Maybe Int)
-    , _uasgVPCZoneIdentifier       :: !(Maybe Text)
-    , _uasgDefaultCooldown         :: !(Maybe Int)
-    , _uasgMaxSize                 :: !(Maybe Int)
-    , _uasgDesiredCapacity         :: !(Maybe Int)
-    , _uasgAvailabilityZones       :: !(Maybe (List1 Text))
-    , _uasgMinSize                 :: !(Maybe Int)
-    , _uasgHealthCheckType         :: !(Maybe Text)
-    , _uasgLaunchConfigurationName :: !(Maybe Text)
-    , _uasgPlacementGroup          :: !(Maybe Text)
-    , _uasgAutoScalingGroupName    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'UpdateAutoScalingGroup' smart constructor.
-updateAutoScalingGroup :: Text -> UpdateAutoScalingGroup
+updateAutoScalingGroup
+    :: Text -- ^ 'uasgAutoScalingGroupName'
+    -> UpdateAutoScalingGroup
 updateAutoScalingGroup pAutoScalingGroupName_ =
     UpdateAutoScalingGroup'
     { _uasgTerminationPolicies = Nothing
@@ -157,9 +159,9 @@ uasgHealthCheckGracePeriod = lens _uasgHealthCheckGracePeriod (\ s a -> s{_uasgH
 -- | The ID of the subnet, if you are launching into a VPC. You can specify
 -- several subnets in a comma-separated list.
 --
--- When you specify @VPCZoneIdentifier@ with @AvailabilityZones@, ensure
+-- When you specify 'VPCZoneIdentifier' with 'AvailabilityZones', ensure
 -- that the subnets\' Availability Zones match the values you specify for
--- @AvailabilityZones@.
+-- 'AvailabilityZones'.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon Virtual Private Cloud>
@@ -192,7 +194,7 @@ uasgMinSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
 uasgMinSize = lens _uasgMinSize (\ s a -> s{_uasgMinSize = a});
 
 -- | The type of health check for the instances in the Auto Scaling group.
--- The health check type can either be @EC2@ for Amazon EC2 or @ELB@ for
+-- The health check type can either be 'EC2' for Amazon EC2 or 'ELB' for
 -- Elastic Load Balancing.
 uasgHealthCheckType :: Lens' UpdateAutoScalingGroup (Maybe Text)
 uasgHealthCheckType = lens _uasgHealthCheckType (\ s a -> s{_uasgHealthCheckType = a});
@@ -255,6 +257,8 @@ data UpdateAutoScalingGroupResponse =
     UpdateAutoScalingGroupResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAutoScalingGroupResponse' smart constructor.
-updateAutoScalingGroupResponse :: UpdateAutoScalingGroupResponse
+-- | Creates a value of 'UpdateAutoScalingGroupResponse' with the minimum fields required to make a request.
+--
+updateAutoScalingGroupResponse
+    :: UpdateAutoScalingGroupResponse
 updateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse'

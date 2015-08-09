@@ -30,15 +30,15 @@
 module Network.AWS.CodePipeline.PollForThirdPartyJobs
     (
     -- * Creating a Request
-      PollForThirdPartyJobs
-    , pollForThirdPartyJobs
+      pollForThirdPartyJobs
+    , PollForThirdPartyJobs
     -- * Request Lenses
     , pftpjMaxBatchSize
     , pftpjActionTypeId
 
     -- * Destructuring the Response
-    , PollForThirdPartyJobsResponse
     , pollForThirdPartyJobsResponse
+    , PollForThirdPartyJobsResponse
     -- * Response Lenses
     , pftpjrsJobs
     , pftpjrsStatus
@@ -53,19 +53,21 @@ import           Network.AWS.Response
 -- | Represents the input of a poll for third party jobs action.
 --
 -- /See:/ 'pollForThirdPartyJobs' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pftpjMaxBatchSize'
---
--- * 'pftpjActionTypeId'
 data PollForThirdPartyJobs = PollForThirdPartyJobs'
     { _pftpjMaxBatchSize :: !(Maybe Nat)
     , _pftpjActionTypeId :: !ActionTypeId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PollForThirdPartyJobs' smart constructor.
-pollForThirdPartyJobs :: ActionTypeId -> PollForThirdPartyJobs
+-- | Creates a value of 'PollForThirdPartyJobs' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pftpjMaxBatchSize'
+--
+-- * 'pftpjActionTypeId'
+pollForThirdPartyJobs
+    :: ActionTypeId -- ^ 'pftpjActionTypeId'
+    -> PollForThirdPartyJobs
 pollForThirdPartyJobs pActionTypeId_ =
     PollForThirdPartyJobs'
     { _pftpjMaxBatchSize = Nothing
@@ -116,19 +118,21 @@ instance ToQuery PollForThirdPartyJobs where
 -- | Represents the output of a poll for third party jobs action.
 --
 -- /See:/ 'pollForThirdPartyJobsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pftpjrsJobs'
---
--- * 'pftpjrsStatus'
 data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
     { _pftpjrsJobs   :: !(Maybe [ThirdPartyJob])
     , _pftpjrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PollForThirdPartyJobsResponse' smart constructor.
-pollForThirdPartyJobsResponse :: Int -> PollForThirdPartyJobsResponse
+-- | Creates a value of 'PollForThirdPartyJobsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pftpjrsJobs'
+--
+-- * 'pftpjrsStatus'
+pollForThirdPartyJobsResponse
+    :: Int -- ^ 'pftpjrsStatus'
+    -> PollForThirdPartyJobsResponse
 pollForThirdPartyJobsResponse pStatus_ =
     PollForThirdPartyJobsResponse'
     { _pftpjrsJobs = Nothing
@@ -139,6 +143,6 @@ pollForThirdPartyJobsResponse pStatus_ =
 pftpjrsJobs :: Lens' PollForThirdPartyJobsResponse [ThirdPartyJob]
 pftpjrsJobs = lens _pftpjrsJobs (\ s a -> s{_pftpjrsJobs = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 pftpjrsStatus :: Lens' PollForThirdPartyJobsResponse Int
 pftpjrsStatus = lens _pftpjrsStatus (\ s a -> s{_pftpjrsStatus = a});

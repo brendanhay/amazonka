@@ -27,12 +27,12 @@
 module Network.AWS.IAM.GenerateCredentialReport
     (
     -- * Creating a Request
-      GenerateCredentialReport
-    , generateCredentialReport
+      generateCredentialReport
+    , GenerateCredentialReport
 
     -- * Destructuring the Response
-    , GenerateCredentialReportResponse
     , generateCredentialReportResponse
+    , GenerateCredentialReportResponse
     -- * Response Lenses
     , gcrrsState
     , gcrrsDescription
@@ -50,8 +50,10 @@ data GenerateCredentialReport =
     GenerateCredentialReport'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GenerateCredentialReport' smart constructor.
-generateCredentialReport :: GenerateCredentialReport
+-- | Creates a value of 'GenerateCredentialReport' with the minimum fields required to make a request.
+--
+generateCredentialReport
+    :: GenerateCredentialReport
 generateCredentialReport = GenerateCredentialReport'
 
 instance AWSRequest GenerateCredentialReport where
@@ -83,22 +85,24 @@ instance ToQuery GenerateCredentialReport where
 -- | Contains the response to a successful GenerateCredentialReport request.
 --
 -- /See:/ 'generateCredentialReportResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gcrrsState'
---
--- * 'gcrrsDescription'
---
--- * 'gcrrsStatus'
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
     { _gcrrsState       :: !(Maybe ReportStateType)
     , _gcrrsDescription :: !(Maybe Text)
     , _gcrrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GenerateCredentialReportResponse' smart constructor.
-generateCredentialReportResponse :: Int -> GenerateCredentialReportResponse
+-- | Creates a value of 'GenerateCredentialReportResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcrrsState'
+--
+-- * 'gcrrsDescription'
+--
+-- * 'gcrrsStatus'
+generateCredentialReportResponse
+    :: Int -- ^ 'gcrrsStatus'
+    -> GenerateCredentialReportResponse
 generateCredentialReportResponse pStatus_ =
     GenerateCredentialReportResponse'
     { _gcrrsState = Nothing
@@ -114,6 +118,6 @@ gcrrsState = lens _gcrrsState (\ s a -> s{_gcrrsState = a});
 gcrrsDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrsDescription = lens _gcrrsDescription (\ s a -> s{_gcrrsDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 gcrrsStatus :: Lens' GenerateCredentialReportResponse Int
 gcrrsStatus = lens _gcrrsStatus (\ s a -> s{_gcrrsStatus = a});

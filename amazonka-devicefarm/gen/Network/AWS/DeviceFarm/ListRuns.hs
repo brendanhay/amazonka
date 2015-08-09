@@ -24,15 +24,15 @@
 module Network.AWS.DeviceFarm.ListRuns
     (
     -- * Creating a Request
-      ListRuns
-    , listRuns
+      listRuns
+    , ListRuns
     -- * Request Lenses
     , lrNextToken
     , lrArn
 
     -- * Destructuring the Response
-    , ListRunsResponse
     , listRunsResponse
+    , ListRunsResponse
     -- * Response Lenses
     , lrrsRuns
     , lrrsNextToken
@@ -48,19 +48,21 @@ import           Network.AWS.Response
 -- | Represents a request to the list runs operation.
 --
 -- /See:/ 'listRuns' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lrNextToken'
---
--- * 'lrArn'
 data ListRuns = ListRuns'
     { _lrNextToken :: !(Maybe Text)
     , _lrArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListRuns' smart constructor.
-listRuns :: Text -> ListRuns
+-- | Creates a value of 'ListRuns' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lrNextToken'
+--
+-- * 'lrArn'
+listRuns
+    :: Text -- ^ 'lrArn'
+    -> ListRuns
 listRuns pArn_ =
     ListRuns'
     { _lrNextToken = Nothing
@@ -111,22 +113,24 @@ instance ToQuery ListRuns where
 -- | Represents the result of a list runs request.
 --
 -- /See:/ 'listRunsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lrrsRuns'
---
--- * 'lrrsNextToken'
---
--- * 'lrrsStatus'
 data ListRunsResponse = ListRunsResponse'
     { _lrrsRuns      :: !(Maybe [Run])
     , _lrrsNextToken :: !(Maybe Text)
     , _lrrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListRunsResponse' smart constructor.
-listRunsResponse :: Int -> ListRunsResponse
+-- | Creates a value of 'ListRunsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lrrsRuns'
+--
+-- * 'lrrsNextToken'
+--
+-- * 'lrrsStatus'
+listRunsResponse
+    :: Int -- ^ 'lrrsStatus'
+    -> ListRunsResponse
 listRunsResponse pStatus_ =
     ListRunsResponse'
     { _lrrsRuns = Nothing
@@ -144,6 +148,6 @@ lrrsRuns = lens _lrrsRuns (\ s a -> s{_lrrsRuns = a}) . _Default . _Coerce;
 lrrsNextToken :: Lens' ListRunsResponse (Maybe Text)
 lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 lrrsStatus :: Lens' ListRunsResponse Int
 lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});

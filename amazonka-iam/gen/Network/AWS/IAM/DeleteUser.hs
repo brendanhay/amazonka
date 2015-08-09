@@ -25,14 +25,14 @@
 module Network.AWS.IAM.DeleteUser
     (
     -- * Creating a Request
-      DeleteUser
-    , deleteUser
+      deleteUser
+    , DeleteUser
     -- * Request Lenses
     , duUserName
 
     -- * Destructuring the Response
-    , DeleteUserResponse
     , deleteUserResponse
+    , DeleteUserResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -42,16 +42,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteUser' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'duUserName'
 newtype DeleteUser = DeleteUser'
     { _duUserName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteUser' smart constructor.
-deleteUser :: Text -> DeleteUser
+-- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'duUserName'
+deleteUser
+    :: Text -- ^ 'duUserName'
+    -> DeleteUser
 deleteUser pUserName_ =
     DeleteUser'
     { _duUserName = pUserName_
@@ -85,6 +87,8 @@ data DeleteUserResponse =
     DeleteUserResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteUserResponse' smart constructor.
-deleteUserResponse :: DeleteUserResponse
+-- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.
+--
+deleteUserResponse
+    :: DeleteUserResponse
 deleteUserResponse = DeleteUserResponse'

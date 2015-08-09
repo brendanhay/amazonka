@@ -25,15 +25,15 @@
 module Network.AWS.EC2.UnassignPrivateIPAddresses
     (
     -- * Creating a Request
-      UnassignPrivateIPAddresses
-    , unassignPrivateIPAddresses
+      unassignPrivateIPAddresses
+    , UnassignPrivateIPAddresses
     -- * Request Lenses
     , upiaNetworkInterfaceId
     , upiaPrivateIPAddresses
 
     -- * Destructuring the Response
-    , UnassignPrivateIPAddressesResponse
     , unassignPrivateIPAddressesResponse
+    , UnassignPrivateIPAddressesResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -43,19 +43,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'unassignPrivateIPAddresses' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'upiaNetworkInterfaceId'
---
--- * 'upiaPrivateIPAddresses'
 data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
     { _upiaNetworkInterfaceId :: !Text
     , _upiaPrivateIPAddresses :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnassignPrivateIPAddresses' smart constructor.
-unassignPrivateIPAddresses :: Text -> UnassignPrivateIPAddresses
+-- | Creates a value of 'UnassignPrivateIPAddresses' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'upiaNetworkInterfaceId'
+--
+-- * 'upiaPrivateIPAddresses'
+unassignPrivateIPAddresses
+    :: Text -- ^ 'upiaNetworkInterfaceId'
+    -> UnassignPrivateIPAddresses
 unassignPrivateIPAddresses pNetworkInterfaceId_ =
     UnassignPrivateIPAddresses'
     { _upiaNetworkInterfaceId = pNetworkInterfaceId_
@@ -101,6 +103,8 @@ data UnassignPrivateIPAddressesResponse =
     UnassignPrivateIPAddressesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UnassignPrivateIPAddressesResponse' smart constructor.
-unassignPrivateIPAddressesResponse :: UnassignPrivateIPAddressesResponse
+-- | Creates a value of 'UnassignPrivateIPAddressesResponse' with the minimum fields required to make a request.
+--
+unassignPrivateIPAddressesResponse
+    :: UnassignPrivateIPAddressesResponse
 unassignPrivateIPAddressesResponse = UnassignPrivateIPAddressesResponse'

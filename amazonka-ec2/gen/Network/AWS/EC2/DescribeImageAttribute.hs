@@ -25,16 +25,16 @@
 module Network.AWS.EC2.DescribeImageAttribute
     (
     -- * Creating a Request
-      DescribeImageAttribute
-    , describeImageAttribute
+      describeImageAttribute
+    , DescribeImageAttribute
     -- * Request Lenses
     , diaiDryRun
     , diaiImageId
     , diaiAttribute
 
     -- * Destructuring the Response
-    , DescribeImageAttributeResponse
     , describeImageAttributeResponse
+    , DescribeImageAttributeResponse
     -- * Response Lenses
     , diarsLaunchPermissions
     , diarsRAMDiskId
@@ -54,22 +54,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeImageAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diaiDryRun'
---
--- * 'diaiImageId'
---
--- * 'diaiAttribute'
 data DescribeImageAttribute = DescribeImageAttribute'
     { _diaiDryRun    :: !(Maybe Bool)
     , _diaiImageId   :: !Text
     , _diaiAttribute :: !ImageAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeImageAttribute' smart constructor.
-describeImageAttribute :: Text -> ImageAttributeName -> DescribeImageAttribute
+-- | Creates a value of 'DescribeImageAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diaiDryRun'
+--
+-- * 'diaiImageId'
+--
+-- * 'diaiAttribute'
+describeImageAttribute
+    :: Text -- ^ 'diaiImageId'
+    -> ImageAttributeName -- ^ 'diaiAttribute'
+    -> DescribeImageAttribute
 describeImageAttribute pImageId_ pAttribute_ =
     DescribeImageAttribute'
     { _diaiDryRun = Nothing
@@ -79,8 +82,8 @@ describeImageAttribute pImageId_ pAttribute_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 diaiDryRun :: Lens' DescribeImageAttribute (Maybe Bool)
 diaiDryRun = lens _diaiDryRun (\ s a -> s{_diaiDryRun = a});
 
@@ -90,8 +93,8 @@ diaiImageId = lens _diaiImageId (\ s a -> s{_diaiImageId = a});
 
 -- | The AMI attribute.
 --
--- __Note__: Depending on your account privileges, the @blockDeviceMapping@
--- attribute may return a @Client.AuthFailure@ error. If this happens, use
+-- __Note__: Depending on your account privileges, the 'blockDeviceMapping'
+-- attribute may return a 'Client.AuthFailure' error. If this happens, use
 -- DescribeImages to get information about the block device mapping for the
 -- AMI.
 diaiAttribute :: Lens' DescribeImageAttribute ImageAttributeName
@@ -139,8 +142,21 @@ instance ToQuery DescribeImageAttribute where
 -- | Describes an image attribute.
 --
 -- /See:/ 'describeImageAttributeResponse' smart constructor.
+data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
+    { _diarsLaunchPermissions   :: !(Maybe [LaunchPermission])
+    , _diarsRAMDiskId           :: !(Maybe AttributeValue)
+    , _diarsKernelId            :: !(Maybe AttributeValue)
+    , _diarsSRIOVNetSupport     :: !(Maybe AttributeValue)
+    , _diarsImageId             :: !(Maybe Text)
+    , _diarsProductCodes        :: !(Maybe [ProductCode])
+    , _diarsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _diarsDescription         :: !(Maybe AttributeValue)
+    , _diarsStatus              :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeImageAttributeResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'diarsLaunchPermissions'
 --
@@ -159,20 +175,9 @@ instance ToQuery DescribeImageAttribute where
 -- * 'diarsDescription'
 --
 -- * 'diarsStatus'
-data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
-    { _diarsLaunchPermissions   :: !(Maybe [LaunchPermission])
-    , _diarsRAMDiskId           :: !(Maybe AttributeValue)
-    , _diarsKernelId            :: !(Maybe AttributeValue)
-    , _diarsSRIOVNetSupport     :: !(Maybe AttributeValue)
-    , _diarsImageId             :: !(Maybe Text)
-    , _diarsProductCodes        :: !(Maybe [ProductCode])
-    , _diarsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _diarsDescription         :: !(Maybe AttributeValue)
-    , _diarsStatus              :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeImageAttributeResponse' smart constructor.
-describeImageAttributeResponse :: Int -> DescribeImageAttributeResponse
+describeImageAttributeResponse
+    :: Int -- ^ 'diarsStatus'
+    -> DescribeImageAttributeResponse
 describeImageAttributeResponse pStatus_ =
     DescribeImageAttributeResponse'
     { _diarsLaunchPermissions = Nothing
@@ -218,6 +223,6 @@ diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBloc
 diarsDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarsDescription = lens _diarsDescription (\ s a -> s{_diarsDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 diarsStatus :: Lens' DescribeImageAttributeResponse Int
 diarsStatus = lens _diarsStatus (\ s a -> s{_diarsStatus = a});

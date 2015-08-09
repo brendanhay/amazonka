@@ -24,14 +24,14 @@
 module Network.AWS.S3.GetBucketCORS
     (
     -- * Creating a Request
-      GetBucketCORS
-    , getBucketCORS
+      getBucketCORS
+    , GetBucketCORS
     -- * Request Lenses
     , gbcBucket
 
     -- * Destructuring the Response
-    , GetBucketCORSResponse
     , getBucketCORSResponse
+    , GetBucketCORSResponse
     -- * Response Lenses
     , gbcrsCORSRules
     , gbcrsStatus
@@ -44,16 +44,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketCORS' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbcBucket'
 newtype GetBucketCORS = GetBucketCORS'
     { _gbcBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketCORS' smart constructor.
-getBucketCORS :: BucketName -> GetBucketCORS
+-- | Creates a value of 'GetBucketCORS' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbcBucket'
+getBucketCORS
+    :: BucketName -- ^ 'gbcBucket'
+    -> GetBucketCORS
 getBucketCORS pBucket_ =
     GetBucketCORS'
     { _gbcBucket = pBucket_
@@ -85,19 +87,21 @@ instance ToQuery GetBucketCORS where
         toQuery = const (mconcat ["cors"])
 
 -- | /See:/ 'getBucketCORSResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbcrsCORSRules'
---
--- * 'gbcrsStatus'
 data GetBucketCORSResponse = GetBucketCORSResponse'
     { _gbcrsCORSRules :: !(Maybe [CORSRule])
     , _gbcrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketCORSResponse' smart constructor.
-getBucketCORSResponse :: Int -> GetBucketCORSResponse
+-- | Creates a value of 'GetBucketCORSResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbcrsCORSRules'
+--
+-- * 'gbcrsStatus'
+getBucketCORSResponse
+    :: Int -- ^ 'gbcrsStatus'
+    -> GetBucketCORSResponse
 getBucketCORSResponse pStatus_ =
     GetBucketCORSResponse'
     { _gbcrsCORSRules = Nothing
@@ -108,6 +112,6 @@ getBucketCORSResponse pStatus_ =
 gbcrsCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
 gbcrsCORSRules = lens _gbcrsCORSRules (\ s a -> s{_gbcrsCORSRules = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 gbcrsStatus :: Lens' GetBucketCORSResponse Int
 gbcrsStatus = lens _gbcrsStatus (\ s a -> s{_gbcrsStatus = a});

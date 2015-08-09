@@ -40,15 +40,15 @@
 module Network.AWS.Glacier.DeleteVaultNotifications
     (
     -- * Creating a Request
-      DeleteVaultNotifications
-    , deleteVaultNotifications
+      deleteVaultNotifications
+    , DeleteVaultNotifications
     -- * Request Lenses
     , dvnAccountId
     , dvnVaultName
 
     -- * Destructuring the Response
-    , DeleteVaultNotificationsResponse
     , deleteVaultNotificationsResponse
+    , DeleteVaultNotificationsResponse
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -61,28 +61,31 @@ import           Network.AWS.Response
 -- Amazon Glacier vault.
 --
 -- /See:/ 'deleteVaultNotifications' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvnAccountId'
---
--- * 'dvnVaultName'
 data DeleteVaultNotifications = DeleteVaultNotifications'
     { _dvnAccountId :: !Text
     , _dvnVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVaultNotifications' smart constructor.
-deleteVaultNotifications :: Text -> Text -> DeleteVaultNotifications
+-- | Creates a value of 'DeleteVaultNotifications' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvnAccountId'
+--
+-- * 'dvnVaultName'
+deleteVaultNotifications
+    :: Text -- ^ 'dvnAccountId'
+    -> Text -- ^ 'dvnVaultName'
+    -> DeleteVaultNotifications
 deleteVaultNotifications pAccountId_ pVaultName_ =
     DeleteVaultNotifications'
     { _dvnAccountId = pAccountId_
     , _dvnVaultName = pVaultName_
     }
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
--- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
 dvnAccountId :: Lens' DeleteVaultNotifications Text
@@ -117,6 +120,8 @@ data DeleteVaultNotificationsResponse =
     DeleteVaultNotificationsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVaultNotificationsResponse' smart constructor.
-deleteVaultNotificationsResponse :: DeleteVaultNotificationsResponse
+-- | Creates a value of 'DeleteVaultNotificationsResponse' with the minimum fields required to make a request.
+--
+deleteVaultNotificationsResponse
+    :: DeleteVaultNotificationsResponse
 deleteVaultNotificationsResponse = DeleteVaultNotificationsResponse'

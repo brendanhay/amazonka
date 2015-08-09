@@ -25,8 +25,8 @@
 module Network.AWS.S3.DeleteObjects
     (
     -- * Creating a Request
-      DeleteObjects
-    , deleteObjects
+      deleteObjects
+    , DeleteObjects
     -- * Request Lenses
     , dosMFA
     , dosRequestPayer
@@ -34,8 +34,8 @@ module Network.AWS.S3.DeleteObjects
     , dosDelete
 
     -- * Destructuring the Response
-    , DeleteObjectsResponse
     , deleteObjectsResponse
+    , DeleteObjectsResponse
     -- * Response Lenses
     , drsRequestCharged
     , drsDeleted
@@ -50,8 +50,16 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteObjects' smart constructor.
+data DeleteObjects = DeleteObjects'
+    { _dosMFA          :: !(Maybe Text)
+    , _dosRequestPayer :: !(Maybe RequestPayer)
+    , _dosBucket       :: !BucketName
+    , _dosDelete       :: !Delete
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteObjects' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dosMFA'
 --
@@ -60,15 +68,10 @@ import           Network.AWS.S3.Types.Product
 -- * 'dosBucket'
 --
 -- * 'dosDelete'
-data DeleteObjects = DeleteObjects'
-    { _dosMFA          :: !(Maybe Text)
-    , _dosRequestPayer :: !(Maybe RequestPayer)
-    , _dosBucket       :: !BucketName
-    , _dosDelete       :: !Delete
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeleteObjects' smart constructor.
-deleteObjects :: BucketName -> Delete -> DeleteObjects
+deleteObjects
+    :: BucketName -- ^ 'dosBucket'
+    -> Delete -- ^ 'dosDelete'
+    -> DeleteObjects
 deleteObjects pBucket_ pDelete_ =
     DeleteObjects'
     { _dosMFA = Nothing
@@ -128,8 +131,16 @@ instance ToQuery DeleteObjects where
         toQuery = const (mconcat ["delete"])
 
 -- | /See:/ 'deleteObjectsResponse' smart constructor.
+data DeleteObjectsResponse = DeleteObjectsResponse'
+    { _drsRequestCharged :: !(Maybe RequestCharged)
+    , _drsDeleted        :: !(Maybe [DeletedObject])
+    , _drsErrors         :: !(Maybe [S3ServiceError])
+    , _drsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteObjectsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'drsRequestCharged'
 --
@@ -138,15 +149,9 @@ instance ToQuery DeleteObjects where
 -- * 'drsErrors'
 --
 -- * 'drsStatus'
-data DeleteObjectsResponse = DeleteObjectsResponse'
-    { _drsRequestCharged :: !(Maybe RequestCharged)
-    , _drsDeleted        :: !(Maybe [DeletedObject])
-    , _drsErrors         :: !(Maybe [S3ServiceError])
-    , _drsStatus         :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeleteObjectsResponse' smart constructor.
-deleteObjectsResponse :: Int -> DeleteObjectsResponse
+deleteObjectsResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeleteObjectsResponse
 deleteObjectsResponse pStatus_ =
     DeleteObjectsResponse'
     { _drsRequestCharged = Nothing
@@ -167,6 +172,6 @@ drsDeleted = lens _drsDeleted (\ s a -> s{_drsDeleted = a}) . _Default . _Coerce
 drsErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
 drsErrors = lens _drsErrors (\ s a -> s{_drsErrors = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 drsStatus :: Lens' DeleteObjectsResponse Int
 drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

@@ -25,11 +25,13 @@
 -- IP addresses for cluster instances, etc.
 --
 -- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstances.html AWS API Reference> for ListInstances.
+--
+-- This operation returns paginated results.
 module Network.AWS.EMR.ListInstances
     (
     -- * Creating a Request
-      ListInstances
-    , listInstances
+      listInstances
+    , ListInstances
     -- * Request Lenses
     , liInstanceGroupTypes
     , liMarker
@@ -37,8 +39,8 @@ module Network.AWS.EMR.ListInstances
     , liClusterId
 
     -- * Destructuring the Response
-    , ListInstancesResponse
     , listInstancesResponse
+    , ListInstancesResponse
     -- * Response Lenses
     , lirsInstances
     , lirsMarker
@@ -55,8 +57,16 @@ import           Network.AWS.Response
 -- | This input determines which instances to list.
 --
 -- /See:/ 'listInstances' smart constructor.
+data ListInstances = ListInstances'
+    { _liInstanceGroupTypes :: !(Maybe [InstanceGroupType])
+    , _liMarker             :: !(Maybe Text)
+    , _liInstanceGroupId    :: !(Maybe Text)
+    , _liClusterId          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListInstances' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'liInstanceGroupTypes'
 --
@@ -65,15 +75,9 @@ import           Network.AWS.Response
 -- * 'liInstanceGroupId'
 --
 -- * 'liClusterId'
-data ListInstances = ListInstances'
-    { _liInstanceGroupTypes :: !(Maybe [InstanceGroupType])
-    , _liMarker             :: !(Maybe Text)
-    , _liInstanceGroupId    :: !(Maybe Text)
-    , _liClusterId          :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListInstances' smart constructor.
-listInstances :: Text -> ListInstances
+listInstances
+    :: Text -- ^ 'liClusterId'
+    -> ListInstances
 listInstances pClusterId_ =
     ListInstances'
     { _liInstanceGroupTypes = Nothing
@@ -142,22 +146,24 @@ instance ToQuery ListInstances where
 -- | This output contains the list of instances.
 --
 -- /See:/ 'listInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lirsInstances'
---
--- * 'lirsMarker'
---
--- * 'lirsStatus'
 data ListInstancesResponse = ListInstancesResponse'
     { _lirsInstances :: !(Maybe [Instance])
     , _lirsMarker    :: !(Maybe Text)
     , _lirsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListInstancesResponse' smart constructor.
-listInstancesResponse :: Int -> ListInstancesResponse
+-- | Creates a value of 'ListInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lirsInstances'
+--
+-- * 'lirsMarker'
+--
+-- * 'lirsStatus'
+listInstancesResponse
+    :: Int -- ^ 'lirsStatus'
+    -> ListInstancesResponse
 listInstancesResponse pStatus_ =
     ListInstancesResponse'
     { _lirsInstances = Nothing
@@ -173,6 +179,6 @@ lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default 
 lirsMarker :: Lens' ListInstancesResponse (Maybe Text)
 lirsMarker = lens _lirsMarker (\ s a -> s{_lirsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 lirsStatus :: Lens' ListInstancesResponse Int
 lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});

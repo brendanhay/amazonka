@@ -19,8 +19,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Modifies the parameters of a DB parameter group. To modify more than one
--- parameter, submit a list of the following: @ParameterName@,
--- @ParameterValue@, and @ApplyMethod@. A maximum of 20 parameters can be
+-- parameter, submit a list of the following: 'ParameterName',
+-- 'ParameterValue', and 'ApplyMethod'. A maximum of 20 parameters can be
 -- modified in a single request.
 --
 -- Changes to dynamic parameters are applied immediately. Changes to static
@@ -34,7 +34,7 @@
 -- as the default for a new DB instance. This is especially important for
 -- parameters that are critical when creating the default database for a DB
 -- instance, such as the character set for the default database defined by
--- the @character_set_database@ parameter. You can use the /Parameter
+-- the 'character_set_database' parameter. You can use the /Parameter
 -- Groups/ option of the
 -- <https://console.aws.amazon.com/rds/ Amazon RDS console> or the
 -- /DescribeDBParameters/ command to verify that your DB parameter group
@@ -44,15 +44,15 @@
 module Network.AWS.RDS.ModifyDBParameterGroup
     (
     -- * Creating a Request
-      ModifyDBParameterGroup
-    , modifyDBParameterGroup
+      modifyDBParameterGroup
+    , ModifyDBParameterGroup
     -- * Request Lenses
     , mdpgDBParameterGroupName
     , mdpgParameters
 
     -- * Destructuring the Response
-    , DBParameterGroupNameMessage
     , dbParameterGroupNameMessage
+    , DBParameterGroupNameMessage
     -- * Response Lenses
     , dpgnmDBParameterGroupName
     ) where
@@ -66,19 +66,21 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'modifyDBParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mdpgDBParameterGroupName'
---
--- * 'mdpgParameters'
 data ModifyDBParameterGroup = ModifyDBParameterGroup'
     { _mdpgDBParameterGroupName :: !Text
     , _mdpgParameters           :: ![Parameter]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyDBParameterGroup' smart constructor.
-modifyDBParameterGroup :: Text -> ModifyDBParameterGroup
+-- | Creates a value of 'ModifyDBParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mdpgDBParameterGroupName'
+--
+-- * 'mdpgParameters'
+modifyDBParameterGroup
+    :: Text -- ^ 'mdpgDBParameterGroupName'
+    -> ModifyDBParameterGroup
 modifyDBParameterGroup pDBParameterGroupName_ =
     ModifyDBParameterGroup'
     { _mdpgDBParameterGroupName = pDBParameterGroupName_
@@ -101,7 +103,7 @@ mdpgDBParameterGroupName = lens _mdpgDBParameterGroupName (\ s a -> s{_mdpgDBPar
 -- must be supplied; subsequent arguments are optional. A maximum of 20
 -- parameters can be modified in a single request.
 --
--- Valid Values (for the application method): @immediate | pending-reboot@
+-- Valid Values (for the application method): 'immediate | pending-reboot'
 --
 -- You can use the immediate value with dynamic parameters only. You can
 -- use the pending-reboot value for both dynamic and static parameters, and

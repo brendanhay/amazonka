@@ -19,11 +19,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Suspends the specified Auto Scaling processes for the specified Auto
--- Scaling group. To suspend specific processes, use the @ScalingProcesses@
--- parameter. To suspend all processes, omit the @ScalingProcesses@
+-- Scaling group. To suspend specific processes, use the 'ScalingProcesses'
+-- parameter. To suspend all processes, omit the 'ScalingProcesses'
 -- parameter.
 --
--- Note that if you suspend either the @Launch@ or @Terminate@ process
+-- Note that if you suspend either the 'Launch' or 'Terminate' process
 -- types, it can prevent other process types from functioning properly.
 --
 -- To resume processes that have been suspended, use ResumeProcesses.
@@ -36,15 +36,15 @@
 module Network.AWS.AutoScaling.SuspendProcesses
     (
     -- * Creating a Request
-      SuspendProcesses
-    , suspendProcesses
+      suspendProcesses
+    , SuspendProcesses
     -- * Request Lenses
     , spScalingProcesses
     , spAutoScalingGroupName
 
     -- * Destructuring the Response
-    , SuspendProcessesResponse
     , suspendProcessesResponse
+    , SuspendProcessesResponse
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -54,19 +54,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'suspendProcesses' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'spScalingProcesses'
---
--- * 'spAutoScalingGroupName'
 data SuspendProcesses = SuspendProcesses'
     { _spScalingProcesses     :: !(Maybe [Text])
     , _spAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SuspendProcesses' smart constructor.
-suspendProcesses :: Text -> SuspendProcesses
+-- | Creates a value of 'SuspendProcesses' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'spScalingProcesses'
+--
+-- * 'spAutoScalingGroupName'
+suspendProcesses
+    :: Text -- ^ 'spAutoScalingGroupName'
+    -> SuspendProcesses
 suspendProcesses pAutoScalingGroupName_ =
     SuspendProcesses'
     { _spScalingProcesses = Nothing
@@ -75,21 +77,21 @@ suspendProcesses pAutoScalingGroupName_ =
 
 -- | One or more of the following processes:
 --
--- -   @Launch@
+-- -   'Launch'
 --
--- -   @Terminate@
+-- -   'Terminate'
 --
--- -   @HealthCheck@
+-- -   'HealthCheck'
 --
--- -   @ReplaceUnhealthy@
+-- -   'ReplaceUnhealthy'
 --
--- -   @AZRebalance@
+-- -   'AZRebalance'
 --
--- -   @AlarmNotification@
+-- -   'AlarmNotification'
 --
--- -   @ScheduledActions@
+-- -   'ScheduledActions'
 --
--- -   @AddToLoadBalancer@
+-- -   'AddToLoadBalancer'
 --
 spScalingProcesses :: Lens' SuspendProcesses [Text]
 spScalingProcesses = lens _spScalingProcesses (\ s a -> s{_spScalingProcesses = a}) . _Default . _Coerce;
@@ -125,6 +127,8 @@ data SuspendProcessesResponse =
     SuspendProcessesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SuspendProcessesResponse' smart constructor.
-suspendProcessesResponse :: SuspendProcessesResponse
+-- | Creates a value of 'SuspendProcessesResponse' with the minimum fields required to make a request.
+--
+suspendProcessesResponse
+    :: SuspendProcessesResponse
 suspendProcessesResponse = SuspendProcessesResponse'

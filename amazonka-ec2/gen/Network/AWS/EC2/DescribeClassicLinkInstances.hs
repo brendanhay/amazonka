@@ -27,8 +27,8 @@
 module Network.AWS.EC2.DescribeClassicLinkInstances
     (
     -- * Creating a Request
-      DescribeClassicLinkInstances
-    , describeClassicLinkInstances
+      describeClassicLinkInstances
+    , DescribeClassicLinkInstances
     -- * Request Lenses
     , dcliFilters
     , dcliNextToken
@@ -37,8 +37,8 @@ module Network.AWS.EC2.DescribeClassicLinkInstances
     , dcliMaxResults
 
     -- * Destructuring the Response
-    , DescribeClassicLinkInstancesResponse
     , describeClassicLinkInstancesResponse
+    , DescribeClassicLinkInstancesResponse
     -- * Response Lenses
     , dclirsNextToken
     , dclirsInstances
@@ -52,8 +52,17 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'describeClassicLinkInstances' smart constructor.
+data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
+    { _dcliFilters     :: !(Maybe [Filter])
+    , _dcliNextToken   :: !(Maybe Text)
+    , _dcliInstanceIds :: !(Maybe [Text])
+    , _dcliDryRun      :: !(Maybe Bool)
+    , _dcliMaxResults  :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeClassicLinkInstances' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dcliFilters'
 --
@@ -64,16 +73,8 @@ import           Network.AWS.Response
 -- * 'dcliDryRun'
 --
 -- * 'dcliMaxResults'
-data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
-    { _dcliFilters     :: !(Maybe [Filter])
-    , _dcliNextToken   :: !(Maybe Text)
-    , _dcliInstanceIds :: !(Maybe [Text])
-    , _dcliDryRun      :: !(Maybe Bool)
-    , _dcliMaxResults  :: !(Maybe Int)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeClassicLinkInstances' smart constructor.
-describeClassicLinkInstances :: DescribeClassicLinkInstances
+describeClassicLinkInstances
+    :: DescribeClassicLinkInstances
 describeClassicLinkInstances =
     DescribeClassicLinkInstances'
     { _dcliFilters = Nothing
@@ -85,26 +86,26 @@ describeClassicLinkInstances =
 
 -- | One or more filters.
 --
--- -   @group-id@ - The ID of a VPC security group that\'s associated with
+-- -   'group-id' - The ID of a VPC security group that\'s associated with
 --     the instance.
 --
--- -   @instance-id@ - The ID of the instance.
+-- -   'instance-id' - The ID of the instance.
 --
--- -   @tag@:/key/=/value/ - The key\/value combination of a tag assigned
+-- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
 --     to the resource.
 --
--- -   @tag-key@ - The key of a tag assigned to the resource. This filter
---     is independent of the @tag-value@ filter. For example, if you use
+-- -   'tag-key' - The key of a tag assigned to the resource. This filter
+--     is independent of the 'tag-value' filter. For example, if you use
 --     both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\",
 --     you get any resources assigned both the tag key Purpose (regardless
 --     of what the tag\'s value is), and the tag value X (regardless of
 --     what the tag\'s key is). If you want to list only resources where
---     Purpose is X, see the @tag@:/key/=/value/ filter.
+--     Purpose is X, see the 'tag':/key/=/value/ filter.
 --
--- -   @tag-value@ - The value of a tag assigned to the resource. This
---     filter is independent of the @tag-key@ filter.
+-- -   'tag-value' - The value of a tag assigned to the resource. This
+--     filter is independent of the 'tag-key' filter.
 --
--- -   @vpc-id@ - The ID of the VPC that the instance is linked to.
+-- -   'vpc-id' - The ID of the VPC that the instance is linked to.
 --
 dcliFilters :: Lens' DescribeClassicLinkInstances [Filter]
 dcliFilters = lens _dcliFilters (\ s a -> s{_dcliFilters = a}) . _Default . _Coerce;
@@ -120,15 +121,15 @@ dcliInstanceIds = lens _dcliInstanceIds (\ s a -> s{_dcliInstanceIds = a}) . _De
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dcliDryRun :: Lens' DescribeClassicLinkInstances (Maybe Bool)
 dcliDryRun = lens _dcliDryRun (\ s a -> s{_dcliDryRun = a});
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results of the initial request can be seen by
--- sending another request with the returned @NextToken@ value. This value
--- can be between 5 and 1000; if @MaxResults@ is given a value larger than
+-- sending another request with the returned 'NextToken' value. This value
+-- can be between 5 and 1000; if 'MaxResults' is given a value larger than
 -- 1000, only 1000 results are returned. You cannot specify this parameter
 -- and the instance IDs parameter in the same request.
 --
@@ -172,22 +173,24 @@ instance ToQuery DescribeClassicLinkInstances where
                "MaxResults" =: _dcliMaxResults]
 
 -- | /See:/ 'describeClassicLinkInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dclirsNextToken'
---
--- * 'dclirsInstances'
---
--- * 'dclirsStatus'
 data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'
     { _dclirsNextToken :: !(Maybe Text)
     , _dclirsInstances :: !(Maybe [ClassicLinkInstance])
     , _dclirsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeClassicLinkInstancesResponse' smart constructor.
-describeClassicLinkInstancesResponse :: Int -> DescribeClassicLinkInstancesResponse
+-- | Creates a value of 'DescribeClassicLinkInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dclirsNextToken'
+--
+-- * 'dclirsInstances'
+--
+-- * 'dclirsStatus'
+describeClassicLinkInstancesResponse
+    :: Int -- ^ 'dclirsStatus'
+    -> DescribeClassicLinkInstancesResponse
 describeClassicLinkInstancesResponse pStatus_ =
     DescribeClassicLinkInstancesResponse'
     { _dclirsNextToken = Nothing
@@ -196,7 +199,7 @@ describeClassicLinkInstancesResponse pStatus_ =
     }
 
 -- | The token to use to retrieve the next page of results. This value is
--- @null@ when there are no more results to return.
+-- 'null' when there are no more results to return.
 dclirsNextToken :: Lens' DescribeClassicLinkInstancesResponse (Maybe Text)
 dclirsNextToken = lens _dclirsNextToken (\ s a -> s{_dclirsNextToken = a});
 
@@ -204,6 +207,6 @@ dclirsNextToken = lens _dclirsNextToken (\ s a -> s{_dclirsNextToken = a});
 dclirsInstances :: Lens' DescribeClassicLinkInstancesResponse [ClassicLinkInstance]
 dclirsInstances = lens _dclirsInstances (\ s a -> s{_dclirsInstances = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dclirsStatus :: Lens' DescribeClassicLinkInstancesResponse Int
 dclirsStatus = lens _dclirsStatus (\ s a -> s{_dclirsStatus = a});

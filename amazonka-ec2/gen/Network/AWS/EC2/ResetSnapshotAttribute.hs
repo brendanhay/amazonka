@@ -28,16 +28,16 @@
 module Network.AWS.EC2.ResetSnapshotAttribute
     (
     -- * Creating a Request
-      ResetSnapshotAttribute
-    , resetSnapshotAttribute
+      resetSnapshotAttribute
+    , ResetSnapshotAttribute
     -- * Request Lenses
     , rsaDryRun
     , rsaSnapshotId
     , rsaAttribute
 
     -- * Destructuring the Response
-    , ResetSnapshotAttributeResponse
     , resetSnapshotAttributeResponse
+    , ResetSnapshotAttributeResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -47,22 +47,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'resetSnapshotAttribute' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rsaDryRun'
---
--- * 'rsaSnapshotId'
---
--- * 'rsaAttribute'
 data ResetSnapshotAttribute = ResetSnapshotAttribute'
     { _rsaDryRun     :: !(Maybe Bool)
     , _rsaSnapshotId :: !Text
     , _rsaAttribute  :: !SnapshotAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetSnapshotAttribute' smart constructor.
-resetSnapshotAttribute :: Text -> SnapshotAttributeName -> ResetSnapshotAttribute
+-- | Creates a value of 'ResetSnapshotAttribute' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rsaDryRun'
+--
+-- * 'rsaSnapshotId'
+--
+-- * 'rsaAttribute'
+resetSnapshotAttribute
+    :: Text -- ^ 'rsaSnapshotId'
+    -> SnapshotAttributeName -- ^ 'rsaAttribute'
+    -> ResetSnapshotAttribute
 resetSnapshotAttribute pSnapshotId_ pAttribute_ =
     ResetSnapshotAttribute'
     { _rsaDryRun = Nothing
@@ -72,8 +75,8 @@ resetSnapshotAttribute pSnapshotId_ pAttribute_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 rsaDryRun :: Lens' ResetSnapshotAttribute (Maybe Bool)
 rsaDryRun = lens _rsaDryRun (\ s a -> s{_rsaDryRun = a});
 
@@ -115,6 +118,8 @@ data ResetSnapshotAttributeResponse =
     ResetSnapshotAttributeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetSnapshotAttributeResponse' smart constructor.
-resetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
+-- | Creates a value of 'ResetSnapshotAttributeResponse' with the minimum fields required to make a request.
+--
+resetSnapshotAttributeResponse
+    :: ResetSnapshotAttributeResponse
 resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse'

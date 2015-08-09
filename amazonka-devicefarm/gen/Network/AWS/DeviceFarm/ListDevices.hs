@@ -24,15 +24,15 @@
 module Network.AWS.DeviceFarm.ListDevices
     (
     -- * Creating a Request
-      ListDevices
-    , listDevices
+      listDevices
+    , ListDevices
     -- * Request Lenses
     , ldArn
     , ldNextToken
 
     -- * Destructuring the Response
-    , ListDevicesResponse
     , listDevicesResponse
+    , ListDevicesResponse
     -- * Response Lenses
     , ldrsNextToken
     , ldrsDevices
@@ -48,19 +48,20 @@ import           Network.AWS.Response
 -- | Represents the result of a list devices request.
 --
 -- /See:/ 'listDevices' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldArn'
---
--- * 'ldNextToken'
 data ListDevices = ListDevices'
     { _ldArn       :: !(Maybe Text)
     , _ldNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDevices' smart constructor.
-listDevices :: ListDevices
+-- | Creates a value of 'ListDevices' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldArn'
+--
+-- * 'ldNextToken'
+listDevices
+    :: ListDevices
 listDevices =
     ListDevices'
     { _ldArn = Nothing
@@ -111,22 +112,24 @@ instance ToQuery ListDevices where
 -- | Represents the result of a list devices operation.
 --
 -- /See:/ 'listDevicesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldrsNextToken'
---
--- * 'ldrsDevices'
---
--- * 'ldrsStatus'
 data ListDevicesResponse = ListDevicesResponse'
     { _ldrsNextToken :: !(Maybe Text)
     , _ldrsDevices   :: !(Maybe [Device])
     , _ldrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDevicesResponse' smart constructor.
-listDevicesResponse :: Int -> ListDevicesResponse
+-- | Creates a value of 'ListDevicesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldrsNextToken'
+--
+-- * 'ldrsDevices'
+--
+-- * 'ldrsStatus'
+listDevicesResponse
+    :: Int -- ^ 'ldrsStatus'
+    -> ListDevicesResponse
 listDevicesResponse pStatus_ =
     ListDevicesResponse'
     { _ldrsNextToken = Nothing
@@ -144,6 +147,6 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 ldrsDevices :: Lens' ListDevicesResponse [Device]
 ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ldrsStatus :: Lens' ListDevicesResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

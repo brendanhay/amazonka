@@ -27,8 +27,8 @@
 module Network.AWS.EC2.ReplaceNetworkACLEntry
     (
     -- * Creating a Request
-      ReplaceNetworkACLEntry
-    , replaceNetworkACLEntry
+      replaceNetworkACLEntry
+    , ReplaceNetworkACLEntry
     -- * Request Lenses
     , rnaeICMPTypeCode
     , rnaePortRange
@@ -41,8 +41,8 @@ module Network.AWS.EC2.ReplaceNetworkACLEntry
     , rnaeCIdRBlock
 
     -- * Destructuring the Response
-    , ReplaceNetworkACLEntryResponse
     , replaceNetworkACLEntryResponse
+    , ReplaceNetworkACLEntryResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,8 +52,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'replaceNetworkACLEntry' smart constructor.
+data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
+    { _rnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
+    , _rnaePortRange    :: !(Maybe PortRange)
+    , _rnaeDryRun       :: !(Maybe Bool)
+    , _rnaeNetworkACLId :: !Text
+    , _rnaeRuleNumber   :: !Int
+    , _rnaeProtocol     :: !Text
+    , _rnaeRuleAction   :: !RuleAction
+    , _rnaeEgress       :: !Bool
+    , _rnaeCIdRBlock    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReplaceNetworkACLEntry' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'rnaeICMPTypeCode'
 --
@@ -72,20 +85,14 @@ import           Network.AWS.Response
 -- * 'rnaeEgress'
 --
 -- * 'rnaeCIdRBlock'
-data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
-    { _rnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
-    , _rnaePortRange    :: !(Maybe PortRange)
-    , _rnaeDryRun       :: !(Maybe Bool)
-    , _rnaeNetworkACLId :: !Text
-    , _rnaeRuleNumber   :: !Int
-    , _rnaeProtocol     :: !Text
-    , _rnaeRuleAction   :: !RuleAction
-    , _rnaeEgress       :: !Bool
-    , _rnaeCIdRBlock    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ReplaceNetworkACLEntry' smart constructor.
-replaceNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> ReplaceNetworkACLEntry
+replaceNetworkACLEntry
+    :: Text -- ^ 'rnaeNetworkACLId'
+    -> Int -- ^ 'rnaeRuleNumber'
+    -> Text -- ^ 'rnaeProtocol'
+    -> RuleAction -- ^ 'rnaeRuleAction'
+    -> Bool -- ^ 'rnaeEgress'
+    -> Text -- ^ 'rnaeCIdRBlock'
+    -> ReplaceNetworkACLEntry
 replaceNetworkACLEntry pNetworkACLId_ pRuleNumber_ pProtocol_ pRuleAction_ pEgress_ pCIdRBlock_ =
     ReplaceNetworkACLEntry'
     { _rnaeICMPTypeCode = Nothing
@@ -111,8 +118,8 @@ rnaePortRange = lens _rnaePortRange (\ s a -> s{_rnaePortRange = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 rnaeDryRun :: Lens' ReplaceNetworkACLEntry (Maybe Bool)
 rnaeDryRun = lens _rnaeDryRun (\ s a -> s{_rnaeDryRun = a});
 
@@ -124,7 +131,7 @@ rnaeNetworkACLId = lens _rnaeNetworkACLId (\ s a -> s{_rnaeNetworkACLId = a});
 rnaeRuleNumber :: Lens' ReplaceNetworkACLEntry Int
 rnaeRuleNumber = lens _rnaeRuleNumber (\ s a -> s{_rnaeRuleNumber = a});
 
--- | The IP protocol. You can specify @all@ or @-1@ to mean all protocols.
+-- | The IP protocol. You can specify 'all' or '-1' to mean all protocols.
 rnaeProtocol :: Lens' ReplaceNetworkACLEntry Text
 rnaeProtocol = lens _rnaeProtocol (\ s a -> s{_rnaeProtocol = a});
 
@@ -177,6 +184,8 @@ data ReplaceNetworkACLEntryResponse =
     ReplaceNetworkACLEntryResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReplaceNetworkACLEntryResponse' smart constructor.
-replaceNetworkACLEntryResponse :: ReplaceNetworkACLEntryResponse
+-- | Creates a value of 'ReplaceNetworkACLEntryResponse' with the minimum fields required to make a request.
+--
+replaceNetworkACLEntryResponse
+    :: ReplaceNetworkACLEntryResponse
 replaceNetworkACLEntryResponse = ReplaceNetworkACLEntryResponse'

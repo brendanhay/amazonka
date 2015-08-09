@@ -30,15 +30,15 @@
 module Network.AWS.EC2.DisassociateRouteTable
     (
     -- * Creating a Request
-      DisassociateRouteTable
-    , disassociateRouteTable
+      disassociateRouteTable
+    , DisassociateRouteTable
     -- * Request Lenses
     , drtDryRun
     , drtAssociationId
 
     -- * Destructuring the Response
-    , DisassociateRouteTableResponse
     , disassociateRouteTableResponse
+    , DisassociateRouteTableResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -48,19 +48,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'disassociateRouteTable' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'drtDryRun'
---
--- * 'drtAssociationId'
 data DisassociateRouteTable = DisassociateRouteTable'
     { _drtDryRun        :: !(Maybe Bool)
     , _drtAssociationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisassociateRouteTable' smart constructor.
-disassociateRouteTable :: Text -> DisassociateRouteTable
+-- | Creates a value of 'DisassociateRouteTable' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drtDryRun'
+--
+-- * 'drtAssociationId'
+disassociateRouteTable
+    :: Text -- ^ 'drtAssociationId'
+    -> DisassociateRouteTable
 disassociateRouteTable pAssociationId_ =
     DisassociateRouteTable'
     { _drtDryRun = Nothing
@@ -69,8 +71,8 @@ disassociateRouteTable pAssociationId_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 drtDryRun :: Lens' DisassociateRouteTable (Maybe Bool)
 drtDryRun = lens _drtDryRun (\ s a -> s{_drtDryRun = a});
 
@@ -107,6 +109,8 @@ data DisassociateRouteTableResponse =
     DisassociateRouteTableResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisassociateRouteTableResponse' smart constructor.
-disassociateRouteTableResponse :: DisassociateRouteTableResponse
+-- | Creates a value of 'DisassociateRouteTableResponse' with the minimum fields required to make a request.
+--
+disassociateRouteTableResponse
+    :: DisassociateRouteTableResponse
 disassociateRouteTableResponse = DisassociateRouteTableResponse'

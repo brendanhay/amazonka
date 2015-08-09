@@ -27,18 +27,20 @@
 -- deleted by specifying the unique stack identifier (stack ID).
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackEvents.html AWS API Reference> for DescribeStackEvents.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudFormation.DescribeStackEvents
     (
     -- * Creating a Request
-      DescribeStackEvents
-    , describeStackEvents
+      describeStackEvents
+    , DescribeStackEvents
     -- * Request Lenses
     , dseNextToken
     , dseStackName
 
     -- * Destructuring the Response
-    , DescribeStackEventsResponse
     , describeStackEventsResponse
+    , DescribeStackEventsResponse
     -- * Response Lenses
     , dsersNextToken
     , dsersStackEvents
@@ -55,19 +57,20 @@ import           Network.AWS.Response
 -- | The input for DescribeStackEvents action.
 --
 -- /See:/ 'describeStackEvents' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dseNextToken'
---
--- * 'dseStackName'
 data DescribeStackEvents = DescribeStackEvents'
     { _dseNextToken :: !(Maybe Text)
     , _dseStackName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStackEvents' smart constructor.
-describeStackEvents :: DescribeStackEvents
+-- | Creates a value of 'DescribeStackEvents' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dseNextToken'
+--
+-- * 'dseStackName'
+describeStackEvents
+    :: DescribeStackEvents
 describeStackEvents =
     DescribeStackEvents'
     { _dseNextToken = Nothing
@@ -130,22 +133,24 @@ instance ToQuery DescribeStackEvents where
 -- | The output for a DescribeStackEvents action.
 --
 -- /See:/ 'describeStackEventsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsersNextToken'
---
--- * 'dsersStackEvents'
---
--- * 'dsersStatus'
 data DescribeStackEventsResponse = DescribeStackEventsResponse'
     { _dsersNextToken   :: !(Maybe Text)
     , _dsersStackEvents :: !(Maybe [StackEvent])
     , _dsersStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStackEventsResponse' smart constructor.
-describeStackEventsResponse :: Int -> DescribeStackEventsResponse
+-- | Creates a value of 'DescribeStackEventsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsersNextToken'
+--
+-- * 'dsersStackEvents'
+--
+-- * 'dsersStatus'
+describeStackEventsResponse
+    :: Int -- ^ 'dsersStatus'
+    -> DescribeStackEventsResponse
 describeStackEventsResponse pStatus_ =
     DescribeStackEventsResponse'
     { _dsersNextToken = Nothing
@@ -158,10 +163,10 @@ describeStackEventsResponse pStatus_ =
 dsersNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
 dsersNextToken = lens _dsersNextToken (\ s a -> s{_dsersNextToken = a});
 
--- | A list of @StackEvents@ structures.
+-- | A list of 'StackEvents' structures.
 dsersStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
 dsersStackEvents = lens _dsersStackEvents (\ s a -> s{_dsersStackEvents = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dsersStatus :: Lens' DescribeStackEventsResponse Int
 dsersStatus = lens _dsersStatus (\ s a -> s{_dsersStatus = a});

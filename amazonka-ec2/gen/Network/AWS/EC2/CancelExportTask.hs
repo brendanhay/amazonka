@@ -27,14 +27,14 @@
 module Network.AWS.EC2.CancelExportTask
     (
     -- * Creating a Request
-      CancelExportTask
-    , cancelExportTask
+      cancelExportTask
+    , CancelExportTask
     -- * Request Lenses
     , cetExportTaskId
 
     -- * Destructuring the Response
-    , CancelExportTaskResponse
     , cancelExportTaskResponse
+    , CancelExportTaskResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -44,23 +44,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'cancelExportTask' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cetExportTaskId'
 newtype CancelExportTask = CancelExportTask'
     { _cetExportTaskId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelExportTask' smart constructor.
-cancelExportTask :: Text -> CancelExportTask
+-- | Creates a value of 'CancelExportTask' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cetExportTaskId'
+cancelExportTask
+    :: Text -- ^ 'cetExportTaskId'
+    -> CancelExportTask
 cancelExportTask pExportTaskId_ =
     CancelExportTask'
     { _cetExportTaskId = pExportTaskId_
     }
 
 -- | The ID of the export task. This is the ID returned by
--- @CreateInstanceExportTask@.
+-- 'CreateInstanceExportTask'.
 cetExportTaskId :: Lens' CancelExportTask Text
 cetExportTaskId = lens _cetExportTaskId (\ s a -> s{_cetExportTaskId = a});
 
@@ -88,6 +90,8 @@ data CancelExportTaskResponse =
     CancelExportTaskResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelExportTaskResponse' smart constructor.
-cancelExportTaskResponse :: CancelExportTaskResponse
+-- | Creates a value of 'CancelExportTaskResponse' with the minimum fields required to make a request.
+--
+cancelExportTaskResponse
+    :: CancelExportTaskResponse
 cancelExportTaskResponse = CancelExportTaskResponse'

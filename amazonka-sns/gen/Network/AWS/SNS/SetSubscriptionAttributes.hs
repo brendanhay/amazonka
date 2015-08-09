@@ -25,16 +25,16 @@
 module Network.AWS.SNS.SetSubscriptionAttributes
     (
     -- * Creating a Request
-      SetSubscriptionAttributes
-    , setSubscriptionAttributes
+      setSubscriptionAttributes
+    , SetSubscriptionAttributes
     -- * Request Lenses
     , ssaAttributeValue
     , ssaSubscriptionARN
     , ssaAttributeName
 
     -- * Destructuring the Response
-    , SetSubscriptionAttributesResponse
     , setSubscriptionAttributesResponse
+    , SetSubscriptionAttributesResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -46,22 +46,25 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for SetSubscriptionAttributes action.
 --
 -- /See:/ 'setSubscriptionAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ssaAttributeValue'
---
--- * 'ssaSubscriptionARN'
---
--- * 'ssaAttributeName'
 data SetSubscriptionAttributes = SetSubscriptionAttributes'
     { _ssaAttributeValue  :: !(Maybe Text)
     , _ssaSubscriptionARN :: !Text
     , _ssaAttributeName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetSubscriptionAttributes' smart constructor.
-setSubscriptionAttributes :: Text -> Text -> SetSubscriptionAttributes
+-- | Creates a value of 'SetSubscriptionAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssaAttributeValue'
+--
+-- * 'ssaSubscriptionARN'
+--
+-- * 'ssaAttributeName'
+setSubscriptionAttributes
+    :: Text -- ^ 'ssaSubscriptionARN'
+    -> Text -- ^ 'ssaAttributeName'
+    -> SetSubscriptionAttributes
 setSubscriptionAttributes pSubscriptionARN_ pAttributeName_ =
     SetSubscriptionAttributes'
     { _ssaAttributeValue = Nothing
@@ -80,7 +83,7 @@ ssaSubscriptionARN = lens _ssaSubscriptionARN (\ s a -> s{_ssaSubscriptionARN = 
 -- | The name of the attribute you want to set. Only a subset of the
 -- subscriptions attributes are mutable.
 --
--- Valid values: @DeliveryPolicy@ | @RawMessageDelivery@
+-- Valid values: 'DeliveryPolicy' | 'RawMessageDelivery'
 ssaAttributeName :: Lens' SetSubscriptionAttributes Text
 ssaAttributeName = lens _ssaAttributeName (\ s a -> s{_ssaAttributeName = a});
 
@@ -113,6 +116,8 @@ data SetSubscriptionAttributesResponse =
     SetSubscriptionAttributesResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetSubscriptionAttributesResponse' smart constructor.
-setSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
+-- | Creates a value of 'SetSubscriptionAttributesResponse' with the minimum fields required to make a request.
+--
+setSubscriptionAttributesResponse
+    :: SetSubscriptionAttributesResponse
 setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse'

@@ -25,8 +25,8 @@
 module Network.AWS.DataPipeline.CreatePipeline
     (
     -- * Creating a Request
-      CreatePipeline
-    , createPipeline
+      createPipeline
+    , CreatePipeline
     -- * Request Lenses
     , cpDescription
     , cpTags
@@ -34,8 +34,8 @@ module Network.AWS.DataPipeline.CreatePipeline
     , cpUniqueId
 
     -- * Destructuring the Response
-    , CreatePipelineResponse
     , createPipelineResponse
+    , CreatePipelineResponse
     -- * Response Lenses
     , cprsStatus
     , cprsPipelineId
@@ -50,8 +50,16 @@ import           Network.AWS.Response
 -- | Contains the parameters for CreatePipeline.
 --
 -- /See:/ 'createPipeline' smart constructor.
+data CreatePipeline = CreatePipeline'
+    { _cpDescription :: !(Maybe Text)
+    , _cpTags        :: !(Maybe [Tag])
+    , _cpName        :: !Text
+    , _cpUniqueId    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreatePipeline' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cpDescription'
 --
@@ -60,15 +68,10 @@ import           Network.AWS.Response
 -- * 'cpName'
 --
 -- * 'cpUniqueId'
-data CreatePipeline = CreatePipeline'
-    { _cpDescription :: !(Maybe Text)
-    , _cpTags        :: !(Maybe [Tag])
-    , _cpName        :: !Text
-    , _cpUniqueId    :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreatePipeline' smart constructor.
-createPipeline :: Text -> Text -> CreatePipeline
+createPipeline
+    :: Text -- ^ 'cpName'
+    -> Text -- ^ 'cpUniqueId'
+    -> CreatePipeline
 createPipeline pName_ pUniqueId_ =
     CreatePipeline'
     { _cpDescription = Nothing
@@ -98,10 +101,10 @@ cpName = lens _cpName (\ s a -> s{_cpName = a});
 -- identifier assigned by AWS Data Pipeline. You are responsible for
 -- defining the format and ensuring the uniqueness of this identifier. You
 -- use this parameter to ensure idempotency during repeated calls to
--- @CreatePipeline@. For example, if the first call to @CreatePipeline@
+-- 'CreatePipeline'. For example, if the first call to 'CreatePipeline'
 -- does not succeed, you can pass in the same unique identifier and
--- pipeline name combination on a subsequent call to @CreatePipeline@.
--- @CreatePipeline@ ensures that if a pipeline already exists with the same
+-- pipeline name combination on a subsequent call to 'CreatePipeline'.
+-- 'CreatePipeline' ensures that if a pipeline already exists with the same
 -- name and unique identifier, a new pipeline is not created. Instead,
 -- you\'ll receive the pipeline identifier from the previous attempt. The
 -- uniqueness of the name and unique identifier combination is scoped to
@@ -143,30 +146,33 @@ instance ToQuery CreatePipeline where
 -- | Contains the output of CreatePipeline.
 --
 -- /See:/ 'createPipelineResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cprsStatus'
---
--- * 'cprsPipelineId'
 data CreatePipelineResponse = CreatePipelineResponse'
     { _cprsStatus     :: !Int
     , _cprsPipelineId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePipelineResponse' smart constructor.
-createPipelineResponse :: Int -> Text -> CreatePipelineResponse
+-- | Creates a value of 'CreatePipelineResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cprsStatus'
+--
+-- * 'cprsPipelineId'
+createPipelineResponse
+    :: Int -- ^ 'cprsStatus'
+    -> Text -- ^ 'cprsPipelineId'
+    -> CreatePipelineResponse
 createPipelineResponse pStatus_ pPipelineId_ =
     CreatePipelineResponse'
     { _cprsStatus = pStatus_
     , _cprsPipelineId = pPipelineId_
     }
 
--- | Undocumented member.
+-- | The response status code.
 cprsStatus :: Lens' CreatePipelineResponse Int
 cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For
--- example, @df-06372391ZG65EXAMPLE@.
+-- example, 'df-06372391ZG65EXAMPLE'.
 cprsPipelineId :: Lens' CreatePipelineResponse Text
 cprsPipelineId = lens _cprsPipelineId (\ s a -> s{_cprsPipelineId = a});

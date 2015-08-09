@@ -29,8 +29,8 @@
 module Network.AWS.RDS.DescribeDBClusters
     (
     -- * Creating a Request
-      DescribeDBClusters
-    , describeDBClusters
+      describeDBClusters
+    , DescribeDBClusters
     -- * Request Lenses
     , ddcDBClusterIdentifier
     , ddcFilters
@@ -38,8 +38,8 @@ module Network.AWS.RDS.DescribeDBClusters
     , ddcMarker
 
     -- * Destructuring the Response
-    , DescribeDBClustersResponse
     , describeDBClustersResponse
+    , DescribeDBClustersResponse
     -- * Response Lenses
     , ddcrsDBClusters
     , ddcrsMarker
@@ -55,8 +55,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'describeDBClusters' smart constructor.
+data DescribeDBClusters = DescribeDBClusters'
+    { _ddcDBClusterIdentifier :: !(Maybe Text)
+    , _ddcFilters             :: !(Maybe [Filter])
+    , _ddcMaxRecords          :: !(Maybe Int)
+    , _ddcMarker              :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeDBClusters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ddcDBClusterIdentifier'
 --
@@ -65,15 +73,8 @@ import           Network.AWS.Response
 -- * 'ddcMaxRecords'
 --
 -- * 'ddcMarker'
-data DescribeDBClusters = DescribeDBClusters'
-    { _ddcDBClusterIdentifier :: !(Maybe Text)
-    , _ddcFilters             :: !(Maybe [Filter])
-    , _ddcMaxRecords          :: !(Maybe Int)
-    , _ddcMarker              :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeDBClusters' smart constructor.
-describeDBClusters :: DescribeDBClusters
+describeDBClusters
+    :: DescribeDBClusters
 describeDBClusters =
     DescribeDBClusters'
     { _ddcDBClusterIdentifier = Nothing
@@ -99,7 +100,7 @@ ddcFilters :: Lens' DescribeDBClusters [Filter]
 ddcFilters = lens _ddcFilters (\ s a -> s{_ddcFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
--- records exist than the specified @MaxRecords@ value, a pagination token
+-- records exist than the specified 'MaxRecords' value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 --
@@ -111,7 +112,7 @@ ddcMaxRecords = lens _ddcMaxRecords (\ s a -> s{_ddcMaxRecords = a});
 
 -- | An optional pagination token provided by a previous DescribeDBClusters
 -- request. If this parameter is specified, the response includes only
--- records beyond the marker, up to the value specified by @MaxRecords@.
+-- records beyond the marker, up to the value specified by 'MaxRecords'.
 ddcMarker :: Lens' DescribeDBClusters (Maybe Text)
 ddcMarker = lens _ddcMarker (\ s a -> s{_ddcMarker = a});
 
@@ -150,22 +151,24 @@ instance ToQuery DescribeDBClusters where
 -- action.
 --
 -- /See:/ 'describeDBClustersResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddcrsDBClusters'
---
--- * 'ddcrsMarker'
---
--- * 'ddcrsStatus'
 data DescribeDBClustersResponse = DescribeDBClustersResponse'
     { _ddcrsDBClusters :: !(Maybe [DBCluster])
     , _ddcrsMarker     :: !(Maybe Text)
     , _ddcrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDBClustersResponse' smart constructor.
-describeDBClustersResponse :: Int -> DescribeDBClustersResponse
+-- | Creates a value of 'DescribeDBClustersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddcrsDBClusters'
+--
+-- * 'ddcrsMarker'
+--
+-- * 'ddcrsStatus'
+describeDBClustersResponse
+    :: Int -- ^ 'ddcrsStatus'
+    -> DescribeDBClustersResponse
 describeDBClustersResponse pStatus_ =
     DescribeDBClustersResponse'
     { _ddcrsDBClusters = Nothing
@@ -182,6 +185,6 @@ ddcrsDBClusters = lens _ddcrsDBClusters (\ s a -> s{_ddcrsDBClusters = a}) . _De
 ddcrsMarker :: Lens' DescribeDBClustersResponse (Maybe Text)
 ddcrsMarker = lens _ddcrsMarker (\ s a -> s{_ddcrsMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 ddcrsStatus :: Lens' DescribeDBClustersResponse Int
 ddcrsStatus = lens _ddcrsStatus (\ s a -> s{_ddcrsStatus = a});

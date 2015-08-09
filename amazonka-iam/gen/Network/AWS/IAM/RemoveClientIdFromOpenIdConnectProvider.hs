@@ -28,15 +28,15 @@
 module Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
     (
     -- * Creating a Request
-      RemoveClientIdFromOpenIdConnectProvider
-    , removeClientIdFromOpenIdConnectProvider
+      removeClientIdFromOpenIdConnectProvider
+    , RemoveClientIdFromOpenIdConnectProvider
     -- * Request Lenses
     , rcifoicpOpenIdConnectProviderARN
     , rcifoicpClientId
 
     -- * Destructuring the Response
-    , RemoveClientIdFromOpenIdConnectProviderResponse
     , removeClientIdFromOpenIdConnectProviderResponse
+    , RemoveClientIdFromOpenIdConnectProviderResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -46,19 +46,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'removeClientIdFromOpenIdConnectProvider' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcifoicpOpenIdConnectProviderARN'
---
--- * 'rcifoicpClientId'
 data RemoveClientIdFromOpenIdConnectProvider = RemoveClientIdFromOpenIdConnectProvider'
     { _rcifoicpOpenIdConnectProviderARN :: !Text
     , _rcifoicpClientId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveClientIdFromOpenIdConnectProvider' smart constructor.
-removeClientIdFromOpenIdConnectProvider :: Text -> Text -> RemoveClientIdFromOpenIdConnectProvider
+-- | Creates a value of 'RemoveClientIdFromOpenIdConnectProvider' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcifoicpOpenIdConnectProviderARN'
+--
+-- * 'rcifoicpClientId'
+removeClientIdFromOpenIdConnectProvider
+    :: Text -- ^ 'rcifoicpOpenIdConnectProviderARN'
+    -> Text -- ^ 'rcifoicpClientId'
+    -> RemoveClientIdFromOpenIdConnectProvider
 removeClientIdFromOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
     RemoveClientIdFromOpenIdConnectProvider'
     { _rcifoicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
@@ -112,7 +115,9 @@ data RemoveClientIdFromOpenIdConnectProviderResponse =
     RemoveClientIdFromOpenIdConnectProviderResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveClientIdFromOpenIdConnectProviderResponse' smart constructor.
-removeClientIdFromOpenIdConnectProviderResponse :: RemoveClientIdFromOpenIdConnectProviderResponse
+-- | Creates a value of 'RemoveClientIdFromOpenIdConnectProviderResponse' with the minimum fields required to make a request.
+--
+removeClientIdFromOpenIdConnectProviderResponse
+    :: RemoveClientIdFromOpenIdConnectProviderResponse
 removeClientIdFromOpenIdConnectProviderResponse =
     RemoveClientIdFromOpenIdConnectProviderResponse'

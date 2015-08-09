@@ -27,16 +27,16 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
--- -   Constrain the following parameters by using a @Condition@ element
+-- -   Constrain the following parameters by using a 'Condition' element
 --     with the appropriate keys.
---     -   @activityType.name@: String constraint. The key is
---         @swf:activityType.name@.
---     -   @activityType.version@: String constraint. The key is
---         @swf:activityType.version@.
+--     -   'activityType.name': String constraint. The key is
+--         'swf:activityType.name'.
+--     -   'activityType.version': String constraint. The key is
+--         'swf:activityType.version'.
 --
 -- If the caller does not have sufficient permissions to invoke the action,
 -- or the parameter values fall outside the specified constraints, the
@@ -49,15 +49,15 @@
 module Network.AWS.SWF.DescribeActivityType
     (
     -- * Creating a Request
-      DescribeActivityType
-    , describeActivityType
+      describeActivityType
+    , DescribeActivityType
     -- * Request Lenses
     , datDomain
     , datActivityType
 
     -- * Destructuring the Response
-    , DescribeActivityTypeResponse
     , describeActivityTypeResponse
+    , DescribeActivityTypeResponse
     -- * Response Lenses
     , datrsStatus
     , datrsTypeInfo
@@ -71,19 +71,22 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'describeActivityType' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'datDomain'
---
--- * 'datActivityType'
 data DescribeActivityType = DescribeActivityType'
     { _datDomain       :: !Text
     , _datActivityType :: !ActivityType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeActivityType' smart constructor.
-describeActivityType :: Text -> ActivityType -> DescribeActivityType
+-- | Creates a value of 'DescribeActivityType' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'datDomain'
+--
+-- * 'datActivityType'
+describeActivityType
+    :: Text -- ^ 'datDomain'
+    -> ActivityType -- ^ 'datActivityType'
+    -> DescribeActivityType
 describeActivityType pDomain_ pActivityType_ =
     DescribeActivityType'
     { _datDomain = pDomain_
@@ -95,7 +98,7 @@ datDomain :: Lens' DescribeActivityType Text
 datDomain = lens _datDomain (\ s a -> s{_datDomain = a});
 
 -- | The activity type to get information about. Activity types are
--- identified by the @name@ and @version@ that were supplied when the
+-- identified by the 'name' and 'version' that were supplied when the
 -- activity was registered.
 datActivityType :: Lens' DescribeActivityType ActivityType
 datActivityType = lens _datActivityType (\ s a -> s{_datActivityType = a});
@@ -137,22 +140,26 @@ instance ToQuery DescribeActivityType where
 -- | Detailed information about an activity type.
 --
 -- /See:/ 'describeActivityTypeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'datrsStatus'
---
--- * 'datrsTypeInfo'
---
--- * 'datrsConfiguration'
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
     { _datrsStatus        :: !Int
     , _datrsTypeInfo      :: !ActivityTypeInfo
     , _datrsConfiguration :: !ActivityTypeConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeActivityTypeResponse' smart constructor.
-describeActivityTypeResponse :: Int -> ActivityTypeInfo -> ActivityTypeConfiguration -> DescribeActivityTypeResponse
+-- | Creates a value of 'DescribeActivityTypeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'datrsStatus'
+--
+-- * 'datrsTypeInfo'
+--
+-- * 'datrsConfiguration'
+describeActivityTypeResponse
+    :: Int -- ^ 'datrsStatus'
+    -> ActivityTypeInfo -- ^ 'datrsTypeInfo'
+    -> ActivityTypeConfiguration -- ^ 'datrsConfiguration'
+    -> DescribeActivityTypeResponse
 describeActivityTypeResponse pStatus_ pTypeInfo_ pConfiguration_ =
     DescribeActivityTypeResponse'
     { _datrsStatus = pStatus_
@@ -160,7 +167,7 @@ describeActivityTypeResponse pStatus_ pTypeInfo_ pConfiguration_ =
     , _datrsConfiguration = pConfiguration_
     }
 
--- | Undocumented member.
+-- | The response status code.
 datrsStatus :: Lens' DescribeActivityTypeResponse Int
 datrsStatus = lens _datrsStatus (\ s a -> s{_datrsStatus = a});
 

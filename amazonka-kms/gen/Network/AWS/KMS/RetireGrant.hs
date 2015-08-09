@@ -24,29 +24,29 @@
 -- API:
 --
 -- -   The account that created the grant
--- -   The @RetiringPrincipal@, if present
--- -   The @GranteePrincipal@, if @RetireGrant@ is a grantee operation
+-- -   The 'RetiringPrincipal', if present
+-- -   The 'GranteePrincipal', if 'RetireGrant' is a grantee operation
 --
 -- The grant to retire must be identified by its grant token or by a
 -- combination of the key ARN and the grant ID. A grant token is a unique
 -- variable-length base64-encoded string. A grant ID is a 64 character
--- unique identifier of a grant. Both are returned by the @CreateGrant@
+-- unique identifier of a grant. Both are returned by the 'CreateGrant'
 -- function.
 --
 -- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html AWS API Reference> for RetireGrant.
 module Network.AWS.KMS.RetireGrant
     (
     -- * Creating a Request
-      RetireGrant
-    , retireGrant
+      retireGrant
+    , RetireGrant
     -- * Request Lenses
     , rgKeyId
     , rgGrantId
     , rgGrantToken
 
     -- * Destructuring the Response
-    , RetireGrantResponse
     , retireGrantResponse
+    , RetireGrantResponse
     ) where
 
 import           Network.AWS.KMS.Types
@@ -56,22 +56,23 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'retireGrant' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rgKeyId'
---
--- * 'rgGrantId'
---
--- * 'rgGrantToken'
 data RetireGrant = RetireGrant'
     { _rgKeyId      :: !(Maybe Text)
     , _rgGrantId    :: !(Maybe Text)
     , _rgGrantToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RetireGrant' smart constructor.
-retireGrant :: RetireGrant
+-- | Creates a value of 'RetireGrant' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rgKeyId'
+--
+-- * 'rgGrantId'
+--
+-- * 'rgGrantToken'
+retireGrant
+    :: RetireGrant
 retireGrant =
     RetireGrant'
     { _rgKeyId = Nothing
@@ -91,7 +92,7 @@ rgKeyId :: Lens' RetireGrant (Maybe Text)
 rgKeyId = lens _rgKeyId (\ s a -> s{_rgKeyId = a});
 
 -- | Unique identifier of the grant to be retired. The grant ID is returned
--- by the @CreateGrant@ function.
+-- by the 'CreateGrant' function.
 --
 -- -   Grant ID Example -
 --     0123456789012345678901234567890123456789012345678901234567890123
@@ -134,6 +135,8 @@ data RetireGrantResponse =
     RetireGrantResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RetireGrantResponse' smart constructor.
-retireGrantResponse :: RetireGrantResponse
+-- | Creates a value of 'RetireGrantResponse' with the minimum fields required to make a request.
+--
+retireGrantResponse
+    :: RetireGrantResponse
 retireGrantResponse = RetireGrantResponse'

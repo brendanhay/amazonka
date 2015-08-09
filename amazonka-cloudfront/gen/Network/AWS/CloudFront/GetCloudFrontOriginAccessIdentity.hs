@@ -24,14 +24,14 @@
 module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     (
     -- * Creating a Request
-      GetCloudFrontOriginAccessIdentity
-    , getCloudFrontOriginAccessIdentity
+      getCloudFrontOriginAccessIdentity
+    , GetCloudFrontOriginAccessIdentity
     -- * Request Lenses
     , gcfoaiId
 
     -- * Destructuring the Response
-    , GetCloudFrontOriginAccessIdentityResponse
     , getCloudFrontOriginAccessIdentityResponse
+    , GetCloudFrontOriginAccessIdentityResponse
     -- * Response Lenses
     , gcfoairsETag
     , gcfoairsCloudFrontOriginAccessIdentity
@@ -47,16 +47,18 @@ import           Network.AWS.Response
 -- | The request to get an origin access identity\'s information.
 --
 -- /See:/ 'getCloudFrontOriginAccessIdentity' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gcfoaiId'
 newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity'
     { _gcfoaiId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetCloudFrontOriginAccessIdentity' smart constructor.
-getCloudFrontOriginAccessIdentity :: Text -> GetCloudFrontOriginAccessIdentity
+-- | Creates a value of 'GetCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcfoaiId'
+getCloudFrontOriginAccessIdentity
+    :: Text -- ^ 'gcfoaiId'
+    -> GetCloudFrontOriginAccessIdentity
 getCloudFrontOriginAccessIdentity pId_ =
     GetCloudFrontOriginAccessIdentity'
     { _gcfoaiId = pId_
@@ -98,22 +100,24 @@ instance ToQuery GetCloudFrontOriginAccessIdentity
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'getCloudFrontOriginAccessIdentityResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gcfoairsETag'
---
--- * 'gcfoairsCloudFrontOriginAccessIdentity'
---
--- * 'gcfoairsStatus'
 data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse'
     { _gcfoairsETag                           :: !(Maybe Text)
     , _gcfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
     , _gcfoairsStatus                         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetCloudFrontOriginAccessIdentityResponse' smart constructor.
-getCloudFrontOriginAccessIdentityResponse :: Int -> GetCloudFrontOriginAccessIdentityResponse
+-- | Creates a value of 'GetCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcfoairsETag'
+--
+-- * 'gcfoairsCloudFrontOriginAccessIdentity'
+--
+-- * 'gcfoairsStatus'
+getCloudFrontOriginAccessIdentityResponse
+    :: Int -- ^ 'gcfoairsStatus'
+    -> GetCloudFrontOriginAccessIdentityResponse
 getCloudFrontOriginAccessIdentityResponse pStatus_ =
     GetCloudFrontOriginAccessIdentityResponse'
     { _gcfoairsETag = Nothing
@@ -130,6 +134,6 @@ gcfoairsETag = lens _gcfoairsETag (\ s a -> s{_gcfoairsETag = a});
 gcfoairsCloudFrontOriginAccessIdentity :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
 gcfoairsCloudFrontOriginAccessIdentity = lens _gcfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_gcfoairsCloudFrontOriginAccessIdentity = a});
 
--- | Undocumented member.
+-- | The response status code.
 gcfoairsStatus :: Lens' GetCloudFrontOriginAccessIdentityResponse Int
 gcfoairsStatus = lens _gcfoairsStatus (\ s a -> s{_gcfoairsStatus = a});

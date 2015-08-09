@@ -26,14 +26,14 @@
 module Network.AWS.SNS.DeletePlatformApplication
     (
     -- * Creating a Request
-      DeletePlatformApplication
-    , deletePlatformApplication
+      deletePlatformApplication
+    , DeletePlatformApplication
     -- * Request Lenses
     , dpaPlatformApplicationARN
 
     -- * Destructuring the Response
-    , DeletePlatformApplicationResponse
     , deletePlatformApplicationResponse
+    , DeletePlatformApplicationResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -45,16 +45,18 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for DeletePlatformApplication action.
 --
 -- /See:/ 'deletePlatformApplication' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dpaPlatformApplicationARN'
 newtype DeletePlatformApplication = DeletePlatformApplication'
     { _dpaPlatformApplicationARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePlatformApplication' smart constructor.
-deletePlatformApplication :: Text -> DeletePlatformApplication
+-- | Creates a value of 'DeletePlatformApplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dpaPlatformApplicationARN'
+deletePlatformApplication
+    :: Text -- ^ 'dpaPlatformApplicationARN'
+    -> DeletePlatformApplication
 deletePlatformApplication pPlatformApplicationARN_ =
     DeletePlatformApplication'
     { _dpaPlatformApplicationARN = pPlatformApplicationARN_
@@ -92,6 +94,8 @@ data DeletePlatformApplicationResponse =
     DeletePlatformApplicationResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePlatformApplicationResponse' smart constructor.
-deletePlatformApplicationResponse :: DeletePlatformApplicationResponse
+-- | Creates a value of 'DeletePlatformApplicationResponse' with the minimum fields required to make a request.
+--
+deletePlatformApplicationResponse
+    :: DeletePlatformApplicationResponse
 deletePlatformApplicationResponse = DeletePlatformApplicationResponse'

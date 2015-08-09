@@ -29,16 +29,16 @@
 module Network.AWS.IAM.UpdateLoginProfile
     (
     -- * Creating a Request
-      UpdateLoginProfile
-    , updateLoginProfile
+      updateLoginProfile
+    , UpdateLoginProfile
     -- * Request Lenses
     , ulpPassword
     , ulpPasswordResetRequired
     , ulpUserName
 
     -- * Destructuring the Response
-    , UpdateLoginProfileResponse
     , updateLoginProfileResponse
+    , UpdateLoginProfileResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -48,22 +48,24 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateLoginProfile' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ulpPassword'
---
--- * 'ulpPasswordResetRequired'
---
--- * 'ulpUserName'
 data UpdateLoginProfile = UpdateLoginProfile'
     { _ulpPassword              :: !(Maybe (Sensitive Text))
     , _ulpPasswordResetRequired :: !(Maybe Bool)
     , _ulpUserName              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateLoginProfile' smart constructor.
-updateLoginProfile :: Text -> UpdateLoginProfile
+-- | Creates a value of 'UpdateLoginProfile' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ulpPassword'
+--
+-- * 'ulpPasswordResetRequired'
+--
+-- * 'ulpUserName'
+updateLoginProfile
+    :: Text -- ^ 'ulpUserName'
+    -> UpdateLoginProfile
 updateLoginProfile pUserName_ =
     UpdateLoginProfile'
     { _ulpPassword = Nothing
@@ -110,6 +112,8 @@ data UpdateLoginProfileResponse =
     UpdateLoginProfileResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateLoginProfileResponse' smart constructor.
-updateLoginProfileResponse :: UpdateLoginProfileResponse
+-- | Creates a value of 'UpdateLoginProfileResponse' with the minimum fields required to make a request.
+--
+updateLoginProfileResponse
+    :: UpdateLoginProfileResponse
 updateLoginProfileResponse = UpdateLoginProfileResponse'

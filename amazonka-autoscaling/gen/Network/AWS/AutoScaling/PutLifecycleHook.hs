@@ -54,8 +54,8 @@
 module Network.AWS.AutoScaling.PutLifecycleHook
     (
     -- * Creating a Request
-      PutLifecycleHook
-    , putLifecycleHook
+      putLifecycleHook
+    , PutLifecycleHook
     -- * Request Lenses
     , plhDefaultResult
     , plhHeartbeatTimeout
@@ -67,8 +67,8 @@ module Network.AWS.AutoScaling.PutLifecycleHook
     , plhAutoScalingGroupName
 
     -- * Destructuring the Response
-    , PutLifecycleHookResponse
     , putLifecycleHookResponse
+    , PutLifecycleHookResponse
     -- * Response Lenses
     , plhrsStatus
     ) where
@@ -80,8 +80,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'putLifecycleHook' smart constructor.
+data PutLifecycleHook = PutLifecycleHook'
+    { _plhDefaultResult         :: !(Maybe Text)
+    , _plhHeartbeatTimeout      :: !(Maybe Int)
+    , _plhNotificationMetadata  :: !(Maybe Text)
+    , _plhRoleARN               :: !(Maybe Text)
+    , _plhLifecycleTransition   :: !(Maybe Text)
+    , _plhNotificationTargetARN :: !(Maybe Text)
+    , _plhLifecycleHookName     :: !Text
+    , _plhAutoScalingGroupName  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutLifecycleHook' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'plhDefaultResult'
 --
@@ -98,19 +110,10 @@ import           Network.AWS.Response
 -- * 'plhLifecycleHookName'
 --
 -- * 'plhAutoScalingGroupName'
-data PutLifecycleHook = PutLifecycleHook'
-    { _plhDefaultResult         :: !(Maybe Text)
-    , _plhHeartbeatTimeout      :: !(Maybe Int)
-    , _plhNotificationMetadata  :: !(Maybe Text)
-    , _plhRoleARN               :: !(Maybe Text)
-    , _plhLifecycleTransition   :: !(Maybe Text)
-    , _plhNotificationTargetARN :: !(Maybe Text)
-    , _plhLifecycleHookName     :: !Text
-    , _plhAutoScalingGroupName  :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'PutLifecycleHook' smart constructor.
-putLifecycleHook :: Text -> Text -> PutLifecycleHook
+putLifecycleHook
+    :: Text -- ^ 'plhLifecycleHookName'
+    -> Text -- ^ 'plhAutoScalingGroupName'
+    -> PutLifecycleHook
 putLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
     PutLifecycleHook'
     { _plhDefaultResult = Nothing
@@ -125,14 +128,14 @@ putLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The value for
--- this parameter can be either @CONTINUE@ or @ABANDON@. The default value
--- for this parameter is @ABANDON@.
+-- this parameter can be either 'CONTINUE' or 'ABANDON'. The default value
+-- for this parameter is 'ABANDON'.
 plhDefaultResult :: Lens' PutLifecycleHook (Maybe Text)
 plhDefaultResult = lens _plhDefaultResult (\ s a -> s{_plhDefaultResult = a});
 
 -- | Defines the amount of time, in seconds, that can elapse before the
 -- lifecycle hook times out. When the lifecycle hook times out, Auto
--- Scaling performs the action defined in the @DefaultResult@ parameter.
+-- Scaling performs the action defined in the 'DefaultResult' parameter.
 -- You can prevent the lifecycle hook from timing out by calling
 -- RecordLifecycleActionHeartbeat. The default value for this parameter is
 -- 3600 seconds (1 hour).
@@ -183,7 +186,7 @@ plhLifecycleTransition = lens _plhLifecycleTransition (\ s a -> s{_plhLifecycleT
 --
 -- When you call this operation, a test message is sent to the notification
 -- target. This test message contains an additional key\/value pair:
--- @Event:autoscaling:TEST_NOTIFICATION@.
+-- 'Event:autoscaling:TEST_NOTIFICATION'.
 plhNotificationTargetARN :: Lens' PutLifecycleHook (Maybe Text)
 plhNotificationTargetARN = lens _plhNotificationTargetARN (\ s a -> s{_plhNotificationTargetARN = a});
 
@@ -226,21 +229,23 @@ instance ToQuery PutLifecycleHook where
                "AutoScalingGroupName" =: _plhAutoScalingGroupName]
 
 -- | /See:/ 'putLifecycleHookResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'plhrsStatus'
 newtype PutLifecycleHookResponse = PutLifecycleHookResponse'
     { _plhrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutLifecycleHookResponse' smart constructor.
-putLifecycleHookResponse :: Int -> PutLifecycleHookResponse
+-- | Creates a value of 'PutLifecycleHookResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'plhrsStatus'
+putLifecycleHookResponse
+    :: Int -- ^ 'plhrsStatus'
+    -> PutLifecycleHookResponse
 putLifecycleHookResponse pStatus_ =
     PutLifecycleHookResponse'
     { _plhrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 plhrsStatus :: Lens' PutLifecycleHookResponse Int
 plhrsStatus = lens _plhrsStatus (\ s a -> s{_plhrsStatus = a});

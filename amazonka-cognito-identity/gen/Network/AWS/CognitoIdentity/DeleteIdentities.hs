@@ -27,14 +27,14 @@
 module Network.AWS.CognitoIdentity.DeleteIdentities
     (
     -- * Creating a Request
-      DeleteIdentities
-    , deleteIdentities
+      deleteIdentities
+    , DeleteIdentities
     -- * Request Lenses
     , diIdentityIdsToDelete
 
     -- * Destructuring the Response
-    , DeleteIdentitiesResponse
     , deleteIdentitiesResponse
+    , DeleteIdentitiesResponse
     -- * Response Lenses
     , dirsUnprocessedIdentityIds
     , dirsStatus
@@ -46,19 +46,21 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | Input to the @DeleteIdentities@ action.
+-- | Input to the 'DeleteIdentities' action.
 --
 -- /See:/ 'deleteIdentities' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diIdentityIdsToDelete'
 newtype DeleteIdentities = DeleteIdentities'
     { _diIdentityIdsToDelete :: List1 Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteIdentities' smart constructor.
-deleteIdentities :: NonEmpty Text -> DeleteIdentities
+-- | Creates a value of 'DeleteIdentities' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'diIdentityIdsToDelete'
+deleteIdentities
+    :: NonEmpty Text -- ^ 'diIdentityIdsToDelete'
+    -> DeleteIdentities
 deleteIdentities pIdentityIdsToDelete_ =
     DeleteIdentities'
     { _diIdentityIdsToDelete = _List1 # pIdentityIdsToDelete_
@@ -100,22 +102,24 @@ instance ToPath DeleteIdentities where
 instance ToQuery DeleteIdentities where
         toQuery = const mempty
 
--- | Returned in response to a successful @DeleteIdentities@ operation.
+-- | Returned in response to a successful 'DeleteIdentities' operation.
 --
 -- /See:/ 'deleteIdentitiesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dirsUnprocessedIdentityIds'
---
--- * 'dirsStatus'
 data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
     { _dirsUnprocessedIdentityIds :: !(Maybe [UnprocessedIdentityId])
     , _dirsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteIdentitiesResponse' smart constructor.
-deleteIdentitiesResponse :: Int -> DeleteIdentitiesResponse
+-- | Creates a value of 'DeleteIdentitiesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dirsUnprocessedIdentityIds'
+--
+-- * 'dirsStatus'
+deleteIdentitiesResponse
+    :: Int -- ^ 'dirsStatus'
+    -> DeleteIdentitiesResponse
 deleteIdentitiesResponse pStatus_ =
     DeleteIdentitiesResponse'
     { _dirsUnprocessedIdentityIds = Nothing
@@ -127,6 +131,6 @@ deleteIdentitiesResponse pStatus_ =
 dirsUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentityId]
 dirsUnprocessedIdentityIds = lens _dirsUnprocessedIdentityIds (\ s a -> s{_dirsUnprocessedIdentityIds = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dirsStatus :: Lens' DeleteIdentitiesResponse Int
 dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

@@ -27,15 +27,15 @@
 module Network.AWS.SSM.CreateDocument
     (
     -- * Creating a Request
-      CreateDocument
-    , createDocument
+      createDocument
+    , CreateDocument
     -- * Request Lenses
     , cdContent
     , cdName
 
     -- * Destructuring the Response
-    , CreateDocumentResponse
     , createDocumentResponse
+    , CreateDocumentResponse
     -- * Response Lenses
     , cdrsDocumentDescription
     , cdrsStatus
@@ -48,19 +48,22 @@ import           Network.AWS.SSM.Types
 import           Network.AWS.SSM.Types.Product
 
 -- | /See:/ 'createDocument' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdContent'
---
--- * 'cdName'
 data CreateDocument = CreateDocument'
     { _cdContent :: !Text
     , _cdName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDocument' smart constructor.
-createDocument :: Text -> Text -> CreateDocument
+-- | Creates a value of 'CreateDocument' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdContent'
+--
+-- * 'cdName'
+createDocument
+    :: Text -- ^ 'cdContent'
+    -> Text -- ^ 'cdName'
+    -> CreateDocument
 createDocument pContent_ pName_ =
     CreateDocument'
     { _cdContent = pContent_
@@ -108,19 +111,21 @@ instance ToQuery CreateDocument where
         toQuery = const mempty
 
 -- | /See:/ 'createDocumentResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdrsDocumentDescription'
---
--- * 'cdrsStatus'
 data CreateDocumentResponse = CreateDocumentResponse'
     { _cdrsDocumentDescription :: !(Maybe DocumentDescription)
     , _cdrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDocumentResponse' smart constructor.
-createDocumentResponse :: Int -> CreateDocumentResponse
+-- | Creates a value of 'CreateDocumentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdrsDocumentDescription'
+--
+-- * 'cdrsStatus'
+createDocumentResponse
+    :: Int -- ^ 'cdrsStatus'
+    -> CreateDocumentResponse
 createDocumentResponse pStatus_ =
     CreateDocumentResponse'
     { _cdrsDocumentDescription = Nothing
@@ -131,6 +136,6 @@ createDocumentResponse pStatus_ =
 cdrsDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
 cdrsDocumentDescription = lens _cdrsDocumentDescription (\ s a -> s{_cdrsDocumentDescription = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdrsStatus :: Lens' CreateDocumentResponse Int
 cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

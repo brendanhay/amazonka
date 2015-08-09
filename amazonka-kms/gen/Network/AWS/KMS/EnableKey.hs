@@ -25,14 +25,14 @@
 module Network.AWS.KMS.EnableKey
     (
     -- * Creating a Request
-      EnableKey
-    , enableKey
+      enableKey
+    , EnableKey
     -- * Request Lenses
     , ekKeyId
 
     -- * Destructuring the Response
-    , EnableKeyResponse
     , enableKeyResponse
+    , EnableKeyResponse
     ) where
 
 import           Network.AWS.KMS.Types
@@ -42,16 +42,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'enableKey' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ekKeyId'
 newtype EnableKey = EnableKey'
     { _ekKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableKey' smart constructor.
-enableKey :: Text -> EnableKey
+-- | Creates a value of 'EnableKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ekKeyId'
+enableKey
+    :: Text -- ^ 'ekKeyId'
+    -> EnableKey
 enableKey pKeyId_ =
     EnableKey'
     { _ekKeyId = pKeyId_
@@ -96,6 +98,8 @@ data EnableKeyResponse =
     EnableKeyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableKeyResponse' smart constructor.
-enableKeyResponse :: EnableKeyResponse
+-- | Creates a value of 'EnableKeyResponse' with the minimum fields required to make a request.
+--
+enableKeyResponse
+    :: EnableKeyResponse
 enableKeyResponse = EnableKeyResponse'

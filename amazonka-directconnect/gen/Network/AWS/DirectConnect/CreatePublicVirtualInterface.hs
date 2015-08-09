@@ -27,15 +27,15 @@
 module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     (
     -- * Creating a Request
-      CreatePublicVirtualInterface
-    , createPublicVirtualInterface
+      createPublicVirtualInterface
+    , CreatePublicVirtualInterface
     -- * Request Lenses
     , cpviConnectionId
     , cpviNewPublicVirtualInterface
 
     -- * Destructuring the Response
-    , VirtualInterface
     , virtualInterface
+    , VirtualInterface
     -- * Response Lenses
     , viVirtualGatewayId
     , viRouteFilterPrefixes
@@ -64,19 +64,22 @@ import           Network.AWS.Response
 -- operation.
 --
 -- /See:/ 'createPublicVirtualInterface' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpviConnectionId'
---
--- * 'cpviNewPublicVirtualInterface'
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface'
     { _cpviConnectionId              :: !Text
     , _cpviNewPublicVirtualInterface :: !NewPublicVirtualInterface
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreatePublicVirtualInterface' smart constructor.
-createPublicVirtualInterface :: Text -> NewPublicVirtualInterface -> CreatePublicVirtualInterface
+-- | Creates a value of 'CreatePublicVirtualInterface' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpviConnectionId'
+--
+-- * 'cpviNewPublicVirtualInterface'
+createPublicVirtualInterface
+    :: Text -- ^ 'cpviConnectionId'
+    -> NewPublicVirtualInterface -- ^ 'cpviNewPublicVirtualInterface'
+    -> CreatePublicVirtualInterface
 createPublicVirtualInterface pConnectionId_ pNewPublicVirtualInterface_ =
     CreatePublicVirtualInterface'
     { _cpviConnectionId = pConnectionId_

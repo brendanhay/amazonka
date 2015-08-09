@@ -23,31 +23,31 @@
 -- When you create a mount target, Amazon EFS also creates a new network
 -- interface (see CreateMountTarget). This operation replaces the security
 -- groups in effect for the network interface associated with a mount
--- target, with the @SecurityGroups@ provided in the request. This
+-- target, with the 'SecurityGroups' provided in the request. This
 -- operation requires that the network interface of the mount target has
 -- been created and the life cycle state of the mount target is not
 -- \"deleted\".
 --
 -- The operation requires permissions for the following actions:
 --
--- -   @elasticfilesystem:ModifyMountTargetSecurityGroups@ action on the
+-- -   'elasticfilesystem:ModifyMountTargetSecurityGroups' action on the
 --     mount target\'s file system.
--- -   @ec2:ModifyNetworkInterfaceAttribute@ action on the mount target\'s
+-- -   'ec2:ModifyNetworkInterfaceAttribute' action on the mount target\'s
 --     network interface.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_ModifyMountTargetSecurityGroups.html AWS API Reference> for ModifyMountTargetSecurityGroups.
 module Network.AWS.EFS.ModifyMountTargetSecurityGroups
     (
     -- * Creating a Request
-      ModifyMountTargetSecurityGroups
-    , modifyMountTargetSecurityGroups
+      modifyMountTargetSecurityGroups
+    , ModifyMountTargetSecurityGroups
     -- * Request Lenses
     , mmtsgSecurityGroups
     , mmtsgMountTargetId
 
     -- * Destructuring the Response
-    , ModifyMountTargetSecurityGroupsResponse
     , modifyMountTargetSecurityGroupsResponse
+    , ModifyMountTargetSecurityGroupsResponse
     ) where
 
 import           Network.AWS.EFS.Types
@@ -57,19 +57,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifyMountTargetSecurityGroups' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mmtsgSecurityGroups'
---
--- * 'mmtsgMountTargetId'
 data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
     { _mmtsgSecurityGroups :: !(Maybe [Text])
     , _mmtsgMountTargetId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyMountTargetSecurityGroups' smart constructor.
-modifyMountTargetSecurityGroups :: Text -> ModifyMountTargetSecurityGroups
+-- | Creates a value of 'ModifyMountTargetSecurityGroups' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mmtsgSecurityGroups'
+--
+-- * 'mmtsgMountTargetId'
+modifyMountTargetSecurityGroups
+    :: Text -- ^ 'mmtsgMountTargetId'
+    -> ModifyMountTargetSecurityGroups
 modifyMountTargetSecurityGroups pMountTargetId_ =
     ModifyMountTargetSecurityGroups'
     { _mmtsgSecurityGroups = Nothing
@@ -117,7 +119,9 @@ data ModifyMountTargetSecurityGroupsResponse =
     ModifyMountTargetSecurityGroupsResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyMountTargetSecurityGroupsResponse' smart constructor.
-modifyMountTargetSecurityGroupsResponse :: ModifyMountTargetSecurityGroupsResponse
+-- | Creates a value of 'ModifyMountTargetSecurityGroupsResponse' with the minimum fields required to make a request.
+--
+modifyMountTargetSecurityGroupsResponse
+    :: ModifyMountTargetSecurityGroupsResponse
 modifyMountTargetSecurityGroupsResponse =
     ModifyMountTargetSecurityGroupsResponse'

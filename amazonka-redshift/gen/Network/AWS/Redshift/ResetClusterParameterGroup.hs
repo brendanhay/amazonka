@@ -28,16 +28,16 @@
 module Network.AWS.Redshift.ResetClusterParameterGroup
     (
     -- * Creating a Request
-      ResetClusterParameterGroup
-    , resetClusterParameterGroup
+      resetClusterParameterGroup
+    , ResetClusterParameterGroup
     -- * Request Lenses
     , rcpgResetAllParameters
     , rcpgParameters
     , rcpgParameterGroupName
 
     -- * Destructuring the Response
-    , ClusterParameterGroupNameMessage
     , clusterParameterGroupNameMessage
+    , ClusterParameterGroupNameMessage
     -- * Response Lenses
     , cpgnmParameterGroupStatus
     , cpgnmParameterGroupName
@@ -52,22 +52,24 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'resetClusterParameterGroup' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcpgResetAllParameters'
---
--- * 'rcpgParameters'
---
--- * 'rcpgParameterGroupName'
 data ResetClusterParameterGroup = ResetClusterParameterGroup'
     { _rcpgResetAllParameters :: !(Maybe Bool)
     , _rcpgParameters         :: !(Maybe [Parameter])
     , _rcpgParameterGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetClusterParameterGroup' smart constructor.
-resetClusterParameterGroup :: Text -> ResetClusterParameterGroup
+-- | Creates a value of 'ResetClusterParameterGroup' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcpgResetAllParameters'
+--
+-- * 'rcpgParameters'
+--
+-- * 'rcpgParameterGroupName'
+resetClusterParameterGroup
+    :: Text -- ^ 'rcpgParameterGroupName'
+    -> ResetClusterParameterGroup
 resetClusterParameterGroup pParameterGroupName_ =
     ResetClusterParameterGroup'
     { _rcpgResetAllParameters = Nothing
@@ -75,10 +77,10 @@ resetClusterParameterGroup pParameterGroupName_ =
     , _rcpgParameterGroupName = pParameterGroupName_
     }
 
--- | If @true@, all parameters in the specified parameter group will be reset
+-- | If 'true', all parameters in the specified parameter group will be reset
 -- to their default values.
 --
--- Default: @true@
+-- Default: 'true'
 rcpgResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
 rcpgResetAllParameters = lens _rcpgResetAllParameters (\ s a -> s{_rcpgResetAllParameters = a});
 

@@ -28,8 +28,8 @@
 module Network.AWS.CognitoSync.SubscribeToDataset
     (
     -- * Creating a Request
-      SubscribeToDataset
-    , subscribeToDataset
+      subscribeToDataset
+    , SubscribeToDataset
     -- * Request Lenses
     , stdIdentityPoolId
     , stdIdentityId
@@ -37,8 +37,8 @@ module Network.AWS.CognitoSync.SubscribeToDataset
     , stdDeviceId
 
     -- * Destructuring the Response
-    , SubscribeToDatasetResponse
     , subscribeToDatasetResponse
+    , SubscribeToDatasetResponse
     -- * Response Lenses
     , stdrsStatus
     ) where
@@ -52,8 +52,16 @@ import           Network.AWS.Response
 -- | A request to SubscribeToDatasetRequest.
 --
 -- /See:/ 'subscribeToDataset' smart constructor.
+data SubscribeToDataset = SubscribeToDataset'
+    { _stdIdentityPoolId :: !Text
+    , _stdIdentityId     :: !Text
+    , _stdDatasetName    :: !Text
+    , _stdDeviceId       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SubscribeToDataset' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'stdIdentityPoolId'
 --
@@ -62,15 +70,12 @@ import           Network.AWS.Response
 -- * 'stdDatasetName'
 --
 -- * 'stdDeviceId'
-data SubscribeToDataset = SubscribeToDataset'
-    { _stdIdentityPoolId :: !Text
-    , _stdIdentityId     :: !Text
-    , _stdDatasetName    :: !Text
-    , _stdDeviceId       :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SubscribeToDataset' smart constructor.
-subscribeToDataset :: Text -> Text -> Text -> Text -> SubscribeToDataset
+subscribeToDataset
+    :: Text -- ^ 'stdIdentityPoolId'
+    -> Text -- ^ 'stdIdentityId'
+    -> Text -- ^ 'stdDatasetName'
+    -> Text -- ^ 'stdDeviceId'
+    -> SubscribeToDataset
 subscribeToDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
     SubscribeToDataset'
     { _stdIdentityPoolId = pIdentityPoolId_
@@ -131,21 +136,23 @@ instance ToQuery SubscribeToDataset where
 -- | Response to a SubscribeToDataset request.
 --
 -- /See:/ 'subscribeToDatasetResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'stdrsStatus'
 newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'
     { _stdrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SubscribeToDatasetResponse' smart constructor.
-subscribeToDatasetResponse :: Int -> SubscribeToDatasetResponse
+-- | Creates a value of 'SubscribeToDatasetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stdrsStatus'
+subscribeToDatasetResponse
+    :: Int -- ^ 'stdrsStatus'
+    -> SubscribeToDatasetResponse
 subscribeToDatasetResponse pStatus_ =
     SubscribeToDatasetResponse'
     { _stdrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 stdrsStatus :: Lens' SubscribeToDatasetResponse Int
 stdrsStatus = lens _stdrsStatus (\ s a -> s{_stdrsStatus = a});

@@ -24,14 +24,14 @@
 module Network.AWS.CodeDeploy.GetApplication
     (
     -- * Creating a Request
-      GetApplication
-    , getApplication
+      getApplication
+    , GetApplication
     -- * Request Lenses
     , gaApplicationName
 
     -- * Destructuring the Response
-    , GetApplicationResponse
     , getApplicationResponse
+    , GetApplicationResponse
     -- * Response Lenses
     , garsApplication
     , garsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents the input of a get application operation.
 --
 -- /See:/ 'getApplication' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gaApplicationName'
 newtype GetApplication = GetApplication'
     { _gaApplicationName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetApplication' smart constructor.
-getApplication :: Text -> GetApplication
+-- | Creates a value of 'GetApplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gaApplicationName'
+getApplication
+    :: Text -- ^ 'gaApplicationName'
+    -> GetApplication
 getApplication pApplicationName_ =
     GetApplication'
     { _gaApplicationName = pApplicationName_
@@ -98,19 +100,21 @@ instance ToQuery GetApplication where
 -- | Represents the output of a get application operation.
 --
 -- /See:/ 'getApplicationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'garsApplication'
---
--- * 'garsStatus'
 data GetApplicationResponse = GetApplicationResponse'
     { _garsApplication :: !(Maybe ApplicationInfo)
     , _garsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetApplicationResponse' smart constructor.
-getApplicationResponse :: Int -> GetApplicationResponse
+-- | Creates a value of 'GetApplicationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'garsApplication'
+--
+-- * 'garsStatus'
+getApplicationResponse
+    :: Int -- ^ 'garsStatus'
+    -> GetApplicationResponse
 getApplicationResponse pStatus_ =
     GetApplicationResponse'
     { _garsApplication = Nothing
@@ -121,6 +125,6 @@ getApplicationResponse pStatus_ =
 garsApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
 garsApplication = lens _garsApplication (\ s a -> s{_garsApplication = a});
 
--- | Undocumented member.
+-- | The response status code.
 garsStatus :: Lens' GetApplicationResponse Int
 garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});

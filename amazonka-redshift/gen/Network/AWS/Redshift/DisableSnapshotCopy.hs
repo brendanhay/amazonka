@@ -30,14 +30,14 @@
 module Network.AWS.Redshift.DisableSnapshotCopy
     (
     -- * Creating a Request
-      DisableSnapshotCopy
-    , disableSnapshotCopy
+      disableSnapshotCopy
+    , DisableSnapshotCopy
     -- * Request Lenses
     , dscClusterIdentifier
 
     -- * Destructuring the Response
-    , DisableSnapshotCopyResponse
     , disableSnapshotCopyResponse
+    , DisableSnapshotCopyResponse
     -- * Response Lenses
     , dscrsCluster
     , dscrsStatus
@@ -52,16 +52,18 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'disableSnapshotCopy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dscClusterIdentifier'
 newtype DisableSnapshotCopy = DisableSnapshotCopy'
     { _dscClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableSnapshotCopy' smart constructor.
-disableSnapshotCopy :: Text -> DisableSnapshotCopy
+-- | Creates a value of 'DisableSnapshotCopy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dscClusterIdentifier'
+disableSnapshotCopy
+    :: Text -- ^ 'dscClusterIdentifier'
+    -> DisableSnapshotCopy
 disableSnapshotCopy pClusterIdentifier_ =
     DisableSnapshotCopy'
     { _dscClusterIdentifier = pClusterIdentifier_
@@ -100,19 +102,21 @@ instance ToQuery DisableSnapshotCopy where
                "ClusterIdentifier" =: _dscClusterIdentifier]
 
 -- | /See:/ 'disableSnapshotCopyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dscrsCluster'
---
--- * 'dscrsStatus'
 data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
     { _dscrsCluster :: !(Maybe Cluster)
     , _dscrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableSnapshotCopyResponse' smart constructor.
-disableSnapshotCopyResponse :: Int -> DisableSnapshotCopyResponse
+-- | Creates a value of 'DisableSnapshotCopyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dscrsCluster'
+--
+-- * 'dscrsStatus'
+disableSnapshotCopyResponse
+    :: Int -- ^ 'dscrsStatus'
+    -> DisableSnapshotCopyResponse
 disableSnapshotCopyResponse pStatus_ =
     DisableSnapshotCopyResponse'
     { _dscrsCluster = Nothing
@@ -123,6 +127,6 @@ disableSnapshotCopyResponse pStatus_ =
 dscrsCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 dscrsCluster = lens _dscrsCluster (\ s a -> s{_dscrsCluster = a});
 
--- | Undocumented member.
+-- | The response status code.
 dscrsStatus :: Lens' DisableSnapshotCopyResponse Int
 dscrsStatus = lens _dscrsStatus (\ s a -> s{_dscrsStatus = a});

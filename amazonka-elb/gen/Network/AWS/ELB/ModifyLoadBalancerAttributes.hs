@@ -20,10 +20,10 @@
 --
 -- Modifies the attributes of the specified load balancer.
 --
--- You can modify the load balancer attributes, such as @AccessLogs@,
--- @ConnectionDraining@, and @CrossZoneLoadBalancing@ by either enabling or
+-- You can modify the load balancer attributes, such as 'AccessLogs',
+-- 'ConnectionDraining', and 'CrossZoneLoadBalancing' by either enabling or
 -- disabling them. Or, you can modify the load balancer attribute
--- @ConnectionSettings@ by specifying an idle connection timeout value for
+-- 'ConnectionSettings' by specifying an idle connection timeout value for
 -- your load balancer.
 --
 -- For more information, see the following in the /Elastic Load Balancing
@@ -38,15 +38,15 @@
 module Network.AWS.ELB.ModifyLoadBalancerAttributes
     (
     -- * Creating a Request
-      ModifyLoadBalancerAttributes
-    , modifyLoadBalancerAttributes
+      modifyLoadBalancerAttributes
+    , ModifyLoadBalancerAttributes
     -- * Request Lenses
     , mlbaLoadBalancerName
     , mlbaLoadBalancerAttributes
 
     -- * Destructuring the Response
-    , ModifyLoadBalancerAttributesResponse
     , modifyLoadBalancerAttributesResponse
+    , ModifyLoadBalancerAttributesResponse
     -- * Response Lenses
     , mlbarsLoadBalancerAttributes
     , mlbarsLoadBalancerName
@@ -60,19 +60,22 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'modifyLoadBalancerAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mlbaLoadBalancerName'
---
--- * 'mlbaLoadBalancerAttributes'
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
     { _mlbaLoadBalancerName       :: !Text
     , _mlbaLoadBalancerAttributes :: !LoadBalancerAttributes
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyLoadBalancerAttributes' smart constructor.
-modifyLoadBalancerAttributes :: Text -> LoadBalancerAttributes -> ModifyLoadBalancerAttributes
+-- | Creates a value of 'ModifyLoadBalancerAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mlbaLoadBalancerName'
+--
+-- * 'mlbaLoadBalancerAttributes'
+modifyLoadBalancerAttributes
+    :: Text -- ^ 'mlbaLoadBalancerName'
+    -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
+    -> ModifyLoadBalancerAttributes
 modifyLoadBalancerAttributes pLoadBalancerName_ pLoadBalancerAttributes_ =
     ModifyLoadBalancerAttributes'
     { _mlbaLoadBalancerName = pLoadBalancerName_
@@ -119,22 +122,24 @@ instance ToQuery ModifyLoadBalancerAttributes where
                  _mlbaLoadBalancerAttributes]
 
 -- | /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mlbarsLoadBalancerAttributes'
---
--- * 'mlbarsLoadBalancerName'
---
--- * 'mlbarsStatus'
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
     { _mlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
     , _mlbarsLoadBalancerName       :: !(Maybe Text)
     , _mlbarsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyLoadBalancerAttributesResponse' smart constructor.
-modifyLoadBalancerAttributesResponse :: Int -> ModifyLoadBalancerAttributesResponse
+-- | Creates a value of 'ModifyLoadBalancerAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mlbarsLoadBalancerAttributes'
+--
+-- * 'mlbarsLoadBalancerName'
+--
+-- * 'mlbarsStatus'
+modifyLoadBalancerAttributesResponse
+    :: Int -- ^ 'mlbarsStatus'
+    -> ModifyLoadBalancerAttributesResponse
 modifyLoadBalancerAttributesResponse pStatus_ =
     ModifyLoadBalancerAttributesResponse'
     { _mlbarsLoadBalancerAttributes = Nothing
@@ -150,6 +155,6 @@ mlbarsLoadBalancerAttributes = lens _mlbarsLoadBalancerAttributes (\ s a -> s{_m
 mlbarsLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbarsLoadBalancerName = lens _mlbarsLoadBalancerName (\ s a -> s{_mlbarsLoadBalancerName = a});
 
--- | Undocumented member.
+-- | The response status code.
 mlbarsStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
 mlbarsStatus = lens _mlbarsStatus (\ s a -> s{_mlbarsStatus = a});

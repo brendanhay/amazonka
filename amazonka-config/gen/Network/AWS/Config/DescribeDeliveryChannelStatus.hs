@@ -28,14 +28,14 @@
 module Network.AWS.Config.DescribeDeliveryChannelStatus
     (
     -- * Creating a Request
-      DescribeDeliveryChannelStatus
-    , describeDeliveryChannelStatus
+      describeDeliveryChannelStatus
+    , DescribeDeliveryChannelStatus
     -- * Request Lenses
     , ddcsDeliveryChannelNames
 
     -- * Destructuring the Response
-    , DescribeDeliveryChannelStatusResponse
     , describeDeliveryChannelStatusResponse
+    , DescribeDeliveryChannelStatusResponse
     -- * Response Lenses
     , ddcsrsDeliveryChannelsStatus
     , ddcsrsStatus
@@ -50,16 +50,17 @@ import           Network.AWS.Response
 -- | The input for the DeliveryChannelStatus action.
 --
 -- /See:/ 'describeDeliveryChannelStatus' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddcsDeliveryChannelNames'
 newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus'
     { _ddcsDeliveryChannelNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDeliveryChannelStatus' smart constructor.
-describeDeliveryChannelStatus :: DescribeDeliveryChannelStatus
+-- | Creates a value of 'DescribeDeliveryChannelStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddcsDeliveryChannelNames'
+describeDeliveryChannelStatus
+    :: DescribeDeliveryChannelStatus
 describeDeliveryChannelStatus =
     DescribeDeliveryChannelStatus'
     { _ddcsDeliveryChannelNames = Nothing
@@ -107,19 +108,21 @@ instance ToQuery DescribeDeliveryChannelStatus where
 -- | The output for the DescribeDeliveryChannelStatus action.
 --
 -- /See:/ 'describeDeliveryChannelStatusResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddcsrsDeliveryChannelsStatus'
---
--- * 'ddcsrsStatus'
 data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'
     { _ddcsrsDeliveryChannelsStatus :: !(Maybe [DeliveryChannelStatus])
     , _ddcsrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDeliveryChannelStatusResponse' smart constructor.
-describeDeliveryChannelStatusResponse :: Int -> DescribeDeliveryChannelStatusResponse
+-- | Creates a value of 'DescribeDeliveryChannelStatusResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddcsrsDeliveryChannelsStatus'
+--
+-- * 'ddcsrsStatus'
+describeDeliveryChannelStatusResponse
+    :: Int -- ^ 'ddcsrsStatus'
+    -> DescribeDeliveryChannelStatusResponse
 describeDeliveryChannelStatusResponse pStatus_ =
     DescribeDeliveryChannelStatusResponse'
     { _ddcsrsDeliveryChannelsStatus = Nothing
@@ -130,6 +133,6 @@ describeDeliveryChannelStatusResponse pStatus_ =
 ddcsrsDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [DeliveryChannelStatus]
 ddcsrsDeliveryChannelsStatus = lens _ddcsrsDeliveryChannelsStatus (\ s a -> s{_ddcsrsDeliveryChannelsStatus = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ddcsrsStatus :: Lens' DescribeDeliveryChannelStatusResponse Int
 ddcsrsStatus = lens _ddcsrsStatus (\ s a -> s{_ddcsrsStatus = a});

@@ -24,8 +24,8 @@
 module Network.AWS.S3.CompleteMultipartUpload
     (
     -- * Creating a Request
-      CompleteMultipartUpload
-    , completeMultipartUpload
+      completeMultipartUpload
+    , CompleteMultipartUpload
     -- * Request Lenses
     , cRequestPayer
     , cMultipartUpload
@@ -34,8 +34,8 @@ module Network.AWS.S3.CompleteMultipartUpload
     , cUploadId
 
     -- * Destructuring the Response
-    , CompleteMultipartUploadResponse
     , completeMultipartUploadResponse
+    , CompleteMultipartUploadResponse
     -- * Response Lenses
     , crsVersionId
     , crsETag
@@ -56,8 +56,17 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'completeMultipartUpload' smart constructor.
+data CompleteMultipartUpload = CompleteMultipartUpload'
+    { _cRequestPayer    :: !(Maybe RequestPayer)
+    , _cMultipartUpload :: !(Maybe CompletedMultipartUpload)
+    , _cBucket          :: !BucketName
+    , _cKey             :: !ObjectKey
+    , _cUploadId        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CompleteMultipartUpload' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cRequestPayer'
 --
@@ -68,16 +77,11 @@ import           Network.AWS.S3.Types.Product
 -- * 'cKey'
 --
 -- * 'cUploadId'
-data CompleteMultipartUpload = CompleteMultipartUpload'
-    { _cRequestPayer    :: !(Maybe RequestPayer)
-    , _cMultipartUpload :: !(Maybe CompletedMultipartUpload)
-    , _cBucket          :: !BucketName
-    , _cKey             :: !ObjectKey
-    , _cUploadId        :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CompleteMultipartUpload' smart constructor.
-completeMultipartUpload :: BucketName -> ObjectKey -> Text -> CompleteMultipartUpload
+completeMultipartUpload
+    :: BucketName -- ^ 'cBucket'
+    -> ObjectKey -- ^ 'cKey'
+    -> Text -- ^ 'cUploadId'
+    -> CompleteMultipartUpload
 completeMultipartUpload pBucket_ pKey_ pUploadId_ =
     CompleteMultipartUpload'
     { _cRequestPayer = Nothing
@@ -147,8 +151,22 @@ instance ToQuery CompleteMultipartUpload where
           = mconcat ["uploadId" =: _cUploadId]
 
 -- | /See:/ 'completeMultipartUploadResponse' smart constructor.
+data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
+    { _crsVersionId            :: !(Maybe ObjectVersionId)
+    , _crsETag                 :: !(Maybe ETag)
+    , _crsRequestCharged       :: !(Maybe RequestCharged)
+    , _crsLocation             :: !(Maybe Text)
+    , _crsExpiration           :: !(Maybe Text)
+    , _crsBucket               :: !(Maybe BucketName)
+    , _crsKey                  :: !(Maybe ObjectKey)
+    , _crsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _crsServerSideEncryption :: !(Maybe ServerSideEncryption)
+    , _crsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CompleteMultipartUploadResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'crsVersionId'
 --
@@ -169,21 +187,9 @@ instance ToQuery CompleteMultipartUpload where
 -- * 'crsServerSideEncryption'
 --
 -- * 'crsStatus'
-data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
-    { _crsVersionId            :: !(Maybe ObjectVersionId)
-    , _crsETag                 :: !(Maybe ETag)
-    , _crsRequestCharged       :: !(Maybe RequestCharged)
-    , _crsLocation             :: !(Maybe Text)
-    , _crsExpiration           :: !(Maybe Text)
-    , _crsBucket               :: !(Maybe BucketName)
-    , _crsKey                  :: !(Maybe ObjectKey)
-    , _crsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
-    , _crsServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _crsStatus               :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CompleteMultipartUploadResponse' smart constructor.
-completeMultipartUploadResponse :: Int -> CompleteMultipartUploadResponse
+completeMultipartUploadResponse
+    :: Int -- ^ 'crsStatus'
+    -> CompleteMultipartUploadResponse
 completeMultipartUploadResponse pStatus_ =
     CompleteMultipartUploadResponse'
     { _crsVersionId = Nothing
@@ -238,6 +244,6 @@ crsSSEKMSKeyId = lens _crsSSEKMSKeyId (\ s a -> s{_crsSSEKMSKeyId = a}) . mappin
 crsServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
 crsServerSideEncryption = lens _crsServerSideEncryption (\ s a -> s{_crsServerSideEncryption = a});
 
--- | Undocumented member.
+-- | The response status code.
 crsStatus :: Lens' CompleteMultipartUploadResponse Int
 crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

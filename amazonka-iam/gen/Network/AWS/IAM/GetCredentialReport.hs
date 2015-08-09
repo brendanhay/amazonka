@@ -27,12 +27,12 @@
 module Network.AWS.IAM.GetCredentialReport
     (
     -- * Creating a Request
-      GetCredentialReport
-    , getCredentialReport
+      getCredentialReport
+    , GetCredentialReport
 
     -- * Destructuring the Response
-    , GetCredentialReportResponse
     , getCredentialReportResponse
+    , GetCredentialReportResponse
     -- * Response Lenses
     , grsContent
     , grsGeneratedTime
@@ -51,8 +51,10 @@ data GetCredentialReport =
     GetCredentialReport'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetCredentialReport' smart constructor.
-getCredentialReport :: GetCredentialReport
+-- | Creates a value of 'GetCredentialReport' with the minimum fields required to make a request.
+--
+getCredentialReport
+    :: GetCredentialReport
 getCredentialReport = GetCredentialReport'
 
 instance AWSRequest GetCredentialReport where
@@ -84,8 +86,16 @@ instance ToQuery GetCredentialReport where
 -- | Contains the response to a successful GetCredentialReport request.
 --
 -- /See:/ 'getCredentialReportResponse' smart constructor.
+data GetCredentialReportResponse = GetCredentialReportResponse'
+    { _grsContent       :: !(Maybe Base64)
+    , _grsGeneratedTime :: !(Maybe ISO8601)
+    , _grsReportFormat  :: !(Maybe ReportFormatType)
+    , _grsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetCredentialReportResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'grsContent'
 --
@@ -94,15 +104,9 @@ instance ToQuery GetCredentialReport where
 -- * 'grsReportFormat'
 --
 -- * 'grsStatus'
-data GetCredentialReportResponse = GetCredentialReportResponse'
-    { _grsContent       :: !(Maybe Base64)
-    , _grsGeneratedTime :: !(Maybe ISO8601)
-    , _grsReportFormat  :: !(Maybe ReportFormatType)
-    , _grsStatus        :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetCredentialReportResponse' smart constructor.
-getCredentialReportResponse :: Int -> GetCredentialReportResponse
+getCredentialReportResponse
+    :: Int -- ^ 'grsStatus'
+    -> GetCredentialReportResponse
 getCredentialReportResponse pStatus_ =
     GetCredentialReportResponse'
     { _grsContent = Nothing
@@ -124,6 +128,6 @@ grsGeneratedTime = lens _grsGeneratedTime (\ s a -> s{_grsGeneratedTime = a}) . 
 grsReportFormat :: Lens' GetCredentialReportResponse (Maybe ReportFormatType)
 grsReportFormat = lens _grsReportFormat (\ s a -> s{_grsReportFormat = a});
 
--- | Undocumented member.
+-- | The response status code.
 grsStatus :: Lens' GetCredentialReportResponse Int
 grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});

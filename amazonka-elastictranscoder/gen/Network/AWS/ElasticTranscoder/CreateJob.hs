@@ -31,8 +31,8 @@
 module Network.AWS.ElasticTranscoder.CreateJob
     (
     -- * Creating a Request
-      CreateJob
-    , createJob
+      createJob
+    , CreateJob
     -- * Request Lenses
     , cjOutputs
     , cjUserMetadata
@@ -43,8 +43,8 @@ module Network.AWS.ElasticTranscoder.CreateJob
     , cjInput
 
     -- * Destructuring the Response
-    , CreateJobResponse
     , createJobResponse
+    , CreateJobResponse
     -- * Response Lenses
     , cjrsJob
     , cjrsStatus
@@ -56,11 +56,22 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The @CreateJobRequest@ structure.
+-- | The 'CreateJobRequest' structure.
 --
 -- /See:/ 'createJob' smart constructor.
+data CreateJob = CreateJob'
+    { _cjOutputs         :: !(Maybe [CreateJobOutput])
+    , _cjUserMetadata    :: !(Maybe (Map Text Text))
+    , _cjOutput          :: !(Maybe CreateJobOutput)
+    , _cjPlaylists       :: !(Maybe [CreateJobPlaylist])
+    , _cjOutputKeyPrefix :: !(Maybe Text)
+    , _cjPipelineId      :: !Text
+    , _cjInput           :: !JobInput
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cjOutputs'
 --
@@ -75,18 +86,10 @@ import           Network.AWS.Response
 -- * 'cjPipelineId'
 --
 -- * 'cjInput'
-data CreateJob = CreateJob'
-    { _cjOutputs         :: !(Maybe [CreateJobOutput])
-    , _cjUserMetadata    :: !(Maybe (Map Text Text))
-    , _cjOutput          :: !(Maybe CreateJobOutput)
-    , _cjPlaylists       :: !(Maybe [CreateJobPlaylist])
-    , _cjOutputKeyPrefix :: !(Maybe Text)
-    , _cjPipelineId      :: !Text
-    , _cjInput           :: !JobInput
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CreateJob' smart constructor.
-createJob :: Text -> JobInput -> CreateJob
+createJob
+    :: Text -- ^ 'cjPipelineId'
+    -> JobInput -- ^ 'cjInput'
+    -> CreateJob
 createJob pPipelineId_ pInput_ =
     CreateJob'
     { _cjOutputs = Nothing
@@ -99,15 +102,15 @@ createJob pPipelineId_ pInput_ =
     }
 
 -- | A section of the request body that provides information about the
--- transcoded (target) files. We recommend that you use the @Outputs@
--- syntax instead of the @Output@ syntax.
+-- transcoded (target) files. We recommend that you use the 'Outputs'
+-- syntax instead of the 'Output' syntax.
 cjOutputs :: Lens' CreateJob [CreateJobOutput]
 cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default . _Coerce;
 
 -- | User-defined metadata that you want to associate with an Elastic
--- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
--- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
--- guarantee that @key\/value@ pairs will be returned in the same order in
+-- Transcoder job. You specify metadata in 'key\/value' pairs, and you can
+-- add up to 10 'key\/value' pairs per job. Elastic Transcoder does not
+-- guarantee that 'key\/value' pairs will be returned in the same order in
 -- which you specify them.
 cjUserMetadata :: Lens' CreateJob (HashMap Text Text)
 cjUserMetadata = lens _cjUserMetadata (\ s a -> s{_cjUserMetadata = a}) . _Default . _Map;
@@ -116,7 +119,7 @@ cjUserMetadata = lens _cjUserMetadata (\ s a -> s{_cjUserMetadata = a}) . _Defau
 cjOutput :: Lens' CreateJob (Maybe CreateJobOutput)
 cjOutput = lens _cjOutput (\ s a -> s{_cjOutput = a});
 
--- | If you specify a preset in @PresetId@ for which the value of @Container@
+-- | If you specify a preset in 'PresetId' for which the value of 'Container'
 -- is fmp4 (Fragmented MP4) or ts (MPEG-TS), Playlists contains information
 -- about the master playlists that you want Elastic Transcoder to create.
 --
@@ -130,7 +133,7 @@ cjPlaylists = lens _cjPlaylists (\ s a -> s{_cjPlaylists = a}) . _Default . _Coe
 cjOutputKeyPrefix :: Lens' CreateJob (Maybe Text)
 cjOutputKeyPrefix = lens _cjOutputKeyPrefix (\ s a -> s{_cjOutputKeyPrefix = a});
 
--- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
+-- | The 'Id' of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
 -- Amazon S3 bucket from which Elastic Transcoder gets the files to
 -- transcode and the bucket into which Elastic Transcoder puts the
@@ -174,19 +177,21 @@ instance ToQuery CreateJob where
 -- | The CreateJobResponse structure.
 --
 -- /See:/ 'createJobResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cjrsJob'
---
--- * 'cjrsStatus'
 data CreateJobResponse = CreateJobResponse'
     { _cjrsJob    :: !(Maybe Job')
     , _cjrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateJobResponse' smart constructor.
-createJobResponse :: Int -> CreateJobResponse
+-- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cjrsJob'
+--
+-- * 'cjrsStatus'
+createJobResponse
+    :: Int -- ^ 'cjrsStatus'
+    -> CreateJobResponse
 createJobResponse pStatus_ =
     CreateJobResponse'
     { _cjrsJob = Nothing
@@ -198,6 +203,6 @@ createJobResponse pStatus_ =
 cjrsJob :: Lens' CreateJobResponse (Maybe Job')
 cjrsJob = lens _cjrsJob (\ s a -> s{_cjrsJob = a});
 
--- | Undocumented member.
+-- | The response status code.
 cjrsStatus :: Lens' CreateJobResponse Int
 cjrsStatus = lens _cjrsStatus (\ s a -> s{_cjrsStatus = a});

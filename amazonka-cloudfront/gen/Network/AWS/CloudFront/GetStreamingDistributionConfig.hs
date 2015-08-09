@@ -24,14 +24,14 @@
 module Network.AWS.CloudFront.GetStreamingDistributionConfig
     (
     -- * Creating a Request
-      GetStreamingDistributionConfig
-    , getStreamingDistributionConfig
+      getStreamingDistributionConfig
+    , GetStreamingDistributionConfig
     -- * Request Lenses
     , gsdcId
 
     -- * Destructuring the Response
-    , GetStreamingDistributionConfigResponse
     , getStreamingDistributionConfigResponse
+    , GetStreamingDistributionConfigResponse
     -- * Response Lenses
     , gsdcrsStreamingDistributionConfig
     , gsdcrsETag
@@ -47,16 +47,18 @@ import           Network.AWS.Response
 -- | To request to get a streaming distribution configuration.
 --
 -- /See:/ 'getStreamingDistributionConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsdcId'
 newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig'
     { _gsdcId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetStreamingDistributionConfig' smart constructor.
-getStreamingDistributionConfig :: Text -> GetStreamingDistributionConfig
+-- | Creates a value of 'GetStreamingDistributionConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsdcId'
+getStreamingDistributionConfig
+    :: Text -- ^ 'gsdcId'
+    -> GetStreamingDistributionConfig
 getStreamingDistributionConfig pId_ =
     GetStreamingDistributionConfig'
     { _gsdcId = pId_
@@ -95,22 +97,24 @@ instance ToQuery GetStreamingDistributionConfig where
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'getStreamingDistributionConfigResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsdcrsStreamingDistributionConfig'
---
--- * 'gsdcrsETag'
---
--- * 'gsdcrsStatus'
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse'
     { _gsdcrsStreamingDistributionConfig :: !(Maybe StreamingDistributionConfig)
     , _gsdcrsETag                        :: !(Maybe Text)
     , _gsdcrsStatus                      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetStreamingDistributionConfigResponse' smart constructor.
-getStreamingDistributionConfigResponse :: Int -> GetStreamingDistributionConfigResponse
+-- | Creates a value of 'GetStreamingDistributionConfigResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsdcrsStreamingDistributionConfig'
+--
+-- * 'gsdcrsETag'
+--
+-- * 'gsdcrsStatus'
+getStreamingDistributionConfigResponse
+    :: Int -- ^ 'gsdcrsStatus'
+    -> GetStreamingDistributionConfigResponse
 getStreamingDistributionConfigResponse pStatus_ =
     GetStreamingDistributionConfigResponse'
     { _gsdcrsStreamingDistributionConfig = Nothing
@@ -126,6 +130,6 @@ gsdcrsStreamingDistributionConfig = lens _gsdcrsStreamingDistributionConfig (\ s
 gsdcrsETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
 gsdcrsETag = lens _gsdcrsETag (\ s a -> s{_gsdcrsETag = a});
 
--- | Undocumented member.
+-- | The response status code.
 gsdcrsStatus :: Lens' GetStreamingDistributionConfigResponse Int
 gsdcrsStatus = lens _gsdcrsStatus (\ s a -> s{_gsdcrsStatus = a});

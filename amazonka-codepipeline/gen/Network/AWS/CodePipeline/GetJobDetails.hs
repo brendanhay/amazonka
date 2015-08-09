@@ -30,14 +30,14 @@
 module Network.AWS.CodePipeline.GetJobDetails
     (
     -- * Creating a Request
-      GetJobDetails
-    , getJobDetails
+      getJobDetails
+    , GetJobDetails
     -- * Request Lenses
     , gjdJobId
 
     -- * Destructuring the Response
-    , GetJobDetailsResponse
     , getJobDetailsResponse
+    , GetJobDetailsResponse
     -- * Response Lenses
     , gjdrsJobDetails
     , gjdrsStatus
@@ -52,16 +52,18 @@ import           Network.AWS.Response
 -- | Represents the input of a get job details action.
 --
 -- /See:/ 'getJobDetails' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gjdJobId'
 newtype GetJobDetails = GetJobDetails'
     { _gjdJobId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetJobDetails' smart constructor.
-getJobDetails :: Text -> GetJobDetails
+-- | Creates a value of 'GetJobDetails' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gjdJobId'
+getJobDetails
+    :: Text -- ^ 'gjdJobId'
+    -> GetJobDetails
 getJobDetails pJobId_ =
     GetJobDetails'
     { _gjdJobId = pJobId_
@@ -104,19 +106,21 @@ instance ToQuery GetJobDetails where
 -- | Represents the output of a get job details action.
 --
 -- /See:/ 'getJobDetailsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gjdrsJobDetails'
---
--- * 'gjdrsStatus'
 data GetJobDetailsResponse = GetJobDetailsResponse'
     { _gjdrsJobDetails :: !(Maybe JobDetails)
     , _gjdrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetJobDetailsResponse' smart constructor.
-getJobDetailsResponse :: Int -> GetJobDetailsResponse
+-- | Creates a value of 'GetJobDetailsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gjdrsJobDetails'
+--
+-- * 'gjdrsStatus'
+getJobDetailsResponse
+    :: Int -- ^ 'gjdrsStatus'
+    -> GetJobDetailsResponse
 getJobDetailsResponse pStatus_ =
     GetJobDetailsResponse'
     { _gjdrsJobDetails = Nothing
@@ -130,6 +134,6 @@ getJobDetailsResponse pStatus_ =
 gjdrsJobDetails :: Lens' GetJobDetailsResponse (Maybe JobDetails)
 gjdrsJobDetails = lens _gjdrsJobDetails (\ s a -> s{_gjdrsJobDetails = a});
 
--- | Undocumented member.
+-- | The response status code.
 gjdrsStatus :: Lens' GetJobDetailsResponse Int
 gjdrsStatus = lens _gjdrsStatus (\ s a -> s{_gjdrsStatus = a});

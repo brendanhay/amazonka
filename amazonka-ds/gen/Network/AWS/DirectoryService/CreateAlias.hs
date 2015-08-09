@@ -20,7 +20,7 @@
 --
 -- Creates an alias for a directory and assigns the alias to the directory.
 -- The alias is used to construct the access URL for the directory, such as
--- @http:\/\/\<alias>.awsapps.com@.
+-- 'http:\/\/\<alias>.awsapps.com'.
 --
 -- After an alias has been created, it cannot be deleted or reused, so this
 -- operation should only be used when absolutely necessary.
@@ -29,15 +29,15 @@
 module Network.AWS.DirectoryService.CreateAlias
     (
     -- * Creating a Request
-      CreateAlias
-    , createAlias
+      createAlias
+    , CreateAlias
     -- * Request Lenses
     , caDirectoryId
     , caAlias
 
     -- * Destructuring the Response
-    , CreateAliasResponse
     , createAliasResponse
+    , CreateAliasResponse
     -- * Response Lenses
     , carsDirectoryId
     , carsAlias
@@ -53,19 +53,22 @@ import           Network.AWS.Response
 -- | Contains the inputs for the CreateAlias operation.
 --
 -- /See:/ 'createAlias' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'caDirectoryId'
---
--- * 'caAlias'
 data CreateAlias = CreateAlias'
     { _caDirectoryId :: !Text
     , _caAlias       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAlias' smart constructor.
-createAlias :: Text -> Text -> CreateAlias
+-- | Creates a value of 'CreateAlias' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caDirectoryId'
+--
+-- * 'caAlias'
+createAlias
+    :: Text -- ^ 'caDirectoryId'
+    -> Text -- ^ 'caAlias'
+    -> CreateAlias
 createAlias pDirectoryId_ pAlias_ =
     CreateAlias'
     { _caDirectoryId = pDirectoryId_
@@ -79,7 +82,7 @@ caDirectoryId = lens _caDirectoryId (\ s a -> s{_caDirectoryId = a});
 -- | The requested alias.
 --
 -- The alias must be unique amongst all aliases in AWS. This operation will
--- throw an @EntityAlreadyExistsException@ if this alias already exists.
+-- throw an 'EntityAlreadyExistsException' if this alias already exists.
 caAlias :: Lens' CreateAlias Text
 caAlias = lens _caAlias (\ s a -> s{_caAlias = a});
 
@@ -119,22 +122,24 @@ instance ToQuery CreateAlias where
 -- | Contains the results of the CreateAlias operation.
 --
 -- /See:/ 'createAliasResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'carsDirectoryId'
---
--- * 'carsAlias'
---
--- * 'carsStatus'
 data CreateAliasResponse = CreateAliasResponse'
     { _carsDirectoryId :: !(Maybe Text)
     , _carsAlias       :: !(Maybe Text)
     , _carsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateAliasResponse' smart constructor.
-createAliasResponse :: Int -> CreateAliasResponse
+-- | Creates a value of 'CreateAliasResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'carsDirectoryId'
+--
+-- * 'carsAlias'
+--
+-- * 'carsStatus'
+createAliasResponse
+    :: Int -- ^ 'carsStatus'
+    -> CreateAliasResponse
 createAliasResponse pStatus_ =
     CreateAliasResponse'
     { _carsDirectoryId = Nothing
@@ -150,6 +155,6 @@ carsDirectoryId = lens _carsDirectoryId (\ s a -> s{_carsDirectoryId = a});
 carsAlias :: Lens' CreateAliasResponse (Maybe Text)
 carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a});
 
--- | Undocumented member.
+-- | The response status code.
 carsStatus :: Lens' CreateAliasResponse Int
 carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

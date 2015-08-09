@@ -26,7 +26,7 @@
 -- The maximum total payload size (i.e., the sum of all a batch\'s
 -- individual message lengths) is also 256 KB (262,144 bytes).
 --
--- If the @DelaySeconds@ parameter is not specified for an entry, the
+-- If the 'DelaySeconds' parameter is not specified for an entry, the
 -- default for the queue is used.
 --
 -- The following list shows the characters (in Unicode) that are allowed in
@@ -43,26 +43,26 @@
 -- call returns an HTTP status code of 200.
 --
 -- Some API actions take lists of parameters. These lists are specified
--- using the @param.n@ notation. Values of @n@ are integers starting from
+-- using the 'param.n' notation. Values of 'n' are integers starting from
 -- 1. For example, a parameter list with two elements looks like this:
 --
--- @&Attribute.1=this@
+-- '&Attribute.1=this'
 --
--- @&Attribute.2=that@
+-- '&Attribute.2=that'
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html AWS API Reference> for SendMessageBatch.
 module Network.AWS.SQS.SendMessageBatch
     (
     -- * Creating a Request
-      SendMessageBatch
-    , sendMessageBatch
+      sendMessageBatch
+    , SendMessageBatch
     -- * Request Lenses
     , smbQueueURL
     , smbEntries
 
     -- * Destructuring the Response
-    , SendMessageBatchResponse
     , sendMessageBatchResponse
+    , SendMessageBatchResponse
     -- * Response Lenses
     , smbrsStatus
     , smbrsSuccessful
@@ -76,19 +76,21 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'sendMessageBatch' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'smbQueueURL'
---
--- * 'smbEntries'
 data SendMessageBatch = SendMessageBatch'
     { _smbQueueURL :: !Text
     , _smbEntries  :: ![SendMessageBatchRequestEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SendMessageBatch' smart constructor.
-sendMessageBatch :: Text -> SendMessageBatch
+-- | Creates a value of 'SendMessageBatch' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'smbQueueURL'
+--
+-- * 'smbEntries'
+sendMessageBatch
+    :: Text -- ^ 'smbQueueURL'
+    -> SendMessageBatch
 sendMessageBatch pQueueURL_ =
     SendMessageBatch'
     { _smbQueueURL = pQueueURL_
@@ -135,22 +137,24 @@ instance ToQuery SendMessageBatch where
 -- BatchResultErrorEntry tag if the message fails.
 --
 -- /See:/ 'sendMessageBatchResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'smbrsStatus'
---
--- * 'smbrsSuccessful'
---
--- * 'smbrsFailed'
 data SendMessageBatchResponse = SendMessageBatchResponse'
     { _smbrsStatus     :: !Int
     , _smbrsSuccessful :: ![SendMessageBatchResultEntry]
     , _smbrsFailed     :: ![BatchResultErrorEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SendMessageBatchResponse' smart constructor.
-sendMessageBatchResponse :: Int -> SendMessageBatchResponse
+-- | Creates a value of 'SendMessageBatchResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'smbrsStatus'
+--
+-- * 'smbrsSuccessful'
+--
+-- * 'smbrsFailed'
+sendMessageBatchResponse
+    :: Int -- ^ 'smbrsStatus'
+    -> SendMessageBatchResponse
 sendMessageBatchResponse pStatus_ =
     SendMessageBatchResponse'
     { _smbrsStatus = pStatus_
@@ -158,7 +162,7 @@ sendMessageBatchResponse pStatus_ =
     , _smbrsFailed = mempty
     }
 
--- | Undocumented member.
+-- | The response status code.
 smbrsStatus :: Lens' SendMessageBatchResponse Int
 smbrsStatus = lens _smbrsStatus (\ s a -> s{_smbrsStatus = a});
 

@@ -24,14 +24,14 @@
 module Network.AWS.S3.GetBucketPolicy
     (
     -- * Creating a Request
-      GetBucketPolicy
-    , getBucketPolicy
+      getBucketPolicy
+    , GetBucketPolicy
     -- * Request Lenses
     , gbpBucket
 
     -- * Destructuring the Response
-    , GetBucketPolicyResponse
     , getBucketPolicyResponse
+    , GetBucketPolicyResponse
     -- * Response Lenses
     , gbprsPolicy
     , gbprsStatus
@@ -44,16 +44,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getBucketPolicy' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbpBucket'
 newtype GetBucketPolicy = GetBucketPolicy'
     { _gbpBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketPolicy' smart constructor.
-getBucketPolicy :: BucketName -> GetBucketPolicy
+-- | Creates a value of 'GetBucketPolicy' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbpBucket'
+getBucketPolicy
+    :: BucketName -- ^ 'gbpBucket'
+    -> GetBucketPolicy
 getBucketPolicy pBucket_ =
     GetBucketPolicy'
     { _gbpBucket = pBucket_
@@ -84,19 +86,21 @@ instance ToQuery GetBucketPolicy where
         toQuery = const (mconcat ["policy"])
 
 -- | /See:/ 'getBucketPolicyResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbprsPolicy'
---
--- * 'gbprsStatus'
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
     { _gbprsPolicy :: !(Maybe Text)
     , _gbprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketPolicyResponse' smart constructor.
-getBucketPolicyResponse :: Int -> GetBucketPolicyResponse
+-- | Creates a value of 'GetBucketPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gbprsPolicy'
+--
+-- * 'gbprsStatus'
+getBucketPolicyResponse
+    :: Int -- ^ 'gbprsStatus'
+    -> GetBucketPolicyResponse
 getBucketPolicyResponse pStatus_ =
     GetBucketPolicyResponse'
     { _gbprsPolicy = Nothing
@@ -107,6 +111,6 @@ getBucketPolicyResponse pStatus_ =
 gbprsPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
 gbprsPolicy = lens _gbprsPolicy (\ s a -> s{_gbprsPolicy = a});
 
--- | Undocumented member.
+-- | The response status code.
 gbprsStatus :: Lens' GetBucketPolicyResponse Int
 gbprsStatus = lens _gbprsStatus (\ s a -> s{_gbprsStatus = a});

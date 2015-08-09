@@ -27,20 +27,20 @@
 --
 -- To provide end-user credentials, first make an unsigned call to GetId.
 -- If the end user is authenticated with one of the supported identity
--- providers, set the @Logins@ map with the identity provider token.
--- @GetId@ returns a unique identifier for the user.
+-- providers, set the 'Logins' map with the identity provider token.
+-- 'GetId' returns a unique identifier for the user.
 --
 -- Next, make an unsigned call to GetCredentialsForIdentity. This call
--- expects the same @Logins@ map as the @GetId@ call, as well as the
--- @IdentityID@ originally returned by @GetId@. Assuming your identity pool
+-- expects the same 'Logins' map as the 'GetId' call, as well as the
+-- 'IdentityID' originally returned by 'GetId'. Assuming your identity pool
 -- has been configured via the SetIdentityPoolRoles operation,
--- @GetCredentialsForIdentity@ will return AWS credentials for your use. If
--- your pool has not been configured with @SetIdentityPoolRoles@, or if you
+-- 'GetCredentialsForIdentity' will return AWS credentials for your use. If
+-- your pool has not been configured with 'SetIdentityPoolRoles', or if you
 -- want to follow legacy flow, make an unsigned call to GetOpenIdToken,
 -- which returns the OpenID token necessary to call STS and retrieve AWS
--- credentials. This call expects the same @Logins@ map as the @GetId@
--- call, as well as the @IdentityID@ originally returned by @GetId@. The
--- token returned by @GetOpenIdToken@ can be passed to the STS operation
+-- credentials. This call expects the same 'Logins' map as the 'GetId'
+-- call, as well as the 'IdentityID' originally returned by 'GetId'. The
+-- token returned by 'GetOpenIdToken' can be passed to the STS operation
 -- <http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html AssumeRoleWithWebIdentity>
 -- to retrieve AWS credentials.
 --
@@ -244,8 +244,4 @@ individual operation parameters for details.
 Waiters poll by repeatedly sending a request until some remote success condition
 configured by the 'Wait' specification is fulfilled. The 'Wait' specification
 determines how many attempts should be made, in addition to delay and retry strategies.
--}
-
-{- $pager
-This operation can return paginated results.
 -}

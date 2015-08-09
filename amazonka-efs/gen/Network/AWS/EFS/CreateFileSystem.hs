@@ -29,22 +29,22 @@
 --     Amazon EFS assigned ID, and an initial lifecycle state \"creating\".
 -- -   Returns with the description of the created file system.
 --
--- Otherwise, this operation returns a @FileSystemAlreadyExists@ error with
+-- Otherwise, this operation returns a 'FileSystemAlreadyExists' error with
 -- the ID of the existing file system.
 --
 -- For basic use cases, you can use a randomly generated UUID for the
 -- creation token.
 --
--- The idempotent operation allows you to retry a @CreateFileSystem@ call
+-- The idempotent operation allows you to retry a 'CreateFileSystem' call
 -- without risk of creating an extra file system. This can happen when an
 -- initial call fails in a way that leaves it uncertain whether or not a
 -- file system was actually created. An example might be that a transport
 -- level timeout occurred or your connection was reset. As long as you use
 -- the same creation token, if the initial call had succeeded in creating a
 -- file system, the client can learn of its existence from the
--- @FileSystemAlreadyExists@ error.
+-- 'FileSystemAlreadyExists' error.
 --
--- The @CreateFileSystem@ call returns while the file system\'s lifecycle
+-- The 'CreateFileSystem' call returns while the file system\'s lifecycle
 -- state is still \"creating\". You can check the file system creation
 -- status by calling the DescribeFileSystems API, which among other things
 -- returns the file system state.
@@ -57,20 +57,20 @@
 -- <http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html Amazon EFS: How it Works>
 --
 -- This operation requires permission for the
--- @elasticfilesystem:CreateFileSystem@ action.
+-- 'elasticfilesystem:CreateFileSystem' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateFileSystem.html AWS API Reference> for CreateFileSystem.
 module Network.AWS.EFS.CreateFileSystem
     (
     -- * Creating a Request
-      CreateFileSystem
-    , createFileSystem
+      createFileSystem
+    , CreateFileSystem
     -- * Request Lenses
     , cfsCreationToken
 
     -- * Destructuring the Response
-    , FileSystemDescription
     , fileSystemDescription
+    , FileSystemDescription
     -- * Response Lenses
     , fsdName
     , fsdOwnerId
@@ -89,16 +89,18 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'createFileSystem' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cfsCreationToken'
 newtype CreateFileSystem = CreateFileSystem'
     { _cfsCreationToken :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateFileSystem' smart constructor.
-createFileSystem :: Text -> CreateFileSystem
+-- | Creates a value of 'CreateFileSystem' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cfsCreationToken'
+createFileSystem
+    :: Text -- ^ 'cfsCreationToken'
+    -> CreateFileSystem
 createFileSystem pCreationToken_ =
     CreateFileSystem'
     { _cfsCreationToken = pCreationToken_

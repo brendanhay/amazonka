@@ -25,16 +25,16 @@
 module Network.AWS.CloudHSM.GetConfig
     (
     -- * Creating a Request
-      GetConfig
-    , getConfig
+      getConfig
+    , GetConfig
     -- * Request Lenses
     , gcClientARN
     , gcClientVersion
     , gcHAPGList
 
     -- * Destructuring the Response
-    , GetConfigResponse
     , getConfigResponse
+    , GetConfigResponse
     -- * Response Lenses
     , gcrsConfigFile
     , gcrsConfigCred
@@ -49,22 +49,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'getConfig' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gcClientARN'
---
--- * 'gcClientVersion'
---
--- * 'gcHAPGList'
 data GetConfig = GetConfig'
     { _gcClientARN     :: !Text
     , _gcClientVersion :: !ClientVersion
     , _gcHAPGList      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetConfig' smart constructor.
-getConfig :: Text -> ClientVersion -> GetConfig
+-- | Creates a value of 'GetConfig' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcClientARN'
+--
+-- * 'gcClientVersion'
+--
+-- * 'gcHAPGList'
+getConfig
+    :: Text -- ^ 'gcClientARN'
+    -> ClientVersion -- ^ 'gcClientVersion'
+    -> GetConfig
 getConfig pClientARN_ pClientVersion_ =
     GetConfig'
     { _gcClientARN = pClientARN_
@@ -120,8 +123,16 @@ instance ToQuery GetConfig where
         toQuery = const mempty
 
 -- | /See:/ 'getConfigResponse' smart constructor.
+data GetConfigResponse = GetConfigResponse'
+    { _gcrsConfigFile :: !(Maybe Text)
+    , _gcrsConfigCred :: !(Maybe Text)
+    , _gcrsConfigType :: !(Maybe Text)
+    , _gcrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetConfigResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gcrsConfigFile'
 --
@@ -130,15 +141,9 @@ instance ToQuery GetConfig where
 -- * 'gcrsConfigType'
 --
 -- * 'gcrsStatus'
-data GetConfigResponse = GetConfigResponse'
-    { _gcrsConfigFile :: !(Maybe Text)
-    , _gcrsConfigCred :: !(Maybe Text)
-    , _gcrsConfigType :: !(Maybe Text)
-    , _gcrsStatus     :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetConfigResponse' smart constructor.
-getConfigResponse :: Int -> GetConfigResponse
+getConfigResponse
+    :: Int -- ^ 'gcrsStatus'
+    -> GetConfigResponse
 getConfigResponse pStatus_ =
     GetConfigResponse'
     { _gcrsConfigFile = Nothing
@@ -159,6 +164,6 @@ gcrsConfigCred = lens _gcrsConfigCred (\ s a -> s{_gcrsConfigCred = a});
 gcrsConfigType :: Lens' GetConfigResponse (Maybe Text)
 gcrsConfigType = lens _gcrsConfigType (\ s a -> s{_gcrsConfigType = a});
 
--- | Undocumented member.
+-- | The response status code.
 gcrsStatus :: Lens' GetConfigResponse Int
 gcrsStatus = lens _gcrsStatus (\ s a -> s{_gcrsStatus = a});

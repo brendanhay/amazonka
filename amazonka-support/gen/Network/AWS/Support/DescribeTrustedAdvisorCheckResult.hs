@@ -40,15 +40,15 @@
 module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     (
     -- * Creating a Request
-      DescribeTrustedAdvisorCheckResult
-    , describeTrustedAdvisorCheckResult
+      describeTrustedAdvisorCheckResult
+    , DescribeTrustedAdvisorCheckResult
     -- * Request Lenses
     , dtacrLanguage
     , dtacrCheckId
 
     -- * Destructuring the Response
-    , DescribeTrustedAdvisorCheckResultResponse
     , describeTrustedAdvisorCheckResultResponse
+    , DescribeTrustedAdvisorCheckResultResponse
     -- * Response Lenses
     , dtacrrsResult
     , dtacrrsStatus
@@ -61,19 +61,21 @@ import           Network.AWS.Support.Types
 import           Network.AWS.Support.Types.Product
 
 -- | /See:/ 'describeTrustedAdvisorCheckResult' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtacrLanguage'
---
--- * 'dtacrCheckId'
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
     { _dtacrLanguage :: !(Maybe Text)
     , _dtacrCheckId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTrustedAdvisorCheckResult' smart constructor.
-describeTrustedAdvisorCheckResult :: Text -> DescribeTrustedAdvisorCheckResult
+-- | Creates a value of 'DescribeTrustedAdvisorCheckResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtacrLanguage'
+--
+-- * 'dtacrCheckId'
+describeTrustedAdvisorCheckResult
+    :: Text -- ^ 'dtacrCheckId'
+    -> DescribeTrustedAdvisorCheckResult
 describeTrustedAdvisorCheckResult pCheckId_ =
     DescribeTrustedAdvisorCheckResult'
     { _dtacrLanguage = Nothing
@@ -133,19 +135,21 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
 -- DescribeTrustedAdvisorCheckResult operation.
 --
 -- /See:/ 'describeTrustedAdvisorCheckResultResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtacrrsResult'
---
--- * 'dtacrrsStatus'
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
     { _dtacrrsResult :: !(Maybe TrustedAdvisorCheckResult)
     , _dtacrrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTrustedAdvisorCheckResultResponse' smart constructor.
-describeTrustedAdvisorCheckResultResponse :: Int -> DescribeTrustedAdvisorCheckResultResponse
+-- | Creates a value of 'DescribeTrustedAdvisorCheckResultResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtacrrsResult'
+--
+-- * 'dtacrrsStatus'
+describeTrustedAdvisorCheckResultResponse
+    :: Int -- ^ 'dtacrrsStatus'
+    -> DescribeTrustedAdvisorCheckResultResponse
 describeTrustedAdvisorCheckResultResponse pStatus_ =
     DescribeTrustedAdvisorCheckResultResponse'
     { _dtacrrsResult = Nothing
@@ -156,6 +160,6 @@ describeTrustedAdvisorCheckResultResponse pStatus_ =
 dtacrrsResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
 dtacrrsResult = lens _dtacrrsResult (\ s a -> s{_dtacrrsResult = a});
 
--- | Undocumented member.
+-- | The response status code.
 dtacrrsStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
 dtacrrsStatus = lens _dtacrrsStatus (\ s a -> s{_dtacrrsStatus = a});

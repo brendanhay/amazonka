@@ -18,27 +18,29 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @ListDomains@ operation lists all domains associated with the Access
+-- The 'ListDomains' operation lists all domains associated with the Access
 -- Key ID. It returns domain names up to the limit set by
 -- <#MaxNumberOfDomains MaxNumberOfDomains>. A <#NextToken NextToken> is
--- returned if there are more than @MaxNumberOfDomains@ domains. Calling
--- @ListDomains@ successive times with the @NextToken@ provided by the
--- operation returns up to @MaxNumberOfDomains@ more domain names with each
+-- returned if there are more than 'MaxNumberOfDomains' domains. Calling
+-- 'ListDomains' successive times with the 'NextToken' provided by the
+-- operation returns up to 'MaxNumberOfDomains' more domain names with each
 -- successive operation call.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_ListDomains.html AWS API Reference> for ListDomains.
+--
+-- This operation returns paginated results.
 module Network.AWS.SDB.ListDomains
     (
     -- * Creating a Request
-      ListDomains
-    , listDomains
+      listDomains
+    , ListDomains
     -- * Request Lenses
     , ldMaxNumberOfDomains
     , ldNextToken
 
     -- * Destructuring the Response
-    , ListDomainsResponse
     , listDomainsResponse
+    , ListDomainsResponse
     -- * Response Lenses
     , ldrsDomainNames
     , ldrsNextToken
@@ -53,19 +55,20 @@ import           Network.AWS.SDB.Types
 import           Network.AWS.SDB.Types.Product
 
 -- | /See:/ 'listDomains' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldMaxNumberOfDomains'
---
--- * 'ldNextToken'
 data ListDomains = ListDomains'
     { _ldMaxNumberOfDomains :: !(Maybe Int)
     , _ldNextToken          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDomains' smart constructor.
-listDomains :: ListDomains
+-- | Creates a value of 'ListDomains' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldMaxNumberOfDomains'
+--
+-- * 'ldNextToken'
+listDomains
+    :: ListDomains
 listDomains =
     ListDomains'
     { _ldMaxNumberOfDomains = Nothing
@@ -116,22 +119,24 @@ instance ToQuery ListDomains where
                "NextToken" =: _ldNextToken]
 
 -- | /See:/ 'listDomainsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ldrsDomainNames'
---
--- * 'ldrsNextToken'
---
--- * 'ldrsStatus'
 data ListDomainsResponse = ListDomainsResponse'
     { _ldrsDomainNames :: !(Maybe [Text])
     , _ldrsNextToken   :: !(Maybe Text)
     , _ldrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDomainsResponse' smart constructor.
-listDomainsResponse :: Int -> ListDomainsResponse
+-- | Creates a value of 'ListDomainsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ldrsDomainNames'
+--
+-- * 'ldrsNextToken'
+--
+-- * 'ldrsStatus'
+listDomainsResponse
+    :: Int -- ^ 'ldrsStatus'
+    -> ListDomainsResponse
 listDomainsResponse pStatus_ =
     ListDomainsResponse'
     { _ldrsDomainNames = Nothing
@@ -144,10 +149,10 @@ ldrsDomainNames :: Lens' ListDomainsResponse [Text]
 ldrsDomainNames = lens _ldrsDomainNames (\ s a -> s{_ldrsDomainNames = a}) . _Default . _Coerce;
 
 -- | An opaque token indicating that there are more domains than the
--- specified @MaxNumberOfDomains@ still available.
+-- specified 'MaxNumberOfDomains' still available.
 ldrsNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
--- | Undocumented member.
+-- | The response status code.
 ldrsStatus :: Lens' ListDomainsResponse Int
 ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

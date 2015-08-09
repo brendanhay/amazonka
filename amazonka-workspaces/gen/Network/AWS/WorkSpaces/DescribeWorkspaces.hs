@@ -20,20 +20,20 @@
 --
 -- Obtains information about the specified WorkSpaces.
 --
--- Only one of the filter parameters, such as @BundleId@, @DirectoryId@, or
--- @WorkspaceIds@, can be specified at a time.
+-- Only one of the filter parameters, such as 'BundleId', 'DirectoryId', or
+-- 'WorkspaceIds', can be specified at a time.
 --
--- This operation supports pagination with the use of the @NextToken@
+-- This operation supports pagination with the use of the 'NextToken'
 -- request and response parameters. If more results are available, the
--- @NextToken@ response member contains a token that you pass in the next
+-- 'NextToken' response member contains a token that you pass in the next
 -- call to this operation to retrieve the next set of items.
 --
 -- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_DescribeWorkspaces.html AWS API Reference> for DescribeWorkspaces.
 module Network.AWS.WorkSpaces.DescribeWorkspaces
     (
     -- * Creating a Request
-      DescribeWorkspaces
-    , describeWorkspaces
+      describeWorkspaces
+    , DescribeWorkspaces
     -- * Request Lenses
     , dwDirectoryId
     , dwWorkspaceIds
@@ -43,8 +43,8 @@ module Network.AWS.WorkSpaces.DescribeWorkspaces
     , dwLimit
 
     -- * Destructuring the Response
-    , DescribeWorkspacesResponse
     , describeWorkspacesResponse
+    , DescribeWorkspacesResponse
     -- * Response Lenses
     , dwrsNextToken
     , dwrsWorkspaces
@@ -60,8 +60,18 @@ import           Network.AWS.WorkSpaces.Types.Product
 -- | Contains the inputs for the DescribeWorkspaces operation.
 --
 -- /See:/ 'describeWorkspaces' smart constructor.
+data DescribeWorkspaces = DescribeWorkspaces'
+    { _dwDirectoryId  :: !(Maybe Text)
+    , _dwWorkspaceIds :: !(Maybe (List1 Text))
+    , _dwUserName     :: !(Maybe Text)
+    , _dwBundleId     :: !(Maybe Text)
+    , _dwNextToken    :: !(Maybe Text)
+    , _dwLimit        :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeWorkspaces' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dwDirectoryId'
 --
@@ -74,17 +84,8 @@ import           Network.AWS.WorkSpaces.Types.Product
 -- * 'dwNextToken'
 --
 -- * 'dwLimit'
-data DescribeWorkspaces = DescribeWorkspaces'
-    { _dwDirectoryId  :: !(Maybe Text)
-    , _dwWorkspaceIds :: !(Maybe (List1 Text))
-    , _dwUserName     :: !(Maybe Text)
-    , _dwBundleId     :: !(Maybe Text)
-    , _dwNextToken    :: !(Maybe Text)
-    , _dwLimit        :: !(Maybe Nat)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DescribeWorkspaces' smart constructor.
-describeWorkspaces :: DescribeWorkspaces
+describeWorkspaces
+    :: DescribeWorkspaces
 describeWorkspaces =
     DescribeWorkspaces'
     { _dwDirectoryId = Nothing
@@ -97,7 +98,7 @@ describeWorkspaces =
 
 -- | Specifies the directory identifier to which to limit the WorkSpaces.
 -- Optionally, you can specify a specific directory user with the
--- @UserName@ parameter. This parameter cannot be combined with any other
+-- 'UserName' parameter. This parameter cannot be combined with any other
 -- filter parameter.
 dwDirectoryId :: Lens' DescribeWorkspaces (Maybe Text)
 dwDirectoryId = lens _dwDirectoryId (\ s a -> s{_dwDirectoryId = a});
@@ -113,7 +114,7 @@ dwDirectoryId = lens _dwDirectoryId (\ s a -> s{_dwDirectoryId = a});
 dwWorkspaceIds :: Lens' DescribeWorkspaces (Maybe (NonEmpty Text))
 dwWorkspaceIds = lens _dwWorkspaceIds (\ s a -> s{_dwWorkspaceIds = a}) . mapping _List1;
 
--- | Used with the @DirectoryId@ parameter to specify the directory user for
+-- | Used with the 'DirectoryId' parameter to specify the directory user for
 -- which to obtain the WorkSpace.
 dwUserName :: Lens' DescribeWorkspaces (Maybe Text)
 dwUserName = lens _dwUserName (\ s a -> s{_dwUserName = a});
@@ -124,7 +125,7 @@ dwUserName = lens _dwUserName (\ s a -> s{_dwUserName = a});
 dwBundleId :: Lens' DescribeWorkspaces (Maybe Text)
 dwBundleId = lens _dwBundleId (\ s a -> s{_dwBundleId = a});
 
--- | The @NextToken@ value from a previous call to this operation. Pass null
+-- | The 'NextToken' value from a previous call to this operation. Pass null
 -- if this is the first call.
 dwNextToken :: Lens' DescribeWorkspaces (Maybe Text)
 dwNextToken = lens _dwNextToken (\ s a -> s{_dwNextToken = a});
@@ -173,22 +174,24 @@ instance ToQuery DescribeWorkspaces where
 -- | Contains the results for the DescribeWorkspaces operation.
 --
 -- /See:/ 'describeWorkspacesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dwrsNextToken'
---
--- * 'dwrsWorkspaces'
---
--- * 'dwrsStatus'
 data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
     { _dwrsNextToken  :: !(Maybe Text)
     , _dwrsWorkspaces :: !(Maybe [Workspace])
     , _dwrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeWorkspacesResponse' smart constructor.
-describeWorkspacesResponse :: Int -> DescribeWorkspacesResponse
+-- | Creates a value of 'DescribeWorkspacesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dwrsNextToken'
+--
+-- * 'dwrsWorkspaces'
+--
+-- * 'dwrsStatus'
+describeWorkspacesResponse
+    :: Int -- ^ 'dwrsStatus'
+    -> DescribeWorkspacesResponse
 describeWorkspacesResponse pStatus_ =
     DescribeWorkspacesResponse'
     { _dwrsNextToken = Nothing
@@ -197,7 +200,7 @@ describeWorkspacesResponse pStatus_ =
     }
 
 -- | If not null, more results are available. Pass this value for the
--- @NextToken@ parameter in a subsequent call to this operation to retrieve
+-- 'NextToken' parameter in a subsequent call to this operation to retrieve
 -- the next set of items. This token is valid for one day and must be used
 -- within that timeframe.
 dwrsNextToken :: Lens' DescribeWorkspacesResponse (Maybe Text)
@@ -211,6 +214,6 @@ dwrsNextToken = lens _dwrsNextToken (\ s a -> s{_dwrsNextToken = a});
 dwrsWorkspaces :: Lens' DescribeWorkspacesResponse [Workspace]
 dwrsWorkspaces = lens _dwrsWorkspaces (\ s a -> s{_dwrsWorkspaces = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dwrsStatus :: Lens' DescribeWorkspacesResponse Int
 dwrsStatus = lens _dwrsStatus (\ s a -> s{_dwrsStatus = a});

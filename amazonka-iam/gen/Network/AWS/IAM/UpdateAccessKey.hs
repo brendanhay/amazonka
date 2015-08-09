@@ -22,7 +22,7 @@
 -- or vice versa. This action can be used to disable a user\'s key as part
 -- of a key rotation work flow.
 --
--- If the @UserName@ field is not specified, the UserName is determined
+-- If the 'UserName' field is not specified, the UserName is determined
 -- implicitly based on the AWS access key ID used to sign the request.
 -- Because this action works for access keys under the AWS account, you can
 -- use this action to manage root credentials even if the AWS account has
@@ -36,16 +36,16 @@
 module Network.AWS.IAM.UpdateAccessKey
     (
     -- * Creating a Request
-      UpdateAccessKey
-    , updateAccessKey
+      updateAccessKey
+    , UpdateAccessKey
     -- * Request Lenses
     , uakUserName
     , uakAccessKeyId
     , uakStatus
 
     -- * Destructuring the Response
-    , UpdateAccessKeyResponse
     , updateAccessKeyResponse
+    , UpdateAccessKeyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -55,22 +55,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'updateAccessKey' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uakUserName'
---
--- * 'uakAccessKeyId'
---
--- * 'uakStatus'
 data UpdateAccessKey = UpdateAccessKey'
     { _uakUserName    :: !(Maybe Text)
     , _uakAccessKeyId :: !Text
     , _uakStatus      :: !StatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAccessKey' smart constructor.
-updateAccessKey :: Text -> StatusType -> UpdateAccessKey
+-- | Creates a value of 'UpdateAccessKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uakUserName'
+--
+-- * 'uakAccessKeyId'
+--
+-- * 'uakStatus'
+updateAccessKey
+    :: Text -- ^ 'uakAccessKeyId'
+    -> StatusType -- ^ 'uakStatus'
+    -> UpdateAccessKey
 updateAccessKey pAccessKeyId_ pStatus_ =
     UpdateAccessKey'
     { _uakUserName = Nothing
@@ -86,8 +89,8 @@ uakUserName = lens _uakUserName (\ s a -> s{_uakUserName = a});
 uakAccessKeyId :: Lens' UpdateAccessKey Text
 uakAccessKeyId = lens _uakAccessKeyId (\ s a -> s{_uakAccessKeyId = a});
 
--- | The status you want to assign to the secret access key. @Active@ means
--- the key can be used for API calls to AWS, while @Inactive@ means the key
+-- | The status you want to assign to the secret access key. 'Active' means
+-- the key can be used for API calls to AWS, while 'Inactive' means the key
 -- cannot be used.
 uakStatus :: Lens' UpdateAccessKey StatusType
 uakStatus = lens _uakStatus (\ s a -> s{_uakStatus = a});
@@ -118,6 +121,8 @@ data UpdateAccessKeyResponse =
     UpdateAccessKeyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAccessKeyResponse' smart constructor.
-updateAccessKeyResponse :: UpdateAccessKeyResponse
+-- | Creates a value of 'UpdateAccessKeyResponse' with the minimum fields required to make a request.
+--
+updateAccessKeyResponse
+    :: UpdateAccessKeyResponse
 updateAccessKeyResponse = UpdateAccessKeyResponse'

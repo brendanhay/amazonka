@@ -42,8 +42,8 @@
 module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     (
     -- * Creating a Request
-      AuthorizeClusterSecurityGroupIngress
-    , authorizeClusterSecurityGroupIngress
+      authorizeClusterSecurityGroupIngress
+    , AuthorizeClusterSecurityGroupIngress
     -- * Request Lenses
     , acsgiEC2SecurityGroupOwnerId
     , acsgiEC2SecurityGroupName
@@ -51,8 +51,8 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     , acsgiClusterSecurityGroupName
 
     -- * Destructuring the Response
-    , AuthorizeClusterSecurityGroupIngressResponse
     , authorizeClusterSecurityGroupIngressResponse
+    , AuthorizeClusterSecurityGroupIngressResponse
     -- * Response Lenses
     , acsgirsClusterSecurityGroup
     , acsgirsStatus
@@ -67,8 +67,16 @@ import           Network.AWS.Response
 -- | ???
 --
 -- /See:/ 'authorizeClusterSecurityGroupIngress' smart constructor.
+data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
+    { _acsgiEC2SecurityGroupOwnerId  :: !(Maybe Text)
+    , _acsgiEC2SecurityGroupName     :: !(Maybe Text)
+    , _acsgiCIdRIP                   :: !(Maybe Text)
+    , _acsgiClusterSecurityGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AuthorizeClusterSecurityGroupIngress' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'acsgiEC2SecurityGroupOwnerId'
 --
@@ -77,15 +85,9 @@ import           Network.AWS.Response
 -- * 'acsgiCIdRIP'
 --
 -- * 'acsgiClusterSecurityGroupName'
-data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
-    { _acsgiEC2SecurityGroupOwnerId  :: !(Maybe Text)
-    , _acsgiEC2SecurityGroupName     :: !(Maybe Text)
-    , _acsgiCIdRIP                   :: !(Maybe Text)
-    , _acsgiClusterSecurityGroupName :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'AuthorizeClusterSecurityGroupIngress' smart constructor.
-authorizeClusterSecurityGroupIngress :: Text -> AuthorizeClusterSecurityGroupIngress
+authorizeClusterSecurityGroupIngress
+    :: Text -- ^ 'acsgiClusterSecurityGroupName'
+    -> AuthorizeClusterSecurityGroupIngress
 authorizeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
     AuthorizeClusterSecurityGroupIngress'
     { _acsgiEC2SecurityGroupOwnerId = Nothing
@@ -98,7 +100,7 @@ authorizeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
 -- the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an
 -- acceptable value.
 --
--- Example: @111122223333@
+-- Example: '111122223333'
 acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
 acsgiEC2SecurityGroupOwnerId = lens _acsgiEC2SecurityGroupOwnerId (\ s a -> s{_acsgiEC2SecurityGroupOwnerId = a});
 
@@ -153,19 +155,21 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress
                  _acsgiClusterSecurityGroupName]
 
 -- | /See:/ 'authorizeClusterSecurityGroupIngressResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'acsgirsClusterSecurityGroup'
---
--- * 'acsgirsStatus'
 data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'
     { _acsgirsClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
     , _acsgirsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AuthorizeClusterSecurityGroupIngressResponse' smart constructor.
-authorizeClusterSecurityGroupIngressResponse :: Int -> AuthorizeClusterSecurityGroupIngressResponse
+-- | Creates a value of 'AuthorizeClusterSecurityGroupIngressResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'acsgirsClusterSecurityGroup'
+--
+-- * 'acsgirsStatus'
+authorizeClusterSecurityGroupIngressResponse
+    :: Int -- ^ 'acsgirsStatus'
+    -> AuthorizeClusterSecurityGroupIngressResponse
 authorizeClusterSecurityGroupIngressResponse pStatus_ =
     AuthorizeClusterSecurityGroupIngressResponse'
     { _acsgirsClusterSecurityGroup = Nothing
@@ -176,6 +180,6 @@ authorizeClusterSecurityGroupIngressResponse pStatus_ =
 acsgirsClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
 acsgirsClusterSecurityGroup = lens _acsgirsClusterSecurityGroup (\ s a -> s{_acsgirsClusterSecurityGroup = a});
 
--- | Undocumented member.
+-- | The response status code.
 acsgirsStatus :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
 acsgirsStatus = lens _acsgirsStatus (\ s a -> s{_acsgirsStatus = a});

@@ -24,14 +24,14 @@
 module Network.AWS.CodeDeploy.CreateApplication
     (
     -- * Creating a Request
-      CreateApplication
-    , createApplication
+      createApplication
+    , CreateApplication
     -- * Request Lenses
     , caApplicationName
 
     -- * Destructuring the Response
-    , CreateApplicationResponse
     , createApplicationResponse
+    , CreateApplicationResponse
     -- * Response Lenses
     , carsApplicationId
     , carsStatus
@@ -46,16 +46,18 @@ import           Network.AWS.Response
 -- | Represents the input of a create application operation.
 --
 -- /See:/ 'createApplication' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'caApplicationName'
 newtype CreateApplication = CreateApplication'
     { _caApplicationName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateApplication' smart constructor.
-createApplication :: Text -> CreateApplication
+-- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'caApplicationName'
+createApplication
+    :: Text -- ^ 'caApplicationName'
+    -> CreateApplication
 createApplication pApplicationName_ =
     CreateApplication'
     { _caApplicationName = pApplicationName_
@@ -99,19 +101,21 @@ instance ToQuery CreateApplication where
 -- | Represents the output of a create application operation.
 --
 -- /See:/ 'createApplicationResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'carsApplicationId'
---
--- * 'carsStatus'
 data CreateApplicationResponse = CreateApplicationResponse'
     { _carsApplicationId :: !(Maybe Text)
     , _carsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateApplicationResponse' smart constructor.
-createApplicationResponse :: Int -> CreateApplicationResponse
+-- | Creates a value of 'CreateApplicationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'carsApplicationId'
+--
+-- * 'carsStatus'
+createApplicationResponse
+    :: Int -- ^ 'carsStatus'
+    -> CreateApplicationResponse
 createApplicationResponse pStatus_ =
     CreateApplicationResponse'
     { _carsApplicationId = Nothing
@@ -122,6 +126,6 @@ createApplicationResponse pStatus_ =
 carsApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
 carsApplicationId = lens _carsApplicationId (\ s a -> s{_carsApplicationId = a});
 
--- | Undocumented member.
+-- | The response status code.
 carsStatus :: Lens' CreateApplicationResponse Int
 carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

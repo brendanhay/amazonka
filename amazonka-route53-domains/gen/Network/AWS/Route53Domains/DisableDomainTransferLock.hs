@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation removes the transfer lock on the domain (specifically the
--- @clientTransferProhibited@ status) to allow domain transfers. We
+-- 'clientTransferProhibited' status) to allow domain transfers. We
 -- recommend you refrain from performing this action unless you intend to
 -- transfer the domain to a different registrar. Successful submission
 -- returns an operation ID that you can use to track the progress and
@@ -30,14 +30,14 @@
 module Network.AWS.Route53Domains.DisableDomainTransferLock
     (
     -- * Creating a Request
-      DisableDomainTransferLock
-    , disableDomainTransferLock
+      disableDomainTransferLock
+    , DisableDomainTransferLock
     -- * Request Lenses
     , ddtlDomainName
 
     -- * Destructuring the Response
-    , DisableDomainTransferLockResponse
     , disableDomainTransferLockResponse
+    , DisableDomainTransferLockResponse
     -- * Response Lenses
     , ddtlrsStatus
     , ddtlrsOperationId
@@ -52,16 +52,18 @@ import           Network.AWS.Route53Domains.Types.Product
 -- | The DisableDomainTransferLock request includes the following element.
 --
 -- /See:/ 'disableDomainTransferLock' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddtlDomainName'
 newtype DisableDomainTransferLock = DisableDomainTransferLock'
     { _ddtlDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableDomainTransferLock' smart constructor.
-disableDomainTransferLock :: Text -> DisableDomainTransferLock
+-- | Creates a value of 'DisableDomainTransferLock' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddtlDomainName'
+disableDomainTransferLock
+    :: Text -- ^ 'ddtlDomainName'
+    -> DisableDomainTransferLock
 disableDomainTransferLock pDomainName_ =
     DisableDomainTransferLock'
     { _ddtlDomainName = pDomainName_
@@ -115,26 +117,29 @@ instance ToQuery DisableDomainTransferLock where
 -- | The DisableDomainTransferLock response includes the following element.
 --
 -- /See:/ 'disableDomainTransferLockResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddtlrsStatus'
---
--- * 'ddtlrsOperationId'
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
     { _ddtlrsStatus      :: !Int
     , _ddtlrsOperationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisableDomainTransferLockResponse' smart constructor.
-disableDomainTransferLockResponse :: Int -> Text -> DisableDomainTransferLockResponse
+-- | Creates a value of 'DisableDomainTransferLockResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddtlrsStatus'
+--
+-- * 'ddtlrsOperationId'
+disableDomainTransferLockResponse
+    :: Int -- ^ 'ddtlrsStatus'
+    -> Text -- ^ 'ddtlrsOperationId'
+    -> DisableDomainTransferLockResponse
 disableDomainTransferLockResponse pStatus_ pOperationId_ =
     DisableDomainTransferLockResponse'
     { _ddtlrsStatus = pStatus_
     , _ddtlrsOperationId = pOperationId_
     }
 
--- | Undocumented member.
+-- | The response status code.
 ddtlrsStatus :: Lens' DisableDomainTransferLockResponse Int
 ddtlrsStatus = lens _ddtlrsStatus (\ s a -> s{_ddtlrsStatus = a});
 

@@ -26,15 +26,15 @@
 module Network.AWS.EC2.DeleteVPCEndpoints
     (
     -- * Creating a Request
-      DeleteVPCEndpoints
-    , deleteVPCEndpoints
+      deleteVPCEndpoints
+    , DeleteVPCEndpoints
     -- * Request Lenses
     , dveDryRun
     , dveVPCEndpointIds
 
     -- * Destructuring the Response
-    , DeleteVPCEndpointsResponse
     , deleteVPCEndpointsResponse
+    , DeleteVPCEndpointsResponse
     -- * Response Lenses
     , dversUnsuccessful
     , dversStatus
@@ -47,19 +47,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteVPCEndpoints' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dveDryRun'
---
--- * 'dveVPCEndpointIds'
 data DeleteVPCEndpoints = DeleteVPCEndpoints'
     { _dveDryRun         :: !(Maybe Bool)
     , _dveVPCEndpointIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVPCEndpoints' smart constructor.
-deleteVPCEndpoints :: DeleteVPCEndpoints
+-- | Creates a value of 'DeleteVPCEndpoints' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dveDryRun'
+--
+-- * 'dveVPCEndpointIds'
+deleteVPCEndpoints
+    :: DeleteVPCEndpoints
 deleteVPCEndpoints =
     DeleteVPCEndpoints'
     { _dveDryRun = Nothing
@@ -68,8 +69,8 @@ deleteVPCEndpoints =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dveDryRun :: Lens' DeleteVPCEndpoints (Maybe Bool)
 dveDryRun = lens _dveDryRun (\ s a -> s{_dveDryRun = a});
 
@@ -105,19 +106,21 @@ instance ToQuery DeleteVPCEndpoints where
                toQueryList "item" _dveVPCEndpointIds]
 
 -- | /See:/ 'deleteVPCEndpointsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dversUnsuccessful'
---
--- * 'dversStatus'
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
     { _dversUnsuccessful :: !(Maybe [UnsuccessfulItem])
     , _dversStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVPCEndpointsResponse' smart constructor.
-deleteVPCEndpointsResponse :: Int -> DeleteVPCEndpointsResponse
+-- | Creates a value of 'DeleteVPCEndpointsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dversUnsuccessful'
+--
+-- * 'dversStatus'
+deleteVPCEndpointsResponse
+    :: Int -- ^ 'dversStatus'
+    -> DeleteVPCEndpointsResponse
 deleteVPCEndpointsResponse pStatus_ =
     DeleteVPCEndpointsResponse'
     { _dversUnsuccessful = Nothing
@@ -128,6 +131,6 @@ deleteVPCEndpointsResponse pStatus_ =
 dversUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
 dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 dversStatus :: Lens' DeleteVPCEndpointsResponse Int
 dversStatus = lens _dversStatus (\ s a -> s{_dversStatus = a});

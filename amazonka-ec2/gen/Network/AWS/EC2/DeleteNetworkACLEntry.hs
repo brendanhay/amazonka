@@ -25,8 +25,8 @@
 module Network.AWS.EC2.DeleteNetworkACLEntry
     (
     -- * Creating a Request
-      DeleteNetworkACLEntry
-    , deleteNetworkACLEntry
+      deleteNetworkACLEntry
+    , DeleteNetworkACLEntry
     -- * Request Lenses
     , dnaeDryRun
     , dnaeNetworkACLId
@@ -34,8 +34,8 @@ module Network.AWS.EC2.DeleteNetworkACLEntry
     , dnaeEgress
 
     -- * Destructuring the Response
-    , DeleteNetworkACLEntryResponse
     , deleteNetworkACLEntryResponse
+    , DeleteNetworkACLEntryResponse
     ) where
 
 import           Network.AWS.EC2.Types
@@ -45,8 +45,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteNetworkACLEntry' smart constructor.
+data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
+    { _dnaeDryRun       :: !(Maybe Bool)
+    , _dnaeNetworkACLId :: !Text
+    , _dnaeRuleNumber   :: !Int
+    , _dnaeEgress       :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteNetworkACLEntry' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'dnaeDryRun'
 --
@@ -55,15 +63,11 @@ import           Network.AWS.Response
 -- * 'dnaeRuleNumber'
 --
 -- * 'dnaeEgress'
-data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
-    { _dnaeDryRun       :: !(Maybe Bool)
-    , _dnaeNetworkACLId :: !Text
-    , _dnaeRuleNumber   :: !Int
-    , _dnaeEgress       :: !Bool
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'DeleteNetworkACLEntry' smart constructor.
-deleteNetworkACLEntry :: Text -> Int -> Bool -> DeleteNetworkACLEntry
+deleteNetworkACLEntry
+    :: Text -- ^ 'dnaeNetworkACLId'
+    -> Int -- ^ 'dnaeRuleNumber'
+    -> Bool -- ^ 'dnaeEgress'
+    -> DeleteNetworkACLEntry
 deleteNetworkACLEntry pNetworkACLId_ pRuleNumber_ pEgress_ =
     DeleteNetworkACLEntry'
     { _dnaeDryRun = Nothing
@@ -74,8 +78,8 @@ deleteNetworkACLEntry pNetworkACLId_ pRuleNumber_ pEgress_ =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dnaeDryRun :: Lens' DeleteNetworkACLEntry (Maybe Bool)
 dnaeDryRun = lens _dnaeDryRun (\ s a -> s{_dnaeDryRun = a});
 
@@ -119,6 +123,8 @@ data DeleteNetworkACLEntryResponse =
     DeleteNetworkACLEntryResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteNetworkACLEntryResponse' smart constructor.
-deleteNetworkACLEntryResponse :: DeleteNetworkACLEntryResponse
+-- | Creates a value of 'DeleteNetworkACLEntryResponse' with the minimum fields required to make a request.
+--
+deleteNetworkACLEntryResponse
+    :: DeleteNetworkACLEntryResponse
 deleteNetworkACLEntryResponse = DeleteNetworkACLEntryResponse'

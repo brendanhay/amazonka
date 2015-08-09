@@ -27,15 +27,15 @@
 module Network.AWS.RDS.ListTagsForResource
     (
     -- * Creating a Request
-      ListTagsForResource
-    , listTagsForResource
+      listTagsForResource
+    , ListTagsForResource
     -- * Request Lenses
     , ltfrFilters
     , ltfrResourceName
 
     -- * Destructuring the Response
-    , ListTagsForResourceResponse
     , listTagsForResourceResponse
+    , ListTagsForResourceResponse
     -- * Response Lenses
     , ltfrrsTagList
     , ltfrrsStatus
@@ -50,19 +50,21 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'listTagsForResource' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltfrFilters'
---
--- * 'ltfrResourceName'
 data ListTagsForResource = ListTagsForResource'
     { _ltfrFilters      :: !(Maybe [Filter])
     , _ltfrResourceName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTagsForResource' smart constructor.
-listTagsForResource :: Text -> ListTagsForResource
+-- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltfrFilters'
+--
+-- * 'ltfrResourceName'
+listTagsForResource
+    :: Text -- ^ 'ltfrResourceName'
+    -> ListTagsForResource
 listTagsForResource pResourceName_ =
     ListTagsForResource'
     { _ltfrFilters = Nothing
@@ -110,19 +112,21 @@ instance ToQuery ListTagsForResource where
 -- |
 --
 -- /See:/ 'listTagsForResourceResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltfrrsTagList'
---
--- * 'ltfrrsStatus'
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
     { _ltfrrsTagList :: !(Maybe [Tag])
     , _ltfrrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTagsForResourceResponse' smart constructor.
-listTagsForResourceResponse :: Int -> ListTagsForResourceResponse
+-- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ltfrrsTagList'
+--
+-- * 'ltfrrsStatus'
+listTagsForResourceResponse
+    :: Int -- ^ 'ltfrrsStatus'
+    -> ListTagsForResourceResponse
 listTagsForResourceResponse pStatus_ =
     ListTagsForResourceResponse'
     { _ltfrrsTagList = Nothing
@@ -133,6 +137,6 @@ listTagsForResourceResponse pStatus_ =
 ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 ltfrrsStatus :: Lens' ListTagsForResourceResponse Int
 ltfrrsStatus = lens _ltfrrsStatus (\ s a -> s{_ltfrrsStatus = a});

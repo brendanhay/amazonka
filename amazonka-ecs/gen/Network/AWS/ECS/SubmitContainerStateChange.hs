@@ -27,8 +27,8 @@
 module Network.AWS.ECS.SubmitContainerStateChange
     (
     -- * Creating a Request
-      SubmitContainerStateChange
-    , submitContainerStateChange
+      submitContainerStateChange
+    , SubmitContainerStateChange
     -- * Request Lenses
     , scscNetworkBindings
     , scscStatus
@@ -39,8 +39,8 @@ module Network.AWS.ECS.SubmitContainerStateChange
     , scscTask
 
     -- * Destructuring the Response
-    , SubmitContainerStateChangeResponse
     , submitContainerStateChangeResponse
+    , SubmitContainerStateChangeResponse
     -- * Response Lenses
     , scscrsAcknowledgment
     , scscrsStatus
@@ -53,8 +53,19 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'submitContainerStateChange' smart constructor.
+data SubmitContainerStateChange = SubmitContainerStateChange'
+    { _scscNetworkBindings :: !(Maybe [NetworkBinding])
+    , _scscStatus          :: !(Maybe Text)
+    , _scscCluster         :: !(Maybe Text)
+    , _scscContainerName   :: !(Maybe Text)
+    , _scscReason          :: !(Maybe Text)
+    , _scscExitCode        :: !(Maybe Int)
+    , _scscTask            :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SubmitContainerStateChange' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'scscNetworkBindings'
 --
@@ -69,18 +80,8 @@ import           Network.AWS.Response
 -- * 'scscExitCode'
 --
 -- * 'scscTask'
-data SubmitContainerStateChange = SubmitContainerStateChange'
-    { _scscNetworkBindings :: !(Maybe [NetworkBinding])
-    , _scscStatus          :: !(Maybe Text)
-    , _scscCluster         :: !(Maybe Text)
-    , _scscContainerName   :: !(Maybe Text)
-    , _scscReason          :: !(Maybe Text)
-    , _scscExitCode        :: !(Maybe Int)
-    , _scscTask            :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'SubmitContainerStateChange' smart constructor.
-submitContainerStateChange :: SubmitContainerStateChange
+submitContainerStateChange
+    :: SubmitContainerStateChange
 submitContainerStateChange =
     SubmitContainerStateChange'
     { _scscNetworkBindings = Nothing
@@ -159,19 +160,21 @@ instance ToQuery SubmitContainerStateChange where
         toQuery = const mempty
 
 -- | /See:/ 'submitContainerStateChangeResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'scscrsAcknowledgment'
---
--- * 'scscrsStatus'
 data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
     { _scscrsAcknowledgment :: !(Maybe Text)
     , _scscrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SubmitContainerStateChangeResponse' smart constructor.
-submitContainerStateChangeResponse :: Int -> SubmitContainerStateChangeResponse
+-- | Creates a value of 'SubmitContainerStateChangeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scscrsAcknowledgment'
+--
+-- * 'scscrsStatus'
+submitContainerStateChangeResponse
+    :: Int -- ^ 'scscrsStatus'
+    -> SubmitContainerStateChangeResponse
 submitContainerStateChangeResponse pStatus_ =
     SubmitContainerStateChangeResponse'
     { _scscrsAcknowledgment = Nothing
@@ -182,6 +185,6 @@ submitContainerStateChangeResponse pStatus_ =
 scscrsAcknowledgment :: Lens' SubmitContainerStateChangeResponse (Maybe Text)
 scscrsAcknowledgment = lens _scscrsAcknowledgment (\ s a -> s{_scscrsAcknowledgment = a});
 
--- | Undocumented member.
+-- | The response status code.
 scscrsStatus :: Lens' SubmitContainerStateChangeResponse Int
 scscrsStatus = lens _scscrsStatus (\ s a -> s{_scscrsStatus = a});

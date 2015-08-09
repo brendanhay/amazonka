@@ -20,28 +20,28 @@
 --
 -- Deletes the messages in a queue specified by the __queue URL__.
 --
--- When you use the @PurgeQueue@ API, the deleted messages in the queue
+-- When you use the 'PurgeQueue' API, the deleted messages in the queue
 -- cannot be retrieved.
 --
 -- When you purge a queue, the message deletion process takes up to 60
--- seconds. All messages sent to the queue before calling @PurgeQueue@ will
+-- seconds. All messages sent to the queue before calling 'PurgeQueue' will
 -- be deleted; messages sent to the queue while it is being purged may be
 -- deleted. While the queue is being purged, messages sent to the queue
--- before @PurgeQueue@ was called may be received, but will be deleted
+-- before 'PurgeQueue' was called may be received, but will be deleted
 -- within the next minute.
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_PurgeQueue.html AWS API Reference> for PurgeQueue.
 module Network.AWS.SQS.PurgeQueue
     (
     -- * Creating a Request
-      PurgeQueue
-    , purgeQueue
+      purgeQueue
+    , PurgeQueue
     -- * Request Lenses
     , pqQueueURL
 
     -- * Destructuring the Response
-    , PurgeQueueResponse
     , purgeQueueResponse
+    , PurgeQueueResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -51,23 +51,25 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'purgeQueue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pqQueueURL'
 newtype PurgeQueue = PurgeQueue'
     { _pqQueueURL :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PurgeQueue' smart constructor.
-purgeQueue :: Text -> PurgeQueue
+-- | Creates a value of 'PurgeQueue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pqQueueURL'
+purgeQueue
+    :: Text -- ^ 'pqQueueURL'
+    -> PurgeQueue
 purgeQueue pQueueURL_ =
     PurgeQueue'
     { _pqQueueURL = pQueueURL_
     }
 
 -- | The queue URL of the queue to delete the messages from when using the
--- @PurgeQueue@ API.
+-- 'PurgeQueue' API.
 pqQueueURL :: Lens' PurgeQueue Text
 pqQueueURL = lens _pqQueueURL (\ s a -> s{_pqQueueURL = a});
 
@@ -95,6 +97,8 @@ data PurgeQueueResponse =
     PurgeQueueResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PurgeQueueResponse' smart constructor.
-purgeQueueResponse :: PurgeQueueResponse
+-- | Creates a value of 'PurgeQueueResponse' with the minimum fields required to make a request.
+--
+purgeQueueResponse
+    :: PurgeQueueResponse
 purgeQueueResponse = PurgeQueueResponse'

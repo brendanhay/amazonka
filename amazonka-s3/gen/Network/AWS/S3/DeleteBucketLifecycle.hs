@@ -24,14 +24,14 @@
 module Network.AWS.S3.DeleteBucketLifecycle
     (
     -- * Creating a Request
-      DeleteBucketLifecycle
-    , deleteBucketLifecycle
+      deleteBucketLifecycle
+    , DeleteBucketLifecycle
     -- * Request Lenses
     , dblBucket
 
     -- * Destructuring the Response
-    , DeleteBucketLifecycleResponse
     , deleteBucketLifecycleResponse
+    , DeleteBucketLifecycleResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -41,16 +41,18 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'deleteBucketLifecycle' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dblBucket'
 newtype DeleteBucketLifecycle = DeleteBucketLifecycle'
     { _dblBucket :: BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucketLifecycle' smart constructor.
-deleteBucketLifecycle :: BucketName -> DeleteBucketLifecycle
+-- | Creates a value of 'DeleteBucketLifecycle' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dblBucket'
+deleteBucketLifecycle
+    :: BucketName -- ^ 'dblBucket'
+    -> DeleteBucketLifecycle
 deleteBucketLifecycle pBucket_ =
     DeleteBucketLifecycle'
     { _dblBucket = pBucket_
@@ -82,6 +84,8 @@ data DeleteBucketLifecycleResponse =
     DeleteBucketLifecycleResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucketLifecycleResponse' smart constructor.
-deleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse
+-- | Creates a value of 'DeleteBucketLifecycleResponse' with the minimum fields required to make a request.
+--
+deleteBucketLifecycleResponse
+    :: DeleteBucketLifecycleResponse
 deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse'

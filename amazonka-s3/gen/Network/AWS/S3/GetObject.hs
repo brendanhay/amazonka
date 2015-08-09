@@ -24,8 +24,8 @@
 module Network.AWS.S3.GetObject
     (
     -- * Creating a Request
-      GetObject
-    , getObject
+      getObject
+    , GetObject
     -- * Request Lenses
     , goIfMatch
     , goVersionId
@@ -47,8 +47,8 @@ module Network.AWS.S3.GetObject
     , goKey
 
     -- * Destructuring the Response
-    , GetObjectResponse
     , getObjectResponse
+    , GetObjectResponse
     -- * Response Lenses
     , gorsVersionId
     , gorsETag
@@ -86,8 +86,30 @@ import           Network.AWS.S3.Types
 import           Network.AWS.S3.Types.Product
 
 -- | /See:/ 'getObject' smart constructor.
+data GetObject = GetObject'
+    { _goIfMatch                    :: !(Maybe Text)
+    , _goVersionId                  :: !(Maybe ObjectVersionId)
+    , _goResponseContentType        :: !(Maybe Text)
+    , _goResponseContentDisposition :: !(Maybe Text)
+    , _goResponseContentLanguage    :: !(Maybe Text)
+    , _goSSECustomerAlgorithm       :: !(Maybe Text)
+    , _goSSECustomerKey             :: !(Maybe (Sensitive Text))
+    , _goRequestPayer               :: !(Maybe RequestPayer)
+    , _goResponseContentEncoding    :: !(Maybe Text)
+    , _goIfModifiedSince            :: !(Maybe RFC822)
+    , _goRange                      :: !(Maybe Text)
+    , _goIfUnmodifiedSince          :: !(Maybe RFC822)
+    , _goSSECustomerKeyMD5          :: !(Maybe Text)
+    , _goResponseCacheControl       :: !(Maybe Text)
+    , _goResponseExpires            :: !(Maybe RFC822)
+    , _goIfNoneMatch                :: !(Maybe Text)
+    , _goBucket                     :: !BucketName
+    , _goKey                        :: !ObjectKey
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetObject' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'goIfMatch'
 --
@@ -124,29 +146,10 @@ import           Network.AWS.S3.Types.Product
 -- * 'goBucket'
 --
 -- * 'goKey'
-data GetObject = GetObject'
-    { _goIfMatch                    :: !(Maybe Text)
-    , _goVersionId                  :: !(Maybe ObjectVersionId)
-    , _goResponseContentType        :: !(Maybe Text)
-    , _goResponseContentDisposition :: !(Maybe Text)
-    , _goResponseContentLanguage    :: !(Maybe Text)
-    , _goSSECustomerAlgorithm       :: !(Maybe Text)
-    , _goSSECustomerKey             :: !(Maybe (Sensitive Text))
-    , _goRequestPayer               :: !(Maybe RequestPayer)
-    , _goResponseContentEncoding    :: !(Maybe Text)
-    , _goIfModifiedSince            :: !(Maybe RFC822)
-    , _goRange                      :: !(Maybe Text)
-    , _goIfUnmodifiedSince          :: !(Maybe RFC822)
-    , _goSSECustomerKeyMD5          :: !(Maybe Text)
-    , _goResponseCacheControl       :: !(Maybe Text)
-    , _goResponseExpires            :: !(Maybe RFC822)
-    , _goIfNoneMatch                :: !(Maybe Text)
-    , _goBucket                     :: !BucketName
-    , _goKey                        :: !ObjectKey
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'GetObject' smart constructor.
-getObject :: BucketName -> ObjectKey -> GetObject
+getObject
+    :: BucketName -- ^ 'goBucket'
+    -> ObjectKey -- ^ 'goKey'
+    -> GetObject
 getObject pBucket_ pKey_ =
     GetObject'
     { _goIfMatch = Nothing
@@ -329,8 +332,39 @@ instance ToQuery GetObject where
                "response-expires" =: _goResponseExpires]
 
 -- | /See:/ 'getObjectResponse' smart constructor.
+data GetObjectResponse = GetObjectResponse'
+    { _gorsVersionId               :: !(Maybe ObjectVersionId)
+    , _gorsETag                    :: !(Maybe ETag)
+    , _gorsRequestCharged          :: !(Maybe RequestCharged)
+    , _gorsContentLength           :: !(Maybe Int)
+    , _gorsRestore                 :: !(Maybe Text)
+    , _gorsExpires                 :: !(Maybe RFC822)
+    , _gorsDeleteMarker            :: !(Maybe Bool)
+    , _gorsExpiration              :: !(Maybe Text)
+    , _gorsSSECustomerAlgorithm    :: !(Maybe Text)
+    , _gorsMissingMeta             :: !(Maybe Int)
+    , _gorsWebsiteRedirectLocation :: !(Maybe Text)
+    , _gorsAcceptRanges            :: !(Maybe Text)
+    , _gorsStorageClass            :: !(Maybe StorageClass)
+    , _gorsContentEncoding         :: !(Maybe Text)
+    , _gorsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _gorsSSECustomerKeyMD5       :: !(Maybe Text)
+    , _gorsMetadata                :: !(Map Text Text)
+    , _gorsReplicationStatus       :: !(Maybe ReplicationStatus)
+    , _gorsCacheControl            :: !(Maybe Text)
+    , _gorsContentLanguage         :: !(Maybe Text)
+    , _gorsLastModified            :: !(Maybe RFC822)
+    , _gorsContentDisposition      :: !(Maybe Text)
+    , _gorsContentRange            :: !(Maybe Text)
+    , _gorsServerSideEncryption    :: !(Maybe ServerSideEncryption)
+    , _gorsContentType             :: !(Maybe Text)
+    , _gorsStatus                  :: !Int
+    , _gorsBody                    :: !RsBody
+    } deriving (Show,Generic)
+
+-- | Creates a value of 'GetObjectResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'gorsVersionId'
 --
@@ -385,38 +419,10 @@ instance ToQuery GetObject where
 -- * 'gorsStatus'
 --
 -- * 'gorsBody'
-data GetObjectResponse = GetObjectResponse'
-    { _gorsVersionId               :: !(Maybe ObjectVersionId)
-    , _gorsETag                    :: !(Maybe ETag)
-    , _gorsRequestCharged          :: !(Maybe RequestCharged)
-    , _gorsContentLength           :: !(Maybe Int)
-    , _gorsRestore                 :: !(Maybe Text)
-    , _gorsExpires                 :: !(Maybe RFC822)
-    , _gorsDeleteMarker            :: !(Maybe Bool)
-    , _gorsExpiration              :: !(Maybe Text)
-    , _gorsSSECustomerAlgorithm    :: !(Maybe Text)
-    , _gorsMissingMeta             :: !(Maybe Int)
-    , _gorsWebsiteRedirectLocation :: !(Maybe Text)
-    , _gorsAcceptRanges            :: !(Maybe Text)
-    , _gorsStorageClass            :: !(Maybe StorageClass)
-    , _gorsContentEncoding         :: !(Maybe Text)
-    , _gorsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
-    , _gorsSSECustomerKeyMD5       :: !(Maybe Text)
-    , _gorsMetadata                :: !(Map Text Text)
-    , _gorsReplicationStatus       :: !(Maybe ReplicationStatus)
-    , _gorsCacheControl            :: !(Maybe Text)
-    , _gorsContentLanguage         :: !(Maybe Text)
-    , _gorsLastModified            :: !(Maybe RFC822)
-    , _gorsContentDisposition      :: !(Maybe Text)
-    , _gorsContentRange            :: !(Maybe Text)
-    , _gorsServerSideEncryption    :: !(Maybe ServerSideEncryption)
-    , _gorsContentType             :: !(Maybe Text)
-    , _gorsStatus                  :: !Int
-    , _gorsBody                    :: !RsBody
-    } deriving (Show,Generic)
-
--- | 'GetObjectResponse' smart constructor.
-getObjectResponse :: Int -> RsBody -> GetObjectResponse
+getObjectResponse
+    :: Int -- ^ 'gorsStatus'
+    -> RsBody -- ^ 'gorsBody'
+    -> GetObjectResponse
 getObjectResponse pStatus_ pBody_ =
     GetObjectResponse'
     { _gorsVersionId = Nothing
@@ -569,7 +575,7 @@ gorsServerSideEncryption = lens _gorsServerSideEncryption (\ s a -> s{_gorsServe
 gorsContentType :: Lens' GetObjectResponse (Maybe Text)
 gorsContentType = lens _gorsContentType (\ s a -> s{_gorsContentType = a});
 
--- | Undocumented member.
+-- | The response status code.
 gorsStatus :: Lens' GetObjectResponse Int
 gorsStatus = lens _gorsStatus (\ s a -> s{_gorsStatus = a});
 

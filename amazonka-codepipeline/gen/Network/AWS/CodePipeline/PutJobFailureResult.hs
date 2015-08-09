@@ -25,15 +25,15 @@
 module Network.AWS.CodePipeline.PutJobFailureResult
     (
     -- * Creating a Request
-      PutJobFailureResult
-    , putJobFailureResult
+      putJobFailureResult
+    , PutJobFailureResult
     -- * Request Lenses
     , pjfrJobId
     , pjfrFailureDetails
 
     -- * Destructuring the Response
-    , PutJobFailureResultResponse
     , putJobFailureResultResponse
+    , PutJobFailureResultResponse
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -45,19 +45,22 @@ import           Network.AWS.Response
 -- | Represents the input of a put job failure result action.
 --
 -- /See:/ 'putJobFailureResult' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pjfrJobId'
---
--- * 'pjfrFailureDetails'
 data PutJobFailureResult = PutJobFailureResult'
     { _pjfrJobId          :: !Text
     , _pjfrFailureDetails :: !FailureDetails
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutJobFailureResult' smart constructor.
-putJobFailureResult :: Text -> FailureDetails -> PutJobFailureResult
+-- | Creates a value of 'PutJobFailureResult' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pjfrJobId'
+--
+-- * 'pjfrFailureDetails'
+putJobFailureResult
+    :: Text -- ^ 'pjfrJobId'
+    -> FailureDetails -- ^ 'pjfrFailureDetails'
+    -> PutJobFailureResult
 putJobFailureResult pJobId_ pFailureDetails_ =
     PutJobFailureResult'
     { _pjfrJobId = pJobId_
@@ -107,6 +110,8 @@ data PutJobFailureResultResponse =
     PutJobFailureResultResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutJobFailureResultResponse' smart constructor.
-putJobFailureResultResponse :: PutJobFailureResultResponse
+-- | Creates a value of 'PutJobFailureResultResponse' with the minimum fields required to make a request.
+--
+putJobFailureResultResponse
+    :: PutJobFailureResultResponse
 putJobFailureResultResponse = PutJobFailureResultResponse'

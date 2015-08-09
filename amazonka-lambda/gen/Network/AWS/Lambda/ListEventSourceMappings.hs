@@ -19,7 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of event source mappings you created using the
--- @CreateEventSourceMapping@ (see CreateEventSourceMapping), where you
+-- 'CreateEventSourceMapping' (see CreateEventSourceMapping), where you
 -- identify a stream as an event source. This list does not include Amazon
 -- S3 event sources.
 --
@@ -27,14 +27,16 @@
 -- optionally specify filters to retrieve specific event source mappings.
 --
 -- This operation requires permission for the
--- @lambda:ListEventSourceMappings@ action.
+-- 'lambda:ListEventSourceMappings' action.
 --
 -- /See:/ <http://docs.aws.amazon.com/lambda/latest/dg/API_ListEventSourceMappings.html AWS API Reference> for ListEventSourceMappings.
+--
+-- This operation returns paginated results.
 module Network.AWS.Lambda.ListEventSourceMappings
     (
     -- * Creating a Request
-      ListEventSourceMappings
-    , listEventSourceMappings
+      listEventSourceMappings
+    , ListEventSourceMappings
     -- * Request Lenses
     , lesmEventSourceARN
     , lesmMaxItems
@@ -42,8 +44,8 @@ module Network.AWS.Lambda.ListEventSourceMappings
     , lesmFunctionName
 
     -- * Destructuring the Response
-    , ListEventSourceMappingsResponse
     , listEventSourceMappingsResponse
+    , ListEventSourceMappingsResponse
     -- * Response Lenses
     , lesmrsEventSourceMappings
     , lesmrsNextMarker
@@ -58,8 +60,16 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'listEventSourceMappings' smart constructor.
+data ListEventSourceMappings = ListEventSourceMappings'
+    { _lesmEventSourceARN :: !(Maybe Text)
+    , _lesmMaxItems       :: !(Maybe Nat)
+    , _lesmMarker         :: !(Maybe Text)
+    , _lesmFunctionName   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListEventSourceMappings' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'lesmEventSourceARN'
 --
@@ -68,15 +78,8 @@ import           Network.AWS.Response
 -- * 'lesmMarker'
 --
 -- * 'lesmFunctionName'
-data ListEventSourceMappings = ListEventSourceMappings'
-    { _lesmEventSourceARN :: !(Maybe Text)
-    , _lesmMaxItems       :: !(Maybe Nat)
-    , _lesmMarker         :: !(Maybe Text)
-    , _lesmFunctionName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'ListEventSourceMappings' smart constructor.
-listEventSourceMappings :: ListEventSourceMappings
+listEventSourceMappings
+    :: ListEventSourceMappings
 listEventSourceMappings =
     ListEventSourceMappings'
     { _lesmEventSourceARN = Nothing
@@ -95,7 +98,7 @@ lesmMaxItems :: Lens' ListEventSourceMappings (Maybe Natural)
 lesmMaxItems = lens _lesmMaxItems (\ s a -> s{_lesmMaxItems = a}) . mapping _Nat;
 
 -- | Optional string. An opaque pagination token returned from a previous
--- @ListEventSourceMappings@ operation. If present, specifies to continue
+-- 'ListEventSourceMappings' operation. If present, specifies to continue
 -- the list from where the returning call left off.
 lesmMarker :: Lens' ListEventSourceMappings (Maybe Text)
 lesmMarker = lens _lesmMarker (\ s a -> s{_lesmMarker = a});
@@ -150,22 +153,24 @@ instance ToQuery ListEventSourceMappings where
 -- API_EventSourceMappingConfiguration)
 --
 -- /See:/ 'listEventSourceMappingsResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lesmrsEventSourceMappings'
---
--- * 'lesmrsNextMarker'
---
--- * 'lesmrsStatus'
 data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
     { _lesmrsEventSourceMappings :: !(Maybe [EventSourceMappingConfiguration])
     , _lesmrsNextMarker          :: !(Maybe Text)
     , _lesmrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListEventSourceMappingsResponse' smart constructor.
-listEventSourceMappingsResponse :: Int -> ListEventSourceMappingsResponse
+-- | Creates a value of 'ListEventSourceMappingsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lesmrsEventSourceMappings'
+--
+-- * 'lesmrsNextMarker'
+--
+-- * 'lesmrsStatus'
+listEventSourceMappingsResponse
+    :: Int -- ^ 'lesmrsStatus'
+    -> ListEventSourceMappingsResponse
 listEventSourceMappingsResponse pStatus_ =
     ListEventSourceMappingsResponse'
     { _lesmrsEventSourceMappings = Nothing
@@ -173,7 +178,7 @@ listEventSourceMappingsResponse pStatus_ =
     , _lesmrsStatus = pStatus_
     }
 
--- | An array of @EventSourceMappingConfiguration@ objects.
+-- | An array of 'EventSourceMappingConfiguration' objects.
 lesmrsEventSourceMappings :: Lens' ListEventSourceMappingsResponse [EventSourceMappingConfiguration]
 lesmrsEventSourceMappings = lens _lesmrsEventSourceMappings (\ s a -> s{_lesmrsEventSourceMappings = a}) . _Default . _Coerce;
 
@@ -181,6 +186,6 @@ lesmrsEventSourceMappings = lens _lesmrsEventSourceMappings (\ s a -> s{_lesmrsE
 lesmrsNextMarker :: Lens' ListEventSourceMappingsResponse (Maybe Text)
 lesmrsNextMarker = lens _lesmrsNextMarker (\ s a -> s{_lesmrsNextMarker = a});
 
--- | Undocumented member.
+-- | The response status code.
 lesmrsStatus :: Lens' ListEventSourceMappingsResponse Int
 lesmrsStatus = lens _lesmrsStatus (\ s a -> s{_lesmrsStatus = a});

@@ -296,9 +296,9 @@ _DuplicateTagKeysException :: AsError a => Getting (First ServiceError) a Servic
 _DuplicateTagKeysException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateTagKeys"
 
--- | A listener already exists for the specified @LoadBalancerName@ and
--- @LoadBalancerPort@, but with a different @InstancePort@, @Protocol@, or
--- @SSLCertificateId@.
+-- | A listener already exists for the specified 'LoadBalancerName' and
+-- 'LoadBalancerPort', but with a different 'InstancePort', 'Protocol', or
+-- 'SSLCertificateId'.
 _DuplicateListenerException :: AsError a => Getting (First ServiceError) a ServiceError
 _DuplicateListenerException =
     _ServiceError . hasStatus 400 . hasCode "DuplicateListener"

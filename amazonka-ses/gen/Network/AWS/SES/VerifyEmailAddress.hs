@@ -31,14 +31,14 @@
 module Network.AWS.SES.VerifyEmailAddress
     (
     -- * Creating a Request
-      VerifyEmailAddress
-    , verifyEmailAddress
+      verifyEmailAddress
+    , VerifyEmailAddress
     -- * Request Lenses
     , veaEmailAddress
 
     -- * Destructuring the Response
-    , VerifyEmailAddressResponse
     , verifyEmailAddressResponse
+    , VerifyEmailAddressResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -51,16 +51,18 @@ import           Network.AWS.SES.Types.Product
 -- verification.
 --
 -- /See:/ 'verifyEmailAddress' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'veaEmailAddress'
 newtype VerifyEmailAddress = VerifyEmailAddress'
     { _veaEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VerifyEmailAddress' smart constructor.
-verifyEmailAddress :: Text -> VerifyEmailAddress
+-- | Creates a value of 'VerifyEmailAddress' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'veaEmailAddress'
+verifyEmailAddress
+    :: Text -- ^ 'veaEmailAddress'
+    -> VerifyEmailAddress
 verifyEmailAddress pEmailAddress_ =
     VerifyEmailAddress'
     { _veaEmailAddress = pEmailAddress_
@@ -95,6 +97,8 @@ data VerifyEmailAddressResponse =
     VerifyEmailAddressResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VerifyEmailAddressResponse' smart constructor.
-verifyEmailAddressResponse :: VerifyEmailAddressResponse
+-- | Creates a value of 'VerifyEmailAddressResponse' with the minimum fields required to make a request.
+--
+verifyEmailAddressResponse
+    :: VerifyEmailAddressResponse
 verifyEmailAddressResponse = VerifyEmailAddressResponse'

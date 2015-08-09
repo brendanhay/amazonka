@@ -22,7 +22,7 @@
 -- the queue is empty. If the specified queue does not exist, Amazon SQS
 -- returns a successful response.
 --
--- Use @DeleteQueue@ with care; once you delete your queue, any messages in
+-- Use 'DeleteQueue' with care; once you delete your queue, any messages in
 -- the queue are no longer available.
 --
 -- When you delete a queue, the deletion process takes up to 60 seconds.
@@ -41,14 +41,14 @@
 module Network.AWS.SQS.DeleteQueue
     (
     -- * Creating a Request
-      DeleteQueue
-    , deleteQueue
+      deleteQueue
+    , DeleteQueue
     -- * Request Lenses
     , dqQueueURL
 
     -- * Destructuring the Response
-    , DeleteQueueResponse
     , deleteQueueResponse
+    , DeleteQueueResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -58,16 +58,18 @@ import           Network.AWS.SQS.Types
 import           Network.AWS.SQS.Types.Product
 
 -- | /See:/ 'deleteQueue' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dqQueueURL'
 newtype DeleteQueue = DeleteQueue'
     { _dqQueueURL :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteQueue' smart constructor.
-deleteQueue :: Text -> DeleteQueue
+-- | Creates a value of 'DeleteQueue' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dqQueueURL'
+deleteQueue
+    :: Text -- ^ 'dqQueueURL'
+    -> DeleteQueue
 deleteQueue pQueueURL_ =
     DeleteQueue'
     { _dqQueueURL = pQueueURL_
@@ -101,6 +103,8 @@ data DeleteQueueResponse =
     DeleteQueueResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteQueueResponse' smart constructor.
-deleteQueueResponse :: DeleteQueueResponse
+-- | Creates a value of 'DeleteQueueResponse' with the minimum fields required to make a request.
+--
+deleteQueueResponse
+    :: DeleteQueueResponse
 deleteQueueResponse = DeleteQueueResponse'

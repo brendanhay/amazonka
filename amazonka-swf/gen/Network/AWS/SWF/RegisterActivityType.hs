@@ -21,7 +21,7 @@
 -- Registers a new /activity type/ along with its configuration settings in
 -- the specified domain.
 --
--- A @TypeAlreadyExists@ fault is returned if the type already exists in
+-- A 'TypeAlreadyExists' fault is returned if the type already exists in
 -- the domain. You cannot change any configuration settings of the type
 -- after its registration, and it must be registered as a new version.
 --
@@ -30,16 +30,16 @@
 -- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- -   Use a @Resource@ element with the domain name to limit the action to
+-- -   Use a 'Resource' element with the domain name to limit the action to
 --     only specified domains.
--- -   Use an @Action@ element to allow or deny permission to call this
+-- -   Use an 'Action' element to allow or deny permission to call this
 --     action.
--- -   Constrain the following parameters by using a @Condition@ element
+-- -   Constrain the following parameters by using a 'Condition' element
 --     with the appropriate keys.
---     -   @defaultTaskList.name@: String constraint. The key is
---         @swf:defaultTaskList.name@.
---     -   @name@: String constraint. The key is @swf:name@.
---     -   @version@: String constraint. The key is @swf:version@.
+--     -   'defaultTaskList.name': String constraint. The key is
+--         'swf:defaultTaskList.name'.
+--     -   'name': String constraint. The key is 'swf:name'.
+--     -   'version': String constraint. The key is 'swf:version'.
 --
 -- If the caller does not have sufficient permissions to invoke the action,
 -- or the parameter values fall outside the specified constraints, the
@@ -52,8 +52,8 @@
 module Network.AWS.SWF.RegisterActivityType
     (
     -- * Creating a Request
-      RegisterActivityType
-    , registerActivityType
+      registerActivityType
+    , RegisterActivityType
     -- * Request Lenses
     , ratDefaultTaskScheduleToStartTimeout
     , ratDefaultTaskList
@@ -67,8 +67,8 @@ module Network.AWS.SWF.RegisterActivityType
     , ratVersion
 
     -- * Destructuring the Response
-    , RegisterActivityTypeResponse
     , registerActivityTypeResponse
+    , RegisterActivityTypeResponse
     ) where
 
 import           Network.AWS.Prelude
@@ -78,8 +78,22 @@ import           Network.AWS.SWF.Types
 import           Network.AWS.SWF.Types.Product
 
 -- | /See:/ 'registerActivityType' smart constructor.
+data RegisterActivityType = RegisterActivityType'
+    { _ratDefaultTaskScheduleToStartTimeout :: !(Maybe Text)
+    , _ratDefaultTaskList                   :: !(Maybe TaskList)
+    , _ratDefaultTaskPriority               :: !(Maybe Text)
+    , _ratDefaultTaskHeartbeatTimeout       :: !(Maybe Text)
+    , _ratDefaultTaskScheduleToCloseTimeout :: !(Maybe Text)
+    , _ratDefaultTaskStartToCloseTimeout    :: !(Maybe Text)
+    , _ratDescription                       :: !(Maybe Text)
+    , _ratDomain                            :: !Text
+    , _ratName                              :: !Text
+    , _ratVersion                           :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RegisterActivityType' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'ratDefaultTaskScheduleToStartTimeout'
 --
@@ -100,21 +114,11 @@ import           Network.AWS.SWF.Types.Product
 -- * 'ratName'
 --
 -- * 'ratVersion'
-data RegisterActivityType = RegisterActivityType'
-    { _ratDefaultTaskScheduleToStartTimeout :: !(Maybe Text)
-    , _ratDefaultTaskList                   :: !(Maybe TaskList)
-    , _ratDefaultTaskPriority               :: !(Maybe Text)
-    , _ratDefaultTaskHeartbeatTimeout       :: !(Maybe Text)
-    , _ratDefaultTaskScheduleToCloseTimeout :: !(Maybe Text)
-    , _ratDefaultTaskStartToCloseTimeout    :: !(Maybe Text)
-    , _ratDescription                       :: !(Maybe Text)
-    , _ratDomain                            :: !Text
-    , _ratName                              :: !Text
-    , _ratVersion                           :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'RegisterActivityType' smart constructor.
-registerActivityType :: Text -> Text -> Text -> RegisterActivityType
+registerActivityType
+    :: Text -- ^ 'ratDomain'
+    -> Text -- ^ 'ratName'
+    -> Text -- ^ 'ratVersion'
+    -> RegisterActivityType
 registerActivityType pDomain_ pName_ pVersion_ =
     RegisterActivityType'
     { _ratDefaultTaskScheduleToStartTimeout = Nothing
@@ -132,7 +136,7 @@ registerActivityType pDomain_ pName_ pVersion_ =
 -- | If set, specifies the default maximum duration that a task of this
 -- activity type can wait before being assigned to a worker. This default
 -- can be overridden when scheduling an activity task using the
--- @ScheduleActivityTask@ decision.
+-- 'ScheduleActivityTask' decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -141,14 +145,14 @@ ratDefaultTaskScheduleToStartTimeout = lens _ratDefaultTaskScheduleToStartTimeou
 
 -- | If set, specifies the default task list to use for scheduling tasks of
 -- this activity type. This default task list is used if a task list is not
--- provided when a task is scheduled through the @ScheduleActivityTask@
+-- provided when a task is scheduled through the 'ScheduleActivityTask'
 -- decision.
 ratDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
 ratDefaultTaskList = lens _ratDefaultTaskList (\ s a -> s{_ratDefaultTaskList = a});
 
 -- | The default task priority to assign to the activity type. If not
 -- assigned, then \"0\" will be used. Valid values are integers that range
--- from Java\'s @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@
+-- from Java\'s 'Integer.MIN_VALUE' (-2147483648) to 'Integer.MAX_VALUE'
 -- (2147483647). Higher numbers indicate higher priority.
 --
 -- For more information about setting task priority, see
@@ -161,9 +165,9 @@ ratDefaultTaskPriority = lens _ratDefaultTaskPriority (\ s a -> s{_ratDefaultTas
 -- processing a task of this type must report progress by calling
 -- RecordActivityTaskHeartbeat. If the timeout is exceeded, the activity
 -- task is automatically timed out. This default can be overridden when
--- scheduling an activity task using the @ScheduleActivityTask@ decision.
+-- scheduling an activity task using the 'ScheduleActivityTask' decision.
 -- If the activity worker subsequently attempts to record a heartbeat or
--- returns a result, the activity worker receives an @UnknownResource@
+-- returns a result, the activity worker receives an 'UnknownResource'
 -- fault. In this case, Amazon SWF no longer considers the activity task to
 -- be valid; the activity worker should clean up the activity task.
 --
@@ -174,7 +178,7 @@ ratDefaultTaskHeartbeatTimeout = lens _ratDefaultTaskHeartbeatTimeout (\ s a -> 
 
 -- | If set, specifies the default maximum duration for a task of this
 -- activity type. This default can be overridden when scheduling an
--- activity task using the @ScheduleActivityTask@ decision.
+-- activity task using the 'ScheduleActivityTask' decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -183,7 +187,7 @@ ratDefaultTaskScheduleToCloseTimeout = lens _ratDefaultTaskScheduleToCloseTimeou
 
 -- | If set, specifies the default maximum duration that a worker can take to
 -- process tasks of this activity type. This default can be overridden when
--- scheduling an activity task using the @ScheduleActivityTask@ decision.
+-- scheduling an activity task using the 'ScheduleActivityTask' decision.
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
@@ -201,7 +205,7 @@ ratDomain = lens _ratDomain (\ s a -> s{_ratDomain = a});
 -- | The name of the activity type within the domain.
 --
 -- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
+-- contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
 ratName :: Lens' RegisterActivityType Text
@@ -213,7 +217,7 @@ ratName = lens _ratName (\ s a -> s{_ratName = a});
 -- which must be unique within the domain.
 --
 -- The specified string must not start or end with whitespace. It must not
--- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
+-- contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
 ratVersion :: Lens' RegisterActivityType Text
@@ -264,6 +268,8 @@ data RegisterActivityTypeResponse =
     RegisterActivityTypeResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterActivityTypeResponse' smart constructor.
-registerActivityTypeResponse :: RegisterActivityTypeResponse
+-- | Creates a value of 'RegisterActivityTypeResponse' with the minimum fields required to make a request.
+--
+registerActivityTypeResponse
+    :: RegisterActivityTypeResponse
 registerActivityTypeResponse = RegisterActivityTypeResponse'

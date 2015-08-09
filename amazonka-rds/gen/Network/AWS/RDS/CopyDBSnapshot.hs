@@ -25,8 +25,8 @@
 module Network.AWS.RDS.CopyDBSnapshot
     (
     -- * Creating a Request
-      CopyDBSnapshot
-    , copyDBSnapshot
+      copyDBSnapshot
+    , CopyDBSnapshot
     -- * Request Lenses
     , cdsCopyTags
     , cdsTags
@@ -34,8 +34,8 @@ module Network.AWS.RDS.CopyDBSnapshot
     , cdsTargetDBSnapshotIdentifier
 
     -- * Destructuring the Response
-    , CopyDBSnapshotResponse
     , copyDBSnapshotResponse
+    , CopyDBSnapshotResponse
     -- * Response Lenses
     , cdsrsDBSnapshot
     , cdsrsStatus
@@ -50,8 +50,16 @@ import           Network.AWS.Response
 -- |
 --
 -- /See:/ 'copyDBSnapshot' smart constructor.
+data CopyDBSnapshot = CopyDBSnapshot'
+    { _cdsCopyTags                   :: !(Maybe Bool)
+    , _cdsTags                       :: !(Maybe [Tag])
+    , _cdsSourceDBSnapshotIdentifier :: !Text
+    , _cdsTargetDBSnapshotIdentifier :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CopyDBSnapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
 -- * 'cdsCopyTags'
 --
@@ -60,15 +68,10 @@ import           Network.AWS.Response
 -- * 'cdsSourceDBSnapshotIdentifier'
 --
 -- * 'cdsTargetDBSnapshotIdentifier'
-data CopyDBSnapshot = CopyDBSnapshot'
-    { _cdsCopyTags                   :: !(Maybe Bool)
-    , _cdsTags                       :: !(Maybe [Tag])
-    , _cdsSourceDBSnapshotIdentifier :: !Text
-    , _cdsTargetDBSnapshotIdentifier :: !Text
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
-
--- | 'CopyDBSnapshot' smart constructor.
-copyDBSnapshot :: Text -> Text -> CopyDBSnapshot
+copyDBSnapshot
+    :: Text -- ^ 'cdsSourceDBSnapshotIdentifier'
+    -> Text -- ^ 'cdsTargetDBSnapshotIdentifier'
+    -> CopyDBSnapshot
 copyDBSnapshot pSourceDBSnapshotIdentifier_ pTargetDBSnapshotIdentifier_ =
     CopyDBSnapshot'
     { _cdsCopyTags = Nothing
@@ -96,10 +99,10 @@ cdsTags = lens _cdsTags (\ s a -> s{_cdsTags = a}) . _Default . _Coerce;
 --     specify a valid DB snapshot ARN. For more information, go to
 --     <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopySnapshot.html Copying a DB Snapshot>.
 --
--- Example: @rds:mydb-2012-04-02-00-01@
+-- Example: 'rds:mydb-2012-04-02-00-01'
 --
 -- Example:
--- @arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805@
+-- 'arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805'
 cdsSourceDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
 cdsSourceDBSnapshotIdentifier = lens _cdsSourceDBSnapshotIdentifier (\ s a -> s{_cdsSourceDBSnapshotIdentifier = a});
 
@@ -112,7 +115,7 @@ cdsSourceDBSnapshotIdentifier = lens _cdsSourceDBSnapshotIdentifier (\ s a -> s{
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- Example: @my-db-snapshot@
+-- Example: 'my-db-snapshot'
 cdsTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
 cdsTargetDBSnapshotIdentifier = lens _cdsTargetDBSnapshotIdentifier (\ s a -> s{_cdsTargetDBSnapshotIdentifier = a});
 
@@ -145,19 +148,21 @@ instance ToQuery CopyDBSnapshot where
                  _cdsTargetDBSnapshotIdentifier]
 
 -- | /See:/ 'copyDBSnapshotResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdsrsDBSnapshot'
---
--- * 'cdsrsStatus'
 data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
     { _cdsrsDBSnapshot :: !(Maybe DBSnapshot)
     , _cdsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CopyDBSnapshotResponse' smart constructor.
-copyDBSnapshotResponse :: Int -> CopyDBSnapshotResponse
+-- | Creates a value of 'CopyDBSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdsrsDBSnapshot'
+--
+-- * 'cdsrsStatus'
+copyDBSnapshotResponse
+    :: Int -- ^ 'cdsrsStatus'
+    -> CopyDBSnapshotResponse
 copyDBSnapshotResponse pStatus_ =
     CopyDBSnapshotResponse'
     { _cdsrsDBSnapshot = Nothing
@@ -168,6 +173,6 @@ copyDBSnapshotResponse pStatus_ =
 cdsrsDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
 cdsrsDBSnapshot = lens _cdsrsDBSnapshot (\ s a -> s{_cdsrsDBSnapshot = a});
 
--- | Undocumented member.
+-- | The response status code.
 cdsrsStatus :: Lens' CopyDBSnapshotResponse Int
 cdsrsStatus = lens _cdsrsStatus (\ s a -> s{_cdsrsStatus = a});

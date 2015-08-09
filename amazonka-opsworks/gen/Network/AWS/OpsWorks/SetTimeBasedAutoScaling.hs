@@ -32,15 +32,15 @@
 module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     (
     -- * Creating a Request
-      SetTimeBasedAutoScaling
-    , setTimeBasedAutoScaling
+      setTimeBasedAutoScaling
+    , SetTimeBasedAutoScaling
     -- * Request Lenses
     , stbasAutoScalingSchedule
     , stbasInstanceId
 
     -- * Destructuring the Response
-    , SetTimeBasedAutoScalingResponse
     , setTimeBasedAutoScalingResponse
+    , SetTimeBasedAutoScalingResponse
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -50,26 +50,28 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'setTimeBasedAutoScaling' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'stbasAutoScalingSchedule'
---
--- * 'stbasInstanceId'
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
     { _stbasAutoScalingSchedule :: !(Maybe WeeklyAutoScalingSchedule)
     , _stbasInstanceId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetTimeBasedAutoScaling' smart constructor.
-setTimeBasedAutoScaling :: Text -> SetTimeBasedAutoScaling
+-- | Creates a value of 'SetTimeBasedAutoScaling' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'stbasAutoScalingSchedule'
+--
+-- * 'stbasInstanceId'
+setTimeBasedAutoScaling
+    :: Text -- ^ 'stbasInstanceId'
+    -> SetTimeBasedAutoScaling
 setTimeBasedAutoScaling pInstanceId_ =
     SetTimeBasedAutoScaling'
     { _stbasAutoScalingSchedule = Nothing
     , _stbasInstanceId = pInstanceId_
     }
 
--- | An @AutoScalingSchedule@ with the instance schedule.
+-- | An 'AutoScalingSchedule' with the instance schedule.
 stbasAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
 stbasAutoScalingSchedule = lens _stbasAutoScalingSchedule (\ s a -> s{_stbasAutoScalingSchedule = a});
 
@@ -112,6 +114,8 @@ data SetTimeBasedAutoScalingResponse =
     SetTimeBasedAutoScalingResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetTimeBasedAutoScalingResponse' smart constructor.
-setTimeBasedAutoScalingResponse :: SetTimeBasedAutoScalingResponse
+-- | Creates a value of 'SetTimeBasedAutoScalingResponse' with the minimum fields required to make a request.
+--
+setTimeBasedAutoScalingResponse
+    :: SetTimeBasedAutoScalingResponse
 setTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse'

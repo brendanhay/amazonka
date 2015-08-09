@@ -47,15 +47,15 @@
 module Network.AWS.EC2.TerminateInstances
     (
     -- * Creating a Request
-      TerminateInstances
-    , terminateInstances
+      terminateInstances
+    , TerminateInstances
     -- * Request Lenses
     , tiDryRun
     , tiInstanceIds
 
     -- * Destructuring the Response
-    , TerminateInstancesResponse
     , terminateInstancesResponse
+    , TerminateInstancesResponse
     -- * Response Lenses
     , tirsTerminatingInstances
     , tirsStatus
@@ -68,19 +68,20 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'terminateInstances' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tiDryRun'
---
--- * 'tiInstanceIds'
 data TerminateInstances = TerminateInstances'
     { _tiDryRun      :: !(Maybe Bool)
     , _tiInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TerminateInstances' smart constructor.
-terminateInstances :: TerminateInstances
+-- | Creates a value of 'TerminateInstances' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tiDryRun'
+--
+-- * 'tiInstanceIds'
+terminateInstances
+    :: TerminateInstances
 terminateInstances =
     TerminateInstances'
     { _tiDryRun = Nothing
@@ -89,8 +90,8 @@ terminateInstances =
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
--- the required permissions, the error response is @DryRunOperation@.
--- Otherwise, it is @UnauthorizedOperation@.
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 tiDryRun :: Lens' TerminateInstances (Maybe Bool)
 tiDryRun = lens _tiDryRun (\ s a -> s{_tiDryRun = a});
 
@@ -126,19 +127,21 @@ instance ToQuery TerminateInstances where
                toQueryList "InstanceId" _tiInstanceIds]
 
 -- | /See:/ 'terminateInstancesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tirsTerminatingInstances'
---
--- * 'tirsStatus'
 data TerminateInstancesResponse = TerminateInstancesResponse'
     { _tirsTerminatingInstances :: !(Maybe [InstanceStateChange])
     , _tirsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'TerminateInstancesResponse' smart constructor.
-terminateInstancesResponse :: Int -> TerminateInstancesResponse
+-- | Creates a value of 'TerminateInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'tirsTerminatingInstances'
+--
+-- * 'tirsStatus'
+terminateInstancesResponse
+    :: Int -- ^ 'tirsStatus'
+    -> TerminateInstancesResponse
 terminateInstancesResponse pStatus_ =
     TerminateInstancesResponse'
     { _tirsTerminatingInstances = Nothing
@@ -149,6 +152,6 @@ terminateInstancesResponse pStatus_ =
 tirsTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
 tirsTerminatingInstances = lens _tirsTerminatingInstances (\ s a -> s{_tirsTerminatingInstances = a}) . _Default . _Coerce;
 
--- | Undocumented member.
+-- | The response status code.
 tirsStatus :: Lens' TerminateInstancesResponse Int
 tirsStatus = lens _tirsStatus (\ s a -> s{_tirsStatus = a});

@@ -27,14 +27,14 @@
 module Network.AWS.SNS.GetPlatformApplicationAttributes
     (
     -- * Creating a Request
-      GetPlatformApplicationAttributes
-    , getPlatformApplicationAttributes
+      getPlatformApplicationAttributes
+    , GetPlatformApplicationAttributes
     -- * Request Lenses
     , gpaaPlatformApplicationARN
 
     -- * Destructuring the Response
-    , GetPlatformApplicationAttributesResponse
     , getPlatformApplicationAttributesResponse
+    , GetPlatformApplicationAttributesResponse
     -- * Response Lenses
     , gpaarsAttributes
     , gpaarsStatus
@@ -49,16 +49,18 @@ import           Network.AWS.SNS.Types.Product
 -- | Input for GetPlatformApplicationAttributes action.
 --
 -- /See:/ 'getPlatformApplicationAttributes' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gpaaPlatformApplicationARN'
 newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes'
     { _gpaaPlatformApplicationARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPlatformApplicationAttributes' smart constructor.
-getPlatformApplicationAttributes :: Text -> GetPlatformApplicationAttributes
+-- | Creates a value of 'GetPlatformApplicationAttributes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpaaPlatformApplicationARN'
+getPlatformApplicationAttributes
+    :: Text -- ^ 'gpaaPlatformApplicationARN'
+    -> GetPlatformApplicationAttributes
 getPlatformApplicationAttributes pPlatformApplicationARN_ =
     GetPlatformApplicationAttributes'
     { _gpaaPlatformApplicationARN = pPlatformApplicationARN_
@@ -104,19 +106,21 @@ instance ToQuery GetPlatformApplicationAttributes
 -- | Response for GetPlatformApplicationAttributes action.
 --
 -- /See:/ 'getPlatformApplicationAttributesResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gpaarsAttributes'
---
--- * 'gpaarsStatus'
 data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'
     { _gpaarsAttributes :: !(Maybe (Map Text Text))
     , _gpaarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetPlatformApplicationAttributesResponse' smart constructor.
-getPlatformApplicationAttributesResponse :: Int -> GetPlatformApplicationAttributesResponse
+-- | Creates a value of 'GetPlatformApplicationAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gpaarsAttributes'
+--
+-- * 'gpaarsStatus'
+getPlatformApplicationAttributesResponse
+    :: Int -- ^ 'gpaarsStatus'
+    -> GetPlatformApplicationAttributesResponse
 getPlatformApplicationAttributesResponse pStatus_ =
     GetPlatformApplicationAttributesResponse'
     { _gpaarsAttributes = Nothing
@@ -125,18 +129,18 @@ getPlatformApplicationAttributesResponse pStatus_ =
 
 -- | Attributes include the following:
 --
--- -   @EventEndpointCreated@ -- Topic ARN to which EndpointCreated event
+-- -   'EventEndpointCreated' -- Topic ARN to which EndpointCreated event
 --     notifications should be sent.
--- -   @EventEndpointDeleted@ -- Topic ARN to which EndpointDeleted event
+-- -   'EventEndpointDeleted' -- Topic ARN to which EndpointDeleted event
 --     notifications should be sent.
--- -   @EventEndpointUpdated@ -- Topic ARN to which EndpointUpdate event
+-- -   'EventEndpointUpdated' -- Topic ARN to which EndpointUpdate event
 --     notifications should be sent.
--- -   @EventDeliveryFailure@ -- Topic ARN to which DeliveryFailure event
+-- -   'EventDeliveryFailure' -- Topic ARN to which DeliveryFailure event
 --     notifications should be sent upon Direct Publish delivery failure
 --     (permanent) to one of the application\'s endpoints.
 gpaarsAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
 gpaarsAttributes = lens _gpaarsAttributes (\ s a -> s{_gpaarsAttributes = a}) . _Default . _Map;
 
--- | Undocumented member.
+-- | The response status code.
 gpaarsStatus :: Lens' GetPlatformApplicationAttributesResponse Int
 gpaarsStatus = lens _gpaarsStatus (\ s a -> s{_gpaarsStatus = a});

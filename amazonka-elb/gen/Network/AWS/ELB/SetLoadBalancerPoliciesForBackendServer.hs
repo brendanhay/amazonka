@@ -24,8 +24,8 @@
 -- to the back-end ports; this policy type is composed of multiple public
 -- key policies.
 --
--- Each time you use @SetLoadBalancerPoliciesForBackendServer@ to enable
--- the policies, use the @PolicyNames@ parameter to list the policies that
+-- Each time you use 'SetLoadBalancerPoliciesForBackendServer' to enable
+-- the policies, use the 'PolicyNames' parameter to list the policies that
 -- you want to enable.
 --
 -- You can use DescribeLoadBalancers or DescribeLoadBalancerPolicies to
@@ -35,16 +35,16 @@
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     (
     -- * Creating a Request
-      SetLoadBalancerPoliciesForBackendServer
-    , setLoadBalancerPoliciesForBackendServer
+      setLoadBalancerPoliciesForBackendServer
+    , SetLoadBalancerPoliciesForBackendServer
     -- * Request Lenses
     , slbpfbsLoadBalancerName
     , slbpfbsInstancePort
     , slbpfbsPolicyNames
 
     -- * Destructuring the Response
-    , SetLoadBalancerPoliciesForBackendServerResponse
     , setLoadBalancerPoliciesForBackendServerResponse
+    , SetLoadBalancerPoliciesForBackendServerResponse
     -- * Response Lenses
     , slbpfbsrsStatus
     ) where
@@ -56,22 +56,25 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'setLoadBalancerPoliciesForBackendServer' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slbpfbsLoadBalancerName'
---
--- * 'slbpfbsInstancePort'
---
--- * 'slbpfbsPolicyNames'
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer'
     { _slbpfbsLoadBalancerName :: !Text
     , _slbpfbsInstancePort     :: !Int
     , _slbpfbsPolicyNames      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetLoadBalancerPoliciesForBackendServer' smart constructor.
-setLoadBalancerPoliciesForBackendServer :: Text -> Int -> SetLoadBalancerPoliciesForBackendServer
+-- | Creates a value of 'SetLoadBalancerPoliciesForBackendServer' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slbpfbsLoadBalancerName'
+--
+-- * 'slbpfbsInstancePort'
+--
+-- * 'slbpfbsPolicyNames'
+setLoadBalancerPoliciesForBackendServer
+    :: Text -- ^ 'slbpfbsLoadBalancerName'
+    -> Int -- ^ 'slbpfbsInstancePort'
+    -> SetLoadBalancerPoliciesForBackendServer
 setLoadBalancerPoliciesForBackendServer pLoadBalancerName_ pInstancePort_ =
     SetLoadBalancerPoliciesForBackendServer'
     { _slbpfbsLoadBalancerName = pLoadBalancerName_
@@ -127,21 +130,23 @@ instance ToQuery
                  toQueryList "member" _slbpfbsPolicyNames]
 
 -- | /See:/ 'setLoadBalancerPoliciesForBackendServerResponse' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'slbpfbsrsStatus'
 newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'
     { _slbpfbsrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetLoadBalancerPoliciesForBackendServerResponse' smart constructor.
-setLoadBalancerPoliciesForBackendServerResponse :: Int -> SetLoadBalancerPoliciesForBackendServerResponse
+-- | Creates a value of 'SetLoadBalancerPoliciesForBackendServerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slbpfbsrsStatus'
+setLoadBalancerPoliciesForBackendServerResponse
+    :: Int -- ^ 'slbpfbsrsStatus'
+    -> SetLoadBalancerPoliciesForBackendServerResponse
 setLoadBalancerPoliciesForBackendServerResponse pStatus_ =
     SetLoadBalancerPoliciesForBackendServerResponse'
     { _slbpfbsrsStatus = pStatus_
     }
 
--- | Undocumented member.
+-- | The response status code.
 slbpfbsrsStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
 slbpfbsrsStatus = lens _slbpfbsrsStatus (\ s a -> s{_slbpfbsrsStatus = a});

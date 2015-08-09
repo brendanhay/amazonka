@@ -30,15 +30,15 @@
 module Network.AWS.IAM.DeleteAccessKey
     (
     -- * Creating a Request
-      DeleteAccessKey
-    , deleteAccessKey
+      deleteAccessKey
+    , DeleteAccessKey
     -- * Request Lenses
     , dakUserName
     , dakAccessKeyId
 
     -- * Destructuring the Response
-    , DeleteAccessKeyResponse
     , deleteAccessKeyResponse
+    , DeleteAccessKeyResponse
     ) where
 
 import           Network.AWS.IAM.Types
@@ -48,19 +48,21 @@ import           Network.AWS.Request
 import           Network.AWS.Response
 
 -- | /See:/ 'deleteAccessKey' smart constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dakUserName'
---
--- * 'dakAccessKeyId'
 data DeleteAccessKey = DeleteAccessKey'
     { _dakUserName    :: !(Maybe Text)
     , _dakAccessKeyId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAccessKey' smart constructor.
-deleteAccessKey :: Text -> DeleteAccessKey
+-- | Creates a value of 'DeleteAccessKey' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dakUserName'
+--
+-- * 'dakAccessKeyId'
+deleteAccessKey
+    :: Text -- ^ 'dakAccessKeyId'
+    -> DeleteAccessKey
 deleteAccessKey pAccessKeyId_ =
     DeleteAccessKey'
     { _dakUserName = Nothing
@@ -101,6 +103,8 @@ data DeleteAccessKeyResponse =
     DeleteAccessKeyResponse'
     deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAccessKeyResponse' smart constructor.
-deleteAccessKeyResponse :: DeleteAccessKeyResponse
+-- | Creates a value of 'DeleteAccessKeyResponse' with the minimum fields required to make a request.
+--
+deleteAccessKeyResponse
+    :: DeleteAccessKeyResponse
 deleteAccessKeyResponse = DeleteAccessKeyResponse'

@@ -50,9 +50,6 @@ infixr 7 =#
 hdr :: HeaderName -> ByteString -> [Header] -> [Header]
 hdr k v hs = (k, v) : filter ((/= k) . fst) hs
 
--- hdrs :: [Header] -> [Header] -> [Header]
--- hdrs xs ys = Fold.foldr' (uncurry hdr) ys xs
-
 class ToHeaders a where
     toHeaders :: a -> [Header]
     toHeaders = const mempty

@@ -162,13 +162,15 @@ prodData m s st = (,fields) <$> mk
 
     mkCtor :: Either Error Fun
     mkCtor = Fun' (smartCtorId n) mkHelp
-        <$> pp None   (ctorS ts n fields)
-        <*> pp Indent (ctorD n fields)
+        <$> (pp None   (ctorS ts n fields) <&> addParamComments fields)
+        <*>  pp Indent (ctorD n fields)
 
     mkHelp :: Help
     mkHelp = fromString
         . LText.unpack
-        $ format ("'" % itype % "' smart constructor.") n
+          $ format ("Creates a value of '" % itype %
+                   "' with the minimum fields required to make a request.\n")
+                   n
     -- <> mkSee
 
     -- FIXME: Re-add /See:/ documentation for shared types.
@@ -178,6 +180,19 @@ prodData m s st = (,fields) <$> mk
     --     xs -> mappend "\n\n/See/: "
     --         . LText.intercalate ", "
     --         $ map (format ("'" % itype % "'")) xs
+
+    -- FIXME: dirty, dirty hack to render smart ctor parameter haddock coments
+    addParamComments :: [Field] -> Rendered -> Rendered
+    addParamComments fs =
+          LText.replace " :: " "\n    :: "
+        . LText.intercalate "\n    -> "
+        . zipWith rel ps
+        . map LText.strip . LText.splitOn "->"
+      where
+        rel Nothing  t = t
+        rel (Just p) t = t <> " -- ^ '" <> LText.fromStrict (fieldLens p) <> "'"
+
+        ps = map Just (filter fieldIsParam fs) ++ repeat Nothing
 
     ts = m ^. timestampFormat . _Identity
     n  = s ^. annId

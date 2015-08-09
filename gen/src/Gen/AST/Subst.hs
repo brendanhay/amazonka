@@ -145,8 +145,9 @@ addStatus Output = go
     go s           = s
 
     ref = emptyRef n
-        & refLocation ?~ StatusCode
-        & refAnn      .~
+        & refLocation      ?~ StatusCode
+        & refDocumentation ?~ "The response status code."
+        & refAnn           .~
             Related n mempty :< Lit emptyInfo Int
 
     n = mkId "Status"

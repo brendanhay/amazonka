@@ -17,13 +17,13 @@
 -- /See:/ <{{ operationUrl }}{{ name }}.html AWS API Reference> for {{ input.name }}.
 {% if pager %}
 --
--- This operation can return paginated results.
+-- This operation returns paginated results.
 {% endif %}
 module {{ moduleName }}
     (
     -- * Creating a Request
-      {{ input.name }}
-    , {{ input.constructor.name}}
+      {{ input.constructor.name}}
+    , {{ input.name }}
   {% for lens in input.lenses %}
     {% if lens.first %}
     -- * Request Lenses
@@ -32,8 +32,8 @@ module {{ moduleName }}
   {% endfor %}
 
     -- * Destructuring the Response
-    , {{ output.name }}
     , {{ output.constructor.name}}
+    , {{ output.name }}
   {% for lens in output.lenses %}
     {% if lens.first %}
     -- * Response Lenses

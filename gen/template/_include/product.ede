@@ -5,17 +5,21 @@
 {% else %}
 -- | /See:/ '{{ shape.constructor.name }}' smart constructor.
 {% endif %}
+{{ shape.declaration }}
+
+{% if shape.constructor.documentation %}
+{{ shape.constructor.documentation }}
+--
+{% endif %}
 {% for lens in shape.lenses %}
   {% if lens.first %}
---
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
   {% endif %}
 --
 -- * '{{ lens.value.name }}'
 {% endfor %}
-{{ shape.declaration }}
-
-{% include "function.ede" with function = shape.constructor %}
+{{ shape.constructor.signature }}
+{{ shape.constructor.declaration }}
 {% for lens in shape.lenses %}
 
 {% include "function.ede" with function = lens.value %}

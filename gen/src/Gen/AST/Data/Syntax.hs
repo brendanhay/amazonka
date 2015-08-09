@@ -78,10 +78,10 @@ toXMap  = var "toXMLMap"
 toQMap  = var "toQueryMap"
 
 ctorS :: Timestamp -> Id -> [Field] -> Decl
-ctorS ts n = TypeSig noLoc [ident (smartCtorId n)]
-    . Fold.foldr' TyFun (tycon (typeId n))
-    . map (external ts)
-    . filter fieldIsParam
+ctorS ts n fs = TypeSig noLoc [ident (smartCtorId n)] ty
+  where
+    ty = Fold.foldr' TyFun (tycon (typeId n)) ps
+    ps = map (external ts) (filter fieldIsParam fs)
 
 ctorD :: Id -> [Field] -> Decl
 ctorD n fs =

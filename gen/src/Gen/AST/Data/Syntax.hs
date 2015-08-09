@@ -309,9 +309,9 @@ responseE p r fs = app (responseF p r fs) bdy
     s = r ^. refAnn . to extract
 
     bdy :: Exp
-    bdy | null fs    = var (ctorId n)
-        | isShared s = lam parseAll
-        | otherwise  = lam . ctorE n $ map parseField fs
+    bdy | null fs                      = var (ctorId n)
+        | isShared s, all fieldBody fs = lam parseAll
+        | otherwise                    = lam . ctorE n $ map parseField fs
 
     lam :: Exp -> Exp
     lam = lamE noLoc [pvar "s", pvar "h", pvar "x"]

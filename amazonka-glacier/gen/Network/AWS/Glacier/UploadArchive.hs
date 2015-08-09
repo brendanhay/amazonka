@@ -149,7 +149,12 @@ instance AWSRequest UploadArchive where
         type Rs UploadArchive = ArchiveCreationOutput
         request = postBody
         response
-          = receiveEmpty (\ s h x -> eitherParseJSON x)
+          = receiveEmpty
+              (\ s h x ->
+                 ArchiveCreationOutput' <$>
+                   (h .#? "x-amz-archive-id") <*>
+                     (h .#? "x-amz-sha256-tree-hash")
+                     <*> (h .#? "Location"))
 
 instance ToBody UploadArchive where
         toBody = _uaBody

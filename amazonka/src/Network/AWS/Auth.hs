@@ -67,12 +67,12 @@ import           System.Mem.Weak
 import           Prelude
 
 -- | Default access key environment variable.
-accessKey :: Text -- ^ 'AWS_ACCESS_KEY'
-accessKey = "AWS_ACCESS_KEY"
+accessKey :: Text -- ^ 'AWS_ACCESS_KEY_ID'
+accessKey = "AWS_ACCESS_KEY_ID"
 
 -- | Default secret key environment variable.
-secretKey :: Text -- ^ 'AWS_SECRET_KEY'
-secretKey = "AWS_SECRET_KEY"
+secretKey :: Text -- ^ 'AWS_SECRET_ACCESS_KEY'
+secretKey = "AWS_SECRET_ACCESS_KEY"
 
 {- $credentials
 'getAuth' is implemented using the following @from*@-styled functions below.

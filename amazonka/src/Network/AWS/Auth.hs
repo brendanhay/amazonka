@@ -35,6 +35,7 @@ module Network.AWS.Auth
     , credAccessKey
     , credSecretKey
     , credSessionToken
+    , credProfile
     , credFile
 
     -- $credentials

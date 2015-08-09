@@ -1,6 +1,8 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- |
 -- Module      : Test.AWS.Arbitrary
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -16,7 +18,6 @@ import           Data.CaseInsensitive    (CI, FoldCase)
 import qualified Data.CaseInsensitive    as CI
 import           Data.String
 import qualified Data.Text               as Text
-import qualified Data.Text.Encoding      as Text
 import           Data.Time
 import           Network.AWS.Data.Query
 import           Network.AWS.Prelude

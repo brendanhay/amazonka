@@ -21,7 +21,7 @@ import qualified Data.Text                as Text
 import qualified Data.Text.Encoding       as Text
 import           Network.AWS.Prelude
 import           Network.AWS.Sign.V4
-import           Test.AWS.Arbitrary
+import           Test.AWS.Arbitrary       ()
 import           Test.QuickCheck.Property
 import           Test.Tasty
 import           Test.Tasty.QuickCheck

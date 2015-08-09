@@ -18,8 +18,6 @@ description:
     Amazon Kinesis is a managed service that scales elastically for real
     time processing of streaming big data.
     .
-    /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html AWS API Reference>
-    .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
     mechanisms for specifying AuthN/AuthZ information and sending requests.
@@ -30,6 +28,9 @@ description:
     The provided lenses should be compatible with any of the major lens libraries
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.Kinesis" and the <http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
 
 source-repository head
     type:     git

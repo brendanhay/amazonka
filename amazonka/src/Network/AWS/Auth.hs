@@ -85,31 +85,31 @@ import           System.Mem.Weak
 import           Prelude
 
 -- | Default access key environment variable.
-envAccessKey :: Text -- ^ 'AWS_ACCESS_KEY_ID'
+envAccessKey :: Text -- ^ AWS_ACCESS_KEY_ID
 envAccessKey = "AWS_ACCESS_KEY_ID"
 
 -- | Default secret key environment variable.
-envSecretKey :: Text -- ^ 'AWS_SECRET_ACCESS_KEY'
+envSecretKey :: Text -- ^ AWS_SECRET_ACCESS_KEY
 envSecretKey = "AWS_SECRET_ACCESS_KEY"
 
 -- | Default session token environment variable.
-envSessionToken :: Text -- ^ 'AWS_SESSION_TOKEN'
+envSessionToken :: Text -- ^ AWS_SESSION_TOKEN
 envSessionToken = "AWS_SESSION_TOKEN"
 
--- | Credentials file access key INI-key name.
-credAccessKey :: Text -- ^ 'aws_access_key_id'
+-- | Credentials INI file access key variable.
+credAccessKey :: Text -- ^ aws_access_key_id
 credAccessKey = "aws_access_key_id"
 
--- | Credentials file secret key INI-key name.
-credSecretKey :: Text -- ^ 'aws_secret_access_key'
+-- | Credentials INI file secret key variable.
+credSecretKey :: Text -- ^ aws_secret_access_key
 credSecretKey = "aws_secret_access_key"
 
--- | Credentials file session token INI-key name.
-credSessionToken :: Text -- ^ 'aws_session_token'
+-- | Credentials INI file session token variable.
+credSessionToken :: Text -- ^ aws_session_token
 credSessionToken = "aws_session_token"
 
--- | Credentials default profile INI-section name.
-credProfile :: Text -- ^ 'default'
+-- | Credentials INI default profile section variable.
+credProfile :: Text -- ^ default
 credProfile = "default"
 
 -- | Default path for the credentials file. This looks in in the @HOME@ directory

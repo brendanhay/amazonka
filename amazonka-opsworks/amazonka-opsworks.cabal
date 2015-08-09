@@ -60,8 +60,6 @@ description:
     0.9 for new stacks, and we recommend migrating your existing Chef 0.9
     stacks to Chef 11.10 as soon as possible.
     .
-    /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html AWS API Reference>
-    .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
     mechanisms for specifying AuthN/AuthZ information and sending requests.
@@ -72,6 +70,9 @@ description:
     The provided lenses should be compatible with any of the major lens libraries
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.OpsWorks" and the <http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
 
 source-repository head
     type:     git

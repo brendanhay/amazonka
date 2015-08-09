@@ -23,8 +23,6 @@ description:
     <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html Regions and Amazon SES>
     in the Amazon SES Developer Guide.
     .
-    /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html AWS API Reference>
-    .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
     mechanisms for specifying AuthN/AuthZ information and sending requests.
@@ -35,6 +33,9 @@ description:
     The provided lenses should be compatible with any of the major lens libraries
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.SES" and the <http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
 
 source-repository head
     type:     git

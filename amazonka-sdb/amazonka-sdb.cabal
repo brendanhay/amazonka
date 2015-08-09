@@ -31,8 +31,6 @@ description:
 
     Visit <http://aws.amazon.com/simpledb/> for more information.
     .
-    /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html AWS API Reference>
-    .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
     mechanisms for specifying AuthN/AuthZ information and sending requests.
@@ -43,6 +41,9 @@ description:
     The provided lenses should be compatible with any of the major lens libraries
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.SDB" and the <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html AWS API Reference>
+    to get started.
 
 source-repository head
     type:     git

@@ -74,8 +74,6 @@ description:
         You can use the AWS CodeDeploy APIs to get, list, and register
         application revisions.
     .
-    /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/Welcome.html AWS API Reference>
-    .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
     mechanisms for specifying AuthN/AuthZ information and sending requests.
@@ -86,6 +84,9 @@ description:
     The provided lenses should be compatible with any of the major lens libraries
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.CodeDeploy" and the <http://docs.aws.amazon.com/codedeploy/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
 
 source-repository head
     type:     git

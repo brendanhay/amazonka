@@ -41,8 +41,6 @@ description:
         Provides a list of each of the regions and endpoints available for
         use with AWS Storage Gateway.
     .
-    /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html AWS API Reference>
-    .
     The types from this library are intended to be used with
     <http://hackage.haskell.org/package/amazonka amazonka>, which provides
     mechanisms for specifying AuthN/AuthZ information and sending requests.
@@ -53,6 +51,9 @@ description:
     The provided lenses should be compatible with any of the major lens libraries
     such as <http://hackage.haskell.org/package/lens lens> or
     <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.StorageGateway" and the <http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
 
 source-repository head
     type:     git

@@ -18,7 +18,9 @@ description:
     various @amazonka-*@ service libraries. See the <http://hackage.haskell.org/packages/#cat:AWS AWS>
     category on Hackage for supported services.
     .
-    To get started, import the desired @amazonka-*@ library and one of the following:
+    To get started, import the desired @amazonka-*@ library (such as
+    <http://hackage.haskell.org/package/amazonka-ml/docs/Network-AWS-MachineLearning.html Network.AWS.MachineLearning>)
+    and one of the following:
     .
     * "Control.Monad.Trans.AWS": The 'Control.Monad.Trans.AWS.AWST' transformer
     and generalised operations.

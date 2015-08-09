@@ -166,20 +166,11 @@ prodData m s st = (,fields) <$> mk
         <*>  pp Indent (ctorD n fields)
 
     mkHelp :: Help
-    mkHelp = fromString
-        . LText.unpack
-          $ format ("Creates a value of '" % itype %
-                   "' with the minimum fields required to make a request.\n")
-                   n
-    -- <> mkSee
-
-    -- FIXME: Re-add /See:/ documentation for shared types.
-    -- mkSee :: LText.Text
-    -- mkSee = case r ^. relParents of
-    --     [] -> mempty
-    --     xs -> mappend "\n\n/See/: "
-    --         . LText.intercalate ", "
-    --         $ map (format ("'" % itype % "'")) xs
+    mkHelp = Raw
+        . LText.toStrict
+        $ format ("Creates a value of '" % itype %
+                 "' with the minimum fields required to make a request.\n")
+                 n
 
     -- FIXME: dirty, dirty hack to render smart ctor parameter haddock coments
     addParamComments :: [Field] -> Rendered -> Rendered

@@ -27,7 +27,7 @@ module Network.AWS.Types
     -- ** Credentials
       AccessKey       (..)
     , SecretKey       (..)
-    , SecurityToken   (..)
+    , SessionToken    (..)
     -- ** Environment
     , AuthEnv         (..)
     , Auth            (..)
@@ -118,6 +118,7 @@ import           Control.Lens                 hiding (coerce)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
+import qualified Data.ByteString              as BS
 import           Data.ByteString.Builder      (Builder)
 import qualified Data.ByteString.Builder      as Build
 import qualified Data.ByteString.Lazy.Char8   as LBS8
@@ -448,34 +449,38 @@ newtype AccessKey = AccessKey ByteString
 newtype SecretKey = SecretKey ByteString
     deriving (Eq, IsString, ToText, ToByteString)
 
--- | A security token used by STS to temporarily authorise access to
+-- | A session token used by STS to temporarily authorise access to
 -- an AWS resource.
-newtype SecurityToken = SecurityToken ByteString
+newtype SessionToken = SessionToken ByteString
     deriving (Eq, IsString, ToText, ToByteString)
 
 -- | The authorisation environment.
 data AuthEnv = AuthEnv
     { _authAccess :: !AccessKey
     , _authSecret :: !SecretKey
-    , _authToken  :: Maybe SecurityToken
+    , _authToken  :: Maybe SessionToken
     , _authExpiry :: Maybe UTCTime
     }
 
 instance ToLog AuthEnv where
     message AuthEnv{..} = buildLines
         [ "[Amazonka Auth] {"
-        , "  access key     = ****"
+        , "  access key     = ****" <> key _authAccess
         , "  secret key     = ****"
         , "  security token = " <> message (const "****" <$> _authToken :: Maybe Builder)
         , "  expiry         = " <> message _authExpiry
         , "}"
         ]
+      where
+        -- An attempt to preserve sanity when debugging which keys
+        -- have been loaded by the auth module.
+        key (AccessKey k) = message . BS.reverse . BS.take 6 $ BS.reverse k
 
 instance FromJSON AuthEnv where
     parseJSON = withObject "AuthEnv" $ \o -> AuthEnv
         <$> f AccessKey (o .: "AccessKeyId")
         <*> f SecretKey (o .: "SecretAccessKey")
-        <*> fmap (f SecurityToken) (o .:? "Token")
+        <*> fmap (f SessionToken) (o .:? "Token")
         <*> o .:? "Expiration"
       where
         f g = fmap (g . Text.encodeUtf8)

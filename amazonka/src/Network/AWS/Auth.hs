@@ -14,6 +14,9 @@
 --
 -- Explicitly specify your Amazon AWS security credentials, or retrieve them
 -- from the underlying OS.
+--
+-- The format of environment variables and the credentials file follows the official
+-- <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs AWS SDK guidelines>.
 module Network.AWS.Auth
     (
     -- * Authentication
@@ -22,12 +25,17 @@ module Network.AWS.Auth
     , Credentials   (..)
     , Auth
 
-    -- ** Keys
-    , AccessKey     (..)
-    , SecretKey     (..)
-    , SecurityToken (..)
-    , accessKey
-    , secretKey
+    -- ** Defaults
+    -- *** Environment
+    , envAccessKey
+    , envSecretKey
+    , envSessionToken
+
+    -- *** Credentials File
+    , credAccessKey
+    , credSecretKey
+    , credSessionToken
+    , credFile
 
     -- $credentials
 
@@ -35,8 +43,15 @@ module Network.AWS.Auth
     , fromSession
     , fromEnv
     , fromEnvKeys
+    , fromFile
+    , fromFilePath
     , fromProfile
     , fromProfileName
+
+    -- ** Keys
+    , AccessKey    (..)
+    , SecretKey    (..)
+    , SessionToken (..)
 
     -- ** Handling Errors
     , AsAuthError (..)
@@ -51,6 +66,7 @@ import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import qualified Data.ByteString.Char8      as BS8
 import qualified Data.ByteString.Lazy.Char8 as LBS8
+import qualified Data.Ini                   as INI
 import           Data.IORef
 import           Data.Monoid
 import qualified Data.Text                  as Text
@@ -61,18 +77,53 @@ import           Network.AWS.Logger
 import           Network.AWS.Prelude
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
+import           System.Directory           (doesFileExist, getHomeDirectory)
 import           System.Environment
 import           System.Mem.Weak
 
 import           Prelude
 
 -- | Default access key environment variable.
-accessKey :: Text -- ^ 'AWS_ACCESS_KEY_ID'
-accessKey = "AWS_ACCESS_KEY_ID"
+envAccessKey :: Text -- ^ 'AWS_ACCESS_KEY_ID'
+envAccessKey = "AWS_ACCESS_KEY_ID"
 
 -- | Default secret key environment variable.
-secretKey :: Text -- ^ 'AWS_SECRET_ACCESS_KEY'
-secretKey = "AWS_SECRET_ACCESS_KEY"
+envSecretKey :: Text -- ^ 'AWS_SECRET_ACCESS_KEY'
+envSecretKey = "AWS_SECRET_ACCESS_KEY"
+
+-- | Default session token environment variable.
+envSessionToken :: Text -- ^ 'AWS_SESSION_TOKEN'
+envSessionToken = "AWS_SESSION_TOKEN"
+
+-- | Credentials file access key INI-key name.
+credAccessKey :: Text -- ^ 'aws_access_key_id'
+credAccessKey = "aws_access_key_id"
+
+-- | Credentials file secret key INI-key name.
+credSecretKey :: Text -- ^ 'aws_secret_access_key'
+credSecretKey = "aws_secret_access_key"
+
+-- | Credentials file session token INI-key name.
+credSessionToken :: Text -- ^ 'aws_session_token'
+credSessionToken = "aws_session_token"
+
+-- | Credentials default profile INI-section name.
+credProfile :: Text -- ^ 'default'
+credProfile = "default"
+
+-- | Default path for the credentials file. This looks in in the @HOME@ directory
+-- as determined by the <http://hackage.haskell.org/package/directory directory>
+-- library.
+--
+-- * UNIX/OSX: @$HOME/.aws/credentials@
+--
+-- * Windows: @C:\/Users\//\<user\>\.aws\credentials@
+--
+-- /Note:/ This does not match the default AWS SDK location of
+-- @%USERPROFILE%\.aws\credentials@ on Windows. (Sorry.)
+credFile :: MonadIO m => m FilePath
+credFile = (<> "/.aws/credentials") <$> liftIO getHomeDirectory
+-- TODO: probably should be using System.FilePath above.
 
 {- $credentials
 'getAuth' is implemented using the following @from*@-styled functions below.
@@ -84,8 +135,8 @@ constraint.
 fromKeys :: AccessKey -> SecretKey -> Auth
 fromKeys a s = Auth (AuthEnv a s Nothing Nothing)
 
--- | A session containing the access key, secret key, and a security token.
-fromSession :: AccessKey -> SecretKey -> SecurityToken -> Auth
+-- | A session containing the access key, secret key, and a session token.
+fromSession :: AccessKey -> SecretKey -> SessionToken -> Auth
 fromSession a s t = Auth (AuthEnv a s (Just t) Nothing)
 
 -- | Determines how AuthN/AuthZ information is retrieved.
@@ -94,19 +145,28 @@ data Credentials
       -- ^ Explicit access and secret keys.
       -- /Note:/ you can achieve the same result purely using 'fromKeys' without
       -- having to use the impure 'getAuth'.
-    | FromSession AccessKey SecretKey SecurityToken
-      -- ^ A session containing the access key, secret key, and a security token.
+    | FromSession AccessKey SecretKey SessionToken
+      -- ^ A session containing the access key, secret key, and a session token.
       -- /Note:/ you can achieve the same result purely using 'fromSession'
       -- without having to use the impure 'getAuth'.
     | FromProfile Text
       -- ^ An IAM Profile name to lookup from the local EC2 instance-data.
-    | FromEnv Text Text
-      -- ^ Environment variables to lookup for the access and secret keys.
+    | FromEnv Text Text Text
+      -- ^ Environment variables to lookup for the access key, secret key and
+      -- optional session token.
+    | FromFile Text FilePath
+      -- ^ A credentials profile name and the path to the AWS
+      -- <http://blogs.aws.amazon.com/security/post/Tx3D6U6WSFGOK2H/A-New-and-Standardized-Way-to-Manage-Credentials-in-the-AWS-SDKs credentials> file.
     | Discover
-      -- ^ Attempt to read the default access and secret keys from the environment,
-      -- falling back to the first available IAM profile if they are not set.
+      -- ^ Attempt to credentials discovery via the following steps:
       --
-      -- Attempts to resolve <http://instance-data> rather than directly
+      -- * Read the 'accessKey' and 'secretKey' from the environment.
+      --
+      -- * Read the credentials file from 'credFile'.
+      --
+      -- * Retrieve the first available IAM profile if running on EC2.
+      --
+      -- An attempt is made to resolve <http://instance-data> rather than directly
       -- retrieving <http://169.254.169.254> for IAM profile information.
       -- This assists in ensuring the DNS lookup terminates promptly if not
       -- running on EC2.
@@ -117,7 +177,8 @@ instance ToLog Credentials where
         FromKeys    a _   -> "FromKeys "    <> message a <> " ****"
         FromSession a _ _ -> "FromSession " <> message a <> " **** ****"
         FromProfile n     -> "FromProfile " <> message n
-        FromEnv     a s   -> "FromEnv "     <> message a <> " " <> message s
+        FromEnv     a s t -> "FromEnv "     <> message a <> " " <> message s <> " " <> message t
+        FromFile    n f   -> "FromFile "    <> message n <> " " <> message f
         Discover          -> "Discover"
 
 instance Show Credentials where
@@ -125,37 +186,49 @@ instance Show Credentials where
 
 -- | An error thrown when attempting to read AuthN/AuthZ information.
 data AuthError
-    = RetrievalError  HttpException
-    | MissingEnvError Text
-    | InvalidIAMError Text
+    = RetrievalError   HttpException
+    | MissingEnvError  Text
+    | MissingFileError FilePath
+    | InvalidFileError Text
+    | InvalidIAMError  Text
       deriving (Show, Typeable)
 
 instance Exception AuthError
 
 instance ToLog AuthError where
     message = \case
-        RetrievalError  e -> message e
-        MissingEnvError e -> "[MissingEnvError] { message = " <> message e <> "}"
-        InvalidIAMError e -> "[InvalidIAMError] { message = " <> message e <> "}"
+        RetrievalError   e -> message e
+        MissingEnvError  e -> "[MissingEnvError]  { message = " <> message e <> "}"
+        MissingFileError f -> "[MissingFileError] { path = "    <> message f <> "}"
+        InvalidFileError e -> "[InvalidFileError] { message = " <> message e <> "}"
+        InvalidIAMError  e -> "[InvalidIAMError]  { message = " <> message e <> "}"
 
 class AsAuthError a where
     -- | A general authentication error.
-    _AuthError       :: Prism' a AuthError
+    _AuthError        :: Prism' a AuthError
     {-# MINIMAL _AuthError #-}
 
     -- | An error occured while communicating over HTTP with
     -- the local metadata endpoint.
-    _RetrievalError  :: Prism' a HttpException
+    _RetrievalError   :: Prism' a HttpException
 
     -- | An error occured looking up a named environment variable.
-    _MissingEnvError :: Prism' a Text
+    _MissingEnvError  :: Prism' a Text
+
+    -- | The specified credentials file could not be found.
+    _MissingFileError :: Prism' a FilePath
+
+    -- | An error occured parsing the credentials file.
+    _InvalidFileError :: Prism' a Text
 
     -- | The specified IAM profile could not be found or deserialised.
-    _InvalidIAMError :: Prism' a Text
+    _InvalidIAMError  :: Prism' a Text
 
-    _RetrievalError  = _AuthError . _RetrievalError
-    _MissingEnvError = _AuthError . _MissingEnvError
-    _InvalidIAMError = _AuthError . _InvalidIAMError
+    _RetrievalError   = _AuthError . _RetrievalError
+    _MissingEnvError  = _AuthError . _MissingEnvError
+    _MissingFileError = _AuthError . _MissingFileError
+    _InvalidFileError = _AuthError . _InvalidFileError
+    _InvalidIAMError  = _AuthError . _InvalidIAMError
 
 instance AsAuthError SomeException where
     _AuthError = exception
@@ -164,16 +237,24 @@ instance AsAuthError AuthError where
     _AuthError = id
 
     _RetrievalError = prism RetrievalError $ \case
-        RetrievalError e -> Right e
-        x                -> Left x
+        RetrievalError   e -> Right e
+        x                  -> Left  x
 
     _MissingEnvError = prism MissingEnvError $ \case
-        MissingEnvError e -> Right e
-        x               -> Left x
+        MissingEnvError  e -> Right e
+        x                  -> Left  x
+
+    _MissingFileError = prism MissingFileError $ \case
+        MissingFileError f -> Right f
+        x                  -> Left  x
+
+    _InvalidFileError = prism InvalidFileError $ \case
+        InvalidFileError e -> Right e
+        x                  -> Left  x
 
     _InvalidIAMError = prism InvalidIAMError $ \case
-        InvalidIAMError e -> Right e
-        x               -> Left x
+        InvalidIAMError  e -> Right e
+        x                  -> Left  x
 
 -- | Retrieve authentication information via the specified 'Credentials' mechanism.
 --
@@ -186,12 +267,18 @@ getAuth m = \case
     FromKeys    a s   -> return (fromKeys a s)
     FromSession a s t -> return (fromSession a s t)
     FromProfile n     -> fromProfileName m n
-    FromEnv     a s   -> fromEnvKeys a s
+    FromEnv     a s t -> fromEnvKeys a s t
+    FromFile    n f   -> fromFilePath n f
     Discover          ->
-        catching _MissingEnvError fromEnv $ \e -> do
-            p <- isEC2 m
-            unless p $ throwingM _MissingEnvError e
-            fromProfile m
+        -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
+        -- let both errors propagate.
+        catching_ _MissingEnvError fromEnv $ do
+            -- proceed, missing env keys
+            catching _MissingFileError fromFile $ \f -> do
+                -- proceed, missing credentials file
+                p <- isEC2 m
+                unless p $ throwingM _MissingFileError f
+                fromProfile m
 
 -- | Retrieve access and secret keys from the default environment variables.
 --
@@ -200,24 +287,65 @@ getAuth m = \case
 --
 -- /See:/ 'accessKey' and 'secretKey'
 fromEnv :: (Applicative m, MonadIO m, MonadThrow m) => m Auth
-fromEnv = fromEnvKeys accessKey secretKey
+fromEnv = fromEnvKeys envAccessKey envSecretKey envSessionToken
 
--- | Retrieve 'Access' and 'Secret' keys from specific environment variables.
+-- | Retrieve access and secret keys from specific environment variables.
 --
 -- Throws 'MissingEnvError' if either of the specified environment variables
 -- cannot be read.
-fromEnvKeys :: (Applicative m, MonadIO m, MonadThrow m) => Text -> Text -> m Auth
-fromEnvKeys a s = fmap Auth $ AuthEnv
-    <$> (AccessKey <$> key a)
-    <*> (SecretKey <$> key s)
-    <*> pure Nothing
+fromEnvKeys :: (Applicative m, MonadIO m, MonadThrow m)
+            => Text
+            -> Text
+            -> Text
+            -> m Auth
+fromEnvKeys a s t = fmap Auth $ AuthEnv
+    <$> (req a <&> AccessKey)
+    <*> (req s <&> SecretKey)
+    <*> (opt t <&> fmap SessionToken)
     <*> pure Nothing
   where
-    key k = do
-        m <- liftIO $ lookupEnv (Text.unpack k)
+    req k = do
+        m <- opt k
         maybe (throwM . MissingEnvError $ "Unable to read ENV variable: " <> k)
-              (return . BS8.pack)
+              return
               m
+
+    opt k = fmap BS8.pack <$> liftIO (lookupEnv (Text.unpack k))
+
+-- | Loads the default @credentials@ INI file using the default profile name.
+--
+-- /See:/ 'credProfile' and 'credFile'
+fromFile :: (Applicative m, MonadIO m, MonadCatch m) => m Auth
+fromFile = credFile >>= fromFilePath credProfile
+
+-- | Retrieve the access, secret and session token from the specified section
+-- (profile) in a valid INI @credentials@ file.
+fromFilePath :: (Applicative m, MonadIO m, MonadCatch m)
+             => Text
+             -> FilePath
+             -> m Auth
+fromFilePath n f = do
+    p <- liftIO (doesFileExist f)
+    unless p $ throwM (MissingFileError f)
+    i <- either (throwM . invalidErr) return =<< liftIO (INI.readIniFile f)
+    fmap Auth $ AuthEnv
+        <$> (req credAccessKey i    <&> AccessKey)
+        <*> (req credSecretKey i    <&> SecretKey)
+        <*> (opt credSessionToken i <&> fmap SessionToken)
+        <*> pure Nothing
+  where
+    req k i =
+        either (throwM . invalidErr)
+               (return . Text.encodeUtf8)
+               (INI.lookupValue n k i)
+
+    opt k i = return $
+        either (const Nothing)
+               (Just . Text.encodeUtf8)
+               (INI.lookupValue n k i)
+
+    invalidErr :: String -> AuthError
+    invalidErr = InvalidFileError . Text.pack
 
 -- | Retrieve the default IAM Profile from the local EC2 instance-data.
 --

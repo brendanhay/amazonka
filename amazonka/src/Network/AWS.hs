@@ -30,6 +30,9 @@ module Network.AWS
     , MonadAWS    (..)
     , runAWS
 
+    -- ** Running ResourceT
+    , runResourceT
+
     -- * Authentication and Environment
     , newEnv
     , Env
@@ -115,6 +118,7 @@ module Network.AWS
     -- $logging
 
     , Logger
+    , LogLevel     (..)
 
     -- ** Constructing a Logger
     , newLogger

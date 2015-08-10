@@ -33,6 +33,9 @@ module Control.Monad.Trans.AWS
     , runAWST
     , execAWST
 
+    -- ** ResourceT
+    , runResourceT
+
     -- * Authentication and Environment
     , newEnv
     , Env
@@ -125,6 +128,7 @@ module Control.Monad.Trans.AWS
     -- $logging
 
     , Logger
+    , LogLevel     (..)
 
     -- ** Constructing a Logger
     , newLogger

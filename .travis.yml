@@ -133,9 +133,6 @@ matrix:
     - env: GHCVER=7.10.1 LIBRARY=amazonka-directconnect
       addons: { apt: { packages: [ghc-7.10.1], sources: [hvr-ghc] } }
 
-    - env: GHCVER=7.10.1 LIBRARY=amazonka-doc
-      addons: { apt: { packages: [ghc-7.10.1], sources: [hvr-ghc] } }
-
     - env: GHCVER=7.10.1 LIBRARY=amazonka-ds
       addons: { apt: { packages: [ghc-7.10.1], sources: [hvr-ghc] } }
 

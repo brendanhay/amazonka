@@ -17,14 +17,23 @@ module Network.AWS.Data.XML where
 
 import           Control.Applicative
 import           Control.Monad
+import           Data.Bifunctor
+import qualified Data.ByteString.Lazy        as LBS
+import           Data.Conduit
+import           Data.Conduit.Lazy           (lazyConsume)
+import qualified Data.Conduit.List           as Conduit
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Traversable            (traverse)
+import           Data.XML.Types              (Event (..))
 import           GHC.Exts
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
 import           Numeric.Natural
+import           System.IO.Unsafe            (unsafePerformIO)
 import           Text.XML
+import qualified Text.XML.Stream.Render      as Stream
+import           Text.XML.Unresolved         (toEvents)
 
 import           Prelude
 
@@ -41,14 +50,11 @@ ns .@? n =
 
 infixr 7 @=
 
--- Both this @= and toXMLList take 'Text' rather than 'Name' since the
--- IsString instance for Name creates a qualified name with an empty ns.
-
-(@=) :: ToXML a => Text -> a -> XML
+(@=) :: ToXML a => Name -> a -> XML
 n @= x =
     case toXML x of
         XNull -> XNull
-        xs    -> XOne . NodeElement $ mkElement (Name n Nothing Nothing) xs
+        xs    -> XOne . NodeElement $ mkElement n xs
 
 decodeXML :: FromXML a => LazyByteString -> Either String a
 decodeXML = either failure success . parseLBS def
@@ -57,19 +63,39 @@ decodeXML = either failure success . parseLBS def
     success = parseXML . elementNodes . documentRoot
 
 encodeXML :: ToElement a => a -> LazyByteString
-encodeXML = renderLBS def . toDocument
+encodeXML x = lazy
+     $  Conduit.sourceList (toEvents doc)
+    =$= Conduit.map rename
+    =$= Stream.renderBytes def
+  where
+    -- The following is taken from xml-conduit.Text.XML which uses
+    -- unsafePerformIO anyway, with the following caveat:
+    --   'not generally safe, but we know that runResourceT
+    --    will not deallocate any of the resources being used
+    --    by the process.'
+    lazy = LBS.fromChunks . unsafePerformIO . lazyConsume
 
-toDocument :: ToElement a => a -> Document
-toDocument x = Document
-    { documentRoot     = toElement x
-    , documentEpilogue = []
-    , documentPrologue =
-        Prologue
-            { prologueBefore  = []
-            , prologueDoctype = Nothing
-            , prologueAfter   = []
-            }
-    }
+    doc = toXMLDocument $ Document
+        { documentRoot     = root
+        , documentEpilogue = []
+        , documentPrologue =
+            Prologue
+                { prologueBefore  = []
+                , prologueDoctype = Nothing
+                , prologueAfter   = []
+                }
+        }
+
+    rename = \case
+        EventBeginElement n xs -> EventBeginElement (f n) (map (first f) xs)
+        EventEndElement   n    -> EventEndElement   (f n)
+        evt                    -> evt
+      where
+        f n | isNothing (nameNamespace n) = n { nameNamespace = ns }
+            | otherwise                   = n
+
+    ns   = nameNamespace (elementName root)
+    root = toElement x
 
 class FromXML a where
     parseXML :: [Node] -> Either String a
@@ -149,10 +175,8 @@ parseXMLText n = withContent n >=>
     maybe (Left $ "empty node list, when expecting single node " ++ n)
         fromText
 
-toXMLList :: (IsList a, ToXML (Item a)) => Text -> a -> XML
-toXMLList n = XMany . map (NodeElement . mkElement e) . toList
-  where
-    e = Name n Nothing Nothing
+toXMLList :: (IsList a, ToXML (Item a)) => Name -> a -> XML
+toXMLList n = XMany . map (NodeElement . mkElement n) . toList
 
 toXMLText :: ToText a => a -> XML
 toXMLText = XOne . NodeContent . toText

@@ -90,6 +90,7 @@ library
         , transformers-compat  >= 0.3
         , unordered-containers >= 0.2.5
         , xml-conduit          >= 1.2
+        , xml-types            >= 0.3.4
 
     if !impl(ghc>=7.9)
         build-depends:

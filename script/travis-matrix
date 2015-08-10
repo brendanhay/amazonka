@@ -2,7 +2,8 @@
 
 set -e
 
-core=( documentation amazonka-core amazonka )
+docs=( documentation )
+core=( amazonka-core amazonka )
 
 priority_=( s3 autoscaling elb sqs iam ec2 )
 priority=${priority_[@]/#/amazonka-}
@@ -25,10 +26,10 @@ matrix() {
     declare -a versions=("${!2}")
     declare -a selected=("${!3}")
 
-    for ver in ${versions[@]}; do
-        echo "    # ${title} - GHC ${ver}"
+    echo "    # ${title}"
 
-        for lib in ${selected[@]}; do
+    for lib in ${selected[@]}; do
+        for ver in ${versions[@]}; do
             entry $ver $lib
         done
 
@@ -37,10 +38,11 @@ matrix() {
 }
 
 ghc_710=( 7.10.1 )
-ghc_all=( 7.10.1 7.8.4 7.6.3 )
+ghc_all=( 7.10.1 7.8.4 )
 
 echo "  include:"
 
-matrix "Core" ghc_710[@] core[@]
+matrix "Documentation" ghc_710[@] docs[@]
+matrix "Core" ghc_all[@] core[@]
 matrix "Priority" ghc_all[@] priority[@]
 matrix "Remainder" ghc_710[@] library[@]

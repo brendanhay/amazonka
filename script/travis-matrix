@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+set -e
+
+core=( documentation amazonka-core amazonka )
+
+priority_=( s3 autoscaling elb sqs iam ec2 )
+priority=${priority_[@]/#/amazonka-}
+
+library_=( $(ls -d amazonka-*) )
+library=( $(echo ${library_[@]} ${priority[@]} | tr ' ' '\n' | sort | uniq -u) )
+
+entry() {
+    local ver="$1"
+    local lib="$2"
+
+cat <<-YAML
+    - env: GHCVER=${ver} LIBRARY=${lib}
+      addons: { apt: { packages: [ghc-${ver}], sources: [hvr-ghc] } }
+YAML
+}
+
+matrix() {
+    local title="$1"
+    declare -a versions=("${!2}")
+    declare -a selected=("${!3}")
+
+    for ver in ${versions[@]}; do
+        echo "    # ${title} - GHC ${ver}"
+
+        for lib in ${selected[@]}; do
+            entry $ver $lib
+        done
+
+        echo ""
+    done
+}
+
+ghc_710=( 7.10.1 )
+ghc_all=( 7.10.1 7.8.4 7.6.3 )
+
+echo "  include:"
+
+matrix "Core" ghc_710[@] core[@]
+matrix "Priority" ghc_all[@] priority[@]
+matrix "Remainder" ghc_710[@] library[@]

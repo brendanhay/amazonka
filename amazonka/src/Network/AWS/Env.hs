@@ -59,8 +59,8 @@ data Env = Env
 -- total field initialisation.
 
 class HasEnv a where
-    env            :: Lens' a Env
-    {-# MINIMAL env #-}
+    environment    :: Lens' a Env
+    {-# MINIMAL environment #-}
 
     -- | The current region.
     envRegion      :: Lens' a Region
@@ -98,17 +98,17 @@ class HasEnv a where
     -- | A memoised predicate for whether the underlying host is an EC2 instance.
     envEC2         :: Getter a (IORef (Maybe Bool))
 
-    envRegion      = env . lens _envRegion      (\s a -> s { _envRegion      = a })
-    envLogger      = env . lens _envLogger      (\s a -> s { _envLogger      = a })
-    envRetryCheck  = env . lens _envRetryCheck  (\s a -> s { _envRetryCheck  = a })
-    envRetryPolicy = env . lens _envRetryPolicy (\s a -> s { _envRetryPolicy = a })
-    envTimeout     = env . lens _envTimeout     (\s a -> s { _envTimeout     = a })
-    envManager     = env . lens _envManager     (\s a -> s { _envManager     = a })
-    envAuth        = env . lens _envAuth        (\s a -> s { _envAuth        = a })
-    envEC2         = env . to _envEC2
+    envRegion      = environment . lens _envRegion      (\s a -> s { _envRegion      = a })
+    envLogger      = environment . lens _envLogger      (\s a -> s { _envLogger      = a })
+    envRetryCheck  = environment . lens _envRetryCheck  (\s a -> s { _envRetryCheck  = a })
+    envRetryPolicy = environment . lens _envRetryPolicy (\s a -> s { _envRetryPolicy = a })
+    envTimeout     = environment . lens _envTimeout     (\s a -> s { _envTimeout     = a })
+    envManager     = environment . lens _envManager     (\s a -> s { _envManager     = a })
+    envAuth        = environment . lens _envAuth        (\s a -> s { _envAuth        = a })
+    envEC2         = environment . to _envEC2
 
 instance HasEnv Env where
-    env = id
+    environment = id
 
 instance ToLog Env where
     build Env{..} = b <> "\n" <> build _envAuth

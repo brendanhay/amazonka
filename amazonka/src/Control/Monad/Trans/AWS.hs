@@ -278,12 +278,12 @@ execAWST f = innerAWST go
         k r
 
     go (SendF s (request -> x) k) = do
-        e <- view env
+        e <- view environment
         r <- lift . f =<< retrier e s x (perform e s x)
         k (snd r)
 
     go (AwaitF s w (request -> x) k) = do
-        e <- view env
+        e <- view environment
         r <- lift . f =<< waiter e w x (perform e s x)
         k (snd r)
 
@@ -294,7 +294,8 @@ innerAWST :: (Monad m, HasEnv r)
           -> r
           -> AWST m a
           -> m a
-innerAWST f e (AWST m) = runReaderT (f `Free.iterT` Free.toFT m) (e ^. env)
+innerAWST f e (AWST m) =
+    runReaderT (f `Free.iterT` Free.toFT m) (e ^. environment)
 
 hoistError :: MonadThrow m => Either Error a -> m a
 hoistError = either (throwingM _Error) return

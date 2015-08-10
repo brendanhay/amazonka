@@ -100,7 +100,7 @@ deserialise :: MonadResource m
             -> m (Response a)
 deserialise g f l = receive $ \s h x -> do
     lbs <- sinkLBS x
-    liftIO . l Debug . message $ "[Raw Response Body] {\n" <> lbs <> "\n}"
+    liftIO . l Debug . build $ "[Raw Response Body] {\n" <> lbs <> "\n}"
     return $! g lbs >>= f s h
 
 receive :: MonadResource m

@@ -192,10 +192,10 @@ data Error
 instance Exception Error
 
 instance ToLog Error where
-    message = \case
-        TransportError e -> message e
-        SerializeError e -> message e
-        ServiceError   e -> message e
+    build = \case
+        TransportError e -> build e
+        SerializeError e -> build e
+        ServiceError   e -> build e
 
 data SerializeError = SerializeError'
     { _serializeAbbrev  :: !Abbrev
@@ -204,11 +204,11 @@ data SerializeError = SerializeError'
     } deriving (Eq, Show, Typeable)
 
 instance ToLog SerializeError where
-    message SerializeError'{..} = buildLines
+    build SerializeError'{..} = buildLines
         [ "[SerializeError] {"
-        , "  service = " <> message _serializeAbbrev
-        , "  status  = " <> message _serializeStatus
-        , "  message = " <> message _serializeMessage
+        , "  service = " <> build _serializeAbbrev
+        , "  status  = " <> build _serializeStatus
+        , "  build = " <> build _serializeMessage
         , "}"
         ]
 
@@ -231,13 +231,13 @@ data ServiceError = ServiceError'
     } deriving (Eq, Show, Typeable)
 
 instance ToLog ServiceError where
-    message ServiceError'{..} = buildLines
+    build ServiceError'{..} = buildLines
         [ "[ServiceError] {"
-        , "  service    = " <> message _serviceAbbrev
-        , "  status     = " <> message _serviceStatus
-        , "  code       = " <> message _serviceCode
-        , "  message    = " <> message _serviceMessage
-        , "  request-id = " <> message _serviceRequestId
+        , "  service    = " <> build _serviceAbbrev
+        , "  status     = " <> build _serviceStatus
+        , "  code       = " <> build _serviceCode
+        , "  build    = " <> build _serviceMessage
+        , "  request-id = " <> build _serviceRequestId
         , "}"
         ]
 
@@ -343,18 +343,18 @@ data Request a = Request
     }
 
 instance Show (Request a) where
-    show = LBS8.unpack . Build.toLazyByteString . message
+    show = LBS8.unpack . Build.toLazyByteString . build
 
 instance ToLog (Request a) where
-    message Request{..} = buildLines
+    build Request{..} = buildLines
         [ "[Raw Request] {"
-        , "  method    = "  <> message _rqMethod
-        , "  path      = "  <> message (escapePath _rqPath)
-        , "  query     = "  <> message _rqQuery
-        , "  headers   = "  <> message _rqHeaders
+        , "  method    = "  <> build _rqMethod
+        , "  path      = "  <> build (escapePath _rqPath)
+        , "  query     = "  <> build _rqQuery
+        , "  headers   = "  <> build _rqHeaders
         , "  body      = {"
-        , "    hash    = "  <> message (digestToBase Base16 (bodySHA256 _rqBody))
-        , "    payload =\n" <> message (bodyRequest _rqBody)
+        , "    hash    = "  <> build (digestToBase Base16 (bodySHA256 _rqBody))
+        , "    payload =\n" <> build (bodyRequest _rqBody)
         , "  }"
         , "}"
         ]
@@ -463,18 +463,18 @@ data AuthEnv = AuthEnv
     }
 
 instance ToLog AuthEnv where
-    message AuthEnv{..} = buildLines
+    build AuthEnv{..} = buildLines
         [ "[Amazonka Auth] {"
         , "  access key     = ****" <> key _authAccess
         , "  secret key     = ****"
-        , "  security token = " <> message (const "****" <$> _authToken :: Maybe Builder)
-        , "  expiry         = " <> message _authExpiry
+        , "  security token = " <> build (const "****" <$> _authToken :: Maybe Builder)
+        , "  expiry         = " <> build _authExpiry
         , "}"
         ]
       where
         -- An attempt to preserve sanity when debugging which keys
         -- have been loaded by the auth module.
-        key (AccessKey k) = message . BS.reverse . BS.take 6 $ BS.reverse k
+        key (AccessKey k) = build . BS.reverse . BS.take 6 $ BS.reverse k
 
 instance FromJSON AuthEnv where
     parseJSON = withObject "AuthEnv" $ \o -> AuthEnv
@@ -492,8 +492,8 @@ data Auth
     | Auth AuthEnv
 
 instance ToLog Auth where
-    message (Ref t _) = "[Amazonka Auth] { <thread:" <> message (show t) <> "> }"
-    message (Auth  e) = message e
+    build (Ref t _) = "[Amazonka Auth] { <thread:" <> build (show t) <> "> }"
+    build (Auth  e) = build e
 
 withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
@@ -552,7 +552,7 @@ instance ToText Region where
 instance ToByteString Region
 
 instance ToLog Region where
-    message = message . toBS
+    build = build . toBS
 
 instance FromXML Region where parseXML = parseXMLText "Region"
 instance ToXML   Region where toXML    = toXMLText
@@ -581,7 +581,7 @@ _Seconds :: Iso' Seconds Int
 _Seconds = iso seconds Seconds
 
 instance ToLog Seconds where
-    message (Seconds n) = message n <> "s"
+    build (Seconds n) = build n <> "s"
 
 seconds :: Seconds -> Int
 seconds (Seconds n) = n

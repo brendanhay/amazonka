@@ -177,19 +177,19 @@ data Credentials
       deriving (Eq)
 
 instance ToLog Credentials where
-    message = \case
-        FromKeys    a _   -> "FromKeys "    <> message a <> " ****"
-        FromSession a _ _ -> "FromSession " <> message a <> " **** ****"
-        FromEnv     a s t -> "FromEnv "     <> message a <> " " <> message s <> " " <> m t
-        FromProfile n     -> "FromProfile " <> message n
-        FromFile    n f   -> "FromFile "    <> message n <> " " <> message f
+    build = \case
+        FromKeys    a _   -> "FromKeys "    <> build a <> " ****"
+        FromSession a _ _ -> "FromSession " <> build a <> " **** ****"
+        FromEnv     a s t -> "FromEnv "     <> build a <> " " <> build s <> " " <> m t
+        FromProfile n     -> "FromProfile " <> build n
+        FromFile    n f   -> "FromFile "    <> build n <> " " <> build f
         Discover          -> "Discover"
       where
-        m (Just x) = "(Just " <> message x <> ")"
+        m (Just x) = "(Just " <> build x <> ")"
         m Nothing  = "Nothing"
 
 instance Show Credentials where
-    show = BS8.unpack . toBS . message
+    show = BS8.unpack . toBS . build
 
 -- | An error thrown when attempting to read AuthN/AuthZ information.
 data AuthError
@@ -203,12 +203,12 @@ data AuthError
 instance Exception AuthError
 
 instance ToLog AuthError where
-    message = \case
-        RetrievalError   e -> message e
-        MissingEnvError  e -> "[MissingEnvError]  { message = " <> message e <> "}"
-        MissingFileError f -> "[MissingFileError] { path = "    <> message f <> "}"
-        InvalidFileError e -> "[InvalidFileError] { message = " <> message e <> "}"
-        InvalidIAMError  e -> "[InvalidIAMError]  { message = " <> message e <> "}"
+    build = \case
+        RetrievalError   e -> build e
+        MissingEnvError  e -> "[MissingEnvError]  { message = " <> build e <> "}"
+        MissingFileError f -> "[MissingFileError] { path = "    <> build f <> "}"
+        InvalidFileError e -> "[InvalidFileError] { message = " <> build e <> "}"
+        InvalidIAMError  e -> "[InvalidIAMError]  { message = " <> build e <> "}"
 
 class AsAuthError a where
     -- | A general authentication error.

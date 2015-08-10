@@ -100,9 +100,9 @@ retrier Env{..} Service{..} rq =
     msg x n = logDebug _envLogger
         . mconcat
         . intersperse " "
-        $ [ "[Retry " <> message x <> "]"
+        $ [ "[Retry " <> build x <> "]"
           , " after "
-          , message (n + 1)
+          , build (n + 1)
           , "attempts."
           ]
 
@@ -130,10 +130,10 @@ waiter Env{..} w@Wait{..} rq = retrying policy check
     msg n a = logDebug _envLogger
         . mconcat
         . intersperse " "
-        $ [ "[Await " <> message _waitName <> "]"
-          , message a
+        $ [ "[Await " <> build _waitName <> "]"
+          , build a
           , " after "
-          , message (n + 1)
+          , build (n + 1)
           , "attempts."
           ]
 

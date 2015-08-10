@@ -22,7 +22,7 @@ module Network.AWS.Logger
     , logDebug
     , logTrace
 
-    -- * Messages
+    -- * Builds
     , ToLog    (..)
     , buildLines
     ) where
@@ -37,7 +37,7 @@ import           System.IO
 
 import           Prelude
 
--- | This is a primitive logger which can be used to log messages to a 'Handle'.
+-- | This is a primitive logger which can be used to log builds to a 'Handle'.
 --
 -- /Note:/ A more sophisticated logging library such as
 -- <http://hackage.haskell.org/package/tinylog tinylog> or
@@ -53,7 +53,7 @@ newLogger x hd = liftIO $ do
 
 logError, logInfo, logDebug, logTrace
  :: (MonadIO m, ToLog a) => Logger -> a -> m ()
-logError f = liftIO . f Error . message
-logInfo  f = liftIO . f Info  . message
-logDebug f = liftIO . f Debug . message
-logTrace f = liftIO . f Trace . message
+logError f = liftIO . f Error . build
+logInfo  f = liftIO . f Info  . build
+logDebug f = liftIO . f Debug . build
+logTrace f = liftIO . f Trace . build

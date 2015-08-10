@@ -52,7 +52,7 @@ data Accept
       deriving (Eq, Show)
 
 instance ToLog Accept where
-    message = \case
+    build = \case
         AcceptSuccess -> "Success"
         AcceptFailure -> "Failure"
         AcceptRetry   -> "Retry"

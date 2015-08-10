@@ -45,11 +45,11 @@ data instance Meta V2 = Meta
     }
 
 instance ToLog (Meta V2) where
-    message Meta{..} = mconcat $ intersperse "\n"
+    build Meta{..} = mconcat $ intersperse "\n"
         [ "[Version 2 Metadata] {"
-        , "  time      = " <> message metaTime
-        , "  endpoint  = " <> message (_endpointHost metaEndpoint)
-        , "  signature = " <> message metaSignature
+        , "  time      = " <> build metaTime
+        , "  endpoint  = " <> build (_endpointHost metaEndpoint)
+        , "  signature = " <> build metaSignature
         , "}"
         ]
 

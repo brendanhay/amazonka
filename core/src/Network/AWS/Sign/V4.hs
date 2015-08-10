@@ -64,18 +64,18 @@ data instance Meta V4 = Meta
     }
 
 instance ToLog (Meta V4) where
-    message Meta{..} = buildLines
+    build Meta{..} = buildLines
         [ "[Version 4 Metadata] {"
-        , "  time              = " <> message metaTime
-        , "  endpoint          = " <> message (_endpointHost metaEndpoint)
-        , "  credential        = " <> message metaCredential
-        , "  signed headers    = " <> message metaSignedHeaders
-        , "  signature         = " <> message metaSignature
+        , "  time              = " <> build metaTime
+        , "  endpoint          = " <> build (_endpointHost metaEndpoint)
+        , "  credential        = " <> build metaCredential
+        , "  signed headers    = " <> build metaSignedHeaders
+        , "  signature         = " <> build metaSignature
         , "  string to sign    = {"
-        , message metaStringToSign
+        , build metaStringToSign
         , "}"
         , "  canonical request = {"
-        , message metaCanonicalRequest
+        , build metaCanonicalRequest
         , "  }"
         , "}"
         ]
@@ -126,8 +126,8 @@ instance AWSSigner V4 where
 -- the ToByteString instance.
 newtype Tag (s :: Symbol) a = Tag { unTag :: a }
 
-instance ToByteString (Tag s ByteString) where toBS    = unTag
-instance ToLog        (Tag s ByteString) where message = message . unTag
+instance ToByteString (Tag s ByteString) where toBS  = unTag
+instance ToLog        (Tag s ByteString) where build = build . unTag
 
 instance ToByteString CredentialScope where
     toBS = BS8.intercalate "/" . unTag

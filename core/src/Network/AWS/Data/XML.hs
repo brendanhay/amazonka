@@ -62,19 +62,17 @@ decodeXML = either failure success . parseLBS def
     failure = Left  . show
     success = parseXML . elementNodes . documentRoot
 
+-- The following is taken from xml-conduit.Text.XML which uses
+-- unsafePerformIO anyway, with the following caveat:
+--   'not generally safe, but we know that runResourceT
+--    will not deallocate any of the resources being used
+--    by the process.'
 encodeXML :: ToElement a => a -> LazyByteString
-encodeXML x = lazy
+encodeXML x = LBS.fromChunks . unsafePerformIO . lazyConsume
      $  Conduit.sourceList (toEvents doc)
     =$= Conduit.map rename
     =$= Stream.renderBytes def
   where
-    -- The following is taken from xml-conduit.Text.XML which uses
-    -- unsafePerformIO anyway, with the following caveat:
-    --   'not generally safe, but we know that runResourceT
-    --    will not deallocate any of the resources being used
-    --    by the process.'
-    lazy = LBS.fromChunks . unsafePerformIO . lazyConsume
-
     doc = toXMLDocument $ Document
         { documentRoot     = root
         , documentEpilogue = []

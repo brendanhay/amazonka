@@ -33,9 +33,6 @@ module Control.Monad.Trans.AWS
     , runAWST
     , execAWST
 
-    -- ** ResourceT
-    , runResourceT
-
     -- * Authentication and Environment
     , newEnv
     , Env
@@ -132,6 +129,9 @@ module Control.Monad.Trans.AWS
 
     -- ** Constructing a Logger
     , newLogger
+
+    -- ** Re-exported runResourceT
+    , runResourceT
 
     -- * Re-exported Types
     , RqBody

@@ -30,9 +30,6 @@ module Network.AWS
     , MonadAWS    (..)
     , runAWS
 
-    -- ** Running ResourceT
-    , runResourceT
-
     -- * Authentication and Environment
     , newEnv
     , Env
@@ -122,6 +119,9 @@ module Network.AWS
 
     -- ** Constructing a Logger
     , newLogger
+
+    -- ** Re-exported runResourceT
+    , runResourceT
 
     -- * Re-exported Types
     , AWST.RqBody

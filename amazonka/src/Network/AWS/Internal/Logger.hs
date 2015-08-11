@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- |
--- Module      : Network.AWS.Logger
+-- Module      : Network.AWS.Internal.Logger
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
@@ -9,7 +9,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Types and functions for constructing loggers and emitting log messages.
-module Network.AWS.Logger
+module Network.AWS.Internal.Logger
     (
     -- * Constructing a Logger
       Logger
@@ -22,7 +22,7 @@ module Network.AWS.Logger
     , logDebug
     , logTrace
 
-    -- * Builds
+    -- * Building Messages
     , ToLog    (..)
     , buildLines
     ) where

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -e
+
+version="$1"
+
+if [ -z "$version" ]; then
+    echo "Usage: bump-version <NEW_VERSION>"
+    exit 1
+fi
+
+specs=(
+ amazonka/amazonka.cabal
+ core/amazonka-core.cabal
+ examples/amazonka-examples.cabal
+ gen/amazonka-gen.cabal
+ test/amazonka-test.cabal
+)
+
+for cabal in ${specs[@]}; do
+    sed -i"" "s/^\(version: *\).*$/\1$version/" $cabal
+    sed -i"" "s/^\(.*amazonka-core *== *\)\([0-9\.]\+\*\)$/\1$version.*/" $cabal
+done
+
+echo "Done."

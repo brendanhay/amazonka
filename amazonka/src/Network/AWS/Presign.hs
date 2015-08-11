@@ -12,11 +12,12 @@
 -- not one of the AWS specific transformers.
 --
 -- It is intended for use directly with "Network.AWS.Auth" when only presigning
--- is required and you wish to avoid using the 'Network.AWS.AWS' monad, since it
--- does not use the underlying 'FreeT' 'Network.AWS.Free.Command' DSL.
--- If you wish to presign requests and are using either the 'Network.AWS.AWS' or
--- 'Control.Monad.Trans.AWS.AWST' monads, then prefer one of the relevant
--- 'Control.Monad.Trans.AWS.presign'ing functions available there.
+-- and no other AWS actions are required.
+-- If you wish to presign requests and are using either the 'Network.AWS.AWS'
+-- or 'Control.Monad.Trans.AWS.AWST' monads, then prefer one of the relevant
+-- 'Control.Monad.Trans.AWS.presign'ing functions available there, as the
+-- functions in this module do not use the underlying 'FreeT'
+-- 'Network.AWS.Free.Command' DSL.
 module Network.AWS.Presign where
 
 import           Control.Lens

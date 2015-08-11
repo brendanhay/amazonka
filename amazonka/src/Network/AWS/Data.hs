@@ -10,9 +10,9 @@
 -- for convenience.
 --
 -- Many of the AWS identifiers like S3's 'ObjectVersionId' or 'ETag',
--- as well as any sum/enum types such as 'Network.AWS.Region' have 'ToText' and
--- 'ToByteString' instances, making it convenient to use the type classes to
--- convert a value to its textual representation.
+-- as well as any nullary sum types such as 'Network.AWS.Region' have 'ToText'
+-- and 'ToByteString' instances, making it convenient to use the type classes
+-- to convert a value to its textual representation.
 module Network.AWS.Data
     (
     -- * Text

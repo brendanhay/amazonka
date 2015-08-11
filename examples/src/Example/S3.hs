@@ -1,14 +1,14 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- |
--- Module      : S3.TagBucket
+-- Module      : Example.S3
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
-module S3.TagBucket where
+module Example.S3 where
 
 import           Control.Lens
 import           Control.Monad
@@ -16,8 +16,9 @@ import           Control.Monad.IO.Class
 import           Control.Monad.Trans.AWS
 import qualified Data.Foldable           as Fold
 import           Data.Monoid
+import           Data.Text               (Text)
 import qualified Data.Text.IO            as Text
-import           Network.AWS.Prelude
+import           Network.AWS.Data
 import           Network.AWS.S3
 import           System.IO
 

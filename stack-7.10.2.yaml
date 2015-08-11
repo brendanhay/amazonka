@@ -6,6 +6,7 @@ packages:
   - core
   - test
   - amazonka
+  - examples
   - amazonka-autoscaling
   - amazonka-cloudformation
   - amazonka-cloudfront

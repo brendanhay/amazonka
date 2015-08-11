@@ -4,6 +4,7 @@ set -e
 
 docs=( documentation )
 core=( amazonka-core amazonka )
+examples=( amazonka-examples )
 
 priority_=( s3 autoscaling elb sqs iam ec2 )
 priority=${priority_[@]/#/amazonka-}
@@ -15,10 +16,10 @@ entry() {
     local ver="$1"
     local lib="$2"
 
-cat <<-YAML
+cat <<-ENTRY
     - env: GHCVER=${ver} LIBRARY=${lib}
       addons: { apt: { packages: [ghc-${ver}], sources: [hvr-ghc] } }
-YAML
+ENTRY
 }
 
 matrix() {
@@ -26,23 +27,23 @@ matrix() {
     declare -a versions=("${!2}")
     declare -a selected=("${!3}")
 
-    echo "    # ${title}"
+cat <<-TITLE
+
+    # ${title}
+TITLE
 
     for lib in ${selected[@]}; do
         for ver in ${versions[@]}; do
             entry $ver $lib
         done
-
-        echo ""
     done
 }
 
 ghc_710=( 7.10.1 )
 ghc_all=( 7.10.1 7.8.4 )
 
-echo "  include:"
-
 matrix "Documentation" ghc_710[@] docs[@]
 matrix "Core" ghc_all[@] core[@]
 matrix "Priority" ghc_all[@] priority[@]
 matrix "Remainder" ghc_710[@] library[@]
+matrix "Examples" ghc_710[@] examples[@]

@@ -73,8 +73,8 @@ import           Data.Monoid
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import           Data.Time                  (diffUTCTime, getCurrentTime)
+import           Network.AWS.Data.Log
 import           Network.AWS.EC2.Metadata
-import           Network.AWS.Logger
 import           Network.AWS.Prelude
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
@@ -279,7 +279,7 @@ getAuth m = \case
     Discover          ->
         -- Don't try and catch InvalidFileError, or InvalidIAMProfile,
         -- let both errors propagate.
-        catching_ _MissingEnvError fromEnv $ do
+        catching_ _MissingEnvError fromEnv $
             -- proceed, missing env keys
             catching _MissingFileError fromFile $ \f -> do
                 -- proceed, missing credentials file

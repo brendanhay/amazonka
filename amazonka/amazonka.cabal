@@ -57,15 +57,16 @@ library
           Control.Monad.Trans.AWS
         , Network.AWS
         , Network.AWS.Auth
+        , Network.AWS.Data
         , Network.AWS.EC2.Metadata
         , Network.AWS.Env
         , Network.AWS.Free
-        , Network.AWS.Logger
         , Network.AWS.Presign
 
     other-modules:
           Network.AWS.Internal.Body
         , Network.AWS.Internal.HTTP
+        , Network.AWS.Internal.Logger
 
     build-depends:
           amazonka-core       == 1.0.0.*

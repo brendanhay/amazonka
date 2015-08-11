@@ -130,15 +130,15 @@ module Control.Monad.Trans.AWS
     -- ** Constructing a Logger
     , newLogger
 
-    -- ** Re-exported runResourceT
-    , runResourceT
-
     -- * Re-exported Types
     , RqBody
     , RsBody
     , module Network.AWS.Types
-    , module Network.AWS.Pager
     , module Network.AWS.Waiter
+    , module Network.AWS.Pager
+
+    -- * runResourceT
+    , runResourceT
     ) where
 
 import           Control.Applicative
@@ -161,7 +161,7 @@ import           Network.AWS.Env
 import           Network.AWS.Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.HTTP
-import           Network.AWS.Logger
+import           Network.AWS.Internal.Logger
 import           Network.AWS.Pager               (AWSPager)
 import           Network.AWS.Prelude             as AWS
 import qualified Network.AWS.Presign             as Sign

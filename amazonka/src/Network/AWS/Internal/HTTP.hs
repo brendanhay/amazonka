@@ -28,7 +28,7 @@ import           Data.List                    (intersperse)
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Env
-import           Network.AWS.Logger
+import           Network.AWS.Internal.Logger
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 import           Network.HTTP.Conduit         hiding (Request, Response)

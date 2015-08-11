@@ -37,7 +37,7 @@ import           Control.Retry
 import           Data.IORef
 import           Data.Monoid
 import           Network.AWS.Auth
-import           Network.AWS.Logger
+import           Network.AWS.Internal.Logger
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
 

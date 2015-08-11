@@ -120,15 +120,15 @@ module Network.AWS
     -- ** Constructing a Logger
     , newLogger
 
-    -- ** Re-exported runResourceT
-    , runResourceT
-
     -- * Re-exported Types
-    , AWST.RqBody
-    , AWST.RsBody
+    , RqBody
+    , RsBody
     , module Network.AWS.Types
-    , module Network.AWS.Pager
     , module Network.AWS.Waiter
+    , module Network.AWS.Pager
+
+    -- * runResourceT
+    , runResourceT
     ) where
 
 import           Control.Applicative
@@ -159,7 +159,7 @@ import           Network.AWS.Auth
 import qualified Network.AWS.EC2.Metadata        as EC2
 import           Network.AWS.Env                 (Env, HasEnv (..), newEnv)
 import           Network.AWS.Internal.Body
-import           Network.AWS.Logger
+import           Network.AWS.Internal.Logger
 import           Network.AWS.Pager               (AWSPager)
 import           Network.AWS.Prelude
 import           Network.AWS.Types               hiding (LogLevel (..))

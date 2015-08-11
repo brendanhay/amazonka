@@ -51,9 +51,9 @@ instance FromXML ComparisonOperator where
     parseXML = parseXMLText "ComparisonOperator"
 
 data HistoryItemType
-    = StateUpdate
-    | Action
+    = Action
     | ConfigurationUpdate
+    | StateUpdate
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText HistoryItemType where
@@ -81,31 +81,31 @@ instance FromXML HistoryItemType where
 data StandardUnit
     = Bits
     | BitsSecond
-    | MegabytesSecond
-    | Megabytes
-    | None
+    | Bytes
+    | BytesSecond
     | Count
-    | Terabytes
-    | TerabytesSecond
-    | Percent
     | CountSecond
-    | TerabitsSecond
-    | Terabits
-    | Milliseconds
-    | GigabytesSecond
-    | Microseconds
-    | Gigabytes
-    | GigabitsSecond
     | Gigabits
-    | Megabits
-    | MegabitsSecond
+    | GigabitsSecond
+    | Gigabytes
+    | GigabytesSecond
     | Kilobits
     | KilobitsSecond
     | Kilobytes
     | KilobytesSecond
+    | Megabits
+    | MegabitsSecond
+    | Megabytes
+    | MegabytesSecond
+    | Microseconds
+    | Milliseconds
+    | None
+    | Percent
     | Seconds
-    | BytesSecond
-    | Bytes
+    | Terabits
+    | TerabitsSecond
+    | Terabytes
+    | TerabytesSecond
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StandardUnit where
@@ -179,9 +179,9 @@ instance FromXML StandardUnit where
     parseXML = parseXMLText "StandardUnit"
 
 data StateValue
-    = OK
+    = Alarm
     | InsufficientData
-    | Alarm
+    | OK
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StateValue where
@@ -207,10 +207,10 @@ instance FromXML StateValue where
     parseXML = parseXMLText "StateValue"
 
 data Statistic
-    = SampleCount
+    = Average
     | Maximum
-    | Average
     | Minimum
+    | SampleCount
     | Sum
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 

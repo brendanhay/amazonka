@@ -20,11 +20,11 @@ module Network.AWS.DataPipeline.Types.Sum where
 import           Network.AWS.Prelude
 
 data OperatorType
-    = OperatorGE
+    = OperatorBetween
     | OperatorEQ'
-    | OperatorBetween
-    | OperatorRefEQ
+    | OperatorGE
     | OperatorLE
+    | OperatorRefEQ
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OperatorType where
@@ -54,9 +54,9 @@ instance ToJSON OperatorType where
     toJSON = toJSONText
 
 data TaskStatus
-    = Finished
+    = Failed
     | False'
-    | Failed
+    | Finished
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TaskStatus where

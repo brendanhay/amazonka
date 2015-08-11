@@ -42,9 +42,9 @@ instance ToQuery      IdentityType
 instance ToHeader     IdentityType
 
 data NotificationType
-    = Delivery
-    | Bounce
+    = Bounce
     | Complaint
+    | Delivery
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText NotificationType where
@@ -67,11 +67,11 @@ instance ToQuery      NotificationType
 instance ToHeader     NotificationType
 
 data VerificationStatus
-    = NotStarted
+    = Failed
+    | NotStarted
     | Pending
     | Success
     | TemporaryFailure
-    | Failed
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VerificationStatus where

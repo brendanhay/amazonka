@@ -22,8 +22,8 @@ import           Network.AWS.Route53.Internal
 
 data ChangeAction
     = Create
-    | Upsert
     | Delete
+    | Upsert
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ChangeAction where
@@ -49,8 +49,8 @@ instance ToXML ChangeAction where
     toXML = toXMLText
 
 data ChangeStatus
-    = Pending
-    | Insync
+    = Insync
+    | Pending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ChangeStatus where
@@ -74,8 +74,8 @@ instance FromXML ChangeStatus where
     parseXML = parseXMLText "ChangeStatus"
 
 data Failover
-    = Secondary
-    | Primary
+    = Primary
+    | Secondary
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Failover where
@@ -102,11 +102,11 @@ instance ToXML Failover where
     toXML = toXMLText
 
 data HealthCheckType
-    = HTTPS
-    | TCP
+    = HTTP
+    | HTTPS
     | HTTPSStrMatch
-    | HTTP
     | HTTPStrMatch
+    | TCP
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText HealthCheckType where
@@ -139,16 +139,16 @@ instance ToXML HealthCheckType where
     toXML = toXMLText
 
 data RecordType
-    = Cname
-    | Srv
+    = A
+    | Aaaa
+    | Cname
     | MX
     | NS
-    | Aaaa
-    | A
-    | Spf
-    | Soa
-    | Txt
     | Ptr
+    | Soa
+    | Spf
+    | Srv
+    | Txt
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RecordType where
@@ -220,15 +220,15 @@ instance ToXML TagResourceType where
 
 data VPCRegion
     = ApNortheast1
-    | SaEast1
-    | CnNorth1
-    | UsWest2
-    | UsEast1
-    | EuWest1
-    | EuCentral1
-    | UsWest1
-    | ApSoutheast2
     | ApSoutheast1
+    | ApSoutheast2
+    | CnNorth1
+    | EuCentral1
+    | EuWest1
+    | SaEast1
+    | UsEast1
+    | UsWest1
+    | UsWest2
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VPCRegion where

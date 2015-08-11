@@ -22,8 +22,8 @@ import           Network.AWS.Prelude
 data ShardIteratorType
     = AfterSequenceNumber
     | AtSequenceNumber
-    | TrimHorizon
     | Latest
+    | TrimHorizon
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ShardIteratorType where
@@ -51,10 +51,10 @@ instance ToJSON ShardIteratorType where
     toJSON = toJSONText
 
 data StreamStatus
-    = Deleting
-    | Updating
+    = Active
     | Creating
-    | Active
+    | Deleting
+    | Updating
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StreamStatus where

@@ -21,8 +21,8 @@ import           Network.AWS.Prelude
 
 data Compute
     = Performance
-    | Value
     | Standard
+    | Value
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Compute where
@@ -48,11 +48,11 @@ instance FromJSON Compute where
     parseJSON = parseJSONText "Compute"
 
 data WorkspaceDirectoryState
-    = Error'
+    = Deregistered
     | Deregistering
+    | Error'
     | Registered
     | Registering
-    | Deregistered
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText WorkspaceDirectoryState where
@@ -107,16 +107,16 @@ instance FromJSON WorkspaceDirectoryType where
     parseJSON = parseJSONText "WorkspaceDirectoryType"
 
 data WorkspaceState
-    = WSSuspended
-    | WSUnhealthy
-    | WSRebooting
-    | WSTerminating
-    | WSImpaired
+    = WSAvailable
     | WSError'
+    | WSImpaired
     | WSPending
+    | WSRebooting
     | WSRebuilding
-    | WSAvailable
+    | WSSuspended
     | WSTerminated
+    | WSTerminating
+    | WSUnhealthy
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText WorkspaceState where

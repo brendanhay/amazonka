@@ -48,22 +48,22 @@ instance ToJSON ArtifactCategory where
     toJSON = toJSONText
 
 data ArtifactType
-    = DeviceLog
-    | Screenshot
-    | MessageLog
-    | AppiumServerOutput
-    | CalabashJavaXMLOutput
-    | Unknown
-    | ExerciserMonkeyOutput
-    | CalabashPrettyOutput
-    | InstrumentationOutput
+    = AppiumJavaOutput
     | AppiumJavaXMLOutput
-    | ResultLog
-    | CalabashJSONOutput
+    | AppiumServerOutput
     | AutomationOutput
+    | CalabashJSONOutput
+    | CalabashJavaXMLOutput
+    | CalabashPrettyOutput
     | CalabashStandardOutput
-    | AppiumJavaOutput
+    | DeviceLog
+    | ExerciserMonkeyOutput
+    | InstrumentationOutput
+    | MessageLog
+    | ResultLog
+    | Screenshot
     | ServiceLog
+    | Unknown
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ArtifactType where
@@ -143,10 +143,10 @@ instance FromJSON BillingMethod where
     parseJSON = parseJSONText "BillingMethod"
 
 data DeviceAttribute
-    = Platform
-    | Manufacturer
-    | ARN
+    = ARN
     | FormFactor
+    | Manufacturer
+    | Platform
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeviceAttribute where
@@ -202,8 +202,8 @@ instance FromJSON DeviceFormFactor where
     parseJSON = parseJSONText "DeviceFormFactor"
 
 data DevicePlatform
-    = Ios
-    | Android
+    = Android
+    | Ios
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DevicePlatform where
@@ -227,8 +227,8 @@ instance FromJSON DevicePlatform where
     parseJSON = parseJSONText "DevicePlatform"
 
 data DevicePoolType
-    = Private
-    | Curated
+    = Curated
+    | Private
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DevicePoolType where
@@ -255,13 +255,13 @@ instance FromJSON DevicePoolType where
     parseJSON = parseJSONText "DevicePoolType"
 
 data ExecutionResult
-    = ERFailed
-    | ERSkipped
-    | ERPending
-    | ERErrored
-    | ERWarned
+    = ERErrored
+    | ERFailed
     | ERPassed
+    | ERPending
+    | ERSkipped
     | ERStopped
+    | ERWarned
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ExecutionResult where
@@ -295,11 +295,11 @@ instance FromJSON ExecutionResult where
     parseJSON = parseJSONText "ExecutionResult"
 
 data ExecutionStatus
-    = Pending
-    | Running
-    | Completed
-    | Scheduling
+    = Completed
+    | Pending
     | Processing
+    | Running
+    | Scheduling
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ExecutionStatus where
@@ -329,11 +329,11 @@ instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
 
 data RuleOperator
-    = LessThan
-    | IN
-    | Equals
-    | NotIn
+    = Equals
     | GreaterThan
+    | IN
+    | LessThan
+    | NotIn
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RuleOperator where
@@ -366,23 +366,23 @@ instance FromJSON RuleOperator where
     parseJSON = parseJSONText "RuleOperator"
 
 data SampleType
-    = TX
+    = CPU
+    | Memory
     | NativeAvgDrawtime
     | NativeFps
-    | RX
-    | OpenglFps
-    | OpenglAvgDrawtime
-    | NativeMaxDrawtime
-    | TxRate
-    | NativeMinDrawtime
-    | Memory
     | NativeFrames
-    | Threads
-    | RxRate
-    | OpenglMinDrawtime
-    | CPU
-    | OpenglMaxDrawtime
+    | NativeMaxDrawtime
+    | NativeMinDrawtime
+    | OpenglAvgDrawtime
+    | OpenglFps
     | OpenglFrames
+    | OpenglMaxDrawtime
+    | OpenglMinDrawtime
+    | RX
+    | RxRate
+    | TX
+    | Threads
+    | TxRate
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SampleType where
@@ -436,15 +436,15 @@ instance FromJSON SampleType where
     parseJSON = parseJSONText "SampleType"
 
 data TestType
-    = Calabash
-    | Instrumentation
-    | AppiumJavaJunit
+    = AppiumJavaJunit
     | AppiumJavaTestng
-    | Uiautomator
     | BuiltinExplorer
     | BuiltinFuzz
-    | Xctest
+    | Calabash
+    | Instrumentation
     | Uiautomation
+    | Uiautomator
+    | Xctest
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TestType where
@@ -485,8 +485,8 @@ instance FromJSON TestType where
     parseJSON = parseJSONText "TestType"
 
 data UploadStatus
-    = USInitialized
-    | USFailed
+    = USFailed
+    | USInitialized
     | USProcessing
     | USSucceeded
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
@@ -516,16 +516,16 @@ instance FromJSON UploadStatus where
     parseJSON = parseJSONText "UploadStatus"
 
 data UploadType
-    = AppiumJavaJunitTestPackage
-    | InstrumentationTestPackage
-    | UiautomationTestPackage
-    | AndroidApp
-    | ExternalData
-    | XctestTestPackage
-    | IosApp
+    = AndroidApp
+    | AppiumJavaJunitTestPackage
     | AppiumJavaTestngTestPackage
-    | UiautomatorTestPackage
     | CalabashTestPackage
+    | ExternalData
+    | InstrumentationTestPackage
+    | IosApp
+    | UiautomationTestPackage
+    | UiautomatorTestPackage
+    | XctestTestPackage
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText UploadType where

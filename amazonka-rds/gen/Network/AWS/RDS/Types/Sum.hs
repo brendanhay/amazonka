@@ -20,8 +20,8 @@ module Network.AWS.RDS.Types.Sum where
 import           Network.AWS.Prelude
 
 data ApplyMethod
-    = PendingReboot
-    | Immediate
+    = Immediate
+    | PendingReboot
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ApplyMethod where
@@ -45,10 +45,10 @@ instance FromXML ApplyMethod where
     parseXML = parseXMLText "ApplyMethod"
 
 data SourceType
-    = DBSecurityGroup
-    | DBSnapshot
+    = DBInstance
     | DBParameterGroup
-    | DBInstance
+    | DBSecurityGroup
+    | DBSnapshot
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SourceType where

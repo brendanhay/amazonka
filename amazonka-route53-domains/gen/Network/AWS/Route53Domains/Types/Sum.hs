@@ -20,11 +20,11 @@ module Network.AWS.Route53Domains.Types.Sum where
 import           Network.AWS.Prelude
 
 data ContactType
-    = Person
+    = Association
     | Company
-    | Reseller
-    | Association
+    | Person
     | PublicBody
+    | Reseller
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ContactType where
@@ -57,235 +57,235 @@ instance FromJSON ContactType where
     parseJSON = parseJSONText "ContactType"
 
 data CountryCode
-    = NR
-    | CG
-    | TH
-    | WS
-    | IM
-    | FJ
-    | AU
-    | UA
-    | PL
-    | MY
+    = AD
     | AE
-    | SG
-    | HT
-    | BN
-    | PG
-    | JM
-    | MR
-    | VA
-    | UZ
-    | AN
-    | RU
-    | GH
-    | BE
-    | SL
-    | CL
-    | TC
-    | NI
-    | ZM
-    | LK
-    | PW
-    | LV
-    | UG
-    | AS
-    | GE
-    | HR
-    | BH
-    | SA
-    | EG
-    | GU
-    | KY
-    | CA
-    | TN
-    | KI
-    | OM
-    | JP
-    | MO
-    | CV
-    | MH
-    | FK
-    | ZW
-    | AT
-    | RO
-    | PM
-    | MX
-    | SV
-    | AD
-    | GB
-    | BO
-    | HU
-    | GR
-    | CF
-    | KN
-    | NC
-    | IL
-    | LA
-    | TT
-    | CK
-    | TD
-    | ME
-    | IQ
-    | MU
-    | BR
-    | AI
-    | BB
-    | SK
-    | NU
-    | KH
-    | TO
-    | NE
-    | ZA
-    | MN
-    | FM
-    | AR
-    | DO
-    | PK
-    | BY
-    | GD
-    | BI
-    | GA
-    | BL
-    | SE
-    | EC
-    | GQ
-    | TZ
-    | NP
-    | KM
-    | TJ
-    | LB
-    | CU
-    | MK
-    | LR
-    | AW
-    | DJ
-    | PN
-    | ES
-    | DZ
-    | US
-    | AG
-    | DE
-    | MT
-    | PA
-    | VG
-    | BS
-    | SZ
-    | RS
-    | GN
-    | KR
-    | NO
-    | CZ
-    | MD
-    | PT
-    | MA
-    | AM
-    | UY
-    | BF
-    | SO
-    | YE
-    | KW
-    | NZ
-    | CO
-    | KG
-    | FR
-    | IE
-    | GT'
-    | TK
-    | NA
-    | LT'
-    | LC
-    | IN
-    | FI
-    | LS
-    | DK
-    | MZ
-    | VI
-    | ST
-    | ER
     | AF
-    | BM
-    | SD
-    | CD
-    | TV
-    | CI
-    | NL
-    | CY
-    | PR
-    | MG
-    | IS
-    | MW
-    | SY
-    | GM
-    | SI
-    | YT
-    | SN
-    | BG
-    | Id
-    | CN
-    | LI
-    | IT
-    | LY
-    | PE
-    | JO
-    | MP
-    | BW
-    | VC
+    | AG
+    | AI
     | AL
-    | RW
-    | VN
-    | BZ
-    | BJ
-    | SC
-    | EE
-    | QA
-    | GW
-    | CC
-    | TL
-    | MM
-    | AQ
-    | PH
-    | CX
-    | MF
-    | IR
-    | AZ
-    | MV
-    | VE
-    | HK
-    | GL
-    | BA
-    | SH
-    | VU
-    | KP
-    | TW
-    | CH
-    | TG
-    | KE
-    | MC
-    | PF
-    | MS
-    | BT
-    | HN
+    | AM
+    | AN
     | AO
-    | GI
-    | SM
+    | AQ
+    | AR
+    | AS
+    | AT
+    | AU
+    | AW
+    | AZ
+    | BA
+    | BB
     | BD
-    | GY
-    | TR
+    | BE
+    | BF
+    | BG
+    | BH
+    | BI
+    | BJ
+    | BL
+    | BM
+    | BN
+    | BO
+    | BR
+    | BS
+    | BT
+    | BW
+    | BY
+    | BZ
+    | CA
+    | CC
+    | CD
+    | CF
+    | CG
+    | CH
+    | CI
+    | CK
+    | CL
     | CM
-    | TM
-    | NG
+    | CN
+    | CO
     | CR
-    | PY
-    | ML
-    | FO
-    | WF
-    | LU
+    | CU
+    | CV
+    | CX
+    | CY
+    | CZ
+    | DE
+    | DJ
+    | DK
     | DM
-    | SR
+    | DO
+    | DZ
+    | EC
+    | EE
+    | EG
+    | ER
+    | ES
     | ET
-    | SB
+    | FI
+    | FJ
+    | FK
+    | FM
+    | FO
+    | FR
+    | GA
+    | GB
+    | GD
+    | GE
+    | GH
+    | GI
+    | GL
+    | GM
+    | GN
+    | GQ
+    | GR
+    | GT'
+    | GU
+    | GW
+    | GY
+    | HK
+    | HN
+    | HR
+    | HT
+    | HU
+    | IE
+    | IL
+    | IM
+    | IN
+    | IQ
+    | IR
+    | IS
+    | IT
+    | Id
+    | JM
+    | JO
+    | JP
+    | KE
+    | KG
+    | KH
+    | KI
+    | KM
+    | KN
+    | KP
+    | KR
+    | KW
+    | KY
     | KZ
+    | LA
+    | LB
+    | LC
+    | LI
+    | LK
+    | LR
+    | LS
+    | LT'
+    | LU
+    | LV
+    | LY
+    | MA
+    | MC
+    | MD
+    | ME
+    | MF
+    | MG
+    | MH
+    | MK
+    | ML
+    | MM
+    | MN
+    | MO
+    | MP
+    | MR
+    | MS
+    | MT
+    | MU
+    | MV
+    | MW
+    | MX
+    | MY
+    | MZ
+    | NA
+    | NC
+    | NE
+    | NG
+    | NI
+    | NL
+    | NO
+    | NP
+    | NR
+    | NU
+    | NZ
+    | OM
+    | PA
+    | PE
+    | PF
+    | PG
+    | PH
+    | PK
+    | PL
+    | PM
+    | PN
+    | PR
+    | PT
+    | PW
+    | PY
+    | QA
+    | RO
+    | RS
+    | RU
+    | RW
+    | SA
+    | SB
+    | SC
+    | SD
+    | SE
+    | SG
+    | SH
+    | SI
+    | SK
+    | SL
+    | SM
+    | SN
+    | SO
+    | SR
+    | ST
+    | SV
+    | SY
+    | SZ
+    | TC
+    | TD
+    | TG
+    | TH
+    | TJ
+    | TK
+    | TL
+    | TM
+    | TN
+    | TO
+    | TR
+    | TT
+    | TV
+    | TW
+    | TZ
+    | UA
+    | UG
+    | US
+    | UY
+    | UZ
+    | VA
+    | VC
+    | VE
+    | VG
+    | VI
+    | VN
+    | VU
+    | WF
+    | WS
+    | YE
+    | YT
+    | ZA
+    | ZM
+    | ZW
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CountryCode where
@@ -766,14 +766,14 @@ instance FromJSON CountryCode where
     parseJSON = parseJSONText "CountryCode"
 
 data DomainAvailability
-    = DontKnow
-    | UnavailableRestricted
-    | AvailableReserved
+    = Available
     | AvailablePreorder
+    | AvailableReserved
+    | DontKnow
     | Reserved
     | Unavailable
     | UnavailablePremium
-    | Available
+    | UnavailableRestricted
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DomainAvailability where
@@ -809,26 +809,26 @@ instance FromJSON DomainAvailability where
     parseJSON = parseJSONText "DomainAvailability"
 
 data ExtraParamName
-    = EsIdentificationType
-    | DocumentNumber
-    | RuPassportData
-    | SgIdNumber
-    | AuIdNumber
-    | FiBusinessNumber
-    | EsLegalForm
-    | BirthDateInYyyyMmDd
-    | CaLegalType
-    | BirthDepartment
+    = AuIdNumber
     | AuIdType
-    | EsIdentification
-    | DunsNumber
     | BirthCity
-    | ItPin
     | BirthCountry
-    | VatNumber
+    | BirthDateInYyyyMmDd
+    | BirthDepartment
     | BrandNumber
-    | SeIdNumber
+    | CaLegalType
+    | DocumentNumber
+    | DunsNumber
+    | EsIdentification
+    | EsIdentificationType
+    | EsLegalForm
+    | FiBusinessNumber
     | FiIdNumber
+    | ItPin
+    | RuPassportData
+    | SeIdNumber
+    | SgIdNumber
+    | VatNumber
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ExtraParamName where
@@ -892,10 +892,10 @@ instance FromJSON ExtraParamName where
 
 data OperationStatus
     = Error'
-    | Successful
-    | InProgress
     | Failed
+    | InProgress
     | Submitted
+    | Successful
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OperationStatus where
@@ -925,13 +925,13 @@ instance FromJSON OperationStatus where
     parseJSON = parseJSONText "OperationStatus"
 
 data OperationType
-    = TransferInDomain
-    | ChangePrivacyProtection
-    | UpdateDomainContact
-    | RegisterDomain
-    | UpdateNameserver
-    | DomainLock
+    = ChangePrivacyProtection
     | DeleteDomain
+    | DomainLock
+    | RegisterDomain
+    | TransferInDomain
+    | UpdateDomainContact
+    | UpdateNameserver
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OperationType where

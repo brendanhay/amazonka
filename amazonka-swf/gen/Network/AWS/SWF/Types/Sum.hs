@@ -20,10 +20,10 @@ module Network.AWS.SWF.Types.Sum where
 import           Network.AWS.Prelude
 
 data ActivityTaskTimeoutType
-    = ATTTScheduleToClose
-    | ATTTHeartbeat
-    | ATTTStartToClose
+    = ATTTHeartbeat
+    | ATTTScheduleToClose
     | ATTTScheduleToStart
+    | ATTTStartToClose
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActivityTaskTimeoutType where
@@ -51,8 +51,8 @@ instance FromJSON ActivityTaskTimeoutType where
     parseJSON = parseJSONText "ActivityTaskTimeoutType"
 
 data CancelTimerFailedCause
-    = CTFCTimerIdUnknown
-    | CTFCOperationNotPermitted
+    = CTFCOperationNotPermitted
+    | CTFCTimerIdUnknown
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CancelTimerFailedCause where
@@ -76,8 +76,8 @@ instance FromJSON CancelTimerFailedCause where
     parseJSON = parseJSONText "CancelTimerFailedCause"
 
 data CancelWorkflowExecutionFailedCause
-    = CUnhandledDecision
-    | COperationNotPermitted
+    = COperationNotPermitted
+    | CUnhandledDecision
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CancelWorkflowExecutionFailedCause where
@@ -133,11 +133,11 @@ instance FromJSON ChildPolicy where
 
 data CloseStatus
     = Canceled
-    | TimedOut
-    | Terminated
     | Completed
     | ContinuedAsNew
     | Failed
+    | Terminated
+    | TimedOut
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CloseStatus where
@@ -198,14 +198,14 @@ instance FromJSON CompleteWorkflowExecutionFailedCause where
 
 data ContinueAsNewWorkflowExecutionFailedCause
     = CANWEFCContinueAsNewWorkflowExecutionRateExceeded
-    | CANWEFCDefaultTaskListUndefined
-    | CANWEFCWorkflowTypeDoesNotExist
-    | CANWEFCUnhandledDecision
-    | CANWEFCDefaultExecutionStartToCloseTimeoutUndefined
-    | CANWEFCOperationNotPermitted
     | CANWEFCDefaultChildPolicyUndefined
-    | CANWEFCWorkflowTypeDeprecated
+    | CANWEFCDefaultExecutionStartToCloseTimeoutUndefined
+    | CANWEFCDefaultTaskListUndefined
     | CANWEFCDefaultTaskStartToCloseTimeoutUndefined
+    | CANWEFCOperationNotPermitted
+    | CANWEFCUnhandledDecision
+    | CANWEFCWorkflowTypeDeprecated
+    | CANWEFCWorkflowTypeDoesNotExist
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ContinueAsNewWorkflowExecutionFailedCause where
@@ -265,19 +265,19 @@ instance FromJSON DecisionTaskTimeoutType where
     parseJSON = parseJSONText "DecisionTaskTimeoutType"
 
 data DecisionType
-    = StartTimer
-    | RecordMarker
-    | SignalExternalWorkflowExecution
-    | ScheduleActivityTask
-    | RequestCancelExternalWorkflowExecution
-    | ContinueAsNewWorkflowExecution
-    | CancelTimer
-    | RequestCancelActivityTask
+    = CancelTimer
     | CancelWorkflowExecution
-    | ScheduleLambdaFunction
     | CompleteWorkflowExecution
-    | StartChildWorkflowExecution
+    | ContinueAsNewWorkflowExecution
     | FailWorkflowExecution
+    | RecordMarker
+    | RequestCancelActivityTask
+    | RequestCancelExternalWorkflowExecution
+    | ScheduleActivityTask
+    | ScheduleLambdaFunction
+    | SignalExternalWorkflowExecution
+    | StartChildWorkflowExecution
+    | StartTimer
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DecisionType where
@@ -323,60 +323,60 @@ instance ToJSON DecisionType where
     toJSON = toJSONText
 
 data EventType
-    = ChildWorkflowExecutionCanceled
-    | ChildWorkflowExecutionTimedOut
-    | StartChildWorkflowExecutionInitiated
-    | WorkflowExecutionTerminated
+    = ActivityTaskCancelRequested
+    | ActivityTaskCanceled
+    | ActivityTaskCompleted
+    | ActivityTaskFailed
+    | ActivityTaskScheduled
+    | ActivityTaskStarted
+    | ActivityTaskTimedOut
+    | CancelTimerFailed
     | CancelWorkflowExecutionFailed
-    | DecisionTaskStarted
-    | LambdaFunctionScheduled
-    | RequestCancelActivityTaskFailed
-    | WorkflowExecutionCancelRequested
-    | WorkflowExecutionContinuedAsNew
-    | LambdaFunctionTimedOut
-    | ExternalWorkflowExecutionCancelRequested
-    | WorkflowExecutionFailed
+    | ChildWorkflowExecutionCanceled
+    | ChildWorkflowExecutionCompleted
+    | ChildWorkflowExecutionFailed
+    | ChildWorkflowExecutionStarted
+    | ChildWorkflowExecutionTerminated
+    | ChildWorkflowExecutionTimedOut
+    | CompleteWorkflowExecutionFailed
     | ContinueAsNewWorkflowExecutionFailed
+    | DecisionTaskCompleted
+    | DecisionTaskScheduled
+    | DecisionTaskStarted
+    | DecisionTaskTimedOut
+    | ExternalWorkflowExecutionCancelRequested
+    | ExternalWorkflowExecutionSignaled
+    | FailWorkflowExecutionFailed
+    | LambdaFunctionCompleted
+    | LambdaFunctionFailed
+    | LambdaFunctionScheduled
+    | LambdaFunctionStarted
+    | LambdaFunctionTimedOut
+    | MarkerRecorded
+    | RecordMarkerFailed
+    | RequestCancelActivityTaskFailed
+    | RequestCancelExternalWorkflowExecutionFailed
+    | RequestCancelExternalWorkflowExecutionInitiated
+    | ScheduleActivityTaskFailed
+    | ScheduleLambdaFunctionFailed
+    | SignalExternalWorkflowExecutionFailed
     | SignalExternalWorkflowExecutionInitiated
     | StartChildWorkflowExecutionFailed
-    | FailWorkflowExecutionFailed
-    | ChildWorkflowExecutionFailed
-    | DecisionTaskCompleted
-    | CompleteWorkflowExecutionFailed
-    | ScheduleLambdaFunctionFailed
-    | ChildWorkflowExecutionCompleted
-    | ScheduleActivityTaskFailed
-    | MarkerRecorded
-    | ActivityTaskScheduled
-    | LambdaFunctionStarted
-    | RecordMarkerFailed
-    | StartTimerFailed
-    | RequestCancelExternalWorkflowExecutionInitiated
-    | DecisionTaskScheduled
-    | WorkflowExecutionCompleted
-    | ActivityTaskTimedOut
-    | ActivityTaskCanceled
-    | ChildWorkflowExecutionStarted
-    | CancelTimerFailed
-    | DecisionTaskTimedOut
-    | ActivityTaskCompleted
-    | TimerCanceled
-    | WorkflowExecutionStarted
-    | RequestCancelExternalWorkflowExecutionFailed
-    | LambdaFunctionCompleted
-    | TimerFired
-    | ExternalWorkflowExecutionSignaled
-    | ActivityTaskFailed
-    | WorkflowExecutionSignaled
-    | WorkflowExecutionCanceled
+    | StartChildWorkflowExecutionInitiated
     | StartLambdaFunctionFailed
-    | WorkflowExecutionTimedOut
-    | ChildWorkflowExecutionTerminated
-    | ActivityTaskCancelRequested
+    | StartTimerFailed
+    | TimerCanceled
+    | TimerFired
     | TimerStarted
-    | LambdaFunctionFailed
-    | ActivityTaskStarted
-    | SignalExternalWorkflowExecutionFailed
+    | WorkflowExecutionCancelRequested
+    | WorkflowExecutionCanceled
+    | WorkflowExecutionCompleted
+    | WorkflowExecutionContinuedAsNew
+    | WorkflowExecutionFailed
+    | WorkflowExecutionSignaled
+    | WorkflowExecutionStarted
+    | WorkflowExecutionTerminated
+    | WorkflowExecutionTimedOut
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EventType where
@@ -529,8 +529,8 @@ instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
 
 data FailWorkflowExecutionFailedCause
-    = FWEFCUnhandledDecision
-    | FWEFCOperationNotPermitted
+    = FWEFCOperationNotPermitted
+    | FWEFCUnhandledDecision
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText FailWorkflowExecutionFailedCause where
@@ -598,8 +598,8 @@ instance FromJSON RecordMarkerFailedCause where
     parseJSON = parseJSONText "RecordMarkerFailedCause"
 
 data RegistrationStatus
-    = Registered
-    | Deprecated
+    = Deprecated
+    | Registered
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RegistrationStatus where
@@ -651,9 +651,9 @@ instance FromJSON RequestCancelActivityTaskFailedCause where
     parseJSON = parseJSONText "RequestCancelActivityTaskFailedCause"
 
 data RequestCancelExternalWorkflowExecutionFailedCause
-    = RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded
+    = RCEWEFCOperationNotPermitted
+    | RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded
     | RCEWEFCUnknownExternalWorkflowExecution
-    | RCEWEFCOperationNotPermitted
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RequestCancelExternalWorkflowExecutionFailedCause where
@@ -679,17 +679,17 @@ instance FromJSON RequestCancelExternalWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "RequestCancelExternalWorkflowExecutionFailedCause"
 
 data ScheduleActivityTaskFailedCause
-    = SATFCDefaultStartToCloseTimeoutUndefined
-    | SATFCDefaultScheduleToStartTimeoutUndefined
-    | SATFCOpenActivitiesLimitExceeded
-    | SATFCActivityTypeDoesNotExist
-    | SATFCDefaultTaskListUndefined
-    | SATFCOperationNotPermitted
-    | SATFCActivityTypeDeprecated
-    | SATFCActivityCreationRateExceeded
+    = SATFCActivityCreationRateExceeded
     | SATFCActivityIdAlreadyInUse
-    | SATFCDefaultScheduleToCloseTimeoutUndefined
+    | SATFCActivityTypeDeprecated
+    | SATFCActivityTypeDoesNotExist
     | SATFCDefaultHeartbeatTimeoutUndefined
+    | SATFCDefaultScheduleToCloseTimeoutUndefined
+    | SATFCDefaultScheduleToStartTimeoutUndefined
+    | SATFCDefaultStartToCloseTimeoutUndefined
+    | SATFCDefaultTaskListUndefined
+    | SATFCOpenActivitiesLimitExceeded
+    | SATFCOperationNotPermitted
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ScheduleActivityTaskFailedCause where
@@ -762,9 +762,9 @@ instance FromJSON ScheduleLambdaFunctionFailedCause where
     parseJSON = parseJSONText "ScheduleLambdaFunctionFailedCause"
 
 data SignalExternalWorkflowExecutionFailedCause
-    = SEWEFCSignalExternalWorkflowExecutionRateExceeded
+    = SEWEFCOperationNotPermitted
+    | SEWEFCSignalExternalWorkflowExecutionRateExceeded
     | SEWEFCUnknownExternalWorkflowExecution
-    | SEWEFCOperationNotPermitted
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SignalExternalWorkflowExecutionFailedCause where
@@ -790,17 +790,17 @@ instance FromJSON SignalExternalWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "SignalExternalWorkflowExecutionFailedCause"
 
 data StartChildWorkflowExecutionFailedCause
-    = SCWEFCWorkflowTypeDoesNotExist
-    | SCWEFCChildCreationRateExceeded
-    | SCWEFCOperationNotPermitted
-    | SCWEFCDefaultTaskListUndefined
+    = SCWEFCChildCreationRateExceeded
     | SCWEFCDefaultChildPolicyUndefined
     | SCWEFCDefaultExecutionStartToCloseTimeoutUndefined
-    | SCWEFCWorkflowTypeDeprecated
+    | SCWEFCDefaultTaskListUndefined
     | SCWEFCDefaultTaskStartToCloseTimeoutUndefined
-    | SCWEFCWorkflowAlreadyRunning
-    | SCWEFCOpenWorkflowsLimitExceeded
     | SCWEFCOpenChildrenLimitExceeded
+    | SCWEFCOpenWorkflowsLimitExceeded
+    | SCWEFCOperationNotPermitted
+    | SCWEFCWorkflowAlreadyRunning
+    | SCWEFCWorkflowTypeDeprecated
+    | SCWEFCWorkflowTypeDoesNotExist
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StartChildWorkflowExecutionFailedCause where
@@ -864,10 +864,10 @@ instance FromJSON StartLambdaFunctionFailedCause where
     parseJSON = parseJSONText "StartLambdaFunctionFailedCause"
 
 data StartTimerFailedCause
-    = TimerIdAlreadyInUse
-    | TimerCreationRateExceeded
+    = OpenTimersLimitExceeded
     | OperationNotPermitted
-    | OpenTimersLimitExceeded
+    | TimerCreationRateExceeded
+    | TimerIdAlreadyInUse
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StartTimerFailedCause where
@@ -917,9 +917,9 @@ instance FromJSON WorkflowExecutionCancelRequestedCause where
     parseJSON = parseJSONText "WorkflowExecutionCancelRequestedCause"
 
 data WorkflowExecutionTerminatedCause
-    = WETCEventLimitExceeded
+    = WETCChildPolicyApplied
+    | WETCEventLimitExceeded
     | WETCOperatorInitiated
-    | WETCChildPolicyApplied
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText WorkflowExecutionTerminatedCause where

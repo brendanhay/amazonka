@@ -20,19 +20,19 @@ module Network.AWS.SQS.Types.Sum where
 import           Network.AWS.Prelude
 
 data QueueAttributeName
-    = MessageRetentionPeriod
-    | LastModifiedTimestamp
-    | VisibilityTimeout
-    | RedrivePolicy
+    = ApproximateNumberOfMessages
     | ApproximateNumberOfMessagesDelayed
-    | MaximumMessageSize
-    | DelaySeconds
-    | QueueARN
-    | ApproximateNumberOfMessages
-    | ReceiveMessageWaitTimeSeconds
-    | Policy
-    | CreatedTimestamp
     | ApproximateNumberOfMessagesNotVisible
+    | CreatedTimestamp
+    | DelaySeconds
+    | LastModifiedTimestamp
+    | MaximumMessageSize
+    | MessageRetentionPeriod
+    | Policy
+    | QueueARN
+    | ReceiveMessageWaitTimeSeconds
+    | RedrivePolicy
+    | VisibilityTimeout
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText QueueAttributeName where

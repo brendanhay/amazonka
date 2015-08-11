@@ -45,14 +45,14 @@ instance ToJSON DataKeySpec where
     toJSON = toJSONText
 
 data GrantOperation
-    = Encrypt
-    | GenerateDataKeyWithoutPlaintext
-    | CreateGrant
-    | RetireGrant
-    | GenerateDataKey
+    = CreateGrant
     | Decrypt
-    | ReEncryptTo
+    | Encrypt
+    | GenerateDataKey
+    | GenerateDataKeyWithoutPlaintext
     | ReEncryptFrom
+    | ReEncryptTo
+    | RetireGrant
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText GrantOperation where

@@ -42,9 +42,9 @@ instance FromXML Capability where
     parseXML = parseXMLText "Capability"
 
 data OnFailure
-    = Rollback
+    = Delete
     | DoNothing
-    | Delete
+    | Rollback
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OnFailure where
@@ -67,8 +67,8 @@ instance ToQuery      OnFailure
 instance ToHeader     OnFailure
 
 data ResourceSignalStatus
-    = Success
-    | Failure
+    = Failure
+    | Success
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ResourceSignalStatus where
@@ -89,16 +89,16 @@ instance ToQuery      ResourceSignalStatus
 instance ToHeader     ResourceSignalStatus
 
 data ResourceStatus
-    = CreateFailed
-    | DeleteFailed
-    | UpdateFailed
-    | CreateComplete
-    | UpdateComplete
-    | DeleteComplete
-    | DeleteInProgress
-    | UpdateInProgress
-    | DeleteSkipped
+    = CreateComplete
+    | CreateFailed
     | CreateInProgress
+    | DeleteComplete
+    | DeleteFailed
+    | DeleteInProgress
+    | DeleteSkipped
+    | UpdateComplete
+    | UpdateFailed
+    | UpdateInProgress
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ResourceStatus where
@@ -138,22 +138,22 @@ instance FromXML ResourceStatus where
     parseXML = parseXMLText "ResourceStatus"
 
 data StackStatus
-    = SSUpdateRollbackFailed
-    | SSUpdateCompleteCleanupInProgress
-    | SSUpdateRollbackInProgress
-    | SSCreateInProgress
-    | SSUpdateRollbackCompleteCleanupInProgress
-    | SSRollbackInProgress
+    = SSCreateComplete
     | SSCreateFailed
-    | SSRollbackComplete
-    | SSDeleteFailed
-    | SSRollbackFailed
-    | SSCreateComplete
+    | SSCreateInProgress
     | SSDeleteComplete
-    | SSUpdateComplete
-    | SSUpdateInProgress
+    | SSDeleteFailed
     | SSDeleteInProgress
+    | SSRollbackComplete
+    | SSRollbackFailed
+    | SSRollbackInProgress
+    | SSUpdateComplete
+    | SSUpdateCompleteCleanupInProgress
+    | SSUpdateInProgress
     | SSUpdateRollbackComplete
+    | SSUpdateRollbackCompleteCleanupInProgress
+    | SSUpdateRollbackFailed
+    | SSUpdateRollbackInProgress
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StackStatus where

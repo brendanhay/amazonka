@@ -20,8 +20,8 @@ module Network.AWS.Lambda.Types.Sum where
 import           Network.AWS.Prelude
 
 data EventSourcePosition
-    = TrimHorizon
-    | Latest
+    = Latest
+    | TrimHorizon
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EventSourcePosition where
@@ -45,9 +45,9 @@ instance ToJSON EventSourcePosition where
     toJSON = toJSONText
 
 data InvocationType
-    = Event
+    = DryRun
+    | Event
     | RequestResponse
-    | DryRun
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InvocationType where

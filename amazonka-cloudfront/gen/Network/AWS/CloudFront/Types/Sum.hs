@@ -20,9 +20,9 @@ module Network.AWS.CloudFront.Types.Sum where
 import           Network.AWS.Prelude
 
 data GeoRestrictionType
-    = None
+    = Blacklist
+    | None
     | Whitelist
-    | Blacklist
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText GeoRestrictionType where
@@ -51,9 +51,9 @@ instance ToXML GeoRestrictionType where
     toXML = toXMLText
 
 data ItemSelection
-    = ISWhitelist
+    = ISAll
     | ISNone
-    | ISAll
+    | ISWhitelist
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ItemSelection where
@@ -82,13 +82,13 @@ instance ToXML ItemSelection where
     toXML = toXMLText
 
 data Method
-    = Head
-    | Post
-    | Patch
+    = Delete
     | Get
+    | Head
     | Options
+    | Patch
+    | Post
     | Put
-    | Delete
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Method where
@@ -125,8 +125,8 @@ instance ToXML Method where
     toXML = toXMLText
 
 data MinimumProtocolVersion
-    = TLSV1
-    | SSLV3
+    = SSLV3
+    | TLSV1
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MinimumProtocolVersion where
@@ -181,8 +181,8 @@ instance ToXML OriginProtocolPolicy where
     toXML = toXMLText
 
 data PriceClass
-    = PriceClass200
-    | PriceClass100
+    = PriceClass100
+    | PriceClass200
     | PriceClassAll
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -212,8 +212,8 @@ instance ToXML PriceClass where
     toXML = toXMLText
 
 data SSLSupportMethod
-    = VIP
-    | SNIOnly
+    = SNIOnly
+    | VIP
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SSLSupportMethod where
@@ -240,9 +240,9 @@ instance ToXML SSLSupportMethod where
     toXML = toXMLText
 
 data ViewerProtocolPolicy
-    = HTTPSOnly
+    = AllowAll
+    | HTTPSOnly
     | RedirectToHTTPS
-    | AllowAll
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ViewerProtocolPolicy where

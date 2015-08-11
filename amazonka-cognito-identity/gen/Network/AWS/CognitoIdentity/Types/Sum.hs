@@ -20,8 +20,8 @@ module Network.AWS.CognitoIdentity.Types.Sum where
 import           Network.AWS.Prelude
 
 data CognitoErrorCode
-    = InternalServerError
-    | AccessDenied
+    = AccessDenied
+    | InternalServerError
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CognitoErrorCode where

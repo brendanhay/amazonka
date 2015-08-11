@@ -20,9 +20,9 @@ module Network.AWS.CodeDeploy.Types.Sum where
 import           Network.AWS.Prelude
 
 data ApplicationRevisionSortBy
-    = RegisterTime
-    | FirstUsedTime
+    = FirstUsedTime
     | LastUsedTime
+    | RegisterTime
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ApplicationRevisionSortBy where
@@ -48,9 +48,9 @@ instance ToJSON ApplicationRevisionSortBy where
     toJSON = toJSONText
 
 data BundleType
-    = Zip
+    = TAR
     | TGZ
-    | TAR
+    | Zip
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BundleType where
@@ -79,19 +79,19 @@ instance FromJSON BundleType where
     parseJSON = parseJSONText "BundleType"
 
 data DeployErrorCode
-    = Throttled
-    | HealthConstraints
-    | OverMaxInstances
-    | HealthConstraintsInvalid
-    | NoInstances
-    | ApplicationMissing
-    | RevisionMissing
-    | InternalError
+    = ApplicationMissing
     | DeploymentGroupMissing
+    | HealthConstraints
+    | HealthConstraintsInvalid
     | IAMRoleMissing
-    | Timeout
-    | NoEC2Subscription
     | IAMRolePermissions
+    | InternalError
+    | NoEC2Subscription
+    | NoInstances
+    | OverMaxInstances
+    | RevisionMissing
+    | Throttled
+    | Timeout
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeployErrorCode where
@@ -162,12 +162,12 @@ instance FromJSON DeploymentCreator where
     parseJSON = parseJSONText "DeploymentCreator"
 
 data DeploymentStatus
-    = Queued
-    | Created
-    | Stopped
-    | InProgress
-    | Succeeded
+    = Created
     | Failed
+    | InProgress
+    | Queued
+    | Stopped
+    | Succeeded
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeploymentStatus where
@@ -203,8 +203,8 @@ instance FromJSON DeploymentStatus where
 
 data EC2TagFilterType
     = KeyAndValue
-    | ValueOnly
     | KeyOnly
+    | ValueOnly
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EC2TagFilterType where
@@ -233,12 +233,12 @@ instance FromJSON EC2TagFilterType where
     parseJSON = parseJSONText "EC2TagFilterType"
 
 data InstanceStatus
-    = ISInProgress
-    | ISFailed
+    = ISFailed
+    | ISInProgress
+    | ISPending
+    | ISSkipped
     | ISSucceeded
     | ISUnknown
-    | ISSkipped
-    | ISPending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceStatus where
@@ -273,12 +273,12 @@ instance FromJSON InstanceStatus where
     parseJSON = parseJSONText "InstanceStatus"
 
 data LifecycleErrorCode
-    = UnknownError
+    = ScriptFailed
     | ScriptMissing
-    | Success
-    | ScriptFailed
     | ScriptNotExecutable
     | ScriptTimedOut
+    | Success
+    | UnknownError
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LifecycleErrorCode where
@@ -310,12 +310,12 @@ instance FromJSON LifecycleErrorCode where
     parseJSON = parseJSONText "LifecycleErrorCode"
 
 data LifecycleEventStatus
-    = LESInProgress
-    | LESFailed
-    | LESSucceeded
-    | LESSkipped
-    | LESUnknown
+    = LESFailed
+    | LESInProgress
     | LESPending
+    | LESSkipped
+    | LESSucceeded
+    | LESUnknown
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LifecycleEventStatus where
@@ -347,9 +347,9 @@ instance FromJSON LifecycleEventStatus where
     parseJSON = parseJSONText "LifecycleEventStatus"
 
 data ListStateFilterAction
-    = Include
+    = Exclude
     | Ignore
-    | Exclude
+    | Include
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ListStateFilterAction where
@@ -403,8 +403,8 @@ instance FromJSON MinimumHealthyHostsType where
     parseJSON = parseJSONText "MinimumHealthyHostsType"
 
 data RegistrationStatus
-    = Registered
-    | Deregistered
+    = Deregistered
+    | Registered
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RegistrationStatus where
@@ -481,8 +481,8 @@ instance ToJSON SortOrder where
     toJSON = toJSONText
 
 data StopStatus
-    = SSSucceeded
-    | SSPending
+    = SSPending
+    | SSSucceeded
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StopStatus where
@@ -507,8 +507,8 @@ instance FromJSON StopStatus where
 
 data TagFilterType
     = TFTKeyAndValue
-    | TFTValueOnly
     | TFTKeyOnly
+    | TFTValueOnly
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TagFilterType where

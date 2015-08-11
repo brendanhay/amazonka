@@ -20,10 +20,10 @@ module Network.AWS.EFS.Types.Sum where
 import           Network.AWS.Prelude
 
 data LifeCycleState
-    = Deleting
+    = Available
     | Creating
     | Deleted
-    | Available
+    | Deleting
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LifeCycleState where

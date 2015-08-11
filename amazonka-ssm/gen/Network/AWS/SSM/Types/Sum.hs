@@ -45,9 +45,9 @@ instance ToJSON AssociationFilterKey where
     toJSON = toJSONText
 
 data AssociationStatusName
-    = Pending
+    = Failed
+    | Pending
     | Success
-    | Failed
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AssociationStatusName where
@@ -98,9 +98,9 @@ instance ToJSON DocumentFilterKey where
     toJSON = toJSONText
 
 data DocumentStatus
-    = Deleting
+    = Active
     | Creating
-    | Active
+    | Deleting
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DocumentStatus where
@@ -126,9 +126,9 @@ instance FromJSON DocumentStatus where
     parseJSON = parseJSONText "DocumentStatus"
 
 data Fault
-    = Unknown
+    = Client
     | Server
-    | Client
+    | Unknown
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Fault where

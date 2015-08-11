@@ -20,9 +20,9 @@ module Network.AWS.IAM.Types.Sum where
 import           Network.AWS.Prelude
 
 data AssignmentStatusType
-    = Assigned
+    = Any
+    | Assigned
     | Unassigned
-    | Any
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AssignmentStatusType where
@@ -67,11 +67,11 @@ instance ToQuery      EncodingType
 instance ToHeader     EncodingType
 
 data EntityType
-    = Group
+    = AWSManagedPolicy
+    | Group
     | LocalManagedPolicy
-    | AWSManagedPolicy
-    | User
     | Role
+    | User
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EntityType where
@@ -99,8 +99,8 @@ instance ToHeader     EntityType
 
 data PolicyScopeType
     = AWS
-    | Local
     | All
+    | Local
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PolicyScopeType where
@@ -145,9 +145,9 @@ instance FromXML ReportFormatType where
     parseXML = parseXMLText "ReportFormatType"
 
 data ReportStateType
-    = Inprogress
+    = Complete
+    | Inprogress
     | Started
-    | Complete
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReportStateType where
@@ -173,8 +173,8 @@ instance FromXML ReportStateType where
     parseXML = parseXMLText "ReportStateType"
 
 data StatusType
-    = Inactive
-    | Active
+    = Active
+    | Inactive
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StatusType where
@@ -198,31 +198,31 @@ instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
 data SummaryKeyType
-    = AttachedPoliciesPerUserQuota
-    | UsersQuota
-    | Groups
-    | GroupsQuota
-    | Users
-    | MFADevicesInUse
-    | PolicyVersionsInUse
-    | SigningCertificatesPerUserQuota
-    | PoliciesQuota
-    | AccessKeysPerUserQuota
-    | PolicySizeQuota
-    | ServerCertificates
-    | AttachedPoliciesPerRoleQuota
-    | GroupsPerUserQuota
-    | GroupPolicySizeQuota
-    | AccountSigningCertificatesPresent
-    | UserPolicySizeQuota
-    | AttachedPoliciesPerGroupQuota
+    = AccessKeysPerUserQuota
     | AccountAccessKeysPresent
-    | ServerCertificatesQuota
-    | VersionsPerPolicyQuota
-    | PolicyVersionsInUseQuota
-    | Policies
     | AccountMFAEnabled
+    | AccountSigningCertificatesPresent
+    | AttachedPoliciesPerGroupQuota
+    | AttachedPoliciesPerRoleQuota
+    | AttachedPoliciesPerUserQuota
+    | GroupPolicySizeQuota
+    | Groups
+    | GroupsPerUserQuota
+    | GroupsQuota
     | MFADevices
+    | MFADevicesInUse
+    | Policies
+    | PoliciesQuota
+    | PolicySizeQuota
+    | PolicyVersionsInUse
+    | PolicyVersionsInUseQuota
+    | ServerCertificates
+    | ServerCertificatesQuota
+    | SigningCertificatesPerUserQuota
+    | UserPolicySizeQuota
+    | Users
+    | UsersQuota
+    | VersionsPerPolicyQuota
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SummaryKeyType where

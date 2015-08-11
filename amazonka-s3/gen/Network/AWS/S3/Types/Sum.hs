@@ -22,9 +22,9 @@ import           Network.AWS.S3.Internal
 
 data BucketCannedACL
     = BAuthenticatedRead
+    | BPrivate
     | BPublicRead
     | BPublicReadWrite
-    | BPrivate
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BucketCannedACL where
@@ -83,8 +83,8 @@ instance ToXML BucketLogsPermission where
     toXML = toXMLText
 
 data BucketVersioningStatus
-    = BVSSuspended
-    | BVSEnabled
+    = BVSEnabled
+    | BVSSuspended
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BucketVersioningStatus where
@@ -143,15 +143,15 @@ instance ToXML EncodingType where
 
 -- | Bucket event for which to send notifications.
 data Event
-    = S3ObjectCreatedPut
+    = S3ObjectCreated
+    | S3ObjectCreatedCompleteMultipartUpload
+    | S3ObjectCreatedCopy
+    | S3ObjectCreatedPost
+    | S3ObjectCreatedPut
+    | S3ObjectRemoved
+    | S3ObjectRemovedDelete
     | S3ObjectRemovedDeleteMarkerCreated
     | S3ReducedRedundancyLostObject
-    | S3ObjectRemoved
-    | S3ObjectCreated
-    | S3ObjectCreatedPost
-    | S3ObjectCreatedCopy
-    | S3ObjectRemovedDelete
-    | S3ObjectCreatedCompleteMultipartUpload
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Event where
@@ -245,8 +245,8 @@ instance ToXML MFADelete where
     toXML = toXMLText
 
 data MFADeleteStatus
-    = MDSEnabled
-    | MDSDisabled
+    = MDSDisabled
+    | MDSEnabled
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MFADeleteStatus where
@@ -270,8 +270,8 @@ instance FromXML MFADeleteStatus where
     parseXML = parseXMLText "MFADeleteStatus"
 
 data MetadataDirective
-    = Replace
-    | Copy
+    = Copy
+    | Replace
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MetadataDirective where
@@ -295,12 +295,12 @@ instance ToXML MetadataDirective where
     toXML = toXMLText
 
 data ObjectCannedACL
-    = OPublicRead
-    | OPrivate
-    | OPublicReadWrite
-    | OAuthenticatedRead
+    = OAuthenticatedRead
     | OBucketOwnerFullControl
     | OBucketOwnerRead
+    | OPrivate
+    | OPublicRead
+    | OPublicReadWrite
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ObjectCannedACL where
@@ -332,9 +332,9 @@ instance ToXML ObjectCannedACL where
     toXML = toXMLText
 
 data ObjectStorageClass
-    = OSCStandard
+    = OSCGlacier
     | OSCReducedRedundancy
-    | OSCGlacier
+    | OSCStandard
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ObjectStorageClass where
@@ -412,8 +412,8 @@ instance ToXML Payer where
 data Permission
     = PFullControl
     | PRead
-    | PWrite
     | PReadAcp
+    | PWrite
     | PWriteAcp
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -447,8 +447,8 @@ instance ToXML Permission where
     toXML = toXMLText
 
 data Protocol
-    = HTTPS
-    | HTTP
+    = HTTP
+    | HTTPS
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Protocol where
@@ -475,8 +475,8 @@ instance ToXML Protocol where
     toXML = toXMLText
 
 data ReplicationRuleStatus
-    = Enabled
-    | Disabled
+    = Disabled
+    | Enabled
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReplicationRuleStatus where
@@ -503,10 +503,10 @@ instance ToXML ReplicationRuleStatus where
     toXML = toXMLText
 
 data ReplicationStatus
-    = Pending
-    | Replica
+    = Complete
     | Failed
-    | Complete
+    | Pending
+    | Replica
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReplicationStatus where
@@ -613,9 +613,9 @@ instance ToXML ServerSideEncryption where
     toXML = toXMLText
 
 data StorageClass
-    = Standard
-    | LT'
+    = LT'
     | ReducedRedundancy
+    | Standard
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StorageClass where
@@ -669,9 +669,9 @@ instance ToXML TransitionStorageClass where
     toXML = toXMLText
 
 data Type
-    = Group
+    = AmazonCustomerByEmail
     | CanonicalUser
-    | AmazonCustomerByEmail
+    | Group
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Type where

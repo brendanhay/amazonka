@@ -64,14 +64,14 @@ instance FromJSON Algorithm where
 --     'BatchPrediction'. The URL can identify either a file or an Amazon
 --     Simple Storage Service (Amazon S3) bucket or directory.
 data BatchPredictionFilterVariable
-    = BatchDataSourceId
-    | BatchMLModelId
-    | BatchIAMUser
-    | BatchStatus
-    | BatchCreatedAt
+    = BatchCreatedAt
+    | BatchDataSourceId
     | BatchDataURI
-    | BatchName
+    | BatchIAMUser
     | BatchLastUpdatedAt
+    | BatchMLModelId
+    | BatchName
+    | BatchStatus
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BatchPredictionFilterVariable where
@@ -123,12 +123,12 @@ instance ToJSON BatchPredictionFilterVariable where
 --
 -- The variable names should match the variable names in the 'DataSource'.
 data DataSourceFilterVariable
-    = DataStatus
+    = DataCreatedAt
+    | DataDATALOCATIONS3
     | DataIAMUser
     | DataLastUpdatedAt
-    | DataCreatedAt
     | DataName
-    | DataDATALOCATIONS3
+    | DataStatus
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DataSourceFilterVariable where
@@ -195,11 +195,11 @@ instance FromJSON DetailsAttributes where
 -- -   COMPLETED
 -- -   DELETED
 data EntityStatus
-    = Pending
-    | Inprogress
+    = Completed
     | Deleted
-    | Completed
     | Failed
+    | Inprogress
+    | Pending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EntityStatus where
@@ -245,14 +245,14 @@ instance FromJSON EntityStatus where
 --     evaluation. The URL can identify either a file or an Amazon Simple
 --     Storage Service (Amazon S3) bucket or directory.
 data EvaluationFilterVariable
-    = EvalDataURI
+    = EvalCreatedAt
     | EvalDataSourceId
-    | EvalName
-    | EvalLastUpdatedAt
+    | EvalDataURI
     | EvalIAMUser
-    | EvalStatus
+    | EvalLastUpdatedAt
     | EvalMLModelId
-    | EvalCreatedAt
+    | EvalName
+    | EvalStatus
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EvaluationFilterVariable where
@@ -288,16 +288,16 @@ instance ToJSON EvaluationFilterVariable where
     toJSON = toJSONText
 
 data MLModelFilterVariable
-    = MLMFVRealtimeEndpointStatus
-    | MLMFVMLModelType
-    | MLMFVTrainingDataURI
-    | MLMFVStatus
-    | MLMFVIAMUser
+    = MLMFVAlgorithm
     | MLMFVCreatedAt
-    | MLMFVTrainingDataSourceId
-    | MLMFVAlgorithm
-    | MLMFVName
+    | MLMFVIAMUser
     | MLMFVLastUpdatedAt
+    | MLMFVMLModelType
+    | MLMFVName
+    | MLMFVRealtimeEndpointStatus
+    | MLMFVStatus
+    | MLMFVTrainingDataSourceId
+    | MLMFVTrainingDataURI
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MLModelFilterVariable where
@@ -337,9 +337,9 @@ instance ToJSON MLModelFilterVariable where
     toJSON = toJSONText
 
 data MLModelType
-    = Multiclass
+    = Binary
+    | Multiclass
     | Regression
-    | Binary
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MLModelType where
@@ -368,10 +368,10 @@ instance FromJSON MLModelType where
     parseJSON = parseJSONText "MLModelType"
 
 data RealtimeEndpointStatus
-    = RESUpdating
-    | RESReady
-    | RESFailed
+    = RESFailed
     | RESNone
+    | RESReady
+    | RESUpdating
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RealtimeEndpointStatus where
@@ -404,8 +404,8 @@ instance FromJSON RealtimeEndpointStatus where
 -- -   'asc' - Present the information in ascending order (from A-Z).
 -- -   'dsc' - Present the information in descending order (from Z-A).
 data SortOrder
-    = Dsc
-    | Asc
+    = Asc
+    | Dsc
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SortOrder where

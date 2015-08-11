@@ -45,8 +45,8 @@ instance ToJSON ContentType where
     toJSON = toJSONText
 
 data QueryParser
-    = Lucene
-    | Dismax
+    = Dismax
+    | Lucene
     | Simple
     | Structured
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)

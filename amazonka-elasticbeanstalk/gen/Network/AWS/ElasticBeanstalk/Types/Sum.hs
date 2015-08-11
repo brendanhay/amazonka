@@ -20,9 +20,9 @@ module Network.AWS.ElasticBeanstalk.Types.Sum where
 import           Network.AWS.Prelude
 
 data ConfigurationDeploymentStatus
-    = Pending
-    | Deployed
+    = Deployed
     | Failed
+    | Pending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConfigurationDeploymentStatus where
@@ -73,10 +73,10 @@ instance FromXML ConfigurationOptionValueType where
     parseXML = parseXMLText "ConfigurationOptionValueType"
 
 data EnvironmentHealth
-    = Red
-    | Yellow
-    | Green
+    = Green
     | Grey
+    | Red
+    | Yellow
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EnvironmentHealth where
@@ -129,11 +129,11 @@ instance FromXML EnvironmentInfoType where
     parseXML = parseXMLText "EnvironmentInfoType"
 
 data EnvironmentStatus
-    = Updating
-    | Terminating
-    | Launching
-    | Terminated
+    = Launching
     | Ready
+    | Terminated
+    | Terminating
+    | Updating
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EnvironmentStatus where
@@ -164,11 +164,11 @@ instance FromXML EnvironmentStatus where
 
 data EventSeverity
     = LevelDebug
-    | LevelInfo
     | LevelError'
-    | LevelWarn
-    | LevelTrace
     | LevelFatal
+    | LevelInfo
+    | LevelTrace
+    | LevelWarn
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EventSeverity where

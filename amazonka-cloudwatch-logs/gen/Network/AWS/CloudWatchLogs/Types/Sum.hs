@@ -20,8 +20,8 @@ module Network.AWS.CloudWatchLogs.Types.Sum where
 import           Network.AWS.Prelude
 
 data OrderBy
-    = LogStreamName
-    | LastEventTime
+    = LastEventTime
+    | LogStreamName
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OrderBy where

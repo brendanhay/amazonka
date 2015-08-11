@@ -46,8 +46,8 @@ instance FromJSON KeyType where
 
 data OperationType
     = Insert
-    | Remove
     | Modify
+    | Remove
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OperationType where
@@ -75,8 +75,8 @@ instance FromJSON OperationType where
 data ShardIteratorType
     = AfterSequenceNumber
     | AtSequenceNumber
-    | TrimHorizon
     | Latest
+    | TrimHorizon
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ShardIteratorType where
@@ -104,9 +104,9 @@ instance ToJSON ShardIteratorType where
     toJSON = toJSONText
 
 data StreamStatus
-    = Enabled
-    | Disabled
+    = Disabled
     | Disabling
+    | Enabled
     | Enabling
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -135,10 +135,10 @@ instance FromJSON StreamStatus where
     parseJSON = parseJSONText "StreamStatus"
 
 data StreamViewType
-    = NewAndOldImages
-    | KeysOnly
-    | OldImage
+    = KeysOnly
+    | NewAndOldImages
     | NewImage
+    | OldImage
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StreamViewType where

@@ -20,11 +20,11 @@ module Network.AWS.CodePipeline.Types.Sum where
 import           Network.AWS.Prelude
 
 data ActionCategory
-    = Invoke
-    | Build
-    | Test
-    | Source
+    = Build
     | Deploy
+    | Invoke
+    | Source
+    | Test
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActionCategory where
@@ -57,9 +57,9 @@ instance FromJSON ActionCategory where
     parseJSON = parseJSONText "ActionCategory"
 
 data ActionConfigurationPropertyType
-    = String
-    | Boolean
+    = Boolean
     | Number
+    | String
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActionConfigurationPropertyType where
@@ -88,9 +88,9 @@ instance FromJSON ActionConfigurationPropertyType where
     parseJSON = parseJSONText "ActionConfigurationPropertyType"
 
 data ActionExecutionStatus
-    = InProgress
+    = Failed
+    | InProgress
     | Succeeded
-    | Failed
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActionExecutionStatus where
@@ -117,8 +117,8 @@ instance FromJSON ActionExecutionStatus where
 
 data ActionOwner
     = AWS
-    | ThirdParty
     | Custom
+    | ThirdParty
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActionOwner where
@@ -219,12 +219,12 @@ instance FromJSON BlockerType where
     parseJSON = parseJSONText "BlockerType"
 
 data FailureType
-    = JobFailed
-    | SystemUnavailable
+    = ConfigurationError
+    | JobFailed
     | PermissionError
-    | ConfigurationError
     | RevisionOutOfSync
     | RevisionUnavailable
+    | SystemUnavailable
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText FailureType where
@@ -256,12 +256,12 @@ instance ToJSON FailureType where
     toJSON = toJSONText
 
 data JobStatus
-    = JSFailed
+    = JSCreated
+    | JSDispatched
+    | JSFailed
     | JSInProgress
-    | JSCreated
     | JSQueued
     | JSSucceeded
-    | JSDispatched
     | JSTimedOut
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -296,8 +296,8 @@ instance FromJSON JobStatus where
     parseJSON = parseJSONText "JobStatus"
 
 data StageTransitionType
-    = Outbound
-    | Inbound
+    = Inbound
+    | Outbound
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StageTransitionType where

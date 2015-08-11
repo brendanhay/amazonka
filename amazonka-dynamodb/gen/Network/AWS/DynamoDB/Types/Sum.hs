@@ -21,8 +21,8 @@ import           Network.AWS.Prelude
 
 data AttributeAction
     = Add
-    | Put
     | Delete
+    | Put
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AttributeAction where
@@ -48,19 +48,19 @@ instance ToJSON AttributeAction where
     toJSON = toJSONText
 
 data ComparisonOperator
-    = GE
-    | EQ'
-    | NE
-    | Null
-    | NotContains
-    | GT'
-    | LT'
-    | IN
+    = BeginsWith
     | Between
     | Contains
-    | BeginsWith
-    | NotNull
+    | EQ'
+    | GE
+    | GT'
+    | IN
     | LE
+    | LT'
+    | NE
+    | NotContains
+    | NotNull
+    | Null
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ComparisonOperator where
@@ -131,10 +131,10 @@ instance ToJSON ConditionalOperator where
     toJSON = toJSONText
 
 data IndexStatus
-    = ISUpdating
-    | ISDeleting
+    = ISActive
     | ISCreating
-    | ISActive
+    | ISDeleting
+    | ISUpdating
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText IndexStatus where
@@ -190,8 +190,8 @@ instance FromJSON KeyType where
     parseJSON = parseJSONText "KeyType"
 
 data ProjectionType
-    = Include
-    | All
+    = All
+    | Include
     | KeysOnly
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -237,8 +237,8 @@ instance FromJSON ProjectionType where
 -- -   /NONE/ - No /ConsumedCapacity/ details are included in the response.
 --
 data ReturnConsumedCapacity
-    = RCCNone
-    | RCCIndexes
+    = RCCIndexes
+    | RCCNone
     | RCCTotal
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -290,11 +290,11 @@ instance ToJSON ReturnItemCollectionMetrics where
     toJSON = toJSONText
 
 data ReturnValue
-    = UpdatedOld
-    | None
-    | AllNew
+    = AllNew
     | AllOld
+    | None
     | UpdatedNew
+    | UpdatedOld
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReturnValue where
@@ -324,8 +324,8 @@ instance ToJSON ReturnValue where
     toJSON = toJSONText
 
 data ScalarAttributeType
-    = N
-    | B
+    = B
+    | N
     | S
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -355,10 +355,10 @@ instance FromJSON ScalarAttributeType where
     parseJSON = parseJSONText "ScalarAttributeType"
 
 data Select
-    = Count
-    | AllAttributes
-    | SpecificAttributes
+    = AllAttributes
     | AllProjectedAttributes
+    | Count
+    | SpecificAttributes
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Select where
@@ -386,10 +386,10 @@ instance ToJSON Select where
     toJSON = toJSONText
 
 data StreamViewType
-    = SVTNewImage
+    = SVTKeysOnly
     | SVTNewAndOldImages
+    | SVTNewImage
     | SVTOldImage
-    | SVTKeysOnly
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StreamViewType where
@@ -420,10 +420,10 @@ instance FromJSON StreamViewType where
     parseJSON = parseJSONText "StreamViewType"
 
 data TableStatus
-    = Deleting
-    | Updating
+    = Active
     | Creating
-    | Active
+    | Deleting
+    | Updating
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TableStatus where

@@ -20,19 +20,19 @@ module Network.AWS.AutoScaling.Types.Sum where
 import           Network.AWS.Prelude
 
 data LifecycleState
-    = PendingWait
-    | Terminating
-    | TerminatingWait
-    | Pending
-    | Standby
+    = Detached
+    | Detaching
     | EnteringStandby
     | InService
-    | Detached
-    | Detaching
-    | Quarantined
+    | Pending
     | PendingProceed
+    | PendingWait
+    | Quarantined
+    | Standby
     | Terminated
+    | Terminating
     | TerminatingProceed
+    | TerminatingWait
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LifecycleState where
@@ -78,17 +78,17 @@ instance FromXML LifecycleState where
     parseXML = parseXMLText "LifecycleState"
 
 data ScalingActivityStatusCode
-    = WaitingForSpotInstanceId
-    | WaitingForInstanceWarmup
-    | WaitingForSpotInstanceRequestId
-    | WaitingForInstanceId
-    | Successful
-    | InProgress
-    | PreInService
-    | WaitingForELBConnectionDraining
-    | MidLifecycleAction
-    | Cancelled
+    = Cancelled
     | Failed
+    | InProgress
+    | MidLifecycleAction
+    | PreInService
+    | Successful
+    | WaitingForELBConnectionDraining
+    | WaitingForInstanceId
+    | WaitingForInstanceWarmup
+    | WaitingForSpotInstanceId
+    | WaitingForSpotInstanceRequestId
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ScalingActivityStatusCode where

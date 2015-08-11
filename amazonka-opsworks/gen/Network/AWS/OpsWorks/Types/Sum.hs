@@ -20,10 +20,10 @@ module Network.AWS.OpsWorks.Types.Sum where
 import           Network.AWS.Prelude
 
 data AppAttributesKeys
-    = DocumentRoot
-    | RailsEnv
-    | AWSFlowRubySettings
+    = AWSFlowRubySettings
     | AutoBundleOnDeploy
+    | DocumentRoot
+    | RailsEnv
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AppAttributesKeys where
@@ -54,13 +54,13 @@ instance FromJSON AppAttributesKeys where
     parseJSON = parseJSONText "AppAttributesKeys"
 
 data AppType
-    = ATPHP
-    | ATStatic
-    | ATAWSFlowRuby
+    = ATAWSFlowRuby
     | ATJava
     | ATNodejs
-    | ATRails
     | ATOther
+    | ATPHP
+    | ATRails
+    | ATStatic
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AppType where
@@ -125,8 +125,8 @@ instance FromJSON Architecture where
     parseJSON = parseJSONText "Architecture"
 
 data AutoScalingType
-    = Timer
-    | Load
+    = Load
+    | Timer
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AutoScalingType where
@@ -153,18 +153,18 @@ instance FromJSON AutoScalingType where
     parseJSON = parseJSONText "AutoScalingType"
 
 data DeploymentCommandName
-    = ExecuteRecipes
+    = Configure
+    | Deploy
+    | ExecuteRecipes
+    | InstallDependencies
+    | Restart
+    | Rollback
     | Setup
     | Start
-    | UpdateCustomCookbooks
-    | InstallDependencies
-    | Undeploy
-    | Rollback
-    | Restart
     | Stop
+    | Undeploy
+    | UpdateCustomCookbooks
     | UpdateDependencies
-    | Configure
-    | Deploy
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeploymentCommandName where
@@ -211,31 +211,31 @@ instance FromJSON DeploymentCommandName where
     parseJSON = parseJSONText "DeploymentCommandName"
 
 data LayerAttributesKeys
-    = HaproxyHealthCheckURL
-    | MemcachedMemory
-    | GangliaPassword
+    = BundlerVersion
     | EcsClusterARN
-    | JavaAppServerVersion
-    | GangliaURL
-    | HaproxyHealthCheckMethod
-    | PassengerVersion
-    | JVMVersion
-    | MysqlRootPassword
-    | HaproxyStatsPassword
-    | RubyVersion
-    | JVMOptions
-    | JVM
-    | BundlerVersion
-    | HaproxyStatsURL
-    | ManageBundler
-    | RubygemsVersion
-    | GangliaUser
     | EnableHaproxyStats
-    | MysqlRootPasswordUbiquitous
+    | GangliaPassword
+    | GangliaURL
+    | GangliaUser
+    | HaproxyHealthCheckMethod
+    | HaproxyHealthCheckURL
+    | HaproxyStatsPassword
+    | HaproxyStatsURL
     | HaproxyStatsUser
+    | JVM
+    | JVMOptions
+    | JVMVersion
     | JavaAppServer
+    | JavaAppServerVersion
+    | ManageBundler
+    | MemcachedMemory
+    | MysqlRootPassword
+    | MysqlRootPasswordUbiquitous
     | NodejsVersion
+    | PassengerVersion
     | RailsStack
+    | RubyVersion
+    | RubygemsVersion
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LayerAttributesKeys where
@@ -308,18 +308,18 @@ instance FromJSON LayerAttributesKeys where
     parseJSON = parseJSONText "LayerAttributesKeys"
 
 data LayerType
-    = Memcached
+    = AWSFlowRuby
+    | Custom
+    | DBMaster
+    | EcsCluster
     | JavaApp
+    | LB
+    | Memcached
     | MonitoringMaster
     | NodejsApp
-    | Custom
-    | AWSFlowRuby
-    | LB
-    | RailsApp
-    | EcsCluster
-    | DBMaster
-    | Web
     | PHPApp
+    | RailsApp
+    | Web
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LayerType where
@@ -366,8 +366,8 @@ instance FromJSON LayerType where
     parseJSON = parseJSONText "LayerType"
 
 data RootDeviceType
-    = InstanceStore
-    | EBS
+    = EBS
+    | InstanceStore
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RootDeviceType where
@@ -394,10 +394,10 @@ instance FromJSON RootDeviceType where
     parseJSON = parseJSONText "RootDeviceType"
 
 data SourceType
-    = SVN
+    = Archive
     | Git
-    | Archive
     | S3
+    | SVN
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SourceType where
@@ -453,8 +453,8 @@ instance FromJSON StackAttributesKeys where
     parseJSON = parseJSONText "StackAttributesKeys"
 
 data VirtualizationType
-    = Paravirtual
-    | HVM
+    = HVM
+    | Paravirtual
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VirtualizationType where
@@ -478,9 +478,9 @@ instance FromJSON VirtualizationType where
     parseJSON = parseJSONText "VirtualizationType"
 
 data VolumeType
-    = Standard
+    = GP2
     | IO1
-    | GP2
+    | Standard
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VolumeType where

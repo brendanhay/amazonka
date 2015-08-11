@@ -45,10 +45,10 @@ instance ToJSON ChronologicalOrder where
     toJSON = toJSONText
 
 data ConfigurationItemStatus
-    = OK
+    = Deleted
     | Discovered
-    | Deleted
     | Failed
+    | OK
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConfigurationItemStatus where
@@ -76,9 +76,9 @@ instance FromJSON ConfigurationItemStatus where
     parseJSON = parseJSONText "ConfigurationItemStatus"
 
 data DeliveryStatus
-    = Success
+    = Failure
     | NotApplicable
-    | Failure
+    | Success
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeliveryStatus where
@@ -104,8 +104,8 @@ instance FromJSON DeliveryStatus where
     parseJSON = parseJSONText "DeliveryStatus"
 
 data RecorderStatus
-    = RSPending
-    | RSFailure
+    = RSFailure
+    | RSPending
     | RSSuccess
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -133,18 +133,18 @@ instance FromJSON RecorderStatus where
 
 data ResourceType
     = AWSCloudTrailTrail
-    | AWSEC2VPNConnection
-    | AWSEC2SecurityGroup
-    | AWSEC2Instance
-    | AWSEC2NetworkACL
-    | AWSEC2VPNGateway
-    | AWSEC2VPC
-    | AWSEC2NetworkInterface
-    | AWSEC2InternetGateway
-    | AWSEC2Subnet
-    | AWSEC2EIP
     | AWSEC2CustomerGateway
+    | AWSEC2EIP
+    | AWSEC2Instance
+    | AWSEC2InternetGateway
+    | AWSEC2NetworkACL
+    | AWSEC2NetworkInterface
     | AWSEC2RouteTable
+    | AWSEC2SecurityGroup
+    | AWSEC2Subnet
+    | AWSEC2VPC
+    | AWSEC2VPNConnection
+    | AWSEC2VPNGateway
     | AWSEC2Volume
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 

@@ -21,8 +21,8 @@ import           Network.AWS.Prelude
 
 data AgentUpdateStatus
     = AUSFailed
-    | AUSStaged
     | AUSPending
+    | AUSStaged
     | AUSStaging
     | AUSUpdated
     | AUSUpdating
@@ -58,8 +58,8 @@ instance FromJSON AgentUpdateStatus where
 
 data DesiredStatus
     = Pending
-    | Stopped
     | Running
+    | Stopped
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DesiredStatus where
@@ -110,8 +110,8 @@ instance ToJSON SortOrder where
     toJSON = toJSONText
 
 data TaskDefinitionStatus
-    = Inactive
-    | Active
+    = Active
+    | Inactive
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TaskDefinitionStatus where
@@ -138,8 +138,8 @@ instance FromJSON TaskDefinitionStatus where
     parseJSON = parseJSONText "TaskDefinitionStatus"
 
 data TransportProtocol
-    = Udp
-    | TCP
+    = TCP
+    | Udp
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TransportProtocol where

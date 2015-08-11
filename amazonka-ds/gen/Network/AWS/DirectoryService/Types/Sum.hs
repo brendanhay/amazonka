@@ -20,8 +20,8 @@ module Network.AWS.DirectoryService.Types.Sum where
 import           Network.AWS.Prelude
 
 data DirectorySize
-    = Small
-    | Large
+    = Large
+    | Small
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DirectorySize where
@@ -48,17 +48,17 @@ instance FromJSON DirectorySize where
     parseJSON = parseJSONText "DirectorySize"
 
 data DirectoryStage
-    = DSRestoreFailed
+    = DSActive
+    | DSCreated
+    | DSCreating
     | DSDeleted
-    | DSRestoring
-    | DSImpaired
     | DSDeleting
     | DSFailed
-    | DSRequested
-    | DSCreated
+    | DSImpaired
     | DSInoperable
-    | DSActive
-    | DSCreating
+    | DSRequested
+    | DSRestoreFailed
+    | DSRestoring
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DirectoryStage where
@@ -159,8 +159,8 @@ instance FromJSON RadiusAuthenticationProtocol where
     parseJSON = parseJSONText "RadiusAuthenticationProtocol"
 
 data RadiusStatus
-    = Creating
-    | Completed
+    = Completed
+    | Creating
     | Failed
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -188,8 +188,8 @@ instance FromJSON RadiusStatus where
 
 data SnapshotStatus
     = SSCompleted
-    | SSFailed
     | SSCreating
+    | SSFailed
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SnapshotStatus where

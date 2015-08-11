@@ -20,11 +20,11 @@ module Network.AWS.CloudTrail.Types.Sum where
 import           Network.AWS.Prelude
 
 data LookupAttributeKey
-    = ResourceType
-    | ResourceName
-    | Username
+    = EventId
     | EventName
-    | EventId
+    | ResourceName
+    | ResourceType
+    | Username
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LookupAttributeKey where

@@ -20,10 +20,10 @@ module Network.AWS.CloudSearch.Types.Sum where
 import           Network.AWS.Prelude
 
 data AlgorithmicStemming
-    = ASLight
-    | ASNone
+    = ASFull
+    | ASLight
     | ASMinimal
-    | ASFull
+    | ASNone
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AlgorithmicStemming where
@@ -53,41 +53,41 @@ instance FromXML AlgorithmicStemming where
 -- | An <http://tools.ietf.org/html/rfc4646 IETF RFC 4646> language code or
 -- 'mul' for multiple languages.
 data AnalysisSchemeLanguage
-    = Mul
-    | KO
-    | TH
-    | RU
-    | FA
-    | LV
+    = AR
+    | BG
     | CA
-    | RO
-    | SV
-    | HE
-    | HU
-    | AR
-    | JA
-    | GA
-    | ES
+    | CS
+    | DA
     | DE
-    | HI
     | EL
+    | EN
+    | ES
+    | EU
+    | FA
+    | FI
+    | FR
+    | GA
+    | GL
+    | HE
+    | HI
+    | HU
     | HY
-    | ZhHant
+    | IT
+    | Id
+    | JA
+    | KO
+    | LV
+    | Mul
+    | NL
     | NO
     | PT
-    | FR
-    | FI
-    | NL
-    | BG
-    | Id
-    | IT
-    | DA
-    | EU
-    | CS
-    | GL
-    | EN
-    | ZhHans
+    | RO
+    | RU
+    | SV
+    | TH
     | TR
+    | ZhHans
+    | ZhHant
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AnalysisSchemeLanguage where
@@ -181,17 +181,17 @@ instance FromXML AnalysisSchemeLanguage where
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
 -- in the /Amazon CloudSearch Developer Guide/.
 data IndexFieldType
-    = Latlon
-    | IntArray
-    | LiteralArray
-    | Double
-    | Text
-    | DoubleArray
-    | Date
-    | TextArray
+    = Date
     | DateArray
+    | Double
+    | DoubleArray
     | Int
+    | IntArray
+    | Latlon
     | Literal
+    | LiteralArray
+    | Text
+    | TextArray
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText IndexFieldType where
@@ -245,10 +245,10 @@ instance FromXML IndexFieldType where
 --     modify the option value or update or remove the incompatible
 --     documents.
 data OptionState
-    = FailedToValidate
-    | Active
-    | RequiresIndexDocuments
+    = Active
+    | FailedToValidate
     | Processing
+    | RequiresIndexDocuments
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OptionState where
@@ -279,13 +279,13 @@ instance FromXML OptionState where
 -- partition is hosted.
 data PartitionInstanceType
     = Search_M1_Large
-    | Search_M3_XLarge
     | Search_M1_Small
     | Search_M2_2XLarge
     | Search_M2_XLarge
     | Search_M3_2XLarge
     | Search_M3_Large
     | Search_M3_Medium
+    | Search_M3_XLarge
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PartitionInstanceType where
@@ -321,9 +321,9 @@ instance FromXML PartitionInstanceType where
     parseXML = parseXMLText "PartitionInstanceType"
 
 data SuggesterFuzzyMatching
-    = Low
+    = High
+    | Low
     | None
-    | High
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SuggesterFuzzyMatching where

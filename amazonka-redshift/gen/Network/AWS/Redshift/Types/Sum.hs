@@ -45,8 +45,8 @@ instance FromXML ParameterApplyType where
     parseXML = parseXMLText "ParameterApplyType"
 
 data SourceType
-    = ClusterParameterGroup
-    | Cluster
+    = Cluster
+    | ClusterParameterGroup
     | ClusterSecurityGroup
     | ClusterSnapshot
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)

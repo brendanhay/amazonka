@@ -8,9 +8,6 @@ build:
 clean:
 	stack clean
 
-doc:
-	stack -j3 haddock amazonka
-
 define forward
 $1: $$(addprefix $1-,$$(LIBRARIES))
 

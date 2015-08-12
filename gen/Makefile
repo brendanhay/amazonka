@@ -1,5 +1,6 @@
 SHELL     := /usr/bin/env bash
 TOP       := ..
+BIN       := bin
 MODEL_DIR := model
 OUT_DIR   := ..
 
@@ -17,10 +18,8 @@ MODELS ?= $(sort $(dir $(wildcard $(MODEL_DIR)/*/*)))
 
 release: gen format
 
-# Relying on install since it seems the simplest path to finding out where
-# the stack built binary lives.
-gen: install
-	~/.local/bin/amazonka-gen \
+gen: $(BIN)
+	$(BIN)/amazonka-gen \
  --out=$(OUT_DIR) \
  --library-version=$(VERSION) \
  --client-version=$(VERSION) \
@@ -43,8 +42,8 @@ format:
 build: $(MODEL_DIR)
 	stack build amazonka-gen
 
-install: build
-	stack install
+$(BIN): $(MODEL_DIR)
+	stack install amazonka-gen --local-bin-path $@
 
 clean:
 	stack clean

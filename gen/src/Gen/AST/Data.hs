@@ -31,7 +31,7 @@ import           Control.Monad.Trans.State
 import           Data.Bifunctor
 import           Data.Char                    (isSpace)
 import qualified Data.HashMap.Strict          as Map
-import           Data.List                    (find)
+import           Data.List                    (find, sort)
 import           Data.Monoid                  ((<>))
 import           Data.String
 import           Data.Text                    (Text)
@@ -131,9 +131,11 @@ sumData p s i vs = Sum (isShared s) <$> mk <*> (Map.keys <$> insts)
         <$> pp Indent decl
         <*> pure bs
 
-    decl   = dataD n (map cond (Map.keys bs)) (derivingOf s)
-    cond x = conD (ConDecl (ident x) [])
-    insts  = renderInsts p n $ shapeInsts p (s ^. relMode) []
+    decl = dataD n (map f . sort $ Map.keys bs) (derivingOf s)
+      where
+        f x = conD (ConDecl (ident x) [])
+
+    insts = renderInsts p n $ shapeInsts p (s ^. relMode) []
 
     n  = s ^. annId
     bs = vs & kvTraversal %~ first (branchId (s ^. annPrefix))

@@ -18,7 +18,7 @@ MODELS ?= $(sort $(dir $(wildcard $(MODEL_DIR)/*/*)))
 
 release: gen format
 
-gen: $(BIN)
+gen: $(BIN)/amazonka-gen
 	$(BIN)/amazonka-gen \
  --out=$(OUT_DIR) \
  --library-version=$(VERSION) \
@@ -42,8 +42,11 @@ format:
 build: $(MODEL_DIR)
 	stack build amazonka-gen
 
-$(BIN): $(MODEL_DIR)
-	stack install amazonka-gen --local-bin-path $@
+$(BIN)/amazonka-gen: $(BIN) build
+	stack build amazonka-gen --copy-bins --local-bin-path $(BIN)
+
+$(BIN):
+	mkdir $@
 
 clean:
 	stack clean

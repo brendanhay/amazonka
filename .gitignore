@@ -14,6 +14,7 @@ dist
 vendor
 .vagrant.d
 .stack-work
+bin
 
 # CTAGS
 TAGS

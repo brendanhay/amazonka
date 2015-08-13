@@ -116,7 +116,7 @@ requestInsts m h r fs = do
                 Just (ToQuery zs) -> ToQuery (ys <> zs)
                 _                 -> ToQuery ys
 
-        f s ToQuery {} = True
+        f ToQuery {} = True
         f _          = False
 
     replaceXML :: [Inst] -> Either Error [Inst]

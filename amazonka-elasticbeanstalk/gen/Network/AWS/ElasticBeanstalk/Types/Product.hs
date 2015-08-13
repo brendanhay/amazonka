@@ -126,6 +126,66 @@ instance FromXML ApplicationDescriptionMessage where
           = ApplicationDescriptionMessage' <$>
               (x .@? "Application")
 
+-- | Represents the application metrics for a specified environment.
+--
+-- /See:/ 'applicationMetrics' smart constructor.
+data ApplicationMetrics = ApplicationMetrics'
+    { _amRequestCount :: !(Maybe Int)
+    , _amLatency      :: !(Maybe Latency)
+    , _amStatusCodes  :: !(Maybe StatusCodes)
+    , _amDuration     :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ApplicationMetrics' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'amRequestCount'
+--
+-- * 'amLatency'
+--
+-- * 'amStatusCodes'
+--
+-- * 'amDuration'
+applicationMetrics
+    :: ApplicationMetrics
+applicationMetrics =
+    ApplicationMetrics'
+    { _amRequestCount = Nothing
+    , _amLatency = Nothing
+    , _amStatusCodes = Nothing
+    , _amDuration = Nothing
+    }
+
+-- | Average number of requests handled by the web server per second over the
+-- last 10 seconds.
+amRequestCount :: Lens' ApplicationMetrics (Maybe Int)
+amRequestCount = lens _amRequestCount (\ s a -> s{_amRequestCount = a});
+
+-- | Represents the average latency for the slowest X percent of requests
+-- over the last 10 seconds. Latencies are in seconds with one milisecond
+-- resolution.
+amLatency :: Lens' ApplicationMetrics (Maybe Latency)
+amLatency = lens _amLatency (\ s a -> s{_amLatency = a});
+
+-- | Represents the percentage of requests over the last 10 seconds that
+-- resulted in each type of status code response.
+amStatusCodes :: Lens' ApplicationMetrics (Maybe StatusCodes)
+amStatusCodes = lens _amStatusCodes (\ s a -> s{_amStatusCodes = a});
+
+-- | The amount of time that the metrics cover (usually 10 seconds). For
+-- example, you might have 5 requests ('request_count') within the most
+-- recent time slice of 10 seconds ('duration').
+amDuration :: Lens' ApplicationMetrics (Maybe Int)
+amDuration = lens _amDuration (\ s a -> s{_amDuration = a});
+
+instance FromXML ApplicationMetrics where
+        parseXML x
+          = ApplicationMetrics' <$>
+              (x .@? "RequestCount") <*> (x .@? "Latency") <*>
+                (x .@? "StatusCodes")
+                <*> (x .@? "Duration")
+
 -- | Describes the properties of an application version.
 --
 -- /See:/ 'applicationVersionDescription' smart constructor.
@@ -252,6 +312,97 @@ asgName = lens _asgName (\ s a -> s{_asgName = a});
 
 instance FromXML AutoScalingGroup where
         parseXML x = AutoScalingGroup' <$> (x .@? "Name")
+
+-- | Represents CPU utilization information from the specified instance that
+-- belongs to the AWS Elastic Beanstalk environment. Use the 'instanceId'
+-- property to specify the application instance for which you\'d like to
+-- return data.
+--
+-- /See:/ 'cpuUtilization' smart constructor.
+data CPUUtilization = CPUUtilization'
+    { _cuIdle    :: !(Maybe Double)
+    , _cuSoftIRQ :: !(Maybe Double)
+    , _cuIRQ     :: !(Maybe Double)
+    , _cuSystem  :: !(Maybe Double)
+    , _cuUser    :: !(Maybe Double)
+    , _cuIOWait  :: !(Maybe Double)
+    , _cuNice    :: !(Maybe Double)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CPUUtilization' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cuIdle'
+--
+-- * 'cuSoftIRQ'
+--
+-- * 'cuIRQ'
+--
+-- * 'cuSystem'
+--
+-- * 'cuUser'
+--
+-- * 'cuIOWait'
+--
+-- * 'cuNice'
+cpuUtilization
+    :: CPUUtilization
+cpuUtilization =
+    CPUUtilization'
+    { _cuIdle = Nothing
+    , _cuSoftIRQ = Nothing
+    , _cuIRQ = Nothing
+    , _cuSystem = Nothing
+    , _cuUser = Nothing
+    , _cuIOWait = Nothing
+    , _cuNice = Nothing
+    }
+
+-- | Percentage of time that the CPU has spent in the 'Idle' state over the
+-- last 10 seconds.
+cuIdle :: Lens' CPUUtilization (Maybe Double)
+cuIdle = lens _cuIdle (\ s a -> s{_cuIdle = a});
+
+-- | Percentage of time that the CPU has spent in the 'SoftIRQ' state over
+-- the last 10 seconds.
+cuSoftIRQ :: Lens' CPUUtilization (Maybe Double)
+cuSoftIRQ = lens _cuSoftIRQ (\ s a -> s{_cuSoftIRQ = a});
+
+-- | Percentage of time that the CPU has spent in the 'IRQ' state over the
+-- last 10 seconds.
+cuIRQ :: Lens' CPUUtilization (Maybe Double)
+cuIRQ = lens _cuIRQ (\ s a -> s{_cuIRQ = a});
+
+-- | Percentage of time that the CPU has spent in the 'System' state over the
+-- last 10 seconds.
+cuSystem :: Lens' CPUUtilization (Maybe Double)
+cuSystem = lens _cuSystem (\ s a -> s{_cuSystem = a});
+
+-- | Percentage of time that the CPU has spent in the 'User' state over the
+-- last 10 seconds.
+cuUser :: Lens' CPUUtilization (Maybe Double)
+cuUser = lens _cuUser (\ s a -> s{_cuUser = a});
+
+-- | Percentage of time that the CPU has spent in the 'I\/O Wait' state over
+-- the last 10 seconds.
+cuIOWait :: Lens' CPUUtilization (Maybe Double)
+cuIOWait = lens _cuIOWait (\ s a -> s{_cuIOWait = a});
+
+-- | Percentage of time that the CPU has spent in the 'Nice' state over the
+-- last 10 seconds.
+cuNice :: Lens' CPUUtilization (Maybe Double)
+cuNice = lens _cuNice (\ s a -> s{_cuNice = a});
+
+instance FromXML CPUUtilization where
+        parseXML x
+          = CPUUtilization' <$>
+              (x .@? "Idle") <*> (x .@? "SoftIRQ") <*>
+                (x .@? "IRQ")
+                <*> (x .@? "System")
+                <*> (x .@? "User")
+                <*> (x .@? "IOWait")
+                <*> (x .@? "Nice")
 
 -- | Describes the possible values for a configuration option.
 --
@@ -403,12 +554,17 @@ codDefaultValue = lens _codDefaultValue (\ s a -> s{_codDefaultValue = a});
 --
 -- 'Boolean' : Values for this option are either 'true' or 'false' .
 --
+-- 'Json' : Values for this option are a JSON representation of a
+-- 'ConfigDocument'.
+--
 -- -   'Scalar' : Values for this option are a single selection from the
 --     possible values, or an unformatted string, or numeric value governed
 --     by the 'MIN\/MAX\/Regex' constraints.
 -- -   'List' : Values for this option are multiple selections from the
 --     possible values.
 -- -   'Boolean' : Values for this option are either 'true' or 'false' .
+-- -   'Json' : Values for this option are a JSON representation of a
+--     'ConfigDocument'.
 codValueType :: Lens' ConfigurationOptionDescription (Maybe ConfigurationOptionValueType)
 codValueType = lens _codValueType (\ s a -> s{_codValueType = a});
 
@@ -640,6 +796,7 @@ data EnvironmentDescription = EnvironmentDescription'
     , _eTier                         :: !(Maybe EnvironmentTier)
     , _eEnvironmentName              :: !(Maybe Text)
     , _eApplicationName              :: !(Maybe Text)
+    , _eHealthStatus                 :: !(Maybe EnvironmentHealthStatus)
     , _eEnvironmentId                :: !(Maybe Text)
     , _eSolutionStackName            :: !(Maybe Text)
     , _eDescription                  :: !(Maybe Text)
@@ -675,6 +832,8 @@ data EnvironmentDescription = EnvironmentDescription'
 --
 -- * 'eApplicationName'
 --
+-- * 'eHealthStatus'
+--
 -- * 'eEnvironmentId'
 --
 -- * 'eSolutionStackName'
@@ -697,6 +856,7 @@ environmentDescription =
     , _eTier = Nothing
     , _eEnvironmentName = Nothing
     , _eApplicationName = Nothing
+    , _eHealthStatus = Nothing
     , _eEnvironmentId = Nothing
     , _eSolutionStackName = Nothing
     , _eDescription = Nothing
@@ -790,6 +950,12 @@ eEnvironmentName = lens _eEnvironmentName (\ s a -> s{_eEnvironmentName = a});
 eApplicationName :: Lens' EnvironmentDescription (Maybe Text)
 eApplicationName = lens _eApplicationName (\ s a -> s{_eApplicationName = a});
 
+-- | Returns the health status of the application running in your
+-- environment. For more information, see
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+eHealthStatus :: Lens' EnvironmentDescription (Maybe EnvironmentHealthStatus)
+eHealthStatus = lens _eHealthStatus (\ s a -> s{_eHealthStatus = a});
+
 -- | The ID of this environment.
 eEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
 eEnvironmentId = lens _eEnvironmentId (\ s a -> s{_eEnvironmentId = a});
@@ -817,6 +983,7 @@ instance FromXML EnvironmentDescription where
                 <*> (x .@? "Tier")
                 <*> (x .@? "EnvironmentName")
                 <*> (x .@? "ApplicationName")
+                <*> (x .@? "HealthStatus")
                 <*> (x .@? "EnvironmentId")
                 <*> (x .@? "SolutionStackName")
                 <*> (x .@? "Description")
@@ -1167,6 +1334,203 @@ iId = lens _iId (\ s a -> s{_iId = a});
 instance FromXML Instance where
         parseXML x = Instance' <$> (x .@? "Id")
 
+-- | Represents summary information about the health of an instance. For more
+-- information, see
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+--
+-- /See:/ 'instanceHealthSummary' smart constructor.
+data InstanceHealthSummary = InstanceHealthSummary'
+    { _ihsOK       :: !(Maybe Int)
+    , _ihsPending  :: !(Maybe Int)
+    , _ihsSevere   :: !(Maybe Int)
+    , _ihsUnknown  :: !(Maybe Int)
+    , _ihsNoData   :: !(Maybe Int)
+    , _ihsWarning  :: !(Maybe Int)
+    , _ihsDegraded :: !(Maybe Int)
+    , _ihsInfo     :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'InstanceHealthSummary' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ihsOK'
+--
+-- * 'ihsPending'
+--
+-- * 'ihsSevere'
+--
+-- * 'ihsUnknown'
+--
+-- * 'ihsNoData'
+--
+-- * 'ihsWarning'
+--
+-- * 'ihsDegraded'
+--
+-- * 'ihsInfo'
+instanceHealthSummary
+    :: InstanceHealthSummary
+instanceHealthSummary =
+    InstanceHealthSummary'
+    { _ihsOK = Nothing
+    , _ihsPending = Nothing
+    , _ihsSevere = Nothing
+    , _ihsUnknown = Nothing
+    , _ihsNoData = Nothing
+    , _ihsWarning = Nothing
+    , _ihsDegraded = Nothing
+    , _ihsInfo = Nothing
+    }
+
+-- | __Green.__ An instance is passing health checks and the health agent is
+-- not reporting any problems.
+ihsOK :: Lens' InstanceHealthSummary (Maybe Int)
+ihsOK = lens _ihsOK (\ s a -> s{_ihsOK = a});
+
+-- | __Grey.__ An operation is in progress on an instance within the command
+-- timeout.
+ihsPending :: Lens' InstanceHealthSummary (Maybe Int)
+ihsPending = lens _ihsPending (\ s a -> s{_ihsPending = a});
+
+-- | __Red.__ The health agent is reporting a very high number of request
+-- failures or other issues for an instance or environment.
+ihsSevere :: Lens' InstanceHealthSummary (Maybe Int)
+ihsSevere = lens _ihsSevere (\ s a -> s{_ihsSevere = a});
+
+-- | __Grey.__ AWS Elastic Beanstalk and the health agent are reporting an
+-- insufficient amount of data on an instance.
+ihsUnknown :: Lens' InstanceHealthSummary (Maybe Int)
+ihsUnknown = lens _ihsUnknown (\ s a -> s{_ihsUnknown = a});
+
+-- | __Grey.__ AWS Elastic Beanstalk and the health agent are reporting no
+-- data on an instance.
+ihsNoData :: Lens' InstanceHealthSummary (Maybe Int)
+ihsNoData = lens _ihsNoData (\ s a -> s{_ihsNoData = a});
+
+-- | __Yellow.__ The health agent is reporting a moderate number of request
+-- failures or other issues for an instance or environment.
+ihsWarning :: Lens' InstanceHealthSummary (Maybe Int)
+ihsWarning = lens _ihsWarning (\ s a -> s{_ihsWarning = a});
+
+-- | __Red.__ The health agent is reporting a high number of request failures
+-- or other issues for an instance or environment.
+ihsDegraded :: Lens' InstanceHealthSummary (Maybe Int)
+ihsDegraded = lens _ihsDegraded (\ s a -> s{_ihsDegraded = a});
+
+-- | __Green.__ An operation is in progress on an instance.
+ihsInfo :: Lens' InstanceHealthSummary (Maybe Int)
+ihsInfo = lens _ihsInfo (\ s a -> s{_ihsInfo = a});
+
+instance FromXML InstanceHealthSummary where
+        parseXML x
+          = InstanceHealthSummary' <$>
+              (x .@? "Ok") <*> (x .@? "Pending") <*>
+                (x .@? "Severe")
+                <*> (x .@? "Unknown")
+                <*> (x .@? "NoData")
+                <*> (x .@? "Warning")
+                <*> (x .@? "Degraded")
+                <*> (x .@? "Info")
+
+-- | Represents the average latency for the slowest X percent of requests
+-- over the last 10 seconds.
+--
+-- /See:/ 'latency' smart constructor.
+data Latency = Latency'
+    { _lP75  :: !(Maybe Double)
+    , _lP50  :: !(Maybe Double)
+    , _lP85  :: !(Maybe Double)
+    , _lP999 :: !(Maybe Double)
+    , _lP90  :: !(Maybe Double)
+    , _lP95  :: !(Maybe Double)
+    , _lP99  :: !(Maybe Double)
+    , _lP10  :: !(Maybe Double)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'Latency' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lP75'
+--
+-- * 'lP50'
+--
+-- * 'lP85'
+--
+-- * 'lP999'
+--
+-- * 'lP90'
+--
+-- * 'lP95'
+--
+-- * 'lP99'
+--
+-- * 'lP10'
+latency
+    :: Latency
+latency =
+    Latency'
+    { _lP75 = Nothing
+    , _lP50 = Nothing
+    , _lP85 = Nothing
+    , _lP999 = Nothing
+    , _lP90 = Nothing
+    , _lP95 = Nothing
+    , _lP99 = Nothing
+    , _lP10 = Nothing
+    }
+
+-- | The average latency for the slowest 25 percent of requests over the last
+-- 10 seconds.
+lP75 :: Lens' Latency (Maybe Double)
+lP75 = lens _lP75 (\ s a -> s{_lP75 = a});
+
+-- | The average latency for the slowest 50 percent of requests over the last
+-- 10 seconds.
+lP50 :: Lens' Latency (Maybe Double)
+lP50 = lens _lP50 (\ s a -> s{_lP50 = a});
+
+-- | The average latency for the slowest 15 percent of requests over the last
+-- 10 seconds.
+lP85 :: Lens' Latency (Maybe Double)
+lP85 = lens _lP85 (\ s a -> s{_lP85 = a});
+
+-- | The average latency for the slowest 0.1 percent of requests over the
+-- last 10 seconds.
+lP999 :: Lens' Latency (Maybe Double)
+lP999 = lens _lP999 (\ s a -> s{_lP999 = a});
+
+-- | The average latency for the slowest 10 percent of requests over the last
+-- 10 seconds.
+lP90 :: Lens' Latency (Maybe Double)
+lP90 = lens _lP90 (\ s a -> s{_lP90 = a});
+
+-- | The average latency for the slowest 5 percent of requests over the last
+-- 10 seconds.
+lP95 :: Lens' Latency (Maybe Double)
+lP95 = lens _lP95 (\ s a -> s{_lP95 = a});
+
+-- | The average latency for the slowest 1 percent of requests over the last
+-- 10 seconds.
+lP99 :: Lens' Latency (Maybe Double)
+lP99 = lens _lP99 (\ s a -> s{_lP99 = a});
+
+-- | The average latency for the slowest 90 percent of requests over the last
+-- 10 seconds.
+lP10 :: Lens' Latency (Maybe Double)
+lP10 = lens _lP10 (\ s a -> s{_lP10 = a});
+
+instance FromXML Latency where
+        parseXML x
+          = Latency' <$>
+              (x .@? "P75") <*> (x .@? "P50") <*> (x .@? "P85") <*>
+                (x .@? "P999")
+                <*> (x .@? "P90")
+                <*> (x .@? "P95")
+                <*> (x .@? "P99")
+                <*> (x .@? "P10")
+
 -- | Describes an Auto Scaling launch configuration.
 --
 -- /See:/ 'launchConfiguration' smart constructor.
@@ -1460,6 +1824,97 @@ instance ToQuery S3Location where
           = mconcat
               ["S3Key" =: _slS3Key, "S3Bucket" =: _slS3Bucket]
 
+-- | Represents health information from the specified instance that belongs
+-- to the AWS Elastic Beanstalk environment. Use the 'InstanceId' property
+-- to specify the application instance for which you\'d like to return
+-- data.
+--
+-- /See:/ 'singleInstanceHealth' smart constructor.
+data SingleInstanceHealth = SingleInstanceHealth'
+    { _sihInstanceId         :: !(Maybe Text)
+    , _sihCauses             :: !(Maybe [Text])
+    , _sihApplicationMetrics :: !(Maybe ApplicationMetrics)
+    , _sihColor              :: !(Maybe Text)
+    , _sihSystem             :: !(Maybe SystemStatus)
+    , _sihHealthStatus       :: !(Maybe Text)
+    , _sihLaunchedAt         :: !(Maybe ISO8601)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SingleInstanceHealth' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sihInstanceId'
+--
+-- * 'sihCauses'
+--
+-- * 'sihApplicationMetrics'
+--
+-- * 'sihColor'
+--
+-- * 'sihSystem'
+--
+-- * 'sihHealthStatus'
+--
+-- * 'sihLaunchedAt'
+singleInstanceHealth
+    :: SingleInstanceHealth
+singleInstanceHealth =
+    SingleInstanceHealth'
+    { _sihInstanceId = Nothing
+    , _sihCauses = Nothing
+    , _sihApplicationMetrics = Nothing
+    , _sihColor = Nothing
+    , _sihSystem = Nothing
+    , _sihHealthStatus = Nothing
+    , _sihLaunchedAt = Nothing
+    }
+
+-- | The ID of the Amazon EC2 instance.
+sihInstanceId :: Lens' SingleInstanceHealth (Maybe Text)
+sihInstanceId = lens _sihInstanceId (\ s a -> s{_sihInstanceId = a});
+
+-- | Represents the causes, which provide more information about the current
+-- health status.
+sihCauses :: Lens' SingleInstanceHealth [Text]
+sihCauses = lens _sihCauses (\ s a -> s{_sihCauses = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+sihApplicationMetrics :: Lens' SingleInstanceHealth (Maybe ApplicationMetrics)
+sihApplicationMetrics = lens _sihApplicationMetrics (\ s a -> s{_sihApplicationMetrics = a});
+
+-- | Represents the color indicator that gives you information about the
+-- health of the EC2 instance. For more information, see
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses>.
+sihColor :: Lens' SingleInstanceHealth (Maybe Text)
+sihColor = lens _sihColor (\ s a -> s{_sihColor = a});
+
+-- | Undocumented member.
+sihSystem :: Lens' SingleInstanceHealth (Maybe SystemStatus)
+sihSystem = lens _sihSystem (\ s a -> s{_sihSystem = a});
+
+-- | Returns the health status of the specified instance. For more
+-- information, see
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html >.
+sihHealthStatus :: Lens' SingleInstanceHealth (Maybe Text)
+sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a});
+
+-- | The time at which the EC2 instance was launched.
+sihLaunchedAt :: Lens' SingleInstanceHealth (Maybe UTCTime)
+sihLaunchedAt = lens _sihLaunchedAt (\ s a -> s{_sihLaunchedAt = a}) . mapping _Time;
+
+instance FromXML SingleInstanceHealth where
+        parseXML x
+          = SingleInstanceHealth' <$>
+              (x .@? "InstanceId") <*>
+                (x .@? "Causes" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "ApplicationMetrics")
+                <*> (x .@? "Color")
+                <*> (x .@? "System")
+                <*> (x .@? "HealthStatus")
+                <*> (x .@? "LaunchedAt")
+
 -- | Describes the solution stack.
 --
 -- /See:/ 'solutionStackDescription' smart constructor.
@@ -1534,6 +1989,107 @@ instance ToQuery SourceConfiguration where
           = mconcat
               ["TemplateName" =: _scTemplateName,
                "ApplicationName" =: _scApplicationName]
+
+-- | Represents the percentage of requests over the last 10 seconds that
+-- resulted in each type of status code response. For more information, see
+-- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html Status Code Definitions>.
+--
+-- /See:/ 'statusCodes' smart constructor.
+data StatusCodes = StatusCodes'
+    { _scStatus2xx :: !(Maybe Int)
+    , _scStatus3xx :: !(Maybe Int)
+    , _scStatus4xx :: !(Maybe Int)
+    , _scStatus5xx :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StatusCodes' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'scStatus2xx'
+--
+-- * 'scStatus3xx'
+--
+-- * 'scStatus4xx'
+--
+-- * 'scStatus5xx'
+statusCodes
+    :: StatusCodes
+statusCodes =
+    StatusCodes'
+    { _scStatus2xx = Nothing
+    , _scStatus3xx = Nothing
+    , _scStatus4xx = Nothing
+    , _scStatus5xx = Nothing
+    }
+
+-- | The percentage of requests over the last 10 seconds that resulted in a
+-- 2xx (200, 201, etc.) status code.
+scStatus2xx :: Lens' StatusCodes (Maybe Int)
+scStatus2xx = lens _scStatus2xx (\ s a -> s{_scStatus2xx = a});
+
+-- | The percentage of requests over the last 10 seconds that resulted in a
+-- 3xx (300, 301, etc.) status code.
+scStatus3xx :: Lens' StatusCodes (Maybe Int)
+scStatus3xx = lens _scStatus3xx (\ s a -> s{_scStatus3xx = a});
+
+-- | The percentage of requests over the last 10 seconds that resulted in a
+-- 4xx (400, 401, etc.) status code.
+scStatus4xx :: Lens' StatusCodes (Maybe Int)
+scStatus4xx = lens _scStatus4xx (\ s a -> s{_scStatus4xx = a});
+
+-- | The percentage of requests over the last 10 seconds that resulted in a
+-- 5xx (500, 501, etc.) status code.
+scStatus5xx :: Lens' StatusCodes (Maybe Int)
+scStatus5xx = lens _scStatus5xx (\ s a -> s{_scStatus5xx = a});
+
+instance FromXML StatusCodes where
+        parseXML x
+          = StatusCodes' <$>
+              (x .@? "Status2xx") <*> (x .@? "Status3xx") <*>
+                (x .@? "Status4xx")
+                <*> (x .@? "Status5xx")
+
+-- | Represents CPU utilization and load average information for applications
+-- running in the specified environment.
+--
+-- /See:/ 'systemStatus' smart constructor.
+data SystemStatus = SystemStatus'
+    { _ssCPUUtilization :: !(Maybe CPUUtilization)
+    , _ssLoadAverage    :: !(Maybe [Double])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SystemStatus' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ssCPUUtilization'
+--
+-- * 'ssLoadAverage'
+systemStatus
+    :: SystemStatus
+systemStatus =
+    SystemStatus'
+    { _ssCPUUtilization = Nothing
+    , _ssLoadAverage = Nothing
+    }
+
+-- | Undocumented member.
+ssCPUUtilization :: Lens' SystemStatus (Maybe CPUUtilization)
+ssCPUUtilization = lens _ssCPUUtilization (\ s a -> s{_ssCPUUtilization = a});
+
+-- | Load average in the last 1-minute and 5-minute periods. For more
+-- information, see
+-- <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os Operating System Metrics>.
+ssLoadAverage :: Lens' SystemStatus [Double]
+ssLoadAverage = lens _ssLoadAverage (\ s a -> s{_ssLoadAverage = a}) . _Default . _Coerce;
+
+instance FromXML SystemStatus where
+        parseXML x
+          = SystemStatus' <$>
+              (x .@? "CPUUtilization") <*>
+                (x .@? "LoadAverage" .!@ mempty >>=
+                   may (parseXMLList "member"))
 
 -- | Describes a tag applied to a resource in an environment.
 --

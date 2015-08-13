@@ -46,6 +46,9 @@ module Network.AWS.ElasticBeanstalk
     -- * Errors
     -- $errors
 
+    -- ** InvalidRequestException
+    , _InvalidRequestException
+
     -- ** S3SubscriptionRequiredException
     , _S3SubscriptionRequiredException
 
@@ -60,6 +63,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** TooManyApplicationVersionsException
     , _TooManyApplicationVersionsException
+
+    -- ** ElasticBeanstalkServiceException
+    , _ElasticBeanstalkServiceException
 
     -- ** InsufficientPrivilegesException
     , _InsufficientPrivilegesException
@@ -109,6 +115,9 @@ module Network.AWS.ElasticBeanstalk
     -- ** UpdateApplication
     , module Network.AWS.ElasticBeanstalk.UpdateApplication
 
+    -- ** DescribeInstancesHealth
+    , module Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
+
     -- ** CreateApplication
     , module Network.AWS.ElasticBeanstalk.CreateApplication
 
@@ -129,6 +138,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** UpdateConfigurationTemplate
     , module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
+
+    -- ** DescribeEnvironmentHealth
+    , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
 
     -- ** RebuildEnvironment
     , module Network.AWS.ElasticBeanstalk.RebuildEnvironment
@@ -183,6 +195,12 @@ module Network.AWS.ElasticBeanstalk
     -- ** EnvironmentHealth
     , EnvironmentHealth (..)
 
+    -- ** EnvironmentHealthAttribute
+    , EnvironmentHealthAttribute (..)
+
+    -- ** EnvironmentHealthStatus
+    , EnvironmentHealthStatus (..)
+
     -- ** EnvironmentInfoType
     , EnvironmentInfoType (..)
 
@@ -191,6 +209,9 @@ module Network.AWS.ElasticBeanstalk
 
     -- ** EventSeverity
     , EventSeverity (..)
+
+    -- ** InstancesHealthAttribute
+    , InstancesHealthAttribute (..)
 
     -- ** ValidationSeverity
     , ValidationSeverity (..)
@@ -209,6 +230,14 @@ module Network.AWS.ElasticBeanstalk
     , ApplicationDescriptionMessage
     , applicationDescriptionMessage
     , admApplication
+
+    -- ** ApplicationMetrics
+    , ApplicationMetrics
+    , applicationMetrics
+    , amRequestCount
+    , amLatency
+    , amStatusCodes
+    , amDuration
 
     -- ** ApplicationVersionDescription
     , ApplicationVersionDescription
@@ -229,6 +258,17 @@ module Network.AWS.ElasticBeanstalk
     , AutoScalingGroup
     , autoScalingGroup
     , asgName
+
+    -- ** CPUUtilization
+    , CPUUtilization
+    , cpuUtilization
+    , cuIdle
+    , cuSoftIRQ
+    , cuIRQ
+    , cuSystem
+    , cuUser
+    , cuIOWait
+    , cuNice
 
     -- ** ConfigurationOptionDescription
     , ConfigurationOptionDescription
@@ -282,6 +322,7 @@ module Network.AWS.ElasticBeanstalk
     , eTier
     , eEnvironmentName
     , eApplicationName
+    , eHealthStatus
     , eEnvironmentId
     , eSolutionStackName
     , eDescription
@@ -334,6 +375,30 @@ module Network.AWS.ElasticBeanstalk
     , instance'
     , iId
 
+    -- ** InstanceHealthSummary
+    , InstanceHealthSummary
+    , instanceHealthSummary
+    , ihsOK
+    , ihsPending
+    , ihsSevere
+    , ihsUnknown
+    , ihsNoData
+    , ihsWarning
+    , ihsDegraded
+    , ihsInfo
+
+    -- ** Latency
+    , Latency
+    , latency
+    , lP75
+    , lP50
+    , lP85
+    , lP999
+    , lP90
+    , lP95
+    , lP99
+    , lP10
+
     -- ** LaunchConfiguration
     , LaunchConfiguration
     , launchConfiguration
@@ -382,6 +447,17 @@ module Network.AWS.ElasticBeanstalk
     , slS3Key
     , slS3Bucket
 
+    -- ** SingleInstanceHealth
+    , SingleInstanceHealth
+    , singleInstanceHealth
+    , sihInstanceId
+    , sihCauses
+    , sihApplicationMetrics
+    , sihColor
+    , sihSystem
+    , sihHealthStatus
+    , sihLaunchedAt
+
     -- ** SolutionStackDescription
     , SolutionStackDescription
     , solutionStackDescription
@@ -393,6 +469,20 @@ module Network.AWS.ElasticBeanstalk
     , sourceConfiguration
     , scTemplateName
     , scApplicationName
+
+    -- ** StatusCodes
+    , StatusCodes
+    , statusCodes
+    , scStatus2xx
+    , scStatus3xx
+    , scStatus4xx
+    , scStatus5xx
+
+    -- ** SystemStatus
+    , SystemStatus
+    , systemStatus
+    , ssCPUUtilization
+    , ssLoadAverage
 
     -- ** Tag
     , Tag
@@ -429,9 +519,11 @@ import           Network.AWS.ElasticBeanstalk.DescribeApplications
 import           Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 import           Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
 import           Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
+import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
 import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
 import           Network.AWS.ElasticBeanstalk.DescribeEnvironments
 import           Network.AWS.ElasticBeanstalk.DescribeEvents
+import           Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
 import           Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
 import           Network.AWS.ElasticBeanstalk.RebuildEnvironment
 import           Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo

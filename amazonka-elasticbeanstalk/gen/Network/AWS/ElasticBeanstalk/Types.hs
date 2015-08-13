@@ -17,11 +17,13 @@ module Network.AWS.ElasticBeanstalk.Types
       ElasticBeanstalk
 
     -- * Errors
+    , _InvalidRequestException
     , _S3SubscriptionRequiredException
     , _TooManyBucketsException
     , _OperationInProgressException
     , _TooManyConfigurationTemplatesException
     , _TooManyApplicationVersionsException
+    , _ElasticBeanstalkServiceException
     , _InsufficientPrivilegesException
     , _TooManyApplicationsException
     , _SourceBundleDeletionException
@@ -37,6 +39,12 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * EnvironmentHealth
     , EnvironmentHealth (..)
 
+    -- * EnvironmentHealthAttribute
+    , EnvironmentHealthAttribute (..)
+
+    -- * EnvironmentHealthStatus
+    , EnvironmentHealthStatus (..)
+
     -- * EnvironmentInfoType
     , EnvironmentInfoType (..)
 
@@ -45,6 +53,9 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * EventSeverity
     , EventSeverity (..)
+
+    -- * InstancesHealthAttribute
+    , InstancesHealthAttribute (..)
 
     -- * ValidationSeverity
     , ValidationSeverity (..)
@@ -63,6 +74,14 @@ module Network.AWS.ElasticBeanstalk.Types
     , ApplicationDescriptionMessage
     , applicationDescriptionMessage
     , admApplication
+
+    -- * ApplicationMetrics
+    , ApplicationMetrics
+    , applicationMetrics
+    , amRequestCount
+    , amLatency
+    , amStatusCodes
+    , amDuration
 
     -- * ApplicationVersionDescription
     , ApplicationVersionDescription
@@ -83,6 +102,17 @@ module Network.AWS.ElasticBeanstalk.Types
     , AutoScalingGroup
     , autoScalingGroup
     , asgName
+
+    -- * CPUUtilization
+    , CPUUtilization
+    , cpuUtilization
+    , cuIdle
+    , cuSoftIRQ
+    , cuIRQ
+    , cuSystem
+    , cuUser
+    , cuIOWait
+    , cuNice
 
     -- * ConfigurationOptionDescription
     , ConfigurationOptionDescription
@@ -136,6 +166,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , eTier
     , eEnvironmentName
     , eApplicationName
+    , eHealthStatus
     , eEnvironmentId
     , eSolutionStackName
     , eDescription
@@ -188,6 +219,30 @@ module Network.AWS.ElasticBeanstalk.Types
     , instance'
     , iId
 
+    -- * InstanceHealthSummary
+    , InstanceHealthSummary
+    , instanceHealthSummary
+    , ihsOK
+    , ihsPending
+    , ihsSevere
+    , ihsUnknown
+    , ihsNoData
+    , ihsWarning
+    , ihsDegraded
+    , ihsInfo
+
+    -- * Latency
+    , Latency
+    , latency
+    , lP75
+    , lP50
+    , lP85
+    , lP999
+    , lP90
+    , lP95
+    , lP99
+    , lP10
+
     -- * LaunchConfiguration
     , LaunchConfiguration
     , launchConfiguration
@@ -236,6 +291,17 @@ module Network.AWS.ElasticBeanstalk.Types
     , slS3Key
     , slS3Bucket
 
+    -- * SingleInstanceHealth
+    , SingleInstanceHealth
+    , singleInstanceHealth
+    , sihInstanceId
+    , sihCauses
+    , sihApplicationMetrics
+    , sihColor
+    , sihSystem
+    , sihHealthStatus
+    , sihLaunchedAt
+
     -- * SolutionStackDescription
     , SolutionStackDescription
     , solutionStackDescription
@@ -247,6 +313,20 @@ module Network.AWS.ElasticBeanstalk.Types
     , sourceConfiguration
     , scTemplateName
     , scApplicationName
+
+    -- * StatusCodes
+    , StatusCodes
+    , statusCodes
+    , scStatus2xx
+    , scStatus3xx
+    , scStatus4xx
+    , scStatus5xx
+
+    -- * SystemStatus
+    , SystemStatus
+    , systemStatus
+    , ssCPUUtilization
+    , ssLoadAverage
 
     -- * Tag
     , Tag
@@ -307,6 +387,11 @@ instance AWSService ElasticBeanstalk where
           | has (hasStatus 509) e = Just "limit_exceeded"
           | otherwise = Nothing
 
+-- | The request is invalid, please check parameters and their values
+_InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidRequestException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidRequestException"
+
 -- | The caller does not have a subscription to Amazon S3.
 _S3SubscriptionRequiredException :: AsError a => Getting (First ServiceError) a ServiceError
 _S3SubscriptionRequiredException =
@@ -319,7 +404,7 @@ _TooManyBucketsException =
     _ServiceError . hasStatus 400 . hasCode "TooManyBucketsException"
 
 -- | Unable to perform the specified operation because another operation is
--- already in progress affecting an an element in this activity.
+-- already in progress affecting an element in this activity.
 _OperationInProgressException :: AsError a => Getting (First ServiceError) a ServiceError
 _OperationInProgressException =
     _ServiceError . hasStatus 400 . hasCode "OperationInProgressFailure"
@@ -336,6 +421,11 @@ _TooManyConfigurationTemplatesException =
 _TooManyApplicationVersionsException :: AsError a => Getting (First ServiceError) a ServiceError
 _TooManyApplicationVersionsException =
     _ServiceError . hasCode "TooManyApplicationVersionsException"
+
+-- | Prism for ElasticBeanstalkServiceException' errors.
+_ElasticBeanstalkServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+_ElasticBeanstalkServiceException =
+    _ServiceError . hasCode "ElasticBeanstalkServiceException"
 
 -- | Unable to perform the specified operation because the user does not have
 -- enough privileges for one of more downstream aws services

@@ -148,6 +148,12 @@ module Network.AWS.IAM
     -- * Waiters
     -- $waiters
 
+    -- ** InstanceProfileExists
+    , instanceProfileExists
+
+    -- ** UserExists
+    , userExists
+
     -- * Operations
     -- $operations
 

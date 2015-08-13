@@ -66,6 +66,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     , eTier
     , eEnvironmentName
     , eApplicationName
+    , eHealthStatus
     , eEnvironmentId
     , eSolutionStackName
     , eDescription

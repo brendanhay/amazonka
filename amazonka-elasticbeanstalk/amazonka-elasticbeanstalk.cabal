@@ -80,9 +80,11 @@ library
         , Network.AWS.ElasticBeanstalk.DescribeApplications
         , Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
         , Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
+        , Network.AWS.ElasticBeanstalk.DescribeEnvironmentHealth
         , Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
         , Network.AWS.ElasticBeanstalk.DescribeEnvironments
         , Network.AWS.ElasticBeanstalk.DescribeEvents
+        , Network.AWS.ElasticBeanstalk.DescribeInstancesHealth
         , Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
         , Network.AWS.ElasticBeanstalk.RebuildEnvironment
         , Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo

@@ -57,6 +57,7 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     , eTier
     , eEnvironmentName
     , eApplicationName
+    , eHealthStatus
     , eEnvironmentId
     , eSolutionStackName
     , eDescription

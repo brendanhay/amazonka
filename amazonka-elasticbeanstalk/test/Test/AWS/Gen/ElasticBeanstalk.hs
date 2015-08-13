@@ -55,6 +55,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , testUpdateApplication $
 --             updateApplication
 --
+--         , testDescribeInstancesHealth $
+--             describeInstancesHealth
+--
 --         , testCreateApplication $
 --             createApplication
 --
@@ -75,6 +78,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --
 --         , testUpdateConfigurationTemplate $
 --             updateConfigurationTemplate
+--
+--         , testDescribeEnvironmentHealth $
+--             describeEnvironmentHealth
 --
 --         , testRebuildEnvironment $
 --             rebuildEnvironment
@@ -148,6 +154,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --         , testUpdateApplicationResponse $
 --             applicationDescriptionMessage
 --
+--         , testDescribeInstancesHealthResponse $
+--             describeInstancesHealthResponse
+--
 --         , testCreateApplicationResponse $
 --             applicationDescriptionMessage
 --
@@ -168,6 +177,9 @@ import Test.AWS.ElasticBeanstalk.Internal
 --
 --         , testUpdateConfigurationTemplateResponse $
 --             configurationSettingsDescription
+--
+--         , testDescribeEnvironmentHealthResponse $
+--             describeEnvironmentHealthResponse
 --
 --         , testRebuildEnvironmentResponse $
 --             rebuildEnvironmentResponse
@@ -261,6 +273,11 @@ testUpdateApplication = req
     "UpdateApplication"
     "fixture/UpdateApplication"
 
+testDescribeInstancesHealth :: DescribeInstancesHealth -> TestTree
+testDescribeInstancesHealth = req
+    "DescribeInstancesHealth"
+    "fixture/DescribeInstancesHealth"
+
 testCreateApplication :: CreateApplication -> TestTree
 testCreateApplication = req
     "CreateApplication"
@@ -295,6 +312,11 @@ testUpdateConfigurationTemplate :: UpdateConfigurationTemplate -> TestTree
 testUpdateConfigurationTemplate = req
     "UpdateConfigurationTemplate"
     "fixture/UpdateConfigurationTemplate"
+
+testDescribeEnvironmentHealth :: DescribeEnvironmentHealth -> TestTree
+testDescribeEnvironmentHealth = req
+    "DescribeEnvironmentHealth"
+    "fixture/DescribeEnvironmentHealth"
 
 testRebuildEnvironment :: RebuildEnvironment -> TestTree
 testRebuildEnvironment = req
@@ -422,6 +444,12 @@ testUpdateApplicationResponse = res
     "fixture/UpdateApplicationResponse"
     (Proxy :: Proxy UpdateApplication)
 
+testDescribeInstancesHealthResponse :: DescribeInstancesHealthResponse -> TestTree
+testDescribeInstancesHealthResponse = res
+    "DescribeInstancesHealthResponse"
+    "fixture/DescribeInstancesHealthResponse"
+    (Proxy :: Proxy DescribeInstancesHealth)
+
 testCreateApplicationResponse :: ApplicationDescriptionMessage -> TestTree
 testCreateApplicationResponse = res
     "CreateApplicationResponse"
@@ -463,6 +491,12 @@ testUpdateConfigurationTemplateResponse = res
     "UpdateConfigurationTemplateResponse"
     "fixture/UpdateConfigurationTemplateResponse"
     (Proxy :: Proxy UpdateConfigurationTemplate)
+
+testDescribeEnvironmentHealthResponse :: DescribeEnvironmentHealthResponse -> TestTree
+testDescribeEnvironmentHealthResponse = res
+    "DescribeEnvironmentHealthResponse"
+    "fixture/DescribeEnvironmentHealthResponse"
+    (Proxy :: Proxy DescribeEnvironmentHealth)
 
 testRebuildEnvironmentResponse :: RebuildEnvironmentResponse -> TestTree
 testRebuildEnvironmentResponse = res

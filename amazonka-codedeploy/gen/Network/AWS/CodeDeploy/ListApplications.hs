@@ -1,124 +1,145 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CodeDeploy.ListApplications
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the applications registered with the applicable IAM user or AWS account.
+-- |
+-- Module      : Network.AWS.CodeDeploy.ListApplications
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplications.html>
+-- Lists the applications registered with the applicable IAM user or AWS
+-- account.
+--
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplications.html AWS API Reference> for ListApplications.
 module Network.AWS.CodeDeploy.ListApplications
     (
-    -- * Request
-      ListApplications
-    -- ** Request constructor
-    , listApplications
-    -- ** Request lenses
+    -- * Creating a Request
+      listApplications
+    , ListApplications
+    -- * Request Lenses
     , laNextToken
 
-    -- * Response
-    , ListApplicationsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listApplicationsResponse
-    -- ** Response lenses
-    , lar1Applications
-    , lar1NextToken
+    , ListApplicationsResponse
+    -- * Response Lenses
+    , larsNextToken
+    , larsApplications
+    , larsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype ListApplications = ListApplications
+-- | Represents the input of a list applications operation.
+--
+-- /See:/ 'listApplications' smart constructor.
+newtype ListApplications = ListApplications'
     { _laNextToken :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListApplications' constructor.
+-- | Creates a value of 'ListApplications' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laNextToken' @::@ 'Maybe' 'Text'
---
-listApplications :: ListApplications
-listApplications = ListApplications
+-- * 'laNextToken'
+listApplications
+    :: ListApplications
+listApplications =
+    ListApplications'
     { _laNextToken = Nothing
     }
 
--- | An identifier that was returned from the previous list applications call,
--- which can be used to return the next set of applications in the list.
+-- | An identifier that was returned from the previous list applications
+-- call, which can be used to return the next set of applications in the
+-- list.
 laNextToken :: Lens' ListApplications (Maybe Text)
-laNextToken = lens _laNextToken (\s a -> s { _laNextToken = a })
+laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
-data ListApplicationsResponse = ListApplicationsResponse
-    { _lar1Applications :: List "applications" Text
-    , _lar1NextToken    :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+instance AWSRequest ListApplications where
+        type Sv ListApplications = CodeDeploy
+        type Rs ListApplications = ListApplicationsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListApplicationsResponse' <$>
+                   (x .?> "nextToken") <*>
+                     (x .?> "applications" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
--- | 'ListApplicationsResponse' constructor.
+instance ToHeaders ListApplications where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.ListApplications" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListApplications where
+        toJSON ListApplications'{..}
+          = object ["nextToken" .= _laNextToken]
+
+instance ToPath ListApplications where
+        toPath = const "/"
+
+instance ToQuery ListApplications where
+        toQuery = const mempty
+
+-- | Represents the output of a list applications operation.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'listApplicationsResponse' smart constructor.
+data ListApplicationsResponse = ListApplicationsResponse'
+    { _larsNextToken    :: !(Maybe Text)
+    , _larsApplications :: !(Maybe [Text])
+    , _larsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListApplicationsResponse' with the minimum fields required to make a request.
 --
--- * 'lar1Applications' @::@ ['Text']
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lar1NextToken' @::@ 'Maybe' 'Text'
+-- * 'larsNextToken'
 --
-listApplicationsResponse :: ListApplicationsResponse
-listApplicationsResponse = ListApplicationsResponse
-    { _lar1Applications = mempty
-    , _lar1NextToken    = Nothing
+-- * 'larsApplications'
+--
+-- * 'larsStatus'
+listApplicationsResponse
+    :: Int -- ^ 'larsStatus'
+    -> ListApplicationsResponse
+listApplicationsResponse pStatus_ =
+    ListApplicationsResponse'
+    { _larsNextToken = Nothing
+    , _larsApplications = Nothing
+    , _larsStatus = pStatus_
     }
-
--- | A list of application names.
-lar1Applications :: Lens' ListApplicationsResponse [Text]
-lar1Applications = lens _lar1Applications (\s a -> s { _lar1Applications = a }) . _List
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
 -- applications call to return the next set of applications in the list.
-lar1NextToken :: Lens' ListApplicationsResponse (Maybe Text)
-lar1NextToken = lens _lar1NextToken (\s a -> s { _lar1NextToken = a })
+larsNextToken :: Lens' ListApplicationsResponse (Maybe Text)
+larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 
-instance ToPath ListApplications where
-    toPath = const "/"
+-- | A list of application names.
+larsApplications :: Lens' ListApplicationsResponse [Text]
+larsApplications = lens _larsApplications (\ s a -> s{_larsApplications = a}) . _Default . _Coerce;
 
-instance ToQuery ListApplications where
-    toQuery = const mempty
-
-instance ToHeaders ListApplications
-
-instance ToJSON ListApplications where
-    toJSON ListApplications{..} = object
-        [ "nextToken" .= _laNextToken
-        ]
-
-instance AWSRequest ListApplications where
-    type Sv ListApplications = CodeDeploy
-    type Rs ListApplications = ListApplicationsResponse
-
-    request  = post "ListApplications"
-    response = jsonResponse
-
-instance FromJSON ListApplicationsResponse where
-    parseJSON = withObject "ListApplicationsResponse" $ \o -> ListApplicationsResponse
-        <$> o .:? "applications" .!= mempty
-        <*> o .:? "nextToken"
+-- | The response status code.
+larsStatus :: Lens' ListApplicationsResponse Int
+larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

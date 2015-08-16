@@ -1,122 +1,146 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Sets the certificate that terminates the specified listener's SSL
--- connections. The specified certificate replaces any prior certificate that
--- was used on the same load balancer and port.
+-- |
+-- Module      : Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For more information about updating your SSL certificate, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html Updating anSSL Certificate for a Load Balancer> in the /Elastic Load Balancing DeveloperGuide/.
+-- Sets the certificate that terminates the specified listener\'s SSL
+-- connections. The specified certificate replaces any prior certificate
+-- that was used on the same load balancer and port.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerListenerSSLCertificate.html>
+-- For more information about updating your SSL certificate, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html Updating an SSL Certificate for a Load Balancer>
+-- in the /Elastic Load Balancing Developer Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerListenerSSLCertificate.html AWS API Reference> for SetLoadBalancerListenerSSLCertificate.
 module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     (
-    -- * Request
-      SetLoadBalancerListenerSSLCertificate
-    -- ** Request constructor
-    , setLoadBalancerListenerSSLCertificate
-    -- ** Request lenses
-    , slblsslcLoadBalancerName
-    , slblsslcLoadBalancerPort
-    , slblsslcSSLCertificateId
+    -- * Creating a Request
+      setLoadBalancerListenerSSLCertificate
+    , SetLoadBalancerListenerSSLCertificate
+    -- * Request Lenses
+    , slblscLoadBalancerName
+    , slblscLoadBalancerPort
+    , slblscSSLCertificateId
 
-    -- * Response
-    , SetLoadBalancerListenerSSLCertificateResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , setLoadBalancerListenerSSLCertificateResponse
+    , SetLoadBalancerListenerSSLCertificateResponse
+    -- * Response Lenses
+    , slblscrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate
-    { _slblsslcLoadBalancerName :: Text
-    , _slblsslcLoadBalancerPort :: Int
-    , _slblsslcSSLCertificateId :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'setLoadBalancerListenerSSLCertificate' smart constructor.
+data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate'
+    { _slblscLoadBalancerName :: !Text
+    , _slblscLoadBalancerPort :: !Int
+    , _slblscSSLCertificateId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetLoadBalancerListenerSSLCertificate' constructor.
+-- | Creates a value of 'SetLoadBalancerListenerSSLCertificate' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slblsslcLoadBalancerName' @::@ 'Text'
+-- * 'slblscLoadBalancerName'
 --
--- * 'slblsslcLoadBalancerPort' @::@ 'Int'
+-- * 'slblscLoadBalancerPort'
 --
--- * 'slblsslcSSLCertificateId' @::@ 'Text'
---
-setLoadBalancerListenerSSLCertificate :: Text -- ^ 'slblsslcLoadBalancerName'
-                                      -> Int -- ^ 'slblsslcLoadBalancerPort'
-                                      -> Text -- ^ 'slblsslcSSLCertificateId'
-                                      -> SetLoadBalancerListenerSSLCertificate
-setLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCertificate
-    { _slblsslcLoadBalancerName = p1
-    , _slblsslcLoadBalancerPort = p2
-    , _slblsslcSSLCertificateId = p3
+-- * 'slblscSSLCertificateId'
+setLoadBalancerListenerSSLCertificate
+    :: Text -- ^ 'slblscLoadBalancerName'
+    -> Int -- ^ 'slblscLoadBalancerPort'
+    -> Text -- ^ 'slblscSSLCertificateId'
+    -> SetLoadBalancerListenerSSLCertificate
+setLoadBalancerListenerSSLCertificate pLoadBalancerName_ pLoadBalancerPort_ pSSLCertificateId_ =
+    SetLoadBalancerListenerSSLCertificate'
+    { _slblscLoadBalancerName = pLoadBalancerName_
+    , _slblscLoadBalancerPort = pLoadBalancerPort_
+    , _slblscSSLCertificateId = pSSLCertificateId_
     }
 
 -- | The name of the load balancer.
-slblsslcLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificate Text
-slblsslcLoadBalancerName =
-    lens _slblsslcLoadBalancerName
-        (\s a -> s { _slblsslcLoadBalancerName = a })
+slblscLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificate Text
+slblscLoadBalancerName = lens _slblscLoadBalancerName (\ s a -> s{_slblscLoadBalancerName = a});
 
 -- | The port that uses the specified SSL certificate.
-slblsslcLoadBalancerPort :: Lens' SetLoadBalancerListenerSSLCertificate Int
-slblsslcLoadBalancerPort =
-    lens _slblsslcLoadBalancerPort
-        (\s a -> s { _slblsslcLoadBalancerPort = a })
+slblscLoadBalancerPort :: Lens' SetLoadBalancerListenerSSLCertificate Int
+slblscLoadBalancerPort = lens _slblscLoadBalancerPort (\ s a -> s{_slblscLoadBalancerPort = a});
 
 -- | The Amazon Resource Name (ARN) of the SSL certificate.
-slblsslcSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate Text
-slblsslcSSLCertificateId =
-    lens _slblsslcSSLCertificateId
-        (\s a -> s { _slblsslcSSLCertificateId = a })
+slblscSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate Text
+slblscSSLCertificateId = lens _slblscSSLCertificateId (\ s a -> s{_slblscSSLCertificateId = a});
 
-data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
-    deriving (Eq, Ord, Read, Show, Generic)
+instance AWSRequest
+         SetLoadBalancerListenerSSLCertificate where
+        type Sv SetLoadBalancerListenerSSLCertificate = ELB
+        type Rs SetLoadBalancerListenerSSLCertificate =
+             SetLoadBalancerListenerSSLCertificateResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "SetLoadBalancerListenerSSLCertificateResult"
+              (\ s h x ->
+                 SetLoadBalancerListenerSSLCertificateResponse' <$>
+                   (pure (fromEnum s)))
 
--- | 'SetLoadBalancerListenerSSLCertificateResponse' constructor.
-setLoadBalancerListenerSSLCertificateResponse :: SetLoadBalancerListenerSSLCertificateResponse
-setLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
+instance ToHeaders
+         SetLoadBalancerListenerSSLCertificate where
+        toHeaders = const mempty
 
-instance ToPath SetLoadBalancerListenerSSLCertificate where
-    toPath = const "/"
+instance ToPath SetLoadBalancerListenerSSLCertificate
+         where
+        toPath = const "/"
 
-instance ToQuery SetLoadBalancerListenerSSLCertificate where
-    toQuery SetLoadBalancerListenerSSLCertificate{..} = mconcat
-        [ "LoadBalancerName" =? _slblsslcLoadBalancerName
-        , "LoadBalancerPort" =? _slblsslcLoadBalancerPort
-        , "SSLCertificateId" =? _slblsslcSSLCertificateId
-        ]
+instance ToQuery
+         SetLoadBalancerListenerSSLCertificate where
+        toQuery SetLoadBalancerListenerSSLCertificate'{..}
+          = mconcat
+              ["Action" =:
+                 ("SetLoadBalancerListenerSSLCertificate" ::
+                    ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "LoadBalancerName" =: _slblscLoadBalancerName,
+               "LoadBalancerPort" =: _slblscLoadBalancerPort,
+               "SSLCertificateId" =: _slblscSSLCertificateId]
 
-instance ToHeaders SetLoadBalancerListenerSSLCertificate
+-- | /See:/ 'setLoadBalancerListenerSSLCertificateResponse' smart constructor.
+newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse'
+    { _slblscrsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
-instance AWSRequest SetLoadBalancerListenerSSLCertificate where
-    type Sv SetLoadBalancerListenerSSLCertificate = ELB
-    type Rs SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificateResponse
+-- | Creates a value of 'SetLoadBalancerListenerSSLCertificateResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slblscrsStatus'
+setLoadBalancerListenerSSLCertificateResponse
+    :: Int -- ^ 'slblscrsStatus'
+    -> SetLoadBalancerListenerSSLCertificateResponse
+setLoadBalancerListenerSSLCertificateResponse pStatus_ =
+    SetLoadBalancerListenerSSLCertificateResponse'
+    { _slblscrsStatus = pStatus_
+    }
 
-    request  = post "SetLoadBalancerListenerSSLCertificate"
-    response = nullResponse SetLoadBalancerListenerSSLCertificateResponse
+-- | The response status code.
+slblscrsStatus :: Lens' SetLoadBalancerListenerSSLCertificateResponse Int
+slblscrsStatus = lens _slblscrsStatus (\ s a -> s{_slblscrsStatus = a});

@@ -1,140 +1,156 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.ReplaceRouteTableAssociation
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Changes the route table associated with a given subnet in a VPC. After the
--- operation completes, the subnet uses the routes in the new route table it's
--- associated with. For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in
--- the /Amazon Virtual Private Cloud User Guide/.
+-- |
+-- Module      : Network.AWS.EC2.ReplaceRouteTableAssociation
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- You can also use ReplaceRouteTableAssociation to change which table is the
--- main route table in the VPC. You just specify the main route table's
--- association ID and the route table to be the new main route table.
+-- Changes the route table associated with a given subnet in a VPC. After
+-- the operation completes, the subnet uses the routes in the new route
+-- table it\'s associated with. For more information about route tables,
+-- see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
+-- in the /Amazon Virtual Private Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRouteTableAssociation.html>
+-- You can also use ReplaceRouteTableAssociation to change which table is
+-- the main route table in the VPC. You just specify the main route
+-- table\'s association ID and the route table to be the new main route
+-- table.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReplaceRouteTableAssociation.html AWS API Reference> for ReplaceRouteTableAssociation.
 module Network.AWS.EC2.ReplaceRouteTableAssociation
     (
-    -- * Request
-      ReplaceRouteTableAssociation
-    -- ** Request constructor
-    , replaceRouteTableAssociation
-    -- ** Request lenses
-    , rrtaAssociationId
+    -- * Creating a Request
+      replaceRouteTableAssociation
+    , ReplaceRouteTableAssociation
+    -- * Request Lenses
     , rrtaDryRun
+    , rrtaAssociationId
     , rrtaRouteTableId
 
-    -- * Response
-    , ReplaceRouteTableAssociationResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , replaceRouteTableAssociationResponse
-    -- ** Response lenses
-    , rrtarNewAssociationId
+    , ReplaceRouteTableAssociationResponse
+    -- * Response Lenses
+    , rrtarsNewAssociationId
+    , rrtarsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
-    { _rrtaAssociationId :: Text
-    , _rrtaDryRun        :: Maybe Bool
-    , _rrtaRouteTableId  :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'replaceRouteTableAssociation' smart constructor.
+data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
+    { _rrtaDryRun        :: !(Maybe Bool)
+    , _rrtaAssociationId :: !Text
+    , _rrtaRouteTableId  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReplaceRouteTableAssociation' constructor.
+-- | Creates a value of 'ReplaceRouteTableAssociation' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrtaAssociationId' @::@ 'Text'
+-- * 'rrtaDryRun'
 --
--- * 'rrtaDryRun' @::@ 'Maybe' 'Bool'
+-- * 'rrtaAssociationId'
 --
--- * 'rrtaRouteTableId' @::@ 'Text'
---
-replaceRouteTableAssociation :: Text -- ^ 'rrtaAssociationId'
-                             -> Text -- ^ 'rrtaRouteTableId'
-                             -> ReplaceRouteTableAssociation
-replaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
-    { _rrtaAssociationId = p1
-    , _rrtaRouteTableId  = p2
-    , _rrtaDryRun        = Nothing
+-- * 'rrtaRouteTableId'
+replaceRouteTableAssociation
+    :: Text -- ^ 'rrtaAssociationId'
+    -> Text -- ^ 'rrtaRouteTableId'
+    -> ReplaceRouteTableAssociation
+replaceRouteTableAssociation pAssociationId_ pRouteTableId_ =
+    ReplaceRouteTableAssociation'
+    { _rrtaDryRun = Nothing
+    , _rrtaAssociationId = pAssociationId_
+    , _rrtaRouteTableId = pRouteTableId_
     }
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+rrtaDryRun :: Lens' ReplaceRouteTableAssociation (Maybe Bool)
+rrtaDryRun = lens _rrtaDryRun (\ s a -> s{_rrtaDryRun = a});
 
 -- | The association ID.
 rrtaAssociationId :: Lens' ReplaceRouteTableAssociation Text
-rrtaAssociationId =
-    lens _rrtaAssociationId (\s a -> s { _rrtaAssociationId = a })
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-rrtaDryRun :: Lens' ReplaceRouteTableAssociation (Maybe Bool)
-rrtaDryRun = lens _rrtaDryRun (\s a -> s { _rrtaDryRun = a })
+rrtaAssociationId = lens _rrtaAssociationId (\ s a -> s{_rrtaAssociationId = a});
 
 -- | The ID of the new route table to associate with the subnet.
 rrtaRouteTableId :: Lens' ReplaceRouteTableAssociation Text
-rrtaRouteTableId = lens _rrtaRouteTableId (\s a -> s { _rrtaRouteTableId = a })
+rrtaRouteTableId = lens _rrtaRouteTableId (\ s a -> s{_rrtaRouteTableId = a});
 
-newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
-    { _rrtarNewAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+instance AWSRequest ReplaceRouteTableAssociation
+         where
+        type Sv ReplaceRouteTableAssociation = EC2
+        type Rs ReplaceRouteTableAssociation =
+             ReplaceRouteTableAssociationResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 ReplaceRouteTableAssociationResponse' <$>
+                   (x .@? "newAssociationId") <*> (pure (fromEnum s)))
 
--- | 'ReplaceRouteTableAssociationResponse' constructor.
+instance ToHeaders ReplaceRouteTableAssociation where
+        toHeaders = const mempty
+
+instance ToPath ReplaceRouteTableAssociation where
+        toPath = const "/"
+
+instance ToQuery ReplaceRouteTableAssociation where
+        toQuery ReplaceRouteTableAssociation'{..}
+          = mconcat
+              ["Action" =:
+                 ("ReplaceRouteTableAssociation" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _rrtaDryRun,
+               "AssociationId" =: _rrtaAssociationId,
+               "RouteTableId" =: _rrtaRouteTableId]
+
+-- | /See:/ 'replaceRouteTableAssociationResponse' smart constructor.
+data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
+    { _rrtarsNewAssociationId :: !(Maybe Text)
+    , _rrtarsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReplaceRouteTableAssociationResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrtarNewAssociationId' @::@ 'Maybe' 'Text'
+-- * 'rrtarsNewAssociationId'
 --
-replaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResponse
-replaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
-    { _rrtarNewAssociationId = Nothing
+-- * 'rrtarsStatus'
+replaceRouteTableAssociationResponse
+    :: Int -- ^ 'rrtarsStatus'
+    -> ReplaceRouteTableAssociationResponse
+replaceRouteTableAssociationResponse pStatus_ =
+    ReplaceRouteTableAssociationResponse'
+    { _rrtarsNewAssociationId = Nothing
+    , _rrtarsStatus = pStatus_
     }
 
 -- | The ID of the new association.
-rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
-rrtarNewAssociationId =
-    lens _rrtarNewAssociationId (\s a -> s { _rrtarNewAssociationId = a })
+rrtarsNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
+rrtarsNewAssociationId = lens _rrtarsNewAssociationId (\ s a -> s{_rrtarsNewAssociationId = a});
 
-instance ToPath ReplaceRouteTableAssociation where
-    toPath = const "/"
-
-instance ToQuery ReplaceRouteTableAssociation where
-    toQuery ReplaceRouteTableAssociation{..} = mconcat
-        [ "AssociationId" =? _rrtaAssociationId
-        , "DryRun"        =? _rrtaDryRun
-        , "RouteTableId"  =? _rrtaRouteTableId
-        ]
-
-instance ToHeaders ReplaceRouteTableAssociation
-
-instance AWSRequest ReplaceRouteTableAssociation where
-    type Sv ReplaceRouteTableAssociation = EC2
-    type Rs ReplaceRouteTableAssociation = ReplaceRouteTableAssociationResponse
-
-    request  = post "ReplaceRouteTableAssociation"
-    response = xmlResponse
-
-instance FromXML ReplaceRouteTableAssociationResponse where
-    parseXML x = ReplaceRouteTableAssociationResponse
-        <$> x .@? "newAssociationId"
+-- | The response status code.
+rrtarsStatus :: Lens' ReplaceRouteTableAssociationResponse Int
+rrtarsStatus = lens _rrtarsStatus (\ s a -> s{_rrtarsStatus = a});

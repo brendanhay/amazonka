@@ -1,0 +1,22 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html",
+    "operationUrl": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/",
+    "libraryName": "amazonka-elastictranscoder",
+    "typeOverrides": {
+        "ReadJobResponse": {
+            "requiredFields": [
+                "Job"
+            ]
+        },
+        "Job": {
+            "renamedTo": "Job'",
+            "requiredFields": [
+                "Id",
+                "Status",
+                "Input",
+                "OutputKeyPrefix",
+                "PipelineId"
+            ]
+        }
+    }
+}

@@ -1,144 +1,152 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.AutoScaling.EnterStandby
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Moves the specified instances into 'Standby' mode.
+-- |
+-- Module      : Network.AWS.AutoScaling.EnterStandby
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html Auto Scaling InService State> in the /Auto ScalingDeveloper Guide/.
+-- Moves the specified instances into 'Standby' mode.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnterStandby.html>
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html Auto Scaling InService State>
+-- in the /Auto Scaling Developer Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_EnterStandby.html AWS API Reference> for EnterStandby.
 module Network.AWS.AutoScaling.EnterStandby
     (
-    -- * Request
-      EnterStandby
-    -- ** Request constructor
-    , enterStandby
-    -- ** Request lenses
-    , esAutoScalingGroupName
+    -- * Creating a Request
+      enterStandby
+    , EnterStandby
+    -- * Request Lenses
     , esInstanceIds
+    , esAutoScalingGroupName
     , esShouldDecrementDesiredCapacity
 
-    -- * Response
-    , EnterStandbyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , enterStandbyResponse
-    -- ** Response lenses
-    , esr1Activities
+    , EnterStandbyResponse
+    -- * Response Lenses
+    , esrsActivities
+    , esrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data EnterStandby = EnterStandby
-    { _esAutoScalingGroupName           :: Text
-    , _esInstanceIds                    :: List "member" Text
-    , _esShouldDecrementDesiredCapacity :: Bool
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'enterStandby' smart constructor.
+data EnterStandby = EnterStandby'
+    { _esInstanceIds                    :: !(Maybe [Text])
+    , _esAutoScalingGroupName           :: !Text
+    , _esShouldDecrementDesiredCapacity :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnterStandby' constructor.
+-- | Creates a value of 'EnterStandby' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esAutoScalingGroupName' @::@ 'Text'
+-- * 'esInstanceIds'
 --
--- * 'esInstanceIds' @::@ ['Text']
+-- * 'esAutoScalingGroupName'
 --
--- * 'esShouldDecrementDesiredCapacity' @::@ 'Bool'
---
-enterStandby :: Text -- ^ 'esAutoScalingGroupName'
-             -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
-             -> EnterStandby
-enterStandby p1 p2 = EnterStandby
-    { _esAutoScalingGroupName           = p1
-    , _esShouldDecrementDesiredCapacity = p2
-    , _esInstanceIds                    = mempty
+-- * 'esShouldDecrementDesiredCapacity'
+enterStandby
+    :: Text -- ^ 'esAutoScalingGroupName'
+    -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
+    -> EnterStandby
+enterStandby pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
+    EnterStandby'
+    { _esInstanceIds = Nothing
+    , _esAutoScalingGroupName = pAutoScalingGroupName_
+    , _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
     }
+
+-- | One or more instances to move into 'Standby' mode. You must specify at
+-- least one instance ID.
+esInstanceIds :: Lens' EnterStandby [Text]
+esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default . _Coerce;
 
 -- | The name of the Auto Scaling group.
 esAutoScalingGroupName :: Lens' EnterStandby Text
-esAutoScalingGroupName =
-    lens _esAutoScalingGroupName (\s a -> s { _esAutoScalingGroupName = a })
+esAutoScalingGroupName = lens _esAutoScalingGroupName (\ s a -> s{_esAutoScalingGroupName = a});
 
--- | One or more instances to move into 'Standby' mode. You must specify at least
--- one instance ID.
-esInstanceIds :: Lens' EnterStandby [Text]
-esInstanceIds = lens _esInstanceIds (\s a -> s { _esInstanceIds = a }) . _List
-
--- | Specifies whether the instances moved to 'Standby' mode count as part of the
--- Auto Scaling group's desired capacity. If set, the desired capacity for the
--- Auto Scaling group decrements by the number of instances moved to 'Standby'
--- mode.
+-- | Specifies whether the instances moved to 'Standby' mode count as part of
+-- the Auto Scaling group\'s desired capacity. If set, the desired capacity
+-- for the Auto Scaling group decrements by the number of instances moved
+-- to 'Standby' mode.
 esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
-esShouldDecrementDesiredCapacity =
-    lens _esShouldDecrementDesiredCapacity
-        (\s a -> s { _esShouldDecrementDesiredCapacity = a })
+esShouldDecrementDesiredCapacity = lens _esShouldDecrementDesiredCapacity (\ s a -> s{_esShouldDecrementDesiredCapacity = a});
 
-newtype EnterStandbyResponse = EnterStandbyResponse
-    { _esr1Activities :: List "member" Activity
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest EnterStandby where
+        type Sv EnterStandby = AutoScaling
+        type Rs EnterStandby = EnterStandbyResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "EnterStandbyResult"
+              (\ s h x ->
+                 EnterStandbyResponse' <$>
+                   (x .@? "Activities" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-instance GHC.Exts.IsList EnterStandbyResponse where
-    type Item EnterStandbyResponse = Activity
+instance ToHeaders EnterStandby where
+        toHeaders = const mempty
 
-    fromList = EnterStandbyResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _esr1Activities
+instance ToPath EnterStandby where
+        toPath = const "/"
 
--- | 'EnterStandbyResponse' constructor.
+instance ToQuery EnterStandby where
+        toQuery EnterStandby'{..}
+          = mconcat
+              ["Action" =: ("EnterStandby" :: ByteString),
+               "Version" =: ("2011-01-01" :: ByteString),
+               "InstanceIds" =:
+                 toQuery (toQueryList "member" <$> _esInstanceIds),
+               "AutoScalingGroupName" =: _esAutoScalingGroupName,
+               "ShouldDecrementDesiredCapacity" =:
+                 _esShouldDecrementDesiredCapacity]
+
+-- | /See:/ 'enterStandbyResponse' smart constructor.
+data EnterStandbyResponse = EnterStandbyResponse'
+    { _esrsActivities :: !(Maybe [Activity])
+    , _esrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnterStandbyResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'esr1Activities' @::@ ['Activity']
+-- * 'esrsActivities'
 --
-enterStandbyResponse :: EnterStandbyResponse
-enterStandbyResponse = EnterStandbyResponse
-    { _esr1Activities = mempty
+-- * 'esrsStatus'
+enterStandbyResponse
+    :: Int -- ^ 'esrsStatus'
+    -> EnterStandbyResponse
+enterStandbyResponse pStatus_ =
+    EnterStandbyResponse'
+    { _esrsActivities = Nothing
+    , _esrsStatus = pStatus_
     }
 
 -- | The activities related to moving instances into 'Standby' mode.
-esr1Activities :: Lens' EnterStandbyResponse [Activity]
-esr1Activities = lens _esr1Activities (\s a -> s { _esr1Activities = a }) . _List
+esrsActivities :: Lens' EnterStandbyResponse [Activity]
+esrsActivities = lens _esrsActivities (\ s a -> s{_esrsActivities = a}) . _Default . _Coerce;
 
-instance ToPath EnterStandby where
-    toPath = const "/"
-
-instance ToQuery EnterStandby where
-    toQuery EnterStandby{..} = mconcat
-        [ "AutoScalingGroupName"           =? _esAutoScalingGroupName
-        , "InstanceIds"                    =? _esInstanceIds
-        , "ShouldDecrementDesiredCapacity" =? _esShouldDecrementDesiredCapacity
-        ]
-
-instance ToHeaders EnterStandby
-
-instance AWSRequest EnterStandby where
-    type Sv EnterStandby = AutoScaling
-    type Rs EnterStandby = EnterStandbyResponse
-
-    request  = post "EnterStandby"
-    response = xmlResponse
-
-instance FromXML EnterStandbyResponse where
-    parseXML = withElement "EnterStandbyResult" $ \x -> EnterStandbyResponse
-        <$> x .@? "Activities" .!@ mempty
+-- | The response status code.
+esrsStatus :: Lens' EnterStandbyResponse Int
+esrsStatus = lens _esrsStatus (\ s a -> s{_esrsStatus = a});

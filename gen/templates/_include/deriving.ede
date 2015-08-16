@@ -1,9 +1,0 @@
-{% if (type.deriving | joinedLength(", ")) > 62 %}
-
-  {% for d in type.deriving %}
-        {% if d.first %}( {% else %}, {% endif %}{{ d.value }}
-  {% endfor %}
-        )
-{% else %}
- ({% for d in type.deriving %}{{ d.value }}{% if !d.last %}, {% endif %}{% endfor %})
-{% endif %}

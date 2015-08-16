@@ -1,238 +1,258 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.DescribeImages
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes one or more of the images (AMIs, AKIs, and ARIs) available to you.
--- Images available to you include public images, private images that you own,
--- and private images owned by other AWS accounts but for which you have
--- explicit launch permissions.
+-- |
+-- Module      : Network.AWS.EC2.DescribeImages
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Deregistered images are included in the returned results for an unspecified
--- interval after deregistration.
+-- Describes one or more of the images (AMIs, AKIs, and ARIs) available to
+-- you. Images available to you include public images, private images that
+-- you own, and private images owned by other AWS accounts but for which
+-- you have explicit launch permissions.
 --
+-- Deregistered images are included in the returned results for an
+-- unspecified interval after deregistration.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImages.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImages.html AWS API Reference> for DescribeImages.
 module Network.AWS.EC2.DescribeImages
     (
-    -- * Request
-      DescribeImages
-    -- ** Request constructor
-    , describeImages
-    -- ** Request lenses
-    , di2DryRun
-    , di2ExecutableUsers
-    , di2Filters
-    , di2ImageIds
-    , di2Owners
+    -- * Creating a Request
+      describeImages
+    , DescribeImages
+    -- * Request Lenses
+    , deseOwners
+    , deseExecutableUsers
+    , deseFilters
+    , deseImageIds
+    , deseDryRun
 
-    -- * Response
-    , DescribeImagesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeImagesResponse
-    -- ** Response lenses
-    , dirImages
+    , DescribeImagesResponse
+    -- * Response Lenses
+    , desrsImages
+    , desrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeImages = DescribeImages
-    { _di2DryRun          :: Maybe Bool
-    , _di2ExecutableUsers :: List "ExecutableBy" Text
-    , _di2Filters         :: List "Filter" Filter
-    , _di2ImageIds        :: List "ImageId" Text
-    , _di2Owners          :: List "Owner" Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'describeImages' smart constructor.
+data DescribeImages = DescribeImages'
+    { _deseOwners          :: !(Maybe [Text])
+    , _deseExecutableUsers :: !(Maybe [Text])
+    , _deseFilters         :: !(Maybe [Filter])
+    , _deseImageIds        :: !(Maybe [Text])
+    , _deseDryRun          :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeImages' constructor.
+-- | Creates a value of 'DescribeImages' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'di2DryRun' @::@ 'Maybe' 'Bool'
+-- * 'deseOwners'
 --
--- * 'di2ExecutableUsers' @::@ ['Text']
+-- * 'deseExecutableUsers'
 --
--- * 'di2Filters' @::@ ['Filter']
+-- * 'deseFilters'
 --
--- * 'di2ImageIds' @::@ ['Text']
+-- * 'deseImageIds'
 --
--- * 'di2Owners' @::@ ['Text']
---
-describeImages :: DescribeImages
-describeImages = DescribeImages
-    { _di2DryRun          = Nothing
-    , _di2ImageIds        = mempty
-    , _di2Owners          = mempty
-    , _di2ExecutableUsers = mempty
-    , _di2Filters         = mempty
+-- * 'deseDryRun'
+describeImages
+    :: DescribeImages
+describeImages =
+    DescribeImages'
+    { _deseOwners = Nothing
+    , _deseExecutableUsers = Nothing
+    , _deseFilters = Nothing
+    , _deseImageIds = Nothing
+    , _deseDryRun = Nothing
     }
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-di2DryRun :: Lens' DescribeImages (Maybe Bool)
-di2DryRun = lens _di2DryRun (\s a -> s { _di2DryRun = a })
+-- | Filters the images by the owner. Specify an AWS account ID, 'amazon'
+-- (owner is Amazon), 'aws-marketplace' (owner is AWS Marketplace), 'self'
+-- (owner is the sender of the request). Omitting this option returns all
+-- images for which you have launch permissions, regardless of ownership.
+deseOwners :: Lens' DescribeImages [Text]
+deseOwners = lens _deseOwners (\ s a -> s{_deseOwners = a}) . _Default . _Coerce;
 
--- | Scopes the images by users with explicit launch permissions. Specify an AWS
--- account ID, 'self' (the sender of the request), or 'all' (public AMIs).
-di2ExecutableUsers :: Lens' DescribeImages [Text]
-di2ExecutableUsers =
-    lens _di2ExecutableUsers (\s a -> s { _di2ExecutableUsers = a })
-        . _List
+-- | Scopes the images by users with explicit launch permissions. Specify an
+-- AWS account ID, 'self' (the sender of the request), or 'all' (public
+-- AMIs).
+deseExecutableUsers :: Lens' DescribeImages [Text]
+deseExecutableUsers = lens _deseExecutableUsers (\ s a -> s{_deseExecutableUsers = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
--- 'architecture' - The image architecture ('i386' | 'x86_64').
+-- -   'architecture' - The image architecture ('i386' | 'x86_64').
 --
--- 'block-device-mapping.delete-on-termination' - A Boolean value that
--- indicates whether the Amazon EBS volume is deleted on instance termination.
+-- -   'block-device-mapping.delete-on-termination' - A Boolean value that
+--     indicates whether the Amazon EBS volume is deleted on instance
+--     termination.
 --
--- 'block-device-mapping.device-name' - The device name for the EBS volume (for
--- example, '/dev/sdh').
+-- -   'block-device-mapping.device-name' - The device name for the EBS
+--     volume (for example, '\/dev\/sdh').
 --
--- 'block-device-mapping.snapshot-id' - The ID of the snapshot used for the EBS
--- volume.
+-- -   'block-device-mapping.snapshot-id' - The ID of the snapshot used for
+--     the EBS volume.
 --
--- 'block-device-mapping.volume-size' - The volume size of the EBS volume, in
--- GiB.
+-- -   'block-device-mapping.volume-size' - The volume size of the EBS
+--     volume, in GiB.
 --
--- 'block-device-mapping.volume-type' - The volume type of the EBS volume ('gp2'
--- | 'standard' | 'io1').
+-- -   'block-device-mapping.volume-type' - The volume type of the EBS
+--     volume ('gp2' | 'standard' | 'io1').
 --
--- 'description' - The description of the image (provided during image
--- creation).
+-- -   'description' - The description of the image (provided during image
+--     creation).
 --
--- 'hypervisor' - The hypervisor type ('ovm' | 'xen').
+-- -   'hypervisor' - The hypervisor type ('ovm' | 'xen').
 --
--- 'image-id' - The ID of the image.
+-- -   'image-id' - The ID of the image.
 --
--- 'image-type' - The image type ('machine' | 'kernel' | 'ramdisk').
+-- -   'image-type' - The image type ('machine' | 'kernel' | 'ramdisk').
 --
--- 'is-public' - A Boolean that indicates whether the image is public.
+-- -   'is-public' - A Boolean that indicates whether the image is public.
 --
--- 'kernel-id' - The kernel ID.
+-- -   'kernel-id' - The kernel ID.
 --
--- 'manifest-location' - The location of the image manifest.
+-- -   'manifest-location' - The location of the image manifest.
 --
--- 'name' - The name of the AMI (provided during image creation).
+-- -   'name' - The name of the AMI (provided during image creation).
 --
--- 'owner-alias' - The AWS account alias (for example, 'amazon').
+-- -   'owner-alias' - The AWS account alias (for example, 'amazon').
 --
--- 'owner-id' - The AWS account ID of the image owner.
+-- -   'owner-id' - The AWS account ID of the image owner.
 --
--- 'platform' - The platform. To only list Windows-based AMIs, use 'windows'.
+-- -   'platform' - The platform. To only list Windows-based AMIs, use
+--     'windows'.
 --
--- 'product-code' - The product code.
+-- -   'product-code' - The product code.
 --
--- 'product-code.type' - The type of the product code ('devpay' | 'marketplace').
+-- -   'product-code.type' - The type of the product code ('devpay' |
+--     'marketplace').
 --
--- 'ramdisk-id' - The RAM disk ID.
+-- -   'ramdisk-id' - The RAM disk ID.
 --
--- 'root-device-name' - The name of the root device volume (for example, '/dev/sda1').
+-- -   'root-device-name' - The name of the root device volume (for
+--     example, '\/dev\/sda1').
 --
--- 'root-device-type' - The type of the root device volume ('ebs' | 'instance-store'
--- ).
+-- -   'root-device-type' - The type of the root device volume ('ebs' |
+--     'instance-store').
 --
--- 'state' - The state of the image ('available' | 'pending' | 'failed').
+-- -   'state' - The state of the image ('available' | 'pending' |
+--     'failed').
 --
--- 'state-reason-code' - The reason code for the state change.
+-- -   'state-reason-code' - The reason code for the state change.
 --
--- 'state-reason-message' - The message for the state change.
+-- -   'state-reason-message' - The message for the state change.
 --
--- 'tag':/key/=/value/ - The key/value combination of a tag assigned to the
--- resource.
+-- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
+--     to the resource.
 --
--- 'tag-key' - The key of a tag assigned to the resource. This filter is
--- independent of the tag-value filter. For example, if you use both the filter
--- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
--- assigned both the tag key Purpose (regardless of what the tag's value is),
--- and the tag value X (regardless of what the tag's key is). If you want to
--- list only resources where Purpose is X, see the 'tag':/key/=/value/ filter.
+-- -   'tag-key' - The key of a tag assigned to the resource. This filter
+--     is independent of the tag-value filter. For example, if you use both
+--     the filter \"tag-key=Purpose\" and the filter \"tag-value=X\", you
+--     get any resources assigned both the tag key Purpose (regardless of
+--     what the tag\'s value is), and the tag value X (regardless of what
+--     the tag\'s key is). If you want to list only resources where Purpose
+--     is X, see the 'tag':/key/=/value/ filter.
 --
--- 'tag-value' - The value of a tag assigned to the resource. This filter is
--- independent of the 'tag-key' filter.
+-- -   'tag-value' - The value of a tag assigned to the resource. This
+--     filter is independent of the 'tag-key' filter.
 --
--- 'virtualization-type' - The virtualization type ('paravirtual' | 'hvm').
+-- -   'virtualization-type' - The virtualization type ('paravirtual' |
+--     'hvm').
 --
---
-di2Filters :: Lens' DescribeImages [Filter]
-di2Filters = lens _di2Filters (\s a -> s { _di2Filters = a }) . _List
+deseFilters :: Lens' DescribeImages [Filter]
+deseFilters = lens _deseFilters (\ s a -> s{_deseFilters = a}) . _Default . _Coerce;
 
 -- | One or more image IDs.
 --
 -- Default: Describes all images available to you.
-di2ImageIds :: Lens' DescribeImages [Text]
-di2ImageIds = lens _di2ImageIds (\s a -> s { _di2ImageIds = a }) . _List
+deseImageIds :: Lens' DescribeImages [Text]
+deseImageIds = lens _deseImageIds (\ s a -> s{_deseImageIds = a}) . _Default . _Coerce;
 
--- | Filters the images by the owner. Specify an AWS account ID, 'amazon' (owner is
--- Amazon), 'aws-marketplace' (owner is AWS Marketplace), 'self' (owner is the
--- sender of the request). Omitting this option returns all images for which you
--- have launch permissions, regardless of ownership.
-di2Owners :: Lens' DescribeImages [Text]
-di2Owners = lens _di2Owners (\s a -> s { _di2Owners = a }) . _List
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+deseDryRun :: Lens' DescribeImages (Maybe Bool)
+deseDryRun = lens _deseDryRun (\ s a -> s{_deseDryRun = a});
 
-newtype DescribeImagesResponse = DescribeImagesResponse
-    { _dirImages :: List "item" Image
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeImages where
+        type Sv DescribeImages = EC2
+        type Rs DescribeImages = DescribeImagesResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribeImagesResponse' <$>
+                   (x .@? "imagesSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
--- | 'DescribeImagesResponse' constructor.
+instance ToHeaders DescribeImages where
+        toHeaders = const mempty
+
+instance ToPath DescribeImages where
+        toPath = const "/"
+
+instance ToQuery DescribeImages where
+        toQuery DescribeImages'{..}
+          = mconcat
+              ["Action" =: ("DescribeImages" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               toQuery (toQueryList "Owner" <$> _deseOwners),
+               toQuery
+                 (toQueryList "ExecutableBy" <$>
+                    _deseExecutableUsers),
+               toQuery (toQueryList "Filter" <$> _deseFilters),
+               toQuery (toQueryList "ImageId" <$> _deseImageIds),
+               "DryRun" =: _deseDryRun]
+
+-- | /See:/ 'describeImagesResponse' smart constructor.
+data DescribeImagesResponse = DescribeImagesResponse'
+    { _desrsImages :: !(Maybe [Image])
+    , _desrsStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeImagesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dirImages' @::@ ['Image']
+-- * 'desrsImages'
 --
-describeImagesResponse :: DescribeImagesResponse
-describeImagesResponse = DescribeImagesResponse
-    { _dirImages = mempty
+-- * 'desrsStatus'
+describeImagesResponse
+    :: Int -- ^ 'desrsStatus'
+    -> DescribeImagesResponse
+describeImagesResponse pStatus_ =
+    DescribeImagesResponse'
+    { _desrsImages = Nothing
+    , _desrsStatus = pStatus_
     }
 
 -- | Information about one or more images.
-dirImages :: Lens' DescribeImagesResponse [Image]
-dirImages = lens _dirImages (\s a -> s { _dirImages = a }) . _List
+desrsImages :: Lens' DescribeImagesResponse [Image]
+desrsImages = lens _desrsImages (\ s a -> s{_desrsImages = a}) . _Default . _Coerce;
 
-instance ToPath DescribeImages where
-    toPath = const "/"
-
-instance ToQuery DescribeImages where
-    toQuery DescribeImages{..} = mconcat
-        [ "DryRun"       =? _di2DryRun
-        , "ExecutableBy" `toQueryList` _di2ExecutableUsers
-        , "Filter"       `toQueryList` _di2Filters
-        , "ImageId"      `toQueryList` _di2ImageIds
-        , "Owner"        `toQueryList` _di2Owners
-        ]
-
-instance ToHeaders DescribeImages
-
-instance AWSRequest DescribeImages where
-    type Sv DescribeImages = EC2
-    type Rs DescribeImages = DescribeImagesResponse
-
-    request  = post "DescribeImages"
-    response = xmlResponse
-
-instance FromXML DescribeImagesResponse where
-    parseXML x = DescribeImagesResponse
-        <$> x .@? "imagesSet" .!@ mempty
+-- | The response status code.
+desrsStatus :: Lens' DescribeImagesResponse Int
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

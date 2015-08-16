@@ -1,180 +1,192 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.ImportSnapshot
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Imports a disk into an EBS snapshot.
+-- |
+-- Module      : Network.AWS.EC2.ImportSnapshot
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportSnapshot.html>
+-- Imports a disk into an EBS snapshot.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportSnapshot.html AWS API Reference> for ImportSnapshot.
 module Network.AWS.EC2.ImportSnapshot
     (
-    -- * Request
-      ImportSnapshot
-    -- ** Request constructor
-    , importSnapshot
-    -- ** Request lenses
-    , isClientData
-    , isClientToken
-    , isDescription
+    -- * Creating a Request
+      importSnapshot
+    , ImportSnapshot
+    -- * Request Lenses
     , isDiskContainer
-    , isDryRun
+    , isClientToken
     , isRoleName
+    , isDryRun
+    , isDescription
+    , isClientData
 
-    -- * Response
-    , ImportSnapshotResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , importSnapshotResponse
-    -- ** Response lenses
-    , isrDescription
-    , isrImportTaskId
-    , isrSnapshotTaskDetail
+    , ImportSnapshotResponse
+    -- * Response Lenses
+    , isrsSnapshotTaskDetail
+    , isrsImportTaskId
+    , isrsDescription
+    , isrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ImportSnapshot = ImportSnapshot
-    { _isClientData    :: Maybe ClientData
-    , _isClientToken   :: Maybe Text
-    , _isDescription   :: Maybe Text
-    , _isDiskContainer :: Maybe SnapshotDiskContainer
-    , _isDryRun        :: Maybe Bool
-    , _isRoleName      :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'importSnapshot' smart constructor.
+data ImportSnapshot = ImportSnapshot'
+    { _isDiskContainer :: !(Maybe SnapshotDiskContainer)
+    , _isClientToken   :: !(Maybe Text)
+    , _isRoleName      :: !(Maybe Text)
+    , _isDryRun        :: !(Maybe Bool)
+    , _isDescription   :: !(Maybe Text)
+    , _isClientData    :: !(Maybe ClientData)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ImportSnapshot' constructor.
+-- | Creates a value of 'ImportSnapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'isClientData' @::@ 'Maybe' 'ClientData'
+-- * 'isDiskContainer'
 --
--- * 'isClientToken' @::@ 'Maybe' 'Text'
+-- * 'isClientToken'
 --
--- * 'isDescription' @::@ 'Maybe' 'Text'
+-- * 'isRoleName'
 --
--- * 'isDiskContainer' @::@ 'Maybe' 'SnapshotDiskContainer'
+-- * 'isDryRun'
 --
--- * 'isDryRun' @::@ 'Maybe' 'Bool'
+-- * 'isDescription'
 --
--- * 'isRoleName' @::@ 'Maybe' 'Text'
---
-importSnapshot :: ImportSnapshot
-importSnapshot = ImportSnapshot
-    { _isDryRun        = Nothing
-    , _isDescription   = Nothing
-    , _isDiskContainer = Nothing
-    , _isClientData    = Nothing
-    , _isClientToken   = Nothing
-    , _isRoleName      = Nothing
+-- * 'isClientData'
+importSnapshot
+    :: ImportSnapshot
+importSnapshot =
+    ImportSnapshot'
+    { _isDiskContainer = Nothing
+    , _isClientToken = Nothing
+    , _isRoleName = Nothing
+    , _isDryRun = Nothing
+    , _isDescription = Nothing
+    , _isClientData = Nothing
     }
-
--- | The client-specific data.
-isClientData :: Lens' ImportSnapshot (Maybe ClientData)
-isClientData = lens _isClientData (\s a -> s { _isClientData = a })
-
--- | Token to enable idempotency for VM import requests.
-isClientToken :: Lens' ImportSnapshot (Maybe Text)
-isClientToken = lens _isClientToken (\s a -> s { _isClientToken = a })
-
--- | The description string for the import snapshot task.
-isDescription :: Lens' ImportSnapshot (Maybe Text)
-isDescription = lens _isDescription (\s a -> s { _isDescription = a })
 
 -- | Information about the disk container.
 isDiskContainer :: Lens' ImportSnapshot (Maybe SnapshotDiskContainer)
-isDiskContainer = lens _isDiskContainer (\s a -> s { _isDiskContainer = a })
+isDiskContainer = lens _isDiskContainer (\ s a -> s{_isDiskContainer = a});
+
+-- | Token to enable idempotency for VM import requests.
+isClientToken :: Lens' ImportSnapshot (Maybe Text)
+isClientToken = lens _isClientToken (\ s a -> s{_isClientToken = a});
+
+-- | The name of the role to use when not using the default role,
+-- \'vmimport\'.
+isRoleName :: Lens' ImportSnapshot (Maybe Text)
+isRoleName = lens _isRoleName (\ s a -> s{_isRoleName = a});
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 isDryRun :: Lens' ImportSnapshot (Maybe Bool)
-isDryRun = lens _isDryRun (\s a -> s { _isDryRun = a })
+isDryRun = lens _isDryRun (\ s a -> s{_isDryRun = a});
 
--- | The name of the role to use when not using the default role, 'vmimport'.
-isRoleName :: Lens' ImportSnapshot (Maybe Text)
-isRoleName = lens _isRoleName (\s a -> s { _isRoleName = a })
+-- | The description string for the import snapshot task.
+isDescription :: Lens' ImportSnapshot (Maybe Text)
+isDescription = lens _isDescription (\ s a -> s{_isDescription = a});
 
-data ImportSnapshotResponse = ImportSnapshotResponse
-    { _isrDescription        :: Maybe Text
-    , _isrImportTaskId       :: Maybe Text
-    , _isrSnapshotTaskDetail :: Maybe SnapshotTaskDetail
-    } deriving (Eq, Read, Show)
-
--- | 'ImportSnapshotResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'isrDescription' @::@ 'Maybe' 'Text'
---
--- * 'isrImportTaskId' @::@ 'Maybe' 'Text'
---
--- * 'isrSnapshotTaskDetail' @::@ 'Maybe' 'SnapshotTaskDetail'
---
-importSnapshotResponse :: ImportSnapshotResponse
-importSnapshotResponse = ImportSnapshotResponse
-    { _isrImportTaskId       = Nothing
-    , _isrSnapshotTaskDetail = Nothing
-    , _isrDescription        = Nothing
-    }
-
--- | A description of the import snapshot task.
-isrDescription :: Lens' ImportSnapshotResponse (Maybe Text)
-isrDescription = lens _isrDescription (\s a -> s { _isrDescription = a })
-
--- | The ID of the import snapshot task.
-isrImportTaskId :: Lens' ImportSnapshotResponse (Maybe Text)
-isrImportTaskId = lens _isrImportTaskId (\s a -> s { _isrImportTaskId = a })
-
--- | Information about the import snapshot task.
-isrSnapshotTaskDetail :: Lens' ImportSnapshotResponse (Maybe SnapshotTaskDetail)
-isrSnapshotTaskDetail =
-    lens _isrSnapshotTaskDetail (\s a -> s { _isrSnapshotTaskDetail = a })
-
-instance ToPath ImportSnapshot where
-    toPath = const "/"
-
-instance ToQuery ImportSnapshot where
-    toQuery ImportSnapshot{..} = mconcat
-        [ "ClientData"    =? _isClientData
-        , "ClientToken"   =? _isClientToken
-        , "Description"   =? _isDescription
-        , "DiskContainer" =? _isDiskContainer
-        , "DryRun"        =? _isDryRun
-        , "RoleName"      =? _isRoleName
-        ]
-
-instance ToHeaders ImportSnapshot
+-- | The client-specific data.
+isClientData :: Lens' ImportSnapshot (Maybe ClientData)
+isClientData = lens _isClientData (\ s a -> s{_isClientData = a});
 
 instance AWSRequest ImportSnapshot where
-    type Sv ImportSnapshot = EC2
-    type Rs ImportSnapshot = ImportSnapshotResponse
+        type Sv ImportSnapshot = EC2
+        type Rs ImportSnapshot = ImportSnapshotResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 ImportSnapshotResponse' <$>
+                   (x .@? "snapshotTaskDetail") <*>
+                     (x .@? "importTaskId")
+                     <*> (x .@? "description")
+                     <*> (pure (fromEnum s)))
 
-    request  = post "ImportSnapshot"
-    response = xmlResponse
+instance ToHeaders ImportSnapshot where
+        toHeaders = const mempty
 
-instance FromXML ImportSnapshotResponse where
-    parseXML x = ImportSnapshotResponse
-        <$> x .@? "description"
-        <*> x .@? "importTaskId"
-        <*> x .@? "snapshotTaskDetail"
+instance ToPath ImportSnapshot where
+        toPath = const "/"
+
+instance ToQuery ImportSnapshot where
+        toQuery ImportSnapshot'{..}
+          = mconcat
+              ["Action" =: ("ImportSnapshot" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DiskContainer" =: _isDiskContainer,
+               "ClientToken" =: _isClientToken,
+               "RoleName" =: _isRoleName, "DryRun" =: _isDryRun,
+               "Description" =: _isDescription,
+               "ClientData" =: _isClientData]
+
+-- | /See:/ 'importSnapshotResponse' smart constructor.
+data ImportSnapshotResponse = ImportSnapshotResponse'
+    { _isrsSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
+    , _isrsImportTaskId       :: !(Maybe Text)
+    , _isrsDescription        :: !(Maybe Text)
+    , _isrsStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImportSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'isrsSnapshotTaskDetail'
+--
+-- * 'isrsImportTaskId'
+--
+-- * 'isrsDescription'
+--
+-- * 'isrsStatus'
+importSnapshotResponse
+    :: Int -- ^ 'isrsStatus'
+    -> ImportSnapshotResponse
+importSnapshotResponse pStatus_ =
+    ImportSnapshotResponse'
+    { _isrsSnapshotTaskDetail = Nothing
+    , _isrsImportTaskId = Nothing
+    , _isrsDescription = Nothing
+    , _isrsStatus = pStatus_
+    }
+
+-- | Information about the import snapshot task.
+isrsSnapshotTaskDetail :: Lens' ImportSnapshotResponse (Maybe SnapshotTaskDetail)
+isrsSnapshotTaskDetail = lens _isrsSnapshotTaskDetail (\ s a -> s{_isrsSnapshotTaskDetail = a});
+
+-- | The ID of the import snapshot task.
+isrsImportTaskId :: Lens' ImportSnapshotResponse (Maybe Text)
+isrsImportTaskId = lens _isrsImportTaskId (\ s a -> s{_isrsImportTaskId = a});
+
+-- | A description of the import snapshot task.
+isrsDescription :: Lens' ImportSnapshotResponse (Maybe Text)
+isrsDescription = lens _isrsDescription (\ s a -> s{_isrsDescription = a});
+
+-- | The response status code.
+isrsStatus :: Lens' ImportSnapshotResponse Int
+isrsStatus = lens _isrsStatus (\ s a -> s{_isrsStatus = a});

@@ -1,151 +1,165 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EMR.AddJobFlowSteps
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | AddJobFlowSteps adds new steps to a running job flow. A maximum of 256 steps
--- are allowed in each job flow.
+-- |
+-- Module      : Network.AWS.EMR.AddJobFlowSteps
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- If your job flow is long-running (such as a Hive data warehouse) or complex,
--- you may require more than 256 steps to process your data. You can bypass the
--- 256-step limitation in various ways, including using the SSH shell to connect
--- to the master node and submitting queries directly to the software running on
--- the master node, such as Hive and Hadoop. For more information on how to do
--- this, go to <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Job Flow> in the /Amazon ElasticMapReduce Developer's Guide/.
+-- AddJobFlowSteps adds new steps to a running job flow. A maximum of 256
+-- steps are allowed in each job flow.
+--
+-- If your job flow is long-running (such as a Hive data warehouse) or
+-- complex, you may require more than 256 steps to process your data. You
+-- can bypass the 256-step limitation in various ways, including using the
+-- SSH shell to connect to the master node and submitting queries directly
+-- to the software running on the master node, such as Hive and Hadoop. For
+-- more information on how to do this, go to
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html Add More than 256 Steps to a Job Flow>
+-- in the /Amazon Elastic MapReduce Developer\'s Guide/.
 --
 -- A step specifies the location of a JAR file stored either on the master
 -- node of the job flow or in Amazon S3. Each step is performed by the main
--- function of the main class of the JAR file. The main class can be specified
--- either in the manifest of the JAR or by using the MainFunction parameter of
--- the step.
+-- function of the main class of the JAR file. The main class can be
+-- specified either in the manifest of the JAR or by using the MainFunction
+-- parameter of the step.
 --
--- Elastic MapReduce executes each step in the order listed. For a step to be
--- considered complete, the main function must exit with a zero exit code and
--- all Hadoop jobs started while the step was running must have completed and
--- run successfully.
+-- Elastic MapReduce executes each step in the order listed. For a step to
+-- be considered complete, the main function must exit with a zero exit
+-- code and all Hadoop jobs started while the step was running must have
+-- completed and run successfully.
 --
 -- You can only add steps to a job flow that is in one of the following
 -- states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddJobFlowSteps.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddJobFlowSteps.html AWS API Reference> for AddJobFlowSteps.
 module Network.AWS.EMR.AddJobFlowSteps
     (
-    -- * Request
-      AddJobFlowSteps
-    -- ** Request constructor
-    , addJobFlowSteps
-    -- ** Request lenses
+    -- * Creating a Request
+      addJobFlowSteps
+    , AddJobFlowSteps
+    -- * Request Lenses
     , ajfsJobFlowId
     , ajfsSteps
 
-    -- * Response
-    , AddJobFlowStepsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , addJobFlowStepsResponse
-    -- ** Response lenses
-    , ajfsrStepIds
+    , AddJobFlowStepsResponse
+    -- * Response Lenses
+    , ajfsrsStepIds
+    , ajfsrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.EMR.Types
-import qualified GHC.Exts
+import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AddJobFlowSteps = AddJobFlowSteps
-    { _ajfsJobFlowId :: Text
-    , _ajfsSteps     :: List "Steps" StepConfig
-    } deriving (Eq, Read, Show)
+-- | The input argument to the AddJobFlowSteps operation.
+--
+-- /See:/ 'addJobFlowSteps' smart constructor.
+data AddJobFlowSteps = AddJobFlowSteps'
+    { _ajfsJobFlowId :: !Text
+    , _ajfsSteps     :: ![StepConfig]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddJobFlowSteps' constructor.
+-- | Creates a value of 'AddJobFlowSteps' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ajfsJobFlowId' @::@ 'Text'
+-- * 'ajfsJobFlowId'
 --
--- * 'ajfsSteps' @::@ ['StepConfig']
---
-addJobFlowSteps :: Text -- ^ 'ajfsJobFlowId'
-                -> AddJobFlowSteps
-addJobFlowSteps p1 = AddJobFlowSteps
-    { _ajfsJobFlowId = p1
-    , _ajfsSteps     = mempty
+-- * 'ajfsSteps'
+addJobFlowSteps
+    :: Text -- ^ 'ajfsJobFlowId'
+    -> AddJobFlowSteps
+addJobFlowSteps pJobFlowId_ =
+    AddJobFlowSteps'
+    { _ajfsJobFlowId = pJobFlowId_
+    , _ajfsSteps = mempty
     }
 
--- | A string that uniquely identifies the job flow. This identifier is returned
--- by 'RunJobFlow' and can also be obtained from 'ListClusters'.
+-- | A string that uniquely identifies the job flow. This identifier is
+-- returned by RunJobFlow and can also be obtained from ListClusters.
 ajfsJobFlowId :: Lens' AddJobFlowSteps Text
-ajfsJobFlowId = lens _ajfsJobFlowId (\s a -> s { _ajfsJobFlowId = a })
+ajfsJobFlowId = lens _ajfsJobFlowId (\ s a -> s{_ajfsJobFlowId = a});
 
--- | A list of 'StepConfig' to be executed by the job flow.
+-- | A list of StepConfig to be executed by the job flow.
 ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
-ajfsSteps = lens _ajfsSteps (\s a -> s { _ajfsSteps = a }) . _List
+ajfsSteps = lens _ajfsSteps (\ s a -> s{_ajfsSteps = a}) . _Coerce;
 
-newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse
-    { _ajfsrStepIds :: List "StepIds" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
+instance AWSRequest AddJobFlowSteps where
+        type Sv AddJobFlowSteps = EMR
+        type Rs AddJobFlowSteps = AddJobFlowStepsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 AddJobFlowStepsResponse' <$>
+                   (x .?> "StepIds" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance GHC.Exts.IsList AddJobFlowStepsResponse where
-    type Item AddJobFlowStepsResponse = Text
+instance ToHeaders AddJobFlowSteps where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("ElasticMapReduce.AddJobFlowSteps" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = AddJobFlowStepsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _ajfsrStepIds
+instance ToJSON AddJobFlowSteps where
+        toJSON AddJobFlowSteps'{..}
+          = object
+              ["JobFlowId" .= _ajfsJobFlowId,
+               "Steps" .= _ajfsSteps]
 
--- | 'AddJobFlowStepsResponse' constructor.
+instance ToPath AddJobFlowSteps where
+        toPath = const "/"
+
+instance ToQuery AddJobFlowSteps where
+        toQuery = const mempty
+
+-- | The output for the AddJobFlowSteps operation.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'addJobFlowStepsResponse' smart constructor.
+data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
+    { _ajfsrsStepIds :: !(Maybe [Text])
+    , _ajfsrsStatus  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AddJobFlowStepsResponse' with the minimum fields required to make a request.
 --
--- * 'ajfsrStepIds' @::@ ['Text']
+-- Use one of the following lenses to modify other fields as desired:
 --
-addJobFlowStepsResponse :: AddJobFlowStepsResponse
-addJobFlowStepsResponse = AddJobFlowStepsResponse
-    { _ajfsrStepIds = mempty
+-- * 'ajfsrsStepIds'
+--
+-- * 'ajfsrsStatus'
+addJobFlowStepsResponse
+    :: Int -- ^ 'ajfsrsStatus'
+    -> AddJobFlowStepsResponse
+addJobFlowStepsResponse pStatus_ =
+    AddJobFlowStepsResponse'
+    { _ajfsrsStepIds = Nothing
+    , _ajfsrsStatus = pStatus_
     }
 
 -- | The identifiers of the list of steps added to the job flow.
-ajfsrStepIds :: Lens' AddJobFlowStepsResponse [Text]
-ajfsrStepIds = lens _ajfsrStepIds (\s a -> s { _ajfsrStepIds = a }) . _List
+ajfsrsStepIds :: Lens' AddJobFlowStepsResponse [Text]
+ajfsrsStepIds = lens _ajfsrsStepIds (\ s a -> s{_ajfsrsStepIds = a}) . _Default . _Coerce;
 
-instance ToPath AddJobFlowSteps where
-    toPath = const "/"
-
-instance ToQuery AddJobFlowSteps where
-    toQuery = const mempty
-
-instance ToHeaders AddJobFlowSteps
-
-instance ToJSON AddJobFlowSteps where
-    toJSON AddJobFlowSteps{..} = object
-        [ "JobFlowId" .= _ajfsJobFlowId
-        , "Steps"     .= _ajfsSteps
-        ]
-
-instance AWSRequest AddJobFlowSteps where
-    type Sv AddJobFlowSteps = EMR
-    type Rs AddJobFlowSteps = AddJobFlowStepsResponse
-
-    request  = post "AddJobFlowSteps"
-    response = jsonResponse
-
-instance FromJSON AddJobFlowStepsResponse where
-    parseJSON = withObject "AddJobFlowStepsResponse" $ \o -> AddJobFlowStepsResponse
-        <$> o .:? "StepIds" .!= mempty
+-- | The response status code.
+ajfsrsStatus :: Lens' AddJobFlowStepsResponse Int
+ajfsrsStatus = lens _ajfsrsStatus (\ s a -> s{_ajfsrsStatus = a});

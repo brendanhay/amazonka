@@ -1,109 +1,119 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.RemoveRoleFromInstanceProfile
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Removes the specified role from the specified instance profile.
+-- |
+-- Module      : Network.AWS.IAM.RemoveRoleFromInstanceProfile
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Removes the specified role from the specified instance profile.
 --
 -- Make sure you do not have any Amazon EC2 instances running with the role
--- you are about to remove from the instance profile. Removing a role from an
--- instance profile that is associated with a running instance will break any
--- applications running on the instance.   For more information about roles, go
--- to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>. For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+-- you are about to remove from the instance profile. Removing a role from
+-- an instance profile that is associated with a running instance will
+-- break any applications running on the instance.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html>
+-- For more information about roles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
+-- For more information about instance profiles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveRoleFromInstanceProfile.html AWS API Reference> for RemoveRoleFromInstanceProfile.
 module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     (
-    -- * Request
-      RemoveRoleFromInstanceProfile
-    -- ** Request constructor
-    , removeRoleFromInstanceProfile
-    -- ** Request lenses
+    -- * Creating a Request
+      removeRoleFromInstanceProfile
+    , RemoveRoleFromInstanceProfile
+    -- * Request Lenses
     , rrfipInstanceProfileName
     , rrfipRoleName
 
-    -- * Response
-    , RemoveRoleFromInstanceProfileResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , removeRoleFromInstanceProfileResponse
+    , RemoveRoleFromInstanceProfileResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
-    { _rrfipInstanceProfileName :: Text
-    , _rrfipRoleName            :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'removeRoleFromInstanceProfile' smart constructor.
+data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile'
+    { _rrfipInstanceProfileName :: !Text
+    , _rrfipRoleName            :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveRoleFromInstanceProfile' constructor.
+-- | Creates a value of 'RemoveRoleFromInstanceProfile' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rrfipInstanceProfileName' @::@ 'Text'
+-- * 'rrfipInstanceProfileName'
 --
--- * 'rrfipRoleName' @::@ 'Text'
---
-removeRoleFromInstanceProfile :: Text -- ^ 'rrfipInstanceProfileName'
-                              -> Text -- ^ 'rrfipRoleName'
-                              -> RemoveRoleFromInstanceProfile
-removeRoleFromInstanceProfile p1 p2 = RemoveRoleFromInstanceProfile
-    { _rrfipInstanceProfileName = p1
-    , _rrfipRoleName            = p2
+-- * 'rrfipRoleName'
+removeRoleFromInstanceProfile
+    :: Text -- ^ 'rrfipInstanceProfileName'
+    -> Text -- ^ 'rrfipRoleName'
+    -> RemoveRoleFromInstanceProfile
+removeRoleFromInstanceProfile pInstanceProfileName_ pRoleName_ =
+    RemoveRoleFromInstanceProfile'
+    { _rrfipInstanceProfileName = pInstanceProfileName_
+    , _rrfipRoleName = pRoleName_
     }
 
 -- | The name of the instance profile to update.
 rrfipInstanceProfileName :: Lens' RemoveRoleFromInstanceProfile Text
-rrfipInstanceProfileName =
-    lens _rrfipInstanceProfileName
-        (\s a -> s { _rrfipInstanceProfileName = a })
+rrfipInstanceProfileName = lens _rrfipInstanceProfileName (\ s a -> s{_rrfipInstanceProfileName = a});
 
 -- | The name of the role to remove.
 rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
-rrfipRoleName = lens _rrfipRoleName (\s a -> s { _rrfipRoleName = a })
+rrfipRoleName = lens _rrfipRoleName (\ s a -> s{_rrfipRoleName = a});
 
-data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'RemoveRoleFromInstanceProfileResponse' constructor.
-removeRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse
-removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
-
-instance ToPath RemoveRoleFromInstanceProfile where
-    toPath = const "/"
-
-instance ToQuery RemoveRoleFromInstanceProfile where
-    toQuery RemoveRoleFromInstanceProfile{..} = mconcat
-        [ "InstanceProfileName" =? _rrfipInstanceProfileName
-        , "RoleName"            =? _rrfipRoleName
-        ]
+instance AWSRequest RemoveRoleFromInstanceProfile
+         where
+        type Sv RemoveRoleFromInstanceProfile = IAM
+        type Rs RemoveRoleFromInstanceProfile =
+             RemoveRoleFromInstanceProfileResponse
+        request = postQuery
+        response
+          = receiveNull RemoveRoleFromInstanceProfileResponse'
 
 instance ToHeaders RemoveRoleFromInstanceProfile
+         where
+        toHeaders = const mempty
 
-instance AWSRequest RemoveRoleFromInstanceProfile where
-    type Sv RemoveRoleFromInstanceProfile = IAM
-    type Rs RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfileResponse
+instance ToPath RemoveRoleFromInstanceProfile where
+        toPath = const "/"
 
-    request  = post "RemoveRoleFromInstanceProfile"
-    response = nullResponse RemoveRoleFromInstanceProfileResponse
+instance ToQuery RemoveRoleFromInstanceProfile where
+        toQuery RemoveRoleFromInstanceProfile'{..}
+          = mconcat
+              ["Action" =:
+                 ("RemoveRoleFromInstanceProfile" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "InstanceProfileName" =: _rrfipInstanceProfileName,
+               "RoleName" =: _rrfipRoleName]
+
+-- | /See:/ 'removeRoleFromInstanceProfileResponse' smart constructor.
+data RemoveRoleFromInstanceProfileResponse =
+    RemoveRoleFromInstanceProfileResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RemoveRoleFromInstanceProfileResponse' with the minimum fields required to make a request.
+--
+removeRoleFromInstanceProfileResponse
+    :: RemoveRoleFromInstanceProfileResponse
+removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse'

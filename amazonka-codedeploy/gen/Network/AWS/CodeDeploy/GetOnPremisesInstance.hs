@@ -1,113 +1,131 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CodeDeploy.GetOnPremisesInstance
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Gets information about an on-premises instance.
+-- |
+-- Module      : Network.AWS.CodeDeploy.GetOnPremisesInstance
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetOnPremisesInstance.html>
+-- Gets information about an on-premises instance.
+--
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetOnPremisesInstance.html AWS API Reference> for GetOnPremisesInstance.
 module Network.AWS.CodeDeploy.GetOnPremisesInstance
     (
-    -- * Request
-      GetOnPremisesInstance
-    -- ** Request constructor
-    , getOnPremisesInstance
-    -- ** Request lenses
+    -- * Creating a Request
+      getOnPremisesInstance
+    , GetOnPremisesInstance
+    -- * Request Lenses
     , gopiInstanceName
 
-    -- * Response
-    , GetOnPremisesInstanceResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getOnPremisesInstanceResponse
-    -- ** Response lenses
-    , gopirInstanceInfo
+    , GetOnPremisesInstanceResponse
+    -- * Response Lenses
+    , gopirsInstanceInfo
+    , gopirsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetOnPremisesInstance = GetOnPremisesInstance
+-- | Represents the input of a get on-premises instance operation.
+--
+-- /See:/ 'getOnPremisesInstance' smart constructor.
+newtype GetOnPremisesInstance = GetOnPremisesInstance'
     { _gopiInstanceName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetOnPremisesInstance' constructor.
+-- | Creates a value of 'GetOnPremisesInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gopiInstanceName' @::@ 'Text'
---
-getOnPremisesInstance :: Text -- ^ 'gopiInstanceName'
-                      -> GetOnPremisesInstance
-getOnPremisesInstance p1 = GetOnPremisesInstance
-    { _gopiInstanceName = p1
+-- * 'gopiInstanceName'
+getOnPremisesInstance
+    :: Text -- ^ 'gopiInstanceName'
+    -> GetOnPremisesInstance
+getOnPremisesInstance pInstanceName_ =
+    GetOnPremisesInstance'
+    { _gopiInstanceName = pInstanceName_
     }
 
 -- | The name of the on-premises instance to get information about
 gopiInstanceName :: Lens' GetOnPremisesInstance Text
-gopiInstanceName = lens _gopiInstanceName (\s a -> s { _gopiInstanceName = a })
+gopiInstanceName = lens _gopiInstanceName (\ s a -> s{_gopiInstanceName = a});
 
-newtype GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse
-    { _gopirInstanceInfo :: Maybe InstanceInfo
-    } deriving (Eq, Read, Show)
+instance AWSRequest GetOnPremisesInstance where
+        type Sv GetOnPremisesInstance = CodeDeploy
+        type Rs GetOnPremisesInstance =
+             GetOnPremisesInstanceResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetOnPremisesInstanceResponse' <$>
+                   (x .?> "instanceInfo") <*> (pure (fromEnum s)))
 
--- | 'GetOnPremisesInstanceResponse' constructor.
+instance ToHeaders GetOnPremisesInstance where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.GetOnPremisesInstance" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON GetOnPremisesInstance where
+        toJSON GetOnPremisesInstance'{..}
+          = object ["instanceName" .= _gopiInstanceName]
+
+instance ToPath GetOnPremisesInstance where
+        toPath = const "/"
+
+instance ToQuery GetOnPremisesInstance where
+        toQuery = const mempty
+
+-- | Represents the output of a get on-premises instance operation.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'getOnPremisesInstanceResponse' smart constructor.
+data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
+    { _gopirsInstanceInfo :: !(Maybe InstanceInfo)
+    , _gopirsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetOnPremisesInstanceResponse' with the minimum fields required to make a request.
 --
--- * 'gopirInstanceInfo' @::@ 'Maybe' 'InstanceInfo'
+-- Use one of the following lenses to modify other fields as desired:
 --
-getOnPremisesInstanceResponse :: GetOnPremisesInstanceResponse
-getOnPremisesInstanceResponse = GetOnPremisesInstanceResponse
-    { _gopirInstanceInfo = Nothing
+-- * 'gopirsInstanceInfo'
+--
+-- * 'gopirsStatus'
+getOnPremisesInstanceResponse
+    :: Int -- ^ 'gopirsStatus'
+    -> GetOnPremisesInstanceResponse
+getOnPremisesInstanceResponse pStatus_ =
+    GetOnPremisesInstanceResponse'
+    { _gopirsInstanceInfo = Nothing
+    , _gopirsStatus = pStatus_
     }
 
 -- | Information about the on-premises instance.
-gopirInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
-gopirInstanceInfo =
-    lens _gopirInstanceInfo (\s a -> s { _gopirInstanceInfo = a })
+gopirsInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
+gopirsInstanceInfo = lens _gopirsInstanceInfo (\ s a -> s{_gopirsInstanceInfo = a});
 
-instance ToPath GetOnPremisesInstance where
-    toPath = const "/"
-
-instance ToQuery GetOnPremisesInstance where
-    toQuery = const mempty
-
-instance ToHeaders GetOnPremisesInstance
-
-instance ToJSON GetOnPremisesInstance where
-    toJSON GetOnPremisesInstance{..} = object
-        [ "instanceName" .= _gopiInstanceName
-        ]
-
-instance AWSRequest GetOnPremisesInstance where
-    type Sv GetOnPremisesInstance = CodeDeploy
-    type Rs GetOnPremisesInstance = GetOnPremisesInstanceResponse
-
-    request  = post "GetOnPremisesInstance"
-    response = jsonResponse
-
-instance FromJSON GetOnPremisesInstanceResponse where
-    parseJSON = withObject "GetOnPremisesInstanceResponse" $ \o -> GetOnPremisesInstanceResponse
-        <$> o .:? "instanceInfo"
+-- | The response status code.
+gopirsStatus :: Lens' GetOnPremisesInstanceResponse Int
+gopirsStatus = lens _gopirsStatus (\ s a -> s{_gopirsStatus = a});

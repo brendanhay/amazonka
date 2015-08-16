@@ -1,98 +1,104 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElastiCache.DeleteCacheSubnetGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DeleteCacheSubnetGroup/ action deletes a cache subnet group.
+-- |
+-- Module      : Network.AWS.ElastiCache.DeleteCacheSubnetGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- You cannot delete a cache subnet group if it is associated with any cache
--- clusters.
+-- The /DeleteCacheSubnetGroup/ action deletes a cache subnet group.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSubnetGroup.html>
+-- You cannot delete a cache subnet group if it is associated with any
+-- cache clusters.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSubnetGroup.html AWS API Reference> for DeleteCacheSubnetGroup.
 module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     (
-    -- * Request
-      DeleteCacheSubnetGroup
-    -- ** Request constructor
-    , deleteCacheSubnetGroup
-    -- ** Request lenses
-    , dcsg1CacheSubnetGroupName
+    -- * Creating a Request
+      deleteCacheSubnetGroup
+    , DeleteCacheSubnetGroup
+    -- * Request Lenses
+    , dCacheSubnetGroupName
 
-    -- * Response
-    , DeleteCacheSubnetGroupResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteCacheSubnetGroupResponse
+    , DeleteCacheSubnetGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
-    { _dcsg1CacheSubnetGroupName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | Represents the input of a /DeleteCacheSubnetGroup/ action.
+--
+-- /See:/ 'deleteCacheSubnetGroup' smart constructor.
+newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup'
+    { _dCacheSubnetGroupName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCacheSubnetGroup' constructor.
+-- | Creates a value of 'DeleteCacheSubnetGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsg1CacheSubnetGroupName' @::@ 'Text'
---
-deleteCacheSubnetGroup :: Text -- ^ 'dcsg1CacheSubnetGroupName'
-                       -> DeleteCacheSubnetGroup
-deleteCacheSubnetGroup p1 = DeleteCacheSubnetGroup
-    { _dcsg1CacheSubnetGroupName = p1
+-- * 'dCacheSubnetGroupName'
+deleteCacheSubnetGroup
+    :: Text -- ^ 'dCacheSubnetGroupName'
+    -> DeleteCacheSubnetGroup
+deleteCacheSubnetGroup pCacheSubnetGroupName_ =
+    DeleteCacheSubnetGroup'
+    { _dCacheSubnetGroupName = pCacheSubnetGroupName_
     }
 
 -- | The name of the cache subnet group to delete.
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters or
 -- hyphens.
-dcsg1CacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
-dcsg1CacheSubnetGroupName =
-    lens _dcsg1CacheSubnetGroupName
-        (\s a -> s { _dcsg1CacheSubnetGroupName = a })
-
-data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteCacheSubnetGroupResponse' constructor.
-deleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse
-deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
-
-instance ToPath DeleteCacheSubnetGroup where
-    toPath = const "/"
-
-instance ToQuery DeleteCacheSubnetGroup where
-    toQuery DeleteCacheSubnetGroup{..} = mconcat
-        [ "CacheSubnetGroupName" =? _dcsg1CacheSubnetGroupName
-        ]
-
-instance ToHeaders DeleteCacheSubnetGroup
+dCacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
+dCacheSubnetGroupName = lens _dCacheSubnetGroupName (\ s a -> s{_dCacheSubnetGroupName = a});
 
 instance AWSRequest DeleteCacheSubnetGroup where
-    type Sv DeleteCacheSubnetGroup = ElastiCache
-    type Rs DeleteCacheSubnetGroup = DeleteCacheSubnetGroupResponse
+        type Sv DeleteCacheSubnetGroup = ElastiCache
+        type Rs DeleteCacheSubnetGroup =
+             DeleteCacheSubnetGroupResponse
+        request = postQuery
+        response
+          = receiveNull DeleteCacheSubnetGroupResponse'
 
-    request  = post "DeleteCacheSubnetGroup"
-    response = nullResponse DeleteCacheSubnetGroupResponse
+instance ToHeaders DeleteCacheSubnetGroup where
+        toHeaders = const mempty
+
+instance ToPath DeleteCacheSubnetGroup where
+        toPath = const "/"
+
+instance ToQuery DeleteCacheSubnetGroup where
+        toQuery DeleteCacheSubnetGroup'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteCacheSubnetGroup" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "CacheSubnetGroupName" =: _dCacheSubnetGroupName]
+
+-- | /See:/ 'deleteCacheSubnetGroupResponse' smart constructor.
+data DeleteCacheSubnetGroupResponse =
+    DeleteCacheSubnetGroupResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteCacheSubnetGroupResponse' with the minimum fields required to make a request.
+--
+deleteCacheSubnetGroupResponse
+    :: DeleteCacheSubnetGroupResponse
+deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse'

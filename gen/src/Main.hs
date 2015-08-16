@@ -1,144 +1,207 @@
-{-# LANGUAGE BangPatterns      #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes        #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE LambdaCase            #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE RankNTypes            #-}
+{-# LANGUAGE RecordWildCards       #-}
+{-# LANGUAGE TemplateHaskell       #-}
 
 -- Module      : Main
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
+-- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Main (main) where
 
-import Control.Applicative
-import Control.Error
-import Control.Lens           (Lens', (^.), view, assign, makeLenses)
-import Control.Monad
-import Control.Monad.IO.Class
-import Control.Monad.State
-import Data.Monoid
-import Gen.AST
-import Gen.IO
-import Gen.JSON
-import Gen.Library
-import Gen.Model
-import Gen.Templates
-import Gen.Types
-import Options.Applicative
-import System.Directory
-import System.FilePath
-import System.IO
+import           Control.Error
+import           Control.Lens
+import           Control.Monad
+import           Control.Monad.Except
+import           Control.Monad.State
+import           Data.Monoid
+import qualified Data.SemVer               as SemVer
+import           Data.String
+import qualified Data.Text                 as Text
+import qualified Filesystem                as FS
+import           Filesystem.Path.CurrentOS
+import qualified Gen.AST                   as AST
+import           Gen.Formatting
+import           Gen.IO
+import qualified Gen.JSON                  as JS
+import qualified Gen.Tree                  as Tree
+import           Gen.Types                 hiding (info)
+import           Options.Applicative
 
-data Options = Options
-    { _output    :: FilePath
-    , _models    :: [FilePath]
-    , _services  :: FilePath
-    , _overrides :: FilePath
-    , _templates :: FilePath
-    , _assets    :: FilePath
-    , _retry     :: FilePath
+data Opt = Opt
+    { _optOutput    :: Path
+    , _optModels    :: [Path]
+    , _optAnnexes   :: Path
+    , _optConfigs   :: Path
+    , _optTemplates :: Path
+    , _optStatic    :: Path
+    , _optRetry     :: Path
+    , _optVersions  :: Versions
     } deriving (Show)
 
-makeLenses ''Options
+makeLenses ''Opt
 
-options :: ParserInfo Options
-options = info (helper <*> parser) fullDesc
-
-parser :: Parser Options
-parser = Options
-    <$> strOption
+parser :: Parser Opt
+parser = Opt
+    <$> option isPath
          ( long "out"
         <> metavar "DIR"
-        <> help "Directory to place the generated library. [required]"
+        <> help "Directory to place the generated library."
          )
 
-    <*> some (strOption
+    <*> some (option isPath
          ( long "model"
-        <> metavar "PATH"
-        <> help "Directory for a service's botocore models. [required]"
+        <> metavar "DIR"
+        <> help "Directory for a service's botocore models."
          ))
 
-    <*> strOption
-         ( long "services"
-        <> metavar "PATH"
-        <> help "Directory for amazonka models. [required]"
-         )
-
-    <*> strOption
-         ( long "overrides"
+    <*> option isPath
+         ( long "annexes"
         <> metavar "DIR"
-        <> help "Directory containing amazonka overrides. [required]"
+        <> help "Directory containing botocore model annexes."
          )
 
-    <*> strOption
+    <*> option isPath
+         ( long "configs"
+        <> metavar "DIR"
+        <> help "Directory containing service configuration."
+         )
+
+    <*> option isPath
          ( long "templates"
         <> metavar "DIR"
-        <> help "Directory containing ED-E templates. [required]"
+        <> help "Directory containing ED-E templates."
          )
 
-    <*> strOption
-         ( long "assets"
-        <> metavar "PATH"
-        <> help "Directory containing assets for generated libraries. [required]"
+    <*> option isPath
+         ( long "static"
+        <> metavar "DIR"
+        <> help "Directory containing static files for generated libraries."
          )
 
-    <*> strOption
+    <*> option isPath
          ( long "retry"
         <> metavar "PATH"
-        <> help "Path to the file containing retry definitions. [required]"
+        <> help "Path to the file containing retry definitions."
          )
 
-validate :: MonadIO m => Options -> m Options
+    <*> (Versions
+        <$> option version
+             ( long "library-version"
+            <> metavar "VER"
+            <> help "Version of the library to generate."
+             )
+
+        <*> option version
+             ( long "client-version"
+            <> metavar "VER"
+            <> help "Client library version dependecy for examples."
+             )
+
+        <*> option version
+             ( long "core-version"
+            <> metavar "VER"
+            <> help "Core library version dependency."
+             ))
+
+isPath :: ReadM Path
+isPath = eitherReader (Right . fromText . Text.dropWhileEnd (== '/') . fromString)
+
+version :: ReadM (Version v)
+version = eitherReader (fmap Version . SemVer.fromText . Text.pack)
+
+options :: ParserInfo Opt
+options = info (helper <*> parser) fullDesc
+
+validate :: MonadIO m => Opt -> m Opt
 validate o = flip execStateT o $ do
     sequence_
-        [ check output
-        , check services
-        , check overrides
-        , check templates
-        , check assets
-        , check retry
+        [ check optOutput
+        , check optAnnexes
+        , check optConfigs
+        , check optTemplates
+        , check optStatic
+        , check optRetry
         ]
-    mapM canon (o ^. models)
-        >>= assign models
+    mapM canon (o ^. optModels) >>= assign optModels
+  where
+    check :: (MonadIO m, MonadState s m) => Lens' s Path -> m ()
+    check l = gets (view l) >>= canon >>= assign l
 
-check :: (MonadIO m, MonadState s m) => Lens' s FilePath -> m ()
-check l = gets (view l) >>= canon >>= assign l
-
-canon :: MonadIO m => FilePath -> m FilePath
-canon = liftIO . canonicalizePath
+    canon :: MonadIO m => Path -> m Path
+    canon = liftIO . FS.canonicalizePath
 
 main :: IO ()
 main = do
-    hSetBuffering stdout LineBuffering
+    Opt{..} <- customExecParser (prefs showHelpOnError) options
+        >>= validate
 
-    o <- customExecParser (prefs showHelpOnError) options >>= validate
+    let i = length _optModels
 
-    runScript $ do
-        !ts <- loadTemplates (o ^. templates)
-        !rs <- loadRetries   (o ^. retry)
+    run $ do
+        title "Initialising..." <* done
+        title ("Loading templates from " % path) _optTemplates
 
-        -- Process a Input AST from the corresponding botocore model.
-        forM_ (o ^. models) $ \d -> do
-            -- Load the Input raw JSON.
-            !m   <- loadModel d (o ^. overrides)
+        let load = readTemplate _optTemplates
 
-            -- Decode the Input JSON to AST.
-            !inp <- parse (_mModel m)
+        tmpl <- flip evalStateT mempty $ Templates
+            <$> load "cabal.ede"
+            <*> load "toc.ede"
+            <*> load "waiters.ede"
+            <*> load "readme.ede"
+            <*> load "operation.ede"
+            <*> load "types.ede"
+            <*> load "types/sum.ede"
+            <*> load "types/product.ede"
+            <*> load "test/main.ede"
+            <*> load "test/fixtures.ede"
+            <*  lift done
 
-            -- Transformation from Input -> Output AST.
-            let !out = transformAST rs m inp
+        r  <- JS.required _optRetry
 
-            -- Store the intemediary Output AST as JSON.
-            -- Note: This is primarily done for debugging purposes.
-            writeJSON (o ^. services </> _mName m <.> "json") out
+        forM_ (zip [1..] _optModels) $ \(j, f) -> do
+            title ("[" % int % "/" % int % "] model:" % path)
+                  (j :: Int)
+                  (i :: Int)
+                  (filename f)
 
-            -- Render the templates, creating or overriding the target library.
-            lib <- renderLibrary (o ^. output) ts out
+            m <- listDir f >>= hoistEither . loadModel f
 
-            -- Copy static assets to the library root.
-            copyContents (o ^. assets) lib
+            say ("Using version " % dateDash) (m ^. modelVersion)
+
+            cfg <- JS.required (_optConfigs </> (m ^. configFile))
+                >>= hoistEither . JS.parse
+
+            api <- sequence
+                [ JS.optional (_optAnnexes </> (m ^. annexFile))
+                , JS.required (m ^. serviceFile)
+                , JS.optional (m ^. waitersFile)
+                , JS.optional (m ^. pagersFile)
+                , pure r
+                ] >>= hoistEither . JS.parse . JS.merge
+
+            say ("Successfully parsed '" % stext % "' API definition")
+                (api ^. serviceFullName)
+
+            lib <- hoistEither (AST.rewrite _optVersions cfg api)
+
+            dir <- hoistEither (Tree.populate _optOutput tmpl lib)
+                >>= Tree.fold createDir (\x -> maybe (touchFile x) (writeLTFile x))
+
+            say ("Successfully rendered " % stext % "-" % semver % " package")
+                (lib ^. libraryName)
+                (lib ^. libraryVersion)
+
+            copyDir _optStatic (Tree.root dir)
+
+            done
+
+        title ("Successfully processed " % int % " models.") i

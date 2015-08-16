@@ -1,114 +1,123 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EMR.SetVisibleToAllUsers
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Sets whether all AWS Identity and Access Management (IAM) users under your
--- account can access the specified job flows. This action works on running job
--- flows. You can also set the visibility of a job flow when you launch it using
--- the 'VisibleToAllUsers' parameter of 'RunJobFlow'. The SetVisibleToAllUsers
--- action can be called only by an IAM user who created the job flow or the AWS
--- account that owns the job flow.
+-- |
+-- Module      : Network.AWS.EMR.SetVisibleToAllUsers
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_SetVisibleToAllUsers.html>
+-- Sets whether all AWS Identity and Access Management (IAM) users under
+-- your account can access the specified job flows. This action works on
+-- running job flows. You can also set the visibility of a job flow when
+-- you launch it using the 'VisibleToAllUsers' parameter of RunJobFlow. The
+-- SetVisibleToAllUsers action can be called only by an IAM user who
+-- created the job flow or the AWS account that owns the job flow.
+--
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_SetVisibleToAllUsers.html AWS API Reference> for SetVisibleToAllUsers.
 module Network.AWS.EMR.SetVisibleToAllUsers
     (
-    -- * Request
-      SetVisibleToAllUsers
-    -- ** Request constructor
-    , setVisibleToAllUsers
-    -- ** Request lenses
+    -- * Creating a Request
+      setVisibleToAllUsers
+    , SetVisibleToAllUsers
+    -- * Request Lenses
     , svtauJobFlowIds
     , svtauVisibleToAllUsers
 
-    -- * Response
-    , SetVisibleToAllUsersResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , setVisibleToAllUsersResponse
+    , SetVisibleToAllUsersResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.EMR.Types
-import qualified GHC.Exts
+import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data SetVisibleToAllUsers = SetVisibleToAllUsers
-    { _svtauJobFlowIds        :: List "JobFlowIds" Text
-    , _svtauVisibleToAllUsers :: Bool
-    } deriving (Eq, Ord, Read, Show)
+-- | The input to the SetVisibleToAllUsers action.
+--
+-- /See:/ 'setVisibleToAllUsers' smart constructor.
+data SetVisibleToAllUsers = SetVisibleToAllUsers'
+    { _svtauJobFlowIds        :: ![Text]
+    , _svtauVisibleToAllUsers :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetVisibleToAllUsers' constructor.
+-- | Creates a value of 'SetVisibleToAllUsers' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'svtauJobFlowIds' @::@ ['Text']
+-- * 'svtauJobFlowIds'
 --
--- * 'svtauVisibleToAllUsers' @::@ 'Bool'
---
-setVisibleToAllUsers :: Bool -- ^ 'svtauVisibleToAllUsers'
-                     -> SetVisibleToAllUsers
-setVisibleToAllUsers p1 = SetVisibleToAllUsers
-    { _svtauVisibleToAllUsers = p1
-    , _svtauJobFlowIds        = mempty
+-- * 'svtauVisibleToAllUsers'
+setVisibleToAllUsers
+    :: Bool -- ^ 'svtauVisibleToAllUsers'
+    -> SetVisibleToAllUsers
+setVisibleToAllUsers pVisibleToAllUsers_ =
+    SetVisibleToAllUsers'
+    { _svtauJobFlowIds = mempty
+    , _svtauVisibleToAllUsers = pVisibleToAllUsers_
     }
 
 -- | Identifiers of the job flows to receive the new visibility setting.
 svtauJobFlowIds :: Lens' SetVisibleToAllUsers [Text]
-svtauJobFlowIds = lens _svtauJobFlowIds (\s a -> s { _svtauJobFlowIds = a }) . _List
+svtauJobFlowIds = lens _svtauJobFlowIds (\ s a -> s{_svtauJobFlowIds = a}) . _Coerce;
 
 -- | Whether the specified job flows are visible to all IAM users of the AWS
--- account associated with the job flow. If this value is set to True, all IAM
--- users of that AWS account can view and, if they have the proper IAM policy
--- permissions set, manage the job flows. If it is set to False, only the IAM
--- user that created a job flow can view and manage it.
+-- account associated with the job flow. If this value is set to True, all
+-- IAM users of that AWS account can view and, if they have the proper IAM
+-- policy permissions set, manage the job flows. If it is set to False,
+-- only the IAM user that created a job flow can view and manage it.
 svtauVisibleToAllUsers :: Lens' SetVisibleToAllUsers Bool
-svtauVisibleToAllUsers =
-    lens _svtauVisibleToAllUsers (\s a -> s { _svtauVisibleToAllUsers = a })
-
-data SetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'SetVisibleToAllUsersResponse' constructor.
-setVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse
-setVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
-
-instance ToPath SetVisibleToAllUsers where
-    toPath = const "/"
-
-instance ToQuery SetVisibleToAllUsers where
-    toQuery = const mempty
-
-instance ToHeaders SetVisibleToAllUsers
-
-instance ToJSON SetVisibleToAllUsers where
-    toJSON SetVisibleToAllUsers{..} = object
-        [ "JobFlowIds"        .= _svtauJobFlowIds
-        , "VisibleToAllUsers" .= _svtauVisibleToAllUsers
-        ]
+svtauVisibleToAllUsers = lens _svtauVisibleToAllUsers (\ s a -> s{_svtauVisibleToAllUsers = a});
 
 instance AWSRequest SetVisibleToAllUsers where
-    type Sv SetVisibleToAllUsers = EMR
-    type Rs SetVisibleToAllUsers = SetVisibleToAllUsersResponse
+        type Sv SetVisibleToAllUsers = EMR
+        type Rs SetVisibleToAllUsers =
+             SetVisibleToAllUsersResponse
+        request = postJSON
+        response = receiveNull SetVisibleToAllUsersResponse'
 
-    request  = post "SetVisibleToAllUsers"
-    response = nullResponse SetVisibleToAllUsersResponse
+instance ToHeaders SetVisibleToAllUsers where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("ElasticMapReduce.SetVisibleToAllUsers" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON SetVisibleToAllUsers where
+        toJSON SetVisibleToAllUsers'{..}
+          = object
+              ["JobFlowIds" .= _svtauJobFlowIds,
+               "VisibleToAllUsers" .= _svtauVisibleToAllUsers]
+
+instance ToPath SetVisibleToAllUsers where
+        toPath = const "/"
+
+instance ToQuery SetVisibleToAllUsers where
+        toQuery = const mempty
+
+-- | /See:/ 'setVisibleToAllUsersResponse' smart constructor.
+data SetVisibleToAllUsersResponse =
+    SetVisibleToAllUsersResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SetVisibleToAllUsersResponse' with the minimum fields required to make a request.
+--
+setVisibleToAllUsersResponse
+    :: SetVisibleToAllUsersResponse
+setVisibleToAllUsersResponse = SetVisibleToAllUsersResponse'

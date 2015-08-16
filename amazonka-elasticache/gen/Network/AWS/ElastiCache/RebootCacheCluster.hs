@@ -1,131 +1,146 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElastiCache.RebootCacheCluster
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /RebootCacheCluster/ action reboots some, or all, of the cache nodes within
--- a provisioned cache cluster. This API will apply any modified cache parameter
--- groups to the cache cluster. The reboot action takes place as soon as
--- possible, and results in a momentary outage to the cache cluster. During the
--- reboot, the cache cluster status is set to REBOOTING.
+-- |
+-- Module      : Network.AWS.ElastiCache.RebootCacheCluster
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- The /RebootCacheCluster/ action reboots some, or all, of the cache nodes
+-- within a provisioned cache cluster. This API will apply any modified
+-- cache parameter groups to the cache cluster. The reboot action takes
+-- place as soon as possible, and results in a momentary outage to the
+-- cache cluster. During the reboot, the cache cluster status is set to
+-- REBOOTING.
 --
 -- The reboot causes the contents of the cache (for each cache node being
 -- rebooted) to be lost.
 --
 -- When the reboot is complete, a cache cluster event is created.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebootCacheCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RebootCacheCluster.html AWS API Reference> for RebootCacheCluster.
 module Network.AWS.ElastiCache.RebootCacheCluster
     (
-    -- * Request
-      RebootCacheCluster
-    -- ** Request constructor
-    , rebootCacheCluster
-    -- ** Request lenses
+    -- * Creating a Request
+      rebootCacheCluster
+    , RebootCacheCluster
+    -- * Request Lenses
     , rccCacheClusterId
     , rccCacheNodeIdsToReboot
 
-    -- * Response
-    , RebootCacheClusterResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , rebootCacheClusterResponse
-    -- ** Response lenses
-    , rccrCacheCluster
+    , RebootCacheClusterResponse
+    -- * Response Lenses
+    , rccrsCacheCluster
+    , rccrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RebootCacheCluster = RebootCacheCluster
-    { _rccCacheClusterId       :: Text
-    , _rccCacheNodeIdsToReboot :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Represents the input of a /RebootCacheCluster/ action.
+--
+-- /See:/ 'rebootCacheCluster' smart constructor.
+data RebootCacheCluster = RebootCacheCluster'
+    { _rccCacheClusterId       :: !Text
+    , _rccCacheNodeIdsToReboot :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebootCacheCluster' constructor.
+-- | Creates a value of 'RebootCacheCluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rccCacheClusterId' @::@ 'Text'
+-- * 'rccCacheClusterId'
 --
--- * 'rccCacheNodeIdsToReboot' @::@ ['Text']
---
-rebootCacheCluster :: Text -- ^ 'rccCacheClusterId'
-                   -> RebootCacheCluster
-rebootCacheCluster p1 = RebootCacheCluster
-    { _rccCacheClusterId       = p1
+-- * 'rccCacheNodeIdsToReboot'
+rebootCacheCluster
+    :: Text -- ^ 'rccCacheClusterId'
+    -> RebootCacheCluster
+rebootCacheCluster pCacheClusterId_ =
+    RebootCacheCluster'
+    { _rccCacheClusterId = pCacheClusterId_
     , _rccCacheNodeIdsToReboot = mempty
     }
 
--- | The cache cluster identifier. This parameter is stored as a lowercase string.
+-- | The cache cluster identifier. This parameter is stored as a lowercase
+-- string.
 rccCacheClusterId :: Lens' RebootCacheCluster Text
-rccCacheClusterId =
-    lens _rccCacheClusterId (\s a -> s { _rccCacheClusterId = a })
+rccCacheClusterId = lens _rccCacheClusterId (\ s a -> s{_rccCacheClusterId = a});
 
--- | A list of cache node IDs to reboot. A node ID is a numeric identifier (0001,
--- 0002, etc.). To reboot an entire cache cluster, specify all of the cache node
--- IDs.
+-- | A list of cache node IDs to reboot. A node ID is a numeric identifier
+-- (0001, 0002, etc.). To reboot an entire cache cluster, specify all of
+-- the cache node IDs.
 rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
-rccCacheNodeIdsToReboot =
-    lens _rccCacheNodeIdsToReboot (\s a -> s { _rccCacheNodeIdsToReboot = a })
-        . _List
-
-newtype RebootCacheClusterResponse = RebootCacheClusterResponse
-    { _rccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Read, Show)
-
--- | 'RebootCacheClusterResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
---
-rebootCacheClusterResponse :: RebootCacheClusterResponse
-rebootCacheClusterResponse = RebootCacheClusterResponse
-    { _rccrCacheCluster = Nothing
-    }
-
-rccrCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
-rccrCacheCluster = lens _rccrCacheCluster (\s a -> s { _rccrCacheCluster = a })
-
-instance ToPath RebootCacheCluster where
-    toPath = const "/"
-
-instance ToQuery RebootCacheCluster where
-    toQuery RebootCacheCluster{..} = mconcat
-        [ "CacheClusterId"       =? _rccCacheClusterId
-        , "CacheNodeIdsToReboot" =? _rccCacheNodeIdsToReboot
-        ]
-
-instance ToHeaders RebootCacheCluster
+rccCacheNodeIdsToReboot = lens _rccCacheNodeIdsToReboot (\ s a -> s{_rccCacheNodeIdsToReboot = a}) . _Coerce;
 
 instance AWSRequest RebootCacheCluster where
-    type Sv RebootCacheCluster = ElastiCache
-    type Rs RebootCacheCluster = RebootCacheClusterResponse
+        type Sv RebootCacheCluster = ElastiCache
+        type Rs RebootCacheCluster =
+             RebootCacheClusterResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "RebootCacheClusterResult"
+              (\ s h x ->
+                 RebootCacheClusterResponse' <$>
+                   (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
-    request  = post "RebootCacheCluster"
-    response = xmlResponse
+instance ToHeaders RebootCacheCluster where
+        toHeaders = const mempty
 
-instance FromXML RebootCacheClusterResponse where
-    parseXML = withElement "RebootCacheClusterResult" $ \x -> RebootCacheClusterResponse
-        <$> x .@? "CacheCluster"
+instance ToPath RebootCacheCluster where
+        toPath = const "/"
+
+instance ToQuery RebootCacheCluster where
+        toQuery RebootCacheCluster'{..}
+          = mconcat
+              ["Action" =: ("RebootCacheCluster" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "CacheClusterId" =: _rccCacheClusterId,
+               "CacheNodeIdsToReboot" =:
+                 toQueryList "CacheNodeId" _rccCacheNodeIdsToReboot]
+
+-- | /See:/ 'rebootCacheClusterResponse' smart constructor.
+data RebootCacheClusterResponse = RebootCacheClusterResponse'
+    { _rccrsCacheCluster :: !(Maybe CacheCluster)
+    , _rccrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RebootCacheClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rccrsCacheCluster'
+--
+-- * 'rccrsStatus'
+rebootCacheClusterResponse
+    :: Int -- ^ 'rccrsStatus'
+    -> RebootCacheClusterResponse
+rebootCacheClusterResponse pStatus_ =
+    RebootCacheClusterResponse'
+    { _rccrsCacheCluster = Nothing
+    , _rccrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+rccrsCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
+rccrsCacheCluster = lens _rccrsCacheCluster (\ s a -> s{_rccrsCacheCluster = a});
+
+-- | The response status code.
+rccrsStatus :: Lens' RebootCacheClusterResponse Int
+rccrsStatus = lens _rccrsStatus (\ s a -> s{_rccrsStatus = a});

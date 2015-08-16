@@ -1,0 +1,10 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_",
+    "libraryName": "amazonka-storagegateway",
+    "typeOverrides": {
+        "StorageGatewayError": {
+            "renamedTo": "Error'"
+        }
+    }
+}

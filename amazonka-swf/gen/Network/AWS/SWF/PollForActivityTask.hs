@@ -1,225 +1,249 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SWF.PollForActivityTask
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Used by workers to get an 'ActivityTask' from the specified activity 'taskList'.
--- This initiates a long poll, where the service holds the HTTP connection open
--- and responds as soon as a task becomes available. The maximum time the
--- service holds on to the request before responding is 60 seconds. If no task
--- is available within 60 seconds, the poll will return an empty result. An
--- empty result, in this context, means that an ActivityTask is returned, but
--- that the value of taskToken is an empty string. If a task is returned, the
--- worker should use its type to identify and process it correctly.
+-- |
+-- Module      : Network.AWS.SWF.PollForActivityTask
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Workers should set their client side socket timeout to at least 70 seconds
--- (10 seconds higher than the maximum time service may hold the poll request). Access Control
+-- Used by workers to get an ActivityTask from the specified activity
+-- 'taskList'. This initiates a long poll, where the service holds the HTTP
+-- connection open and responds as soon as a task becomes available. The
+-- maximum time the service holds on to the request before responding is 60
+-- seconds. If no task is available within 60 seconds, the poll will return
+-- an empty result. An empty result, in this context, means that an
+-- ActivityTask is returned, but that the value of taskToken is an empty
+-- string. If a task is returned, the worker should use its type to
+-- identify and process it correctly.
 --
+-- Workers should set their client side socket timeout to at least 70
+-- seconds (10 seconds higher than the maximum time service may hold the
+-- poll request).
 --
--- You can use IAM policies to control this action's access to Amazon SWF
+-- __Access Control__
+--
+-- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- Use a 'Resource' element with the domain name to limit the action to only
--- specified domains. Use an 'Action' element to allow or deny permission to call
--- this action. Constrain the 'taskList.name' parameter by using a Condition
--- element with the 'swf:taskList.name' key to allow the action to access only
--- certain task lists.  If the caller does not have sufficient permissions to
--- invoke the action, or the parameter values fall outside the specified
--- constraints, the action fails. The associated event attribute's cause
--- parameter will be set to OPERATION_NOT_PERMITTED. For details and example IAM
--- policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+-- -   Use a 'Resource' element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an 'Action' element to allow or deny permission to call this
+--     action.
+-- -   Constrain the 'taskList.name' parameter by using a __Condition__
+--     element with the 'swf:taskList.name' key to allow the action to
+--     access only certain task lists.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForActivityTask.html>
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_PollForActivityTask.html AWS API Reference> for PollForActivityTask.
 module Network.AWS.SWF.PollForActivityTask
     (
-    -- * Request
-      PollForActivityTask
-    -- ** Request constructor
-    , pollForActivityTask
-    -- ** Request lenses
-    , pfatDomain
+    -- * Creating a Request
+      pollForActivityTask
+    , PollForActivityTask
+    -- * Request Lenses
     , pfatIdentity
+    , pfatDomain
     , pfatTaskList
 
-    -- * Response
-    , PollForActivityTaskResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , pollForActivityTaskResponse
-    -- ** Response lenses
-    , pfatrActivityId
-    , pfatrActivityType
-    , pfatrInput
-    , pfatrStartedEventId
-    , pfatrTaskToken
-    , pfatrWorkflowExecution
+    , PollForActivityTaskResponse
+    -- * Response Lenses
+    , pfatrsInput
+    , pfatrsStatus
+    , pfatrsTaskToken
+    , pfatrsActivityId
+    , pfatrsStartedEventId
+    , pfatrsWorkflowExecution
+    , pfatrsActivityType
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
+import           Network.AWS.SWF.Types.Product
 
-data PollForActivityTask = PollForActivityTask
-    { _pfatDomain   :: Text
-    , _pfatIdentity :: Maybe Text
-    , _pfatTaskList :: TaskList
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'pollForActivityTask' smart constructor.
+data PollForActivityTask = PollForActivityTask'
+    { _pfatIdentity :: !(Maybe Text)
+    , _pfatDomain   :: !Text
+    , _pfatTaskList :: !TaskList
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PollForActivityTask' constructor.
+-- | Creates a value of 'PollForActivityTask' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pfatDomain' @::@ 'Text'
+-- * 'pfatIdentity'
 --
--- * 'pfatIdentity' @::@ 'Maybe' 'Text'
+-- * 'pfatDomain'
 --
--- * 'pfatTaskList' @::@ 'TaskList'
---
-pollForActivityTask :: Text -- ^ 'pfatDomain'
-                    -> TaskList -- ^ 'pfatTaskList'
-                    -> PollForActivityTask
-pollForActivityTask p1 p2 = PollForActivityTask
-    { _pfatDomain   = p1
-    , _pfatTaskList = p2
-    , _pfatIdentity = Nothing
+-- * 'pfatTaskList'
+pollForActivityTask
+    :: Text -- ^ 'pfatDomain'
+    -> TaskList -- ^ 'pfatTaskList'
+    -> PollForActivityTask
+pollForActivityTask pDomain_ pTaskList_ =
+    PollForActivityTask'
+    { _pfatIdentity = Nothing
+    , _pfatDomain = pDomain_
+    , _pfatTaskList = pTaskList_
     }
+
+-- | Identity of the worker making the request, recorded in the
+-- 'ActivityTaskStarted' event in the workflow history. This enables
+-- diagnostic tracing when problems arise. The form of this identity is
+-- user defined.
+pfatIdentity :: Lens' PollForActivityTask (Maybe Text)
+pfatIdentity = lens _pfatIdentity (\ s a -> s{_pfatIdentity = a});
 
 -- | The name of the domain that contains the task lists being polled.
 pfatDomain :: Lens' PollForActivityTask Text
-pfatDomain = lens _pfatDomain (\s a -> s { _pfatDomain = a })
-
--- | Identity of the worker making the request, recorded in the 'ActivityTaskStarted'
--- event in the workflow history. This enables diagnostic tracing when problems
--- arise. The form of this identity is user defined.
-pfatIdentity :: Lens' PollForActivityTask (Maybe Text)
-pfatIdentity = lens _pfatIdentity (\s a -> s { _pfatIdentity = a })
+pfatDomain = lens _pfatDomain (\ s a -> s{_pfatDomain = a});
 
 -- | Specifies the task list to poll for activity tasks.
 --
 -- The specified string must not start or end with whitespace. It must not
--- contain a ':' (colon), '/' (slash), '|' (vertical bar), or any control characters
--- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
--- string quotarnquot.
+-- contain a ':' (colon), '\/' (slash), '|' (vertical bar), or any control
+-- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
+-- contain the literal string quotarnquot.
 pfatTaskList :: Lens' PollForActivityTask TaskList
-pfatTaskList = lens _pfatTaskList (\s a -> s { _pfatTaskList = a })
-
-data PollForActivityTaskResponse = PollForActivityTaskResponse
-    { _pfatrActivityId        :: Text
-    , _pfatrActivityType      :: ActivityType
-    , _pfatrInput             :: Maybe Text
-    , _pfatrStartedEventId    :: Integer
-    , _pfatrTaskToken         :: Text
-    , _pfatrWorkflowExecution :: WorkflowExecution
-    } deriving (Eq, Read, Show)
-
--- | 'PollForActivityTaskResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pfatrActivityId' @::@ 'Text'
---
--- * 'pfatrActivityType' @::@ 'ActivityType'
---
--- * 'pfatrInput' @::@ 'Maybe' 'Text'
---
--- * 'pfatrStartedEventId' @::@ 'Integer'
---
--- * 'pfatrTaskToken' @::@ 'Text'
---
--- * 'pfatrWorkflowExecution' @::@ 'WorkflowExecution'
---
-pollForActivityTaskResponse :: Text -- ^ 'pfatrTaskToken'
-                            -> Text -- ^ 'pfatrActivityId'
-                            -> Integer -- ^ 'pfatrStartedEventId'
-                            -> WorkflowExecution -- ^ 'pfatrWorkflowExecution'
-                            -> ActivityType -- ^ 'pfatrActivityType'
-                            -> PollForActivityTaskResponse
-pollForActivityTaskResponse p1 p2 p3 p4 p5 = PollForActivityTaskResponse
-    { _pfatrTaskToken         = p1
-    , _pfatrActivityId        = p2
-    , _pfatrStartedEventId    = p3
-    , _pfatrWorkflowExecution = p4
-    , _pfatrActivityType      = p5
-    , _pfatrInput             = Nothing
-    }
-
--- | The unique ID of the task.
-pfatrActivityId :: Lens' PollForActivityTaskResponse Text
-pfatrActivityId = lens _pfatrActivityId (\s a -> s { _pfatrActivityId = a })
-
--- | The type of this activity task.
-pfatrActivityType :: Lens' PollForActivityTaskResponse ActivityType
-pfatrActivityType =
-    lens _pfatrActivityType (\s a -> s { _pfatrActivityType = a })
-
--- | The inputs provided when the activity task was scheduled. The form of the
--- input is user defined and should be meaningful to the activity implementation.
-pfatrInput :: Lens' PollForActivityTaskResponse (Maybe Text)
-pfatrInput = lens _pfatrInput (\s a -> s { _pfatrInput = a })
-
--- | The id of the 'ActivityTaskStarted' event recorded in the history.
-pfatrStartedEventId :: Lens' PollForActivityTaskResponse Integer
-pfatrStartedEventId =
-    lens _pfatrStartedEventId (\s a -> s { _pfatrStartedEventId = a })
-
--- | The opaque string used as a handle on the task. This token is used by workers
--- to communicate progress and response information back to the system about the
--- task.
-pfatrTaskToken :: Lens' PollForActivityTaskResponse Text
-pfatrTaskToken = lens _pfatrTaskToken (\s a -> s { _pfatrTaskToken = a })
-
--- | The workflow execution that started this activity task.
-pfatrWorkflowExecution :: Lens' PollForActivityTaskResponse WorkflowExecution
-pfatrWorkflowExecution =
-    lens _pfatrWorkflowExecution (\s a -> s { _pfatrWorkflowExecution = a })
-
-instance ToPath PollForActivityTask where
-    toPath = const "/"
-
-instance ToQuery PollForActivityTask where
-    toQuery = const mempty
-
-instance ToHeaders PollForActivityTask
-
-instance ToJSON PollForActivityTask where
-    toJSON PollForActivityTask{..} = object
-        [ "domain"   .= _pfatDomain
-        , "taskList" .= _pfatTaskList
-        , "identity" .= _pfatIdentity
-        ]
+pfatTaskList = lens _pfatTaskList (\ s a -> s{_pfatTaskList = a});
 
 instance AWSRequest PollForActivityTask where
-    type Sv PollForActivityTask = SWF
-    type Rs PollForActivityTask = PollForActivityTaskResponse
+        type Sv PollForActivityTask = SWF
+        type Rs PollForActivityTask =
+             PollForActivityTaskResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 PollForActivityTaskResponse' <$>
+                   (x .?> "input") <*> (pure (fromEnum s)) <*>
+                     (x .:> "taskToken")
+                     <*> (x .:> "activityId")
+                     <*> (x .:> "startedEventId")
+                     <*> (x .:> "workflowExecution")
+                     <*> (x .:> "activityType"))
 
-    request  = post "PollForActivityTask"
-    response = jsonResponse
+instance ToHeaders PollForActivityTask where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("SimpleWorkflowService.PollForActivityTask" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.0" :: ByteString)])
 
-instance FromJSON PollForActivityTaskResponse where
-    parseJSON = withObject "PollForActivityTaskResponse" $ \o -> PollForActivityTaskResponse
-        <$> o .:  "activityId"
-        <*> o .:  "activityType"
-        <*> o .:? "input"
-        <*> o .:  "startedEventId"
-        <*> o .:  "taskToken"
-        <*> o .:  "workflowExecution"
+instance ToJSON PollForActivityTask where
+        toJSON PollForActivityTask'{..}
+          = object
+              ["identity" .= _pfatIdentity,
+               "domain" .= _pfatDomain, "taskList" .= _pfatTaskList]
+
+instance ToPath PollForActivityTask where
+        toPath = const "/"
+
+instance ToQuery PollForActivityTask where
+        toQuery = const mempty
+
+-- | Unit of work sent to an activity worker.
+--
+-- /See:/ 'pollForActivityTaskResponse' smart constructor.
+data PollForActivityTaskResponse = PollForActivityTaskResponse'
+    { _pfatrsInput             :: !(Maybe Text)
+    , _pfatrsStatus            :: !Int
+    , _pfatrsTaskToken         :: !Text
+    , _pfatrsActivityId        :: !Text
+    , _pfatrsStartedEventId    :: !Integer
+    , _pfatrsWorkflowExecution :: !WorkflowExecution
+    , _pfatrsActivityType      :: !ActivityType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PollForActivityTaskResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'pfatrsInput'
+--
+-- * 'pfatrsStatus'
+--
+-- * 'pfatrsTaskToken'
+--
+-- * 'pfatrsActivityId'
+--
+-- * 'pfatrsStartedEventId'
+--
+-- * 'pfatrsWorkflowExecution'
+--
+-- * 'pfatrsActivityType'
+pollForActivityTaskResponse
+    :: Int -- ^ 'pfatrsStatus'
+    -> Text -- ^ 'pfatrsTaskToken'
+    -> Text -- ^ 'pfatrsActivityId'
+    -> Integer -- ^ 'pfatrsStartedEventId'
+    -> WorkflowExecution -- ^ 'pfatrsWorkflowExecution'
+    -> ActivityType -- ^ 'pfatrsActivityType'
+    -> PollForActivityTaskResponse
+pollForActivityTaskResponse pStatus_ pTaskToken_ pActivityId_ pStartedEventId_ pWorkflowExecution_ pActivityType_ =
+    PollForActivityTaskResponse'
+    { _pfatrsInput = Nothing
+    , _pfatrsStatus = pStatus_
+    , _pfatrsTaskToken = pTaskToken_
+    , _pfatrsActivityId = pActivityId_
+    , _pfatrsStartedEventId = pStartedEventId_
+    , _pfatrsWorkflowExecution = pWorkflowExecution_
+    , _pfatrsActivityType = pActivityType_
+    }
+
+-- | The inputs provided when the activity task was scheduled. The form of
+-- the input is user defined and should be meaningful to the activity
+-- implementation.
+pfatrsInput :: Lens' PollForActivityTaskResponse (Maybe Text)
+pfatrsInput = lens _pfatrsInput (\ s a -> s{_pfatrsInput = a});
+
+-- | The response status code.
+pfatrsStatus :: Lens' PollForActivityTaskResponse Int
+pfatrsStatus = lens _pfatrsStatus (\ s a -> s{_pfatrsStatus = a});
+
+-- | The opaque string used as a handle on the task. This token is used by
+-- workers to communicate progress and response information back to the
+-- system about the task.
+pfatrsTaskToken :: Lens' PollForActivityTaskResponse Text
+pfatrsTaskToken = lens _pfatrsTaskToken (\ s a -> s{_pfatrsTaskToken = a});
+
+-- | The unique ID of the task.
+pfatrsActivityId :: Lens' PollForActivityTaskResponse Text
+pfatrsActivityId = lens _pfatrsActivityId (\ s a -> s{_pfatrsActivityId = a});
+
+-- | The ID of the 'ActivityTaskStarted' event recorded in the history.
+pfatrsStartedEventId :: Lens' PollForActivityTaskResponse Integer
+pfatrsStartedEventId = lens _pfatrsStartedEventId (\ s a -> s{_pfatrsStartedEventId = a});
+
+-- | The workflow execution that started this activity task.
+pfatrsWorkflowExecution :: Lens' PollForActivityTaskResponse WorkflowExecution
+pfatrsWorkflowExecution = lens _pfatrsWorkflowExecution (\ s a -> s{_pfatrsWorkflowExecution = a});
+
+-- | The type of this activity task.
+pfatrsActivityType :: Lens' PollForActivityTaskResponse ActivityType
+pfatrsActivityType = lens _pfatrsActivityType (\ s a -> s{_pfatrsActivityType = a});

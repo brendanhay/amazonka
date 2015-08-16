@@ -1,0 +1,194 @@
+name:                  amazonka-codepipeline
+version:               1.0.0
+synopsis:              Amazon CodePipeline SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2015 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    AWS CodePipeline __Overview__
+
+    This is the AWS CodePipeline API Reference. This guide provides
+    descriptions of the actions and data types for AWS CodePipeline. Some
+    functionality for your pipeline is only configurable through the API.
+    For additional information, see the
+    <http://docs.aws.amazon.com/pipelines/latest/userguide/welcome.html AWS CodePipeline User Guide>.
+
+    You can use the AWS CodePipeline API to work with pipelines, stages,
+    actions, gates, and transitions, as described below.
+
+    /Pipelines/ are models of automated release processes. Each pipeline is
+    uniquely named, and consists of actions, gates, and stages.
+
+    You can work with pipelines by calling:
+
+    -   CreatePipeline, which creates a uniquely-named pipeline.
+    -   DeletePipeline, which deletes the specified pipeline.
+    -   GetPipeline, which returns information about a pipeline structure.
+    -   GetPipelineState, which returns information about the current state
+        of the stages and actions of a pipeline.
+    -   ListPipelines, which gets a summary of all of the pipelines
+        associated with your account.
+    -   StartPipelineExecution, which runs the the most recent revision of
+        an artifact through the pipeline.
+    -   UpdatePipeline, which updates a pipeline with edits or changes to
+        the structure of the pipeline.
+
+    Pipelines include /stages/, which are which are logical groupings of
+    gates and actions. Each stage contains one or more actions that must
+    complete before the next stage begins. A stage will result in success or
+    failure. If a stage fails, then the pipeline stops at that stage and
+    will remain stopped until either a new version of an artifact appears in
+    the source location, or a user takes action to re-run the most recent
+    artifact through the pipeline. You can call GetPipelineState, which
+    displays the status of a pipeline, including the status of stages in the
+    pipeline, or GetPipeline, which returns the entire structure of the
+    pipeline, including the stages of that pipeline.
+
+    Pipeline stages include /actions/, which are categorized into categories
+    such as source or build actions performed within a stage of a pipeline.
+    For example, you can use a source action to import artifacts into a
+    pipeline from a source such as Amazon S3. Like stages, you do not work
+    with actions directly in most cases, but you do define and interact with
+    actions when working with pipeline operations such as CreatePipeline and
+    GetPipelineState.
+
+    Pipelines also include /transitions/, which allow the transition of
+    artifacts from one stage to the next in a pipeline after the actions in
+    one stage complete.
+
+    You can work with transitions by calling:
+
+    -   DisableStageTransition, which prevents artifacts from transitioning
+        to the next stage in a pipeline.
+    -   EnableStageTransition, which enables transition of artifacts between
+        stages in a pipeline.
+
+    __Using the API to integrate with AWS CodePipeline__
+
+    For third-party integrators or developers who want to create their own
+    integrations with AWS CodePipeline, the expected sequence varies from
+    the standard API user. In order to integrate with AWS CodePipeline,
+    developers will need to work with the following items:
+
+    -   Jobs, which are instances of an action. For example, a job for a
+        source action might import a revision of an artifact from a source.
+
+        You can work with jobs by calling:
+
+        -   AcknowledgeJob, which confirms whether a job worker has received
+            the specified job,
+        -   PollForJobs, which determines whether there are any jobs to act
+            upon,
+        -   PutJobFailureResult, which provides details of a job failure,
+            and
+        -   PutJobSuccessResult, which provides details of a job success.
+    -   Third party jobs, which are instances of an action created by a
+        partner action and integrated into AWS CodePipeline. Partner actions
+        are created by members of the AWS Partner Network.
+
+        You can work with third party jobs by calling:
+
+        -   AcknowledgeThirdPartyJob, which confirms whether a job worker
+            has received the specified job,
+        -   PollForThirdPartyJobs, which determines whether there are any
+            jobs to act upon,
+        -   PutThirdPartyJobFailureResult, which provides details of a job
+            failure, and
+        -   PutThirdPartyJobSuccessResult, which provides details of a job
+            success.
+    .
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    .
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.CodePipeline" and the <http://docs.aws.amazon.com/codepipeline/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.CodePipeline
+        , Network.AWS.CodePipeline.AcknowledgeJob
+        , Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
+        , Network.AWS.CodePipeline.CreateCustomActionType
+        , Network.AWS.CodePipeline.CreatePipeline
+        , Network.AWS.CodePipeline.DeleteCustomActionType
+        , Network.AWS.CodePipeline.DeletePipeline
+        , Network.AWS.CodePipeline.DisableStageTransition
+        , Network.AWS.CodePipeline.EnableStageTransition
+        , Network.AWS.CodePipeline.GetJobDetails
+        , Network.AWS.CodePipeline.GetPipeline
+        , Network.AWS.CodePipeline.GetPipelineState
+        , Network.AWS.CodePipeline.GetThirdPartyJobDetails
+        , Network.AWS.CodePipeline.ListActionTypes
+        , Network.AWS.CodePipeline.ListPipelines
+        , Network.AWS.CodePipeline.PollForJobs
+        , Network.AWS.CodePipeline.PollForThirdPartyJobs
+        , Network.AWS.CodePipeline.PutActionRevision
+        , Network.AWS.CodePipeline.PutJobFailureResult
+        , Network.AWS.CodePipeline.PutJobSuccessResult
+        , Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
+        , Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
+        , Network.AWS.CodePipeline.StartPipelineExecution
+        , Network.AWS.CodePipeline.Types
+        , Network.AWS.CodePipeline.UpdatePipeline
+        , Network.AWS.CodePipeline.Waiters
+
+    other-modules:
+          Network.AWS.CodePipeline.Types.Product
+        , Network.AWS.CodePipeline.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.0.0.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-codepipeline-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.CodePipeline
+        , Test.AWS.Gen.CodePipeline
+        , Test.AWS.CodePipeline.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test == 1.0.0
+        , amazonka-codepipeline == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

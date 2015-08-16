@@ -1,124 +1,132 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudTrail.DescribeTrails
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Retrieves settings for the trail associated with the current region for your
--- account.
+-- |
+-- Module      : Network.AWS.CloudTrail.DescribeTrails
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DescribeTrails.html>
+-- Retrieves settings for the trail associated with the current region for
+-- your account.
+--
+-- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DescribeTrails.html AWS API Reference> for DescribeTrails.
 module Network.AWS.CloudTrail.DescribeTrails
     (
-    -- * Request
-      DescribeTrails
-    -- ** Request constructor
-    , describeTrails
-    -- ** Request lenses
+    -- * Creating a Request
+      describeTrails
+    , DescribeTrails
+    -- * Request Lenses
     , dtTrailNameList
 
-    -- * Response
-    , DescribeTrailsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeTrailsResponse
-    -- ** Response lenses
-    , dtrTrailList
+    , DescribeTrailsResponse
+    -- * Response Lenses
+    , dtrsTrailList
+    , dtrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CloudTrail.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.CloudTrail.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeTrails = DescribeTrails
-    { _dtTrailNameList :: List "trailNameList" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeTrails where
-    type Item DescribeTrails = Text
-
-    fromList = DescribeTrails . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dtTrailNameList
-
--- | 'DescribeTrails' constructor.
+-- | Returns information about the trail.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeTrails' smart constructor.
+newtype DescribeTrails = DescribeTrails'
+    { _dtTrailNameList :: Maybe [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeTrails' with the minimum fields required to make a request.
 --
--- * 'dtTrailNameList' @::@ ['Text']
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeTrails :: DescribeTrails
-describeTrails = DescribeTrails
-    { _dtTrailNameList = mempty
+-- * 'dtTrailNameList'
+describeTrails
+    :: DescribeTrails
+describeTrails =
+    DescribeTrails'
+    { _dtTrailNameList = Nothing
     }
 
 -- | The trail returned.
 dtTrailNameList :: Lens' DescribeTrails [Text]
-dtTrailNameList = lens _dtTrailNameList (\s a -> s { _dtTrailNameList = a }) . _List
+dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default . _Coerce;
 
-newtype DescribeTrailsResponse = DescribeTrailsResponse
-    { _dtrTrailList :: List "trailList" Trail
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeTrails where
+        type Sv DescribeTrails = CloudTrail
+        type Rs DescribeTrails = DescribeTrailsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeTrailsResponse' <$>
+                   (x .?> "trailList" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeTrailsResponse where
-    type Item DescribeTrailsResponse = Trail
+instance ToHeaders DescribeTrails where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DescribeTrails"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = DescribeTrailsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dtrTrailList
+instance ToJSON DescribeTrails where
+        toJSON DescribeTrails'{..}
+          = object ["trailNameList" .= _dtTrailNameList]
 
--- | 'DescribeTrailsResponse' constructor.
+instance ToPath DescribeTrails where
+        toPath = const "/"
+
+instance ToQuery DescribeTrails where
+        toQuery = const mempty
+
+-- | Returns the objects or data listed below if successful. Otherwise,
+-- returns an error.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeTrailsResponse' smart constructor.
+data DescribeTrailsResponse = DescribeTrailsResponse'
+    { _dtrsTrailList :: !(Maybe [Trail])
+    , _dtrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeTrailsResponse' with the minimum fields required to make a request.
 --
--- * 'dtrTrailList' @::@ ['Trail']
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeTrailsResponse :: DescribeTrailsResponse
-describeTrailsResponse = DescribeTrailsResponse
-    { _dtrTrailList = mempty
+-- * 'dtrsTrailList'
+--
+-- * 'dtrsStatus'
+describeTrailsResponse
+    :: Int -- ^ 'dtrsStatus'
+    -> DescribeTrailsResponse
+describeTrailsResponse pStatus_ =
+    DescribeTrailsResponse'
+    { _dtrsTrailList = Nothing
+    , _dtrsStatus = pStatus_
     }
 
 -- | The list of trails.
-dtrTrailList :: Lens' DescribeTrailsResponse [Trail]
-dtrTrailList = lens _dtrTrailList (\s a -> s { _dtrTrailList = a }) . _List
+dtrsTrailList :: Lens' DescribeTrailsResponse [Trail]
+dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default . _Coerce;
 
-instance ToPath DescribeTrails where
-    toPath = const "/"
-
-instance ToQuery DescribeTrails where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTrails
-
-instance ToJSON DescribeTrails where
-    toJSON DescribeTrails{..} = object
-        [ "trailNameList" .= _dtTrailNameList
-        ]
-
-instance AWSRequest DescribeTrails where
-    type Sv DescribeTrails = CloudTrail
-    type Rs DescribeTrails = DescribeTrailsResponse
-
-    request  = post "DescribeTrails"
-    response = jsonResponse
-
-instance FromJSON DescribeTrailsResponse where
-    parseJSON = withObject "DescribeTrailsResponse" $ \o -> DescribeTrailsResponse
-        <$> o .:? "trailList" .!= mempty
+-- | The response status code.
+dtrsStatus :: Lens' DescribeTrailsResponse Int
+dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

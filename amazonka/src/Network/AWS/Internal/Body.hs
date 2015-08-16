@@ -1,29 +1,29 @@
+-- |
 -- Module      : Network.AWS.Internal.Body
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
+-- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-
+--
 module Network.AWS.Internal.Body where
 
 import           Control.Applicative
+import           Control.Monad
 import           Control.Monad.IO.Class
+import           Control.Monad.Morph
 import           Control.Monad.Trans.Resource
-import           Crypto.Hash
-import qualified Crypto.Hash.Conduit          as Conduit
-import           Data.ByteString              (ByteString)
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Int
-import           Network.AWS.Data
+import           Network.AWS.Prelude
+import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Conduit
 import           System.IO
 
--- | Unsafely construct a 'RqBody' from a source, manually specifying the
+import           Prelude
+
+-- | Construct a 'RqBody' from a source, manually specifying the
 -- SHA256 hash and file size.
 sourceBody :: Digest SHA256
            -> Int64
@@ -31,24 +31,47 @@ sourceBody :: Digest SHA256
            -> RqBody
 sourceBody h n = RqBody h . requestBodySource n
 
--- | Unsafely construct a 'RqBody' from a 'Handle', manually specifying the
+-- | Construct a 'RqBody' from a 'Handle', manually specifying the
 -- SHA256 hash and file size.
 sourceHandle :: Digest SHA256 -> Int64 -> Handle -> RqBody
 sourceHandle h n = sourceBody h n . Conduit.sourceHandle
 
--- | Unsafely construct a 'RqBody' from a 'FilePath', manually specifying the
+-- | Construct a 'RqBody' from a 'FilePath', manually specifying the
 -- SHA256 hash and file size.
 sourceFile :: Digest SHA256 -> Int64 -> FilePath -> RqBody
 sourceFile h n = sourceBody h n . Conduit.sourceFile
 
--- | Safely construct a 'RqBody' from a 'FilePath', calculating the SHA256 hash
+-- | Construct a 'RqBody' from a 'FilePath', calculating the SHA256 hash
 -- and file size.
 --
--- /Note:/ While this function will perform in constant space, it will read the
+-- /Note:/ While this function will perform in constant space, it will enumerate the
 -- entirety of the file contents _twice_. Firstly to calculate the SHA256 and
 -- lastly to stream the contents to the socket during sending.
 sourceFileIO :: MonadIO m => FilePath -> m RqBody
-sourceFileIO f = liftIO $ sourceFile
-    <$> runResourceT (Conduit.sourceFile f $$ Conduit.sinkHash)
-    <*> fmap fromIntegral (withBinaryFile f ReadMode hFileSize)
-    <*> pure f
+sourceFileIO f = liftIO $
+    RqBody <$> runResourceT (Conduit.sourceFile f $$ sinkSHA256)
+           <*> Client.streamFile f
+
+-- | Convenience function for obtaining the size of a file.
+getFileSize :: MonadIO m => FilePath -> m Int64
+getFileSize f = liftIO $ fromIntegral `liftM` withBinaryFile f ReadMode hFileSize
+
+-- | Connect a 'Sink' to a reponse body.
+sinkBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
+sinkBody (RsBody src) sink = hoist liftResourceT src $$+- sink
+
+sinkMD5 :: Monad m => Consumer ByteString m (Digest MD5)
+sinkMD5 = sinkHash
+
+sinkSHA256 :: Monad m => Consumer ByteString m (Digest SHA256)
+sinkSHA256 = sinkHash
+
+-- | A cryptonite compatible incremental hash sink.
+sinkHash :: (Monad m, HashAlgorithm a) => Consumer ByteString m (Digest a)
+sinkHash = sink hashInit
+  where
+    sink ctx = do
+        b <- await
+        case b of
+            Nothing -> return $! hashFinalize ctx
+            Just bs -> sink $! hashUpdate ctx bs

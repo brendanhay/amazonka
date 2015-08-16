@@ -1,161 +1,185 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EMR.ListClusters
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Provides the status of all clusters visible to this AWS account. Allows you
--- to filter the list of clusters based on certain criteria; for example,
--- filtering by cluster creation date and time or by status. This call returns a
--- maximum of 50 clusters per call, but returns a marker to track the paging of
--- the cluster list across multiple ListClusters calls.
+-- |
+-- Module      : Network.AWS.EMR.ListClusters
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListClusters.html>
+-- Provides the status of all clusters visible to this AWS account. Allows
+-- you to filter the list of clusters based on certain criteria; for
+-- example, filtering by cluster creation date and time or by status. This
+-- call returns a maximum of 50 clusters per call, but returns a marker to
+-- track the paging of the cluster list across multiple ListClusters calls.
+--
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListClusters.html AWS API Reference> for ListClusters.
+--
+-- This operation returns paginated results.
 module Network.AWS.EMR.ListClusters
     (
-    -- * Request
-      ListClusters
-    -- ** Request constructor
-    , listClusters
-    -- ** Request lenses
-    , lcClusterStates
+    -- * Creating a Request
+      listClusters
+    , ListClusters
+    -- * Request Lenses
     , lcCreatedAfter
-    , lcCreatedBefore
     , lcMarker
+    , lcClusterStates
+    , lcCreatedBefore
 
-    -- * Response
-    , ListClustersResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listClustersResponse
-    -- ** Response lenses
-    , lcrClusters
-    , lcrMarker
+    , ListClustersResponse
+    -- * Response Lenses
+    , lcrsMarker
+    , lcrsClusters
+    , lcrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.EMR.Types
-import qualified GHC.Exts
+import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListClusters = ListClusters
-    { _lcClusterStates :: List "ClusterStates" ClusterState
-    , _lcCreatedAfter  :: Maybe POSIX
-    , _lcCreatedBefore :: Maybe POSIX
-    , _lcMarker        :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | This input determines how the ListClusters action filters the list of
+-- clusters that it returns.
+--
+-- /See:/ 'listClusters' smart constructor.
+data ListClusters = ListClusters'
+    { _lcCreatedAfter  :: !(Maybe POSIX)
+    , _lcMarker        :: !(Maybe Text)
+    , _lcClusterStates :: !(Maybe [ClusterState])
+    , _lcCreatedBefore :: !(Maybe POSIX)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListClusters' constructor.
+-- | Creates a value of 'ListClusters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcClusterStates' @::@ ['ClusterState']
+-- * 'lcCreatedAfter'
 --
--- * 'lcCreatedAfter' @::@ 'Maybe' 'UTCTime'
+-- * 'lcMarker'
 --
--- * 'lcCreatedBefore' @::@ 'Maybe' 'UTCTime'
+-- * 'lcClusterStates'
 --
--- * 'lcMarker' @::@ 'Maybe' 'Text'
---
-listClusters :: ListClusters
-listClusters = ListClusters
-    { _lcCreatedAfter  = Nothing
+-- * 'lcCreatedBefore'
+listClusters
+    :: ListClusters
+listClusters =
+    ListClusters'
+    { _lcCreatedAfter = Nothing
+    , _lcMarker = Nothing
+    , _lcClusterStates = Nothing
     , _lcCreatedBefore = Nothing
-    , _lcClusterStates = mempty
-    , _lcMarker        = Nothing
     }
-
--- | The cluster state filters to apply when listing clusters.
-lcClusterStates :: Lens' ListClusters [ClusterState]
-lcClusterStates = lens _lcClusterStates (\s a -> s { _lcClusterStates = a }) . _List
 
 -- | The creation date and time beginning value filter for listing clusters .
 lcCreatedAfter :: Lens' ListClusters (Maybe UTCTime)
-lcCreatedAfter = lens _lcCreatedAfter (\s a -> s { _lcCreatedAfter = a }) . mapping _Time
-
--- | The creation date and time end value filter for listing clusters .
-lcCreatedBefore :: Lens' ListClusters (Maybe UTCTime)
-lcCreatedBefore = lens _lcCreatedBefore (\s a -> s { _lcCreatedBefore = a }) . mapping _Time
+lcCreatedAfter = lens _lcCreatedAfter (\ s a -> s{_lcCreatedAfter = a}) . mapping _Time;
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lcMarker :: Lens' ListClusters (Maybe Text)
-lcMarker = lens _lcMarker (\s a -> s { _lcMarker = a })
+lcMarker = lens _lcMarker (\ s a -> s{_lcMarker = a});
 
-data ListClustersResponse = ListClustersResponse
-    { _lcrClusters :: List "Clusters" ClusterSummary
-    , _lcrMarker   :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | The cluster state filters to apply when listing clusters.
+lcClusterStates :: Lens' ListClusters [ClusterState]
+lcClusterStates = lens _lcClusterStates (\ s a -> s{_lcClusterStates = a}) . _Default . _Coerce;
 
--- | 'ListClustersResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lcrClusters' @::@ ['ClusterSummary']
---
--- * 'lcrMarker' @::@ 'Maybe' 'Text'
---
-listClustersResponse :: ListClustersResponse
-listClustersResponse = ListClustersResponse
-    { _lcrClusters = mempty
-    , _lcrMarker   = Nothing
-    }
-
--- | The list of clusters for the account based on the given filters.
-lcrClusters :: Lens' ListClustersResponse [ClusterSummary]
-lcrClusters = lens _lcrClusters (\s a -> s { _lcrClusters = a }) . _List
-
--- | The pagination token that indicates the next set of results to retrieve.
-lcrMarker :: Lens' ListClustersResponse (Maybe Text)
-lcrMarker = lens _lcrMarker (\s a -> s { _lcrMarker = a })
-
-instance ToPath ListClusters where
-    toPath = const "/"
-
-instance ToQuery ListClusters where
-    toQuery = const mempty
-
-instance ToHeaders ListClusters
-
-instance ToJSON ListClusters where
-    toJSON ListClusters{..} = object
-        [ "CreatedAfter"  .= _lcCreatedAfter
-        , "CreatedBefore" .= _lcCreatedBefore
-        , "ClusterStates" .= _lcClusterStates
-        , "Marker"        .= _lcMarker
-        ]
-
-instance AWSRequest ListClusters where
-    type Sv ListClusters = EMR
-    type Rs ListClusters = ListClustersResponse
-
-    request  = post "ListClusters"
-    response = jsonResponse
-
-instance FromJSON ListClustersResponse where
-    parseJSON = withObject "ListClustersResponse" $ \o -> ListClustersResponse
-        <$> o .:? "Clusters" .!= mempty
-        <*> o .:? "Marker"
+-- | The creation date and time end value filter for listing clusters .
+lcCreatedBefore :: Lens' ListClusters (Maybe UTCTime)
+lcCreatedBefore = lens _lcCreatedBefore (\ s a -> s{_lcCreatedBefore = a}) . mapping _Time;
 
 instance AWSPager ListClusters where
-    page rq rs
-        | stop (rs ^. lcrMarker) = Nothing
-        | otherwise = (\x -> rq & lcMarker ?~ x)
-            <$> (rs ^. lcrMarker)
+        page rq rs
+          | stop (rs ^. lcrsMarker) = Nothing
+          | stop (rs ^. lcrsClusters) = Nothing
+          | otherwise =
+            Just $ rq & lcMarker .~ rs ^. lcrsMarker
+
+instance AWSRequest ListClusters where
+        type Sv ListClusters = EMR
+        type Rs ListClusters = ListClustersResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListClustersResponse' <$>
+                   (x .?> "Marker") <*> (x .?> "Clusters" .!@ mempty)
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListClusters where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("ElasticMapReduce.ListClusters" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListClusters where
+        toJSON ListClusters'{..}
+          = object
+              ["CreatedAfter" .= _lcCreatedAfter,
+               "Marker" .= _lcMarker,
+               "ClusterStates" .= _lcClusterStates,
+               "CreatedBefore" .= _lcCreatedBefore]
+
+instance ToPath ListClusters where
+        toPath = const "/"
+
+instance ToQuery ListClusters where
+        toQuery = const mempty
+
+-- | This contains a ClusterSummaryList with the cluster details; for
+-- example, the cluster IDs, names, and status.
+--
+-- /See:/ 'listClustersResponse' smart constructor.
+data ListClustersResponse = ListClustersResponse'
+    { _lcrsMarker   :: !(Maybe Text)
+    , _lcrsClusters :: !(Maybe [ClusterSummary])
+    , _lcrsStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListClustersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lcrsMarker'
+--
+-- * 'lcrsClusters'
+--
+-- * 'lcrsStatus'
+listClustersResponse
+    :: Int -- ^ 'lcrsStatus'
+    -> ListClustersResponse
+listClustersResponse pStatus_ =
+    ListClustersResponse'
+    { _lcrsMarker = Nothing
+    , _lcrsClusters = Nothing
+    , _lcrsStatus = pStatus_
+    }
+
+-- | The pagination token that indicates the next set of results to retrieve.
+lcrsMarker :: Lens' ListClustersResponse (Maybe Text)
+lcrsMarker = lens _lcrsMarker (\ s a -> s{_lcrsMarker = a});
+
+-- | The list of clusters for the account based on the given filters.
+lcrsClusters :: Lens' ListClustersResponse [ClusterSummary]
+lcrsClusters = lens _lcrsClusters (\ s a -> s{_lcrsClusters = a}) . _Default . _Coerce;
+
+-- | The response status code.
+lcrsStatus :: Lens' ListClustersResponse Int
+lcrsStatus = lens _lcrsStatus (\ s a -> s{_lcrsStatus = a});

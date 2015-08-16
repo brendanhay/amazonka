@@ -1,101 +1,62 @@
-SHELL := /usr/bin/env bash
-DEPS  := vendor/botocore vendor/jason
+SHELL     := /usr/bin/env bash
+TOP       := ..
+BIN       := bin
+MODEL_DIR := model
+OUT_DIR   := ..
 
-CABAL_INSTALL_DEFARGS ?= -j --disable-documentation --disable-coverage
+define version =
+$(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(1))
+endef
 
-XML := \
- cloudfront \
- route53 \
- s3
+VERSION        = $(call version,amazonka-gen.cabal)
+CLIENT_VERSION = $(call version,$(TOP)/amazonka/amazonka.cabal)
+CORE_VERSION   = $(call version,$(TOP)/core/amazonka-core.cabal)
 
-QUERY := \
- autoscaling \
- cloudformation \
- cloudsearch \
- cloudwatch \
- ec2 \
- ecs \
- elasticache \
- elasticbeanstalk \
- elb \
- iam \
- importexport \
- rds \
- redshift \
- sdb \
- ses \
- sns \
- sqs \
- sts
+MODELS ?= $(sort $(dir $(wildcard $(MODEL_DIR)/*/*)))
 
-JSON := \
- cloudhsm \
- cloudsearchdomain \
- cloudtrail \
- codedeploy \
- cognito-identity \
- cognito-sync \
- config \
- datapipeline \
- directconnect \
- dynamodb \
- elastictranscoder \
- emr \
- glacier \
- kinesis \
- kms \
- lambda \
- logs \
- machinelearning \
- opsworks \
- route53domains \
- ssm \
- storagegateway \
- support \
- swf \
- workspaces
+.PHONY: gen format
 
-MODELS ?= $(QUERY) $(XML) $(JSON)
+release: gen format
 
-.PHONY: gen
+gen: $(BIN)/amazonka-gen
+	$(BIN)/amazonka-gen \
+ --out=$(OUT_DIR) \
+ --library-version=$(VERSION) \
+ --client-version=$(VERSION) \
+ --core-version=$(CORE_VERSION) \
+ --annexes=annex \
+ --configs=config \
+ --templates=template \
+ --static=static \
+ --retry=$(MODEL_DIR)/_retry.json \
+ $(addprefix --model=,$(MODELS))
 
-gen: build
-	dist/build/amazonka-gen/amazonka-gen \
- --out=../ \
- --services=output \
- --overrides=overrides \
- --templates=templates \
- --assets=assets \
- --retry=input/_retry.json \
- $(addprefix --model=,$(addprefix input/,$(MODELS)))
+format:
+	@echo -e '\nFormatting...'
+	@find $(wildcard $(OUT_DIR)/amazonka-*/gen) $(wildcard $(OUT_DIR)/test/Test/AWS/Gen) \
+ -type f \
+ -name '*.hs' \
+ -printf ' -> %p\n' \
+ -exec stylish-haskell -i {} \;
 
-build: input output
-	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
+build: $(MODEL_DIR)
+	stack build amazonka-gen
 
-deps: add-sources
-	cabal install $(CABAL_INSTALL_DEFARGS) --only-dependencies
+$(BIN)/amazonka-gen: $(BIN) build
+	stack build amazonka-gen --copy-bins --local-bin-path $(BIN)
 
-full-clean: clean
-	rm -rf input vendor
+$(BIN):
+	mkdir $@
 
 clean:
-	cabal clean
-	rm -rf output cabal.sandbox.config .cabal-sandbox
+	stack clean
+	rm -rf $(MODEL_DIR)
 
-add-sources: cabal.sandbox.config $(DEPS)
-	cabal sandbox add-source vendor/jason
+full-clean: clean
+	rm -rf vendor
 
-cabal.sandbox.config:
-	cabal sandbox init
+$(MODEL_DIR): vendor/botocore
+	cp -rf vendor/botocore/botocore/data $@
 
 vendor/botocore:
 	git clone git@github.com:boto/botocore $@
-
-vendor/%:
-	git clone git@github.com:brendanhay/$*.git $@
-
-input:
-	cp -rf vendor/botocore/botocore/data/aws $@
-
-output:
-	@mkdir $@

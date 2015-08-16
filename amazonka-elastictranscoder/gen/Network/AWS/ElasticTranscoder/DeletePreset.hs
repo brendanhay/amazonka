@@ -1,101 +1,115 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElasticTranscoder.DeletePreset
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The DeletePreset operation removes a preset that you've added in an AWS
+-- |
+-- Module      : Network.AWS.ElasticTranscoder.DeletePreset
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- The DeletePreset operation removes a preset that you\'ve added in an AWS
 -- region.
 --
--- You can't delete the default presets that are included with Elastic
+-- You can\'t delete the default presets that are included with Elastic
 -- Transcoder.
 --
---
---
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePreset.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/DeletePreset.html AWS API Reference> for DeletePreset.
 module Network.AWS.ElasticTranscoder.DeletePreset
     (
-    -- * Request
-      DeletePreset
-    -- ** Request constructor
-    , deletePreset
-    -- ** Request lenses
+    -- * Creating a Request
+      deletePreset
+    , DeletePreset
+    -- * Request Lenses
     , dpId
 
-    -- * Response
-    , DeletePresetResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deletePresetResponse
+    , DeletePresetResponse
+    -- * Response Lenses
+    , dprsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.ElasticTranscoder.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeletePreset = DeletePreset
+-- | The 'DeletePresetRequest' structure.
+--
+-- /See:/ 'deletePreset' smart constructor.
+newtype DeletePreset = DeletePreset'
     { _dpId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeletePreset' constructor.
+-- | Creates a value of 'DeletePreset' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dpId' @::@ 'Text'
---
-deletePreset :: Text -- ^ 'dpId'
-             -> DeletePreset
-deletePreset p1 = DeletePreset
-    { _dpId = p1
+-- * 'dpId'
+deletePreset
+    :: Text -- ^ 'dpId'
+    -> DeletePreset
+deletePreset pId_ =
+    DeletePreset'
+    { _dpId = pId_
     }
 
--- | The identifier of the preset for which you want to get detailed information.
+-- | The identifier of the preset for which you want to get detailed
+-- information.
 dpId :: Lens' DeletePreset Text
-dpId = lens _dpId (\s a -> s { _dpId = a })
-
-data DeletePresetResponse = DeletePresetResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeletePresetResponse' constructor.
-deletePresetResponse :: DeletePresetResponse
-deletePresetResponse = DeletePresetResponse
-
-instance ToPath DeletePreset where
-    toPath DeletePreset{..} = mconcat
-        [ "/2012-09-25/presets/"
-        , toText _dpId
-        ]
-
-instance ToQuery DeletePreset where
-    toQuery = const mempty
-
-instance ToHeaders DeletePreset
-
-instance ToJSON DeletePreset where
-    toJSON = const (toJSON Empty)
+dpId = lens _dpId (\ s a -> s{_dpId = a});
 
 instance AWSRequest DeletePreset where
-    type Sv DeletePreset = ElasticTranscoder
-    type Rs DeletePreset = DeletePresetResponse
+        type Sv DeletePreset = ElasticTranscoder
+        type Rs DeletePreset = DeletePresetResponse
+        request = delete
+        response
+          = receiveEmpty
+              (\ s h x ->
+                 DeletePresetResponse' <$> (pure (fromEnum s)))
 
-    request  = delete
-    response = nullResponse DeletePresetResponse
+instance ToHeaders DeletePreset where
+        toHeaders = const mempty
+
+instance ToPath DeletePreset where
+        toPath DeletePreset'{..}
+          = mconcat ["/2012-09-25/presets/", toBS _dpId]
+
+instance ToQuery DeletePreset where
+        toQuery = const mempty
+
+-- | The 'DeletePresetResponse' structure.
+--
+-- /See:/ 'deletePresetResponse' smart constructor.
+newtype DeletePresetResponse = DeletePresetResponse'
+    { _dprsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeletePresetResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dprsStatus'
+deletePresetResponse
+    :: Int -- ^ 'dprsStatus'
+    -> DeletePresetResponse
+deletePresetResponse pStatus_ =
+    DeletePresetResponse'
+    { _dprsStatus = pStatus_
+    }
+
+-- | The response status code.
+dprsStatus :: Lens' DeletePresetResponse Int
+dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+$* &
+pidA=$!
+minutes=0
+
+while true; do sleep 60; ((minutes++)); echo -e "\033[0;32m$minutes minute(s) elapsed running '$*'\033[0m."; done &
+pidB=$!
+wait $pidA
+resA=$?
+
+echo -e "\033[0;32m'$*' exited with status ${resA}.\033[0m"
+kill -9 $pidB
+
+exit $resA

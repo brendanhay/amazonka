@@ -1,134 +1,154 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CognitoIdentity.ListIdentityPools
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists all of the Cognito identity pools registered for your account.
+-- |
+-- Module      : Network.AWS.CognitoIdentity.ListIdentityPools
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_ListIdentityPools.html>
+-- Lists all of the Cognito identity pools registered for your account.
+--
+-- This is a public API. You do not need any credentials to call this API.
+--
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_ListIdentityPools.html AWS API Reference> for ListIdentityPools.
 module Network.AWS.CognitoIdentity.ListIdentityPools
     (
-    -- * Request
-      ListIdentityPools
-    -- ** Request constructor
-    , listIdentityPools
-    -- ** Request lenses
-    , lipMaxResults
+    -- * Creating a Request
+      listIdentityPools
+    , ListIdentityPools
+    -- * Request Lenses
     , lipNextToken
+    , lipMaxResults
 
-    -- * Response
-    , ListIdentityPoolsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listIdentityPoolsResponse
-    -- ** Response lenses
-    , liprIdentityPools
-    , liprNextToken
+    , ListIdentityPoolsResponse
+    -- * Response Lenses
+    , liprsIdentityPools
+    , liprsNextToken
+    , liprsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CognitoIdentity.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListIdentityPools = ListIdentityPools
-    { _lipMaxResults :: Nat
-    , _lipNextToken  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Input to the ListIdentityPools action.
+--
+-- /See:/ 'listIdentityPools' smart constructor.
+data ListIdentityPools = ListIdentityPools'
+    { _lipNextToken  :: !(Maybe Text)
+    , _lipMaxResults :: !Nat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListIdentityPools' constructor.
+-- | Creates a value of 'ListIdentityPools' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lipMaxResults' @::@ 'Natural'
+-- * 'lipNextToken'
 --
--- * 'lipNextToken' @::@ 'Maybe' 'Text'
---
-listIdentityPools :: Natural -- ^ 'lipMaxResults'
-                  -> ListIdentityPools
-listIdentityPools p1 = ListIdentityPools
-    { _lipMaxResults = withIso _Nat (const id) p1
-    , _lipNextToken  = Nothing
+-- * 'lipMaxResults'
+listIdentityPools
+    :: Natural -- ^ 'lipMaxResults'
+    -> ListIdentityPools
+listIdentityPools pMaxResults_ =
+    ListIdentityPools'
+    { _lipNextToken = Nothing
+    , _lipMaxResults = _Nat # pMaxResults_
     }
-
--- | The maximum number of identities to return.
-lipMaxResults :: Lens' ListIdentityPools Natural
-lipMaxResults = lens _lipMaxResults (\s a -> s { _lipMaxResults = a }) . _Nat
 
 -- | A pagination token.
 lipNextToken :: Lens' ListIdentityPools (Maybe Text)
-lipNextToken = lens _lipNextToken (\s a -> s { _lipNextToken = a })
+lipNextToken = lens _lipNextToken (\ s a -> s{_lipNextToken = a});
 
-data ListIdentityPoolsResponse = ListIdentityPoolsResponse
-    { _liprIdentityPools :: List "IdentityPools" IdentityPoolShortDescription
-    , _liprNextToken     :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | The maximum number of identities to return.
+lipMaxResults :: Lens' ListIdentityPools Natural
+lipMaxResults = lens _lipMaxResults (\ s a -> s{_lipMaxResults = a}) . _Nat;
 
--- | 'ListIdentityPoolsResponse' constructor.
+instance AWSRequest ListIdentityPools where
+        type Sv ListIdentityPools = CognitoIdentity
+        type Rs ListIdentityPools = ListIdentityPoolsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListIdentityPoolsResponse' <$>
+                   (x .?> "IdentityPools" .!@ mempty) <*>
+                     (x .?> "NextToken")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListIdentityPools where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSCognitoIdentityService.ListIdentityPools" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListIdentityPools where
+        toJSON ListIdentityPools'{..}
+          = object
+              ["NextToken" .= _lipNextToken,
+               "MaxResults" .= _lipMaxResults]
+
+instance ToPath ListIdentityPools where
+        toPath = const "/"
+
+instance ToQuery ListIdentityPools where
+        toQuery = const mempty
+
+-- | The result of a successful ListIdentityPools action.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'listIdentityPoolsResponse' smart constructor.
+data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
+    { _liprsIdentityPools :: !(Maybe [IdentityPoolShortDescription])
+    , _liprsNextToken     :: !(Maybe Text)
+    , _liprsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListIdentityPoolsResponse' with the minimum fields required to make a request.
 --
--- * 'liprIdentityPools' @::@ ['IdentityPoolShortDescription']
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liprNextToken' @::@ 'Maybe' 'Text'
+-- * 'liprsIdentityPools'
 --
-listIdentityPoolsResponse :: ListIdentityPoolsResponse
-listIdentityPoolsResponse = ListIdentityPoolsResponse
-    { _liprIdentityPools = mempty
-    , _liprNextToken     = Nothing
+-- * 'liprsNextToken'
+--
+-- * 'liprsStatus'
+listIdentityPoolsResponse
+    :: Int -- ^ 'liprsStatus'
+    -> ListIdentityPoolsResponse
+listIdentityPoolsResponse pStatus_ =
+    ListIdentityPoolsResponse'
+    { _liprsIdentityPools = Nothing
+    , _liprsNextToken = Nothing
+    , _liprsStatus = pStatus_
     }
 
 -- | The identity pools returned by the ListIdentityPools action.
-liprIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
-liprIdentityPools =
-    lens _liprIdentityPools (\s a -> s { _liprIdentityPools = a })
-        . _List
+liprsIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
+liprsIdentityPools = lens _liprsIdentityPools (\ s a -> s{_liprsIdentityPools = a}) . _Default . _Coerce;
 
 -- | A pagination token.
-liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
-liprNextToken = lens _liprNextToken (\s a -> s { _liprNextToken = a })
+liprsNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
+liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a});
 
-instance ToPath ListIdentityPools where
-    toPath = const "/"
-
-instance ToQuery ListIdentityPools where
-    toQuery = const mempty
-
-instance ToHeaders ListIdentityPools
-
-instance ToJSON ListIdentityPools where
-    toJSON ListIdentityPools{..} = object
-        [ "MaxResults" .= _lipMaxResults
-        , "NextToken"  .= _lipNextToken
-        ]
-
-instance AWSRequest ListIdentityPools where
-    type Sv ListIdentityPools = CognitoIdentity
-    type Rs ListIdentityPools = ListIdentityPoolsResponse
-
-    request  = post "ListIdentityPools"
-    response = jsonResponse
-
-instance FromJSON ListIdentityPoolsResponse where
-    parseJSON = withObject "ListIdentityPoolsResponse" $ \o -> ListIdentityPoolsResponse
-        <$> o .:? "IdentityPools" .!= mempty
-        <*> o .:? "NextToken"
+-- | The response status code.
+liprsStatus :: Lens' ListIdentityPoolsResponse Int
+liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});

@@ -1,104 +1,109 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.DetachUserPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Removes the specified managed policy from the specified user.
+-- |
+-- Module      : Network.AWS.IAM.DetachUserPolicy
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- A user can also have inline policies embedded with it. To delete an inline
--- policy, use the 'DeleteUserPolicy' API. For information about policies, refer
--- to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/ guide.
+-- Removes the specified managed policy from the specified user.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachUserPolicy.html>
+-- A user can also have inline policies embedded with it. To delete an
+-- inline policy, use the DeleteUserPolicy API. For information about
+-- policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachUserPolicy.html AWS API Reference> for DetachUserPolicy.
 module Network.AWS.IAM.DetachUserPolicy
     (
-    -- * Request
-      DetachUserPolicy
-    -- ** Request constructor
-    , detachUserPolicy
-    -- ** Request lenses
-    , dup1PolicyArn
-    , dup1UserName
+    -- * Creating a Request
+      detachUserPolicy
+    , DetachUserPolicy
+    -- * Request Lenses
+    , dUserName
+    , dPolicyARN
 
-    -- * Response
-    , DetachUserPolicyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , detachUserPolicyResponse
+    , DetachUserPolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DetachUserPolicy = DetachUserPolicy
-    { _dup1PolicyArn :: Text
-    , _dup1UserName  :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'detachUserPolicy' smart constructor.
+data DetachUserPolicy = DetachUserPolicy'
+    { _dUserName  :: !Text
+    , _dPolicyARN :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachUserPolicy' constructor.
+-- | Creates a value of 'DetachUserPolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dup1PolicyArn' @::@ 'Text'
+-- * 'dUserName'
 --
--- * 'dup1UserName' @::@ 'Text'
---
-detachUserPolicy :: Text -- ^ 'dup1UserName'
-                 -> Text -- ^ 'dup1PolicyArn'
-                 -> DetachUserPolicy
-detachUserPolicy p1 p2 = DetachUserPolicy
-    { _dup1UserName  = p1
-    , _dup1PolicyArn = p2
+-- * 'dPolicyARN'
+detachUserPolicy
+    :: Text -- ^ 'dUserName'
+    -> Text -- ^ 'dPolicyARN'
+    -> DetachUserPolicy
+detachUserPolicy pUserName_ pPolicyARN_ =
+    DetachUserPolicy'
+    { _dUserName = pUserName_
+    , _dPolicyARN = pPolicyARN_
     }
 
-dup1PolicyArn :: Lens' DetachUserPolicy Text
-dup1PolicyArn = lens _dup1PolicyArn (\s a -> s { _dup1PolicyArn = a })
-
 -- | The name (friendly name, not ARN) of the user to detach the policy from.
-dup1UserName :: Lens' DetachUserPolicy Text
-dup1UserName = lens _dup1UserName (\s a -> s { _dup1UserName = a })
+dUserName :: Lens' DetachUserPolicy Text
+dUserName = lens _dUserName (\ s a -> s{_dUserName = a});
 
-data DetachUserPolicyResponse = DetachUserPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DetachUserPolicyResponse' constructor.
-detachUserPolicyResponse :: DetachUserPolicyResponse
-detachUserPolicyResponse = DetachUserPolicyResponse
-
-instance ToPath DetachUserPolicy where
-    toPath = const "/"
-
-instance ToQuery DetachUserPolicy where
-    toQuery DetachUserPolicy{..} = mconcat
-        [ "PolicyArn" =? _dup1PolicyArn
-        , "UserName"  =? _dup1UserName
-        ]
-
-instance ToHeaders DetachUserPolicy
+-- | Undocumented member.
+dPolicyARN :: Lens' DetachUserPolicy Text
+dPolicyARN = lens _dPolicyARN (\ s a -> s{_dPolicyARN = a});
 
 instance AWSRequest DetachUserPolicy where
-    type Sv DetachUserPolicy = IAM
-    type Rs DetachUserPolicy = DetachUserPolicyResponse
+        type Sv DetachUserPolicy = IAM
+        type Rs DetachUserPolicy = DetachUserPolicyResponse
+        request = postQuery
+        response = receiveNull DetachUserPolicyResponse'
 
-    request  = post "DetachUserPolicy"
-    response = nullResponse DetachUserPolicyResponse
+instance ToHeaders DetachUserPolicy where
+        toHeaders = const mempty
+
+instance ToPath DetachUserPolicy where
+        toPath = const "/"
+
+instance ToQuery DetachUserPolicy where
+        toQuery DetachUserPolicy'{..}
+          = mconcat
+              ["Action" =: ("DetachUserPolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "UserName" =: _dUserName, "PolicyArn" =: _dPolicyARN]
+
+-- | /See:/ 'detachUserPolicyResponse' smart constructor.
+data DetachUserPolicyResponse =
+    DetachUserPolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DetachUserPolicyResponse' with the minimum fields required to make a request.
+--
+detachUserPolicyResponse
+    :: DetachUserPolicyResponse
+detachUserPolicyResponse = DetachUserPolicyResponse'

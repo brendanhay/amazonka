@@ -1,109 +1,120 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the draft configuration associated with the running environment.
+-- |
+-- Module      : Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes the draft configuration associated with the running environment.
 --
 -- Updating a running environment with any configuration changes creates a
--- draft configuration set. You can get the draft configuration using 'DescribeConfigurationSettings' while the update is in progress or if the update fails. The 'DeploymentStatus'
--- for the draft configuration indicates whether the deployment is in process or
--- has failed. The draft configuration remains in existence until it is deleted
--- with this action.
+-- draft configuration set. You can get the draft configuration using
+-- DescribeConfigurationSettings while the update is in progress or if the
+-- update fails. The 'DeploymentStatus' for the draft configuration
+-- indicates whether the deployment is in process or has failed. The draft
+-- configuration remains in existence until it is deleted with this action.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteEnvironmentConfiguration.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteEnvironmentConfiguration.html AWS API Reference> for DeleteEnvironmentConfiguration.
 module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     (
-    -- * Request
-      DeleteEnvironmentConfiguration
-    -- ** Request constructor
-    , deleteEnvironmentConfiguration
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteEnvironmentConfiguration
+    , DeleteEnvironmentConfiguration
+    -- * Request Lenses
     , decApplicationName
     , decEnvironmentName
 
-    -- * Response
-    , DeleteEnvironmentConfigurationResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteEnvironmentConfigurationResponse
+    , DeleteEnvironmentConfigurationResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
-    { _decApplicationName :: Text
-    , _decEnvironmentName :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'deleteEnvironmentConfiguration' smart constructor.
+data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
+    { _decApplicationName :: !Text
+    , _decEnvironmentName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEnvironmentConfiguration' constructor.
+-- | Creates a value of 'DeleteEnvironmentConfiguration' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'decApplicationName' @::@ 'Text'
+-- * 'decApplicationName'
 --
--- * 'decEnvironmentName' @::@ 'Text'
---
-deleteEnvironmentConfiguration :: Text -- ^ 'decApplicationName'
-                               -> Text -- ^ 'decEnvironmentName'
-                               -> DeleteEnvironmentConfiguration
-deleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfiguration
-    { _decApplicationName = p1
-    , _decEnvironmentName = p2
+-- * 'decEnvironmentName'
+deleteEnvironmentConfiguration
+    :: Text -- ^ 'decApplicationName'
+    -> Text -- ^ 'decEnvironmentName'
+    -> DeleteEnvironmentConfiguration
+deleteEnvironmentConfiguration pApplicationName_ pEnvironmentName_ =
+    DeleteEnvironmentConfiguration'
+    { _decApplicationName = pApplicationName_
+    , _decEnvironmentName = pEnvironmentName_
     }
 
 -- | The name of the application the environment is associated with.
 decApplicationName :: Lens' DeleteEnvironmentConfiguration Text
-decApplicationName =
-    lens _decApplicationName (\s a -> s { _decApplicationName = a })
+decApplicationName = lens _decApplicationName (\ s a -> s{_decApplicationName = a});
 
 -- | The name of the environment to delete the draft configuration from.
 decEnvironmentName :: Lens' DeleteEnvironmentConfiguration Text
-decEnvironmentName =
-    lens _decEnvironmentName (\s a -> s { _decEnvironmentName = a })
+decEnvironmentName = lens _decEnvironmentName (\ s a -> s{_decEnvironmentName = a});
 
-data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteEnvironmentConfigurationResponse' constructor.
-deleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse
-deleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
-
-instance ToPath DeleteEnvironmentConfiguration where
-    toPath = const "/"
-
-instance ToQuery DeleteEnvironmentConfiguration where
-    toQuery DeleteEnvironmentConfiguration{..} = mconcat
-        [ "ApplicationName" =? _decApplicationName
-        , "EnvironmentName" =? _decEnvironmentName
-        ]
+instance AWSRequest DeleteEnvironmentConfiguration
+         where
+        type Sv DeleteEnvironmentConfiguration =
+             ElasticBeanstalk
+        type Rs DeleteEnvironmentConfiguration =
+             DeleteEnvironmentConfigurationResponse
+        request = postQuery
+        response
+          = receiveNull DeleteEnvironmentConfigurationResponse'
 
 instance ToHeaders DeleteEnvironmentConfiguration
+         where
+        toHeaders = const mempty
 
-instance AWSRequest DeleteEnvironmentConfiguration where
-    type Sv DeleteEnvironmentConfiguration = ElasticBeanstalk
-    type Rs DeleteEnvironmentConfiguration = DeleteEnvironmentConfigurationResponse
+instance ToPath DeleteEnvironmentConfiguration where
+        toPath = const "/"
 
-    request  = post "DeleteEnvironmentConfiguration"
-    response = nullResponse DeleteEnvironmentConfigurationResponse
+instance ToQuery DeleteEnvironmentConfiguration where
+        toQuery DeleteEnvironmentConfiguration'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteEnvironmentConfiguration" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "ApplicationName" =: _decApplicationName,
+               "EnvironmentName" =: _decEnvironmentName]
+
+-- | /See:/ 'deleteEnvironmentConfigurationResponse' smart constructor.
+data DeleteEnvironmentConfigurationResponse =
+    DeleteEnvironmentConfigurationResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteEnvironmentConfigurationResponse' with the minimum fields required to make a request.
+--
+deleteEnvironmentConfigurationResponse
+    :: DeleteEnvironmentConfigurationResponse
+deleteEnvironmentConfigurationResponse =
+    DeleteEnvironmentConfigurationResponse'

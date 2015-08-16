@@ -1,118 +1,128 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CodeDeploy.RegisterApplicationRevision
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Registers with AWS CodeDeploy a revision for the specified application.
+-- |
+-- Module      : Network.AWS.CodeDeploy.RegisterApplicationRevision
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterApplicationRevision.html>
+-- Registers with AWS CodeDeploy a revision for the specified application.
+--
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterApplicationRevision.html AWS API Reference> for RegisterApplicationRevision.
 module Network.AWS.CodeDeploy.RegisterApplicationRevision
     (
-    -- * Request
-      RegisterApplicationRevision
-    -- ** Request constructor
-    , registerApplicationRevision
-    -- ** Request lenses
-    , rarApplicationName
+    -- * Creating a Request
+      registerApplicationRevision
+    , RegisterApplicationRevision
+    -- * Request Lenses
     , rarDescription
+    , rarApplicationName
     , rarRevision
 
-    -- * Response
-    , RegisterApplicationRevisionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , registerApplicationRevisionResponse
+    , RegisterApplicationRevisionResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RegisterApplicationRevision = RegisterApplicationRevision
-    { _rarApplicationName :: Text
-    , _rarDescription     :: Maybe Text
-    , _rarRevision        :: RevisionLocation
-    } deriving (Eq, Read, Show)
+-- | Represents the input of a register application revision operation.
+--
+-- /See:/ 'registerApplicationRevision' smart constructor.
+data RegisterApplicationRevision = RegisterApplicationRevision'
+    { _rarDescription     :: !(Maybe Text)
+    , _rarApplicationName :: !Text
+    , _rarRevision        :: !RevisionLocation
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterApplicationRevision' constructor.
+-- | Creates a value of 'RegisterApplicationRevision' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rarApplicationName' @::@ 'Text'
+-- * 'rarDescription'
 --
--- * 'rarDescription' @::@ 'Maybe' 'Text'
+-- * 'rarApplicationName'
 --
--- * 'rarRevision' @::@ 'RevisionLocation'
---
-registerApplicationRevision :: Text -- ^ 'rarApplicationName'
-                            -> RevisionLocation -- ^ 'rarRevision'
-                            -> RegisterApplicationRevision
-registerApplicationRevision p1 p2 = RegisterApplicationRevision
-    { _rarApplicationName = p1
-    , _rarRevision        = p2
-    , _rarDescription     = Nothing
+-- * 'rarRevision'
+registerApplicationRevision
+    :: Text -- ^ 'rarApplicationName'
+    -> RevisionLocation -- ^ 'rarRevision'
+    -> RegisterApplicationRevision
+registerApplicationRevision pApplicationName_ pRevision_ =
+    RegisterApplicationRevision'
+    { _rarDescription = Nothing
+    , _rarApplicationName = pApplicationName_
+    , _rarRevision = pRevision_
     }
+
+-- | A comment about the revision.
+rarDescription :: Lens' RegisterApplicationRevision (Maybe Text)
+rarDescription = lens _rarDescription (\ s a -> s{_rarDescription = a});
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
 rarApplicationName :: Lens' RegisterApplicationRevision Text
-rarApplicationName =
-    lens _rarApplicationName (\s a -> s { _rarApplicationName = a })
-
--- | A comment about the revision.
-rarDescription :: Lens' RegisterApplicationRevision (Maybe Text)
-rarDescription = lens _rarDescription (\s a -> s { _rarDescription = a })
+rarApplicationName = lens _rarApplicationName (\ s a -> s{_rarApplicationName = a});
 
 -- | Information about the application revision to register, including the
--- revision's type and its location.
+-- revision\'s type and its location.
 rarRevision :: Lens' RegisterApplicationRevision RevisionLocation
-rarRevision = lens _rarRevision (\s a -> s { _rarRevision = a })
-
-data RegisterApplicationRevisionResponse = RegisterApplicationRevisionResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'RegisterApplicationRevisionResponse' constructor.
-registerApplicationRevisionResponse :: RegisterApplicationRevisionResponse
-registerApplicationRevisionResponse = RegisterApplicationRevisionResponse
-
-instance ToPath RegisterApplicationRevision where
-    toPath = const "/"
-
-instance ToQuery RegisterApplicationRevision where
-    toQuery = const mempty
-
-instance ToHeaders RegisterApplicationRevision
-
-instance ToJSON RegisterApplicationRevision where
-    toJSON RegisterApplicationRevision{..} = object
-        [ "applicationName" .= _rarApplicationName
-        , "description"     .= _rarDescription
-        , "revision"        .= _rarRevision
-        ]
+rarRevision = lens _rarRevision (\ s a -> s{_rarRevision = a});
 
 instance AWSRequest RegisterApplicationRevision where
-    type Sv RegisterApplicationRevision = CodeDeploy
-    type Rs RegisterApplicationRevision = RegisterApplicationRevisionResponse
+        type Sv RegisterApplicationRevision = CodeDeploy
+        type Rs RegisterApplicationRevision =
+             RegisterApplicationRevisionResponse
+        request = postJSON
+        response
+          = receiveNull RegisterApplicationRevisionResponse'
 
-    request  = post "RegisterApplicationRevision"
-    response = nullResponse RegisterApplicationRevisionResponse
+instance ToHeaders RegisterApplicationRevision where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.RegisterApplicationRevision" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON RegisterApplicationRevision where
+        toJSON RegisterApplicationRevision'{..}
+          = object
+              ["description" .= _rarDescription,
+               "applicationName" .= _rarApplicationName,
+               "revision" .= _rarRevision]
+
+instance ToPath RegisterApplicationRevision where
+        toPath = const "/"
+
+instance ToQuery RegisterApplicationRevision where
+        toQuery = const mempty
+
+-- | /See:/ 'registerApplicationRevisionResponse' smart constructor.
+data RegisterApplicationRevisionResponse =
+    RegisterApplicationRevisionResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RegisterApplicationRevisionResponse' with the minimum fields required to make a request.
+--
+registerApplicationRevisionResponse
+    :: RegisterApplicationRevisionResponse
+registerApplicationRevisionResponse = RegisterApplicationRevisionResponse'

@@ -1,101 +1,109 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.OpsWorks.StopInstance
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Stops a specified instance. When you stop a standard instance, the data
--- disappears and must be reinstalled when you restart the instance. You can
--- stop an Amazon EBS-backed instance without losing data. For more information,
--- see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html Starting, Stopping, and Rebooting Instances>.
+-- |
+-- Module      : Network.AWS.OpsWorks.StopInstance
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- Stops a specified instance. When you stop a standard instance, the data
+-- disappears and must be reinstalled when you restart the instance. You
+-- can stop an Amazon EBS-backed instance without losing data. For more
+-- information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html Starting, Stopping, and Rebooting Instances>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StopInstance.html>
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_StopInstance.html AWS API Reference> for StopInstance.
 module Network.AWS.OpsWorks.StopInstance
     (
-    -- * Request
-      StopInstance
-    -- ** Request constructor
-    , stopInstance
-    -- ** Request lenses
+    -- * Creating a Request
+      stopInstance
+    , StopInstance
+    -- * Request Lenses
     , siInstanceId
 
-    -- * Response
-    , StopInstanceResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , stopInstanceResponse
+    , StopInstanceResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype StopInstance = StopInstance
+-- | /See:/ 'stopInstance' smart constructor.
+newtype StopInstance = StopInstance'
     { _siInstanceId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopInstance' constructor.
+-- | Creates a value of 'StopInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'siInstanceId' @::@ 'Text'
---
-stopInstance :: Text -- ^ 'siInstanceId'
-             -> StopInstance
-stopInstance p1 = StopInstance
-    { _siInstanceId = p1
+-- * 'siInstanceId'
+stopInstance
+    :: Text -- ^ 'siInstanceId'
+    -> StopInstance
+stopInstance pInstanceId_ =
+    StopInstance'
+    { _siInstanceId = pInstanceId_
     }
 
 -- | The instance ID.
 siInstanceId :: Lens' StopInstance Text
-siInstanceId = lens _siInstanceId (\s a -> s { _siInstanceId = a })
-
-data StopInstanceResponse = StopInstanceResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'StopInstanceResponse' constructor.
-stopInstanceResponse :: StopInstanceResponse
-stopInstanceResponse = StopInstanceResponse
-
-instance ToPath StopInstance where
-    toPath = const "/"
-
-instance ToQuery StopInstance where
-    toQuery = const mempty
-
-instance ToHeaders StopInstance
-
-instance ToJSON StopInstance where
-    toJSON StopInstance{..} = object
-        [ "InstanceId" .= _siInstanceId
-        ]
+siInstanceId = lens _siInstanceId (\ s a -> s{_siInstanceId = a});
 
 instance AWSRequest StopInstance where
-    type Sv StopInstance = OpsWorks
-    type Rs StopInstance = StopInstanceResponse
+        type Sv StopInstance = OpsWorks
+        type Rs StopInstance = StopInstanceResponse
+        request = postJSON
+        response = receiveNull StopInstanceResponse'
 
-    request  = post "StopInstance"
-    response = nullResponse StopInstanceResponse
+instance ToHeaders StopInstance where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.StopInstance" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON StopInstance where
+        toJSON StopInstance'{..}
+          = object ["InstanceId" .= _siInstanceId]
+
+instance ToPath StopInstance where
+        toPath = const "/"
+
+instance ToQuery StopInstance where
+        toQuery = const mempty
+
+-- | /See:/ 'stopInstanceResponse' smart constructor.
+data StopInstanceResponse =
+    StopInstanceResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StopInstanceResponse' with the minimum fields required to make a request.
+--
+stopInstanceResponse
+    :: StopInstanceResponse
+stopInstanceResponse = StopInstanceResponse'

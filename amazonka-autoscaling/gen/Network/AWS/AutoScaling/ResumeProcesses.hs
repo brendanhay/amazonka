@@ -1,109 +1,127 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.AutoScaling.ResumeProcesses
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Resumes the specified suspended Auto Scaling processes for the specified Auto
--- Scaling group. To resume specific processes, use the 'ScalingProcesses'
--- parameter. To resume all processes, omit the 'ScalingProcesses' parameter. For
--- more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspend and Resume Auto Scaling Processes> in the /AutoScaling Developer Guide/.
+-- |
+-- Module      : Network.AWS.AutoScaling.ResumeProcesses
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ResumeProcesses.html>
+-- Resumes the specified suspended Auto Scaling processes for the specified
+-- Auto Scaling group. To resume specific processes, use the
+-- 'ScalingProcesses' parameter. To resume all processes, omit the
+-- 'ScalingProcesses' parameter. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspend and Resume Auto Scaling Processes>
+-- in the /Auto Scaling Developer Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ResumeProcesses.html AWS API Reference> for ResumeProcesses.
 module Network.AWS.AutoScaling.ResumeProcesses
     (
-    -- * Request
-      ResumeProcesses
-    -- ** Request constructor
-    , resumeProcesses
-    -- ** Request lenses
-    , rpAutoScalingGroupName
+    -- * Creating a Request
+      resumeProcesses
+    , ResumeProcesses
+    -- * Request Lenses
     , rpScalingProcesses
+    , rpAutoScalingGroupName
 
-    -- * Response
-    , ResumeProcessesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , resumeProcessesResponse
+    , ResumeProcessesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ResumeProcesses = ResumeProcesses
-    { _rpAutoScalingGroupName :: Text
-    , _rpScalingProcesses     :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'resumeProcesses' smart constructor.
+data ResumeProcesses = ResumeProcesses'
+    { _rpScalingProcesses     :: !(Maybe [Text])
+    , _rpAutoScalingGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResumeProcesses' constructor.
+-- | Creates a value of 'ResumeProcesses' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rpAutoScalingGroupName' @::@ 'Text'
+-- * 'rpScalingProcesses'
 --
--- * 'rpScalingProcesses' @::@ ['Text']
---
-resumeProcesses :: Text -- ^ 'rpAutoScalingGroupName'
-                -> ResumeProcesses
-resumeProcesses p1 = ResumeProcesses
-    { _rpAutoScalingGroupName = p1
-    , _rpScalingProcesses     = mempty
+-- * 'rpAutoScalingGroupName'
+resumeProcesses
+    :: Text -- ^ 'rpAutoScalingGroupName'
+    -> ResumeProcesses
+resumeProcesses pAutoScalingGroupName_ =
+    ResumeProcesses'
+    { _rpScalingProcesses = Nothing
+    , _rpAutoScalingGroupName = pAutoScalingGroupName_
     }
-
--- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-rpAutoScalingGroupName :: Lens' ResumeProcesses Text
-rpAutoScalingGroupName =
-    lens _rpAutoScalingGroupName (\s a -> s { _rpAutoScalingGroupName = a })
 
 -- | One or more of the following processes:
 --
--- Launch Terminate HealthCheck ReplaceUnhealthy AZRebalance AlarmNotification
--- ScheduledActions AddToLoadBalancer
+-- -   'Launch'
+--
+-- -   'Terminate'
+--
+-- -   'HealthCheck'
+--
+-- -   'ReplaceUnhealthy'
+--
+-- -   'AZRebalance'
+--
+-- -   'AlarmNotification'
+--
+-- -   'ScheduledActions'
+--
+-- -   'AddToLoadBalancer'
+--
 rpScalingProcesses :: Lens' ResumeProcesses [Text]
-rpScalingProcesses =
-    lens _rpScalingProcesses (\s a -> s { _rpScalingProcesses = a })
-        . _List
+rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = a}) . _Default . _Coerce;
 
-data ResumeProcessesResponse = ResumeProcessesResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'ResumeProcessesResponse' constructor.
-resumeProcessesResponse :: ResumeProcessesResponse
-resumeProcessesResponse = ResumeProcessesResponse
-
-instance ToPath ResumeProcesses where
-    toPath = const "/"
-
-instance ToQuery ResumeProcesses where
-    toQuery ResumeProcesses{..} = mconcat
-        [ "AutoScalingGroupName" =? _rpAutoScalingGroupName
-        , "ScalingProcesses"     =? _rpScalingProcesses
-        ]
-
-instance ToHeaders ResumeProcesses
+-- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+rpAutoScalingGroupName :: Lens' ResumeProcesses Text
+rpAutoScalingGroupName = lens _rpAutoScalingGroupName (\ s a -> s{_rpAutoScalingGroupName = a});
 
 instance AWSRequest ResumeProcesses where
-    type Sv ResumeProcesses = AutoScaling
-    type Rs ResumeProcesses = ResumeProcessesResponse
+        type Sv ResumeProcesses = AutoScaling
+        type Rs ResumeProcesses = ResumeProcessesResponse
+        request = postQuery
+        response = receiveNull ResumeProcessesResponse'
 
-    request  = post "ResumeProcesses"
-    response = nullResponse ResumeProcessesResponse
+instance ToHeaders ResumeProcesses where
+        toHeaders = const mempty
+
+instance ToPath ResumeProcesses where
+        toPath = const "/"
+
+instance ToQuery ResumeProcesses where
+        toQuery ResumeProcesses'{..}
+          = mconcat
+              ["Action" =: ("ResumeProcesses" :: ByteString),
+               "Version" =: ("2011-01-01" :: ByteString),
+               "ScalingProcesses" =:
+                 toQuery
+                   (toQueryList "member" <$> _rpScalingProcesses),
+               "AutoScalingGroupName" =: _rpAutoScalingGroupName]
+
+-- | /See:/ 'resumeProcessesResponse' smart constructor.
+data ResumeProcessesResponse =
+    ResumeProcessesResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResumeProcessesResponse' with the minimum fields required to make a request.
+--
+resumeProcessesResponse
+    :: ResumeProcessesResponse
+resumeProcessesResponse = ResumeProcessesResponse'

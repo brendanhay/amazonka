@@ -1,121 +1,144 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudSearch.DefineSuggester
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Configures a suggester for a domain. A suggester enables you to display
--- possible matches before users finish typing their queries. When you configure
--- a suggester, you must specify the name of the text field you want to search
--- for possible matches and a unique name for the suggester. For more
--- information, see Getting Search Suggestions in the /Amazon CloudSearchDeveloper Guide/.
+-- |
+-- Module      : Network.AWS.CloudSearch.DefineSuggester
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineSuggester.html>
+-- Configures a suggester for a domain. A suggester enables you to display
+-- possible matches before users finish typing their queries. When you
+-- configure a suggester, you must specify the name of the text field you
+-- want to search for possible matches and a unique name for the suggester.
+-- For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions>
+-- in the /Amazon CloudSearch Developer Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineSuggester.html AWS API Reference> for DefineSuggester.
 module Network.AWS.CloudSearch.DefineSuggester
     (
-    -- * Request
-      DefineSuggester
-    -- ** Request constructor
-    , defineSuggester
-    -- ** Request lenses
-    , ds2DomainName
-    , ds2Suggester
+    -- * Creating a Request
+      defineSuggester
+    , DefineSuggester
+    -- * Request Lenses
+    , defDomainName
+    , defSuggester
 
-    -- * Response
-    , DefineSuggesterResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , defineSuggesterResponse
-    -- ** Response lenses
-    , dsrSuggester
+    , DefineSuggesterResponse
+    -- * Response Lenses
+    , dsrsStatus
+    , dsrsSuggester
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudSearch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DefineSuggester = DefineSuggester
-    { _ds2DomainName :: Text
-    , _ds2Suggester  :: Suggester
-    } deriving (Eq, Read, Show)
+-- | Container for the parameters to the 'DefineSuggester' operation.
+-- Specifies the name of the domain you want to update and the suggester
+-- configuration.
+--
+-- /See:/ 'defineSuggester' smart constructor.
+data DefineSuggester = DefineSuggester'
+    { _defDomainName :: !Text
+    , _defSuggester  :: !Suggester
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DefineSuggester' constructor.
+-- | Creates a value of 'DefineSuggester' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ds2DomainName' @::@ 'Text'
+-- * 'defDomainName'
 --
--- * 'ds2Suggester' @::@ 'Suggester'
---
-defineSuggester :: Text -- ^ 'ds2DomainName'
-                -> Suggester -- ^ 'ds2Suggester'
-                -> DefineSuggester
-defineSuggester p1 p2 = DefineSuggester
-    { _ds2DomainName = p1
-    , _ds2Suggester  = p2
+-- * 'defSuggester'
+defineSuggester
+    :: Text -- ^ 'defDomainName'
+    -> Suggester -- ^ 'defSuggester'
+    -> DefineSuggester
+defineSuggester pDomainName_ pSuggester_ =
+    DefineSuggester'
+    { _defDomainName = pDomainName_
+    , _defSuggester = pSuggester_
     }
 
-ds2DomainName :: Lens' DefineSuggester Text
-ds2DomainName = lens _ds2DomainName (\s a -> s { _ds2DomainName = a })
+-- | Undocumented member.
+defDomainName :: Lens' DefineSuggester Text
+defDomainName = lens _defDomainName (\ s a -> s{_defDomainName = a});
 
-ds2Suggester :: Lens' DefineSuggester Suggester
-ds2Suggester = lens _ds2Suggester (\s a -> s { _ds2Suggester = a })
-
-newtype DefineSuggesterResponse = DefineSuggesterResponse
-    { _dsrSuggester :: SuggesterStatus
-    } deriving (Eq, Read, Show)
-
--- | 'DefineSuggesterResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrSuggester' @::@ 'SuggesterStatus'
---
-defineSuggesterResponse :: SuggesterStatus -- ^ 'dsrSuggester'
-                        -> DefineSuggesterResponse
-defineSuggesterResponse p1 = DefineSuggesterResponse
-    { _dsrSuggester = p1
-    }
-
-dsrSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
-dsrSuggester = lens _dsrSuggester (\s a -> s { _dsrSuggester = a })
-
-instance ToPath DefineSuggester where
-    toPath = const "/"
-
-instance ToQuery DefineSuggester where
-    toQuery DefineSuggester{..} = mconcat
-        [ "DomainName" =? _ds2DomainName
-        , "Suggester"  =? _ds2Suggester
-        ]
-
-instance ToHeaders DefineSuggester
+-- | Undocumented member.
+defSuggester :: Lens' DefineSuggester Suggester
+defSuggester = lens _defSuggester (\ s a -> s{_defSuggester = a});
 
 instance AWSRequest DefineSuggester where
-    type Sv DefineSuggester = CloudSearch
-    type Rs DefineSuggester = DefineSuggesterResponse
+        type Sv DefineSuggester = CloudSearch
+        type Rs DefineSuggester = DefineSuggesterResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DefineSuggesterResult"
+              (\ s h x ->
+                 DefineSuggesterResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "Suggester"))
 
-    request  = post "DefineSuggester"
-    response = xmlResponse
+instance ToHeaders DefineSuggester where
+        toHeaders = const mempty
 
-instance FromXML DefineSuggesterResponse where
-    parseXML = withElement "DefineSuggesterResult" $ \x -> DefineSuggesterResponse
-        <$> x .@  "Suggester"
+instance ToPath DefineSuggester where
+        toPath = const "/"
+
+instance ToQuery DefineSuggester where
+        toQuery DefineSuggester'{..}
+          = mconcat
+              ["Action" =: ("DefineSuggester" :: ByteString),
+               "Version" =: ("2013-01-01" :: ByteString),
+               "DomainName" =: _defDomainName,
+               "Suggester" =: _defSuggester]
+
+-- | The result of a 'DefineSuggester' request. Contains the status of the
+-- newly-configured suggester.
+--
+-- /See:/ 'defineSuggesterResponse' smart constructor.
+data DefineSuggesterResponse = DefineSuggesterResponse'
+    { _dsrsStatus    :: !Int
+    , _dsrsSuggester :: !SuggesterStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DefineSuggesterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrsStatus'
+--
+-- * 'dsrsSuggester'
+defineSuggesterResponse
+    :: Int -- ^ 'dsrsStatus'
+    -> SuggesterStatus -- ^ 'dsrsSuggester'
+    -> DefineSuggesterResponse
+defineSuggesterResponse pStatus_ pSuggester_ =
+    DefineSuggesterResponse'
+    { _dsrsStatus = pStatus_
+    , _dsrsSuggester = pSuggester_
+    }
+
+-- | The response status code.
+dsrsStatus :: Lens' DefineSuggesterResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+
+-- | Undocumented member.
+dsrsSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
+dsrsSuggester = lens _dsrsSuggester (\ s a -> s{_dsrsSuggester = a});

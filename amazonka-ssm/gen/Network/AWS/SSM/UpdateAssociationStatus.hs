@@ -1,138 +1,150 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SSM.UpdateAssociationStatus
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Updates the status of the configuration document associated with the
+-- |
+-- Module      : Network.AWS.SSM.UpdateAssociationStatus
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Updates the status of the configuration document associated with the
 -- specified instance.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_UpdateAssociationStatus.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_UpdateAssociationStatus.html AWS API Reference> for UpdateAssociationStatus.
 module Network.AWS.SSM.UpdateAssociationStatus
     (
-    -- * Request
-      UpdateAssociationStatus
-    -- ** Request constructor
-    , updateAssociationStatus
-    -- ** Request lenses
-    , uasAssociationStatus
-    , uasInstanceId
+    -- * Creating a Request
+      updateAssociationStatus
+    , UpdateAssociationStatus
+    -- * Request Lenses
     , uasName
+    , uasInstanceId
+    , uasAssociationStatus
 
-    -- * Response
-    , UpdateAssociationStatusResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , updateAssociationStatusResponse
-    -- ** Response lenses
-    , uasrAssociationDescription
+    , UpdateAssociationStatusResponse
+    -- * Response Lenses
+    , uasrsAssociationDescription
+    , uasrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.SSM.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
+import           Network.AWS.SSM.Types.Product
 
-data UpdateAssociationStatus = UpdateAssociationStatus
-    { _uasAssociationStatus :: AssociationStatus
-    , _uasInstanceId        :: Text
-    , _uasName              :: Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'updateAssociationStatus' smart constructor.
+data UpdateAssociationStatus = UpdateAssociationStatus'
+    { _uasName              :: !Text
+    , _uasInstanceId        :: !Text
+    , _uasAssociationStatus :: !AssociationStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAssociationStatus' constructor.
+-- | Creates a value of 'UpdateAssociationStatus' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uasAssociationStatus' @::@ 'AssociationStatus'
+-- * 'uasName'
 --
--- * 'uasInstanceId' @::@ 'Text'
+-- * 'uasInstanceId'
 --
--- * 'uasName' @::@ 'Text'
---
-updateAssociationStatus :: Text -- ^ 'uasName'
-                        -> Text -- ^ 'uasInstanceId'
-                        -> AssociationStatus -- ^ 'uasAssociationStatus'
-                        -> UpdateAssociationStatus
-updateAssociationStatus p1 p2 p3 = UpdateAssociationStatus
-    { _uasName              = p1
-    , _uasInstanceId        = p2
-    , _uasAssociationStatus = p3
+-- * 'uasAssociationStatus'
+updateAssociationStatus
+    :: Text -- ^ 'uasName'
+    -> Text -- ^ 'uasInstanceId'
+    -> AssociationStatus -- ^ 'uasAssociationStatus'
+    -> UpdateAssociationStatus
+updateAssociationStatus pName_ pInstanceId_ pAssociationStatus_ =
+    UpdateAssociationStatus'
+    { _uasName = pName_
+    , _uasInstanceId = pInstanceId_
+    , _uasAssociationStatus = pAssociationStatus_
     }
-
--- | The association status.
-uasAssociationStatus :: Lens' UpdateAssociationStatus AssociationStatus
-uasAssociationStatus =
-    lens _uasAssociationStatus (\s a -> s { _uasAssociationStatus = a })
-
--- | The ID of the instance.
-uasInstanceId :: Lens' UpdateAssociationStatus Text
-uasInstanceId = lens _uasInstanceId (\s a -> s { _uasInstanceId = a })
 
 -- | The name of the configuration document.
 uasName :: Lens' UpdateAssociationStatus Text
-uasName = lens _uasName (\s a -> s { _uasName = a })
+uasName = lens _uasName (\ s a -> s{_uasName = a});
 
-newtype UpdateAssociationStatusResponse = UpdateAssociationStatusResponse
-    { _uasrAssociationDescription :: Maybe AssociationDescription
-    } deriving (Eq, Read, Show)
+-- | The ID of the instance.
+uasInstanceId :: Lens' UpdateAssociationStatus Text
+uasInstanceId = lens _uasInstanceId (\ s a -> s{_uasInstanceId = a});
 
--- | 'UpdateAssociationStatusResponse' constructor.
+-- | The association status.
+uasAssociationStatus :: Lens' UpdateAssociationStatus AssociationStatus
+uasAssociationStatus = lens _uasAssociationStatus (\ s a -> s{_uasAssociationStatus = a});
+
+instance AWSRequest UpdateAssociationStatus where
+        type Sv UpdateAssociationStatus = SSM
+        type Rs UpdateAssociationStatus =
+             UpdateAssociationStatusResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdateAssociationStatusResponse' <$>
+                   (x .?> "AssociationDescription") <*>
+                     (pure (fromEnum s)))
+
+instance ToHeaders UpdateAssociationStatus where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonSSM.UpdateAssociationStatus" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateAssociationStatus where
+        toJSON UpdateAssociationStatus'{..}
+          = object
+              ["Name" .= _uasName, "InstanceId" .= _uasInstanceId,
+               "AssociationStatus" .= _uasAssociationStatus]
+
+instance ToPath UpdateAssociationStatus where
+        toPath = const "/"
+
+instance ToQuery UpdateAssociationStatus where
+        toQuery = const mempty
+
+-- | /See:/ 'updateAssociationStatusResponse' smart constructor.
+data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
+    { _uasrsAssociationDescription :: !(Maybe AssociationDescription)
+    , _uasrsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateAssociationStatusResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uasrAssociationDescription' @::@ 'Maybe' 'AssociationDescription'
+-- * 'uasrsAssociationDescription'
 --
-updateAssociationStatusResponse :: UpdateAssociationStatusResponse
-updateAssociationStatusResponse = UpdateAssociationStatusResponse
-    { _uasrAssociationDescription = Nothing
+-- * 'uasrsStatus'
+updateAssociationStatusResponse
+    :: Int -- ^ 'uasrsStatus'
+    -> UpdateAssociationStatusResponse
+updateAssociationStatusResponse pStatus_ =
+    UpdateAssociationStatusResponse'
+    { _uasrsAssociationDescription = Nothing
+    , _uasrsStatus = pStatus_
     }
 
 -- | Information about the association.
-uasrAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe AssociationDescription)
-uasrAssociationDescription =
-    lens _uasrAssociationDescription
-        (\s a -> s { _uasrAssociationDescription = a })
+uasrsAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe AssociationDescription)
+uasrsAssociationDescription = lens _uasrsAssociationDescription (\ s a -> s{_uasrsAssociationDescription = a});
 
-instance ToPath UpdateAssociationStatus where
-    toPath = const "/"
-
-instance ToQuery UpdateAssociationStatus where
-    toQuery = const mempty
-
-instance ToHeaders UpdateAssociationStatus
-
-instance ToJSON UpdateAssociationStatus where
-    toJSON UpdateAssociationStatus{..} = object
-        [ "Name"              .= _uasName
-        , "InstanceId"        .= _uasInstanceId
-        , "AssociationStatus" .= _uasAssociationStatus
-        ]
-
-instance AWSRequest UpdateAssociationStatus where
-    type Sv UpdateAssociationStatus = SSM
-    type Rs UpdateAssociationStatus = UpdateAssociationStatusResponse
-
-    request  = post "UpdateAssociationStatus"
-    response = jsonResponse
-
-instance FromJSON UpdateAssociationStatusResponse where
-    parseJSON = withObject "UpdateAssociationStatusResponse" $ \o -> UpdateAssociationStatusResponse
-        <$> o .:? "AssociationDescription"
+-- | The response status code.
+uasrsStatus :: Lens' UpdateAssociationStatusResponse Int
+uasrsStatus = lens _uasrsStatus (\ s a -> s{_uasrsStatus = a});

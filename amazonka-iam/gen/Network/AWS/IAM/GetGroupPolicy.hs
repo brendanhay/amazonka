@@ -1,151 +1,165 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.GetGroupPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Retrieves the specified inline policy document that is embedded in the
+-- |
+-- Module      : Network.AWS.IAM.GetGroupPolicy
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Retrieves the specified inline policy document that is embedded in the
 -- specified group.
 --
--- A group can also have managed policies attached to it. To retrieve a managed
--- policy document that is attached to a group, use 'GetPolicy' to determine the
--- policy's default version, then use 'GetPolicyVersion' to retrieve the policy
--- document.
+-- A group can also have managed policies attached to it. To retrieve a
+-- managed policy document that is attached to a group, use GetPolicy to
+-- determine the policy\'s default version, then use GetPolicyVersion to
+-- retrieve the policy document.
 --
--- For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and InlinePolicies> in the /Using IAM/ guide.
+-- For more information about policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroupPolicy.html AWS API Reference> for GetGroupPolicy.
 module Network.AWS.IAM.GetGroupPolicy
     (
-    -- * Request
-      GetGroupPolicy
-    -- ** Request constructor
-    , getGroupPolicy
-    -- ** Request lenses
+    -- * Creating a Request
+      getGroupPolicy
+    , GetGroupPolicy
+    -- * Request Lenses
     , ggpGroupName
     , ggpPolicyName
 
-    -- * Response
-    , GetGroupPolicyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getGroupPolicyResponse
-    -- ** Response lenses
-    , ggprGroupName
-    , ggprPolicyDocument
-    , ggprPolicyName
+    , GetGroupPolicyResponse
+    -- * Response Lenses
+    , ggprsStatus
+    , ggprsGroupName
+    , ggprsPolicyName
+    , ggprsPolicyDocument
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetGroupPolicy = GetGroupPolicy
-    { _ggpGroupName  :: Text
-    , _ggpPolicyName :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'getGroupPolicy' smart constructor.
+data GetGroupPolicy = GetGroupPolicy'
+    { _ggpGroupName  :: !Text
+    , _ggpPolicyName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetGroupPolicy' constructor.
+-- | Creates a value of 'GetGroupPolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggpGroupName' @::@ 'Text'
+-- * 'ggpGroupName'
 --
--- * 'ggpPolicyName' @::@ 'Text'
---
-getGroupPolicy :: Text -- ^ 'ggpGroupName'
-               -> Text -- ^ 'ggpPolicyName'
-               -> GetGroupPolicy
-getGroupPolicy p1 p2 = GetGroupPolicy
-    { _ggpGroupName  = p1
-    , _ggpPolicyName = p2
+-- * 'ggpPolicyName'
+getGroupPolicy
+    :: Text -- ^ 'ggpGroupName'
+    -> Text -- ^ 'ggpPolicyName'
+    -> GetGroupPolicy
+getGroupPolicy pGroupName_ pPolicyName_ =
+    GetGroupPolicy'
+    { _ggpGroupName = pGroupName_
+    , _ggpPolicyName = pPolicyName_
     }
 
 -- | The name of the group the policy is associated with.
 ggpGroupName :: Lens' GetGroupPolicy Text
-ggpGroupName = lens _ggpGroupName (\s a -> s { _ggpGroupName = a })
+ggpGroupName = lens _ggpGroupName (\ s a -> s{_ggpGroupName = a});
 
 -- | The name of the policy document to get.
 ggpPolicyName :: Lens' GetGroupPolicy Text
-ggpPolicyName = lens _ggpPolicyName (\s a -> s { _ggpPolicyName = a })
-
-data GetGroupPolicyResponse = GetGroupPolicyResponse
-    { _ggprGroupName      :: Text
-    , _ggprPolicyDocument :: Text
-    , _ggprPolicyName     :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'GetGroupPolicyResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ggprGroupName' @::@ 'Text'
---
--- * 'ggprPolicyDocument' @::@ 'Text'
---
--- * 'ggprPolicyName' @::@ 'Text'
---
-getGroupPolicyResponse :: Text -- ^ 'ggprGroupName'
-                       -> Text -- ^ 'ggprPolicyName'
-                       -> Text -- ^ 'ggprPolicyDocument'
-                       -> GetGroupPolicyResponse
-getGroupPolicyResponse p1 p2 p3 = GetGroupPolicyResponse
-    { _ggprGroupName      = p1
-    , _ggprPolicyName     = p2
-    , _ggprPolicyDocument = p3
-    }
-
--- | The group the policy is associated with.
-ggprGroupName :: Lens' GetGroupPolicyResponse Text
-ggprGroupName = lens _ggprGroupName (\s a -> s { _ggprGroupName = a })
-
--- | The policy document.
-ggprPolicyDocument :: Lens' GetGroupPolicyResponse Text
-ggprPolicyDocument =
-    lens _ggprPolicyDocument (\s a -> s { _ggprPolicyDocument = a })
-
--- | The name of the policy.
-ggprPolicyName :: Lens' GetGroupPolicyResponse Text
-ggprPolicyName = lens _ggprPolicyName (\s a -> s { _ggprPolicyName = a })
-
-instance ToPath GetGroupPolicy where
-    toPath = const "/"
-
-instance ToQuery GetGroupPolicy where
-    toQuery GetGroupPolicy{..} = mconcat
-        [ "GroupName"  =? _ggpGroupName
-        , "PolicyName" =? _ggpPolicyName
-        ]
-
-instance ToHeaders GetGroupPolicy
+ggpPolicyName = lens _ggpPolicyName (\ s a -> s{_ggpPolicyName = a});
 
 instance AWSRequest GetGroupPolicy where
-    type Sv GetGroupPolicy = IAM
-    type Rs GetGroupPolicy = GetGroupPolicyResponse
+        type Sv GetGroupPolicy = IAM
+        type Rs GetGroupPolicy = GetGroupPolicyResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "GetGroupPolicyResult"
+              (\ s h x ->
+                 GetGroupPolicyResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "GroupName") <*>
+                     (x .@ "PolicyName")
+                     <*> (x .@ "PolicyDocument"))
 
-    request  = post "GetGroupPolicy"
-    response = xmlResponse
+instance ToHeaders GetGroupPolicy where
+        toHeaders = const mempty
 
-instance FromXML GetGroupPolicyResponse where
-    parseXML = withElement "GetGroupPolicyResult" $ \x -> GetGroupPolicyResponse
-        <$> x .@  "GroupName"
-        <*> x .@  "PolicyDocument"
-        <*> x .@  "PolicyName"
+instance ToPath GetGroupPolicy where
+        toPath = const "/"
+
+instance ToQuery GetGroupPolicy where
+        toQuery GetGroupPolicy'{..}
+          = mconcat
+              ["Action" =: ("GetGroupPolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "GroupName" =: _ggpGroupName,
+               "PolicyName" =: _ggpPolicyName]
+
+-- | Contains the response to a successful GetGroupPolicy request.
+--
+-- /See:/ 'getGroupPolicyResponse' smart constructor.
+data GetGroupPolicyResponse = GetGroupPolicyResponse'
+    { _ggprsStatus         :: !Int
+    , _ggprsGroupName      :: !Text
+    , _ggprsPolicyName     :: !Text
+    , _ggprsPolicyDocument :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetGroupPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ggprsStatus'
+--
+-- * 'ggprsGroupName'
+--
+-- * 'ggprsPolicyName'
+--
+-- * 'ggprsPolicyDocument'
+getGroupPolicyResponse
+    :: Int -- ^ 'ggprsStatus'
+    -> Text -- ^ 'ggprsGroupName'
+    -> Text -- ^ 'ggprsPolicyName'
+    -> Text -- ^ 'ggprsPolicyDocument'
+    -> GetGroupPolicyResponse
+getGroupPolicyResponse pStatus_ pGroupName_ pPolicyName_ pPolicyDocument_ =
+    GetGroupPolicyResponse'
+    { _ggprsStatus = pStatus_
+    , _ggprsGroupName = pGroupName_
+    , _ggprsPolicyName = pPolicyName_
+    , _ggprsPolicyDocument = pPolicyDocument_
+    }
+
+-- | The response status code.
+ggprsStatus :: Lens' GetGroupPolicyResponse Int
+ggprsStatus = lens _ggprsStatus (\ s a -> s{_ggprsStatus = a});
+
+-- | The group the policy is associated with.
+ggprsGroupName :: Lens' GetGroupPolicyResponse Text
+ggprsGroupName = lens _ggprsGroupName (\ s a -> s{_ggprsGroupName = a});
+
+-- | The name of the policy.
+ggprsPolicyName :: Lens' GetGroupPolicyResponse Text
+ggprsPolicyName = lens _ggprsPolicyName (\ s a -> s{_ggprsPolicyName = a});
+
+-- | The policy document.
+ggprsPolicyDocument :: Lens' GetGroupPolicyResponse Text
+ggprsPolicyDocument = lens _ggprsPolicyDocument (\ s a -> s{_ggprsPolicyDocument = a});

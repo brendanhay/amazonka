@@ -1,91 +1,105 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.DeleteSpotDatafeedSubscription
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the data feed for Spot Instances. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html SpotInstance Data Feed> in the /Amazon Elastic Compute Cloud User Guide/.
+-- |
+-- Module      : Network.AWS.EC2.DeleteSpotDatafeedSubscription
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSpotDatafeedSubscription.html>
+-- Deletes the data feed for Spot Instances. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSpotDatafeedSubscription.html AWS API Reference> for DeleteSpotDatafeedSubscription.
 module Network.AWS.EC2.DeleteSpotDatafeedSubscription
     (
-    -- * Request
-      DeleteSpotDatafeedSubscription
-    -- ** Request constructor
-    , deleteSpotDatafeedSubscription
-    -- ** Request lenses
-    , dsds1DryRun
+    -- * Creating a Request
+      deleteSpotDatafeedSubscription
+    , DeleteSpotDatafeedSubscription
+    -- * Request Lenses
+    , dsdssDryRun
 
-    -- * Response
-    , DeleteSpotDatafeedSubscriptionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteSpotDatafeedSubscriptionResponse
+    , DeleteSpotDatafeedSubscriptionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
-    { _dsds1DryRun :: Maybe Bool
-    } deriving (Eq, Ord, Read, Show)
+-- | Contains the parameters for DeleteSpotDatafeedSubscription.
+--
+-- /See:/ 'deleteSpotDatafeedSubscription' smart constructor.
+newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
+    { _dsdssDryRun :: Maybe Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSpotDatafeedSubscription' constructor.
+-- | Creates a value of 'DeleteSpotDatafeedSubscription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsds1DryRun' @::@ 'Maybe' 'Bool'
---
-deleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
-deleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
-    { _dsds1DryRun = Nothing
+-- * 'dsdssDryRun'
+deleteSpotDatafeedSubscription
+    :: DeleteSpotDatafeedSubscription
+deleteSpotDatafeedSubscription =
+    DeleteSpotDatafeedSubscription'
+    { _dsdssDryRun = Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-dsds1DryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
-dsds1DryRun = lens _dsds1DryRun (\s a -> s { _dsds1DryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+dsdssDryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
+dsdssDryRun = lens _dsdssDryRun (\ s a -> s{_dsdssDryRun = a});
 
-data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteSpotDatafeedSubscriptionResponse' constructor.
-deleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse
-deleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
-
-instance ToPath DeleteSpotDatafeedSubscription where
-    toPath = const "/"
-
-instance ToQuery DeleteSpotDatafeedSubscription where
-    toQuery DeleteSpotDatafeedSubscription{..} = mconcat
-        [ "DryRun" =? _dsds1DryRun
-        ]
+instance AWSRequest DeleteSpotDatafeedSubscription
+         where
+        type Sv DeleteSpotDatafeedSubscription = EC2
+        type Rs DeleteSpotDatafeedSubscription =
+             DeleteSpotDatafeedSubscriptionResponse
+        request = post
+        response
+          = receiveNull DeleteSpotDatafeedSubscriptionResponse'
 
 instance ToHeaders DeleteSpotDatafeedSubscription
+         where
+        toHeaders = const mempty
 
-instance AWSRequest DeleteSpotDatafeedSubscription where
-    type Sv DeleteSpotDatafeedSubscription = EC2
-    type Rs DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscriptionResponse
+instance ToPath DeleteSpotDatafeedSubscription where
+        toPath = const "/"
 
-    request  = post "DeleteSpotDatafeedSubscription"
-    response = nullResponse DeleteSpotDatafeedSubscriptionResponse
+instance ToQuery DeleteSpotDatafeedSubscription where
+        toQuery DeleteSpotDatafeedSubscription'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteSpotDatafeedSubscription" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _dsdssDryRun]
+
+-- | /See:/ 'deleteSpotDatafeedSubscriptionResponse' smart constructor.
+data DeleteSpotDatafeedSubscriptionResponse =
+    DeleteSpotDatafeedSubscriptionResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
+--
+deleteSpotDatafeedSubscriptionResponse
+    :: DeleteSpotDatafeedSubscriptionResponse
+deleteSpotDatafeedSubscriptionResponse =
+    DeleteSpotDatafeedSubscriptionResponse'

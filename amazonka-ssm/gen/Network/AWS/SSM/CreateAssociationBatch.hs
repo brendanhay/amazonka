@@ -1,135 +1,145 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SSM.CreateAssociationBatch
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Associates the specified configuration documents with the specified instances.
+-- |
+-- Module      : Network.AWS.SSM.CreateAssociationBatch
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Associates the specified configuration documents with the specified
+-- instances.
 --
 -- When you associate a configuration document with an instance, the
--- configuration agent on the instance processes the configuration document and
--- configures the instance as specified.
+-- configuration agent on the instance processes the configuration document
+-- and configures the instance as specified.
 --
--- If you associate a configuration document with an instance that already has
--- an associated configuration document, we replace the current configuration
--- document with the new configuration document.
+-- If you associate a configuration document with an instance that already
+-- has an associated configuration document, we replace the current
+-- configuration document with the new configuration document.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateAssociationBatch.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateAssociationBatch.html AWS API Reference> for CreateAssociationBatch.
 module Network.AWS.SSM.CreateAssociationBatch
     (
-    -- * Request
-      CreateAssociationBatch
-    -- ** Request constructor
-    , createAssociationBatch
-    -- ** Request lenses
+    -- * Creating a Request
+      createAssociationBatch
+    , CreateAssociationBatch
+    -- * Request Lenses
     , cabEntries
 
-    -- * Response
-    , CreateAssociationBatchResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createAssociationBatchResponse
-    -- ** Response lenses
-    , cabrFailed
-    , cabrSuccessful
+    , CreateAssociationBatchResponse
+    -- * Response Lenses
+    , cabrsSuccessful
+    , cabrsFailed
+    , cabrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.SSM.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
+import           Network.AWS.SSM.Types.Product
 
-newtype CreateAssociationBatch = CreateAssociationBatch
-    { _cabEntries :: List "entries" CreateAssociationBatchRequestEntry
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | /See:/ 'createAssociationBatch' smart constructor.
+newtype CreateAssociationBatch = CreateAssociationBatch'
+    { _cabEntries :: [CreateAssociationBatchRequestEntry]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
-instance GHC.Exts.IsList CreateAssociationBatch where
-    type Item CreateAssociationBatch = CreateAssociationBatchRequestEntry
-
-    fromList = CreateAssociationBatch . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _cabEntries
-
--- | 'CreateAssociationBatch' constructor.
+-- | Creates a value of 'CreateAssociationBatch' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cabEntries' @::@ ['CreateAssociationBatchRequestEntry']
---
-createAssociationBatch :: CreateAssociationBatch
-createAssociationBatch = CreateAssociationBatch
+-- * 'cabEntries'
+createAssociationBatch
+    :: CreateAssociationBatch
+createAssociationBatch =
+    CreateAssociationBatch'
     { _cabEntries = mempty
     }
 
 -- | One or more associations.
 cabEntries :: Lens' CreateAssociationBatch [CreateAssociationBatchRequestEntry]
-cabEntries = lens _cabEntries (\s a -> s { _cabEntries = a }) . _List
-
-data CreateAssociationBatchResponse = CreateAssociationBatchResponse
-    { _cabrFailed     :: List "FailedCreateAssociationEntry" FailedCreateAssociation
-    , _cabrSuccessful :: List "AssociationDescription" AssociationDescription
-    } deriving (Eq, Read, Show)
-
--- | 'CreateAssociationBatchResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cabrFailed' @::@ ['FailedCreateAssociation']
---
--- * 'cabrSuccessful' @::@ ['AssociationDescription']
---
-createAssociationBatchResponse :: CreateAssociationBatchResponse
-createAssociationBatchResponse = CreateAssociationBatchResponse
-    { _cabrSuccessful = mempty
-    , _cabrFailed     = mempty
-    }
-
--- | Information about the associations that failed.
-cabrFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
-cabrFailed = lens _cabrFailed (\s a -> s { _cabrFailed = a }) . _List
-
--- | Information about the associations that succeeded.
-cabrSuccessful :: Lens' CreateAssociationBatchResponse [AssociationDescription]
-cabrSuccessful = lens _cabrSuccessful (\s a -> s { _cabrSuccessful = a }) . _List
-
-instance ToPath CreateAssociationBatch where
-    toPath = const "/"
-
-instance ToQuery CreateAssociationBatch where
-    toQuery = const mempty
-
-instance ToHeaders CreateAssociationBatch
-
-instance ToJSON CreateAssociationBatch where
-    toJSON CreateAssociationBatch{..} = object
-        [ "Entries" .= _cabEntries
-        ]
+cabEntries = lens _cabEntries (\ s a -> s{_cabEntries = a}) . _Coerce;
 
 instance AWSRequest CreateAssociationBatch where
-    type Sv CreateAssociationBatch = SSM
-    type Rs CreateAssociationBatch = CreateAssociationBatchResponse
+        type Sv CreateAssociationBatch = SSM
+        type Rs CreateAssociationBatch =
+             CreateAssociationBatchResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateAssociationBatchResponse' <$>
+                   (x .?> "Successful" .!@ mempty) <*>
+                     (x .?> "Failed" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
-    request  = post "CreateAssociationBatch"
-    response = jsonResponse
+instance ToHeaders CreateAssociationBatch where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonSSM.CreateAssociationBatch" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON CreateAssociationBatchResponse where
-    parseJSON = withObject "CreateAssociationBatchResponse" $ \o -> CreateAssociationBatchResponse
-        <$> o .:? "Failed" .!= mempty
-        <*> o .:? "Successful" .!= mempty
+instance ToJSON CreateAssociationBatch where
+        toJSON CreateAssociationBatch'{..}
+          = object ["Entries" .= _cabEntries]
+
+instance ToPath CreateAssociationBatch where
+        toPath = const "/"
+
+instance ToQuery CreateAssociationBatch where
+        toQuery = const mempty
+
+-- | /See:/ 'createAssociationBatchResponse' smart constructor.
+data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
+    { _cabrsSuccessful :: !(Maybe [AssociationDescription])
+    , _cabrsFailed     :: !(Maybe [FailedCreateAssociation])
+    , _cabrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateAssociationBatchResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cabrsSuccessful'
+--
+-- * 'cabrsFailed'
+--
+-- * 'cabrsStatus'
+createAssociationBatchResponse
+    :: Int -- ^ 'cabrsStatus'
+    -> CreateAssociationBatchResponse
+createAssociationBatchResponse pStatus_ =
+    CreateAssociationBatchResponse'
+    { _cabrsSuccessful = Nothing
+    , _cabrsFailed = Nothing
+    , _cabrsStatus = pStatus_
+    }
+
+-- | Information about the associations that succeeded.
+cabrsSuccessful :: Lens' CreateAssociationBatchResponse [AssociationDescription]
+cabrsSuccessful = lens _cabrsSuccessful (\ s a -> s{_cabrsSuccessful = a}) . _Default . _Coerce;
+
+-- | Information about the associations that failed.
+cabrsFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
+cabrsFailed = lens _cabrsFailed (\ s a -> s{_cabrsFailed = a}) . _Default . _Coerce;
+
+-- | The response status code.
+cabrsStatus :: Lens' CreateAssociationBatchResponse Int
+cabrsStatus = lens _cabrsStatus (\ s a -> s{_cabrsStatus = a});

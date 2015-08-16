@@ -1,144 +1,166 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Task runners call 'ReportTaskRunnerHeartbeat' every 15 minutes to indicate that
--- they are operational. If the AWS Data Pipeline Task Runner is launched on a
--- resource managed by AWS Data Pipeline, the web service can use this call to
--- detect when the task runner application has failed and restart a new instance.
+-- |
+-- Module      : Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskRunnerHeartbeat.html>
+-- Task runners call 'ReportTaskRunnerHeartbeat' every 15 minutes to
+-- indicate that they are operational. If the AWS Data Pipeline Task Runner
+-- is launched on a resource managed by AWS Data Pipeline, the web service
+-- can use this call to detect when the task runner application has failed
+-- and restart a new instance.
+--
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskRunnerHeartbeat.html AWS API Reference> for ReportTaskRunnerHeartbeat.
 module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     (
-    -- * Request
-      ReportTaskRunnerHeartbeat
-    -- ** Request constructor
-    , reportTaskRunnerHeartbeat
-    -- ** Request lenses
+    -- * Creating a Request
+      reportTaskRunnerHeartbeat
+    , ReportTaskRunnerHeartbeat
+    -- * Request Lenses
     , rtrhHostname
-    , rtrhTaskrunnerId
     , rtrhWorkerGroup
+    , rtrhTaskrunnerId
 
-    -- * Response
-    , ReportTaskRunnerHeartbeatResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , reportTaskRunnerHeartbeatResponse
-    -- ** Response lenses
-    , rtrhrTerminate
+    , ReportTaskRunnerHeartbeatResponse
+    -- * Response Lenses
+    , rtrhrsStatus
+    , rtrhrsTerminate
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DataPipeline.Types
-import qualified GHC.Exts
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
-    { _rtrhHostname     :: Maybe Text
-    , _rtrhTaskrunnerId :: Text
-    , _rtrhWorkerGroup  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Contains the parameters for ReportTaskRunnerHeartbeat.
+--
+-- /See:/ 'reportTaskRunnerHeartbeat' smart constructor.
+data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
+    { _rtrhHostname     :: !(Maybe Text)
+    , _rtrhWorkerGroup  :: !(Maybe Text)
+    , _rtrhTaskrunnerId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReportTaskRunnerHeartbeat' constructor.
+-- | Creates a value of 'ReportTaskRunnerHeartbeat' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtrhHostname' @::@ 'Maybe' 'Text'
+-- * 'rtrhHostname'
 --
--- * 'rtrhTaskrunnerId' @::@ 'Text'
+-- * 'rtrhWorkerGroup'
 --
--- * 'rtrhWorkerGroup' @::@ 'Maybe' 'Text'
---
-reportTaskRunnerHeartbeat :: Text -- ^ 'rtrhTaskrunnerId'
-                          -> ReportTaskRunnerHeartbeat
-reportTaskRunnerHeartbeat p1 = ReportTaskRunnerHeartbeat
-    { _rtrhTaskrunnerId = p1
-    , _rtrhWorkerGroup  = Nothing
-    , _rtrhHostname     = Nothing
+-- * 'rtrhTaskrunnerId'
+reportTaskRunnerHeartbeat
+    :: Text -- ^ 'rtrhTaskrunnerId'
+    -> ReportTaskRunnerHeartbeat
+reportTaskRunnerHeartbeat pTaskrunnerId_ =
+    ReportTaskRunnerHeartbeat'
+    { _rtrhHostname = Nothing
+    , _rtrhWorkerGroup = Nothing
+    , _rtrhTaskrunnerId = pTaskrunnerId_
     }
 
 -- | The public DNS name of the task runner.
 rtrhHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
-rtrhHostname = lens _rtrhHostname (\s a -> s { _rtrhHostname = a })
+rtrhHostname = lens _rtrhHostname (\ s a -> s{_rtrhHostname = a});
+
+-- | The type of task the task runner is configured to accept and process.
+-- The worker group is set as a field on objects in the pipeline when they
+-- are created. You can only specify a single value for 'workerGroup'.
+-- There are no wildcard values permitted in 'workerGroup'; the string must
+-- be an exact, case-sensitive, match.
+rtrhWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
+rtrhWorkerGroup = lens _rtrhWorkerGroup (\ s a -> s{_rtrhWorkerGroup = a});
 
 -- | The ID of the task runner. This value should be unique across your AWS
--- account. In the case of AWS Data Pipeline Task Runner launched on a resource
--- managed by AWS Data Pipeline, the web service provides a unique identifier
--- when it launches the application. If you have written a custom task runner,
--- you should assign a unique identifier for the task runner.
+-- account. In the case of AWS Data Pipeline Task Runner launched on a
+-- resource managed by AWS Data Pipeline, the web service provides a unique
+-- identifier when it launches the application. If you have written a
+-- custom task runner, you should assign a unique identifier for the task
+-- runner.
 rtrhTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
-rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\s a -> s { _rtrhTaskrunnerId = a })
-
--- | The type of task the task runner is configured to accept and process. The
--- worker group is set as a field on objects in the pipeline when they are
--- created. You can only specify a single value for 'workerGroup'. There are no
--- wildcard values permitted in 'workerGroup'; the string must be an exact,
--- case-sensitive, match.
-rtrhWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
-rtrhWorkerGroup = lens _rtrhWorkerGroup (\s a -> s { _rtrhWorkerGroup = a })
-
-newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
-    { _rtrhrTerminate :: Bool
-    } deriving (Eq, Ord, Read, Show, Enum)
-
--- | 'ReportTaskRunnerHeartbeatResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtrhrTerminate' @::@ 'Bool'
---
-reportTaskRunnerHeartbeatResponse :: Bool -- ^ 'rtrhrTerminate'
-                                  -> ReportTaskRunnerHeartbeatResponse
-reportTaskRunnerHeartbeatResponse p1 = ReportTaskRunnerHeartbeatResponse
-    { _rtrhrTerminate = p1
-    }
-
--- | Indicates whether the calling task runner should terminate.
-rtrhrTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
-rtrhrTerminate = lens _rtrhrTerminate (\s a -> s { _rtrhrTerminate = a })
-
-instance ToPath ReportTaskRunnerHeartbeat where
-    toPath = const "/"
-
-instance ToQuery ReportTaskRunnerHeartbeat where
-    toQuery = const mempty
-
-instance ToHeaders ReportTaskRunnerHeartbeat
-
-instance ToJSON ReportTaskRunnerHeartbeat where
-    toJSON ReportTaskRunnerHeartbeat{..} = object
-        [ "taskrunnerId" .= _rtrhTaskrunnerId
-        , "workerGroup"  .= _rtrhWorkerGroup
-        , "hostname"     .= _rtrhHostname
-        ]
+rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\ s a -> s{_rtrhTaskrunnerId = a});
 
 instance AWSRequest ReportTaskRunnerHeartbeat where
-    type Sv ReportTaskRunnerHeartbeat = DataPipeline
-    type Rs ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeatResponse
+        type Sv ReportTaskRunnerHeartbeat = DataPipeline
+        type Rs ReportTaskRunnerHeartbeat =
+             ReportTaskRunnerHeartbeatResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ReportTaskRunnerHeartbeatResponse' <$>
+                   (pure (fromEnum s)) <*> (x .:> "terminate"))
 
-    request  = post "ReportTaskRunnerHeartbeat"
-    response = jsonResponse
+instance ToHeaders ReportTaskRunnerHeartbeat where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("DataPipeline.ReportTaskRunnerHeartbeat" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON ReportTaskRunnerHeartbeatResponse where
-    parseJSON = withObject "ReportTaskRunnerHeartbeatResponse" $ \o -> ReportTaskRunnerHeartbeatResponse
-        <$> o .:  "terminate"
+instance ToJSON ReportTaskRunnerHeartbeat where
+        toJSON ReportTaskRunnerHeartbeat'{..}
+          = object
+              ["hostname" .= _rtrhHostname,
+               "workerGroup" .= _rtrhWorkerGroup,
+               "taskrunnerId" .= _rtrhTaskrunnerId]
+
+instance ToPath ReportTaskRunnerHeartbeat where
+        toPath = const "/"
+
+instance ToQuery ReportTaskRunnerHeartbeat where
+        toQuery = const mempty
+
+-- | Contains the output of ReportTaskRunnerHeartbeat.
+--
+-- /See:/ 'reportTaskRunnerHeartbeatResponse' smart constructor.
+data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
+    { _rtrhrsStatus    :: !Int
+    , _rtrhrsTerminate :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReportTaskRunnerHeartbeatResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtrhrsStatus'
+--
+-- * 'rtrhrsTerminate'
+reportTaskRunnerHeartbeatResponse
+    :: Int -- ^ 'rtrhrsStatus'
+    -> Bool -- ^ 'rtrhrsTerminate'
+    -> ReportTaskRunnerHeartbeatResponse
+reportTaskRunnerHeartbeatResponse pStatus_ pTerminate_ =
+    ReportTaskRunnerHeartbeatResponse'
+    { _rtrhrsStatus = pStatus_
+    , _rtrhrsTerminate = pTerminate_
+    }
+
+-- | The response status code.
+rtrhrsStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
+rtrhrsStatus = lens _rtrhrsStatus (\ s a -> s{_rtrhrsStatus = a});
+
+-- | Indicates whether the calling task runner should terminate.
+rtrhrsTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
+rtrhrsTerminate = lens _rtrhrsTerminate (\ s a -> s{_rtrhrsTerminate = a});

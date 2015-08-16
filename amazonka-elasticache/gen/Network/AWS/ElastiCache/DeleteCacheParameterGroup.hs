@@ -1,97 +1,104 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElastiCache.DeleteCacheParameterGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DeleteCacheParameterGroup/ action deletes the specified cache parameter
--- group. You cannot delete a cache parameter group if it is associated with any
--- cache clusters.
+-- |
+-- Module      : Network.AWS.ElastiCache.DeleteCacheParameterGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheParameterGroup.html>
+-- The /DeleteCacheParameterGroup/ action deletes the specified cache
+-- parameter group. You cannot delete a cache parameter group if it is
+-- associated with any cache clusters.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheParameterGroup.html AWS API Reference> for DeleteCacheParameterGroup.
 module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     (
-    -- * Request
-      DeleteCacheParameterGroup
-    -- ** Request constructor
-    , deleteCacheParameterGroup
-    -- ** Request lenses
-    , dcpg1CacheParameterGroupName
+    -- * Creating a Request
+      deleteCacheParameterGroup
+    , DeleteCacheParameterGroup
+    -- * Request Lenses
+    , dCacheParameterGroupName
 
-    -- * Response
-    , DeleteCacheParameterGroupResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteCacheParameterGroupResponse
+    , DeleteCacheParameterGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
-    { _dcpg1CacheParameterGroupName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | Represents the input of a /DeleteCacheParameterGroup/ action.
+--
+-- /See:/ 'deleteCacheParameterGroup' smart constructor.
+newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
+    { _dCacheParameterGroupName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCacheParameterGroup' constructor.
+-- | Creates a value of 'DeleteCacheParameterGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcpg1CacheParameterGroupName' @::@ 'Text'
---
-deleteCacheParameterGroup :: Text -- ^ 'dcpg1CacheParameterGroupName'
-                          -> DeleteCacheParameterGroup
-deleteCacheParameterGroup p1 = DeleteCacheParameterGroup
-    { _dcpg1CacheParameterGroupName = p1
+-- * 'dCacheParameterGroupName'
+deleteCacheParameterGroup
+    :: Text -- ^ 'dCacheParameterGroupName'
+    -> DeleteCacheParameterGroup
+deleteCacheParameterGroup pCacheParameterGroupName_ =
+    DeleteCacheParameterGroup'
+    { _dCacheParameterGroupName = pCacheParameterGroupName_
     }
 
 -- | The name of the cache parameter group to delete.
 --
 -- The specified cache security group must not be associated with any cache
 -- clusters.
-dcpg1CacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
-dcpg1CacheParameterGroupName =
-    lens _dcpg1CacheParameterGroupName
-        (\s a -> s { _dcpg1CacheParameterGroupName = a })
-
-data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteCacheParameterGroupResponse' constructor.
-deleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse
-deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
-
-instance ToPath DeleteCacheParameterGroup where
-    toPath = const "/"
-
-instance ToQuery DeleteCacheParameterGroup where
-    toQuery DeleteCacheParameterGroup{..} = mconcat
-        [ "CacheParameterGroupName" =? _dcpg1CacheParameterGroupName
-        ]
-
-instance ToHeaders DeleteCacheParameterGroup
+dCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
+dCacheParameterGroupName = lens _dCacheParameterGroupName (\ s a -> s{_dCacheParameterGroupName = a});
 
 instance AWSRequest DeleteCacheParameterGroup where
-    type Sv DeleteCacheParameterGroup = ElastiCache
-    type Rs DeleteCacheParameterGroup = DeleteCacheParameterGroupResponse
+        type Sv DeleteCacheParameterGroup = ElastiCache
+        type Rs DeleteCacheParameterGroup =
+             DeleteCacheParameterGroupResponse
+        request = postQuery
+        response
+          = receiveNull DeleteCacheParameterGroupResponse'
 
-    request  = post "DeleteCacheParameterGroup"
-    response = nullResponse DeleteCacheParameterGroupResponse
+instance ToHeaders DeleteCacheParameterGroup where
+        toHeaders = const mempty
+
+instance ToPath DeleteCacheParameterGroup where
+        toPath = const "/"
+
+instance ToQuery DeleteCacheParameterGroup where
+        toQuery DeleteCacheParameterGroup'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteCacheParameterGroup" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "CacheParameterGroupName" =:
+                 _dCacheParameterGroupName]
+
+-- | /See:/ 'deleteCacheParameterGroupResponse' smart constructor.
+data DeleteCacheParameterGroupResponse =
+    DeleteCacheParameterGroupResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteCacheParameterGroupResponse' with the minimum fields required to make a request.
+--
+deleteCacheParameterGroupResponse
+    :: DeleteCacheParameterGroupResponse
+deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse'

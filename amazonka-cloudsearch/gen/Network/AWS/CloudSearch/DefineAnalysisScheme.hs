@@ -1,121 +1,143 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudSearch.DefineAnalysisScheme
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Configures an analysis scheme that can be applied to a 'text' or 'text-array'
--- field to define language-specific text processing options. For more
--- information, see Configuring Analysis Schemes in the /Amazon CloudSearchDeveloper Guide/.
+-- |
+-- Module      : Network.AWS.CloudSearch.DefineAnalysisScheme
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineAnalysisScheme.html>
+-- Configures an analysis scheme that can be applied to a 'text' or
+-- 'text-array' field to define language-specific text processing options.
+-- For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes>
+-- in the /Amazon CloudSearch Developer Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DefineAnalysisScheme.html AWS API Reference> for DefineAnalysisScheme.
 module Network.AWS.CloudSearch.DefineAnalysisScheme
     (
-    -- * Request
-      DefineAnalysisScheme
-    -- ** Request constructor
-    , defineAnalysisScheme
-    -- ** Request lenses
-    , das2AnalysisScheme
-    , das2DomainName
+    -- * Creating a Request
+      defineAnalysisScheme
+    , DefineAnalysisScheme
+    -- * Request Lenses
+    , dasaDomainName
+    , dasaAnalysisScheme
 
-    -- * Response
-    , DefineAnalysisSchemeResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , defineAnalysisSchemeResponse
-    -- ** Response lenses
-    , dasr1AnalysisScheme
+    , DefineAnalysisSchemeResponse
+    -- * Response Lenses
+    , defersStatus
+    , defersAnalysisScheme
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudSearch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DefineAnalysisScheme = DefineAnalysisScheme
-    { _das2AnalysisScheme :: AnalysisScheme
-    , _das2DomainName     :: Text
-    } deriving (Eq, Read, Show)
+-- | Container for the parameters to the 'DefineAnalysisScheme' operation.
+-- Specifies the name of the domain you want to update and the analysis
+-- scheme configuration.
+--
+-- /See:/ 'defineAnalysisScheme' smart constructor.
+data DefineAnalysisScheme = DefineAnalysisScheme'
+    { _dasaDomainName     :: !Text
+    , _dasaAnalysisScheme :: !AnalysisScheme
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DefineAnalysisScheme' constructor.
+-- | Creates a value of 'DefineAnalysisScheme' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'das2AnalysisScheme' @::@ 'AnalysisScheme'
+-- * 'dasaDomainName'
 --
--- * 'das2DomainName' @::@ 'Text'
---
-defineAnalysisScheme :: Text -- ^ 'das2DomainName'
-                     -> AnalysisScheme -- ^ 'das2AnalysisScheme'
-                     -> DefineAnalysisScheme
-defineAnalysisScheme p1 p2 = DefineAnalysisScheme
-    { _das2DomainName     = p1
-    , _das2AnalysisScheme = p2
+-- * 'dasaAnalysisScheme'
+defineAnalysisScheme
+    :: Text -- ^ 'dasaDomainName'
+    -> AnalysisScheme -- ^ 'dasaAnalysisScheme'
+    -> DefineAnalysisScheme
+defineAnalysisScheme pDomainName_ pAnalysisScheme_ =
+    DefineAnalysisScheme'
+    { _dasaDomainName = pDomainName_
+    , _dasaAnalysisScheme = pAnalysisScheme_
     }
 
-das2AnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
-das2AnalysisScheme =
-    lens _das2AnalysisScheme (\s a -> s { _das2AnalysisScheme = a })
+-- | Undocumented member.
+dasaDomainName :: Lens' DefineAnalysisScheme Text
+dasaDomainName = lens _dasaDomainName (\ s a -> s{_dasaDomainName = a});
 
-das2DomainName :: Lens' DefineAnalysisScheme Text
-das2DomainName = lens _das2DomainName (\s a -> s { _das2DomainName = a })
-
-newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
-    { _dasr1AnalysisScheme :: AnalysisSchemeStatus
-    } deriving (Eq, Read, Show)
-
--- | 'DefineAnalysisSchemeResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dasr1AnalysisScheme' @::@ 'AnalysisSchemeStatus'
---
-defineAnalysisSchemeResponse :: AnalysisSchemeStatus -- ^ 'dasr1AnalysisScheme'
-                             -> DefineAnalysisSchemeResponse
-defineAnalysisSchemeResponse p1 = DefineAnalysisSchemeResponse
-    { _dasr1AnalysisScheme = p1
-    }
-
-dasr1AnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
-dasr1AnalysisScheme =
-    lens _dasr1AnalysisScheme (\s a -> s { _dasr1AnalysisScheme = a })
-
-instance ToPath DefineAnalysisScheme where
-    toPath = const "/"
-
-instance ToQuery DefineAnalysisScheme where
-    toQuery DefineAnalysisScheme{..} = mconcat
-        [ "AnalysisScheme" =? _das2AnalysisScheme
-        , "DomainName"     =? _das2DomainName
-        ]
-
-instance ToHeaders DefineAnalysisScheme
+-- | Undocumented member.
+dasaAnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
+dasaAnalysisScheme = lens _dasaAnalysisScheme (\ s a -> s{_dasaAnalysisScheme = a});
 
 instance AWSRequest DefineAnalysisScheme where
-    type Sv DefineAnalysisScheme = CloudSearch
-    type Rs DefineAnalysisScheme = DefineAnalysisSchemeResponse
+        type Sv DefineAnalysisScheme = CloudSearch
+        type Rs DefineAnalysisScheme =
+             DefineAnalysisSchemeResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DefineAnalysisSchemeResult"
+              (\ s h x ->
+                 DefineAnalysisSchemeResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "AnalysisScheme"))
 
-    request  = post "DefineAnalysisScheme"
-    response = xmlResponse
+instance ToHeaders DefineAnalysisScheme where
+        toHeaders = const mempty
 
-instance FromXML DefineAnalysisSchemeResponse where
-    parseXML = withElement "DefineAnalysisSchemeResult" $ \x -> DefineAnalysisSchemeResponse
-        <$> x .@  "AnalysisScheme"
+instance ToPath DefineAnalysisScheme where
+        toPath = const "/"
+
+instance ToQuery DefineAnalysisScheme where
+        toQuery DefineAnalysisScheme'{..}
+          = mconcat
+              ["Action" =: ("DefineAnalysisScheme" :: ByteString),
+               "Version" =: ("2013-01-01" :: ByteString),
+               "DomainName" =: _dasaDomainName,
+               "AnalysisScheme" =: _dasaAnalysisScheme]
+
+-- | The result of a 'DefineAnalysisScheme' request. Contains the status of
+-- the newly-configured analysis scheme.
+--
+-- /See:/ 'defineAnalysisSchemeResponse' smart constructor.
+data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
+    { _defersStatus         :: !Int
+    , _defersAnalysisScheme :: !AnalysisSchemeStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DefineAnalysisSchemeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'defersStatus'
+--
+-- * 'defersAnalysisScheme'
+defineAnalysisSchemeResponse
+    :: Int -- ^ 'defersStatus'
+    -> AnalysisSchemeStatus -- ^ 'defersAnalysisScheme'
+    -> DefineAnalysisSchemeResponse
+defineAnalysisSchemeResponse pStatus_ pAnalysisScheme_ =
+    DefineAnalysisSchemeResponse'
+    { _defersStatus = pStatus_
+    , _defersAnalysisScheme = pAnalysisScheme_
+    }
+
+-- | The response status code.
+defersStatus :: Lens' DefineAnalysisSchemeResponse Int
+defersStatus = lens _defersStatus (\ s a -> s{_defersStatus = a});
+
+-- | Undocumented member.
+defersAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
+defersAnalysisScheme = lens _defersAnalysisScheme (\ s a -> s{_defersAnalysisScheme = a});

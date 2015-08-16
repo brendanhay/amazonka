@@ -1,128 +1,180 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CognitoSync.GetBulkPublishDetails
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Get the status of the last BulkPublish operation for an identity pool.
+-- |
+-- Module      : Network.AWS.CognitoSync.GetBulkPublishDetails
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetBulkPublishDetails.html>
+-- Get the status of the last BulkPublish operation for an identity pool.
+--
+-- This API can only be called with developer credentials. You cannot call
+-- this API with the temporary user credentials provided by Cognito
+-- Identity.
+--
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetBulkPublishDetails.html AWS API Reference> for GetBulkPublishDetails.
 module Network.AWS.CognitoSync.GetBulkPublishDetails
     (
-    -- * Request
-      GetBulkPublishDetails
-    -- ** Request constructor
-    , getBulkPublishDetails
-    -- ** Request lenses
+    -- * Creating a Request
+      getBulkPublishDetails
+    , GetBulkPublishDetails
+    -- * Request Lenses
     , gbpdIdentityPoolId
 
-    -- * Response
-    , GetBulkPublishDetailsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getBulkPublishDetailsResponse
-    -- ** Response lenses
-    , gbpdrBulkPublishCompleteTime
-    , gbpdrBulkPublishStartTime
-    , gbpdrBulkPublishStatus
-    , gbpdrFailureMessage
-    , gbpdrIdentityPoolId
+    , GetBulkPublishDetailsResponse
+    -- * Response Lenses
+    , gbpdrsBulkPublishStartTime
+    , gbpdrsIdentityPoolId
+    , gbpdrsBulkPublishCompleteTime
+    , gbpdrsFailureMessage
+    , gbpdrsBulkPublishStatus
+    , gbpdrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.CognitoSync.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetBulkPublishDetails = GetBulkPublishDetails
+-- | The input for the GetBulkPublishDetails operation.
+--
+-- /See:/ 'getBulkPublishDetails' smart constructor.
+newtype GetBulkPublishDetails = GetBulkPublishDetails'
     { _gbpdIdentityPoolId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBulkPublishDetails' constructor.
+-- | Creates a value of 'GetBulkPublishDetails' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbpdIdentityPoolId' @::@ 'Text'
---
-getBulkPublishDetails :: Text -- ^ 'gbpdIdentityPoolId'
-                      -> GetBulkPublishDetails
-getBulkPublishDetails p1 = GetBulkPublishDetails
-    { _gbpdIdentityPoolId = p1
+-- * 'gbpdIdentityPoolId'
+getBulkPublishDetails
+    :: Text -- ^ 'gbpdIdentityPoolId'
+    -> GetBulkPublishDetails
+getBulkPublishDetails pIdentityPoolId_ =
+    GetBulkPublishDetails'
+    { _gbpdIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
 gbpdIdentityPoolId :: Lens' GetBulkPublishDetails Text
-gbpdIdentityPoolId =
-    lens _gbpdIdentityPoolId (\s a -> s { _gbpdIdentityPoolId = a })
+gbpdIdentityPoolId = lens _gbpdIdentityPoolId (\ s a -> s{_gbpdIdentityPoolId = a});
 
-data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse
-    { _gbpdrBulkPublishCompleteTime :: Maybe POSIX
-    , _gbpdrBulkPublishStartTime    :: Maybe POSIX
-    , _gbpdrBulkPublishStatus       :: Maybe BulkPublishStatus
-    , _gbpdrFailureMessage          :: Maybe Text
-    , _gbpdrIdentityPoolId          :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSRequest GetBulkPublishDetails where
+        type Sv GetBulkPublishDetails = CognitoSync
+        type Rs GetBulkPublishDetails =
+             GetBulkPublishDetailsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetBulkPublishDetailsResponse' <$>
+                   (x .?> "BulkPublishStartTime") <*>
+                     (x .?> "IdentityPoolId")
+                     <*> (x .?> "BulkPublishCompleteTime")
+                     <*> (x .?> "FailureMessage")
+                     <*> (x .?> "BulkPublishStatus")
+                     <*> (pure (fromEnum s)))
 
--- | 'GetBulkPublishDetailsResponse' constructor.
+instance ToHeaders GetBulkPublishDetails where
+        toHeaders
+          = const
+              (mconcat
+                 ["Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON GetBulkPublishDetails where
+        toJSON = const (Object mempty)
+
+instance ToPath GetBulkPublishDetails where
+        toPath GetBulkPublishDetails'{..}
+          = mconcat
+              ["/identitypools/", toBS _gbpdIdentityPoolId,
+               "/getBulkPublishDetails"]
+
+instance ToQuery GetBulkPublishDetails where
+        toQuery = const mempty
+
+-- | The output for the GetBulkPublishDetails operation.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'getBulkPublishDetailsResponse' smart constructor.
+data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
+    { _gbpdrsBulkPublishStartTime    :: !(Maybe POSIX)
+    , _gbpdrsIdentityPoolId          :: !(Maybe Text)
+    , _gbpdrsBulkPublishCompleteTime :: !(Maybe POSIX)
+    , _gbpdrsFailureMessage          :: !(Maybe Text)
+    , _gbpdrsBulkPublishStatus       :: !(Maybe BulkPublishStatus)
+    , _gbpdrsStatus                  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetBulkPublishDetailsResponse' with the minimum fields required to make a request.
 --
--- * 'gbpdrBulkPublishCompleteTime' @::@ 'Maybe' 'UTCTime'
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbpdrBulkPublishStartTime' @::@ 'Maybe' 'UTCTime'
+-- * 'gbpdrsBulkPublishStartTime'
 --
--- * 'gbpdrBulkPublishStatus' @::@ 'Maybe' 'BulkPublishStatus'
+-- * 'gbpdrsIdentityPoolId'
 --
--- * 'gbpdrFailureMessage' @::@ 'Maybe' 'Text'
+-- * 'gbpdrsBulkPublishCompleteTime'
 --
--- * 'gbpdrIdentityPoolId' @::@ 'Maybe' 'Text'
+-- * 'gbpdrsFailureMessage'
 --
-getBulkPublishDetailsResponse :: GetBulkPublishDetailsResponse
-getBulkPublishDetailsResponse = GetBulkPublishDetailsResponse
-    { _gbpdrIdentityPoolId          = Nothing
-    , _gbpdrBulkPublishStartTime    = Nothing
-    , _gbpdrBulkPublishCompleteTime = Nothing
-    , _gbpdrBulkPublishStatus       = Nothing
-    , _gbpdrFailureMessage          = Nothing
+-- * 'gbpdrsBulkPublishStatus'
+--
+-- * 'gbpdrsStatus'
+getBulkPublishDetailsResponse
+    :: Int -- ^ 'gbpdrsStatus'
+    -> GetBulkPublishDetailsResponse
+getBulkPublishDetailsResponse pStatus_ =
+    GetBulkPublishDetailsResponse'
+    { _gbpdrsBulkPublishStartTime = Nothing
+    , _gbpdrsIdentityPoolId = Nothing
+    , _gbpdrsBulkPublishCompleteTime = Nothing
+    , _gbpdrsFailureMessage = Nothing
+    , _gbpdrsBulkPublishStatus = Nothing
+    , _gbpdrsStatus = pStatus_
     }
 
--- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation
--- completed.
-gbpdrBulkPublishCompleteTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
-gbpdrBulkPublishCompleteTime =
-    lens _gbpdrBulkPublishCompleteTime
-        (\s a -> s { _gbpdrBulkPublishCompleteTime = a })
-            . mapping _Time
+-- | The date\/time at which the last bulk publish was initiated.
+gbpdrsBulkPublishStartTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
+gbpdrsBulkPublishStartTime = lens _gbpdrsBulkPublishStartTime (\ s a -> s{_gbpdrsBulkPublishStartTime = a}) . mapping _Time;
 
--- | The date/time at which the last bulk publish was initiated.
-gbpdrBulkPublishStartTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
-gbpdrBulkPublishStartTime =
-    lens _gbpdrBulkPublishStartTime
-        (\s a -> s { _gbpdrBulkPublishStartTime = a })
-            . mapping _Time
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+gbpdrsIdentityPoolId :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
+gbpdrsIdentityPoolId = lens _gbpdrsIdentityPoolId (\ s a -> s{_gbpdrsIdentityPoolId = a});
 
--- | Status of the last bulk publish operation, valid values are: NOT_STARTED - No
--- bulk publish has been requested for this identity pool
+-- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
+-- operation completed.
+gbpdrsBulkPublishCompleteTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
+gbpdrsBulkPublishCompleteTime = lens _gbpdrsBulkPublishCompleteTime (\ s a -> s{_gbpdrsBulkPublishCompleteTime = a}) . mapping _Time;
+
+-- | If BulkPublishStatus is FAILED this field will contain the error message
+-- that caused the bulk publish to fail.
+gbpdrsFailureMessage :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
+gbpdrsFailureMessage = lens _gbpdrsFailureMessage (\ s a -> s{_gbpdrsFailureMessage = a});
+
+-- | Status of the last bulk publish operation, valid values are:
+--
+-- NOT_STARTED - No bulk publish has been requested for this identity pool
 --
 -- IN_PROGRESS - Data is being published to the configured stream
 --
@@ -131,49 +183,9 @@ gbpdrBulkPublishStartTime =
 --
 -- FAILED - Some portion of the data has failed to publish, check
 -- FailureMessage for the cause.
-gbpdrBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublishStatus)
-gbpdrBulkPublishStatus =
-    lens _gbpdrBulkPublishStatus (\s a -> s { _gbpdrBulkPublishStatus = a })
+gbpdrsBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublishStatus)
+gbpdrsBulkPublishStatus = lens _gbpdrsBulkPublishStatus (\ s a -> s{_gbpdrsBulkPublishStatus = a});
 
--- | If BulkPublishStatus is FAILED this field will contain the error message that
--- caused the bulk publish to fail.
-gbpdrFailureMessage :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
-gbpdrFailureMessage =
-    lens _gbpdrFailureMessage (\s a -> s { _gbpdrFailureMessage = a })
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
-gbpdrIdentityPoolId :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
-gbpdrIdentityPoolId =
-    lens _gbpdrIdentityPoolId (\s a -> s { _gbpdrIdentityPoolId = a })
-
-instance ToPath GetBulkPublishDetails where
-    toPath GetBulkPublishDetails{..} = mconcat
-        [ "/identitypools/"
-        , toText _gbpdIdentityPoolId
-        , "/getBulkPublishDetails"
-        ]
-
-instance ToQuery GetBulkPublishDetails where
-    toQuery = const mempty
-
-instance ToHeaders GetBulkPublishDetails
-
-instance ToJSON GetBulkPublishDetails where
-    toJSON = const (toJSON Empty)
-
-instance AWSRequest GetBulkPublishDetails where
-    type Sv GetBulkPublishDetails = CognitoSync
-    type Rs GetBulkPublishDetails = GetBulkPublishDetailsResponse
-
-    request  = post
-    response = jsonResponse
-
-instance FromJSON GetBulkPublishDetailsResponse where
-    parseJSON = withObject "GetBulkPublishDetailsResponse" $ \o -> GetBulkPublishDetailsResponse
-        <$> o .:? "BulkPublishCompleteTime"
-        <*> o .:? "BulkPublishStartTime"
-        <*> o .:? "BulkPublishStatus"
-        <*> o .:? "FailureMessage"
-        <*> o .:? "IdentityPoolId"
+-- | The response status code.
+gbpdrsStatus :: Lens' GetBulkPublishDetailsResponse Int
+gbpdrsStatus = lens _gbpdrsStatus (\ s a -> s{_gbpdrsStatus = a});

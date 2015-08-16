@@ -1,104 +1,110 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.DetachRolePolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Removes the specified managed policy from the specified role.
+-- |
+-- Module      : Network.AWS.IAM.DetachRolePolicy
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- A role can also have inline policies embedded with it. To delete an inline
--- policy, use the 'DeleteRolePolicy' API. For information about policies, refer
--- to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/ guide.
+-- Removes the specified managed policy from the specified role.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachRolePolicy.html>
+-- A role can also have inline policies embedded with it. To delete an
+-- inline policy, use the DeleteRolePolicy API. For information about
+-- policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DetachRolePolicy.html AWS API Reference> for DetachRolePolicy.
 module Network.AWS.IAM.DetachRolePolicy
     (
-    -- * Request
-      DetachRolePolicy
-    -- ** Request constructor
-    , detachRolePolicy
-    -- ** Request lenses
-    , drpPolicyArn
+    -- * Creating a Request
+      detachRolePolicy
+    , DetachRolePolicy
+    -- * Request Lenses
     , drpRoleName
+    , drpPolicyARN
 
-    -- * Response
-    , DetachRolePolicyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , detachRolePolicyResponse
+    , DetachRolePolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DetachRolePolicy = DetachRolePolicy
-    { _drpPolicyArn :: Text
-    , _drpRoleName  :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'detachRolePolicy' smart constructor.
+data DetachRolePolicy = DetachRolePolicy'
+    { _drpRoleName  :: !Text
+    , _drpPolicyARN :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachRolePolicy' constructor.
+-- | Creates a value of 'DetachRolePolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drpPolicyArn' @::@ 'Text'
+-- * 'drpRoleName'
 --
--- * 'drpRoleName' @::@ 'Text'
---
-detachRolePolicy :: Text -- ^ 'drpRoleName'
-                 -> Text -- ^ 'drpPolicyArn'
-                 -> DetachRolePolicy
-detachRolePolicy p1 p2 = DetachRolePolicy
-    { _drpRoleName  = p1
-    , _drpPolicyArn = p2
+-- * 'drpPolicyARN'
+detachRolePolicy
+    :: Text -- ^ 'drpRoleName'
+    -> Text -- ^ 'drpPolicyARN'
+    -> DetachRolePolicy
+detachRolePolicy pRoleName_ pPolicyARN_ =
+    DetachRolePolicy'
+    { _drpRoleName = pRoleName_
+    , _drpPolicyARN = pPolicyARN_
     }
-
-drpPolicyArn :: Lens' DetachRolePolicy Text
-drpPolicyArn = lens _drpPolicyArn (\s a -> s { _drpPolicyArn = a })
 
 -- | The name (friendly name, not ARN) of the role to detach the policy from.
 drpRoleName :: Lens' DetachRolePolicy Text
-drpRoleName = lens _drpRoleName (\s a -> s { _drpRoleName = a })
+drpRoleName = lens _drpRoleName (\ s a -> s{_drpRoleName = a});
 
-data DetachRolePolicyResponse = DetachRolePolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DetachRolePolicyResponse' constructor.
-detachRolePolicyResponse :: DetachRolePolicyResponse
-detachRolePolicyResponse = DetachRolePolicyResponse
-
-instance ToPath DetachRolePolicy where
-    toPath = const "/"
-
-instance ToQuery DetachRolePolicy where
-    toQuery DetachRolePolicy{..} = mconcat
-        [ "PolicyArn" =? _drpPolicyArn
-        , "RoleName"  =? _drpRoleName
-        ]
-
-instance ToHeaders DetachRolePolicy
+-- | Undocumented member.
+drpPolicyARN :: Lens' DetachRolePolicy Text
+drpPolicyARN = lens _drpPolicyARN (\ s a -> s{_drpPolicyARN = a});
 
 instance AWSRequest DetachRolePolicy where
-    type Sv DetachRolePolicy = IAM
-    type Rs DetachRolePolicy = DetachRolePolicyResponse
+        type Sv DetachRolePolicy = IAM
+        type Rs DetachRolePolicy = DetachRolePolicyResponse
+        request = postQuery
+        response = receiveNull DetachRolePolicyResponse'
 
-    request  = post "DetachRolePolicy"
-    response = nullResponse DetachRolePolicyResponse
+instance ToHeaders DetachRolePolicy where
+        toHeaders = const mempty
+
+instance ToPath DetachRolePolicy where
+        toPath = const "/"
+
+instance ToQuery DetachRolePolicy where
+        toQuery DetachRolePolicy'{..}
+          = mconcat
+              ["Action" =: ("DetachRolePolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "RoleName" =: _drpRoleName,
+               "PolicyArn" =: _drpPolicyARN]
+
+-- | /See:/ 'detachRolePolicyResponse' smart constructor.
+data DetachRolePolicyResponse =
+    DetachRolePolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DetachRolePolicyResponse' with the minimum fields required to make a request.
+--
+detachRolePolicyResponse
+    :: DetachRolePolicyResponse
+detachRolePolicyResponse = DetachRolePolicyResponse'

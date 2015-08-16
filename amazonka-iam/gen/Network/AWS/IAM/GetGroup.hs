@@ -1,174 +1,194 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.GetGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a list of users that are in the specified group. You can paginate
--- the results using the 'MaxItems' and 'Marker' parameters.
+-- |
+-- Module      : Network.AWS.IAM.GetGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html>
+-- Returns a list of users that are in the specified group. You can
+-- paginate the results using the 'MaxItems' and 'Marker' parameters.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html AWS API Reference> for GetGroup.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.GetGroup
     (
-    -- * Request
-      GetGroup
-    -- ** Request constructor
-    , getGroup
-    -- ** Request lenses
-    , ggGroupName
-    , ggMarker
+    -- * Creating a Request
+      getGroup
+    , GetGroup
+    -- * Request Lenses
     , ggMaxItems
+    , ggMarker
+    , ggGroupName
 
-    -- * Response
-    , GetGroupResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getGroupResponse
-    -- ** Response lenses
-    , ggrGroup
-    , ggrIsTruncated
-    , ggrMarker
-    , ggrUsers
+    , GetGroupResponse
+    -- * Response Lenses
+    , ggrsMarker
+    , ggrsIsTruncated
+    , ggrsStatus
+    , ggrsGroup
+    , ggrsUsers
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetGroup = GetGroup
-    { _ggGroupName :: Text
-    , _ggMarker    :: Maybe Text
-    , _ggMaxItems  :: Maybe Nat
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'getGroup' smart constructor.
+data GetGroup = GetGroup'
+    { _ggMaxItems  :: !(Maybe Nat)
+    , _ggMarker    :: !(Maybe Text)
+    , _ggGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetGroup' constructor.
+-- | Creates a value of 'GetGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ggGroupName' @::@ 'Text'
+-- * 'ggMaxItems'
 --
--- * 'ggMarker' @::@ 'Maybe' 'Text'
+-- * 'ggMarker'
 --
--- * 'ggMaxItems' @::@ 'Maybe' 'Natural'
---
-getGroup :: Text -- ^ 'ggGroupName'
-         -> GetGroup
-getGroup p1 = GetGroup
-    { _ggGroupName = p1
-    , _ggMarker    = Nothing
-    , _ggMaxItems  = Nothing
+-- * 'ggGroupName'
+getGroup
+    :: Text -- ^ 'ggGroupName'
+    -> GetGroup
+getGroup pGroupName_ =
+    GetGroup'
+    { _ggMaxItems = Nothing
+    , _ggMarker = Nothing
+    , _ggGroupName = pGroupName_
     }
+
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
+ggMaxItems :: Lens' GetGroup (Maybe Natural)
+ggMaxItems = lens _ggMaxItems (\ s a -> s{_ggMaxItems = a}) . mapping _Nat;
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+ggMarker :: Lens' GetGroup (Maybe Text)
+ggMarker = lens _ggMarker (\ s a -> s{_ggMarker = a});
 
 -- | The name of the group.
 ggGroupName :: Lens' GetGroup Text
-ggGroupName = lens _ggGroupName (\s a -> s { _ggGroupName = a })
-
--- | Use this only when paginating results, and only in a subsequent request
--- after you've received a response where the results are truncated. Set it to
--- the value of the 'Marker' element in the response you just received.
-ggMarker :: Lens' GetGroup (Maybe Text)
-ggMarker = lens _ggMarker (\s a -> s { _ggMarker = a })
-
--- | Use this only when paginating results to indicate the maximum number of
--- groups you want in the response. If there are additional groups beyond the
--- maximum you specify, the 'IsTruncated' response element is 'true'. This parameter
--- is optional. If you do not include it, it defaults to 100.
-ggMaxItems :: Lens' GetGroup (Maybe Natural)
-ggMaxItems = lens _ggMaxItems (\s a -> s { _ggMaxItems = a }) . mapping _Nat
-
-data GetGroupResponse = GetGroupResponse
-    { _ggrGroup       :: Group
-    , _ggrIsTruncated :: Maybe Bool
-    , _ggrMarker      :: Maybe Text
-    , _ggrUsers       :: List "member" User
-    } deriving (Eq, Read, Show)
-
--- | 'GetGroupResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ggrGroup' @::@ 'Group'
---
--- * 'ggrIsTruncated' @::@ 'Maybe' 'Bool'
---
--- * 'ggrMarker' @::@ 'Maybe' 'Text'
---
--- * 'ggrUsers' @::@ ['User']
---
-getGroupResponse :: Group -- ^ 'ggrGroup'
-                 -> GetGroupResponse
-getGroupResponse p1 = GetGroupResponse
-    { _ggrGroup       = p1
-    , _ggrUsers       = mempty
-    , _ggrIsTruncated = Nothing
-    , _ggrMarker      = Nothing
-    }
-
--- | Information about the group.
-ggrGroup :: Lens' GetGroupResponse Group
-ggrGroup = lens _ggrGroup (\s a -> s { _ggrGroup = a })
-
--- | A flag that indicates whether there are more user names to list. If your
--- results were truncated, you can make a subsequent pagination request using
--- the 'Marker' request parameter to retrieve more user names in the list.
-ggrIsTruncated :: Lens' GetGroupResponse (Maybe Bool)
-ggrIsTruncated = lens _ggrIsTruncated (\s a -> s { _ggrIsTruncated = a })
-
--- | If IsTruncated is 'true', then this element is present and contains the value
--- to use for the 'Marker' parameter in a subsequent pagination request.
-ggrMarker :: Lens' GetGroupResponse (Maybe Text)
-ggrMarker = lens _ggrMarker (\s a -> s { _ggrMarker = a })
-
--- | A list of users in the group.
-ggrUsers :: Lens' GetGroupResponse [User]
-ggrUsers = lens _ggrUsers (\s a -> s { _ggrUsers = a }) . _List
-
-instance ToPath GetGroup where
-    toPath = const "/"
-
-instance ToQuery GetGroup where
-    toQuery GetGroup{..} = mconcat
-        [ "GroupName" =? _ggGroupName
-        , "Marker"    =? _ggMarker
-        , "MaxItems"  =? _ggMaxItems
-        ]
-
-instance ToHeaders GetGroup
-
-instance AWSRequest GetGroup where
-    type Sv GetGroup = IAM
-    type Rs GetGroup = GetGroupResponse
-
-    request  = post "GetGroup"
-    response = xmlResponse
-
-instance FromXML GetGroupResponse where
-    parseXML = withElement "GetGroupResult" $ \x -> GetGroupResponse
-        <$> x .@  "Group"
-        <*> x .@? "IsTruncated"
-        <*> x .@? "Marker"
-        <*> x .@? "Users" .!@ mempty
+ggGroupName = lens _ggGroupName (\ s a -> s{_ggGroupName = a});
 
 instance AWSPager GetGroup where
-    page rq rs
-        | stop (rs ^. ggrIsTruncated) = Nothing
-        | otherwise = Just $ rq
-            & ggMarker .~ rs ^. ggrMarker
+        page rq rs
+          | stop (rs ^. ggrsIsTruncated) = Nothing
+          | isNothing (rs ^. ggrsMarker) = Nothing
+          | otherwise =
+            Just $ rq & ggMarker .~ rs ^. ggrsMarker
+
+instance AWSRequest GetGroup where
+        type Sv GetGroup = IAM
+        type Rs GetGroup = GetGroupResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "GetGroupResult"
+              (\ s h x ->
+                 GetGroupResponse' <$>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure (fromEnum s))
+                     <*> (x .@ "Group")
+                     <*>
+                     (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
+
+instance ToHeaders GetGroup where
+        toHeaders = const mempty
+
+instance ToPath GetGroup where
+        toPath = const "/"
+
+instance ToQuery GetGroup where
+        toQuery GetGroup'{..}
+          = mconcat
+              ["Action" =: ("GetGroup" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "MaxItems" =: _ggMaxItems, "Marker" =: _ggMarker,
+               "GroupName" =: _ggGroupName]
+
+-- | Contains the response to a successful GetGroup request.
+--
+-- /See:/ 'getGroupResponse' smart constructor.
+data GetGroupResponse = GetGroupResponse'
+    { _ggrsMarker      :: !(Maybe Text)
+    , _ggrsIsTruncated :: !(Maybe Bool)
+    , _ggrsStatus      :: !Int
+    , _ggrsGroup       :: !Group
+    , _ggrsUsers       :: ![User]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ggrsMarker'
+--
+-- * 'ggrsIsTruncated'
+--
+-- * 'ggrsStatus'
+--
+-- * 'ggrsGroup'
+--
+-- * 'ggrsUsers'
+getGroupResponse
+    :: Int -- ^ 'ggrsStatus'
+    -> Group -- ^ 'ggrsGroup'
+    -> GetGroupResponse
+getGroupResponse pStatus_ pGroup_ =
+    GetGroupResponse'
+    { _ggrsMarker = Nothing
+    , _ggrsIsTruncated = Nothing
+    , _ggrsStatus = pStatus_
+    , _ggrsGroup = pGroup_
+    , _ggrsUsers = mempty
+    }
+
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
+-- request.
+ggrsMarker :: Lens' GetGroupResponse (Maybe Text)
+ggrsMarker = lens _ggrsMarker (\ s a -> s{_ggrsMarker = a});
+
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the 'Marker' request parameter to retrieve more items.
+ggrsIsTruncated :: Lens' GetGroupResponse (Maybe Bool)
+ggrsIsTruncated = lens _ggrsIsTruncated (\ s a -> s{_ggrsIsTruncated = a});
+
+-- | The response status code.
+ggrsStatus :: Lens' GetGroupResponse Int
+ggrsStatus = lens _ggrsStatus (\ s a -> s{_ggrsStatus = a});
+
+-- | Information about the group.
+ggrsGroup :: Lens' GetGroupResponse Group
+ggrsGroup = lens _ggrsGroup (\ s a -> s{_ggrsGroup = a});
+
+-- | A list of users in the group.
+ggrsUsers :: Lens' GetGroupResponse [User]
+ggrsUsers = lens _ggrsUsers (\ s a -> s{_ggrsUsers = a}) . _Coerce;

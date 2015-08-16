@@ -1,135 +1,140 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.DataPipeline.DescribePipelines
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Retrieves metadata about one or more pipelines. The information retrieved
--- includes the name of the pipeline, the pipeline identifier, its current
--- state, and the user account that owns the pipeline. Using account
--- credentials, you can retrieve metadata about pipelines that you or your IAM
--- users have created. If you are using an IAM user account, you can retrieve
--- metadata about only those pipelines for which you have read permissions.
+-- |
+-- Module      : Network.AWS.DataPipeline.DescribePipelines
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Retrieves metadata about one or more pipelines. The information
+-- retrieved includes the name of the pipeline, the pipeline identifier,
+-- its current state, and the user account that owns the pipeline. Using
+-- account credentials, you can retrieve metadata about pipelines that you
+-- or your IAM users have created. If you are using an IAM user account,
+-- you can retrieve metadata about only those pipelines for which you have
+-- read permissions.
 --
 -- To retrieve the full pipeline definition instead of metadata about the
--- pipeline, call 'GetPipelineDefinition'.
+-- pipeline, call GetPipelineDefinition.
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html>
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html AWS API Reference> for DescribePipelines.
 module Network.AWS.DataPipeline.DescribePipelines
     (
-    -- * Request
-      DescribePipelines
-    -- ** Request constructor
-    , describePipelines
-    -- ** Request lenses
+    -- * Creating a Request
+      describePipelines
+    , DescribePipelines
+    -- * Request Lenses
     , dpPipelineIds
 
-    -- * Response
-    , DescribePipelinesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describePipelinesResponse
-    -- ** Response lenses
-    , dprPipelineDescriptionList
+    , DescribePipelinesResponse
+    -- * Response Lenses
+    , dprsStatus
+    , dprsPipelineDescriptionList
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DataPipeline.Types
-import qualified GHC.Exts
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribePipelines = DescribePipelines
-    { _dpPipelineIds :: List "pipelineIds" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribePipelines where
-    type Item DescribePipelines = Text
-
-    fromList = DescribePipelines . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dpPipelineIds
-
--- | 'DescribePipelines' constructor.
+-- | Contains the parameters for DescribePipelines.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describePipelines' smart constructor.
+newtype DescribePipelines = DescribePipelines'
+    { _dpPipelineIds :: [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribePipelines' with the minimum fields required to make a request.
 --
--- * 'dpPipelineIds' @::@ ['Text']
+-- Use one of the following lenses to modify other fields as desired:
 --
-describePipelines :: DescribePipelines
-describePipelines = DescribePipelines
+-- * 'dpPipelineIds'
+describePipelines
+    :: DescribePipelines
+describePipelines =
+    DescribePipelines'
     { _dpPipelineIds = mempty
     }
 
--- | The IDs of the pipelines to describe. You can pass as many as 25 identifiers
--- in a single call. To obtain pipeline IDs, call 'ListPipelines'.
+-- | The IDs of the pipelines to describe. You can pass as many as 25
+-- identifiers in a single call. To obtain pipeline IDs, call
+-- ListPipelines.
 dpPipelineIds :: Lens' DescribePipelines [Text]
-dpPipelineIds = lens _dpPipelineIds (\s a -> s { _dpPipelineIds = a }) . _List
-
-newtype DescribePipelinesResponse = DescribePipelinesResponse
-    { _dprPipelineDescriptionList :: List "pipelineDescriptionList" PipelineDescription
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribePipelinesResponse where
-    type Item DescribePipelinesResponse = PipelineDescription
-
-    fromList = DescribePipelinesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dprPipelineDescriptionList
-
--- | 'DescribePipelinesResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dprPipelineDescriptionList' @::@ ['PipelineDescription']
---
-describePipelinesResponse :: DescribePipelinesResponse
-describePipelinesResponse = DescribePipelinesResponse
-    { _dprPipelineDescriptionList = mempty
-    }
-
--- | An array of descriptions for the specified pipelines.
-dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
-dprPipelineDescriptionList =
-    lens _dprPipelineDescriptionList
-        (\s a -> s { _dprPipelineDescriptionList = a })
-            . _List
-
-instance ToPath DescribePipelines where
-    toPath = const "/"
-
-instance ToQuery DescribePipelines where
-    toQuery = const mempty
-
-instance ToHeaders DescribePipelines
-
-instance ToJSON DescribePipelines where
-    toJSON DescribePipelines{..} = object
-        [ "pipelineIds" .= _dpPipelineIds
-        ]
+dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a}) . _Coerce;
 
 instance AWSRequest DescribePipelines where
-    type Sv DescribePipelines = DataPipeline
-    type Rs DescribePipelines = DescribePipelinesResponse
+        type Sv DescribePipelines = DataPipeline
+        type Rs DescribePipelines = DescribePipelinesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribePipelinesResponse' <$>
+                   (pure (fromEnum s)) <*>
+                     (x .?> "pipelineDescriptionList" .!@ mempty))
 
-    request  = post "DescribePipelines"
-    response = jsonResponse
+instance ToHeaders DescribePipelines where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("DataPipeline.DescribePipelines" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON DescribePipelinesResponse where
-    parseJSON = withObject "DescribePipelinesResponse" $ \o -> DescribePipelinesResponse
-        <$> o .:? "pipelineDescriptionList" .!= mempty
+instance ToJSON DescribePipelines where
+        toJSON DescribePipelines'{..}
+          = object ["pipelineIds" .= _dpPipelineIds]
+
+instance ToPath DescribePipelines where
+        toPath = const "/"
+
+instance ToQuery DescribePipelines where
+        toQuery = const mempty
+
+-- | Contains the output of DescribePipelines.
+--
+-- /See:/ 'describePipelinesResponse' smart constructor.
+data DescribePipelinesResponse = DescribePipelinesResponse'
+    { _dprsStatus                  :: !Int
+    , _dprsPipelineDescriptionList :: ![PipelineDescription]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribePipelinesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dprsStatus'
+--
+-- * 'dprsPipelineDescriptionList'
+describePipelinesResponse
+    :: Int -- ^ 'dprsStatus'
+    -> DescribePipelinesResponse
+describePipelinesResponse pStatus_ =
+    DescribePipelinesResponse'
+    { _dprsStatus = pStatus_
+    , _dprsPipelineDescriptionList = mempty
+    }
+
+-- | The response status code.
+dprsStatus :: Lens' DescribePipelinesResponse Int
+dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});
+
+-- | An array of descriptions for the specified pipelines.
+dprsPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
+dprsPipelineDescriptionList = lens _dprsPipelineDescriptionList (\ s a -> s{_dprsPipelineDescriptionList = a}) . _Coerce;

@@ -1,126 +1,152 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Replaces the set of policies associated with the specified port on which the
--- back-end server is listening with a new set of policies. At this time, only
--- the back-end server authentication policy type can be applied to the back-end
--- ports; this policy type is composed of multiple public key policies.
+-- |
+-- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Each time you use 'SetLoadBalancerPoliciesForBackendServer' to enable the
--- policies, use the 'PolicyNames' parameter to list the policies that you want to
--- enable.
+-- Replaces the set of policies associated with the specified port on which
+-- the back-end server is listening with a new set of policies. At this
+-- time, only the back-end server authentication policy type can be applied
+-- to the back-end ports; this policy type is composed of multiple public
+-- key policies.
 --
--- You can use 'DescribeLoadBalancers' or 'DescribeLoadBalancerPolicies' to verify
--- that the policy is associated with the back-end server.
+-- Each time you use 'SetLoadBalancerPoliciesForBackendServer' to enable
+-- the policies, use the 'PolicyNames' parameter to list the policies that
+-- you want to enable.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesForBackendServer.html>
+-- You can use DescribeLoadBalancers or DescribeLoadBalancerPolicies to
+-- verify that the policy is associated with the back-end server.
+--
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesForBackendServer.html AWS API Reference> for SetLoadBalancerPoliciesForBackendServer.
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     (
-    -- * Request
-      SetLoadBalancerPoliciesForBackendServer
-    -- ** Request constructor
-    , setLoadBalancerPoliciesForBackendServer
-    -- ** Request lenses
-    , slbpfbsInstancePort
+    -- * Creating a Request
+      setLoadBalancerPoliciesForBackendServer
+    , SetLoadBalancerPoliciesForBackendServer
+    -- * Request Lenses
     , slbpfbsLoadBalancerName
+    , slbpfbsInstancePort
     , slbpfbsPolicyNames
 
-    -- * Response
-    , SetLoadBalancerPoliciesForBackendServerResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , setLoadBalancerPoliciesForBackendServerResponse
+    , SetLoadBalancerPoliciesForBackendServerResponse
+    -- * Response Lenses
+    , slbpfbsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer
-    { _slbpfbsInstancePort     :: Int
-    , _slbpfbsLoadBalancerName :: Text
-    , _slbpfbsPolicyNames      :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'setLoadBalancerPoliciesForBackendServer' smart constructor.
+data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer'
+    { _slbpfbsLoadBalancerName :: !Text
+    , _slbpfbsInstancePort     :: !Int
+    , _slbpfbsPolicyNames      :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetLoadBalancerPoliciesForBackendServer' constructor.
+-- | Creates a value of 'SetLoadBalancerPoliciesForBackendServer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slbpfbsInstancePort' @::@ 'Int'
+-- * 'slbpfbsLoadBalancerName'
 --
--- * 'slbpfbsLoadBalancerName' @::@ 'Text'
+-- * 'slbpfbsInstancePort'
 --
--- * 'slbpfbsPolicyNames' @::@ ['Text']
---
-setLoadBalancerPoliciesForBackendServer :: Text -- ^ 'slbpfbsLoadBalancerName'
-                                        -> Int -- ^ 'slbpfbsInstancePort'
-                                        -> SetLoadBalancerPoliciesForBackendServer
-setLoadBalancerPoliciesForBackendServer p1 p2 = SetLoadBalancerPoliciesForBackendServer
-    { _slbpfbsLoadBalancerName = p1
-    , _slbpfbsInstancePort     = p2
-    , _slbpfbsPolicyNames      = mempty
+-- * 'slbpfbsPolicyNames'
+setLoadBalancerPoliciesForBackendServer
+    :: Text -- ^ 'slbpfbsLoadBalancerName'
+    -> Int -- ^ 'slbpfbsInstancePort'
+    -> SetLoadBalancerPoliciesForBackendServer
+setLoadBalancerPoliciesForBackendServer pLoadBalancerName_ pInstancePort_ =
+    SetLoadBalancerPoliciesForBackendServer'
+    { _slbpfbsLoadBalancerName = pLoadBalancerName_
+    , _slbpfbsInstancePort = pInstancePort_
+    , _slbpfbsPolicyNames = mempty
     }
-
--- | The port number associated with the back-end server.
-slbpfbsInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer Int
-slbpfbsInstancePort =
-    lens _slbpfbsInstancePort (\s a -> s { _slbpfbsInstancePort = a })
 
 -- | The name of the load balancer.
 slbpfbsLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer Text
-slbpfbsLoadBalancerName =
-    lens _slbpfbsLoadBalancerName (\s a -> s { _slbpfbsLoadBalancerName = a })
+slbpfbsLoadBalancerName = lens _slbpfbsLoadBalancerName (\ s a -> s{_slbpfbsLoadBalancerName = a});
 
--- | The names of the policies. If the list is empty, then all current polices are
--- removed from the back-end server.
+-- | The port number associated with the back-end server.
+slbpfbsInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer Int
+slbpfbsInstancePort = lens _slbpfbsInstancePort (\ s a -> s{_slbpfbsInstancePort = a});
+
+-- | The names of the policies. If the list is empty, then all current
+-- polices are removed from the back-end server.
 slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
-slbpfbsPolicyNames =
-    lens _slbpfbsPolicyNames (\s a -> s { _slbpfbsPolicyNames = a })
-        . _List
+slbpfbsPolicyNames = lens _slbpfbsPolicyNames (\ s a -> s{_slbpfbsPolicyNames = a}) . _Coerce;
 
-data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
-    deriving (Eq, Ord, Read, Show, Generic)
+instance AWSRequest
+         SetLoadBalancerPoliciesForBackendServer where
+        type Sv SetLoadBalancerPoliciesForBackendServer = ELB
+        type Rs SetLoadBalancerPoliciesForBackendServer =
+             SetLoadBalancerPoliciesForBackendServerResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "SetLoadBalancerPoliciesForBackendServerResult"
+              (\ s h x ->
+                 SetLoadBalancerPoliciesForBackendServerResponse' <$>
+                   (pure (fromEnum s)))
 
--- | 'SetLoadBalancerPoliciesForBackendServerResponse' constructor.
-setLoadBalancerPoliciesForBackendServerResponse :: SetLoadBalancerPoliciesForBackendServerResponse
-setLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
+instance ToHeaders
+         SetLoadBalancerPoliciesForBackendServer where
+        toHeaders = const mempty
 
-instance ToPath SetLoadBalancerPoliciesForBackendServer where
-    toPath = const "/"
+instance ToPath
+         SetLoadBalancerPoliciesForBackendServer where
+        toPath = const "/"
 
-instance ToQuery SetLoadBalancerPoliciesForBackendServer where
-    toQuery SetLoadBalancerPoliciesForBackendServer{..} = mconcat
-        [ "InstancePort"     =? _slbpfbsInstancePort
-        , "LoadBalancerName" =? _slbpfbsLoadBalancerName
-        , "PolicyNames"      =? _slbpfbsPolicyNames
-        ]
+instance ToQuery
+         SetLoadBalancerPoliciesForBackendServer where
+        toQuery SetLoadBalancerPoliciesForBackendServer'{..}
+          = mconcat
+              ["Action" =:
+                 ("SetLoadBalancerPoliciesForBackendServer" ::
+                    ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "LoadBalancerName" =: _slbpfbsLoadBalancerName,
+               "InstancePort" =: _slbpfbsInstancePort,
+               "PolicyNames" =:
+                 toQueryList "member" _slbpfbsPolicyNames]
 
-instance ToHeaders SetLoadBalancerPoliciesForBackendServer
+-- | /See:/ 'setLoadBalancerPoliciesForBackendServerResponse' smart constructor.
+newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'
+    { _slbpfbsrsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
-instance AWSRequest SetLoadBalancerPoliciesForBackendServer where
-    type Sv SetLoadBalancerPoliciesForBackendServer = ELB
-    type Rs SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServerResponse
+-- | Creates a value of 'SetLoadBalancerPoliciesForBackendServerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slbpfbsrsStatus'
+setLoadBalancerPoliciesForBackendServerResponse
+    :: Int -- ^ 'slbpfbsrsStatus'
+    -> SetLoadBalancerPoliciesForBackendServerResponse
+setLoadBalancerPoliciesForBackendServerResponse pStatus_ =
+    SetLoadBalancerPoliciesForBackendServerResponse'
+    { _slbpfbsrsStatus = pStatus_
+    }
 
-    request  = post "SetLoadBalancerPoliciesForBackendServer"
-    response = nullResponse SetLoadBalancerPoliciesForBackendServerResponse
+-- | The response status code.
+slbpfbsrsStatus :: Lens' SetLoadBalancerPoliciesForBackendServerResponse Int
+slbpfbsrsStatus = lens _slbpfbsrsStatus (\ s a -> s{_slbpfbsrsStatus = a});

@@ -1,123 +1,136 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.CreateRouteTable
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a route table for the specified VPC. After you create a route table,
--- you can add routes and associate the table with a subnet.
+-- |
+-- Module      : Network.AWS.EC2.CreateRouteTable
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /AmazonVirtual Private Cloud User Guide/.
+-- Creates a route table for the specified VPC. After you create a route
+-- table, you can add routes and associate the table with a subnet.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRouteTable.html>
+-- For more information about route tables, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRouteTable.html AWS API Reference> for CreateRouteTable.
 module Network.AWS.EC2.CreateRouteTable
     (
-    -- * Request
-      CreateRouteTable
-    -- ** Request constructor
-    , createRouteTable
-    -- ** Request lenses
+    -- * Creating a Request
+      createRouteTable
+    , CreateRouteTable
+    -- * Request Lenses
     , crtDryRun
-    , crtVpcId
+    , crtVPCId
 
-    -- * Response
-    , CreateRouteTableResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createRouteTableResponse
-    -- ** Response lenses
-    , crtrRouteTable
+    , CreateRouteTableResponse
+    -- * Response Lenses
+    , crtrsRouteTable
+    , crtrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateRouteTable = CreateRouteTable
-    { _crtDryRun :: Maybe Bool
-    , _crtVpcId  :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'createRouteTable' smart constructor.
+data CreateRouteTable = CreateRouteTable'
+    { _crtDryRun :: !(Maybe Bool)
+    , _crtVPCId  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateRouteTable' constructor.
+-- | Creates a value of 'CreateRouteTable' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crtDryRun' @::@ 'Maybe' 'Bool'
+-- * 'crtDryRun'
 --
--- * 'crtVpcId' @::@ 'Text'
---
-createRouteTable :: Text -- ^ 'crtVpcId'
-                 -> CreateRouteTable
-createRouteTable p1 = CreateRouteTable
-    { _crtVpcId  = p1
-    , _crtDryRun = Nothing
+-- * 'crtVPCId'
+createRouteTable
+    :: Text -- ^ 'crtVPCId'
+    -> CreateRouteTable
+createRouteTable pVPCId_ =
+    CreateRouteTable'
+    { _crtDryRun = Nothing
+    , _crtVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 crtDryRun :: Lens' CreateRouteTable (Maybe Bool)
-crtDryRun = lens _crtDryRun (\s a -> s { _crtDryRun = a })
+crtDryRun = lens _crtDryRun (\ s a -> s{_crtDryRun = a});
 
 -- | The ID of the VPC.
-crtVpcId :: Lens' CreateRouteTable Text
-crtVpcId = lens _crtVpcId (\s a -> s { _crtVpcId = a })
+crtVPCId :: Lens' CreateRouteTable Text
+crtVPCId = lens _crtVPCId (\ s a -> s{_crtVPCId = a});
 
-newtype CreateRouteTableResponse = CreateRouteTableResponse
-    { _crtrRouteTable :: Maybe RouteTable
-    } deriving (Eq, Read, Show)
+instance AWSRequest CreateRouteTable where
+        type Sv CreateRouteTable = EC2
+        type Rs CreateRouteTable = CreateRouteTableResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 CreateRouteTableResponse' <$>
+                   (x .@? "routeTable") <*> (pure (fromEnum s)))
 
--- | 'CreateRouteTableResponse' constructor.
+instance ToHeaders CreateRouteTable where
+        toHeaders = const mempty
+
+instance ToPath CreateRouteTable where
+        toPath = const "/"
+
+instance ToQuery CreateRouteTable where
+        toQuery CreateRouteTable'{..}
+          = mconcat
+              ["Action" =: ("CreateRouteTable" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _crtDryRun, "VpcId" =: _crtVPCId]
+
+-- | /See:/ 'createRouteTableResponse' smart constructor.
+data CreateRouteTableResponse = CreateRouteTableResponse'
+    { _crtrsRouteTable :: !(Maybe RouteTable)
+    , _crtrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateRouteTableResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'crtrRouteTable' @::@ 'Maybe' 'RouteTable'
+-- * 'crtrsRouteTable'
 --
-createRouteTableResponse :: CreateRouteTableResponse
-createRouteTableResponse = CreateRouteTableResponse
-    { _crtrRouteTable = Nothing
+-- * 'crtrsStatus'
+createRouteTableResponse
+    :: Int -- ^ 'crtrsStatus'
+    -> CreateRouteTableResponse
+createRouteTableResponse pStatus_ =
+    CreateRouteTableResponse'
+    { _crtrsRouteTable = Nothing
+    , _crtrsStatus = pStatus_
     }
 
 -- | Information about the route table.
-crtrRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
-crtrRouteTable = lens _crtrRouteTable (\s a -> s { _crtrRouteTable = a })
+crtrsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
+crtrsRouteTable = lens _crtrsRouteTable (\ s a -> s{_crtrsRouteTable = a});
 
-instance ToPath CreateRouteTable where
-    toPath = const "/"
-
-instance ToQuery CreateRouteTable where
-    toQuery CreateRouteTable{..} = mconcat
-        [ "DryRun" =? _crtDryRun
-        , "VpcId"  =? _crtVpcId
-        ]
-
-instance ToHeaders CreateRouteTable
-
-instance AWSRequest CreateRouteTable where
-    type Sv CreateRouteTable = EC2
-    type Rs CreateRouteTable = CreateRouteTableResponse
-
-    request  = post "CreateRouteTable"
-    response = xmlResponse
-
-instance FromXML CreateRouteTableResponse where
-    parseXML x = CreateRouteTableResponse
-        <$> x .@? "routeTable"
+-- | The response status code.
+crtrsStatus :: Lens' CreateRouteTableResponse Int
+crtrsStatus = lens _crtrsStatus (\ s a -> s{_crtrsStatus = a});

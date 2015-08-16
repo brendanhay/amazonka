@@ -1,0 +1,104 @@
+name:                  amazonka-codecommit
+version:               1.0.0
+synopsis:              Amazon CodeCommit SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2015 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    AWS CodeCommit
+
+    This is the /AWS CodeCommit API Reference/. This reference provides
+    descriptions of the AWS CodeCommit API.
+
+    You can use the AWS CodeCommit API to work with the following objects:
+
+    -   Repositories
+    -   Branches
+    -   Commits
+
+    For information about how to use AWS CodeCommit, see the /AWS CodeCommit
+    User Guide/.
+    .
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
+    .
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.CodeCommit" and the <http://docs.aws.amazon.com/codecommit/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.CodeCommit
+        , Network.AWS.CodeCommit.BatchGetRepositories
+        , Network.AWS.CodeCommit.CreateBranch
+        , Network.AWS.CodeCommit.CreateRepository
+        , Network.AWS.CodeCommit.DeleteRepository
+        , Network.AWS.CodeCommit.GetBranch
+        , Network.AWS.CodeCommit.GetRepository
+        , Network.AWS.CodeCommit.ListBranches
+        , Network.AWS.CodeCommit.ListRepositories
+        , Network.AWS.CodeCommit.Types
+        , Network.AWS.CodeCommit.UpdateDefaultBranch
+        , Network.AWS.CodeCommit.UpdateRepositoryDescription
+        , Network.AWS.CodeCommit.UpdateRepositoryName
+        , Network.AWS.CodeCommit.Waiters
+
+    other-modules:
+          Network.AWS.CodeCommit.Types.Product
+        , Network.AWS.CodeCommit.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.0.0.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-codecommit-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.CodeCommit
+        , Test.AWS.Gen.CodeCommit
+        , Test.AWS.CodeCommit.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test == 1.0.0
+        , amazonka-codecommit == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

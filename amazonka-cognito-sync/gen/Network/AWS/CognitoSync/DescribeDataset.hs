@@ -1,153 +1,164 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CognitoSync.DescribeDataset
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Gets meta data about a dataset by identity and dataset name. With Amazon
--- Cognito Sync, each identity has access only to its own data. Thus, the
--- credentials used to make this API call need to have access to the identity
--- data.
+-- |
+-- Module      : Network.AWS.CognitoSync.DescribeDataset
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- DescribeDataset can be called with temporary user credentials provided by
+-- Gets meta data about a dataset by identity and dataset name. With Amazon
+-- Cognito Sync, each identity has access only to its own data. Thus, the
+-- credentials used to make this API call need to have access to the
+-- identity data.
+--
+-- This API can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials. You should use Cognito
 -- Identity credentials to make this API call.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeDataset.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeDataset.html AWS API Reference> for DescribeDataset.
 module Network.AWS.CognitoSync.DescribeDataset
     (
-    -- * Request
-      DescribeDataset
-    -- ** Request constructor
-    , describeDataset
-    -- ** Request lenses
-    , ddDatasetName
-    , ddIdentityId
+    -- * Creating a Request
+      describeDataset
+    , DescribeDataset
+    -- * Request Lenses
     , ddIdentityPoolId
+    , ddIdentityId
+    , ddDatasetName
 
-    -- * Response
-    , DescribeDatasetResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeDatasetResponse
-    -- ** Response lenses
-    , ddrDataset
+    , DescribeDatasetResponse
+    -- * Response Lenses
+    , ddrsDataset
+    , ddrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.CognitoSync.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeDataset = DescribeDataset
-    { _ddDatasetName    :: Text
-    , _ddIdentityId     :: Text
-    , _ddIdentityPoolId :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | A request for meta data about a dataset (creation date, number of
+-- records, size) by owner and dataset name.
+--
+-- /See:/ 'describeDataset' smart constructor.
+data DescribeDataset = DescribeDataset'
+    { _ddIdentityPoolId :: !Text
+    , _ddIdentityId     :: !Text
+    , _ddDatasetName    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDataset' constructor.
+-- | Creates a value of 'DescribeDataset' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddDatasetName' @::@ 'Text'
+-- * 'ddIdentityPoolId'
 --
--- * 'ddIdentityId' @::@ 'Text'
+-- * 'ddIdentityId'
 --
--- * 'ddIdentityPoolId' @::@ 'Text'
---
-describeDataset :: Text -- ^ 'ddIdentityPoolId'
-                -> Text -- ^ 'ddIdentityId'
-                -> Text -- ^ 'ddDatasetName'
-                -> DescribeDataset
-describeDataset p1 p2 p3 = DescribeDataset
-    { _ddIdentityPoolId = p1
-    , _ddIdentityId     = p2
-    , _ddDatasetName    = p3
+-- * 'ddDatasetName'
+describeDataset
+    :: Text -- ^ 'ddIdentityPoolId'
+    -> Text -- ^ 'ddIdentityId'
+    -> Text -- ^ 'ddDatasetName'
+    -> DescribeDataset
+describeDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
+    DescribeDataset'
+    { _ddIdentityPoolId = pIdentityPoolId_
+    , _ddIdentityId = pIdentityId_
+    , _ddDatasetName = pDatasetName_
     }
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'
--- (underscore), '-' (dash), and '.' (dot).
-ddDatasetName :: Lens' DescribeDataset Text
-ddDatasetName = lens _ddDatasetName (\s a -> s { _ddDatasetName = a })
-
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
-ddIdentityId :: Lens' DescribeDataset Text
-ddIdentityId = lens _ddIdentityId (\s a -> s { _ddIdentityId = a })
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
 ddIdentityPoolId :: Lens' DescribeDataset Text
-ddIdentityPoolId = lens _ddIdentityPoolId (\s a -> s { _ddIdentityPoolId = a })
+ddIdentityPoolId = lens _ddIdentityPoolId (\ s a -> s{_ddIdentityPoolId = a});
 
-newtype DescribeDatasetResponse = DescribeDatasetResponse
-    { _ddrDataset :: Maybe Dataset
-    } deriving (Eq, Read, Show)
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+ddIdentityId :: Lens' DescribeDataset Text
+ddIdentityId = lens _ddIdentityId (\ s a -> s{_ddIdentityId = a});
 
--- | 'DescribeDatasetResponse' constructor.
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
+-- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+ddDatasetName :: Lens' DescribeDataset Text
+ddDatasetName = lens _ddDatasetName (\ s a -> s{_ddDatasetName = a});
+
+instance AWSRequest DescribeDataset where
+        type Sv DescribeDataset = CognitoSync
+        type Rs DescribeDataset = DescribeDatasetResponse
+        request = get
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeDatasetResponse' <$>
+                   (x .?> "Dataset") <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeDataset where
+        toHeaders
+          = const
+              (mconcat
+                 ["Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToPath DescribeDataset where
+        toPath DescribeDataset'{..}
+          = mconcat
+              ["/identitypools/", toBS _ddIdentityPoolId,
+               "/identities/", toBS _ddIdentityId, "/datasets/",
+               toBS _ddDatasetName]
+
+instance ToQuery DescribeDataset where
+        toQuery = const mempty
+
+-- | Response to a successful DescribeDataset request.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeDatasetResponse' smart constructor.
+data DescribeDatasetResponse = DescribeDatasetResponse'
+    { _ddrsDataset :: !(Maybe Dataset)
+    , _ddrsStatus  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeDatasetResponse' with the minimum fields required to make a request.
 --
--- * 'ddrDataset' @::@ 'Maybe' 'Dataset'
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeDatasetResponse :: DescribeDatasetResponse
-describeDatasetResponse = DescribeDatasetResponse
-    { _ddrDataset = Nothing
+-- * 'ddrsDataset'
+--
+-- * 'ddrsStatus'
+describeDatasetResponse
+    :: Int -- ^ 'ddrsStatus'
+    -> DescribeDatasetResponse
+describeDatasetResponse pStatus_ =
+    DescribeDatasetResponse'
+    { _ddrsDataset = Nothing
+    , _ddrsStatus = pStatus_
     }
 
 -- | Meta data for a collection of data for an identity. An identity can have
--- multiple datasets. A dataset can be general or associated with a particular
--- entity in an application (like a saved game). Datasets are automatically
--- created if they don't exist. Data is synced by dataset, and a dataset can
--- hold up to 1MB of key-value pairs.
-ddrDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
-ddrDataset = lens _ddrDataset (\s a -> s { _ddrDataset = a })
+-- multiple datasets. A dataset can be general or associated with a
+-- particular entity in an application (like a saved game). Datasets are
+-- automatically created if they don\'t exist. Data is synced by dataset,
+-- and a dataset can hold up to 1MB of key-value pairs.
+ddrsDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
+ddrsDataset = lens _ddrsDataset (\ s a -> s{_ddrsDataset = a});
 
-instance ToPath DescribeDataset where
-    toPath DescribeDataset{..} = mconcat
-        [ "/identitypools/"
-        , toText _ddIdentityPoolId
-        , "/identities/"
-        , toText _ddIdentityId
-        , "/datasets/"
-        , toText _ddDatasetName
-        ]
-
-instance ToQuery DescribeDataset where
-    toQuery = const mempty
-
-instance ToHeaders DescribeDataset
-
-instance ToJSON DescribeDataset where
-    toJSON = const (toJSON Empty)
-
-instance AWSRequest DescribeDataset where
-    type Sv DescribeDataset = CognitoSync
-    type Rs DescribeDataset = DescribeDatasetResponse
-
-    request  = get
-    response = jsonResponse
-
-instance FromJSON DescribeDatasetResponse where
-    parseJSON = withObject "DescribeDatasetResponse" $ \o -> DescribeDatasetResponse
-        <$> o .:? "Dataset"
+-- | The response status code.
+ddrsStatus :: Lens' DescribeDatasetResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

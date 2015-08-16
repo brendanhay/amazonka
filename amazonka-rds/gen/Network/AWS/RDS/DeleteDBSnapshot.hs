@@ -1,115 +1,127 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.RDS.DeleteDBSnapshot
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes a DBSnapshot. If the snapshot is being copied, the copy operation is
--- terminated.
+-- |
+-- Module      : Network.AWS.RDS.DeleteDBSnapshot
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes a DBSnapshot. If the snapshot is being copied, the copy
+-- operation is terminated.
 --
 -- The DBSnapshot must be in the 'available' state to be deleted.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSnapshot.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBSnapshot.html AWS API Reference> for DeleteDBSnapshot.
 module Network.AWS.RDS.DeleteDBSnapshot
     (
-    -- * Request
-      DeleteDBSnapshot
-    -- ** Request constructor
-    , deleteDBSnapshot
-    -- ** Request lenses
-    , ddbs1DBSnapshotIdentifier
+    -- * Creating a Request
+      deleteDBSnapshot
+    , DeleteDBSnapshot
+    -- * Request Lenses
+    , ddbsDBSnapshotIdentifier
 
-    -- * Response
-    , DeleteDBSnapshotResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteDBSnapshotResponse
-    -- ** Response lenses
-    , ddbsrDBSnapshot
+    , DeleteDBSnapshotResponse
+    -- * Response Lenses
+    , ddbsrsDBSnapshot
+    , ddbsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.RDS.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteDBSnapshot = DeleteDBSnapshot
-    { _ddbs1DBSnapshotIdentifier :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- |
+--
+-- /See:/ 'deleteDBSnapshot' smart constructor.
+newtype DeleteDBSnapshot = DeleteDBSnapshot'
+    { _ddbsDBSnapshotIdentifier :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDBSnapshot' constructor.
+-- | Creates a value of 'DeleteDBSnapshot' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddbs1DBSnapshotIdentifier' @::@ 'Text'
---
-deleteDBSnapshot :: Text -- ^ 'ddbs1DBSnapshotIdentifier'
-                 -> DeleteDBSnapshot
-deleteDBSnapshot p1 = DeleteDBSnapshot
-    { _ddbs1DBSnapshotIdentifier = p1
+-- * 'ddbsDBSnapshotIdentifier'
+deleteDBSnapshot
+    :: Text -- ^ 'ddbsDBSnapshotIdentifier'
+    -> DeleteDBSnapshot
+deleteDBSnapshot pDBSnapshotIdentifier_ =
+    DeleteDBSnapshot'
+    { _ddbsDBSnapshotIdentifier = pDBSnapshotIdentifier_
     }
 
 -- | The DBSnapshot identifier.
 --
--- Constraints: Must be the name of an existing DB snapshot in the 'available'
--- state.
-ddbs1DBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
-ddbs1DBSnapshotIdentifier =
-    lens _ddbs1DBSnapshotIdentifier
-        (\s a -> s { _ddbs1DBSnapshotIdentifier = a })
-
-newtype DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
-    { _ddbsrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Read, Show)
-
--- | 'DeleteDBSnapshotResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ddbsrDBSnapshot' @::@ 'Maybe' 'DBSnapshot'
---
-deleteDBSnapshotResponse :: DeleteDBSnapshotResponse
-deleteDBSnapshotResponse = DeleteDBSnapshotResponse
-    { _ddbsrDBSnapshot = Nothing
-    }
-
-ddbsrDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
-ddbsrDBSnapshot = lens _ddbsrDBSnapshot (\s a -> s { _ddbsrDBSnapshot = a })
-
-instance ToPath DeleteDBSnapshot where
-    toPath = const "/"
-
-instance ToQuery DeleteDBSnapshot where
-    toQuery DeleteDBSnapshot{..} = mconcat
-        [ "DBSnapshotIdentifier" =? _ddbs1DBSnapshotIdentifier
-        ]
-
-instance ToHeaders DeleteDBSnapshot
+-- Constraints: Must be the name of an existing DB snapshot in the
+-- 'available' state.
+ddbsDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
+ddbsDBSnapshotIdentifier = lens _ddbsDBSnapshotIdentifier (\ s a -> s{_ddbsDBSnapshotIdentifier = a});
 
 instance AWSRequest DeleteDBSnapshot where
-    type Sv DeleteDBSnapshot = RDS
-    type Rs DeleteDBSnapshot = DeleteDBSnapshotResponse
+        type Sv DeleteDBSnapshot = RDS
+        type Rs DeleteDBSnapshot = DeleteDBSnapshotResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DeleteDBSnapshotResult"
+              (\ s h x ->
+                 DeleteDBSnapshotResponse' <$>
+                   (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
-    request  = post "DeleteDBSnapshot"
-    response = xmlResponse
+instance ToHeaders DeleteDBSnapshot where
+        toHeaders = const mempty
 
-instance FromXML DeleteDBSnapshotResponse where
-    parseXML = withElement "DeleteDBSnapshotResult" $ \x -> DeleteDBSnapshotResponse
-        <$> x .@? "DBSnapshot"
+instance ToPath DeleteDBSnapshot where
+        toPath = const "/"
+
+instance ToQuery DeleteDBSnapshot where
+        toQuery DeleteDBSnapshot'{..}
+          = mconcat
+              ["Action" =: ("DeleteDBSnapshot" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "DBSnapshotIdentifier" =: _ddbsDBSnapshotIdentifier]
+
+-- | /See:/ 'deleteDBSnapshotResponse' smart constructor.
+data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
+    { _ddbsrsDBSnapshot :: !(Maybe DBSnapshot)
+    , _ddbsrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteDBSnapshotResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ddbsrsDBSnapshot'
+--
+-- * 'ddbsrsStatus'
+deleteDBSnapshotResponse
+    :: Int -- ^ 'ddbsrsStatus'
+    -> DeleteDBSnapshotResponse
+deleteDBSnapshotResponse pStatus_ =
+    DeleteDBSnapshotResponse'
+    { _ddbsrsDBSnapshot = Nothing
+    , _ddbsrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+ddbsrsDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
+ddbsrsDBSnapshot = lens _ddbsrsDBSnapshot (\ s a -> s{_ddbsrsDBSnapshot = a});
+
+-- | The response status code.
+ddbsrsStatus :: Lens' DeleteDBSnapshotResponse Int
+ddbsrsStatus = lens _ddbsrsStatus (\ s a -> s{_ddbsrsStatus = a});

@@ -1,20 +1,9 @@
-# Amazonka Generator
+# amazonka-gen
 
-* [Description](#description)
-* [Contribute](#contribute)
-* [Licence](#licence)
+For pull requests which affect generated output, please _do not include_ the
+actual regenerated service code, only commit the updates to the generator,
+config and annex specifications..
 
-## Description
-
-AST transformations and templating to generate per-service cabal packages for
-each Amazon Web Service model description.
-
-
-## Contribute
-
-For any problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
-
-
-## Licence
-
-`amazonka-gen` is released under the [Mozilla Public License Version 2.0](http://www.mozilla.org/MPL/).
+This is to ensure the Continuous Integration process is considered the
+single source of truth for generated code changes, and keeps pull requests
+readable and focused on actual generator code/logic changes.

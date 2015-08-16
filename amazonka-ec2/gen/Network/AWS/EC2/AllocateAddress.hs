@@ -1,146 +1,159 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.AllocateAddress
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Acquires an Elastic IP address.
+-- |
+-- Module      : Network.AWS.EC2.AllocateAddress
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- An Elastic IP address is for use either in the EC2-Classic platform or in a
--- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide/.
+-- Acquires an Elastic IP address.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html>
+-- An Elastic IP address is for use either in the EC2-Classic platform or
+-- in a VPC. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html AWS API Reference> for AllocateAddress.
 module Network.AWS.EC2.AllocateAddress
     (
-    -- * Request
-      AllocateAddress
-    -- ** Request constructor
-    , allocateAddress
-    -- ** Request lenses
+    -- * Creating a Request
+      allocateAddress
+    , AllocateAddress
+    -- * Request Lenses
     , aaDomain
     , aaDryRun
 
-    -- * Response
-    , AllocateAddressResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , allocateAddressResponse
-    -- ** Response lenses
-    , aarAllocationId
-    , aarDomain
-    , aarPublicIp
+    , AllocateAddressResponse
+    -- * Response Lenses
+    , aarsAllocationId
+    , aarsDomain
+    , aarsPublicIP
+    , aarsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AllocateAddress = AllocateAddress
-    { _aaDomain :: Maybe DomainType
-    , _aaDryRun :: Maybe Bool
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'allocateAddress' smart constructor.
+data AllocateAddress = AllocateAddress'
+    { _aaDomain :: !(Maybe DomainType)
+    , _aaDryRun :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AllocateAddress' constructor.
+-- | Creates a value of 'AllocateAddress' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aaDomain' @::@ 'Maybe' 'DomainType'
+-- * 'aaDomain'
 --
--- * 'aaDryRun' @::@ 'Maybe' 'Bool'
---
-allocateAddress :: AllocateAddress
-allocateAddress = AllocateAddress
-    { _aaDryRun = Nothing
-    , _aaDomain = Nothing
+-- * 'aaDryRun'
+allocateAddress
+    :: AllocateAddress
+allocateAddress =
+    AllocateAddress'
+    { _aaDomain = Nothing
+    , _aaDryRun = Nothing
     }
 
 -- | Set to 'vpc' to allocate the address for use with instances in a VPC.
 --
 -- Default: The address is for use with instances in EC2-Classic.
 aaDomain :: Lens' AllocateAddress (Maybe DomainType)
-aaDomain = lens _aaDomain (\s a -> s { _aaDomain = a })
+aaDomain = lens _aaDomain (\ s a -> s{_aaDomain = a});
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 aaDryRun :: Lens' AllocateAddress (Maybe Bool)
-aaDryRun = lens _aaDryRun (\s a -> s { _aaDryRun = a })
+aaDryRun = lens _aaDryRun (\ s a -> s{_aaDryRun = a});
 
-data AllocateAddressResponse = AllocateAddressResponse
-    { _aarAllocationId :: Maybe Text
-    , _aarDomain       :: Maybe DomainType
-    , _aarPublicIp     :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSRequest AllocateAddress where
+        type Sv AllocateAddress = EC2
+        type Rs AllocateAddress = AllocateAddressResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 AllocateAddressResponse' <$>
+                   (x .@? "allocationId") <*> (x .@? "domain") <*>
+                     (x .@? "publicIp")
+                     <*> (pure (fromEnum s)))
 
--- | 'AllocateAddressResponse' constructor.
+instance ToHeaders AllocateAddress where
+        toHeaders = const mempty
+
+instance ToPath AllocateAddress where
+        toPath = const "/"
+
+instance ToQuery AllocateAddress where
+        toQuery AllocateAddress'{..}
+          = mconcat
+              ["Action" =: ("AllocateAddress" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "Domain" =: _aaDomain, "DryRun" =: _aaDryRun]
+
+-- | /See:/ 'allocateAddressResponse' smart constructor.
+data AllocateAddressResponse = AllocateAddressResponse'
+    { _aarsAllocationId :: !(Maybe Text)
+    , _aarsDomain       :: !(Maybe DomainType)
+    , _aarsPublicIP     :: !(Maybe Text)
+    , _aarsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AllocateAddressResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'aarAllocationId' @::@ 'Maybe' 'Text'
+-- * 'aarsAllocationId'
 --
--- * 'aarDomain' @::@ 'Maybe' 'DomainType'
+-- * 'aarsDomain'
 --
--- * 'aarPublicIp' @::@ 'Maybe' 'Text'
+-- * 'aarsPublicIP'
 --
-allocateAddressResponse :: AllocateAddressResponse
-allocateAddressResponse = AllocateAddressResponse
-    { _aarPublicIp     = Nothing
-    , _aarDomain       = Nothing
-    , _aarAllocationId = Nothing
+-- * 'aarsStatus'
+allocateAddressResponse
+    :: Int -- ^ 'aarsStatus'
+    -> AllocateAddressResponse
+allocateAddressResponse pStatus_ =
+    AllocateAddressResponse'
+    { _aarsAllocationId = Nothing
+    , _aarsDomain = Nothing
+    , _aarsPublicIP = Nothing
+    , _aarsStatus = pStatus_
     }
 
--- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic
--- IP address for use with instances in a VPC.
-aarAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
-aarAllocationId = lens _aarAllocationId (\s a -> s { _aarAllocationId = a })
+-- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
+-- Elastic IP address for use with instances in a VPC.
+aarsAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
+aarsAllocationId = lens _aarsAllocationId (\ s a -> s{_aarsAllocationId = a});
 
 -- | Indicates whether this Elastic IP address is for use with instances in
 -- EC2-Classic ('standard') or instances in a VPC ('vpc').
-aarDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
-aarDomain = lens _aarDomain (\s a -> s { _aarDomain = a })
+aarsDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
+aarsDomain = lens _aarsDomain (\ s a -> s{_aarsDomain = a});
 
 -- | The Elastic IP address.
-aarPublicIp :: Lens' AllocateAddressResponse (Maybe Text)
-aarPublicIp = lens _aarPublicIp (\s a -> s { _aarPublicIp = a })
+aarsPublicIP :: Lens' AllocateAddressResponse (Maybe Text)
+aarsPublicIP = lens _aarsPublicIP (\ s a -> s{_aarsPublicIP = a});
 
-instance ToPath AllocateAddress where
-    toPath = const "/"
-
-instance ToQuery AllocateAddress where
-    toQuery AllocateAddress{..} = mconcat
-        [ "Domain" =? _aaDomain
-        , "DryRun" =? _aaDryRun
-        ]
-
-instance ToHeaders AllocateAddress
-
-instance AWSRequest AllocateAddress where
-    type Sv AllocateAddress = EC2
-    type Rs AllocateAddress = AllocateAddressResponse
-
-    request  = post "AllocateAddress"
-    response = xmlResponse
-
-instance FromXML AllocateAddressResponse where
-    parseXML x = AllocateAddressResponse
-        <$> x .@? "allocationId"
-        <*> x .@? "domain"
-        <*> x .@? "publicIp"
+-- | The response status code.
+aarsStatus :: Lens' AllocateAddressResponse Int
+aarsStatus = lens _aarsStatus (\ s a -> s{_aarsStatus = a});

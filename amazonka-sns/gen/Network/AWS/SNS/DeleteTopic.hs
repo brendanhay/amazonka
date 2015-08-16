@@ -1,93 +1,96 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SNS.DeleteTopic
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes a topic and all its subscriptions. Deleting a topic might prevent
--- some messages previously sent to the topic from being delivered to
--- subscribers. This action is idempotent, so deleting a topic that does not
--- exist does not result in an error.
+-- |
+-- Module      : Network.AWS.SNS.DeleteTopic
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_DeleteTopic.html>
+-- Deletes a topic and all its subscriptions. Deleting a topic might
+-- prevent some messages previously sent to the topic from being delivered
+-- to subscribers. This action is idempotent, so deleting a topic that does
+-- not exist does not result in an error.
+--
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_DeleteTopic.html AWS API Reference> for DeleteTopic.
 module Network.AWS.SNS.DeleteTopic
     (
-    -- * Request
-      DeleteTopic
-    -- ** Request constructor
-    , deleteTopic
-    -- ** Request lenses
-    , dtTopicArn
+    -- * Creating a Request
+      deleteTopic
+    , DeleteTopic
+    -- * Request Lenses
+    , dtTopicARN
 
-    -- * Response
-    , DeleteTopicResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteTopicResponse
+    , DeleteTopicResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
+import           Network.AWS.SNS.Types.Product
 
-newtype DeleteTopic = DeleteTopic
-    { _dtTopicArn :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | /See:/ 'deleteTopic' smart constructor.
+newtype DeleteTopic = DeleteTopic'
+    { _dtTopicARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTopic' constructor.
+-- | Creates a value of 'DeleteTopic' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtTopicArn' @::@ 'Text'
---
-deleteTopic :: Text -- ^ 'dtTopicArn'
-            -> DeleteTopic
-deleteTopic p1 = DeleteTopic
-    { _dtTopicArn = p1
+-- * 'dtTopicARN'
+deleteTopic
+    :: Text -- ^ 'dtTopicARN'
+    -> DeleteTopic
+deleteTopic pTopicARN_ =
+    DeleteTopic'
+    { _dtTopicARN = pTopicARN_
     }
 
 -- | The ARN of the topic you want to delete.
-dtTopicArn :: Lens' DeleteTopic Text
-dtTopicArn = lens _dtTopicArn (\s a -> s { _dtTopicArn = a })
-
-data DeleteTopicResponse = DeleteTopicResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteTopicResponse' constructor.
-deleteTopicResponse :: DeleteTopicResponse
-deleteTopicResponse = DeleteTopicResponse
-
-instance ToPath DeleteTopic where
-    toPath = const "/"
-
-instance ToQuery DeleteTopic where
-    toQuery DeleteTopic{..} = mconcat
-        [ "TopicArn" =? _dtTopicArn
-        ]
-
-instance ToHeaders DeleteTopic
+dtTopicARN :: Lens' DeleteTopic Text
+dtTopicARN = lens _dtTopicARN (\ s a -> s{_dtTopicARN = a});
 
 instance AWSRequest DeleteTopic where
-    type Sv DeleteTopic = SNS
-    type Rs DeleteTopic = DeleteTopicResponse
+        type Sv DeleteTopic = SNS
+        type Rs DeleteTopic = DeleteTopicResponse
+        request = postQuery
+        response = receiveNull DeleteTopicResponse'
 
-    request  = post "DeleteTopic"
-    response = nullResponse DeleteTopicResponse
+instance ToHeaders DeleteTopic where
+        toHeaders = const mempty
+
+instance ToPath DeleteTopic where
+        toPath = const "/"
+
+instance ToQuery DeleteTopic where
+        toQuery DeleteTopic'{..}
+          = mconcat
+              ["Action" =: ("DeleteTopic" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "TopicArn" =: _dtTopicARN]
+
+-- | /See:/ 'deleteTopicResponse' smart constructor.
+data DeleteTopicResponse =
+    DeleteTopicResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteTopicResponse' with the minimum fields required to make a request.
+--
+deleteTopicResponse
+    :: DeleteTopicResponse
+deleteTopicResponse = DeleteTopicResponse'

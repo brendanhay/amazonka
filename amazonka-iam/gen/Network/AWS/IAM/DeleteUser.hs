@@ -1,91 +1,94 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.DeleteUser
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified user. The user must not belong to any groups, have any
--- keys or signing certificates, or have any attached policies.
+-- |
+-- Module      : Network.AWS.IAM.DeleteUser
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUser.html>
+-- Deletes the specified user. The user must not belong to any groups, have
+-- any keys or signing certificates, or have any attached policies.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUser.html AWS API Reference> for DeleteUser.
 module Network.AWS.IAM.DeleteUser
     (
-    -- * Request
-      DeleteUser
-    -- ** Request constructor
-    , deleteUser
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteUser
+    , DeleteUser
+    -- * Request Lenses
     , duUserName
 
-    -- * Response
-    , DeleteUserResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteUserResponse
+    , DeleteUserResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteUser = DeleteUser
+-- | /See:/ 'deleteUser' smart constructor.
+newtype DeleteUser = DeleteUser'
     { _duUserName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteUser' constructor.
+-- | Creates a value of 'DeleteUser' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'duUserName' @::@ 'Text'
---
-deleteUser :: Text -- ^ 'duUserName'
-           -> DeleteUser
-deleteUser p1 = DeleteUser
-    { _duUserName = p1
+-- * 'duUserName'
+deleteUser
+    :: Text -- ^ 'duUserName'
+    -> DeleteUser
+deleteUser pUserName_ =
+    DeleteUser'
+    { _duUserName = pUserName_
     }
 
 -- | The name of the user to delete.
 duUserName :: Lens' DeleteUser Text
-duUserName = lens _duUserName (\s a -> s { _duUserName = a })
-
-data DeleteUserResponse = DeleteUserResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteUserResponse' constructor.
-deleteUserResponse :: DeleteUserResponse
-deleteUserResponse = DeleteUserResponse
-
-instance ToPath DeleteUser where
-    toPath = const "/"
-
-instance ToQuery DeleteUser where
-    toQuery DeleteUser{..} = mconcat
-        [ "UserName" =? _duUserName
-        ]
-
-instance ToHeaders DeleteUser
+duUserName = lens _duUserName (\ s a -> s{_duUserName = a});
 
 instance AWSRequest DeleteUser where
-    type Sv DeleteUser = IAM
-    type Rs DeleteUser = DeleteUserResponse
+        type Sv DeleteUser = IAM
+        type Rs DeleteUser = DeleteUserResponse
+        request = postQuery
+        response = receiveNull DeleteUserResponse'
 
-    request  = post "DeleteUser"
-    response = nullResponse DeleteUserResponse
+instance ToHeaders DeleteUser where
+        toHeaders = const mempty
+
+instance ToPath DeleteUser where
+        toPath = const "/"
+
+instance ToQuery DeleteUser where
+        toQuery DeleteUser'{..}
+          = mconcat
+              ["Action" =: ("DeleteUser" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "UserName" =: _duUserName]
+
+-- | /See:/ 'deleteUserResponse' smart constructor.
+data DeleteUserResponse =
+    DeleteUserResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteUserResponse' with the minimum fields required to make a request.
+--
+deleteUserResponse
+    :: DeleteUserResponse
+deleteUserResponse = DeleteUserResponse'

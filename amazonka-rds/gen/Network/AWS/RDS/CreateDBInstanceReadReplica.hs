@@ -1,302 +1,333 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.RDS.CreateDBInstanceReadReplica
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a DB instance that acts as a Read Replica of a source DB instance.
+-- |
+-- Module      : Network.AWS.RDS.CreateDBInstanceReadReplica
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Creates a DB instance for a DB instance running MySQL or PostgreSQL that
+-- acts as a Read Replica of a source DB instance.
 --
 -- All Read Replica DB instances are created as Single-AZ deployments with
--- backups disabled. All other DB instance attributes (including DB security
--- groups and DB parameter groups) are inherited from the source DB instance,
--- except as specified below.
+-- backups disabled. All other DB instance attributes (including DB
+-- security groups and DB parameter groups) are inherited from the source
+-- DB instance, except as specified below.
 --
 -- The source DB instance must have backup retention enabled.
 --
---
---
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstanceReadReplica.html AWS API Reference> for CreateDBInstanceReadReplica.
 module Network.AWS.RDS.CreateDBInstanceReadReplica
     (
-    -- * Request
-      CreateDBInstanceReadReplica
-    -- ** Request constructor
-    , createDBInstanceReadReplica
-    -- ** Request lenses
-    , cdbirrAutoMinorVersionUpgrade
-    , cdbirrAvailabilityZone
-    , cdbirrDBInstanceClass
-    , cdbirrDBInstanceIdentifier
-    , cdbirrDBSubnetGroupName
-    , cdbirrIops
-    , cdbirrOptionGroupName
-    , cdbirrPort
-    , cdbirrPubliclyAccessible
-    , cdbirrSourceDBInstanceIdentifier
-    , cdbirrStorageType
-    , cdbirrTags
+    -- * Creating a Request
+      createDBInstanceReadReplica
+    , CreateDBInstanceReadReplica
+    -- * Request Lenses
+    , cdirrAutoMinorVersionUpgrade
+    , cdirrPubliclyAccessible
+    , cdirrDBSubnetGroupName
+    , cdirrIOPS
+    , cdirrDBInstanceClass
+    , cdirrAvailabilityZone
+    , cdirrOptionGroupName
+    , cdirrCopyTagsToSnapshot
+    , cdirrTags
+    , cdirrPort
+    , cdirrStorageType
+    , cdirrDBInstanceIdentifier
+    , cdirrSourceDBInstanceIdentifier
 
-    -- * Response
-    , CreateDBInstanceReadReplicaResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createDBInstanceReadReplicaResponse
-    -- ** Response lenses
-    , cdbirrrDBInstance
+    , CreateDBInstanceReadReplicaResponse
+    -- * Response Lenses
+    , cdirrrsDBInstance
+    , cdirrrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.RDS.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
-    { _cdbirrAutoMinorVersionUpgrade    :: Maybe Bool
-    , _cdbirrAvailabilityZone           :: Maybe Text
-    , _cdbirrDBInstanceClass            :: Maybe Text
-    , _cdbirrDBInstanceIdentifier       :: Text
-    , _cdbirrDBSubnetGroupName          :: Maybe Text
-    , _cdbirrIops                       :: Maybe Int
-    , _cdbirrOptionGroupName            :: Maybe Text
-    , _cdbirrPort                       :: Maybe Int
-    , _cdbirrPubliclyAccessible         :: Maybe Bool
-    , _cdbirrSourceDBInstanceIdentifier :: Text
-    , _cdbirrStorageType                :: Maybe Text
-    , _cdbirrTags                       :: List "member" Tag
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'createDBInstanceReadReplica' smart constructor.
+data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
+    { _cdirrAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _cdirrPubliclyAccessible         :: !(Maybe Bool)
+    , _cdirrDBSubnetGroupName          :: !(Maybe Text)
+    , _cdirrIOPS                       :: !(Maybe Int)
+    , _cdirrDBInstanceClass            :: !(Maybe Text)
+    , _cdirrAvailabilityZone           :: !(Maybe Text)
+    , _cdirrOptionGroupName            :: !(Maybe Text)
+    , _cdirrCopyTagsToSnapshot         :: !(Maybe Bool)
+    , _cdirrTags                       :: !(Maybe [Tag])
+    , _cdirrPort                       :: !(Maybe Int)
+    , _cdirrStorageType                :: !(Maybe Text)
+    , _cdirrDBInstanceIdentifier       :: !Text
+    , _cdirrSourceDBInstanceIdentifier :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBInstanceReadReplica' constructor.
+-- | Creates a value of 'CreateDBInstanceReadReplica' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdbirrAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
+-- * 'cdirrAutoMinorVersionUpgrade'
 --
--- * 'cdbirrAvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 'cdirrPubliclyAccessible'
 --
--- * 'cdbirrDBInstanceClass' @::@ 'Maybe' 'Text'
+-- * 'cdirrDBSubnetGroupName'
 --
--- * 'cdbirrDBInstanceIdentifier' @::@ 'Text'
+-- * 'cdirrIOPS'
 --
--- * 'cdbirrDBSubnetGroupName' @::@ 'Maybe' 'Text'
+-- * 'cdirrDBInstanceClass'
 --
--- * 'cdbirrIops' @::@ 'Maybe' 'Int'
+-- * 'cdirrAvailabilityZone'
 --
--- * 'cdbirrOptionGroupName' @::@ 'Maybe' 'Text'
+-- * 'cdirrOptionGroupName'
 --
--- * 'cdbirrPort' @::@ 'Maybe' 'Int'
+-- * 'cdirrCopyTagsToSnapshot'
 --
--- * 'cdbirrPubliclyAccessible' @::@ 'Maybe' 'Bool'
+-- * 'cdirrTags'
 --
--- * 'cdbirrSourceDBInstanceIdentifier' @::@ 'Text'
+-- * 'cdirrPort'
 --
--- * 'cdbirrStorageType' @::@ 'Maybe' 'Text'
+-- * 'cdirrStorageType'
 --
--- * 'cdbirrTags' @::@ ['Tag']
+-- * 'cdirrDBInstanceIdentifier'
 --
-createDBInstanceReadReplica :: Text -- ^ 'cdbirrDBInstanceIdentifier'
-                            -> Text -- ^ 'cdbirrSourceDBInstanceIdentifier'
-                            -> CreateDBInstanceReadReplica
-createDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplica
-    { _cdbirrDBInstanceIdentifier       = p1
-    , _cdbirrSourceDBInstanceIdentifier = p2
-    , _cdbirrDBInstanceClass            = Nothing
-    , _cdbirrAvailabilityZone           = Nothing
-    , _cdbirrPort                       = Nothing
-    , _cdbirrAutoMinorVersionUpgrade    = Nothing
-    , _cdbirrIops                       = Nothing
-    , _cdbirrOptionGroupName            = Nothing
-    , _cdbirrPubliclyAccessible         = Nothing
-    , _cdbirrTags                       = mempty
-    , _cdbirrDBSubnetGroupName          = Nothing
-    , _cdbirrStorageType                = Nothing
+-- * 'cdirrSourceDBInstanceIdentifier'
+createDBInstanceReadReplica
+    :: Text -- ^ 'cdirrDBInstanceIdentifier'
+    -> Text -- ^ 'cdirrSourceDBInstanceIdentifier'
+    -> CreateDBInstanceReadReplica
+createDBInstanceReadReplica pDBInstanceIdentifier_ pSourceDBInstanceIdentifier_ =
+    CreateDBInstanceReadReplica'
+    { _cdirrAutoMinorVersionUpgrade = Nothing
+    , _cdirrPubliclyAccessible = Nothing
+    , _cdirrDBSubnetGroupName = Nothing
+    , _cdirrIOPS = Nothing
+    , _cdirrDBInstanceClass = Nothing
+    , _cdirrAvailabilityZone = Nothing
+    , _cdirrOptionGroupName = Nothing
+    , _cdirrCopyTagsToSnapshot = Nothing
+    , _cdirrTags = Nothing
+    , _cdirrPort = Nothing
+    , _cdirrStorageType = Nothing
+    , _cdirrDBInstanceIdentifier = pDBInstanceIdentifier_
+    , _cdirrSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
     }
 
--- | Indicates that minor engine upgrades will be applied automatically to the
--- Read Replica during the maintenance window.
+-- | Indicates that minor engine upgrades will be applied automatically to
+-- the Read Replica during the maintenance window.
 --
 -- Default: Inherits from the source DB instance
-cdbirrAutoMinorVersionUpgrade :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
-cdbirrAutoMinorVersionUpgrade =
-    lens _cdbirrAutoMinorVersionUpgrade
-        (\s a -> s { _cdbirrAutoMinorVersionUpgrade = a })
+cdirrAutoMinorVersionUpgrade :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
+cdirrAutoMinorVersionUpgrade = lens _cdirrAutoMinorVersionUpgrade (\ s a -> s{_cdirrAutoMinorVersionUpgrade = a});
 
--- | The Amazon EC2 Availability Zone that the Read Replica will be created in.
+-- | Specifies the accessibility options for the DB instance. A value of true
+-- specifies an Internet-facing instance with a publicly resolvable DNS
+-- name, which resolves to a public IP address. A value of false specifies
+-- an internal instance with a DNS name that resolves to a private IP
+-- address.
 --
--- Default: A random, system-chosen Availability Zone in the endpoint's
--- region.
+-- Default: The default behavior varies depending on whether a VPC has been
+-- requested or not. The following list shows the default behavior in each
+-- case.
 --
--- Example: 'us-east-1d'
-cdbirrAvailabilityZone :: Lens' CreateDBInstanceReadReplica (Maybe Text)
-cdbirrAvailabilityZone =
-    lens _cdbirrAvailabilityZone (\s a -> s { _cdbirrAvailabilityZone = a })
+-- -   __Default VPC:__true
+-- -   __VPC:__false
+--
+-- If no DB subnet group has been specified as part of the request and the
+-- PubliclyAccessible value has not been set, the DB instance will be
+-- publicly accessible. If a specific DB subnet group has been specified as
+-- part of the request and the PubliclyAccessible value has not been set,
+-- the DB instance will be private.
+cdirrPubliclyAccessible :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
+cdirrPubliclyAccessible = lens _cdirrPubliclyAccessible (\ s a -> s{_cdirrPubliclyAccessible = a});
 
--- | The compute and memory capacity of the Read Replica.
---
--- Valid Values: 'db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large |db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge |db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
---
--- Default: Inherits from the source DB instance.
-cdbirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
-cdbirrDBInstanceClass =
-    lens _cdbirrDBInstanceClass (\s a -> s { _cdbirrDBInstanceClass = a })
-
--- | The DB instance identifier of the Read Replica. This is the unique key that
--- identifies a DB instance. This parameter is stored as a lowercase string.
-cdbirrDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
-cdbirrDBInstanceIdentifier =
-    lens _cdbirrDBInstanceIdentifier
-        (\s a -> s { _cdbirrDBInstanceIdentifier = a })
-
--- | Specifies a DB subnet group for the DB instance. The new DB instance will be
--- created in the VPC associated with the DB subnet group. If no DB subnet group
--- is specified, then the new DB instance is not created in a VPC.
+-- | Specifies a DB subnet group for the DB instance. The new DB instance
+-- will be created in the VPC associated with the DB subnet group. If no DB
+-- subnet group is specified, then the new DB instance is not created in a
+-- VPC.
 --
 -- Constraints:
 --
--- Can only be specified if the source DB instance identifier specifies a DB
--- instance in another region. The specified DB subnet group must be in the same
--- region in which the operation is running.  All Read Replicas in one region
--- that are created from the same source DB instance must either:  Specify DB
--- subnet groups from the same VPC. All these Read Replicas will be created in
--- the same VPC. Not specify a DB subnet group. All these Read Replicas will be
--- created outside of any VPC.
-cdbirrDBSubnetGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
-cdbirrDBSubnetGroupName =
-    lens _cdbirrDBSubnetGroupName (\s a -> s { _cdbirrDBSubnetGroupName = a })
+-- -   Can only be specified if the source DB instance identifier specifies
+--     a DB instance in another region.
+-- -   The specified DB subnet group must be in the same region in which
+--     the operation is running.
+-- -   All Read Replicas in one region that are created from the same
+--     source DB instance must either:
+--     -   Specify DB subnet groups from the same VPC. All these Read
+--         Replicas will be created in the same VPC.
+--     -   Not specify a DB subnet group. All these Read Replicas will be
+--         created outside of any VPC.
+cdirrDBSubnetGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrDBSubnetGroupName = lens _cdirrDBSubnetGroupName (\ s a -> s{_cdirrDBSubnetGroupName = a});
 
--- | The amount of Provisioned IOPS (input/output operations per second) to be
--- initially allocated for the DB instance.
-cdbirrIops :: Lens' CreateDBInstanceReadReplica (Maybe Int)
-cdbirrIops = lens _cdbirrIops (\s a -> s { _cdbirrIops = a })
+-- | The amount of Provisioned IOPS (input\/output operations per second) to
+-- be initially allocated for the DB instance.
+cdirrIOPS :: Lens' CreateDBInstanceReadReplica (Maybe Int)
+cdirrIOPS = lens _cdirrIOPS (\ s a -> s{_cdirrIOPS = a});
 
--- | The option group the DB instance will be associated with. If omitted, the
--- default option group for the engine specified will be used.
-cdbirrOptionGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
-cdbirrOptionGroupName =
-    lens _cdbirrOptionGroupName (\s a -> s { _cdbirrOptionGroupName = a })
+-- | The compute and memory capacity of the Read Replica.
+--
+-- Valid Values:
+-- 'db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
+--
+-- Default: Inherits from the source DB instance.
+cdirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrDBInstanceClass = lens _cdirrDBInstanceClass (\ s a -> s{_cdirrDBInstanceClass = a});
+
+-- | The Amazon EC2 Availability Zone that the Read Replica will be created
+-- in.
+--
+-- Default: A random, system-chosen Availability Zone in the endpoint\'s
+-- region.
+--
+-- Example: 'us-east-1d'
+cdirrAvailabilityZone :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrAvailabilityZone = lens _cdirrAvailabilityZone (\ s a -> s{_cdirrAvailabilityZone = a});
+
+-- | The option group the DB instance will be associated with. If omitted,
+-- the default option group for the engine specified will be used.
+cdirrOptionGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrOptionGroupName = lens _cdirrOptionGroupName (\ s a -> s{_cdirrOptionGroupName = a});
+
+-- | This property is not currently implemented.
+cdirrCopyTagsToSnapshot :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
+cdirrCopyTagsToSnapshot = lens _cdirrCopyTagsToSnapshot (\ s a -> s{_cdirrCopyTagsToSnapshot = a});
+
+-- | Undocumented member.
+cdirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
+cdirrTags = lens _cdirrTags (\ s a -> s{_cdirrTags = a}) . _Default . _Coerce;
 
 -- | The port number that the DB instance uses for connections.
 --
 -- Default: Inherits from the source DB instance
 --
 -- Valid Values: '1150-65535'
-cdbirrPort :: Lens' CreateDBInstanceReadReplica (Maybe Int)
-cdbirrPort = lens _cdbirrPort (\s a -> s { _cdbirrPort = a })
-
--- | Specifies the accessibility options for the DB instance. A value of true
--- specifies an Internet-facing instance with a publicly resolvable DNS name,
--- which resolves to a public IP address. A value of false specifies an internal
--- instance with a DNS name that resolves to a private IP address.
---
--- Default: The default behavior varies depending on whether a VPC has been
--- requested or not. The following list shows the default behavior in each case.
---
--- Default VPC:true  VPC:false   If no DB subnet group has been specified as
--- part of the request and the PubliclyAccessible value has not been set, the DB
--- instance will be publicly accessible. If a specific DB subnet group has been
--- specified as part of the request and the PubliclyAccessible value has not
--- been set, the DB instance will be private.
-cdbirrPubliclyAccessible :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
-cdbirrPubliclyAccessible =
-    lens _cdbirrPubliclyAccessible
-        (\s a -> s { _cdbirrPubliclyAccessible = a })
-
--- | The identifier of the DB instance that will act as the source for the Read
--- Replica. Each DB instance can have up to five Read Replicas.
---
--- Constraints:
---
--- Must be the identifier of an existing DB instance. Can specify a DB
--- instance that is a MySQL Read Replica only if the source is running MySQL 5.6.
--- Can specify a DB instance that is a PostgreSQL Read Replica only if the
--- source is running PostgreSQL 9.3.5. The specified DB instance must have
--- automatic backups enabled, its backup retention period must be greater than 0.
--- If the source DB instance is in the same region as the Read Replica, specify
--- a valid DB instance identifier. If the source DB instance is in a different
--- region than the Read Replica, specify a valid DB instance ARN. For more
--- information, go to <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructing a Amazon RDS Amazon Resource Name (ARN)>.
-cdbirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
-cdbirrSourceDBInstanceIdentifier =
-    lens _cdbirrSourceDBInstanceIdentifier
-        (\s a -> s { _cdbirrSourceDBInstanceIdentifier = a })
+cdirrPort :: Lens' CreateDBInstanceReadReplica (Maybe Int)
+cdirrPort = lens _cdirrPort (\ s a -> s{_cdirrPort = a});
 
 -- | Specifies the storage type to be associated with the Read Replica.
 --
 -- Valid values: 'standard | gp2 | io1'
 --
--- If you specify 'io1', you must also include a value for the 'Iops' parameter.
+-- If you specify 'io1', you must also include a value for the 'Iops'
+-- parameter.
 --
--- Default: 'io1' if the 'Iops' parameter is specified; otherwise 'standard'
-cdbirrStorageType :: Lens' CreateDBInstanceReadReplica (Maybe Text)
-cdbirrStorageType =
-    lens _cdbirrStorageType (\s a -> s { _cdbirrStorageType = a })
+-- Default: 'io1' if the 'Iops' parameter is specified; otherwise
+-- 'standard'
+cdirrStorageType :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrStorageType = lens _cdirrStorageType (\ s a -> s{_cdirrStorageType = a});
 
-cdbirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
-cdbirrTags = lens _cdbirrTags (\s a -> s { _cdbirrTags = a }) . _List
+-- | The DB instance identifier of the Read Replica. This identifier is the
+-- unique key that identifies a DB instance. This parameter is stored as a
+-- lowercase string.
+cdirrDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
+cdirrDBInstanceIdentifier = lens _cdirrDBInstanceIdentifier (\ s a -> s{_cdirrDBInstanceIdentifier = a});
 
-newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
-    { _cdbirrrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Read, Show)
-
--- | 'CreateDBInstanceReadReplicaResponse' constructor.
+-- | The identifier of the DB instance that will act as the source for the
+-- Read Replica. Each DB instance can have up to five Read Replicas.
 --
--- The fields accessible through corresponding lenses are:
+-- Constraints:
 --
--- * 'cdbirrrDBInstance' @::@ 'Maybe' 'DBInstance'
---
-createDBInstanceReadReplicaResponse :: CreateDBInstanceReadReplicaResponse
-createDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
-    { _cdbirrrDBInstance = Nothing
-    }
-
-cdbirrrDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
-cdbirrrDBInstance =
-    lens _cdbirrrDBInstance (\s a -> s { _cdbirrrDBInstance = a })
-
-instance ToPath CreateDBInstanceReadReplica where
-    toPath = const "/"
-
-instance ToQuery CreateDBInstanceReadReplica where
-    toQuery CreateDBInstanceReadReplica{..} = mconcat
-        [ "AutoMinorVersionUpgrade"    =? _cdbirrAutoMinorVersionUpgrade
-        , "AvailabilityZone"           =? _cdbirrAvailabilityZone
-        , "DBInstanceClass"            =? _cdbirrDBInstanceClass
-        , "DBInstanceIdentifier"       =? _cdbirrDBInstanceIdentifier
-        , "DBSubnetGroupName"          =? _cdbirrDBSubnetGroupName
-        , "Iops"                       =? _cdbirrIops
-        , "OptionGroupName"            =? _cdbirrOptionGroupName
-        , "Port"                       =? _cdbirrPort
-        , "PubliclyAccessible"         =? _cdbirrPubliclyAccessible
-        , "SourceDBInstanceIdentifier" =? _cdbirrSourceDBInstanceIdentifier
-        , "StorageType"                =? _cdbirrStorageType
-        , "Tags"                       =? _cdbirrTags
-        ]
-
-instance ToHeaders CreateDBInstanceReadReplica
+-- -   Must be the identifier of an existing DB instance.
+-- -   Can specify a DB instance that is a MySQL Read Replica only if the
+--     source is running MySQL 5.6.
+-- -   Can specify a DB instance that is a PostgreSQL Read Replica only if
+--     the source is running PostgreSQL 9.3.5.
+-- -   The specified DB instance must have automatic backups enabled, its
+--     backup retention period must be greater than 0.
+-- -   If the source DB instance is in the same region as the Read Replica,
+--     specify a valid DB instance identifier.
+-- -   If the source DB instance is in a different region than the Read
+--     Replica, specify a valid DB instance ARN. For more information, go
+--     to
+--     <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing a Amazon RDS Amazon Resource Name (ARN)>.
+cdirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
+cdirrSourceDBInstanceIdentifier = lens _cdirrSourceDBInstanceIdentifier (\ s a -> s{_cdirrSourceDBInstanceIdentifier = a});
 
 instance AWSRequest CreateDBInstanceReadReplica where
-    type Sv CreateDBInstanceReadReplica = RDS
-    type Rs CreateDBInstanceReadReplica = CreateDBInstanceReadReplicaResponse
+        type Sv CreateDBInstanceReadReplica = RDS
+        type Rs CreateDBInstanceReadReplica =
+             CreateDBInstanceReadReplicaResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "CreateDBInstanceReadReplicaResult"
+              (\ s h x ->
+                 CreateDBInstanceReadReplicaResponse' <$>
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
-    request  = post "CreateDBInstanceReadReplica"
-    response = xmlResponse
+instance ToHeaders CreateDBInstanceReadReplica where
+        toHeaders = const mempty
 
-instance FromXML CreateDBInstanceReadReplicaResponse where
-    parseXML = withElement "CreateDBInstanceReadReplicaResult" $ \x -> CreateDBInstanceReadReplicaResponse
-        <$> x .@? "DBInstance"
+instance ToPath CreateDBInstanceReadReplica where
+        toPath = const "/"
+
+instance ToQuery CreateDBInstanceReadReplica where
+        toQuery CreateDBInstanceReadReplica'{..}
+          = mconcat
+              ["Action" =:
+                 ("CreateDBInstanceReadReplica" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "AutoMinorVersionUpgrade" =:
+                 _cdirrAutoMinorVersionUpgrade,
+               "PubliclyAccessible" =: _cdirrPubliclyAccessible,
+               "DBSubnetGroupName" =: _cdirrDBSubnetGroupName,
+               "Iops" =: _cdirrIOPS,
+               "DBInstanceClass" =: _cdirrDBInstanceClass,
+               "AvailabilityZone" =: _cdirrAvailabilityZone,
+               "OptionGroupName" =: _cdirrOptionGroupName,
+               "CopyTagsToSnapshot" =: _cdirrCopyTagsToSnapshot,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cdirrTags),
+               "Port" =: _cdirrPort,
+               "StorageType" =: _cdirrStorageType,
+               "DBInstanceIdentifier" =: _cdirrDBInstanceIdentifier,
+               "SourceDBInstanceIdentifier" =:
+                 _cdirrSourceDBInstanceIdentifier]
+
+-- | /See:/ 'createDBInstanceReadReplicaResponse' smart constructor.
+data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
+    { _cdirrrsDBInstance :: !(Maybe DBInstance)
+    , _cdirrrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDBInstanceReadReplicaResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdirrrsDBInstance'
+--
+-- * 'cdirrrsStatus'
+createDBInstanceReadReplicaResponse
+    :: Int -- ^ 'cdirrrsStatus'
+    -> CreateDBInstanceReadReplicaResponse
+createDBInstanceReadReplicaResponse pStatus_ =
+    CreateDBInstanceReadReplicaResponse'
+    { _cdirrrsDBInstance = Nothing
+    , _cdirrrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+cdirrrsDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
+cdirrrsDBInstance = lens _cdirrrsDBInstance (\ s a -> s{_cdirrrsDBInstance = a});
+
+-- | The response status code.
+cdirrrsStatus :: Lens' CreateDBInstanceReadReplicaResponse Int
+cdirrrsStatus = lens _cdirrrsStatus (\ s a -> s{_cdirrrsStatus = a});

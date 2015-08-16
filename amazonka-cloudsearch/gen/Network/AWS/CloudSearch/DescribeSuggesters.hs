@@ -1,141 +1,160 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudSearch.DescribeSuggesters
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Gets the suggesters configured for a domain. A suggester enables you to
--- display possible matches before users finish typing their queries. Can be
--- limited to specific suggesters by name. By default, shows all suggesters and
--- includes any pending changes to the configuration. Set the 'Deployed' option to 'true' to show the active configuration and exclude pending changes. For more
--- information, see Getting Search Suggestions in the /Amazon CloudSearchDeveloper Guide/.
+-- |
+-- Module      : Network.AWS.CloudSearch.DescribeSuggesters
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeSuggesters.html>
+-- Gets the suggesters configured for a domain. A suggester enables you to
+-- display possible matches before users finish typing their queries. Can
+-- be limited to specific suggesters by name. By default, shows all
+-- suggesters and includes any pending changes to the configuration. Set
+-- the 'Deployed' option to 'true' to show the active configuration and
+-- exclude pending changes. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions>
+-- in the /Amazon CloudSearch Developer Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeSuggesters.html AWS API Reference> for DescribeSuggesters.
 module Network.AWS.CloudSearch.DescribeSuggesters
     (
-    -- * Request
-      DescribeSuggesters
-    -- ** Request constructor
-    , describeSuggesters
-    -- ** Request lenses
-    , ds1Deployed
-    , ds1DomainName
-    , ds1SuggesterNames
+    -- * Creating a Request
+      describeSuggesters
+    , DescribeSuggesters
+    -- * Request Lenses
+    , dssDeployed
+    , dssSuggesterNames
+    , dssDomainName
 
-    -- * Response
-    , DescribeSuggestersResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeSuggestersResponse
-    -- ** Response lenses
-    , dsrSuggesters
+    , DescribeSuggestersResponse
+    -- * Response Lenses
+    , dssrsStatus
+    , dssrsSuggesters
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudSearch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeSuggesters = DescribeSuggesters
-    { _ds1Deployed       :: Maybe Bool
-    , _ds1DomainName     :: Text
-    , _ds1SuggesterNames :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Container for the parameters to the 'DescribeSuggester' operation.
+-- Specifies the name of the domain you want to describe. To restrict the
+-- response to particular suggesters, specify the names of the suggesters
+-- you want to describe. To show the active configuration and exclude any
+-- pending changes, set the 'Deployed' option to 'true'.
+--
+-- /See:/ 'describeSuggesters' smart constructor.
+data DescribeSuggesters = DescribeSuggesters'
+    { _dssDeployed       :: !(Maybe Bool)
+    , _dssSuggesterNames :: !(Maybe [Text])
+    , _dssDomainName     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeSuggesters' constructor.
+-- | Creates a value of 'DescribeSuggesters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ds1Deployed' @::@ 'Maybe' 'Bool'
+-- * 'dssDeployed'
 --
--- * 'ds1DomainName' @::@ 'Text'
+-- * 'dssSuggesterNames'
 --
--- * 'ds1SuggesterNames' @::@ ['Text']
---
-describeSuggesters :: Text -- ^ 'ds1DomainName'
-                   -> DescribeSuggesters
-describeSuggesters p1 = DescribeSuggesters
-    { _ds1DomainName     = p1
-    , _ds1SuggesterNames = mempty
-    , _ds1Deployed       = Nothing
+-- * 'dssDomainName'
+describeSuggesters
+    :: Text -- ^ 'dssDomainName'
+    -> DescribeSuggesters
+describeSuggesters pDomainName_ =
+    DescribeSuggesters'
+    { _dssDeployed = Nothing
+    , _dssSuggesterNames = Nothing
+    , _dssDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration ('true') or include any pending
--- changes ('false'). Defaults to 'false'.
-ds1Deployed :: Lens' DescribeSuggesters (Maybe Bool)
-ds1Deployed = lens _ds1Deployed (\s a -> s { _ds1Deployed = a })
-
--- | The name of the domain you want to describe.
-ds1DomainName :: Lens' DescribeSuggesters Text
-ds1DomainName = lens _ds1DomainName (\s a -> s { _ds1DomainName = a })
+-- | Whether to display the deployed configuration ('true') or include any
+-- pending changes ('false'). Defaults to 'false'.
+dssDeployed :: Lens' DescribeSuggesters (Maybe Bool)
+dssDeployed = lens _dssDeployed (\ s a -> s{_dssDeployed = a});
 
 -- | The suggesters you want to describe.
-ds1SuggesterNames :: Lens' DescribeSuggesters [Text]
-ds1SuggesterNames =
-    lens _ds1SuggesterNames (\s a -> s { _ds1SuggesterNames = a })
-        . _List
+dssSuggesterNames :: Lens' DescribeSuggesters [Text]
+dssSuggesterNames = lens _dssSuggesterNames (\ s a -> s{_dssSuggesterNames = a}) . _Default . _Coerce;
 
-newtype DescribeSuggestersResponse = DescribeSuggestersResponse
-    { _dsrSuggesters :: List "member" SuggesterStatus
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeSuggestersResponse where
-    type Item DescribeSuggestersResponse = SuggesterStatus
-
-    fromList = DescribeSuggestersResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dsrSuggesters
-
--- | 'DescribeSuggestersResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrSuggesters' @::@ ['SuggesterStatus']
---
-describeSuggestersResponse :: DescribeSuggestersResponse
-describeSuggestersResponse = DescribeSuggestersResponse
-    { _dsrSuggesters = mempty
-    }
-
--- | The suggesters configured for the domain specified in the request.
-dsrSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
-dsrSuggesters = lens _dsrSuggesters (\s a -> s { _dsrSuggesters = a }) . _List
-
-instance ToPath DescribeSuggesters where
-    toPath = const "/"
-
-instance ToQuery DescribeSuggesters where
-    toQuery DescribeSuggesters{..} = mconcat
-        [ "Deployed"       =? _ds1Deployed
-        , "DomainName"     =? _ds1DomainName
-        , "SuggesterNames" =? _ds1SuggesterNames
-        ]
-
-instance ToHeaders DescribeSuggesters
+-- | The name of the domain you want to describe.
+dssDomainName :: Lens' DescribeSuggesters Text
+dssDomainName = lens _dssDomainName (\ s a -> s{_dssDomainName = a});
 
 instance AWSRequest DescribeSuggesters where
-    type Sv DescribeSuggesters = CloudSearch
-    type Rs DescribeSuggesters = DescribeSuggestersResponse
+        type Sv DescribeSuggesters = CloudSearch
+        type Rs DescribeSuggesters =
+             DescribeSuggestersResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DescribeSuggestersResult"
+              (\ s h x ->
+                 DescribeSuggestersResponse' <$>
+                   (pure (fromEnum s)) <*>
+                     (x .@? "Suggesters" .!@ mempty >>=
+                        parseXMLList "member"))
 
-    request  = post "DescribeSuggesters"
-    response = xmlResponse
+instance ToHeaders DescribeSuggesters where
+        toHeaders = const mempty
 
-instance FromXML DescribeSuggestersResponse where
-    parseXML = withElement "DescribeSuggestersResult" $ \x -> DescribeSuggestersResponse
-        <$> x .@? "Suggesters" .!@ mempty
+instance ToPath DescribeSuggesters where
+        toPath = const "/"
+
+instance ToQuery DescribeSuggesters where
+        toQuery DescribeSuggesters'{..}
+          = mconcat
+              ["Action" =: ("DescribeSuggesters" :: ByteString),
+               "Version" =: ("2013-01-01" :: ByteString),
+               "Deployed" =: _dssDeployed,
+               "SuggesterNames" =:
+                 toQuery
+                   (toQueryList "member" <$> _dssSuggesterNames),
+               "DomainName" =: _dssDomainName]
+
+-- | The result of a 'DescribeSuggesters' request.
+--
+-- /See:/ 'describeSuggestersResponse' smart constructor.
+data DescribeSuggestersResponse = DescribeSuggestersResponse'
+    { _dssrsStatus     :: !Int
+    , _dssrsSuggesters :: ![SuggesterStatus]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeSuggestersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dssrsStatus'
+--
+-- * 'dssrsSuggesters'
+describeSuggestersResponse
+    :: Int -- ^ 'dssrsStatus'
+    -> DescribeSuggestersResponse
+describeSuggestersResponse pStatus_ =
+    DescribeSuggestersResponse'
+    { _dssrsStatus = pStatus_
+    , _dssrsSuggesters = mempty
+    }
+
+-- | The response status code.
+dssrsStatus :: Lens' DescribeSuggestersResponse Int
+dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
+
+-- | The suggesters configured for the domain specified in the request.
+dssrsSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
+dssrsSuggesters = lens _dssrsSuggesters (\ s a -> s{_dssrsSuggesters = a}) . _Coerce;

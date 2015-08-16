@@ -1,103 +1,126 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ELB.DeleteLoadBalancerPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified policy from the specified load balancer. This policy
--- must not be enabled for any listeners.
+-- |
+-- Module      : Network.AWS.ELB.DeleteLoadBalancerPolicy
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerPolicy.html>
+-- Deletes the specified policy from the specified load balancer. This
+-- policy must not be enabled for any listeners.
+--
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerPolicy.html AWS API Reference> for DeleteLoadBalancerPolicy.
 module Network.AWS.ELB.DeleteLoadBalancerPolicy
     (
-    -- * Request
-      DeleteLoadBalancerPolicy
-    -- ** Request constructor
-    , deleteLoadBalancerPolicy
-    -- ** Request lenses
-    , dlbp1LoadBalancerName
-    , dlbp1PolicyName
+    -- * Creating a Request
+      deleteLoadBalancerPolicy
+    , DeleteLoadBalancerPolicy
+    -- * Request Lenses
+    , dLoadBalancerName
+    , dPolicyName
 
-    -- * Response
-    , DeleteLoadBalancerPolicyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteLoadBalancerPolicyResponse
+    , DeleteLoadBalancerPolicyResponse
+    -- * Response Lenses
+    , delrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
-    { _dlbp1LoadBalancerName :: Text
-    , _dlbp1PolicyName       :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | =
+--
+-- /See:/ 'deleteLoadBalancerPolicy' smart constructor.
+data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
+    { _dLoadBalancerName :: !Text
+    , _dPolicyName       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLoadBalancerPolicy' constructor.
+-- | Creates a value of 'DeleteLoadBalancerPolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlbp1LoadBalancerName' @::@ 'Text'
+-- * 'dLoadBalancerName'
 --
--- * 'dlbp1PolicyName' @::@ 'Text'
---
-deleteLoadBalancerPolicy :: Text -- ^ 'dlbp1LoadBalancerName'
-                         -> Text -- ^ 'dlbp1PolicyName'
-                         -> DeleteLoadBalancerPolicy
-deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
-    { _dlbp1LoadBalancerName = p1
-    , _dlbp1PolicyName       = p2
+-- * 'dPolicyName'
+deleteLoadBalancerPolicy
+    :: Text -- ^ 'dLoadBalancerName'
+    -> Text -- ^ 'dPolicyName'
+    -> DeleteLoadBalancerPolicy
+deleteLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ =
+    DeleteLoadBalancerPolicy'
+    { _dLoadBalancerName = pLoadBalancerName_
+    , _dPolicyName = pPolicyName_
     }
 
 -- | The name of the load balancer.
-dlbp1LoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
-dlbp1LoadBalancerName =
-    lens _dlbp1LoadBalancerName (\s a -> s { _dlbp1LoadBalancerName = a })
+dLoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
+dLoadBalancerName = lens _dLoadBalancerName (\ s a -> s{_dLoadBalancerName = a});
 
 -- | The name of the policy.
-dlbp1PolicyName :: Lens' DeleteLoadBalancerPolicy Text
-dlbp1PolicyName = lens _dlbp1PolicyName (\s a -> s { _dlbp1PolicyName = a })
-
-data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteLoadBalancerPolicyResponse' constructor.
-deleteLoadBalancerPolicyResponse :: DeleteLoadBalancerPolicyResponse
-deleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
-
-instance ToPath DeleteLoadBalancerPolicy where
-    toPath = const "/"
-
-instance ToQuery DeleteLoadBalancerPolicy where
-    toQuery DeleteLoadBalancerPolicy{..} = mconcat
-        [ "LoadBalancerName" =? _dlbp1LoadBalancerName
-        , "PolicyName"       =? _dlbp1PolicyName
-        ]
-
-instance ToHeaders DeleteLoadBalancerPolicy
+dPolicyName :: Lens' DeleteLoadBalancerPolicy Text
+dPolicyName = lens _dPolicyName (\ s a -> s{_dPolicyName = a});
 
 instance AWSRequest DeleteLoadBalancerPolicy where
-    type Sv DeleteLoadBalancerPolicy = ELB
-    type Rs DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicyResponse
+        type Sv DeleteLoadBalancerPolicy = ELB
+        type Rs DeleteLoadBalancerPolicy =
+             DeleteLoadBalancerPolicyResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DeleteLoadBalancerPolicyResult"
+              (\ s h x ->
+                 DeleteLoadBalancerPolicyResponse' <$>
+                   (pure (fromEnum s)))
 
-    request  = post "DeleteLoadBalancerPolicy"
-    response = nullResponse DeleteLoadBalancerPolicyResponse
+instance ToHeaders DeleteLoadBalancerPolicy where
+        toHeaders = const mempty
+
+instance ToPath DeleteLoadBalancerPolicy where
+        toPath = const "/"
+
+instance ToQuery DeleteLoadBalancerPolicy where
+        toQuery DeleteLoadBalancerPolicy'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteLoadBalancerPolicy" :: ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "LoadBalancerName" =: _dLoadBalancerName,
+               "PolicyName" =: _dPolicyName]
+
+-- | /See:/ 'deleteLoadBalancerPolicyResponse' smart constructor.
+newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
+    { _delrsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteLoadBalancerPolicyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delrsStatus'
+deleteLoadBalancerPolicyResponse
+    :: Int -- ^ 'delrsStatus'
+    -> DeleteLoadBalancerPolicyResponse
+deleteLoadBalancerPolicyResponse pStatus_ =
+    DeleteLoadBalancerPolicyResponse'
+    { _delrsStatus = pStatus_
+    }
+
+-- | The response status code.
+delrsStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
+delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

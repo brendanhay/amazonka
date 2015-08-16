@@ -1,134 +1,138 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SDB.DeleteAttributes
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes one or more attributes associated with an item. If all attributes of
--- the item are deleted, the item is deleted.
+-- |
+-- Module      : Network.AWS.SDB.DeleteAttributes
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- 'DeleteAttributes' is an idempotent operation; running it multiple times on
--- the same item or attribute does not result in an error response.
+-- Deletes one or more attributes associated with an item. If all
+-- attributes of the item are deleted, the item is deleted.
+--
+-- 'DeleteAttributes' is an idempotent operation; running it multiple times
+-- on the same item or attribute does not result in an error response.
 --
 -- Because Amazon SimpleDB makes multiple copies of item data and uses an
--- eventual consistency update model, performing a 'GetAttributes' or 'Select'
--- operation (read) immediately after a 'DeleteAttributes' or 'PutAttributes'
+-- eventual consistency update model, performing a GetAttributes or Select
+-- operation (read) immediately after a 'DeleteAttributes' or PutAttributes
 -- operation (write) might not return updated item data.
 --
--- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteAttributes.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteAttributes.html AWS API Reference> for DeleteAttributes.
 module Network.AWS.SDB.DeleteAttributes
     (
-    -- * Request
-      DeleteAttributes
-    -- ** Request constructor
-    , deleteAttributes
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteAttributes
+    , DeleteAttributes
+    -- * Request Lenses
     , daAttributes
-    , daDomainName
     , daExpected
+    , daDomainName
     , daItemName
 
-    -- * Response
-    , DeleteAttributesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteAttributesResponse
+    , DeleteAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SDB.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SDB.Types
+import           Network.AWS.SDB.Types.Product
 
-data DeleteAttributes = DeleteAttributes
-    { _daAttributes :: List "member" Attribute
-    , _daDomainName :: Text
-    , _daExpected   :: Maybe UpdateCondition
-    , _daItemName   :: Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'deleteAttributes' smart constructor.
+data DeleteAttributes = DeleteAttributes'
+    { _daAttributes :: !(Maybe [Attribute])
+    , _daExpected   :: !(Maybe UpdateCondition)
+    , _daDomainName :: !Text
+    , _daItemName   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAttributes' constructor.
+-- | Creates a value of 'DeleteAttributes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAttributes' @::@ ['Attribute']
+-- * 'daAttributes'
 --
--- * 'daDomainName' @::@ 'Text'
+-- * 'daExpected'
 --
--- * 'daExpected' @::@ 'Maybe' 'UpdateCondition'
+-- * 'daDomainName'
 --
--- * 'daItemName' @::@ 'Text'
---
-deleteAttributes :: Text -- ^ 'daDomainName'
-                 -> Text -- ^ 'daItemName'
-                 -> DeleteAttributes
-deleteAttributes p1 p2 = DeleteAttributes
-    { _daDomainName = p1
-    , _daItemName   = p2
-    , _daAttributes = mempty
-    , _daExpected   = Nothing
+-- * 'daItemName'
+deleteAttributes
+    :: Text -- ^ 'daDomainName'
+    -> Text -- ^ 'daItemName'
+    -> DeleteAttributes
+deleteAttributes pDomainName_ pItemName_ =
+    DeleteAttributes'
+    { _daAttributes = Nothing
+    , _daExpected = Nothing
+    , _daDomainName = pDomainName_
+    , _daItemName = pItemName_
     }
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
 daAttributes :: Lens' DeleteAttributes [Attribute]
-daAttributes = lens _daAttributes (\s a -> s { _daAttributes = a }) . _List
+daAttributes = lens _daAttributes (\ s a -> s{_daAttributes = a}) . _Default . _Coerce;
+
+-- | The update condition which, if specified, determines whether the
+-- specified attributes will be deleted or not. The update condition must
+-- be satisfied in order for this request to be processed and the
+-- attributes to be deleted.
+daExpected :: Lens' DeleteAttributes (Maybe UpdateCondition)
+daExpected = lens _daExpected (\ s a -> s{_daExpected = a});
 
 -- | The name of the domain in which to perform the operation.
 daDomainName :: Lens' DeleteAttributes Text
-daDomainName = lens _daDomainName (\s a -> s { _daDomainName = a })
-
--- | The update condition which, if specified, determines whether the specified
--- attributes will be deleted or not. The update condition must be satisfied in
--- order for this request to be processed and the attributes to be deleted.
-daExpected :: Lens' DeleteAttributes (Maybe UpdateCondition)
-daExpected = lens _daExpected (\s a -> s { _daExpected = a })
+daDomainName = lens _daDomainName (\ s a -> s{_daDomainName = a});
 
 -- | The name of the item. Similar to rows on a spreadsheet, items represent
 -- individual objects that contain one or more value-attribute pairs.
 daItemName :: Lens' DeleteAttributes Text
-daItemName = lens _daItemName (\s a -> s { _daItemName = a })
-
-data DeleteAttributesResponse = DeleteAttributesResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteAttributesResponse' constructor.
-deleteAttributesResponse :: DeleteAttributesResponse
-deleteAttributesResponse = DeleteAttributesResponse
-
-instance ToPath DeleteAttributes where
-    toPath = const "/"
-
-instance ToQuery DeleteAttributes where
-    toQuery DeleteAttributes{..} = mconcat
-        [ toQuery     _daAttributes
-        , "DomainName" =? _daDomainName
-        , "Expected"   =? _daExpected
-        , "ItemName"   =? _daItemName
-        ]
-
-instance ToHeaders DeleteAttributes
+daItemName = lens _daItemName (\ s a -> s{_daItemName = a});
 
 instance AWSRequest DeleteAttributes where
-    type Sv DeleteAttributes = SDB
-    type Rs DeleteAttributes = DeleteAttributesResponse
+        type Sv DeleteAttributes = SDB
+        type Rs DeleteAttributes = DeleteAttributesResponse
+        request = postQuery
+        response = receiveNull DeleteAttributesResponse'
 
-    request  = post "DeleteAttributes"
-    response = nullResponse DeleteAttributesResponse
+instance ToHeaders DeleteAttributes where
+        toHeaders = const mempty
+
+instance ToPath DeleteAttributes where
+        toPath = const "/"
+
+instance ToQuery DeleteAttributes where
+        toQuery DeleteAttributes'{..}
+          = mconcat
+              ["Action" =: ("DeleteAttributes" :: ByteString),
+               "Version" =: ("2009-04-15" :: ByteString),
+               toQuery (toQueryList "Attribute" <$> _daAttributes),
+               "Expected" =: _daExpected,
+               "DomainName" =: _daDomainName,
+               "ItemName" =: _daItemName]
+
+-- | /See:/ 'deleteAttributesResponse' smart constructor.
+data DeleteAttributesResponse =
+    DeleteAttributesResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteAttributesResponse' with the minimum fields required to make a request.
+--
+deleteAttributesResponse
+    :: DeleteAttributesResponse
+deleteAttributesResponse = DeleteAttributesResponse'

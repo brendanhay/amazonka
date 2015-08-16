@@ -1,98 +1,105 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.KMS.EnableKey
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Marks a key as enabled, thereby permitting its use. You can have up to 25
--- enabled keys at one time.
+-- |
+-- Module      : Network.AWS.KMS.EnableKey
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html>
+-- Marks a key as enabled, thereby permitting its use. You can have up to
+-- 25 enabled keys at one time.
+--
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html AWS API Reference> for EnableKey.
 module Network.AWS.KMS.EnableKey
     (
-    -- * Request
-      EnableKey
-    -- ** Request constructor
-    , enableKey
-    -- ** Request lenses
+    -- * Creating a Request
+      enableKey
+    , EnableKey
+    -- * Request Lenses
     , ekKeyId
 
-    -- * Response
-    , EnableKeyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , enableKeyResponse
+    , EnableKeyResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.KMS.Types
-import qualified GHC.Exts
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype EnableKey = EnableKey
+-- | /See:/ 'enableKey' smart constructor.
+newtype EnableKey = EnableKey'
     { _ekKeyId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableKey' constructor.
+-- | Creates a value of 'EnableKey' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ekKeyId' @::@ 'Text'
---
-enableKey :: Text -- ^ 'ekKeyId'
-          -> EnableKey
-enableKey p1 = EnableKey
-    { _ekKeyId = p1
+-- * 'ekKeyId'
+enableKey
+    :: Text -- ^ 'ekKeyId'
+    -> EnableKey
+enableKey pKeyId_ =
+    EnableKey'
+    { _ekKeyId = pKeyId_
     }
 
--- | A unique identifier for the customer master key. This value can be a globally
--- unique identifier or the fully specified ARN to a key.  Key ARN Example -
--- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- | A unique identifier for the customer master key. This value can be a
+-- globally unique identifier or the fully specified ARN to a key.
 --
+-- -   Key ARN Example -
+--     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+-- -   Globally Unique Key ID Example -
+--     12345678-1234-1234-1234-123456789012
 ekKeyId :: Lens' EnableKey Text
-ekKeyId = lens _ekKeyId (\s a -> s { _ekKeyId = a })
-
-data EnableKeyResponse = EnableKeyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'EnableKeyResponse' constructor.
-enableKeyResponse :: EnableKeyResponse
-enableKeyResponse = EnableKeyResponse
-
-instance ToPath EnableKey where
-    toPath = const "/"
-
-instance ToQuery EnableKey where
-    toQuery = const mempty
-
-instance ToHeaders EnableKey
-
-instance ToJSON EnableKey where
-    toJSON EnableKey{..} = object
-        [ "KeyId" .= _ekKeyId
-        ]
+ekKeyId = lens _ekKeyId (\ s a -> s{_ekKeyId = a});
 
 instance AWSRequest EnableKey where
-    type Sv EnableKey = KMS
-    type Rs EnableKey = EnableKeyResponse
+        type Sv EnableKey = KMS
+        type Rs EnableKey = EnableKeyResponse
+        request = postJSON
+        response = receiveNull EnableKeyResponse'
 
-    request  = post "EnableKey"
-    response = nullResponse EnableKeyResponse
+instance ToHeaders EnableKey where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("TrentService.EnableKey" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON EnableKey where
+        toJSON EnableKey'{..} = object ["KeyId" .= _ekKeyId]
+
+instance ToPath EnableKey where
+        toPath = const "/"
+
+instance ToQuery EnableKey where
+        toQuery = const mempty
+
+-- | /See:/ 'enableKeyResponse' smart constructor.
+data EnableKeyResponse =
+    EnableKeyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnableKeyResponse' with the minimum fields required to make a request.
+--
+enableKeyResponse
+    :: EnableKeyResponse
+enableKeyResponse = EnableKeyResponse'

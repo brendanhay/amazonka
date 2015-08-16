@@ -1,198 +1,215 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.KMS.ReEncrypt
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Encrypts data on the server side with a new customer master key without
+-- |
+-- Module      : Network.AWS.KMS.ReEncrypt
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Encrypts data on the server side with a new customer master key without
 -- exposing the plaintext of the data on the client side. The data is first
--- decrypted and then encrypted. This operation can also be used to change the
--- encryption context of a ciphertext.
+-- decrypted and then encrypted. This operation can also be used to change
+-- the encryption context of a ciphertext.
 --
--- Unlike other actions, 'ReEncrypt' is authorized twice - once as 'ReEncryptFrom'
--- on the source key and once as 'ReEncryptTo' on the destination key. We
--- therefore recommend that you include the '"action":"kms:ReEncrypt*"' statement
--- in your key policies to permit re-encryption from or to the key. The
--- statement is included automatically when you authorize use of the key through
--- the console but must be included manually when you set a policy by using the 'PutKeyPolicy' function.
+-- Unlike other actions, 'ReEncrypt' is authorized twice - once as
+-- 'ReEncryptFrom' on the source key and once as 'ReEncryptTo' on the
+-- destination key. We therefore recommend that you include the
+-- '\"action\":\"kms:ReEncrypt*\"' statement in your key policies to permit
+-- re-encryption from or to the key. The statement is included
+-- automatically when you authorize use of the key through the console but
+-- must be included manually when you set a policy by using the
+-- PutKeyPolicy function.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html AWS API Reference> for ReEncrypt.
 module Network.AWS.KMS.ReEncrypt
     (
-    -- * Request
-      ReEncrypt
-    -- ** Request constructor
-    , reEncrypt
-    -- ** Request lenses
-    , reCiphertextBlob
+    -- * Creating a Request
+      reEncrypt
+    , ReEncrypt
+    -- * Request Lenses
     , reDestinationEncryptionContext
-    , reDestinationKeyId
-    , reGrantTokens
     , reSourceEncryptionContext
+    , reGrantTokens
+    , reCiphertextBlob
+    , reDestinationKeyId
 
-    -- * Response
-    , ReEncryptResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , reEncryptResponse
-    -- ** Response lenses
-    , rerCiphertextBlob
-    , rerKeyId
-    , rerSourceKeyId
+    , ReEncryptResponse
+    -- * Response Lenses
+    , rersSourceKeyId
+    , rersKeyId
+    , rersCiphertextBlob
+    , rersStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.KMS.Types
-import qualified GHC.Exts
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ReEncrypt = ReEncrypt
-    { _reCiphertextBlob               :: Base64
-    , _reDestinationEncryptionContext :: Map Text Text
-    , _reDestinationKeyId             :: Text
-    , _reGrantTokens                  :: List "GrantTokens" Text
-    , _reSourceEncryptionContext      :: Map Text Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'reEncrypt' smart constructor.
+data ReEncrypt = ReEncrypt'
+    { _reDestinationEncryptionContext :: !(Maybe (Map Text Text))
+    , _reSourceEncryptionContext      :: !(Maybe (Map Text Text))
+    , _reGrantTokens                  :: !(Maybe [Text])
+    , _reCiphertextBlob               :: !Base64
+    , _reDestinationKeyId             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ReEncrypt' constructor.
+-- | Creates a value of 'ReEncrypt' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'reCiphertextBlob' @::@ 'Base64'
+-- * 'reDestinationEncryptionContext'
 --
--- * 'reDestinationEncryptionContext' @::@ 'HashMap' 'Text' 'Text'
+-- * 'reSourceEncryptionContext'
 --
--- * 'reDestinationKeyId' @::@ 'Text'
+-- * 'reGrantTokens'
 --
--- * 'reGrantTokens' @::@ ['Text']
+-- * 'reCiphertextBlob'
 --
--- * 'reSourceEncryptionContext' @::@ 'HashMap' 'Text' 'Text'
---
-reEncrypt :: Base64 -- ^ 'reCiphertextBlob'
-          -> Text -- ^ 'reDestinationKeyId'
-          -> ReEncrypt
-reEncrypt p1 p2 = ReEncrypt
-    { _reCiphertextBlob               = p1
-    , _reDestinationKeyId             = p2
-    , _reSourceEncryptionContext      = mempty
-    , _reDestinationEncryptionContext = mempty
-    , _reGrantTokens                  = mempty
+-- * 'reDestinationKeyId'
+reEncrypt
+    :: ByteString -- ^ 'reCiphertextBlob'
+    -> Text -- ^ 'reDestinationKeyId'
+    -> ReEncrypt
+reEncrypt pCiphertextBlob_ pDestinationKeyId_ =
+    ReEncrypt'
+    { _reDestinationEncryptionContext = Nothing
+    , _reSourceEncryptionContext = Nothing
+    , _reGrantTokens = Nothing
+    , _reCiphertextBlob = _Base64 # pCiphertextBlob_
+    , _reDestinationKeyId = pDestinationKeyId_
     }
-
--- | Ciphertext of the data to re-encrypt.
-reCiphertextBlob :: Lens' ReEncrypt Base64
-reCiphertextBlob = lens _reCiphertextBlob (\s a -> s { _reCiphertextBlob = a })
 
 -- | Encryption context to be used when the data is re-encrypted.
 reDestinationEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
-reDestinationEncryptionContext =
-    lens _reDestinationEncryptionContext
-        (\s a -> s { _reDestinationEncryptionContext = a })
-            . _Map
+reDestinationEncryptionContext = lens _reDestinationEncryptionContext (\ s a -> s{_reDestinationEncryptionContext = a}) . _Default . _Map;
 
--- | A unique identifier for the customer master key used to re-encrypt the data.
--- This value can be a globally unique identifier, a fully specified ARN to
--- either an alias or a key, or an alias name prefixed by "alias/".  Key ARN
--- Example -
--- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
--- Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 Alias
--- Name Example - alias/MyAliasName
-reDestinationKeyId :: Lens' ReEncrypt Text
-reDestinationKeyId =
-    lens _reDestinationKeyId (\s a -> s { _reDestinationKeyId = a })
-
--- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-reGrantTokens :: Lens' ReEncrypt [Text]
-reGrantTokens = lens _reGrantTokens (\s a -> s { _reGrantTokens = a }) . _List
-
--- | Encryption context used to encrypt and decrypt the data specified in the 'CiphertextBlob' parameter.
+-- | Encryption context used to encrypt and decrypt the data specified in the
+-- 'CiphertextBlob' parameter.
 reSourceEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
-reSourceEncryptionContext =
-    lens _reSourceEncryptionContext
-        (\s a -> s { _reSourceEncryptionContext = a })
-            . _Map
+reSourceEncryptionContext = lens _reSourceEncryptionContext (\ s a -> s{_reSourceEncryptionContext = a}) . _Default . _Map;
 
-data ReEncryptResponse = ReEncryptResponse
-    { _rerCiphertextBlob :: Maybe Base64
-    , _rerKeyId          :: Maybe Text
-    , _rerSourceKeyId    :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | For more information, see
+-- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
+reGrantTokens :: Lens' ReEncrypt [Text]
+reGrantTokens = lens _reGrantTokens (\ s a -> s{_reGrantTokens = a}) . _Default . _Coerce;
 
--- | 'ReEncryptResponse' constructor.
+-- | Ciphertext of the data to re-encrypt.
+reCiphertextBlob :: Lens' ReEncrypt ByteString
+reCiphertextBlob = lens _reCiphertextBlob (\ s a -> s{_reCiphertextBlob = a}) . _Base64;
+
+-- | A unique identifier for the customer master key used to re-encrypt the
+-- data. This value can be a globally unique identifier, a fully specified
+-- ARN to either an alias or a key, or an alias name prefixed by
+-- \"alias\/\".
 --
--- The fields accessible through corresponding lenses are:
---
--- * 'rerCiphertextBlob' @::@ 'Maybe' 'Base64'
---
--- * 'rerKeyId' @::@ 'Maybe' 'Text'
---
--- * 'rerSourceKeyId' @::@ 'Maybe' 'Text'
---
-reEncryptResponse :: ReEncryptResponse
-reEncryptResponse = ReEncryptResponse
-    { _rerCiphertextBlob = Nothing
-    , _rerSourceKeyId    = Nothing
-    , _rerKeyId          = Nothing
-    }
-
--- | The re-encrypted data. If you are using the CLI, the value is Base64 encoded.
--- Otherwise, it is not encoded.
-rerCiphertextBlob :: Lens' ReEncryptResponse (Maybe Base64)
-rerCiphertextBlob =
-    lens _rerCiphertextBlob (\s a -> s { _rerCiphertextBlob = a })
-
--- | Unique identifier of the key used to re-encrypt the data.
-rerKeyId :: Lens' ReEncryptResponse (Maybe Text)
-rerKeyId = lens _rerKeyId (\s a -> s { _rerKeyId = a })
-
--- | Unique identifier of the key used to originally encrypt the data.
-rerSourceKeyId :: Lens' ReEncryptResponse (Maybe Text)
-rerSourceKeyId = lens _rerSourceKeyId (\s a -> s { _rerSourceKeyId = a })
-
-instance ToPath ReEncrypt where
-    toPath = const "/"
-
-instance ToQuery ReEncrypt where
-    toQuery = const mempty
-
-instance ToHeaders ReEncrypt
-
-instance ToJSON ReEncrypt where
-    toJSON ReEncrypt{..} = object
-        [ "CiphertextBlob"               .= _reCiphertextBlob
-        , "SourceEncryptionContext"      .= _reSourceEncryptionContext
-        , "DestinationKeyId"             .= _reDestinationKeyId
-        , "DestinationEncryptionContext" .= _reDestinationEncryptionContext
-        , "GrantTokens"                  .= _reGrantTokens
-        ]
+-- -   Key ARN Example -
+--     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+-- -   Alias ARN Example -
+--     arn:aws:kms:us-east-1:123456789012:alias\/MyAliasName
+-- -   Globally Unique Key ID Example -
+--     12345678-1234-1234-1234-123456789012
+-- -   Alias Name Example - alias\/MyAliasName
+reDestinationKeyId :: Lens' ReEncrypt Text
+reDestinationKeyId = lens _reDestinationKeyId (\ s a -> s{_reDestinationKeyId = a});
 
 instance AWSRequest ReEncrypt where
-    type Sv ReEncrypt = KMS
-    type Rs ReEncrypt = ReEncryptResponse
+        type Sv ReEncrypt = KMS
+        type Rs ReEncrypt = ReEncryptResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ReEncryptResponse' <$>
+                   (x .?> "SourceKeyId") <*> (x .?> "KeyId") <*>
+                     (x .?> "CiphertextBlob")
+                     <*> (pure (fromEnum s)))
 
-    request  = post "ReEncrypt"
-    response = jsonResponse
+instance ToHeaders ReEncrypt where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("TrentService.ReEncrypt" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON ReEncryptResponse where
-    parseJSON = withObject "ReEncryptResponse" $ \o -> ReEncryptResponse
-        <$> o .:? "CiphertextBlob"
-        <*> o .:? "KeyId"
-        <*> o .:? "SourceKeyId"
+instance ToJSON ReEncrypt where
+        toJSON ReEncrypt'{..}
+          = object
+              ["DestinationEncryptionContext" .=
+                 _reDestinationEncryptionContext,
+               "SourceEncryptionContext" .=
+                 _reSourceEncryptionContext,
+               "GrantTokens" .= _reGrantTokens,
+               "CiphertextBlob" .= _reCiphertextBlob,
+               "DestinationKeyId" .= _reDestinationKeyId]
+
+instance ToPath ReEncrypt where
+        toPath = const "/"
+
+instance ToQuery ReEncrypt where
+        toQuery = const mempty
+
+-- | /See:/ 'reEncryptResponse' smart constructor.
+data ReEncryptResponse = ReEncryptResponse'
+    { _rersSourceKeyId    :: !(Maybe Text)
+    , _rersKeyId          :: !(Maybe Text)
+    , _rersCiphertextBlob :: !(Maybe Base64)
+    , _rersStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ReEncryptResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rersSourceKeyId'
+--
+-- * 'rersKeyId'
+--
+-- * 'rersCiphertextBlob'
+--
+-- * 'rersStatus'
+reEncryptResponse
+    :: Int -- ^ 'rersStatus'
+    -> ReEncryptResponse
+reEncryptResponse pStatus_ =
+    ReEncryptResponse'
+    { _rersSourceKeyId = Nothing
+    , _rersKeyId = Nothing
+    , _rersCiphertextBlob = Nothing
+    , _rersStatus = pStatus_
+    }
+
+-- | Unique identifier of the key used to originally encrypt the data.
+rersSourceKeyId :: Lens' ReEncryptResponse (Maybe Text)
+rersSourceKeyId = lens _rersSourceKeyId (\ s a -> s{_rersSourceKeyId = a});
+
+-- | Unique identifier of the key used to re-encrypt the data.
+rersKeyId :: Lens' ReEncryptResponse (Maybe Text)
+rersKeyId = lens _rersKeyId (\ s a -> s{_rersKeyId = a});
+
+-- | The re-encrypted data. If you are using the CLI, the value is Base64
+-- encoded. Otherwise, it is not encoded.
+rersCiphertextBlob :: Lens' ReEncryptResponse (Maybe ByteString)
+rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = a}) . mapping _Base64;
+
+-- | The response status code.
+rersStatus :: Lens' ReEncryptResponse Int
+rersStatus = lens _rersStatus (\ s a -> s{_rersStatus = a});

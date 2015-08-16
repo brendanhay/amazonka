@@ -1,136 +1,157 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Create a new origin access identity.
+-- |
+-- Module      : Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateCloudFrontOriginAccessIdentity.html>
+-- Create a new origin access identity.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/CreateCloudFrontOriginAccessIdentity.html AWS API Reference> for CreateCloudFrontOriginAccessIdentity.
 module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     (
-    -- * Request
-      CreateCloudFrontOriginAccessIdentity
-    -- ** Request constructor
-    , createCloudFrontOriginAccessIdentity
-    -- ** Request lenses
+    -- * Creating a Request
+      createCloudFrontOriginAccessIdentity
+    , CreateCloudFrontOriginAccessIdentity
+    -- * Request Lenses
     , ccfoaiCloudFrontOriginAccessIdentityConfig
 
-    -- * Response
-    , CreateCloudFrontOriginAccessIdentityResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createCloudFrontOriginAccessIdentityResponse
-    -- ** Response lenses
-    , ccfoairCloudFrontOriginAccessIdentity
-    , ccfoairETag
-    , ccfoairLocation
+    , CreateCloudFrontOriginAccessIdentityResponse
+    -- * Response Lenses
+    , ccfoairsETag
+    , ccfoairsLocation
+    , ccfoairsCloudFrontOriginAccessIdentity
+    , ccfoairsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity
+-- | The request to create a new origin access identity.
+--
+-- /See:/ 'createCloudFrontOriginAccessIdentity' smart constructor.
+newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity'
     { _ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
-    } deriving (Eq, Read, Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateCloudFrontOriginAccessIdentity' constructor.
+-- | Creates a value of 'CreateCloudFrontOriginAccessIdentity' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccfoaiCloudFrontOriginAccessIdentityConfig' @::@ 'CloudFrontOriginAccessIdentityConfig'
---
-createCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
-                                     -> CreateCloudFrontOriginAccessIdentity
-createCloudFrontOriginAccessIdentity p1 = CreateCloudFrontOriginAccessIdentity
-    { _ccfoaiCloudFrontOriginAccessIdentityConfig = p1
+-- * 'ccfoaiCloudFrontOriginAccessIdentityConfig'
+createCloudFrontOriginAccessIdentity
+    :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
+    -> CreateCloudFrontOriginAccessIdentity
+createCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ =
+    CreateCloudFrontOriginAccessIdentity'
+    { _ccfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig_
     }
 
--- | The origin access identity's configuration information.
+-- | The origin access identity\'s configuration information.
 ccfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
-ccfoaiCloudFrontOriginAccessIdentityConfig =
-    lens _ccfoaiCloudFrontOriginAccessIdentityConfig
-        (\s a -> s { _ccfoaiCloudFrontOriginAccessIdentityConfig = a })
+ccfoaiCloudFrontOriginAccessIdentityConfig = lens _ccfoaiCloudFrontOriginAccessIdentityConfig (\ s a -> s{_ccfoaiCloudFrontOriginAccessIdentityConfig = a});
 
-data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
-    { _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
-    , _ccfoairETag                           :: Maybe Text
-    , _ccfoairLocation                       :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSRequest
+         CreateCloudFrontOriginAccessIdentity where
+        type Sv CreateCloudFrontOriginAccessIdentity =
+             CloudFront
+        type Rs CreateCloudFrontOriginAccessIdentity =
+             CreateCloudFrontOriginAccessIdentityResponse
+        request = postXML
+        response
+          = receiveXML
+              (\ s h x ->
+                 CreateCloudFrontOriginAccessIdentityResponse' <$>
+                   (h .#? "ETag") <*> (h .#? "Location") <*>
+                     (parseXML x)
+                     <*> (pure (fromEnum s)))
 
--- | 'CreateCloudFrontOriginAccessIdentityResponse' constructor.
+instance ToElement
+         CreateCloudFrontOriginAccessIdentity where
+        toElement
+          = mkElement
+              "{http://cloudfront.amazonaws.com/doc/2015-04-17/}CloudFrontOriginAccessIdentityConfig"
+              .
+              _ccfoaiCloudFrontOriginAccessIdentityConfig
+
+instance ToHeaders
+         CreateCloudFrontOriginAccessIdentity where
+        toHeaders = const mempty
+
+instance ToPath CreateCloudFrontOriginAccessIdentity
+         where
+        toPath
+          = const
+              "/2015-04-17/origin-access-identity/cloudfront"
+
+instance ToQuery CreateCloudFrontOriginAccessIdentity
+         where
+        toQuery = const mempty
+
+-- | The returned result of the corresponding request.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'createCloudFrontOriginAccessIdentityResponse' smart constructor.
+data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse'
+    { _ccfoairsETag                           :: !(Maybe Text)
+    , _ccfoairsLocation                       :: !(Maybe Text)
+    , _ccfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
+    , _ccfoairsStatus                         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateCloudFrontOriginAccessIdentityResponse' with the minimum fields required to make a request.
 --
--- * 'ccfoairCloudFrontOriginAccessIdentity' @::@ 'Maybe' 'CloudFrontOriginAccessIdentity'
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccfoairETag' @::@ 'Maybe' 'Text'
+-- * 'ccfoairsETag'
 --
--- * 'ccfoairLocation' @::@ 'Maybe' 'Text'
+-- * 'ccfoairsLocation'
 --
-createCloudFrontOriginAccessIdentityResponse :: CreateCloudFrontOriginAccessIdentityResponse
-createCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
-    { _ccfoairCloudFrontOriginAccessIdentity = Nothing
-    , _ccfoairLocation                       = Nothing
-    , _ccfoairETag                           = Nothing
+-- * 'ccfoairsCloudFrontOriginAccessIdentity'
+--
+-- * 'ccfoairsStatus'
+createCloudFrontOriginAccessIdentityResponse
+    :: Int -- ^ 'ccfoairsStatus'
+    -> CreateCloudFrontOriginAccessIdentityResponse
+createCloudFrontOriginAccessIdentityResponse pStatus_ =
+    CreateCloudFrontOriginAccessIdentityResponse'
+    { _ccfoairsETag = Nothing
+    , _ccfoairsLocation = Nothing
+    , _ccfoairsCloudFrontOriginAccessIdentity = Nothing
+    , _ccfoairsStatus = pStatus_
     }
-
--- | The origin access identity's information.
-ccfoairCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
-ccfoairCloudFrontOriginAccessIdentity =
-    lens _ccfoairCloudFrontOriginAccessIdentity
-        (\s a -> s { _ccfoairCloudFrontOriginAccessIdentity = a })
 
 -- | The current version of the origin access identity created.
-ccfoairETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
-ccfoairETag = lens _ccfoairETag (\s a -> s { _ccfoairETag = a })
+ccfoairsETag :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
+ccfoairsETag = lens _ccfoairsETag (\ s a -> s{_ccfoairsETag = a});
 
--- | The fully qualified URI of the new origin access identity just created. For
--- example:
--- https://cloudfront.amazonaws.com/2010-11-01/origin-access-identity/cloudfront/E74FTE3AJFJ256A.
-ccfoairLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
-ccfoairLocation = lens _ccfoairLocation (\s a -> s { _ccfoairLocation = a })
+-- | The fully qualified URI of the new origin access identity just created.
+-- For example:
+-- https:\/\/cloudfront.amazonaws.com\/2010-11-01\/origin-access-identity\/cloudfront\/E74FTE3AJFJ256A.
+ccfoairsLocation :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe Text)
+ccfoairsLocation = lens _ccfoairsLocation (\ s a -> s{_ccfoairsLocation = a});
 
-instance ToPath CreateCloudFrontOriginAccessIdentity where
-    toPath = const "/2014-11-06/origin-access-identity/cloudfront"
+-- | The origin access identity\'s information.
+ccfoairsCloudFrontOriginAccessIdentity :: Lens' CreateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
+ccfoairsCloudFrontOriginAccessIdentity = lens _ccfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_ccfoairsCloudFrontOriginAccessIdentity = a});
 
-instance ToQuery CreateCloudFrontOriginAccessIdentity where
-    toQuery = const mempty
-
-instance ToHeaders CreateCloudFrontOriginAccessIdentity
-
-instance ToXMLRoot CreateCloudFrontOriginAccessIdentity where
-    toXMLRoot CreateCloudFrontOriginAccessIdentity{..} = namespaced ns "CreateCloudFrontOriginAccessIdentity"
-        [ "CloudFrontOriginAccessIdentityConfig" =@ _ccfoaiCloudFrontOriginAccessIdentityConfig
-        ]
-
-instance ToXML CreateCloudFrontOriginAccessIdentity
-
-instance AWSRequest CreateCloudFrontOriginAccessIdentity where
-    type Sv CreateCloudFrontOriginAccessIdentity = CloudFront
-    type Rs CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentityResponse
-
-    request  = post
-    response = xmlHeaderResponse $ \h x -> CreateCloudFrontOriginAccessIdentityResponse
-        <$> x .@? "CloudFrontOriginAccessIdentity"
-        <*> h ~:? "ETag"
-        <*> h ~:? "Location"
+-- | The response status code.
+ccfoairsStatus :: Lens' CreateCloudFrontOriginAccessIdentityResponse Int
+ccfoairsStatus = lens _ccfoairsStatus (\ s a -> s{_ccfoairsStatus = a});

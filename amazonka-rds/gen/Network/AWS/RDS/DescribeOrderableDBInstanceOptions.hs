@@ -1,217 +1,244 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.RDS.DescribeOrderableDBInstanceOptions
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a list of orderable DB instance options for the specified engine.
+-- |
+-- Module      : Network.AWS.RDS.DescribeOrderableDBInstanceOptions
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOrderableDBInstanceOptions.html>
+-- Returns a list of orderable DB instance options for the specified
+-- engine.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeOrderableDBInstanceOptions.html AWS API Reference> for DescribeOrderableDBInstanceOptions.
+--
+-- This operation returns paginated results.
 module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     (
-    -- * Request
-      DescribeOrderableDBInstanceOptions
-    -- ** Request constructor
-    , describeOrderableDBInstanceOptions
-    -- ** Request lenses
-    , dodbioDBInstanceClass
-    , dodbioEngine
-    , dodbioEngineVersion
-    , dodbioFilters
-    , dodbioLicenseModel
-    , dodbioMarker
-    , dodbioMaxRecords
-    , dodbioVpc
+    -- * Creating a Request
+      describeOrderableDBInstanceOptions
+    , DescribeOrderableDBInstanceOptions
+    -- * Request Lenses
+    , dodioEngineVersion
+    , dodioFilters
+    , dodioDBInstanceClass
+    , dodioLicenseModel
+    , dodioMaxRecords
+    , dodioMarker
+    , dodioVPC
+    , dodioEngine
 
-    -- * Response
-    , DescribeOrderableDBInstanceOptionsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeOrderableDBInstanceOptionsResponse
-    -- ** Response lenses
-    , dodbiorMarker
-    , dodbiorOrderableDBInstanceOptions
+    , DescribeOrderableDBInstanceOptionsResponse
+    -- * Response Lenses
+    , dodiorsOrderableDBInstanceOptions
+    , dodiorsMarker
+    , dodiorsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.RDS.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
-    { _dodbioDBInstanceClass :: Maybe Text
-    , _dodbioEngine          :: Text
-    , _dodbioEngineVersion   :: Maybe Text
-    , _dodbioFilters         :: List "member" Filter
-    , _dodbioLicenseModel    :: Maybe Text
-    , _dodbioMarker          :: Maybe Text
-    , _dodbioMaxRecords      :: Maybe Int
-    , _dodbioVpc             :: Maybe Bool
-    } deriving (Eq, Read, Show)
+-- |
+--
+-- /See:/ 'describeOrderableDBInstanceOptions' smart constructor.
+data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
+    { _dodioEngineVersion   :: !(Maybe Text)
+    , _dodioFilters         :: !(Maybe [Filter])
+    , _dodioDBInstanceClass :: !(Maybe Text)
+    , _dodioLicenseModel    :: !(Maybe Text)
+    , _dodioMaxRecords      :: !(Maybe Int)
+    , _dodioMarker          :: !(Maybe Text)
+    , _dodioVPC             :: !(Maybe Bool)
+    , _dodioEngine          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeOrderableDBInstanceOptions' constructor.
+-- | Creates a value of 'DescribeOrderableDBInstanceOptions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dodbioDBInstanceClass' @::@ 'Maybe' 'Text'
+-- * 'dodioEngineVersion'
 --
--- * 'dodbioEngine' @::@ 'Text'
+-- * 'dodioFilters'
 --
--- * 'dodbioEngineVersion' @::@ 'Maybe' 'Text'
+-- * 'dodioDBInstanceClass'
 --
--- * 'dodbioFilters' @::@ ['Filter']
+-- * 'dodioLicenseModel'
 --
--- * 'dodbioLicenseModel' @::@ 'Maybe' 'Text'
+-- * 'dodioMaxRecords'
 --
--- * 'dodbioMarker' @::@ 'Maybe' 'Text'
+-- * 'dodioMarker'
 --
--- * 'dodbioMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dodioVPC'
 --
--- * 'dodbioVpc' @::@ 'Maybe' 'Bool'
---
-describeOrderableDBInstanceOptions :: Text -- ^ 'dodbioEngine'
-                                   -> DescribeOrderableDBInstanceOptions
-describeOrderableDBInstanceOptions p1 = DescribeOrderableDBInstanceOptions
-    { _dodbioEngine          = p1
-    , _dodbioEngineVersion   = Nothing
-    , _dodbioDBInstanceClass = Nothing
-    , _dodbioLicenseModel    = Nothing
-    , _dodbioVpc             = Nothing
-    , _dodbioFilters         = mempty
-    , _dodbioMaxRecords      = Nothing
-    , _dodbioMarker          = Nothing
+-- * 'dodioEngine'
+describeOrderableDBInstanceOptions
+    :: Text -- ^ 'dodioEngine'
+    -> DescribeOrderableDBInstanceOptions
+describeOrderableDBInstanceOptions pEngine_ =
+    DescribeOrderableDBInstanceOptions'
+    { _dodioEngineVersion = Nothing
+    , _dodioFilters = Nothing
+    , _dodioDBInstanceClass = Nothing
+    , _dodioLicenseModel = Nothing
+    , _dodioMaxRecords = Nothing
+    , _dodioMarker = Nothing
+    , _dodioVPC = Nothing
+    , _dodioEngine = pEngine_
     }
-
--- | The DB instance class filter value. Specify this parameter to show only the
--- available offerings matching the specified DB instance class.
-dodbioDBInstanceClass :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodbioDBInstanceClass =
-    lens _dodbioDBInstanceClass (\s a -> s { _dodbioDBInstanceClass = a })
-
--- | The name of the engine to retrieve DB instance options for.
-dodbioEngine :: Lens' DescribeOrderableDBInstanceOptions Text
-dodbioEngine = lens _dodbioEngine (\s a -> s { _dodbioEngine = a })
 
 -- | The engine version filter value. Specify this parameter to show only the
 -- available offerings matching the specified engine version.
-dodbioEngineVersion :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodbioEngineVersion =
-    lens _dodbioEngineVersion (\s a -> s { _dodbioEngineVersion = a })
+dodioEngineVersion :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
+dodioEngineVersion = lens _dodioEngineVersion (\ s a -> s{_dodioEngineVersion = a});
 
 -- | This parameter is not currently supported.
-dodbioFilters :: Lens' DescribeOrderableDBInstanceOptions [Filter]
-dodbioFilters = lens _dodbioFilters (\s a -> s { _dodbioFilters = a }) . _List
+dodioFilters :: Lens' DescribeOrderableDBInstanceOptions [Filter]
+dodioFilters = lens _dodioFilters (\ s a -> s{_dodioFilters = a}) . _Default . _Coerce;
+
+-- | The DB instance class filter value. Specify this parameter to show only
+-- the available offerings matching the specified DB instance class.
+dodioDBInstanceClass :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
+dodioDBInstanceClass = lens _dodioDBInstanceClass (\ s a -> s{_dodioDBInstanceClass = a});
 
 -- | The license model filter value. Specify this parameter to show only the
 -- available offerings matching the specified license model.
-dodbioLicenseModel :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodbioLicenseModel =
-    lens _dodbioLicenseModel (\s a -> s { _dodbioLicenseModel = a })
+dodioLicenseModel :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
+dodioLicenseModel = lens _dodioLicenseModel (\ s a -> s{_dodioLicenseModel = a});
 
--- | An optional pagination token provided by a previous
--- DescribeOrderableDBInstanceOptions request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords' .
-dodbioMarker :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodbioMarker = lens _dodbioMarker (\s a -> s { _dodbioMarker = a })
-
--- | The maximum number of records to include in the response. If more records
--- exist than the specified 'MaxRecords' value, a pagination token called a marker
--- is included in the response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified 'MaxRecords' value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
 --
 -- Default: 100
 --
--- Constraints: minimum 20, maximum 100
-dodbioMaxRecords :: Lens' DescribeOrderableDBInstanceOptions (Maybe Int)
-dodbioMaxRecords = lens _dodbioMaxRecords (\s a -> s { _dodbioMaxRecords = a })
+-- Constraints: Minimum 20, maximum 100.
+dodioMaxRecords :: Lens' DescribeOrderableDBInstanceOptions (Maybe Int)
+dodioMaxRecords = lens _dodioMaxRecords (\ s a -> s{_dodioMaxRecords = a});
 
--- | The VPC filter value. Specify this parameter to show only the available VPC
--- or non-VPC offerings.
-dodbioVpc :: Lens' DescribeOrderableDBInstanceOptions (Maybe Bool)
-dodbioVpc = lens _dodbioVpc (\s a -> s { _dodbioVpc = a })
+-- | An optional pagination token provided by a previous
+-- DescribeOrderableDBInstanceOptions request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by 'MaxRecords' .
+dodioMarker :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
+dodioMarker = lens _dodioMarker (\ s a -> s{_dodioMarker = a});
 
-data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
-    { _dodbiorMarker                     :: Maybe Text
-    , _dodbiorOrderableDBInstanceOptions :: List "member" OrderableDBInstanceOption
-    } deriving (Eq, Read, Show)
+-- | The VPC filter value. Specify this parameter to show only the available
+-- VPC or non-VPC offerings.
+dodioVPC :: Lens' DescribeOrderableDBInstanceOptions (Maybe Bool)
+dodioVPC = lens _dodioVPC (\ s a -> s{_dodioVPC = a});
 
--- | 'DescribeOrderableDBInstanceOptionsResponse' constructor.
+-- | The name of the engine to retrieve DB instance options for.
+dodioEngine :: Lens' DescribeOrderableDBInstanceOptions Text
+dodioEngine = lens _dodioEngine (\ s a -> s{_dodioEngine = a});
+
+instance AWSPager DescribeOrderableDBInstanceOptions
+         where
+        page rq rs
+          | stop (rs ^. dodiorsMarker) = Nothing
+          | stop (rs ^. dodiorsOrderableDBInstanceOptions) =
+            Nothing
+          | otherwise =
+            Just $ rq & dodioMarker .~ rs ^. dodiorsMarker
+
+instance AWSRequest
+         DescribeOrderableDBInstanceOptions where
+        type Sv DescribeOrderableDBInstanceOptions = RDS
+        type Rs DescribeOrderableDBInstanceOptions =
+             DescribeOrderableDBInstanceOptionsResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "DescribeOrderableDBInstanceOptionsResult"
+              (\ s h x ->
+                 DescribeOrderableDBInstanceOptionsResponse' <$>
+                   (x .@? "OrderableDBInstanceOptions" .!@ mempty >>=
+                      may (parseXMLList "OrderableDBInstanceOption"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeOrderableDBInstanceOptions
+         where
+        toHeaders = const mempty
+
+instance ToPath DescribeOrderableDBInstanceOptions
+         where
+        toPath = const "/"
+
+instance ToQuery DescribeOrderableDBInstanceOptions
+         where
+        toQuery DescribeOrderableDBInstanceOptions'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeOrderableDBInstanceOptions" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "EngineVersion" =: _dodioEngineVersion,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _dodioFilters),
+               "DBInstanceClass" =: _dodioDBInstanceClass,
+               "LicenseModel" =: _dodioLicenseModel,
+               "MaxRecords" =: _dodioMaxRecords,
+               "Marker" =: _dodioMarker, "Vpc" =: _dodioVPC,
+               "Engine" =: _dodioEngine]
+
+-- | Contains the result of a successful invocation of the
+-- DescribeOrderableDBInstanceOptions action.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeOrderableDBInstanceOptionsResponse' smart constructor.
+data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'
+    { _dodiorsOrderableDBInstanceOptions :: !(Maybe [OrderableDBInstanceOption])
+    , _dodiorsMarker                     :: !(Maybe Text)
+    , _dodiorsStatus                     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeOrderableDBInstanceOptionsResponse' with the minimum fields required to make a request.
 --
--- * 'dodbiorMarker' @::@ 'Maybe' 'Text'
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dodbiorOrderableDBInstanceOptions' @::@ ['OrderableDBInstanceOption']
+-- * 'dodiorsOrderableDBInstanceOptions'
 --
-describeOrderableDBInstanceOptionsResponse :: DescribeOrderableDBInstanceOptionsResponse
-describeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
-    { _dodbiorOrderableDBInstanceOptions = mempty
-    , _dodbiorMarker                     = Nothing
+-- * 'dodiorsMarker'
+--
+-- * 'dodiorsStatus'
+describeOrderableDBInstanceOptionsResponse
+    :: Int -- ^ 'dodiorsStatus'
+    -> DescribeOrderableDBInstanceOptionsResponse
+describeOrderableDBInstanceOptionsResponse pStatus_ =
+    DescribeOrderableDBInstanceOptionsResponse'
+    { _dodiorsOrderableDBInstanceOptions = Nothing
+    , _dodiorsMarker = Nothing
+    , _dodiorsStatus = pStatus_
     }
+
+-- | An OrderableDBInstanceOption structure containing information about
+-- orderable options for the DB instance.
+dodiorsOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
+dodiorsOrderableDBInstanceOptions = lens _dodiorsOrderableDBInstanceOptions (\ s a -> s{_dodiorsOrderableDBInstanceOptions = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous
 -- OrderableDBInstanceOptions request. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value specified
--- by 'MaxRecords' .
-dodbiorMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
-dodbiorMarker = lens _dodbiorMarker (\s a -> s { _dodbiorMarker = a })
+-- response includes only records beyond the marker, up to the value
+-- specified by 'MaxRecords' .
+dodiorsMarker :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe Text)
+dodiorsMarker = lens _dodiorsMarker (\ s a -> s{_dodiorsMarker = a});
 
--- | An 'OrderableDBInstanceOption' structure containing information about orderable
--- options for the DB instance.
-dodbiorOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
-dodbiorOrderableDBInstanceOptions =
-    lens _dodbiorOrderableDBInstanceOptions
-        (\s a -> s { _dodbiorOrderableDBInstanceOptions = a })
-            . _List
-
-instance ToPath DescribeOrderableDBInstanceOptions where
-    toPath = const "/"
-
-instance ToQuery DescribeOrderableDBInstanceOptions where
-    toQuery DescribeOrderableDBInstanceOptions{..} = mconcat
-        [ "DBInstanceClass" =? _dodbioDBInstanceClass
-        , "Engine"          =? _dodbioEngine
-        , "EngineVersion"   =? _dodbioEngineVersion
-        , "Filters"         =? _dodbioFilters
-        , "LicenseModel"    =? _dodbioLicenseModel
-        , "Marker"          =? _dodbioMarker
-        , "MaxRecords"      =? _dodbioMaxRecords
-        , "Vpc"             =? _dodbioVpc
-        ]
-
-instance ToHeaders DescribeOrderableDBInstanceOptions
-
-instance AWSRequest DescribeOrderableDBInstanceOptions where
-    type Sv DescribeOrderableDBInstanceOptions = RDS
-    type Rs DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptionsResponse
-
-    request  = post "DescribeOrderableDBInstanceOptions"
-    response = xmlResponse
-
-instance FromXML DescribeOrderableDBInstanceOptionsResponse where
-    parseXML = withElement "DescribeOrderableDBInstanceOptionsResult" $ \x -> DescribeOrderableDBInstanceOptionsResponse
-        <$> x .@? "Marker"
-        <*> x .@? "OrderableDBInstanceOptions" .!@ mempty
-
-instance AWSPager DescribeOrderableDBInstanceOptions where
-    page rq rs
-        | stop (rs ^. dodbiorMarker) = Nothing
-        | otherwise = (\x -> rq & dodbioMarker ?~ x)
-            <$> (rs ^. dodbiorMarker)
+-- | The response status code.
+dodiorsStatus :: Lens' DescribeOrderableDBInstanceOptionsResponse Int
+dodiorsStatus = lens _dodiorsStatus (\ s a -> s{_dodiorsStatus = a});

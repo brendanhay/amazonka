@@ -1,137 +1,162 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CognitoIdentity.GetOpenIdToken
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Gets an OpenID token, using a known Cognito ID. This known Cognito ID is
--- returned by 'GetId'. You can optionally add additional logins for the identity.
--- Supplying multiple logins creates an implicit link.
+-- |
+-- Module      : Network.AWS.CognitoIdentity.GetOpenIdToken
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Gets an OpenID token, using a known Cognito ID. This known Cognito ID is
+-- returned by GetId. You can optionally add additional logins for the
+-- identity. Supplying multiple logins creates an implicit link.
 --
 -- The OpenId token is valid for 15 minutes.
 --
--- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdToken.html>
+-- This is a public API. You do not need any credentials to call this API.
+--
+-- /See:/ <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdToken.html AWS API Reference> for GetOpenIdToken.
 module Network.AWS.CognitoIdentity.GetOpenIdToken
     (
-    -- * Request
-      GetOpenIdToken
-    -- ** Request constructor
-    , getOpenIdToken
-    -- ** Request lenses
-    , goitIdentityId
+    -- * Creating a Request
+      getOpenIdToken
+    , GetOpenIdToken
+    -- * Request Lenses
     , goitLogins
+    , goitIdentityId
 
-    -- * Response
-    , GetOpenIdTokenResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getOpenIdTokenResponse
-    -- ** Response lenses
-    , goitrIdentityId
-    , goitrToken
+    , GetOpenIdTokenResponse
+    -- * Response Lenses
+    , goitrsToken
+    , goitrsIdentityId
+    , goitrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CognitoIdentity.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.CognitoIdentity.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetOpenIdToken = GetOpenIdToken
-    { _goitIdentityId :: Text
-    , _goitLogins     :: Map Text Text
-    } deriving (Eq, Read, Show)
+-- | Input to the GetOpenIdToken action.
+--
+-- /See:/ 'getOpenIdToken' smart constructor.
+data GetOpenIdToken = GetOpenIdToken'
+    { _goitLogins     :: !(Maybe (Map Text Text))
+    , _goitIdentityId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetOpenIdToken' constructor.
+-- | Creates a value of 'GetOpenIdToken' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'goitIdentityId' @::@ 'Text'
+-- * 'goitLogins'
 --
--- * 'goitLogins' @::@ 'HashMap' 'Text' 'Text'
---
-getOpenIdToken :: Text -- ^ 'goitIdentityId'
-               -> GetOpenIdToken
-getOpenIdToken p1 = GetOpenIdToken
-    { _goitIdentityId = p1
-    , _goitLogins     = mempty
+-- * 'goitIdentityId'
+getOpenIdToken
+    :: Text -- ^ 'goitIdentityId'
+    -> GetOpenIdToken
+getOpenIdToken pIdentityId_ =
+    GetOpenIdToken'
+    { _goitLogins = Nothing
+    , _goitIdentityId = pIdentityId_
     }
+
+-- | A set of optional name-value pairs that map provider names to provider
+-- tokens. When using graph.facebook.com and www.amazon.com, supply the
+-- access_token returned from the provider\'s authflow. For
+-- accounts.google.com or any other OpenId Connect provider, always include
+-- the id_token.
+goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
+goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Default . _Map;
 
 -- | A unique identifier in the format REGION:GUID.
 goitIdentityId :: Lens' GetOpenIdToken Text
-goitIdentityId = lens _goitIdentityId (\s a -> s { _goitIdentityId = a })
+goitIdentityId = lens _goitIdentityId (\ s a -> s{_goitIdentityId = a});
 
--- | A set of optional name-value pairs that map provider names to provider tokens.
-goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
-goitLogins = lens _goitLogins (\s a -> s { _goitLogins = a }) . _Map
+instance AWSRequest GetOpenIdToken where
+        type Sv GetOpenIdToken = CognitoIdentity
+        type Rs GetOpenIdToken = GetOpenIdTokenResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetOpenIdTokenResponse' <$>
+                   (x .?> "Token") <*> (x .?> "IdentityId") <*>
+                     (pure (fromEnum s)))
 
-data GetOpenIdTokenResponse = GetOpenIdTokenResponse
-    { _goitrIdentityId :: Maybe Text
-    , _goitrToken      :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+instance ToHeaders GetOpenIdToken where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSCognitoIdentityService.GetOpenIdToken" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
--- | 'GetOpenIdTokenResponse' constructor.
+instance ToJSON GetOpenIdToken where
+        toJSON GetOpenIdToken'{..}
+          = object
+              ["Logins" .= _goitLogins,
+               "IdentityId" .= _goitIdentityId]
+
+instance ToPath GetOpenIdToken where
+        toPath = const "/"
+
+instance ToQuery GetOpenIdToken where
+        toQuery = const mempty
+
+-- | Returned in response to a successful GetOpenIdToken request.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'getOpenIdTokenResponse' smart constructor.
+data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
+    { _goitrsToken      :: !(Maybe Text)
+    , _goitrsIdentityId :: !(Maybe Text)
+    , _goitrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetOpenIdTokenResponse' with the minimum fields required to make a request.
 --
--- * 'goitrIdentityId' @::@ 'Maybe' 'Text'
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'goitrToken' @::@ 'Maybe' 'Text'
+-- * 'goitrsToken'
 --
-getOpenIdTokenResponse :: GetOpenIdTokenResponse
-getOpenIdTokenResponse = GetOpenIdTokenResponse
-    { _goitrIdentityId = Nothing
-    , _goitrToken      = Nothing
+-- * 'goitrsIdentityId'
+--
+-- * 'goitrsStatus'
+getOpenIdTokenResponse
+    :: Int -- ^ 'goitrsStatus'
+    -> GetOpenIdTokenResponse
+getOpenIdTokenResponse pStatus_ =
+    GetOpenIdTokenResponse'
+    { _goitrsToken = Nothing
+    , _goitrsIdentityId = Nothing
+    , _goitrsStatus = pStatus_
     }
+
+-- | An OpenID token, valid for 15 minutes.
+goitrsToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
+goitrsToken = lens _goitrsToken (\ s a -> s{_goitrsToken = a});
 
 -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
 -- returned may not match the one passed on input.
-goitrIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrIdentityId = lens _goitrIdentityId (\s a -> s { _goitrIdentityId = a })
+goitrsIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
+goitrsIdentityId = lens _goitrsIdentityId (\ s a -> s{_goitrsIdentityId = a});
 
--- | An OpenID token, valid for 15 minutes.
-goitrToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrToken = lens _goitrToken (\s a -> s { _goitrToken = a })
-
-instance ToPath GetOpenIdToken where
-    toPath = const "/"
-
-instance ToQuery GetOpenIdToken where
-    toQuery = const mempty
-
-instance ToHeaders GetOpenIdToken
-
-instance ToJSON GetOpenIdToken where
-    toJSON GetOpenIdToken{..} = object
-        [ "IdentityId" .= _goitIdentityId
-        , "Logins"     .= _goitLogins
-        ]
-
-instance AWSRequest GetOpenIdToken where
-    type Sv GetOpenIdToken = CognitoIdentity
-    type Rs GetOpenIdToken = GetOpenIdTokenResponse
-
-    request  = post "GetOpenIdToken"
-    response = jsonResponse
-
-instance FromJSON GetOpenIdTokenResponse where
-    parseJSON = withObject "GetOpenIdTokenResponse" $ \o -> GetOpenIdTokenResponse
-        <$> o .:? "IdentityId"
-        <*> o .:? "Token"
+-- | The response status code.
+goitrsStatus :: Lens' GetOpenIdTokenResponse Int
+goitrsStatus = lens _goitrsStatus (\ s a -> s{_goitrsStatus = a});

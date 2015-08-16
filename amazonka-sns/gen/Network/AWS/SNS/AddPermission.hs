@@ -1,126 +1,129 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SNS.AddPermission
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Adds a statement to a topic's access control policy, granting access for the
--- specified AWS accounts to the specified actions.
+-- |
+-- Module      : Network.AWS.SNS.AddPermission
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_AddPermission.html>
+-- Adds a statement to a topic\'s access control policy, granting access
+-- for the specified AWS accounts to the specified actions.
+--
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_AddPermission.html AWS API Reference> for AddPermission.
 module Network.AWS.SNS.AddPermission
     (
-    -- * Request
-      AddPermission
-    -- ** Request constructor
-    , addPermission
-    -- ** Request lenses
+    -- * Creating a Request
+      addPermission
+    , AddPermission
+    -- * Request Lenses
+    , apTopicARN
+    , apLabel
     , apAWSAccountId
     , apActionName
-    , apLabel
-    , apTopicArn
 
-    -- * Response
-    , AddPermissionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , addPermissionResponse
+    , AddPermissionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
+import           Network.AWS.SNS.Types.Product
 
-data AddPermission = AddPermission
-    { _apAWSAccountId :: List "member" Text
-    , _apActionName   :: List "member" Text
-    , _apLabel        :: Text
-    , _apTopicArn     :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'addPermission' smart constructor.
+data AddPermission = AddPermission'
+    { _apTopicARN     :: !Text
+    , _apLabel        :: !Text
+    , _apAWSAccountId :: ![Text]
+    , _apActionName   :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddPermission' constructor.
+-- | Creates a value of 'AddPermission' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'apAWSAccountId' @::@ ['Text']
+-- * 'apTopicARN'
 --
--- * 'apActionName' @::@ ['Text']
+-- * 'apLabel'
 --
--- * 'apLabel' @::@ 'Text'
+-- * 'apAWSAccountId'
 --
--- * 'apTopicArn' @::@ 'Text'
---
-addPermission :: Text -- ^ 'apTopicArn'
-              -> Text -- ^ 'apLabel'
-              -> AddPermission
-addPermission p1 p2 = AddPermission
-    { _apTopicArn     = p1
-    , _apLabel        = p2
+-- * 'apActionName'
+addPermission
+    :: Text -- ^ 'apTopicARN'
+    -> Text -- ^ 'apLabel'
+    -> AddPermission
+addPermission pTopicARN_ pLabel_ =
+    AddPermission'
+    { _apTopicARN = pTopicARN_
+    , _apLabel = pLabel_
     , _apAWSAccountId = mempty
-    , _apActionName   = mempty
+    , _apActionName = mempty
     }
 
--- | The AWS account IDs of the users (principals) who will be given access to the
--- specified actions. The users must have AWS accounts, but do not need to be
--- signed up for this service.
+-- | The ARN of the topic whose access control policy you wish to modify.
+apTopicARN :: Lens' AddPermission Text
+apTopicARN = lens _apTopicARN (\ s a -> s{_apTopicARN = a});
+
+-- | A unique identifier for the new policy statement.
+apLabel :: Lens' AddPermission Text
+apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
+
+-- | The AWS account IDs of the users (principals) who will be given access
+-- to the specified actions. The users must have AWS accounts, but do not
+-- need to be signed up for this service.
 apAWSAccountId :: Lens' AddPermission [Text]
-apAWSAccountId = lens _apAWSAccountId (\s a -> s { _apAWSAccountId = a }) . _List
+apAWSAccountId = lens _apAWSAccountId (\ s a -> s{_apAWSAccountId = a}) . _Coerce;
 
 -- | The action you want to allow for the specified principal(s).
 --
 -- Valid values: any Amazon SNS action name.
 apActionName :: Lens' AddPermission [Text]
-apActionName = lens _apActionName (\s a -> s { _apActionName = a }) . _List
-
--- | A unique identifier for the new policy statement.
-apLabel :: Lens' AddPermission Text
-apLabel = lens _apLabel (\s a -> s { _apLabel = a })
-
--- | The ARN of the topic whose access control policy you wish to modify.
-apTopicArn :: Lens' AddPermission Text
-apTopicArn = lens _apTopicArn (\s a -> s { _apTopicArn = a })
-
-data AddPermissionResponse = AddPermissionResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'AddPermissionResponse' constructor.
-addPermissionResponse :: AddPermissionResponse
-addPermissionResponse = AddPermissionResponse
-
-instance ToPath AddPermission where
-    toPath = const "/"
-
-instance ToQuery AddPermission where
-    toQuery AddPermission{..} = mconcat
-        [ "AWSAccountId" =? _apAWSAccountId
-        , "ActionName"   =? _apActionName
-        , "Label"        =? _apLabel
-        , "TopicArn"     =? _apTopicArn
-        ]
-
-instance ToHeaders AddPermission
+apActionName = lens _apActionName (\ s a -> s{_apActionName = a}) . _Coerce;
 
 instance AWSRequest AddPermission where
-    type Sv AddPermission = SNS
-    type Rs AddPermission = AddPermissionResponse
+        type Sv AddPermission = SNS
+        type Rs AddPermission = AddPermissionResponse
+        request = postQuery
+        response = receiveNull AddPermissionResponse'
 
-    request  = post "AddPermission"
-    response = nullResponse AddPermissionResponse
+instance ToHeaders AddPermission where
+        toHeaders = const mempty
+
+instance ToPath AddPermission where
+        toPath = const "/"
+
+instance ToQuery AddPermission where
+        toQuery AddPermission'{..}
+          = mconcat
+              ["Action" =: ("AddPermission" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "TopicArn" =: _apTopicARN, "Label" =: _apLabel,
+               "AWSAccountId" =:
+                 toQueryList "member" _apAWSAccountId,
+               "ActionName" =: toQueryList "member" _apActionName]
+
+-- | /See:/ 'addPermissionResponse' smart constructor.
+data AddPermissionResponse =
+    AddPermissionResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AddPermissionResponse' with the minimum fields required to make a request.
+--
+addPermissionResponse
+    :: AddPermissionResponse
+addPermissionResponse = AddPermissionResponse'

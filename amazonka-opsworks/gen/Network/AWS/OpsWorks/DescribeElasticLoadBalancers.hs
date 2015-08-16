@@ -1,138 +1,152 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.OpsWorks.DescribeElasticLoadBalancers
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes a stack's Elastic Load Balancing instances.
+-- |
+-- Module      : Network.AWS.OpsWorks.DescribeElasticLoadBalancers
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Describes a stack\'s Elastic Load Balancing instances.
 --
 -- You must specify at least one of the parameters.
 --
--- Required Permissions: To use this action, an IAM user must have a Show,
--- Deploy, or Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Show, Deploy, or Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticLoadBalancers.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeElasticLoadBalancers.html AWS API Reference> for DescribeElasticLoadBalancers.
 module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     (
-    -- * Request
-      DescribeElasticLoadBalancers
-    -- ** Request constructor
-    , describeElasticLoadBalancers
-    -- ** Request lenses
+    -- * Creating a Request
+      describeElasticLoadBalancers
+    , DescribeElasticLoadBalancers
+    -- * Request Lenses
     , delbLayerIds
     , delbStackId
 
-    -- * Response
-    , DescribeElasticLoadBalancersResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeElasticLoadBalancersResponse
-    -- ** Response lenses
-    , delbrElasticLoadBalancers
+    , DescribeElasticLoadBalancersResponse
+    -- * Response Lenses
+    , delbrsElasticLoadBalancers
+    , delbrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
-    { _delbLayerIds :: List "LayerIds" Text
-    , _delbStackId  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'describeElasticLoadBalancers' smart constructor.
+data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'
+    { _delbLayerIds :: !(Maybe [Text])
+    , _delbStackId  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeElasticLoadBalancers' constructor.
+-- | Creates a value of 'DescribeElasticLoadBalancers' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'delbLayerIds' @::@ ['Text']
+-- * 'delbLayerIds'
 --
--- * 'delbStackId' @::@ 'Maybe' 'Text'
---
-describeElasticLoadBalancers :: DescribeElasticLoadBalancers
-describeElasticLoadBalancers = DescribeElasticLoadBalancers
-    { _delbStackId  = Nothing
-    , _delbLayerIds = mempty
+-- * 'delbStackId'
+describeElasticLoadBalancers
+    :: DescribeElasticLoadBalancers
+describeElasticLoadBalancers =
+    DescribeElasticLoadBalancers'
+    { _delbLayerIds = Nothing
+    , _delbStackId = Nothing
     }
 
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
 delbLayerIds :: Lens' DescribeElasticLoadBalancers [Text]
-delbLayerIds = lens _delbLayerIds (\s a -> s { _delbLayerIds = a }) . _List
+delbLayerIds = lens _delbLayerIds (\ s a -> s{_delbLayerIds = a}) . _Default . _Coerce;
 
--- | A stack ID. The action describes the stack's Elastic Load Balancing instances.
+-- | A stack ID. The action describes the stack\'s Elastic Load Balancing
+-- instances.
 delbStackId :: Lens' DescribeElasticLoadBalancers (Maybe Text)
-delbStackId = lens _delbStackId (\s a -> s { _delbStackId = a })
+delbStackId = lens _delbStackId (\ s a -> s{_delbStackId = a});
 
-newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
-    { _delbrElasticLoadBalancers :: List "ElasticLoadBalancers" ElasticLoadBalancer
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeElasticLoadBalancers
+         where
+        type Sv DescribeElasticLoadBalancers = OpsWorks
+        type Rs DescribeElasticLoadBalancers =
+             DescribeElasticLoadBalancersResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeElasticLoadBalancersResponse' <$>
+                   (x .?> "ElasticLoadBalancers" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeElasticLoadBalancersResponse where
-    type Item DescribeElasticLoadBalancersResponse = ElasticLoadBalancer
-
-    fromList = DescribeElasticLoadBalancersResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _delbrElasticLoadBalancers
-
--- | 'DescribeElasticLoadBalancersResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'delbrElasticLoadBalancers' @::@ ['ElasticLoadBalancer']
---
-describeElasticLoadBalancersResponse :: DescribeElasticLoadBalancersResponse
-describeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
-    { _delbrElasticLoadBalancers = mempty
-    }
-
--- | A list of 'ElasticLoadBalancer' objects that describe the specified Elastic
--- Load Balancing instances.
-delbrElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
-delbrElasticLoadBalancers =
-    lens _delbrElasticLoadBalancers
-        (\s a -> s { _delbrElasticLoadBalancers = a })
-            . _List
-
-instance ToPath DescribeElasticLoadBalancers where
-    toPath = const "/"
-
-instance ToQuery DescribeElasticLoadBalancers where
-    toQuery = const mempty
-
-instance ToHeaders DescribeElasticLoadBalancers
+instance ToHeaders DescribeElasticLoadBalancers where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.DescribeElasticLoadBalancers" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DescribeElasticLoadBalancers where
-    toJSON DescribeElasticLoadBalancers{..} = object
-        [ "StackId"  .= _delbStackId
-        , "LayerIds" .= _delbLayerIds
-        ]
+        toJSON DescribeElasticLoadBalancers'{..}
+          = object
+              ["LayerIds" .= _delbLayerIds,
+               "StackId" .= _delbStackId]
 
-instance AWSRequest DescribeElasticLoadBalancers where
-    type Sv DescribeElasticLoadBalancers = OpsWorks
-    type Rs DescribeElasticLoadBalancers = DescribeElasticLoadBalancersResponse
+instance ToPath DescribeElasticLoadBalancers where
+        toPath = const "/"
 
-    request  = post "DescribeElasticLoadBalancers"
-    response = jsonResponse
+instance ToQuery DescribeElasticLoadBalancers where
+        toQuery = const mempty
 
-instance FromJSON DescribeElasticLoadBalancersResponse where
-    parseJSON = withObject "DescribeElasticLoadBalancersResponse" $ \o -> DescribeElasticLoadBalancersResponse
-        <$> o .:? "ElasticLoadBalancers" .!= mempty
+-- | Contains the response to a 'DescribeElasticLoadBalancers' request.
+--
+-- /See:/ 'describeElasticLoadBalancersResponse' smart constructor.
+data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'
+    { _delbrsElasticLoadBalancers :: !(Maybe [ElasticLoadBalancer])
+    , _delbrsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeElasticLoadBalancersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delbrsElasticLoadBalancers'
+--
+-- * 'delbrsStatus'
+describeElasticLoadBalancersResponse
+    :: Int -- ^ 'delbrsStatus'
+    -> DescribeElasticLoadBalancersResponse
+describeElasticLoadBalancersResponse pStatus_ =
+    DescribeElasticLoadBalancersResponse'
+    { _delbrsElasticLoadBalancers = Nothing
+    , _delbrsStatus = pStatus_
+    }
+
+-- | A list of 'ElasticLoadBalancer' objects that describe the specified
+-- Elastic Load Balancing instances.
+delbrsElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
+delbrsElasticLoadBalancers = lens _delbrsElasticLoadBalancers (\ s a -> s{_delbrsElasticLoadBalancers = a}) . _Default . _Coerce;
+
+-- | The response status code.
+delbrsStatus :: Lens' DescribeElasticLoadBalancersResponse Int
+delbrsStatus = lens _delbrsStatus (\ s a -> s{_delbrsStatus = a});

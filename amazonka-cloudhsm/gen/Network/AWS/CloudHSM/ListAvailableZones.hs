@@ -1,101 +1,116 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudHSM.ListAvailableZones
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the Availability Zones that have available AWS CloudHSM capacity.
+-- |
+-- Module      : Network.AWS.CloudHSM.ListAvailableZones
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListAvailableZones.html>
+-- Lists the Availability Zones that have available AWS CloudHSM capacity.
+--
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListAvailableZones.html AWS API Reference> for ListAvailableZones.
 module Network.AWS.CloudHSM.ListAvailableZones
     (
-    -- * Request
-      ListAvailableZones
-    -- ** Request constructor
-    , listAvailableZones
+    -- * Creating a Request
+      listAvailableZones
+    , ListAvailableZones
 
-    -- * Response
-    , ListAvailableZonesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listAvailableZonesResponse
-    -- ** Response lenses
-    , lazrAZList
+    , ListAvailableZonesResponse
+    -- * Response Lenses
+    , lazrsAZList
+    , lazrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CloudHSM.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListAvailableZones = ListAvailableZones
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'ListAvailableZones' constructor.
-listAvailableZones :: ListAvailableZones
-listAvailableZones = ListAvailableZones
-
-newtype ListAvailableZonesResponse = ListAvailableZonesResponse
-    { _lazrAZList :: List "AZList" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList ListAvailableZonesResponse where
-    type Item ListAvailableZonesResponse = Text
-
-    fromList = ListAvailableZonesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _lazrAZList
-
--- | 'ListAvailableZonesResponse' constructor.
+-- | Contains the inputs for the ListAvailableZones action.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'listAvailableZones' smart constructor.
+data ListAvailableZones =
+    ListAvailableZones'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListAvailableZones' with the minimum fields required to make a request.
 --
--- * 'lazrAZList' @::@ ['Text']
---
-listAvailableZonesResponse :: ListAvailableZonesResponse
-listAvailableZonesResponse = ListAvailableZonesResponse
-    { _lazrAZList = mempty
-    }
-
--- | The list of Availability Zones that have available AWS CloudHSM capacity.
-lazrAZList :: Lens' ListAvailableZonesResponse [Text]
-lazrAZList = lens _lazrAZList (\s a -> s { _lazrAZList = a }) . _List
-
-instance ToPath ListAvailableZones where
-    toPath = const "/"
-
-instance ToQuery ListAvailableZones where
-    toQuery = const mempty
-
-instance ToHeaders ListAvailableZones
-
-instance ToJSON ListAvailableZones where
-    toJSON = const (toJSON Empty)
+listAvailableZones
+    :: ListAvailableZones
+listAvailableZones = ListAvailableZones'
 
 instance AWSRequest ListAvailableZones where
-    type Sv ListAvailableZones = CloudHSM
-    type Rs ListAvailableZones = ListAvailableZonesResponse
+        type Sv ListAvailableZones = CloudHSM
+        type Rs ListAvailableZones =
+             ListAvailableZonesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListAvailableZonesResponse' <$>
+                   (x .?> "AZList" .!@ mempty) <*> (pure (fromEnum s)))
 
-    request  = post "ListAvailableZones"
-    response = jsonResponse
+instance ToHeaders ListAvailableZones where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CloudHsmFrontendService.ListAvailableZones" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON ListAvailableZonesResponse where
-    parseJSON = withObject "ListAvailableZonesResponse" $ \o -> ListAvailableZonesResponse
-        <$> o .:? "AZList" .!= mempty
+instance ToJSON ListAvailableZones where
+        toJSON = const (Object mempty)
+
+instance ToPath ListAvailableZones where
+        toPath = const "/"
+
+instance ToQuery ListAvailableZones where
+        toQuery = const mempty
+
+-- | /See:/ 'listAvailableZonesResponse' smart constructor.
+data ListAvailableZonesResponse = ListAvailableZonesResponse'
+    { _lazrsAZList :: !(Maybe [Text])
+    , _lazrsStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListAvailableZonesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lazrsAZList'
+--
+-- * 'lazrsStatus'
+listAvailableZonesResponse
+    :: Int -- ^ 'lazrsStatus'
+    -> ListAvailableZonesResponse
+listAvailableZonesResponse pStatus_ =
+    ListAvailableZonesResponse'
+    { _lazrsAZList = Nothing
+    , _lazrsStatus = pStatus_
+    }
+
+-- | The list of Availability Zones that have available AWS CloudHSM
+-- capacity.
+lazrsAZList :: Lens' ListAvailableZonesResponse [Text]
+lazrsAZList = lens _lazrsAZList (\ s a -> s{_lazrsAZList = a}) . _Default . _Coerce;
+
+-- | The response status code.
+lazrsStatus :: Lens' ListAvailableZonesResponse Int
+lazrsStatus = lens _lazrsStatus (\ s a -> s{_lazrsStatus = a});

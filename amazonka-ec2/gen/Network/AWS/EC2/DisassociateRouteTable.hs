@@ -1,107 +1,116 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.DisassociateRouteTable
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Disassociates a subnet from a route table.
+-- |
+-- Module      : Network.AWS.EC2.DisassociateRouteTable
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- After you perform this action, the subnet no longer uses the routes in the
--- route table. Instead, it uses the routes in the VPC's main route table. For
--- more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /Amazon VirtualPrivate Cloud User Guide/.
+-- Disassociates a subnet from a route table.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisassociateRouteTable.html>
+-- After you perform this action, the subnet no longer uses the routes in
+-- the route table. Instead, it uses the routes in the VPC\'s main route
+-- table. For more information about route tables, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisassociateRouteTable.html AWS API Reference> for DisassociateRouteTable.
 module Network.AWS.EC2.DisassociateRouteTable
     (
-    -- * Request
-      DisassociateRouteTable
-    -- ** Request constructor
-    , disassociateRouteTable
-    -- ** Request lenses
-    , drtAssociationId
+    -- * Creating a Request
+      disassociateRouteTable
+    , DisassociateRouteTable
+    -- * Request Lenses
     , drtDryRun
+    , drtAssociationId
 
-    -- * Response
-    , DisassociateRouteTableResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , disassociateRouteTableResponse
+    , DisassociateRouteTableResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DisassociateRouteTable = DisassociateRouteTable
-    { _drtAssociationId :: Text
-    , _drtDryRun        :: Maybe Bool
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'disassociateRouteTable' smart constructor.
+data DisassociateRouteTable = DisassociateRouteTable'
+    { _drtDryRun        :: !(Maybe Bool)
+    , _drtAssociationId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DisassociateRouteTable' constructor.
+-- | Creates a value of 'DisassociateRouteTable' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drtAssociationId' @::@ 'Text'
+-- * 'drtDryRun'
 --
--- * 'drtDryRun' @::@ 'Maybe' 'Bool'
---
-disassociateRouteTable :: Text -- ^ 'drtAssociationId'
-                       -> DisassociateRouteTable
-disassociateRouteTable p1 = DisassociateRouteTable
-    { _drtAssociationId = p1
-    , _drtDryRun        = Nothing
+-- * 'drtAssociationId'
+disassociateRouteTable
+    :: Text -- ^ 'drtAssociationId'
+    -> DisassociateRouteTable
+disassociateRouteTable pAssociationId_ =
+    DisassociateRouteTable'
+    { _drtDryRun = Nothing
+    , _drtAssociationId = pAssociationId_
     }
 
--- | The association ID representing the current association between the route
--- table and subnet.
-drtAssociationId :: Lens' DisassociateRouteTable Text
-drtAssociationId = lens _drtAssociationId (\s a -> s { _drtAssociationId = a })
-
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 drtDryRun :: Lens' DisassociateRouteTable (Maybe Bool)
-drtDryRun = lens _drtDryRun (\s a -> s { _drtDryRun = a })
+drtDryRun = lens _drtDryRun (\ s a -> s{_drtDryRun = a});
 
-data DisassociateRouteTableResponse = DisassociateRouteTableResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DisassociateRouteTableResponse' constructor.
-disassociateRouteTableResponse :: DisassociateRouteTableResponse
-disassociateRouteTableResponse = DisassociateRouteTableResponse
-
-instance ToPath DisassociateRouteTable where
-    toPath = const "/"
-
-instance ToQuery DisassociateRouteTable where
-    toQuery DisassociateRouteTable{..} = mconcat
-        [ "AssociationId" =? _drtAssociationId
-        , "DryRun"        =? _drtDryRun
-        ]
-
-instance ToHeaders DisassociateRouteTable
+-- | The association ID representing the current association between the
+-- route table and subnet.
+drtAssociationId :: Lens' DisassociateRouteTable Text
+drtAssociationId = lens _drtAssociationId (\ s a -> s{_drtAssociationId = a});
 
 instance AWSRequest DisassociateRouteTable where
-    type Sv DisassociateRouteTable = EC2
-    type Rs DisassociateRouteTable = DisassociateRouteTableResponse
+        type Sv DisassociateRouteTable = EC2
+        type Rs DisassociateRouteTable =
+             DisassociateRouteTableResponse
+        request = post
+        response
+          = receiveNull DisassociateRouteTableResponse'
 
-    request  = post "DisassociateRouteTable"
-    response = nullResponse DisassociateRouteTableResponse
+instance ToHeaders DisassociateRouteTable where
+        toHeaders = const mempty
+
+instance ToPath DisassociateRouteTable where
+        toPath = const "/"
+
+instance ToQuery DisassociateRouteTable where
+        toQuery DisassociateRouteTable'{..}
+          = mconcat
+              ["Action" =:
+                 ("DisassociateRouteTable" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _drtDryRun,
+               "AssociationId" =: _drtAssociationId]
+
+-- | /See:/ 'disassociateRouteTableResponse' smart constructor.
+data DisassociateRouteTableResponse =
+    DisassociateRouteTableResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DisassociateRouteTableResponse' with the minimum fields required to make a request.
+--
+disassociateRouteTableResponse
+    :: DisassociateRouteTableResponse
+disassociateRouteTableResponse = DisassociateRouteTableResponse'

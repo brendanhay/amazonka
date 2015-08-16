@@ -1,142 +1,162 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Redshift.CreateClusterSecurityGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new Amazon Redshift security group. You use security groups to
+-- |
+-- Module      : Network.AWS.Redshift.CreateClusterSecurityGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Creates a new Amazon Redshift security group. You use security groups to
 -- control access to non-VPC clusters.
 --
--- For information about managing security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon RedshiftCluster Security Groups> in the /Amazon Redshift Cluster Management Guide/.
+-- For information about managing security groups, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups>
+-- in the /Amazon Redshift Cluster Management Guide/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSecurityGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateClusterSecurityGroup.html AWS API Reference> for CreateClusterSecurityGroup.
 module Network.AWS.Redshift.CreateClusterSecurityGroup
     (
-    -- * Request
-      CreateClusterSecurityGroup
-    -- ** Request constructor
-    , createClusterSecurityGroup
-    -- ** Request lenses
-    , ccsg1ClusterSecurityGroupName
-    , ccsg1Description
-    , ccsg1Tags
+    -- * Creating a Request
+      createClusterSecurityGroup
+    , CreateClusterSecurityGroup
+    -- * Request Lenses
+    , creTags
+    , creClusterSecurityGroupName
+    , creDescription
 
-    -- * Response
-    , CreateClusterSecurityGroupResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createClusterSecurityGroupResponse
-    -- ** Response lenses
-    , ccsgrClusterSecurityGroup
+    , CreateClusterSecurityGroupResponse
+    -- * Response Lenses
+    , crsClusterSecurityGroup
+    , crsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateClusterSecurityGroup = CreateClusterSecurityGroup
-    { _ccsg1ClusterSecurityGroupName :: Text
-    , _ccsg1Description              :: Text
-    , _ccsg1Tags                     :: List "member" Tag
-    } deriving (Eq, Read, Show)
+-- | ???
+--
+-- /See:/ 'createClusterSecurityGroup' smart constructor.
+data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
+    { _creTags                     :: !(Maybe [Tag])
+    , _creClusterSecurityGroupName :: !Text
+    , _creDescription              :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateClusterSecurityGroup' constructor.
+-- | Creates a value of 'CreateClusterSecurityGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccsg1ClusterSecurityGroupName' @::@ 'Text'
+-- * 'creTags'
 --
--- * 'ccsg1Description' @::@ 'Text'
+-- * 'creClusterSecurityGroupName'
 --
--- * 'ccsg1Tags' @::@ ['Tag']
---
-createClusterSecurityGroup :: Text -- ^ 'ccsg1ClusterSecurityGroupName'
-                           -> Text -- ^ 'ccsg1Description'
-                           -> CreateClusterSecurityGroup
-createClusterSecurityGroup p1 p2 = CreateClusterSecurityGroup
-    { _ccsg1ClusterSecurityGroupName = p1
-    , _ccsg1Description              = p2
-    , _ccsg1Tags                     = mempty
+-- * 'creDescription'
+createClusterSecurityGroup
+    :: Text -- ^ 'creClusterSecurityGroupName'
+    -> Text -- ^ 'creDescription'
+    -> CreateClusterSecurityGroup
+createClusterSecurityGroup pClusterSecurityGroupName_ pDescription_ =
+    CreateClusterSecurityGroup'
+    { _creTags = Nothing
+    , _creClusterSecurityGroupName = pClusterSecurityGroupName_
+    , _creDescription = pDescription_
     }
+
+-- | A list of tag instances.
+creTags :: Lens' CreateClusterSecurityGroup [Tag]
+creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default . _Coerce;
 
 -- | The name for the security group. Amazon Redshift stores the value as a
 -- lowercase string.
 --
 -- Constraints:
 --
--- Must contain no more than 255 alphanumeric characters or hyphens. Must not
--- be "Default". Must be unique for all security groups that are created by your
--- AWS account.  Example: 'examplesecuritygroup'
-ccsg1ClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
-ccsg1ClusterSecurityGroupName =
-    lens _ccsg1ClusterSecurityGroupName
-        (\s a -> s { _ccsg1ClusterSecurityGroupName = a })
+-- -   Must contain no more than 255 alphanumeric characters or hyphens.
+-- -   Must not be \"Default\".
+-- -   Must be unique for all security groups that are created by your AWS
+--     account.
+--
+-- Example: 'examplesecuritygroup'
+creClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
+creClusterSecurityGroupName = lens _creClusterSecurityGroupName (\ s a -> s{_creClusterSecurityGroupName = a});
 
 -- | A description for the security group.
-ccsg1Description :: Lens' CreateClusterSecurityGroup Text
-ccsg1Description = lens _ccsg1Description (\s a -> s { _ccsg1Description = a })
-
--- | A list of tag instances.
-ccsg1Tags :: Lens' CreateClusterSecurityGroup [Tag]
-ccsg1Tags = lens _ccsg1Tags (\s a -> s { _ccsg1Tags = a }) . _List
-
-newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
-    { _ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Eq, Read, Show)
-
--- | 'CreateClusterSecurityGroupResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccsgrClusterSecurityGroup' @::@ 'Maybe' 'ClusterSecurityGroup'
---
-createClusterSecurityGroupResponse :: CreateClusterSecurityGroupResponse
-createClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
-    { _ccsgrClusterSecurityGroup = Nothing
-    }
-
-ccsgrClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
-ccsgrClusterSecurityGroup =
-    lens _ccsgrClusterSecurityGroup
-        (\s a -> s { _ccsgrClusterSecurityGroup = a })
-
-instance ToPath CreateClusterSecurityGroup where
-    toPath = const "/"
-
-instance ToQuery CreateClusterSecurityGroup where
-    toQuery CreateClusterSecurityGroup{..} = mconcat
-        [ "ClusterSecurityGroupName" =? _ccsg1ClusterSecurityGroupName
-        , "Description"              =? _ccsg1Description
-        , "Tags"                     =? _ccsg1Tags
-        ]
-
-instance ToHeaders CreateClusterSecurityGroup
+creDescription :: Lens' CreateClusterSecurityGroup Text
+creDescription = lens _creDescription (\ s a -> s{_creDescription = a});
 
 instance AWSRequest CreateClusterSecurityGroup where
-    type Sv CreateClusterSecurityGroup = Redshift
-    type Rs CreateClusterSecurityGroup = CreateClusterSecurityGroupResponse
+        type Sv CreateClusterSecurityGroup = Redshift
+        type Rs CreateClusterSecurityGroup =
+             CreateClusterSecurityGroupResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "CreateClusterSecurityGroupResult"
+              (\ s h x ->
+                 CreateClusterSecurityGroupResponse' <$>
+                   (x .@? "ClusterSecurityGroup") <*>
+                     (pure (fromEnum s)))
 
-    request  = post "CreateClusterSecurityGroup"
-    response = xmlResponse
+instance ToHeaders CreateClusterSecurityGroup where
+        toHeaders = const mempty
 
-instance FromXML CreateClusterSecurityGroupResponse where
-    parseXML = withElement "CreateClusterSecurityGroupResult" $ \x -> CreateClusterSecurityGroupResponse
-        <$> x .@? "ClusterSecurityGroup"
+instance ToPath CreateClusterSecurityGroup where
+        toPath = const "/"
+
+instance ToQuery CreateClusterSecurityGroup where
+        toQuery CreateClusterSecurityGroup'{..}
+          = mconcat
+              ["Action" =:
+                 ("CreateClusterSecurityGroup" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "Tags" =: toQuery (toQueryList "Tag" <$> _creTags),
+               "ClusterSecurityGroupName" =:
+                 _creClusterSecurityGroupName,
+               "Description" =: _creDescription]
+
+-- | /See:/ 'createClusterSecurityGroupResponse' smart constructor.
+data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
+    { _crsClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
+    , _crsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateClusterSecurityGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'crsClusterSecurityGroup'
+--
+-- * 'crsStatus'
+createClusterSecurityGroupResponse
+    :: Int -- ^ 'crsStatus'
+    -> CreateClusterSecurityGroupResponse
+createClusterSecurityGroupResponse pStatus_ =
+    CreateClusterSecurityGroupResponse'
+    { _crsClusterSecurityGroup = Nothing
+    , _crsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+crsClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
+crsClusterSecurityGroup = lens _crsClusterSecurityGroup (\ s a -> s{_crsClusterSecurityGroup = a});
+
+-- | The response status code.
+crsStatus :: Lens' CreateClusterSecurityGroupResponse Int
+crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

@@ -1,146 +1,160 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudFront.UpdateDistribution
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Update a distribution.
+-- |
+-- Module      : Network.AWS.CloudFront.UpdateDistribution
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateDistribution.html>
+-- Update a distribution.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateDistribution.html AWS API Reference> for UpdateDistribution.
 module Network.AWS.CloudFront.UpdateDistribution
     (
-    -- * Request
-      UpdateDistribution
-    -- ** Request constructor
-    , updateDistribution
-    -- ** Request lenses
+    -- * Creating a Request
+      updateDistribution
+    , UpdateDistribution
+    -- * Request Lenses
+    , udIfMatch
     , udDistributionConfig
     , udId
-    , udIfMatch
 
-    -- * Response
-    , UpdateDistributionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , updateDistributionResponse
-    -- ** Response lenses
-    , udrDistribution
-    , udrETag
+    , UpdateDistributionResponse
+    -- * Response Lenses
+    , udrsETag
+    , udrsDistribution
+    , udrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateDistribution = UpdateDistribution
-    { _udDistributionConfig :: DistributionConfig
-    , _udId                 :: Text
-    , _udIfMatch            :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | The request to update a distribution.
+--
+-- /See:/ 'updateDistribution' smart constructor.
+data UpdateDistribution = UpdateDistribution'
+    { _udIfMatch            :: !(Maybe Text)
+    , _udDistributionConfig :: !DistributionConfig
+    , _udId                 :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateDistribution' constructor.
+-- | Creates a value of 'UpdateDistribution' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'udDistributionConfig' @::@ 'DistributionConfig'
+-- * 'udIfMatch'
 --
--- * 'udId' @::@ 'Text'
+-- * 'udDistributionConfig'
 --
--- * 'udIfMatch' @::@ 'Maybe' 'Text'
---
-updateDistribution :: DistributionConfig -- ^ 'udDistributionConfig'
-                   -> Text -- ^ 'udId'
-                   -> UpdateDistribution
-updateDistribution p1 p2 = UpdateDistribution
-    { _udDistributionConfig = p1
-    , _udId                 = p2
-    , _udIfMatch            = Nothing
+-- * 'udId'
+updateDistribution
+    :: DistributionConfig -- ^ 'udDistributionConfig'
+    -> Text -- ^ 'udId'
+    -> UpdateDistribution
+updateDistribution pDistributionConfig_ pId_ =
+    UpdateDistribution'
+    { _udIfMatch = Nothing
+    , _udDistributionConfig = pDistributionConfig_
+    , _udId = pId_
     }
 
--- | The distribution's configuration information.
-udDistributionConfig :: Lens' UpdateDistribution DistributionConfig
-udDistributionConfig =
-    lens _udDistributionConfig (\s a -> s { _udDistributionConfig = a })
-
--- | The distribution's id.
-udId :: Lens' UpdateDistribution Text
-udId = lens _udId (\s a -> s { _udId = a })
-
--- | The value of the ETag header you received when retrieving the distribution's
--- configuration. For example: E2QWRUHAPOMQZL.
+-- | The value of the ETag header you received when retrieving the
+-- distribution\'s configuration. For example: E2QWRUHAPOMQZL.
 udIfMatch :: Lens' UpdateDistribution (Maybe Text)
-udIfMatch = lens _udIfMatch (\s a -> s { _udIfMatch = a })
+udIfMatch = lens _udIfMatch (\ s a -> s{_udIfMatch = a});
 
-data UpdateDistributionResponse = UpdateDistributionResponse
-    { _udrDistribution :: Maybe Distribution
-    , _udrETag         :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | The distribution\'s configuration information.
+udDistributionConfig :: Lens' UpdateDistribution DistributionConfig
+udDistributionConfig = lens _udDistributionConfig (\ s a -> s{_udDistributionConfig = a});
 
--- | 'UpdateDistributionResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'udrDistribution' @::@ 'Maybe' 'Distribution'
---
--- * 'udrETag' @::@ 'Maybe' 'Text'
---
-updateDistributionResponse :: UpdateDistributionResponse
-updateDistributionResponse = UpdateDistributionResponse
-    { _udrDistribution = Nothing
-    , _udrETag         = Nothing
-    }
-
--- | The distribution's information.
-udrDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
-udrDistribution = lens _udrDistribution (\s a -> s { _udrDistribution = a })
-
--- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-udrETag :: Lens' UpdateDistributionResponse (Maybe Text)
-udrETag = lens _udrETag (\s a -> s { _udrETag = a })
-
-instance ToPath UpdateDistribution where
-    toPath UpdateDistribution{..} = mconcat
-        [ "/2014-11-06/distribution/"
-        , toText _udId
-        , "/config"
-        ]
-
-instance ToQuery UpdateDistribution where
-    toQuery = const mempty
-
-instance ToHeaders UpdateDistribution where
-    toHeaders UpdateDistribution{..} = mconcat
-        [ "If-Match" =: _udIfMatch
-        ]
-
-instance ToXMLRoot UpdateDistribution where
-    toXMLRoot = extractRoot ns . toXML . _udDistributionConfig
-
-instance ToXML UpdateDistribution
+-- | The distribution\'s id.
+udId :: Lens' UpdateDistribution Text
+udId = lens _udId (\ s a -> s{_udId = a});
 
 instance AWSRequest UpdateDistribution where
-    type Sv UpdateDistribution = CloudFront
-    type Rs UpdateDistribution = UpdateDistributionResponse
+        type Sv UpdateDistribution = CloudFront
+        type Rs UpdateDistribution =
+             UpdateDistributionResponse
+        request = putXML
+        response
+          = receiveXML
+              (\ s h x ->
+                 UpdateDistributionResponse' <$>
+                   (h .#? "ETag") <*> (parseXML x) <*>
+                     (pure (fromEnum s)))
 
-    request  = put
-    response = xmlHeaderResponse $ \h x -> UpdateDistributionResponse
-        <$> x .@? "Distribution"
-        <*> h ~:? "ETag"
+instance ToElement UpdateDistribution where
+        toElement
+          = mkElement
+              "{http://cloudfront.amazonaws.com/doc/2015-04-17/}DistributionConfig"
+              .
+              _udDistributionConfig
+
+instance ToHeaders UpdateDistribution where
+        toHeaders UpdateDistribution'{..}
+          = mconcat ["If-Match" =# _udIfMatch]
+
+instance ToPath UpdateDistribution where
+        toPath UpdateDistribution'{..}
+          = mconcat
+              ["/2015-04-17/distribution/", toBS _udId, "/config"]
+
+instance ToQuery UpdateDistribution where
+        toQuery = const mempty
+
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'updateDistributionResponse' smart constructor.
+data UpdateDistributionResponse = UpdateDistributionResponse'
+    { _udrsETag         :: !(Maybe Text)
+    , _udrsDistribution :: !(Maybe Distribution)
+    , _udrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateDistributionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'udrsETag'
+--
+-- * 'udrsDistribution'
+--
+-- * 'udrsStatus'
+updateDistributionResponse
+    :: Int -- ^ 'udrsStatus'
+    -> UpdateDistributionResponse
+updateDistributionResponse pStatus_ =
+    UpdateDistributionResponse'
+    { _udrsETag = Nothing
+    , _udrsDistribution = Nothing
+    , _udrsStatus = pStatus_
+    }
+
+-- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
+udrsETag :: Lens' UpdateDistributionResponse (Maybe Text)
+udrsETag = lens _udrsETag (\ s a -> s{_udrsETag = a});
+
+-- | The distribution\'s information.
+udrsDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
+udrsDistribution = lens _udrsDistribution (\ s a -> s{_udrsDistribution = a});
+
+-- | The response status code.
+udrsStatus :: Lens' UpdateDistributionResponse Int
+udrsStatus = lens _udrsStatus (\ s a -> s{_udrsStatus = a});

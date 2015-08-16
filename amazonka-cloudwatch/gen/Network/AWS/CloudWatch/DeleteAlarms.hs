@@ -1,96 +1,93 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudWatch.DeleteAlarms
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes all specified alarms. In the event of an error, no alarms are
+-- |
+-- Module      : Network.AWS.CloudWatch.DeleteAlarms
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes all specified alarms. In the event of an error, no alarms are
 -- deleted.
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteAlarms.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteAlarms.html AWS API Reference> for DeleteAlarms.
 module Network.AWS.CloudWatch.DeleteAlarms
     (
-    -- * Request
-      DeleteAlarms
-    -- ** Request constructor
-    , deleteAlarms
-    -- ** Request lenses
-    , da1AlarmNames
+    -- * Creating a Request
+      deleteAlarms
+    , DeleteAlarms
+    -- * Request Lenses
+    , dAlarmNames
 
-    -- * Response
-    , DeleteAlarmsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteAlarmsResponse
+    , DeleteAlarmsResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudWatch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.CloudWatch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteAlarms = DeleteAlarms
-    { _da1AlarmNames :: List "member" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
+-- | /See:/ 'deleteAlarms' smart constructor.
+newtype DeleteAlarms = DeleteAlarms'
+    { _dAlarmNames :: [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
-instance GHC.Exts.IsList DeleteAlarms where
-    type Item DeleteAlarms = Text
-
-    fromList = DeleteAlarms . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _da1AlarmNames
-
--- | 'DeleteAlarms' constructor.
+-- | Creates a value of 'DeleteAlarms' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'da1AlarmNames' @::@ ['Text']
---
-deleteAlarms :: DeleteAlarms
-deleteAlarms = DeleteAlarms
-    { _da1AlarmNames = mempty
+-- * 'dAlarmNames'
+deleteAlarms
+    :: DeleteAlarms
+deleteAlarms =
+    DeleteAlarms'
+    { _dAlarmNames = mempty
     }
 
 -- | A list of alarms to be deleted.
-da1AlarmNames :: Lens' DeleteAlarms [Text]
-da1AlarmNames = lens _da1AlarmNames (\s a -> s { _da1AlarmNames = a }) . _List
-
-data DeleteAlarmsResponse = DeleteAlarmsResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteAlarmsResponse' constructor.
-deleteAlarmsResponse :: DeleteAlarmsResponse
-deleteAlarmsResponse = DeleteAlarmsResponse
-
-instance ToPath DeleteAlarms where
-    toPath = const "/"
-
-instance ToQuery DeleteAlarms where
-    toQuery DeleteAlarms{..} = mconcat
-        [ "AlarmNames" =? _da1AlarmNames
-        ]
-
-instance ToHeaders DeleteAlarms
+dAlarmNames :: Lens' DeleteAlarms [Text]
+dAlarmNames = lens _dAlarmNames (\ s a -> s{_dAlarmNames = a}) . _Coerce;
 
 instance AWSRequest DeleteAlarms where
-    type Sv DeleteAlarms = CloudWatch
-    type Rs DeleteAlarms = DeleteAlarmsResponse
+        type Sv DeleteAlarms = CloudWatch
+        type Rs DeleteAlarms = DeleteAlarmsResponse
+        request = postQuery
+        response = receiveNull DeleteAlarmsResponse'
 
-    request  = post "DeleteAlarms"
-    response = nullResponse DeleteAlarmsResponse
+instance ToHeaders DeleteAlarms where
+        toHeaders = const mempty
+
+instance ToPath DeleteAlarms where
+        toPath = const "/"
+
+instance ToQuery DeleteAlarms where
+        toQuery DeleteAlarms'{..}
+          = mconcat
+              ["Action" =: ("DeleteAlarms" :: ByteString),
+               "Version" =: ("2010-08-01" :: ByteString),
+               "AlarmNames" =: toQueryList "member" _dAlarmNames]
+
+-- | /See:/ 'deleteAlarmsResponse' smart constructor.
+data DeleteAlarmsResponse =
+    DeleteAlarmsResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteAlarmsResponse' with the minimum fields required to make a request.
+--
+deleteAlarmsResponse
+    :: DeleteAlarmsResponse
+deleteAlarmsResponse = DeleteAlarmsResponse'

@@ -1,136 +1,157 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.CreateVirtualMFADevice
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new virtual MFA device for the AWS account. After creating the
--- virtual MFA, use 'EnableMFADevice' to attach the MFA device to an IAM user. For
--- more information about creating and working with virtual MFA devices, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device> in the /Using IAM/ guide.
+-- |
+-- Module      : Network.AWS.IAM.CreateVirtualMFADevice
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For information about limits on the number of MFA devices you can create,
--- see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on Entities> in the /Using IAM/ guide.
+-- Creates a new virtual MFA device for the AWS account. After creating the
+-- virtual MFA, use EnableMFADevice to attach the MFA device to an IAM
+-- user. For more information about creating and working with virtual MFA
+-- devices, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device>
+-- in the /Using IAM/ guide.
 --
--- The seed information contained in the QR code and the Base32 string should
--- be treated like any other secret access information, such as your AWS access
--- keys or your passwords. After you provision your virtual device, you should
--- ensure that the information is destroyed following secure procedures.
+-- For information about limits on the number of MFA devices you can
+-- create, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on Entities>
+-- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html>
+-- The seed information contained in the QR code and the Base32 string
+-- should be treated like any other secret access information, such as your
+-- AWS access keys or your passwords. After you provision your virtual
+-- device, you should ensure that the information is destroyed following
+-- secure procedures.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateVirtualMFADevice.html AWS API Reference> for CreateVirtualMFADevice.
 module Network.AWS.IAM.CreateVirtualMFADevice
     (
-    -- * Request
-      CreateVirtualMFADevice
-    -- ** Request constructor
-    , createVirtualMFADevice
-    -- ** Request lenses
-    , cvmfadPath
-    , cvmfadVirtualMFADeviceName
+    -- * Creating a Request
+      createVirtualMFADevice
+    , CreateVirtualMFADevice
+    -- * Request Lenses
+    , cvmdPath
+    , cvmdVirtualMFADeviceName
 
-    -- * Response
-    , CreateVirtualMFADeviceResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createVirtualMFADeviceResponse
-    -- ** Response lenses
-    , cvmfadrVirtualMFADevice
+    , CreateVirtualMFADeviceResponse
+    -- * Response Lenses
+    , cvmdrsStatus
+    , cvmdrsVirtualMFADevice
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateVirtualMFADevice = CreateVirtualMFADevice
-    { _cvmfadPath                 :: Maybe Text
-    , _cvmfadVirtualMFADeviceName :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'createVirtualMFADevice' smart constructor.
+data CreateVirtualMFADevice = CreateVirtualMFADevice'
+    { _cvmdPath                 :: !(Maybe Text)
+    , _cvmdVirtualMFADeviceName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateVirtualMFADevice' constructor.
+-- | Creates a value of 'CreateVirtualMFADevice' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cvmfadPath' @::@ 'Maybe' 'Text'
+-- * 'cvmdPath'
 --
--- * 'cvmfadVirtualMFADeviceName' @::@ 'Text'
---
-createVirtualMFADevice :: Text -- ^ 'cvmfadVirtualMFADeviceName'
-                       -> CreateVirtualMFADevice
-createVirtualMFADevice p1 = CreateVirtualMFADevice
-    { _cvmfadVirtualMFADeviceName = p1
-    , _cvmfadPath                 = Nothing
+-- * 'cvmdVirtualMFADeviceName'
+createVirtualMFADevice
+    :: Text -- ^ 'cvmdVirtualMFADeviceName'
+    -> CreateVirtualMFADevice
+createVirtualMFADevice pVirtualMFADeviceName_ =
+    CreateVirtualMFADevice'
+    { _cvmdPath = Nothing
+    , _cvmdVirtualMFADeviceName = pVirtualMFADeviceName_
     }
 
--- | The path for the virtual MFA device. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+-- | The path for the virtual MFA device. For more information about paths,
+-- see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
 --
--- This parameter is optional. If it is not included, it defaults to a slash
--- (/).
-cvmfadPath :: Lens' CreateVirtualMFADevice (Maybe Text)
-cvmfadPath = lens _cvmfadPath (\s a -> s { _cvmfadPath = a })
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/).
+cvmdPath :: Lens' CreateVirtualMFADevice (Maybe Text)
+cvmdPath = lens _cvmdPath (\ s a -> s{_cvmdPath = a});
 
 -- | The name of the virtual MFA device. Use with path to uniquely identify a
 -- virtual MFA device.
-cvmfadVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
-cvmfadVirtualMFADeviceName =
-    lens _cvmfadVirtualMFADeviceName
-        (\s a -> s { _cvmfadVirtualMFADeviceName = a })
-
-newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
-    { _cvmfadrVirtualMFADevice :: VirtualMFADevice
-    } deriving (Eq, Read, Show)
-
--- | 'CreateVirtualMFADeviceResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cvmfadrVirtualMFADevice' @::@ 'VirtualMFADevice'
---
-createVirtualMFADeviceResponse :: VirtualMFADevice -- ^ 'cvmfadrVirtualMFADevice'
-                               -> CreateVirtualMFADeviceResponse
-createVirtualMFADeviceResponse p1 = CreateVirtualMFADeviceResponse
-    { _cvmfadrVirtualMFADevice = p1
-    }
-
--- | A newly created virtual MFA device.
-cvmfadrVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
-cvmfadrVirtualMFADevice =
-    lens _cvmfadrVirtualMFADevice (\s a -> s { _cvmfadrVirtualMFADevice = a })
-
-instance ToPath CreateVirtualMFADevice where
-    toPath = const "/"
-
-instance ToQuery CreateVirtualMFADevice where
-    toQuery CreateVirtualMFADevice{..} = mconcat
-        [ "Path"                 =? _cvmfadPath
-        , "VirtualMFADeviceName" =? _cvmfadVirtualMFADeviceName
-        ]
-
-instance ToHeaders CreateVirtualMFADevice
+cvmdVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
+cvmdVirtualMFADeviceName = lens _cvmdVirtualMFADeviceName (\ s a -> s{_cvmdVirtualMFADeviceName = a});
 
 instance AWSRequest CreateVirtualMFADevice where
-    type Sv CreateVirtualMFADevice = IAM
-    type Rs CreateVirtualMFADevice = CreateVirtualMFADeviceResponse
+        type Sv CreateVirtualMFADevice = IAM
+        type Rs CreateVirtualMFADevice =
+             CreateVirtualMFADeviceResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "CreateVirtualMFADeviceResult"
+              (\ s h x ->
+                 CreateVirtualMFADeviceResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "VirtualMFADevice"))
 
-    request  = post "CreateVirtualMFADevice"
-    response = xmlResponse
+instance ToHeaders CreateVirtualMFADevice where
+        toHeaders = const mempty
 
-instance FromXML CreateVirtualMFADeviceResponse where
-    parseXML = withElement "CreateVirtualMFADeviceResult" $ \x -> CreateVirtualMFADeviceResponse
-        <$> x .@  "VirtualMFADevice"
+instance ToPath CreateVirtualMFADevice where
+        toPath = const "/"
+
+instance ToQuery CreateVirtualMFADevice where
+        toQuery CreateVirtualMFADevice'{..}
+          = mconcat
+              ["Action" =:
+                 ("CreateVirtualMFADevice" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "Path" =: _cvmdPath,
+               "VirtualMFADeviceName" =: _cvmdVirtualMFADeviceName]
+
+-- | Contains the response to a successful CreateVirtualMFADevice request.
+--
+-- /See:/ 'createVirtualMFADeviceResponse' smart constructor.
+data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
+    { _cvmdrsStatus           :: !Int
+    , _cvmdrsVirtualMFADevice :: !VirtualMFADevice
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateVirtualMFADeviceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cvmdrsStatus'
+--
+-- * 'cvmdrsVirtualMFADevice'
+createVirtualMFADeviceResponse
+    :: Int -- ^ 'cvmdrsStatus'
+    -> VirtualMFADevice -- ^ 'cvmdrsVirtualMFADevice'
+    -> CreateVirtualMFADeviceResponse
+createVirtualMFADeviceResponse pStatus_ pVirtualMFADevice_ =
+    CreateVirtualMFADeviceResponse'
+    { _cvmdrsStatus = pStatus_
+    , _cvmdrsVirtualMFADevice = pVirtualMFADevice_
+    }
+
+-- | The response status code.
+cvmdrsStatus :: Lens' CreateVirtualMFADeviceResponse Int
+cvmdrsStatus = lens _cvmdrsStatus (\ s a -> s{_cvmdrsStatus = a});
+
+-- | A newly created virtual MFA device.
+cvmdrsVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
+cvmdrsVirtualMFADevice = lens _cvmdrsVirtualMFADevice (\ s a -> s{_cvmdrsVirtualMFADevice = a});

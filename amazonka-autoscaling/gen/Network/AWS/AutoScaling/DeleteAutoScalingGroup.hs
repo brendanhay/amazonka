@@ -1,108 +1,115 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.AutoScaling.DeleteAutoScalingGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified Auto Scaling group.
+-- |
+-- Module      : Network.AWS.AutoScaling.DeleteAutoScalingGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes the specified Auto Scaling group.
 --
 -- The group must have no instances and no scaling activities in progress.
 --
--- To remove all instances before calling 'DeleteAutoScalingGroup', you can call 'UpdateAutoScalingGroup' to set the minimum and maximum size of the AutoScalingGroup to zero.
+-- To remove all instances before calling 'DeleteAutoScalingGroup', call
+-- UpdateAutoScalingGroup to set the minimum and maximum size of the Auto
+-- Scaling group to zero.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteAutoScalingGroup.html AWS API Reference> for DeleteAutoScalingGroup.
 module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     (
-    -- * Request
-      DeleteAutoScalingGroup
-    -- ** Request constructor
-    , deleteAutoScalingGroup
-    -- ** Request lenses
-    , dasgAutoScalingGroupName
+    -- * Creating a Request
+      deleteAutoScalingGroup
+    , DeleteAutoScalingGroup
+    -- * Request Lenses
     , dasgForceDelete
+    , dasgAutoScalingGroupName
 
-    -- * Response
-    , DeleteAutoScalingGroupResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteAutoScalingGroupResponse
+    , DeleteAutoScalingGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteAutoScalingGroup = DeleteAutoScalingGroup
-    { _dasgAutoScalingGroupName :: Text
-    , _dasgForceDelete          :: Maybe Bool
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'deleteAutoScalingGroup' smart constructor.
+data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
+    { _dasgForceDelete          :: !(Maybe Bool)
+    , _dasgAutoScalingGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAutoScalingGroup' constructor.
+-- | Creates a value of 'DeleteAutoScalingGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dasgAutoScalingGroupName' @::@ 'Text'
+-- * 'dasgForceDelete'
 --
--- * 'dasgForceDelete' @::@ 'Maybe' 'Bool'
---
-deleteAutoScalingGroup :: Text -- ^ 'dasgAutoScalingGroupName'
-                       -> DeleteAutoScalingGroup
-deleteAutoScalingGroup p1 = DeleteAutoScalingGroup
-    { _dasgAutoScalingGroupName = p1
-    , _dasgForceDelete          = Nothing
+-- * 'dasgAutoScalingGroupName'
+deleteAutoScalingGroup
+    :: Text -- ^ 'dasgAutoScalingGroupName'
+    -> DeleteAutoScalingGroup
+deleteAutoScalingGroup pAutoScalingGroupName_ =
+    DeleteAutoScalingGroup'
+    { _dasgForceDelete = Nothing
+    , _dasgAutoScalingGroupName = pAutoScalingGroupName_
     }
+
+-- | Specifies that the group will be deleted along with all instances
+-- associated with the group, without waiting for all instances to be
+-- terminated. This parameter also deletes any lifecycle actions associated
+-- with the group.
+dasgForceDelete :: Lens' DeleteAutoScalingGroup (Maybe Bool)
+dasgForceDelete = lens _dasgForceDelete (\ s a -> s{_dasgForceDelete = a});
 
 -- | The name of the group to delete.
 dasgAutoScalingGroupName :: Lens' DeleteAutoScalingGroup Text
-dasgAutoScalingGroupName =
-    lens _dasgAutoScalingGroupName
-        (\s a -> s { _dasgAutoScalingGroupName = a })
-
--- | Specifies that the group will be deleted along with all instances associated
--- with the group, without waiting for all instances to be terminated. This
--- parameter also deletes any lifecycle actions associated with the group.
-dasgForceDelete :: Lens' DeleteAutoScalingGroup (Maybe Bool)
-dasgForceDelete = lens _dasgForceDelete (\s a -> s { _dasgForceDelete = a })
-
-data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteAutoScalingGroupResponse' constructor.
-deleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse
-deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
-
-instance ToPath DeleteAutoScalingGroup where
-    toPath = const "/"
-
-instance ToQuery DeleteAutoScalingGroup where
-    toQuery DeleteAutoScalingGroup{..} = mconcat
-        [ "AutoScalingGroupName" =? _dasgAutoScalingGroupName
-        , "ForceDelete"          =? _dasgForceDelete
-        ]
-
-instance ToHeaders DeleteAutoScalingGroup
+dasgAutoScalingGroupName = lens _dasgAutoScalingGroupName (\ s a -> s{_dasgAutoScalingGroupName = a});
 
 instance AWSRequest DeleteAutoScalingGroup where
-    type Sv DeleteAutoScalingGroup = AutoScaling
-    type Rs DeleteAutoScalingGroup = DeleteAutoScalingGroupResponse
+        type Sv DeleteAutoScalingGroup = AutoScaling
+        type Rs DeleteAutoScalingGroup =
+             DeleteAutoScalingGroupResponse
+        request = postQuery
+        response
+          = receiveNull DeleteAutoScalingGroupResponse'
 
-    request  = post "DeleteAutoScalingGroup"
-    response = nullResponse DeleteAutoScalingGroupResponse
+instance ToHeaders DeleteAutoScalingGroup where
+        toHeaders = const mempty
+
+instance ToPath DeleteAutoScalingGroup where
+        toPath = const "/"
+
+instance ToQuery DeleteAutoScalingGroup where
+        toQuery DeleteAutoScalingGroup'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteAutoScalingGroup" :: ByteString),
+               "Version" =: ("2011-01-01" :: ByteString),
+               "ForceDelete" =: _dasgForceDelete,
+               "AutoScalingGroupName" =: _dasgAutoScalingGroupName]
+
+-- | /See:/ 'deleteAutoScalingGroupResponse' smart constructor.
+data DeleteAutoScalingGroupResponse =
+    DeleteAutoScalingGroupResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteAutoScalingGroupResponse' with the minimum fields required to make a request.
+--
+deleteAutoScalingGroupResponse
+    :: DeleteAutoScalingGroupResponse
+deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse'

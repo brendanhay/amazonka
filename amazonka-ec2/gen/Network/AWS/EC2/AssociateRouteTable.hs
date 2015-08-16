@@ -1,138 +1,152 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.AssociateRouteTable
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Associates a subnet with a route table. The subnet and route table must be in
--- the same VPC. This association causes traffic originating from the subnet to
--- be routed according to the routes in the route table. The action returns an
--- association ID, which you need in order to disassociate the route table from
--- the subnet later. A route table can be associated with multiple subnets.
+-- |
+-- Module      : Network.AWS.EC2.AssociateRouteTable
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /AmazonVirtual Private Cloud User Guide/.
+-- Associates a subnet with a route table. The subnet and route table must
+-- be in the same VPC. This association causes traffic originating from the
+-- subnet to be routed according to the routes in the route table. The
+-- action returns an association ID, which you need in order to
+-- disassociate the route table from the subnet later. A route table can be
+-- associated with multiple subnets.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateRouteTable.html>
+-- For more information about route tables, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AssociateRouteTable.html AWS API Reference> for AssociateRouteTable.
 module Network.AWS.EC2.AssociateRouteTable
     (
-    -- * Request
-      AssociateRouteTable
-    -- ** Request constructor
-    , associateRouteTable
-    -- ** Request lenses
+    -- * Creating a Request
+      associateRouteTable
+    , AssociateRouteTable
+    -- * Request Lenses
     , artDryRun
-    , artRouteTableId
     , artSubnetId
+    , artRouteTableId
 
-    -- * Response
-    , AssociateRouteTableResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , associateRouteTableResponse
-    -- ** Response lenses
-    , artrAssociationId
+    , AssociateRouteTableResponse
+    -- * Response Lenses
+    , artrsAssociationId
+    , artrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AssociateRouteTable = AssociateRouteTable
-    { _artDryRun       :: Maybe Bool
-    , _artRouteTableId :: Text
-    , _artSubnetId     :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'associateRouteTable' smart constructor.
+data AssociateRouteTable = AssociateRouteTable'
+    { _artDryRun       :: !(Maybe Bool)
+    , _artSubnetId     :: !Text
+    , _artRouteTableId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AssociateRouteTable' constructor.
+-- | Creates a value of 'AssociateRouteTable' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'artDryRun' @::@ 'Maybe' 'Bool'
+-- * 'artDryRun'
 --
--- * 'artRouteTableId' @::@ 'Text'
+-- * 'artSubnetId'
 --
--- * 'artSubnetId' @::@ 'Text'
---
-associateRouteTable :: Text -- ^ 'artSubnetId'
-                    -> Text -- ^ 'artRouteTableId'
-                    -> AssociateRouteTable
-associateRouteTable p1 p2 = AssociateRouteTable
-    { _artSubnetId     = p1
-    , _artRouteTableId = p2
-    , _artDryRun       = Nothing
+-- * 'artRouteTableId'
+associateRouteTable
+    :: Text -- ^ 'artSubnetId'
+    -> Text -- ^ 'artRouteTableId'
+    -> AssociateRouteTable
+associateRouteTable pSubnetId_ pRouteTableId_ =
+    AssociateRouteTable'
+    { _artDryRun = Nothing
+    , _artSubnetId = pSubnetId_
+    , _artRouteTableId = pRouteTableId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 artDryRun :: Lens' AssociateRouteTable (Maybe Bool)
-artDryRun = lens _artDryRun (\s a -> s { _artDryRun = a })
-
--- | The ID of the route table.
-artRouteTableId :: Lens' AssociateRouteTable Text
-artRouteTableId = lens _artRouteTableId (\s a -> s { _artRouteTableId = a })
+artDryRun = lens _artDryRun (\ s a -> s{_artDryRun = a});
 
 -- | The ID of the subnet.
 artSubnetId :: Lens' AssociateRouteTable Text
-artSubnetId = lens _artSubnetId (\s a -> s { _artSubnetId = a })
+artSubnetId = lens _artSubnetId (\ s a -> s{_artSubnetId = a});
 
-newtype AssociateRouteTableResponse = AssociateRouteTableResponse
-    { _artrAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+-- | The ID of the route table.
+artRouteTableId :: Lens' AssociateRouteTable Text
+artRouteTableId = lens _artRouteTableId (\ s a -> s{_artRouteTableId = a});
 
--- | 'AssociateRouteTableResponse' constructor.
+instance AWSRequest AssociateRouteTable where
+        type Sv AssociateRouteTable = EC2
+        type Rs AssociateRouteTable =
+             AssociateRouteTableResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 AssociateRouteTableResponse' <$>
+                   (x .@? "associationId") <*> (pure (fromEnum s)))
+
+instance ToHeaders AssociateRouteTable where
+        toHeaders = const mempty
+
+instance ToPath AssociateRouteTable where
+        toPath = const "/"
+
+instance ToQuery AssociateRouteTable where
+        toQuery AssociateRouteTable'{..}
+          = mconcat
+              ["Action" =: ("AssociateRouteTable" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _artDryRun, "SubnetId" =: _artSubnetId,
+               "RouteTableId" =: _artRouteTableId]
+
+-- | /See:/ 'associateRouteTableResponse' smart constructor.
+data AssociateRouteTableResponse = AssociateRouteTableResponse'
+    { _artrsAssociationId :: !(Maybe Text)
+    , _artrsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AssociateRouteTableResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'artrAssociationId' @::@ 'Maybe' 'Text'
+-- * 'artrsAssociationId'
 --
-associateRouteTableResponse :: AssociateRouteTableResponse
-associateRouteTableResponse = AssociateRouteTableResponse
-    { _artrAssociationId = Nothing
+-- * 'artrsStatus'
+associateRouteTableResponse
+    :: Int -- ^ 'artrsStatus'
+    -> AssociateRouteTableResponse
+associateRouteTableResponse pStatus_ =
+    AssociateRouteTableResponse'
+    { _artrsAssociationId = Nothing
+    , _artrsStatus = pStatus_
     }
 
 -- | The route table association ID (needed to disassociate the route table).
-artrAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
-artrAssociationId =
-    lens _artrAssociationId (\s a -> s { _artrAssociationId = a })
+artrsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
+artrsAssociationId = lens _artrsAssociationId (\ s a -> s{_artrsAssociationId = a});
 
-instance ToPath AssociateRouteTable where
-    toPath = const "/"
-
-instance ToQuery AssociateRouteTable where
-    toQuery AssociateRouteTable{..} = mconcat
-        [ "DryRun"       =? _artDryRun
-        , "RouteTableId" =? _artRouteTableId
-        , "SubnetId"     =? _artSubnetId
-        ]
-
-instance ToHeaders AssociateRouteTable
-
-instance AWSRequest AssociateRouteTable where
-    type Sv AssociateRouteTable = EC2
-    type Rs AssociateRouteTable = AssociateRouteTableResponse
-
-    request  = post "AssociateRouteTable"
-    response = xmlResponse
-
-instance FromXML AssociateRouteTableResponse where
-    parseXML x = AssociateRouteTableResponse
-        <$> x .@? "associationId"
+-- | The response status code.
+artrsStatus :: Lens' AssociateRouteTableResponse Int
+artrsStatus = lens _artrsStatus (\ s a -> s{_artrsStatus = a});

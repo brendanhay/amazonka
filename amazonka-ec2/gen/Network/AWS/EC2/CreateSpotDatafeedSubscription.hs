@@ -1,134 +1,154 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.CreateSpotDatafeedSubscription
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a data feed for Spot Instances, enabling you to view Spot Instance
--- usage logs. You can create one data feed per AWS account. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed> in the /Amazon Elastic Compute CloudUser Guide/.
+-- |
+-- Module      : Network.AWS.EC2.CreateSpotDatafeedSubscription
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSpotDatafeedSubscription.html>
+-- Creates a data feed for Spot Instances, enabling you to view Spot
+-- Instance usage logs. You can create one data feed per AWS account. For
+-- more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSpotDatafeedSubscription.html AWS API Reference> for CreateSpotDatafeedSubscription.
 module Network.AWS.EC2.CreateSpotDatafeedSubscription
     (
-    -- * Request
-      CreateSpotDatafeedSubscription
-    -- ** Request constructor
-    , createSpotDatafeedSubscription
-    -- ** Request lenses
-    , csdsBucket
-    , csdsDryRun
+    -- * Creating a Request
+      createSpotDatafeedSubscription
+    , CreateSpotDatafeedSubscription
+    -- * Request Lenses
     , csdsPrefix
+    , csdsDryRun
+    , csdsBucket
 
-    -- * Response
-    , CreateSpotDatafeedSubscriptionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createSpotDatafeedSubscriptionResponse
-    -- ** Response lenses
-    , csdsrSpotDatafeedSubscription
+    , CreateSpotDatafeedSubscriptionResponse
+    -- * Response Lenses
+    , csdsrsSpotDatafeedSubscription
+    , csdsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
-    { _csdsBucket :: Text
-    , _csdsDryRun :: Maybe Bool
-    , _csdsPrefix :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Contains the parameters for CreateSpotDatafeedSubscription.
+--
+-- /See:/ 'createSpotDatafeedSubscription' smart constructor.
+data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
+    { _csdsPrefix :: !(Maybe Text)
+    , _csdsDryRun :: !(Maybe Bool)
+    , _csdsBucket :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateSpotDatafeedSubscription' constructor.
+-- | Creates a value of 'CreateSpotDatafeedSubscription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'csdsBucket' @::@ 'Text'
+-- * 'csdsPrefix'
 --
--- * 'csdsDryRun' @::@ 'Maybe' 'Bool'
+-- * 'csdsDryRun'
 --
--- * 'csdsPrefix' @::@ 'Maybe' 'Text'
---
-createSpotDatafeedSubscription :: Text -- ^ 'csdsBucket'
-                               -> CreateSpotDatafeedSubscription
-createSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
-    { _csdsBucket = p1
+-- * 'csdsBucket'
+createSpotDatafeedSubscription
+    :: Text -- ^ 'csdsBucket'
+    -> CreateSpotDatafeedSubscription
+createSpotDatafeedSubscription pBucket_ =
+    CreateSpotDatafeedSubscription'
+    { _csdsPrefix = Nothing
     , _csdsDryRun = Nothing
-    , _csdsPrefix = Nothing
+    , _csdsBucket = pBucket_
     }
-
--- | The Amazon S3 bucket in which to store the Spot Instance data feed.
-csdsBucket :: Lens' CreateSpotDatafeedSubscription Text
-csdsBucket = lens _csdsBucket (\s a -> s { _csdsBucket = a })
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-csdsDryRun :: Lens' CreateSpotDatafeedSubscription (Maybe Bool)
-csdsDryRun = lens _csdsDryRun (\s a -> s { _csdsDryRun = a })
 
 -- | A prefix for the data feed file names.
 csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
-csdsPrefix = lens _csdsPrefix (\s a -> s { _csdsPrefix = a })
+csdsPrefix = lens _csdsPrefix (\ s a -> s{_csdsPrefix = a});
 
-newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
-    { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } deriving (Eq, Read, Show)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+csdsDryRun :: Lens' CreateSpotDatafeedSubscription (Maybe Bool)
+csdsDryRun = lens _csdsDryRun (\ s a -> s{_csdsDryRun = a});
 
--- | 'CreateSpotDatafeedSubscriptionResponse' constructor.
+-- | The Amazon S3 bucket in which to store the Spot Instance data feed.
+csdsBucket :: Lens' CreateSpotDatafeedSubscription Text
+csdsBucket = lens _csdsBucket (\ s a -> s{_csdsBucket = a});
+
+instance AWSRequest CreateSpotDatafeedSubscription
+         where
+        type Sv CreateSpotDatafeedSubscription = EC2
+        type Rs CreateSpotDatafeedSubscription =
+             CreateSpotDatafeedSubscriptionResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 CreateSpotDatafeedSubscriptionResponse' <$>
+                   (x .@? "spotDatafeedSubscription") <*>
+                     (pure (fromEnum s)))
+
+instance ToHeaders CreateSpotDatafeedSubscription
+         where
+        toHeaders = const mempty
+
+instance ToPath CreateSpotDatafeedSubscription where
+        toPath = const "/"
+
+instance ToQuery CreateSpotDatafeedSubscription where
+        toQuery CreateSpotDatafeedSubscription'{..}
+          = mconcat
+              ["Action" =:
+                 ("CreateSpotDatafeedSubscription" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "Prefix" =: _csdsPrefix, "DryRun" =: _csdsDryRun,
+               "Bucket" =: _csdsBucket]
+
+-- | Contains the output of CreateSpotDatafeedSubscription.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'createSpotDatafeedSubscriptionResponse' smart constructor.
+data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse'
+    { _csdsrsSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
+    , _csdsrsStatus                   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
 --
--- * 'csdsrSpotDatafeedSubscription' @::@ 'Maybe' 'SpotDatafeedSubscription'
+-- Use one of the following lenses to modify other fields as desired:
 --
-createSpotDatafeedSubscriptionResponse :: CreateSpotDatafeedSubscriptionResponse
-createSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
-    { _csdsrSpotDatafeedSubscription = Nothing
+-- * 'csdsrsSpotDatafeedSubscription'
+--
+-- * 'csdsrsStatus'
+createSpotDatafeedSubscriptionResponse
+    :: Int -- ^ 'csdsrsStatus'
+    -> CreateSpotDatafeedSubscriptionResponse
+createSpotDatafeedSubscriptionResponse pStatus_ =
+    CreateSpotDatafeedSubscriptionResponse'
+    { _csdsrsSpotDatafeedSubscription = Nothing
+    , _csdsrsStatus = pStatus_
     }
 
 -- | The Spot Instance data feed subscription.
-csdsrSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
-csdsrSpotDatafeedSubscription =
-    lens _csdsrSpotDatafeedSubscription
-        (\s a -> s { _csdsrSpotDatafeedSubscription = a })
+csdsrsSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
+csdsrsSpotDatafeedSubscription = lens _csdsrsSpotDatafeedSubscription (\ s a -> s{_csdsrsSpotDatafeedSubscription = a});
 
-instance ToPath CreateSpotDatafeedSubscription where
-    toPath = const "/"
-
-instance ToQuery CreateSpotDatafeedSubscription where
-    toQuery CreateSpotDatafeedSubscription{..} = mconcat
-        [ "Bucket" =? _csdsBucket
-        , "DryRun" =? _csdsDryRun
-        , "Prefix" =? _csdsPrefix
-        ]
-
-instance ToHeaders CreateSpotDatafeedSubscription
-
-instance AWSRequest CreateSpotDatafeedSubscription where
-    type Sv CreateSpotDatafeedSubscription = EC2
-    type Rs CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscriptionResponse
-
-    request  = post "CreateSpotDatafeedSubscription"
-    response = xmlResponse
-
-instance FromXML CreateSpotDatafeedSubscriptionResponse where
-    parseXML x = CreateSpotDatafeedSubscriptionResponse
-        <$> x .@? "spotDatafeedSubscription"
+-- | The response status code.
+csdsrsStatus :: Lens' CreateSpotDatafeedSubscriptionResponse Int
+csdsrsStatus = lens _csdsrsStatus (\ s a -> s{_csdsrsStatus = a});

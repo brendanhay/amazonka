@@ -1,0 +1,103 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/AmazonS3/latest/API/",
+    "libraryName": "amazonka-s3",
+    "extraDependencies": [
+        "text >= 1.1",
+        "lens >= 4.4"
+    ],
+    "operationPlugins": {
+        "DeleteObjects": ["contentMD5"],
+        "PutBucketCORS": ["contentMD5"],
+        "PutBucketLifecycle": ["contentMD5"],
+        "PutBucketPolicy": ["contentMD5"],
+        "PutBucketTagging": ["contentMD5"]
+    },
+    "typeModules": [
+        "Network.AWS.S3.Internal"
+    ],
+    "typeOverrides": {
+        "Error": {
+            "renamedTo": "S3ServiceError"
+        },
+        "ListObjectsResponse": {
+            "requiredFields": [
+                "Name"
+            ]
+        },
+        "Bucket": {
+            "requiredFields": [
+                "CreationDate",
+                "Name"
+            ]
+        },
+        "Object": {
+            "requiredFields": [
+                "ETag",
+                "Size",
+                "Key",
+                "StorageClass",
+                "LastModified"
+            ]
+        },
+        "CompletedPart": {
+            "requiredFields": [
+                "PartNumber",
+                "ETag"
+            ]
+        },
+        "BucketLocationConstraint": {
+            "replacedBy": {
+                "name": "Region",
+                "deriving": []
+            }
+        },
+        "BucketName": {
+            "replacedBy": {
+                "name": "BucketName",
+                "deriving": []
+            }
+        },
+        "ObjectKey": {
+            "replacedBy": {
+                "name": "ObjectKey",
+                "deriving": []
+            }
+        },
+        "ObjectVersionId": {
+            "replacedBy": {
+                "name": "ObjectVersionId",
+                "deriving": []
+            }
+        },
+        "ETag": {
+            "replacedBy": {
+                "name": "ETag",
+                "deriving": []
+            }
+        },
+        "Delimiter": {
+            "replacedBy": {
+                "name": "Delimiter",
+                "deriving": []
+            }
+        },
+        "NoncurrentVersionExpiration": {
+            "requiredFields": [
+                "NoncurrentDays"
+            ]
+        },
+        "NoncurrentVersionTransition": {
+            "requiredFields": [
+                "NoncurrentDays",
+                "StorageClass"
+            ]
+        },
+        "BucketCannedACL": {
+            "enumPrefix": "B"
+        },
+        "ObjectCannedACL": {
+            "enumPrefix": "O"
+        }
+    }
+}

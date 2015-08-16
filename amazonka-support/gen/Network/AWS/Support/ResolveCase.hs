@@ -1,125 +1,140 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Support.ResolveCase
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Takes a 'CaseId' and returns the initial state of the case along with the state
--- of the case after the call to 'ResolveCase' completed.
+-- |
+-- Module      : Network.AWS.Support.ResolveCase
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html>
+-- Takes a 'CaseId' and returns the initial state of the case along with
+-- the state of the case after the call to ResolveCase completed.
+--
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_ResolveCase.html AWS API Reference> for ResolveCase.
 module Network.AWS.Support.ResolveCase
     (
-    -- * Request
-      ResolveCase
-    -- ** Request constructor
-    , resolveCase
-    -- ** Request lenses
+    -- * Creating a Request
+      resolveCase
+    , ResolveCase
+    -- * Request Lenses
     , rcCaseId
 
-    -- * Response
-    , ResolveCaseResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , resolveCaseResponse
-    -- ** Response lenses
-    , rcrFinalCaseStatus
-    , rcrInitialCaseStatus
+    , ResolveCaseResponse
+    -- * Response Lenses
+    , rcrsInitialCaseStatus
+    , rcrsFinalCaseStatus
+    , rcrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Support.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
+import           Network.AWS.Support.Types.Product
 
-newtype ResolveCase = ResolveCase
+-- | /See:/ 'resolveCase' smart constructor.
+newtype ResolveCase = ResolveCase'
     { _rcCaseId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResolveCase' constructor.
+-- | Creates a value of 'ResolveCase' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcCaseId' @::@ 'Maybe' 'Text'
---
-resolveCase :: ResolveCase
-resolveCase = ResolveCase
+-- * 'rcCaseId'
+resolveCase
+    :: ResolveCase
+resolveCase =
+    ResolveCase'
     { _rcCaseId = Nothing
     }
 
--- | The AWS Support case ID requested or returned in the call. The case ID is an
--- alphanumeric string formatted as shown in this example: case-/12345678910-2013-c4c1d2bf33c5cf47/
+-- | The AWS Support case ID requested or returned in the call. The case ID
+-- is an alphanumeric string formatted as shown in this example:
+-- case-/12345678910-2013-c4c1d2bf33c5cf47/
 rcCaseId :: Lens' ResolveCase (Maybe Text)
-rcCaseId = lens _rcCaseId (\s a -> s { _rcCaseId = a })
-
-data ResolveCaseResponse = ResolveCaseResponse
-    { _rcrFinalCaseStatus   :: Maybe Text
-    , _rcrInitialCaseStatus :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ResolveCaseResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcrFinalCaseStatus' @::@ 'Maybe' 'Text'
---
--- * 'rcrInitialCaseStatus' @::@ 'Maybe' 'Text'
---
-resolveCaseResponse :: ResolveCaseResponse
-resolveCaseResponse = ResolveCaseResponse
-    { _rcrInitialCaseStatus = Nothing
-    , _rcrFinalCaseStatus   = Nothing
-    }
-
--- | The status of the case after the 'ResolveCase' request was processed.
-rcrFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcrFinalCaseStatus =
-    lens _rcrFinalCaseStatus (\s a -> s { _rcrFinalCaseStatus = a })
-
--- | The status of the case when the 'ResolveCase' request was sent.
-rcrInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcrInitialCaseStatus =
-    lens _rcrInitialCaseStatus (\s a -> s { _rcrInitialCaseStatus = a })
-
-instance ToPath ResolveCase where
-    toPath = const "/"
-
-instance ToQuery ResolveCase where
-    toQuery = const mempty
-
-instance ToHeaders ResolveCase
-
-instance ToJSON ResolveCase where
-    toJSON ResolveCase{..} = object
-        [ "caseId" .= _rcCaseId
-        ]
+rcCaseId = lens _rcCaseId (\ s a -> s{_rcCaseId = a});
 
 instance AWSRequest ResolveCase where
-    type Sv ResolveCase = Support
-    type Rs ResolveCase = ResolveCaseResponse
+        type Sv ResolveCase = Support
+        type Rs ResolveCase = ResolveCaseResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ResolveCaseResponse' <$>
+                   (x .?> "initialCaseStatus") <*>
+                     (x .?> "finalCaseStatus")
+                     <*> (pure (fromEnum s)))
 
-    request  = post "ResolveCase"
-    response = jsonResponse
+instance ToHeaders ResolveCase where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSSupport_20130415.ResolveCase" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON ResolveCaseResponse where
-    parseJSON = withObject "ResolveCaseResponse" $ \o -> ResolveCaseResponse
-        <$> o .:? "finalCaseStatus"
-        <*> o .:? "initialCaseStatus"
+instance ToJSON ResolveCase where
+        toJSON ResolveCase'{..}
+          = object ["caseId" .= _rcCaseId]
+
+instance ToPath ResolveCase where
+        toPath = const "/"
+
+instance ToQuery ResolveCase where
+        toQuery = const mempty
+
+-- | The status of the case returned by the ResolveCase operation.
+--
+-- /See:/ 'resolveCaseResponse' smart constructor.
+data ResolveCaseResponse = ResolveCaseResponse'
+    { _rcrsInitialCaseStatus :: !(Maybe Text)
+    , _rcrsFinalCaseStatus   :: !(Maybe Text)
+    , _rcrsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResolveCaseResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rcrsInitialCaseStatus'
+--
+-- * 'rcrsFinalCaseStatus'
+--
+-- * 'rcrsStatus'
+resolveCaseResponse
+    :: Int -- ^ 'rcrsStatus'
+    -> ResolveCaseResponse
+resolveCaseResponse pStatus_ =
+    ResolveCaseResponse'
+    { _rcrsInitialCaseStatus = Nothing
+    , _rcrsFinalCaseStatus = Nothing
+    , _rcrsStatus = pStatus_
+    }
+
+-- | The status of the case when the ResolveCase request was sent.
+rcrsInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
+rcrsInitialCaseStatus = lens _rcrsInitialCaseStatus (\ s a -> s{_rcrsInitialCaseStatus = a});
+
+-- | The status of the case after the ResolveCase request was processed.
+rcrsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
+rcrsFinalCaseStatus = lens _rcrsFinalCaseStatus (\ s a -> s{_rcrsFinalCaseStatus = a});
+
+-- | The response status code.
+rcrsStatus :: Lens' ResolveCaseResponse Int
+rcrsStatus = lens _rcrsStatus (\ s a -> s{_rcrsStatus = a});

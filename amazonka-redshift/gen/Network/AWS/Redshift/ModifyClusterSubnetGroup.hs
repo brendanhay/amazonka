@@ -1,133 +1,148 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Redshift.ModifyClusterSubnetGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Modifies a cluster subnet group to include the specified list of VPC
--- subnets. The operation replaces the existing list of subnets with the new
--- list of subnets.
+-- |
+-- Module      : Network.AWS.Redshift.ModifyClusterSubnetGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSubnetGroup.html>
+-- Modifies a cluster subnet group to include the specified list of VPC
+-- subnets. The operation replaces the existing list of subnets with the
+-- new list of subnets.
+--
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyClusterSubnetGroup.html AWS API Reference> for ModifyClusterSubnetGroup.
 module Network.AWS.Redshift.ModifyClusterSubnetGroup
     (
-    -- * Request
-      ModifyClusterSubnetGroup
-    -- ** Request constructor
-    , modifyClusterSubnetGroup
-    -- ** Request lenses
-    , mcsgClusterSubnetGroupName
+    -- * Creating a Request
+      modifyClusterSubnetGroup
+    , ModifyClusterSubnetGroup
+    -- * Request Lenses
     , mcsgDescription
+    , mcsgClusterSubnetGroupName
     , mcsgSubnetIds
 
-    -- * Response
-    , ModifyClusterSubnetGroupResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , modifyClusterSubnetGroupResponse
-    -- ** Response lenses
-    , mcsgrClusterSubnetGroup
+    , ModifyClusterSubnetGroupResponse
+    -- * Response Lenses
+    , mcsgrsClusterSubnetGroup
+    , mcsgrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
-    { _mcsgClusterSubnetGroupName :: Text
-    , _mcsgDescription            :: Maybe Text
-    , _mcsgSubnetIds              :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
+-- |
+--
+-- /See:/ 'modifyClusterSubnetGroup' smart constructor.
+data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup'
+    { _mcsgDescription            :: !(Maybe Text)
+    , _mcsgClusterSubnetGroupName :: !Text
+    , _mcsgSubnetIds              :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyClusterSubnetGroup' constructor.
+-- | Creates a value of 'ModifyClusterSubnetGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mcsgClusterSubnetGroupName' @::@ 'Text'
+-- * 'mcsgDescription'
 --
--- * 'mcsgDescription' @::@ 'Maybe' 'Text'
+-- * 'mcsgClusterSubnetGroupName'
 --
--- * 'mcsgSubnetIds' @::@ ['Text']
---
-modifyClusterSubnetGroup :: Text -- ^ 'mcsgClusterSubnetGroupName'
-                         -> ModifyClusterSubnetGroup
-modifyClusterSubnetGroup p1 = ModifyClusterSubnetGroup
-    { _mcsgClusterSubnetGroupName = p1
-    , _mcsgDescription            = Nothing
-    , _mcsgSubnetIds              = mempty
+-- * 'mcsgSubnetIds'
+modifyClusterSubnetGroup
+    :: Text -- ^ 'mcsgClusterSubnetGroupName'
+    -> ModifyClusterSubnetGroup
+modifyClusterSubnetGroup pClusterSubnetGroupName_ =
+    ModifyClusterSubnetGroup'
+    { _mcsgDescription = Nothing
+    , _mcsgClusterSubnetGroupName = pClusterSubnetGroupName_
+    , _mcsgSubnetIds = mempty
     }
-
--- | The name of the subnet group to be modified.
-mcsgClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup Text
-mcsgClusterSubnetGroupName =
-    lens _mcsgClusterSubnetGroupName
-        (\s a -> s { _mcsgClusterSubnetGroupName = a })
 
 -- | A text description of the subnet group to be modified.
 mcsgDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
-mcsgDescription = lens _mcsgDescription (\s a -> s { _mcsgDescription = a })
+mcsgDescription = lens _mcsgDescription (\ s a -> s{_mcsgDescription = a});
+
+-- | The name of the subnet group to be modified.
+mcsgClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup Text
+mcsgClusterSubnetGroupName = lens _mcsgClusterSubnetGroupName (\ s a -> s{_mcsgClusterSubnetGroupName = a});
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
 mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
-mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a }) . _List
-
-newtype ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
-    { _mcsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } deriving (Eq, Read, Show)
-
--- | 'ModifyClusterSubnetGroupResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mcsgrClusterSubnetGroup' @::@ 'Maybe' 'ClusterSubnetGroup'
---
-modifyClusterSubnetGroupResponse :: ModifyClusterSubnetGroupResponse
-modifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
-    { _mcsgrClusterSubnetGroup = Nothing
-    }
-
-mcsgrClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
-mcsgrClusterSubnetGroup =
-    lens _mcsgrClusterSubnetGroup (\s a -> s { _mcsgrClusterSubnetGroup = a })
-
-instance ToPath ModifyClusterSubnetGroup where
-    toPath = const "/"
-
-instance ToQuery ModifyClusterSubnetGroup where
-    toQuery ModifyClusterSubnetGroup{..} = mconcat
-        [ "ClusterSubnetGroupName" =? _mcsgClusterSubnetGroupName
-        , "Description"            =? _mcsgDescription
-        , "SubnetIds"              =? _mcsgSubnetIds
-        ]
-
-instance ToHeaders ModifyClusterSubnetGroup
+mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a}) . _Coerce;
 
 instance AWSRequest ModifyClusterSubnetGroup where
-    type Sv ModifyClusterSubnetGroup = Redshift
-    type Rs ModifyClusterSubnetGroup = ModifyClusterSubnetGroupResponse
+        type Sv ModifyClusterSubnetGroup = Redshift
+        type Rs ModifyClusterSubnetGroup =
+             ModifyClusterSubnetGroupResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "ModifyClusterSubnetGroupResult"
+              (\ s h x ->
+                 ModifyClusterSubnetGroupResponse' <$>
+                   (x .@? "ClusterSubnetGroup") <*> (pure (fromEnum s)))
 
-    request  = post "ModifyClusterSubnetGroup"
-    response = xmlResponse
+instance ToHeaders ModifyClusterSubnetGroup where
+        toHeaders = const mempty
 
-instance FromXML ModifyClusterSubnetGroupResponse where
-    parseXML = withElement "ModifyClusterSubnetGroupResult" $ \x -> ModifyClusterSubnetGroupResponse
-        <$> x .@? "ClusterSubnetGroup"
+instance ToPath ModifyClusterSubnetGroup where
+        toPath = const "/"
+
+instance ToQuery ModifyClusterSubnetGroup where
+        toQuery ModifyClusterSubnetGroup'{..}
+          = mconcat
+              ["Action" =:
+                 ("ModifyClusterSubnetGroup" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "Description" =: _mcsgDescription,
+               "ClusterSubnetGroupName" =:
+                 _mcsgClusterSubnetGroupName,
+               "SubnetIds" =:
+                 toQueryList "SubnetIdentifier" _mcsgSubnetIds]
+
+-- | /See:/ 'modifyClusterSubnetGroupResponse' smart constructor.
+data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
+    { _mcsgrsClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
+    , _mcsgrsStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyClusterSubnetGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mcsgrsClusterSubnetGroup'
+--
+-- * 'mcsgrsStatus'
+modifyClusterSubnetGroupResponse
+    :: Int -- ^ 'mcsgrsStatus'
+    -> ModifyClusterSubnetGroupResponse
+modifyClusterSubnetGroupResponse pStatus_ =
+    ModifyClusterSubnetGroupResponse'
+    { _mcsgrsClusterSubnetGroup = Nothing
+    , _mcsgrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+mcsgrsClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
+mcsgrsClusterSubnetGroup = lens _mcsgrsClusterSubnetGroup (\ s a -> s{_mcsgrsClusterSubnetGroup = a});
+
+-- | The response status code.
+mcsgrsStatus :: Lens' ModifyClusterSubnetGroupResponse Int
+mcsgrsStatus = lens _mcsgrsStatus (\ s a -> s{_mcsgrsStatus = a});

@@ -1,103 +1,108 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.DeleteRouteTable
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified route table. You must disassociate the route table from
--- any subnets before you can delete it. You can't delete the main route table.
+-- |
+-- Module      : Network.AWS.EC2.DeleteRouteTable
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRouteTable.html>
+-- Deletes the specified route table. You must disassociate the route table
+-- from any subnets before you can delete it. You can\'t delete the main
+-- route table.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRouteTable.html AWS API Reference> for DeleteRouteTable.
 module Network.AWS.EC2.DeleteRouteTable
     (
-    -- * Request
-      DeleteRouteTable
-    -- ** Request constructor
-    , deleteRouteTable
-    -- ** Request lenses
-    , drt1DryRun
-    , drt1RouteTableId
+    -- * Creating a Request
+      deleteRouteTable
+    , DeleteRouteTable
+    -- * Request Lenses
+    , drtrDryRun
+    , drtrRouteTableId
 
-    -- * Response
-    , DeleteRouteTableResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteRouteTableResponse
+    , DeleteRouteTableResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteRouteTable = DeleteRouteTable
-    { _drt1DryRun       :: Maybe Bool
-    , _drt1RouteTableId :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'deleteRouteTable' smart constructor.
+data DeleteRouteTable = DeleteRouteTable'
+    { _drtrDryRun       :: !(Maybe Bool)
+    , _drtrRouteTableId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRouteTable' constructor.
+-- | Creates a value of 'DeleteRouteTable' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drt1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'drtrDryRun'
 --
--- * 'drt1RouteTableId' @::@ 'Text'
---
-deleteRouteTable :: Text -- ^ 'drt1RouteTableId'
-                 -> DeleteRouteTable
-deleteRouteTable p1 = DeleteRouteTable
-    { _drt1RouteTableId = p1
-    , _drt1DryRun       = Nothing
+-- * 'drtrRouteTableId'
+deleteRouteTable
+    :: Text -- ^ 'drtrRouteTableId'
+    -> DeleteRouteTable
+deleteRouteTable pRouteTableId_ =
+    DeleteRouteTable'
+    { _drtrDryRun = Nothing
+    , _drtrRouteTableId = pRouteTableId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-drt1DryRun :: Lens' DeleteRouteTable (Maybe Bool)
-drt1DryRun = lens _drt1DryRun (\s a -> s { _drt1DryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+drtrDryRun :: Lens' DeleteRouteTable (Maybe Bool)
+drtrDryRun = lens _drtrDryRun (\ s a -> s{_drtrDryRun = a});
 
 -- | The ID of the route table.
-drt1RouteTableId :: Lens' DeleteRouteTable Text
-drt1RouteTableId = lens _drt1RouteTableId (\s a -> s { _drt1RouteTableId = a })
-
-data DeleteRouteTableResponse = DeleteRouteTableResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteRouteTableResponse' constructor.
-deleteRouteTableResponse :: DeleteRouteTableResponse
-deleteRouteTableResponse = DeleteRouteTableResponse
-
-instance ToPath DeleteRouteTable where
-    toPath = const "/"
-
-instance ToQuery DeleteRouteTable where
-    toQuery DeleteRouteTable{..} = mconcat
-        [ "DryRun"       =? _drt1DryRun
-        , "RouteTableId" =? _drt1RouteTableId
-        ]
-
-instance ToHeaders DeleteRouteTable
+drtrRouteTableId :: Lens' DeleteRouteTable Text
+drtrRouteTableId = lens _drtrRouteTableId (\ s a -> s{_drtrRouteTableId = a});
 
 instance AWSRequest DeleteRouteTable where
-    type Sv DeleteRouteTable = EC2
-    type Rs DeleteRouteTable = DeleteRouteTableResponse
+        type Sv DeleteRouteTable = EC2
+        type Rs DeleteRouteTable = DeleteRouteTableResponse
+        request = post
+        response = receiveNull DeleteRouteTableResponse'
 
-    request  = post "DeleteRouteTable"
-    response = nullResponse DeleteRouteTableResponse
+instance ToHeaders DeleteRouteTable where
+        toHeaders = const mempty
+
+instance ToPath DeleteRouteTable where
+        toPath = const "/"
+
+instance ToQuery DeleteRouteTable where
+        toQuery DeleteRouteTable'{..}
+          = mconcat
+              ["Action" =: ("DeleteRouteTable" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _drtrDryRun,
+               "RouteTableId" =: _drtrRouteTableId]
+
+-- | /See:/ 'deleteRouteTableResponse' smart constructor.
+data DeleteRouteTableResponse =
+    DeleteRouteTableResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteRouteTableResponse' with the minimum fields required to make a request.
+--
+deleteRouteTableResponse
+    :: DeleteRouteTableResponse
+deleteRouteTableResponse = DeleteRouteTableResponse'

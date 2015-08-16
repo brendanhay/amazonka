@@ -1,136 +1,140 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Config.DescribeConfigurationRecorders
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns the name of one or more specified configuration recorders. If the
--- recorder name is not specified, this action returns the names of all the
--- configuration recorders associated with the account.
+-- |
+-- Module      : Network.AWS.Config.DescribeConfigurationRecorders
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Returns the name of one or more specified configuration recorders. If
+-- the recorder name is not specified, this action returns the names of all
+-- the configuration recorders associated with the account.
 --
 -- Currently, you can specify only one configuration recorder per account.
 --
---
---
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html>
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html AWS API Reference> for DescribeConfigurationRecorders.
 module Network.AWS.Config.DescribeConfigurationRecorders
     (
-    -- * Request
-      DescribeConfigurationRecorders
-    -- ** Request constructor
-    , describeConfigurationRecorders
-    -- ** Request lenses
+    -- * Creating a Request
+      describeConfigurationRecorders
+    , DescribeConfigurationRecorders
+    -- * Request Lenses
     , dcrConfigurationRecorderNames
 
-    -- * Response
-    , DescribeConfigurationRecordersResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeConfigurationRecordersResponse
-    -- ** Response lenses
-    , dcrrConfigurationRecorders
+    , DescribeConfigurationRecordersResponse
+    -- * Response Lenses
+    , dcrrsConfigurationRecorders
+    , dcrrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Config.Types
-import qualified GHC.Exts
+import           Network.AWS.Config.Types
+import           Network.AWS.Config.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders
-    { _dcrConfigurationRecorderNames :: List "ConfigurationRecorderNames" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeConfigurationRecorders where
-    type Item DescribeConfigurationRecorders = Text
-
-    fromList = DescribeConfigurationRecorders . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dcrConfigurationRecorderNames
-
--- | 'DescribeConfigurationRecorders' constructor.
+-- | The input for the DescribeConfigurationRecorders action.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeConfigurationRecorders' smart constructor.
+newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders'
+    { _dcrConfigurationRecorderNames :: Maybe [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeConfigurationRecorders' with the minimum fields required to make a request.
 --
--- * 'dcrConfigurationRecorderNames' @::@ ['Text']
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeConfigurationRecorders :: DescribeConfigurationRecorders
-describeConfigurationRecorders = DescribeConfigurationRecorders
-    { _dcrConfigurationRecorderNames = mempty
+-- * 'dcrConfigurationRecorderNames'
+describeConfigurationRecorders
+    :: DescribeConfigurationRecorders
+describeConfigurationRecorders =
+    DescribeConfigurationRecorders'
+    { _dcrConfigurationRecorderNames = Nothing
     }
 
 -- | A list of configuration recorder names.
 dcrConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders [Text]
-dcrConfigurationRecorderNames =
-    lens _dcrConfigurationRecorderNames
-        (\s a -> s { _dcrConfigurationRecorderNames = a })
-            . _List
+dcrConfigurationRecorderNames = lens _dcrConfigurationRecorderNames (\ s a -> s{_dcrConfigurationRecorderNames = a}) . _Default . _Coerce;
 
-newtype DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse
-    { _dcrrConfigurationRecorders :: List "ConfigurationRecorders" ConfigurationRecorder
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeConfigurationRecorders
+         where
+        type Sv DescribeConfigurationRecorders = Config
+        type Rs DescribeConfigurationRecorders =
+             DescribeConfigurationRecordersResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeConfigurationRecordersResponse' <$>
+                   (x .?> "ConfigurationRecorders" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeConfigurationRecordersResponse where
-    type Item DescribeConfigurationRecordersResponse = ConfigurationRecorder
+instance ToHeaders DescribeConfigurationRecorders
+         where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StarlingDoveService.DescribeConfigurationRecorders"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = DescribeConfigurationRecordersResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dcrrConfigurationRecorders
+instance ToJSON DescribeConfigurationRecorders where
+        toJSON DescribeConfigurationRecorders'{..}
+          = object
+              ["ConfigurationRecorderNames" .=
+                 _dcrConfigurationRecorderNames]
 
--- | 'DescribeConfigurationRecordersResponse' constructor.
+instance ToPath DescribeConfigurationRecorders where
+        toPath = const "/"
+
+instance ToQuery DescribeConfigurationRecorders where
+        toQuery = const mempty
+
+-- | The output for the DescribeConfigurationRecorders action.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeConfigurationRecordersResponse' smart constructor.
+data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'
+    { _dcrrsConfigurationRecorders :: !(Maybe [ConfigurationRecorder])
+    , _dcrrsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeConfigurationRecordersResponse' with the minimum fields required to make a request.
 --
--- * 'dcrrConfigurationRecorders' @::@ ['ConfigurationRecorder']
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeConfigurationRecordersResponse :: DescribeConfigurationRecordersResponse
-describeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse
-    { _dcrrConfigurationRecorders = mempty
+-- * 'dcrrsConfigurationRecorders'
+--
+-- * 'dcrrsStatus'
+describeConfigurationRecordersResponse
+    :: Int -- ^ 'dcrrsStatus'
+    -> DescribeConfigurationRecordersResponse
+describeConfigurationRecordersResponse pStatus_ =
+    DescribeConfigurationRecordersResponse'
+    { _dcrrsConfigurationRecorders = Nothing
+    , _dcrrsStatus = pStatus_
     }
 
 -- | A list that contains the descriptions of the specified configuration
 -- recorders.
-dcrrConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [ConfigurationRecorder]
-dcrrConfigurationRecorders =
-    lens _dcrrConfigurationRecorders
-        (\s a -> s { _dcrrConfigurationRecorders = a })
-            . _List
+dcrrsConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [ConfigurationRecorder]
+dcrrsConfigurationRecorders = lens _dcrrsConfigurationRecorders (\ s a -> s{_dcrrsConfigurationRecorders = a}) . _Default . _Coerce;
 
-instance ToPath DescribeConfigurationRecorders where
-    toPath = const "/"
-
-instance ToQuery DescribeConfigurationRecorders where
-    toQuery = const mempty
-
-instance ToHeaders DescribeConfigurationRecorders
-
-instance ToJSON DescribeConfigurationRecorders where
-    toJSON DescribeConfigurationRecorders{..} = object
-        [ "ConfigurationRecorderNames" .= _dcrConfigurationRecorderNames
-        ]
-
-instance AWSRequest DescribeConfigurationRecorders where
-    type Sv DescribeConfigurationRecorders = Config
-    type Rs DescribeConfigurationRecorders = DescribeConfigurationRecordersResponse
-
-    request  = post "DescribeConfigurationRecorders"
-    response = jsonResponse
-
-instance FromJSON DescribeConfigurationRecordersResponse where
-    parseJSON = withObject "DescribeConfigurationRecordersResponse" $ \o -> DescribeConfigurationRecordersResponse
-        <$> o .:? "ConfigurationRecorders" .!= mempty
+-- | The response status code.
+dcrrsStatus :: Lens' DescribeConfigurationRecordersResponse Int
+dcrrsStatus = lens _dcrrsStatus (\ s a -> s{_dcrrsStatus = a});

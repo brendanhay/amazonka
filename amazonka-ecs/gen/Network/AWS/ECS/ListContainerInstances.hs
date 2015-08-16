@@ -1,160 +1,186 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ECS.ListContainerInstances
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a list of container instances in a specified cluster.
+-- |
+-- Module      : Network.AWS.ECS.ListContainerInstances
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html>
+-- Returns a list of container instances in a specified cluster.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html AWS API Reference> for ListContainerInstances.
+--
+-- This operation returns paginated results.
 module Network.AWS.ECS.ListContainerInstances
     (
-    -- * Request
-      ListContainerInstances
-    -- ** Request constructor
-    , listContainerInstances
-    -- ** Request lenses
+    -- * Creating a Request
+      listContainerInstances
+    , ListContainerInstances
+    -- * Request Lenses
     , lciCluster
-    , lciMaxResults
     , lciNextToken
+    , lciMaxResults
 
-    -- * Response
-    , ListContainerInstancesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listContainerInstancesResponse
-    -- ** Response lenses
-    , lcirContainerInstanceArns
-    , lcirNextToken
+    , ListContainerInstancesResponse
+    -- * Response Lenses
+    , lcirsContainerInstanceARNs
+    , lcirsNextToken
+    , lcirsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.ECS.Types
-import qualified GHC.Exts
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListContainerInstances = ListContainerInstances
-    { _lciCluster    :: Maybe Text
-    , _lciMaxResults :: Maybe Int
-    , _lciNextToken  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'listContainerInstances' smart constructor.
+data ListContainerInstances = ListContainerInstances'
+    { _lciCluster    :: !(Maybe Text)
+    , _lciNextToken  :: !(Maybe Text)
+    , _lciMaxResults :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListContainerInstances' constructor.
+-- | Creates a value of 'ListContainerInstances' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lciCluster' @::@ 'Maybe' 'Text'
+-- * 'lciCluster'
 --
--- * 'lciMaxResults' @::@ 'Maybe' 'Int'
+-- * 'lciNextToken'
 --
--- * 'lciNextToken' @::@ 'Maybe' 'Text'
---
-listContainerInstances :: ListContainerInstances
-listContainerInstances = ListContainerInstances
-    { _lciCluster    = Nothing
-    , _lciNextToken  = Nothing
+-- * 'lciMaxResults'
+listContainerInstances
+    :: ListContainerInstances
+listContainerInstances =
+    ListContainerInstances'
+    { _lciCluster = Nothing
+    , _lciNextToken = Nothing
     , _lciMaxResults = Nothing
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts
--- the container instances you want to list. If you do not specify a cluster,
--- the default cluster is assumed..
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that
+-- hosts the container instances you want to list. If you do not specify a
+-- cluster, the default cluster is assumed..
 lciCluster :: Lens' ListContainerInstances (Maybe Text)
-lciCluster = lens _lciCluster (\s a -> s { _lciCluster = a })
+lciCluster = lens _lciCluster (\ s a -> s{_lciCluster = a});
 
--- | The maximum number of container instance results returned by 'ListContainerInstances' in paginated output. When this parameter is used, 'ListContainerInstances'
--- only returns 'maxResults' results in a single page along with a 'nextToken'
--- response element. The remaining results of the initial request can be seen by
--- sending another 'ListContainerInstances' request with the returned 'nextToken'
--- value. This value can be between 1 and 100. If this parameter is not used,
--- then 'ListContainerInstances' returns up to 100 results and a 'nextToken' value
--- if applicable.
-lciMaxResults :: Lens' ListContainerInstances (Maybe Int)
-lciMaxResults = lens _lciMaxResults (\s a -> s { _lciMaxResults = a })
-
--- | The 'nextToken' value returned from a previous paginated 'ListContainerInstances'
--- request where 'maxResults' was used and the results exceeded the value of that
--- parameter. Pagination continues from the end of the previous results that
--- returned the 'nextToken' value. This value is 'null' when there are no more
--- results to return.
+-- | The 'nextToken' value returned from a previous paginated
+-- 'ListContainerInstances' request where 'maxResults' was used and the
+-- results exceeded the value of that parameter. Pagination continues from
+-- the end of the previous results that returned the 'nextToken' value.
+-- This value is 'null' when there are no more results to return.
 lciNextToken :: Lens' ListContainerInstances (Maybe Text)
-lciNextToken = lens _lciNextToken (\s a -> s { _lciNextToken = a })
+lciNextToken = lens _lciNextToken (\ s a -> s{_lciNextToken = a});
 
-data ListContainerInstancesResponse = ListContainerInstancesResponse
-    { _lcirContainerInstanceArns :: List "containerInstanceArns" Text
-    , _lcirNextToken             :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | The maximum number of container instance results returned by
+-- 'ListContainerInstances' in paginated output. When this parameter is
+-- used, 'ListContainerInstances' only returns 'maxResults' results in a
+-- single page along with a 'nextToken' response element. The remaining
+-- results of the initial request can be seen by sending another
+-- 'ListContainerInstances' request with the returned 'nextToken' value.
+-- This value can be between 1 and 100. If this parameter is not used, then
+-- 'ListContainerInstances' returns up to 100 results and a 'nextToken'
+-- value if applicable.
+lciMaxResults :: Lens' ListContainerInstances (Maybe Int)
+lciMaxResults = lens _lciMaxResults (\ s a -> s{_lciMaxResults = a});
 
--- | 'ListContainerInstancesResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lcirContainerInstanceArns' @::@ ['Text']
---
--- * 'lcirNextToken' @::@ 'Maybe' 'Text'
---
-listContainerInstancesResponse :: ListContainerInstancesResponse
-listContainerInstancesResponse = ListContainerInstancesResponse
-    { _lcirContainerInstanceArns = mempty
-    , _lcirNextToken             = Nothing
-    }
-
--- | The list of container instance full Amazon Resource Name (ARN) entries for
--- each container instance associated with the specified cluster.
-lcirContainerInstanceArns :: Lens' ListContainerInstancesResponse [Text]
-lcirContainerInstanceArns =
-    lens _lcirContainerInstanceArns
-        (\s a -> s { _lcirContainerInstanceArns = a })
-            . _List
-
--- | The 'nextToken' value to include in a future 'ListContainerInstances' request.
--- When the results of a 'ListContainerInstances' request exceed 'maxResults', this
--- value can be used to retrieve the next page of results. This value is 'null'
--- when there are no more results to return.
-lcirNextToken :: Lens' ListContainerInstancesResponse (Maybe Text)
-lcirNextToken = lens _lcirNextToken (\s a -> s { _lcirNextToken = a })
-
-instance ToPath ListContainerInstances where
-    toPath = const "/"
-
-instance ToQuery ListContainerInstances where
-    toQuery = const mempty
-
-instance ToHeaders ListContainerInstances
-
-instance ToJSON ListContainerInstances where
-    toJSON ListContainerInstances{..} = object
-        [ "cluster"    .= _lciCluster
-        , "nextToken"  .= _lciNextToken
-        , "maxResults" .= _lciMaxResults
-        ]
+instance AWSPager ListContainerInstances where
+        page rq rs
+          | stop (rs ^. lcirsNextToken) = Nothing
+          | stop (rs ^. lcirsContainerInstanceARNs) = Nothing
+          | otherwise =
+            Just $ rq & lciNextToken .~ rs ^. lcirsNextToken
 
 instance AWSRequest ListContainerInstances where
-    type Sv ListContainerInstances = ECS
-    type Rs ListContainerInstances = ListContainerInstancesResponse
+        type Sv ListContainerInstances = ECS
+        type Rs ListContainerInstances =
+             ListContainerInstancesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListContainerInstancesResponse' <$>
+                   (x .?> "containerInstanceArns" .!@ mempty) <*>
+                     (x .?> "nextToken")
+                     <*> (pure (fromEnum s)))
 
-    request  = post "ListContainerInstances"
-    response = jsonResponse
+instance ToHeaders ListContainerInstances where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonEC2ContainerServiceV20141113.ListContainerInstances"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON ListContainerInstancesResponse where
-    parseJSON = withObject "ListContainerInstancesResponse" $ \o -> ListContainerInstancesResponse
-        <$> o .:? "containerInstanceArns" .!= mempty
-        <*> o .:? "nextToken"
+instance ToJSON ListContainerInstances where
+        toJSON ListContainerInstances'{..}
+          = object
+              ["cluster" .= _lciCluster,
+               "nextToken" .= _lciNextToken,
+               "maxResults" .= _lciMaxResults]
+
+instance ToPath ListContainerInstances where
+        toPath = const "/"
+
+instance ToQuery ListContainerInstances where
+        toQuery = const mempty
+
+-- | /See:/ 'listContainerInstancesResponse' smart constructor.
+data ListContainerInstancesResponse = ListContainerInstancesResponse'
+    { _lcirsContainerInstanceARNs :: !(Maybe [Text])
+    , _lcirsNextToken             :: !(Maybe Text)
+    , _lcirsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListContainerInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lcirsContainerInstanceARNs'
+--
+-- * 'lcirsNextToken'
+--
+-- * 'lcirsStatus'
+listContainerInstancesResponse
+    :: Int -- ^ 'lcirsStatus'
+    -> ListContainerInstancesResponse
+listContainerInstancesResponse pStatus_ =
+    ListContainerInstancesResponse'
+    { _lcirsContainerInstanceARNs = Nothing
+    , _lcirsNextToken = Nothing
+    , _lcirsStatus = pStatus_
+    }
+
+-- | The list of container instance full Amazon Resource Name (ARN) entries
+-- for each container instance associated with the specified cluster.
+lcirsContainerInstanceARNs :: Lens' ListContainerInstancesResponse [Text]
+lcirsContainerInstanceARNs = lens _lcirsContainerInstanceARNs (\ s a -> s{_lcirsContainerInstanceARNs = a}) . _Default . _Coerce;
+
+-- | The 'nextToken' value to include in a future 'ListContainerInstances'
+-- request. When the results of a 'ListContainerInstances' request exceed
+-- 'maxResults', this value can be used to retrieve the next page of
+-- results. This value is 'null' when there are no more results to return.
+lcirsNextToken :: Lens' ListContainerInstancesResponse (Maybe Text)
+lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a});
+
+-- | The response status code.
+lcirsStatus :: Lens' ListContainerInstancesResponse Int
+lcirsStatus = lens _lcirsStatus (\ s a -> s{_lcirsStatus = a});

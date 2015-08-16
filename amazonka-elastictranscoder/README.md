@@ -1,22 +1,33 @@
 # Amazon Elastic Transcoder SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-Amazon Elastic Transcoder lets you convert media files that you have stored
-in Amazon Simple Storage Service (Amazon S3) into media files in the formats
-required by consumer playback devices. For example, you can convert large,
-high-quality digital media files into formats that users can play back on
-mobile devices, tablets, web browsers, and connected televisions.
+AWS Elastic Transcoder Service
+
+The AWS Elastic Transcoder Service.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elastictranscoder)
 and the [AWS API Reference](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html).
 
+The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
+which provides mechanisms for specifying AuthN/AuthZ information and sending requests.
+
+Use of lenses is required for constructing and manipulating types.
+This is due to the amount of nesting of AWS types and transparency regarding
+de/serialisation into more palatable Haskell values.
+The provided lenses should be compatible with any of the major lens libraries
+[lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
 ## Contribute
 

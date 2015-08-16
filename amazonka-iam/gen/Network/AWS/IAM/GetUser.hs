@@ -1,115 +1,128 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.GetUser
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Retrieves information about the specified user, including the user's creation
--- date, path, unique ID, and ARN.
+-- |
+-- Module      : Network.AWS.IAM.GetUser
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- If you do not specify a user name, IAM determines the user name implicitly
--- based on the AWS access key ID used to sign the request.
+-- Retrieves information about the specified user, including the user\'s
+-- creation date, path, unique ID, and ARN.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html>
+-- If you do not specify a user name, IAM determines the user name
+-- implicitly based on the AWS access key ID used to sign the request.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetUser.html AWS API Reference> for GetUser.
 module Network.AWS.IAM.GetUser
     (
-    -- * Request
-      GetUser
-    -- ** Request constructor
-    , getUser
-    -- ** Request lenses
+    -- * Creating a Request
+      getUser
+    , GetUser
+    -- * Request Lenses
     , guUserName
 
-    -- * Response
-    , GetUserResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getUserResponse
-    -- ** Response lenses
-    , gurUser
+    , GetUserResponse
+    -- * Response Lenses
+    , gursStatus
+    , gursUser
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetUser = GetUser
+-- | /See:/ 'getUser' smart constructor.
+newtype GetUser = GetUser'
     { _guUserName :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetUser' constructor.
+-- | Creates a value of 'GetUser' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'guUserName' @::@ 'Maybe' 'Text'
---
-getUser :: GetUser
-getUser = GetUser
+-- * 'guUserName'
+getUser
+    :: GetUser
+getUser =
+    GetUser'
     { _guUserName = Nothing
     }
 
 -- | The name of the user to get information about.
 --
--- This parameter is optional. If it is not included, it defaults to the user
--- making the request.
+-- This parameter is optional. If it is not included, it defaults to the
+-- user making the request.
 guUserName :: Lens' GetUser (Maybe Text)
-guUserName = lens _guUserName (\s a -> s { _guUserName = a })
-
-newtype GetUserResponse = GetUserResponse
-    { _gurUser :: User
-    } deriving (Eq, Read, Show)
-
--- | 'GetUserResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gurUser' @::@ 'User'
---
-getUserResponse :: User -- ^ 'gurUser'
-                -> GetUserResponse
-getUserResponse p1 = GetUserResponse
-    { _gurUser = p1
-    }
-
--- | Information about the user.
-gurUser :: Lens' GetUserResponse User
-gurUser = lens _gurUser (\s a -> s { _gurUser = a })
-
-instance ToPath GetUser where
-    toPath = const "/"
-
-instance ToQuery GetUser where
-    toQuery GetUser{..} = mconcat
-        [ "UserName" =? _guUserName
-        ]
-
-instance ToHeaders GetUser
+guUserName = lens _guUserName (\ s a -> s{_guUserName = a});
 
 instance AWSRequest GetUser where
-    type Sv GetUser = IAM
-    type Rs GetUser = GetUserResponse
+        type Sv GetUser = IAM
+        type Rs GetUser = GetUserResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "GetUserResult"
+              (\ s h x ->
+                 GetUserResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "User"))
 
-    request  = post "GetUser"
-    response = xmlResponse
+instance ToHeaders GetUser where
+        toHeaders = const mempty
 
-instance FromXML GetUserResponse where
-    parseXML = withElement "GetUserResult" $ \x -> GetUserResponse
-        <$> x .@  "User"
+instance ToPath GetUser where
+        toPath = const "/"
+
+instance ToQuery GetUser where
+        toQuery GetUser'{..}
+          = mconcat
+              ["Action" =: ("GetUser" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "UserName" =: _guUserName]
+
+-- | Contains the response to a successful GetUser request.
+--
+-- /See:/ 'getUserResponse' smart constructor.
+data GetUserResponse = GetUserResponse'
+    { _gursStatus :: !Int
+    , _gursUser   :: !User
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetUserResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gursStatus'
+--
+-- * 'gursUser'
+getUserResponse
+    :: Int -- ^ 'gursStatus'
+    -> User -- ^ 'gursUser'
+    -> GetUserResponse
+getUserResponse pStatus_ pUser_ =
+    GetUserResponse'
+    { _gursStatus = pStatus_
+    , _gursUser = pUser_
+    }
+
+-- | The response status code.
+gursStatus :: Lens' GetUserResponse Int
+gursStatus = lens _gursStatus (\ s a -> s{_gursStatus = a});
+
+-- | Information about the user.
+gursUser :: Lens' GetUserResponse User
+gursUser = lens _gursUser (\ s a -> s{_gursUser = a});

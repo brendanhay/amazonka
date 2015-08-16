@@ -1,117 +1,133 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.KMS.GetKeyRotationStatus
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Retrieves a Boolean value that indicates whether key rotation is enabled for
--- the specified key.
+-- |
+-- Module      : Network.AWS.KMS.GetKeyRotationStatus
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html>
+-- Retrieves a Boolean value that indicates whether key rotation is enabled
+-- for the specified key.
+--
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html AWS API Reference> for GetKeyRotationStatus.
 module Network.AWS.KMS.GetKeyRotationStatus
     (
-    -- * Request
-      GetKeyRotationStatus
-    -- ** Request constructor
-    , getKeyRotationStatus
-    -- ** Request lenses
+    -- * Creating a Request
+      getKeyRotationStatus
+    , GetKeyRotationStatus
+    -- * Request Lenses
     , gkrsKeyId
 
-    -- * Response
-    , GetKeyRotationStatusResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getKeyRotationStatusResponse
-    -- ** Response lenses
-    , gkrsrKeyRotationEnabled
+    , GetKeyRotationStatusResponse
+    -- * Response Lenses
+    , gkrsrsKeyRotationEnabled
+    , gkrsrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.KMS.Types
-import qualified GHC.Exts
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetKeyRotationStatus = GetKeyRotationStatus
+-- | /See:/ 'getKeyRotationStatus' smart constructor.
+newtype GetKeyRotationStatus = GetKeyRotationStatus'
     { _gkrsKeyId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetKeyRotationStatus' constructor.
+-- | Creates a value of 'GetKeyRotationStatus' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gkrsKeyId' @::@ 'Text'
---
-getKeyRotationStatus :: Text -- ^ 'gkrsKeyId'
-                     -> GetKeyRotationStatus
-getKeyRotationStatus p1 = GetKeyRotationStatus
-    { _gkrsKeyId = p1
+-- * 'gkrsKeyId'
+getKeyRotationStatus
+    :: Text -- ^ 'gkrsKeyId'
+    -> GetKeyRotationStatus
+getKeyRotationStatus pKeyId_ =
+    GetKeyRotationStatus'
+    { _gkrsKeyId = pKeyId_
     }
 
--- | A unique identifier for the customer master key. This value can be a globally
--- unique identifier or the fully specified ARN to a key.  Key ARN Example -
--- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- | A unique identifier for the customer master key. This value can be a
+-- globally unique identifier or the fully specified ARN to a key.
 --
+-- -   Key ARN Example -
+--     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+-- -   Globally Unique Key ID Example -
+--     12345678-1234-1234-1234-123456789012
 gkrsKeyId :: Lens' GetKeyRotationStatus Text
-gkrsKeyId = lens _gkrsKeyId (\s a -> s { _gkrsKeyId = a })
+gkrsKeyId = lens _gkrsKeyId (\ s a -> s{_gkrsKeyId = a});
 
-newtype GetKeyRotationStatusResponse = GetKeyRotationStatusResponse
-    { _gkrsrKeyRotationEnabled :: Maybe Bool
-    } deriving (Eq, Ord, Read, Show)
+instance AWSRequest GetKeyRotationStatus where
+        type Sv GetKeyRotationStatus = KMS
+        type Rs GetKeyRotationStatus =
+             GetKeyRotationStatusResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetKeyRotationStatusResponse' <$>
+                   (x .?> "KeyRotationEnabled") <*> (pure (fromEnum s)))
 
--- | 'GetKeyRotationStatusResponse' constructor.
+instance ToHeaders GetKeyRotationStatus where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("TrentService.GetKeyRotationStatus" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON GetKeyRotationStatus where
+        toJSON GetKeyRotationStatus'{..}
+          = object ["KeyId" .= _gkrsKeyId]
+
+instance ToPath GetKeyRotationStatus where
+        toPath = const "/"
+
+instance ToQuery GetKeyRotationStatus where
+        toQuery = const mempty
+
+-- | /See:/ 'getKeyRotationStatusResponse' smart constructor.
+data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
+    { _gkrsrsKeyRotationEnabled :: !(Maybe Bool)
+    , _gkrsrsStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetKeyRotationStatusResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gkrsrKeyRotationEnabled' @::@ 'Maybe' 'Bool'
+-- * 'gkrsrsKeyRotationEnabled'
 --
-getKeyRotationStatusResponse :: GetKeyRotationStatusResponse
-getKeyRotationStatusResponse = GetKeyRotationStatusResponse
-    { _gkrsrKeyRotationEnabled = Nothing
+-- * 'gkrsrsStatus'
+getKeyRotationStatusResponse
+    :: Int -- ^ 'gkrsrsStatus'
+    -> GetKeyRotationStatusResponse
+getKeyRotationStatusResponse pStatus_ =
+    GetKeyRotationStatusResponse'
+    { _gkrsrsKeyRotationEnabled = Nothing
+    , _gkrsrsStatus = pStatus_
     }
 
 -- | A Boolean value that specifies whether key rotation is enabled.
-gkrsrKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
-gkrsrKeyRotationEnabled =
-    lens _gkrsrKeyRotationEnabled (\s a -> s { _gkrsrKeyRotationEnabled = a })
+gkrsrsKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
+gkrsrsKeyRotationEnabled = lens _gkrsrsKeyRotationEnabled (\ s a -> s{_gkrsrsKeyRotationEnabled = a});
 
-instance ToPath GetKeyRotationStatus where
-    toPath = const "/"
-
-instance ToQuery GetKeyRotationStatus where
-    toQuery = const mempty
-
-instance ToHeaders GetKeyRotationStatus
-
-instance ToJSON GetKeyRotationStatus where
-    toJSON GetKeyRotationStatus{..} = object
-        [ "KeyId" .= _gkrsKeyId
-        ]
-
-instance AWSRequest GetKeyRotationStatus where
-    type Sv GetKeyRotationStatus = KMS
-    type Rs GetKeyRotationStatus = GetKeyRotationStatusResponse
-
-    request  = post "GetKeyRotationStatus"
-    response = jsonResponse
-
-instance FromJSON GetKeyRotationStatusResponse where
-    parseJSON = withObject "GetKeyRotationStatusResponse" $ \o -> GetKeyRotationStatusResponse
-        <$> o .:? "KeyRotationEnabled"
+-- | The response status code.
+gkrsrsStatus :: Lens' GetKeyRotationStatusResponse Int
+gkrsrsStatus = lens _gkrsrsStatus (\ s a -> s{_gkrsrsStatus = a});

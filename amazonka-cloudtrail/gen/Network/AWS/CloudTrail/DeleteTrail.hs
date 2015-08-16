@@ -1,94 +1,120 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudTrail.DeleteTrail
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes a trail.
+-- |
+-- Module      : Network.AWS.CloudTrail.DeleteTrail
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteTrail.html>
+-- Deletes a trail.
+--
+-- /See:/ <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteTrail.html AWS API Reference> for DeleteTrail.
 module Network.AWS.CloudTrail.DeleteTrail
     (
-    -- * Request
-      DeleteTrail
-    -- ** Request constructor
-    , deleteTrail
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteTrail
+    , DeleteTrail
+    -- * Request Lenses
     , dtName
 
-    -- * Response
-    , DeleteTrailResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteTrailResponse
+    , DeleteTrailResponse
+    -- * Response Lenses
+    , drsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CloudTrail.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudTrail.Types
+import           Network.AWS.CloudTrail.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteTrail = DeleteTrail
+-- | The request that specifies the name of a trail to delete.
+--
+-- /See:/ 'deleteTrail' smart constructor.
+newtype DeleteTrail = DeleteTrail'
     { _dtName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteTrail' constructor.
+-- | Creates a value of 'DeleteTrail' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtName' @::@ 'Text'
---
-deleteTrail :: Text -- ^ 'dtName'
-            -> DeleteTrail
-deleteTrail p1 = DeleteTrail
-    { _dtName = p1
+-- * 'dtName'
+deleteTrail
+    :: Text -- ^ 'dtName'
+    -> DeleteTrail
+deleteTrail pName_ =
+    DeleteTrail'
+    { _dtName = pName_
     }
 
 -- | The name of a trail to be deleted.
 dtName :: Lens' DeleteTrail Text
-dtName = lens _dtName (\s a -> s { _dtName = a })
-
-data DeleteTrailResponse = DeleteTrailResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteTrailResponse' constructor.
-deleteTrailResponse :: DeleteTrailResponse
-deleteTrailResponse = DeleteTrailResponse
-
-instance ToPath DeleteTrail where
-    toPath = const "/"
-
-instance ToQuery DeleteTrail where
-    toQuery = const mempty
-
-instance ToHeaders DeleteTrail
-
-instance ToJSON DeleteTrail where
-    toJSON DeleteTrail{..} = object
-        [ "Name" .= _dtName
-        ]
+dtName = lens _dtName (\ s a -> s{_dtName = a});
 
 instance AWSRequest DeleteTrail where
-    type Sv DeleteTrail = CloudTrail
-    type Rs DeleteTrail = DeleteTrailResponse
+        type Sv DeleteTrail = CloudTrail
+        type Rs DeleteTrail = DeleteTrailResponse
+        request = postJSON
+        response
+          = receiveEmpty
+              (\ s h x ->
+                 DeleteTrailResponse' <$> (pure (fromEnum s)))
 
-    request  = post "DeleteTrail"
-    response = nullResponse DeleteTrailResponse
+instance ToHeaders DeleteTrail where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.DeleteTrail"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteTrail where
+        toJSON DeleteTrail'{..} = object ["Name" .= _dtName]
+
+instance ToPath DeleteTrail where
+        toPath = const "/"
+
+instance ToQuery DeleteTrail where
+        toQuery = const mempty
+
+-- | Returns the objects or data listed below if successful. Otherwise,
+-- returns an error.
+--
+-- /See:/ 'deleteTrailResponse' smart constructor.
+newtype DeleteTrailResponse = DeleteTrailResponse'
+    { _drsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteTrailResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsStatus'
+deleteTrailResponse
+    :: Int -- ^ 'drsStatus'
+    -> DeleteTrailResponse
+deleteTrailResponse pStatus_ =
+    DeleteTrailResponse'
+    { _drsStatus = pStatus_
+    }
+
+-- | The response status code.
+drsStatus :: Lens' DeleteTrailResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

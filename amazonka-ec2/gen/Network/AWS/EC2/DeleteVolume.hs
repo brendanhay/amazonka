@@ -1,107 +1,112 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.DeleteVolume
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified EBS volume. The volume must be in the 'available' state
--- (not attached to an instance).
+-- |
+-- Module      : Network.AWS.EC2.DeleteVolume
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes the specified EBS volume. The volume must be in the 'available'
+-- state (not attached to an instance).
 --
 -- The volume may remain in the 'deleting' state for several minutes.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Deleting an Amazon EBS Volume> in the /AmazonElastic Compute Cloud User Guide/.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Deleting an Amazon EBS Volume>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVolume.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVolume.html AWS API Reference> for DeleteVolume.
 module Network.AWS.EC2.DeleteVolume
     (
-    -- * Request
-      DeleteVolume
-    -- ** Request constructor
-    , deleteVolume
-    -- ** Request lenses
-    , dv4DryRun
-    , dv4VolumeId
+    -- * Creating a Request
+      deleteVolume
+    , DeleteVolume
+    -- * Request Lenses
+    , dvvDryRun
+    , dvvVolumeId
 
-    -- * Response
-    , DeleteVolumeResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteVolumeResponse
+    , DeleteVolumeResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteVolume = DeleteVolume
-    { _dv4DryRun   :: Maybe Bool
-    , _dv4VolumeId :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'deleteVolume' smart constructor.
+data DeleteVolume = DeleteVolume'
+    { _dvvDryRun   :: !(Maybe Bool)
+    , _dvvVolumeId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVolume' constructor.
+-- | Creates a value of 'DeleteVolume' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dv4DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dvvDryRun'
 --
--- * 'dv4VolumeId' @::@ 'Text'
---
-deleteVolume :: Text -- ^ 'dv4VolumeId'
-             -> DeleteVolume
-deleteVolume p1 = DeleteVolume
-    { _dv4VolumeId = p1
-    , _dv4DryRun   = Nothing
+-- * 'dvvVolumeId'
+deleteVolume
+    :: Text -- ^ 'dvvVolumeId'
+    -> DeleteVolume
+deleteVolume pVolumeId_ =
+    DeleteVolume'
+    { _dvvDryRun = Nothing
+    , _dvvVolumeId = pVolumeId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-dv4DryRun :: Lens' DeleteVolume (Maybe Bool)
-dv4DryRun = lens _dv4DryRun (\s a -> s { _dv4DryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+dvvDryRun :: Lens' DeleteVolume (Maybe Bool)
+dvvDryRun = lens _dvvDryRun (\ s a -> s{_dvvDryRun = a});
 
 -- | The ID of the volume.
-dv4VolumeId :: Lens' DeleteVolume Text
-dv4VolumeId = lens _dv4VolumeId (\s a -> s { _dv4VolumeId = a })
-
-data DeleteVolumeResponse = DeleteVolumeResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteVolumeResponse' constructor.
-deleteVolumeResponse :: DeleteVolumeResponse
-deleteVolumeResponse = DeleteVolumeResponse
-
-instance ToPath DeleteVolume where
-    toPath = const "/"
-
-instance ToQuery DeleteVolume where
-    toQuery DeleteVolume{..} = mconcat
-        [ "DryRun"   =? _dv4DryRun
-        , "VolumeId" =? _dv4VolumeId
-        ]
-
-instance ToHeaders DeleteVolume
+dvvVolumeId :: Lens' DeleteVolume Text
+dvvVolumeId = lens _dvvVolumeId (\ s a -> s{_dvvVolumeId = a});
 
 instance AWSRequest DeleteVolume where
-    type Sv DeleteVolume = EC2
-    type Rs DeleteVolume = DeleteVolumeResponse
+        type Sv DeleteVolume = EC2
+        type Rs DeleteVolume = DeleteVolumeResponse
+        request = post
+        response = receiveNull DeleteVolumeResponse'
 
-    request  = post "DeleteVolume"
-    response = nullResponse DeleteVolumeResponse
+instance ToHeaders DeleteVolume where
+        toHeaders = const mempty
+
+instance ToPath DeleteVolume where
+        toPath = const "/"
+
+instance ToQuery DeleteVolume where
+        toQuery DeleteVolume'{..}
+          = mconcat
+              ["Action" =: ("DeleteVolume" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _dvvDryRun, "VolumeId" =: _dvvVolumeId]
+
+-- | /See:/ 'deleteVolumeResponse' smart constructor.
+data DeleteVolumeResponse =
+    DeleteVolumeResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteVolumeResponse' with the minimum fields required to make a request.
+--
+deleteVolumeResponse
+    :: DeleteVolumeResponse
+deleteVolumeResponse = DeleteVolumeResponse'

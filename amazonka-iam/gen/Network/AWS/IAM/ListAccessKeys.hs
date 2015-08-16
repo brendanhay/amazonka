@@ -1,176 +1,195 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.ListAccessKeys
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns information about the access key IDs associated with the specified
--- user. If there are none, the action returns an empty list.
+-- |
+-- Module      : Network.AWS.IAM.ListAccessKeys
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Returns information about the access key IDs associated with the
+-- specified user. If there are none, the action returns an empty list.
 --
 -- Although each user is limited to a small number of keys, you can still
 -- paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
 -- If the 'UserName' field is not specified, the UserName is determined
--- implicitly based on the AWS access key ID used to sign the request. Because
--- this action works for access keys under the AWS account, you can use this
--- action to manage root credentials even if the AWS account has no associated
--- users.
+-- implicitly based on the AWS access key ID used to sign the request.
+-- Because this action works for access keys under the AWS account, you can
+-- use this action to manage root credentials even if the AWS account has
+-- no associated users.
 --
 -- To ensure the security of your AWS account, the secret access key is
 -- accessible only during key and user creation.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAccessKeys.html AWS API Reference> for ListAccessKeys.
+--
+-- This operation returns paginated results.
 module Network.AWS.IAM.ListAccessKeys
     (
-    -- * Request
-      ListAccessKeys
-    -- ** Request constructor
-    , listAccessKeys
-    -- ** Request lenses
-    , lakMarker
-    , lakMaxItems
+    -- * Creating a Request
+      listAccessKeys
+    , ListAccessKeys
+    -- * Request Lenses
     , lakUserName
+    , lakMaxItems
+    , lakMarker
 
-    -- * Response
-    , ListAccessKeysResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listAccessKeysResponse
-    -- ** Response lenses
-    , lakrAccessKeyMetadata
-    , lakrIsTruncated
-    , lakrMarker
+    , ListAccessKeysResponse
+    -- * Response Lenses
+    , lakrsMarker
+    , lakrsIsTruncated
+    , lakrsStatus
+    , lakrsAccessKeyMetadata
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListAccessKeys = ListAccessKeys
-    { _lakMarker   :: Maybe Text
-    , _lakMaxItems :: Maybe Nat
-    , _lakUserName :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'listAccessKeys' smart constructor.
+data ListAccessKeys = ListAccessKeys'
+    { _lakUserName :: !(Maybe Text)
+    , _lakMaxItems :: !(Maybe Nat)
+    , _lakMarker   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListAccessKeys' constructor.
+-- | Creates a value of 'ListAccessKeys' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lakMarker' @::@ 'Maybe' 'Text'
+-- * 'lakUserName'
 --
--- * 'lakMaxItems' @::@ 'Maybe' 'Natural'
+-- * 'lakMaxItems'
 --
--- * 'lakUserName' @::@ 'Maybe' 'Text'
---
-listAccessKeys :: ListAccessKeys
-listAccessKeys = ListAccessKeys
+-- * 'lakMarker'
+listAccessKeys
+    :: ListAccessKeys
+listAccessKeys =
+    ListAccessKeys'
     { _lakUserName = Nothing
-    , _lakMarker   = Nothing
     , _lakMaxItems = Nothing
+    , _lakMarker = Nothing
     }
-
--- | Use this parameter only when paginating results, and only in a subsequent
--- request after you've received a response where the results are truncated. Set
--- it to the value of the 'Marker' element in the response you just received.
-lakMarker :: Lens' ListAccessKeys (Maybe Text)
-lakMarker = lens _lakMarker (\s a -> s { _lakMarker = a })
-
--- | Use this parameter only when paginating results to indicate the maximum
--- number of keys you want in the response. If there are additional keys beyond
--- the maximum you specify, the 'IsTruncated' response element is 'true'. This
--- parameter is optional. If you do not include it, it defaults to 100.
-lakMaxItems :: Lens' ListAccessKeys (Maybe Natural)
-lakMaxItems = lens _lakMaxItems (\s a -> s { _lakMaxItems = a }) . mapping _Nat
 
 -- | The name of the user.
 lakUserName :: Lens' ListAccessKeys (Maybe Text)
-lakUserName = lens _lakUserName (\s a -> s { _lakUserName = a })
+lakUserName = lens _lakUserName (\ s a -> s{_lakUserName = a});
 
-data ListAccessKeysResponse = ListAccessKeysResponse
-    { _lakrAccessKeyMetadata :: List "member" AccessKeyMetadata
-    , _lakrIsTruncated       :: Maybe Bool
-    , _lakrMarker            :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'ListAccessKeysResponse' constructor.
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
 --
--- The fields accessible through corresponding lenses are:
---
--- * 'lakrAccessKeyMetadata' @::@ ['AccessKeyMetadata']
---
--- * 'lakrIsTruncated' @::@ 'Maybe' 'Bool'
---
--- * 'lakrMarker' @::@ 'Maybe' 'Text'
---
-listAccessKeysResponse :: ListAccessKeysResponse
-listAccessKeysResponse = ListAccessKeysResponse
-    { _lakrAccessKeyMetadata = mempty
-    , _lakrIsTruncated       = Nothing
-    , _lakrMarker            = Nothing
-    }
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
+lakMaxItems :: Lens' ListAccessKeys (Maybe Natural)
+lakMaxItems = lens _lakMaxItems (\ s a -> s{_lakMaxItems = a}) . mapping _Nat;
 
--- | A list of access key metadata.
-lakrAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
-lakrAccessKeyMetadata =
-    lens _lakrAccessKeyMetadata (\s a -> s { _lakrAccessKeyMetadata = a })
-        . _List
-
--- | A flag that indicates whether there are more keys to list. If your results
--- were truncated, you can make a subsequent pagination request using the 'Marker'
--- request parameter to retrieve more keys in the list.
-lakrIsTruncated :: Lens' ListAccessKeysResponse (Maybe Bool)
-lakrIsTruncated = lens _lakrIsTruncated (\s a -> s { _lakrIsTruncated = a })
-
--- | If 'IsTruncated' is 'true', this element is present and contains the value to
--- use for the 'Marker' parameter in a subsequent pagination request.
-lakrMarker :: Lens' ListAccessKeysResponse (Maybe Text)
-lakrMarker = lens _lakrMarker (\s a -> s { _lakrMarker = a })
-
-instance ToPath ListAccessKeys where
-    toPath = const "/"
-
-instance ToQuery ListAccessKeys where
-    toQuery ListAccessKeys{..} = mconcat
-        [ "Marker"   =? _lakMarker
-        , "MaxItems" =? _lakMaxItems
-        , "UserName" =? _lakUserName
-        ]
-
-instance ToHeaders ListAccessKeys
-
-instance AWSRequest ListAccessKeys where
-    type Sv ListAccessKeys = IAM
-    type Rs ListAccessKeys = ListAccessKeysResponse
-
-    request  = post "ListAccessKeys"
-    response = xmlResponse
-
-instance FromXML ListAccessKeysResponse where
-    parseXML = withElement "ListAccessKeysResult" $ \x -> ListAccessKeysResponse
-        <$> x .@? "AccessKeyMetadata" .!@ mempty
-        <*> x .@? "IsTruncated"
-        <*> x .@? "Marker"
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+lakMarker :: Lens' ListAccessKeys (Maybe Text)
+lakMarker = lens _lakMarker (\ s a -> s{_lakMarker = a});
 
 instance AWSPager ListAccessKeys where
-    page rq rs
-        | stop (rs ^. lakrIsTruncated) = Nothing
-        | otherwise = Just $ rq
-            & lakMarker .~ rs ^. lakrMarker
+        page rq rs
+          | stop (rs ^. lakrsIsTruncated) = Nothing
+          | isNothing (rs ^. lakrsMarker) = Nothing
+          | otherwise =
+            Just $ rq & lakMarker .~ rs ^. lakrsMarker
+
+instance AWSRequest ListAccessKeys where
+        type Sv ListAccessKeys = IAM
+        type Rs ListAccessKeys = ListAccessKeysResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "ListAccessKeysResult"
+              (\ s h x ->
+                 ListAccessKeysResponse' <$>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure (fromEnum s))
+                     <*>
+                     (x .@? "AccessKeyMetadata" .!@ mempty >>=
+                        parseXMLList "member"))
+
+instance ToHeaders ListAccessKeys where
+        toHeaders = const mempty
+
+instance ToPath ListAccessKeys where
+        toPath = const "/"
+
+instance ToQuery ListAccessKeys where
+        toQuery ListAccessKeys'{..}
+          = mconcat
+              ["Action" =: ("ListAccessKeys" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "UserName" =: _lakUserName,
+               "MaxItems" =: _lakMaxItems, "Marker" =: _lakMarker]
+
+-- | Contains the response to a successful ListAccessKeys request.
+--
+-- /See:/ 'listAccessKeysResponse' smart constructor.
+data ListAccessKeysResponse = ListAccessKeysResponse'
+    { _lakrsMarker            :: !(Maybe Text)
+    , _lakrsIsTruncated       :: !(Maybe Bool)
+    , _lakrsStatus            :: !Int
+    , _lakrsAccessKeyMetadata :: ![AccessKeyMetadata]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListAccessKeysResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lakrsMarker'
+--
+-- * 'lakrsIsTruncated'
+--
+-- * 'lakrsStatus'
+--
+-- * 'lakrsAccessKeyMetadata'
+listAccessKeysResponse
+    :: Int -- ^ 'lakrsStatus'
+    -> ListAccessKeysResponse
+listAccessKeysResponse pStatus_ =
+    ListAccessKeysResponse'
+    { _lakrsMarker = Nothing
+    , _lakrsIsTruncated = Nothing
+    , _lakrsStatus = pStatus_
+    , _lakrsAccessKeyMetadata = mempty
+    }
+
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
+-- request.
+lakrsMarker :: Lens' ListAccessKeysResponse (Maybe Text)
+lakrsMarker = lens _lakrsMarker (\ s a -> s{_lakrsMarker = a});
+
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the 'Marker' request parameter to retrieve more items.
+lakrsIsTruncated :: Lens' ListAccessKeysResponse (Maybe Bool)
+lakrsIsTruncated = lens _lakrsIsTruncated (\ s a -> s{_lakrsIsTruncated = a});
+
+-- | The response status code.
+lakrsStatus :: Lens' ListAccessKeysResponse Int
+lakrsStatus = lens _lakrsStatus (\ s a -> s{_lakrsStatus = a});
+
+-- | A list of access key metadata.
+lakrsAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
+lakrsAccessKeyMetadata = lens _lakrsAccessKeyMetadata (\ s a -> s{_lakrsAccessKeyMetadata = a}) . _Coerce;

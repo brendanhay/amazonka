@@ -1,146 +1,163 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.OpsWorks.DescribeDeployments
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Requests a description of a specified set of deployments.
+-- |
+-- Module      : Network.AWS.OpsWorks.DescribeDeployments
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Requests a description of a specified set of deployments.
 --
 -- You must specify at least one of the parameters.
 --
--- Required Permissions: To use this action, an IAM user must have a Show,
--- Deploy, or Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Show, Deploy, or Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeDeployments.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeDeployments.html AWS API Reference> for DescribeDeployments.
 module Network.AWS.OpsWorks.DescribeDeployments
     (
-    -- * Request
-      DescribeDeployments
-    -- ** Request constructor
-    , describeDeployments
-    -- ** Request lenses
+    -- * Creating a Request
+      describeDeployments
+    , DescribeDeployments
+    -- * Request Lenses
     , ddAppId
     , ddDeploymentIds
     , ddStackId
 
-    -- * Response
-    , DescribeDeploymentsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeDeploymentsResponse
-    -- ** Response lenses
-    , ddrDeployments
+    , DescribeDeploymentsResponse
+    -- * Response Lenses
+    , ddrsDeployments
+    , ddrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeDeployments = DescribeDeployments
-    { _ddAppId         :: Maybe Text
-    , _ddDeploymentIds :: List "DeploymentIds" Text
-    , _ddStackId       :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'describeDeployments' smart constructor.
+data DescribeDeployments = DescribeDeployments'
+    { _ddAppId         :: !(Maybe Text)
+    , _ddDeploymentIds :: !(Maybe [Text])
+    , _ddStackId       :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDeployments' constructor.
+-- | Creates a value of 'DescribeDeployments' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddAppId' @::@ 'Maybe' 'Text'
+-- * 'ddAppId'
 --
--- * 'ddDeploymentIds' @::@ ['Text']
+-- * 'ddDeploymentIds'
 --
--- * 'ddStackId' @::@ 'Maybe' 'Text'
---
-describeDeployments :: DescribeDeployments
-describeDeployments = DescribeDeployments
-    { _ddStackId       = Nothing
-    , _ddAppId         = Nothing
-    , _ddDeploymentIds = mempty
+-- * 'ddStackId'
+describeDeployments
+    :: DescribeDeployments
+describeDeployments =
+    DescribeDeployments'
+    { _ddAppId = Nothing
+    , _ddDeploymentIds = Nothing
+    , _ddStackId = Nothing
     }
 
--- | The app ID. If you include this parameter, 'DescribeDeployments' returns a
--- description of the commands associated with the specified app.
+-- | The app ID. If you include this parameter, 'DescribeDeployments' returns
+-- a description of the commands associated with the specified app.
 ddAppId :: Lens' DescribeDeployments (Maybe Text)
-ddAppId = lens _ddAppId (\s a -> s { _ddAppId = a })
+ddAppId = lens _ddAppId (\ s a -> s{_ddAppId = a});
 
--- | An array of deployment IDs to be described. If you include this parameter, 'DescribeDeployments' returns a description of the specified deployments. Otherwise, it returns a
--- description of every deployment.
+-- | An array of deployment IDs to be described. If you include this
+-- parameter, 'DescribeDeployments' returns a description of the specified
+-- deployments. Otherwise, it returns a description of every deployment.
 ddDeploymentIds :: Lens' DescribeDeployments [Text]
-ddDeploymentIds = lens _ddDeploymentIds (\s a -> s { _ddDeploymentIds = a }) . _List
+ddDeploymentIds = lens _ddDeploymentIds (\ s a -> s{_ddDeploymentIds = a}) . _Default . _Coerce;
 
--- | The stack ID. If you include this parameter, 'DescribeDeployments' returns a
--- description of the commands associated with the specified stack.
+-- | The stack ID. If you include this parameter, 'DescribeDeployments'
+-- returns a description of the commands associated with the specified
+-- stack.
 ddStackId :: Lens' DescribeDeployments (Maybe Text)
-ddStackId = lens _ddStackId (\s a -> s { _ddStackId = a })
+ddStackId = lens _ddStackId (\ s a -> s{_ddStackId = a});
 
-newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse
-    { _ddrDeployments :: List "Deployments" Deployment
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeDeployments where
+        type Sv DescribeDeployments = OpsWorks
+        type Rs DescribeDeployments =
+             DescribeDeploymentsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeDeploymentsResponse' <$>
+                   (x .?> "Deployments" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeDeploymentsResponse where
-    type Item DescribeDeploymentsResponse = Deployment
+instance ToHeaders DescribeDeployments where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.DescribeDeployments" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = DescribeDeploymentsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _ddrDeployments
+instance ToJSON DescribeDeployments where
+        toJSON DescribeDeployments'{..}
+          = object
+              ["AppId" .= _ddAppId,
+               "DeploymentIds" .= _ddDeploymentIds,
+               "StackId" .= _ddStackId]
 
--- | 'DescribeDeploymentsResponse' constructor.
+instance ToPath DescribeDeployments where
+        toPath = const "/"
+
+instance ToQuery DescribeDeployments where
+        toQuery = const mempty
+
+-- | Contains the response to a 'DescribeDeployments' request.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeDeploymentsResponse' smart constructor.
+data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
+    { _ddrsDeployments :: !(Maybe [Deployment])
+    , _ddrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeDeploymentsResponse' with the minimum fields required to make a request.
 --
--- * 'ddrDeployments' @::@ ['Deployment']
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeDeploymentsResponse :: DescribeDeploymentsResponse
-describeDeploymentsResponse = DescribeDeploymentsResponse
-    { _ddrDeployments = mempty
+-- * 'ddrsDeployments'
+--
+-- * 'ddrsStatus'
+describeDeploymentsResponse
+    :: Int -- ^ 'ddrsStatus'
+    -> DescribeDeploymentsResponse
+describeDeploymentsResponse pStatus_ =
+    DescribeDeploymentsResponse'
+    { _ddrsDeployments = Nothing
+    , _ddrsStatus = pStatus_
     }
 
 -- | An array of 'Deployment' objects that describe the deployments.
-ddrDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
-ddrDeployments = lens _ddrDeployments (\s a -> s { _ddrDeployments = a }) . _List
+ddrsDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
+ddrsDeployments = lens _ddrsDeployments (\ s a -> s{_ddrsDeployments = a}) . _Default . _Coerce;
 
-instance ToPath DescribeDeployments where
-    toPath = const "/"
-
-instance ToQuery DescribeDeployments where
-    toQuery = const mempty
-
-instance ToHeaders DescribeDeployments
-
-instance ToJSON DescribeDeployments where
-    toJSON DescribeDeployments{..} = object
-        [ "StackId"       .= _ddStackId
-        , "AppId"         .= _ddAppId
-        , "DeploymentIds" .= _ddDeploymentIds
-        ]
-
-instance AWSRequest DescribeDeployments where
-    type Sv DescribeDeployments = OpsWorks
-    type Rs DescribeDeployments = DescribeDeploymentsResponse
-
-    request  = post "DescribeDeployments"
-    response = jsonResponse
-
-instance FromJSON DescribeDeploymentsResponse where
-    parseJSON = withObject "DescribeDeploymentsResponse" $ \o -> DescribeDeploymentsResponse
-        <$> o .:? "Deployments" .!= mempty
+-- | The response status code.
+ddrsStatus :: Lens' DescribeDeploymentsResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

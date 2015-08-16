@@ -1,103 +1,109 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.UpdateAssumeRolePolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Updates the policy that grants an entity permission to assume a role. For
--- more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions andFederate Identities>.
+-- |
+-- Module      : Network.AWS.IAM.UpdateAssumeRolePolicy
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html>
+-- Updates the policy that grants an entity permission to assume a role.
+-- For more information about roles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html AWS API Reference> for UpdateAssumeRolePolicy.
 module Network.AWS.IAM.UpdateAssumeRolePolicy
     (
-    -- * Request
-      UpdateAssumeRolePolicy
-    -- ** Request constructor
-    , updateAssumeRolePolicy
-    -- ** Request lenses
-    , uarpPolicyDocument
+    -- * Creating a Request
+      updateAssumeRolePolicy
+    , UpdateAssumeRolePolicy
+    -- * Request Lenses
     , uarpRoleName
+    , uarpPolicyDocument
 
-    -- * Response
-    , UpdateAssumeRolePolicyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , updateAssumeRolePolicyResponse
+    , UpdateAssumeRolePolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
-    { _uarpPolicyDocument :: Text
-    , _uarpRoleName       :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'updateAssumeRolePolicy' smart constructor.
+data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
+    { _uarpRoleName       :: !Text
+    , _uarpPolicyDocument :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateAssumeRolePolicy' constructor.
+-- | Creates a value of 'UpdateAssumeRolePolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uarpPolicyDocument' @::@ 'Text'
+-- * 'uarpRoleName'
 --
--- * 'uarpRoleName' @::@ 'Text'
---
-updateAssumeRolePolicy :: Text -- ^ 'uarpRoleName'
-                       -> Text -- ^ 'uarpPolicyDocument'
-                       -> UpdateAssumeRolePolicy
-updateAssumeRolePolicy p1 p2 = UpdateAssumeRolePolicy
-    { _uarpRoleName       = p1
-    , _uarpPolicyDocument = p2
+-- * 'uarpPolicyDocument'
+updateAssumeRolePolicy
+    :: Text -- ^ 'uarpRoleName'
+    -> Text -- ^ 'uarpPolicyDocument'
+    -> UpdateAssumeRolePolicy
+updateAssumeRolePolicy pRoleName_ pPolicyDocument_ =
+    UpdateAssumeRolePolicy'
+    { _uarpRoleName = pRoleName_
+    , _uarpPolicyDocument = pPolicyDocument_
     }
-
--- | The policy that grants an entity permission to assume the role.
-uarpPolicyDocument :: Lens' UpdateAssumeRolePolicy Text
-uarpPolicyDocument =
-    lens _uarpPolicyDocument (\s a -> s { _uarpPolicyDocument = a })
 
 -- | The name of the role to update.
 uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
-uarpRoleName = lens _uarpRoleName (\s a -> s { _uarpRoleName = a })
+uarpRoleName = lens _uarpRoleName (\ s a -> s{_uarpRoleName = a});
 
-data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UpdateAssumeRolePolicyResponse' constructor.
-updateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse
-updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
-
-instance ToPath UpdateAssumeRolePolicy where
-    toPath = const "/"
-
-instance ToQuery UpdateAssumeRolePolicy where
-    toQuery UpdateAssumeRolePolicy{..} = mconcat
-        [ "PolicyDocument" =? _uarpPolicyDocument
-        , "RoleName"       =? _uarpRoleName
-        ]
-
-instance ToHeaders UpdateAssumeRolePolicy
+-- | The policy that grants an entity permission to assume the role.
+uarpPolicyDocument :: Lens' UpdateAssumeRolePolicy Text
+uarpPolicyDocument = lens _uarpPolicyDocument (\ s a -> s{_uarpPolicyDocument = a});
 
 instance AWSRequest UpdateAssumeRolePolicy where
-    type Sv UpdateAssumeRolePolicy = IAM
-    type Rs UpdateAssumeRolePolicy = UpdateAssumeRolePolicyResponse
+        type Sv UpdateAssumeRolePolicy = IAM
+        type Rs UpdateAssumeRolePolicy =
+             UpdateAssumeRolePolicyResponse
+        request = postQuery
+        response
+          = receiveNull UpdateAssumeRolePolicyResponse'
 
-    request  = post "UpdateAssumeRolePolicy"
-    response = nullResponse UpdateAssumeRolePolicyResponse
+instance ToHeaders UpdateAssumeRolePolicy where
+        toHeaders = const mempty
+
+instance ToPath UpdateAssumeRolePolicy where
+        toPath = const "/"
+
+instance ToQuery UpdateAssumeRolePolicy where
+        toQuery UpdateAssumeRolePolicy'{..}
+          = mconcat
+              ["Action" =:
+                 ("UpdateAssumeRolePolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "RoleName" =: _uarpRoleName,
+               "PolicyDocument" =: _uarpPolicyDocument]
+
+-- | /See:/ 'updateAssumeRolePolicyResponse' smart constructor.
+data UpdateAssumeRolePolicyResponse =
+    UpdateAssumeRolePolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateAssumeRolePolicyResponse' with the minimum fields required to make a request.
+--
+updateAssumeRolePolicyResponse
+    :: UpdateAssumeRolePolicyResponse
+updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse'

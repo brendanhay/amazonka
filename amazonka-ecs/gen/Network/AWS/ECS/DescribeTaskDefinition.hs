@@ -1,118 +1,135 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ECS.DescribeTaskDefinition
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes a task definition. You can specify a 'family' and 'revision' to find
--- information on a specific task definition, or you can simply specify the
--- family to find the latest revision in that family.
+-- |
+-- Module      : Network.AWS.ECS.DescribeTaskDefinition
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskDefinition.html>
+-- Describes a task definition. You can specify a 'family' and 'revision'
+-- to find information on a specific task definition, or you can simply
+-- specify the family to find the latest 'ACTIVE' revision in that family.
+--
+-- You can only describe 'INACTIVE' task definitions while an active task
+-- or service references them.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskDefinition.html AWS API Reference> for DescribeTaskDefinition.
 module Network.AWS.ECS.DescribeTaskDefinition
     (
-    -- * Request
-      DescribeTaskDefinition
-    -- ** Request constructor
-    , describeTaskDefinition
-    -- ** Request lenses
+    -- * Creating a Request
+      describeTaskDefinition
+    , DescribeTaskDefinition
+    -- * Request Lenses
     , dtdTaskDefinition
 
-    -- * Response
-    , DescribeTaskDefinitionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeTaskDefinitionResponse
-    -- ** Response lenses
-    , dtdr1TaskDefinition
+    , DescribeTaskDefinitionResponse
+    -- * Response Lenses
+    , desrsTaskDefinition
+    , desrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.ECS.Types
-import qualified GHC.Exts
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeTaskDefinition = DescribeTaskDefinition
+-- | /See:/ 'describeTaskDefinition' smart constructor.
+newtype DescribeTaskDefinition = DescribeTaskDefinition'
     { _dtdTaskDefinition :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTaskDefinition' constructor.
+-- | Creates a value of 'DescribeTaskDefinition' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtdTaskDefinition' @::@ 'Text'
---
-describeTaskDefinition :: Text -- ^ 'dtdTaskDefinition'
-                       -> DescribeTaskDefinition
-describeTaskDefinition p1 = DescribeTaskDefinition
-    { _dtdTaskDefinition = p1
+-- * 'dtdTaskDefinition'
+describeTaskDefinition
+    :: Text -- ^ 'dtdTaskDefinition'
+    -> DescribeTaskDefinition
+describeTaskDefinition pTaskDefinition_ =
+    DescribeTaskDefinition'
+    { _dtdTaskDefinition = pTaskDefinition_
     }
 
--- | The 'family' for the latest revision, 'family' and 'revision' ('family:revision') for
--- a specific revision in the family, or full Amazon Resource Name (ARN) of the
--- task definition that you want to describe.
+-- | The 'family' for the latest 'ACTIVE' revision, 'family' and 'revision'
+-- ('family:revision') for a specific revision in the family, or full
+-- Amazon Resource Name (ARN) of the task definition that you want to
+-- describe.
 dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
-dtdTaskDefinition =
-    lens _dtdTaskDefinition (\s a -> s { _dtdTaskDefinition = a })
+dtdTaskDefinition = lens _dtdTaskDefinition (\ s a -> s{_dtdTaskDefinition = a});
 
-newtype DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse
-    { _dtdr1TaskDefinition :: Maybe TaskDefinition
-    } deriving (Eq, Read, Show)
+instance AWSRequest DescribeTaskDefinition where
+        type Sv DescribeTaskDefinition = ECS
+        type Rs DescribeTaskDefinition =
+             DescribeTaskDefinitionResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeTaskDefinitionResponse' <$>
+                   (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
--- | 'DescribeTaskDefinitionResponse' constructor.
+instance ToHeaders DescribeTaskDefinition where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeTaskDefinition where
+        toJSON DescribeTaskDefinition'{..}
+          = object ["taskDefinition" .= _dtdTaskDefinition]
+
+instance ToPath DescribeTaskDefinition where
+        toPath = const "/"
+
+instance ToQuery DescribeTaskDefinition where
+        toQuery = const mempty
+
+-- | /See:/ 'describeTaskDefinitionResponse' smart constructor.
+data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
+    { _desrsTaskDefinition :: !(Maybe TaskDefinition)
+    , _desrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeTaskDefinitionResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtdr1TaskDefinition' @::@ 'Maybe' 'TaskDefinition'
+-- * 'desrsTaskDefinition'
 --
-describeTaskDefinitionResponse :: DescribeTaskDefinitionResponse
-describeTaskDefinitionResponse = DescribeTaskDefinitionResponse
-    { _dtdr1TaskDefinition = Nothing
+-- * 'desrsStatus'
+describeTaskDefinitionResponse
+    :: Int -- ^ 'desrsStatus'
+    -> DescribeTaskDefinitionResponse
+describeTaskDefinitionResponse pStatus_ =
+    DescribeTaskDefinitionResponse'
+    { _desrsTaskDefinition = Nothing
+    , _desrsStatus = pStatus_
     }
 
 -- | The full task definition description.
-dtdr1TaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
-dtdr1TaskDefinition =
-    lens _dtdr1TaskDefinition (\s a -> s { _dtdr1TaskDefinition = a })
+desrsTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
+desrsTaskDefinition = lens _desrsTaskDefinition (\ s a -> s{_desrsTaskDefinition = a});
 
-instance ToPath DescribeTaskDefinition where
-    toPath = const "/"
-
-instance ToQuery DescribeTaskDefinition where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTaskDefinition
-
-instance ToJSON DescribeTaskDefinition where
-    toJSON DescribeTaskDefinition{..} = object
-        [ "taskDefinition" .= _dtdTaskDefinition
-        ]
-
-instance AWSRequest DescribeTaskDefinition where
-    type Sv DescribeTaskDefinition = ECS
-    type Rs DescribeTaskDefinition = DescribeTaskDefinitionResponse
-
-    request  = post "DescribeTaskDefinition"
-    response = jsonResponse
-
-instance FromJSON DescribeTaskDefinitionResponse where
-    parseJSON = withObject "DescribeTaskDefinitionResponse" $ \o -> DescribeTaskDefinitionResponse
-        <$> o .:? "taskDefinition"
+-- | The response status code.
+desrsStatus :: Lens' DescribeTaskDefinitionResponse Int
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

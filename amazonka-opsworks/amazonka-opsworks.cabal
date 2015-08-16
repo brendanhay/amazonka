@@ -1,28 +1,78 @@
 name:                  amazonka-opsworks
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon OpsWorks SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    AWS OpsWorks provides a simple and flexible way to create and manage stacks
-    and applications. With AWS OpsWorks, you can provision AWS resources, manage
-    their configuration, deploy applications to those resources, and monitor
-    their health.
+    AWS OpsWorks
 
+    Welcome to the /AWS OpsWorks API Reference/. This guide provides
+    descriptions, syntax, and usage examples about AWS OpsWorks actions and
+    data types, including common parameters and error codes.
+
+    AWS OpsWorks is an application management service that provides an
+    integrated experience for overseeing the complete application lifecycle.
+    For information about this product, go to the
+    <http://aws.amazon.com/opsworks/ AWS OpsWorks> details page.
+
+    __SDKs and CLI__
+
+    The most common way to use the AWS OpsWorks API is by using the AWS
+    Command Line Interface (CLI) or by using one of the AWS SDKs to
+    implement applications in your preferred language. For more information,
+    see:
+
+    -   <http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html AWS CLI>
+    -   <http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/opsworks/AWSOpsWorksClient.html AWS SDK for Java>
+    -   <http://docs.aws.amazon.com/sdkfornet/latest/apidocs/html/N_Amazon_OpsWorks.htm AWS SDK for .NET>
+    -   <http://docs.aws.amazon.com/aws-sdk-php-2/latest/class-Aws.OpsWorks.OpsWorksClient.html AWS SDK for PHP 2>
+    -   <http://docs.aws.amazon.com/AWSRubySDK/latest/AWS/OpsWorks/Client.html AWS SDK for Ruby>
+    -   <http://aws.amazon.com/documentation/sdkforjavascript/ AWS SDK for Node.js>
+    -   <http://docs.pythonboto.org/en/latest/ref/opsworks.html AWS SDK for Python(Boto)>
+
+    __Endpoints__
+
+    AWS OpsWorks supports only one endpoint,
+    opsworks.us-east-1.amazonaws.com (HTTPS), so you must connect to that
+    endpoint. You can then use the API to direct AWS OpsWorks to create
+    stacks in any AWS Region.
+
+    __Chef Versions__
+
+    When you call CreateStack, CloneStack, or UpdateStack we recommend you
+    use the @ConfigurationManager@ parameter to specify the Chef version.
+    The recommended value for Linux stacks, which is also the default value,
+    is currently 11.10. Windows stacks use Chef 12.2. For more information,
+    see
+    <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html Chef Versions>.
+
+    You can also specify Chef 11.4 or Chef 0.9 for your Linux stack.
+    However, Chef 0.9 has been deprecated. We do not recommend using Chef
+    0.9 for new stacks, and we recommend migrating your existing Chef 0.9
+    stacks to Chef 11.10 as soon as possible.
     .
-    /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html AWS API Reference>
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
     .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.OpsWorks" and the <http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
 
 source-repository head
     type:     git
@@ -38,7 +88,7 @@ library
           Network.AWS.OpsWorks
         , Network.AWS.OpsWorks.AssignInstance
         , Network.AWS.OpsWorks.AssignVolume
-        , Network.AWS.OpsWorks.AssociateElasticIp
+        , Network.AWS.OpsWorks.AssociateElasticIP
         , Network.AWS.OpsWorks.AttachElasticLoadBalancer
         , Network.AWS.OpsWorks.CloneStack
         , Network.AWS.OpsWorks.CreateApp
@@ -52,22 +102,25 @@ library
         , Network.AWS.OpsWorks.DeleteLayer
         , Network.AWS.OpsWorks.DeleteStack
         , Network.AWS.OpsWorks.DeleteUserProfile
-        , Network.AWS.OpsWorks.DeregisterElasticIp
+        , Network.AWS.OpsWorks.DeregisterEcsCluster
+        , Network.AWS.OpsWorks.DeregisterElasticIP
         , Network.AWS.OpsWorks.DeregisterInstance
-        , Network.AWS.OpsWorks.DeregisterRdsDbInstance
+        , Network.AWS.OpsWorks.DeregisterRDSDBInstance
         , Network.AWS.OpsWorks.DeregisterVolume
+        , Network.AWS.OpsWorks.DescribeAgentVersions
         , Network.AWS.OpsWorks.DescribeApps
         , Network.AWS.OpsWorks.DescribeCommands
         , Network.AWS.OpsWorks.DescribeDeployments
-        , Network.AWS.OpsWorks.DescribeElasticIps
+        , Network.AWS.OpsWorks.DescribeEcsClusters
+        , Network.AWS.OpsWorks.DescribeElasticIPs
         , Network.AWS.OpsWorks.DescribeElasticLoadBalancers
         , Network.AWS.OpsWorks.DescribeInstances
         , Network.AWS.OpsWorks.DescribeLayers
         , Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
         , Network.AWS.OpsWorks.DescribeMyUserProfile
         , Network.AWS.OpsWorks.DescribePermissions
-        , Network.AWS.OpsWorks.DescribeRaidArrays
-        , Network.AWS.OpsWorks.DescribeRdsDbInstances
+        , Network.AWS.OpsWorks.DescribeRAIdArrays
+        , Network.AWS.OpsWorks.DescribeRDSDBInstances
         , Network.AWS.OpsWorks.DescribeServiceErrors
         , Network.AWS.OpsWorks.DescribeStackProvisioningParameters
         , Network.AWS.OpsWorks.DescribeStackSummary
@@ -76,13 +129,14 @@ library
         , Network.AWS.OpsWorks.DescribeUserProfiles
         , Network.AWS.OpsWorks.DescribeVolumes
         , Network.AWS.OpsWorks.DetachElasticLoadBalancer
-        , Network.AWS.OpsWorks.DisassociateElasticIp
+        , Network.AWS.OpsWorks.DisassociateElasticIP
         , Network.AWS.OpsWorks.GetHostnameSuggestion
         , Network.AWS.OpsWorks.GrantAccess
         , Network.AWS.OpsWorks.RebootInstance
-        , Network.AWS.OpsWorks.RegisterElasticIp
+        , Network.AWS.OpsWorks.RegisterEcsCluster
+        , Network.AWS.OpsWorks.RegisterElasticIP
         , Network.AWS.OpsWorks.RegisterInstance
-        , Network.AWS.OpsWorks.RegisterRdsDbInstance
+        , Network.AWS.OpsWorks.RegisterRDSDBInstance
         , Network.AWS.OpsWorks.RegisterVolume
         , Network.AWS.OpsWorks.SetLoadBasedAutoScaling
         , Network.AWS.OpsWorks.SetPermission
@@ -95,17 +149,48 @@ library
         , Network.AWS.OpsWorks.UnassignInstance
         , Network.AWS.OpsWorks.UnassignVolume
         , Network.AWS.OpsWorks.UpdateApp
-        , Network.AWS.OpsWorks.UpdateElasticIp
+        , Network.AWS.OpsWorks.UpdateElasticIP
         , Network.AWS.OpsWorks.UpdateInstance
         , Network.AWS.OpsWorks.UpdateLayer
         , Network.AWS.OpsWorks.UpdateMyUserProfile
-        , Network.AWS.OpsWorks.UpdateRdsDbInstance
+        , Network.AWS.OpsWorks.UpdateRDSDBInstance
         , Network.AWS.OpsWorks.UpdateStack
         , Network.AWS.OpsWorks.UpdateUserProfile
         , Network.AWS.OpsWorks.UpdateVolume
+        , Network.AWS.OpsWorks.Waiters
 
     other-modules:
+          Network.AWS.OpsWorks.Types.Product
+        , Network.AWS.OpsWorks.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-opsworks-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.OpsWorks
+        , Test.AWS.Gen.OpsWorks
+        , Test.AWS.OpsWorks.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test == 1.0.0
+        , amazonka-opsworks == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

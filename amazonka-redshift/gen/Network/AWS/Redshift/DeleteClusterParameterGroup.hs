@@ -1,97 +1,104 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Redshift.DeleteClusterParameterGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes a specified Amazon Redshift parameter group. You cannot delete a
--- parameter group if it is associated with a cluster.
+-- |
+-- Module      : Network.AWS.Redshift.DeleteClusterParameterGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterParameterGroup.html>
+-- Deletes a specified Amazon Redshift parameter group.
+-- You cannot delete a parameter group if it is associated with a cluster.
+--
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterParameterGroup.html AWS API Reference> for DeleteClusterParameterGroup.
 module Network.AWS.Redshift.DeleteClusterParameterGroup
     (
-    -- * Request
-      DeleteClusterParameterGroup
-    -- ** Request constructor
-    , deleteClusterParameterGroup
-    -- ** Request lenses
-    , dcpg1ParameterGroupName
+    -- * Creating a Request
+      deleteClusterParameterGroup
+    , DeleteClusterParameterGroup
+    -- * Request Lenses
+    , dParameterGroupName
 
-    -- * Response
-    , DeleteClusterParameterGroupResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteClusterParameterGroupResponse
+    , DeleteClusterParameterGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup
-    { _dcpg1ParameterGroupName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- |
+--
+-- /See:/ 'deleteClusterParameterGroup' smart constructor.
+newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup'
+    { _dParameterGroupName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteClusterParameterGroup' constructor.
+-- | Creates a value of 'DeleteClusterParameterGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcpg1ParameterGroupName' @::@ 'Text'
---
-deleteClusterParameterGroup :: Text -- ^ 'dcpg1ParameterGroupName'
-                            -> DeleteClusterParameterGroup
-deleteClusterParameterGroup p1 = DeleteClusterParameterGroup
-    { _dcpg1ParameterGroupName = p1
+-- * 'dParameterGroupName'
+deleteClusterParameterGroup
+    :: Text -- ^ 'dParameterGroupName'
+    -> DeleteClusterParameterGroup
+deleteClusterParameterGroup pParameterGroupName_ =
+    DeleteClusterParameterGroup'
+    { _dParameterGroupName = pParameterGroupName_
     }
 
 -- | The name of the parameter group to be deleted.
 --
 -- Constraints:
 --
--- Must be the name of an existing cluster parameter group. Cannot delete a
--- default cluster parameter group.
-dcpg1ParameterGroupName :: Lens' DeleteClusterParameterGroup Text
-dcpg1ParameterGroupName =
-    lens _dcpg1ParameterGroupName (\s a -> s { _dcpg1ParameterGroupName = a })
-
-data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteClusterParameterGroupResponse' constructor.
-deleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse
-deleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
-
-instance ToPath DeleteClusterParameterGroup where
-    toPath = const "/"
-
-instance ToQuery DeleteClusterParameterGroup where
-    toQuery DeleteClusterParameterGroup{..} = mconcat
-        [ "ParameterGroupName" =? _dcpg1ParameterGroupName
-        ]
-
-instance ToHeaders DeleteClusterParameterGroup
+-- -   Must be the name of an existing cluster parameter group.
+-- -   Cannot delete a default cluster parameter group.
+dParameterGroupName :: Lens' DeleteClusterParameterGroup Text
+dParameterGroupName = lens _dParameterGroupName (\ s a -> s{_dParameterGroupName = a});
 
 instance AWSRequest DeleteClusterParameterGroup where
-    type Sv DeleteClusterParameterGroup = Redshift
-    type Rs DeleteClusterParameterGroup = DeleteClusterParameterGroupResponse
+        type Sv DeleteClusterParameterGroup = Redshift
+        type Rs DeleteClusterParameterGroup =
+             DeleteClusterParameterGroupResponse
+        request = postQuery
+        response
+          = receiveNull DeleteClusterParameterGroupResponse'
 
-    request  = post "DeleteClusterParameterGroup"
-    response = nullResponse DeleteClusterParameterGroupResponse
+instance ToHeaders DeleteClusterParameterGroup where
+        toHeaders = const mempty
+
+instance ToPath DeleteClusterParameterGroup where
+        toPath = const "/"
+
+instance ToQuery DeleteClusterParameterGroup where
+        toQuery DeleteClusterParameterGroup'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteClusterParameterGroup" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "ParameterGroupName" =: _dParameterGroupName]
+
+-- | /See:/ 'deleteClusterParameterGroupResponse' smart constructor.
+data DeleteClusterParameterGroupResponse =
+    DeleteClusterParameterGroupResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteClusterParameterGroupResponse' with the minimum fields required to make a request.
+--
+deleteClusterParameterGroupResponse
+    :: DeleteClusterParameterGroupResponse
+deleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse'

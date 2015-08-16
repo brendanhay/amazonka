@@ -1,128 +1,134 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.OpsWorks.DescribeStacks
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Requests a description of one or more stacks.
+-- |
+-- Module      : Network.AWS.OpsWorks.DescribeStacks
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Required Permissions: To use this action, an IAM user must have a Show,
--- Deploy, or Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- Requests a description of one or more stacks.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStacks.html>
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Show, Deploy, or Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStacks.html AWS API Reference> for DescribeStacks.
 module Network.AWS.OpsWorks.DescribeStacks
     (
-    -- * Request
-      DescribeStacks
-    -- ** Request constructor
-    , describeStacks
-    -- ** Request lenses
+    -- * Creating a Request
+      describeStacks
+    , DescribeStacks
+    -- * Request Lenses
     , dsStackIds
 
-    -- * Response
-    , DescribeStacksResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeStacksResponse
-    -- ** Response lenses
-    , dsrStacks
+    , DescribeStacksResponse
+    -- * Response Lenses
+    , dsrsStacks
+    , dsrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeStacks = DescribeStacks
-    { _dsStackIds :: List "StackIds" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
+-- | /See:/ 'describeStacks' smart constructor.
+newtype DescribeStacks = DescribeStacks'
+    { _dsStackIds :: Maybe [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
-instance GHC.Exts.IsList DescribeStacks where
-    type Item DescribeStacks = Text
-
-    fromList = DescribeStacks . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dsStackIds
-
--- | 'DescribeStacks' constructor.
+-- | Creates a value of 'DescribeStacks' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsStackIds' @::@ ['Text']
---
-describeStacks :: DescribeStacks
-describeStacks = DescribeStacks
-    { _dsStackIds = mempty
+-- * 'dsStackIds'
+describeStacks
+    :: DescribeStacks
+describeStacks =
+    DescribeStacks'
+    { _dsStackIds = Nothing
     }
 
--- | An array of stack IDs that specify the stacks to be described. If you omit
--- this parameter, 'DescribeStacks' returns a description of every stack.
+-- | An array of stack IDs that specify the stacks to be described. If you
+-- omit this parameter, 'DescribeStacks' returns a description of every
+-- stack.
 dsStackIds :: Lens' DescribeStacks [Text]
-dsStackIds = lens _dsStackIds (\s a -> s { _dsStackIds = a }) . _List
+dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default . _Coerce;
 
-newtype DescribeStacksResponse = DescribeStacksResponse
-    { _dsrStacks :: List "Stacks" Stack
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeStacks where
+        type Sv DescribeStacks = OpsWorks
+        type Rs DescribeStacks = DescribeStacksResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeStacksResponse' <$>
+                   (x .?> "Stacks" .!@ mempty) <*> (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeStacksResponse where
-    type Item DescribeStacksResponse = Stack
+instance ToHeaders DescribeStacks where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.DescribeStacks" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = DescribeStacksResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dsrStacks
+instance ToJSON DescribeStacks where
+        toJSON DescribeStacks'{..}
+          = object ["StackIds" .= _dsStackIds]
 
--- | 'DescribeStacksResponse' constructor.
+instance ToPath DescribeStacks where
+        toPath = const "/"
+
+instance ToQuery DescribeStacks where
+        toQuery = const mempty
+
+-- | Contains the response to a 'DescribeStacks' request.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeStacksResponse' smart constructor.
+data DescribeStacksResponse = DescribeStacksResponse'
+    { _dsrsStacks :: !(Maybe [Stack])
+    , _dsrsStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeStacksResponse' with the minimum fields required to make a request.
 --
--- * 'dsrStacks' @::@ ['Stack']
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeStacksResponse :: DescribeStacksResponse
-describeStacksResponse = DescribeStacksResponse
-    { _dsrStacks = mempty
+-- * 'dsrsStacks'
+--
+-- * 'dsrsStatus'
+describeStacksResponse
+    :: Int -- ^ 'dsrsStatus'
+    -> DescribeStacksResponse
+describeStacksResponse pStatus_ =
+    DescribeStacksResponse'
+    { _dsrsStacks = Nothing
+    , _dsrsStatus = pStatus_
     }
 
 -- | An array of 'Stack' objects that describe the stacks.
-dsrStacks :: Lens' DescribeStacksResponse [Stack]
-dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a }) . _List
+dsrsStacks :: Lens' DescribeStacksResponse [Stack]
+dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce;
 
-instance ToPath DescribeStacks where
-    toPath = const "/"
-
-instance ToQuery DescribeStacks where
-    toQuery = const mempty
-
-instance ToHeaders DescribeStacks
-
-instance ToJSON DescribeStacks where
-    toJSON DescribeStacks{..} = object
-        [ "StackIds" .= _dsStackIds
-        ]
-
-instance AWSRequest DescribeStacks where
-    type Sv DescribeStacks = OpsWorks
-    type Rs DescribeStacks = DescribeStacksResponse
-
-    request  = post "DescribeStacks"
-    response = jsonResponse
-
-instance FromJSON DescribeStacksResponse where
-    parseJSON = withObject "DescribeStacksResponse" $ \o -> DescribeStacksResponse
-        <$> o .:? "Stacks" .!= mempty
+-- | The response status code.
+dsrsStatus :: Lens' DescribeStacksResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

@@ -13,6 +13,8 @@ cabal.config
 dist
 vendor
 .vagrant.d
+.stack-work
+bin
 
 # CTAGS
 TAGS
@@ -26,6 +28,7 @@ tags
 .*.sw[a-z]
 *.un~
 *.org
+.projectile
 
 # OSX
 .DS_Store

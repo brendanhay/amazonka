@@ -1,111 +1,127 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.GetRole
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Retrieves information about the specified role, including the role's path,
--- GUID, ARN, and the policy granting permission to assume the role. For more
--- information about ARNs, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs>. For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
+-- |
+-- Module      : Network.AWS.IAM.GetRole
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html>
+-- Retrieves information about the specified role, including the role\'s
+-- path, GUID, ARN, and the policy granting permission to assume the role.
+-- For more information about ARNs, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs>.
+-- For more information about roles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html AWS API Reference> for GetRole.
 module Network.AWS.IAM.GetRole
     (
-    -- * Request
-      GetRole
-    -- ** Request constructor
-    , getRole
-    -- ** Request lenses
+    -- * Creating a Request
+      getRole
+    , GetRole
+    -- * Request Lenses
     , grRoleName
 
-    -- * Response
-    , GetRoleResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getRoleResponse
-    -- ** Response lenses
-    , grrRole
+    , GetRoleResponse
+    -- * Response Lenses
+    , grrsStatus
+    , grrsRole
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetRole = GetRole
+-- | /See:/ 'getRole' smart constructor.
+newtype GetRole = GetRole'
     { _grRoleName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetRole' constructor.
+-- | Creates a value of 'GetRole' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'grRoleName' @::@ 'Text'
---
-getRole :: Text -- ^ 'grRoleName'
-        -> GetRole
-getRole p1 = GetRole
-    { _grRoleName = p1
+-- * 'grRoleName'
+getRole
+    :: Text -- ^ 'grRoleName'
+    -> GetRole
+getRole pRoleName_ =
+    GetRole'
+    { _grRoleName = pRoleName_
     }
 
 -- | The name of the role to get information about.
 grRoleName :: Lens' GetRole Text
-grRoleName = lens _grRoleName (\s a -> s { _grRoleName = a })
-
-newtype GetRoleResponse = GetRoleResponse
-    { _grrRole :: Role
-    } deriving (Eq, Read, Show)
-
--- | 'GetRoleResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'grrRole' @::@ 'Role'
---
-getRoleResponse :: Role -- ^ 'grrRole'
-                -> GetRoleResponse
-getRoleResponse p1 = GetRoleResponse
-    { _grrRole = p1
-    }
-
--- | Information about the role.
-grrRole :: Lens' GetRoleResponse Role
-grrRole = lens _grrRole (\s a -> s { _grrRole = a })
-
-instance ToPath GetRole where
-    toPath = const "/"
-
-instance ToQuery GetRole where
-    toQuery GetRole{..} = mconcat
-        [ "RoleName" =? _grRoleName
-        ]
-
-instance ToHeaders GetRole
+grRoleName = lens _grRoleName (\ s a -> s{_grRoleName = a});
 
 instance AWSRequest GetRole where
-    type Sv GetRole = IAM
-    type Rs GetRole = GetRoleResponse
+        type Sv GetRole = IAM
+        type Rs GetRole = GetRoleResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "GetRoleResult"
+              (\ s h x ->
+                 GetRoleResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "Role"))
 
-    request  = post "GetRole"
-    response = xmlResponse
+instance ToHeaders GetRole where
+        toHeaders = const mempty
 
-instance FromXML GetRoleResponse where
-    parseXML = withElement "GetRoleResult" $ \x -> GetRoleResponse
-        <$> x .@  "Role"
+instance ToPath GetRole where
+        toPath = const "/"
+
+instance ToQuery GetRole where
+        toQuery GetRole'{..}
+          = mconcat
+              ["Action" =: ("GetRole" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "RoleName" =: _grRoleName]
+
+-- | Contains the response to a successful GetRole request.
+--
+-- /See:/ 'getRoleResponse' smart constructor.
+data GetRoleResponse = GetRoleResponse'
+    { _grrsStatus :: !Int
+    , _grrsRole   :: !Role
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetRoleResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'grrsStatus'
+--
+-- * 'grrsRole'
+getRoleResponse
+    :: Int -- ^ 'grrsStatus'
+    -> Role -- ^ 'grrsRole'
+    -> GetRoleResponse
+getRoleResponse pStatus_ pRole_ =
+    GetRoleResponse'
+    { _grrsStatus = pStatus_
+    , _grrsRole = pRole_
+    }
+
+-- | The response status code.
+grrsStatus :: Lens' GetRoleResponse Int
+grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
+
+-- | Information about the role.
+grrsRole :: Lens' GetRoleResponse Role
+grrsRole = lens _grrsRole (\ s a -> s{_grrsRole = a});

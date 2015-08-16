@@ -1,94 +1,105 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deregisters an on-premises instance.
+-- |
+-- Module      : Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeregisterOnPremisesInstance.html>
+-- Deregisters an on-premises instance.
+--
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeregisterOnPremisesInstance.html AWS API Reference> for DeregisterOnPremisesInstance.
 module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
     (
-    -- * Request
-      DeregisterOnPremisesInstance
-    -- ** Request constructor
-    , deregisterOnPremisesInstance
-    -- ** Request lenses
+    -- * Creating a Request
+      deregisterOnPremisesInstance
+    , DeregisterOnPremisesInstance
+    -- * Request Lenses
     , dopiInstanceName
 
-    -- * Response
-    , DeregisterOnPremisesInstanceResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deregisterOnPremisesInstanceResponse
+    , DeregisterOnPremisesInstanceResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance
+-- | Represents the input of a deregister on-premises instance operation.
+--
+-- /See:/ 'deregisterOnPremisesInstance' smart constructor.
+newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
     { _dopiInstanceName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterOnPremisesInstance' constructor.
+-- | Creates a value of 'DeregisterOnPremisesInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dopiInstanceName' @::@ 'Text'
---
-deregisterOnPremisesInstance :: Text -- ^ 'dopiInstanceName'
-                             -> DeregisterOnPremisesInstance
-deregisterOnPremisesInstance p1 = DeregisterOnPremisesInstance
-    { _dopiInstanceName = p1
+-- * 'dopiInstanceName'
+deregisterOnPremisesInstance
+    :: Text -- ^ 'dopiInstanceName'
+    -> DeregisterOnPremisesInstance
+deregisterOnPremisesInstance pInstanceName_ =
+    DeregisterOnPremisesInstance'
+    { _dopiInstanceName = pInstanceName_
     }
 
 -- | The name of the on-premises instance to deregister.
 dopiInstanceName :: Lens' DeregisterOnPremisesInstance Text
-dopiInstanceName = lens _dopiInstanceName (\s a -> s { _dopiInstanceName = a })
+dopiInstanceName = lens _dopiInstanceName (\ s a -> s{_dopiInstanceName = a});
 
-data DeregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse
-    deriving (Eq, Ord, Read, Show, Generic)
+instance AWSRequest DeregisterOnPremisesInstance
+         where
+        type Sv DeregisterOnPremisesInstance = CodeDeploy
+        type Rs DeregisterOnPremisesInstance =
+             DeregisterOnPremisesInstanceResponse
+        request = postJSON
+        response
+          = receiveNull DeregisterOnPremisesInstanceResponse'
 
--- | 'DeregisterOnPremisesInstanceResponse' constructor.
-deregisterOnPremisesInstanceResponse :: DeregisterOnPremisesInstanceResponse
-deregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse
-
-instance ToPath DeregisterOnPremisesInstance where
-    toPath = const "/"
-
-instance ToQuery DeregisterOnPremisesInstance where
-    toQuery = const mempty
-
-instance ToHeaders DeregisterOnPremisesInstance
+instance ToHeaders DeregisterOnPremisesInstance where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.DeregisterOnPremisesInstance"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DeregisterOnPremisesInstance where
-    toJSON DeregisterOnPremisesInstance{..} = object
-        [ "instanceName" .= _dopiInstanceName
-        ]
+        toJSON DeregisterOnPremisesInstance'{..}
+          = object ["instanceName" .= _dopiInstanceName]
 
-instance AWSRequest DeregisterOnPremisesInstance where
-    type Sv DeregisterOnPremisesInstance = CodeDeploy
-    type Rs DeregisterOnPremisesInstance = DeregisterOnPremisesInstanceResponse
+instance ToPath DeregisterOnPremisesInstance where
+        toPath = const "/"
 
-    request  = post "DeregisterOnPremisesInstance"
-    response = nullResponse DeregisterOnPremisesInstanceResponse
+instance ToQuery DeregisterOnPremisesInstance where
+        toQuery = const mempty
+
+-- | /See:/ 'deregisterOnPremisesInstanceResponse' smart constructor.
+data DeregisterOnPremisesInstanceResponse =
+    DeregisterOnPremisesInstanceResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeregisterOnPremisesInstanceResponse' with the minimum fields required to make a request.
+--
+deregisterOnPremisesInstanceResponse
+    :: DeregisterOnPremisesInstanceResponse
+deregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse'

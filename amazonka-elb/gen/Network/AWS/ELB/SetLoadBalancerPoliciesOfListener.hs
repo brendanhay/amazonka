@@ -1,117 +1,142 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Associates, updates, or disables a policy with a listener for the specified
--- load balancer. You can associate multiple policies with a listener.
+-- |
+-- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesOfListener.html>
+-- Associates, updates, or disables a policy with a listener for the
+-- specified load balancer. You can associate multiple policies with a
+-- listener.
+--
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesOfListener.html AWS API Reference> for SetLoadBalancerPoliciesOfListener.
 module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     (
-    -- * Request
-      SetLoadBalancerPoliciesOfListener
-    -- ** Request constructor
-    , setLoadBalancerPoliciesOfListener
-    -- ** Request lenses
+    -- * Creating a Request
+      setLoadBalancerPoliciesOfListener
+    , SetLoadBalancerPoliciesOfListener
+    -- * Request Lenses
     , slbpolLoadBalancerName
     , slbpolLoadBalancerPort
     , slbpolPolicyNames
 
-    -- * Response
-    , SetLoadBalancerPoliciesOfListenerResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , setLoadBalancerPoliciesOfListenerResponse
+    , SetLoadBalancerPoliciesOfListenerResponse
+    -- * Response Lenses
+    , slbpolrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
-    { _slbpolLoadBalancerName :: Text
-    , _slbpolLoadBalancerPort :: Int
-    , _slbpolPolicyNames      :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'setLoadBalancerPoliciesOfListener' smart constructor.
+data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
+    { _slbpolLoadBalancerName :: !Text
+    , _slbpolLoadBalancerPort :: !Int
+    , _slbpolPolicyNames      :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetLoadBalancerPoliciesOfListener' constructor.
+-- | Creates a value of 'SetLoadBalancerPoliciesOfListener' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'slbpolLoadBalancerName' @::@ 'Text'
+-- * 'slbpolLoadBalancerName'
 --
--- * 'slbpolLoadBalancerPort' @::@ 'Int'
+-- * 'slbpolLoadBalancerPort'
 --
--- * 'slbpolPolicyNames' @::@ ['Text']
---
-setLoadBalancerPoliciesOfListener :: Text -- ^ 'slbpolLoadBalancerName'
-                                  -> Int -- ^ 'slbpolLoadBalancerPort'
-                                  -> SetLoadBalancerPoliciesOfListener
-setLoadBalancerPoliciesOfListener p1 p2 = SetLoadBalancerPoliciesOfListener
-    { _slbpolLoadBalancerName = p1
-    , _slbpolLoadBalancerPort = p2
-    , _slbpolPolicyNames      = mempty
+-- * 'slbpolPolicyNames'
+setLoadBalancerPoliciesOfListener
+    :: Text -- ^ 'slbpolLoadBalancerName'
+    -> Int -- ^ 'slbpolLoadBalancerPort'
+    -> SetLoadBalancerPoliciesOfListener
+setLoadBalancerPoliciesOfListener pLoadBalancerName_ pLoadBalancerPort_ =
+    SetLoadBalancerPoliciesOfListener'
+    { _slbpolLoadBalancerName = pLoadBalancerName_
+    , _slbpolLoadBalancerPort = pLoadBalancerPort_
+    , _slbpolPolicyNames = mempty
     }
 
 -- | The name of the load balancer.
 slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
-slbpolLoadBalancerName =
-    lens _slbpolLoadBalancerName (\s a -> s { _slbpolLoadBalancerName = a })
+slbpolLoadBalancerName = lens _slbpolLoadBalancerName (\ s a -> s{_slbpolLoadBalancerName = a});
 
 -- | The external port of the load balancer for the policy.
 slbpolLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Int
-slbpolLoadBalancerPort =
-    lens _slbpolLoadBalancerPort (\s a -> s { _slbpolLoadBalancerPort = a })
+slbpolLoadBalancerPort = lens _slbpolLoadBalancerPort (\ s a -> s{_slbpolLoadBalancerPort = a});
 
 -- | The names of the policies. If the list is empty, the current policy is
 -- removed from the listener.
 slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
-slbpolPolicyNames =
-    lens _slbpolPolicyNames (\s a -> s { _slbpolPolicyNames = a })
-        . _List
+slbpolPolicyNames = lens _slbpolPolicyNames (\ s a -> s{_slbpolPolicyNames = a}) . _Coerce;
 
-data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'SetLoadBalancerPoliciesOfListenerResponse' constructor.
-setLoadBalancerPoliciesOfListenerResponse :: SetLoadBalancerPoliciesOfListenerResponse
-setLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
-
-instance ToPath SetLoadBalancerPoliciesOfListener where
-    toPath = const "/"
-
-instance ToQuery SetLoadBalancerPoliciesOfListener where
-    toQuery SetLoadBalancerPoliciesOfListener{..} = mconcat
-        [ "LoadBalancerName" =? _slbpolLoadBalancerName
-        , "LoadBalancerPort" =? _slbpolLoadBalancerPort
-        , "PolicyNames"      =? _slbpolPolicyNames
-        ]
+instance AWSRequest SetLoadBalancerPoliciesOfListener
+         where
+        type Sv SetLoadBalancerPoliciesOfListener = ELB
+        type Rs SetLoadBalancerPoliciesOfListener =
+             SetLoadBalancerPoliciesOfListenerResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "SetLoadBalancerPoliciesOfListenerResult"
+              (\ s h x ->
+                 SetLoadBalancerPoliciesOfListenerResponse' <$>
+                   (pure (fromEnum s)))
 
 instance ToHeaders SetLoadBalancerPoliciesOfListener
+         where
+        toHeaders = const mempty
 
-instance AWSRequest SetLoadBalancerPoliciesOfListener where
-    type Sv SetLoadBalancerPoliciesOfListener = ELB
-    type Rs SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListenerResponse
+instance ToPath SetLoadBalancerPoliciesOfListener
+         where
+        toPath = const "/"
 
-    request  = post "SetLoadBalancerPoliciesOfListener"
-    response = nullResponse SetLoadBalancerPoliciesOfListenerResponse
+instance ToQuery SetLoadBalancerPoliciesOfListener
+         where
+        toQuery SetLoadBalancerPoliciesOfListener'{..}
+          = mconcat
+              ["Action" =:
+                 ("SetLoadBalancerPoliciesOfListener" :: ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "LoadBalancerName" =: _slbpolLoadBalancerName,
+               "LoadBalancerPort" =: _slbpolLoadBalancerPort,
+               "PolicyNames" =:
+                 toQueryList "member" _slbpolPolicyNames]
+
+-- | /See:/ 'setLoadBalancerPoliciesOfListenerResponse' smart constructor.
+newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'
+    { _slbpolrsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SetLoadBalancerPoliciesOfListenerResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'slbpolrsStatus'
+setLoadBalancerPoliciesOfListenerResponse
+    :: Int -- ^ 'slbpolrsStatus'
+    -> SetLoadBalancerPoliciesOfListenerResponse
+setLoadBalancerPoliciesOfListenerResponse pStatus_ =
+    SetLoadBalancerPoliciesOfListenerResponse'
+    { _slbpolrsStatus = pStatus_
+    }
+
+-- | The response status code.
+slbpolrsStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
+slbpolrsStatus = lens _slbpolrsStatus (\ s a -> s{_slbpolrsStatus = a});

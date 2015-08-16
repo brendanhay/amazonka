@@ -1,119 +1,134 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.DirectConnect.DescribeInterconnects
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a list of interconnects owned by the AWS account.
+-- |
+-- Module      : Network.AWS.DirectConnect.DescribeInterconnects
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Returns a list of interconnects owned by the AWS account.
 --
 -- If an interconnect ID is provided, it will only return this particular
 -- interconnect.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnects.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeInterconnects.html AWS API Reference> for DescribeInterconnects.
 module Network.AWS.DirectConnect.DescribeInterconnects
     (
-    -- * Request
-      DescribeInterconnects
-    -- ** Request constructor
-    , describeInterconnects
-    -- ** Request lenses
+    -- * Creating a Request
+      describeInterconnects
+    , DescribeInterconnects
+    -- * Request Lenses
     , diInterconnectId
 
-    -- * Response
-    , DescribeInterconnectsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeInterconnectsResponse
-    -- ** Response lenses
-    , dirInterconnects
+    , DescribeInterconnectsResponse
+    -- * Response Lenses
+    , dirsInterconnects
+    , dirsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DirectConnect.Types
-import qualified GHC.Exts
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeInterconnects = DescribeInterconnects
+-- | Container for the parameters to the DescribeInterconnects operation.
+--
+-- /See:/ 'describeInterconnects' smart constructor.
+newtype DescribeInterconnects = DescribeInterconnects'
     { _diInterconnectId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeInterconnects' constructor.
+-- | Creates a value of 'DescribeInterconnects' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diInterconnectId' @::@ 'Maybe' 'Text'
---
-describeInterconnects :: DescribeInterconnects
-describeInterconnects = DescribeInterconnects
+-- * 'diInterconnectId'
+describeInterconnects
+    :: DescribeInterconnects
+describeInterconnects =
+    DescribeInterconnects'
     { _diInterconnectId = Nothing
     }
 
+-- | Undocumented member.
 diInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
-diInterconnectId = lens _diInterconnectId (\s a -> s { _diInterconnectId = a })
+diInterconnectId = lens _diInterconnectId (\ s a -> s{_diInterconnectId = a});
 
-newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
-    { _dirInterconnects :: List "interconnects" Interconnect
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeInterconnects where
+        type Sv DescribeInterconnects = DirectConnect
+        type Rs DescribeInterconnects =
+             DescribeInterconnectsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeInterconnectsResponse' <$>
+                   (x .?> "interconnects" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeInterconnectsResponse where
-    type Item DescribeInterconnectsResponse = Interconnect
+instance ToHeaders DescribeInterconnects where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OvertureService.DescribeInterconnects" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = DescribeInterconnectsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dirInterconnects
+instance ToJSON DescribeInterconnects where
+        toJSON DescribeInterconnects'{..}
+          = object ["interconnectId" .= _diInterconnectId]
 
--- | 'DescribeInterconnectsResponse' constructor.
+instance ToPath DescribeInterconnects where
+        toPath = const "/"
+
+instance ToQuery DescribeInterconnects where
+        toQuery = const mempty
+
+-- | A structure containing a list of interconnects.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeInterconnectsResponse' smart constructor.
+data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
+    { _dirsInterconnects :: !(Maybe [Interconnect])
+    , _dirsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeInterconnectsResponse' with the minimum fields required to make a request.
 --
--- * 'dirInterconnects' @::@ ['Interconnect']
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeInterconnectsResponse :: DescribeInterconnectsResponse
-describeInterconnectsResponse = DescribeInterconnectsResponse
-    { _dirInterconnects = mempty
+-- * 'dirsInterconnects'
+--
+-- * 'dirsStatus'
+describeInterconnectsResponse
+    :: Int -- ^ 'dirsStatus'
+    -> DescribeInterconnectsResponse
+describeInterconnectsResponse pStatus_ =
+    DescribeInterconnectsResponse'
+    { _dirsInterconnects = Nothing
+    , _dirsStatus = pStatus_
     }
 
 -- | A list of interconnects.
-dirInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
-dirInterconnects = lens _dirInterconnects (\s a -> s { _dirInterconnects = a }) . _List
+dirsInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
+dirsInterconnects = lens _dirsInterconnects (\ s a -> s{_dirsInterconnects = a}) . _Default . _Coerce;
 
-instance ToPath DescribeInterconnects where
-    toPath = const "/"
-
-instance ToQuery DescribeInterconnects where
-    toQuery = const mempty
-
-instance ToHeaders DescribeInterconnects
-
-instance ToJSON DescribeInterconnects where
-    toJSON DescribeInterconnects{..} = object
-        [ "interconnectId" .= _diInterconnectId
-        ]
-
-instance AWSRequest DescribeInterconnects where
-    type Sv DescribeInterconnects = DirectConnect
-    type Rs DescribeInterconnects = DescribeInterconnectsResponse
-
-    request  = post "DescribeInterconnects"
-    response = jsonResponse
-
-instance FromJSON DescribeInterconnectsResponse where
-    parseJSON = withObject "DescribeInterconnectsResponse" $ \o -> DescribeInterconnectsResponse
-        <$> o .:? "interconnects" .!= mempty
+-- | The response status code.
+dirsStatus :: Lens' DescribeInterconnectsResponse Int
+dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

@@ -1,151 +1,163 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.RestoreObject
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Restores an archived copy of an object back into Amazon S3
+-- |
+-- Module      : Network.AWS.S3.RestoreObject
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/RestoreObject.html>
+-- Restores an archived copy of an object back into Amazon S3
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/RestoreObject.html AWS API Reference> for RestoreObject.
 module Network.AWS.S3.RestoreObject
     (
-    -- * Request
-      RestoreObject
-    -- ** Request constructor
-    , restoreObject
-    -- ** Request lenses
-    , roBucket
-    , roKey
+    -- * Creating a Request
+      restoreObject
+    , RestoreObject
+    -- * Request Lenses
+    , roVersionId
     , roRequestPayer
     , roRestoreRequest
-    , roVersionId
+    , roBucket
+    , roKey
 
-    -- * Response
-    , RestoreObjectResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , restoreObjectResponse
-    -- ** Response lenses
-    , rorRequestCharged
+    , RestoreObjectResponse
+    -- * Response Lenses
+    , rorsRequestCharged
+    , rorsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-data RestoreObject = RestoreObject
-    { _roBucket         :: Text
-    , _roKey            :: Text
-    , _roRequestPayer   :: Maybe RequestPayer
-    , _roRestoreRequest :: Maybe RestoreRequest
-    , _roVersionId      :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'restoreObject' smart constructor.
+data RestoreObject = RestoreObject'
+    { _roVersionId      :: !(Maybe ObjectVersionId)
+    , _roRequestPayer   :: !(Maybe RequestPayer)
+    , _roRestoreRequest :: !(Maybe RestoreRequest)
+    , _roBucket         :: !BucketName
+    , _roKey            :: !ObjectKey
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RestoreObject' constructor.
+-- | Creates a value of 'RestoreObject' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'roBucket' @::@ 'Text'
+-- * 'roVersionId'
 --
--- * 'roKey' @::@ 'Text'
+-- * 'roRequestPayer'
 --
--- * 'roRequestPayer' @::@ 'Maybe' 'RequestPayer'
+-- * 'roRestoreRequest'
 --
--- * 'roRestoreRequest' @::@ 'Maybe' 'RestoreRequest'
+-- * 'roBucket'
 --
--- * 'roVersionId' @::@ 'Maybe' 'Text'
---
-restoreObject :: Text -- ^ 'roBucket'
-              -> Text -- ^ 'roKey'
-              -> RestoreObject
-restoreObject p1 p2 = RestoreObject
-    { _roBucket         = p1
-    , _roKey            = p2
-    , _roVersionId      = Nothing
+-- * 'roKey'
+restoreObject
+    :: BucketName -- ^ 'roBucket'
+    -> ObjectKey -- ^ 'roKey'
+    -> RestoreObject
+restoreObject pBucket_ pKey_ =
+    RestoreObject'
+    { _roVersionId = Nothing
+    , _roRequestPayer = Nothing
     , _roRestoreRequest = Nothing
-    , _roRequestPayer   = Nothing
+    , _roBucket = pBucket_
+    , _roKey = pKey_
     }
 
-roBucket :: Lens' RestoreObject Text
-roBucket = lens _roBucket (\s a -> s { _roBucket = a })
+-- | Undocumented member.
+roVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
+roVersionId = lens _roVersionId (\ s a -> s{_roVersionId = a});
 
-roKey :: Lens' RestoreObject Text
-roKey = lens _roKey (\s a -> s { _roKey = a })
-
+-- | Undocumented member.
 roRequestPayer :: Lens' RestoreObject (Maybe RequestPayer)
-roRequestPayer = lens _roRequestPayer (\s a -> s { _roRequestPayer = a })
+roRequestPayer = lens _roRequestPayer (\ s a -> s{_roRequestPayer = a});
 
+-- | Undocumented member.
 roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
-roRestoreRequest = lens _roRestoreRequest (\s a -> s { _roRestoreRequest = a })
+roRestoreRequest = lens _roRestoreRequest (\ s a -> s{_roRestoreRequest = a});
 
-roVersionId :: Lens' RestoreObject (Maybe Text)
-roVersionId = lens _roVersionId (\s a -> s { _roVersionId = a })
+-- | Undocumented member.
+roBucket :: Lens' RestoreObject BucketName
+roBucket = lens _roBucket (\ s a -> s{_roBucket = a});
 
-newtype RestoreObjectResponse = RestoreObjectResponse
-    { _rorRequestCharged :: Maybe RequestCharged
-    } deriving (Eq, Read, Show)
-
--- | 'RestoreObjectResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rorRequestCharged' @::@ 'Maybe' 'RequestCharged'
---
-restoreObjectResponse :: RestoreObjectResponse
-restoreObjectResponse = RestoreObjectResponse
-    { _rorRequestCharged = Nothing
-    }
-
-rorRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
-rorRequestCharged =
-    lens _rorRequestCharged (\s a -> s { _rorRequestCharged = a })
-
-instance ToPath RestoreObject where
-    toPath RestoreObject{..} = mconcat
-        [ "/"
-        , toText _roBucket
-        , "/"
-        , toText _roKey
-        ]
-
-instance ToQuery RestoreObject where
-    toQuery RestoreObject{..} = mconcat
-        [ "restore"
-        , "versionId" =? _roVersionId
-        ]
-
-instance ToHeaders RestoreObject where
-    toHeaders RestoreObject{..} = mconcat
-        [ "x-amz-request-payer" =: _roRequestPayer
-        ]
-
-instance ToXMLRoot RestoreObject where
-    toXMLRoot = extractRoot ns . toXML . _roRestoreRequest
-
-instance ToXML RestoreObject
+-- | Undocumented member.
+roKey :: Lens' RestoreObject ObjectKey
+roKey = lens _roKey (\ s a -> s{_roKey = a});
 
 instance AWSRequest RestoreObject where
-    type Sv RestoreObject = S3
-    type Rs RestoreObject = RestoreObjectResponse
+        type Sv RestoreObject = S3
+        type Rs RestoreObject = RestoreObjectResponse
+        request = postXML
+        response
+          = receiveEmpty
+              (\ s h x ->
+                 RestoreObjectResponse' <$>
+                   (h .#? "x-amz-request-charged") <*>
+                     (pure (fromEnum s)))
 
-    request  = post
-    response = headerResponse $ \h -> RestoreObjectResponse
-        <$> h ~:? "x-amz-request-charged"
+instance ToElement RestoreObject where
+        toElement
+          = mkElement
+              "{http://s3.amazonaws.com/doc/2006-03-01/}RestoreRequest"
+              .
+              _roRestoreRequest
+
+instance ToHeaders RestoreObject where
+        toHeaders RestoreObject'{..}
+          = mconcat ["x-amz-request-payer" =# _roRequestPayer]
+
+instance ToPath RestoreObject where
+        toPath RestoreObject'{..}
+          = mconcat ["/", toBS _roBucket, "/", toBS _roKey]
+
+instance ToQuery RestoreObject where
+        toQuery RestoreObject'{..}
+          = mconcat ["versionId" =: _roVersionId, "restore"]
+
+-- | /See:/ 'restoreObjectResponse' smart constructor.
+data RestoreObjectResponse = RestoreObjectResponse'
+    { _rorsRequestCharged :: !(Maybe RequestCharged)
+    , _rorsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RestoreObjectResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rorsRequestCharged'
+--
+-- * 'rorsStatus'
+restoreObjectResponse
+    :: Int -- ^ 'rorsStatus'
+    -> RestoreObjectResponse
+restoreObjectResponse pStatus_ =
+    RestoreObjectResponse'
+    { _rorsRequestCharged = Nothing
+    , _rorsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+rorsRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
+rorsRequestCharged = lens _rorsRequestCharged (\ s a -> s{_rorsRequestCharged = a});
+
+-- | The response status code.
+rorsStatus :: Lens' RestoreObjectResponse Int
+rorsStatus = lens _rorsStatus (\ s a -> s{_rorsStatus = a});

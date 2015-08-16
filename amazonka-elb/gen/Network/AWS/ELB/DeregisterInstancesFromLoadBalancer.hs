@@ -1,133 +1,148 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deregisters the specified instances from the specified load balancer. After
--- the instance is deregistered, it no longer receives traffic from the load
--- balancer.
+-- |
+-- Module      : Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- You can use 'DescribeLoadBalancers' to verify that the instance is
+-- Deregisters the specified instances from the specified load balancer.
+-- After the instance is deregistered, it no longer receives traffic from
+-- the load balancer.
+--
+-- You can use DescribeLoadBalancers to verify that the instance is
 -- deregistered from the load balancer.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register Amazon EC2 Instances> in
--- the /Elastic Load Balancing Developer Guide/.
+-- For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register Amazon EC2 Instances>
+-- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeregisterInstancesFromLoadBalancer.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeregisterInstancesFromLoadBalancer.html AWS API Reference> for DeregisterInstancesFromLoadBalancer.
 module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     (
-    -- * Request
-      DeregisterInstancesFromLoadBalancer
-    -- ** Request constructor
-    , deregisterInstancesFromLoadBalancer
-    -- ** Request lenses
-    , diflbInstances
+    -- * Creating a Request
+      deregisterInstancesFromLoadBalancer
+    , DeregisterInstancesFromLoadBalancer
+    -- * Request Lenses
     , diflbLoadBalancerName
+    , diflbInstances
 
-    -- * Response
-    , DeregisterInstancesFromLoadBalancerResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deregisterInstancesFromLoadBalancerResponse
-    -- ** Response lenses
-    , diflbrInstances
+    , DeregisterInstancesFromLoadBalancerResponse
+    -- * Response Lenses
+    , diflbrsInstances
+    , diflbrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
-    { _diflbInstances        :: List "member" Instance
-    , _diflbLoadBalancerName :: Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'deregisterInstancesFromLoadBalancer' smart constructor.
+data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
+    { _diflbLoadBalancerName :: !Text
+    , _diflbInstances        :: ![Instance]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterInstancesFromLoadBalancer' constructor.
+-- | Creates a value of 'DeregisterInstancesFromLoadBalancer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diflbInstances' @::@ ['Instance']
+-- * 'diflbLoadBalancerName'
 --
--- * 'diflbLoadBalancerName' @::@ 'Text'
---
-deregisterInstancesFromLoadBalancer :: Text -- ^ 'diflbLoadBalancerName'
-                                    -> DeregisterInstancesFromLoadBalancer
-deregisterInstancesFromLoadBalancer p1 = DeregisterInstancesFromLoadBalancer
-    { _diflbLoadBalancerName = p1
-    , _diflbInstances        = mempty
+-- * 'diflbInstances'
+deregisterInstancesFromLoadBalancer
+    :: Text -- ^ 'diflbLoadBalancerName'
+    -> DeregisterInstancesFromLoadBalancer
+deregisterInstancesFromLoadBalancer pLoadBalancerName_ =
+    DeregisterInstancesFromLoadBalancer'
+    { _diflbLoadBalancerName = pLoadBalancerName_
+    , _diflbInstances = mempty
     }
-
--- | The IDs of the instances.
-diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
-diflbInstances = lens _diflbInstances (\s a -> s { _diflbInstances = a }) . _List
 
 -- | The name of the load balancer.
 diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
-diflbLoadBalancerName =
-    lens _diflbLoadBalancerName (\s a -> s { _diflbLoadBalancerName = a })
+diflbLoadBalancerName = lens _diflbLoadBalancerName (\ s a -> s{_diflbLoadBalancerName = a});
 
-newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
-    { _diflbrInstances :: List "member" Instance
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | The IDs of the instances.
+diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
+diflbInstances = lens _diflbInstances (\ s a -> s{_diflbInstances = a}) . _Coerce;
 
-instance GHC.Exts.IsList DeregisterInstancesFromLoadBalancerResponse where
-    type Item DeregisterInstancesFromLoadBalancerResponse = Instance
+instance AWSRequest
+         DeregisterInstancesFromLoadBalancer where
+        type Sv DeregisterInstancesFromLoadBalancer = ELB
+        type Rs DeregisterInstancesFromLoadBalancer =
+             DeregisterInstancesFromLoadBalancerResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "DeregisterInstancesFromLoadBalancerResult"
+              (\ s h x ->
+                 DeregisterInstancesFromLoadBalancerResponse' <$>
+                   (x .@? "Instances" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-    fromList = DeregisterInstancesFromLoadBalancerResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _diflbrInstances
+instance ToHeaders
+         DeregisterInstancesFromLoadBalancer where
+        toHeaders = const mempty
 
--- | 'DeregisterInstancesFromLoadBalancerResponse' constructor.
+instance ToPath DeregisterInstancesFromLoadBalancer
+         where
+        toPath = const "/"
+
+instance ToQuery DeregisterInstancesFromLoadBalancer
+         where
+        toQuery DeregisterInstancesFromLoadBalancer'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeregisterInstancesFromLoadBalancer" ::
+                    ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "LoadBalancerName" =: _diflbLoadBalancerName,
+               "Instances" =: toQueryList "member" _diflbInstances]
+
+-- | /See:/ 'deregisterInstancesFromLoadBalancerResponse' smart constructor.
+data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
+    { _diflbrsInstances :: !(Maybe [Instance])
+    , _diflbrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeregisterInstancesFromLoadBalancerResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diflbrInstances' @::@ ['Instance']
+-- * 'diflbrsInstances'
 --
-deregisterInstancesFromLoadBalancerResponse :: DeregisterInstancesFromLoadBalancerResponse
-deregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
-    { _diflbrInstances = mempty
+-- * 'diflbrsStatus'
+deregisterInstancesFromLoadBalancerResponse
+    :: Int -- ^ 'diflbrsStatus'
+    -> DeregisterInstancesFromLoadBalancerResponse
+deregisterInstancesFromLoadBalancerResponse pStatus_ =
+    DeregisterInstancesFromLoadBalancerResponse'
+    { _diflbrsInstances = Nothing
+    , _diflbrsStatus = pStatus_
     }
 
 -- | The remaining instances registered with the load balancer.
-diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
-diflbrInstances = lens _diflbrInstances (\s a -> s { _diflbrInstances = a }) . _List
+diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
+diflbrsInstances = lens _diflbrsInstances (\ s a -> s{_diflbrsInstances = a}) . _Default . _Coerce;
 
-instance ToPath DeregisterInstancesFromLoadBalancer where
-    toPath = const "/"
-
-instance ToQuery DeregisterInstancesFromLoadBalancer where
-    toQuery DeregisterInstancesFromLoadBalancer{..} = mconcat
-        [ "Instances"        =? _diflbInstances
-        , "LoadBalancerName" =? _diflbLoadBalancerName
-        ]
-
-instance ToHeaders DeregisterInstancesFromLoadBalancer
-
-instance AWSRequest DeregisterInstancesFromLoadBalancer where
-    type Sv DeregisterInstancesFromLoadBalancer = ELB
-    type Rs DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancerResponse
-
-    request  = post "DeregisterInstancesFromLoadBalancer"
-    response = xmlResponse
-
-instance FromXML DeregisterInstancesFromLoadBalancerResponse where
-    parseXML = withElement "DeregisterInstancesFromLoadBalancerResult" $ \x -> DeregisterInstancesFromLoadBalancerResponse
-        <$> x .@? "Instances" .!@ mempty
+-- | The response status code.
+diflbrsStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
+diflbrsStatus = lens _diflbrsStatus (\ s a -> s{_diflbrsStatus = a});

@@ -1,135 +1,145 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CognitoSync.DescribeIdentityUsage
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Gets usage information for an identity, including number of datasets and data
--- usage.
+-- |
+-- Module      : Network.AWS.CognitoSync.DescribeIdentityUsage
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- DescribeIdentityUsage can be called with temporary user credentials provided
--- by Cognito Identity or with developer credentials.
+-- Gets usage information for an identity, including number of datasets and
+-- data usage.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityUsage.html>
+-- This API can be called with temporary user credentials provided by
+-- Cognito Identity or with developer credentials.
+--
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityUsage.html AWS API Reference> for DescribeIdentityUsage.
 module Network.AWS.CognitoSync.DescribeIdentityUsage
     (
-    -- * Request
-      DescribeIdentityUsage
-    -- ** Request constructor
-    , describeIdentityUsage
-    -- ** Request lenses
-    , diuIdentityId
+    -- * Creating a Request
+      describeIdentityUsage
+    , DescribeIdentityUsage
+    -- * Request Lenses
     , diuIdentityPoolId
+    , diuIdentityId
 
-    -- * Response
-    , DescribeIdentityUsageResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeIdentityUsageResponse
-    -- ** Response lenses
-    , diurIdentityUsage
+    , DescribeIdentityUsageResponse
+    -- * Response Lenses
+    , diursIdentityUsage
+    , diursStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.CognitoSync.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeIdentityUsage = DescribeIdentityUsage
-    { _diuIdentityId     :: Text
-    , _diuIdentityPoolId :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | A request for information about the usage of an identity pool.
+--
+-- /See:/ 'describeIdentityUsage' smart constructor.
+data DescribeIdentityUsage = DescribeIdentityUsage'
+    { _diuIdentityPoolId :: !Text
+    , _diuIdentityId     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeIdentityUsage' constructor.
+-- | Creates a value of 'DescribeIdentityUsage' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diuIdentityId' @::@ 'Text'
+-- * 'diuIdentityPoolId'
 --
--- * 'diuIdentityPoolId' @::@ 'Text'
---
-describeIdentityUsage :: Text -- ^ 'diuIdentityPoolId'
-                      -> Text -- ^ 'diuIdentityId'
-                      -> DescribeIdentityUsage
-describeIdentityUsage p1 p2 = DescribeIdentityUsage
-    { _diuIdentityPoolId = p1
-    , _diuIdentityId     = p2
+-- * 'diuIdentityId'
+describeIdentityUsage
+    :: Text -- ^ 'diuIdentityPoolId'
+    -> Text -- ^ 'diuIdentityId'
+    -> DescribeIdentityUsage
+describeIdentityUsage pIdentityPoolId_ pIdentityId_ =
+    DescribeIdentityUsage'
+    { _diuIdentityPoolId = pIdentityPoolId_
+    , _diuIdentityId = pIdentityId_
     }
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
-diuIdentityId :: Lens' DescribeIdentityUsage Text
-diuIdentityId = lens _diuIdentityId (\s a -> s { _diuIdentityId = a })
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+diuIdentityPoolId :: Lens' DescribeIdentityUsage Text
+diuIdentityPoolId = lens _diuIdentityPoolId (\ s a -> s{_diuIdentityPoolId = a});
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
-diuIdentityPoolId :: Lens' DescribeIdentityUsage Text
-diuIdentityPoolId =
-    lens _diuIdentityPoolId (\s a -> s { _diuIdentityPoolId = a })
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+diuIdentityId :: Lens' DescribeIdentityUsage Text
+diuIdentityId = lens _diuIdentityId (\ s a -> s{_diuIdentityId = a});
 
-newtype DescribeIdentityUsageResponse = DescribeIdentityUsageResponse
-    { _diurIdentityUsage :: Maybe IdentityUsage
-    } deriving (Eq, Read, Show)
+instance AWSRequest DescribeIdentityUsage where
+        type Sv DescribeIdentityUsage = CognitoSync
+        type Rs DescribeIdentityUsage =
+             DescribeIdentityUsageResponse
+        request = get
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeIdentityUsageResponse' <$>
+                   (x .?> "IdentityUsage") <*> (pure (fromEnum s)))
 
--- | 'DescribeIdentityUsageResponse' constructor.
+instance ToHeaders DescribeIdentityUsage where
+        toHeaders
+          = const
+              (mconcat
+                 ["Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToPath DescribeIdentityUsage where
+        toPath DescribeIdentityUsage'{..}
+          = mconcat
+              ["/identitypools/", toBS _diuIdentityPoolId,
+               "/identities/", toBS _diuIdentityId]
+
+instance ToQuery DescribeIdentityUsage where
+        toQuery = const mempty
+
+-- | The response to a successful DescribeIdentityUsage request.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeIdentityUsageResponse' smart constructor.
+data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
+    { _diursIdentityUsage :: !(Maybe IdentityUsage)
+    , _diursStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeIdentityUsageResponse' with the minimum fields required to make a request.
 --
--- * 'diurIdentityUsage' @::@ 'Maybe' 'IdentityUsage'
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeIdentityUsageResponse :: DescribeIdentityUsageResponse
-describeIdentityUsageResponse = DescribeIdentityUsageResponse
-    { _diurIdentityUsage = Nothing
+-- * 'diursIdentityUsage'
+--
+-- * 'diursStatus'
+describeIdentityUsageResponse
+    :: Int -- ^ 'diursStatus'
+    -> DescribeIdentityUsageResponse
+describeIdentityUsageResponse pStatus_ =
+    DescribeIdentityUsageResponse'
+    { _diursIdentityUsage = Nothing
+    , _diursStatus = pStatus_
     }
 
 -- | Usage information for the identity.
-diurIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
-diurIdentityUsage =
-    lens _diurIdentityUsage (\s a -> s { _diurIdentityUsage = a })
+diursIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
+diursIdentityUsage = lens _diursIdentityUsage (\ s a -> s{_diursIdentityUsage = a});
 
-instance ToPath DescribeIdentityUsage where
-    toPath DescribeIdentityUsage{..} = mconcat
-        [ "/identitypools/"
-        , toText _diuIdentityPoolId
-        , "/identities/"
-        , toText _diuIdentityId
-        ]
-
-instance ToQuery DescribeIdentityUsage where
-    toQuery = const mempty
-
-instance ToHeaders DescribeIdentityUsage
-
-instance ToJSON DescribeIdentityUsage where
-    toJSON = const (toJSON Empty)
-
-instance AWSRequest DescribeIdentityUsage where
-    type Sv DescribeIdentityUsage = CognitoSync
-    type Rs DescribeIdentityUsage = DescribeIdentityUsageResponse
-
-    request  = get
-    response = jsonResponse
-
-instance FromJSON DescribeIdentityUsageResponse where
-    parseJSON = withObject "DescribeIdentityUsageResponse" $ \o -> DescribeIdentityUsageResponse
-        <$> o .:? "IdentityUsage"
+-- | The response status code.
+diursStatus :: Lens' DescribeIdentityUsageResponse Int
+diursStatus = lens _diursStatus (\ s a -> s{_diursStatus = a});

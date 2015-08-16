@@ -1,134 +1,111 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElastiCache.AddTagsToResource
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /AddTagsToResource/ action adds up to 10 cost allocation tags to the named
--- resource. A /cost allocation tag/ is a key-value pair where the key and value
--- are case-sensitive. Cost allocation tags can be used to categorize and track
--- your AWS costs.
+-- |
+-- Module      : Network.AWS.ElastiCache.AddTagsToResource
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- The /AddTagsToResource/ action adds up to 10 cost allocation tags to the
+-- named resource. A /cost allocation tag/ is a key-value pair where the
+-- key and value are case-sensitive. Cost allocation tags can be used to
+-- categorize and track your AWS costs.
 --
 -- When you apply tags to your ElastiCache resources, AWS generates a cost
--- allocation report as a comma-separated value (CSV) file with your usage and
--- costs aggregated by your tags. You can apply tags that represent business
--- categories (such as cost centers, application names, or owners) to organize
--- your costs across multiple services. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Tagging.html Using CostAllocation Tags in Amazon ElastiCache>.
+-- allocation report as a comma-separated value (CSV) file with your usage
+-- and costs aggregated by your tags. You can apply tags that represent
+-- business categories (such as cost centers, application names, or owners)
+-- to organize your costs across multiple services. For more information,
+-- see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Tagging.html Using Cost Allocation Tags in Amazon ElastiCache>.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html AWS API Reference> for AddTagsToResource.
 module Network.AWS.ElastiCache.AddTagsToResource
     (
-    -- * Request
-      AddTagsToResource
-    -- ** Request constructor
-    , addTagsToResource
-    -- ** Request lenses
+    -- * Creating a Request
+      addTagsToResource
+    , AddTagsToResource
+    -- * Request Lenses
     , attrResourceName
     , attrTags
 
-    -- * Response
-    , AddTagsToResourceResponse
-    -- ** Response constructor
-    , addTagsToResourceResponse
-    -- ** Response lenses
-    , attrrTagList
+    -- * Destructuring the Response
+    , tagListMessage
+    , TagListMessage
+    -- * Response Lenses
+    , tlmTagList
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AddTagsToResource = AddTagsToResource
-    { _attrResourceName :: Text
-    , _attrTags         :: List "member" Tag
-    } deriving (Eq, Read, Show)
+-- | Represents the input of an /AddTagsToResource/ action.
+--
+-- /See:/ 'addTagsToResource' smart constructor.
+data AddTagsToResource = AddTagsToResource'
+    { _attrResourceName :: !Text
+    , _attrTags         :: ![Tag]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddTagsToResource' constructor.
+-- | Creates a value of 'AddTagsToResource' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'attrResourceName' @::@ 'Text'
+-- * 'attrResourceName'
 --
--- * 'attrTags' @::@ ['Tag']
---
-addTagsToResource :: Text -- ^ 'attrResourceName'
-                  -> AddTagsToResource
-addTagsToResource p1 = AddTagsToResource
-    { _attrResourceName = p1
-    , _attrTags         = mempty
+-- * 'attrTags'
+addTagsToResource
+    :: Text -- ^ 'attrResourceName'
+    -> AddTagsToResource
+addTagsToResource pResourceName_ =
+    AddTagsToResource'
+    { _attrResourceName = pResourceName_
+    , _attrTags = mempty
     }
 
--- | The name of the resource to which the tags are to be added, for example 'arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster'.
+-- | The name of the resource to which the tags are to be added, for example
+-- 'arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster'.
 attrResourceName :: Lens' AddTagsToResource Text
-attrResourceName = lens _attrResourceName (\s a -> s { _attrResourceName = a })
+attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
 
 -- | A list of cost allocation tags to be added to this resource. A tag is a
 -- key-value pair. A tag key must be accompanied by a tag value.
 attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\s a -> s { _attrTags = a }) . _List
-
-newtype AddTagsToResourceResponse = AddTagsToResourceResponse
-    { _attrrTagList :: List "member" Tag
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList AddTagsToResourceResponse where
-    type Item AddTagsToResourceResponse = Tag
-
-    fromList = AddTagsToResourceResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _attrrTagList
-
--- | 'AddTagsToResourceResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'attrrTagList' @::@ ['Tag']
---
-addTagsToResourceResponse :: AddTagsToResourceResponse
-addTagsToResourceResponse = AddTagsToResourceResponse
-    { _attrrTagList = mempty
-    }
-
--- | A list of cost allocation tags as key-value pairs.
-attrrTagList :: Lens' AddTagsToResourceResponse [Tag]
-attrrTagList = lens _attrrTagList (\s a -> s { _attrrTagList = a }) . _List
-
-instance ToPath AddTagsToResource where
-    toPath = const "/"
-
-instance ToQuery AddTagsToResource where
-    toQuery AddTagsToResource{..} = mconcat
-        [ "ResourceName" =? _attrResourceName
-        , "Tags"         =? _attrTags
-        ]
-
-instance ToHeaders AddTagsToResource
+attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
 
 instance AWSRequest AddTagsToResource where
-    type Sv AddTagsToResource = ElastiCache
-    type Rs AddTagsToResource = AddTagsToResourceResponse
+        type Sv AddTagsToResource = ElastiCache
+        type Rs AddTagsToResource = TagListMessage
+        request = postQuery
+        response
+          = receiveXMLWrapper "AddTagsToResourceResult"
+              (\ s h x -> parseXML x)
 
-    request  = post "AddTagsToResource"
-    response = xmlResponse
+instance ToHeaders AddTagsToResource where
+        toHeaders = const mempty
 
-instance FromXML AddTagsToResourceResponse where
-    parseXML = withElement "AddTagsToResourceResult" $ \x -> AddTagsToResourceResponse
-        <$> x .@? "TagList" .!@ mempty
+instance ToPath AddTagsToResource where
+        toPath = const "/"
+
+instance ToQuery AddTagsToResource where
+        toQuery AddTagsToResource'{..}
+          = mconcat
+              ["Action" =: ("AddTagsToResource" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "ResourceName" =: _attrResourceName,
+               "Tags" =: toQueryList "Tag" _attrTags]

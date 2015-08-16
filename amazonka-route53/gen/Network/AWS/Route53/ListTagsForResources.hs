@@ -1,139 +1,151 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Route53.ListTagsForResources
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResources.html>
+-- |
+-- Module      : Network.AWS.Route53.ListTagsForResources
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Undocumented operation.
+--
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ListTagsForResources.html AWS API Reference> for ListTagsForResources.
 module Network.AWS.Route53.ListTagsForResources
     (
-    -- * Request
-      ListTagsForResources
-    -- ** Request constructor
-    , listTagsForResources
-    -- ** Request lenses
-    , ltfr1ResourceIds
-    , ltfr1ResourceType
+    -- * Creating a Request
+      listTagsForResources
+    , ListTagsForResources
+    -- * Request Lenses
+    , lResourceType
+    , lResourceIds
 
-    -- * Response
-    , ListTagsForResourcesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listTagsForResourcesResponse
-    -- ** Response lenses
-    , ltfrrResourceTagSets
+    , ListTagsForResourcesResponse
+    -- * Response Lenses
+    , lrsStatus
+    , lrsResourceTagSets
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
+import           Network.AWS.Route53.Types.Product
 
-data ListTagsForResources = ListTagsForResources
-    { _ltfr1ResourceIds  :: List1 "ResourceId" Text
-    , _ltfr1ResourceType :: TagResourceType
-    } deriving (Eq, Read, Show)
+-- | A complex type containing information about a request for a list of the
+-- tags that are associated with up to 10 specified resources.
+--
+-- /See:/ 'listTagsForResources' smart constructor.
+data ListTagsForResources = ListTagsForResources'
+    { _lResourceType :: !TagResourceType
+    , _lResourceIds  :: !(List1 Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListTagsForResources' constructor.
+-- | Creates a value of 'ListTagsForResources' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ltfr1ResourceIds' @::@ 'NonEmpty' 'Text'
+-- * 'lResourceType'
 --
--- * 'ltfr1ResourceType' @::@ 'TagResourceType'
---
-listTagsForResources :: TagResourceType -- ^ 'ltfr1ResourceType'
-                     -> NonEmpty Text -- ^ 'ltfr1ResourceIds'
-                     -> ListTagsForResources
-listTagsForResources p1 p2 = ListTagsForResources
-    { _ltfr1ResourceType = p1
-    , _ltfr1ResourceIds  = withIso _List1 (const id) p2
+-- * 'lResourceIds'
+listTagsForResources
+    :: TagResourceType -- ^ 'lResourceType'
+    -> NonEmpty Text -- ^ 'lResourceIds'
+    -> ListTagsForResources
+listTagsForResources pResourceType_ pResourceIds_ =
+    ListTagsForResources'
+    { _lResourceType = pResourceType_
+    , _lResourceIds = _List1 # pResourceIds_
     }
-
--- | A complex type that contains the ResourceId element for each resource for
--- which you want to get a list of tags.
-ltfr1ResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
-ltfr1ResourceIds = lens _ltfr1ResourceIds (\s a -> s { _ltfr1ResourceIds = a }) . _List1
 
 -- | The type of the resources.
 --
 -- - The resource type for health checks is 'healthcheck'.
 --
 -- - The resource type for hosted zones is 'hostedzone'.
-ltfr1ResourceType :: Lens' ListTagsForResources TagResourceType
-ltfr1ResourceType =
-    lens _ltfr1ResourceType (\s a -> s { _ltfr1ResourceType = a })
+lResourceType :: Lens' ListTagsForResources TagResourceType
+lResourceType = lens _lResourceType (\ s a -> s{_lResourceType = a});
 
-newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
-    { _ltfrrResourceTagSets :: List "ResourceTagSet" ResourceTagSet
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList ListTagsForResourcesResponse where
-    type Item ListTagsForResourcesResponse = ResourceTagSet
-
-    fromList = ListTagsForResourcesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _ltfrrResourceTagSets
-
--- | 'ListTagsForResourcesResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltfrrResourceTagSets' @::@ ['ResourceTagSet']
---
-listTagsForResourcesResponse :: ListTagsForResourcesResponse
-listTagsForResourcesResponse = ListTagsForResourcesResponse
-    { _ltfrrResourceTagSets = mempty
-    }
-
--- | A list of 'ResourceTagSet's containing tags associated with the specified
--- resources.
-ltfrrResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
-ltfrrResourceTagSets =
-    lens _ltfrrResourceTagSets (\s a -> s { _ltfrrResourceTagSets = a })
-        . _List
-
-instance ToPath ListTagsForResources where
-    toPath ListTagsForResources{..} = mconcat
-        [ "/2013-04-01/tags/"
-        , toText _ltfr1ResourceType
-        ]
-
-instance ToQuery ListTagsForResources where
-    toQuery = const mempty
-
-instance ToHeaders ListTagsForResources
-
-instance ToXMLRoot ListTagsForResources where
-    toXMLRoot ListTagsForResources{..} = namespaced ns "ListTagsForResources"
-        [ "ResourceIds" =@ _ltfr1ResourceIds
-        ]
-
-instance ToXML ListTagsForResources
+-- | A complex type that contains the ResourceId element for each resource
+-- for which you want to get a list of tags.
+lResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
+lResourceIds = lens _lResourceIds (\ s a -> s{_lResourceIds = a}) . _List1;
 
 instance AWSRequest ListTagsForResources where
-    type Sv ListTagsForResources = Route53
-    type Rs ListTagsForResources = ListTagsForResourcesResponse
+        type Sv ListTagsForResources = Route53
+        type Rs ListTagsForResources =
+             ListTagsForResourcesResponse
+        request = postXML
+        response
+          = receiveXML
+              (\ s h x ->
+                 ListTagsForResourcesResponse' <$>
+                   (pure (fromEnum s)) <*>
+                     (x .@? "ResourceTagSets" .!@ mempty >>=
+                        parseXMLList "ResourceTagSet"))
 
-    request  = post
-    response = xmlResponse
+instance ToElement ListTagsForResources where
+        toElement
+          = mkElement
+              "{https://route53.amazonaws.com/doc/2013-04-01/}ListTagsForResourcesRequest"
 
-instance FromXML ListTagsForResourcesResponse where
-    parseXML x = ListTagsForResourcesResponse
-        <$> x .@? "ResourceTagSets" .!@ mempty
+instance ToHeaders ListTagsForResources where
+        toHeaders = const mempty
+
+instance ToPath ListTagsForResources where
+        toPath ListTagsForResources'{..}
+          = mconcat ["/2013-04-01/tags/", toBS _lResourceType]
+
+instance ToQuery ListTagsForResources where
+        toQuery = const mempty
+
+instance ToXML ListTagsForResources where
+        toXML ListTagsForResources'{..}
+          = mconcat
+              ["ResourceIds" @=
+                 toXMLList "ResourceId" _lResourceIds]
+
+-- | A complex type containing tags for the specified resources.
+--
+-- /See:/ 'listTagsForResourcesResponse' smart constructor.
+data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
+    { _lrsStatus          :: !Int
+    , _lrsResourceTagSets :: ![ResourceTagSet]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListTagsForResourcesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lrsStatus'
+--
+-- * 'lrsResourceTagSets'
+listTagsForResourcesResponse
+    :: Int -- ^ 'lrsStatus'
+    -> ListTagsForResourcesResponse
+listTagsForResourcesResponse pStatus_ =
+    ListTagsForResourcesResponse'
+    { _lrsStatus = pStatus_
+    , _lrsResourceTagSets = mempty
+    }
+
+-- | The response status code.
+lrsStatus :: Lens' ListTagsForResourcesResponse Int
+lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});
+
+-- | A list of 'ResourceTagSet's containing tags associated with the
+-- specified resources.
+lrsResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
+lrsResourceTagSets = lens _lrsResourceTagSets (\ s a -> s{_lrsResourceTagSets = a}) . _Coerce;

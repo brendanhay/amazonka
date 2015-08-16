@@ -1,34 +1,46 @@
 name:                  amazonka-elasticache
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon ElastiCache SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    ElastiCache is a web service that makes it easy to deploy, operate, and scale
-    an in-memory cache in the cloud. The service improves the performance of web
-    applications by allowing you to retrieve information from fast, managed,
-    in-memory caches, instead of relying entirely on slower disk-based databases.
-    Amazon ElastiCache automatically detects and replaces failed nodes, reducing
-    the overhead associated with self-managed infrastructures and provides a
-    resilient system that mitigates the risk of overloaded databases, which slow
-    website and application load times. Through integration with Amazon
-    CloudWatch, Amazon ElastiCache provides enhanced visibility into key
-    performance metrics associated with your Memcached or Redis nodes.
+    Amazon ElastiCache
 
+    Amazon ElastiCache is a web service that makes it easier to set up,
+    operate, and scale a distributed cache in the cloud.
+
+    With ElastiCache, customers gain all of the benefits of a
+    high-performance, in-memory cache with far less of the administrative
+    burden of launching and managing a distributed cache. The service makes
+    setup, scaling, and cluster failure handling much simpler than in a
+    self-managed cache deployment.
+
+    In addition, through integration with Amazon CloudWatch, customers get
+    enhanced visibility into the key performance statistics associated with
+    their cache and can receive alarms if a part of their cache runs hot.
     .
-    /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html AWS API Reference>
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
     .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.ElastiCache" and the <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
 
 source-repository head
     type:     git
@@ -83,7 +95,37 @@ library
         , Network.AWS.ElastiCache.Waiters
 
     other-modules:
+          Network.AWS.ElastiCache.Types.Product
+        , Network.AWS.ElastiCache.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-elasticache-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.ElastiCache
+        , Test.AWS.Gen.ElastiCache
+        , Test.AWS.ElastiCache.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test == 1.0.0
+        , amazonka-elasticache == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

@@ -1,107 +1,122 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.DirectConnect.DescribeVirtualGateways
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a list of virtual private gateways owned by the AWS account.
+-- |
+-- Module      : Network.AWS.DirectConnect.DescribeVirtualGateways
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Returns a list of virtual private gateways owned by the AWS account.
 --
 -- You can create one or more AWS Direct Connect private virtual interfaces
 -- linking to a virtual private gateway. A virtual private gateway can be
--- managed via Amazon Virtual Private Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2CreateVpnGateway> action.
+-- managed via Amazon Virtual Private Cloud (VPC) console or the
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway>
+-- action.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualGateways.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualGateways.html AWS API Reference> for DescribeVirtualGateways.
 module Network.AWS.DirectConnect.DescribeVirtualGateways
     (
-    -- * Request
-      DescribeVirtualGateways
-    -- ** Request constructor
-    , describeVirtualGateways
+    -- * Creating a Request
+      describeVirtualGateways
+    , DescribeVirtualGateways
 
-    -- * Response
-    , DescribeVirtualGatewaysResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeVirtualGatewaysResponse
-    -- ** Response lenses
-    , dvgrVirtualGateways
+    , DescribeVirtualGatewaysResponse
+    -- * Response Lenses
+    , dvgrsVirtualGateways
+    , dvgrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DirectConnect.Types
-import qualified GHC.Exts
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeVirtualGateways = DescribeVirtualGateways
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | /See:/ 'describeVirtualGateways' smart constructor.
+data DescribeVirtualGateways =
+    DescribeVirtualGateways'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVirtualGateways' constructor.
-describeVirtualGateways :: DescribeVirtualGateways
-describeVirtualGateways = DescribeVirtualGateways
-
-newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
-    { _dvgrVirtualGateways :: List "virtualGateways" VirtualGateway
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeVirtualGatewaysResponse where
-    type Item DescribeVirtualGatewaysResponse = VirtualGateway
-
-    fromList = DescribeVirtualGatewaysResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dvgrVirtualGateways
-
--- | 'DescribeVirtualGatewaysResponse' constructor.
+-- | Creates a value of 'DescribeVirtualGateways' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+describeVirtualGateways
+    :: DescribeVirtualGateways
+describeVirtualGateways = DescribeVirtualGateways'
+
+instance AWSRequest DescribeVirtualGateways where
+        type Sv DescribeVirtualGateways = DirectConnect
+        type Rs DescribeVirtualGateways =
+             DescribeVirtualGatewaysResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeVirtualGatewaysResponse' <$>
+                   (x .?> "virtualGateways" .!@ mempty) <*>
+                     (pure (fromEnum s)))
+
+instance ToHeaders DescribeVirtualGateways where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OvertureService.DescribeVirtualGateways" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeVirtualGateways where
+        toJSON = const (Object mempty)
+
+instance ToPath DescribeVirtualGateways where
+        toPath = const "/"
+
+instance ToQuery DescribeVirtualGateways where
+        toQuery = const mempty
+
+-- | A structure containing a list of virtual private gateways.
 --
--- * 'dvgrVirtualGateways' @::@ ['VirtualGateway']
+-- /See:/ 'describeVirtualGatewaysResponse' smart constructor.
+data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
+    { _dvgrsVirtualGateways :: !(Maybe [VirtualGateway])
+    , _dvgrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeVirtualGatewaysResponse' with the minimum fields required to make a request.
 --
-describeVirtualGatewaysResponse :: DescribeVirtualGatewaysResponse
-describeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
-    { _dvgrVirtualGateways = mempty
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvgrsVirtualGateways'
+--
+-- * 'dvgrsStatus'
+describeVirtualGatewaysResponse
+    :: Int -- ^ 'dvgrsStatus'
+    -> DescribeVirtualGatewaysResponse
+describeVirtualGatewaysResponse pStatus_ =
+    DescribeVirtualGatewaysResponse'
+    { _dvgrsVirtualGateways = Nothing
+    , _dvgrsStatus = pStatus_
     }
 
 -- | A list of virtual private gateways.
-dvgrVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
-dvgrVirtualGateways =
-    lens _dvgrVirtualGateways (\s a -> s { _dvgrVirtualGateways = a })
-        . _List
+dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
+dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGateways = a}) . _Default . _Coerce;
 
-instance ToPath DescribeVirtualGateways where
-    toPath = const "/"
-
-instance ToQuery DescribeVirtualGateways where
-    toQuery = const mempty
-
-instance ToHeaders DescribeVirtualGateways
-
-instance ToJSON DescribeVirtualGateways where
-    toJSON = const (toJSON Empty)
-
-instance AWSRequest DescribeVirtualGateways where
-    type Sv DescribeVirtualGateways = DirectConnect
-    type Rs DescribeVirtualGateways = DescribeVirtualGatewaysResponse
-
-    request  = post "DescribeVirtualGateways"
-    response = jsonResponse
-
-instance FromJSON DescribeVirtualGatewaysResponse where
-    parseJSON = withObject "DescribeVirtualGatewaysResponse" $ \o -> DescribeVirtualGatewaysResponse
-        <$> o .:? "virtualGateways" .!= mempty
+-- | The response status code.
+dvgrsStatus :: Lens' DescribeVirtualGatewaysResponse Int
+dvgrsStatus = lens _dvgrsStatus (\ s a -> s{_dvgrsStatus = a});

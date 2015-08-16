@@ -1,136 +1,149 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Adds the specified Availability Zones to the set of Availability Zones for
--- the specified load balancer.
+-- |
+-- Module      : Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Adds the specified Availability Zones to the set of Availability Zones
+-- for the specified load balancer.
 --
 -- The load balancer evenly distributes requests across all its registered
 -- Availability Zones that contain instances.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html Add Availability Zone> in the /Elastic LoadBalancing Developer Guide/.
+-- For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html Add Availability Zone>
+-- in the /Elastic Load Balancing Developer Guide/.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_EnableAvailabilityZonesForLoadBalancer.html>
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_EnableAvailabilityZonesForLoadBalancer.html AWS API Reference> for EnableAvailabilityZonesForLoadBalancer.
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     (
-    -- * Request
-      EnableAvailabilityZonesForLoadBalancer
-    -- ** Request constructor
-    , enableAvailabilityZonesForLoadBalancer
-    -- ** Request lenses
-    , eazflbAvailabilityZones
+    -- * Creating a Request
+      enableAvailabilityZonesForLoadBalancer
+    , EnableAvailabilityZonesForLoadBalancer
+    -- * Request Lenses
     , eazflbLoadBalancerName
+    , eazflbAvailabilityZones
 
-    -- * Response
-    , EnableAvailabilityZonesForLoadBalancerResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , enableAvailabilityZonesForLoadBalancerResponse
-    -- ** Response lenses
-    , eazflbrAvailabilityZones
+    , EnableAvailabilityZonesForLoadBalancerResponse
+    -- * Response Lenses
+    , eazflbrsAvailabilityZones
+    , eazflbrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer
-    { _eazflbAvailabilityZones :: List "member" Text
-    , _eazflbLoadBalancerName  :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'enableAvailabilityZonesForLoadBalancer' smart constructor.
+data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer'
+    { _eazflbLoadBalancerName  :: !Text
+    , _eazflbAvailabilityZones :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'EnableAvailabilityZonesForLoadBalancer' constructor.
+-- | Creates a value of 'EnableAvailabilityZonesForLoadBalancer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eazflbAvailabilityZones' @::@ ['Text']
+-- * 'eazflbLoadBalancerName'
 --
--- * 'eazflbLoadBalancerName' @::@ 'Text'
---
-enableAvailabilityZonesForLoadBalancer :: Text -- ^ 'eazflbLoadBalancerName'
-                                       -> EnableAvailabilityZonesForLoadBalancer
-enableAvailabilityZonesForLoadBalancer p1 = EnableAvailabilityZonesForLoadBalancer
-    { _eazflbLoadBalancerName  = p1
+-- * 'eazflbAvailabilityZones'
+enableAvailabilityZonesForLoadBalancer
+    :: Text -- ^ 'eazflbLoadBalancerName'
+    -> EnableAvailabilityZonesForLoadBalancer
+enableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
+    EnableAvailabilityZonesForLoadBalancer'
+    { _eazflbLoadBalancerName = pLoadBalancerName_
     , _eazflbAvailabilityZones = mempty
     }
 
--- | The Availability Zones. These must be in the same region as the load balancer.
-eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
-eazflbAvailabilityZones =
-    lens _eazflbAvailabilityZones (\s a -> s { _eazflbAvailabilityZones = a })
-        . _List
-
 -- | The name of the load balancer.
 eazflbLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
-eazflbLoadBalancerName =
-    lens _eazflbLoadBalancerName (\s a -> s { _eazflbLoadBalancerName = a })
+eazflbLoadBalancerName = lens _eazflbLoadBalancerName (\ s a -> s{_eazflbLoadBalancerName = a});
 
-newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
-    { _eazflbrAvailabilityZones :: List "member" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
+-- | The Availability Zones. These must be in the same region as the load
+-- balancer.
+eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
+eazflbAvailabilityZones = lens _eazflbAvailabilityZones (\ s a -> s{_eazflbAvailabilityZones = a}) . _Coerce;
 
-instance GHC.Exts.IsList EnableAvailabilityZonesForLoadBalancerResponse where
-    type Item EnableAvailabilityZonesForLoadBalancerResponse = Text
+instance AWSRequest
+         EnableAvailabilityZonesForLoadBalancer where
+        type Sv EnableAvailabilityZonesForLoadBalancer = ELB
+        type Rs EnableAvailabilityZonesForLoadBalancer =
+             EnableAvailabilityZonesForLoadBalancerResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "EnableAvailabilityZonesForLoadBalancerResult"
+              (\ s h x ->
+                 EnableAvailabilityZonesForLoadBalancerResponse' <$>
+                   (x .@? "AvailabilityZones" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-    fromList = EnableAvailabilityZonesForLoadBalancerResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _eazflbrAvailabilityZones
+instance ToHeaders
+         EnableAvailabilityZonesForLoadBalancer where
+        toHeaders = const mempty
 
--- | 'EnableAvailabilityZonesForLoadBalancerResponse' constructor.
+instance ToPath
+         EnableAvailabilityZonesForLoadBalancer where
+        toPath = const "/"
+
+instance ToQuery
+         EnableAvailabilityZonesForLoadBalancer where
+        toQuery EnableAvailabilityZonesForLoadBalancer'{..}
+          = mconcat
+              ["Action" =:
+                 ("EnableAvailabilityZonesForLoadBalancer" ::
+                    ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "LoadBalancerName" =: _eazflbLoadBalancerName,
+               "AvailabilityZones" =:
+                 toQueryList "member" _eazflbAvailabilityZones]
+
+-- | /See:/ 'enableAvailabilityZonesForLoadBalancerResponse' smart constructor.
+data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'
+    { _eazflbrsAvailabilityZones :: !(Maybe [Text])
+    , _eazflbrsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'EnableAvailabilityZonesForLoadBalancerResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'eazflbrAvailabilityZones' @::@ ['Text']
+-- * 'eazflbrsAvailabilityZones'
 --
-enableAvailabilityZonesForLoadBalancerResponse :: EnableAvailabilityZonesForLoadBalancerResponse
-enableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
-    { _eazflbrAvailabilityZones = mempty
+-- * 'eazflbrsStatus'
+enableAvailabilityZonesForLoadBalancerResponse
+    :: Int -- ^ 'eazflbrsStatus'
+    -> EnableAvailabilityZonesForLoadBalancerResponse
+enableAvailabilityZonesForLoadBalancerResponse pStatus_ =
+    EnableAvailabilityZonesForLoadBalancerResponse'
+    { _eazflbrsAvailabilityZones = Nothing
+    , _eazflbrsStatus = pStatus_
     }
 
 -- | The updated list of Availability Zones for the load balancer.
-eazflbrAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
-eazflbrAvailabilityZones =
-    lens _eazflbrAvailabilityZones
-        (\s a -> s { _eazflbrAvailabilityZones = a })
-            . _List
+eazflbrsAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
+eazflbrsAvailabilityZones = lens _eazflbrsAvailabilityZones (\ s a -> s{_eazflbrsAvailabilityZones = a}) . _Default . _Coerce;
 
-instance ToPath EnableAvailabilityZonesForLoadBalancer where
-    toPath = const "/"
-
-instance ToQuery EnableAvailabilityZonesForLoadBalancer where
-    toQuery EnableAvailabilityZonesForLoadBalancer{..} = mconcat
-        [ "AvailabilityZones" =? _eazflbAvailabilityZones
-        , "LoadBalancerName"  =? _eazflbLoadBalancerName
-        ]
-
-instance ToHeaders EnableAvailabilityZonesForLoadBalancer
-
-instance AWSRequest EnableAvailabilityZonesForLoadBalancer where
-    type Sv EnableAvailabilityZonesForLoadBalancer = ELB
-    type Rs EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancerResponse
-
-    request  = post "EnableAvailabilityZonesForLoadBalancer"
-    response = xmlResponse
-
-instance FromXML EnableAvailabilityZonesForLoadBalancerResponse where
-    parseXML = withElement "EnableAvailabilityZonesForLoadBalancerResult" $ \x -> EnableAvailabilityZonesForLoadBalancerResponse
-        <$> x .@? "AvailabilityZones" .!@ mempty
+-- | The response status code.
+eazflbrsStatus :: Lens' EnableAvailabilityZonesForLoadBalancerResponse Int
+eazflbrsStatus = lens _eazflbrsStatus (\ s a -> s{_eazflbrsStatus = a});

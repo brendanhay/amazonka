@@ -1,204 +1,216 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.RevokeSecurityGroupIngress
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Removes one or more ingress rules from a security group. The values that you
--- specify in the revoke request (for example, ports) must match the existing
--- rule's values for the rule to be removed.
+-- |
+-- Module      : Network.AWS.EC2.RevokeSecurityGroupIngress
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Removes one or more ingress rules from a security group. The values that
+-- you specify in the revoke request (for example, ports) must match the
+-- existing rule\'s values for the rule to be removed.
 --
 -- Each rule consists of the protocol and the CIDR range or source security
--- group. For the TCP and UDP protocols, you must also specify the destination
--- port or range of ports. For the ICMP protocol, you must also specify the ICMP
--- type and code.
+-- group. For the TCP and UDP protocols, you must also specify the
+-- destination port or range of ports. For the ICMP protocol, you must also
+-- specify the ICMP type and code.
 --
 -- Rule changes are propagated to instances within the security group as
 -- quickly as possible. However, a small delay might occur.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupIngress.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RevokeSecurityGroupIngress.html AWS API Reference> for RevokeSecurityGroupIngress.
 module Network.AWS.EC2.RevokeSecurityGroupIngress
     (
-    -- * Request
-      RevokeSecurityGroupIngress
-    -- ** Request constructor
-    , revokeSecurityGroupIngress
-    -- ** Request lenses
-    , rsgiCidrIp
-    , rsgiDryRun
+    -- * Creating a Request
+      revokeSecurityGroupIngress
+    , RevokeSecurityGroupIngress
+    -- * Request Lenses
     , rsgiFromPort
+    , rsgiIPPermissions
+    , rsgiIPProtocol
     , rsgiGroupId
-    , rsgiGroupName
-    , rsgiIpPermissions
-    , rsgiIpProtocol
-    , rsgiSourceSecurityGroupName
-    , rsgiSourceSecurityGroupOwnerId
     , rsgiToPort
+    , rsgiCIdRIP
+    , rsgiGroupName
+    , rsgiSourceSecurityGroupOwnerId
+    , rsgiSourceSecurityGroupName
+    , rsgiDryRun
 
-    -- * Response
-    , RevokeSecurityGroupIngressResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , revokeSecurityGroupIngressResponse
+    , RevokeSecurityGroupIngressResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
-    { _rsgiCidrIp                     :: Maybe Text
-    , _rsgiDryRun                     :: Maybe Bool
-    , _rsgiFromPort                   :: Maybe Int
-    , _rsgiGroupId                    :: Maybe Text
-    , _rsgiGroupName                  :: Maybe Text
-    , _rsgiIpPermissions              :: List "item" IpPermission
-    , _rsgiIpProtocol                 :: Maybe Text
-    , _rsgiSourceSecurityGroupName    :: Maybe Text
-    , _rsgiSourceSecurityGroupOwnerId :: Maybe Text
-    , _rsgiToPort                     :: Maybe Int
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'revokeSecurityGroupIngress' smart constructor.
+data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
+    { _rsgiFromPort                   :: !(Maybe Int)
+    , _rsgiIPPermissions              :: !(Maybe [IPPermission])
+    , _rsgiIPProtocol                 :: !(Maybe Text)
+    , _rsgiGroupId                    :: !(Maybe Text)
+    , _rsgiToPort                     :: !(Maybe Int)
+    , _rsgiCIdRIP                     :: !(Maybe Text)
+    , _rsgiGroupName                  :: !(Maybe Text)
+    , _rsgiSourceSecurityGroupOwnerId :: !(Maybe Text)
+    , _rsgiSourceSecurityGroupName    :: !(Maybe Text)
+    , _rsgiDryRun                     :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RevokeSecurityGroupIngress' constructor.
+-- | Creates a value of 'RevokeSecurityGroupIngress' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rsgiCidrIp' @::@ 'Maybe' 'Text'
+-- * 'rsgiFromPort'
 --
--- * 'rsgiDryRun' @::@ 'Maybe' 'Bool'
+-- * 'rsgiIPPermissions'
 --
--- * 'rsgiFromPort' @::@ 'Maybe' 'Int'
+-- * 'rsgiIPProtocol'
 --
--- * 'rsgiGroupId' @::@ 'Maybe' 'Text'
+-- * 'rsgiGroupId'
 --
--- * 'rsgiGroupName' @::@ 'Maybe' 'Text'
+-- * 'rsgiToPort'
 --
--- * 'rsgiIpPermissions' @::@ ['IpPermission']
+-- * 'rsgiCIdRIP'
 --
--- * 'rsgiIpProtocol' @::@ 'Maybe' 'Text'
+-- * 'rsgiGroupName'
 --
--- * 'rsgiSourceSecurityGroupName' @::@ 'Maybe' 'Text'
+-- * 'rsgiSourceSecurityGroupOwnerId'
 --
--- * 'rsgiSourceSecurityGroupOwnerId' @::@ 'Maybe' 'Text'
+-- * 'rsgiSourceSecurityGroupName'
 --
--- * 'rsgiToPort' @::@ 'Maybe' 'Int'
---
-revokeSecurityGroupIngress :: RevokeSecurityGroupIngress
-revokeSecurityGroupIngress = RevokeSecurityGroupIngress
-    { _rsgiDryRun                     = Nothing
-    , _rsgiGroupName                  = Nothing
-    , _rsgiGroupId                    = Nothing
-    , _rsgiSourceSecurityGroupName    = Nothing
+-- * 'rsgiDryRun'
+revokeSecurityGroupIngress
+    :: RevokeSecurityGroupIngress
+revokeSecurityGroupIngress =
+    RevokeSecurityGroupIngress'
+    { _rsgiFromPort = Nothing
+    , _rsgiIPPermissions = Nothing
+    , _rsgiIPProtocol = Nothing
+    , _rsgiGroupId = Nothing
+    , _rsgiToPort = Nothing
+    , _rsgiCIdRIP = Nothing
+    , _rsgiGroupName = Nothing
     , _rsgiSourceSecurityGroupOwnerId = Nothing
-    , _rsgiIpProtocol                 = Nothing
-    , _rsgiFromPort                   = Nothing
-    , _rsgiToPort                     = Nothing
-    , _rsgiCidrIp                     = Nothing
-    , _rsgiIpPermissions              = mempty
+    , _rsgiSourceSecurityGroupName = Nothing
+    , _rsgiDryRun = Nothing
     }
-
--- | The CIDR IP address range. You can't specify this parameter when specifying a
--- source security group.
-rsgiCidrIp :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgiCidrIp = lens _rsgiCidrIp (\s a -> s { _rsgiCidrIp = a })
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-rsgiDryRun :: Lens' RevokeSecurityGroupIngress (Maybe Bool)
-rsgiDryRun = lens _rsgiDryRun (\s a -> s { _rsgiDryRun = a })
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use '-1' to specify all ICMP types.
 rsgiFromPort :: Lens' RevokeSecurityGroupIngress (Maybe Int)
-rsgiFromPort = lens _rsgiFromPort (\s a -> s { _rsgiFromPort = a })
+rsgiFromPort = lens _rsgiFromPort (\ s a -> s{_rsgiFromPort = a});
 
--- | The ID of the security group.
+-- | A set of IP permissions. You can\'t specify a source security group and
+-- a CIDR IP address range.
+rsgiIPPermissions :: Lens' RevokeSecurityGroupIngress [IPPermission]
+rsgiIPPermissions = lens _rsgiIPPermissions (\ s a -> s{_rsgiIPPermissions = a}) . _Default . _Coerce;
+
+-- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see
+-- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
+-- Use '-1' to specify all.
+rsgiIPProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgiIPProtocol = lens _rsgiIPProtocol (\ s a -> s{_rsgiIPProtocol = a});
+
+-- | The ID of the security group. Required for a security group in a
+-- nondefault VPC.
 rsgiGroupId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgiGroupId = lens _rsgiGroupId (\s a -> s { _rsgiGroupId = a })
+rsgiGroupId = lens _rsgiGroupId (\ s a -> s{_rsgiGroupId = a});
+
+-- | The end of port range for the TCP and UDP protocols, or an ICMP code
+-- number. For the ICMP code number, use '-1' to specify all ICMP codes for
+-- the ICMP type.
+rsgiToPort :: Lens' RevokeSecurityGroupIngress (Maybe Int)
+rsgiToPort = lens _rsgiToPort (\ s a -> s{_rsgiToPort = a});
+
+-- | The CIDR IP address range. You can\'t specify this parameter when
+-- specifying a source security group.
+rsgiCIdRIP :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgiCIdRIP = lens _rsgiCIdRIP (\ s a -> s{_rsgiCIdRIP = a});
 
 -- | [EC2-Classic, default VPC] The name of the security group.
 rsgiGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgiGroupName = lens _rsgiGroupName (\s a -> s { _rsgiGroupName = a })
+rsgiGroupName = lens _rsgiGroupName (\ s a -> s{_rsgiGroupName = a});
 
--- | A set of IP permissions. You can't specify a source security group and a CIDR
--- IP address range.
-rsgiIpPermissions :: Lens' RevokeSecurityGroupIngress [IpPermission]
-rsgiIpPermissions =
-    lens _rsgiIpPermissions (\s a -> s { _rsgiIpPermissions = a })
-        . _List
-
--- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>). Use '-1'
--- to specify all.
-rsgiIpProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgiIpProtocol = lens _rsgiIpProtocol (\s a -> s { _rsgiIpProtocol = a })
-
--- | [EC2-Classic, default VPC] The name of the source security group. You can't
--- specify a source security group and a CIDR IP address range.
-rsgiSourceSecurityGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgiSourceSecurityGroupName =
-    lens _rsgiSourceSecurityGroupName
-        (\s a -> s { _rsgiSourceSecurityGroupName = a })
-
--- | The ID of the source security group. You can't specify a source security
--- group and a CIDR IP address range.
+-- | [EC2-Classic, default VPC] The AWS account ID of the source security
+-- group. For EC2-VPC, the source security group must be in the same VPC.
+-- You can\'t specify this parameter in combination with the following
+-- parameters: the CIDR IP address range, the IP protocol, the start of the
+-- port range, and the end of the port range. To revoke a specific rule for
+-- an IP protocol and port range, use a set of IP permissions instead.
 rsgiSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgiSourceSecurityGroupOwnerId =
-    lens _rsgiSourceSecurityGroupOwnerId
-        (\s a -> s { _rsgiSourceSecurityGroupOwnerId = a })
+rsgiSourceSecurityGroupOwnerId = lens _rsgiSourceSecurityGroupOwnerId (\ s a -> s{_rsgiSourceSecurityGroupOwnerId = a});
 
--- | The end of port range for the TCP and UDP protocols, or an ICMP code number.
--- For the ICMP code number, use '-1' to specify all ICMP codes for the ICMP type.
-rsgiToPort :: Lens' RevokeSecurityGroupIngress (Maybe Int)
-rsgiToPort = lens _rsgiToPort (\s a -> s { _rsgiToPort = a })
+-- | [EC2-Classic, default VPC] The name of the source security group. You
+-- can\'t specify this parameter in combination with the following
+-- parameters: the CIDR IP address range, the start of the port range, the
+-- IP protocol, and the end of the port range. For EC2-VPC, the source
+-- security group must be in the same VPC.
+rsgiSourceSecurityGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgiSourceSecurityGroupName = lens _rsgiSourceSecurityGroupName (\ s a -> s{_rsgiSourceSecurityGroupName = a});
 
-data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'RevokeSecurityGroupIngressResponse' constructor.
-revokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse
-revokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
-
-instance ToPath RevokeSecurityGroupIngress where
-    toPath = const "/"
-
-instance ToQuery RevokeSecurityGroupIngress where
-    toQuery RevokeSecurityGroupIngress{..} = mconcat
-        [ "CidrIp"                     =? _rsgiCidrIp
-        , "DryRun"                     =? _rsgiDryRun
-        , "FromPort"                   =? _rsgiFromPort
-        , "GroupId"                    =? _rsgiGroupId
-        , "GroupName"                  =? _rsgiGroupName
-        , "IpPermissions"              `toQueryList` _rsgiIpPermissions
-        , "IpProtocol"                 =? _rsgiIpProtocol
-        , "SourceSecurityGroupName"    =? _rsgiSourceSecurityGroupName
-        , "SourceSecurityGroupOwnerId" =? _rsgiSourceSecurityGroupOwnerId
-        , "ToPort"                     =? _rsgiToPort
-        ]
-
-instance ToHeaders RevokeSecurityGroupIngress
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+rsgiDryRun :: Lens' RevokeSecurityGroupIngress (Maybe Bool)
+rsgiDryRun = lens _rsgiDryRun (\ s a -> s{_rsgiDryRun = a});
 
 instance AWSRequest RevokeSecurityGroupIngress where
-    type Sv RevokeSecurityGroupIngress = EC2
-    type Rs RevokeSecurityGroupIngress = RevokeSecurityGroupIngressResponse
+        type Sv RevokeSecurityGroupIngress = EC2
+        type Rs RevokeSecurityGroupIngress =
+             RevokeSecurityGroupIngressResponse
+        request = post
+        response
+          = receiveNull RevokeSecurityGroupIngressResponse'
 
-    request  = post "RevokeSecurityGroupIngress"
-    response = nullResponse RevokeSecurityGroupIngressResponse
+instance ToHeaders RevokeSecurityGroupIngress where
+        toHeaders = const mempty
+
+instance ToPath RevokeSecurityGroupIngress where
+        toPath = const "/"
+
+instance ToQuery RevokeSecurityGroupIngress where
+        toQuery RevokeSecurityGroupIngress'{..}
+          = mconcat
+              ["Action" =:
+                 ("RevokeSecurityGroupIngress" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "FromPort" =: _rsgiFromPort,
+               toQuery (toQueryList "item" <$> _rsgiIPPermissions),
+               "IpProtocol" =: _rsgiIPProtocol,
+               "GroupId" =: _rsgiGroupId, "ToPort" =: _rsgiToPort,
+               "CidrIp" =: _rsgiCIdRIP,
+               "GroupName" =: _rsgiGroupName,
+               "SourceSecurityGroupOwnerId" =:
+                 _rsgiSourceSecurityGroupOwnerId,
+               "SourceSecurityGroupName" =:
+                 _rsgiSourceSecurityGroupName,
+               "DryRun" =: _rsgiDryRun]
+
+-- | /See:/ 'revokeSecurityGroupIngressResponse' smart constructor.
+data RevokeSecurityGroupIngressResponse =
+    RevokeSecurityGroupIngressResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RevokeSecurityGroupIngressResponse' with the minimum fields required to make a request.
+--
+revokeSecurityGroupIngressResponse
+    :: RevokeSecurityGroupIngressResponse
+revokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse'

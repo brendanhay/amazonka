@@ -1,111 +1,126 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Redshift.RotateEncryptionKey
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Rotates the encryption keys for a cluster.
+-- |
+-- Module      : Network.AWS.Redshift.RotateEncryptionKey
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RotateEncryptionKey.html>
+-- Rotates the encryption keys for a cluster.
+--
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RotateEncryptionKey.html AWS API Reference> for RotateEncryptionKey.
 module Network.AWS.Redshift.RotateEncryptionKey
     (
-    -- * Request
-      RotateEncryptionKey
-    -- ** Request constructor
-    , rotateEncryptionKey
-    -- ** Request lenses
+    -- * Creating a Request
+      rotateEncryptionKey
+    , RotateEncryptionKey
+    -- * Request Lenses
     , rekClusterIdentifier
 
-    -- * Response
-    , RotateEncryptionKeyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , rotateEncryptionKeyResponse
-    -- ** Response lenses
-    , rekrCluster
+    , RotateEncryptionKeyResponse
+    -- * Response Lenses
+    , rekrsCluster
+    , rekrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype RotateEncryptionKey = RotateEncryptionKey
+-- |
+--
+-- /See:/ 'rotateEncryptionKey' smart constructor.
+newtype RotateEncryptionKey = RotateEncryptionKey'
     { _rekClusterIdentifier :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RotateEncryptionKey' constructor.
+-- | Creates a value of 'RotateEncryptionKey' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rekClusterIdentifier' @::@ 'Text'
---
-rotateEncryptionKey :: Text -- ^ 'rekClusterIdentifier'
-                    -> RotateEncryptionKey
-rotateEncryptionKey p1 = RotateEncryptionKey
-    { _rekClusterIdentifier = p1
+-- * 'rekClusterIdentifier'
+rotateEncryptionKey
+    :: Text -- ^ 'rekClusterIdentifier'
+    -> RotateEncryptionKey
+rotateEncryptionKey pClusterIdentifier_ =
+    RotateEncryptionKey'
+    { _rekClusterIdentifier = pClusterIdentifier_
     }
 
--- | The unique identifier of the cluster that you want to rotate the encryption
--- keys for.
+-- | The unique identifier of the cluster that you want to rotate the
+-- encryption keys for.
 --
--- Constraints: Must be the name of valid cluster that has encryption enabled.
+-- Constraints: Must be the name of valid cluster that has encryption
+-- enabled.
 rekClusterIdentifier :: Lens' RotateEncryptionKey Text
-rekClusterIdentifier =
-    lens _rekClusterIdentifier (\s a -> s { _rekClusterIdentifier = a })
-
-newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
-    { _rekrCluster :: Maybe Cluster
-    } deriving (Eq, Read, Show)
-
--- | 'RotateEncryptionKeyResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rekrCluster' @::@ 'Maybe' 'Cluster'
---
-rotateEncryptionKeyResponse :: RotateEncryptionKeyResponse
-rotateEncryptionKeyResponse = RotateEncryptionKeyResponse
-    { _rekrCluster = Nothing
-    }
-
-rekrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
-rekrCluster = lens _rekrCluster (\s a -> s { _rekrCluster = a })
-
-instance ToPath RotateEncryptionKey where
-    toPath = const "/"
-
-instance ToQuery RotateEncryptionKey where
-    toQuery RotateEncryptionKey{..} = mconcat
-        [ "ClusterIdentifier" =? _rekClusterIdentifier
-        ]
-
-instance ToHeaders RotateEncryptionKey
+rekClusterIdentifier = lens _rekClusterIdentifier (\ s a -> s{_rekClusterIdentifier = a});
 
 instance AWSRequest RotateEncryptionKey where
-    type Sv RotateEncryptionKey = Redshift
-    type Rs RotateEncryptionKey = RotateEncryptionKeyResponse
+        type Sv RotateEncryptionKey = Redshift
+        type Rs RotateEncryptionKey =
+             RotateEncryptionKeyResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "RotateEncryptionKeyResult"
+              (\ s h x ->
+                 RotateEncryptionKeyResponse' <$>
+                   (x .@? "Cluster") <*> (pure (fromEnum s)))
 
-    request  = post "RotateEncryptionKey"
-    response = xmlResponse
+instance ToHeaders RotateEncryptionKey where
+        toHeaders = const mempty
 
-instance FromXML RotateEncryptionKeyResponse where
-    parseXML = withElement "RotateEncryptionKeyResult" $ \x -> RotateEncryptionKeyResponse
-        <$> x .@? "Cluster"
+instance ToPath RotateEncryptionKey where
+        toPath = const "/"
+
+instance ToQuery RotateEncryptionKey where
+        toQuery RotateEncryptionKey'{..}
+          = mconcat
+              ["Action" =: ("RotateEncryptionKey" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "ClusterIdentifier" =: _rekClusterIdentifier]
+
+-- | /See:/ 'rotateEncryptionKeyResponse' smart constructor.
+data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
+    { _rekrsCluster :: !(Maybe Cluster)
+    , _rekrsStatus  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RotateEncryptionKeyResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rekrsCluster'
+--
+-- * 'rekrsStatus'
+rotateEncryptionKeyResponse
+    :: Int -- ^ 'rekrsStatus'
+    -> RotateEncryptionKeyResponse
+rotateEncryptionKeyResponse pStatus_ =
+    RotateEncryptionKeyResponse'
+    { _rekrsCluster = Nothing
+    , _rekrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
+rekrsCluster = lens _rekrsCluster (\ s a -> s{_rekrsCluster = a});
+
+-- | The response status code.
+rekrsStatus :: Lens' RotateEncryptionKeyResponse Int
+rekrsStatus = lens _rekrsStatus (\ s a -> s{_rekrsStatus = a});

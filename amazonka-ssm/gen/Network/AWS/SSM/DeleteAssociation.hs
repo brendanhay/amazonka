@@ -1,112 +1,133 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SSM.DeleteAssociation
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Disassociates the specified configuration document from the specified
+-- |
+-- Module      : Network.AWS.SSM.DeleteAssociation
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Disassociates the specified configuration document from the specified
 -- instance.
 --
--- When you disassociate a configuration document from an instance, it does not
--- change the configuration of the instance. To change the configuration state
--- of an instance after you disassociate a configuration document, you must
--- create a new configuration document with the desired configuration and
--- associate it with the instance.
+-- When you disassociate a configuration document from an instance, it does
+-- not change the configuration of the instance. To change the
+-- configuration state of an instance after you disassociate a
+-- configuration document, you must create a new configuration document
+-- with the desired configuration and associate it with the instance.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DeleteAssociation.html>
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DeleteAssociation.html AWS API Reference> for DeleteAssociation.
 module Network.AWS.SSM.DeleteAssociation
     (
-    -- * Request
-      DeleteAssociation
-    -- ** Request constructor
-    , deleteAssociation
-    -- ** Request lenses
-    , da1InstanceId
-    , da1Name
+    -- * Creating a Request
+      deleteAssociation
+    , DeleteAssociation
+    -- * Request Lenses
+    , delName
+    , delInstanceId
 
-    -- * Response
-    , DeleteAssociationResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteAssociationResponse
+    , DeleteAssociationResponse
+    -- * Response Lenses
+    , delrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.SSM.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
+import           Network.AWS.SSM.Types.Product
 
-data DeleteAssociation = DeleteAssociation
-    { _da1InstanceId :: Text
-    , _da1Name       :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'deleteAssociation' smart constructor.
+data DeleteAssociation = DeleteAssociation'
+    { _delName       :: !Text
+    , _delInstanceId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAssociation' constructor.
+-- | Creates a value of 'DeleteAssociation' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'da1InstanceId' @::@ 'Text'
+-- * 'delName'
 --
--- * 'da1Name' @::@ 'Text'
---
-deleteAssociation :: Text -- ^ 'da1Name'
-                  -> Text -- ^ 'da1InstanceId'
-                  -> DeleteAssociation
-deleteAssociation p1 p2 = DeleteAssociation
-    { _da1Name       = p1
-    , _da1InstanceId = p2
+-- * 'delInstanceId'
+deleteAssociation
+    :: Text -- ^ 'delName'
+    -> Text -- ^ 'delInstanceId'
+    -> DeleteAssociation
+deleteAssociation pName_ pInstanceId_ =
+    DeleteAssociation'
+    { _delName = pName_
+    , _delInstanceId = pInstanceId_
     }
 
--- | The ID of the instance.
-da1InstanceId :: Lens' DeleteAssociation Text
-da1InstanceId = lens _da1InstanceId (\s a -> s { _da1InstanceId = a })
-
 -- | The name of the configuration document.
-da1Name :: Lens' DeleteAssociation Text
-da1Name = lens _da1Name (\s a -> s { _da1Name = a })
+delName :: Lens' DeleteAssociation Text
+delName = lens _delName (\ s a -> s{_delName = a});
 
-data DeleteAssociationResponse = DeleteAssociationResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteAssociationResponse' constructor.
-deleteAssociationResponse :: DeleteAssociationResponse
-deleteAssociationResponse = DeleteAssociationResponse
-
-instance ToPath DeleteAssociation where
-    toPath = const "/"
-
-instance ToQuery DeleteAssociation where
-    toQuery = const mempty
-
-instance ToHeaders DeleteAssociation
-
-instance ToJSON DeleteAssociation where
-    toJSON DeleteAssociation{..} = object
-        [ "Name"       .= _da1Name
-        , "InstanceId" .= _da1InstanceId
-        ]
+-- | The ID of the instance.
+delInstanceId :: Lens' DeleteAssociation Text
+delInstanceId = lens _delInstanceId (\ s a -> s{_delInstanceId = a});
 
 instance AWSRequest DeleteAssociation where
-    type Sv DeleteAssociation = SSM
-    type Rs DeleteAssociation = DeleteAssociationResponse
+        type Sv DeleteAssociation = SSM
+        type Rs DeleteAssociation = DeleteAssociationResponse
+        request = postJSON
+        response
+          = receiveEmpty
+              (\ s h x ->
+                 DeleteAssociationResponse' <$> (pure (fromEnum s)))
 
-    request  = post "DeleteAssociation"
-    response = nullResponse DeleteAssociationResponse
+instance ToHeaders DeleteAssociation where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonSSM.DeleteAssociation" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteAssociation where
+        toJSON DeleteAssociation'{..}
+          = object
+              ["Name" .= _delName, "InstanceId" .= _delInstanceId]
+
+instance ToPath DeleteAssociation where
+        toPath = const "/"
+
+instance ToQuery DeleteAssociation where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteAssociationResponse' smart constructor.
+newtype DeleteAssociationResponse = DeleteAssociationResponse'
+    { _delrsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteAssociationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'delrsStatus'
+deleteAssociationResponse
+    :: Int -- ^ 'delrsStatus'
+    -> DeleteAssociationResponse
+deleteAssociationResponse pStatus_ =
+    DeleteAssociationResponse'
+    { _delrsStatus = pStatus_
+    }
+
+-- | The response status code.
+delrsStatus :: Lens' DeleteAssociationResponse Int
+delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

@@ -1,101 +1,111 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Config.StartConfigurationRecorder
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Starts recording configurations of all the resources associated with the
--- account.
+-- |
+-- Module      : Network.AWS.Config.StartConfigurationRecorder
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- You must have created at least one delivery channel to successfully start
--- the configuration recorder.
+-- Starts recording configurations of the AWS resources you have selected
+-- to record in your AWS account.
 --
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html>
+-- You must have created at least one delivery channel to successfully
+-- start the configuration recorder.
+--
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html AWS API Reference> for StartConfigurationRecorder.
 module Network.AWS.Config.StartConfigurationRecorder
     (
-    -- * Request
-      StartConfigurationRecorder
-    -- ** Request constructor
-    , startConfigurationRecorder
-    -- ** Request lenses
-    , scr1ConfigurationRecorderName
+    -- * Creating a Request
+      startConfigurationRecorder
+    , StartConfigurationRecorder
+    -- * Request Lenses
+    , sConfigurationRecorderName
 
-    -- * Response
-    , StartConfigurationRecorderResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , startConfigurationRecorderResponse
+    , StartConfigurationRecorderResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Config.Types
-import qualified GHC.Exts
+import           Network.AWS.Config.Types
+import           Network.AWS.Config.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype StartConfigurationRecorder = StartConfigurationRecorder
-    { _scr1ConfigurationRecorderName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | The input for the StartConfigurationRecorder action.
+--
+-- /See:/ 'startConfigurationRecorder' smart constructor.
+newtype StartConfigurationRecorder = StartConfigurationRecorder'
+    { _sConfigurationRecorderName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StartConfigurationRecorder' constructor.
+-- | Creates a value of 'StartConfigurationRecorder' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scr1ConfigurationRecorderName' @::@ 'Text'
---
-startConfigurationRecorder :: Text -- ^ 'scr1ConfigurationRecorderName'
-                           -> StartConfigurationRecorder
-startConfigurationRecorder p1 = StartConfigurationRecorder
-    { _scr1ConfigurationRecorderName = p1
+-- * 'sConfigurationRecorderName'
+startConfigurationRecorder
+    :: Text -- ^ 'sConfigurationRecorderName'
+    -> StartConfigurationRecorder
+startConfigurationRecorder pConfigurationRecorderName_ =
+    StartConfigurationRecorder'
+    { _sConfigurationRecorderName = pConfigurationRecorderName_
     }
 
--- | The name of the recorder object that records each configuration change made
--- to the resources.
-scr1ConfigurationRecorderName :: Lens' StartConfigurationRecorder Text
-scr1ConfigurationRecorderName =
-    lens _scr1ConfigurationRecorderName
-        (\s a -> s { _scr1ConfigurationRecorderName = a })
-
-data StartConfigurationRecorderResponse = StartConfigurationRecorderResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'StartConfigurationRecorderResponse' constructor.
-startConfigurationRecorderResponse :: StartConfigurationRecorderResponse
-startConfigurationRecorderResponse = StartConfigurationRecorderResponse
-
-instance ToPath StartConfigurationRecorder where
-    toPath = const "/"
-
-instance ToQuery StartConfigurationRecorder where
-    toQuery = const mempty
-
-instance ToHeaders StartConfigurationRecorder
-
-instance ToJSON StartConfigurationRecorder where
-    toJSON StartConfigurationRecorder{..} = object
-        [ "ConfigurationRecorderName" .= _scr1ConfigurationRecorderName
-        ]
+-- | The name of the recorder object that records each configuration change
+-- made to the resources.
+sConfigurationRecorderName :: Lens' StartConfigurationRecorder Text
+sConfigurationRecorderName = lens _sConfigurationRecorderName (\ s a -> s{_sConfigurationRecorderName = a});
 
 instance AWSRequest StartConfigurationRecorder where
-    type Sv StartConfigurationRecorder = Config
-    type Rs StartConfigurationRecorder = StartConfigurationRecorderResponse
+        type Sv StartConfigurationRecorder = Config
+        type Rs StartConfigurationRecorder =
+             StartConfigurationRecorderResponse
+        request = postJSON
+        response
+          = receiveNull StartConfigurationRecorderResponse'
 
-    request  = post "StartConfigurationRecorder"
-    response = nullResponse StartConfigurationRecorderResponse
+instance ToHeaders StartConfigurationRecorder where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StarlingDoveService.StartConfigurationRecorder" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON StartConfigurationRecorder where
+        toJSON StartConfigurationRecorder'{..}
+          = object
+              ["ConfigurationRecorderName" .=
+                 _sConfigurationRecorderName]
+
+instance ToPath StartConfigurationRecorder where
+        toPath = const "/"
+
+instance ToQuery StartConfigurationRecorder where
+        toQuery = const mempty
+
+-- | /See:/ 'startConfigurationRecorderResponse' smart constructor.
+data StartConfigurationRecorderResponse =
+    StartConfigurationRecorderResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StartConfigurationRecorderResponse' with the minimum fields required to make a request.
+--
+startConfigurationRecorderResponse
+    :: StartConfigurationRecorderResponse
+startConfigurationRecorderResponse = StartConfigurationRecorderResponse'

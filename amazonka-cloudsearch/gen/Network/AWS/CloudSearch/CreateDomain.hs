@@ -1,110 +1,130 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudSearch.CreateDomain
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new search domain. For more information, see Creating a Search
--- Domain in the /Amazon CloudSearch Developer Guide/.
+-- |
+-- Module      : Network.AWS.CloudSearch.CreateDomain
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_CreateDomain.html>
+-- Creates a new search domain. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html Creating a Search Domain>
+-- in the /Amazon CloudSearch Developer Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_CreateDomain.html AWS API Reference> for CreateDomain.
 module Network.AWS.CloudSearch.CreateDomain
     (
-    -- * Request
-      CreateDomain
-    -- ** Request constructor
-    , createDomain
-    -- ** Request lenses
+    -- * Creating a Request
+      createDomain
+    , CreateDomain
+    -- * Request Lenses
     , cdDomainName
 
-    -- * Response
-    , CreateDomainResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createDomainResponse
-    -- ** Response lenses
-    , cdrDomainStatus
+    , CreateDomainResponse
+    -- * Response Lenses
+    , cdrsDomainStatus
+    , cdrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudSearch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.CloudSearch.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype CreateDomain = CreateDomain
+-- | Container for the parameters to the 'CreateDomain' operation. Specifies
+-- a name for the new search domain.
+--
+-- /See:/ 'createDomain' smart constructor.
+newtype CreateDomain = CreateDomain'
     { _cdDomainName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDomain' constructor.
+-- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdDomainName' @::@ 'Text'
---
-createDomain :: Text -- ^ 'cdDomainName'
-             -> CreateDomain
-createDomain p1 = CreateDomain
-    { _cdDomainName = p1
+-- * 'cdDomainName'
+createDomain
+    :: Text -- ^ 'cdDomainName'
+    -> CreateDomain
+createDomain pDomainName_ =
+    CreateDomain'
+    { _cdDomainName = pDomainName_
     }
 
 -- | A name for the domain you are creating. Allowed characters are a-z
--- (lower-case letters), 0-9, and hyphen (-). Domain names must start with a
--- letter or number and be at least 3 and no more than 28 characters long.
+-- (lower-case letters), 0-9, and hyphen (-). Domain names must start with
+-- a letter or number and be at least 3 and no more than 28 characters
+-- long.
 cdDomainName :: Lens' CreateDomain Text
-cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
-
-newtype CreateDomainResponse = CreateDomainResponse
-    { _cdrDomainStatus :: Maybe DomainStatus
-    } deriving (Eq, Read, Show)
-
--- | 'CreateDomainResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdrDomainStatus' @::@ 'Maybe' 'DomainStatus'
---
-createDomainResponse :: CreateDomainResponse
-createDomainResponse = CreateDomainResponse
-    { _cdrDomainStatus = Nothing
-    }
-
-cdrDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
-cdrDomainStatus = lens _cdrDomainStatus (\s a -> s { _cdrDomainStatus = a })
-
-instance ToPath CreateDomain where
-    toPath = const "/"
-
-instance ToQuery CreateDomain where
-    toQuery CreateDomain{..} = mconcat
-        [ "DomainName" =? _cdDomainName
-        ]
-
-instance ToHeaders CreateDomain
+cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
 
 instance AWSRequest CreateDomain where
-    type Sv CreateDomain = CloudSearch
-    type Rs CreateDomain = CreateDomainResponse
+        type Sv CreateDomain = CloudSearch
+        type Rs CreateDomain = CreateDomainResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "CreateDomainResult"
+              (\ s h x ->
+                 CreateDomainResponse' <$>
+                   (x .@? "DomainStatus") <*> (pure (fromEnum s)))
 
-    request  = post "CreateDomain"
-    response = xmlResponse
+instance ToHeaders CreateDomain where
+        toHeaders = const mempty
 
-instance FromXML CreateDomainResponse where
-    parseXML = withElement "CreateDomainResult" $ \x -> CreateDomainResponse
-        <$> x .@? "DomainStatus"
+instance ToPath CreateDomain where
+        toPath = const "/"
+
+instance ToQuery CreateDomain where
+        toQuery CreateDomain'{..}
+          = mconcat
+              ["Action" =: ("CreateDomain" :: ByteString),
+               "Version" =: ("2013-01-01" :: ByteString),
+               "DomainName" =: _cdDomainName]
+
+-- | The result of a 'CreateDomainRequest'. Contains the status of a newly
+-- created domain.
+--
+-- /See:/ 'createDomainResponse' smart constructor.
+data CreateDomainResponse = CreateDomainResponse'
+    { _cdrsDomainStatus :: !(Maybe DomainStatus)
+    , _cdrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdrsDomainStatus'
+--
+-- * 'cdrsStatus'
+createDomainResponse
+    :: Int -- ^ 'cdrsStatus'
+    -> CreateDomainResponse
+createDomainResponse pStatus_ =
+    CreateDomainResponse'
+    { _cdrsDomainStatus = Nothing
+    , _cdrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+cdrsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
+cdrsDomainStatus = lens _cdrsDomainStatus (\ s a -> s{_cdrsDomainStatus = a});
+
+-- | The response status code.
+cdrsStatus :: Lens' CreateDomainResponse Int
+cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

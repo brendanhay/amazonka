@@ -1,167 +1,187 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.RDS.ModifyEventSubscription
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Modifies an existing RDS event notification subscription. Note that you
+-- |
+-- Module      : Network.AWS.RDS.ModifyEventSubscription
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Modifies an existing RDS event notification subscription. Note that you
 -- cannot modify the source identifiers using this call; to change source
--- identifiers for a subscription, use the 'AddSourceIdentifierToSubscription' and 'RemoveSourceIdentifierFromSubscription' calls.
+-- identifiers for a subscription, use the
+-- AddSourceIdentifierToSubscription and
+-- RemoveSourceIdentifierFromSubscription calls.
 --
--- You can see a list of the event categories for a given SourceType in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events> topic in the Amazon RDS User Guide or by using the DescribeEventCategories
--- action.
+-- You can see a list of the event categories for a given SourceType in the
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
+-- topic in the Amazon RDS User Guide or by using the
+-- __DescribeEventCategories__ action.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyEventSubscription.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyEventSubscription.html AWS API Reference> for ModifyEventSubscription.
 module Network.AWS.RDS.ModifyEventSubscription
     (
-    -- * Request
-      ModifyEventSubscription
-    -- ** Request constructor
-    , modifyEventSubscription
-    -- ** Request lenses
+    -- * Creating a Request
+      modifyEventSubscription
+    , ModifyEventSubscription
+    -- * Request Lenses
+    , mesSNSTopicARN
     , mesEnabled
-    , mesEventCategories
-    , mesSnsTopicArn
     , mesSourceType
+    , mesEventCategories
     , mesSubscriptionName
 
-    -- * Response
-    , ModifyEventSubscriptionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , modifyEventSubscriptionResponse
-    -- ** Response lenses
-    , mesrEventSubscription
+    , ModifyEventSubscriptionResponse
+    -- * Response Lenses
+    , mesrsEventSubscription
+    , mesrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.RDS.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ModifyEventSubscription = ModifyEventSubscription
-    { _mesEnabled          :: Maybe Bool
-    , _mesEventCategories  :: List "member" Text
-    , _mesSnsTopicArn      :: Maybe Text
-    , _mesSourceType       :: Maybe Text
-    , _mesSubscriptionName :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- |
+--
+-- /See:/ 'modifyEventSubscription' smart constructor.
+data ModifyEventSubscription = ModifyEventSubscription'
+    { _mesSNSTopicARN      :: !(Maybe Text)
+    , _mesEnabled          :: !(Maybe Bool)
+    , _mesSourceType       :: !(Maybe Text)
+    , _mesEventCategories  :: !(Maybe [Text])
+    , _mesSubscriptionName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ModifyEventSubscription' constructor.
+-- | Creates a value of 'ModifyEventSubscription' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'mesEnabled' @::@ 'Maybe' 'Bool'
+-- * 'mesSNSTopicARN'
 --
--- * 'mesEventCategories' @::@ ['Text']
+-- * 'mesEnabled'
 --
--- * 'mesSnsTopicArn' @::@ 'Maybe' 'Text'
+-- * 'mesSourceType'
 --
--- * 'mesSourceType' @::@ 'Maybe' 'Text'
+-- * 'mesEventCategories'
 --
--- * 'mesSubscriptionName' @::@ 'Text'
---
-modifyEventSubscription :: Text -- ^ 'mesSubscriptionName'
-                        -> ModifyEventSubscription
-modifyEventSubscription p1 = ModifyEventSubscription
-    { _mesSubscriptionName = p1
-    , _mesSnsTopicArn      = Nothing
-    , _mesSourceType       = Nothing
-    , _mesEventCategories  = mempty
-    , _mesEnabled          = Nothing
+-- * 'mesSubscriptionName'
+modifyEventSubscription
+    :: Text -- ^ 'mesSubscriptionName'
+    -> ModifyEventSubscription
+modifyEventSubscription pSubscriptionName_ =
+    ModifyEventSubscription'
+    { _mesSNSTopicARN = Nothing
+    , _mesEnabled = Nothing
+    , _mesSourceType = Nothing
+    , _mesEventCategories = Nothing
+    , _mesSubscriptionName = pSubscriptionName_
     }
 
--- | A Boolean value; set to true to activate the subscription.
-mesEnabled :: Lens' ModifyEventSubscription (Maybe Bool)
-mesEnabled = lens _mesEnabled (\s a -> s { _mesEnabled = a })
-
--- | A list of event categories for a SourceType that you want to subscribe to.
--- You can see a list of the categories for a given SourceType in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
--- topic in the Amazon RDS User Guide or by using the DescribeEventCategories
--- action.
-mesEventCategories :: Lens' ModifyEventSubscription [Text]
-mesEventCategories =
-    lens _mesEventCategories (\s a -> s { _mesEventCategories = a })
-        . _List
-
 -- | The Amazon Resource Name (ARN) of the SNS topic created for event
--- notification. The ARN is created by Amazon SNS when you create a topic and
--- subscribe to it.
-mesSnsTopicArn :: Lens' ModifyEventSubscription (Maybe Text)
-mesSnsTopicArn = lens _mesSnsTopicArn (\s a -> s { _mesSnsTopicArn = a })
+-- notification. The ARN is created by Amazon SNS when you create a topic
+-- and subscribe to it.
+mesSNSTopicARN :: Lens' ModifyEventSubscription (Maybe Text)
+mesSNSTopicARN = lens _mesSNSTopicARN (\ s a -> s{_mesSNSTopicARN = a});
 
--- | The type of source that will be generating the events. For example, if you
--- want to be notified of events generated by a DB instance, you would set this
--- parameter to db-instance. if this value is not specified, all events are
--- returned.
+-- | A Boolean value; set to __true__ to activate the subscription.
+mesEnabled :: Lens' ModifyEventSubscription (Maybe Bool)
+mesEnabled = lens _mesEnabled (\ s a -> s{_mesEnabled = a});
+
+-- | The type of source that will be generating the events. For example, if
+-- you want to be notified of events generated by a DB instance, you would
+-- set this parameter to db-instance. if this value is not specified, all
+-- events are returned.
 --
 -- Valid values: db-instance | db-parameter-group | db-security-group |
 -- db-snapshot
 mesSourceType :: Lens' ModifyEventSubscription (Maybe Text)
-mesSourceType = lens _mesSourceType (\s a -> s { _mesSourceType = a })
+mesSourceType = lens _mesSourceType (\ s a -> s{_mesSourceType = a});
+
+-- | A list of event categories for a SourceType that you want to subscribe
+-- to. You can see a list of the categories for a given SourceType in the
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
+-- topic in the Amazon RDS User Guide or by using the
+-- __DescribeEventCategories__ action.
+mesEventCategories :: Lens' ModifyEventSubscription [Text]
+mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a}) . _Default . _Coerce;
 
 -- | The name of the RDS event notification subscription.
 mesSubscriptionName :: Lens' ModifyEventSubscription Text
-mesSubscriptionName =
-    lens _mesSubscriptionName (\s a -> s { _mesSubscriptionName = a })
-
-newtype ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
-    { _mesrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Read, Show)
-
--- | 'ModifyEventSubscriptionResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mesrEventSubscription' @::@ 'Maybe' 'EventSubscription'
---
-modifyEventSubscriptionResponse :: ModifyEventSubscriptionResponse
-modifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
-    { _mesrEventSubscription = Nothing
-    }
-
-mesrEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
-mesrEventSubscription =
-    lens _mesrEventSubscription (\s a -> s { _mesrEventSubscription = a })
-
-instance ToPath ModifyEventSubscription where
-    toPath = const "/"
-
-instance ToQuery ModifyEventSubscription where
-    toQuery ModifyEventSubscription{..} = mconcat
-        [ "Enabled"          =? _mesEnabled
-        , "EventCategories"  =? _mesEventCategories
-        , "SnsTopicArn"      =? _mesSnsTopicArn
-        , "SourceType"       =? _mesSourceType
-        , "SubscriptionName" =? _mesSubscriptionName
-        ]
-
-instance ToHeaders ModifyEventSubscription
+mesSubscriptionName = lens _mesSubscriptionName (\ s a -> s{_mesSubscriptionName = a});
 
 instance AWSRequest ModifyEventSubscription where
-    type Sv ModifyEventSubscription = RDS
-    type Rs ModifyEventSubscription = ModifyEventSubscriptionResponse
+        type Sv ModifyEventSubscription = RDS
+        type Rs ModifyEventSubscription =
+             ModifyEventSubscriptionResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "ModifyEventSubscriptionResult"
+              (\ s h x ->
+                 ModifyEventSubscriptionResponse' <$>
+                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
-    request  = post "ModifyEventSubscription"
-    response = xmlResponse
+instance ToHeaders ModifyEventSubscription where
+        toHeaders = const mempty
 
-instance FromXML ModifyEventSubscriptionResponse where
-    parseXML = withElement "ModifyEventSubscriptionResult" $ \x -> ModifyEventSubscriptionResponse
-        <$> x .@? "EventSubscription"
+instance ToPath ModifyEventSubscription where
+        toPath = const "/"
+
+instance ToQuery ModifyEventSubscription where
+        toQuery ModifyEventSubscription'{..}
+          = mconcat
+              ["Action" =:
+                 ("ModifyEventSubscription" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "SnsTopicArn" =: _mesSNSTopicARN,
+               "Enabled" =: _mesEnabled,
+               "SourceType" =: _mesSourceType,
+               "EventCategories" =:
+                 toQuery
+                   (toQueryList "EventCategory" <$>
+                      _mesEventCategories),
+               "SubscriptionName" =: _mesSubscriptionName]
+
+-- | /See:/ 'modifyEventSubscriptionResponse' smart constructor.
+data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
+    { _mesrsEventSubscription :: !(Maybe EventSubscription)
+    , _mesrsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ModifyEventSubscriptionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'mesrsEventSubscription'
+--
+-- * 'mesrsStatus'
+modifyEventSubscriptionResponse
+    :: Int -- ^ 'mesrsStatus'
+    -> ModifyEventSubscriptionResponse
+modifyEventSubscriptionResponse pStatus_ =
+    ModifyEventSubscriptionResponse'
+    { _mesrsEventSubscription = Nothing
+    , _mesrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+mesrsEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
+mesrsEventSubscription = lens _mesrsEventSubscription (\ s a -> s{_mesrsEventSubscription = a});
+
+-- | The response status code.
+mesrsStatus :: Lens' ModifyEventSubscriptionResponse Int
+mesrsStatus = lens _mesrsStatus (\ s a -> s{_mesrsStatus = a});

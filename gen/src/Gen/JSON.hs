@@ -1,50 +1,60 @@
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE ViewPatterns         #-}
-
-{-# OPTIONS_GHC -fno-warn-orphans #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Gen.JSON
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
+-- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 
 module Gen.JSON where
 
 import           Control.Error
-import qualified Data.Aeson       as A
-import           Data.Function    (on)
-import           Data.Jason.Types
+import           Control.Monad.Except
+import           Data.Aeson           hiding (decode)
+import           Data.Aeson.Types
+import           Data.Bifunctor
+import           Data.ByteString      (ByteString)
+import qualified Data.ByteString.Lazy as LBS
+import qualified Data.HashMap.Strict  as Map
 import           Data.List
-import           Data.Monoid
+import qualified Data.Text.Lazy       as LText
+import           Gen.Formatting
+import           Gen.IO
+import           Gen.Types
+import qualified Text.EDE             as EDE
 
-parse :: FromJSON a => Object -> Script a
-parse = hoistEither . parseEither parseJSON . Object
+required :: MonadIO m => Path -> ExceptT Error m Object
+required = readBSFile >=> hoistEither . decode
 
-toEnv :: (Show a, A.ToJSON a) => a -> Script A.Object
-toEnv (A.toJSON -> A.Object o) = right o
-toEnv e                        = left $
-    "Failed to extract JSON Object from: " ++ show e
+optional :: MonadIO m => Path -> ExceptT Error m Object
+optional f = readBSFile f `catchError` const (return "{}")
+    >>= hoistEither . decode
+
+objectErr :: ToJSON a => String -> a -> Either Error Object
+objectErr n =
+      note (format ("Failed to extract JSON object from value " % string) n)
+    . EDE.fromValue
+    . toJSON
+
+decode :: ByteString -> Either Error Object
+decode = first LText.pack . eitherDecode' . LBS.fromStrict
+
+parse :: FromJSON a => Object -> Either Error a
+parse = first LText.pack . parseEither parseJSON . Object
 
 merge :: [Object] -> Object
 merge = foldl' go mempty
   where
     go :: Object -> Object -> Object
-    go (unObject -> a) (unObject -> b) = mkObject (assoc value a b)
+    go = Map.unionWith value
 
     value :: Value -> Value -> Value
     value l r =
         case (l, r) of
             (Object x, Object y) -> Object (x `go` y)
             (_,        _)        -> l
-
-    assoc :: Eq k => (v -> v -> v) -> [(k, v)] -> [(k, v)] -> [(k, v)]
-    assoc f xs ys = unionBy ((==) `on` fst) (map g xs) ys
-      where
-        g (k, x) | Just y <- lookup k ys = (k, f x y)
-                 | otherwise             = (k, x)

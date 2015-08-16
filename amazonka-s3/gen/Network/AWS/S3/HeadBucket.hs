@@ -1,96 +1,91 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.HeadBucket
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation is useful to determine if a bucket exists and you have
+-- |
+-- Module      : Network.AWS.S3.HeadBucket
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- This operation is useful to determine if a bucket exists and you have
 -- permission to access it.
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadBucket.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadBucket.html AWS API Reference> for HeadBucket.
 module Network.AWS.S3.HeadBucket
     (
-    -- * Request
-      HeadBucket
-    -- ** Request constructor
-    , headBucket
-    -- ** Request lenses
+    -- * Creating a Request
+      headBucket
+    , HeadBucket
+    -- * Request Lenses
     , hbBucket
 
-    -- * Response
-    , HeadBucketResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , headBucketResponse
+    , HeadBucketResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-newtype HeadBucket = HeadBucket
-    { _hbBucket :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | /See:/ 'headBucket' smart constructor.
+newtype HeadBucket = HeadBucket'
+    { _hbBucket :: BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'HeadBucket' constructor.
+-- | Creates a value of 'HeadBucket' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'hbBucket' @::@ 'Text'
---
-headBucket :: Text -- ^ 'hbBucket'
-           -> HeadBucket
-headBucket p1 = HeadBucket
-    { _hbBucket = p1
+-- * 'hbBucket'
+headBucket
+    :: BucketName -- ^ 'hbBucket'
+    -> HeadBucket
+headBucket pBucket_ =
+    HeadBucket'
+    { _hbBucket = pBucket_
     }
 
-hbBucket :: Lens' HeadBucket Text
-hbBucket = lens _hbBucket (\s a -> s { _hbBucket = a })
-
-data HeadBucketResponse = HeadBucketResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'HeadBucketResponse' constructor.
-headBucketResponse :: HeadBucketResponse
-headBucketResponse = HeadBucketResponse
-
-instance ToPath HeadBucket where
-    toPath HeadBucket{..} = mconcat
-        [ "/"
-        , toText _hbBucket
-        ]
-
-instance ToQuery HeadBucket where
-    toQuery = const mempty
-
-instance ToHeaders HeadBucket
-
-instance ToXMLRoot HeadBucket where
-    toXMLRoot = const (namespaced ns "HeadBucket" [])
-
-instance ToXML HeadBucket
+-- | Undocumented member.
+hbBucket :: Lens' HeadBucket BucketName
+hbBucket = lens _hbBucket (\ s a -> s{_hbBucket = a});
 
 instance AWSRequest HeadBucket where
-    type Sv HeadBucket = S3
-    type Rs HeadBucket = HeadBucketResponse
+        type Sv HeadBucket = S3
+        type Rs HeadBucket = HeadBucketResponse
+        request = head'
+        response = receiveNull HeadBucketResponse'
 
-    request  = head
-    response = nullResponse HeadBucketResponse
+instance ToHeaders HeadBucket where
+        toHeaders = const mempty
+
+instance ToPath HeadBucket where
+        toPath HeadBucket'{..}
+          = mconcat ["/", toBS _hbBucket]
+
+instance ToQuery HeadBucket where
+        toQuery = const mempty
+
+-- | /See:/ 'headBucketResponse' smart constructor.
+data HeadBucketResponse =
+    HeadBucketResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'HeadBucketResponse' with the minimum fields required to make a request.
+--
+headBucketResponse
+    :: HeadBucketResponse
+headBucketResponse = HeadBucketResponse'

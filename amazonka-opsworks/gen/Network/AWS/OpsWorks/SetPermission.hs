@@ -1,143 +1,157 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.OpsWorks.SetPermission
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Specifies a user's permissions. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html Security andPermissions>.
+-- |
+-- Module      : Network.AWS.OpsWorks.SetPermission
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- Specifies a user\'s permissions. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingsecurity.html Security and Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetPermission.html>
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_SetPermission.html AWS API Reference> for SetPermission.
 module Network.AWS.OpsWorks.SetPermission
     (
-    -- * Request
-      SetPermission
-    -- ** Request constructor
-    , setPermission
-    -- ** Request lenses
-    , spAllowSsh
+    -- * Creating a Request
+      setPermission
+    , SetPermission
+    -- * Request Lenses
     , spAllowSudo
-    , spIamUserArn
     , spLevel
+    , spAllowSSH
     , spStackId
+    , spIAMUserARN
 
-    -- * Response
-    , SetPermissionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , setPermissionResponse
+    , SetPermissionResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data SetPermission = SetPermission
-    { _spAllowSsh   :: Maybe Bool
-    , _spAllowSudo  :: Maybe Bool
-    , _spIamUserArn :: Text
-    , _spLevel      :: Maybe Text
-    , _spStackId    :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'setPermission' smart constructor.
+data SetPermission = SetPermission'
+    { _spAllowSudo  :: !(Maybe Bool)
+    , _spLevel      :: !(Maybe Text)
+    , _spAllowSSH   :: !(Maybe Bool)
+    , _spStackId    :: !Text
+    , _spIAMUserARN :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetPermission' constructor.
+-- | Creates a value of 'SetPermission' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'spAllowSsh' @::@ 'Maybe' 'Bool'
+-- * 'spAllowSudo'
 --
--- * 'spAllowSudo' @::@ 'Maybe' 'Bool'
+-- * 'spLevel'
 --
--- * 'spIamUserArn' @::@ 'Text'
+-- * 'spAllowSSH'
 --
--- * 'spLevel' @::@ 'Maybe' 'Text'
+-- * 'spStackId'
 --
--- * 'spStackId' @::@ 'Text'
---
-setPermission :: Text -- ^ 'spStackId'
-              -> Text -- ^ 'spIamUserArn'
-              -> SetPermission
-setPermission p1 p2 = SetPermission
-    { _spStackId    = p1
-    , _spIamUserArn = p2
-    , _spAllowSsh   = Nothing
-    , _spAllowSudo  = Nothing
-    , _spLevel      = Nothing
+-- * 'spIAMUserARN'
+setPermission
+    :: Text -- ^ 'spStackId'
+    -> Text -- ^ 'spIAMUserARN'
+    -> SetPermission
+setPermission pStackId_ pIAMUserARN_ =
+    SetPermission'
+    { _spAllowSudo = Nothing
+    , _spLevel = Nothing
+    , _spAllowSSH = Nothing
+    , _spStackId = pStackId_
+    , _spIAMUserARN = pIAMUserARN_
     }
 
--- | The user is allowed to use SSH to communicate with the instance.
-spAllowSsh :: Lens' SetPermission (Maybe Bool)
-spAllowSsh = lens _spAllowSsh (\s a -> s { _spAllowSsh = a })
-
--- | The user is allowed to use sudo to elevate privileges.
+-- | The user is allowed to use __sudo__ to elevate privileges.
 spAllowSudo :: Lens' SetPermission (Maybe Bool)
-spAllowSudo = lens _spAllowSudo (\s a -> s { _spAllowSudo = a })
+spAllowSudo = lens _spAllowSudo (\ s a -> s{_spAllowSudo = a});
 
--- | The user's IAM ARN.
-spIamUserArn :: Lens' SetPermission Text
-spIamUserArn = lens _spIamUserArn (\s a -> s { _spIamUserArn = a })
-
--- | The user's permission level, which must be set to one of the following
+-- | The user\'s permission level, which must be set to one of the following
 -- strings. You cannot set your own permissions level.
 --
--- 'deny'   'show'   'deploy'   'manage'   'iam_only'   For more information on the
--- permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
+-- -   'deny'
+-- -   'show'
+-- -   'deploy'
+-- -   'manage'
+-- -   'iam_only'
+--
+-- For more information on the permissions associated with these levels,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 spLevel :: Lens' SetPermission (Maybe Text)
-spLevel = lens _spLevel (\s a -> s { _spLevel = a })
+spLevel = lens _spLevel (\ s a -> s{_spLevel = a});
+
+-- | The user is allowed to use SSH to communicate with the instance.
+spAllowSSH :: Lens' SetPermission (Maybe Bool)
+spAllowSSH = lens _spAllowSSH (\ s a -> s{_spAllowSSH = a});
 
 -- | The stack ID.
 spStackId :: Lens' SetPermission Text
-spStackId = lens _spStackId (\s a -> s { _spStackId = a })
+spStackId = lens _spStackId (\ s a -> s{_spStackId = a});
 
-data SetPermissionResponse = SetPermissionResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'SetPermissionResponse' constructor.
-setPermissionResponse :: SetPermissionResponse
-setPermissionResponse = SetPermissionResponse
-
-instance ToPath SetPermission where
-    toPath = const "/"
-
-instance ToQuery SetPermission where
-    toQuery = const mempty
-
-instance ToHeaders SetPermission
-
-instance ToJSON SetPermission where
-    toJSON SetPermission{..} = object
-        [ "StackId"    .= _spStackId
-        , "IamUserArn" .= _spIamUserArn
-        , "AllowSsh"   .= _spAllowSsh
-        , "AllowSudo"  .= _spAllowSudo
-        , "Level"      .= _spLevel
-        ]
+-- | The user\'s IAM ARN.
+spIAMUserARN :: Lens' SetPermission Text
+spIAMUserARN = lens _spIAMUserARN (\ s a -> s{_spIAMUserARN = a});
 
 instance AWSRequest SetPermission where
-    type Sv SetPermission = OpsWorks
-    type Rs SetPermission = SetPermissionResponse
+        type Sv SetPermission = OpsWorks
+        type Rs SetPermission = SetPermissionResponse
+        request = postJSON
+        response = receiveNull SetPermissionResponse'
 
-    request  = post "SetPermission"
-    response = nullResponse SetPermissionResponse
+instance ToHeaders SetPermission where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.SetPermission" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON SetPermission where
+        toJSON SetPermission'{..}
+          = object
+              ["AllowSudo" .= _spAllowSudo, "Level" .= _spLevel,
+               "AllowSsh" .= _spAllowSSH, "StackId" .= _spStackId,
+               "IamUserArn" .= _spIAMUserARN]
+
+instance ToPath SetPermission where
+        toPath = const "/"
+
+instance ToQuery SetPermission where
+        toQuery = const mempty
+
+-- | /See:/ 'setPermissionResponse' smart constructor.
+data SetPermissionResponse =
+    SetPermissionResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SetPermissionResponse' with the minimum fields required to make a request.
+--
+setPermissionResponse
+    :: SetPermissionResponse
+setPermissionResponse = SetPermissionResponse'

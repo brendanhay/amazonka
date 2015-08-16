@@ -1,99 +1,107 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.OpsWorks.DeleteStack
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes a specified stack. You must first delete all instances, layers, and
--- apps or deregister registered instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html Shut Downa Stack>.
+-- |
+-- Module      : Network.AWS.OpsWorks.DeleteStack
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- Deletes a specified stack. You must first delete all instances, layers,
+-- and apps or deregister registered instances. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-shutting.html Shut Down a Stack>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteStack.html>
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteStack.html AWS API Reference> for DeleteStack.
 module Network.AWS.OpsWorks.DeleteStack
     (
-    -- * Request
-      DeleteStack
-    -- ** Request constructor
-    , deleteStack
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteStack
+    , DeleteStack
+    -- * Request Lenses
     , dsStackId
 
-    -- * Response
-    , DeleteStackResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteStackResponse
+    , DeleteStackResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteStack = DeleteStack
+-- | /See:/ 'deleteStack' smart constructor.
+newtype DeleteStack = DeleteStack'
     { _dsStackId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteStack' constructor.
+-- | Creates a value of 'DeleteStack' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsStackId' @::@ 'Text'
---
-deleteStack :: Text -- ^ 'dsStackId'
-            -> DeleteStack
-deleteStack p1 = DeleteStack
-    { _dsStackId = p1
+-- * 'dsStackId'
+deleteStack
+    :: Text -- ^ 'dsStackId'
+    -> DeleteStack
+deleteStack pStackId_ =
+    DeleteStack'
+    { _dsStackId = pStackId_
     }
 
 -- | The stack ID.
 dsStackId :: Lens' DeleteStack Text
-dsStackId = lens _dsStackId (\s a -> s { _dsStackId = a })
-
-data DeleteStackResponse = DeleteStackResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteStackResponse' constructor.
-deleteStackResponse :: DeleteStackResponse
-deleteStackResponse = DeleteStackResponse
-
-instance ToPath DeleteStack where
-    toPath = const "/"
-
-instance ToQuery DeleteStack where
-    toQuery = const mempty
-
-instance ToHeaders DeleteStack
-
-instance ToJSON DeleteStack where
-    toJSON DeleteStack{..} = object
-        [ "StackId" .= _dsStackId
-        ]
+dsStackId = lens _dsStackId (\ s a -> s{_dsStackId = a});
 
 instance AWSRequest DeleteStack where
-    type Sv DeleteStack = OpsWorks
-    type Rs DeleteStack = DeleteStackResponse
+        type Sv DeleteStack = OpsWorks
+        type Rs DeleteStack = DeleteStackResponse
+        request = postJSON
+        response = receiveNull DeleteStackResponse'
 
-    request  = post "DeleteStack"
-    response = nullResponse DeleteStackResponse
+instance ToHeaders DeleteStack where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.DeleteStack" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteStack where
+        toJSON DeleteStack'{..}
+          = object ["StackId" .= _dsStackId]
+
+instance ToPath DeleteStack where
+        toPath = const "/"
+
+instance ToQuery DeleteStack where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteStackResponse' smart constructor.
+data DeleteStackResponse =
+    DeleteStackResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteStackResponse' with the minimum fields required to make a request.
+--
+deleteStackResponse
+    :: DeleteStackResponse
+deleteStackResponse = DeleteStackResponse'

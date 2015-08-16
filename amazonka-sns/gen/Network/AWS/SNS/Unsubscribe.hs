@@ -1,96 +1,101 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SNS.Unsubscribe
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes a subscription. If the subscription requires authentication for
--- deletion, only the owner of the subscription or the topic's owner can
--- unsubscribe, and an AWS signature is required. If the 'Unsubscribe' call does
--- not require authentication and the requester is not the subscription owner, a
--- final cancellation message is delivered to the endpoint, so that the endpoint
--- owner can easily resubscribe to the topic if the 'Unsubscribe' request was
--- unintended.
+-- |
+-- Module      : Network.AWS.SNS.Unsubscribe
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html>
+-- Deletes a subscription. If the subscription requires authentication for
+-- deletion, only the owner of the subscription or the topic\'s owner can
+-- unsubscribe, and an AWS signature is required. If the 'Unsubscribe' call
+-- does not require authentication and the requester is not the
+-- subscription owner, a final cancellation message is delivered to the
+-- endpoint, so that the endpoint owner can easily resubscribe to the topic
+-- if the 'Unsubscribe' request was unintended.
+--
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_Unsubscribe.html AWS API Reference> for Unsubscribe.
 module Network.AWS.SNS.Unsubscribe
     (
-    -- * Request
-      Unsubscribe
-    -- ** Request constructor
-    , unsubscribe
-    -- ** Request lenses
-    , uSubscriptionArn
+    -- * Creating a Request
+      unsubscribe
+    , Unsubscribe
+    -- * Request Lenses
+    , uSubscriptionARN
 
-    -- * Response
-    , UnsubscribeResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , unsubscribeResponse
+    , UnsubscribeResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
+import           Network.AWS.SNS.Types.Product
 
-newtype Unsubscribe = Unsubscribe
-    { _uSubscriptionArn :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | Input for Unsubscribe action.
+--
+-- /See:/ 'unsubscribe' smart constructor.
+newtype Unsubscribe = Unsubscribe'
+    { _uSubscriptionARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'Unsubscribe' constructor.
+-- | Creates a value of 'Unsubscribe' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uSubscriptionArn' @::@ 'Text'
---
-unsubscribe :: Text -- ^ 'uSubscriptionArn'
-            -> Unsubscribe
-unsubscribe p1 = Unsubscribe
-    { _uSubscriptionArn = p1
+-- * 'uSubscriptionARN'
+unsubscribe
+    :: Text -- ^ 'uSubscriptionARN'
+    -> Unsubscribe
+unsubscribe pSubscriptionARN_ =
+    Unsubscribe'
+    { _uSubscriptionARN = pSubscriptionARN_
     }
 
 -- | The ARN of the subscription to be deleted.
-uSubscriptionArn :: Lens' Unsubscribe Text
-uSubscriptionArn = lens _uSubscriptionArn (\s a -> s { _uSubscriptionArn = a })
-
-data UnsubscribeResponse = UnsubscribeResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UnsubscribeResponse' constructor.
-unsubscribeResponse :: UnsubscribeResponse
-unsubscribeResponse = UnsubscribeResponse
-
-instance ToPath Unsubscribe where
-    toPath = const "/"
-
-instance ToQuery Unsubscribe where
-    toQuery Unsubscribe{..} = mconcat
-        [ "SubscriptionArn" =? _uSubscriptionArn
-        ]
-
-instance ToHeaders Unsubscribe
+uSubscriptionARN :: Lens' Unsubscribe Text
+uSubscriptionARN = lens _uSubscriptionARN (\ s a -> s{_uSubscriptionARN = a});
 
 instance AWSRequest Unsubscribe where
-    type Sv Unsubscribe = SNS
-    type Rs Unsubscribe = UnsubscribeResponse
+        type Sv Unsubscribe = SNS
+        type Rs Unsubscribe = UnsubscribeResponse
+        request = postQuery
+        response = receiveNull UnsubscribeResponse'
 
-    request  = post "Unsubscribe"
-    response = nullResponse UnsubscribeResponse
+instance ToHeaders Unsubscribe where
+        toHeaders = const mempty
+
+instance ToPath Unsubscribe where
+        toPath = const "/"
+
+instance ToQuery Unsubscribe where
+        toQuery Unsubscribe'{..}
+          = mconcat
+              ["Action" =: ("Unsubscribe" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "SubscriptionArn" =: _uSubscriptionARN]
+
+-- | /See:/ 'unsubscribeResponse' smart constructor.
+data UnsubscribeResponse =
+    UnsubscribeResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UnsubscribeResponse' with the minimum fields required to make a request.
+--
+unsubscribeResponse
+    :: UnsubscribeResponse
+unsubscribeResponse = UnsubscribeResponse'

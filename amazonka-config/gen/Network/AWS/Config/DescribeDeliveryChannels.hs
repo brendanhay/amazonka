@@ -1,132 +1,136 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Config.DescribeDeliveryChannels
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns details about the specified delivery channel. If a delivery channel
--- is not specified, this action returns the details of all delivery channels
--- associated with the account.
+-- |
+-- Module      : Network.AWS.Config.DescribeDeliveryChannels
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Returns details about the specified delivery channel. If a delivery
+-- channel is not specified, this action returns the details of all
+-- delivery channels associated with the account.
 --
 -- Currently, you can specify only one delivery channel per account.
 --
---
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannels.html>
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannels.html AWS API Reference> for DescribeDeliveryChannels.
 module Network.AWS.Config.DescribeDeliveryChannels
     (
-    -- * Request
-      DescribeDeliveryChannels
-    -- ** Request constructor
-    , describeDeliveryChannels
-    -- ** Request lenses
+    -- * Creating a Request
+      describeDeliveryChannels
+    , DescribeDeliveryChannels
+    -- * Request Lenses
     , ddcDeliveryChannelNames
 
-    -- * Response
-    , DescribeDeliveryChannelsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeDeliveryChannelsResponse
-    -- ** Response lenses
-    , ddcrDeliveryChannels
+    , DescribeDeliveryChannelsResponse
+    -- * Response Lenses
+    , ddcrsDeliveryChannels
+    , ddcrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Config.Types
-import qualified GHC.Exts
+import           Network.AWS.Config.Types
+import           Network.AWS.Config.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeDeliveryChannels = DescribeDeliveryChannels
-    { _ddcDeliveryChannelNames :: List "DeliveryChannelNames" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeDeliveryChannels where
-    type Item DescribeDeliveryChannels = Text
-
-    fromList = DescribeDeliveryChannels . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _ddcDeliveryChannelNames
-
--- | 'DescribeDeliveryChannels' constructor.
+-- | The input for the DescribeDeliveryChannels action.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeDeliveryChannels' smart constructor.
+newtype DescribeDeliveryChannels = DescribeDeliveryChannels'
+    { _ddcDeliveryChannelNames :: Maybe [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeDeliveryChannels' with the minimum fields required to make a request.
 --
--- * 'ddcDeliveryChannelNames' @::@ ['Text']
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeDeliveryChannels :: DescribeDeliveryChannels
-describeDeliveryChannels = DescribeDeliveryChannels
-    { _ddcDeliveryChannelNames = mempty
+-- * 'ddcDeliveryChannelNames'
+describeDeliveryChannels
+    :: DescribeDeliveryChannels
+describeDeliveryChannels =
+    DescribeDeliveryChannels'
+    { _ddcDeliveryChannelNames = Nothing
     }
 
 -- | A list of delivery channel names.
 ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
-ddcDeliveryChannelNames =
-    lens _ddcDeliveryChannelNames (\s a -> s { _ddcDeliveryChannelNames = a })
-        . _List
+ddcDeliveryChannelNames = lens _ddcDeliveryChannelNames (\ s a -> s{_ddcDeliveryChannelNames = a}) . _Default . _Coerce;
 
-newtype DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse
-    { _ddcrDeliveryChannels :: List "DeliveryChannels" DeliveryChannel
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeDeliveryChannels where
+        type Sv DescribeDeliveryChannels = Config
+        type Rs DescribeDeliveryChannels =
+             DescribeDeliveryChannelsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeDeliveryChannelsResponse' <$>
+                   (x .?> "DeliveryChannels" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeDeliveryChannelsResponse where
-    type Item DescribeDeliveryChannelsResponse = DeliveryChannel
+instance ToHeaders DescribeDeliveryChannels where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StarlingDoveService.DescribeDeliveryChannels" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = DescribeDeliveryChannelsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _ddcrDeliveryChannels
+instance ToJSON DescribeDeliveryChannels where
+        toJSON DescribeDeliveryChannels'{..}
+          = object
+              ["DeliveryChannelNames" .= _ddcDeliveryChannelNames]
 
--- | 'DescribeDeliveryChannelsResponse' constructor.
+instance ToPath DescribeDeliveryChannels where
+        toPath = const "/"
+
+instance ToQuery DescribeDeliveryChannels where
+        toQuery = const mempty
+
+-- | The output for the DescribeDeliveryChannels action.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeDeliveryChannelsResponse' smart constructor.
+data DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'
+    { _ddcrsDeliveryChannels :: !(Maybe [DeliveryChannel])
+    , _ddcrsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeDeliveryChannelsResponse' with the minimum fields required to make a request.
 --
--- * 'ddcrDeliveryChannels' @::@ ['DeliveryChannel']
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeDeliveryChannelsResponse :: DescribeDeliveryChannelsResponse
-describeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse
-    { _ddcrDeliveryChannels = mempty
+-- * 'ddcrsDeliveryChannels'
+--
+-- * 'ddcrsStatus'
+describeDeliveryChannelsResponse
+    :: Int -- ^ 'ddcrsStatus'
+    -> DescribeDeliveryChannelsResponse
+describeDeliveryChannelsResponse pStatus_ =
+    DescribeDeliveryChannelsResponse'
+    { _ddcrsDeliveryChannels = Nothing
+    , _ddcrsStatus = pStatus_
     }
 
 -- | A list that contains the descriptions of the specified delivery channel.
-ddcrDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
-ddcrDeliveryChannels =
-    lens _ddcrDeliveryChannels (\s a -> s { _ddcrDeliveryChannels = a })
-        . _List
+ddcrsDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
+ddcrsDeliveryChannels = lens _ddcrsDeliveryChannels (\ s a -> s{_ddcrsDeliveryChannels = a}) . _Default . _Coerce;
 
-instance ToPath DescribeDeliveryChannels where
-    toPath = const "/"
-
-instance ToQuery DescribeDeliveryChannels where
-    toQuery = const mempty
-
-instance ToHeaders DescribeDeliveryChannels
-
-instance ToJSON DescribeDeliveryChannels where
-    toJSON DescribeDeliveryChannels{..} = object
-        [ "DeliveryChannelNames" .= _ddcDeliveryChannelNames
-        ]
-
-instance AWSRequest DescribeDeliveryChannels where
-    type Sv DescribeDeliveryChannels = Config
-    type Rs DescribeDeliveryChannels = DescribeDeliveryChannelsResponse
-
-    request  = post "DescribeDeliveryChannels"
-    response = jsonResponse
-
-instance FromJSON DescribeDeliveryChannelsResponse where
-    parseJSON = withObject "DescribeDeliveryChannelsResponse" $ \o -> DescribeDeliveryChannelsResponse
-        <$> o .:? "DeliveryChannels" .!= mempty
+-- | The response status code.
+ddcrsStatus :: Lens' DescribeDeliveryChannelsResponse Int
+ddcrsStatus = lens _ddcrsStatus (\ s a -> s{_ddcrsStatus = a});

@@ -1,118 +1,119 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.PutBucketLogging
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Set the logging parameters for a bucket and to specify permissions for who
--- can view and modify the logging parameters. To set the logging status of a
--- bucket, you must be the bucket owner.
+-- |
+-- Module      : Network.AWS.S3.PutBucketLogging
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLogging.html>
+-- Set the logging parameters for a bucket and to specify permissions for
+-- who can view and modify the logging parameters. To set the logging
+-- status of a bucket, you must be the bucket owner.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketLogging.html AWS API Reference> for PutBucketLogging.
 module Network.AWS.S3.PutBucketLogging
     (
-    -- * Request
-      PutBucketLogging
-    -- ** Request constructor
-    , putBucketLogging
-    -- ** Request lenses
+    -- * Creating a Request
+      putBucketLogging
+    , PutBucketLogging
+    -- * Request Lenses
+    , pblContentMD5
     , pblBucket
     , pblBucketLoggingStatus
-    , pblContentMD5
 
-    -- * Response
-    , PutBucketLoggingResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , putBucketLoggingResponse
+    , PutBucketLoggingResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-data PutBucketLogging = PutBucketLogging
-    { _pblBucket              :: Text
-    , _pblBucketLoggingStatus :: BucketLoggingStatus
-    , _pblContentMD5          :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'putBucketLogging' smart constructor.
+data PutBucketLogging = PutBucketLogging'
+    { _pblContentMD5          :: !(Maybe Text)
+    , _pblBucket              :: !BucketName
+    , _pblBucketLoggingStatus :: !BucketLoggingStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketLogging' constructor.
+-- | Creates a value of 'PutBucketLogging' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pblBucket' @::@ 'Text'
+-- * 'pblContentMD5'
 --
--- * 'pblBucketLoggingStatus' @::@ 'BucketLoggingStatus'
+-- * 'pblBucket'
 --
--- * 'pblContentMD5' @::@ 'Maybe' 'Text'
---
-putBucketLogging :: Text -- ^ 'pblBucket'
-                 -> BucketLoggingStatus -- ^ 'pblBucketLoggingStatus'
-                 -> PutBucketLogging
-putBucketLogging p1 p2 = PutBucketLogging
-    { _pblBucket              = p1
-    , _pblBucketLoggingStatus = p2
-    , _pblContentMD5          = Nothing
+-- * 'pblBucketLoggingStatus'
+putBucketLogging
+    :: BucketName -- ^ 'pblBucket'
+    -> BucketLoggingStatus -- ^ 'pblBucketLoggingStatus'
+    -> PutBucketLogging
+putBucketLogging pBucket_ pBucketLoggingStatus_ =
+    PutBucketLogging'
+    { _pblContentMD5 = Nothing
+    , _pblBucket = pBucket_
+    , _pblBucketLoggingStatus = pBucketLoggingStatus_
     }
 
-pblBucket :: Lens' PutBucketLogging Text
-pblBucket = lens _pblBucket (\s a -> s { _pblBucket = a })
-
-pblBucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
-pblBucketLoggingStatus =
-    lens _pblBucketLoggingStatus (\s a -> s { _pblBucketLoggingStatus = a })
-
+-- | Undocumented member.
 pblContentMD5 :: Lens' PutBucketLogging (Maybe Text)
-pblContentMD5 = lens _pblContentMD5 (\s a -> s { _pblContentMD5 = a })
+pblContentMD5 = lens _pblContentMD5 (\ s a -> s{_pblContentMD5 = a});
 
-data PutBucketLoggingResponse = PutBucketLoggingResponse
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | Undocumented member.
+pblBucket :: Lens' PutBucketLogging BucketName
+pblBucket = lens _pblBucket (\ s a -> s{_pblBucket = a});
 
--- | 'PutBucketLoggingResponse' constructor.
-putBucketLoggingResponse :: PutBucketLoggingResponse
-putBucketLoggingResponse = PutBucketLoggingResponse
-
-instance ToPath PutBucketLogging where
-    toPath PutBucketLogging{..} = mconcat
-        [ "/"
-        , toText _pblBucket
-        ]
-
-instance ToQuery PutBucketLogging where
-    toQuery = const "logging"
-
-instance ToHeaders PutBucketLogging where
-    toHeaders PutBucketLogging{..} = mconcat
-        [ "Content-MD5" =: _pblContentMD5
-        ]
-
-instance ToXMLRoot PutBucketLogging where
-    toXMLRoot = extractRoot ns . toXML . _pblBucketLoggingStatus
-
-instance ToXML PutBucketLogging
+-- | Undocumented member.
+pblBucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
+pblBucketLoggingStatus = lens _pblBucketLoggingStatus (\ s a -> s{_pblBucketLoggingStatus = a});
 
 instance AWSRequest PutBucketLogging where
-    type Sv PutBucketLogging = S3
-    type Rs PutBucketLogging = PutBucketLoggingResponse
+        type Sv PutBucketLogging = S3
+        type Rs PutBucketLogging = PutBucketLoggingResponse
+        request = putXML
+        response = receiveNull PutBucketLoggingResponse'
 
-    request  = put
-    response = nullResponse PutBucketLoggingResponse
+instance ToElement PutBucketLogging where
+        toElement
+          = mkElement
+              "{http://s3.amazonaws.com/doc/2006-03-01/}BucketLoggingStatus"
+              .
+              _pblBucketLoggingStatus
+
+instance ToHeaders PutBucketLogging where
+        toHeaders PutBucketLogging'{..}
+          = mconcat ["Content-MD5" =# _pblContentMD5]
+
+instance ToPath PutBucketLogging where
+        toPath PutBucketLogging'{..}
+          = mconcat ["/", toBS _pblBucket]
+
+instance ToQuery PutBucketLogging where
+        toQuery = const (mconcat ["logging"])
+
+-- | /See:/ 'putBucketLoggingResponse' smart constructor.
+data PutBucketLoggingResponse =
+    PutBucketLoggingResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutBucketLoggingResponse' with the minimum fields required to make a request.
+--
+putBucketLoggingResponse
+    :: PutBucketLoggingResponse
+putBucketLoggingResponse = PutBucketLoggingResponse'

@@ -1,116 +1,119 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.UpdateLoginProfile
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Changes the password for the specified user.
+-- |
+-- Module      : Network.AWS.IAM.UpdateLoginProfile
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Users can change their own passwords by calling 'ChangePassword'. For more
--- information about modifying passwords, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords> in the /Using IAM/
--- guide.
+-- Changes the password for the specified user.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html>
+-- Users can change their own passwords by calling ChangePassword. For more
+-- information about modifying passwords, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>
+-- in the /Using IAM/ guide.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateLoginProfile.html AWS API Reference> for UpdateLoginProfile.
 module Network.AWS.IAM.UpdateLoginProfile
     (
-    -- * Request
-      UpdateLoginProfile
-    -- ** Request constructor
-    , updateLoginProfile
-    -- ** Request lenses
+    -- * Creating a Request
+      updateLoginProfile
+    , UpdateLoginProfile
+    -- * Request Lenses
     , ulpPassword
     , ulpPasswordResetRequired
     , ulpUserName
 
-    -- * Response
-    , UpdateLoginProfileResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , updateLoginProfileResponse
+    , UpdateLoginProfileResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateLoginProfile = UpdateLoginProfile
-    { _ulpPassword              :: Maybe (Sensitive Text)
-    , _ulpPasswordResetRequired :: Maybe Bool
-    , _ulpUserName              :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'updateLoginProfile' smart constructor.
+data UpdateLoginProfile = UpdateLoginProfile'
+    { _ulpPassword              :: !(Maybe (Sensitive Text))
+    , _ulpPasswordResetRequired :: !(Maybe Bool)
+    , _ulpUserName              :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateLoginProfile' constructor.
+-- | Creates a value of 'UpdateLoginProfile' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ulpPassword' @::@ 'Maybe' 'Text'
+-- * 'ulpPassword'
 --
--- * 'ulpPasswordResetRequired' @::@ 'Maybe' 'Bool'
+-- * 'ulpPasswordResetRequired'
 --
--- * 'ulpUserName' @::@ 'Text'
---
-updateLoginProfile :: Text -- ^ 'ulpUserName'
-                   -> UpdateLoginProfile
-updateLoginProfile p1 = UpdateLoginProfile
-    { _ulpUserName              = p1
-    , _ulpPassword              = Nothing
+-- * 'ulpUserName'
+updateLoginProfile
+    :: Text -- ^ 'ulpUserName'
+    -> UpdateLoginProfile
+updateLoginProfile pUserName_ =
+    UpdateLoginProfile'
+    { _ulpPassword = Nothing
     , _ulpPasswordResetRequired = Nothing
+    , _ulpUserName = pUserName_
     }
 
 -- | The new password for the specified user.
 ulpPassword :: Lens' UpdateLoginProfile (Maybe Text)
-ulpPassword = lens _ulpPassword (\s a -> s { _ulpPassword = a }) . mapping _Sensitive
+ulpPassword = lens _ulpPassword (\ s a -> s{_ulpPassword = a}) . mapping _Sensitive;
 
 -- | Require the specified user to set a new password on next sign-in.
 ulpPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
-ulpPasswordResetRequired =
-    lens _ulpPasswordResetRequired
-        (\s a -> s { _ulpPasswordResetRequired = a })
+ulpPasswordResetRequired = lens _ulpPasswordResetRequired (\ s a -> s{_ulpPasswordResetRequired = a});
 
 -- | The name of the user whose password you want to update.
 ulpUserName :: Lens' UpdateLoginProfile Text
-ulpUserName = lens _ulpUserName (\s a -> s { _ulpUserName = a })
-
-data UpdateLoginProfileResponse = UpdateLoginProfileResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UpdateLoginProfileResponse' constructor.
-updateLoginProfileResponse :: UpdateLoginProfileResponse
-updateLoginProfileResponse = UpdateLoginProfileResponse
-
-instance ToPath UpdateLoginProfile where
-    toPath = const "/"
-
-instance ToQuery UpdateLoginProfile where
-    toQuery UpdateLoginProfile{..} = mconcat
-        [ "Password"              =? _ulpPassword
-        , "PasswordResetRequired" =? _ulpPasswordResetRequired
-        , "UserName"              =? _ulpUserName
-        ]
-
-instance ToHeaders UpdateLoginProfile
+ulpUserName = lens _ulpUserName (\ s a -> s{_ulpUserName = a});
 
 instance AWSRequest UpdateLoginProfile where
-    type Sv UpdateLoginProfile = IAM
-    type Rs UpdateLoginProfile = UpdateLoginProfileResponse
+        type Sv UpdateLoginProfile = IAM
+        type Rs UpdateLoginProfile =
+             UpdateLoginProfileResponse
+        request = postQuery
+        response = receiveNull UpdateLoginProfileResponse'
 
-    request  = post "UpdateLoginProfile"
-    response = nullResponse UpdateLoginProfileResponse
+instance ToHeaders UpdateLoginProfile where
+        toHeaders = const mempty
+
+instance ToPath UpdateLoginProfile where
+        toPath = const "/"
+
+instance ToQuery UpdateLoginProfile where
+        toQuery UpdateLoginProfile'{..}
+          = mconcat
+              ["Action" =: ("UpdateLoginProfile" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "Password" =: _ulpPassword,
+               "PasswordResetRequired" =: _ulpPasswordResetRequired,
+               "UserName" =: _ulpUserName]
+
+-- | /See:/ 'updateLoginProfileResponse' smart constructor.
+data UpdateLoginProfileResponse =
+    UpdateLoginProfileResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateLoginProfileResponse' with the minimum fields required to make a request.
+--
+updateLoginProfileResponse
+    :: UpdateLoginProfileResponse
+updateLoginProfileResponse = UpdateLoginProfileResponse'

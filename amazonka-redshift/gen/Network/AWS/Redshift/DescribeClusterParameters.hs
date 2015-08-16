@@ -1,187 +1,211 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Redshift.DescribeClusterParameters
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a detailed list of parameters contained within the specified Amazon
--- Redshift parameter group. For each parameter the response includes
--- information such as parameter name, description, data type, value, whether
--- the parameter value is modifiable, and so on.
+-- |
+-- Module      : Network.AWS.Redshift.DescribeClusterParameters
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- You can specify /source/ filter to retrieve parameters of only specific type.
--- For example, to retrieve parameters that were modified by a user action such
--- as from 'ModifyClusterParameterGroup', you can specify /source/ equal to /user/.
+-- Returns a detailed list of parameters contained within the specified
+-- Amazon Redshift parameter group. For each parameter the response
+-- includes information such as parameter name, description, data type,
+-- value, whether the parameter value is modifiable, and so on.
 --
--- For more information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon RedshiftParameter Groups> in the /Amazon Redshift Cluster Management Guide/.
+-- You can specify /source/ filter to retrieve parameters of only specific
+-- type. For example, to retrieve parameters that were modified by a user
+-- action such as from ModifyClusterParameterGroup, you can specify
+-- /source/ equal to /user/.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameters.html>
+-- For more information about parameters and parameter groups, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
+-- in the /Amazon Redshift Cluster Management Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterParameters.html AWS API Reference> for DescribeClusterParameters.
+--
+-- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusterParameters
     (
-    -- * Request
-      DescribeClusterParameters
-    -- ** Request constructor
-    , describeClusterParameters
-    -- ** Request lenses
-    , dcp1Marker
-    , dcp1MaxRecords
-    , dcp1ParameterGroupName
-    , dcp1Source
+    -- * Creating a Request
+      describeClusterParameters
+    , DescribeClusterParameters
+    -- * Request Lenses
+    , dcpsMaxRecords
+    , dcpsMarker
+    , dcpsSource
+    , dcpsParameterGroupName
 
-    -- * Response
-    , DescribeClusterParametersResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeClusterParametersResponse
-    -- ** Response lenses
-    , dcprMarker
-    , dcprParameters
+    , DescribeClusterParametersResponse
+    -- * Response Lenses
+    , dcprsParameters
+    , dcprsMarker
+    , dcprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeClusterParameters = DescribeClusterParameters
-    { _dcp1Marker             :: Maybe Text
-    , _dcp1MaxRecords         :: Maybe Int
-    , _dcp1ParameterGroupName :: Text
-    , _dcp1Source             :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'describeClusterParameters' smart constructor.
+data DescribeClusterParameters = DescribeClusterParameters'
+    { _dcpsMaxRecords         :: !(Maybe Int)
+    , _dcpsMarker             :: !(Maybe Text)
+    , _dcpsSource             :: !(Maybe Text)
+    , _dcpsParameterGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeClusterParameters' constructor.
+-- | Creates a value of 'DescribeClusterParameters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcp1Marker' @::@ 'Maybe' 'Text'
+-- * 'dcpsMaxRecords'
 --
--- * 'dcp1MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dcpsMarker'
 --
--- * 'dcp1ParameterGroupName' @::@ 'Text'
+-- * 'dcpsSource'
 --
--- * 'dcp1Source' @::@ 'Maybe' 'Text'
---
-describeClusterParameters :: Text -- ^ 'dcp1ParameterGroupName'
-                          -> DescribeClusterParameters
-describeClusterParameters p1 = DescribeClusterParameters
-    { _dcp1ParameterGroupName = p1
-    , _dcp1Source             = Nothing
-    , _dcp1MaxRecords         = Nothing
-    , _dcp1Marker             = Nothing
+-- * 'dcpsParameterGroupName'
+describeClusterParameters
+    :: Text -- ^ 'dcpsParameterGroupName'
+    -> DescribeClusterParameters
+describeClusterParameters pParameterGroupName_ =
+    DescribeClusterParameters'
+    { _dcpsMaxRecords = Nothing
+    , _dcpsMarker = Nothing
+    , _dcpsSource = Nothing
+    , _dcpsParameterGroupName = pParameterGroupName_
     }
 
--- | An optional parameter that specifies the starting point to return a set of
--- response records. When the results of a 'DescribeClusterParameters' request
--- exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker'
--- field of the response. You can retrieve the next set of response records by
--- providing the returned marker value in the 'Marker' parameter and retrying the
--- request.
-dcp1Marker :: Lens' DescribeClusterParameters (Maybe Text)
-dcp1Marker = lens _dcp1Marker (\s a -> s { _dcp1Marker = a })
-
--- | The maximum number of response records to return in each call. If the number
--- of remaining response records exceeds the specified 'MaxRecords' value, a value
--- is returned in a 'marker' field of the response. You can retrieve the next set
--- of records by retrying the command with the returned marker value.
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified 'MaxRecords'
+-- value, a value is returned in a 'marker' field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
 --
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
-dcp1MaxRecords :: Lens' DescribeClusterParameters (Maybe Int)
-dcp1MaxRecords = lens _dcp1MaxRecords (\s a -> s { _dcp1MaxRecords = a })
+dcpsMaxRecords :: Lens' DescribeClusterParameters (Maybe Int)
+dcpsMaxRecords = lens _dcpsMaxRecords (\ s a -> s{_dcpsMaxRecords = a});
 
--- | The name of a cluster parameter group for which to return details.
-dcp1ParameterGroupName :: Lens' DescribeClusterParameters Text
-dcp1ParameterGroupName =
-    lens _dcp1ParameterGroupName (\s a -> s { _dcp1ParameterGroupName = a })
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterParameters
+-- request exceed the value specified in 'MaxRecords', AWS returns a value
+-- in the 'Marker' field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the 'Marker'
+-- parameter and retrying the request.
+dcpsMarker :: Lens' DescribeClusterParameters (Maybe Text)
+dcpsMarker = lens _dcpsMarker (\ s a -> s{_dcpsMarker = a});
 
--- | The parameter types to return. Specify 'user' to show parameters that are
--- different form the default. Similarly, specify 'engine-default' to show
--- parameters that are the same as the default parameter group.
+-- | The parameter types to return. Specify 'user' to show parameters that
+-- are different form the default. Similarly, specify 'engine-default' to
+-- show parameters that are the same as the default parameter group.
 --
 -- Default: All parameter types returned.
 --
 -- Valid Values: 'user' | 'engine-default'
-dcp1Source :: Lens' DescribeClusterParameters (Maybe Text)
-dcp1Source = lens _dcp1Source (\s a -> s { _dcp1Source = a })
+dcpsSource :: Lens' DescribeClusterParameters (Maybe Text)
+dcpsSource = lens _dcpsSource (\ s a -> s{_dcpsSource = a});
 
-data DescribeClusterParametersResponse = DescribeClusterParametersResponse
-    { _dcprMarker     :: Maybe Text
-    , _dcprParameters :: List "member" Parameter
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeClusterParametersResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcprMarker' @::@ 'Maybe' 'Text'
---
--- * 'dcprParameters' @::@ ['Parameter']
---
-describeClusterParametersResponse :: DescribeClusterParametersResponse
-describeClusterParametersResponse = DescribeClusterParametersResponse
-    { _dcprParameters = mempty
-    , _dcprMarker     = Nothing
-    }
-
--- | A value that indicates the starting point for the next set of response
--- records in a subsequent request. If a value is returned in a response, you
--- can retrieve the next set of records by providing this returned marker value
--- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
--- empty, all response records have been retrieved for the request.
-dcprMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
-dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
-
--- | A list of 'Parameter' instances. Each instance lists the parameters of one
--- cluster parameter group.
-dcprParameters :: Lens' DescribeClusterParametersResponse [Parameter]
-dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a }) . _List
-
-instance ToPath DescribeClusterParameters where
-    toPath = const "/"
-
-instance ToQuery DescribeClusterParameters where
-    toQuery DescribeClusterParameters{..} = mconcat
-        [ "Marker"             =? _dcp1Marker
-        , "MaxRecords"         =? _dcp1MaxRecords
-        , "ParameterGroupName" =? _dcp1ParameterGroupName
-        , "Source"             =? _dcp1Source
-        ]
-
-instance ToHeaders DescribeClusterParameters
-
-instance AWSRequest DescribeClusterParameters where
-    type Sv DescribeClusterParameters = Redshift
-    type Rs DescribeClusterParameters = DescribeClusterParametersResponse
-
-    request  = post "DescribeClusterParameters"
-    response = xmlResponse
-
-instance FromXML DescribeClusterParametersResponse where
-    parseXML = withElement "DescribeClusterParametersResult" $ \x -> DescribeClusterParametersResponse
-        <$> x .@? "Marker"
-        <*> x .@? "Parameters" .!@ mempty
+-- | The name of a cluster parameter group for which to return details.
+dcpsParameterGroupName :: Lens' DescribeClusterParameters Text
+dcpsParameterGroupName = lens _dcpsParameterGroupName (\ s a -> s{_dcpsParameterGroupName = a});
 
 instance AWSPager DescribeClusterParameters where
-    page rq rs
-        | stop (rs ^. dcprMarker) = Nothing
-        | otherwise = (\x -> rq & dcp1Marker ?~ x)
-            <$> (rs ^. dcprMarker)
+        page rq rs
+          | stop (rs ^. dcprsMarker) = Nothing
+          | stop (rs ^. dcprsParameters) = Nothing
+          | otherwise =
+            Just $ rq & dcpsMarker .~ rs ^. dcprsMarker
+
+instance AWSRequest DescribeClusterParameters where
+        type Sv DescribeClusterParameters = Redshift
+        type Rs DescribeClusterParameters =
+             DescribeClusterParametersResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DescribeClusterParametersResult"
+              (\ s h x ->
+                 DescribeClusterParametersResponse' <$>
+                   (x .@? "Parameters" .!@ mempty >>=
+                      may (parseXMLList "Parameter"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeClusterParameters where
+        toHeaders = const mempty
+
+instance ToPath DescribeClusterParameters where
+        toPath = const "/"
+
+instance ToQuery DescribeClusterParameters where
+        toQuery DescribeClusterParameters'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeClusterParameters" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "MaxRecords" =: _dcpsMaxRecords,
+               "Marker" =: _dcpsMarker, "Source" =: _dcpsSource,
+               "ParameterGroupName" =: _dcpsParameterGroupName]
+
+-- | Contains the output from the DescribeClusterParameters action.
+--
+-- /See:/ 'describeClusterParametersResponse' smart constructor.
+data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
+    { _dcprsParameters :: !(Maybe [Parameter])
+    , _dcprsMarker     :: !(Maybe Text)
+    , _dcprsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeClusterParametersResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcprsParameters'
+--
+-- * 'dcprsMarker'
+--
+-- * 'dcprsStatus'
+describeClusterParametersResponse
+    :: Int -- ^ 'dcprsStatus'
+    -> DescribeClusterParametersResponse
+describeClusterParametersResponse pStatus_ =
+    DescribeClusterParametersResponse'
+    { _dcprsParameters = Nothing
+    , _dcprsMarker = Nothing
+    , _dcprsStatus = pStatus_
+    }
+
+-- | A list of Parameter instances. Each instance lists the parameters of one
+-- cluster parameter group.
+dcprsParameters :: Lens' DescribeClusterParametersResponse [Parameter]
+dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
+
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the 'Marker' parameter and retrying the command. If the
+-- 'Marker' field is empty, all response records have been retrieved for
+-- the request.
+dcprsMarker :: Lens' DescribeClusterParametersResponse (Maybe Text)
+dcprsMarker = lens _dcprsMarker (\ s a -> s{_dcprsMarker = a});
+
+-- | The response status code.
+dcprsStatus :: Lens' DescribeClusterParametersResponse Int
+dcprsStatus = lens _dcprsStatus (\ s a -> s{_dcprsStatus = a});

@@ -1,116 +1,123 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SNS.SetSubscriptionAttributes
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Allows a subscription owner to set an attribute of the topic to a new value.
+-- |
+-- Module      : Network.AWS.SNS.SetSubscriptionAttributes
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html>
+-- Allows a subscription owner to set an attribute of the topic to a new
+-- value.
+--
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html AWS API Reference> for SetSubscriptionAttributes.
 module Network.AWS.SNS.SetSubscriptionAttributes
     (
-    -- * Request
-      SetSubscriptionAttributes
-    -- ** Request constructor
-    , setSubscriptionAttributes
-    -- ** Request lenses
-    , ssaAttributeName
+    -- * Creating a Request
+      setSubscriptionAttributes
+    , SetSubscriptionAttributes
+    -- * Request Lenses
     , ssaAttributeValue
-    , ssaSubscriptionArn
+    , ssaSubscriptionARN
+    , ssaAttributeName
 
-    -- * Response
-    , SetSubscriptionAttributesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , setSubscriptionAttributesResponse
+    , SetSubscriptionAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
+import           Network.AWS.SNS.Types.Product
 
-data SetSubscriptionAttributes = SetSubscriptionAttributes
-    { _ssaAttributeName   :: Text
-    , _ssaAttributeValue  :: Maybe Text
-    , _ssaSubscriptionArn :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Input for SetSubscriptionAttributes action.
+--
+-- /See:/ 'setSubscriptionAttributes' smart constructor.
+data SetSubscriptionAttributes = SetSubscriptionAttributes'
+    { _ssaAttributeValue  :: !(Maybe Text)
+    , _ssaSubscriptionARN :: !Text
+    , _ssaAttributeName   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetSubscriptionAttributes' constructor.
+-- | Creates a value of 'SetSubscriptionAttributes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ssaAttributeName' @::@ 'Text'
+-- * 'ssaAttributeValue'
 --
--- * 'ssaAttributeValue' @::@ 'Maybe' 'Text'
+-- * 'ssaSubscriptionARN'
 --
--- * 'ssaSubscriptionArn' @::@ 'Text'
---
-setSubscriptionAttributes :: Text -- ^ 'ssaSubscriptionArn'
-                          -> Text -- ^ 'ssaAttributeName'
-                          -> SetSubscriptionAttributes
-setSubscriptionAttributes p1 p2 = SetSubscriptionAttributes
-    { _ssaSubscriptionArn = p1
-    , _ssaAttributeName   = p2
-    , _ssaAttributeValue  = Nothing
+-- * 'ssaAttributeName'
+setSubscriptionAttributes
+    :: Text -- ^ 'ssaSubscriptionARN'
+    -> Text -- ^ 'ssaAttributeName'
+    -> SetSubscriptionAttributes
+setSubscriptionAttributes pSubscriptionARN_ pAttributeName_ =
+    SetSubscriptionAttributes'
+    { _ssaAttributeValue = Nothing
+    , _ssaSubscriptionARN = pSubscriptionARN_
+    , _ssaAttributeName = pAttributeName_
     }
-
--- | The name of the attribute you want to set. Only a subset of the subscriptions
--- attributes are mutable.
---
--- Valid values: 'DeliveryPolicy' | 'RawMessageDelivery'
-ssaAttributeName :: Lens' SetSubscriptionAttributes Text
-ssaAttributeName = lens _ssaAttributeName (\s a -> s { _ssaAttributeName = a })
 
 -- | The new value for the attribute in JSON format.
 ssaAttributeValue :: Lens' SetSubscriptionAttributes (Maybe Text)
-ssaAttributeValue =
-    lens _ssaAttributeValue (\s a -> s { _ssaAttributeValue = a })
+ssaAttributeValue = lens _ssaAttributeValue (\ s a -> s{_ssaAttributeValue = a});
 
 -- | The ARN of the subscription to modify.
-ssaSubscriptionArn :: Lens' SetSubscriptionAttributes Text
-ssaSubscriptionArn =
-    lens _ssaSubscriptionArn (\s a -> s { _ssaSubscriptionArn = a })
+ssaSubscriptionARN :: Lens' SetSubscriptionAttributes Text
+ssaSubscriptionARN = lens _ssaSubscriptionARN (\ s a -> s{_ssaSubscriptionARN = a});
 
-data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'SetSubscriptionAttributesResponse' constructor.
-setSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
-setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
-
-instance ToPath SetSubscriptionAttributes where
-    toPath = const "/"
-
-instance ToQuery SetSubscriptionAttributes where
-    toQuery SetSubscriptionAttributes{..} = mconcat
-        [ "AttributeName"   =? _ssaAttributeName
-        , "AttributeValue"  =? _ssaAttributeValue
-        , "SubscriptionArn" =? _ssaSubscriptionArn
-        ]
-
-instance ToHeaders SetSubscriptionAttributes
+-- | The name of the attribute you want to set. Only a subset of the
+-- subscriptions attributes are mutable.
+--
+-- Valid values: 'DeliveryPolicy' | 'RawMessageDelivery'
+ssaAttributeName :: Lens' SetSubscriptionAttributes Text
+ssaAttributeName = lens _ssaAttributeName (\ s a -> s{_ssaAttributeName = a});
 
 instance AWSRequest SetSubscriptionAttributes where
-    type Sv SetSubscriptionAttributes = SNS
-    type Rs SetSubscriptionAttributes = SetSubscriptionAttributesResponse
+        type Sv SetSubscriptionAttributes = SNS
+        type Rs SetSubscriptionAttributes =
+             SetSubscriptionAttributesResponse
+        request = postQuery
+        response
+          = receiveNull SetSubscriptionAttributesResponse'
 
-    request  = post "SetSubscriptionAttributes"
-    response = nullResponse SetSubscriptionAttributesResponse
+instance ToHeaders SetSubscriptionAttributes where
+        toHeaders = const mempty
+
+instance ToPath SetSubscriptionAttributes where
+        toPath = const "/"
+
+instance ToQuery SetSubscriptionAttributes where
+        toQuery SetSubscriptionAttributes'{..}
+          = mconcat
+              ["Action" =:
+                 ("SetSubscriptionAttributes" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "AttributeValue" =: _ssaAttributeValue,
+               "SubscriptionArn" =: _ssaSubscriptionARN,
+               "AttributeName" =: _ssaAttributeName]
+
+-- | /See:/ 'setSubscriptionAttributesResponse' smart constructor.
+data SetSubscriptionAttributesResponse =
+    SetSubscriptionAttributesResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SetSubscriptionAttributesResponse' with the minimum fields required to make a request.
+--
+setSubscriptionAttributesResponse
+    :: SetSubscriptionAttributesResponse
+setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse'

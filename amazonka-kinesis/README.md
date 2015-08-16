@@ -1,21 +1,34 @@
 # Amazon Kinesis SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-Amazon Kinesis is a managed service that scales elastically for real-time
-processing of streaming big data. The service takes in large streams of data
-records that can then be consumed in real time by multiple data-processing
-applications that can be run on Amazon EC2 instances.
+Amazon Kinesis Service API Reference
+
+Amazon Kinesis is a managed service that scales elastically for real
+time processing of streaming big data.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-kinesis)
 and the [AWS API Reference](http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html).
 
+The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
+which provides mechanisms for specifying AuthN/AuthZ information and sending requests.
+
+Use of lenses is required for constructing and manipulating types.
+This is due to the amount of nesting of AWS types and transparency regarding
+de/serialisation into more palatable Haskell values.
+The provided lenses should be compatible with any of the major lens libraries
+[lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
 ## Contribute
 

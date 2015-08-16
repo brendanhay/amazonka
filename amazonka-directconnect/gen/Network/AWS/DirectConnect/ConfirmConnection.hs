@@ -1,115 +1,133 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.DirectConnect.ConfirmConnection
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Confirm the creation of a hosted connection on an interconnect.
+-- |
+-- Module      : Network.AWS.DirectConnect.ConfirmConnection
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Upon creation, the hosted connection is initially in the 'Ordering' state,
--- and will remain in this state until the owner calls ConfirmConnection to
--- confirm creation of the hosted connection.
+-- Confirm the creation of a hosted connection on an interconnect.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmConnection.html>
+-- Upon creation, the hosted connection is initially in the \'Ordering\'
+-- state, and will remain in this state until the owner calls
+-- ConfirmConnection to confirm creation of the hosted connection.
+--
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmConnection.html AWS API Reference> for ConfirmConnection.
 module Network.AWS.DirectConnect.ConfirmConnection
     (
-    -- * Request
-      ConfirmConnection
-    -- ** Request constructor
-    , confirmConnection
-    -- ** Request lenses
+    -- * Creating a Request
+      confirmConnection
+    , ConfirmConnection
+    -- * Request Lenses
     , ccConnectionId
 
-    -- * Response
-    , ConfirmConnectionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , confirmConnectionResponse
-    -- ** Response lenses
-    , ccr1ConnectionState
+    , ConfirmConnectionResponse
+    -- * Response Lenses
+    , ccrsConnectionState
+    , ccrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DirectConnect.Types
-import qualified GHC.Exts
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype ConfirmConnection = ConfirmConnection
+-- | Container for the parameters to the ConfirmConnection operation.
+--
+-- /See:/ 'confirmConnection' smart constructor.
+newtype ConfirmConnection = ConfirmConnection'
     { _ccConnectionId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfirmConnection' constructor.
+-- | Creates a value of 'ConfirmConnection' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccConnectionId' @::@ 'Text'
---
-confirmConnection :: Text -- ^ 'ccConnectionId'
-                  -> ConfirmConnection
-confirmConnection p1 = ConfirmConnection
-    { _ccConnectionId = p1
+-- * 'ccConnectionId'
+confirmConnection
+    :: Text -- ^ 'ccConnectionId'
+    -> ConfirmConnection
+confirmConnection pConnectionId_ =
+    ConfirmConnection'
+    { _ccConnectionId = pConnectionId_
     }
 
+-- | Undocumented member.
 ccConnectionId :: Lens' ConfirmConnection Text
-ccConnectionId = lens _ccConnectionId (\s a -> s { _ccConnectionId = a })
-
-newtype ConfirmConnectionResponse = ConfirmConnectionResponse
-    { _ccr1ConnectionState :: Maybe ConnectionState
-    } deriving (Eq, Read, Show)
-
--- | 'ConfirmConnectionResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccr1ConnectionState' @::@ 'Maybe' 'ConnectionState'
---
-confirmConnectionResponse :: ConfirmConnectionResponse
-confirmConnectionResponse = ConfirmConnectionResponse
-    { _ccr1ConnectionState = Nothing
-    }
-
-ccr1ConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
-ccr1ConnectionState =
-    lens _ccr1ConnectionState (\s a -> s { _ccr1ConnectionState = a })
-
-instance ToPath ConfirmConnection where
-    toPath = const "/"
-
-instance ToQuery ConfirmConnection where
-    toQuery = const mempty
-
-instance ToHeaders ConfirmConnection
-
-instance ToJSON ConfirmConnection where
-    toJSON ConfirmConnection{..} = object
-        [ "connectionId" .= _ccConnectionId
-        ]
+ccConnectionId = lens _ccConnectionId (\ s a -> s{_ccConnectionId = a});
 
 instance AWSRequest ConfirmConnection where
-    type Sv ConfirmConnection = DirectConnect
-    type Rs ConfirmConnection = ConfirmConnectionResponse
+        type Sv ConfirmConnection = DirectConnect
+        type Rs ConfirmConnection = ConfirmConnectionResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ConfirmConnectionResponse' <$>
+                   (x .?> "connectionState") <*> (pure (fromEnum s)))
 
-    request  = post "ConfirmConnection"
-    response = jsonResponse
+instance ToHeaders ConfirmConnection where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OvertureService.ConfirmConnection" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON ConfirmConnectionResponse where
-    parseJSON = withObject "ConfirmConnectionResponse" $ \o -> ConfirmConnectionResponse
-        <$> o .:? "connectionState"
+instance ToJSON ConfirmConnection where
+        toJSON ConfirmConnection'{..}
+          = object ["connectionId" .= _ccConnectionId]
+
+instance ToPath ConfirmConnection where
+        toPath = const "/"
+
+instance ToQuery ConfirmConnection where
+        toQuery = const mempty
+
+-- | The response received when ConfirmConnection is called.
+--
+-- /See:/ 'confirmConnectionResponse' smart constructor.
+data ConfirmConnectionResponse = ConfirmConnectionResponse'
+    { _ccrsConnectionState :: !(Maybe ConnectionState)
+    , _ccrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConfirmConnectionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccrsConnectionState'
+--
+-- * 'ccrsStatus'
+confirmConnectionResponse
+    :: Int -- ^ 'ccrsStatus'
+    -> ConfirmConnectionResponse
+confirmConnectionResponse pStatus_ =
+    ConfirmConnectionResponse'
+    { _ccrsConnectionState = Nothing
+    , _ccrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+ccrsConnectionState :: Lens' ConfirmConnectionResponse (Maybe ConnectionState)
+ccrsConnectionState = lens _ccrsConnectionState (\ s a -> s{_ccrsConnectionState = a});
+
+-- | The response status code.
+ccrsStatus :: Lens' ConfirmConnectionResponse Int
+ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

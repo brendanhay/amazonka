@@ -1,106 +1,111 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.ChangePassword
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Changes the password of the IAM user who is calling this action. The root
--- account password is not affected by this action.
+-- |
+-- Module      : Network.AWS.IAM.ChangePassword
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- To change the password for a different user, see 'UpdateLoginProfile'. For
--- more information about modifying passwords, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords> in the /Using IAM/ guide.
+-- Changes the password of the IAM user who is calling this action. The
+-- root account password is not affected by this action.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html>
+-- To change the password for a different user, see UpdateLoginProfile. For
+-- more information about modifying passwords, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>
+-- in the /Using IAM/ guide.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ChangePassword.html AWS API Reference> for ChangePassword.
 module Network.AWS.IAM.ChangePassword
     (
-    -- * Request
-      ChangePassword
-    -- ** Request constructor
-    , changePassword
-    -- ** Request lenses
-    , cpNewPassword
+    -- * Creating a Request
+      changePassword
+    , ChangePassword
+    -- * Request Lenses
     , cpOldPassword
+    , cpNewPassword
 
-    -- * Response
-    , ChangePasswordResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , changePasswordResponse
+    , ChangePasswordResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ChangePassword = ChangePassword
-    { _cpNewPassword :: Sensitive Text
-    , _cpOldPassword :: Sensitive Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'changePassword' smart constructor.
+data ChangePassword = ChangePassword'
+    { _cpOldPassword :: !(Sensitive Text)
+    , _cpNewPassword :: !(Sensitive Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ChangePassword' constructor.
+-- | Creates a value of 'ChangePassword' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpNewPassword' @::@ 'Text'
+-- * 'cpOldPassword'
 --
--- * 'cpOldPassword' @::@ 'Text'
---
-changePassword :: Text -- ^ 'cpOldPassword'
-               -> Text -- ^ 'cpNewPassword'
-               -> ChangePassword
-changePassword p1 p2 = ChangePassword
-    { _cpOldPassword = withIso _Sensitive (const id) p1
-    , _cpNewPassword = withIso _Sensitive (const id) p2
+-- * 'cpNewPassword'
+changePassword
+    :: Text -- ^ 'cpOldPassword'
+    -> Text -- ^ 'cpNewPassword'
+    -> ChangePassword
+changePassword pOldPassword_ pNewPassword_ =
+    ChangePassword'
+    { _cpOldPassword = _Sensitive # pOldPassword_
+    , _cpNewPassword = _Sensitive # pNewPassword_
     }
 
--- | The new password. The new password must conform to the AWS account's password
--- policy, if one exists.
-cpNewPassword :: Lens' ChangePassword Text
-cpNewPassword = lens _cpNewPassword (\s a -> s { _cpNewPassword = a }) . _Sensitive
-
--- | The IAM user's current password.
+-- | The IAM user\'s current password.
 cpOldPassword :: Lens' ChangePassword Text
-cpOldPassword = lens _cpOldPassword (\s a -> s { _cpOldPassword = a }) . _Sensitive
+cpOldPassword = lens _cpOldPassword (\ s a -> s{_cpOldPassword = a}) . _Sensitive;
 
-data ChangePasswordResponse = ChangePasswordResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'ChangePasswordResponse' constructor.
-changePasswordResponse :: ChangePasswordResponse
-changePasswordResponse = ChangePasswordResponse
-
-instance ToPath ChangePassword where
-    toPath = const "/"
-
-instance ToQuery ChangePassword where
-    toQuery ChangePassword{..} = mconcat
-        [ "NewPassword" =? _cpNewPassword
-        , "OldPassword" =? _cpOldPassword
-        ]
-
-instance ToHeaders ChangePassword
+-- | The new password. The new password must conform to the AWS account\'s
+-- password policy, if one exists.
+cpNewPassword :: Lens' ChangePassword Text
+cpNewPassword = lens _cpNewPassword (\ s a -> s{_cpNewPassword = a}) . _Sensitive;
 
 instance AWSRequest ChangePassword where
-    type Sv ChangePassword = IAM
-    type Rs ChangePassword = ChangePasswordResponse
+        type Sv ChangePassword = IAM
+        type Rs ChangePassword = ChangePasswordResponse
+        request = postQuery
+        response = receiveNull ChangePasswordResponse'
 
-    request  = post "ChangePassword"
-    response = nullResponse ChangePasswordResponse
+instance ToHeaders ChangePassword where
+        toHeaders = const mempty
+
+instance ToPath ChangePassword where
+        toPath = const "/"
+
+instance ToQuery ChangePassword where
+        toQuery ChangePassword'{..}
+          = mconcat
+              ["Action" =: ("ChangePassword" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "OldPassword" =: _cpOldPassword,
+               "NewPassword" =: _cpNewPassword]
+
+-- | /See:/ 'changePasswordResponse' smart constructor.
+data ChangePasswordResponse =
+    ChangePasswordResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ChangePasswordResponse' with the minimum fields required to make a request.
+--
+changePasswordResponse
+    :: ChangePasswordResponse
+changePasswordResponse = ChangePasswordResponse'

@@ -1,97 +1,103 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.DeleteInstanceProfile
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified instance profile. The instance profile must not have an
--- associated role.
+-- |
+-- Module      : Network.AWS.IAM.DeleteInstanceProfile
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes the specified instance profile. The instance profile must not
+-- have an associated role.
 --
 -- Make sure you do not have any Amazon EC2 instances running with the
--- instance profile you are about to delete. Deleting a role or instance profile
--- that is associated with a running instance will break any applications
--- running on the instance.  For more information about instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+-- instance profile you are about to delete. Deleting a role or instance
+-- profile that is associated with a running instance will break any
+-- applications running on the instance.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteInstanceProfile.html>
+-- For more information about instance profiles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteInstanceProfile.html AWS API Reference> for DeleteInstanceProfile.
 module Network.AWS.IAM.DeleteInstanceProfile
     (
-    -- * Request
-      DeleteInstanceProfile
-    -- ** Request constructor
-    , deleteInstanceProfile
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteInstanceProfile
+    , DeleteInstanceProfile
+    -- * Request Lenses
     , dipInstanceProfileName
 
-    -- * Response
-    , DeleteInstanceProfileResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteInstanceProfileResponse
+    , DeleteInstanceProfileResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteInstanceProfile = DeleteInstanceProfile
+-- | /See:/ 'deleteInstanceProfile' smart constructor.
+newtype DeleteInstanceProfile = DeleteInstanceProfile'
     { _dipInstanceProfileName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteInstanceProfile' constructor.
+-- | Creates a value of 'DeleteInstanceProfile' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dipInstanceProfileName' @::@ 'Text'
---
-deleteInstanceProfile :: Text -- ^ 'dipInstanceProfileName'
-                      -> DeleteInstanceProfile
-deleteInstanceProfile p1 = DeleteInstanceProfile
-    { _dipInstanceProfileName = p1
+-- * 'dipInstanceProfileName'
+deleteInstanceProfile
+    :: Text -- ^ 'dipInstanceProfileName'
+    -> DeleteInstanceProfile
+deleteInstanceProfile pInstanceProfileName_ =
+    DeleteInstanceProfile'
+    { _dipInstanceProfileName = pInstanceProfileName_
     }
 
 -- | The name of the instance profile to delete.
 dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
-dipInstanceProfileName =
-    lens _dipInstanceProfileName (\s a -> s { _dipInstanceProfileName = a })
-
-data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteInstanceProfileResponse' constructor.
-deleteInstanceProfileResponse :: DeleteInstanceProfileResponse
-deleteInstanceProfileResponse = DeleteInstanceProfileResponse
-
-instance ToPath DeleteInstanceProfile where
-    toPath = const "/"
-
-instance ToQuery DeleteInstanceProfile where
-    toQuery DeleteInstanceProfile{..} = mconcat
-        [ "InstanceProfileName" =? _dipInstanceProfileName
-        ]
-
-instance ToHeaders DeleteInstanceProfile
+dipInstanceProfileName = lens _dipInstanceProfileName (\ s a -> s{_dipInstanceProfileName = a});
 
 instance AWSRequest DeleteInstanceProfile where
-    type Sv DeleteInstanceProfile = IAM
-    type Rs DeleteInstanceProfile = DeleteInstanceProfileResponse
+        type Sv DeleteInstanceProfile = IAM
+        type Rs DeleteInstanceProfile =
+             DeleteInstanceProfileResponse
+        request = postQuery
+        response = receiveNull DeleteInstanceProfileResponse'
 
-    request  = post "DeleteInstanceProfile"
-    response = nullResponse DeleteInstanceProfileResponse
+instance ToHeaders DeleteInstanceProfile where
+        toHeaders = const mempty
+
+instance ToPath DeleteInstanceProfile where
+        toPath = const "/"
+
+instance ToQuery DeleteInstanceProfile where
+        toQuery DeleteInstanceProfile'{..}
+          = mconcat
+              ["Action" =: ("DeleteInstanceProfile" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "InstanceProfileName" =: _dipInstanceProfileName]
+
+-- | /See:/ 'deleteInstanceProfileResponse' smart constructor.
+data DeleteInstanceProfileResponse =
+    DeleteInstanceProfileResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteInstanceProfileResponse' with the minimum fields required to make a request.
+--
+deleteInstanceProfileResponse
+    :: DeleteInstanceProfileResponse
+deleteInstanceProfileResponse = DeleteInstanceProfileResponse'

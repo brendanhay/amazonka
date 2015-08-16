@@ -1,132 +1,149 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudFormation.DescribeStackResource
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a description of the specified resource in the specified stack.
+-- |
+-- Module      : Network.AWS.CloudFormation.DescribeStackResource
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For deleted stacks, DescribeStackResource returns resource information for
--- up to 90 days after the stack has been deleted.
+-- Returns a description of the specified resource in the specified stack.
 --
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html>
+-- For deleted stacks, DescribeStackResource returns resource information
+-- for up to 90 days after the stack has been deleted.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeStackResource.html AWS API Reference> for DescribeStackResource.
 module Network.AWS.CloudFormation.DescribeStackResource
     (
-    -- * Request
-      DescribeStackResource
-    -- ** Request constructor
-    , describeStackResource
-    -- ** Request lenses
-    , dsr1LogicalResourceId
-    , dsr1StackName
+    -- * Creating a Request
+      describeStackResource
+    , DescribeStackResource
+    -- * Request Lenses
+    , desStackName
+    , desLogicalResourceId
 
-    -- * Response
-    , DescribeStackResourceResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeStackResourceResponse
-    -- ** Response lenses
-    , dsrrStackResourceDetail
+    , DescribeStackResourceResponse
+    -- * Response Lenses
+    , dsrrsStackResourceDetail
+    , dsrrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudFormation.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.CloudFormation.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeStackResource = DescribeStackResource
-    { _dsr1LogicalResourceId :: Text
-    , _dsr1StackName         :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | The input for DescribeStackResource action.
+--
+-- /See:/ 'describeStackResource' smart constructor.
+data DescribeStackResource = DescribeStackResource'
+    { _desStackName         :: !Text
+    , _desLogicalResourceId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStackResource' constructor.
+-- | Creates a value of 'DescribeStackResource' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsr1LogicalResourceId' @::@ 'Text'
+-- * 'desStackName'
 --
--- * 'dsr1StackName' @::@ 'Text'
---
-describeStackResource :: Text -- ^ 'dsr1StackName'
-                      -> Text -- ^ 'dsr1LogicalResourceId'
-                      -> DescribeStackResource
-describeStackResource p1 p2 = DescribeStackResource
-    { _dsr1StackName         = p1
-    , _dsr1LogicalResourceId = p2
+-- * 'desLogicalResourceId'
+describeStackResource
+    :: Text -- ^ 'desStackName'
+    -> Text -- ^ 'desLogicalResourceId'
+    -> DescribeStackResource
+describeStackResource pStackName_ pLogicalResourceId_ =
+    DescribeStackResource'
+    { _desStackName = pStackName_
+    , _desLogicalResourceId = pLogicalResourceId_
     }
+
+-- | The name or the unique stack ID that is associated with the stack, which
+-- are not always interchangeable:
+--
+-- -   Running stacks: You can specify either the stack\'s name or its
+--     unique stack ID.
+-- -   Deleted stacks: You must specify the unique stack ID.
+--
+-- Default: There is no default value.
+desStackName :: Lens' DescribeStackResource Text
+desStackName = lens _desStackName (\ s a -> s{_desStackName = a});
 
 -- | The logical name of the resource as specified in the template.
 --
 -- Default: There is no default value.
-dsr1LogicalResourceId :: Lens' DescribeStackResource Text
-dsr1LogicalResourceId =
-    lens _dsr1LogicalResourceId (\s a -> s { _dsr1LogicalResourceId = a })
-
--- | The name or the unique stack ID that is associated with the stack, which are
--- not always interchangeable:
---
--- Running stacks: You can specify either the stack's name or its unique stack
--- ID. Deleted stacks: You must specify the unique stack ID.  Default: There is
--- no default value.
-dsr1StackName :: Lens' DescribeStackResource Text
-dsr1StackName = lens _dsr1StackName (\s a -> s { _dsr1StackName = a })
-
-newtype DescribeStackResourceResponse = DescribeStackResourceResponse
-    { _dsrrStackResourceDetail :: Maybe StackResourceDetail
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeStackResourceResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrrStackResourceDetail' @::@ 'Maybe' 'StackResourceDetail'
---
-describeStackResourceResponse :: DescribeStackResourceResponse
-describeStackResourceResponse = DescribeStackResourceResponse
-    { _dsrrStackResourceDetail = Nothing
-    }
-
--- | A 'StackResourceDetail' structure containing the description of the specified
--- resource in the specified stack.
-dsrrStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
-dsrrStackResourceDetail =
-    lens _dsrrStackResourceDetail (\s a -> s { _dsrrStackResourceDetail = a })
-
-instance ToPath DescribeStackResource where
-    toPath = const "/"
-
-instance ToQuery DescribeStackResource where
-    toQuery DescribeStackResource{..} = mconcat
-        [ "LogicalResourceId" =? _dsr1LogicalResourceId
-        , "StackName"         =? _dsr1StackName
-        ]
-
-instance ToHeaders DescribeStackResource
+desLogicalResourceId :: Lens' DescribeStackResource Text
+desLogicalResourceId = lens _desLogicalResourceId (\ s a -> s{_desLogicalResourceId = a});
 
 instance AWSRequest DescribeStackResource where
-    type Sv DescribeStackResource = CloudFormation
-    type Rs DescribeStackResource = DescribeStackResourceResponse
+        type Sv DescribeStackResource = CloudFormation
+        type Rs DescribeStackResource =
+             DescribeStackResourceResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DescribeStackResourceResult"
+              (\ s h x ->
+                 DescribeStackResourceResponse' <$>
+                   (x .@? "StackResourceDetail") <*>
+                     (pure (fromEnum s)))
 
-    request  = post "DescribeStackResource"
-    response = xmlResponse
+instance ToHeaders DescribeStackResource where
+        toHeaders = const mempty
 
-instance FromXML DescribeStackResourceResponse where
-    parseXML = withElement "DescribeStackResourceResult" $ \x -> DescribeStackResourceResponse
-        <$> x .@? "StackResourceDetail"
+instance ToPath DescribeStackResource where
+        toPath = const "/"
+
+instance ToQuery DescribeStackResource where
+        toQuery DescribeStackResource'{..}
+          = mconcat
+              ["Action" =: ("DescribeStackResource" :: ByteString),
+               "Version" =: ("2010-05-15" :: ByteString),
+               "StackName" =: _desStackName,
+               "LogicalResourceId" =: _desLogicalResourceId]
+
+-- | The output for a DescribeStackResource action.
+--
+-- /See:/ 'describeStackResourceResponse' smart constructor.
+data DescribeStackResourceResponse = DescribeStackResourceResponse'
+    { _dsrrsStackResourceDetail :: !(Maybe StackResourceDetail)
+    , _dsrrsStatus              :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeStackResourceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrrsStackResourceDetail'
+--
+-- * 'dsrrsStatus'
+describeStackResourceResponse
+    :: Int -- ^ 'dsrrsStatus'
+    -> DescribeStackResourceResponse
+describeStackResourceResponse pStatus_ =
+    DescribeStackResourceResponse'
+    { _dsrrsStackResourceDetail = Nothing
+    , _dsrrsStatus = pStatus_
+    }
+
+-- | A 'StackResourceDetail' structure containing the description of the
+-- specified resource in the specified stack.
+dsrrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
+dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\ s a -> s{_dsrrsStackResourceDetail = a});
+
+-- | The response status code.
+dsrrsStatus :: Lens' DescribeStackResourceResponse Int
+dsrrsStatus = lens _dsrrsStatus (\ s a -> s{_dsrrsStatus = a});

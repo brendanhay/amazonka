@@ -1,123 +1,132 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudFront.GetDistributionConfig
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Get the configuration information about a distribution.
+-- |
+-- Module      : Network.AWS.CloudFront.GetDistributionConfig
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistributionConfig.html>
+-- Get the configuration information about a distribution.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistributionConfig.html AWS API Reference> for GetDistributionConfig.
 module Network.AWS.CloudFront.GetDistributionConfig
     (
-    -- * Request
-      GetDistributionConfig
-    -- ** Request constructor
-    , getDistributionConfig
-    -- ** Request lenses
+    -- * Creating a Request
+      getDistributionConfig
+    , GetDistributionConfig
+    -- * Request Lenses
     , gdcId
 
-    -- * Response
-    , GetDistributionConfigResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getDistributionConfigResponse
-    -- ** Response lenses
-    , gdcrDistributionConfig
-    , gdcrETag
+    , GetDistributionConfigResponse
+    -- * Response Lenses
+    , gdcrsETag
+    , gdcrsDistributionConfig
+    , gdcrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetDistributionConfig = GetDistributionConfig
+-- | The request to get a distribution configuration.
+--
+-- /See:/ 'getDistributionConfig' smart constructor.
+newtype GetDistributionConfig = GetDistributionConfig'
     { _gdcId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDistributionConfig' constructor.
+-- | Creates a value of 'GetDistributionConfig' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdcId' @::@ 'Text'
---
-getDistributionConfig :: Text -- ^ 'gdcId'
-                      -> GetDistributionConfig
-getDistributionConfig p1 = GetDistributionConfig
-    { _gdcId = p1
+-- * 'gdcId'
+getDistributionConfig
+    :: Text -- ^ 'gdcId'
+    -> GetDistributionConfig
+getDistributionConfig pId_ =
+    GetDistributionConfig'
+    { _gdcId = pId_
     }
 
--- | The distribution's id.
+-- | The distribution\'s id.
 gdcId :: Lens' GetDistributionConfig Text
-gdcId = lens _gdcId (\s a -> s { _gdcId = a })
-
-data GetDistributionConfigResponse = GetDistributionConfigResponse
-    { _gdcrDistributionConfig :: Maybe DistributionConfig
-    , _gdcrETag               :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'GetDistributionConfigResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdcrDistributionConfig' @::@ 'Maybe' 'DistributionConfig'
---
--- * 'gdcrETag' @::@ 'Maybe' 'Text'
---
-getDistributionConfigResponse :: GetDistributionConfigResponse
-getDistributionConfigResponse = GetDistributionConfigResponse
-    { _gdcrDistributionConfig = Nothing
-    , _gdcrETag               = Nothing
-    }
-
--- | The distribution's configuration information.
-gdcrDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
-gdcrDistributionConfig =
-    lens _gdcrDistributionConfig (\s a -> s { _gdcrDistributionConfig = a })
-
--- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gdcrETag :: Lens' GetDistributionConfigResponse (Maybe Text)
-gdcrETag = lens _gdcrETag (\s a -> s { _gdcrETag = a })
-
-instance ToPath GetDistributionConfig where
-    toPath GetDistributionConfig{..} = mconcat
-        [ "/2014-11-06/distribution/"
-        , toText _gdcId
-        , "/config"
-        ]
-
-instance ToQuery GetDistributionConfig where
-    toQuery = const mempty
-
-instance ToHeaders GetDistributionConfig
-
-instance ToXMLRoot GetDistributionConfig where
-    toXMLRoot = const (namespaced ns "GetDistributionConfig" [])
-
-instance ToXML GetDistributionConfig
+gdcId = lens _gdcId (\ s a -> s{_gdcId = a});
 
 instance AWSRequest GetDistributionConfig where
-    type Sv GetDistributionConfig = CloudFront
-    type Rs GetDistributionConfig = GetDistributionConfigResponse
+        type Sv GetDistributionConfig = CloudFront
+        type Rs GetDistributionConfig =
+             GetDistributionConfigResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 GetDistributionConfigResponse' <$>
+                   (h .#? "ETag") <*> (parseXML x) <*>
+                     (pure (fromEnum s)))
 
-    request  = get
-    response = xmlHeaderResponse $ \h x -> GetDistributionConfigResponse
-        <$> x .@? "DistributionConfig"
-        <*> h ~:? "ETag"
+instance ToHeaders GetDistributionConfig where
+        toHeaders = const mempty
+
+instance ToPath GetDistributionConfig where
+        toPath GetDistributionConfig'{..}
+          = mconcat
+              ["/2015-04-17/distribution/", toBS _gdcId, "/config"]
+
+instance ToQuery GetDistributionConfig where
+        toQuery = const mempty
+
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'getDistributionConfigResponse' smart constructor.
+data GetDistributionConfigResponse = GetDistributionConfigResponse'
+    { _gdcrsETag               :: !(Maybe Text)
+    , _gdcrsDistributionConfig :: !(Maybe DistributionConfig)
+    , _gdcrsStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetDistributionConfigResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdcrsETag'
+--
+-- * 'gdcrsDistributionConfig'
+--
+-- * 'gdcrsStatus'
+getDistributionConfigResponse
+    :: Int -- ^ 'gdcrsStatus'
+    -> GetDistributionConfigResponse
+getDistributionConfigResponse pStatus_ =
+    GetDistributionConfigResponse'
+    { _gdcrsETag = Nothing
+    , _gdcrsDistributionConfig = Nothing
+    , _gdcrsStatus = pStatus_
+    }
+
+-- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
+gdcrsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
+gdcrsETag = lens _gdcrsETag (\ s a -> s{_gdcrsETag = a});
+
+-- | The distribution\'s configuration information.
+gdcrsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
+gdcrsDistributionConfig = lens _gdcrsDistributionConfig (\ s a -> s{_gdcrsDistributionConfig = a});
+
+-- | The response status code.
+gdcrsStatus :: Lens' GetDistributionConfigResponse Int
+gdcrsStatus = lens _gdcrsStatus (\ s a -> s{_gdcrsStatus = a});

@@ -1,122 +1,141 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CognitoSync.BulkPublish
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Initiates a bulk publish of all existing datasets for an Identity Pool to the
--- configured stream. Customers are limited to one successful bulk publish per
--- 24 hours. Bulk publish is an asynchronous request, customers can see the
--- status of the request via the GetBulkPublishDetails operation.
+-- |
+-- Module      : Network.AWS.CognitoSync.BulkPublish
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_BulkPublish.html>
+-- Initiates a bulk publish of all existing datasets for an Identity Pool
+-- to the configured stream. Customers are limited to one successful bulk
+-- publish per 24 hours. Bulk publish is an asynchronous request, customers
+-- can see the status of the request via the GetBulkPublishDetails
+-- operation.
+--
+-- This API can only be called with developer credentials. You cannot call
+-- this API with the temporary user credentials provided by Cognito
+-- Identity.
+--
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_BulkPublish.html AWS API Reference> for BulkPublish.
 module Network.AWS.CognitoSync.BulkPublish
     (
-    -- * Request
-      BulkPublish
-    -- ** Request constructor
-    , bulkPublish
-    -- ** Request lenses
+    -- * Creating a Request
+      bulkPublish
+    , BulkPublish
+    -- * Request Lenses
     , bpIdentityPoolId
 
-    -- * Response
-    , BulkPublishResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , bulkPublishResponse
-    -- ** Response lenses
-    , bprIdentityPoolId
+    , BulkPublishResponse
+    -- * Response Lenses
+    , bprsIdentityPoolId
+    , bprsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.CognitoSync.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype BulkPublish = BulkPublish
+-- | The input for the BulkPublish operation.
+--
+-- /See:/ 'bulkPublish' smart constructor.
+newtype BulkPublish = BulkPublish'
     { _bpIdentityPoolId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BulkPublish' constructor.
+-- | Creates a value of 'BulkPublish' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'bpIdentityPoolId' @::@ 'Text'
---
-bulkPublish :: Text -- ^ 'bpIdentityPoolId'
-            -> BulkPublish
-bulkPublish p1 = BulkPublish
-    { _bpIdentityPoolId = p1
+-- * 'bpIdentityPoolId'
+bulkPublish
+    :: Text -- ^ 'bpIdentityPoolId'
+    -> BulkPublish
+bulkPublish pIdentityPoolId_ =
+    BulkPublish'
+    { _bpIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
 bpIdentityPoolId :: Lens' BulkPublish Text
-bpIdentityPoolId = lens _bpIdentityPoolId (\s a -> s { _bpIdentityPoolId = a })
-
-newtype BulkPublishResponse = BulkPublishResponse
-    { _bprIdentityPoolId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'BulkPublishResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'bprIdentityPoolId' @::@ 'Maybe' 'Text'
---
-bulkPublishResponse :: BulkPublishResponse
-bulkPublishResponse = BulkPublishResponse
-    { _bprIdentityPoolId = Nothing
-    }
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
-bprIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
-bprIdentityPoolId =
-    lens _bprIdentityPoolId (\s a -> s { _bprIdentityPoolId = a })
-
-instance ToPath BulkPublish where
-    toPath BulkPublish{..} = mconcat
-        [ "/identitypools/"
-        , toText _bpIdentityPoolId
-        , "/bulkpublish"
-        ]
-
-instance ToQuery BulkPublish where
-    toQuery = const mempty
-
-instance ToHeaders BulkPublish
-
-instance ToJSON BulkPublish where
-    toJSON = const (toJSON Empty)
+bpIdentityPoolId = lens _bpIdentityPoolId (\ s a -> s{_bpIdentityPoolId = a});
 
 instance AWSRequest BulkPublish where
-    type Sv BulkPublish = CognitoSync
-    type Rs BulkPublish = BulkPublishResponse
+        type Sv BulkPublish = CognitoSync
+        type Rs BulkPublish = BulkPublishResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 BulkPublishResponse' <$>
+                   (x .?> "IdentityPoolId") <*> (pure (fromEnum s)))
 
-    request  = post
-    response = jsonResponse
+instance ToHeaders BulkPublish where
+        toHeaders
+          = const
+              (mconcat
+                 ["Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON BulkPublishResponse where
-    parseJSON = withObject "BulkPublishResponse" $ \o -> BulkPublishResponse
-        <$> o .:? "IdentityPoolId"
+instance ToJSON BulkPublish where
+        toJSON = const (Object mempty)
+
+instance ToPath BulkPublish where
+        toPath BulkPublish'{..}
+          = mconcat
+              ["/identitypools/", toBS _bpIdentityPoolId,
+               "/bulkpublish"]
+
+instance ToQuery BulkPublish where
+        toQuery = const mempty
+
+-- | The output for the BulkPublish operation.
+--
+-- /See:/ 'bulkPublishResponse' smart constructor.
+data BulkPublishResponse = BulkPublishResponse'
+    { _bprsIdentityPoolId :: !(Maybe Text)
+    , _bprsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BulkPublishResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bprsIdentityPoolId'
+--
+-- * 'bprsStatus'
+bulkPublishResponse
+    :: Int -- ^ 'bprsStatus'
+    -> BulkPublishResponse
+bulkPublishResponse pStatus_ =
+    BulkPublishResponse'
+    { _bprsIdentityPoolId = Nothing
+    , _bprsStatus = pStatus_
+    }
+
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+bprsIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
+bprsIdentityPoolId = lens _bprsIdentityPoolId (\ s a -> s{_bprsIdentityPoolId = a});
+
+-- | The response status code.
+bprsStatus :: Lens' BulkPublishResponse Int
+bprsStatus = lens _bprsStatus (\ s a -> s{_bprsStatus = a});

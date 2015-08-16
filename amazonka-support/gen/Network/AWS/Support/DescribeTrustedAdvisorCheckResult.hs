@@ -1,134 +1,165 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckResult
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns the results of the Trusted Advisor check that has the specified check
--- ID. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks'.
+-- |
+-- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckResult
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- The response contains a 'TrustedAdvisorCheckResult' object, which contains
+-- Returns the results of the Trusted Advisor check that has the specified
+-- check ID. Check IDs can be obtained by calling
+-- DescribeTrustedAdvisorChecks.
+--
+-- The response contains a TrustedAdvisorCheckResult object, which contains
 -- these three objects:
 --
--- 'TrustedAdvisorCategorySpecificSummary' 'TrustedAdvisorResourceDetail' 'TrustedAdvisorResourcesSummary'  In addition, the response contains these fields:
+-- -   TrustedAdvisorCategorySpecificSummary
+-- -   TrustedAdvisorResourceDetail
+-- -   TrustedAdvisorResourcesSummary
 --
--- Status. The alert status of the check: "ok" (green), "warning" (yellow),
--- "error" (red), or "not_available".  Timestamp. The time of the last refresh
--- of the check.  CheckId. The unique identifier for the check.
+-- In addition, the response contains these fields:
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckResult.html>
+-- -   __Status.__ The alert status of the check: \"ok\" (green),
+--     \"warning\" (yellow), \"error\" (red), or \"not_available\".
+-- -   __Timestamp.__ The time of the last refresh of the check.
+-- -   __CheckId.__ The unique identifier for the check.
+--
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckResult.html AWS API Reference> for DescribeTrustedAdvisorCheckResult.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     (
-    -- * Request
-      DescribeTrustedAdvisorCheckResult
-    -- ** Request constructor
-    , describeTrustedAdvisorCheckResult
-    -- ** Request lenses
-    , dtacrCheckId
+    -- * Creating a Request
+      describeTrustedAdvisorCheckResult
+    , DescribeTrustedAdvisorCheckResult
+    -- * Request Lenses
     , dtacrLanguage
+    , dtacrCheckId
 
-    -- * Response
-    , DescribeTrustedAdvisorCheckResultResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeTrustedAdvisorCheckResultResponse
-    -- ** Response lenses
-    , dtacrrResult
+    , DescribeTrustedAdvisorCheckResultResponse
+    -- * Response Lenses
+    , dtacrrsResult
+    , dtacrrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Support.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
+import           Network.AWS.Support.Types.Product
 
-data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
-    { _dtacrCheckId  :: Text
-    , _dtacrLanguage :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'describeTrustedAdvisorCheckResult' smart constructor.
+data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
+    { _dtacrLanguage :: !(Maybe Text)
+    , _dtacrCheckId  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTrustedAdvisorCheckResult' constructor.
+-- | Creates a value of 'DescribeTrustedAdvisorCheckResult' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtacrCheckId' @::@ 'Text'
+-- * 'dtacrLanguage'
 --
--- * 'dtacrLanguage' @::@ 'Maybe' 'Text'
---
-describeTrustedAdvisorCheckResult :: Text -- ^ 'dtacrCheckId'
-                                  -> DescribeTrustedAdvisorCheckResult
-describeTrustedAdvisorCheckResult p1 = DescribeTrustedAdvisorCheckResult
-    { _dtacrCheckId  = p1
-    , _dtacrLanguage = Nothing
+-- * 'dtacrCheckId'
+describeTrustedAdvisorCheckResult
+    :: Text -- ^ 'dtacrCheckId'
+    -> DescribeTrustedAdvisorCheckResult
+describeTrustedAdvisorCheckResult pCheckId_ =
+    DescribeTrustedAdvisorCheckResult'
+    { _dtacrLanguage = Nothing
+    , _dtacrCheckId = pCheckId_
     }
+
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS
+-- Support currently supports English (\"en\") and Japanese (\"ja\").
+-- Language parameters must be passed explicitly for operations that take
+-- them.
+dtacrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
+dtacrLanguage = lens _dtacrLanguage (\ s a -> s{_dtacrLanguage = a});
 
 -- | The unique identifier for the Trusted Advisor check.
 dtacrCheckId :: Lens' DescribeTrustedAdvisorCheckResult Text
-dtacrCheckId = lens _dtacrCheckId (\s a -> s { _dtacrCheckId = a })
+dtacrCheckId = lens _dtacrCheckId (\ s a -> s{_dtacrCheckId = a});
 
--- | The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English ("en") and Japanese ("ja"). Language
--- parameters must be passed explicitly for operations that take them.
-dtacrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
-dtacrLanguage = lens _dtacrLanguage (\s a -> s { _dtacrLanguage = a })
+instance AWSRequest DescribeTrustedAdvisorCheckResult
+         where
+        type Sv DescribeTrustedAdvisorCheckResult = Support
+        type Rs DescribeTrustedAdvisorCheckResult =
+             DescribeTrustedAdvisorCheckResultResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeTrustedAdvisorCheckResultResponse' <$>
+                   (x .?> "result") <*> (pure (fromEnum s)))
 
-newtype DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
-    { _dtacrrResult :: Maybe TrustedAdvisorCheckResult
-    } deriving (Eq, Read, Show)
+instance ToHeaders DescribeTrustedAdvisorCheckResult
+         where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSSupport_20130415.DescribeTrustedAdvisorCheckResult"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
--- | 'DescribeTrustedAdvisorCheckResultResponse' constructor.
+instance ToJSON DescribeTrustedAdvisorCheckResult
+         where
+        toJSON DescribeTrustedAdvisorCheckResult'{..}
+          = object
+              ["language" .= _dtacrLanguage,
+               "checkId" .= _dtacrCheckId]
+
+instance ToPath DescribeTrustedAdvisorCheckResult
+         where
+        toPath = const "/"
+
+instance ToQuery DescribeTrustedAdvisorCheckResult
+         where
+        toQuery = const mempty
+
+-- | The result of the Trusted Advisor check returned by the
+-- DescribeTrustedAdvisorCheckResult operation.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeTrustedAdvisorCheckResultResponse' smart constructor.
+data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
+    { _dtacrrsResult :: !(Maybe TrustedAdvisorCheckResult)
+    , _dtacrrsStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeTrustedAdvisorCheckResultResponse' with the minimum fields required to make a request.
 --
--- * 'dtacrrResult' @::@ 'Maybe' 'TrustedAdvisorCheckResult'
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeTrustedAdvisorCheckResultResponse :: DescribeTrustedAdvisorCheckResultResponse
-describeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
-    { _dtacrrResult = Nothing
+-- * 'dtacrrsResult'
+--
+-- * 'dtacrrsStatus'
+describeTrustedAdvisorCheckResultResponse
+    :: Int -- ^ 'dtacrrsStatus'
+    -> DescribeTrustedAdvisorCheckResultResponse
+describeTrustedAdvisorCheckResultResponse pStatus_ =
+    DescribeTrustedAdvisorCheckResultResponse'
+    { _dtacrrsResult = Nothing
+    , _dtacrrsStatus = pStatus_
     }
 
 -- | The detailed results of the Trusted Advisor check.
-dtacrrResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
-dtacrrResult = lens _dtacrrResult (\s a -> s { _dtacrrResult = a })
+dtacrrsResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
+dtacrrsResult = lens _dtacrrsResult (\ s a -> s{_dtacrrsResult = a});
 
-instance ToPath DescribeTrustedAdvisorCheckResult where
-    toPath = const "/"
-
-instance ToQuery DescribeTrustedAdvisorCheckResult where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTrustedAdvisorCheckResult
-
-instance ToJSON DescribeTrustedAdvisorCheckResult where
-    toJSON DescribeTrustedAdvisorCheckResult{..} = object
-        [ "checkId"  .= _dtacrCheckId
-        , "language" .= _dtacrLanguage
-        ]
-
-instance AWSRequest DescribeTrustedAdvisorCheckResult where
-    type Sv DescribeTrustedAdvisorCheckResult = Support
-    type Rs DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResultResponse
-
-    request  = post "DescribeTrustedAdvisorCheckResult"
-    response = jsonResponse
-
-instance FromJSON DescribeTrustedAdvisorCheckResultResponse where
-    parseJSON = withObject "DescribeTrustedAdvisorCheckResultResponse" $ \o -> DescribeTrustedAdvisorCheckResultResponse
-        <$> o .:? "result"
+-- | The response status code.
+dtacrrsStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
+dtacrrsStatus = lens _dtacrrsStatus (\ s a -> s{_dtacrrsStatus = a});

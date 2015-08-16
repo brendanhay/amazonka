@@ -1,100 +1,107 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.DirectConnect.CreateInterconnect
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new interconnect between a AWS Direct Connect partner's network and
--- a specific AWS Direct Connect location.
+-- |
+-- Module      : Network.AWS.DirectConnect.CreateInterconnect
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Creates a new interconnect between a AWS Direct Connect partner\'s
+-- network and a specific AWS Direct Connect location.
 --
 -- An interconnect is a connection which is capable of hosting other
 -- connections. The AWS Direct Connect partner can use an interconnect to
--- provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not
--- have their own connections. Like a standard connection, an interconnect links
--- the AWS Direct Connect partner's network to an AWS Direct Connect location
--- over a standard 1 Gbps or 10 Gbps Ethernet fiber-optic cable. One end is
--- connected to the partner's router, the other to an AWS Direct Connect router.
+-- provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do
+-- not have their own connections. Like a standard connection, an
+-- interconnect links the AWS Direct Connect partner\'s network to an AWS
+-- Direct Connect location over a standard 1 Gbps or 10 Gbps Ethernet
+-- fiber-optic cable. One end is connected to the partner\'s router, the
+-- other to an AWS Direct Connect router.
 --
 -- For each end customer, the AWS Direct Connect partner provisions a
--- connection on their interconnect by calling AllocateConnectionOnInterconnect.
--- The end customer can then connect to AWS resources by creating a virtual
--- interface on their connection, using the VLAN assigned to them by the AWS
--- Direct Connect partner.
+-- connection on their interconnect by calling
+-- AllocateConnectionOnInterconnect. The end customer can then connect to
+-- AWS resources by creating a virtual interface on their connection, using
+-- the VLAN assigned to them by the AWS Direct Connect partner.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateInterconnect.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateInterconnect.html AWS API Reference> for CreateInterconnect.
 module Network.AWS.DirectConnect.CreateInterconnect
     (
-    -- * Request
-      CreateInterconnect
-    -- ** Request constructor
-    , createInterconnect
-    -- ** Request lenses
-    , ciBandwidth
+    -- * Creating a Request
+      createInterconnect
+    , CreateInterconnect
+    -- * Request Lenses
     , ciInterconnectName
+    , ciBandwidth
     , ciLocation
 
-    -- * Response
-    , CreateInterconnectResponse
-    -- ** Response constructor
-    , createInterconnectResponse
-    -- ** Response lenses
-    , cirBandwidth
-    , cirInterconnectId
-    , cirInterconnectName
-    , cirInterconnectState
-    , cirLocation
-    , cirRegion
+    -- * Destructuring the Response
+    , interconnect
+    , Interconnect
+    -- * Response Lenses
+    , iInterconnectId
+    , iInterconnectName
+    , iLocation
+    , iBandwidth
+    , iInterconnectState
+    , iRegion
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DirectConnect.Types
-import qualified GHC.Exts
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateInterconnect = CreateInterconnect
-    { _ciBandwidth        :: Text
-    , _ciInterconnectName :: Text
-    , _ciLocation         :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Container for the parameters to the CreateInterconnect operation.
+--
+-- /See:/ 'createInterconnect' smart constructor.
+data CreateInterconnect = CreateInterconnect'
+    { _ciInterconnectName :: !Text
+    , _ciBandwidth        :: !Text
+    , _ciLocation         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateInterconnect' constructor.
+-- | Creates a value of 'CreateInterconnect' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ciBandwidth' @::@ 'Text'
+-- * 'ciInterconnectName'
 --
--- * 'ciInterconnectName' @::@ 'Text'
+-- * 'ciBandwidth'
 --
--- * 'ciLocation' @::@ 'Text'
---
-createInterconnect :: Text -- ^ 'ciInterconnectName'
-                   -> Text -- ^ 'ciBandwidth'
-                   -> Text -- ^ 'ciLocation'
-                   -> CreateInterconnect
-createInterconnect p1 p2 p3 = CreateInterconnect
-    { _ciInterconnectName = p1
-    , _ciBandwidth        = p2
-    , _ciLocation         = p3
+-- * 'ciLocation'
+createInterconnect
+    :: Text -- ^ 'ciInterconnectName'
+    -> Text -- ^ 'ciBandwidth'
+    -> Text -- ^ 'ciLocation'
+    -> CreateInterconnect
+createInterconnect pInterconnectName_ pBandwidth_ pLocation_ =
+    CreateInterconnect'
+    { _ciInterconnectName = pInterconnectName_
+    , _ciBandwidth = pBandwidth_
+    , _ciLocation = pLocation_
     }
+
+-- | The name of the interconnect.
+--
+-- Example: \"/1G Interconnect to AWS/\"
+--
+-- Default: None
+ciInterconnectName :: Lens' CreateInterconnect Text
+ciInterconnectName = lens _ciInterconnectName (\ s a -> s{_ciInterconnectName = a});
 
 -- | The port bandwidth
 --
@@ -104,16 +111,7 @@ createInterconnect p1 p2 p3 = CreateInterconnect
 --
 -- Available values: 1Gbps,10Gbps
 ciBandwidth :: Lens' CreateInterconnect Text
-ciBandwidth = lens _ciBandwidth (\s a -> s { _ciBandwidth = a })
-
--- | The name of the interconnect.
---
--- Example: "/1G Interconnect to AWS/"
---
--- Default: None
-ciInterconnectName :: Lens' CreateInterconnect Text
-ciInterconnectName =
-    lens _ciInterconnectName (\s a -> s { _ciInterconnectName = a })
+ciBandwidth = lens _ciBandwidth (\ s a -> s{_ciBandwidth = a});
 
 -- | Where the interconnect is located
 --
@@ -121,91 +119,32 @@ ciInterconnectName =
 --
 -- Default: None
 ciLocation :: Lens' CreateInterconnect Text
-ciLocation = lens _ciLocation (\s a -> s { _ciLocation = a })
-
-data CreateInterconnectResponse = CreateInterconnectResponse
-    { _cirBandwidth         :: Maybe Text
-    , _cirInterconnectId    :: Maybe Text
-    , _cirInterconnectName  :: Maybe Text
-    , _cirInterconnectState :: Maybe InterconnectState
-    , _cirLocation          :: Maybe Text
-    , _cirRegion            :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'CreateInterconnectResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cirBandwidth' @::@ 'Maybe' 'Text'
---
--- * 'cirInterconnectId' @::@ 'Maybe' 'Text'
---
--- * 'cirInterconnectName' @::@ 'Maybe' 'Text'
---
--- * 'cirInterconnectState' @::@ 'Maybe' 'InterconnectState'
---
--- * 'cirLocation' @::@ 'Maybe' 'Text'
---
--- * 'cirRegion' @::@ 'Maybe' 'Text'
---
-createInterconnectResponse :: CreateInterconnectResponse
-createInterconnectResponse = CreateInterconnectResponse
-    { _cirInterconnectId    = Nothing
-    , _cirInterconnectName  = Nothing
-    , _cirInterconnectState = Nothing
-    , _cirRegion            = Nothing
-    , _cirLocation          = Nothing
-    , _cirBandwidth         = Nothing
-    }
-
-cirBandwidth :: Lens' CreateInterconnectResponse (Maybe Text)
-cirBandwidth = lens _cirBandwidth (\s a -> s { _cirBandwidth = a })
-
-cirInterconnectId :: Lens' CreateInterconnectResponse (Maybe Text)
-cirInterconnectId =
-    lens _cirInterconnectId (\s a -> s { _cirInterconnectId = a })
-
-cirInterconnectName :: Lens' CreateInterconnectResponse (Maybe Text)
-cirInterconnectName =
-    lens _cirInterconnectName (\s a -> s { _cirInterconnectName = a })
-
-cirInterconnectState :: Lens' CreateInterconnectResponse (Maybe InterconnectState)
-cirInterconnectState =
-    lens _cirInterconnectState (\s a -> s { _cirInterconnectState = a })
-
-cirLocation :: Lens' CreateInterconnectResponse (Maybe Text)
-cirLocation = lens _cirLocation (\s a -> s { _cirLocation = a })
-
-cirRegion :: Lens' CreateInterconnectResponse (Maybe Text)
-cirRegion = lens _cirRegion (\s a -> s { _cirRegion = a })
-
-instance ToPath CreateInterconnect where
-    toPath = const "/"
-
-instance ToQuery CreateInterconnect where
-    toQuery = const mempty
-
-instance ToHeaders CreateInterconnect
-
-instance ToJSON CreateInterconnect where
-    toJSON CreateInterconnect{..} = object
-        [ "interconnectName" .= _ciInterconnectName
-        , "bandwidth"        .= _ciBandwidth
-        , "location"         .= _ciLocation
-        ]
+ciLocation = lens _ciLocation (\ s a -> s{_ciLocation = a});
 
 instance AWSRequest CreateInterconnect where
-    type Sv CreateInterconnect = DirectConnect
-    type Rs CreateInterconnect = CreateInterconnectResponse
+        type Sv CreateInterconnect = DirectConnect
+        type Rs CreateInterconnect = Interconnect
+        request = postJSON
+        response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-    request  = post "CreateInterconnect"
-    response = jsonResponse
+instance ToHeaders CreateInterconnect where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OvertureService.CreateInterconnect" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON CreateInterconnectResponse where
-    parseJSON = withObject "CreateInterconnectResponse" $ \o -> CreateInterconnectResponse
-        <$> o .:? "bandwidth"
-        <*> o .:? "interconnectId"
-        <*> o .:? "interconnectName"
-        <*> o .:? "interconnectState"
-        <*> o .:? "location"
-        <*> o .:? "region"
+instance ToJSON CreateInterconnect where
+        toJSON CreateInterconnect'{..}
+          = object
+              ["interconnectName" .= _ciInterconnectName,
+               "bandwidth" .= _ciBandwidth,
+               "location" .= _ciLocation]
+
+instance ToPath CreateInterconnect where
+        toPath = const "/"
+
+instance ToQuery CreateInterconnect where
+        toQuery = const mempty

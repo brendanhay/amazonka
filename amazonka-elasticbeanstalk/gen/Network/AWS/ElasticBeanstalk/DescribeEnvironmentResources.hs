@@ -1,126 +1,146 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns AWS resources for this environment.
+-- |
+-- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentResources.html>
+-- Returns AWS resources for this environment.
+--
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentResources.html AWS API Reference> for DescribeEnvironmentResources.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     (
-    -- * Request
-      DescribeEnvironmentResources
-    -- ** Request constructor
-    , describeEnvironmentResources
-    -- ** Request lenses
-    , derEnvironmentId
+    -- * Creating a Request
+      describeEnvironmentResources
+    , DescribeEnvironmentResources
+    -- * Request Lenses
     , derEnvironmentName
+    , derEnvironmentId
 
-    -- * Response
-    , DescribeEnvironmentResourcesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeEnvironmentResourcesResponse
-    -- ** Response lenses
-    , derrEnvironmentResources
+    , DescribeEnvironmentResourcesResponse
+    -- * Response Lenses
+    , derrsEnvironmentResources
+    , derrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeEnvironmentResources = DescribeEnvironmentResources
-    { _derEnvironmentId   :: Maybe Text
-    , _derEnvironmentName :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'describeEnvironmentResources' smart constructor.
+data DescribeEnvironmentResources = DescribeEnvironmentResources'
+    { _derEnvironmentName :: !(Maybe Text)
+    , _derEnvironmentId   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEnvironmentResources' constructor.
+-- | Creates a value of 'DescribeEnvironmentResources' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derEnvironmentId' @::@ 'Maybe' 'Text'
+-- * 'derEnvironmentName'
 --
--- * 'derEnvironmentName' @::@ 'Maybe' 'Text'
---
-describeEnvironmentResources :: DescribeEnvironmentResources
-describeEnvironmentResources = DescribeEnvironmentResources
-    { _derEnvironmentId   = Nothing
-    , _derEnvironmentName = Nothing
+-- * 'derEnvironmentId'
+describeEnvironmentResources
+    :: DescribeEnvironmentResources
+describeEnvironmentResources =
+    DescribeEnvironmentResources'
+    { _derEnvironmentName = Nothing
+    , _derEnvironmentId = Nothing
     }
-
--- | The ID of the environment to retrieve AWS resource usage data.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If
--- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
-derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
-derEnvironmentId = lens _derEnvironmentId (\s a -> s { _derEnvironmentId = a })
 
 -- | The name of the environment to retrieve AWS resource usage data.
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
--- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
+-- you do not specify either, AWS Elastic Beanstalk returns
+-- 'MissingRequiredParameter' error.
 derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
-derEnvironmentName =
-    lens _derEnvironmentName (\s a -> s { _derEnvironmentName = a })
+derEnvironmentName = lens _derEnvironmentName (\ s a -> s{_derEnvironmentName = a});
 
-newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
-    { _derrEnvironmentResources :: Maybe EnvironmentResourceDescription
-    } deriving (Eq, Read, Show)
+-- | The ID of the environment to retrieve AWS resource usage data.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both.
+-- If you do not specify either, AWS Elastic Beanstalk returns
+-- 'MissingRequiredParameter' error.
+derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
+derEnvironmentId = lens _derEnvironmentId (\ s a -> s{_derEnvironmentId = a});
 
--- | 'DescribeEnvironmentResourcesResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'derrEnvironmentResources' @::@ 'Maybe' 'EnvironmentResourceDescription'
---
-describeEnvironmentResourcesResponse :: DescribeEnvironmentResourcesResponse
-describeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
-    { _derrEnvironmentResources = Nothing
-    }
+instance AWSRequest DescribeEnvironmentResources
+         where
+        type Sv DescribeEnvironmentResources =
+             ElasticBeanstalk
+        type Rs DescribeEnvironmentResources =
+             DescribeEnvironmentResourcesResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "DescribeEnvironmentResourcesResult"
+              (\ s h x ->
+                 DescribeEnvironmentResourcesResponse' <$>
+                   (x .@? "EnvironmentResources") <*>
+                     (pure (fromEnum s)))
 
--- | A list of 'EnvironmentResourceDescription'.
-derrEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
-derrEnvironmentResources =
-    lens _derrEnvironmentResources
-        (\s a -> s { _derrEnvironmentResources = a })
+instance ToHeaders DescribeEnvironmentResources where
+        toHeaders = const mempty
 
 instance ToPath DescribeEnvironmentResources where
-    toPath = const "/"
+        toPath = const "/"
 
 instance ToQuery DescribeEnvironmentResources where
-    toQuery DescribeEnvironmentResources{..} = mconcat
-        [ "EnvironmentId"   =? _derEnvironmentId
-        , "EnvironmentName" =? _derEnvironmentName
-        ]
+        toQuery DescribeEnvironmentResources'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeEnvironmentResources" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "EnvironmentName" =: _derEnvironmentName,
+               "EnvironmentId" =: _derEnvironmentId]
 
-instance ToHeaders DescribeEnvironmentResources
+-- | Result message containing a list of environment resource descriptions.
+--
+-- /See:/ 'describeEnvironmentResourcesResponse' smart constructor.
+data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
+    { _derrsEnvironmentResources :: !(Maybe EnvironmentResourceDescription)
+    , _derrsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
-instance AWSRequest DescribeEnvironmentResources where
-    type Sv DescribeEnvironmentResources = ElasticBeanstalk
-    type Rs DescribeEnvironmentResources = DescribeEnvironmentResourcesResponse
+-- | Creates a value of 'DescribeEnvironmentResourcesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'derrsEnvironmentResources'
+--
+-- * 'derrsStatus'
+describeEnvironmentResourcesResponse
+    :: Int -- ^ 'derrsStatus'
+    -> DescribeEnvironmentResourcesResponse
+describeEnvironmentResourcesResponse pStatus_ =
+    DescribeEnvironmentResourcesResponse'
+    { _derrsEnvironmentResources = Nothing
+    , _derrsStatus = pStatus_
+    }
 
-    request  = post "DescribeEnvironmentResources"
-    response = xmlResponse
+-- | A list of EnvironmentResourceDescription.
+derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
+derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEnvironmentResources = a});
 
-instance FromXML DescribeEnvironmentResourcesResponse where
-    parseXML = withElement "DescribeEnvironmentResourcesResult" $ \x -> DescribeEnvironmentResourcesResponse
-        <$> x .@? "EnvironmentResources"
+-- | The response status code.
+derrsStatus :: Lens' DescribeEnvironmentResourcesResponse Int
+derrsStatus = lens _derrsStatus (\ s a -> s{_derrsStatus = a});

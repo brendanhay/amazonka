@@ -1,149 +1,159 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Glacier.SetVaultNotifications
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation configures notifications that will be sent when specific
--- events happen to a vault. By default, you don't get any notifications.
+-- |
+-- Module      : Network.AWS.Glacier.SetVaultNotifications
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- To configure vault notifications, send a PUT request to the 'notification-configuration' subresource of the vault. The request should include a JSON document that
--- provides an Amazon SNS topic and specific events for which you want Amazon
--- Glacier to send notifications to the topic.
+-- This operation configures notifications that will be sent when specific
+-- events happen to a vault. By default, you don\'t get any notifications.
+--
+-- To configure vault notifications, send a PUT request to the
+-- 'notification-configuration' subresource of the vault. The request
+-- should include a JSON document that provides an Amazon SNS topic and
+-- specific events for which you want Amazon Glacier to send notifications
+-- to the topic.
 --
 -- Amazon SNS topics must grant permission to the vault to be allowed to
--- publish notifications to the topic. You can configure a vault to publish a
--- notification for the following vault events:
+-- publish notifications to the topic. You can configure a vault to publish
+-- a notification for the following vault events:
 --
--- ArchiveRetrievalCompleted This event occurs when a job that was initiated
--- for an archive retrieval is completed ('InitiateJob'). The status of the
--- completed job can be "Succeeded" or "Failed". The notification sent to the
--- SNS topic is the same output as returned from 'DescribeJob'.   InventoryRetrievalCompleted
--- This event occurs when a job that was initiated for an inventory retrieval
--- is completed ('InitiateJob'). The status of the completed job can be
--- "Succeeded" or "Failed". The notification sent to the SNS topic is the same
--- output as returned from 'DescribeJob'.   An AWS account has full permission to
--- perform all operations (actions). However, AWS Identity and Access Management
--- (IAM) users don't have any permissions by default. You must grant them
--- explicit permission to perform specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)>.
+-- -   __ArchiveRetrievalCompleted__ This event occurs when a job that was
+--     initiated for an archive retrieval is completed (InitiateJob). The
+--     status of the completed job can be \"Succeeded\" or \"Failed\". The
+--     notification sent to the SNS topic is the same output as returned
+--     from DescribeJob.
+-- -   __InventoryRetrievalCompleted__ This event occurs when a job that
+--     was initiated for an inventory retrieval is completed (InitiateJob).
+--     The status of the completed job can be \"Succeeded\" or \"Failed\".
+--     The notification sent to the SNS topic is the same output as
+--     returned from DescribeJob.
 --
--- For conceptual information and underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html Configuring VaultNotifications in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html Set Vault Notification Configuration > in
--- the /Amazon Glacier Developer Guide/.
+-- An AWS account has full permission to perform all operations (actions).
+-- However, AWS Identity and Access Management (IAM) users don\'t have any
+-- permissions by default. You must grant them explicit permission to
+-- perform specific actions. For more information, see
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)>.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultNotifications.html>
+-- For conceptual information and underlying REST API, go to
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/configuring-notifications.html Configuring Vault Notifications in Amazon Glacier>
+-- and
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-notifications-put.html Set Vault Notification Configuration>
+-- in the /Amazon Glacier Developer Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultNotifications.html AWS API Reference> for SetVaultNotifications.
 module Network.AWS.Glacier.SetVaultNotifications
     (
-    -- * Request
-      SetVaultNotifications
-    -- ** Request constructor
-    , setVaultNotifications
-    -- ** Request lenses
+    -- * Creating a Request
+      setVaultNotifications
+    , SetVaultNotifications
+    -- * Request Lenses
+    , svnVaultNotificationConfig
     , svnAccountId
     , svnVaultName
-    , svnVaultNotificationConfig
 
-    -- * Response
-    , SetVaultNotificationsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , setVaultNotificationsResponse
+    , SetVaultNotificationsResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.Glacier.Types
-import qualified GHC.Exts
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data SetVaultNotifications = SetVaultNotifications
-    { _svnAccountId               :: Text
-    , _svnVaultName               :: Text
-    , _svnVaultNotificationConfig :: Maybe VaultNotificationConfig
-    } deriving (Eq, Read, Show)
+-- | Provides options to configure notifications that will be sent when
+-- specific events happen to a vault.
+--
+-- /See:/ 'setVaultNotifications' smart constructor.
+data SetVaultNotifications = SetVaultNotifications'
+    { _svnVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
+    , _svnAccountId               :: !Text
+    , _svnVaultName               :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetVaultNotifications' constructor.
+-- | Creates a value of 'SetVaultNotifications' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'svnAccountId' @::@ 'Text'
+-- * 'svnVaultNotificationConfig'
 --
--- * 'svnVaultName' @::@ 'Text'
+-- * 'svnAccountId'
 --
--- * 'svnVaultNotificationConfig' @::@ 'Maybe' 'VaultNotificationConfig'
---
-setVaultNotifications :: Text -- ^ 'svnAccountId'
-                      -> Text -- ^ 'svnVaultName'
-                      -> SetVaultNotifications
-setVaultNotifications p1 p2 = SetVaultNotifications
-    { _svnAccountId               = p1
-    , _svnVaultName               = p2
-    , _svnVaultNotificationConfig = Nothing
+-- * 'svnVaultName'
+setVaultNotifications
+    :: Text -- ^ 'svnAccountId'
+    -> Text -- ^ 'svnVaultName'
+    -> SetVaultNotifications
+setVaultNotifications pAccountId_ pVaultName_ =
+    SetVaultNotifications'
+    { _svnVaultNotificationConfig = Nothing
+    , _svnAccountId = pAccountId_
+    , _svnVaultName = pVaultName_
     }
-
--- | The 'AccountId' value is the AWS account ID of the account that owns the vault.
--- You can either specify an AWS account ID or optionally a single apos'-'apos
--- (hyphen), in which case Amazon Glacier uses the AWS account ID associated
--- with the credentials used to sign the request. If you use an account ID, do
--- not include any hyphens (apos-apos) in the ID.
-svnAccountId :: Lens' SetVaultNotifications Text
-svnAccountId = lens _svnAccountId (\s a -> s { _svnAccountId = a })
-
--- | The name of the vault.
-svnVaultName :: Lens' SetVaultNotifications Text
-svnVaultName = lens _svnVaultName (\s a -> s { _svnVaultName = a })
 
 -- | Provides options for specifying notification configuration.
 svnVaultNotificationConfig :: Lens' SetVaultNotifications (Maybe VaultNotificationConfig)
-svnVaultNotificationConfig =
-    lens _svnVaultNotificationConfig
-        (\s a -> s { _svnVaultNotificationConfig = a })
+svnVaultNotificationConfig = lens _svnVaultNotificationConfig (\ s a -> s{_svnVaultNotificationConfig = a});
 
-data SetVaultNotificationsResponse = SetVaultNotificationsResponse
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
+-- vault. You can either specify an AWS account ID or optionally a single
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- ID associated with the credentials used to sign the request. If you use
+-- an account ID, do not include any hyphens (apos-apos) in the ID.
+svnAccountId :: Lens' SetVaultNotifications Text
+svnAccountId = lens _svnAccountId (\ s a -> s{_svnAccountId = a});
 
--- | 'SetVaultNotificationsResponse' constructor.
-setVaultNotificationsResponse :: SetVaultNotificationsResponse
-setVaultNotificationsResponse = SetVaultNotificationsResponse
-
-instance ToPath SetVaultNotifications where
-    toPath SetVaultNotifications{..} = mconcat
-        [ "/"
-        , toText _svnAccountId
-        , "/vaults/"
-        , toText _svnVaultName
-        , "/notification-configuration"
-        ]
-
-instance ToQuery SetVaultNotifications where
-    toQuery = const mempty
-
-instance ToHeaders SetVaultNotifications
-
-instance ToJSON SetVaultNotifications where
-    toJSON SetVaultNotifications{..} = object
-        [ "vaultNotificationConfig" .= _svnVaultNotificationConfig
-        ]
+-- | The name of the vault.
+svnVaultName :: Lens' SetVaultNotifications Text
+svnVaultName = lens _svnVaultName (\ s a -> s{_svnVaultName = a});
 
 instance AWSRequest SetVaultNotifications where
-    type Sv SetVaultNotifications = Glacier
-    type Rs SetVaultNotifications = SetVaultNotificationsResponse
+        type Sv SetVaultNotifications = Glacier
+        type Rs SetVaultNotifications =
+             SetVaultNotificationsResponse
+        request = putJSON
+        response = receiveNull SetVaultNotificationsResponse'
 
-    request  = put
-    response = nullResponse SetVaultNotificationsResponse
+instance ToHeaders SetVaultNotifications where
+        toHeaders = const mempty
+
+instance ToJSON SetVaultNotifications where
+        toJSON SetVaultNotifications'{..}
+          = object
+              ["vaultNotificationConfig" .=
+                 _svnVaultNotificationConfig]
+
+instance ToPath SetVaultNotifications where
+        toPath SetVaultNotifications'{..}
+          = mconcat
+              ["/", toBS _svnAccountId, "/vaults/",
+               toBS _svnVaultName, "/notification-configuration"]
+
+instance ToQuery SetVaultNotifications where
+        toQuery = const mempty
+
+-- | /See:/ 'setVaultNotificationsResponse' smart constructor.
+data SetVaultNotificationsResponse =
+    SetVaultNotificationsResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SetVaultNotificationsResponse' with the minimum fields required to make a request.
+--
+setVaultNotificationsResponse
+    :: SetVaultNotificationsResponse
+setVaultNotificationsResponse = SetVaultNotificationsResponse'

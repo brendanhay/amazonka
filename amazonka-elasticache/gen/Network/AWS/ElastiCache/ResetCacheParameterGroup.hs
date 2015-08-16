@@ -1,143 +1,122 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElastiCache.ResetCacheParameterGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /ResetCacheParameterGroup/ action modifies the parameters of a cache
--- parameter group to the engine or system default value. You can reset specific
--- parameters by submitting a list of parameter names. To reset the entire cache
--- parameter group, specify the /ResetAllParameters/ and /CacheParameterGroupName/
--- parameters.
+-- |
+-- Module      : Network.AWS.ElastiCache.ResetCacheParameterGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ResetCacheParameterGroup.html>
+-- The /ResetCacheParameterGroup/ action modifies the parameters of a cache
+-- parameter group to the engine or system default value. You can reset
+-- specific parameters by submitting a list of parameter names. To reset
+-- the entire cache parameter group, specify the /ResetAllParameters/ and
+-- /CacheParameterGroupName/ parameters.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ResetCacheParameterGroup.html AWS API Reference> for ResetCacheParameterGroup.
 module Network.AWS.ElastiCache.ResetCacheParameterGroup
     (
-    -- * Request
-      ResetCacheParameterGroup
-    -- ** Request constructor
-    , resetCacheParameterGroup
-    -- ** Request lenses
+    -- * Creating a Request
+      resetCacheParameterGroup
+    , ResetCacheParameterGroup
+    -- * Request Lenses
+    , rcpgResetAllParameters
     , rcpgCacheParameterGroupName
     , rcpgParameterNameValues
-    , rcpgResetAllParameters
 
-    -- * Response
-    , ResetCacheParameterGroupResponse
-    -- ** Response constructor
-    , resetCacheParameterGroupResponse
-    -- ** Response lenses
-    , rcpgrCacheParameterGroupName
+    -- * Destructuring the Response
+    , cacheParameterGroupNameMessage
+    , CacheParameterGroupNameMessage
+    -- * Response Lenses
+    , cpgnmCacheParameterGroupName
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ResetCacheParameterGroup = ResetCacheParameterGroup
-    { _rcpgCacheParameterGroupName :: Text
-    , _rcpgParameterNameValues     :: List "member" ParameterNameValue
-    , _rcpgResetAllParameters      :: Maybe Bool
-    } deriving (Eq, Read, Show)
+-- | Represents the input of a /ResetCacheParameterGroup/ action.
+--
+-- /See:/ 'resetCacheParameterGroup' smart constructor.
+data ResetCacheParameterGroup = ResetCacheParameterGroup'
+    { _rcpgResetAllParameters      :: !(Maybe Bool)
+    , _rcpgCacheParameterGroupName :: !Text
+    , _rcpgParameterNameValues     :: ![ParameterNameValue]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetCacheParameterGroup' constructor.
+-- | Creates a value of 'ResetCacheParameterGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rcpgCacheParameterGroupName' @::@ 'Text'
+-- * 'rcpgResetAllParameters'
 --
--- * 'rcpgParameterNameValues' @::@ ['ParameterNameValue']
+-- * 'rcpgCacheParameterGroupName'
 --
--- * 'rcpgResetAllParameters' @::@ 'Maybe' 'Bool'
---
-resetCacheParameterGroup :: Text -- ^ 'rcpgCacheParameterGroupName'
-                         -> ResetCacheParameterGroup
-resetCacheParameterGroup p1 = ResetCacheParameterGroup
-    { _rcpgCacheParameterGroupName = p1
-    , _rcpgResetAllParameters      = Nothing
-    , _rcpgParameterNameValues     = mempty
+-- * 'rcpgParameterNameValues'
+resetCacheParameterGroup
+    :: Text -- ^ 'rcpgCacheParameterGroupName'
+    -> ResetCacheParameterGroup
+resetCacheParameterGroup pCacheParameterGroupName_ =
+    ResetCacheParameterGroup'
+    { _rcpgResetAllParameters = Nothing
+    , _rcpgCacheParameterGroupName = pCacheParameterGroupName_
+    , _rcpgParameterNameValues = mempty
     }
 
--- | The name of the cache parameter group to reset.
-rcpgCacheParameterGroupName :: Lens' ResetCacheParameterGroup Text
-rcpgCacheParameterGroupName =
-    lens _rcpgCacheParameterGroupName
-        (\s a -> s { _rcpgCacheParameterGroupName = a })
-
--- | An array of parameter names to be reset. If you are not resetting the entire
--- cache parameter group, you must specify at least one parameter name.
-rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
-rcpgParameterNameValues =
-    lens _rcpgParameterNameValues (\s a -> s { _rcpgParameterNameValues = a })
-        . _List
-
--- | If /true/, all parameters in the cache parameter group will be reset to default
--- values. If /false/, no such action occurs.
+-- | If /true/, all parameters in the cache parameter group will be reset to
+-- default values. If /false/, no such action occurs.
 --
 -- Valid values: 'true' | 'false'
 rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
-rcpgResetAllParameters =
-    lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })
+rcpgResetAllParameters = lens _rcpgResetAllParameters (\ s a -> s{_rcpgResetAllParameters = a});
 
-newtype ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
-    { _rcpgrCacheParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+-- | The name of the cache parameter group to reset.
+rcpgCacheParameterGroupName :: Lens' ResetCacheParameterGroup Text
+rcpgCacheParameterGroupName = lens _rcpgCacheParameterGroupName (\ s a -> s{_rcpgCacheParameterGroupName = a});
 
--- | 'ResetCacheParameterGroupResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcpgrCacheParameterGroupName' @::@ 'Maybe' 'Text'
---
-resetCacheParameterGroupResponse :: ResetCacheParameterGroupResponse
-resetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
-    { _rcpgrCacheParameterGroupName = Nothing
-    }
-
--- | The name of the cache parameter group.
-rcpgrCacheParameterGroupName :: Lens' ResetCacheParameterGroupResponse (Maybe Text)
-rcpgrCacheParameterGroupName =
-    lens _rcpgrCacheParameterGroupName
-        (\s a -> s { _rcpgrCacheParameterGroupName = a })
-
-instance ToPath ResetCacheParameterGroup where
-    toPath = const "/"
-
-instance ToQuery ResetCacheParameterGroup where
-    toQuery ResetCacheParameterGroup{..} = mconcat
-        [ "CacheParameterGroupName" =? _rcpgCacheParameterGroupName
-        , "ParameterNameValues"     =? _rcpgParameterNameValues
-        , "ResetAllParameters"      =? _rcpgResetAllParameters
-        ]
-
-instance ToHeaders ResetCacheParameterGroup
+-- | An array of parameter names to be reset. If you are not resetting the
+-- entire cache parameter group, you must specify at least one parameter
+-- name.
+rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
+rcpgParameterNameValues = lens _rcpgParameterNameValues (\ s a -> s{_rcpgParameterNameValues = a}) . _Coerce;
 
 instance AWSRequest ResetCacheParameterGroup where
-    type Sv ResetCacheParameterGroup = ElastiCache
-    type Rs ResetCacheParameterGroup = ResetCacheParameterGroupResponse
+        type Sv ResetCacheParameterGroup = ElastiCache
+        type Rs ResetCacheParameterGroup =
+             CacheParameterGroupNameMessage
+        request = postQuery
+        response
+          = receiveXMLWrapper "ResetCacheParameterGroupResult"
+              (\ s h x -> parseXML x)
 
-    request  = post "ResetCacheParameterGroup"
-    response = xmlResponse
+instance ToHeaders ResetCacheParameterGroup where
+        toHeaders = const mempty
 
-instance FromXML ResetCacheParameterGroupResponse where
-    parseXML = withElement "ResetCacheParameterGroupResult" $ \x -> ResetCacheParameterGroupResponse
-        <$> x .@? "CacheParameterGroupName"
+instance ToPath ResetCacheParameterGroup where
+        toPath = const "/"
+
+instance ToQuery ResetCacheParameterGroup where
+        toQuery ResetCacheParameterGroup'{..}
+          = mconcat
+              ["Action" =:
+                 ("ResetCacheParameterGroup" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "ResetAllParameters" =: _rcpgResetAllParameters,
+               "CacheParameterGroupName" =:
+                 _rcpgCacheParameterGroupName,
+               "ParameterNameValues" =:
+                 toQueryList "ParameterNameValue"
+                   _rcpgParameterNameValues]

@@ -1,162 +1,192 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Kinesis.DescribeStream
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes the specified stream.
+-- |
+-- Module      : Network.AWS.Kinesis.DescribeStream
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Describes the specified stream.
 --
 -- The information about the stream includes its current status, its Amazon
--- Resource Name (ARN), and an array of shard objects. For each shard object,
--- there is information about the hash key and sequence number ranges that the
--- shard spans, and the IDs of any earlier shards that played in a role in
--- creating the shard. A sequence number is the identifier associated with every
--- record ingested in the Amazon Kinesis stream. The sequence number is assigned
--- when a record is put into the stream.
+-- Resource Name (ARN), and an array of shard objects. For each shard
+-- object, there is information about the hash key and sequence number
+-- ranges that the shard spans, and the IDs of any earlier shards that
+-- played in a role in creating the shard. A sequence number is the
+-- identifier associated with every record ingested in the Amazon Kinesis
+-- stream. The sequence number is assigned when a record is put into the
+-- stream.
 --
--- You can limit the number of returned shards using the 'Limit' parameter. The
--- number of shards in a stream may be too large to return from a single call to 'DescribeStream'. You can detect this by using the 'HasMoreShards' flag in the
--- returned output. 'HasMoreShards' is set to 'true' when there is more data
--- available.
+-- You can limit the number of returned shards using the 'Limit' parameter.
+-- The number of shards in a stream may be too large to return from a
+-- single call to 'DescribeStream'. You can detect this by using the
+-- 'HasMoreShards' flag in the returned output. 'HasMoreShards' is set to
+-- 'true' when there is more data available.
 --
--- 'DescribeStream' is a paginated operation. If there are more shards available,
--- you can request them using the shard ID of the last shard returned. Specify
--- this ID in the 'ExclusiveStartShardId' parameter in a subsequent request to 'DescribeStream'.
+-- 'DescribeStream' is a paginated operation. If there are more shards
+-- available, you can request them using the shard ID of the last shard
+-- returned. Specify this ID in the 'ExclusiveStartShardId' parameter in a
+-- subsequent request to 'DescribeStream'.
 --
--- 'DescribeStream' has a limit of 10 transactions per second per account.
+-- DescribeStream has a limit of 10 transactions per second per account.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html>
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_DescribeStream.html AWS API Reference> for DescribeStream.
+--
+-- This operation returns paginated results.
 module Network.AWS.Kinesis.DescribeStream
     (
-    -- * Request
-      DescribeStream
-    -- ** Request constructor
-    , describeStream
-    -- ** Request lenses
-    , ds1ExclusiveStartShardId
-    , ds1Limit
-    , ds1StreamName
+    -- * Creating a Request
+      describeStream
+    , DescribeStream
+    -- * Request Lenses
+    , dExclusiveStartShardId
+    , dLimit
+    , dStreamName
 
-    -- * Response
-    , DescribeStreamResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeStreamResponse
-    -- ** Response lenses
-    , dsrStreamDescription
+    , DescribeStreamResponse
+    -- * Response Lenses
+    , dsrsStatus
+    , dsrsStreamDescription
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Kinesis.Types
-import qualified GHC.Exts
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Kinesis.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeStream = DescribeStream
-    { _ds1ExclusiveStartShardId :: Maybe Text
-    , _ds1Limit                 :: Maybe Nat
-    , _ds1StreamName            :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Represents the input for 'DescribeStream'.
+--
+-- /See:/ 'describeStream' smart constructor.
+data DescribeStream = DescribeStream'
+    { _dExclusiveStartShardId :: !(Maybe Text)
+    , _dLimit                 :: !(Maybe Nat)
+    , _dStreamName            :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeStream' constructor.
+-- | Creates a value of 'DescribeStream' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ds1ExclusiveStartShardId' @::@ 'Maybe' 'Text'
+-- * 'dExclusiveStartShardId'
 --
--- * 'ds1Limit' @::@ 'Maybe' 'Natural'
+-- * 'dLimit'
 --
--- * 'ds1StreamName' @::@ 'Text'
---
-describeStream :: Text -- ^ 'ds1StreamName'
-               -> DescribeStream
-describeStream p1 = DescribeStream
-    { _ds1StreamName            = p1
-    , _ds1Limit                 = Nothing
-    , _ds1ExclusiveStartShardId = Nothing
+-- * 'dStreamName'
+describeStream
+    :: Text -- ^ 'dStreamName'
+    -> DescribeStream
+describeStream pStreamName_ =
+    DescribeStream'
+    { _dExclusiveStartShardId = Nothing
+    , _dLimit = Nothing
+    , _dStreamName = pStreamName_
     }
 
 -- | The shard ID of the shard to start with.
-ds1ExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
-ds1ExclusiveStartShardId =
-    lens _ds1ExclusiveStartShardId
-        (\s a -> s { _ds1ExclusiveStartShardId = a })
+dExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
+dExclusiveStartShardId = lens _dExclusiveStartShardId (\ s a -> s{_dExclusiveStartShardId = a});
 
 -- | The maximum number of shards to return.
-ds1Limit :: Lens' DescribeStream (Maybe Natural)
-ds1Limit = lens _ds1Limit (\s a -> s { _ds1Limit = a }) . mapping _Nat
+dLimit :: Lens' DescribeStream (Maybe Natural)
+dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat;
 
 -- | The name of the stream to describe.
-ds1StreamName :: Lens' DescribeStream Text
-ds1StreamName = lens _ds1StreamName (\s a -> s { _ds1StreamName = a })
-
-newtype DescribeStreamResponse = DescribeStreamResponse
-    { _dsrStreamDescription :: StreamDescription
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeStreamResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsrStreamDescription' @::@ 'StreamDescription'
---
-describeStreamResponse :: StreamDescription -- ^ 'dsrStreamDescription'
-                       -> DescribeStreamResponse
-describeStreamResponse p1 = DescribeStreamResponse
-    { _dsrStreamDescription = p1
-    }
-
--- | The current status of the stream, the stream ARN, an array of shard objects
--- that comprise the stream, and states whether there are more shards available.
-dsrStreamDescription :: Lens' DescribeStreamResponse StreamDescription
-dsrStreamDescription =
-    lens _dsrStreamDescription (\s a -> s { _dsrStreamDescription = a })
-
-instance ToPath DescribeStream where
-    toPath = const "/"
-
-instance ToQuery DescribeStream where
-    toQuery = const mempty
-
-instance ToHeaders DescribeStream
-
-instance ToJSON DescribeStream where
-    toJSON DescribeStream{..} = object
-        [ "StreamName"            .= _ds1StreamName
-        , "Limit"                 .= _ds1Limit
-        , "ExclusiveStartShardId" .= _ds1ExclusiveStartShardId
-        ]
-
-instance AWSRequest DescribeStream where
-    type Sv DescribeStream = Kinesis
-    type Rs DescribeStream = DescribeStreamResponse
-
-    request  = post "DescribeStream"
-    response = jsonResponse
-
-instance FromJSON DescribeStreamResponse where
-    parseJSON = withObject "DescribeStreamResponse" $ \o -> DescribeStreamResponse
-        <$> o .:  "StreamDescription"
+dStreamName :: Lens' DescribeStream Text
+dStreamName = lens _dStreamName (\ s a -> s{_dStreamName = a});
 
 instance AWSPager DescribeStream where
-    page rq rs
-        | stop (rs ^. dsrStreamDescription . sdHasMoreShards) = Nothing
-        | otherwise = Just $ rq
-            & ds1ExclusiveStartShardId .~ rs ^. index (dsrStreamDescription . sdShards) sShardId
+        page rq rs
+          | stop
+              (rs ^. dsrsStreamDescription . sdHasMoreShards)
+            = Nothing
+          | isNothing
+              (rs ^?
+                 dsrsStreamDescription . sdShards . _last . sShardId)
+            = Nothing
+          | otherwise =
+            Just $ rq &
+              dExclusiveStartShardId .~
+                rs ^?
+                  dsrsStreamDescription . sdShards . _last . sShardId
+
+instance AWSRequest DescribeStream where
+        type Sv DescribeStream = Kinesis
+        type Rs DescribeStream = DescribeStreamResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeStreamResponse' <$>
+                   (pure (fromEnum s)) <*> (x .:> "StreamDescription"))
+
+instance ToHeaders DescribeStream where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("Kinesis_20131202.DescribeStream" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeStream where
+        toJSON DescribeStream'{..}
+          = object
+              ["ExclusiveStartShardId" .= _dExclusiveStartShardId,
+               "Limit" .= _dLimit, "StreamName" .= _dStreamName]
+
+instance ToPath DescribeStream where
+        toPath = const "/"
+
+instance ToQuery DescribeStream where
+        toQuery = const mempty
+
+-- | Represents the output for 'DescribeStream'.
+--
+-- /See:/ 'describeStreamResponse' smart constructor.
+data DescribeStreamResponse = DescribeStreamResponse'
+    { _dsrsStatus            :: !Int
+    , _dsrsStreamDescription :: !StreamDescription
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dsrsStatus'
+--
+-- * 'dsrsStreamDescription'
+describeStreamResponse
+    :: Int -- ^ 'dsrsStatus'
+    -> StreamDescription -- ^ 'dsrsStreamDescription'
+    -> DescribeStreamResponse
+describeStreamResponse pStatus_ pStreamDescription_ =
+    DescribeStreamResponse'
+    { _dsrsStatus = pStatus_
+    , _dsrsStreamDescription = pStreamDescription_
+    }
+
+-- | The response status code.
+dsrsStatus :: Lens' DescribeStreamResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+
+-- | The current status of the stream, the stream ARN, an array of shard
+-- objects that comprise the stream, and states whether there are more
+-- shards available.
+dsrsStreamDescription :: Lens' DescribeStreamResponse StreamDescription
+dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a});

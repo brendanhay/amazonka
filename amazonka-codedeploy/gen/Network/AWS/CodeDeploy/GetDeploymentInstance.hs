@@ -1,124 +1,143 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CodeDeploy.GetDeploymentInstance
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Gets information about an instance as part of a deployment.
+-- |
+-- Module      : Network.AWS.CodeDeploy.GetDeploymentInstance
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentInstance.html>
+-- Gets information about an instance as part of a deployment.
+--
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentInstance.html AWS API Reference> for GetDeploymentInstance.
 module Network.AWS.CodeDeploy.GetDeploymentInstance
     (
-    -- * Request
-      GetDeploymentInstance
-    -- ** Request constructor
-    , getDeploymentInstance
-    -- ** Request lenses
+    -- * Creating a Request
+      getDeploymentInstance
+    , GetDeploymentInstance
+    -- * Request Lenses
     , gdiDeploymentId
     , gdiInstanceId
 
-    -- * Response
-    , GetDeploymentInstanceResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getDeploymentInstanceResponse
-    -- ** Response lenses
-    , gdirInstanceSummary
+    , GetDeploymentInstanceResponse
+    -- * Response Lenses
+    , gdirsInstanceSummary
+    , gdirsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetDeploymentInstance = GetDeploymentInstance
-    { _gdiDeploymentId :: Text
-    , _gdiInstanceId   :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Represents the input of a get deployment instance operation.
+--
+-- /See:/ 'getDeploymentInstance' smart constructor.
+data GetDeploymentInstance = GetDeploymentInstance'
+    { _gdiDeploymentId :: !Text
+    , _gdiInstanceId   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDeploymentInstance' constructor.
+-- | Creates a value of 'GetDeploymentInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdiDeploymentId' @::@ 'Text'
+-- * 'gdiDeploymentId'
 --
--- * 'gdiInstanceId' @::@ 'Text'
---
-getDeploymentInstance :: Text -- ^ 'gdiDeploymentId'
-                      -> Text -- ^ 'gdiInstanceId'
-                      -> GetDeploymentInstance
-getDeploymentInstance p1 p2 = GetDeploymentInstance
-    { _gdiDeploymentId = p1
-    , _gdiInstanceId   = p2
+-- * 'gdiInstanceId'
+getDeploymentInstance
+    :: Text -- ^ 'gdiDeploymentId'
+    -> Text -- ^ 'gdiInstanceId'
+    -> GetDeploymentInstance
+getDeploymentInstance pDeploymentId_ pInstanceId_ =
+    GetDeploymentInstance'
+    { _gdiDeploymentId = pDeploymentId_
+    , _gdiInstanceId = pInstanceId_
     }
 
 -- | The unique ID of a deployment.
 gdiDeploymentId :: Lens' GetDeploymentInstance Text
-gdiDeploymentId = lens _gdiDeploymentId (\s a -> s { _gdiDeploymentId = a })
+gdiDeploymentId = lens _gdiDeploymentId (\ s a -> s{_gdiDeploymentId = a});
 
--- | The unique ID of an instance in the deployment's deployment group.
+-- | The unique ID of an instance in the deployment\'s deployment group.
 gdiInstanceId :: Lens' GetDeploymentInstance Text
-gdiInstanceId = lens _gdiInstanceId (\s a -> s { _gdiInstanceId = a })
+gdiInstanceId = lens _gdiInstanceId (\ s a -> s{_gdiInstanceId = a});
 
-newtype GetDeploymentInstanceResponse = GetDeploymentInstanceResponse
-    { _gdirInstanceSummary :: Maybe InstanceSummary
-    } deriving (Eq, Read, Show)
+instance AWSRequest GetDeploymentInstance where
+        type Sv GetDeploymentInstance = CodeDeploy
+        type Rs GetDeploymentInstance =
+             GetDeploymentInstanceResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetDeploymentInstanceResponse' <$>
+                   (x .?> "instanceSummary") <*> (pure (fromEnum s)))
 
--- | 'GetDeploymentInstanceResponse' constructor.
+instance ToHeaders GetDeploymentInstance where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.GetDeploymentInstance" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON GetDeploymentInstance where
+        toJSON GetDeploymentInstance'{..}
+          = object
+              ["deploymentId" .= _gdiDeploymentId,
+               "instanceId" .= _gdiInstanceId]
+
+instance ToPath GetDeploymentInstance where
+        toPath = const "/"
+
+instance ToQuery GetDeploymentInstance where
+        toQuery = const mempty
+
+-- | Represents the output of a get deployment instance operation.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'getDeploymentInstanceResponse' smart constructor.
+data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
+    { _gdirsInstanceSummary :: !(Maybe InstanceSummary)
+    , _gdirsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetDeploymentInstanceResponse' with the minimum fields required to make a request.
 --
--- * 'gdirInstanceSummary' @::@ 'Maybe' 'InstanceSummary'
+-- Use one of the following lenses to modify other fields as desired:
 --
-getDeploymentInstanceResponse :: GetDeploymentInstanceResponse
-getDeploymentInstanceResponse = GetDeploymentInstanceResponse
-    { _gdirInstanceSummary = Nothing
+-- * 'gdirsInstanceSummary'
+--
+-- * 'gdirsStatus'
+getDeploymentInstanceResponse
+    :: Int -- ^ 'gdirsStatus'
+    -> GetDeploymentInstanceResponse
+getDeploymentInstanceResponse pStatus_ =
+    GetDeploymentInstanceResponse'
+    { _gdirsInstanceSummary = Nothing
+    , _gdirsStatus = pStatus_
     }
 
 -- | Information about the instance.
-gdirInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummary)
-gdirInstanceSummary =
-    lens _gdirInstanceSummary (\s a -> s { _gdirInstanceSummary = a })
+gdirsInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummary)
+gdirsInstanceSummary = lens _gdirsInstanceSummary (\ s a -> s{_gdirsInstanceSummary = a});
 
-instance ToPath GetDeploymentInstance where
-    toPath = const "/"
-
-instance ToQuery GetDeploymentInstance where
-    toQuery = const mempty
-
-instance ToHeaders GetDeploymentInstance
-
-instance ToJSON GetDeploymentInstance where
-    toJSON GetDeploymentInstance{..} = object
-        [ "deploymentId" .= _gdiDeploymentId
-        , "instanceId"   .= _gdiInstanceId
-        ]
-
-instance AWSRequest GetDeploymentInstance where
-    type Sv GetDeploymentInstance = CodeDeploy
-    type Rs GetDeploymentInstance = GetDeploymentInstanceResponse
-
-    request  = post "GetDeploymentInstance"
-    response = jsonResponse
-
-instance FromJSON GetDeploymentInstanceResponse where
-    parseJSON = withObject "GetDeploymentInstanceResponse" $ \o -> GetDeploymentInstanceResponse
-        <$> o .:? "instanceSummary"
+-- | The response status code.
+gdirsStatus :: Lens' GetDeploymentInstanceResponse Int
+gdirsStatus = lens _gdirsStatus (\ s a -> s{_gdirsStatus = a});

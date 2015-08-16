@@ -1,123 +1,104 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElasticBeanstalk.CreateApplication
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates an application that has one configuration template named 'default' and
--- no application versions.
+-- |
+-- Module      : Network.AWS.ElasticBeanstalk.CreateApplication
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplication.html>
+-- Creates an application that has one configuration template named
+-- 'default' and no application versions.
+--
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplication.html AWS API Reference> for CreateApplication.
 module Network.AWS.ElasticBeanstalk.CreateApplication
     (
-    -- * Request
-      CreateApplication
-    -- ** Request constructor
-    , createApplication
-    -- ** Request lenses
-    , caApplicationName
+    -- * Creating a Request
+      createApplication
+    , CreateApplication
+    -- * Request Lenses
     , caDescription
+    , caApplicationName
 
-    -- * Response
-    , CreateApplicationResponse
-    -- ** Response constructor
-    , createApplicationResponse
-    -- ** Response lenses
-    , carApplication
+    -- * Destructuring the Response
+    , applicationDescriptionMessage
+    , ApplicationDescriptionMessage
+    -- * Response Lenses
+    , admApplication
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateApplication = CreateApplication
-    { _caApplicationName :: Text
-    , _caDescription     :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'createApplication' smart constructor.
+data CreateApplication = CreateApplication'
+    { _caDescription     :: !(Maybe Text)
+    , _caApplicationName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateApplication' constructor.
+-- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caApplicationName' @::@ 'Text'
+-- * 'caDescription'
 --
--- * 'caDescription' @::@ 'Maybe' 'Text'
---
-createApplication :: Text -- ^ 'caApplicationName'
-                  -> CreateApplication
-createApplication p1 = CreateApplication
-    { _caApplicationName = p1
-    , _caDescription     = Nothing
+-- * 'caApplicationName'
+createApplication
+    :: Text -- ^ 'caApplicationName'
+    -> CreateApplication
+createApplication pApplicationName_ =
+    CreateApplication'
+    { _caDescription = Nothing
+    , _caApplicationName = pApplicationName_
     }
-
--- | The name of the application.
---
--- Constraint: This name must be unique within your account. If the specified
--- name already exists, the action returns an 'InvalidParameterValue' error.
-caApplicationName :: Lens' CreateApplication Text
-caApplicationName =
-    lens _caApplicationName (\s a -> s { _caApplicationName = a })
 
 -- | Describes the application.
 caDescription :: Lens' CreateApplication (Maybe Text)
-caDescription = lens _caDescription (\s a -> s { _caDescription = a })
+caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
 
-newtype CreateApplicationResponse = CreateApplicationResponse
-    { _carApplication :: Maybe ApplicationDescription
-    } deriving (Eq, Read, Show)
-
--- | 'CreateApplicationResponse' constructor.
+-- | The name of the application.
 --
--- The fields accessible through corresponding lenses are:
---
--- * 'carApplication' @::@ 'Maybe' 'ApplicationDescription'
---
-createApplicationResponse :: CreateApplicationResponse
-createApplicationResponse = CreateApplicationResponse
-    { _carApplication = Nothing
-    }
-
--- | The 'ApplicationDescription' of the application.
-carApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
-carApplication = lens _carApplication (\s a -> s { _carApplication = a })
-
-instance ToPath CreateApplication where
-    toPath = const "/"
-
-instance ToQuery CreateApplication where
-    toQuery CreateApplication{..} = mconcat
-        [ "ApplicationName" =? _caApplicationName
-        , "Description"     =? _caDescription
-        ]
-
-instance ToHeaders CreateApplication
+-- Constraint: This name must be unique within your account. If the
+-- specified name already exists, the action returns an
+-- 'InvalidParameterValue' error.
+caApplicationName :: Lens' CreateApplication Text
+caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
 
 instance AWSRequest CreateApplication where
-    type Sv CreateApplication = ElasticBeanstalk
-    type Rs CreateApplication = CreateApplicationResponse
+        type Sv CreateApplication = ElasticBeanstalk
+        type Rs CreateApplication =
+             ApplicationDescriptionMessage
+        request = postQuery
+        response
+          = receiveXMLWrapper "CreateApplicationResult"
+              (\ s h x -> parseXML x)
 
-    request  = post "CreateApplication"
-    response = xmlResponse
+instance ToHeaders CreateApplication where
+        toHeaders = const mempty
 
-instance FromXML CreateApplicationResponse where
-    parseXML = withElement "CreateApplicationResult" $ \x -> CreateApplicationResponse
-        <$> x .@? "Application"
+instance ToPath CreateApplication where
+        toPath = const "/"
+
+instance ToQuery CreateApplication where
+        toQuery CreateApplication'{..}
+          = mconcat
+              ["Action" =: ("CreateApplication" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "Description" =: _caDescription,
+               "ApplicationName" =: _caApplicationName]

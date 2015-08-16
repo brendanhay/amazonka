@@ -1,195 +1,176 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SWF.CountOpenWorkflowExecutions
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns the number of open workflow executions within the given domain that
--- meet the specified filtering criteria.
+-- |
+-- Module      : Network.AWS.SWF.CountOpenWorkflowExecutions
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- This operation is eventually consistent. The results are best effort and may
--- not exactly reflect recent updates and changes. Access Control
+-- Returns the number of open workflow executions within the given domain
+-- that meet the specified filtering criteria.
 --
--- You can use IAM policies to control this action's access to Amazon SWF
+-- This operation is eventually consistent. The results are best effort and
+-- may not exactly reflect recent updates and changes.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- Use a 'Resource' element with the domain name to limit the action to only
--- specified domains. Use an 'Action' element to allow or deny permission to call
--- this action. Constrain the following parameters by using a 'Condition' element
--- with the appropriate keys.  'tagFilter.tag': String constraint. The key is 'swf:tagFilter.tag'. 'typeFilter.name': String constraint. The key is 'swf:typeFilter.name'. 'typeFilter.version': String constraint. The key is 'swf:typeFilter.version'.    If the caller does
--- not have sufficient permissions to invoke the action, or the parameter values
--- fall outside the specified constraints, the action fails. The associated
--- event attribute's cause parameter will be set to OPERATION_NOT_PERMITTED. For
--- details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to AmazonSWF Workflows>.
+-- -   Use a 'Resource' element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an 'Action' element to allow or deny permission to call this
+--     action.
+-- -   Constrain the following parameters by using a 'Condition' element
+--     with the appropriate keys.
+--     -   'tagFilter.tag': String constraint. The key is
+--         'swf:tagFilter.tag'.
+--     -   'typeFilter.name': String constraint. The key is
+--         'swf:typeFilter.name'.
+--     -   'typeFilter.version': String constraint. The key is
+--         'swf:typeFilter.version'.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountOpenWorkflowExecutions.html>
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_CountOpenWorkflowExecutions.html AWS API Reference> for CountOpenWorkflowExecutions.
 module Network.AWS.SWF.CountOpenWorkflowExecutions
     (
-    -- * Request
-      CountOpenWorkflowExecutions
-    -- ** Request constructor
-    , countOpenWorkflowExecutions
-    -- ** Request lenses
-    , coweDomain
+    -- * Creating a Request
+      countOpenWorkflowExecutions
+    , CountOpenWorkflowExecutions
+    -- * Request Lenses
     , coweExecutionFilter
-    , coweStartTimeFilter
-    , coweTagFilter
     , coweTypeFilter
+    , coweTagFilter
+    , coweDomain
+    , coweStartTimeFilter
 
-    -- * Response
-    , CountOpenWorkflowExecutionsResponse
-    -- ** Response constructor
-    , countOpenWorkflowExecutionsResponse
-    -- ** Response lenses
-    , cowerCount
-    , cowerTruncated
+    -- * Destructuring the Response
+    , workflowExecutionCount
+    , WorkflowExecutionCount
+    -- * Response Lenses
+    , wecTruncated
+    , wecCount
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
+import           Network.AWS.SWF.Types.Product
 
-data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
-    { _coweDomain          :: Text
-    , _coweExecutionFilter :: Maybe WorkflowExecutionFilter
-    , _coweStartTimeFilter :: ExecutionTimeFilter
-    , _coweTagFilter       :: Maybe TagFilter
-    , _coweTypeFilter      :: Maybe WorkflowTypeFilter
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'countOpenWorkflowExecutions' smart constructor.
+data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
+    { _coweExecutionFilter :: !(Maybe WorkflowExecutionFilter)
+    , _coweTypeFilter      :: !(Maybe WorkflowTypeFilter)
+    , _coweTagFilter       :: !(Maybe TagFilter)
+    , _coweDomain          :: !Text
+    , _coweStartTimeFilter :: !ExecutionTimeFilter
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CountOpenWorkflowExecutions' constructor.
+-- | Creates a value of 'CountOpenWorkflowExecutions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'coweDomain' @::@ 'Text'
+-- * 'coweExecutionFilter'
 --
--- * 'coweExecutionFilter' @::@ 'Maybe' 'WorkflowExecutionFilter'
+-- * 'coweTypeFilter'
 --
--- * 'coweStartTimeFilter' @::@ 'ExecutionTimeFilter'
+-- * 'coweTagFilter'
 --
--- * 'coweTagFilter' @::@ 'Maybe' 'TagFilter'
+-- * 'coweDomain'
 --
--- * 'coweTypeFilter' @::@ 'Maybe' 'WorkflowTypeFilter'
---
-countOpenWorkflowExecutions :: Text -- ^ 'coweDomain'
-                            -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
-                            -> CountOpenWorkflowExecutions
-countOpenWorkflowExecutions p1 p2 = CountOpenWorkflowExecutions
-    { _coweDomain          = p1
-    , _coweStartTimeFilter = p2
-    , _coweTypeFilter      = Nothing
-    , _coweTagFilter       = Nothing
-    , _coweExecutionFilter = Nothing
+-- * 'coweStartTimeFilter'
+countOpenWorkflowExecutions
+    :: Text -- ^ 'coweDomain'
+    -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
+    -> CountOpenWorkflowExecutions
+countOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
+    CountOpenWorkflowExecutions'
+    { _coweExecutionFilter = Nothing
+    , _coweTypeFilter = Nothing
+    , _coweTagFilter = Nothing
+    , _coweDomain = pDomain_
+    , _coweStartTimeFilter = pStartTimeFilter_
     }
 
--- | The name of the domain containing the workflow executions to count.
-coweDomain :: Lens' CountOpenWorkflowExecutions Text
-coweDomain = lens _coweDomain (\s a -> s { _coweDomain = a })
-
--- | If specified, only workflow executions matching the 'WorkflowId' in the filter
--- are counted.
+-- | If specified, only workflow executions matching the 'WorkflowId' in the
+-- filter are counted.
 --
--- 'executionFilter', 'typeFilter' and 'tagFilter' are mutually exclusive. You can
--- specify at most one of these in a request.
+-- 'executionFilter', 'typeFilter' and 'tagFilter' are mutually exclusive.
+-- You can specify at most one of these in a request.
 coweExecutionFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
-coweExecutionFilter =
-    lens _coweExecutionFilter (\s a -> s { _coweExecutionFilter = a })
-
--- | Specifies the start time criteria that workflow executions must meet in order
--- to be counted.
-coweStartTimeFilter :: Lens' CountOpenWorkflowExecutions ExecutionTimeFilter
-coweStartTimeFilter =
-    lens _coweStartTimeFilter (\s a -> s { _coweStartTimeFilter = a })
-
--- | If specified, only executions that have a tag that matches the filter are
--- counted.
---
--- 'executionFilter', 'typeFilter' and 'tagFilter' are mutually exclusive. You can
--- specify at most one of these in a request.
-coweTagFilter :: Lens' CountOpenWorkflowExecutions (Maybe TagFilter)
-coweTagFilter = lens _coweTagFilter (\s a -> s { _coweTagFilter = a })
+coweExecutionFilter = lens _coweExecutionFilter (\ s a -> s{_coweExecutionFilter = a});
 
 -- | Specifies the type of the workflow executions to be counted.
 --
--- 'executionFilter', 'typeFilter' and 'tagFilter' are mutually exclusive. You can
--- specify at most one of these in a request.
+-- 'executionFilter', 'typeFilter' and 'tagFilter' are mutually exclusive.
+-- You can specify at most one of these in a request.
 coweTypeFilter :: Lens' CountOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
-coweTypeFilter = lens _coweTypeFilter (\s a -> s { _coweTypeFilter = a })
+coweTypeFilter = lens _coweTypeFilter (\ s a -> s{_coweTypeFilter = a});
 
-data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
-    { _cowerCount     :: Nat
-    , _cowerTruncated :: Maybe Bool
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CountOpenWorkflowExecutionsResponse' constructor.
+-- | If specified, only executions that have a tag that matches the filter
+-- are counted.
 --
--- The fields accessible through corresponding lenses are:
---
--- * 'cowerCount' @::@ 'Natural'
---
--- * 'cowerTruncated' @::@ 'Maybe' 'Bool'
---
-countOpenWorkflowExecutionsResponse :: Natural -- ^ 'cowerCount'
-                                    -> CountOpenWorkflowExecutionsResponse
-countOpenWorkflowExecutionsResponse p1 = CountOpenWorkflowExecutionsResponse
-    { _cowerCount     = withIso _Nat (const id) p1
-    , _cowerTruncated = Nothing
-    }
+-- 'executionFilter', 'typeFilter' and 'tagFilter' are mutually exclusive.
+-- You can specify at most one of these in a request.
+coweTagFilter :: Lens' CountOpenWorkflowExecutions (Maybe TagFilter)
+coweTagFilter = lens _coweTagFilter (\ s a -> s{_coweTagFilter = a});
 
--- | The number of workflow executions.
-cowerCount :: Lens' CountOpenWorkflowExecutionsResponse Natural
-cowerCount = lens _cowerCount (\s a -> s { _cowerCount = a }) . _Nat
+-- | The name of the domain containing the workflow executions to count.
+coweDomain :: Lens' CountOpenWorkflowExecutions Text
+coweDomain = lens _coweDomain (\ s a -> s{_coweDomain = a});
 
--- | If set to true, indicates that the actual count was more than the maximum
--- supported by this API and the count returned is the truncated value.
-cowerTruncated :: Lens' CountOpenWorkflowExecutionsResponse (Maybe Bool)
-cowerTruncated = lens _cowerTruncated (\s a -> s { _cowerTruncated = a })
-
-instance ToPath CountOpenWorkflowExecutions where
-    toPath = const "/"
-
-instance ToQuery CountOpenWorkflowExecutions where
-    toQuery = const mempty
-
-instance ToHeaders CountOpenWorkflowExecutions
-
-instance ToJSON CountOpenWorkflowExecutions where
-    toJSON CountOpenWorkflowExecutions{..} = object
-        [ "domain"          .= _coweDomain
-        , "startTimeFilter" .= _coweStartTimeFilter
-        , "typeFilter"      .= _coweTypeFilter
-        , "tagFilter"       .= _coweTagFilter
-        , "executionFilter" .= _coweExecutionFilter
-        ]
+-- | Specifies the start time criteria that workflow executions must meet in
+-- order to be counted.
+coweStartTimeFilter :: Lens' CountOpenWorkflowExecutions ExecutionTimeFilter
+coweStartTimeFilter = lens _coweStartTimeFilter (\ s a -> s{_coweStartTimeFilter = a});
 
 instance AWSRequest CountOpenWorkflowExecutions where
-    type Sv CountOpenWorkflowExecutions = SWF
-    type Rs CountOpenWorkflowExecutions = CountOpenWorkflowExecutionsResponse
+        type Sv CountOpenWorkflowExecutions = SWF
+        type Rs CountOpenWorkflowExecutions =
+             WorkflowExecutionCount
+        request = postJSON
+        response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-    request  = post "CountOpenWorkflowExecutions"
-    response = jsonResponse
+instance ToHeaders CountOpenWorkflowExecutions where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("SimpleWorkflowService.CountOpenWorkflowExecutions"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.0" :: ByteString)])
 
-instance FromJSON CountOpenWorkflowExecutionsResponse where
-    parseJSON = withObject "CountOpenWorkflowExecutionsResponse" $ \o -> CountOpenWorkflowExecutionsResponse
-        <$> o .:  "count"
-        <*> o .:? "truncated"
+instance ToJSON CountOpenWorkflowExecutions where
+        toJSON CountOpenWorkflowExecutions'{..}
+          = object
+              ["executionFilter" .= _coweExecutionFilter,
+               "typeFilter" .= _coweTypeFilter,
+               "tagFilter" .= _coweTagFilter,
+               "domain" .= _coweDomain,
+               "startTimeFilter" .= _coweStartTimeFilter]
+
+instance ToPath CountOpenWorkflowExecutions where
+        toPath = const "/"
+
+instance ToQuery CountOpenWorkflowExecutions where
+        toQuery = const mempty

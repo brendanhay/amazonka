@@ -1,129 +1,135 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.AutoScaling.DescribeLifecycleHooks
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes the lifecycle hooks for the specified Auto Scaling group.
+-- |
+-- Module      : Network.AWS.AutoScaling.DescribeLifecycleHooks
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLifecycleHooks.html>
+-- Describes the lifecycle hooks for the specified Auto Scaling group.
+--
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLifecycleHooks.html AWS API Reference> for DescribeLifecycleHooks.
 module Network.AWS.AutoScaling.DescribeLifecycleHooks
     (
-    -- * Request
-      DescribeLifecycleHooks
-    -- ** Request constructor
-    , describeLifecycleHooks
-    -- ** Request lenses
-    , dlhAutoScalingGroupName
+    -- * Creating a Request
+      describeLifecycleHooks
+    , DescribeLifecycleHooks
+    -- * Request Lenses
     , dlhLifecycleHookNames
+    , dlhAutoScalingGroupName
 
-    -- * Response
-    , DescribeLifecycleHooksResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeLifecycleHooksResponse
-    -- ** Response lenses
-    , dlhrLifecycleHooks
+    , DescribeLifecycleHooksResponse
+    -- * Response Lenses
+    , dlhrsLifecycleHooks
+    , dlhrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeLifecycleHooks = DescribeLifecycleHooks
-    { _dlhAutoScalingGroupName :: Text
-    , _dlhLifecycleHookNames   :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'describeLifecycleHooks' smart constructor.
+data DescribeLifecycleHooks = DescribeLifecycleHooks'
+    { _dlhLifecycleHookNames   :: !(Maybe [Text])
+    , _dlhAutoScalingGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLifecycleHooks' constructor.
+-- | Creates a value of 'DescribeLifecycleHooks' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlhAutoScalingGroupName' @::@ 'Text'
+-- * 'dlhLifecycleHookNames'
 --
--- * 'dlhLifecycleHookNames' @::@ ['Text']
---
-describeLifecycleHooks :: Text -- ^ 'dlhAutoScalingGroupName'
-                       -> DescribeLifecycleHooks
-describeLifecycleHooks p1 = DescribeLifecycleHooks
-    { _dlhAutoScalingGroupName = p1
-    , _dlhLifecycleHookNames   = mempty
+-- * 'dlhAutoScalingGroupName'
+describeLifecycleHooks
+    :: Text -- ^ 'dlhAutoScalingGroupName'
+    -> DescribeLifecycleHooks
+describeLifecycleHooks pAutoScalingGroupName_ =
+    DescribeLifecycleHooks'
+    { _dlhLifecycleHookNames = Nothing
+    , _dlhAutoScalingGroupName = pAutoScalingGroupName_
     }
-
--- | The name of the group.
-dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
-dlhAutoScalingGroupName =
-    lens _dlhAutoScalingGroupName (\s a -> s { _dlhAutoScalingGroupName = a })
 
 -- | The names of one or more lifecycle hooks.
 dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
-dlhLifecycleHookNames =
-    lens _dlhLifecycleHookNames (\s a -> s { _dlhLifecycleHookNames = a })
-        . _List
+dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\ s a -> s{_dlhLifecycleHookNames = a}) . _Default . _Coerce;
 
-newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
-    { _dlhrLifecycleHooks :: List "member" LifecycleHook
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | The name of the group.
+dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
+dlhAutoScalingGroupName = lens _dlhAutoScalingGroupName (\ s a -> s{_dlhAutoScalingGroupName = a});
 
-instance GHC.Exts.IsList DescribeLifecycleHooksResponse where
-    type Item DescribeLifecycleHooksResponse = LifecycleHook
+instance AWSRequest DescribeLifecycleHooks where
+        type Sv DescribeLifecycleHooks = AutoScaling
+        type Rs DescribeLifecycleHooks =
+             DescribeLifecycleHooksResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DescribeLifecycleHooksResult"
+              (\ s h x ->
+                 DescribeLifecycleHooksResponse' <$>
+                   (x .@? "LifecycleHooks" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-    fromList = DescribeLifecycleHooksResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dlhrLifecycleHooks
+instance ToHeaders DescribeLifecycleHooks where
+        toHeaders = const mempty
 
--- | 'DescribeLifecycleHooksResponse' constructor.
+instance ToPath DescribeLifecycleHooks where
+        toPath = const "/"
+
+instance ToQuery DescribeLifecycleHooks where
+        toQuery DescribeLifecycleHooks'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeLifecycleHooks" :: ByteString),
+               "Version" =: ("2011-01-01" :: ByteString),
+               "LifecycleHookNames" =:
+                 toQuery
+                   (toQueryList "member" <$> _dlhLifecycleHookNames),
+               "AutoScalingGroupName" =: _dlhAutoScalingGroupName]
+
+-- | /See:/ 'describeLifecycleHooksResponse' smart constructor.
+data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
+    { _dlhrsLifecycleHooks :: !(Maybe [LifecycleHook])
+    , _dlhrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeLifecycleHooksResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlhrLifecycleHooks' @::@ ['LifecycleHook']
+-- * 'dlhrsLifecycleHooks'
 --
-describeLifecycleHooksResponse :: DescribeLifecycleHooksResponse
-describeLifecycleHooksResponse = DescribeLifecycleHooksResponse
-    { _dlhrLifecycleHooks = mempty
+-- * 'dlhrsStatus'
+describeLifecycleHooksResponse
+    :: Int -- ^ 'dlhrsStatus'
+    -> DescribeLifecycleHooksResponse
+describeLifecycleHooksResponse pStatus_ =
+    DescribeLifecycleHooksResponse'
+    { _dlhrsLifecycleHooks = Nothing
+    , _dlhrsStatus = pStatus_
     }
 
 -- | The lifecycle hooks for the specified group.
-dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
-dlhrLifecycleHooks =
-    lens _dlhrLifecycleHooks (\s a -> s { _dlhrLifecycleHooks = a })
-        . _List
+dlhrsLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
+dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\ s a -> s{_dlhrsLifecycleHooks = a}) . _Default . _Coerce;
 
-instance ToPath DescribeLifecycleHooks where
-    toPath = const "/"
-
-instance ToQuery DescribeLifecycleHooks where
-    toQuery DescribeLifecycleHooks{..} = mconcat
-        [ "AutoScalingGroupName" =? _dlhAutoScalingGroupName
-        , "LifecycleHookNames"   =? _dlhLifecycleHookNames
-        ]
-
-instance ToHeaders DescribeLifecycleHooks
-
-instance AWSRequest DescribeLifecycleHooks where
-    type Sv DescribeLifecycleHooks = AutoScaling
-    type Rs DescribeLifecycleHooks = DescribeLifecycleHooksResponse
-
-    request  = post "DescribeLifecycleHooks"
-    response = xmlResponse
-
-instance FromXML DescribeLifecycleHooksResponse where
-    parseXML = withElement "DescribeLifecycleHooksResult" $ \x -> DescribeLifecycleHooksResponse
-        <$> x .@? "LifecycleHooks" .!@ mempty
+-- | The response status code.
+dlhrsStatus :: Lens' DescribeLifecycleHooksResponse Int
+dlhrsStatus = lens _dlhrsStatus (\ s a -> s{_dlhrsStatus = a});

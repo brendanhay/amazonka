@@ -1,180 +1,200 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.ListAttachedRolePolicies
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists all managed policies that are attached to the specified role.
+-- |
+-- Module      : Network.AWS.IAM.ListAttachedRolePolicies
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- A role can also have inline policies embedded with it. To list the inline
--- policies for a role, use the 'ListRolePolicies' API. For information about
--- policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/
--- guide.
+-- Lists all managed policies that are attached to the specified role.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker' parameters. You
--- can use the 'PathPrefix' parameter to limit the list of policies to only those
--- matching the specified path prefix. If there are no policies attached to the
--- specified role (or none that match the specified path prefix), the action
--- returns an empty list.
+-- A role can also have inline policies embedded with it. To list the
+-- inline policies for a role, use the ListRolePolicies API. For
+-- information about policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedRolePolicies.html>
+-- You can paginate the results using the 'MaxItems' and 'Marker'
+-- parameters. You can use the 'PathPrefix' parameter to limit the list of
+-- policies to only those matching the specified path prefix. If there are
+-- no policies attached to the specified role (or none that match the
+-- specified path prefix), the action returns an empty list.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListAttachedRolePolicies.html AWS API Reference> for ListAttachedRolePolicies.
 module Network.AWS.IAM.ListAttachedRolePolicies
     (
-    -- * Request
-      ListAttachedRolePolicies
-    -- ** Request constructor
-    , listAttachedRolePolicies
-    -- ** Request lenses
-    , larpMarker
-    , larpMaxItems
+    -- * Creating a Request
+      listAttachedRolePolicies
+    , ListAttachedRolePolicies
+    -- * Request Lenses
     , larpPathPrefix
+    , larpMaxItems
+    , larpMarker
     , larpRoleName
 
-    -- * Response
-    , ListAttachedRolePoliciesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listAttachedRolePoliciesResponse
-    -- ** Response lenses
-    , larprAttachedPolicies
-    , larprIsTruncated
-    , larprMarker
+    , ListAttachedRolePoliciesResponse
+    -- * Response Lenses
+    , larprsAttachedPolicies
+    , larprsMarker
+    , larprsIsTruncated
+    , larprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListAttachedRolePolicies = ListAttachedRolePolicies
-    { _larpMarker     :: Maybe Text
-    , _larpMaxItems   :: Maybe Nat
-    , _larpPathPrefix :: Maybe Text
-    , _larpRoleName   :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'listAttachedRolePolicies' smart constructor.
+data ListAttachedRolePolicies = ListAttachedRolePolicies'
+    { _larpPathPrefix :: !(Maybe Text)
+    , _larpMaxItems   :: !(Maybe Nat)
+    , _larpMarker     :: !(Maybe Text)
+    , _larpRoleName   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListAttachedRolePolicies' constructor.
+-- | Creates a value of 'ListAttachedRolePolicies' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larpMarker' @::@ 'Maybe' 'Text'
+-- * 'larpPathPrefix'
 --
--- * 'larpMaxItems' @::@ 'Maybe' 'Natural'
+-- * 'larpMaxItems'
 --
--- * 'larpPathPrefix' @::@ 'Maybe' 'Text'
+-- * 'larpMarker'
 --
--- * 'larpRoleName' @::@ 'Text'
---
-listAttachedRolePolicies :: Text -- ^ 'larpRoleName'
-                         -> ListAttachedRolePolicies
-listAttachedRolePolicies p1 = ListAttachedRolePolicies
-    { _larpRoleName   = p1
-    , _larpPathPrefix = Nothing
-    , _larpMarker     = Nothing
-    , _larpMaxItems   = Nothing
+-- * 'larpRoleName'
+listAttachedRolePolicies
+    :: Text -- ^ 'larpRoleName'
+    -> ListAttachedRolePolicies
+listAttachedRolePolicies pRoleName_ =
+    ListAttachedRolePolicies'
+    { _larpPathPrefix = Nothing
+    , _larpMaxItems = Nothing
+    , _larpMarker = Nothing
+    , _larpRoleName = pRoleName_
     }
 
--- | Use this only when paginating results, and only in a subsequent request after
--- you've received a response where the results are truncated. Set it to the
--- value of the 'Marker' element in the response you just received.
-larpMarker :: Lens' ListAttachedRolePolicies (Maybe Text)
-larpMarker = lens _larpMarker (\s a -> s { _larpMarker = a })
+-- | The path prefix for filtering the results. This parameter is optional.
+-- If it is not included, it defaults to a slash (\/), listing all
+-- policies.
+larpPathPrefix :: Lens' ListAttachedRolePolicies (Maybe Text)
+larpPathPrefix = lens _larpPathPrefix (\ s a -> s{_larpPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
--- policies you want in the response. If there are additional policies beyond
--- the maximum you specify, the 'IsTruncated' response element is 'true'. This
--- parameter is optional. If you do not include it, it defaults to 100.
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
 larpMaxItems :: Lens' ListAttachedRolePolicies (Maybe Natural)
-larpMaxItems = lens _larpMaxItems (\s a -> s { _larpMaxItems = a }) . mapping _Nat
+larpMaxItems = lens _larpMaxItems (\ s a -> s{_larpMaxItems = a}) . mapping _Nat;
 
--- | The path prefix for filtering the results. This parameter is optional. If it
--- is not included, it defaults to a slash (/), listing all policies.
-larpPathPrefix :: Lens' ListAttachedRolePolicies (Maybe Text)
-larpPathPrefix = lens _larpPathPrefix (\s a -> s { _larpPathPrefix = a })
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+larpMarker :: Lens' ListAttachedRolePolicies (Maybe Text)
+larpMarker = lens _larpMarker (\ s a -> s{_larpMarker = a});
 
--- | The name (friendly name, not ARN) of the role to list attached policies for.
+-- | The name (friendly name, not ARN) of the role to list attached policies
+-- for.
 larpRoleName :: Lens' ListAttachedRolePolicies Text
-larpRoleName = lens _larpRoleName (\s a -> s { _larpRoleName = a })
+larpRoleName = lens _larpRoleName (\ s a -> s{_larpRoleName = a});
 
-data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse
-    { _larprAttachedPolicies :: List "member" AttachedPolicy
-    , _larprIsTruncated      :: Maybe Bool
-    , _larprMarker           :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSRequest ListAttachedRolePolicies where
+        type Sv ListAttachedRolePolicies = IAM
+        type Rs ListAttachedRolePolicies =
+             ListAttachedRolePoliciesResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "ListAttachedRolePoliciesResult"
+              (\ s h x ->
+                 ListAttachedRolePoliciesResponse' <$>
+                   (x .@? "AttachedPolicies" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (x .@? "Marker")
+                     <*> (x .@? "IsTruncated")
+                     <*> (pure (fromEnum s)))
 
--- | 'ListAttachedRolePoliciesResponse' constructor.
+instance ToHeaders ListAttachedRolePolicies where
+        toHeaders = const mempty
+
+instance ToPath ListAttachedRolePolicies where
+        toPath = const "/"
+
+instance ToQuery ListAttachedRolePolicies where
+        toQuery ListAttachedRolePolicies'{..}
+          = mconcat
+              ["Action" =:
+                 ("ListAttachedRolePolicies" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "PathPrefix" =: _larpPathPrefix,
+               "MaxItems" =: _larpMaxItems, "Marker" =: _larpMarker,
+               "RoleName" =: _larpRoleName]
+
+-- | Contains the response to a successful ListAttachedRolePolicies request.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'listAttachedRolePoliciesResponse' smart constructor.
+data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
+    { _larprsAttachedPolicies :: !(Maybe [AttachedPolicy])
+    , _larprsMarker           :: !(Maybe Text)
+    , _larprsIsTruncated      :: !(Maybe Bool)
+    , _larprsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListAttachedRolePoliciesResponse' with the minimum fields required to make a request.
 --
--- * 'larprAttachedPolicies' @::@ ['AttachedPolicy']
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larprIsTruncated' @::@ 'Maybe' 'Bool'
+-- * 'larprsAttachedPolicies'
 --
--- * 'larprMarker' @::@ 'Maybe' 'Text'
+-- * 'larprsMarker'
 --
-listAttachedRolePoliciesResponse :: ListAttachedRolePoliciesResponse
-listAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse
-    { _larprAttachedPolicies = mempty
-    , _larprIsTruncated      = Nothing
-    , _larprMarker           = Nothing
+-- * 'larprsIsTruncated'
+--
+-- * 'larprsStatus'
+listAttachedRolePoliciesResponse
+    :: Int -- ^ 'larprsStatus'
+    -> ListAttachedRolePoliciesResponse
+listAttachedRolePoliciesResponse pStatus_ =
+    ListAttachedRolePoliciesResponse'
+    { _larprsAttachedPolicies = Nothing
+    , _larprsMarker = Nothing
+    , _larprsIsTruncated = Nothing
+    , _larprsStatus = pStatus_
     }
 
 -- | A list of the attached policies.
-larprAttachedPolicies :: Lens' ListAttachedRolePoliciesResponse [AttachedPolicy]
-larprAttachedPolicies =
-    lens _larprAttachedPolicies (\s a -> s { _larprAttachedPolicies = a })
-        . _List
+larprsAttachedPolicies :: Lens' ListAttachedRolePoliciesResponse [AttachedPolicy]
+larprsAttachedPolicies = lens _larprsAttachedPolicies (\ s a -> s{_larprsAttachedPolicies = a}) . _Default . _Coerce;
 
--- | A flag that indicates whether there are more policies to list. If your
--- results were truncated, you can make a subsequent pagination request using
--- the 'Marker' request parameter to retrieve more policies in the list.
-larprIsTruncated :: Lens' ListAttachedRolePoliciesResponse (Maybe Bool)
-larprIsTruncated = lens _larprIsTruncated (\s a -> s { _larprIsTruncated = a })
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
+-- request.
+larprsMarker :: Lens' ListAttachedRolePoliciesResponse (Maybe Text)
+larprsMarker = lens _larprsMarker (\ s a -> s{_larprsMarker = a});
 
--- | If 'IsTruncated' is 'true', this element is present and contains the value to use
--- for the 'Marker' parameter in a subsequent pagination request.
-larprMarker :: Lens' ListAttachedRolePoliciesResponse (Maybe Text)
-larprMarker = lens _larprMarker (\s a -> s { _larprMarker = a })
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the 'Marker' request parameter to retrieve more items.
+larprsIsTruncated :: Lens' ListAttachedRolePoliciesResponse (Maybe Bool)
+larprsIsTruncated = lens _larprsIsTruncated (\ s a -> s{_larprsIsTruncated = a});
 
-instance ToPath ListAttachedRolePolicies where
-    toPath = const "/"
-
-instance ToQuery ListAttachedRolePolicies where
-    toQuery ListAttachedRolePolicies{..} = mconcat
-        [ "Marker"     =? _larpMarker
-        , "MaxItems"   =? _larpMaxItems
-        , "PathPrefix" =? _larpPathPrefix
-        , "RoleName"   =? _larpRoleName
-        ]
-
-instance ToHeaders ListAttachedRolePolicies
-
-instance AWSRequest ListAttachedRolePolicies where
-    type Sv ListAttachedRolePolicies = IAM
-    type Rs ListAttachedRolePolicies = ListAttachedRolePoliciesResponse
-
-    request  = post "ListAttachedRolePolicies"
-    response = xmlResponse
-
-instance FromXML ListAttachedRolePoliciesResponse where
-    parseXML = withElement "ListAttachedRolePoliciesResult" $ \x -> ListAttachedRolePoliciesResponse
-        <$> x .@? "AttachedPolicies" .!@ mempty
-        <*> x .@? "IsTruncated"
-        <*> x .@? "Marker"
+-- | The response status code.
+larprsStatus :: Lens' ListAttachedRolePoliciesResponse Int
+larprsStatus = lens _larprsStatus (\ s a -> s{_larprsStatus = a});

@@ -1,27 +1,48 @@
 # Amazon Simple Notification Service SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-Amazon Simple Notification Service (Amazon SNS) is a fast, flexible, fully
-managed push messaging service. Amazon SNS makes it simple and cost-effective
-to push notifications to Apple, Google, Fire OS, and Windows devices, as well
-as Android devices in China with Baidu Cloud Push. You can also use SNS to
-push notifications to internet connected smart devices, as well as other
-distributed services. Besides pushing cloud notifications directly to mobile
-devices, Amazon SNS can also deliver notifications by SMS text message or
-email, to Amazon Simple Queue Service (SQS) queues, or to any HTTP endpoint.
-To prevent messages from being lost, all messages published to Amazon SNS are
-stored redundantly across multiple availability zones.
+Amazon Simple Notification Service
+
+Amazon Simple Notification Service (Amazon SNS) is a web service that
+enables you to build distributed web-enabled applications. Applications
+can use Amazon SNS to easily push real-time notification messages to
+interested subscribers over multiple delivery protocols. For more
+information about this product see
+<http://aws.amazon.com/sns/ http:\/\/aws.amazon.com\/sns>. For detailed
+information about Amazon SNS features and their associated API calls,
+see the
+<http://docs.aws.amazon.com/sns/latest/dg/ Amazon SNS Developer Guide>.
+
+We also provide SDKs that enable you to access Amazon SNS from your
+preferred programming language. The SDKs contain functionality that
+automatically takes care of tasks such as: cryptographically signing
+your service requests, retrying requests, and handling error responses.
+For a list of available SDKs, go to
+<http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-sns)
 and the [AWS API Reference](http://docs.aws.amazon.com/sns/latest/api/Welcome.html).
 
+The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
+which provides mechanisms for specifying AuthN/AuthZ information and sending requests.
+
+Use of lenses is required for constructing and manipulating types.
+This is due to the amount of nesting of AWS types and transparency regarding
+de/serialisation into more palatable Haskell values.
+The provided lenses should be compatible with any of the major lens libraries
+[lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
 ## Contribute
 

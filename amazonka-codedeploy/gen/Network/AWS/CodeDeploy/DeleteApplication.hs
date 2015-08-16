@@ -1,96 +1,103 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CodeDeploy.DeleteApplication
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes an application.
+-- |
+-- Module      : Network.AWS.CodeDeploy.DeleteApplication
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteApplication.html>
+-- Deletes an application.
+--
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteApplication.html AWS API Reference> for DeleteApplication.
 module Network.AWS.CodeDeploy.DeleteApplication
     (
-    -- * Request
-      DeleteApplication
-    -- ** Request constructor
-    , deleteApplication
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteApplication
+    , DeleteApplication
+    -- * Request Lenses
     , daApplicationName
 
-    -- * Response
-    , DeleteApplicationResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteApplicationResponse
+    , DeleteApplicationResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteApplication = DeleteApplication
+-- | Represents the input of a delete application operation.
+--
+-- /See:/ 'deleteApplication' smart constructor.
+newtype DeleteApplication = DeleteApplication'
     { _daApplicationName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteApplication' constructor.
+-- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daApplicationName' @::@ 'Text'
---
-deleteApplication :: Text -- ^ 'daApplicationName'
-                  -> DeleteApplication
-deleteApplication p1 = DeleteApplication
-    { _daApplicationName = p1
+-- * 'daApplicationName'
+deleteApplication
+    :: Text -- ^ 'daApplicationName'
+    -> DeleteApplication
+deleteApplication pApplicationName_ =
+    DeleteApplication'
+    { _daApplicationName = pApplicationName_
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
 daApplicationName :: Lens' DeleteApplication Text
-daApplicationName =
-    lens _daApplicationName (\s a -> s { _daApplicationName = a })
-
-data DeleteApplicationResponse = DeleteApplicationResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteApplicationResponse' constructor.
-deleteApplicationResponse :: DeleteApplicationResponse
-deleteApplicationResponse = DeleteApplicationResponse
-
-instance ToPath DeleteApplication where
-    toPath = const "/"
-
-instance ToQuery DeleteApplication where
-    toQuery = const mempty
-
-instance ToHeaders DeleteApplication
-
-instance ToJSON DeleteApplication where
-    toJSON DeleteApplication{..} = object
-        [ "applicationName" .= _daApplicationName
-        ]
+daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a});
 
 instance AWSRequest DeleteApplication where
-    type Sv DeleteApplication = CodeDeploy
-    type Rs DeleteApplication = DeleteApplicationResponse
+        type Sv DeleteApplication = CodeDeploy
+        type Rs DeleteApplication = DeleteApplicationResponse
+        request = postJSON
+        response = receiveNull DeleteApplicationResponse'
 
-    request  = post "DeleteApplication"
-    response = nullResponse DeleteApplicationResponse
+instance ToHeaders DeleteApplication where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.DeleteApplication" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteApplication where
+        toJSON DeleteApplication'{..}
+          = object ["applicationName" .= _daApplicationName]
+
+instance ToPath DeleteApplication where
+        toPath = const "/"
+
+instance ToQuery DeleteApplication where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteApplicationResponse' smart constructor.
+data DeleteApplicationResponse =
+    DeleteApplicationResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteApplicationResponse' with the minimum fields required to make a request.
+--
+deleteApplicationResponse
+    :: DeleteApplicationResponse
+deleteApplicationResponse = DeleteApplicationResponse'

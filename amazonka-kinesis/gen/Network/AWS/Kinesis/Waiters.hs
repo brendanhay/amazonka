@@ -1,31 +1,36 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeFamilies      #-}
 
--- Module      : Network.AWS.Kinesis.Waiters
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
+-- |
+-- Module      : Network.AWS.Kinesis.Waiters
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Kinesis.Waiters where
 
-import Network.AWS.Kinesis.DescribeStream
-import Network.AWS.Kinesis.Types
-import Network.AWS.Waiters
+import           Network.AWS.Kinesis.DescribeStream
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Waiter
 
+-- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a
+-- successful state is reached. An error is returned after 18 failed checks.
 streamExists :: Wait DescribeStream
-streamExists = Wait
-    { _waitName      = "StreamExists"
-    , _waitAttempts  = 18
-    , _waitDelay     = 10
-    , _waitAcceptors =
-        [ matchAll Active AcceptSuccess
-            (dsrStreamDescription . sdStreamStatus)
-        ]
+streamExists =
+    Wait
+    { _waitName = "StreamExists"
+    , _waitAttempts = 18
+    , _waitDelay = 10
+    , _waitAcceptors = [ matchAll
+                             "ACTIVE"
+                             AcceptSuccess
+                             (dsrsStreamDescription .
+                              sdStreamStatus . to toTextCI)]
     }

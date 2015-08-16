@@ -1,148 +1,163 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SSM.ListAssociations
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the associations for the specified configuration document or instance.
+-- |
+-- Module      : Network.AWS.SSM.ListAssociations
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListAssociations.html>
+-- Lists the associations for the specified configuration document or
+-- instance.
+--
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListAssociations.html AWS API Reference> for ListAssociations.
 module Network.AWS.SSM.ListAssociations
     (
-    -- * Request
-      ListAssociations
-    -- ** Request constructor
-    , listAssociations
-    -- ** Request lenses
-    , laAssociationFilterList
-    , laMaxResults
+    -- * Creating a Request
+      listAssociations
+    , ListAssociations
+    -- * Request Lenses
     , laNextToken
+    , laMaxResults
+    , laAssociationFilterList
 
-    -- * Response
-    , ListAssociationsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listAssociationsResponse
-    -- ** Response lenses
-    , larAssociations
-    , larNextToken
+    , ListAssociationsResponse
+    -- * Response Lenses
+    , larsNextToken
+    , larsAssociations
+    , larsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.SSM.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
+import           Network.AWS.SSM.Types.Product
 
-data ListAssociations = ListAssociations
-    { _laAssociationFilterList :: List1 "AssociationFilter" AssociationFilter
-    , _laMaxResults            :: Maybe Nat
-    , _laNextToken             :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'listAssociations' smart constructor.
+data ListAssociations = ListAssociations'
+    { _laNextToken             :: !(Maybe Text)
+    , _laMaxResults            :: !(Maybe Nat)
+    , _laAssociationFilterList :: !(List1 AssociationFilter)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListAssociations' constructor.
+-- | Creates a value of 'ListAssociations' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'laAssociationFilterList' @::@ 'NonEmpty' 'AssociationFilter'
+-- * 'laNextToken'
 --
--- * 'laMaxResults' @::@ 'Maybe' 'Natural'
+-- * 'laMaxResults'
 --
--- * 'laNextToken' @::@ 'Maybe' 'Text'
---
-listAssociations :: NonEmpty AssociationFilter -- ^ 'laAssociationFilterList'
-                 -> ListAssociations
-listAssociations p1 = ListAssociations
-    { _laAssociationFilterList = withIso _List1 (const id) p1
-    , _laMaxResults            = Nothing
-    , _laNextToken             = Nothing
+-- * 'laAssociationFilterList'
+listAssociations
+    :: NonEmpty AssociationFilter -- ^ 'laAssociationFilterList'
+    -> ListAssociations
+listAssociations pAssociationFilterList_ =
+    ListAssociations'
+    { _laNextToken = Nothing
+    , _laMaxResults = Nothing
+    , _laAssociationFilterList = _List1 # pAssociationFilterList_
     }
 
--- | One or more filters. Use a filter to return a more specific list of results.
-laAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
-laAssociationFilterList =
-    lens _laAssociationFilterList (\s a -> s { _laAssociationFilterList = a })
-        . _List1
-
--- | The maximum number of items to return for this call. The call also returns a
--- token that you can specify in a subsequent call to get the next set of
--- results.
-laMaxResults :: Lens' ListAssociations (Maybe Natural)
-laMaxResults = lens _laMaxResults (\s a -> s { _laMaxResults = a }) . mapping _Nat
-
--- | The token for the next set of items to return. (You received this token from
--- a previous call.)
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
 laNextToken :: Lens' ListAssociations (Maybe Text)
-laNextToken = lens _laNextToken (\s a -> s { _laNextToken = a })
+laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
-data ListAssociationsResponse = ListAssociationsResponse
-    { _larAssociations :: List "Association" Association
-    , _larNextToken    :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+laMaxResults :: Lens' ListAssociations (Maybe Natural)
+laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat;
 
--- | 'ListAssociationsResponse' constructor.
+-- | One or more filters. Use a filter to return a more specific list of
+-- results.
+laAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
+laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . _List1;
+
+instance AWSRequest ListAssociations where
+        type Sv ListAssociations = SSM
+        type Rs ListAssociations = ListAssociationsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListAssociationsResponse' <$>
+                   (x .?> "NextToken") <*>
+                     (x .?> "Associations" .!@ mempty)
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListAssociations where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonSSM.ListAssociations" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListAssociations where
+        toJSON ListAssociations'{..}
+          = object
+              ["NextToken" .= _laNextToken,
+               "MaxResults" .= _laMaxResults,
+               "AssociationFilterList" .= _laAssociationFilterList]
+
+instance ToPath ListAssociations where
+        toPath = const "/"
+
+instance ToQuery ListAssociations where
+        toQuery = const mempty
+
+-- | /See:/ 'listAssociationsResponse' smart constructor.
+data ListAssociationsResponse = ListAssociationsResponse'
+    { _larsNextToken    :: !(Maybe Text)
+    , _larsAssociations :: !(Maybe [Association])
+    , _larsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListAssociationsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'larAssociations' @::@ ['Association']
+-- * 'larsNextToken'
 --
--- * 'larNextToken' @::@ 'Maybe' 'Text'
+-- * 'larsAssociations'
 --
-listAssociationsResponse :: ListAssociationsResponse
-listAssociationsResponse = ListAssociationsResponse
-    { _larAssociations = mempty
-    , _larNextToken    = Nothing
+-- * 'larsStatus'
+listAssociationsResponse
+    :: Int -- ^ 'larsStatus'
+    -> ListAssociationsResponse
+listAssociationsResponse pStatus_ =
+    ListAssociationsResponse'
+    { _larsNextToken = Nothing
+    , _larsAssociations = Nothing
+    , _larsStatus = pStatus_
     }
-
--- | The associations.
-larAssociations :: Lens' ListAssociationsResponse [Association]
-larAssociations = lens _larAssociations (\s a -> s { _larAssociations = a }) . _List
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-larNextToken :: Lens' ListAssociationsResponse (Maybe Text)
-larNextToken = lens _larNextToken (\s a -> s { _larNextToken = a })
+larsNextToken :: Lens' ListAssociationsResponse (Maybe Text)
+larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 
-instance ToPath ListAssociations where
-    toPath = const "/"
+-- | The associations.
+larsAssociations :: Lens' ListAssociationsResponse [Association]
+larsAssociations = lens _larsAssociations (\ s a -> s{_larsAssociations = a}) . _Default . _Coerce;
 
-instance ToQuery ListAssociations where
-    toQuery = const mempty
-
-instance ToHeaders ListAssociations
-
-instance ToJSON ListAssociations where
-    toJSON ListAssociations{..} = object
-        [ "AssociationFilterList" .= _laAssociationFilterList
-        , "MaxResults"            .= _laMaxResults
-        , "NextToken"             .= _laNextToken
-        ]
-
-instance AWSRequest ListAssociations where
-    type Sv ListAssociations = SSM
-    type Rs ListAssociations = ListAssociationsResponse
-
-    request  = post "ListAssociations"
-    response = jsonResponse
-
-instance FromJSON ListAssociationsResponse where
-    parseJSON = withObject "ListAssociationsResponse" $ \o -> ListAssociationsResponse
-        <$> o .:? "Associations" .!= mempty
-        <*> o .:? "NextToken"
+-- | The response status code.
+larsStatus :: Lens' ListAssociationsResponse Int
+larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

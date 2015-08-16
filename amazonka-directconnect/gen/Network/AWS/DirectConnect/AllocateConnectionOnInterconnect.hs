@@ -1,129 +1,118 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a hosted connection on an interconnect.
+-- |
+-- Module      : Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Creates a hosted connection on an interconnect.
 --
 -- Allocates a VLAN number and a specified amount of bandwidth for use by a
 -- hosted connection on the given interconnect.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.html>
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateConnectionOnInterconnect.html AWS API Reference> for AllocateConnectionOnInterconnect.
 module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     (
-    -- * Request
-      AllocateConnectionOnInterconnect
-    -- ** Request constructor
-    , allocateConnectionOnInterconnect
-    -- ** Request lenses
+    -- * Creating a Request
+      allocateConnectionOnInterconnect
+    , AllocateConnectionOnInterconnect
+    -- * Request Lenses
     , acoiBandwidth
     , acoiConnectionName
-    , acoiInterconnectId
     , acoiOwnerAccount
+    , acoiInterconnectId
     , acoiVlan
 
-    -- * Response
-    , AllocateConnectionOnInterconnectResponse
-    -- ** Response constructor
-    , allocateConnectionOnInterconnectResponse
-    -- ** Response lenses
-    , acoirBandwidth
-    , acoirConnectionId
-    , acoirConnectionName
-    , acoirConnectionState
-    , acoirLocation
-    , acoirOwnerAccount
-    , acoirPartnerName
-    , acoirRegion
-    , acoirVlan
+    -- * Destructuring the Response
+    , connection
+    , Connection
+    -- * Response Lenses
+    , cVlan
+    , cLocation
+    , cConnectionId
+    , cConnectionName
+    , cPartnerName
+    , cBandwidth
+    , cRegion
+    , cOwnerAccount
+    , cConnectionState
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DirectConnect.Types
-import qualified GHC.Exts
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect
-    { _acoiBandwidth      :: Text
-    , _acoiConnectionName :: Text
-    , _acoiInterconnectId :: Text
-    , _acoiOwnerAccount   :: Text
-    , _acoiVlan           :: Int
-    } deriving (Eq, Ord, Read, Show)
+-- | Container for the parameters to the AllocateConnectionOnInterconnect
+-- operation.
+--
+-- /See:/ 'allocateConnectionOnInterconnect' smart constructor.
+data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect'
+    { _acoiBandwidth      :: !Text
+    , _acoiConnectionName :: !Text
+    , _acoiOwnerAccount   :: !Text
+    , _acoiInterconnectId :: !Text
+    , _acoiVlan           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AllocateConnectionOnInterconnect' constructor.
+-- | Creates a value of 'AllocateConnectionOnInterconnect' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'acoiBandwidth' @::@ 'Text'
+-- * 'acoiBandwidth'
 --
--- * 'acoiConnectionName' @::@ 'Text'
+-- * 'acoiConnectionName'
 --
--- * 'acoiInterconnectId' @::@ 'Text'
+-- * 'acoiOwnerAccount'
 --
--- * 'acoiOwnerAccount' @::@ 'Text'
+-- * 'acoiInterconnectId'
 --
--- * 'acoiVlan' @::@ 'Int'
---
-allocateConnectionOnInterconnect :: Text -- ^ 'acoiBandwidth'
-                                 -> Text -- ^ 'acoiConnectionName'
-                                 -> Text -- ^ 'acoiOwnerAccount'
-                                 -> Text -- ^ 'acoiInterconnectId'
-                                 -> Int -- ^ 'acoiVlan'
-                                 -> AllocateConnectionOnInterconnect
-allocateConnectionOnInterconnect p1 p2 p3 p4 p5 = AllocateConnectionOnInterconnect
-    { _acoiBandwidth      = p1
-    , _acoiConnectionName = p2
-    , _acoiOwnerAccount   = p3
-    , _acoiInterconnectId = p4
-    , _acoiVlan           = p5
+-- * 'acoiVlan'
+allocateConnectionOnInterconnect
+    :: Text -- ^ 'acoiBandwidth'
+    -> Text -- ^ 'acoiConnectionName'
+    -> Text -- ^ 'acoiOwnerAccount'
+    -> Text -- ^ 'acoiInterconnectId'
+    -> Int -- ^ 'acoiVlan'
+    -> AllocateConnectionOnInterconnect
+allocateConnectionOnInterconnect pBandwidth_ pConnectionName_ pOwnerAccount_ pInterconnectId_ pVlan_ =
+    AllocateConnectionOnInterconnect'
+    { _acoiBandwidth = pBandwidth_
+    , _acoiConnectionName = pConnectionName_
+    , _acoiOwnerAccount = pOwnerAccount_
+    , _acoiInterconnectId = pInterconnectId_
+    , _acoiVlan = pVlan_
     }
 
 -- | Bandwidth of the connection.
 --
--- Example: "/500Mbps/"
+-- Example: \"/500Mbps/\"
 --
 -- Default: None
 acoiBandwidth :: Lens' AllocateConnectionOnInterconnect Text
-acoiBandwidth = lens _acoiBandwidth (\s a -> s { _acoiBandwidth = a })
+acoiBandwidth = lens _acoiBandwidth (\ s a -> s{_acoiBandwidth = a});
 
 -- | Name of the provisioned connection.
 --
--- Example: "/500M Connection to AWS/"
+-- Example: \"/500M Connection to AWS/\"
 --
 -- Default: None
 acoiConnectionName :: Lens' AllocateConnectionOnInterconnect Text
-acoiConnectionName =
-    lens _acoiConnectionName (\s a -> s { _acoiConnectionName = a })
-
--- | ID of the interconnect on which the connection will be provisioned.
---
--- Example: dxcon-456abc78
---
--- Default: None
-acoiInterconnectId :: Lens' AllocateConnectionOnInterconnect Text
-acoiInterconnectId =
-    lens _acoiInterconnectId (\s a -> s { _acoiInterconnectId = a })
+acoiConnectionName = lens _acoiConnectionName (\ s a -> s{_acoiConnectionName = a});
 
 -- | Numeric account Id of the customer for whom the connection will be
 -- provisioned.
@@ -132,7 +121,15 @@ acoiInterconnectId =
 --
 -- Default: None
 acoiOwnerAccount :: Lens' AllocateConnectionOnInterconnect Text
-acoiOwnerAccount = lens _acoiOwnerAccount (\s a -> s { _acoiOwnerAccount = a })
+acoiOwnerAccount = lens _acoiOwnerAccount (\ s a -> s{_acoiOwnerAccount = a});
+
+-- | ID of the interconnect on which the connection will be provisioned.
+--
+-- Example: dxcon-456abc78
+--
+-- Default: None
+acoiInterconnectId :: Lens' AllocateConnectionOnInterconnect Text
+acoiInterconnectId = lens _acoiInterconnectId (\ s a -> s{_acoiInterconnectId = a});
 
 -- | The dedicated VLAN provisioned to the connection.
 --
@@ -140,123 +137,41 @@ acoiOwnerAccount = lens _acoiOwnerAccount (\s a -> s { _acoiOwnerAccount = a })
 --
 -- Default: None
 acoiVlan :: Lens' AllocateConnectionOnInterconnect Int
-acoiVlan = lens _acoiVlan (\s a -> s { _acoiVlan = a })
+acoiVlan = lens _acoiVlan (\ s a -> s{_acoiVlan = a});
 
-data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnectResponse
-    { _acoirBandwidth       :: Maybe Text
-    , _acoirConnectionId    :: Maybe Text
-    , _acoirConnectionName  :: Maybe Text
-    , _acoirConnectionState :: Maybe ConnectionState
-    , _acoirLocation        :: Maybe Text
-    , _acoirOwnerAccount    :: Maybe Text
-    , _acoirPartnerName     :: Maybe Text
-    , _acoirRegion          :: Maybe Text
-    , _acoirVlan            :: Maybe Int
-    } deriving (Eq, Read, Show)
-
--- | 'AllocateConnectionOnInterconnectResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'acoirBandwidth' @::@ 'Maybe' 'Text'
---
--- * 'acoirConnectionId' @::@ 'Maybe' 'Text'
---
--- * 'acoirConnectionName' @::@ 'Maybe' 'Text'
---
--- * 'acoirConnectionState' @::@ 'Maybe' 'ConnectionState'
---
--- * 'acoirLocation' @::@ 'Maybe' 'Text'
---
--- * 'acoirOwnerAccount' @::@ 'Maybe' 'Text'
---
--- * 'acoirPartnerName' @::@ 'Maybe' 'Text'
---
--- * 'acoirRegion' @::@ 'Maybe' 'Text'
---
--- * 'acoirVlan' @::@ 'Maybe' 'Int'
---
-allocateConnectionOnInterconnectResponse :: AllocateConnectionOnInterconnectResponse
-allocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnectResponse
-    { _acoirOwnerAccount    = Nothing
-    , _acoirConnectionId    = Nothing
-    , _acoirConnectionName  = Nothing
-    , _acoirConnectionState = Nothing
-    , _acoirRegion          = Nothing
-    , _acoirLocation        = Nothing
-    , _acoirBandwidth       = Nothing
-    , _acoirVlan            = Nothing
-    , _acoirPartnerName     = Nothing
-    }
-
--- | Bandwidth of the connection.
---
--- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
---
--- Default: None
-acoirBandwidth :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirBandwidth = lens _acoirBandwidth (\s a -> s { _acoirBandwidth = a })
-
-acoirConnectionId :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirConnectionId =
-    lens _acoirConnectionId (\s a -> s { _acoirConnectionId = a })
-
-acoirConnectionName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirConnectionName =
-    lens _acoirConnectionName (\s a -> s { _acoirConnectionName = a })
-
-acoirConnectionState :: Lens' AllocateConnectionOnInterconnectResponse (Maybe ConnectionState)
-acoirConnectionState =
-    lens _acoirConnectionState (\s a -> s { _acoirConnectionState = a })
-
-acoirLocation :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirLocation = lens _acoirLocation (\s a -> s { _acoirLocation = a })
-
-acoirOwnerAccount :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirOwnerAccount =
-    lens _acoirOwnerAccount (\s a -> s { _acoirOwnerAccount = a })
-
-acoirPartnerName :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirPartnerName = lens _acoirPartnerName (\s a -> s { _acoirPartnerName = a })
-
-acoirRegion :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Text)
-acoirRegion = lens _acoirRegion (\s a -> s { _acoirRegion = a })
-
-acoirVlan :: Lens' AllocateConnectionOnInterconnectResponse (Maybe Int)
-acoirVlan = lens _acoirVlan (\s a -> s { _acoirVlan = a })
-
-instance ToPath AllocateConnectionOnInterconnect where
-    toPath = const "/"
-
-instance ToQuery AllocateConnectionOnInterconnect where
-    toQuery = const mempty
+instance AWSRequest AllocateConnectionOnInterconnect
+         where
+        type Sv AllocateConnectionOnInterconnect =
+             DirectConnect
+        type Rs AllocateConnectionOnInterconnect = Connection
+        request = postJSON
+        response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders AllocateConnectionOnInterconnect
+         where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OvertureService.AllocateConnectionOnInterconnect"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance ToJSON AllocateConnectionOnInterconnect where
-    toJSON AllocateConnectionOnInterconnect{..} = object
-        [ "bandwidth"      .= _acoiBandwidth
-        , "connectionName" .= _acoiConnectionName
-        , "ownerAccount"   .= _acoiOwnerAccount
-        , "interconnectId" .= _acoiInterconnectId
-        , "vlan"           .= _acoiVlan
-        ]
+instance ToJSON AllocateConnectionOnInterconnect
+         where
+        toJSON AllocateConnectionOnInterconnect'{..}
+          = object
+              ["bandwidth" .= _acoiBandwidth,
+               "connectionName" .= _acoiConnectionName,
+               "ownerAccount" .= _acoiOwnerAccount,
+               "interconnectId" .= _acoiInterconnectId,
+               "vlan" .= _acoiVlan]
 
-instance AWSRequest AllocateConnectionOnInterconnect where
-    type Sv AllocateConnectionOnInterconnect = DirectConnect
-    type Rs AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnectResponse
+instance ToPath AllocateConnectionOnInterconnect
+         where
+        toPath = const "/"
 
-    request  = post "AllocateConnectionOnInterconnect"
-    response = jsonResponse
-
-instance FromJSON AllocateConnectionOnInterconnectResponse where
-    parseJSON = withObject "AllocateConnectionOnInterconnectResponse" $ \o -> AllocateConnectionOnInterconnectResponse
-        <$> o .:? "bandwidth"
-        <*> o .:? "connectionId"
-        <*> o .:? "connectionName"
-        <*> o .:? "connectionState"
-        <*> o .:? "location"
-        <*> o .:? "ownerAccount"
-        <*> o .:? "partnerName"
-        <*> o .:? "region"
-        <*> o .:? "vlan"
+instance ToQuery AllocateConnectionOnInterconnect
+         where
+        toQuery = const mempty

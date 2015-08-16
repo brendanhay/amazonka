@@ -1,29 +1,60 @@
 name:                  amazonka-rds
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon Relational Database Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Relational Database Service (Amazon RDS) is a web service that makes
-    it easy to set up, operate, and scale a relational database in the cloud. It
-    provides cost-efficient and resizable capacity while managing time-consuming
-    database administration tasks, freeing you up to focus on your applications
-    and business.
+    Amazon Relational Database Service
 
+    Amazon Relational Database Service (Amazon RDS) is a web service that
+    makes it easier to set up, operate, and scale a relational database in
+    the cloud. It provides cost-efficient, resizeable capacity for an
+    industry-standard relational database and manages common database
+    administration tasks, freeing up developers to focus on what makes their
+    applications and businesses unique.
+
+    Amazon RDS gives you access to the capabilities of a MySQL, PostgreSQL,
+    Microsoft SQL Server, Oracle, or Aurora database server. This means the
+    code, applications, and tools you already use today with your existing
+    databases work with Amazon RDS without modification. Amazon RDS
+    automatically backs up your database and maintains the database software
+    that powers your DB instance. Amazon RDS is flexible: you can scale your
+    database instance\'s compute resources and storage capacity to meet your
+    application\'s demand. As with all Amazon Web Services, there are no
+    up-front investments, and you pay only for the resources you use.
+
+    This is an interface reference for Amazon RDS. It contains documentation
+    for a programming or command line interface you can use to manage Amazon
+    RDS. Note that Amazon RDS is asynchronous, which means that some
+    interfaces might require techniques such as polling or callback
+    functions to determine when a command has been applied. In this
+    reference, the parameter descriptions indicate whether a command is
+    applied immediately, on the next instance reboot, or during the
+    maintenance window. For a summary of the Amazon RDS interfaces, go to
+    <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html#Welcome.Interfaces Available RDS Interfaces>.
     .
-    /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html AWS API Reference>
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
     .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.RDS" and the <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
 
 source-repository head
     type:     git
@@ -41,9 +72,13 @@ library
         , Network.AWS.RDS.AddTagsToResource
         , Network.AWS.RDS.ApplyPendingMaintenanceAction
         , Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
+        , Network.AWS.RDS.CopyDBClusterSnapshot
         , Network.AWS.RDS.CopyDBParameterGroup
         , Network.AWS.RDS.CopyDBSnapshot
         , Network.AWS.RDS.CopyOptionGroup
+        , Network.AWS.RDS.CreateDBCluster
+        , Network.AWS.RDS.CreateDBClusterParameterGroup
+        , Network.AWS.RDS.CreateDBClusterSnapshot
         , Network.AWS.RDS.CreateDBInstance
         , Network.AWS.RDS.CreateDBInstanceReadReplica
         , Network.AWS.RDS.CreateDBParameterGroup
@@ -52,6 +87,9 @@ library
         , Network.AWS.RDS.CreateDBSubnetGroup
         , Network.AWS.RDS.CreateEventSubscription
         , Network.AWS.RDS.CreateOptionGroup
+        , Network.AWS.RDS.DeleteDBCluster
+        , Network.AWS.RDS.DeleteDBClusterParameterGroup
+        , Network.AWS.RDS.DeleteDBClusterSnapshot
         , Network.AWS.RDS.DeleteDBInstance
         , Network.AWS.RDS.DeleteDBParameterGroup
         , Network.AWS.RDS.DeleteDBSecurityGroup
@@ -61,6 +99,10 @@ library
         , Network.AWS.RDS.DeleteOptionGroup
         , Network.AWS.RDS.DescribeAccountAttributes
         , Network.AWS.RDS.DescribeCertificates
+        , Network.AWS.RDS.DescribeDBClusterParameterGroups
+        , Network.AWS.RDS.DescribeDBClusterParameters
+        , Network.AWS.RDS.DescribeDBClusterSnapshots
+        , Network.AWS.RDS.DescribeDBClusters
         , Network.AWS.RDS.DescribeDBEngineVersions
         , Network.AWS.RDS.DescribeDBInstances
         , Network.AWS.RDS.DescribeDBLogFiles
@@ -69,6 +111,7 @@ library
         , Network.AWS.RDS.DescribeDBSecurityGroups
         , Network.AWS.RDS.DescribeDBSnapshots
         , Network.AWS.RDS.DescribeDBSubnetGroups
+        , Network.AWS.RDS.DescribeEngineDefaultClusterParameters
         , Network.AWS.RDS.DescribeEngineDefaultParameters
         , Network.AWS.RDS.DescribeEventCategories
         , Network.AWS.RDS.DescribeEventSubscriptions
@@ -80,7 +123,10 @@ library
         , Network.AWS.RDS.DescribeReservedDBInstances
         , Network.AWS.RDS.DescribeReservedDBInstancesOfferings
         , Network.AWS.RDS.DownloadDBLogFilePortion
+        , Network.AWS.RDS.FailoverDBCluster
         , Network.AWS.RDS.ListTagsForResource
+        , Network.AWS.RDS.ModifyDBCluster
+        , Network.AWS.RDS.ModifyDBClusterParameterGroup
         , Network.AWS.RDS.ModifyDBInstance
         , Network.AWS.RDS.ModifyDBParameterGroup
         , Network.AWS.RDS.ModifyDBSubnetGroup
@@ -91,7 +137,10 @@ library
         , Network.AWS.RDS.RebootDBInstance
         , Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
         , Network.AWS.RDS.RemoveTagsFromResource
+        , Network.AWS.RDS.ResetDBClusterParameterGroup
         , Network.AWS.RDS.ResetDBParameterGroup
+        , Network.AWS.RDS.RestoreDBClusterFromSnapshot
+        , Network.AWS.RDS.RestoreDBClusterToPointInTime
         , Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
         , Network.AWS.RDS.RestoreDBInstanceToPointInTime
         , Network.AWS.RDS.RevokeDBSecurityGroupIngress
@@ -99,7 +148,37 @@ library
         , Network.AWS.RDS.Waiters
 
     other-modules:
+          Network.AWS.RDS.Types.Product
+        , Network.AWS.RDS.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-rds-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.RDS
+        , Test.AWS.Gen.RDS
+        , Test.AWS.RDS.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test == 1.0.0
+        , amazonka-rds == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

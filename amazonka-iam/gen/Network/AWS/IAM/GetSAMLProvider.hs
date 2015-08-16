@@ -1,139 +1,147 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.GetSAMLProvider
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns the SAML provider metadocument that was uploaded when the provider
--- was created or updated.
+-- |
+-- Module      : Network.AWS.IAM.GetSAMLProvider
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+-- Returns the SAML provider metadocument that was uploaded when the
+-- provider was created or updated.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html>
+-- This operation requires
+-- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetSAMLProvider.html AWS API Reference> for GetSAMLProvider.
 module Network.AWS.IAM.GetSAMLProvider
     (
-    -- * Request
-      GetSAMLProvider
-    -- ** Request constructor
-    , getSAMLProvider
-    -- ** Request lenses
-    , gsamlpSAMLProviderArn
+    -- * Creating a Request
+      getSAMLProvider
+    , GetSAMLProvider
+    -- * Request Lenses
+    , gsamlpSAMLProviderARN
 
-    -- * Response
-    , GetSAMLProviderResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getSAMLProviderResponse
-    -- ** Response lenses
-    , gsamlprCreateDate
-    , gsamlprSAMLMetadataDocument
-    , gsamlprValidUntil
+    , GetSAMLProviderResponse
+    -- * Response Lenses
+    , gsamlprsCreateDate
+    , gsamlprsValidUntil
+    , gsamlprsSAMLMetadataDocument
+    , gsamlprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetSAMLProvider = GetSAMLProvider
-    { _gsamlpSAMLProviderArn :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | /See:/ 'getSAMLProvider' smart constructor.
+newtype GetSAMLProvider = GetSAMLProvider'
+    { _gsamlpSAMLProviderARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSAMLProvider' constructor.
+-- | Creates a value of 'GetSAMLProvider' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsamlpSAMLProviderArn' @::@ 'Text'
---
-getSAMLProvider :: Text -- ^ 'gsamlpSAMLProviderArn'
-                -> GetSAMLProvider
-getSAMLProvider p1 = GetSAMLProvider
-    { _gsamlpSAMLProviderArn = p1
+-- * 'gsamlpSAMLProviderARN'
+getSAMLProvider
+    :: Text -- ^ 'gsamlpSAMLProviderARN'
+    -> GetSAMLProvider
+getSAMLProvider pSAMLProviderARN_ =
+    GetSAMLProvider'
+    { _gsamlpSAMLProviderARN = pSAMLProviderARN_
     }
 
--- | The Amazon Resource Name (ARN) of the SAML provider to get information about.
-gsamlpSAMLProviderArn :: Lens' GetSAMLProvider Text
-gsamlpSAMLProviderArn =
-    lens _gsamlpSAMLProviderArn (\s a -> s { _gsamlpSAMLProviderArn = a })
+-- | The Amazon Resource Name (ARN) of the SAML provider to get information
+-- about.
+gsamlpSAMLProviderARN :: Lens' GetSAMLProvider Text
+gsamlpSAMLProviderARN = lens _gsamlpSAMLProviderARN (\ s a -> s{_gsamlpSAMLProviderARN = a});
 
-data GetSAMLProviderResponse = GetSAMLProviderResponse
-    { _gsamlprCreateDate           :: Maybe ISO8601
-    , _gsamlprSAMLMetadataDocument :: Maybe Text
-    , _gsamlprValidUntil           :: Maybe ISO8601
-    } deriving (Eq, Ord, Read, Show)
+instance AWSRequest GetSAMLProvider where
+        type Sv GetSAMLProvider = IAM
+        type Rs GetSAMLProvider = GetSAMLProviderResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "GetSAMLProviderResult"
+              (\ s h x ->
+                 GetSAMLProviderResponse' <$>
+                   (x .@? "CreateDate") <*> (x .@? "ValidUntil") <*>
+                     (x .@? "SAMLMetadataDocument")
+                     <*> (pure (fromEnum s)))
 
--- | 'GetSAMLProviderResponse' constructor.
+instance ToHeaders GetSAMLProvider where
+        toHeaders = const mempty
+
+instance ToPath GetSAMLProvider where
+        toPath = const "/"
+
+instance ToQuery GetSAMLProvider where
+        toQuery GetSAMLProvider'{..}
+          = mconcat
+              ["Action" =: ("GetSAMLProvider" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "SAMLProviderArn" =: _gsamlpSAMLProviderARN]
+
+-- | Contains the response to a successful GetSAMLProvider request.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'getSAMLProviderResponse' smart constructor.
+data GetSAMLProviderResponse = GetSAMLProviderResponse'
+    { _gsamlprsCreateDate           :: !(Maybe ISO8601)
+    , _gsamlprsValidUntil           :: !(Maybe ISO8601)
+    , _gsamlprsSAMLMetadataDocument :: !(Maybe Text)
+    , _gsamlprsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetSAMLProviderResponse' with the minimum fields required to make a request.
 --
--- * 'gsamlprCreateDate' @::@ 'Maybe' 'UTCTime'
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsamlprSAMLMetadataDocument' @::@ 'Maybe' 'Text'
+-- * 'gsamlprsCreateDate'
 --
--- * 'gsamlprValidUntil' @::@ 'Maybe' 'UTCTime'
+-- * 'gsamlprsValidUntil'
 --
-getSAMLProviderResponse :: GetSAMLProviderResponse
-getSAMLProviderResponse = GetSAMLProviderResponse
-    { _gsamlprSAMLMetadataDocument = Nothing
-    , _gsamlprCreateDate           = Nothing
-    , _gsamlprValidUntil           = Nothing
+-- * 'gsamlprsSAMLMetadataDocument'
+--
+-- * 'gsamlprsStatus'
+getSAMLProviderResponse
+    :: Int -- ^ 'gsamlprsStatus'
+    -> GetSAMLProviderResponse
+getSAMLProviderResponse pStatus_ =
+    GetSAMLProviderResponse'
+    { _gsamlprsCreateDate = Nothing
+    , _gsamlprsValidUntil = Nothing
+    , _gsamlprsSAMLMetadataDocument = Nothing
+    , _gsamlprsStatus = pStatus_
     }
 
 -- | The date and time when the SAML provider was created.
-gsamlprCreateDate :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
-gsamlprCreateDate =
-    lens _gsamlprCreateDate (\s a -> s { _gsamlprCreateDate = a })
-        . mapping _Time
+gsamlprsCreateDate :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
+gsamlprsCreateDate = lens _gsamlprsCreateDate (\ s a -> s{_gsamlprsCreateDate = a}) . mapping _Time;
+
+-- | The expiration date and time for the SAML provider.
+gsamlprsValidUntil :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
+gsamlprsValidUntil = lens _gsamlprsValidUntil (\ s a -> s{_gsamlprsValidUntil = a}) . mapping _Time;
 
 -- | The XML metadata document that includes information about an identity
 -- provider.
-gsamlprSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
-gsamlprSAMLMetadataDocument =
-    lens _gsamlprSAMLMetadataDocument
-        (\s a -> s { _gsamlprSAMLMetadataDocument = a })
+gsamlprsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
+gsamlprsSAMLMetadataDocument = lens _gsamlprsSAMLMetadataDocument (\ s a -> s{_gsamlprsSAMLMetadataDocument = a});
 
--- | The expiration date and time for the SAML provider.
-gsamlprValidUntil :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
-gsamlprValidUntil =
-    lens _gsamlprValidUntil (\s a -> s { _gsamlprValidUntil = a })
-        . mapping _Time
-
-instance ToPath GetSAMLProvider where
-    toPath = const "/"
-
-instance ToQuery GetSAMLProvider where
-    toQuery GetSAMLProvider{..} = mconcat
-        [ "SAMLProviderArn" =? _gsamlpSAMLProviderArn
-        ]
-
-instance ToHeaders GetSAMLProvider
-
-instance AWSRequest GetSAMLProvider where
-    type Sv GetSAMLProvider = IAM
-    type Rs GetSAMLProvider = GetSAMLProviderResponse
-
-    request  = post "GetSAMLProvider"
-    response = xmlResponse
-
-instance FromXML GetSAMLProviderResponse where
-    parseXML = withElement "GetSAMLProviderResult" $ \x -> GetSAMLProviderResponse
-        <$> x .@? "CreateDate"
-        <*> x .@? "SAMLMetadataDocument"
-        <*> x .@? "ValidUntil"
+-- | The response status code.
+gsamlprsStatus :: Lens' GetSAMLProviderResponse Int
+gsamlprsStatus = lens _gsamlprsStatus (\ s a -> s{_gsamlprsStatus = a});

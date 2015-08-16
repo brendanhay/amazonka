@@ -1,3 +1,1 @@
-TOP := ..
-
-include $(TOP)/share/library.mk
+include ../share/library.mk

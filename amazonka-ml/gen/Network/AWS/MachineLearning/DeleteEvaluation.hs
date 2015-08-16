@@ -1,119 +1,141 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.MachineLearning.DeleteEvaluation
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Assigns the 'DELETED' status to an 'Evaluation', rendering it unusable.
+-- |
+-- Module      : Network.AWS.MachineLearning.DeleteEvaluation
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- After invoking the 'DeleteEvaluation' operation, you can use the 'GetEvaluation'
--- operation to verify that the status of the 'Evaluation' changed to 'DELETED'.
+-- Assigns the 'DELETED' status to an 'Evaluation', rendering it unusable.
 --
--- Caution The results of the 'DeleteEvaluation' operation are irreversible.
+-- After invoking the 'DeleteEvaluation' operation, you can use the
+-- GetEvaluation operation to verify that the status of the 'Evaluation'
+-- changed to 'DELETED'.
 --
+-- Caution
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteEvaluation.html>
+-- The results of the 'DeleteEvaluation' operation are irreversible.
+--
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteEvaluation.html AWS API Reference> for DeleteEvaluation.
 module Network.AWS.MachineLearning.DeleteEvaluation
     (
-    -- * Request
-      DeleteEvaluation
-    -- ** Request constructor
-    , deleteEvaluation
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteEvaluation
+    , DeleteEvaluation
+    -- * Request Lenses
     , deEvaluationId
 
-    -- * Response
-    , DeleteEvaluationResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteEvaluationResponse
-    -- ** Response lenses
-    , derEvaluationId
+    , DeleteEvaluationResponse
+    -- * Response Lenses
+    , dersEvaluationId
+    , dersStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.MachineLearning.Types
-import qualified GHC.Exts
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteEvaluation = DeleteEvaluation
+-- | /See:/ 'deleteEvaluation' smart constructor.
+newtype DeleteEvaluation = DeleteEvaluation'
     { _deEvaluationId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteEvaluation' constructor.
+-- | Creates a value of 'DeleteEvaluation' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deEvaluationId' @::@ 'Text'
---
-deleteEvaluation :: Text -- ^ 'deEvaluationId'
-                 -> DeleteEvaluation
-deleteEvaluation p1 = DeleteEvaluation
-    { _deEvaluationId = p1
+-- * 'deEvaluationId'
+deleteEvaluation
+    :: Text -- ^ 'deEvaluationId'
+    -> DeleteEvaluation
+deleteEvaluation pEvaluationId_ =
+    DeleteEvaluation'
+    { _deEvaluationId = pEvaluationId_
     }
 
 -- | A user-supplied ID that uniquely identifies the 'Evaluation' to delete.
 deEvaluationId :: Lens' DeleteEvaluation Text
-deEvaluationId = lens _deEvaluationId (\s a -> s { _deEvaluationId = a })
-
-newtype DeleteEvaluationResponse = DeleteEvaluationResponse
-    { _derEvaluationId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'DeleteEvaluationResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'derEvaluationId' @::@ 'Maybe' 'Text'
---
-deleteEvaluationResponse :: DeleteEvaluationResponse
-deleteEvaluationResponse = DeleteEvaluationResponse
-    { _derEvaluationId = Nothing
-    }
-
--- | A user-supplied ID that uniquely identifies the 'Evaluation'. This value should
--- be identical to the value of the 'EvaluationId' in the request.
-derEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
-derEvaluationId = lens _derEvaluationId (\s a -> s { _derEvaluationId = a })
-
-instance ToPath DeleteEvaluation where
-    toPath = const "/"
-
-instance ToQuery DeleteEvaluation where
-    toQuery = const mempty
-
-instance ToHeaders DeleteEvaluation
-
-instance ToJSON DeleteEvaluation where
-    toJSON DeleteEvaluation{..} = object
-        [ "EvaluationId" .= _deEvaluationId
-        ]
+deEvaluationId = lens _deEvaluationId (\ s a -> s{_deEvaluationId = a});
 
 instance AWSRequest DeleteEvaluation where
-    type Sv DeleteEvaluation = MachineLearning
-    type Rs DeleteEvaluation = DeleteEvaluationResponse
+        type Sv DeleteEvaluation = MachineLearning
+        type Rs DeleteEvaluation = DeleteEvaluationResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeleteEvaluationResponse' <$>
+                   (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
-    request  = post "DeleteEvaluation"
-    response = jsonResponse
+instance ToHeaders DeleteEvaluation where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonML_20141212.DeleteEvaluation" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON DeleteEvaluationResponse where
-    parseJSON = withObject "DeleteEvaluationResponse" $ \o -> DeleteEvaluationResponse
-        <$> o .:? "EvaluationId"
+instance ToJSON DeleteEvaluation where
+        toJSON DeleteEvaluation'{..}
+          = object ["EvaluationId" .= _deEvaluationId]
+
+instance ToPath DeleteEvaluation where
+        toPath = const "/"
+
+instance ToQuery DeleteEvaluation where
+        toQuery = const mempty
+
+-- | Represents the output of a DeleteEvaluation operation. The output
+-- indicates that Amazon Machine Learning (Amazon ML) received the request.
+--
+-- You can use the GetEvaluation operation and check the value of the
+-- 'Status' parameter to see whether an 'Evaluation' is marked as
+-- 'DELETED'.
+--
+-- /See:/ 'deleteEvaluationResponse' smart constructor.
+data DeleteEvaluationResponse = DeleteEvaluationResponse'
+    { _dersEvaluationId :: !(Maybe Text)
+    , _dersStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteEvaluationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dersEvaluationId'
+--
+-- * 'dersStatus'
+deleteEvaluationResponse
+    :: Int -- ^ 'dersStatus'
+    -> DeleteEvaluationResponse
+deleteEvaluationResponse pStatus_ =
+    DeleteEvaluationResponse'
+    { _dersEvaluationId = Nothing
+    , _dersStatus = pStatus_
+    }
+
+-- | A user-supplied ID that uniquely identifies the 'Evaluation'. This value
+-- should be identical to the value of the 'EvaluationId' in the request.
+dersEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
+dersEvaluationId = lens _dersEvaluationId (\ s a -> s{_dersEvaluationId = a});
+
+-- | The response status code.
+dersStatus :: Lens' DeleteEvaluationResponse Int
+dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

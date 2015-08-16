@@ -1,135 +1,161 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Accept ownership of a private virtual interface created by another customer.
+-- |
+-- Module      : Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- After the virtual interface owner calls this function, the virtual interface
--- will be created and attached to the given virtual private gateway, and will
--- be available for handling traffic.
+-- Accept ownership of a private virtual interface created by another
+-- customer.
 --
--- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.html>
+-- After the virtual interface owner calls this function, the virtual
+-- interface will be created and attached to the given virtual private
+-- gateway, and will be available for handling traffic.
+--
+-- /See:/ <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_ConfirmPrivateVirtualInterface.html AWS API Reference> for ConfirmPrivateVirtualInterface.
 module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     (
-    -- * Request
-      ConfirmPrivateVirtualInterface
-    -- ** Request constructor
-    , confirmPrivateVirtualInterface
-    -- ** Request lenses
-    , cpviVirtualGatewayId
+    -- * Creating a Request
+      confirmPrivateVirtualInterface
+    , ConfirmPrivateVirtualInterface
+    -- * Request Lenses
     , cpviVirtualInterfaceId
+    , cpviVirtualGatewayId
 
-    -- * Response
-    , ConfirmPrivateVirtualInterfaceResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , confirmPrivateVirtualInterfaceResponse
-    -- ** Response lenses
-    , cpvir1VirtualInterfaceState
+    , ConfirmPrivateVirtualInterfaceResponse
+    -- * Response Lenses
+    , cpvirsVirtualInterfaceState
+    , cpvirsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DirectConnect.Types
-import qualified GHC.Exts
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.DirectConnect.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
-    { _cpviVirtualGatewayId   :: Text
-    , _cpviVirtualInterfaceId :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Container for the parameters to the ConfirmPrivateVirtualInterface
+-- operation.
+--
+-- /See:/ 'confirmPrivateVirtualInterface' smart constructor.
+data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
+    { _cpviVirtualInterfaceId :: !Text
+    , _cpviVirtualGatewayId   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfirmPrivateVirtualInterface' constructor.
+-- | Creates a value of 'ConfirmPrivateVirtualInterface' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cpviVirtualGatewayId' @::@ 'Text'
+-- * 'cpviVirtualInterfaceId'
 --
--- * 'cpviVirtualInterfaceId' @::@ 'Text'
---
-confirmPrivateVirtualInterface :: Text -- ^ 'cpviVirtualInterfaceId'
-                               -> Text -- ^ 'cpviVirtualGatewayId'
-                               -> ConfirmPrivateVirtualInterface
-confirmPrivateVirtualInterface p1 p2 = ConfirmPrivateVirtualInterface
-    { _cpviVirtualInterfaceId = p1
-    , _cpviVirtualGatewayId   = p2
+-- * 'cpviVirtualGatewayId'
+confirmPrivateVirtualInterface
+    :: Text -- ^ 'cpviVirtualInterfaceId'
+    -> Text -- ^ 'cpviVirtualGatewayId'
+    -> ConfirmPrivateVirtualInterface
+confirmPrivateVirtualInterface pVirtualInterfaceId_ pVirtualGatewayId_ =
+    ConfirmPrivateVirtualInterface'
+    { _cpviVirtualInterfaceId = pVirtualInterfaceId_
+    , _cpviVirtualGatewayId = pVirtualGatewayId_
     }
+
+-- | Undocumented member.
+cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
+cpviVirtualInterfaceId = lens _cpviVirtualInterfaceId (\ s a -> s{_cpviVirtualInterfaceId = a});
 
 -- | ID of the virtual private gateway that will be attached to the virtual
 -- interface.
 --
 -- A virtual private gateway can be managed via the Amazon Virtual Private
--- Cloud (VPC) console or the <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway> action.
+-- Cloud (VPC) console or the
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway>
+-- action.
 --
 -- Default: None
 cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
-cpviVirtualGatewayId =
-    lens _cpviVirtualGatewayId (\s a -> s { _cpviVirtualGatewayId = a })
+cpviVirtualGatewayId = lens _cpviVirtualGatewayId (\ s a -> s{_cpviVirtualGatewayId = a});
 
-cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
-cpviVirtualInterfaceId =
-    lens _cpviVirtualInterfaceId (\s a -> s { _cpviVirtualInterfaceId = a })
-
-newtype ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
-    { _cpvir1VirtualInterfaceState :: Maybe VirtualInterfaceState
-    } deriving (Eq, Read, Show)
-
--- | 'ConfirmPrivateVirtualInterfaceResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cpvir1VirtualInterfaceState' @::@ 'Maybe' 'VirtualInterfaceState'
---
-confirmPrivateVirtualInterfaceResponse :: ConfirmPrivateVirtualInterfaceResponse
-confirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
-    { _cpvir1VirtualInterfaceState = Nothing
-    }
-
-cpvir1VirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-cpvir1VirtualInterfaceState =
-    lens _cpvir1VirtualInterfaceState
-        (\s a -> s { _cpvir1VirtualInterfaceState = a })
-
-instance ToPath ConfirmPrivateVirtualInterface where
-    toPath = const "/"
-
-instance ToQuery ConfirmPrivateVirtualInterface where
-    toQuery = const mempty
+instance AWSRequest ConfirmPrivateVirtualInterface
+         where
+        type Sv ConfirmPrivateVirtualInterface =
+             DirectConnect
+        type Rs ConfirmPrivateVirtualInterface =
+             ConfirmPrivateVirtualInterfaceResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ConfirmPrivateVirtualInterfaceResponse' <$>
+                   (x .?> "virtualInterfaceState") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ConfirmPrivateVirtualInterface
+         where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OvertureService.ConfirmPrivateVirtualInterface" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON ConfirmPrivateVirtualInterface where
-    toJSON ConfirmPrivateVirtualInterface{..} = object
-        [ "virtualInterfaceId" .= _cpviVirtualInterfaceId
-        , "virtualGatewayId"   .= _cpviVirtualGatewayId
-        ]
+        toJSON ConfirmPrivateVirtualInterface'{..}
+          = object
+              ["virtualInterfaceId" .= _cpviVirtualInterfaceId,
+               "virtualGatewayId" .= _cpviVirtualGatewayId]
 
-instance AWSRequest ConfirmPrivateVirtualInterface where
-    type Sv ConfirmPrivateVirtualInterface = DirectConnect
-    type Rs ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterfaceResponse
+instance ToPath ConfirmPrivateVirtualInterface where
+        toPath = const "/"
 
-    request  = post "ConfirmPrivateVirtualInterface"
-    response = jsonResponse
+instance ToQuery ConfirmPrivateVirtualInterface where
+        toQuery = const mempty
 
-instance FromJSON ConfirmPrivateVirtualInterfaceResponse where
-    parseJSON = withObject "ConfirmPrivateVirtualInterfaceResponse" $ \o -> ConfirmPrivateVirtualInterfaceResponse
-        <$> o .:? "virtualInterfaceState"
+-- | The response received when ConfirmPrivateVirtualInterface is called.
+--
+-- /See:/ 'confirmPrivateVirtualInterfaceResponse' smart constructor.
+data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
+    { _cpvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
+    , _cpvirsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConfirmPrivateVirtualInterfaceResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cpvirsVirtualInterfaceState'
+--
+-- * 'cpvirsStatus'
+confirmPrivateVirtualInterfaceResponse
+    :: Int -- ^ 'cpvirsStatus'
+    -> ConfirmPrivateVirtualInterfaceResponse
+confirmPrivateVirtualInterfaceResponse pStatus_ =
+    ConfirmPrivateVirtualInterfaceResponse'
+    { _cpvirsVirtualInterfaceState = Nothing
+    , _cpvirsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+cpvirsVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
+cpvirsVirtualInterfaceState = lens _cpvirsVirtualInterfaceState (\ s a -> s{_cpvirsVirtualInterfaceState = a});
+
+-- | The response status code.
+cpvirsStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
+cpvirsStatus = lens _cpvirsStatus (\ s a -> s{_cpvirsStatus = a});

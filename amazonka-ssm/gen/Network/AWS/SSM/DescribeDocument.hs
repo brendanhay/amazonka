@@ -1,112 +1,125 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SSM.DescribeDocument
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes the specified configuration document.
+-- |
+-- Module      : Network.AWS.SSM.DescribeDocument
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeDocument.html>
+-- Describes the specified configuration document.
+--
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeDocument.html AWS API Reference> for DescribeDocument.
 module Network.AWS.SSM.DescribeDocument
     (
-    -- * Request
-      DescribeDocument
-    -- ** Request constructor
-    , describeDocument
-    -- ** Request lenses
+    -- * Creating a Request
+      describeDocument
+    , DescribeDocument
+    -- * Request Lenses
     , ddName
 
-    -- * Response
-    , DescribeDocumentResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeDocumentResponse
-    -- ** Response lenses
-    , ddrDocument
+    , DescribeDocumentResponse
+    -- * Response Lenses
+    , drsDocument
+    , drsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.SSM.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
+import           Network.AWS.SSM.Types.Product
 
-newtype DescribeDocument = DescribeDocument
+-- | /See:/ 'describeDocument' smart constructor.
+newtype DescribeDocument = DescribeDocument'
     { _ddName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeDocument' constructor.
+-- | Creates a value of 'DescribeDocument' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddName' @::@ 'Text'
---
-describeDocument :: Text -- ^ 'ddName'
-                 -> DescribeDocument
-describeDocument p1 = DescribeDocument
-    { _ddName = p1
+-- * 'ddName'
+describeDocument
+    :: Text -- ^ 'ddName'
+    -> DescribeDocument
+describeDocument pName_ =
+    DescribeDocument'
+    { _ddName = pName_
     }
 
 -- | The name of the configuration document.
 ddName :: Lens' DescribeDocument Text
-ddName = lens _ddName (\s a -> s { _ddName = a })
+ddName = lens _ddName (\ s a -> s{_ddName = a});
 
-newtype DescribeDocumentResponse = DescribeDocumentResponse
-    { _ddrDocument :: Maybe DocumentDescription
-    } deriving (Eq, Read, Show)
+instance AWSRequest DescribeDocument where
+        type Sv DescribeDocument = SSM
+        type Rs DescribeDocument = DescribeDocumentResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeDocumentResponse' <$>
+                   (x .?> "Document") <*> (pure (fromEnum s)))
 
--- | 'DescribeDocumentResponse' constructor.
+instance ToHeaders DescribeDocument where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonSSM.DescribeDocument" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeDocument where
+        toJSON DescribeDocument'{..}
+          = object ["Name" .= _ddName]
+
+instance ToPath DescribeDocument where
+        toPath = const "/"
+
+instance ToQuery DescribeDocument where
+        toQuery = const mempty
+
+-- | /See:/ 'describeDocumentResponse' smart constructor.
+data DescribeDocumentResponse = DescribeDocumentResponse'
+    { _drsDocument :: !(Maybe DocumentDescription)
+    , _drsStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeDocumentResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddrDocument' @::@ 'Maybe' 'DocumentDescription'
+-- * 'drsDocument'
 --
-describeDocumentResponse :: DescribeDocumentResponse
-describeDocumentResponse = DescribeDocumentResponse
-    { _ddrDocument = Nothing
+-- * 'drsStatus'
+describeDocumentResponse
+    :: Int -- ^ 'drsStatus'
+    -> DescribeDocumentResponse
+describeDocumentResponse pStatus_ =
+    DescribeDocumentResponse'
+    { _drsDocument = Nothing
+    , _drsStatus = pStatus_
     }
 
 -- | Information about the configuration document.
-ddrDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
-ddrDocument = lens _ddrDocument (\s a -> s { _ddrDocument = a })
+drsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
+drsDocument = lens _drsDocument (\ s a -> s{_drsDocument = a});
 
-instance ToPath DescribeDocument where
-    toPath = const "/"
-
-instance ToQuery DescribeDocument where
-    toQuery = const mempty
-
-instance ToHeaders DescribeDocument
-
-instance ToJSON DescribeDocument where
-    toJSON DescribeDocument{..} = object
-        [ "Name" .= _ddName
-        ]
-
-instance AWSRequest DescribeDocument where
-    type Sv DescribeDocument = SSM
-    type Rs DescribeDocument = DescribeDocumentResponse
-
-    request  = post "DescribeDocument"
-    response = jsonResponse
-
-instance FromJSON DescribeDocumentResponse where
-    parseJSON = withObject "DescribeDocumentResponse" $ \o -> DescribeDocumentResponse
-        <$> o .:? "Document"
+-- | The response status code.
+drsStatus :: Lens' DescribeDocumentResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

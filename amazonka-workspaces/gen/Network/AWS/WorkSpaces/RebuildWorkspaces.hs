@@ -1,141 +1,154 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.WorkSpaces.RebuildWorkspaces
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Rebuilds the specified WorkSpaces.
+-- |
+-- Module      : Network.AWS.WorkSpaces.RebuildWorkspaces
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Rebuilding a WorkSpace is a potentially destructive action that can result
--- in the loss of data. Rebuilding a WorkSpace causes the following to occur:
+-- Rebuilds the specified WorkSpaces.
 --
--- The system is restored to the image of the bundle that the WorkSpace is
--- created from. Any applications that have been installed, or system settings
--- that have been made since the WorkSpace was created will be lost. The data
--- drive (D drive) is re-created from the last automatic snapshot taken of the
--- data drive. The current contents of the data drive are overwritten. Automatic
--- snapshots of the data drive are taken every 12 hours, so the snapshot can be
--- as much as 12 hours old.  To be able to rebuild a WorkSpace, the WorkSpace
--- must have a State of 'AVAILABLE' or 'ERROR'.
+-- Rebuilding a WorkSpace is a potentially destructive action that can
+-- result in the loss of data. Rebuilding a WorkSpace causes the following
+-- to occur:
 --
--- This operation is asynchronous and will return before the WorkSpaces have
--- been completely rebuilt.
+-- -   The system is restored to the image of the bundle that the WorkSpace
+--     is created from. Any applications that have been installed, or
+--     system settings that have been made since the WorkSpace was created
+--     will be lost.
+-- -   The data drive (D drive) is re-created from the last automatic
+--     snapshot taken of the data drive. The current contents of the data
+--     drive are overwritten. Automatic snapshots of the data drive are
+--     taken every 12 hours, so the snapshot can be as much as 12 hours
+--     old.
 --
+-- To be able to rebuild a WorkSpace, the WorkSpace must have a __State__
+-- of 'AVAILABLE' or 'ERROR'.
 --
+-- This operation is asynchronous and will return before the WorkSpaces
+-- have been completely rebuilt.
 --
--- <http://docs.aws.amazon.com/workspaces/latest/devguide/API_RebuildWorkspaces.html>
+-- /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/API_RebuildWorkspaces.html AWS API Reference> for RebuildWorkspaces.
 module Network.AWS.WorkSpaces.RebuildWorkspaces
     (
-    -- * Request
-      RebuildWorkspaces
-    -- ** Request constructor
-    , rebuildWorkspaces
-    -- ** Request lenses
+    -- * Creating a Request
+      rebuildWorkspaces
+    , RebuildWorkspaces
+    -- * Request Lenses
     , rwRebuildWorkspaceRequests
 
-    -- * Response
-    , RebuildWorkspacesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , rebuildWorkspacesResponse
-    -- ** Response lenses
-    , rwrFailedRequests
+    , RebuildWorkspacesResponse
+    -- * Response Lenses
+    , rwrsFailedRequests
+    , rwrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.WorkSpaces.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.WorkSpaces.Types
+import           Network.AWS.WorkSpaces.Types.Product
 
-newtype RebuildWorkspaces = RebuildWorkspaces
-    { _rwRebuildWorkspaceRequests :: List1 "RebuildWorkspaceRequests" RebuildRequest
-    } deriving (Eq, Read, Show, Semigroup)
+-- | Contains the inputs for the RebuildWorkspaces operation.
+--
+-- /See:/ 'rebuildWorkspaces' smart constructor.
+newtype RebuildWorkspaces = RebuildWorkspaces'
+    { _rwRebuildWorkspaceRequests :: List1 RebuildRequest
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RebuildWorkspaces' constructor.
+-- | Creates a value of 'RebuildWorkspaces' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rwRebuildWorkspaceRequests' @::@ 'NonEmpty' 'RebuildRequest'
---
-rebuildWorkspaces :: NonEmpty RebuildRequest -- ^ 'rwRebuildWorkspaceRequests'
-                  -> RebuildWorkspaces
-rebuildWorkspaces p1 = RebuildWorkspaces
-    { _rwRebuildWorkspaceRequests = withIso _List1 (const id) p1
+-- * 'rwRebuildWorkspaceRequests'
+rebuildWorkspaces
+    :: NonEmpty RebuildRequest -- ^ 'rwRebuildWorkspaceRequests'
+    -> RebuildWorkspaces
+rebuildWorkspaces pRebuildWorkspaceRequests_ =
+    RebuildWorkspaces'
+    { _rwRebuildWorkspaceRequests = _List1 # pRebuildWorkspaceRequests_
     }
 
 -- | An array of structures that specify the WorkSpaces to rebuild.
 rwRebuildWorkspaceRequests :: Lens' RebuildWorkspaces (NonEmpty RebuildRequest)
-rwRebuildWorkspaceRequests =
-    lens _rwRebuildWorkspaceRequests
-        (\s a -> s { _rwRebuildWorkspaceRequests = a })
-            . _List1
+rwRebuildWorkspaceRequests = lens _rwRebuildWorkspaceRequests (\ s a -> s{_rwRebuildWorkspaceRequests = a}) . _List1;
 
-newtype RebuildWorkspacesResponse = RebuildWorkspacesResponse
-    { _rwrFailedRequests :: List "FailedRequests" FailedWorkspaceChangeRequest
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest RebuildWorkspaces where
+        type Sv RebuildWorkspaces = WorkSpaces
+        type Rs RebuildWorkspaces = RebuildWorkspacesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 RebuildWorkspacesResponse' <$>
+                   (x .?> "FailedRequests" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
-instance GHC.Exts.IsList RebuildWorkspacesResponse where
-    type Item RebuildWorkspacesResponse = FailedWorkspaceChangeRequest
+instance ToHeaders RebuildWorkspaces where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("WorkspacesService.RebuildWorkspaces" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = RebuildWorkspacesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _rwrFailedRequests
+instance ToJSON RebuildWorkspaces where
+        toJSON RebuildWorkspaces'{..}
+          = object
+              ["RebuildWorkspaceRequests" .=
+                 _rwRebuildWorkspaceRequests]
 
--- | 'RebuildWorkspacesResponse' constructor.
+instance ToPath RebuildWorkspaces where
+        toPath = const "/"
+
+instance ToQuery RebuildWorkspaces where
+        toQuery = const mempty
+
+-- | Contains the results of the RebuildWorkspaces operation.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'rebuildWorkspacesResponse' smart constructor.
+data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
+    { _rwrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
+    , _rwrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RebuildWorkspacesResponse' with the minimum fields required to make a request.
 --
--- * 'rwrFailedRequests' @::@ ['FailedWorkspaceChangeRequest']
+-- Use one of the following lenses to modify other fields as desired:
 --
-rebuildWorkspacesResponse :: RebuildWorkspacesResponse
-rebuildWorkspacesResponse = RebuildWorkspacesResponse
-    { _rwrFailedRequests = mempty
+-- * 'rwrsFailedRequests'
+--
+-- * 'rwrsStatus'
+rebuildWorkspacesResponse
+    :: Int -- ^ 'rwrsStatus'
+    -> RebuildWorkspacesResponse
+rebuildWorkspacesResponse pStatus_ =
+    RebuildWorkspacesResponse'
+    { _rwrsFailedRequests = Nothing
+    , _rwrsStatus = pStatus_
     }
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- rebuilt.
-rwrFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeRequest]
-rwrFailedRequests =
-    lens _rwrFailedRequests (\s a -> s { _rwrFailedRequests = a })
-        . _List
+rwrsFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeRequest]
+rwrsFailedRequests = lens _rwrsFailedRequests (\ s a -> s{_rwrsFailedRequests = a}) . _Default . _Coerce;
 
-instance ToPath RebuildWorkspaces where
-    toPath = const "/"
-
-instance ToQuery RebuildWorkspaces where
-    toQuery = const mempty
-
-instance ToHeaders RebuildWorkspaces
-
-instance ToJSON RebuildWorkspaces where
-    toJSON RebuildWorkspaces{..} = object
-        [ "RebuildWorkspaceRequests" .= _rwRebuildWorkspaceRequests
-        ]
-
-instance AWSRequest RebuildWorkspaces where
-    type Sv RebuildWorkspaces = WorkSpaces
-    type Rs RebuildWorkspaces = RebuildWorkspacesResponse
-
-    request  = post "RebuildWorkspaces"
-    response = jsonResponse
-
-instance FromJSON RebuildWorkspacesResponse where
-    parseJSON = withObject "RebuildWorkspacesResponse" $ \o -> RebuildWorkspacesResponse
-        <$> o .:? "FailedRequests" .!= mempty
+-- | The response status code.
+rwrsStatus :: Lens' RebuildWorkspacesResponse Int
+rwrsStatus = lens _rwrsStatus (\ s a -> s{_rwrsStatus = a});

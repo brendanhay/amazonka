@@ -1,128 +1,148 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Redshift.PurchaseReservedNodeOffering
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Allows you to purchase reserved nodes. Amazon Redshift offers a predefined
--- set of reserved node offerings. You can purchase one of the offerings. You
--- can call the 'DescribeReservedNodeOfferings' API to obtain the available
--- reserved node offerings. You can call this API by providing a specific
--- reserved node offering and the number of nodes you want to reserve.
+-- |
+-- Module      : Network.AWS.Redshift.PurchaseReservedNodeOffering
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For more information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html PurchasingReserved Nodes> in the /Amazon Redshift Cluster Management Guide/.
+-- Allows you to purchase reserved nodes. Amazon Redshift offers a
+-- predefined set of reserved node offerings. You can purchase one or more
+-- of the offerings. You can call the DescribeReservedNodeOfferings API to
+-- obtain the available reserved node offerings. You can call this API by
+-- providing a specific reserved node offering and the number of nodes you
+-- want to reserve.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_PurchaseReservedNodeOffering.html>
+-- For more information about reserved node offerings, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html Purchasing Reserved Nodes>
+-- in the /Amazon Redshift Cluster Management Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_PurchaseReservedNodeOffering.html AWS API Reference> for PurchaseReservedNodeOffering.
 module Network.AWS.Redshift.PurchaseReservedNodeOffering
     (
-    -- * Request
-      PurchaseReservedNodeOffering
-    -- ** Request constructor
-    , purchaseReservedNodeOffering
-    -- ** Request lenses
+    -- * Creating a Request
+      purchaseReservedNodeOffering
+    , PurchaseReservedNodeOffering
+    -- * Request Lenses
     , prnoNodeCount
     , prnoReservedNodeOfferingId
 
-    -- * Response
-    , PurchaseReservedNodeOfferingResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , purchaseReservedNodeOfferingResponse
-    -- ** Response lenses
-    , prnorReservedNode
+    , PurchaseReservedNodeOfferingResponse
+    -- * Response Lenses
+    , prnorsReservedNode
+    , prnorsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
-    { _prnoNodeCount              :: Maybe Int
-    , _prnoReservedNodeOfferingId :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- |
+--
+-- /See:/ 'purchaseReservedNodeOffering' smart constructor.
+data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
+    { _prnoNodeCount              :: !(Maybe Int)
+    , _prnoReservedNodeOfferingId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PurchaseReservedNodeOffering' constructor.
+-- | Creates a value of 'PurchaseReservedNodeOffering' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'prnoNodeCount' @::@ 'Maybe' 'Int'
+-- * 'prnoNodeCount'
 --
--- * 'prnoReservedNodeOfferingId' @::@ 'Text'
---
-purchaseReservedNodeOffering :: Text -- ^ 'prnoReservedNodeOfferingId'
-                             -> PurchaseReservedNodeOffering
-purchaseReservedNodeOffering p1 = PurchaseReservedNodeOffering
-    { _prnoReservedNodeOfferingId = p1
-    , _prnoNodeCount              = Nothing
+-- * 'prnoReservedNodeOfferingId'
+purchaseReservedNodeOffering
+    :: Text -- ^ 'prnoReservedNodeOfferingId'
+    -> PurchaseReservedNodeOffering
+purchaseReservedNodeOffering pReservedNodeOfferingId_ =
+    PurchaseReservedNodeOffering'
+    { _prnoNodeCount = Nothing
+    , _prnoReservedNodeOfferingId = pReservedNodeOfferingId_
     }
 
 -- | The number of reserved nodes you want to purchase.
 --
 -- Default: '1'
 prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
-prnoNodeCount = lens _prnoNodeCount (\s a -> s { _prnoNodeCount = a })
+prnoNodeCount = lens _prnoNodeCount (\ s a -> s{_prnoNodeCount = a});
 
--- | The unique identifier of the reserved node offering you want to purchase.
+-- | The unique identifier of the reserved node offering you want to
+-- purchase.
 prnoReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
-prnoReservedNodeOfferingId =
-    lens _prnoReservedNodeOfferingId
-        (\s a -> s { _prnoReservedNodeOfferingId = a })
+prnoReservedNodeOfferingId = lens _prnoReservedNodeOfferingId (\ s a -> s{_prnoReservedNodeOfferingId = a});
 
-newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
-    { _prnorReservedNode :: Maybe ReservedNode
-    } deriving (Eq, Read, Show)
+instance AWSRequest PurchaseReservedNodeOffering
+         where
+        type Sv PurchaseReservedNodeOffering = Redshift
+        type Rs PurchaseReservedNodeOffering =
+             PurchaseReservedNodeOfferingResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "PurchaseReservedNodeOfferingResult"
+              (\ s h x ->
+                 PurchaseReservedNodeOfferingResponse' <$>
+                   (x .@? "ReservedNode") <*> (pure (fromEnum s)))
 
--- | 'PurchaseReservedNodeOfferingResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prnorReservedNode' @::@ 'Maybe' 'ReservedNode'
---
-purchaseReservedNodeOfferingResponse :: PurchaseReservedNodeOfferingResponse
-purchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
-    { _prnorReservedNode = Nothing
-    }
-
-prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
-prnorReservedNode =
-    lens _prnorReservedNode (\s a -> s { _prnorReservedNode = a })
+instance ToHeaders PurchaseReservedNodeOffering where
+        toHeaders = const mempty
 
 instance ToPath PurchaseReservedNodeOffering where
-    toPath = const "/"
+        toPath = const "/"
 
 instance ToQuery PurchaseReservedNodeOffering where
-    toQuery PurchaseReservedNodeOffering{..} = mconcat
-        [ "NodeCount"              =? _prnoNodeCount
-        , "ReservedNodeOfferingId" =? _prnoReservedNodeOfferingId
-        ]
+        toQuery PurchaseReservedNodeOffering'{..}
+          = mconcat
+              ["Action" =:
+                 ("PurchaseReservedNodeOffering" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "NodeCount" =: _prnoNodeCount,
+               "ReservedNodeOfferingId" =:
+                 _prnoReservedNodeOfferingId]
 
-instance ToHeaders PurchaseReservedNodeOffering
+-- | /See:/ 'purchaseReservedNodeOfferingResponse' smart constructor.
+data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
+    { _prnorsReservedNode :: !(Maybe ReservedNode)
+    , _prnorsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
-instance AWSRequest PurchaseReservedNodeOffering where
-    type Sv PurchaseReservedNodeOffering = Redshift
-    type Rs PurchaseReservedNodeOffering = PurchaseReservedNodeOfferingResponse
+-- | Creates a value of 'PurchaseReservedNodeOfferingResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'prnorsReservedNode'
+--
+-- * 'prnorsStatus'
+purchaseReservedNodeOfferingResponse
+    :: Int -- ^ 'prnorsStatus'
+    -> PurchaseReservedNodeOfferingResponse
+purchaseReservedNodeOfferingResponse pStatus_ =
+    PurchaseReservedNodeOfferingResponse'
+    { _prnorsReservedNode = Nothing
+    , _prnorsStatus = pStatus_
+    }
 
-    request  = post "PurchaseReservedNodeOffering"
-    response = xmlResponse
+-- | Undocumented member.
+prnorsReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
+prnorsReservedNode = lens _prnorsReservedNode (\ s a -> s{_prnorsReservedNode = a});
 
-instance FromXML PurchaseReservedNodeOfferingResponse where
-    parseXML = withElement "PurchaseReservedNodeOfferingResult" $ \x -> PurchaseReservedNodeOfferingResponse
-        <$> x .@? "ReservedNode"
+-- | The response status code.
+prnorsStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
+prnorsStatus = lens _prnorsStatus (\ s a -> s{_prnorsStatus = a});

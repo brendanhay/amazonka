@@ -1,100 +1,110 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.OpsWorks.DeregisterInstance
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deregister a registered Amazon EC2 or on-premises instance. This action
+-- |
+-- Module      : Network.AWS.OpsWorks.DeregisterInstance
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deregister a registered Amazon EC2 or on-premises instance. This action
 -- removes the instance from the stack and returns it to your control. This
--- action can not be used with instances that were created with AWS OpsWorks.
+-- action can not be used with instances that were created with AWS
+-- OpsWorks.
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterInstance.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeregisterInstance.html AWS API Reference> for DeregisterInstance.
 module Network.AWS.OpsWorks.DeregisterInstance
     (
-    -- * Request
-      DeregisterInstance
-    -- ** Request constructor
-    , deregisterInstance
-    -- ** Request lenses
-    , di1InstanceId
+    -- * Creating a Request
+      deregisterInstance
+    , DeregisterInstance
+    -- * Request Lenses
+    , dInstanceId
 
-    -- * Response
-    , DeregisterInstanceResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deregisterInstanceResponse
+    , DeregisterInstanceResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeregisterInstance = DeregisterInstance
-    { _di1InstanceId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | /See:/ 'deregisterInstance' smart constructor.
+newtype DeregisterInstance = DeregisterInstance'
+    { _dInstanceId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeregisterInstance' constructor.
+-- | Creates a value of 'DeregisterInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'di1InstanceId' @::@ 'Text'
---
-deregisterInstance :: Text -- ^ 'di1InstanceId'
-                   -> DeregisterInstance
-deregisterInstance p1 = DeregisterInstance
-    { _di1InstanceId = p1
+-- * 'dInstanceId'
+deregisterInstance
+    :: Text -- ^ 'dInstanceId'
+    -> DeregisterInstance
+deregisterInstance pInstanceId_ =
+    DeregisterInstance'
+    { _dInstanceId = pInstanceId_
     }
 
 -- | The instance ID.
-di1InstanceId :: Lens' DeregisterInstance Text
-di1InstanceId = lens _di1InstanceId (\s a -> s { _di1InstanceId = a })
-
-data DeregisterInstanceResponse = DeregisterInstanceResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeregisterInstanceResponse' constructor.
-deregisterInstanceResponse :: DeregisterInstanceResponse
-deregisterInstanceResponse = DeregisterInstanceResponse
-
-instance ToPath DeregisterInstance where
-    toPath = const "/"
-
-instance ToQuery DeregisterInstance where
-    toQuery = const mempty
-
-instance ToHeaders DeregisterInstance
-
-instance ToJSON DeregisterInstance where
-    toJSON DeregisterInstance{..} = object
-        [ "InstanceId" .= _di1InstanceId
-        ]
+dInstanceId :: Lens' DeregisterInstance Text
+dInstanceId = lens _dInstanceId (\ s a -> s{_dInstanceId = a});
 
 instance AWSRequest DeregisterInstance where
-    type Sv DeregisterInstance = OpsWorks
-    type Rs DeregisterInstance = DeregisterInstanceResponse
+        type Sv DeregisterInstance = OpsWorks
+        type Rs DeregisterInstance =
+             DeregisterInstanceResponse
+        request = postJSON
+        response = receiveNull DeregisterInstanceResponse'
 
-    request  = post "DeregisterInstance"
-    response = nullResponse DeregisterInstanceResponse
+instance ToHeaders DeregisterInstance where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.DeregisterInstance" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeregisterInstance where
+        toJSON DeregisterInstance'{..}
+          = object ["InstanceId" .= _dInstanceId]
+
+instance ToPath DeregisterInstance where
+        toPath = const "/"
+
+instance ToQuery DeregisterInstance where
+        toQuery = const mempty
+
+-- | /See:/ 'deregisterInstanceResponse' smart constructor.
+data DeregisterInstanceResponse =
+    DeregisterInstanceResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeregisterInstanceResponse' with the minimum fields required to make a request.
+--
+deregisterInstanceResponse
+    :: DeregisterInstanceResponse
+deregisterInstanceResponse = DeregisterInstanceResponse'

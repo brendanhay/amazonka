@@ -1,176 +1,183 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.DeleteObject
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Removes the null version (if there is one) of an object and inserts a delete
--- marker, which becomes the latest version of the object. If there isn't a null
--- version, Amazon S3 does not remove any objects.
+-- |
+-- Module      : Network.AWS.S3.DeleteObject
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObject.html>
+-- Removes the null version (if there is one) of an object and inserts a
+-- delete marker, which becomes the latest version of the object. If there
+-- isn\'t a null version, Amazon S3 does not remove any objects.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteObject.html AWS API Reference> for DeleteObject.
 module Network.AWS.S3.DeleteObject
     (
-    -- * Request
-      DeleteObject
-    -- ** Request constructor
-    , deleteObject
-    -- ** Request lenses
-    , doBucket
-    , doKey
+    -- * Creating a Request
+      deleteObject
+    , DeleteObject
+    -- * Request Lenses
+    , doVersionId
     , doMFA
     , doRequestPayer
-    , doVersionId
+    , doBucket
+    , doKey
 
-    -- * Response
-    , DeleteObjectResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteObjectResponse
-    -- ** Response lenses
-    , dorDeleteMarker
-    , dorRequestCharged
-    , dorVersionId
+    , DeleteObjectResponse
+    -- * Response Lenses
+    , dorsVersionId
+    , dorsRequestCharged
+    , dorsDeleteMarker
+    , dorsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-data DeleteObject = DeleteObject
-    { _doBucket       :: Text
-    , _doKey          :: Text
-    , _doMFA          :: Maybe Text
-    , _doRequestPayer :: Maybe RequestPayer
-    , _doVersionId    :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'deleteObject' smart constructor.
+data DeleteObject = DeleteObject'
+    { _doVersionId    :: !(Maybe ObjectVersionId)
+    , _doMFA          :: !(Maybe Text)
+    , _doRequestPayer :: !(Maybe RequestPayer)
+    , _doBucket       :: !BucketName
+    , _doKey          :: !ObjectKey
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteObject' constructor.
+-- | Creates a value of 'DeleteObject' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'doBucket' @::@ 'Text'
+-- * 'doVersionId'
 --
--- * 'doKey' @::@ 'Text'
+-- * 'doMFA'
 --
--- * 'doMFA' @::@ 'Maybe' 'Text'
+-- * 'doRequestPayer'
 --
--- * 'doRequestPayer' @::@ 'Maybe' 'RequestPayer'
+-- * 'doBucket'
 --
--- * 'doVersionId' @::@ 'Maybe' 'Text'
---
-deleteObject :: Text -- ^ 'doBucket'
-             -> Text -- ^ 'doKey'
-             -> DeleteObject
-deleteObject p1 p2 = DeleteObject
-    { _doBucket       = p1
-    , _doKey          = p2
-    , _doMFA          = Nothing
-    , _doVersionId    = Nothing
+-- * 'doKey'
+deleteObject
+    :: BucketName -- ^ 'doBucket'
+    -> ObjectKey -- ^ 'doKey'
+    -> DeleteObject
+deleteObject pBucket_ pKey_ =
+    DeleteObject'
+    { _doVersionId = Nothing
+    , _doMFA = Nothing
     , _doRequestPayer = Nothing
+    , _doBucket = pBucket_
+    , _doKey = pKey_
     }
-
-doBucket :: Lens' DeleteObject Text
-doBucket = lens _doBucket (\s a -> s { _doBucket = a })
-
-doKey :: Lens' DeleteObject Text
-doKey = lens _doKey (\s a -> s { _doKey = a })
-
--- | The concatenation of the authentication device's serial number, a space, and
--- the value that is displayed on your authentication device.
-doMFA :: Lens' DeleteObject (Maybe Text)
-doMFA = lens _doMFA (\s a -> s { _doMFA = a })
-
-doRequestPayer :: Lens' DeleteObject (Maybe RequestPayer)
-doRequestPayer = lens _doRequestPayer (\s a -> s { _doRequestPayer = a })
 
 -- | VersionId used to reference a specific version of the object.
-doVersionId :: Lens' DeleteObject (Maybe Text)
-doVersionId = lens _doVersionId (\s a -> s { _doVersionId = a })
+doVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
+doVersionId = lens _doVersionId (\ s a -> s{_doVersionId = a});
 
-data DeleteObjectResponse = DeleteObjectResponse
-    { _dorDeleteMarker   :: Maybe Bool
-    , _dorRequestCharged :: Maybe RequestCharged
-    , _dorVersionId      :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | The concatenation of the authentication device\'s serial number, a
+-- space, and the value that is displayed on your authentication device.
+doMFA :: Lens' DeleteObject (Maybe Text)
+doMFA = lens _doMFA (\ s a -> s{_doMFA = a});
 
--- | 'DeleteObjectResponse' constructor.
+-- | Undocumented member.
+doRequestPayer :: Lens' DeleteObject (Maybe RequestPayer)
+doRequestPayer = lens _doRequestPayer (\ s a -> s{_doRequestPayer = a});
+
+-- | Undocumented member.
+doBucket :: Lens' DeleteObject BucketName
+doBucket = lens _doBucket (\ s a -> s{_doBucket = a});
+
+-- | Undocumented member.
+doKey :: Lens' DeleteObject ObjectKey
+doKey = lens _doKey (\ s a -> s{_doKey = a});
+
+instance AWSRequest DeleteObject where
+        type Sv DeleteObject = S3
+        type Rs DeleteObject = DeleteObjectResponse
+        request = delete
+        response
+          = receiveEmpty
+              (\ s h x ->
+                 DeleteObjectResponse' <$>
+                   (h .#? "x-amz-version-id") <*>
+                     (h .#? "x-amz-request-charged")
+                     <*> (h .#? "x-amz-delete-marker")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DeleteObject where
+        toHeaders DeleteObject'{..}
+          = mconcat
+              ["x-amz-mfa" =# _doMFA,
+               "x-amz-request-payer" =# _doRequestPayer]
+
+instance ToPath DeleteObject where
+        toPath DeleteObject'{..}
+          = mconcat ["/", toBS _doBucket, "/", toBS _doKey]
+
+instance ToQuery DeleteObject where
+        toQuery DeleteObject'{..}
+          = mconcat ["versionId" =: _doVersionId]
+
+-- | /See:/ 'deleteObjectResponse' smart constructor.
+data DeleteObjectResponse = DeleteObjectResponse'
+    { _dorsVersionId      :: !(Maybe ObjectVersionId)
+    , _dorsRequestCharged :: !(Maybe RequestCharged)
+    , _dorsDeleteMarker   :: !(Maybe Bool)
+    , _dorsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteObjectResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dorDeleteMarker' @::@ 'Maybe' 'Bool'
+-- * 'dorsVersionId'
 --
--- * 'dorRequestCharged' @::@ 'Maybe' 'RequestCharged'
+-- * 'dorsRequestCharged'
 --
--- * 'dorVersionId' @::@ 'Maybe' 'Text'
+-- * 'dorsDeleteMarker'
 --
-deleteObjectResponse :: DeleteObjectResponse
-deleteObjectResponse = DeleteObjectResponse
-    { _dorDeleteMarker   = Nothing
-    , _dorVersionId      = Nothing
-    , _dorRequestCharged = Nothing
+-- * 'dorsStatus'
+deleteObjectResponse
+    :: Int -- ^ 'dorsStatus'
+    -> DeleteObjectResponse
+deleteObjectResponse pStatus_ =
+    DeleteObjectResponse'
+    { _dorsVersionId = Nothing
+    , _dorsRequestCharged = Nothing
+    , _dorsDeleteMarker = Nothing
+    , _dorsStatus = pStatus_
     }
+
+-- | Returns the version ID of the delete marker created as a result of the
+-- DELETE operation.
+dorsVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
+dorsVersionId = lens _dorsVersionId (\ s a -> s{_dorsVersionId = a});
+
+-- | Undocumented member.
+dorsRequestCharged :: Lens' DeleteObjectResponse (Maybe RequestCharged)
+dorsRequestCharged = lens _dorsRequestCharged (\ s a -> s{_dorsRequestCharged = a});
 
 -- | Specifies whether the versioned object that was permanently deleted was
 -- (true) or was not (false) a delete marker.
-dorDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
-dorDeleteMarker = lens _dorDeleteMarker (\s a -> s { _dorDeleteMarker = a })
+dorsDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
+dorsDeleteMarker = lens _dorsDeleteMarker (\ s a -> s{_dorsDeleteMarker = a});
 
-dorRequestCharged :: Lens' DeleteObjectResponse (Maybe RequestCharged)
-dorRequestCharged =
-    lens _dorRequestCharged (\s a -> s { _dorRequestCharged = a })
-
--- | Returns the version ID of the delete marker created as a result of the DELETE
--- operation.
-dorVersionId :: Lens' DeleteObjectResponse (Maybe Text)
-dorVersionId = lens _dorVersionId (\s a -> s { _dorVersionId = a })
-
-instance ToPath DeleteObject where
-    toPath DeleteObject{..} = mconcat
-        [ "/"
-        , toText _doBucket
-        , "/"
-        , toText _doKey
-        ]
-
-instance ToQuery DeleteObject where
-    toQuery rq = "versionId" =? _doVersionId rq
-
-instance ToHeaders DeleteObject where
-    toHeaders DeleteObject{..} = mconcat
-        [ "x-amz-mfa"           =: _doMFA
-        , "x-amz-request-payer" =: _doRequestPayer
-        ]
-
-instance ToXMLRoot DeleteObject where
-    toXMLRoot = const (namespaced ns "DeleteObject" [])
-
-instance ToXML DeleteObject
-
-instance AWSRequest DeleteObject where
-    type Sv DeleteObject = S3
-    type Rs DeleteObject = DeleteObjectResponse
-
-    request  = delete
-    response = headerResponse $ \h -> DeleteObjectResponse
-        <$> h ~:? "x-amz-delete-marker"
-        <*> h ~:? "x-amz-request-charged"
-        <*> h ~:? "x-amz-version-id"
+-- | The response status code.
+dorsStatus :: Lens' DeleteObjectResponse Int
+dorsStatus = lens _dorsStatus (\ s a -> s{_dorsStatus = a});

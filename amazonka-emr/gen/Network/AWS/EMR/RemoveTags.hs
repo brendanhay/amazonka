@@ -1,109 +1,137 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EMR.RemoveTags
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Removes tags from an Amazon EMR resource. Tags make it easier to associate
--- clusters in various ways, such as grouping clusters to track your Amazon EMR
--- resource allocation costs. For more information, see <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMRResources>.
+-- |
+-- Module      : Network.AWS.EMR.RemoveTags
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- The following example removes the stack tag with value Prod from a cluster:
+-- Removes tags from an Amazon EMR resource. Tags make it easier to
+-- associate clusters in various ways, such as grouping clusters to track
+-- your Amazon EMR resource allocation costs. For more information, see
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.
 --
--- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RemoveTags.html>
+-- The following example removes the stack tag with value Prod from a
+-- cluster:
+--
+-- /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RemoveTags.html AWS API Reference> for RemoveTags.
 module Network.AWS.EMR.RemoveTags
     (
-    -- * Request
-      RemoveTags
-    -- ** Request constructor
-    , removeTags
-    -- ** Request lenses
+    -- * Creating a Request
+      removeTags
+    , RemoveTags
+    -- * Request Lenses
     , rtResourceId
     , rtTagKeys
 
-    -- * Response
-    , RemoveTagsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , removeTagsResponse
+    , RemoveTagsResponse
+    -- * Response Lenses
+    , rtrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.EMR.Types
-import qualified GHC.Exts
+import           Network.AWS.EMR.Types
+import           Network.AWS.EMR.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RemoveTags = RemoveTags
-    { _rtResourceId :: Text
-    , _rtTagKeys    :: List "TagKeys" Text
-    } deriving (Eq, Ord, Read, Show)
+-- | This input identifies a cluster and a list of tags to remove.
+--
+-- /See:/ 'removeTags' smart constructor.
+data RemoveTags = RemoveTags'
+    { _rtResourceId :: !Text
+    , _rtTagKeys    :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RemoveTags' constructor.
+-- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtResourceId' @::@ 'Text'
+-- * 'rtResourceId'
 --
--- * 'rtTagKeys' @::@ ['Text']
---
-removeTags :: Text -- ^ 'rtResourceId'
-           -> RemoveTags
-removeTags p1 = RemoveTags
-    { _rtResourceId = p1
-    , _rtTagKeys    = mempty
+-- * 'rtTagKeys'
+removeTags
+    :: Text -- ^ 'rtResourceId'
+    -> RemoveTags
+removeTags pResourceId_ =
+    RemoveTags'
+    { _rtResourceId = pResourceId_
+    , _rtTagKeys = mempty
     }
 
 -- | The Amazon EMR resource identifier from which tags will be removed. This
 -- value must be a cluster identifier.
 rtResourceId :: Lens' RemoveTags Text
-rtResourceId = lens _rtResourceId (\s a -> s { _rtResourceId = a })
+rtResourceId = lens _rtResourceId (\ s a -> s{_rtResourceId = a});
 
 -- | A list of tag keys to remove from a resource.
 rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\s a -> s { _rtTagKeys = a }) . _List
-
-data RemoveTagsResponse = RemoveTagsResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'RemoveTagsResponse' constructor.
-removeTagsResponse :: RemoveTagsResponse
-removeTagsResponse = RemoveTagsResponse
-
-instance ToPath RemoveTags where
-    toPath = const "/"
-
-instance ToQuery RemoveTags where
-    toQuery = const mempty
-
-instance ToHeaders RemoveTags
-
-instance ToJSON RemoveTags where
-    toJSON RemoveTags{..} = object
-        [ "ResourceId" .= _rtResourceId
-        , "TagKeys"    .= _rtTagKeys
-        ]
+rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce;
 
 instance AWSRequest RemoveTags where
-    type Sv RemoveTags = EMR
-    type Rs RemoveTags = RemoveTagsResponse
+        type Sv RemoveTags = EMR
+        type Rs RemoveTags = RemoveTagsResponse
+        request = postJSON
+        response
+          = receiveEmpty
+              (\ s h x ->
+                 RemoveTagsResponse' <$> (pure (fromEnum s)))
 
-    request  = post "RemoveTags"
-    response = nullResponse RemoveTagsResponse
+instance ToHeaders RemoveTags where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("ElasticMapReduce.RemoveTags" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON RemoveTags where
+        toJSON RemoveTags'{..}
+          = object
+              ["ResourceId" .= _rtResourceId,
+               "TagKeys" .= _rtTagKeys]
+
+instance ToPath RemoveTags where
+        toPath = const "/"
+
+instance ToQuery RemoveTags where
+        toQuery = const mempty
+
+-- | This output indicates the result of removing tags from a resource.
+--
+-- /See:/ 'removeTagsResponse' smart constructor.
+newtype RemoveTagsResponse = RemoveTagsResponse'
+    { _rtrsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtrsStatus'
+removeTagsResponse
+    :: Int -- ^ 'rtrsStatus'
+    -> RemoveTagsResponse
+removeTagsResponse pStatus_ =
+    RemoveTagsResponse'
+    { _rtrsStatus = pStatus_
+    }
+
+-- | The response status code.
+rtrsStatus :: Lens' RemoveTagsResponse Int
+rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});

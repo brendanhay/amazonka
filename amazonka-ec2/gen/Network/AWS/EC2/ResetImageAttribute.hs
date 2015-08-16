@@ -1,117 +1,120 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.ResetImageAttribute
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Resets an attribute of an AMI to its default value.
+-- |
+-- Module      : Network.AWS.EC2.ResetImageAttribute
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- The productCodes attribute can't be reset.
+-- Resets an attribute of an AMI to its default value.
 --
+-- The productCodes attribute can\'t be reset.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetImageAttribute.html>
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetImageAttribute.html AWS API Reference> for ResetImageAttribute.
 module Network.AWS.EC2.ResetImageAttribute
     (
-    -- * Request
-      ResetImageAttribute
-    -- ** Request constructor
-    , resetImageAttribute
-    -- ** Request lenses
-    , ria1Attribute
-    , ria1DryRun
-    , ria1ImageId
+    -- * Creating a Request
+      resetImageAttribute
+    , ResetImageAttribute
+    -- * Request Lenses
+    , resDryRun
+    , resImageId
+    , resAttribute
 
-    -- * Response
-    , ResetImageAttributeResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , resetImageAttributeResponse
+    , ResetImageAttributeResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ResetImageAttribute = ResetImageAttribute
-    { _ria1Attribute :: ResetImageAttributeName
-    , _ria1DryRun    :: Maybe Bool
-    , _ria1ImageId   :: Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'resetImageAttribute' smart constructor.
+data ResetImageAttribute = ResetImageAttribute'
+    { _resDryRun    :: !(Maybe Bool)
+    , _resImageId   :: !Text
+    , _resAttribute :: !ResetImageAttributeName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ResetImageAttribute' constructor.
+-- | Creates a value of 'ResetImageAttribute' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ria1Attribute' @::@ 'ResetImageAttributeName'
+-- * 'resDryRun'
 --
--- * 'ria1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'resImageId'
 --
--- * 'ria1ImageId' @::@ 'Text'
---
-resetImageAttribute :: Text -- ^ 'ria1ImageId'
-                    -> ResetImageAttributeName -- ^ 'ria1Attribute'
-                    -> ResetImageAttribute
-resetImageAttribute p1 p2 = ResetImageAttribute
-    { _ria1ImageId   = p1
-    , _ria1Attribute = p2
-    , _ria1DryRun    = Nothing
+-- * 'resAttribute'
+resetImageAttribute
+    :: Text -- ^ 'resImageId'
+    -> ResetImageAttributeName -- ^ 'resAttribute'
+    -> ResetImageAttribute
+resetImageAttribute pImageId_ pAttribute_ =
+    ResetImageAttribute'
+    { _resDryRun = Nothing
+    , _resImageId = pImageId_
+    , _resAttribute = pAttribute_
     }
 
--- | The attribute to reset (currently you can only reset the launch permission
--- attribute).
-ria1Attribute :: Lens' ResetImageAttribute ResetImageAttributeName
-ria1Attribute = lens _ria1Attribute (\s a -> s { _ria1Attribute = a })
-
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-ria1DryRun :: Lens' ResetImageAttribute (Maybe Bool)
-ria1DryRun = lens _ria1DryRun (\s a -> s { _ria1DryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+resDryRun :: Lens' ResetImageAttribute (Maybe Bool)
+resDryRun = lens _resDryRun (\ s a -> s{_resDryRun = a});
 
 -- | The ID of the AMI.
-ria1ImageId :: Lens' ResetImageAttribute Text
-ria1ImageId = lens _ria1ImageId (\s a -> s { _ria1ImageId = a })
+resImageId :: Lens' ResetImageAttribute Text
+resImageId = lens _resImageId (\ s a -> s{_resImageId = a});
 
-data ResetImageAttributeResponse = ResetImageAttributeResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'ResetImageAttributeResponse' constructor.
-resetImageAttributeResponse :: ResetImageAttributeResponse
-resetImageAttributeResponse = ResetImageAttributeResponse
-
-instance ToPath ResetImageAttribute where
-    toPath = const "/"
-
-instance ToQuery ResetImageAttribute where
-    toQuery ResetImageAttribute{..} = mconcat
-        [ "Attribute" =? _ria1Attribute
-        , "DryRun"    =? _ria1DryRun
-        , "ImageId"   =? _ria1ImageId
-        ]
-
-instance ToHeaders ResetImageAttribute
+-- | The attribute to reset (currently you can only reset the launch
+-- permission attribute).
+resAttribute :: Lens' ResetImageAttribute ResetImageAttributeName
+resAttribute = lens _resAttribute (\ s a -> s{_resAttribute = a});
 
 instance AWSRequest ResetImageAttribute where
-    type Sv ResetImageAttribute = EC2
-    type Rs ResetImageAttribute = ResetImageAttributeResponse
+        type Sv ResetImageAttribute = EC2
+        type Rs ResetImageAttribute =
+             ResetImageAttributeResponse
+        request = post
+        response = receiveNull ResetImageAttributeResponse'
 
-    request  = post "ResetImageAttribute"
-    response = nullResponse ResetImageAttributeResponse
+instance ToHeaders ResetImageAttribute where
+        toHeaders = const mempty
+
+instance ToPath ResetImageAttribute where
+        toPath = const "/"
+
+instance ToQuery ResetImageAttribute where
+        toQuery ResetImageAttribute'{..}
+          = mconcat
+              ["Action" =: ("ResetImageAttribute" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _resDryRun, "ImageId" =: _resImageId,
+               "Attribute" =: _resAttribute]
+
+-- | /See:/ 'resetImageAttributeResponse' smart constructor.
+data ResetImageAttributeResponse =
+    ResetImageAttributeResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ResetImageAttributeResponse' with the minimum fields required to make a request.
+--
+resetImageAttributeResponse
+    :: ResetImageAttributeResponse
+resetImageAttributeResponse = ResetImageAttributeResponse'

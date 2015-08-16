@@ -1,139 +1,154 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.DescribeKeyPairs
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes one or more of your key pairs.
+-- |
+-- Module      : Network.AWS.EC2.DescribeKeyPairs
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon ElasticCompute Cloud User Guide/.
+-- Describes one or more of your key pairs.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeKeyPairs.html>
+-- For more information about key pairs, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeKeyPairs.html AWS API Reference> for DescribeKeyPairs.
 module Network.AWS.EC2.DescribeKeyPairs
     (
-    -- * Request
-      DescribeKeyPairs
-    -- ** Request constructor
-    , describeKeyPairs
-    -- ** Request lenses
-    , dkp1DryRun
-    , dkp1Filters
-    , dkp1KeyNames
+    -- * Creating a Request
+      describeKeyPairs
+    , DescribeKeyPairs
+    -- * Request Lenses
+    , dkpsFilters
+    , dkpsKeyNames
+    , dkpsDryRun
 
-    -- * Response
-    , DescribeKeyPairsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeKeyPairsResponse
-    -- ** Response lenses
-    , dkprKeyPairs
+    , DescribeKeyPairsResponse
+    -- * Response Lenses
+    , dkprsKeyPairs
+    , dkprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeKeyPairs = DescribeKeyPairs
-    { _dkp1DryRun   :: Maybe Bool
-    , _dkp1Filters  :: List "Filter" Filter
-    , _dkp1KeyNames :: List "KeyName" Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'describeKeyPairs' smart constructor.
+data DescribeKeyPairs = DescribeKeyPairs'
+    { _dkpsFilters  :: !(Maybe [Filter])
+    , _dkpsKeyNames :: !(Maybe [Text])
+    , _dkpsDryRun   :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeKeyPairs' constructor.
+-- | Creates a value of 'DescribeKeyPairs' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dkp1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dkpsFilters'
 --
--- * 'dkp1Filters' @::@ ['Filter']
+-- * 'dkpsKeyNames'
 --
--- * 'dkp1KeyNames' @::@ ['Text']
---
-describeKeyPairs :: DescribeKeyPairs
-describeKeyPairs = DescribeKeyPairs
-    { _dkp1DryRun   = Nothing
-    , _dkp1KeyNames = mempty
-    , _dkp1Filters  = mempty
+-- * 'dkpsDryRun'
+describeKeyPairs
+    :: DescribeKeyPairs
+describeKeyPairs =
+    DescribeKeyPairs'
+    { _dkpsFilters = Nothing
+    , _dkpsKeyNames = Nothing
+    , _dkpsDryRun = Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-dkp1DryRun :: Lens' DescribeKeyPairs (Maybe Bool)
-dkp1DryRun = lens _dkp1DryRun (\s a -> s { _dkp1DryRun = a })
 
 -- | One or more filters.
 --
--- 'fingerprint' - The fingerprint of the key pair.
+-- -   'fingerprint' - The fingerprint of the key pair.
 --
--- 'key-name' - The name of the key pair.
+-- -   'key-name' - The name of the key pair.
 --
---
-dkp1Filters :: Lens' DescribeKeyPairs [Filter]
-dkp1Filters = lens _dkp1Filters (\s a -> s { _dkp1Filters = a }) . _List
+dkpsFilters :: Lens' DescribeKeyPairs [Filter]
+dkpsFilters = lens _dkpsFilters (\ s a -> s{_dkpsFilters = a}) . _Default . _Coerce;
 
 -- | One or more key pair names.
 --
 -- Default: Describes all your key pairs.
-dkp1KeyNames :: Lens' DescribeKeyPairs [Text]
-dkp1KeyNames = lens _dkp1KeyNames (\s a -> s { _dkp1KeyNames = a }) . _List
+dkpsKeyNames :: Lens' DescribeKeyPairs [Text]
+dkpsKeyNames = lens _dkpsKeyNames (\ s a -> s{_dkpsKeyNames = a}) . _Default . _Coerce;
 
-newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
-    { _dkprKeyPairs :: List "item" KeyPairInfo
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+dkpsDryRun :: Lens' DescribeKeyPairs (Maybe Bool)
+dkpsDryRun = lens _dkpsDryRun (\ s a -> s{_dkpsDryRun = a});
 
--- | 'DescribeKeyPairsResponse' constructor.
+instance AWSRequest DescribeKeyPairs where
+        type Sv DescribeKeyPairs = EC2
+        type Rs DescribeKeyPairs = DescribeKeyPairsResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribeKeyPairsResponse' <$>
+                   (x .@? "keySet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeKeyPairs where
+        toHeaders = const mempty
+
+instance ToPath DescribeKeyPairs where
+        toPath = const "/"
+
+instance ToQuery DescribeKeyPairs where
+        toQuery DescribeKeyPairs'{..}
+          = mconcat
+              ["Action" =: ("DescribeKeyPairs" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               toQuery (toQueryList "Filter" <$> _dkpsFilters),
+               toQuery (toQueryList "KeyName" <$> _dkpsKeyNames),
+               "DryRun" =: _dkpsDryRun]
+
+-- | /See:/ 'describeKeyPairsResponse' smart constructor.
+data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
+    { _dkprsKeyPairs :: !(Maybe [KeyPairInfo])
+    , _dkprsStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeKeyPairsResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dkprKeyPairs' @::@ ['KeyPairInfo']
+-- * 'dkprsKeyPairs'
 --
-describeKeyPairsResponse :: DescribeKeyPairsResponse
-describeKeyPairsResponse = DescribeKeyPairsResponse
-    { _dkprKeyPairs = mempty
+-- * 'dkprsStatus'
+describeKeyPairsResponse
+    :: Int -- ^ 'dkprsStatus'
+    -> DescribeKeyPairsResponse
+describeKeyPairsResponse pStatus_ =
+    DescribeKeyPairsResponse'
+    { _dkprsKeyPairs = Nothing
+    , _dkprsStatus = pStatus_
     }
 
 -- | Information about one or more key pairs.
-dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
-dkprKeyPairs = lens _dkprKeyPairs (\s a -> s { _dkprKeyPairs = a }) . _List
+dkprsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
+dkprsKeyPairs = lens _dkprsKeyPairs (\ s a -> s{_dkprsKeyPairs = a}) . _Default . _Coerce;
 
-instance ToPath DescribeKeyPairs where
-    toPath = const "/"
-
-instance ToQuery DescribeKeyPairs where
-    toQuery DescribeKeyPairs{..} = mconcat
-        [ "DryRun"  =? _dkp1DryRun
-        , "Filter"  `toQueryList` _dkp1Filters
-        , "KeyName" `toQueryList` _dkp1KeyNames
-        ]
-
-instance ToHeaders DescribeKeyPairs
-
-instance AWSRequest DescribeKeyPairs where
-    type Sv DescribeKeyPairs = EC2
-    type Rs DescribeKeyPairs = DescribeKeyPairsResponse
-
-    request  = post "DescribeKeyPairs"
-    response = xmlResponse
-
-instance FromXML DescribeKeyPairsResponse where
-    parseXML x = DescribeKeyPairsResponse
-        <$> x .@? "keySet" .!@ mempty
+-- | The response status code.
+dkprsStatus :: Lens' DescribeKeyPairsResponse Int
+dkprsStatus = lens _dkprsStatus (\ s a -> s{_dkprsStatus = a});

@@ -1,98 +1,111 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Route53.GetHostedZoneCount
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | To retrieve a count of all your hosted zones, send a 'GET' request to the '2013-04-01/hostedzonecount' resource.
+-- |
+-- Module      : Network.AWS.Route53.GetHostedZoneCount
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html>
+-- To retrieve a count of all your hosted zones, send a 'GET' request to
+-- the '2013-04-01\/hostedzonecount' resource.
+--
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html AWS API Reference> for GetHostedZoneCount.
 module Network.AWS.Route53.GetHostedZoneCount
     (
-    -- * Request
-      GetHostedZoneCount
-    -- ** Request constructor
-    , getHostedZoneCount
+    -- * Creating a Request
+      getHostedZoneCount
+    , GetHostedZoneCount
 
-    -- * Response
-    , GetHostedZoneCountResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getHostedZoneCountResponse
-    -- ** Response lenses
-    , ghzcrHostedZoneCount
+    , GetHostedZoneCountResponse
+    -- * Response Lenses
+    , ghzcrsStatus
+    , ghzcrsHostedZoneCount
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
+import           Network.AWS.Route53.Types.Product
 
-data GetHostedZoneCount = GetHostedZoneCount
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'GetHostedZoneCount' constructor.
-getHostedZoneCount :: GetHostedZoneCount
-getHostedZoneCount = GetHostedZoneCount
-
-newtype GetHostedZoneCountResponse = GetHostedZoneCountResponse
-    { _ghzcrHostedZoneCount :: Integer
-    } deriving (Eq, Ord, Read, Show, Enum, Num, Integral, Real)
-
--- | 'GetHostedZoneCountResponse' constructor.
+-- | To retrieve a count of all your hosted zones, send a 'GET' request to
+-- the '2013-04-01\/hostedzonecount' resource.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'getHostedZoneCount' smart constructor.
+data GetHostedZoneCount =
+    GetHostedZoneCount'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetHostedZoneCount' with the minimum fields required to make a request.
 --
--- * 'ghzcrHostedZoneCount' @::@ 'Integer'
---
-getHostedZoneCountResponse :: Integer -- ^ 'ghzcrHostedZoneCount'
-                           -> GetHostedZoneCountResponse
-getHostedZoneCountResponse p1 = GetHostedZoneCountResponse
-    { _ghzcrHostedZoneCount = p1
-    }
-
--- | The number of hosted zones associated with the current AWS account.
-ghzcrHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
-ghzcrHostedZoneCount =
-    lens _ghzcrHostedZoneCount (\s a -> s { _ghzcrHostedZoneCount = a })
-
-instance ToPath GetHostedZoneCount where
-    toPath = const "/2013-04-01/hostedzonecount"
-
-instance ToQuery GetHostedZoneCount where
-    toQuery = const mempty
-
-instance ToHeaders GetHostedZoneCount
-
-instance ToXMLRoot GetHostedZoneCount where
-    toXMLRoot = const (namespaced ns "GetHostedZoneCount" [])
-
-instance ToXML GetHostedZoneCount
+getHostedZoneCount
+    :: GetHostedZoneCount
+getHostedZoneCount = GetHostedZoneCount'
 
 instance AWSRequest GetHostedZoneCount where
-    type Sv GetHostedZoneCount = Route53
-    type Rs GetHostedZoneCount = GetHostedZoneCountResponse
+        type Sv GetHostedZoneCount = Route53
+        type Rs GetHostedZoneCount =
+             GetHostedZoneCountResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 GetHostedZoneCountResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "HostedZoneCount"))
 
-    request  = get
-    response = xmlResponse
+instance ToHeaders GetHostedZoneCount where
+        toHeaders = const mempty
 
-instance FromXML GetHostedZoneCountResponse where
-    parseXML x = GetHostedZoneCountResponse
-        <$> x .@  "HostedZoneCount"
+instance ToPath GetHostedZoneCount where
+        toPath = const "/2013-04-01/hostedzonecount"
+
+instance ToQuery GetHostedZoneCount where
+        toQuery = const mempty
+
+-- | A complex type that contains the count of hosted zones associated with
+-- the current AWS account.
+--
+-- /See:/ 'getHostedZoneCountResponse' smart constructor.
+data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
+    { _ghzcrsStatus          :: !Int
+    , _ghzcrsHostedZoneCount :: !Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetHostedZoneCountResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ghzcrsStatus'
+--
+-- * 'ghzcrsHostedZoneCount'
+getHostedZoneCountResponse
+    :: Int -- ^ 'ghzcrsStatus'
+    -> Integer -- ^ 'ghzcrsHostedZoneCount'
+    -> GetHostedZoneCountResponse
+getHostedZoneCountResponse pStatus_ pHostedZoneCount_ =
+    GetHostedZoneCountResponse'
+    { _ghzcrsStatus = pStatus_
+    , _ghzcrsHostedZoneCount = pHostedZoneCount_
+    }
+
+-- | The response status code.
+ghzcrsStatus :: Lens' GetHostedZoneCountResponse Int
+ghzcrsStatus = lens _ghzcrsStatus (\ s a -> s{_ghzcrsStatus = a});
+
+-- | The number of hosted zones associated with the current AWS account.
+ghzcrsHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
+ghzcrsHostedZoneCount = lens _ghzcrsHostedZoneCount (\ s a -> s{_ghzcrsHostedZoneCount = a});

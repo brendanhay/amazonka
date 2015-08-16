@@ -1,141 +1,160 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.MachineLearning.UpdateMLModel
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Updates the 'MLModelName' and the 'ScoreThreshold' of an 'MLModel'.
+-- |
+-- Module      : Network.AWS.MachineLearning.UpdateMLModel
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- You can use the 'GetMLModel' operation to view the contents of the updated
+-- Updates the 'MLModelName' and the 'ScoreThreshold' of an 'MLModel'.
+--
+-- You can use the GetMLModel operation to view the contents of the updated
 -- data element.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateMLModel.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateMLModel.html AWS API Reference> for UpdateMLModel.
 module Network.AWS.MachineLearning.UpdateMLModel
     (
-    -- * Request
-      UpdateMLModel
-    -- ** Request constructor
-    , updateMLModel
-    -- ** Request lenses
-    , umlmMLModelId
+    -- * Creating a Request
+      updateMLModel
+    , UpdateMLModel
+    -- * Request Lenses
     , umlmMLModelName
     , umlmScoreThreshold
+    , umlmMLModelId
 
-    -- * Response
-    , UpdateMLModelResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , updateMLModelResponse
-    -- ** Response lenses
-    , umlmrMLModelId
+    , UpdateMLModelResponse
+    -- * Response Lenses
+    , umlmrsMLModelId
+    , umlmrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.MachineLearning.Types
-import qualified GHC.Exts
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateMLModel = UpdateMLModel
-    { _umlmMLModelId      :: Text
-    , _umlmMLModelName    :: Maybe Text
-    , _umlmScoreThreshold :: Maybe Double
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'updateMLModel' smart constructor.
+data UpdateMLModel = UpdateMLModel'
+    { _umlmMLModelName    :: !(Maybe Text)
+    , _umlmScoreThreshold :: !(Maybe Double)
+    , _umlmMLModelId      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateMLModel' constructor.
+-- | Creates a value of 'UpdateMLModel' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umlmMLModelId' @::@ 'Text'
+-- * 'umlmMLModelName'
 --
--- * 'umlmMLModelName' @::@ 'Maybe' 'Text'
+-- * 'umlmScoreThreshold'
 --
--- * 'umlmScoreThreshold' @::@ 'Maybe' 'Double'
---
-updateMLModel :: Text -- ^ 'umlmMLModelId'
-              -> UpdateMLModel
-updateMLModel p1 = UpdateMLModel
-    { _umlmMLModelId      = p1
-    , _umlmMLModelName    = Nothing
+-- * 'umlmMLModelId'
+updateMLModel
+    :: Text -- ^ 'umlmMLModelId'
+    -> UpdateMLModel
+updateMLModel pMLModelId_ =
+    UpdateMLModel'
+    { _umlmMLModelName = Nothing
     , _umlmScoreThreshold = Nothing
+    , _umlmMLModelId = pMLModelId_
     }
-
--- | The ID assigned to the 'MLModel' during creation.
-umlmMLModelId :: Lens' UpdateMLModel Text
-umlmMLModelId = lens _umlmMLModelId (\s a -> s { _umlmMLModelId = a })
 
 -- | A user-supplied name or description of the 'MLModel'.
 umlmMLModelName :: Lens' UpdateMLModel (Maybe Text)
-umlmMLModelName = lens _umlmMLModelName (\s a -> s { _umlmMLModelName = a })
+umlmMLModelName = lens _umlmMLModelName (\ s a -> s{_umlmMLModelName = a});
 
--- | The 'ScoreThreshold' used in binary classification 'MLModel' that marks the
--- boundary between a positive prediction and a negative prediction.
+-- | The 'ScoreThreshold' used in binary classification 'MLModel' that marks
+-- the boundary between a positive prediction and a negative prediction.
 --
--- Output values greater than or equal to the 'ScoreThreshold' receive a positive
--- result from the 'MLModel', such as 'true'. Output values less than the 'ScoreThreshold' receive a negative response from the 'MLModel', such as 'false'.
+-- Output values greater than or equal to the 'ScoreThreshold' receive a
+-- positive result from the 'MLModel', such as 'true'. Output values less
+-- than the 'ScoreThreshold' receive a negative response from the
+-- 'MLModel', such as 'false'.
 umlmScoreThreshold :: Lens' UpdateMLModel (Maybe Double)
-umlmScoreThreshold =
-    lens _umlmScoreThreshold (\s a -> s { _umlmScoreThreshold = a })
+umlmScoreThreshold = lens _umlmScoreThreshold (\ s a -> s{_umlmScoreThreshold = a});
 
-newtype UpdateMLModelResponse = UpdateMLModelResponse
-    { _umlmrMLModelId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+-- | The ID assigned to the 'MLModel' during creation.
+umlmMLModelId :: Lens' UpdateMLModel Text
+umlmMLModelId = lens _umlmMLModelId (\ s a -> s{_umlmMLModelId = a});
 
--- | 'UpdateMLModelResponse' constructor.
+instance AWSRequest UpdateMLModel where
+        type Sv UpdateMLModel = MachineLearning
+        type Rs UpdateMLModel = UpdateMLModelResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdateMLModelResponse' <$>
+                   (x .?> "MLModelId") <*> (pure (fromEnum s)))
+
+instance ToHeaders UpdateMLModel where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonML_20141212.UpdateMLModel" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateMLModel where
+        toJSON UpdateMLModel'{..}
+          = object
+              ["MLModelName" .= _umlmMLModelName,
+               "ScoreThreshold" .= _umlmScoreThreshold,
+               "MLModelId" .= _umlmMLModelId]
+
+instance ToPath UpdateMLModel where
+        toPath = const "/"
+
+instance ToQuery UpdateMLModel where
+        toQuery = const mempty
+
+-- | Represents the output of an UpdateMLModel operation.
 --
--- The fields accessible through corresponding lenses are:
+-- You can see the updated content by using the GetMLModel operation.
 --
--- * 'umlmrMLModelId' @::@ 'Maybe' 'Text'
+-- /See:/ 'updateMLModelResponse' smart constructor.
+data UpdateMLModelResponse = UpdateMLModelResponse'
+    { _umlmrsMLModelId :: !(Maybe Text)
+    , _umlmrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateMLModelResponse' with the minimum fields required to make a request.
 --
-updateMLModelResponse :: UpdateMLModelResponse
-updateMLModelResponse = UpdateMLModelResponse
-    { _umlmrMLModelId = Nothing
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'umlmrsMLModelId'
+--
+-- * 'umlmrsStatus'
+updateMLModelResponse
+    :: Int -- ^ 'umlmrsStatus'
+    -> UpdateMLModelResponse
+updateMLModelResponse pStatus_ =
+    UpdateMLModelResponse'
+    { _umlmrsMLModelId = Nothing
+    , _umlmrsStatus = pStatus_
     }
 
 -- | The ID assigned to the 'MLModel' during creation. This value should be
 -- identical to the value of the 'MLModelID' in the request.
-umlmrMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
-umlmrMLModelId = lens _umlmrMLModelId (\s a -> s { _umlmrMLModelId = a })
+umlmrsMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
+umlmrsMLModelId = lens _umlmrsMLModelId (\ s a -> s{_umlmrsMLModelId = a});
 
-instance ToPath UpdateMLModel where
-    toPath = const "/"
-
-instance ToQuery UpdateMLModel where
-    toQuery = const mempty
-
-instance ToHeaders UpdateMLModel
-
-instance ToJSON UpdateMLModel where
-    toJSON UpdateMLModel{..} = object
-        [ "MLModelId"      .= _umlmMLModelId
-        , "MLModelName"    .= _umlmMLModelName
-        , "ScoreThreshold" .= _umlmScoreThreshold
-        ]
-
-instance AWSRequest UpdateMLModel where
-    type Sv UpdateMLModel = MachineLearning
-    type Rs UpdateMLModel = UpdateMLModelResponse
-
-    request  = post "UpdateMLModel"
-    response = jsonResponse
-
-instance FromJSON UpdateMLModelResponse where
-    parseJSON = withObject "UpdateMLModelResponse" $ \o -> UpdateMLModelResponse
-        <$> o .:? "MLModelId"
+-- | The response status code.
+umlmrsStatus :: Lens' UpdateMLModelResponse Int
+umlmrsStatus = lens _umlmrsStatus (\ s a -> s{_umlmrsStatus = a});

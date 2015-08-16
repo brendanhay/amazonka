@@ -1,188 +1,205 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.StorageGateway.CreateCachediSCSIVolume
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation creates a cached volume on a specified cached gateway. This
--- operation is supported only for the gateway-cached volume architecture.
+-- |
+-- Module      : Network.AWS.StorageGateway.CreateCachediSCSIVolume
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- This operation creates a cached volume on a specified cached gateway.
+-- This operation is supported only for the gateway-cached volume
+-- architecture.
 --
 -- Cache storage must be allocated to the gateway before you can create a
--- cached volume. Use the 'AddCache' operation to add cache storage to a gateway.
--- In the request, you must specify the gateway, size of the volume in bytes,
--- the iSCSI target name, an IP address on which to expose the target, and a
--- unique client token. In response, AWS Storage Gateway creates the volume and
--- returns information about it such as the volume Amazon Resource Name (ARN),
--- its size, and the iSCSI target ARN that initiators can use to connect to the
--- volume target.
+-- cached volume. Use the AddCache operation to add cache storage to a
+-- gateway.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateCachediSCSIVolume.html>
+-- In the request, you must specify the gateway, size of the volume in
+-- bytes, the iSCSI target name, an IP address on which to expose the
+-- target, and a unique client token. In response, AWS Storage Gateway
+-- creates the volume and returns information about it such as the volume
+-- Amazon Resource Name (ARN), its size, and the iSCSI target ARN that
+-- initiators can use to connect to the volume target.
+--
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateCachediSCSIVolume.html AWS API Reference> for CreateCachediSCSIVolume.
 module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     (
-    -- * Request
-      CreateCachediSCSIVolume
-    -- ** Request constructor
-    , createCachediSCSIVolume
-    -- ** Request lenses
-    , ccscsivClientToken
-    , ccscsivGatewayARN
-    , ccscsivNetworkInterfaceId
+    -- * Creating a Request
+      createCachediSCSIVolume
+    , CreateCachediSCSIVolume
+    -- * Request Lenses
     , ccscsivSnapshotId
-    , ccscsivTargetName
+    , ccscsivGatewayARN
     , ccscsivVolumeSizeInBytes
+    , ccscsivTargetName
+    , ccscsivNetworkInterfaceId
+    , ccscsivClientToken
 
-    -- * Response
-    , CreateCachediSCSIVolumeResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createCachediSCSIVolumeResponse
-    -- ** Response lenses
-    , ccscsivrTargetARN
-    , ccscsivrVolumeARN
+    , CreateCachediSCSIVolumeResponse
+    -- * Response Lenses
+    , ccscsivrsTargetARN
+    , ccscsivrsVolumeARN
+    , ccscsivrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
+import           Network.AWS.StorageGateway.Types.Product
 
-data CreateCachediSCSIVolume = CreateCachediSCSIVolume
-    { _ccscsivClientToken        :: Text
-    , _ccscsivGatewayARN         :: Text
-    , _ccscsivNetworkInterfaceId :: Text
-    , _ccscsivSnapshotId         :: Maybe Text
-    , _ccscsivTargetName         :: Text
-    , _ccscsivVolumeSizeInBytes  :: Integer
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'createCachediSCSIVolume' smart constructor.
+data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
+    { _ccscsivSnapshotId         :: !(Maybe Text)
+    , _ccscsivGatewayARN         :: !Text
+    , _ccscsivVolumeSizeInBytes  :: !Integer
+    , _ccscsivTargetName         :: !Text
+    , _ccscsivNetworkInterfaceId :: !Text
+    , _ccscsivClientToken        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateCachediSCSIVolume' constructor.
+-- | Creates a value of 'CreateCachediSCSIVolume' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccscsivClientToken' @::@ 'Text'
+-- * 'ccscsivSnapshotId'
 --
--- * 'ccscsivGatewayARN' @::@ 'Text'
+-- * 'ccscsivGatewayARN'
 --
--- * 'ccscsivNetworkInterfaceId' @::@ 'Text'
+-- * 'ccscsivVolumeSizeInBytes'
 --
--- * 'ccscsivSnapshotId' @::@ 'Maybe' 'Text'
+-- * 'ccscsivTargetName'
 --
--- * 'ccscsivTargetName' @::@ 'Text'
+-- * 'ccscsivNetworkInterfaceId'
 --
--- * 'ccscsivVolumeSizeInBytes' @::@ 'Integer'
---
-createCachediSCSIVolume :: Text -- ^ 'ccscsivGatewayARN'
-                        -> Integer -- ^ 'ccscsivVolumeSizeInBytes'
-                        -> Text -- ^ 'ccscsivTargetName'
-                        -> Text -- ^ 'ccscsivNetworkInterfaceId'
-                        -> Text -- ^ 'ccscsivClientToken'
-                        -> CreateCachediSCSIVolume
-createCachediSCSIVolume p1 p2 p3 p4 p5 = CreateCachediSCSIVolume
-    { _ccscsivGatewayARN         = p1
-    , _ccscsivVolumeSizeInBytes  = p2
-    , _ccscsivTargetName         = p3
-    , _ccscsivNetworkInterfaceId = p4
-    , _ccscsivClientToken        = p5
-    , _ccscsivSnapshotId         = Nothing
+-- * 'ccscsivClientToken'
+createCachediSCSIVolume
+    :: Text -- ^ 'ccscsivGatewayARN'
+    -> Integer -- ^ 'ccscsivVolumeSizeInBytes'
+    -> Text -- ^ 'ccscsivTargetName'
+    -> Text -- ^ 'ccscsivNetworkInterfaceId'
+    -> Text -- ^ 'ccscsivClientToken'
+    -> CreateCachediSCSIVolume
+createCachediSCSIVolume pGatewayARN_ pVolumeSizeInBytes_ pTargetName_ pNetworkInterfaceId_ pClientToken_ =
+    CreateCachediSCSIVolume'
+    { _ccscsivSnapshotId = Nothing
+    , _ccscsivGatewayARN = pGatewayARN_
+    , _ccscsivVolumeSizeInBytes = pVolumeSizeInBytes_
+    , _ccscsivTargetName = pTargetName_
+    , _ccscsivNetworkInterfaceId = pNetworkInterfaceId_
+    , _ccscsivClientToken = pClientToken_
     }
 
-ccscsivClientToken :: Lens' CreateCachediSCSIVolume Text
-ccscsivClientToken =
-    lens _ccscsivClientToken (\s a -> s { _ccscsivClientToken = a })
-
-ccscsivGatewayARN :: Lens' CreateCachediSCSIVolume Text
-ccscsivGatewayARN =
-    lens _ccscsivGatewayARN (\s a -> s { _ccscsivGatewayARN = a })
-
-ccscsivNetworkInterfaceId :: Lens' CreateCachediSCSIVolume Text
-ccscsivNetworkInterfaceId =
-    lens _ccscsivNetworkInterfaceId
-        (\s a -> s { _ccscsivNetworkInterfaceId = a })
-
+-- | Undocumented member.
 ccscsivSnapshotId :: Lens' CreateCachediSCSIVolume (Maybe Text)
-ccscsivSnapshotId =
-    lens _ccscsivSnapshotId (\s a -> s { _ccscsivSnapshotId = a })
+ccscsivSnapshotId = lens _ccscsivSnapshotId (\ s a -> s{_ccscsivSnapshotId = a});
 
-ccscsivTargetName :: Lens' CreateCachediSCSIVolume Text
-ccscsivTargetName =
-    lens _ccscsivTargetName (\s a -> s { _ccscsivTargetName = a })
+-- | Undocumented member.
+ccscsivGatewayARN :: Lens' CreateCachediSCSIVolume Text
+ccscsivGatewayARN = lens _ccscsivGatewayARN (\ s a -> s{_ccscsivGatewayARN = a});
 
+-- | Undocumented member.
 ccscsivVolumeSizeInBytes :: Lens' CreateCachediSCSIVolume Integer
-ccscsivVolumeSizeInBytes =
-    lens _ccscsivVolumeSizeInBytes
-        (\s a -> s { _ccscsivVolumeSizeInBytes = a })
+ccscsivVolumeSizeInBytes = lens _ccscsivVolumeSizeInBytes (\ s a -> s{_ccscsivVolumeSizeInBytes = a});
 
-data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
-    { _ccscsivrTargetARN :: Maybe Text
-    , _ccscsivrVolumeARN :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Undocumented member.
+ccscsivTargetName :: Lens' CreateCachediSCSIVolume Text
+ccscsivTargetName = lens _ccscsivTargetName (\ s a -> s{_ccscsivTargetName = a});
 
--- | 'CreateCachediSCSIVolumeResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccscsivrTargetARN' @::@ 'Maybe' 'Text'
---
--- * 'ccscsivrVolumeARN' @::@ 'Maybe' 'Text'
---
-createCachediSCSIVolumeResponse :: CreateCachediSCSIVolumeResponse
-createCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
-    { _ccscsivrVolumeARN = Nothing
-    , _ccscsivrTargetARN = Nothing
-    }
+-- | Undocumented member.
+ccscsivNetworkInterfaceId :: Lens' CreateCachediSCSIVolume Text
+ccscsivNetworkInterfaceId = lens _ccscsivNetworkInterfaceId (\ s a -> s{_ccscsivNetworkInterfaceId = a});
 
-ccscsivrTargetARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
-ccscsivrTargetARN =
-    lens _ccscsivrTargetARN (\s a -> s { _ccscsivrTargetARN = a })
-
-ccscsivrVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
-ccscsivrVolumeARN =
-    lens _ccscsivrVolumeARN (\s a -> s { _ccscsivrVolumeARN = a })
-
-instance ToPath CreateCachediSCSIVolume where
-    toPath = const "/"
-
-instance ToQuery CreateCachediSCSIVolume where
-    toQuery = const mempty
-
-instance ToHeaders CreateCachediSCSIVolume
-
-instance ToJSON CreateCachediSCSIVolume where
-    toJSON CreateCachediSCSIVolume{..} = object
-        [ "GatewayARN"         .= _ccscsivGatewayARN
-        , "VolumeSizeInBytes"  .= _ccscsivVolumeSizeInBytes
-        , "SnapshotId"         .= _ccscsivSnapshotId
-        , "TargetName"         .= _ccscsivTargetName
-        , "NetworkInterfaceId" .= _ccscsivNetworkInterfaceId
-        , "ClientToken"        .= _ccscsivClientToken
-        ]
+-- | Undocumented member.
+ccscsivClientToken :: Lens' CreateCachediSCSIVolume Text
+ccscsivClientToken = lens _ccscsivClientToken (\ s a -> s{_ccscsivClientToken = a});
 
 instance AWSRequest CreateCachediSCSIVolume where
-    type Sv CreateCachediSCSIVolume = StorageGateway
-    type Rs CreateCachediSCSIVolume = CreateCachediSCSIVolumeResponse
+        type Sv CreateCachediSCSIVolume = StorageGateway
+        type Rs CreateCachediSCSIVolume =
+             CreateCachediSCSIVolumeResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateCachediSCSIVolumeResponse' <$>
+                   (x .?> "TargetARN") <*> (x .?> "VolumeARN") <*>
+                     (pure (fromEnum s)))
 
-    request  = post "CreateCachediSCSIVolume"
-    response = jsonResponse
+instance ToHeaders CreateCachediSCSIVolume where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.CreateCachediSCSIVolume" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON CreateCachediSCSIVolumeResponse where
-    parseJSON = withObject "CreateCachediSCSIVolumeResponse" $ \o -> CreateCachediSCSIVolumeResponse
-        <$> o .:? "TargetARN"
-        <*> o .:? "VolumeARN"
+instance ToJSON CreateCachediSCSIVolume where
+        toJSON CreateCachediSCSIVolume'{..}
+          = object
+              ["SnapshotId" .= _ccscsivSnapshotId,
+               "GatewayARN" .= _ccscsivGatewayARN,
+               "VolumeSizeInBytes" .= _ccscsivVolumeSizeInBytes,
+               "TargetName" .= _ccscsivTargetName,
+               "NetworkInterfaceId" .= _ccscsivNetworkInterfaceId,
+               "ClientToken" .= _ccscsivClientToken]
+
+instance ToPath CreateCachediSCSIVolume where
+        toPath = const "/"
+
+instance ToQuery CreateCachediSCSIVolume where
+        toQuery = const mempty
+
+-- | /See:/ 'createCachediSCSIVolumeResponse' smart constructor.
+data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
+    { _ccscsivrsTargetARN :: !(Maybe Text)
+    , _ccscsivrsVolumeARN :: !(Maybe Text)
+    , _ccscsivrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateCachediSCSIVolumeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccscsivrsTargetARN'
+--
+-- * 'ccscsivrsVolumeARN'
+--
+-- * 'ccscsivrsStatus'
+createCachediSCSIVolumeResponse
+    :: Int -- ^ 'ccscsivrsStatus'
+    -> CreateCachediSCSIVolumeResponse
+createCachediSCSIVolumeResponse pStatus_ =
+    CreateCachediSCSIVolumeResponse'
+    { _ccscsivrsTargetARN = Nothing
+    , _ccscsivrsVolumeARN = Nothing
+    , _ccscsivrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+ccscsivrsTargetARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
+ccscsivrsTargetARN = lens _ccscsivrsTargetARN (\ s a -> s{_ccscsivrsTargetARN = a});
+
+-- | Undocumented member.
+ccscsivrsVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
+ccscsivrsVolumeARN = lens _ccscsivrsVolumeARN (\ s a -> s{_ccscsivrsVolumeARN = a});
+
+-- | The response status code.
+ccscsivrsStatus :: Lens' CreateCachediSCSIVolumeResponse Int
+ccscsivrsStatus = lens _ccscsivrsStatus (\ s a -> s{_ccscsivrsStatus = a});

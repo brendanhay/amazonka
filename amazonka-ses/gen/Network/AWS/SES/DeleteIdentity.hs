@@ -1,93 +1,119 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SES.DeleteIdentity
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified identity (email address or domain) from the list of
--- verified identities.
+-- |
+-- Module      : Network.AWS.SES.DeleteIdentity
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes the specified identity (email address or domain) from the list
+-- of verified identities.
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteIdentity.html AWS API Reference> for DeleteIdentity.
 module Network.AWS.SES.DeleteIdentity
     (
-    -- * Request
-      DeleteIdentity
-    -- ** Request constructor
-    , deleteIdentity
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteIdentity
+    , DeleteIdentity
+    -- * Request Lenses
     , diIdentity
 
-    -- * Response
-    , DeleteIdentityResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteIdentityResponse
+    , DeleteIdentityResponse
+    -- * Response Lenses
+    , dirsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SES.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
+import           Network.AWS.SES.Types.Product
 
-newtype DeleteIdentity = DeleteIdentity
+-- | Represents a request instructing the service to delete an identity from
+-- the list of identities for the AWS Account.
+--
+-- /See:/ 'deleteIdentity' smart constructor.
+newtype DeleteIdentity = DeleteIdentity'
     { _diIdentity :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteIdentity' constructor.
+-- | Creates a value of 'DeleteIdentity' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diIdentity' @::@ 'Text'
---
-deleteIdentity :: Text -- ^ 'diIdentity'
-               -> DeleteIdentity
-deleteIdentity p1 = DeleteIdentity
-    { _diIdentity = p1
+-- * 'diIdentity'
+deleteIdentity
+    :: Text -- ^ 'diIdentity'
+    -> DeleteIdentity
+deleteIdentity pIdentity_ =
+    DeleteIdentity'
+    { _diIdentity = pIdentity_
     }
 
--- | The identity to be removed from the list of identities for the AWS Account.
+-- | The identity to be removed from the list of identities for the AWS
+-- Account.
 diIdentity :: Lens' DeleteIdentity Text
-diIdentity = lens _diIdentity (\s a -> s { _diIdentity = a })
-
-data DeleteIdentityResponse = DeleteIdentityResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteIdentityResponse' constructor.
-deleteIdentityResponse :: DeleteIdentityResponse
-deleteIdentityResponse = DeleteIdentityResponse
-
-instance ToPath DeleteIdentity where
-    toPath = const "/"
-
-instance ToQuery DeleteIdentity where
-    toQuery DeleteIdentity{..} = mconcat
-        [ "Identity" =? _diIdentity
-        ]
-
-instance ToHeaders DeleteIdentity
+diIdentity = lens _diIdentity (\ s a -> s{_diIdentity = a});
 
 instance AWSRequest DeleteIdentity where
-    type Sv DeleteIdentity = SES
-    type Rs DeleteIdentity = DeleteIdentityResponse
+        type Sv DeleteIdentity = SES
+        type Rs DeleteIdentity = DeleteIdentityResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DeleteIdentityResult"
+              (\ s h x ->
+                 DeleteIdentityResponse' <$> (pure (fromEnum s)))
 
-    request  = post "DeleteIdentity"
-    response = nullResponse DeleteIdentityResponse
+instance ToHeaders DeleteIdentity where
+        toHeaders = const mempty
+
+instance ToPath DeleteIdentity where
+        toPath = const "/"
+
+instance ToQuery DeleteIdentity where
+        toQuery DeleteIdentity'{..}
+          = mconcat
+              ["Action" =: ("DeleteIdentity" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "Identity" =: _diIdentity]
+
+-- | An empty element. Receiving this element indicates that the request
+-- completed successfully.
+--
+-- /See:/ 'deleteIdentityResponse' smart constructor.
+newtype DeleteIdentityResponse = DeleteIdentityResponse'
+    { _dirsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteIdentityResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dirsStatus'
+deleteIdentityResponse
+    :: Int -- ^ 'dirsStatus'
+    -> DeleteIdentityResponse
+deleteIdentityResponse pStatus_ =
+    DeleteIdentityResponse'
+    { _dirsStatus = pStatus_
+    }
+
+-- | The response status code.
+dirsStatus :: Lens' DeleteIdentityResponse Int
+dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

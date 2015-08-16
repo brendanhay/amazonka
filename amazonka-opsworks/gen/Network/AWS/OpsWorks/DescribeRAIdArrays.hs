@@ -1,0 +1,161 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.OpsWorks.DescribeRAIdArrays
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Describe an instance\'s RAID arrays.
+--
+-- You must specify at least one of the parameters.
+--
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Show, Deploy, or Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+--
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeRAIdArrays.html AWS API Reference> for DescribeRAIdArrays.
+module Network.AWS.OpsWorks.DescribeRAIdArrays
+    (
+    -- * Creating a Request
+      describeRAIdArrays
+    , DescribeRAIdArrays
+    -- * Request Lenses
+    , draiaInstanceId
+    , draiaRAIdArrayIds
+    , draiaStackId
+
+    -- * Destructuring the Response
+    , describeRAIdArraysResponse
+    , DescribeRAIdArraysResponse
+    -- * Response Lenses
+    , draiarsRAIdArrays
+    , draiarsStatus
+    ) where
+
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | /See:/ 'describeRAIdArrays' smart constructor.
+data DescribeRAIdArrays = DescribeRAIdArrays'
+    { _draiaInstanceId   :: !(Maybe Text)
+    , _draiaRAIdArrayIds :: !(Maybe [Text])
+    , _draiaStackId      :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeRAIdArrays' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'draiaInstanceId'
+--
+-- * 'draiaRAIdArrayIds'
+--
+-- * 'draiaStackId'
+describeRAIdArrays
+    :: DescribeRAIdArrays
+describeRAIdArrays =
+    DescribeRAIdArrays'
+    { _draiaInstanceId = Nothing
+    , _draiaRAIdArrayIds = Nothing
+    , _draiaStackId = Nothing
+    }
+
+-- | The instance ID. If you use this parameter, 'DescribeRaidArrays' returns
+-- descriptions of the RAID arrays associated with the specified instance.
+draiaInstanceId :: Lens' DescribeRAIdArrays (Maybe Text)
+draiaInstanceId = lens _draiaInstanceId (\ s a -> s{_draiaInstanceId = a});
+
+-- | An array of RAID array IDs. If you use this parameter,
+-- 'DescribeRaidArrays' returns descriptions of the specified arrays.
+-- Otherwise, it returns a description of every array.
+draiaRAIdArrayIds :: Lens' DescribeRAIdArrays [Text]
+draiaRAIdArrayIds = lens _draiaRAIdArrayIds (\ s a -> s{_draiaRAIdArrayIds = a}) . _Default . _Coerce;
+
+-- | The stack ID.
+draiaStackId :: Lens' DescribeRAIdArrays (Maybe Text)
+draiaStackId = lens _draiaStackId (\ s a -> s{_draiaStackId = a});
+
+instance AWSRequest DescribeRAIdArrays where
+        type Sv DescribeRAIdArrays = OpsWorks
+        type Rs DescribeRAIdArrays =
+             DescribeRAIdArraysResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeRAIdArraysResponse' <$>
+                   (x .?> "RaidArrays" .!@ mempty) <*>
+                     (pure (fromEnum s)))
+
+instance ToHeaders DescribeRAIdArrays where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.DescribeRaidArrays" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeRAIdArrays where
+        toJSON DescribeRAIdArrays'{..}
+          = object
+              ["InstanceId" .= _draiaInstanceId,
+               "RaidArrayIds" .= _draiaRAIdArrayIds,
+               "StackId" .= _draiaStackId]
+
+instance ToPath DescribeRAIdArrays where
+        toPath = const "/"
+
+instance ToQuery DescribeRAIdArrays where
+        toQuery = const mempty
+
+-- | Contains the response to a 'DescribeRaidArrays' request.
+--
+-- /See:/ 'describeRAIdArraysResponse' smart constructor.
+data DescribeRAIdArraysResponse = DescribeRAIdArraysResponse'
+    { _draiarsRAIdArrays :: !(Maybe [RAIdArray])
+    , _draiarsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeRAIdArraysResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'draiarsRAIdArrays'
+--
+-- * 'draiarsStatus'
+describeRAIdArraysResponse
+    :: Int -- ^ 'draiarsStatus'
+    -> DescribeRAIdArraysResponse
+describeRAIdArraysResponse pStatus_ =
+    DescribeRAIdArraysResponse'
+    { _draiarsRAIdArrays = Nothing
+    , _draiarsStatus = pStatus_
+    }
+
+-- | A 'RaidArrays' object that describes the specified RAID arrays.
+draiarsRAIdArrays :: Lens' DescribeRAIdArraysResponse [RAIdArray]
+draiarsRAIdArrays = lens _draiarsRAIdArrays (\ s a -> s{_draiarsRAIdArrays = a}) . _Default . _Coerce;
+
+-- | The response status code.
+draiarsStatus :: Lens' DescribeRAIdArraysResponse Int
+draiarsStatus = lens _draiarsStatus (\ s a -> s{_draiarsStatus = a});

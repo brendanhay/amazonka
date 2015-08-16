@@ -1,105 +1,118 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Config.PutConfigurationRecorder
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new configuration recorder to record the resource configurations.
+-- |
+-- Module      : Network.AWS.Config.PutConfigurationRecorder
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- You can use this action to change the role ('roleARN') of an existing
--- recorder. To change the role, call the action on the existing configuration
--- recorder and specify a role.
+-- Creates a new configuration recorder to record the selected resource
+-- configurations.
+--
+-- You can use this action to change the role 'roleARN' and\/or the
+-- 'recordingGroup' of an existing recorder. To change the role, call the
+-- action on the existing configuration recorder and specify a role.
 --
 -- Currently, you can specify only one configuration recorder per account.
 --
+-- If 'ConfigurationRecorder' does not have the __recordingGroup__
+-- parameter specified, the default is to record all supported resource
+-- types.
 --
---
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html>
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html AWS API Reference> for PutConfigurationRecorder.
 module Network.AWS.Config.PutConfigurationRecorder
     (
-    -- * Request
-      PutConfigurationRecorder
-    -- ** Request constructor
-    , putConfigurationRecorder
-    -- ** Request lenses
+    -- * Creating a Request
+      putConfigurationRecorder
+    , PutConfigurationRecorder
+    -- * Request Lenses
     , pcrConfigurationRecorder
 
-    -- * Response
-    , PutConfigurationRecorderResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , putConfigurationRecorderResponse
+    , PutConfigurationRecorderResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Config.Types
-import qualified GHC.Exts
+import           Network.AWS.Config.Types
+import           Network.AWS.Config.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype PutConfigurationRecorder = PutConfigurationRecorder
+-- | The input for the PutConfigurationRecorder action.
+--
+-- /See:/ 'putConfigurationRecorder' smart constructor.
+newtype PutConfigurationRecorder = PutConfigurationRecorder'
     { _pcrConfigurationRecorder :: ConfigurationRecorder
-    } deriving (Eq, Read, Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutConfigurationRecorder' constructor.
+-- | Creates a value of 'PutConfigurationRecorder' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pcrConfigurationRecorder' @::@ 'ConfigurationRecorder'
---
-putConfigurationRecorder :: ConfigurationRecorder -- ^ 'pcrConfigurationRecorder'
-                         -> PutConfigurationRecorder
-putConfigurationRecorder p1 = PutConfigurationRecorder
-    { _pcrConfigurationRecorder = p1
+-- * 'pcrConfigurationRecorder'
+putConfigurationRecorder
+    :: ConfigurationRecorder -- ^ 'pcrConfigurationRecorder'
+    -> PutConfigurationRecorder
+putConfigurationRecorder pConfigurationRecorder_ =
+    PutConfigurationRecorder'
+    { _pcrConfigurationRecorder = pConfigurationRecorder_
     }
 
--- | The configuration recorder object that records each configuration change made
--- to the resources.
+-- | The configuration recorder object that records each configuration change
+-- made to the resources.
 pcrConfigurationRecorder :: Lens' PutConfigurationRecorder ConfigurationRecorder
-pcrConfigurationRecorder =
-    lens _pcrConfigurationRecorder
-        (\s a -> s { _pcrConfigurationRecorder = a })
-
-data PutConfigurationRecorderResponse = PutConfigurationRecorderResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'PutConfigurationRecorderResponse' constructor.
-putConfigurationRecorderResponse :: PutConfigurationRecorderResponse
-putConfigurationRecorderResponse = PutConfigurationRecorderResponse
-
-instance ToPath PutConfigurationRecorder where
-    toPath = const "/"
-
-instance ToQuery PutConfigurationRecorder where
-    toQuery = const mempty
-
-instance ToHeaders PutConfigurationRecorder
-
-instance ToJSON PutConfigurationRecorder where
-    toJSON PutConfigurationRecorder{..} = object
-        [ "ConfigurationRecorder" .= _pcrConfigurationRecorder
-        ]
+pcrConfigurationRecorder = lens _pcrConfigurationRecorder (\ s a -> s{_pcrConfigurationRecorder = a});
 
 instance AWSRequest PutConfigurationRecorder where
-    type Sv PutConfigurationRecorder = Config
-    type Rs PutConfigurationRecorder = PutConfigurationRecorderResponse
+        type Sv PutConfigurationRecorder = Config
+        type Rs PutConfigurationRecorder =
+             PutConfigurationRecorderResponse
+        request = postJSON
+        response
+          = receiveNull PutConfigurationRecorderResponse'
 
-    request  = post "PutConfigurationRecorder"
-    response = nullResponse PutConfigurationRecorderResponse
+instance ToHeaders PutConfigurationRecorder where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StarlingDoveService.PutConfigurationRecorder" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON PutConfigurationRecorder where
+        toJSON PutConfigurationRecorder'{..}
+          = object
+              ["ConfigurationRecorder" .=
+                 _pcrConfigurationRecorder]
+
+instance ToPath PutConfigurationRecorder where
+        toPath = const "/"
+
+instance ToQuery PutConfigurationRecorder where
+        toQuery = const mempty
+
+-- | /See:/ 'putConfigurationRecorderResponse' smart constructor.
+data PutConfigurationRecorderResponse =
+    PutConfigurationRecorderResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutConfigurationRecorderResponse' with the minimum fields required to make a request.
+--
+putConfigurationRecorderResponse
+    :: PutConfigurationRecorderResponse
+putConfigurationRecorderResponse = PutConfigurationRecorderResponse'

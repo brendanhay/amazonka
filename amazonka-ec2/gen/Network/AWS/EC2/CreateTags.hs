@@ -1,117 +1,124 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.CreateTags
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Adds or overwrites one or more tags for the specified Amazon EC2 resource or
--- resources. Each resource can have a maximum of 10 tags. Each tag consists of
--- a key and optional value. Tag keys must be unique per resource.
+-- |
+-- Module      : Network.AWS.EC2.CreateTags
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /AmazonElastic Compute Cloud User Guide/.
+-- Adds or overwrites one or more tags for the specified Amazon EC2
+-- resource or resources. Each resource can have a maximum of 10 tags. Each
+-- tag consists of a key and optional value. Tag keys must be unique per
+-- resource.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateTags.html>
+-- For more information about tags, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateTags.html AWS API Reference> for CreateTags.
 module Network.AWS.EC2.CreateTags
     (
-    -- * Request
-      CreateTags
-    -- ** Request constructor
-    , createTags
-    -- ** Request lenses
-    , ct1DryRun
-    , ct1Resources
-    , ct1Tags
+    -- * Creating a Request
+      createTags
+    , CreateTags
+    -- * Request Lenses
+    , cDryRun
+    , cResources
+    , cTags
 
-    -- * Response
-    , CreateTagsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createTagsResponse
+    , CreateTagsResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateTags = CreateTags
-    { _ct1DryRun    :: Maybe Bool
-    , _ct1Resources :: List "ResourceId" Text
-    , _ct1Tags      :: List "item" Tag
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'createTags' smart constructor.
+data CreateTags = CreateTags'
+    { _cDryRun    :: !(Maybe Bool)
+    , _cResources :: ![Text]
+    , _cTags      :: ![Tag]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateTags' constructor.
+-- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ct1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'cDryRun'
 --
--- * 'ct1Resources' @::@ ['Text']
+-- * 'cResources'
 --
--- * 'ct1Tags' @::@ ['Tag']
---
-createTags :: CreateTags
-createTags = CreateTags
-    { _ct1DryRun    = Nothing
-    , _ct1Resources = mempty
-    , _ct1Tags      = mempty
+-- * 'cTags'
+createTags
+    :: CreateTags
+createTags =
+    CreateTags'
+    { _cDryRun = Nothing
+    , _cResources = mempty
+    , _cTags = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-ct1DryRun :: Lens' CreateTags (Maybe Bool)
-ct1DryRun = lens _ct1DryRun (\s a -> s { _ct1DryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+cDryRun :: Lens' CreateTags (Maybe Bool)
+cDryRun = lens _cDryRun (\ s a -> s{_cDryRun = a});
 
 -- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
-ct1Resources :: Lens' CreateTags [Text]
-ct1Resources = lens _ct1Resources (\s a -> s { _ct1Resources = a }) . _List
+cResources :: Lens' CreateTags [Text]
+cResources = lens _cResources (\ s a -> s{_cResources = a}) . _Coerce;
 
--- | One or more tags. The 'value' parameter is required, but if you don't want the
--- tag to have a value, specify the parameter with no value, and we set the
--- value to an empty string.
-ct1Tags :: Lens' CreateTags [Tag]
-ct1Tags = lens _ct1Tags (\s a -> s { _ct1Tags = a }) . _List
-
-data CreateTagsResponse = CreateTagsResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'CreateTagsResponse' constructor.
-createTagsResponse :: CreateTagsResponse
-createTagsResponse = CreateTagsResponse
-
-instance ToPath CreateTags where
-    toPath = const "/"
-
-instance ToQuery CreateTags where
-    toQuery CreateTags{..} = mconcat
-        [ "DryRun"     =? _ct1DryRun
-        , "ResourceId" `toQueryList` _ct1Resources
-        , "Tag"        `toQueryList` _ct1Tags
-        ]
-
-instance ToHeaders CreateTags
+-- | One or more tags. The 'value' parameter is required, but if you don\'t
+-- want the tag to have a value, specify the parameter with no value, and
+-- we set the value to an empty string.
+cTags :: Lens' CreateTags [Tag]
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Coerce;
 
 instance AWSRequest CreateTags where
-    type Sv CreateTags = EC2
-    type Rs CreateTags = CreateTagsResponse
+        type Sv CreateTags = EC2
+        type Rs CreateTags = CreateTagsResponse
+        request = post
+        response = receiveNull CreateTagsResponse'
 
-    request  = post "CreateTags"
-    response = nullResponse CreateTagsResponse
+instance ToHeaders CreateTags where
+        toHeaders = const mempty
+
+instance ToPath CreateTags where
+        toPath = const "/"
+
+instance ToQuery CreateTags where
+        toQuery CreateTags'{..}
+          = mconcat
+              ["Action" =: ("CreateTags" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _cDryRun,
+               toQueryList "ResourceId" _cResources,
+               toQueryList "item" _cTags]
+
+-- | /See:/ 'createTagsResponse' smart constructor.
+data CreateTagsResponse =
+    CreateTagsResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
+--
+createTagsResponse
+    :: CreateTagsResponse
+createTagsResponse = CreateTagsResponse'

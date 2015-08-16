@@ -1,146 +1,164 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.StorageGateway.DescribeUploadBuffer
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation returns information about the upload buffer of a gateway. This
--- operation is supported for both the gateway-stored and gateway-cached volume
--- architectures.
+-- |
+-- Module      : Network.AWS.StorageGateway.DescribeUploadBuffer
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- The response includes disk IDs that are configured as upload buffer space,
--- and it includes the amount of upload buffer space allocated and used.
+-- This operation returns information about the upload buffer of a gateway.
+-- This operation is supported for both the gateway-stored and
+-- gateway-cached volume architectures.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeUploadBuffer.html>
+-- The response includes disk IDs that are configured as upload buffer
+-- space, and it includes the amount of upload buffer space allocated and
+-- used.
+--
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeUploadBuffer.html AWS API Reference> for DescribeUploadBuffer.
 module Network.AWS.StorageGateway.DescribeUploadBuffer
     (
-    -- * Request
-      DescribeUploadBuffer
-    -- ** Request constructor
-    , describeUploadBuffer
-    -- ** Request lenses
+    -- * Creating a Request
+      describeUploadBuffer
+    , DescribeUploadBuffer
+    -- * Request Lenses
     , dubGatewayARN
 
-    -- * Response
-    , DescribeUploadBufferResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeUploadBufferResponse
-    -- ** Response lenses
-    , dubrDiskIds
-    , dubrGatewayARN
-    , dubrUploadBufferAllocatedInBytes
-    , dubrUploadBufferUsedInBytes
+    , DescribeUploadBufferResponse
+    -- * Response Lenses
+    , dubrsUploadBufferAllocatedInBytes
+    , dubrsGatewayARN
+    , dubrsDiskIds
+    , dubrsUploadBufferUsedInBytes
+    , dubrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
+import           Network.AWS.StorageGateway.Types.Product
 
-newtype DescribeUploadBuffer = DescribeUploadBuffer
+-- | /See:/ 'describeUploadBuffer' smart constructor.
+newtype DescribeUploadBuffer = DescribeUploadBuffer'
     { _dubGatewayARN :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeUploadBuffer' constructor.
+-- | Creates a value of 'DescribeUploadBuffer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dubGatewayARN' @::@ 'Text'
---
-describeUploadBuffer :: Text -- ^ 'dubGatewayARN'
-                     -> DescribeUploadBuffer
-describeUploadBuffer p1 = DescribeUploadBuffer
-    { _dubGatewayARN = p1
+-- * 'dubGatewayARN'
+describeUploadBuffer
+    :: Text -- ^ 'dubGatewayARN'
+    -> DescribeUploadBuffer
+describeUploadBuffer pGatewayARN_ =
+    DescribeUploadBuffer'
+    { _dubGatewayARN = pGatewayARN_
     }
 
+-- | Undocumented member.
 dubGatewayARN :: Lens' DescribeUploadBuffer Text
-dubGatewayARN = lens _dubGatewayARN (\s a -> s { _dubGatewayARN = a })
-
-data DescribeUploadBufferResponse = DescribeUploadBufferResponse
-    { _dubrDiskIds                      :: List "DiskIds" Text
-    , _dubrGatewayARN                   :: Maybe Text
-    , _dubrUploadBufferAllocatedInBytes :: Maybe Integer
-    , _dubrUploadBufferUsedInBytes      :: Maybe Integer
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeUploadBufferResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dubrDiskIds' @::@ ['Text']
---
--- * 'dubrGatewayARN' @::@ 'Maybe' 'Text'
---
--- * 'dubrUploadBufferAllocatedInBytes' @::@ 'Maybe' 'Integer'
---
--- * 'dubrUploadBufferUsedInBytes' @::@ 'Maybe' 'Integer'
---
-describeUploadBufferResponse :: DescribeUploadBufferResponse
-describeUploadBufferResponse = DescribeUploadBufferResponse
-    { _dubrGatewayARN                   = Nothing
-    , _dubrDiskIds                      = mempty
-    , _dubrUploadBufferUsedInBytes      = Nothing
-    , _dubrUploadBufferAllocatedInBytes = Nothing
-    }
-
-dubrDiskIds :: Lens' DescribeUploadBufferResponse [Text]
-dubrDiskIds = lens _dubrDiskIds (\s a -> s { _dubrDiskIds = a }) . _List
-
-dubrGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
-dubrGatewayARN = lens _dubrGatewayARN (\s a -> s { _dubrGatewayARN = a })
-
-dubrUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
-dubrUploadBufferAllocatedInBytes =
-    lens _dubrUploadBufferAllocatedInBytes
-        (\s a -> s { _dubrUploadBufferAllocatedInBytes = a })
-
-dubrUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
-dubrUploadBufferUsedInBytes =
-    lens _dubrUploadBufferUsedInBytes
-        (\s a -> s { _dubrUploadBufferUsedInBytes = a })
-
-instance ToPath DescribeUploadBuffer where
-    toPath = const "/"
-
-instance ToQuery DescribeUploadBuffer where
-    toQuery = const mempty
-
-instance ToHeaders DescribeUploadBuffer
-
-instance ToJSON DescribeUploadBuffer where
-    toJSON DescribeUploadBuffer{..} = object
-        [ "GatewayARN" .= _dubGatewayARN
-        ]
+dubGatewayARN = lens _dubGatewayARN (\ s a -> s{_dubGatewayARN = a});
 
 instance AWSRequest DescribeUploadBuffer where
-    type Sv DescribeUploadBuffer = StorageGateway
-    type Rs DescribeUploadBuffer = DescribeUploadBufferResponse
+        type Sv DescribeUploadBuffer = StorageGateway
+        type Rs DescribeUploadBuffer =
+             DescribeUploadBufferResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeUploadBufferResponse' <$>
+                   (x .?> "UploadBufferAllocatedInBytes") <*>
+                     (x .?> "GatewayARN")
+                     <*> (x .?> "DiskIds" .!@ mempty)
+                     <*> (x .?> "UploadBufferUsedInBytes")
+                     <*> (pure (fromEnum s)))
 
-    request  = post "DescribeUploadBuffer"
-    response = jsonResponse
+instance ToHeaders DescribeUploadBuffer where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.DescribeUploadBuffer" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON DescribeUploadBufferResponse where
-    parseJSON = withObject "DescribeUploadBufferResponse" $ \o -> DescribeUploadBufferResponse
-        <$> o .:? "DiskIds" .!= mempty
-        <*> o .:? "GatewayARN"
-        <*> o .:? "UploadBufferAllocatedInBytes"
-        <*> o .:? "UploadBufferUsedInBytes"
+instance ToJSON DescribeUploadBuffer where
+        toJSON DescribeUploadBuffer'{..}
+          = object ["GatewayARN" .= _dubGatewayARN]
+
+instance ToPath DescribeUploadBuffer where
+        toPath = const "/"
+
+instance ToQuery DescribeUploadBuffer where
+        toQuery = const mempty
+
+-- | /See:/ 'describeUploadBufferResponse' smart constructor.
+data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
+    { _dubrsUploadBufferAllocatedInBytes :: !(Maybe Integer)
+    , _dubrsGatewayARN                   :: !(Maybe Text)
+    , _dubrsDiskIds                      :: !(Maybe [Text])
+    , _dubrsUploadBufferUsedInBytes      :: !(Maybe Integer)
+    , _dubrsStatus                       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeUploadBufferResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dubrsUploadBufferAllocatedInBytes'
+--
+-- * 'dubrsGatewayARN'
+--
+-- * 'dubrsDiskIds'
+--
+-- * 'dubrsUploadBufferUsedInBytes'
+--
+-- * 'dubrsStatus'
+describeUploadBufferResponse
+    :: Int -- ^ 'dubrsStatus'
+    -> DescribeUploadBufferResponse
+describeUploadBufferResponse pStatus_ =
+    DescribeUploadBufferResponse'
+    { _dubrsUploadBufferAllocatedInBytes = Nothing
+    , _dubrsGatewayARN = Nothing
+    , _dubrsDiskIds = Nothing
+    , _dubrsUploadBufferUsedInBytes = Nothing
+    , _dubrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+dubrsUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
+dubrsUploadBufferAllocatedInBytes = lens _dubrsUploadBufferAllocatedInBytes (\ s a -> s{_dubrsUploadBufferAllocatedInBytes = a});
+
+-- | Undocumented member.
+dubrsGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
+dubrsGatewayARN = lens _dubrsGatewayARN (\ s a -> s{_dubrsGatewayARN = a});
+
+-- | Undocumented member.
+dubrsDiskIds :: Lens' DescribeUploadBufferResponse [Text]
+dubrsDiskIds = lens _dubrsDiskIds (\ s a -> s{_dubrsDiskIds = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+dubrsUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
+dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\ s a -> s{_dubrsUploadBufferUsedInBytes = a});
+
+-- | The response status code.
+dubrsStatus :: Lens' DescribeUploadBufferResponse Int
+dubrsStatus = lens _dubrsStatus (\ s a -> s{_dubrsStatus = a});

@@ -1,103 +1,106 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.DeleteSubnet
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified subnet. You must terminate all running instances in the
--- subnet before you can delete the subnet.
+-- |
+-- Module      : Network.AWS.EC2.DeleteSubnet
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSubnet.html>
+-- Deletes the specified subnet. You must terminate all running instances
+-- in the subnet before you can delete the subnet.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSubnet.html AWS API Reference> for DeleteSubnet.
 module Network.AWS.EC2.DeleteSubnet
     (
-    -- * Request
-      DeleteSubnet
-    -- ** Request constructor
-    , deleteSubnet
-    -- ** Request lenses
-    , ds2DryRun
-    , ds2SubnetId
+    -- * Creating a Request
+      deleteSubnet
+    , DeleteSubnet
+    -- * Request Lenses
+    , ddDryRun
+    , ddSubnetId
 
-    -- * Response
-    , DeleteSubnetResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteSubnetResponse
+    , DeleteSubnetResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteSubnet = DeleteSubnet
-    { _ds2DryRun   :: Maybe Bool
-    , _ds2SubnetId :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'deleteSubnet' smart constructor.
+data DeleteSubnet = DeleteSubnet'
+    { _ddDryRun   :: !(Maybe Bool)
+    , _ddSubnetId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSubnet' constructor.
+-- | Creates a value of 'DeleteSubnet' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ds2DryRun' @::@ 'Maybe' 'Bool'
+-- * 'ddDryRun'
 --
--- * 'ds2SubnetId' @::@ 'Text'
---
-deleteSubnet :: Text -- ^ 'ds2SubnetId'
-             -> DeleteSubnet
-deleteSubnet p1 = DeleteSubnet
-    { _ds2SubnetId = p1
-    , _ds2DryRun   = Nothing
+-- * 'ddSubnetId'
+deleteSubnet
+    :: Text -- ^ 'ddSubnetId'
+    -> DeleteSubnet
+deleteSubnet pSubnetId_ =
+    DeleteSubnet'
+    { _ddDryRun = Nothing
+    , _ddSubnetId = pSubnetId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-ds2DryRun :: Lens' DeleteSubnet (Maybe Bool)
-ds2DryRun = lens _ds2DryRun (\s a -> s { _ds2DryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+ddDryRun :: Lens' DeleteSubnet (Maybe Bool)
+ddDryRun = lens _ddDryRun (\ s a -> s{_ddDryRun = a});
 
 -- | The ID of the subnet.
-ds2SubnetId :: Lens' DeleteSubnet Text
-ds2SubnetId = lens _ds2SubnetId (\s a -> s { _ds2SubnetId = a })
-
-data DeleteSubnetResponse = DeleteSubnetResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteSubnetResponse' constructor.
-deleteSubnetResponse :: DeleteSubnetResponse
-deleteSubnetResponse = DeleteSubnetResponse
-
-instance ToPath DeleteSubnet where
-    toPath = const "/"
-
-instance ToQuery DeleteSubnet where
-    toQuery DeleteSubnet{..} = mconcat
-        [ "DryRun"   =? _ds2DryRun
-        , "SubnetId" =? _ds2SubnetId
-        ]
-
-instance ToHeaders DeleteSubnet
+ddSubnetId :: Lens' DeleteSubnet Text
+ddSubnetId = lens _ddSubnetId (\ s a -> s{_ddSubnetId = a});
 
 instance AWSRequest DeleteSubnet where
-    type Sv DeleteSubnet = EC2
-    type Rs DeleteSubnet = DeleteSubnetResponse
+        type Sv DeleteSubnet = EC2
+        type Rs DeleteSubnet = DeleteSubnetResponse
+        request = post
+        response = receiveNull DeleteSubnetResponse'
 
-    request  = post "DeleteSubnet"
-    response = nullResponse DeleteSubnetResponse
+instance ToHeaders DeleteSubnet where
+        toHeaders = const mempty
+
+instance ToPath DeleteSubnet where
+        toPath = const "/"
+
+instance ToQuery DeleteSubnet where
+        toQuery DeleteSubnet'{..}
+          = mconcat
+              ["Action" =: ("DeleteSubnet" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _ddDryRun, "SubnetId" =: _ddSubnetId]
+
+-- | /See:/ 'deleteSubnetResponse' smart constructor.
+data DeleteSubnetResponse =
+    DeleteSubnetResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteSubnetResponse' with the minimum fields required to make a request.
+--
+deleteSubnetResponse
+    :: DeleteSubnetResponse
+deleteSubnetResponse = DeleteSubnetResponse'

@@ -1,94 +1,100 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudWatchLogs.DeleteLogGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the log group with the specified name and permanently deletes all
--- the archived log events associated with it.
+-- |
+-- Module      : Network.AWS.CloudWatchLogs.DeleteLogGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogGroup.html>
+-- Deletes the log group with the specified name and permanently deletes
+-- all the archived log events associated with it.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogGroup.html AWS API Reference> for DeleteLogGroup.
 module Network.AWS.CloudWatchLogs.DeleteLogGroup
     (
-    -- * Request
-      DeleteLogGroup
-    -- ** Request constructor
-    , deleteLogGroup
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteLogGroup
+    , DeleteLogGroup
+    -- * Request Lenses
     , dlgLogGroupName
 
-    -- * Response
-    , DeleteLogGroupResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteLogGroupResponse
+    , DeleteLogGroupResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CloudWatchLogs.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteLogGroup = DeleteLogGroup
+-- | /See:/ 'deleteLogGroup' smart constructor.
+newtype DeleteLogGroup = DeleteLogGroup'
     { _dlgLogGroupName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteLogGroup' constructor.
+-- | Creates a value of 'DeleteLogGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dlgLogGroupName' @::@ 'Text'
---
-deleteLogGroup :: Text -- ^ 'dlgLogGroupName'
-               -> DeleteLogGroup
-deleteLogGroup p1 = DeleteLogGroup
-    { _dlgLogGroupName = p1
+-- * 'dlgLogGroupName'
+deleteLogGroup
+    :: Text -- ^ 'dlgLogGroupName'
+    -> DeleteLogGroup
+deleteLogGroup pLogGroupName_ =
+    DeleteLogGroup'
+    { _dlgLogGroupName = pLogGroupName_
     }
 
+-- | The name of the log group to delete.
 dlgLogGroupName :: Lens' DeleteLogGroup Text
-dlgLogGroupName = lens _dlgLogGroupName (\s a -> s { _dlgLogGroupName = a })
-
-data DeleteLogGroupResponse = DeleteLogGroupResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteLogGroupResponse' constructor.
-deleteLogGroupResponse :: DeleteLogGroupResponse
-deleteLogGroupResponse = DeleteLogGroupResponse
-
-instance ToPath DeleteLogGroup where
-    toPath = const "/"
-
-instance ToQuery DeleteLogGroup where
-    toQuery = const mempty
-
-instance ToHeaders DeleteLogGroup
-
-instance ToJSON DeleteLogGroup where
-    toJSON DeleteLogGroup{..} = object
-        [ "logGroupName" .= _dlgLogGroupName
-        ]
+dlgLogGroupName = lens _dlgLogGroupName (\ s a -> s{_dlgLogGroupName = a});
 
 instance AWSRequest DeleteLogGroup where
-    type Sv DeleteLogGroup = CloudWatchLogs
-    type Rs DeleteLogGroup = DeleteLogGroupResponse
+        type Sv DeleteLogGroup = CloudWatchLogs
+        type Rs DeleteLogGroup = DeleteLogGroupResponse
+        request = postJSON
+        response = receiveNull DeleteLogGroupResponse'
 
-    request  = post "DeleteLogGroup"
-    response = nullResponse DeleteLogGroupResponse
+instance ToHeaders DeleteLogGroup where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("Logs_20140328.DeleteLogGroup" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteLogGroup where
+        toJSON DeleteLogGroup'{..}
+          = object ["logGroupName" .= _dlgLogGroupName]
+
+instance ToPath DeleteLogGroup where
+        toPath = const "/"
+
+instance ToQuery DeleteLogGroup where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteLogGroupResponse' smart constructor.
+data DeleteLogGroupResponse =
+    DeleteLogGroupResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteLogGroupResponse' with the minimum fields required to make a request.
+--
+deleteLogGroupResponse
+    :: DeleteLogGroupResponse
+deleteLogGroupResponse = DeleteLogGroupResponse'

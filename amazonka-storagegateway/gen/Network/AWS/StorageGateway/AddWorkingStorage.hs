@@ -1,131 +1,157 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.StorageGateway.AddWorkingStorage
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation configures one or more gateway local disks as working storage
--- for a gateway. This operation is supported only for the gateway-stored volume
--- architecture. This operation is deprecated method in cached-volumes API
--- version (20120630). Use AddUploadBuffer instead.
+-- |
+-- Module      : Network.AWS.StorageGateway.AddWorkingStorage
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Working storage is also referred to as upload buffer. You can also use the 'AddUploadBuffer' operation to add upload buffer to a stored-volume gateway.
+-- This operation configures one or more gateway local disks as working
+-- storage for a gateway. This operation is supported only for the
+-- gateway-stored volume architecture. This operation is deprecated method
+-- in cached-volumes API version (20120630). Use AddUploadBuffer instead.
 --
--- In the request, you specify the gateway Amazon Resource Name (ARN) to which
--- you want to add working storage, and one or more disk IDs that you want to
--- configure as working storage.
+-- Working storage is also referred to as upload buffer. You can also use
+-- the AddUploadBuffer operation to add upload buffer to a stored-volume
+-- gateway.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddWorkingStorage.html>
+-- In the request, you specify the gateway Amazon Resource Name (ARN) to
+-- which you want to add working storage, and one or more disk IDs that you
+-- want to configure as working storage.
+--
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_AddWorkingStorage.html AWS API Reference> for AddWorkingStorage.
 module Network.AWS.StorageGateway.AddWorkingStorage
     (
-    -- * Request
-      AddWorkingStorage
-    -- ** Request constructor
-    , addWorkingStorage
-    -- ** Request lenses
-    , awsDiskIds
+    -- * Creating a Request
+      addWorkingStorage
+    , AddWorkingStorage
+    -- * Request Lenses
     , awsGatewayARN
+    , awsDiskIds
 
-    -- * Response
-    , AddWorkingStorageResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , addWorkingStorageResponse
-    -- ** Response lenses
-    , awsrGatewayARN
+    , AddWorkingStorageResponse
+    -- * Response Lenses
+    , awsrsGatewayARN
+    , awsrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
+import           Network.AWS.StorageGateway.Types.Product
 
-data AddWorkingStorage = AddWorkingStorage
-    { _awsDiskIds    :: List "DiskIds" Text
-    , _awsGatewayARN :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | A JSON object containing one or more of the following fields:
+--
+-- -   AddWorkingStorageInput$DiskIds
+--
+-- /See:/ 'addWorkingStorage' smart constructor.
+data AddWorkingStorage = AddWorkingStorage'
+    { _awsGatewayARN :: !Text
+    , _awsDiskIds    :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AddWorkingStorage' constructor.
+-- | Creates a value of 'AddWorkingStorage' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'awsDiskIds' @::@ ['Text']
+-- * 'awsGatewayARN'
 --
--- * 'awsGatewayARN' @::@ 'Text'
---
-addWorkingStorage :: Text -- ^ 'awsGatewayARN'
-                  -> AddWorkingStorage
-addWorkingStorage p1 = AddWorkingStorage
-    { _awsGatewayARN = p1
-    , _awsDiskIds    = mempty
+-- * 'awsDiskIds'
+addWorkingStorage
+    :: Text -- ^ 'awsGatewayARN'
+    -> AddWorkingStorage
+addWorkingStorage pGatewayARN_ =
+    AddWorkingStorage'
+    { _awsGatewayARN = pGatewayARN_
+    , _awsDiskIds = mempty
     }
 
--- | An array of strings that identify disks that are to be configured as working
--- storage. Each string have a minimum length of 1 and maximum length of 300.
--- You can get the disk IDs from the 'ListLocalDisks' API.
-awsDiskIds :: Lens' AddWorkingStorage [Text]
-awsDiskIds = lens _awsDiskIds (\s a -> s { _awsDiskIds = a }) . _List
-
+-- | Undocumented member.
 awsGatewayARN :: Lens' AddWorkingStorage Text
-awsGatewayARN = lens _awsGatewayARN (\s a -> s { _awsGatewayARN = a })
+awsGatewayARN = lens _awsGatewayARN (\ s a -> s{_awsGatewayARN = a});
 
-newtype AddWorkingStorageResponse = AddWorkingStorageResponse
-    { _awsrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'AddWorkingStorageResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'awsrGatewayARN' @::@ 'Maybe' 'Text'
---
-addWorkingStorageResponse :: AddWorkingStorageResponse
-addWorkingStorageResponse = AddWorkingStorageResponse
-    { _awsrGatewayARN = Nothing
-    }
-
-awsrGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
-awsrGatewayARN = lens _awsrGatewayARN (\s a -> s { _awsrGatewayARN = a })
-
-instance ToPath AddWorkingStorage where
-    toPath = const "/"
-
-instance ToQuery AddWorkingStorage where
-    toQuery = const mempty
-
-instance ToHeaders AddWorkingStorage
-
-instance ToJSON AddWorkingStorage where
-    toJSON AddWorkingStorage{..} = object
-        [ "GatewayARN" .= _awsGatewayARN
-        , "DiskIds"    .= _awsDiskIds
-        ]
+-- | An array of strings that identify disks that are to be configured as
+-- working storage. Each string have a minimum length of 1 and maximum
+-- length of 300. You can get the disk IDs from the ListLocalDisks API.
+awsDiskIds :: Lens' AddWorkingStorage [Text]
+awsDiskIds = lens _awsDiskIds (\ s a -> s{_awsDiskIds = a}) . _Coerce;
 
 instance AWSRequest AddWorkingStorage where
-    type Sv AddWorkingStorage = StorageGateway
-    type Rs AddWorkingStorage = AddWorkingStorageResponse
+        type Sv AddWorkingStorage = StorageGateway
+        type Rs AddWorkingStorage = AddWorkingStorageResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 AddWorkingStorageResponse' <$>
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-    request  = post "AddWorkingStorage"
-    response = jsonResponse
+instance ToHeaders AddWorkingStorage where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.AddWorkingStorage" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON AddWorkingStorageResponse where
-    parseJSON = withObject "AddWorkingStorageResponse" $ \o -> AddWorkingStorageResponse
-        <$> o .:? "GatewayARN"
+instance ToJSON AddWorkingStorage where
+        toJSON AddWorkingStorage'{..}
+          = object
+              ["GatewayARN" .= _awsGatewayARN,
+               "DiskIds" .= _awsDiskIds]
+
+instance ToPath AddWorkingStorage where
+        toPath = const "/"
+
+instance ToQuery AddWorkingStorage where
+        toQuery = const mempty
+
+-- | A JSON object containing the of the gateway for which working storage
+-- was configured.
+--
+-- /See:/ 'addWorkingStorageResponse' smart constructor.
+data AddWorkingStorageResponse = AddWorkingStorageResponse'
+    { _awsrsGatewayARN :: !(Maybe Text)
+    , _awsrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AddWorkingStorageResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'awsrsGatewayARN'
+--
+-- * 'awsrsStatus'
+addWorkingStorageResponse
+    :: Int -- ^ 'awsrsStatus'
+    -> AddWorkingStorageResponse
+addWorkingStorageResponse pStatus_ =
+    AddWorkingStorageResponse'
+    { _awsrsGatewayARN = Nothing
+    , _awsrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+awsrsGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
+awsrsGatewayARN = lens _awsrsGatewayARN (\ s a -> s{_awsrsGatewayARN = a});
+
+-- | The response status code.
+awsrsStatus :: Lens' AddWorkingStorageResponse Int
+awsrsStatus = lens _awsrsStatus (\ s a -> s{_awsrsStatus = a});

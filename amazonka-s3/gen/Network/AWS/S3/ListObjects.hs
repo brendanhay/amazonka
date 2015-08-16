@@ -1,264 +1,286 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.ListObjects
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns some or all (up to 1000) of the objects in a bucket. You can use the
--- request parameters as selection criteria to return a subset of the objects in
--- a bucket.
+-- |
+-- Module      : Network.AWS.S3.ListObjects
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjects.html>
+-- Returns some or all (up to 1000) of the objects in a bucket. You can use
+-- the request parameters as selection criteria to return a subset of the
+-- objects in a bucket.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/ListObjects.html AWS API Reference> for ListObjects.
+--
+-- This operation returns paginated results.
 module Network.AWS.S3.ListObjects
     (
-    -- * Request
-      ListObjects
-    -- ** Request constructor
-    , listObjects
-    -- ** Request lenses
-    , loBucket
-    , loDelimiter
+    -- * Creating a Request
+      listObjects
+    , ListObjects
+    -- * Request Lenses
+    , loPrefix
     , loEncodingType
     , loMarker
     , loMaxKeys
-    , loPrefix
+    , loDelimiter
+    , loBucket
 
-    -- * Response
-    , ListObjectsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listObjectsResponse
-    -- ** Response lenses
-    , lorCommonPrefixes
-    , lorContents
-    , lorDelimiter
-    , lorEncodingType
-    , lorIsTruncated
-    , lorMarker
-    , lorMaxKeys
-    , lorName
-    , lorNextMarker
-    , lorPrefix
+    , ListObjectsResponse
+    -- * Response Lenses
+    , lorsContents
+    , lorsPrefix
+    , lorsEncodingType
+    , lorsCommonPrefixes
+    , lorsName
+    , lorsMarker
+    , lorsNextMarker
+    , lorsMaxKeys
+    , lorsIsTruncated
+    , lorsDelimiter
+    , lorsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-data ListObjects = ListObjects
-    { _loBucket       :: Text
-    , _loDelimiter    :: Maybe Text
-    , _loEncodingType :: Maybe EncodingType
-    , _loMarker       :: Maybe Text
-    , _loMaxKeys      :: Maybe Int
-    , _loPrefix       :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'listObjects' smart constructor.
+data ListObjects = ListObjects'
+    { _loPrefix       :: !(Maybe Text)
+    , _loEncodingType :: !(Maybe EncodingType)
+    , _loMarker       :: !(Maybe Text)
+    , _loMaxKeys      :: !(Maybe Int)
+    , _loDelimiter    :: !(Maybe Delimiter)
+    , _loBucket       :: !BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListObjects' constructor.
+-- | Creates a value of 'ListObjects' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'loBucket' @::@ 'Text'
+-- * 'loPrefix'
 --
--- * 'loDelimiter' @::@ 'Maybe' 'Text'
+-- * 'loEncodingType'
 --
--- * 'loEncodingType' @::@ 'Maybe' 'EncodingType'
+-- * 'loMarker'
 --
--- * 'loMarker' @::@ 'Maybe' 'Text'
+-- * 'loMaxKeys'
 --
--- * 'loMaxKeys' @::@ 'Maybe' 'Int'
+-- * 'loDelimiter'
 --
--- * 'loPrefix' @::@ 'Maybe' 'Text'
---
-listObjects :: Text -- ^ 'loBucket'
-            -> ListObjects
-listObjects p1 = ListObjects
-    { _loBucket       = p1
-    , _loDelimiter    = Nothing
+-- * 'loBucket'
+listObjects
+    :: BucketName -- ^ 'loBucket'
+    -> ListObjects
+listObjects pBucket_ =
+    ListObjects'
+    { _loPrefix = Nothing
     , _loEncodingType = Nothing
-    , _loMarker       = Nothing
-    , _loMaxKeys      = Nothing
-    , _loPrefix       = Nothing
+    , _loMarker = Nothing
+    , _loMaxKeys = Nothing
+    , _loDelimiter = Nothing
+    , _loBucket = pBucket_
     }
-
-loBucket :: Lens' ListObjects Text
-loBucket = lens _loBucket (\s a -> s { _loBucket = a })
-
--- | A delimiter is a character you use to group keys.
-loDelimiter :: Lens' ListObjects (Maybe Text)
-loDelimiter = lens _loDelimiter (\s a -> s { _loDelimiter = a })
-
-loEncodingType :: Lens' ListObjects (Maybe EncodingType)
-loEncodingType = lens _loEncodingType (\s a -> s { _loEncodingType = a })
-
--- | Specifies the key to start with when listing objects in a bucket.
-loMarker :: Lens' ListObjects (Maybe Text)
-loMarker = lens _loMarker (\s a -> s { _loMarker = a })
-
--- | Sets the maximum number of keys returned in the response. The response might
--- contain fewer keys but will never contain more.
-loMaxKeys :: Lens' ListObjects (Maybe Int)
-loMaxKeys = lens _loMaxKeys (\s a -> s { _loMaxKeys = a })
 
 -- | Limits the response to keys that begin with the specified prefix.
 loPrefix :: Lens' ListObjects (Maybe Text)
-loPrefix = lens _loPrefix (\s a -> s { _loPrefix = a })
+loPrefix = lens _loPrefix (\ s a -> s{_loPrefix = a});
 
-data ListObjectsResponse = ListObjectsResponse
-    { _lorCommonPrefixes :: List "CommonPrefixes" CommonPrefix
-    , _lorContents       :: List "Contents" Object
-    , _lorDelimiter      :: Maybe Text
-    , _lorEncodingType   :: Maybe EncodingType
-    , _lorIsTruncated    :: Maybe Bool
-    , _lorMarker         :: Maybe Text
-    , _lorMaxKeys        :: Maybe Int
-    , _lorName           :: Maybe Text
-    , _lorNextMarker     :: Maybe Text
-    , _lorPrefix         :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | Undocumented member.
+loEncodingType :: Lens' ListObjects (Maybe EncodingType)
+loEncodingType = lens _loEncodingType (\ s a -> s{_loEncodingType = a});
 
--- | 'ListObjectsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lorCommonPrefixes' @::@ ['CommonPrefix']
---
--- * 'lorContents' @::@ ['Object']
---
--- * 'lorDelimiter' @::@ 'Maybe' 'Text'
---
--- * 'lorEncodingType' @::@ 'Maybe' 'EncodingType'
---
--- * 'lorIsTruncated' @::@ 'Maybe' 'Bool'
---
--- * 'lorMarker' @::@ 'Maybe' 'Text'
---
--- * 'lorMaxKeys' @::@ 'Maybe' 'Int'
---
--- * 'lorName' @::@ 'Maybe' 'Text'
---
--- * 'lorNextMarker' @::@ 'Maybe' 'Text'
---
--- * 'lorPrefix' @::@ 'Maybe' 'Text'
---
-listObjectsResponse :: ListObjectsResponse
-listObjectsResponse = ListObjectsResponse
-    { _lorIsTruncated    = Nothing
-    , _lorMarker         = Nothing
-    , _lorNextMarker     = Nothing
-    , _lorContents       = mempty
-    , _lorName           = Nothing
-    , _lorPrefix         = Nothing
-    , _lorDelimiter      = Nothing
-    , _lorMaxKeys        = Nothing
-    , _lorCommonPrefixes = mempty
-    , _lorEncodingType   = Nothing
-    }
+-- | Specifies the key to start with when listing objects in a bucket.
+loMarker :: Lens' ListObjects (Maybe Text)
+loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
 
-lorCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
-lorCommonPrefixes =
-    lens _lorCommonPrefixes (\s a -> s { _lorCommonPrefixes = a })
-        . _List
+-- | Sets the maximum number of keys returned in the response. The response
+-- might contain fewer keys but will never contain more.
+loMaxKeys :: Lens' ListObjects (Maybe Int)
+loMaxKeys = lens _loMaxKeys (\ s a -> s{_loMaxKeys = a});
 
-lorContents :: Lens' ListObjectsResponse [Object]
-lorContents = lens _lorContents (\s a -> s { _lorContents = a }) . _List
+-- | A delimiter is a character you use to group keys.
+loDelimiter :: Lens' ListObjects (Maybe Delimiter)
+loDelimiter = lens _loDelimiter (\ s a -> s{_loDelimiter = a});
 
-lorDelimiter :: Lens' ListObjectsResponse (Maybe Text)
-lorDelimiter = lens _lorDelimiter (\s a -> s { _lorDelimiter = a })
-
--- | Encoding type used by Amazon S3 to encode object keys in the response.
-lorEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
-lorEncodingType = lens _lorEncodingType (\s a -> s { _lorEncodingType = a })
-
--- | A flag that indicates whether or not Amazon S3 returned all of the results
--- that satisfied the search criteria.
-lorIsTruncated :: Lens' ListObjectsResponse (Maybe Bool)
-lorIsTruncated = lens _lorIsTruncated (\s a -> s { _lorIsTruncated = a })
-
-lorMarker :: Lens' ListObjectsResponse (Maybe Text)
-lorMarker = lens _lorMarker (\s a -> s { _lorMarker = a })
-
-lorMaxKeys :: Lens' ListObjectsResponse (Maybe Int)
-lorMaxKeys = lens _lorMaxKeys (\s a -> s { _lorMaxKeys = a })
-
-lorName :: Lens' ListObjectsResponse (Maybe Text)
-lorName = lens _lorName (\s a -> s { _lorName = a })
-
--- | When response is truncated (the IsTruncated element value in the response is
--- true), you can use the key name in this field as marker in the subsequent
--- request to get next set of objects. Amazon S3 lists objects in alphabetical
--- order Note: This element is returned only if you have delimiter request
--- parameter specified. If response does not include the NextMaker and it is
--- truncated, you can use the value of the last Key in the response as the
--- marker in the subsequent request to get the next set of object keys.
-lorNextMarker :: Lens' ListObjectsResponse (Maybe Text)
-lorNextMarker = lens _lorNextMarker (\s a -> s { _lorNextMarker = a })
-
-lorPrefix :: Lens' ListObjectsResponse (Maybe Text)
-lorPrefix = lens _lorPrefix (\s a -> s { _lorPrefix = a })
-
-instance ToPath ListObjects where
-    toPath ListObjects{..} = mconcat
-        [ "/"
-        , toText _loBucket
-        ]
-
-instance ToQuery ListObjects where
-    toQuery ListObjects{..} = mconcat
-        [ "delimiter"     =? _loDelimiter
-        , "encoding-type" =? _loEncodingType
-        , "marker"        =? _loMarker
-        , "max-keys"      =? _loMaxKeys
-        , "prefix"        =? _loPrefix
-        ]
-
-instance ToHeaders ListObjects
-
-instance ToXMLRoot ListObjects where
-    toXMLRoot = const (namespaced ns "ListObjects" [])
-
-instance ToXML ListObjects
-
-instance AWSRequest ListObjects where
-    type Sv ListObjects = S3
-    type Rs ListObjects = ListObjectsResponse
-
-    request  = get
-    response = xmlResponse
-
-instance FromXML ListObjectsResponse where
-    parseXML x = ListObjectsResponse
-        <$> parseXML x
-        <*> parseXML x
-        <*> x .@? "Delimiter"
-        <*> x .@? "EncodingType"
-        <*> x .@? "IsTruncated"
-        <*> x .@? "Marker"
-        <*> x .@? "MaxKeys"
-        <*> x .@? "Name"
-        <*> x .@? "NextMarker"
-        <*> x .@? "Prefix"
+-- | Undocumented member.
+loBucket :: Lens' ListObjects BucketName
+loBucket = lens _loBucket (\ s a -> s{_loBucket = a});
 
 instance AWSPager ListObjects where
-    page rq rs
-        | stop (rs ^. lorIsTruncated) = Nothing
-        | otherwise = Just $ rq
-            & loMarker .~ rs ^. lorNextMarker
+        page rq rs
+          | stop (rs ^. lorsIsTruncated) = Nothing
+          | isNothing
+              (rs ^.
+                 choice (^. lorsNextMarker)
+                   (^? (lorsContents . _last . oKey)))
+            = Nothing
+          | otherwise =
+            Just $ rq &
+              loMarker .~
+                rs ^.
+                  choice (^. lorsNextMarker)
+                    (^? (lorsContents . _last . oKey))
+
+instance AWSRequest ListObjects where
+        type Sv ListObjects = S3
+        type Rs ListObjects = ListObjectsResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 ListObjectsResponse' <$>
+                   (may (parseXMLList "Contents") x) <*>
+                     (x .@? "Prefix")
+                     <*> (x .@? "EncodingType")
+                     <*> (may (parseXMLList "CommonPrefixes") x)
+                     <*> (x .@? "Name")
+                     <*> (x .@? "Marker")
+                     <*> (x .@? "NextMarker")
+                     <*> (x .@? "MaxKeys")
+                     <*> (x .@? "IsTruncated")
+                     <*> (x .@? "Delimiter")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListObjects where
+        toHeaders = const mempty
+
+instance ToPath ListObjects where
+        toPath ListObjects'{..}
+          = mconcat ["/", toBS _loBucket]
+
+instance ToQuery ListObjects where
+        toQuery ListObjects'{..}
+          = mconcat
+              ["prefix" =: _loPrefix,
+               "encoding-type" =: _loEncodingType,
+               "marker" =: _loMarker, "max-keys" =: _loMaxKeys,
+               "delimiter" =: _loDelimiter]
+
+-- | /See:/ 'listObjectsResponse' smart constructor.
+data ListObjectsResponse = ListObjectsResponse'
+    { _lorsContents       :: !(Maybe [Object])
+    , _lorsPrefix         :: !(Maybe Text)
+    , _lorsEncodingType   :: !(Maybe EncodingType)
+    , _lorsCommonPrefixes :: !(Maybe [CommonPrefix])
+    , _lorsName           :: !(Maybe BucketName)
+    , _lorsMarker         :: !(Maybe Text)
+    , _lorsNextMarker     :: !(Maybe Text)
+    , _lorsMaxKeys        :: !(Maybe Int)
+    , _lorsIsTruncated    :: !(Maybe Bool)
+    , _lorsDelimiter      :: !(Maybe Delimiter)
+    , _lorsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListObjectsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lorsContents'
+--
+-- * 'lorsPrefix'
+--
+-- * 'lorsEncodingType'
+--
+-- * 'lorsCommonPrefixes'
+--
+-- * 'lorsName'
+--
+-- * 'lorsMarker'
+--
+-- * 'lorsNextMarker'
+--
+-- * 'lorsMaxKeys'
+--
+-- * 'lorsIsTruncated'
+--
+-- * 'lorsDelimiter'
+--
+-- * 'lorsStatus'
+listObjectsResponse
+    :: Int -- ^ 'lorsStatus'
+    -> ListObjectsResponse
+listObjectsResponse pStatus_ =
+    ListObjectsResponse'
+    { _lorsContents = Nothing
+    , _lorsPrefix = Nothing
+    , _lorsEncodingType = Nothing
+    , _lorsCommonPrefixes = Nothing
+    , _lorsName = Nothing
+    , _lorsMarker = Nothing
+    , _lorsNextMarker = Nothing
+    , _lorsMaxKeys = Nothing
+    , _lorsIsTruncated = Nothing
+    , _lorsDelimiter = Nothing
+    , _lorsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+lorsContents :: Lens' ListObjectsResponse [Object]
+lorsContents = lens _lorsContents (\ s a -> s{_lorsContents = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+lorsPrefix :: Lens' ListObjectsResponse (Maybe Text)
+lorsPrefix = lens _lorsPrefix (\ s a -> s{_lorsPrefix = a});
+
+-- | Encoding type used by Amazon S3 to encode object keys in the response.
+lorsEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
+lorsEncodingType = lens _lorsEncodingType (\ s a -> s{_lorsEncodingType = a});
+
+-- | Undocumented member.
+lorsCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
+lorsCommonPrefixes = lens _lorsCommonPrefixes (\ s a -> s{_lorsCommonPrefixes = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+lorsName :: Lens' ListObjectsResponse (Maybe BucketName)
+lorsName = lens _lorsName (\ s a -> s{_lorsName = a});
+
+-- | Undocumented member.
+lorsMarker :: Lens' ListObjectsResponse (Maybe Text)
+lorsMarker = lens _lorsMarker (\ s a -> s{_lorsMarker = a});
+
+-- | When response is truncated (the IsTruncated element value in the
+-- response is true), you can use the key name in this field as marker in
+-- the subsequent request to get next set of objects. Amazon S3 lists
+-- objects in alphabetical order Note: This element is returned only if you
+-- have delimiter request parameter specified. If response does not include
+-- the NextMaker and it is truncated, you can use the value of the last Key
+-- in the response as the marker in the subsequent request to get the next
+-- set of object keys.
+lorsNextMarker :: Lens' ListObjectsResponse (Maybe Text)
+lorsNextMarker = lens _lorsNextMarker (\ s a -> s{_lorsNextMarker = a});
+
+-- | Undocumented member.
+lorsMaxKeys :: Lens' ListObjectsResponse (Maybe Int)
+lorsMaxKeys = lens _lorsMaxKeys (\ s a -> s{_lorsMaxKeys = a});
+
+-- | A flag that indicates whether or not Amazon S3 returned all of the
+-- results that satisfied the search criteria.
+lorsIsTruncated :: Lens' ListObjectsResponse (Maybe Bool)
+lorsIsTruncated = lens _lorsIsTruncated (\ s a -> s{_lorsIsTruncated = a});
+
+-- | Undocumented member.
+lorsDelimiter :: Lens' ListObjectsResponse (Maybe Delimiter)
+lorsDelimiter = lens _lorsDelimiter (\ s a -> s{_lorsDelimiter = a});
+
+-- | The response status code.
+lorsStatus :: Lens' ListObjectsResponse Int
+lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});

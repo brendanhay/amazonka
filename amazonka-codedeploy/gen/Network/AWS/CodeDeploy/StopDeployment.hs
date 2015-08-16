@@ -1,125 +1,129 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CodeDeploy.StopDeployment
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Attempts to stop an ongoing deployment.
+-- |
+-- Module      : Network.AWS.CodeDeploy.StopDeployment
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_StopDeployment.html>
+-- Attempts to stop an ongoing deployment.
+--
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_StopDeployment.html AWS API Reference> for StopDeployment.
 module Network.AWS.CodeDeploy.StopDeployment
     (
-    -- * Request
-      StopDeployment
-    -- ** Request constructor
-    , stopDeployment
-    -- ** Request lenses
+    -- * Creating a Request
+      stopDeployment
+    , StopDeployment
+    -- * Request Lenses
     , sdDeploymentId
 
-    -- * Response
-    , StopDeploymentResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , stopDeploymentResponse
-    -- ** Response lenses
-    , sdrStatus
-    , sdrStatusMessage
+    , StopDeploymentResponse
+    -- * Response Lenses
+    , sdrsStatusMessage
+    , sdrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype StopDeployment = StopDeployment
+-- | Represents the input of a stop deployment operation.
+--
+-- /See:/ 'stopDeployment' smart constructor.
+newtype StopDeployment = StopDeployment'
     { _sdDeploymentId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopDeployment' constructor.
+-- | Creates a value of 'StopDeployment' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sdDeploymentId' @::@ 'Text'
---
-stopDeployment :: Text -- ^ 'sdDeploymentId'
-               -> StopDeployment
-stopDeployment p1 = StopDeployment
-    { _sdDeploymentId = p1
+-- * 'sdDeploymentId'
+stopDeployment
+    :: Text -- ^ 'sdDeploymentId'
+    -> StopDeployment
+stopDeployment pDeploymentId_ =
+    StopDeployment'
+    { _sdDeploymentId = pDeploymentId_
     }
 
 -- | The unique ID of a deployment.
 sdDeploymentId :: Lens' StopDeployment Text
-sdDeploymentId = lens _sdDeploymentId (\s a -> s { _sdDeploymentId = a })
-
-data StopDeploymentResponse = StopDeploymentResponse
-    { _sdrStatus        :: Maybe StopStatus
-    , _sdrStatusMessage :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'StopDeploymentResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sdrStatus' @::@ 'Maybe' 'StopStatus'
---
--- * 'sdrStatusMessage' @::@ 'Maybe' 'Text'
---
-stopDeploymentResponse :: StopDeploymentResponse
-stopDeploymentResponse = StopDeploymentResponse
-    { _sdrStatus        = Nothing
-    , _sdrStatusMessage = Nothing
-    }
-
--- | The status of the stop deployment operation:
---
--- Pending: The stop operation is pending. Succeeded: The stop operation
--- succeeded.
-sdrStatus :: Lens' StopDeploymentResponse (Maybe StopStatus)
-sdrStatus = lens _sdrStatus (\s a -> s { _sdrStatus = a })
-
--- | An accompanying status message.
-sdrStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
-sdrStatusMessage = lens _sdrStatusMessage (\s a -> s { _sdrStatusMessage = a })
-
-instance ToPath StopDeployment where
-    toPath = const "/"
-
-instance ToQuery StopDeployment where
-    toQuery = const mempty
-
-instance ToHeaders StopDeployment
-
-instance ToJSON StopDeployment where
-    toJSON StopDeployment{..} = object
-        [ "deploymentId" .= _sdDeploymentId
-        ]
+sdDeploymentId = lens _sdDeploymentId (\ s a -> s{_sdDeploymentId = a});
 
 instance AWSRequest StopDeployment where
-    type Sv StopDeployment = CodeDeploy
-    type Rs StopDeployment = StopDeploymentResponse
+        type Sv StopDeployment = CodeDeploy
+        type Rs StopDeployment = StopDeploymentResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 StopDeploymentResponse' <$>
+                   (x .?> "statusMessage") <*> (pure (fromEnum s)))
 
-    request  = post "StopDeployment"
-    response = jsonResponse
+instance ToHeaders StopDeployment where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.StopDeployment" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON StopDeploymentResponse where
-    parseJSON = withObject "StopDeploymentResponse" $ \o -> StopDeploymentResponse
-        <$> o .:? "status"
-        <*> o .:? "statusMessage"
+instance ToJSON StopDeployment where
+        toJSON StopDeployment'{..}
+          = object ["deploymentId" .= _sdDeploymentId]
+
+instance ToPath StopDeployment where
+        toPath = const "/"
+
+instance ToQuery StopDeployment where
+        toQuery = const mempty
+
+-- | Represents the output of a stop deployment operation.
+--
+-- /See:/ 'stopDeploymentResponse' smart constructor.
+data StopDeploymentResponse = StopDeploymentResponse'
+    { _sdrsStatusMessage :: !(Maybe Text)
+    , _sdrsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StopDeploymentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sdrsStatusMessage'
+--
+-- * 'sdrsStatus'
+stopDeploymentResponse
+    :: Int -- ^ 'sdrsStatus'
+    -> StopDeploymentResponse
+stopDeploymentResponse pStatus_ =
+    StopDeploymentResponse'
+    { _sdrsStatusMessage = Nothing
+    , _sdrsStatus = pStatus_
+    }
+
+-- | An accompanying status message.
+sdrsStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
+sdrsStatusMessage = lens _sdrsStatusMessage (\ s a -> s{_sdrsStatusMessage = a});
+
+-- | The response status code.
+sdrsStatus :: Lens' StopDeploymentResponse Int
+sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a});

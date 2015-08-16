@@ -1,103 +1,121 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SES.ListVerifiedEmailAddresses
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a list containing all of the email addresses that have been verified.
+-- |
+-- Module      : Network.AWS.SES.ListVerifiedEmailAddresses
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012
--- release of Domain Verification. The ListIdentities action is now preferred. This action is throttled at one request per second.
+-- Returns a list containing all of the email addresses that have been
+-- verified.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListVerifiedEmailAddresses.html>
+-- The ListVerifiedEmailAddresses action is deprecated as of the May 15,
+-- 2012 release of Domain Verification. The ListIdentities action is now
+-- preferred.
+--
+-- This action is throttled at one request per second.
+--
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_ListVerifiedEmailAddresses.html AWS API Reference> for ListVerifiedEmailAddresses.
 module Network.AWS.SES.ListVerifiedEmailAddresses
     (
-    -- * Request
-      ListVerifiedEmailAddresses
-    -- ** Request constructor
-    , listVerifiedEmailAddresses
+    -- * Creating a Request
+      listVerifiedEmailAddresses
+    , ListVerifiedEmailAddresses
 
-    -- * Response
-    , ListVerifiedEmailAddressesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listVerifiedEmailAddressesResponse
-    -- ** Response lenses
-    , lvearVerifiedEmailAddresses
+    , ListVerifiedEmailAddressesResponse
+    -- * Response Lenses
+    , lvearsVerifiedEmailAddresses
+    , lvearsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SES.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
+import           Network.AWS.SES.Types.Product
 
-data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | /See:/ 'listVerifiedEmailAddresses' smart constructor.
+data ListVerifiedEmailAddresses =
+    ListVerifiedEmailAddresses'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListVerifiedEmailAddresses' constructor.
-listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
-listVerifiedEmailAddresses = ListVerifiedEmailAddresses
-
-newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
-    { _lvearVerifiedEmailAddresses :: List "member" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList ListVerifiedEmailAddressesResponse where
-    type Item ListVerifiedEmailAddressesResponse = Text
-
-    fromList = ListVerifiedEmailAddressesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _lvearVerifiedEmailAddresses
-
--- | 'ListVerifiedEmailAddressesResponse' constructor.
+-- | Creates a value of 'ListVerifiedEmailAddresses' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+listVerifiedEmailAddresses
+    :: ListVerifiedEmailAddresses
+listVerifiedEmailAddresses = ListVerifiedEmailAddresses'
+
+instance AWSRequest ListVerifiedEmailAddresses where
+        type Sv ListVerifiedEmailAddresses = SES
+        type Rs ListVerifiedEmailAddresses =
+             ListVerifiedEmailAddressesResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "ListVerifiedEmailAddressesResult"
+              (\ s h x ->
+                 ListVerifiedEmailAddressesResponse' <$>
+                   (x .@? "VerifiedEmailAddresses" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListVerifiedEmailAddresses where
+        toHeaders = const mempty
+
+instance ToPath ListVerifiedEmailAddresses where
+        toPath = const "/"
+
+instance ToQuery ListVerifiedEmailAddresses where
+        toQuery
+          = const
+              (mconcat
+                 ["Action" =:
+                    ("ListVerifiedEmailAddresses" :: ByteString),
+                  "Version" =: ("2010-12-01" :: ByteString)])
+
+-- | Represents a list of all the email addresses verified for the current
+-- user.
 --
--- * 'lvearVerifiedEmailAddresses' @::@ ['Text']
+-- /See:/ 'listVerifiedEmailAddressesResponse' smart constructor.
+data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
+    { _lvearsVerifiedEmailAddresses :: !(Maybe [Text])
+    , _lvearsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListVerifiedEmailAddressesResponse' with the minimum fields required to make a request.
 --
-listVerifiedEmailAddressesResponse :: ListVerifiedEmailAddressesResponse
-listVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
-    { _lvearVerifiedEmailAddresses = mempty
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lvearsVerifiedEmailAddresses'
+--
+-- * 'lvearsStatus'
+listVerifiedEmailAddressesResponse
+    :: Int -- ^ 'lvearsStatus'
+    -> ListVerifiedEmailAddressesResponse
+listVerifiedEmailAddressesResponse pStatus_ =
+    ListVerifiedEmailAddressesResponse'
+    { _lvearsVerifiedEmailAddresses = Nothing
+    , _lvearsStatus = pStatus_
     }
 
 -- | A list of email addresses that have been verified.
-lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
-lvearVerifiedEmailAddresses =
-    lens _lvearVerifiedEmailAddresses
-        (\s a -> s { _lvearVerifiedEmailAddresses = a })
-            . _List
+lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
+lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_lvearsVerifiedEmailAddresses = a}) . _Default . _Coerce;
 
-instance ToPath ListVerifiedEmailAddresses where
-    toPath = const "/"
-
-instance ToQuery ListVerifiedEmailAddresses where
-    toQuery = const mempty
-
-instance ToHeaders ListVerifiedEmailAddresses
-
-instance AWSRequest ListVerifiedEmailAddresses where
-    type Sv ListVerifiedEmailAddresses = SES
-    type Rs ListVerifiedEmailAddresses = ListVerifiedEmailAddressesResponse
-
-    request  = post "ListVerifiedEmailAddresses"
-    response = xmlResponse
-
-instance FromXML ListVerifiedEmailAddressesResponse where
-    parseXML = withElement "ListVerifiedEmailAddressesResult" $ \x -> ListVerifiedEmailAddressesResponse
-        <$> x .@? "VerifiedEmailAddresses" .!@ mempty
+-- | The response status code.
+lvearsStatus :: Lens' ListVerifiedEmailAddressesResponse Int
+lvearsStatus = lens _lvearsStatus (\ s a -> s{_lvearsStatus = a});

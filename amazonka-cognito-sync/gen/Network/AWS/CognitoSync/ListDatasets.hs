@@ -1,177 +1,187 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CognitoSync.ListDatasets
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists datasets for an identity. With Amazon Cognito Sync, each identity has
--- access only to its own data. Thus, the credentials used to make this API call
--- need to have access to the identity data.
+-- |
+-- Module      : Network.AWS.CognitoSync.ListDatasets
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Lists datasets for an identity. With Amazon Cognito Sync, each identity
+-- has access only to its own data. Thus, the credentials used to make this
+-- API call need to have access to the identity data.
 --
 -- ListDatasets can be called with temporary user credentials provided by
--- Cognito Identity or with developer credentials. You should use the Cognito
--- Identity credentials to make this API call.
+-- Cognito Identity or with developer credentials. You should use the
+-- Cognito Identity credentials to make this API call.
 --
--- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListDatasets.html>
+-- /See:/ <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListDatasets.html AWS API Reference> for ListDatasets.
 module Network.AWS.CognitoSync.ListDatasets
     (
-    -- * Request
-      ListDatasets
-    -- ** Request constructor
-    , listDatasets
-    -- ** Request lenses
+    -- * Creating a Request
+      listDatasets
+    , ListDatasets
+    -- * Request Lenses
+    , ldNextToken
+    , ldMaxResults
     , ldIdentityId
     , ldIdentityPoolId
-    , ldMaxResults
-    , ldNextToken
 
-    -- * Response
-    , ListDatasetsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listDatasetsResponse
-    -- ** Response lenses
-    , ldrCount
-    , ldrDatasets
-    , ldrNextToken
+    , ListDatasetsResponse
+    -- * Response Lenses
+    , ldrsCount
+    , ldrsNextToken
+    , ldrsDatasets
+    , ldrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.CognitoSync.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListDatasets = ListDatasets
-    { _ldIdentityId     :: Text
-    , _ldIdentityPoolId :: Text
-    , _ldMaxResults     :: Maybe Int
-    , _ldNextToken      :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Request for a list of datasets for an identity.
+--
+-- /See:/ 'listDatasets' smart constructor.
+data ListDatasets = ListDatasets'
+    { _ldNextToken      :: !(Maybe Text)
+    , _ldMaxResults     :: !(Maybe Int)
+    , _ldIdentityId     :: !Text
+    , _ldIdentityPoolId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDatasets' constructor.
+-- | Creates a value of 'ListDatasets' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldIdentityId' @::@ 'Text'
+-- * 'ldNextToken'
 --
--- * 'ldIdentityPoolId' @::@ 'Text'
+-- * 'ldMaxResults'
 --
--- * 'ldMaxResults' @::@ 'Maybe' 'Int'
+-- * 'ldIdentityId'
 --
--- * 'ldNextToken' @::@ 'Maybe' 'Text'
---
-listDatasets :: Text -- ^ 'ldIdentityPoolId'
-             -> Text -- ^ 'ldIdentityId'
-             -> ListDatasets
-listDatasets p1 p2 = ListDatasets
-    { _ldIdentityPoolId = p1
-    , _ldIdentityId     = p2
-    , _ldNextToken      = Nothing
-    , _ldMaxResults     = Nothing
+-- * 'ldIdentityPoolId'
+listDatasets
+    :: Text -- ^ 'ldIdentityId'
+    -> Text -- ^ 'ldIdentityPoolId'
+    -> ListDatasets
+listDatasets pIdentityId_ pIdentityPoolId_ =
+    ListDatasets'
+    { _ldNextToken = Nothing
+    , _ldMaxResults = Nothing
+    , _ldIdentityId = pIdentityId_
+    , _ldIdentityPoolId = pIdentityPoolId_
     }
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
-ldIdentityId :: Lens' ListDatasets Text
-ldIdentityId = lens _ldIdentityId (\s a -> s { _ldIdentityId = a })
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
-ldIdentityPoolId :: Lens' ListDatasets Text
-ldIdentityPoolId = lens _ldIdentityPoolId (\s a -> s { _ldIdentityPoolId = a })
-
--- | The maximum number of results to be returned.
-ldMaxResults :: Lens' ListDatasets (Maybe Int)
-ldMaxResults = lens _ldMaxResults (\s a -> s { _ldMaxResults = a })
 
 -- | A pagination token for obtaining the next page of results.
 ldNextToken :: Lens' ListDatasets (Maybe Text)
-ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
+ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
-data ListDatasetsResponse = ListDatasetsResponse
-    { _ldrCount     :: Maybe Int
-    , _ldrDatasets  :: List "Datasets" Dataset
-    , _ldrNextToken :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | The maximum number of results to be returned.
+ldMaxResults :: Lens' ListDatasets (Maybe Int)
+ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a});
 
--- | 'ListDatasetsResponse' constructor.
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+ldIdentityId :: Lens' ListDatasets Text
+ldIdentityId = lens _ldIdentityId (\ s a -> s{_ldIdentityId = a});
+
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+ldIdentityPoolId :: Lens' ListDatasets Text
+ldIdentityPoolId = lens _ldIdentityPoolId (\ s a -> s{_ldIdentityPoolId = a});
+
+instance AWSRequest ListDatasets where
+        type Sv ListDatasets = CognitoSync
+        type Rs ListDatasets = ListDatasetsResponse
+        request = get
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListDatasetsResponse' <$>
+                   (x .?> "Count") <*> (x .?> "NextToken") <*>
+                     (x .?> "Datasets" .!@ mempty)
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListDatasets where
+        toHeaders
+          = const
+              (mconcat
+                 ["Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToPath ListDatasets where
+        toPath ListDatasets'{..}
+          = mconcat
+              ["/identitypools/", toBS _ldIdentityPoolId,
+               "/identities/", toBS _ldIdentityId, "/datasets"]
+
+instance ToQuery ListDatasets where
+        toQuery ListDatasets'{..}
+          = mconcat
+              ["nextToken" =: _ldNextToken,
+               "maxResults" =: _ldMaxResults]
+
+-- | Returned for a successful ListDatasets request.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'listDatasetsResponse' smart constructor.
+data ListDatasetsResponse = ListDatasetsResponse'
+    { _ldrsCount     :: !(Maybe Int)
+    , _ldrsNextToken :: !(Maybe Text)
+    , _ldrsDatasets  :: !(Maybe [Dataset])
+    , _ldrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListDatasetsResponse' with the minimum fields required to make a request.
 --
--- * 'ldrCount' @::@ 'Maybe' 'Int'
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldrDatasets' @::@ ['Dataset']
+-- * 'ldrsCount'
 --
--- * 'ldrNextToken' @::@ 'Maybe' 'Text'
+-- * 'ldrsNextToken'
 --
-listDatasetsResponse :: ListDatasetsResponse
-listDatasetsResponse = ListDatasetsResponse
-    { _ldrDatasets  = mempty
-    , _ldrCount     = Nothing
-    , _ldrNextToken = Nothing
+-- * 'ldrsDatasets'
+--
+-- * 'ldrsStatus'
+listDatasetsResponse
+    :: Int -- ^ 'ldrsStatus'
+    -> ListDatasetsResponse
+listDatasetsResponse pStatus_ =
+    ListDatasetsResponse'
+    { _ldrsCount = Nothing
+    , _ldrsNextToken = Nothing
+    , _ldrsDatasets = Nothing
+    , _ldrsStatus = pStatus_
     }
 
 -- | Number of datasets returned.
-ldrCount :: Lens' ListDatasetsResponse (Maybe Int)
-ldrCount = lens _ldrCount (\s a -> s { _ldrCount = a })
-
--- | A set of datasets.
-ldrDatasets :: Lens' ListDatasetsResponse [Dataset]
-ldrDatasets = lens _ldrDatasets (\s a -> s { _ldrDatasets = a }) . _List
+ldrsCount :: Lens' ListDatasetsResponse (Maybe Int)
+ldrsCount = lens _ldrsCount (\ s a -> s{_ldrsCount = a});
 
 -- | A pagination token for obtaining the next page of results.
-ldrNextToken :: Lens' ListDatasetsResponse (Maybe Text)
-ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
+ldrsNextToken :: Lens' ListDatasetsResponse (Maybe Text)
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
-instance ToPath ListDatasets where
-    toPath ListDatasets{..} = mconcat
-        [ "/identitypools/"
-        , toText _ldIdentityPoolId
-        , "/identities/"
-        , toText _ldIdentityId
-        , "/datasets"
-        ]
+-- | A set of datasets.
+ldrsDatasets :: Lens' ListDatasetsResponse [Dataset]
+ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default . _Coerce;
 
-instance ToQuery ListDatasets where
-    toQuery ListDatasets{..} = mconcat
-        [ "nextToken"  =? _ldNextToken
-        , "maxResults" =? _ldMaxResults
-        ]
-
-instance ToHeaders ListDatasets
-
-instance ToJSON ListDatasets where
-    toJSON = const (toJSON Empty)
-
-instance AWSRequest ListDatasets where
-    type Sv ListDatasets = CognitoSync
-    type Rs ListDatasets = ListDatasetsResponse
-
-    request  = get
-    response = jsonResponse
-
-instance FromJSON ListDatasetsResponse where
-    parseJSON = withObject "ListDatasetsResponse" $ \o -> ListDatasetsResponse
-        <$> o .:? "Count"
-        <*> o .:? "Datasets" .!= mempty
-        <*> o .:? "NextToken"
+-- | The response status code.
+ldrsStatus :: Lens' ListDatasetsResponse Int
+ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

@@ -1,141 +1,158 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ECS.RegisterTaskDefinition
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Registers a new task definition from the supplied 'family' and 'containerDefinitions'. Optionally, you can add data volumes to your containers with the 'volumes'
--- parameter. For more information on task definition parameters and defaults,
--- see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions> in the /Amazon EC2 Container Service DeveloperGuide/.
+-- |
+-- Module      : Network.AWS.ECS.RegisterTaskDefinition
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterTaskDefinition.html>
+-- Registers a new task definition from the supplied 'family' and
+-- 'containerDefinitions'. Optionally, you can add data volumes to your
+-- containers with the 'volumes' parameter. For more information on task
+-- definition parameters and defaults, see
+-- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
+-- in the /Amazon EC2 Container Service Developer Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterTaskDefinition.html AWS API Reference> for RegisterTaskDefinition.
 module Network.AWS.ECS.RegisterTaskDefinition
     (
-    -- * Request
-      RegisterTaskDefinition
-    -- ** Request constructor
-    , registerTaskDefinition
-    -- ** Request lenses
-    , rtdContainerDefinitions
-    , rtdFamily
+    -- * Creating a Request
+      registerTaskDefinition
+    , RegisterTaskDefinition
+    -- * Request Lenses
     , rtdVolumes
+    , rtdFamily
+    , rtdContainerDefinitions
 
-    -- * Response
-    , RegisterTaskDefinitionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , registerTaskDefinitionResponse
-    -- ** Response lenses
-    , rtdrTaskDefinition
+    , RegisterTaskDefinitionResponse
+    -- * Response Lenses
+    , rtdrsTaskDefinition
+    , rtdrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.ECS.Types
-import qualified GHC.Exts
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RegisterTaskDefinition = RegisterTaskDefinition
-    { _rtdContainerDefinitions :: List "containerDefinitions" ContainerDefinition
-    , _rtdFamily               :: Text
-    , _rtdVolumes              :: List "volumes" Volume
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'registerTaskDefinition' smart constructor.
+data RegisterTaskDefinition = RegisterTaskDefinition'
+    { _rtdVolumes              :: !(Maybe [Volume])
+    , _rtdFamily               :: !Text
+    , _rtdContainerDefinitions :: ![ContainerDefinition]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RegisterTaskDefinition' constructor.
+-- | Creates a value of 'RegisterTaskDefinition' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rtdContainerDefinitions' @::@ ['ContainerDefinition']
+-- * 'rtdVolumes'
 --
--- * 'rtdFamily' @::@ 'Text'
+-- * 'rtdFamily'
 --
--- * 'rtdVolumes' @::@ ['Volume']
---
-registerTaskDefinition :: Text -- ^ 'rtdFamily'
-                       -> RegisterTaskDefinition
-registerTaskDefinition p1 = RegisterTaskDefinition
-    { _rtdFamily               = p1
+-- * 'rtdContainerDefinitions'
+registerTaskDefinition
+    :: Text -- ^ 'rtdFamily'
+    -> RegisterTaskDefinition
+registerTaskDefinition pFamily_ =
+    RegisterTaskDefinition'
+    { _rtdVolumes = Nothing
+    , _rtdFamily = pFamily_
     , _rtdContainerDefinitions = mempty
-    , _rtdVolumes              = mempty
     }
 
--- | A list of container definitions in JSON format that describe the different
--- containers that make up your task.
-rtdContainerDefinitions :: Lens' RegisterTaskDefinition [ContainerDefinition]
-rtdContainerDefinitions =
-    lens _rtdContainerDefinitions (\s a -> s { _rtdContainerDefinitions = a })
-        . _List
-
--- | You must specify a 'family' for a task definition, which allows you to track
--- multiple versions of the same task definition. You can think of the 'family' as
--- a name for your task definition. Up to 255 letters (uppercase and lowercase),
--- numbers, hyphens, and underscores are allowed.
-rtdFamily :: Lens' RegisterTaskDefinition Text
-rtdFamily = lens _rtdFamily (\s a -> s { _rtdFamily = a })
-
--- | A list of volume definitions in JSON format that containers in your task may
--- use.
+-- | A list of volume definitions in JSON format that containers in your task
+-- may use.
 rtdVolumes :: Lens' RegisterTaskDefinition [Volume]
-rtdVolumes = lens _rtdVolumes (\s a -> s { _rtdVolumes = a }) . _List
+rtdVolumes = lens _rtdVolumes (\ s a -> s{_rtdVolumes = a}) . _Default . _Coerce;
 
-newtype RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse
-    { _rtdrTaskDefinition :: Maybe TaskDefinition
-    } deriving (Eq, Read, Show)
+-- | You must specify a 'family' for a task definition, which allows you to
+-- track multiple versions of the same task definition. You can think of
+-- the 'family' as a name for your task definition. Up to 255 letters
+-- (uppercase and lowercase), numbers, hyphens, and underscores are
+-- allowed.
+rtdFamily :: Lens' RegisterTaskDefinition Text
+rtdFamily = lens _rtdFamily (\ s a -> s{_rtdFamily = a});
 
--- | 'RegisterTaskDefinitionResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtdrTaskDefinition' @::@ 'Maybe' 'TaskDefinition'
---
-registerTaskDefinitionResponse :: RegisterTaskDefinitionResponse
-registerTaskDefinitionResponse = RegisterTaskDefinitionResponse
-    { _rtdrTaskDefinition = Nothing
-    }
-
-rtdrTaskDefinition :: Lens' RegisterTaskDefinitionResponse (Maybe TaskDefinition)
-rtdrTaskDefinition =
-    lens _rtdrTaskDefinition (\s a -> s { _rtdrTaskDefinition = a })
-
-instance ToPath RegisterTaskDefinition where
-    toPath = const "/"
-
-instance ToQuery RegisterTaskDefinition where
-    toQuery = const mempty
-
-instance ToHeaders RegisterTaskDefinition
-
-instance ToJSON RegisterTaskDefinition where
-    toJSON RegisterTaskDefinition{..} = object
-        [ "family"               .= _rtdFamily
-        , "containerDefinitions" .= _rtdContainerDefinitions
-        , "volumes"              .= _rtdVolumes
-        ]
+-- | A list of container definitions in JSON format that describe the
+-- different containers that make up your task.
+rtdContainerDefinitions :: Lens' RegisterTaskDefinition [ContainerDefinition]
+rtdContainerDefinitions = lens _rtdContainerDefinitions (\ s a -> s{_rtdContainerDefinitions = a}) . _Coerce;
 
 instance AWSRequest RegisterTaskDefinition where
-    type Sv RegisterTaskDefinition = ECS
-    type Rs RegisterTaskDefinition = RegisterTaskDefinitionResponse
+        type Sv RegisterTaskDefinition = ECS
+        type Rs RegisterTaskDefinition =
+             RegisterTaskDefinitionResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 RegisterTaskDefinitionResponse' <$>
+                   (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
-    request  = post "RegisterTaskDefinition"
-    response = jsonResponse
+instance ToHeaders RegisterTaskDefinition where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonEC2ContainerServiceV20141113.RegisterTaskDefinition"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON RegisterTaskDefinitionResponse where
-    parseJSON = withObject "RegisterTaskDefinitionResponse" $ \o -> RegisterTaskDefinitionResponse
-        <$> o .:? "taskDefinition"
+instance ToJSON RegisterTaskDefinition where
+        toJSON RegisterTaskDefinition'{..}
+          = object
+              ["volumes" .= _rtdVolumes, "family" .= _rtdFamily,
+               "containerDefinitions" .= _rtdContainerDefinitions]
+
+instance ToPath RegisterTaskDefinition where
+        toPath = const "/"
+
+instance ToQuery RegisterTaskDefinition where
+        toQuery = const mempty
+
+-- | /See:/ 'registerTaskDefinitionResponse' smart constructor.
+data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
+    { _rtdrsTaskDefinition :: !(Maybe TaskDefinition)
+    , _rtdrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RegisterTaskDefinitionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'rtdrsTaskDefinition'
+--
+-- * 'rtdrsStatus'
+registerTaskDefinitionResponse
+    :: Int -- ^ 'rtdrsStatus'
+    -> RegisterTaskDefinitionResponse
+registerTaskDefinitionResponse pStatus_ =
+    RegisterTaskDefinitionResponse'
+    { _rtdrsTaskDefinition = Nothing
+    , _rtdrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+rtdrsTaskDefinition :: Lens' RegisterTaskDefinitionResponse (Maybe TaskDefinition)
+rtdrsTaskDefinition = lens _rtdrsTaskDefinition (\ s a -> s{_rtdrsTaskDefinition = a});
+
+-- | The response status code.
+rtdrsStatus :: Lens' RegisterTaskDefinitionResponse Int
+rtdrsStatus = lens _rtdrsStatus (\ s a -> s{_rtdrsStatus = a});

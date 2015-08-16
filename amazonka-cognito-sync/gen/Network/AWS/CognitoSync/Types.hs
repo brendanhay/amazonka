@@ -1,760 +1,214 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
-{-# LANGUAGE ViewPatterns                #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
--- Module      : Network.AWS.CognitoSync.Types
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
+-- |
+-- Module      : Network.AWS.CognitoSync.Types
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CognitoSync.Types
     (
     -- * Service
       CognitoSync
-    -- ** Error
-    , JSONError
 
-    -- * IdentityPoolUsage
-    , IdentityPoolUsage
-    , identityPoolUsage
-    , ipuDataStorage
-    , ipuIdentityPoolId
-    , ipuLastModifiedDate
-    , ipuSyncSessionsCount
-
-    -- * Platform
-    , Platform (..)
-
-    -- * Dataset
-    , Dataset
-    , dataset
-    , dCreationDate
-    , dDataStorage
-    , dDatasetName
-    , dIdentityId
-    , dLastModifiedBy
-    , dLastModifiedDate
-    , dNumRecords
-
-    -- * Operation
-    , Operation (..)
-
-    -- * StreamingStatus
-    , StreamingStatus (..)
+    -- * Errors
+    , _InvalidParameterException
+    , _NotAuthorizedException
+    , _InternalErrorException
+    , _InvalidConfigurationException
+    , _DuplicateRequestException
+    , _LambdaThrottledException
+    , _AlreadyStreamedException
+    , _InvalidLambdaFunctionOutputException
+    , _ConcurrentModificationException
+    , _TooManyRequestsException
+    , _ResourceConflictException
+    , _ResourceNotFoundException
+    , _LimitExceededException
 
     -- * BulkPublishStatus
     , BulkPublishStatus (..)
 
-    -- * Record
-    , Record
-    , record
-    , rDeviceLastModifiedDate
-    , rKey
-    , rLastModifiedBy
-    , rLastModifiedDate
-    , rSyncCount
-    , rValue
+    -- * Operation
+    , Operation (..)
+
+    -- * Platform
+    , Platform (..)
+
+    -- * StreamingStatus
+    , StreamingStatus (..)
 
     -- * CognitoStreams
     , CognitoStreams
     , cognitoStreams
-    , csRoleArn
-    , csStreamName
     , csStreamingStatus
+    , csStreamName
+    , csRoleARN
+
+    -- * Dataset
+    , Dataset
+    , dataset
+    , dLastModifiedDate
+    , dNumRecords
+    , dDataStorage
+    , dDatasetName
+    , dCreationDate
+    , dLastModifiedBy
+    , dIdentityId
+
+    -- * IdentityPoolUsage
+    , IdentityPoolUsage
+    , identityPoolUsage
+    , ipuLastModifiedDate
+    , ipuIdentityPoolId
+    , ipuDataStorage
+    , ipuSyncSessionsCount
 
     -- * IdentityUsage
     , IdentityUsage
     , identityUsage
-    , iuDataStorage
-    , iuDatasetCount
-    , iuIdentityId
-    , iuIdentityPoolId
     , iuLastModifiedDate
+    , iuIdentityPoolId
+    , iuDatasetCount
+    , iuDataStorage
+    , iuIdentityId
+
+    -- * PushSync
+    , PushSync
+    , pushSync
+    , psApplicationARNs
+    , psRoleARN
+
+    -- * Record
+    , Record
+    , record
+    , rSyncCount
+    , rLastModifiedDate
+    , rDeviceLastModifiedDate
+    , rValue
+    , rKey
+    , rLastModifiedBy
 
     -- * RecordPatch
     , RecordPatch
     , recordPatch
     , rpDeviceLastModifiedDate
-    , rpKey
-    , rpOp
-    , rpSyncCount
     , rpValue
-
-    -- * PushSync
-    , PushSync
-    , pushSync
-    , psApplicationArns
-    , psRoleArn
+    , rpOp
+    , rpKey
+    , rpSyncCount
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Signing
-import qualified GHC.Exts
+import           Network.AWS.CognitoSync.Types.Product
+import           Network.AWS.CognitoSync.Types.Sum
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
--- | Version @2014-06-30@ of the Amazon Cognito Sync service.
+-- | Version @2014-06-30@ of the Amazon Cognito Sync SDK.
 data CognitoSync
 
 instance AWSService CognitoSync where
     type Sg CognitoSync = V4
-    type Er CognitoSync = JSONError
-
-    service = service'
+    service = const svc
       where
-        service' :: Service CognitoSync
-        service' = Service
-            { _svcAbbrev       = "CognitoSync"
-            , _svcPrefix       = "cognito-sync"
-            , _svcVersion      = "2014-06-30"
-            , _svcTargetPrefix = Nothing
-            , _svcJSONVersion  = Just "1.1"
-            , _svcHandle       = handle
-            , _svcRetry        = retry
+        svc =
+            Service
+            { _svcAbbrev = "CognitoSync"
+            , _svcPrefix = "cognito-sync"
+            , _svcVersion = "2014-06-30"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout = Just 70
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
-
-        retry :: Retry CognitoSync
-        retry = Exponential
-            { _retryBase     = 0.05
-            , _retryGrowth   = 2
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
             , _retryAttempts = 5
-            , _retryCheck    = check
+            , _retryCheck = check
             }
-
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e)
-            | s == 500  = True -- General Server Error
-            | s == 509  = True -- Limit Exceeded
-            | s == 503  = True -- Service Unavailable
-            | otherwise = False
-
-data IdentityPoolUsage = IdentityPoolUsage
-    { _ipuDataStorage       :: Maybe Integer
-    , _ipuIdentityPoolId    :: Maybe Text
-    , _ipuLastModifiedDate  :: Maybe POSIX
-    , _ipuSyncSessionsCount :: Maybe Integer
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'IdentityPoolUsage' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ipuDataStorage' @::@ 'Maybe' 'Integer'
---
--- * 'ipuIdentityPoolId' @::@ 'Maybe' 'Text'
---
--- * 'ipuLastModifiedDate' @::@ 'Maybe' 'UTCTime'
---
--- * 'ipuSyncSessionsCount' @::@ 'Maybe' 'Integer'
---
-identityPoolUsage :: IdentityPoolUsage
-identityPoolUsage = IdentityPoolUsage
-    { _ipuIdentityPoolId    = Nothing
-    , _ipuSyncSessionsCount = Nothing
-    , _ipuDataStorage       = Nothing
-    , _ipuLastModifiedDate  = Nothing
-    }
-
--- | Data storage information for the identity pool.
-ipuDataStorage :: Lens' IdentityPoolUsage (Maybe Integer)
-ipuDataStorage = lens _ipuDataStorage (\s a -> s { _ipuDataStorage = a })
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
-ipuIdentityPoolId :: Lens' IdentityPoolUsage (Maybe Text)
-ipuIdentityPoolId =
-    lens _ipuIdentityPoolId (\s a -> s { _ipuIdentityPoolId = a })
-
--- | Date on which the identity pool was last modified.
-ipuLastModifiedDate :: Lens' IdentityPoolUsage (Maybe UTCTime)
-ipuLastModifiedDate =
-    lens _ipuLastModifiedDate (\s a -> s { _ipuLastModifiedDate = a })
-        . mapping _Time
-
--- | Number of sync sessions for the identity pool.
-ipuSyncSessionsCount :: Lens' IdentityPoolUsage (Maybe Integer)
-ipuSyncSessionsCount =
-    lens _ipuSyncSessionsCount (\s a -> s { _ipuSyncSessionsCount = a })
-
-instance FromJSON IdentityPoolUsage where
-    parseJSON = withObject "IdentityPoolUsage" $ \o -> IdentityPoolUsage
-        <$> o .:? "DataStorage"
-        <*> o .:? "IdentityPoolId"
-        <*> o .:? "LastModifiedDate"
-        <*> o .:? "SyncSessionsCount"
-
-instance ToJSON IdentityPoolUsage where
-    toJSON IdentityPoolUsage{..} = object
-        [ "IdentityPoolId"    .= _ipuIdentityPoolId
-        , "SyncSessionsCount" .= _ipuSyncSessionsCount
-        , "DataStorage"       .= _ipuDataStorage
-        , "LastModifiedDate"  .= _ipuLastModifiedDate
-        ]
-
-data Platform
-    = Adm         -- ^ ADM
-    | Apns        -- ^ APNS
-    | ApnsSandbox -- ^ APNS_SANDBOX
-    | Gcm         -- ^ GCM
-      deriving (Eq, Ord, Read, Show, Generic, Enum)
-
-instance Hashable Platform
-
-instance FromText Platform where
-    parser = takeLowerText >>= \case
-        "adm"          -> pure Adm
-        "apns"         -> pure Apns
-        "apns_sandbox" -> pure ApnsSandbox
-        "gcm"          -> pure Gcm
-        e              -> fail $
-            "Failure parsing Platform from " ++ show e
-
-instance ToText Platform where
-    toText = \case
-        Adm         -> "ADM"
-        Apns        -> "APNS"
-        ApnsSandbox -> "APNS_SANDBOX"
-        Gcm         -> "GCM"
-
-instance ToByteString Platform
-instance ToHeader     Platform
-instance ToQuery      Platform
-
-instance FromJSON Platform where
-    parseJSON = parseJSONText "Platform"
-
-instance ToJSON Platform where
-    toJSON = toJSONText
-
-data Dataset = Dataset
-    { _dCreationDate     :: Maybe POSIX
-    , _dDataStorage      :: Maybe Integer
-    , _dDatasetName      :: Maybe Text
-    , _dIdentityId       :: Maybe Text
-    , _dLastModifiedBy   :: Maybe Text
-    , _dLastModifiedDate :: Maybe POSIX
-    , _dNumRecords       :: Maybe Integer
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'Dataset' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dCreationDate' @::@ 'Maybe' 'UTCTime'
---
--- * 'dDataStorage' @::@ 'Maybe' 'Integer'
---
--- * 'dDatasetName' @::@ 'Maybe' 'Text'
---
--- * 'dIdentityId' @::@ 'Maybe' 'Text'
---
--- * 'dLastModifiedBy' @::@ 'Maybe' 'Text'
---
--- * 'dLastModifiedDate' @::@ 'Maybe' 'UTCTime'
---
--- * 'dNumRecords' @::@ 'Maybe' 'Integer'
---
-dataset :: Dataset
-dataset = Dataset
-    { _dIdentityId       = Nothing
-    , _dDatasetName      = Nothing
-    , _dCreationDate     = Nothing
-    , _dLastModifiedDate = Nothing
-    , _dLastModifiedBy   = Nothing
-    , _dDataStorage      = Nothing
-    , _dNumRecords       = Nothing
-    }
-
--- | Date on which the dataset was created.
-dCreationDate :: Lens' Dataset (Maybe UTCTime)
-dCreationDate = lens _dCreationDate (\s a -> s { _dCreationDate = a }) . mapping _Time
-
--- | Total size in bytes of the records in this dataset.
-dDataStorage :: Lens' Dataset (Maybe Integer)
-dDataStorage = lens _dDataStorage (\s a -> s { _dDataStorage = a })
-
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9, '_'
--- (underscore), '-' (dash), and '.' (dot).
-dDatasetName :: Lens' Dataset (Maybe Text)
-dDatasetName = lens _dDatasetName (\s a -> s { _dDatasetName = a })
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
-dIdentityId :: Lens' Dataset (Maybe Text)
-dIdentityId = lens _dIdentityId (\s a -> s { _dIdentityId = a })
-
--- | The device that made the last change to this dataset.
-dLastModifiedBy :: Lens' Dataset (Maybe Text)
-dLastModifiedBy = lens _dLastModifiedBy (\s a -> s { _dLastModifiedBy = a })
-
--- | Date when the dataset was last modified.
-dLastModifiedDate :: Lens' Dataset (Maybe UTCTime)
-dLastModifiedDate =
-    lens _dLastModifiedDate (\s a -> s { _dLastModifiedDate = a })
-        . mapping _Time
-
--- | Number of records in this dataset.
-dNumRecords :: Lens' Dataset (Maybe Integer)
-dNumRecords = lens _dNumRecords (\s a -> s { _dNumRecords = a })
-
-instance FromJSON Dataset where
-    parseJSON = withObject "Dataset" $ \o -> Dataset
-        <$> o .:? "CreationDate"
-        <*> o .:? "DataStorage"
-        <*> o .:? "DatasetName"
-        <*> o .:? "IdentityId"
-        <*> o .:? "LastModifiedBy"
-        <*> o .:? "LastModifiedDate"
-        <*> o .:? "NumRecords"
-
-instance ToJSON Dataset where
-    toJSON Dataset{..} = object
-        [ "IdentityId"       .= _dIdentityId
-        , "DatasetName"      .= _dDatasetName
-        , "CreationDate"     .= _dCreationDate
-        , "LastModifiedDate" .= _dLastModifiedDate
-        , "LastModifiedBy"   .= _dLastModifiedBy
-        , "DataStorage"      .= _dDataStorage
-        , "NumRecords"       .= _dNumRecords
-        ]
-
-data Operation
-    = Remove  -- ^ remove
-    | Replace -- ^ replace
-      deriving (Eq, Ord, Read, Show, Generic, Enum)
-
-instance Hashable Operation
-
-instance FromText Operation where
-    parser = takeLowerText >>= \case
-        "remove"  -> pure Remove
-        "replace" -> pure Replace
-        e         -> fail $
-            "Failure parsing Operation from " ++ show e
-
-instance ToText Operation where
-    toText = \case
-        Remove  -> "remove"
-        Replace -> "replace"
-
-instance ToByteString Operation
-instance ToHeader     Operation
-instance ToQuery      Operation
-
-instance FromJSON Operation where
-    parseJSON = parseJSONText "Operation"
-
-instance ToJSON Operation where
-    toJSON = toJSONText
-
-data StreamingStatus
-    = Disabled -- ^ DISABLED
-    | Enabled  -- ^ ENABLED
-      deriving (Eq, Ord, Read, Show, Generic, Enum)
-
-instance Hashable StreamingStatus
-
-instance FromText StreamingStatus where
-    parser = takeLowerText >>= \case
-        "disabled" -> pure Disabled
-        "enabled"  -> pure Enabled
-        e          -> fail $
-            "Failure parsing StreamingStatus from " ++ show e
-
-instance ToText StreamingStatus where
-    toText = \case
-        Disabled -> "DISABLED"
-        Enabled  -> "ENABLED"
-
-instance ToByteString StreamingStatus
-instance ToHeader     StreamingStatus
-instance ToQuery      StreamingStatus
-
-instance FromJSON StreamingStatus where
-    parseJSON = parseJSONText "StreamingStatus"
-
-instance ToJSON StreamingStatus where
-    toJSON = toJSONText
-
-data BulkPublishStatus
-    = Failed     -- ^ FAILED
-    | InProgress -- ^ IN_PROGRESS
-    | NotStarted -- ^ NOT_STARTED
-    | Succeeded  -- ^ SUCCEEDED
-      deriving (Eq, Ord, Read, Show, Generic, Enum)
-
-instance Hashable BulkPublishStatus
-
-instance FromText BulkPublishStatus where
-    parser = takeLowerText >>= \case
-        "failed"      -> pure Failed
-        "in_progress" -> pure InProgress
-        "not_started" -> pure NotStarted
-        "succeeded"   -> pure Succeeded
-        e             -> fail $
-            "Failure parsing BulkPublishStatus from " ++ show e
-
-instance ToText BulkPublishStatus where
-    toText = \case
-        Failed     -> "FAILED"
-        InProgress -> "IN_PROGRESS"
-        NotStarted -> "NOT_STARTED"
-        Succeeded  -> "SUCCEEDED"
-
-instance ToByteString BulkPublishStatus
-instance ToHeader     BulkPublishStatus
-instance ToQuery      BulkPublishStatus
-
-instance FromJSON BulkPublishStatus where
-    parseJSON = parseJSONText "BulkPublishStatus"
-
-instance ToJSON BulkPublishStatus where
-    toJSON = toJSONText
-
-data Record = Record
-    { _rDeviceLastModifiedDate :: Maybe POSIX
-    , _rKey                    :: Maybe Text
-    , _rLastModifiedBy         :: Maybe Text
-    , _rLastModifiedDate       :: Maybe POSIX
-    , _rSyncCount              :: Maybe Integer
-    , _rValue                  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'Record' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rDeviceLastModifiedDate' @::@ 'Maybe' 'UTCTime'
---
--- * 'rKey' @::@ 'Maybe' 'Text'
---
--- * 'rLastModifiedBy' @::@ 'Maybe' 'Text'
---
--- * 'rLastModifiedDate' @::@ 'Maybe' 'UTCTime'
---
--- * 'rSyncCount' @::@ 'Maybe' 'Integer'
---
--- * 'rValue' @::@ 'Maybe' 'Text'
---
-record :: Record
-record = Record
-    { _rKey                    = Nothing
-    , _rValue                  = Nothing
-    , _rSyncCount              = Nothing
-    , _rLastModifiedDate       = Nothing
-    , _rLastModifiedBy         = Nothing
-    , _rDeviceLastModifiedDate = Nothing
-    }
-
--- | The last modified date of the client device.
-rDeviceLastModifiedDate :: Lens' Record (Maybe UTCTime)
-rDeviceLastModifiedDate =
-    lens _rDeviceLastModifiedDate (\s a -> s { _rDeviceLastModifiedDate = a })
-        . mapping _Time
-
--- | The key for the record.
-rKey :: Lens' Record (Maybe Text)
-rKey = lens _rKey (\s a -> s { _rKey = a })
-
--- | The user/device that made the last change to this record.
-rLastModifiedBy :: Lens' Record (Maybe Text)
-rLastModifiedBy = lens _rLastModifiedBy (\s a -> s { _rLastModifiedBy = a })
-
--- | The date on which the record was last modified.
-rLastModifiedDate :: Lens' Record (Maybe UTCTime)
-rLastModifiedDate =
-    lens _rLastModifiedDate (\s a -> s { _rLastModifiedDate = a })
-        . mapping _Time
-
--- | The server sync count for this record.
-rSyncCount :: Lens' Record (Maybe Integer)
-rSyncCount = lens _rSyncCount (\s a -> s { _rSyncCount = a })
-
--- | The value for the record.
-rValue :: Lens' Record (Maybe Text)
-rValue = lens _rValue (\s a -> s { _rValue = a })
-
-instance FromJSON Record where
-    parseJSON = withObject "Record" $ \o -> Record
-        <$> o .:? "DeviceLastModifiedDate"
-        <*> o .:? "Key"
-        <*> o .:? "LastModifiedBy"
-        <*> o .:? "LastModifiedDate"
-        <*> o .:? "SyncCount"
-        <*> o .:? "Value"
-
-instance ToJSON Record where
-    toJSON Record{..} = object
-        [ "Key"                    .= _rKey
-        , "Value"                  .= _rValue
-        , "SyncCount"              .= _rSyncCount
-        , "LastModifiedDate"       .= _rLastModifiedDate
-        , "LastModifiedBy"         .= _rLastModifiedBy
-        , "DeviceLastModifiedDate" .= _rDeviceLastModifiedDate
-        ]
-
-data CognitoStreams = CognitoStreams
-    { _csRoleArn         :: Maybe Text
-    , _csStreamName      :: Maybe Text
-    , _csStreamingStatus :: Maybe StreamingStatus
-    } deriving (Eq, Read, Show)
-
--- | 'CognitoStreams' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'csRoleArn' @::@ 'Maybe' 'Text'
---
--- * 'csStreamName' @::@ 'Maybe' 'Text'
---
--- * 'csStreamingStatus' @::@ 'Maybe' 'StreamingStatus'
---
-cognitoStreams :: CognitoStreams
-cognitoStreams = CognitoStreams
-    { _csStreamName      = Nothing
-    , _csRoleArn         = Nothing
-    , _csStreamingStatus = Nothing
-    }
-
--- | The ARN of the role Amazon Cognito can assume in order to publish to the
--- stream. This role must grant access to Amazon Cognito (cognito-sync) to
--- invoke PutRecord on your Cognito stream.
-csRoleArn :: Lens' CognitoStreams (Maybe Text)
-csRoleArn = lens _csRoleArn (\s a -> s { _csRoleArn = a })
-
--- | The name of the Cognito stream to receive updates. This stream must be in the
--- developers account and in the same region as the identity pool.
-csStreamName :: Lens' CognitoStreams (Maybe Text)
-csStreamName = lens _csStreamName (\s a -> s { _csStreamName = a })
-
--- | Status of the Cognito streams. Valid values are: ENABLED - Streaming of
--- updates to identity pool is enabled.
---
--- DISABLED - Streaming of updates to identity pool is disabled. Bulk publish
--- will also fail if StreamingStatus is DISABLED.
-csStreamingStatus :: Lens' CognitoStreams (Maybe StreamingStatus)
-csStreamingStatus =
-    lens _csStreamingStatus (\s a -> s { _csStreamingStatus = a })
-
-instance FromJSON CognitoStreams where
-    parseJSON = withObject "CognitoStreams" $ \o -> CognitoStreams
-        <$> o .:? "RoleArn"
-        <*> o .:? "StreamName"
-        <*> o .:? "StreamingStatus"
-
-instance ToJSON CognitoStreams where
-    toJSON CognitoStreams{..} = object
-        [ "StreamName"      .= _csStreamName
-        , "RoleArn"         .= _csRoleArn
-        , "StreamingStatus" .= _csStreamingStatus
-        ]
-
-data IdentityUsage = IdentityUsage
-    { _iuDataStorage      :: Maybe Integer
-    , _iuDatasetCount     :: Maybe Int
-    , _iuIdentityId       :: Maybe Text
-    , _iuIdentityPoolId   :: Maybe Text
-    , _iuLastModifiedDate :: Maybe POSIX
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'IdentityUsage' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iuDataStorage' @::@ 'Maybe' 'Integer'
---
--- * 'iuDatasetCount' @::@ 'Maybe' 'Int'
---
--- * 'iuIdentityId' @::@ 'Maybe' 'Text'
---
--- * 'iuIdentityPoolId' @::@ 'Maybe' 'Text'
---
--- * 'iuLastModifiedDate' @::@ 'Maybe' 'UTCTime'
---
-identityUsage :: IdentityUsage
-identityUsage = IdentityUsage
-    { _iuIdentityId       = Nothing
-    , _iuIdentityPoolId   = Nothing
-    , _iuLastModifiedDate = Nothing
-    , _iuDatasetCount     = Nothing
-    , _iuDataStorage      = Nothing
-    }
-
--- | Total data storage for this identity.
-iuDataStorage :: Lens' IdentityUsage (Maybe Integer)
-iuDataStorage = lens _iuDataStorage (\s a -> s { _iuDataStorage = a })
-
--- | Number of datasets for the identity.
-iuDatasetCount :: Lens' IdentityUsage (Maybe Int)
-iuDatasetCount = lens _iuDatasetCount (\s a -> s { _iuDatasetCount = a })
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
-iuIdentityId :: Lens' IdentityUsage (Maybe Text)
-iuIdentityId = lens _iuIdentityId (\s a -> s { _iuIdentityId = a })
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- GUID generation is unique within a region.
-iuIdentityPoolId :: Lens' IdentityUsage (Maybe Text)
-iuIdentityPoolId = lens _iuIdentityPoolId (\s a -> s { _iuIdentityPoolId = a })
-
--- | Date on which the identity was last modified.
-iuLastModifiedDate :: Lens' IdentityUsage (Maybe UTCTime)
-iuLastModifiedDate =
-    lens _iuLastModifiedDate (\s a -> s { _iuLastModifiedDate = a })
-        . mapping _Time
-
-instance FromJSON IdentityUsage where
-    parseJSON = withObject "IdentityUsage" $ \o -> IdentityUsage
-        <$> o .:? "DataStorage"
-        <*> o .:? "DatasetCount"
-        <*> o .:? "IdentityId"
-        <*> o .:? "IdentityPoolId"
-        <*> o .:? "LastModifiedDate"
-
-instance ToJSON IdentityUsage where
-    toJSON IdentityUsage{..} = object
-        [ "IdentityId"       .= _iuIdentityId
-        , "IdentityPoolId"   .= _iuIdentityPoolId
-        , "LastModifiedDate" .= _iuLastModifiedDate
-        , "DatasetCount"     .= _iuDatasetCount
-        , "DataStorage"      .= _iuDataStorage
-        ]
-
-data RecordPatch = RecordPatch
-    { _rpDeviceLastModifiedDate :: Maybe POSIX
-    , _rpKey                    :: Text
-    , _rpOp                     :: Operation
-    , _rpSyncCount              :: Integer
-    , _rpValue                  :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'RecordPatch' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rpDeviceLastModifiedDate' @::@ 'Maybe' 'UTCTime'
---
--- * 'rpKey' @::@ 'Text'
---
--- * 'rpOp' @::@ 'Operation'
---
--- * 'rpSyncCount' @::@ 'Integer'
---
--- * 'rpValue' @::@ 'Maybe' 'Text'
---
-recordPatch :: Operation -- ^ 'rpOp'
-            -> Text -- ^ 'rpKey'
-            -> Integer -- ^ 'rpSyncCount'
-            -> RecordPatch
-recordPatch p1 p2 p3 = RecordPatch
-    { _rpOp                     = p1
-    , _rpKey                    = p2
-    , _rpSyncCount              = p3
-    , _rpValue                  = Nothing
-    , _rpDeviceLastModifiedDate = Nothing
-    }
-
--- | The last modified date of the client device.
-rpDeviceLastModifiedDate :: Lens' RecordPatch (Maybe UTCTime)
-rpDeviceLastModifiedDate =
-    lens _rpDeviceLastModifiedDate
-        (\s a -> s { _rpDeviceLastModifiedDate = a })
-            . mapping _Time
-
--- | The key associated with the record patch.
-rpKey :: Lens' RecordPatch Text
-rpKey = lens _rpKey (\s a -> s { _rpKey = a })
-
--- | An operation, either replace or remove.
-rpOp :: Lens' RecordPatch Operation
-rpOp = lens _rpOp (\s a -> s { _rpOp = a })
-
--- | Last known server sync count for this record. Set to 0 if unknown.
-rpSyncCount :: Lens' RecordPatch Integer
-rpSyncCount = lens _rpSyncCount (\s a -> s { _rpSyncCount = a })
-
--- | The value associated with the record patch.
-rpValue :: Lens' RecordPatch (Maybe Text)
-rpValue = lens _rpValue (\s a -> s { _rpValue = a })
-
-instance FromJSON RecordPatch where
-    parseJSON = withObject "RecordPatch" $ \o -> RecordPatch
-        <$> o .:? "DeviceLastModifiedDate"
-        <*> o .:  "Key"
-        <*> o .:  "Op"
-        <*> o .:  "SyncCount"
-        <*> o .:? "Value"
-
-instance ToJSON RecordPatch where
-    toJSON RecordPatch{..} = object
-        [ "Op"                     .= _rpOp
-        , "Key"                    .= _rpKey
-        , "Value"                  .= _rpValue
-        , "SyncCount"              .= _rpSyncCount
-        , "DeviceLastModifiedDate" .= _rpDeviceLastModifiedDate
-        ]
-
-data PushSync = PushSync
-    { _psApplicationArns :: List "ApplicationArns" Text
-    , _psRoleArn         :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'PushSync' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'psApplicationArns' @::@ ['Text']
---
--- * 'psRoleArn' @::@ 'Maybe' 'Text'
---
-pushSync :: PushSync
-pushSync = PushSync
-    { _psApplicationArns = mempty
-    , _psRoleArn         = Nothing
-    }
-
--- | List of SNS platform application ARNs that could be used by clients.
-psApplicationArns :: Lens' PushSync [Text]
-psApplicationArns =
-    lens _psApplicationArns (\s a -> s { _psApplicationArns = a })
-        . _List
-
--- | A role configured to allow Cognito to call SNS on behalf of the developer.
-psRoleArn :: Lens' PushSync (Maybe Text)
-psRoleArn = lens _psRoleArn (\s a -> s { _psRoleArn = a })
-
-instance FromJSON PushSync where
-    parseJSON = withObject "PushSync" $ \o -> PushSync
-        <$> o .:? "ApplicationArns" .!= mempty
-        <*> o .:? "RoleArn"
-
-instance ToJSON PushSync where
-    toJSON PushSync{..} = object
-        [ "ApplicationArns" .= _psApplicationArns
-        , "RoleArn"         .= _psRoleArn
-        ]
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
+
+-- | Thrown when a request parameter does not comply with the associated
+-- constraints.
+_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameter"
+
+-- | Thrown when a user is not authorized to access the requested resource.
+_NotAuthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+_NotAuthorizedException =
+    _ServiceError . hasStatus 403 . hasCode "NotAuthorizedError"
+
+-- | Indicates an internal service error.
+_InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
+_InternalErrorException =
+    _ServiceError . hasStatus 500 . hasCode "InternalError"
+
+-- | Prism for InvalidConfigurationException' errors.
+_InvalidConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidConfigurationException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidConfiguration"
+
+-- | An exception thrown when there is an IN_PROGRESS bulk publish operation
+-- for the given identity pool.
+_DuplicateRequestException :: AsError a => Getting (First ServiceError) a ServiceError
+_DuplicateRequestException =
+    _ServiceError . hasStatus 400 . hasCode "DuplicateRequest"
+
+-- | AWS Lambda throttled your account, please contact AWS Support
+_LambdaThrottledException :: AsError a => Getting (First ServiceError) a ServiceError
+_LambdaThrottledException =
+    _ServiceError . hasStatus 429 . hasCode "LambdaThrottled"
+
+-- | An exception thrown when a bulk publish operation is requested less than
+-- 24 hours after a previous bulk publish operation completed successfully.
+_AlreadyStreamedException :: AsError a => Getting (First ServiceError) a ServiceError
+_AlreadyStreamedException =
+    _ServiceError . hasStatus 400 . hasCode "AlreadyStreamed"
+
+-- | The AWS Lambda function returned invalid output or an exception.
+_InvalidLambdaFunctionOutputException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidLambdaFunctionOutputException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidLambdaFunctionOutput"
+
+-- | Thrown if there are parallel requests to modify a resource.
+_ConcurrentModificationException :: AsError a => Getting (First ServiceError) a ServiceError
+_ConcurrentModificationException =
+    _ServiceError . hasStatus 400 . hasCode "ConcurrentModification"
+
+-- | Thrown if the request is throttled.
+_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyRequestsException =
+    _ServiceError . hasStatus 429 . hasCode "TooManyRequests"
+
+-- | Thrown if an update can\'t be applied because the resource was changed
+-- by another call and this would result in a conflict.
+_ResourceConflictException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceConflictException =
+    _ServiceError . hasStatus 409 . hasCode "ResourceConflict"
+
+-- | Thrown if the resource doesn\'t exist.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException =
+    _ServiceError . hasStatus 404 . hasCode "ResourceNotFound"
+
+-- | Thrown when the limit on the number of objects or operations has been
+-- exceeded.
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 400 . hasCode "LimitExceeded"

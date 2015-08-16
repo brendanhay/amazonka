@@ -1,160 +1,176 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElasticTranscoder.ListJobsByPipeline
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The ListJobsByPipeline operation gets a list of the jobs currently in a
+-- |
+-- Module      : Network.AWS.ElasticTranscoder.ListJobsByPipeline
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- The ListJobsByPipeline operation gets a list of the jobs currently in a
 -- pipeline.
 --
 -- Elastic Transcoder returns all of the jobs currently in the specified
--- pipeline. The response body contains one element for each job that satisfies
--- the search criteria.
+-- pipeline. The response body contains one element for each job that
+-- satisfies the search criteria.
 --
--- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByPipeline.html>
+-- /See:/ <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByPipeline.html AWS API Reference> for ListJobsByPipeline.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     (
-    -- * Request
-      ListJobsByPipeline
-    -- ** Request constructor
-    , listJobsByPipeline
-    -- ** Request lenses
+    -- * Creating a Request
+      listJobsByPipeline
+    , ListJobsByPipeline
+    -- * Request Lenses
     , ljbpAscending
     , ljbpPageToken
     , ljbpPipelineId
 
-    -- * Response
-    , ListJobsByPipelineResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listJobsByPipelineResponse
-    -- ** Response lenses
-    , ljbprJobs
-    , ljbprNextPageToken
+    , ListJobsByPipelineResponse
+    -- * Response Lenses
+    , ljbprsNextPageToken
+    , ljbprsJobs
+    , ljbprsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.ElasticTranscoder.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.ElasticTranscoder.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListJobsByPipeline = ListJobsByPipeline
-    { _ljbpAscending  :: Maybe Text
-    , _ljbpPageToken  :: Maybe Text
-    , _ljbpPipelineId :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | The 'ListJobsByPipelineRequest' structure.
+--
+-- /See:/ 'listJobsByPipeline' smart constructor.
+data ListJobsByPipeline = ListJobsByPipeline'
+    { _ljbpAscending  :: !(Maybe Text)
+    , _ljbpPageToken  :: !(Maybe Text)
+    , _ljbpPipelineId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListJobsByPipeline' constructor.
+-- | Creates a value of 'ListJobsByPipeline' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ljbpAscending' @::@ 'Maybe' 'Text'
+-- * 'ljbpAscending'
 --
--- * 'ljbpPageToken' @::@ 'Maybe' 'Text'
+-- * 'ljbpPageToken'
 --
--- * 'ljbpPipelineId' @::@ 'Text'
---
-listJobsByPipeline :: Text -- ^ 'ljbpPipelineId'
-                   -> ListJobsByPipeline
-listJobsByPipeline p1 = ListJobsByPipeline
-    { _ljbpPipelineId = p1
-    , _ljbpAscending  = Nothing
-    , _ljbpPageToken  = Nothing
+-- * 'ljbpPipelineId'
+listJobsByPipeline
+    :: Text -- ^ 'ljbpPipelineId'
+    -> ListJobsByPipeline
+listJobsByPipeline pPipelineId_ =
+    ListJobsByPipeline'
+    { _ljbpAscending = Nothing
+    , _ljbpPageToken = Nothing
+    , _ljbpPipelineId = pPipelineId_
     }
 
 -- | To list jobs in chronological order by the date and time that they were
--- submitted, enter 'true'. To list jobs in reverse chronological order, enter 'false'.
+-- submitted, enter 'true'. To list jobs in reverse chronological order,
+-- enter 'false'.
 ljbpAscending :: Lens' ListJobsByPipeline (Maybe Text)
-ljbpAscending = lens _ljbpAscending (\s a -> s { _ljbpAscending = a })
+ljbpAscending = lens _ljbpAscending (\ s a -> s{_ljbpAscending = a});
 
--- | When Elastic Transcoder returns more than one page of results, use 'pageToken'
--- in subsequent 'GET' requests to get each successive page of results.
+-- | When Elastic Transcoder returns more than one page of results, use
+-- 'pageToken' in subsequent 'GET' requests to get each successive page of
+-- results.
 ljbpPageToken :: Lens' ListJobsByPipeline (Maybe Text)
-ljbpPageToken = lens _ljbpPageToken (\s a -> s { _ljbpPageToken = a })
+ljbpPageToken = lens _ljbpPageToken (\ s a -> s{_ljbpPageToken = a});
 
 -- | The ID of the pipeline for which you want to get job information.
 ljbpPipelineId :: Lens' ListJobsByPipeline Text
-ljbpPipelineId = lens _ljbpPipelineId (\s a -> s { _ljbpPipelineId = a })
-
-data ListJobsByPipelineResponse = ListJobsByPipelineResponse
-    { _ljbprJobs          :: List "Jobs" Job'
-    , _ljbprNextPageToken :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'ListJobsByPipelineResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ljbprJobs' @::@ ['Job'']
---
--- * 'ljbprNextPageToken' @::@ 'Maybe' 'Text'
---
-listJobsByPipelineResponse :: ListJobsByPipelineResponse
-listJobsByPipelineResponse = ListJobsByPipelineResponse
-    { _ljbprJobs          = mempty
-    , _ljbprNextPageToken = Nothing
-    }
-
--- | An array of 'Job' objects that are in the specified pipeline.
-ljbprJobs :: Lens' ListJobsByPipelineResponse [Job']
-ljbprJobs = lens _ljbprJobs (\s a -> s { _ljbprJobs = a }) . _List
-
--- | A value that you use to access the second and subsequent pages of results,
--- if any. When the jobs in the specified pipeline fit on one page or when
--- you've reached the last page of results, the value of 'NextPageToken' is 'null'.
-ljbprNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
-ljbprNextPageToken =
-    lens _ljbprNextPageToken (\s a -> s { _ljbprNextPageToken = a })
-
-instance ToPath ListJobsByPipeline where
-    toPath ListJobsByPipeline{..} = mconcat
-        [ "/2012-09-25/jobsByPipeline/"
-        , toText _ljbpPipelineId
-        ]
-
-instance ToQuery ListJobsByPipeline where
-    toQuery ListJobsByPipeline{..} = mconcat
-        [ "Ascending" =? _ljbpAscending
-        , "PageToken" =? _ljbpPageToken
-        ]
-
-instance ToHeaders ListJobsByPipeline
-
-instance ToJSON ListJobsByPipeline where
-    toJSON = const (toJSON Empty)
-
-instance AWSRequest ListJobsByPipeline where
-    type Sv ListJobsByPipeline = ElasticTranscoder
-    type Rs ListJobsByPipeline = ListJobsByPipelineResponse
-
-    request  = get
-    response = jsonResponse
-
-instance FromJSON ListJobsByPipelineResponse where
-    parseJSON = withObject "ListJobsByPipelineResponse" $ \o -> ListJobsByPipelineResponse
-        <$> o .:? "Jobs" .!= mempty
-        <*> o .:? "NextPageToken"
+ljbpPipelineId = lens _ljbpPipelineId (\ s a -> s{_ljbpPipelineId = a});
 
 instance AWSPager ListJobsByPipeline where
-    page rq rs
-        | stop (rs ^. ljbprNextPageToken) = Nothing
-        | otherwise = (\x -> rq & ljbpPageToken ?~ x)
-            <$> (rs ^. ljbprNextPageToken)
+        page rq rs
+          | stop (rs ^. ljbprsNextPageToken) = Nothing
+          | stop (rs ^. ljbprsJobs) = Nothing
+          | otherwise =
+            Just $ rq &
+              ljbpPageToken .~ rs ^. ljbprsNextPageToken
+
+instance AWSRequest ListJobsByPipeline where
+        type Sv ListJobsByPipeline = ElasticTranscoder
+        type Rs ListJobsByPipeline =
+             ListJobsByPipelineResponse
+        request = get
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListJobsByPipelineResponse' <$>
+                   (x .?> "NextPageToken") <*> (x .?> "Jobs" .!@ mempty)
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListJobsByPipeline where
+        toHeaders = const mempty
+
+instance ToPath ListJobsByPipeline where
+        toPath ListJobsByPipeline'{..}
+          = mconcat
+              ["/2012-09-25/jobsByPipeline/", toBS _ljbpPipelineId]
+
+instance ToQuery ListJobsByPipeline where
+        toQuery ListJobsByPipeline'{..}
+          = mconcat
+              ["Ascending" =: _ljbpAscending,
+               "PageToken" =: _ljbpPageToken]
+
+-- | The 'ListJobsByPipelineResponse' structure.
+--
+-- /See:/ 'listJobsByPipelineResponse' smart constructor.
+data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
+    { _ljbprsNextPageToken :: !(Maybe Text)
+    , _ljbprsJobs          :: !(Maybe [Job'])
+    , _ljbprsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListJobsByPipelineResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ljbprsNextPageToken'
+--
+-- * 'ljbprsJobs'
+--
+-- * 'ljbprsStatus'
+listJobsByPipelineResponse
+    :: Int -- ^ 'ljbprsStatus'
+    -> ListJobsByPipelineResponse
+listJobsByPipelineResponse pStatus_ =
+    ListJobsByPipelineResponse'
+    { _ljbprsNextPageToken = Nothing
+    , _ljbprsJobs = Nothing
+    , _ljbprsStatus = pStatus_
+    }
+
+-- | A value that you use to access the second and subsequent pages of
+-- results, if any. When the jobs in the specified pipeline fit on one page
+-- or when you\'ve reached the last page of results, the value of
+-- 'NextPageToken' is 'null'.
+ljbprsNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
+ljbprsNextPageToken = lens _ljbprsNextPageToken (\ s a -> s{_ljbprsNextPageToken = a});
+
+-- | An array of 'Job' objects that are in the specified pipeline.
+ljbprsJobs :: Lens' ListJobsByPipelineResponse [Job']
+ljbprsJobs = lens _ljbprsJobs (\ s a -> s{_ljbprsJobs = a}) . _Default . _Coerce;
+
+-- | The response status code.
+ljbprsStatus :: Lens' ListJobsByPipelineResponse Int
+ljbprsStatus = lens _ljbprsStatus (\ s a -> s{_ljbprsStatus = a});

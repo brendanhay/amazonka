@@ -1,102 +1,106 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.DeleteKeyPair
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified key pair, by removing the public key from Amazon EC2.
+-- |
+-- Module      : Network.AWS.EC2.DeleteKeyPair
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteKeyPair.html>
+-- Deletes the specified key pair, by removing the public key from Amazon
+-- EC2.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteKeyPair.html AWS API Reference> for DeleteKeyPair.
 module Network.AWS.EC2.DeleteKeyPair
     (
-    -- * Request
-      DeleteKeyPair
-    -- ** Request constructor
-    , deleteKeyPair
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteKeyPair
+    , DeleteKeyPair
+    -- * Request Lenses
     , dkpDryRun
     , dkpKeyName
 
-    -- * Response
-    , DeleteKeyPairResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteKeyPairResponse
+    , DeleteKeyPairResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteKeyPair = DeleteKeyPair
-    { _dkpDryRun  :: Maybe Bool
-    , _dkpKeyName :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'deleteKeyPair' smart constructor.
+data DeleteKeyPair = DeleteKeyPair'
+    { _dkpDryRun  :: !(Maybe Bool)
+    , _dkpKeyName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteKeyPair' constructor.
+-- | Creates a value of 'DeleteKeyPair' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dkpDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dkpDryRun'
 --
--- * 'dkpKeyName' @::@ 'Text'
---
-deleteKeyPair :: Text -- ^ 'dkpKeyName'
-              -> DeleteKeyPair
-deleteKeyPair p1 = DeleteKeyPair
-    { _dkpKeyName = p1
-    , _dkpDryRun  = Nothing
+-- * 'dkpKeyName'
+deleteKeyPair
+    :: Text -- ^ 'dkpKeyName'
+    -> DeleteKeyPair
+deleteKeyPair pKeyName_ =
+    DeleteKeyPair'
+    { _dkpDryRun = Nothing
+    , _dkpKeyName = pKeyName_
     }
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 dkpDryRun :: Lens' DeleteKeyPair (Maybe Bool)
-dkpDryRun = lens _dkpDryRun (\s a -> s { _dkpDryRun = a })
+dkpDryRun = lens _dkpDryRun (\ s a -> s{_dkpDryRun = a});
 
 -- | The name of the key pair.
 dkpKeyName :: Lens' DeleteKeyPair Text
-dkpKeyName = lens _dkpKeyName (\s a -> s { _dkpKeyName = a })
-
-data DeleteKeyPairResponse = DeleteKeyPairResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteKeyPairResponse' constructor.
-deleteKeyPairResponse :: DeleteKeyPairResponse
-deleteKeyPairResponse = DeleteKeyPairResponse
-
-instance ToPath DeleteKeyPair where
-    toPath = const "/"
-
-instance ToQuery DeleteKeyPair where
-    toQuery DeleteKeyPair{..} = mconcat
-        [ "DryRun"  =? _dkpDryRun
-        , "KeyName" =? _dkpKeyName
-        ]
-
-instance ToHeaders DeleteKeyPair
+dkpKeyName = lens _dkpKeyName (\ s a -> s{_dkpKeyName = a});
 
 instance AWSRequest DeleteKeyPair where
-    type Sv DeleteKeyPair = EC2
-    type Rs DeleteKeyPair = DeleteKeyPairResponse
+        type Sv DeleteKeyPair = EC2
+        type Rs DeleteKeyPair = DeleteKeyPairResponse
+        request = post
+        response = receiveNull DeleteKeyPairResponse'
 
-    request  = post "DeleteKeyPair"
-    response = nullResponse DeleteKeyPairResponse
+instance ToHeaders DeleteKeyPair where
+        toHeaders = const mempty
+
+instance ToPath DeleteKeyPair where
+        toPath = const "/"
+
+instance ToQuery DeleteKeyPair where
+        toQuery DeleteKeyPair'{..}
+          = mconcat
+              ["Action" =: ("DeleteKeyPair" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _dkpDryRun, "KeyName" =: _dkpKeyName]
+
+-- | /See:/ 'deleteKeyPairResponse' smart constructor.
+data DeleteKeyPairResponse =
+    DeleteKeyPairResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteKeyPairResponse' with the minimum fields required to make a request.
+--
+deleteKeyPairResponse
+    :: DeleteKeyPairResponse
+deleteKeyPairResponse = DeleteKeyPairResponse'

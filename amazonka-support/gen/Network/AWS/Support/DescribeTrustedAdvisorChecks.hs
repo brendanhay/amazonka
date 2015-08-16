@@ -1,123 +1,138 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Support.DescribeTrustedAdvisorChecks
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns information about all available Trusted Advisor checks, including
--- name, ID, category, description, and metadata. You must specify a language
--- code; English ("en") and Japanese ("ja") are currently supported. The
--- response contains a 'TrustedAdvisorCheckDescription' for each check.
+-- |
+-- Module      : Network.AWS.Support.DescribeTrustedAdvisorChecks
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorChecks.html>
+-- Returns information about all available Trusted Advisor checks,
+-- including name, ID, category, description, and metadata. You must
+-- specify a language code; English (\"en\") and Japanese (\"ja\") are
+-- currently supported. The response contains a
+-- TrustedAdvisorCheckDescription for each check.
+--
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorChecks.html AWS API Reference> for DescribeTrustedAdvisorChecks.
 module Network.AWS.Support.DescribeTrustedAdvisorChecks
     (
-    -- * Request
-      DescribeTrustedAdvisorChecks
-    -- ** Request constructor
-    , describeTrustedAdvisorChecks
-    -- ** Request lenses
+    -- * Creating a Request
+      describeTrustedAdvisorChecks
+    , DescribeTrustedAdvisorChecks
+    -- * Request Lenses
     , dtacLanguage
 
-    -- * Response
-    , DescribeTrustedAdvisorChecksResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeTrustedAdvisorChecksResponse
-    -- ** Response lenses
-    , dtacrChecks
+    , DescribeTrustedAdvisorChecksResponse
+    -- * Response Lenses
+    , dtacrsStatus
+    , dtacrsChecks
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Support.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
+import           Network.AWS.Support.Types.Product
 
-newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
+-- | /See:/ 'describeTrustedAdvisorChecks' smart constructor.
+newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks'
     { _dtacLanguage :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeTrustedAdvisorChecks' constructor.
+-- | Creates a value of 'DescribeTrustedAdvisorChecks' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtacLanguage' @::@ 'Text'
---
-describeTrustedAdvisorChecks :: Text -- ^ 'dtacLanguage'
-                             -> DescribeTrustedAdvisorChecks
-describeTrustedAdvisorChecks p1 = DescribeTrustedAdvisorChecks
-    { _dtacLanguage = p1
+-- * 'dtacLanguage'
+describeTrustedAdvisorChecks
+    :: Text -- ^ 'dtacLanguage'
+    -> DescribeTrustedAdvisorChecks
+describeTrustedAdvisorChecks pLanguage_ =
+    DescribeTrustedAdvisorChecks'
+    { _dtacLanguage = pLanguage_
     }
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
--- Support currently supports English ("en") and Japanese ("ja"). Language
--- parameters must be passed explicitly for operations that take them.
+-- Support currently supports English (\"en\") and Japanese (\"ja\").
+-- Language parameters must be passed explicitly for operations that take
+-- them.
 dtacLanguage :: Lens' DescribeTrustedAdvisorChecks Text
-dtacLanguage = lens _dtacLanguage (\s a -> s { _dtacLanguage = a })
+dtacLanguage = lens _dtacLanguage (\ s a -> s{_dtacLanguage = a});
 
-newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
-    { _dtacrChecks :: List "checks" TrustedAdvisorCheckDescription
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeTrustedAdvisorChecks
+         where
+        type Sv DescribeTrustedAdvisorChecks = Support
+        type Rs DescribeTrustedAdvisorChecks =
+             DescribeTrustedAdvisorChecksResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeTrustedAdvisorChecksResponse' <$>
+                   (pure (fromEnum s)) <*> (x .?> "checks" .!@ mempty))
 
-instance GHC.Exts.IsList DescribeTrustedAdvisorChecksResponse where
-    type Item DescribeTrustedAdvisorChecksResponse = TrustedAdvisorCheckDescription
-
-    fromList = DescribeTrustedAdvisorChecksResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dtacrChecks
-
--- | 'DescribeTrustedAdvisorChecksResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dtacrChecks' @::@ ['TrustedAdvisorCheckDescription']
---
-describeTrustedAdvisorChecksResponse :: DescribeTrustedAdvisorChecksResponse
-describeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
-    { _dtacrChecks = mempty
-    }
-
--- | Information about all available Trusted Advisor checks.
-dtacrChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
-dtacrChecks = lens _dtacrChecks (\s a -> s { _dtacrChecks = a }) . _List
-
-instance ToPath DescribeTrustedAdvisorChecks where
-    toPath = const "/"
-
-instance ToQuery DescribeTrustedAdvisorChecks where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTrustedAdvisorChecks
+instance ToHeaders DescribeTrustedAdvisorChecks where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSSupport_20130415.DescribeTrustedAdvisorChecks"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DescribeTrustedAdvisorChecks where
-    toJSON DescribeTrustedAdvisorChecks{..} = object
-        [ "language" .= _dtacLanguage
-        ]
+        toJSON DescribeTrustedAdvisorChecks'{..}
+          = object ["language" .= _dtacLanguage]
 
-instance AWSRequest DescribeTrustedAdvisorChecks where
-    type Sv DescribeTrustedAdvisorChecks = Support
-    type Rs DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecksResponse
+instance ToPath DescribeTrustedAdvisorChecks where
+        toPath = const "/"
 
-    request  = post "DescribeTrustedAdvisorChecks"
-    response = jsonResponse
+instance ToQuery DescribeTrustedAdvisorChecks where
+        toQuery = const mempty
 
-instance FromJSON DescribeTrustedAdvisorChecksResponse where
-    parseJSON = withObject "DescribeTrustedAdvisorChecksResponse" $ \o -> DescribeTrustedAdvisorChecksResponse
-        <$> o .:? "checks" .!= mempty
+-- | Information about the Trusted Advisor checks returned by the
+-- DescribeTrustedAdvisorChecks operation.
+--
+-- /See:/ 'describeTrustedAdvisorChecksResponse' smart constructor.
+data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'
+    { _dtacrsStatus :: !Int
+    , _dtacrsChecks :: ![TrustedAdvisorCheckDescription]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeTrustedAdvisorChecksResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dtacrsStatus'
+--
+-- * 'dtacrsChecks'
+describeTrustedAdvisorChecksResponse
+    :: Int -- ^ 'dtacrsStatus'
+    -> DescribeTrustedAdvisorChecksResponse
+describeTrustedAdvisorChecksResponse pStatus_ =
+    DescribeTrustedAdvisorChecksResponse'
+    { _dtacrsStatus = pStatus_
+    , _dtacrsChecks = mempty
+    }
+
+-- | The response status code.
+dtacrsStatus :: Lens' DescribeTrustedAdvisorChecksResponse Int
+dtacrsStatus = lens _dtacrsStatus (\ s a -> s{_dtacrsStatus = a});
+
+-- | Information about all available Trusted Advisor checks.
+dtacrsChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
+dtacrsChecks = lens _dtacrsChecks (\ s a -> s{_dtacrsChecks = a}) . _Coerce;

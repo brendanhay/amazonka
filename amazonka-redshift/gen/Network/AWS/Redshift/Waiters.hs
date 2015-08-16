@@ -1,64 +1,90 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeFamilies      #-}
 
--- Module      : Network.AWS.Redshift.Waiters
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
+-- |
+-- Module      : Network.AWS.Redshift.Waiters
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Redshift.Waiters where
 
-import Network.AWS.Redshift.DescribeClusterSnapshots
-import Network.AWS.Redshift.DescribeClusters
-import Network.AWS.Redshift.Types
-import Network.AWS.Waiters
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.DescribeClusters
+import           Network.AWS.Redshift.DescribeClusters
+import           Network.AWS.Redshift.DescribeClusterSnapshots
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Waiter
 
-clusterAvailable :: Wait DescribeClusters
-clusterAvailable = Wait
-    { _waitName      = "ClusterAvailable"
-    , _waitAttempts  = 30
-    , _waitDelay     = 60
-    , _waitAcceptors =
-        [ matchAll "available" AcceptSuccess
-            (folding (concatOf dcrClusters) . cClusterStatus . _Just)
-        , matchAny "deleting" AcceptFailure
-            (folding (concatOf dcrClusters) . cClusterStatus . _Just)
-        , matchError "ClusterNotFound" AcceptRetry
-        ]
-    }
-
+-- | Polls 'Network.AWS.Redshift.DescribeClusters' every 60 seconds until a
+-- successful state is reached. An error is returned after 30 failed checks.
 clusterDeleted :: Wait DescribeClusters
-clusterDeleted = Wait
-    { _waitName      = "ClusterDeleted"
-    , _waitAttempts  = 30
-    , _waitDelay     = 60
-    , _waitAcceptors =
-        [ matchError "ClusterNotFound" AcceptSuccess
-        , matchAny "creating" AcceptFailure
-            (folding (concatOf dcrClusters) . cClusterStatus . _Just)
-        , matchAny "rebooting" AcceptFailure
-            (folding (concatOf dcrClusters) . cClusterStatus . _Just)
-        ]
+clusterDeleted =
+    Wait
+    { _waitName = "ClusterDeleted"
+    , _waitAttempts = 30
+    , _waitDelay = 60
+    , _waitAcceptors = [ matchError "ClusterNotFound" AcceptSuccess
+                       , matchAny
+                             "creating"
+                             AcceptFailure
+                             (folding (concatOf dcrsClusters) .
+                              cClusterStatus . _Just . to toTextCI)
+                       , matchAny
+                             "rebooting"
+                             AcceptFailure
+                             (folding (concatOf dcrsClusters) .
+                              cClusterStatus . _Just . to toTextCI)]
     }
 
+-- | Polls 'Network.AWS.Redshift.DescribeClusterSnapshots' every 15 seconds until a
+-- successful state is reached. An error is returned after 20 failed checks.
 snapshotAvailable :: Wait DescribeClusterSnapshots
-snapshotAvailable = Wait
-    { _waitName      = "SnapshotAvailable"
-    , _waitAttempts  = 20
-    , _waitDelay     = 15
-    , _waitAcceptors =
-        [ matchAll "available" AcceptSuccess
-            (folding (concatOf dcsrSnapshots) . sStatus . _Just)
-        , matchAny "failed" AcceptFailure
-            (folding (concatOf dcsrSnapshots) . sStatus . _Just)
-        , matchAny "deleted" AcceptFailure
-            (folding (concatOf dcsrSnapshots) . sStatus . _Just)
-        ]
+snapshotAvailable =
+    Wait
+    { _waitName = "SnapshotAvailable"
+    , _waitAttempts = 20
+    , _waitDelay = 15
+    , _waitAcceptors = [ matchAll
+                             "available"
+                             AcceptSuccess
+                             (folding (concatOf dcssrsSnapshots) .
+                              sStatus . _Just . to toTextCI)
+                       , matchAny
+                             "failed"
+                             AcceptFailure
+                             (folding (concatOf dcssrsSnapshots) .
+                              sStatus . _Just . to toTextCI)
+                       , matchAny
+                             "deleted"
+                             AcceptFailure
+                             (folding (concatOf dcssrsSnapshots) .
+                              sStatus . _Just . to toTextCI)]
+    }
+
+-- | Polls 'Network.AWS.Redshift.DescribeClusters' every 60 seconds until a
+-- successful state is reached. An error is returned after 30 failed checks.
+clusterAvailable :: Wait DescribeClusters
+clusterAvailable =
+    Wait
+    { _waitName = "ClusterAvailable"
+    , _waitAttempts = 30
+    , _waitDelay = 60
+    , _waitAcceptors = [ matchAll
+                             "available"
+                             AcceptSuccess
+                             (folding (concatOf dcrsClusters) .
+                              cClusterStatus . _Just . to toTextCI)
+                       , matchAny
+                             "deleting"
+                             AcceptFailure
+                             (folding (concatOf dcrsClusters) .
+                              cClusterStatus . _Just . to toTextCI)
+                       , matchError "ClusterNotFound" AcceptRetry]
     }

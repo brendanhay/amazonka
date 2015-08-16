@@ -1,0 +1,10 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_",
+    "libraryName": "amazonka-support",
+    "typeOverrides": {
+        "Service": {
+            "renamedTo": "SupportService"
+        }
+    }
+}

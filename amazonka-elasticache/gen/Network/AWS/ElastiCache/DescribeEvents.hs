@@ -1,206 +1,226 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElastiCache.DescribeEvents
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DescribeEvents/ action returns events related to cache clusters, cache
--- security groups, and cache parameter groups. You can obtain events specific
--- to a particular cache cluster, cache security group, or cache parameter group
--- by providing the name as a parameter.
+-- |
+-- Module      : Network.AWS.ElastiCache.DescribeEvents
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- The /DescribeEvents/ action returns events related to cache clusters,
+-- cache security groups, and cache parameter groups. You can obtain events
+-- specific to a particular cache cluster, cache security group, or cache
+-- parameter group by providing the name as a parameter.
 --
 -- By default, only the events occurring within the last hour are returned;
--- however, you can retrieve up to 14 days' worth of events if necessary.
+-- however, you can retrieve up to 14 days\' worth of events if necessary.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEvents.html AWS API Reference> for DescribeEvents.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeEvents
     (
-    -- * Request
-      DescribeEvents
-    -- ** Request constructor
-    , describeEvents
-    -- ** Request lenses
-    , deDuration
+    -- * Creating a Request
+      describeEvents
+    , DescribeEvents
+    -- * Request Lenses
+    , deStartTime
+    , deSourceType
+    , deSourceIdentifier
+    , deMaxRecords
     , deEndTime
     , deMarker
-    , deMaxRecords
-    , deSourceIdentifier
-    , deSourceType
-    , deStartTime
+    , deDuration
 
-    -- * Response
-    , DescribeEventsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeEventsResponse
-    -- ** Response lenses
-    , derEvents
-    , derMarker
+    , DescribeEventsResponse
+    -- * Response Lenses
+    , dersEvents
+    , dersMarker
+    , dersStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeEvents = DescribeEvents
-    { _deDuration         :: Maybe Int
-    , _deEndTime          :: Maybe ISO8601
-    , _deMarker           :: Maybe Text
-    , _deMaxRecords       :: Maybe Int
-    , _deSourceIdentifier :: Maybe Text
-    , _deSourceType       :: Maybe SourceType
-    , _deStartTime        :: Maybe ISO8601
-    } deriving (Eq, Read, Show)
+-- | Represents the input of a /DescribeEvents/ action.
+--
+-- /See:/ 'describeEvents' smart constructor.
+data DescribeEvents = DescribeEvents'
+    { _deStartTime        :: !(Maybe ISO8601)
+    , _deSourceType       :: !(Maybe SourceType)
+    , _deSourceIdentifier :: !(Maybe Text)
+    , _deMaxRecords       :: !(Maybe Int)
+    , _deEndTime          :: !(Maybe ISO8601)
+    , _deMarker           :: !(Maybe Text)
+    , _deDuration         :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEvents' constructor.
+-- | Creates a value of 'DescribeEvents' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'deDuration' @::@ 'Maybe' 'Int'
+-- * 'deStartTime'
 --
--- * 'deEndTime' @::@ 'Maybe' 'UTCTime'
+-- * 'deSourceType'
 --
--- * 'deMarker' @::@ 'Maybe' 'Text'
+-- * 'deSourceIdentifier'
 --
--- * 'deMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'deMaxRecords'
 --
--- * 'deSourceIdentifier' @::@ 'Maybe' 'Text'
+-- * 'deEndTime'
 --
--- * 'deSourceType' @::@ 'Maybe' 'SourceType'
+-- * 'deMarker'
 --
--- * 'deStartTime' @::@ 'Maybe' 'UTCTime'
---
-describeEvents :: DescribeEvents
-describeEvents = DescribeEvents
-    { _deSourceIdentifier = Nothing
-    , _deSourceType       = Nothing
-    , _deStartTime        = Nothing
-    , _deEndTime          = Nothing
-    , _deDuration         = Nothing
-    , _deMaxRecords       = Nothing
-    , _deMarker           = Nothing
+-- * 'deDuration'
+describeEvents
+    :: DescribeEvents
+describeEvents =
+    DescribeEvents'
+    { _deStartTime = Nothing
+    , _deSourceType = Nothing
+    , _deSourceIdentifier = Nothing
+    , _deMaxRecords = Nothing
+    , _deEndTime = Nothing
+    , _deMarker = Nothing
+    , _deDuration = Nothing
     }
 
--- | The number of minutes' worth of events to retrieve.
-deDuration :: Lens' DescribeEvents (Maybe Int)
-deDuration = lens _deDuration (\s a -> s { _deDuration = a })
+-- | The beginning of the time interval to retrieve events for, specified in
+-- ISO 8601 format.
+deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
+deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time;
 
--- | The end of the time interval for which to retrieve events, specified in ISO
--- 8601 format.
-deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
-deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
+-- | The event source to retrieve events for. If no value is specified, all
+-- events are returned.
+--
+-- Valid values are: 'cache-cluster' | 'cache-parameter-group' |
+-- 'cache-security-group' | 'cache-subnet-group'
+deSourceType :: Lens' DescribeEvents (Maybe SourceType)
+deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value specified
--- by /MaxRecords/.
-deMarker :: Lens' DescribeEvents (Maybe Text)
-deMarker = lens _deMarker (\s a -> s { _deMarker = a })
+-- | The identifier of the event source for which events will be returned. If
+-- not specified, then all sources are included in the response.
+deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
+deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
 
--- | The maximum number of records to include in the response. If more records
--- exist than the specified 'MaxRecords' value, a marker is included in the
--- response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified 'MaxRecords' value, a marker is
+-- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
 deMaxRecords :: Lens' DescribeEvents (Maybe Int)
-deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
+deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 
--- | The identifier of the event source for which events will be returned. If not
--- specified, then all sources are included in the response.
-deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
-deSourceIdentifier =
-    lens _deSourceIdentifier (\s a -> s { _deSourceIdentifier = a })
+-- | The end of the time interval for which to retrieve events, specified in
+-- ISO 8601 format.
+deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
+deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
 
--- | The event source to retrieve events for. If no value is specified, all events
--- are returned.
---
--- Valid values are: 'cache-cluster' | 'cache-parameter-group' | 'cache-security-group' | 'cache-subnet-group'
-deSourceType :: Lens' DescribeEvents (Maybe SourceType)
-deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+deMarker :: Lens' DescribeEvents (Maybe Text)
+deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 
--- | The beginning of the time interval to retrieve events for, specified in ISO
--- 8601 format.
-deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
-deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a }) . mapping _Time
+-- | The number of minutes\' worth of events to retrieve.
+deDuration :: Lens' DescribeEvents (Maybe Int)
+deDuration = lens _deDuration (\ s a -> s{_deDuration = a});
 
-data DescribeEventsResponse = DescribeEventsResponse
-    { _derEvents :: List "member" Event
-    , _derMarker :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSPager DescribeEvents where
+        page rq rs
+          | stop (rs ^. dersMarker) = Nothing
+          | stop (rs ^. dersEvents) = Nothing
+          | otherwise =
+            Just $ rq & deMarker .~ rs ^. dersMarker
 
--- | 'DescribeEventsResponse' constructor.
+instance AWSRequest DescribeEvents where
+        type Sv DescribeEvents = ElastiCache
+        type Rs DescribeEvents = DescribeEventsResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DescribeEventsResult"
+              (\ s h x ->
+                 DescribeEventsResponse' <$>
+                   (x .@? "Events" .!@ mempty >>=
+                      may (parseXMLList "Event"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeEvents where
+        toHeaders = const mempty
+
+instance ToPath DescribeEvents where
+        toPath = const "/"
+
+instance ToQuery DescribeEvents where
+        toQuery DescribeEvents'{..}
+          = mconcat
+              ["Action" =: ("DescribeEvents" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "StartTime" =: _deStartTime,
+               "SourceType" =: _deSourceType,
+               "SourceIdentifier" =: _deSourceIdentifier,
+               "MaxRecords" =: _deMaxRecords,
+               "EndTime" =: _deEndTime, "Marker" =: _deMarker,
+               "Duration" =: _deDuration]
+
+-- | Represents the output of a /DescribeEvents/ action.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeEventsResponse' smart constructor.
+data DescribeEventsResponse = DescribeEventsResponse'
+    { _dersEvents :: !(Maybe [Event])
+    , _dersMarker :: !(Maybe Text)
+    , _dersStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeEventsResponse' with the minimum fields required to make a request.
 --
--- * 'derEvents' @::@ ['Event']
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'derMarker' @::@ 'Maybe' 'Text'
+-- * 'dersEvents'
 --
-describeEventsResponse :: DescribeEventsResponse
-describeEventsResponse = DescribeEventsResponse
-    { _derMarker = Nothing
-    , _derEvents = mempty
+-- * 'dersMarker'
+--
+-- * 'dersStatus'
+describeEventsResponse
+    :: Int -- ^ 'dersStatus'
+    -> DescribeEventsResponse
+describeEventsResponse pStatus_ =
+    DescribeEventsResponse'
+    { _dersEvents = Nothing
+    , _dersMarker = Nothing
+    , _dersStatus = pStatus_
     }
 
 -- | A list of events. Each element in the list contains detailed information
 -- about one event.
-derEvents :: Lens' DescribeEventsResponse [Event]
-derEvents = lens _derEvents (\s a -> s { _derEvents = a }) . _List
+dersEvents :: Lens' DescribeEventsResponse [Event]
+dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 
 -- | Provides an identifier to allow retrieval of paginated results.
-derMarker :: Lens' DescribeEventsResponse (Maybe Text)
-derMarker = lens _derMarker (\s a -> s { _derMarker = a })
+dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
+dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
-instance ToPath DescribeEvents where
-    toPath = const "/"
-
-instance ToQuery DescribeEvents where
-    toQuery DescribeEvents{..} = mconcat
-        [ "Duration"         =? _deDuration
-        , "EndTime"          =? _deEndTime
-        , "Marker"           =? _deMarker
-        , "MaxRecords"       =? _deMaxRecords
-        , "SourceIdentifier" =? _deSourceIdentifier
-        , "SourceType"       =? _deSourceType
-        , "StartTime"        =? _deStartTime
-        ]
-
-instance ToHeaders DescribeEvents
-
-instance AWSRequest DescribeEvents where
-    type Sv DescribeEvents = ElastiCache
-    type Rs DescribeEvents = DescribeEventsResponse
-
-    request  = post "DescribeEvents"
-    response = xmlResponse
-
-instance FromXML DescribeEventsResponse where
-    parseXML = withElement "DescribeEventsResult" $ \x -> DescribeEventsResponse
-        <$> x .@? "Events" .!@ mempty
-        <*> x .@? "Marker"
-
-instance AWSPager DescribeEvents where
-    page rq rs
-        | stop (rs ^. derMarker) = Nothing
-        | otherwise = (\x -> rq & deMarker ?~ x)
-            <$> (rs ^. derMarker)
+-- | The response status code.
+dersStatus :: Lens' DescribeEventsResponse Int
+dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

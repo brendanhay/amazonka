@@ -1,117 +1,114 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.PutBucketPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Replaces a policy on a bucket. If the bucket already has a policy, the one in
--- this request completely replaces it.
+-- |
+-- Module      : Network.AWS.S3.PutBucketPolicy
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketPolicy.html>
+-- Replaces a policy on a bucket. If the bucket already has a policy, the
+-- one in this request completely replaces it.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketPolicy.html AWS API Reference> for PutBucketPolicy.
 module Network.AWS.S3.PutBucketPolicy
     (
-    -- * Request
-      PutBucketPolicy
-    -- ** Request constructor
-    , putBucketPolicy
-    -- ** Request lenses
-    , pbpBucket
+    -- * Creating a Request
+      putBucketPolicy
+    , PutBucketPolicy
+    -- * Request Lenses
     , pbpContentMD5
+    , pbpBucket
     , pbpPolicy
 
-    -- * Response
-    , PutBucketPolicyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , putBucketPolicyResponse
+    , PutBucketPolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-data PutBucketPolicy = PutBucketPolicy
-    { _pbpBucket     :: Text
-    , _pbpContentMD5 :: Maybe Text
-    , _pbpPolicy     :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'putBucketPolicy' smart constructor.
+data PutBucketPolicy = PutBucketPolicy'
+    { _pbpContentMD5 :: !(Maybe Text)
+    , _pbpBucket     :: !BucketName
+    , _pbpPolicy     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketPolicy' constructor.
+-- | Creates a value of 'PutBucketPolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbpBucket' @::@ 'Text'
+-- * 'pbpContentMD5'
 --
--- * 'pbpContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbpBucket'
 --
--- * 'pbpPolicy' @::@ 'Text'
---
-putBucketPolicy :: Text -- ^ 'pbpBucket'
-                -> Text -- ^ 'pbpPolicy'
-                -> PutBucketPolicy
-putBucketPolicy p1 p2 = PutBucketPolicy
-    { _pbpBucket     = p1
-    , _pbpPolicy     = p2
-    , _pbpContentMD5 = Nothing
+-- * 'pbpPolicy'
+putBucketPolicy
+    :: BucketName -- ^ 'pbpBucket'
+    -> Text -- ^ 'pbpPolicy'
+    -> PutBucketPolicy
+putBucketPolicy pBucket_ pPolicy_ =
+    PutBucketPolicy'
+    { _pbpContentMD5 = Nothing
+    , _pbpBucket = pBucket_
+    , _pbpPolicy = pPolicy_
     }
 
-pbpBucket :: Lens' PutBucketPolicy Text
-pbpBucket = lens _pbpBucket (\s a -> s { _pbpBucket = a })
-
+-- | Undocumented member.
 pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
-pbpContentMD5 = lens _pbpContentMD5 (\s a -> s { _pbpContentMD5 = a })
+pbpContentMD5 = lens _pbpContentMD5 (\ s a -> s{_pbpContentMD5 = a});
+
+-- | Undocumented member.
+pbpBucket :: Lens' PutBucketPolicy BucketName
+pbpBucket = lens _pbpBucket (\ s a -> s{_pbpBucket = a});
 
 -- | The bucket policy as a JSON document.
 pbpPolicy :: Lens' PutBucketPolicy Text
-pbpPolicy = lens _pbpPolicy (\s a -> s { _pbpPolicy = a })
-
-data PutBucketPolicyResponse = PutBucketPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'PutBucketPolicyResponse' constructor.
-putBucketPolicyResponse :: PutBucketPolicyResponse
-putBucketPolicyResponse = PutBucketPolicyResponse
-
-instance ToPath PutBucketPolicy where
-    toPath PutBucketPolicy{..} = mconcat
-        [ "/"
-        , toText _pbpBucket
-        ]
-
-instance ToQuery PutBucketPolicy where
-    toQuery = const "policy"
-
-instance ToHeaders PutBucketPolicy where
-    toHeaders PutBucketPolicy{..} = mconcat
-        [ "Content-MD5" =: _pbpContentMD5
-        ]
-
-instance ToXMLRoot PutBucketPolicy where
-    toXMLRoot = extractRoot ns . toXML . _pbpPolicy
-
-instance ToXML PutBucketPolicy
+pbpPolicy = lens _pbpPolicy (\ s a -> s{_pbpPolicy = a});
 
 instance AWSRequest PutBucketPolicy where
-    type Sv PutBucketPolicy = S3
-    type Rs PutBucketPolicy = PutBucketPolicyResponse
+        type Sv PutBucketPolicy = S3
+        type Rs PutBucketPolicy = PutBucketPolicyResponse
+        request = contentMD5 . putXML
+        response = receiveNull PutBucketPolicyResponse'
 
-    request  = put
-    response = nullResponse PutBucketPolicyResponse
+instance ToElement PutBucketPolicy where
+        toElement = mkElement "Policy" . _pbpPolicy
+
+instance ToHeaders PutBucketPolicy where
+        toHeaders PutBucketPolicy'{..}
+          = mconcat ["Content-MD5" =# _pbpContentMD5]
+
+instance ToPath PutBucketPolicy where
+        toPath PutBucketPolicy'{..}
+          = mconcat ["/", toBS _pbpBucket]
+
+instance ToQuery PutBucketPolicy where
+        toQuery = const (mconcat ["policy"])
+
+-- | /See:/ 'putBucketPolicyResponse' smart constructor.
+data PutBucketPolicyResponse =
+    PutBucketPolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutBucketPolicyResponse' with the minimum fields required to make a request.
+--
+putBucketPolicyResponse
+    :: PutBucketPolicyResponse
+putBucketPolicyResponse = PutBucketPolicyResponse'

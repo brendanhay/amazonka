@@ -1,176 +1,190 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.DescribePrefixLists
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes available AWS services in a prefix list format, which includes the
--- prefix list name and prefix list ID of the service and the IP address range
--- for the service. A prefix list ID is required for creating an outbound
--- security group rule that allows traffic from a VPC to access an AWS service
--- through a VPC endpoint.
+-- |
+-- Module      : Network.AWS.EC2.DescribePrefixLists
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePrefixLists.html>
+-- Describes available AWS services in a prefix list format, which includes
+-- the prefix list name and prefix list ID of the service and the IP
+-- address range for the service. A prefix list ID is required for creating
+-- an outbound security group rule that allows traffic from a VPC to access
+-- an AWS service through a VPC endpoint.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePrefixLists.html AWS API Reference> for DescribePrefixLists.
 module Network.AWS.EC2.DescribePrefixLists
     (
-    -- * Request
-      DescribePrefixLists
-    -- ** Request constructor
-    , describePrefixLists
-    -- ** Request lenses
-    , dplDryRun
+    -- * Creating a Request
+      describePrefixLists
+    , DescribePrefixLists
+    -- * Request Lenses
     , dplFilters
-    , dplMaxResults
     , dplNextToken
     , dplPrefixListIds
+    , dplDryRun
+    , dplMaxResults
 
-    -- * Response
-    , DescribePrefixListsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describePrefixListsResponse
-    -- ** Response lenses
-    , dplrNextToken
-    , dplrPrefixLists
+    , DescribePrefixListsResponse
+    -- * Response Lenses
+    , dplrsNextToken
+    , dplrsPrefixLists
+    , dplrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribePrefixLists = DescribePrefixLists
-    { _dplDryRun        :: Maybe Bool
-    , _dplFilters       :: List "Filter" Filter
-    , _dplMaxResults    :: Maybe Int
-    , _dplNextToken     :: Maybe Text
-    , _dplPrefixListIds :: List "item" Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'describePrefixLists' smart constructor.
+data DescribePrefixLists = DescribePrefixLists'
+    { _dplFilters       :: !(Maybe [Filter])
+    , _dplNextToken     :: !(Maybe Text)
+    , _dplPrefixListIds :: !(Maybe [Text])
+    , _dplDryRun        :: !(Maybe Bool)
+    , _dplMaxResults    :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribePrefixLists' constructor.
+-- | Creates a value of 'DescribePrefixLists' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dplDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dplFilters'
 --
--- * 'dplFilters' @::@ ['Filter']
+-- * 'dplNextToken'
 --
--- * 'dplMaxResults' @::@ 'Maybe' 'Int'
+-- * 'dplPrefixListIds'
 --
--- * 'dplNextToken' @::@ 'Maybe' 'Text'
+-- * 'dplDryRun'
 --
--- * 'dplPrefixListIds' @::@ ['Text']
---
-describePrefixLists :: DescribePrefixLists
-describePrefixLists = DescribePrefixLists
-    { _dplDryRun        = Nothing
-    , _dplPrefixListIds = mempty
-    , _dplFilters       = mempty
-    , _dplMaxResults    = Nothing
-    , _dplNextToken     = Nothing
+-- * 'dplMaxResults'
+describePrefixLists
+    :: DescribePrefixLists
+describePrefixLists =
+    DescribePrefixLists'
+    { _dplFilters = Nothing
+    , _dplNextToken = Nothing
+    , _dplPrefixListIds = Nothing
+    , _dplDryRun = Nothing
+    , _dplMaxResults = Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-dplDryRun :: Lens' DescribePrefixLists (Maybe Bool)
-dplDryRun = lens _dplDryRun (\s a -> s { _dplDryRun = a })
 
 -- | One or more filters.
 --
--- 'prefix-list-id': The ID of a prefix list.
+-- -   'prefix-list-id': The ID of a prefix list.
 --
--- 'prefix-list-name': The name of a prefix list.
---
+-- -   'prefix-list-name': The name of a prefix list.
 --
 dplFilters :: Lens' DescribePrefixLists [Filter]
-dplFilters = lens _dplFilters (\s a -> s { _dplFilters = a }) . _List
+dplFilters = lens _dplFilters (\ s a -> s{_dplFilters = a}) . _Default . _Coerce;
 
--- | The maximum number of items to return for this request. The request returns a
--- token that you can specify in a subsequent call to get the next set of
--- results.
---
--- Constraint: If the value specified is greater than 1000, we return only 1000
--- items.
-dplMaxResults :: Lens' DescribePrefixLists (Maybe Int)
-dplMaxResults = lens _dplMaxResults (\s a -> s { _dplMaxResults = a })
-
--- | The token for the next set of items to return. (You received this token from
--- a prior call.)
+-- | The token for the next set of items to return. (You received this token
+-- from a prior call.)
 dplNextToken :: Lens' DescribePrefixLists (Maybe Text)
-dplNextToken = lens _dplNextToken (\s a -> s { _dplNextToken = a })
+dplNextToken = lens _dplNextToken (\ s a -> s{_dplNextToken = a});
 
 -- | One or more prefix list IDs.
 dplPrefixListIds :: Lens' DescribePrefixLists [Text]
-dplPrefixListIds = lens _dplPrefixListIds (\s a -> s { _dplPrefixListIds = a }) . _List
+dplPrefixListIds = lens _dplPrefixListIds (\ s a -> s{_dplPrefixListIds = a}) . _Default . _Coerce;
 
-data DescribePrefixListsResponse = DescribePrefixListsResponse
-    { _dplrNextToken   :: Maybe Text
-    , _dplrPrefixLists :: List "item" PrefixList
-    } deriving (Eq, Read, Show)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+dplDryRun :: Lens' DescribePrefixLists (Maybe Bool)
+dplDryRun = lens _dplDryRun (\ s a -> s{_dplDryRun = a});
 
--- | 'DescribePrefixListsResponse' constructor.
+-- | The maximum number of items to return for this request. The request
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
 --
--- The fields accessible through corresponding lenses are:
+-- Constraint: If the value specified is greater than 1000, we return only
+-- 1000 items.
+dplMaxResults :: Lens' DescribePrefixLists (Maybe Int)
+dplMaxResults = lens _dplMaxResults (\ s a -> s{_dplMaxResults = a});
+
+instance AWSRequest DescribePrefixLists where
+        type Sv DescribePrefixLists = EC2
+        type Rs DescribePrefixLists =
+             DescribePrefixListsResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribePrefixListsResponse' <$>
+                   (x .@? "nextToken") <*>
+                     (x .@? "prefixListSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribePrefixLists where
+        toHeaders = const mempty
+
+instance ToPath DescribePrefixLists where
+        toPath = const "/"
+
+instance ToQuery DescribePrefixLists where
+        toQuery DescribePrefixLists'{..}
+          = mconcat
+              ["Action" =: ("DescribePrefixLists" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               toQuery (toQueryList "Filter" <$> _dplFilters),
+               "NextToken" =: _dplNextToken,
+               toQuery (toQueryList "item" <$> _dplPrefixListIds),
+               "DryRun" =: _dplDryRun,
+               "MaxResults" =: _dplMaxResults]
+
+-- | /See:/ 'describePrefixListsResponse' smart constructor.
+data DescribePrefixListsResponse = DescribePrefixListsResponse'
+    { _dplrsNextToken   :: !(Maybe Text)
+    , _dplrsPrefixLists :: !(Maybe [PrefixList])
+    , _dplrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribePrefixListsResponse' with the minimum fields required to make a request.
 --
--- * 'dplrNextToken' @::@ 'Maybe' 'Text'
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dplrPrefixLists' @::@ ['PrefixList']
+-- * 'dplrsNextToken'
 --
-describePrefixListsResponse :: DescribePrefixListsResponse
-describePrefixListsResponse = DescribePrefixListsResponse
-    { _dplrPrefixLists = mempty
-    , _dplrNextToken   = Nothing
+-- * 'dplrsPrefixLists'
+--
+-- * 'dplrsStatus'
+describePrefixListsResponse
+    :: Int -- ^ 'dplrsStatus'
+    -> DescribePrefixListsResponse
+describePrefixListsResponse pStatus_ =
+    DescribePrefixListsResponse'
+    { _dplrsNextToken = Nothing
+    , _dplrsPrefixLists = Nothing
+    , _dplrsStatus = pStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dplrNextToken :: Lens' DescribePrefixListsResponse (Maybe Text)
-dplrNextToken = lens _dplrNextToken (\s a -> s { _dplrNextToken = a })
+dplrsNextToken :: Lens' DescribePrefixListsResponse (Maybe Text)
+dplrsNextToken = lens _dplrsNextToken (\ s a -> s{_dplrsNextToken = a});
 
 -- | All available prefix lists.
-dplrPrefixLists :: Lens' DescribePrefixListsResponse [PrefixList]
-dplrPrefixLists = lens _dplrPrefixLists (\s a -> s { _dplrPrefixLists = a }) . _List
+dplrsPrefixLists :: Lens' DescribePrefixListsResponse [PrefixList]
+dplrsPrefixLists = lens _dplrsPrefixLists (\ s a -> s{_dplrsPrefixLists = a}) . _Default . _Coerce;
 
-instance ToPath DescribePrefixLists where
-    toPath = const "/"
-
-instance ToQuery DescribePrefixLists where
-    toQuery DescribePrefixLists{..} = mconcat
-        [ "DryRun"       =? _dplDryRun
-        , "Filter"       `toQueryList` _dplFilters
-        , "MaxResults"   =? _dplMaxResults
-        , "NextToken"    =? _dplNextToken
-        , "PrefixListId" `toQueryList` _dplPrefixListIds
-        ]
-
-instance ToHeaders DescribePrefixLists
-
-instance AWSRequest DescribePrefixLists where
-    type Sv DescribePrefixLists = EC2
-    type Rs DescribePrefixLists = DescribePrefixListsResponse
-
-    request  = post "DescribePrefixLists"
-    response = xmlResponse
-
-instance FromXML DescribePrefixListsResponse where
-    parseXML x = DescribePrefixListsResponse
-        <$> x .@? "nextToken"
-        <*> x .@? "prefixListSet" .!@ mempty
+-- | The response status code.
+dplrsStatus :: Lens' DescribePrefixListsResponse Int
+dplrsStatus = lens _dplrsStatus (\ s a -> s{_dplrsStatus = a});

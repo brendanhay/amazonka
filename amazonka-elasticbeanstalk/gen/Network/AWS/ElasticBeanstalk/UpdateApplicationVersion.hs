@@ -1,139 +1,121 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Updates the specified application version to have the specified properties.
+-- |
+-- Module      : Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- If a property (for example, 'description') is not provided, the value remains
--- unchanged. To clear properties, specify an empty string.
+-- Updates the specified application version to have the specified
+-- properties.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplicationVersion.html>
+-- If a property (for example, 'description') is not provided, the value
+-- remains unchanged. To clear properties, specify an empty string.
+--
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplicationVersion.html AWS API Reference> for UpdateApplicationVersion.
 module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     (
-    -- * Request
-      UpdateApplicationVersion
-    -- ** Request constructor
-    , updateApplicationVersion
-    -- ** Request lenses
-    , uavApplicationName
+    -- * Creating a Request
+      updateApplicationVersion
+    , UpdateApplicationVersion
+    -- * Request Lenses
     , uavDescription
+    , uavApplicationName
     , uavVersionLabel
 
-    -- * Response
-    , UpdateApplicationVersionResponse
-    -- ** Response constructor
-    , updateApplicationVersionResponse
-    -- ** Response lenses
-    , uavrApplicationVersion
+    -- * Destructuring the Response
+    , applicationVersionDescriptionMessage
+    , ApplicationVersionDescriptionMessage
+    -- * Response Lenses
+    , avdmApplicationVersion
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateApplicationVersion = UpdateApplicationVersion
-    { _uavApplicationName :: Text
-    , _uavDescription     :: Maybe Text
-    , _uavVersionLabel    :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- |
+--
+-- /See:/ 'updateApplicationVersion' smart constructor.
+data UpdateApplicationVersion = UpdateApplicationVersion'
+    { _uavDescription     :: !(Maybe Text)
+    , _uavApplicationName :: !Text
+    , _uavVersionLabel    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateApplicationVersion' constructor.
+-- | Creates a value of 'UpdateApplicationVersion' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uavApplicationName' @::@ 'Text'
+-- * 'uavDescription'
 --
--- * 'uavDescription' @::@ 'Maybe' 'Text'
+-- * 'uavApplicationName'
 --
--- * 'uavVersionLabel' @::@ 'Text'
---
-updateApplicationVersion :: Text -- ^ 'uavApplicationName'
-                         -> Text -- ^ 'uavVersionLabel'
-                         -> UpdateApplicationVersion
-updateApplicationVersion p1 p2 = UpdateApplicationVersion
-    { _uavApplicationName = p1
-    , _uavVersionLabel    = p2
-    , _uavDescription     = Nothing
+-- * 'uavVersionLabel'
+updateApplicationVersion
+    :: Text -- ^ 'uavApplicationName'
+    -> Text -- ^ 'uavVersionLabel'
+    -> UpdateApplicationVersion
+updateApplicationVersion pApplicationName_ pVersionLabel_ =
+    UpdateApplicationVersion'
+    { _uavDescription = Nothing
+    , _uavApplicationName = pApplicationName_
+    , _uavVersionLabel = pVersionLabel_
     }
-
--- | The name of the application associated with this version.
---
--- If no application is found with this name, 'UpdateApplication' returns an 'InvalidParameterValue' error.
-uavApplicationName :: Lens' UpdateApplicationVersion Text
-uavApplicationName =
-    lens _uavApplicationName (\s a -> s { _uavApplicationName = a })
 
 -- | A new description for this release.
 uavDescription :: Lens' UpdateApplicationVersion (Maybe Text)
-uavDescription = lens _uavDescription (\s a -> s { _uavDescription = a })
+uavDescription = lens _uavDescription (\ s a -> s{_uavDescription = a});
+
+-- | The name of the application associated with this version.
+--
+-- If no application is found with this name, 'UpdateApplication' returns
+-- an 'InvalidParameterValue' error.
+uavApplicationName :: Lens' UpdateApplicationVersion Text
+uavApplicationName = lens _uavApplicationName (\ s a -> s{_uavApplicationName = a});
 
 -- | The name of the version to update.
 --
 -- If no application version is found with this label, 'UpdateApplication'
 -- returns an 'InvalidParameterValue' error.
 uavVersionLabel :: Lens' UpdateApplicationVersion Text
-uavVersionLabel = lens _uavVersionLabel (\s a -> s { _uavVersionLabel = a })
-
-newtype UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
-    { _uavrApplicationVersion :: Maybe ApplicationVersionDescription
-    } deriving (Eq, Read, Show)
-
--- | 'UpdateApplicationVersionResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uavrApplicationVersion' @::@ 'Maybe' 'ApplicationVersionDescription'
---
-updateApplicationVersionResponse :: UpdateApplicationVersionResponse
-updateApplicationVersionResponse = UpdateApplicationVersionResponse
-    { _uavrApplicationVersion = Nothing
-    }
-
--- | The 'ApplicationVersionDescription' of the application version.
-uavrApplicationVersion :: Lens' UpdateApplicationVersionResponse (Maybe ApplicationVersionDescription)
-uavrApplicationVersion =
-    lens _uavrApplicationVersion (\s a -> s { _uavrApplicationVersion = a })
-
-instance ToPath UpdateApplicationVersion where
-    toPath = const "/"
-
-instance ToQuery UpdateApplicationVersion where
-    toQuery UpdateApplicationVersion{..} = mconcat
-        [ "ApplicationName" =? _uavApplicationName
-        , "Description"     =? _uavDescription
-        , "VersionLabel"    =? _uavVersionLabel
-        ]
-
-instance ToHeaders UpdateApplicationVersion
+uavVersionLabel = lens _uavVersionLabel (\ s a -> s{_uavVersionLabel = a});
 
 instance AWSRequest UpdateApplicationVersion where
-    type Sv UpdateApplicationVersion = ElasticBeanstalk
-    type Rs UpdateApplicationVersion = UpdateApplicationVersionResponse
+        type Sv UpdateApplicationVersion = ElasticBeanstalk
+        type Rs UpdateApplicationVersion =
+             ApplicationVersionDescriptionMessage
+        request = postQuery
+        response
+          = receiveXMLWrapper "UpdateApplicationVersionResult"
+              (\ s h x -> parseXML x)
 
-    request  = post "UpdateApplicationVersion"
-    response = xmlResponse
+instance ToHeaders UpdateApplicationVersion where
+        toHeaders = const mempty
 
-instance FromXML UpdateApplicationVersionResponse where
-    parseXML = withElement "UpdateApplicationVersionResult" $ \x -> UpdateApplicationVersionResponse
-        <$> x .@? "ApplicationVersion"
+instance ToPath UpdateApplicationVersion where
+        toPath = const "/"
+
+instance ToQuery UpdateApplicationVersion where
+        toQuery UpdateApplicationVersion'{..}
+          = mconcat
+              ["Action" =:
+                 ("UpdateApplicationVersion" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "Description" =: _uavDescription,
+               "ApplicationName" =: _uavApplicationName,
+               "VersionLabel" =: _uavVersionLabel]

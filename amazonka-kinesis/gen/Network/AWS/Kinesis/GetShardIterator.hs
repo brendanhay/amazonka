@@ -1,192 +1,218 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Kinesis.GetShardIterator
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Gets a shard iterator. A shard iterator expires five minutes after it is
+-- |
+-- Module      : Network.AWS.Kinesis.GetShardIterator
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Gets a shard iterator. A shard iterator expires five minutes after it is
 -- returned to the requester.
 --
 -- A shard iterator specifies the position in the shard from which to start
--- reading data records sequentially. A shard iterator specifies this position
--- using the sequence number of a data record in a shard. A sequence number is
--- the identifier associated with every record ingested in the Amazon Kinesis
--- stream. The sequence number is assigned when a record is put into the stream.
+-- reading data records sequentially. A shard iterator specifies this
+-- position using the sequence number of a data record in a shard. A
+-- sequence number is the identifier associated with every record ingested
+-- in the Amazon Kinesis stream. The sequence number is assigned when a
+-- record is put into the stream.
 --
--- You must specify the shard iterator type. For example, you can set the 'ShardIteratorType' parameter to read exactly from the position denoted by a specific sequence
--- number by using the 'AT_SEQUENCE_NUMBER' shard iterator type, or right after
--- the sequence number by using the 'AFTER_SEQUENCE_NUMBER' shard iterator type,
--- using sequence numbers returned by earlier calls to 'PutRecord', 'PutRecords', 'GetRecords', or 'DescribeStream'. You can specify the shard iterator type 'TRIM_HORIZON' in
--- the request to cause 'ShardIterator' to point to the last untrimmed record in
--- the shard in the system, which is the oldest data record in the shard. Or you
--- can point to just after the most recent record in the shard, by using the
--- shard iterator type 'LATEST', so that you always read the most recent data in
--- the shard.
+-- You must specify the shard iterator type. For example, you can set the
+-- 'ShardIteratorType' parameter to read exactly from the position denoted
+-- by a specific sequence number by using the 'AT_SEQUENCE_NUMBER' shard
+-- iterator type, or right after the sequence number by using the
+-- 'AFTER_SEQUENCE_NUMBER' shard iterator type, using sequence numbers
+-- returned by earlier calls to PutRecord, PutRecords, GetRecords, or
+-- DescribeStream. You can specify the shard iterator type 'TRIM_HORIZON'
+-- in the request to cause 'ShardIterator' to point to the last untrimmed
+-- record in the shard in the system, which is the oldest data record in
+-- the shard. Or you can point to just after the most recent record in the
+-- shard, by using the shard iterator type 'LATEST', so that you always
+-- read the most recent data in the shard.
 --
--- When you repeatedly read from an Amazon Kinesis stream use a 'GetShardIterator'
--- request to get the first shard iterator for use in your first 'GetRecords'
--- request and then use the shard iterator returned by the 'GetRecords' request in 'NextShardIterator' for subsequent reads. A new shard iterator is returned by
--- every 'GetRecords' request in 'NextShardIterator', which you use in the 'ShardIterator' parameter of the next 'GetRecords' request.
+-- When you repeatedly read from an Amazon Kinesis stream use a
+-- GetShardIterator request to get the first shard iterator for use in your
+-- first GetRecords request and then use the shard iterator returned by the
+-- GetRecords request in 'NextShardIterator' for subsequent reads. A new
+-- shard iterator is returned by every GetRecords request in
+-- 'NextShardIterator', which you use in the 'ShardIterator' parameter of
+-- the next GetRecords request.
 --
--- If a 'GetShardIterator' request is made too often, you receive a 'ProvisionedThroughputExceededException'. For more information about throughput limits, see 'GetRecords'.
+-- If a GetShardIterator request is made too often, you receive a
+-- 'ProvisionedThroughputExceededException'. For more information about
+-- throughput limits, see GetRecords.
 --
--- If the shard is closed, the iterator can't return more data, and 'GetShardIterator' returns 'null' for its 'ShardIterator'. A shard can be closed using 'SplitShard'
--- or 'MergeShards'.
+-- If the shard is closed, the iterator can\'t return more data, and
+-- GetShardIterator returns 'null' for its 'ShardIterator'. A shard can be
+-- closed using SplitShard or MergeShards.
 --
--- 'GetShardIterator' has a limit of 5 transactions per second per account per
--- open shard.
+-- GetShardIterator has a limit of 5 transactions per second per account
+-- per open shard.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html>
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html AWS API Reference> for GetShardIterator.
 module Network.AWS.Kinesis.GetShardIterator
     (
-    -- * Request
-      GetShardIterator
-    -- ** Request constructor
-    , getShardIterator
-    -- ** Request lenses
-    , gsiShardId
-    , gsiShardIteratorType
+    -- * Creating a Request
+      getShardIterator
+    , GetShardIterator
+    -- * Request Lenses
     , gsiStartingSequenceNumber
     , gsiStreamName
+    , gsiShardId
+    , gsiShardIteratorType
 
-    -- * Response
-    , GetShardIteratorResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getShardIteratorResponse
-    -- ** Response lenses
-    , gsirShardIterator
+    , GetShardIteratorResponse
+    -- * Response Lenses
+    , gsirsShardIterator
+    , gsirsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Kinesis.Types
-import qualified GHC.Exts
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Kinesis.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetShardIterator = GetShardIterator
-    { _gsiShardId                :: Text
-    , _gsiShardIteratorType      :: ShardIteratorType
-    , _gsiStartingSequenceNumber :: Maybe Text
-    , _gsiStreamName             :: Text
-    } deriving (Eq, Read, Show)
+-- | Represents the input for 'GetShardIterator'.
+--
+-- /See:/ 'getShardIterator' smart constructor.
+data GetShardIterator = GetShardIterator'
+    { _gsiStartingSequenceNumber :: !(Maybe Text)
+    , _gsiStreamName             :: !Text
+    , _gsiShardId                :: !Text
+    , _gsiShardIteratorType      :: !ShardIteratorType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetShardIterator' constructor.
+-- | Creates a value of 'GetShardIterator' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gsiShardId' @::@ 'Text'
+-- * 'gsiStartingSequenceNumber'
 --
--- * 'gsiShardIteratorType' @::@ 'ShardIteratorType'
+-- * 'gsiStreamName'
 --
--- * 'gsiStartingSequenceNumber' @::@ 'Maybe' 'Text'
+-- * 'gsiShardId'
 --
--- * 'gsiStreamName' @::@ 'Text'
---
-getShardIterator :: Text -- ^ 'gsiStreamName'
-                 -> Text -- ^ 'gsiShardId'
-                 -> ShardIteratorType -- ^ 'gsiShardIteratorType'
-                 -> GetShardIterator
-getShardIterator p1 p2 p3 = GetShardIterator
-    { _gsiStreamName             = p1
-    , _gsiShardId                = p2
-    , _gsiShardIteratorType      = p3
-    , _gsiStartingSequenceNumber = Nothing
+-- * 'gsiShardIteratorType'
+getShardIterator
+    :: Text -- ^ 'gsiStreamName'
+    -> Text -- ^ 'gsiShardId'
+    -> ShardIteratorType -- ^ 'gsiShardIteratorType'
+    -> GetShardIterator
+getShardIterator pStreamName_ pShardId_ pShardIteratorType_ =
+    GetShardIterator'
+    { _gsiStartingSequenceNumber = Nothing
+    , _gsiStreamName = pStreamName_
+    , _gsiShardId = pShardId_
+    , _gsiShardIteratorType = pShardIteratorType_
     }
-
--- | The shard ID of the shard to get the iterator for.
-gsiShardId :: Lens' GetShardIterator Text
-gsiShardId = lens _gsiShardId (\s a -> s { _gsiShardId = a })
-
--- | Determines how the shard iterator is used to start reading data records from
--- the shard.
---
--- The following are the valid shard iterator types:
---
--- AT_SEQUENCE_NUMBER - Start reading exactly from the position denoted by a
--- specific sequence number. AFTER_SEQUENCE_NUMBER - Start reading right after
--- the position denoted by a specific sequence number. TRIM_HORIZON - Start
--- reading at the last untrimmed record in the shard in the system, which is the
--- oldest data record in the shard. LATEST - Start reading just after the most
--- recent record in the shard, so that you always read the most recent data in
--- the shard.
-gsiShardIteratorType :: Lens' GetShardIterator ShardIteratorType
-gsiShardIteratorType =
-    lens _gsiShardIteratorType (\s a -> s { _gsiShardIteratorType = a })
 
 -- | The sequence number of the data record in the shard from which to start
 -- reading from.
 gsiStartingSequenceNumber :: Lens' GetShardIterator (Maybe Text)
-gsiStartingSequenceNumber =
-    lens _gsiStartingSequenceNumber
-        (\s a -> s { _gsiStartingSequenceNumber = a })
+gsiStartingSequenceNumber = lens _gsiStartingSequenceNumber (\ s a -> s{_gsiStartingSequenceNumber = a});
 
 -- | The name of the stream.
 gsiStreamName :: Lens' GetShardIterator Text
-gsiStreamName = lens _gsiStreamName (\s a -> s { _gsiStreamName = a })
+gsiStreamName = lens _gsiStreamName (\ s a -> s{_gsiStreamName = a});
 
-newtype GetShardIteratorResponse = GetShardIteratorResponse
-    { _gsirShardIterator :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+-- | The shard ID of the shard to get the iterator for.
+gsiShardId :: Lens' GetShardIterator Text
+gsiShardId = lens _gsiShardId (\ s a -> s{_gsiShardId = a});
 
--- | 'GetShardIteratorResponse' constructor.
+-- | Determines how the shard iterator is used to start reading data records
+-- from the shard.
 --
--- The fields accessible through corresponding lenses are:
+-- The following are the valid shard iterator types:
 --
--- * 'gsirShardIterator' @::@ 'Maybe' 'Text'
+-- -   AT_SEQUENCE_NUMBER - Start reading exactly from the position denoted
+--     by a specific sequence number.
+-- -   AFTER_SEQUENCE_NUMBER - Start reading right after the position
+--     denoted by a specific sequence number.
+-- -   TRIM_HORIZON - Start reading at the last untrimmed record in the
+--     shard in the system, which is the oldest data record in the shard.
+-- -   LATEST - Start reading just after the most recent record in the
+--     shard, so that you always read the most recent data in the shard.
+gsiShardIteratorType :: Lens' GetShardIterator ShardIteratorType
+gsiShardIteratorType = lens _gsiShardIteratorType (\ s a -> s{_gsiShardIteratorType = a});
+
+instance AWSRequest GetShardIterator where
+        type Sv GetShardIterator = Kinesis
+        type Rs GetShardIterator = GetShardIteratorResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetShardIteratorResponse' <$>
+                   (x .?> "ShardIterator") <*> (pure (fromEnum s)))
+
+instance ToHeaders GetShardIterator where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("Kinesis_20131202.GetShardIterator" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON GetShardIterator where
+        toJSON GetShardIterator'{..}
+          = object
+              ["StartingSequenceNumber" .=
+                 _gsiStartingSequenceNumber,
+               "StreamName" .= _gsiStreamName,
+               "ShardId" .= _gsiShardId,
+               "ShardIteratorType" .= _gsiShardIteratorType]
+
+instance ToPath GetShardIterator where
+        toPath = const "/"
+
+instance ToQuery GetShardIterator where
+        toQuery = const mempty
+
+-- | Represents the output for 'GetShardIterator'.
 --
-getShardIteratorResponse :: GetShardIteratorResponse
-getShardIteratorResponse = GetShardIteratorResponse
-    { _gsirShardIterator = Nothing
+-- /See:/ 'getShardIteratorResponse' smart constructor.
+data GetShardIteratorResponse = GetShardIteratorResponse'
+    { _gsirsShardIterator :: !(Maybe Text)
+    , _gsirsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetShardIteratorResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gsirsShardIterator'
+--
+-- * 'gsirsStatus'
+getShardIteratorResponse
+    :: Int -- ^ 'gsirsStatus'
+    -> GetShardIteratorResponse
+getShardIteratorResponse pStatus_ =
+    GetShardIteratorResponse'
+    { _gsirsShardIterator = Nothing
+    , _gsirsStatus = pStatus_
     }
 
 -- | The position in the shard from which to start reading data records
--- sequentially. A shard iterator specifies this position using the sequence
--- number of a data record in a shard.
-gsirShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
-gsirShardIterator =
-    lens _gsirShardIterator (\s a -> s { _gsirShardIterator = a })
+-- sequentially. A shard iterator specifies this position using the
+-- sequence number of a data record in a shard.
+gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
+gsirsShardIterator = lens _gsirsShardIterator (\ s a -> s{_gsirsShardIterator = a});
 
-instance ToPath GetShardIterator where
-    toPath = const "/"
-
-instance ToQuery GetShardIterator where
-    toQuery = const mempty
-
-instance ToHeaders GetShardIterator
-
-instance ToJSON GetShardIterator where
-    toJSON GetShardIterator{..} = object
-        [ "StreamName"             .= _gsiStreamName
-        , "ShardId"                .= _gsiShardId
-        , "ShardIteratorType"      .= _gsiShardIteratorType
-        , "StartingSequenceNumber" .= _gsiStartingSequenceNumber
-        ]
-
-instance AWSRequest GetShardIterator where
-    type Sv GetShardIterator = Kinesis
-    type Rs GetShardIterator = GetShardIteratorResponse
-
-    request  = post "GetShardIterator"
-    response = jsonResponse
-
-instance FromJSON GetShardIteratorResponse where
-    parseJSON = withObject "GetShardIteratorResponse" $ \o -> GetShardIteratorResponse
-        <$> o .:? "ShardIterator"
+-- | The response status code.
+gsirsStatus :: Lens' GetShardIteratorResponse Int
+gsirsStatus = lens _gsirsStatus (\ s a -> s{_gsirsStatus = a});

@@ -1,131 +1,148 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CodeDeploy.ListDeploymentConfigs
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the deployment configurations with the applicable IAM user or AWS
+-- |
+-- Module      : Network.AWS.CodeDeploy.ListDeploymentConfigs
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Lists the deployment configurations with the applicable IAM user or AWS
 -- account.
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentConfigs.html>
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentConfigs.html AWS API Reference> for ListDeploymentConfigs.
 module Network.AWS.CodeDeploy.ListDeploymentConfigs
     (
-    -- * Request
-      ListDeploymentConfigs
-    -- ** Request constructor
-    , listDeploymentConfigs
-    -- ** Request lenses
+    -- * Creating a Request
+      listDeploymentConfigs
+    , ListDeploymentConfigs
+    -- * Request Lenses
     , ldcNextToken
 
-    -- * Response
-    , ListDeploymentConfigsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listDeploymentConfigsResponse
-    -- ** Response lenses
-    , ldcrDeploymentConfigsList
-    , ldcrNextToken
+    , ListDeploymentConfigsResponse
+    -- * Response Lenses
+    , ldcrsNextToken
+    , ldcrsDeploymentConfigsList
+    , ldcrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype ListDeploymentConfigs = ListDeploymentConfigs
+-- | Represents the input of a list deployment configurations operation.
+--
+-- /See:/ 'listDeploymentConfigs' smart constructor.
+newtype ListDeploymentConfigs = ListDeploymentConfigs'
     { _ldcNextToken :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDeploymentConfigs' constructor.
+-- | Creates a value of 'ListDeploymentConfigs' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldcNextToken' @::@ 'Maybe' 'Text'
---
-listDeploymentConfigs :: ListDeploymentConfigs
-listDeploymentConfigs = ListDeploymentConfigs
+-- * 'ldcNextToken'
+listDeploymentConfigs
+    :: ListDeploymentConfigs
+listDeploymentConfigs =
+    ListDeploymentConfigs'
     { _ldcNextToken = Nothing
     }
 
 -- | An identifier that was returned from the previous list deployment
--- configurations call, which can be used to return the next set of deployment
--- configurations in the list.
+-- configurations call, which can be used to return the next set of
+-- deployment configurations in the list.
 ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
-ldcNextToken = lens _ldcNextToken (\s a -> s { _ldcNextToken = a })
+ldcNextToken = lens _ldcNextToken (\ s a -> s{_ldcNextToken = a});
 
-data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse
-    { _ldcrDeploymentConfigsList :: List "deploymentConfigsList" Text
-    , _ldcrNextToken             :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+instance AWSRequest ListDeploymentConfigs where
+        type Sv ListDeploymentConfigs = CodeDeploy
+        type Rs ListDeploymentConfigs =
+             ListDeploymentConfigsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListDeploymentConfigsResponse' <$>
+                   (x .?> "nextToken") <*>
+                     (x .?> "deploymentConfigsList" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
--- | 'ListDeploymentConfigsResponse' constructor.
+instance ToHeaders ListDeploymentConfigs where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.ListDeploymentConfigs" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListDeploymentConfigs where
+        toJSON ListDeploymentConfigs'{..}
+          = object ["nextToken" .= _ldcNextToken]
+
+instance ToPath ListDeploymentConfigs where
+        toPath = const "/"
+
+instance ToQuery ListDeploymentConfigs where
+        toQuery = const mempty
+
+-- | Represents the output of a list deployment configurations operation.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'listDeploymentConfigsResponse' smart constructor.
+data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
+    { _ldcrsNextToken             :: !(Maybe Text)
+    , _ldcrsDeploymentConfigsList :: !(Maybe [Text])
+    , _ldcrsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListDeploymentConfigsResponse' with the minimum fields required to make a request.
 --
--- * 'ldcrDeploymentConfigsList' @::@ ['Text']
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ldcrNextToken' @::@ 'Maybe' 'Text'
+-- * 'ldcrsNextToken'
 --
-listDeploymentConfigsResponse :: ListDeploymentConfigsResponse
-listDeploymentConfigsResponse = ListDeploymentConfigsResponse
-    { _ldcrDeploymentConfigsList = mempty
-    , _ldcrNextToken             = Nothing
+-- * 'ldcrsDeploymentConfigsList'
+--
+-- * 'ldcrsStatus'
+listDeploymentConfigsResponse
+    :: Int -- ^ 'ldcrsStatus'
+    -> ListDeploymentConfigsResponse
+listDeploymentConfigsResponse pStatus_ =
+    ListDeploymentConfigsResponse'
+    { _ldcrsNextToken = Nothing
+    , _ldcrsDeploymentConfigsList = Nothing
+    , _ldcrsStatus = pStatus_
     }
-
--- | A list of deployment configurations, including the built-in configurations
--- such as CodeDeployDefault.OneAtATime.
-ldcrDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
-ldcrDeploymentConfigsList =
-    lens _ldcrDeploymentConfigsList
-        (\s a -> s { _ldcrDeploymentConfigsList = a })
-            . _List
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
 -- deployment configurations call to return the next set of deployment
 -- configurations in the list.
-ldcrNextToken :: Lens' ListDeploymentConfigsResponse (Maybe Text)
-ldcrNextToken = lens _ldcrNextToken (\s a -> s { _ldcrNextToken = a })
+ldcrsNextToken :: Lens' ListDeploymentConfigsResponse (Maybe Text)
+ldcrsNextToken = lens _ldcrsNextToken (\ s a -> s{_ldcrsNextToken = a});
 
-instance ToPath ListDeploymentConfigs where
-    toPath = const "/"
+-- | A list of deployment configurations, including the built-in
+-- configurations such as CodeDeployDefault.OneAtATime.
+ldcrsDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
+ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrsDeploymentConfigsList = a}) . _Default . _Coerce;
 
-instance ToQuery ListDeploymentConfigs where
-    toQuery = const mempty
-
-instance ToHeaders ListDeploymentConfigs
-
-instance ToJSON ListDeploymentConfigs where
-    toJSON ListDeploymentConfigs{..} = object
-        [ "nextToken" .= _ldcNextToken
-        ]
-
-instance AWSRequest ListDeploymentConfigs where
-    type Sv ListDeploymentConfigs = CodeDeploy
-    type Rs ListDeploymentConfigs = ListDeploymentConfigsResponse
-
-    request  = post "ListDeploymentConfigs"
-    response = jsonResponse
-
-instance FromJSON ListDeploymentConfigsResponse where
-    parseJSON = withObject "ListDeploymentConfigsResponse" $ \o -> ListDeploymentConfigsResponse
-        <$> o .:? "deploymentConfigsList" .!= mempty
-        <*> o .:? "nextToken"
+-- | The response status code.
+ldcrsStatus :: Lens' ListDeploymentConfigsResponse Int
+ldcrsStatus = lens _ldcrsStatus (\ s a -> s{_ldcrsStatus = a});

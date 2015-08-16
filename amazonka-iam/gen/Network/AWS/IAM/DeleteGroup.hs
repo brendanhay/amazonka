@@ -1,91 +1,94 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.DeleteGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified group. The group must not contain any users or have
--- any attached policies.
+-- |
+-- Module      : Network.AWS.IAM.DeleteGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroup.html>
+-- Deletes the specified group. The group must not contain any users or
+-- have any attached policies.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroup.html AWS API Reference> for DeleteGroup.
 module Network.AWS.IAM.DeleteGroup
     (
-    -- * Request
-      DeleteGroup
-    -- ** Request constructor
-    , deleteGroup
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteGroup
+    , DeleteGroup
+    -- * Request Lenses
     , dgGroupName
 
-    -- * Response
-    , DeleteGroupResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteGroupResponse
+    , DeleteGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteGroup = DeleteGroup
+-- | /See:/ 'deleteGroup' smart constructor.
+newtype DeleteGroup = DeleteGroup'
     { _dgGroupName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteGroup' constructor.
+-- | Creates a value of 'DeleteGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dgGroupName' @::@ 'Text'
---
-deleteGroup :: Text -- ^ 'dgGroupName'
-            -> DeleteGroup
-deleteGroup p1 = DeleteGroup
-    { _dgGroupName = p1
+-- * 'dgGroupName'
+deleteGroup
+    :: Text -- ^ 'dgGroupName'
+    -> DeleteGroup
+deleteGroup pGroupName_ =
+    DeleteGroup'
+    { _dgGroupName = pGroupName_
     }
 
 -- | The name of the group to delete.
 dgGroupName :: Lens' DeleteGroup Text
-dgGroupName = lens _dgGroupName (\s a -> s { _dgGroupName = a })
-
-data DeleteGroupResponse = DeleteGroupResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteGroupResponse' constructor.
-deleteGroupResponse :: DeleteGroupResponse
-deleteGroupResponse = DeleteGroupResponse
-
-instance ToPath DeleteGroup where
-    toPath = const "/"
-
-instance ToQuery DeleteGroup where
-    toQuery DeleteGroup{..} = mconcat
-        [ "GroupName" =? _dgGroupName
-        ]
-
-instance ToHeaders DeleteGroup
+dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a});
 
 instance AWSRequest DeleteGroup where
-    type Sv DeleteGroup = IAM
-    type Rs DeleteGroup = DeleteGroupResponse
+        type Sv DeleteGroup = IAM
+        type Rs DeleteGroup = DeleteGroupResponse
+        request = postQuery
+        response = receiveNull DeleteGroupResponse'
 
-    request  = post "DeleteGroup"
-    response = nullResponse DeleteGroupResponse
+instance ToHeaders DeleteGroup where
+        toHeaders = const mempty
+
+instance ToPath DeleteGroup where
+        toPath = const "/"
+
+instance ToQuery DeleteGroup where
+        toQuery DeleteGroup'{..}
+          = mconcat
+              ["Action" =: ("DeleteGroup" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "GroupName" =: _dgGroupName]
+
+-- | /See:/ 'deleteGroupResponse' smart constructor.
+data DeleteGroupResponse =
+    DeleteGroupResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteGroupResponse' with the minimum fields required to make a request.
+--
+deleteGroupResponse
+    :: DeleteGroupResponse
+deleteGroupResponse = DeleteGroupResponse'

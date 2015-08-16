@@ -1,120 +1,119 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Glacier.DeleteVaultAccessPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation deletes the access policy associated with the specified vault.
--- The operation is eventually consistent—that is, it might take some time for
--- Amazon Glacier to completely remove the access policy, and you might still
--- see the effect of the policy for a short time after you send the delete
--- request.
+-- |
+-- Module      : Network.AWS.Glacier.DeleteVaultAccessPolicy
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- This operation is idempotent. You can invoke delete multiple times, even if
--- there is no policy associated with the vault. For more information about
--- vault access policies, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault AccessPolicies>.
+-- This operation deletes the access policy associated with the specified
+-- vault. The operation is eventually consistent; that is, it might take
+-- some time for Amazon Glacier to completely remove the access policy, and
+-- you might still see the effect of the policy for a short time after you
+-- send the delete request.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteVaultAccessPolicy.html>
+-- This operation is idempotent. You can invoke delete multiple times, even
+-- if there is no policy associated with the vault. For more information
+-- about vault access policies, see
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
+--
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-DeleteVaultAccessPolicy.html AWS API Reference> for DeleteVaultAccessPolicy.
 module Network.AWS.Glacier.DeleteVaultAccessPolicy
     (
-    -- * Request
-      DeleteVaultAccessPolicy
-    -- ** Request constructor
-    , deleteVaultAccessPolicy
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteVaultAccessPolicy
+    , DeleteVaultAccessPolicy
+    -- * Request Lenses
     , dvapAccountId
     , dvapVaultName
 
-    -- * Response
-    , DeleteVaultAccessPolicyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteVaultAccessPolicyResponse
+    , DeleteVaultAccessPolicyResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.Glacier.Types
-import qualified GHC.Exts
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy
-    { _dvapAccountId :: Text
-    , _dvapVaultName :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | DeleteVaultAccessPolicy input.
+--
+-- /See:/ 'deleteVaultAccessPolicy' smart constructor.
+data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
+    { _dvapAccountId :: !Text
+    , _dvapVaultName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteVaultAccessPolicy' constructor.
+-- | Creates a value of 'DeleteVaultAccessPolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvapAccountId' @::@ 'Text'
+-- * 'dvapAccountId'
 --
--- * 'dvapVaultName' @::@ 'Text'
---
-deleteVaultAccessPolicy :: Text -- ^ 'dvapAccountId'
-                        -> Text -- ^ 'dvapVaultName'
-                        -> DeleteVaultAccessPolicy
-deleteVaultAccessPolicy p1 p2 = DeleteVaultAccessPolicy
-    { _dvapAccountId = p1
-    , _dvapVaultName = p2
+-- * 'dvapVaultName'
+deleteVaultAccessPolicy
+    :: Text -- ^ 'dvapAccountId'
+    -> Text -- ^ 'dvapVaultName'
+    -> DeleteVaultAccessPolicy
+deleteVaultAccessPolicy pAccountId_ pVaultName_ =
+    DeleteVaultAccessPolicy'
+    { _dvapAccountId = pAccountId_
+    , _dvapVaultName = pVaultName_
     }
 
--- | The 'AccountId' value is the AWS account ID of the account that owns the vault.
--- You can either specify an AWS account ID or optionally a single apos'-'apos
--- (hyphen), in which case Amazon Glacier uses the AWS account ID associated
--- with the credentials used to sign the request. If you use an account ID, do
--- not include any hyphens (apos-apos) in the ID.
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
+-- vault. You can either specify an AWS account ID or optionally a single
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- ID associated with the credentials used to sign the request. If you use
+-- an account ID, do not include any hyphens (apos-apos) in the ID.
 dvapAccountId :: Lens' DeleteVaultAccessPolicy Text
-dvapAccountId = lens _dvapAccountId (\s a -> s { _dvapAccountId = a })
+dvapAccountId = lens _dvapAccountId (\ s a -> s{_dvapAccountId = a});
 
 -- | The name of the vault.
 dvapVaultName :: Lens' DeleteVaultAccessPolicy Text
-dvapVaultName = lens _dvapVaultName (\s a -> s { _dvapVaultName = a })
-
-data DeleteVaultAccessPolicyResponse = DeleteVaultAccessPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteVaultAccessPolicyResponse' constructor.
-deleteVaultAccessPolicyResponse :: DeleteVaultAccessPolicyResponse
-deleteVaultAccessPolicyResponse = DeleteVaultAccessPolicyResponse
-
-instance ToPath DeleteVaultAccessPolicy where
-    toPath DeleteVaultAccessPolicy{..} = mconcat
-        [ "/"
-        , toText _dvapAccountId
-        , "/vaults/"
-        , toText _dvapVaultName
-        , "/access-policy"
-        ]
-
-instance ToQuery DeleteVaultAccessPolicy where
-    toQuery = const mempty
-
-instance ToHeaders DeleteVaultAccessPolicy
-
-instance ToJSON DeleteVaultAccessPolicy where
-    toJSON = const (toJSON Empty)
+dvapVaultName = lens _dvapVaultName (\ s a -> s{_dvapVaultName = a});
 
 instance AWSRequest DeleteVaultAccessPolicy where
-    type Sv DeleteVaultAccessPolicy = Glacier
-    type Rs DeleteVaultAccessPolicy = DeleteVaultAccessPolicyResponse
+        type Sv DeleteVaultAccessPolicy = Glacier
+        type Rs DeleteVaultAccessPolicy =
+             DeleteVaultAccessPolicyResponse
+        request = delete
+        response
+          = receiveNull DeleteVaultAccessPolicyResponse'
 
-    request  = delete
-    response = nullResponse DeleteVaultAccessPolicyResponse
+instance ToHeaders DeleteVaultAccessPolicy where
+        toHeaders = const mempty
+
+instance ToPath DeleteVaultAccessPolicy where
+        toPath DeleteVaultAccessPolicy'{..}
+          = mconcat
+              ["/", toBS _dvapAccountId, "/vaults/",
+               toBS _dvapVaultName, "/access-policy"]
+
+instance ToQuery DeleteVaultAccessPolicy where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteVaultAccessPolicyResponse' smart constructor.
+data DeleteVaultAccessPolicyResponse =
+    DeleteVaultAccessPolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteVaultAccessPolicyResponse' with the minimum fields required to make a request.
+--
+deleteVaultAccessPolicyResponse
+    :: DeleteVaultAccessPolicyResponse
+deleteVaultAccessPolicyResponse = DeleteVaultAccessPolicyResponse'

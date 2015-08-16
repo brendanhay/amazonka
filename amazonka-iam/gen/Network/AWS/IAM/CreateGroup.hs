@@ -1,125 +1,140 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.CreateGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new group.
+-- |
+-- Module      : Network.AWS.IAM.CreateGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For information about the number of groups you can create, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitationson IAM Entities> in the /Using IAM/ guide.
+-- Creates a new group.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html>
+-- For information about the number of groups you can create, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
+-- in the /Using IAM/ guide.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateGroup.html AWS API Reference> for CreateGroup.
 module Network.AWS.IAM.CreateGroup
     (
-    -- * Request
-      CreateGroup
-    -- ** Request constructor
-    , createGroup
-    -- ** Request lenses
-    , cgGroupName
+    -- * Creating a Request
+      createGroup
+    , CreateGroup
+    -- * Request Lenses
     , cgPath
+    , cgGroupName
 
-    -- * Response
-    , CreateGroupResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createGroupResponse
-    -- ** Response lenses
-    , cgrGroup
+    , CreateGroupResponse
+    -- * Response Lenses
+    , cgrsStatus
+    , cgrsGroup
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateGroup = CreateGroup
-    { _cgGroupName :: Text
-    , _cgPath      :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'createGroup' smart constructor.
+data CreateGroup = CreateGroup'
+    { _cgPath      :: !(Maybe Text)
+    , _cgGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateGroup' constructor.
+-- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cgGroupName' @::@ 'Text'
+-- * 'cgPath'
 --
--- * 'cgPath' @::@ 'Maybe' 'Text'
---
-createGroup :: Text -- ^ 'cgGroupName'
-            -> CreateGroup
-createGroup p1 = CreateGroup
-    { _cgGroupName = p1
-    , _cgPath      = Nothing
+-- * 'cgGroupName'
+createGroup
+    :: Text -- ^ 'cgGroupName'
+    -> CreateGroup
+createGroup pGroupName_ =
+    CreateGroup'
+    { _cgPath = Nothing
+    , _cgGroupName = pGroupName_
     }
+
+-- | The path to the group. For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/).
+cgPath :: Lens' CreateGroup (Maybe Text)
+cgPath = lens _cgPath (\ s a -> s{_cgPath = a});
 
 -- | The name of the group to create. Do not include the path in this value.
 cgGroupName :: Lens' CreateGroup Text
-cgGroupName = lens _cgGroupName (\s a -> s { _cgGroupName = a })
-
--- | The path to the group. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
---
--- This parameter is optional. If it is not included, it defaults to a slash
--- (/).
-cgPath :: Lens' CreateGroup (Maybe Text)
-cgPath = lens _cgPath (\s a -> s { _cgPath = a })
-
-newtype CreateGroupResponse = CreateGroupResponse
-    { _cgrGroup :: Group
-    } deriving (Eq, Read, Show)
-
--- | 'CreateGroupResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cgrGroup' @::@ 'Group'
---
-createGroupResponse :: Group -- ^ 'cgrGroup'
-                    -> CreateGroupResponse
-createGroupResponse p1 = CreateGroupResponse
-    { _cgrGroup = p1
-    }
-
--- | Information about the group.
-cgrGroup :: Lens' CreateGroupResponse Group
-cgrGroup = lens _cgrGroup (\s a -> s { _cgrGroup = a })
-
-instance ToPath CreateGroup where
-    toPath = const "/"
-
-instance ToQuery CreateGroup where
-    toQuery CreateGroup{..} = mconcat
-        [ "GroupName" =? _cgGroupName
-        , "Path"      =? _cgPath
-        ]
-
-instance ToHeaders CreateGroup
+cgGroupName = lens _cgGroupName (\ s a -> s{_cgGroupName = a});
 
 instance AWSRequest CreateGroup where
-    type Sv CreateGroup = IAM
-    type Rs CreateGroup = CreateGroupResponse
+        type Sv CreateGroup = IAM
+        type Rs CreateGroup = CreateGroupResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "CreateGroupResult"
+              (\ s h x ->
+                 CreateGroupResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "Group"))
 
-    request  = post "CreateGroup"
-    response = xmlResponse
+instance ToHeaders CreateGroup where
+        toHeaders = const mempty
 
-instance FromXML CreateGroupResponse where
-    parseXML = withElement "CreateGroupResult" $ \x -> CreateGroupResponse
-        <$> x .@  "Group"
+instance ToPath CreateGroup where
+        toPath = const "/"
+
+instance ToQuery CreateGroup where
+        toQuery CreateGroup'{..}
+          = mconcat
+              ["Action" =: ("CreateGroup" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "Path" =: _cgPath, "GroupName" =: _cgGroupName]
+
+-- | Contains the response to a successful CreateGroup request.
+--
+-- /See:/ 'createGroupResponse' smart constructor.
+data CreateGroupResponse = CreateGroupResponse'
+    { _cgrsStatus :: !Int
+    , _cgrsGroup  :: !Group
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cgrsStatus'
+--
+-- * 'cgrsGroup'
+createGroupResponse
+    :: Int -- ^ 'cgrsStatus'
+    -> Group -- ^ 'cgrsGroup'
+    -> CreateGroupResponse
+createGroupResponse pStatus_ pGroup_ =
+    CreateGroupResponse'
+    { _cgrsStatus = pStatus_
+    , _cgrsGroup = pGroup_
+    }
+
+-- | The response status code.
+cgrsStatus :: Lens' CreateGroupResponse Int
+cgrsStatus = lens _cgrsStatus (\ s a -> s{_cgrsStatus = a});
+
+-- | Information about the group.
+cgrsGroup :: Lens' CreateGroupResponse Group
+cgrsGroup = lens _cgrsGroup (\ s a -> s{_cgrsGroup = a});

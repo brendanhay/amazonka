@@ -1,98 +1,108 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Config.StopConfigurationRecorder
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Stops recording configurations of all the resources associated with the
--- account.
+-- |
+-- Module      : Network.AWS.Config.StopConfigurationRecorder
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html>
+-- Stops recording configurations of the AWS resources you have selected to
+-- record in your AWS account.
+--
+-- /See:/ <http://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html AWS API Reference> for StopConfigurationRecorder.
 module Network.AWS.Config.StopConfigurationRecorder
     (
-    -- * Request
-      StopConfigurationRecorder
-    -- ** Request constructor
-    , stopConfigurationRecorder
-    -- ** Request lenses
+    -- * Creating a Request
+      stopConfigurationRecorder
+    , StopConfigurationRecorder
+    -- * Request Lenses
     , scrConfigurationRecorderName
 
-    -- * Response
-    , StopConfigurationRecorderResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , stopConfigurationRecorderResponse
+    , StopConfigurationRecorderResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Config.Types
-import qualified GHC.Exts
+import           Network.AWS.Config.Types
+import           Network.AWS.Config.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype StopConfigurationRecorder = StopConfigurationRecorder
+-- | The input for the StopConfigurationRecorder action.
+--
+-- /See:/ 'stopConfigurationRecorder' smart constructor.
+newtype StopConfigurationRecorder = StopConfigurationRecorder'
     { _scrConfigurationRecorderName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'StopConfigurationRecorder' constructor.
+-- | Creates a value of 'StopConfigurationRecorder' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'scrConfigurationRecorderName' @::@ 'Text'
---
-stopConfigurationRecorder :: Text -- ^ 'scrConfigurationRecorderName'
-                          -> StopConfigurationRecorder
-stopConfigurationRecorder p1 = StopConfigurationRecorder
-    { _scrConfigurationRecorderName = p1
+-- * 'scrConfigurationRecorderName'
+stopConfigurationRecorder
+    :: Text -- ^ 'scrConfigurationRecorderName'
+    -> StopConfigurationRecorder
+stopConfigurationRecorder pConfigurationRecorderName_ =
+    StopConfigurationRecorder'
+    { _scrConfigurationRecorderName = pConfigurationRecorderName_
     }
 
--- | The name of the recorder object that records each configuration change made
--- to the resources.
+-- | The name of the recorder object that records each configuration change
+-- made to the resources.
 scrConfigurationRecorderName :: Lens' StopConfigurationRecorder Text
-scrConfigurationRecorderName =
-    lens _scrConfigurationRecorderName
-        (\s a -> s { _scrConfigurationRecorderName = a })
-
-data StopConfigurationRecorderResponse = StopConfigurationRecorderResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'StopConfigurationRecorderResponse' constructor.
-stopConfigurationRecorderResponse :: StopConfigurationRecorderResponse
-stopConfigurationRecorderResponse = StopConfigurationRecorderResponse
-
-instance ToPath StopConfigurationRecorder where
-    toPath = const "/"
-
-instance ToQuery StopConfigurationRecorder where
-    toQuery = const mempty
-
-instance ToHeaders StopConfigurationRecorder
-
-instance ToJSON StopConfigurationRecorder where
-    toJSON StopConfigurationRecorder{..} = object
-        [ "ConfigurationRecorderName" .= _scrConfigurationRecorderName
-        ]
+scrConfigurationRecorderName = lens _scrConfigurationRecorderName (\ s a -> s{_scrConfigurationRecorderName = a});
 
 instance AWSRequest StopConfigurationRecorder where
-    type Sv StopConfigurationRecorder = Config
-    type Rs StopConfigurationRecorder = StopConfigurationRecorderResponse
+        type Sv StopConfigurationRecorder = Config
+        type Rs StopConfigurationRecorder =
+             StopConfigurationRecorderResponse
+        request = postJSON
+        response
+          = receiveNull StopConfigurationRecorderResponse'
 
-    request  = post "StopConfigurationRecorder"
-    response = nullResponse StopConfigurationRecorderResponse
+instance ToHeaders StopConfigurationRecorder where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StarlingDoveService.StopConfigurationRecorder" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON StopConfigurationRecorder where
+        toJSON StopConfigurationRecorder'{..}
+          = object
+              ["ConfigurationRecorderName" .=
+                 _scrConfigurationRecorderName]
+
+instance ToPath StopConfigurationRecorder where
+        toPath = const "/"
+
+instance ToQuery StopConfigurationRecorder where
+        toQuery = const mempty
+
+-- | /See:/ 'stopConfigurationRecorderResponse' smart constructor.
+data StopConfigurationRecorderResponse =
+    StopConfigurationRecorderResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'StopConfigurationRecorderResponse' with the minimum fields required to make a request.
+--
+stopConfigurationRecorderResponse
+    :: StopConfigurationRecorderResponse
+stopConfigurationRecorderResponse = StopConfigurationRecorderResponse'

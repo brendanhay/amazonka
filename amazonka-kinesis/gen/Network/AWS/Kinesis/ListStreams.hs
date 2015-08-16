@@ -1,152 +1,181 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Kinesis.ListStreams
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists your streams.
+-- |
+-- Module      : Network.AWS.Kinesis.ListStreams
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- The number of streams may be too large to return from a single call to 'ListStreams'. You can limit the number of returned streams using the 'Limit' parameter. If
--- you do not specify a value for the 'Limit' parameter, Amazon Kinesis uses the
--- default limit, which is currently 10.
+-- Lists your streams.
 --
--- You can detect if there are more streams available to list by using the 'HasMoreStreams' flag from the returned output. If there are more streams available, you can
--- request more streams by using the name of the last stream returned by the 'ListStreams' request in the 'ExclusiveStartStreamName' parameter in a subsequent request to 'ListStreams'. The group of stream names returned by the subsequent request is
--- then added to the list. You can continue this process until all the stream
--- names have been collected in the list.
+-- The number of streams may be too large to return from a single call to
+-- 'ListStreams'. You can limit the number of returned streams using the
+-- 'Limit' parameter. If you do not specify a value for the 'Limit'
+-- parameter, Amazon Kinesis uses the default limit, which is currently 10.
 --
--- 'ListStreams' has a limit of 5 transactions per second per account.
+-- You can detect if there are more streams available to list by using the
+-- 'HasMoreStreams' flag from the returned output. If there are more
+-- streams available, you can request more streams by using the name of the
+-- last stream returned by the 'ListStreams' request in the
+-- 'ExclusiveStartStreamName' parameter in a subsequent request to
+-- 'ListStreams'. The group of stream names returned by the subsequent
+-- request is then added to the list. You can continue this process until
+-- all the stream names have been collected in the list.
 --
--- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreams.html>
+-- ListStreams has a limit of 5 transactions per second per account.
+--
+-- /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_ListStreams.html AWS API Reference> for ListStreams.
+--
+-- This operation returns paginated results.
 module Network.AWS.Kinesis.ListStreams
     (
-    -- * Request
-      ListStreams
-    -- ** Request constructor
-    , listStreams
-    -- ** Request lenses
-    , lsExclusiveStartStreamName
+    -- * Creating a Request
+      listStreams
+    , ListStreams
+    -- * Request Lenses
     , lsLimit
+    , lsExclusiveStartStreamName
 
-    -- * Response
-    , ListStreamsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listStreamsResponse
-    -- ** Response lenses
-    , lsrHasMoreStreams
-    , lsrStreamNames
+    , ListStreamsResponse
+    -- * Response Lenses
+    , lsrsStatus
+    , lsrsStreamNames
+    , lsrsHasMoreStreams
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Kinesis.Types
-import qualified GHC.Exts
+import           Network.AWS.Kinesis.Types
+import           Network.AWS.Kinesis.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListStreams = ListStreams
-    { _lsExclusiveStartStreamName :: Maybe Text
-    , _lsLimit                    :: Maybe Nat
-    } deriving (Eq, Ord, Read, Show)
+-- | Represents the input for 'ListStreams'.
+--
+-- /See:/ 'listStreams' smart constructor.
+data ListStreams = ListStreams'
+    { _lsLimit                    :: !(Maybe Nat)
+    , _lsExclusiveStartStreamName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListStreams' constructor.
+-- | Creates a value of 'ListStreams' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lsExclusiveStartStreamName' @::@ 'Maybe' 'Text'
+-- * 'lsLimit'
 --
--- * 'lsLimit' @::@ 'Maybe' 'Natural'
---
-listStreams :: ListStreams
-listStreams = ListStreams
-    { _lsLimit                    = Nothing
+-- * 'lsExclusiveStartStreamName'
+listStreams
+    :: ListStreams
+listStreams =
+    ListStreams'
+    { _lsLimit = Nothing
     , _lsExclusiveStartStreamName = Nothing
     }
 
--- | The name of the stream to start the list with.
-lsExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
-lsExclusiveStartStreamName =
-    lens _lsExclusiveStartStreamName
-        (\s a -> s { _lsExclusiveStartStreamName = a })
-
 -- | The maximum number of streams to list.
 lsLimit :: Lens' ListStreams (Maybe Natural)
-lsLimit = lens _lsLimit (\s a -> s { _lsLimit = a }) . mapping _Nat
+lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . mapping _Nat;
 
-data ListStreamsResponse = ListStreamsResponse
-    { _lsrHasMoreStreams :: Bool
-    , _lsrStreamNames    :: List "StreamNames" Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ListStreamsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lsrHasMoreStreams' @::@ 'Bool'
---
--- * 'lsrStreamNames' @::@ ['Text']
---
-listStreamsResponse :: Bool -- ^ 'lsrHasMoreStreams'
-                    -> ListStreamsResponse
-listStreamsResponse p1 = ListStreamsResponse
-    { _lsrHasMoreStreams = p1
-    , _lsrStreamNames    = mempty
-    }
-
--- | If set to 'true', there are more streams available to list.
-lsrHasMoreStreams :: Lens' ListStreamsResponse Bool
-lsrHasMoreStreams =
-    lens _lsrHasMoreStreams (\s a -> s { _lsrHasMoreStreams = a })
-
--- | The names of the streams that are associated with the AWS account making the 'ListStreams' request.
-lsrStreamNames :: Lens' ListStreamsResponse [Text]
-lsrStreamNames = lens _lsrStreamNames (\s a -> s { _lsrStreamNames = a }) . _List
-
-instance ToPath ListStreams where
-    toPath = const "/"
-
-instance ToQuery ListStreams where
-    toQuery = const mempty
-
-instance ToHeaders ListStreams
-
-instance ToJSON ListStreams where
-    toJSON ListStreams{..} = object
-        [ "Limit"                    .= _lsLimit
-        , "ExclusiveStartStreamName" .= _lsExclusiveStartStreamName
-        ]
-
-instance AWSRequest ListStreams where
-    type Sv ListStreams = Kinesis
-    type Rs ListStreams = ListStreamsResponse
-
-    request  = post "ListStreams"
-    response = jsonResponse
-
-instance FromJSON ListStreamsResponse where
-    parseJSON = withObject "ListStreamsResponse" $ \o -> ListStreamsResponse
-        <$> o .:  "HasMoreStreams"
-        <*> o .:? "StreamNames" .!= mempty
+-- | The name of the stream to start the list with.
+lsExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
+lsExclusiveStartStreamName = lens _lsExclusiveStartStreamName (\ s a -> s{_lsExclusiveStartStreamName = a});
 
 instance AWSPager ListStreams where
-    page rq rs
-        | stop (rs ^. lsrHasMoreStreams) = Nothing
-        | otherwise = Just $ rq
-            & lsExclusiveStartStreamName .~ rs ^. index lsrStreamNames (to id)
+        page rq rs
+          | stop (rs ^. lsrsHasMoreStreams) = Nothing
+          | isNothing (rs ^? lsrsStreamNames . _last) = Nothing
+          | otherwise =
+            Just $ rq &
+              lsExclusiveStartStreamName .~
+                rs ^? lsrsStreamNames . _last
+
+instance AWSRequest ListStreams where
+        type Sv ListStreams = Kinesis
+        type Rs ListStreams = ListStreamsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListStreamsResponse' <$>
+                   (pure (fromEnum s)) <*>
+                     (x .?> "StreamNames" .!@ mempty)
+                     <*> (x .:> "HasMoreStreams"))
+
+instance ToHeaders ListStreams where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("Kinesis_20131202.ListStreams" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListStreams where
+        toJSON ListStreams'{..}
+          = object
+              ["Limit" .= _lsLimit,
+               "ExclusiveStartStreamName" .=
+                 _lsExclusiveStartStreamName]
+
+instance ToPath ListStreams where
+        toPath = const "/"
+
+instance ToQuery ListStreams where
+        toQuery = const mempty
+
+-- | Represents the output for 'ListStreams'.
+--
+-- /See:/ 'listStreamsResponse' smart constructor.
+data ListStreamsResponse = ListStreamsResponse'
+    { _lsrsStatus         :: !Int
+    , _lsrsStreamNames    :: ![Text]
+    , _lsrsHasMoreStreams :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListStreamsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lsrsStatus'
+--
+-- * 'lsrsStreamNames'
+--
+-- * 'lsrsHasMoreStreams'
+listStreamsResponse
+    :: Int -- ^ 'lsrsStatus'
+    -> Bool -- ^ 'lsrsHasMoreStreams'
+    -> ListStreamsResponse
+listStreamsResponse pStatus_ pHasMoreStreams_ =
+    ListStreamsResponse'
+    { _lsrsStatus = pStatus_
+    , _lsrsStreamNames = mempty
+    , _lsrsHasMoreStreams = pHasMoreStreams_
+    }
+
+-- | The response status code.
+lsrsStatus :: Lens' ListStreamsResponse Int
+lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});
+
+-- | The names of the streams that are associated with the AWS account making
+-- the 'ListStreams' request.
+lsrsStreamNames :: Lens' ListStreamsResponse [Text]
+lsrsStreamNames = lens _lsrsStreamNames (\ s a -> s{_lsrsStreamNames = a}) . _Coerce;
+
+-- | If set to 'true', there are more streams available to list.
+lsrsHasMoreStreams :: Lens' ListStreamsResponse Bool
+lsrsHasMoreStreams = lens _lsrsHasMoreStreams (\ s a -> s{_lsrsHasMoreStreams = a});

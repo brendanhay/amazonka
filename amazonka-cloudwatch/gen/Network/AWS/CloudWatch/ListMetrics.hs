@@ -1,156 +1,176 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudWatch.ListMetrics
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a list of valid metrics stored for the AWS account owner. Returned
--- metrics can be used with 'GetMetricStatistics' to obtain statistical data for a
--- given metric.
+-- |
+-- Module      : Network.AWS.CloudWatch.ListMetrics
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html>
+-- Returns a list of valid metrics stored for the AWS account owner.
+-- Returned metrics can be used with GetMetricStatistics to obtain
+-- statistical data for a given metric.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html AWS API Reference> for ListMetrics.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatch.ListMetrics
     (
-    -- * Request
-      ListMetrics
-    -- ** Request constructor
-    , listMetrics
-    -- ** Request lenses
-    , lmDimensions
+    -- * Creating a Request
+      listMetrics
+    , ListMetrics
+    -- * Request Lenses
     , lmMetricName
     , lmNamespace
     , lmNextToken
+    , lmDimensions
 
-    -- * Response
-    , ListMetricsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listMetricsResponse
-    -- ** Response lenses
-    , lmrMetrics
-    , lmrNextToken
+    , ListMetricsResponse
+    -- * Response Lenses
+    , lmrsMetrics
+    , lmrsNextToken
+    , lmrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudWatch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.CloudWatch.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListMetrics = ListMetrics
-    { _lmDimensions :: List "member" DimensionFilter
-    , _lmMetricName :: Maybe Text
-    , _lmNamespace  :: Maybe Text
-    , _lmNextToken  :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'listMetrics' smart constructor.
+data ListMetrics = ListMetrics'
+    { _lmMetricName :: !(Maybe Text)
+    , _lmNamespace  :: !(Maybe Text)
+    , _lmNextToken  :: !(Maybe Text)
+    , _lmDimensions :: !(Maybe [DimensionFilter])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListMetrics' constructor.
+-- | Creates a value of 'ListMetrics' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lmDimensions' @::@ ['DimensionFilter']
+-- * 'lmMetricName'
 --
--- * 'lmMetricName' @::@ 'Maybe' 'Text'
+-- * 'lmNamespace'
 --
--- * 'lmNamespace' @::@ 'Maybe' 'Text'
+-- * 'lmNextToken'
 --
--- * 'lmNextToken' @::@ 'Maybe' 'Text'
---
-listMetrics :: ListMetrics
-listMetrics = ListMetrics
-    { _lmNamespace  = Nothing
-    , _lmMetricName = Nothing
-    , _lmDimensions = mempty
-    , _lmNextToken  = Nothing
+-- * 'lmDimensions'
+listMetrics
+    :: ListMetrics
+listMetrics =
+    ListMetrics'
+    { _lmMetricName = Nothing
+    , _lmNamespace = Nothing
+    , _lmNextToken = Nothing
+    , _lmDimensions = Nothing
     }
-
--- | A list of dimensions to filter against.
-lmDimensions :: Lens' ListMetrics [DimensionFilter]
-lmDimensions = lens _lmDimensions (\s a -> s { _lmDimensions = a }) . _List
 
 -- | The name of the metric to filter against.
 lmMetricName :: Lens' ListMetrics (Maybe Text)
-lmMetricName = lens _lmMetricName (\s a -> s { _lmMetricName = a })
+lmMetricName = lens _lmMetricName (\ s a -> s{_lmMetricName = a});
 
 -- | The namespace to filter against.
 lmNamespace :: Lens' ListMetrics (Maybe Text)
-lmNamespace = lens _lmNamespace (\s a -> s { _lmNamespace = a })
+lmNamespace = lens _lmNamespace (\ s a -> s{_lmNamespace = a});
 
--- | The token returned by a previous call to indicate that there is more data
--- available.
+-- | The token returned by a previous call to indicate that there is more
+-- data available.
 lmNextToken :: Lens' ListMetrics (Maybe Text)
-lmNextToken = lens _lmNextToken (\s a -> s { _lmNextToken = a })
+lmNextToken = lens _lmNextToken (\ s a -> s{_lmNextToken = a});
 
-data ListMetricsResponse = ListMetricsResponse
-    { _lmrMetrics   :: List "member" Metric
-    , _lmrNextToken :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | A list of dimensions to filter against.
+lmDimensions :: Lens' ListMetrics [DimensionFilter]
+lmDimensions = lens _lmDimensions (\ s a -> s{_lmDimensions = a}) . _Default . _Coerce;
 
--- | 'ListMetricsResponse' constructor.
+instance AWSPager ListMetrics where
+        page rq rs
+          | stop (rs ^. lmrsNextToken) = Nothing
+          | stop (rs ^. lmrsMetrics) = Nothing
+          | otherwise =
+            Just $ rq & lmNextToken .~ rs ^. lmrsNextToken
+
+instance AWSRequest ListMetrics where
+        type Sv ListMetrics = CloudWatch
+        type Rs ListMetrics = ListMetricsResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "ListMetricsResult"
+              (\ s h x ->
+                 ListMetricsResponse' <$>
+                   (x .@? "Metrics" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListMetrics where
+        toHeaders = const mempty
+
+instance ToPath ListMetrics where
+        toPath = const "/"
+
+instance ToQuery ListMetrics where
+        toQuery ListMetrics'{..}
+          = mconcat
+              ["Action" =: ("ListMetrics" :: ByteString),
+               "Version" =: ("2010-08-01" :: ByteString),
+               "MetricName" =: _lmMetricName,
+               "Namespace" =: _lmNamespace,
+               "NextToken" =: _lmNextToken,
+               "Dimensions" =:
+                 toQuery (toQueryList "member" <$> _lmDimensions)]
+
+-- | The output for the ListMetrics action.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'listMetricsResponse' smart constructor.
+data ListMetricsResponse = ListMetricsResponse'
+    { _lmrsMetrics   :: !(Maybe [Metric])
+    , _lmrsNextToken :: !(Maybe Text)
+    , _lmrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListMetricsResponse' with the minimum fields required to make a request.
 --
--- * 'lmrMetrics' @::@ ['Metric']
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lmrNextToken' @::@ 'Maybe' 'Text'
+-- * 'lmrsMetrics'
 --
-listMetricsResponse :: ListMetricsResponse
-listMetricsResponse = ListMetricsResponse
-    { _lmrMetrics   = mempty
-    , _lmrNextToken = Nothing
+-- * 'lmrsNextToken'
+--
+-- * 'lmrsStatus'
+listMetricsResponse
+    :: Int -- ^ 'lmrsStatus'
+    -> ListMetricsResponse
+listMetricsResponse pStatus_ =
+    ListMetricsResponse'
+    { _lmrsMetrics = Nothing
+    , _lmrsNextToken = Nothing
+    , _lmrsStatus = pStatus_
     }
 
 -- | A list of metrics used to generate statistics for an AWS account.
-lmrMetrics :: Lens' ListMetricsResponse [Metric]
-lmrMetrics = lens _lmrMetrics (\s a -> s { _lmrMetrics = a }) . _List
+lmrsMetrics :: Lens' ListMetricsResponse [Metric]
+lmrsMetrics = lens _lmrsMetrics (\ s a -> s{_lmrsMetrics = a}) . _Default . _Coerce;
 
 -- | A string that marks the start of the next batch of returned results.
-lmrNextToken :: Lens' ListMetricsResponse (Maybe Text)
-lmrNextToken = lens _lmrNextToken (\s a -> s { _lmrNextToken = a })
+lmrsNextToken :: Lens' ListMetricsResponse (Maybe Text)
+lmrsNextToken = lens _lmrsNextToken (\ s a -> s{_lmrsNextToken = a});
 
-instance ToPath ListMetrics where
-    toPath = const "/"
-
-instance ToQuery ListMetrics where
-    toQuery ListMetrics{..} = mconcat
-        [ "Dimensions" =? _lmDimensions
-        , "MetricName" =? _lmMetricName
-        , "Namespace"  =? _lmNamespace
-        , "NextToken"  =? _lmNextToken
-        ]
-
-instance ToHeaders ListMetrics
-
-instance AWSRequest ListMetrics where
-    type Sv ListMetrics = CloudWatch
-    type Rs ListMetrics = ListMetricsResponse
-
-    request  = post "ListMetrics"
-    response = xmlResponse
-
-instance FromXML ListMetricsResponse where
-    parseXML = withElement "ListMetricsResult" $ \x -> ListMetricsResponse
-        <$> x .@? "Metrics" .!@ mempty
-        <*> x .@? "NextToken"
-
-instance AWSPager ListMetrics where
-    page rq rs
-        | stop (rs ^. lmrNextToken) = Nothing
-        | otherwise = (\x -> rq & lmNextToken ?~ x)
-            <$> (rs ^. lmrNextToken)
+-- | The response status code.
+lmrsStatus :: Lens' ListMetricsResponse Int
+lmrsStatus = lens _lmrsStatus (\ s a -> s{_lmrsStatus = a});

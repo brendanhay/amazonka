@@ -1,166 +1,187 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Redshift.DescribeEventSubscriptions
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists descriptions of all the Amazon Redshift event notifications
+-- |
+-- Module      : Network.AWS.Redshift.DescribeEventSubscriptions
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Lists descriptions of all the Amazon Redshift event notifications
 -- subscription for a customer account. If you specify a subscription name,
 -- lists the description for that subscription.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventSubscriptions.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeEventSubscriptions.html AWS API Reference> for DescribeEventSubscriptions.
+--
+-- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeEventSubscriptions
     (
-    -- * Request
-      DescribeEventSubscriptions
-    -- ** Request constructor
-    , describeEventSubscriptions
-    -- ** Request lenses
-    , des1Marker
-    , des1MaxRecords
-    , des1SubscriptionName
+    -- * Creating a Request
+      describeEventSubscriptions
+    , DescribeEventSubscriptions
+    -- * Request Lenses
+    , dSubscriptionName
+    , dMaxRecords
+    , dMarker
 
-    -- * Response
-    , DescribeEventSubscriptionsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeEventSubscriptionsResponse
-    -- ** Response lenses
-    , desrEventSubscriptionsList
-    , desrMarker
+    , DescribeEventSubscriptionsResponse
+    -- * Response Lenses
+    , desrsEventSubscriptionsList
+    , desrsMarker
+    , desrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeEventSubscriptions = DescribeEventSubscriptions
-    { _des1Marker           :: Maybe Text
-    , _des1MaxRecords       :: Maybe Int
-    , _des1SubscriptionName :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- |
+--
+-- /See:/ 'describeEventSubscriptions' smart constructor.
+data DescribeEventSubscriptions = DescribeEventSubscriptions'
+    { _dSubscriptionName :: !(Maybe Text)
+    , _dMaxRecords       :: !(Maybe Int)
+    , _dMarker           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEventSubscriptions' constructor.
+-- | Creates a value of 'DescribeEventSubscriptions' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'des1Marker' @::@ 'Maybe' 'Text'
+-- * 'dSubscriptionName'
 --
--- * 'des1MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dMaxRecords'
 --
--- * 'des1SubscriptionName' @::@ 'Maybe' 'Text'
---
-describeEventSubscriptions :: DescribeEventSubscriptions
-describeEventSubscriptions = DescribeEventSubscriptions
-    { _des1SubscriptionName = Nothing
-    , _des1MaxRecords       = Nothing
-    , _des1Marker           = Nothing
+-- * 'dMarker'
+describeEventSubscriptions
+    :: DescribeEventSubscriptions
+describeEventSubscriptions =
+    DescribeEventSubscriptions'
+    { _dSubscriptionName = Nothing
+    , _dMaxRecords = Nothing
+    , _dMarker = Nothing
     }
 
--- | An optional parameter that specifies the starting point to return a set of
--- response records. When the results of a 'DescribeEventSubscriptions' request
--- exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker'
--- field of the response. You can retrieve the next set of response records by
--- providing the returned marker value in the 'Marker' parameter and retrying the
--- request.
-des1Marker :: Lens' DescribeEventSubscriptions (Maybe Text)
-des1Marker = lens _des1Marker (\s a -> s { _des1Marker = a })
+-- | The name of the Amazon Redshift event notification subscription to be
+-- described.
+dSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
+dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a});
 
--- | The maximum number of response records to return in each call. If the number
--- of remaining response records exceeds the specified 'MaxRecords' value, a value
--- is returned in a 'marker' field of the response. You can retrieve the next set
--- of records by retrying the command with the returned marker value.
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified 'MaxRecords'
+-- value, a value is returned in a 'marker' field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
 --
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
-des1MaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
-des1MaxRecords = lens _des1MaxRecords (\s a -> s { _des1MaxRecords = a })
+dMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
+dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 
--- | The name of the Amazon Redshift event notification subscription to be
--- described.
-des1SubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
-des1SubscriptionName =
-    lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeEventSubscriptions
+-- request exceed the value specified in 'MaxRecords', AWS returns a value
+-- in the 'Marker' field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the 'Marker'
+-- parameter and retrying the request.
+dMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
+dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
-data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
-    { _desrEventSubscriptionsList :: List "member" EventSubscription
-    , _desrMarker                 :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSPager DescribeEventSubscriptions where
+        page rq rs
+          | stop (rs ^. desrsMarker) = Nothing
+          | stop (rs ^. desrsEventSubscriptionsList) = Nothing
+          | otherwise =
+            Just $ rq & dMarker .~ rs ^. desrsMarker
 
--- | 'DescribeEventSubscriptionsResponse' constructor.
+instance AWSRequest DescribeEventSubscriptions where
+        type Sv DescribeEventSubscriptions = Redshift
+        type Rs DescribeEventSubscriptions =
+             DescribeEventSubscriptionsResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "DescribeEventSubscriptionsResult"
+              (\ s h x ->
+                 DescribeEventSubscriptionsResponse' <$>
+                   (x .@? "EventSubscriptionsList" .!@ mempty >>=
+                      may (parseXMLList "EventSubscription"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeEventSubscriptions where
+        toHeaders = const mempty
+
+instance ToPath DescribeEventSubscriptions where
+        toPath = const "/"
+
+instance ToQuery DescribeEventSubscriptions where
+        toQuery DescribeEventSubscriptions'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeEventSubscriptions" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "SubscriptionName" =: _dSubscriptionName,
+               "MaxRecords" =: _dMaxRecords, "Marker" =: _dMarker]
+
+-- |
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeEventSubscriptionsResponse' smart constructor.
+data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
+    { _desrsEventSubscriptionsList :: !(Maybe [EventSubscription])
+    , _desrsMarker                 :: !(Maybe Text)
+    , _desrsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeEventSubscriptionsResponse' with the minimum fields required to make a request.
 --
--- * 'desrEventSubscriptionsList' @::@ ['EventSubscription']
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'desrMarker' @::@ 'Maybe' 'Text'
+-- * 'desrsEventSubscriptionsList'
 --
-describeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
-describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
-    { _desrMarker                 = Nothing
-    , _desrEventSubscriptionsList = mempty
+-- * 'desrsMarker'
+--
+-- * 'desrsStatus'
+describeEventSubscriptionsResponse
+    :: Int -- ^ 'desrsStatus'
+    -> DescribeEventSubscriptionsResponse
+describeEventSubscriptionsResponse pStatus_ =
+    DescribeEventSubscriptionsResponse'
+    { _desrsEventSubscriptionsList = Nothing
+    , _desrsMarker = Nothing
+    , _desrsStatus = pStatus_
     }
 
 -- | A list of event subscriptions.
-desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
-desrEventSubscriptionsList =
-    lens _desrEventSubscriptionsList
-        (\s a -> s { _desrEventSubscriptionsList = a })
-            . _List
+desrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_desrsEventSubscriptionsList = a}) . _Default . _Coerce;
 
 -- | A value that indicates the starting point for the next set of response
--- records in a subsequent request. If a value is returned in a response, you
--- can retrieve the next set of records by providing this returned marker value
--- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
--- empty, all response records have been retrieved for the request.
-desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
-desrMarker = lens _desrMarker (\s a -> s { _desrMarker = a })
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the 'Marker' parameter and retrying the command. If the
+-- 'Marker' field is empty, all response records have been retrieved for
+-- the request.
+desrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
+desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a});
 
-instance ToPath DescribeEventSubscriptions where
-    toPath = const "/"
-
-instance ToQuery DescribeEventSubscriptions where
-    toQuery DescribeEventSubscriptions{..} = mconcat
-        [ "Marker"           =? _des1Marker
-        , "MaxRecords"       =? _des1MaxRecords
-        , "SubscriptionName" =? _des1SubscriptionName
-        ]
-
-instance ToHeaders DescribeEventSubscriptions
-
-instance AWSRequest DescribeEventSubscriptions where
-    type Sv DescribeEventSubscriptions = Redshift
-    type Rs DescribeEventSubscriptions = DescribeEventSubscriptionsResponse
-
-    request  = post "DescribeEventSubscriptions"
-    response = xmlResponse
-
-instance FromXML DescribeEventSubscriptionsResponse where
-    parseXML = withElement "DescribeEventSubscriptionsResult" $ \x -> DescribeEventSubscriptionsResponse
-        <$> x .@? "EventSubscriptionsList" .!@ mempty
-        <*> x .@? "Marker"
-
-instance AWSPager DescribeEventSubscriptions where
-    page rq rs
-        | stop (rs ^. desrMarker) = Nothing
-        | otherwise = (\x -> rq & des1Marker ?~ x)
-            <$> (rs ^. desrMarker)
+-- | The response status code.
+desrsStatus :: Lens' DescribeEventSubscriptionsResponse Int
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

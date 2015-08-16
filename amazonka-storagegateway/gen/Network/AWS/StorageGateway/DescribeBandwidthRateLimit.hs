@@ -1,145 +1,162 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.StorageGateway.DescribeBandwidthRateLimit
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation returns the bandwidth rate limits of a gateway. By default,
--- these limits are not set, which means no bandwidth rate limiting is in effect.
+-- |
+-- Module      : Network.AWS.StorageGateway.DescribeBandwidthRateLimit
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- This operation only returns a value for a bandwidth rate limit only if the
--- limit is set. If no limits are set for the gateway, then this operation
--- returns only the gateway ARN in the response body. To specify which gateway
--- to describe, use the Amazon Resource Name (ARN) of the gateway in your
--- request.
+-- This operation returns the bandwidth rate limits of a gateway. By
+-- default, these limits are not set, which means no bandwidth rate
+-- limiting is in effect.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeBandwidthRateLimit.html>
+-- This operation only returns a value for a bandwidth rate limit only if
+-- the limit is set. If no limits are set for the gateway, then this
+-- operation returns only the gateway ARN in the response body. To specify
+-- which gateway to describe, use the Amazon Resource Name (ARN) of the
+-- gateway in your request.
+--
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeBandwidthRateLimit.html AWS API Reference> for DescribeBandwidthRateLimit.
 module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     (
-    -- * Request
-      DescribeBandwidthRateLimit
-    -- ** Request constructor
-    , describeBandwidthRateLimit
-    -- ** Request lenses
+    -- * Creating a Request
+      describeBandwidthRateLimit
+    , DescribeBandwidthRateLimit
+    -- * Request Lenses
     , dbrlGatewayARN
 
-    -- * Response
-    , DescribeBandwidthRateLimitResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeBandwidthRateLimitResponse
-    -- ** Response lenses
-    , dbrlrAverageDownloadRateLimitInBitsPerSec
-    , dbrlrAverageUploadRateLimitInBitsPerSec
-    , dbrlrGatewayARN
+    , DescribeBandwidthRateLimitResponse
+    -- * Response Lenses
+    , dbrlrsGatewayARN
+    , dbrlrsAverageUploadRateLimitInBitsPerSec
+    , dbrlrsAverageDownloadRateLimitInBitsPerSec
+    , dbrlrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
+import           Network.AWS.StorageGateway.Types.Product
 
-newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit
+-- | A JSON object containing the of the gateway.
+--
+-- /See:/ 'describeBandwidthRateLimit' smart constructor.
+newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit'
     { _dbrlGatewayARN :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeBandwidthRateLimit' constructor.
+-- | Creates a value of 'DescribeBandwidthRateLimit' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbrlGatewayARN' @::@ 'Text'
---
-describeBandwidthRateLimit :: Text -- ^ 'dbrlGatewayARN'
-                           -> DescribeBandwidthRateLimit
-describeBandwidthRateLimit p1 = DescribeBandwidthRateLimit
-    { _dbrlGatewayARN = p1
+-- * 'dbrlGatewayARN'
+describeBandwidthRateLimit
+    :: Text -- ^ 'dbrlGatewayARN'
+    -> DescribeBandwidthRateLimit
+describeBandwidthRateLimit pGatewayARN_ =
+    DescribeBandwidthRateLimit'
+    { _dbrlGatewayARN = pGatewayARN_
     }
 
+-- | Undocumented member.
 dbrlGatewayARN :: Lens' DescribeBandwidthRateLimit Text
-dbrlGatewayARN = lens _dbrlGatewayARN (\s a -> s { _dbrlGatewayARN = a })
-
-data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
-    { _dbrlrAverageDownloadRateLimitInBitsPerSec :: Maybe Nat
-    , _dbrlrAverageUploadRateLimitInBitsPerSec   :: Maybe Nat
-    , _dbrlrGatewayARN                           :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeBandwidthRateLimitResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dbrlrAverageDownloadRateLimitInBitsPerSec' @::@ 'Maybe' 'Natural'
---
--- * 'dbrlrAverageUploadRateLimitInBitsPerSec' @::@ 'Maybe' 'Natural'
---
--- * 'dbrlrGatewayARN' @::@ 'Maybe' 'Text'
---
-describeBandwidthRateLimitResponse :: DescribeBandwidthRateLimitResponse
-describeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
-    { _dbrlrGatewayARN                           = Nothing
-    , _dbrlrAverageUploadRateLimitInBitsPerSec   = Nothing
-    , _dbrlrAverageDownloadRateLimitInBitsPerSec = Nothing
-    }
-
--- | The average download bandwidth rate limit in bits per second. This field does
--- not appear in the response if the download rate limit is not set.
-dbrlrAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
-dbrlrAverageDownloadRateLimitInBitsPerSec =
-    lens _dbrlrAverageDownloadRateLimitInBitsPerSec
-        (\s a -> s { _dbrlrAverageDownloadRateLimitInBitsPerSec = a })
-            . mapping _Nat
-
--- | The average upload bandwidth rate limit in bits per second. This field does
--- not appear in the response if the upload rate limit is not set.
-dbrlrAverageUploadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
-dbrlrAverageUploadRateLimitInBitsPerSec =
-    lens _dbrlrAverageUploadRateLimitInBitsPerSec
-        (\s a -> s { _dbrlrAverageUploadRateLimitInBitsPerSec = a })
-            . mapping _Nat
-
-dbrlrGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
-dbrlrGatewayARN = lens _dbrlrGatewayARN (\s a -> s { _dbrlrGatewayARN = a })
-
-instance ToPath DescribeBandwidthRateLimit where
-    toPath = const "/"
-
-instance ToQuery DescribeBandwidthRateLimit where
-    toQuery = const mempty
-
-instance ToHeaders DescribeBandwidthRateLimit
-
-instance ToJSON DescribeBandwidthRateLimit where
-    toJSON DescribeBandwidthRateLimit{..} = object
-        [ "GatewayARN" .= _dbrlGatewayARN
-        ]
+dbrlGatewayARN = lens _dbrlGatewayARN (\ s a -> s{_dbrlGatewayARN = a});
 
 instance AWSRequest DescribeBandwidthRateLimit where
-    type Sv DescribeBandwidthRateLimit = StorageGateway
-    type Rs DescribeBandwidthRateLimit = DescribeBandwidthRateLimitResponse
+        type Sv DescribeBandwidthRateLimit = StorageGateway
+        type Rs DescribeBandwidthRateLimit =
+             DescribeBandwidthRateLimitResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeBandwidthRateLimitResponse' <$>
+                   (x .?> "GatewayARN") <*>
+                     (x .?> "AverageUploadRateLimitInBitsPerSec")
+                     <*> (x .?> "AverageDownloadRateLimitInBitsPerSec")
+                     <*> (pure (fromEnum s)))
 
-    request  = post "DescribeBandwidthRateLimit"
-    response = jsonResponse
+instance ToHeaders DescribeBandwidthRateLimit where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.DescribeBandwidthRateLimit"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON DescribeBandwidthRateLimitResponse where
-    parseJSON = withObject "DescribeBandwidthRateLimitResponse" $ \o -> DescribeBandwidthRateLimitResponse
-        <$> o .:? "AverageDownloadRateLimitInBitsPerSec"
-        <*> o .:? "AverageUploadRateLimitInBitsPerSec"
-        <*> o .:? "GatewayARN"
+instance ToJSON DescribeBandwidthRateLimit where
+        toJSON DescribeBandwidthRateLimit'{..}
+          = object ["GatewayARN" .= _dbrlGatewayARN]
+
+instance ToPath DescribeBandwidthRateLimit where
+        toPath = const "/"
+
+instance ToQuery DescribeBandwidthRateLimit where
+        toQuery = const mempty
+
+-- | A JSON object containing the following fields:
+--
+-- /See:/ 'describeBandwidthRateLimitResponse' smart constructor.
+data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
+    { _dbrlrsGatewayARN                           :: !(Maybe Text)
+    , _dbrlrsAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
+    , _dbrlrsAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
+    , _dbrlrsStatus                               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeBandwidthRateLimitResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dbrlrsGatewayARN'
+--
+-- * 'dbrlrsAverageUploadRateLimitInBitsPerSec'
+--
+-- * 'dbrlrsAverageDownloadRateLimitInBitsPerSec'
+--
+-- * 'dbrlrsStatus'
+describeBandwidthRateLimitResponse
+    :: Int -- ^ 'dbrlrsStatus'
+    -> DescribeBandwidthRateLimitResponse
+describeBandwidthRateLimitResponse pStatus_ =
+    DescribeBandwidthRateLimitResponse'
+    { _dbrlrsGatewayARN = Nothing
+    , _dbrlrsAverageUploadRateLimitInBitsPerSec = Nothing
+    , _dbrlrsAverageDownloadRateLimitInBitsPerSec = Nothing
+    , _dbrlrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+dbrlrsGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
+dbrlrsGatewayARN = lens _dbrlrsGatewayARN (\ s a -> s{_dbrlrsGatewayARN = a});
+
+-- | The average upload bandwidth rate limit in bits per second. This field
+-- does not appear in the response if the upload rate limit is not set.
+dbrlrsAverageUploadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
+dbrlrsAverageUploadRateLimitInBitsPerSec = lens _dbrlrsAverageUploadRateLimitInBitsPerSec (\ s a -> s{_dbrlrsAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat;
+
+-- | The average download bandwidth rate limit in bits per second. This field
+-- does not appear in the response if the download rate limit is not set.
+dbrlrsAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
+dbrlrsAverageDownloadRateLimitInBitsPerSec = lens _dbrlrsAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_dbrlrsAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
+
+-- | The response status code.
+dbrlrsStatus :: Lens' DescribeBandwidthRateLimitResponse Int
+dbrlrsStatus = lens _dbrlrsStatus (\ s a -> s{_dbrlrsStatus = a});

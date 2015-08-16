@@ -1,138 +1,147 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Glacier.AbortMultipartUpload
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation aborts a multipart upload identified by the upload ID.
+-- |
+-- Module      : Network.AWS.Glacier.AbortMultipartUpload
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- This operation aborts a multipart upload identified by the upload ID.
 --
 -- After the Abort Multipart Upload request succeeds, you cannot upload any
--- more parts to the multipart upload or complete the multipart upload. Aborting
--- a completed upload fails. However, aborting an already-aborted upload will
--- succeed, for a short time. For more information about uploading a part and
--- completing a multipart upload, see 'UploadMultipartPart' and 'CompleteMultipartUpload'.
+-- more parts to the multipart upload or complete the multipart upload.
+-- Aborting a completed upload fails. However, aborting an already-aborted
+-- upload will succeed, for a short time. For more information about
+-- uploading a part and completing a multipart upload, see
+-- UploadMultipartPart and CompleteMultipartUpload.
 --
 -- This operation is idempotent.
 --
 -- An AWS account has full permission to perform all operations (actions).
--- However, AWS Identity and Access Management (IAM) users don't have any
--- permissions by default. You must grant them explicit permission to perform
--- specific actions. For more information, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identityand Access Management (IAM)>.
+-- However, AWS Identity and Access Management (IAM) users don\'t have any
+-- permissions by default. You must grant them explicit permission to
+-- perform specific actions. For more information, see
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)>.
 --
--- For conceptual information and underlying REST API, go to <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working withArchives in Amazon Glacier> and <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html Abort Multipart Upload> in the /Amazon GlacierDeveloper Guide/.
+-- For conceptual information and underlying REST API, go to
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier>
+-- and
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html Abort Multipart Upload>
+-- in the /Amazon Glacier Developer Guide/.
 --
--- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AbortMultipartUpload.html>
+-- /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-AbortMultipartUpload.html AWS API Reference> for AbortMultipartUpload.
 module Network.AWS.Glacier.AbortMultipartUpload
     (
-    -- * Request
-      AbortMultipartUpload
-    -- ** Request constructor
-    , abortMultipartUpload
-    -- ** Request lenses
+    -- * Creating a Request
+      abortMultipartUpload
+    , AbortMultipartUpload
+    -- * Request Lenses
     , amuAccountId
-    , amuUploadId
     , amuVaultName
+    , amuUploadId
 
-    -- * Response
-    , AbortMultipartUploadResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , abortMultipartUploadResponse
+    , AbortMultipartUploadResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.Glacier.Types
-import qualified GHC.Exts
+import           Network.AWS.Glacier.Types
+import           Network.AWS.Glacier.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AbortMultipartUpload = AbortMultipartUpload
-    { _amuAccountId :: Text
-    , _amuUploadId  :: Text
-    , _amuVaultName :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Provides options to abort a multipart upload identified by the upload
+-- ID.
+--
+-- For information about the underlying REST API, go to
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-multipart-abort-upload.html Abort Multipart Upload>.
+-- For conceptual information, go to
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-archives.html Working with Archives in Amazon Glacier>.
+--
+-- /See:/ 'abortMultipartUpload' smart constructor.
+data AbortMultipartUpload = AbortMultipartUpload'
+    { _amuAccountId :: !Text
+    , _amuVaultName :: !Text
+    , _amuUploadId  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AbortMultipartUpload' constructor.
+-- | Creates a value of 'AbortMultipartUpload' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'amuAccountId' @::@ 'Text'
+-- * 'amuAccountId'
 --
--- * 'amuUploadId' @::@ 'Text'
+-- * 'amuVaultName'
 --
--- * 'amuVaultName' @::@ 'Text'
---
-abortMultipartUpload :: Text -- ^ 'amuAccountId'
-                     -> Text -- ^ 'amuVaultName'
-                     -> Text -- ^ 'amuUploadId'
-                     -> AbortMultipartUpload
-abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
-    { _amuAccountId = p1
-    , _amuVaultName = p2
-    , _amuUploadId  = p3
+-- * 'amuUploadId'
+abortMultipartUpload
+    :: Text -- ^ 'amuAccountId'
+    -> Text -- ^ 'amuVaultName'
+    -> Text -- ^ 'amuUploadId'
+    -> AbortMultipartUpload
+abortMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
+    AbortMultipartUpload'
+    { _amuAccountId = pAccountId_
+    , _amuVaultName = pVaultName_
+    , _amuUploadId = pUploadId_
     }
 
--- | The 'AccountId' value is the AWS account ID of the account that owns the vault.
--- You can either specify an AWS account ID or optionally a single apos'-'apos
--- (hyphen), in which case Amazon Glacier uses the AWS account ID associated
--- with the credentials used to sign the request. If you use an account ID, do
--- not include any hyphens (apos-apos) in the ID.
+-- | The 'AccountId' value is the AWS account ID of the account that owns the
+-- vault. You can either specify an AWS account ID or optionally a single
+-- apos'-'apos (hyphen), in which case Amazon Glacier uses the AWS account
+-- ID associated with the credentials used to sign the request. If you use
+-- an account ID, do not include any hyphens (apos-apos) in the ID.
 amuAccountId :: Lens' AbortMultipartUpload Text
-amuAccountId = lens _amuAccountId (\s a -> s { _amuAccountId = a })
-
--- | The upload ID of the multipart upload to delete.
-amuUploadId :: Lens' AbortMultipartUpload Text
-amuUploadId = lens _amuUploadId (\s a -> s { _amuUploadId = a })
+amuAccountId = lens _amuAccountId (\ s a -> s{_amuAccountId = a});
 
 -- | The name of the vault.
 amuVaultName :: Lens' AbortMultipartUpload Text
-amuVaultName = lens _amuVaultName (\s a -> s { _amuVaultName = a })
+amuVaultName = lens _amuVaultName (\ s a -> s{_amuVaultName = a});
 
-data AbortMultipartUploadResponse = AbortMultipartUploadResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'AbortMultipartUploadResponse' constructor.
-abortMultipartUploadResponse :: AbortMultipartUploadResponse
-abortMultipartUploadResponse = AbortMultipartUploadResponse
-
-instance ToPath AbortMultipartUpload where
-    toPath AbortMultipartUpload{..} = mconcat
-        [ "/"
-        , toText _amuAccountId
-        , "/vaults/"
-        , toText _amuVaultName
-        , "/multipart-uploads/"
-        , toText _amuUploadId
-        ]
-
-instance ToQuery AbortMultipartUpload where
-    toQuery = const mempty
-
-instance ToHeaders AbortMultipartUpload
-
-instance ToJSON AbortMultipartUpload where
-    toJSON = const (toJSON Empty)
+-- | The upload ID of the multipart upload to delete.
+amuUploadId :: Lens' AbortMultipartUpload Text
+amuUploadId = lens _amuUploadId (\ s a -> s{_amuUploadId = a});
 
 instance AWSRequest AbortMultipartUpload where
-    type Sv AbortMultipartUpload = Glacier
-    type Rs AbortMultipartUpload = AbortMultipartUploadResponse
+        type Sv AbortMultipartUpload = Glacier
+        type Rs AbortMultipartUpload =
+             AbortMultipartUploadResponse
+        request = delete
+        response = receiveNull AbortMultipartUploadResponse'
 
-    request  = delete
-    response = nullResponse AbortMultipartUploadResponse
+instance ToHeaders AbortMultipartUpload where
+        toHeaders = const mempty
+
+instance ToPath AbortMultipartUpload where
+        toPath AbortMultipartUpload'{..}
+          = mconcat
+              ["/", toBS _amuAccountId, "/vaults/",
+               toBS _amuVaultName, "/multipart-uploads/",
+               toBS _amuUploadId]
+
+instance ToQuery AbortMultipartUpload where
+        toQuery = const mempty
+
+-- | /See:/ 'abortMultipartUploadResponse' smart constructor.
+data AbortMultipartUploadResponse =
+    AbortMultipartUploadResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AbortMultipartUploadResponse' with the minimum fields required to make a request.
+--
+abortMultipartUploadResponse
+    :: AbortMultipartUploadResponse
+abortMultipartUploadResponse = AbortMultipartUploadResponse'

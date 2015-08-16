@@ -1,123 +1,142 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudHSM.CreateLunaClient
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates an HSM client.
+-- |
+-- Module      : Network.AWS.CloudHSM.CreateLunaClient
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateLunaClient.html>
+-- Creates an HSM client.
+--
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_CreateLunaClient.html AWS API Reference> for CreateLunaClient.
 module Network.AWS.CloudHSM.CreateLunaClient
     (
-    -- * Request
-      CreateLunaClient
-    -- ** Request constructor
-    , createLunaClient
-    -- ** Request lenses
-    , clcCertificate
+    -- * Creating a Request
+      createLunaClient
+    , CreateLunaClient
+    -- * Request Lenses
     , clcLabel
+    , clcCertificate
 
-    -- * Response
-    , CreateLunaClientResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createLunaClientResponse
-    -- ** Response lenses
-    , clcrClientArn
+    , CreateLunaClientResponse
+    -- * Response Lenses
+    , clcrsClientARN
+    , clcrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CloudHSM.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateLunaClient = CreateLunaClient
-    { _clcCertificate :: Text
-    , _clcLabel       :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Contains the inputs for the CreateLunaClient action.
+--
+-- /See:/ 'createLunaClient' smart constructor.
+data CreateLunaClient = CreateLunaClient'
+    { _clcLabel       :: !(Maybe Text)
+    , _clcCertificate :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateLunaClient' constructor.
+-- | Creates a value of 'CreateLunaClient' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'clcCertificate' @::@ 'Text'
+-- * 'clcLabel'
 --
--- * 'clcLabel' @::@ 'Maybe' 'Text'
---
-createLunaClient :: Text -- ^ 'clcCertificate'
-                 -> CreateLunaClient
-createLunaClient p1 = CreateLunaClient
-    { _clcCertificate = p1
-    , _clcLabel       = Nothing
+-- * 'clcCertificate'
+createLunaClient
+    :: Text -- ^ 'clcCertificate'
+    -> CreateLunaClient
+createLunaClient pCertificate_ =
+    CreateLunaClient'
+    { _clcLabel = Nothing
+    , _clcCertificate = pCertificate_
     }
-
--- | The contents of a Base64-Encoded X.509 v3 certificate to be installed on the
--- HSMs used by this client.
-clcCertificate :: Lens' CreateLunaClient Text
-clcCertificate = lens _clcCertificate (\s a -> s { _clcCertificate = a })
 
 -- | The label for the client.
 clcLabel :: Lens' CreateLunaClient (Maybe Text)
-clcLabel = lens _clcLabel (\s a -> s { _clcLabel = a })
+clcLabel = lens _clcLabel (\ s a -> s{_clcLabel = a});
 
-newtype CreateLunaClientResponse = CreateLunaClientResponse
-    { _clcrClientArn :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+-- | The contents of a Base64-Encoded X.509 v3 certificate to be installed on
+-- the HSMs used by this client.
+clcCertificate :: Lens' CreateLunaClient Text
+clcCertificate = lens _clcCertificate (\ s a -> s{_clcCertificate = a});
 
--- | 'CreateLunaClientResponse' constructor.
+instance AWSRequest CreateLunaClient where
+        type Sv CreateLunaClient = CloudHSM
+        type Rs CreateLunaClient = CreateLunaClientResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateLunaClientResponse' <$>
+                   (x .?> "ClientArn") <*> (pure (fromEnum s)))
+
+instance ToHeaders CreateLunaClient where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CloudHsmFrontendService.CreateLunaClient" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON CreateLunaClient where
+        toJSON CreateLunaClient'{..}
+          = object
+              ["Label" .= _clcLabel,
+               "Certificate" .= _clcCertificate]
+
+instance ToPath CreateLunaClient where
+        toPath = const "/"
+
+instance ToQuery CreateLunaClient where
+        toQuery = const mempty
+
+-- | Contains the output of the CreateLunaClient action.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'createLunaClientResponse' smart constructor.
+data CreateLunaClientResponse = CreateLunaClientResponse'
+    { _clcrsClientARN :: !(Maybe Text)
+    , _clcrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateLunaClientResponse' with the minimum fields required to make a request.
 --
--- * 'clcrClientArn' @::@ 'Maybe' 'Text'
+-- Use one of the following lenses to modify other fields as desired:
 --
-createLunaClientResponse :: CreateLunaClientResponse
-createLunaClientResponse = CreateLunaClientResponse
-    { _clcrClientArn = Nothing
+-- * 'clcrsClientARN'
+--
+-- * 'clcrsStatus'
+createLunaClientResponse
+    :: Int -- ^ 'clcrsStatus'
+    -> CreateLunaClientResponse
+createLunaClientResponse pStatus_ =
+    CreateLunaClientResponse'
+    { _clcrsClientARN = Nothing
+    , _clcrsStatus = pStatus_
     }
 
 -- | The ARN of the client.
-clcrClientArn :: Lens' CreateLunaClientResponse (Maybe Text)
-clcrClientArn = lens _clcrClientArn (\s a -> s { _clcrClientArn = a })
+clcrsClientARN :: Lens' CreateLunaClientResponse (Maybe Text)
+clcrsClientARN = lens _clcrsClientARN (\ s a -> s{_clcrsClientARN = a});
 
-instance ToPath CreateLunaClient where
-    toPath = const "/"
-
-instance ToQuery CreateLunaClient where
-    toQuery = const mempty
-
-instance ToHeaders CreateLunaClient
-
-instance ToJSON CreateLunaClient where
-    toJSON CreateLunaClient{..} = object
-        [ "Label"       .= _clcLabel
-        , "Certificate" .= _clcCertificate
-        ]
-
-instance AWSRequest CreateLunaClient where
-    type Sv CreateLunaClient = CloudHSM
-    type Rs CreateLunaClient = CreateLunaClientResponse
-
-    request  = post "CreateLunaClient"
-    response = jsonResponse
-
-instance FromJSON CreateLunaClientResponse where
-    parseJSON = withObject "CreateLunaClientResponse" $ \o -> CreateLunaClientResponse
-        <$> o .:? "ClientArn"
+-- | The response status code.
+clcrsStatus :: Lens' CreateLunaClientResponse Int
+clcrsStatus = lens _clcrsStatus (\ s a -> s{_clcrsStatus = a});

@@ -1,92 +1,92 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.BundleInstance
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Bundles an Amazon instance store-backed Windows instance.
+-- |
+-- Module      : Network.AWS.EC2.BundleInstance
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- During bundling, only the root device volume (C:\) is bundled. Data on other
--- instance store volumes is not preserved.
+-- Bundles an Amazon instance store-backed Windows instance.
 --
--- This action is not applicable for Linux/Unix instances or Windows instances
--- that are backed by Amazon EBS.
+-- During bundling, only the root device volume (C:\\) is bundled. Data on
+-- other instance store volumes is not preserved.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>.
+-- This action is not applicable for Linux\/Unix instances or Windows
+-- instances that are backed by Amazon EBS.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html>
+-- For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-BundleInstance.html AWS API Reference> for BundleInstance.
 module Network.AWS.EC2.BundleInstance
     (
-    -- * Request
-      BundleInstance
-    -- ** Request constructor
-    , bundleInstance
-    -- ** Request lenses
+    -- * Creating a Request
+      bundleInstance
+    , BundleInstance
+    -- * Request Lenses
     , biDryRun
     , biInstanceId
     , biStorage
 
-    -- * Response
-    , BundleInstanceResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , bundleInstanceResponse
-    -- ** Response lenses
-    , birBundleTask
+    , BundleInstanceResponse
+    -- * Response Lenses
+    , birsBundleTask
+    , birsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data BundleInstance = BundleInstance
-    { _biDryRun     :: Maybe Bool
-    , _biInstanceId :: Text
-    , _biStorage    :: Storage
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'bundleInstance' smart constructor.
+data BundleInstance = BundleInstance'
+    { _biDryRun     :: !(Maybe Bool)
+    , _biInstanceId :: !Text
+    , _biStorage    :: !Storage
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'BundleInstance' constructor.
+-- | Creates a value of 'BundleInstance' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'biDryRun' @::@ 'Maybe' 'Bool'
+-- * 'biDryRun'
 --
--- * 'biInstanceId' @::@ 'Text'
+-- * 'biInstanceId'
 --
--- * 'biStorage' @::@ 'Storage'
---
-bundleInstance :: Text -- ^ 'biInstanceId'
-               -> Storage -- ^ 'biStorage'
-               -> BundleInstance
-bundleInstance p1 p2 = BundleInstance
-    { _biInstanceId = p1
-    , _biStorage    = p2
-    , _biDryRun     = Nothing
+-- * 'biStorage'
+bundleInstance
+    :: Text -- ^ 'biInstanceId'
+    -> Storage -- ^ 'biStorage'
+    -> BundleInstance
+bundleInstance pInstanceId_ pStorage_ =
+    BundleInstance'
+    { _biDryRun = Nothing
+    , _biInstanceId = pInstanceId_
+    , _biStorage = pStorage_
     }
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
 biDryRun :: Lens' BundleInstance (Maybe Bool)
-biDryRun = lens _biDryRun (\s a -> s { _biDryRun = a })
+biDryRun = lens _biDryRun (\ s a -> s{_biDryRun = a});
 
 -- | The ID of the instance to bundle.
 --
@@ -96,52 +96,65 @@ biDryRun = lens _biDryRun (\s a -> s { _biDryRun = a })
 --
 -- Required: Yes
 biInstanceId :: Lens' BundleInstance Text
-biInstanceId = lens _biInstanceId (\s a -> s { _biInstanceId = a })
+biInstanceId = lens _biInstanceId (\ s a -> s{_biInstanceId = a});
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you
--- already own or a new bucket that Amazon EC2 creates on your behalf. If you
--- specify a bucket that belongs to someone else, Amazon EC2 returns an error.
+-- already own or a new bucket that Amazon EC2 creates on your behalf. If
+-- you specify a bucket that belongs to someone else, Amazon EC2 returns an
+-- error.
 biStorage :: Lens' BundleInstance Storage
-biStorage = lens _biStorage (\s a -> s { _biStorage = a })
+biStorage = lens _biStorage (\ s a -> s{_biStorage = a});
 
-newtype BundleInstanceResponse = BundleInstanceResponse
-    { _birBundleTask :: Maybe BundleTask
-    } deriving (Eq, Read, Show)
+instance AWSRequest BundleInstance where
+        type Sv BundleInstance = EC2
+        type Rs BundleInstance = BundleInstanceResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 BundleInstanceResponse' <$>
+                   (x .@? "bundleInstanceTask") <*> (pure (fromEnum s)))
 
--- | 'BundleInstanceResponse' constructor.
+instance ToHeaders BundleInstance where
+        toHeaders = const mempty
+
+instance ToPath BundleInstance where
+        toPath = const "/"
+
+instance ToQuery BundleInstance where
+        toQuery BundleInstance'{..}
+          = mconcat
+              ["Action" =: ("BundleInstance" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _biDryRun, "InstanceId" =: _biInstanceId,
+               "Storage" =: _biStorage]
+
+-- | /See:/ 'bundleInstanceResponse' smart constructor.
+data BundleInstanceResponse = BundleInstanceResponse'
+    { _birsBundleTask :: !(Maybe BundleTask)
+    , _birsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BundleInstanceResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'birBundleTask' @::@ 'Maybe' 'BundleTask'
+-- * 'birsBundleTask'
 --
-bundleInstanceResponse :: BundleInstanceResponse
-bundleInstanceResponse = BundleInstanceResponse
-    { _birBundleTask = Nothing
+-- * 'birsStatus'
+bundleInstanceResponse
+    :: Int -- ^ 'birsStatus'
+    -> BundleInstanceResponse
+bundleInstanceResponse pStatus_ =
+    BundleInstanceResponse'
+    { _birsBundleTask = Nothing
+    , _birsStatus = pStatus_
     }
 
 -- | Information about the bundle task.
-birBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
-birBundleTask = lens _birBundleTask (\s a -> s { _birBundleTask = a })
+birsBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
+birsBundleTask = lens _birsBundleTask (\ s a -> s{_birsBundleTask = a});
 
-instance ToPath BundleInstance where
-    toPath = const "/"
-
-instance ToQuery BundleInstance where
-    toQuery BundleInstance{..} = mconcat
-        [ "DryRun"     =? _biDryRun
-        , "InstanceId" =? _biInstanceId
-        , "Storage"    =? _biStorage
-        ]
-
-instance ToHeaders BundleInstance
-
-instance AWSRequest BundleInstance where
-    type Sv BundleInstance = EC2
-    type Rs BundleInstance = BundleInstanceResponse
-
-    request  = post "BundleInstance"
-    response = xmlResponse
-
-instance FromXML BundleInstanceResponse where
-    parseXML x = BundleInstanceResponse
-        <$> x .@? "bundleInstanceTask"
+-- | The response status code.
+birsStatus :: Lens' BundleInstanceResponse Int
+birsStatus = lens _birsStatus (\ s a -> s{_birsStatus = a});

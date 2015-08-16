@@ -1,144 +1,152 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.AutoScaling.DetachInstances
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Removes one or more instances from the specified Auto Scaling group. After
--- the instances are detached, you can manage them independently from the rest
--- of the Auto Scaling group.
+-- |
+-- Module      : Network.AWS.AutoScaling.DetachInstances
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group>
+-- Removes one or more instances from the specified Auto Scaling group.
+-- After the instances are detached, you can manage them independently from
+-- the rest of the Auto Scaling group.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachInstances.html>
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachInstances.html AWS API Reference> for DetachInstances.
 module Network.AWS.AutoScaling.DetachInstances
     (
-    -- * Request
-      DetachInstances
-    -- ** Request constructor
-    , detachInstances
-    -- ** Request lenses
-    , diAutoScalingGroupName
+    -- * Creating a Request
+      detachInstances
+    , DetachInstances
+    -- * Request Lenses
     , diInstanceIds
+    , diAutoScalingGroupName
     , diShouldDecrementDesiredCapacity
 
-    -- * Response
-    , DetachInstancesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , detachInstancesResponse
-    -- ** Response lenses
-    , dirActivities
+    , DetachInstancesResponse
+    -- * Response Lenses
+    , dirsActivities
+    , dirsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DetachInstances = DetachInstances
-    { _diAutoScalingGroupName           :: Text
-    , _diInstanceIds                    :: List "member" Text
-    , _diShouldDecrementDesiredCapacity :: Bool
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'detachInstances' smart constructor.
+data DetachInstances = DetachInstances'
+    { _diInstanceIds                    :: !(Maybe [Text])
+    , _diAutoScalingGroupName           :: !Text
+    , _diShouldDecrementDesiredCapacity :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DetachInstances' constructor.
+-- | Creates a value of 'DetachInstances' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'diAutoScalingGroupName' @::@ 'Text'
+-- * 'diInstanceIds'
 --
--- * 'diInstanceIds' @::@ ['Text']
+-- * 'diAutoScalingGroupName'
 --
--- * 'diShouldDecrementDesiredCapacity' @::@ 'Bool'
---
-detachInstances :: Text -- ^ 'diAutoScalingGroupName'
-                -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
-                -> DetachInstances
-detachInstances p1 p2 = DetachInstances
-    { _diAutoScalingGroupName           = p1
-    , _diShouldDecrementDesiredCapacity = p2
-    , _diInstanceIds                    = mempty
+-- * 'diShouldDecrementDesiredCapacity'
+detachInstances
+    :: Text -- ^ 'diAutoScalingGroupName'
+    -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
+    -> DetachInstances
+detachInstances pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
+    DetachInstances'
+    { _diInstanceIds = Nothing
+    , _diAutoScalingGroupName = pAutoScalingGroupName_
+    , _diShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
     }
-
--- | The name of the group.
-diAutoScalingGroupName :: Lens' DetachInstances Text
-diAutoScalingGroupName =
-    lens _diAutoScalingGroupName (\s a -> s { _diAutoScalingGroupName = a })
 
 -- | One or more instance IDs.
 diInstanceIds :: Lens' DetachInstances [Text]
-diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a }) . _List
+diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default . _Coerce;
 
--- | If 'True', the Auto Scaling group decrements the desired capacity value by the
--- number of instances detached.
+-- | The name of the group.
+diAutoScalingGroupName :: Lens' DetachInstances Text
+diAutoScalingGroupName = lens _diAutoScalingGroupName (\ s a -> s{_diAutoScalingGroupName = a});
+
+-- | If 'True', the Auto Scaling group decrements the desired capacity value
+-- by the number of instances detached.
 diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
-diShouldDecrementDesiredCapacity =
-    lens _diShouldDecrementDesiredCapacity
-        (\s a -> s { _diShouldDecrementDesiredCapacity = a })
-
-newtype DetachInstancesResponse = DetachInstancesResponse
-    { _dirActivities :: List "member" Activity
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DetachInstancesResponse where
-    type Item DetachInstancesResponse = Activity
-
-    fromList = DetachInstancesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dirActivities
-
--- | 'DetachInstancesResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dirActivities' @::@ ['Activity']
---
-detachInstancesResponse :: DetachInstancesResponse
-detachInstancesResponse = DetachInstancesResponse
-    { _dirActivities = mempty
-    }
-
--- | The activities related to detaching the instances from the Auto Scaling group.
-dirActivities :: Lens' DetachInstancesResponse [Activity]
-dirActivities = lens _dirActivities (\s a -> s { _dirActivities = a }) . _List
-
-instance ToPath DetachInstances where
-    toPath = const "/"
-
-instance ToQuery DetachInstances where
-    toQuery DetachInstances{..} = mconcat
-        [ "AutoScalingGroupName"           =? _diAutoScalingGroupName
-        , "InstanceIds"                    =? _diInstanceIds
-        , "ShouldDecrementDesiredCapacity" =? _diShouldDecrementDesiredCapacity
-        ]
-
-instance ToHeaders DetachInstances
+diShouldDecrementDesiredCapacity = lens _diShouldDecrementDesiredCapacity (\ s a -> s{_diShouldDecrementDesiredCapacity = a});
 
 instance AWSRequest DetachInstances where
-    type Sv DetachInstances = AutoScaling
-    type Rs DetachInstances = DetachInstancesResponse
+        type Sv DetachInstances = AutoScaling
+        type Rs DetachInstances = DetachInstancesResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DetachInstancesResult"
+              (\ s h x ->
+                 DetachInstancesResponse' <$>
+                   (x .@? "Activities" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-    request  = post "DetachInstances"
-    response = xmlResponse
+instance ToHeaders DetachInstances where
+        toHeaders = const mempty
 
-instance FromXML DetachInstancesResponse where
-    parseXML = withElement "DetachInstancesResult" $ \x -> DetachInstancesResponse
-        <$> x .@? "Activities" .!@ mempty
+instance ToPath DetachInstances where
+        toPath = const "/"
+
+instance ToQuery DetachInstances where
+        toQuery DetachInstances'{..}
+          = mconcat
+              ["Action" =: ("DetachInstances" :: ByteString),
+               "Version" =: ("2011-01-01" :: ByteString),
+               "InstanceIds" =:
+                 toQuery (toQueryList "member" <$> _diInstanceIds),
+               "AutoScalingGroupName" =: _diAutoScalingGroupName,
+               "ShouldDecrementDesiredCapacity" =:
+                 _diShouldDecrementDesiredCapacity]
+
+-- | /See:/ 'detachInstancesResponse' smart constructor.
+data DetachInstancesResponse = DetachInstancesResponse'
+    { _dirsActivities :: !(Maybe [Activity])
+    , _dirsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DetachInstancesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dirsActivities'
+--
+-- * 'dirsStatus'
+detachInstancesResponse
+    :: Int -- ^ 'dirsStatus'
+    -> DetachInstancesResponse
+detachInstancesResponse pStatus_ =
+    DetachInstancesResponse'
+    { _dirsActivities = Nothing
+    , _dirsStatus = pStatus_
+    }
+
+-- | The activities related to detaching the instances from the Auto Scaling
+-- group.
+dirsActivities :: Lens' DetachInstancesResponse [Activity]
+dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Default . _Coerce;
+
+-- | The response status code.
+dirsStatus :: Lens' DetachInstancesResponse Int
+dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

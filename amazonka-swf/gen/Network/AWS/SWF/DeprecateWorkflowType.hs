@@ -1,123 +1,143 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SWF.DeprecateWorkflowType
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deprecates the specified /workflow type/. After a workflow type has been
--- deprecated, you cannot create new executions of that type. Executions that
--- were started before the type was deprecated will continue to run. A
--- deprecated workflow type may still be used when calling visibility actions.
+-- |
+-- Module      : Network.AWS.SWF.DeprecateWorkflowType
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- This operation is eventually consistent. The results are best effort and may
--- not exactly reflect recent updates and changes. Access Control
+-- Deprecates the specified /workflow type/. After a workflow type has been
+-- deprecated, you cannot create new executions of that type. Executions
+-- that were started before the type was deprecated will continue to run. A
+-- deprecated workflow type may still be used when calling visibility
+-- actions.
 --
--- You can use IAM policies to control this action's access to Amazon SWF
+-- This operation is eventually consistent. The results are best effort and
+-- may not exactly reflect recent updates and changes.
+--
+-- __Access Control__
+--
+-- You can use IAM policies to control this action\'s access to Amazon SWF
 -- resources as follows:
 --
--- Use a 'Resource' element with the domain name to limit the action to only
--- specified domains. Use an 'Action' element to allow or deny permission to call
--- this action. Constrain the following parameters by using a 'Condition' element
--- with the appropriate keys.  'workflowType.name': String constraint. The key is 'swf:workflowType.name'. 'workflowType.version': String constraint. The key is 'swf:workflowType.version'
--- .    If the caller does not have sufficient permissions to invoke the action,
--- or the parameter values fall outside the specified constraints, the action
--- fails. The associated event attribute's cause parameter will be set to
--- OPERATION_NOT_PERMITTED. For details and example IAM policies, see <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAMto Manage Access to Amazon SWF Workflows>.
+-- -   Use a 'Resource' element with the domain name to limit the action to
+--     only specified domains.
+-- -   Use an 'Action' element to allow or deny permission to call this
+--     action.
+-- -   Constrain the following parameters by using a 'Condition' element
+--     with the appropriate keys.
+--     -   'workflowType.name': String constraint. The key is
+--         'swf:workflowType.name'.
+--     -   'workflowType.version': String constraint. The key is
+--         'swf:workflowType.version'.
 --
--- <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateWorkflowType.html>
+-- If the caller does not have sufficient permissions to invoke the action,
+-- or the parameter values fall outside the specified constraints, the
+-- action fails. The associated event attribute\'s __cause__ parameter will
+-- be set to OPERATION_NOT_PERMITTED. For details and example IAM policies,
+-- see
+-- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows>.
+--
+-- /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/API_DeprecateWorkflowType.html AWS API Reference> for DeprecateWorkflowType.
 module Network.AWS.SWF.DeprecateWorkflowType
     (
-    -- * Request
-      DeprecateWorkflowType
-    -- ** Request constructor
-    , deprecateWorkflowType
-    -- ** Request lenses
-    , dwt1Domain
-    , dwt1WorkflowType
+    -- * Creating a Request
+      deprecateWorkflowType
+    , DeprecateWorkflowType
+    -- * Request Lenses
+    , dDomain
+    , dWorkflowType
 
-    -- * Response
-    , DeprecateWorkflowTypeResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deprecateWorkflowTypeResponse
+    , DeprecateWorkflowTypeResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.SWF.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SWF.Types
+import           Network.AWS.SWF.Types.Product
 
-data DeprecateWorkflowType = DeprecateWorkflowType
-    { _dwt1Domain       :: Text
-    , _dwt1WorkflowType :: WorkflowType
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'deprecateWorkflowType' smart constructor.
+data DeprecateWorkflowType = DeprecateWorkflowType'
+    { _dDomain       :: !Text
+    , _dWorkflowType :: !WorkflowType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeprecateWorkflowType' constructor.
+-- | Creates a value of 'DeprecateWorkflowType' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dwt1Domain' @::@ 'Text'
+-- * 'dDomain'
 --
--- * 'dwt1WorkflowType' @::@ 'WorkflowType'
---
-deprecateWorkflowType :: Text -- ^ 'dwt1Domain'
-                      -> WorkflowType -- ^ 'dwt1WorkflowType'
-                      -> DeprecateWorkflowType
-deprecateWorkflowType p1 p2 = DeprecateWorkflowType
-    { _dwt1Domain       = p1
-    , _dwt1WorkflowType = p2
+-- * 'dWorkflowType'
+deprecateWorkflowType
+    :: Text -- ^ 'dDomain'
+    -> WorkflowType -- ^ 'dWorkflowType'
+    -> DeprecateWorkflowType
+deprecateWorkflowType pDomain_ pWorkflowType_ =
+    DeprecateWorkflowType'
+    { _dDomain = pDomain_
+    , _dWorkflowType = pWorkflowType_
     }
 
 -- | The name of the domain in which the workflow type is registered.
-dwt1Domain :: Lens' DeprecateWorkflowType Text
-dwt1Domain = lens _dwt1Domain (\s a -> s { _dwt1Domain = a })
+dDomain :: Lens' DeprecateWorkflowType Text
+dDomain = lens _dDomain (\ s a -> s{_dDomain = a});
 
 -- | The workflow type to deprecate.
-dwt1WorkflowType :: Lens' DeprecateWorkflowType WorkflowType
-dwt1WorkflowType = lens _dwt1WorkflowType (\s a -> s { _dwt1WorkflowType = a })
-
-data DeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeprecateWorkflowTypeResponse' constructor.
-deprecateWorkflowTypeResponse :: DeprecateWorkflowTypeResponse
-deprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
-
-instance ToPath DeprecateWorkflowType where
-    toPath = const "/"
-
-instance ToQuery DeprecateWorkflowType where
-    toQuery = const mempty
-
-instance ToHeaders DeprecateWorkflowType
-
-instance ToJSON DeprecateWorkflowType where
-    toJSON DeprecateWorkflowType{..} = object
-        [ "domain"       .= _dwt1Domain
-        , "workflowType" .= _dwt1WorkflowType
-        ]
+dWorkflowType :: Lens' DeprecateWorkflowType WorkflowType
+dWorkflowType = lens _dWorkflowType (\ s a -> s{_dWorkflowType = a});
 
 instance AWSRequest DeprecateWorkflowType where
-    type Sv DeprecateWorkflowType = SWF
-    type Rs DeprecateWorkflowType = DeprecateWorkflowTypeResponse
+        type Sv DeprecateWorkflowType = SWF
+        type Rs DeprecateWorkflowType =
+             DeprecateWorkflowTypeResponse
+        request = postJSON
+        response = receiveNull DeprecateWorkflowTypeResponse'
 
-    request  = post "DeprecateWorkflowType"
-    response = nullResponse DeprecateWorkflowTypeResponse
+instance ToHeaders DeprecateWorkflowType where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("SimpleWorkflowService.DeprecateWorkflowType" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.0" :: ByteString)])
+
+instance ToJSON DeprecateWorkflowType where
+        toJSON DeprecateWorkflowType'{..}
+          = object
+              ["domain" .= _dDomain,
+               "workflowType" .= _dWorkflowType]
+
+instance ToPath DeprecateWorkflowType where
+        toPath = const "/"
+
+instance ToQuery DeprecateWorkflowType where
+        toQuery = const mempty
+
+-- | /See:/ 'deprecateWorkflowTypeResponse' smart constructor.
+data DeprecateWorkflowTypeResponse =
+    DeprecateWorkflowTypeResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeprecateWorkflowTypeResponse' with the minimum fields required to make a request.
+--
+deprecateWorkflowTypeResponse
+    :: DeprecateWorkflowTypeResponse
+deprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse'

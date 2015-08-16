@@ -1,97 +1,92 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.DeleteBucket
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the bucket. All objects (including all object versions and Delete
--- Markers) in the bucket must be deleted before the bucket itself can be
--- deleted.
+-- |
+-- Module      : Network.AWS.S3.DeleteBucket
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucket.html>
+-- Deletes the bucket. All objects (including all object versions and
+-- Delete Markers) in the bucket must be deleted before the bucket itself
+-- can be deleted.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucket.html AWS API Reference> for DeleteBucket.
 module Network.AWS.S3.DeleteBucket
     (
-    -- * Request
-      DeleteBucket
-    -- ** Request constructor
-    , deleteBucket
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteBucket
+    , DeleteBucket
+    -- * Request Lenses
     , dbBucket
 
-    -- * Response
-    , DeleteBucketResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteBucketResponse
+    , DeleteBucketResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-newtype DeleteBucket = DeleteBucket
-    { _dbBucket :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | /See:/ 'deleteBucket' smart constructor.
+newtype DeleteBucket = DeleteBucket'
+    { _dbBucket :: BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucket' constructor.
+-- | Creates a value of 'DeleteBucket' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbBucket' @::@ 'Text'
---
-deleteBucket :: Text -- ^ 'dbBucket'
-             -> DeleteBucket
-deleteBucket p1 = DeleteBucket
-    { _dbBucket = p1
+-- * 'dbBucket'
+deleteBucket
+    :: BucketName -- ^ 'dbBucket'
+    -> DeleteBucket
+deleteBucket pBucket_ =
+    DeleteBucket'
+    { _dbBucket = pBucket_
     }
 
-dbBucket :: Lens' DeleteBucket Text
-dbBucket = lens _dbBucket (\s a -> s { _dbBucket = a })
-
-data DeleteBucketResponse = DeleteBucketResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteBucketResponse' constructor.
-deleteBucketResponse :: DeleteBucketResponse
-deleteBucketResponse = DeleteBucketResponse
-
-instance ToPath DeleteBucket where
-    toPath DeleteBucket{..} = mconcat
-        [ "/"
-        , toText _dbBucket
-        ]
-
-instance ToQuery DeleteBucket where
-    toQuery = const mempty
-
-instance ToHeaders DeleteBucket
-
-instance ToXMLRoot DeleteBucket where
-    toXMLRoot = const (namespaced ns "DeleteBucket" [])
-
-instance ToXML DeleteBucket
+-- | Undocumented member.
+dbBucket :: Lens' DeleteBucket BucketName
+dbBucket = lens _dbBucket (\ s a -> s{_dbBucket = a});
 
 instance AWSRequest DeleteBucket where
-    type Sv DeleteBucket = S3
-    type Rs DeleteBucket = DeleteBucketResponse
+        type Sv DeleteBucket = S3
+        type Rs DeleteBucket = DeleteBucketResponse
+        request = delete
+        response = receiveNull DeleteBucketResponse'
 
-    request  = delete
-    response = nullResponse DeleteBucketResponse
+instance ToHeaders DeleteBucket where
+        toHeaders = const mempty
+
+instance ToPath DeleteBucket where
+        toPath DeleteBucket'{..}
+          = mconcat ["/", toBS _dbBucket]
+
+instance ToQuery DeleteBucket where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteBucketResponse' smart constructor.
+data DeleteBucketResponse =
+    DeleteBucketResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteBucketResponse' with the minimum fields required to make a request.
+--
+deleteBucketResponse
+    :: DeleteBucketResponse
+deleteBucketResponse = DeleteBucketResponse'

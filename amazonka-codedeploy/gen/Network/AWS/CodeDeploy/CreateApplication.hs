@@ -1,114 +1,131 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CodeDeploy.CreateApplication
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new application.
+-- |
+-- Module      : Network.AWS.CodeDeploy.CreateApplication
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateApplication.html>
+-- Creates a new application.
+--
+-- /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateApplication.html AWS API Reference> for CreateApplication.
 module Network.AWS.CodeDeploy.CreateApplication
     (
-    -- * Request
-      CreateApplication
-    -- ** Request constructor
-    , createApplication
-    -- ** Request lenses
+    -- * Creating a Request
+      createApplication
+    , CreateApplication
+    -- * Request Lenses
     , caApplicationName
 
-    -- * Response
-    , CreateApplicationResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createApplicationResponse
-    -- ** Response lenses
-    , carApplicationId
+    , CreateApplicationResponse
+    -- * Response Lenses
+    , carsApplicationId
+    , carsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.CodeDeploy.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype CreateApplication = CreateApplication
+-- | Represents the input of a create application operation.
+--
+-- /See:/ 'createApplication' smart constructor.
+newtype CreateApplication = CreateApplication'
     { _caApplicationName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateApplication' constructor.
+-- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'caApplicationName' @::@ 'Text'
---
-createApplication :: Text -- ^ 'caApplicationName'
-                  -> CreateApplication
-createApplication p1 = CreateApplication
-    { _caApplicationName = p1
+-- * 'caApplicationName'
+createApplication
+    :: Text -- ^ 'caApplicationName'
+    -> CreateApplication
+createApplication pApplicationName_ =
+    CreateApplication'
+    { _caApplicationName = pApplicationName_
     }
 
--- | The name of the application. This name must be unique with the applicable IAM
--- user or AWS account.
+-- | The name of the application. This name must be unique with the
+-- applicable IAM user or AWS account.
 caApplicationName :: Lens' CreateApplication Text
-caApplicationName =
-    lens _caApplicationName (\s a -> s { _caApplicationName = a })
+caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
 
-newtype CreateApplicationResponse = CreateApplicationResponse
-    { _carApplicationId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+instance AWSRequest CreateApplication where
+        type Sv CreateApplication = CodeDeploy
+        type Rs CreateApplication = CreateApplicationResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateApplicationResponse' <$>
+                   (x .?> "applicationId") <*> (pure (fromEnum s)))
 
--- | 'CreateApplicationResponse' constructor.
+instance ToHeaders CreateApplication where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.CreateApplication" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON CreateApplication where
+        toJSON CreateApplication'{..}
+          = object ["applicationName" .= _caApplicationName]
+
+instance ToPath CreateApplication where
+        toPath = const "/"
+
+instance ToQuery CreateApplication where
+        toQuery = const mempty
+
+-- | Represents the output of a create application operation.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'createApplicationResponse' smart constructor.
+data CreateApplicationResponse = CreateApplicationResponse'
+    { _carsApplicationId :: !(Maybe Text)
+    , _carsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateApplicationResponse' with the minimum fields required to make a request.
 --
--- * 'carApplicationId' @::@ 'Maybe' 'Text'
+-- Use one of the following lenses to modify other fields as desired:
 --
-createApplicationResponse :: CreateApplicationResponse
-createApplicationResponse = CreateApplicationResponse
-    { _carApplicationId = Nothing
+-- * 'carsApplicationId'
+--
+-- * 'carsStatus'
+createApplicationResponse
+    :: Int -- ^ 'carsStatus'
+    -> CreateApplicationResponse
+createApplicationResponse pStatus_ =
+    CreateApplicationResponse'
+    { _carsApplicationId = Nothing
+    , _carsStatus = pStatus_
     }
 
 -- | A unique application ID.
-carApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
-carApplicationId = lens _carApplicationId (\s a -> s { _carApplicationId = a })
+carsApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
+carsApplicationId = lens _carsApplicationId (\ s a -> s{_carsApplicationId = a});
 
-instance ToPath CreateApplication where
-    toPath = const "/"
-
-instance ToQuery CreateApplication where
-    toQuery = const mempty
-
-instance ToHeaders CreateApplication
-
-instance ToJSON CreateApplication where
-    toJSON CreateApplication{..} = object
-        [ "applicationName" .= _caApplicationName
-        ]
-
-instance AWSRequest CreateApplication where
-    type Sv CreateApplication = CodeDeploy
-    type Rs CreateApplication = CreateApplicationResponse
-
-    request  = post "CreateApplication"
-    response = jsonResponse
-
-instance FromJSON CreateApplicationResponse where
-    parseJSON = withObject "CreateApplicationResponse" $ \o -> CreateApplicationResponse
-        <$> o .:? "applicationId"
+-- | The response status code.
+carsStatus :: Lens' CreateApplicationResponse Int
+carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

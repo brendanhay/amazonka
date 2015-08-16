@@ -1,165 +1,182 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.DescribeCustomerGateways
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes one or more of your VPN customer gateways.
+-- |
+-- Module      : Network.AWS.EC2.DescribeCustomerGateways
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For more information about VPN customer gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a HardwareVirtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud UserGuide/.
+-- Describes one or more of your VPN customer gateways.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeCustomerGateways.html>
+-- For more information about VPN customer gateways, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a Hardware Virtual Private Gateway to Your VPC>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeCustomerGateways.html AWS API Reference> for DescribeCustomerGateways.
 module Network.AWS.EC2.DescribeCustomerGateways
     (
-    -- * Request
-      DescribeCustomerGateways
-    -- ** Request constructor
-    , describeCustomerGateways
-    -- ** Request lenses
+    -- * Creating a Request
+      describeCustomerGateways
+    , DescribeCustomerGateways
+    -- * Request Lenses
     , dcgCustomerGatewayIds
-    , dcgDryRun
     , dcgFilters
+    , dcgDryRun
 
-    -- * Response
-    , DescribeCustomerGatewaysResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeCustomerGatewaysResponse
-    -- ** Response lenses
-    , dcgrCustomerGateways
+    , DescribeCustomerGatewaysResponse
+    -- * Response Lenses
+    , dcgrsCustomerGateways
+    , dcgrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeCustomerGateways = DescribeCustomerGateways
-    { _dcgCustomerGatewayIds :: List "CustomerGatewayId" Text
-    , _dcgDryRun             :: Maybe Bool
-    , _dcgFilters            :: List "Filter" Filter
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'describeCustomerGateways' smart constructor.
+data DescribeCustomerGateways = DescribeCustomerGateways'
+    { _dcgCustomerGatewayIds :: !(Maybe [Text])
+    , _dcgFilters            :: !(Maybe [Filter])
+    , _dcgDryRun             :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCustomerGateways' constructor.
+-- | Creates a value of 'DescribeCustomerGateways' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcgCustomerGatewayIds' @::@ ['Text']
+-- * 'dcgCustomerGatewayIds'
 --
--- * 'dcgDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dcgFilters'
 --
--- * 'dcgFilters' @::@ ['Filter']
---
-describeCustomerGateways :: DescribeCustomerGateways
-describeCustomerGateways = DescribeCustomerGateways
-    { _dcgDryRun             = Nothing
-    , _dcgCustomerGatewayIds = mempty
-    , _dcgFilters            = mempty
+-- * 'dcgDryRun'
+describeCustomerGateways
+    :: DescribeCustomerGateways
+describeCustomerGateways =
+    DescribeCustomerGateways'
+    { _dcgCustomerGatewayIds = Nothing
+    , _dcgFilters = Nothing
+    , _dcgDryRun = Nothing
     }
 
 -- | One or more customer gateway IDs.
 --
 -- Default: Describes all your customer gateways.
 dcgCustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
-dcgCustomerGatewayIds =
-    lens _dcgCustomerGatewayIds (\s a -> s { _dcgCustomerGatewayIds = a })
-        . _List
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-dcgDryRun :: Lens' DescribeCustomerGateways (Maybe Bool)
-dcgDryRun = lens _dcgDryRun (\s a -> s { _dcgDryRun = a })
+dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGatewayIds = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
--- 'bgp-asn' - The customer gateway's Border Gateway Protocol (BGP) Autonomous
--- System Number (ASN).
+-- -   'bgp-asn' - The customer gateway\'s Border Gateway Protocol (BGP)
+--     Autonomous System Number (ASN).
 --
--- 'customer-gateway-id' - The ID of the customer gateway.
+-- -   'customer-gateway-id' - The ID of the customer gateway.
 --
--- 'ip-address' - The IP address of the customer gateway's Internet-routable
--- external interface.
+-- -   'ip-address' - The IP address of the customer gateway\'s
+--     Internet-routable external interface.
 --
--- 'state' - The state of the customer gateway ('pending' | 'available' | 'deleting'
--- | 'deleted').
+-- -   'state' - The state of the customer gateway ('pending' | 'available'
+--     | 'deleting' | 'deleted').
 --
--- 'type' - The type of customer gateway. Currently, the only supported type is 'ipsec.1'.
+-- -   'type' - The type of customer gateway. Currently, the only supported
+--     type is 'ipsec.1'.
 --
--- 'tag':/key/=/value/ - The key/value combination of a tag assigned to the
--- resource.
+-- -   'tag':/key/=/value/ - The key\/value combination of a tag assigned
+--     to the resource.
 --
--- 'tag-key' - The key of a tag assigned to the resource. This filter is
--- independent of the 'tag-value' filter. For example, if you use both the filter
--- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
--- assigned both the tag key Purpose (regardless of what the tag's value is),
--- and the tag value X (regardless of what the tag's key is). If you want to
--- list only resources where Purpose is X, see the 'tag':/key/=/value/ filter.
+-- -   'tag-key' - The key of a tag assigned to the resource. This filter
+--     is independent of the 'tag-value' filter. For example, if you use
+--     both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\",
+--     you get any resources assigned both the tag key Purpose (regardless
+--     of what the tag\'s value is), and the tag value X (regardless of
+--     what the tag\'s key is). If you want to list only resources where
+--     Purpose is X, see the 'tag':/key/=/value/ filter.
 --
--- 'tag-value' - The value of a tag assigned to the resource. This filter is
--- independent of the 'tag-key' filter.
---
+-- -   'tag-value' - The value of a tag assigned to the resource. This
+--     filter is independent of the 'tag-key' filter.
 --
 dcgFilters :: Lens' DescribeCustomerGateways [Filter]
-dcgFilters = lens _dcgFilters (\s a -> s { _dcgFilters = a }) . _List
+dcgFilters = lens _dcgFilters (\ s a -> s{_dcgFilters = a}) . _Default . _Coerce;
 
-newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
-    { _dcgrCustomerGateways :: List "item" CustomerGateway
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+dcgDryRun :: Lens' DescribeCustomerGateways (Maybe Bool)
+dcgDryRun = lens _dcgDryRun (\ s a -> s{_dcgDryRun = a});
 
--- | 'DescribeCustomerGatewaysResponse' constructor.
+instance AWSRequest DescribeCustomerGateways where
+        type Sv DescribeCustomerGateways = EC2
+        type Rs DescribeCustomerGateways =
+             DescribeCustomerGatewaysResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribeCustomerGatewaysResponse' <$>
+                   (x .@? "customerGatewaySet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeCustomerGateways where
+        toHeaders = const mempty
+
+instance ToPath DescribeCustomerGateways where
+        toPath = const "/"
+
+instance ToQuery DescribeCustomerGateways where
+        toQuery DescribeCustomerGateways'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeCustomerGateways" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               toQuery
+                 (toQueryList "CustomerGatewayId" <$>
+                    _dcgCustomerGatewayIds),
+               toQuery (toQueryList "Filter" <$> _dcgFilters),
+               "DryRun" =: _dcgDryRun]
+
+-- | /See:/ 'describeCustomerGatewaysResponse' smart constructor.
+data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
+    { _dcgrsCustomerGateways :: !(Maybe [CustomerGateway])
+    , _dcgrsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeCustomerGatewaysResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcgrCustomerGateways' @::@ ['CustomerGateway']
+-- * 'dcgrsCustomerGateways'
 --
-describeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse
-describeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
-    { _dcgrCustomerGateways = mempty
+-- * 'dcgrsStatus'
+describeCustomerGatewaysResponse
+    :: Int -- ^ 'dcgrsStatus'
+    -> DescribeCustomerGatewaysResponse
+describeCustomerGatewaysResponse pStatus_ =
+    DescribeCustomerGatewaysResponse'
+    { _dcgrsCustomerGateways = Nothing
+    , _dcgrsStatus = pStatus_
     }
 
 -- | Information about one or more customer gateways.
-dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
-dcgrCustomerGateways =
-    lens _dcgrCustomerGateways (\s a -> s { _dcgrCustomerGateways = a })
-        . _List
+dcgrsCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
+dcgrsCustomerGateways = lens _dcgrsCustomerGateways (\ s a -> s{_dcgrsCustomerGateways = a}) . _Default . _Coerce;
 
-instance ToPath DescribeCustomerGateways where
-    toPath = const "/"
-
-instance ToQuery DescribeCustomerGateways where
-    toQuery DescribeCustomerGateways{..} = mconcat
-        [ "CustomerGatewayId" `toQueryList` _dcgCustomerGatewayIds
-        , "DryRun"            =? _dcgDryRun
-        , "Filter"            `toQueryList` _dcgFilters
-        ]
-
-instance ToHeaders DescribeCustomerGateways
-
-instance AWSRequest DescribeCustomerGateways where
-    type Sv DescribeCustomerGateways = EC2
-    type Rs DescribeCustomerGateways = DescribeCustomerGatewaysResponse
-
-    request  = post "DescribeCustomerGateways"
-    response = xmlResponse
-
-instance FromXML DescribeCustomerGatewaysResponse where
-    parseXML x = DescribeCustomerGatewaysResponse
-        <$> x .@? "customerGatewaySet" .!@ mempty
+-- | The response status code.
+dcgrsStatus :: Lens' DescribeCustomerGatewaysResponse Int
+dcgrsStatus = lens _dcgrsStatus (\ s a -> s{_dcgrsStatus = a});

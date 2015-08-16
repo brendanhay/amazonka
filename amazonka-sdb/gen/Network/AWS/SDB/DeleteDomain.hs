@@ -1,92 +1,95 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SDB.DeleteDomain
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The 'DeleteDomain' operation deletes a domain. Any items (and their
--- attributes) in the domain are deleted as well. The 'DeleteDomain' operation
--- might take 10 or more seconds to complete.
+-- |
+-- Module      : Network.AWS.SDB.DeleteDomain
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteDomain.html>
+-- The 'DeleteDomain' operation deletes a domain. Any items (and their
+-- attributes) in the domain are deleted as well. The 'DeleteDomain'
+-- operation might take 10 or more seconds to complete.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DeleteDomain.html AWS API Reference> for DeleteDomain.
 module Network.AWS.SDB.DeleteDomain
     (
-    -- * Request
-      DeleteDomain
-    -- ** Request constructor
-    , deleteDomain
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteDomain
+    , DeleteDomain
+    -- * Request Lenses
     , ddDomainName
 
-    -- * Response
-    , DeleteDomainResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteDomainResponse
+    , DeleteDomainResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SDB.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SDB.Types
+import           Network.AWS.SDB.Types.Product
 
-newtype DeleteDomain = DeleteDomain
+-- | /See:/ 'deleteDomain' smart constructor.
+newtype DeleteDomain = DeleteDomain'
     { _ddDomainName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteDomain' constructor.
+-- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ddDomainName' @::@ 'Text'
---
-deleteDomain :: Text -- ^ 'ddDomainName'
-             -> DeleteDomain
-deleteDomain p1 = DeleteDomain
-    { _ddDomainName = p1
+-- * 'ddDomainName'
+deleteDomain
+    :: Text -- ^ 'ddDomainName'
+    -> DeleteDomain
+deleteDomain pDomainName_ =
+    DeleteDomain'
+    { _ddDomainName = pDomainName_
     }
 
 -- | The name of the domain to delete.
 ddDomainName :: Lens' DeleteDomain Text
-ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
-
-data DeleteDomainResponse = DeleteDomainResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteDomainResponse' constructor.
-deleteDomainResponse :: DeleteDomainResponse
-deleteDomainResponse = DeleteDomainResponse
-
-instance ToPath DeleteDomain where
-    toPath = const "/"
-
-instance ToQuery DeleteDomain where
-    toQuery DeleteDomain{..} = mconcat
-        [ "DomainName" =? _ddDomainName
-        ]
-
-instance ToHeaders DeleteDomain
+ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a});
 
 instance AWSRequest DeleteDomain where
-    type Sv DeleteDomain = SDB
-    type Rs DeleteDomain = DeleteDomainResponse
+        type Sv DeleteDomain = SDB
+        type Rs DeleteDomain = DeleteDomainResponse
+        request = postQuery
+        response = receiveNull DeleteDomainResponse'
 
-    request  = post "DeleteDomain"
-    response = nullResponse DeleteDomainResponse
+instance ToHeaders DeleteDomain where
+        toHeaders = const mempty
+
+instance ToPath DeleteDomain where
+        toPath = const "/"
+
+instance ToQuery DeleteDomain where
+        toQuery DeleteDomain'{..}
+          = mconcat
+              ["Action" =: ("DeleteDomain" :: ByteString),
+               "Version" =: ("2009-04-15" :: ByteString),
+               "DomainName" =: _ddDomainName]
+
+-- | /See:/ 'deleteDomainResponse' smart constructor.
+data DeleteDomainResponse =
+    DeleteDomainResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
+--
+deleteDomainResponse
+    :: DeleteDomainResponse
+deleteDomainResponse = DeleteDomainResponse'

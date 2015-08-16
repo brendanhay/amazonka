@@ -1,115 +1,117 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.PutBucketTagging
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Sets the tags for a bucket.
+-- |
+-- Module      : Network.AWS.S3.PutBucketTagging
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketTagging.html>
+-- Sets the tags for a bucket.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketTagging.html AWS API Reference> for PutBucketTagging.
 module Network.AWS.S3.PutBucketTagging
     (
-    -- * Request
-      PutBucketTagging
-    -- ** Request constructor
-    , putBucketTagging
-    -- ** Request lenses
-    , pbtBucket
+    -- * Creating a Request
+      putBucketTagging
+    , PutBucketTagging
+    -- * Request Lenses
     , pbtContentMD5
+    , pbtBucket
     , pbtTagging
 
-    -- * Response
-    , PutBucketTaggingResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , putBucketTaggingResponse
+    , PutBucketTaggingResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-data PutBucketTagging = PutBucketTagging
-    { _pbtBucket     :: Text
-    , _pbtContentMD5 :: Maybe Text
-    , _pbtTagging    :: Tagging
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'putBucketTagging' smart constructor.
+data PutBucketTagging = PutBucketTagging'
+    { _pbtContentMD5 :: !(Maybe Text)
+    , _pbtBucket     :: !BucketName
+    , _pbtTagging    :: !Tagging
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketTagging' constructor.
+-- | Creates a value of 'PutBucketTagging' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbtBucket' @::@ 'Text'
+-- * 'pbtContentMD5'
 --
--- * 'pbtContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbtBucket'
 --
--- * 'pbtTagging' @::@ 'Tagging'
---
-putBucketTagging :: Text -- ^ 'pbtBucket'
-                 -> Tagging -- ^ 'pbtTagging'
-                 -> PutBucketTagging
-putBucketTagging p1 p2 = PutBucketTagging
-    { _pbtBucket     = p1
-    , _pbtTagging    = p2
-    , _pbtContentMD5 = Nothing
+-- * 'pbtTagging'
+putBucketTagging
+    :: BucketName -- ^ 'pbtBucket'
+    -> Tagging -- ^ 'pbtTagging'
+    -> PutBucketTagging
+putBucketTagging pBucket_ pTagging_ =
+    PutBucketTagging'
+    { _pbtContentMD5 = Nothing
+    , _pbtBucket = pBucket_
+    , _pbtTagging = pTagging_
     }
 
-pbtBucket :: Lens' PutBucketTagging Text
-pbtBucket = lens _pbtBucket (\s a -> s { _pbtBucket = a })
-
+-- | Undocumented member.
 pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)
-pbtContentMD5 = lens _pbtContentMD5 (\s a -> s { _pbtContentMD5 = a })
+pbtContentMD5 = lens _pbtContentMD5 (\ s a -> s{_pbtContentMD5 = a});
 
+-- | Undocumented member.
+pbtBucket :: Lens' PutBucketTagging BucketName
+pbtBucket = lens _pbtBucket (\ s a -> s{_pbtBucket = a});
+
+-- | Undocumented member.
 pbtTagging :: Lens' PutBucketTagging Tagging
-pbtTagging = lens _pbtTagging (\s a -> s { _pbtTagging = a })
-
-data PutBucketTaggingResponse = PutBucketTaggingResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'PutBucketTaggingResponse' constructor.
-putBucketTaggingResponse :: PutBucketTaggingResponse
-putBucketTaggingResponse = PutBucketTaggingResponse
-
-instance ToPath PutBucketTagging where
-    toPath PutBucketTagging{..} = mconcat
-        [ "/"
-        , toText _pbtBucket
-        ]
-
-instance ToQuery PutBucketTagging where
-    toQuery = const "tagging"
-
-instance ToHeaders PutBucketTagging where
-    toHeaders PutBucketTagging{..} = mconcat
-        [ "Content-MD5" =: _pbtContentMD5
-        ]
-
-instance ToXMLRoot PutBucketTagging where
-    toXMLRoot = extractRoot ns . toXML . _pbtTagging
-
-instance ToXML PutBucketTagging
+pbtTagging = lens _pbtTagging (\ s a -> s{_pbtTagging = a});
 
 instance AWSRequest PutBucketTagging where
-    type Sv PutBucketTagging = S3
-    type Rs PutBucketTagging = PutBucketTaggingResponse
+        type Sv PutBucketTagging = S3
+        type Rs PutBucketTagging = PutBucketTaggingResponse
+        request = contentMD5 . putXML
+        response = receiveNull PutBucketTaggingResponse'
 
-    request  = put
-    response = nullResponse PutBucketTaggingResponse
+instance ToElement PutBucketTagging where
+        toElement
+          = mkElement
+              "{http://s3.amazonaws.com/doc/2006-03-01/}Tagging"
+              .
+              _pbtTagging
+
+instance ToHeaders PutBucketTagging where
+        toHeaders PutBucketTagging'{..}
+          = mconcat ["Content-MD5" =# _pbtContentMD5]
+
+instance ToPath PutBucketTagging where
+        toPath PutBucketTagging'{..}
+          = mconcat ["/", toBS _pbtBucket]
+
+instance ToQuery PutBucketTagging where
+        toQuery = const (mconcat ["tagging"])
+
+-- | /See:/ 'putBucketTaggingResponse' smart constructor.
+data PutBucketTaggingResponse =
+    PutBucketTaggingResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutBucketTaggingResponse' with the minimum fields required to make a request.
+--
+putBucketTaggingResponse
+    :: PutBucketTaggingResponse
+putBucketTaggingResponse = PutBucketTaggingResponse'

@@ -1,155 +1,169 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudHSM.GetConfig
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Gets the configuration files necessary to connect to all high availability
--- partition groups the client is associated with.
+-- |
+-- Module      : Network.AWS.CloudHSM.GetConfig
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_GetConfig.html>
+-- Gets the configuration files necessary to connect to all high
+-- availability partition groups the client is associated with.
+--
+-- /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_GetConfig.html AWS API Reference> for GetConfig.
 module Network.AWS.CloudHSM.GetConfig
     (
-    -- * Request
-      GetConfig
-    -- ** Request constructor
-    , getConfig
-    -- ** Request lenses
-    , gcClientArn
+    -- * Creating a Request
+      getConfig
+    , GetConfig
+    -- * Request Lenses
+    , gcClientARN
     , gcClientVersion
-    , gcHapgList
+    , gcHAPGList
 
-    -- * Response
-    , GetConfigResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getConfigResponse
-    -- ** Response lenses
-    , gcrConfigCred
-    , gcrConfigFile
-    , gcrConfigType
+    , GetConfigResponse
+    -- * Response Lenses
+    , gcrsConfigFile
+    , gcrsConfigCred
+    , gcrsConfigType
+    , gcrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CloudHSM.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetConfig = GetConfig
-    { _gcClientArn     :: Text
-    , _gcClientVersion :: ClientVersion
-    , _gcHapgList      :: List "HapgList" Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'getConfig' smart constructor.
+data GetConfig = GetConfig'
+    { _gcClientARN     :: !Text
+    , _gcClientVersion :: !ClientVersion
+    , _gcHAPGList      :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetConfig' constructor.
+-- | Creates a value of 'GetConfig' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gcClientArn' @::@ 'Text'
+-- * 'gcClientARN'
 --
--- * 'gcClientVersion' @::@ 'ClientVersion'
+-- * 'gcClientVersion'
 --
--- * 'gcHapgList' @::@ ['Text']
---
-getConfig :: Text -- ^ 'gcClientArn'
-          -> ClientVersion -- ^ 'gcClientVersion'
-          -> GetConfig
-getConfig p1 p2 = GetConfig
-    { _gcClientArn     = p1
-    , _gcClientVersion = p2
-    , _gcHapgList      = mempty
+-- * 'gcHAPGList'
+getConfig
+    :: Text -- ^ 'gcClientARN'
+    -> ClientVersion -- ^ 'gcClientVersion'
+    -> GetConfig
+getConfig pClientARN_ pClientVersion_ =
+    GetConfig'
+    { _gcClientARN = pClientARN_
+    , _gcClientVersion = pClientVersion_
+    , _gcHAPGList = mempty
     }
 
 -- | The ARN of the client.
-gcClientArn :: Lens' GetConfig Text
-gcClientArn = lens _gcClientArn (\s a -> s { _gcClientArn = a })
+gcClientARN :: Lens' GetConfig Text
+gcClientARN = lens _gcClientARN (\ s a -> s{_gcClientARN = a});
 
 -- | The client version.
 gcClientVersion :: Lens' GetConfig ClientVersion
-gcClientVersion = lens _gcClientVersion (\s a -> s { _gcClientVersion = a })
+gcClientVersion = lens _gcClientVersion (\ s a -> s{_gcClientVersion = a});
 
--- | A list of ARNs that identify the high-availability partition groups that are
--- associated with the client.
-gcHapgList :: Lens' GetConfig [Text]
-gcHapgList = lens _gcHapgList (\s a -> s { _gcHapgList = a }) . _List
-
-data GetConfigResponse = GetConfigResponse
-    { _gcrConfigCred :: Maybe Text
-    , _gcrConfigFile :: Maybe Text
-    , _gcrConfigType :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'GetConfigResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gcrConfigCred' @::@ 'Maybe' 'Text'
---
--- * 'gcrConfigFile' @::@ 'Maybe' 'Text'
---
--- * 'gcrConfigType' @::@ 'Maybe' 'Text'
---
-getConfigResponse :: GetConfigResponse
-getConfigResponse = GetConfigResponse
-    { _gcrConfigType = Nothing
-    , _gcrConfigFile = Nothing
-    , _gcrConfigCred = Nothing
-    }
-
--- | The certificate file containing the server.pem files of the HSMs.
-gcrConfigCred :: Lens' GetConfigResponse (Maybe Text)
-gcrConfigCred = lens _gcrConfigCred (\s a -> s { _gcrConfigCred = a })
-
--- | The chrystoki.conf configuration file.
-gcrConfigFile :: Lens' GetConfigResponse (Maybe Text)
-gcrConfigFile = lens _gcrConfigFile (\s a -> s { _gcrConfigFile = a })
-
--- | The type of credentials.
-gcrConfigType :: Lens' GetConfigResponse (Maybe Text)
-gcrConfigType = lens _gcrConfigType (\s a -> s { _gcrConfigType = a })
-
-instance ToPath GetConfig where
-    toPath = const "/"
-
-instance ToQuery GetConfig where
-    toQuery = const mempty
-
-instance ToHeaders GetConfig
-
-instance ToJSON GetConfig where
-    toJSON GetConfig{..} = object
-        [ "ClientArn"     .= _gcClientArn
-        , "ClientVersion" .= _gcClientVersion
-        , "HapgList"      .= _gcHapgList
-        ]
+-- | A list of ARNs that identify the high-availability partition groups that
+-- are associated with the client.
+gcHAPGList :: Lens' GetConfig [Text]
+gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a}) . _Coerce;
 
 instance AWSRequest GetConfig where
-    type Sv GetConfig = CloudHSM
-    type Rs GetConfig = GetConfigResponse
+        type Sv GetConfig = CloudHSM
+        type Rs GetConfig = GetConfigResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetConfigResponse' <$>
+                   (x .?> "ConfigFile") <*> (x .?> "ConfigCred") <*>
+                     (x .?> "ConfigType")
+                     <*> (pure (fromEnum s)))
 
-    request  = post "GetConfig"
-    response = jsonResponse
+instance ToHeaders GetConfig where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CloudHsmFrontendService.GetConfig" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON GetConfigResponse where
-    parseJSON = withObject "GetConfigResponse" $ \o -> GetConfigResponse
-        <$> o .:? "ConfigCred"
-        <*> o .:? "ConfigFile"
-        <*> o .:? "ConfigType"
+instance ToJSON GetConfig where
+        toJSON GetConfig'{..}
+          = object
+              ["ClientArn" .= _gcClientARN,
+               "ClientVersion" .= _gcClientVersion,
+               "HapgList" .= _gcHAPGList]
+
+instance ToPath GetConfig where
+        toPath = const "/"
+
+instance ToQuery GetConfig where
+        toQuery = const mempty
+
+-- | /See:/ 'getConfigResponse' smart constructor.
+data GetConfigResponse = GetConfigResponse'
+    { _gcrsConfigFile :: !(Maybe Text)
+    , _gcrsConfigCred :: !(Maybe Text)
+    , _gcrsConfigType :: !(Maybe Text)
+    , _gcrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetConfigResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gcrsConfigFile'
+--
+-- * 'gcrsConfigCred'
+--
+-- * 'gcrsConfigType'
+--
+-- * 'gcrsStatus'
+getConfigResponse
+    :: Int -- ^ 'gcrsStatus'
+    -> GetConfigResponse
+getConfigResponse pStatus_ =
+    GetConfigResponse'
+    { _gcrsConfigFile = Nothing
+    , _gcrsConfigCred = Nothing
+    , _gcrsConfigType = Nothing
+    , _gcrsStatus = pStatus_
+    }
+
+-- | The chrystoki.conf configuration file.
+gcrsConfigFile :: Lens' GetConfigResponse (Maybe Text)
+gcrsConfigFile = lens _gcrsConfigFile (\ s a -> s{_gcrsConfigFile = a});
+
+-- | The certificate file containing the server.pem files of the HSMs.
+gcrsConfigCred :: Lens' GetConfigResponse (Maybe Text)
+gcrsConfigCred = lens _gcrsConfigCred (\ s a -> s{_gcrsConfigCred = a});
+
+-- | The type of credentials.
+gcrsConfigType :: Lens' GetConfigResponse (Maybe Text)
+gcrsConfigType = lens _gcrsConfigType (\ s a -> s{_gcrsConfigType = a});
+
+-- | The response status code.
+gcrsStatus :: Lens' GetConfigResponse Int
+gcrsStatus = lens _gcrsStatus (\ s a -> s{_gcrsStatus = a});

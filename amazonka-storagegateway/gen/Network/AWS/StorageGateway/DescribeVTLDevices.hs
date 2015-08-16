@@ -1,182 +1,208 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.StorageGateway.DescribeVTLDevices
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a description of virtual tape library (VTL) devices for the specified
--- gateway. In the response, AWS Storage Gateway returns VTL device information.
+-- |
+-- Module      : Network.AWS.StorageGateway.DescribeVTLDevices
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Returns a description of virtual tape library (VTL) devices for the
+-- specified gateway. In the response, AWS Storage Gateway returns VTL
+-- device information.
 --
 -- The list of VTL devices must be from one gateway.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeVTLDevices.html>
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeVTLDevices.html AWS API Reference> for DescribeVTLDevices.
+--
+-- This operation returns paginated results.
 module Network.AWS.StorageGateway.DescribeVTLDevices
     (
-    -- * Request
-      DescribeVTLDevices
-    -- ** Request constructor
-    , describeVTLDevices
-    -- ** Request lenses
-    , dvtldGatewayARN
-    , dvtldLimit
+    -- * Creating a Request
+      describeVTLDevices
+    , DescribeVTLDevices
+    -- * Request Lenses
     , dvtldMarker
+    , dvtldLimit
     , dvtldVTLDeviceARNs
+    , dvtldGatewayARN
 
-    -- * Response
-    , DescribeVTLDevicesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeVTLDevicesResponse
-    -- ** Response lenses
-    , dvtldrGatewayARN
-    , dvtldrMarker
-    , dvtldrVTLDevices
+    , DescribeVTLDevicesResponse
+    -- * Response Lenses
+    , dvtldrsGatewayARN
+    , dvtldrsVTLDevices
+    , dvtldrsMarker
+    , dvtldrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
+import           Network.AWS.StorageGateway.Types.Product
 
-data DescribeVTLDevices = DescribeVTLDevices
-    { _dvtldGatewayARN    :: Text
-    , _dvtldLimit         :: Maybe Nat
-    , _dvtldMarker        :: Maybe Text
-    , _dvtldVTLDeviceARNs :: List "VTLDeviceARNs" Text
-    } deriving (Eq, Ord, Read, Show)
+-- | DescribeVTLDevicesInput
+--
+-- /See:/ 'describeVTLDevices' smart constructor.
+data DescribeVTLDevices = DescribeVTLDevices'
+    { _dvtldMarker        :: !(Maybe Text)
+    , _dvtldLimit         :: !(Maybe Nat)
+    , _dvtldVTLDeviceARNs :: !(Maybe [Text])
+    , _dvtldGatewayARN    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeVTLDevices' constructor.
+-- | Creates a value of 'DescribeVTLDevices' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dvtldGatewayARN' @::@ 'Text'
+-- * 'dvtldMarker'
 --
--- * 'dvtldLimit' @::@ 'Maybe' 'Natural'
+-- * 'dvtldLimit'
 --
--- * 'dvtldMarker' @::@ 'Maybe' 'Text'
+-- * 'dvtldVTLDeviceARNs'
 --
--- * 'dvtldVTLDeviceARNs' @::@ ['Text']
---
-describeVTLDevices :: Text -- ^ 'dvtldGatewayARN'
-                   -> DescribeVTLDevices
-describeVTLDevices p1 = DescribeVTLDevices
-    { _dvtldGatewayARN    = p1
-    , _dvtldVTLDeviceARNs = mempty
-    , _dvtldMarker        = Nothing
-    , _dvtldLimit         = Nothing
+-- * 'dvtldGatewayARN'
+describeVTLDevices
+    :: Text -- ^ 'dvtldGatewayARN'
+    -> DescribeVTLDevices
+describeVTLDevices pGatewayARN_ =
+    DescribeVTLDevices'
+    { _dvtldMarker = Nothing
+    , _dvtldLimit = Nothing
+    , _dvtldVTLDeviceARNs = Nothing
+    , _dvtldGatewayARN = pGatewayARN_
     }
 
-dvtldGatewayARN :: Lens' DescribeVTLDevices Text
-dvtldGatewayARN = lens _dvtldGatewayARN (\s a -> s { _dvtldGatewayARN = a })
+-- | An opaque string that indicates the position at which to begin
+-- describing the VTL devices.
+dvtldMarker :: Lens' DescribeVTLDevices (Maybe Text)
+dvtldMarker = lens _dvtldMarker (\ s a -> s{_dvtldMarker = a});
 
 -- | Specifies that the number of VTL devices described be limited to the
 -- specified number.
 dvtldLimit :: Lens' DescribeVTLDevices (Maybe Natural)
-dvtldLimit = lens _dvtldLimit (\s a -> s { _dvtldLimit = a }) . mapping _Nat
+dvtldLimit = lens _dvtldLimit (\ s a -> s{_dvtldLimit = a}) . mapping _Nat;
 
--- | An opaque string that indicates the position at which to begin describing the
--- VTL devices.
-dvtldMarker :: Lens' DescribeVTLDevices (Maybe Text)
-dvtldMarker = lens _dvtldMarker (\s a -> s { _dvtldMarker = a })
-
--- | An array of strings, where each string represents the Amazon Resource Name
--- (ARN) of a VTL device.
+-- | An array of strings, where each string represents the Amazon Resource
+-- Name (ARN) of a VTL device.
 --
--- All of the specified VTL devices must be from the same gateway. If no VTL
--- devices are specified, the result will contain all devices on the specified
--- gateway.
+-- All of the specified VTL devices must be from the same gateway. If no
+-- VTL devices are specified, the result will contain all devices on the
+-- specified gateway.
 dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices [Text]
-dvtldVTLDeviceARNs =
-    lens _dvtldVTLDeviceARNs (\s a -> s { _dvtldVTLDeviceARNs = a })
-        . _List
+dvtldVTLDeviceARNs = lens _dvtldVTLDeviceARNs (\ s a -> s{_dvtldVTLDeviceARNs = a}) . _Default . _Coerce;
 
-data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
-    { _dvtldrGatewayARN :: Maybe Text
-    , _dvtldrMarker     :: Maybe Text
-    , _dvtldrVTLDevices :: List "VTLDevices" VTLDevice
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeVTLDevicesResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dvtldrGatewayARN' @::@ 'Maybe' 'Text'
---
--- * 'dvtldrMarker' @::@ 'Maybe' 'Text'
---
--- * 'dvtldrVTLDevices' @::@ ['VTLDevice']
---
-describeVTLDevicesResponse :: DescribeVTLDevicesResponse
-describeVTLDevicesResponse = DescribeVTLDevicesResponse
-    { _dvtldrGatewayARN = Nothing
-    , _dvtldrVTLDevices = mempty
-    , _dvtldrMarker     = Nothing
-    }
-
-dvtldrGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
-dvtldrGatewayARN = lens _dvtldrGatewayARN (\s a -> s { _dvtldrGatewayARN = a })
-
--- | An opaque string that indicates the position at which the VTL devices that
--- were fetched for description ended. Use the marker in your next request to
--- fetch the next set of VTL devices in the list. If there are no more VTL
--- devices to describe, this field does not appear in the response.
-dvtldrMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
-dvtldrMarker = lens _dvtldrMarker (\s a -> s { _dvtldrMarker = a })
-
--- | An array of VTL device objects composed of the Amazon Resource Name(ARN) of
--- the VTL devices.
-dvtldrVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
-dvtldrVTLDevices = lens _dvtldrVTLDevices (\s a -> s { _dvtldrVTLDevices = a }) . _List
-
-instance ToPath DescribeVTLDevices where
-    toPath = const "/"
-
-instance ToQuery DescribeVTLDevices where
-    toQuery = const mempty
-
-instance ToHeaders DescribeVTLDevices
-
-instance ToJSON DescribeVTLDevices where
-    toJSON DescribeVTLDevices{..} = object
-        [ "GatewayARN"    .= _dvtldGatewayARN
-        , "VTLDeviceARNs" .= _dvtldVTLDeviceARNs
-        , "Marker"        .= _dvtldMarker
-        , "Limit"         .= _dvtldLimit
-        ]
-
-instance AWSRequest DescribeVTLDevices where
-    type Sv DescribeVTLDevices = StorageGateway
-    type Rs DescribeVTLDevices = DescribeVTLDevicesResponse
-
-    request  = post "DescribeVTLDevices"
-    response = jsonResponse
-
-instance FromJSON DescribeVTLDevicesResponse where
-    parseJSON = withObject "DescribeVTLDevicesResponse" $ \o -> DescribeVTLDevicesResponse
-        <$> o .:? "GatewayARN"
-        <*> o .:? "Marker"
-        <*> o .:? "VTLDevices" .!= mempty
+-- | Undocumented member.
+dvtldGatewayARN :: Lens' DescribeVTLDevices Text
+dvtldGatewayARN = lens _dvtldGatewayARN (\ s a -> s{_dvtldGatewayARN = a});
 
 instance AWSPager DescribeVTLDevices where
-    page rq rs
-        | stop (rs ^. dvtldrMarker) = Nothing
-        | otherwise = (\x -> rq & dvtldMarker ?~ x)
-            <$> (rs ^. dvtldrMarker)
+        page rq rs
+          | stop (rs ^. dvtldrsMarker) = Nothing
+          | stop (rs ^. dvtldrsVTLDevices) = Nothing
+          | otherwise =
+            Just $ rq & dvtldMarker .~ rs ^. dvtldrsMarker
+
+instance AWSRequest DescribeVTLDevices where
+        type Sv DescribeVTLDevices = StorageGateway
+        type Rs DescribeVTLDevices =
+             DescribeVTLDevicesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeVTLDevicesResponse' <$>
+                   (x .?> "GatewayARN") <*>
+                     (x .?> "VTLDevices" .!@ mempty)
+                     <*> (x .?> "Marker")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeVTLDevices where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.DescribeVTLDevices" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeVTLDevices where
+        toJSON DescribeVTLDevices'{..}
+          = object
+              ["Marker" .= _dvtldMarker, "Limit" .= _dvtldLimit,
+               "VTLDeviceARNs" .= _dvtldVTLDeviceARNs,
+               "GatewayARN" .= _dvtldGatewayARN]
+
+instance ToPath DescribeVTLDevices where
+        toPath = const "/"
+
+instance ToQuery DescribeVTLDevices where
+        toQuery = const mempty
+
+-- | DescribeVTLDevicesOutput
+--
+-- /See:/ 'describeVTLDevicesResponse' smart constructor.
+data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
+    { _dvtldrsGatewayARN :: !(Maybe Text)
+    , _dvtldrsVTLDevices :: !(Maybe [VTLDevice])
+    , _dvtldrsMarker     :: !(Maybe Text)
+    , _dvtldrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeVTLDevicesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dvtldrsGatewayARN'
+--
+-- * 'dvtldrsVTLDevices'
+--
+-- * 'dvtldrsMarker'
+--
+-- * 'dvtldrsStatus'
+describeVTLDevicesResponse
+    :: Int -- ^ 'dvtldrsStatus'
+    -> DescribeVTLDevicesResponse
+describeVTLDevicesResponse pStatus_ =
+    DescribeVTLDevicesResponse'
+    { _dvtldrsGatewayARN = Nothing
+    , _dvtldrsVTLDevices = Nothing
+    , _dvtldrsMarker = Nothing
+    , _dvtldrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+dvtldrsGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
+dvtldrsGatewayARN = lens _dvtldrsGatewayARN (\ s a -> s{_dvtldrsGatewayARN = a});
+
+-- | An array of VTL device objects composed of the Amazon Resource Name(ARN)
+-- of the VTL devices.
+dvtldrsVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
+dvtldrsVTLDevices = lens _dvtldrsVTLDevices (\ s a -> s{_dvtldrsVTLDevices = a}) . _Default . _Coerce;
+
+-- | An opaque string that indicates the position at which the VTL devices
+-- that were fetched for description ended. Use the marker in your next
+-- request to fetch the next set of VTL devices in the list. If there are
+-- no more VTL devices to describe, this field does not appear in the
+-- response.
+dvtldrsMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
+dvtldrsMarker = lens _dvtldrsMarker (\ s a -> s{_dvtldrsMarker = a});
+
+-- | The response status code.
+dvtldrsStatus :: Lens' DescribeVTLDevicesResponse Int
+dvtldrsStatus = lens _dvtldrsStatus (\ s a -> s{_dvtldrsStatus = a});

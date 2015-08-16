@@ -1,168 +1,190 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ImportExport.UpdateJob
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | You use this operation to change the parameters specified in the original
--- manifest file by supplying a new manifest file. The manifest file attached to
--- this request replaces the original manifest file. You can only use the
--- operation after a CreateJob request but before the data transfer starts and
--- you can only use it on jobs you own.
+-- |
+-- Module      : Network.AWS.ImportExport.UpdateJob
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebUpdateJob.html>
+-- You use this operation to change the parameters specified in the
+-- original manifest file by supplying a new manifest file. The manifest
+-- file attached to this request replaces the original manifest file. You
+-- can only use the operation after a CreateJob request but before the data
+-- transfer starts and you can only use it on jobs you own.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebUpdateJob.html AWS API Reference> for UpdateJob.
 module Network.AWS.ImportExport.UpdateJob
     (
-    -- * Request
-      UpdateJob
-    -- ** Request constructor
-    , updateJob
-    -- ** Request lenses
+    -- * Creating a Request
+      updateJob
+    , UpdateJob
+    -- * Request Lenses
     , ujAPIVersion
     , ujJobId
-    , ujJobType
     , ujManifest
+    , ujJobType
     , ujValidateOnly
 
-    -- * Response
-    , UpdateJobResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , updateJobResponse
-    -- ** Response lenses
-    , ujrArtifactList
-    , ujrSuccess
-    , ujrWarningMessage
+    , UpdateJobResponse
+    -- * Response Lenses
+    , ujrsSuccess
+    , ujrsWarningMessage
+    , ujrsArtifactList
+    , ujrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ImportExport.Types
-import qualified GHC.Exts
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.ImportExport.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateJob = UpdateJob
-    { _ujAPIVersion   :: Maybe Text
-    , _ujJobId        :: Text
-    , _ujJobType      :: JobType
-    , _ujManifest     :: Text
-    , _ujValidateOnly :: Bool
-    } deriving (Eq, Read, Show)
+-- | Input structure for the UpateJob operation.
+--
+-- /See:/ 'updateJob' smart constructor.
+data UpdateJob = UpdateJob'
+    { _ujAPIVersion   :: !(Maybe Text)
+    , _ujJobId        :: !Text
+    , _ujManifest     :: !Text
+    , _ujJobType      :: !JobType
+    , _ujValidateOnly :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateJob' constructor.
+-- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ujAPIVersion' @::@ 'Maybe' 'Text'
+-- * 'ujAPIVersion'
 --
--- * 'ujJobId' @::@ 'Text'
+-- * 'ujJobId'
 --
--- * 'ujJobType' @::@ 'JobType'
+-- * 'ujManifest'
 --
--- * 'ujManifest' @::@ 'Text'
+-- * 'ujJobType'
 --
--- * 'ujValidateOnly' @::@ 'Bool'
---
-updateJob :: Text -- ^ 'ujJobId'
-          -> Text -- ^ 'ujManifest'
-          -> JobType -- ^ 'ujJobType'
-          -> Bool -- ^ 'ujValidateOnly'
-          -> UpdateJob
-updateJob p1 p2 p3 p4 = UpdateJob
-    { _ujJobId        = p1
-    , _ujManifest     = p2
-    , _ujJobType      = p3
-    , _ujValidateOnly = p4
-    , _ujAPIVersion   = Nothing
+-- * 'ujValidateOnly'
+updateJob
+    :: Text -- ^ 'ujJobId'
+    -> Text -- ^ 'ujManifest'
+    -> JobType -- ^ 'ujJobType'
+    -> Bool -- ^ 'ujValidateOnly'
+    -> UpdateJob
+updateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ =
+    UpdateJob'
+    { _ujAPIVersion = Nothing
+    , _ujJobId = pJobId_
+    , _ujManifest = pManifest_
+    , _ujJobType = pJobType_
+    , _ujValidateOnly = pValidateOnly_
     }
 
+-- | Undocumented member.
 ujAPIVersion :: Lens' UpdateJob (Maybe Text)
-ujAPIVersion = lens _ujAPIVersion (\s a -> s { _ujAPIVersion = a })
+ujAPIVersion = lens _ujAPIVersion (\ s a -> s{_ujAPIVersion = a});
 
+-- | Undocumented member.
 ujJobId :: Lens' UpdateJob Text
-ujJobId = lens _ujJobId (\s a -> s { _ujJobId = a })
+ujJobId = lens _ujJobId (\ s a -> s{_ujJobId = a});
 
-ujJobType :: Lens' UpdateJob JobType
-ujJobType = lens _ujJobType (\s a -> s { _ujJobType = a })
-
+-- | Undocumented member.
 ujManifest :: Lens' UpdateJob Text
-ujManifest = lens _ujManifest (\s a -> s { _ujManifest = a })
+ujManifest = lens _ujManifest (\ s a -> s{_ujManifest = a});
 
+-- | Undocumented member.
+ujJobType :: Lens' UpdateJob JobType
+ujJobType = lens _ujJobType (\ s a -> s{_ujJobType = a});
+
+-- | Undocumented member.
 ujValidateOnly :: Lens' UpdateJob Bool
-ujValidateOnly = lens _ujValidateOnly (\s a -> s { _ujValidateOnly = a })
-
-data UpdateJobResponse = UpdateJobResponse
-    { _ujrArtifactList   :: List "member" Artifact
-    , _ujrSuccess        :: Maybe Bool
-    , _ujrWarningMessage :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'UpdateJobResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ujrArtifactList' @::@ ['Artifact']
---
--- * 'ujrSuccess' @::@ 'Maybe' 'Bool'
---
--- * 'ujrWarningMessage' @::@ 'Maybe' 'Text'
---
-updateJobResponse :: UpdateJobResponse
-updateJobResponse = UpdateJobResponse
-    { _ujrSuccess        = Nothing
-    , _ujrWarningMessage = Nothing
-    , _ujrArtifactList   = mempty
-    }
-
-ujrArtifactList :: Lens' UpdateJobResponse [Artifact]
-ujrArtifactList = lens _ujrArtifactList (\s a -> s { _ujrArtifactList = a }) . _List
-
-ujrSuccess :: Lens' UpdateJobResponse (Maybe Bool)
-ujrSuccess = lens _ujrSuccess (\s a -> s { _ujrSuccess = a })
-
-ujrWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
-ujrWarningMessage =
-    lens _ujrWarningMessage (\s a -> s { _ujrWarningMessage = a })
-
-instance ToPath UpdateJob where
-    toPath = const "/"
-
-instance ToQuery UpdateJob where
-    toQuery UpdateJob{..} = mconcat
-        [ "APIVersion"   =? _ujAPIVersion
-        , "JobId"        =? _ujJobId
-        , "JobType"      =? _ujJobType
-        , "Manifest"     =? _ujManifest
-        , "ValidateOnly" =? _ujValidateOnly
-        ]
-
-instance ToHeaders UpdateJob
+ujValidateOnly = lens _ujValidateOnly (\ s a -> s{_ujValidateOnly = a});
 
 instance AWSRequest UpdateJob where
-    type Sv UpdateJob = ImportExport
-    type Rs UpdateJob = UpdateJobResponse
+        type Sv UpdateJob = ImportExport
+        type Rs UpdateJob = UpdateJobResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "UpdateJobResult"
+              (\ s h x ->
+                 UpdateJobResponse' <$>
+                   (x .@? "Success") <*> (x .@? "WarningMessage") <*>
+                     (x .@? "ArtifactList" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-    request  = post "UpdateJob"
-    response = xmlResponse
+instance ToHeaders UpdateJob where
+        toHeaders = const mempty
 
-instance FromXML UpdateJobResponse where
-    parseXML = withElement "UpdateJobResult" $ \x -> UpdateJobResponse
-        <$> x .@? "ArtifactList" .!@ mempty
-        <*> x .@? "Success"
-        <*> x .@? "WarningMessage"
+instance ToPath UpdateJob where
+        toPath = const "/"
+
+instance ToQuery UpdateJob where
+        toQuery UpdateJob'{..}
+          = mconcat
+              ["Operation=UpdateJob",
+               "Action" =: ("UpdateJob" :: ByteString),
+               "Version" =: ("2010-06-01" :: ByteString),
+               "APIVersion" =: _ujAPIVersion, "JobId" =: _ujJobId,
+               "Manifest" =: _ujManifest, "JobType" =: _ujJobType,
+               "ValidateOnly" =: _ujValidateOnly]
+
+-- | Output structure for the UpateJob operation.
+--
+-- /See:/ 'updateJobResponse' smart constructor.
+data UpdateJobResponse = UpdateJobResponse'
+    { _ujrsSuccess        :: !(Maybe Bool)
+    , _ujrsWarningMessage :: !(Maybe Text)
+    , _ujrsArtifactList   :: !(Maybe [Artifact])
+    , _ujrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ujrsSuccess'
+--
+-- * 'ujrsWarningMessage'
+--
+-- * 'ujrsArtifactList'
+--
+-- * 'ujrsStatus'
+updateJobResponse
+    :: Int -- ^ 'ujrsStatus'
+    -> UpdateJobResponse
+updateJobResponse pStatus_ =
+    UpdateJobResponse'
+    { _ujrsSuccess = Nothing
+    , _ujrsWarningMessage = Nothing
+    , _ujrsArtifactList = Nothing
+    , _ujrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+ujrsSuccess :: Lens' UpdateJobResponse (Maybe Bool)
+ujrsSuccess = lens _ujrsSuccess (\ s a -> s{_ujrsSuccess = a});
+
+-- | Undocumented member.
+ujrsWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
+ujrsWarningMessage = lens _ujrsWarningMessage (\ s a -> s{_ujrsWarningMessage = a});
+
+-- | Undocumented member.
+ujrsArtifactList :: Lens' UpdateJobResponse [Artifact]
+ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . _Default . _Coerce;
+
+-- | The response status code.
+ujrsStatus :: Lens' UpdateJobResponse Int
+ujrsStatus = lens _ujrsStatus (\ s a -> s{_ujrsStatus = a});

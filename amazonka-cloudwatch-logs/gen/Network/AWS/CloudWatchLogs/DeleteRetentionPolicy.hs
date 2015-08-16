@@ -1,94 +1,104 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the retention policy of the specified log group. Log events would
--- not expire if they belong to log groups without a retention policy.
+-- |
+-- Module      : Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html>
+-- Deletes the retention policy of the specified log group. Log events
+-- would not expire if they belong to log groups without a retention
+-- policy.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteRetentionPolicy.html AWS API Reference> for DeleteRetentionPolicy.
 module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
     (
-    -- * Request
-      DeleteRetentionPolicy
-    -- ** Request constructor
-    , deleteRetentionPolicy
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteRetentionPolicy
+    , DeleteRetentionPolicy
+    -- * Request Lenses
     , drpLogGroupName
 
-    -- * Response
-    , DeleteRetentionPolicyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteRetentionPolicyResponse
+    , DeleteRetentionPolicyResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CloudWatchLogs.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteRetentionPolicy = DeleteRetentionPolicy
+-- | /See:/ 'deleteRetentionPolicy' smart constructor.
+newtype DeleteRetentionPolicy = DeleteRetentionPolicy'
     { _drpLogGroupName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteRetentionPolicy' constructor.
+-- | Creates a value of 'DeleteRetentionPolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'drpLogGroupName' @::@ 'Text'
---
-deleteRetentionPolicy :: Text -- ^ 'drpLogGroupName'
-                      -> DeleteRetentionPolicy
-deleteRetentionPolicy p1 = DeleteRetentionPolicy
-    { _drpLogGroupName = p1
+-- * 'drpLogGroupName'
+deleteRetentionPolicy
+    :: Text -- ^ 'drpLogGroupName'
+    -> DeleteRetentionPolicy
+deleteRetentionPolicy pLogGroupName_ =
+    DeleteRetentionPolicy'
+    { _drpLogGroupName = pLogGroupName_
     }
 
+-- | The name of the log group that is associated with the retention policy
+-- to delete.
 drpLogGroupName :: Lens' DeleteRetentionPolicy Text
-drpLogGroupName = lens _drpLogGroupName (\s a -> s { _drpLogGroupName = a })
-
-data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteRetentionPolicyResponse' constructor.
-deleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse
-deleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
-
-instance ToPath DeleteRetentionPolicy where
-    toPath = const "/"
-
-instance ToQuery DeleteRetentionPolicy where
-    toQuery = const mempty
-
-instance ToHeaders DeleteRetentionPolicy
-
-instance ToJSON DeleteRetentionPolicy where
-    toJSON DeleteRetentionPolicy{..} = object
-        [ "logGroupName" .= _drpLogGroupName
-        ]
+drpLogGroupName = lens _drpLogGroupName (\ s a -> s{_drpLogGroupName = a});
 
 instance AWSRequest DeleteRetentionPolicy where
-    type Sv DeleteRetentionPolicy = CloudWatchLogs
-    type Rs DeleteRetentionPolicy = DeleteRetentionPolicyResponse
+        type Sv DeleteRetentionPolicy = CloudWatchLogs
+        type Rs DeleteRetentionPolicy =
+             DeleteRetentionPolicyResponse
+        request = postJSON
+        response = receiveNull DeleteRetentionPolicyResponse'
 
-    request  = post "DeleteRetentionPolicy"
-    response = nullResponse DeleteRetentionPolicyResponse
+instance ToHeaders DeleteRetentionPolicy where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("Logs_20140328.DeleteRetentionPolicy" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteRetentionPolicy where
+        toJSON DeleteRetentionPolicy'{..}
+          = object ["logGroupName" .= _drpLogGroupName]
+
+instance ToPath DeleteRetentionPolicy where
+        toPath = const "/"
+
+instance ToQuery DeleteRetentionPolicy where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteRetentionPolicyResponse' smart constructor.
+data DeleteRetentionPolicyResponse =
+    DeleteRetentionPolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteRetentionPolicyResponse' with the minimum fields required to make a request.
+--
+deleteRetentionPolicyResponse
+    :: DeleteRetentionPolicyResponse
+deleteRetentionPolicyResponse = DeleteRetentionPolicyResponse'

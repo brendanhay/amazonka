@@ -1,215 +1,244 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Redshift.DescribeClusterSecurityGroups
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns information about Amazon Redshift security groups. If the name of a
--- security group is specified, the response will contain only information about
--- only that security group.
+-- |
+-- Module      : Network.AWS.Redshift.DescribeClusterSecurityGroups
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For information about managing security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon RedshiftCluster Security Groups> in the /Amazon Redshift Cluster Management Guide/.
+-- Returns information about Amazon Redshift security groups. If the name
+-- of a security group is specified, the response will contain only
+-- information about only that security group.
+--
+-- For information about managing security groups, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups>
+-- in the /Amazon Redshift Cluster Management Guide/.
 --
 -- If you specify both tag keys and tag values in the same request, Amazon
 -- Redshift returns all security groups that match any combination of the
--- specified keys and values. For example, if you have 'owner' and 'environment' for
--- tag keys, and 'admin' and 'test' for tag values, all security groups that have
--- any combination of those values are returned.
+-- specified keys and values. For example, if you have 'owner' and
+-- 'environment' for tag keys, and 'admin' and 'test' for tag values, all
+-- security groups that have any combination of those values are returned.
 --
--- If both tag keys and values are omitted from the request, security groups
--- are returned regardless of whether they have tag keys or values associated
--- with them.
+-- If both tag keys and values are omitted from the request, security
+-- groups are returned regardless of whether they have tag keys or values
+-- associated with them.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterSecurityGroups.html AWS API Reference> for DescribeClusterSecurityGroups.
+--
+-- This operation returns paginated results.
 module Network.AWS.Redshift.DescribeClusterSecurityGroups
     (
-    -- * Request
-      DescribeClusterSecurityGroups
-    -- ** Request constructor
-    , describeClusterSecurityGroups
-    -- ** Request lenses
-    , dcsgClusterSecurityGroupName
-    , dcsgMarker
-    , dcsgMaxRecords
-    , dcsgTagKeys
+    -- * Creating a Request
+      describeClusterSecurityGroups
+    , DescribeClusterSecurityGroups
+    -- * Request Lenses
     , dcsgTagValues
+    , dcsgTagKeys
+    , dcsgClusterSecurityGroupName
+    , dcsgMaxRecords
+    , dcsgMarker
 
-    -- * Response
-    , DescribeClusterSecurityGroupsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeClusterSecurityGroupsResponse
-    -- ** Response lenses
-    , dcsgr1ClusterSecurityGroups
-    , dcsgr1Marker
+    , DescribeClusterSecurityGroupsResponse
+    -- * Response Lenses
+    , dcsgsrsClusterSecurityGroups
+    , dcsgsrsMarker
+    , dcsgsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
-    { _dcsgClusterSecurityGroupName :: Maybe Text
-    , _dcsgMarker                   :: Maybe Text
-    , _dcsgMaxRecords               :: Maybe Int
-    , _dcsgTagKeys                  :: List "member" Text
-    , _dcsgTagValues                :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
+-- | ???
+--
+-- /See:/ 'describeClusterSecurityGroups' smart constructor.
+data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
+    { _dcsgTagValues                :: !(Maybe [Text])
+    , _dcsgTagKeys                  :: !(Maybe [Text])
+    , _dcsgClusterSecurityGroupName :: !(Maybe Text)
+    , _dcsgMaxRecords               :: !(Maybe Int)
+    , _dcsgMarker                   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeClusterSecurityGroups' constructor.
+-- | Creates a value of 'DescribeClusterSecurityGroups' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsgClusterSecurityGroupName' @::@ 'Maybe' 'Text'
+-- * 'dcsgTagValues'
 --
--- * 'dcsgMarker' @::@ 'Maybe' 'Text'
+-- * 'dcsgTagKeys'
 --
--- * 'dcsgMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dcsgClusterSecurityGroupName'
 --
--- * 'dcsgTagKeys' @::@ ['Text']
+-- * 'dcsgMaxRecords'
 --
--- * 'dcsgTagValues' @::@ ['Text']
---
-describeClusterSecurityGroups :: DescribeClusterSecurityGroups
-describeClusterSecurityGroups = DescribeClusterSecurityGroups
-    { _dcsgClusterSecurityGroupName = Nothing
-    , _dcsgMaxRecords               = Nothing
-    , _dcsgMarker                   = Nothing
-    , _dcsgTagKeys                  = mempty
-    , _dcsgTagValues                = mempty
+-- * 'dcsgMarker'
+describeClusterSecurityGroups
+    :: DescribeClusterSecurityGroups
+describeClusterSecurityGroups =
+    DescribeClusterSecurityGroups'
+    { _dcsgTagValues = Nothing
+    , _dcsgTagKeys = Nothing
+    , _dcsgClusterSecurityGroupName = Nothing
+    , _dcsgMaxRecords = Nothing
+    , _dcsgMarker = Nothing
     }
 
--- | The name of a cluster security group for which you are requesting details.
--- You can specify either the Marker parameter or a ClusterSecurityGroupName
--- parameter, but not both.
+-- | A tag value or values for which you want to return all matching cluster
+-- security groups that are associated with the specified tag value or
+-- values. For example, suppose that you have security groups that are
+-- tagged with values called 'admin' and 'test'. If you specify both of
+-- these tag values in the request, Amazon Redshift returns a response with
+-- the security groups that have either or both of these tag values
+-- associated with them.
+dcsgTagValues :: Lens' DescribeClusterSecurityGroups [Text]
+dcsgTagValues = lens _dcsgTagValues (\ s a -> s{_dcsgTagValues = a}) . _Default . _Coerce;
+
+-- | A tag key or keys for which you want to return all matching cluster
+-- security groups that are associated with the specified key or keys. For
+-- example, suppose that you have security groups that are tagged with keys
+-- called 'owner' and 'environment'. If you specify both of these tag keys
+-- in the request, Amazon Redshift returns a response with the security
+-- groups that have either or both of these tag keys associated with them.
+dcsgTagKeys :: Lens' DescribeClusterSecurityGroups [Text]
+dcsgTagKeys = lens _dcsgTagKeys (\ s a -> s{_dcsgTagKeys = a}) . _Default . _Coerce;
+
+-- | The name of a cluster security group for which you are requesting
+-- details. You can specify either the __Marker__ parameter or a
+-- __ClusterSecurityGroupName__ parameter, but not both.
 --
 -- Example: 'securitygroup1'
 dcsgClusterSecurityGroupName :: Lens' DescribeClusterSecurityGroups (Maybe Text)
-dcsgClusterSecurityGroupName =
-    lens _dcsgClusterSecurityGroupName
-        (\s a -> s { _dcsgClusterSecurityGroupName = a })
+dcsgClusterSecurityGroupName = lens _dcsgClusterSecurityGroupName (\ s a -> s{_dcsgClusterSecurityGroupName = a});
 
--- | An optional parameter that specifies the starting point to return a set of
--- response records. When the results of a 'DescribeClusterSecurityGroups' request
--- exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker'
--- field of the response. You can retrieve the next set of response records by
--- providing the returned marker value in the 'Marker' parameter and retrying the
--- request.
---
--- Constraints: You can specify either the ClusterSecurityGroupName parameter
--- or the Marker parameter, but not both.
-dcsgMarker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
-dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
-
--- | The maximum number of response records to return in each call. If the number
--- of remaining response records exceeds the specified 'MaxRecords' value, a value
--- is returned in a 'marker' field of the response. You can retrieve the next set
--- of records by retrying the command with the returned marker value.
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified 'MaxRecords'
+-- value, a value is returned in a 'marker' field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
 --
 -- Default: '100'
 --
 -- Constraints: minimum 20, maximum 100.
 dcsgMaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Int)
-dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
+dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a});
 
--- | A tag key or keys for which you want to return all matching cluster security
--- groups that are associated with the specified key or keys. For example,
--- suppose that you have security groups that are tagged with keys called 'owner'
--- and 'environment'. If you specify both of these tag keys in the request, Amazon
--- Redshift returns a response with the security groups that have either or both
--- of these tag keys associated with them.
-dcsgTagKeys :: Lens' DescribeClusterSecurityGroups [Text]
-dcsgTagKeys = lens _dcsgTagKeys (\s a -> s { _dcsgTagKeys = a }) . _List
-
--- | A tag value or values for which you want to return all matching cluster
--- security groups that are associated with the specified tag value or values.
--- For example, suppose that you have security groups that are tagged with
--- values called 'admin' and 'test'. If you specify both of these tag values in the
--- request, Amazon Redshift returns a response with the security groups that
--- have either or both of these tag values associated with them.
-dcsgTagValues :: Lens' DescribeClusterSecurityGroups [Text]
-dcsgTagValues = lens _dcsgTagValues (\s a -> s { _dcsgTagValues = a }) . _List
-
-data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
-    { _dcsgr1ClusterSecurityGroups :: List "member" ClusterSecurityGroup
-    , _dcsgr1Marker                :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeClusterSecurityGroupsResponse' constructor.
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterSecurityGroups
+-- request exceed the value specified in 'MaxRecords', AWS returns a value
+-- in the 'Marker' field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the 'Marker'
+-- parameter and retrying the request.
 --
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsgr1ClusterSecurityGroups' @::@ ['ClusterSecurityGroup']
---
--- * 'dcsgr1Marker' @::@ 'Maybe' 'Text'
---
-describeClusterSecurityGroupsResponse :: DescribeClusterSecurityGroupsResponse
-describeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
-    { _dcsgr1Marker                = Nothing
-    , _dcsgr1ClusterSecurityGroups = mempty
-    }
-
--- | A list of 'ClusterSecurityGroup' instances.
-dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
-dcsgr1ClusterSecurityGroups =
-    lens _dcsgr1ClusterSecurityGroups
-        (\s a -> s { _dcsgr1ClusterSecurityGroups = a })
-            . _List
-
--- | A value that indicates the starting point for the next set of response
--- records in a subsequent request. If a value is returned in a response, you
--- can retrieve the next set of records by providing this returned marker value
--- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
--- empty, all response records have been retrieved for the request.
-dcsgr1Marker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
-dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
-
-instance ToPath DescribeClusterSecurityGroups where
-    toPath = const "/"
-
-instance ToQuery DescribeClusterSecurityGroups where
-    toQuery DescribeClusterSecurityGroups{..} = mconcat
-        [ "ClusterSecurityGroupName" =? _dcsgClusterSecurityGroupName
-        , "Marker"                   =? _dcsgMarker
-        , "MaxRecords"               =? _dcsgMaxRecords
-        , "TagKeys"                  =? _dcsgTagKeys
-        , "TagValues"                =? _dcsgTagValues
-        ]
-
-instance ToHeaders DescribeClusterSecurityGroups
-
-instance AWSRequest DescribeClusterSecurityGroups where
-    type Sv DescribeClusterSecurityGroups = Redshift
-    type Rs DescribeClusterSecurityGroups = DescribeClusterSecurityGroupsResponse
-
-    request  = post "DescribeClusterSecurityGroups"
-    response = xmlResponse
-
-instance FromXML DescribeClusterSecurityGroupsResponse where
-    parseXML = withElement "DescribeClusterSecurityGroupsResult" $ \x -> DescribeClusterSecurityGroupsResponse
-        <$> x .@? "ClusterSecurityGroups" .!@ mempty
-        <*> x .@? "Marker"
+-- Constraints: You can specify either the __ClusterSecurityGroupName__
+-- parameter or the __Marker__ parameter, but not both.
+dcsgMarker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
+dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
 
 instance AWSPager DescribeClusterSecurityGroups where
-    page rq rs
-        | stop (rs ^. dcsgr1Marker) = Nothing
-        | otherwise = (\x -> rq & dcsgMarker ?~ x)
-            <$> (rs ^. dcsgr1Marker)
+        page rq rs
+          | stop (rs ^. dcsgsrsMarker) = Nothing
+          | stop (rs ^. dcsgsrsClusterSecurityGroups) = Nothing
+          | otherwise =
+            Just $ rq & dcsgMarker .~ rs ^. dcsgsrsMarker
+
+instance AWSRequest DescribeClusterSecurityGroups
+         where
+        type Sv DescribeClusterSecurityGroups = Redshift
+        type Rs DescribeClusterSecurityGroups =
+             DescribeClusterSecurityGroupsResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "DescribeClusterSecurityGroupsResult"
+              (\ s h x ->
+                 DescribeClusterSecurityGroupsResponse' <$>
+                   (x .@? "ClusterSecurityGroups" .!@ mempty >>=
+                      may (parseXMLList "ClusterSecurityGroup"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeClusterSecurityGroups
+         where
+        toHeaders = const mempty
+
+instance ToPath DescribeClusterSecurityGroups where
+        toPath = const "/"
+
+instance ToQuery DescribeClusterSecurityGroups where
+        toQuery DescribeClusterSecurityGroups'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeClusterSecurityGroups" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "TagValues" =:
+                 toQuery (toQueryList "TagValue" <$> _dcsgTagValues),
+               "TagKeys" =:
+                 toQuery (toQueryList "TagKey" <$> _dcsgTagKeys),
+               "ClusterSecurityGroupName" =:
+                 _dcsgClusterSecurityGroupName,
+               "MaxRecords" =: _dcsgMaxRecords,
+               "Marker" =: _dcsgMarker]
+
+-- | Contains the output from the DescribeClusterSecurityGroups action.
+--
+-- /See:/ 'describeClusterSecurityGroupsResponse' smart constructor.
+data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'
+    { _dcsgsrsClusterSecurityGroups :: !(Maybe [ClusterSecurityGroup])
+    , _dcsgsrsMarker                :: !(Maybe Text)
+    , _dcsgsrsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeClusterSecurityGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsgsrsClusterSecurityGroups'
+--
+-- * 'dcsgsrsMarker'
+--
+-- * 'dcsgsrsStatus'
+describeClusterSecurityGroupsResponse
+    :: Int -- ^ 'dcsgsrsStatus'
+    -> DescribeClusterSecurityGroupsResponse
+describeClusterSecurityGroupsResponse pStatus_ =
+    DescribeClusterSecurityGroupsResponse'
+    { _dcsgsrsClusterSecurityGroups = Nothing
+    , _dcsgsrsMarker = Nothing
+    , _dcsgsrsStatus = pStatus_
+    }
+
+-- | A list of ClusterSecurityGroup instances.
+dcsgsrsClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
+dcsgsrsClusterSecurityGroups = lens _dcsgsrsClusterSecurityGroups (\ s a -> s{_dcsgsrsClusterSecurityGroups = a}) . _Default . _Coerce;
+
+-- | A value that indicates the starting point for the next set of response
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the 'Marker' parameter and retrying the command. If the
+-- 'Marker' field is empty, all response records have been retrieved for
+-- the request.
+dcsgsrsMarker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
+dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
+
+-- | The response status code.
+dcsgsrsStatus :: Lens' DescribeClusterSecurityGroupsResponse Int
+dcsgsrsStatus = lens _dcsgsrsStatus (\ s a -> s{_dcsgsrsStatus = a});

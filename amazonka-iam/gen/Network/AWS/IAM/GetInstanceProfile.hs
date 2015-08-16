@@ -1,114 +1,128 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.GetInstanceProfile
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Retrieves information about the specified instance profile, including the
--- instance profile's path, GUID, ARN, and role. For more information about
--- instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>. For more information about
--- ARNs, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs>.
+-- |
+-- Module      : Network.AWS.IAM.GetInstanceProfile
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html>
+-- Retrieves information about the specified instance profile, including
+-- the instance profile\'s path, GUID, ARN, and role. For more information
+-- about instance profiles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+-- For more information about ARNs, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs>.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetInstanceProfile.html AWS API Reference> for GetInstanceProfile.
 module Network.AWS.IAM.GetInstanceProfile
     (
-    -- * Request
-      GetInstanceProfile
-    -- ** Request constructor
-    , getInstanceProfile
-    -- ** Request lenses
+    -- * Creating a Request
+      getInstanceProfile
+    , GetInstanceProfile
+    -- * Request Lenses
     , gipInstanceProfileName
 
-    -- * Response
-    , GetInstanceProfileResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getInstanceProfileResponse
-    -- ** Response lenses
-    , giprInstanceProfile
+    , GetInstanceProfileResponse
+    -- * Response Lenses
+    , giprsStatus
+    , giprsInstanceProfile
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetInstanceProfile = GetInstanceProfile
+-- | /See:/ 'getInstanceProfile' smart constructor.
+newtype GetInstanceProfile = GetInstanceProfile'
     { _gipInstanceProfileName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetInstanceProfile' constructor.
+-- | Creates a value of 'GetInstanceProfile' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gipInstanceProfileName' @::@ 'Text'
---
-getInstanceProfile :: Text -- ^ 'gipInstanceProfileName'
-                   -> GetInstanceProfile
-getInstanceProfile p1 = GetInstanceProfile
-    { _gipInstanceProfileName = p1
+-- * 'gipInstanceProfileName'
+getInstanceProfile
+    :: Text -- ^ 'gipInstanceProfileName'
+    -> GetInstanceProfile
+getInstanceProfile pInstanceProfileName_ =
+    GetInstanceProfile'
+    { _gipInstanceProfileName = pInstanceProfileName_
     }
 
 -- | The name of the instance profile to get information about.
 gipInstanceProfileName :: Lens' GetInstanceProfile Text
-gipInstanceProfileName =
-    lens _gipInstanceProfileName (\s a -> s { _gipInstanceProfileName = a })
-
-newtype GetInstanceProfileResponse = GetInstanceProfileResponse
-    { _giprInstanceProfile :: InstanceProfile
-    } deriving (Eq, Read, Show)
-
--- | 'GetInstanceProfileResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'giprInstanceProfile' @::@ 'InstanceProfile'
---
-getInstanceProfileResponse :: InstanceProfile -- ^ 'giprInstanceProfile'
-                           -> GetInstanceProfileResponse
-getInstanceProfileResponse p1 = GetInstanceProfileResponse
-    { _giprInstanceProfile = p1
-    }
-
--- | Information about the instance profile.
-giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
-giprInstanceProfile =
-    lens _giprInstanceProfile (\s a -> s { _giprInstanceProfile = a })
-
-instance ToPath GetInstanceProfile where
-    toPath = const "/"
-
-instance ToQuery GetInstanceProfile where
-    toQuery GetInstanceProfile{..} = mconcat
-        [ "InstanceProfileName" =? _gipInstanceProfileName
-        ]
-
-instance ToHeaders GetInstanceProfile
+gipInstanceProfileName = lens _gipInstanceProfileName (\ s a -> s{_gipInstanceProfileName = a});
 
 instance AWSRequest GetInstanceProfile where
-    type Sv GetInstanceProfile = IAM
-    type Rs GetInstanceProfile = GetInstanceProfileResponse
+        type Sv GetInstanceProfile = IAM
+        type Rs GetInstanceProfile =
+             GetInstanceProfileResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "GetInstanceProfileResult"
+              (\ s h x ->
+                 GetInstanceProfileResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "InstanceProfile"))
 
-    request  = post "GetInstanceProfile"
-    response = xmlResponse
+instance ToHeaders GetInstanceProfile where
+        toHeaders = const mempty
 
-instance FromXML GetInstanceProfileResponse where
-    parseXML = withElement "GetInstanceProfileResult" $ \x -> GetInstanceProfileResponse
-        <$> x .@  "InstanceProfile"
+instance ToPath GetInstanceProfile where
+        toPath = const "/"
+
+instance ToQuery GetInstanceProfile where
+        toQuery GetInstanceProfile'{..}
+          = mconcat
+              ["Action" =: ("GetInstanceProfile" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "InstanceProfileName" =: _gipInstanceProfileName]
+
+-- | Contains the response to a successful GetInstanceProfile request.
+--
+-- /See:/ 'getInstanceProfileResponse' smart constructor.
+data GetInstanceProfileResponse = GetInstanceProfileResponse'
+    { _giprsStatus          :: !Int
+    , _giprsInstanceProfile :: !InstanceProfile
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetInstanceProfileResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'giprsStatus'
+--
+-- * 'giprsInstanceProfile'
+getInstanceProfileResponse
+    :: Int -- ^ 'giprsStatus'
+    -> InstanceProfile -- ^ 'giprsInstanceProfile'
+    -> GetInstanceProfileResponse
+getInstanceProfileResponse pStatus_ pInstanceProfile_ =
+    GetInstanceProfileResponse'
+    { _giprsStatus = pStatus_
+    , _giprsInstanceProfile = pInstanceProfile_
+    }
+
+-- | The response status code.
+giprsStatus :: Lens' GetInstanceProfileResponse Int
+giprsStatus = lens _giprsStatus (\ s a -> s{_giprsStatus = a});
+
+-- | Information about the instance profile.
+giprsInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
+giprsInstanceProfile = lens _giprsInstanceProfile (\ s a -> s{_giprsInstanceProfile = a});

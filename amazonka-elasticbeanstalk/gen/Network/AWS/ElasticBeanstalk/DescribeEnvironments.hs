@@ -1,182 +1,188 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironments
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns descriptions for existing environments.
+-- |
+-- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironments
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html>
+-- Returns descriptions for existing environments.
+--
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html AWS API Reference> for DescribeEnvironments.
 module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     (
-    -- * Request
-      DescribeEnvironments
-    -- ** Request constructor
-    , describeEnvironments
-    -- ** Request lenses
-    , de1ApplicationName
-    , de1EnvironmentIds
-    , de1EnvironmentNames
-    , de1IncludeDeleted
-    , de1IncludedDeletedBackTo
-    , de1VersionLabel
+    -- * Creating a Request
+      describeEnvironments
+    , DescribeEnvironments
+    -- * Request Lenses
+    , dEnvironmentIds
+    , dEnvironmentNames
+    , dVersionLabel
+    , dIncludedDeletedBackTo
+    , dApplicationName
+    , dIncludeDeleted
 
-    -- * Response
-    , DescribeEnvironmentsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeEnvironmentsResponse
-    -- ** Response lenses
-    , derEnvironments
+    , DescribeEnvironmentsResponse
+    -- * Response Lenses
+    , drsEnvironments
+    , drsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeEnvironments = DescribeEnvironments
-    { _de1ApplicationName       :: Maybe Text
-    , _de1EnvironmentIds        :: List "member" Text
-    , _de1EnvironmentNames      :: List "member" Text
-    , _de1IncludeDeleted        :: Maybe Bool
-    , _de1IncludedDeletedBackTo :: Maybe ISO8601
-    , _de1VersionLabel          :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'describeEnvironments' smart constructor.
+data DescribeEnvironments = DescribeEnvironments'
+    { _dEnvironmentIds        :: !(Maybe [Text])
+    , _dEnvironmentNames      :: !(Maybe [Text])
+    , _dVersionLabel          :: !(Maybe Text)
+    , _dIncludedDeletedBackTo :: !(Maybe ISO8601)
+    , _dApplicationName       :: !(Maybe Text)
+    , _dIncludeDeleted        :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeEnvironments' constructor.
+-- | Creates a value of 'DescribeEnvironments' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'de1ApplicationName' @::@ 'Maybe' 'Text'
+-- * 'dEnvironmentIds'
 --
--- * 'de1EnvironmentIds' @::@ ['Text']
+-- * 'dEnvironmentNames'
 --
--- * 'de1EnvironmentNames' @::@ ['Text']
+-- * 'dVersionLabel'
 --
--- * 'de1IncludeDeleted' @::@ 'Maybe' 'Bool'
+-- * 'dIncludedDeletedBackTo'
 --
--- * 'de1IncludedDeletedBackTo' @::@ 'Maybe' 'UTCTime'
+-- * 'dApplicationName'
 --
--- * 'de1VersionLabel' @::@ 'Maybe' 'Text'
---
-describeEnvironments :: DescribeEnvironments
-describeEnvironments = DescribeEnvironments
-    { _de1ApplicationName       = Nothing
-    , _de1VersionLabel          = Nothing
-    , _de1EnvironmentIds        = mempty
-    , _de1EnvironmentNames      = mempty
-    , _de1IncludeDeleted        = Nothing
-    , _de1IncludedDeletedBackTo = Nothing
+-- * 'dIncludeDeleted'
+describeEnvironments
+    :: DescribeEnvironments
+describeEnvironments =
+    DescribeEnvironments'
+    { _dEnvironmentIds = Nothing
+    , _dEnvironmentNames = Nothing
+    , _dVersionLabel = Nothing
+    , _dIncludedDeletedBackTo = Nothing
+    , _dApplicationName = Nothing
+    , _dIncludeDeleted = Nothing
     }
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
--- include only those that are associated with this application.
-de1ApplicationName :: Lens' DescribeEnvironments (Maybe Text)
-de1ApplicationName =
-    lens _de1ApplicationName (\s a -> s { _de1ApplicationName = a })
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that have the specified IDs.
+dEnvironmentIds :: Lens' DescribeEnvironments [Text]
+dEnvironmentIds = lens _dEnvironmentIds (\ s a -> s{_dEnvironmentIds = a}) . _Default . _Coerce;
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
--- include only those that have the specified IDs.
-de1EnvironmentIds :: Lens' DescribeEnvironments [Text]
-de1EnvironmentIds =
-    lens _de1EnvironmentIds (\s a -> s { _de1EnvironmentIds = a })
-        . _List
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that have the specified names.
+dEnvironmentNames :: Lens' DescribeEnvironments [Text]
+dEnvironmentNames = lens _dEnvironmentNames (\ s a -> s{_dEnvironmentNames = a}) . _Default . _Coerce;
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
--- include only those that have the specified names.
-de1EnvironmentNames :: Lens' DescribeEnvironments [Text]
-de1EnvironmentNames =
-    lens _de1EnvironmentNames (\s a -> s { _de1EnvironmentNames = a })
-        . _List
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that are associated with this application version.
+dVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
+dVersionLabel = lens _dVersionLabel (\ s a -> s{_dVersionLabel = a});
+
+-- | If specified when 'IncludeDeleted' is set to 'true', then environments
+-- deleted after this date are displayed.
+dIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
+dIncludedDeletedBackTo = lens _dIncludedDeletedBackTo (\ s a -> s{_dIncludedDeletedBackTo = a}) . mapping _Time;
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that are associated with this application.
+dApplicationName :: Lens' DescribeEnvironments (Maybe Text)
+dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
 
 -- | Indicates whether to include deleted environments:
 --
--- 'true': Environments that have been deleted after 'IncludedDeletedBackTo' are
--- displayed.
+-- 'true': Environments that have been deleted after
+-- 'IncludedDeletedBackTo' are displayed.
 --
 -- 'false': Do not include deleted environments.
-de1IncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
-de1IncludeDeleted =
-    lens _de1IncludeDeleted (\s a -> s { _de1IncludeDeleted = a })
-
--- | If specified when 'IncludeDeleted' is set to 'true', then environments deleted
--- after this date are displayed.
-de1IncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
-de1IncludedDeletedBackTo =
-    lens _de1IncludedDeletedBackTo
-        (\s a -> s { _de1IncludedDeletedBackTo = a })
-            . mapping _Time
-
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
--- include only those that are associated with this application version.
-de1VersionLabel :: Lens' DescribeEnvironments (Maybe Text)
-de1VersionLabel = lens _de1VersionLabel (\s a -> s { _de1VersionLabel = a })
-
-newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
-    { _derEnvironments :: List "member" EnvironmentDescription
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeEnvironmentsResponse where
-    type Item DescribeEnvironmentsResponse = EnvironmentDescription
-
-    fromList = DescribeEnvironmentsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _derEnvironments
-
--- | 'DescribeEnvironmentsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'derEnvironments' @::@ ['EnvironmentDescription']
---
-describeEnvironmentsResponse :: DescribeEnvironmentsResponse
-describeEnvironmentsResponse = DescribeEnvironmentsResponse
-    { _derEnvironments = mempty
-    }
-
--- | Returns an 'EnvironmentDescription' list.
-derEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
-derEnvironments = lens _derEnvironments (\s a -> s { _derEnvironments = a }) . _List
-
-instance ToPath DescribeEnvironments where
-    toPath = const "/"
-
-instance ToQuery DescribeEnvironments where
-    toQuery DescribeEnvironments{..} = mconcat
-        [ "ApplicationName"       =? _de1ApplicationName
-        , "EnvironmentIds"        =? _de1EnvironmentIds
-        , "EnvironmentNames"      =? _de1EnvironmentNames
-        , "IncludeDeleted"        =? _de1IncludeDeleted
-        , "IncludedDeletedBackTo" =? _de1IncludedDeletedBackTo
-        , "VersionLabel"          =? _de1VersionLabel
-        ]
-
-instance ToHeaders DescribeEnvironments
+dIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
+dIncludeDeleted = lens _dIncludeDeleted (\ s a -> s{_dIncludeDeleted = a});
 
 instance AWSRequest DescribeEnvironments where
-    type Sv DescribeEnvironments = ElasticBeanstalk
-    type Rs DescribeEnvironments = DescribeEnvironmentsResponse
+        type Sv DescribeEnvironments = ElasticBeanstalk
+        type Rs DescribeEnvironments =
+             DescribeEnvironmentsResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DescribeEnvironmentsResult"
+              (\ s h x ->
+                 DescribeEnvironmentsResponse' <$>
+                   (x .@? "Environments" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-    request  = post "DescribeEnvironments"
-    response = xmlResponse
+instance ToHeaders DescribeEnvironments where
+        toHeaders = const mempty
 
-instance FromXML DescribeEnvironmentsResponse where
-    parseXML = withElement "DescribeEnvironmentsResult" $ \x -> DescribeEnvironmentsResponse
-        <$> x .@? "Environments" .!@ mempty
+instance ToPath DescribeEnvironments where
+        toPath = const "/"
+
+instance ToQuery DescribeEnvironments where
+        toQuery DescribeEnvironments'{..}
+          = mconcat
+              ["Action" =: ("DescribeEnvironments" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "EnvironmentIds" =:
+                 toQuery (toQueryList "member" <$> _dEnvironmentIds),
+               "EnvironmentNames" =:
+                 toQuery
+                   (toQueryList "member" <$> _dEnvironmentNames),
+               "VersionLabel" =: _dVersionLabel,
+               "IncludedDeletedBackTo" =: _dIncludedDeletedBackTo,
+               "ApplicationName" =: _dApplicationName,
+               "IncludeDeleted" =: _dIncludeDeleted]
+
+-- | Result message containing a list of environment descriptions.
+--
+-- /See:/ 'describeEnvironmentsResponse' smart constructor.
+data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
+    { _drsEnvironments :: !(Maybe [EnvironmentDescription])
+    , _drsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeEnvironmentsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'drsEnvironments'
+--
+-- * 'drsStatus'
+describeEnvironmentsResponse
+    :: Int -- ^ 'drsStatus'
+    -> DescribeEnvironmentsResponse
+describeEnvironmentsResponse pStatus_ =
+    DescribeEnvironmentsResponse'
+    { _drsEnvironments = Nothing
+    , _drsStatus = pStatus_
+    }
+
+-- | Returns an EnvironmentDescription list.
+drsEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
+drsEnvironments = lens _drsEnvironments (\ s a -> s{_drsEnvironments = a}) . _Default . _Coerce;
+
+-- | The response status code.
+drsStatus :: Lens' DescribeEnvironmentsResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

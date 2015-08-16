@@ -1,31 +1,92 @@
 name:                  amazonka-codedeploy
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon CodeDeploy SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon CodeDeploy is a service that automates code deployments to Amazon EC2
-    instances. Amazon CodeDeploy makes it easier for you to rapidly release new
-    features, helps you avoid downtime during deployment, and handles the
-    complexity of updating your applications. You can use Amazon CodeDeploy to
-    automate deployments, eliminating the need for error-prone manual operations,
-    and the service scales with your infrastructure so you can easily deploy to
-    one EC2 instance or thousands.
+    AWS CodeDeploy __Overview__
 
+    This is the AWS CodeDeploy API Reference. This guide provides
+    descriptions of the AWS CodeDeploy APIs. For additional information, see
+    the
+    <http://docs.aws.amazon.com/codedeploy/latest/userguide AWS CodeDeploy User Guide>.
+
+    __Using the APIs__
+
+    You can use the AWS CodeDeploy APIs to work with the following items:
+
+    -   Applications are unique identifiers that AWS CodeDeploy uses to
+        ensure that the correct combinations of revisions, deployment
+        configurations, and deployment groups are being referenced during
+        deployments.
+
+        You can use the AWS CodeDeploy APIs to create, delete, get, list,
+        and update applications.
+
+    -   Deployment configurations are sets of deployment rules and
+        deployment success and failure conditions that AWS CodeDeploy uses
+        during deployments.
+
+        You can use the AWS CodeDeploy APIs to create, delete, get, and list
+        deployment configurations.
+
+    -   Deployment groups are groups of instances to which application
+        revisions can be deployed.
+
+        You can use the AWS CodeDeploy APIs to create, delete, get, list,
+        and update deployment groups.
+
+    -   Instances represent Amazon EC2 instances to which application
+        revisions are deployed. Instances are identified by their Amazon EC2
+        tags or Auto Scaling group names. Instances belong to deployment
+        groups.
+
+        You can use the AWS CodeDeploy APIs to get and list instances.
+
+    -   Deployments represent the process of deploying revisions to
+        instances.
+
+        You can use the AWS CodeDeploy APIs to create, get, list, and stop
+        deployments.
+
+    -   Application revisions are archive files that are stored in Amazon S3
+        buckets or GitHub repositories. These revisions contain source
+        content (such as source code, web pages, executable files, any
+        deployment scripts, and similar) along with an Application
+        Specification file (AppSpec file). (The AppSpec file is unique to
+        AWS CodeDeploy; it defines a series of deployment actions that you
+        want AWS CodeDeploy to execute.) An application revision is uniquely
+        identified by its Amazon S3 object key and its ETag, version, or
+        both (for application revisions that are stored in Amazon S3
+        buckets) or by its repository name and commit ID (for applications
+        revisions that are stored in GitHub repositories). Application
+        revisions are deployed through deployment groups.
+
+        You can use the AWS CodeDeploy APIs to get, list, and register
+        application revisions.
     .
-    /See:/ <http://docs.aws.amazon.com/codedeploy/latest/APIReference/Welcome.html AWS API Reference>
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
     .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.CodeDeploy" and the <http://docs.aws.amazon.com/codedeploy/latest/APIReference/Welcome.html AWS API Reference>
+    to get started.
 
 source-repository head
     type:     git
@@ -72,9 +133,40 @@ library
         , Network.AWS.CodeDeploy.Types
         , Network.AWS.CodeDeploy.UpdateApplication
         , Network.AWS.CodeDeploy.UpdateDeploymentGroup
+        , Network.AWS.CodeDeploy.Waiters
 
     other-modules:
+          Network.AWS.CodeDeploy.Types.Product
+        , Network.AWS.CodeDeploy.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-codedeploy-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.CodeDeploy
+        , Test.AWS.Gen.CodeDeploy
+        , Test.AWS.CodeDeploy.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test == 1.0.0
+        , amazonka-codedeploy == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

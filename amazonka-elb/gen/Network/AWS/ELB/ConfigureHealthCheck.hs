@@ -1,123 +1,136 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ELB.ConfigureHealthCheck
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Specifies the health check settings to use when evaluating the health state
--- of your back-end instances.
+-- |
+-- Module      : Network.AWS.ELB.ConfigureHealthCheck
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#healthcheck Health Checks> in the /Elastic Load BalancingDeveloper Guide/.
+-- Specifies the health check settings to use when evaluating the health
+-- state of your back-end instances.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ConfigureHealthCheck.html>
+-- For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-healthchecks.html Configure Health Checks>
+-- in the /Elastic Load Balancing Developer Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ConfigureHealthCheck.html AWS API Reference> for ConfigureHealthCheck.
 module Network.AWS.ELB.ConfigureHealthCheck
     (
-    -- * Request
-      ConfigureHealthCheck
-    -- ** Request constructor
-    , configureHealthCheck
-    -- ** Request lenses
-    , chcHealthCheck
+    -- * Creating a Request
+      configureHealthCheck
+    , ConfigureHealthCheck
+    -- * Request Lenses
     , chcLoadBalancerName
+    , chcHealthCheck
 
-    -- * Response
-    , ConfigureHealthCheckResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , configureHealthCheckResponse
-    -- ** Response lenses
-    , chcrHealthCheck
+    , ConfigureHealthCheckResponse
+    -- * Response Lenses
+    , chcrsHealthCheck
+    , chcrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ConfigureHealthCheck = ConfigureHealthCheck
-    { _chcHealthCheck      :: HealthCheck
-    , _chcLoadBalancerName :: Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'configureHealthCheck' smart constructor.
+data ConfigureHealthCheck = ConfigureHealthCheck'
+    { _chcLoadBalancerName :: !Text
+    , _chcHealthCheck      :: !HealthCheck
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ConfigureHealthCheck' constructor.
+-- | Creates a value of 'ConfigureHealthCheck' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chcHealthCheck' @::@ 'HealthCheck'
+-- * 'chcLoadBalancerName'
 --
--- * 'chcLoadBalancerName' @::@ 'Text'
---
-configureHealthCheck :: Text -- ^ 'chcLoadBalancerName'
-                     -> HealthCheck -- ^ 'chcHealthCheck'
-                     -> ConfigureHealthCheck
-configureHealthCheck p1 p2 = ConfigureHealthCheck
-    { _chcLoadBalancerName = p1
-    , _chcHealthCheck      = p2
+-- * 'chcHealthCheck'
+configureHealthCheck
+    :: Text -- ^ 'chcLoadBalancerName'
+    -> HealthCheck -- ^ 'chcHealthCheck'
+    -> ConfigureHealthCheck
+configureHealthCheck pLoadBalancerName_ pHealthCheck_ =
+    ConfigureHealthCheck'
+    { _chcLoadBalancerName = pLoadBalancerName_
+    , _chcHealthCheck = pHealthCheck_
     }
-
--- | The configuration information for the new health check.
-chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
-chcHealthCheck = lens _chcHealthCheck (\s a -> s { _chcHealthCheck = a })
 
 -- | The name of the load balancer.
 chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
-chcLoadBalancerName =
-    lens _chcLoadBalancerName (\s a -> s { _chcLoadBalancerName = a })
+chcLoadBalancerName = lens _chcLoadBalancerName (\ s a -> s{_chcLoadBalancerName = a});
 
-newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
-    { _chcrHealthCheck :: Maybe HealthCheck
-    } deriving (Eq, Read, Show)
+-- | The configuration information for the new health check.
+chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
+chcHealthCheck = lens _chcHealthCheck (\ s a -> s{_chcHealthCheck = a});
 
--- | 'ConfigureHealthCheckResponse' constructor.
+instance AWSRequest ConfigureHealthCheck where
+        type Sv ConfigureHealthCheck = ELB
+        type Rs ConfigureHealthCheck =
+             ConfigureHealthCheckResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "ConfigureHealthCheckResult"
+              (\ s h x ->
+                 ConfigureHealthCheckResponse' <$>
+                   (x .@? "HealthCheck") <*> (pure (fromEnum s)))
+
+instance ToHeaders ConfigureHealthCheck where
+        toHeaders = const mempty
+
+instance ToPath ConfigureHealthCheck where
+        toPath = const "/"
+
+instance ToQuery ConfigureHealthCheck where
+        toQuery ConfigureHealthCheck'{..}
+          = mconcat
+              ["Action" =: ("ConfigureHealthCheck" :: ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "LoadBalancerName" =: _chcLoadBalancerName,
+               "HealthCheck" =: _chcHealthCheck]
+
+-- | /See:/ 'configureHealthCheckResponse' smart constructor.
+data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
+    { _chcrsHealthCheck :: !(Maybe HealthCheck)
+    , _chcrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ConfigureHealthCheckResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'chcrHealthCheck' @::@ 'Maybe' 'HealthCheck'
+-- * 'chcrsHealthCheck'
 --
-configureHealthCheckResponse :: ConfigureHealthCheckResponse
-configureHealthCheckResponse = ConfigureHealthCheckResponse
-    { _chcrHealthCheck = Nothing
+-- * 'chcrsStatus'
+configureHealthCheckResponse
+    :: Int -- ^ 'chcrsStatus'
+    -> ConfigureHealthCheckResponse
+configureHealthCheckResponse pStatus_ =
+    ConfigureHealthCheckResponse'
+    { _chcrsHealthCheck = Nothing
+    , _chcrsStatus = pStatus_
     }
 
 -- | The updated health check.
-chcrHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
-chcrHealthCheck = lens _chcrHealthCheck (\s a -> s { _chcrHealthCheck = a })
+chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
+chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 
-instance ToPath ConfigureHealthCheck where
-    toPath = const "/"
-
-instance ToQuery ConfigureHealthCheck where
-    toQuery ConfigureHealthCheck{..} = mconcat
-        [ "HealthCheck"      =? _chcHealthCheck
-        , "LoadBalancerName" =? _chcLoadBalancerName
-        ]
-
-instance ToHeaders ConfigureHealthCheck
-
-instance AWSRequest ConfigureHealthCheck where
-    type Sv ConfigureHealthCheck = ELB
-    type Rs ConfigureHealthCheck = ConfigureHealthCheckResponse
-
-    request  = post "ConfigureHealthCheck"
-    response = xmlResponse
-
-instance FromXML ConfigureHealthCheckResponse where
-    parseXML = withElement "ConfigureHealthCheckResult" $ \x -> ConfigureHealthCheckResponse
-        <$> x .@? "HealthCheck"
+-- | The response status code.
+chcrsStatus :: Lens' ConfigureHealthCheckResponse Int
+chcrsStatus = lens _chcrsStatus (\ s a -> s{_chcrsStatus = a});

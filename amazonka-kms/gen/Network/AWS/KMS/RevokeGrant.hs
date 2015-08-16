@@ -1,110 +1,117 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.KMS.RevokeGrant
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Revokes a grant. You can revoke a grant to actively deny operations that
+-- |
+-- Module      : Network.AWS.KMS.RevokeGrant
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Revokes a grant. You can revoke a grant to actively deny operations that
 -- depend on it.
 --
--- <http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html>
+-- /See:/ <http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html AWS API Reference> for RevokeGrant.
 module Network.AWS.KMS.RevokeGrant
     (
-    -- * Request
-      RevokeGrant
-    -- ** Request constructor
-    , revokeGrant
-    -- ** Request lenses
-    , rg1GrantId
-    , rg1KeyId
+    -- * Creating a Request
+      revokeGrant
+    , RevokeGrant
+    -- * Request Lenses
+    , rKeyId
+    , rGrantId
 
-    -- * Response
-    , RevokeGrantResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , revokeGrantResponse
+    , RevokeGrantResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.KMS.Types
-import qualified GHC.Exts
+import           Network.AWS.KMS.Types
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RevokeGrant = RevokeGrant
-    { _rg1GrantId :: Text
-    , _rg1KeyId   :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'revokeGrant' smart constructor.
+data RevokeGrant = RevokeGrant'
+    { _rKeyId   :: !Text
+    , _rGrantId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RevokeGrant' constructor.
+-- | Creates a value of 'RevokeGrant' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'rg1GrantId' @::@ 'Text'
+-- * 'rKeyId'
 --
--- * 'rg1KeyId' @::@ 'Text'
---
-revokeGrant :: Text -- ^ 'rg1KeyId'
-            -> Text -- ^ 'rg1GrantId'
-            -> RevokeGrant
-revokeGrant p1 p2 = RevokeGrant
-    { _rg1KeyId   = p1
-    , _rg1GrantId = p2
+-- * 'rGrantId'
+revokeGrant
+    :: Text -- ^ 'rKeyId'
+    -> Text -- ^ 'rGrantId'
+    -> RevokeGrant
+revokeGrant pKeyId_ pGrantId_ =
+    RevokeGrant'
+    { _rKeyId = pKeyId_
+    , _rGrantId = pGrantId_
     }
 
--- | Identifier of the grant to be revoked.
-rg1GrantId :: Lens' RevokeGrant Text
-rg1GrantId = lens _rg1GrantId (\s a -> s { _rg1GrantId = a })
-
--- | A unique identifier for the customer master key associated with the grant.
--- This value can be a globally unique identifier or the fully specified ARN to
--- a key.  Key ARN Example -
--- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- | A unique identifier for the customer master key associated with the
+-- grant. This value can be a globally unique identifier or the fully
+-- specified ARN to a key.
 --
-rg1KeyId :: Lens' RevokeGrant Text
-rg1KeyId = lens _rg1KeyId (\s a -> s { _rg1KeyId = a })
+-- -   Key ARN Example -
+--     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+-- -   Globally Unique Key ID Example -
+--     12345678-1234-1234-1234-123456789012
+rKeyId :: Lens' RevokeGrant Text
+rKeyId = lens _rKeyId (\ s a -> s{_rKeyId = a});
 
-data RevokeGrantResponse = RevokeGrantResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'RevokeGrantResponse' constructor.
-revokeGrantResponse :: RevokeGrantResponse
-revokeGrantResponse = RevokeGrantResponse
-
-instance ToPath RevokeGrant where
-    toPath = const "/"
-
-instance ToQuery RevokeGrant where
-    toQuery = const mempty
-
-instance ToHeaders RevokeGrant
-
-instance ToJSON RevokeGrant where
-    toJSON RevokeGrant{..} = object
-        [ "KeyId"   .= _rg1KeyId
-        , "GrantId" .= _rg1GrantId
-        ]
+-- | Identifier of the grant to be revoked.
+rGrantId :: Lens' RevokeGrant Text
+rGrantId = lens _rGrantId (\ s a -> s{_rGrantId = a});
 
 instance AWSRequest RevokeGrant where
-    type Sv RevokeGrant = KMS
-    type Rs RevokeGrant = RevokeGrantResponse
+        type Sv RevokeGrant = KMS
+        type Rs RevokeGrant = RevokeGrantResponse
+        request = postJSON
+        response = receiveNull RevokeGrantResponse'
 
-    request  = post "RevokeGrant"
-    response = nullResponse RevokeGrantResponse
+instance ToHeaders RevokeGrant where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("TrentService.RevokeGrant" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON RevokeGrant where
+        toJSON RevokeGrant'{..}
+          = object ["KeyId" .= _rKeyId, "GrantId" .= _rGrantId]
+
+instance ToPath RevokeGrant where
+        toPath = const "/"
+
+instance ToQuery RevokeGrant where
+        toQuery = const mempty
+
+-- | /See:/ 'revokeGrantResponse' smart constructor.
+data RevokeGrantResponse =
+    RevokeGrantResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'RevokeGrantResponse' with the minimum fields required to make a request.
+--
+revokeGrantResponse
+    :: RevokeGrantResponse
+revokeGrantResponse = RevokeGrantResponse'

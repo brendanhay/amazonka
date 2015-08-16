@@ -1,144 +1,172 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ECS.ListClusters
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a list of existing clusters.
+-- |
+-- Module      : Network.AWS.ECS.ListClusters
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html>
+-- Returns a list of existing clusters.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html AWS API Reference> for ListClusters.
+--
+-- This operation returns paginated results.
 module Network.AWS.ECS.ListClusters
     (
-    -- * Request
-      ListClusters
-    -- ** Request constructor
-    , listClusters
-    -- ** Request lenses
-    , lcMaxResults
+    -- * Creating a Request
+      listClusters
+    , ListClusters
+    -- * Request Lenses
     , lcNextToken
+    , lcMaxResults
 
-    -- * Response
-    , ListClustersResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listClustersResponse
-    -- ** Response lenses
-    , lcrClusterArns
-    , lcrNextToken
+    , ListClustersResponse
+    -- * Response Lenses
+    , lcrsClusterARNs
+    , lcrsNextToken
+    , lcrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.ECS.Types
-import qualified GHC.Exts
+import           Network.AWS.ECS.Types
+import           Network.AWS.ECS.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListClusters = ListClusters
-    { _lcMaxResults :: Maybe Int
-    , _lcNextToken  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'listClusters' smart constructor.
+data ListClusters = ListClusters'
+    { _lcNextToken  :: !(Maybe Text)
+    , _lcMaxResults :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListClusters' constructor.
+-- | Creates a value of 'ListClusters' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcMaxResults' @::@ 'Maybe' 'Int'
+-- * 'lcNextToken'
 --
--- * 'lcNextToken' @::@ 'Maybe' 'Text'
---
-listClusters :: ListClusters
-listClusters = ListClusters
-    { _lcNextToken  = Nothing
+-- * 'lcMaxResults'
+listClusters
+    :: ListClusters
+listClusters =
+    ListClusters'
+    { _lcNextToken = Nothing
     , _lcMaxResults = Nothing
     }
 
--- | The maximum number of cluster results returned by 'ListClusters' in paginated
--- output. When this parameter is used, 'ListClusters' only returns 'maxResults'
--- results in a single page along with a 'nextToken' response element. The
--- remaining results of the initial request can be seen by sending another 'ListClusters' request with the returned 'nextToken' value. This value can be between 1 and
--- 100. If this parameter is not used, then 'ListClusters' returns up to 100
--- results and a 'nextToken' value if applicable.
-lcMaxResults :: Lens' ListClusters (Maybe Int)
-lcMaxResults = lens _lcMaxResults (\s a -> s { _lcMaxResults = a })
-
--- | The 'nextToken' value returned from a previous paginated 'ListClusters' request
--- where 'maxResults' was used and the results exceeded the value of that
--- parameter. Pagination continues from the end of the previous results that
--- returned the 'nextToken' value. This value is 'null' when there are no more
--- results to return.
+-- | The 'nextToken' value returned from a previous paginated 'ListClusters'
+-- request where 'maxResults' was used and the results exceeded the value
+-- of that parameter. Pagination continues from the end of the previous
+-- results that returned the 'nextToken' value. This value is 'null' when
+-- there are no more results to return.
 lcNextToken :: Lens' ListClusters (Maybe Text)
-lcNextToken = lens _lcNextToken (\s a -> s { _lcNextToken = a })
+lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 
-data ListClustersResponse = ListClustersResponse
-    { _lcrClusterArns :: List "clusterArns" Text
-    , _lcrNextToken   :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | The maximum number of cluster results returned by 'ListClusters' in
+-- paginated output. When this parameter is used, 'ListClusters' only
+-- returns 'maxResults' results in a single page along with a 'nextToken'
+-- response element. The remaining results of the initial request can be
+-- seen by sending another 'ListClusters' request with the returned
+-- 'nextToken' value. This value can be between 1 and 100. If this
+-- parameter is not used, then 'ListClusters' returns up to 100 results and
+-- a 'nextToken' value if applicable.
+lcMaxResults :: Lens' ListClusters (Maybe Int)
+lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a});
 
--- | 'ListClustersResponse' constructor.
+instance AWSPager ListClusters where
+        page rq rs
+          | stop (rs ^. lcrsNextToken) = Nothing
+          | stop (rs ^. lcrsClusterARNs) = Nothing
+          | otherwise =
+            Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
+
+instance AWSRequest ListClusters where
+        type Sv ListClusters = ECS
+        type Rs ListClusters = ListClustersResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListClustersResponse' <$>
+                   (x .?> "clusterArns" .!@ mempty) <*>
+                     (x .?> "nextToken")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListClusters where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonEC2ContainerServiceV20141113.ListClusters" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListClusters where
+        toJSON ListClusters'{..}
+          = object
+              ["nextToken" .= _lcNextToken,
+               "maxResults" .= _lcMaxResults]
+
+instance ToPath ListClusters where
+        toPath = const "/"
+
+instance ToQuery ListClusters where
+        toQuery = const mempty
+
+-- | /See:/ 'listClustersResponse' smart constructor.
+data ListClustersResponse = ListClustersResponse'
+    { _lcrsClusterARNs :: !(Maybe [Text])
+    , _lcrsNextToken   :: !(Maybe Text)
+    , _lcrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListClustersResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'lcrClusterArns' @::@ ['Text']
+-- * 'lcrsClusterARNs'
 --
--- * 'lcrNextToken' @::@ 'Maybe' 'Text'
+-- * 'lcrsNextToken'
 --
-listClustersResponse :: ListClustersResponse
-listClustersResponse = ListClustersResponse
-    { _lcrClusterArns = mempty
-    , _lcrNextToken   = Nothing
+-- * 'lcrsStatus'
+listClustersResponse
+    :: Int -- ^ 'lcrsStatus'
+    -> ListClustersResponse
+listClustersResponse pStatus_ =
+    ListClustersResponse'
+    { _lcrsClusterARNs = Nothing
+    , _lcrsNextToken = Nothing
+    , _lcrsStatus = pStatus_
     }
 
 -- | The list of full Amazon Resource Name (ARN) entries for each cluster
 -- associated with your account.
-lcrClusterArns :: Lens' ListClustersResponse [Text]
-lcrClusterArns = lens _lcrClusterArns (\s a -> s { _lcrClusterArns = a }) . _List
+lcrsClusterARNs :: Lens' ListClustersResponse [Text]
+lcrsClusterARNs = lens _lcrsClusterARNs (\ s a -> s{_lcrsClusterARNs = a}) . _Default . _Coerce;
 
--- | The 'nextToken' value to include in a future 'ListClusters' request. When the
--- results of a 'ListClusters' request exceed 'maxResults', this value can be used
--- to retrieve the next page of results. This value is 'null' when there are no
--- more results to return.
-lcrNextToken :: Lens' ListClustersResponse (Maybe Text)
-lcrNextToken = lens _lcrNextToken (\s a -> s { _lcrNextToken = a })
+-- | The 'nextToken' value to include in a future 'ListClusters' request.
+-- When the results of a 'ListClusters' request exceed 'maxResults', this
+-- value can be used to retrieve the next page of results. This value is
+-- 'null' when there are no more results to return.
+lcrsNextToken :: Lens' ListClustersResponse (Maybe Text)
+lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 
-instance ToPath ListClusters where
-    toPath = const "/"
-
-instance ToQuery ListClusters where
-    toQuery = const mempty
-
-instance ToHeaders ListClusters
-
-instance ToJSON ListClusters where
-    toJSON ListClusters{..} = object
-        [ "nextToken"  .= _lcNextToken
-        , "maxResults" .= _lcMaxResults
-        ]
-
-instance AWSRequest ListClusters where
-    type Sv ListClusters = ECS
-    type Rs ListClusters = ListClustersResponse
-
-    request  = post "ListClusters"
-    response = jsonResponse
-
-instance FromJSON ListClustersResponse where
-    parseJSON = withObject "ListClustersResponse" $ \o -> ListClustersResponse
-        <$> o .:? "clusterArns" .!= mempty
-        <*> o .:? "nextToken"
+-- | The response status code.
+lcrsStatus :: Lens' ListClustersResponse Int
+lcrsStatus = lens _lcrsStatus (\ s a -> s{_lcrsStatus = a});

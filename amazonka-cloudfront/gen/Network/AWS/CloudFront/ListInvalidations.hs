@@ -1,150 +1,150 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudFront.ListInvalidations
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | List invalidation batches.
+-- |
+-- Module      : Network.AWS.CloudFront.ListInvalidations
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListInvalidations.html>
+-- List invalidation batches.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListInvalidations.html AWS API Reference> for ListInvalidations.
 module Network.AWS.CloudFront.ListInvalidations
     (
-    -- * Request
-      ListInvalidations
-    -- ** Request constructor
-    , listInvalidations
-    -- ** Request lenses
-    , liDistributionId
-    , liMarker
+    -- * Creating a Request
+      listInvalidations
+    , ListInvalidations
+    -- * Request Lenses
     , liMaxItems
+    , liMarker
+    , liDistributionId
 
-    -- * Response
-    , ListInvalidationsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listInvalidationsResponse
-    -- ** Response lenses
-    , lirInvalidationList
+    , ListInvalidationsResponse
+    -- * Response Lenses
+    , lirsStatus
+    , lirsInvalidationList
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListInvalidations = ListInvalidations
-    { _liDistributionId :: Text
-    , _liMarker         :: Maybe Text
-    , _liMaxItems       :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | The request to list invalidations.
+--
+-- /See:/ 'listInvalidations' smart constructor.
+data ListInvalidations = ListInvalidations'
+    { _liMaxItems       :: !(Maybe Text)
+    , _liMarker         :: !(Maybe Text)
+    , _liDistributionId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListInvalidations' constructor.
+-- | Creates a value of 'ListInvalidations' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'liDistributionId' @::@ 'Text'
+-- * 'liMaxItems'
 --
--- * 'liMarker' @::@ 'Maybe' 'Text'
+-- * 'liMarker'
 --
--- * 'liMaxItems' @::@ 'Maybe' 'Text'
---
-listInvalidations :: Text -- ^ 'liDistributionId'
-                  -> ListInvalidations
-listInvalidations p1 = ListInvalidations
-    { _liDistributionId = p1
-    , _liMarker         = Nothing
-    , _liMaxItems       = Nothing
+-- * 'liDistributionId'
+listInvalidations
+    :: Text -- ^ 'liDistributionId'
+    -> ListInvalidations
+listInvalidations pDistributionId_ =
+    ListInvalidations'
+    { _liMaxItems = Nothing
+    , _liMarker = Nothing
+    , _liDistributionId = pDistributionId_
     }
 
--- | The distribution's id.
-liDistributionId :: Lens' ListInvalidations Text
-liDistributionId = lens _liDistributionId (\s a -> s { _liDistributionId = a })
-
--- | Use this parameter when paginating results to indicate where to begin in your
--- list of invalidation batches. Because the results are returned in decreasing
--- order from most recent to oldest, the most recent results are on the first
--- page, the second page will contain earlier results, and so on. To get the
--- next page of results, set the Marker to the value of the NextMarker from the
--- current page's response. This value is the same as the ID of the last
--- invalidation batch on that page.
-liMarker :: Lens' ListInvalidations (Maybe Text)
-liMarker = lens _liMarker (\s a -> s { _liMarker = a })
-
--- | The maximum number of invalidation batches you want in the response body.
+-- | The maximum number of invalidation batches you want in the response
+-- body.
 liMaxItems :: Lens' ListInvalidations (Maybe Text)
-liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
+liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 
-newtype ListInvalidationsResponse = ListInvalidationsResponse
-    { _lirInvalidationList :: InvalidationList
-    } deriving (Eq, Read, Show)
+-- | Use this parameter when paginating results to indicate where to begin in
+-- your list of invalidation batches. Because the results are returned in
+-- decreasing order from most recent to oldest, the most recent results are
+-- on the first page, the second page will contain earlier results, and so
+-- on. To get the next page of results, set the Marker to the value of the
+-- NextMarker from the current page\'s response. This value is the same as
+-- the ID of the last invalidation batch on that page.
+liMarker :: Lens' ListInvalidations (Maybe Text)
+liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
 
--- | 'ListInvalidationsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lirInvalidationList' @::@ 'InvalidationList'
---
-listInvalidationsResponse :: InvalidationList -- ^ 'lirInvalidationList'
-                          -> ListInvalidationsResponse
-listInvalidationsResponse p1 = ListInvalidationsResponse
-    { _lirInvalidationList = p1
-    }
-
--- | Information about invalidation batches.
-lirInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
-lirInvalidationList =
-    lens _lirInvalidationList (\s a -> s { _lirInvalidationList = a })
-
-instance ToPath ListInvalidations where
-    toPath ListInvalidations{..} = mconcat
-        [ "/2014-11-06/distribution/"
-        , toText _liDistributionId
-        , "/invalidation"
-        ]
-
-instance ToQuery ListInvalidations where
-    toQuery ListInvalidations{..} = mconcat
-        [ "Marker"   =? _liMarker
-        , "MaxItems" =? _liMaxItems
-        ]
-
-instance ToHeaders ListInvalidations
-
-instance ToXMLRoot ListInvalidations where
-    toXMLRoot = const (namespaced ns "ListInvalidations" [])
-
-instance ToXML ListInvalidations
+-- | The distribution\'s id.
+liDistributionId :: Lens' ListInvalidations Text
+liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a});
 
 instance AWSRequest ListInvalidations where
-    type Sv ListInvalidations = CloudFront
-    type Rs ListInvalidations = ListInvalidationsResponse
+        type Sv ListInvalidations = CloudFront
+        type Rs ListInvalidations = ListInvalidationsResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 ListInvalidationsResponse' <$>
+                   (pure (fromEnum s)) <*> (parseXML x))
 
-    request  = get
-    response = xmlResponse
+instance ToHeaders ListInvalidations where
+        toHeaders = const mempty
 
-instance FromXML ListInvalidationsResponse where
-    parseXML x = ListInvalidationsResponse
-        <$> x .@  "InvalidationList"
+instance ToPath ListInvalidations where
+        toPath ListInvalidations'{..}
+          = mconcat
+              ["/2015-04-17/distribution/", toBS _liDistributionId,
+               "/invalidation"]
 
-instance AWSPager ListInvalidations where
-    page rq rs
-        | stop (rs ^. lirInvalidationList . ilIsTruncated) = Nothing
-        | otherwise = Just $ rq
-            & liMarker .~ rs ^. lirInvalidationList . ilNextMarker
+instance ToQuery ListInvalidations where
+        toQuery ListInvalidations'{..}
+          = mconcat
+              ["MaxItems" =: _liMaxItems, "Marker" =: _liMarker]
+
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'listInvalidationsResponse' smart constructor.
+data ListInvalidationsResponse = ListInvalidationsResponse'
+    { _lirsStatus           :: !Int
+    , _lirsInvalidationList :: !InvalidationList
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListInvalidationsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'lirsStatus'
+--
+-- * 'lirsInvalidationList'
+listInvalidationsResponse
+    :: Int -- ^ 'lirsStatus'
+    -> InvalidationList -- ^ 'lirsInvalidationList'
+    -> ListInvalidationsResponse
+listInvalidationsResponse pStatus_ pInvalidationList_ =
+    ListInvalidationsResponse'
+    { _lirsStatus = pStatus_
+    , _lirsInvalidationList = pInvalidationList_
+    }
+
+-- | The response status code.
+lirsStatus :: Lens' ListInvalidationsResponse Int
+lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
+
+-- | Information about invalidation batches.
+lirsInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
+lirsInvalidationList = lens _lirsInvalidationList (\ s a -> s{_lirsInvalidationList = a});

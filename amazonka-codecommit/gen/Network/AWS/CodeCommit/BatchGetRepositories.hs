@@ -1,0 +1,149 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.CodeCommit.BatchGetRepositories
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Gets information about one or more repositories.
+--
+-- The description field for a repository accepts all HTML characters and
+-- all valid Unicode characters. Applications that do not HTML-encode the
+-- description and display it in a web page could expose users to
+-- potentially malicious code. Make sure that you HTML-encode the
+-- description field in any application that uses this API to display the
+-- repository description on a web page.
+--
+-- /See:/ <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_BatchGetRepositories.html AWS API Reference> for BatchGetRepositories.
+module Network.AWS.CodeCommit.BatchGetRepositories
+    (
+    -- * Creating a Request
+      batchGetRepositories
+    , BatchGetRepositories
+    -- * Request Lenses
+    , bgrRepositoryNames
+
+    -- * Destructuring the Response
+    , batchGetRepositoriesResponse
+    , BatchGetRepositoriesResponse
+    -- * Response Lenses
+    , bgrrsRepositories
+    , bgrrsRepositoriesNotFound
+    , bgrrsStatus
+    ) where
+
+import           Network.AWS.CodeCommit.Types
+import           Network.AWS.CodeCommit.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | Represents the input of a batch get repositories operation.
+--
+-- /See:/ 'batchGetRepositories' smart constructor.
+newtype BatchGetRepositories = BatchGetRepositories'
+    { _bgrRepositoryNames :: [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BatchGetRepositories' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgrRepositoryNames'
+batchGetRepositories
+    :: BatchGetRepositories
+batchGetRepositories =
+    BatchGetRepositories'
+    { _bgrRepositoryNames = mempty
+    }
+
+-- | The names of the repositories to get information about.
+bgrRepositoryNames :: Lens' BatchGetRepositories [Text]
+bgrRepositoryNames = lens _bgrRepositoryNames (\ s a -> s{_bgrRepositoryNames = a}) . _Coerce;
+
+instance AWSRequest BatchGetRepositories where
+        type Sv BatchGetRepositories = CodeCommit
+        type Rs BatchGetRepositories =
+             BatchGetRepositoriesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 BatchGetRepositoriesResponse' <$>
+                   (x .?> "repositories" .!@ mempty) <*>
+                     (x .?> "repositoriesNotFound" .!@ mempty)
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders BatchGetRepositories where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeCommit_20150413.BatchGetRepositories" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON BatchGetRepositories where
+        toJSON BatchGetRepositories'{..}
+          = object ["repositoryNames" .= _bgrRepositoryNames]
+
+instance ToPath BatchGetRepositories where
+        toPath = const "/"
+
+instance ToQuery BatchGetRepositories where
+        toQuery = const mempty
+
+-- | Represents the output of a batch get repositories operation.
+--
+-- /See:/ 'batchGetRepositoriesResponse' smart constructor.
+data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
+    { _bgrrsRepositories         :: !(Maybe [RepositoryMetadata])
+    , _bgrrsRepositoriesNotFound :: !(Maybe [Text])
+    , _bgrrsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'BatchGetRepositoriesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'bgrrsRepositories'
+--
+-- * 'bgrrsRepositoriesNotFound'
+--
+-- * 'bgrrsStatus'
+batchGetRepositoriesResponse
+    :: Int -- ^ 'bgrrsStatus'
+    -> BatchGetRepositoriesResponse
+batchGetRepositoriesResponse pStatus_ =
+    BatchGetRepositoriesResponse'
+    { _bgrrsRepositories = Nothing
+    , _bgrrsRepositoriesNotFound = Nothing
+    , _bgrrsStatus = pStatus_
+    }
+
+-- | A list of repositories returned by the batch get repositories operation.
+bgrrsRepositories :: Lens' BatchGetRepositoriesResponse [RepositoryMetadata]
+bgrrsRepositories = lens _bgrrsRepositories (\ s a -> s{_bgrrsRepositories = a}) . _Default . _Coerce;
+
+-- | Returns a list of repository names for which information could not be
+-- found.
+bgrrsRepositoriesNotFound :: Lens' BatchGetRepositoriesResponse [Text]
+bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRepositoriesNotFound = a}) . _Default . _Coerce;
+
+-- | The response status code.
+bgrrsStatus :: Lens' BatchGetRepositoriesResponse Int
+bgrrsStatus = lens _bgrrsStatus (\ s a -> s{_bgrrsStatus = a});

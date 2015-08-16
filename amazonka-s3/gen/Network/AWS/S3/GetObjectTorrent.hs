@@ -1,142 +1,148 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.GetObjectTorrent
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Return torrent files from a bucket.
+-- |
+-- Module      : Network.AWS.S3.GetObjectTorrent
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectTorrent.html>
+-- Return torrent files from a bucket.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectTorrent.html AWS API Reference> for GetObjectTorrent.
 module Network.AWS.S3.GetObjectTorrent
     (
-    -- * Request
-      GetObjectTorrent
-    -- ** Request constructor
-    , getObjectTorrent
-    -- ** Request lenses
+    -- * Creating a Request
+      getObjectTorrent
+    , GetObjectTorrent
+    -- * Request Lenses
+    , gotRequestPayer
     , gotBucket
     , gotKey
-    , gotRequestPayer
 
-    -- * Response
-    , GetObjectTorrentResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getObjectTorrentResponse
-    -- ** Response lenses
-    , gotrBody
-    , gotrRequestCharged
+    , GetObjectTorrentResponse
+    -- * Response Lenses
+    , gotrsRequestCharged
+    , gotrsStatus
+    , gotrsBody
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-data GetObjectTorrent = GetObjectTorrent
-    { _gotBucket       :: Text
-    , _gotKey          :: Text
-    , _gotRequestPayer :: Maybe RequestPayer
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'getObjectTorrent' smart constructor.
+data GetObjectTorrent = GetObjectTorrent'
+    { _gotRequestPayer :: !(Maybe RequestPayer)
+    , _gotBucket       :: !BucketName
+    , _gotKey          :: !ObjectKey
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetObjectTorrent' constructor.
+-- | Creates a value of 'GetObjectTorrent' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gotBucket' @::@ 'Text'
+-- * 'gotRequestPayer'
 --
--- * 'gotKey' @::@ 'Text'
+-- * 'gotBucket'
 --
--- * 'gotRequestPayer' @::@ 'Maybe' 'RequestPayer'
---
-getObjectTorrent :: Text -- ^ 'gotBucket'
-                 -> Text -- ^ 'gotKey'
-                 -> GetObjectTorrent
-getObjectTorrent p1 p2 = GetObjectTorrent
-    { _gotBucket       = p1
-    , _gotKey          = p2
-    , _gotRequestPayer = Nothing
+-- * 'gotKey'
+getObjectTorrent
+    :: BucketName -- ^ 'gotBucket'
+    -> ObjectKey -- ^ 'gotKey'
+    -> GetObjectTorrent
+getObjectTorrent pBucket_ pKey_ =
+    GetObjectTorrent'
+    { _gotRequestPayer = Nothing
+    , _gotBucket = pBucket_
+    , _gotKey = pKey_
     }
 
-gotBucket :: Lens' GetObjectTorrent Text
-gotBucket = lens _gotBucket (\s a -> s { _gotBucket = a })
-
-gotKey :: Lens' GetObjectTorrent Text
-gotKey = lens _gotKey (\s a -> s { _gotKey = a })
-
+-- | Undocumented member.
 gotRequestPayer :: Lens' GetObjectTorrent (Maybe RequestPayer)
-gotRequestPayer = lens _gotRequestPayer (\s a -> s { _gotRequestPayer = a })
+gotRequestPayer = lens _gotRequestPayer (\ s a -> s{_gotRequestPayer = a});
 
-data GetObjectTorrentResponse = GetObjectTorrentResponse
-    { _gotrBody           :: RsBody
-    , _gotrRequestCharged :: Maybe RequestCharged
-    } deriving (Show)
+-- | Undocumented member.
+gotBucket :: Lens' GetObjectTorrent BucketName
+gotBucket = lens _gotBucket (\ s a -> s{_gotBucket = a});
 
--- | 'GetObjectTorrentResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gotrBody' @::@ 'RsBody'
---
--- * 'gotrRequestCharged' @::@ 'Maybe' 'RequestCharged'
---
-getObjectTorrentResponse :: RsBody -- ^ 'gotrBody'
-                         -> GetObjectTorrentResponse
-getObjectTorrentResponse p1 = GetObjectTorrentResponse
-    { _gotrBody           = p1
-    , _gotrRequestCharged = Nothing
-    }
-
-gotrBody :: Lens' GetObjectTorrentResponse RsBody
-gotrBody = lens _gotrBody (\s a -> s { _gotrBody = a })
-
-gotrRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
-gotrRequestCharged =
-    lens _gotrRequestCharged (\s a -> s { _gotrRequestCharged = a })
-
-instance ToPath GetObjectTorrent where
-    toPath GetObjectTorrent{..} = mconcat
-        [ "/"
-        , toText _gotBucket
-        , "/"
-        , toText _gotKey
-        ]
-
-instance ToQuery GetObjectTorrent where
-    toQuery = const "torrent"
-
-instance ToHeaders GetObjectTorrent where
-    toHeaders GetObjectTorrent{..} = mconcat
-        [ "x-amz-request-payer" =: _gotRequestPayer
-        ]
-
-instance ToXMLRoot GetObjectTorrent where
-    toXMLRoot = const (namespaced ns "GetObjectTorrent" [])
-
-instance ToXML GetObjectTorrent
+-- | Undocumented member.
+gotKey :: Lens' GetObjectTorrent ObjectKey
+gotKey = lens _gotKey (\ s a -> s{_gotKey = a});
 
 instance AWSRequest GetObjectTorrent where
-    type Sv GetObjectTorrent = S3
-    type Rs GetObjectTorrent = GetObjectTorrentResponse
+        type Sv GetObjectTorrent = S3
+        type Rs GetObjectTorrent = GetObjectTorrentResponse
+        request = get
+        response
+          = receiveBody
+              (\ s h x ->
+                 GetObjectTorrentResponse' <$>
+                   (h .#? "x-amz-request-charged") <*>
+                     (pure (fromEnum s))
+                     <*> (pure x))
 
-    request  = get
-    response = bodyResponse $ \h s b -> GetObjectTorrentResponse
-        <$> pure (RsBody b)
-        <*> h ~:? "x-amz-request-charged"
+instance ToHeaders GetObjectTorrent where
+        toHeaders GetObjectTorrent'{..}
+          = mconcat ["x-amz-request-payer" =# _gotRequestPayer]
+
+instance ToPath GetObjectTorrent where
+        toPath GetObjectTorrent'{..}
+          = mconcat ["/", toBS _gotBucket, "/", toBS _gotKey]
+
+instance ToQuery GetObjectTorrent where
+        toQuery = const (mconcat ["torrent"])
+
+-- | /See:/ 'getObjectTorrentResponse' smart constructor.
+data GetObjectTorrentResponse = GetObjectTorrentResponse'
+    { _gotrsRequestCharged :: !(Maybe RequestCharged)
+    , _gotrsStatus         :: !Int
+    , _gotrsBody           :: !RsBody
+    } deriving (Show,Generic)
+
+-- | Creates a value of 'GetObjectTorrentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gotrsRequestCharged'
+--
+-- * 'gotrsStatus'
+--
+-- * 'gotrsBody'
+getObjectTorrentResponse
+    :: Int -- ^ 'gotrsStatus'
+    -> RsBody -- ^ 'gotrsBody'
+    -> GetObjectTorrentResponse
+getObjectTorrentResponse pStatus_ pBody_ =
+    GetObjectTorrentResponse'
+    { _gotrsRequestCharged = Nothing
+    , _gotrsStatus = pStatus_
+    , _gotrsBody = pBody_
+    }
+
+-- | Undocumented member.
+gotrsRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
+gotrsRequestCharged = lens _gotrsRequestCharged (\ s a -> s{_gotrsRequestCharged = a});
+
+-- | The response status code.
+gotrsStatus :: Lens' GetObjectTorrentResponse Int
+gotrsStatus = lens _gotrsStatus (\ s a -> s{_gotrsStatus = a});
+
+-- | Undocumented member.
+gotrsBody :: Lens' GetObjectTorrentResponse RsBody
+gotrsBody = lens _gotrsBody (\ s a -> s{_gotrsBody = a});

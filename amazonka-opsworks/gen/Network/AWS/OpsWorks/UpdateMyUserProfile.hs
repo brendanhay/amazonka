@@ -1,97 +1,105 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.OpsWorks.UpdateMyUserProfile
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Updates a user's SSH public key.
+-- |
+-- Module      : Network.AWS.OpsWorks.UpdateMyUserProfile
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Required Permissions: To use this action, an IAM user must have
+-- Updates a user\'s SSH public key.
+--
+-- __Required Permissions__: To use this action, an IAM user must have
 -- self-management enabled or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- permissions. For more information on user permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
--- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateMyUserProfile.html>
+-- /See:/ <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateMyUserProfile.html AWS API Reference> for UpdateMyUserProfile.
 module Network.AWS.OpsWorks.UpdateMyUserProfile
     (
-    -- * Request
-      UpdateMyUserProfile
-    -- ** Request constructor
-    , updateMyUserProfile
-    -- ** Request lenses
-    , umupSshPublicKey
+    -- * Creating a Request
+      updateMyUserProfile
+    , UpdateMyUserProfile
+    -- * Request Lenses
+    , umupSSHPublicKey
 
-    -- * Response
-    , UpdateMyUserProfileResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , updateMyUserProfileResponse
+    , UpdateMyUserProfileResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.OpsWorks.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype UpdateMyUserProfile = UpdateMyUserProfile
-    { _umupSshPublicKey :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+-- | /See:/ 'updateMyUserProfile' smart constructor.
+newtype UpdateMyUserProfile = UpdateMyUserProfile'
+    { _umupSSHPublicKey :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateMyUserProfile' constructor.
+-- | Creates a value of 'UpdateMyUserProfile' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'umupSshPublicKey' @::@ 'Maybe' 'Text'
---
-updateMyUserProfile :: UpdateMyUserProfile
-updateMyUserProfile = UpdateMyUserProfile
-    { _umupSshPublicKey = Nothing
+-- * 'umupSSHPublicKey'
+updateMyUserProfile
+    :: UpdateMyUserProfile
+updateMyUserProfile =
+    UpdateMyUserProfile'
+    { _umupSSHPublicKey = Nothing
     }
 
--- | The user's SSH public key.
-umupSshPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
-umupSshPublicKey = lens _umupSshPublicKey (\s a -> s { _umupSshPublicKey = a })
-
-data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UpdateMyUserProfileResponse' constructor.
-updateMyUserProfileResponse :: UpdateMyUserProfileResponse
-updateMyUserProfileResponse = UpdateMyUserProfileResponse
-
-instance ToPath UpdateMyUserProfile where
-    toPath = const "/"
-
-instance ToQuery UpdateMyUserProfile where
-    toQuery = const mempty
-
-instance ToHeaders UpdateMyUserProfile
-
-instance ToJSON UpdateMyUserProfile where
-    toJSON UpdateMyUserProfile{..} = object
-        [ "SshPublicKey" .= _umupSshPublicKey
-        ]
+-- | The user\'s SSH public key.
+umupSSHPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
+umupSSHPublicKey = lens _umupSSHPublicKey (\ s a -> s{_umupSSHPublicKey = a});
 
 instance AWSRequest UpdateMyUserProfile where
-    type Sv UpdateMyUserProfile = OpsWorks
-    type Rs UpdateMyUserProfile = UpdateMyUserProfileResponse
+        type Sv UpdateMyUserProfile = OpsWorks
+        type Rs UpdateMyUserProfile =
+             UpdateMyUserProfileResponse
+        request = postJSON
+        response = receiveNull UpdateMyUserProfileResponse'
 
-    request  = post "UpdateMyUserProfile"
-    response = nullResponse UpdateMyUserProfileResponse
+instance ToHeaders UpdateMyUserProfile where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.UpdateMyUserProfile" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateMyUserProfile where
+        toJSON UpdateMyUserProfile'{..}
+          = object ["SshPublicKey" .= _umupSSHPublicKey]
+
+instance ToPath UpdateMyUserProfile where
+        toPath = const "/"
+
+instance ToQuery UpdateMyUserProfile where
+        toQuery = const mempty
+
+-- | /See:/ 'updateMyUserProfileResponse' smart constructor.
+data UpdateMyUserProfileResponse =
+    UpdateMyUserProfileResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateMyUserProfileResponse' with the minimum fields required to make a request.
+--
+updateMyUserProfileResponse
+    :: UpdateMyUserProfileResponse
+updateMyUserProfileResponse = UpdateMyUserProfileResponse'

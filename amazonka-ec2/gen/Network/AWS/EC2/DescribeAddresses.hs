@@ -1,168 +1,184 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.DescribeAddresses
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes one or more of your Elastic IP addresses.
+-- |
+-- Module      : Network.AWS.EC2.DescribeAddresses
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- An Elastic IP address is for use in either the EC2-Classic platform or in a
--- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide/.
+-- Describes one or more of your Elastic IP addresses.
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAddresses.html>
+-- An Elastic IP address is for use in either the EC2-Classic platform or
+-- in a VPC. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAddresses.html AWS API Reference> for DescribeAddresses.
 module Network.AWS.EC2.DescribeAddresses
     (
-    -- * Request
-      DescribeAddresses
-    -- ** Request constructor
-    , describeAddresses
-    -- ** Request lenses
-    , daAllocationIds
-    , daDryRun
+    -- * Creating a Request
+      describeAddresses
+    , DescribeAddresses
+    -- * Request Lenses
+    , daPublicIPs
     , daFilters
-    , daPublicIps
+    , daDryRun
+    , daAllocationIds
 
-    -- * Response
-    , DescribeAddressesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeAddressesResponse
-    -- ** Response lenses
-    , darAddresses
+    , DescribeAddressesResponse
+    -- * Response Lenses
+    , darsAddresses
+    , darsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeAddresses = DescribeAddresses
-    { _daAllocationIds :: List "AllocationId" Text
-    , _daDryRun        :: Maybe Bool
-    , _daFilters       :: List "Filter" Filter
-    , _daPublicIps     :: List "PublicIp" Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'describeAddresses' smart constructor.
+data DescribeAddresses = DescribeAddresses'
+    { _daPublicIPs     :: !(Maybe [Text])
+    , _daFilters       :: !(Maybe [Filter])
+    , _daDryRun        :: !(Maybe Bool)
+    , _daAllocationIds :: !(Maybe [Text])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeAddresses' constructor.
+-- | Creates a value of 'DescribeAddresses' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'daAllocationIds' @::@ ['Text']
+-- * 'daPublicIPs'
 --
--- * 'daDryRun' @::@ 'Maybe' 'Bool'
+-- * 'daFilters'
 --
--- * 'daFilters' @::@ ['Filter']
+-- * 'daDryRun'
 --
--- * 'daPublicIps' @::@ ['Text']
---
-describeAddresses :: DescribeAddresses
-describeAddresses = DescribeAddresses
-    { _daDryRun        = Nothing
-    , _daPublicIps     = mempty
-    , _daFilters       = mempty
-    , _daAllocationIds = mempty
+-- * 'daAllocationIds'
+describeAddresses
+    :: DescribeAddresses
+describeAddresses =
+    DescribeAddresses'
+    { _daPublicIPs = Nothing
+    , _daFilters = Nothing
+    , _daDryRun = Nothing
+    , _daAllocationIds = Nothing
     }
+
+-- | [EC2-Classic] One or more Elastic IP addresses.
+--
+-- Default: Describes all your Elastic IP addresses.
+daPublicIPs :: Lens' DescribeAddresses [Text]
+daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a}) . _Default . _Coerce;
+
+-- | One or more filters. Filter names and values are case-sensitive.
+--
+-- -   'allocation-id' - [EC2-VPC] The allocation ID for the address.
+--
+-- -   'association-id' - [EC2-VPC] The association ID for the address.
+--
+-- -   'domain' - Indicates whether the address is for use in EC2-Classic
+--     ('standard') or in a VPC ('vpc').
+--
+-- -   'instance-id' - The ID of the instance the address is associated
+--     with, if any.
+--
+-- -   'network-interface-id' - [EC2-VPC] The ID of the network interface
+--     that the address is associated with, if any.
+--
+-- -   'network-interface-owner-id' - The AWS account ID of the owner.
+--
+-- -   'private-ip-address' - [EC2-VPC] The private IP address associated
+--     with the Elastic IP address.
+--
+-- -   'public-ip' - The Elastic IP address.
+--
+daFilters :: Lens' DescribeAddresses [Filter]
+daFilters = lens _daFilters (\ s a -> s{_daFilters = a}) . _Default . _Coerce;
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+daDryRun :: Lens' DescribeAddresses (Maybe Bool)
+daDryRun = lens _daDryRun (\ s a -> s{_daDryRun = a});
 
 -- | [EC2-VPC] One or more allocation IDs.
 --
 -- Default: Describes all your Elastic IP addresses.
 daAllocationIds :: Lens' DescribeAddresses [Text]
-daAllocationIds = lens _daAllocationIds (\s a -> s { _daAllocationIds = a }) . _List
+daAllocationIds = lens _daAllocationIds (\ s a -> s{_daAllocationIds = a}) . _Default . _Coerce;
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-daDryRun :: Lens' DescribeAddresses (Maybe Bool)
-daDryRun = lens _daDryRun (\s a -> s { _daDryRun = a })
+instance AWSRequest DescribeAddresses where
+        type Sv DescribeAddresses = EC2
+        type Rs DescribeAddresses = DescribeAddressesResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribeAddressesResponse' <$>
+                   (x .@? "addressesSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
--- | One or more filters. Filter names and values are case-sensitive.
---
--- 'allocation-id' - [EC2-VPC] The allocation ID for the address.
---
--- 'association-id' - [EC2-VPC] The association ID for the address.
---
--- 'domain' - Indicates whether the address is for use in EC2-Classic ('standard') or in a VPC (
--- 'vpc').
---
--- 'instance-id' - The ID of the instance the address is associated with, if
--- any.
---
--- 'network-interface-id' - [EC2-VPC] The ID of the network interface that the
--- address is associated with, if any.
---
--- 'network-interface-owner-id' - The AWS account ID of the owner.
---
--- 'private-ip-address' - [EC2-VPC] The private IP address associated with the
--- Elastic IP address.
---
--- 'public-ip' - The Elastic IP address.
---
---
-daFilters :: Lens' DescribeAddresses [Filter]
-daFilters = lens _daFilters (\s a -> s { _daFilters = a }) . _List
+instance ToHeaders DescribeAddresses where
+        toHeaders = const mempty
 
--- | [EC2-Classic] One or more Elastic IP addresses.
---
--- Default: Describes all your Elastic IP addresses.
-daPublicIps :: Lens' DescribeAddresses [Text]
-daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a }) . _List
+instance ToPath DescribeAddresses where
+        toPath = const "/"
 
-newtype DescribeAddressesResponse = DescribeAddressesResponse
-    { _darAddresses :: List "item" Address
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance ToQuery DescribeAddresses where
+        toQuery DescribeAddresses'{..}
+          = mconcat
+              ["Action" =: ("DescribeAddresses" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               toQuery (toQueryList "PublicIp" <$> _daPublicIPs),
+               toQuery (toQueryList "Filter" <$> _daFilters),
+               "DryRun" =: _daDryRun,
+               toQuery
+                 (toQueryList "AllocationId" <$> _daAllocationIds)]
 
--- | 'DescribeAddressesResponse' constructor.
+-- | /See:/ 'describeAddressesResponse' smart constructor.
+data DescribeAddressesResponse = DescribeAddressesResponse'
+    { _darsAddresses :: !(Maybe [Address])
+    , _darsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeAddressesResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'darAddresses' @::@ ['Address']
+-- * 'darsAddresses'
 --
-describeAddressesResponse :: DescribeAddressesResponse
-describeAddressesResponse = DescribeAddressesResponse
-    { _darAddresses = mempty
+-- * 'darsStatus'
+describeAddressesResponse
+    :: Int -- ^ 'darsStatus'
+    -> DescribeAddressesResponse
+describeAddressesResponse pStatus_ =
+    DescribeAddressesResponse'
+    { _darsAddresses = Nothing
+    , _darsStatus = pStatus_
     }
 
 -- | Information about one or more Elastic IP addresses.
-darAddresses :: Lens' DescribeAddressesResponse [Address]
-darAddresses = lens _darAddresses (\s a -> s { _darAddresses = a }) . _List
+darsAddresses :: Lens' DescribeAddressesResponse [Address]
+darsAddresses = lens _darsAddresses (\ s a -> s{_darsAddresses = a}) . _Default . _Coerce;
 
-instance ToPath DescribeAddresses where
-    toPath = const "/"
-
-instance ToQuery DescribeAddresses where
-    toQuery DescribeAddresses{..} = mconcat
-        [ "AllocationId" `toQueryList` _daAllocationIds
-        , "DryRun"       =? _daDryRun
-        , "Filter"       `toQueryList` _daFilters
-        , "PublicIp"     `toQueryList` _daPublicIps
-        ]
-
-instance ToHeaders DescribeAddresses
-
-instance AWSRequest DescribeAddresses where
-    type Sv DescribeAddresses = EC2
-    type Rs DescribeAddresses = DescribeAddressesResponse
-
-    request  = post "DescribeAddresses"
-    response = xmlResponse
-
-instance FromXML DescribeAddressesResponse where
-    parseXML x = DescribeAddressesResponse
-        <$> x .@? "addressesSet" .!@ mempty
+-- | The response status code.
+darsStatus :: Lens' DescribeAddressesResponse Int
+darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

@@ -1,140 +1,153 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElastiCache.CreateCacheParameterGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /CreateCacheParameterGroup/ action creates a new cache parameter group. A
--- cache parameter group is a collection of parameters that you apply to all of
--- the nodes in a cache cluster.
+-- |
+-- Module      : Network.AWS.ElastiCache.CreateCacheParameterGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheParameterGroup.html>
+-- The /CreateCacheParameterGroup/ action creates a new cache parameter
+-- group. A cache parameter group is a collection of parameters that you
+-- apply to all of the nodes in a cache cluster.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheParameterGroup.html AWS API Reference> for CreateCacheParameterGroup.
 module Network.AWS.ElastiCache.CreateCacheParameterGroup
     (
-    -- * Request
-      CreateCacheParameterGroup
-    -- ** Request constructor
-    , createCacheParameterGroup
-    -- ** Request lenses
-    , ccpgCacheParameterGroupFamily
+    -- * Creating a Request
+      createCacheParameterGroup
+    , CreateCacheParameterGroup
+    -- * Request Lenses
     , ccpgCacheParameterGroupName
+    , ccpgCacheParameterGroupFamily
     , ccpgDescription
 
-    -- * Response
-    , CreateCacheParameterGroupResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createCacheParameterGroupResponse
-    -- ** Response lenses
-    , ccpgrCacheParameterGroup
+    , CreateCacheParameterGroupResponse
+    -- * Response Lenses
+    , ccpgrsCacheParameterGroup
+    , ccpgrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateCacheParameterGroup = CreateCacheParameterGroup
-    { _ccpgCacheParameterGroupFamily :: Text
-    , _ccpgCacheParameterGroupName   :: Text
-    , _ccpgDescription               :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Represents the input of a /CreateCacheParameterGroup/ action.
+--
+-- /See:/ 'createCacheParameterGroup' smart constructor.
+data CreateCacheParameterGroup = CreateCacheParameterGroup'
+    { _ccpgCacheParameterGroupName   :: !Text
+    , _ccpgCacheParameterGroupFamily :: !Text
+    , _ccpgDescription               :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateCacheParameterGroup' constructor.
+-- | Creates a value of 'CreateCacheParameterGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ccpgCacheParameterGroupFamily' @::@ 'Text'
+-- * 'ccpgCacheParameterGroupName'
 --
--- * 'ccpgCacheParameterGroupName' @::@ 'Text'
+-- * 'ccpgCacheParameterGroupFamily'
 --
--- * 'ccpgDescription' @::@ 'Text'
---
-createCacheParameterGroup :: Text -- ^ 'ccpgCacheParameterGroupName'
-                          -> Text -- ^ 'ccpgCacheParameterGroupFamily'
-                          -> Text -- ^ 'ccpgDescription'
-                          -> CreateCacheParameterGroup
-createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroup
-    { _ccpgCacheParameterGroupName   = p1
-    , _ccpgCacheParameterGroupFamily = p2
-    , _ccpgDescription               = p3
+-- * 'ccpgDescription'
+createCacheParameterGroup
+    :: Text -- ^ 'ccpgCacheParameterGroupName'
+    -> Text -- ^ 'ccpgCacheParameterGroupFamily'
+    -> Text -- ^ 'ccpgDescription'
+    -> CreateCacheParameterGroup
+createCacheParameterGroup pCacheParameterGroupName_ pCacheParameterGroupFamily_ pDescription_ =
+    CreateCacheParameterGroup'
+    { _ccpgCacheParameterGroupName = pCacheParameterGroupName_
+    , _ccpgCacheParameterGroupFamily = pCacheParameterGroupFamily_
+    , _ccpgDescription = pDescription_
     }
-
--- | The name of the cache parameter group family the cache parameter group can be
--- used with.
---
--- Valid values are: 'memcached1.4' | 'redis2.6' | 'redis2.8'
-ccpgCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text
-ccpgCacheParameterGroupFamily =
-    lens _ccpgCacheParameterGroupFamily
-        (\s a -> s { _ccpgCacheParameterGroupFamily = a })
 
 -- | A user-specified name for the cache parameter group.
 ccpgCacheParameterGroupName :: Lens' CreateCacheParameterGroup Text
-ccpgCacheParameterGroupName =
-    lens _ccpgCacheParameterGroupName
-        (\s a -> s { _ccpgCacheParameterGroupName = a })
+ccpgCacheParameterGroupName = lens _ccpgCacheParameterGroupName (\ s a -> s{_ccpgCacheParameterGroupName = a});
+
+-- | The name of the cache parameter group family the cache parameter group
+-- can be used with.
+--
+-- Valid values are: 'memcached1.4' | 'redis2.6' | 'redis2.8'
+ccpgCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text
+ccpgCacheParameterGroupFamily = lens _ccpgCacheParameterGroupFamily (\ s a -> s{_ccpgCacheParameterGroupFamily = a});
 
 -- | A user-specified description for the cache parameter group.
 ccpgDescription :: Lens' CreateCacheParameterGroup Text
-ccpgDescription = lens _ccpgDescription (\s a -> s { _ccpgDescription = a })
-
-newtype CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
-    { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
-    } deriving (Eq, Read, Show)
-
--- | 'CreateCacheParameterGroupResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccpgrCacheParameterGroup' @::@ 'Maybe' 'CacheParameterGroup'
---
-createCacheParameterGroupResponse :: CreateCacheParameterGroupResponse
-createCacheParameterGroupResponse = CreateCacheParameterGroupResponse
-    { _ccpgrCacheParameterGroup = Nothing
-    }
-
-ccpgrCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
-ccpgrCacheParameterGroup =
-    lens _ccpgrCacheParameterGroup
-        (\s a -> s { _ccpgrCacheParameterGroup = a })
-
-instance ToPath CreateCacheParameterGroup where
-    toPath = const "/"
-
-instance ToQuery CreateCacheParameterGroup where
-    toQuery CreateCacheParameterGroup{..} = mconcat
-        [ "CacheParameterGroupFamily" =? _ccpgCacheParameterGroupFamily
-        , "CacheParameterGroupName"   =? _ccpgCacheParameterGroupName
-        , "Description"               =? _ccpgDescription
-        ]
-
-instance ToHeaders CreateCacheParameterGroup
+ccpgDescription = lens _ccpgDescription (\ s a -> s{_ccpgDescription = a});
 
 instance AWSRequest CreateCacheParameterGroup where
-    type Sv CreateCacheParameterGroup = ElastiCache
-    type Rs CreateCacheParameterGroup = CreateCacheParameterGroupResponse
+        type Sv CreateCacheParameterGroup = ElastiCache
+        type Rs CreateCacheParameterGroup =
+             CreateCacheParameterGroupResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "CreateCacheParameterGroupResult"
+              (\ s h x ->
+                 CreateCacheParameterGroupResponse' <$>
+                   (x .@? "CacheParameterGroup") <*>
+                     (pure (fromEnum s)))
 
-    request  = post "CreateCacheParameterGroup"
-    response = xmlResponse
+instance ToHeaders CreateCacheParameterGroup where
+        toHeaders = const mempty
 
-instance FromXML CreateCacheParameterGroupResponse where
-    parseXML = withElement "CreateCacheParameterGroupResult" $ \x -> CreateCacheParameterGroupResponse
-        <$> x .@? "CacheParameterGroup"
+instance ToPath CreateCacheParameterGroup where
+        toPath = const "/"
+
+instance ToQuery CreateCacheParameterGroup where
+        toQuery CreateCacheParameterGroup'{..}
+          = mconcat
+              ["Action" =:
+                 ("CreateCacheParameterGroup" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "CacheParameterGroupName" =:
+                 _ccpgCacheParameterGroupName,
+               "CacheParameterGroupFamily" =:
+                 _ccpgCacheParameterGroupFamily,
+               "Description" =: _ccpgDescription]
+
+-- | /See:/ 'createCacheParameterGroupResponse' smart constructor.
+data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
+    { _ccpgrsCacheParameterGroup :: !(Maybe CacheParameterGroup)
+    , _ccpgrsStatus              :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateCacheParameterGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ccpgrsCacheParameterGroup'
+--
+-- * 'ccpgrsStatus'
+createCacheParameterGroupResponse
+    :: Int -- ^ 'ccpgrsStatus'
+    -> CreateCacheParameterGroupResponse
+createCacheParameterGroupResponse pStatus_ =
+    CreateCacheParameterGroupResponse'
+    { _ccpgrsCacheParameterGroup = Nothing
+    , _ccpgrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+ccpgrsCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
+ccpgrsCacheParameterGroup = lens _ccpgrsCacheParameterGroup (\ s a -> s{_ccpgrsCacheParameterGroup = a});
+
+-- | The response status code.
+ccpgrsStatus :: Lens' CreateCacheParameterGroupResponse Int
+ccpgrsStatus = lens _ccpgrsStatus (\ s a -> s{_ccpgrsStatus = a});

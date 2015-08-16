@@ -1,118 +1,119 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.PutBucketReplication
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new replication configuration (or replaces an existing one, if
+-- |
+-- Module      : Network.AWS.S3.PutBucketReplication
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Creates a new replication configuration (or replaces an existing one, if
 -- present).
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketReplication.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketReplication.html AWS API Reference> for PutBucketReplication.
 module Network.AWS.S3.PutBucketReplication
     (
-    -- * Request
-      PutBucketReplication
-    -- ** Request constructor
-    , putBucketReplication
-    -- ** Request lenses
-    , pbrBucket
+    -- * Creating a Request
+      putBucketReplication
+    , PutBucketReplication
+    -- * Request Lenses
     , pbrContentMD5
+    , pbrBucket
     , pbrReplicationConfiguration
 
-    -- * Response
-    , PutBucketReplicationResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , putBucketReplicationResponse
+    , PutBucketReplicationResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-data PutBucketReplication = PutBucketReplication
-    { _pbrBucket                   :: Text
-    , _pbrContentMD5               :: Maybe Text
-    , _pbrReplicationConfiguration :: ReplicationConfiguration
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'putBucketReplication' smart constructor.
+data PutBucketReplication = PutBucketReplication'
+    { _pbrContentMD5               :: !(Maybe Text)
+    , _pbrBucket                   :: !BucketName
+    , _pbrReplicationConfiguration :: !ReplicationConfiguration
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'PutBucketReplication' constructor.
+-- | Creates a value of 'PutBucketReplication' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'pbrBucket' @::@ 'Text'
+-- * 'pbrContentMD5'
 --
--- * 'pbrContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbrBucket'
 --
--- * 'pbrReplicationConfiguration' @::@ 'ReplicationConfiguration'
---
-putBucketReplication :: Text -- ^ 'pbrBucket'
-                     -> ReplicationConfiguration -- ^ 'pbrReplicationConfiguration'
-                     -> PutBucketReplication
-putBucketReplication p1 p2 = PutBucketReplication
-    { _pbrBucket                   = p1
-    , _pbrReplicationConfiguration = p2
-    , _pbrContentMD5               = Nothing
+-- * 'pbrReplicationConfiguration'
+putBucketReplication
+    :: BucketName -- ^ 'pbrBucket'
+    -> ReplicationConfiguration -- ^ 'pbrReplicationConfiguration'
+    -> PutBucketReplication
+putBucketReplication pBucket_ pReplicationConfiguration_ =
+    PutBucketReplication'
+    { _pbrContentMD5 = Nothing
+    , _pbrBucket = pBucket_
+    , _pbrReplicationConfiguration = pReplicationConfiguration_
     }
 
-pbrBucket :: Lens' PutBucketReplication Text
-pbrBucket = lens _pbrBucket (\s a -> s { _pbrBucket = a })
-
+-- | Undocumented member.
 pbrContentMD5 :: Lens' PutBucketReplication (Maybe Text)
-pbrContentMD5 = lens _pbrContentMD5 (\s a -> s { _pbrContentMD5 = a })
+pbrContentMD5 = lens _pbrContentMD5 (\ s a -> s{_pbrContentMD5 = a});
 
+-- | Undocumented member.
+pbrBucket :: Lens' PutBucketReplication BucketName
+pbrBucket = lens _pbrBucket (\ s a -> s{_pbrBucket = a});
+
+-- | Undocumented member.
 pbrReplicationConfiguration :: Lens' PutBucketReplication ReplicationConfiguration
-pbrReplicationConfiguration =
-    lens _pbrReplicationConfiguration
-        (\s a -> s { _pbrReplicationConfiguration = a })
-
-data PutBucketReplicationResponse = PutBucketReplicationResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'PutBucketReplicationResponse' constructor.
-putBucketReplicationResponse :: PutBucketReplicationResponse
-putBucketReplicationResponse = PutBucketReplicationResponse
-
-instance ToPath PutBucketReplication where
-    toPath PutBucketReplication{..} = mconcat
-        [ "/"
-        , toText _pbrBucket
-        ]
-
-instance ToQuery PutBucketReplication where
-    toQuery = const "replication"
-
-instance ToHeaders PutBucketReplication where
-    toHeaders PutBucketReplication{..} = mconcat
-        [ "Content-MD5" =: _pbrContentMD5
-        ]
-
-instance ToXMLRoot PutBucketReplication where
-    toXMLRoot = extractRoot ns . toXML . _pbrReplicationConfiguration
-
-instance ToXML PutBucketReplication
+pbrReplicationConfiguration = lens _pbrReplicationConfiguration (\ s a -> s{_pbrReplicationConfiguration = a});
 
 instance AWSRequest PutBucketReplication where
-    type Sv PutBucketReplication = S3
-    type Rs PutBucketReplication = PutBucketReplicationResponse
+        type Sv PutBucketReplication = S3
+        type Rs PutBucketReplication =
+             PutBucketReplicationResponse
+        request = putXML
+        response = receiveNull PutBucketReplicationResponse'
 
-    request  = put
-    response = nullResponse PutBucketReplicationResponse
+instance ToElement PutBucketReplication where
+        toElement
+          = mkElement
+              "{http://s3.amazonaws.com/doc/2006-03-01/}ReplicationConfiguration"
+              .
+              _pbrReplicationConfiguration
+
+instance ToHeaders PutBucketReplication where
+        toHeaders PutBucketReplication'{..}
+          = mconcat ["Content-MD5" =# _pbrContentMD5]
+
+instance ToPath PutBucketReplication where
+        toPath PutBucketReplication'{..}
+          = mconcat ["/", toBS _pbrBucket]
+
+instance ToQuery PutBucketReplication where
+        toQuery = const (mconcat ["replication"])
+
+-- | /See:/ 'putBucketReplicationResponse' smart constructor.
+data PutBucketReplicationResponse =
+    PutBucketReplicationResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'PutBucketReplicationResponse' with the minimum fields required to make a request.
+--
+putBucketReplicationResponse
+    :: PutBucketReplicationResponse
+putBucketReplicationResponse = PutBucketReplicationResponse'

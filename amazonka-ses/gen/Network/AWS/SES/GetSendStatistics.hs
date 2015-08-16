@@ -1,104 +1,118 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SES.GetSendStatistics
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns the user's sending statistics. The result is a list of data points,
--- representing the last two weeks of sending activity.
+-- |
+-- Module      : Network.AWS.SES.GetSendStatistics
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- Each data point in the list contains statistics for a 15-minute interval.
+-- Returns the user\'s sending statistics. The result is a list of data
+-- points, representing the last two weeks of sending activity.
+--
+-- Each data point in the list contains statistics for a 15-minute
+-- interval.
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendStatistics.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetSendStatistics.html AWS API Reference> for GetSendStatistics.
 module Network.AWS.SES.GetSendStatistics
     (
-    -- * Request
-      GetSendStatistics
-    -- ** Request constructor
-    , getSendStatistics
+    -- * Creating a Request
+      getSendStatistics
+    , GetSendStatistics
 
-    -- * Response
-    , GetSendStatisticsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getSendStatisticsResponse
-    -- ** Response lenses
-    , gssrSendDataPoints
+    , GetSendStatisticsResponse
+    -- * Response Lenses
+    , gssrsSendDataPoints
+    , gssrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SES.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
+import           Network.AWS.SES.Types.Product
 
-data GetSendStatistics = GetSendStatistics
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | /See:/ 'getSendStatistics' smart constructor.
+data GetSendStatistics =
+    GetSendStatistics'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetSendStatistics' constructor.
-getSendStatistics :: GetSendStatistics
-getSendStatistics = GetSendStatistics
-
-newtype GetSendStatisticsResponse = GetSendStatisticsResponse
-    { _gssrSendDataPoints :: List "member" SendDataPoint
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList GetSendStatisticsResponse where
-    type Item GetSendStatisticsResponse = SendDataPoint
-
-    fromList = GetSendStatisticsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _gssrSendDataPoints
-
--- | 'GetSendStatisticsResponse' constructor.
+-- | Creates a value of 'GetSendStatistics' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+getSendStatistics
+    :: GetSendStatistics
+getSendStatistics = GetSendStatistics'
+
+instance AWSRequest GetSendStatistics where
+        type Sv GetSendStatistics = SES
+        type Rs GetSendStatistics = GetSendStatisticsResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "GetSendStatisticsResult"
+              (\ s h x ->
+                 GetSendStatisticsResponse' <$>
+                   (x .@? "SendDataPoints" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders GetSendStatistics where
+        toHeaders = const mempty
+
+instance ToPath GetSendStatistics where
+        toPath = const "/"
+
+instance ToQuery GetSendStatistics where
+        toQuery
+          = const
+              (mconcat
+                 ["Action" =: ("GetSendStatistics" :: ByteString),
+                  "Version" =: ("2010-12-01" :: ByteString)])
+
+-- | Represents a list of 'SendDataPoint' items returned from a successful
+-- 'GetSendStatistics' request. This list contains aggregated data from the
+-- previous two weeks of sending activity.
 --
--- * 'gssrSendDataPoints' @::@ ['SendDataPoint']
+-- /See:/ 'getSendStatisticsResponse' smart constructor.
+data GetSendStatisticsResponse = GetSendStatisticsResponse'
+    { _gssrsSendDataPoints :: !(Maybe [SendDataPoint])
+    , _gssrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetSendStatisticsResponse' with the minimum fields required to make a request.
 --
-getSendStatisticsResponse :: GetSendStatisticsResponse
-getSendStatisticsResponse = GetSendStatisticsResponse
-    { _gssrSendDataPoints = mempty
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gssrsSendDataPoints'
+--
+-- * 'gssrsStatus'
+getSendStatisticsResponse
+    :: Int -- ^ 'gssrsStatus'
+    -> GetSendStatisticsResponse
+getSendStatisticsResponse pStatus_ =
+    GetSendStatisticsResponse'
+    { _gssrsSendDataPoints = Nothing
+    , _gssrsStatus = pStatus_
     }
 
 -- | A list of data points, each of which represents 15 minutes of activity.
-gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
-gssrSendDataPoints =
-    lens _gssrSendDataPoints (\s a -> s { _gssrSendDataPoints = a })
-        . _List
+gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
+gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints = a}) . _Default . _Coerce;
 
-instance ToPath GetSendStatistics where
-    toPath = const "/"
-
-instance ToQuery GetSendStatistics where
-    toQuery = const mempty
-
-instance ToHeaders GetSendStatistics
-
-instance AWSRequest GetSendStatistics where
-    type Sv GetSendStatistics = SES
-    type Rs GetSendStatistics = GetSendStatisticsResponse
-
-    request  = post "GetSendStatistics"
-    response = xmlResponse
-
-instance FromXML GetSendStatisticsResponse where
-    parseXML = withElement "GetSendStatisticsResult" $ \x -> GetSendStatisticsResponse
-        <$> x .@? "SendDataPoints" .!@ mempty
+-- | The response status code.
+gssrsStatus :: Lens' GetSendStatisticsResponse Int
+gssrsStatus = lens _gssrsStatus (\ s a -> s{_gssrsStatus = a});

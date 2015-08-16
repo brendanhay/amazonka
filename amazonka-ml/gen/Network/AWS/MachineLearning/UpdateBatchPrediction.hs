@@ -1,130 +1,149 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.MachineLearning.UpdateBatchPrediction
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Updates the 'BatchPredictionName' of a 'BatchPrediction'.
+-- |
+-- Module      : Network.AWS.MachineLearning.UpdateBatchPrediction
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- You can use the 'GetBatchPrediction' operation to view the contents of the
+-- Updates the 'BatchPredictionName' of a 'BatchPrediction'.
+--
+-- You can use the GetBatchPrediction operation to view the contents of the
 -- updated data element.
 --
--- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateBatchPrediction.html>
+-- /See:/ <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateBatchPrediction.html AWS API Reference> for UpdateBatchPrediction.
 module Network.AWS.MachineLearning.UpdateBatchPrediction
     (
-    -- * Request
-      UpdateBatchPrediction
-    -- ** Request constructor
-    , updateBatchPrediction
-    -- ** Request lenses
+    -- * Creating a Request
+      updateBatchPrediction
+    , UpdateBatchPrediction
+    -- * Request Lenses
     , ubpBatchPredictionId
     , ubpBatchPredictionName
 
-    -- * Response
-    , UpdateBatchPredictionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , updateBatchPredictionResponse
-    -- ** Response lenses
-    , ubprBatchPredictionId
+    , UpdateBatchPredictionResponse
+    -- * Response Lenses
+    , ubprsBatchPredictionId
+    , ubprsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.MachineLearning.Types
-import qualified GHC.Exts
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.MachineLearning.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateBatchPrediction = UpdateBatchPrediction
-    { _ubpBatchPredictionId   :: Text
-    , _ubpBatchPredictionName :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'updateBatchPrediction' smart constructor.
+data UpdateBatchPrediction = UpdateBatchPrediction'
+    { _ubpBatchPredictionId   :: !Text
+    , _ubpBatchPredictionName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateBatchPrediction' constructor.
+-- | Creates a value of 'UpdateBatchPrediction' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ubpBatchPredictionId' @::@ 'Text'
+-- * 'ubpBatchPredictionId'
 --
--- * 'ubpBatchPredictionName' @::@ 'Text'
---
-updateBatchPrediction :: Text -- ^ 'ubpBatchPredictionId'
-                      -> Text -- ^ 'ubpBatchPredictionName'
-                      -> UpdateBatchPrediction
-updateBatchPrediction p1 p2 = UpdateBatchPrediction
-    { _ubpBatchPredictionId   = p1
-    , _ubpBatchPredictionName = p2
+-- * 'ubpBatchPredictionName'
+updateBatchPrediction
+    :: Text -- ^ 'ubpBatchPredictionId'
+    -> Text -- ^ 'ubpBatchPredictionName'
+    -> UpdateBatchPrediction
+updateBatchPrediction pBatchPredictionId_ pBatchPredictionName_ =
+    UpdateBatchPrediction'
+    { _ubpBatchPredictionId = pBatchPredictionId_
+    , _ubpBatchPredictionName = pBatchPredictionName_
     }
 
 -- | The ID assigned to the 'BatchPrediction' during creation.
 ubpBatchPredictionId :: Lens' UpdateBatchPrediction Text
-ubpBatchPredictionId =
-    lens _ubpBatchPredictionId (\s a -> s { _ubpBatchPredictionId = a })
+ubpBatchPredictionId = lens _ubpBatchPredictionId (\ s a -> s{_ubpBatchPredictionId = a});
 
 -- | A new user-supplied name or description of the 'BatchPrediction'.
 ubpBatchPredictionName :: Lens' UpdateBatchPrediction Text
-ubpBatchPredictionName =
-    lens _ubpBatchPredictionName (\s a -> s { _ubpBatchPredictionName = a })
-
-newtype UpdateBatchPredictionResponse = UpdateBatchPredictionResponse
-    { _ubprBatchPredictionId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'UpdateBatchPredictionResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ubprBatchPredictionId' @::@ 'Maybe' 'Text'
---
-updateBatchPredictionResponse :: UpdateBatchPredictionResponse
-updateBatchPredictionResponse = UpdateBatchPredictionResponse
-    { _ubprBatchPredictionId = Nothing
-    }
-
--- | The ID assigned to the 'BatchPrediction' during creation. This value should be
--- identical to the value of the 'BatchPredictionId' in the request.
-ubprBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
-ubprBatchPredictionId =
-    lens _ubprBatchPredictionId (\s a -> s { _ubprBatchPredictionId = a })
-
-instance ToPath UpdateBatchPrediction where
-    toPath = const "/"
-
-instance ToQuery UpdateBatchPrediction where
-    toQuery = const mempty
-
-instance ToHeaders UpdateBatchPrediction
-
-instance ToJSON UpdateBatchPrediction where
-    toJSON UpdateBatchPrediction{..} = object
-        [ "BatchPredictionId"   .= _ubpBatchPredictionId
-        , "BatchPredictionName" .= _ubpBatchPredictionName
-        ]
+ubpBatchPredictionName = lens _ubpBatchPredictionName (\ s a -> s{_ubpBatchPredictionName = a});
 
 instance AWSRequest UpdateBatchPrediction where
-    type Sv UpdateBatchPrediction = MachineLearning
-    type Rs UpdateBatchPrediction = UpdateBatchPredictionResponse
+        type Sv UpdateBatchPrediction = MachineLearning
+        type Rs UpdateBatchPrediction =
+             UpdateBatchPredictionResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdateBatchPredictionResponse' <$>
+                   (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
 
-    request  = post "UpdateBatchPrediction"
-    response = jsonResponse
+instance ToHeaders UpdateBatchPrediction where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonML_20141212.UpdateBatchPrediction" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON UpdateBatchPredictionResponse where
-    parseJSON = withObject "UpdateBatchPredictionResponse" $ \o -> UpdateBatchPredictionResponse
-        <$> o .:? "BatchPredictionId"
+instance ToJSON UpdateBatchPrediction where
+        toJSON UpdateBatchPrediction'{..}
+          = object
+              ["BatchPredictionId" .= _ubpBatchPredictionId,
+               "BatchPredictionName" .= _ubpBatchPredictionName]
+
+instance ToPath UpdateBatchPrediction where
+        toPath = const "/"
+
+instance ToQuery UpdateBatchPrediction where
+        toQuery = const mempty
+
+-- | Represents the output of an UpdateBatchPrediction operation.
+--
+-- You can see the updated content by using the GetBatchPrediction
+-- operation.
+--
+-- /See:/ 'updateBatchPredictionResponse' smart constructor.
+data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
+    { _ubprsBatchPredictionId :: !(Maybe Text)
+    , _ubprsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateBatchPredictionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ubprsBatchPredictionId'
+--
+-- * 'ubprsStatus'
+updateBatchPredictionResponse
+    :: Int -- ^ 'ubprsStatus'
+    -> UpdateBatchPredictionResponse
+updateBatchPredictionResponse pStatus_ =
+    UpdateBatchPredictionResponse'
+    { _ubprsBatchPredictionId = Nothing
+    , _ubprsStatus = pStatus_
+    }
+
+-- | The ID assigned to the 'BatchPrediction' during creation. This value
+-- should be identical to the value of the 'BatchPredictionId' in the
+-- request.
+ubprsBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
+ubprsBatchPredictionId = lens _ubprsBatchPredictionId (\ s a -> s{_ubprsBatchPredictionId = a});
+
+-- | The response status code.
+ubprsStatus :: Lens' UpdateBatchPredictionResponse Int
+ubprsStatus = lens _ubprsStatus (\ s a -> s{_ubprsStatus = a});

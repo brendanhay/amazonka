@@ -1,118 +1,145 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SNS.GetTopicAttributes
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns all of the properties of a topic. Topic properties returned might
--- differ based on the authorization of the user.
+-- |
+-- Module      : Network.AWS.SNS.GetTopicAttributes
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_GetTopicAttributes.html>
+-- Returns all of the properties of a topic. Topic properties returned
+-- might differ based on the authorization of the user.
+--
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetTopicAttributes.html AWS API Reference> for GetTopicAttributes.
 module Network.AWS.SNS.GetTopicAttributes
     (
-    -- * Request
-      GetTopicAttributes
-    -- ** Request constructor
-    , getTopicAttributes
-    -- ** Request lenses
-    , gtaTopicArn
+    -- * Creating a Request
+      getTopicAttributes
+    , GetTopicAttributes
+    -- * Request Lenses
+    , gtaTopicARN
 
-    -- * Response
-    , GetTopicAttributesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getTopicAttributesResponse
-    -- ** Response lenses
-    , gtarAttributes
+    , GetTopicAttributesResponse
+    -- * Response Lenses
+    , gtarsAttributes
+    , gtarsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
+import           Network.AWS.SNS.Types.Product
 
-newtype GetTopicAttributes = GetTopicAttributes
-    { _gtaTopicArn :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | Input for GetTopicAttributes action.
+--
+-- /See:/ 'getTopicAttributes' smart constructor.
+newtype GetTopicAttributes = GetTopicAttributes'
+    { _gtaTopicARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetTopicAttributes' constructor.
+-- | Creates a value of 'GetTopicAttributes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gtaTopicArn' @::@ 'Text'
---
-getTopicAttributes :: Text -- ^ 'gtaTopicArn'
-                   -> GetTopicAttributes
-getTopicAttributes p1 = GetTopicAttributes
-    { _gtaTopicArn = p1
+-- * 'gtaTopicARN'
+getTopicAttributes
+    :: Text -- ^ 'gtaTopicARN'
+    -> GetTopicAttributes
+getTopicAttributes pTopicARN_ =
+    GetTopicAttributes'
+    { _gtaTopicARN = pTopicARN_
     }
 
 -- | The ARN of the topic whose properties you want to get.
-gtaTopicArn :: Lens' GetTopicAttributes Text
-gtaTopicArn = lens _gtaTopicArn (\s a -> s { _gtaTopicArn = a })
-
-newtype GetTopicAttributesResponse = GetTopicAttributesResponse
-    { _gtarAttributes :: EMap "entry" "key" "value" Text Text
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
--- | 'GetTopicAttributesResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gtarAttributes' @::@ 'HashMap' 'Text' 'Text'
---
-getTopicAttributesResponse :: GetTopicAttributesResponse
-getTopicAttributesResponse = GetTopicAttributesResponse
-    { _gtarAttributes = mempty
-    }
-
--- | A map of the topic's attributes. Attributes in this map include the following:
---
--- 'TopicArn' -- the topic's ARN  'Owner' -- the AWS account ID of the topic's
--- owner  'Policy' -- the JSON serialization of the topic's access control policy  'DisplayName' -- the human-readable name used in the "From" field for
--- notifications to email and email-json endpoints  'SubscriptionsPending' -- the
--- number of subscriptions pending confirmation on this topic  'SubscriptionsConfirmed' -- the number of confirmed subscriptions on this topic  'SubscriptionsDeleted'
--- -- the number of deleted subscriptions on this topic  'DeliveryPolicy' -- the
--- JSON serialization of the topic's delivery policy  'EffectiveDeliveryPolicy' --
--- the JSON serialization of the effective delivery policy that takes into
--- account system defaults
-gtarAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
-gtarAttributes = lens _gtarAttributes (\s a -> s { _gtarAttributes = a }) . _EMap
-
-instance ToPath GetTopicAttributes where
-    toPath = const "/"
-
-instance ToQuery GetTopicAttributes where
-    toQuery GetTopicAttributes{..} = mconcat
-        [ "TopicArn" =? _gtaTopicArn
-        ]
-
-instance ToHeaders GetTopicAttributes
+gtaTopicARN :: Lens' GetTopicAttributes Text
+gtaTopicARN = lens _gtaTopicARN (\ s a -> s{_gtaTopicARN = a});
 
 instance AWSRequest GetTopicAttributes where
-    type Sv GetTopicAttributes = SNS
-    type Rs GetTopicAttributes = GetTopicAttributesResponse
+        type Sv GetTopicAttributes = SNS
+        type Rs GetTopicAttributes =
+             GetTopicAttributesResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "GetTopicAttributesResult"
+              (\ s h x ->
+                 GetTopicAttributesResponse' <$>
+                   (x .@? "Attributes" .!@ mempty >>=
+                      may (parseXMLMap "entry" "key" "value"))
+                     <*> (pure (fromEnum s)))
 
-    request  = post "GetTopicAttributes"
-    response = xmlResponse
+instance ToHeaders GetTopicAttributes where
+        toHeaders = const mempty
 
-instance FromXML GetTopicAttributesResponse where
-    parseXML = withElement "GetTopicAttributesResult" $ \x -> GetTopicAttributesResponse
-        <$> x .@? "Attributes" .!@ mempty
+instance ToPath GetTopicAttributes where
+        toPath = const "/"
+
+instance ToQuery GetTopicAttributes where
+        toQuery GetTopicAttributes'{..}
+          = mconcat
+              ["Action" =: ("GetTopicAttributes" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "TopicArn" =: _gtaTopicARN]
+
+-- | Response for GetTopicAttributes action.
+--
+-- /See:/ 'getTopicAttributesResponse' smart constructor.
+data GetTopicAttributesResponse = GetTopicAttributesResponse'
+    { _gtarsAttributes :: !(Maybe (Map Text Text))
+    , _gtarsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetTopicAttributesResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gtarsAttributes'
+--
+-- * 'gtarsStatus'
+getTopicAttributesResponse
+    :: Int -- ^ 'gtarsStatus'
+    -> GetTopicAttributesResponse
+getTopicAttributesResponse pStatus_ =
+    GetTopicAttributesResponse'
+    { _gtarsAttributes = Nothing
+    , _gtarsStatus = pStatus_
+    }
+
+-- | A map of the topic\'s attributes. Attributes in this map include the
+-- following:
+--
+-- -   'TopicArn' -- the topic\'s ARN
+-- -   'Owner' -- the AWS account ID of the topic\'s owner
+-- -   'Policy' -- the JSON serialization of the topic\'s access control
+--     policy
+-- -   'DisplayName' -- the human-readable name used in the \"From\" field
+--     for notifications to email and email-json endpoints
+-- -   'SubscriptionsPending' -- the number of subscriptions pending
+--     confirmation on this topic
+-- -   'SubscriptionsConfirmed' -- the number of confirmed subscriptions on
+--     this topic
+-- -   'SubscriptionsDeleted' -- the number of deleted subscriptions on
+--     this topic
+-- -   'DeliveryPolicy' -- the JSON serialization of the topic\'s delivery
+--     policy
+-- -   'EffectiveDeliveryPolicy' -- the JSON serialization of the effective
+--     delivery policy that takes into account system defaults
+gtarsAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
+gtarsAttributes = lens _gtarsAttributes (\ s a -> s{_gtarsAttributes = a}) . _Default . _Map;
+
+-- | The response status code.
+gtarsStatus :: Lens' GetTopicAttributesResponse Int
+gtarsStatus = lens _gtarsStatus (\ s a -> s{_gtarsStatus = a});

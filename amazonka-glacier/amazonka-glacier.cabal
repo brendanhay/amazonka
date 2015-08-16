@@ -1,30 +1,66 @@
 name:                  amazonka-glacier
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon Glacier SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Glacier is a secure, durable, and extremely low-cost storage service
-    for data archiving and online backup. Customers can reliably store large or
-    small amounts of data for as little as $0.01 per gigabyte per month, a
-    significant savings compared to on-premises solutions. To keep costs low,
-    Amazon Glacier is optimized for infrequently accessed data where a retrieval
-    time of several hours is suitable.
+    Amazon Glacier is a storage solution for \"cold data.\"
 
+    Amazon Glacier is an extremely low-cost storage service that provides
+    secure, durable, and easy-to-use storage for data backup and archival.
+    With Amazon Glacier, customers can store their data cost effectively for
+    months, years, or decades. Amazon Glacier also enables customers to
+    offload the administrative burdens of operating and scaling storage to
+    AWS, so they don\'t have to worry about capacity planning, hardware
+    provisioning, data replication, hardware failure and recovery, or
+    time-consuming hardware migrations.
+
+    Amazon Glacier is a great storage choice when low storage cost is
+    paramount, your data is rarely retrieved, and retrieval latency of
+    several hours is acceptable. If your application requires fast or
+    frequent access to your data, consider using Amazon S3. For more
+    information, go to
+    <http://aws.amazon.com/s3/ Amazon Simple Storage Service (Amazon S3)>.
+
+    You can store any kind of data in any format. There is no maximum limit
+    on the total amount of data you can store in Amazon Glacier.
+
+    If you are a first-time user of Amazon Glacier, we recommend that you
+    begin by reading the following sections in the /Amazon Glacier Developer
+    Guide/:
+
+    -   <http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html What is Amazon Glacier>
+        - This section of the Developer Guide describes the underlying data
+        model, the operations it supports, and the AWS SDKs that you can use
+        to interact with the service.
+
+    -   <http://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html Getting Started with Amazon Glacier>
+        - The Getting Started section walks you through the process of
+        creating a vault, uploading archives, creating jobs to download
+        archives, retrieving the job output, and deleting archives.
     .
-    /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html AWS API Reference>
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information and sending requests.
     .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
+    Use of lenses is required for constructing and manipulating types.
+    This is due to the amount of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.Glacier" and the <http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html AWS API Reference>
+    to get started.
 
 source-repository head
     type:     git
@@ -39,7 +75,10 @@ library
     exposed-modules:
           Network.AWS.Glacier
         , Network.AWS.Glacier.AbortMultipartUpload
+        , Network.AWS.Glacier.AbortVaultLock
+        , Network.AWS.Glacier.AddTagsToVault
         , Network.AWS.Glacier.CompleteMultipartUpload
+        , Network.AWS.Glacier.CompleteVaultLock
         , Network.AWS.Glacier.CreateVault
         , Network.AWS.Glacier.DeleteArchive
         , Network.AWS.Glacier.DeleteVault
@@ -50,22 +89,57 @@ library
         , Network.AWS.Glacier.GetDataRetrievalPolicy
         , Network.AWS.Glacier.GetJobOutput
         , Network.AWS.Glacier.GetVaultAccessPolicy
+        , Network.AWS.Glacier.GetVaultLock
         , Network.AWS.Glacier.GetVaultNotifications
         , Network.AWS.Glacier.InitiateJob
         , Network.AWS.Glacier.InitiateMultipartUpload
+        , Network.AWS.Glacier.InitiateVaultLock
         , Network.AWS.Glacier.ListJobs
         , Network.AWS.Glacier.ListMultipartUploads
         , Network.AWS.Glacier.ListParts
+        , Network.AWS.Glacier.ListTagsForVault
         , Network.AWS.Glacier.ListVaults
+        , Network.AWS.Glacier.RemoveTagsFromVault
         , Network.AWS.Glacier.SetDataRetrievalPolicy
         , Network.AWS.Glacier.SetVaultAccessPolicy
         , Network.AWS.Glacier.SetVaultNotifications
         , Network.AWS.Glacier.Types
         , Network.AWS.Glacier.UploadArchive
         , Network.AWS.Glacier.UploadMultipartPart
+        , Network.AWS.Glacier.Waiters
 
     other-modules:
+          Network.AWS.Glacier.Types.Product
+        , Network.AWS.Glacier.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-glacier-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.Glacier
+        , Test.AWS.Gen.Glacier
+        , Test.AWS.Glacier.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test == 1.0.0
+        , amazonka-glacier == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

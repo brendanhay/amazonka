@@ -1,91 +1,130 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElasticBeanstalk.CheckDNSAvailability
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Checks if the specified CNAME is available.
+-- |
+-- Module      : Network.AWS.ElasticBeanstalk.CheckDNSAvailability
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CheckDNSAvailability.html>
+-- Checks if the specified CNAME is available.
+--
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CheckDNSAvailability.html AWS API Reference> for CheckDNSAvailability.
 module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     (
-    -- * Request
-      CheckDNSAvailability
-    -- ** Request constructor
-    , checkDNSAvailability
-    -- ** Request lenses
-    , cdnsaCNAMEPrefix
+    -- * Creating a Request
+      checkDNSAvailability
+    , CheckDNSAvailability
+    -- * Request Lenses
+    , cdaCNAMEPrefix
 
-    -- * Response
-    , CheckDNSAvailabilityResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , checkDNSAvailabilityResponse
-    -- ** Response lenses
-    , cdnsarAvailable
-    , cdnsarFullyQualifiedCNAME
+    , CheckDNSAvailabilityResponse
+    -- * Response Lenses
+    , cdarsFullyQualifiedCNAME
+    , cdarsAvailable
+    , cdarsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype CheckDNSAvailability = CheckDNSAvailability
-    { _cdnsaCNAMEPrefix :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | Results message indicating whether a CNAME is available.
+--
+-- /See:/ 'checkDNSAvailability' smart constructor.
+newtype CheckDNSAvailability = CheckDNSAvailability'
+    { _cdaCNAMEPrefix :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CheckDNSAvailability' constructor.
+-- | Creates a value of 'CheckDNSAvailability' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdnsaCNAMEPrefix' @::@ 'Text'
---
-checkDNSAvailability :: Text -- ^ 'cdnsaCNAMEPrefix'
-                     -> CheckDNSAvailability
-checkDNSAvailability p1 = CheckDNSAvailability
-    { _cdnsaCNAMEPrefix = p1
+-- * 'cdaCNAMEPrefix'
+checkDNSAvailability
+    :: Text -- ^ 'cdaCNAMEPrefix'
+    -> CheckDNSAvailability
+checkDNSAvailability pCNAMEPrefix_ =
+    CheckDNSAvailability'
+    { _cdaCNAMEPrefix = pCNAMEPrefix_
     }
 
 -- | The prefix used when this CNAME is reserved.
-cdnsaCNAMEPrefix :: Lens' CheckDNSAvailability Text
-cdnsaCNAMEPrefix = lens _cdnsaCNAMEPrefix (\s a -> s { _cdnsaCNAMEPrefix = a })
+cdaCNAMEPrefix :: Lens' CheckDNSAvailability Text
+cdaCNAMEPrefix = lens _cdaCNAMEPrefix (\ s a -> s{_cdaCNAMEPrefix = a});
 
-data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
-    { _cdnsarAvailable           :: Maybe Bool
-    , _cdnsarFullyQualifiedCNAME :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+instance AWSRequest CheckDNSAvailability where
+        type Sv CheckDNSAvailability = ElasticBeanstalk
+        type Rs CheckDNSAvailability =
+             CheckDNSAvailabilityResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "CheckDNSAvailabilityResult"
+              (\ s h x ->
+                 CheckDNSAvailabilityResponse' <$>
+                   (x .@? "FullyQualifiedCNAME") <*> (x .@? "Available")
+                     <*> (pure (fromEnum s)))
 
--- | 'CheckDNSAvailabilityResponse' constructor.
+instance ToHeaders CheckDNSAvailability where
+        toHeaders = const mempty
+
+instance ToPath CheckDNSAvailability where
+        toPath = const "/"
+
+instance ToQuery CheckDNSAvailability where
+        toQuery CheckDNSAvailability'{..}
+          = mconcat
+              ["Action" =: ("CheckDNSAvailability" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "CNAMEPrefix" =: _cdaCNAMEPrefix]
+
+-- | Indicates if the specified CNAME is available.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'checkDNSAvailabilityResponse' smart constructor.
+data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
+    { _cdarsFullyQualifiedCNAME :: !(Maybe Text)
+    , _cdarsAvailable           :: !(Maybe Bool)
+    , _cdarsStatus              :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CheckDNSAvailabilityResponse' with the minimum fields required to make a request.
 --
--- * 'cdnsarAvailable' @::@ 'Maybe' 'Bool'
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdnsarFullyQualifiedCNAME' @::@ 'Maybe' 'Text'
+-- * 'cdarsFullyQualifiedCNAME'
 --
-checkDNSAvailabilityResponse :: CheckDNSAvailabilityResponse
-checkDNSAvailabilityResponse = CheckDNSAvailabilityResponse
-    { _cdnsarAvailable           = Nothing
-    , _cdnsarFullyQualifiedCNAME = Nothing
+-- * 'cdarsAvailable'
+--
+-- * 'cdarsStatus'
+checkDNSAvailabilityResponse
+    :: Int -- ^ 'cdarsStatus'
+    -> CheckDNSAvailabilityResponse
+checkDNSAvailabilityResponse pStatus_ =
+    CheckDNSAvailabilityResponse'
+    { _cdarsFullyQualifiedCNAME = Nothing
+    , _cdarsAvailable = Nothing
+    , _cdarsStatus = pStatus_
     }
+
+-- | The fully qualified CNAME to reserve when CreateEnvironment is called
+-- with the provided prefix.
+cdarsFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
+cdarsFullyQualifiedCNAME = lens _cdarsFullyQualifiedCNAME (\ s a -> s{_cdarsFullyQualifiedCNAME = a});
 
 -- | Indicates if the specified CNAME is available:
 --
@@ -93,35 +132,11 @@ checkDNSAvailabilityResponse = CheckDNSAvailabilityResponse
 --
 -- 'true' : The CNAME is not available.
 --
--- 'true' : The CNAME is available.   'false' : The CNAME is not available.
-cdnsarAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
-cdnsarAvailable = lens _cdnsarAvailable (\s a -> s { _cdnsarAvailable = a })
+-- -   'true' : The CNAME is available.
+-- -   'false' : The CNAME is not available.
+cdarsAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
+cdarsAvailable = lens _cdarsAvailable (\ s a -> s{_cdarsAvailable = a});
 
--- | The fully qualified CNAME to reserve when 'CreateEnvironment' is called with
--- the provided prefix.
-cdnsarFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
-cdnsarFullyQualifiedCNAME =
-    lens _cdnsarFullyQualifiedCNAME
-        (\s a -> s { _cdnsarFullyQualifiedCNAME = a })
-
-instance ToPath CheckDNSAvailability where
-    toPath = const "/"
-
-instance ToQuery CheckDNSAvailability where
-    toQuery CheckDNSAvailability{..} = mconcat
-        [ "CNAMEPrefix" =? _cdnsaCNAMEPrefix
-        ]
-
-instance ToHeaders CheckDNSAvailability
-
-instance AWSRequest CheckDNSAvailability where
-    type Sv CheckDNSAvailability = ElasticBeanstalk
-    type Rs CheckDNSAvailability = CheckDNSAvailabilityResponse
-
-    request  = post "CheckDNSAvailability"
-    response = xmlResponse
-
-instance FromXML CheckDNSAvailabilityResponse where
-    parseXML = withElement "CheckDNSAvailabilityResult" $ \x -> CheckDNSAvailabilityResponse
-        <$> x .@? "Available"
-        <*> x .@? "FullyQualifiedCNAME"
+-- | The response status code.
+cdarsStatus :: Lens' CheckDNSAvailabilityResponse Int
+cdarsStatus = lens _cdarsStatus (\ s a -> s{_cdarsStatus = a});

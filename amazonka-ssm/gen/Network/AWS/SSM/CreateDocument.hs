@@ -1,127 +1,141 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SSM.CreateDocument
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a configuration document.
+-- |
+-- Module      : Network.AWS.SSM.CreateDocument
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- After you create a configuration document, you can use 'CreateAssociation' to
--- associate it with one or more running instances.
+-- Creates a configuration document.
 --
--- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateDocument.html>
+-- After you create a configuration document, you can use CreateAssociation
+-- to associate it with one or more running instances.
+--
+-- /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateDocument.html AWS API Reference> for CreateDocument.
 module Network.AWS.SSM.CreateDocument
     (
-    -- * Request
-      CreateDocument
-    -- ** Request constructor
-    , createDocument
-    -- ** Request lenses
+    -- * Creating a Request
+      createDocument
+    , CreateDocument
+    -- * Request Lenses
     , cdContent
     , cdName
 
-    -- * Response
-    , CreateDocumentResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createDocumentResponse
-    -- ** Response lenses
-    , cdrDocumentDescription
+    , CreateDocumentResponse
+    -- * Response Lenses
+    , cdrsDocumentDescription
+    , cdrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.SSM.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
+import           Network.AWS.SSM.Types.Product
 
-data CreateDocument = CreateDocument
-    { _cdContent :: Text
-    , _cdName    :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'createDocument' smart constructor.
+data CreateDocument = CreateDocument'
+    { _cdContent :: !Text
+    , _cdName    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDocument' constructor.
+-- | Creates a value of 'CreateDocument' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdContent' @::@ 'Text'
+-- * 'cdContent'
 --
--- * 'cdName' @::@ 'Text'
---
-createDocument :: Text -- ^ 'cdContent'
-               -> Text -- ^ 'cdName'
-               -> CreateDocument
-createDocument p1 p2 = CreateDocument
-    { _cdContent = p1
-    , _cdName    = p2
+-- * 'cdName'
+createDocument
+    :: Text -- ^ 'cdContent'
+    -> Text -- ^ 'cdName'
+    -> CreateDocument
+createDocument pContent_ pName_ =
+    CreateDocument'
+    { _cdContent = pContent_
+    , _cdName = pName_
     }
 
--- | A valid JSON file. For more information about the contents of this file, see <http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html Configuration Document>.
+-- | A valid JSON file. For more information about the contents of this file,
+-- see
+-- <http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html Configuration Document>.
 cdContent :: Lens' CreateDocument Text
-cdContent = lens _cdContent (\s a -> s { _cdContent = a })
+cdContent = lens _cdContent (\ s a -> s{_cdContent = a});
 
 -- | A name for the configuration document.
 cdName :: Lens' CreateDocument Text
-cdName = lens _cdName (\s a -> s { _cdName = a })
+cdName = lens _cdName (\ s a -> s{_cdName = a});
 
-newtype CreateDocumentResponse = CreateDocumentResponse
-    { _cdrDocumentDescription :: Maybe DocumentDescription
-    } deriving (Eq, Read, Show)
+instance AWSRequest CreateDocument where
+        type Sv CreateDocument = SSM
+        type Rs CreateDocument = CreateDocumentResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateDocumentResponse' <$>
+                   (x .?> "DocumentDescription") <*>
+                     (pure (fromEnum s)))
 
--- | 'CreateDocumentResponse' constructor.
+instance ToHeaders CreateDocument where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonSSM.CreateDocument" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON CreateDocument where
+        toJSON CreateDocument'{..}
+          = object ["Content" .= _cdContent, "Name" .= _cdName]
+
+instance ToPath CreateDocument where
+        toPath = const "/"
+
+instance ToQuery CreateDocument where
+        toQuery = const mempty
+
+-- | /See:/ 'createDocumentResponse' smart constructor.
+data CreateDocumentResponse = CreateDocumentResponse'
+    { _cdrsDocumentDescription :: !(Maybe DocumentDescription)
+    , _cdrsStatus              :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDocumentResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdrDocumentDescription' @::@ 'Maybe' 'DocumentDescription'
+-- * 'cdrsDocumentDescription'
 --
-createDocumentResponse :: CreateDocumentResponse
-createDocumentResponse = CreateDocumentResponse
-    { _cdrDocumentDescription = Nothing
+-- * 'cdrsStatus'
+createDocumentResponse
+    :: Int -- ^ 'cdrsStatus'
+    -> CreateDocumentResponse
+createDocumentResponse pStatus_ =
+    CreateDocumentResponse'
+    { _cdrsDocumentDescription = Nothing
+    , _cdrsStatus = pStatus_
     }
 
 -- | Information about the configuration document.
-cdrDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
-cdrDocumentDescription =
-    lens _cdrDocumentDescription (\s a -> s { _cdrDocumentDescription = a })
+cdrsDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
+cdrsDocumentDescription = lens _cdrsDocumentDescription (\ s a -> s{_cdrsDocumentDescription = a});
 
-instance ToPath CreateDocument where
-    toPath = const "/"
-
-instance ToQuery CreateDocument where
-    toQuery = const mempty
-
-instance ToHeaders CreateDocument
-
-instance ToJSON CreateDocument where
-    toJSON CreateDocument{..} = object
-        [ "Content" .= _cdContent
-        , "Name"    .= _cdName
-        ]
-
-instance AWSRequest CreateDocument where
-    type Sv CreateDocument = SSM
-    type Rs CreateDocument = CreateDocumentResponse
-
-    request  = post "CreateDocument"
-    response = jsonResponse
-
-instance FromJSON CreateDocumentResponse where
-    parseJSON = withObject "CreateDocumentResponse" $ \o -> CreateDocumentResponse
-        <$> o .:? "DocumentDescription"
+-- | The response status code.
+cdrsStatus :: Lens' CreateDocumentResponse Int
+cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

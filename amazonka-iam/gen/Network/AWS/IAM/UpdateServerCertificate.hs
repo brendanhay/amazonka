@@ -1,124 +1,133 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.UpdateServerCertificate
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Updates the name and/or the path of the specified server certificate.
+-- |
+-- Module      : Network.AWS.IAM.UpdateServerCertificate
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- You should understand the implications of changing a server certificate's
--- path or name. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html Managing Server Certificates> in the /Using IAM/ guide.  To change a server certificate name the requester must have
--- appropriate permissions on both the source object and the target object. For
+-- Updates the name and\/or the path of the specified server certificate.
+--
+-- You should understand the implications of changing a server
+-- certificate\'s path or name. For more information, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html Managing Server Certificates>
+-- in the /Using IAM/ guide.
+--
+-- To change a server certificate name the requester must have appropriate
+-- permissions on both the source object and the target object. For
 -- example, to change the name from ProductionCert to ProdCert, the entity
--- making the request must have permission on ProductionCert and ProdCert, or
--- must have permission on all (*). For more information about permissions, see Permissions and Policies
--- .
+-- making the request must have permission on ProductionCert and ProdCert,
+-- or must have permission on all (*). For more information about
+-- permissions, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html>
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateServerCertificate.html AWS API Reference> for UpdateServerCertificate.
 module Network.AWS.IAM.UpdateServerCertificate
     (
-    -- * Request
-      UpdateServerCertificate
-    -- ** Request constructor
-    , updateServerCertificate
-    -- ** Request lenses
-    , usc1NewPath
-    , usc1NewServerCertificateName
-    , usc1ServerCertificateName
+    -- * Creating a Request
+      updateServerCertificate
+    , UpdateServerCertificate
+    -- * Request Lenses
+    , uNewServerCertificateName
+    , uNewPath
+    , uServerCertificateName
 
-    -- * Response
-    , UpdateServerCertificateResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , updateServerCertificateResponse
+    , UpdateServerCertificateResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateServerCertificate = UpdateServerCertificate
-    { _usc1NewPath                  :: Maybe Text
-    , _usc1NewServerCertificateName :: Maybe Text
-    , _usc1ServerCertificateName    :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'updateServerCertificate' smart constructor.
+data UpdateServerCertificate = UpdateServerCertificate'
+    { _uNewServerCertificateName :: !(Maybe Text)
+    , _uNewPath                  :: !(Maybe Text)
+    , _uServerCertificateName    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateServerCertificate' constructor.
+-- | Creates a value of 'UpdateServerCertificate' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'usc1NewPath' @::@ 'Maybe' 'Text'
+-- * 'uNewServerCertificateName'
 --
--- * 'usc1NewServerCertificateName' @::@ 'Maybe' 'Text'
+-- * 'uNewPath'
 --
--- * 'usc1ServerCertificateName' @::@ 'Text'
---
-updateServerCertificate :: Text -- ^ 'usc1ServerCertificateName'
-                        -> UpdateServerCertificate
-updateServerCertificate p1 = UpdateServerCertificate
-    { _usc1ServerCertificateName    = p1
-    , _usc1NewPath                  = Nothing
-    , _usc1NewServerCertificateName = Nothing
+-- * 'uServerCertificateName'
+updateServerCertificate
+    :: Text -- ^ 'uServerCertificateName'
+    -> UpdateServerCertificate
+updateServerCertificate pServerCertificateName_ =
+    UpdateServerCertificate'
+    { _uNewServerCertificateName = Nothing
+    , _uNewPath = Nothing
+    , _uServerCertificateName = pServerCertificateName_
     }
 
--- | The new path for the server certificate. Include this only if you are
--- updating the server certificate's path.
-usc1NewPath :: Lens' UpdateServerCertificate (Maybe Text)
-usc1NewPath = lens _usc1NewPath (\s a -> s { _usc1NewPath = a })
-
 -- | The new name for the server certificate. Include this only if you are
--- updating the server certificate's name.
-usc1NewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
-usc1NewServerCertificateName =
-    lens _usc1NewServerCertificateName
-        (\s a -> s { _usc1NewServerCertificateName = a })
+-- updating the server certificate\'s name. The name of the certificate
+-- cannot contain any spaces.
+uNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
+uNewServerCertificateName = lens _uNewServerCertificateName (\ s a -> s{_uNewServerCertificateName = a});
+
+-- | The new path for the server certificate. Include this only if you are
+-- updating the server certificate\'s path.
+uNewPath :: Lens' UpdateServerCertificate (Maybe Text)
+uNewPath = lens _uNewPath (\ s a -> s{_uNewPath = a});
 
 -- | The name of the server certificate that you want to update.
-usc1ServerCertificateName :: Lens' UpdateServerCertificate Text
-usc1ServerCertificateName =
-    lens _usc1ServerCertificateName
-        (\s a -> s { _usc1ServerCertificateName = a })
-
-data UpdateServerCertificateResponse = UpdateServerCertificateResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UpdateServerCertificateResponse' constructor.
-updateServerCertificateResponse :: UpdateServerCertificateResponse
-updateServerCertificateResponse = UpdateServerCertificateResponse
-
-instance ToPath UpdateServerCertificate where
-    toPath = const "/"
-
-instance ToQuery UpdateServerCertificate where
-    toQuery UpdateServerCertificate{..} = mconcat
-        [ "NewPath"                  =? _usc1NewPath
-        , "NewServerCertificateName" =? _usc1NewServerCertificateName
-        , "ServerCertificateName"    =? _usc1ServerCertificateName
-        ]
-
-instance ToHeaders UpdateServerCertificate
+uServerCertificateName :: Lens' UpdateServerCertificate Text
+uServerCertificateName = lens _uServerCertificateName (\ s a -> s{_uServerCertificateName = a});
 
 instance AWSRequest UpdateServerCertificate where
-    type Sv UpdateServerCertificate = IAM
-    type Rs UpdateServerCertificate = UpdateServerCertificateResponse
+        type Sv UpdateServerCertificate = IAM
+        type Rs UpdateServerCertificate =
+             UpdateServerCertificateResponse
+        request = postQuery
+        response
+          = receiveNull UpdateServerCertificateResponse'
 
-    request  = post "UpdateServerCertificate"
-    response = nullResponse UpdateServerCertificateResponse
+instance ToHeaders UpdateServerCertificate where
+        toHeaders = const mempty
+
+instance ToPath UpdateServerCertificate where
+        toPath = const "/"
+
+instance ToQuery UpdateServerCertificate where
+        toQuery UpdateServerCertificate'{..}
+          = mconcat
+              ["Action" =:
+                 ("UpdateServerCertificate" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "NewServerCertificateName" =:
+                 _uNewServerCertificateName,
+               "NewPath" =: _uNewPath,
+               "ServerCertificateName" =: _uServerCertificateName]
+
+-- | /See:/ 'updateServerCertificateResponse' smart constructor.
+data UpdateServerCertificateResponse =
+    UpdateServerCertificateResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateServerCertificateResponse' with the minimum fields required to make a request.
+--
+updateServerCertificateResponse
+    :: UpdateServerCertificateResponse
+updateServerCertificateResponse = UpdateServerCertificateResponse'

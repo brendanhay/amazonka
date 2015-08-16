@@ -1,113 +1,146 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SES.SetIdentityDkimEnabled
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Enables or disables Easy DKIM signing of email sent from an identity:
+-- |
+-- Module      : Network.AWS.SES.SetIdentityDkimEnabled
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- If Easy DKIM signing is enabled for a domain name identity (e.g., 'example.com'), then Amazon SES will DKIM-sign all email sent by addresses under that
--- domain name (e.g., 'user@example.com'). If Easy DKIM signing is enabled for an
--- email address, then Amazon SES will DKIM-sign all email sent by that email
--- address.  For email addresses (e.g., 'user@example.com'), you can only enable
--- Easy DKIM signing if the corresponding domain (e.g., 'example.com') has been
--- set up for Easy DKIM using the AWS Console or the 'VerifyDomainDkim' action.
+-- Enables or disables Easy DKIM signing of email sent from an identity:
+--
+-- -   If Easy DKIM signing is enabled for a domain name identity (e.g.,
+--     'example.com'), then Amazon SES will DKIM-sign all email sent by
+--     addresses under that domain name (e.g., 'user\'example.com').
+-- -   If Easy DKIM signing is enabled for an email address, then Amazon
+--     SES will DKIM-sign all email sent by that email address.
+--
+-- For email addresses (e.g., 'user\'example.com'), you can only enable
+-- Easy DKIM signing if the corresponding domain (e.g., 'example.com') has
+-- been set up for Easy DKIM using the AWS Console or the
+-- 'VerifyDomainDkim' action.
 --
 -- This action is throttled at one request per second.
 --
--- For more information about Easy DKIM signing, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES DeveloperGuide>.
+-- For more information about Easy DKIM signing, go to the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityDkimEnabled.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityDkimEnabled.html AWS API Reference> for SetIdentityDkimEnabled.
 module Network.AWS.SES.SetIdentityDkimEnabled
     (
-    -- * Request
-      SetIdentityDkimEnabled
-    -- ** Request constructor
-    , setIdentityDkimEnabled
-    -- ** Request lenses
-    , sideDkimEnabled
+    -- * Creating a Request
+      setIdentityDkimEnabled
+    , SetIdentityDkimEnabled
+    -- * Request Lenses
     , sideIdentity
+    , sideDkimEnabled
 
-    -- * Response
-    , SetIdentityDkimEnabledResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , setIdentityDkimEnabledResponse
+    , SetIdentityDkimEnabledResponse
+    -- * Response Lenses
+    , sidersStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SES.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
+import           Network.AWS.SES.Types.Product
 
-data SetIdentityDkimEnabled = SetIdentityDkimEnabled
-    { _sideDkimEnabled :: Bool
-    , _sideIdentity    :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Represents a request instructing the service to enable or disable DKIM
+-- signing for an identity.
+--
+-- /See:/ 'setIdentityDkimEnabled' smart constructor.
+data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
+    { _sideIdentity    :: !Text
+    , _sideDkimEnabled :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'SetIdentityDkimEnabled' constructor.
+-- | Creates a value of 'SetIdentityDkimEnabled' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sideDkimEnabled' @::@ 'Bool'
+-- * 'sideIdentity'
 --
--- * 'sideIdentity' @::@ 'Text'
---
-setIdentityDkimEnabled :: Text -- ^ 'sideIdentity'
-                       -> Bool -- ^ 'sideDkimEnabled'
-                       -> SetIdentityDkimEnabled
-setIdentityDkimEnabled p1 p2 = SetIdentityDkimEnabled
-    { _sideIdentity    = p1
-    , _sideDkimEnabled = p2
+-- * 'sideDkimEnabled'
+setIdentityDkimEnabled
+    :: Text -- ^ 'sideIdentity'
+    -> Bool -- ^ 'sideDkimEnabled'
+    -> SetIdentityDkimEnabled
+setIdentityDkimEnabled pIdentity_ pDkimEnabled_ =
+    SetIdentityDkimEnabled'
+    { _sideIdentity = pIdentity_
+    , _sideDkimEnabled = pDkimEnabled_
     }
-
--- | Sets whether DKIM signing is enabled for an identity. Set to 'true' to enable
--- DKIM signing for this identity; 'false' to disable it.
-sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
-sideDkimEnabled = lens _sideDkimEnabled (\s a -> s { _sideDkimEnabled = a })
 
 -- | The identity for which DKIM signing should be enabled or disabled.
 sideIdentity :: Lens' SetIdentityDkimEnabled Text
-sideIdentity = lens _sideIdentity (\s a -> s { _sideIdentity = a })
+sideIdentity = lens _sideIdentity (\ s a -> s{_sideIdentity = a});
 
-data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'SetIdentityDkimEnabledResponse' constructor.
-setIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse
-setIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
-
-instance ToPath SetIdentityDkimEnabled where
-    toPath = const "/"
-
-instance ToQuery SetIdentityDkimEnabled where
-    toQuery SetIdentityDkimEnabled{..} = mconcat
-        [ "DkimEnabled" =? _sideDkimEnabled
-        , "Identity"    =? _sideIdentity
-        ]
-
-instance ToHeaders SetIdentityDkimEnabled
+-- | Sets whether DKIM signing is enabled for an identity. Set to 'true' to
+-- enable DKIM signing for this identity; 'false' to disable it.
+sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
+sideDkimEnabled = lens _sideDkimEnabled (\ s a -> s{_sideDkimEnabled = a});
 
 instance AWSRequest SetIdentityDkimEnabled where
-    type Sv SetIdentityDkimEnabled = SES
-    type Rs SetIdentityDkimEnabled = SetIdentityDkimEnabledResponse
+        type Sv SetIdentityDkimEnabled = SES
+        type Rs SetIdentityDkimEnabled =
+             SetIdentityDkimEnabledResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "SetIdentityDkimEnabledResult"
+              (\ s h x ->
+                 SetIdentityDkimEnabledResponse' <$>
+                   (pure (fromEnum s)))
 
-    request  = post "SetIdentityDkimEnabled"
-    response = nullResponse SetIdentityDkimEnabledResponse
+instance ToHeaders SetIdentityDkimEnabled where
+        toHeaders = const mempty
+
+instance ToPath SetIdentityDkimEnabled where
+        toPath = const "/"
+
+instance ToQuery SetIdentityDkimEnabled where
+        toQuery SetIdentityDkimEnabled'{..}
+          = mconcat
+              ["Action" =:
+                 ("SetIdentityDkimEnabled" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "Identity" =: _sideIdentity,
+               "DkimEnabled" =: _sideDkimEnabled]
+
+-- | An empty element. Receiving this element indicates that the request
+-- completed successfully.
+--
+-- /See:/ 'setIdentityDkimEnabledResponse' smart constructor.
+newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
+    { _sidersStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'SetIdentityDkimEnabledResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sidersStatus'
+setIdentityDkimEnabledResponse
+    :: Int -- ^ 'sidersStatus'
+    -> SetIdentityDkimEnabledResponse
+setIdentityDkimEnabledResponse pStatus_ =
+    SetIdentityDkimEnabledResponse'
+    { _sidersStatus = pStatus_
+    }
+
+-- | The response status code.
+sidersStatus :: Lens' SetIdentityDkimEnabledResponse Int
+sidersStatus = lens _sidersStatus (\ s a -> s{_sidersStatus = a});

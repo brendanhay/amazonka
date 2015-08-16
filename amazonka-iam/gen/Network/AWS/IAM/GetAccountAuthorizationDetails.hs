@@ -1,198 +1,222 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.GetAccountAuthorizationDetails
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Retrieves information about all IAM users, groups, roles, and policies in
--- your account, including their relationships to one another. Use this API to
--- obtain a snapshot of the configuration of IAM permissions (users, groups,
--- roles, and policies) in your account.
+-- |
+-- Module      : Network.AWS.IAM.GetAccountAuthorizationDetails
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- You can optionally filter the results using the 'Filter' parameter. You can
--- paginate the results using the 'MaxItems' and 'Marker' parameters.
+-- Retrieves information about all IAM users, groups, roles, and policies
+-- in your account, including their relationships to one another. Use this
+-- API to obtain a snapshot of the configuration of IAM permissions (users,
+-- groups, roles, and policies) in your account.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html>
+-- You can optionally filter the results using the 'Filter' parameter. You
+-- can paginate the results using the 'MaxItems' and 'Marker' parameters.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html AWS API Reference> for GetAccountAuthorizationDetails.
 module Network.AWS.IAM.GetAccountAuthorizationDetails
     (
-    -- * Request
-      GetAccountAuthorizationDetails
-    -- ** Request constructor
-    , getAccountAuthorizationDetails
-    -- ** Request lenses
-    , gaadFilter
-    , gaadMarker
+    -- * Creating a Request
+      getAccountAuthorizationDetails
+    , GetAccountAuthorizationDetails
+    -- * Request Lenses
     , gaadMaxItems
+    , gaadMarker
+    , gaadFilter
 
-    -- * Response
-    , GetAccountAuthorizationDetailsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getAccountAuthorizationDetailsResponse
-    -- ** Response lenses
-    , gaadrGroupDetailList
-    , gaadrIsTruncated
-    , gaadrMarker
-    , gaadrPolicies
-    , gaadrRoleDetailList
-    , gaadrUserDetailList
+    , GetAccountAuthorizationDetailsResponse
+    -- * Response Lenses
+    , gaadrsRoleDetailList
+    , gaadrsGroupDetailList
+    , gaadrsUserDetailList
+    , gaadrsMarker
+    , gaadrsIsTruncated
+    , gaadrsPolicies
+    , gaadrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails
-    { _gaadFilter   :: List "member" EntityType
-    , _gaadMarker   :: Maybe Text
-    , _gaadMaxItems :: Maybe Nat
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'getAccountAuthorizationDetails' smart constructor.
+data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
+    { _gaadMaxItems :: !(Maybe Nat)
+    , _gaadMarker   :: !(Maybe Text)
+    , _gaadFilter   :: !(Maybe [EntityType])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetAccountAuthorizationDetails' constructor.
+-- | Creates a value of 'GetAccountAuthorizationDetails' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gaadFilter' @::@ ['EntityType']
+-- * 'gaadMaxItems'
 --
--- * 'gaadMarker' @::@ 'Maybe' 'Text'
+-- * 'gaadMarker'
 --
--- * 'gaadMaxItems' @::@ 'Maybe' 'Natural'
---
-getAccountAuthorizationDetails :: GetAccountAuthorizationDetails
-getAccountAuthorizationDetails = GetAccountAuthorizationDetails
-    { _gaadFilter   = mempty
-    , _gaadMaxItems = Nothing
-    , _gaadMarker   = Nothing
+-- * 'gaadFilter'
+getAccountAuthorizationDetails
+    :: GetAccountAuthorizationDetails
+getAccountAuthorizationDetails =
+    GetAccountAuthorizationDetails'
+    { _gaadMaxItems = Nothing
+    , _gaadMarker = Nothing
+    , _gaadFilter = Nothing
     }
+
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the 'IsTruncated' response element is 'true'.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
+gaadMaxItems :: Lens' GetAccountAuthorizationDetails (Maybe Natural)
+gaadMaxItems = lens _gaadMaxItems (\ s a -> s{_gaadMaxItems = a}) . mapping _Nat;
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the 'Marker' element in the response you just received.
+gaadMarker :: Lens' GetAccountAuthorizationDetails (Maybe Text)
+gaadMarker = lens _gaadMarker (\ s a -> s{_gaadMarker = a});
 
 -- | A list of entity types (user, group, role, local managed policy, or AWS
 -- managed policy) for filtering the results.
 gaadFilter :: Lens' GetAccountAuthorizationDetails [EntityType]
-gaadFilter = lens _gaadFilter (\s a -> s { _gaadFilter = a }) . _List
+gaadFilter = lens _gaadFilter (\ s a -> s{_gaadFilter = a}) . _Default . _Coerce;
 
--- | Use this only when paginating results, and only in a subsequent request after
--- you've received a response where the results are truncated. Set it to the
--- value of the 'Marker' element in the response you just received.
-gaadMarker :: Lens' GetAccountAuthorizationDetails (Maybe Text)
-gaadMarker = lens _gaadMarker (\s a -> s { _gaadMarker = a })
-
--- | Use this only when paginating results to indicate the maximum number of items
--- you want in the response. If there are additional items beyond the maximum
--- you specify, the 'IsTruncated' response element is 'true'. This parameter is
--- optional. If you do not include it, it defaults to 100.
-gaadMaxItems :: Lens' GetAccountAuthorizationDetails (Maybe Natural)
-gaadMaxItems = lens _gaadMaxItems (\s a -> s { _gaadMaxItems = a }) . mapping _Nat
-
-data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse
-    { _gaadrGroupDetailList :: List "member" GroupDetail
-    , _gaadrIsTruncated     :: Maybe Bool
-    , _gaadrMarker          :: Maybe Text
-    , _gaadrPolicies        :: List "member" ManagedPolicyDetail
-    , _gaadrRoleDetailList  :: List "member" RoleDetail
-    , _gaadrUserDetailList  :: List "member" UserDetail
-    } deriving (Eq, Read, Show)
-
--- | 'GetAccountAuthorizationDetailsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gaadrGroupDetailList' @::@ ['GroupDetail']
---
--- * 'gaadrIsTruncated' @::@ 'Maybe' 'Bool'
---
--- * 'gaadrMarker' @::@ 'Maybe' 'Text'
---
--- * 'gaadrPolicies' @::@ ['ManagedPolicyDetail']
---
--- * 'gaadrRoleDetailList' @::@ ['RoleDetail']
---
--- * 'gaadrUserDetailList' @::@ ['UserDetail']
---
-getAccountAuthorizationDetailsResponse :: GetAccountAuthorizationDetailsResponse
-getAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse
-    { _gaadrUserDetailList  = mempty
-    , _gaadrGroupDetailList = mempty
-    , _gaadrRoleDetailList  = mempty
-    , _gaadrPolicies        = mempty
-    , _gaadrIsTruncated     = Nothing
-    , _gaadrMarker          = Nothing
-    }
-
--- | A list containing information about IAM groups.
-gaadrGroupDetailList :: Lens' GetAccountAuthorizationDetailsResponse [GroupDetail]
-gaadrGroupDetailList =
-    lens _gaadrGroupDetailList (\s a -> s { _gaadrGroupDetailList = a })
-        . _List
-
--- | A flag that indicates whether there are more items to return. If your results
--- were truncated, you can make a subsequent pagination request using the 'Marker'
--- request parameter to retrieve more items.
-gaadrIsTruncated :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Bool)
-gaadrIsTruncated = lens _gaadrIsTruncated (\s a -> s { _gaadrIsTruncated = a })
-
--- | If 'IsTruncated' is 'true', this element is present and contains the value to use
--- for the 'Marker' parameter in a subsequent pagination request.
-gaadrMarker :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Text)
-gaadrMarker = lens _gaadrMarker (\s a -> s { _gaadrMarker = a })
-
--- | A list containing information about managed policies.
-gaadrPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDetail]
-gaadrPolicies = lens _gaadrPolicies (\s a -> s { _gaadrPolicies = a }) . _List
-
--- | A list containing information about IAM roles.
-gaadrRoleDetailList :: Lens' GetAccountAuthorizationDetailsResponse [RoleDetail]
-gaadrRoleDetailList =
-    lens _gaadrRoleDetailList (\s a -> s { _gaadrRoleDetailList = a })
-        . _List
-
--- | A list containing information about IAM users.
-gaadrUserDetailList :: Lens' GetAccountAuthorizationDetailsResponse [UserDetail]
-gaadrUserDetailList =
-    lens _gaadrUserDetailList (\s a -> s { _gaadrUserDetailList = a })
-        . _List
-
-instance ToPath GetAccountAuthorizationDetails where
-    toPath = const "/"
-
-instance ToQuery GetAccountAuthorizationDetails where
-    toQuery GetAccountAuthorizationDetails{..} = mconcat
-        [ "Filter"   =? _gaadFilter
-        , "Marker"   =? _gaadMarker
-        , "MaxItems" =? _gaadMaxItems
-        ]
+instance AWSRequest GetAccountAuthorizationDetails
+         where
+        type Sv GetAccountAuthorizationDetails = IAM
+        type Rs GetAccountAuthorizationDetails =
+             GetAccountAuthorizationDetailsResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "GetAccountAuthorizationDetailsResult"
+              (\ s h x ->
+                 GetAccountAuthorizationDetailsResponse' <$>
+                   (x .@? "RoleDetailList" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*>
+                     (x .@? "GroupDetailList" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*>
+                     (x .@? "UserDetailList" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*> (x .@? "Marker")
+                     <*> (x .@? "IsTruncated")
+                     <*>
+                     (x .@? "Policies" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
 instance ToHeaders GetAccountAuthorizationDetails
+         where
+        toHeaders = const mempty
 
-instance AWSRequest GetAccountAuthorizationDetails where
-    type Sv GetAccountAuthorizationDetails = IAM
-    type Rs GetAccountAuthorizationDetails = GetAccountAuthorizationDetailsResponse
+instance ToPath GetAccountAuthorizationDetails where
+        toPath = const "/"
 
-    request  = post "GetAccountAuthorizationDetails"
-    response = xmlResponse
+instance ToQuery GetAccountAuthorizationDetails where
+        toQuery GetAccountAuthorizationDetails'{..}
+          = mconcat
+              ["Action" =:
+                 ("GetAccountAuthorizationDetails" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "MaxItems" =: _gaadMaxItems, "Marker" =: _gaadMarker,
+               "Filter" =:
+                 toQuery (toQueryList "member" <$> _gaadFilter)]
 
-instance FromXML GetAccountAuthorizationDetailsResponse where
-    parseXML = withElement "GetAccountAuthorizationDetailsResult" $ \x -> GetAccountAuthorizationDetailsResponse
-        <$> x .@? "GroupDetailList" .!@ mempty
-        <*> x .@? "IsTruncated"
-        <*> x .@? "Marker"
-        <*> x .@? "Policies" .!@ mempty
-        <*> x .@? "RoleDetailList" .!@ mempty
-        <*> x .@? "UserDetailList" .!@ mempty
+-- | Contains the response to a successful GetAccountAuthorizationDetails
+-- request.
+--
+-- /See:/ 'getAccountAuthorizationDetailsResponse' smart constructor.
+data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'
+    { _gaadrsRoleDetailList  :: !(Maybe [RoleDetail])
+    , _gaadrsGroupDetailList :: !(Maybe [GroupDetail])
+    , _gaadrsUserDetailList  :: !(Maybe [UserDetail])
+    , _gaadrsMarker          :: !(Maybe Text)
+    , _gaadrsIsTruncated     :: !(Maybe Bool)
+    , _gaadrsPolicies        :: !(Maybe [ManagedPolicyDetail])
+    , _gaadrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetAccountAuthorizationDetailsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gaadrsRoleDetailList'
+--
+-- * 'gaadrsGroupDetailList'
+--
+-- * 'gaadrsUserDetailList'
+--
+-- * 'gaadrsMarker'
+--
+-- * 'gaadrsIsTruncated'
+--
+-- * 'gaadrsPolicies'
+--
+-- * 'gaadrsStatus'
+getAccountAuthorizationDetailsResponse
+    :: Int -- ^ 'gaadrsStatus'
+    -> GetAccountAuthorizationDetailsResponse
+getAccountAuthorizationDetailsResponse pStatus_ =
+    GetAccountAuthorizationDetailsResponse'
+    { _gaadrsRoleDetailList = Nothing
+    , _gaadrsGroupDetailList = Nothing
+    , _gaadrsUserDetailList = Nothing
+    , _gaadrsMarker = Nothing
+    , _gaadrsIsTruncated = Nothing
+    , _gaadrsPolicies = Nothing
+    , _gaadrsStatus = pStatus_
+    }
+
+-- | A list containing information about IAM roles.
+gaadrsRoleDetailList :: Lens' GetAccountAuthorizationDetailsResponse [RoleDetail]
+gaadrsRoleDetailList = lens _gaadrsRoleDetailList (\ s a -> s{_gaadrsRoleDetailList = a}) . _Default . _Coerce;
+
+-- | A list containing information about IAM groups.
+gaadrsGroupDetailList :: Lens' GetAccountAuthorizationDetailsResponse [GroupDetail]
+gaadrsGroupDetailList = lens _gaadrsGroupDetailList (\ s a -> s{_gaadrsGroupDetailList = a}) . _Default . _Coerce;
+
+-- | A list containing information about IAM users.
+gaadrsUserDetailList :: Lens' GetAccountAuthorizationDetailsResponse [UserDetail]
+gaadrsUserDetailList = lens _gaadrsUserDetailList (\ s a -> s{_gaadrsUserDetailList = a}) . _Default . _Coerce;
+
+-- | When 'IsTruncated' is 'true', this element is present and contains the
+-- value to use for the 'Marker' parameter in a subsequent pagination
+-- request.
+gaadrsMarker :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Text)
+gaadrsMarker = lens _gaadrsMarker (\ s a -> s{_gaadrsMarker = a});
+
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the 'Marker' request parameter to retrieve more items.
+gaadrsIsTruncated :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Bool)
+gaadrsIsTruncated = lens _gaadrsIsTruncated (\ s a -> s{_gaadrsIsTruncated = a});
+
+-- | A list containing information about managed policies.
+gaadrsPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDetail]
+gaadrsPolicies = lens _gaadrsPolicies (\ s a -> s{_gaadrsPolicies = a}) . _Default . _Coerce;
+
+-- | The response status code.
+gaadrsStatus :: Lens' GetAccountAuthorizationDetailsResponse Int
+gaadrsStatus = lens _gaadrsStatus (\ s a -> s{_gaadrsStatus = a});

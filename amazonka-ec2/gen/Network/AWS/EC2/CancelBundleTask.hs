@@ -1,120 +1,132 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.CancelBundleTask
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Cancels a bundling operation for an instance store-backed Windows instance.
+-- |
+-- Module      : Network.AWS.EC2.CancelBundleTask
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelBundleTask.html>
+-- Cancels a bundling operation for an instance store-backed Windows
+-- instance.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelBundleTask.html AWS API Reference> for CancelBundleTask.
 module Network.AWS.EC2.CancelBundleTask
     (
-    -- * Request
-      CancelBundleTask
-    -- ** Request constructor
-    , cancelBundleTask
-    -- ** Request lenses
-    , cbtBundleId
+    -- * Creating a Request
+      cancelBundleTask
+    , CancelBundleTask
+    -- * Request Lenses
     , cbtDryRun
+    , cbtBundleId
 
-    -- * Response
-    , CancelBundleTaskResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , cancelBundleTaskResponse
-    -- ** Response lenses
-    , cbtrBundleTask
+    , CancelBundleTaskResponse
+    -- * Response Lenses
+    , cbtrsBundleTask
+    , cbtrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CancelBundleTask = CancelBundleTask
-    { _cbtBundleId :: Text
-    , _cbtDryRun   :: Maybe Bool
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'cancelBundleTask' smart constructor.
+data CancelBundleTask = CancelBundleTask'
+    { _cbtDryRun   :: !(Maybe Bool)
+    , _cbtBundleId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CancelBundleTask' constructor.
+-- | Creates a value of 'CancelBundleTask' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbtBundleId' @::@ 'Text'
+-- * 'cbtDryRun'
 --
--- * 'cbtDryRun' @::@ 'Maybe' 'Bool'
---
-cancelBundleTask :: Text -- ^ 'cbtBundleId'
-                 -> CancelBundleTask
-cancelBundleTask p1 = CancelBundleTask
-    { _cbtBundleId = p1
-    , _cbtDryRun   = Nothing
+-- * 'cbtBundleId'
+cancelBundleTask
+    :: Text -- ^ 'cbtBundleId'
+    -> CancelBundleTask
+cancelBundleTask pBundleId_ =
+    CancelBundleTask'
+    { _cbtDryRun = Nothing
+    , _cbtBundleId = pBundleId_
     }
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+cbtDryRun :: Lens' CancelBundleTask (Maybe Bool)
+cbtDryRun = lens _cbtDryRun (\ s a -> s{_cbtDryRun = a});
 
 -- | The ID of the bundle task.
 cbtBundleId :: Lens' CancelBundleTask Text
-cbtBundleId = lens _cbtBundleId (\s a -> s { _cbtBundleId = a })
+cbtBundleId = lens _cbtBundleId (\ s a -> s{_cbtBundleId = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-cbtDryRun :: Lens' CancelBundleTask (Maybe Bool)
-cbtDryRun = lens _cbtDryRun (\s a -> s { _cbtDryRun = a })
+instance AWSRequest CancelBundleTask where
+        type Sv CancelBundleTask = EC2
+        type Rs CancelBundleTask = CancelBundleTaskResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 CancelBundleTaskResponse' <$>
+                   (x .@? "bundleInstanceTask") <*> (pure (fromEnum s)))
 
-newtype CancelBundleTaskResponse = CancelBundleTaskResponse
-    { _cbtrBundleTask :: Maybe BundleTask
-    } deriving (Eq, Read, Show)
+instance ToHeaders CancelBundleTask where
+        toHeaders = const mempty
 
--- | 'CancelBundleTaskResponse' constructor.
+instance ToPath CancelBundleTask where
+        toPath = const "/"
+
+instance ToQuery CancelBundleTask where
+        toQuery CancelBundleTask'{..}
+          = mconcat
+              ["Action" =: ("CancelBundleTask" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _cbtDryRun, "BundleId" =: _cbtBundleId]
+
+-- | /See:/ 'cancelBundleTaskResponse' smart constructor.
+data CancelBundleTaskResponse = CancelBundleTaskResponse'
+    { _cbtrsBundleTask :: !(Maybe BundleTask)
+    , _cbtrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CancelBundleTaskResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cbtrBundleTask' @::@ 'Maybe' 'BundleTask'
+-- * 'cbtrsBundleTask'
 --
-cancelBundleTaskResponse :: CancelBundleTaskResponse
-cancelBundleTaskResponse = CancelBundleTaskResponse
-    { _cbtrBundleTask = Nothing
+-- * 'cbtrsStatus'
+cancelBundleTaskResponse
+    :: Int -- ^ 'cbtrsStatus'
+    -> CancelBundleTaskResponse
+cancelBundleTaskResponse pStatus_ =
+    CancelBundleTaskResponse'
+    { _cbtrsBundleTask = Nothing
+    , _cbtrsStatus = pStatus_
     }
 
 -- | Information about the bundle task.
-cbtrBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
-cbtrBundleTask = lens _cbtrBundleTask (\s a -> s { _cbtrBundleTask = a })
+cbtrsBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
+cbtrsBundleTask = lens _cbtrsBundleTask (\ s a -> s{_cbtrsBundleTask = a});
 
-instance ToPath CancelBundleTask where
-    toPath = const "/"
-
-instance ToQuery CancelBundleTask where
-    toQuery CancelBundleTask{..} = mconcat
-        [ "BundleId" =? _cbtBundleId
-        , "DryRun"   =? _cbtDryRun
-        ]
-
-instance ToHeaders CancelBundleTask
-
-instance AWSRequest CancelBundleTask where
-    type Sv CancelBundleTask = EC2
-    type Rs CancelBundleTask = CancelBundleTaskResponse
-
-    request  = post "CancelBundleTask"
-    response = xmlResponse
-
-instance FromXML CancelBundleTaskResponse where
-    parseXML x = CancelBundleTaskResponse
-        <$> x .@? "bundleInstanceTask"
+-- | The response status code.
+cbtrsStatus :: Lens' CancelBundleTaskResponse Int
+cbtrsStatus = lens _cbtrsStatus (\ s a -> s{_cbtrsStatus = a});

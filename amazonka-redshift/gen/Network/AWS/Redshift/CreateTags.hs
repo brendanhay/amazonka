@@ -1,111 +1,118 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Redshift.CreateTags
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Adds one or more tags to a specified resource.
+-- |
+-- Module      : Network.AWS.Redshift.CreateTags
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- A resource can have up to 10 tags. If you try to create more than 10 tags
--- for a resource, you will receive an error and the attempt will fail.
+-- Adds one or more tags to a specified resource.
+--
+-- A resource can have up to 10 tags. If you try to create more than 10
+-- tags for a resource, you will receive an error and the attempt will
+-- fail.
 --
 -- If you specify a key that already exists for the resource, the value for
 -- that key will be updated with the new value.
 --
--- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateTags.html>
+-- /See:/ <http://docs.aws.amazon.com/redshift/latest/APIReference/API_CreateTags.html AWS API Reference> for CreateTags.
 module Network.AWS.Redshift.CreateTags
     (
-    -- * Request
-      CreateTags
-    -- ** Request constructor
-    , createTags
-    -- ** Request lenses
+    -- * Creating a Request
+      createTags
+    , CreateTags
+    -- * Request Lenses
     , ctResourceName
     , ctTags
 
-    -- * Response
-    , CreateTagsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createTagsResponse
+    , CreateTagsResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Redshift.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateTags = CreateTags
-    { _ctResourceName :: Text
-    , _ctTags         :: List "member" Tag
-    } deriving (Eq, Read, Show)
+-- | Contains the output from the 'CreateTags' action.
+--
+-- /See:/ 'createTags' smart constructor.
+data CreateTags = CreateTags'
+    { _ctResourceName :: !Text
+    , _ctTags         :: ![Tag]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateTags' constructor.
+-- | Creates a value of 'CreateTags' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ctResourceName' @::@ 'Text'
+-- * 'ctResourceName'
 --
--- * 'ctTags' @::@ ['Tag']
---
-createTags :: Text -- ^ 'ctResourceName'
-           -> CreateTags
-createTags p1 = CreateTags
-    { _ctResourceName = p1
-    , _ctTags         = mempty
+-- * 'ctTags'
+createTags
+    :: Text -- ^ 'ctResourceName'
+    -> CreateTags
+createTags pResourceName_ =
+    CreateTags'
+    { _ctResourceName = pResourceName_
+    , _ctTags = mempty
     }
 
--- | The Amazon Resource Name (ARN) to which you want to add the tag or tags. For
--- example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
+-- | The Amazon Resource Name (ARN) to which you want to add the tag or tags.
+-- For example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
 ctResourceName :: Lens' CreateTags Text
-ctResourceName = lens _ctResourceName (\s a -> s { _ctResourceName = a })
+ctResourceName = lens _ctResourceName (\ s a -> s{_ctResourceName = a});
 
--- | One or more name/value pairs to add as tags to the specified resource. Each
--- tag name is passed in with the parameter 'tag-key' and the corresponding value
--- is passed in with the parameter 'tag-value'. The 'tag-key' and 'tag-value'
--- parameters are separated by a colon (:). Separate multiple tags with a space.
--- For example, '--tags "tag-key"="owner":"tag-value"="admin""tag-key"="environment":"tag-value"="test""tag-key"="version":"tag-value"="1.0"'.
+-- | One or more name\/value pairs to add as tags to the specified resource.
+-- Each tag name is passed in with the parameter 'Key' and the
+-- corresponding value is passed in with the parameter 'Value'. The 'Key'
+-- and 'Value' parameters are separated by a comma (,). Separate multiple
+-- tags with a space. For example,
+-- '--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"'.
 ctTags :: Lens' CreateTags [Tag]
-ctTags = lens _ctTags (\s a -> s { _ctTags = a }) . _List
-
-data CreateTagsResponse = CreateTagsResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'CreateTagsResponse' constructor.
-createTagsResponse :: CreateTagsResponse
-createTagsResponse = CreateTagsResponse
-
-instance ToPath CreateTags where
-    toPath = const "/"
-
-instance ToQuery CreateTags where
-    toQuery CreateTags{..} = mconcat
-        [ "ResourceName" =? _ctResourceName
-        , "Tags"         =? _ctTags
-        ]
-
-instance ToHeaders CreateTags
+ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
 
 instance AWSRequest CreateTags where
-    type Sv CreateTags = Redshift
-    type Rs CreateTags = CreateTagsResponse
+        type Sv CreateTags = Redshift
+        type Rs CreateTags = CreateTagsResponse
+        request = postQuery
+        response = receiveNull CreateTagsResponse'
 
-    request  = post "CreateTags"
-    response = nullResponse CreateTagsResponse
+instance ToHeaders CreateTags where
+        toHeaders = const mempty
+
+instance ToPath CreateTags where
+        toPath = const "/"
+
+instance ToQuery CreateTags where
+        toQuery CreateTags'{..}
+          = mconcat
+              ["Action" =: ("CreateTags" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "ResourceName" =: _ctResourceName,
+               "Tags" =: toQueryList "Tag" _ctTags]
+
+-- | /See:/ 'createTagsResponse' smart constructor.
+data CreateTagsResponse =
+    CreateTagsResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateTagsResponse' with the minimum fields required to make a request.
+--
+createTagsResponse
+    :: CreateTagsResponse
+createTagsResponse = CreateTagsResponse'

@@ -1,102 +1,104 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.AutoScaling.DeleteScheduledAction
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified scheduled action.
+-- |
+-- Module      : Network.AWS.AutoScaling.DeleteScheduledAction
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteScheduledAction.html>
+-- Deletes the specified scheduled action.
+--
+-- /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteScheduledAction.html AWS API Reference> for DeleteScheduledAction.
 module Network.AWS.AutoScaling.DeleteScheduledAction
     (
-    -- * Request
-      DeleteScheduledAction
-    -- ** Request constructor
-    , deleteScheduledAction
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteScheduledAction
+    , DeleteScheduledAction
+    -- * Request Lenses
     , dsaAutoScalingGroupName
     , dsaScheduledActionName
 
-    -- * Response
-    , DeleteScheduledActionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteScheduledActionResponse
+    , DeleteScheduledActionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.AutoScaling.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteScheduledAction = DeleteScheduledAction
-    { _dsaAutoScalingGroupName :: Maybe Text
-    , _dsaScheduledActionName  :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'deleteScheduledAction' smart constructor.
+data DeleteScheduledAction = DeleteScheduledAction'
+    { _dsaAutoScalingGroupName :: !(Maybe Text)
+    , _dsaScheduledActionName  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteScheduledAction' constructor.
+-- | Creates a value of 'DeleteScheduledAction' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dsaAutoScalingGroupName' @::@ 'Maybe' 'Text'
+-- * 'dsaAutoScalingGroupName'
 --
--- * 'dsaScheduledActionName' @::@ 'Text'
---
-deleteScheduledAction :: Text -- ^ 'dsaScheduledActionName'
-                      -> DeleteScheduledAction
-deleteScheduledAction p1 = DeleteScheduledAction
-    { _dsaScheduledActionName  = p1
-    , _dsaAutoScalingGroupName = Nothing
+-- * 'dsaScheduledActionName'
+deleteScheduledAction
+    :: Text -- ^ 'dsaScheduledActionName'
+    -> DeleteScheduledAction
+deleteScheduledAction pScheduledActionName_ =
+    DeleteScheduledAction'
+    { _dsaAutoScalingGroupName = Nothing
+    , _dsaScheduledActionName = pScheduledActionName_
     }
 
 -- | The name of the Auto Scaling group.
 dsaAutoScalingGroupName :: Lens' DeleteScheduledAction (Maybe Text)
-dsaAutoScalingGroupName =
-    lens _dsaAutoScalingGroupName (\s a -> s { _dsaAutoScalingGroupName = a })
+dsaAutoScalingGroupName = lens _dsaAutoScalingGroupName (\ s a -> s{_dsaAutoScalingGroupName = a});
 
 -- | The name of the action to delete.
 dsaScheduledActionName :: Lens' DeleteScheduledAction Text
-dsaScheduledActionName =
-    lens _dsaScheduledActionName (\s a -> s { _dsaScheduledActionName = a })
-
-data DeleteScheduledActionResponse = DeleteScheduledActionResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteScheduledActionResponse' constructor.
-deleteScheduledActionResponse :: DeleteScheduledActionResponse
-deleteScheduledActionResponse = DeleteScheduledActionResponse
-
-instance ToPath DeleteScheduledAction where
-    toPath = const "/"
-
-instance ToQuery DeleteScheduledAction where
-    toQuery DeleteScheduledAction{..} = mconcat
-        [ "AutoScalingGroupName" =? _dsaAutoScalingGroupName
-        , "ScheduledActionName"  =? _dsaScheduledActionName
-        ]
-
-instance ToHeaders DeleteScheduledAction
+dsaScheduledActionName = lens _dsaScheduledActionName (\ s a -> s{_dsaScheduledActionName = a});
 
 instance AWSRequest DeleteScheduledAction where
-    type Sv DeleteScheduledAction = AutoScaling
-    type Rs DeleteScheduledAction = DeleteScheduledActionResponse
+        type Sv DeleteScheduledAction = AutoScaling
+        type Rs DeleteScheduledAction =
+             DeleteScheduledActionResponse
+        request = postQuery
+        response = receiveNull DeleteScheduledActionResponse'
 
-    request  = post "DeleteScheduledAction"
-    response = nullResponse DeleteScheduledActionResponse
+instance ToHeaders DeleteScheduledAction where
+        toHeaders = const mempty
+
+instance ToPath DeleteScheduledAction where
+        toPath = const "/"
+
+instance ToQuery DeleteScheduledAction where
+        toQuery DeleteScheduledAction'{..}
+          = mconcat
+              ["Action" =: ("DeleteScheduledAction" :: ByteString),
+               "Version" =: ("2011-01-01" :: ByteString),
+               "AutoScalingGroupName" =: _dsaAutoScalingGroupName,
+               "ScheduledActionName" =: _dsaScheduledActionName]
+
+-- | /See:/ 'deleteScheduledActionResponse' smart constructor.
+data DeleteScheduledActionResponse =
+    DeleteScheduledActionResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteScheduledActionResponse' with the minimum fields required to make a request.
+--
+deleteScheduledActionResponse
+    :: DeleteScheduledActionResponse
+deleteScheduledActionResponse = DeleteScheduledActionResponse'

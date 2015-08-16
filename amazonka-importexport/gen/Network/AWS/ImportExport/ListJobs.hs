@@ -1,142 +1,170 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ImportExport.ListJobs
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation returns the jobs associated with the requester. AWS
--- Import/Export lists the jobs in reverse chronological order based on the date
--- of creation. For example if Job Test1 was created 2009Dec30 and Test2 was
--- created 2010Feb05, the ListJobs operation would return Test2 followed by
--- Test1.
+-- |
+-- Module      : Network.AWS.ImportExport.ListJobs
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebListJobs.html>
+-- This operation returns the jobs associated with the requester. AWS
+-- Import\/Export lists the jobs in reverse chronological order based on
+-- the date of creation. For example if Job Test1 was created 2009Dec30 and
+-- Test2 was created 2010Feb05, the ListJobs operation would return Test2
+-- followed by Test1.
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebListJobs.html AWS API Reference> for ListJobs.
+--
+-- This operation returns paginated results.
 module Network.AWS.ImportExport.ListJobs
     (
-    -- * Request
-      ListJobs
-    -- ** Request constructor
-    , listJobs
-    -- ** Request lenses
+    -- * Creating a Request
+      listJobs
+    , ListJobs
+    -- * Request Lenses
     , ljAPIVersion
     , ljMarker
     , ljMaxJobs
 
-    -- * Response
-    , ListJobsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , listJobsResponse
-    -- ** Response lenses
-    , ljrIsTruncated
-    , ljrJobs
+    , ListJobsResponse
+    -- * Response Lenses
+    , ljrsJobs
+    , ljrsIsTruncated
+    , ljrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ImportExport.Types
-import qualified GHC.Exts
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.ImportExport.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListJobs = ListJobs
-    { _ljAPIVersion :: Maybe Text
-    , _ljMarker     :: Maybe Text
-    , _ljMaxJobs    :: Maybe Int
-    } deriving (Eq, Ord, Read, Show)
+-- | Input structure for the ListJobs operation.
+--
+-- /See:/ 'listJobs' smart constructor.
+data ListJobs = ListJobs'
+    { _ljAPIVersion :: !(Maybe Text)
+    , _ljMarker     :: !(Maybe Text)
+    , _ljMaxJobs    :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListJobs' constructor.
+-- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ljAPIVersion' @::@ 'Maybe' 'Text'
+-- * 'ljAPIVersion'
 --
--- * 'ljMarker' @::@ 'Maybe' 'Text'
+-- * 'ljMarker'
 --
--- * 'ljMaxJobs' @::@ 'Maybe' 'Int'
---
-listJobs :: ListJobs
-listJobs = ListJobs
-    { _ljMaxJobs    = Nothing
-    , _ljMarker     = Nothing
-    , _ljAPIVersion = Nothing
+-- * 'ljMaxJobs'
+listJobs
+    :: ListJobs
+listJobs =
+    ListJobs'
+    { _ljAPIVersion = Nothing
+    , _ljMarker = Nothing
+    , _ljMaxJobs = Nothing
     }
 
+-- | Undocumented member.
 ljAPIVersion :: Lens' ListJobs (Maybe Text)
-ljAPIVersion = lens _ljAPIVersion (\s a -> s { _ljAPIVersion = a })
+ljAPIVersion = lens _ljAPIVersion (\ s a -> s{_ljAPIVersion = a});
 
+-- | Undocumented member.
 ljMarker :: Lens' ListJobs (Maybe Text)
-ljMarker = lens _ljMarker (\s a -> s { _ljMarker = a })
+ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a});
 
+-- | Undocumented member.
 ljMaxJobs :: Lens' ListJobs (Maybe Int)
-ljMaxJobs = lens _ljMaxJobs (\s a -> s { _ljMaxJobs = a })
-
-data ListJobsResponse = ListJobsResponse
-    { _ljrIsTruncated :: Maybe Bool
-    , _ljrJobs        :: List "member" Job
-    } deriving (Eq, Read, Show)
-
--- | 'ListJobsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ljrIsTruncated' @::@ 'Maybe' 'Bool'
---
--- * 'ljrJobs' @::@ ['Job']
---
-listJobsResponse :: ListJobsResponse
-listJobsResponse = ListJobsResponse
-    { _ljrJobs        = mempty
-    , _ljrIsTruncated = Nothing
-    }
-
-ljrIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
-ljrIsTruncated = lens _ljrIsTruncated (\s a -> s { _ljrIsTruncated = a })
-
-ljrJobs :: Lens' ListJobsResponse [Job]
-ljrJobs = lens _ljrJobs (\s a -> s { _ljrJobs = a }) . _List
-
-instance ToPath ListJobs where
-    toPath = const "/"
-
-instance ToQuery ListJobs where
-    toQuery ListJobs{..} = mconcat
-        [ "APIVersion" =? _ljAPIVersion
-        , "Marker"     =? _ljMarker
-        , "MaxJobs"    =? _ljMaxJobs
-        ]
-
-instance ToHeaders ListJobs
-
-instance AWSRequest ListJobs where
-    type Sv ListJobs = ImportExport
-    type Rs ListJobs = ListJobsResponse
-
-    request  = post "ListJobs"
-    response = xmlResponse
-
-instance FromXML ListJobsResponse where
-    parseXML = withElement "ListJobsResult" $ \x -> ListJobsResponse
-        <$> x .@? "IsTruncated"
-        <*> x .@? "Jobs" .!@ mempty
+ljMaxJobs = lens _ljMaxJobs (\ s a -> s{_ljMaxJobs = a});
 
 instance AWSPager ListJobs where
-    page rq rs
-        | stop (rs ^. ljrIsTruncated) = Nothing
-        | otherwise = Just $ rq
-            & ljMarker .~ rs ^. index ljrJobs jobJobId
+        page rq rs
+          | stop (rs ^. ljrsIsTruncated) = Nothing
+          | isNothing (rs ^? ljrsJobs . _last . jobJobId) =
+            Nothing
+          | otherwise =
+            Just $ rq &
+              ljMarker .~ rs ^? ljrsJobs . _last . jobJobId
+
+instance AWSRequest ListJobs where
+        type Sv ListJobs = ImportExport
+        type Rs ListJobs = ListJobsResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "ListJobsResult"
+              (\ s h x ->
+                 ListJobsResponse' <$>
+                   (x .@? "Jobs" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (x .@? "IsTruncated")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListJobs where
+        toHeaders = const mempty
+
+instance ToPath ListJobs where
+        toPath = const "/"
+
+instance ToQuery ListJobs where
+        toQuery ListJobs'{..}
+          = mconcat
+              ["Operation=ListJobs",
+               "Action" =: ("ListJobs" :: ByteString),
+               "Version" =: ("2010-06-01" :: ByteString),
+               "APIVersion" =: _ljAPIVersion, "Marker" =: _ljMarker,
+               "MaxJobs" =: _ljMaxJobs]
+
+-- | Output structure for the ListJobs operation.
+--
+-- /See:/ 'listJobsResponse' smart constructor.
+data ListJobsResponse = ListJobsResponse'
+    { _ljrsJobs        :: !(Maybe [Job])
+    , _ljrsIsTruncated :: !(Maybe Bool)
+    , _ljrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ljrsJobs'
+--
+-- * 'ljrsIsTruncated'
+--
+-- * 'ljrsStatus'
+listJobsResponse
+    :: Int -- ^ 'ljrsStatus'
+    -> ListJobsResponse
+listJobsResponse pStatus_ =
+    ListJobsResponse'
+    { _ljrsJobs = Nothing
+    , _ljrsIsTruncated = Nothing
+    , _ljrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+ljrsJobs :: Lens' ListJobsResponse [Job]
+ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
+
+-- | Undocumented member.
+ljrsIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
+ljrsIsTruncated = lens _ljrsIsTruncated (\ s a -> s{_ljrsIsTruncated = a});
+
+-- | The response status code.
+ljrsStatus :: Lens' ListJobsResponse Int
+ljrsStatus = lens _ljrsStatus (\ s a -> s{_ljrsStatus = a});

@@ -1,150 +1,172 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.StorageGateway.DescribeMaintenanceStartTime
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation returns your gateway's weekly maintenance start time including
--- the day and time of the week. Note that values are in terms of the gateway's
--- time zone.
+-- |
+-- Module      : Network.AWS.StorageGateway.DescribeMaintenanceStartTime
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeMaintenanceStartTime.html>
+-- This operation returns your gateway\'s weekly maintenance start time
+-- including the day and time of the week. Note that values are in terms of
+-- the gateway\'s time zone.
+--
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeMaintenanceStartTime.html AWS API Reference> for DescribeMaintenanceStartTime.
 module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     (
-    -- * Request
-      DescribeMaintenanceStartTime
-    -- ** Request constructor
-    , describeMaintenanceStartTime
-    -- ** Request lenses
+    -- * Creating a Request
+      describeMaintenanceStartTime
+    , DescribeMaintenanceStartTime
+    -- * Request Lenses
     , dmstGatewayARN
 
-    -- * Response
-    , DescribeMaintenanceStartTimeResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeMaintenanceStartTimeResponse
-    -- ** Response lenses
-    , dmstrDayOfWeek
-    , dmstrGatewayARN
-    , dmstrHourOfDay
-    , dmstrMinuteOfHour
-    , dmstrTimezone
+    , DescribeMaintenanceStartTimeResponse
+    -- * Response Lenses
+    , dmstrsGatewayARN
+    , dmstrsMinuteOfHour
+    , dmstrsHourOfDay
+    , dmstrsTimezone
+    , dmstrsDayOfWeek
+    , dmstrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
+import           Network.AWS.StorageGateway.Types.Product
 
-newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime
+-- | A JSON object containing the of the gateway.
+--
+-- /See:/ 'describeMaintenanceStartTime' smart constructor.
+newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime'
     { _dmstGatewayARN :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeMaintenanceStartTime' constructor.
+-- | Creates a value of 'DescribeMaintenanceStartTime' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dmstGatewayARN' @::@ 'Text'
---
-describeMaintenanceStartTime :: Text -- ^ 'dmstGatewayARN'
-                             -> DescribeMaintenanceStartTime
-describeMaintenanceStartTime p1 = DescribeMaintenanceStartTime
-    { _dmstGatewayARN = p1
+-- * 'dmstGatewayARN'
+describeMaintenanceStartTime
+    :: Text -- ^ 'dmstGatewayARN'
+    -> DescribeMaintenanceStartTime
+describeMaintenanceStartTime pGatewayARN_ =
+    DescribeMaintenanceStartTime'
+    { _dmstGatewayARN = pGatewayARN_
     }
 
+-- | Undocumented member.
 dmstGatewayARN :: Lens' DescribeMaintenanceStartTime Text
-dmstGatewayARN = lens _dmstGatewayARN (\s a -> s { _dmstGatewayARN = a })
+dmstGatewayARN = lens _dmstGatewayARN (\ s a -> s{_dmstGatewayARN = a});
 
-data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
-    { _dmstrDayOfWeek    :: Maybe Nat
-    , _dmstrGatewayARN   :: Maybe Text
-    , _dmstrHourOfDay    :: Maybe Nat
-    , _dmstrMinuteOfHour :: Maybe Nat
-    , _dmstrTimezone     :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+instance AWSRequest DescribeMaintenanceStartTime
+         where
+        type Sv DescribeMaintenanceStartTime = StorageGateway
+        type Rs DescribeMaintenanceStartTime =
+             DescribeMaintenanceStartTimeResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeMaintenanceStartTimeResponse' <$>
+                   (x .?> "GatewayARN") <*> (x .?> "MinuteOfHour") <*>
+                     (x .?> "HourOfDay")
+                     <*> (x .?> "Timezone")
+                     <*> (x .?> "DayOfWeek")
+                     <*> (pure (fromEnum s)))
 
--- | 'DescribeMaintenanceStartTimeResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmstrDayOfWeek' @::@ 'Maybe' 'Natural'
---
--- * 'dmstrGatewayARN' @::@ 'Maybe' 'Text'
---
--- * 'dmstrHourOfDay' @::@ 'Maybe' 'Natural'
---
--- * 'dmstrMinuteOfHour' @::@ 'Maybe' 'Natural'
---
--- * 'dmstrTimezone' @::@ 'Maybe' 'Text'
---
-describeMaintenanceStartTimeResponse :: DescribeMaintenanceStartTimeResponse
-describeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
-    { _dmstrGatewayARN   = Nothing
-    , _dmstrHourOfDay    = Nothing
-    , _dmstrMinuteOfHour = Nothing
-    , _dmstrDayOfWeek    = Nothing
-    , _dmstrTimezone     = Nothing
-    }
-
-dmstrDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
-dmstrDayOfWeek = lens _dmstrDayOfWeek (\s a -> s { _dmstrDayOfWeek = a }) . mapping _Nat
-
-dmstrGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
-dmstrGatewayARN = lens _dmstrGatewayARN (\s a -> s { _dmstrGatewayARN = a })
-
-dmstrHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
-dmstrHourOfDay = lens _dmstrHourOfDay (\s a -> s { _dmstrHourOfDay = a }) . mapping _Nat
-
-dmstrMinuteOfHour :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
-dmstrMinuteOfHour =
-    lens _dmstrMinuteOfHour (\s a -> s { _dmstrMinuteOfHour = a })
-        . mapping _Nat
-
-dmstrTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
-dmstrTimezone = lens _dmstrTimezone (\s a -> s { _dmstrTimezone = a })
-
-instance ToPath DescribeMaintenanceStartTime where
-    toPath = const "/"
-
-instance ToQuery DescribeMaintenanceStartTime where
-    toQuery = const mempty
-
-instance ToHeaders DescribeMaintenanceStartTime
+instance ToHeaders DescribeMaintenanceStartTime where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.DescribeMaintenanceStartTime"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DescribeMaintenanceStartTime where
-    toJSON DescribeMaintenanceStartTime{..} = object
-        [ "GatewayARN" .= _dmstGatewayARN
-        ]
+        toJSON DescribeMaintenanceStartTime'{..}
+          = object ["GatewayARN" .= _dmstGatewayARN]
 
-instance AWSRequest DescribeMaintenanceStartTime where
-    type Sv DescribeMaintenanceStartTime = StorageGateway
-    type Rs DescribeMaintenanceStartTime = DescribeMaintenanceStartTimeResponse
+instance ToPath DescribeMaintenanceStartTime where
+        toPath = const "/"
 
-    request  = post "DescribeMaintenanceStartTime"
-    response = jsonResponse
+instance ToQuery DescribeMaintenanceStartTime where
+        toQuery = const mempty
 
-instance FromJSON DescribeMaintenanceStartTimeResponse where
-    parseJSON = withObject "DescribeMaintenanceStartTimeResponse" $ \o -> DescribeMaintenanceStartTimeResponse
-        <$> o .:? "DayOfWeek"
-        <*> o .:? "GatewayARN"
-        <*> o .:? "HourOfDay"
-        <*> o .:? "MinuteOfHour"
-        <*> o .:? "Timezone"
+-- | /See:/ 'describeMaintenanceStartTimeResponse' smart constructor.
+data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'
+    { _dmstrsGatewayARN   :: !(Maybe Text)
+    , _dmstrsMinuteOfHour :: !(Maybe Nat)
+    , _dmstrsHourOfDay    :: !(Maybe Nat)
+    , _dmstrsTimezone     :: !(Maybe Text)
+    , _dmstrsDayOfWeek    :: !(Maybe Nat)
+    , _dmstrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeMaintenanceStartTimeResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dmstrsGatewayARN'
+--
+-- * 'dmstrsMinuteOfHour'
+--
+-- * 'dmstrsHourOfDay'
+--
+-- * 'dmstrsTimezone'
+--
+-- * 'dmstrsDayOfWeek'
+--
+-- * 'dmstrsStatus'
+describeMaintenanceStartTimeResponse
+    :: Int -- ^ 'dmstrsStatus'
+    -> DescribeMaintenanceStartTimeResponse
+describeMaintenanceStartTimeResponse pStatus_ =
+    DescribeMaintenanceStartTimeResponse'
+    { _dmstrsGatewayARN = Nothing
+    , _dmstrsMinuteOfHour = Nothing
+    , _dmstrsHourOfDay = Nothing
+    , _dmstrsTimezone = Nothing
+    , _dmstrsDayOfWeek = Nothing
+    , _dmstrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+dmstrsGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
+dmstrsGatewayARN = lens _dmstrsGatewayARN (\ s a -> s{_dmstrsGatewayARN = a});
+
+-- | Undocumented member.
+dmstrsMinuteOfHour :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
+dmstrsMinuteOfHour = lens _dmstrsMinuteOfHour (\ s a -> s{_dmstrsMinuteOfHour = a}) . mapping _Nat;
+
+-- | Undocumented member.
+dmstrsHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
+dmstrsHourOfDay = lens _dmstrsHourOfDay (\ s a -> s{_dmstrsHourOfDay = a}) . mapping _Nat;
+
+-- | Undocumented member.
+dmstrsTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
+dmstrsTimezone = lens _dmstrsTimezone (\ s a -> s{_dmstrsTimezone = a});
+
+-- | Undocumented member.
+dmstrsDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
+dmstrsDayOfWeek = lens _dmstrsDayOfWeek (\ s a -> s{_dmstrsDayOfWeek = a}) . mapping _Nat;
+
+-- | The response status code.
+dmstrsStatus :: Lens' DescribeMaintenanceStartTimeResponse Int
+dmstrsStatus = lens _dmstrsStatus (\ s a -> s{_dmstrsStatus = a});

@@ -1,119 +1,141 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SNS.GetEndpointAttributes
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Retrieves the endpoint attributes for a device on one of the supported push
--- notification services, such as GCM and APNS. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications>.
+-- |
+-- Module      : Network.AWS.SNS.GetEndpointAttributes
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html>
+-- Retrieves the endpoint attributes for a device on one of the supported
+-- push notification services, such as GCM and APNS. For more information,
+-- see
+-- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
+--
+-- /See:/ <http://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html AWS API Reference> for GetEndpointAttributes.
 module Network.AWS.SNS.GetEndpointAttributes
     (
-    -- * Request
-      GetEndpointAttributes
-    -- ** Request constructor
-    , getEndpointAttributes
-    -- ** Request lenses
-    , geaEndpointArn
+    -- * Creating a Request
+      getEndpointAttributes
+    , GetEndpointAttributes
+    -- * Request Lenses
+    , geaEndpointARN
 
-    -- * Response
-    , GetEndpointAttributesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getEndpointAttributesResponse
-    -- ** Response lenses
-    , gearAttributes
+    , GetEndpointAttributesResponse
+    -- * Response Lenses
+    , gearsAttributes
+    , gearsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
+import           Network.AWS.SNS.Types.Product
 
-newtype GetEndpointAttributes = GetEndpointAttributes
-    { _geaEndpointArn :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | Input for GetEndpointAttributes action.
+--
+-- /See:/ 'getEndpointAttributes' smart constructor.
+newtype GetEndpointAttributes = GetEndpointAttributes'
+    { _geaEndpointARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetEndpointAttributes' constructor.
+-- | Creates a value of 'GetEndpointAttributes' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'geaEndpointArn' @::@ 'Text'
---
-getEndpointAttributes :: Text -- ^ 'geaEndpointArn'
-                      -> GetEndpointAttributes
-getEndpointAttributes p1 = GetEndpointAttributes
-    { _geaEndpointArn = p1
+-- * 'geaEndpointARN'
+getEndpointAttributes
+    :: Text -- ^ 'geaEndpointARN'
+    -> GetEndpointAttributes
+getEndpointAttributes pEndpointARN_ =
+    GetEndpointAttributes'
+    { _geaEndpointARN = pEndpointARN_
     }
 
 -- | EndpointArn for GetEndpointAttributes input.
-geaEndpointArn :: Lens' GetEndpointAttributes Text
-geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
+geaEndpointARN :: Lens' GetEndpointAttributes Text
+geaEndpointARN = lens _geaEndpointARN (\ s a -> s{_geaEndpointARN = a});
 
-newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
-    { _gearAttributes :: EMap "entry" "key" "value" Text Text
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest GetEndpointAttributes where
+        type Sv GetEndpointAttributes = SNS
+        type Rs GetEndpointAttributes =
+             GetEndpointAttributesResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "GetEndpointAttributesResult"
+              (\ s h x ->
+                 GetEndpointAttributesResponse' <$>
+                   (x .@? "Attributes" .!@ mempty >>=
+                      may (parseXMLMap "entry" "key" "value"))
+                     <*> (pure (fromEnum s)))
 
--- | 'GetEndpointAttributesResponse' constructor.
+instance ToHeaders GetEndpointAttributes where
+        toHeaders = const mempty
+
+instance ToPath GetEndpointAttributes where
+        toPath = const "/"
+
+instance ToQuery GetEndpointAttributes where
+        toQuery GetEndpointAttributes'{..}
+          = mconcat
+              ["Action" =: ("GetEndpointAttributes" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "EndpointArn" =: _geaEndpointARN]
+
+-- | Response from GetEndpointAttributes of the EndpointArn.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'getEndpointAttributesResponse' smart constructor.
+data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
+    { _gearsAttributes :: !(Maybe (Map Text Text))
+    , _gearsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetEndpointAttributesResponse' with the minimum fields required to make a request.
 --
--- * 'gearAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- Use one of the following lenses to modify other fields as desired:
 --
-getEndpointAttributesResponse :: GetEndpointAttributesResponse
-getEndpointAttributesResponse = GetEndpointAttributesResponse
-    { _gearAttributes = mempty
+-- * 'gearsAttributes'
+--
+-- * 'gearsStatus'
+getEndpointAttributesResponse
+    :: Int -- ^ 'gearsStatus'
+    -> GetEndpointAttributesResponse
+getEndpointAttributesResponse pStatus_ =
+    GetEndpointAttributesResponse'
+    { _gearsAttributes = Nothing
+    , _gearsStatus = pStatus_
     }
 
 -- | Attributes include the following:
 --
--- 'CustomUserData' -- arbitrary user data to associate with the endpoint.
--- Amazon SNS does not use this data. The data must be in UTF-8 format and less
--- than 2KB.  'Enabled' -- flag that enables/disables delivery to the endpoint.
--- Amazon SNS will set this to false when a notification service indicates to
--- Amazon SNS that the endpoint is invalid. Users can set it back to true,
--- typically after updating Token.  'Token' -- device token, also referred to as a
--- registration id, for an app and mobile device. This is returned from the
--- notification service when an app and mobile device are registered with the
--- notification service.
-gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
-gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a }) . _EMap
+-- -   'CustomUserData' -- arbitrary user data to associate with the
+--     endpoint. Amazon SNS does not use this data. The data must be in
+--     UTF-8 format and less than 2KB.
+-- -   'Enabled' -- flag that enables\/disables delivery to the endpoint.
+--     Amazon SNS will set this to false when a notification service
+--     indicates to Amazon SNS that the endpoint is invalid. Users can set
+--     it back to true, typically after updating Token.
+-- -   'Token' -- device token, also referred to as a registration id, for
+--     an app and mobile device. This is returned from the notification
+--     service when an app and mobile device are registered with the
+--     notification service.
+gearsAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
+gearsAttributes = lens _gearsAttributes (\ s a -> s{_gearsAttributes = a}) . _Default . _Map;
 
-instance ToPath GetEndpointAttributes where
-    toPath = const "/"
-
-instance ToQuery GetEndpointAttributes where
-    toQuery GetEndpointAttributes{..} = mconcat
-        [ "EndpointArn" =? _geaEndpointArn
-        ]
-
-instance ToHeaders GetEndpointAttributes
-
-instance AWSRequest GetEndpointAttributes where
-    type Sv GetEndpointAttributes = SNS
-    type Rs GetEndpointAttributes = GetEndpointAttributesResponse
-
-    request  = post "GetEndpointAttributes"
-    response = xmlResponse
-
-instance FromXML GetEndpointAttributesResponse where
-    parseXML = withElement "GetEndpointAttributesResult" $ \x -> GetEndpointAttributesResponse
-        <$> x .@? "Attributes" .!@ mempty
+-- | The response status code.
+gearsStatus :: Lens' GetEndpointAttributesResponse Int
+gearsStatus = lens _gearsStatus (\ s a -> s{_gearsStatus = a});

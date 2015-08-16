@@ -1,124 +1,140 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns the refresh status of the Trusted Advisor checks that have the
--- specified check IDs. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks'.
+-- |
+-- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.html>
+-- Returns the refresh status of the Trusted Advisor checks that have the
+-- specified check IDs. Check IDs can be obtained by calling
+-- DescribeTrustedAdvisorChecks.
+--
+-- /See:/ <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckRefreshStatuses.html AWS API Reference> for DescribeTrustedAdvisorCheckRefreshStatuses.
 module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     (
-    -- * Request
-      DescribeTrustedAdvisorCheckRefreshStatuses
-    -- ** Request constructor
-    , describeTrustedAdvisorCheckRefreshStatuses
-    -- ** Request lenses
+    -- * Creating a Request
+      describeTrustedAdvisorCheckRefreshStatuses
+    , DescribeTrustedAdvisorCheckRefreshStatuses
+    -- * Request Lenses
     , dtacrsCheckIds
 
-    -- * Response
-    , DescribeTrustedAdvisorCheckRefreshStatusesResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeTrustedAdvisorCheckRefreshStatusesResponse
-    -- ** Response lenses
-    , dtacrsrStatuses
+    , DescribeTrustedAdvisorCheckRefreshStatusesResponse
+    -- * Response Lenses
+    , dtacrsrsStatus
+    , dtacrsrsStatuses
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Support.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
+import           Network.AWS.Support.Types.Product
 
-newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses
-    { _dtacrsCheckIds :: List "checkIds" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
+-- | /See:/ 'describeTrustedAdvisorCheckRefreshStatuses' smart constructor.
+newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses'
+    { _dtacrsCheckIds :: [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
-instance GHC.Exts.IsList DescribeTrustedAdvisorCheckRefreshStatuses where
-    type Item DescribeTrustedAdvisorCheckRefreshStatuses = Text
-
-    fromList = DescribeTrustedAdvisorCheckRefreshStatuses . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dtacrsCheckIds
-
--- | 'DescribeTrustedAdvisorCheckRefreshStatuses' constructor.
+-- | Creates a value of 'DescribeTrustedAdvisorCheckRefreshStatuses' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dtacrsCheckIds' @::@ ['Text']
---
-describeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatuses
-describeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses
+-- * 'dtacrsCheckIds'
+describeTrustedAdvisorCheckRefreshStatuses
+    :: DescribeTrustedAdvisorCheckRefreshStatuses
+describeTrustedAdvisorCheckRefreshStatuses =
+    DescribeTrustedAdvisorCheckRefreshStatuses'
     { _dtacrsCheckIds = mempty
     }
 
 -- | The IDs of the Trusted Advisor checks.
 dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
-dtacrsCheckIds = lens _dtacrsCheckIds (\s a -> s { _dtacrsCheckIds = a }) . _List
+dtacrsCheckIds = lens _dtacrsCheckIds (\ s a -> s{_dtacrsCheckIds = a}) . _Coerce;
 
-newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse
-    { _dtacrsrStatuses :: List "statuses" TrustedAdvisorCheckRefreshStatus
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest
+         DescribeTrustedAdvisorCheckRefreshStatuses where
+        type Sv DescribeTrustedAdvisorCheckRefreshStatuses =
+             Support
+        type Rs DescribeTrustedAdvisorCheckRefreshStatuses =
+             DescribeTrustedAdvisorCheckRefreshStatusesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeTrustedAdvisorCheckRefreshStatusesResponse'
+                   <$>
+                   (pure (fromEnum s)) <*>
+                     (x .?> "statuses" .!@ mempty))
 
-instance GHC.Exts.IsList DescribeTrustedAdvisorCheckRefreshStatusesResponse where
-    type Item DescribeTrustedAdvisorCheckRefreshStatusesResponse = TrustedAdvisorCheckRefreshStatus
+instance ToHeaders
+         DescribeTrustedAdvisorCheckRefreshStatuses where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSSupport_20130415.DescribeTrustedAdvisorCheckRefreshStatuses"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = DescribeTrustedAdvisorCheckRefreshStatusesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dtacrsrStatuses
+instance ToJSON
+         DescribeTrustedAdvisorCheckRefreshStatuses where
+        toJSON
+          DescribeTrustedAdvisorCheckRefreshStatuses'{..}
+          = object ["checkIds" .= _dtacrsCheckIds]
 
--- | 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' constructor.
+instance ToPath
+         DescribeTrustedAdvisorCheckRefreshStatuses where
+        toPath = const "/"
+
+instance ToQuery
+         DescribeTrustedAdvisorCheckRefreshStatuses where
+        toQuery = const mempty
+
+-- | The statuses of the Trusted Advisor checks returned by the
+-- DescribeTrustedAdvisorCheckRefreshStatuses operation.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
+data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'
+    { _dtacrsrsStatus   :: !Int
+    , _dtacrsrsStatuses :: ![TrustedAdvisorCheckRefreshStatus]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' with the minimum fields required to make a request.
 --
--- * 'dtacrsrStatuses' @::@ ['TrustedAdvisorCheckRefreshStatus']
+-- Use one of the following lenses to modify other fields as desired:
 --
-describeTrustedAdvisorCheckRefreshStatusesResponse :: DescribeTrustedAdvisorCheckRefreshStatusesResponse
-describeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse
-    { _dtacrsrStatuses = mempty
+-- * 'dtacrsrsStatus'
+--
+-- * 'dtacrsrsStatuses'
+describeTrustedAdvisorCheckRefreshStatusesResponse
+    :: Int -- ^ 'dtacrsrsStatus'
+    -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
+describeTrustedAdvisorCheckRefreshStatusesResponse pStatus_ =
+    DescribeTrustedAdvisorCheckRefreshStatusesResponse'
+    { _dtacrsrsStatus = pStatus_
+    , _dtacrsrsStatuses = mempty
     }
 
+-- | The response status code.
+dtacrsrsStatus :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Int
+dtacrsrsStatus = lens _dtacrsrsStatus (\ s a -> s{_dtacrsrsStatus = a});
+
 -- | The refresh status of the specified Trusted Advisor checks.
-dtacrsrStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
-dtacrsrStatuses = lens _dtacrsrStatuses (\s a -> s { _dtacrsrStatuses = a }) . _List
-
-instance ToPath DescribeTrustedAdvisorCheckRefreshStatuses where
-    toPath = const "/"
-
-instance ToQuery DescribeTrustedAdvisorCheckRefreshStatuses where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTrustedAdvisorCheckRefreshStatuses
-
-instance ToJSON DescribeTrustedAdvisorCheckRefreshStatuses where
-    toJSON DescribeTrustedAdvisorCheckRefreshStatuses{..} = object
-        [ "checkIds" .= _dtacrsCheckIds
-        ]
-
-instance AWSRequest DescribeTrustedAdvisorCheckRefreshStatuses where
-    type Sv DescribeTrustedAdvisorCheckRefreshStatuses = Support
-    type Rs DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatusesResponse
-
-    request  = post "DescribeTrustedAdvisorCheckRefreshStatuses"
-    response = jsonResponse
-
-instance FromJSON DescribeTrustedAdvisorCheckRefreshStatusesResponse where
-    parseJSON = withObject "DescribeTrustedAdvisorCheckRefreshStatusesResponse" $ \o -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
-        <$> o .:? "statuses" .!= mempty
+dtacrsrsStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
+dtacrsrsStatuses = lens _dtacrsrsStatuses (\ s a -> s{_dtacrsrsStatuses = a}) . _Coerce;

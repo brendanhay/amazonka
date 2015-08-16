@@ -1,129 +1,143 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElastiCache.DeleteCacheCluster
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DeleteCacheCluster/ action deletes a previously provisioned cache cluster. /DeleteCacheCluster/ deletes all associated cache nodes, node endpoints and the
--- cache cluster itself. When you receive a successful response from this
--- action, Amazon ElastiCache immediately begins deleting the cache cluster; you
--- cannot cancel or revert this action.
+-- |
+-- Module      : Network.AWS.ElastiCache.DeleteCacheCluster
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- The /DeleteCacheCluster/ action deletes a previously provisioned cache
+-- cluster. /DeleteCacheCluster/ deletes all associated cache nodes, node
+-- endpoints and the cache cluster itself. When you receive a successful
+-- response from this action, Amazon ElastiCache immediately begins
+-- deleting the cache cluster; you cannot cancel or revert this action.
 --
 -- This API cannot be used to delete a cache cluster that is the last read
 -- replica of a replication group that has Multi-AZ mode enabled.
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html>
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheCluster.html AWS API Reference> for DeleteCacheCluster.
 module Network.AWS.ElastiCache.DeleteCacheCluster
     (
-    -- * Request
-      DeleteCacheCluster
-    -- ** Request constructor
-    , deleteCacheCluster
-    -- ** Request lenses
-    , dccCacheClusterId
+    -- * Creating a Request
+      deleteCacheCluster
+    , DeleteCacheCluster
+    -- * Request Lenses
     , dccFinalSnapshotIdentifier
+    , dccCacheClusterId
 
-    -- * Response
-    , DeleteCacheClusterResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteCacheClusterResponse
-    -- ** Response lenses
-    , dccrCacheCluster
+    , DeleteCacheClusterResponse
+    -- * Response Lenses
+    , dccrsCacheCluster
+    , dccrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteCacheCluster = DeleteCacheCluster
-    { _dccCacheClusterId          :: Text
-    , _dccFinalSnapshotIdentifier :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Represents the input of a /DeleteCacheCluster/ action.
+--
+-- /See:/ 'deleteCacheCluster' smart constructor.
+data DeleteCacheCluster = DeleteCacheCluster'
+    { _dccFinalSnapshotIdentifier :: !(Maybe Text)
+    , _dccCacheClusterId          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteCacheCluster' constructor.
+-- | Creates a value of 'DeleteCacheCluster' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dccCacheClusterId' @::@ 'Text'
+-- * 'dccFinalSnapshotIdentifier'
 --
--- * 'dccFinalSnapshotIdentifier' @::@ 'Maybe' 'Text'
---
-deleteCacheCluster :: Text -- ^ 'dccCacheClusterId'
-                   -> DeleteCacheCluster
-deleteCacheCluster p1 = DeleteCacheCluster
-    { _dccCacheClusterId          = p1
-    , _dccFinalSnapshotIdentifier = Nothing
+-- * 'dccCacheClusterId'
+deleteCacheCluster
+    :: Text -- ^ 'dccCacheClusterId'
+    -> DeleteCacheCluster
+deleteCacheCluster pCacheClusterId_ =
+    DeleteCacheCluster'
+    { _dccFinalSnapshotIdentifier = Nothing
+    , _dccCacheClusterId = pCacheClusterId_
     }
 
--- | The cache cluster identifier for the cluster to be deleted. This parameter is
--- not case sensitive.
-dccCacheClusterId :: Lens' DeleteCacheCluster Text
-dccCacheClusterId =
-    lens _dccCacheClusterId (\s a -> s { _dccCacheClusterId = a })
-
--- | The user-supplied name of a final cache cluster snapshot. This is the unique
--- name that identifies the snapshot. ElastiCache creates the snapshot, and then
--- deletes the cache cluster immediately afterward.
+-- | The user-supplied name of a final cache cluster snapshot. This is the
+-- unique name that identifies the snapshot. ElastiCache creates the
+-- snapshot, and then deletes the cache cluster immediately afterward.
 dccFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
-dccFinalSnapshotIdentifier =
-    lens _dccFinalSnapshotIdentifier
-        (\s a -> s { _dccFinalSnapshotIdentifier = a })
+dccFinalSnapshotIdentifier = lens _dccFinalSnapshotIdentifier (\ s a -> s{_dccFinalSnapshotIdentifier = a});
 
-newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse
-    { _dccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Read, Show)
-
--- | 'DeleteCacheClusterResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
---
-deleteCacheClusterResponse :: DeleteCacheClusterResponse
-deleteCacheClusterResponse = DeleteCacheClusterResponse
-    { _dccrCacheCluster = Nothing
-    }
-
-dccrCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
-dccrCacheCluster = lens _dccrCacheCluster (\s a -> s { _dccrCacheCluster = a })
-
-instance ToPath DeleteCacheCluster where
-    toPath = const "/"
-
-instance ToQuery DeleteCacheCluster where
-    toQuery DeleteCacheCluster{..} = mconcat
-        [ "CacheClusterId"          =? _dccCacheClusterId
-        , "FinalSnapshotIdentifier" =? _dccFinalSnapshotIdentifier
-        ]
-
-instance ToHeaders DeleteCacheCluster
+-- | The cache cluster identifier for the cluster to be deleted. This
+-- parameter is not case sensitive.
+dccCacheClusterId :: Lens' DeleteCacheCluster Text
+dccCacheClusterId = lens _dccCacheClusterId (\ s a -> s{_dccCacheClusterId = a});
 
 instance AWSRequest DeleteCacheCluster where
-    type Sv DeleteCacheCluster = ElastiCache
-    type Rs DeleteCacheCluster = DeleteCacheClusterResponse
+        type Sv DeleteCacheCluster = ElastiCache
+        type Rs DeleteCacheCluster =
+             DeleteCacheClusterResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "DeleteCacheClusterResult"
+              (\ s h x ->
+                 DeleteCacheClusterResponse' <$>
+                   (x .@? "CacheCluster") <*> (pure (fromEnum s)))
 
-    request  = post "DeleteCacheCluster"
-    response = xmlResponse
+instance ToHeaders DeleteCacheCluster where
+        toHeaders = const mempty
 
-instance FromXML DeleteCacheClusterResponse where
-    parseXML = withElement "DeleteCacheClusterResult" $ \x -> DeleteCacheClusterResponse
-        <$> x .@? "CacheCluster"
+instance ToPath DeleteCacheCluster where
+        toPath = const "/"
+
+instance ToQuery DeleteCacheCluster where
+        toQuery DeleteCacheCluster'{..}
+          = mconcat
+              ["Action" =: ("DeleteCacheCluster" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "FinalSnapshotIdentifier" =:
+                 _dccFinalSnapshotIdentifier,
+               "CacheClusterId" =: _dccCacheClusterId]
+
+-- | /See:/ 'deleteCacheClusterResponse' smart constructor.
+data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
+    { _dccrsCacheCluster :: !(Maybe CacheCluster)
+    , _dccrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteCacheClusterResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dccrsCacheCluster'
+--
+-- * 'dccrsStatus'
+deleteCacheClusterResponse
+    :: Int -- ^ 'dccrsStatus'
+    -> DeleteCacheClusterResponse
+deleteCacheClusterResponse pStatus_ =
+    DeleteCacheClusterResponse'
+    { _dccrsCacheCluster = Nothing
+    , _dccrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+dccrsCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
+dccrsCacheCluster = lens _dccrsCacheCluster (\ s a -> s{_dccrsCacheCluster = a});
+
+-- | The response status code.
+dccrsStatus :: Lens' DeleteCacheClusterResponse Int
+dccrsStatus = lens _dccrsStatus (\ s a -> s{_dccrsStatus = a});

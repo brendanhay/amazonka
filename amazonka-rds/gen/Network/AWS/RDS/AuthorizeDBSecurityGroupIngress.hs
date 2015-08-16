@@ -1,171 +1,192 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Enables ingress to a DBSecurityGroup using one of two forms of
+-- |
+-- Module      : Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Enables ingress to a DBSecurityGroup using one of two forms of
 -- authorization. First, EC2 or VPC security groups can be added to the
--- DBSecurityGroup if the application using the database is running on EC2 or
--- VPC instances. Second, IP ranges are available if the application accessing
--- your database is running on the Internet. Required parameters for this API
--- are one of CIDR range, EC2SecurityGroupId for VPC, or
+-- DBSecurityGroup if the application using the database is running on EC2
+-- or VPC instances. Second, IP ranges are available if the application
+-- accessing your database is running on the Internet. Required parameters
+-- for this API are one of CIDR range, EC2SecurityGroupId for VPC, or
 -- (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or
 -- EC2SecurityGroupId for non-VPC).
 --
--- You cannot authorize ingress from an EC2 security group in one Region to an
--- Amazon RDS DB instance in another. You cannot authorize ingress from a VPC
--- security group in one VPC to an Amazon RDS DB instance in another.  For an
--- overview of CIDR ranges, go to the <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
+-- You cannot authorize ingress from an EC2 security group in one region to
+-- an Amazon RDS DB instance in another. You cannot authorize ingress from
+-- a VPC security group in one VPC to an Amazon RDS DB instance in another.
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html>
+-- For an overview of CIDR ranges, go to the
+-- <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Wikipedia Tutorial>.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AuthorizeDBSecurityGroupIngress.html AWS API Reference> for AuthorizeDBSecurityGroupIngress.
 module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     (
-    -- * Request
-      AuthorizeDBSecurityGroupIngress
-    -- ** Request constructor
-    , authorizeDBSecurityGroupIngress
-    -- ** Request lenses
-    , adbsgiCIDRIP
-    , adbsgiDBSecurityGroupName
-    , adbsgiEC2SecurityGroupId
-    , adbsgiEC2SecurityGroupName
-    , adbsgiEC2SecurityGroupOwnerId
+    -- * Creating a Request
+      authorizeDBSecurityGroupIngress
+    , AuthorizeDBSecurityGroupIngress
+    -- * Request Lenses
+    , adsgiEC2SecurityGroupOwnerId
+    , adsgiEC2SecurityGroupName
+    , adsgiCIdRIP
+    , adsgiEC2SecurityGroupId
+    , adsgiDBSecurityGroupName
 
-    -- * Response
-    , AuthorizeDBSecurityGroupIngressResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , authorizeDBSecurityGroupIngressResponse
-    -- ** Response lenses
-    , adbsgirDBSecurityGroup
+    , AuthorizeDBSecurityGroupIngressResponse
+    -- * Response Lenses
+    , adsgirsDBSecurityGroup
+    , adsgirsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.RDS.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
-    { _adbsgiCIDRIP                  :: Maybe Text
-    , _adbsgiDBSecurityGroupName     :: Text
-    , _adbsgiEC2SecurityGroupId      :: Maybe Text
-    , _adbsgiEC2SecurityGroupName    :: Maybe Text
-    , _adbsgiEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- |
+--
+-- /See:/ 'authorizeDBSecurityGroupIngress' smart constructor.
+data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
+    { _adsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
+    , _adsgiEC2SecurityGroupName    :: !(Maybe Text)
+    , _adsgiCIdRIP                  :: !(Maybe Text)
+    , _adsgiEC2SecurityGroupId      :: !(Maybe Text)
+    , _adsgiDBSecurityGroupName     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'AuthorizeDBSecurityGroupIngress' constructor.
+-- | Creates a value of 'AuthorizeDBSecurityGroupIngress' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'adbsgiCIDRIP' @::@ 'Maybe' 'Text'
+-- * 'adsgiEC2SecurityGroupOwnerId'
 --
--- * 'adbsgiDBSecurityGroupName' @::@ 'Text'
+-- * 'adsgiEC2SecurityGroupName'
 --
--- * 'adbsgiEC2SecurityGroupId' @::@ 'Maybe' 'Text'
+-- * 'adsgiCIdRIP'
 --
--- * 'adbsgiEC2SecurityGroupName' @::@ 'Maybe' 'Text'
+-- * 'adsgiEC2SecurityGroupId'
 --
--- * 'adbsgiEC2SecurityGroupOwnerId' @::@ 'Maybe' 'Text'
---
-authorizeDBSecurityGroupIngress :: Text -- ^ 'adbsgiDBSecurityGroupName'
-                                -> AuthorizeDBSecurityGroupIngress
-authorizeDBSecurityGroupIngress p1 = AuthorizeDBSecurityGroupIngress
-    { _adbsgiDBSecurityGroupName     = p1
-    , _adbsgiCIDRIP                  = Nothing
-    , _adbsgiEC2SecurityGroupName    = Nothing
-    , _adbsgiEC2SecurityGroupId      = Nothing
-    , _adbsgiEC2SecurityGroupOwnerId = Nothing
+-- * 'adsgiDBSecurityGroupName'
+authorizeDBSecurityGroupIngress
+    :: Text -- ^ 'adsgiDBSecurityGroupName'
+    -> AuthorizeDBSecurityGroupIngress
+authorizeDBSecurityGroupIngress pDBSecurityGroupName_ =
+    AuthorizeDBSecurityGroupIngress'
+    { _adsgiEC2SecurityGroupOwnerId = Nothing
+    , _adsgiEC2SecurityGroupName = Nothing
+    , _adsgiCIdRIP = Nothing
+    , _adsgiEC2SecurityGroupId = Nothing
+    , _adsgiDBSecurityGroupName = pDBSecurityGroupName_
     }
+
+-- | AWS account number of the owner of the EC2 security group specified in
+-- the 'EC2SecurityGroupName' parameter. The AWS Access Key ID is not an
+-- acceptable value. For VPC DB security groups, 'EC2SecurityGroupId' must
+-- be provided. Otherwise, 'EC2SecurityGroupOwnerId' and either
+-- 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
+adsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
+adsgiEC2SecurityGroupOwnerId = lens _adsgiEC2SecurityGroupOwnerId (\ s a -> s{_adsgiEC2SecurityGroupOwnerId = a});
+
+-- | Name of the EC2 security group to authorize. For VPC DB security groups,
+-- 'EC2SecurityGroupId' must be provided. Otherwise,
+-- 'EC2SecurityGroupOwnerId' and either 'EC2SecurityGroupName' or
+-- 'EC2SecurityGroupId' must be provided.
+adsgiEC2SecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
+adsgiEC2SecurityGroupName = lens _adsgiEC2SecurityGroupName (\ s a -> s{_adsgiEC2SecurityGroupName = a});
 
 -- | The IP range to authorize.
-adbsgiCIDRIP :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adbsgiCIDRIP = lens _adbsgiCIDRIP (\s a -> s { _adbsgiCIDRIP = a })
+adsgiCIdRIP :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
+adsgiCIdRIP = lens _adsgiCIdRIP (\ s a -> s{_adsgiCIdRIP = a});
+
+-- | Id of the EC2 security group to authorize. For VPC DB security groups,
+-- 'EC2SecurityGroupId' must be provided. Otherwise,
+-- 'EC2SecurityGroupOwnerId' and either 'EC2SecurityGroupName' or
+-- 'EC2SecurityGroupId' must be provided.
+adsgiEC2SecurityGroupId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
+adsgiEC2SecurityGroupId = lens _adsgiEC2SecurityGroupId (\ s a -> s{_adsgiEC2SecurityGroupId = a});
 
 -- | The name of the DB security group to add authorization to.
-adbsgiDBSecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress Text
-adbsgiDBSecurityGroupName =
-    lens _adbsgiDBSecurityGroupName
-        (\s a -> s { _adbsgiDBSecurityGroupName = a })
+adsgiDBSecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress Text
+adsgiDBSecurityGroupName = lens _adsgiDBSecurityGroupName (\ s a -> s{_adsgiDBSecurityGroupName = a});
 
--- | Id of the EC2 security group to authorize. For VPC DB security groups, 'EC2SecurityGroupId' must be provided. Otherwise, EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
-adbsgiEC2SecurityGroupId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adbsgiEC2SecurityGroupId =
-    lens _adbsgiEC2SecurityGroupId
-        (\s a -> s { _adbsgiEC2SecurityGroupId = a })
-
--- | Name of the EC2 security group to authorize. For VPC DB security groups, 'EC2SecurityGroupId' must be provided. Otherwise, EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
-adbsgiEC2SecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adbsgiEC2SecurityGroupName =
-    lens _adbsgiEC2SecurityGroupName
-        (\s a -> s { _adbsgiEC2SecurityGroupName = a })
-
--- | AWS Account Number of the owner of the EC2 security group specified in the
--- EC2SecurityGroupName parameter. The AWS Access Key ID is not an acceptable
--- value. For VPC DB security groups, 'EC2SecurityGroupId' must be provided.
--- Otherwise, EC2SecurityGroupOwnerId and either 'EC2SecurityGroupName' or 'EC2SecurityGroupId' must be provided.
-adbsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adbsgiEC2SecurityGroupOwnerId =
-    lens _adbsgiEC2SecurityGroupOwnerId
-        (\s a -> s { _adbsgiEC2SecurityGroupOwnerId = a })
-
-newtype AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse
-    { _adbsgirDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Eq, Read, Show)
-
--- | 'AuthorizeDBSecurityGroupIngressResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'adbsgirDBSecurityGroup' @::@ 'Maybe' 'DBSecurityGroup'
---
-authorizeDBSecurityGroupIngressResponse :: AuthorizeDBSecurityGroupIngressResponse
-authorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse
-    { _adbsgirDBSecurityGroup = Nothing
-    }
-
-adbsgirDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
-adbsgirDBSecurityGroup =
-    lens _adbsgirDBSecurityGroup (\s a -> s { _adbsgirDBSecurityGroup = a })
-
-instance ToPath AuthorizeDBSecurityGroupIngress where
-    toPath = const "/"
-
-instance ToQuery AuthorizeDBSecurityGroupIngress where
-    toQuery AuthorizeDBSecurityGroupIngress{..} = mconcat
-        [ "CIDRIP"                  =? _adbsgiCIDRIP
-        , "DBSecurityGroupName"     =? _adbsgiDBSecurityGroupName
-        , "EC2SecurityGroupId"      =? _adbsgiEC2SecurityGroupId
-        , "EC2SecurityGroupName"    =? _adbsgiEC2SecurityGroupName
-        , "EC2SecurityGroupOwnerId" =? _adbsgiEC2SecurityGroupOwnerId
-        ]
+instance AWSRequest AuthorizeDBSecurityGroupIngress
+         where
+        type Sv AuthorizeDBSecurityGroupIngress = RDS
+        type Rs AuthorizeDBSecurityGroupIngress =
+             AuthorizeDBSecurityGroupIngressResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "AuthorizeDBSecurityGroupIngressResult"
+              (\ s h x ->
+                 AuthorizeDBSecurityGroupIngressResponse' <$>
+                   (x .@? "DBSecurityGroup") <*> (pure (fromEnum s)))
 
 instance ToHeaders AuthorizeDBSecurityGroupIngress
+         where
+        toHeaders = const mempty
 
-instance AWSRequest AuthorizeDBSecurityGroupIngress where
-    type Sv AuthorizeDBSecurityGroupIngress = RDS
-    type Rs AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngressResponse
+instance ToPath AuthorizeDBSecurityGroupIngress where
+        toPath = const "/"
 
-    request  = post "AuthorizeDBSecurityGroupIngress"
-    response = xmlResponse
+instance ToQuery AuthorizeDBSecurityGroupIngress
+         where
+        toQuery AuthorizeDBSecurityGroupIngress'{..}
+          = mconcat
+              ["Action" =:
+                 ("AuthorizeDBSecurityGroupIngress" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "EC2SecurityGroupOwnerId" =:
+                 _adsgiEC2SecurityGroupOwnerId,
+               "EC2SecurityGroupName" =: _adsgiEC2SecurityGroupName,
+               "CIDRIP" =: _adsgiCIdRIP,
+               "EC2SecurityGroupId" =: _adsgiEC2SecurityGroupId,
+               "DBSecurityGroupName" =: _adsgiDBSecurityGroupName]
 
-instance FromXML AuthorizeDBSecurityGroupIngressResponse where
-    parseXML = withElement "AuthorizeDBSecurityGroupIngressResult" $ \x -> AuthorizeDBSecurityGroupIngressResponse
-        <$> x .@? "DBSecurityGroup"
+-- | /See:/ 'authorizeDBSecurityGroupIngressResponse' smart constructor.
+data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'
+    { _adsgirsDBSecurityGroup :: !(Maybe DBSecurityGroup)
+    , _adsgirsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'AuthorizeDBSecurityGroupIngressResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'adsgirsDBSecurityGroup'
+--
+-- * 'adsgirsStatus'
+authorizeDBSecurityGroupIngressResponse
+    :: Int -- ^ 'adsgirsStatus'
+    -> AuthorizeDBSecurityGroupIngressResponse
+authorizeDBSecurityGroupIngressResponse pStatus_ =
+    AuthorizeDBSecurityGroupIngressResponse'
+    { _adsgirsDBSecurityGroup = Nothing
+    , _adsgirsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+adsgirsDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
+adsgirsDBSecurityGroup = lens _adsgirsDBSecurityGroup (\ s a -> s{_adsgirsDBSecurityGroup = a});
+
+-- | The response status code.
+adsgirsStatus :: Lens' AuthorizeDBSecurityGroupIngressResponse Int
+adsgirsStatus = lens _adsgirsStatus (\ s a -> s{_adsgirsStatus = a});

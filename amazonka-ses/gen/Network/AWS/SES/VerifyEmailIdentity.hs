@@ -1,93 +1,119 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.SES.VerifyEmailIdentity
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Verifies an email address. This action causes a confirmation email message to
--- be sent to the specified address.
+-- |
+-- Module      : Network.AWS.SES.VerifyEmailIdentity
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Verifies an email address. This action causes a confirmation email
+-- message to be sent to the specified address.
 --
 -- This action is throttled at one request per second.
 --
--- <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailIdentity.html>
+-- /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailIdentity.html AWS API Reference> for VerifyEmailIdentity.
 module Network.AWS.SES.VerifyEmailIdentity
     (
-    -- * Request
-      VerifyEmailIdentity
-    -- ** Request constructor
-    , verifyEmailIdentity
-    -- ** Request lenses
+    -- * Creating a Request
+      verifyEmailIdentity
+    , VerifyEmailIdentity
+    -- * Request Lenses
     , veiEmailAddress
 
-    -- * Response
-    , VerifyEmailIdentityResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , verifyEmailIdentityResponse
+    , VerifyEmailIdentityResponse
+    -- * Response Lenses
+    , veirsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SES.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
+import           Network.AWS.SES.Types.Product
 
-newtype VerifyEmailIdentity = VerifyEmailIdentity
+-- | Represents a request instructing the service to begin email address
+-- verification.
+--
+-- /See:/ 'verifyEmailIdentity' smart constructor.
+newtype VerifyEmailIdentity = VerifyEmailIdentity'
     { _veiEmailAddress :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'VerifyEmailIdentity' constructor.
+-- | Creates a value of 'VerifyEmailIdentity' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'veiEmailAddress' @::@ 'Text'
---
-verifyEmailIdentity :: Text -- ^ 'veiEmailAddress'
-                    -> VerifyEmailIdentity
-verifyEmailIdentity p1 = VerifyEmailIdentity
-    { _veiEmailAddress = p1
+-- * 'veiEmailAddress'
+verifyEmailIdentity
+    :: Text -- ^ 'veiEmailAddress'
+    -> VerifyEmailIdentity
+verifyEmailIdentity pEmailAddress_ =
+    VerifyEmailIdentity'
+    { _veiEmailAddress = pEmailAddress_
     }
 
 -- | The email address to be verified.
 veiEmailAddress :: Lens' VerifyEmailIdentity Text
-veiEmailAddress = lens _veiEmailAddress (\s a -> s { _veiEmailAddress = a })
-
-data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'VerifyEmailIdentityResponse' constructor.
-verifyEmailIdentityResponse :: VerifyEmailIdentityResponse
-verifyEmailIdentityResponse = VerifyEmailIdentityResponse
-
-instance ToPath VerifyEmailIdentity where
-    toPath = const "/"
-
-instance ToQuery VerifyEmailIdentity where
-    toQuery VerifyEmailIdentity{..} = mconcat
-        [ "EmailAddress" =? _veiEmailAddress
-        ]
-
-instance ToHeaders VerifyEmailIdentity
+veiEmailAddress = lens _veiEmailAddress (\ s a -> s{_veiEmailAddress = a});
 
 instance AWSRequest VerifyEmailIdentity where
-    type Sv VerifyEmailIdentity = SES
-    type Rs VerifyEmailIdentity = VerifyEmailIdentityResponse
+        type Sv VerifyEmailIdentity = SES
+        type Rs VerifyEmailIdentity =
+             VerifyEmailIdentityResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "VerifyEmailIdentityResult"
+              (\ s h x ->
+                 VerifyEmailIdentityResponse' <$> (pure (fromEnum s)))
 
-    request  = post "VerifyEmailIdentity"
-    response = nullResponse VerifyEmailIdentityResponse
+instance ToHeaders VerifyEmailIdentity where
+        toHeaders = const mempty
+
+instance ToPath VerifyEmailIdentity where
+        toPath = const "/"
+
+instance ToQuery VerifyEmailIdentity where
+        toQuery VerifyEmailIdentity'{..}
+          = mconcat
+              ["Action" =: ("VerifyEmailIdentity" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "EmailAddress" =: _veiEmailAddress]
+
+-- | An empty element. Receiving this element indicates that the request
+-- completed successfully.
+--
+-- /See:/ 'verifyEmailIdentityResponse' smart constructor.
+newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
+    { _veirsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'VerifyEmailIdentityResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'veirsStatus'
+verifyEmailIdentityResponse
+    :: Int -- ^ 'veirsStatus'
+    -> VerifyEmailIdentityResponse
+verifyEmailIdentityResponse pStatus_ =
+    VerifyEmailIdentityResponse'
+    { _veirsStatus = pStatus_
+    }
+
+-- | The response status code.
+veirsStatus :: Lens' VerifyEmailIdentityResponse Int
+veirsStatus = lens _veirsStatus (\ s a -> s{_veirsStatus = a});

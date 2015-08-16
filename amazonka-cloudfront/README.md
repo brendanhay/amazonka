@@ -1,28 +1,41 @@
 # Amazon CloudFront SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-Amazon CloudFront is a web service that speeds up distribution of your static
-and dynamic web content, for example, .html, .css, .php, image, and media
-files, to end users. CloudFront delivers your content through a worldwide
-network of edge locations. When an end user requests content that you're
-serving with CloudFront, the user is routed to the edge location that
-provides the lowest latency, so content is delivered with the best possible
-performance. If the content is already in that edge location, CloudFront
-delivers it immediately. If the content is not currently in that edge
-location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server
-(for example, a web server) that you have identified as the source for the
-definitive version of your content.
+Amazon CloudFront is a web service that speeds up distribution of your
+static and dynamic web content, for example, .html, .css, .php, image,
+and media files, to end users. CloudFront delivers your content through
+a worldwide network of edge locations. When an end user requests content
+that you\'re serving with CloudFront, the user is routed to the edge
+location that provides the lowest latency, so content is delivered with
+the best possible performance. If the content is already in that edge
+location, CloudFront delivers it immediately. If the content is not
+currently in that edge location, CloudFront retrieves it from an Amazon
+S3 bucket or an HTTP server (for example, a web server) that you have
+identified as the source for the definitive version of your content.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudfront)
 and the [AWS API Reference](http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/Welcome.html).
 
+The types from this library are intended to be used with [amazonka](http://hackage.haskell.org/package/amazonka),
+which provides mechanisms for specifying AuthN/AuthZ information and sending requests.
+
+Use of lenses is required for constructing and manipulating types.
+This is due to the amount of nesting of AWS types and transparency regarding
+de/serialisation into more palatable Haskell values.
+The provided lenses should be compatible with any of the major lens libraries
+[lens](http://hackage.haskell.org/package/lens) or [lens-family-core](http://hackage.haskell.org/package/lens-family-core).
 
 ## Contribute
 

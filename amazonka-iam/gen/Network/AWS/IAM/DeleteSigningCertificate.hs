@@ -1,105 +1,113 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.DeleteSigningCertificate
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified signing certificate associated with the specified user.
+-- |
+-- Module      : Network.AWS.IAM.DeleteSigningCertificate
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- If you do not specify a user name, IAM determines the user name implicitly
--- based on the AWS access key ID signing the request. Because this action works
--- for access keys under the AWS account, you can use this action to manage root
--- credentials even if the AWS account has no associated users.
+-- Deletes the specified signing certificate associated with the specified
+-- user.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSigningCertificate.html>
+-- If you do not specify a user name, IAM determines the user name
+-- implicitly based on the AWS access key ID signing the request. Because
+-- this action works for access keys under the AWS account, you can use
+-- this action to manage root credentials even if the AWS account has no
+-- associated users.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSigningCertificate.html AWS API Reference> for DeleteSigningCertificate.
 module Network.AWS.IAM.DeleteSigningCertificate
     (
-    -- * Request
-      DeleteSigningCertificate
-    -- ** Request constructor
-    , deleteSigningCertificate
-    -- ** Request lenses
-    , dscCertificateId
+    -- * Creating a Request
+      deleteSigningCertificate
+    , DeleteSigningCertificate
+    -- * Request Lenses
     , dscUserName
+    , dscCertificateId
 
-    -- * Response
-    , DeleteSigningCertificateResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteSigningCertificateResponse
+    , DeleteSigningCertificateResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteSigningCertificate = DeleteSigningCertificate
-    { _dscCertificateId :: Text
-    , _dscUserName      :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'deleteSigningCertificate' smart constructor.
+data DeleteSigningCertificate = DeleteSigningCertificate'
+    { _dscUserName      :: !(Maybe Text)
+    , _dscCertificateId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteSigningCertificate' constructor.
+-- | Creates a value of 'DeleteSigningCertificate' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dscCertificateId' @::@ 'Text'
+-- * 'dscUserName'
 --
--- * 'dscUserName' @::@ 'Maybe' 'Text'
---
-deleteSigningCertificate :: Text -- ^ 'dscCertificateId'
-                         -> DeleteSigningCertificate
-deleteSigningCertificate p1 = DeleteSigningCertificate
-    { _dscCertificateId = p1
-    , _dscUserName      = Nothing
+-- * 'dscCertificateId'
+deleteSigningCertificate
+    :: Text -- ^ 'dscCertificateId'
+    -> DeleteSigningCertificate
+deleteSigningCertificate pCertificateId_ =
+    DeleteSigningCertificate'
+    { _dscUserName = Nothing
+    , _dscCertificateId = pCertificateId_
     }
-
--- | The ID of the signing certificate to delete.
-dscCertificateId :: Lens' DeleteSigningCertificate Text
-dscCertificateId = lens _dscCertificateId (\s a -> s { _dscCertificateId = a })
 
 -- | The name of the user the signing certificate belongs to.
 dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
-dscUserName = lens _dscUserName (\s a -> s { _dscUserName = a })
+dscUserName = lens _dscUserName (\ s a -> s{_dscUserName = a});
 
-data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteSigningCertificateResponse' constructor.
-deleteSigningCertificateResponse :: DeleteSigningCertificateResponse
-deleteSigningCertificateResponse = DeleteSigningCertificateResponse
-
-instance ToPath DeleteSigningCertificate where
-    toPath = const "/"
-
-instance ToQuery DeleteSigningCertificate where
-    toQuery DeleteSigningCertificate{..} = mconcat
-        [ "CertificateId" =? _dscCertificateId
-        , "UserName"      =? _dscUserName
-        ]
-
-instance ToHeaders DeleteSigningCertificate
+-- | The ID of the signing certificate to delete.
+dscCertificateId :: Lens' DeleteSigningCertificate Text
+dscCertificateId = lens _dscCertificateId (\ s a -> s{_dscCertificateId = a});
 
 instance AWSRequest DeleteSigningCertificate where
-    type Sv DeleteSigningCertificate = IAM
-    type Rs DeleteSigningCertificate = DeleteSigningCertificateResponse
+        type Sv DeleteSigningCertificate = IAM
+        type Rs DeleteSigningCertificate =
+             DeleteSigningCertificateResponse
+        request = postQuery
+        response
+          = receiveNull DeleteSigningCertificateResponse'
 
-    request  = post "DeleteSigningCertificate"
-    response = nullResponse DeleteSigningCertificateResponse
+instance ToHeaders DeleteSigningCertificate where
+        toHeaders = const mempty
+
+instance ToPath DeleteSigningCertificate where
+        toPath = const "/"
+
+instance ToQuery DeleteSigningCertificate where
+        toQuery DeleteSigningCertificate'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteSigningCertificate" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "UserName" =: _dscUserName,
+               "CertificateId" =: _dscCertificateId]
+
+-- | /See:/ 'deleteSigningCertificateResponse' smart constructor.
+data DeleteSigningCertificateResponse =
+    DeleteSigningCertificateResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteSigningCertificateResponse' with the minimum fields required to make a request.
+--
+deleteSigningCertificateResponse
+    :: DeleteSigningCertificateResponse
+deleteSigningCertificateResponse = DeleteSigningCertificateResponse'

@@ -1,126 +1,132 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudFront.GetInvalidation
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Get the information about an invalidation.
+-- |
+-- Module      : Network.AWS.CloudFront.GetInvalidation
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetInvalidation.html>
+-- Get the information about an invalidation.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetInvalidation.html AWS API Reference> for GetInvalidation.
 module Network.AWS.CloudFront.GetInvalidation
     (
-    -- * Request
-      GetInvalidation
-    -- ** Request constructor
-    , getInvalidation
-    -- ** Request lenses
+    -- * Creating a Request
+      getInvalidation
+    , GetInvalidation
+    -- * Request Lenses
     , giDistributionId
     , giId
 
-    -- * Response
-    , GetInvalidationResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getInvalidationResponse
-    -- ** Response lenses
-    , girInvalidation
+    , GetInvalidationResponse
+    -- * Response Lenses
+    , girsInvalidation
+    , girsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetInvalidation = GetInvalidation
-    { _giDistributionId :: Text
-    , _giId             :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | The request to get an invalidation\'s information.
+--
+-- /See:/ 'getInvalidation' smart constructor.
+data GetInvalidation = GetInvalidation'
+    { _giDistributionId :: !Text
+    , _giId             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetInvalidation' constructor.
+-- | Creates a value of 'GetInvalidation' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'giDistributionId' @::@ 'Text'
+-- * 'giDistributionId'
 --
--- * 'giId' @::@ 'Text'
---
-getInvalidation :: Text -- ^ 'giDistributionId'
-                -> Text -- ^ 'giId'
-                -> GetInvalidation
-getInvalidation p1 p2 = GetInvalidation
-    { _giDistributionId = p1
-    , _giId             = p2
+-- * 'giId'
+getInvalidation
+    :: Text -- ^ 'giDistributionId'
+    -> Text -- ^ 'giId'
+    -> GetInvalidation
+getInvalidation pDistributionId_ pId_ =
+    GetInvalidation'
+    { _giDistributionId = pDistributionId_
+    , _giId = pId_
     }
 
--- | The distribution's id.
+-- | The distribution\'s id.
 giDistributionId :: Lens' GetInvalidation Text
-giDistributionId = lens _giDistributionId (\s a -> s { _giDistributionId = a })
+giDistributionId = lens _giDistributionId (\ s a -> s{_giDistributionId = a});
 
--- | The invalidation's id.
+-- | The invalidation\'s id.
 giId :: Lens' GetInvalidation Text
-giId = lens _giId (\s a -> s { _giId = a })
-
-newtype GetInvalidationResponse = GetInvalidationResponse
-    { _girInvalidation :: Maybe Invalidation
-    } deriving (Eq, Read, Show)
-
--- | 'GetInvalidationResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'girInvalidation' @::@ 'Maybe' 'Invalidation'
---
-getInvalidationResponse :: GetInvalidationResponse
-getInvalidationResponse = GetInvalidationResponse
-    { _girInvalidation = Nothing
-    }
-
--- | The invalidation's information.
-girInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
-girInvalidation = lens _girInvalidation (\s a -> s { _girInvalidation = a })
-
-instance ToPath GetInvalidation where
-    toPath GetInvalidation{..} = mconcat
-        [ "/2014-11-06/distribution/"
-        , toText _giDistributionId
-        , "/invalidation/"
-        , toText _giId
-        ]
-
-instance ToQuery GetInvalidation where
-    toQuery = const mempty
-
-instance ToHeaders GetInvalidation
-
-instance ToXMLRoot GetInvalidation where
-    toXMLRoot = const (namespaced ns "GetInvalidation" [])
-
-instance ToXML GetInvalidation
+giId = lens _giId (\ s a -> s{_giId = a});
 
 instance AWSRequest GetInvalidation where
-    type Sv GetInvalidation = CloudFront
-    type Rs GetInvalidation = GetInvalidationResponse
+        type Sv GetInvalidation = CloudFront
+        type Rs GetInvalidation = GetInvalidationResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 GetInvalidationResponse' <$>
+                   (parseXML x) <*> (pure (fromEnum s)))
 
-    request  = get
-    response = xmlResponse
+instance ToHeaders GetInvalidation where
+        toHeaders = const mempty
 
-instance FromXML GetInvalidationResponse where
-    parseXML x = GetInvalidationResponse
-        <$> x .@? "Invalidation"
+instance ToPath GetInvalidation where
+        toPath GetInvalidation'{..}
+          = mconcat
+              ["/2015-04-17/distribution/", toBS _giDistributionId,
+               "/invalidation/", toBS _giId]
+
+instance ToQuery GetInvalidation where
+        toQuery = const mempty
+
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'getInvalidationResponse' smart constructor.
+data GetInvalidationResponse = GetInvalidationResponse'
+    { _girsInvalidation :: !(Maybe Invalidation)
+    , _girsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetInvalidationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'girsInvalidation'
+--
+-- * 'girsStatus'
+getInvalidationResponse
+    :: Int -- ^ 'girsStatus'
+    -> GetInvalidationResponse
+getInvalidationResponse pStatus_ =
+    GetInvalidationResponse'
+    { _girsInvalidation = Nothing
+    , _girsStatus = pStatus_
+    }
+
+-- | The invalidation\'s information.
+girsInvalidation :: Lens' GetInvalidationResponse (Maybe Invalidation)
+girsInvalidation = lens _girsInvalidation (\ s a -> s{_girsInvalidation = a});
+
+-- | The response status code.
+girsStatus :: Lens' GetInvalidationResponse Int
+girsStatus = lens _girsStatus (\ s a -> s{_girsStatus = a});

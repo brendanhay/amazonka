@@ -1,113 +1,116 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.GetBucketPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns the policy of a specified bucket.
+-- |
+-- Module      : Network.AWS.S3.GetBucketPolicy
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketPolicy.html>
+-- Returns the policy of a specified bucket.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketPolicy.html AWS API Reference> for GetBucketPolicy.
 module Network.AWS.S3.GetBucketPolicy
     (
-    -- * Request
-      GetBucketPolicy
-    -- ** Request constructor
-    , getBucketPolicy
-    -- ** Request lenses
+    -- * Creating a Request
+      getBucketPolicy
+    , GetBucketPolicy
+    -- * Request Lenses
     , gbpBucket
 
-    -- * Response
-    , GetBucketPolicyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getBucketPolicyResponse
-    -- ** Response lenses
-    , gbprPolicy
+    , GetBucketPolicyResponse
+    -- * Response Lenses
+    , gbprsPolicy
+    , gbprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-newtype GetBucketPolicy = GetBucketPolicy
-    { _gbpBucket :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | /See:/ 'getBucketPolicy' smart constructor.
+newtype GetBucketPolicy = GetBucketPolicy'
+    { _gbpBucket :: BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketPolicy' constructor.
+-- | Creates a value of 'GetBucketPolicy' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbpBucket' @::@ 'Text'
---
-getBucketPolicy :: Text -- ^ 'gbpBucket'
-                -> GetBucketPolicy
-getBucketPolicy p1 = GetBucketPolicy
-    { _gbpBucket = p1
+-- * 'gbpBucket'
+getBucketPolicy
+    :: BucketName -- ^ 'gbpBucket'
+    -> GetBucketPolicy
+getBucketPolicy pBucket_ =
+    GetBucketPolicy'
+    { _gbpBucket = pBucket_
     }
 
-gbpBucket :: Lens' GetBucketPolicy Text
-gbpBucket = lens _gbpBucket (\s a -> s { _gbpBucket = a })
+-- | Undocumented member.
+gbpBucket :: Lens' GetBucketPolicy BucketName
+gbpBucket = lens _gbpBucket (\ s a -> s{_gbpBucket = a});
 
-newtype GetBucketPolicyResponse = GetBucketPolicyResponse
-    { _gbprPolicy :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+instance AWSRequest GetBucketPolicy where
+        type Sv GetBucketPolicy = S3
+        type Rs GetBucketPolicy = GetBucketPolicyResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 GetBucketPolicyResponse' <$>
+                   (parseXML x) <*> (pure (fromEnum s)))
 
--- | 'GetBucketPolicyResponse' constructor.
+instance ToHeaders GetBucketPolicy where
+        toHeaders = const mempty
+
+instance ToPath GetBucketPolicy where
+        toPath GetBucketPolicy'{..}
+          = mconcat ["/", toBS _gbpBucket]
+
+instance ToQuery GetBucketPolicy where
+        toQuery = const (mconcat ["policy"])
+
+-- | /See:/ 'getBucketPolicyResponse' smart constructor.
+data GetBucketPolicyResponse = GetBucketPolicyResponse'
+    { _gbprsPolicy :: !(Maybe Text)
+    , _gbprsStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetBucketPolicyResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbprPolicy' @::@ 'Maybe' 'Text'
+-- * 'gbprsPolicy'
 --
-getBucketPolicyResponse :: GetBucketPolicyResponse
-getBucketPolicyResponse = GetBucketPolicyResponse
-    { _gbprPolicy = Nothing
+-- * 'gbprsStatus'
+getBucketPolicyResponse
+    :: Int -- ^ 'gbprsStatus'
+    -> GetBucketPolicyResponse
+getBucketPolicyResponse pStatus_ =
+    GetBucketPolicyResponse'
+    { _gbprsPolicy = Nothing
+    , _gbprsStatus = pStatus_
     }
 
 -- | The bucket policy as a JSON document.
-gbprPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
-gbprPolicy = lens _gbprPolicy (\s a -> s { _gbprPolicy = a })
+gbprsPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
+gbprsPolicy = lens _gbprsPolicy (\ s a -> s{_gbprsPolicy = a});
 
-instance ToPath GetBucketPolicy where
-    toPath GetBucketPolicy{..} = mconcat
-        [ "/"
-        , toText _gbpBucket
-        ]
-
-instance ToQuery GetBucketPolicy where
-    toQuery = const "policy"
-
-instance ToHeaders GetBucketPolicy
-
-instance ToXMLRoot GetBucketPolicy where
-    toXMLRoot = const (namespaced ns "GetBucketPolicy" [])
-
-instance ToXML GetBucketPolicy
-
-instance AWSRequest GetBucketPolicy where
-    type Sv GetBucketPolicy = S3
-    type Rs GetBucketPolicy = GetBucketPolicyResponse
-
-    request  = get
-    response = xmlResponse
-
-instance FromXML GetBucketPolicyResponse where
-    parseXML x = GetBucketPolicyResponse
-        <$> x .@? "Policy"
+-- | The response status code.
+gbprsStatus :: Lens' GetBucketPolicyResponse Int
+gbprsStatus = lens _gbprsStatus (\ s a -> s{_gbprsStatus = a});

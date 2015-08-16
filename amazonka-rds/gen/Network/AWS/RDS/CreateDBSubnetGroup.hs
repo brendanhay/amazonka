@@ -1,148 +1,162 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.RDS.CreateDBSubnetGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new DB subnet group. DB subnet groups must contain at least one
--- subnet in at least two AZs in the region.
+-- |
+-- Module      : Network.AWS.RDS.CreateDBSubnetGroup
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSubnetGroup.html>
+-- Creates a new DB subnet group. DB subnet groups must contain at least
+-- one subnet in at least two AZs in the region.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSubnetGroup.html AWS API Reference> for CreateDBSubnetGroup.
 module Network.AWS.RDS.CreateDBSubnetGroup
     (
-    -- * Request
-      CreateDBSubnetGroup
-    -- ** Request constructor
-    , createDBSubnetGroup
-    -- ** Request lenses
-    , cdbsg1DBSubnetGroupDescription
-    , cdbsg1DBSubnetGroupName
-    , cdbsg1SubnetIds
-    , cdbsg1Tags
+    -- * Creating a Request
+      createDBSubnetGroup
+    , CreateDBSubnetGroup
+    -- * Request Lenses
+    , cdbsgTags
+    , cdbsgDBSubnetGroupName
+    , cdbsgDBSubnetGroupDescription
+    , cdbsgSubnetIds
 
-    -- * Response
-    , CreateDBSubnetGroupResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , createDBSubnetGroupResponse
-    -- ** Response lenses
-    , cdbsgrDBSubnetGroup
+    , CreateDBSubnetGroupResponse
+    -- * Response Lenses
+    , cdsgrsDBSubnetGroup
+    , cdsgrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.RDS.Types.Product
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateDBSubnetGroup = CreateDBSubnetGroup
-    { _cdbsg1DBSubnetGroupDescription :: Text
-    , _cdbsg1DBSubnetGroupName        :: Text
-    , _cdbsg1SubnetIds                :: List "member" Text
-    , _cdbsg1Tags                     :: List "member" Tag
-    } deriving (Eq, Read, Show)
+-- |
+--
+-- /See:/ 'createDBSubnetGroup' smart constructor.
+data CreateDBSubnetGroup = CreateDBSubnetGroup'
+    { _cdbsgTags                     :: !(Maybe [Tag])
+    , _cdbsgDBSubnetGroupName        :: !Text
+    , _cdbsgDBSubnetGroupDescription :: !Text
+    , _cdbsgSubnetIds                :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateDBSubnetGroup' constructor.
+-- | Creates a value of 'CreateDBSubnetGroup' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'cdbsg1DBSubnetGroupDescription' @::@ 'Text'
+-- * 'cdbsgTags'
 --
--- * 'cdbsg1DBSubnetGroupName' @::@ 'Text'
+-- * 'cdbsgDBSubnetGroupName'
 --
--- * 'cdbsg1SubnetIds' @::@ ['Text']
+-- * 'cdbsgDBSubnetGroupDescription'
 --
--- * 'cdbsg1Tags' @::@ ['Tag']
---
-createDBSubnetGroup :: Text -- ^ 'cdbsg1DBSubnetGroupName'
-                    -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
-                    -> CreateDBSubnetGroup
-createDBSubnetGroup p1 p2 = CreateDBSubnetGroup
-    { _cdbsg1DBSubnetGroupName        = p1
-    , _cdbsg1DBSubnetGroupDescription = p2
-    , _cdbsg1SubnetIds                = mempty
-    , _cdbsg1Tags                     = mempty
+-- * 'cdbsgSubnetIds'
+createDBSubnetGroup
+    :: Text -- ^ 'cdbsgDBSubnetGroupName'
+    -> Text -- ^ 'cdbsgDBSubnetGroupDescription'
+    -> CreateDBSubnetGroup
+createDBSubnetGroup pDBSubnetGroupName_ pDBSubnetGroupDescription_ =
+    CreateDBSubnetGroup'
+    { _cdbsgTags = Nothing
+    , _cdbsgDBSubnetGroupName = pDBSubnetGroupName_
+    , _cdbsgDBSubnetGroupDescription = pDBSubnetGroupDescription_
+    , _cdbsgSubnetIds = mempty
     }
 
--- | The description for the DB subnet group.
-cdbsg1DBSubnetGroupDescription :: Lens' CreateDBSubnetGroup Text
-cdbsg1DBSubnetGroupDescription =
-    lens _cdbsg1DBSubnetGroupDescription
-        (\s a -> s { _cdbsg1DBSubnetGroupDescription = a })
+-- | Undocumented member.
+cdbsgTags :: Lens' CreateDBSubnetGroup [Tag]
+cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default . _Coerce;
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string.
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters or
--- hyphens. Must not be "Default".
+-- hyphens. Must not be \"Default\".
 --
 -- Example: 'mySubnetgroup'
-cdbsg1DBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
-cdbsg1DBSubnetGroupName =
-    lens _cdbsg1DBSubnetGroupName (\s a -> s { _cdbsg1DBSubnetGroupName = a })
+cdbsgDBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
+cdbsgDBSubnetGroupName = lens _cdbsgDBSubnetGroupName (\ s a -> s{_cdbsgDBSubnetGroupName = a});
+
+-- | The description for the DB subnet group.
+cdbsgDBSubnetGroupDescription :: Lens' CreateDBSubnetGroup Text
+cdbsgDBSubnetGroupDescription = lens _cdbsgDBSubnetGroupDescription (\ s a -> s{_cdbsgDBSubnetGroupDescription = a});
 
 -- | The EC2 Subnet IDs for the DB subnet group.
-cdbsg1SubnetIds :: Lens' CreateDBSubnetGroup [Text]
-cdbsg1SubnetIds = lens _cdbsg1SubnetIds (\s a -> s { _cdbsg1SubnetIds = a }) . _List
-
-cdbsg1Tags :: Lens' CreateDBSubnetGroup [Tag]
-cdbsg1Tags = lens _cdbsg1Tags (\s a -> s { _cdbsg1Tags = a }) . _List
-
-newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
-    { _cdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
-    } deriving (Eq, Read, Show)
-
--- | 'CreateDBSubnetGroupResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdbsgrDBSubnetGroup' @::@ 'Maybe' 'DBSubnetGroup'
---
-createDBSubnetGroupResponse :: CreateDBSubnetGroupResponse
-createDBSubnetGroupResponse = CreateDBSubnetGroupResponse
-    { _cdbsgrDBSubnetGroup = Nothing
-    }
-
-cdbsgrDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
-cdbsgrDBSubnetGroup =
-    lens _cdbsgrDBSubnetGroup (\s a -> s { _cdbsgrDBSubnetGroup = a })
-
-instance ToPath CreateDBSubnetGroup where
-    toPath = const "/"
-
-instance ToQuery CreateDBSubnetGroup where
-    toQuery CreateDBSubnetGroup{..} = mconcat
-        [ "DBSubnetGroupDescription" =? _cdbsg1DBSubnetGroupDescription
-        , "DBSubnetGroupName"        =? _cdbsg1DBSubnetGroupName
-        , "SubnetIds"                =? _cdbsg1SubnetIds
-        , "Tags"                     =? _cdbsg1Tags
-        ]
-
-instance ToHeaders CreateDBSubnetGroup
+cdbsgSubnetIds :: Lens' CreateDBSubnetGroup [Text]
+cdbsgSubnetIds = lens _cdbsgSubnetIds (\ s a -> s{_cdbsgSubnetIds = a}) . _Coerce;
 
 instance AWSRequest CreateDBSubnetGroup where
-    type Sv CreateDBSubnetGroup = RDS
-    type Rs CreateDBSubnetGroup = CreateDBSubnetGroupResponse
+        type Sv CreateDBSubnetGroup = RDS
+        type Rs CreateDBSubnetGroup =
+             CreateDBSubnetGroupResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper "CreateDBSubnetGroupResult"
+              (\ s h x ->
+                 CreateDBSubnetGroupResponse' <$>
+                   (x .@? "DBSubnetGroup") <*> (pure (fromEnum s)))
 
-    request  = post "CreateDBSubnetGroup"
-    response = xmlResponse
+instance ToHeaders CreateDBSubnetGroup where
+        toHeaders = const mempty
 
-instance FromXML CreateDBSubnetGroupResponse where
-    parseXML = withElement "CreateDBSubnetGroupResult" $ \x -> CreateDBSubnetGroupResponse
-        <$> x .@? "DBSubnetGroup"
+instance ToPath CreateDBSubnetGroup where
+        toPath = const "/"
+
+instance ToQuery CreateDBSubnetGroup where
+        toQuery CreateDBSubnetGroup'{..}
+          = mconcat
+              ["Action" =: ("CreateDBSubnetGroup" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cdbsgTags),
+               "DBSubnetGroupName" =: _cdbsgDBSubnetGroupName,
+               "DBSubnetGroupDescription" =:
+                 _cdbsgDBSubnetGroupDescription,
+               "SubnetIds" =:
+                 toQueryList "SubnetIdentifier" _cdbsgSubnetIds]
+
+-- | /See:/ 'createDBSubnetGroupResponse' smart constructor.
+data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
+    { _cdsgrsDBSubnetGroup :: !(Maybe DBSubnetGroup)
+    , _cdsgrsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'CreateDBSubnetGroupResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'cdsgrsDBSubnetGroup'
+--
+-- * 'cdsgrsStatus'
+createDBSubnetGroupResponse
+    :: Int -- ^ 'cdsgrsStatus'
+    -> CreateDBSubnetGroupResponse
+createDBSubnetGroupResponse pStatus_ =
+    CreateDBSubnetGroupResponse'
+    { _cdsgrsDBSubnetGroup = Nothing
+    , _cdsgrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+cdsgrsDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
+cdsgrsDBSubnetGroup = lens _cdsgrsDBSubnetGroup (\ s a -> s{_cdsgrsDBSubnetGroup = a});
+
+-- | The response status code.
+cdsgrsStatus :: Lens' CreateDBSubnetGroupResponse Int
+cdsgrsStatus = lens _cdsgrsStatus (\ s a -> s{_cdsgrsStatus = a});

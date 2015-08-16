@@ -1,106 +1,115 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified configuration template.
+-- |
+-- Module      : Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes the specified configuration template.
 --
 -- When you launch an environment using a configuration template, the
 -- environment gets a copy of the template. You can delete or modify the
--- environment's copy of the template without affecting the running environment.
+-- environment\'s copy of the template without affecting the running
+-- environment.
 --
--- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteConfigurationTemplate.html>
+-- /See:/ <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteConfigurationTemplate.html AWS API Reference> for DeleteConfigurationTemplate.
 module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     (
-    -- * Request
-      DeleteConfigurationTemplate
-    -- ** Request constructor
-    , deleteConfigurationTemplate
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteConfigurationTemplate
+    , DeleteConfigurationTemplate
+    -- * Request Lenses
     , dctApplicationName
     , dctTemplateName
 
-    -- * Response
-    , DeleteConfigurationTemplateResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteConfigurationTemplateResponse
+    , DeleteConfigurationTemplateResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.ElasticBeanstalk.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteConfigurationTemplate = DeleteConfigurationTemplate
-    { _dctApplicationName :: Text
-    , _dctTemplateName    :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'deleteConfigurationTemplate' smart constructor.
+data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
+    { _dctApplicationName :: !Text
+    , _dctTemplateName    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteConfigurationTemplate' constructor.
+-- | Creates a value of 'DeleteConfigurationTemplate' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dctApplicationName' @::@ 'Text'
+-- * 'dctApplicationName'
 --
--- * 'dctTemplateName' @::@ 'Text'
---
-deleteConfigurationTemplate :: Text -- ^ 'dctApplicationName'
-                            -> Text -- ^ 'dctTemplateName'
-                            -> DeleteConfigurationTemplate
-deleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplate
-    { _dctApplicationName = p1
-    , _dctTemplateName    = p2
+-- * 'dctTemplateName'
+deleteConfigurationTemplate
+    :: Text -- ^ 'dctApplicationName'
+    -> Text -- ^ 'dctTemplateName'
+    -> DeleteConfigurationTemplate
+deleteConfigurationTemplate pApplicationName_ pTemplateName_ =
+    DeleteConfigurationTemplate'
+    { _dctApplicationName = pApplicationName_
+    , _dctTemplateName = pTemplateName_
     }
 
 -- | The name of the application to delete the configuration template from.
 dctApplicationName :: Lens' DeleteConfigurationTemplate Text
-dctApplicationName =
-    lens _dctApplicationName (\s a -> s { _dctApplicationName = a })
+dctApplicationName = lens _dctApplicationName (\ s a -> s{_dctApplicationName = a});
 
 -- | The name of the configuration template to delete.
 dctTemplateName :: Lens' DeleteConfigurationTemplate Text
-dctTemplateName = lens _dctTemplateName (\s a -> s { _dctTemplateName = a })
-
-data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteConfigurationTemplateResponse' constructor.
-deleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse
-deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
-
-instance ToPath DeleteConfigurationTemplate where
-    toPath = const "/"
-
-instance ToQuery DeleteConfigurationTemplate where
-    toQuery DeleteConfigurationTemplate{..} = mconcat
-        [ "ApplicationName" =? _dctApplicationName
-        , "TemplateName"    =? _dctTemplateName
-        ]
-
-instance ToHeaders DeleteConfigurationTemplate
+dctTemplateName = lens _dctTemplateName (\ s a -> s{_dctTemplateName = a});
 
 instance AWSRequest DeleteConfigurationTemplate where
-    type Sv DeleteConfigurationTemplate = ElasticBeanstalk
-    type Rs DeleteConfigurationTemplate = DeleteConfigurationTemplateResponse
+        type Sv DeleteConfigurationTemplate =
+             ElasticBeanstalk
+        type Rs DeleteConfigurationTemplate =
+             DeleteConfigurationTemplateResponse
+        request = postQuery
+        response
+          = receiveNull DeleteConfigurationTemplateResponse'
 
-    request  = post "DeleteConfigurationTemplate"
-    response = nullResponse DeleteConfigurationTemplateResponse
+instance ToHeaders DeleteConfigurationTemplate where
+        toHeaders = const mempty
+
+instance ToPath DeleteConfigurationTemplate where
+        toPath = const "/"
+
+instance ToQuery DeleteConfigurationTemplate where
+        toQuery DeleteConfigurationTemplate'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteConfigurationTemplate" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "ApplicationName" =: _dctApplicationName,
+               "TemplateName" =: _dctTemplateName]
+
+-- | /See:/ 'deleteConfigurationTemplateResponse' smart constructor.
+data DeleteConfigurationTemplateResponse =
+    DeleteConfigurationTemplateResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteConfigurationTemplateResponse' with the minimum fields required to make a request.
+--
+deleteConfigurationTemplateResponse
+    :: DeleteConfigurationTemplateResponse
+deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse'

@@ -1,122 +1,131 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.CloudFront.GetDistribution
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Get the information about a distribution.
+-- |
+-- Module      : Network.AWS.CloudFront.GetDistribution
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistribution.html>
+-- Get the information about a distribution.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetDistribution.html AWS API Reference> for GetDistribution.
 module Network.AWS.CloudFront.GetDistribution
     (
-    -- * Request
-      GetDistribution
-    -- ** Request constructor
-    , getDistribution
-    -- ** Request lenses
+    -- * Creating a Request
+      getDistribution
+    , GetDistribution
+    -- * Request Lenses
     , gdId
 
-    -- * Response
-    , GetDistributionResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getDistributionResponse
-    -- ** Response lenses
-    , gdrDistribution
-    , gdrETag
+    , GetDistributionResponse
+    -- * Response Lenses
+    , gdrsETag
+    , gdrsDistribution
+    , gdrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.CloudFront.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetDistribution = GetDistribution
+-- | The request to get a distribution\'s information.
+--
+-- /See:/ 'getDistribution' smart constructor.
+newtype GetDistribution = GetDistribution'
     { _gdId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetDistribution' constructor.
+-- | Creates a value of 'GetDistribution' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gdId' @::@ 'Text'
---
-getDistribution :: Text -- ^ 'gdId'
-                -> GetDistribution
-getDistribution p1 = GetDistribution
-    { _gdId = p1
+-- * 'gdId'
+getDistribution
+    :: Text -- ^ 'gdId'
+    -> GetDistribution
+getDistribution pId_ =
+    GetDistribution'
+    { _gdId = pId_
     }
 
--- | The distribution's id.
+-- | The distribution\'s id.
 gdId :: Lens' GetDistribution Text
-gdId = lens _gdId (\s a -> s { _gdId = a })
-
-data GetDistributionResponse = GetDistributionResponse
-    { _gdrDistribution :: Maybe Distribution
-    , _gdrETag         :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'GetDistributionResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gdrDistribution' @::@ 'Maybe' 'Distribution'
---
--- * 'gdrETag' @::@ 'Maybe' 'Text'
---
-getDistributionResponse :: GetDistributionResponse
-getDistributionResponse = GetDistributionResponse
-    { _gdrDistribution = Nothing
-    , _gdrETag         = Nothing
-    }
-
--- | The distribution's information.
-gdrDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
-gdrDistribution = lens _gdrDistribution (\s a -> s { _gdrDistribution = a })
-
--- | The current version of the distribution's information. For example:
--- E2QWRUHAPOMQZL.
-gdrETag :: Lens' GetDistributionResponse (Maybe Text)
-gdrETag = lens _gdrETag (\s a -> s { _gdrETag = a })
-
-instance ToPath GetDistribution where
-    toPath GetDistribution{..} = mconcat
-        [ "/2014-11-06/distribution/"
-        , toText _gdId
-        ]
-
-instance ToQuery GetDistribution where
-    toQuery = const mempty
-
-instance ToHeaders GetDistribution
-
-instance ToXMLRoot GetDistribution where
-    toXMLRoot = const (namespaced ns "GetDistribution" [])
-
-instance ToXML GetDistribution
+gdId = lens _gdId (\ s a -> s{_gdId = a});
 
 instance AWSRequest GetDistribution where
-    type Sv GetDistribution = CloudFront
-    type Rs GetDistribution = GetDistributionResponse
+        type Sv GetDistribution = CloudFront
+        type Rs GetDistribution = GetDistributionResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 GetDistributionResponse' <$>
+                   (h .#? "ETag") <*> (parseXML x) <*>
+                     (pure (fromEnum s)))
 
-    request  = get
-    response = xmlHeaderResponse $ \h x -> GetDistributionResponse
-        <$> x .@? "Distribution"
-        <*> h ~:? "ETag"
+instance ToHeaders GetDistribution where
+        toHeaders = const mempty
+
+instance ToPath GetDistribution where
+        toPath GetDistribution'{..}
+          = mconcat ["/2015-04-17/distribution/", toBS _gdId]
+
+instance ToQuery GetDistribution where
+        toQuery = const mempty
+
+-- | The returned result of the corresponding request.
+--
+-- /See:/ 'getDistributionResponse' smart constructor.
+data GetDistributionResponse = GetDistributionResponse'
+    { _gdrsETag         :: !(Maybe Text)
+    , _gdrsDistribution :: !(Maybe Distribution)
+    , _gdrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetDistributionResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gdrsETag'
+--
+-- * 'gdrsDistribution'
+--
+-- * 'gdrsStatus'
+getDistributionResponse
+    :: Int -- ^ 'gdrsStatus'
+    -> GetDistributionResponse
+getDistributionResponse pStatus_ =
+    GetDistributionResponse'
+    { _gdrsETag = Nothing
+    , _gdrsDistribution = Nothing
+    , _gdrsStatus = pStatus_
+    }
+
+-- | The current version of the distribution\'s information. For example:
+-- E2QWRUHAPOMQZL.
+gdrsETag :: Lens' GetDistributionResponse (Maybe Text)
+gdrsETag = lens _gdrsETag (\ s a -> s{_gdrsETag = a});
+
+-- | The distribution\'s information.
+gdrsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
+gdrsDistribution = lens _gdrsDistribution (\ s a -> s{_gdrsDistribution = a});
+
+-- | The response status code.
+gdrsStatus :: Lens' GetDistributionResponse Int
+gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

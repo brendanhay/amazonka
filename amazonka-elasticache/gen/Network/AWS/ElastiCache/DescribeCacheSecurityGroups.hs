@@ -1,160 +1,180 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ElastiCache.DescribeCacheSecurityGroups
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DescribeCacheSecurityGroups/ action returns a list of cache security group
--- descriptions. If a cache security group name is specified, the list will
--- contain only the description of that group.
+-- |
+-- Module      : Network.AWS.ElastiCache.DescribeCacheSecurityGroups
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSecurityGroups.html>
+-- The /DescribeCacheSecurityGroups/ action returns a list of cache
+-- security group descriptions. If a cache security group name is
+-- specified, the list will contain only the description of that group.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSecurityGroups.html AWS API Reference> for DescribeCacheSecurityGroups.
+--
+-- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     (
-    -- * Request
-      DescribeCacheSecurityGroups
-    -- ** Request constructor
-    , describeCacheSecurityGroups
-    -- ** Request lenses
-    , dcsg1CacheSecurityGroupName
-    , dcsg1Marker
-    , dcsg1MaxRecords
+    -- * Creating a Request
+      describeCacheSecurityGroups
+    , DescribeCacheSecurityGroups
+    -- * Request Lenses
+    , dcsgsCacheSecurityGroupName
+    , dcsgsMaxRecords
+    , dcsgsMarker
 
-    -- * Response
-    , DescribeCacheSecurityGroupsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeCacheSecurityGroupsResponse
-    -- ** Response lenses
-    , dcsgr1CacheSecurityGroups
-    , dcsgr1Marker
+    , DescribeCacheSecurityGroupsResponse
+    -- * Response Lenses
+    , dcsgsrsCacheSecurityGroups
+    , dcsgsrsMarker
+    , dcsgsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.ElastiCache.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
-    { _dcsg1CacheSecurityGroupName :: Maybe Text
-    , _dcsg1Marker                 :: Maybe Text
-    , _dcsg1MaxRecords             :: Maybe Int
-    } deriving (Eq, Ord, Read, Show)
+-- | Represents the input of a /DescribeCacheSecurityGroups/ action.
+--
+-- /See:/ 'describeCacheSecurityGroups' smart constructor.
+data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
+    { _dcsgsCacheSecurityGroupName :: !(Maybe Text)
+    , _dcsgsMaxRecords             :: !(Maybe Int)
+    , _dcsgsMarker                 :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeCacheSecurityGroups' constructor.
+-- | Creates a value of 'DescribeCacheSecurityGroups' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dcsg1CacheSecurityGroupName' @::@ 'Maybe' 'Text'
+-- * 'dcsgsCacheSecurityGroupName'
 --
--- * 'dcsg1Marker' @::@ 'Maybe' 'Text'
+-- * 'dcsgsMaxRecords'
 --
--- * 'dcsg1MaxRecords' @::@ 'Maybe' 'Int'
---
-describeCacheSecurityGroups :: DescribeCacheSecurityGroups
-describeCacheSecurityGroups = DescribeCacheSecurityGroups
-    { _dcsg1CacheSecurityGroupName = Nothing
-    , _dcsg1MaxRecords             = Nothing
-    , _dcsg1Marker                 = Nothing
+-- * 'dcsgsMarker'
+describeCacheSecurityGroups
+    :: DescribeCacheSecurityGroups
+describeCacheSecurityGroups =
+    DescribeCacheSecurityGroups'
+    { _dcsgsCacheSecurityGroupName = Nothing
+    , _dcsgsMaxRecords = Nothing
+    , _dcsgsMarker = Nothing
     }
 
 -- | The name of the cache security group to return details for.
-dcsg1CacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
-dcsg1CacheSecurityGroupName =
-    lens _dcsg1CacheSecurityGroupName
-        (\s a -> s { _dcsg1CacheSecurityGroupName = a })
+dcsgsCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
+dcsgsCacheSecurityGroupName = lens _dcsgsCacheSecurityGroupName (\ s a -> s{_dcsgsCacheSecurityGroupName = a});
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value specified
--- by /MaxRecords/.
-dcsg1Marker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
-dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
-
--- | The maximum number of records to include in the response. If more records
--- exist than the specified 'MaxRecords' value, a marker is included in the
--- response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified 'MaxRecords' value, a marker is
+-- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-dcsg1MaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
-dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
+dcsgsMaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
+dcsgsMaxRecords = lens _dcsgsMaxRecords (\ s a -> s{_dcsgsMaxRecords = a});
 
-data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
-    { _dcsgr1CacheSecurityGroups :: List "member" CacheSecurityGroup
-    , _dcsgr1Marker              :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeCacheSecurityGroupsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcsgr1CacheSecurityGroups' @::@ ['CacheSecurityGroup']
---
--- * 'dcsgr1Marker' @::@ 'Maybe' 'Text'
---
-describeCacheSecurityGroupsResponse :: DescribeCacheSecurityGroupsResponse
-describeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
-    { _dcsgr1Marker              = Nothing
-    , _dcsgr1CacheSecurityGroups = mempty
-    }
-
--- | A list of cache security groups. Each element in the list contains detailed
--- information about one group.
-dcsgr1CacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
-dcsgr1CacheSecurityGroups =
-    lens _dcsgr1CacheSecurityGroups
-        (\s a -> s { _dcsgr1CacheSecurityGroups = a })
-            . _List
-
--- | Provides an identifier to allow retrieval of paginated results.
-dcsgr1Marker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
-dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
-
-instance ToPath DescribeCacheSecurityGroups where
-    toPath = const "/"
-
-instance ToQuery DescribeCacheSecurityGroups where
-    toQuery DescribeCacheSecurityGroups{..} = mconcat
-        [ "CacheSecurityGroupName" =? _dcsg1CacheSecurityGroupName
-        , "Marker"                 =? _dcsg1Marker
-        , "MaxRecords"             =? _dcsg1MaxRecords
-        ]
-
-instance ToHeaders DescribeCacheSecurityGroups
-
-instance AWSRequest DescribeCacheSecurityGroups where
-    type Sv DescribeCacheSecurityGroups = ElastiCache
-    type Rs DescribeCacheSecurityGroups = DescribeCacheSecurityGroupsResponse
-
-    request  = post "DescribeCacheSecurityGroups"
-    response = xmlResponse
-
-instance FromXML DescribeCacheSecurityGroupsResponse where
-    parseXML = withElement "DescribeCacheSecurityGroupsResult" $ \x -> DescribeCacheSecurityGroupsResponse
-        <$> x .@? "CacheSecurityGroups" .!@ mempty
-        <*> x .@? "Marker"
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+dcsgsMarker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
+dcsgsMarker = lens _dcsgsMarker (\ s a -> s{_dcsgsMarker = a});
 
 instance AWSPager DescribeCacheSecurityGroups where
-    page rq rs
-        | stop (rs ^. dcsgr1Marker) = Nothing
-        | otherwise = (\x -> rq & dcsg1Marker ?~ x)
-            <$> (rs ^. dcsgr1Marker)
+        page rq rs
+          | stop (rs ^. dcsgsrsMarker) = Nothing
+          | stop (rs ^. dcsgsrsCacheSecurityGroups) = Nothing
+          | otherwise =
+            Just $ rq & dcsgsMarker .~ rs ^. dcsgsrsMarker
+
+instance AWSRequest DescribeCacheSecurityGroups where
+        type Sv DescribeCacheSecurityGroups = ElastiCache
+        type Rs DescribeCacheSecurityGroups =
+             DescribeCacheSecurityGroupsResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "DescribeCacheSecurityGroupsResult"
+              (\ s h x ->
+                 DescribeCacheSecurityGroupsResponse' <$>
+                   (x .@? "CacheSecurityGroups" .!@ mempty >>=
+                      may (parseXMLList "CacheSecurityGroup"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeCacheSecurityGroups where
+        toHeaders = const mempty
+
+instance ToPath DescribeCacheSecurityGroups where
+        toPath = const "/"
+
+instance ToQuery DescribeCacheSecurityGroups where
+        toQuery DescribeCacheSecurityGroups'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeCacheSecurityGroups" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "CacheSecurityGroupName" =:
+                 _dcsgsCacheSecurityGroupName,
+               "MaxRecords" =: _dcsgsMaxRecords,
+               "Marker" =: _dcsgsMarker]
+
+-- | Represents the output of a /DescribeCacheSecurityGroups/ action.
+--
+-- /See:/ 'describeCacheSecurityGroupsResponse' smart constructor.
+data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
+    { _dcsgsrsCacheSecurityGroups :: !(Maybe [CacheSecurityGroup])
+    , _dcsgsrsMarker              :: !(Maybe Text)
+    , _dcsgsrsStatus              :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeCacheSecurityGroupsResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'dcsgsrsCacheSecurityGroups'
+--
+-- * 'dcsgsrsMarker'
+--
+-- * 'dcsgsrsStatus'
+describeCacheSecurityGroupsResponse
+    :: Int -- ^ 'dcsgsrsStatus'
+    -> DescribeCacheSecurityGroupsResponse
+describeCacheSecurityGroupsResponse pStatus_ =
+    DescribeCacheSecurityGroupsResponse'
+    { _dcsgsrsCacheSecurityGroups = Nothing
+    , _dcsgsrsMarker = Nothing
+    , _dcsgsrsStatus = pStatus_
+    }
+
+-- | A list of cache security groups. Each element in the list contains
+-- detailed information about one group.
+dcsgsrsCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
+dcsgsrsCacheSecurityGroups = lens _dcsgsrsCacheSecurityGroups (\ s a -> s{_dcsgsrsCacheSecurityGroups = a}) . _Default . _Coerce;
+
+-- | Provides an identifier to allow retrieval of paginated results.
+dcsgsrsMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
+dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
+
+-- | The response status code.
+dcsgsrsStatus :: Lens' DescribeCacheSecurityGroupsResponse Int
+dcsgsrsStatus = lens _dcsgsrsStatus (\ s a -> s{_dcsgsrsStatus = a});

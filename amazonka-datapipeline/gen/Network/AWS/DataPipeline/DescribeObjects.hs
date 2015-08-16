@@ -1,180 +1,199 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.DataPipeline.DescribeObjects
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Gets the object definitions for a set of objects associated with the
--- pipeline. Object definitions are composed of a set of fields that define the
--- properties of the object.
+-- |
+-- Module      : Network.AWS.DataPipeline.DescribeObjects
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribeObjects.html>
+-- Gets the object definitions for a set of objects associated with the
+-- pipeline. Object definitions are composed of a set of fields that define
+-- the properties of the object.
+--
+-- /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribeObjects.html AWS API Reference> for DescribeObjects.
+--
+-- This operation returns paginated results.
 module Network.AWS.DataPipeline.DescribeObjects
     (
-    -- * Request
-      DescribeObjects
-    -- ** Request constructor
-    , describeObjects
-    -- ** Request lenses
+    -- * Creating a Request
+      describeObjects
+    , DescribeObjects
+    -- * Request Lenses
     , doEvaluateExpressions
     , doMarker
-    , doObjectIds
     , doPipelineId
+    , doObjectIds
 
-    -- * Response
-    , DescribeObjectsResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , describeObjectsResponse
-    -- ** Response lenses
-    , dorHasMoreResults
-    , dorMarker
-    , dorPipelineObjects
+    , DescribeObjectsResponse
+    -- * Response Lenses
+    , dorsHasMoreResults
+    , dorsMarker
+    , dorsStatus
+    , dorsPipelineObjects
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DataPipeline.Types
-import qualified GHC.Exts
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.DataPipeline.Types.Product
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeObjects = DescribeObjects
-    { _doEvaluateExpressions :: Maybe Bool
-    , _doMarker              :: Maybe Text
-    , _doObjectIds           :: List "objectIds" Text
-    , _doPipelineId          :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Contains the parameters for DescribeObjects.
+--
+-- /See:/ 'describeObjects' smart constructor.
+data DescribeObjects = DescribeObjects'
+    { _doEvaluateExpressions :: !(Maybe Bool)
+    , _doMarker              :: !(Maybe Text)
+    , _doPipelineId          :: !Text
+    , _doObjectIds           :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeObjects' constructor.
+-- | Creates a value of 'DescribeObjects' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'doEvaluateExpressions' @::@ 'Maybe' 'Bool'
+-- * 'doEvaluateExpressions'
 --
--- * 'doMarker' @::@ 'Maybe' 'Text'
+-- * 'doMarker'
 --
--- * 'doObjectIds' @::@ ['Text']
+-- * 'doPipelineId'
 --
--- * 'doPipelineId' @::@ 'Text'
---
-describeObjects :: Text -- ^ 'doPipelineId'
-                -> DescribeObjects
-describeObjects p1 = DescribeObjects
-    { _doPipelineId          = p1
-    , _doObjectIds           = mempty
-    , _doEvaluateExpressions = Nothing
-    , _doMarker              = Nothing
+-- * 'doObjectIds'
+describeObjects
+    :: Text -- ^ 'doPipelineId'
+    -> DescribeObjects
+describeObjects pPipelineId_ =
+    DescribeObjects'
+    { _doEvaluateExpressions = Nothing
+    , _doMarker = Nothing
+    , _doPipelineId = pPipelineId_
+    , _doObjectIds = mempty
     }
 
--- | Indicates whether any expressions in the object should be evaluated when the
--- object descriptions are returned.
+-- | Indicates whether any expressions in the object should be evaluated when
+-- the object descriptions are returned.
 doEvaluateExpressions :: Lens' DescribeObjects (Maybe Bool)
-doEvaluateExpressions =
-    lens _doEvaluateExpressions (\s a -> s { _doEvaluateExpressions = a })
+doEvaluateExpressions = lens _doEvaluateExpressions (\ s a -> s{_doEvaluateExpressions = a});
 
--- | The starting point for the results to be returned. For the first call, this
--- value should be empty. As long as there are more results, continue to call 'DescribeObjects' with the marker value from the previous call to retrieve the next set of
--- results.
+-- | The starting point for the results to be returned. For the first call,
+-- this value should be empty. As long as there are more results, continue
+-- to call 'DescribeObjects' with the marker value from the previous call
+-- to retrieve the next set of results.
 doMarker :: Lens' DescribeObjects (Maybe Text)
-doMarker = lens _doMarker (\s a -> s { _doMarker = a })
-
--- | The IDs of the pipeline objects that contain the definitions to be described.
--- You can pass as many as 25 identifiers in a single call to 'DescribeObjects'.
-doObjectIds :: Lens' DescribeObjects [Text]
-doObjectIds = lens _doObjectIds (\s a -> s { _doObjectIds = a }) . _List
+doMarker = lens _doMarker (\ s a -> s{_doMarker = a});
 
 -- | The ID of the pipeline that contains the object definitions.
 doPipelineId :: Lens' DescribeObjects Text
-doPipelineId = lens _doPipelineId (\s a -> s { _doPipelineId = a })
+doPipelineId = lens _doPipelineId (\ s a -> s{_doPipelineId = a});
 
-data DescribeObjectsResponse = DescribeObjectsResponse
-    { _dorHasMoreResults  :: Maybe Bool
-    , _dorMarker          :: Maybe Text
-    , _dorPipelineObjects :: List "pipelineObjects" PipelineObject
-    } deriving (Eq, Read, Show)
+-- | The IDs of the pipeline objects that contain the definitions to be
+-- described. You can pass as many as 25 identifiers in a single call to
+-- 'DescribeObjects'.
+doObjectIds :: Lens' DescribeObjects [Text]
+doObjectIds = lens _doObjectIds (\ s a -> s{_doObjectIds = a}) . _Coerce;
 
--- | 'DescribeObjectsResponse' constructor.
+instance AWSPager DescribeObjects where
+        page rq rs
+          | stop (rs ^. dorsHasMoreResults) = Nothing
+          | isNothing (rs ^. dorsMarker) = Nothing
+          | otherwise =
+            Just $ rq & doMarker .~ rs ^. dorsMarker
+
+instance AWSRequest DescribeObjects where
+        type Sv DescribeObjects = DataPipeline
+        type Rs DescribeObjects = DescribeObjectsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeObjectsResponse' <$>
+                   (x .?> "hasMoreResults") <*> (x .?> "marker") <*>
+                     (pure (fromEnum s))
+                     <*> (x .?> "pipelineObjects" .!@ mempty))
+
+instance ToHeaders DescribeObjects where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("DataPipeline.DescribeObjects" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeObjects where
+        toJSON DescribeObjects'{..}
+          = object
+              ["evaluateExpressions" .= _doEvaluateExpressions,
+               "marker" .= _doMarker, "pipelineId" .= _doPipelineId,
+               "objectIds" .= _doObjectIds]
+
+instance ToPath DescribeObjects where
+        toPath = const "/"
+
+instance ToQuery DescribeObjects where
+        toQuery = const mempty
+
+-- | Contains the output of DescribeObjects.
 --
--- The fields accessible through corresponding lenses are:
+-- /See:/ 'describeObjectsResponse' smart constructor.
+data DescribeObjectsResponse = DescribeObjectsResponse'
+    { _dorsHasMoreResults  :: !(Maybe Bool)
+    , _dorsMarker          :: !(Maybe Text)
+    , _dorsStatus          :: !Int
+    , _dorsPipelineObjects :: ![PipelineObject]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DescribeObjectsResponse' with the minimum fields required to make a request.
 --
--- * 'dorHasMoreResults' @::@ 'Maybe' 'Bool'
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dorMarker' @::@ 'Maybe' 'Text'
+-- * 'dorsHasMoreResults'
 --
--- * 'dorPipelineObjects' @::@ ['PipelineObject']
+-- * 'dorsMarker'
 --
-describeObjectsResponse :: DescribeObjectsResponse
-describeObjectsResponse = DescribeObjectsResponse
-    { _dorPipelineObjects = mempty
-    , _dorMarker          = Nothing
-    , _dorHasMoreResults  = Nothing
+-- * 'dorsStatus'
+--
+-- * 'dorsPipelineObjects'
+describeObjectsResponse
+    :: Int -- ^ 'dorsStatus'
+    -> DescribeObjectsResponse
+describeObjectsResponse pStatus_ =
+    DescribeObjectsResponse'
+    { _dorsHasMoreResults = Nothing
+    , _dorsMarker = Nothing
+    , _dorsStatus = pStatus_
+    , _dorsPipelineObjects = mempty
     }
 
 -- | Indicates whether there are more results to return.
-dorHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
-dorHasMoreResults =
-    lens _dorHasMoreResults (\s a -> s { _dorHasMoreResults = a })
+dorsHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
+dorsHasMoreResults = lens _dorsHasMoreResults (\ s a -> s{_dorsHasMoreResults = a});
 
--- | The starting point for the next page of results. To view the next page of
--- results, call 'DescribeObjects' again with this marker value. If the value is
--- null, there are no more results.
-dorMarker :: Lens' DescribeObjectsResponse (Maybe Text)
-dorMarker = lens _dorMarker (\s a -> s { _dorMarker = a })
+-- | The starting point for the next page of results. To view the next page
+-- of results, call 'DescribeObjects' again with this marker value. If the
+-- value is null, there are no more results.
+dorsMarker :: Lens' DescribeObjectsResponse (Maybe Text)
+dorsMarker = lens _dorsMarker (\ s a -> s{_dorsMarker = a});
+
+-- | The response status code.
+dorsStatus :: Lens' DescribeObjectsResponse Int
+dorsStatus = lens _dorsStatus (\ s a -> s{_dorsStatus = a});
 
 -- | An array of object definitions.
-dorPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
-dorPipelineObjects =
-    lens _dorPipelineObjects (\s a -> s { _dorPipelineObjects = a })
-        . _List
-
-instance ToPath DescribeObjects where
-    toPath = const "/"
-
-instance ToQuery DescribeObjects where
-    toQuery = const mempty
-
-instance ToHeaders DescribeObjects
-
-instance ToJSON DescribeObjects where
-    toJSON DescribeObjects{..} = object
-        [ "pipelineId"          .= _doPipelineId
-        , "objectIds"           .= _doObjectIds
-        , "evaluateExpressions" .= _doEvaluateExpressions
-        , "marker"              .= _doMarker
-        ]
-
-instance AWSRequest DescribeObjects where
-    type Sv DescribeObjects = DataPipeline
-    type Rs DescribeObjects = DescribeObjectsResponse
-
-    request  = post "DescribeObjects"
-    response = jsonResponse
-
-instance FromJSON DescribeObjectsResponse where
-    parseJSON = withObject "DescribeObjectsResponse" $ \o -> DescribeObjectsResponse
-        <$> o .:? "hasMoreResults"
-        <*> o .:? "marker"
-        <*> o .:? "pipelineObjects" .!= mempty
-
-instance AWSPager DescribeObjects where
-    page rq rs
-        | stop (rs ^. dorHasMoreResults) = Nothing
-        | otherwise = Just $ rq
-            & doMarker .~ rs ^. dorMarker
+dorsPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
+dorsPipelineObjects = lens _dorsPipelineObjects (\ s a -> s{_dorsPipelineObjects = a}) . _Coerce;

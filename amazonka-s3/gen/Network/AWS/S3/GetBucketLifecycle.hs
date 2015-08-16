@@ -1,112 +1,118 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.GetBucketLifecycle
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns the lifecycle configuration information set on the bucket.
+-- |
+-- Module      : Network.AWS.S3.GetBucketLifecycle
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLifecycle.html>
+-- Returns the lifecycle configuration information set on the bucket.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLifecycle.html AWS API Reference> for GetBucketLifecycle.
 module Network.AWS.S3.GetBucketLifecycle
     (
-    -- * Request
-      GetBucketLifecycle
-    -- ** Request constructor
-    , getBucketLifecycle
-    -- ** Request lenses
-    , gbl1Bucket
+    -- * Creating a Request
+      getBucketLifecycle
+    , GetBucketLifecycle
+    -- * Request Lenses
+    , gBucket
 
-    -- * Response
-    , GetBucketLifecycleResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getBucketLifecycleResponse
-    -- ** Response lenses
-    , gblrRules
+    , GetBucketLifecycleResponse
+    -- * Response Lenses
+    , gblrsRules
+    , gblrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-newtype GetBucketLifecycle = GetBucketLifecycle
-    { _gbl1Bucket :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | /See:/ 'getBucketLifecycle' smart constructor.
+newtype GetBucketLifecycle = GetBucketLifecycle'
+    { _gBucket :: BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketLifecycle' constructor.
+-- | Creates a value of 'GetBucketLifecycle' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gbl1Bucket' @::@ 'Text'
---
-getBucketLifecycle :: Text -- ^ 'gbl1Bucket'
-                   -> GetBucketLifecycle
-getBucketLifecycle p1 = GetBucketLifecycle
-    { _gbl1Bucket = p1
+-- * 'gBucket'
+getBucketLifecycle
+    :: BucketName -- ^ 'gBucket'
+    -> GetBucketLifecycle
+getBucketLifecycle pBucket_ =
+    GetBucketLifecycle'
+    { _gBucket = pBucket_
     }
 
-gbl1Bucket :: Lens' GetBucketLifecycle Text
-gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
-
-newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
-    { _gblrRules :: List "Rule" Rule
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
--- | 'GetBucketLifecycleResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gblrRules' @::@ ['Rule']
---
-getBucketLifecycleResponse :: GetBucketLifecycleResponse
-getBucketLifecycleResponse = GetBucketLifecycleResponse
-    { _gblrRules = mempty
-    }
-
-gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
-gblrRules = lens _gblrRules (\s a -> s { _gblrRules = a }) . _List
-
-instance ToPath GetBucketLifecycle where
-    toPath GetBucketLifecycle{..} = mconcat
-        [ "/"
-        , toText _gbl1Bucket
-        ]
-
-instance ToQuery GetBucketLifecycle where
-    toQuery = const "lifecycle"
-
-instance ToHeaders GetBucketLifecycle
-
-instance ToXMLRoot GetBucketLifecycle where
-    toXMLRoot = const (namespaced ns "GetBucketLifecycle" [])
-
-instance ToXML GetBucketLifecycle
+-- | Undocumented member.
+gBucket :: Lens' GetBucketLifecycle BucketName
+gBucket = lens _gBucket (\ s a -> s{_gBucket = a});
 
 instance AWSRequest GetBucketLifecycle where
-    type Sv GetBucketLifecycle = S3
-    type Rs GetBucketLifecycle = GetBucketLifecycleResponse
+        type Sv GetBucketLifecycle = S3
+        type Rs GetBucketLifecycle =
+             GetBucketLifecycleResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 GetBucketLifecycleResponse' <$>
+                   (may (parseXMLList "Rule") x) <*>
+                     (pure (fromEnum s)))
 
-    request  = get
-    response = xmlResponse
+instance ToHeaders GetBucketLifecycle where
+        toHeaders = const mempty
 
-instance FromXML GetBucketLifecycleResponse where
-    parseXML x = GetBucketLifecycleResponse
-        <$> parseXML x
+instance ToPath GetBucketLifecycle where
+        toPath GetBucketLifecycle'{..}
+          = mconcat ["/", toBS _gBucket]
+
+instance ToQuery GetBucketLifecycle where
+        toQuery = const (mconcat ["lifecycle"])
+
+-- | /See:/ 'getBucketLifecycleResponse' smart constructor.
+data GetBucketLifecycleResponse = GetBucketLifecycleResponse'
+    { _gblrsRules  :: !(Maybe [Rule])
+    , _gblrsStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetBucketLifecycleResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'gblrsRules'
+--
+-- * 'gblrsStatus'
+getBucketLifecycleResponse
+    :: Int -- ^ 'gblrsStatus'
+    -> GetBucketLifecycleResponse
+getBucketLifecycleResponse pStatus_ =
+    GetBucketLifecycleResponse'
+    { _gblrsRules = Nothing
+    , _gblrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+gblrsRules :: Lens' GetBucketLifecycleResponse [Rule]
+gblrsRules = lens _gblrsRules (\ s a -> s{_gblrsRules = a}) . _Default . _Coerce;
+
+-- | The response status code.
+gblrsStatus :: Lens' GetBucketLifecycleResponse Int
+gblrsStatus = lens _gblrsStatus (\ s a -> s{_gblrsStatus = a});

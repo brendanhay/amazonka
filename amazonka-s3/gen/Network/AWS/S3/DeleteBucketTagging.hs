@@ -1,95 +1,91 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.DeleteBucketTagging
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the tags from the bucket.
+-- |
+-- Module      : Network.AWS.S3.DeleteBucketTagging
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketTagging.html>
+-- Deletes the tags from the bucket.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketTagging.html AWS API Reference> for DeleteBucketTagging.
 module Network.AWS.S3.DeleteBucketTagging
     (
-    -- * Request
-      DeleteBucketTagging
-    -- ** Request constructor
-    , deleteBucketTagging
-    -- ** Request lenses
+    -- * Creating a Request
+      deleteBucketTagging
+    , DeleteBucketTagging
+    -- * Request Lenses
     , dbtBucket
 
-    -- * Response
-    , DeleteBucketTaggingResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteBucketTaggingResponse
+    , DeleteBucketTaggingResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-newtype DeleteBucketTagging = DeleteBucketTagging
-    { _dbtBucket :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | /See:/ 'deleteBucketTagging' smart constructor.
+newtype DeleteBucketTagging = DeleteBucketTagging'
+    { _dbtBucket :: BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteBucketTagging' constructor.
+-- | Creates a value of 'DeleteBucketTagging' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'dbtBucket' @::@ 'Text'
---
-deleteBucketTagging :: Text -- ^ 'dbtBucket'
-                    -> DeleteBucketTagging
-deleteBucketTagging p1 = DeleteBucketTagging
-    { _dbtBucket = p1
+-- * 'dbtBucket'
+deleteBucketTagging
+    :: BucketName -- ^ 'dbtBucket'
+    -> DeleteBucketTagging
+deleteBucketTagging pBucket_ =
+    DeleteBucketTagging'
+    { _dbtBucket = pBucket_
     }
 
-dbtBucket :: Lens' DeleteBucketTagging Text
-dbtBucket = lens _dbtBucket (\s a -> s { _dbtBucket = a })
-
-data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteBucketTaggingResponse' constructor.
-deleteBucketTaggingResponse :: DeleteBucketTaggingResponse
-deleteBucketTaggingResponse = DeleteBucketTaggingResponse
-
-instance ToPath DeleteBucketTagging where
-    toPath DeleteBucketTagging{..} = mconcat
-        [ "/"
-        , toText _dbtBucket
-        ]
-
-instance ToQuery DeleteBucketTagging where
-    toQuery = const "tagging"
-
-instance ToHeaders DeleteBucketTagging
-
-instance ToXMLRoot DeleteBucketTagging where
-    toXMLRoot = const (namespaced ns "DeleteBucketTagging" [])
-
-instance ToXML DeleteBucketTagging
+-- | Undocumented member.
+dbtBucket :: Lens' DeleteBucketTagging BucketName
+dbtBucket = lens _dbtBucket (\ s a -> s{_dbtBucket = a});
 
 instance AWSRequest DeleteBucketTagging where
-    type Sv DeleteBucketTagging = S3
-    type Rs DeleteBucketTagging = DeleteBucketTaggingResponse
+        type Sv DeleteBucketTagging = S3
+        type Rs DeleteBucketTagging =
+             DeleteBucketTaggingResponse
+        request = delete
+        response = receiveNull DeleteBucketTaggingResponse'
 
-    request  = delete
-    response = nullResponse DeleteBucketTaggingResponse
+instance ToHeaders DeleteBucketTagging where
+        toHeaders = const mempty
+
+instance ToPath DeleteBucketTagging where
+        toPath DeleteBucketTagging'{..}
+          = mconcat ["/", toBS _dbtBucket]
+
+instance ToQuery DeleteBucketTagging where
+        toQuery = const (mconcat ["tagging"])
+
+-- | /See:/ 'deleteBucketTaggingResponse' smart constructor.
+data DeleteBucketTaggingResponse =
+    DeleteBucketTaggingResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteBucketTaggingResponse' with the minimum fields required to make a request.
+--
+deleteBucketTaggingResponse
+    :: DeleteBucketTaggingResponse
+deleteBucketTaggingResponse = DeleteBucketTaggingResponse'

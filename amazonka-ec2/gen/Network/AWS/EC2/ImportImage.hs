@@ -1,316 +1,320 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.EC2.ImportImage
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Import single or multi-volume disk images or EBS snapshots into an Amazon
--- Machine Image (AMI).
+-- |
+-- Module      : Network.AWS.EC2.ImportImage
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportImage.html>
+-- Import single or multi-volume disk images or EBS snapshots into an
+-- Amazon Machine Image (AMI).
+--
+-- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportImage.html AWS API Reference> for ImportImage.
 module Network.AWS.EC2.ImportImage
     (
-    -- * Request
-      ImportImage
-    -- ** Request constructor
-    , importImage
-    -- ** Request lenses
-    , ii1Architecture
-    , ii1ClientData
-    , ii1ClientToken
-    , ii1Description
-    , ii1DiskContainers
-    , ii1DryRun
-    , ii1Hypervisor
-    , ii1LicenseType
-    , ii1Platform
-    , ii1RoleName
+    -- * Creating a Request
+      importImage
+    , ImportImage
+    -- * Request Lenses
+    , impHypervisor
+    , impPlatform
+    , impClientToken
+    , impLicenseType
+    , impRoleName
+    , impArchitecture
+    , impDryRun
+    , impDescription
+    , impClientData
+    , impDiskContainers
 
-    -- * Response
-    , ImportImageResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , importImageResponse
-    -- ** Response lenses
-    , iirArchitecture
-    , iirDescription
-    , iirHypervisor
-    , iirImageId
-    , iirImportTaskId
-    , iirLicenseType
-    , iirPlatform
-    , iirProgress
-    , iirSnapshotDetails
-    , iirStatus
-    , iirStatusMessage
+    , ImportImageResponse
+    -- * Response Lenses
+    , irsHypervisor
+    , irsPlatform
+    , irsProgress
+    , irsLicenseType
+    , irsSnapshotDetails
+    , irsStatusMessage
+    , irsImageId
+    , irsImportTaskId
+    , irsArchitecture
+    , irsDescription
+    , irsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.EC2.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ImportImage = ImportImage
-    { _ii1Architecture   :: Maybe Text
-    , _ii1ClientData     :: Maybe ClientData
-    , _ii1ClientToken    :: Maybe Text
-    , _ii1Description    :: Maybe Text
-    , _ii1DiskContainers :: List "item" ImageDiskContainer
-    , _ii1DryRun         :: Maybe Bool
-    , _ii1Hypervisor     :: Maybe Text
-    , _ii1LicenseType    :: Maybe Text
-    , _ii1Platform       :: Maybe Text
-    , _ii1RoleName       :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | /See:/ 'importImage' smart constructor.
+data ImportImage = ImportImage'
+    { _impHypervisor     :: !(Maybe Text)
+    , _impPlatform       :: !(Maybe Text)
+    , _impClientToken    :: !(Maybe Text)
+    , _impLicenseType    :: !(Maybe Text)
+    , _impRoleName       :: !(Maybe Text)
+    , _impArchitecture   :: !(Maybe Text)
+    , _impDryRun         :: !(Maybe Bool)
+    , _impDescription    :: !(Maybe Text)
+    , _impClientData     :: !(Maybe ClientData)
+    , _impDiskContainers :: !(Maybe [ImageDiskContainer])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ImportImage' constructor.
+-- | Creates a value of 'ImportImage' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'ii1Architecture' @::@ 'Maybe' 'Text'
+-- * 'impHypervisor'
 --
--- * 'ii1ClientData' @::@ 'Maybe' 'ClientData'
+-- * 'impPlatform'
 --
--- * 'ii1ClientToken' @::@ 'Maybe' 'Text'
+-- * 'impClientToken'
 --
--- * 'ii1Description' @::@ 'Maybe' 'Text'
+-- * 'impLicenseType'
 --
--- * 'ii1DiskContainers' @::@ ['ImageDiskContainer']
+-- * 'impRoleName'
 --
--- * 'ii1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'impArchitecture'
 --
--- * 'ii1Hypervisor' @::@ 'Maybe' 'Text'
+-- * 'impDryRun'
 --
--- * 'ii1LicenseType' @::@ 'Maybe' 'Text'
+-- * 'impDescription'
 --
--- * 'ii1Platform' @::@ 'Maybe' 'Text'
+-- * 'impClientData'
 --
--- * 'ii1RoleName' @::@ 'Maybe' 'Text'
---
-importImage :: ImportImage
-importImage = ImportImage
-    { _ii1DryRun         = Nothing
-    , _ii1Description    = Nothing
-    , _ii1DiskContainers = mempty
-    , _ii1LicenseType    = Nothing
-    , _ii1Hypervisor     = Nothing
-    , _ii1Architecture   = Nothing
-    , _ii1Platform       = Nothing
-    , _ii1ClientData     = Nothing
-    , _ii1ClientToken    = Nothing
-    , _ii1RoleName       = Nothing
+-- * 'impDiskContainers'
+importImage
+    :: ImportImage
+importImage =
+    ImportImage'
+    { _impHypervisor = Nothing
+    , _impPlatform = Nothing
+    , _impClientToken = Nothing
+    , _impLicenseType = Nothing
+    , _impRoleName = Nothing
+    , _impArchitecture = Nothing
+    , _impDryRun = Nothing
+    , _impDescription = Nothing
+    , _impClientData = Nothing
+    , _impDiskContainers = Nothing
     }
-
--- | The architecture of the virtual machine.
---
--- Valid values: 'i386' | 'x86_64'
-ii1Architecture :: Lens' ImportImage (Maybe Text)
-ii1Architecture = lens _ii1Architecture (\s a -> s { _ii1Architecture = a })
-
--- | The client-specific data.
-ii1ClientData :: Lens' ImportImage (Maybe ClientData)
-ii1ClientData = lens _ii1ClientData (\s a -> s { _ii1ClientData = a })
-
--- | The token to enable idempotency for VM import requests.
-ii1ClientToken :: Lens' ImportImage (Maybe Text)
-ii1ClientToken = lens _ii1ClientToken (\s a -> s { _ii1ClientToken = a })
-
--- | A description string for the import image task.
-ii1Description :: Lens' ImportImage (Maybe Text)
-ii1Description = lens _ii1Description (\s a -> s { _ii1Description = a })
-
--- | Information about the disk containers.
-ii1DiskContainers :: Lens' ImportImage [ImageDiskContainer]
-ii1DiskContainers =
-    lens _ii1DiskContainers (\s a -> s { _ii1DiskContainers = a })
-        . _List
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-ii1DryRun :: Lens' ImportImage (Maybe Bool)
-ii1DryRun = lens _ii1DryRun (\s a -> s { _ii1DryRun = a })
 
 -- | The target hypervisor platform.
 --
 -- Valid values: 'xen'
-ii1Hypervisor :: Lens' ImportImage (Maybe Text)
-ii1Hypervisor = lens _ii1Hypervisor (\s a -> s { _ii1Hypervisor = a })
-
--- | The license type to be used for the Amazon Machine Image (AMI) after
--- importing.
---
--- Note: You may only use BYOL if you have existing licenses with rights to use
--- these licenses in a third party cloud like AWS. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html VMImport/Export Prerequisites> in the /Amazon Elastic Compute Cloud User Guide/.
---
--- Valid values: 'AWS' | 'BYOL'
-ii1LicenseType :: Lens' ImportImage (Maybe Text)
-ii1LicenseType = lens _ii1LicenseType (\s a -> s { _ii1LicenseType = a })
+impHypervisor :: Lens' ImportImage (Maybe Text)
+impHypervisor = lens _impHypervisor (\ s a -> s{_impHypervisor = a});
 
 -- | The operating system of the virtual machine.
 --
 -- Valid values: 'Windows' | 'Linux'
-ii1Platform :: Lens' ImportImage (Maybe Text)
-ii1Platform = lens _ii1Platform (\s a -> s { _ii1Platform = a })
+impPlatform :: Lens' ImportImage (Maybe Text)
+impPlatform = lens _impPlatform (\ s a -> s{_impPlatform = a});
 
--- | The name of the role to use when not using the default role, 'vmimport'.
-ii1RoleName :: Lens' ImportImage (Maybe Text)
-ii1RoleName = lens _ii1RoleName (\s a -> s { _ii1RoleName = a })
+-- | The token to enable idempotency for VM import requests.
+impClientToken :: Lens' ImportImage (Maybe Text)
+impClientToken = lens _impClientToken (\ s a -> s{_impClientToken = a});
 
-data ImportImageResponse = ImportImageResponse
-    { _iirArchitecture    :: Maybe Text
-    , _iirDescription     :: Maybe Text
-    , _iirHypervisor      :: Maybe Text
-    , _iirImageId         :: Maybe Text
-    , _iirImportTaskId    :: Maybe Text
-    , _iirLicenseType     :: Maybe Text
-    , _iirPlatform        :: Maybe Text
-    , _iirProgress        :: Maybe Text
-    , _iirSnapshotDetails :: List "item" SnapshotDetail
-    , _iirStatus          :: Maybe Text
-    , _iirStatusMessage   :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | The license type to be used for the Amazon Machine Image (AMI) after
+-- importing.
+--
+-- __Note:__ You may only use BYOL if you have existing licenses with
+-- rights to use these licenses in a third party cloud like AWS. For more
+-- information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html VM Import\/Export Prerequisites>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+--
+-- Valid values: 'AWS' | 'BYOL'
+impLicenseType :: Lens' ImportImage (Maybe Text)
+impLicenseType = lens _impLicenseType (\ s a -> s{_impLicenseType = a});
 
--- | 'ImportImageResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iirArchitecture' @::@ 'Maybe' 'Text'
---
--- * 'iirDescription' @::@ 'Maybe' 'Text'
---
--- * 'iirHypervisor' @::@ 'Maybe' 'Text'
---
--- * 'iirImageId' @::@ 'Maybe' 'Text'
---
--- * 'iirImportTaskId' @::@ 'Maybe' 'Text'
---
--- * 'iirLicenseType' @::@ 'Maybe' 'Text'
---
--- * 'iirPlatform' @::@ 'Maybe' 'Text'
---
--- * 'iirProgress' @::@ 'Maybe' 'Text'
---
--- * 'iirSnapshotDetails' @::@ ['SnapshotDetail']
---
--- * 'iirStatus' @::@ 'Maybe' 'Text'
---
--- * 'iirStatusMessage' @::@ 'Maybe' 'Text'
---
-importImageResponse :: ImportImageResponse
-importImageResponse = ImportImageResponse
-    { _iirImportTaskId    = Nothing
-    , _iirArchitecture    = Nothing
-    , _iirLicenseType     = Nothing
-    , _iirPlatform        = Nothing
-    , _iirHypervisor      = Nothing
-    , _iirDescription     = Nothing
-    , _iirSnapshotDetails = mempty
-    , _iirImageId         = Nothing
-    , _iirProgress        = Nothing
-    , _iirStatusMessage   = Nothing
-    , _iirStatus          = Nothing
-    }
+-- | The name of the role to use when not using the default role,
+-- \'vmimport\'.
+impRoleName :: Lens' ImportImage (Maybe Text)
+impRoleName = lens _impRoleName (\ s a -> s{_impRoleName = a});
 
 -- | The architecture of the virtual machine.
-iirArchitecture :: Lens' ImportImageResponse (Maybe Text)
-iirArchitecture = lens _iirArchitecture (\s a -> s { _iirArchitecture = a })
+--
+-- Valid values: 'i386' | 'x86_64'
+impArchitecture :: Lens' ImportImage (Maybe Text)
+impArchitecture = lens _impArchitecture (\ s a -> s{_impArchitecture = a});
 
--- | A description of the import task.
-iirDescription :: Lens' ImportImageResponse (Maybe Text)
-iirDescription = lens _iirDescription (\s a -> s { _iirDescription = a })
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is 'DryRunOperation'.
+-- Otherwise, it is 'UnauthorizedOperation'.
+impDryRun :: Lens' ImportImage (Maybe Bool)
+impDryRun = lens _impDryRun (\ s a -> s{_impDryRun = a});
 
--- | The target hypervisor of the import task.
-iirHypervisor :: Lens' ImportImageResponse (Maybe Text)
-iirHypervisor = lens _iirHypervisor (\s a -> s { _iirHypervisor = a })
+-- | A description string for the import image task.
+impDescription :: Lens' ImportImage (Maybe Text)
+impDescription = lens _impDescription (\ s a -> s{_impDescription = a});
 
--- | The ID of the Amazon Machine Image (AMI) created by the import task.
-iirImageId :: Lens' ImportImageResponse (Maybe Text)
-iirImageId = lens _iirImageId (\s a -> s { _iirImageId = a })
+-- | The client-specific data.
+impClientData :: Lens' ImportImage (Maybe ClientData)
+impClientData = lens _impClientData (\ s a -> s{_impClientData = a});
 
--- | The task ID of the import image task.
-iirImportTaskId :: Lens' ImportImageResponse (Maybe Text)
-iirImportTaskId = lens _iirImportTaskId (\s a -> s { _iirImportTaskId = a })
-
--- | The license type of the virtual machine.
-iirLicenseType :: Lens' ImportImageResponse (Maybe Text)
-iirLicenseType = lens _iirLicenseType (\s a -> s { _iirLicenseType = a })
-
--- | The operating system of the virtual machine.
-iirPlatform :: Lens' ImportImageResponse (Maybe Text)
-iirPlatform = lens _iirPlatform (\s a -> s { _iirPlatform = a })
-
--- | The progress of the task.
-iirProgress :: Lens' ImportImageResponse (Maybe Text)
-iirProgress = lens _iirProgress (\s a -> s { _iirProgress = a })
-
--- | Information about the snapshots.
-iirSnapshotDetails :: Lens' ImportImageResponse [SnapshotDetail]
-iirSnapshotDetails =
-    lens _iirSnapshotDetails (\s a -> s { _iirSnapshotDetails = a })
-        . _List
-
--- | A brief status of the task.
-iirStatus :: Lens' ImportImageResponse (Maybe Text)
-iirStatus = lens _iirStatus (\s a -> s { _iirStatus = a })
-
--- | A detailed status message of the import task.
-iirStatusMessage :: Lens' ImportImageResponse (Maybe Text)
-iirStatusMessage = lens _iirStatusMessage (\s a -> s { _iirStatusMessage = a })
-
-instance ToPath ImportImage where
-    toPath = const "/"
-
-instance ToQuery ImportImage where
-    toQuery ImportImage{..} = mconcat
-        [ "Architecture"  =? _ii1Architecture
-        , "ClientData"    =? _ii1ClientData
-        , "ClientToken"   =? _ii1ClientToken
-        , "Description"   =? _ii1Description
-        , "DiskContainer" `toQueryList` _ii1DiskContainers
-        , "DryRun"        =? _ii1DryRun
-        , "Hypervisor"    =? _ii1Hypervisor
-        , "LicenseType"   =? _ii1LicenseType
-        , "Platform"      =? _ii1Platform
-        , "RoleName"      =? _ii1RoleName
-        ]
-
-instance ToHeaders ImportImage
+-- | Information about the disk containers.
+impDiskContainers :: Lens' ImportImage [ImageDiskContainer]
+impDiskContainers = lens _impDiskContainers (\ s a -> s{_impDiskContainers = a}) . _Default . _Coerce;
 
 instance AWSRequest ImportImage where
-    type Sv ImportImage = EC2
-    type Rs ImportImage = ImportImageResponse
+        type Sv ImportImage = EC2
+        type Rs ImportImage = ImportImageResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 ImportImageResponse' <$>
+                   (x .@? "hypervisor") <*> (x .@? "platform") <*>
+                     (x .@? "progress")
+                     <*> (x .@? "licenseType")
+                     <*>
+                     (x .@? "snapshotDetailSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
+                     <*> (x .@? "statusMessage")
+                     <*> (x .@? "imageId")
+                     <*> (x .@? "importTaskId")
+                     <*> (x .@? "architecture")
+                     <*> (x .@? "description")
+                     <*> (pure (fromEnum s)))
 
-    request  = post "ImportImage"
-    response = xmlResponse
+instance ToHeaders ImportImage where
+        toHeaders = const mempty
 
-instance FromXML ImportImageResponse where
-    parseXML x = ImportImageResponse
-        <$> x .@? "architecture"
-        <*> x .@? "description"
-        <*> x .@? "hypervisor"
-        <*> x .@? "imageId"
-        <*> x .@? "importTaskId"
-        <*> x .@? "licenseType"
-        <*> x .@? "platform"
-        <*> x .@? "progress"
-        <*> x .@? "snapshotDetailSet" .!@ mempty
-        <*> x .@? "status"
-        <*> x .@? "statusMessage"
+instance ToPath ImportImage where
+        toPath = const "/"
+
+instance ToQuery ImportImage where
+        toQuery ImportImage'{..}
+          = mconcat
+              ["Action" =: ("ImportImage" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "Hypervisor" =: _impHypervisor,
+               "Platform" =: _impPlatform,
+               "ClientToken" =: _impClientToken,
+               "LicenseType" =: _impLicenseType,
+               "RoleName" =: _impRoleName,
+               "Architecture" =: _impArchitecture,
+               "DryRun" =: _impDryRun,
+               "Description" =: _impDescription,
+               "ClientData" =: _impClientData,
+               toQuery (toQueryList "item" <$> _impDiskContainers)]
+
+-- | /See:/ 'importImageResponse' smart constructor.
+data ImportImageResponse = ImportImageResponse'
+    { _irsHypervisor      :: !(Maybe Text)
+    , _irsPlatform        :: !(Maybe Text)
+    , _irsProgress        :: !(Maybe Text)
+    , _irsLicenseType     :: !(Maybe Text)
+    , _irsSnapshotDetails :: !(Maybe [SnapshotDetail])
+    , _irsStatusMessage   :: !(Maybe Text)
+    , _irsImageId         :: !(Maybe Text)
+    , _irsImportTaskId    :: !(Maybe Text)
+    , _irsArchitecture    :: !(Maybe Text)
+    , _irsDescription     :: !(Maybe Text)
+    , _irsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ImportImageResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'irsHypervisor'
+--
+-- * 'irsPlatform'
+--
+-- * 'irsProgress'
+--
+-- * 'irsLicenseType'
+--
+-- * 'irsSnapshotDetails'
+--
+-- * 'irsStatusMessage'
+--
+-- * 'irsImageId'
+--
+-- * 'irsImportTaskId'
+--
+-- * 'irsArchitecture'
+--
+-- * 'irsDescription'
+--
+-- * 'irsStatus'
+importImageResponse
+    :: Int -- ^ 'irsStatus'
+    -> ImportImageResponse
+importImageResponse pStatus_ =
+    ImportImageResponse'
+    { _irsHypervisor = Nothing
+    , _irsPlatform = Nothing
+    , _irsProgress = Nothing
+    , _irsLicenseType = Nothing
+    , _irsSnapshotDetails = Nothing
+    , _irsStatusMessage = Nothing
+    , _irsImageId = Nothing
+    , _irsImportTaskId = Nothing
+    , _irsArchitecture = Nothing
+    , _irsDescription = Nothing
+    , _irsStatus = pStatus_
+    }
+
+-- | The target hypervisor of the import task.
+irsHypervisor :: Lens' ImportImageResponse (Maybe Text)
+irsHypervisor = lens _irsHypervisor (\ s a -> s{_irsHypervisor = a});
+
+-- | The operating system of the virtual machine.
+irsPlatform :: Lens' ImportImageResponse (Maybe Text)
+irsPlatform = lens _irsPlatform (\ s a -> s{_irsPlatform = a});
+
+-- | The progress of the task.
+irsProgress :: Lens' ImportImageResponse (Maybe Text)
+irsProgress = lens _irsProgress (\ s a -> s{_irsProgress = a});
+
+-- | The license type of the virtual machine.
+irsLicenseType :: Lens' ImportImageResponse (Maybe Text)
+irsLicenseType = lens _irsLicenseType (\ s a -> s{_irsLicenseType = a});
+
+-- | Information about the snapshots.
+irsSnapshotDetails :: Lens' ImportImageResponse [SnapshotDetail]
+irsSnapshotDetails = lens _irsSnapshotDetails (\ s a -> s{_irsSnapshotDetails = a}) . _Default . _Coerce;
+
+-- | A detailed status message of the import task.
+irsStatusMessage :: Lens' ImportImageResponse (Maybe Text)
+irsStatusMessage = lens _irsStatusMessage (\ s a -> s{_irsStatusMessage = a});
+
+-- | The ID of the Amazon Machine Image (AMI) created by the import task.
+irsImageId :: Lens' ImportImageResponse (Maybe Text)
+irsImageId = lens _irsImageId (\ s a -> s{_irsImageId = a});
+
+-- | The task ID of the import image task.
+irsImportTaskId :: Lens' ImportImageResponse (Maybe Text)
+irsImportTaskId = lens _irsImportTaskId (\ s a -> s{_irsImportTaskId = a});
+
+-- | The architecture of the virtual machine.
+irsArchitecture :: Lens' ImportImageResponse (Maybe Text)
+irsArchitecture = lens _irsArchitecture (\ s a -> s{_irsArchitecture = a});
+
+-- | A description of the import task.
+irsDescription :: Lens' ImportImageResponse (Maybe Text)
+irsDescription = lens _irsDescription (\ s a -> s{_irsDescription = a});
+
+-- | The response status code.
+irsStatus :: Lens' ImportImageResponse Int
+irsStatus = lens _irsStatus (\ s a -> s{_irsStatus = a});

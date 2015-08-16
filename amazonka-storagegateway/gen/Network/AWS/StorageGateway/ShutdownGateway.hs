@@ -1,127 +1,153 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.StorageGateway.ShutdownGateway
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation shuts down a gateway. To specify which gateway to shut down,
--- use the Amazon Resource Name (ARN) of the gateway in the body of your request.
+-- |
+-- Module      : Network.AWS.StorageGateway.ShutdownGateway
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- This operation shuts down a gateway. To specify which gateway to shut
+-- down, use the Amazon Resource Name (ARN) of the gateway in the body of
+-- your request.
 --
 -- The operation shuts down the gateway service component running in the
--- storage gateway's virtual machine (VM) and not the VM.
+-- storage gateway\'s virtual machine (VM) and not the VM.
 --
--- If you want to shut down the VM, it is recommended that you first shut down
--- the gateway component in the VM to avoid unpredictable conditions. After the
--- gateway is shutdown, you cannot call any other API except 'StartGateway', 'DescribeGatewayInformation', and 'ListGateways'. For more information, see 'ActivateGateway'. Your
--- applications cannot read from or write to the gateway's storage volumes, and
--- there are no snapshots taken.
+-- If you want to shut down the VM, it is recommended that you first shut
+-- down the gateway component in the VM to avoid unpredictable conditions.
 --
--- When you make a shutdown request, you will get a '200 OK' success response
--- immediately. However, it might take some time for the gateway to shut down.
--- You can call the 'DescribeGatewayInformation' API to check the status. For more
--- information, see 'ActivateGateway'. If do not intend to use the gateway again,
--- you must delete the gateway (using 'DeleteGateway') to no longer pay software
--- charges associated with the gateway.
+-- After the gateway is shutdown, you cannot call any other API except
+-- StartGateway, DescribeGatewayInformation, and ListGateways. For more
+-- information, see ActivateGateway. Your applications cannot read from or
+-- write to the gateway\'s storage volumes, and there are no snapshots
+-- taken.
 --
--- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ShutdownGateway.html>
+-- When you make a shutdown request, you will get a '200 OK' success
+-- response immediately. However, it might take some time for the gateway
+-- to shut down. You can call the DescribeGatewayInformation API to check
+-- the status. For more information, see ActivateGateway.
+--
+-- If do not intend to use the gateway again, you must delete the gateway
+-- (using DeleteGateway) to no longer pay software charges associated with
+-- the gateway.
+--
+-- /See:/ <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ShutdownGateway.html AWS API Reference> for ShutdownGateway.
 module Network.AWS.StorageGateway.ShutdownGateway
     (
-    -- * Request
-      ShutdownGateway
-    -- ** Request constructor
-    , shutdownGateway
-    -- ** Request lenses
-    , sg1GatewayARN
+    -- * Creating a Request
+      shutdownGateway
+    , ShutdownGateway
+    -- * Request Lenses
+    , sGatewayARN
 
-    -- * Response
-    , ShutdownGatewayResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , shutdownGatewayResponse
-    -- ** Response lenses
-    , sgr1GatewayARN
+    , ShutdownGatewayResponse
+    -- * Response Lenses
+    , sgrsGatewayARN
+    , sgrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
+import           Network.AWS.StorageGateway.Types.Product
 
-newtype ShutdownGateway = ShutdownGateway
-    { _sg1GatewayARN :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | A JSON object containing the of the gateway to shut down.
+--
+-- /See:/ 'shutdownGateway' smart constructor.
+newtype ShutdownGateway = ShutdownGateway'
+    { _sGatewayARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ShutdownGateway' constructor.
+-- | Creates a value of 'ShutdownGateway' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'sg1GatewayARN' @::@ 'Text'
---
-shutdownGateway :: Text -- ^ 'sg1GatewayARN'
-                -> ShutdownGateway
-shutdownGateway p1 = ShutdownGateway
-    { _sg1GatewayARN = p1
+-- * 'sGatewayARN'
+shutdownGateway
+    :: Text -- ^ 'sGatewayARN'
+    -> ShutdownGateway
+shutdownGateway pGatewayARN_ =
+    ShutdownGateway'
+    { _sGatewayARN = pGatewayARN_
     }
 
-sg1GatewayARN :: Lens' ShutdownGateway Text
-sg1GatewayARN = lens _sg1GatewayARN (\s a -> s { _sg1GatewayARN = a })
-
-newtype ShutdownGatewayResponse = ShutdownGatewayResponse
-    { _sgr1GatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'ShutdownGatewayResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sgr1GatewayARN' @::@ 'Maybe' 'Text'
---
-shutdownGatewayResponse :: ShutdownGatewayResponse
-shutdownGatewayResponse = ShutdownGatewayResponse
-    { _sgr1GatewayARN = Nothing
-    }
-
-sgr1GatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
-sgr1GatewayARN = lens _sgr1GatewayARN (\s a -> s { _sgr1GatewayARN = a })
-
-instance ToPath ShutdownGateway where
-    toPath = const "/"
-
-instance ToQuery ShutdownGateway where
-    toQuery = const mempty
-
-instance ToHeaders ShutdownGateway
-
-instance ToJSON ShutdownGateway where
-    toJSON ShutdownGateway{..} = object
-        [ "GatewayARN" .= _sg1GatewayARN
-        ]
+-- | Undocumented member.
+sGatewayARN :: Lens' ShutdownGateway Text
+sGatewayARN = lens _sGatewayARN (\ s a -> s{_sGatewayARN = a});
 
 instance AWSRequest ShutdownGateway where
-    type Sv ShutdownGateway = StorageGateway
-    type Rs ShutdownGateway = ShutdownGatewayResponse
+        type Sv ShutdownGateway = StorageGateway
+        type Rs ShutdownGateway = ShutdownGatewayResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ShutdownGatewayResponse' <$>
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
-    request  = post "ShutdownGateway"
-    response = jsonResponse
+instance ToHeaders ShutdownGateway where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.ShutdownGateway" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON ShutdownGatewayResponse where
-    parseJSON = withObject "ShutdownGatewayResponse" $ \o -> ShutdownGatewayResponse
-        <$> o .:? "GatewayARN"
+instance ToJSON ShutdownGateway where
+        toJSON ShutdownGateway'{..}
+          = object ["GatewayARN" .= _sGatewayARN]
+
+instance ToPath ShutdownGateway where
+        toPath = const "/"
+
+instance ToQuery ShutdownGateway where
+        toQuery = const mempty
+
+-- | A JSON object containing the of the gateway that was shut down.
+--
+-- /See:/ 'shutdownGatewayResponse' smart constructor.
+data ShutdownGatewayResponse = ShutdownGatewayResponse'
+    { _sgrsGatewayARN :: !(Maybe Text)
+    , _sgrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ShutdownGatewayResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'sgrsGatewayARN'
+--
+-- * 'sgrsStatus'
+shutdownGatewayResponse
+    :: Int -- ^ 'sgrsStatus'
+    -> ShutdownGatewayResponse
+shutdownGatewayResponse pStatus_ =
+    ShutdownGatewayResponse'
+    { _sgrsGatewayARN = Nothing
+    , _sgrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+sgrsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
+sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a});
+
+-- | The response status code.
+sgrsStatus :: Lens' ShutdownGatewayResponse Int
+sgrsStatus = lens _sgrsStatus (\ s a -> s{_sgrsStatus = a});

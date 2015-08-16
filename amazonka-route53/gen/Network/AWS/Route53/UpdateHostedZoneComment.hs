@@ -1,128 +1,147 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.Route53.UpdateHostedZoneComment
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | To update the hosted zone comment, send a 'POST' request to the '2013-04-01/hostedzone//hosted zone ID/ resource. The request body must include an XML document with a 'UpdateHostedZoneCommentRequest' element. The response to this request includes
--- the modified 'HostedZone' element.
+-- |
+-- Module      : Network.AWS.Route53.UpdateHostedZoneComment
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- To update the hosted zone comment, send a 'POST' request to the
+-- '2013-04-01\/hostedzone\/hosted zone ID' resource. The request body must
+-- include an XML document with a 'UpdateHostedZoneCommentRequest' element.
+-- The response to this request includes the modified 'HostedZone' element.
 --
 -- The comment can have a maximum length of 256 characters.
 --
--- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneComment.html>
+-- /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHostedZoneComment.html AWS API Reference> for UpdateHostedZoneComment.
 module Network.AWS.Route53.UpdateHostedZoneComment
     (
-    -- * Request
-      UpdateHostedZoneComment
-    -- ** Request constructor
-    , updateHostedZoneComment
-    -- ** Request lenses
+    -- * Creating a Request
+      updateHostedZoneComment
+    , UpdateHostedZoneComment
+    -- * Request Lenses
     , uhzcComment
     , uhzcId
 
-    -- * Response
-    , UpdateHostedZoneCommentResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , updateHostedZoneCommentResponse
-    -- ** Response lenses
-    , uhzcrHostedZone
+    , UpdateHostedZoneCommentResponse
+    -- * Response Lenses
+    , uhzcrsStatus
+    , uhzcrsHostedZone
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
+import           Network.AWS.Route53.Types.Product
 
-data UpdateHostedZoneComment = UpdateHostedZoneComment
-    { _uhzcComment :: Maybe Text
-    , _uhzcId      :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | A complex type that contains information about the request to update a
+-- hosted zone comment.
+--
+-- /See:/ 'updateHostedZoneComment' smart constructor.
+data UpdateHostedZoneComment = UpdateHostedZoneComment'
+    { _uhzcComment :: !(Maybe Text)
+    , _uhzcId      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'UpdateHostedZoneComment' constructor.
+-- | Creates a value of 'UpdateHostedZoneComment' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'uhzcComment' @::@ 'Maybe' 'Text'
+-- * 'uhzcComment'
 --
--- * 'uhzcId' @::@ 'Text'
---
-updateHostedZoneComment :: Text -- ^ 'uhzcId'
-                        -> UpdateHostedZoneComment
-updateHostedZoneComment p1 = UpdateHostedZoneComment
-    { _uhzcId      = p1
-    , _uhzcComment = Nothing
+-- * 'uhzcId'
+updateHostedZoneComment
+    :: Text -- ^ 'uhzcId'
+    -> UpdateHostedZoneComment
+updateHostedZoneComment pId_ =
+    UpdateHostedZoneComment'
+    { _uhzcComment = Nothing
+    , _uhzcId = pId_
     }
 
 -- | A comment about your hosted zone.
 uhzcComment :: Lens' UpdateHostedZoneComment (Maybe Text)
-uhzcComment = lens _uhzcComment (\s a -> s { _uhzcComment = a })
+uhzcComment = lens _uhzcComment (\ s a -> s{_uhzcComment = a});
 
 -- | The ID of the hosted zone you want to update.
 uhzcId :: Lens' UpdateHostedZoneComment Text
-uhzcId = lens _uhzcId (\s a -> s { _uhzcId = a })
-
-newtype UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse
-    { _uhzcrHostedZone :: HostedZone
-    } deriving (Eq, Read, Show)
-
--- | 'UpdateHostedZoneCommentResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uhzcrHostedZone' @::@ 'HostedZone'
---
-updateHostedZoneCommentResponse :: HostedZone -- ^ 'uhzcrHostedZone'
-                                -> UpdateHostedZoneCommentResponse
-updateHostedZoneCommentResponse p1 = UpdateHostedZoneCommentResponse
-    { _uhzcrHostedZone = p1
-    }
-
-uhzcrHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
-uhzcrHostedZone = lens _uhzcrHostedZone (\s a -> s { _uhzcrHostedZone = a })
-
-instance ToPath UpdateHostedZoneComment where
-    toPath UpdateHostedZoneComment{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _uhzcId
-        ]
-
-instance ToQuery UpdateHostedZoneComment where
-    toQuery = const mempty
-
-instance ToHeaders UpdateHostedZoneComment
-
-instance ToXMLRoot UpdateHostedZoneComment where
-    toXMLRoot UpdateHostedZoneComment{..} = namespaced ns "UpdateHostedZoneComment"
-        [ "Comment" =@ _uhzcComment
-        ]
-
-instance ToXML UpdateHostedZoneComment
+uhzcId = lens _uhzcId (\ s a -> s{_uhzcId = a});
 
 instance AWSRequest UpdateHostedZoneComment where
-    type Sv UpdateHostedZoneComment = Route53
-    type Rs UpdateHostedZoneComment = UpdateHostedZoneCommentResponse
+        type Sv UpdateHostedZoneComment = Route53
+        type Rs UpdateHostedZoneComment =
+             UpdateHostedZoneCommentResponse
+        request = postXML
+        response
+          = receiveXML
+              (\ s h x ->
+                 UpdateHostedZoneCommentResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "HostedZone"))
 
-    request  = post
-    response = xmlResponse
+instance ToElement UpdateHostedZoneComment where
+        toElement
+          = mkElement
+              "{https://route53.amazonaws.com/doc/2013-04-01/}UpdateHostedZoneCommentRequest"
 
-instance FromXML UpdateHostedZoneCommentResponse where
-    parseXML x = UpdateHostedZoneCommentResponse
-        <$> x .@  "HostedZone"
+instance ToHeaders UpdateHostedZoneComment where
+        toHeaders = const mempty
+
+instance ToPath UpdateHostedZoneComment where
+        toPath UpdateHostedZoneComment'{..}
+          = mconcat ["/2013-04-01/hostedzone/", toBS _uhzcId]
+
+instance ToQuery UpdateHostedZoneComment where
+        toQuery = const mempty
+
+instance ToXML UpdateHostedZoneComment where
+        toXML UpdateHostedZoneComment'{..}
+          = mconcat ["Comment" @= _uhzcComment]
+
+-- | A complex type containing information about the specified hosted zone
+-- after the update.
+--
+-- /See:/ 'updateHostedZoneCommentResponse' smart constructor.
+data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
+    { _uhzcrsStatus     :: !Int
+    , _uhzcrsHostedZone :: !HostedZone
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'UpdateHostedZoneCommentResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'uhzcrsStatus'
+--
+-- * 'uhzcrsHostedZone'
+updateHostedZoneCommentResponse
+    :: Int -- ^ 'uhzcrsStatus'
+    -> HostedZone -- ^ 'uhzcrsHostedZone'
+    -> UpdateHostedZoneCommentResponse
+updateHostedZoneCommentResponse pStatus_ pHostedZone_ =
+    UpdateHostedZoneCommentResponse'
+    { _uhzcrsStatus = pStatus_
+    , _uhzcrsHostedZone = pHostedZone_
+    }
+
+-- | The response status code.
+uhzcrsStatus :: Lens' UpdateHostedZoneCommentResponse Int
+uhzcrsStatus = lens _uhzcrsStatus (\ s a -> s{_uhzcrsStatus = a});
+
+-- | Undocumented member.
+uhzcrsHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
+uhzcrsHostedZone = lens _uhzcrsHostedZone (\ s a -> s{_uhzcrsHostedZone = a});

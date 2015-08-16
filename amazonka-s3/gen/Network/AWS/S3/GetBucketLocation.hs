@@ -1,113 +1,116 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.S3.GetBucketLocation
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns the region the bucket resides in.
+-- |
+-- Module      : Network.AWS.S3.GetBucketLocation
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLocation.html>
+-- Returns the region the bucket resides in.
+--
+-- /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLocation.html AWS API Reference> for GetBucketLocation.
 module Network.AWS.S3.GetBucketLocation
     (
-    -- * Request
-      GetBucketLocation
-    -- ** Request constructor
-    , getBucketLocation
-    -- ** Request lenses
+    -- * Creating a Request
+      getBucketLocation
+    , GetBucketLocation
+    -- * Request Lenses
     , gblBucket
 
-    -- * Response
-    , GetBucketLocationResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , getBucketLocationResponse
-    -- ** Response lenses
-    , gblrLocationConstraint
+    , GetBucketLocationResponse
+    -- * Response Lenses
+    , getrsLocationConstraint
+    , getrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+import           Network.AWS.S3.Types.Product
 
-newtype GetBucketLocation = GetBucketLocation
-    { _gblBucket :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+-- | /See:/ 'getBucketLocation' smart constructor.
+newtype GetBucketLocation = GetBucketLocation'
+    { _gblBucket :: BucketName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetBucketLocation' constructor.
+-- | Creates a value of 'GetBucketLocation' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'gblBucket' @::@ 'Text'
---
-getBucketLocation :: Text -- ^ 'gblBucket'
-                  -> GetBucketLocation
-getBucketLocation p1 = GetBucketLocation
-    { _gblBucket = p1
+-- * 'gblBucket'
+getBucketLocation
+    :: BucketName -- ^ 'gblBucket'
+    -> GetBucketLocation
+getBucketLocation pBucket_ =
+    GetBucketLocation'
+    { _gblBucket = pBucket_
     }
 
-gblBucket :: Lens' GetBucketLocation Text
-gblBucket = lens _gblBucket (\s a -> s { _gblBucket = a })
-
-newtype GetBucketLocationResponse = GetBucketLocationResponse
-    { _gblrLocationConstraint :: Maybe Region
-    } deriving (Eq, Read, Show)
-
--- | 'GetBucketLocationResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gblrLocationConstraint' @::@ 'Maybe' 'Region'
---
-getBucketLocationResponse :: GetBucketLocationResponse
-getBucketLocationResponse = GetBucketLocationResponse
-    { _gblrLocationConstraint = Nothing
-    }
-
-gblrLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
-gblrLocationConstraint =
-    lens _gblrLocationConstraint (\s a -> s { _gblrLocationConstraint = a })
-
-instance ToPath GetBucketLocation where
-    toPath GetBucketLocation{..} = mconcat
-        [ "/"
-        , toText _gblBucket
-        ]
-
-instance ToQuery GetBucketLocation where
-    toQuery = const "location"
-
-instance ToHeaders GetBucketLocation
-
-instance ToXMLRoot GetBucketLocation where
-    toXMLRoot = const (namespaced ns "GetBucketLocation" [])
-
-instance ToXML GetBucketLocation
+-- | Undocumented member.
+gblBucket :: Lens' GetBucketLocation BucketName
+gblBucket = lens _gblBucket (\ s a -> s{_gblBucket = a});
 
 instance AWSRequest GetBucketLocation where
-    type Sv GetBucketLocation = S3
-    type Rs GetBucketLocation = GetBucketLocationResponse
+        type Sv GetBucketLocation = S3
+        type Rs GetBucketLocation = GetBucketLocationResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 GetBucketLocationResponse' <$>
+                   (x .@? "LocationConstraint") <*> (pure (fromEnum s)))
 
-    request  = get
-    response = xmlResponse
+instance ToHeaders GetBucketLocation where
+        toHeaders = const mempty
 
-instance FromXML GetBucketLocationResponse where
-    parseXML x = GetBucketLocationResponse
-        <$> x .@? "LocationConstraint"
+instance ToPath GetBucketLocation where
+        toPath GetBucketLocation'{..}
+          = mconcat ["/", toBS _gblBucket]
+
+instance ToQuery GetBucketLocation where
+        toQuery = const (mconcat ["location"])
+
+-- | /See:/ 'getBucketLocationResponse' smart constructor.
+data GetBucketLocationResponse = GetBucketLocationResponse'
+    { _getrsLocationConstraint :: !(Maybe Region)
+    , _getrsStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'GetBucketLocationResponse' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'getrsLocationConstraint'
+--
+-- * 'getrsStatus'
+getBucketLocationResponse
+    :: Int -- ^ 'getrsStatus'
+    -> GetBucketLocationResponse
+getBucketLocationResponse pStatus_ =
+    GetBucketLocationResponse'
+    { _getrsLocationConstraint = Nothing
+    , _getrsStatus = pStatus_
+    }
+
+-- | Undocumented member.
+getrsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
+getrsLocationConstraint = lens _getrsLocationConstraint (\ s a -> s{_getrsLocationConstraint = a});
+
+-- | The response status code.
+getrsStatus :: Lens' GetBucketLocationResponse Int
+getrsStatus = lens _getrsStatus (\ s a -> s{_getrsStatus = a});

@@ -1,254 +1,141 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
-{-# LANGUAGE ViewPatterns                #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
-
--- Module      : Network.AWS.STS.Types
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
+-- |
+-- Module      : Network.AWS.STS.Types
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.STS.Types
     (
     -- * Service
       STS
-    -- ** Error
-    , RESTError
-    -- ** XML
-    , ns
+
+    -- * Errors
+    , _MalformedPolicyDocumentException
+    , _PackedPolicyTooLargeException
+    , _InvalidAuthorizationMessageException
+    , _IdPCommunicationErrorException
+    , _ExpiredTokenException
+    , _InvalidIdentityTokenException
+    , _IdPRejectedClaimException
+
+    -- * AssumedRoleUser
+    , AssumedRoleUser
+    , assumedRoleUser
+    , aruAssumedRoleId
+    , aruARN
 
     -- * Credentials
     , Credentials
     , credentials
     , cAccessKeyId
-    , cExpiration
     , cSecretAccessKey
     , cSessionToken
+    , cExpiration
 
     -- * FederatedUser
     , FederatedUser
     , federatedUser
-    , fuArn
     , fuFederatedUserId
-
-    -- * AssumedRoleUser
-    , AssumedRoleUser
-    , assumedRoleUser
-    , aruArn
-    , aruAssumedRoleId
+    , fuARN
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Signing
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
+import           Network.AWS.STS.Types.Product
+import           Network.AWS.STS.Types.Sum
 
--- | Version @2011-06-15@ of the Amazon Security Token Service service.
+-- | Version @2011-06-15@ of the Amazon Security Token Service SDK.
 data STS
 
 instance AWSService STS where
     type Sg STS = V4
-    type Er STS = RESTError
-
-    service = service'
+    service = const svc
       where
-        service' :: Service STS
-        service' = Service
-            { _svcAbbrev       = "STS"
-            , _svcPrefix       = "sts"
-            , _svcVersion      = "2011-06-15"
-            , _svcTargetPrefix = Nothing
-            , _svcJSONVersion  = Nothing
-            , _svcHandle       = handle
-            , _svcRetry        = retry
+        svc =
+            Service
+            { _svcAbbrev = "STS"
+            , _svcPrefix = "sts"
+            , _svcVersion = "2011-06-15"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout = Just 70
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
-
-        retry :: Retry STS
-        retry = Exponential
-            { _retryBase     = 0.05
-            , _retryGrowth   = 2
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
             , _retryAttempts = 5
-            , _retryCheck    = check
+            , _retryCheck = check
             }
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e)
-            | s == 400 && (Just "Throttling") == e = True -- Throttling
-            | s == 500  = True -- General Server Error
-            | s == 509  = True -- Limit Exceeded
-            | s == 503  = True -- Service Unavailable
-            | otherwise = False
+-- | The request was rejected because the policy document was malformed. The
+-- error message describes the specific error.
+_MalformedPolicyDocumentException :: AsError a => Getting (First ServiceError) a ServiceError
+_MalformedPolicyDocumentException =
+    _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
 
-ns :: Text
-ns = "https://sts.amazonaws.com/doc/2011-06-15/"
-{-# INLINE ns #-}
+-- | The request was rejected because the policy document was too large. The
+-- error message describes how big the policy document is, in packed form,
+-- as a percentage of what the API allows.
+_PackedPolicyTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
+_PackedPolicyTooLargeException =
+    _ServiceError . hasStatus 400 . hasCode "PackedPolicyTooLarge"
 
-data Credentials = Credentials
-    { _cAccessKeyId     :: Text
-    , _cExpiration      :: ISO8601
-    , _cSecretAccessKey :: Text
-    , _cSessionToken    :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | The error returned if the message passed to 'DecodeAuthorizationMessage'
+-- was invalid. This can happen if the token contains invalid characters,
+-- such as linebreaks.
+_InvalidAuthorizationMessageException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidAuthorizationMessageException =
+    _ServiceError .
+    hasStatus 400 . hasCode "InvalidAuthorizationMessageException"
 
--- | 'Credentials' constructor.
+-- | The request could not be fulfilled because the non-AWS identity provider
+-- (IDP) that was asked to verify the incoming identity token could not be
+-- reached. This is often a transient error caused by network conditions.
+-- Retry the request a limited number of times so that you don\'t exceed
+-- the request rate. If the error persists, the non-AWS identity provider
+-- might be down or not responding.
+_IdPCommunicationErrorException :: AsError a => Getting (First ServiceError) a ServiceError
+_IdPCommunicationErrorException =
+    _ServiceError . hasStatus 400 . hasCode "IDPCommunicationError"
+
+-- | The web identity token that was passed is expired or is not valid. Get a
+-- new identity token from the identity provider and then retry the
+-- request.
+_ExpiredTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_ExpiredTokenException =
+    _ServiceError . hasStatus 400 . hasCode "ExpiredTokenException"
+
+-- | The web identity token that was passed could not be validated by AWS.
+-- Get a new identity token from the identity provider and then retry the
+-- request.
+_InvalidIdentityTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidIdentityTokenException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidIdentityToken"
+
+-- | The identity provider (IdP) reported that authentication failed. This
+-- might be because the claim is invalid.
 --
--- The fields accessible through corresponding lenses are:
---
--- * 'cAccessKeyId' @::@ 'Text'
---
--- * 'cExpiration' @::@ 'UTCTime'
---
--- * 'cSecretAccessKey' @::@ 'Text'
---
--- * 'cSessionToken' @::@ 'Text'
---
-credentials :: Text -- ^ 'cAccessKeyId'
-            -> Text -- ^ 'cSecretAccessKey'
-            -> Text -- ^ 'cSessionToken'
-            -> UTCTime -- ^ 'cExpiration'
-            -> Credentials
-credentials p1 p2 p3 p4 = Credentials
-    { _cAccessKeyId     = p1
-    , _cSecretAccessKey = p2
-    , _cSessionToken    = p3
-    , _cExpiration      = withIso _Time (const id) p4
-    }
-
--- | The access key ID that identifies the temporary security credentials.
-cAccessKeyId :: Lens' Credentials Text
-cAccessKeyId = lens _cAccessKeyId (\s a -> s { _cAccessKeyId = a })
-
--- | The date on which the current credentials expire.
-cExpiration :: Lens' Credentials UTCTime
-cExpiration = lens _cExpiration (\s a -> s { _cExpiration = a }) . _Time
-
--- | The secret access key that can be used to sign requests.
-cSecretAccessKey :: Lens' Credentials Text
-cSecretAccessKey = lens _cSecretAccessKey (\s a -> s { _cSecretAccessKey = a })
-
--- | The token that users must pass to the service API to use the temporary
--- credentials.
-cSessionToken :: Lens' Credentials Text
-cSessionToken = lens _cSessionToken (\s a -> s { _cSessionToken = a })
-
-instance FromXML Credentials where
-    parseXML x = Credentials
-        <$> x .@  "AccessKeyId"
-        <*> x .@  "Expiration"
-        <*> x .@  "SecretAccessKey"
-        <*> x .@  "SessionToken"
-
-instance ToQuery Credentials where
-    toQuery Credentials{..} = mconcat
-        [ "AccessKeyId"     =? _cAccessKeyId
-        , "Expiration"      =? _cExpiration
-        , "SecretAccessKey" =? _cSecretAccessKey
-        , "SessionToken"    =? _cSessionToken
-        ]
-
-data FederatedUser = FederatedUser
-    { _fuArn             :: Text
-    , _fuFederatedUserId :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'FederatedUser' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'fuArn' @::@ 'Text'
---
--- * 'fuFederatedUserId' @::@ 'Text'
---
-federatedUser :: Text -- ^ 'fuFederatedUserId'
-              -> Text -- ^ 'fuArn'
-              -> FederatedUser
-federatedUser p1 p2 = FederatedUser
-    { _fuFederatedUserId = p1
-    , _fuArn             = p2
-    }
-
--- | The ARN that specifies the federated user that is associated with the
--- credentials. For more information about ARNs and how to use them in policies,
--- see Identifiers for IAM Entities in /Using IAM/.
-fuArn :: Lens' FederatedUser Text
-fuArn = lens _fuArn (\s a -> s { _fuArn = a })
-
--- | The string that identifies the federated user associated with the
--- credentials, similar to the unique ID of an IAM user.
-fuFederatedUserId :: Lens' FederatedUser Text
-fuFederatedUserId =
-    lens _fuFederatedUserId (\s a -> s { _fuFederatedUserId = a })
-
-instance FromXML FederatedUser where
-    parseXML x = FederatedUser
-        <$> x .@  "Arn"
-        <*> x .@  "FederatedUserId"
-
-instance ToQuery FederatedUser where
-    toQuery FederatedUser{..} = mconcat
-        [ "Arn"             =? _fuArn
-        , "FederatedUserId" =? _fuFederatedUserId
-        ]
-
-data AssumedRoleUser = AssumedRoleUser
-    { _aruArn           :: Text
-    , _aruAssumedRoleId :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'AssumedRoleUser' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aruArn' @::@ 'Text'
---
--- * 'aruAssumedRoleId' @::@ 'Text'
---
-assumedRoleUser :: Text -- ^ 'aruAssumedRoleId'
-                -> Text -- ^ 'aruArn'
-                -> AssumedRoleUser
-assumedRoleUser p1 p2 = AssumedRoleUser
-    { _aruAssumedRoleId = p1
-    , _aruArn           = p2
-    }
-
--- | The ARN of the temporary security credentials that are returned from the 'AssumeRole' action. For more information about ARNs and how to use them in policies, see
--- Identifiers for IAM Entities  in /Using IAM/.
-aruArn :: Lens' AssumedRoleUser Text
-aruArn = lens _aruArn (\s a -> s { _aruArn = a })
-
--- | A unique identifier that contains the role ID and the role session name of
--- the role that is being assumed. The role ID is generated by AWS when the role
--- is created.
-aruAssumedRoleId :: Lens' AssumedRoleUser Text
-aruAssumedRoleId = lens _aruAssumedRoleId (\s a -> s { _aruAssumedRoleId = a })
-
-instance FromXML AssumedRoleUser where
-    parseXML x = AssumedRoleUser
-        <$> x .@  "Arn"
-        <*> x .@  "AssumedRoleId"
-
-instance ToQuery AssumedRoleUser where
-    toQuery AssumedRoleUser{..} = mconcat
-        [ "Arn"           =? _aruArn
-        , "AssumedRoleId" =? _aruAssumedRoleId
-        ]
+-- If this error is returned for the 'AssumeRoleWithWebIdentity' operation,
+-- it can also mean that the claim has expired or has been explicitly
+-- revoked.
+_IdPRejectedClaimException :: AsError a => Getting (First ServiceError) a ServiceError
+_IdPRejectedClaimException =
+    _ServiceError . hasStatus 403 . hasCode "IDPRejectedClaim"

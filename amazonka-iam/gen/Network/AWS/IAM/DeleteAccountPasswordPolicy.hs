@@ -1,73 +1,83 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.IAM.DeleteAccountPasswordPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the password policy for the AWS account.
+-- |
+-- Module      : Network.AWS.IAM.DeleteAccountPasswordPolicy
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountPasswordPolicy.html>
+-- Deletes the password policy for the AWS account.
+--
+-- /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountPasswordPolicy.html AWS API Reference> for DeleteAccountPasswordPolicy.
 module Network.AWS.IAM.DeleteAccountPasswordPolicy
     (
-    -- * Request
-      DeleteAccountPasswordPolicy
-    -- ** Request constructor
-    , deleteAccountPasswordPolicy
+    -- * Creating a Request
+      deleteAccountPasswordPolicy
+    , DeleteAccountPasswordPolicy
 
-    -- * Response
-    , DeleteAccountPasswordPolicyResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , deleteAccountPasswordPolicyResponse
+    , DeleteAccountPasswordPolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.IAM.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | /See:/ 'deleteAccountPasswordPolicy' smart constructor.
+data DeleteAccountPasswordPolicy =
+    DeleteAccountPasswordPolicy'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DeleteAccountPasswordPolicy' constructor.
-deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
-deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
-
-data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteAccountPasswordPolicyResponse' constructor.
-deleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse
-deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
-
-instance ToPath DeleteAccountPasswordPolicy where
-    toPath = const "/"
-
-instance ToQuery DeleteAccountPasswordPolicy where
-    toQuery = const mempty
-
-instance ToHeaders DeleteAccountPasswordPolicy
+-- | Creates a value of 'DeleteAccountPasswordPolicy' with the minimum fields required to make a request.
+--
+deleteAccountPasswordPolicy
+    :: DeleteAccountPasswordPolicy
+deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy'
 
 instance AWSRequest DeleteAccountPasswordPolicy where
-    type Sv DeleteAccountPasswordPolicy = IAM
-    type Rs DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicyResponse
+        type Sv DeleteAccountPasswordPolicy = IAM
+        type Rs DeleteAccountPasswordPolicy =
+             DeleteAccountPasswordPolicyResponse
+        request = postQuery
+        response
+          = receiveNull DeleteAccountPasswordPolicyResponse'
 
-    request  = post "DeleteAccountPasswordPolicy"
-    response = nullResponse DeleteAccountPasswordPolicyResponse
+instance ToHeaders DeleteAccountPasswordPolicy where
+        toHeaders = const mempty
+
+instance ToPath DeleteAccountPasswordPolicy where
+        toPath = const "/"
+
+instance ToQuery DeleteAccountPasswordPolicy where
+        toQuery
+          = const
+              (mconcat
+                 ["Action" =:
+                    ("DeleteAccountPasswordPolicy" :: ByteString),
+                  "Version" =: ("2010-05-08" :: ByteString)])
+
+-- | /See:/ 'deleteAccountPasswordPolicyResponse' smart constructor.
+data DeleteAccountPasswordPolicyResponse =
+    DeleteAccountPasswordPolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'DeleteAccountPasswordPolicyResponse' with the minimum fields required to make a request.
+--
+deleteAccountPasswordPolicyResponse
+    :: DeleteAccountPasswordPolicyResponse
+deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse'

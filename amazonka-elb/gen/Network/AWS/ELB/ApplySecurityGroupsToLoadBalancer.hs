@@ -1,134 +1,146 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
--- Module      : Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
--- Portability : non-portable (GHC extensions)
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Associates one or more security groups with your load balancer in a virtual
--- private cloud (VPC). The specified security groups override the previously
--- associated security groups.
+-- |
+-- Module      : Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/USVPC_ApplySG.html Manage Security Groups for Amazon VPC> in the /Elastic Load Balancing Developer Guide/.
+-- Associates one or more security groups with your load balancer in a
+-- virtual private cloud (VPC). The specified security groups override the
+-- previously associated security groups.
 --
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ApplySecurityGroupsToLoadBalancer.html>
+-- For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-groups.html#elb-vpc-security-groups Security Groups for Load Balancers in a VPC>
+-- in the /Elastic Load Balancing Developer Guide/.
+--
+-- /See:/ <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ApplySecurityGroupsToLoadBalancer.html AWS API Reference> for ApplySecurityGroupsToLoadBalancer.
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (
-    -- * Request
-      ApplySecurityGroupsToLoadBalancer
-    -- ** Request constructor
-    , applySecurityGroupsToLoadBalancer
-    -- ** Request lenses
+    -- * Creating a Request
+      applySecurityGroupsToLoadBalancer
+    , ApplySecurityGroupsToLoadBalancer
+    -- * Request Lenses
     , asgtlbLoadBalancerName
     , asgtlbSecurityGroups
 
-    -- * Response
-    , ApplySecurityGroupsToLoadBalancerResponse
-    -- ** Response constructor
+    -- * Destructuring the Response
     , applySecurityGroupsToLoadBalancerResponse
-    -- ** Response lenses
-    , asgtlbrSecurityGroups
+    , ApplySecurityGroupsToLoadBalancerResponse
+    -- * Response Lenses
+    , asgtlbrsSecurityGroups
+    , asgtlbrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.ELB.Types.Product
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
-    { _asgtlbLoadBalancerName :: Text
-    , _asgtlbSecurityGroups   :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
+-- | /See:/ 'applySecurityGroupsToLoadBalancer' smart constructor.
+data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
+    { _asgtlbLoadBalancerName :: !Text
+    , _asgtlbSecurityGroups   :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ApplySecurityGroupsToLoadBalancer' constructor.
+-- | Creates a value of 'ApplySecurityGroupsToLoadBalancer' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asgtlbLoadBalancerName' @::@ 'Text'
+-- * 'asgtlbLoadBalancerName'
 --
--- * 'asgtlbSecurityGroups' @::@ ['Text']
---
-applySecurityGroupsToLoadBalancer :: Text -- ^ 'asgtlbLoadBalancerName'
-                                  -> ApplySecurityGroupsToLoadBalancer
-applySecurityGroupsToLoadBalancer p1 = ApplySecurityGroupsToLoadBalancer
-    { _asgtlbLoadBalancerName = p1
-    , _asgtlbSecurityGroups   = mempty
+-- * 'asgtlbSecurityGroups'
+applySecurityGroupsToLoadBalancer
+    :: Text -- ^ 'asgtlbLoadBalancerName'
+    -> ApplySecurityGroupsToLoadBalancer
+applySecurityGroupsToLoadBalancer pLoadBalancerName_ =
+    ApplySecurityGroupsToLoadBalancer'
+    { _asgtlbLoadBalancerName = pLoadBalancerName_
+    , _asgtlbSecurityGroups = mempty
     }
 
 -- | The name of the load balancer.
 asgtlbLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
-asgtlbLoadBalancerName =
-    lens _asgtlbLoadBalancerName (\s a -> s { _asgtlbLoadBalancerName = a })
+asgtlbLoadBalancerName = lens _asgtlbLoadBalancerName (\ s a -> s{_asgtlbLoadBalancerName = a});
 
--- | The IDs of the security groups to associate with the load balancer. Note that
--- you cannot specify the name of the security group.
+-- | The IDs of the security groups to associate with the load balancer. Note
+-- that you cannot specify the name of the security group.
 asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
-asgtlbSecurityGroups =
-    lens _asgtlbSecurityGroups (\s a -> s { _asgtlbSecurityGroups = a })
-        . _List
+asgtlbSecurityGroups = lens _asgtlbSecurityGroups (\ s a -> s{_asgtlbSecurityGroups = a}) . _Coerce;
 
-newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
-    { _asgtlbrSecurityGroups :: List "member" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
+instance AWSRequest ApplySecurityGroupsToLoadBalancer
+         where
+        type Sv ApplySecurityGroupsToLoadBalancer = ELB
+        type Rs ApplySecurityGroupsToLoadBalancer =
+             ApplySecurityGroupsToLoadBalancerResponse
+        request = postQuery
+        response
+          = receiveXMLWrapper
+              "ApplySecurityGroupsToLoadBalancerResult"
+              (\ s h x ->
+                 ApplySecurityGroupsToLoadBalancerResponse' <$>
+                   (x .@? "SecurityGroups" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-instance GHC.Exts.IsList ApplySecurityGroupsToLoadBalancerResponse where
-    type Item ApplySecurityGroupsToLoadBalancerResponse = Text
+instance ToHeaders ApplySecurityGroupsToLoadBalancer
+         where
+        toHeaders = const mempty
 
-    fromList = ApplySecurityGroupsToLoadBalancerResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _asgtlbrSecurityGroups
+instance ToPath ApplySecurityGroupsToLoadBalancer
+         where
+        toPath = const "/"
 
--- | 'ApplySecurityGroupsToLoadBalancerResponse' constructor.
+instance ToQuery ApplySecurityGroupsToLoadBalancer
+         where
+        toQuery ApplySecurityGroupsToLoadBalancer'{..}
+          = mconcat
+              ["Action" =:
+                 ("ApplySecurityGroupsToLoadBalancer" :: ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "LoadBalancerName" =: _asgtlbLoadBalancerName,
+               "SecurityGroups" =:
+                 toQueryList "member" _asgtlbSecurityGroups]
+
+-- | /See:/ 'applySecurityGroupsToLoadBalancerResponse' smart constructor.
+data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
+    { _asgtlbrsSecurityGroups :: !(Maybe [Text])
+    , _asgtlbrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'ApplySecurityGroupsToLoadBalancerResponse' with the minimum fields required to make a request.
 --
--- The fields accessible through corresponding lenses are:
+-- Use one of the following lenses to modify other fields as desired:
 --
--- * 'asgtlbrSecurityGroups' @::@ ['Text']
+-- * 'asgtlbrsSecurityGroups'
 --
-applySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerResponse
-applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
-    { _asgtlbrSecurityGroups = mempty
+-- * 'asgtlbrsStatus'
+applySecurityGroupsToLoadBalancerResponse
+    :: Int -- ^ 'asgtlbrsStatus'
+    -> ApplySecurityGroupsToLoadBalancerResponse
+applySecurityGroupsToLoadBalancerResponse pStatus_ =
+    ApplySecurityGroupsToLoadBalancerResponse'
+    { _asgtlbrsSecurityGroups = Nothing
+    , _asgtlbrsStatus = pStatus_
     }
 
 -- | The IDs of the security groups associated with the load balancer.
-asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
-asgtlbrSecurityGroups =
-    lens _asgtlbrSecurityGroups (\s a -> s { _asgtlbrSecurityGroups = a })
-        . _List
+asgtlbrsSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
+asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecurityGroups = a}) . _Default . _Coerce;
 
-instance ToPath ApplySecurityGroupsToLoadBalancer where
-    toPath = const "/"
-
-instance ToQuery ApplySecurityGroupsToLoadBalancer where
-    toQuery ApplySecurityGroupsToLoadBalancer{..} = mconcat
-        [ "LoadBalancerName" =? _asgtlbLoadBalancerName
-        , "SecurityGroups"   =? _asgtlbSecurityGroups
-        ]
-
-instance ToHeaders ApplySecurityGroupsToLoadBalancer
-
-instance AWSRequest ApplySecurityGroupsToLoadBalancer where
-    type Sv ApplySecurityGroupsToLoadBalancer = ELB
-    type Rs ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancerResponse
-
-    request  = post "ApplySecurityGroupsToLoadBalancer"
-    response = xmlResponse
-
-instance FromXML ApplySecurityGroupsToLoadBalancerResponse where
-    parseXML = withElement "ApplySecurityGroupsToLoadBalancerResult" $ \x -> ApplySecurityGroupsToLoadBalancerResponse
-        <$> x .@? "SecurityGroups" .!@ mempty
+-- | The response status code.
+asgtlbrsStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
+asgtlbrsStatus = lens _asgtlbrsStatus (\ s a -> s{_asgtlbrsStatus = a});

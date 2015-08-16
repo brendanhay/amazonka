@@ -20,7 +20,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The 'AWST' transformer provides the environment required to perform AWS
--- operations and constructs a 'Command' DSL using 'FreeT' which can then be
+-- operations and constructs a 'Command' AST using 'FreeT' which can then be
 -- interpreted using 'runAWST'. The transformer is intended to be used directly
 -- or embedded as a layer within a transformer stack.
 --
@@ -228,7 +228,7 @@ instance MonadWriter w m => MonadWriter w (AWST m) where
 -- Any outstanding HTTP responses' 'ResumableSource' will
 -- be closed when the 'ResourceT' computation is unwrapped with 'runResourceT'.
 --
--- Throws 'Error' during interpretation of the underlying 'FreeT' 'Command' DSL.
+-- Throws 'Error' during interpretation of the underlying 'FreeT' 'Command' AST.
 --
 -- /See:/ 'runResourceT'.
 runAWST :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWST m a -> m a

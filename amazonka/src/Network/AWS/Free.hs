@@ -14,7 +14,7 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 --
--- Defines the core DSL, logic and interpreters for AWS behaviour.
+-- Defines the core AST, logic and interpreters for AWS behaviour.
 module Network.AWS.Free where
 
 import           Control.Applicative

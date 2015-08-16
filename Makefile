@@ -1,5 +1,5 @@
 SERVICES  ?= $(wildcard amazonka-*)
-LIBRARIES ?= core test amazonka $(SERVICES)
+LIBRARIES ?= core amazonka $(SERVICES)
 FORWARD   := sdist upload
 
 build:

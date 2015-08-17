@@ -20,7 +20,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The 'AWST' transformer provides the environment required to perform AWS
--- operations and constructs a 'Command' AST using 'FreeT' which can then be
+-- operations and constructs a 'Command' AST using 'MonadFree' which can then be
 -- interpreted using 'runAWST'. The transformer is intended to be used directly
 -- or embedded as a layer within a transformer stack.
 --
@@ -32,6 +32,7 @@ module Control.Monad.Trans.AWS
       AWST
     , runAWST
     , execAWST
+    , hoistAWST
 
     -- * Authentication and Environment
     , newEnv
@@ -146,12 +147,12 @@ import           Control.Exception.Lens
 import           Control.Monad.Base
 import           Control.Monad.Catch
 import           Control.Monad.Error.Class       (MonadError (..))
-import           Control.Monad.Morph
+import           Control.Monad.Morph             (hoist)
 import           Control.Monad.Reader
 import           Control.Monad.State.Class
 import           Control.Monad.Trans.Control
-import           Control.Monad.Trans.Free
-import qualified Control.Monad.Trans.Free.Church as Free
+import           Control.Monad.Trans.Free        (FreeF (Pure), FreeT (..))
+import           Control.Monad.Trans.Free.Church
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Writer.Class
 import           Data.IORef
@@ -169,7 +170,7 @@ import           Network.AWS.Types               hiding (LogLevel (..))
 import           Network.AWS.Waiter              (Wait)
 
 -- | The 'AWST' transformer.
-newtype AWST m a = AWST { unAWST :: FreeT Command (ReaderT Env m) a }
+newtype AWST m a = AWST { unAWST :: FT Command (ReaderT Env m) a }
     deriving
         ( Functor
         , Applicative
@@ -190,19 +191,17 @@ instance MonadCatch m => MonadCatch (AWST m) where
 instance MonadBase b m => MonadBase b (AWST m) where
     liftBase = liftBaseDefault
 
-instance MFunctor AWST where
-    hoist nat = AWST . hoistFreeT (hoist nat) . unAWST
-
 instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
     type StM (AWST m) a =
          StM m (FreeF Command a (FreeT Command (ReaderT Env m) a))
 
-    liftBaseWith f = AWST . FreeT . liftM Pure $
+    liftBaseWith f = AWST . toFT . FreeT . liftM Pure $
         liftBaseWith $ \runInBase ->
             f $ \k ->
-                runInBase (runFreeT (unAWST k))
+                runInBase $
+                    runFreeT (fromFT (unAWST k))
 
-    restoreM = AWST . FreeT . restoreM
+    restoreM = AWST . toFT . FreeT . restoreM
 
 instance MonadTrans AWST where
     lift = AWST . lift . lift
@@ -228,7 +227,7 @@ instance MonadWriter w m => MonadWriter w (AWST m) where
 -- Any outstanding HTTP responses' 'ResumableSource' will
 -- be closed when the 'ResourceT' computation is unwrapped with 'runResourceT'.
 --
--- Throws 'Error' during interpretation of the underlying 'FreeT' 'Command' AST.
+-- Throws 'Error' during interpretation of the underlying 'MonadFree' 'Command' AST.
 --
 -- /See:/ 'runResourceT'.
 runAWST :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWST m a -> m a
@@ -294,8 +293,13 @@ innerAWST :: (Monad m, HasEnv r)
           -> r
           -> AWST m a
           -> m a
-innerAWST f e (AWST m) =
-    runReaderT (f `Free.iterT` Free.toFT m) (e ^. environment)
+innerAWST f e (AWST m) = runReaderT (f `iterT` m) (e ^. environment)
+
+hoistAWST :: (Monad m, Monad n)
+          => (forall a. m a -> n a)
+          -> AWST m b
+          -> AWST n b
+hoistAWST nat = AWST . hoistFT (hoist nat) . unAWST
 
 hoistError :: MonadThrow m => Either Error a -> m a
 hoistError = either (throwingM _Error) return

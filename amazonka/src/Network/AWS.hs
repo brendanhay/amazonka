@@ -214,7 +214,9 @@ instance (Functor f, MonadAWS m) => MonadAWS (FreeT f m) where
 --
 -- /See:/ 'runAWST', 'runResourceT'.
 runAWS :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWS a -> m a
-runAWS e = liftResourceT . AWST.runAWST e . hoist (withInternalState . const)
+runAWS e = liftResourceT
+    . AWST.runAWST e
+    . AWST.hoistAWST (withInternalState . const)
 
 -- | Scope an action within the specific 'Region'.
 within :: MonadAWS m => Region -> AWS a -> m a

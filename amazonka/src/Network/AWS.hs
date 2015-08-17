@@ -121,6 +121,7 @@ module Network.AWS
     , newLogger
 
     -- * Re-exported Types
+    , Command
     , RqBody
     , RsBody
     , module Network.AWS.Types

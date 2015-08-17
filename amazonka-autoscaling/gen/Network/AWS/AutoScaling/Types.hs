@@ -64,13 +64,13 @@ module Network.AWS.AutoScaling.Types
     , asgVPCZoneIdentifier
     , asgEnabledMetrics
     , asgInstances
+    , asgLaunchConfigurationName
     , asgAutoScalingGroupARN
     , asgSuspendedProcesses
     , asgPlacementGroup
     , asgLoadBalancerNames
     , asgTags
     , asgAutoScalingGroupName
-    , asgLaunchConfigurationName
     , asgMinSize
     , asgMaxSize
     , asgDesiredCapacity
@@ -121,11 +121,11 @@ module Network.AWS.AutoScaling.Types
     -- * Instance
     , Instance
     , instance'
+    , iLaunchConfigurationName
     , iInstanceId
     , iAvailabilityZone
     , iLifecycleState
     , iHealthStatus
-    , iLaunchConfigurationName
 
     -- * InstanceMonitoring
     , InstanceMonitoring

@@ -46,10 +46,10 @@ module Network.AWS.Route53.ListHostedZones
     , listHostedZonesResponse
     , ListHostedZonesResponse
     -- * Response Lenses
+    , lhzrsMarker
     , lhzrsNextMarker
     , lhzrsStatus
     , lhzrsHostedZones
-    , lhzrsMarker
     , lhzrsIsTruncated
     , lhzrsMaxItems
     ) where
@@ -130,10 +130,11 @@ instance AWSRequest ListHostedZones where
           = receiveXML
               (\ s h x ->
                  ListHostedZonesResponse' <$>
-                   (x .@? "NextMarker") <*> (pure (fromEnum s)) <*>
+                   (x .@? "Marker") <*> (x .@? "NextMarker") <*>
+                     (pure (fromEnum s))
+                     <*>
                      (x .@? "HostedZones" .!@ mempty >>=
                         parseXMLList "HostedZone")
-                     <*> (x .@ "Marker")
                      <*> (x .@ "IsTruncated")
                      <*> (x .@ "MaxItems"))
 
@@ -153,10 +154,10 @@ instance ToQuery ListHostedZones where
 --
 -- /See:/ 'listHostedZonesResponse' smart constructor.
 data ListHostedZonesResponse = ListHostedZonesResponse'
-    { _lhzrsNextMarker  :: !(Maybe Text)
+    { _lhzrsMarker      :: !(Maybe Text)
+    , _lhzrsNextMarker  :: !(Maybe Text)
     , _lhzrsStatus      :: !Int
     , _lhzrsHostedZones :: ![HostedZone]
-    , _lhzrsMarker      :: !Text
     , _lhzrsIsTruncated :: !Bool
     , _lhzrsMaxItems    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -165,32 +166,37 @@ data ListHostedZonesResponse = ListHostedZonesResponse'
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'lhzrsMarker'
+--
 -- * 'lhzrsNextMarker'
 --
 -- * 'lhzrsStatus'
 --
 -- * 'lhzrsHostedZones'
 --
--- * 'lhzrsMarker'
---
 -- * 'lhzrsIsTruncated'
 --
 -- * 'lhzrsMaxItems'
 listHostedZonesResponse
     :: Int -- ^ 'lhzrsStatus'
-    -> Text -- ^ 'lhzrsMarker'
     -> Bool -- ^ 'lhzrsIsTruncated'
     -> Text -- ^ 'lhzrsMaxItems'
     -> ListHostedZonesResponse
-listHostedZonesResponse pStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
+listHostedZonesResponse pStatus_ pIsTruncated_ pMaxItems_ =
     ListHostedZonesResponse'
-    { _lhzrsNextMarker = Nothing
+    { _lhzrsMarker = Nothing
+    , _lhzrsNextMarker = Nothing
     , _lhzrsStatus = pStatus_
     , _lhzrsHostedZones = mempty
-    , _lhzrsMarker = pMarker_
     , _lhzrsIsTruncated = pIsTruncated_
     , _lhzrsMaxItems = pMaxItems_
     }
+
+-- | If the request returned more than one page of results, submit another
+-- request and specify the value of 'NextMarker' from the last response in
+-- the 'marker' parameter to get the next page of results.
+lhzrsMarker :: Lens' ListHostedZonesResponse (Maybe Text)
+lhzrsMarker = lens _lhzrsMarker (\ s a -> s{_lhzrsMarker = a});
 
 -- | Indicates where to continue listing hosted zones. If
 -- ListHostedZonesResponse$IsTruncated is 'true', make another request to
@@ -207,12 +213,6 @@ lhzrsStatus = lens _lhzrsStatus (\ s a -> s{_lhzrsStatus = a});
 -- associated with the current AWS account.
 lhzrsHostedZones :: Lens' ListHostedZonesResponse [HostedZone]
 lhzrsHostedZones = lens _lhzrsHostedZones (\ s a -> s{_lhzrsHostedZones = a}) . _Coerce;
-
--- | If the request returned more than one page of results, submit another
--- request and specify the value of 'NextMarker' from the last response in
--- the 'marker' parameter to get the next page of results.
-lhzrsMarker :: Lens' ListHostedZonesResponse Text
-lhzrsMarker = lens _lhzrsMarker (\ s a -> s{_lhzrsMarker = a});
 
 -- | A flag indicating whether there are more hosted zones to be listed. If
 -- your results were truncated, you can make a follow-up request for the

@@ -214,13 +214,13 @@ data AutoScalingGroup = AutoScalingGroup'
     , _asgVPCZoneIdentifier       :: !(Maybe Text)
     , _asgEnabledMetrics          :: !(Maybe [EnabledMetric])
     , _asgInstances               :: !(Maybe [Instance])
+    , _asgLaunchConfigurationName :: !(Maybe Text)
     , _asgAutoScalingGroupARN     :: !(Maybe Text)
     , _asgSuspendedProcesses      :: !(Maybe [SuspendedProcess])
     , _asgPlacementGroup          :: !(Maybe Text)
     , _asgLoadBalancerNames       :: !(Maybe [Text])
     , _asgTags                    :: !(Maybe [TagDescription])
     , _asgAutoScalingGroupName    :: !Text
-    , _asgLaunchConfigurationName :: !Text
     , _asgMinSize                 :: !Int
     , _asgMaxSize                 :: !Int
     , _asgDesiredCapacity         :: !Int
@@ -246,6 +246,8 @@ data AutoScalingGroup = AutoScalingGroup'
 --
 -- * 'asgInstances'
 --
+-- * 'asgLaunchConfigurationName'
+--
 -- * 'asgAutoScalingGroupARN'
 --
 -- * 'asgSuspendedProcesses'
@@ -257,8 +259,6 @@ data AutoScalingGroup = AutoScalingGroup'
 -- * 'asgTags'
 --
 -- * 'asgAutoScalingGroupName'
---
--- * 'asgLaunchConfigurationName'
 --
 -- * 'asgMinSize'
 --
@@ -275,7 +275,6 @@ data AutoScalingGroup = AutoScalingGroup'
 -- * 'asgCreatedTime'
 autoScalingGroup
     :: Text -- ^ 'asgAutoScalingGroupName'
-    -> Text -- ^ 'asgLaunchConfigurationName'
     -> Int -- ^ 'asgMinSize'
     -> Int -- ^ 'asgMaxSize'
     -> Int -- ^ 'asgDesiredCapacity'
@@ -284,7 +283,7 @@ autoScalingGroup
     -> Text -- ^ 'asgHealthCheckType'
     -> UTCTime -- ^ 'asgCreatedTime'
     -> AutoScalingGroup
-autoScalingGroup pAutoScalingGroupName_ pLaunchConfigurationName_ pMinSize_ pMaxSize_ pDesiredCapacity_ pDefaultCooldown_ pAvailabilityZones_ pHealthCheckType_ pCreatedTime_ =
+autoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ pDesiredCapacity_ pDefaultCooldown_ pAvailabilityZones_ pHealthCheckType_ pCreatedTime_ =
     AutoScalingGroup'
     { _asgStatus = Nothing
     , _asgTerminationPolicies = Nothing
@@ -292,13 +291,13 @@ autoScalingGroup pAutoScalingGroupName_ pLaunchConfigurationName_ pMinSize_ pMax
     , _asgVPCZoneIdentifier = Nothing
     , _asgEnabledMetrics = Nothing
     , _asgInstances = Nothing
+    , _asgLaunchConfigurationName = Nothing
     , _asgAutoScalingGroupARN = Nothing
     , _asgSuspendedProcesses = Nothing
     , _asgPlacementGroup = Nothing
     , _asgLoadBalancerNames = Nothing
     , _asgTags = Nothing
     , _asgAutoScalingGroupName = pAutoScalingGroupName_
-    , _asgLaunchConfigurationName = pLaunchConfigurationName_
     , _asgMinSize = pMinSize_
     , _asgMaxSize = pMaxSize_
     , _asgDesiredCapacity = pDesiredCapacity_
@@ -339,6 +338,10 @@ asgEnabledMetrics = lens _asgEnabledMetrics (\ s a -> s{_asgEnabledMetrics = a})
 asgInstances :: Lens' AutoScalingGroup [Instance]
 asgInstances = lens _asgInstances (\ s a -> s{_asgInstances = a}) . _Default . _Coerce;
 
+-- | The name of the associated launch configuration.
+asgLaunchConfigurationName :: Lens' AutoScalingGroup (Maybe Text)
+asgLaunchConfigurationName = lens _asgLaunchConfigurationName (\ s a -> s{_asgLaunchConfigurationName = a});
+
 -- | The Amazon Resource Name (ARN) of the group.
 asgAutoScalingGroupARN :: Lens' AutoScalingGroup (Maybe Text)
 asgAutoScalingGroupARN = lens _asgAutoScalingGroupARN (\ s a -> s{_asgAutoScalingGroupARN = a});
@@ -364,10 +367,6 @@ asgTags = lens _asgTags (\ s a -> s{_asgTags = a}) . _Default . _Coerce;
 -- | The name of the group.
 asgAutoScalingGroupName :: Lens' AutoScalingGroup Text
 asgAutoScalingGroupName = lens _asgAutoScalingGroupName (\ s a -> s{_asgAutoScalingGroupName = a});
-
--- | The name of the associated launch configuration.
-asgLaunchConfigurationName :: Lens' AutoScalingGroup Text
-asgLaunchConfigurationName = lens _asgLaunchConfigurationName (\ s a -> s{_asgLaunchConfigurationName = a});
 
 -- | The minimum size of the group.
 asgMinSize :: Lens' AutoScalingGroup Int
@@ -413,6 +412,7 @@ instance FromXML AutoScalingGroup where
                 <*>
                 (x .@? "Instances" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "LaunchConfigurationName")
                 <*> (x .@? "AutoScalingGroupARN")
                 <*>
                 (x .@? "SuspendedProcesses" .!@ mempty >>=
@@ -425,7 +425,6 @@ instance FromXML AutoScalingGroup where
                 (x .@? "Tags" .!@ mempty >>=
                    may (parseXMLList "member"))
                 <*> (x .@ "AutoScalingGroupName")
-                <*> (x .@ "LaunchConfigurationName")
                 <*> (x .@ "MinSize")
                 <*> (x .@ "MaxSize")
                 <*> (x .@ "DesiredCapacity")
@@ -774,16 +773,18 @@ instance ToQuery Filter where
 --
 -- /See:/ 'instance'' smart constructor.
 data Instance = Instance'
-    { _iInstanceId              :: !Text
+    { _iLaunchConfigurationName :: !(Maybe Text)
+    , _iInstanceId              :: !Text
     , _iAvailabilityZone        :: !Text
     , _iLifecycleState          :: !LifecycleState
     , _iHealthStatus            :: !Text
-    , _iLaunchConfigurationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'Instance' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'iLaunchConfigurationName'
 --
 -- * 'iInstanceId'
 --
@@ -792,23 +793,24 @@ data Instance = Instance'
 -- * 'iLifecycleState'
 --
 -- * 'iHealthStatus'
---
--- * 'iLaunchConfigurationName'
 instance'
     :: Text -- ^ 'iInstanceId'
     -> Text -- ^ 'iAvailabilityZone'
     -> LifecycleState -- ^ 'iLifecycleState'
     -> Text -- ^ 'iHealthStatus'
-    -> Text -- ^ 'iLaunchConfigurationName'
     -> Instance
-instance' pInstanceId_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pLaunchConfigurationName_ =
+instance' pInstanceId_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ =
     Instance'
-    { _iInstanceId = pInstanceId_
+    { _iLaunchConfigurationName = Nothing
+    , _iInstanceId = pInstanceId_
     , _iAvailabilityZone = pAvailabilityZone_
     , _iLifecycleState = pLifecycleState_
     , _iHealthStatus = pHealthStatus_
-    , _iLaunchConfigurationName = pLaunchConfigurationName_
     }
+
+-- | The launch configuration associated with the instance.
+iLaunchConfigurationName :: Lens' Instance (Maybe Text)
+iLaunchConfigurationName = lens _iLaunchConfigurationName (\ s a -> s{_iLaunchConfigurationName = a});
 
 -- | The ID of the instance.
 iInstanceId :: Lens' Instance Text
@@ -827,17 +829,14 @@ iLifecycleState = lens _iLifecycleState (\ s a -> s{_iLifecycleState = a});
 iHealthStatus :: Lens' Instance Text
 iHealthStatus = lens _iHealthStatus (\ s a -> s{_iHealthStatus = a});
 
--- | The launch configuration associated with the instance.
-iLaunchConfigurationName :: Lens' Instance Text
-iLaunchConfigurationName = lens _iLaunchConfigurationName (\ s a -> s{_iLaunchConfigurationName = a});
-
 instance FromXML Instance where
         parseXML x
           = Instance' <$>
-              (x .@ "InstanceId") <*> (x .@ "AvailabilityZone") <*>
-                (x .@ "LifecycleState")
+              (x .@? "LaunchConfigurationName") <*>
+                (x .@ "InstanceId")
+                <*> (x .@ "AvailabilityZone")
+                <*> (x .@ "LifecycleState")
                 <*> (x .@ "HealthStatus")
-                <*> (x .@ "LaunchConfigurationName")
 
 -- | Describes whether instance monitoring is enabled.
 --

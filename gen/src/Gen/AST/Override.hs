@@ -26,6 +26,7 @@ import           Control.Lens
 import           Control.Monad.State
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
+import           Data.List              ((\\))
 import           Data.Monoid
 import           Gen.AST.TypeOf
 import           Gen.Types
@@ -112,7 +113,7 @@ overrideShape ovs n c@(_ :< s) = go -- env memo n >>= maybe go (return . (n,))
 
     require, optional :: ShapeF a -> ShapeF a
     require  = setRequired (<> _requiredFields)
-    optional = setRequired (<> _optionalFields)
+    optional = setRequired (\\ _optionalFields)
 
     prefix :: ShapeF a -> ShapeF a
     prefix =

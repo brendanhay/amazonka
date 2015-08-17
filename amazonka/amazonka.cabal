@@ -22,15 +22,13 @@ description:
     <http://hackage.haskell.org/package/amazonka-ml/docs/Network-AWS-MachineLearning.html Network.AWS.MachineLearning>)
     and one of the following:
     .
-    * "Control.Monad.Trans.AWS": The 'Control.Monad.Trans.AWS.AWST' transformer
-    and generalised operations.
+    * "Control.Monad.Trans.AWS": The 'AWST' transformer and generalised operations.
     .
-    * "Network.AWS": The 'Network.AWS.AWS' monad and 'Network.AWS.MonadAWS' type
-    class for automatically lifting operations when embedded as a layer in a transformer stack.
-    This is built upon "Control.Monad.Trans.AWS".
+    * "Network.AWS": The 'AWS' monad and 'MonadAWS' type class for automatically
+    lifting operations when embedded as a layer in a transformer stack.
     .
-    Both 'Control.Monad.Trans.AWS.AWST' (and 'Network.AWS.AWS') and the provided
-    functions are built upon the 'Control.Monad.Trans.Free' DSL defined in
+    Both 'Control.Monad.Trans.AWS.AWST' and 'Network.AWS.AWS' provide functions
+    that are built upon a 'MonadFree' 'Command' DSL defined in
     "Network.AWS.Free". This allows writing a custom interpreter (say, for
     mocking purposes) and defining your own AWS logic if desired.
     .

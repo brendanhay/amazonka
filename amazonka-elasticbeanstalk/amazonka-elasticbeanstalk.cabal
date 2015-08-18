@@ -1,5 +1,5 @@
 name:                  amazonka-elasticbeanstalk
-version:               1.0.0
+version:               1.0.1
 synopsis:              Amazon Elastic Beanstalk SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -105,7 +105,7 @@ library
         , Network.AWS.ElasticBeanstalk.Types.Sum
 
     build-depends:
-          amazonka-core == 1.0.0.*
+          amazonka-core == 1.0.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-elasticbeanstalk-test
@@ -124,9 +124,9 @@ test-suite amazonka-elasticbeanstalk-test
         , Test.AWS.ElasticBeanstalk.Internal
 
     build-depends:
-          amazonka-core == 1.0.0
-        , amazonka-test == 1.0.0
-        , amazonka-elasticbeanstalk == 1.0.0
+          amazonka-core == 1.0.1
+        , amazonka-test == 1.0.1
+        , amazonka-elasticbeanstalk == 1.0.1
         , base
         , bytestring
         , lens

@@ -1,5 +1,5 @@
 name:                  amazonka-cloudformation
-version:               1.0.0
+version:               1.0.1
 synopsis:              Amazon CloudFormation SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -87,7 +87,7 @@ library
         , Network.AWS.CloudFormation.Types.Sum
 
     build-depends:
-          amazonka-core == 1.0.0.*
+          amazonka-core == 1.0.1.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudformation-test
@@ -106,9 +106,9 @@ test-suite amazonka-cloudformation-test
         , Test.AWS.CloudFormation.Internal
 
     build-depends:
-          amazonka-core == 1.0.0
-        , amazonka-test == 1.0.0
-        , amazonka-cloudformation == 1.0.0
+          amazonka-core == 1.0.1
+        , amazonka-test == 1.0.1
+        , amazonka-cloudformation == 1.0.1
         , base
         , bytestring
         , lens

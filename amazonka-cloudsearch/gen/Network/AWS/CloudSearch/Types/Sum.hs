@@ -128,7 +128,7 @@ instance FromText AnalysisSchemeLanguage where
         "zh-hans" -> pure ZhHans
         "zh-hant" -> pure ZhHant
         e -> fromTextError $ "Failure parsing AnalysisSchemeLanguage from value: '" <> e
-           <> "'. Accepted values: ar, bg, ca, cs, da, de, el, en, es, eu, fa, fi, fr, ga, gl, he, hi, hu, hy, it, id, ja, ko, lv, mul, nl, no, pt, ro, ru, sv, th, tr, zh-hans, zh-hant"
+           <> "'. Accepted values: ar, bg, ca, cs, da, de, el, en, es, eu, fa, fi, fr, ga, gl, he, hi, hu, hy, it, id, ja, ko, lv, mul, nl, no, pt, ro, ru, sv, th, tr, zh-Hans, zh-Hant"
 
 instance ToText AnalysisSchemeLanguage where
     toText = \case
@@ -165,8 +165,8 @@ instance ToText AnalysisSchemeLanguage where
         SV -> "sv"
         TH -> "th"
         TR -> "tr"
-        ZhHans -> "zh-hans"
-        ZhHant -> "zh-hant"
+        ZhHans -> "zh-Hans"
+        ZhHant -> "zh-Hant"
 
 instance Hashable     AnalysisSchemeLanguage
 instance ToByteString AnalysisSchemeLanguage
@@ -258,14 +258,14 @@ instance FromText OptionState where
         "processing" -> pure Processing
         "requiresindexdocuments" -> pure RequiresIndexDocuments
         e -> fromTextError $ "Failure parsing OptionState from value: '" <> e
-           <> "'. Accepted values: active, failedtovalidate, processing, requiresindexdocuments"
+           <> "'. Accepted values: Active, FailedToValidate, Processing, RequiresIndexDocuments"
 
 instance ToText OptionState where
     toText = \case
-        Active -> "active"
-        FailedToValidate -> "failedtovalidate"
-        Processing -> "processing"
-        RequiresIndexDocuments -> "requiresindexdocuments"
+        Active -> "Active"
+        FailedToValidate -> "FailedToValidate"
+        Processing -> "Processing"
+        RequiresIndexDocuments -> "RequiresIndexDocuments"
 
 instance Hashable     OptionState
 instance ToByteString OptionState

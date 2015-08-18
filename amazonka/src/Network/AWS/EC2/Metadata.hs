@@ -22,7 +22,7 @@
 -- and are using either the 'Network.AWS.AWS' or 'Control.Monad.Trans.AWS.AWST'
 -- monads, then prefer one of the 'Control.Monad.Trans.AWS.metadata' related
 -- functions available there, as the functions in this module do not use the
--- underlying 'FreeT' 'Network.AWS.Free.Command' DSL.
+-- underlying 'MonadFree' 'Network.AWS.Free.Command' DSL.
 module Network.AWS.EC2.Metadata
     (
     -- * EC2 Instance Check

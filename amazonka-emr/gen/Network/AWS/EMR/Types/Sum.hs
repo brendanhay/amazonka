@@ -33,14 +33,14 @@ instance FromText ActionOnFailure where
         "terminate_cluster" -> pure TerminateCluster
         "terminate_job_flow" -> pure TerminateJobFlow
         e -> fromTextError $ "Failure parsing ActionOnFailure from value: '" <> e
-           <> "'. Accepted values: cancel_and_wait, continue, terminate_cluster, terminate_job_flow"
+           <> "'. Accepted values: CANCEL_AND_WAIT, CONTINUE, TERMINATE_CLUSTER, TERMINATE_JOB_FLOW"
 
 instance ToText ActionOnFailure where
     toText = \case
-        CancelAndWait -> "cancel_and_wait"
-        Continue -> "continue"
-        TerminateCluster -> "terminate_cluster"
-        TerminateJobFlow -> "terminate_job_flow"
+        CancelAndWait -> "CANCEL_AND_WAIT"
+        Continue -> "CONTINUE"
+        TerminateCluster -> "TERMINATE_CLUSTER"
+        TerminateJobFlow -> "TERMINATE_JOB_FLOW"
 
 instance Hashable     ActionOnFailure
 instance ToByteString ActionOnFailure
@@ -73,17 +73,17 @@ instance FromText ClusterState where
         "terminating" -> pure Terminating
         "waiting" -> pure Waiting
         e -> fromTextError $ "Failure parsing ClusterState from value: '" <> e
-           <> "'. Accepted values: bootstrapping, running, starting, terminated, terminated_with_errors, terminating, waiting"
+           <> "'. Accepted values: BOOTSTRAPPING, RUNNING, STARTING, TERMINATED, TERMINATED_WITH_ERRORS, TERMINATING, WAITING"
 
 instance ToText ClusterState where
     toText = \case
-        Bootstrapping -> "bootstrapping"
-        Running -> "running"
-        Starting -> "starting"
-        Terminated -> "terminated"
-        TerminatedWithErrors -> "terminated_with_errors"
-        Terminating -> "terminating"
-        Waiting -> "waiting"
+        Bootstrapping -> "BOOTSTRAPPING"
+        Running -> "RUNNING"
+        Starting -> "STARTING"
+        Terminated -> "TERMINATED"
+        TerminatedWithErrors -> "TERMINATED_WITH_ERRORS"
+        Terminating -> "TERMINATING"
+        Waiting -> "WAITING"
 
 instance Hashable     ClusterState
 instance ToByteString ClusterState
@@ -116,17 +116,17 @@ instance FromText ClusterStateChangeReasonCode where
         "user_request" -> pure UserRequest
         "validation_error" -> pure ValidationError
         e -> fromTextError $ "Failure parsing ClusterStateChangeReasonCode from value: '" <> e
-           <> "'. Accepted values: all_steps_completed, bootstrap_failure, instance_failure, internal_error, step_failure, user_request, validation_error"
+           <> "'. Accepted values: ALL_STEPS_COMPLETED, BOOTSTRAP_FAILURE, INSTANCE_FAILURE, INTERNAL_ERROR, STEP_FAILURE, USER_REQUEST, VALIDATION_ERROR"
 
 instance ToText ClusterStateChangeReasonCode where
     toText = \case
-        AllStepsCompleted -> "all_steps_completed"
-        BootstrapFailure -> "bootstrap_failure"
-        InstanceFailure -> "instance_failure"
-        InternalError -> "internal_error"
-        StepFailure -> "step_failure"
-        UserRequest -> "user_request"
-        ValidationError -> "validation_error"
+        AllStepsCompleted -> "ALL_STEPS_COMPLETED"
+        BootstrapFailure -> "BOOTSTRAP_FAILURE"
+        InstanceFailure -> "INSTANCE_FAILURE"
+        InternalError -> "INTERNAL_ERROR"
+        StepFailure -> "STEP_FAILURE"
+        UserRequest -> "USER_REQUEST"
+        ValidationError -> "VALIDATION_ERROR"
 
 instance Hashable     ClusterStateChangeReasonCode
 instance ToByteString ClusterStateChangeReasonCode
@@ -162,20 +162,20 @@ instance FromText InstanceGroupState where
         "terminated" -> pure IGSTerminated
         "terminating" -> pure IGSTerminating
         e -> fromTextError $ "Failure parsing InstanceGroupState from value: '" <> e
-           <> "'. Accepted values: arrested, bootstrapping, ended, provisioning, resizing, running, shutting_down, suspended, terminated, terminating"
+           <> "'. Accepted values: ARRESTED, BOOTSTRAPPING, ENDED, PROVISIONING, RESIZING, RUNNING, SHUTTING_DOWN, SUSPENDED, TERMINATED, TERMINATING"
 
 instance ToText InstanceGroupState where
     toText = \case
-        IGSArrested -> "arrested"
-        IGSBootstrapping -> "bootstrapping"
-        IGSEnded -> "ended"
-        IGSProvisioning -> "provisioning"
-        IGSResizing -> "resizing"
-        IGSRunning -> "running"
-        IGSShuttingDown -> "shutting_down"
-        IGSSuspended -> "suspended"
-        IGSTerminated -> "terminated"
-        IGSTerminating -> "terminating"
+        IGSArrested -> "ARRESTED"
+        IGSBootstrapping -> "BOOTSTRAPPING"
+        IGSEnded -> "ENDED"
+        IGSProvisioning -> "PROVISIONING"
+        IGSResizing -> "RESIZING"
+        IGSRunning -> "RUNNING"
+        IGSShuttingDown -> "SHUTTING_DOWN"
+        IGSSuspended -> "SUSPENDED"
+        IGSTerminated -> "TERMINATED"
+        IGSTerminating -> "TERMINATING"
 
 instance Hashable     InstanceGroupState
 instance ToByteString InstanceGroupState
@@ -199,14 +199,14 @@ instance FromText InstanceGroupStateChangeReasonCode where
         "internal_error" -> pure IGSCRCInternalError
         "validation_error" -> pure IGSCRCValidationError
         e -> fromTextError $ "Failure parsing InstanceGroupStateChangeReasonCode from value: '" <> e
-           <> "'. Accepted values: cluster_terminated, instance_failure, internal_error, validation_error"
+           <> "'. Accepted values: CLUSTER_TERMINATED, INSTANCE_FAILURE, INTERNAL_ERROR, VALIDATION_ERROR"
 
 instance ToText InstanceGroupStateChangeReasonCode where
     toText = \case
-        IGSCRCClusterTerminated -> "cluster_terminated"
-        IGSCRCInstanceFailure -> "instance_failure"
-        IGSCRCInternalError -> "internal_error"
-        IGSCRCValidationError -> "validation_error"
+        IGSCRCClusterTerminated -> "CLUSTER_TERMINATED"
+        IGSCRCInstanceFailure -> "INSTANCE_FAILURE"
+        IGSCRCInternalError -> "INTERNAL_ERROR"
+        IGSCRCValidationError -> "VALIDATION_ERROR"
 
 instance Hashable     InstanceGroupStateChangeReasonCode
 instance ToByteString InstanceGroupStateChangeReasonCode
@@ -228,13 +228,13 @@ instance FromText InstanceGroupType where
         "master" -> pure IGTMaster
         "task" -> pure IGTTask
         e -> fromTextError $ "Failure parsing InstanceGroupType from value: '" <> e
-           <> "'. Accepted values: core, master, task"
+           <> "'. Accepted values: CORE, MASTER, TASK"
 
 instance ToText InstanceGroupType where
     toText = \case
-        IGTCore -> "core"
-        IGTMaster -> "master"
-        IGTTask -> "task"
+        IGTCore -> "CORE"
+        IGTMaster -> "MASTER"
+        IGTTask -> "TASK"
 
 instance Hashable     InstanceGroupType
 instance ToByteString InstanceGroupType
@@ -259,13 +259,13 @@ instance FromText InstanceRoleType where
         "master" -> pure Master
         "task" -> pure Task
         e -> fromTextError $ "Failure parsing InstanceRoleType from value: '" <> e
-           <> "'. Accepted values: core, master, task"
+           <> "'. Accepted values: CORE, MASTER, TASK"
 
 instance ToText InstanceRoleType where
     toText = \case
-        Core -> "core"
-        Master -> "master"
-        Task -> "task"
+        Core -> "CORE"
+        Master -> "MASTER"
+        Task -> "TASK"
 
 instance Hashable     InstanceRoleType
 instance ToByteString InstanceRoleType
@@ -291,15 +291,15 @@ instance FromText InstanceState where
         "running" -> pure ISRunning
         "terminated" -> pure ISTerminated
         e -> fromTextError $ "Failure parsing InstanceState from value: '" <> e
-           <> "'. Accepted values: awaiting_fulfillment, bootstrapping, provisioning, running, terminated"
+           <> "'. Accepted values: AWAITING_FULFILLMENT, BOOTSTRAPPING, PROVISIONING, RUNNING, TERMINATED"
 
 instance ToText InstanceState where
     toText = \case
-        ISAwaitingFulfillment -> "awaiting_fulfillment"
-        ISBootstrapping -> "bootstrapping"
-        ISProvisioning -> "provisioning"
-        ISRunning -> "running"
-        ISTerminated -> "terminated"
+        ISAwaitingFulfillment -> "AWAITING_FULFILLMENT"
+        ISBootstrapping -> "BOOTSTRAPPING"
+        ISProvisioning -> "PROVISIONING"
+        ISRunning -> "RUNNING"
+        ISTerminated -> "TERMINATED"
 
 instance Hashable     InstanceState
 instance ToByteString InstanceState
@@ -325,15 +325,15 @@ instance FromText InstanceStateChangeReasonCode where
         "internal_error" -> pure ISCRCInternalError
         "validation_error" -> pure ISCRCValidationError
         e -> fromTextError $ "Failure parsing InstanceStateChangeReasonCode from value: '" <> e
-           <> "'. Accepted values: bootstrap_failure, cluster_terminated, instance_failure, internal_error, validation_error"
+           <> "'. Accepted values: BOOTSTRAP_FAILURE, CLUSTER_TERMINATED, INSTANCE_FAILURE, INTERNAL_ERROR, VALIDATION_ERROR"
 
 instance ToText InstanceStateChangeReasonCode where
     toText = \case
-        ISCRCBootstrapFailure -> "bootstrap_failure"
-        ISCRCClusterTerminated -> "cluster_terminated"
-        ISCRCInstanceFailure -> "instance_failure"
-        ISCRCInternalError -> "internal_error"
-        ISCRCValidationError -> "validation_error"
+        ISCRCBootstrapFailure -> "BOOTSTRAP_FAILURE"
+        ISCRCClusterTerminated -> "CLUSTER_TERMINATED"
+        ISCRCInstanceFailure -> "INSTANCE_FAILURE"
+        ISCRCInternalError -> "INTERNAL_ERROR"
+        ISCRCValidationError -> "VALIDATION_ERROR"
 
 instance Hashable     InstanceStateChangeReasonCode
 instance ToByteString InstanceStateChangeReasonCode
@@ -353,12 +353,12 @@ instance FromText MarketType where
         "on_demand" -> pure OnDemand
         "spot" -> pure Spot
         e -> fromTextError $ "Failure parsing MarketType from value: '" <> e
-           <> "'. Accepted values: on_demand, spot"
+           <> "'. Accepted values: ON_DEMAND, SPOT"
 
 instance ToText MarketType where
     toText = \case
-        OnDemand -> "on_demand"
-        Spot -> "spot"
+        OnDemand -> "ON_DEMAND"
+        Spot -> "SPOT"
 
 instance Hashable     MarketType
 instance ToByteString MarketType
@@ -389,16 +389,16 @@ instance FromText StepState where
         "pending" -> pure SSPending
         "running" -> pure SSRunning
         e -> fromTextError $ "Failure parsing StepState from value: '" <> e
-           <> "'. Accepted values: cancelled, completed, failed, interrupted, pending, running"
+           <> "'. Accepted values: CANCELLED, COMPLETED, FAILED, INTERRUPTED, PENDING, RUNNING"
 
 instance ToText StepState where
     toText = \case
-        SSCancelled -> "cancelled"
-        SSCompleted -> "completed"
-        SSFailed -> "failed"
-        SSInterrupted -> "interrupted"
-        SSPending -> "pending"
-        SSRunning -> "running"
+        SSCancelled -> "CANCELLED"
+        SSCompleted -> "COMPLETED"
+        SSFailed -> "FAILED"
+        SSInterrupted -> "INTERRUPTED"
+        SSPending -> "PENDING"
+        SSRunning -> "RUNNING"
 
 instance Hashable     StepState
 instance ToByteString StepState
@@ -419,11 +419,11 @@ instance FromText StepStateChangeReasonCode where
     parser = takeLowerText >>= \case
         "none" -> pure None
         e -> fromTextError $ "Failure parsing StepStateChangeReasonCode from value: '" <> e
-           <> "'. Accepted values: none"
+           <> "'. Accepted values: NONE"
 
 instance ToText StepStateChangeReasonCode where
     toText = \case
-        None -> "none"
+        None -> "NONE"
 
 instance Hashable     StepStateChangeReasonCode
 instance ToByteString StepStateChangeReasonCode

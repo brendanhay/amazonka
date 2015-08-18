@@ -33,14 +33,14 @@ instance FromText AppAttributesKeys where
         "documentroot" -> pure DocumentRoot
         "railsenv" -> pure RailsEnv
         e -> fromTextError $ "Failure parsing AppAttributesKeys from value: '" <> e
-           <> "'. Accepted values: awsflowrubysettings, autobundleondeploy, documentroot, railsenv"
+           <> "'. Accepted values: AwsFlowRubySettings, AutoBundleOnDeploy, DocumentRoot, RailsEnv"
 
 instance ToText AppAttributesKeys where
     toText = \case
-        AWSFlowRubySettings -> "awsflowrubysettings"
-        AutoBundleOnDeploy -> "autobundleondeploy"
-        DocumentRoot -> "documentroot"
-        RailsEnv -> "railsenv"
+        AWSFlowRubySettings -> "AwsFlowRubySettings"
+        AutoBundleOnDeploy -> "AutoBundleOnDeploy"
+        DocumentRoot -> "DocumentRoot"
+        RailsEnv -> "RailsEnv"
 
 instance Hashable     AppAttributesKeys
 instance ToByteString AppAttributesKeys
@@ -266,35 +266,35 @@ instance FromText LayerAttributesKeys where
         "rubyversion" -> pure RubyVersion
         "rubygemsversion" -> pure RubygemsVersion
         e -> fromTextError $ "Failure parsing LayerAttributesKeys from value: '" <> e
-           <> "'. Accepted values: bundlerversion, ecsclusterarn, enablehaproxystats, gangliapassword, gangliaurl, gangliauser, haproxyhealthcheckmethod, haproxyhealthcheckurl, haproxystatspassword, haproxystatsurl, haproxystatsuser, jvm, jvmoptions, jvmversion, javaappserver, javaappserverversion, managebundler, memcachedmemory, mysqlrootpassword, mysqlrootpasswordubiquitous, nodejsversion, passengerversion, railsstack, rubyversion, rubygemsversion"
+           <> "'. Accepted values: BundlerVersion, EcsClusterArn, EnableHaproxyStats, GangliaPassword, GangliaUrl, GangliaUser, HaproxyHealthCheckMethod, HaproxyHealthCheckUrl, HaproxyStatsPassword, HaproxyStatsUrl, HaproxyStatsUser, Jvm, JvmOptions, JvmVersion, JavaAppServer, JavaAppServerVersion, ManageBundler, MemcachedMemory, MysqlRootPassword, MysqlRootPasswordUbiquitous, NodejsVersion, PassengerVersion, RailsStack, RubyVersion, RubygemsVersion"
 
 instance ToText LayerAttributesKeys where
     toText = \case
-        BundlerVersion -> "bundlerversion"
-        EcsClusterARN -> "ecsclusterarn"
-        EnableHaproxyStats -> "enablehaproxystats"
-        GangliaPassword -> "gangliapassword"
-        GangliaURL -> "gangliaurl"
-        GangliaUser -> "gangliauser"
-        HaproxyHealthCheckMethod -> "haproxyhealthcheckmethod"
-        HaproxyHealthCheckURL -> "haproxyhealthcheckurl"
-        HaproxyStatsPassword -> "haproxystatspassword"
-        HaproxyStatsURL -> "haproxystatsurl"
-        HaproxyStatsUser -> "haproxystatsuser"
-        JVM -> "jvm"
-        JVMOptions -> "jvmoptions"
-        JVMVersion -> "jvmversion"
-        JavaAppServer -> "javaappserver"
-        JavaAppServerVersion -> "javaappserverversion"
-        ManageBundler -> "managebundler"
-        MemcachedMemory -> "memcachedmemory"
-        MysqlRootPassword -> "mysqlrootpassword"
-        MysqlRootPasswordUbiquitous -> "mysqlrootpasswordubiquitous"
-        NodejsVersion -> "nodejsversion"
-        PassengerVersion -> "passengerversion"
-        RailsStack -> "railsstack"
-        RubyVersion -> "rubyversion"
-        RubygemsVersion -> "rubygemsversion"
+        BundlerVersion -> "BundlerVersion"
+        EcsClusterARN -> "EcsClusterArn"
+        EnableHaproxyStats -> "EnableHaproxyStats"
+        GangliaPassword -> "GangliaPassword"
+        GangliaURL -> "GangliaUrl"
+        GangliaUser -> "GangliaUser"
+        HaproxyHealthCheckMethod -> "HaproxyHealthCheckMethod"
+        HaproxyHealthCheckURL -> "HaproxyHealthCheckUrl"
+        HaproxyStatsPassword -> "HaproxyStatsPassword"
+        HaproxyStatsURL -> "HaproxyStatsUrl"
+        HaproxyStatsUser -> "HaproxyStatsUser"
+        JVM -> "Jvm"
+        JVMOptions -> "JvmOptions"
+        JVMVersion -> "JvmVersion"
+        JavaAppServer -> "JavaAppServer"
+        JavaAppServerVersion -> "JavaAppServerVersion"
+        ManageBundler -> "ManageBundler"
+        MemcachedMemory -> "MemcachedMemory"
+        MysqlRootPassword -> "MysqlRootPassword"
+        MysqlRootPasswordUbiquitous -> "MysqlRootPasswordUbiquitous"
+        NodejsVersion -> "NodejsVersion"
+        PassengerVersion -> "PassengerVersion"
+        RailsStack -> "RailsStack"
+        RubyVersion -> "RubyVersion"
+        RubygemsVersion -> "RubygemsVersion"
 
 instance Hashable     LayerAttributesKeys
 instance ToByteString LayerAttributesKeys
@@ -435,11 +435,11 @@ instance FromText StackAttributesKeys where
     parser = takeLowerText >>= \case
         "color" -> pure Color
         e -> fromTextError $ "Failure parsing StackAttributesKeys from value: '" <> e
-           <> "'. Accepted values: color"
+           <> "'. Accepted values: Color"
 
 instance ToText StackAttributesKeys where
     toText = \case
-        Color -> "color"
+        Color -> "Color"
 
 instance Hashable     StackAttributesKeys
 instance ToByteString StackAttributesKeys

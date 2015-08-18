@@ -29,12 +29,12 @@ instance FromText KeyType where
         "hash" -> pure Hash
         "range" -> pure Range
         e -> fromTextError $ "Failure parsing KeyType from value: '" <> e
-           <> "'. Accepted values: hash, range"
+           <> "'. Accepted values: HASH, RANGE"
 
 instance ToText KeyType where
     toText = \case
-        Hash -> "hash"
-        Range -> "range"
+        Hash -> "HASH"
+        Range -> "RANGE"
 
 instance Hashable     KeyType
 instance ToByteString KeyType
@@ -56,13 +56,13 @@ instance FromText OperationType where
         "modify" -> pure Modify
         "remove" -> pure Remove
         e -> fromTextError $ "Failure parsing OperationType from value: '" <> e
-           <> "'. Accepted values: insert, modify, remove"
+           <> "'. Accepted values: INSERT, MODIFY, REMOVE"
 
 instance ToText OperationType where
     toText = \case
-        Insert -> "insert"
-        Modify -> "modify"
-        Remove -> "remove"
+        Insert -> "INSERT"
+        Modify -> "MODIFY"
+        Remove -> "REMOVE"
 
 instance Hashable     OperationType
 instance ToByteString OperationType
@@ -86,14 +86,14 @@ instance FromText ShardIteratorType where
         "latest" -> pure Latest
         "trim_horizon" -> pure TrimHorizon
         e -> fromTextError $ "Failure parsing ShardIteratorType from value: '" <> e
-           <> "'. Accepted values: after_sequence_number, at_sequence_number, latest, trim_horizon"
+           <> "'. Accepted values: AFTER_SEQUENCE_NUMBER, AT_SEQUENCE_NUMBER, LATEST, TRIM_HORIZON"
 
 instance ToText ShardIteratorType where
     toText = \case
-        AfterSequenceNumber -> "after_sequence_number"
-        AtSequenceNumber -> "at_sequence_number"
-        Latest -> "latest"
-        TrimHorizon -> "trim_horizon"
+        AfterSequenceNumber -> "AFTER_SEQUENCE_NUMBER"
+        AtSequenceNumber -> "AT_SEQUENCE_NUMBER"
+        Latest -> "LATEST"
+        TrimHorizon -> "TRIM_HORIZON"
 
 instance Hashable     ShardIteratorType
 instance ToByteString ShardIteratorType
@@ -117,14 +117,14 @@ instance FromText StreamStatus where
         "enabled" -> pure Enabled
         "enabling" -> pure Enabling
         e -> fromTextError $ "Failure parsing StreamStatus from value: '" <> e
-           <> "'. Accepted values: disabled, disabling, enabled, enabling"
+           <> "'. Accepted values: DISABLED, DISABLING, ENABLED, ENABLING"
 
 instance ToText StreamStatus where
     toText = \case
-        Disabled -> "disabled"
-        Disabling -> "disabling"
-        Enabled -> "enabled"
-        Enabling -> "enabling"
+        Disabled -> "DISABLED"
+        Disabling -> "DISABLING"
+        Enabled -> "ENABLED"
+        Enabling -> "ENABLING"
 
 instance Hashable     StreamStatus
 instance ToByteString StreamStatus
@@ -148,14 +148,14 @@ instance FromText StreamViewType where
         "new_image" -> pure NewImage
         "old_image" -> pure OldImage
         e -> fromTextError $ "Failure parsing StreamViewType from value: '" <> e
-           <> "'. Accepted values: keys_only, new_and_old_images, new_image, old_image"
+           <> "'. Accepted values: KEYS_ONLY, NEW_AND_OLD_IMAGES, NEW_IMAGE, OLD_IMAGE"
 
 instance ToText StreamViewType where
     toText = \case
-        KeysOnly -> "keys_only"
-        NewAndOldImages -> "new_and_old_images"
-        NewImage -> "new_image"
-        OldImage -> "old_image"
+        KeysOnly -> "KEYS_ONLY"
+        NewAndOldImages -> "NEW_AND_OLD_IMAGES"
+        NewImage -> "NEW_IMAGE"
+        OldImage -> "OLD_IMAGE"
 
 instance Hashable     StreamViewType
 instance ToByteString StreamViewType

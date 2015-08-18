@@ -27,7 +27,6 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request             (requestURL)
 import           Network.AWS.Types
 import           Network.AWS.Waiter
-
 #if MIN_VERSION_free(4,12,0)
 #else
 import           Control.Monad.Catch
@@ -81,6 +80,12 @@ instance MonadThrow m => MonadThrow (FreeT Command m) where
 instance MonadCatch m => MonadCatch (FreeT Command m) where
     catch (FreeT m) f = FreeT $
         liftM (fmap (`catch` f)) m `catch` (runFreeT . f)
+
+instance MonadThrow m => MonadThrow (FT Command m) where
+    throwM = lift . throwM
+
+instance MonadCatch m => MonadCatch (FT Command m) where
+    catch m f = toFT $ fromFT m `catch` (fromFT . f)
 #endif
 
 -- | Send a request, returning the associated response if successful.
@@ -177,7 +182,7 @@ presignWith :: (MonadFree Command m, AWSPresigner (Sg s), AWSRequest a)
 presignWith f ts ex x = liftF (SignF (f (serviceOf x)) ts ex x id)
 
 -- | Test whether the underlying host is running on EC2.
--- For 'IO' based interpretations of 'FreeT' 'Command', this is memoised and
+-- For 'IO' based interpretations of 'MonadFree' 'Command', this is memoised and
 -- any external check occurs for the first call only.
 isEC2 :: MonadFree Command m => m Bool
 isEC2 = liftF (CheckF id)

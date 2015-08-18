@@ -29,12 +29,12 @@ instance FromText EventSourcePosition where
         "latest" -> pure Latest
         "trim_horizon" -> pure TrimHorizon
         e -> fromTextError $ "Failure parsing EventSourcePosition from value: '" <> e
-           <> "'. Accepted values: latest, trim_horizon"
+           <> "'. Accepted values: LATEST, TRIM_HORIZON"
 
 instance ToText EventSourcePosition where
     toText = \case
-        Latest -> "latest"
-        TrimHorizon -> "trim_horizon"
+        Latest -> "LATEST"
+        TrimHorizon -> "TRIM_HORIZON"
 
 instance Hashable     EventSourcePosition
 instance ToByteString EventSourcePosition
@@ -56,13 +56,13 @@ instance FromText InvocationType where
         "event" -> pure Event
         "requestresponse" -> pure RequestResponse
         e -> fromTextError $ "Failure parsing InvocationType from value: '" <> e
-           <> "'. Accepted values: dryrun, event, requestresponse"
+           <> "'. Accepted values: DryRun, Event, RequestResponse"
 
 instance ToText InvocationType where
     toText = \case
-        DryRun -> "dryrun"
-        Event -> "event"
-        RequestResponse -> "requestresponse"
+        DryRun -> "DryRun"
+        Event -> "Event"
+        RequestResponse -> "RequestResponse"
 
 instance Hashable     InvocationType
 instance ToByteString InvocationType
@@ -82,12 +82,12 @@ instance FromText LogType where
         "none" -> pure None
         "tail" -> pure Tail
         e -> fromTextError $ "Failure parsing LogType from value: '" <> e
-           <> "'. Accepted values: none, tail"
+           <> "'. Accepted values: None, Tail"
 
 instance ToText LogType where
     toText = \case
-        None -> "none"
-        Tail -> "tail"
+        None -> "None"
+        Tail -> "Tail"
 
 instance Hashable     LogType
 instance ToByteString LogType

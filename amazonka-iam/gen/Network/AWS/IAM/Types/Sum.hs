@@ -31,13 +31,13 @@ instance FromText AssignmentStatusType where
         "assigned" -> pure Assigned
         "unassigned" -> pure Unassigned
         e -> fromTextError $ "Failure parsing AssignmentStatusType from value: '" <> e
-           <> "'. Accepted values: any, assigned, unassigned"
+           <> "'. Accepted values: Any, Assigned, Unassigned"
 
 instance ToText AssignmentStatusType where
     toText = \case
-        Any -> "any"
-        Assigned -> "assigned"
-        Unassigned -> "unassigned"
+        Any -> "Any"
+        Assigned -> "Assigned"
+        Unassigned -> "Unassigned"
 
 instance Hashable     AssignmentStatusType
 instance ToByteString AssignmentStatusType
@@ -54,12 +54,12 @@ instance FromText EncodingType where
         "pem" -> pure Pem
         "ssh" -> pure SSH
         e -> fromTextError $ "Failure parsing EncodingType from value: '" <> e
-           <> "'. Accepted values: pem, ssh"
+           <> "'. Accepted values: PEM, SSH"
 
 instance ToText EncodingType where
     toText = \case
-        Pem -> "pem"
-        SSH -> "ssh"
+        Pem -> "PEM"
+        SSH -> "SSH"
 
 instance Hashable     EncodingType
 instance ToByteString EncodingType
@@ -82,15 +82,15 @@ instance FromText EntityType where
         "role" -> pure Role
         "user" -> pure User
         e -> fromTextError $ "Failure parsing EntityType from value: '" <> e
-           <> "'. Accepted values: awsmanagedpolicy, group, localmanagedpolicy, role, user"
+           <> "'. Accepted values: AWSManagedPolicy, Group, LocalManagedPolicy, Role, User"
 
 instance ToText EntityType where
     toText = \case
-        AWSManagedPolicy -> "awsmanagedpolicy"
-        Group -> "group"
-        LocalManagedPolicy -> "localmanagedpolicy"
-        Role -> "role"
-        User -> "user"
+        AWSManagedPolicy -> "AWSManagedPolicy"
+        Group -> "Group"
+        LocalManagedPolicy -> "LocalManagedPolicy"
+        Role -> "Role"
+        User -> "User"
 
 instance Hashable     EntityType
 instance ToByteString EntityType
@@ -109,13 +109,13 @@ instance FromText PolicyScopeType where
         "all" -> pure All
         "local" -> pure Local
         e -> fromTextError $ "Failure parsing PolicyScopeType from value: '" <> e
-           <> "'. Accepted values: aws, all, local"
+           <> "'. Accepted values: AWS, All, Local"
 
 instance ToText PolicyScopeType where
     toText = \case
-        AWS -> "aws"
-        All -> "all"
-        Local -> "local"
+        AWS -> "AWS"
+        All -> "All"
+        Local -> "Local"
 
 instance Hashable     PolicyScopeType
 instance ToByteString PolicyScopeType
@@ -156,13 +156,13 @@ instance FromText ReportStateType where
         "inprogress" -> pure Inprogress
         "started" -> pure Started
         e -> fromTextError $ "Failure parsing ReportStateType from value: '" <> e
-           <> "'. Accepted values: complete, inprogress, started"
+           <> "'. Accepted values: COMPLETE, INPROGRESS, STARTED"
 
 instance ToText ReportStateType where
     toText = \case
-        Complete -> "complete"
-        Inprogress -> "inprogress"
-        Started -> "started"
+        Complete -> "COMPLETE"
+        Inprogress -> "INPROGRESS"
+        Started -> "STARTED"
 
 instance Hashable     ReportStateType
 instance ToByteString ReportStateType
@@ -182,12 +182,12 @@ instance FromText StatusType where
         "active" -> pure Active
         "inactive" -> pure Inactive
         e -> fromTextError $ "Failure parsing StatusType from value: '" <> e
-           <> "'. Accepted values: active, inactive"
+           <> "'. Accepted values: Active, Inactive"
 
 instance ToText StatusType where
     toText = \case
-        Active -> "active"
-        Inactive -> "inactive"
+        Active -> "Active"
+        Inactive -> "Inactive"
 
 instance Hashable     StatusType
 instance ToByteString StatusType
@@ -253,35 +253,35 @@ instance FromText SummaryKeyType where
         "usersquota" -> pure UsersQuota
         "versionsperpolicyquota" -> pure VersionsPerPolicyQuota
         e -> fromTextError $ "Failure parsing SummaryKeyType from value: '" <> e
-           <> "'. Accepted values: accesskeysperuserquota, accountaccesskeyspresent, accountmfaenabled, accountsigningcertificatespresent, attachedpoliciespergroupquota, attachedpoliciesperrolequota, attachedpoliciesperuserquota, grouppolicysizequota, groups, groupsperuserquota, groupsquota, mfadevices, mfadevicesinuse, policies, policiesquota, policysizequota, policyversionsinuse, policyversionsinusequota, servercertificates, servercertificatesquota, signingcertificatesperuserquota, userpolicysizequota, users, usersquota, versionsperpolicyquota"
+           <> "'. Accepted values: AccessKeysPerUserQuota, AccountAccessKeysPresent, AccountMFAEnabled, AccountSigningCertificatesPresent, AttachedPoliciesPerGroupQuota, AttachedPoliciesPerRoleQuota, AttachedPoliciesPerUserQuota, GroupPolicySizeQuota, Groups, GroupsPerUserQuota, GroupsQuota, MFADevices, MFADevicesInUse, Policies, PoliciesQuota, PolicySizeQuota, PolicyVersionsInUse, PolicyVersionsInUseQuota, ServerCertificates, ServerCertificatesQuota, SigningCertificatesPerUserQuota, UserPolicySizeQuota, Users, UsersQuota, VersionsPerPolicyQuota"
 
 instance ToText SummaryKeyType where
     toText = \case
-        AccessKeysPerUserQuota -> "accesskeysperuserquota"
-        AccountAccessKeysPresent -> "accountaccesskeyspresent"
-        AccountMFAEnabled -> "accountmfaenabled"
-        AccountSigningCertificatesPresent -> "accountsigningcertificatespresent"
-        AttachedPoliciesPerGroupQuota -> "attachedpoliciespergroupquota"
-        AttachedPoliciesPerRoleQuota -> "attachedpoliciesperrolequota"
-        AttachedPoliciesPerUserQuota -> "attachedpoliciesperuserquota"
-        GroupPolicySizeQuota -> "grouppolicysizequota"
-        Groups -> "groups"
-        GroupsPerUserQuota -> "groupsperuserquota"
-        GroupsQuota -> "groupsquota"
-        MFADevices -> "mfadevices"
-        MFADevicesInUse -> "mfadevicesinuse"
-        Policies -> "policies"
-        PoliciesQuota -> "policiesquota"
-        PolicySizeQuota -> "policysizequota"
-        PolicyVersionsInUse -> "policyversionsinuse"
-        PolicyVersionsInUseQuota -> "policyversionsinusequota"
-        ServerCertificates -> "servercertificates"
-        ServerCertificatesQuota -> "servercertificatesquota"
-        SigningCertificatesPerUserQuota -> "signingcertificatesperuserquota"
-        UserPolicySizeQuota -> "userpolicysizequota"
-        Users -> "users"
-        UsersQuota -> "usersquota"
-        VersionsPerPolicyQuota -> "versionsperpolicyquota"
+        AccessKeysPerUserQuota -> "AccessKeysPerUserQuota"
+        AccountAccessKeysPresent -> "AccountAccessKeysPresent"
+        AccountMFAEnabled -> "AccountMFAEnabled"
+        AccountSigningCertificatesPresent -> "AccountSigningCertificatesPresent"
+        AttachedPoliciesPerGroupQuota -> "AttachedPoliciesPerGroupQuota"
+        AttachedPoliciesPerRoleQuota -> "AttachedPoliciesPerRoleQuota"
+        AttachedPoliciesPerUserQuota -> "AttachedPoliciesPerUserQuota"
+        GroupPolicySizeQuota -> "GroupPolicySizeQuota"
+        Groups -> "Groups"
+        GroupsPerUserQuota -> "GroupsPerUserQuota"
+        GroupsQuota -> "GroupsQuota"
+        MFADevices -> "MFADevices"
+        MFADevicesInUse -> "MFADevicesInUse"
+        Policies -> "Policies"
+        PoliciesQuota -> "PoliciesQuota"
+        PolicySizeQuota -> "PolicySizeQuota"
+        PolicyVersionsInUse -> "PolicyVersionsInUse"
+        PolicyVersionsInUseQuota -> "PolicyVersionsInUseQuota"
+        ServerCertificates -> "ServerCertificates"
+        ServerCertificatesQuota -> "ServerCertificatesQuota"
+        SigningCertificatesPerUserQuota -> "SigningCertificatesPerUserQuota"
+        UserPolicySizeQuota -> "UserPolicySizeQuota"
+        Users -> "Users"
+        UsersQuota -> "UsersQuota"
+        VersionsPerPolicyQuota -> "VersionsPerPolicyQuota"
 
 instance Hashable     SummaryKeyType
 instance ToByteString SummaryKeyType

@@ -3,6 +3,16 @@
     "operationUrl": "http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_",
     "libraryName": "amazonka-autoscaling",
     "typeOverrides": {
+        "AutoScalingGroup": {
+            "optionalFields": [
+                "LaunchConfigurationName"
+            ]
+        },
+        "Instance": {
+            "optionalFields": [
+                "LaunchConfigurationName"
+            ]
+        },
         "Filter": {
             "requiredFields": [
                 "Name"

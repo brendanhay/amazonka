@@ -29,12 +29,12 @@ instance FromText CognitoErrorCode where
         "accessdenied" -> pure AccessDenied
         "internalservererror" -> pure InternalServerError
         e -> fromTextError $ "Failure parsing CognitoErrorCode from value: '" <> e
-           <> "'. Accepted values: accessdenied, internalservererror"
+           <> "'. Accepted values: AccessDenied, InternalServerError"
 
 instance ToText CognitoErrorCode where
     toText = \case
-        AccessDenied -> "accessdenied"
-        InternalServerError -> "internalservererror"
+        AccessDenied -> "AccessDenied"
+        InternalServerError -> "InternalServerError"
 
 instance Hashable     CognitoErrorCode
 instance ToByteString CognitoErrorCode

@@ -31,13 +31,13 @@ instance FromText AttributeAction where
         "delete" -> pure Delete
         "put" -> pure Put
         e -> fromTextError $ "Failure parsing AttributeAction from value: '" <> e
-           <> "'. Accepted values: add, delete, put"
+           <> "'. Accepted values: ADD, DELETE, PUT"
 
 instance ToText AttributeAction where
     toText = \case
-        Add -> "add"
-        Delete -> "delete"
-        Put -> "put"
+        Add -> "ADD"
+        Delete -> "DELETE"
+        Put -> "PUT"
 
 instance Hashable     AttributeAction
 instance ToByteString AttributeAction
@@ -79,23 +79,23 @@ instance FromText ComparisonOperator where
         "not_null" -> pure NotNull
         "null" -> pure Null
         e -> fromTextError $ "Failure parsing ComparisonOperator from value: '" <> e
-           <> "'. Accepted values: begins_with, between, contains, eq, ge, gt, in, le, lt, ne, not_contains, not_null, null"
+           <> "'. Accepted values: BEGINS_WITH, BETWEEN, CONTAINS, EQ, GE, GT, IN, LE, LT, NE, NOT_CONTAINS, NOT_NULL, NULL"
 
 instance ToText ComparisonOperator where
     toText = \case
-        BeginsWith -> "begins_with"
-        Between -> "between"
-        Contains -> "contains"
-        EQ' -> "eq"
-        GE -> "ge"
-        GT' -> "gt"
-        IN -> "in"
-        LE -> "le"
-        LT' -> "lt"
-        NE -> "ne"
-        NotContains -> "not_contains"
-        NotNull -> "not_null"
-        Null -> "null"
+        BeginsWith -> "BEGINS_WITH"
+        Between -> "BETWEEN"
+        Contains -> "CONTAINS"
+        EQ' -> "EQ"
+        GE -> "GE"
+        GT' -> "GT"
+        IN -> "IN"
+        LE -> "LE"
+        LT' -> "LT"
+        NE -> "NE"
+        NotContains -> "NOT_CONTAINS"
+        NotNull -> "NOT_NULL"
+        Null -> "NULL"
 
 instance Hashable     ComparisonOperator
 instance ToByteString ComparisonOperator
@@ -115,12 +115,12 @@ instance FromText ConditionalOperator where
         "and" -> pure And
         "or" -> pure OR
         e -> fromTextError $ "Failure parsing ConditionalOperator from value: '" <> e
-           <> "'. Accepted values: and, or"
+           <> "'. Accepted values: AND, OR"
 
 instance ToText ConditionalOperator where
     toText = \case
-        And -> "and"
-        OR -> "or"
+        And -> "AND"
+        OR -> "OR"
 
 instance Hashable     ConditionalOperator
 instance ToByteString ConditionalOperator
@@ -144,14 +144,14 @@ instance FromText IndexStatus where
         "deleting" -> pure ISDeleting
         "updating" -> pure ISUpdating
         e -> fromTextError $ "Failure parsing IndexStatus from value: '" <> e
-           <> "'. Accepted values: active, creating, deleting, updating"
+           <> "'. Accepted values: ACTIVE, CREATING, DELETING, UPDATING"
 
 instance ToText IndexStatus where
     toText = \case
-        ISActive -> "active"
-        ISCreating -> "creating"
-        ISDeleting -> "deleting"
-        ISUpdating -> "updating"
+        ISActive -> "ACTIVE"
+        ISCreating -> "CREATING"
+        ISDeleting -> "DELETING"
+        ISUpdating -> "UPDATING"
 
 instance Hashable     IndexStatus
 instance ToByteString IndexStatus
@@ -171,12 +171,12 @@ instance FromText KeyType where
         "hash" -> pure Hash
         "range" -> pure Range
         e -> fromTextError $ "Failure parsing KeyType from value: '" <> e
-           <> "'. Accepted values: hash, range"
+           <> "'. Accepted values: HASH, RANGE"
 
 instance ToText KeyType where
     toText = \case
-        Hash -> "hash"
-        Range -> "range"
+        Hash -> "HASH"
+        Range -> "RANGE"
 
 instance Hashable     KeyType
 instance ToByteString KeyType
@@ -201,13 +201,13 @@ instance FromText ProjectionType where
         "include" -> pure Include
         "keys_only" -> pure KeysOnly
         e -> fromTextError $ "Failure parsing ProjectionType from value: '" <> e
-           <> "'. Accepted values: all, include, keys_only"
+           <> "'. Accepted values: ALL, INCLUDE, KEYS_ONLY"
 
 instance ToText ProjectionType where
     toText = \case
-        All -> "all"
-        Include -> "include"
-        KeysOnly -> "keys_only"
+        All -> "ALL"
+        Include -> "INCLUDE"
+        KeysOnly -> "KEYS_ONLY"
 
 instance Hashable     ProjectionType
 instance ToByteString ProjectionType
@@ -248,13 +248,13 @@ instance FromText ReturnConsumedCapacity where
         "none" -> pure RCCNone
         "total" -> pure RCCTotal
         e -> fromTextError $ "Failure parsing ReturnConsumedCapacity from value: '" <> e
-           <> "'. Accepted values: indexes, none, total"
+           <> "'. Accepted values: INDEXES, NONE, TOTAL"
 
 instance ToText ReturnConsumedCapacity where
     toText = \case
-        RCCIndexes -> "indexes"
-        RCCNone -> "none"
-        RCCTotal -> "total"
+        RCCIndexes -> "INDEXES"
+        RCCNone -> "NONE"
+        RCCTotal -> "TOTAL"
 
 instance Hashable     ReturnConsumedCapacity
 instance ToByteString ReturnConsumedCapacity
@@ -274,12 +274,12 @@ instance FromText ReturnItemCollectionMetrics where
         "none" -> pure RICMNone
         "size" -> pure RICMSize
         e -> fromTextError $ "Failure parsing ReturnItemCollectionMetrics from value: '" <> e
-           <> "'. Accepted values: none, size"
+           <> "'. Accepted values: NONE, SIZE"
 
 instance ToText ReturnItemCollectionMetrics where
     toText = \case
-        RICMNone -> "none"
-        RICMSize -> "size"
+        RICMNone -> "NONE"
+        RICMSize -> "SIZE"
 
 instance Hashable     ReturnItemCollectionMetrics
 instance ToByteString ReturnItemCollectionMetrics
@@ -305,15 +305,15 @@ instance FromText ReturnValue where
         "updated_new" -> pure UpdatedNew
         "updated_old" -> pure UpdatedOld
         e -> fromTextError $ "Failure parsing ReturnValue from value: '" <> e
-           <> "'. Accepted values: all_new, all_old, none, updated_new, updated_old"
+           <> "'. Accepted values: ALL_NEW, ALL_OLD, NONE, UPDATED_NEW, UPDATED_OLD"
 
 instance ToText ReturnValue where
     toText = \case
-        AllNew -> "all_new"
-        AllOld -> "all_old"
-        None -> "none"
-        UpdatedNew -> "updated_new"
-        UpdatedOld -> "updated_old"
+        AllNew -> "ALL_NEW"
+        AllOld -> "ALL_OLD"
+        None -> "NONE"
+        UpdatedNew -> "UPDATED_NEW"
+        UpdatedOld -> "UPDATED_OLD"
 
 instance Hashable     ReturnValue
 instance ToByteString ReturnValue
@@ -335,13 +335,13 @@ instance FromText ScalarAttributeType where
         "n" -> pure N
         "s" -> pure S
         e -> fromTextError $ "Failure parsing ScalarAttributeType from value: '" <> e
-           <> "'. Accepted values: b, n, s"
+           <> "'. Accepted values: B, N, S"
 
 instance ToText ScalarAttributeType where
     toText = \case
-        B -> "b"
-        N -> "n"
-        S -> "s"
+        B -> "B"
+        N -> "N"
+        S -> "S"
 
 instance Hashable     ScalarAttributeType
 instance ToByteString ScalarAttributeType
@@ -368,14 +368,14 @@ instance FromText Select where
         "count" -> pure Count
         "specific_attributes" -> pure SpecificAttributes
         e -> fromTextError $ "Failure parsing Select from value: '" <> e
-           <> "'. Accepted values: all_attributes, all_projected_attributes, count, specific_attributes"
+           <> "'. Accepted values: ALL_ATTRIBUTES, ALL_PROJECTED_ATTRIBUTES, COUNT, SPECIFIC_ATTRIBUTES"
 
 instance ToText Select where
     toText = \case
-        AllAttributes -> "all_attributes"
-        AllProjectedAttributes -> "all_projected_attributes"
-        Count -> "count"
-        SpecificAttributes -> "specific_attributes"
+        AllAttributes -> "ALL_ATTRIBUTES"
+        AllProjectedAttributes -> "ALL_PROJECTED_ATTRIBUTES"
+        Count -> "COUNT"
+        SpecificAttributes -> "SPECIFIC_ATTRIBUTES"
 
 instance Hashable     Select
 instance ToByteString Select
@@ -399,14 +399,14 @@ instance FromText StreamViewType where
         "new_image" -> pure SVTNewImage
         "old_image" -> pure SVTOldImage
         e -> fromTextError $ "Failure parsing StreamViewType from value: '" <> e
-           <> "'. Accepted values: keys_only, new_and_old_images, new_image, old_image"
+           <> "'. Accepted values: KEYS_ONLY, NEW_AND_OLD_IMAGES, NEW_IMAGE, OLD_IMAGE"
 
 instance ToText StreamViewType where
     toText = \case
-        SVTKeysOnly -> "keys_only"
-        SVTNewAndOldImages -> "new_and_old_images"
-        SVTNewImage -> "new_image"
-        SVTOldImage -> "old_image"
+        SVTKeysOnly -> "KEYS_ONLY"
+        SVTNewAndOldImages -> "NEW_AND_OLD_IMAGES"
+        SVTNewImage -> "NEW_IMAGE"
+        SVTOldImage -> "OLD_IMAGE"
 
 instance Hashable     StreamViewType
 instance ToByteString StreamViewType
@@ -433,14 +433,14 @@ instance FromText TableStatus where
         "deleting" -> pure Deleting
         "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing TableStatus from value: '" <> e
-           <> "'. Accepted values: active, creating, deleting, updating"
+           <> "'. Accepted values: ACTIVE, CREATING, DELETING, UPDATING"
 
 instance ToText TableStatus where
     toText = \case
-        Active -> "active"
-        Creating -> "creating"
-        Deleting -> "deleting"
-        Updating -> "updating"
+        Active -> "ACTIVE"
+        Creating -> "CREATING"
+        Deleting -> "DELETING"
+        Updating -> "UPDATING"
 
 instance Hashable     TableStatus
 instance ToByteString TableStatus

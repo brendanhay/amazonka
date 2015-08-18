@@ -29,12 +29,12 @@ instance FromText AssociationFilterKey where
         "instanceid" -> pure AFKInstanceId
         "name" -> pure AFKName
         e -> fromTextError $ "Failure parsing AssociationFilterKey from value: '" <> e
-           <> "'. Accepted values: instanceid, name"
+           <> "'. Accepted values: InstanceId, Name"
 
 instance ToText AssociationFilterKey where
     toText = \case
-        AFKInstanceId -> "instanceid"
-        AFKName -> "name"
+        AFKInstanceId -> "InstanceId"
+        AFKName -> "Name"
 
 instance Hashable     AssociationFilterKey
 instance ToByteString AssociationFilterKey
@@ -56,13 +56,13 @@ instance FromText AssociationStatusName where
         "pending" -> pure Pending
         "success" -> pure Success
         e -> fromTextError $ "Failure parsing AssociationStatusName from value: '" <> e
-           <> "'. Accepted values: failed, pending, success"
+           <> "'. Accepted values: Failed, Pending, Success"
 
 instance ToText AssociationStatusName where
     toText = \case
-        Failed -> "failed"
-        Pending -> "pending"
-        Success -> "success"
+        Failed -> "Failed"
+        Pending -> "Pending"
+        Success -> "Success"
 
 instance Hashable     AssociationStatusName
 instance ToByteString AssociationStatusName
@@ -83,11 +83,11 @@ instance FromText DocumentFilterKey where
     parser = takeLowerText >>= \case
         "name" -> pure Name
         e -> fromTextError $ "Failure parsing DocumentFilterKey from value: '" <> e
-           <> "'. Accepted values: name"
+           <> "'. Accepted values: Name"
 
 instance ToText DocumentFilterKey where
     toText = \case
-        Name -> "name"
+        Name -> "Name"
 
 instance Hashable     DocumentFilterKey
 instance ToByteString DocumentFilterKey
@@ -109,13 +109,13 @@ instance FromText DocumentStatus where
         "creating" -> pure Creating
         "deleting" -> pure Deleting
         e -> fromTextError $ "Failure parsing DocumentStatus from value: '" <> e
-           <> "'. Accepted values: active, creating, deleting"
+           <> "'. Accepted values: Active, Creating, Deleting"
 
 instance ToText DocumentStatus where
     toText = \case
-        Active -> "active"
-        Creating -> "creating"
-        Deleting -> "deleting"
+        Active -> "Active"
+        Creating -> "Creating"
+        Deleting -> "Deleting"
 
 instance Hashable     DocumentStatus
 instance ToByteString DocumentStatus
@@ -137,13 +137,13 @@ instance FromText Fault where
         "server" -> pure Server
         "unknown" -> pure Unknown
         e -> fromTextError $ "Failure parsing Fault from value: '" <> e
-           <> "'. Accepted values: client, server, unknown"
+           <> "'. Accepted values: Client, Server, Unknown"
 
 instance ToText Fault where
     toText = \case
-        Client -> "client"
-        Server -> "server"
-        Unknown -> "unknown"
+        Client -> "Client"
+        Server -> "Server"
+        Unknown -> "Unknown"
 
 instance Hashable     Fault
 instance ToByteString Fault

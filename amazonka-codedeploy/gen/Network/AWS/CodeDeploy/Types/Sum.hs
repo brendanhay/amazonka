@@ -31,13 +31,13 @@ instance FromText ApplicationRevisionSortBy where
         "lastusedtime" -> pure LastUsedTime
         "registertime" -> pure RegisterTime
         e -> fromTextError $ "Failure parsing ApplicationRevisionSortBy from value: '" <> e
-           <> "'. Accepted values: firstusedtime, lastusedtime, registertime"
+           <> "'. Accepted values: firstUsedTime, lastUsedTime, registerTime"
 
 instance ToText ApplicationRevisionSortBy where
     toText = \case
-        FirstUsedTime -> "firstusedtime"
-        LastUsedTime -> "lastusedtime"
-        RegisterTime -> "registertime"
+        FirstUsedTime -> "firstUsedTime"
+        LastUsedTime -> "lastUsedTime"
+        RegisterTime -> "registerTime"
 
 instance Hashable     ApplicationRevisionSortBy
 instance ToByteString ApplicationRevisionSortBy
@@ -110,23 +110,23 @@ instance FromText DeployErrorCode where
         "throttled" -> pure Throttled
         "timeout" -> pure Timeout
         e -> fromTextError $ "Failure parsing DeployErrorCode from value: '" <> e
-           <> "'. Accepted values: application_missing, deployment_group_missing, health_constraints, health_constraints_invalid, iam_role_missing, iam_role_permissions, internal_error, no_ec2_subscription, no_instances, over_max_instances, revision_missing, throttled, timeout"
+           <> "'. Accepted values: APPLICATION_MISSING, DEPLOYMENT_GROUP_MISSING, HEALTH_CONSTRAINTS, HEALTH_CONSTRAINTS_INVALID, IAM_ROLE_MISSING, IAM_ROLE_PERMISSIONS, INTERNAL_ERROR, NO_EC2_SUBSCRIPTION, NO_INSTANCES, OVER_MAX_INSTANCES, REVISION_MISSING, THROTTLED, TIMEOUT"
 
 instance ToText DeployErrorCode where
     toText = \case
-        ApplicationMissing -> "application_missing"
-        DeploymentGroupMissing -> "deployment_group_missing"
-        HealthConstraints -> "health_constraints"
-        HealthConstraintsInvalid -> "health_constraints_invalid"
-        IAMRoleMissing -> "iam_role_missing"
-        IAMRolePermissions -> "iam_role_permissions"
-        InternalError -> "internal_error"
-        NoEC2Subscription -> "no_ec2_subscription"
-        NoInstances -> "no_instances"
-        OverMaxInstances -> "over_max_instances"
-        RevisionMissing -> "revision_missing"
-        Throttled -> "throttled"
-        Timeout -> "timeout"
+        ApplicationMissing -> "APPLICATION_MISSING"
+        DeploymentGroupMissing -> "DEPLOYMENT_GROUP_MISSING"
+        HealthConstraints -> "HEALTH_CONSTRAINTS"
+        HealthConstraintsInvalid -> "HEALTH_CONSTRAINTS_INVALID"
+        IAMRoleMissing -> "IAM_ROLE_MISSING"
+        IAMRolePermissions -> "IAM_ROLE_PERMISSIONS"
+        InternalError -> "INTERNAL_ERROR"
+        NoEC2Subscription -> "NO_EC2_SUBSCRIPTION"
+        NoInstances -> "NO_INSTANCES"
+        OverMaxInstances -> "OVER_MAX_INSTANCES"
+        RevisionMissing -> "REVISION_MISSING"
+        Throttled -> "THROTTLED"
+        Timeout -> "TIMEOUT"
 
 instance Hashable     DeployErrorCode
 instance ToByteString DeployErrorCode
@@ -179,16 +179,16 @@ instance FromText DeploymentStatus where
         "stopped" -> pure Stopped
         "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing DeploymentStatus from value: '" <> e
-           <> "'. Accepted values: created, failed, inprogress, queued, stopped, succeeded"
+           <> "'. Accepted values: Created, Failed, InProgress, Queued, Stopped, Succeeded"
 
 instance ToText DeploymentStatus where
     toText = \case
-        Created -> "created"
-        Failed -> "failed"
-        InProgress -> "inprogress"
-        Queued -> "queued"
-        Stopped -> "stopped"
-        Succeeded -> "succeeded"
+        Created -> "Created"
+        Failed -> "Failed"
+        InProgress -> "InProgress"
+        Queued -> "Queued"
+        Stopped -> "Stopped"
+        Succeeded -> "Succeeded"
 
 instance Hashable     DeploymentStatus
 instance ToByteString DeploymentStatus
@@ -213,13 +213,13 @@ instance FromText EC2TagFilterType where
         "key_only" -> pure KeyOnly
         "value_only" -> pure ValueOnly
         e -> fromTextError $ "Failure parsing EC2TagFilterType from value: '" <> e
-           <> "'. Accepted values: key_and_value, key_only, value_only"
+           <> "'. Accepted values: KEY_AND_VALUE, KEY_ONLY, VALUE_ONLY"
 
 instance ToText EC2TagFilterType where
     toText = \case
-        KeyAndValue -> "key_and_value"
-        KeyOnly -> "key_only"
-        ValueOnly -> "value_only"
+        KeyAndValue -> "KEY_AND_VALUE"
+        KeyOnly -> "KEY_ONLY"
+        ValueOnly -> "VALUE_ONLY"
 
 instance Hashable     EC2TagFilterType
 instance ToByteString EC2TagFilterType
@@ -250,16 +250,16 @@ instance FromText InstanceStatus where
         "succeeded" -> pure ISSucceeded
         "unknown" -> pure ISUnknown
         e -> fromTextError $ "Failure parsing InstanceStatus from value: '" <> e
-           <> "'. Accepted values: failed, inprogress, pending, skipped, succeeded, unknown"
+           <> "'. Accepted values: Failed, InProgress, Pending, Skipped, Succeeded, Unknown"
 
 instance ToText InstanceStatus where
     toText = \case
-        ISFailed -> "failed"
-        ISInProgress -> "inprogress"
-        ISPending -> "pending"
-        ISSkipped -> "skipped"
-        ISSucceeded -> "succeeded"
-        ISUnknown -> "unknown"
+        ISFailed -> "Failed"
+        ISInProgress -> "InProgress"
+        ISPending -> "Pending"
+        ISSkipped -> "Skipped"
+        ISSucceeded -> "Succeeded"
+        ISUnknown -> "Unknown"
 
 instance Hashable     InstanceStatus
 instance ToByteString InstanceStatus
@@ -290,16 +290,16 @@ instance FromText LifecycleErrorCode where
         "success" -> pure Success
         "unknownerror" -> pure UnknownError
         e -> fromTextError $ "Failure parsing LifecycleErrorCode from value: '" <> e
-           <> "'. Accepted values: scriptfailed, scriptmissing, scriptnotexecutable, scripttimedout, success, unknownerror"
+           <> "'. Accepted values: ScriptFailed, ScriptMissing, ScriptNotExecutable, ScriptTimedOut, Success, UnknownError"
 
 instance ToText LifecycleErrorCode where
     toText = \case
-        ScriptFailed -> "scriptfailed"
-        ScriptMissing -> "scriptmissing"
-        ScriptNotExecutable -> "scriptnotexecutable"
-        ScriptTimedOut -> "scripttimedout"
-        Success -> "success"
-        UnknownError -> "unknownerror"
+        ScriptFailed -> "ScriptFailed"
+        ScriptMissing -> "ScriptMissing"
+        ScriptNotExecutable -> "ScriptNotExecutable"
+        ScriptTimedOut -> "ScriptTimedOut"
+        Success -> "Success"
+        UnknownError -> "UnknownError"
 
 instance Hashable     LifecycleErrorCode
 instance ToByteString LifecycleErrorCode
@@ -327,16 +327,16 @@ instance FromText LifecycleEventStatus where
         "succeeded" -> pure LESSucceeded
         "unknown" -> pure LESUnknown
         e -> fromTextError $ "Failure parsing LifecycleEventStatus from value: '" <> e
-           <> "'. Accepted values: failed, inprogress, pending, skipped, succeeded, unknown"
+           <> "'. Accepted values: Failed, InProgress, Pending, Skipped, Succeeded, Unknown"
 
 instance ToText LifecycleEventStatus where
     toText = \case
-        LESFailed -> "failed"
-        LESInProgress -> "inprogress"
-        LESPending -> "pending"
-        LESSkipped -> "skipped"
-        LESSucceeded -> "succeeded"
-        LESUnknown -> "unknown"
+        LESFailed -> "Failed"
+        LESInProgress -> "InProgress"
+        LESPending -> "Pending"
+        LESSkipped -> "Skipped"
+        LESSucceeded -> "Succeeded"
+        LESUnknown -> "Unknown"
 
 instance Hashable     LifecycleEventStatus
 instance ToByteString LifecycleEventStatus
@@ -384,12 +384,12 @@ instance FromText MinimumHealthyHostsType where
         "fleet_percent" -> pure FleetPercent
         "host_count" -> pure HostCount
         e -> fromTextError $ "Failure parsing MinimumHealthyHostsType from value: '" <> e
-           <> "'. Accepted values: fleet_percent, host_count"
+           <> "'. Accepted values: FLEET_PERCENT, HOST_COUNT"
 
 instance ToText MinimumHealthyHostsType where
     toText = \case
-        FleetPercent -> "fleet_percent"
-        HostCount -> "host_count"
+        FleetPercent -> "FLEET_PERCENT"
+        HostCount -> "HOST_COUNT"
 
 instance Hashable     MinimumHealthyHostsType
 instance ToByteString MinimumHealthyHostsType
@@ -412,12 +412,12 @@ instance FromText RegistrationStatus where
         "deregistered" -> pure Deregistered
         "registered" -> pure Registered
         e -> fromTextError $ "Failure parsing RegistrationStatus from value: '" <> e
-           <> "'. Accepted values: deregistered, registered"
+           <> "'. Accepted values: Deregistered, Registered"
 
 instance ToText RegistrationStatus where
     toText = \case
-        Deregistered -> "deregistered"
-        Registered -> "registered"
+        Deregistered -> "Deregistered"
+        Registered -> "Registered"
 
 instance Hashable     RegistrationStatus
 instance ToByteString RegistrationStatus
@@ -437,12 +437,12 @@ instance FromText RevisionLocationType where
         "github" -> pure GitHub
         "s3" -> pure S3
         e -> fromTextError $ "Failure parsing RevisionLocationType from value: '" <> e
-           <> "'. Accepted values: github, s3"
+           <> "'. Accepted values: GitHub, S3"
 
 instance ToText RevisionLocationType where
     toText = \case
-        GitHub -> "github"
-        S3 -> "s3"
+        GitHub -> "GitHub"
+        S3 -> "S3"
 
 instance Hashable     RevisionLocationType
 instance ToByteString RevisionLocationType
@@ -490,12 +490,12 @@ instance FromText StopStatus where
         "pending" -> pure SSPending
         "succeeded" -> pure SSSucceeded
         e -> fromTextError $ "Failure parsing StopStatus from value: '" <> e
-           <> "'. Accepted values: pending, succeeded"
+           <> "'. Accepted values: Pending, Succeeded"
 
 instance ToText StopStatus where
     toText = \case
-        SSPending -> "pending"
-        SSSucceeded -> "succeeded"
+        SSPending -> "Pending"
+        SSSucceeded -> "Succeeded"
 
 instance Hashable     StopStatus
 instance ToByteString StopStatus
@@ -517,13 +517,13 @@ instance FromText TagFilterType where
         "key_only" -> pure TFTKeyOnly
         "value_only" -> pure TFTValueOnly
         e -> fromTextError $ "Failure parsing TagFilterType from value: '" <> e
-           <> "'. Accepted values: key_and_value, key_only, value_only"
+           <> "'. Accepted values: KEY_AND_VALUE, KEY_ONLY, VALUE_ONLY"
 
 instance ToText TagFilterType where
     toText = \case
-        TFTKeyAndValue -> "key_and_value"
-        TFTKeyOnly -> "key_only"
-        TFTValueOnly -> "value_only"
+        TFTKeyAndValue -> "KEY_AND_VALUE"
+        TFTKeyOnly -> "KEY_ONLY"
+        TFTValueOnly -> "VALUE_ONLY"
 
 instance Hashable     TagFilterType
 instance ToByteString TagFilterType

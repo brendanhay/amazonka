@@ -29,12 +29,12 @@ instance FromText ChronologicalOrder where
         "forward" -> pure Forward
         "reverse" -> pure Reverse
         e -> fromTextError $ "Failure parsing ChronologicalOrder from value: '" <> e
-           <> "'. Accepted values: forward, reverse"
+           <> "'. Accepted values: Forward, Reverse"
 
 instance ToText ChronologicalOrder where
     toText = \case
-        Forward -> "forward"
-        Reverse -> "reverse"
+        Forward -> "Forward"
+        Reverse -> "Reverse"
 
 instance Hashable     ChronologicalOrder
 instance ToByteString ChronologicalOrder
@@ -58,14 +58,14 @@ instance FromText ConfigurationItemStatus where
         "failed" -> pure Failed
         "ok" -> pure OK
         e -> fromTextError $ "Failure parsing ConfigurationItemStatus from value: '" <> e
-           <> "'. Accepted values: deleted, discovered, failed, ok"
+           <> "'. Accepted values: Deleted, Discovered, Failed, Ok"
 
 instance ToText ConfigurationItemStatus where
     toText = \case
-        Deleted -> "deleted"
-        Discovered -> "discovered"
-        Failed -> "failed"
-        OK -> "ok"
+        Deleted -> "Deleted"
+        Discovered -> "Discovered"
+        Failed -> "Failed"
+        OK -> "Ok"
 
 instance Hashable     ConfigurationItemStatus
 instance ToByteString ConfigurationItemStatus
@@ -87,13 +87,13 @@ instance FromText DeliveryStatus where
         "not_applicable" -> pure NotApplicable
         "success" -> pure Success
         e -> fromTextError $ "Failure parsing DeliveryStatus from value: '" <> e
-           <> "'. Accepted values: failure, not_applicable, success"
+           <> "'. Accepted values: Failure, Not_Applicable, Success"
 
 instance ToText DeliveryStatus where
     toText = \case
-        Failure -> "failure"
-        NotApplicable -> "not_applicable"
-        Success -> "success"
+        Failure -> "Failure"
+        NotApplicable -> "Not_Applicable"
+        Success -> "Success"
 
 instance Hashable     DeliveryStatus
 instance ToByteString DeliveryStatus
@@ -115,13 +115,13 @@ instance FromText RecorderStatus where
         "pending" -> pure RSPending
         "success" -> pure RSSuccess
         e -> fromTextError $ "Failure parsing RecorderStatus from value: '" <> e
-           <> "'. Accepted values: failure, pending, success"
+           <> "'. Accepted values: Failure, Pending, Success"
 
 instance ToText RecorderStatus where
     toText = \case
-        RSFailure -> "failure"
-        RSPending -> "pending"
-        RSSuccess -> "success"
+        RSFailure -> "Failure"
+        RSPending -> "Pending"
+        RSSuccess -> "Success"
 
 instance Hashable     RecorderStatus
 instance ToByteString RecorderStatus
@@ -165,24 +165,24 @@ instance FromText ResourceType where
         "aws::ec2::vpngateway" -> pure AWSEC2VPNGateway
         "aws::ec2::volume" -> pure AWSEC2Volume
         e -> fromTextError $ "Failure parsing ResourceType from value: '" <> e
-           <> "'. Accepted values: aws::cloudtrail::trail, aws::ec2::customergateway, aws::ec2::eip, aws::ec2::instance, aws::ec2::internetgateway, aws::ec2::networkacl, aws::ec2::networkinterface, aws::ec2::routetable, aws::ec2::securitygroup, aws::ec2::subnet, aws::ec2::vpc, aws::ec2::vpnconnection, aws::ec2::vpngateway, aws::ec2::volume"
+           <> "'. Accepted values: AWS::CloudTrail::Trail, AWS::EC2::CustomerGateway, AWS::EC2::EIP, AWS::EC2::Instance, AWS::EC2::InternetGateway, AWS::EC2::NetworkAcl, AWS::EC2::NetworkInterface, AWS::EC2::RouteTable, AWS::EC2::SecurityGroup, AWS::EC2::Subnet, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::EC2::Volume"
 
 instance ToText ResourceType where
     toText = \case
-        AWSCloudTrailTrail -> "aws::cloudtrail::trail"
-        AWSEC2CustomerGateway -> "aws::ec2::customergateway"
-        AWSEC2EIP -> "aws::ec2::eip"
-        AWSEC2Instance -> "aws::ec2::instance"
-        AWSEC2InternetGateway -> "aws::ec2::internetgateway"
-        AWSEC2NetworkACL -> "aws::ec2::networkacl"
-        AWSEC2NetworkInterface -> "aws::ec2::networkinterface"
-        AWSEC2RouteTable -> "aws::ec2::routetable"
-        AWSEC2SecurityGroup -> "aws::ec2::securitygroup"
-        AWSEC2Subnet -> "aws::ec2::subnet"
-        AWSEC2VPC -> "aws::ec2::vpc"
-        AWSEC2VPNConnection -> "aws::ec2::vpnconnection"
-        AWSEC2VPNGateway -> "aws::ec2::vpngateway"
-        AWSEC2Volume -> "aws::ec2::volume"
+        AWSCloudTrailTrail -> "AWS::CloudTrail::Trail"
+        AWSEC2CustomerGateway -> "AWS::EC2::CustomerGateway"
+        AWSEC2EIP -> "AWS::EC2::EIP"
+        AWSEC2Instance -> "AWS::EC2::Instance"
+        AWSEC2InternetGateway -> "AWS::EC2::InternetGateway"
+        AWSEC2NetworkACL -> "AWS::EC2::NetworkAcl"
+        AWSEC2NetworkInterface -> "AWS::EC2::NetworkInterface"
+        AWSEC2RouteTable -> "AWS::EC2::RouteTable"
+        AWSEC2SecurityGroup -> "AWS::EC2::SecurityGroup"
+        AWSEC2Subnet -> "AWS::EC2::Subnet"
+        AWSEC2VPC -> "AWS::EC2::VPC"
+        AWSEC2VPNConnection -> "AWS::EC2::VPNConnection"
+        AWSEC2VPNGateway -> "AWS::EC2::VPNGateway"
+        AWSEC2Volume -> "AWS::EC2::Volume"
 
 instance Hashable     ResourceType
 instance ToByteString ResourceType

@@ -63,13 +63,13 @@ instance FromText BucketLogsPermission where
         "read" -> pure Read
         "write" -> pure Write
         e -> fromTextError $ "Failure parsing BucketLogsPermission from value: '" <> e
-           <> "'. Accepted values: full_control, read, write"
+           <> "'. Accepted values: FULL_CONTROL, READ, WRITE"
 
 instance ToText BucketLogsPermission where
     toText = \case
-        FullControl -> "full_control"
-        Read -> "read"
-        Write -> "write"
+        FullControl -> "FULL_CONTROL"
+        Read -> "READ"
+        Write -> "WRITE"
 
 instance Hashable     BucketLogsPermission
 instance ToByteString BucketLogsPermission
@@ -92,12 +92,12 @@ instance FromText BucketVersioningStatus where
         "enabled" -> pure BVSEnabled
         "suspended" -> pure BVSSuspended
         e -> fromTextError $ "Failure parsing BucketVersioningStatus from value: '" <> e
-           <> "'. Accepted values: enabled, suspended"
+           <> "'. Accepted values: Enabled, Suspended"
 
 instance ToText BucketVersioningStatus where
     toText = \case
-        BVSEnabled -> "enabled"
-        BVSSuspended -> "suspended"
+        BVSEnabled -> "Enabled"
+        BVSSuspended -> "Suspended"
 
 instance Hashable     BucketVersioningStatus
 instance ToByteString BucketVersioningStatus
@@ -166,19 +166,19 @@ instance FromText Event where
         "s3:objectremoved:deletemarkercreated" -> pure S3ObjectRemovedDeleteMarkerCreated
         "s3:reducedredundancylostobject" -> pure S3ReducedRedundancyLostObject
         e -> fromTextError $ "Failure parsing Event from value: '" <> e
-           <> "'. Accepted values: s3:objectcreated:*, s3:objectcreated:completemultipartupload, s3:objectcreated:copy, s3:objectcreated:post, s3:objectcreated:put, s3:objectremoved:*, s3:objectremoved:delete, s3:objectremoved:deletemarkercreated, s3:reducedredundancylostobject"
+           <> "'. Accepted values: s3:ObjectCreated:*, s3:ObjectCreated:CompleteMultipartUpload, s3:ObjectCreated:Copy, s3:ObjectCreated:Post, s3:ObjectCreated:Put, s3:ObjectRemoved:*, s3:ObjectRemoved:Delete, s3:ObjectRemoved:DeleteMarkerCreated, s3:ReducedRedundancyLostObject"
 
 instance ToText Event where
     toText = \case
-        S3ObjectCreated -> "s3:objectcreated:*"
-        S3ObjectCreatedCompleteMultipartUpload -> "s3:objectcreated:completemultipartupload"
-        S3ObjectCreatedCopy -> "s3:objectcreated:copy"
-        S3ObjectCreatedPost -> "s3:objectcreated:post"
-        S3ObjectCreatedPut -> "s3:objectcreated:put"
-        S3ObjectRemoved -> "s3:objectremoved:*"
-        S3ObjectRemovedDelete -> "s3:objectremoved:delete"
-        S3ObjectRemovedDeleteMarkerCreated -> "s3:objectremoved:deletemarkercreated"
-        S3ReducedRedundancyLostObject -> "s3:reducedredundancylostobject"
+        S3ObjectCreated -> "s3:ObjectCreated:*"
+        S3ObjectCreatedCompleteMultipartUpload -> "s3:ObjectCreated:CompleteMultipartUpload"
+        S3ObjectCreatedCopy -> "s3:ObjectCreated:Copy"
+        S3ObjectCreatedPost -> "s3:ObjectCreated:Post"
+        S3ObjectCreatedPut -> "s3:ObjectCreated:Put"
+        S3ObjectRemoved -> "s3:ObjectRemoved:*"
+        S3ObjectRemovedDelete -> "s3:ObjectRemoved:Delete"
+        S3ObjectRemovedDeleteMarkerCreated -> "s3:ObjectRemoved:DeleteMarkerCreated"
+        S3ReducedRedundancyLostObject -> "s3:ReducedRedundancyLostObject"
 
 instance Hashable     Event
 instance ToByteString Event
@@ -201,12 +201,12 @@ instance FromText ExpirationStatus where
         "disabled" -> pure ESDisabled
         "enabled" -> pure ESEnabled
         e -> fromTextError $ "Failure parsing ExpirationStatus from value: '" <> e
-           <> "'. Accepted values: disabled, enabled"
+           <> "'. Accepted values: Disabled, Enabled"
 
 instance ToText ExpirationStatus where
     toText = \case
-        ESDisabled -> "disabled"
-        ESEnabled -> "enabled"
+        ESDisabled -> "Disabled"
+        ESEnabled -> "Enabled"
 
 instance Hashable     ExpirationStatus
 instance ToByteString ExpirationStatus
@@ -229,12 +229,12 @@ instance FromText MFADelete where
         "disabled" -> pure MDDisabled
         "enabled" -> pure MDEnabled
         e -> fromTextError $ "Failure parsing MFADelete from value: '" <> e
-           <> "'. Accepted values: disabled, enabled"
+           <> "'. Accepted values: Disabled, Enabled"
 
 instance ToText MFADelete where
     toText = \case
-        MDDisabled -> "disabled"
-        MDEnabled -> "enabled"
+        MDDisabled -> "Disabled"
+        MDEnabled -> "Enabled"
 
 instance Hashable     MFADelete
 instance ToByteString MFADelete
@@ -254,12 +254,12 @@ instance FromText MFADeleteStatus where
         "disabled" -> pure MDSDisabled
         "enabled" -> pure MDSEnabled
         e -> fromTextError $ "Failure parsing MFADeleteStatus from value: '" <> e
-           <> "'. Accepted values: disabled, enabled"
+           <> "'. Accepted values: Disabled, Enabled"
 
 instance ToText MFADeleteStatus where
     toText = \case
-        MDSDisabled -> "disabled"
-        MDSEnabled -> "enabled"
+        MDSDisabled -> "Disabled"
+        MDSEnabled -> "Enabled"
 
 instance Hashable     MFADeleteStatus
 instance ToByteString MFADeleteStatus
@@ -279,12 +279,12 @@ instance FromText MetadataDirective where
         "copy" -> pure Copy
         "replace" -> pure Replace
         e -> fromTextError $ "Failure parsing MetadataDirective from value: '" <> e
-           <> "'. Accepted values: copy, replace"
+           <> "'. Accepted values: COPY, REPLACE"
 
 instance ToText MetadataDirective where
     toText = \case
-        Copy -> "copy"
-        Replace -> "replace"
+        Copy -> "COPY"
+        Replace -> "REPLACE"
 
 instance Hashable     MetadataDirective
 instance ToByteString MetadataDirective
@@ -343,13 +343,13 @@ instance FromText ObjectStorageClass where
         "reduced_redundancy" -> pure OSCReducedRedundancy
         "standard" -> pure OSCStandard
         e -> fromTextError $ "Failure parsing ObjectStorageClass from value: '" <> e
-           <> "'. Accepted values: glacier, reduced_redundancy, standard"
+           <> "'. Accepted values: GLACIER, REDUCED_REDUNDANCY, STANDARD"
 
 instance ToText ObjectStorageClass where
     toText = \case
-        OSCGlacier -> "glacier"
-        OSCReducedRedundancy -> "reduced_redundancy"
-        OSCStandard -> "standard"
+        OSCGlacier -> "GLACIER"
+        OSCReducedRedundancy -> "REDUCED_REDUNDANCY"
+        OSCStandard -> "STANDARD"
 
 instance Hashable     ObjectStorageClass
 instance ToByteString ObjectStorageClass
@@ -367,11 +367,11 @@ instance FromText ObjectVersionStorageClass where
     parser = takeLowerText >>= \case
         "standard" -> pure OVSCStandard
         e -> fromTextError $ "Failure parsing ObjectVersionStorageClass from value: '" <> e
-           <> "'. Accepted values: standard"
+           <> "'. Accepted values: STANDARD"
 
 instance ToText ObjectVersionStorageClass where
     toText = \case
-        OVSCStandard -> "standard"
+        OVSCStandard -> "STANDARD"
 
 instance Hashable     ObjectVersionStorageClass
 instance ToByteString ObjectVersionStorageClass
@@ -391,12 +391,12 @@ instance FromText Payer where
         "bucketowner" -> pure BucketOwner
         "requester" -> pure Requester
         e -> fromTextError $ "Failure parsing Payer from value: '" <> e
-           <> "'. Accepted values: bucketowner, requester"
+           <> "'. Accepted values: BucketOwner, Requester"
 
 instance ToText Payer where
     toText = \case
-        BucketOwner -> "bucketowner"
-        Requester -> "requester"
+        BucketOwner -> "BucketOwner"
+        Requester -> "Requester"
 
 instance Hashable     Payer
 instance ToByteString Payer
@@ -425,15 +425,15 @@ instance FromText Permission where
         "write" -> pure PWrite
         "write_acp" -> pure PWriteAcp
         e -> fromTextError $ "Failure parsing Permission from value: '" <> e
-           <> "'. Accepted values: full_control, read, read_acp, write, write_acp"
+           <> "'. Accepted values: FULL_CONTROL, READ, READ_ACP, WRITE, WRITE_ACP"
 
 instance ToText Permission where
     toText = \case
-        PFullControl -> "full_control"
-        PRead -> "read"
-        PReadAcp -> "read_acp"
-        PWrite -> "write"
-        PWriteAcp -> "write_acp"
+        PFullControl -> "FULL_CONTROL"
+        PRead -> "READ"
+        PReadAcp -> "READ_ACP"
+        PWrite -> "WRITE"
+        PWriteAcp -> "WRITE_ACP"
 
 instance Hashable     Permission
 instance ToByteString Permission
@@ -484,12 +484,12 @@ instance FromText ReplicationRuleStatus where
         "disabled" -> pure Disabled
         "enabled" -> pure Enabled
         e -> fromTextError $ "Failure parsing ReplicationRuleStatus from value: '" <> e
-           <> "'. Accepted values: disabled, enabled"
+           <> "'. Accepted values: Disabled, Enabled"
 
 instance ToText ReplicationRuleStatus where
     toText = \case
-        Disabled -> "disabled"
-        Enabled -> "enabled"
+        Disabled -> "Disabled"
+        Enabled -> "Enabled"
 
 instance Hashable     ReplicationRuleStatus
 instance ToByteString ReplicationRuleStatus
@@ -516,14 +516,14 @@ instance FromText ReplicationStatus where
         "pending" -> pure Pending
         "replica" -> pure Replica
         e -> fromTextError $ "Failure parsing ReplicationStatus from value: '" <> e
-           <> "'. Accepted values: complete, failed, pending, replica"
+           <> "'. Accepted values: COMPLETE, FAILED, PENDING, REPLICA"
 
 instance ToText ReplicationStatus where
     toText = \case
-        Complete -> "complete"
-        Failed -> "failed"
-        Pending -> "pending"
-        Replica -> "replica"
+        Complete -> "COMPLETE"
+        Failed -> "FAILED"
+        Pending -> "PENDING"
+        Replica -> "REPLICA"
 
 instance Hashable     ReplicationStatus
 instance ToByteString ReplicationStatus
@@ -594,11 +594,11 @@ instance FromText ServerSideEncryption where
         "aes256" -> pure AES256
         "aws:kms" -> pure AWSKMS
         e -> fromTextError $ "Failure parsing ServerSideEncryption from value: '" <> e
-           <> "'. Accepted values: aes256, aws:kms"
+           <> "'. Accepted values: AES256, aws:kms"
 
 instance ToText ServerSideEncryption where
     toText = \case
-        AES256 -> "aes256"
+        AES256 -> "AES256"
         AWSKMS -> "aws:kms"
 
 instance Hashable     ServerSideEncryption
@@ -624,13 +624,13 @@ instance FromText StorageClass where
         "reduced_redundancy" -> pure ReducedRedundancy
         "standard" -> pure Standard
         e -> fromTextError $ "Failure parsing StorageClass from value: '" <> e
-           <> "'. Accepted values: lt, reduced_redundancy, standard"
+           <> "'. Accepted values: LT, REDUCED_REDUNDANCY, STANDARD"
 
 instance ToText StorageClass where
     toText = \case
-        LT' -> "lt"
-        ReducedRedundancy -> "reduced_redundancy"
-        Standard -> "standard"
+        LT' -> "LT"
+        ReducedRedundancy -> "REDUCED_REDUNDANCY"
+        Standard -> "STANDARD"
 
 instance Hashable     StorageClass
 instance ToByteString StorageClass
@@ -651,11 +651,11 @@ instance FromText TransitionStorageClass where
     parser = takeLowerText >>= \case
         "glacier" -> pure Glacier
         e -> fromTextError $ "Failure parsing TransitionStorageClass from value: '" <> e
-           <> "'. Accepted values: glacier"
+           <> "'. Accepted values: GLACIER"
 
 instance ToText TransitionStorageClass where
     toText = \case
-        Glacier -> "glacier"
+        Glacier -> "GLACIER"
 
 instance Hashable     TransitionStorageClass
 instance ToByteString TransitionStorageClass
@@ -680,13 +680,13 @@ instance FromText Type where
         "canonicaluser" -> pure CanonicalUser
         "group" -> pure Group
         e -> fromTextError $ "Failure parsing Type from value: '" <> e
-           <> "'. Accepted values: amazoncustomerbyemail, canonicaluser, group"
+           <> "'. Accepted values: AmazonCustomerByEmail, CanonicalUser, Group"
 
 instance ToText Type where
     toText = \case
-        AmazonCustomerByEmail -> "amazoncustomerbyemail"
-        CanonicalUser -> "canonicaluser"
-        Group -> "group"
+        AmazonCustomerByEmail -> "AmazonCustomerByEmail"
+        CanonicalUser -> "CanonicalUser"
+        Group -> "Group"
 
 instance Hashable     Type
 instance ToByteString Type

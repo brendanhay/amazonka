@@ -57,12 +57,12 @@ instance FromText ConfigurationOptionValueType where
         "list" -> pure List
         "scalar" -> pure Scalar
         e -> fromTextError $ "Failure parsing ConfigurationOptionValueType from value: '" <> e
-           <> "'. Accepted values: list, scalar"
+           <> "'. Accepted values: List, Scalar"
 
 instance ToText ConfigurationOptionValueType where
     toText = \case
-        List -> "list"
-        Scalar -> "scalar"
+        List -> "List"
+        Scalar -> "Scalar"
 
 instance Hashable     ConfigurationOptionValueType
 instance ToByteString ConfigurationOptionValueType
@@ -86,14 +86,14 @@ instance FromText EnvironmentHealth where
         "red" -> pure Red
         "yellow" -> pure Yellow
         e -> fromTextError $ "Failure parsing EnvironmentHealth from value: '" <> e
-           <> "'. Accepted values: green, grey, red, yellow"
+           <> "'. Accepted values: Green, Grey, Red, Yellow"
 
 instance ToText EnvironmentHealth where
     toText = \case
-        Green -> "green"
-        Grey -> "grey"
-        Red -> "red"
-        Yellow -> "yellow"
+        Green -> "Green"
+        Grey -> "Grey"
+        Red -> "Red"
+        Yellow -> "Yellow"
 
 instance Hashable     EnvironmentHealth
 instance ToByteString EnvironmentHealth
@@ -125,18 +125,18 @@ instance FromText EnvironmentHealthAttribute where
         "refreshedat" -> pure EHARefreshedAt
         "status" -> pure EHAStatus
         e -> fromTextError $ "Failure parsing EnvironmentHealthAttribute from value: '" <> e
-           <> "'. Accepted values: all, applicationmetrics, causes, color, healthstatus, instanceshealth, refreshedat, status"
+           <> "'. Accepted values: All, ApplicationMetrics, Causes, Color, HealthStatus, InstancesHealth, RefreshedAt, Status"
 
 instance ToText EnvironmentHealthAttribute where
     toText = \case
-        EHAAll -> "all"
-        EHAApplicationMetrics -> "applicationmetrics"
-        EHACauses -> "causes"
-        EHAColor -> "color"
-        EHAHealthStatus -> "healthstatus"
-        EHAInstancesHealth -> "instanceshealth"
-        EHARefreshedAt -> "refreshedat"
-        EHAStatus -> "status"
+        EHAAll -> "All"
+        EHAApplicationMetrics -> "ApplicationMetrics"
+        EHACauses -> "Causes"
+        EHAColor -> "Color"
+        EHAHealthStatus -> "HealthStatus"
+        EHAInstancesHealth -> "InstancesHealth"
+        EHARefreshedAt -> "RefreshedAt"
+        EHAStatus -> "Status"
 
 instance Hashable     EnvironmentHealthAttribute
 instance ToByteString EnvironmentHealthAttribute
@@ -165,18 +165,18 @@ instance FromText EnvironmentHealthStatus where
         "unknown" -> pure EHSUnknown
         "warning" -> pure EHSWarning
         e -> fromTextError $ "Failure parsing EnvironmentHealthStatus from value: '" <> e
-           <> "'. Accepted values: degraded, info, nodata, ok, pending, severe, unknown, warning"
+           <> "'. Accepted values: Degraded, Info, NoData, Ok, Pending, Severe, Unknown, Warning"
 
 instance ToText EnvironmentHealthStatus where
     toText = \case
-        EHSDegraded -> "degraded"
-        EHSInfo -> "info"
-        EHSNoData -> "nodata"
-        EHSOK -> "ok"
-        EHSPending -> "pending"
-        EHSSevere -> "severe"
-        EHSUnknown -> "unknown"
-        EHSWarning -> "warning"
+        EHSDegraded -> "Degraded"
+        EHSInfo -> "Info"
+        EHSNoData -> "NoData"
+        EHSOK -> "Ok"
+        EHSPending -> "Pending"
+        EHSSevere -> "Severe"
+        EHSUnknown -> "Unknown"
+        EHSWarning -> "Warning"
 
 instance Hashable     EnvironmentHealthStatus
 instance ToByteString EnvironmentHealthStatus
@@ -227,15 +227,15 @@ instance FromText EnvironmentStatus where
         "terminating" -> pure Terminating
         "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing EnvironmentStatus from value: '" <> e
-           <> "'. Accepted values: launching, ready, terminated, terminating, updating"
+           <> "'. Accepted values: Launching, Ready, Terminated, Terminating, Updating"
 
 instance ToText EnvironmentStatus where
     toText = \case
-        Launching -> "launching"
-        Ready -> "ready"
-        Terminated -> "terminated"
-        Terminating -> "terminating"
-        Updating -> "updating"
+        Launching -> "Launching"
+        Ready -> "Ready"
+        Terminated -> "Terminated"
+        Terminating -> "Terminating"
+        Updating -> "Updating"
 
 instance Hashable     EnvironmentStatus
 instance ToByteString EnvironmentStatus
@@ -263,16 +263,16 @@ instance FromText EventSeverity where
         "trace" -> pure LevelTrace
         "warn" -> pure LevelWarn
         e -> fromTextError $ "Failure parsing EventSeverity from value: '" <> e
-           <> "'. Accepted values: debug, error, fatal, info, trace, warn"
+           <> "'. Accepted values: DEBUG, ERROR, FATAL, INFO, TRACE, WARN"
 
 instance ToText EventSeverity where
     toText = \case
-        LevelDebug -> "debug"
-        LevelError' -> "error"
-        LevelFatal -> "fatal"
-        LevelInfo -> "info"
-        LevelTrace -> "trace"
-        LevelWarn -> "warn"
+        LevelDebug -> "DEBUG"
+        LevelError' -> "ERROR"
+        LevelFatal -> "FATAL"
+        LevelInfo -> "INFO"
+        LevelTrace -> "TRACE"
+        LevelWarn -> "WARN"
 
 instance Hashable     EventSeverity
 instance ToByteString EventSeverity
@@ -304,18 +304,18 @@ instance FromText InstancesHealthAttribute where
         "refreshedat" -> pure RefreshedAt
         "system" -> pure System
         e -> fromTextError $ "Failure parsing InstancesHealthAttribute from value: '" <> e
-           <> "'. Accepted values: all, applicationmetrics, causes, color, healthstatus, launchedat, refreshedat, system"
+           <> "'. Accepted values: All, ApplicationMetrics, Causes, Color, HealthStatus, LaunchedAt, RefreshedAt, System"
 
 instance ToText InstancesHealthAttribute where
     toText = \case
-        All -> "all"
-        ApplicationMetrics -> "applicationmetrics"
-        Causes -> "causes"
-        Color -> "color"
-        HealthStatus -> "healthstatus"
-        LaunchedAt -> "launchedat"
-        RefreshedAt -> "refreshedat"
-        System -> "system"
+        All -> "All"
+        ApplicationMetrics -> "ApplicationMetrics"
+        Causes -> "Causes"
+        Color -> "Color"
+        HealthStatus -> "HealthStatus"
+        LaunchedAt -> "LaunchedAt"
+        RefreshedAt -> "RefreshedAt"
+        System -> "System"
 
 instance Hashable     InstancesHealthAttribute
 instance ToByteString InstancesHealthAttribute

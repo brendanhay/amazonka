@@ -53,13 +53,13 @@ instance FromText AddressStatus where
         "invpc" -> pure InVPC
         "moveinprogress" -> pure MoveInProgress
         e -> fromTextError $ "Failure parsing AddressStatus from value: '" <> e
-           <> "'. Accepted values: inclassic, invpc, moveinprogress"
+           <> "'. Accepted values: InClassic, InVpc, MoveInProgress"
 
 instance ToText AddressStatus where
     toText = \case
-        InClassic -> "inclassic"
-        InVPC -> "invpc"
-        MoveInProgress -> "moveinprogress"
+        InClassic -> "InClassic"
+        InVPC -> "InVpc"
+        MoveInProgress -> "MoveInProgress"
 
 instance Hashable     AddressStatus
 instance ToByteString AddressStatus
@@ -238,14 +238,14 @@ instance FromText CancelBatchErrorCode where
         "fleetrequestnotincancellablestate" -> pure FleetRequestNotInCancellableState
         "unexpectederror" -> pure UnexpectedError
         e -> fromTextError $ "Failure parsing CancelBatchErrorCode from value: '" <> e
-           <> "'. Accepted values: fleetrequestiddoesnotexist, fleetrequestidmalformed, fleetrequestnotincancellablestate, unexpectederror"
+           <> "'. Accepted values: fleetRequestIdDoesNotExist, fleetRequestIdMalformed, fleetRequestNotInCancellableState, unexpectedError"
 
 instance ToText CancelBatchErrorCode where
     toText = \case
-        FleetRequestIdDoesNotExist -> "fleetrequestiddoesnotexist"
-        FleetRequestIdMalformed -> "fleetrequestidmalformed"
-        FleetRequestNotInCancellableState -> "fleetrequestnotincancellablestate"
-        UnexpectedError -> "unexpectederror"
+        FleetRequestIdDoesNotExist -> "fleetRequestIdDoesNotExist"
+        FleetRequestIdMalformed -> "fleetRequestIdMalformed"
+        FleetRequestNotInCancellableState -> "fleetRequestNotInCancellableState"
+        UnexpectedError -> "unexpectedError"
 
 instance Hashable     CancelBatchErrorCode
 instance ToByteString CancelBatchErrorCode
@@ -350,11 +350,11 @@ instance FromText CurrencyCodeValues where
     parser = takeLowerText >>= \case
         "usd" -> pure Usd
         e -> fromTextError $ "Failure parsing CurrencyCodeValues from value: '" <> e
-           <> "'. Accepted values: usd"
+           <> "'. Accepted values: USD"
 
 instance ToText CurrencyCodeValues where
     toText = \case
-        Usd -> "usd"
+        Usd -> "USD"
 
 instance Hashable     CurrencyCodeValues
 instance ToByteString CurrencyCodeValues
@@ -374,12 +374,12 @@ instance FromText DatafeedSubscriptionState where
         "active" -> pure DSSActive
         "inactive" -> pure DSSInactive
         e -> fromTextError $ "Failure parsing DatafeedSubscriptionState from value: '" <> e
-           <> "'. Accepted values: active, inactive"
+           <> "'. Accepted values: Active, Inactive"
 
 instance ToText DatafeedSubscriptionState where
     toText = \case
-        DSSActive -> "active"
-        DSSInactive -> "inactive"
+        DSSActive -> "Active"
+        DSSInactive -> "Inactive"
 
 instance Hashable     DatafeedSubscriptionState
 instance ToByteString DatafeedSubscriptionState
@@ -426,13 +426,13 @@ instance FromText DiskImageFormat where
         "vhd" -> pure VHD
         "vmdk" -> pure VMDK
         e -> fromTextError $ "Failure parsing DiskImageFormat from value: '" <> e
-           <> "'. Accepted values: raw, vhd, vmdk"
+           <> "'. Accepted values: RAW, VHD, VMDK"
 
 instance ToText DiskImageFormat where
     toText = \case
-        Raw -> "raw"
-        VHD -> "vhd"
-        VMDK -> "vmdk"
+        Raw -> "RAW"
+        VHD -> "VHD"
+        VMDK -> "VMDK"
 
 instance Hashable     DiskImageFormat
 instance ToByteString DiskImageFormat
@@ -513,13 +513,13 @@ instance FromText EventType where
         "fleetrequestchange" -> pure FleetRequestChange
         "instancechange" -> pure InstanceChange
         e -> fromTextError $ "Failure parsing EventType from value: '" <> e
-           <> "'. Accepted values: error, fleetrequestchange, instancechange"
+           <> "'. Accepted values: error, fleetRequestChange, instanceChange"
 
 instance ToText EventType where
     toText = \case
         Error' -> "error"
-        FleetRequestChange -> "fleetrequestchange"
-        InstanceChange -> "instancechange"
+        FleetRequestChange -> "fleetRequestChange"
+        InstanceChange -> "instanceChange"
 
 instance Hashable     EventType
 instance ToByteString EventType
@@ -600,13 +600,13 @@ instance FromText FlowLogsResourceType where
         "subnet" -> pure FLRTSubnet
         "vpc" -> pure FLRTVPC
         e -> fromTextError $ "Failure parsing FlowLogsResourceType from value: '" <> e
-           <> "'. Accepted values: networkinterface, subnet, vpc"
+           <> "'. Accepted values: NetworkInterface, Subnet, VPC"
 
 instance ToText FlowLogsResourceType where
     toText = \case
-        FLRTNetworkInterface -> "networkinterface"
-        FLRTSubnet -> "subnet"
-        FLRTVPC -> "vpc"
+        FLRTNetworkInterface -> "NetworkInterface"
+        FLRTSubnet -> "Subnet"
+        FLRTVPC -> "VPC"
 
 instance Hashable     FlowLogsResourceType
 instance ToByteString FlowLogsResourceType
@@ -680,17 +680,17 @@ instance FromText ImageAttributeName where
         "ramdisk" -> pure RAMDisk
         "sriovnetsupport" -> pure SRIOVNetSupport
         e -> fromTextError $ "Failure parsing ImageAttributeName from value: '" <> e
-           <> "'. Accepted values: blockdevicemapping, description, kernel, launchpermission, productcodes, ramdisk, sriovnetsupport"
+           <> "'. Accepted values: blockDeviceMapping, description, kernel, launchPermission, productCodes, ramdisk, sriovNetSupport"
 
 instance ToText ImageAttributeName where
     toText = \case
-        BlockDeviceMapping -> "blockdevicemapping"
+        BlockDeviceMapping -> "blockDeviceMapping"
         Description -> "description"
         Kernel -> "kernel"
-        LaunchPermission -> "launchpermission"
-        ProductCodes -> "productcodes"
+        LaunchPermission -> "launchPermission"
+        ProductCodes -> "productCodes"
         RAMDisk -> "ramdisk"
-        SRIOVNetSupport -> "sriovnetsupport"
+        SRIOVNetSupport -> "sriovNetSupport"
 
 instance Hashable     ImageAttributeName
 instance ToByteString ImageAttributeName
@@ -797,23 +797,23 @@ instance FromText InstanceAttributeName where
         "sourcedestcheck" -> pure IANSourceDestCheck
         "userdata" -> pure IANUserData
         e -> fromTextError $ "Failure parsing InstanceAttributeName from value: '" <> e
-           <> "'. Accepted values: blockdevicemapping, disableapitermination, ebsoptimized, groupset, instanceinitiatedshutdownbehavior, instancetype, kernel, productcodes, ramdisk, rootdevicename, sriovnetsupport, sourcedestcheck, userdata"
+           <> "'. Accepted values: blockDeviceMapping, disableApiTermination, ebsOptimized, groupSet, instanceInitiatedShutdownBehavior, instanceType, kernel, productCodes, ramdisk, rootDeviceName, sriovNetSupport, sourceDestCheck, userData"
 
 instance ToText InstanceAttributeName where
     toText = \case
-        IANBlockDeviceMapping -> "blockdevicemapping"
-        IANDisableAPITermination -> "disableapitermination"
-        IANEBSOptimized -> "ebsoptimized"
-        IANGroupSet -> "groupset"
-        IANInstanceInitiatedShutdownBehavior -> "instanceinitiatedshutdownbehavior"
-        IANInstanceType -> "instancetype"
+        IANBlockDeviceMapping -> "blockDeviceMapping"
+        IANDisableAPITermination -> "disableApiTermination"
+        IANEBSOptimized -> "ebsOptimized"
+        IANGroupSet -> "groupSet"
+        IANInstanceInitiatedShutdownBehavior -> "instanceInitiatedShutdownBehavior"
+        IANInstanceType -> "instanceType"
         IANKernel -> "kernel"
-        IANProductCodes -> "productcodes"
+        IANProductCodes -> "productCodes"
         IANRAMDisk -> "ramdisk"
-        IANRootDeviceName -> "rootdevicename"
-        IANSRIOVNetSupport -> "sriovnetsupport"
-        IANSourceDestCheck -> "sourcedestcheck"
-        IANUserData -> "userdata"
+        IANRootDeviceName -> "rootDeviceName"
+        IANSRIOVNetSupport -> "sriovNetSupport"
+        IANSourceDestCheck -> "sourceDestCheck"
+        IANUserData -> "userData"
 
 instance Hashable     InstanceAttributeName
 instance ToByteString InstanceAttributeName
@@ -1160,12 +1160,12 @@ instance FromText MoveStatus where
         "movingtovpc" -> pure MovingToVPC
         "restoringtoclassic" -> pure RestoringToClassic
         e -> fromTextError $ "Failure parsing MoveStatus from value: '" <> e
-           <> "'. Accepted values: movingtovpc, restoringtoclassic"
+           <> "'. Accepted values: movingToVpc, restoringToClassic"
 
 instance ToText MoveStatus where
     toText = \case
-        MovingToVPC -> "movingtovpc"
-        RestoringToClassic -> "restoringtoclassic"
+        MovingToVPC -> "movingToVpc"
+        RestoringToClassic -> "restoringToClassic"
 
 instance Hashable     MoveStatus
 instance ToByteString MoveStatus
@@ -1189,14 +1189,14 @@ instance FromText NetworkInterfaceAttribute where
         "groupset" -> pure NIAGroupSet
         "sourcedestcheck" -> pure NIASourceDestCheck
         e -> fromTextError $ "Failure parsing NetworkInterfaceAttribute from value: '" <> e
-           <> "'. Accepted values: attachment, description, groupset, sourcedestcheck"
+           <> "'. Accepted values: attachment, description, groupSet, sourceDestCheck"
 
 instance ToText NetworkInterfaceAttribute where
     toText = \case
         NIAAttachment -> "attachment"
         NIADescription -> "description"
-        NIAGroupSet -> "groupset"
-        NIASourceDestCheck -> "sourcedestcheck"
+        NIAGroupSet -> "groupSet"
+        NIASourceDestCheck -> "sourceDestCheck"
 
 instance Hashable     NetworkInterfaceAttribute
 instance ToByteString NetworkInterfaceAttribute
@@ -1252,16 +1252,16 @@ instance FromText OfferingTypeValues where
         "no upfront" -> pure NoUpfront
         "partial upfront" -> pure PartialUpfront
         e -> fromTextError $ "Failure parsing OfferingTypeValues from value: '" <> e
-           <> "'. Accepted values: all upfront, heavy utilization, light utilization, medium utilization, no upfront, partial upfront"
+           <> "'. Accepted values: All Upfront, Heavy Utilization, Light Utilization, Medium Utilization, No Upfront, Partial Upfront"
 
 instance ToText OfferingTypeValues where
     toText = \case
-        AllUpfront -> "all upfront"
-        HeavyUtilization -> "heavy utilization"
-        LightUtilization -> "light utilization"
-        MediumUtilization -> "medium utilization"
-        NoUpfront -> "no upfront"
-        PartialUpfront -> "partial upfront"
+        AllUpfront -> "All Upfront"
+        HeavyUtilization -> "Heavy Utilization"
+        LightUtilization -> "Light Utilization"
+        MediumUtilization -> "Medium Utilization"
+        NoUpfront -> "No Upfront"
+        PartialUpfront -> "Partial Upfront"
 
 instance Hashable     OfferingTypeValues
 instance ToByteString OfferingTypeValues
@@ -1354,11 +1354,11 @@ instance FromText PlatformValues where
     parser = takeLowerText >>= \case
         "windows" -> pure PVWindows
         e -> fromTextError $ "Failure parsing PlatformValues from value: '" <> e
-           <> "'. Accepted values: windows"
+           <> "'. Accepted values: Windows"
 
 instance ToText PlatformValues where
     toText = \case
-        PVWindows -> "windows"
+        PVWindows -> "Windows"
 
 instance Hashable     PlatformValues
 instance ToByteString PlatformValues
@@ -1407,14 +1407,14 @@ instance FromText RIProductDescription where
         "windows" -> pure Windows
         "windows (amazon vpc)" -> pure WindowsAmazonVPC
         e -> fromTextError $ "Failure parsing RIProductDescription from value: '" <> e
-           <> "'. Accepted values: linux/unix, linux/unix (amazon vpc), windows, windows (amazon vpc)"
+           <> "'. Accepted values: Linux/UNIX, Linux/UNIX (Amazon VPC), Windows, Windows (Amazon VPC)"
 
 instance ToText RIProductDescription where
     toText = \case
-        LinuxUnix -> "linux/unix"
-        LinuxUnixAmazonVPC -> "linux/unix (amazon vpc)"
-        Windows -> "windows"
-        WindowsAmazonVPC -> "windows (amazon vpc)"
+        LinuxUnix -> "Linux/UNIX"
+        LinuxUnixAmazonVPC -> "Linux/UNIX (Amazon VPC)"
+        Windows -> "Windows"
+        WindowsAmazonVPC -> "Windows (Amazon VPC)"
 
 instance Hashable     RIProductDescription
 instance ToByteString RIProductDescription
@@ -1432,11 +1432,11 @@ instance FromText RecurringChargeFrequency where
     parser = takeLowerText >>= \case
         "hourly" -> pure Hourly
         e -> fromTextError $ "Failure parsing RecurringChargeFrequency from value: '" <> e
-           <> "'. Accepted values: hourly"
+           <> "'. Accepted values: Hourly"
 
 instance ToText RecurringChargeFrequency where
     toText = \case
-        Hourly -> "hourly"
+        Hourly -> "Hourly"
 
 instance Hashable     RecurringChargeFrequency
 instance ToByteString RecurringChargeFrequency
@@ -1550,11 +1550,11 @@ instance FromText ResetImageAttributeName where
     parser = takeLowerText >>= \case
         "launchpermission" -> pure RIANLaunchPermission
         e -> fromTextError $ "Failure parsing ResetImageAttributeName from value: '" <> e
-           <> "'. Accepted values: launchpermission"
+           <> "'. Accepted values: launchPermission"
 
 instance ToText ResetImageAttributeName where
     toText = \case
-        RIANLaunchPermission -> "launchpermission"
+        RIANLaunchPermission -> "launchPermission"
 
 instance Hashable     ResetImageAttributeName
 instance ToByteString ResetImageAttributeName
@@ -1643,13 +1643,13 @@ instance FromText RouteOrigin where
         "createroutetable" -> pure CreateRouteTable
         "enablevgwroutepropagation" -> pure EnableVGWRoutePropagation
         e -> fromTextError $ "Failure parsing RouteOrigin from value: '" <> e
-           <> "'. Accepted values: createroute, createroutetable, enablevgwroutepropagation"
+           <> "'. Accepted values: CreateRoute, CreateRouteTable, EnableVgwRoutePropagation"
 
 instance ToText RouteOrigin where
     toText = \case
-        CreateRoute -> "createroute"
-        CreateRouteTable -> "createroutetable"
-        EnableVGWRoutePropagation -> "enablevgwroutepropagation"
+        CreateRoute -> "CreateRoute"
+        CreateRouteTable -> "CreateRouteTable"
+        EnableVGWRoutePropagation -> "EnableVgwRoutePropagation"
 
 instance Hashable     RouteOrigin
 instance ToByteString RouteOrigin
@@ -1741,12 +1741,12 @@ instance FromText SnapshotAttributeName where
         "createvolumepermission" -> pure SANCreateVolumePermission
         "productcodes" -> pure SANProductCodes
         e -> fromTextError $ "Failure parsing SnapshotAttributeName from value: '" <> e
-           <> "'. Accepted values: createvolumepermission, productcodes"
+           <> "'. Accepted values: createVolumePermission, productCodes"
 
 instance ToText SnapshotAttributeName where
     toText = \case
-        SANCreateVolumePermission -> "createvolumepermission"
-        SANProductCodes -> "productcodes"
+        SANCreateVolumePermission -> "createVolumePermission"
+        SANProductCodes -> "productCodes"
 
 instance Hashable     SnapshotAttributeName
 instance ToByteString SnapshotAttributeName
@@ -1854,14 +1854,14 @@ instance FromText State where
         "deleting" -> pure Deleting
         "pending" -> pure Pending
         e -> fromTextError $ "Failure parsing State from value: '" <> e
-           <> "'. Accepted values: available, deleted, deleting, pending"
+           <> "'. Accepted values: Available, Deleted, Deleting, Pending"
 
 instance ToText State where
     toText = \case
-        Available -> "available"
-        Deleted -> "deleted"
-        Deleting -> "deleting"
-        Pending -> "pending"
+        Available -> "Available"
+        Deleted -> "Deleted"
+        Deleting -> "Deleting"
+        Pending -> "Pending"
 
 instance Hashable     State
 instance ToByteString State
@@ -1993,12 +1993,12 @@ instance FromText TelemetryStatus where
         "down" -> pure Down
         "up" -> pure UP
         e -> fromTextError $ "Failure parsing TelemetryStatus from value: '" <> e
-           <> "'. Accepted values: down, up"
+           <> "'. Accepted values: DOWN, UP"
 
 instance ToText TelemetryStatus where
     toText = \case
-        Down -> "down"
-        UP -> "up"
+        Down -> "DOWN"
+        UP -> "UP"
 
 instance Hashable     TelemetryStatus
 instance ToByteString TelemetryStatus
@@ -2045,13 +2045,13 @@ instance FromText TrafficType where
         "all" -> pure All
         "reject" -> pure Reject
         e -> fromTextError $ "Failure parsing TrafficType from value: '" <> e
-           <> "'. Accepted values: accept, all, reject"
+           <> "'. Accepted values: ACCEPT, ALL, REJECT"
 
 instance ToText TrafficType where
     toText = \case
-        Accept -> "accept"
-        All -> "all"
-        Reject -> "reject"
+        Accept -> "ACCEPT"
+        All -> "ALL"
+        Reject -> "REJECT"
 
 instance Hashable     TrafficType
 instance ToByteString TrafficType
@@ -2071,12 +2071,12 @@ instance FromText VPCAttributeName where
         "enablednshostnames" -> pure EnableDNSHostnames
         "enablednssupport" -> pure EnableDNSSupport
         e -> fromTextError $ "Failure parsing VPCAttributeName from value: '" <> e
-           <> "'. Accepted values: enablednshostnames, enablednssupport"
+           <> "'. Accepted values: enableDnsHostnames, enableDnsSupport"
 
 instance ToText VPCAttributeName where
     toText = \case
-        EnableDNSHostnames -> "enablednshostnames"
-        EnableDNSSupport -> "enablednssupport"
+        EnableDNSHostnames -> "enableDnsHostnames"
+        EnableDNSSupport -> "enableDnsSupport"
 
 instance Hashable     VPCAttributeName
 instance ToByteString VPCAttributeName
@@ -2193,11 +2193,11 @@ instance FromText VPNStaticRouteSource where
     parser = takeLowerText >>= \case
         "static" -> pure Static
         e -> fromTextError $ "Failure parsing VPNStaticRouteSource from value: '" <> e
-           <> "'. Accepted values: static"
+           <> "'. Accepted values: Static"
 
 instance ToText VPNStaticRouteSource where
     toText = \case
-        Static -> "static"
+        Static -> "Static"
 
 instance Hashable     VPNStaticRouteSource
 instance ToByteString VPNStaticRouteSource
@@ -2273,12 +2273,12 @@ instance FromText VolumeAttributeName where
         "autoenableio" -> pure VANAutoEnableIO
         "productcodes" -> pure VANProductCodes
         e -> fromTextError $ "Failure parsing VolumeAttributeName from value: '" <> e
-           <> "'. Accepted values: autoenableio, productcodes"
+           <> "'. Accepted values: autoEnableIO, productCodes"
 
 instance ToText VolumeAttributeName where
     toText = \case
-        VANAutoEnableIO -> "autoenableio"
-        VANProductCodes -> "productcodes"
+        VANAutoEnableIO -> "autoEnableIO"
+        VANProductCodes -> "productCodes"
 
 instance Hashable     VolumeAttributeName
 instance ToByteString VolumeAttributeName

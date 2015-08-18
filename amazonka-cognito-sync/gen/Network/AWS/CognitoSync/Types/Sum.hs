@@ -33,14 +33,14 @@ instance FromText BulkPublishStatus where
         "not_started" -> pure NotStarted
         "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing BulkPublishStatus from value: '" <> e
-           <> "'. Accepted values: failed, in_progress, not_started, succeeded"
+           <> "'. Accepted values: FAILED, IN_PROGRESS, NOT_STARTED, SUCCEEDED"
 
 instance ToText BulkPublishStatus where
     toText = \case
-        Failed -> "failed"
-        InProgress -> "in_progress"
-        NotStarted -> "not_started"
-        Succeeded -> "succeeded"
+        Failed -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+        NotStarted -> "NOT_STARTED"
+        Succeeded -> "SUCCEEDED"
 
 instance Hashable     BulkPublishStatus
 instance ToByteString BulkPublishStatus
@@ -89,14 +89,14 @@ instance FromText Platform where
         "apns_sandbox" -> pure APNSSandbox
         "gcm" -> pure GCM
         e -> fromTextError $ "Failure parsing Platform from value: '" <> e
-           <> "'. Accepted values: adm, apns, apns_sandbox, gcm"
+           <> "'. Accepted values: ADM, APNS, APNS_SANDBOX, GCM"
 
 instance ToText Platform where
     toText = \case
-        ADM -> "adm"
-        APNS -> "apns"
-        APNSSandbox -> "apns_sandbox"
-        GCM -> "gcm"
+        ADM -> "ADM"
+        APNS -> "APNS"
+        APNSSandbox -> "APNS_SANDBOX"
+        GCM -> "GCM"
 
 instance Hashable     Platform
 instance ToByteString Platform
@@ -116,12 +116,12 @@ instance FromText StreamingStatus where
         "disabled" -> pure Disabled
         "enabled" -> pure Enabled
         e -> fromTextError $ "Failure parsing StreamingStatus from value: '" <> e
-           <> "'. Accepted values: disabled, enabled"
+           <> "'. Accepted values: DISABLED, ENABLED"
 
 instance ToText StreamingStatus where
     toText = \case
-        Disabled -> "disabled"
-        Enabled -> "enabled"
+        Disabled -> "DISABLED"
+        Enabled -> "ENABLED"
 
 instance Hashable     StreamingStatus
 instance ToByteString StreamingStatus

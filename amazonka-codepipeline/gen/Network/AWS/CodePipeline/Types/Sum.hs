@@ -35,15 +35,15 @@ instance FromText ActionCategory where
         "source" -> pure Source
         "test" -> pure Test
         e -> fromTextError $ "Failure parsing ActionCategory from value: '" <> e
-           <> "'. Accepted values: build, deploy, invoke, source, test"
+           <> "'. Accepted values: Build, Deploy, Invoke, Source, Test"
 
 instance ToText ActionCategory where
     toText = \case
-        Build -> "build"
-        Deploy -> "deploy"
-        Invoke -> "invoke"
-        Source -> "source"
-        Test -> "test"
+        Build -> "Build"
+        Deploy -> "Deploy"
+        Invoke -> "Invoke"
+        Source -> "Source"
+        Test -> "Test"
 
 instance Hashable     ActionCategory
 instance ToByteString ActionCategory
@@ -68,13 +68,13 @@ instance FromText ActionConfigurationPropertyType where
         "number" -> pure Number
         "string" -> pure String
         e -> fromTextError $ "Failure parsing ActionConfigurationPropertyType from value: '" <> e
-           <> "'. Accepted values: boolean, number, string"
+           <> "'. Accepted values: Boolean, Number, String"
 
 instance ToText ActionConfigurationPropertyType where
     toText = \case
-        Boolean -> "boolean"
-        Number -> "number"
-        String -> "string"
+        Boolean -> "Boolean"
+        Number -> "Number"
+        String -> "String"
 
 instance Hashable     ActionConfigurationPropertyType
 instance ToByteString ActionConfigurationPropertyType
@@ -99,13 +99,13 @@ instance FromText ActionExecutionStatus where
         "inprogress" -> pure InProgress
         "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing ActionExecutionStatus from value: '" <> e
-           <> "'. Accepted values: failed, inprogress, succeeded"
+           <> "'. Accepted values: Failed, InProgress, Succeeded"
 
 instance ToText ActionExecutionStatus where
     toText = \case
-        Failed -> "failed"
-        InProgress -> "inprogress"
-        Succeeded -> "succeeded"
+        Failed -> "Failed"
+        InProgress -> "InProgress"
+        Succeeded -> "Succeeded"
 
 instance Hashable     ActionExecutionStatus
 instance ToByteString ActionExecutionStatus
@@ -127,13 +127,13 @@ instance FromText ActionOwner where
         "custom" -> pure Custom
         "thirdparty" -> pure ThirdParty
         e -> fromTextError $ "Failure parsing ActionOwner from value: '" <> e
-           <> "'. Accepted values: aws, custom, thirdparty"
+           <> "'. Accepted values: AWS, Custom, ThirdParty"
 
 instance ToText ActionOwner where
     toText = \case
-        AWS -> "aws"
-        Custom -> "custom"
-        ThirdParty -> "thirdparty"
+        AWS -> "AWS"
+        Custom -> "Custom"
+        ThirdParty -> "ThirdParty"
 
 instance Hashable     ActionOwner
 instance ToByteString ActionOwner
@@ -154,11 +154,11 @@ instance FromText ArtifactLocationType where
     parser = takeLowerText >>= \case
         "s3" -> pure ALTS3
         e -> fromTextError $ "Failure parsing ArtifactLocationType from value: '" <> e
-           <> "'. Accepted values: s3"
+           <> "'. Accepted values: S3"
 
 instance ToText ArtifactLocationType where
     toText = \case
-        ALTS3 -> "s3"
+        ALTS3 -> "S3"
 
 instance Hashable     ArtifactLocationType
 instance ToByteString ArtifactLocationType
@@ -176,11 +176,11 @@ instance FromText ArtifactStoreType where
     parser = takeLowerText >>= \case
         "s3" -> pure S3
         e -> fromTextError $ "Failure parsing ArtifactStoreType from value: '" <> e
-           <> "'. Accepted values: s3"
+           <> "'. Accepted values: S3"
 
 instance ToText ArtifactStoreType where
     toText = \case
-        S3 -> "s3"
+        S3 -> "S3"
 
 instance Hashable     ArtifactStoreType
 instance ToByteString ArtifactStoreType
@@ -201,11 +201,11 @@ instance FromText BlockerType where
     parser = takeLowerText >>= \case
         "schedule" -> pure Schedule
         e -> fromTextError $ "Failure parsing BlockerType from value: '" <> e
-           <> "'. Accepted values: schedule"
+           <> "'. Accepted values: Schedule"
 
 instance ToText BlockerType where
     toText = \case
-        Schedule -> "schedule"
+        Schedule -> "Schedule"
 
 instance Hashable     BlockerType
 instance ToByteString BlockerType
@@ -236,16 +236,16 @@ instance FromText FailureType where
         "revisionunavailable" -> pure RevisionUnavailable
         "systemunavailable" -> pure SystemUnavailable
         e -> fromTextError $ "Failure parsing FailureType from value: '" <> e
-           <> "'. Accepted values: configurationerror, jobfailed, permissionerror, revisionoutofsync, revisionunavailable, systemunavailable"
+           <> "'. Accepted values: ConfigurationError, JobFailed, PermissionError, RevisionOutOfSync, RevisionUnavailable, SystemUnavailable"
 
 instance ToText FailureType where
     toText = \case
-        ConfigurationError -> "configurationerror"
-        JobFailed -> "jobfailed"
-        PermissionError -> "permissionerror"
-        RevisionOutOfSync -> "revisionoutofsync"
-        RevisionUnavailable -> "revisionunavailable"
-        SystemUnavailable -> "systemunavailable"
+        ConfigurationError -> "ConfigurationError"
+        JobFailed -> "JobFailed"
+        PermissionError -> "PermissionError"
+        RevisionOutOfSync -> "RevisionOutOfSync"
+        RevisionUnavailable -> "RevisionUnavailable"
+        SystemUnavailable -> "SystemUnavailable"
 
 instance Hashable     FailureType
 instance ToByteString FailureType
@@ -275,17 +275,17 @@ instance FromText JobStatus where
         "succeeded" -> pure JSSucceeded
         "timedout" -> pure JSTimedOut
         e -> fromTextError $ "Failure parsing JobStatus from value: '" <> e
-           <> "'. Accepted values: created, dispatched, failed, inprogress, queued, succeeded, timedout"
+           <> "'. Accepted values: Created, Dispatched, Failed, InProgress, Queued, Succeeded, TimedOut"
 
 instance ToText JobStatus where
     toText = \case
-        JSCreated -> "created"
-        JSDispatched -> "dispatched"
-        JSFailed -> "failed"
-        JSInProgress -> "inprogress"
-        JSQueued -> "queued"
-        JSSucceeded -> "succeeded"
-        JSTimedOut -> "timedout"
+        JSCreated -> "Created"
+        JSDispatched -> "Dispatched"
+        JSFailed -> "Failed"
+        JSInProgress -> "InProgress"
+        JSQueued -> "Queued"
+        JSSucceeded -> "Succeeded"
+        JSTimedOut -> "TimedOut"
 
 instance Hashable     JobStatus
 instance ToByteString JobStatus
@@ -305,12 +305,12 @@ instance FromText StageTransitionType where
         "inbound" -> pure Inbound
         "outbound" -> pure Outbound
         e -> fromTextError $ "Failure parsing StageTransitionType from value: '" <> e
-           <> "'. Accepted values: inbound, outbound"
+           <> "'. Accepted values: Inbound, Outbound"
 
 instance ToText StageTransitionType where
     toText = \case
-        Inbound -> "inbound"
-        Outbound -> "outbound"
+        Inbound -> "Inbound"
+        Outbound -> "Outbound"
 
 instance Hashable     StageTransitionType
 instance ToByteString StageTransitionType

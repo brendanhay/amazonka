@@ -26,7 +26,16 @@ tests = []
 
 fixtures :: [TestTree]
 fixtures =
-    [ testGroup "response"
+    [ testGroup "request"
+         [ testDescribeVolumes $ describeVolumes
+             & desVolumeIds .~ ["foo", "bar", "baz"]
+             & desFilters   .~
+                 [ filter' "tag:Name" & fValues .~ ["octopus"]
+                 , filter' "tag:Role" & fValues .~ ["database", "server"]
+                 ]
+        ]
+
+    , testGroup "response"
         [ testDescribeInstancesResponse $ describeInstancesResponse 200
             & dirsReservations .~
                 [ reservation "r-1a2b3c4d" "123456789012"

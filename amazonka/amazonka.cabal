@@ -1,5 +1,5 @@
 name:                  amazonka
-version:               1.0.0
+version:               1.0.1
 synopsis:              Comprehensive Amazon Web Services SDK
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -60,7 +60,7 @@ library
         , Network.AWS.Internal.Logger
 
     build-depends:
-          amazonka-core       == 1.0.0.*
+          amazonka-core       == 1.0.1.*
         , base                >= 4.7     && < 5
         , bytestring          >= 0.9
         , conduit             >= 1.1

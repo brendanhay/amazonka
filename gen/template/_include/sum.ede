@@ -6,7 +6,7 @@
 instance FromText {{ shape.name }} where
     parser = takeLowerText >>= \case
       {% for ctor in shape.constructors %}
-        "{{ ctor.value }}" -> pure {{ ctor.key }}
+        "{{ ctor.value | toLower }}" -> pure {{ ctor.key }}
       {% endfor %}
         e -> fromTextError $ "Failure parsing {{ shape.name }} from value: '" <> e
            <> "'. Accepted values: {% for c in shape.constructors %}{{ c.value }}{% if !c.last %}, {% endif %}{%endfor %}"

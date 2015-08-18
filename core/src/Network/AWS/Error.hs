@@ -86,9 +86,15 @@ parseJSONError a s h bs = decodeError a s h bs (parse bs)
     parse = eitherDecode' >=> parseEither (withObject "JSONError" go)
 
     go o = do
-        c <- (Just <$> o .: "__type") <|> o .:? "code"
+        c <- fmap strip <$> (Just <$> o .: "__type") <|> o .:? "code"
         m <- msg c o
         return $! serviceError a s h c m Nothing
+
+    strip (ErrorCode x) = ErrorCode $
+        let (ns, e) = Text.break (== '#') x
+         in if Text.null e
+               then ns
+               else Text.init e
 
     msg c o =
         if c == Just "RequestEntityTooLarge"

@@ -19,6 +19,7 @@ module Gen.Protocol
     , suffix
     ) where
 
+import           Control.Applicative
 import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Maybe
@@ -56,11 +57,20 @@ nestedNames p d n r =
 
 listNames :: Protocol -> Direction -> Id -> RefF a -> ListF a -> Names
 listNames p d n r l
-     | flatten p d l = NList Nothing   (fromMaybe mn ln)
+     | flatten p d l = NList Nothing   rn
      | otherwise     = NList (Just mn) (fromMaybe "member" ln)
   where
-    mn = name p d n r
+    -- Flattened member names
+    rn | p == EC2,   d == Input = upperHead (fromMaybe mn qrn)
+       | p == Query, d == Input = fromMaybe mn ln
+       | otherwise              = fromMaybe mn ln
+      where
+        qrn = r ^. refQueryName <|> r ^. refLocationName
+
+    -- Non-flattened member name
     ln = l ^. listItem . refLocationName
+
+    mn = name p d n r
 
      -- Member, [item]
 

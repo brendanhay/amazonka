@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
+ {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeFamilies      #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}

@@ -74,12 +74,15 @@ instance Functor Command where
 
 #if MIN_VERSION_free(4,12,0)
 #else
-instance MonadThrow m => MonadThrow (FT Command m) where
+instance MonadThrow m => MonadThrow (FreeT Command m) where
     throwM = lift . throwM
 
 instance MonadCatch m => MonadCatch (FreeT Command m) where
     catch (FreeT m) f = FreeT $
         liftM (fmap (`catch` f)) m `catch` (runFreeT . f)
+
+instance MonadThrow m => MonadThrow (FT Command m) where
+    throwM = lift . throwM
 
 instance MonadCatch m => MonadCatch (FT Command m) where
     catch m f = toFT $ fromFT m `catch` (fromFT . f)

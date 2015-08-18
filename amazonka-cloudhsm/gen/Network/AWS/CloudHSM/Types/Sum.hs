@@ -56,13 +56,13 @@ instance FromText CloudHSMObjectState where
         "ready" -> pure Ready
         "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing CloudHSMObjectState from value: '" <> e
-           <> "'. Accepted values: degraded, ready, updating"
+           <> "'. Accepted values: DEGRADED, READY, UPDATING"
 
 instance ToText CloudHSMObjectState where
     toText = \case
-        Degraded -> "degraded"
-        Ready -> "ready"
-        Updating -> "updating"
+        Degraded -> "DEGRADED"
+        Ready -> "READY"
+        Updating -> "UPDATING"
 
 instance Hashable     CloudHSMObjectState
 instance ToByteString CloudHSMObjectState
@@ -92,17 +92,17 @@ instance FromText HSMStatus where
         "terminating" -> pure HSTerminating
         "updating" -> pure HSUpdating
         e -> fromTextError $ "Failure parsing HSMStatus from value: '" <> e
-           <> "'. Accepted values: degraded, pending, running, suspended, terminated, terminating, updating"
+           <> "'. Accepted values: DEGRADED, PENDING, RUNNING, SUSPENDED, TERMINATED, TERMINATING, UPDATING"
 
 instance ToText HSMStatus where
     toText = \case
-        HSDegraded -> "degraded"
-        HSPending -> "pending"
-        HSRunning -> "running"
-        HSSuspended -> "suspended"
-        HSTerminated -> "terminated"
-        HSTerminating -> "terminating"
-        HSUpdating -> "updating"
+        HSDegraded -> "DEGRADED"
+        HSPending -> "PENDING"
+        HSRunning -> "RUNNING"
+        HSSuspended -> "SUSPENDED"
+        HSTerminated -> "TERMINATED"
+        HSTerminating -> "TERMINATING"
+        HSUpdating -> "UPDATING"
 
 instance Hashable     HSMStatus
 instance ToByteString HSMStatus
@@ -120,11 +120,11 @@ instance FromText SubscriptionType where
     parser = takeLowerText >>= \case
         "production" -> pure Production
         e -> fromTextError $ "Failure parsing SubscriptionType from value: '" <> e
-           <> "'. Accepted values: production"
+           <> "'. Accepted values: PRODUCTION"
 
 instance ToText SubscriptionType where
     toText = \case
-        Production -> "production"
+        Production -> "PRODUCTION"
 
 instance Hashable     SubscriptionType
 instance ToByteString SubscriptionType

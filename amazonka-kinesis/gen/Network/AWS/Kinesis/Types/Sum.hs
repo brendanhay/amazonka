@@ -33,14 +33,14 @@ instance FromText ShardIteratorType where
         "latest" -> pure Latest
         "trim_horizon" -> pure TrimHorizon
         e -> fromTextError $ "Failure parsing ShardIteratorType from value: '" <> e
-           <> "'. Accepted values: after_sequence_number, at_sequence_number, latest, trim_horizon"
+           <> "'. Accepted values: AFTER_SEQUENCE_NUMBER, AT_SEQUENCE_NUMBER, LATEST, TRIM_HORIZON"
 
 instance ToText ShardIteratorType where
     toText = \case
-        AfterSequenceNumber -> "after_sequence_number"
-        AtSequenceNumber -> "at_sequence_number"
-        Latest -> "latest"
-        TrimHorizon -> "trim_horizon"
+        AfterSequenceNumber -> "AFTER_SEQUENCE_NUMBER"
+        AtSequenceNumber -> "AT_SEQUENCE_NUMBER"
+        Latest -> "LATEST"
+        TrimHorizon -> "TRIM_HORIZON"
 
 instance Hashable     ShardIteratorType
 instance ToByteString ShardIteratorType
@@ -64,14 +64,14 @@ instance FromText StreamStatus where
         "deleting" -> pure Deleting
         "updating" -> pure Updating
         e -> fromTextError $ "Failure parsing StreamStatus from value: '" <> e
-           <> "'. Accepted values: active, creating, deleting, updating"
+           <> "'. Accepted values: ACTIVE, CREATING, DELETING, UPDATING"
 
 instance ToText StreamStatus where
     toText = \case
-        Active -> "active"
-        Creating -> "creating"
-        Deleting -> "deleting"
-        Updating -> "updating"
+        Active -> "ACTIVE"
+        Creating -> "CREATING"
+        Deleting -> "DELETING"
+        Updating -> "UPDATING"
 
 instance Hashable     StreamStatus
 instance ToByteString StreamStatus

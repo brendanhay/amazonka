@@ -35,15 +35,15 @@ instance FromText OperatorType where
         "le" -> pure OperatorLE
         "ref_eq" -> pure OperatorRefEQ
         e -> fromTextError $ "Failure parsing OperatorType from value: '" <> e
-           <> "'. Accepted values: between, eq, ge, le, ref_eq"
+           <> "'. Accepted values: BETWEEN, EQ, GE, LE, REF_EQ"
 
 instance ToText OperatorType where
     toText = \case
-        OperatorBetween -> "between"
-        OperatorEQ' -> "eq"
-        OperatorGE -> "ge"
-        OperatorLE -> "le"
-        OperatorRefEQ -> "ref_eq"
+        OperatorBetween -> "BETWEEN"
+        OperatorEQ' -> "EQ"
+        OperatorGE -> "GE"
+        OperatorLE -> "LE"
+        OperatorRefEQ -> "REF_EQ"
 
 instance Hashable     OperatorType
 instance ToByteString OperatorType
@@ -65,13 +65,13 @@ instance FromText TaskStatus where
         "false" -> pure False'
         "finished" -> pure Finished
         e -> fromTextError $ "Failure parsing TaskStatus from value: '" <> e
-           <> "'. Accepted values: failed, false, finished"
+           <> "'. Accepted values: FAILED, FALSE, FINISHED"
 
 instance ToText TaskStatus where
     toText = \case
-        Failed -> "failed"
-        False' -> "false"
-        Finished -> "finished"
+        Failed -> "FAILED"
+        False' -> "FALSE"
+        Finished -> "FINISHED"
 
 instance Hashable     TaskStatus
 instance ToByteString TaskStatus

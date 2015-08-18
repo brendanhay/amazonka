@@ -32,13 +32,13 @@ instance FromText ChangeAction where
         "delete" -> pure Delete
         "upsert" -> pure Upsert
         e -> fromTextError $ "Failure parsing ChangeAction from value: '" <> e
-           <> "'. Accepted values: create, delete, upsert"
+           <> "'. Accepted values: CREATE, DELETE, UPSERT"
 
 instance ToText ChangeAction where
     toText = \case
-        Create -> "create"
-        Delete -> "delete"
-        Upsert -> "upsert"
+        Create -> "CREATE"
+        Delete -> "DELETE"
+        Upsert -> "UPSERT"
 
 instance Hashable     ChangeAction
 instance ToByteString ChangeAction
@@ -58,12 +58,12 @@ instance FromText ChangeStatus where
         "insync" -> pure Insync
         "pending" -> pure Pending
         e -> fromTextError $ "Failure parsing ChangeStatus from value: '" <> e
-           <> "'. Accepted values: insync, pending"
+           <> "'. Accepted values: INSYNC, PENDING"
 
 instance ToText ChangeStatus where
     toText = \case
-        Insync -> "insync"
-        Pending -> "pending"
+        Insync -> "INSYNC"
+        Pending -> "PENDING"
 
 instance Hashable     ChangeStatus
 instance ToByteString ChangeStatus
@@ -83,12 +83,12 @@ instance FromText Failover where
         "primary" -> pure Primary
         "secondary" -> pure Secondary
         e -> fromTextError $ "Failure parsing Failover from value: '" <> e
-           <> "'. Accepted values: primary, secondary"
+           <> "'. Accepted values: PRIMARY, SECONDARY"
 
 instance ToText Failover where
     toText = \case
-        Primary -> "primary"
-        Secondary -> "secondary"
+        Primary -> "PRIMARY"
+        Secondary -> "SECONDARY"
 
 instance Hashable     Failover
 instance ToByteString Failover
@@ -117,15 +117,15 @@ instance FromText HealthCheckType where
         "http_str_match" -> pure HTTPStrMatch
         "tcp" -> pure TCP
         e -> fromTextError $ "Failure parsing HealthCheckType from value: '" <> e
-           <> "'. Accepted values: http, https, https_str_match, http_str_match, tcp"
+           <> "'. Accepted values: HTTP, HTTPS, HTTPS_STR_MATCH, HTTP_STR_MATCH, TCP"
 
 instance ToText HealthCheckType where
     toText = \case
-        HTTP -> "http"
-        HTTPS -> "https"
-        HTTPSStrMatch -> "https_str_match"
-        HTTPStrMatch -> "http_str_match"
-        TCP -> "tcp"
+        HTTP -> "HTTP"
+        HTTPS -> "HTTPS"
+        HTTPSStrMatch -> "HTTPS_STR_MATCH"
+        HTTPStrMatch -> "HTTP_STR_MATCH"
+        TCP -> "TCP"
 
 instance Hashable     HealthCheckType
 instance ToByteString HealthCheckType
@@ -164,20 +164,20 @@ instance FromText RecordType where
         "srv" -> pure Srv
         "txt" -> pure Txt
         e -> fromTextError $ "Failure parsing RecordType from value: '" <> e
-           <> "'. Accepted values: a, aaaa, cname, mx, ns, ptr, soa, spf, srv, txt"
+           <> "'. Accepted values: A, AAAA, CNAME, MX, NS, PTR, SOA, SPF, SRV, TXT"
 
 instance ToText RecordType where
     toText = \case
-        A -> "a"
-        Aaaa -> "aaaa"
-        Cname -> "cname"
-        MX -> "mx"
-        NS -> "ns"
-        Ptr -> "ptr"
-        Soa -> "soa"
-        Spf -> "spf"
-        Srv -> "srv"
-        Txt -> "txt"
+        A -> "A"
+        Aaaa -> "AAAA"
+        Cname -> "CNAME"
+        MX -> "MX"
+        NS -> "NS"
+        Ptr -> "PTR"
+        Soa -> "SOA"
+        Spf -> "SPF"
+        Srv -> "SRV"
+        Txt -> "TXT"
 
 instance Hashable     RecordType
 instance ToByteString RecordType

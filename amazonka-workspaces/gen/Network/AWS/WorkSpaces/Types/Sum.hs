@@ -31,13 +31,13 @@ instance FromText Compute where
         "standard" -> pure Standard
         "value" -> pure Value
         e -> fromTextError $ "Failure parsing Compute from value: '" <> e
-           <> "'. Accepted values: performance, standard, value"
+           <> "'. Accepted values: PERFORMANCE, STANDARD, VALUE"
 
 instance ToText Compute where
     toText = \case
-        Performance -> "performance"
-        Standard -> "standard"
-        Value -> "value"
+        Performance -> "PERFORMANCE"
+        Standard -> "STANDARD"
+        Value -> "VALUE"
 
 instance Hashable     Compute
 instance ToByteString Compute
@@ -63,15 +63,15 @@ instance FromText WorkspaceDirectoryState where
         "registered" -> pure Registered
         "registering" -> pure Registering
         e -> fromTextError $ "Failure parsing WorkspaceDirectoryState from value: '" <> e
-           <> "'. Accepted values: deregistered, deregistering, error, registered, registering"
+           <> "'. Accepted values: DEREGISTERED, DEREGISTERING, ERROR, REGISTERED, REGISTERING"
 
 instance ToText WorkspaceDirectoryState where
     toText = \case
-        Deregistered -> "deregistered"
-        Deregistering -> "deregistering"
-        Error' -> "error"
-        Registered -> "registered"
-        Registering -> "registering"
+        Deregistered -> "DEREGISTERED"
+        Deregistering -> "DEREGISTERING"
+        Error' -> "ERROR"
+        Registered -> "REGISTERED"
+        Registering -> "REGISTERING"
 
 instance Hashable     WorkspaceDirectoryState
 instance ToByteString WorkspaceDirectoryState
@@ -91,12 +91,12 @@ instance FromText WorkspaceDirectoryType where
         "ad_connector" -> pure AdConnector
         "simple_ad" -> pure SimpleAd
         e -> fromTextError $ "Failure parsing WorkspaceDirectoryType from value: '" <> e
-           <> "'. Accepted values: ad_connector, simple_ad"
+           <> "'. Accepted values: AD_CONNECTOR, SIMPLE_AD"
 
 instance ToText WorkspaceDirectoryType where
     toText = \case
-        AdConnector -> "ad_connector"
-        SimpleAd -> "simple_ad"
+        AdConnector -> "AD_CONNECTOR"
+        SimpleAd -> "SIMPLE_AD"
 
 instance Hashable     WorkspaceDirectoryType
 instance ToByteString WorkspaceDirectoryType
@@ -132,20 +132,20 @@ instance FromText WorkspaceState where
         "terminating" -> pure WSTerminating
         "unhealthy" -> pure WSUnhealthy
         e -> fromTextError $ "Failure parsing WorkspaceState from value: '" <> e
-           <> "'. Accepted values: available, error, impaired, pending, rebooting, rebuilding, suspended, terminated, terminating, unhealthy"
+           <> "'. Accepted values: AVAILABLE, ERROR, IMPAIRED, PENDING, REBOOTING, REBUILDING, SUSPENDED, TERMINATED, TERMINATING, UNHEALTHY"
 
 instance ToText WorkspaceState where
     toText = \case
-        WSAvailable -> "available"
-        WSError' -> "error"
-        WSImpaired -> "impaired"
-        WSPending -> "pending"
-        WSRebooting -> "rebooting"
-        WSRebuilding -> "rebuilding"
-        WSSuspended -> "suspended"
-        WSTerminated -> "terminated"
-        WSTerminating -> "terminating"
-        WSUnhealthy -> "unhealthy"
+        WSAvailable -> "AVAILABLE"
+        WSError' -> "ERROR"
+        WSImpaired -> "IMPAIRED"
+        WSPending -> "PENDING"
+        WSRebooting -> "REBOOTING"
+        WSRebuilding -> "REBUILDING"
+        WSSuspended -> "SUSPENDED"
+        WSTerminated -> "TERMINATED"
+        WSTerminating -> "TERMINATING"
+        WSUnhealthy -> "UNHEALTHY"
 
 instance Hashable     WorkspaceState
 instance ToByteString WorkspaceState

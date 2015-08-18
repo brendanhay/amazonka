@@ -33,14 +33,14 @@ instance FromText ComparisonOperator where
         "lessthanorequaltothreshold" -> pure LessThanOrEqualToThreshold
         "lessthanthreshold" -> pure LessThanThreshold
         e -> fromTextError $ "Failure parsing ComparisonOperator from value: '" <> e
-           <> "'. Accepted values: greaterthanorequaltothreshold, greaterthanthreshold, lessthanorequaltothreshold, lessthanthreshold"
+           <> "'. Accepted values: GreaterThanOrEqualToThreshold, GreaterThanThreshold, LessThanOrEqualToThreshold, LessThanThreshold"
 
 instance ToText ComparisonOperator where
     toText = \case
-        GreaterThanOrEqualToThreshold -> "greaterthanorequaltothreshold"
-        GreaterThanThreshold -> "greaterthanthreshold"
-        LessThanOrEqualToThreshold -> "lessthanorequaltothreshold"
-        LessThanThreshold -> "lessthanthreshold"
+        GreaterThanOrEqualToThreshold -> "GreaterThanOrEqualToThreshold"
+        GreaterThanThreshold -> "GreaterThanThreshold"
+        LessThanOrEqualToThreshold -> "LessThanOrEqualToThreshold"
+        LessThanThreshold -> "LessThanThreshold"
 
 instance Hashable     ComparisonOperator
 instance ToByteString ComparisonOperator
@@ -62,13 +62,13 @@ instance FromText HistoryItemType where
         "configurationupdate" -> pure ConfigurationUpdate
         "stateupdate" -> pure StateUpdate
         e -> fromTextError $ "Failure parsing HistoryItemType from value: '" <> e
-           <> "'. Accepted values: action, configurationupdate, stateupdate"
+           <> "'. Accepted values: Action, ConfigurationUpdate, StateUpdate"
 
 instance ToText HistoryItemType where
     toText = \case
-        Action -> "action"
-        ConfigurationUpdate -> "configurationupdate"
-        StateUpdate -> "stateupdate"
+        Action -> "Action"
+        ConfigurationUpdate -> "ConfigurationUpdate"
+        StateUpdate -> "StateUpdate"
 
 instance Hashable     HistoryItemType
 instance ToByteString HistoryItemType
@@ -138,37 +138,37 @@ instance FromText StandardUnit where
         "terabytes" -> pure Terabytes
         "terabytes/second" -> pure TerabytesSecond
         e -> fromTextError $ "Failure parsing StandardUnit from value: '" <> e
-           <> "'. Accepted values: bits, bits/second, bytes, bytes/second, count, count/second, gigabits, gigabits/second, gigabytes, gigabytes/second, kilobits, kilobits/second, kilobytes, kilobytes/second, megabits, megabits/second, megabytes, megabytes/second, microseconds, milliseconds, none, percent, seconds, terabits, terabits/second, terabytes, terabytes/second"
+           <> "'. Accepted values: Bits, Bits/Second, Bytes, Bytes/Second, Count, Count/Second, Gigabits, Gigabits/Second, Gigabytes, Gigabytes/Second, Kilobits, Kilobits/Second, Kilobytes, Kilobytes/Second, Megabits, Megabits/Second, Megabytes, Megabytes/Second, Microseconds, Milliseconds, None, Percent, Seconds, Terabits, Terabits/Second, Terabytes, Terabytes/Second"
 
 instance ToText StandardUnit where
     toText = \case
-        Bits -> "bits"
-        BitsSecond -> "bits/second"
-        Bytes -> "bytes"
-        BytesSecond -> "bytes/second"
-        Count -> "count"
-        CountSecond -> "count/second"
-        Gigabits -> "gigabits"
-        GigabitsSecond -> "gigabits/second"
-        Gigabytes -> "gigabytes"
-        GigabytesSecond -> "gigabytes/second"
-        Kilobits -> "kilobits"
-        KilobitsSecond -> "kilobits/second"
-        Kilobytes -> "kilobytes"
-        KilobytesSecond -> "kilobytes/second"
-        Megabits -> "megabits"
-        MegabitsSecond -> "megabits/second"
-        Megabytes -> "megabytes"
-        MegabytesSecond -> "megabytes/second"
-        Microseconds -> "microseconds"
-        Milliseconds -> "milliseconds"
-        None -> "none"
-        Percent -> "percent"
-        Seconds -> "seconds"
-        Terabits -> "terabits"
-        TerabitsSecond -> "terabits/second"
-        Terabytes -> "terabytes"
-        TerabytesSecond -> "terabytes/second"
+        Bits -> "Bits"
+        BitsSecond -> "Bits/Second"
+        Bytes -> "Bytes"
+        BytesSecond -> "Bytes/Second"
+        Count -> "Count"
+        CountSecond -> "Count/Second"
+        Gigabits -> "Gigabits"
+        GigabitsSecond -> "Gigabits/Second"
+        Gigabytes -> "Gigabytes"
+        GigabytesSecond -> "Gigabytes/Second"
+        Kilobits -> "Kilobits"
+        KilobitsSecond -> "Kilobits/Second"
+        Kilobytes -> "Kilobytes"
+        KilobytesSecond -> "Kilobytes/Second"
+        Megabits -> "Megabits"
+        MegabitsSecond -> "Megabits/Second"
+        Megabytes -> "Megabytes"
+        MegabytesSecond -> "Megabytes/Second"
+        Microseconds -> "Microseconds"
+        Milliseconds -> "Milliseconds"
+        None -> "None"
+        Percent -> "Percent"
+        Seconds -> "Seconds"
+        Terabits -> "Terabits"
+        TerabitsSecond -> "Terabits/Second"
+        Terabytes -> "Terabytes"
+        TerabytesSecond -> "Terabytes/Second"
 
 instance Hashable     StandardUnit
 instance ToByteString StandardUnit
@@ -190,13 +190,13 @@ instance FromText StateValue where
         "insufficient_data" -> pure InsufficientData
         "ok" -> pure OK
         e -> fromTextError $ "Failure parsing StateValue from value: '" <> e
-           <> "'. Accepted values: alarm, insufficient_data, ok"
+           <> "'. Accepted values: ALARM, INSUFFICIENT_DATA, OK"
 
 instance ToText StateValue where
     toText = \case
-        Alarm -> "alarm"
-        InsufficientData -> "insufficient_data"
-        OK -> "ok"
+        Alarm -> "ALARM"
+        InsufficientData -> "INSUFFICIENT_DATA"
+        OK -> "OK"
 
 instance Hashable     StateValue
 instance ToByteString StateValue
@@ -222,15 +222,15 @@ instance FromText Statistic where
         "samplecount" -> pure SampleCount
         "sum" -> pure Sum
         e -> fromTextError $ "Failure parsing Statistic from value: '" <> e
-           <> "'. Accepted values: average, maximum, minimum, samplecount, sum"
+           <> "'. Accepted values: Average, Maximum, Minimum, SampleCount, Sum"
 
 instance ToText Statistic where
     toText = \case
-        Average -> "average"
-        Maximum -> "maximum"
-        Minimum -> "minimum"
-        SampleCount -> "samplecount"
-        Sum -> "sum"
+        Average -> "Average"
+        Maximum -> "Maximum"
+        Minimum -> "Minimum"
+        SampleCount -> "SampleCount"
+        Sum -> "Sum"
 
 instance Hashable     Statistic
 instance ToByteString Statistic

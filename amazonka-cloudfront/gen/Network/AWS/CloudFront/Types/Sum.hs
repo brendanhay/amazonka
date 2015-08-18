@@ -101,17 +101,17 @@ instance FromText Method where
         "post" -> pure Post
         "put" -> pure Put
         e -> fromTextError $ "Failure parsing Method from value: '" <> e
-           <> "'. Accepted values: delete, get, head, options, patch, post, put"
+           <> "'. Accepted values: DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT"
 
 instance ToText Method where
     toText = \case
-        Delete -> "delete"
-        Get -> "get"
-        Head -> "head"
-        Options -> "options"
-        Patch -> "patch"
-        Post -> "post"
-        Put -> "put"
+        Delete -> "DELETE"
+        Get -> "GET"
+        Head -> "HEAD"
+        Options -> "OPTIONS"
+        Patch -> "PATCH"
+        Post -> "POST"
+        Put -> "PUT"
 
 instance Hashable     Method
 instance ToByteString Method
@@ -134,12 +134,12 @@ instance FromText MinimumProtocolVersion where
         "sslv3" -> pure SSLV3
         "tlsv1" -> pure TLSV1
         e -> fromTextError $ "Failure parsing MinimumProtocolVersion from value: '" <> e
-           <> "'. Accepted values: sslv3, tlsv1"
+           <> "'. Accepted values: SSLv3, TLSv1"
 
 instance ToText MinimumProtocolVersion where
     toText = \case
-        SSLV3 -> "sslv3"
-        TLSV1 -> "tlsv1"
+        SSLV3 -> "SSLv3"
+        TLSV1 -> "TLSv1"
 
 instance Hashable     MinimumProtocolVersion
 instance ToByteString MinimumProtocolVersion
@@ -192,13 +192,13 @@ instance FromText PriceClass where
         "priceclass_200" -> pure PriceClass200
         "priceclass_all" -> pure PriceClassAll
         e -> fromTextError $ "Failure parsing PriceClass from value: '" <> e
-           <> "'. Accepted values: priceclass_100, priceclass_200, priceclass_all"
+           <> "'. Accepted values: PriceClass_100, PriceClass_200, PriceClass_All"
 
 instance ToText PriceClass where
     toText = \case
-        PriceClass100 -> "priceclass_100"
-        PriceClass200 -> "priceclass_200"
-        PriceClassAll -> "priceclass_all"
+        PriceClass100 -> "PriceClass_100"
+        PriceClass200 -> "PriceClass_200"
+        PriceClassAll -> "PriceClass_All"
 
 instance Hashable     PriceClass
 instance ToByteString PriceClass

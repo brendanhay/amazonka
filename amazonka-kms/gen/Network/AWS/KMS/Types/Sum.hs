@@ -29,12 +29,12 @@ instance FromText DataKeySpec where
         "aes_128" -> pure AES128
         "aes_256" -> pure AES256
         e -> fromTextError $ "Failure parsing DataKeySpec from value: '" <> e
-           <> "'. Accepted values: aes_128, aes_256"
+           <> "'. Accepted values: AES_128, AES_256"
 
 instance ToText DataKeySpec where
     toText = \case
-        AES128 -> "aes_128"
-        AES256 -> "aes_256"
+        AES128 -> "AES_128"
+        AES256 -> "AES_256"
 
 instance Hashable     DataKeySpec
 instance ToByteString DataKeySpec
@@ -66,18 +66,18 @@ instance FromText GrantOperation where
         "reencryptto" -> pure ReEncryptTo
         "retiregrant" -> pure RetireGrant
         e -> fromTextError $ "Failure parsing GrantOperation from value: '" <> e
-           <> "'. Accepted values: creategrant, decrypt, encrypt, generatedatakey, generatedatakeywithoutplaintext, reencryptfrom, reencryptto, retiregrant"
+           <> "'. Accepted values: CreateGrant, Decrypt, Encrypt, GenerateDataKey, GenerateDataKeyWithoutPlaintext, ReEncryptFrom, ReEncryptTo, RetireGrant"
 
 instance ToText GrantOperation where
     toText = \case
-        CreateGrant -> "creategrant"
-        Decrypt -> "decrypt"
-        Encrypt -> "encrypt"
-        GenerateDataKey -> "generatedatakey"
-        GenerateDataKeyWithoutPlaintext -> "generatedatakeywithoutplaintext"
-        ReEncryptFrom -> "reencryptfrom"
-        ReEncryptTo -> "reencryptto"
-        RetireGrant -> "retiregrant"
+        CreateGrant -> "CreateGrant"
+        Decrypt -> "Decrypt"
+        Encrypt -> "Encrypt"
+        GenerateDataKey -> "GenerateDataKey"
+        GenerateDataKeyWithoutPlaintext -> "GenerateDataKeyWithoutPlaintext"
+        ReEncryptFrom -> "ReEncryptFrom"
+        ReEncryptTo -> "ReEncryptTo"
+        RetireGrant -> "RetireGrant"
 
 instance Hashable     GrantOperation
 instance ToByteString GrantOperation
@@ -98,11 +98,11 @@ instance FromText KeyUsageType where
     parser = takeLowerText >>= \case
         "encrypt_decrypt" -> pure EncryptDecrypt
         e -> fromTextError $ "Failure parsing KeyUsageType from value: '" <> e
-           <> "'. Accepted values: encrypt_decrypt"
+           <> "'. Accepted values: ENCRYPT_DECRYPT"
 
 instance ToText KeyUsageType where
     toText = \case
-        EncryptDecrypt -> "encrypt_decrypt"
+        EncryptDecrypt -> "ENCRYPT_DECRYPT"
 
 instance Hashable     KeyUsageType
 instance ToByteString KeyUsageType

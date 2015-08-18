@@ -31,13 +31,13 @@ instance FromText ArtifactCategory where
         "log" -> pure ACLog
         "screenshot" -> pure ACScreenshot
         e -> fromTextError $ "Failure parsing ArtifactCategory from value: '" <> e
-           <> "'. Accepted values: file, log, screenshot"
+           <> "'. Accepted values: FILE, LOG, SCREENSHOT"
 
 instance ToText ArtifactCategory where
     toText = \case
-        ACFile -> "file"
-        ACLog -> "log"
-        ACScreenshot -> "screenshot"
+        ACFile -> "FILE"
+        ACLog -> "LOG"
+        ACScreenshot -> "SCREENSHOT"
 
 instance Hashable     ArtifactCategory
 instance ToByteString ArtifactCategory
@@ -85,26 +85,26 @@ instance FromText ArtifactType where
         "service_log" -> pure ServiceLog
         "unknown" -> pure Unknown
         e -> fromTextError $ "Failure parsing ArtifactType from value: '" <> e
-           <> "'. Accepted values: appium_java_output, appium_java_xml_output, appium_server_output, automation_output, calabash_json_output, calabash_java_xml_output, calabash_pretty_output, calabash_standard_output, device_log, exerciser_monkey_output, instrumentation_output, message_log, result_log, screenshot, service_log, unknown"
+           <> "'. Accepted values: APPIUM_JAVA_OUTPUT, APPIUM_JAVA_XML_OUTPUT, APPIUM_SERVER_OUTPUT, AUTOMATION_OUTPUT, CALABASH_JSON_OUTPUT, CALABASH_JAVA_XML_OUTPUT, CALABASH_PRETTY_OUTPUT, CALABASH_STANDARD_OUTPUT, DEVICE_LOG, EXERCISER_MONKEY_OUTPUT, INSTRUMENTATION_OUTPUT, MESSAGE_LOG, RESULT_LOG, SCREENSHOT, SERVICE_LOG, UNKNOWN"
 
 instance ToText ArtifactType where
     toText = \case
-        AppiumJavaOutput -> "appium_java_output"
-        AppiumJavaXMLOutput -> "appium_java_xml_output"
-        AppiumServerOutput -> "appium_server_output"
-        AutomationOutput -> "automation_output"
-        CalabashJSONOutput -> "calabash_json_output"
-        CalabashJavaXMLOutput -> "calabash_java_xml_output"
-        CalabashPrettyOutput -> "calabash_pretty_output"
-        CalabashStandardOutput -> "calabash_standard_output"
-        DeviceLog -> "device_log"
-        ExerciserMonkeyOutput -> "exerciser_monkey_output"
-        InstrumentationOutput -> "instrumentation_output"
-        MessageLog -> "message_log"
-        ResultLog -> "result_log"
-        Screenshot -> "screenshot"
-        ServiceLog -> "service_log"
-        Unknown -> "unknown"
+        AppiumJavaOutput -> "APPIUM_JAVA_OUTPUT"
+        AppiumJavaXMLOutput -> "APPIUM_JAVA_XML_OUTPUT"
+        AppiumServerOutput -> "APPIUM_SERVER_OUTPUT"
+        AutomationOutput -> "AUTOMATION_OUTPUT"
+        CalabashJSONOutput -> "CALABASH_JSON_OUTPUT"
+        CalabashJavaXMLOutput -> "CALABASH_JAVA_XML_OUTPUT"
+        CalabashPrettyOutput -> "CALABASH_PRETTY_OUTPUT"
+        CalabashStandardOutput -> "CALABASH_STANDARD_OUTPUT"
+        DeviceLog -> "DEVICE_LOG"
+        ExerciserMonkeyOutput -> "EXERCISER_MONKEY_OUTPUT"
+        InstrumentationOutput -> "INSTRUMENTATION_OUTPUT"
+        MessageLog -> "MESSAGE_LOG"
+        ResultLog -> "RESULT_LOG"
+        Screenshot -> "SCREENSHOT"
+        ServiceLog -> "SERVICE_LOG"
+        Unknown -> "UNKNOWN"
 
 instance Hashable     ArtifactType
 instance ToByteString ArtifactType
@@ -124,12 +124,12 @@ instance FromText BillingMethod where
         "metered" -> pure Metered
         "unmetered" -> pure Unmetered
         e -> fromTextError $ "Failure parsing BillingMethod from value: '" <> e
-           <> "'. Accepted values: metered, unmetered"
+           <> "'. Accepted values: METERED, UNMETERED"
 
 instance ToText BillingMethod where
     toText = \case
-        Metered -> "metered"
-        Unmetered -> "unmetered"
+        Metered -> "METERED"
+        Unmetered -> "UNMETERED"
 
 instance Hashable     BillingMethod
 instance ToByteString BillingMethod
@@ -156,14 +156,14 @@ instance FromText DeviceAttribute where
         "manufacturer" -> pure Manufacturer
         "platform" -> pure Platform
         e -> fromTextError $ "Failure parsing DeviceAttribute from value: '" <> e
-           <> "'. Accepted values: arn, form_factor, manufacturer, platform"
+           <> "'. Accepted values: ARN, FORM_FACTOR, MANUFACTURER, PLATFORM"
 
 instance ToText DeviceAttribute where
     toText = \case
-        ARN -> "arn"
-        FormFactor -> "form_factor"
-        Manufacturer -> "manufacturer"
-        Platform -> "platform"
+        ARN -> "ARN"
+        FormFactor -> "FORM_FACTOR"
+        Manufacturer -> "MANUFACTURER"
+        Platform -> "PLATFORM"
 
 instance Hashable     DeviceAttribute
 instance ToByteString DeviceAttribute
@@ -186,12 +186,12 @@ instance FromText DeviceFormFactor where
         "phone" -> pure Phone
         "tablet" -> pure Tablet
         e -> fromTextError $ "Failure parsing DeviceFormFactor from value: '" <> e
-           <> "'. Accepted values: phone, tablet"
+           <> "'. Accepted values: PHONE, TABLET"
 
 instance ToText DeviceFormFactor where
     toText = \case
-        Phone -> "phone"
-        Tablet -> "tablet"
+        Phone -> "PHONE"
+        Tablet -> "TABLET"
 
 instance Hashable     DeviceFormFactor
 instance ToByteString DeviceFormFactor
@@ -211,12 +211,12 @@ instance FromText DevicePlatform where
         "android" -> pure Android
         "ios" -> pure Ios
         e -> fromTextError $ "Failure parsing DevicePlatform from value: '" <> e
-           <> "'. Accepted values: android, ios"
+           <> "'. Accepted values: ANDROID, IOS"
 
 instance ToText DevicePlatform where
     toText = \case
-        Android -> "android"
-        Ios -> "ios"
+        Android -> "ANDROID"
+        Ios -> "IOS"
 
 instance Hashable     DevicePlatform
 instance ToByteString DevicePlatform
@@ -236,12 +236,12 @@ instance FromText DevicePoolType where
         "curated" -> pure Curated
         "private" -> pure Private
         e -> fromTextError $ "Failure parsing DevicePoolType from value: '" <> e
-           <> "'. Accepted values: curated, private"
+           <> "'. Accepted values: CURATED, PRIVATE"
 
 instance ToText DevicePoolType where
     toText = \case
-        Curated -> "curated"
-        Private -> "private"
+        Curated -> "CURATED"
+        Private -> "PRIVATE"
 
 instance Hashable     DevicePoolType
 instance ToByteString DevicePoolType
@@ -274,17 +274,17 @@ instance FromText ExecutionResult where
         "stopped" -> pure ERStopped
         "warned" -> pure ERWarned
         e -> fromTextError $ "Failure parsing ExecutionResult from value: '" <> e
-           <> "'. Accepted values: errored, failed, passed, pending, skipped, stopped, warned"
+           <> "'. Accepted values: ERRORED, FAILED, PASSED, PENDING, SKIPPED, STOPPED, WARNED"
 
 instance ToText ExecutionResult where
     toText = \case
-        ERErrored -> "errored"
-        ERFailed -> "failed"
-        ERPassed -> "passed"
-        ERPending -> "pending"
-        ERSkipped -> "skipped"
-        ERStopped -> "stopped"
-        ERWarned -> "warned"
+        ERErrored -> "ERRORED"
+        ERFailed -> "FAILED"
+        ERPassed -> "PASSED"
+        ERPending -> "PENDING"
+        ERSkipped -> "SKIPPED"
+        ERStopped -> "STOPPED"
+        ERWarned -> "WARNED"
 
 instance Hashable     ExecutionResult
 instance ToByteString ExecutionResult
@@ -310,15 +310,15 @@ instance FromText ExecutionStatus where
         "running" -> pure Running
         "scheduling" -> pure Scheduling
         e -> fromTextError $ "Failure parsing ExecutionStatus from value: '" <> e
-           <> "'. Accepted values: completed, pending, processing, running, scheduling"
+           <> "'. Accepted values: COMPLETED, PENDING, PROCESSING, RUNNING, SCHEDULING"
 
 instance ToText ExecutionStatus where
     toText = \case
-        Completed -> "completed"
-        Pending -> "pending"
-        Processing -> "processing"
-        Running -> "running"
-        Scheduling -> "scheduling"
+        Completed -> "COMPLETED"
+        Pending -> "PENDING"
+        Processing -> "PROCESSING"
+        Running -> "RUNNING"
+        Scheduling -> "SCHEDULING"
 
 instance Hashable     ExecutionStatus
 instance ToByteString ExecutionStatus
@@ -344,15 +344,15 @@ instance FromText RuleOperator where
         "less_than" -> pure LessThan
         "not_in" -> pure NotIn
         e -> fromTextError $ "Failure parsing RuleOperator from value: '" <> e
-           <> "'. Accepted values: equals, greater_than, in, less_than, not_in"
+           <> "'. Accepted values: EQUALS, GREATER_THAN, IN, LESS_THAN, NOT_IN"
 
 instance ToText RuleOperator where
     toText = \case
-        Equals -> "equals"
-        GreaterThan -> "greater_than"
-        IN -> "in"
-        LessThan -> "less_than"
-        NotIn -> "not_in"
+        Equals -> "EQUALS"
+        GreaterThan -> "GREATER_THAN"
+        IN -> "IN"
+        LessThan -> "LESS_THAN"
+        NotIn -> "NOT_IN"
 
 instance Hashable     RuleOperator
 instance ToByteString RuleOperator
@@ -405,27 +405,27 @@ instance FromText SampleType where
         "threads" -> pure Threads
         "tx_rate" -> pure TxRate
         e -> fromTextError $ "Failure parsing SampleType from value: '" <> e
-           <> "'. Accepted values: cpu, memory, native_avg_drawtime, native_fps, native_frames, native_max_drawtime, native_min_drawtime, opengl_avg_drawtime, opengl_fps, opengl_frames, opengl_max_drawtime, opengl_min_drawtime, rx, rx_rate, tx, threads, tx_rate"
+           <> "'. Accepted values: CPU, MEMORY, NATIVE_AVG_DRAWTIME, NATIVE_FPS, NATIVE_FRAMES, NATIVE_MAX_DRAWTIME, NATIVE_MIN_DRAWTIME, OPENGL_AVG_DRAWTIME, OPENGL_FPS, OPENGL_FRAMES, OPENGL_MAX_DRAWTIME, OPENGL_MIN_DRAWTIME, RX, RX_RATE, TX, THREADS, TX_RATE"
 
 instance ToText SampleType where
     toText = \case
-        CPU -> "cpu"
-        Memory -> "memory"
-        NativeAvgDrawtime -> "native_avg_drawtime"
-        NativeFps -> "native_fps"
-        NativeFrames -> "native_frames"
-        NativeMaxDrawtime -> "native_max_drawtime"
-        NativeMinDrawtime -> "native_min_drawtime"
-        OpenglAvgDrawtime -> "opengl_avg_drawtime"
-        OpenglFps -> "opengl_fps"
-        OpenglFrames -> "opengl_frames"
-        OpenglMaxDrawtime -> "opengl_max_drawtime"
-        OpenglMinDrawtime -> "opengl_min_drawtime"
-        RX -> "rx"
-        RxRate -> "rx_rate"
-        TX -> "tx"
-        Threads -> "threads"
-        TxRate -> "tx_rate"
+        CPU -> "CPU"
+        Memory -> "MEMORY"
+        NativeAvgDrawtime -> "NATIVE_AVG_DRAWTIME"
+        NativeFps -> "NATIVE_FPS"
+        NativeFrames -> "NATIVE_FRAMES"
+        NativeMaxDrawtime -> "NATIVE_MAX_DRAWTIME"
+        NativeMinDrawtime -> "NATIVE_MIN_DRAWTIME"
+        OpenglAvgDrawtime -> "OPENGL_AVG_DRAWTIME"
+        OpenglFps -> "OPENGL_FPS"
+        OpenglFrames -> "OPENGL_FRAMES"
+        OpenglMaxDrawtime -> "OPENGL_MAX_DRAWTIME"
+        OpenglMinDrawtime -> "OPENGL_MIN_DRAWTIME"
+        RX -> "RX"
+        RxRate -> "RX_RATE"
+        TX -> "TX"
+        Threads -> "THREADS"
+        TxRate -> "TX_RATE"
 
 instance Hashable     SampleType
 instance ToByteString SampleType
@@ -459,19 +459,19 @@ instance FromText TestType where
         "uiautomator" -> pure Uiautomator
         "xctest" -> pure Xctest
         e -> fromTextError $ "Failure parsing TestType from value: '" <> e
-           <> "'. Accepted values: appium_java_junit, appium_java_testng, builtin_explorer, builtin_fuzz, calabash, instrumentation, uiautomation, uiautomator, xctest"
+           <> "'. Accepted values: APPIUM_JAVA_JUNIT, APPIUM_JAVA_TESTNG, BUILTIN_EXPLORER, BUILTIN_FUZZ, CALABASH, INSTRUMENTATION, UIAUTOMATION, UIAUTOMATOR, XCTEST"
 
 instance ToText TestType where
     toText = \case
-        AppiumJavaJunit -> "appium_java_junit"
-        AppiumJavaTestng -> "appium_java_testng"
-        BuiltinExplorer -> "builtin_explorer"
-        BuiltinFuzz -> "builtin_fuzz"
-        Calabash -> "calabash"
-        Instrumentation -> "instrumentation"
-        Uiautomation -> "uiautomation"
-        Uiautomator -> "uiautomator"
-        Xctest -> "xctest"
+        AppiumJavaJunit -> "APPIUM_JAVA_JUNIT"
+        AppiumJavaTestng -> "APPIUM_JAVA_TESTNG"
+        BuiltinExplorer -> "BUILTIN_EXPLORER"
+        BuiltinFuzz -> "BUILTIN_FUZZ"
+        Calabash -> "CALABASH"
+        Instrumentation -> "INSTRUMENTATION"
+        Uiautomation -> "UIAUTOMATION"
+        Uiautomator -> "UIAUTOMATOR"
+        Xctest -> "XCTEST"
 
 instance Hashable     TestType
 instance ToByteString TestType
@@ -498,14 +498,14 @@ instance FromText UploadStatus where
         "processing" -> pure USProcessing
         "succeeded" -> pure USSucceeded
         e -> fromTextError $ "Failure parsing UploadStatus from value: '" <> e
-           <> "'. Accepted values: failed, initialized, processing, succeeded"
+           <> "'. Accepted values: FAILED, INITIALIZED, PROCESSING, SUCCEEDED"
 
 instance ToText UploadStatus where
     toText = \case
-        USFailed -> "failed"
-        USInitialized -> "initialized"
-        USProcessing -> "processing"
-        USSucceeded -> "succeeded"
+        USFailed -> "FAILED"
+        USInitialized -> "INITIALIZED"
+        USProcessing -> "PROCESSING"
+        USSucceeded -> "SUCCEEDED"
 
 instance Hashable     UploadStatus
 instance ToByteString UploadStatus
@@ -541,20 +541,20 @@ instance FromText UploadType where
         "uiautomator_test_package" -> pure UiautomatorTestPackage
         "xctest_test_package" -> pure XctestTestPackage
         e -> fromTextError $ "Failure parsing UploadType from value: '" <> e
-           <> "'. Accepted values: android_app, appium_java_junit_test_package, appium_java_testng_test_package, calabash_test_package, external_data, instrumentation_test_package, ios_app, uiautomation_test_package, uiautomator_test_package, xctest_test_package"
+           <> "'. Accepted values: ANDROID_APP, APPIUM_JAVA_JUNIT_TEST_PACKAGE, APPIUM_JAVA_TESTNG_TEST_PACKAGE, CALABASH_TEST_PACKAGE, EXTERNAL_DATA, INSTRUMENTATION_TEST_PACKAGE, IOS_APP, UIAUTOMATION_TEST_PACKAGE, UIAUTOMATOR_TEST_PACKAGE, XCTEST_TEST_PACKAGE"
 
 instance ToText UploadType where
     toText = \case
-        AndroidApp -> "android_app"
-        AppiumJavaJunitTestPackage -> "appium_java_junit_test_package"
-        AppiumJavaTestngTestPackage -> "appium_java_testng_test_package"
-        CalabashTestPackage -> "calabash_test_package"
-        ExternalData -> "external_data"
-        InstrumentationTestPackage -> "instrumentation_test_package"
-        IosApp -> "ios_app"
-        UiautomationTestPackage -> "uiautomation_test_package"
-        UiautomatorTestPackage -> "uiautomator_test_package"
-        XctestTestPackage -> "xctest_test_package"
+        AndroidApp -> "ANDROID_APP"
+        AppiumJavaJunitTestPackage -> "APPIUM_JAVA_JUNIT_TEST_PACKAGE"
+        AppiumJavaTestngTestPackage -> "APPIUM_JAVA_TESTNG_TEST_PACKAGE"
+        CalabashTestPackage -> "CALABASH_TEST_PACKAGE"
+        ExternalData -> "EXTERNAL_DATA"
+        InstrumentationTestPackage -> "INSTRUMENTATION_TEST_PACKAGE"
+        IosApp -> "IOS_APP"
+        UiautomationTestPackage -> "UIAUTOMATION_TEST_PACKAGE"
+        UiautomatorTestPackage -> "UIAUTOMATOR_TEST_PACKAGE"
+        XctestTestPackage -> "XCTEST_TEST_PACKAGE"
 
 instance Hashable     UploadType
 instance ToByteString UploadType

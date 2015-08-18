@@ -29,12 +29,12 @@ instance FromText DirectorySize where
         "large" -> pure Large
         "small" -> pure Small
         e -> fromTextError $ "Failure parsing DirectorySize from value: '" <> e
-           <> "'. Accepted values: large, small"
+           <> "'. Accepted values: Large, Small"
 
 instance ToText DirectorySize where
     toText = \case
-        Large -> "large"
-        Small -> "small"
+        Large -> "Large"
+        Small -> "Small"
 
 instance Hashable     DirectorySize
 instance ToByteString DirectorySize
@@ -75,21 +75,21 @@ instance FromText DirectoryStage where
         "restorefailed" -> pure DSRestoreFailed
         "restoring" -> pure DSRestoring
         e -> fromTextError $ "Failure parsing DirectoryStage from value: '" <> e
-           <> "'. Accepted values: active, created, creating, deleted, deleting, failed, impaired, inoperable, requested, restorefailed, restoring"
+           <> "'. Accepted values: Active, Created, Creating, Deleted, Deleting, Failed, Impaired, Inoperable, Requested, RestoreFailed, Restoring"
 
 instance ToText DirectoryStage where
     toText = \case
-        DSActive -> "active"
-        DSCreated -> "created"
-        DSCreating -> "creating"
-        DSDeleted -> "deleted"
-        DSDeleting -> "deleting"
-        DSFailed -> "failed"
-        DSImpaired -> "impaired"
-        DSInoperable -> "inoperable"
-        DSRequested -> "requested"
-        DSRestoreFailed -> "restorefailed"
-        DSRestoring -> "restoring"
+        DSActive -> "Active"
+        DSCreated -> "Created"
+        DSCreating -> "Creating"
+        DSDeleted -> "Deleted"
+        DSDeleting -> "Deleting"
+        DSFailed -> "Failed"
+        DSImpaired -> "Impaired"
+        DSInoperable -> "Inoperable"
+        DSRequested -> "Requested"
+        DSRestoreFailed -> "RestoreFailed"
+        DSRestoring -> "Restoring"
 
 instance Hashable     DirectoryStage
 instance ToByteString DirectoryStage
@@ -109,12 +109,12 @@ instance FromText DirectoryType where
         "adconnector" -> pure ADConnector
         "simplead" -> pure SimpleAD
         e -> fromTextError $ "Failure parsing DirectoryType from value: '" <> e
-           <> "'. Accepted values: adconnector, simplead"
+           <> "'. Accepted values: ADConnector, SimpleAD"
 
 instance ToText DirectoryType where
     toText = \case
-        ADConnector -> "adconnector"
-        SimpleAD -> "simplead"
+        ADConnector -> "ADConnector"
+        SimpleAD -> "SimpleAD"
 
 instance Hashable     DirectoryType
 instance ToByteString DirectoryType
@@ -138,14 +138,14 @@ instance FromText RadiusAuthenticationProtocol where
         "ms-chapv2" -> pure MsCHAPV2
         "pap" -> pure Pap
         e -> fromTextError $ "Failure parsing RadiusAuthenticationProtocol from value: '" <> e
-           <> "'. Accepted values: chap, ms-chapv1, ms-chapv2, pap"
+           <> "'. Accepted values: CHAP, MS-CHAPv1, MS-CHAPv2, PAP"
 
 instance ToText RadiusAuthenticationProtocol where
     toText = \case
-        Chap -> "chap"
-        MsCHAPV1 -> "ms-chapv1"
-        MsCHAPV2 -> "ms-chapv2"
-        Pap -> "pap"
+        Chap -> "CHAP"
+        MsCHAPV1 -> "MS-CHAPv1"
+        MsCHAPV2 -> "MS-CHAPv2"
+        Pap -> "PAP"
 
 instance Hashable     RadiusAuthenticationProtocol
 instance ToByteString RadiusAuthenticationProtocol
@@ -170,13 +170,13 @@ instance FromText RadiusStatus where
         "creating" -> pure Creating
         "failed" -> pure Failed
         e -> fromTextError $ "Failure parsing RadiusStatus from value: '" <> e
-           <> "'. Accepted values: completed, creating, failed"
+           <> "'. Accepted values: Completed, Creating, Failed"
 
 instance ToText RadiusStatus where
     toText = \case
-        Completed -> "completed"
-        Creating -> "creating"
-        Failed -> "failed"
+        Completed -> "Completed"
+        Creating -> "Creating"
+        Failed -> "Failed"
 
 instance Hashable     RadiusStatus
 instance ToByteString RadiusStatus
@@ -198,13 +198,13 @@ instance FromText SnapshotStatus where
         "creating" -> pure SSCreating
         "failed" -> pure SSFailed
         e -> fromTextError $ "Failure parsing SnapshotStatus from value: '" <> e
-           <> "'. Accepted values: completed, creating, failed"
+           <> "'. Accepted values: Completed, Creating, Failed"
 
 instance ToText SnapshotStatus where
     toText = \case
-        SSCompleted -> "completed"
-        SSCreating -> "creating"
-        SSFailed -> "failed"
+        SSCompleted -> "Completed"
+        SSCreating -> "Creating"
+        SSFailed -> "Failed"
 
 instance Hashable     SnapshotStatus
 instance ToByteString SnapshotStatus
@@ -224,12 +224,12 @@ instance FromText SnapshotType where
         "auto" -> pure Auto
         "manual" -> pure Manual
         e -> fromTextError $ "Failure parsing SnapshotType from value: '" <> e
-           <> "'. Accepted values: auto, manual"
+           <> "'. Accepted values: Auto, Manual"
 
 instance ToText SnapshotType where
     toText = \case
-        Auto -> "auto"
-        Manual -> "manual"
+        Auto -> "Auto"
+        Manual -> "Manual"
 
 instance Hashable     SnapshotType
 instance ToByteString SnapshotType

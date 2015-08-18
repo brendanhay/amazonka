@@ -54,12 +54,12 @@ instance FromText SortByEnum where
         "lastmodifieddate" -> pure LastModifiedDate
         "repositoryname" -> pure RepositoryName
         e -> fromTextError $ "Failure parsing SortByEnum from value: '" <> e
-           <> "'. Accepted values: lastmodifieddate, repositoryname"
+           <> "'. Accepted values: lastModifiedDate, repositoryName"
 
 instance ToText SortByEnum where
     toText = \case
-        LastModifiedDate -> "lastmodifieddate"
-        RepositoryName -> "repositoryname"
+        LastModifiedDate -> "lastModifiedDate"
+        RepositoryName -> "repositoryName"
 
 instance Hashable     SortByEnum
 instance ToByteString SortByEnum

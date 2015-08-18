@@ -30,12 +30,12 @@ instance FromText JobType where
         "export" -> pure Export
         "import" -> pure Import
         e -> fromTextError $ "Failure parsing JobType from value: '" <> e
-           <> "'. Accepted values: export, import"
+           <> "'. Accepted values: Export, Import"
 
 instance ToText JobType where
     toText = \case
-        Export -> "export"
-        Import -> "import"
+        Export -> "Export"
+        Import -> "Import"
 
 instance Hashable     JobType
 instance ToByteString JobType

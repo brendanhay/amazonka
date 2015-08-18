@@ -35,15 +35,15 @@ instance FromText LookupAttributeKey where
         "resourcetype" -> pure ResourceType
         "username" -> pure Username
         e -> fromTextError $ "Failure parsing LookupAttributeKey from value: '" <> e
-           <> "'. Accepted values: eventid, eventname, resourcename, resourcetype, username"
+           <> "'. Accepted values: EventId, EventName, ResourceName, ResourceType, Username"
 
 instance ToText LookupAttributeKey where
     toText = \case
-        EventId -> "eventid"
-        EventName -> "eventname"
-        ResourceName -> "resourcename"
-        ResourceType -> "resourcetype"
-        Username -> "username"
+        EventId -> "EventId"
+        EventName -> "EventName"
+        ResourceName -> "ResourceName"
+        ResourceType -> "ResourceType"
+        Username -> "Username"
 
 instance Hashable     LookupAttributeKey
 instance ToByteString LookupAttributeKey

@@ -37,16 +37,16 @@ instance FromText AgentUpdateStatus where
         "updated" -> pure AUSUpdated
         "updating" -> pure AUSUpdating
         e -> fromTextError $ "Failure parsing AgentUpdateStatus from value: '" <> e
-           <> "'. Accepted values: failed, pending, staged, staging, updated, updating"
+           <> "'. Accepted values: FAILED, PENDING, STAGED, STAGING, UPDATED, UPDATING"
 
 instance ToText AgentUpdateStatus where
     toText = \case
-        AUSFailed -> "failed"
-        AUSPending -> "pending"
-        AUSStaged -> "staged"
-        AUSStaging -> "staging"
-        AUSUpdated -> "updated"
-        AUSUpdating -> "updating"
+        AUSFailed -> "FAILED"
+        AUSPending -> "PENDING"
+        AUSStaged -> "STAGED"
+        AUSStaging -> "STAGING"
+        AUSUpdated -> "UPDATED"
+        AUSUpdating -> "UPDATING"
 
 instance Hashable     AgentUpdateStatus
 instance ToByteString AgentUpdateStatus
@@ -68,13 +68,13 @@ instance FromText DesiredStatus where
         "running" -> pure Running
         "stopped" -> pure Stopped
         e -> fromTextError $ "Failure parsing DesiredStatus from value: '" <> e
-           <> "'. Accepted values: pending, running, stopped"
+           <> "'. Accepted values: PENDING, RUNNING, STOPPED"
 
 instance ToText DesiredStatus where
     toText = \case
-        Pending -> "pending"
-        Running -> "running"
-        Stopped -> "stopped"
+        Pending -> "PENDING"
+        Running -> "RUNNING"
+        Stopped -> "STOPPED"
 
 instance Hashable     DesiredStatus
 instance ToByteString DesiredStatus
@@ -94,12 +94,12 @@ instance FromText SortOrder where
         "asc" -> pure Asc
         "desc" -> pure Desc
         e -> fromTextError $ "Failure parsing SortOrder from value: '" <> e
-           <> "'. Accepted values: asc, desc"
+           <> "'. Accepted values: ASC, DESC"
 
 instance ToText SortOrder where
     toText = \case
-        Asc -> "asc"
-        Desc -> "desc"
+        Asc -> "ASC"
+        Desc -> "DESC"
 
 instance Hashable     SortOrder
 instance ToByteString SortOrder
@@ -119,12 +119,12 @@ instance FromText TaskDefinitionStatus where
         "active" -> pure Active
         "inactive" -> pure Inactive
         e -> fromTextError $ "Failure parsing TaskDefinitionStatus from value: '" <> e
-           <> "'. Accepted values: active, inactive"
+           <> "'. Accepted values: ACTIVE, INACTIVE"
 
 instance ToText TaskDefinitionStatus where
     toText = \case
-        Active -> "active"
-        Inactive -> "inactive"
+        Active -> "ACTIVE"
+        Inactive -> "INACTIVE"
 
 instance Hashable     TaskDefinitionStatus
 instance ToByteString TaskDefinitionStatus

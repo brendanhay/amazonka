@@ -29,12 +29,12 @@ instance FromText OrderBy where
         "lasteventtime" -> pure LastEventTime
         "logstreamname" -> pure LogStreamName
         e -> fromTextError $ "Failure parsing OrderBy from value: '" <> e
-           <> "'. Accepted values: lasteventtime, logstreamname"
+           <> "'. Accepted values: LastEventTime, LogStreamName"
 
 instance ToText OrderBy where
     toText = \case
-        LastEventTime -> "lasteventtime"
-        LogStreamName -> "logstreamname"
+        LastEventTime -> "LastEventTime"
+        LogStreamName -> "LogStreamName"
 
 instance Hashable     OrderBy
 instance ToByteString OrderBy

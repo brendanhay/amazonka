@@ -29,12 +29,12 @@ instance FromText IdentityType where
         "domain" -> pure Domain
         "emailaddress" -> pure EmailAddress
         e -> fromTextError $ "Failure parsing IdentityType from value: '" <> e
-           <> "'. Accepted values: domain, emailaddress"
+           <> "'. Accepted values: Domain, EmailAddress"
 
 instance ToText IdentityType where
     toText = \case
-        Domain -> "domain"
-        EmailAddress -> "emailaddress"
+        Domain -> "Domain"
+        EmailAddress -> "EmailAddress"
 
 instance Hashable     IdentityType
 instance ToByteString IdentityType
@@ -53,13 +53,13 @@ instance FromText NotificationType where
         "complaint" -> pure Complaint
         "delivery" -> pure Delivery
         e -> fromTextError $ "Failure parsing NotificationType from value: '" <> e
-           <> "'. Accepted values: bounce, complaint, delivery"
+           <> "'. Accepted values: Bounce, Complaint, Delivery"
 
 instance ToText NotificationType where
     toText = \case
-        Bounce -> "bounce"
-        Complaint -> "complaint"
-        Delivery -> "delivery"
+        Bounce -> "Bounce"
+        Complaint -> "Complaint"
+        Delivery -> "Delivery"
 
 instance Hashable     NotificationType
 instance ToByteString NotificationType
@@ -82,15 +82,15 @@ instance FromText VerificationStatus where
         "success" -> pure Success
         "temporaryfailure" -> pure TemporaryFailure
         e -> fromTextError $ "Failure parsing VerificationStatus from value: '" <> e
-           <> "'. Accepted values: failed, notstarted, pending, success, temporaryfailure"
+           <> "'. Accepted values: Failed, NotStarted, Pending, Success, TemporaryFailure"
 
 instance ToText VerificationStatus where
     toText = \case
-        Failed -> "failed"
-        NotStarted -> "notstarted"
-        Pending -> "pending"
-        Success -> "success"
-        TemporaryFailure -> "temporaryfailure"
+        Failed -> "Failed"
+        NotStarted -> "NotStarted"
+        Pending -> "Pending"
+        Success -> "Success"
+        TemporaryFailure -> "TemporaryFailure"
 
 instance Hashable     VerificationStatus
 instance ToByteString VerificationStatus

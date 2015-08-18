@@ -27,7 +27,7 @@ description:
     * "Network.AWS": The 'AWS' monad and 'MonadAWS' type class for automatically
     lifting operations when embedded as a layer in a transformer stack.
     .
-    Both 'Control.Monad.Trans.AWS.AWST' and 'Network.AWS.AWS' provide functions
+    "Control.Monad.Trans.AWS" and "Network.AWS" provide functions
     that are built upon a 'MonadFree' 'Command' DSL defined in
     "Network.AWS.Free". This allows writing a custom interpreter (say, for
     mocking purposes) and defining your own AWS logic if desired.

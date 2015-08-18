@@ -119,7 +119,8 @@ instance ToQuery CancelSpotFleetRequests where
                  ("CancelSpotFleetRequests" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _csfrDryRun,
-               toQueryList "item" _csfrSpotFleetRequestIds,
+               toQueryList "SpotFleetRequestId"
+                 _csfrSpotFleetRequestIds,
                "TerminateInstances" =: _csfrTerminateInstances]
 
 -- | Contains the output of CancelSpotFleetRequests.

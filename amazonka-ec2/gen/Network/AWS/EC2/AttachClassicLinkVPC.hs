@@ -135,7 +135,7 @@ instance ToQuery AttachClassicLinkVPC where
                "DryRun" =: _aclvDryRun,
                "InstanceId" =: _aclvInstanceId,
                "VpcId" =: _aclvVPCId,
-               toQueryList "groupId" _aclvGroups]
+               toQueryList "SecurityGroupId" _aclvGroups]
 
 -- | /See:/ 'attachClassicLinkVPCResponse' smart constructor.
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'

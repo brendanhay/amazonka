@@ -179,7 +179,8 @@ instance ToQuery RevokeSecurityGroupEgress where
                  ("RevokeSecurityGroupEgress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "FromPort" =: _rsgeFromPort,
-               toQuery (toQueryList "item" <$> _rsgeIPPermissions),
+               toQuery
+                 (toQueryList "IpPermissions" <$> _rsgeIPPermissions),
                "IpProtocol" =: _rsgeIPProtocol,
                "ToPort" =: _rsgeToPort, "CidrIp" =: _rsgeCIdRIP,
                "SourceSecurityGroupOwnerId" =:

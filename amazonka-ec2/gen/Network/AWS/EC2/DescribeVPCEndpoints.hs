@@ -148,7 +148,8 @@ instance ToQuery DescribeVPCEndpoints where
                toQuery (toQueryList "Filter" <$> _dvpceFilters),
                "NextToken" =: _dvpceNextToken,
                toQuery
-                 (toQueryList "item" <$> _dvpceVPCEndpointIds),
+                 (toQueryList "VpcEndpointId" <$>
+                    _dvpceVPCEndpointIds),
                "DryRun" =: _dvpceDryRun,
                "MaxResults" =: _dvpceMaxResults]
 

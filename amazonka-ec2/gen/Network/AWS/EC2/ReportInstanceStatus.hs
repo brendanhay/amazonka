@@ -176,7 +176,7 @@ instance ToQuery ReportInstanceStatus where
                "Description" =: _risDescription,
                toQueryList "InstanceId" _risInstances,
                "Status" =: _risStatus,
-               toQueryList "item" _risReasonCodes]
+               toQueryList "ReasonCode" _risReasonCodes]
 
 -- | /See:/ 'reportInstanceStatusResponse' smart constructor.
 data ReportInstanceStatusResponse =

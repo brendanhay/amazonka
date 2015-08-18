@@ -110,7 +110,7 @@ instance ToQuery CreateTags where
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _cDryRun,
                toQueryList "ResourceId" _cResources,
-               toQueryList "item" _cTags]
+               toQueryList "Tag" _cTags]
 
 -- | /See:/ 'createTagsResponse' smart constructor.
 data CreateTagsResponse =

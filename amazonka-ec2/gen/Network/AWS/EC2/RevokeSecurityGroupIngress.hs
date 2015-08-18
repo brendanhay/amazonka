@@ -193,7 +193,8 @@ instance ToQuery RevokeSecurityGroupIngress where
                  ("RevokeSecurityGroupIngress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "FromPort" =: _rsgiFromPort,
-               toQuery (toQueryList "item" <$> _rsgiIPPermissions),
+               toQuery
+                 (toQueryList "IpPermissions" <$> _rsgiIPPermissions),
                "IpProtocol" =: _rsgiIPProtocol,
                "GroupId" =: _rsgiGroupId, "ToPort" =: _rsgiToPort,
                "CidrIp" =: _rsgiCIdRIP,

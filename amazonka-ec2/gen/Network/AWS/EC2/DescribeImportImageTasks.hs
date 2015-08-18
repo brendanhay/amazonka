@@ -131,7 +131,7 @@ instance ToQuery DescribeImportImageTasks where
               ["Action" =:
                  ("DescribeImportImageTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _diitFilters),
+               toQuery (toQueryList "Filters" <$> _diitFilters),
                toQuery
                  (toQueryList "ImportTaskId" <$> _diitImportTaskIds),
                "NextToken" =: _diitNextToken,

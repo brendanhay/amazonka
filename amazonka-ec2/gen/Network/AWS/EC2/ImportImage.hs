@@ -215,7 +215,8 @@ instance ToQuery ImportImage where
                "DryRun" =: _impDryRun,
                "Description" =: _impDescription,
                "ClientData" =: _impClientData,
-               toQuery (toQueryList "item" <$> _impDiskContainers)]
+               toQuery
+                 (toQueryList "DiskContainer" <$> _impDiskContainers)]
 
 -- | /See:/ 'importImageResponse' smart constructor.
 data ImportImageResponse = ImportImageResponse'

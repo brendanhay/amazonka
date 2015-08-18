@@ -140,10 +140,12 @@ instance ToQuery ModifyVPCEndpoint where
                "Version" =: ("2015-04-15" :: ByteString),
                "PolicyDocument" =: _mvePolicyDocument,
                toQuery
-                 (toQueryList "item" <$> _mveRemoveRouteTableIds),
+                 (toQueryList "RemoveRouteTableId" <$>
+                    _mveRemoveRouteTableIds),
                "ResetPolicy" =: _mveResetPolicy,
                toQuery
-                 (toQueryList "item" <$> _mveAddRouteTableIds),
+                 (toQueryList "AddRouteTableId" <$>
+                    _mveAddRouteTableIds),
                "DryRun" =: _mveDryRun,
                "VpcEndpointId" =: _mveVPCEndpointId]
 

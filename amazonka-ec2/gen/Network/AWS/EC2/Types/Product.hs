@@ -1044,8 +1044,8 @@ instance ToQuery CreateVolumePermissionModifications
          where
         toQuery CreateVolumePermissionModifications'{..}
           = mconcat
-              [toQuery (toQueryList "item" <$> _cvpmRemove),
-               toQuery (toQueryList "item" <$> _cvpmAdd)]
+              [toQuery (toQueryList "Remove" <$> _cvpmRemove),
+               toQuery (toQueryList "Add" <$> _cvpmAdd)]
 
 -- | Describes a customer gateway.
 --
@@ -1933,7 +1933,7 @@ fName = lens _fName (\ s a -> s{_fName = a});
 instance ToQuery Filter where
         toQuery Filter'{..}
           = mconcat
-              [toQuery (toQueryList "item" <$> _fValues),
+              [toQuery (toQueryList "Value" <$> _fValues),
                "Name" =: _fName]
 
 -- | Describes a flow log.
@@ -2354,10 +2354,12 @@ instance ToQuery IPPermission where
         toQuery IPPermission'{..}
           = mconcat
               ["FromPort" =: _ipFromPort,
-               toQuery (toQueryList "item" <$> _ipUserIdGroupPairs),
-               toQuery (toQueryList "item" <$> _ipPrefixListIds),
+               toQuery
+                 (toQueryList "Groups" <$> _ipUserIdGroupPairs),
+               toQuery
+                 (toQueryList "PrefixListIds" <$> _ipPrefixListIds),
                "ToPort" =: _ipToPort,
-               toQuery (toQueryList "item" <$> _ipIPRanges),
+               toQuery (toQueryList "IpRanges" <$> _ipIPRanges),
                "IpProtocol" =: _ipIPProtocol]
 
 -- | Describes an IP range.
@@ -2955,10 +2957,9 @@ instance ToQuery ImportInstanceLaunchSpecification
           = mconcat
               ["AdditionalInfo" =: _iilsAdditionalInfo,
                toQuery
-                 (toQueryList "SecurityGroup" <$> _iilsGroupNames),
+                 (toQueryList "GroupName" <$> _iilsGroupNames),
                "SubnetId" =: _iilsSubnetId,
-               toQuery
-                 (toQueryList "SecurityGroupId" <$> _iilsGroupIds),
+               toQuery (toQueryList "GroupId" <$> _iilsGroupIds),
                "InstanceType" =: _iilsInstanceType,
                "UserData" =: _iilsUserData,
                "Monitoring" =: _iilsMonitoring,
@@ -4212,7 +4213,8 @@ instance ToQuery
         toQuery InstanceNetworkInterfaceSpecification'{..}
           = mconcat
               [toQuery
-                 (toQueryList "item" <$> _inisPrivateIPAddresses),
+                 (toQueryList "PrivateIpAddresses" <$>
+                    _inisPrivateIPAddresses),
                "DeleteOnTermination" =: _inisDeleteOnTermination,
                toQuery
                  (toQueryList "SecurityGroupId" <$> _inisGroups),
@@ -4802,8 +4804,8 @@ lpmAdd = lens _lpmAdd (\ s a -> s{_lpmAdd = a}) . _Default . _Coerce;
 instance ToQuery LaunchPermissionModifications where
         toQuery LaunchPermissionModifications'{..}
           = mconcat
-              [toQuery (toQueryList "item" <$> _lpmRemove),
-               toQuery (toQueryList "item" <$> _lpmAdd)]
+              [toQuery (toQueryList "Remove" <$> _lpmRemove),
+               toQuery (toQueryList "Add" <$> _lpmAdd)]
 
 -- | Describes the launch specification for an instance.
 --
@@ -5704,7 +5706,7 @@ ndcKey = lens _ndcKey (\ s a -> s{_ndcKey = a});
 instance ToQuery NewDHCPConfiguration where
         toQuery NewDHCPConfiguration'{..}
           = mconcat
-              [toQuery (toQueryList "item" <$> _ndcValues),
+              [toQuery (toQueryList "Value" <$> _ndcValues),
                "Key" =: _ndcKey]
 
 -- | Describes the placement for the instance.
@@ -6400,10 +6402,14 @@ instance ToQuery RequestSpotLaunchSpecification where
         toQuery RequestSpotLaunchSpecification'{..}
           = mconcat
               [toQuery
-                 (toQueryList "item" <$> _rslsSecurityGroupIds),
-               toQuery (toQueryList "item" <$> _rslsSecurityGroups),
+                 (toQueryList "SecurityGroupId" <$>
+                    _rslsSecurityGroupIds),
                toQuery
-                 (toQueryList "item" <$> _rslsNetworkInterfaces),
+                 (toQueryList "SecurityGroup" <$>
+                    _rslsSecurityGroups),
+               toQuery
+                 (toQueryList "NetworkInterface" <$>
+                    _rslsNetworkInterfaces),
                "KeyName" =: _rslsKeyName,
                "RamdiskId" =: _rslsRAMDiskId,
                "KernelId" =: _rslsKernelId,
@@ -6415,7 +6421,8 @@ instance ToQuery RequestSpotLaunchSpecification where
                "IamInstanceProfile" =: _rslsIAMInstanceProfile,
                "ImageId" =: _rslsImageId,
                toQuery
-                 (toQueryList "item" <$> _rslsBlockDeviceMappings),
+                 (toQueryList "BlockDeviceMapping" <$>
+                    _rslsBlockDeviceMappings),
                "AddressingType" =: _rslsAddressingType,
                "Placement" =: _rslsPlacement]
 
@@ -8287,9 +8294,10 @@ instance ToQuery SpotFleetLaunchSpecification where
         toQuery SpotFleetLaunchSpecification'{..}
           = mconcat
               [toQuery
-                 (toQueryList "item" <$> _sflsSecurityGroups),
+                 (toQueryList "GroupSet" <$> _sflsSecurityGroups),
                toQuery
-                 (toQueryList "item" <$> _sflsNetworkInterfaces),
+                 (toQueryList "NetworkInterfaceSet" <$>
+                    _sflsNetworkInterfaces),
                "KeyName" =: _sflsKeyName,
                "RamdiskId" =: _sflsRAMDiskId,
                "KernelId" =: _sflsKernelId,
@@ -8301,7 +8309,8 @@ instance ToQuery SpotFleetLaunchSpecification where
                "IamInstanceProfile" =: _sflsIAMInstanceProfile,
                "ImageId" =: _sflsImageId,
                toQuery
-                 (toQueryList "item" <$> _sflsBlockDeviceMappings),
+                 (toQueryList "BlockDeviceMapping" <$>
+                    _sflsBlockDeviceMappings),
                "AddressingType" =: _sflsAddressingType,
                "Placement" =: _sflsPlacement]
 
@@ -8506,7 +8515,8 @@ instance ToQuery SpotFleetRequestConfigData where
                "SpotPrice" =: _sfrcdSpotPrice,
                "TargetCapacity" =: _sfrcdTargetCapacity,
                "IamFleetRole" =: _sfrcdIAMFleetRole,
-               toQueryList "item" _sfrcdLaunchSpecifications]
+               toQueryList "LaunchSpecifications"
+                 _sfrcdLaunchSpecifications]
 
 -- | Describe a Spot Instance request.
 --

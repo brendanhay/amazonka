@@ -255,7 +255,7 @@ instance ToQuery ModifyInstanceAttribute where
                  ("ModifyInstanceAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "Attribute" =: _mAttribute,
-               toQuery (toQueryList "groupId" <$> _mGroups),
+               toQuery (toQueryList "GroupId" <$> _mGroups),
                "SourceDestCheck" =: _mSourceDestCheck,
                "DisableApiTermination" =: _mDisableAPITermination,
                "Ramdisk" =: _mRAMDisk, "Value" =: _mValue,
@@ -267,7 +267,8 @@ instance ToQuery ModifyInstanceAttribute where
                "InstanceInitiatedShutdownBehavior" =:
                  _mInstanceInitiatedShutdownBehavior,
                toQuery
-                 (toQueryList "item" <$> _mBlockDeviceMappings),
+                 (toQueryList "BlockDeviceMapping" <$>
+                    _mBlockDeviceMappings),
                "DryRun" =: _mDryRun, "InstanceId" =: _mInstanceId]
 
 -- | /See:/ 'modifyInstanceAttributeResponse' smart constructor.

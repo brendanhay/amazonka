@@ -109,7 +109,7 @@ instance ToQuery DeleteTags where
               ["Action" =: ("DeleteTags" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _dtsDryRun,
-               toQuery (toQueryList "item" <$> _dtsTags),
+               toQuery (toQueryList "Tag" <$> _dtsTags),
                toQueryList "ResourceId" _dtsResources]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.

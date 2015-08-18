@@ -130,7 +130,7 @@ instance ToQuery DescribeImportSnapshotTasks where
               ["Action" =:
                  ("DescribeImportSnapshotTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _distFilters),
+               toQuery (toQueryList "Filters" <$> _distFilters),
                toQuery
                  (toQueryList "ImportTaskId" <$> _distImportTaskIds),
                "NextToken" =: _distNextToken,

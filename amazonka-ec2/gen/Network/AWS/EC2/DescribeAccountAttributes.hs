@@ -122,7 +122,7 @@ instance ToQuery DescribeAccountAttributes where
                  ("DescribeAccountAttributes" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "attributeName" <$> _daaAttributeNames),
+                 (toQueryList "AttributeName" <$> _daaAttributeNames),
                "DryRun" =: _daaDryRun]
 
 -- | /See:/ 'describeAccountAttributesResponse' smart constructor.

@@ -177,7 +177,7 @@ instance ToQuery DescribeSecurityGroups where
                toQuery
                  (toQueryList "GroupName" <$> _dsgsGroupNames),
                toQuery (toQueryList "Filter" <$> _dsgsFilters),
-               toQuery (toQueryList "groupId" <$> _dsgsGroupIds),
+               toQuery (toQueryList "GroupId" <$> _dsgsGroupIds),
                "DryRun" =: _dsgsDryRun]
 
 -- | /See:/ 'describeSecurityGroupsResponse' smart constructor.

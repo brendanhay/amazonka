@@ -137,7 +137,7 @@ instance ToQuery DescribeFlowLogs where
                "Version" =: ("2015-04-15" :: ByteString),
                "NextToken" =: _dNextToken,
                toQuery (toQueryList "Filter" <$> _dFilter),
-               toQuery (toQueryList "item" <$> _dFlowLogIds),
+               toQuery (toQueryList "FlowLogId" <$> _dFlowLogIds),
                "MaxResults" =: _dMaxResults]
 
 -- | /See:/ 'describeFlowLogsResponse' smart constructor.

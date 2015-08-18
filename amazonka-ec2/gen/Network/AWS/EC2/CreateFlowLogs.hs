@@ -155,7 +155,7 @@ instance ToQuery CreateFlowLogs where
               ["Action" =: ("CreateFlowLogs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "ClientToken" =: _cflClientToken,
-               toQueryList "item" _cflResourceIds,
+               toQueryList "ResourceId" _cflResourceIds,
                "ResourceType" =: _cflResourceType,
                "TrafficType" =: _cflTrafficType,
                "LogGroupName" =: _cflLogGroupName,

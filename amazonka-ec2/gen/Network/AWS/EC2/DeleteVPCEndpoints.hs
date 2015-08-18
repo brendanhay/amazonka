@@ -103,7 +103,7 @@ instance ToQuery DeleteVPCEndpoints where
               ["Action" =: ("DeleteVpcEndpoints" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _dveDryRun,
-               toQueryList "item" _dveVPCEndpointIds]
+               toQueryList "VpcEndpointId" _dveVPCEndpointIds]
 
 -- | /See:/ 'deleteVPCEndpointsResponse' smart constructor.
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'

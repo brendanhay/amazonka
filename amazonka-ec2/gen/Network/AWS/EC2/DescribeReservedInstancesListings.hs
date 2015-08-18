@@ -145,7 +145,7 @@ instance ToQuery DescribeReservedInstancesListings
               ["Action" =:
                  ("DescribeReservedInstancesListings" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _drilFilters),
+               toQuery (toQueryList "Filters" <$> _drilFilters),
                "ReservedInstancesId" =: _drilReservedInstancesId,
                "ReservedInstancesListingId" =:
                  _drilReservedInstancesListingId]

@@ -114,7 +114,8 @@ instance ToQuery DescribeConversionTasks where
                  ("DescribeConversionTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "item" <$> _dctConversionTaskIds),
+                 (toQueryList "ConversionTaskId" <$>
+                    _dctConversionTaskIds),
                toQuery (toQueryList "Filter" <$> _dctFilters),
                "DryRun" =: _dctDryRun]
 

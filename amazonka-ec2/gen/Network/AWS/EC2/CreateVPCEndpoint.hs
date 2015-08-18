@@ -153,7 +153,8 @@ instance ToQuery CreateVPCEndpoint where
                "PolicyDocument" =: _cvePolicyDocument,
                "ClientToken" =: _cveClientToken,
                "DryRun" =: _cveDryRun,
-               toQuery (toQueryList "item" <$> _cveRouteTableIds),
+               toQuery
+                 (toQueryList "RouteTableId" <$> _cveRouteTableIds),
                "VpcId" =: _cveVPCId,
                "ServiceName" =: _cveServiceName]
 

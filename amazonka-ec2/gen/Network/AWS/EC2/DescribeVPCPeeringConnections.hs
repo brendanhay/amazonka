@@ -158,7 +158,7 @@ instance ToQuery DescribeVPCPeeringConnections where
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dvpcpcFilters),
                toQuery
-                 (toQueryList "item" <$>
+                 (toQueryList "VpcPeeringConnectionId" <$>
                     _dvpcpcVPCPeeringConnectionIds),
                "DryRun" =: _dvpcpcDryRun]
 

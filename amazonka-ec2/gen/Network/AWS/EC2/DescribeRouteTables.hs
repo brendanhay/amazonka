@@ -181,7 +181,8 @@ instance ToQuery DescribeRouteTables where
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _drtsFilters),
                "DryRun" =: _drtsDryRun,
-               toQuery (toQueryList "item" <$> _drtsRouteTableIds)]
+               toQuery
+                 (toQueryList "RouteTableId" <$> _drtsRouteTableIds)]
 
 -- | /See:/ 'describeRouteTablesResponse' smart constructor.
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse'

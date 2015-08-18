@@ -137,7 +137,8 @@ instance ToQuery DescribeInternetGateways where
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dFilters),
                toQuery
-                 (toQueryList "item" <$> _dInternetGatewayIds),
+                 (toQueryList "InternetGatewayId" <$>
+                    _dInternetGatewayIds),
                "DryRun" =: _dDryRun]
 
 -- | /See:/ 'describeInternetGatewaysResponse' smart constructor.

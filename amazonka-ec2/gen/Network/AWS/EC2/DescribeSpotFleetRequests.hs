@@ -126,7 +126,8 @@ instance ToQuery DescribeSpotFleetRequests where
                  ("DescribeSpotFleetRequests" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "item" <$> _dsfrSpotFleetRequestIds),
+                 (toQueryList "SpotFleetRequestId" <$>
+                    _dsfrSpotFleetRequestIds),
                "NextToken" =: _dsfrNextToken,
                "DryRun" =: _dsfrDryRun,
                "MaxResults" =: _dsfrMaxResults]

@@ -404,7 +404,9 @@ instance ToQuery RunInstances where
                  (toQueryList "SecurityGroup" <$> _rSecurityGroups),
                "ClientToken" =: _rClientToken,
                "DisableApiTermination" =: _rDisableAPITermination,
-               toQuery (toQueryList "item" <$> _rNetworkInterfaces),
+               toQuery
+                 (toQueryList "NetworkInterface" <$>
+                    _rNetworkInterfaces),
                "KeyName" =: _rKeyName, "RamdiskId" =: _rRAMDiskId,
                "KernelId" =: _rKernelId, "SubnetId" =: _rSubnetId,
                "InstanceType" =: _rInstanceType,

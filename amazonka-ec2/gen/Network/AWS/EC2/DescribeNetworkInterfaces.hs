@@ -220,7 +220,8 @@ instance ToQuery DescribeNetworkInterfaces where
                  ("DescribeNetworkInterfaces" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "item" <$> _dnisNetworkInterfaceIds),
+                 (toQueryList "NetworkInterfaceId" <$>
+                    _dnisNetworkInterfaceIds),
                toQuery (toQueryList "Filter" <$> _dnisFilters),
                "DryRun" =: _dnisDryRun]
 

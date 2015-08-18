@@ -163,7 +163,8 @@ instance ToQuery CreateNetworkInterface where
                  ("CreateNetworkInterface" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "item" <$> _cniPrivateIPAddresses),
+                 (toQueryList "PrivateIpAddresses" <$>
+                    _cniPrivateIPAddresses),
                toQuery
                  (toQueryList "SecurityGroupId" <$> _cniGroups),
                "PrivateIpAddress" =: _cniPrivateIPAddress,

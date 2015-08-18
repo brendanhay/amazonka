@@ -101,7 +101,7 @@ retrier Env{..} Service{..} rq =
         . mconcat
         . intersperse " "
         $ [ "[Retry " <> build x <> "]"
-          , " after "
+          , "after"
           , build (n + 1)
           , "attempts."
           ]
@@ -132,7 +132,7 @@ waiter Env{..} w@Wait{..} rq = retrying policy check
         . intersperse " "
         $ [ "[Await " <> build _waitName <> "]"
           , build a
-          , " after "
+          , "after"
           , build (n + 1)
           , "attempts."
           ]

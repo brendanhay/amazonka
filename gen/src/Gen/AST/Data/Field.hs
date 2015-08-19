@@ -143,7 +143,7 @@ fieldHelp f =
     base64 =
         "\n\n/Note:/ This 'Lens' automatically encodes and decodes Base64 data,\n\
         \despite what the AWS documentation might say.\n\
-        \The underlying isomorphim will encode to Base64 representation during\n\
+        \The underlying isomorphism will encode to Base64 representation during\n\
         \serialisation, and decode from Base64 representation during deserialisation.\n\
         \This 'Lens' accepts and returns only raw unencoded data."
 

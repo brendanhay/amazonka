@@ -59,7 +59,7 @@ data Command r where
            => Service s
            -> Wait a
            -> a
-           -> (Rs a -> r)
+           -> r
            -> Command r
 
 instance Functor Command where
@@ -70,7 +70,7 @@ instance Functor Command where
         UserF          k -> UserF          (fmap f k)
         SignF  s t e x k -> SignF  s t e x (fmap f k)
         SendF  s     x k -> SendF  s     x (fmap f k)
-        AwaitF s w   x k -> AwaitF s w   x (fmap f k)
+        AwaitF s w   x k -> AwaitF s w   x (f k)
 
 #if MIN_VERSION_free(4,12,0)
 #else
@@ -137,7 +137,7 @@ paginateWith f rq = go rq
 await :: (MonadFree Command m, AWSRequest a)
       => Wait a
       -> a
-      -> m (Rs a)
+      -> m ()
 await = awaitWith id
 
 -- | A variant of 'await' that allows modifying the default 'Service' definition
@@ -146,8 +146,8 @@ awaitWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
           => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
           -> Wait a                        -- ^ Polling, error and acceptance criteria.
           -> a                             -- ^ Request to poll with.
-          -> m (Rs a)
-awaitWith f w x = liftF (AwaitF (f (serviceOf x)) w x id)
+          -> m ()
+awaitWith f w x = liftF (AwaitF (f (serviceOf x)) w x ())
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.

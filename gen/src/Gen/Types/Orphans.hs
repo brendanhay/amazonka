@@ -14,8 +14,6 @@
 
 module Gen.Types.Orphans where
 
-import           Gen.Types.Id
-import           Gen.Types.Map
 import           Control.Lens
 import           Control.Monad
 import           Data.Aeson
@@ -25,6 +23,8 @@ import           Data.List.NonEmpty    (NonEmpty (..))
 import qualified Data.List.NonEmpty    as NE
 import           Data.Scientific       (floatingOrInteger)
 import           Data.String
+import           Gen.Types.Id
+import           Gen.Types.Map
 import qualified Language.Haskell.Exts as Exts
 import           Numeric.Natural
 

@@ -27,6 +27,8 @@ import           Data.Text              (Text)
 import           Data.Text.Manipulate
 import           Gen.Types
 
+data Level = Flat | Nest
+
 suffix :: Protocol -> Text
 suffix = \case
     JSON     -> "JSON"
@@ -56,21 +58,29 @@ nestedNames p d n r =
         _      -> NName (name p d n r)
 
 listNames :: Protocol -> Direction -> Id -> RefF a -> ListF a -> Names
-listNames p d n r l
-     | flatten p d l = NList Nothing   rn
-     | otherwise     = NList (Just mn) (fromMaybe "member" ln)
+listNames p d n r l = uncurry NList (go p d flat)
   where
-    -- Flattened member names
-    rn | p == EC2,   d == Input = upperHead (fromMaybe mn qrn)
-       | p == Query, d == Input = fromMaybe mn ln
-       | otherwise              = fromMaybe mn ln
-      where
-        qrn = r ^. refQueryName <|> r ^. refLocationName
+    go EC2      Input  _    = (Nothing,     upperHead (fromMaybe member refQuery))
+    go EC2      Output _    = (Just member, fromMaybe def itemName)
 
-    -- Non-flattened member name
-    ln = l ^. listItem . refLocationName
+    go Query    Input  Flat = (Nothing,     fromMaybe member itemQuery)
+    go Query    Input  Nest = (Just member, fromMaybe def    itemQuery)
 
-    mn = name p d n r
+    go _        _      Flat = (Nothing,     fromMaybe member itemName)
+    go _        _      Nest = (Just member, fromMaybe def    itemName)
+
+    flat | flatten p d l = Flat
+         | otherwise     = Nest
+
+    member = name p d n r
+
+    refQuery = r ^. refQueryName <|> refName
+    refName  = r ^. refLocationName
+
+    itemQuery = l ^. listItem . refQueryName <|> itemName
+    itemName  = l ^. listItem . refLocationName
+
+    def = "member"
 
      -- Member, [item]
 

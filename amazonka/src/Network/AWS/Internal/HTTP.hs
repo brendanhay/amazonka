@@ -113,15 +113,21 @@ waiter :: MonadIO m
        -> Wait a
        -> Request a
        -> m (Either Error (Response a))
-       -> m (Either Error (Response a))
-waiter Env{..} w@Wait{..} rq = retrying policy check
+       -> m (Maybe Error)
+waiter Env{..} w@Wait{..} rq f = retrying policy check wait >>= exit
   where
     policy = limitRetries _waitAttempts
           <> constantDelay (microseconds _waitDelay)
 
-    check n rs = do
-        let a = fromMaybe AcceptRetry (accept w rq rs)
-        msg n a >> return (retry a)
+    wait = do
+        e <- f
+        return (fromMaybe AcceptRetry (accept w rq e), e)
+
+    exit (AcceptSuccess, _)      = return Nothing
+    exit (_,             Left e) = return (Just e)
+    exit (_,             _)      = return Nothing
+
+    check n (a, _) = msg n a >> return (retry a)
 
     retry AcceptSuccess = False
     retry AcceptFailure = False

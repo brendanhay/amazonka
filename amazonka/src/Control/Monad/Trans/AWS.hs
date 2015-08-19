@@ -284,8 +284,8 @@ execAWST f = innerAWST go
 
     go (AwaitF s w (request -> x) k) = do
         e <- view environment
-        r <- lift . f =<< waiter e w x (perform e s x)
-        k (snd r)
+        lift . f . maybe (Right ()) Left =<< waiter e w x (perform e s x)
+        k
 
     tryT m = either (Left . TransportError) Right <$> try m
 

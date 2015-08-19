@@ -249,7 +249,7 @@ paginate = hoist liftAWS . AWST.paginate
 -- is fulfilled.
 --
 -- /See:/ 'AWST.awaitWith'
-await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m (Rs a)
+await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m ()
 await w = liftAWS . AWST.await w
 
 -- | Presign an URL that is valid from the specified time until the

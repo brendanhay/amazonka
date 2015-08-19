@@ -1,0 +1,10 @@
+---
+method: POST
+headers:
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=6730e35cdeff701e23e24d34983edcf52a7a324959100c8d2bcd7d1f9fd7d294
+  Host:                  ec2.us-east-1.amazonaws.com
+  Content-Type:          application/x-www-form-urlencoded; charset=utf-8
+  X-Amz-Content-SHA256:  8e74c3199fabb3f6708fdc25b3b741ca62cd0301c97ce69a06a1bd9df4a75ba5
+  X-Amz-Date:            20091028T223200Z
+body:
+  Action=DescribeInstances&Filter.1.Name=instance-type&Filter.1.Value.1=m1.small&Filter.1.Value.2=m1.large&Filter.2.Name=block-device-mapping.status&Filter.2.Value.1=attached&InstanceId.1=i-foo&InstanceId.2=i-bar&InstanceId.3=i-baz&Version=2015-04-15

@@ -25,6 +25,7 @@ import           Data.Function                (on)
 import qualified Data.HashMap.Strict          as Map
 import           Data.List                    (elemIndex, sortBy)
 import           Data.Maybe
+import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Data.Text.Manipulate
@@ -131,8 +132,22 @@ fieldParamName = Ident
     . _fieldId
 
 fieldHelp :: Field -> Help
-fieldHelp = fromMaybe "Undocumented member."
-    . view (fieldRef . refDocumentation)
+fieldHelp f =
+    fromMaybe def (f ^. fieldRef . refDocumentation) <> ann (typeOf f)
+  where
+    ann (TMaybe     t) = ann t
+    ann (TSensitive t) = ann t
+    ann (TLit Blob)    = base64
+    ann _              = mempty
+
+    base64 =
+        "\n\n/Note:/ This 'Lens' automatically encodes and decodes Base64 data,\n\
+        \despite what the AWS documentation might say.\n\
+        \The underlying isomorphim will encode to Base64 representation during\n\
+        \serialisation, and decode from Base64 representation during deserialisation.\n\
+        \This 'Lens' accepts and returns only raw unencoded data."
+
+    def = "Undocumented member."
 
 fieldLocation :: Field -> Maybe Location
 fieldLocation = view (fieldRef . refLocation)

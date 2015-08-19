@@ -122,7 +122,7 @@ instance ToLog HttpException where
     build x = "[HttpException] {\n" <> build (show x) <> "\n}"
 
 instance ToLog Request where
-    build x = mconcat
+    build x = buildLines
         [ "[Client Request] {"
         , "  host    = " <> build (host            x)
         , "  port    = " <> build (port            x)

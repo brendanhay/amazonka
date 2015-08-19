@@ -3,6 +3,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 
+{-# OPTIONS_GHC -fsimpl-tick-factor=110 #-}
+
 -- |
 -- Module      : Network.AWS.Data.Log
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -120,7 +122,7 @@ instance ToLog HttpException where
     build x = "[HttpException] {\n" <> build (show x) <> "\n}"
 
 instance ToLog Request where
-    build x = buildLines
+    build x = mconcat
         [ "[Client Request] {"
         , "  host    = " <> build (host            x)
         , "  port    = " <> build (port            x)
@@ -130,6 +132,7 @@ instance ToLog Request where
         , "  query   = " <> build (queryString     x)
         , "  method  = " <> build (method          x)
         , "  timeout = " <> build (responseTimeout x)
+        , "  body    = " <> build (requestBody     x)
         , "}"
         ]
 

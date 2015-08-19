@@ -156,10 +156,12 @@ finalise meta authorise = Signed meta . authorise $ clientRequest
     { Client.method         = toBS (metaMethod meta)
     , Client.host           = _endpointHost (metaEndpoint meta)
     , Client.path           = toBS (metaPath meta)
-    , Client.queryString    = '?' `BS8.cons` toBS (metaCanonicalQuery meta)
+    , Client.queryString    = if BS8.null qbs then qbs else '?' `BS8.cons` qbs
     , Client.requestHeaders = metaHeaders meta
     , Client.requestBody    = metaBody meta
     }
+  where
+    qbs = toBS (metaCanonicalQuery meta)
 
 sign :: AuthEnv
      -> Region

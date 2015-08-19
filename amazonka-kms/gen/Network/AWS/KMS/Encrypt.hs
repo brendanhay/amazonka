@@ -126,6 +126,12 @@ eKeyId :: Lens' Encrypt Text
 eKeyId = lens _eKeyId (\ s a -> s{_eKeyId = a});
 
 -- | Data to be encrypted.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphim will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 ePlaintext :: Lens' Encrypt ByteString
 ePlaintext = lens _ePlaintext (\ s a -> s{_ePlaintext = a}) . _Sensitive . _Base64;
 
@@ -194,6 +200,12 @@ ersKeyId = lens _ersKeyId (\ s a -> s{_ersKeyId = a});
 
 -- | The encrypted plaintext. If you are using the CLI, the value is Base64
 -- encoded. Otherwise, it is not encoded.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphim will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 ersCiphertextBlob :: Lens' EncryptResponse (Maybe ByteString)
 ersCiphertextBlob = lens _ersCiphertextBlob (\ s a -> s{_ersCiphertextBlob = a}) . mapping _Base64;
 

@@ -117,6 +117,12 @@ generateRandomResponse pStatus_ =
     }
 
 -- | Plaintext that contains the unpredictable byte string.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphim will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 grrsPlaintext :: Lens' GenerateRandomResponse (Maybe ByteString)
 grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping (_Sensitive . _Base64);
 

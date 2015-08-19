@@ -94,6 +94,12 @@ ikpKeyName = lens _ikpKeyName (\ s a -> s{_ikpKeyName = a});
 
 -- | The public key. You must base64 encode the public key material before
 -- sending it to AWS.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphim will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 ikpPublicKeyMaterial :: Lens' ImportKeyPair ByteString
 ikpPublicKeyMaterial = lens _ikpPublicKeyMaterial (\ s a -> s{_ikpPublicKeyMaterial = a}) . _Base64;
 

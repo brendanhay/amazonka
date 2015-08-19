@@ -386,6 +386,12 @@ blobAttributeValue =
     }
 
 -- | Undocumented member.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphim will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 bavValue :: Lens' BlobAttributeValue (Maybe ByteString)
 bavValue = lens _bavValue (\ s a -> s{_bavValue = a}) . mapping _Base64;
 
@@ -7519,6 +7525,12 @@ ssPrefix = lens _ssPrefix (\ s a -> s{_ssPrefix = a});
 
 -- | A Base64-encoded Amazon S3 upload policy that gives Amazon EC2
 -- permission to upload items into Amazon S3 on your behalf.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphim will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 ssUploadPolicy :: Lens' S3Storage (Maybe ByteString)
 ssUploadPolicy = lens _ssUploadPolicy (\ s a -> s{_ssUploadPolicy = a}) . mapping _Base64;
 

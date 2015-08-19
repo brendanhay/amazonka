@@ -198,6 +198,12 @@ gdkwprsKeyId = lens _gdkwprsKeyId (\ s a -> s{_gdkwprsKeyId = a});
 --
 -- If you are using the CLI, the value is Base64 encoded. Otherwise, it is
 -- not encoded.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphim will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 gdkwprsCiphertextBlob :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe ByteString)
 gdkwprsCiphertextBlob = lens _gdkwprsCiphertextBlob (\ s a -> s{_gdkwprsCiphertextBlob = a}) . mapping _Base64;
 

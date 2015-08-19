@@ -226,6 +226,12 @@ gdkrsKeyId = lens _gdkrsKeyId (\ s a -> s{_gdkrsKeyId = a});
 
 -- | Plaintext that contains the data key. Use this for encryption and
 -- decryption and then remove it from memory as soon as possible.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphim will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 gdkrsPlaintext :: Lens' GenerateDataKeyResponse (Maybe ByteString)
 gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . mapping (_Sensitive . _Base64);
 
@@ -237,6 +243,12 @@ gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . mappin
 --
 -- If you are using the CLI, the value is Base64 encoded. Otherwise, it is
 -- not encoded.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphim will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 gdkrsCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe ByteString)
 gdkrsCiphertextBlob = lens _gdkrsCiphertextBlob (\ s a -> s{_gdkrsCiphertextBlob = a}) . mapping _Base64;
 

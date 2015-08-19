@@ -107,6 +107,12 @@ messageAttributeValue pDataType_ =
 
 -- | Binary type attributes can store any binary data, for example,
 -- compressed data, encrypted data, or images.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphim will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
 mavBinaryValue = lens _mavBinaryValue (\ s a -> s{_mavBinaryValue = a}) . mapping _Base64;
 

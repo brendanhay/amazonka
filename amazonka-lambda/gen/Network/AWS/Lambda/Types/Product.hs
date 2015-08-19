@@ -168,6 +168,12 @@ fcS3Key = lens _fcS3Key (\ s a -> s{_fcS3Key = a});
 -- information about creating a .zip file, go to
 -- <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions>
 -- in the /AWS Lambda Developer Guide/.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphim will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 fcZipFile :: Lens' FunctionCode (Maybe ByteString)
 fcZipFile = lens _fcZipFile (\ s a -> s{_fcZipFile = a}) . mapping _Base64;
 

@@ -148,6 +148,12 @@ prStreamName = lens _prStreamName (\ s a -> s{_prStreamName = a});
 -- | The data blob to put into the record, which is base64-encoded when the
 -- blob is serialized. The maximum size of the data blob (the payload
 -- before base64-encoding) is 50 kilobytes (KB)
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphim will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 prData :: Lens' PutRecord ByteString
 prData = lens _prData (\ s a -> s{_prData = a}) . _Base64;
 

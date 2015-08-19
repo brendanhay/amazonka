@@ -18,15 +18,19 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Example.S3
+          Example.EC2
+        , Example.S3
         , Example.SQS
 
     build-depends:
           amazonka
+        , amazonka-ec2
         , amazonka-s3
         , amazonka-sqs
         , base          >= 4.7 && < 5
         , bytestring
+        , conduit
+        , conduit-extra
         , lens
         , transformers
         , text

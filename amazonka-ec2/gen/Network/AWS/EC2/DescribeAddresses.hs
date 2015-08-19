@@ -127,7 +127,7 @@ daAllocationIds = lens _daAllocationIds (\ s a -> s{_daAllocationIds = a}) . _De
 instance AWSRequest DescribeAddresses where
         type Sv DescribeAddresses = EC2
         type Rs DescribeAddresses = DescribeAddressesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

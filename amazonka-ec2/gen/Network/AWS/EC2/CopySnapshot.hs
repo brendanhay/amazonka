@@ -185,7 +185,7 @@ csSourceSnapshotId = lens _csSourceSnapshotId (\ s a -> s{_csSourceSnapshotId = 
 instance AWSRequest CopySnapshot where
         type Sv CopySnapshot = EC2
         type Rs CopySnapshot = CopySnapshotResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

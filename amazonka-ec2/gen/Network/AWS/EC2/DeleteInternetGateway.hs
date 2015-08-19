@@ -79,7 +79,7 @@ instance AWSRequest DeleteInternetGateway where
         type Sv DeleteInternetGateway = EC2
         type Rs DeleteInternetGateway =
              DeleteInternetGatewayResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteInternetGatewayResponse'
 
 instance ToHeaders DeleteInternetGateway where

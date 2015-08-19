@@ -188,7 +188,7 @@ instance AWSRequest AuthorizeSecurityGroupIngress
         type Sv AuthorizeSecurityGroupIngress = EC2
         type Rs AuthorizeSecurityGroupIngress =
              AuthorizeSecurityGroupIngressResponse
-        request = post
+        request = postQuery
         response
           = receiveNull AuthorizeSecurityGroupIngressResponse'
 

@@ -85,7 +85,7 @@ instance AWSRequest DisassociateRouteTable where
         type Sv DisassociateRouteTable = EC2
         type Rs DisassociateRouteTable =
              DisassociateRouteTableResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DisassociateRouteTableResponse'
 

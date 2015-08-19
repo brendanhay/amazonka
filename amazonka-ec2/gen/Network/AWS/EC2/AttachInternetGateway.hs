@@ -91,7 +91,7 @@ instance AWSRequest AttachInternetGateway where
         type Sv AttachInternetGateway = EC2
         type Rs AttachInternetGateway =
              AttachInternetGatewayResponse
-        request = post
+        request = postQuery
         response = receiveNull AttachInternetGatewayResponse'
 
 instance ToHeaders AttachInternetGateway where

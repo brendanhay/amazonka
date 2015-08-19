@@ -195,7 +195,7 @@ creAvailabilityZone = lens _creAvailabilityZone (\ s a -> s{_creAvailabilityZone
 instance AWSRequest CreateVolume where
         type Sv CreateVolume = EC2
         type Rs CreateVolume = Volume
-        request = post
+        request = postQuery
         response = receiveXML (\ s h x -> parseXML x)
 
 instance ToHeaders CreateVolume where

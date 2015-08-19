@@ -176,7 +176,7 @@ instance AWSRequest RevokeSecurityGroupIngress where
         type Sv RevokeSecurityGroupIngress = EC2
         type Rs RevokeSecurityGroupIngress =
              RevokeSecurityGroupIngressResponse
-        request = post
+        request = postQuery
         response
           = receiveNull RevokeSecurityGroupIngressResponse'
 

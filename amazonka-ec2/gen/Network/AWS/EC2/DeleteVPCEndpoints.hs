@@ -82,7 +82,7 @@ instance AWSRequest DeleteVPCEndpoints where
         type Sv DeleteVPCEndpoints = EC2
         type Rs DeleteVPCEndpoints =
              DeleteVPCEndpointsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

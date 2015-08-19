@@ -78,7 +78,7 @@ instance AWSRequest UnassignPrivateIPAddresses where
         type Sv UnassignPrivateIPAddresses = EC2
         type Rs UnassignPrivateIPAddresses =
              UnassignPrivateIPAddressesResponse
-        request = post
+        request = postQuery
         response
           = receiveNull UnassignPrivateIPAddressesResponse'
 

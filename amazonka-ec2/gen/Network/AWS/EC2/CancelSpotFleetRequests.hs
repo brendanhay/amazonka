@@ -94,7 +94,7 @@ instance AWSRequest CancelSpotFleetRequests where
         type Sv CancelSpotFleetRequests = EC2
         type Rs CancelSpotFleetRequests =
              CancelSpotFleetRequestsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

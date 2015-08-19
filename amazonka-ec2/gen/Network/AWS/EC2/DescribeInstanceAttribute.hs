@@ -109,7 +109,7 @@ instance AWSRequest DescribeInstanceAttribute where
         type Sv DescribeInstanceAttribute = EC2
         type Rs DescribeInstanceAttribute =
              DescribeInstanceAttributeResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

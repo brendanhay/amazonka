@@ -101,7 +101,7 @@ instance AWSRequest AssociateDHCPOptions where
         type Sv AssociateDHCPOptions = EC2
         type Rs AssociateDHCPOptions =
              AssociateDHCPOptionsResponse
-        request = post
+        request = postQuery
         response = receiveNull AssociateDHCPOptionsResponse'
 
 instance ToHeaders AssociateDHCPOptions where

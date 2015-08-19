@@ -150,7 +150,7 @@ instance AWSRequest DescribeNetworkACLs where
         type Sv DescribeNetworkACLs = EC2
         type Rs DescribeNetworkACLs =
              DescribeNetworkACLsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

@@ -107,7 +107,7 @@ instance AWSRequest DescribeVPCClassicLink where
         type Sv DescribeVPCClassicLink = EC2
         type Rs DescribeVPCClassicLink =
              DescribeVPCClassicLinkResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

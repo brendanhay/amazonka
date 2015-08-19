@@ -114,7 +114,7 @@ instance AWSRequest DescribeInternetGateways where
         type Sv DescribeInternetGateways = EC2
         type Rs DescribeInternetGateways =
              DescribeInternetGatewaysResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

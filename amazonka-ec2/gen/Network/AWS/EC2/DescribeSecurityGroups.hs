@@ -153,7 +153,7 @@ instance AWSRequest DescribeSecurityGroups where
         type Sv DescribeSecurityGroups = EC2
         type Rs DescribeSecurityGroups =
              DescribeSecurityGroupsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

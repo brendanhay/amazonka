@@ -135,7 +135,7 @@ instance AWSRequest ModifySnapshotAttribute where
         type Sv ModifySnapshotAttribute = EC2
         type Rs ModifySnapshotAttribute =
              ModifySnapshotAttributeResponse
-        request = post
+        request = postQuery
         response
           = receiveNull ModifySnapshotAttributeResponse'
 

@@ -159,7 +159,7 @@ instance AWSRequest ModifyImageAttribute where
         type Sv ModifyImageAttribute = EC2
         type Rs ModifyImageAttribute =
              ModifyImageAttributeResponse
-        request = post
+        request = postQuery
         response = receiveNull ModifyImageAttributeResponse'
 
 instance ToHeaders ModifyImageAttribute where

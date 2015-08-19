@@ -233,7 +233,7 @@ instance AWSPager DescribeSnapshots where
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = EC2
         type Rs DescribeSnapshots = DescribeSnapshotsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

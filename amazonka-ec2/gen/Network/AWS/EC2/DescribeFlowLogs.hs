@@ -114,7 +114,7 @@ dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a});
 instance AWSRequest DescribeFlowLogs where
         type Sv DescribeFlowLogs = EC2
         type Rs DescribeFlowLogs = DescribeFlowLogsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

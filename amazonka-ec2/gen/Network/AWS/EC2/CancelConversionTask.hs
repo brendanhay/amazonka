@@ -95,7 +95,7 @@ instance AWSRequest CancelConversionTask where
         type Sv CancelConversionTask = EC2
         type Rs CancelConversionTask =
              CancelConversionTaskResponse
-        request = post
+        request = postQuery
         response = receiveNull CancelConversionTaskResponse'
 
 instance ToHeaders CancelConversionTask where

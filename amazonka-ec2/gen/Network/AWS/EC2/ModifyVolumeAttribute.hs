@@ -97,7 +97,7 @@ instance AWSRequest ModifyVolumeAttribute where
         type Sv ModifyVolumeAttribute = EC2
         type Rs ModifyVolumeAttribute =
              ModifyVolumeAttributeResponse
-        request = post
+        request = postQuery
         response = receiveNull ModifyVolumeAttributeResponse'
 
 instance ToHeaders ModifyVolumeAttribute where

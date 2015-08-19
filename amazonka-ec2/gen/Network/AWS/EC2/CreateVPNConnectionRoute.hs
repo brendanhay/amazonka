@@ -83,7 +83,7 @@ instance AWSRequest CreateVPNConnectionRoute where
         type Sv CreateVPNConnectionRoute = EC2
         type Rs CreateVPNConnectionRoute =
              CreateVPNConnectionRouteResponse
-        request = post
+        request = postQuery
         response
           = receiveNull CreateVPNConnectionRouteResponse'
 

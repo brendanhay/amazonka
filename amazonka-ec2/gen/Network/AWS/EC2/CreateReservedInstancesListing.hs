@@ -127,7 +127,7 @@ instance AWSRequest CreateReservedInstancesListing
         type Sv CreateReservedInstancesListing = EC2
         type Rs CreateReservedInstancesListing =
              CreateReservedInstancesListingResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

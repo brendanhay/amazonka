@@ -79,7 +79,7 @@ drtrRouteTableId = lens _drtrRouteTableId (\ s a -> s{_drtrRouteTableId = a});
 instance AWSRequest DeleteRouteTable where
         type Sv DeleteRouteTable = EC2
         type Rs DeleteRouteTable = DeleteRouteTableResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteRouteTableResponse'
 
 instance ToHeaders DeleteRouteTable where

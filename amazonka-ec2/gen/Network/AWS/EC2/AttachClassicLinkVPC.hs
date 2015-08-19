@@ -114,7 +114,7 @@ instance AWSRequest AttachClassicLinkVPC where
         type Sv AttachClassicLinkVPC = EC2
         type Rs AttachClassicLinkVPC =
              AttachClassicLinkVPCResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

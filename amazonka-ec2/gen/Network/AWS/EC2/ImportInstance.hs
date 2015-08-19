@@ -113,7 +113,7 @@ iiPlatform = lens _iiPlatform (\ s a -> s{_iiPlatform = a});
 instance AWSRequest ImportInstance where
         type Sv ImportInstance = EC2
         type Rs ImportInstance = ImportInstanceResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

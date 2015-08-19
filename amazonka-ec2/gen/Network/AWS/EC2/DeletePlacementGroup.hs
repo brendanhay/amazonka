@@ -82,7 +82,7 @@ instance AWSRequest DeletePlacementGroup where
         type Sv DeletePlacementGroup = EC2
         type Rs DeletePlacementGroup =
              DeletePlacementGroupResponse
-        request = post
+        request = postQuery
         response = receiveNull DeletePlacementGroupResponse'
 
 instance ToHeaders DeletePlacementGroup where

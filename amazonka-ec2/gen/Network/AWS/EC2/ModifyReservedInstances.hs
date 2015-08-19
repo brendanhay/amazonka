@@ -95,7 +95,7 @@ instance AWSRequest ModifyReservedInstances where
         type Sv ModifyReservedInstances = EC2
         type Rs ModifyReservedInstances =
              ModifyReservedInstancesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

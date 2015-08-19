@@ -130,7 +130,7 @@ rrDestinationCIdRBlock = lens _rrDestinationCIdRBlock (\ s a -> s{_rrDestination
 instance AWSRequest ReplaceRoute where
         type Sv ReplaceRoute = EC2
         type Rs ReplaceRoute = ReplaceRouteResponse
-        request = post
+        request = postQuery
         response = receiveNull ReplaceRouteResponse'
 
 instance ToHeaders ReplaceRoute where

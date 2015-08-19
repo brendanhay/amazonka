@@ -153,7 +153,7 @@ aasDryRun = lens _aasDryRun (\ s a -> s{_aasDryRun = a});
 instance AWSRequest AssociateAddress where
         type Sv AssociateAddress = EC2
         type Rs AssociateAddress = AssociateAddressResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

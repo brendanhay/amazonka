@@ -100,7 +100,7 @@ instance AWSRequest DescribeAccountAttributes where
         type Sv DescribeAccountAttributes = EC2
         type Rs DescribeAccountAttributes =
              DescribeAccountAttributesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

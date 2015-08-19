@@ -108,7 +108,7 @@ biStorage = lens _biStorage (\ s a -> s{_biStorage = a});
 instance AWSRequest BundleInstance where
         type Sv BundleInstance = EC2
         type Rs BundleInstance = BundleInstanceResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

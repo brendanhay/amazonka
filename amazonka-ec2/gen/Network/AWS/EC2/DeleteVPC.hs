@@ -82,7 +82,7 @@ delVPCId = lens _delVPCId (\ s a -> s{_delVPCId = a});
 instance AWSRequest DeleteVPC where
         type Sv DeleteVPC = EC2
         type Rs DeleteVPC = DeleteVPCResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteVPCResponse'
 
 instance ToHeaders DeleteVPC where

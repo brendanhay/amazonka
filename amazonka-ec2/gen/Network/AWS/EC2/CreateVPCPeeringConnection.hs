@@ -112,7 +112,7 @@ instance AWSRequest CreateVPCPeeringConnection where
         type Sv CreateVPCPeeringConnection = EC2
         type Rs CreateVPCPeeringConnection =
              CreateVPCPeeringConnectionResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

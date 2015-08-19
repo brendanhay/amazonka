@@ -93,7 +93,7 @@ instance AWSRequest ModifyVPCAttribute where
         type Sv ModifyVPCAttribute = EC2
         type Rs ModifyVPCAttribute =
              ModifyVPCAttributeResponse
-        request = post
+        request = postQuery
         response = receiveNull ModifyVPCAttributeResponse'
 
 instance ToHeaders ModifyVPCAttribute where

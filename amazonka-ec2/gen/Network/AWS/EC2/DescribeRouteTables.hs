@@ -159,7 +159,7 @@ instance AWSRequest DescribeRouteTables where
         type Sv DescribeRouteTables = EC2
         type Rs DescribeRouteTables =
              DescribeRouteTablesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

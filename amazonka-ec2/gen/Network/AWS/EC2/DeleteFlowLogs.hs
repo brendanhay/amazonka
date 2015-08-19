@@ -67,7 +67,7 @@ dflFlowLogIds = lens _dflFlowLogIds (\ s a -> s{_dflFlowLogIds = a}) . _Coerce;
 instance AWSRequest DeleteFlowLogs where
         type Sv DeleteFlowLogs = EC2
         type Rs DeleteFlowLogs = DeleteFlowLogsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

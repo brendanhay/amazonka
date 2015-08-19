@@ -96,7 +96,7 @@ instance AWSRequest CreatePlacementGroup where
         type Sv CreatePlacementGroup = EC2
         type Rs CreatePlacementGroup =
              CreatePlacementGroupResponse
-        request = post
+        request = postQuery
         response = receiveNull CreatePlacementGroupResponse'
 
 instance ToHeaders CreatePlacementGroup where

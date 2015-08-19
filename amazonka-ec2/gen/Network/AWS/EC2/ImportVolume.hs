@@ -114,7 +114,7 @@ ivVolume = lens _ivVolume (\ s a -> s{_ivVolume = a});
 instance AWSRequest ImportVolume where
         type Sv ImportVolume = EC2
         type Rs ImportVolume = ImportVolumeResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

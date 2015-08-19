@@ -181,7 +181,7 @@ desMaxResults = lens _desMaxResults (\ s a -> s{_desMaxResults = a});
 instance AWSRequest DescribeVolumes where
         type Sv DescribeVolumes = EC2
         type Rs DescribeVolumes = DescribeVolumesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

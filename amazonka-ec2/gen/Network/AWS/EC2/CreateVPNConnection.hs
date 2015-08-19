@@ -130,7 +130,7 @@ instance AWSRequest CreateVPNConnection where
         type Sv CreateVPNConnection = EC2
         type Rs CreateVPNConnection =
              CreateVPNConnectionResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

@@ -108,7 +108,7 @@ instance AWSRequest DescribeImportSnapshotTasks where
         type Sv DescribeImportSnapshotTasks = EC2
         type Rs DescribeImportSnapshotTasks =
              DescribeImportSnapshotTasksResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

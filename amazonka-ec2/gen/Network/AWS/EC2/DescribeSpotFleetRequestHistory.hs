@@ -134,7 +134,7 @@ instance AWSRequest DescribeSpotFleetRequestHistory
         type Sv DescribeSpotFleetRequestHistory = EC2
         type Rs DescribeSpotFleetRequestHistory =
              DescribeSpotFleetRequestHistoryResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

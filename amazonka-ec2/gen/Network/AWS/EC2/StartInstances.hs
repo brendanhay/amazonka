@@ -108,7 +108,7 @@ sInstanceIds = lens _sInstanceIds (\ s a -> s{_sInstanceIds = a}) . _Coerce;
 instance AWSRequest StartInstances where
         type Sv StartInstances = EC2
         type Rs StartInstances = StartInstancesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

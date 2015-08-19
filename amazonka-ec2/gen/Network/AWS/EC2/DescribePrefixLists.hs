@@ -123,7 +123,7 @@ instance AWSRequest DescribePrefixLists where
         type Sv DescribePrefixLists = EC2
         type Rs DescribePrefixLists =
              DescribePrefixListsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

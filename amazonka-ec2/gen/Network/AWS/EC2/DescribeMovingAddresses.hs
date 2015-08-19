@@ -121,7 +121,7 @@ instance AWSRequest DescribeMovingAddresses where
         type Sv DescribeMovingAddresses = EC2
         type Rs DescribeMovingAddresses =
              DescribeMovingAddressesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

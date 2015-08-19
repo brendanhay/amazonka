@@ -13,7 +13,6 @@ CLIENT_VERSION = $(call version,$(TOP)/amazonka/amazonka.cabal)
 CORE_VERSION   = $(call version,$(TOP)/core/amazonka-core.cabal)
 
 MODELS ?= $(sort $(dir $(wildcard $(MODEL_DIR)/*/*)))
-GEN    ?= $(addprefix $(OUT_DIR)/amazonka-,$(notdir $(MODELS)))
 
 .PHONY: gen format
 
@@ -34,7 +33,7 @@ gen: $(BIN)/amazonka-gen
 
 format:
 	@echo -e '\nFormatting...'
-	@find $(addsuffix /gen,$(GEN)) $(addsuffix /test/Test/AWS/Gen,$(GEN)) \
+	@find $(wildcard $(OUT_DIR)/amazonka-*/gen) $(wildcard $(OUT_DIR)/test/Test/AWS/Gen) \
  -type f \
  -name '*.hs' \
  -printf ' -> %p\n' \

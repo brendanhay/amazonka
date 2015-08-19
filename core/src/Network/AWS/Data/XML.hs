@@ -57,10 +57,7 @@ n @= x =
         xs    -> XOne . NodeElement $ mkElement n xs
 
 decodeXML :: FromXML a => LazyByteString -> Either String a
-decodeXML = either failure success . parseLBS def
-  where
-    failure = Left  . show
-    success = parseXML . elementNodes . documentRoot
+decodeXML = first show . parseLBS def >=> parseXML . elementNodes . documentRoot
 
 -- The following is taken from xml-conduit.Text.XML which uses
 -- unsafePerformIO anyway, with the following caveat:
@@ -191,23 +188,52 @@ withContent k = \case
 withElement :: Text -> ([Node] -> Either String a) -> [Node] -> Either String a
 withElement n f = findElement n >=> f
 
+-- | Find a specific named NodeElement, at the current depth in the node tree.
+--
+-- Fails if absent.
 findElement :: Text -> [Node] -> Either String [Node]
-findElement n ns =
-    maybe (Left missing) Right . listToMaybe $ mapMaybe (childNodesOf n) ns
+findElement n ns = missingElement n ns
+   . listToMaybe
+   $ mapMaybe (childNodesOf n) ns
+
+-- | Find the first specific named NodeElement, at any depth in the node tree.
+--
+-- Fails if absent.
+firstElement :: Text -> [Node] -> Either String [Node]
+firstElement n ns = missingElement n ns
+    . listToMaybe
+    $ mapMaybe go ns
   where
-    missing = "unable to find element "
-        ++ show n
-        ++ " in nodes "
-        ++ show (mapMaybe localName ns)
+    go (NodeElement e)
+        | n == nameLocalName (elementName e)
+                    = Just (elementNodes e)
+        | otherwise = listToMaybe $ mapMaybe go (elementNodes e)
+    go _            = Nothing
 
 childNodesOf :: Text -> Node -> Maybe [Node]
 childNodesOf n x = case x of
     NodeElement e
-        | Just n' <- localName x
-        , n == n' -> Just (elementNodes e)
-    _             -> Nothing
+        | Just n == localName x
+              -> Just (elementNodes e)
+    _         -> Nothing
 
 localName :: Node -> Maybe Text
 localName = \case
     NodeElement e -> Just (nameLocalName (elementName e))
     _             -> Nothing
+
+-- | An inefficient mechanism for retreiving the root
+-- element name of an XML document.
+rootElementName :: LazyByteString -> Maybe Text
+rootElementName bs =
+    either (const Nothing)
+           (Just . nameLocalName . elementName . documentRoot)
+           (parseLBS def bs)
+
+missingElement :: Text -> [Node] -> Maybe a -> Either String a
+missingElement n ns = maybe (Left err) Right
+  where
+    err = "unable to find element "
+        ++ show n
+        ++ " in nodes "
+        ++ show (mapMaybe localName ns)

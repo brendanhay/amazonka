@@ -119,6 +119,7 @@ test-suite tests
         , Test.AWS.Data.Maybe
         , Test.AWS.Data.Numeric
         , Test.AWS.Data.Time
+        , Test.AWS.Error
         , Test.AWS.Sign.V4
         , Test.AWS.Util
 

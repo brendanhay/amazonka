@@ -101,7 +101,7 @@ iInvocationType = lens _iInvocationType (\ s a -> s{_iInvocationType = a});
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
--- The underlying isomorphim will encode to Base64 representation during
+-- The underlying isomorphism will encode to Base64 representation during
 -- serialisation, and decode from Base64 representation during deserialisation.
 -- This 'Lens' accepts and returns only raw unencoded data.
 iPayload :: Lens' Invoke (Maybe ByteString)
@@ -230,7 +230,7 @@ irsLogResult = lens _irsLogResult (\ s a -> s{_irsLogResult = a});
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
--- The underlying isomorphim will encode to Base64 representation during
+-- The underlying isomorphism will encode to Base64 representation during
 -- serialisation, and decode from Base64 representation during deserialisation.
 -- This 'Lens' accepts and returns only raw unencoded data.
 irsPayload :: Lens' InvokeResponse (Maybe ByteString)

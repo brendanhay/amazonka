@@ -70,10 +70,10 @@ module Network.AWS.KMS.GenerateDataKey
     , generateDataKeyResponse
     , GenerateDataKeyResponse
     -- * Response Lenses
+    , gdkrsStatus
     , gdkrsKeyId
     , gdkrsPlaintext
     , gdkrsCiphertextBlob
-    , gdkrsStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -161,9 +161,9 @@ instance AWSRequest GenerateDataKey where
           = receiveJSON
               (\ s h x ->
                  GenerateDataKeyResponse' <$>
-                   (x .?> "KeyId") <*> (x .?> "Plaintext") <*>
-                     (x .?> "CiphertextBlob")
-                     <*> (pure (fromEnum s)))
+                   (pure (fromEnum s)) <*> (x .:> "KeyId") <*>
+                     (x .:> "Plaintext")
+                     <*> (x .:> "CiphertextBlob"))
 
 instance ToHeaders GenerateDataKey where
         toHeaders
@@ -191,37 +191,44 @@ instance ToQuery GenerateDataKey where
 
 -- | /See:/ 'generateDataKeyResponse' smart constructor.
 data GenerateDataKeyResponse = GenerateDataKeyResponse'
-    { _gdkrsKeyId          :: !(Maybe Text)
-    , _gdkrsPlaintext      :: !(Maybe (Sensitive Base64))
-    , _gdkrsCiphertextBlob :: !(Maybe Base64)
-    , _gdkrsStatus         :: !Int
+    { _gdkrsStatus         :: !Int
+    , _gdkrsKeyId          :: !Text
+    , _gdkrsPlaintext      :: !(Sensitive Base64)
+    , _gdkrsCiphertextBlob :: !Base64
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | Creates a value of 'GenerateDataKeyResponse' with the minimum fields required to make a request.
 --
 -- Use one of the following lenses to modify other fields as desired:
 --
+-- * 'gdkrsStatus'
+--
 -- * 'gdkrsKeyId'
 --
 -- * 'gdkrsPlaintext'
 --
 -- * 'gdkrsCiphertextBlob'
---
--- * 'gdkrsStatus'
 generateDataKeyResponse
     :: Int -- ^ 'gdkrsStatus'
+    -> Text -- ^ 'gdkrsKeyId'
+    -> ByteString -- ^ 'gdkrsPlaintext'
+    -> ByteString -- ^ 'gdkrsCiphertextBlob'
     -> GenerateDataKeyResponse
-generateDataKeyResponse pStatus_ =
+generateDataKeyResponse pStatus_ pKeyId_ pPlaintext_ pCiphertextBlob_ =
     GenerateDataKeyResponse'
-    { _gdkrsKeyId = Nothing
-    , _gdkrsPlaintext = Nothing
-    , _gdkrsCiphertextBlob = Nothing
-    , _gdkrsStatus = pStatus_
+    { _gdkrsStatus = pStatus_
+    , _gdkrsKeyId = pKeyId_
+    , _gdkrsPlaintext = _Sensitive . _Base64 # pPlaintext_
+    , _gdkrsCiphertextBlob = _Base64 # pCiphertextBlob_
     }
+
+-- | The response status code.
+gdkrsStatus :: Lens' GenerateDataKeyResponse Int
+gdkrsStatus = lens _gdkrsStatus (\ s a -> s{_gdkrsStatus = a});
 
 -- | System generated unique identifier of the key to be used to decrypt the
 -- encrypted copy of the data key.
-gdkrsKeyId :: Lens' GenerateDataKeyResponse (Maybe Text)
+gdkrsKeyId :: Lens' GenerateDataKeyResponse Text
 gdkrsKeyId = lens _gdkrsKeyId (\ s a -> s{_gdkrsKeyId = a});
 
 -- | Plaintext that contains the data key. Use this for encryption and
@@ -229,11 +236,11 @@ gdkrsKeyId = lens _gdkrsKeyId (\ s a -> s{_gdkrsKeyId = a});
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
--- The underlying isomorphim will encode to Base64 representation during
+-- The underlying isomorphism will encode to Base64 representation during
 -- serialisation, and decode from Base64 representation during deserialisation.
 -- This 'Lens' accepts and returns only raw unencoded data.
-gdkrsPlaintext :: Lens' GenerateDataKeyResponse (Maybe ByteString)
-gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . mapping (_Sensitive . _Base64);
+gdkrsPlaintext :: Lens' GenerateDataKeyResponse ByteString
+gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . _Sensitive . _Base64;
 
 -- | Ciphertext that contains the encrypted data key. You must store the blob
 -- and enough information to reconstruct the encryption context so that the
@@ -246,12 +253,8 @@ gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . mappin
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
--- The underlying isomorphim will encode to Base64 representation during
+-- The underlying isomorphism will encode to Base64 representation during
 -- serialisation, and decode from Base64 representation during deserialisation.
 -- This 'Lens' accepts and returns only raw unencoded data.
-gdkrsCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe ByteString)
-gdkrsCiphertextBlob = lens _gdkrsCiphertextBlob (\ s a -> s{_gdkrsCiphertextBlob = a}) . mapping _Base64;
-
--- | The response status code.
-gdkrsStatus :: Lens' GenerateDataKeyResponse Int
-gdkrsStatus = lens _gdkrsStatus (\ s a -> s{_gdkrsStatus = a});
+gdkrsCiphertextBlob :: Lens' GenerateDataKeyResponse ByteString
+gdkrsCiphertextBlob = lens _gdkrsCiphertextBlob (\ s a -> s{_gdkrsCiphertextBlob = a}) . _Base64;

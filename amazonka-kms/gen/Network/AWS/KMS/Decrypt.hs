@@ -102,7 +102,7 @@ dGrantTokens = lens _dGrantTokens (\ s a -> s{_dGrantTokens = a}) . _Default . _
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
--- The underlying isomorphim will encode to Base64 representation during
+-- The underlying isomorphism will encode to Base64 representation during
 -- serialisation, and decode from Base64 representation during deserialisation.
 -- This 'Lens' accepts and returns only raw unencoded data.
 dCiphertextBlob :: Lens' Decrypt ByteString
@@ -177,7 +177,7 @@ drsKeyId = lens _drsKeyId (\ s a -> s{_drsKeyId = a});
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
--- The underlying isomorphim will encode to Base64 representation during
+-- The underlying isomorphism will encode to Base64 representation during
 -- serialisation, and decode from Base64 representation during deserialisation.
 -- This 'Lens' accepts and returns only raw unencoded data.
 drsPlaintext :: Lens' DecryptResponse (Maybe ByteString)

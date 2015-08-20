@@ -23,7 +23,7 @@
 -- operations. The transformer is intended to be used directly
 -- or embedded as a layer within a transformer stack.
 --
--- "Network.AWS" contains a 'IO' specialised version of 'AWST' with a typeclass
+-- "Network.AWS" contains an 'IO' specialised version of 'AWST' with a typeclass
 -- to assist in automatically lifting operations.
 module Control.Monad.Trans.AWS
     (
@@ -222,15 +222,11 @@ instance MFunctor AWST where
     hoist nat = AWST . hoist nat . unAWST
 
 -- | Run an 'AWST' action with the specified 'HasEnv' environment.
--- Any outstanding HTTP responses' 'ResumableSource' will
--- be closed when the 'ResourceT' computation is unwrapped with 'runResourceT'.
---
--- Throws 'Error'.
---
--- /See:/ 'runResourceT'.
-runAWST :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWST m a -> m a
+runAWST :: HasEnv r => r -> AWST m a -> m a
 runAWST r (AWST m) = runReaderT m (r ^. environment)
 
+-- | An alias for the constraints required to send requests,
+-- which 'AWST' implicitly fulfils.
 type AWSConstraint r m =
     ( MonadCatch     m
     , MonadResource  m
@@ -312,7 +308,12 @@ awaitWith f w x = do
 -- number of seconds expiry has elapsed.
 --
 -- /See:/ 'presign', 'presignWith'
-presignURL :: (AWSConstraint r m, AWSPresigner (Sg (Sv a)), AWSRequest a)
+presignURL :: ( MonadIO m
+              , MonadReader r m
+              , HasEnv r
+              , AWSPresigner (Sg (Sv a))
+              , AWSRequest a
+              )
            => UTCTime     -- ^ Signing time.
            -> Seconds     -- ^ Expiry time.
            -> a           -- ^ Request to presign.
@@ -326,7 +327,12 @@ presignURL ts ex x = do
 -- number of seconds expiry has elapsed.
 --
 -- /See:/ 'presignWith'
-presign :: (AWSConstraint r m, AWSPresigner (Sg (Sv a)), AWSRequest a)
+presign :: ( MonadIO m
+           , MonadReader r m
+           , HasEnv r
+           , AWSPresigner (Sg (Sv a))
+           , AWSRequest a
+           )
         => UTCTime     -- ^ Signing time.
         -> Seconds     -- ^ Expiry time.
         -> a           -- ^ Request to presign.
@@ -335,7 +341,12 @@ presign = presignWith id
 
 -- | A variant of 'presign' that allows specifying the 'Service' definition
 -- used to configure the request.
-presignWith :: (AWSConstraint r m, AWSPresigner (Sg s), AWSRequest a)
+presignWith :: ( MonadIO m
+               , MonadReader r m
+               , HasEnv r
+               , AWSPresigner (Sg s)
+               , AWSRequest a
+               )
             => (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
             -> UTCTime                       -- ^ Signing time.
             -> Seconds                       -- ^ Expiry time.
@@ -348,7 +359,7 @@ presignWith f ts ex x = do
 
 -- | Test whether the underlying host is running on EC2.
 -- This is memoised and any external check occurs for the first invocation only.
-isEC2 :: AWSConstraint r m => m Bool
+isEC2 :: (MonadIO m, MonadReader r m, HasEnv r) => m Bool
 isEC2 = do
     ref <- view envEC2
     mp  <- liftIO (readIORef ref)
@@ -361,16 +372,21 @@ isEC2 = do
             return p
 
 -- | Retrieve the specified 'Dynamic' data.
-dynamic :: AWSConstraint r m => EC2.Dynamic -> m ByteString
+dynamic :: (MonadIO m, MonadThrow m, MonadReader r m, HasEnv r)
+        => EC2.Dynamic
+        -> m ByteString
 dynamic d = view envManager >>= flip EC2.dynamic d
 
 -- | Retrieve the specified 'Metadata'.
-metadata :: AWSConstraint r m => EC2.Metadata -> m ByteString
+metadata :: (MonadIO m, MonadThrow m, MonadReader r m, HasEnv r)
+         => EC2.Metadata
+         -> m ByteString
 metadata m = view envManager >>= flip EC2.metadata m
 
 -- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
 -- to the instance.
-userdata :: AWSConstraint r m => m (Maybe ByteString)
+userdata :: (MonadIO m, MonadCatch m, MonadReader r m, HasEnv r)
+         => m (Maybe ByteString)
 userdata = view envManager >>= EC2.userdata
 
 hoistError :: MonadThrow m => Either Error a -> m a

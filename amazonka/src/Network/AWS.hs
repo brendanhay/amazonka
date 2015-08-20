@@ -144,7 +144,6 @@ import           Control.Monad.Trans.Class    (lift)
 import           Control.Monad.Trans.Cont     (ContT)
 import           Control.Monad.Trans.Except   (ExceptT)
 import           Control.Monad.Trans.Identity (IdentityT)
-import           Control.Monad.Trans.Iter     (IterT)
 import           Control.Monad.Trans.List     (ListT)
 import           Control.Monad.Trans.Maybe    (MaybeT)
 import           Control.Monad.Trans.Reader   (ReaderT)
@@ -166,7 +165,7 @@ import           Network.AWS.Waiter           (Wait)
 import           Prelude
 
 -- | A specialisation of the 'AWST' transformer.
-type AWS = AWST IO
+type AWS = AWST (ResourceT IO)
 
 -- | Monads in which 'AWS' actions may be embedded.
 class (Functor m, Applicative m, Monad m) => MonadAWS m where
@@ -184,8 +183,6 @@ instance MonadAWS m => MonadAWS (ContT     r m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ReaderT   r m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (S.StateT  s m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (LS.StateT s m) where liftAWS = lift . liftAWS
-instance MonadAWS m => MonadAWS (IterT       m) where liftAWS = lift . liftAWS
-instance MonadAWS m => MonadAWS (FT        f m) where liftAWS = lift . liftAWS
 
 instance (Monoid w, MonadAWS m) => MonadAWS (W.WriterT w m) where
     liftAWS = lift . liftAWS
@@ -208,10 +205,8 @@ instance (Monoid w, MonadAWS m) => MonadAWS (LRW.RWST r w s m) where
 -- or any particular errors returned by the respective AWS service.
 --
 -- /See:/ 'runAWST', 'runResourceT'.
-runAWS :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWS a -> m a
-runAWS e = liftResourceT
-    . AWST.runAWST e
-    . AWST.hoistAWST (withInternalState . const)
+runAWS :: (MonadResource m, HasEnv r) => r -> AWS a -> m a
+runAWS e = liftResourceT . AWST.runAWST e
 
 -- | Scope an action within the specific 'Region'.
 within :: MonadAWS m => Region -> AWS a -> m a

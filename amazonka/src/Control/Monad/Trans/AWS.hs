@@ -156,6 +156,7 @@ import           Control.Monad.Trans.Free        (FreeF (Pure), FreeT (..))
 import           Control.Monad.Trans.Free.Church
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Writer.Class
+import           Data.Bifunctor
 import           Data.IORef
 import           Network.AWS.Auth
 import qualified Network.AWS.EC2.Metadata        as EC2
@@ -232,18 +233,16 @@ instance MonadWriter w m => MonadWriter w (AWST m) where
 --
 -- /See:/ 'runResourceT'.
 runAWST :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWST m a -> m a
-runAWST = execAWST hoistError
+runAWST = execAWST
 
 -- | Run an 'AWST' action with configurable 'Error' handling.
 --
 -- Does not explictly throw 'Error's and instead uses the supplied lift function.
 execAWST :: (MonadCatch m, MonadResource m, HasEnv r)
-         => (forall a. Either Error a -> m a)
-            -- ^ Lift an 'Error' into the base Monad.
-         -> r
+         => r
          -> AWST m b
          -> m b
-execAWST f = innerAWST go
+execAWST = innerAWST go
   where
     go (CheckF k) = do
         io <- view envEC2
@@ -252,42 +251,42 @@ execAWST f = innerAWST go
             Just p  -> k p
             Nothing -> do
                 m  <- view envManager
-                !r <- lift . f =<< tryT (EC2.isEC2 m)
+                !r <- EC2.isEC2 m
                 liftIO (atomicWriteIORef io (Just r))
                 k r
 
-    go (DynF x k) = do
-        m <- view envManager
-        r <- lift . f =<< tryT (EC2.dynamic m x)
-        k r
+--     go (DynF x k) = do
+--         m <- view envManager
+--         r <- lift . f =<< tryT (EC2.dynamic m x)
+--         k r
 
-    go (MetaF x k) = do
-        m <- view envManager
-        r <- lift . f =<< tryT (EC2.metadata m x)
-        k r
+--     go (MetaF x k) = do
+--         m <- view envManager
+--         r <- lift . f =<< tryT (EC2.metadata m x)
+--         k r
 
-    go (UserF k) = do
-        m <- view envManager
-        r <- lift . f =<< tryT (EC2.userdata m)
-        k r
+--     go (UserF k) = do
+--         m <- view envManager
+--         r <- lift . f =<< tryT (EC2.userdata m)
+--         k r
 
-    go (SignF s ts ex x k) = do
-        a <- view envAuth
-        g <- view envRegion
-        r <- Sign.presignWith (const s) a g ts ex x
-        k r
+--     go (SignF s ts ex x k) = do
+--         a <- view envAuth
+--         g <- view envRegion
+--         r <- Sign.presignWith (const s) a g ts ex x
+--         k r
 
     go (SendF s (request -> x) k) = do
         e <- view environment
-        r <- lift . f =<< retrier e s x (perform e s x)
-        k (snd r)
+        r <- retrier e s x (perform e s x)
+        k (second snd r)
 
     go (AwaitF s w (request -> x) k) = do
         e <- view environment
-        lift . f . maybe (Right ()) Left =<< waiter e w x (perform e s x)
-        k
+        r <- waiter e w x (perform e s x)
+        k r
 
-    tryT m = either (Left . TransportError) Right <$> try m
+--    tryT m = either (Left . TransportError) Right <$> try m
 
 innerAWST :: (Monad m, HasEnv r)
           => (Command (ReaderT Env m a) -> ReaderT Env m a)
@@ -302,8 +301,8 @@ hoistAWST :: (Monad m, Monad n)
           -> AWST n b
 hoistAWST nat = AWST . hoistFT (hoist nat) . unAWST
 
-hoistError :: MonadThrow m => Either Error a -> m a
-hoistError = either (throwingM _Error) return
+-- hoistError :: MonadThrow m => Either Error a -> m a
+-- hoistError = either (throwingM _Error) return
 
 {- $discovery
 AuthN/AuthZ information is handled similarly to other AWS SDKs. You can read

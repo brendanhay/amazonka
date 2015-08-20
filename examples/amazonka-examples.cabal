@@ -19,6 +19,7 @@ library
 
     exposed-modules:
           Example.EC2
+        , Example.ExceptionSemantics
         , Example.S3
         , Example.SQS
 

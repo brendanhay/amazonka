@@ -33,33 +33,45 @@ exceptions r n = do
     lgr <- newLogger Info stdout
     env <- newEnv r Discover <&> envLogger .~ lgr
 
-    let str :: Show a => a -> Text
-        str = Text.pack . show
-
-    let say :: MonadIO m => Text -> m ()
-        say = liftIO . Text.putStrLn
+    let scan' = scan n & sAttributesToGet ?~ "foo" :| []
 
     runResourceT $ do
         runAWST env $ do
-            say $ "Listing all tables in region " <> toText r
+            sayLn $ "Listing all tables in region " <> toText r
             paginate listTables
                 =$= CL.concatMap (view ltrsTableNames)
-                 $$ CL.mapM_ (say . mappend "Table: ")
+                 $$ CL.mapM_ (sayLn . mappend "Table: ")
 
-            say "Throwing deliberate IOError"
-            Left u <- trying _IOException $
+            say "Throwing deliberate IOError ... "
+            Left _ <- trying _IOException $
                 throwM (userError "deliberate!")
+            sayLn "OK!"
 
-            say $ "Performing table scan of " <> n
-            p <- try $
-                paginate (scan n & sAttributesToGet ?~ "foo" :| [])
-                    $$ CL.consume
+            say $ "Performing table scan of " <> n <> " using 'send' ... "
+            s <- try $ send scan'
+            sayLn "OK!"
 
-            say "Displaying error caught while scanning:"
-            case p of
-                Left  e -> say $ str (e :: SomeException)
-                Right x -> say $ "No error! " <> str x
+            say "Displaying error while scanning using 'paginate': "
+            display s
+
+            say $ "Performing table scan of " <> n <> " using 'paginate': "
+            p <- try $ paginate scan' $$ CL.consume
+            sayLn "OK!"
+
+            say "Displaying error while scanning using 'paginate': "
+            display p
 
         say "Exited AWST scope."
     say "Exited ResourceT scope."
 
+display :: (MonadIO m, Show a) => Either SomeException a -> m ()
+display = sayLn . either str (mappend "No error! " . str)
+
+str :: Show a => a -> Text
+str = Text.pack . show
+
+sayLn :: MonadIO m => Text -> m ()
+sayLn = liftIO . Text.putStrLn
+
+say :: MonadIO m => Text -> m ()
+say = liftIO . Text.putStr

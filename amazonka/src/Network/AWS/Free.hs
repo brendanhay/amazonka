@@ -18,6 +18,8 @@
 module Network.AWS.Free where
 
 import           Control.Applicative
+import           Control.Exception.Lens
+import           Control.Monad.Catch
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Free.Church
 import           Data.Conduit                    (Source, yield)
@@ -36,10 +38,10 @@ import           Control.Monad.Trans.Free        (FreeT (..))
 import           Prelude
 
 data Command r where
-    CheckF ::             (Bool             -> r) -> Command r
-    DynF   :: Dynamic  -> (ByteString       -> r) -> Command r
-    MetaF  :: Metadata -> (ByteString       -> r) -> Command r
-    UserF  ::             (Maybe ByteString -> r) -> Command r
+    CheckF ::             (Bool                                    -> r) -> Command r
+    DynF   :: Dynamic  -> (Either HttpException ByteString         -> r) -> Command r
+    MetaF  :: Metadata -> (Either HttpException ByteString         -> r) -> Command r
+    UserF  ::             (Either HttpException (Maybe ByteString) -> r) -> Command r
 
     SignF  :: (AWSPresigner (Sg s), AWSRequest a)
            => Service s
@@ -52,14 +54,14 @@ data Command r where
     SendF  :: (AWSSigner (Sg s), AWSRequest a)
            => Service s
            -> a
-           -> (Rs a -> r)
+           -> (Either Error (Rs a) -> r)
            -> Command r
 
     AwaitF :: (AWSSigner (Sg s), AWSRequest a)
            => Service s
            -> Wait a
            -> a
-           -> r
+           -> (Maybe Error -> r)
            -> Command r
 
 instance Functor Command where
@@ -70,7 +72,7 @@ instance Functor Command where
         UserF          k -> UserF          (fmap f k)
         SignF  s t e x k -> SignF  s t e x (fmap f k)
         SendF  s     x k -> SendF  s     x (fmap f k)
-        AwaitF s w   x k -> AwaitF s w   x (f k)
+        AwaitF s w   x k -> AwaitF s w   x (fmap f k)
 
 #if MIN_VERSION_free(4,12,0)
 #else
@@ -91,38 +93,41 @@ instance MonadCatch m => MonadCatch (FT Command m) where
 -- | Send a request, returning the associated response if successful.
 --
 -- /See:/ 'sendWith'
-send :: (MonadFree Command m, AWSRequest a)
+send :: (MonadThrow m, MonadFree Command m, AWSRequest a)
      => a
      -> m (Rs a)
 send = sendWith id
 
 -- | A variant of 'send' that allows modifying the default 'Service' definition
 -- used to configure the request.
-sendWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
+sendWith :: (MonadThrow m, MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
          => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
          -> a                             -- ^ Request.
          -> m (Rs a)
-sendWith f x = liftF (SendF (f (serviceOf x)) x id)
+sendWith f x =
+    liftF (SendF (f (serviceOf x)) x id)
+        >>= hoistError _Error
 
 -- | Repeatedly send a request, automatically setting markers and
 -- paginating over multiple responses while available.
 --
 -- /See:/ 'paginateWith'
-paginate :: (MonadFree Command m, AWSPager a)
+paginate :: (MonadThrow m, MonadFree Command m, AWSPager a)
          => a
          -> Source m (Rs a)
 paginate = paginateWith id
 
 -- | A variant of 'paginate' that allows modifying the default 'Service' definition
 -- used to configure the request.
-paginateWith :: (MonadFree Command m, AWSSigner (Sg s), AWSPager a)
+paginateWith :: (MonadThrow m, MonadFree Command m, AWSSigner (Sg s), AWSPager a)
              => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
              -> a                             -- ^ Initial request.
              -> Source m (Rs a)
 paginateWith f rq = go rq
   where
     go !x = do
-        !y <- lift $ liftF (SendF s x id)
+        !e <- lift $ liftF (SendF s x id)
+        !y <- hoistError _Error e
         yield y
         maybe (pure ())
               go
@@ -134,7 +139,7 @@ paginateWith f rq = go rq
 -- is fulfilled.
 --
 -- /See:/ 'awaitWith'
-await :: (MonadFree Command m, AWSRequest a)
+await :: (MonadThrow m, MonadFree Command m, AWSRequest a)
       => Wait a
       -> a
       -> m ()
@@ -142,12 +147,14 @@ await = awaitWith id
 
 -- | A variant of 'await' that allows modifying the default 'Service' definition
 -- used to configure the request.
-awaitWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
+awaitWith :: (MonadThrow m, MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
           => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
           -> Wait a                        -- ^ Polling, error and acceptance criteria.
           -> a                             -- ^ Request to poll with.
           -> m ()
-awaitWith f w x = liftF (AwaitF (f (serviceOf x)) w x ())
+awaitWith f w x =
+    liftF (AwaitF (f (serviceOf x)) w x id)
+        >>= maybe (return ()) (throwingM _Error)
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
@@ -188,14 +195,26 @@ isEC2 :: MonadFree Command m => m Bool
 isEC2 = liftF (CheckF id)
 
 -- | Retrieve the specified 'Dynamic' data.
-dynamic :: MonadFree Command m => Dynamic -> m ByteString
-dynamic d = liftF (DynF d id)
+dynamic :: (MonadThrow m, MonadFree Command m)
+        => Dynamic
+        -> m ByteString
+dynamic d = liftF (DynF d id) >>= hoistError _TransportError
 
 -- | Retrieve the specified 'Metadata'.
-metadata :: MonadFree Command m => Metadata -> m ByteString
-metadata m = liftF (MetaF m id)
+metadata :: (MonadThrow m, MonadFree Command m)
+         => Metadata
+         -> m ByteString
+metadata m = liftF (MetaF m id) >>= hoistError _TransportError
 
 -- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
 -- to the instance.
-userdata :: MonadFree Command m => m (Maybe ByteString)
-userdata = liftF (UserF id)
+userdata :: (MonadThrow m, MonadFree Command m)
+         => m (Maybe ByteString)
+userdata = liftF (UserF id) >>= hoistError _TransportError
+
+--hoistError :: MonadThrow m => Either Error a -> m a
+hoistError p = either (throwingM p) return
+
+-- hoistTransportError :: MonadThrow m => Either Error a -> m a
+-- hoistTransportErrorError = either (throwingM _Error) return
+

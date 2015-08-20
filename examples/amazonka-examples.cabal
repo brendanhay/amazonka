@@ -23,7 +23,7 @@ library
         , Example.SQS
 
     build-depends:
-          amazonka
+          amazonka      == 1.0.1.*
         , amazonka-ec2
         , amazonka-s3
         , amazonka-sqs

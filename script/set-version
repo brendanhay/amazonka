@@ -20,6 +20,7 @@ specs=(
 for cabal in ${specs[@]}; do
     sed -i"" "s/^\(version: *\).*$/\1$version/" $cabal
     sed -i"" "s/^\(.*amazonka-core *== *\)\([0-9\.]\+\*\)$/\1$version.*/" $cabal
+    sed -i"" "s/^\(.*amazonka *== *\)\([0-9\.]\+\*\)$/\1$version.*/" $cabal
 done
 
 echo "Done."

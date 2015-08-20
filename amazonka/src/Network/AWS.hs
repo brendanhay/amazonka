@@ -202,7 +202,7 @@ instance (Monoid w, MonadAWS m) => MonadAWS (LRW.RWST r w s m) where
 -- Throws 'Error', which will include 'HTTPExceptions', serialisation errors,
 -- or any particular errors returned by the respective AWS service.
 --
--- /See:/ 'runAWST', 'runResourceT'.
+-- /See:/ 'AWST.runAWST', 'runResourceT'.
 runAWS :: (MonadResource m, HasEnv r) => r -> AWS a -> m a
 runAWS e = liftResourceT . AWST.runAWST e
 

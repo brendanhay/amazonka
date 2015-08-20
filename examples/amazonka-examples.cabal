@@ -24,6 +24,7 @@ library
 
     build-depends:
           amazonka      == 1.0.1.*
+        , amazonka-dynamodb
         , amazonka-ec2
         , amazonka-s3
         , amazonka-sqs
@@ -31,6 +32,8 @@ library
         , bytestring
         , conduit
         , conduit-extra
+        , exceptions
         , lens
+        , semigroups
         , transformers
         , text

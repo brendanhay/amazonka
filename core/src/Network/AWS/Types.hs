@@ -305,7 +305,7 @@ data LogLevel
     | Info  -- ^ Info messages supplied by the user - this level is not emitted by the library.
     | Debug -- ^ Useful debug information + info + error levels.
     | Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.
-      deriving (Eq, Ord, Enum, Show)
+      deriving (Eq, Ord, Enum, Show, Data, Typeable)
 
 -- | A function threaded through various request and serialisation routines
 -- to log informational and debug messages.

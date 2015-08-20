@@ -196,8 +196,6 @@ instance (Monoid w, MonadAWS m) => MonadAWS (RW.RWST r w s m) where
 instance (Monoid w, MonadAWS m) => MonadAWS (LRW.RWST r w s m) where
     liftAWS = lift . liftAWS
 
--- FIXME: verify the use of withInternalState to create a ResourceT here
-
 -- | Run the 'AWS' monad. Any outstanding HTTP responses' 'ResumableSource' will
 -- be closed when the 'ResourceT' computation is unwrapped with 'runResourceT'.
 --

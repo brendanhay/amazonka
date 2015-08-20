@@ -236,6 +236,8 @@ type AWSConstraint r m =
 
 -- | Send a request, returning the associated response if successful.
 --
+-- Throws 'Error'.
+--
 -- /See:/ 'sendWith'
 send :: (AWSConstraint r m, AWSRequest a)
      => a
@@ -244,6 +246,8 @@ send = sendWith id
 
 -- | A variant of 'send' that allows modifying the default 'Service' definition
 -- used to configure the request.
+--
+-- Throws 'Error'.
 sendWith :: (AWSConstraint r m, AWSSigner (Sg s), AWSRequest a)
          => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
          -> a                             -- ^ Request.
@@ -259,6 +263,8 @@ sendWith f x = do
 -- | Repeatedly send a request, automatically setting markers and
 -- paginating over multiple responses while available.
 --
+-- Throws 'Error'.
+--
 -- /See:/ 'paginateWith'
 paginate :: (AWSConstraint r m, AWSPager a)
          => a
@@ -267,6 +273,8 @@ paginate = paginateWith id
 
 -- | A variant of 'paginate' that allows modifying the default 'Service' definition
 -- used to configure the request.
+--
+-- Throws 'Error'.
 paginateWith :: (AWSConstraint r m, AWSSigner (Sg s), AWSPager a)
              => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
              -> a                             -- ^ Initial request.
@@ -283,6 +291,8 @@ paginateWith f = go
 -- | Poll the API with the supplied request until a specific 'Wait' condition
 -- is fulfilled.
 --
+-- Throws 'Error'.
+--
 -- /See:/ 'awaitWith'
 await :: (AWSConstraint r m, AWSRequest a)
       => Wait a
@@ -292,6 +302,8 @@ await = awaitWith id
 
 -- | A variant of 'await' that allows modifying the default 'Service' definition
 -- used to configure the request.
+--
+-- Throws 'Error'.
 awaitWith :: (AWSConstraint r m, AWSSigner (Sg s), AWSRequest a)
           => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
           -> Wait a                        -- ^ Polling, error and acceptance criteria.
@@ -372,12 +384,16 @@ isEC2 = do
             return p
 
 -- | Retrieve the specified 'Dynamic' data.
+--
+-- Throws 'HttpException'.
 dynamic :: (MonadIO m, MonadThrow m, MonadReader r m, HasEnv r)
         => EC2.Dynamic
         -> m ByteString
 dynamic d = view envManager >>= flip EC2.dynamic d
 
 -- | Retrieve the specified 'Metadata'.
+--
+-- Throws 'HttpException'.
 metadata :: (MonadIO m, MonadThrow m, MonadReader r m, HasEnv r)
          => EC2.Metadata
          -> m ByteString
@@ -385,6 +401,8 @@ metadata m = view envManager >>= flip EC2.metadata m
 
 -- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
 -- to the instance.
+--
+-- Throws 'HttpException'.
 userdata :: (MonadIO m, MonadCatch m, MonadReader r m, HasEnv r)
          => m (Maybe ByteString)
 userdata = view envManager >>= EC2.userdata

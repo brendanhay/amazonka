@@ -61,8 +61,8 @@ exceptions r n = do
             say "Displaying error while scanning using 'paginate': "
             display p
 
-        say "Exited AWST scope."
-    say "Exited ResourceT scope."
+        sayLn "Exited AWST scope."
+    sayLn "Exited ResourceT scope."
 
 display :: (MonadIO m, Show a) => Either SomeException a -> m ()
 display = sayLn . either str (mappend "No error! " . str)

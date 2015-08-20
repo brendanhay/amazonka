@@ -1,5 +1,14 @@
 {
     "referenceUrl": "http://docs.aws.amazon.com/kms/latest/APIReference/Welcome.html",
     "operationUrl": "http://docs.aws.amazon.com/kms/latest/APIReference/API_",
-    "libraryName": "amazonka-kms"
+    "libraryName": "amazonka-kms",
+    "typeOverrides": {
+        "GenerateDataKeyResponse": {
+            "requiredFields": [
+                "KeyId",
+                "Plaintext",
+                "CiphertextBlob"
+            ]
+        }
+    }
 }

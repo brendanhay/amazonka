@@ -11,12 +11,11 @@
 module Example.EC2 where
 
 import           Control.Lens
-
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.AWS
 import           Data.ByteString.Builder (hPutBuilder)
 import           Data.Conduit
-import qualified Data.Conduit.List       as Conduit
+import qualified Data.Conduit.List       as CL
 import           Data.Monoid
 import           Network.AWS.Data
 import           Network.AWS.EC2
@@ -37,6 +36,6 @@ instanceOverview r = do
 
     runResourceT . runAWST env $
         paginate describeInstances
-            =$= Conduit.concatMap (view dirsReservations)
-            =$= Conduit.concatMap (view rInstances)
-             $$ Conduit.mapM_ (liftIO . hPutBuilder stdout . pp)
+            =$= CL.concatMap (view dirsReservations)
+            =$= CL.concatMap (view rInstances)
+             $$ CL.mapM_ (liftIO . hPutBuilder stdout . pp)

@@ -19,11 +19,13 @@ library
 
     exposed-modules:
           Example.EC2
+        , Example.ExceptionSemantics
         , Example.S3
         , Example.SQS
 
     build-depends:
           amazonka      == 1.0.1.*
+        , amazonka-dynamodb
         , amazonka-ec2
         , amazonka-s3
         , amazonka-sqs
@@ -31,6 +33,8 @@ library
         , bytestring
         , conduit
         , conduit-extra
+        , exceptions
         , lens
+        , semigroups
         , transformers
         , text

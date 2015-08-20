@@ -27,11 +27,6 @@ description:
     * "Network.AWS": The 'AWS' monad and 'MonadAWS' type class for automatically
     lifting operations when embedded as a layer in a transformer stack.
     .
-    "Control.Monad.Trans.AWS" and "Network.AWS" provide functions
-    that are built upon a 'MonadFree' 'Command' DSL defined in
-    "Network.AWS.Free". This allows writing a custom interpreter (say, for
-    mocking purposes) and defining your own AWS logic if desired.
-    .
     GHC 7.8.4 and higher is officially supported.
 
 source-repository head
@@ -51,7 +46,6 @@ library
         , Network.AWS.Data
         , Network.AWS.EC2.Metadata
         , Network.AWS.Env
-        , Network.AWS.Free
         , Network.AWS.Presign
 
     other-modules:
@@ -67,7 +61,6 @@ library
         , conduit-extra       >= 1.1
         , directory           >= 1.2
         , exceptions          >= 0.6
-        , free                >= 4.5
         , http-client         >= 0.4.9
         , http-conduit        >= 2.1.4
         , ini                 >= 0.2

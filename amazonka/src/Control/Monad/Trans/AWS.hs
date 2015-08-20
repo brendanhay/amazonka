@@ -1,4 +1,5 @@
 {-# LANGUAGE BangPatterns               #-}
+{-# LANGUAGE ConstraintKinds            #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
@@ -7,7 +8,6 @@
 {-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE TypeFamilies               #-}
 {-# LANGUAGE UndecidableInstances       #-}
-{-# LANGUAGE ViewPatterns               #-}
 
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
@@ -20,19 +20,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The 'AWST' transformer provides the environment required to perform AWS
--- operations and constructs a 'Command' AST using 'MonadFree' which can then be
--- interpreted using 'runAWST'. The transformer is intended to be used directly
+-- operations. The transformer is intended to be used directly
 -- or embedded as a layer within a transformer stack.
 --
--- "Network.AWS" contains a 'IO' specialised version of 'AWST' with a typeclass
+-- "Network.AWS" contains an 'IO' specialised version of 'AWST' with a typeclass
 -- to assist in automatically lifting operations.
 module Control.Monad.Trans.AWS
     (
     -- * Running AWS Actions
       AWST
     , runAWST
-    , execAWST
-    , hoistAWST
+    , AWSConstraint
 
     -- * Authentication and Environment
     , newEnv
@@ -132,7 +130,6 @@ module Control.Monad.Trans.AWS
     , newLogger
 
     -- * Re-exported Types
-    , Command
     , RqBody
     , RsBody
     , module Network.AWS.Types
@@ -147,31 +144,29 @@ import           Control.Applicative
 import           Control.Exception.Lens
 import           Control.Monad.Base
 import           Control.Monad.Catch
-import           Control.Monad.Error.Class       (MonadError (..))
-import           Control.Monad.Morph             (hoist)
+import           Control.Monad.Error.Class    (MonadError (..))
+import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.State.Class
 import           Control.Monad.Trans.Control
-import           Control.Monad.Trans.Free        (FreeF (Pure), FreeT (..))
-import           Control.Monad.Trans.Free.Church
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Writer.Class
+import           Data.Conduit                 hiding (await)
 import           Data.IORef
 import           Network.AWS.Auth
-import qualified Network.AWS.EC2.Metadata        as EC2
+import qualified Network.AWS.EC2.Metadata     as EC2
 import           Network.AWS.Env
-import           Network.AWS.Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.HTTP
 import           Network.AWS.Internal.Logger
-import           Network.AWS.Pager               (AWSPager)
-import           Network.AWS.Prelude             as AWS
-import qualified Network.AWS.Presign             as Sign
-import           Network.AWS.Types               hiding (LogLevel (..))
-import           Network.AWS.Waiter              (Wait)
+import           Network.AWS.Pager            (AWSPager (..))
+import           Network.AWS.Prelude          as AWS
+import qualified Network.AWS.Presign          as Sign
+import           Network.AWS.Types            hiding (LogLevel (..))
+import           Network.AWS.Waiter           (Wait)
 
 -- | The 'AWST' transformer.
-newtype AWST m a = AWST { unAWST :: FT Command (ReaderT Env m) a }
+newtype AWST m a = AWST { unAWST :: ReaderT Env m a }
     deriving
         ( Functor
         , Applicative
@@ -179,7 +174,6 @@ newtype AWST m a = AWST { unAWST :: FT Command (ReaderT Env m) a }
         , Monad
         , MonadPlus
         , MonadIO
-        , MonadFree Command
         , MonadReader Env
         )
 
@@ -192,20 +186,20 @@ instance MonadCatch m => MonadCatch (AWST m) where
 instance MonadBase b m => MonadBase b (AWST m) where
     liftBase = liftBaseDefault
 
+instance MonadTransControl AWST where
+    type StT AWST a = StT (ReaderT Env) a
+
+    liftWith = defaultLiftWith AWST unAWST
+    restoreT = defaultRestoreT AWST
+
 instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
-    type StM (AWST m) a =
-         StM m (FreeF Command a (FreeT Command (ReaderT Env m) a))
+    type StM (AWST m) a = ComposeSt AWST m a
 
-    liftBaseWith f = AWST . toFT . FreeT . liftM Pure $
-        liftBaseWith $ \runInBase ->
-            f $ \k ->
-                runInBase $
-                    runFreeT (fromFT (unAWST k))
-
-    restoreM = AWST . toFT . FreeT . restoreM
+    liftBaseWith = defaultLiftBaseWith
+    restoreM     = defaultRestoreM
 
 instance MonadTrans AWST where
-    lift = AWST . lift . lift
+    lift = AWST . lift
 
 instance MonadResource m => MonadResource (AWST m) where
     liftResourceT = lift . liftResourceT
@@ -224,83 +218,194 @@ instance MonadWriter w m => MonadWriter w (AWST m) where
     listen = AWST . listen . unAWST
     pass   = AWST . pass   . unAWST
 
+instance MFunctor AWST where
+    hoist nat = AWST . hoist nat . unAWST
+
 -- | Run an 'AWST' action with the specified 'HasEnv' environment.
--- Any outstanding HTTP responses' 'ResumableSource' will
--- be closed when the 'ResourceT' computation is unwrapped with 'runResourceT'.
---
--- Throws 'Error' during interpretation of the underlying 'MonadFree' 'Command' AST.
---
--- /See:/ 'runResourceT'.
-runAWST :: (MonadCatch m, MonadResource m, HasEnv r) => r -> AWST m a -> m a
-runAWST = execAWST hoistError
+runAWST :: HasEnv r => r -> AWST m a -> m a
+runAWST r (AWST m) = runReaderT m (r ^. environment)
 
--- | Run an 'AWST' action with configurable 'Error' handling.
+-- | An alias for the constraints required to send requests,
+-- which 'AWST' implicitly fulfils.
+type AWSConstraint r m =
+    ( MonadCatch     m
+    , MonadResource  m
+    , MonadReader  r m
+    , HasEnv       r
+    )
+
+-- | Send a request, returning the associated response if successful.
 --
--- Does not explictly throw 'Error's and instead uses the supplied lift function.
-execAWST :: (MonadCatch m, MonadResource m, HasEnv r)
-         => (forall a. Either Error a -> m a)
-            -- ^ Lift an 'Error' into the base Monad.
-         -> r
-         -> AWST m b
-         -> m b
-execAWST f = innerAWST go
+-- Throws 'Error'.
+--
+-- /See:/ 'sendWith'
+send :: (AWSConstraint r m, AWSRequest a)
+     => a
+     -> m (Rs a)
+send = sendWith id
+
+-- | A variant of 'send' that allows modifying the default 'Service' definition
+-- used to configure the request.
+--
+-- Throws 'Error'.
+sendWith :: (AWSConstraint r m, AWSSigner (Sg s), AWSRequest a)
+         => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
+         -> a                             -- ^ Request.
+         -> m (Rs a)
+sendWith f x = do
+    e <- view environment
+    r <- retrier e s rq (perform e s rq) >>= hoistError
+    return (snd r)
   where
-    go (CheckF k) = do
-        io <- view envEC2
-        mp <- liftIO (readIORef io)
-        case mp of
-            Just p  -> k p
-            Nothing -> do
-                m  <- view envManager
-                !r <- lift . f =<< tryT (EC2.isEC2 m)
-                liftIO (atomicWriteIORef io (Just r))
-                k r
+    rq = request x
+    s  = f (serviceOf x)
 
-    go (DynF x k) = do
-        m <- view envManager
-        r <- lift . f =<< tryT (EC2.dynamic m x)
-        k r
+-- | Repeatedly send a request, automatically setting markers and
+-- paginating over multiple responses while available.
+--
+-- Throws 'Error'.
+--
+-- /See:/ 'paginateWith'
+paginate :: (AWSConstraint r m, AWSPager a)
+         => a
+         -> Source m (Rs a)
+paginate = paginateWith id
 
-    go (MetaF x k) = do
-        m <- view envManager
-        r <- lift . f =<< tryT (EC2.metadata m x)
-        k r
+-- | A variant of 'paginate' that allows modifying the default 'Service' definition
+-- used to configure the request.
+--
+-- Throws 'Error'.
+paginateWith :: (AWSConstraint r m, AWSSigner (Sg s), AWSPager a)
+             => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
+             -> a                             -- ^ Initial request.
+             -> Source m (Rs a)
+paginateWith f = go
+  where
+    go !x = do
+        !y <- sendWith f x
+        yield y
+        maybe (pure ())
+              go
+              (page x y)
 
-    go (UserF k) = do
-        m <- view envManager
-        r <- lift . f =<< tryT (EC2.userdata m)
-        k r
+-- | Poll the API with the supplied request until a specific 'Wait' condition
+-- is fulfilled.
+--
+-- Throws 'Error'.
+--
+-- /See:/ 'awaitWith'
+await :: (AWSConstraint r m, AWSRequest a)
+      => Wait a
+      -> a
+      -> m ()
+await = awaitWith id
 
-    go (SignF s ts ex x k) = do
-        a <- view envAuth
-        g <- view envRegion
-        r <- Sign.presignWith (const s) a g ts ex x
-        k r
+-- | A variant of 'await' that allows modifying the default 'Service' definition
+-- used to configure the request.
+--
+-- Throws 'Error'.
+awaitWith :: (AWSConstraint r m, AWSSigner (Sg s), AWSRequest a)
+          => (Service (Sv a) -> Service s) -- ^ Modify the default service configuration.
+          -> Wait a                        -- ^ Polling, error and acceptance criteria.
+          -> a                             -- ^ Request to poll with.
+          -> m ()
+awaitWith f w x = do
+    e <- view environment
+    waiter e w rq (perform e s rq) >>= hoistError . maybe (Right ()) Left
+  where
+    rq = request x
+    s  = f (serviceOf x)
 
-    go (SendF s (request -> x) k) = do
-        e <- view environment
-        r <- lift . f =<< retrier e s x (perform e s x)
-        k (snd r)
+-- | Presign an URL that is valid from the specified time until the
+-- number of seconds expiry has elapsed.
+--
+-- /See:/ 'presign', 'presignWith'
+presignURL :: ( MonadIO m
+              , MonadReader r m
+              , HasEnv r
+              , AWSPresigner (Sg (Sv a))
+              , AWSRequest a
+              )
+           => UTCTime     -- ^ Signing time.
+           -> Seconds     -- ^ Expiry time.
+           -> a           -- ^ Request to presign.
+           -> m ByteString
+presignURL ts ex x = do
+    a <- view envAuth
+    r <- view envRegion
+    Sign.presignURL a r ts ex x
 
-    go (AwaitF s w (request -> x) k) = do
-        e <- view environment
-        lift . f . maybe (Right ()) Left =<< waiter e w x (perform e s x)
-        k
+-- | Presign an HTTP request that is valid from the specified time until the
+-- number of seconds expiry has elapsed.
+--
+-- /See:/ 'presignWith'
+presign :: ( MonadIO m
+           , MonadReader r m
+           , HasEnv r
+           , AWSPresigner (Sg (Sv a))
+           , AWSRequest a
+           )
+        => UTCTime     -- ^ Signing time.
+        -> Seconds     -- ^ Expiry time.
+        -> a           -- ^ Request to presign.
+        -> m ClientRequest
+presign = presignWith id
 
-    tryT m = either (Left . TransportError) Right <$> try m
+-- | A variant of 'presign' that allows specifying the 'Service' definition
+-- used to configure the request.
+presignWith :: ( MonadIO m
+               , MonadReader r m
+               , HasEnv r
+               , AWSPresigner (Sg s)
+               , AWSRequest a
+               )
+            => (Service (Sv a) -> Service s) -- ^ Function to modify the service configuration.
+            -> UTCTime                       -- ^ Signing time.
+            -> Seconds                       -- ^ Expiry time.
+            -> a                             -- ^ Request to presign.
+            -> m ClientRequest
+presignWith f ts ex x = do
+    a <- view envAuth
+    g <- view envRegion
+    Sign.presignWith f a g ts ex x
 
-innerAWST :: (Monad m, HasEnv r)
-          => (Command (ReaderT Env m a) -> ReaderT Env m a)
-          -> r
-          -> AWST m a
-          -> m a
-innerAWST f e (AWST m) = runReaderT (f `iterT` m) (e ^. environment)
+-- | Test whether the underlying host is running on EC2.
+-- This is memoised and any external check occurs for the first invocation only.
+isEC2 :: (MonadIO m, MonadReader r m, HasEnv r) => m Bool
+isEC2 = do
+    ref <- view envEC2
+    mp  <- liftIO (readIORef ref)
+    case mp of
+        Just p  -> return p
+        Nothing -> do
+            m  <- view envManager
+            !p <- EC2.isEC2 m
+            liftIO (atomicWriteIORef ref (Just p))
+            return p
 
-hoistAWST :: (Monad m, Monad n)
-          => (forall a. m a -> n a)
-          -> AWST m b
-          -> AWST n b
-hoistAWST nat = AWST . hoistFT (hoist nat) . unAWST
+-- | Retrieve the specified 'Dynamic' data.
+--
+-- Throws 'HttpException'.
+dynamic :: (MonadIO m, MonadThrow m, MonadReader r m, HasEnv r)
+        => EC2.Dynamic
+        -> m ByteString
+dynamic d = view envManager >>= flip EC2.dynamic d
+
+-- | Retrieve the specified 'Metadata'.
+--
+-- Throws 'HttpException'.
+metadata :: (MonadIO m, MonadThrow m, MonadReader r m, HasEnv r)
+         => EC2.Metadata
+         -> m ByteString
+metadata m = view envManager >>= flip EC2.metadata m
+
+-- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
+-- to the instance.
+--
+-- Throws 'HttpException'.
+userdata :: (MonadIO m, MonadCatch m, MonadReader r m, HasEnv r)
+         => m (Maybe ByteString)
+userdata = view envManager >>= EC2.userdata
 
 hoistError :: MonadThrow m => Either Error a -> m a
 hoistError = either (throwingM _Error) return

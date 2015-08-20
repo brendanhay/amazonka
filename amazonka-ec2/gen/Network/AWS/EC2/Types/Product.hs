@@ -389,7 +389,7 @@ blobAttributeValue =
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
--- The underlying isomorphim will encode to Base64 representation during
+-- The underlying isomorphism will encode to Base64 representation during
 -- serialisation, and decode from Base64 representation during deserialisation.
 -- This 'Lens' accepts and returns only raw unencoded data.
 bavValue :: Lens' BlobAttributeValue (Maybe ByteString)
@@ -7528,7 +7528,7 @@ ssPrefix = lens _ssPrefix (\ s a -> s{_ssPrefix = a});
 --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
 -- despite what the AWS documentation might say.
--- The underlying isomorphim will encode to Base64 representation during
+-- The underlying isomorphism will encode to Base64 representation during
 -- serialisation, and decode from Base64 representation during deserialisation.
 -- This 'Lens' accepts and returns only raw unencoded data.
 ssUploadPolicy :: Lens' S3Storage (Maybe ByteString)

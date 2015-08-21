@@ -120,8 +120,6 @@ import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
 import qualified Data.ByteString              as BS
 import           Data.ByteString.Builder      (Builder)
-import qualified Data.ByteString.Builder      as Build
-import qualified Data.ByteString.Lazy.Char8   as LBS8
 import           Data.Coerce
 import           Data.Conduit
 import           Data.Data                    (Data, Typeable)
@@ -134,7 +132,6 @@ import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           GHC.Generics                 (Generic)
 import           Network.AWS.Data.Body
-import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Log
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Path
@@ -341,23 +338,6 @@ data Request a = Request
     , _rqHeaders   :: ![Header]
     , _rqBody      :: !RqBody
     }
-
-instance Show (Request a) where
-    show = LBS8.unpack . Build.toLazyByteString . build
-
-instance ToLog (Request a) where
-    build Request{..} = buildLines
-        [ "[Raw Request] {"
-        , "  method    = "  <> build _rqMethod
-        , "  path      = "  <> build (escapePath _rqPath)
-        , "  query     = "  <> build _rqQuery
-        , "  headers   = "  <> build _rqHeaders
-        , "  body      = {"
-        , "    hash    = "  <> build (digestToBase Base16 (bodySHA256 _rqBody))
-        , "    payload =\n" <> build (bodyRequest _rqBody)
-        , "  }"
-        , "}"
-        ]
 
 rqBody :: Lens' (Request a) RqBody
 rqBody = lens _rqBody (\s a -> s { _rqBody = a })

@@ -1,5 +1,5 @@
 name:                  amazonka-cognito-identity
-version:               1.0.1
+version:               1.0.2
 synopsis:              Amazon Cognito Identity SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -103,7 +103,7 @@ library
         , Network.AWS.CognitoIdentity.Types.Sum
 
     build-depends:
-          amazonka-core == 1.0.1.*
+          amazonka-core == 1.0.2.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cognito-identity-test
@@ -122,9 +122,9 @@ test-suite amazonka-cognito-identity-test
         , Test.AWS.CognitoIdentity.Internal
 
     build-depends:
-          amazonka-core == 1.0.1
-        , amazonka-test == 1.0.1
-        , amazonka-cognito-identity == 1.0.1
+          amazonka-core == 1.0.2
+        , amazonka-test == 1.0.2
+        , amazonka-cognito-identity == 1.0.2
         , base
         , bytestring
         , lens

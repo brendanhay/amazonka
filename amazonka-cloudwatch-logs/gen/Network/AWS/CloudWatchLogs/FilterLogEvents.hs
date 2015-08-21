@@ -35,6 +35,8 @@
 -- return in a page.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_FilterLogEvents.html AWS API Reference> for FilterLogEvents.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.FilterLogEvents
     (
     -- * Creating a Request
@@ -62,6 +64,7 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
 
 import           Network.AWS.CloudWatchLogs.Types
 import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -155,6 +158,13 @@ fleInterleaved = lens _fleInterleaved (\ s a -> s{_fleInterleaved = a});
 -- | The name of the log group to query.
 fleLogGroupName :: Lens' FilterLogEvents Text
 fleLogGroupName = lens _fleLogGroupName (\ s a -> s{_fleLogGroupName = a});
+
+instance AWSPager FilterLogEvents where
+        page rq rs
+          | stop (rs ^. flersNextToken) = Nothing
+          | stop (rs ^. flersEvents) = Nothing
+          | otherwise =
+            Just $ rq & fleNextToken .~ rs ^. flersNextToken
 
 instance AWSRequest FilterLogEvents where
         type Sv FilterLogEvents = CloudWatchLogs

@@ -1,5 +1,5 @@
 name:                  amazonka-cloudtrail
-version:               1.0.1
+version:               1.0.2
 synopsis:              Amazon CloudTrail SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -79,7 +79,7 @@ library
         , Network.AWS.CloudTrail.Types.Sum
 
     build-depends:
-          amazonka-core == 1.0.1.*
+          amazonka-core == 1.0.2.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-cloudtrail-test
@@ -98,9 +98,9 @@ test-suite amazonka-cloudtrail-test
         , Test.AWS.CloudTrail.Internal
 
     build-depends:
-          amazonka-core == 1.0.1
-        , amazonka-test == 1.0.1
-        , amazonka-cloudtrail == 1.0.1
+          amazonka-core == 1.0.2
+        , amazonka-test == 1.0.2
+        , amazonka-cloudtrail == 1.0.2
         , base
         , bytestring
         , lens

@@ -1,5 +1,5 @@
 name:                  amazonka-emr
-version:               1.0.1
+version:               1.0.2
 synopsis:              Amazon Elastic MapReduce SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -69,7 +69,7 @@ library
         , Network.AWS.EMR.Types.Sum
 
     build-depends:
-          amazonka-core == 1.0.1.*
+          amazonka-core == 1.0.2.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-emr-test
@@ -88,9 +88,9 @@ test-suite amazonka-emr-test
         , Test.AWS.EMR.Internal
 
     build-depends:
-          amazonka-core == 1.0.1
-        , amazonka-test == 1.0.1
-        , amazonka-emr == 1.0.1
+          amazonka-core == 1.0.2
+        , amazonka-test == 1.0.2
+        , amazonka-emr == 1.0.2
         , base
         , bytestring
         , lens

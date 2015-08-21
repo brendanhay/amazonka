@@ -1,5 +1,5 @@
 name:                  amazonka-s3
-version:               1.0.1
+version:               1.0.2
 synopsis:              Amazon Simple Storage Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -108,7 +108,7 @@ library
         , Network.AWS.S3.Types.Sum
 
     build-depends:
-          amazonka-core == 1.0.1.*
+          amazonka-core == 1.0.2.*
         , base          >= 4.7     && < 5
         , lens >= 4.4
         , text >= 1.1
@@ -129,9 +129,9 @@ test-suite amazonka-s3-test
         , Test.AWS.S3.Internal
 
     build-depends:
-          amazonka-core == 1.0.1
-        , amazonka-test == 1.0.1
-        , amazonka-s3 == 1.0.1
+          amazonka-core == 1.0.2
+        , amazonka-test == 1.0.2
+        , amazonka-s3 == 1.0.2
         , base
         , bytestring
         , lens

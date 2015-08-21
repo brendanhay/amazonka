@@ -1,5 +1,5 @@
 name:                  amazonka-support
-version:               1.0.1
+version:               1.0.2
 synopsis:              Amazon Support SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -115,7 +115,7 @@ library
         , Network.AWS.Support.Types.Sum
 
     build-depends:
-          amazonka-core == 1.0.1.*
+          amazonka-core == 1.0.2.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-support-test
@@ -134,9 +134,9 @@ test-suite amazonka-support-test
         , Test.AWS.Support.Internal
 
     build-depends:
-          amazonka-core == 1.0.1
-        , amazonka-test == 1.0.1
-        , amazonka-support == 1.0.1
+          amazonka-core == 1.0.2
+        , amazonka-test == 1.0.2
+        , amazonka-support == 1.0.2
         , base
         , bytestring
         , lens

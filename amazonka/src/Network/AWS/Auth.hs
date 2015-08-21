@@ -352,7 +352,7 @@ fromFilePath :: (Applicative m, MonadIO m, MonadCatch m)
 fromFilePath n f = do
     p <- liftIO (doesFileExist f)
     unless p $ throwM (MissingFileError f)
-    i <- either (throwM . invalidErr) return =<< liftIO (INI.readIniFile f)
+    i <- liftIO (INI.readIniFile f) >>= either (invalidErr Nothing) return
     fmap Auth $ AuthEnv
         <$> (req credAccessKey i    <&> AccessKey)
         <*> (req credSecretKey i    <&> SecretKey)
@@ -360,17 +360,20 @@ fromFilePath n f = do
         <*> pure Nothing
   where
     req k i =
-        either (throwM . invalidErr)
-               (return . Text.encodeUtf8)
-               (INI.lookupValue n k i)
+        case INI.lookupValue n k i of
+            Left  e           -> invalidErr (Just k) e
+            Right x
+                | Text.null x -> invalidErr (Just k) "cannot be a blank string."
+                | otherwise   -> return (Text.encodeUtf8 x)
 
     opt k i = return $
         either (const Nothing)
                (Just . Text.encodeUtf8)
                (INI.lookupValue n k i)
 
-    invalidErr :: String -> AuthError
-    invalidErr = InvalidFileError . Text.pack
+    invalidErr :: Maybe Text -> String -> AuthError
+    invalidErr k e = throwM $
+        InvalidFileError (maybe mempty (<> ": ") k <> Text.pack e)
 
 -- | Retrieve the default IAM Profile from the local EC2 instance-data.
 --

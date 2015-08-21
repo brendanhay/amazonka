@@ -1,5 +1,5 @@
 name:                  amazonka-test
-version:               1.0.1
+version:               1.1.0
 synopsis:              Test framework for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense

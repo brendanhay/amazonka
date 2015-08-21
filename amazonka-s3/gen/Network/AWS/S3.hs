@@ -243,6 +243,9 @@ module Network.AWS.S3
     -- ** ExpirationStatus
     , ExpirationStatus (..)
 
+    -- ** FilterRuleName
+    , FilterRuleName (..)
+
     -- ** MFADelete
     , MFADelete (..)
 
@@ -397,6 +400,12 @@ module Network.AWS.S3
     , errorDocument
     , edKey
 
+    -- ** FilterRule
+    , FilterRule
+    , filterRule
+    , frValue
+    , frName
+
     -- ** Grant
     , Grant
     , grant
@@ -427,6 +436,7 @@ module Network.AWS.S3
     , LambdaFunctionConfiguration
     , lambdaFunctionConfiguration
     , lfcId
+    , lfcFilter
     , lfcLambdaFunctionARN
     , lfcEvents
 
@@ -476,6 +486,11 @@ module Network.AWS.S3
     , ncTopicConfigurations
     , ncLambdaFunctionConfigurations
 
+    -- ** NotificationConfigurationFilter
+    , NotificationConfigurationFilter
+    , notificationConfigurationFilter
+    , ncfKey
+
     -- ** Object
     , Object
     , object'
@@ -522,6 +537,7 @@ module Network.AWS.S3
     , QueueConfiguration
     , queueConfiguration
     , qcId
+    , qcFilter
     , qcQueueARN
     , qcEvents
 
@@ -581,6 +597,11 @@ module Network.AWS.S3
     , rPrefix
     , rStatus
 
+    -- ** S3KeyFilter
+    , S3KeyFilter
+    , s3KeyFilter
+    , skfFilterRules
+
     -- ** S3ServiceError
     , S3ServiceError
     , s3ServiceError
@@ -610,6 +631,7 @@ module Network.AWS.S3
     , TopicConfiguration
     , topicConfiguration
     , tcId
+    , tcFilter
     , tcTopicARN
     , tcEvents
 

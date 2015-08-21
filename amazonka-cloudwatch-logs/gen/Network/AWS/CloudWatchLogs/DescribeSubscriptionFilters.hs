@@ -28,6 +28,8 @@
 -- 'limit' parameter in the request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html AWS API Reference> for DescribeSubscriptionFilters.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     (
     -- * Creating a Request
@@ -50,6 +52,7 @@ module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
 
 import           Network.AWS.CloudWatchLogs.Types
 import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -101,6 +104,13 @@ dsfLimit = lens _dsfLimit (\ s a -> s{_dsfLimit = a}) . mapping _Nat;
 -- | The log group name for which subscription filters are to be listed.
 dsfLogGroupName :: Lens' DescribeSubscriptionFilters Text
 dsfLogGroupName = lens _dsfLogGroupName (\ s a -> s{_dsfLogGroupName = a});
+
+instance AWSPager DescribeSubscriptionFilters where
+        page rq rs
+          | stop (rs ^. dsfrsNextToken) = Nothing
+          | stop (rs ^. dsfrsSubscriptionFilters) = Nothing
+          | otherwise =
+            Just $ rq & dsfNextToken .~ rs ^. dsfrsNextToken
 
 instance AWSRequest DescribeSubscriptionFilters where
         type Sv DescribeSubscriptionFilters = CloudWatchLogs

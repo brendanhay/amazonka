@@ -122,9 +122,14 @@ credProfile = "default"
 --
 -- /Note:/ This does not match the default AWS SDK location of
 -- @%USERPROFILE%\.aws\credentials@ on Windows. (Sorry.)
-credFile :: MonadIO m => m FilePath
-credFile = (<> "/.aws/credentials") `liftM` liftIO getHomeDirectory
--- TODO: probably should be using System.FilePath above.
+credFile :: (MonadCatch m, MonadIO m) => m FilePath
+credFile = catching_ _IOException dir err
+  where
+    dir = (++ p) `liftM` liftIO getHomeDirectory
+    err = throwM $ MissingFileError ("$HOME" ++ p)
+
+    -- TODO: probably should be using System.FilePath above.
+    p = "/.aws/credentials"
 
 {- $credentials
 'getAuth' is implemented using the following @from*@-styled functions below.
@@ -265,7 +270,8 @@ instance AsAuthError AuthError where
 
 -- | Retrieve authentication information via the specified 'Credentials' mechanism.
 --
--- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
+-- Throws 'AuthError' when environment variables or IAM profiles cannot be read,
+-- and credentials files are invalid or cannot be found.
 getAuth :: (Applicative m, MonadIO m, MonadCatch m)
         => Manager
         -> Credentials
@@ -284,7 +290,10 @@ getAuth m = \case
             catching _MissingFileError fromFile $ \f -> do
                 -- proceed, missing credentials file
                 p <- isEC2 m
-                unless p $ throwingM _MissingFileError f
+                unless p $
+                    -- not an EC2 instance, rethrow the previous error.
+                    throwingM _MissingFileError f
+                 -- proceed, check EC2 metadata for IAM information.
                 fromProfile m
 
 -- | Retrieve access key, secret key, and a session token from the default

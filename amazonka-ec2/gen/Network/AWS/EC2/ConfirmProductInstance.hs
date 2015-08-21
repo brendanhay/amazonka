@@ -95,7 +95,7 @@ instance AWSRequest ConfirmProductInstance where
         type Sv ConfirmProductInstance = EC2
         type Rs ConfirmProductInstance =
              ConfirmProductInstanceResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

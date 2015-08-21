@@ -95,7 +95,7 @@ instance AWSRequest ModifyReservedInstances where
         type Sv ModifyReservedInstances = EC2
         type Rs ModifyReservedInstances =
              ModifyReservedInstancesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -118,7 +118,9 @@ instance ToQuery ModifyReservedInstances where
                "ClientToken" =: _mriClientToken,
                toQueryList "ReservedInstancesId"
                  _mriReservedInstancesIds,
-               toQueryList "item" _mriTargetConfigurations]
+               toQueryList
+                 "ReservedInstancesConfigurationSetItemType"
+                 _mriTargetConfigurations]
 
 -- | /See:/ 'modifyReservedInstancesResponse' smart constructor.
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'

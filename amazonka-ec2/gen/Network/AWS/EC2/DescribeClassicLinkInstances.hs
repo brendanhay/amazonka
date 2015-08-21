@@ -143,7 +143,7 @@ instance AWSRequest DescribeClassicLinkInstances
         type Sv DescribeClassicLinkInstances = EC2
         type Rs DescribeClassicLinkInstances =
              DescribeClassicLinkInstancesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

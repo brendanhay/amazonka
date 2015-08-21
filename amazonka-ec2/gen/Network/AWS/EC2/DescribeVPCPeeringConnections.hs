@@ -134,7 +134,7 @@ instance AWSRequest DescribeVPCPeeringConnections
         type Sv DescribeVPCPeeringConnections = EC2
         type Rs DescribeVPCPeeringConnections =
              DescribeVPCPeeringConnectionsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -158,7 +158,7 @@ instance ToQuery DescribeVPCPeeringConnections where
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dvpcpcFilters),
                toQuery
-                 (toQueryList "item" <$>
+                 (toQueryList "VpcPeeringConnectionId" <$>
                     _dvpcpcVPCPeeringConnectionIds),
                "DryRun" =: _dvpcpcDryRun]
 

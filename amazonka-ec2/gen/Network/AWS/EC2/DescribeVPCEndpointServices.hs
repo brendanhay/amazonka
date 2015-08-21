@@ -97,7 +97,7 @@ instance AWSRequest DescribeVPCEndpointServices where
         type Sv DescribeVPCEndpointServices = EC2
         type Rs DescribeVPCEndpointServices =
              DescribeVPCEndpointServicesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

@@ -91,7 +91,7 @@ instance AWSRequest ResetImageAttribute where
         type Sv ResetImageAttribute = EC2
         type Rs ResetImageAttribute =
              ResetImageAttributeResponse
-        request = post
+        request = postQuery
         response = receiveNull ResetImageAttributeResponse'
 
 instance ToHeaders ResetImageAttribute where

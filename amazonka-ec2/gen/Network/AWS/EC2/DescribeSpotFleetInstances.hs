@@ -106,7 +106,7 @@ instance AWSRequest DescribeSpotFleetInstances where
         type Sv DescribeSpotFleetInstances = EC2
         type Rs DescribeSpotFleetInstances =
              DescribeSpotFleetInstancesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

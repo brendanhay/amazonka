@@ -67,6 +67,7 @@ import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import qualified Data.ByteString.Char8      as BS8
 import qualified Data.ByteString.Lazy.Char8 as LBS8
+import           Data.Char                  (isSpace)
 import qualified Data.Ini                   as INI
 import           Data.IORef
 import           Data.Monoid
@@ -122,9 +123,14 @@ credProfile = "default"
 --
 -- /Note:/ This does not match the default AWS SDK location of
 -- @%USERPROFILE%\.aws\credentials@ on Windows. (Sorry.)
-credFile :: MonadIO m => m FilePath
-credFile = (<> "/.aws/credentials") `liftM` liftIO getHomeDirectory
--- TODO: probably should be using System.FilePath above.
+credFile :: (MonadCatch m, MonadIO m) => m FilePath
+credFile = catching_ _IOException dir err
+  where
+    dir = (++ p) `liftM` liftIO getHomeDirectory
+    err = throwM $ MissingFileError ("$HOME" ++ p)
+
+    -- TODO: probably should be using System.FilePath above.
+    p = "/.aws/credentials"
 
 {- $credentials
 'getAuth' is implemented using the following @from*@-styled functions below.
@@ -265,7 +271,8 @@ instance AsAuthError AuthError where
 
 -- | Retrieve authentication information via the specified 'Credentials' mechanism.
 --
--- Throws 'AuthError' when environment variables or IAM profiles cannot be read.
+-- Throws 'AuthError' when environment variables or IAM profiles cannot be read,
+-- and credentials files are invalid or cannot be found.
 getAuth :: (Applicative m, MonadIO m, MonadCatch m)
         => Manager
         -> Credentials
@@ -284,7 +291,10 @@ getAuth m = \case
             catching _MissingFileError fromFile $ \f -> do
                 -- proceed, missing credentials file
                 p <- isEC2 m
-                unless p $ throwingM _MissingFileError f
+                unless p $
+                    -- not an EC2 instance, rethrow the previous error.
+                    throwingM _MissingFileError f
+                 -- proceed, check EC2 metadata for IAM information.
                 fromProfile m
 
 -- | Retrieve access key, secret key, and a session token from the default
@@ -343,7 +353,7 @@ fromFilePath :: (Applicative m, MonadIO m, MonadCatch m)
 fromFilePath n f = do
     p <- liftIO (doesFileExist f)
     unless p $ throwM (MissingFileError f)
-    i <- either (throwM . invalidErr) return =<< liftIO (INI.readIniFile f)
+    i <- liftIO (INI.readIniFile f) >>= either (invalidErr Nothing) return
     fmap Auth $ AuthEnv
         <$> (req credAccessKey i    <&> AccessKey)
         <*> (req credSecretKey i    <&> SecretKey)
@@ -351,17 +361,22 @@ fromFilePath n f = do
         <*> pure Nothing
   where
     req k i =
-        either (throwM . invalidErr)
-               (return . Text.encodeUtf8)
-               (INI.lookupValue n k i)
+        case INI.lookupValue n k i of
+            Left  e         -> invalidErr (Just k) e
+            Right x
+                | blank x   -> invalidErr (Just k) "cannot be a blank string."
+                | otherwise -> return (Text.encodeUtf8 x)
 
     opt k i = return $
-        either (const Nothing)
-               (Just . Text.encodeUtf8)
-               (INI.lookupValue n k i)
+        case INI.lookupValue n k i of
+            Left  _ -> Nothing
+            Right x -> Just (Text.encodeUtf8 x)
 
-    invalidErr :: String -> AuthError
-    invalidErr = InvalidFileError . Text.pack
+    invalidErr Nothing  e = throwM $ InvalidFileError (Text.pack e)
+    invalidErr (Just k) e = throwM $ InvalidFileError
+        (Text.pack f <> ", key " <> k <> " " <> Text.pack e)
+
+    blank x = Text.null x || Text.all isSpace x
 
 -- | Retrieve the default IAM Profile from the local EC2 instance-data.
 --

@@ -26,7 +26,36 @@ tests = []
 
 fixtures :: [TestTree]
 fixtures =
-    [ testGroup "response"
+    [ testGroup "request"
+        [ testDescribeVolumes $ describeVolumes
+            & desVolumeIds .~ ["foo", "bar", "baz"]
+            & desFilters   .~
+                [ filter' "tag:Name" & fValues .~ ["octopus"]
+                , filter' "tag:Role" & fValues .~ ["database", "server"]
+                ]
+
+        , testDescribeImages $ describeImages
+            & deseFilters .~
+                [ filter' "is-public"    & fValues .~ ["true"]
+                , filter' "architecture" & fValues .~ ["x86_64"]
+                , filter' "platform"     & fValues .~ ["windows"]
+                ]
+
+        , testDescribeInstances $ describeInstances
+            & diiInstanceIds .~ ["i-foo", "i-bar", "i-baz"]
+            & diiFilters     .~
+                [ filter' "instance-type"
+                    & fValues .~ ["m1.small", "m1.large"]
+                , filter' "block-device-mapping.status"
+                    & fValues .~ ["attached"]
+                ]
+
+        , testCopySnapshot $ copySnapshot "us-west-1" "snap-1a2b3c4d"
+            & csDescription ?~ "My_snapshot"
+
+        ]
+
+    , testGroup "response"
         [ testDescribeInstancesResponse $ describeInstancesResponse 200
             & dirsReservations .~
                 [ reservation "r-1a2b3c4d" "123456789012"

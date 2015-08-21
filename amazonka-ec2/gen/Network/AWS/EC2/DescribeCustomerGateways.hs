@@ -124,7 +124,7 @@ instance AWSRequest DescribeCustomerGateways where
         type Sv DescribeCustomerGateways = EC2
         type Rs DescribeCustomerGateways =
              DescribeCustomerGatewaysResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

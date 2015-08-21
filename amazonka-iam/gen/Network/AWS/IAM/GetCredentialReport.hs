@@ -116,6 +116,12 @@ getCredentialReportResponse pStatus_ =
     }
 
 -- | Contains the credential report. The report is Base64-encoded.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 grsContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
 grsContent = lens _grsContent (\ s a -> s{_grsContent = a}) . mapping _Base64;
 

@@ -130,7 +130,7 @@ cflDeliverLogsPermissionARN = lens _cflDeliverLogsPermissionARN (\ s a -> s{_cfl
 instance AWSRequest CreateFlowLogs where
         type Sv CreateFlowLogs = EC2
         type Rs CreateFlowLogs = CreateFlowLogsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -155,7 +155,7 @@ instance ToQuery CreateFlowLogs where
               ["Action" =: ("CreateFlowLogs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "ClientToken" =: _cflClientToken,
-               toQueryList "item" _cflResourceIds,
+               toQueryList "ResourceId" _cflResourceIds,
                "ResourceType" =: _cflResourceType,
                "TrafficType" =: _cflTrafficType,
                "LogGroupName" =: _cflLogGroupName,

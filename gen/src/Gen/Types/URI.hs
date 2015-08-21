@@ -19,8 +19,6 @@
 
 module Gen.Types.URI where
 
-import           Gen.TH
-import           Gen.Types.Id
 import           Control.Applicative
 import           Control.Lens
 import           Data.Aeson
@@ -28,6 +26,8 @@ import           Data.Attoparsec.Text (Parser)
 import qualified Data.Attoparsec.Text as Parse
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
+import           Gen.TH
+import           Gen.Types.Id
 import           GHC.Generics         (Generic)
 
 data Segment

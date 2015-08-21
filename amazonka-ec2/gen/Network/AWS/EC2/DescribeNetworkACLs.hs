@@ -150,7 +150,7 @@ instance AWSRequest DescribeNetworkACLs where
         type Sv DescribeNetworkACLs = EC2
         type Rs DescribeNetworkACLs =
              DescribeNetworkACLsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -172,7 +172,8 @@ instance ToQuery DescribeNetworkACLs where
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dnaclFilters),
                "DryRun" =: _dnaclDryRun,
-               toQuery (toQueryList "item" <$> _dnaclNetworkACLIds)]
+               toQuery
+                 (toQueryList "NetworkAclId" <$> _dnaclNetworkACLIds)]
 
 -- | /See:/ 'describeNetworkACLsResponse' smart constructor.
 data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'

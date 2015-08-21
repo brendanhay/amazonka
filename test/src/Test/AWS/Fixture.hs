@@ -134,7 +134,7 @@ instance FromJSON Req where
     parseJSON = withObject "req" $ \o -> mkReq
         <$> o .: "method"
         <*> (o .:? "path"    .!= "/")
-        <*> (o .:? "query"   .!= "?")
+        <*> (o .:? "query"   .!= mempty)
         <*> (o .:? "headers" .!= mempty <&> Map.toList)
         <*> (o .:? "body"    .!= mempty)
 

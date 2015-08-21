@@ -109,7 +109,7 @@ instance AWSRequest DescribeImportImageTasks where
         type Sv DescribeImportImageTasks = EC2
         type Rs DescribeImportImageTasks =
              DescribeImportImageTasksResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -131,7 +131,7 @@ instance ToQuery DescribeImportImageTasks where
               ["Action" =:
                  ("DescribeImportImageTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _diitFilters),
+               toQuery (toQueryList "Filters" <$> _diitFilters),
                toQuery
                  (toQueryList "ImportTaskId" <$> _diitImportTaskIds),
                "NextToken" =: _diitNextToken,

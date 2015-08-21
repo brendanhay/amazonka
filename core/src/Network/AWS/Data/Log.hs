@@ -3,6 +3,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 
+{-# OPTIONS_GHC -fsimpl-tick-factor=110 #-}
+
 -- |
 -- Module      : Network.AWS.Data.Log
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -130,6 +132,7 @@ instance ToLog Request where
         , "  query   = " <> build (queryString     x)
         , "  method  = " <> build (method          x)
         , "  timeout = " <> build (responseTimeout x)
+        , "  body    = " <> build (requestBody     x)
         , "}"
         ]
 

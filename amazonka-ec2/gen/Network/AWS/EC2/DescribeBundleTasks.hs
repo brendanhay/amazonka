@@ -120,7 +120,7 @@ instance AWSRequest DescribeBundleTasks where
         type Sv DescribeBundleTasks = EC2
         type Rs DescribeBundleTasks =
              DescribeBundleTasksResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

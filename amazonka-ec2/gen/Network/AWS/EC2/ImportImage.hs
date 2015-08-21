@@ -177,7 +177,7 @@ impDiskContainers = lens _impDiskContainers (\ s a -> s{_impDiskContainers = a})
 instance AWSRequest ImportImage where
         type Sv ImportImage = EC2
         type Rs ImportImage = ImportImageResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -215,7 +215,8 @@ instance ToQuery ImportImage where
                "DryRun" =: _impDryRun,
                "Description" =: _impDescription,
                "ClientData" =: _impClientData,
-               toQuery (toQueryList "item" <$> _impDiskContainers)]
+               toQuery
+                 (toQueryList "DiskContainer" <$> _impDiskContainers)]
 
 -- | /See:/ 'importImageResponse' smart constructor.
 data ImportImageResponse = ImportImageResponse'

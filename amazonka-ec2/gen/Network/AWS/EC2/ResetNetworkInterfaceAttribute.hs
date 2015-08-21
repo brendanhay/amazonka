@@ -89,7 +89,7 @@ instance AWSRequest ResetNetworkInterfaceAttribute
         type Sv ResetNetworkInterfaceAttribute = EC2
         type Rs ResetNetworkInterfaceAttribute =
              ResetNetworkInterfaceAttributeResponse
-        request = post
+        request = postQuery
         response
           = receiveNull ResetNetworkInterfaceAttributeResponse'
 

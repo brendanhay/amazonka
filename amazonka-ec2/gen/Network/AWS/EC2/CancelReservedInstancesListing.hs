@@ -75,7 +75,7 @@ instance AWSRequest CancelReservedInstancesListing
         type Sv CancelReservedInstancesListing = EC2
         type Rs CancelReservedInstancesListing =
              CancelReservedInstancesListingResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

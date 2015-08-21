@@ -104,7 +104,7 @@ instance AWSRequest DescribeImageAttribute where
         type Sv DescribeImageAttribute = EC2
         type Rs DescribeImageAttribute =
              DescribeImageAttributeResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

@@ -153,7 +153,7 @@ instance AWSRequest ReplaceNetworkACLEntry where
         type Sv ReplaceNetworkACLEntry = EC2
         type Rs ReplaceNetworkACLEntry =
              ReplaceNetworkACLEntryResponse
-        request = post
+        request = postQuery
         response
           = receiveNull ReplaceNetworkACLEntryResponse'
 

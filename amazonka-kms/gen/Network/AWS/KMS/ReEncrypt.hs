@@ -111,6 +111,12 @@ reGrantTokens :: Lens' ReEncrypt [Text]
 reGrantTokens = lens _reGrantTokens (\ s a -> s{_reGrantTokens = a}) . _Default . _Coerce;
 
 -- | Ciphertext of the data to re-encrypt.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 reCiphertextBlob :: Lens' ReEncrypt ByteString
 reCiphertextBlob = lens _reCiphertextBlob (\ s a -> s{_reCiphertextBlob = a}) . _Base64;
 
@@ -207,6 +213,12 @@ rersKeyId = lens _rersKeyId (\ s a -> s{_rersKeyId = a});
 
 -- | The re-encrypted data. If you are using the CLI, the value is Base64
 -- encoded. Otherwise, it is not encoded.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 rersCiphertextBlob :: Lens' ReEncryptResponse (Maybe ByteString)
 rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = a}) . mapping _Base64;
 

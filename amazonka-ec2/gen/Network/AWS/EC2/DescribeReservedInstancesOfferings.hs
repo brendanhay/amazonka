@@ -271,7 +271,7 @@ instance AWSRequest
         type Sv DescribeReservedInstancesOfferings = EC2
         type Rs DescribeReservedInstancesOfferings =
              DescribeReservedInstancesOfferingsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

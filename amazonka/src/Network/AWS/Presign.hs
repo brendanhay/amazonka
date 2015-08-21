@@ -13,11 +13,6 @@
 --
 -- It is intended for use directly with "Network.AWS.Auth" when only presigning
 -- and no other AWS actions are required.
--- If you wish to presign requests and are using either the 'Network.AWS.AWS'
--- or 'Control.Monad.Trans.AWS.AWST' monads, then prefer one of the relevant
--- 'Control.Monad.Trans.AWS.presign'ing functions available there, as the
--- functions in this module do not use the underlying 'MonadFree'
--- 'Network.AWS.Free.Command' DSL.
 module Network.AWS.Presign where
 
 import           Control.Lens

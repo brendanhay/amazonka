@@ -117,7 +117,7 @@ cdoDHCPConfigurations = lens _cdoDHCPConfigurations (\ s a -> s{_cdoDHCPConfigur
 instance AWSRequest CreateDHCPOptions where
         type Sv CreateDHCPOptions = EC2
         type Rs CreateDHCPOptions = CreateDHCPOptionsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -136,7 +136,8 @@ instance ToQuery CreateDHCPOptions where
               ["Action" =: ("CreateDhcpOptions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _cdoDryRun,
-               toQueryList "item" _cdoDHCPConfigurations]
+               toQueryList "DhcpConfiguration"
+                 _cdoDHCPConfigurations]
 
 -- | /See:/ 'createDHCPOptionsResponse' smart constructor.
 data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'

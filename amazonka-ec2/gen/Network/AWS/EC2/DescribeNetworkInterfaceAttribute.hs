@@ -96,7 +96,7 @@ instance AWSRequest DescribeNetworkInterfaceAttribute
         type Sv DescribeNetworkInterfaceAttribute = EC2
         type Rs DescribeNetworkInterfaceAttribute =
              DescribeNetworkInterfaceAttributeResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

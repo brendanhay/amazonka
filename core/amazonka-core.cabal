@@ -1,5 +1,5 @@
 name:                  amazonka-core
-version:               1.0.1
+version:               1.1.0
 synopsis:              Core data types and functionality for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -119,6 +119,7 @@ test-suite tests
         , Test.AWS.Data.Maybe
         , Test.AWS.Data.Numeric
         , Test.AWS.Data.Time
+        , Test.AWS.Error
         , Test.AWS.Sign.V4
         , Test.AWS.Util
 

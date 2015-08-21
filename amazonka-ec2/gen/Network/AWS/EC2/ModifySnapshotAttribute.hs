@@ -135,7 +135,7 @@ instance AWSRequest ModifySnapshotAttribute where
         type Sv ModifySnapshotAttribute = EC2
         type Rs ModifySnapshotAttribute =
              ModifySnapshotAttributeResponse
-        request = post
+        request = postQuery
         response
           = receiveNull ModifySnapshotAttributeResponse'
 
@@ -155,7 +155,7 @@ instance ToQuery ModifySnapshotAttribute where
                toQuery (toQueryList "UserId" <$> _msaUserIds),
                "CreateVolumePermission" =:
                  _msaCreateVolumePermission,
-               toQuery (toQueryList "GroupName" <$> _msaGroupNames),
+               toQuery (toQueryList "UserGroup" <$> _msaGroupNames),
                "OperationType" =: _msaOperationType,
                "DryRun" =: _msaDryRun,
                "SnapshotId" =: _msaSnapshotId]

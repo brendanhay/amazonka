@@ -157,7 +157,7 @@ instance AWSRequest ReportInstanceStatus where
         type Sv ReportInstanceStatus = EC2
         type Rs ReportInstanceStatus =
              ReportInstanceStatusResponse
-        request = post
+        request = postQuery
         response = receiveNull ReportInstanceStatusResponse'
 
 instance ToHeaders ReportInstanceStatus where
@@ -176,7 +176,7 @@ instance ToQuery ReportInstanceStatus where
                "Description" =: _risDescription,
                toQueryList "InstanceId" _risInstances,
                "Status" =: _risStatus,
-               toQueryList "item" _risReasonCodes]
+               toQueryList "ReasonCode" _risReasonCodes]
 
 -- | /See:/ 'reportInstanceStatusResponse' smart constructor.
 data ReportInstanceStatusResponse =

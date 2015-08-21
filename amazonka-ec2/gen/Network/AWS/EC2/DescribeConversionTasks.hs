@@ -92,7 +92,7 @@ instance AWSRequest DescribeConversionTasks where
         type Sv DescribeConversionTasks = EC2
         type Rs DescribeConversionTasks =
              DescribeConversionTasksResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -114,7 +114,8 @@ instance ToQuery DescribeConversionTasks where
                  ("DescribeConversionTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "item" <$> _dctConversionTaskIds),
+                 (toQueryList "ConversionTaskId" <$>
+                    _dctConversionTaskIds),
                toQuery (toQueryList "Filter" <$> _dctFilters),
                "DryRun" =: _dctDryRun]
 

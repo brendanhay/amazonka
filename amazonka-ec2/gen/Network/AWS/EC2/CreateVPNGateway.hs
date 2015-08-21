@@ -95,7 +95,7 @@ cvgType = lens _cvgType (\ s a -> s{_cvgType = a});
 instance AWSRequest CreateVPNGateway where
         type Sv CreateVPNGateway = EC2
         type Rs CreateVPNGateway = CreateVPNGatewayResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

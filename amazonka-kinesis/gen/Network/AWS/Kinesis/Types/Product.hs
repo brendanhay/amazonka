@@ -99,6 +99,12 @@ prreExplicitHashKey = lens _prreExplicitHashKey (\ s a -> s{_prreExplicitHashKey
 -- | The data blob to put into the record, which is base64-encoded when the
 -- blob is serialized. The maximum size of the data blob (the payload
 -- before base64-encoding) is 50 kilobytes (KB)
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 prreData :: Lens' PutRecordsRequestEntry ByteString
 prreData = lens _prreData (\ s a -> s{_prreData = a}) . _Base64;
 
@@ -225,6 +231,12 @@ rSequenceNumber = lens _rSequenceNumber (\ s a -> s{_rSequenceNumber = a});
 -- Amazon Kinesis service, which does not inspect, interpret, or change the
 -- data in the blob in any way. The maximum size of the data blob (the
 -- payload before base64-encoding) is 50 kilobytes (KB)
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 rData :: Lens' Record ByteString
 rData = lens _rData (\ s a -> s{_rData = a}) . _Base64;
 

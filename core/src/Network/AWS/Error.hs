@@ -109,17 +109,18 @@ parseXMLError :: Abbrev
               -> Error
 parseXMLError a s h bs = decodeError a s h bs (decodeXML bs >>= go)
   where
-    go x = do
-        (c, m, r) <- xml x <|> ec2 x
-        return $! serviceError a s h c m r
+    go x = serviceError a s h
+        <$> code x
+        <*> may (firstElement "Message"   x)
+        <*> may (firstElement "RequestId" x  <|> firstElement "RequestID" x)
 
-    xml x = withElement "Error"  (gen x) x <|> gen x x
-    ec2 x = withElement "Errors" (gen x) x
+    code x = Just <$> (firstElement "Code" x >>= parseXML)
+         <|> return root
 
-    gen x y = (,,)
-        <$> y .@? "Code"
-        <*> y .@? "Message"
-        <*> x .@? "RequestId"
+    root = ErrorCode <$> rootElementName bs
+
+    may (Left  _) = pure Nothing
+    may (Right x) = Just <$> parseXML x
 
 parseRESTError :: Abbrev
                -> Status

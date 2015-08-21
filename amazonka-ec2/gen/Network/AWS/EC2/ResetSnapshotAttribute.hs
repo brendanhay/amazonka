@@ -93,7 +93,7 @@ instance AWSRequest ResetSnapshotAttribute where
         type Sv ResetSnapshotAttribute = EC2
         type Rs ResetSnapshotAttribute =
              ResetSnapshotAttributeResponse
-        request = post
+        request = postQuery
         response
           = receiveNull ResetSnapshotAttributeResponse'
 

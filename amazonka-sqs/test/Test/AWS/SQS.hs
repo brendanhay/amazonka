@@ -15,6 +15,7 @@ module Test.AWS.SQS
 
 import           Control.Lens
 import qualified Data.HashMap.Strict as Map
+import           Data.Text           (Text)
 import           Network.AWS.SQS
 import           Test.AWS.Gen.SQS
 import           Test.Tasty
@@ -26,22 +27,32 @@ fixtures :: [TestTree]
 fixtures =
     [ testGroup "request" $
         [ testSendMessage $
-            sendMessage "http://sqs.us-east-1.amazonaws.com/123456789012/testQueue/"
-                        "This+is+a+test+message"
+            sendMessage url "This+is+a+test+message"
                 & smMessageAttributes .~ Map.fromList
                     [ ("test_attribute_name_1", messageAttributeValue "String"
                         & mavStringValue ?~ "test_attribute_value_1")
                     , ("test_attribute_name_2", messageAttributeValue "String"
                         & mavStringValue ?~ "test_attribute_value_2")
                     ]
+
+        , testChangeMessageVisibility $
+            changeMessageVisibility url handle 60
+
+        , testChangeMessageVisibilityBatch $
+            changeMessageVisibilityBatch url
+               & cmvbEntries .~
+                   [ changeMessageVisibilityBatchRequestEntry
+                       "change_visibility_msg_2" handle
+                           & cVisibilityTimeout ?~ 45
+                   , changeMessageVisibilityBatchRequestEntry
+                       "change_visibility_msg_3" handle
+                           & cVisibilityTimeout ?~ 45
+                   ]
         ]
 
     , testGroup "response"
-        [ testGetQueueURLResponse $
-            getQueueURLResponse 200 "http://us-east-1.amazonaws.com/123456789012/testQueue"
-
-        , testPurgeQueueResponse $
-            purgeQueueResponse
+        [ testGetQueueURLResponse $ getQueueURLResponse 200 url
+        , testPurgeQueueResponse  $ purgeQueueResponse
 
         , testSendMessageResponse $
             sendMessageResponse 200
@@ -64,3 +75,9 @@ fixtures =
         --             ]
         ]
     ]
+
+url :: Text
+url = "http://sqs.us-east-1.amazonaws.com/123456789012/testQueue/"
+
+handle :: Text
+handle = "MbZli+JvwwJaBV+3dcjk2W2vA3+STFFljTJg6HYSasuWXPJB/WeR4mq21A2x/KSbkJ0="

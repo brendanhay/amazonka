@@ -382,7 +382,7 @@ rMaxCount = lens _rMaxCount (\ s a -> s{_rMaxCount = a});
 instance AWSRequest RunInstances where
         type Sv RunInstances = EC2
         type Rs RunInstances = Reservation
-        request = post
+        request = postQuery
         response = receiveXML (\ s h x -> parseXML x)
 
 instance ToHeaders RunInstances where
@@ -404,7 +404,9 @@ instance ToQuery RunInstances where
                  (toQueryList "SecurityGroup" <$> _rSecurityGroups),
                "ClientToken" =: _rClientToken,
                "DisableApiTermination" =: _rDisableAPITermination,
-               toQuery (toQueryList "item" <$> _rNetworkInterfaces),
+               toQuery
+                 (toQueryList "NetworkInterface" <$>
+                    _rNetworkInterfaces),
                "KeyName" =: _rKeyName, "RamdiskId" =: _rRAMDiskId,
                "KernelId" =: _rKernelId, "SubnetId" =: _rSubnetId,
                "InstanceType" =: _rInstanceType,

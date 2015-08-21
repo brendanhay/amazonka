@@ -219,6 +219,34 @@ instance FromXML ExpirationStatus where
 instance ToXML ExpirationStatus where
     toXML = toXMLText
 
+data FilterRuleName
+    = Prefix
+    | Suffix
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText FilterRuleName where
+    parser = takeLowerText >>= \case
+        "prefix" -> pure Prefix
+        "suffix" -> pure Suffix
+        e -> fromTextError $ "Failure parsing FilterRuleName from value: '" <> e
+           <> "'. Accepted values: prefix, suffix"
+
+instance ToText FilterRuleName where
+    toText = \case
+        Prefix -> "prefix"
+        Suffix -> "suffix"
+
+instance Hashable     FilterRuleName
+instance ToByteString FilterRuleName
+instance ToQuery      FilterRuleName
+instance ToHeader     FilterRuleName
+
+instance FromXML FilterRuleName where
+    parseXML = parseXMLText "FilterRuleName"
+
+instance ToXML FilterRuleName where
+    toXML = toXMLText
+
 data MFADelete
     = MDDisabled
     | MDEnabled
@@ -613,22 +641,19 @@ instance ToXML ServerSideEncryption where
     toXML = toXMLText
 
 data StorageClass
-    = LT'
-    | ReducedRedundancy
+    = ReducedRedundancy
     | Standard
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StorageClass where
     parser = takeLowerText >>= \case
-        "lt" -> pure LT'
         "reduced_redundancy" -> pure ReducedRedundancy
         "standard" -> pure Standard
         e -> fromTextError $ "Failure parsing StorageClass from value: '" <> e
-           <> "'. Accepted values: LT, REDUCED_REDUNDANCY, STANDARD"
+           <> "'. Accepted values: REDUCED_REDUNDANCY, STANDARD"
 
 instance ToText StorageClass where
     toText = \case
-        LT' -> "LT"
         ReducedRedundancy -> "REDUCED_REDUNDANCY"
         Standard -> "STANDARD"
 

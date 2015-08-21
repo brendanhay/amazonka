@@ -131,7 +131,7 @@ instance AWSRequest CreateCustomerGateway where
         type Sv CreateCustomerGateway = EC2
         type Rs CreateCustomerGateway =
              CreateCustomerGatewayResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

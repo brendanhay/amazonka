@@ -131,7 +131,7 @@ cveServiceName = lens _cveServiceName (\ s a -> s{_cveServiceName = a});
 instance AWSRequest CreateVPCEndpoint where
         type Sv CreateVPCEndpoint = EC2
         type Rs CreateVPCEndpoint = CreateVPCEndpointResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -153,7 +153,8 @@ instance ToQuery CreateVPCEndpoint where
                "PolicyDocument" =: _cvePolicyDocument,
                "ClientToken" =: _cveClientToken,
                "DryRun" =: _cveDryRun,
-               toQuery (toQueryList "item" <$> _cveRouteTableIds),
+               toQuery
+                 (toQueryList "RouteTableId" <$> _cveRouteTableIds),
                "VpcId" =: _cveVPCId,
                "ServiceName" =: _cveServiceName]
 

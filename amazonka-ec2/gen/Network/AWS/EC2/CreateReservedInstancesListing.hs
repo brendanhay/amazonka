@@ -127,7 +127,7 @@ instance AWSRequest CreateReservedInstancesListing
         type Sv CreateReservedInstancesListing = EC2
         type Rs CreateReservedInstancesListing =
              CreateReservedInstancesListingResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -151,7 +151,7 @@ instance ToQuery CreateReservedInstancesListing where
                "Version" =: ("2015-04-15" :: ByteString),
                "ReservedInstancesId" =: _crilReservedInstancesId,
                "InstanceCount" =: _crilInstanceCount,
-               toQueryList "item" _crilPriceSchedules,
+               toQueryList "PriceSchedules" _crilPriceSchedules,
                "ClientToken" =: _crilClientToken]
 
 -- | /See:/ 'createReservedInstancesListingResponse' smart constructor.

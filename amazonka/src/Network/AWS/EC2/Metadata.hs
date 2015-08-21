@@ -18,11 +18,6 @@
 --
 -- It is intended to be used when you need to make metadata calls prior to
 -- initialisation of the 'Network.AWS.Env.Env'.
--- If you wish to retrieve instance metadata during normal operations
--- and are using either the 'Network.AWS.AWS' or 'Control.Monad.Trans.AWS.AWST'
--- monads, then prefer one of the 'Control.Monad.Trans.AWS.metadata' related
--- functions available there, as the functions in this module do not use the
--- underlying 'MonadFree' 'Network.AWS.Free.Command' DSL.
 module Network.AWS.EC2.Metadata
     (
     -- * EC2 Instance Check

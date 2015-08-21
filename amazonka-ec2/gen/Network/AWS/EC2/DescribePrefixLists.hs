@@ -123,7 +123,7 @@ instance AWSRequest DescribePrefixLists where
         type Sv DescribePrefixLists = EC2
         type Rs DescribePrefixLists =
              DescribePrefixListsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -146,7 +146,8 @@ instance ToQuery DescribePrefixLists where
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery (toQueryList "Filter" <$> _dplFilters),
                "NextToken" =: _dplNextToken,
-               toQuery (toQueryList "item" <$> _dplPrefixListIds),
+               toQuery
+                 (toQueryList "PrefixListId" <$> _dplPrefixListIds),
                "DryRun" =: _dplDryRun,
                "MaxResults" =: _dplMaxResults]
 

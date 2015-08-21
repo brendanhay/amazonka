@@ -99,6 +99,12 @@ dGrantTokens :: Lens' Decrypt [Text]
 dGrantTokens = lens _dGrantTokens (\ s a -> s{_dGrantTokens = a}) . _Default . _Coerce;
 
 -- | Ciphertext to be decrypted. The blob includes metadata.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 dCiphertextBlob :: Lens' Decrypt ByteString
 dCiphertextBlob = lens _dCiphertextBlob (\ s a -> s{_dCiphertextBlob = a}) . _Base64;
 
@@ -168,6 +174,12 @@ drsKeyId = lens _drsKeyId (\ s a -> s{_drsKeyId = a});
 
 -- | Decrypted plaintext data. This value may not be returned if the customer
 -- master key is not available or if you didn\'t have permission to use it.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 drsPlaintext :: Lens' DecryptResponse (Maybe ByteString)
 drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping (_Sensitive . _Base64);
 

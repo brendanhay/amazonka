@@ -124,7 +124,7 @@ instance AWSRequest DescribeVPCEndpoints where
         type Sv DescribeVPCEndpoints = EC2
         type Rs DescribeVPCEndpoints =
              DescribeVPCEndpointsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -148,7 +148,8 @@ instance ToQuery DescribeVPCEndpoints where
                toQuery (toQueryList "Filter" <$> _dvpceFilters),
                "NextToken" =: _dvpceNextToken,
                toQuery
-                 (toQueryList "item" <$> _dvpceVPCEndpointIds),
+                 (toQueryList "VpcEndpointId" <$>
+                    _dvpceVPCEndpointIds),
                "DryRun" =: _dvpceDryRun,
                "MaxResults" =: _dvpceMaxResults]
 

@@ -94,7 +94,7 @@ dtsResources = lens _dtsResources (\ s a -> s{_dtsResources = a}) . _Coerce;
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = EC2
         type Rs DeleteTags = DeleteTagsResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteTagsResponse'
 
 instance ToHeaders DeleteTags where
@@ -109,7 +109,7 @@ instance ToQuery DeleteTags where
               ["Action" =: ("DeleteTags" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _dtsDryRun,
-               toQuery (toQueryList "item" <$> _dtsTags),
+               toQuery (toQueryList "Tag" <$> _dtsTags),
                toQueryList "ResourceId" _dtsResources]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.

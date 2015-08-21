@@ -19,12 +19,15 @@ module Gen.Protocol
     , suffix
     ) where
 
+import           Control.Applicative
 import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Maybe
 import           Data.Text              (Text)
 import           Data.Text.Manipulate
 import           Gen.Types
+
+data Level = Flat | Nest
 
 suffix :: Protocol -> Text
 suffix = \case
@@ -55,12 +58,29 @@ nestedNames p d n r =
         _      -> NName (name p d n r)
 
 listNames :: Protocol -> Direction -> Id -> RefF a -> ListF a -> Names
-listNames p d n r l
-     | flatten p d l = NList Nothing   (fromMaybe mn ln)
-     | otherwise     = NList (Just mn) (fromMaybe "member" ln)
+listNames p d n r l = uncurry NList (go p d flat)
   where
-    mn = name p d n r
-    ln = l ^. listItem . refLocationName
+    go EC2      Input  _    = (Nothing,     upperHead (fromMaybe member refQuery))
+    go EC2      Output _    = (Just member, fromMaybe def itemName)
+
+    go Query    Input  Flat = (Nothing,     fromMaybe member itemQuery)
+    go Query    Input  Nest = (Just member, fromMaybe def    itemQuery)
+
+    go _        _      Flat = (Nothing,     fromMaybe member itemName)
+    go _        _      Nest = (Just member, fromMaybe def    itemName)
+
+    flat | flatten p d l = Flat
+         | otherwise     = Nest
+
+    member = name p d n r
+
+    refQuery = r ^. refQueryName <|> refName
+    refName  = r ^. refLocationName
+
+    itemQuery = l ^. listItem . refQueryName <|> itemName
+    itemName  = l ^. listItem . refLocationName
+
+    def = "member"
 
      -- Member, [item]
 

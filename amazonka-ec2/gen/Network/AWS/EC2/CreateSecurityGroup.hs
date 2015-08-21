@@ -142,7 +142,7 @@ instance AWSRequest CreateSecurityGroup where
         type Sv CreateSecurityGroup = EC2
         type Rs CreateSecurityGroup =
              CreateSecurityGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

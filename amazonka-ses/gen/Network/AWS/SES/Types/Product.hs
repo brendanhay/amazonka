@@ -404,6 +404,12 @@ rawMessage pData_ =
 --
 -- For more information, go to the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide>.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 rmData :: Lens' RawMessage ByteString
 rmData = lens _rmData (\ s a -> s{_rmData = a}) . _Base64;
 

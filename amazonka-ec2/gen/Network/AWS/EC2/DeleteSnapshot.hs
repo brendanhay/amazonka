@@ -93,7 +93,7 @@ deleSnapshotId = lens _deleSnapshotId (\ s a -> s{_deleSnapshotId = a});
 instance AWSRequest DeleteSnapshot where
         type Sv DeleteSnapshot = EC2
         type Rs DeleteSnapshot = DeleteSnapshotResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteSnapshotResponse'
 
 instance ToHeaders DeleteSnapshot where

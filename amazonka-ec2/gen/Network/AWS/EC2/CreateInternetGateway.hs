@@ -75,7 +75,7 @@ instance AWSRequest CreateInternetGateway where
         type Sv CreateInternetGateway = EC2
         type Rs CreateInternetGateway =
              CreateInternetGatewayResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

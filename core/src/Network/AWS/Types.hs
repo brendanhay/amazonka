@@ -25,38 +25,38 @@ module Network.AWS.Types
     (
     -- * Authentication
     -- ** Credentials
-      AccessKey       (..)
-    , SecretKey       (..)
-    , SessionToken    (..)
+      AccessKey      (..)
+    , SecretKey      (..)
+    , SessionToken   (..)
     -- ** Environment
-    , AuthEnv         (..)
-    , Auth            (..)
+    , AuthEnv        (..)
+    , Auth           (..)
     , withAuth
 
     -- * Logging
-    , LogLevel        (..)
+    , LogLevel       (..)
     , Logger
 
     -- * Services
     , Abbrev
-    , AWSService      (..)
-    , Service         (..)
+    , AWSService     (..)
+    , Service        (..)
     , serviceOf
 
     -- * Retries
-    , Retry           (..)
+    , Retry          (..)
 
     -- * Signing
-    , AWSSigner       (..)
-    , AWSPresigner    (..)
+    , AWSSigner      (..)
+    , AWSPresigner   (..)
     , Meta
-    , Signed          (..)
+    , Signed         (..)
     , sgMeta
     , sgRequest
 
     -- * Requests
-    , AWSRequest      (..)
-    , Request         (..)
+    , AWSRequest     (..)
+    , Request        (..)
     , rqMethod
     , rqHeaders
     , rqPath
@@ -67,17 +67,17 @@ module Network.AWS.Types
     , Response
 
     -- * Errors
-    , AsError      (..)
-    , Error        (..)
+    , AsError        (..)
+    , Error          (..)
     -- ** HTTP Errors
     , HttpException
     -- ** Serialize Errors
-    , SerializeError  (..)
+    , SerializeError (..)
     , serializeAbbrev
     , serializeStatus
     , serializeMessage
     -- ** Service Errors
-    , ServiceError    (..)
+    , ServiceError   (..)
     , serviceAbbrev
     , serviceStatus
     , serviceHeaders
@@ -85,13 +85,13 @@ module Network.AWS.Types
     , serviceMessage
     , serviceRequestId
     -- ** Error Types
-    , ErrorCode       (..)
-    , ErrorMessage    (..)
-    , RequestId       (..)
+    , ErrorCode      (..)
+    , ErrorMessage   (..)
+    , RequestId      (..)
 
     -- * Regions
-    , Endpoint        (..)
-    , Region          (..)
+    , Endpoint       (..)
+    , Region         (..)
 
     -- * HTTP
     , ClientRequest
@@ -208,7 +208,7 @@ instance ToLog SerializeError where
         [ "[SerializeError] {"
         , "  service = " <> build _serializeAbbrev
         , "  status  = " <> build _serializeStatus
-        , "  build = " <> build _serializeMessage
+        , "  message = " <> build _serializeMessage
         , "}"
         ]
 
@@ -236,7 +236,7 @@ instance ToLog ServiceError where
         , "  service    = " <> build _serviceAbbrev
         , "  status     = " <> build _serviceStatus
         , "  code       = " <> build _serviceCode
-        , "  build    = " <> build _serviceMessage
+        , "  message    = " <> build _serviceMessage
         , "  request-id = " <> build _serviceRequestId
         , "}"
         ]
@@ -305,7 +305,7 @@ data LogLevel
     | Info  -- ^ Info messages supplied by the user - this level is not emitted by the library.
     | Debug -- ^ Useful debug information + info + error levels.
     | Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.
-      deriving (Eq, Ord, Enum, Show)
+      deriving (Eq, Ord, Enum, Show, Data, Typeable)
 
 -- | A function threaded through various request and serialisation routines
 -- to log informational and debug messages.

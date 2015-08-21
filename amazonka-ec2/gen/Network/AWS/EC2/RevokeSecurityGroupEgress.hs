@@ -162,7 +162,7 @@ instance AWSRequest RevokeSecurityGroupEgress where
         type Sv RevokeSecurityGroupEgress = EC2
         type Rs RevokeSecurityGroupEgress =
              RevokeSecurityGroupEgressResponse
-        request = post
+        request = postQuery
         response
           = receiveNull RevokeSecurityGroupEgressResponse'
 
@@ -179,7 +179,8 @@ instance ToQuery RevokeSecurityGroupEgress where
                  ("RevokeSecurityGroupEgress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "FromPort" =: _rsgeFromPort,
-               toQuery (toQueryList "item" <$> _rsgeIPPermissions),
+               toQuery
+                 (toQueryList "IpPermissions" <$> _rsgeIPPermissions),
                "IpProtocol" =: _rsgeIPProtocol,
                "ToPort" =: _rsgeToPort, "CidrIp" =: _rsgeCIdRIP,
                "SourceSecurityGroupOwnerId" =:

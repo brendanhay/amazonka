@@ -46,6 +46,12 @@ attachment =
     }
 
 -- | The content of the attachment file.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 aData :: Lens' Attachment (Maybe ByteString)
 aData = lens _aData (\ s a -> s{_aData = a}) . mapping _Base64;
 

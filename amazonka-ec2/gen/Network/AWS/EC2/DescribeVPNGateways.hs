@@ -127,7 +127,7 @@ instance AWSRequest DescribeVPNGateways where
         type Sv DescribeVPNGateways = EC2
         type Rs DescribeVPNGateways =
              DescribeVPNGatewaysResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

@@ -67,7 +67,7 @@ dflFlowLogIds = lens _dflFlowLogIds (\ s a -> s{_dflFlowLogIds = a}) . _Coerce;
 instance AWSRequest DeleteFlowLogs where
         type Sv DeleteFlowLogs = EC2
         type Rs DeleteFlowLogs = DeleteFlowLogsResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -87,7 +87,7 @@ instance ToQuery DeleteFlowLogs where
           = mconcat
               ["Action" =: ("DeleteFlowLogs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQueryList "item" _dflFlowLogIds]
+               toQueryList "FlowLogId" _dflFlowLogIds]
 
 -- | /See:/ 'deleteFlowLogsResponse' smart constructor.
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'

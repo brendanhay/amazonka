@@ -2189,12 +2189,24 @@ virtualMFADevice pSerialNumber_ =
 -- 'AccountName' is the user name if set (otherwise, the account ID
 -- otherwise), and 'Base32String' is the seed in Base32 format. The
 -- 'Base32String' value is Base64-encoded.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 vmdQRCodePNG :: Lens' VirtualMFADevice (Maybe ByteString)
 vmdQRCodePNG = lens _vmdQRCodePNG (\ s a -> s{_vmdQRCodePNG = a}) . mapping (_Sensitive . _Base64);
 
 -- | The Base32 seed defined as specified in
 -- <http://www.ietf.org/rfc/rfc3548.txt RFC3548>. The 'Base32StringSeed' is
 -- Base64-encoded.
+--
+-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data,
+-- despite what the AWS documentation might say.
+-- The underlying isomorphism will encode to Base64 representation during
+-- serialisation, and decode from Base64 representation during deserialisation.
+-- This 'Lens' accepts and returns only raw unencoded data.
 vmdBase32StringSeed :: Lens' VirtualMFADevice (Maybe ByteString)
 vmdBase32StringSeed = lens _vmdBase32StringSeed (\ s a -> s{_vmdBase32StringSeed = a}) . mapping (_Sensitive . _Base64);
 

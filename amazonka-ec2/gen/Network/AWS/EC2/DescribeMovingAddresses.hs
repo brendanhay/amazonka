@@ -121,7 +121,7 @@ instance AWSRequest DescribeMovingAddresses where
         type Sv DescribeMovingAddresses = EC2
         type Rs DescribeMovingAddresses =
              DescribeMovingAddressesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->
@@ -143,7 +143,7 @@ instance ToQuery DescribeMovingAddresses where
               ["Action" =:
                  ("DescribeMovingAddresses" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "item" <$> _dmaPublicIPs),
+               toQuery (toQueryList "PublicIp" <$> _dmaPublicIPs),
                toQuery (toQueryList "Filter" <$> _dmaFilters),
                "NextToken" =: _dmaNextToken, "DryRun" =: _dmaDryRun,
                "MaxResults" =: _dmaMaxResults]

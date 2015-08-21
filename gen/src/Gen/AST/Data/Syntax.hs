@@ -627,6 +627,8 @@ requestF c p h r is = maybe v (Fold.foldr' plugin v) ps
         ToElement {}  -> Just "XML"
         _ | p == Query
           , m == POST -> Just "Query"
+        _ | p == EC2
+          , m == POST -> Just "Query"
         _             -> Nothing
 
     m = h ^. method

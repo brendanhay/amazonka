@@ -192,7 +192,7 @@ instance AWSRequest DescribeSpotPriceHistory where
         type Sv DescribeSpotPriceHistory = EC2
         type Rs DescribeSpotPriceHistory =
              DescribeSpotPriceHistoryResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

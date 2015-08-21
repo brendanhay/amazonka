@@ -203,7 +203,7 @@ instance AWSRequest DescribeInstanceStatus where
         type Sv DescribeInstanceStatus = EC2
         type Rs DescribeInstanceStatus =
              DescribeInstanceStatusResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

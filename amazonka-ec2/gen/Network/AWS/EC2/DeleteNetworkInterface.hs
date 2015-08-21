@@ -79,7 +79,7 @@ instance AWSRequest DeleteNetworkInterface where
         type Sv DeleteNetworkInterface = EC2
         type Rs DeleteNetworkInterface =
              DeleteNetworkInterfaceResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DeleteNetworkInterfaceResponse'
 

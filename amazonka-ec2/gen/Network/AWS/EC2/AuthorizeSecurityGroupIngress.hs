@@ -188,7 +188,7 @@ instance AWSRequest AuthorizeSecurityGroupIngress
         type Sv AuthorizeSecurityGroupIngress = EC2
         type Rs AuthorizeSecurityGroupIngress =
              AuthorizeSecurityGroupIngressResponse
-        request = post
+        request = postQuery
         response
           = receiveNull AuthorizeSecurityGroupIngressResponse'
 
@@ -206,7 +206,8 @@ instance ToQuery AuthorizeSecurityGroupIngress where
                  ("AuthorizeSecurityGroupIngress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "FromPort" =: _asgiFromPort,
-               toQuery (toQueryList "item" <$> _asgiIPPermissions),
+               toQuery
+                 (toQueryList "IpPermissions" <$> _asgiIPPermissions),
                "IpProtocol" =: _asgiIPProtocol,
                "GroupId" =: _asgiGroupId, "ToPort" =: _asgiToPort,
                "CidrIp" =: _asgiCIdRIP,

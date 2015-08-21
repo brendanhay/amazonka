@@ -30,6 +30,7 @@ module Network.AWS.S3.Internal
 import           Control.Lens
 import           Data.String
 import qualified Data.Text            as Text
+import           Network.AWS.Data.Log
 import           Network.AWS.Data.XML
 import           Network.AWS.Prelude
 
@@ -49,6 +50,7 @@ newtype BucketName = BucketName Text
         , FromXML
         , ToXML
         , ToQuery
+        , ToLog
         )
 
 -- FIXME: Add the difference between weak + strong ETags and their respective
@@ -69,6 +71,7 @@ newtype ETag = ETag ByteString
         , FromXML
         , ToXML
         , ToQuery
+        , ToLog
         )
 
 newtype ObjectVersionId = ObjectVersionId Text
@@ -87,6 +90,7 @@ newtype ObjectVersionId = ObjectVersionId Text
         , FromXML
         , ToXML
         , ToQuery
+        , ToLog
         )
 
 newtype ObjectKey = ObjectKey Text
@@ -106,6 +110,7 @@ newtype ObjectKey = ObjectKey Text
         , ToXML
         , ToQuery
         , ToPath
+        , ToLog
         )
 
 type Delimiter = Char

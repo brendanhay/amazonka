@@ -102,7 +102,7 @@ instance AWSRequest CreateInstanceExportTask where
         type Sv CreateInstanceExportTask = EC2
         type Rs CreateInstanceExportTask =
              CreateInstanceExportTaskResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

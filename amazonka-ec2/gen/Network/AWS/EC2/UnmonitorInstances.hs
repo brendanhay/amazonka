@@ -83,7 +83,7 @@ instance AWSRequest UnmonitorInstances where
         type Sv UnmonitorInstances = EC2
         type Rs UnmonitorInstances =
              UnmonitorInstancesResponse
-        request = post
+        request = postQuery
         response
           = receiveXML
               (\ s h x ->

@@ -1,5 +1,5 @@
 name:                  amazonka-glacier
-version:               1.0.1
+version:               1.1.0
 synopsis:              Amazon Glacier SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -113,7 +113,7 @@ library
         , Network.AWS.Glacier.Types.Sum
 
     build-depends:
-          amazonka-core == 1.0.1.*
+          amazonka-core == 1.1.0.*
         , base          >= 4.7     && < 5
 
 test-suite amazonka-glacier-test
@@ -132,9 +132,9 @@ test-suite amazonka-glacier-test
         , Test.AWS.Glacier.Internal
 
     build-depends:
-          amazonka-core == 1.0.1
-        , amazonka-test == 1.0.1
-        , amazonka-glacier == 1.0.1
+          amazonka-core == 1.1.0
+        , amazonka-test == 1.1.0
+        , amazonka-glacier == 1.1.0
         , base
         , bytestring
         , lens

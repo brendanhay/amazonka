@@ -29,6 +29,8 @@
 -- request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html AWS API Reference> for DescribeLogGroups.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeLogGroups
     (
     -- * Creating a Request
@@ -50,6 +52,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
 
 import           Network.AWS.CloudWatchLogs.Types
 import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -94,6 +97,13 @@ dlgLogGroupNamePrefix = lens _dlgLogGroupNamePrefix (\ s a -> s{_dlgLogGroupName
 -- specify a value, the request would return up to 50 items.
 dlgLimit :: Lens' DescribeLogGroups (Maybe Natural)
 dlgLimit = lens _dlgLimit (\ s a -> s{_dlgLimit = a}) . mapping _Nat;
+
+instance AWSPager DescribeLogGroups where
+        page rq rs
+          | stop (rs ^. dlgrsNextToken) = Nothing
+          | stop (rs ^. dlgrsLogGroups) = Nothing
+          | otherwise =
+            Just $ rq & dlgNextToken .~ rs ^. dlgrsNextToken
 
 instance AWSRequest DescribeLogGroups where
         type Sv DescribeLogGroups = CloudWatchLogs

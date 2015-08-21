@@ -30,6 +30,8 @@
 -- after which transactions are throttled.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html AWS API Reference> for DescribeLogStreams.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeLogStreams
     (
     -- * Creating a Request
@@ -54,6 +56,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
 
 import           Network.AWS.CloudWatchLogs.Types
 import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -129,6 +132,13 @@ dlssLimit = lens _dlssLimit (\ s a -> s{_dlssLimit = a}) . mapping _Nat;
 -- | The log group name for which log streams are to be listed.
 dlssLogGroupName :: Lens' DescribeLogStreams Text
 dlssLogGroupName = lens _dlssLogGroupName (\ s a -> s{_dlssLogGroupName = a});
+
+instance AWSPager DescribeLogStreams where
+        page rq rs
+          | stop (rs ^. dlsrsNextToken) = Nothing
+          | stop (rs ^. dlsrsLogStreams) = Nothing
+          | otherwise =
+            Just $ rq & dlssNextToken .~ rs ^. dlsrsNextToken
 
 instance AWSRequest DescribeLogStreams where
         type Sv DescribeLogStreams = CloudWatchLogs

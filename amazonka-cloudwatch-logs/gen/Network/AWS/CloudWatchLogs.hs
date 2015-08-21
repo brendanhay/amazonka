@@ -101,16 +101,16 @@ module Network.AWS.CloudWatchLogs
     -- ** PutDestination
     , module Network.AWS.CloudWatchLogs.PutDestination
 
-    -- ** DescribeSubscriptionFilters
+    -- ** DescribeSubscriptionFilters (Paginated)
     , module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
 
     -- ** GetLogEvents
     , module Network.AWS.CloudWatchLogs.GetLogEvents
 
-    -- ** DescribeLogGroups
+    -- ** DescribeLogGroups (Paginated)
     , module Network.AWS.CloudWatchLogs.DescribeLogGroups
 
-    -- ** FilterLogEvents
+    -- ** FilterLogEvents (Paginated)
     , module Network.AWS.CloudWatchLogs.FilterLogEvents
 
     -- ** DeleteLogStream
@@ -137,7 +137,7 @@ module Network.AWS.CloudWatchLogs
     -- ** TestMetricFilter
     , module Network.AWS.CloudWatchLogs.TestMetricFilter
 
-    -- ** DescribeMetricFilters
+    -- ** DescribeMetricFilters (Paginated)
     , module Network.AWS.CloudWatchLogs.DescribeMetricFilters
 
     -- ** DeleteMetricFilter
@@ -155,7 +155,7 @@ module Network.AWS.CloudWatchLogs
     -- ** PutDestinationPolicy
     , module Network.AWS.CloudWatchLogs.PutDestinationPolicy
 
-    -- ** DescribeLogStreams
+    -- ** DescribeLogStreams (Paginated)
     , module Network.AWS.CloudWatchLogs.DescribeLogStreams
 
     -- * Types

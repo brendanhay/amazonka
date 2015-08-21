@@ -665,6 +665,51 @@ instance FromXML ErrorDocument where
 instance ToXML ErrorDocument where
         toXML ErrorDocument'{..} = mconcat ["Key" @= _edKey]
 
+-- | Container for key value pair that defines the criteria for the filter
+-- rule.
+--
+-- /See:/ 'filterRule' smart constructor.
+data FilterRule = FilterRule'
+    { _frValue :: !(Maybe Text)
+    , _frName  :: !(Maybe FilterRuleName)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'FilterRule' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'frValue'
+--
+-- * 'frName'
+filterRule
+    :: FilterRule
+filterRule =
+    FilterRule'
+    { _frValue = Nothing
+    , _frName = Nothing
+    }
+
+-- | Undocumented member.
+frValue :: Lens' FilterRule (Maybe Text)
+frValue = lens _frValue (\ s a -> s{_frValue = a});
+
+-- | Object key name prefix or suffix identifying one or more objects to
+-- which the filtering rule applies. Maximum prefix length can be up to
+-- 1,024 characters. Overlapping prefixes and suffixes are not supported.
+-- For more information, go to
+-- <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
+-- in the Amazon Simple Storage Service Developer Guide.
+frName :: Lens' FilterRule (Maybe FilterRuleName)
+frName = lens _frName (\ s a -> s{_frName = a});
+
+instance FromXML FilterRule where
+        parseXML x
+          = FilterRule' <$> (x .@? "Value") <*> (x .@? "Name")
+
+instance ToXML FilterRule where
+        toXML FilterRule'{..}
+          = mconcat ["Value" @= _frValue, "Name" @= _frName]
+
 -- | /See:/ 'grant' smart constructor.
 data Grant = Grant'
     { _gPermission :: !(Maybe Permission)
@@ -847,6 +892,7 @@ instance FromXML Initiator where
 -- /See:/ 'lambdaFunctionConfiguration' smart constructor.
 data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
     { _lfcId                :: !(Maybe Text)
+    , _lfcFilter            :: !(Maybe NotificationConfigurationFilter)
     , _lfcLambdaFunctionARN :: !Text
     , _lfcEvents            :: ![Event]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -857,6 +903,8 @@ data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
 --
 -- * 'lfcId'
 --
+-- * 'lfcFilter'
+--
 -- * 'lfcLambdaFunctionARN'
 --
 -- * 'lfcEvents'
@@ -866,6 +914,7 @@ lambdaFunctionConfiguration
 lambdaFunctionConfiguration pLambdaFunctionARN_ =
     LambdaFunctionConfiguration'
     { _lfcId = Nothing
+    , _lfcFilter = Nothing
     , _lfcLambdaFunctionARN = pLambdaFunctionARN_
     , _lfcEvents = mempty
     }
@@ -873,6 +922,10 @@ lambdaFunctionConfiguration pLambdaFunctionARN_ =
 -- | Undocumented member.
 lfcId :: Lens' LambdaFunctionConfiguration (Maybe Text)
 lfcId = lens _lfcId (\ s a -> s{_lfcId = a});
+
+-- | Undocumented member.
+lfcFilter :: Lens' LambdaFunctionConfiguration (Maybe NotificationConfigurationFilter)
+lfcFilter = lens _lfcFilter (\ s a -> s{_lfcFilter = a});
 
 -- | Lambda cloud function ARN that Amazon S3 can invoke when it detects
 -- events of the specified type.
@@ -886,13 +939,14 @@ lfcEvents = lens _lfcEvents (\ s a -> s{_lfcEvents = a}) . _Coerce;
 instance FromXML LambdaFunctionConfiguration where
         parseXML x
           = LambdaFunctionConfiguration' <$>
-              (x .@? "Id") <*> (x .@ "CloudFunction") <*>
-                (parseXMLList "Event" x)
+              (x .@? "Id") <*> (x .@? "Filter") <*>
+                (x .@ "CloudFunction")
+                <*> (parseXMLList "Event" x)
 
 instance ToXML LambdaFunctionConfiguration where
         toXML LambdaFunctionConfiguration'{..}
           = mconcat
-              ["Id" @= _lfcId,
+              ["Id" @= _lfcId, "Filter" @= _lfcFilter,
                "CloudFunction" @= _lfcLambdaFunctionARN,
                toXMLList "Event" _lfcEvents]
 
@@ -1244,6 +1298,42 @@ instance ToXML NotificationConfiguration where
                  (toXMLList "CloudFunctionConfiguration" <$>
                     _ncLambdaFunctionConfigurations)]
 
+-- | Container for object key name filtering rules. For information about key
+-- name filtering, go to
+-- <http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
+-- in the Amazon Simple Storage Service Developer Guide.
+--
+-- /See:/ 'notificationConfigurationFilter' smart constructor.
+newtype NotificationConfigurationFilter = NotificationConfigurationFilter'
+    { _ncfKey :: Maybe S3KeyFilter
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'NotificationConfigurationFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'ncfKey'
+notificationConfigurationFilter
+    :: NotificationConfigurationFilter
+notificationConfigurationFilter =
+    NotificationConfigurationFilter'
+    { _ncfKey = Nothing
+    }
+
+-- | Undocumented member.
+ncfKey :: Lens' NotificationConfigurationFilter (Maybe S3KeyFilter)
+ncfKey = lens _ncfKey (\ s a -> s{_ncfKey = a});
+
+instance FromXML NotificationConfigurationFilter
+         where
+        parseXML x
+          = NotificationConfigurationFilter' <$>
+              (x .@? "S3Key")
+
+instance ToXML NotificationConfigurationFilter where
+        toXML NotificationConfigurationFilter'{..}
+          = mconcat ["S3Key" @= _ncfKey]
+
 -- | /See:/ 'object'' smart constructor.
 data Object = Object'
     { _oOwner        :: !(Maybe Owner)
@@ -1539,6 +1629,7 @@ instance FromXML Part where
 -- /See:/ 'queueConfiguration' smart constructor.
 data QueueConfiguration = QueueConfiguration'
     { _qcId       :: !(Maybe Text)
+    , _qcFilter   :: !(Maybe NotificationConfigurationFilter)
     , _qcQueueARN :: !Text
     , _qcEvents   :: ![Event]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1549,6 +1640,8 @@ data QueueConfiguration = QueueConfiguration'
 --
 -- * 'qcId'
 --
+-- * 'qcFilter'
+--
 -- * 'qcQueueARN'
 --
 -- * 'qcEvents'
@@ -1558,6 +1651,7 @@ queueConfiguration
 queueConfiguration pQueueARN_ =
     QueueConfiguration'
     { _qcId = Nothing
+    , _qcFilter = Nothing
     , _qcQueueARN = pQueueARN_
     , _qcEvents = mempty
     }
@@ -1565,6 +1659,10 @@ queueConfiguration pQueueARN_ =
 -- | Undocumented member.
 qcId :: Lens' QueueConfiguration (Maybe Text)
 qcId = lens _qcId (\ s a -> s{_qcId = a});
+
+-- | Undocumented member.
+qcFilter :: Lens' QueueConfiguration (Maybe NotificationConfigurationFilter)
+qcFilter = lens _qcFilter (\ s a -> s{_qcFilter = a});
 
 -- | Amazon SQS queue ARN to which Amazon S3 will publish a message when it
 -- detects events of specified type.
@@ -1578,14 +1676,14 @@ qcEvents = lens _qcEvents (\ s a -> s{_qcEvents = a}) . _Coerce;
 instance FromXML QueueConfiguration where
         parseXML x
           = QueueConfiguration' <$>
-              (x .@? "Id") <*> (x .@ "Queue") <*>
-                (parseXMLList "Event" x)
+              (x .@? "Id") <*> (x .@? "Filter") <*> (x .@ "Queue")
+                <*> (parseXMLList "Event" x)
 
 instance ToXML QueueConfiguration where
         toXML QueueConfiguration'{..}
           = mconcat
-              ["Id" @= _qcId, "Queue" @= _qcQueueARN,
-               toXMLList "Event" _qcEvents]
+              ["Id" @= _qcId, "Filter" @= _qcFilter,
+               "Queue" @= _qcQueueARN, toXMLList "Event" _qcEvents]
 
 -- | /See:/ 'redirect' smart constructor.
 data Redirect = Redirect'
@@ -2012,6 +2110,39 @@ instance ToXML Rule where
                "ID" @= _rId, "Prefix" @= _rPrefix,
                "Status" @= _rStatus]
 
+-- | Container for object key name prefix and suffix filtering rules.
+--
+-- /See:/ 's3KeyFilter' smart constructor.
+newtype S3KeyFilter = S3KeyFilter'
+    { _skfFilterRules :: Maybe [FilterRule]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | Creates a value of 'S3KeyFilter' with the minimum fields required to make a request.
+--
+-- Use one of the following lenses to modify other fields as desired:
+--
+-- * 'skfFilterRules'
+s3KeyFilter
+    :: S3KeyFilter
+s3KeyFilter =
+    S3KeyFilter'
+    { _skfFilterRules = Nothing
+    }
+
+-- | Undocumented member.
+skfFilterRules :: Lens' S3KeyFilter [FilterRule]
+skfFilterRules = lens _skfFilterRules (\ s a -> s{_skfFilterRules = a}) . _Default . _Coerce;
+
+instance FromXML S3KeyFilter where
+        parseXML x
+          = S3KeyFilter' <$>
+              (may (parseXMLList "FilterRule") x)
+
+instance ToXML S3KeyFilter where
+        toXML S3KeyFilter'{..}
+          = mconcat
+              [toXML (toXMLList "FilterRule" <$> _skfFilterRules)]
+
 -- | /See:/ 's3ServiceError' smart constructor.
 data S3ServiceError = S3ServiceError'
     { _sseVersionId :: !(Maybe ObjectVersionId)
@@ -2174,6 +2305,7 @@ instance ToXML TargetGrant where
 -- /See:/ 'topicConfiguration' smart constructor.
 data TopicConfiguration = TopicConfiguration'
     { _tcId       :: !(Maybe Text)
+    , _tcFilter   :: !(Maybe NotificationConfigurationFilter)
     , _tcTopicARN :: !Text
     , _tcEvents   :: ![Event]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -2184,6 +2316,8 @@ data TopicConfiguration = TopicConfiguration'
 --
 -- * 'tcId'
 --
+-- * 'tcFilter'
+--
 -- * 'tcTopicARN'
 --
 -- * 'tcEvents'
@@ -2193,6 +2327,7 @@ topicConfiguration
 topicConfiguration pTopicARN_ =
     TopicConfiguration'
     { _tcId = Nothing
+    , _tcFilter = Nothing
     , _tcTopicARN = pTopicARN_
     , _tcEvents = mempty
     }
@@ -2200,6 +2335,10 @@ topicConfiguration pTopicARN_ =
 -- | Undocumented member.
 tcId :: Lens' TopicConfiguration (Maybe Text)
 tcId = lens _tcId (\ s a -> s{_tcId = a});
+
+-- | Undocumented member.
+tcFilter :: Lens' TopicConfiguration (Maybe NotificationConfigurationFilter)
+tcFilter = lens _tcFilter (\ s a -> s{_tcFilter = a});
 
 -- | Amazon SNS topic ARN to which Amazon S3 will publish a message when it
 -- detects events of specified type.
@@ -2213,14 +2352,14 @@ tcEvents = lens _tcEvents (\ s a -> s{_tcEvents = a}) . _Coerce;
 instance FromXML TopicConfiguration where
         parseXML x
           = TopicConfiguration' <$>
-              (x .@? "Id") <*> (x .@ "Topic") <*>
-                (parseXMLList "Event" x)
+              (x .@? "Id") <*> (x .@? "Filter") <*> (x .@ "Topic")
+                <*> (parseXMLList "Event" x)
 
 instance ToXML TopicConfiguration where
         toXML TopicConfiguration'{..}
           = mconcat
-              ["Id" @= _tcId, "Topic" @= _tcTopicARN,
-               toXMLList "Event" _tcEvents]
+              ["Id" @= _tcId, "Filter" @= _tcFilter,
+               "Topic" @= _tcTopicARN, toXMLList "Event" _tcEvents]
 
 -- | /See:/ 'transition' smart constructor.
 data Transition = Transition'

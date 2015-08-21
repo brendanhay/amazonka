@@ -28,6 +28,8 @@
 -- the request.
 --
 -- /See:/ <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeMetricFilters.html AWS API Reference> for DescribeMetricFilters.
+--
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     (
     -- * Creating a Request
@@ -50,6 +52,7 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
 
 import           Network.AWS.CloudWatchLogs.Types
 import           Network.AWS.CloudWatchLogs.Types.Product
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -104,6 +107,13 @@ dmfLimit = lens _dmfLimit (\ s a -> s{_dmfLimit = a}) . mapping _Nat;
 -- | The log group name for which metric filters are to be listed.
 dmfLogGroupName :: Lens' DescribeMetricFilters Text
 dmfLogGroupName = lens _dmfLogGroupName (\ s a -> s{_dmfLogGroupName = a});
+
+instance AWSPager DescribeMetricFilters where
+        page rq rs
+          | stop (rs ^. dmfrsNextToken) = Nothing
+          | stop (rs ^. dmfrsMetricFilters) = Nothing
+          | otherwise =
+            Just $ rq & dmfNextToken .~ rs ^. dmfrsNextToken
 
 instance AWSRequest DescribeMetricFilters where
         type Sv DescribeMetricFilters = CloudWatchLogs

@@ -67,6 +67,7 @@ import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import qualified Data.ByteString.Char8      as BS8
 import qualified Data.ByteString.Lazy.Char8 as LBS8
+import           Data.Char                  (isSpace)
 import qualified Data.Ini                   as INI
 import           Data.IORef
 import           Data.Monoid
@@ -361,19 +362,21 @@ fromFilePath n f = do
   where
     req k i =
         case INI.lookupValue n k i of
-            Left  e           -> invalidErr (Just k) e
+            Left  e         -> invalidErr (Just k) e
             Right x
-                | Text.null x -> invalidErr (Just k) "cannot be a blank string."
-                | otherwise   -> return (Text.encodeUtf8 x)
+                | blank x   -> invalidErr (Just k) "cannot be a blank string."
+                | otherwise -> return (Text.encodeUtf8 x)
 
     opt k i = return $
-        either (const Nothing)
-               (Just . Text.encodeUtf8)
-               (INI.lookupValue n k i)
+        case INI.lookupValue n k i of
+            Left  _ -> Nothing
+            Right x -> Just (Text.encodeUtf8 x)
 
-    invalidErr :: Maybe Text -> String -> AuthError
-    invalidErr k e = throwM $
-        InvalidFileError (maybe mempty (<> ": ") k <> Text.pack e)
+    invalidErr Nothing  e = throwM $ InvalidFileError (Text.pack e)
+    invalidErr (Just k) e = throwM $ InvalidFileError
+        (Text.pack f <> ", key " <> k <> " " <> Text.pack e)
+
+    blank x = Text.null x || Text.all isSpace x
 
 -- | Retrieve the default IAM Profile from the local EC2 instance-data.
 --

@@ -40,14 +40,14 @@ perform :: (MonadCatch m, MonadResource m, AWSSigner (Sg s), AWSRequest a)
         -> Service s
         -> Request a
         -> m (Either Error (Response a))
-perform e@Env{..} svc x = catches go handlers
+perform e@Env{..} s x = catches go handlers
   where
     go = do
         t          <- liftIO getCurrentTime
-        Signed m s <- withAuth _envAuth $ \a ->
+        Signed m r <- withAuth _envAuth $ \a ->
             return (signed a _envRegion t svc x)
 
-        let rq = s { responseTimeout = timeoutFor e svc }
+        let rq = r { responseTimeout = timeoutFor e svc }
 
         logTrace _envLogger m  -- trace:Signing:Meta
         logDebug _envLogger rq -- debug:ClientRequest
@@ -66,15 +66,18 @@ perform e@Env{..} svc x = catches go handlers
             return (Left (TransportError er))
         ]
 
+    svc = apply _envOverride s
+
 retrier :: MonadIO m
         => Env
         -> Service s
         -> Request a
         -> m (Either Error (Response a))
         -> m (Either Error (Response a))
-retrier Env{..} Service{..} rq =
+retrier Env{..} s rq =
     retrying (fromMaybe policy _envRetryPolicy) check
   where
+
     policy = limitRetries _retryAttempts
        <> RetryPolicy (const $ listToMaybe [0 | not stream])
        <> RetryPolicy delay
@@ -107,6 +110,8 @@ retrier Env{..} Service{..} rq =
           ]
 
     Exponential{..} = _svcRetry
+
+    Service{..} = apply _envOverride s
 
 waiter :: MonadIO m
        => Env
@@ -146,4 +151,4 @@ waiter Env{..} w@Wait{..} rq f = retrying policy check wait >>= exit
 -- | Returns the possible HTTP response timeout value in microseconds
 -- given the timeout configuration sources.
 timeoutFor :: HasEnv a => a -> Service s -> Maybe Int
-timeoutFor e s = microseconds <$> (e ^. envTimeout <|> _svcTimeout s)
+timeoutFor e s = microseconds <$> _svcTimeout s

@@ -337,7 +337,7 @@ data Request a = Request
     , _rqQuery     :: !QueryString
     , _rqHeaders   :: ![Header]
     , _rqBody      :: !RqBody
-    }
+    } deriving (Show)
 
 rqBody :: Lens' (Request a) RqBody
 rqBody = lens _rqBody (\s a -> s { _rqBody = a })

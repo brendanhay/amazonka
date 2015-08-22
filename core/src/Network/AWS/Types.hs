@@ -42,6 +42,10 @@ module Network.AWS.Types
     , AWSService     (..)
     , Service        (..)
     , serviceOf
+    , svcEndpoint
+    , svcTimeout
+    , svcStatus
+    , svcRetry
 
     -- * Retries
     , Retry          (..)
@@ -90,8 +94,12 @@ module Network.AWS.Types
     , RequestId      (..)
 
     -- * Regions
-    , Endpoint       (..)
     , Region         (..)
+    , Endpoint       (..)
+    , endpointHost
+    , endpointPort
+    , endpointSecure
+    , endpointScope
 
     -- * HTTP
     , ClientRequest
@@ -293,9 +301,23 @@ instance AsError Error where
         x              -> Left  x
 
 data Endpoint = Endpoint
-    { _endpointHost  :: ByteString
-    , _endpointScope :: ByteString
+    { _endpointHost   :: ByteString
+    , _endpointSecure :: !Bool
+    , _endpointPort   :: !Int
+    , _endpointScope  :: ByteString
     } deriving (Eq, Show, Data, Typeable)
+
+endpointHost :: Lens' Endpoint ByteString
+endpointHost = lens _endpointHost (\s a -> s { _endpointHost = a })
+
+endpointSecure :: Lens' Endpoint Bool
+endpointSecure = lens _endpointSecure (\s a -> s { _endpointSecure = a })
+
+endpointPort :: Lens' Endpoint Int
+endpointPort = lens _endpointPort (\s a -> s { _endpointPort = a })
+
+endpointScope :: Lens' Endpoint ByteString
+endpointScope = lens _endpointScope (\s a -> s { _endpointScope = a })
 
 data LogLevel
     = Error -- ^ Error messages only.
@@ -329,6 +351,18 @@ data Service s = Service
     , _svcError    :: Abbrev -> Status -> [Header] -> LazyByteString -> Error
     , _svcRetry    :: Retry
     }
+
+svcEndpoint :: Lens' (Service s) (Region -> Endpoint)
+svcEndpoint = lens _svcEndpoint (\s a -> s { _svcEndpoint = a })
+
+svcTimeout :: Lens' (Service s) (Maybe Seconds)
+svcTimeout = lens _svcTimeout (\s a -> s { _svcTimeout = a })
+
+svcStatus :: Lens' (Service s) (Status -> Bool)
+svcStatus = lens _svcStatus (\s a -> s { _svcStatus = a })
+
+svcRetry :: Lens' (Service s) Retry
+svcRetry = lens _svcRetry (\s a -> s { _svcRetry = a })
 
 -- | An unsigned request.
 data Request a = Request

@@ -76,8 +76,19 @@ defaultEndpoint Service{..} r = go (CI.mk _svcPrefix)
 
     s3 = r `Set.member` except
 
-    region h = Endpoint { _endpointHost = h, _endpointScope = reg }
-    global h = Endpoint { _endpointHost = h, _endpointScope = "us-east-1" }
+    region h = Endpoint
+         { _endpointHost   = h
+         , _endpointSecure = True
+         , _endpointPort   = 443
+         , _endpointScope  = reg
+         }
+
+    global h = Endpoint
+         { _endpointHost   = h
+         , _endpointSecure = True
+         , _endpointPort   = 443
+         , _endpointScope  = "us-east-1"
+         }
 
     reg = toBS r
 

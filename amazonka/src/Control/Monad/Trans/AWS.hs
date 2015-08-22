@@ -66,6 +66,7 @@ module Control.Monad.Trans.AWS
     , within
     , once
     , timeout
+    , endpoint
 
     -- *** Per Request
     , sendWith

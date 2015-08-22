@@ -1,3 +1,4 @@
+{-# LANGUAGE GADTs             #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -18,13 +19,18 @@ module Network.AWS.Env
       newEnv
     , newEnvWith
 
-    , Env    (..)
-    , HasEnv (..)
+    , Env      (..)
+    , HasEnv   (..)
 
     -- * Scoped Actions
     , within
     , once
     , timeout
+    , endpoint
+
+    -- * Overrides
+    , Override (..)
+    , override
     ) where
 
 import           Control.Applicative
@@ -43,13 +49,20 @@ import           Network.HTTP.Conduit
 
 import           Prelude
 
+-- | An override function to apply to service configuration before use.
+newtype Override = Override { apply :: forall s. Service s -> Service s }
+
+instance Monoid Override where
+    mempty      = Override id
+    mappend a b = Override (apply b . apply a)
+
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env
     { _envRegion      :: !Region
     , _envLogger      :: !Logger
     , _envRetryCheck  :: !(Int -> HttpException -> IO Bool)
     , _envRetryPolicy :: !(Maybe RetryPolicy)
-    , _envTimeout     :: !(Maybe Seconds)
+    , _envOverride    :: !Override
     , _envManager     :: !Manager
     , _envEC2         :: !(IORef (Maybe Bool))
     , _envAuth        :: !Auth
@@ -74,20 +87,7 @@ class HasEnv a where
     -- | The 'RetryPolicy' used to determine backoff\/on and retry delay\/growth.
     envRetryPolicy :: Lens' a (Maybe RetryPolicy)
 
-    -- | A HTTP response timeout override to apply. This defaults to 'Nothing',
-    -- and the timeout selection is outlined below.
-    --
-    -- Timeouts are chosen by considering:
-    --
-    -- * This 'envTimeout', if set.
-    --
-    -- * The related 'Service' timeout for the sent request if set. (Usually 70s)
-    --
-    -- * The 'envManager' timeout if set.
-    --
-    -- * The default 'ClientRequest' timeout. (Approximately 30s)
-    --
-    envTimeout     :: Lens' a (Maybe Seconds)
+    envOverride    :: Lens' a Override
 
     -- | The 'Manager' used to create and manage open HTTP connections.
     envManager     :: Lens' a Manager
@@ -102,7 +102,7 @@ class HasEnv a where
     envLogger      = environment . lens _envLogger      (\s a -> s { _envLogger      = a })
     envRetryCheck  = environment . lens _envRetryCheck  (\s a -> s { _envRetryCheck  = a })
     envRetryPolicy = environment . lens _envRetryPolicy (\s a -> s { _envRetryPolicy = a })
-    envTimeout     = environment . lens _envTimeout     (\s a -> s { _envTimeout     = a })
+    envOverride    = environment . lens _envOverride    (\s a -> s { _envOverride    = a })
     envManager     = environment . lens _envManager     (\s a -> s { _envManager     = a })
     envAuth        = environment . lens _envAuth        (\s a -> s { _envAuth        = a })
     envEC2         = environment . to _envEC2
@@ -117,7 +117,6 @@ instance ToLog Env where
             [ "[Amazonka Env] {"
             , "  region      = " <> build _envRegion
             , "  retry (n=0) = " <> build (join $ ($ 0) . getRetryPolicy <$> _envRetryPolicy)
-            , "  timeout     = " <> build _envTimeout
             , "}"
             ]
 
@@ -133,8 +132,28 @@ once = local $ \e -> e
     & envRetryCheck  .~ (\_ _ -> return False)
 
 -- | Scope an action such that any HTTP response will use this timeout value.
+--
+-- Default timeouts are chosen by considering:
+--
+-- * This 'timeout', if set.
+--
+-- * The related 'Service' timeout for the sent request if set. (Usually 70s)
+--
+-- * The 'envManager' timeout if set.
+--
+-- * The default 'ClientRequest' timeout. (Approximately 30s)
+--
 timeout :: (MonadReader r m, HasEnv r) => Seconds -> m a -> m a
-timeout s = local (envTimeout ?~ s)
+timeout s = override $ Override (svcTimeout ?~ s)
+
+-- | Scope an action such that any HTTP requests and signing logic used
+-- a modified endpoint.
+endpoint :: (MonadReader r m, HasEnv r) => (Endpoint -> Endpoint) -> m a -> m a
+endpoint f = override $ Override (svcEndpoint %~ (f .))
+
+-- | Apply a service configuration override.
+override :: (MonadReader r m, HasEnv r) => Override -> m a -> m a
+override f = local (envOverride <>~ f)
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
@@ -159,7 +178,7 @@ newEnvWith :: (Applicative m, MonadIO m, MonadCatch m)
            -> Maybe Bool  -- ^ Preload memoisation for the underlying EC2 instance check.
            -> Manager
            -> m Env
-newEnvWith r c p m = Env r logger check Nothing Nothing m
+newEnvWith r c p m = Env r logger check Nothing (Override id) m
     <$> liftIO (newIORef p)
     <*> getAuth m c
   where

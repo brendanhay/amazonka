@@ -64,6 +64,7 @@ module Network.AWS
     , within
     , once
     , timeout
+    , endpoint
 
     -- ** Streaming
     -- $streaming
@@ -218,6 +219,11 @@ once = liftAWS . AWST.once
 -- | Scope an action such that any HTTP response will use this timeout value.
 timeout :: MonadAWS m => Seconds -> AWS a -> m a
 timeout s = liftAWS . AWST.timeout s
+
+-- | Scope an action such that any HTTP requests and signing logic used
+-- a modified endpoint.
+endpoint :: MonadAWS m => (Endpoint -> Endpoint) -> AWS a -> m a
+endpoint f = liftAWS . AWST.endpoint f
 
 -- | Send a request, returning the associated response if successful.
 --

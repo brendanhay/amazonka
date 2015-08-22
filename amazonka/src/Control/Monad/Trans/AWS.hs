@@ -181,7 +181,14 @@ instance MonadThrow m => MonadThrow (AWST m) where
     throwM = lift . throwM
 
 instance MonadCatch m => MonadCatch (AWST m) where
-    catch (AWST m) f = AWST (m `catch` \e -> unAWST (f e))
+    catch (AWST m) f = AWST (catch m (unAWST . f))
+
+instance MonadMask m => MonadMask (AWST m) where
+    mask a = AWST $ mask $ \u ->
+        unAWST $ a (AWST . u . unAWST)
+
+    uninterruptibleMask a = AWST $ uninterruptibleMask $ \u ->
+        unAWST $ a (AWST . u . unAWST)
 
 instance MonadBase b m => MonadBase b (AWST m) where
     liftBase = liftBaseDefault

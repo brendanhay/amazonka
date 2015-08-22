@@ -133,6 +133,7 @@ module Network.AWS
 
 import           Control.Applicative
 import           Control.Monad.Catch          (MonadCatch)
+import           Control.Monad.IO.Class       (MonadIO)
 import           Control.Monad.Morph          (hoist)
 import qualified Control.Monad.RWS.Lazy       as LRW
 import qualified Control.Monad.RWS.Strict     as RW
@@ -141,7 +142,6 @@ import qualified Control.Monad.State.Strict   as S
 import           Control.Monad.Trans.AWS      (AWST)
 import qualified Control.Monad.Trans.AWS      as AWST
 import           Control.Monad.Trans.Class    (lift)
-import           Control.Monad.Trans.Cont     (ContT)
 import           Control.Monad.Trans.Except   (ExceptT)
 import           Control.Monad.Trans.Identity (IdentityT)
 import           Control.Monad.Trans.List     (ListT)
@@ -168,7 +168,8 @@ import           Prelude
 type AWS = AWST (ResourceT IO)
 
 -- | Monads in which 'AWS' actions may be embedded.
-class (Functor m, Applicative m, Monad m) => MonadAWS m where
+class (Functor m, Applicative m, Monad m, MonadIO m, MonadCatch m) => MonadAWS m
+  where
     -- | Lift a computation to the 'AWS' monad.
     liftAWS :: AWS a -> m a
 
@@ -179,7 +180,6 @@ instance MonadAWS m => MonadAWS (IdentityT   m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ListT       m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (MaybeT      m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ExceptT   e m) where liftAWS = lift . liftAWS
-instance MonadAWS m => MonadAWS (ContT     r m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ReaderT   r m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (S.StateT  s m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (LS.StateT s m) where liftAWS = lift . liftAWS

@@ -33,21 +33,30 @@ printTables r h = do
     env <- newEnv r Discover <&> envLogger .~ lgr
 
     runResourceT . runAWST env $ do
+        -- Scoping the endpoint change using 'endpoint':
+        endpoint (redirect h) $ do
+            say $ "Listing all tables in region " <> toText r
+            paginate listTables
+                =$= CL.concatMap (view ltrsTableNames)
+                 $$ CL.mapM_ (say . mappend "Table: ")
+
+        -- This will _not_ use the redirected endpoint, and will hit AWS directly.
         say $ "Listing all tables in region " <> toText r
-        paginateWith (redirect h) listTables
+        paginate listTables
             =$= CL.concatMap (view ltrsTableNames)
              $$ CL.mapM_ (say . mappend "Table: ")
 
-redirect :: Maybe (ByteString, Int) -> Service DynamoDB -> Service DynamoDB
+    -- You can also hardcode the endpoint in the initial environment
+    -- by manually constructing it:
+    -- let env' = Override (svcEndpoint .~ const (Endpoint ...))
+    -- runResourceT . runAWST env' $
+
+redirect :: Maybe (ByteString, Int) -> Endpoint -> Endpoint
 redirect Nothing       = id
-redirect (Just (h, p)) = svcEndpoint .~ const local
-  where
-    local = Endpoint
-        { _endpointHost   = h
-        , _endpointPort   = p
-        , _endpointSecure = False
-        , _endpointScope  = "us-east-1"
-        }
+redirect (Just (h, p)) =
+      (endpointHost   .~ h)
+    . (endpointPort   .~ p)
+    . (endpointSecure .~ (p == 443))
 
 say :: MonadIO m => Text -> m ()
 say = liftIO . Text.putStrLn

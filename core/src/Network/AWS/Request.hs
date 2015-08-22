@@ -141,6 +141,7 @@ requestHeaders :: Lens' Client.Request HTTP.RequestHeaders
 requestHeaders f x =
     f (Client.requestHeaders x) <&> \y -> x { Client.requestHeaders = y }
 
+-- FIXME: Revist due to custom port numbers for endpoints.
 requestURL :: ClientRequest -> ByteString
 requestURL x =
        scheme (Client.secure      x)

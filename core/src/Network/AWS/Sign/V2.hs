@@ -61,6 +61,8 @@ instance AWSSigner V2 where
         rq = clientRequest
             { Client.method         = meth
             , Client.host           = _endpointHost
+            , Client.secure         = _endpointSecure
+            , Client.port           = _endpointPort
             , Client.path           = path'
             , Client.queryString    = toBS authorised
             , Client.requestHeaders = headers

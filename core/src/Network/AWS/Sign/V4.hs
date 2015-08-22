@@ -152,15 +152,20 @@ authorisation Meta{..} = algorithm
     <> ", Signature="     <> toBS metaSignature
 
 finalise :: Meta V4 -> (ClientRequest -> ClientRequest) -> Signed V4 a
-finalise meta authorise = Signed meta . authorise $ clientRequest
-    { Client.method         = toBS (metaMethod meta)
-    , Client.host           = _endpointHost (metaEndpoint meta)
-    , Client.path           = toBS (metaPath meta)
-    , Client.queryString    = if BS8.null qbs then qbs else '?' `BS8.cons` qbs
-    , Client.requestHeaders = metaHeaders meta
-    , Client.requestBody    = metaBody meta
-    }
+finalise meta authorise =
+    Signed meta . authorise $ clientRequest
+        { Client.method         = toBS (metaMethod meta)
+        , Client.host           = _endpointHost
+        , Client.secure         = _endpointSecure
+        , Client.port           = _endpointPort
+        , Client.path           = toBS (metaPath meta)
+        , Client.queryString    = if BS8.null qbs then qbs else '?' `BS8.cons` qbs
+        , Client.requestHeaders = metaHeaders meta
+        , Client.requestBody    = metaBody meta
+        }
   where
+    Endpoint{..} = metaEndpoint meta
+
     qbs = toBS (metaCanonicalQuery meta)
 
 sign :: AuthEnv

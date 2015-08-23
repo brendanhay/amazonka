@@ -63,7 +63,6 @@ library
         , exceptions          >= 0.6
         , http-client         >= 0.4.9
         , http-conduit        >= 2.1.4
-        , http-types          >= 0.8
         , ini                 >= 0.2
         , lens                >= 4.4
         , mmorph              >= 1

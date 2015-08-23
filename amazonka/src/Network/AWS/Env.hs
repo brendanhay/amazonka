@@ -23,16 +23,15 @@ module Network.AWS.Env
     , HasEnv   (..)
 
     -- * Configuration Overrides
-    , configure
     , override
+    , configure
 
     -- * Scoped Actions
     , within
     , once
-    , retries
     , timeout
     , endpoint
-    , succeeds
+    , signer
     ) where
 
 import           Control.Applicative
@@ -48,7 +47,6 @@ import           Network.AWS.Auth
 import           Network.AWS.Internal.Logger
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
-import           Network.HTTP.Types.Status
 
 import           Prelude
 
@@ -111,25 +109,14 @@ instance ToLog Env where
             ]
 
 -- | An override function to apply to service configuration before use.
-newtype Config = Config { apply :: forall s. Service s -> Service s }
+newtype Config = Config { configure :: Service -> Service }
 
 instance Monoid Config where
     mempty      = Config id
-    mappend a b = Config (apply b . apply a)
-
--- | Get the service configuration for a request, with any overrides applied
--- from the active environment.
-configure :: (HasEnv r, AWSService (Sv a), AWSRequest a)
-          => r
-          -> a
-          -> Service (Sv a)
-configure e = apply (e ^. envConfig) . serviceOf
+    mappend a b = Config (configure b . configure a)
 
 -- | Add a service configuration override to the environment's current scope.
-override :: (MonadReader r m, HasEnv r)
-         => (forall s. Service s -> Service s)
-         -> m a
-         -> m a
+override :: (MonadReader r m, HasEnv r) => (Service -> Service) -> m a -> m a
 override f = local (envConfig <>~ Config f)
 
 -- | Scope an action within the specific 'Region'.
@@ -139,11 +126,7 @@ within r = local (envRegion .~ r)
 -- | Scope an action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.
 once :: (MonadReader r m, HasEnv r) => m a -> m a
-once = retries (retryAttempts .~ 0)
-
--- Better name.
-retries :: (MonadReader r m, HasEnv r) => (Retry -> Retry) -> m a -> m a
-retries f = override (svcRetry %~ f)
+once = override (svcRetry . retryAttempts .~ 0)
 
 -- | Scope an action such that any HTTP response will use this timeout value.
 --
@@ -165,9 +148,8 @@ timeout s = override (svcTimeout ?~ s)
 endpoint :: (MonadReader r m, HasEnv r) => (Endpoint -> Endpoint) -> m a -> m a
 endpoint f = override (svcEndpoint %~ (f .))
 
--- Better name.
-succeeds :: (MonadReader r m, HasEnv r) => (Status -> Bool) -> m a -> m a
-succeeds f = override (svcStatus .~ f)
+signer :: (MonadReader r m, HasEnv r) => (forall v. Signer v) -> m a -> m a
+signer v = override (\x -> x { _svcSigner = v })
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.

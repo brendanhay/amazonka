@@ -87,12 +87,12 @@ v4 :: Signer V4
 v4 = Signer sign' presign'
 
 presign' :: Seconds -> Algorithm V4 a
-presign' ex auth reg ts svc rq = finalise meta authorise
+presign' ex auth reg ts rq = finalise meta authorise
   where
     authorise = queryString
         <>~ ("&X-Amz-Signature=" <> toBS (metaSignature meta))
 
-    meta = metadata auth reg ts svc presign digest (prepare rq)
+    meta = metadata auth reg ts presign digest (prepare rq)
 
     presign c shs =
           pair (CI.original hAMZAlgorithm)     algorithm
@@ -107,22 +107,24 @@ presign' ex auth reg ts svc rq = finalise meta authorise
     prepare = rqHeaders .~ []
 
 sign' :: Algorithm V4 a
-sign' auth reg ts svc rq = finalise meta authorise
+sign' auth reg ts rq = finalise meta authorise
   where
     authorise = requestHeaders
         <>~ [(hAuthorization, authorisation meta)]
 
-    meta = metadata auth reg ts svc presign digest (prepare rq)
+    meta = metadata auth reg ts presign digest (prepare rq)
 
     presign _ _ = id
 
     digest = Tag . digestToBase Base16 . bodySHA256 $ _rqBody rq
 
     prepare = rqHeaders %~
-        ( hdr hHost    (_endpointHost (_svcEndpoint svc reg))
+        ( hdr hHost    (_endpointHost end)
         . hdr hAMZDate (toBS (Time ts :: AWSTime))
         . maybe id (hdr hAMZToken . toBS) (_authToken auth)
         )
+
+    end = _svcEndpoint (_rqService rq) reg
 
 -- | Used to tag provenance. This allows keeping the same layout as
 -- the signing documentation, passing 'ByteString's everywhere, with
@@ -176,12 +178,11 @@ finalise m@Meta{..} authorise = Signed m (authorise rq)
 metadata :: AuthEnv
          -> Region
          -> UTCTime
-         -> Service
          -> (Credential -> SignedHeaders -> QueryString -> QueryString)
          -> Hash
          -> Request a
          -> Meta V4
-metadata auth reg ts svc presign digest rq = Meta
+metadata auth reg ts presign digest rq = Meta
     { metaTime             = ts
     , metaMethod           = method
     , metaPath             = path
@@ -211,7 +212,9 @@ metadata auth reg ts svc presign digest rq = Meta
 
     end    = _svcEndpoint svc reg
     method = Tag . toBS $ _rqMethod rq
-    path   = escapedPath svc rq
+    path   = escapedPath rq
+
+    svc    = _rqService rq
 
 algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
@@ -259,9 +262,9 @@ canonicalRequest meth path digest query chs shs = Tag $
        , toBS digest
        ]
 
-escapedPath :: Service -> Request a -> Path
-escapedPath s r = Tag . toBS . escapePath $
-    case _svcAbbrev s of
+escapedPath :: Request a -> Path
+escapedPath r = Tag . toBS . escapePath $
+    case _svcAbbrev (_rqService r) of
         "S3" -> _rqPath r
         _    -> collapsePath (_rqPath r)
 

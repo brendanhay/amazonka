@@ -53,11 +53,14 @@ module Network.AWS.Types
     -- * Requests
     , AWSRequest     (..)
     , Request        (..)
+    , rqService
     , rqMethod
     , rqHeaders
     , rqPath
     , rqQuery
     , rqBody
+    , rqSigner
+    , rqPresigner
 
     -- * Responses
     , Response
@@ -350,12 +353,11 @@ sgMeta (Signed m _) = m
 sgRequest :: Signed v a -> ClientRequest
 sgRequest (Signed _ r) = r
 
-type Algorithm v a =
-    AuthEnv -> Region -> UTCTime -> Service -> Request a -> Signed v a
+type Algorithm v a = AuthEnv -> Region -> UTCTime -> Request a -> Signed v a
 
 data Signer v = Signer
-    { sign    :: forall a. Algorithm v a
-    , presign :: forall a. Seconds -> Algorithm v a
+    { sgSigner    :: forall a. Algorithm v a
+    , sgPresigner :: forall a. Seconds -> Algorithm v a
     }
 
 -- | Attributes and functions specific to an AWS service.
@@ -370,9 +372,6 @@ data Service = Service
     , _svcError    :: Abbrev -> Status -> [Header] -> LazyByteString -> Error
     , _svcRetry    :: Retry
     }
-
--- svcSigner :: Lens' Service (forall v. Signer v)
---svcSigner = lens _svcSigner (\s a -> s { _svcSigner = a })
 
 svcEndpoint :: Lens' Service (Region -> Endpoint)
 svcEndpoint = lens _svcEndpoint (\s a -> s { _svcEndpoint = a })
@@ -408,6 +407,9 @@ data Request a = Request
     , _rqBody    :: !RqBody
     }
 
+rqService :: Lens' (Request a) Service
+rqService = lens _rqService (\s a -> s { _rqService = a })
+
 rqBody :: Lens' (Request a) RqBody
 rqBody = lens _rqBody (\s a -> s { _rqBody = a })
 
@@ -422,6 +424,12 @@ rqPath = lens _rqPath (\s a -> s { _rqPath = a })
 
 rqQuery :: Lens' (Request a) QueryString
 rqQuery = lens _rqQuery (\s a -> s { _rqQuery = a })
+
+rqSigner :: Algorithm v a
+rqSigner a r ts x = sgSigner (_svcSigner (_rqService x)) a r ts x
+
+rqPresigner :: Seconds -> Algorithm v a
+rqPresigner ex a r ts x = sgPresigner (_svcSigner (_rqService x)) ex a r ts x
 
 type Response a = (Status, Rs a)
 

@@ -58,7 +58,7 @@ v2 :: Signer V2
 v2 = Signer sign' (const sign') -- FIXME: revisit v2 presigning.
 
 sign' :: Algorithm V2 a
-sign' AuthEnv{..} r t Service{..} Request{..} = Signed meta rq
+sign' AuthEnv{..} r t Request{..} = Signed meta rq
   where
     meta = Meta t end signature
 
@@ -74,6 +74,8 @@ sign' AuthEnv{..} r t Service{..} Request{..} = Signed meta rq
     path' = toBS (escapePath _rqPath)
 
     end@Endpoint{..} = _svcEndpoint r
+
+    Service{..} = _rqService
 
     authorised = pair "Signature" (urlEncode True signature) query
 

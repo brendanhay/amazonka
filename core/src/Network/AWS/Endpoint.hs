@@ -1,6 +1,7 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- |
 -- Module      : Network.AWS.Types
@@ -20,10 +21,10 @@ import           Network.AWS.Types
 
 import           Prelude
 
--- | Determine the full host address and credential scope for a 'Service'
+-- | Determine the full host address and credential scope for
 -- within the specified 'Region'.
-defaultEndpoint :: Service s -> Region -> Endpoint
-defaultEndpoint Service{..} r = go (CI.mk _svcPrefix)
+defaultEndpoint :: Service -> Region -> Endpoint
+defaultEndpoint (_svcPrefix -> p) r = go (CI.mk p)
   where
     go = \case
         "iam"
@@ -66,8 +67,8 @@ defaultEndpoint Service{..} r = go (CI.mk _svcPrefix)
         "cloudfront"
             | not china -> global "cloudfront.amazonaws.com"
 
-        _   | china     -> region (_svcPrefix <> "." <> reg <> ".amazonaws.com.cn")
-            | otherwise -> region (_svcPrefix <> "." <> reg <> ".amazonaws.com")
+        _   | china     -> region (p <> "." <> reg <> ".amazonaws.com.cn")
+            | otherwise -> region (p <> "." <> reg <> ".amazonaws.com")
 
     virginia  = r == NorthVirginia
     frankfurt = r == Frankfurt

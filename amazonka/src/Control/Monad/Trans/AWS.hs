@@ -6,6 +6,7 @@
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE RankNTypes                 #-}
+{-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TypeFamilies               #-}
 {-# LANGUAGE UndecidableInstances       #-}
 
@@ -64,10 +65,9 @@ module Control.Monad.Trans.AWS
 
     , within
     , once
-    , retries
     , timeout
     , endpoint
-    , succeeds
+    , signer
 
     -- ** Streaming
     -- $streaming
@@ -244,10 +244,7 @@ type AWSConstraint r m =
 send :: (AWSConstraint r m, AWSRequest a)
      => a
      -> m (Rs a)
-send x = do
-    e <- view environment
-    r <- retrier e (configure e x) x
-    snd <$> hoistError r
+send = retrier >=> fmap snd . hoistError
 
 -- | Repeatedly send a request, automatically setting markers and
 -- paginating over multiple responses while available.
@@ -273,10 +270,7 @@ await :: (AWSConstraint r m, AWSRequest a)
       => Wait a
       -> a
       -> m ()
-await w x = do
-    e <- view environment
-    r <- waiter e (configure e x) w x
-    hoistError (maybe (Right ()) Left r)
+await w = waiter w >=> hoistError . maybe (Right ()) Left
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
@@ -285,7 +279,6 @@ await w x = do
 presignURL :: ( MonadIO m
               , MonadReader r m
               , HasEnv r
-              , AWSPresigner (Sg (Sv a))
               , AWSRequest a
               )
            => UTCTime     -- ^ Signing time.
@@ -299,7 +292,6 @@ presignURL ts ex = liftM requestURL . presign ts ex
 presign :: ( MonadIO m
            , MonadReader r m
            , HasEnv r
-           , AWSPresigner (Sg (Sv a))
            , AWSRequest a
            )
         => UTCTime     -- ^ Signing time.
@@ -307,8 +299,8 @@ presign :: ( MonadIO m
         -> a           -- ^ Request to presign.
         -> m ClientRequest
 presign ts ex x = do
-    e <- view environment
-    Sign.presignWith (const $ configure e x) (_envAuth e) (_envRegion e) ts ex x
+    Env{..} <- view environment
+    Sign.presignWith (configure _envConfig) _envAuth _envRegion ts ex x
 
 -- | Test whether the underlying host is running on EC2.
 -- This is memoised and any external check occurs for the first invocation only.

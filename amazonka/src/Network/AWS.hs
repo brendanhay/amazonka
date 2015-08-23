@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE RankNTypes        #-}
 
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
@@ -60,11 +61,11 @@ module Network.AWS
     -- ** Overriding Service Configuration
     -- $service
 
-    -- *** Scoped Actions
     , within
     , once
     , timeout
     , endpoint
+    , signer
 
     -- ** Streaming
     -- $streaming
@@ -225,6 +226,9 @@ timeout s = liftAWS . AWST.timeout s
 endpoint :: MonadAWS m => (Endpoint -> Endpoint) -> AWS a -> m a
 endpoint f = liftAWS . AWST.endpoint f
 
+signer :: MonadAWS m => (forall v. Signer v) -> AWS a -> m a
+signer v = liftAWS . AWST.signer v
+
 -- | Send a request, returning the associated response if successful.
 --
 -- /See:/ 'AWST.sendWith'
@@ -249,7 +253,7 @@ await w = liftAWS . AWST.await w
 -- number of seconds expiry has elapsed.
 --
 -- /See:/ 'AWST.presign', 'AWST.presignWith'
-presignURL :: (MonadAWS m, AWSPresigner (Sg (Sv a)), AWSRequest a)
+presignURL :: (MonadAWS m, AWSRequest a)
            => UTCTime     -- ^ Signing time.
            -> Seconds     -- ^ Expiry time.
            -> a           -- ^ Request to presign.

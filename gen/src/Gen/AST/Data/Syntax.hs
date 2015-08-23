@@ -384,6 +384,7 @@ toJSOND p n = instD1 "ToJSON" n
     . map (Right . toJSONE p)
   where
     enc = app (var "object")
+        . app (var "catMaybes")
         . listE
         . map (either id id)
 
@@ -515,7 +516,13 @@ toElementE p ns = either (`root` []) node
            | otherwise    = n
 
 toJSONE :: Protocol -> Field -> Exp
-toJSONE p f = encodeE (memberName p Input f) toJ $ var (fieldAccessor f)
+toJSONE p f
+    | fieldMaybe f = infixApp (paren (app (str n) o)) "<$>" a
+    | otherwise    = app (var "Just") (encodeE n toJ a)
+  where
+    n = memberName p Input f
+    a = var (fieldAccessor f)
+    o = var (Text.pack (Exts.prettyPrint toJ))
 
 toHeadersE :: Protocol -> Either (Text, Text) Field -> Exp
 toHeadersE p = either pair field

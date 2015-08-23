@@ -208,7 +208,7 @@ runAWS :: (MonadResource m, HasEnv r) => r -> AWS a -> m a
 runAWS e = liftResourceT . AWST.runAWST e
 
 -- | Scope an action within the specific 'Region'.
-within :: MonadAWS m => Region -> m a -> m a
+within :: MonadAWS m => Region -> AWS a -> m a
 within r = liftAWS . AWST.within r
 
 -- | Scope an action such that any retry logic for the 'Service' is

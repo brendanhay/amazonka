@@ -13,8 +13,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Sign.V2
-    ( V2
-    , Meta (..)
+    ( Meta (..)
+    , V2
+    , v2
     ) where
 
 import           Control.Applicative
@@ -38,7 +39,7 @@ import           Prelude
 
 data V2
 
-data instance Meta V2 = Meta
+data instance (Meta V2) = Meta
     { metaTime      :: !UTCTime
     , metaEndpoint  :: !Endpoint
     , metaSignature :: !ByteString
@@ -53,45 +54,48 @@ instance ToLog (Meta V2) where
         , "}"
         ]
 
-instance AWSSigner V2 where
-    signed AuthEnv{..} r t Service{..} Request{..} = Signed meta rq
-      where
-        meta = Meta t end signature
+v2 :: Signer V2
+v2 = Signer sign' (const sign') -- FIXME: revisit v2 presigning.
 
-        rq = (clientRequest end _svcTimeout)
-            { Client.method         = meth
-            , Client.path           = path'
-            , Client.queryString    = toBS authorised
-            , Client.requestHeaders = headers
-            , Client.requestBody    = bodyRequest _rqBody
-            }
+sign' :: Algorithm V2 a
+sign' AuthEnv{..} r t Service{..} Request{..} = Signed meta rq
+  where
+    meta = Meta t end signature
 
-        meth  = toBS _rqMethod
-        path' = toBS (escapePath _rqPath)
+    rq = (clientRequest end _svcTimeout)
+        { Client.method         = meth
+        , Client.path           = path'
+        , Client.queryString    = toBS authorised
+        , Client.requestHeaders = headers
+        , Client.requestBody    = bodyRequest _rqBody
+        }
 
-        end@Endpoint{..} = _svcEndpoint r
+    meth  = toBS _rqMethod
+    path' = toBS (escapePath _rqPath)
 
-        authorised = pair "Signature" (urlEncode True signature) query
+    end@Endpoint{..} = _svcEndpoint r
 
-        signature = digestToBase Base64
-            . hmacSHA256 (toBS _authSecret)
-            $ BS8.intercalate "\n"
-                [ meth
-                , _endpointHost
-                , path'
-                , toBS query
-                ]
+    authorised = pair "Signature" (urlEncode True signature) query
 
-        query =
-             pair "Version"          _svcVersion
-           . pair "SignatureVersion" ("2"          :: ByteString)
-           . pair "SignatureMethod"  ("HmacSHA256" :: ByteString)
-           . pair "Timestamp"        time
-           . pair "AWSAccessKeyId"   (toBS _authAccess)
-           $ _rqQuery <> maybe mempty toQuery token
+    signature = digestToBase Base64
+        . hmacSHA256 (toBS _authSecret)
+        $ BS8.intercalate "\n"
+            [ meth
+            , _endpointHost
+            , path'
+            , toBS query
+            ]
 
-        token = ("SecurityToken" :: ByteString,) . toBS <$> _authToken
+    query =
+         pair "Version"          _svcVersion
+       . pair "SignatureVersion" ("2"          :: ByteString)
+       . pair "SignatureMethod"  ("HmacSHA256" :: ByteString)
+       . pair "Timestamp"        time
+       . pair "AWSAccessKeyId"   (toBS _authAccess)
+       $ _rqQuery <> maybe mempty toQuery token
 
-        headers = hdr hDate time _rqHeaders
+    token = ("SecurityToken" :: ByteString,) . toBS <$> _authToken
 
-        time = toBS (Time t :: ISO8601)
+    headers = hdr hDate time _rqHeaders
+
+    time = toBS (Time t :: ISO8601)

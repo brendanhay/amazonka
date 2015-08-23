@@ -5,13 +5,9 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE PackageImports             #-}
 {-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE ScopedTypeVariables        #-}
-{-# LANGUAGE StandaloneDeriving         #-}
 {-# LANGUAGE TypeFamilies               #-}
-{-# LANGUAGE ViewPatterns               #-}
 
 -- |
 -- Module      : Network.AWS.Types
@@ -37,29 +33,22 @@ module Network.AWS.Types
     , LogLevel       (..)
     , Logger
 
-    -- * Services
+    -- * Signing
+    , Meta
+    , Algorithm
+    , Signer         (..)
+    , Signed         (..)
+    , sgMeta
+    , sgRequest
+
+    -- * Service
     , Abbrev
-    , AWSService     (..)
     , Service        (..)
-    , serviceOf
+--    , svcSigner
     , svcEndpoint
     , svcTimeout
     , svcStatus
     , svcRetry
-
-    -- * Retries
-    , Retry          (..)
-    , exponentBase
-    , exponentGrowth
-    , retryAttempts
-
-    -- * Signing
-    , AWSSigner      (..)
-    , AWSPresigner   (..)
-    , Meta
-    , Signed         (..)
-    , sgMeta
-    , sgRequest
 
     -- * Requests
     , AWSRequest     (..)
@@ -72,6 +61,12 @@ module Network.AWS.Types
 
     -- * Responses
     , Response
+
+    -- * Retries
+    , Retry          (..)
+    , exponentBase
+    , exponentGrowth
+    , retryAttempts
 
     -- * Errors
     , AsError        (..)
@@ -120,10 +115,10 @@ module Network.AWS.Types
     , _Default
     ) where
 
-import           Control.Exception
-import           Control.Exception.Lens       (exception)
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
+import           Control.Exception
+import           Control.Exception.Lens       (exception)
 import           Control.Lens                 hiding (coerce)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
@@ -136,19 +131,18 @@ import           Data.Data                    (Data, Typeable)
 import           Data.Hashable
 import           Data.IORef
 import           Data.Monoid
-import           Data.Proxy
 import           Data.String
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           GHC.Generics                 (Generic)
 import           Network.AWS.Data.Body
-import           Network.AWS.Data.Log
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Log
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
-import           Network.HTTP.Client          hiding (Request, Response, Proxy)
+import           Network.HTTP.Client          hiding (Proxy, Request, Response)
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
@@ -341,9 +335,33 @@ exponentGrowth = lens _retryGrowth (\s a -> s { _retryGrowth = a })
 retryAttempts :: Lens' Retry Int
 retryAttempts = lens _retryAttempts (\s a -> s { _retryAttempts = a })
 
+-- | Signing algorithm specific metadata.
+data family Meta v :: *
+
+-- | A signed 'ClientRequest' and associated metadata specific
+-- to the signing algorithm, tagged with the initial request type
+-- to be able to obtain the associated response, 'Rs a'.
+data Signed v a where
+    Signed :: ToLog (Meta v) => Meta v -> ClientRequest -> Signed v a
+
+sgMeta :: Signed v a -> Meta v
+sgMeta (Signed m _) = m
+
+sgRequest :: Signed v a -> ClientRequest
+sgRequest (Signed _ r) = r
+
+type Algorithm v a =
+    AuthEnv -> Region -> UTCTime -> Service -> Request a -> Signed v a
+
+data Signer v = Signer
+    { sign    :: forall a. Algorithm v a
+    , presign :: forall a. Seconds -> Algorithm v a
+    }
+
 -- | Attributes and functions specific to an AWS service.
-data Service s = Service
+data Service = Service
     { _svcAbbrev   :: !Abbrev
+    , _svcSigner   :: forall v. Signer v
     , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
     , _svcEndpoint :: Region -> Endpoint
@@ -353,16 +371,19 @@ data Service s = Service
     , _svcRetry    :: Retry
     }
 
-svcEndpoint :: Lens' (Service s) (Region -> Endpoint)
+-- svcSigner :: Lens' Service (forall v. Signer v)
+--svcSigner = lens _svcSigner (\s a -> s { _svcSigner = a })
+
+svcEndpoint :: Lens' Service (Region -> Endpoint)
 svcEndpoint = lens _svcEndpoint (\s a -> s { _svcEndpoint = a })
 
-svcTimeout :: Lens' (Service s) (Maybe Seconds)
+svcTimeout :: Lens' Service (Maybe Seconds)
 svcTimeout = lens _svcTimeout (\s a -> s { _svcTimeout = a })
 
-svcStatus :: Lens' (Service s) (Status -> Bool)
+svcStatus :: Lens' Service (Status -> Bool)
 svcStatus = lens _svcStatus (\s a -> s { _svcStatus = a })
 
-svcRetry :: Lens' (Service s) Retry
+svcRetry :: Lens' Service Retry
 svcRetry = lens _svcRetry (\s a -> s { _svcRetry = a })
 
 -- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
@@ -379,12 +400,13 @@ clientRequest e t = def
 
 -- | An unsigned request.
 data Request a = Request
-    { _rqMethod    :: !StdMethod
-    , _rqPath      :: !RawPath
-    , _rqQuery     :: !QueryString
-    , _rqHeaders   :: ![Header]
-    , _rqBody      :: !RqBody
-    } deriving (Show)
+    { _rqService :: !Service
+    , _rqMethod  :: !StdMethod
+    , _rqPath    :: !RawPath
+    , _rqQuery   :: !QueryString
+    , _rqHeaders :: ![Header]
+    , _rqBody    :: !RqBody
+    }
 
 rqBody :: Lens' (Request a) RqBody
 rqBody = lens _rqBody (\s a -> s { _rqBody = a })
@@ -401,69 +423,17 @@ rqPath = lens _rqPath (\s a -> s { _rqPath = a })
 rqQuery :: Lens' (Request a) QueryString
 rqQuery = lens _rqQuery (\s a -> s { _rqQuery = a })
 
-class AWSSigner v where
-    signed :: v ~ Sg s
-           => AuthEnv
-           -> Region
-           -> UTCTime
-           -> Service s
-           -> Request a
-           -> Signed  v a
-
-class AWSPresigner v where
-    presigned :: v ~ Sg s
-              => AuthEnv
-              -> Region
-              -> UTCTime
-              -> Seconds
-              -> Service s
-              -> Request a
-              -> Signed  v a
-
--- | Signing metadata data specific to a signing algorithm.
---
--- /Note:/ this is used for logging purposes, and is otherwise ignored.
-data family Meta v :: *
-
--- | A signed 'ClientRequest' and associated metadata specific to the signing
--- algorithm that was used.
-data Signed v a where
-    Signed :: ToLog (Meta v)
-           => { _sgMeta    :: Meta v
-              , _sgRequest :: ClientRequest
-              }
-           -> Signed v a
-
-sgMeta :: ToLog (Meta v) => Lens' (Signed v a) (Meta v)
-sgMeta f (Signed m rq) = f m <&> \y -> Signed y rq
-
--- Lens' specifically since 'a' cannot be substituted.
-sgRequest :: Lens' (Signed v a) ClientRequest
-sgRequest f (Signed m rq) = f rq <&> \y -> Signed m y
-
-class AWSSigner (Sg a) => AWSService a where
-    -- | The default signing algorithm for the service.
-    type Sg a :: *
-
-    service :: Sv p ~ a => Proxy p -> Service a
-
-serviceOf :: forall a. AWSService (Sv a) => a -> Service (Sv a)
-serviceOf = const $ service (Proxy :: Proxy a)
-
 type Response a = (Status, Rs a)
 
 -- | Specify how a request can be de/serialised.
-class AWSService (Sv a) => AWSRequest a where
+class AWSRequest a where
     -- | The successful, expected response associated with a request.
     type Rs a :: *
-
-    -- | The default sevice configuration for the request.
-    type Sv a :: *
 
     request  :: a -> Request a
     response :: MonadResource m
              => Logger
-             -> Service s
+             -> Service
              -> Request a
              -> ClientResponse
              -> m (Response a)

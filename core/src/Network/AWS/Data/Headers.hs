@@ -16,6 +16,7 @@ module Network.AWS.Data.Headers
     ( module Network.AWS.Data.Headers
     , HeaderName
     , Header
+    , hContentType
     ) where
 
 import qualified Data.ByteString.Char8       as BS8
@@ -110,3 +111,6 @@ hAMZNErrorType = "X-Amzn-ErrorType"
 
 hAMZNAuth :: HeaderName
 hAMZNAuth = "X-Amzn-Authorization"
+
+hFormEncoded :: ByteString
+hFormEncoded = "application/x-www-form-urlencoded; charset=utf-8"

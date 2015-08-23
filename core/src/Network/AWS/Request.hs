@@ -141,19 +141,20 @@ requestHeaders :: Lens' Client.Request HTTP.RequestHeaders
 requestHeaders f x =
     f (Client.requestHeaders x) <&> \y -> x { Client.requestHeaders = y }
 
--- FIXME: Revist due to custom port numbers for endpoints.
 requestURL :: ClientRequest -> ByteString
-requestURL x =
-       scheme (Client.secure      x)
-    <> toBS   (Client.host        x)
-    <> port   (Client.port        x)
-    <> toBS   (Client.path        x)
-    <> toBS   (Client.queryString x)
+requestURL x = scheme
+    <> toBS (Client.host        x)
+    <> port (Client.port        x)
+    <> toBS (Client.path        x)
+    <> toBS (Client.queryString x)
   where
-    scheme True = "https://"
-    scheme _    = "http://"
+    scheme
+        | secure    = "https://"
+        | otherwise = "http://"
 
     port = \case
-        80  -> ""
-        443 -> ""
-        n   -> ":" <> toBS n
+        80           -> ""
+        443 | secure -> ""
+        n            -> ":" <> toBS n
+
+    secure = Client.secure x

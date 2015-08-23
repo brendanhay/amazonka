@@ -19,12 +19,12 @@ module Network.AWS.Internal.HTTP
     , waiter
     ) where
 
+import           Control.Arrow                (first)
 import           Control.Monad
 import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Control.Retry
-import           Data.Bifunctor
 import           Data.List                    (intersperse)
 import           Data.Monoid
 import           Data.Time

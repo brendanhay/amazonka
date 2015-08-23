@@ -49,6 +49,9 @@ module Network.AWS.Types
 
     -- * Retries
     , Retry          (..)
+    , exponentBase
+    , exponentGrowth
+    , retryAttempts
 
     -- * Signing
     , AWSSigner      (..)
@@ -339,6 +342,15 @@ data Retry = Exponential
       -- ^ Returns a descriptive name for logging
       -- if the request should be retried.
     }
+
+exponentBase :: Lens' Retry Double
+exponentBase = lens _retryBase (\s a -> s { _retryBase = a })
+
+exponentGrowth :: Lens' Retry Int
+exponentGrowth = lens _retryGrowth (\s a -> s { _retryGrowth = a })
+
+retryAttempts :: Lens' Retry Int
+retryAttempts = lens _retryAttempts (\s a -> s { _retryAttempts = a })
 
 -- | Attributes and functions specific to an AWS service.
 data Service s = Service

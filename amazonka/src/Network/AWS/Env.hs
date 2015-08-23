@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -21,8 +22,7 @@ module Network.AWS.Env
     , Env      (..)
     , HasEnv   (..)
 
-    -- * Overrides
-    , Config (..)
+    -- * Configuration Overrides
     , configure
     , override
 
@@ -52,23 +52,15 @@ import           Network.HTTP.Types.Status
 
 import           Prelude
 
--- | An override function to apply to service configuration before use.
-newtype Config = Config { configure :: forall s. Service s -> Service s }
-
-instance Monoid Config where
-    mempty      = Config id
-    mappend a b = Config (configure b . configure a)
-
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env
-    { _envRegion      :: !Region
-    , _envLogger      :: !Logger
-    , _envRetryCheck  :: !(Int -> HttpException -> IO Bool)
-    , _envRetryPolicy :: !(Maybe RetryPolicy)
-    , _envConfig      :: !Config
-    , _envManager     :: !Manager
-    , _envEC2         :: !(IORef (Maybe Bool))
-    , _envAuth        :: !Auth
+    { _envRegion     :: !Region
+    , _envLogger     :: !Logger
+    , _envRetryCheck :: !(Int -> HttpException -> Bool)
+    , _envConfig     :: !Config
+    , _envManager    :: !Manager
+    , _envEC2        :: !(IORef (Maybe Bool))
+    , _envAuth       :: !Auth
     }
 
 -- Note: The strictness annotations aobe are applied to ensure
@@ -85,7 +77,7 @@ class HasEnv a where
     envLogger     :: Lens' a Logger
 
     -- | The function used to determine if an 'HttpException' should be retried.
-    envRetryCheck :: Lens' a (Int -> HttpException -> IO Bool)
+    envRetryCheck :: Lens' a (Int -> HttpException -> Bool)
 
     envConfig     :: Lens' a Config
 
@@ -98,12 +90,12 @@ class HasEnv a where
     -- | A memoised predicate for whether the underlying host is an EC2 instance.
     envEC2        :: Getter a (IORef (Maybe Bool))
 
-    envRegion     = environment . lens _envRegion      (\s a -> s { _envRegion      = a })
-    envLogger     = environment . lens _envLogger      (\s a -> s { _envLogger      = a })
-    envRetryCheck = environment . lens _envRetryCheck  (\s a -> s { _envRetryCheck  = a })
-    envConfig     = environment . lens _envConfig    (\s a -> s { _envConfig    = a })
-    envManager    = environment . lens _envManager     (\s a -> s { _envManager     = a })
-    envAuth       = environment . lens _envAuth        (\s a -> s { _envAuth        = a })
+    envRegion     = environment . lens _envRegion     (\s a -> s { _envRegion     = a })
+    envLogger     = environment . lens _envLogger     (\s a -> s { _envLogger     = a })
+    envRetryCheck = environment . lens _envRetryCheck (\s a -> s { _envRetryCheck = a })
+    envConfig     = environment . lens _envConfig     (\s a -> s { _envConfig     = a })
+    envManager    = environment . lens _envManager    (\s a -> s { _envManager    = a })
+    envAuth       = environment . lens _envAuth       (\s a -> s { _envAuth       = a })
     envEC2        = environment . to _envEC2
 
 instance HasEnv Env where
@@ -114,10 +106,31 @@ instance ToLog Env where
       where
         b = buildLines
             [ "[Amazonka Env] {"
-            , "  region      = " <> build _envRegion
-            , "  retry (n=0) = " <> build (join $ ($ 0) . getRetryPolicy <$> _envRetryPolicy)
+            , "  region = " <> build _envRegion
             , "}"
             ]
+
+-- | An override function to apply to service configuration before use.
+newtype Config = Config { apply :: forall s. Service s -> Service s }
+
+instance Monoid Config where
+    mempty      = Config id
+    mappend a b = Config (apply b . apply a)
+
+-- | Get the service configuration for a request, with any overrides applied
+-- from the active environment.
+configure :: (HasEnv r, AWSService (Sv a), AWSRequest a)
+          => r
+          -> a
+          -> Service (Sv a)
+configure e = apply (e ^. envConfig) . serviceOf
+
+-- | Add a service configuration override to the environment's current scope.
+override :: (MonadReader r m, HasEnv r)
+         => (forall s. Service s -> Service s)
+         -> m a
+         -> m a
+override f = local (envConfig <>~ Config f)
 
 -- | Scope an action within the specific 'Region'.
 within :: (MonadReader r m, HasEnv r) => Region -> m a -> m a
@@ -156,13 +169,6 @@ endpoint f = override (svcEndpoint %~ (f .))
 succeeds :: (MonadReader r m, HasEnv r) => (Status -> Bool) -> m a -> m a
 succeeds f = override (svcStatus .~ f)
 
--- | Apply a service configuration override.
-override :: (MonadReader r m, HasEnv r)
-         => (forall s. Service s -> Service s)
-         -> m a
-         -> m a
-override f = local (envConfig <>~ Config f)
-
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
 -- Lenses from 'HasEnv' can be used to further configure the resulting 'Env'.
@@ -183,9 +189,11 @@ newEnv r c = liftIO (newManager conduitManagerSettings)
 newEnvWith :: (Applicative m, MonadIO m, MonadCatch m)
            => Region      -- ^ Initial region to operate in.
            -> Credentials -- ^ Credential discovery mechanism.
-           -> Maybe Bool  -- ^ Preload memoisation for the underlying EC2 instance check.
+           -> Maybe Bool  -- ^ Dictate if the instance is running on EC2. (Preload memoisation.)
            -> Manager
            -> m Env
-newEnvWith r c p m = Env r (\_ _ -> return ()) Nothing mempty m
-    <$> liftIO (newIORef p)
-    <*> getAuth m c
+newEnvWith r c p m =
+    Env r logger check mempty m <$> liftIO (newIORef p) <*> getAuth m c
+  where
+    logger _ _ = return ()
+    check  _ _ = True

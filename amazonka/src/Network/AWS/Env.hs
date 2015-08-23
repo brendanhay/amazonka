@@ -1,4 +1,3 @@
-{-# LANGUAGE GADTs             #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -22,15 +21,18 @@ module Network.AWS.Env
     , Env      (..)
     , HasEnv   (..)
 
+    -- * Overrides
+    , Config (..)
+    , configure
+    , override
+
     -- * Scoped Actions
     , within
     , once
+    , retries
     , timeout
     , endpoint
-
-    -- * Overrides
-    , Override (..)
-    , override
+    , succeeds
     ) where
 
 import           Control.Applicative
@@ -46,15 +48,16 @@ import           Network.AWS.Auth
 import           Network.AWS.Internal.Logger
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
+import           Network.HTTP.Types.Status
 
 import           Prelude
 
 -- | An override function to apply to service configuration before use.
-newtype Override = Override { apply :: forall s. Service s -> Service s }
+newtype Config = Config { configure :: forall s. Service s -> Service s }
 
-instance Monoid Override where
-    mempty      = Override id
-    mappend a b = Override (apply b . apply a)
+instance Monoid Config where
+    mempty      = Config id
+    mappend a b = Config (configure b . configure a)
 
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env
@@ -62,7 +65,7 @@ data Env = Env
     , _envLogger      :: !Logger
     , _envRetryCheck  :: !(Int -> HttpException -> IO Bool)
     , _envRetryPolicy :: !(Maybe RetryPolicy)
-    , _envOverride    :: !Override
+    , _envConfig      :: !Config
     , _envManager     :: !Manager
     , _envEC2         :: !(IORef (Maybe Bool))
     , _envAuth        :: !Auth
@@ -72,40 +75,36 @@ data Env = Env
 -- total field initialisation.
 
 class HasEnv a where
-    environment    :: Lens' a Env
+    environment   :: Lens' a Env
     {-# MINIMAL environment #-}
 
     -- | The current region.
-    envRegion      :: Lens' a Region
+    envRegion     :: Lens' a Region
 
     -- | The function used to output log messages.
-    envLogger      :: Lens' a Logger
+    envLogger     :: Lens' a Logger
 
     -- | The function used to determine if an 'HttpException' should be retried.
-    envRetryCheck  :: Lens' a (Int -> HttpException -> IO Bool)
+    envRetryCheck :: Lens' a (Int -> HttpException -> IO Bool)
 
-    -- | The 'RetryPolicy' used to determine backoff\/on and retry delay\/growth.
-    envRetryPolicy :: Lens' a (Maybe RetryPolicy)
-
-    envOverride    :: Lens' a Override
+    envConfig     :: Lens' a Config
 
     -- | The 'Manager' used to create and manage open HTTP connections.
-    envManager     :: Lens' a Manager
+    envManager    :: Lens' a Manager
 
     -- | The credentials used to sign requests for authentication with AWS.
-    envAuth        :: Lens' a Auth
+    envAuth       :: Lens' a Auth
 
     -- | A memoised predicate for whether the underlying host is an EC2 instance.
-    envEC2         :: Getter a (IORef (Maybe Bool))
+    envEC2        :: Getter a (IORef (Maybe Bool))
 
-    envRegion      = environment . lens _envRegion      (\s a -> s { _envRegion      = a })
-    envLogger      = environment . lens _envLogger      (\s a -> s { _envLogger      = a })
-    envRetryCheck  = environment . lens _envRetryCheck  (\s a -> s { _envRetryCheck  = a })
-    envRetryPolicy = environment . lens _envRetryPolicy (\s a -> s { _envRetryPolicy = a })
-    envOverride    = environment . lens _envOverride    (\s a -> s { _envOverride    = a })
-    envManager     = environment . lens _envManager     (\s a -> s { _envManager     = a })
-    envAuth        = environment . lens _envAuth        (\s a -> s { _envAuth        = a })
-    envEC2         = environment . to _envEC2
+    envRegion     = environment . lens _envRegion      (\s a -> s { _envRegion      = a })
+    envLogger     = environment . lens _envLogger      (\s a -> s { _envLogger      = a })
+    envRetryCheck = environment . lens _envRetryCheck  (\s a -> s { _envRetryCheck  = a })
+    envConfig     = environment . lens _envConfig    (\s a -> s { _envConfig    = a })
+    envManager    = environment . lens _envManager     (\s a -> s { _envManager     = a })
+    envAuth       = environment . lens _envAuth        (\s a -> s { _envAuth        = a })
+    envEC2        = environment . to _envEC2
 
 instance HasEnv Env where
     environment = id
@@ -127,9 +126,11 @@ within r = local (envRegion .~ r)
 -- | Scope an action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.
 once :: (MonadReader r m, HasEnv r) => m a -> m a
-once = local $ \e -> e
-    & envRetryPolicy ?~ limitRetries 0
-    & envRetryCheck  .~ (\_ _ -> return False)
+once = retries (retryAttempts .~ 0)
+
+-- Better name.
+retries :: (MonadReader r m, HasEnv r) => (Retry -> Retry) -> m a -> m a
+retries f = override (svcRetry %~ f)
 
 -- | Scope an action such that any HTTP response will use this timeout value.
 --
@@ -144,16 +145,23 @@ once = local $ \e -> e
 -- * The default 'ClientRequest' timeout. (Approximately 30s)
 --
 timeout :: (MonadReader r m, HasEnv r) => Seconds -> m a -> m a
-timeout s = override $ Override (svcTimeout ?~ s)
+timeout s = override (svcTimeout ?~ s)
 
 -- | Scope an action such that any HTTP requests and signing logic used
 -- a modified endpoint.
 endpoint :: (MonadReader r m, HasEnv r) => (Endpoint -> Endpoint) -> m a -> m a
-endpoint f = override $ Override (svcEndpoint %~ (f .))
+endpoint f = override (svcEndpoint %~ (f .))
+
+-- Better name.
+succeeds :: (MonadReader r m, HasEnv r) => (Status -> Bool) -> m a -> m a
+succeeds f = override (svcStatus .~ f)
 
 -- | Apply a service configuration override.
-override :: (MonadReader r m, HasEnv r) => Override -> m a -> m a
-override f = local (envOverride <>~ f)
+override :: (MonadReader r m, HasEnv r)
+         => (forall s. Service s -> Service s)
+         -> m a
+         -> m a
+override f = local (envConfig <>~ Config f)
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
@@ -178,10 +186,6 @@ newEnvWith :: (Applicative m, MonadIO m, MonadCatch m)
            -> Maybe Bool  -- ^ Preload memoisation for the underlying EC2 instance check.
            -> Manager
            -> m Env
-newEnvWith r c p m = Env r logger check Nothing (Override id) m
+newEnvWith r c p m = Env r (\_ _ -> return ()) Nothing mempty m
     <$> liftIO (newIORef p)
     <*> getAuth m c
-  where
-    logger _ _ = return ()
-    -- FIXME: verify the usage of check.
-    check  _ _ = return True

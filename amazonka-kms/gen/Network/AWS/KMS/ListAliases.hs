@@ -104,7 +104,10 @@ instance ToHeaders ListAliases where
 
 instance ToJSON ListAliases where
         toJSON ListAliases'{..}
-          = object ["Marker" .= _laMarker, "Limit" .= _laLimit]
+          = object
+              (catMaybes
+                 [("Marker" .=) <$> _laMarker,
+                  ("Limit" .=) <$> _laLimit])
 
 instance ToPath ListAliases where
         toPath = const "/"

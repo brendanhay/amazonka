@@ -184,12 +184,15 @@ instance ToHeaders CreateFunction where
 instance ToJSON CreateFunction where
         toJSON CreateFunction'{..}
           = object
-              ["MemorySize" .= _cfMemorySize,
-               "Timeout" .= _cfTimeout,
-               "Description" .= _cfDescription,
-               "FunctionName" .= _cfFunctionName,
-               "Runtime" .= _cfRuntime, "Role" .= _cfRole,
-               "Handler" .= _cfHandler, "Code" .= _cfCode]
+              (catMaybes
+                 [("MemorySize" .=) <$> _cfMemorySize,
+                  ("Timeout" .=) <$> _cfTimeout,
+                  ("Description" .=) <$> _cfDescription,
+                  Just ("FunctionName" .= _cfFunctionName),
+                  Just ("Runtime" .= _cfRuntime),
+                  Just ("Role" .= _cfRole),
+                  Just ("Handler" .= _cfHandler),
+                  Just ("Code" .= _cfCode)])
 
 instance ToPath CreateFunction where
         toPath = const "/2015-03-31/functions"

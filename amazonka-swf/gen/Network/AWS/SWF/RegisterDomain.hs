@@ -137,9 +137,12 @@ instance ToHeaders RegisterDomain where
 instance ToJSON RegisterDomain where
         toJSON RegisterDomain'{..}
           = object
-              ["description" .= _rdDescription, "name" .= _rdName,
-               "workflowExecutionRetentionPeriodInDays" .=
-                 _rdWorkflowExecutionRetentionPeriodInDays]
+              (catMaybes
+                 [("description" .=) <$> _rdDescription,
+                  Just ("name" .= _rdName),
+                  Just
+                    ("workflowExecutionRetentionPeriodInDays" .=
+                       _rdWorkflowExecutionRetentionPeriodInDays)])
 
 instance ToPath RegisterDomain where
         toPath = const "/"

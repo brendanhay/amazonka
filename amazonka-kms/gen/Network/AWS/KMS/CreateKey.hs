@@ -112,8 +112,10 @@ instance ToHeaders CreateKey where
 instance ToJSON CreateKey where
         toJSON CreateKey'{..}
           = object
-              ["KeyUsage" .= _ckKeyUsage, "Policy" .= _ckPolicy,
-               "Description" .= _ckDescription]
+              (catMaybes
+                 [("KeyUsage" .=) <$> _ckKeyUsage,
+                  ("Policy" .=) <$> _ckPolicy,
+                  ("Description" .=) <$> _ckDescription])
 
 instance ToPath CreateKey where
         toPath = const "/"

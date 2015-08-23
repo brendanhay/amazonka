@@ -74,8 +74,10 @@ instance FromJSON Field where
 instance ToJSON Field where
         toJSON Field'{..}
           = object
-              ["refValue" .= _fRefValue,
-               "stringValue" .= _fStringValue, "key" .= _fKey]
+              (catMaybes
+                 [("refValue" .=) <$> _fRefValue,
+                  ("stringValue" .=) <$> _fStringValue,
+                  Just ("key" .= _fKey)])
 
 -- | Identity information for the EC2 instance that is hosting the task
 -- runner. You can get this value by calling a metadata URI from the EC2
@@ -121,8 +123,9 @@ iiDocument = lens _iiDocument (\ s a -> s{_iiDocument = a});
 instance ToJSON InstanceIdentity where
         toJSON InstanceIdentity'{..}
           = object
-              ["signature" .= _iiSignature,
-               "document" .= _iiDocument]
+              (catMaybes
+                 [("signature" .=) <$> _iiSignature,
+                  ("document" .=) <$> _iiDocument])
 
 -- | Contains a logical operation for comparing the value of a field with a
 -- specified value.
@@ -190,7 +193,9 @@ oType = lens _oType (\ s a -> s{_oType = a});
 
 instance ToJSON Operator where
         toJSON Operator'{..}
-          = object ["values" .= _oValues, "type" .= _oType]
+          = object
+              (catMaybes
+                 [("values" .=) <$> _oValues, ("type" .=) <$> _oType])
 
 -- | The attributes allowed or specified with a parameter object.
 --
@@ -235,7 +240,9 @@ instance FromJSON ParameterAttribute where
 instance ToJSON ParameterAttribute where
         toJSON ParameterAttribute'{..}
           = object
-              ["key" .= _paKey, "stringValue" .= _paStringValue]
+              (catMaybes
+                 [Just ("key" .= _paKey),
+                  Just ("stringValue" .= _paStringValue)])
 
 -- | Contains information about a parameter object.
 --
@@ -279,7 +286,9 @@ instance FromJSON ParameterObject where
 instance ToJSON ParameterObject where
         toJSON ParameterObject'{..}
           = object
-              ["id" .= _poId, "attributes" .= _poAttributes]
+              (catMaybes
+                 [Just ("id" .= _poId),
+                  Just ("attributes" .= _poAttributes)])
 
 -- | A value or list of parameter values.
 --
@@ -324,7 +333,9 @@ instance FromJSON ParameterValue where
 instance ToJSON ParameterValue where
         toJSON ParameterValue'{..}
           = object
-              ["id" .= _pvId, "stringValue" .= _pvStringValue]
+              (catMaybes
+                 [Just ("id" .= _pvId),
+                  Just ("stringValue" .= _pvStringValue)])
 
 -- | Contains pipeline metadata.
 --
@@ -490,8 +501,9 @@ instance FromJSON PipelineObject where
 instance ToJSON PipelineObject where
         toJSON PipelineObject'{..}
           = object
-              ["id" .= _pId, "name" .= _pName,
-               "fields" .= _pFields]
+              (catMaybes
+                 [Just ("id" .= _pId), Just ("name" .= _pName),
+                  Just ("fields" .= _pFields)])
 
 -- | Defines the query to run against an object.
 --
@@ -519,7 +531,8 @@ qSelectors = lens _qSelectors (\ s a -> s{_qSelectors = a}) . _Default . _Coerce
 
 instance ToJSON Query where
         toJSON Query'{..}
-          = object ["selectors" .= _qSelectors]
+          = object
+              (catMaybes [("selectors" .=) <$> _qSelectors])
 
 -- | A comparision that is used to determine whether a query should return
 -- this object.
@@ -559,8 +572,9 @@ sFieldName = lens _sFieldName (\ s a -> s{_sFieldName = a});
 instance ToJSON Selector where
         toJSON Selector'{..}
           = object
-              ["operator" .= _sOperator,
-               "fieldName" .= _sFieldName]
+              (catMaybes
+                 [("operator" .=) <$> _sOperator,
+                  ("fieldName" .=) <$> _sFieldName])
 
 -- | Tags are key\/value pairs defined by a user and associated with a
 -- pipeline to control access. AWS Data Pipeline allows you to associate
@@ -611,7 +625,10 @@ instance FromJSON Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
-          = object ["key" .= _tagKey, "value" .= _tagValue]
+          = object
+              (catMaybes
+                 [Just ("key" .= _tagKey),
+                  Just ("value" .= _tagValue)])
 
 -- | Contains information about a pipeline task that is assigned to a task
 -- runner.

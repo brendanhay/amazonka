@@ -101,7 +101,10 @@ instance ToHeaders AcknowledgeJob where
 
 instance ToJSON AcknowledgeJob where
         toJSON AcknowledgeJob'{..}
-          = object ["jobId" .= _ajJobId, "nonce" .= _ajNonce]
+          = object
+              (catMaybes
+                 [Just ("jobId" .= _ajJobId),
+                  Just ("nonce" .= _ajNonce)])
 
 instance ToPath AcknowledgeJob where
         toPath = const "/"

@@ -96,8 +96,9 @@ instance ToHeaders RemoveTagsFromStream where
 instance ToJSON RemoveTagsFromStream where
         toJSON RemoveTagsFromStream'{..}
           = object
-              ["StreamName" .= _rtfsStreamName,
-               "TagKeys" .= _rtfsTagKeys]
+              (catMaybes
+                 [Just ("StreamName" .= _rtfsStreamName),
+                  Just ("TagKeys" .= _rtfsTagKeys)])
 
 instance ToPath RemoveTagsFromStream where
         toPath = const "/"

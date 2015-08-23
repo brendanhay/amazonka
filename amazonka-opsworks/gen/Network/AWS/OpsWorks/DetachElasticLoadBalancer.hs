@@ -100,9 +100,11 @@ instance ToHeaders DetachElasticLoadBalancer where
 instance ToJSON DetachElasticLoadBalancer where
         toJSON DetachElasticLoadBalancer'{..}
           = object
-              ["ElasticLoadBalancerName" .=
-                 _delbElasticLoadBalancerName,
-               "LayerId" .= _delbLayerId]
+              (catMaybes
+                 [Just
+                    ("ElasticLoadBalancerName" .=
+                       _delbElasticLoadBalancerName),
+                  Just ("LayerId" .= _delbLayerId)])
 
 instance ToPath DetachElasticLoadBalancer where
         toPath = const "/"

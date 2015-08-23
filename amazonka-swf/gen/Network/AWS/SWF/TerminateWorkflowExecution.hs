@@ -180,11 +180,13 @@ instance ToHeaders TerminateWorkflowExecution where
 instance ToJSON TerminateWorkflowExecution where
         toJSON TerminateWorkflowExecution'{..}
           = object
-              ["runId" .= _tweRunId, "reason" .= _tweReason,
-               "details" .= _tweDetails,
-               "childPolicy" .= _tweChildPolicy,
-               "domain" .= _tweDomain,
-               "workflowId" .= _tweWorkflowId]
+              (catMaybes
+                 [("runId" .=) <$> _tweRunId,
+                  ("reason" .=) <$> _tweReason,
+                  ("details" .=) <$> _tweDetails,
+                  ("childPolicy" .=) <$> _tweChildPolicy,
+                  Just ("domain" .= _tweDomain),
+                  Just ("workflowId" .= _tweWorkflowId)])
 
 instance ToPath TerminateWorkflowExecution where
         toPath = const "/"

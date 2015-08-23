@@ -93,7 +93,8 @@ instance ToHeaders CreateRealtimeEndpoint where
 
 instance ToJSON CreateRealtimeEndpoint where
         toJSON CreateRealtimeEndpoint'{..}
-          = object ["MLModelId" .= _creMLModelId]
+          = object
+              (catMaybes [Just ("MLModelId" .= _creMLModelId)])
 
 instance ToPath CreateRealtimeEndpoint where
         toPath = const "/"

@@ -92,7 +92,9 @@ instance ToHeaders DescribeIdentityPool where
 
 instance ToJSON DescribeIdentityPool where
         toJSON DescribeIdentityPool'{..}
-          = object ["IdentityPoolId" .= _dipIdentityPoolId]
+          = object
+              (catMaybes
+                 [Just ("IdentityPoolId" .= _dipIdentityPoolId)])
 
 instance ToPath DescribeIdentityPool where
         toPath = const "/"

@@ -137,14 +137,17 @@ instance ToHeaders CreateIdentityPool where
 instance ToJSON CreateIdentityPool where
         toJSON CreateIdentityPool'{..}
           = object
-              ["SupportedLoginProviders" .=
-                 _cipSupportedLoginProviders,
-               "DeveloperProviderName" .= _cipDeveloperProviderName,
-               "OpenIdConnectProviderARNs" .=
-                 _cipOpenIdConnectProviderARNs,
-               "IdentityPoolName" .= _cipIdentityPoolName,
-               "AllowUnauthenticatedIdentities" .=
-                 _cipAllowUnauthenticatedIdentities]
+              (catMaybes
+                 [("SupportedLoginProviders" .=) <$>
+                    _cipSupportedLoginProviders,
+                  ("DeveloperProviderName" .=) <$>
+                    _cipDeveloperProviderName,
+                  ("OpenIdConnectProviderARNs" .=) <$>
+                    _cipOpenIdConnectProviderARNs,
+                  Just ("IdentityPoolName" .= _cipIdentityPoolName),
+                  Just
+                    ("AllowUnauthenticatedIdentities" .=
+                       _cipAllowUnauthenticatedIdentities)])
 
 instance ToPath CreateIdentityPool where
         toPath = const "/"

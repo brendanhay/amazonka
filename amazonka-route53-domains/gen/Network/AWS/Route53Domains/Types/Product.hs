@@ -320,17 +320,20 @@ instance FromJSON ContactDetail where
 instance ToJSON ContactDetail where
         toJSON ContactDetail'{..}
           = object
-              ["OrganizationName" .= _cdOrganizationName,
-               "Email" .= _cdEmail, "Fax" .= _cdFax,
-               "State" .= _cdState, "LastName" .= _cdLastName,
-               "ExtraParams" .= _cdExtraParams,
-               "ZipCode" .= _cdZipCode,
-               "AddressLine1" .= _cdAddressLine1, "City" .= _cdCity,
-               "PhoneNumber" .= _cdPhoneNumber,
-               "AddressLine2" .= _cdAddressLine2,
-               "FirstName" .= _cdFirstName,
-               "CountryCode" .= _cdCountryCode,
-               "ContactType" .= _cdContactType]
+              (catMaybes
+                 [("OrganizationName" .=) <$> _cdOrganizationName,
+                  ("Email" .=) <$> _cdEmail, ("Fax" .=) <$> _cdFax,
+                  ("State" .=) <$> _cdState,
+                  ("LastName" .=) <$> _cdLastName,
+                  ("ExtraParams" .=) <$> _cdExtraParams,
+                  ("ZipCode" .=) <$> _cdZipCode,
+                  ("AddressLine1" .=) <$> _cdAddressLine1,
+                  ("City" .=) <$> _cdCity,
+                  ("PhoneNumber" .=) <$> _cdPhoneNumber,
+                  ("AddressLine2" .=) <$> _cdAddressLine2,
+                  ("FirstName" .=) <$> _cdFirstName,
+                  ("CountryCode" .=) <$> _cdCountryCode,
+                  ("ContactType" .=) <$> _cdContactType])
 
 -- | /See:/ 'domainSummary' smart constructor.
 data DomainSummary = DomainSummary'
@@ -467,7 +470,10 @@ instance FromJSON ExtraParam where
 
 instance ToJSON ExtraParam where
         toJSON ExtraParam'{..}
-          = object ["Name" .= _epName, "Value" .= _epValue]
+          = object
+              (catMaybes
+                 [Just ("Name" .= _epName),
+                  Just ("Value" .= _epValue)])
 
 -- | Nameserver includes the following elements.
 --
@@ -526,7 +532,10 @@ instance FromJSON Nameserver where
 
 instance ToJSON Nameserver where
         toJSON Nameserver'{..}
-          = object ["GlueIps" .= _nGlueIPs, "Name" .= _nName]
+          = object
+              (catMaybes
+                 [("GlueIps" .=) <$> _nGlueIPs,
+                  Just ("Name" .= _nName)])
 
 -- | OperationSummary includes the following elements.
 --
@@ -656,4 +665,6 @@ instance FromJSON Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
-          = object ["Value" .= _tagValue, "Key" .= _tagKey]
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _tagValue, ("Key" .=) <$> _tagKey])

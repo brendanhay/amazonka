@@ -96,7 +96,8 @@ instance ToHeaders DescribeTable where
 
 instance ToJSON DescribeTable where
         toJSON DescribeTable'{..}
-          = object ["TableName" .= _dTableName]
+          = object
+              (catMaybes [Just ("TableName" .= _dTableName)])
 
 instance ToPath DescribeTable where
         toPath = const "/"

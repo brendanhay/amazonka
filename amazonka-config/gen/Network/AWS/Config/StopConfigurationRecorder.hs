@@ -87,8 +87,10 @@ instance ToHeaders StopConfigurationRecorder where
 instance ToJSON StopConfigurationRecorder where
         toJSON StopConfigurationRecorder'{..}
           = object
-              ["ConfigurationRecorderName" .=
-                 _scrConfigurationRecorderName]
+              (catMaybes
+                 [Just
+                    ("ConfigurationRecorderName" .=
+                       _scrConfigurationRecorderName)])
 
 instance ToPath StopConfigurationRecorder where
         toPath = const "/"

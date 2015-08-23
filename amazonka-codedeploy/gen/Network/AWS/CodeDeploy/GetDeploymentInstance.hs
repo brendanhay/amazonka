@@ -101,8 +101,9 @@ instance ToHeaders GetDeploymentInstance where
 instance ToJSON GetDeploymentInstance where
         toJSON GetDeploymentInstance'{..}
           = object
-              ["deploymentId" .= _gdiDeploymentId,
-               "instanceId" .= _gdiInstanceId]
+              (catMaybes
+                 [Just ("deploymentId" .= _gdiDeploymentId),
+                  Just ("instanceId" .= _gdiInstanceId)])
 
 instance ToPath GetDeploymentInstance where
         toPath = const "/"

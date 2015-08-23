@@ -165,12 +165,14 @@ instance ToHeaders DescribeLogStreams where
 instance ToJSON DescribeLogStreams where
         toJSON DescribeLogStreams'{..}
           = object
-              ["orderBy" .= _dlssOrderBy,
-               "descending" .= _dlssDescending,
-               "nextToken" .= _dlssNextToken,
-               "logStreamNamePrefix" .= _dlssLogStreamNamePrefix,
-               "limit" .= _dlssLimit,
-               "logGroupName" .= _dlssLogGroupName]
+              (catMaybes
+                 [("orderBy" .=) <$> _dlssOrderBy,
+                  ("descending" .=) <$> _dlssDescending,
+                  ("nextToken" .=) <$> _dlssNextToken,
+                  ("logStreamNamePrefix" .=) <$>
+                    _dlssLogStreamNamePrefix,
+                  ("limit" .=) <$> _dlssLimit,
+                  Just ("logGroupName" .= _dlssLogGroupName)])
 
 instance ToPath DescribeLogStreams where
         toPath = const "/"

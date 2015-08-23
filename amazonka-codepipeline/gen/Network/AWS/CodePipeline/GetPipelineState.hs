@@ -98,7 +98,7 @@ instance ToHeaders GetPipelineState where
 
 instance ToJSON GetPipelineState where
         toJSON GetPipelineState'{..}
-          = object ["name" .= _gpsName]
+          = object (catMaybes [Just ("name" .= _gpsName)])
 
 instance ToPath GetPipelineState where
         toPath = const "/"

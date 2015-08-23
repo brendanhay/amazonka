@@ -117,8 +117,12 @@ instance ToHeaders CreateDeploymentConfig where
 instance ToJSON CreateDeploymentConfig where
         toJSON CreateDeploymentConfig'{..}
           = object
-              ["minimumHealthyHosts" .= _cdcMinimumHealthyHosts,
-               "deploymentConfigName" .= _cdcDeploymentConfigName]
+              (catMaybes
+                 [("minimumHealthyHosts" .=) <$>
+                    _cdcMinimumHealthyHosts,
+                  Just
+                    ("deploymentConfigName" .=
+                       _cdcDeploymentConfigName)])
 
 instance ToPath CreateDeploymentConfig where
         toPath = const "/"

@@ -111,9 +111,10 @@ instance ToHeaders ListDocuments where
 instance ToJSON ListDocuments where
         toJSON ListDocuments'{..}
           = object
-              ["DocumentFilterList" .= _ldDocumentFilterList,
-               "NextToken" .= _ldNextToken,
-               "MaxResults" .= _ldMaxResults]
+              (catMaybes
+                 [("DocumentFilterList" .=) <$> _ldDocumentFilterList,
+                  ("NextToken" .=) <$> _ldNextToken,
+                  ("MaxResults" .=) <$> _ldMaxResults])
 
 instance ToPath ListDocuments where
         toPath = const "/"

@@ -95,7 +95,9 @@ instance ToHeaders GetIdentityPoolRoles where
 
 instance ToJSON GetIdentityPoolRoles where
         toJSON GetIdentityPoolRoles'{..}
-          = object ["IdentityPoolId" .= _giprIdentityPoolId]
+          = object
+              (catMaybes
+                 [Just ("IdentityPoolId" .= _giprIdentityPoolId)])
 
 instance ToPath GetIdentityPoolRoles where
         toPath = const "/"

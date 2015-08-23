@@ -134,8 +134,10 @@ instance ToHeaders CreatePipeline where
 instance ToJSON CreatePipeline where
         toJSON CreatePipeline'{..}
           = object
-              ["description" .= _cpDescription, "tags" .= _cpTags,
-               "name" .= _cpName, "uniqueId" .= _cpUniqueId]
+              (catMaybes
+                 [("description" .=) <$> _cpDescription,
+                  ("tags" .=) <$> _cpTags, Just ("name" .= _cpName),
+                  Just ("uniqueId" .= _cpUniqueId)])
 
 instance ToPath CreatePipeline where
         toPath = const "/"

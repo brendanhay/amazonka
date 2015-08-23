@@ -107,9 +107,10 @@ instance ToHeaders PutKeyPolicy where
 instance ToJSON PutKeyPolicy where
         toJSON PutKeyPolicy'{..}
           = object
-              ["KeyId" .= _pkpKeyId,
-               "PolicyName" .= _pkpPolicyName,
-               "Policy" .= _pkpPolicy]
+              (catMaybes
+                 [Just ("KeyId" .= _pkpKeyId),
+                  Just ("PolicyName" .= _pkpPolicyName),
+                  Just ("Policy" .= _pkpPolicy)])
 
 instance ToPath PutKeyPolicy where
         toPath = const "/"

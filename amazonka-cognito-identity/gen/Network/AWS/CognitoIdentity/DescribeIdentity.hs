@@ -90,7 +90,8 @@ instance ToHeaders DescribeIdentity where
 
 instance ToJSON DescribeIdentity where
         toJSON DescribeIdentity'{..}
-          = object ["IdentityId" .= _diIdentityId]
+          = object
+              (catMaybes [Just ("IdentityId" .= _diIdentityId)])
 
 instance ToPath DescribeIdentity where
         toPath = const "/"

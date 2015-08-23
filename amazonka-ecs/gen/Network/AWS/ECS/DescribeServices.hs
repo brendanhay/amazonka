@@ -99,7 +99,9 @@ instance ToHeaders DescribeServices where
 instance ToJSON DescribeServices where
         toJSON DescribeServices'{..}
           = object
-              ["cluster" .= _dCluster, "services" .= _dServices]
+              (catMaybes
+                 [("cluster" .=) <$> _dCluster,
+                  Just ("services" .= _dServices)])
 
 instance ToPath DescribeServices where
         toPath = const "/"

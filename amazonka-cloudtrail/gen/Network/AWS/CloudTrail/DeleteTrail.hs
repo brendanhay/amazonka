@@ -86,7 +86,8 @@ instance ToHeaders DeleteTrail where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DeleteTrail where
-        toJSON DeleteTrail'{..} = object ["Name" .= _dtName]
+        toJSON DeleteTrail'{..}
+          = object (catMaybes [Just ("Name" .= _dtName)])
 
 instance ToPath DeleteTrail where
         toPath = const "/"

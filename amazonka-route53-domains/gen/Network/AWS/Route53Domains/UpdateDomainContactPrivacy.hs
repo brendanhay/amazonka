@@ -172,10 +172,11 @@ instance ToHeaders UpdateDomainContactPrivacy where
 instance ToJSON UpdateDomainContactPrivacy where
         toJSON UpdateDomainContactPrivacy'{..}
           = object
-              ["TechPrivacy" .= _udcpTechPrivacy,
-               "RegistrantPrivacy" .= _udcpRegistrantPrivacy,
-               "AdminPrivacy" .= _udcpAdminPrivacy,
-               "DomainName" .= _udcpDomainName]
+              (catMaybes
+                 [("TechPrivacy" .=) <$> _udcpTechPrivacy,
+                  ("RegistrantPrivacy" .=) <$> _udcpRegistrantPrivacy,
+                  ("AdminPrivacy" .=) <$> _udcpAdminPrivacy,
+                  Just ("DomainName" .= _udcpDomainName)])
 
 instance ToPath UpdateDomainContactPrivacy where
         toPath = const "/"

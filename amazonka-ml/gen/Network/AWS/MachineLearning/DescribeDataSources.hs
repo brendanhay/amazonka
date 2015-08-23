@@ -232,13 +232,15 @@ instance ToHeaders DescribeDataSources where
 instance ToJSON DescribeDataSources where
         toJSON DescribeDataSources'{..}
           = object
-              ["EQ" .= _ddsEQ, "GE" .= _ddsGE,
-               "Prefix" .= _ddsPrefix, "GT" .= _ddsGT,
-               "NE" .= _ddsNE, "NextToken" .= _ddsNextToken,
-               "SortOrder" .= _ddsSortOrder, "Limit" .= _ddsLimit,
-               "LT" .= _ddsLT,
-               "FilterVariable" .= _ddsFilterVariable,
-               "LE" .= _ddsLE]
+              (catMaybes
+                 [("EQ" .=) <$> _ddsEQ, ("GE" .=) <$> _ddsGE,
+                  ("Prefix" .=) <$> _ddsPrefix, ("GT" .=) <$> _ddsGT,
+                  ("NE" .=) <$> _ddsNE,
+                  ("NextToken" .=) <$> _ddsNextToken,
+                  ("SortOrder" .=) <$> _ddsSortOrder,
+                  ("Limit" .=) <$> _ddsLimit, ("LT" .=) <$> _ddsLT,
+                  ("FilterVariable" .=) <$> _ddsFilterVariable,
+                  ("LE" .=) <$> _ddsLE])
 
 instance ToPath DescribeDataSources where
         toPath = const "/"

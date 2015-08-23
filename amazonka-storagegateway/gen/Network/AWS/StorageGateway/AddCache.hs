@@ -103,8 +103,9 @@ instance ToHeaders AddCache where
 instance ToJSON AddCache where
         toJSON AddCache'{..}
           = object
-              ["GatewayARN" .= _acGatewayARN,
-               "DiskIds" .= _acDiskIds]
+              (catMaybes
+                 [Just ("GatewayARN" .= _acGatewayARN),
+                  Just ("DiskIds" .= _acDiskIds)])
 
 instance ToPath AddCache where
         toPath = const "/"

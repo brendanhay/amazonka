@@ -87,7 +87,8 @@ instance ToHeaders GetDevice where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetDevice where
-        toJSON GetDevice'{..} = object ["arn" .= _gdArn]
+        toJSON GetDevice'{..}
+          = object (catMaybes [Just ("arn" .= _gdArn)])
 
 instance ToPath GetDevice where
         toPath = const "/"

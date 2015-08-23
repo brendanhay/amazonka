@@ -104,8 +104,9 @@ instance ToHeaders ListIdentityPools where
 instance ToJSON ListIdentityPools where
         toJSON ListIdentityPools'{..}
           = object
-              ["NextToken" .= _lipNextToken,
-               "MaxResults" .= _lipMaxResults]
+              (catMaybes
+                 [("NextToken" .=) <$> _lipNextToken,
+                  Just ("MaxResults" .= _lipMaxResults)])
 
 instance ToPath ListIdentityPools where
         toPath = const "/"

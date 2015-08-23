@@ -117,9 +117,11 @@ instance ToHeaders CreatePublicVirtualInterface where
 instance ToJSON CreatePublicVirtualInterface where
         toJSON CreatePublicVirtualInterface'{..}
           = object
-              ["connectionId" .= _cpviConnectionId,
-               "newPublicVirtualInterface" .=
-                 _cpviNewPublicVirtualInterface]
+              (catMaybes
+                 [Just ("connectionId" .= _cpviConnectionId),
+                  Just
+                    ("newPublicVirtualInterface" .=
+                       _cpviNewPublicVirtualInterface)])
 
 instance ToPath CreatePublicVirtualInterface where
         toPath = const "/"

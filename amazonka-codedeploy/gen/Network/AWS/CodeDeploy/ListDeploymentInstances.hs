@@ -128,9 +128,11 @@ instance ToHeaders ListDeploymentInstances where
 instance ToJSON ListDeploymentInstances where
         toJSON ListDeploymentInstances'{..}
           = object
-              ["instanceStatusFilter" .= _ldiInstanceStatusFilter,
-               "nextToken" .= _ldiNextToken,
-               "deploymentId" .= _ldiDeploymentId]
+              (catMaybes
+                 [("instanceStatusFilter" .=) <$>
+                    _ldiInstanceStatusFilter,
+                  ("nextToken" .=) <$> _ldiNextToken,
+                  Just ("deploymentId" .= _ldiDeploymentId)])
 
 instance ToPath ListDeploymentInstances where
         toPath = const "/"

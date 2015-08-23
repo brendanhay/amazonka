@@ -90,7 +90,9 @@ instance ToHeaders CreateApplication where
 
 instance ToJSON CreateApplication where
         toJSON CreateApplication'{..}
-          = object ["applicationName" .= _caApplicationName]
+          = object
+              (catMaybes
+                 [Just ("applicationName" .= _caApplicationName)])
 
 instance ToPath CreateApplication where
         toPath = const "/"

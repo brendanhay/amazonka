@@ -117,8 +117,11 @@ instance ToHeaders SetTerminationProtection where
 instance ToJSON SetTerminationProtection where
         toJSON SetTerminationProtection'{..}
           = object
-              ["JobFlowIds" .= _stpJobFlowIds,
-               "TerminationProtected" .= _stpTerminationProtected]
+              (catMaybes
+                 [Just ("JobFlowIds" .= _stpJobFlowIds),
+                  Just
+                    ("TerminationProtected" .=
+                       _stpTerminationProtected)])
 
 instance ToPath SetTerminationProtection where
         toPath = const "/"

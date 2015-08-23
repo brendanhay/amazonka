@@ -129,9 +129,10 @@ instance ToHeaders DescribeLogGroups where
 instance ToJSON DescribeLogGroups where
         toJSON DescribeLogGroups'{..}
           = object
-              ["nextToken" .= _dlgNextToken,
-               "logGroupNamePrefix" .= _dlgLogGroupNamePrefix,
-               "limit" .= _dlgLimit]
+              (catMaybes
+                 [("nextToken" .=) <$> _dlgNextToken,
+                  ("logGroupNamePrefix" .=) <$> _dlgLogGroupNamePrefix,
+                  ("limit" .=) <$> _dlgLimit])
 
 instance ToPath DescribeLogGroups where
         toPath = const "/"

@@ -99,7 +99,9 @@ instance ToHeaders DescribeStep where
 instance ToJSON DescribeStep where
         toJSON DescribeStep'{..}
           = object
-              ["ClusterId" .= _dsClusterId, "StepId" .= _dsStepId]
+              (catMaybes
+                 [Just ("ClusterId" .= _dsClusterId),
+                  Just ("StepId" .= _dsStepId)])
 
 instance ToPath DescribeStep where
         toPath = const "/"

@@ -139,11 +139,12 @@ instance ToHeaders SetTaskStatus where
 instance ToJSON SetTaskStatus where
         toJSON SetTaskStatus'{..}
           = object
-              ["errorStackTrace" .= _stsErrorStackTrace,
-               "errorId" .= _stsErrorId,
-               "errorMessage" .= _stsErrorMessage,
-               "taskId" .= _stsTaskId,
-               "taskStatus" .= _stsTaskStatus]
+              (catMaybes
+                 [("errorStackTrace" .=) <$> _stsErrorStackTrace,
+                  ("errorId" .=) <$> _stsErrorId,
+                  ("errorMessage" .=) <$> _stsErrorMessage,
+                  Just ("taskId" .= _stsTaskId),
+                  Just ("taskStatus" .= _stsTaskStatus)])
 
 instance ToPath SetTaskStatus where
         toPath = const "/"

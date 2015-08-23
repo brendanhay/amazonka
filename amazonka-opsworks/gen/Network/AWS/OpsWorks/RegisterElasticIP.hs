@@ -108,8 +108,9 @@ instance ToHeaders RegisterElasticIP where
 instance ToJSON RegisterElasticIP where
         toJSON RegisterElasticIP'{..}
           = object
-              ["ElasticIp" .= _reiElasticIP,
-               "StackId" .= _reiStackId]
+              (catMaybes
+                 [Just ("ElasticIp" .= _reiElasticIP),
+                  Just ("StackId" .= _reiStackId)])
 
 instance ToPath RegisterElasticIP where
         toPath = const "/"

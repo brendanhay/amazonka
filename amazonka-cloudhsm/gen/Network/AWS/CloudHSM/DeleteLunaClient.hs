@@ -85,7 +85,8 @@ instance ToHeaders DeleteLunaClient where
 
 instance ToJSON DeleteLunaClient where
         toJSON DeleteLunaClient'{..}
-          = object ["ClientArn" .= _dClientARN]
+          = object
+              (catMaybes [Just ("ClientArn" .= _dClientARN)])
 
 instance ToPath DeleteLunaClient where
         toPath = const "/"

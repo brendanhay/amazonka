@@ -90,7 +90,8 @@ instance ToHeaders DeleteTapeArchive where
 
 instance ToJSON DeleteTapeArchive where
         toJSON DeleteTapeArchive'{..}
-          = object ["TapeARN" .= _dtaTapeARN]
+          = object
+              (catMaybes [Just ("TapeARN" .= _dtaTapeARN)])
 
 instance ToPath DeleteTapeArchive where
         toPath = const "/"

@@ -122,8 +122,9 @@ instance ToHeaders ListDevicePools where
 instance ToJSON ListDevicePools where
         toJSON ListDevicePools'{..}
           = object
-              ["nextToken" .= _ldpNextToken, "type" .= _ldpType,
-               "arn" .= _ldpArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _ldpNextToken,
+                  ("type" .=) <$> _ldpType, Just ("arn" .= _ldpArn)])
 
 instance ToPath ListDevicePools where
         toPath = const "/"

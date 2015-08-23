@@ -94,7 +94,8 @@ instance ToHeaders ListApplications where
 
 instance ToJSON ListApplications where
         toJSON ListApplications'{..}
-          = object ["nextToken" .= _laNextToken]
+          = object
+              (catMaybes [("nextToken" .=) <$> _laNextToken])
 
 instance ToPath ListApplications where
         toPath = const "/"

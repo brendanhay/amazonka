@@ -140,10 +140,13 @@ instance ToHeaders ConnectDirectory where
 instance ToJSON ConnectDirectory where
         toJSON ConnectDirectory'{..}
           = object
-              ["ShortName" .= _cdShortName,
-               "Description" .= _cdDescription, "Name" .= _cdName,
-               "Password" .= _cdPassword, "Size" .= _cdSize,
-               "ConnectSettings" .= _cdConnectSettings]
+              (catMaybes
+                 [("ShortName" .=) <$> _cdShortName,
+                  ("Description" .=) <$> _cdDescription,
+                  Just ("Name" .= _cdName),
+                  Just ("Password" .= _cdPassword),
+                  Just ("Size" .= _cdSize),
+                  Just ("ConnectSettings" .= _cdConnectSettings)])
 
 instance ToPath ConnectDirectory where
         toPath = const "/"

@@ -90,7 +90,8 @@ instance ToHeaders DeregisterInstance where
 
 instance ToJSON DeregisterInstance where
         toJSON DeregisterInstance'{..}
-          = object ["InstanceId" .= _dInstanceId]
+          = object
+              (catMaybes [Just ("InstanceId" .= _dInstanceId)])
 
 instance ToPath DeregisterInstance where
         toPath = const "/"

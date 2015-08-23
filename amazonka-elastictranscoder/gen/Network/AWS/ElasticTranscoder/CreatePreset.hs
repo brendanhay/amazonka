@@ -152,9 +152,13 @@ instance ToHeaders CreatePreset where
 instance ToJSON CreatePreset where
         toJSON CreatePreset'{..}
           = object
-              ["Video" .= _cpVideo, "Thumbnails" .= _cpThumbnails,
-               "Audio" .= _cpAudio, "Description" .= _cpDescription,
-               "Name" .= _cpName, "Container" .= _cpContainer]
+              (catMaybes
+                 [("Video" .=) <$> _cpVideo,
+                  ("Thumbnails" .=) <$> _cpThumbnails,
+                  ("Audio" .=) <$> _cpAudio,
+                  ("Description" .=) <$> _cpDescription,
+                  Just ("Name" .= _cpName),
+                  Just ("Container" .= _cpContainer)])
 
 instance ToPath CreatePreset where
         toPath = const "/2012-09-25/presets"

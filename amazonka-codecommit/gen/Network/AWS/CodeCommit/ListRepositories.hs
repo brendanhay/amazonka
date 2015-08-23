@@ -113,8 +113,10 @@ instance ToHeaders ListRepositories where
 instance ToJSON ListRepositories where
         toJSON ListRepositories'{..}
           = object
-              ["nextToken" .= _lrNextToken, "order" .= _lrOrder,
-               "sortBy" .= _lrSortBy]
+              (catMaybes
+                 [("nextToken" .=) <$> _lrNextToken,
+                  ("order" .=) <$> _lrOrder,
+                  ("sortBy" .=) <$> _lrSortBy])
 
 instance ToPath ListRepositories where
         toPath = const "/"

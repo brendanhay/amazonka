@@ -126,8 +126,9 @@ instance ToHeaders DescribeWorkflowType where
 instance ToJSON DescribeWorkflowType where
         toJSON DescribeWorkflowType'{..}
           = object
-              ["domain" .= _dwtDomain,
-               "workflowType" .= _dwtWorkflowType]
+              (catMaybes
+                 [Just ("domain" .= _dwtDomain),
+                  Just ("workflowType" .= _dwtWorkflowType)])
 
 instance ToPath DescribeWorkflowType where
         toPath = const "/"

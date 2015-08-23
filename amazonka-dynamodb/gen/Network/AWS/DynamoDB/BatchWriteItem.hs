@@ -218,11 +218,12 @@ instance ToHeaders BatchWriteItem where
 instance ToJSON BatchWriteItem where
         toJSON BatchWriteItem'{..}
           = object
-              ["ReturnConsumedCapacity" .=
-                 _bwiReturnConsumedCapacity,
-               "ReturnItemCollectionMetrics" .=
-                 _bwiReturnItemCollectionMetrics,
-               "RequestItems" .= _bwiRequestItems]
+              (catMaybes
+                 [("ReturnConsumedCapacity" .=) <$>
+                    _bwiReturnConsumedCapacity,
+                  ("ReturnItemCollectionMetrics" .=) <$>
+                    _bwiReturnItemCollectionMetrics,
+                  Just ("RequestItems" .= _bwiRequestItems)])
 
 instance ToPath BatchWriteItem where
         toPath = const "/"

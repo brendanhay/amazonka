@@ -105,7 +105,9 @@ instance ToHeaders ListUniqueProblems where
 instance ToJSON ListUniqueProblems where
         toJSON ListUniqueProblems'{..}
           = object
-              ["nextToken" .= _lupNextToken, "arn" .= _lupArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _lupNextToken,
+                  Just ("arn" .= _lupArn)])
 
 instance ToPath ListUniqueProblems where
         toPath = const "/"

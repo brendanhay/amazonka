@@ -106,8 +106,9 @@ instance ToHeaders UpdateVTLDeviceType where
 instance ToJSON UpdateVTLDeviceType where
         toJSON UpdateVTLDeviceType'{..}
           = object
-              ["VTLDeviceARN" .= _uvtldtVTLDeviceARN,
-               "DeviceType" .= _uvtldtDeviceType]
+              (catMaybes
+                 [Just ("VTLDeviceARN" .= _uvtldtVTLDeviceARN),
+                  Just ("DeviceType" .= _uvtldtDeviceType)])
 
 instance ToPath UpdateVTLDeviceType where
         toPath = const "/"

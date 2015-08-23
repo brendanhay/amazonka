@@ -95,7 +95,9 @@ instance ToHeaders DescribeConnectionsOnInterconnect
 instance ToJSON DescribeConnectionsOnInterconnect
          where
         toJSON DescribeConnectionsOnInterconnect'{..}
-          = object ["interconnectId" .= _dcoiInterconnectId]
+          = object
+              (catMaybes
+                 [Just ("interconnectId" .= _dcoiInterconnectId)])
 
 instance ToPath DescribeConnectionsOnInterconnect
          where

@@ -97,8 +97,9 @@ instance ToHeaders DescribeConfigurationRecorders
 instance ToJSON DescribeConfigurationRecorders where
         toJSON DescribeConfigurationRecorders'{..}
           = object
-              ["ConfigurationRecorderNames" .=
-                 _dcrConfigurationRecorderNames]
+              (catMaybes
+                 [("ConfigurationRecorderNames" .=) <$>
+                    _dcrConfigurationRecorderNames])
 
 instance ToPath DescribeConfigurationRecorders where
         toPath = const "/"

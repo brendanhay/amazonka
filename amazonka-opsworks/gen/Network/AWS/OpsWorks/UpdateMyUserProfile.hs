@@ -85,7 +85,9 @@ instance ToHeaders UpdateMyUserProfile where
 
 instance ToJSON UpdateMyUserProfile where
         toJSON UpdateMyUserProfile'{..}
-          = object ["SshPublicKey" .= _umupSSHPublicKey]
+          = object
+              (catMaybes
+                 [("SshPublicKey" .=) <$> _umupSSHPublicKey])
 
 instance ToPath UpdateMyUserProfile where
         toPath = const "/"

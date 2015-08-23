@@ -103,7 +103,8 @@ instance ToHeaders DescribeCache where
 
 instance ToJSON DescribeCache where
         toJSON DescribeCache'{..}
-          = object ["GatewayARN" .= _dcGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dcGatewayARN)])
 
 instance ToPath DescribeCache where
         toPath = const "/"

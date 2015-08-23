@@ -251,16 +251,17 @@ instance ToHeaders ListClosedWorkflowExecutions where
 instance ToJSON ListClosedWorkflowExecutions where
         toJSON ListClosedWorkflowExecutions'{..}
           = object
-              ["nextPageToken" .= _lcweNextPageToken,
-               "closeStatusFilter" .= _lcweCloseStatusFilter,
-               "executionFilter" .= _lcweExecutionFilter,
-               "typeFilter" .= _lcweTypeFilter,
-               "closeTimeFilter" .= _lcweCloseTimeFilter,
-               "reverseOrder" .= _lcweReverseOrder,
-               "tagFilter" .= _lcweTagFilter,
-               "startTimeFilter" .= _lcweStartTimeFilter,
-               "maximumPageSize" .= _lcweMaximumPageSize,
-               "domain" .= _lcweDomain]
+              (catMaybes
+                 [("nextPageToken" .=) <$> _lcweNextPageToken,
+                  ("closeStatusFilter" .=) <$> _lcweCloseStatusFilter,
+                  ("executionFilter" .=) <$> _lcweExecutionFilter,
+                  ("typeFilter" .=) <$> _lcweTypeFilter,
+                  ("closeTimeFilter" .=) <$> _lcweCloseTimeFilter,
+                  ("reverseOrder" .=) <$> _lcweReverseOrder,
+                  ("tagFilter" .=) <$> _lcweTagFilter,
+                  ("startTimeFilter" .=) <$> _lcweStartTimeFilter,
+                  ("maximumPageSize" .=) <$> _lcweMaximumPageSize,
+                  Just ("domain" .= _lcweDomain)])
 
 instance ToPath ListClosedWorkflowExecutions where
         toPath = const "/"

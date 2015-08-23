@@ -120,8 +120,10 @@ instance ToHeaders PutDestination where
 instance ToJSON PutDestination where
         toJSON PutDestination'{..}
           = object
-              ["destinationName" .= _pdDestinationName,
-               "targetArn" .= _pdTargetARN, "roleArn" .= _pdRoleARN]
+              (catMaybes
+                 [Just ("destinationName" .= _pdDestinationName),
+                  Just ("targetArn" .= _pdTargetARN),
+                  Just ("roleArn" .= _pdRoleARN)])
 
 instance ToPath PutDestination where
         toPath = const "/"

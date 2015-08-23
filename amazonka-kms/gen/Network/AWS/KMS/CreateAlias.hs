@@ -111,8 +111,9 @@ instance ToHeaders CreateAlias where
 instance ToJSON CreateAlias where
         toJSON CreateAlias'{..}
           = object
-              ["AliasName" .= _caAliasName,
-               "TargetKeyId" .= _caTargetKeyId]
+              (catMaybes
+                 [Just ("AliasName" .= _caAliasName),
+                  Just ("TargetKeyId" .= _caTargetKeyId)])
 
 instance ToPath CreateAlias where
         toPath = const "/"

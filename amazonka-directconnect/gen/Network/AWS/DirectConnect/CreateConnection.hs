@@ -122,9 +122,10 @@ instance ToHeaders CreateConnection where
 instance ToJSON CreateConnection where
         toJSON CreateConnection'{..}
           = object
-              ["location" .= _ccLocation,
-               "bandwidth" .= _ccBandwidth,
-               "connectionName" .= _ccConnectionName]
+              (catMaybes
+                 [Just ("location" .= _ccLocation),
+                  Just ("bandwidth" .= _ccBandwidth),
+                  Just ("connectionName" .= _ccConnectionName)])
 
 instance ToPath CreateConnection where
         toPath = const "/"

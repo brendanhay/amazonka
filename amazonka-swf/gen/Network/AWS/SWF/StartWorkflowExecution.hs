@@ -297,17 +297,20 @@ instance ToHeaders StartWorkflowExecution where
 instance ToJSON StartWorkflowExecution where
         toJSON StartWorkflowExecution'{..}
           = object
-              ["tagList" .= _sTagList,
-               "taskStartToCloseTimeout" .=
-                 _sTaskStartToCloseTimeout,
-               "lambdaRole" .= _sLambdaRole, "input" .= _sInput,
-               "executionStartToCloseTimeout" .=
-                 _sExecutionStartToCloseTimeout,
-               "taskList" .= _sTaskList,
-               "taskPriority" .= _sTaskPriority,
-               "childPolicy" .= _sChildPolicy, "domain" .= _sDomain,
-               "workflowId" .= _sWorkflowId,
-               "workflowType" .= _sWorkflowType]
+              (catMaybes
+                 [("tagList" .=) <$> _sTagList,
+                  ("taskStartToCloseTimeout" .=) <$>
+                    _sTaskStartToCloseTimeout,
+                  ("lambdaRole" .=) <$> _sLambdaRole,
+                  ("input" .=) <$> _sInput,
+                  ("executionStartToCloseTimeout" .=) <$>
+                    _sExecutionStartToCloseTimeout,
+                  ("taskList" .=) <$> _sTaskList,
+                  ("taskPriority" .=) <$> _sTaskPriority,
+                  ("childPolicy" .=) <$> _sChildPolicy,
+                  Just ("domain" .= _sDomain),
+                  Just ("workflowId" .= _sWorkflowId),
+                  Just ("workflowType" .= _sWorkflowType)])
 
 instance ToPath StartWorkflowExecution where
         toPath = const "/"

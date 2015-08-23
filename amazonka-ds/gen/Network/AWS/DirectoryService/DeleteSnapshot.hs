@@ -89,7 +89,8 @@ instance ToHeaders DeleteSnapshot where
 
 instance ToJSON DeleteSnapshot where
         toJSON DeleteSnapshot'{..}
-          = object ["SnapshotId" .= _dsSnapshotId]
+          = object
+              (catMaybes [Just ("SnapshotId" .= _dsSnapshotId)])
 
 instance ToPath DeleteSnapshot where
         toPath = const "/"

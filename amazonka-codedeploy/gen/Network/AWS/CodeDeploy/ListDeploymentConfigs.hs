@@ -95,7 +95,8 @@ instance ToHeaders ListDeploymentConfigs where
 
 instance ToJSON ListDeploymentConfigs where
         toJSON ListDeploymentConfigs'{..}
-          = object ["nextToken" .= _ldcNextToken]
+          = object
+              (catMaybes [("nextToken" .=) <$> _ldcNextToken])
 
 instance ToPath ListDeploymentConfigs where
         toPath = const "/"

@@ -100,8 +100,9 @@ instance ToHeaders CreateLunaClient where
 instance ToJSON CreateLunaClient where
         toJSON CreateLunaClient'{..}
           = object
-              ["Label" .= _clcLabel,
-               "Certificate" .= _clcCertificate]
+              (catMaybes
+                 [("Label" .=) <$> _clcLabel,
+                  Just ("Certificate" .= _clcCertificate)])
 
 instance ToPath CreateLunaClient where
         toPath = const "/"

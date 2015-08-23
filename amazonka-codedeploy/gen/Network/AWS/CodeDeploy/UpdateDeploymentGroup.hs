@@ -160,17 +160,20 @@ instance ToHeaders UpdateDeploymentGroup where
 instance ToJSON UpdateDeploymentGroup where
         toJSON UpdateDeploymentGroup'{..}
           = object
-              ["serviceRoleArn" .= _udgServiceRoleARN,
-               "deploymentConfigName" .= _udgDeploymentConfigName,
-               "ec2TagFilters" .= _udgEc2TagFilters,
-               "newDeploymentGroupName" .=
-                 _udgNewDeploymentGroupName,
-               "onPremisesInstanceTagFilters" .=
-                 _udgOnPremisesInstanceTagFilters,
-               "autoScalingGroups" .= _udgAutoScalingGroups,
-               "applicationName" .= _udgApplicationName,
-               "currentDeploymentGroupName" .=
-                 _udgCurrentDeploymentGroupName]
+              (catMaybes
+                 [("serviceRoleArn" .=) <$> _udgServiceRoleARN,
+                  ("deploymentConfigName" .=) <$>
+                    _udgDeploymentConfigName,
+                  ("ec2TagFilters" .=) <$> _udgEc2TagFilters,
+                  ("newDeploymentGroupName" .=) <$>
+                    _udgNewDeploymentGroupName,
+                  ("onPremisesInstanceTagFilters" .=) <$>
+                    _udgOnPremisesInstanceTagFilters,
+                  ("autoScalingGroups" .=) <$> _udgAutoScalingGroups,
+                  Just ("applicationName" .= _udgApplicationName),
+                  Just
+                    ("currentDeploymentGroupName" .=
+                       _udgCurrentDeploymentGroupName)])
 
 instance ToPath UpdateDeploymentGroup where
         toPath = const "/"

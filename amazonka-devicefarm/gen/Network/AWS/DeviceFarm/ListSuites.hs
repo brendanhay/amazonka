@@ -101,7 +101,10 @@ instance ToHeaders ListSuites where
 
 instance ToJSON ListSuites where
         toJSON ListSuites'{..}
-          = object ["nextToken" .= _lNextToken, "arn" .= _lArn]
+          = object
+              (catMaybes
+                 [("nextToken" .=) <$> _lNextToken,
+                  Just ("arn" .= _lArn)])
 
 instance ToPath ListSuites where
         toPath = const "/"

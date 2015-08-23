@@ -94,7 +94,8 @@ instance ToHeaders ListVolumeInitiators where
 
 instance ToJSON ListVolumeInitiators where
         toJSON ListVolumeInitiators'{..}
-          = object ["VolumeARN" .= _lviVolumeARN]
+          = object
+              (catMaybes [Just ("VolumeARN" .= _lviVolumeARN)])
 
 instance ToPath ListVolumeInitiators where
         toPath = const "/"

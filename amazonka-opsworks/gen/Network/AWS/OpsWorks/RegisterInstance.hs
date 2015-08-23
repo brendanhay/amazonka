@@ -157,14 +157,15 @@ instance ToHeaders RegisterInstance where
 instance ToJSON RegisterInstance where
         toJSON RegisterInstance'{..}
           = object
-              ["PrivateIp" .= _riPrivateIP,
-               "Hostname" .= _riHostname,
-               "InstanceIdentity" .= _riInstanceIdentity,
-               "PublicIp" .= _riPublicIP,
-               "RsaPublicKeyFingerprint" .=
-                 _riRsaPublicKeyFingerprint,
-               "RsaPublicKey" .= _riRsaPublicKey,
-               "StackId" .= _riStackId]
+              (catMaybes
+                 [("PrivateIp" .=) <$> _riPrivateIP,
+                  ("Hostname" .=) <$> _riHostname,
+                  ("InstanceIdentity" .=) <$> _riInstanceIdentity,
+                  ("PublicIp" .=) <$> _riPublicIP,
+                  ("RsaPublicKeyFingerprint" .=) <$>
+                    _riRsaPublicKeyFingerprint,
+                  ("RsaPublicKey" .=) <$> _riRsaPublicKey,
+                  Just ("StackId" .= _riStackId)])
 
 instance ToPath RegisterInstance where
         toPath = const "/"

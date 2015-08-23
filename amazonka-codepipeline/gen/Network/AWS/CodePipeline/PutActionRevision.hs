@@ -126,10 +126,11 @@ instance ToHeaders PutActionRevision where
 instance ToJSON PutActionRevision where
         toJSON PutActionRevision'{..}
           = object
-              ["pipelineName" .= _parPipelineName,
-               "stageName" .= _parStageName,
-               "actionName" .= _parActionName,
-               "actionRevision" .= _parActionRevision]
+              (catMaybes
+                 [Just ("pipelineName" .= _parPipelineName),
+                  Just ("stageName" .= _parStageName),
+                  Just ("actionName" .= _parActionName),
+                  Just ("actionRevision" .= _parActionRevision)])
 
 instance ToPath PutActionRevision where
         toPath = const "/"

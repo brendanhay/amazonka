@@ -117,8 +117,9 @@ instance ToHeaders SetIdentityPoolConfiguration where
 instance ToJSON SetIdentityPoolConfiguration where
         toJSON SetIdentityPoolConfiguration'{..}
           = object
-              ["CognitoStreams" .= _sipcCognitoStreams,
-               "PushSync" .= _sipcPushSync]
+              (catMaybes
+                 [("CognitoStreams" .=) <$> _sipcCognitoStreams,
+                  ("PushSync" .=) <$> _sipcPushSync])
 
 instance ToPath SetIdentityPoolConfiguration where
         toPath SetIdentityPoolConfiguration'{..}

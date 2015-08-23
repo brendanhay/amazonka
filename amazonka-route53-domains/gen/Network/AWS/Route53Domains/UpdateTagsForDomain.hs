@@ -158,8 +158,9 @@ instance ToHeaders UpdateTagsForDomain where
 instance ToJSON UpdateTagsForDomain where
         toJSON UpdateTagsForDomain'{..}
           = object
-              ["TagsToUpdate" .= _utfdTagsToUpdate,
-               "DomainName" .= _utfdDomainName]
+              (catMaybes
+                 [("TagsToUpdate" .=) <$> _utfdTagsToUpdate,
+                  Just ("DomainName" .= _utfdDomainName)])
 
 instance ToPath UpdateTagsForDomain where
         toPath = const "/"

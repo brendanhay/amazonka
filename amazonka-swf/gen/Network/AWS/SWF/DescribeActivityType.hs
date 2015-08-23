@@ -128,8 +128,9 @@ instance ToHeaders DescribeActivityType where
 instance ToJSON DescribeActivityType where
         toJSON DescribeActivityType'{..}
           = object
-              ["domain" .= _datDomain,
-               "activityType" .= _datActivityType]
+              (catMaybes
+                 [Just ("domain" .= _datDomain),
+                  Just ("activityType" .= _datActivityType)])
 
 instance ToPath DescribeActivityType where
         toPath = const "/"

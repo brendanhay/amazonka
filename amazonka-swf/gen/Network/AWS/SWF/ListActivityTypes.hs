@@ -184,12 +184,14 @@ instance ToHeaders ListActivityTypes where
 instance ToJSON ListActivityTypes where
         toJSON ListActivityTypes'{..}
           = object
-              ["nextPageToken" .= _latNextPageToken,
-               "reverseOrder" .= _latReverseOrder,
-               "name" .= _latName,
-               "maximumPageSize" .= _latMaximumPageSize,
-               "domain" .= _latDomain,
-               "registrationStatus" .= _latRegistrationStatus]
+              (catMaybes
+                 [("nextPageToken" .=) <$> _latNextPageToken,
+                  ("reverseOrder" .=) <$> _latReverseOrder,
+                  ("name" .=) <$> _latName,
+                  ("maximumPageSize" .=) <$> _latMaximumPageSize,
+                  Just ("domain" .= _latDomain),
+                  Just
+                    ("registrationStatus" .= _latRegistrationStatus)])
 
 instance ToPath ListActivityTypes where
         toPath = const "/"

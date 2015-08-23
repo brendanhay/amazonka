@@ -132,12 +132,13 @@ instance ToHeaders CreateComputer where
 instance ToJSON CreateComputer where
         toJSON CreateComputer'{..}
           = object
-              ["ComputerAttributes" .= _ccComputerAttributes,
-               "OrganizationalUnitDistinguishedName" .=
-                 _ccOrganizationalUnitDistinguishedName,
-               "DirectoryId" .= _ccDirectoryId,
-               "ComputerName" .= _ccComputerName,
-               "Password" .= _ccPassword]
+              (catMaybes
+                 [("ComputerAttributes" .=) <$> _ccComputerAttributes,
+                  ("OrganizationalUnitDistinguishedName" .=) <$>
+                    _ccOrganizationalUnitDistinguishedName,
+                  Just ("DirectoryId" .= _ccDirectoryId),
+                  Just ("ComputerName" .= _ccComputerName),
+                  Just ("Password" .= _ccPassword)])
 
 instance ToPath CreateComputer where
         toPath = const "/"

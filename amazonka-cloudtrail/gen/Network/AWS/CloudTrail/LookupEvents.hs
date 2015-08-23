@@ -151,10 +151,12 @@ instance ToHeaders LookupEvents where
 instance ToJSON LookupEvents where
         toJSON LookupEvents'{..}
           = object
-              ["StartTime" .= _leStartTime,
-               "LookupAttributes" .= _leLookupAttributes,
-               "NextToken" .= _leNextToken, "EndTime" .= _leEndTime,
-               "MaxResults" .= _leMaxResults]
+              (catMaybes
+                 [("StartTime" .=) <$> _leStartTime,
+                  ("LookupAttributes" .=) <$> _leLookupAttributes,
+                  ("NextToken" .=) <$> _leNextToken,
+                  ("EndTime" .=) <$> _leEndTime,
+                  ("MaxResults" .=) <$> _leMaxResults])
 
 instance ToPath LookupEvents where
         toPath = const "/"

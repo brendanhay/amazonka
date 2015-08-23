@@ -91,7 +91,8 @@ instance ToHeaders DeleteRealtimeEndpoint where
 
 instance ToJSON DeleteRealtimeEndpoint where
         toJSON DeleteRealtimeEndpoint'{..}
-          = object ["MLModelId" .= _dreMLModelId]
+          = object
+              (catMaybes [Just ("MLModelId" .= _dreMLModelId)])
 
 instance ToPath DeleteRealtimeEndpoint where
         toPath = const "/"

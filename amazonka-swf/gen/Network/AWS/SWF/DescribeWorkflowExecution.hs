@@ -130,8 +130,9 @@ instance ToHeaders DescribeWorkflowExecution where
 instance ToJSON DescribeWorkflowExecution where
         toJSON DescribeWorkflowExecution'{..}
           = object
-              ["domain" .= _dweDomain,
-               "execution" .= _dweExecution]
+              (catMaybes
+                 [Just ("domain" .= _dweDomain),
+                  Just ("execution" .= _dweExecution)])
 
 instance ToPath DescribeWorkflowExecution where
         toPath = const "/"

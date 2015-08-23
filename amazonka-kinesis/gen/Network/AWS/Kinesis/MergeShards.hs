@@ -142,9 +142,11 @@ instance ToHeaders MergeShards where
 instance ToJSON MergeShards where
         toJSON MergeShards'{..}
           = object
-              ["StreamName" .= _msStreamName,
-               "ShardToMerge" .= _msShardToMerge,
-               "AdjacentShardToMerge" .= _msAdjacentShardToMerge]
+              (catMaybes
+                 [Just ("StreamName" .= _msStreamName),
+                  Just ("ShardToMerge" .= _msShardToMerge),
+                  Just
+                    ("AdjacentShardToMerge" .= _msAdjacentShardToMerge)])
 
 instance ToPath MergeShards where
         toPath = const "/"

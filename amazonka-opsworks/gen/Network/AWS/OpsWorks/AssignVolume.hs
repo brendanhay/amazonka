@@ -100,8 +100,9 @@ instance ToHeaders AssignVolume where
 instance ToJSON AssignVolume where
         toJSON AssignVolume'{..}
           = object
-              ["InstanceId" .= _avInstanceId,
-               "VolumeId" .= _avVolumeId]
+              (catMaybes
+                 [("InstanceId" .=) <$> _avInstanceId,
+                  Just ("VolumeId" .= _avVolumeId)])
 
 instance ToPath AssignVolume where
         toPath = const "/"

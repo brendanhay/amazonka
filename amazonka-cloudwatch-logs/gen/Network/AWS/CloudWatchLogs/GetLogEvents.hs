@@ -162,12 +162,14 @@ instance ToHeaders GetLogEvents where
 instance ToJSON GetLogEvents where
         toJSON GetLogEvents'{..}
           = object
-              ["startTime" .= _gleStartTime,
-               "startFromHead" .= _gleStartFromHead,
-               "nextToken" .= _gleNextToken,
-               "endTime" .= _gleEndTime, "limit" .= _gleLimit,
-               "logGroupName" .= _gleLogGroupName,
-               "logStreamName" .= _gleLogStreamName]
+              (catMaybes
+                 [("startTime" .=) <$> _gleStartTime,
+                  ("startFromHead" .=) <$> _gleStartFromHead,
+                  ("nextToken" .=) <$> _gleNextToken,
+                  ("endTime" .=) <$> _gleEndTime,
+                  ("limit" .=) <$> _gleLimit,
+                  Just ("logGroupName" .= _gleLogGroupName),
+                  Just ("logStreamName" .= _gleLogStreamName)])
 
 instance ToPath GetLogEvents where
         toPath = const "/"

@@ -85,7 +85,8 @@ instance ToHeaders StartStack where
 
 instance ToJSON StartStack where
         toJSON StartStack'{..}
-          = object ["StackId" .= _staStackId]
+          = object
+              (catMaybes [Just ("StackId" .= _staStackId)])
 
 instance ToPath StartStack where
         toPath = const "/"

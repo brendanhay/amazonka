@@ -103,8 +103,10 @@ instance ToHeaders GetDeploymentGroup where
 instance ToJSON GetDeploymentGroup where
         toJSON GetDeploymentGroup'{..}
           = object
-              ["applicationName" .= _gdgApplicationName,
-               "deploymentGroupName" .= _gdgDeploymentGroupName]
+              (catMaybes
+                 [Just ("applicationName" .= _gdgApplicationName),
+                  Just
+                    ("deploymentGroupName" .= _gdgDeploymentGroupName)])
 
 instance ToPath GetDeploymentGroup where
         toPath = const "/"

@@ -102,8 +102,10 @@ instance ToHeaders SetVisibleToAllUsers where
 instance ToJSON SetVisibleToAllUsers where
         toJSON SetVisibleToAllUsers'{..}
           = object
-              ["JobFlowIds" .= _svtauJobFlowIds,
-               "VisibleToAllUsers" .= _svtauVisibleToAllUsers]
+              (catMaybes
+                 [Just ("JobFlowIds" .= _svtauJobFlowIds),
+                  Just
+                    ("VisibleToAllUsers" .= _svtauVisibleToAllUsers)])
 
 instance ToPath SetVisibleToAllUsers where
         toPath = const "/"

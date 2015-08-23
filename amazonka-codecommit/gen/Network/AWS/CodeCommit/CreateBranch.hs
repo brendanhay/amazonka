@@ -108,9 +108,10 @@ instance ToHeaders CreateBranch where
 instance ToJSON CreateBranch where
         toJSON CreateBranch'{..}
           = object
-              ["repositoryName" .= _cbRepositoryName,
-               "branchName" .= _cbBranchName,
-               "commitId" .= _cbCommitId]
+              (catMaybes
+                 [Just ("repositoryName" .= _cbRepositoryName),
+                  Just ("branchName" .= _cbBranchName),
+                  Just ("commitId" .= _cbCommitId)])
 
 instance ToPath CreateBranch where
         toPath = const "/"

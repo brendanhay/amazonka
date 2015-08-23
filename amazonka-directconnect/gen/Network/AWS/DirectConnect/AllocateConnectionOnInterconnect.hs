@@ -162,11 +162,12 @@ instance ToJSON AllocateConnectionOnInterconnect
          where
         toJSON AllocateConnectionOnInterconnect'{..}
           = object
-              ["bandwidth" .= _acoiBandwidth,
-               "connectionName" .= _acoiConnectionName,
-               "ownerAccount" .= _acoiOwnerAccount,
-               "interconnectId" .= _acoiInterconnectId,
-               "vlan" .= _acoiVlan]
+              (catMaybes
+                 [Just ("bandwidth" .= _acoiBandwidth),
+                  Just ("connectionName" .= _acoiConnectionName),
+                  Just ("ownerAccount" .= _acoiOwnerAccount),
+                  Just ("interconnectId" .= _acoiInterconnectId),
+                  Just ("vlan" .= _acoiVlan)])
 
 instance ToPath AllocateConnectionOnInterconnect
          where

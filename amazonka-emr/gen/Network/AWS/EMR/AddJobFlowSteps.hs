@@ -123,8 +123,9 @@ instance ToHeaders AddJobFlowSteps where
 instance ToJSON AddJobFlowSteps where
         toJSON AddJobFlowSteps'{..}
           = object
-              ["JobFlowId" .= _ajfsJobFlowId,
-               "Steps" .= _ajfsSteps]
+              (catMaybes
+                 [Just ("JobFlowId" .= _ajfsJobFlowId),
+                  Just ("Steps" .= _ajfsSteps)])
 
 instance ToPath AddJobFlowSteps where
         toPath = const "/"

@@ -140,7 +140,7 @@ instance ToHeaders InitiateVaultLock where
 
 instance ToJSON InitiateVaultLock where
         toJSON InitiateVaultLock'{..}
-          = object ["policy" .= _ivlPolicy]
+          = object (catMaybes [("policy" .=) <$> _ivlPolicy])
 
 instance ToPath InitiateVaultLock where
         toPath InitiateVaultLock'{..}

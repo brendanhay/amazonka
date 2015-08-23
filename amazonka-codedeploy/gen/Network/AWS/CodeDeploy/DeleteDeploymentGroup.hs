@@ -103,8 +103,10 @@ instance ToHeaders DeleteDeploymentGroup where
 instance ToJSON DeleteDeploymentGroup where
         toJSON DeleteDeploymentGroup'{..}
           = object
-              ["applicationName" .= _ddgApplicationName,
-               "deploymentGroupName" .= _ddgDeploymentGroupName]
+              (catMaybes
+                 [Just ("applicationName" .= _ddgApplicationName),
+                  Just
+                    ("deploymentGroupName" .= _ddgDeploymentGroupName)])
 
 instance ToPath DeleteDeploymentGroup where
         toPath = const "/"

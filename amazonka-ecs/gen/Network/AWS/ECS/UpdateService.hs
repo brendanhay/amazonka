@@ -138,10 +138,11 @@ instance ToHeaders UpdateService where
 instance ToJSON UpdateService where
         toJSON UpdateService'{..}
           = object
-              ["cluster" .= _usCluster,
-               "desiredCount" .= _usDesiredCount,
-               "taskDefinition" .= _usTaskDefinition,
-               "service" .= _usService]
+              (catMaybes
+                 [("cluster" .=) <$> _usCluster,
+                  ("desiredCount" .=) <$> _usDesiredCount,
+                  ("taskDefinition" .=) <$> _usTaskDefinition,
+                  Just ("service" .= _usService)])
 
 instance ToPath UpdateService where
         toPath = const "/"

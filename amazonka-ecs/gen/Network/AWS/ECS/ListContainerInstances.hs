@@ -133,9 +133,10 @@ instance ToHeaders ListContainerInstances where
 instance ToJSON ListContainerInstances where
         toJSON ListContainerInstances'{..}
           = object
-              ["cluster" .= _lciCluster,
-               "nextToken" .= _lciNextToken,
-               "maxResults" .= _lciMaxResults]
+              (catMaybes
+                 [("cluster" .=) <$> _lciCluster,
+                  ("nextToken" .=) <$> _lciNextToken,
+                  ("maxResults" .=) <$> _lciMaxResults])
 
 instance ToPath ListContainerInstances where
         toPath = const "/"

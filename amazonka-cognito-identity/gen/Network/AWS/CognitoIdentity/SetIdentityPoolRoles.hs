@@ -98,8 +98,9 @@ instance ToHeaders SetIdentityPoolRoles where
 instance ToJSON SetIdentityPoolRoles where
         toJSON SetIdentityPoolRoles'{..}
           = object
-              ["IdentityPoolId" .= _siprIdentityPoolId,
-               "Roles" .= _siprRoles]
+              (catMaybes
+                 [Just ("IdentityPoolId" .= _siprIdentityPoolId),
+                  Just ("Roles" .= _siprRoles)])
 
 instance ToPath SetIdentityPoolRoles where
         toPath = const "/"

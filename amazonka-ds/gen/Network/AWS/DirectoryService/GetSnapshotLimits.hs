@@ -89,7 +89,8 @@ instance ToHeaders GetSnapshotLimits where
 
 instance ToJSON GetSnapshotLimits where
         toJSON GetSnapshotLimits'{..}
-          = object ["DirectoryId" .= _gslDirectoryId]
+          = object
+              (catMaybes [Just ("DirectoryId" .= _gslDirectoryId)])
 
 instance ToPath GetSnapshotLimits where
         toPath = const "/"

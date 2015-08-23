@@ -147,14 +147,16 @@ instance ToHeaders RegisterContainerInstance where
 instance ToJSON RegisterContainerInstance where
         toJSON RegisterContainerInstance'{..}
           = object
-              ["instanceIdentityDocumentSignature" .=
-                 _rciInstanceIdentityDocumentSignature,
-               "cluster" .= _rciCluster,
-               "instanceIdentityDocument" .=
-                 _rciInstanceIdentityDocument,
-               "containerInstanceArn" .= _rciContainerInstanceARN,
-               "versionInfo" .= _rciVersionInfo,
-               "totalResources" .= _rciTotalResources]
+              (catMaybes
+                 [("instanceIdentityDocumentSignature" .=) <$>
+                    _rciInstanceIdentityDocumentSignature,
+                  ("cluster" .=) <$> _rciCluster,
+                  ("instanceIdentityDocument" .=) <$>
+                    _rciInstanceIdentityDocument,
+                  ("containerInstanceArn" .=) <$>
+                    _rciContainerInstanceARN,
+                  ("versionInfo" .=) <$> _rciVersionInfo,
+                  ("totalResources" .=) <$> _rciTotalResources])
 
 instance ToPath RegisterContainerInstance where
         toPath = const "/"

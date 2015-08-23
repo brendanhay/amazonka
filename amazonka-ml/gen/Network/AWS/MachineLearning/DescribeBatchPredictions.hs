@@ -238,13 +238,15 @@ instance ToHeaders DescribeBatchPredictions where
 instance ToJSON DescribeBatchPredictions where
         toJSON DescribeBatchPredictions'{..}
           = object
-              ["EQ" .= _dbpEQ, "GE" .= _dbpGE,
-               "Prefix" .= _dbpPrefix, "GT" .= _dbpGT,
-               "NE" .= _dbpNE, "NextToken" .= _dbpNextToken,
-               "SortOrder" .= _dbpSortOrder, "Limit" .= _dbpLimit,
-               "LT" .= _dbpLT,
-               "FilterVariable" .= _dbpFilterVariable,
-               "LE" .= _dbpLE]
+              (catMaybes
+                 [("EQ" .=) <$> _dbpEQ, ("GE" .=) <$> _dbpGE,
+                  ("Prefix" .=) <$> _dbpPrefix, ("GT" .=) <$> _dbpGT,
+                  ("NE" .=) <$> _dbpNE,
+                  ("NextToken" .=) <$> _dbpNextToken,
+                  ("SortOrder" .=) <$> _dbpSortOrder,
+                  ("Limit" .=) <$> _dbpLimit, ("LT" .=) <$> _dbpLT,
+                  ("FilterVariable" .=) <$> _dbpFilterVariable,
+                  ("LE" .=) <$> _dbpLE])
 
 instance ToPath DescribeBatchPredictions where
         toPath = const "/"

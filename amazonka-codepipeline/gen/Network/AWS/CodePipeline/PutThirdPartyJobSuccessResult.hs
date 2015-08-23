@@ -129,11 +129,13 @@ instance ToHeaders PutThirdPartyJobSuccessResult
 instance ToJSON PutThirdPartyJobSuccessResult where
         toJSON PutThirdPartyJobSuccessResult'{..}
           = object
-              ["continuationToken" .= _ptpjsrContinuationToken,
-               "executionDetails" .= _ptpjsrExecutionDetails,
-               "currentRevision" .= _ptpjsrCurrentRevision,
-               "jobId" .= _ptpjsrJobId,
-               "clientToken" .= _ptpjsrClientToken]
+              (catMaybes
+                 [("continuationToken" .=) <$>
+                    _ptpjsrContinuationToken,
+                  ("executionDetails" .=) <$> _ptpjsrExecutionDetails,
+                  ("currentRevision" .=) <$> _ptpjsrCurrentRevision,
+                  Just ("jobId" .= _ptpjsrJobId),
+                  Just ("clientToken" .= _ptpjsrClientToken)])
 
 instance ToPath PutThirdPartyJobSuccessResult where
         toPath = const "/"

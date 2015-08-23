@@ -103,8 +103,9 @@ instance ToHeaders AddUploadBuffer where
 instance ToJSON AddUploadBuffer where
         toJSON AddUploadBuffer'{..}
           = object
-              ["GatewayARN" .= _aubGatewayARN,
-               "DiskIds" .= _aubDiskIds]
+              (catMaybes
+                 [Just ("GatewayARN" .= _aubGatewayARN),
+                  Just ("DiskIds" .= _aubDiskIds)])
 
 instance ToPath AddUploadBuffer where
         toPath = const "/"

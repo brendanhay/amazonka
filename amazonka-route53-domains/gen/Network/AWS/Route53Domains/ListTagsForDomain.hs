@@ -93,7 +93,8 @@ instance ToHeaders ListTagsForDomain where
 
 instance ToJSON ListTagsForDomain where
         toJSON ListTagsForDomain'{..}
-          = object ["DomainName" .= _ltfdDomainName]
+          = object
+              (catMaybes [Just ("DomainName" .= _ltfdDomainName)])
 
 instance ToPath ListTagsForDomain where
         toPath = const "/"

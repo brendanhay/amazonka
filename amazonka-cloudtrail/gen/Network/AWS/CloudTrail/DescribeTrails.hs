@@ -90,7 +90,9 @@ instance ToHeaders DescribeTrails where
 
 instance ToJSON DescribeTrails where
         toJSON DescribeTrails'{..}
-          = object ["trailNameList" .= _dtTrailNameList]
+          = object
+              (catMaybes
+                 [("trailNameList" .=) <$> _dtTrailNameList])
 
 instance ToPath DescribeTrails where
         toPath = const "/"

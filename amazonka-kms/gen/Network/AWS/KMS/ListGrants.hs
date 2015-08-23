@@ -121,8 +121,10 @@ instance ToHeaders ListGrants where
 instance ToJSON ListGrants where
         toJSON ListGrants'{..}
           = object
-              ["Marker" .= _lgMarker, "Limit" .= _lgLimit,
-               "KeyId" .= _lgKeyId]
+              (catMaybes
+                 [("Marker" .=) <$> _lgMarker,
+                  ("Limit" .=) <$> _lgLimit,
+                  Just ("KeyId" .= _lgKeyId)])
 
 instance ToPath ListGrants where
         toPath = const "/"

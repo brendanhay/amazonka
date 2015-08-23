@@ -98,8 +98,9 @@ instance ToHeaders GetBranch where
 instance ToJSON GetBranch where
         toJSON GetBranch'{..}
           = object
-              ["branchName" .= _gbBranchName,
-               "repositoryName" .= _gbRepositoryName]
+              (catMaybes
+                 [("branchName" .=) <$> _gbBranchName,
+                  ("repositoryName" .=) <$> _gbRepositoryName])
 
 instance ToPath GetBranch where
         toPath = const "/"

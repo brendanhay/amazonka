@@ -100,7 +100,8 @@ instance ToHeaders DeleteStream where
 
 instance ToJSON DeleteStream where
         toJSON DeleteStream'{..}
-          = object ["StreamName" .= _dsStreamName]
+          = object
+              (catMaybes [Just ("StreamName" .= _dsStreamName)])
 
 instance ToPath DeleteStream where
         toPath = const "/"

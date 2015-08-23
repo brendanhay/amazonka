@@ -519,19 +519,23 @@ instance ToHeaders DeleteItem where
 instance ToJSON DeleteItem where
         toJSON DeleteItem'{..}
           = object
-              ["ReturnValues" .= _diReturnValues,
-               "ExpressionAttributeNames" .=
-                 _diExpressionAttributeNames,
-               "ReturnConsumedCapacity" .=
-                 _diReturnConsumedCapacity,
-               "ExpressionAttributeValues" .=
-                 _diExpressionAttributeValues,
-               "ReturnItemCollectionMetrics" .=
-                 _diReturnItemCollectionMetrics,
-               "ConditionExpression" .= _diConditionExpression,
-               "ConditionalOperator" .= _diConditionalOperator,
-               "Expected" .= _diExpected,
-               "TableName" .= _diTableName, "Key" .= _diKey]
+              (catMaybes
+                 [("ReturnValues" .=) <$> _diReturnValues,
+                  ("ExpressionAttributeNames" .=) <$>
+                    _diExpressionAttributeNames,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _diReturnConsumedCapacity,
+                  ("ExpressionAttributeValues" .=) <$>
+                    _diExpressionAttributeValues,
+                  ("ReturnItemCollectionMetrics" .=) <$>
+                    _diReturnItemCollectionMetrics,
+                  ("ConditionExpression" .=) <$>
+                    _diConditionExpression,
+                  ("ConditionalOperator" .=) <$>
+                    _diConditionalOperator,
+                  ("Expected" .=) <$> _diExpected,
+                  Just ("TableName" .= _diTableName),
+                  Just ("Key" .= _diKey)])
 
 instance ToPath DeleteItem where
         toPath = const "/"

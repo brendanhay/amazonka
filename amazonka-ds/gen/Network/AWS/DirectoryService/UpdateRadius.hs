@@ -101,8 +101,9 @@ instance ToHeaders UpdateRadius where
 instance ToJSON UpdateRadius where
         toJSON UpdateRadius'{..}
           = object
-              ["DirectoryId" .= _urDirectoryId,
-               "RadiusSettings" .= _urRadiusSettings]
+              (catMaybes
+                 [Just ("DirectoryId" .= _urDirectoryId),
+                  Just ("RadiusSettings" .= _urRadiusSettings)])
 
 instance ToPath UpdateRadius where
         toPath = const "/"

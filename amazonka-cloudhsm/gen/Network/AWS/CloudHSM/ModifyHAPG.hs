@@ -106,8 +106,11 @@ instance ToHeaders ModifyHAPG where
 instance ToJSON ModifyHAPG where
         toJSON ModifyHAPG'{..}
           = object
-              ["PartitionSerialList" .= _mhPartitionSerialList,
-               "Label" .= _mhLabel, "HapgArn" .= _mhHAPGARN]
+              (catMaybes
+                 [("PartitionSerialList" .=) <$>
+                    _mhPartitionSerialList,
+                  ("Label" .=) <$> _mhLabel,
+                  Just ("HapgArn" .= _mhHAPGARN)])
 
 instance ToPath ModifyHAPG where
         toPath = const "/"

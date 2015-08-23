@@ -118,9 +118,11 @@ instance ToHeaders CreateDevicePool where
 instance ToJSON CreateDevicePool where
         toJSON CreateDevicePool'{..}
           = object
-              ["description" .= _cdpDescription,
-               "projectArn" .= _cdpProjectARN, "name" .= _cdpName,
-               "rules" .= _cdpRules]
+              (catMaybes
+                 [("description" .=) <$> _cdpDescription,
+                  Just ("projectArn" .= _cdpProjectARN),
+                  Just ("name" .= _cdpName),
+                  Just ("rules" .= _cdpRules)])
 
 instance ToPath CreateDevicePool where
         toPath = const "/"

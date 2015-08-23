@@ -150,8 +150,9 @@ instance ToHeaders RecordActivityTaskHeartbeat where
 instance ToJSON RecordActivityTaskHeartbeat where
         toJSON RecordActivityTaskHeartbeat'{..}
           = object
-              ["details" .= _rathDetails,
-               "taskToken" .= _rathTaskToken]
+              (catMaybes
+                 [("details" .=) <$> _rathDetails,
+                  Just ("taskToken" .= _rathTaskToken)])
 
 instance ToPath RecordActivityTaskHeartbeat where
         toPath = const "/"

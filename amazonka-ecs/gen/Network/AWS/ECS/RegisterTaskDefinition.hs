@@ -118,8 +118,12 @@ instance ToHeaders RegisterTaskDefinition where
 instance ToJSON RegisterTaskDefinition where
         toJSON RegisterTaskDefinition'{..}
           = object
-              ["volumes" .= _rtdVolumes, "family" .= _rtdFamily,
-               "containerDefinitions" .= _rtdContainerDefinitions]
+              (catMaybes
+                 [("volumes" .=) <$> _rtdVolumes,
+                  Just ("family" .= _rtdFamily),
+                  Just
+                    ("containerDefinitions" .=
+                       _rtdContainerDefinitions)])
 
 instance ToPath RegisterTaskDefinition where
         toPath = const "/"

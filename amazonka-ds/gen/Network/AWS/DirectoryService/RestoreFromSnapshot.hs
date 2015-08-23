@@ -97,7 +97,8 @@ instance ToHeaders RestoreFromSnapshot where
 
 instance ToJSON RestoreFromSnapshot where
         toJSON RestoreFromSnapshot'{..}
-          = object ["SnapshotId" .= _rfsSnapshotId]
+          = object
+              (catMaybes [Just ("SnapshotId" .= _rfsSnapshotId)])
 
 instance ToPath RestoreFromSnapshot where
         toPath = const "/"

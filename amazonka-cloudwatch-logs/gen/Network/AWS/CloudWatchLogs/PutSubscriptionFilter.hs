@@ -143,11 +143,12 @@ instance ToHeaders PutSubscriptionFilter where
 instance ToJSON PutSubscriptionFilter where
         toJSON PutSubscriptionFilter'{..}
           = object
-              ["roleArn" .= _psfRoleARN,
-               "logGroupName" .= _psfLogGroupName,
-               "filterName" .= _psfFilterName,
-               "filterPattern" .= _psfFilterPattern,
-               "destinationArn" .= _psfDestinationARN]
+              (catMaybes
+                 [("roleArn" .=) <$> _psfRoleARN,
+                  Just ("logGroupName" .= _psfLogGroupName),
+                  Just ("filterName" .= _psfFilterName),
+                  Just ("filterPattern" .= _psfFilterPattern),
+                  Just ("destinationArn" .= _psfDestinationARN)])
 
 instance ToPath PutSubscriptionFilter where
         toPath = const "/"

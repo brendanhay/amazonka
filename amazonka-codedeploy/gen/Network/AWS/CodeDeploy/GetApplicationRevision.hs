@@ -106,8 +106,9 @@ instance ToHeaders GetApplicationRevision where
 instance ToJSON GetApplicationRevision where
         toJSON GetApplicationRevision'{..}
           = object
-              ["applicationName" .= _garApplicationName,
-               "revision" .= _garRevision]
+              (catMaybes
+                 [Just ("applicationName" .= _garApplicationName),
+                  Just ("revision" .= _garRevision)])
 
 instance ToPath GetApplicationRevision where
         toPath = const "/"

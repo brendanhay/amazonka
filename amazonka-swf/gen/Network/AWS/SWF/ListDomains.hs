@@ -166,10 +166,12 @@ instance ToHeaders ListDomains where
 instance ToJSON ListDomains where
         toJSON ListDomains'{..}
           = object
-              ["nextPageToken" .= _ldNextPageToken,
-               "reverseOrder" .= _ldReverseOrder,
-               "maximumPageSize" .= _ldMaximumPageSize,
-               "registrationStatus" .= _ldRegistrationStatus]
+              (catMaybes
+                 [("nextPageToken" .=) <$> _ldNextPageToken,
+                  ("reverseOrder" .=) <$> _ldReverseOrder,
+                  ("maximumPageSize" .=) <$> _ldMaximumPageSize,
+                  Just
+                    ("registrationStatus" .= _ldRegistrationStatus)])
 
 instance ToPath ListDomains where
         toPath = const "/"

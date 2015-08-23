@@ -111,8 +111,9 @@ instance ToHeaders GetOpenIdToken where
 instance ToJSON GetOpenIdToken where
         toJSON GetOpenIdToken'{..}
           = object
-              ["Logins" .= _goitLogins,
-               "IdentityId" .= _goitIdentityId]
+              (catMaybes
+                 [("Logins" .=) <$> _goitLogins,
+                  Just ("IdentityId" .= _goitIdentityId)])
 
 instance ToPath GetOpenIdToken where
         toPath = const "/"

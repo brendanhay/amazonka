@@ -193,15 +193,18 @@ instance ToHeaders DescribeCases where
 instance ToJSON DescribeCases where
         toJSON DescribeCases'{..}
           = object
-              ["includeResolvedCases" .= _dcIncludeResolvedCases,
-               "caseIdList" .= _dcCaseIdList,
-               "afterTime" .= _dcAfterTime,
-               "nextToken" .= _dcNextToken,
-               "beforeTime" .= _dcBeforeTime,
-               "includeCommunications" .= _dcIncludeCommunications,
-               "displayId" .= _dcDisplayId,
-               "language" .= _dcLanguage,
-               "maxResults" .= _dcMaxResults]
+              (catMaybes
+                 [("includeResolvedCases" .=) <$>
+                    _dcIncludeResolvedCases,
+                  ("caseIdList" .=) <$> _dcCaseIdList,
+                  ("afterTime" .=) <$> _dcAfterTime,
+                  ("nextToken" .=) <$> _dcNextToken,
+                  ("beforeTime" .=) <$> _dcBeforeTime,
+                  ("includeCommunications" .=) <$>
+                    _dcIncludeCommunications,
+                  ("displayId" .=) <$> _dcDisplayId,
+                  ("language" .=) <$> _dcLanguage,
+                  ("maxResults" .=) <$> _dcMaxResults])
 
 instance ToPath DescribeCases where
         toPath = const "/"

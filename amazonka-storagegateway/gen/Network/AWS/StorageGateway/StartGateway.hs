@@ -101,7 +101,8 @@ instance ToHeaders StartGateway where
 
 instance ToJSON StartGateway where
         toJSON StartGateway'{..}
-          = object ["GatewayARN" .= _sgGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _sgGatewayARN)])
 
 instance ToPath StartGateway where
         toPath = const "/"

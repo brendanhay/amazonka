@@ -192,11 +192,13 @@ instance ToHeaders PutRecord where
 instance ToJSON PutRecord where
         toJSON PutRecord'{..}
           = object
-              ["ExplicitHashKey" .= _prExplicitHashKey,
-               "SequenceNumberForOrdering" .=
-                 _prSequenceNumberForOrdering,
-               "StreamName" .= _prStreamName, "Data" .= _prData,
-               "PartitionKey" .= _prPartitionKey]
+              (catMaybes
+                 [("ExplicitHashKey" .=) <$> _prExplicitHashKey,
+                  ("SequenceNumberForOrdering" .=) <$>
+                    _prSequenceNumberForOrdering,
+                  Just ("StreamName" .= _prStreamName),
+                  Just ("Data" .= _prData),
+                  Just ("PartitionKey" .= _prPartitionKey)])
 
 instance ToPath PutRecord where
         toPath = const "/"

@@ -106,8 +106,9 @@ instance ToHeaders DescribeRDSDBInstances where
 instance ToJSON DescribeRDSDBInstances where
         toJSON DescribeRDSDBInstances'{..}
           = object
-              ["RdsDbInstanceArns" .= _drdiRDSDBInstanceARNs,
-               "StackId" .= _drdiStackId]
+              (catMaybes
+                 [("RdsDbInstanceArns" .=) <$> _drdiRDSDBInstanceARNs,
+                  Just ("StackId" .= _drdiStackId)])
 
 instance ToPath DescribeRDSDBInstances where
         toPath = const "/"

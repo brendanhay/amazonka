@@ -117,9 +117,10 @@ instance ToHeaders ListTables where
 instance ToJSON ListTables where
         toJSON ListTables'{..}
           = object
-              ["ExclusiveStartTableName" .=
-                 _ltExclusiveStartTableName,
-               "Limit" .= _ltLimit]
+              (catMaybes
+                 [("ExclusiveStartTableName" .=) <$>
+                    _ltExclusiveStartTableName,
+                  ("Limit" .=) <$> _ltLimit])
 
 instance ToPath ListTables where
         toPath = const "/"

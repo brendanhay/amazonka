@@ -157,9 +157,11 @@ instance ToHeaders SplitShard where
 instance ToJSON SplitShard where
         toJSON SplitShard'{..}
           = object
-              ["StreamName" .= _ssStreamName,
-               "ShardToSplit" .= _ssShardToSplit,
-               "NewStartingHashKey" .= _ssNewStartingHashKey]
+              (catMaybes
+                 [Just ("StreamName" .= _ssStreamName),
+                  Just ("ShardToSplit" .= _ssShardToSplit),
+                  Just
+                    ("NewStartingHashKey" .= _ssNewStartingHashKey)])
 
 instance ToPath SplitShard where
         toPath = const "/"

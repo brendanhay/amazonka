@@ -136,9 +136,10 @@ instance ToHeaders ListTaskDefinitionFamilies where
 instance ToJSON ListTaskDefinitionFamilies where
         toJSON ListTaskDefinitionFamilies'{..}
           = object
-              ["familyPrefix" .= _ltdfFamilyPrefix,
-               "nextToken" .= _ltdfNextToken,
-               "maxResults" .= _ltdfMaxResults]
+              (catMaybes
+                 [("familyPrefix" .=) <$> _ltdfFamilyPrefix,
+                  ("nextToken" .=) <$> _ltdfNextToken,
+                  ("maxResults" .=) <$> _ltdfMaxResults])
 
 instance ToPath ListTaskDefinitionFamilies where
         toPath = const "/"

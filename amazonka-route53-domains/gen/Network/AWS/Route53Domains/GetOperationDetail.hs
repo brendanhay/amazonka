@@ -107,7 +107,8 @@ instance ToHeaders GetOperationDetail where
 
 instance ToJSON GetOperationDetail where
         toJSON GetOperationDetail'{..}
-          = object ["OperationId" .= _godOperationId]
+          = object
+              (catMaybes [Just ("OperationId" .= _godOperationId)])
 
 instance ToPath GetOperationDetail where
         toPath = const "/"

@@ -94,7 +94,7 @@ instance ToHeaders GetKeyRotationStatus where
 
 instance ToJSON GetKeyRotationStatus where
         toJSON GetKeyRotationStatus'{..}
-          = object ["KeyId" .= _gkrsKeyId]
+          = object (catMaybes [Just ("KeyId" .= _gkrsKeyId)])
 
 instance ToPath GetKeyRotationStatus where
         toPath = const "/"

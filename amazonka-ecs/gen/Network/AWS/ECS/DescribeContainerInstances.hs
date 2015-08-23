@@ -105,8 +105,10 @@ instance ToHeaders DescribeContainerInstances where
 instance ToJSON DescribeContainerInstances where
         toJSON DescribeContainerInstances'{..}
           = object
-              ["cluster" .= _dciCluster,
-               "containerInstances" .= _dciContainerInstances]
+              (catMaybes
+                 [("cluster" .=) <$> _dciCluster,
+                  Just
+                    ("containerInstances" .= _dciContainerInstances)])
 
 instance ToPath DescribeContainerInstances where
         toPath = const "/"

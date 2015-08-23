@@ -139,8 +139,9 @@ instance ToHeaders DescribeHSM where
 instance ToJSON DescribeHSM where
         toJSON DescribeHSM'{..}
           = object
-              ["HsmSerialNumber" .= _dhsmHSMSerialNumber,
-               "HsmArn" .= _dhsmHSMARN]
+              (catMaybes
+                 [("HsmSerialNumber" .=) <$> _dhsmHSMSerialNumber,
+                  ("HsmArn" .=) <$> _dhsmHSMARN])
 
 instance ToPath DescribeHSM where
         toPath = const "/"

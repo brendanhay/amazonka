@@ -132,8 +132,10 @@ instance ToHeaders DescribeTapeRecoveryPoints where
 instance ToJSON DescribeTapeRecoveryPoints where
         toJSON DescribeTapeRecoveryPoints'{..}
           = object
-              ["Marker" .= _dtrpMarker, "Limit" .= _dtrpLimit,
-               "GatewayARN" .= _dtrpGatewayARN]
+              (catMaybes
+                 [("Marker" .=) <$> _dtrpMarker,
+                  ("Limit" .=) <$> _dtrpLimit,
+                  Just ("GatewayARN" .= _dtrpGatewayARN)])
 
 instance ToPath DescribeTapeRecoveryPoints where
         toPath = const "/"

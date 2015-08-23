@@ -108,7 +108,7 @@ instance ToHeaders GetTrailStatus where
 
 instance ToJSON GetTrailStatus where
         toJSON GetTrailStatus'{..}
-          = object ["Name" .= _gtsName]
+          = object (catMaybes [Just ("Name" .= _gtsName)])
 
 instance ToPath GetTrailStatus where
         toPath = const "/"

@@ -102,7 +102,9 @@ instance ToHeaders ListRuns where
 instance ToJSON ListRuns where
         toJSON ListRuns'{..}
           = object
-              ["nextToken" .= _lrNextToken, "arn" .= _lrArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _lrNextToken,
+                  Just ("arn" .= _lrArn)])
 
 instance ToPath ListRuns where
         toPath = const "/"

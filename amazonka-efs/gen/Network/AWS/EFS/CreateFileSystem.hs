@@ -122,7 +122,9 @@ instance ToHeaders CreateFileSystem where
 
 instance ToJSON CreateFileSystem where
         toJSON CreateFileSystem'{..}
-          = object ["CreationToken" .= _cfsCreationToken]
+          = object
+              (catMaybes
+                 [Just ("CreationToken" .= _cfsCreationToken)])
 
 instance ToPath CreateFileSystem where
         toPath = const "/2015-02-01/file-systems"

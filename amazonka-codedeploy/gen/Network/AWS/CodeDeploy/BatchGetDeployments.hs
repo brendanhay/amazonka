@@ -91,7 +91,9 @@ instance ToHeaders BatchGetDeployments where
 
 instance ToJSON BatchGetDeployments where
         toJSON BatchGetDeployments'{..}
-          = object ["deploymentIds" .= _bgdDeploymentIds]
+          = object
+              (catMaybes
+                 [("deploymentIds" .=) <$> _bgdDeploymentIds])
 
 instance ToPath BatchGetDeployments where
         toPath = const "/"

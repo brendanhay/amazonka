@@ -102,8 +102,10 @@ instance ToHeaders TerminateWorkspaces where
 instance ToJSON TerminateWorkspaces where
         toJSON TerminateWorkspaces'{..}
           = object
-              ["TerminateWorkspaceRequests" .=
-                 _twTerminateWorkspaceRequests]
+              (catMaybes
+                 [Just
+                    ("TerminateWorkspaceRequests" .=
+                       _twTerminateWorkspaceRequests)])
 
 instance ToPath TerminateWorkspaces where
         toPath = const "/"

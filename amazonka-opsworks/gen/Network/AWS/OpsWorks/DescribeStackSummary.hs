@@ -95,7 +95,8 @@ instance ToHeaders DescribeStackSummary where
 
 instance ToJSON DescribeStackSummary where
         toJSON DescribeStackSummary'{..}
-          = object ["StackId" .= _dssStackId]
+          = object
+              (catMaybes [Just ("StackId" .= _dssStackId)])
 
 instance ToPath DescribeStackSummary where
         toPath = const "/"

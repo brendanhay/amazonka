@@ -89,7 +89,9 @@ instance ToHeaders GetApplication where
 
 instance ToJSON GetApplication where
         toJSON GetApplication'{..}
-          = object ["applicationName" .= _gaApplicationName]
+          = object
+              (catMaybes
+                 [Just ("applicationName" .= _gaApplicationName)])
 
 instance ToPath GetApplication where
         toPath = const "/"

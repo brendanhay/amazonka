@@ -102,7 +102,9 @@ instance ToHeaders ListSamples where
 instance ToJSON ListSamples where
         toJSON ListSamples'{..}
           = object
-              ["nextToken" .= _lsNextToken, "arn" .= _lsArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _lsNextToken,
+                  Just ("arn" .= _lsArn)])
 
 instance ToPath ListSamples where
         toPath = const "/"

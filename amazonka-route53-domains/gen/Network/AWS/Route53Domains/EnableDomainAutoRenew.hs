@@ -96,7 +96,8 @@ instance ToHeaders EnableDomainAutoRenew where
 
 instance ToJSON EnableDomainAutoRenew where
         toJSON EnableDomainAutoRenew'{..}
-          = object ["DomainName" .= _edarDomainName]
+          = object
+              (catMaybes [Just ("DomainName" .= _edarDomainName)])
 
 instance ToPath EnableDomainAutoRenew where
         toPath = const "/"

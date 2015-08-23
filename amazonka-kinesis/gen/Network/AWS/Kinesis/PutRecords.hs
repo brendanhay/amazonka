@@ -159,8 +159,9 @@ instance ToHeaders PutRecords where
 instance ToJSON PutRecords where
         toJSON PutRecords'{..}
           = object
-              ["Records" .= _pRecordEntries,
-               "StreamName" .= _pStreamName]
+              (catMaybes
+                 [Just ("Records" .= _pRecordEntries),
+                  Just ("StreamName" .= _pStreamName)])
 
 instance ToPath PutRecords where
         toPath = const "/"

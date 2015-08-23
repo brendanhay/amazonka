@@ -88,7 +88,8 @@ instance ToHeaders UnassignInstance where
 
 instance ToJSON UnassignInstance where
         toJSON UnassignInstance'{..}
-          = object ["InstanceId" .= _uInstanceId]
+          = object
+              (catMaybes [Just ("InstanceId" .= _uInstanceId)])
 
 instance ToPath UnassignInstance where
         toPath = const "/"

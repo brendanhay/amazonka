@@ -98,8 +98,9 @@ instance ToHeaders UpdateDefaultBranch where
 instance ToJSON UpdateDefaultBranch where
         toJSON UpdateDefaultBranch'{..}
           = object
-              ["repositoryName" .= _udbRepositoryName,
-               "defaultBranchName" .= _udbDefaultBranchName]
+              (catMaybes
+                 [Just ("repositoryName" .= _udbRepositoryName),
+                  Just ("defaultBranchName" .= _udbDefaultBranchName)])
 
 instance ToPath UpdateDefaultBranch where
         toPath = const "/"

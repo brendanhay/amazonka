@@ -134,8 +134,10 @@ instance ToHeaders RequestCancelWorkflowExecution
 instance ToJSON RequestCancelWorkflowExecution where
         toJSON RequestCancelWorkflowExecution'{..}
           = object
-              ["runId" .= _rcweRunId, "domain" .= _rcweDomain,
-               "workflowId" .= _rcweWorkflowId]
+              (catMaybes
+                 [("runId" .=) <$> _rcweRunId,
+                  Just ("domain" .= _rcweDomain),
+                  Just ("workflowId" .= _rcweWorkflowId)])
 
 instance ToPath RequestCancelWorkflowExecution where
         toPath = const "/"

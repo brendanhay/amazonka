@@ -111,8 +111,10 @@ instance ToHeaders RebuildWorkspaces where
 instance ToJSON RebuildWorkspaces where
         toJSON RebuildWorkspaces'{..}
           = object
-              ["RebuildWorkspaceRequests" .=
-                 _rwRebuildWorkspaceRequests]
+              (catMaybes
+                 [Just
+                    ("RebuildWorkspaceRequests" .=
+                       _rwRebuildWorkspaceRequests)])
 
 instance ToPath RebuildWorkspaces where
         toPath = const "/"

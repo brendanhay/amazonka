@@ -98,7 +98,8 @@ instance ToHeaders RefreshTrustedAdvisorCheck where
 
 instance ToJSON RefreshTrustedAdvisorCheck where
         toJSON RefreshTrustedAdvisorCheck'{..}
-          = object ["checkId" .= _rtacCheckId]
+          = object
+              (catMaybes [Just ("checkId" .= _rtacCheckId)])
 
 instance ToPath RefreshTrustedAdvisorCheck where
         toPath = const "/"

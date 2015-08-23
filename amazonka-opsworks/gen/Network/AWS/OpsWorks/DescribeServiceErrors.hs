@@ -118,9 +118,10 @@ instance ToHeaders DescribeServiceErrors where
 instance ToJSON DescribeServiceErrors where
         toJSON DescribeServiceErrors'{..}
           = object
-              ["InstanceId" .= _dseInstanceId,
-               "ServiceErrorIds" .= _dseServiceErrorIds,
-               "StackId" .= _dseStackId]
+              (catMaybes
+                 [("InstanceId" .=) <$> _dseInstanceId,
+                  ("ServiceErrorIds" .=) <$> _dseServiceErrorIds,
+                  ("StackId" .=) <$> _dseStackId])
 
 instance ToPath DescribeServiceErrors where
         toPath = const "/"

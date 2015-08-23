@@ -99,7 +99,9 @@ instance ToHeaders DescribeTimeBasedAutoScaling where
 
 instance ToJSON DescribeTimeBasedAutoScaling where
         toJSON DescribeTimeBasedAutoScaling'{..}
-          = object ["InstanceIds" .= _dtbasInstanceIds]
+          = object
+              (catMaybes
+                 [Just ("InstanceIds" .= _dtbasInstanceIds)])
 
 instance ToPath DescribeTimeBasedAutoScaling where
         toPath = const "/"

@@ -137,10 +137,11 @@ instance ToHeaders PutPipelineDefinition where
 instance ToJSON PutPipelineDefinition where
         toJSON PutPipelineDefinition'{..}
           = object
-              ["parameterObjects" .= _ppdParameterObjects,
-               "parameterValues" .= _ppdParameterValues,
-               "pipelineId" .= _ppdPipelineId,
-               "pipelineObjects" .= _ppdPipelineObjects]
+              (catMaybes
+                 [("parameterObjects" .=) <$> _ppdParameterObjects,
+                  ("parameterValues" .=) <$> _ppdParameterValues,
+                  Just ("pipelineId" .= _ppdPipelineId),
+                  Just ("pipelineObjects" .= _ppdPipelineObjects)])
 
 instance ToPath PutPipelineDefinition where
         toPath = const "/"

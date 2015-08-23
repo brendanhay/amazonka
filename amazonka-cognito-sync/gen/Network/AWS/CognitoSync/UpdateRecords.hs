@@ -170,9 +170,10 @@ instance ToHeaders UpdateRecords where
 instance ToJSON UpdateRecords where
         toJSON UpdateRecords'{..}
           = object
-              ["RecordPatches" .= _urRecordPatches,
-               "DeviceId" .= _urDeviceId,
-               "SyncSessionToken" .= _urSyncSessionToken]
+              (catMaybes
+                 [("RecordPatches" .=) <$> _urRecordPatches,
+                  ("DeviceId" .=) <$> _urDeviceId,
+                  Just ("SyncSessionToken" .= _urSyncSessionToken)])
 
 instance ToPath UpdateRecords where
         toPath UpdateRecords'{..}

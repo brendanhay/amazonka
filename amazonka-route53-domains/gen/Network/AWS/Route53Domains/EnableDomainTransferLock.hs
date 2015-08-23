@@ -104,7 +104,8 @@ instance ToHeaders EnableDomainTransferLock where
 
 instance ToJSON EnableDomainTransferLock where
         toJSON EnableDomainTransferLock'{..}
-          = object ["DomainName" .= _edtlDomainName]
+          = object
+              (catMaybes [Just ("DomainName" .= _edtlDomainName)])
 
 instance ToPath EnableDomainTransferLock where
         toPath = const "/"

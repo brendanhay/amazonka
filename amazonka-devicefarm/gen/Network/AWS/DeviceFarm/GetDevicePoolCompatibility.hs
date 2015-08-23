@@ -136,9 +136,10 @@ instance ToHeaders GetDevicePoolCompatibility where
 instance ToJSON GetDevicePoolCompatibility where
         toJSON GetDevicePoolCompatibility'{..}
           = object
-              ["testType" .= _gdpcTestType,
-               "devicePoolArn" .= _gdpcDevicePoolARN,
-               "appArn" .= _gdpcAppARN]
+              (catMaybes
+                 [("testType" .=) <$> _gdpcTestType,
+                  Just ("devicePoolArn" .= _gdpcDevicePoolARN),
+                  Just ("appArn" .= _gdpcAppARN)])
 
 instance ToPath GetDevicePoolCompatibility where
         toPath = const "/"

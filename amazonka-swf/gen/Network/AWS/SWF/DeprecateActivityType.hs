@@ -121,8 +121,9 @@ instance ToHeaders DeprecateActivityType where
 instance ToJSON DeprecateActivityType where
         toJSON DeprecateActivityType'{..}
           = object
-              ["domain" .= _depDomain,
-               "activityType" .= _depActivityType]
+              (catMaybes
+                 [Just ("domain" .= _depDomain),
+                  Just ("activityType" .= _depActivityType)])
 
 instance ToPath DeprecateActivityType where
         toPath = const "/"

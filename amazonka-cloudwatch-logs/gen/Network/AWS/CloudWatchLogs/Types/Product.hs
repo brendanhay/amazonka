@@ -197,8 +197,9 @@ ileMessage = lens _ileMessage (\ s a -> s{_ileMessage = a});
 instance ToJSON InputLogEvent where
         toJSON InputLogEvent'{..}
           = object
-              ["timestamp" .= _ileTimestamp,
-               "message" .= _ileMessage]
+              (catMaybes
+                 [Just ("timestamp" .= _ileTimestamp),
+                  Just ("message" .= _ileMessage)])
 
 -- | /See:/ 'logGroup' smart constructor.
 data LogGroup = LogGroup'
@@ -521,9 +522,10 @@ instance FromJSON MetricTransformation where
 instance ToJSON MetricTransformation where
         toJSON MetricTransformation'{..}
           = object
-              ["metricName" .= _mtMetricName,
-               "metricNamespace" .= _mtMetricNamespace,
-               "metricValue" .= _mtMetricValue]
+              (catMaybes
+                 [Just ("metricName" .= _mtMetricName),
+                  Just ("metricNamespace" .= _mtMetricNamespace),
+                  Just ("metricValue" .= _mtMetricValue)])
 
 -- | /See:/ 'outputLogEvent' smart constructor.
 data OutputLogEvent = OutputLogEvent'

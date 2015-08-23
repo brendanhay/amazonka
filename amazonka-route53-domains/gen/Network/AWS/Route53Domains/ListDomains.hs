@@ -133,7 +133,9 @@ instance ToHeaders ListDomains where
 instance ToJSON ListDomains where
         toJSON ListDomains'{..}
           = object
-              ["MaxItems" .= _ldMaxItems, "Marker" .= _ldMarker]
+              (catMaybes
+                 [("MaxItems" .=) <$> _ldMaxItems,
+                  ("Marker" .=) <$> _ldMarker])
 
 instance ToPath ListDomains where
         toPath = const "/"

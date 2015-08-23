@@ -139,15 +139,18 @@ instance ToHeaders UpdateIdentityPool where
 instance ToJSON UpdateIdentityPool where
         toJSON UpdateIdentityPool'{..}
           = object
-              ["SupportedLoginProviders" .=
-                 _uipSupportedLoginProviders,
-               "DeveloperProviderName" .= _uipDeveloperProviderName,
-               "OpenIdConnectProviderARNs" .=
-                 _uipOpenIdConnectProviderARNs,
-               "IdentityPoolId" .= _uipIdentityPoolId,
-               "IdentityPoolName" .= _uipIdentityPoolName,
-               "AllowUnauthenticatedIdentities" .=
-                 _uipAllowUnauthenticatedIdentities]
+              (catMaybes
+                 [("SupportedLoginProviders" .=) <$>
+                    _uipSupportedLoginProviders,
+                  ("DeveloperProviderName" .=) <$>
+                    _uipDeveloperProviderName,
+                  ("OpenIdConnectProviderARNs" .=) <$>
+                    _uipOpenIdConnectProviderARNs,
+                  Just ("IdentityPoolId" .= _uipIdentityPoolId),
+                  Just ("IdentityPoolName" .= _uipIdentityPoolName),
+                  Just
+                    ("AllowUnauthenticatedIdentities" .=
+                       _uipAllowUnauthenticatedIdentities)])
 
 instance ToPath UpdateIdentityPool where
         toPath = const "/"

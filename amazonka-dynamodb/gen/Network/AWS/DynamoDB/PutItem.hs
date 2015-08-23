@@ -545,19 +545,23 @@ instance ToHeaders PutItem where
 instance ToJSON PutItem where
         toJSON PutItem'{..}
           = object
-              ["ReturnValues" .= _piReturnValues,
-               "ExpressionAttributeNames" .=
-                 _piExpressionAttributeNames,
-               "ReturnConsumedCapacity" .=
-                 _piReturnConsumedCapacity,
-               "ExpressionAttributeValues" .=
-                 _piExpressionAttributeValues,
-               "ReturnItemCollectionMetrics" .=
-                 _piReturnItemCollectionMetrics,
-               "ConditionExpression" .= _piConditionExpression,
-               "ConditionalOperator" .= _piConditionalOperator,
-               "Expected" .= _piExpected,
-               "TableName" .= _piTableName, "Item" .= _piItem]
+              (catMaybes
+                 [("ReturnValues" .=) <$> _piReturnValues,
+                  ("ExpressionAttributeNames" .=) <$>
+                    _piExpressionAttributeNames,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _piReturnConsumedCapacity,
+                  ("ExpressionAttributeValues" .=) <$>
+                    _piExpressionAttributeValues,
+                  ("ReturnItemCollectionMetrics" .=) <$>
+                    _piReturnItemCollectionMetrics,
+                  ("ConditionExpression" .=) <$>
+                    _piConditionExpression,
+                  ("ConditionalOperator" .=) <$>
+                    _piConditionalOperator,
+                  ("Expected" .=) <$> _piExpected,
+                  Just ("TableName" .= _piTableName),
+                  Just ("Item" .= _piItem)])
 
 instance ToPath PutItem where
         toPath = const "/"

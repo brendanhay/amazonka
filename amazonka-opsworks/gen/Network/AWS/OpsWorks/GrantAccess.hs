@@ -102,8 +102,9 @@ instance ToHeaders GrantAccess where
 instance ToJSON GrantAccess where
         toJSON GrantAccess'{..}
           = object
-              ["ValidForInMinutes" .= _gaValidForInMinutes,
-               "InstanceId" .= _gaInstanceId]
+              (catMaybes
+                 [("ValidForInMinutes" .=) <$> _gaValidForInMinutes,
+                  Just ("InstanceId" .= _gaInstanceId)])
 
 instance ToPath GrantAccess where
         toPath = const "/"

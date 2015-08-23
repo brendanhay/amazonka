@@ -164,12 +164,15 @@ instance ToHeaders GetResourceConfigHistory where
 instance ToJSON GetResourceConfigHistory where
         toJSON GetResourceConfigHistory'{..}
           = object
-              ["chronologicalOrder" .= _grchChronologicalOrder,
-               "nextToken" .= _grchNextToken, "limit" .= _grchLimit,
-               "laterTime" .= _grchLaterTime,
-               "earlierTime" .= _grchEarlierTime,
-               "resourceType" .= _grchResourceType,
-               "resourceId" .= _grchResourceId]
+              (catMaybes
+                 [("chronologicalOrder" .=) <$>
+                    _grchChronologicalOrder,
+                  ("nextToken" .=) <$> _grchNextToken,
+                  ("limit" .=) <$> _grchLimit,
+                  ("laterTime" .=) <$> _grchLaterTime,
+                  ("earlierTime" .=) <$> _grchEarlierTime,
+                  Just ("resourceType" .= _grchResourceType),
+                  Just ("resourceId" .= _grchResourceId)])
 
 instance ToPath GetResourceConfigHistory where
         toPath = const "/"

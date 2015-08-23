@@ -159,10 +159,11 @@ instance ToHeaders UpdateDomainContact where
 instance ToJSON UpdateDomainContact where
         toJSON UpdateDomainContact'{..}
           = object
-              ["RegistrantContact" .= _udcRegistrantContact,
-               "AdminContact" .= _udcAdminContact,
-               "TechContact" .= _udcTechContact,
-               "DomainName" .= _udcDomainName]
+              (catMaybes
+                 [("RegistrantContact" .=) <$> _udcRegistrantContact,
+                  ("AdminContact" .=) <$> _udcAdminContact,
+                  ("TechContact" .=) <$> _udcTechContact,
+                  Just ("DomainName" .= _udcDomainName)])
 
 instance ToPath UpdateDomainContact where
         toPath = const "/"

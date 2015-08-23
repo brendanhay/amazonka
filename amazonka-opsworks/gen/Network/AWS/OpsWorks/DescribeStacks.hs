@@ -93,7 +93,8 @@ instance ToHeaders DescribeStacks where
 
 instance ToJSON DescribeStacks where
         toJSON DescribeStacks'{..}
-          = object ["StackIds" .= _dsStackIds]
+          = object
+              (catMaybes [("StackIds" .=) <$> _dsStackIds])
 
 instance ToPath DescribeStacks where
         toPath = const "/"

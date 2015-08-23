@@ -110,8 +110,10 @@ instance ToHeaders UpdateAssociationStatus where
 instance ToJSON UpdateAssociationStatus where
         toJSON UpdateAssociationStatus'{..}
           = object
-              ["Name" .= _uasName, "InstanceId" .= _uasInstanceId,
-               "AssociationStatus" .= _uasAssociationStatus]
+              (catMaybes
+                 [Just ("Name" .= _uasName),
+                  Just ("InstanceId" .= _uasInstanceId),
+                  Just ("AssociationStatus" .= _uasAssociationStatus)])
 
 instance ToPath UpdateAssociationStatus where
         toPath = const "/"

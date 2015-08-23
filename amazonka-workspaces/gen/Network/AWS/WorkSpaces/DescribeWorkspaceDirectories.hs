@@ -112,8 +112,9 @@ instance ToHeaders DescribeWorkspaceDirectories where
 instance ToJSON DescribeWorkspaceDirectories where
         toJSON DescribeWorkspaceDirectories'{..}
           = object
-              ["NextToken" .= _dwdNextToken,
-               "DirectoryIds" .= _dwdDirectoryIds]
+              (catMaybes
+                 [("NextToken" .=) <$> _dwdNextToken,
+                  ("DirectoryIds" .=) <$> _dwdDirectoryIds])
 
 instance ToPath DescribeWorkspaceDirectories where
         toPath = const "/"

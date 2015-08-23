@@ -89,7 +89,8 @@ instance ToHeaders CreateHAPG where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON CreateHAPG where
-        toJSON CreateHAPG'{..} = object ["Label" .= _chLabel]
+        toJSON CreateHAPG'{..}
+          = object (catMaybes [Just ("Label" .= _chLabel)])
 
 instance ToPath CreateHAPG where
         toPath = const "/"

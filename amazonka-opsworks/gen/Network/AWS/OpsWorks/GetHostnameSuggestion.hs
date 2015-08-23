@@ -97,7 +97,8 @@ instance ToHeaders GetHostnameSuggestion where
 
 instance ToJSON GetHostnameSuggestion where
         toJSON GetHostnameSuggestion'{..}
-          = object ["LayerId" .= _ghsLayerId]
+          = object
+              (catMaybes [Just ("LayerId" .= _ghsLayerId)])
 
 instance ToPath GetHostnameSuggestion where
         toPath = const "/"

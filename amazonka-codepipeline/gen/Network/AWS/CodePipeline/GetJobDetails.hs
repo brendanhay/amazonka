@@ -95,7 +95,7 @@ instance ToHeaders GetJobDetails where
 
 instance ToJSON GetJobDetails where
         toJSON GetJobDetails'{..}
-          = object ["jobId" .= _gjdJobId]
+          = object (catMaybes [Just ("jobId" .= _gjdJobId)])
 
 instance ToPath GetJobDetails where
         toPath = const "/"

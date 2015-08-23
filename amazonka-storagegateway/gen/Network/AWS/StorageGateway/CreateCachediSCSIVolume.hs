@@ -153,12 +153,15 @@ instance ToHeaders CreateCachediSCSIVolume where
 instance ToJSON CreateCachediSCSIVolume where
         toJSON CreateCachediSCSIVolume'{..}
           = object
-              ["SnapshotId" .= _ccscsivSnapshotId,
-               "GatewayARN" .= _ccscsivGatewayARN,
-               "VolumeSizeInBytes" .= _ccscsivVolumeSizeInBytes,
-               "TargetName" .= _ccscsivTargetName,
-               "NetworkInterfaceId" .= _ccscsivNetworkInterfaceId,
-               "ClientToken" .= _ccscsivClientToken]
+              (catMaybes
+                 [("SnapshotId" .=) <$> _ccscsivSnapshotId,
+                  Just ("GatewayARN" .= _ccscsivGatewayARN),
+                  Just
+                    ("VolumeSizeInBytes" .= _ccscsivVolumeSizeInBytes),
+                  Just ("TargetName" .= _ccscsivTargetName),
+                  Just
+                    ("NetworkInterfaceId" .= _ccscsivNetworkInterfaceId),
+                  Just ("ClientToken" .= _ccscsivClientToken)])
 
 instance ToPath CreateCachediSCSIVolume where
         toPath = const "/"

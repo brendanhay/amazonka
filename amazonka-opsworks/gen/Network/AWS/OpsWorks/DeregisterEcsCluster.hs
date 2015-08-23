@@ -89,7 +89,9 @@ instance ToHeaders DeregisterEcsCluster where
 
 instance ToJSON DeregisterEcsCluster where
         toJSON DeregisterEcsCluster'{..}
-          = object ["EcsClusterArn" .= _decEcsClusterARN]
+          = object
+              (catMaybes
+                 [Just ("EcsClusterArn" .= _decEcsClusterARN)])
 
 instance ToPath DeregisterEcsCluster where
         toPath = const "/"

@@ -99,8 +99,9 @@ instance ToHeaders TestMetricFilter where
 instance ToJSON TestMetricFilter where
         toJSON TestMetricFilter'{..}
           = object
-              ["filterPattern" .= _tmfFilterPattern,
-               "logEventMessages" .= _tmfLogEventMessages]
+              (catMaybes
+                 [Just ("filterPattern" .= _tmfFilterPattern),
+                  Just ("logEventMessages" .= _tmfLogEventMessages)])
 
 instance ToPath TestMetricFilter where
         toPath = const "/"

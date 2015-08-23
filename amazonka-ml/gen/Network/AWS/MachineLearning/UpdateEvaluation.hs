@@ -101,8 +101,9 @@ instance ToHeaders UpdateEvaluation where
 instance ToJSON UpdateEvaluation where
         toJSON UpdateEvaluation'{..}
           = object
-              ["EvaluationId" .= _ueEvaluationId,
-               "EvaluationName" .= _ueEvaluationName]
+              (catMaybes
+                 [Just ("EvaluationId" .= _ueEvaluationId),
+                  Just ("EvaluationName" .= _ueEvaluationName)])
 
 instance ToPath UpdateEvaluation where
         toPath = const "/"

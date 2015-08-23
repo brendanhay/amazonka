@@ -362,12 +362,14 @@ nVirtualGatewayId = lens _nVirtualGatewayId (\ s a -> s{_nVirtualGatewayId = a})
 instance ToJSON NewPrivateVirtualInterface where
         toJSON NewPrivateVirtualInterface'{..}
           = object
-              ["customerAddress" .= _nCustomerAddress,
-               "amazonAddress" .= _nAmazonAddress,
-               "authKey" .= _nAuthKey,
-               "virtualInterfaceName" .= _nVirtualInterfaceName,
-               "vlan" .= _nVlan, "asn" .= _nAsn,
-               "virtualGatewayId" .= _nVirtualGatewayId]
+              (catMaybes
+                 [("customerAddress" .=) <$> _nCustomerAddress,
+                  ("amazonAddress" .=) <$> _nAmazonAddress,
+                  ("authKey" .=) <$> _nAuthKey,
+                  Just
+                    ("virtualInterfaceName" .= _nVirtualInterfaceName),
+                  Just ("vlan" .= _nVlan), Just ("asn" .= _nAsn),
+                  Just ("virtualGatewayId" .= _nVirtualGatewayId)])
 
 -- | A structure containing information about a private virtual interface
 -- that will be provisioned on a connection.
@@ -440,11 +442,15 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
          where
         toJSON NewPrivateVirtualInterfaceAllocation'{..}
           = object
-              ["customerAddress" .= _npviaCustomerAddress,
-               "amazonAddress" .= _npviaAmazonAddress,
-               "authKey" .= _npviaAuthKey,
-               "virtualInterfaceName" .= _npviaVirtualInterfaceName,
-               "vlan" .= _npviaVlan, "asn" .= _npviaAsn]
+              (catMaybes
+                 [("customerAddress" .=) <$> _npviaCustomerAddress,
+                  ("amazonAddress" .=) <$> _npviaAmazonAddress,
+                  ("authKey" .=) <$> _npviaAuthKey,
+                  Just
+                    ("virtualInterfaceName" .=
+                       _npviaVirtualInterfaceName),
+                  Just ("vlan" .= _npviaVlan),
+                  Just ("asn" .= _npviaAsn)])
 
 -- | A structure containing information about a new public virtual interface.
 --
@@ -525,12 +531,16 @@ npviRouteFilterPrefixes = lens _npviRouteFilterPrefixes (\ s a -> s{_npviRouteFi
 instance ToJSON NewPublicVirtualInterface where
         toJSON NewPublicVirtualInterface'{..}
           = object
-              ["authKey" .= _npviAuthKey,
-               "virtualInterfaceName" .= _npviVirtualInterfaceName,
-               "vlan" .= _npviVlan, "asn" .= _npviAsn,
-               "amazonAddress" .= _npviAmazonAddress,
-               "customerAddress" .= _npviCustomerAddress,
-               "routeFilterPrefixes" .= _npviRouteFilterPrefixes]
+              (catMaybes
+                 [("authKey" .=) <$> _npviAuthKey,
+                  Just
+                    ("virtualInterfaceName" .=
+                       _npviVirtualInterfaceName),
+                  Just ("vlan" .= _npviVlan), Just ("asn" .= _npviAsn),
+                  Just ("amazonAddress" .= _npviAmazonAddress),
+                  Just ("customerAddress" .= _npviCustomerAddress),
+                  Just
+                    ("routeFilterPrefixes" .= _npviRouteFilterPrefixes)])
 
 -- | A structure containing information about a public virtual interface that
 -- will be provisioned on a connection.
@@ -613,12 +623,15 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
          where
         toJSON NewPublicVirtualInterfaceAllocation'{..}
           = object
-              ["authKey" .= _newAuthKey,
-               "virtualInterfaceName" .= _newVirtualInterfaceName,
-               "vlan" .= _newVlan, "asn" .= _newAsn,
-               "amazonAddress" .= _newAmazonAddress,
-               "customerAddress" .= _newCustomerAddress,
-               "routeFilterPrefixes" .= _newRouteFilterPrefixes]
+              (catMaybes
+                 [("authKey" .=) <$> _newAuthKey,
+                  Just
+                    ("virtualInterfaceName" .= _newVirtualInterfaceName),
+                  Just ("vlan" .= _newVlan), Just ("asn" .= _newAsn),
+                  Just ("amazonAddress" .= _newAmazonAddress),
+                  Just ("customerAddress" .= _newCustomerAddress),
+                  Just
+                    ("routeFilterPrefixes" .= _newRouteFilterPrefixes)])
 
 -- | A route filter prefix that the customer can advertise through Border
 -- Gateway Protocol (BGP) over a public virtual interface.
@@ -654,7 +667,7 @@ instance FromJSON RouteFilterPrefix where
 
 instance ToJSON RouteFilterPrefix where
         toJSON RouteFilterPrefix'{..}
-          = object ["cidr" .= _rfpCidr]
+          = object (catMaybes [("cidr" .=) <$> _rfpCidr])
 
 -- | You can create one or more AWS Direct Connect private virtual interfaces
 -- linking to your virtual private gateway.

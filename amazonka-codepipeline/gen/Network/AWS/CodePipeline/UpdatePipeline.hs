@@ -92,7 +92,8 @@ instance ToHeaders UpdatePipeline where
 
 instance ToJSON UpdatePipeline where
         toJSON UpdatePipeline'{..}
-          = object ["pipeline" .= _upPipeline]
+          = object
+              (catMaybes [Just ("pipeline" .= _upPipeline)])
 
 instance ToPath UpdatePipeline where
         toPath = const "/"

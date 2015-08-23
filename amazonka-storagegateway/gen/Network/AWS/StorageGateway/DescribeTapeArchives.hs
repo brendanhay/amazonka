@@ -129,8 +129,10 @@ instance ToHeaders DescribeTapeArchives where
 instance ToJSON DescribeTapeArchives where
         toJSON DescribeTapeArchives'{..}
           = object
-              ["Marker" .= _dtaMarker, "Limit" .= _dtaLimit,
-               "TapeARNs" .= _dtaTapeARNs]
+              (catMaybes
+                 [("Marker" .=) <$> _dtaMarker,
+                  ("Limit" .=) <$> _dtaLimit,
+                  ("TapeARNs" .=) <$> _dtaTapeARNs])
 
 instance ToPath DescribeTapeArchives where
         toPath = const "/"

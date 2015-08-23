@@ -119,8 +119,9 @@ instance ToHeaders ListArtifacts where
 instance ToJSON ListArtifacts where
         toJSON ListArtifacts'{..}
           = object
-              ["nextToken" .= _laNextToken, "arn" .= _laArn,
-               "type" .= _laType]
+              (catMaybes
+                 [("nextToken" .=) <$> _laNextToken,
+                  Just ("arn" .= _laArn), Just ("type" .= _laType)])
 
 instance ToPath ListArtifacts where
         toPath = const "/"

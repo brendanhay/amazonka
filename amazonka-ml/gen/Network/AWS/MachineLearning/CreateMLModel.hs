@@ -211,13 +211,16 @@ instance ToHeaders CreateMLModel where
 instance ToJSON CreateMLModel where
         toJSON CreateMLModel'{..}
           = object
-              ["Recipe" .= _cmlmRecipe,
-               "RecipeUri" .= _cmlmRecipeURI,
-               "MLModelName" .= _cmlmMLModelName,
-               "Parameters" .= _cmlmParameters,
-               "MLModelId" .= _cmlmMLModelId,
-               "MLModelType" .= _cmlmMLModelType,
-               "TrainingDataSourceId" .= _cmlmTrainingDataSourceId]
+              (catMaybes
+                 [("Recipe" .=) <$> _cmlmRecipe,
+                  ("RecipeUri" .=) <$> _cmlmRecipeURI,
+                  ("MLModelName" .=) <$> _cmlmMLModelName,
+                  ("Parameters" .=) <$> _cmlmParameters,
+                  Just ("MLModelId" .= _cmlmMLModelId),
+                  Just ("MLModelType" .= _cmlmMLModelType),
+                  Just
+                    ("TrainingDataSourceId" .=
+                       _cmlmTrainingDataSourceId)])
 
 instance ToPath CreateMLModel where
         toPath = const "/"

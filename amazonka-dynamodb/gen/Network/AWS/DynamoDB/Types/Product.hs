@@ -65,8 +65,9 @@ instance FromJSON AttributeDefinition where
 instance ToJSON AttributeDefinition where
         toJSON AttributeDefinition'{..}
           = object
-              ["AttributeName" .= _adAttributeName,
-               "AttributeType" .= _adAttributeType]
+              (catMaybes
+                 [Just ("AttributeName" .= _adAttributeName),
+                  Just ("AttributeType" .= _adAttributeType)])
 
 -- | Represents the data for an attribute. You can set one, and only one, of
 -- the elements.
@@ -194,10 +195,12 @@ instance FromJSON AttributeValue where
 instance ToJSON AttributeValue where
         toJSON AttributeValue'{..}
           = object
-              ["L" .= _avL, "M" .= _avM, "NS" .= _avNS,
-               "NULL" .= _avNULL, "N" .= _avN, "BS" .= _avBS,
-               "B" .= _avB, "SS" .= _avSS, "S" .= _avS,
-               "BOOL" .= _avBOOL]
+              (catMaybes
+                 [("L" .=) <$> _avL, ("M" .=) <$> _avM,
+                  ("NS" .=) <$> _avNS, ("NULL" .=) <$> _avNULL,
+                  ("N" .=) <$> _avN, ("BS" .=) <$> _avBS,
+                  ("B" .=) <$> _avB, ("SS" .=) <$> _avSS,
+                  ("S" .=) <$> _avS, ("BOOL" .=) <$> _avBOOL])
 
 -- | For the /UpdateItem/ operation, represents the attributes to be
 -- modified, the action to perform on each, and the new value for each.
@@ -314,7 +317,9 @@ avuAction = lens _avuAction (\ s a -> s{_avuAction = a});
 instance ToJSON AttributeValueUpdate where
         toJSON AttributeValueUpdate'{..}
           = object
-              ["Value" .= _avuValue, "Action" .= _avuAction]
+              (catMaybes
+                 [("Value" .=) <$> _avuValue,
+                  ("Action" .=) <$> _avuAction])
 
 -- | Represents the amount of provisioned throughput capacity consumed on a
 -- table or an index.
@@ -556,8 +561,9 @@ cComparisonOperator = lens _cComparisonOperator (\ s a -> s{_cComparisonOperator
 instance ToJSON Condition where
         toJSON Condition'{..}
           = object
-              ["AttributeValueList" .= _cAttributeValueList,
-               "ComparisonOperator" .= _cComparisonOperator]
+              (catMaybes
+                 [("AttributeValueList" .=) <$> _cAttributeValueList,
+                  Just ("ComparisonOperator" .= _cComparisonOperator)])
 
 -- | The capacity units consumed by an operation. The data returned includes
 -- the total provisioned throughput consumed, along with statistics for the
@@ -689,11 +695,13 @@ instance ToJSON CreateGlobalSecondaryIndexAction
          where
         toJSON CreateGlobalSecondaryIndexAction'{..}
           = object
-              ["IndexName" .= _cgsiaIndexName,
-               "KeySchema" .= _cgsiaKeySchema,
-               "Projection" .= _cgsiaProjection,
-               "ProvisionedThroughput" .=
-                 _cgsiaProvisionedThroughput]
+              (catMaybes
+                 [Just ("IndexName" .= _cgsiaIndexName),
+                  Just ("KeySchema" .= _cgsiaKeySchema),
+                  Just ("Projection" .= _cgsiaProjection),
+                  Just
+                    ("ProvisionedThroughput" .=
+                       _cgsiaProvisionedThroughput)])
 
 -- | Represents a global secondary index to be deleted from an existing
 -- table.
@@ -723,7 +731,8 @@ dgsiaIndexName = lens _dgsiaIndexName (\ s a -> s{_dgsiaIndexName = a});
 instance ToJSON DeleteGlobalSecondaryIndexAction
          where
         toJSON DeleteGlobalSecondaryIndexAction'{..}
-          = object ["IndexName" .= _dgsiaIndexName]
+          = object
+              (catMaybes [Just ("IndexName" .= _dgsiaIndexName)])
 
 -- | Represents a request to perform a /DeleteItem/ operation on an item.
 --
@@ -757,7 +766,8 @@ instance FromJSON DeleteRequest where
               (\ x -> DeleteRequest' <$> (x .:? "Key" .!= mempty))
 
 instance ToJSON DeleteRequest where
-        toJSON DeleteRequest'{..} = object ["Key" .= _drKey]
+        toJSON DeleteRequest'{..}
+          = object (catMaybes [Just ("Key" .= _drKey)])
 
 -- | Represents a condition to be compared with an attribute value. This
 -- condition can be used with /DeleteItem/, /PutItem/ or /UpdateItem/
@@ -1019,9 +1029,13 @@ eavComparisonOperator = lens _eavComparisonOperator (\ s a -> s{_eavComparisonOp
 instance ToJSON ExpectedAttributeValue where
         toJSON ExpectedAttributeValue'{..}
           = object
-              ["AttributeValueList" .= _eavAttributeValueList,
-               "Exists" .= _eavExists, "Value" .= _eavValue,
-               "ComparisonOperator" .= _eavComparisonOperator]
+              (catMaybes
+                 [("AttributeValueList" .=) <$>
+                    _eavAttributeValueList,
+                  ("Exists" .=) <$> _eavExists,
+                  ("Value" .=) <$> _eavValue,
+                  ("ComparisonOperator" .=) <$>
+                    _eavComparisonOperator])
 
 -- | Represents the properties of a global secondary index.
 --
@@ -1079,10 +1093,13 @@ gsiProvisionedThroughput = lens _gsiProvisionedThroughput (\ s a -> s{_gsiProvis
 instance ToJSON GlobalSecondaryIndex where
         toJSON GlobalSecondaryIndex'{..}
           = object
-              ["IndexName" .= _gsiIndexName,
-               "KeySchema" .= _gsiKeySchema,
-               "Projection" .= _gsiProjection,
-               "ProvisionedThroughput" .= _gsiProvisionedThroughput]
+              (catMaybes
+                 [Just ("IndexName" .= _gsiIndexName),
+                  Just ("KeySchema" .= _gsiKeySchema),
+                  Just ("Projection" .= _gsiProjection),
+                  Just
+                    ("ProvisionedThroughput" .=
+                       _gsiProvisionedThroughput)])
 
 -- | Represents the properties of a global secondary index.
 --
@@ -1273,8 +1290,10 @@ gsiuUpdate = lens _gsiuUpdate (\ s a -> s{_gsiuUpdate = a});
 instance ToJSON GlobalSecondaryIndexUpdate where
         toJSON GlobalSecondaryIndexUpdate'{..}
           = object
-              ["Create" .= _gsiuCreate, "Delete" .= _gsiuDelete,
-               "Update" .= _gsiuUpdate]
+              (catMaybes
+                 [("Create" .=) <$> _gsiuCreate,
+                  ("Delete" .=) <$> _gsiuDelete,
+                  ("Update" .=) <$> _gsiuUpdate])
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. /ItemCollectionMetrics/ is only returned if the request asked
@@ -1379,8 +1398,9 @@ instance FromJSON KeySchemaElement where
 instance ToJSON KeySchemaElement where
         toJSON KeySchemaElement'{..}
           = object
-              ["AttributeName" .= _kseAttributeName,
-               "KeyType" .= _kseKeyType]
+              (catMaybes
+                 [Just ("AttributeName" .= _kseAttributeName),
+                  Just ("KeyType" .= _kseKeyType)])
 
 -- | Represents a set of primary keys and, for each key, the attributes to
 -- retrieve from the table.
@@ -1513,12 +1533,14 @@ instance FromJSON KeysAndAttributes where
 instance ToJSON KeysAndAttributes where
         toJSON KeysAndAttributes'{..}
           = object
-              ["ProjectionExpression" .= _kaaProjectionExpression,
-               "ConsistentRead" .= _kaaConsistentRead,
-               "ExpressionAttributeNames" .=
-                 _kaaExpressionAttributeNames,
-               "AttributesToGet" .= _kaaAttributesToGet,
-               "Keys" .= _kaaKeys]
+              (catMaybes
+                 [("ProjectionExpression" .=) <$>
+                    _kaaProjectionExpression,
+                  ("ConsistentRead" .=) <$> _kaaConsistentRead,
+                  ("ExpressionAttributeNames" .=) <$>
+                    _kaaExpressionAttributeNames,
+                  ("AttributesToGet" .=) <$> _kaaAttributesToGet,
+                  Just ("Keys" .= _kaaKeys)])
 
 -- | Represents the properties of a local secondary index.
 --
@@ -1567,9 +1589,10 @@ lsiProjection = lens _lsiProjection (\ s a -> s{_lsiProjection = a});
 instance ToJSON LocalSecondaryIndex where
         toJSON LocalSecondaryIndex'{..}
           = object
-              ["IndexName" .= _lsiIndexName,
-               "KeySchema" .= _lsiKeySchema,
-               "Projection" .= _lsiProjection]
+              (catMaybes
+                 [Just ("IndexName" .= _lsiIndexName),
+                  Just ("KeySchema" .= _lsiKeySchema),
+                  Just ("Projection" .= _lsiProjection)])
 
 -- | Represents the properties of a local secondary index.
 --
@@ -1711,8 +1734,9 @@ instance FromJSON Projection where
 instance ToJSON Projection where
         toJSON Projection'{..}
           = object
-              ["ProjectionType" .= _pProjectionType,
-               "NonKeyAttributes" .= _pNonKeyAttributes]
+              (catMaybes
+                 [("ProjectionType" .=) <$> _pProjectionType,
+                  ("NonKeyAttributes" .=) <$> _pNonKeyAttributes])
 
 -- | Represents the provisioned throughput settings for a specified table or
 -- index. The settings can be modified using the /UpdateTable/ operation.
@@ -1762,8 +1786,10 @@ ptWriteCapacityUnits = lens _ptWriteCapacityUnits (\ s a -> s{_ptWriteCapacityUn
 instance ToJSON ProvisionedThroughput where
         toJSON ProvisionedThroughput'{..}
           = object
-              ["ReadCapacityUnits" .= _ptReadCapacityUnits,
-               "WriteCapacityUnits" .= _ptWriteCapacityUnits]
+              (catMaybes
+                 [Just ("ReadCapacityUnits" .= _ptReadCapacityUnits),
+                  Just
+                    ("WriteCapacityUnits" .= _ptWriteCapacityUnits)])
 
 -- | Represents the provisioned throughput settings for the table, consisting
 -- of read and write capacity units, along with data about increases and
@@ -1879,7 +1905,8 @@ instance FromJSON PutRequest where
               (\ x -> PutRequest' <$> (x .:? "Item" .!= mempty))
 
 instance ToJSON PutRequest where
-        toJSON PutRequest'{..} = object ["Item" .= _prItem]
+        toJSON PutRequest'{..}
+          = object (catMaybes [Just ("Item" .= _prItem)])
 
 -- | Represents the DynamoDB Streams configuration for a table in DynamoDB.
 --
@@ -1943,8 +1970,9 @@ instance FromJSON StreamSpecification where
 instance ToJSON StreamSpecification where
         toJSON StreamSpecification'{..}
           = object
-              ["StreamEnabled" .= _ssStreamEnabled,
-               "StreamViewType" .= _ssStreamViewType]
+              (catMaybes
+                 [("StreamEnabled" .=) <$> _ssStreamEnabled,
+                  ("StreamViewType" .=) <$> _ssStreamViewType])
 
 -- | Represents the properties of a table.
 --
@@ -2287,9 +2315,11 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
          where
         toJSON UpdateGlobalSecondaryIndexAction'{..}
           = object
-              ["IndexName" .= _ugsiaIndexName,
-               "ProvisionedThroughput" .=
-                 _ugsiaProvisionedThroughput]
+              (catMaybes
+                 [Just ("IndexName" .= _ugsiaIndexName),
+                  Just
+                    ("ProvisionedThroughput" .=
+                       _ugsiaProvisionedThroughput)])
 
 -- | Represents an operation to perform - either /DeleteItem/ or /PutItem/.
 -- You can only request one of these operations, not both, in a single
@@ -2335,5 +2365,6 @@ instance FromJSON WriteRequest where
 instance ToJSON WriteRequest where
         toJSON WriteRequest'{..}
           = object
-              ["PutRequest" .= _wrPutRequest,
-               "DeleteRequest" .= _wrDeleteRequest]
+              (catMaybes
+                 [("PutRequest" .=) <$> _wrPutRequest,
+                  ("DeleteRequest" .=) <$> _wrDeleteRequest])

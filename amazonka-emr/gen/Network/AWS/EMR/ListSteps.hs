@@ -128,9 +128,11 @@ instance ToHeaders ListSteps where
 instance ToJSON ListSteps where
         toJSON ListSteps'{..}
           = object
-              ["StepIds" .= _lsStepIds,
-               "StepStates" .= _lsStepStates, "Marker" .= _lsMarker,
-               "ClusterId" .= _lsClusterId]
+              (catMaybes
+                 [("StepIds" .=) <$> _lsStepIds,
+                  ("StepStates" .=) <$> _lsStepStates,
+                  ("Marker" .=) <$> _lsMarker,
+                  Just ("ClusterId" .= _lsClusterId)])
 
 instance ToPath ListSteps where
         toPath = const "/"

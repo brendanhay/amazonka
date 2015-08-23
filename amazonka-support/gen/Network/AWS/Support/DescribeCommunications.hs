@@ -155,10 +155,12 @@ instance ToHeaders DescribeCommunications where
 instance ToJSON DescribeCommunications where
         toJSON DescribeCommunications'{..}
           = object
-              ["afterTime" .= _dAfterTime,
-               "nextToken" .= _dNextToken,
-               "beforeTime" .= _dBeforeTime,
-               "maxResults" .= _dMaxResults, "caseId" .= _dCaseId]
+              (catMaybes
+                 [("afterTime" .=) <$> _dAfterTime,
+                  ("nextToken" .=) <$> _dNextToken,
+                  ("beforeTime" .=) <$> _dBeforeTime,
+                  ("maxResults" .=) <$> _dMaxResults,
+                  Just ("caseId" .= _dCaseId)])
 
 instance ToPath DescribeCommunications where
         toPath = const "/"

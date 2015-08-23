@@ -129,8 +129,10 @@ instance ToHeaders CreateSnapshot where
 instance ToJSON CreateSnapshot where
         toJSON CreateSnapshot'{..}
           = object
-              ["VolumeARN" .= _csVolumeARN,
-               "SnapshotDescription" .= _csSnapshotDescription]
+              (catMaybes
+                 [Just ("VolumeARN" .= _csVolumeARN),
+                  Just
+                    ("SnapshotDescription" .= _csSnapshotDescription)])
 
 instance ToPath CreateSnapshot where
         toPath = const "/"

@@ -102,7 +102,9 @@ instance ToHeaders ListUploads where
 instance ToJSON ListUploads where
         toJSON ListUploads'{..}
           = object
-              ["nextToken" .= _luNextToken, "arn" .= _luArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _luNextToken,
+                  Just ("arn" .= _luArn)])
 
 instance ToPath ListUploads where
         toPath = const "/"

@@ -120,8 +120,11 @@ instance ToHeaders SubmitTaskStateChange where
 instance ToJSON SubmitTaskStateChange where
         toJSON SubmitTaskStateChange'{..}
           = object
-              ["status" .= _stscStatus, "cluster" .= _stscCluster,
-               "reason" .= _stscReason, "task" .= _stscTask]
+              (catMaybes
+                 [("status" .=) <$> _stscStatus,
+                  ("cluster" .=) <$> _stscCluster,
+                  ("reason" .=) <$> _stscReason,
+                  ("task" .=) <$> _stscTask])
 
 instance ToPath SubmitTaskStateChange where
         toPath = const "/"

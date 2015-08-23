@@ -100,7 +100,9 @@ instance ToHeaders ConfirmPublicVirtualInterface
 instance ToJSON ConfirmPublicVirtualInterface where
         toJSON ConfirmPublicVirtualInterface'{..}
           = object
-              ["virtualInterfaceId" .= _cVirtualInterfaceId]
+              (catMaybes
+                 [Just
+                    ("virtualInterfaceId" .= _cVirtualInterfaceId)])
 
 instance ToPath ConfirmPublicVirtualInterface where
         toPath = const "/"

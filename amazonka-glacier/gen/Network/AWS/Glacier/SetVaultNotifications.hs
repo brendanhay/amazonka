@@ -135,8 +135,9 @@ instance ToHeaders SetVaultNotifications where
 instance ToJSON SetVaultNotifications where
         toJSON SetVaultNotifications'{..}
           = object
-              ["vaultNotificationConfig" .=
-                 _svnVaultNotificationConfig]
+              (catMaybes
+                 [("vaultNotificationConfig" .=) <$>
+                    _svnVaultNotificationConfig])
 
 instance ToPath SetVaultNotifications where
         toPath SetVaultNotifications'{..}

@@ -88,7 +88,7 @@ instance ToHeaders DeleteLayer where
 
 instance ToJSON DeleteLayer where
         toJSON DeleteLayer'{..}
-          = object ["LayerId" .= _dlLayerId]
+          = object (catMaybes [Just ("LayerId" .= _dlLayerId)])
 
 instance ToPath DeleteLayer where
         toPath = const "/"

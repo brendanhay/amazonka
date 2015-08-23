@@ -94,7 +94,9 @@ instance ToHeaders DeleteEvaluation where
 
 instance ToJSON DeleteEvaluation where
         toJSON DeleteEvaluation'{..}
-          = object ["EvaluationId" .= _deEvaluationId]
+          = object
+              (catMaybes
+                 [Just ("EvaluationId" .= _deEvaluationId)])
 
 instance ToPath DeleteEvaluation where
         toPath = const "/"

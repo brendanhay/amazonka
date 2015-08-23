@@ -102,7 +102,9 @@ instance ToHeaders ListJobs where
 instance ToJSON ListJobs where
         toJSON ListJobs'{..}
           = object
-              ["nextToken" .= _ljNextToken, "arn" .= _ljArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _ljNextToken,
+                  Just ("arn" .= _ljArn)])
 
 instance ToPath ListJobs where
         toPath = const "/"

@@ -147,11 +147,14 @@ instance ToHeaders SubmitContainerStateChange where
 instance ToJSON SubmitContainerStateChange where
         toJSON SubmitContainerStateChange'{..}
           = object
-              ["networkBindings" .= _scscNetworkBindings,
-               "status" .= _scscStatus, "cluster" .= _scscCluster,
-               "containerName" .= _scscContainerName,
-               "reason" .= _scscReason, "exitCode" .= _scscExitCode,
-               "task" .= _scscTask]
+              (catMaybes
+                 [("networkBindings" .=) <$> _scscNetworkBindings,
+                  ("status" .=) <$> _scscStatus,
+                  ("cluster" .=) <$> _scscCluster,
+                  ("containerName" .=) <$> _scscContainerName,
+                  ("reason" .=) <$> _scscReason,
+                  ("exitCode" .=) <$> _scscExitCode,
+                  ("task" .=) <$> _scscTask])
 
 instance ToPath SubmitContainerStateChange where
         toPath = const "/"

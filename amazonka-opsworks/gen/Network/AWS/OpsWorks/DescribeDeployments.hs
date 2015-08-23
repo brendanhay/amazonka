@@ -120,9 +120,10 @@ instance ToHeaders DescribeDeployments where
 instance ToJSON DescribeDeployments where
         toJSON DescribeDeployments'{..}
           = object
-              ["AppId" .= _ddAppId,
-               "DeploymentIds" .= _ddDeploymentIds,
-               "StackId" .= _ddStackId]
+              (catMaybes
+                 [("AppId" .=) <$> _ddAppId,
+                  ("DeploymentIds" .=) <$> _ddDeploymentIds,
+                  ("StackId" .=) <$> _ddStackId])
 
 instance ToPath DescribeDeployments where
         toPath = const "/"

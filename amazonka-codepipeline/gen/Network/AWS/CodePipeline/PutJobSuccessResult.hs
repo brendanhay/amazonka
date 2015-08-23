@@ -116,10 +116,11 @@ instance ToHeaders PutJobSuccessResult where
 instance ToJSON PutJobSuccessResult where
         toJSON PutJobSuccessResult'{..}
           = object
-              ["continuationToken" .= _pjsrContinuationToken,
-               "executionDetails" .= _pjsrExecutionDetails,
-               "currentRevision" .= _pjsrCurrentRevision,
-               "jobId" .= _pjsrJobId]
+              (catMaybes
+                 [("continuationToken" .=) <$> _pjsrContinuationToken,
+                  ("executionDetails" .=) <$> _pjsrExecutionDetails,
+                  ("currentRevision" .=) <$> _pjsrCurrentRevision,
+                  Just ("jobId" .= _pjsrJobId)])
 
 instance ToPath PutJobSuccessResult where
         toPath = const "/"

@@ -152,10 +152,12 @@ instance ToHeaders SignalWorkflowExecution where
 instance ToJSON SignalWorkflowExecution where
         toJSON SignalWorkflowExecution'{..}
           = object
-              ["input" .= _sweInput, "runId" .= _sweRunId,
-               "domain" .= _sweDomain,
-               "workflowId" .= _sweWorkflowId,
-               "signalName" .= _sweSignalName]
+              (catMaybes
+                 [("input" .=) <$> _sweInput,
+                  ("runId" .=) <$> _sweRunId,
+                  Just ("domain" .= _sweDomain),
+                  Just ("workflowId" .= _sweWorkflowId),
+                  Just ("signalName" .= _sweSignalName)])
 
 instance ToPath SignalWorkflowExecution where
         toPath = const "/"

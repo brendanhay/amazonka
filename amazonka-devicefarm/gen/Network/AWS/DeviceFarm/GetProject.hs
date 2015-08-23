@@ -87,7 +87,8 @@ instance ToHeaders GetProject where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetProject where
-        toJSON GetProject'{..} = object ["arn" .= _gpArn]
+        toJSON GetProject'{..}
+          = object (catMaybes [Just ("arn" .= _gpArn)])
 
 instance ToPath GetProject where
         toPath = const "/"

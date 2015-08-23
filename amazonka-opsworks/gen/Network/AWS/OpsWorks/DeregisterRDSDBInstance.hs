@@ -89,7 +89,8 @@ instance ToHeaders DeregisterRDSDBInstance where
 instance ToJSON DeregisterRDSDBInstance where
         toJSON DeregisterRDSDBInstance'{..}
           = object
-              ["RdsDbInstanceArn" .= _drdiRDSDBInstanceARN]
+              (catMaybes
+                 [Just ("RdsDbInstanceArn" .= _drdiRDSDBInstanceARN)])
 
 instance ToPath DeregisterRDSDBInstance where
         toPath = const "/"

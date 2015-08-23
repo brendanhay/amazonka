@@ -103,7 +103,7 @@ instance ToHeaders UpdatePipelineStatus where
 
 instance ToJSON UpdatePipelineStatus where
         toJSON UpdatePipelineStatus'{..}
-          = object ["Status" .= _upsStatus]
+          = object (catMaybes [Just ("Status" .= _upsStatus)])
 
 instance ToPath UpdatePipelineStatus where
         toPath UpdatePipelineStatus'{..}

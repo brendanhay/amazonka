@@ -86,7 +86,7 @@ instance ToHeaders DescribeDocument where
 
 instance ToJSON DescribeDocument where
         toJSON DescribeDocument'{..}
-          = object ["Name" .= _ddName]
+          = object (catMaybes [Just ("Name" .= _ddName)])
 
 instance ToPath DescribeDocument where
         toPath = const "/"

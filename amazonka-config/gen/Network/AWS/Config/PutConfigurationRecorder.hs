@@ -97,8 +97,10 @@ instance ToHeaders PutConfigurationRecorder where
 instance ToJSON PutConfigurationRecorder where
         toJSON PutConfigurationRecorder'{..}
           = object
-              ["ConfigurationRecorder" .=
-                 _pcrConfigurationRecorder]
+              (catMaybes
+                 [Just
+                    ("ConfigurationRecorder" .=
+                       _pcrConfigurationRecorder)])
 
 instance ToPath PutConfigurationRecorder where
         toPath = const "/"

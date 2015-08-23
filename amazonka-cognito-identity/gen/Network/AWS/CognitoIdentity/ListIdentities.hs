@@ -126,10 +126,11 @@ instance ToHeaders ListIdentities where
 instance ToJSON ListIdentities where
         toJSON ListIdentities'{..}
           = object
-              ["HideDisabled" .= _liHideDisabled,
-               "NextToken" .= _liNextToken,
-               "IdentityPoolId" .= _liIdentityPoolId,
-               "MaxResults" .= _liMaxResults]
+              (catMaybes
+                 [("HideDisabled" .=) <$> _liHideDisabled,
+                  ("NextToken" .=) <$> _liNextToken,
+                  Just ("IdentityPoolId" .= _liIdentityPoolId),
+                  Just ("MaxResults" .= _liMaxResults)])
 
 instance ToPath ListIdentities where
         toPath = const "/"

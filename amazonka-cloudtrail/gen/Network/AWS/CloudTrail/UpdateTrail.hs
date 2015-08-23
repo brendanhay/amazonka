@@ -169,14 +169,17 @@ instance ToHeaders UpdateTrail where
 instance ToJSON UpdateTrail where
         toJSON UpdateTrail'{..}
           = object
-              ["S3KeyPrefix" .= _utS3KeyPrefix,
-               "SnsTopicName" .= _utSNSTopicName,
-               "CloudWatchLogsLogGroupArn" .=
-                 _utCloudWatchLogsLogGroupARN,
-               "IncludeGlobalServiceEvents" .=
-                 _utIncludeGlobalServiceEvents,
-               "CloudWatchLogsRoleArn" .= _utCloudWatchLogsRoleARN,
-               "S3BucketName" .= _utS3BucketName, "Name" .= _utName]
+              (catMaybes
+                 [("S3KeyPrefix" .=) <$> _utS3KeyPrefix,
+                  ("SnsTopicName" .=) <$> _utSNSTopicName,
+                  ("CloudWatchLogsLogGroupArn" .=) <$>
+                    _utCloudWatchLogsLogGroupARN,
+                  ("IncludeGlobalServiceEvents" .=) <$>
+                    _utIncludeGlobalServiceEvents,
+                  ("CloudWatchLogsRoleArn" .=) <$>
+                    _utCloudWatchLogsRoleARN,
+                  ("S3BucketName" .=) <$> _utS3BucketName,
+                  Just ("Name" .= _utName)])
 
 instance ToPath UpdateTrail where
         toPath = const "/"

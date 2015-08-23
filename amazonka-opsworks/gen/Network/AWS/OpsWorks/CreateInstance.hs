@@ -297,21 +297,26 @@ instance ToHeaders CreateInstance where
 instance ToJSON CreateInstance where
         toJSON CreateInstance'{..}
           = object
-              ["InstallUpdatesOnBoot" .= _ciInstallUpdatesOnBoot,
-               "VirtualizationType" .= _ciVirtualizationType,
-               "Hostname" .= _ciHostname,
-               "SshKeyName" .= _ciSSHKeyName,
-               "AgentVersion" .= _ciAgentVersion,
-               "SubnetId" .= _ciSubnetId,
-               "EbsOptimized" .= _ciEBSOptimized, "Os" .= _ciOS,
-               "AvailabilityZone" .= _ciAvailabilityZone,
-               "AutoScalingType" .= _ciAutoScalingType,
-               "Architecture" .= _ciArchitecture,
-               "AmiId" .= _ciAMIId,
-               "BlockDeviceMappings" .= _ciBlockDeviceMappings,
-               "RootDeviceType" .= _ciRootDeviceType,
-               "StackId" .= _ciStackId, "LayerIds" .= _ciLayerIds,
-               "InstanceType" .= _ciInstanceType]
+              (catMaybes
+                 [("InstallUpdatesOnBoot" .=) <$>
+                    _ciInstallUpdatesOnBoot,
+                  ("VirtualizationType" .=) <$> _ciVirtualizationType,
+                  ("Hostname" .=) <$> _ciHostname,
+                  ("SshKeyName" .=) <$> _ciSSHKeyName,
+                  ("AgentVersion" .=) <$> _ciAgentVersion,
+                  ("SubnetId" .=) <$> _ciSubnetId,
+                  ("EbsOptimized" .=) <$> _ciEBSOptimized,
+                  ("Os" .=) <$> _ciOS,
+                  ("AvailabilityZone" .=) <$> _ciAvailabilityZone,
+                  ("AutoScalingType" .=) <$> _ciAutoScalingType,
+                  ("Architecture" .=) <$> _ciArchitecture,
+                  ("AmiId" .=) <$> _ciAMIId,
+                  ("BlockDeviceMappings" .=) <$>
+                    _ciBlockDeviceMappings,
+                  ("RootDeviceType" .=) <$> _ciRootDeviceType,
+                  Just ("StackId" .= _ciStackId),
+                  Just ("LayerIds" .= _ciLayerIds),
+                  Just ("InstanceType" .= _ciInstanceType)])
 
 instance ToPath CreateInstance where
         toPath = const "/"

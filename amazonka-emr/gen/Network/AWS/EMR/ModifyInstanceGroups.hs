@@ -85,7 +85,9 @@ instance ToHeaders ModifyInstanceGroups where
 
 instance ToJSON ModifyInstanceGroups where
         toJSON ModifyInstanceGroups'{..}
-          = object ["InstanceGroups" .= _migInstanceGroups]
+          = object
+              (catMaybes
+                 [("InstanceGroups" .=) <$> _migInstanceGroups])
 
 instance ToPath ModifyInstanceGroups where
         toPath = const "/"

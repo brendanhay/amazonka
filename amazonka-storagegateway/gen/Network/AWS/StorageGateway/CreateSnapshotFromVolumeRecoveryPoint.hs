@@ -127,8 +127,11 @@ instance ToJSON CreateSnapshotFromVolumeRecoveryPoint
          where
         toJSON CreateSnapshotFromVolumeRecoveryPoint'{..}
           = object
-              ["VolumeARN" .= _csfvrpVolumeARN,
-               "SnapshotDescription" .= _csfvrpSnapshotDescription]
+              (catMaybes
+                 [Just ("VolumeARN" .= _csfvrpVolumeARN),
+                  Just
+                    ("SnapshotDescription" .=
+                       _csfvrpSnapshotDescription)])
 
 instance ToPath CreateSnapshotFromVolumeRecoveryPoint
          where

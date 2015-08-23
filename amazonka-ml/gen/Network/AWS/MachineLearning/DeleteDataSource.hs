@@ -94,7 +94,9 @@ instance ToHeaders DeleteDataSource where
 
 instance ToJSON DeleteDataSource where
         toJSON DeleteDataSource'{..}
-          = object ["DataSourceId" .= _ddsDataSourceId]
+          = object
+              (catMaybes
+                 [Just ("DataSourceId" .= _ddsDataSourceId)])
 
 instance ToPath DeleteDataSource where
         toPath = const "/"

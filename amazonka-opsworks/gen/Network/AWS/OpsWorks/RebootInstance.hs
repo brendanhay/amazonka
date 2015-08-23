@@ -86,7 +86,8 @@ instance ToHeaders RebootInstance where
 
 instance ToJSON RebootInstance where
         toJSON RebootInstance'{..}
-          = object ["InstanceId" .= _riInstanceId]
+          = object
+              (catMaybes [Just ("InstanceId" .= _riInstanceId)])
 
 instance ToPath RebootInstance where
         toPath = const "/"

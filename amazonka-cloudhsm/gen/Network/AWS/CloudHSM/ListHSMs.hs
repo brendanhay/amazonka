@@ -94,7 +94,8 @@ instance ToHeaders ListHSMs where
 
 instance ToJSON ListHSMs where
         toJSON ListHSMs'{..}
-          = object ["NextToken" .= _lhsmNextToken]
+          = object
+              (catMaybes [("NextToken" .=) <$> _lhsmNextToken])
 
 instance ToPath ListHSMs where
         toPath = const "/"

@@ -248,9 +248,10 @@ instance ToHeaders BatchGetItem where
 instance ToJSON BatchGetItem where
         toJSON BatchGetItem'{..}
           = object
-              ["ReturnConsumedCapacity" .=
-                 _bgiReturnConsumedCapacity,
-               "RequestItems" .= _bgiRequestItems]
+              (catMaybes
+                 [("ReturnConsumedCapacity" .=) <$>
+                    _bgiReturnConsumedCapacity,
+                  Just ("RequestItems" .= _bgiRequestItems)])
 
 instance ToPath BatchGetItem where
         toPath = const "/"

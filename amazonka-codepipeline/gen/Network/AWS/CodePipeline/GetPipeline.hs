@@ -102,7 +102,10 @@ instance ToHeaders GetPipeline where
 
 instance ToJSON GetPipeline where
         toJSON GetPipeline'{..}
-          = object ["version" .= _gpVersion, "name" .= _gpName]
+          = object
+              (catMaybes
+                 [("version" .=) <$> _gpVersion,
+                  Just ("name" .= _gpName)])
 
 instance ToPath GetPipeline where
         toPath = const "/"

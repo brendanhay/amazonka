@@ -87,7 +87,9 @@ instance ToHeaders CreateLogGroup where
 
 instance ToJSON CreateLogGroup where
         toJSON CreateLogGroup'{..}
-          = object ["logGroupName" .= _clgLogGroupName]
+          = object
+              (catMaybes
+                 [Just ("logGroupName" .= _clgLogGroupName)])
 
 instance ToPath CreateLogGroup where
         toPath = const "/"

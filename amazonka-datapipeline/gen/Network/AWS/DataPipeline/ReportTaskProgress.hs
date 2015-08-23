@@ -112,7 +112,9 @@ instance ToHeaders ReportTaskProgress where
 instance ToJSON ReportTaskProgress where
         toJSON ReportTaskProgress'{..}
           = object
-              ["fields" .= _rtpFields, "taskId" .= _rtpTaskId]
+              (catMaybes
+                 [("fields" .=) <$> _rtpFields,
+                  Just ("taskId" .= _rtpTaskId)])
 
 instance ToPath ReportTaskProgress where
         toPath = const "/"

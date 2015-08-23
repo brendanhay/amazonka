@@ -98,7 +98,9 @@ instance ToHeaders DeleteBatchPrediction where
 instance ToJSON DeleteBatchPrediction where
         toJSON DeleteBatchPrediction'{..}
           = object
-              ["BatchPredictionId" .= _dbpBatchPredictionId]
+              (catMaybes
+                 [Just
+                    ("BatchPredictionId" .= _dbpBatchPredictionId)])
 
 instance ToPath DeleteBatchPrediction where
         toPath = const "/"

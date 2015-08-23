@@ -82,7 +82,8 @@ instance ToHeaders DeleteAlias where
 
 instance ToJSON DeleteAlias where
         toJSON DeleteAlias'{..}
-          = object ["AliasName" .= _daAliasName]
+          = object
+              (catMaybes [Just ("AliasName" .= _daAliasName)])
 
 instance ToPath DeleteAlias where
         toPath = const "/"

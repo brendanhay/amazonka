@@ -113,8 +113,9 @@ instance ToHeaders CheckDomainAvailability where
 instance ToJSON CheckDomainAvailability where
         toJSON CheckDomainAvailability'{..}
           = object
-              ["IdnLangCode" .= _cdaIdNLangCode,
-               "DomainName" .= _cdaDomainName]
+              (catMaybes
+                 [("IdnLangCode" .=) <$> _cdaIdNLangCode,
+                  Just ("DomainName" .= _cdaDomainName)])
 
 instance ToPath CheckDomainAvailability where
         toPath = const "/"

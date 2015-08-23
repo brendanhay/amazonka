@@ -106,7 +106,8 @@ instance ToHeaders DeleteGateway where
 
 instance ToJSON DeleteGateway where
         toJSON DeleteGateway'{..}
-          = object ["GatewayARN" .= _dgGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dgGatewayARN)])
 
 instance ToPath DeleteGateway where
         toPath = const "/"

@@ -114,9 +114,11 @@ instance ToHeaders ListTagsForStream where
 instance ToJSON ListTagsForStream where
         toJSON ListTagsForStream'{..}
           = object
-              ["Limit" .= _ltfsLimit,
-               "ExclusiveStartTagKey" .= _ltfsExclusiveStartTagKey,
-               "StreamName" .= _ltfsStreamName]
+              (catMaybes
+                 [("Limit" .=) <$> _ltfsLimit,
+                  ("ExclusiveStartTagKey" .=) <$>
+                    _ltfsExclusiveStartTagKey,
+                  Just ("StreamName" .= _ltfsStreamName)])
 
 instance ToPath ListTagsForStream where
         toPath = const "/"

@@ -131,9 +131,10 @@ instance ToHeaders ListServices where
 instance ToJSON ListServices where
         toJSON ListServices'{..}
           = object
-              ["cluster" .= _lsCluster,
-               "nextToken" .= _lsNextToken,
-               "maxResults" .= _lsMaxResults]
+              (catMaybes
+                 [("cluster" .=) <$> _lsCluster,
+                  ("nextToken" .=) <$> _lsNextToken,
+                  ("maxResults" .=) <$> _lsMaxResults])
 
 instance ToPath ListServices where
         toPath = const "/"

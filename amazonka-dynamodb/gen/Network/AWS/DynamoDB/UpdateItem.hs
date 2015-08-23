@@ -722,21 +722,25 @@ instance ToHeaders UpdateItem where
 instance ToJSON UpdateItem where
         toJSON UpdateItem'{..}
           = object
-              ["ReturnValues" .= _uiReturnValues,
-               "ExpressionAttributeNames" .=
-                 _uiExpressionAttributeNames,
-               "UpdateExpression" .= _uiUpdateExpression,
-               "AttributeUpdates" .= _uiAttributeUpdates,
-               "ReturnConsumedCapacity" .=
-                 _uiReturnConsumedCapacity,
-               "ExpressionAttributeValues" .=
-                 _uiExpressionAttributeValues,
-               "ReturnItemCollectionMetrics" .=
-                 _uiReturnItemCollectionMetrics,
-               "ConditionExpression" .= _uiConditionExpression,
-               "ConditionalOperator" .= _uiConditionalOperator,
-               "Expected" .= _uiExpected,
-               "TableName" .= _uiTableName, "Key" .= _uiKey]
+              (catMaybes
+                 [("ReturnValues" .=) <$> _uiReturnValues,
+                  ("ExpressionAttributeNames" .=) <$>
+                    _uiExpressionAttributeNames,
+                  ("UpdateExpression" .=) <$> _uiUpdateExpression,
+                  ("AttributeUpdates" .=) <$> _uiAttributeUpdates,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _uiReturnConsumedCapacity,
+                  ("ExpressionAttributeValues" .=) <$>
+                    _uiExpressionAttributeValues,
+                  ("ReturnItemCollectionMetrics" .=) <$>
+                    _uiReturnItemCollectionMetrics,
+                  ("ConditionExpression" .=) <$>
+                    _uiConditionExpression,
+                  ("ConditionalOperator" .=) <$>
+                    _uiConditionalOperator,
+                  ("Expected" .=) <$> _uiExpected,
+                  Just ("TableName" .= _uiTableName),
+                  Just ("Key" .= _uiKey)])
 
 instance ToPath UpdateItem where
         toPath = const "/"

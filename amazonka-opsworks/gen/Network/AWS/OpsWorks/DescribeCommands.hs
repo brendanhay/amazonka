@@ -119,9 +119,10 @@ instance ToHeaders DescribeCommands where
 instance ToJSON DescribeCommands where
         toJSON DescribeCommands'{..}
           = object
-              ["InstanceId" .= _dcInstanceId,
-               "DeploymentId" .= _dcDeploymentId,
-               "CommandIds" .= _dcCommandIds]
+              (catMaybes
+                 [("InstanceId" .=) <$> _dcInstanceId,
+                  ("DeploymentId" .=) <$> _dcDeploymentId,
+                  ("CommandIds" .=) <$> _dcCommandIds])
 
 instance ToPath DescribeCommands where
         toPath = const "/"

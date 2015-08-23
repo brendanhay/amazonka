@@ -93,7 +93,9 @@ instance ToHeaders DescribeInterconnects where
 
 instance ToJSON DescribeInterconnects where
         toJSON DescribeInterconnects'{..}
-          = object ["interconnectId" .= _diInterconnectId]
+          = object
+              (catMaybes
+                 [("interconnectId" .=) <$> _diInterconnectId])
 
 instance ToPath DescribeInterconnects where
         toPath = const "/"

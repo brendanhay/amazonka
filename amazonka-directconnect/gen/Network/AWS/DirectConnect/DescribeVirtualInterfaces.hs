@@ -112,8 +112,10 @@ instance ToHeaders DescribeVirtualInterfaces where
 instance ToJSON DescribeVirtualInterfaces where
         toJSON DescribeVirtualInterfaces'{..}
           = object
-              ["connectionId" .= _dviConnectionId,
-               "virtualInterfaceId" .= _dviVirtualInterfaceId]
+              (catMaybes
+                 [("connectionId" .=) <$> _dviConnectionId,
+                  ("virtualInterfaceId" .=) <$>
+                    _dviVirtualInterfaceId])
 
 instance ToPath DescribeVirtualInterfaces where
         toPath = const "/"

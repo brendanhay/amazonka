@@ -137,8 +137,10 @@ instance ToHeaders DeregisterContainerInstance where
 instance ToJSON DeregisterContainerInstance where
         toJSON DeregisterContainerInstance'{..}
           = object
-              ["cluster" .= _derCluster, "force" .= _derForce,
-               "containerInstance" .= _derContainerInstance]
+              (catMaybes
+                 [("cluster" .=) <$> _derCluster,
+                  ("force" .=) <$> _derForce,
+                  Just ("containerInstance" .= _derContainerInstance)])
 
 instance ToPath DeregisterContainerInstance where
         toPath = const "/"

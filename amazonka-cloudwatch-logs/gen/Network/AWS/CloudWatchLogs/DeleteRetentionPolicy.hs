@@ -84,7 +84,9 @@ instance ToHeaders DeleteRetentionPolicy where
 
 instance ToJSON DeleteRetentionPolicy where
         toJSON DeleteRetentionPolicy'{..}
-          = object ["logGroupName" .= _drpLogGroupName]
+          = object
+              (catMaybes
+                 [Just ("logGroupName" .= _drpLogGroupName)])
 
 instance ToPath DeleteRetentionPolicy where
         toPath = const "/"

@@ -164,11 +164,13 @@ instance ToHeaders CreateGrant where
 instance ToJSON CreateGrant where
         toJSON CreateGrant'{..}
           = object
-              ["RetiringPrincipal" .= _cgRetiringPrincipal,
-               "Constraints" .= _cgConstraints,
-               "GrantTokens" .= _cgGrantTokens,
-               "Operations" .= _cgOperations, "KeyId" .= _cgKeyId,
-               "GranteePrincipal" .= _cgGranteePrincipal]
+              (catMaybes
+                 [("RetiringPrincipal" .=) <$> _cgRetiringPrincipal,
+                  ("Constraints" .=) <$> _cgConstraints,
+                  ("GrantTokens" .=) <$> _cgGrantTokens,
+                  ("Operations" .=) <$> _cgOperations,
+                  Just ("KeyId" .= _cgKeyId),
+                  Just ("GranteePrincipal" .= _cgGranteePrincipal)])
 
 instance ToPath CreateGrant where
         toPath = const "/"

@@ -89,7 +89,8 @@ instance ToHeaders StopInstance where
 
 instance ToJSON StopInstance where
         toJSON StopInstance'{..}
-          = object ["InstanceId" .= _siInstanceId]
+          = object
+              (catMaybes [Just ("InstanceId" .= _siInstanceId)])
 
 instance ToPath StopInstance where
         toPath = const "/"

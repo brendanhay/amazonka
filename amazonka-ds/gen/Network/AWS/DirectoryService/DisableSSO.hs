@@ -116,9 +116,10 @@ instance ToHeaders DisableSSO where
 instance ToJSON DisableSSO where
         toJSON DisableSSO'{..}
           = object
-              ["UserName" .= _dssoUserName,
-               "Password" .= _dssoPassword,
-               "DirectoryId" .= _dssoDirectoryId]
+              (catMaybes
+                 [("UserName" .=) <$> _dssoUserName,
+                  ("Password" .=) <$> _dssoPassword,
+                  Just ("DirectoryId" .= _dssoDirectoryId)])
 
 instance ToPath DisableSSO where
         toPath = const "/"

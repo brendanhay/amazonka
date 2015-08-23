@@ -104,7 +104,8 @@ instance ToHeaders DeleteVolume where
 
 instance ToJSON DeleteVolume where
         toJSON DeleteVolume'{..}
-          = object ["VolumeARN" .= _dvVolumeARN]
+          = object
+              (catMaybes [Just ("VolumeARN" .= _dvVolumeARN)])
 
 instance ToPath DeleteVolume where
         toPath = const "/"

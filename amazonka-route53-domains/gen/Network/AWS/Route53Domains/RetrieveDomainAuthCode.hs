@@ -101,7 +101,8 @@ instance ToHeaders RetrieveDomainAuthCode where
 
 instance ToJSON RetrieveDomainAuthCode where
         toJSON RetrieveDomainAuthCode'{..}
-          = object ["DomainName" .= _rdacDomainName]
+          = object
+              (catMaybes [Just ("DomainName" .= _rdacDomainName)])
 
 instance ToPath RetrieveDomainAuthCode where
         toPath = const "/"

@@ -80,7 +80,9 @@ instance ToHeaders DeleteLogGroup where
 
 instance ToJSON DeleteLogGroup where
         toJSON DeleteLogGroup'{..}
-          = object ["logGroupName" .= _dlgLogGroupName]
+          = object
+              (catMaybes
+                 [Just ("logGroupName" .= _dlgLogGroupName)])
 
 instance ToPath DeleteLogGroup where
         toPath = const "/"

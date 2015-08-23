@@ -92,7 +92,9 @@ instance ToHeaders DeleteVirtualInterface where
 instance ToJSON DeleteVirtualInterface where
         toJSON DeleteVirtualInterface'{..}
           = object
-              ["virtualInterfaceId" .= _dVirtualInterfaceId]
+              (catMaybes
+                 [Just
+                    ("virtualInterfaceId" .= _dVirtualInterfaceId)])
 
 instance ToPath DeleteVirtualInterface where
         toPath = const "/"

@@ -131,7 +131,9 @@ instance ToHeaders RespondActivityTaskCanceled where
 instance ToJSON RespondActivityTaskCanceled where
         toJSON RespondActivityTaskCanceled'{..}
           = object
-              ["details" .= _rDetails, "taskToken" .= _rTaskToken]
+              (catMaybes
+                 [("details" .=) <$> _rDetails,
+                  Just ("taskToken" .= _rTaskToken)])
 
 instance ToPath RespondActivityTaskCanceled where
         toPath = const "/"

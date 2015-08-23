@@ -86,7 +86,9 @@ instance ToHeaders DeleteIdentityPool where
 
 instance ToJSON DeleteIdentityPool where
         toJSON DeleteIdentityPool'{..}
-          = object ["IdentityPoolId" .= _dIdentityPoolId]
+          = object
+              (catMaybes
+                 [Just ("IdentityPoolId" .= _dIdentityPoolId)])
 
 instance ToPath DeleteIdentityPool where
         toPath = const "/"

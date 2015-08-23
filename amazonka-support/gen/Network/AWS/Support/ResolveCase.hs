@@ -91,7 +91,7 @@ instance ToHeaders ResolveCase where
 
 instance ToJSON ResolveCase where
         toJSON ResolveCase'{..}
-          = object ["caseId" .= _rcCaseId]
+          = object (catMaybes [("caseId" .=) <$> _rcCaseId])
 
 instance ToPath ResolveCase where
         toPath = const "/"

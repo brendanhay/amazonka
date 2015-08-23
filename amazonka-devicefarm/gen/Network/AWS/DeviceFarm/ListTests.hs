@@ -102,7 +102,9 @@ instance ToHeaders ListTests where
 instance ToJSON ListTests where
         toJSON ListTests'{..}
           = object
-              ["nextToken" .= _ltNextToken, "arn" .= _ltArn]
+              (catMaybes
+                 [("nextToken" .=) <$> _ltNextToken,
+                  Just ("arn" .= _ltArn)])
 
 instance ToPath ListTests where
         toPath = const "/"

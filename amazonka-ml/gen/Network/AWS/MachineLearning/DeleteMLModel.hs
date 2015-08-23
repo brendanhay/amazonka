@@ -93,7 +93,8 @@ instance ToHeaders DeleteMLModel where
 
 instance ToJSON DeleteMLModel where
         toJSON DeleteMLModel'{..}
-          = object ["MLModelId" .= _dmlmMLModelId]
+          = object
+              (catMaybes [Just ("MLModelId" .= _dmlmMLModelId)])
 
 instance ToPath DeleteMLModel where
         toPath = const "/"

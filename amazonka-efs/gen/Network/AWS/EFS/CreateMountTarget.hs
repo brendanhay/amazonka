@@ -210,10 +210,11 @@ instance ToHeaders CreateMountTarget where
 instance ToJSON CreateMountTarget where
         toJSON CreateMountTarget'{..}
           = object
-              ["IpAddress" .= _cmtIPAddress,
-               "SecurityGroups" .= _cmtSecurityGroups,
-               "FileSystemId" .= _cmtFileSystemId,
-               "SubnetId" .= _cmtSubnetId]
+              (catMaybes
+                 [("IpAddress" .=) <$> _cmtIPAddress,
+                  ("SecurityGroups" .=) <$> _cmtSecurityGroups,
+                  Just ("FileSystemId" .= _cmtFileSystemId),
+                  Just ("SubnetId" .= _cmtSubnetId)])
 
 instance ToPath CreateMountTarget where
         toPath = const "/2015-02-01/mount-targets"

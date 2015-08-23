@@ -240,16 +240,20 @@ instance ToHeaders UpdateInstance where
 instance ToJSON UpdateInstance where
         toJSON UpdateInstance'{..}
           = object
-              ["InstallUpdatesOnBoot" .= _uiInstallUpdatesOnBoot,
-               "Hostname" .= _uiHostname,
-               "SshKeyName" .= _uiSSHKeyName,
-               "AgentVersion" .= _uiAgentVersion,
-               "InstanceType" .= _uiInstanceType,
-               "EbsOptimized" .= _uiEBSOptimized, "Os" .= _uiOS,
-               "AutoScalingType" .= _uiAutoScalingType,
-               "LayerIds" .= _uiLayerIds,
-               "Architecture" .= _uiArchitecture,
-               "AmiId" .= _uiAMIId, "InstanceId" .= _uiInstanceId]
+              (catMaybes
+                 [("InstallUpdatesOnBoot" .=) <$>
+                    _uiInstallUpdatesOnBoot,
+                  ("Hostname" .=) <$> _uiHostname,
+                  ("SshKeyName" .=) <$> _uiSSHKeyName,
+                  ("AgentVersion" .=) <$> _uiAgentVersion,
+                  ("InstanceType" .=) <$> _uiInstanceType,
+                  ("EbsOptimized" .=) <$> _uiEBSOptimized,
+                  ("Os" .=) <$> _uiOS,
+                  ("AutoScalingType" .=) <$> _uiAutoScalingType,
+                  ("LayerIds" .=) <$> _uiLayerIds,
+                  ("Architecture" .=) <$> _uiArchitecture,
+                  ("AmiId" .=) <$> _uiAMIId,
+                  Just ("InstanceId" .= _uiInstanceId)])
 
 instance ToPath UpdateInstance where
         toPath = const "/"

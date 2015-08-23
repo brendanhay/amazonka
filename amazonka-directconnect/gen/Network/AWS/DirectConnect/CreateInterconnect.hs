@@ -139,9 +139,10 @@ instance ToHeaders CreateInterconnect where
 instance ToJSON CreateInterconnect where
         toJSON CreateInterconnect'{..}
           = object
-              ["interconnectName" .= _ciInterconnectName,
-               "bandwidth" .= _ciBandwidth,
-               "location" .= _ciLocation]
+              (catMaybes
+                 [Just ("interconnectName" .= _ciInterconnectName),
+                  Just ("bandwidth" .= _ciBandwidth),
+                  Just ("location" .= _ciLocation)])
 
 instance ToPath CreateInterconnect where
         toPath = const "/"

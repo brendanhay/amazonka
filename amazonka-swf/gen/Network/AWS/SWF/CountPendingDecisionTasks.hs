@@ -117,8 +117,9 @@ instance ToHeaders CountPendingDecisionTasks where
 instance ToJSON CountPendingDecisionTasks where
         toJSON CountPendingDecisionTasks'{..}
           = object
-              ["domain" .= _cpdtDomain,
-               "taskList" .= _cpdtTaskList]
+              (catMaybes
+                 [Just ("domain" .= _cpdtDomain),
+                  Just ("taskList" .= _cpdtTaskList)])
 
 instance ToPath CountPendingDecisionTasks where
         toPath = const "/"

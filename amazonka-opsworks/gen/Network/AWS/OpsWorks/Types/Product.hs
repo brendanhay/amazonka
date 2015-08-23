@@ -324,13 +324,14 @@ instance FromJSON AutoScalingThresholds where
 instance ToJSON AutoScalingThresholds where
         toJSON AutoScalingThresholds'{..}
           = object
-              ["InstanceCount" .= _astInstanceCount,
-               "IgnoreMetricsTime" .= _astIgnoreMetricsTime,
-               "LoadThreshold" .= _astLoadThreshold,
-               "ThresholdsWaitTime" .= _astThresholdsWaitTime,
-               "Alarms" .= _astAlarms,
-               "MemoryThreshold" .= _astMemoryThreshold,
-               "CpuThreshold" .= _astCPUThreshold]
+              (catMaybes
+                 [("InstanceCount" .=) <$> _astInstanceCount,
+                  ("IgnoreMetricsTime" .=) <$> _astIgnoreMetricsTime,
+                  ("LoadThreshold" .=) <$> _astLoadThreshold,
+                  ("ThresholdsWaitTime" .=) <$> _astThresholdsWaitTime,
+                  ("Alarms" .=) <$> _astAlarms,
+                  ("MemoryThreshold" .=) <$> _astMemoryThreshold,
+                  ("CpuThreshold" .=) <$> _astCPUThreshold])
 
 -- | Describes a block device mapping. This data type maps directly to the
 -- Amazon EC2
@@ -400,9 +401,11 @@ instance FromJSON BlockDeviceMapping where
 instance ToJSON BlockDeviceMapping where
         toJSON BlockDeviceMapping'{..}
           = object
-              ["VirtualName" .= _bdmVirtualName,
-               "NoDevice" .= _bdmNoDevice, "Ebs" .= _bdmEBS,
-               "DeviceName" .= _bdmDeviceName]
+              (catMaybes
+                 [("VirtualName" .=) <$> _bdmVirtualName,
+                  ("NoDevice" .=) <$> _bdmNoDevice,
+                  ("Ebs" .=) <$> _bdmEBS,
+                  ("DeviceName" .=) <$> _bdmDeviceName])
 
 -- | Describes the Chef configuration.
 --
@@ -446,8 +449,9 @@ instance FromJSON ChefConfiguration where
 instance ToJSON ChefConfiguration where
         toJSON ChefConfiguration'{..}
           = object
-              ["BerkshelfVersion" .= _ccBerkshelfVersion,
-               "ManageBerkshelf" .= _ccManageBerkshelf]
+              (catMaybes
+                 [("BerkshelfVersion" .=) <$> _ccBerkshelfVersion,
+                  ("ManageBerkshelf" .=) <$> _ccManageBerkshelf])
 
 -- | Describes a command.
 --
@@ -626,8 +630,10 @@ instance FromJSON DataSource where
 instance ToJSON DataSource where
         toJSON DataSource'{..}
           = object
-              ["Arn" .= _dsARN, "DatabaseName" .= _dsDatabaseName,
-               "Type" .= _dsType]
+              (catMaybes
+                 [("Arn" .=) <$> _dsARN,
+                  ("DatabaseName" .=) <$> _dsDatabaseName,
+                  ("Type" .=) <$> _dsType])
 
 -- | Describes a deployment of a stack or app.
 --
@@ -858,7 +864,9 @@ instance FromJSON DeploymentCommand where
 
 instance ToJSON DeploymentCommand where
         toJSON DeploymentCommand'{..}
-          = object ["Args" .= _dcArgs, "Name" .= _dcName]
+          = object
+              (catMaybes
+                 [("Args" .=) <$> _dcArgs, Just ("Name" .= _dcName)])
 
 -- | Describes an Amazon EBS volume. This data type maps directly to the
 -- Amazon EC2
@@ -936,10 +944,13 @@ instance FromJSON EBSBlockDevice where
 instance ToJSON EBSBlockDevice where
         toJSON EBSBlockDevice'{..}
           = object
-              ["DeleteOnTermination" .= _ebdDeleteOnTermination,
-               "VolumeSize" .= _ebdVolumeSize, "Iops" .= _ebdIOPS,
-               "VolumeType" .= _ebdVolumeType,
-               "SnapshotId" .= _ebdSnapshotId]
+              (catMaybes
+                 [("DeleteOnTermination" .=) <$>
+                    _ebdDeleteOnTermination,
+                  ("VolumeSize" .=) <$> _ebdVolumeSize,
+                  ("Iops" .=) <$> _ebdIOPS,
+                  ("VolumeType" .=) <$> _ebdVolumeType,
+                  ("SnapshotId" .=) <$> _ebdSnapshotId])
 
 -- | Describes a registered Amazon ECS cluster.
 --
@@ -1224,8 +1235,9 @@ instance FromJSON EnvironmentVariable where
 instance ToJSON EnvironmentVariable where
         toJSON EnvironmentVariable'{..}
           = object
-              ["Secure" .= _evSecure, "Key" .= _evKey,
-               "Value" .= _evValue]
+              (catMaybes
+                 [("Secure" .=) <$> _evSecure, Just ("Key" .= _evKey),
+                  Just ("Value" .= _evValue)])
 
 -- | Describes an instance.
 --
@@ -1671,8 +1683,9 @@ iiDocument = lens _iiDocument (\ s a -> s{_iiDocument = a});
 instance ToJSON InstanceIdentity where
         toJSON InstanceIdentity'{..}
           = object
-              ["Signature" .= _iiSignature,
-               "Document" .= _iiDocument]
+              (catMaybes
+                 [("Signature" .=) <$> _iiSignature,
+                  ("Document" .=) <$> _iiDocument])
 
 -- | Describes how many instances a stack has for each status.
 --
@@ -2133,7 +2146,8 @@ instance FromJSON LifecycleEventConfiguration where
 
 instance ToJSON LifecycleEventConfiguration where
         toJSON LifecycleEventConfiguration'{..}
-          = object ["Shutdown" .= _lecShutdown]
+          = object
+              (catMaybes [("Shutdown" .=) <$> _lecShutdown])
 
 -- | Describes a layer\'s load-based auto scaling configuration.
 --
@@ -2596,9 +2610,12 @@ instance FromJSON Recipes where
 instance ToJSON Recipes where
         toJSON Recipes'{..}
           = object
-              ["Setup" .= _rSetup, "Undeploy" .= _rUndeploy,
-               "Shutdown" .= _rShutdown, "Configure" .= _rConfigure,
-               "Deploy" .= _rDeploy]
+              (catMaybes
+                 [("Setup" .=) <$> _rSetup,
+                  ("Undeploy" .=) <$> _rUndeploy,
+                  ("Shutdown" .=) <$> _rShutdown,
+                  ("Configure" .=) <$> _rConfigure,
+                  ("Deploy" .=) <$> _rDeploy])
 
 -- | A registered instance\'s reported operating system.
 --
@@ -2700,9 +2717,10 @@ instance FromJSON SSLConfiguration where
 instance ToJSON SSLConfiguration where
         toJSON SSLConfiguration'{..}
           = object
-              ["Chain" .= _scChain,
-               "Certificate" .= _scCertificate,
-               "PrivateKey" .= _scPrivateKey]
+              (catMaybes
+                 [("Chain" .=) <$> _scChain,
+                  Just ("Certificate" .= _scCertificate),
+                  Just ("PrivateKey" .= _scPrivateKey)])
 
 -- | Describes a user\'s SSH information.
 --
@@ -2879,9 +2897,10 @@ instance FromJSON ShutdownEventConfiguration where
 instance ToJSON ShutdownEventConfiguration where
         toJSON ShutdownEventConfiguration'{..}
           = object
-              ["ExecutionTimeout" .= _secExecutionTimeout,
-               "DelayUntilElbConnectionsDrained" .=
-                 _secDelayUntilElbConnectionsDrained]
+              (catMaybes
+                 [("ExecutionTimeout" .=) <$> _secExecutionTimeout,
+                  ("DelayUntilElbConnectionsDrained" .=) <$>
+                    _secDelayUntilElbConnectionsDrained])
 
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see
@@ -2987,9 +3006,13 @@ instance FromJSON Source where
 instance ToJSON Source where
         toJSON Source'{..}
           = object
-              ["Url" .= _sURL, "Username" .= _sUsername,
-               "SshKey" .= _sSSHKey, "Password" .= _sPassword,
-               "Type" .= _sType, "Revision" .= _sRevision]
+              (catMaybes
+                 [("Url" .=) <$> _sURL,
+                  ("Username" .=) <$> _sUsername,
+                  ("SshKey" .=) <$> _sSSHKey,
+                  ("Password" .=) <$> _sPassword,
+                  ("Type" .=) <$> _sType,
+                  ("Revision" .=) <$> _sRevision])
 
 -- | Describes a stack.
 --
@@ -3274,7 +3297,9 @@ instance FromJSON StackConfigurationManager where
 instance ToJSON StackConfigurationManager where
         toJSON StackConfigurationManager'{..}
           = object
-              ["Name" .= _scmName, "Version" .= _scmVersion]
+              (catMaybes
+                 [("Name" .=) <$> _scmName,
+                  ("Version" .=) <$> _scmVersion])
 
 -- | Summarizes the number of layers, instances, and apps in a stack.
 --
@@ -3742,11 +3767,13 @@ instance FromJSON VolumeConfiguration where
 instance ToJSON VolumeConfiguration where
         toJSON VolumeConfiguration'{..}
           = object
-              ["Iops" .= _vcIOPS, "RaidLevel" .= _vcRAIdLevel,
-               "VolumeType" .= _vcVolumeType,
-               "MountPoint" .= _vcMountPoint,
-               "NumberOfDisks" .= _vcNumberOfDisks,
-               "Size" .= _vcSize]
+              (catMaybes
+                 [("Iops" .=) <$> _vcIOPS,
+                  ("RaidLevel" .=) <$> _vcRAIdLevel,
+                  ("VolumeType" .=) <$> _vcVolumeType,
+                  Just ("MountPoint" .= _vcMountPoint),
+                  Just ("NumberOfDisks" .= _vcNumberOfDisks),
+                  Just ("Size" .= _vcSize)])
 
 -- | Describes a time-based instance\'s auto scaling schedule. The schedule
 -- consists of a set of key-value pairs.
@@ -3852,8 +3879,11 @@ instance FromJSON WeeklyAutoScalingSchedule where
 instance ToJSON WeeklyAutoScalingSchedule where
         toJSON WeeklyAutoScalingSchedule'{..}
           = object
-              ["Thursday" .= _wassThursday,
-               "Wednesday" .= _wassWednesday,
-               "Saturday" .= _wassSaturday, "Monday" .= _wassMonday,
-               "Friday" .= _wassFriday, "Sunday" .= _wassSunday,
-               "Tuesday" .= _wassTuesday]
+              (catMaybes
+                 [("Thursday" .=) <$> _wassThursday,
+                  ("Wednesday" .=) <$> _wassWednesday,
+                  ("Saturday" .=) <$> _wassSaturday,
+                  ("Monday" .=) <$> _wassMonday,
+                  ("Friday" .=) <$> _wassFriday,
+                  ("Sunday" .=) <$> _wassSunday,
+                  ("Tuesday" .=) <$> _wassTuesday])

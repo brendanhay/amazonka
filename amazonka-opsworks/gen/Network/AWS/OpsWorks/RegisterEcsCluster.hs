@@ -108,8 +108,9 @@ instance ToHeaders RegisterEcsCluster where
 instance ToJSON RegisterEcsCluster where
         toJSON RegisterEcsCluster'{..}
           = object
-              ["EcsClusterArn" .= _recEcsClusterARN,
-               "StackId" .= _recStackId]
+              (catMaybes
+                 [Just ("EcsClusterArn" .= _recEcsClusterARN),
+                  Just ("StackId" .= _recStackId)])
 
 instance ToPath RegisterEcsCluster where
         toPath = const "/"

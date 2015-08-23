@@ -139,10 +139,12 @@ instance ToHeaders AllocatePublicVirtualInterface
 instance ToJSON AllocatePublicVirtualInterface where
         toJSON AllocatePublicVirtualInterface'{..}
           = object
-              ["connectionId" .= _aConnectionId,
-               "ownerAccount" .= _aOwnerAccount,
-               "newPublicVirtualInterfaceAllocation" .=
-                 _aNewPublicVirtualInterfaceAllocation]
+              (catMaybes
+                 [Just ("connectionId" .= _aConnectionId),
+                  Just ("ownerAccount" .= _aOwnerAccount),
+                  Just
+                    ("newPublicVirtualInterfaceAllocation" .=
+                       _aNewPublicVirtualInterfaceAllocation)])
 
 instance ToPath AllocatePublicVirtualInterface where
         toPath = const "/"

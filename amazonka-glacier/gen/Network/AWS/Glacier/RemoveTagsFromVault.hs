@@ -103,7 +103,8 @@ instance ToHeaders RemoveTagsFromVault where
 
 instance ToJSON RemoveTagsFromVault where
         toJSON RemoveTagsFromVault'{..}
-          = object ["TagKeys" .= _rtfvTagKeys]
+          = object
+              (catMaybes [("TagKeys" .=) <$> _rtfvTagKeys])
 
 instance ToPath RemoveTagsFromVault where
         toPath RemoveTagsFromVault'{..}

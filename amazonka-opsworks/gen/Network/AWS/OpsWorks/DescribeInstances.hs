@@ -118,8 +118,10 @@ instance ToHeaders DescribeInstances where
 instance ToJSON DescribeInstances where
         toJSON DescribeInstances'{..}
           = object
-              ["InstanceIds" .= _diInstanceIds,
-               "StackId" .= _diStackId, "LayerId" .= _diLayerId]
+              (catMaybes
+                 [("InstanceIds" .=) <$> _diInstanceIds,
+                  ("StackId" .=) <$> _diStackId,
+                  ("LayerId" .=) <$> _diLayerId])
 
 instance ToPath DescribeInstances where
         toPath = const "/"

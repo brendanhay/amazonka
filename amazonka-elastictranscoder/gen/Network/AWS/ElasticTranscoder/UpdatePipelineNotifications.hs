@@ -118,7 +118,9 @@ instance ToHeaders UpdatePipelineNotifications where
 
 instance ToJSON UpdatePipelineNotifications where
         toJSON UpdatePipelineNotifications'{..}
-          = object ["Notifications" .= _upnNotifications]
+          = object
+              (catMaybes
+                 [Just ("Notifications" .= _upnNotifications)])
 
 instance ToPath UpdatePipelineNotifications where
         toPath UpdatePipelineNotifications'{..}

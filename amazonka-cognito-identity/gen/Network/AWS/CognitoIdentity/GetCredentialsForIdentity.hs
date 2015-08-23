@@ -108,8 +108,9 @@ instance ToHeaders GetCredentialsForIdentity where
 instance ToJSON GetCredentialsForIdentity where
         toJSON GetCredentialsForIdentity'{..}
           = object
-              ["Logins" .= _gcfiLogins,
-               "IdentityId" .= _gcfiIdentityId]
+              (catMaybes
+                 [("Logins" .=) <$> _gcfiLogins,
+                  Just ("IdentityId" .= _gcfiIdentityId)])
 
 instance ToPath GetCredentialsForIdentity where
         toPath = const "/"

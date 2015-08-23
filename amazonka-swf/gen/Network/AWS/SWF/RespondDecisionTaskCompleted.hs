@@ -126,9 +126,10 @@ instance ToHeaders RespondDecisionTaskCompleted where
 instance ToJSON RespondDecisionTaskCompleted where
         toJSON RespondDecisionTaskCompleted'{..}
           = object
-              ["decisions" .= _rdtcDecisions,
-               "executionContext" .= _rdtcExecutionContext,
-               "taskToken" .= _rdtcTaskToken]
+              (catMaybes
+                 [("decisions" .=) <$> _rdtcDecisions,
+                  ("executionContext" .=) <$> _rdtcExecutionContext,
+                  Just ("taskToken" .= _rdtcTaskToken)])
 
 instance ToPath RespondDecisionTaskCompleted where
         toPath = const "/"

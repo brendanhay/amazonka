@@ -101,7 +101,9 @@ instance ToHeaders ListProjects where
 instance ToJSON ListProjects where
         toJSON ListProjects'{..}
           = object
-              ["arn" .= _lpArn, "nextToken" .= _lpNextToken]
+              (catMaybes
+                 [("arn" .=) <$> _lpArn,
+                  ("nextToken" .=) <$> _lpNextToken])
 
 instance ToPath ListProjects where
         toPath = const "/"

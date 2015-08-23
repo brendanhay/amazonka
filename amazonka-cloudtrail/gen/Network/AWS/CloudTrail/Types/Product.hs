@@ -133,8 +133,9 @@ laAttributeValue = lens _laAttributeValue (\ s a -> s{_laAttributeValue = a});
 instance ToJSON LookupAttribute where
         toJSON LookupAttribute'{..}
           = object
-              ["AttributeKey" .= _laAttributeKey,
-               "AttributeValue" .= _laAttributeValue]
+              (catMaybes
+                 [Just ("AttributeKey" .= _laAttributeKey),
+                  Just ("AttributeValue" .= _laAttributeValue)])
 
 -- | Specifies the type and name of a resource referenced by an event.
 --

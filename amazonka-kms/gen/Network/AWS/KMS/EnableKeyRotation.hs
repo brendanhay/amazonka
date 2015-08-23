@@ -85,7 +85,7 @@ instance ToHeaders EnableKeyRotation where
 
 instance ToJSON EnableKeyRotation where
         toJSON EnableKeyRotation'{..}
-          = object ["KeyId" .= _ekrKeyId]
+          = object (catMaybes [Just ("KeyId" .= _ekrKeyId)])
 
 instance ToPath EnableKeyRotation where
         toPath = const "/"

@@ -93,7 +93,8 @@ instance ToHeaders DescribeSeverityLevels where
 
 instance ToJSON DescribeSeverityLevels where
         toJSON DescribeSeverityLevels'{..}
-          = object ["language" .= _dslLanguage]
+          = object
+              (catMaybes [("language" .=) <$> _dslLanguage])
 
 instance ToPath DescribeSeverityLevels where
         toPath = const "/"

@@ -135,10 +135,13 @@ instance ToHeaders ModifyHSM where
 instance ToJSON ModifyHSM where
         toJSON ModifyHSM'{..}
           = object
-              ["IamRoleArn" .= _mhIAMRoleARN,
-               "SubnetId" .= _mhSubnetId, "SyslogIp" .= _mhSyslogIP,
-               "ExternalId" .= _mhExternalId, "EniIp" .= _mhEniIP,
-               "HsmArn" .= _mhHSMARN]
+              (catMaybes
+                 [("IamRoleArn" .=) <$> _mhIAMRoleARN,
+                  ("SubnetId" .=) <$> _mhSubnetId,
+                  ("SyslogIp" .=) <$> _mhSyslogIP,
+                  ("ExternalId" .=) <$> _mhExternalId,
+                  ("EniIp" .=) <$> _mhEniIP,
+                  Just ("HsmArn" .= _mhHSMARN)])
 
 instance ToPath ModifyHSM where
         toPath = const "/"

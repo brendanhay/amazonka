@@ -90,7 +90,9 @@ instance ToHeaders BatchGetOnPremisesInstances where
 
 instance ToJSON BatchGetOnPremisesInstances where
         toJSON BatchGetOnPremisesInstances'{..}
-          = object ["instanceNames" .= _bgopiInstanceNames]
+          = object
+              (catMaybes
+                 [("instanceNames" .=) <$> _bgopiInstanceNames])
 
 instance ToPath BatchGetOnPremisesInstances where
         toPath = const "/"

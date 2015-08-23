@@ -105,7 +105,9 @@ instance ToHeaders DescribeLayers where
 instance ToJSON DescribeLayers where
         toJSON DescribeLayers'{..}
           = object
-              ["LayerIds" .= _dlLayerIds, "StackId" .= _dlStackId]
+              (catMaybes
+                 [("LayerIds" .=) <$> _dlLayerIds,
+                  ("StackId" .=) <$> _dlStackId])
 
 instance ToPath DescribeLayers where
         toPath = const "/"

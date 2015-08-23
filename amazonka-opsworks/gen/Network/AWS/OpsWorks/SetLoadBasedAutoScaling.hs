@@ -127,10 +127,11 @@ instance ToHeaders SetLoadBasedAutoScaling where
 instance ToJSON SetLoadBasedAutoScaling where
         toJSON SetLoadBasedAutoScaling'{..}
           = object
-              ["UpScaling" .= _slbasUpScaling,
-               "Enable" .= _slbasEnable,
-               "DownScaling" .= _slbasDownScaling,
-               "LayerId" .= _slbasLayerId]
+              (catMaybes
+                 [("UpScaling" .=) <$> _slbasUpScaling,
+                  ("Enable" .=) <$> _slbasEnable,
+                  ("DownScaling" .=) <$> _slbasDownScaling,
+                  Just ("LayerId" .= _slbasLayerId)])
 
 instance ToPath SetLoadBasedAutoScaling where
         toPath = const "/"

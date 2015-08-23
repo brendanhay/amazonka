@@ -113,9 +113,10 @@ instance ToHeaders ActivatePipeline where
 instance ToJSON ActivatePipeline where
         toJSON ActivatePipeline'{..}
           = object
-              ["startTimestamp" .= _apStartTimestamp,
-               "parameterValues" .= _apParameterValues,
-               "pipelineId" .= _apPipelineId]
+              (catMaybes
+                 [("startTimestamp" .=) <$> _apStartTimestamp,
+                  ("parameterValues" .=) <$> _apParameterValues,
+                  Just ("pipelineId" .= _apPipelineId)])
 
 instance ToPath ActivatePipeline where
         toPath = const "/"

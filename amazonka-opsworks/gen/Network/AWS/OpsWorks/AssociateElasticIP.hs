@@ -100,8 +100,9 @@ instance ToHeaders AssociateElasticIP where
 instance ToJSON AssociateElasticIP where
         toJSON AssociateElasticIP'{..}
           = object
-              ["InstanceId" .= _aeiInstanceId,
-               "ElasticIp" .= _aeiElasticIP]
+              (catMaybes
+                 [("InstanceId" .=) <$> _aeiInstanceId,
+                  Just ("ElasticIp" .= _aeiElasticIP)])
 
 instance ToPath AssociateElasticIP where
         toPath = const "/"

@@ -106,9 +106,10 @@ instance ToHeaders RegisterApplicationRevision where
 instance ToJSON RegisterApplicationRevision where
         toJSON RegisterApplicationRevision'{..}
           = object
-              ["description" .= _rarDescription,
-               "applicationName" .= _rarApplicationName,
-               "revision" .= _rarRevision]
+              (catMaybes
+                 [("description" .=) <$> _rarDescription,
+                  Just ("applicationName" .= _rarApplicationName),
+                  Just ("revision" .= _rarRevision)])
 
 instance ToPath RegisterApplicationRevision where
         toPath = const "/"

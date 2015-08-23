@@ -126,10 +126,12 @@ instance ToHeaders CreateUserProfile where
 instance ToJSON CreateUserProfile where
         toJSON CreateUserProfile'{..}
           = object
-              ["SshUsername" .= _cupSSHUsername,
-               "SshPublicKey" .= _cupSSHPublicKey,
-               "AllowSelfManagement" .= _cupAllowSelfManagement,
-               "IamUserArn" .= _cupIAMUserARN]
+              (catMaybes
+                 [("SshUsername" .=) <$> _cupSSHUsername,
+                  ("SshPublicKey" .=) <$> _cupSSHPublicKey,
+                  ("AllowSelfManagement" .=) <$>
+                    _cupAllowSelfManagement,
+                  Just ("IamUserArn" .= _cupIAMUserARN)])
 
 instance ToPath CreateUserProfile where
         toPath = const "/"

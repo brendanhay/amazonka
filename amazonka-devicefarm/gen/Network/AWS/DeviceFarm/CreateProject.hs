@@ -88,7 +88,7 @@ instance ToHeaders CreateProject where
 
 instance ToJSON CreateProject where
         toJSON CreateProject'{..}
-          = object ["name" .= _cpName]
+          = object (catMaybes [Just ("name" .= _cpName)])
 
 instance ToPath CreateProject where
         toPath = const "/"

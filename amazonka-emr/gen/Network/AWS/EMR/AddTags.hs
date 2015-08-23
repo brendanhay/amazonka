@@ -102,7 +102,9 @@ instance ToHeaders AddTags where
 instance ToJSON AddTags where
         toJSON AddTags'{..}
           = object
-              ["ResourceId" .= _atResourceId, "Tags" .= _atTags]
+              (catMaybes
+                 [Just ("ResourceId" .= _atResourceId),
+                  Just ("Tags" .= _atTags)])
 
 instance ToPath AddTags where
         toPath = const "/"

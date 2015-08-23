@@ -89,7 +89,8 @@ instance ToHeaders CreatePipeline where
 
 instance ToJSON CreatePipeline where
         toJSON CreatePipeline'{..}
-          = object ["pipeline" .= _cpPipeline]
+          = object
+              (catMaybes [Just ("pipeline" .= _cpPipeline)])
 
 instance ToPath CreatePipeline where
         toPath = const "/"

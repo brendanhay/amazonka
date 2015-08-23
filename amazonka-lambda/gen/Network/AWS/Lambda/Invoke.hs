@@ -160,7 +160,8 @@ instance ToHeaders Invoke where
                "X-Amz-Client-Context" =# _iClientContext]
 
 instance ToJSON Invoke where
-        toJSON Invoke'{..} = object ["Payload" .= _iPayload]
+        toJSON Invoke'{..}
+          = object (catMaybes [("Payload" .=) <$> _iPayload])
 
 instance ToPath Invoke where
         toPath Invoke'{..}

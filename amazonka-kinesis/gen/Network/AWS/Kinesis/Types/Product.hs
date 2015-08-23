@@ -123,9 +123,10 @@ prrePartitionKey = lens _prrePartitionKey (\ s a -> s{_prrePartitionKey = a});
 instance ToJSON PutRecordsRequestEntry where
         toJSON PutRecordsRequestEntry'{..}
           = object
-              ["ExplicitHashKey" .= _prreExplicitHashKey,
-               "Data" .= _prreData,
-               "PartitionKey" .= _prrePartitionKey]
+              (catMaybes
+                 [("ExplicitHashKey" .=) <$> _prreExplicitHashKey,
+                  Just ("Data" .= _prreData),
+                  Just ("PartitionKey" .= _prrePartitionKey)])
 
 -- | Represents the result of an individual record from a 'PutRecords'
 -- request. A record that is successfully added to your Amazon Kinesis

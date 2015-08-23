@@ -103,8 +103,9 @@ instance ToHeaders ListActionTypes where
 instance ToJSON ListActionTypes where
         toJSON ListActionTypes'{..}
           = object
-              ["actionOwnerFilter" .= _latActionOwnerFilter,
-               "nextToken" .= _latNextToken]
+              (catMaybes
+                 [("actionOwnerFilter" .=) <$> _latActionOwnerFilter,
+                  ("nextToken" .=) <$> _latNextToken])
 
 instance ToPath ListActionTypes where
         toPath = const "/"

@@ -85,7 +85,8 @@ instance ToHeaders DeleteUserProfile where
 
 instance ToJSON DeleteUserProfile where
         toJSON DeleteUserProfile'{..}
-          = object ["IamUserArn" .= _dupIAMUserARN]
+          = object
+              (catMaybes [Just ("IamUserArn" .= _dupIAMUserARN)])
 
 instance ToPath DeleteUserProfile where
         toPath = const "/"

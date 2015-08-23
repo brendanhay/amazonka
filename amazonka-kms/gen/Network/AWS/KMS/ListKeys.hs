@@ -104,7 +104,10 @@ instance ToHeaders ListKeys where
 
 instance ToJSON ListKeys where
         toJSON ListKeys'{..}
-          = object ["Marker" .= _lkMarker, "Limit" .= _lkLimit]
+          = object
+              (catMaybes
+                 [("Marker" .=) <$> _lkMarker,
+                  ("Limit" .=) <$> _lkLimit])
 
 instance ToPath ListKeys where
         toPath = const "/"

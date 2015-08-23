@@ -118,9 +118,10 @@ instance ToHeaders DescribeRAIdArrays where
 instance ToJSON DescribeRAIdArrays where
         toJSON DescribeRAIdArrays'{..}
           = object
-              ["InstanceId" .= _draiaInstanceId,
-               "RaidArrayIds" .= _draiaRAIdArrayIds,
-               "StackId" .= _draiaStackId]
+              (catMaybes
+                 [("InstanceId" .=) <$> _draiaInstanceId,
+                  ("RaidArrayIds" .=) <$> _draiaRAIdArrayIds,
+                  ("StackId" .=) <$> _draiaStackId])
 
 instance ToPath DescribeRAIdArrays where
         toPath = const "/"

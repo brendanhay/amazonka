@@ -159,13 +159,14 @@ instance ToHeaders ReEncrypt where
 instance ToJSON ReEncrypt where
         toJSON ReEncrypt'{..}
           = object
-              ["DestinationEncryptionContext" .=
-                 _reDestinationEncryptionContext,
-               "SourceEncryptionContext" .=
-                 _reSourceEncryptionContext,
-               "GrantTokens" .= _reGrantTokens,
-               "CiphertextBlob" .= _reCiphertextBlob,
-               "DestinationKeyId" .= _reDestinationKeyId]
+              (catMaybes
+                 [("DestinationEncryptionContext" .=) <$>
+                    _reDestinationEncryptionContext,
+                  ("SourceEncryptionContext" .=) <$>
+                    _reSourceEncryptionContext,
+                  ("GrantTokens" .=) <$> _reGrantTokens,
+                  Just ("CiphertextBlob" .= _reCiphertextBlob),
+                  Just ("DestinationKeyId" .= _reDestinationKeyId)])
 
 instance ToPath ReEncrypt where
         toPath = const "/"

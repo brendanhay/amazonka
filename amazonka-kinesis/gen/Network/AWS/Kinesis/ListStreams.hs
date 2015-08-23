@@ -128,9 +128,10 @@ instance ToHeaders ListStreams where
 instance ToJSON ListStreams where
         toJSON ListStreams'{..}
           = object
-              ["Limit" .= _lsLimit,
-               "ExclusiveStartStreamName" .=
-                 _lsExclusiveStartStreamName]
+              (catMaybes
+                 [("Limit" .=) <$> _lsLimit,
+                  ("ExclusiveStartStreamName" .=) <$>
+                    _lsExclusiveStartStreamName])
 
 instance ToPath ListStreams where
         toPath = const "/"

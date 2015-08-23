@@ -106,8 +106,9 @@ instance ToHeaders PollForThirdPartyJobs where
 instance ToJSON PollForThirdPartyJobs where
         toJSON PollForThirdPartyJobs'{..}
           = object
-              ["maxBatchSize" .= _pftpjMaxBatchSize,
-               "actionTypeId" .= _pftpjActionTypeId]
+              (catMaybes
+                 [("maxBatchSize" .=) <$> _pftpjMaxBatchSize,
+                  Just ("actionTypeId" .= _pftpjActionTypeId)])
 
 instance ToPath PollForThirdPartyJobs where
         toPath = const "/"

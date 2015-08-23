@@ -113,8 +113,9 @@ instance ToHeaders DescribeServices where
 instance ToJSON DescribeServices where
         toJSON DescribeServices'{..}
           = object
-              ["serviceCodeList" .= _dsServiceCodeList,
-               "language" .= _dsLanguage]
+              (catMaybes
+                 [("serviceCodeList" .=) <$> _dsServiceCodeList,
+                  ("language" .=) <$> _dsLanguage])
 
 instance ToPath DescribeServices where
         toPath = const "/"

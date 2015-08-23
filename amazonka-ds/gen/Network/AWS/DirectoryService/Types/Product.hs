@@ -60,7 +60,9 @@ instance FromJSON Attribute where
 
 instance ToJSON Attribute where
         toJSON Attribute'{..}
-          = object ["Value" .= _aValue, "Name" .= _aName]
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _aValue, ("Name" .=) <$> _aName])
 
 -- | Contains information about a computer account in a directory.
 --
@@ -172,9 +174,11 @@ dcsCustomerUserName = lens _dcsCustomerUserName (\ s a -> s{_dcsCustomerUserName
 instance ToJSON DirectoryConnectSettings where
         toJSON DirectoryConnectSettings'{..}
           = object
-              ["VpcId" .= _dcsVPCId, "SubnetIds" .= _dcsSubnetIds,
-               "CustomerDnsIps" .= _dcsCustomerDNSIPs,
-               "CustomerUserName" .= _dcsCustomerUserName]
+              (catMaybes
+                 [Just ("VpcId" .= _dcsVPCId),
+                  Just ("SubnetIds" .= _dcsSubnetIds),
+                  Just ("CustomerDnsIps" .= _dcsCustomerDNSIPs),
+                  Just ("CustomerUserName" .= _dcsCustomerUserName)])
 
 -- | Contains information about an AD Connector directory.
 --
@@ -558,7 +562,9 @@ dvsSubnetIds = lens _dvsSubnetIds (\ s a -> s{_dvsSubnetIds = a}) . _Coerce;
 instance ToJSON DirectoryVPCSettings where
         toJSON DirectoryVPCSettings'{..}
           = object
-              ["VpcId" .= _dvsVPCId, "SubnetIds" .= _dvsSubnetIds]
+              (catMaybes
+                 [Just ("VpcId" .= _dvsVPCId),
+                  Just ("SubnetIds" .= _dvsSubnetIds)])
 
 -- | Contains information about a Simple AD directory.
 --
@@ -720,15 +726,16 @@ instance FromJSON RadiusSettings where
 instance ToJSON RadiusSettings where
         toJSON RadiusSettings'{..}
           = object
-              ["DisplayLabel" .= _rsDisplayLabel,
-               "RadiusServers" .= _rsRadiusServers,
-               "RadiusRetries" .= _rsRadiusRetries,
-               "AuthenticationProtocol" .=
-                 _rsAuthenticationProtocol,
-               "UseSameUsername" .= _rsUseSameUsername,
-               "SharedSecret" .= _rsSharedSecret,
-               "RadiusTimeout" .= _rsRadiusTimeout,
-               "RadiusPort" .= _rsRadiusPort]
+              (catMaybes
+                 [("DisplayLabel" .=) <$> _rsDisplayLabel,
+                  ("RadiusServers" .=) <$> _rsRadiusServers,
+                  ("RadiusRetries" .=) <$> _rsRadiusRetries,
+                  ("AuthenticationProtocol" .=) <$>
+                    _rsAuthenticationProtocol,
+                  ("UseSameUsername" .=) <$> _rsUseSameUsername,
+                  ("SharedSecret" .=) <$> _rsSharedSecret,
+                  ("RadiusTimeout" .=) <$> _rsRadiusTimeout,
+                  ("RadiusPort" .=) <$> _rsRadiusPort])
 
 -- | Describes a directory snapshot.
 --

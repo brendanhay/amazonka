@@ -101,8 +101,9 @@ instance ToHeaders DeleteTape where
 instance ToJSON DeleteTape where
         toJSON DeleteTape'{..}
           = object
-              ["GatewayARN" .= _dttGatewayARN,
-               "TapeARN" .= _dttTapeARN]
+              (catMaybes
+                 [Just ("GatewayARN" .= _dttGatewayARN),
+                  Just ("TapeARN" .= _dttTapeARN)])
 
 instance ToPath DeleteTape where
         toPath = const "/"

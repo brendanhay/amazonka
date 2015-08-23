@@ -91,8 +91,9 @@ instance ToHeaders DeleteLogStream where
 instance ToJSON DeleteLogStream where
         toJSON DeleteLogStream'{..}
           = object
-              ["logGroupName" .= _dlsLogGroupName,
-               "logStreamName" .= _dlsLogStreamName]
+              (catMaybes
+                 [Just ("logGroupName" .= _dlsLogGroupName),
+                  Just ("logStreamName" .= _dlsLogStreamName)])
 
 instance ToPath DeleteLogStream where
         toPath = const "/"

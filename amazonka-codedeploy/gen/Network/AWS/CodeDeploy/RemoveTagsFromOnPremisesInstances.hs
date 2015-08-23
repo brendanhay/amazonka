@@ -99,8 +99,9 @@ instance ToJSON RemoveTagsFromOnPremisesInstances
          where
         toJSON RemoveTagsFromOnPremisesInstances'{..}
           = object
-              ["tags" .= _rtfopiTags,
-               "instanceNames" .= _rtfopiInstanceNames]
+              (catMaybes
+                 [Just ("tags" .= _rtfopiTags),
+                  Just ("instanceNames" .= _rtfopiInstanceNames)])
 
 instance ToPath RemoveTagsFromOnPremisesInstances
          where

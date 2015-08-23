@@ -101,8 +101,9 @@ instance ToHeaders AddInstanceGroups where
 instance ToJSON AddInstanceGroups where
         toJSON AddInstanceGroups'{..}
           = object
-              ["InstanceGroups" .= _aigInstanceGroups,
-               "JobFlowId" .= _aigJobFlowId]
+              (catMaybes
+                 [Just ("InstanceGroups" .= _aigInstanceGroups),
+                  Just ("JobFlowId" .= _aigJobFlowId)])
 
 instance ToPath AddInstanceGroups where
         toPath = const "/"

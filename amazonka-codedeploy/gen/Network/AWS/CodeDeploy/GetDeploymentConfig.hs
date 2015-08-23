@@ -93,7 +93,10 @@ instance ToHeaders GetDeploymentConfig where
 instance ToJSON GetDeploymentConfig where
         toJSON GetDeploymentConfig'{..}
           = object
-              ["deploymentConfigName" .= _gdcDeploymentConfigName]
+              (catMaybes
+                 [Just
+                    ("deploymentConfigName" .=
+                       _gdcDeploymentConfigName)])
 
 instance ToPath GetDeploymentConfig where
         toPath = const "/"

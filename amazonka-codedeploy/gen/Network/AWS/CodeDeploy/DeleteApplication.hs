@@ -83,7 +83,9 @@ instance ToHeaders DeleteApplication where
 
 instance ToJSON DeleteApplication where
         toJSON DeleteApplication'{..}
-          = object ["applicationName" .= _daApplicationName]
+          = object
+              (catMaybes
+                 [Just ("applicationName" .= _daApplicationName)])
 
 instance ToPath DeleteApplication where
         toPath = const "/"

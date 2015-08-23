@@ -112,8 +112,10 @@ instance ToHeaders Predict where
 instance ToJSON Predict where
         toJSON Predict'{..}
           = object
-              ["MLModelId" .= _pMLModelId, "Record" .= _pRecord,
-               "PredictEndpoint" .= _pPredictEndpoint]
+              (catMaybes
+                 [Just ("MLModelId" .= _pMLModelId),
+                  Just ("Record" .= _pRecord),
+                  Just ("PredictEndpoint" .= _pPredictEndpoint)])
 
 instance ToPath Predict where
         toPath = const "/"

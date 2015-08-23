@@ -93,7 +93,8 @@ instance ToHeaders DisableDomainAutoRenew where
 
 instance ToJSON DisableDomainAutoRenew where
         toJSON DisableDomainAutoRenew'{..}
-          = object ["DomainName" .= _ddarDomainName]
+          = object
+              (catMaybes [Just ("DomainName" .= _ddarDomainName)])
 
 instance ToPath DisableDomainAutoRenew where
         toPath = const "/"

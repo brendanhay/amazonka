@@ -109,9 +109,10 @@ instance ToHeaders UpdateGatewayInformation where
 instance ToJSON UpdateGatewayInformation where
         toJSON UpdateGatewayInformation'{..}
           = object
-              ["GatewayName" .= _ugiGatewayName,
-               "GatewayTimezone" .= _ugiGatewayTimezone,
-               "GatewayARN" .= _ugiGatewayARN]
+              (catMaybes
+                 [("GatewayName" .=) <$> _ugiGatewayName,
+                  ("GatewayTimezone" .=) <$> _ugiGatewayTimezone,
+                  Just ("GatewayARN" .= _ugiGatewayARN)])
 
 instance ToPath UpdateGatewayInformation where
         toPath = const "/"

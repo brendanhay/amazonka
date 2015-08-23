@@ -94,7 +94,9 @@ instance ToHeaders DescribeCachediSCSIVolumes where
 
 instance ToJSON DescribeCachediSCSIVolumes where
         toJSON DescribeCachediSCSIVolumes'{..}
-          = object ["VolumeARNs" .= _dcscsivVolumeARNs]
+          = object
+              (catMaybes
+                 [Just ("VolumeARNs" .= _dcscsivVolumeARNs)])
 
 instance ToPath DescribeCachediSCSIVolumes where
         toPath = const "/"

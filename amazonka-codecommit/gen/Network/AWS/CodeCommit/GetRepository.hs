@@ -95,7 +95,9 @@ instance ToHeaders GetRepository where
 
 instance ToJSON GetRepository where
         toJSON GetRepository'{..}
-          = object ["repositoryName" .= _grRepositoryName]
+          = object
+              (catMaybes
+                 [Just ("repositoryName" .= _grRepositoryName)])
 
 instance ToPath GetRepository where
         toPath = const "/"

@@ -123,10 +123,11 @@ instance ToHeaders DisableStageTransition where
 instance ToJSON DisableStageTransition where
         toJSON DisableStageTransition'{..}
           = object
-              ["pipelineName" .= _dstPipelineName,
-               "stageName" .= _dstStageName,
-               "transitionType" .= _dstTransitionType,
-               "reason" .= _dstReason]
+              (catMaybes
+                 [Just ("pipelineName" .= _dstPipelineName),
+                  Just ("stageName" .= _dstStageName),
+                  Just ("transitionType" .= _dstTransitionType),
+                  Just ("reason" .= _dstReason)])
 
 instance ToPath DisableStageTransition where
         toPath = const "/"

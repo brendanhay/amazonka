@@ -149,12 +149,13 @@ instance ToHeaders LookupDeveloperIdentity where
 instance ToJSON LookupDeveloperIdentity where
         toJSON LookupDeveloperIdentity'{..}
           = object
-              ["DeveloperUserIdentifier" .=
-                 _ldiDeveloperUserIdentifier,
-               "NextToken" .= _ldiNextToken,
-               "IdentityId" .= _ldiIdentityId,
-               "MaxResults" .= _ldiMaxResults,
-               "IdentityPoolId" .= _ldiIdentityPoolId]
+              (catMaybes
+                 [("DeveloperUserIdentifier" .=) <$>
+                    _ldiDeveloperUserIdentifier,
+                  ("NextToken" .=) <$> _ldiNextToken,
+                  ("IdentityId" .=) <$> _ldiIdentityId,
+                  ("MaxResults" .=) <$> _ldiMaxResults,
+                  Just ("IdentityPoolId" .= _ldiIdentityPoolId)])
 
 instance ToPath LookupDeveloperIdentity where
         toPath = const "/"

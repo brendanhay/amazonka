@@ -98,7 +98,8 @@ instance ToHeaders CreateAssociationBatch where
 
 instance ToJSON CreateAssociationBatch where
         toJSON CreateAssociationBatch'{..}
-          = object ["Entries" .= _cabEntries]
+          = object
+              (catMaybes [Just ("Entries" .= _cabEntries)])
 
 instance ToPath CreateAssociationBatch where
         toPath = const "/"

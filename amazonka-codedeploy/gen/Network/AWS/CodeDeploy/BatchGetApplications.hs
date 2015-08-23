@@ -91,7 +91,9 @@ instance ToHeaders BatchGetApplications where
 
 instance ToJSON BatchGetApplications where
         toJSON BatchGetApplications'{..}
-          = object ["applicationNames" .= _bgaApplicationNames]
+          = object
+              (catMaybes
+                 [("applicationNames" .=) <$> _bgaApplicationNames])
 
 instance ToPath BatchGetApplications where
         toPath = const "/"

@@ -92,7 +92,7 @@ instance ToHeaders StartPipelineExecution where
 
 instance ToJSON StartPipelineExecution where
         toJSON StartPipelineExecution'{..}
-          = object ["name" .= _speName]
+          = object (catMaybes [Just ("name" .= _speName)])
 
 instance ToPath StartPipelineExecution where
         toPath = const "/"

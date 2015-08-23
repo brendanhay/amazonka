@@ -111,10 +111,11 @@ instance FromJSON GrantConstraints where
 instance ToJSON GrantConstraints where
         toJSON GrantConstraints'{..}
           = object
-              ["EncryptionContextEquals" .=
-                 _gcEncryptionContextEquals,
-               "EncryptionContextSubset" .=
-                 _gcEncryptionContextSubset]
+              (catMaybes
+                 [("EncryptionContextEquals" .=) <$>
+                    _gcEncryptionContextEquals,
+                  ("EncryptionContextSubset" .=) <$>
+                    _gcEncryptionContextSubset])
 
 -- | Contains information about each entry in the grant list.
 --

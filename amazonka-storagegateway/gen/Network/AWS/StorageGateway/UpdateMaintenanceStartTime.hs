@@ -131,10 +131,11 @@ instance ToHeaders UpdateMaintenanceStartTime where
 instance ToJSON UpdateMaintenanceStartTime where
         toJSON UpdateMaintenanceStartTime'{..}
           = object
-              ["GatewayARN" .= _umstGatewayARN,
-               "HourOfDay" .= _umstHourOfDay,
-               "MinuteOfHour" .= _umstMinuteOfHour,
-               "DayOfWeek" .= _umstDayOfWeek]
+              (catMaybes
+                 [Just ("GatewayARN" .= _umstGatewayARN),
+                  Just ("HourOfDay" .= _umstHourOfDay),
+                  Just ("MinuteOfHour" .= _umstMinuteOfHour),
+                  Just ("DayOfWeek" .= _umstDayOfWeek)])
 
 instance ToPath UpdateMaintenanceStartTime where
         toPath = const "/"

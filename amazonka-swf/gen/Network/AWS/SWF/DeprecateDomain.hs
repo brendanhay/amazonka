@@ -106,7 +106,7 @@ instance ToHeaders DeprecateDomain where
 
 instance ToJSON DeprecateDomain where
         toJSON DeprecateDomain'{..}
-          = object ["name" .= _dName]
+          = object (catMaybes [Just ("name" .= _dName)])
 
 instance ToPath DeprecateDomain where
         toPath = const "/"

@@ -115,8 +115,9 @@ instance ToHeaders ListBootstrapActions where
 instance ToJSON ListBootstrapActions where
         toJSON ListBootstrapActions'{..}
           = object
-              ["Marker" .= _lbaMarker,
-               "ClusterId" .= _lbaClusterId]
+              (catMaybes
+                 [("Marker" .=) <$> _lbaMarker,
+                  Just ("ClusterId" .= _lbaClusterId)])
 
 instance ToPath ListBootstrapActions where
         toPath = const "/"

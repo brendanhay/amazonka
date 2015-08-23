@@ -155,15 +155,19 @@ instance ToHeaders CreateCustomActionType where
 instance ToJSON CreateCustomActionType where
         toJSON CreateCustomActionType'{..}
           = object
-              ["settings" .= _ccatSettings,
-               "configurationProperties" .=
-                 _ccatConfigurationProperties,
-               "category" .= _ccatCategory,
-               "provider" .= _ccatProvider,
-               "version" .= _ccatVersion,
-               "inputArtifactDetails" .= _ccatInputArtifactDetails,
-               "outputArtifactDetails" .=
-                 _ccatOutputArtifactDetails]
+              (catMaybes
+                 [("settings" .=) <$> _ccatSettings,
+                  ("configurationProperties" .=) <$>
+                    _ccatConfigurationProperties,
+                  Just ("category" .= _ccatCategory),
+                  Just ("provider" .= _ccatProvider),
+                  Just ("version" .= _ccatVersion),
+                  Just
+                    ("inputArtifactDetails" .=
+                       _ccatInputArtifactDetails),
+                  Just
+                    ("outputArtifactDetails" .=
+                       _ccatOutputArtifactDetails)])
 
 instance ToPath CreateCustomActionType where
         toPath = const "/"

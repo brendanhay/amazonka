@@ -90,7 +90,7 @@ instance ToHeaders DeleteTags where
 
 instance ToJSON DeleteTags where
         toJSON DeleteTags'{..}
-          = object ["TagKeys" .= _dTagKeys]
+          = object (catMaybes [Just ("TagKeys" .= _dTagKeys)])
 
 instance ToPath DeleteTags where
         toPath DeleteTags'{..}

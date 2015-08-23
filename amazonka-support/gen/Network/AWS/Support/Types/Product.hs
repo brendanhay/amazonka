@@ -68,7 +68,10 @@ instance FromJSON Attachment where
 
 instance ToJSON Attachment where
         toJSON Attachment'{..}
-          = object ["data" .= _aData, "fileName" .= _aFileName]
+          = object
+              (catMaybes
+                 [("data" .=) <$> _aData,
+                  ("fileName" .=) <$> _aFileName])
 
 -- | The file name and ID of an attachment to a case communication. You can
 -- use the ID to retrieve the attachment with the DescribeAttachment

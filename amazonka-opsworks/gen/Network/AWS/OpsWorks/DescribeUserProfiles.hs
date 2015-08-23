@@ -93,7 +93,8 @@ instance ToHeaders DescribeUserProfiles where
 
 instance ToJSON DescribeUserProfiles where
         toJSON DescribeUserProfiles'{..}
-          = object ["IamUserArns" .= _dupIAMUserARNs]
+          = object
+              (catMaybes [("IamUserArns" .=) <$> _dupIAMUserARNs])
 
 instance ToPath DescribeUserProfiles where
         toPath = const "/"

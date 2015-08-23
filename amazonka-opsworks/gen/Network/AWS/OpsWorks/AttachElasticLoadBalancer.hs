@@ -107,9 +107,11 @@ instance ToHeaders AttachElasticLoadBalancer where
 instance ToJSON AttachElasticLoadBalancer where
         toJSON AttachElasticLoadBalancer'{..}
           = object
-              ["ElasticLoadBalancerName" .=
-                 _aelbElasticLoadBalancerName,
-               "LayerId" .= _aelbLayerId]
+              (catMaybes
+                 [Just
+                    ("ElasticLoadBalancerName" .=
+                       _aelbElasticLoadBalancerName),
+                  Just ("LayerId" .= _aelbLayerId)])
 
 instance ToPath AttachElasticLoadBalancer where
         toPath = const "/"

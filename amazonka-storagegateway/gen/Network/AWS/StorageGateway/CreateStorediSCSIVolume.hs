@@ -181,13 +181,17 @@ instance ToHeaders CreateStorediSCSIVolume where
 instance ToJSON CreateStorediSCSIVolume where
         toJSON CreateStorediSCSIVolume'{..}
           = object
-              ["SnapshotId" .= _csscsivSnapshotId,
-               "GatewayARN" .= _csscsivGatewayARN,
-               "DiskId" .= _csscsivDiskId,
-               "PreserveExistingData" .=
-                 _csscsivPreserveExistingData,
-               "TargetName" .= _csscsivTargetName,
-               "NetworkInterfaceId" .= _csscsivNetworkInterfaceId]
+              (catMaybes
+                 [("SnapshotId" .=) <$> _csscsivSnapshotId,
+                  Just ("GatewayARN" .= _csscsivGatewayARN),
+                  Just ("DiskId" .= _csscsivDiskId),
+                  Just
+                    ("PreserveExistingData" .=
+                       _csscsivPreserveExistingData),
+                  Just ("TargetName" .= _csscsivTargetName),
+                  Just
+                    ("NetworkInterfaceId" .=
+                       _csscsivNetworkInterfaceId)])
 
 instance ToPath CreateStorediSCSIVolume where
         toPath = const "/"

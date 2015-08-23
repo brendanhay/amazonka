@@ -98,7 +98,8 @@ instance ToHeaders DeleteSnapshotSchedule where
 
 instance ToJSON DeleteSnapshotSchedule where
         toJSON DeleteSnapshotSchedule'{..}
-          = object ["VolumeARN" .= _dVolumeARN]
+          = object
+              (catMaybes [Just ("VolumeARN" .= _dVolumeARN)])
 
 instance ToPath DeleteSnapshotSchedule where
         toPath = const "/"

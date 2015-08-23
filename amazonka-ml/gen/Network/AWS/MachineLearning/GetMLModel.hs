@@ -136,8 +136,9 @@ instance ToHeaders GetMLModel where
 instance ToJSON GetMLModel where
         toJSON GetMLModel'{..}
           = object
-              ["Verbose" .= _gmlmVerbose,
-               "MLModelId" .= _gmlmMLModelId]
+              (catMaybes
+                 [("Verbose" .=) <$> _gmlmVerbose,
+                  Just ("MLModelId" .= _gmlmMLModelId)])
 
 instance ToPath GetMLModel where
         toPath = const "/"

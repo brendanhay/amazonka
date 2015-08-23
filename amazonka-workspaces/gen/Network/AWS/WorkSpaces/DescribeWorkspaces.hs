@@ -160,10 +160,13 @@ instance ToHeaders DescribeWorkspaces where
 instance ToJSON DescribeWorkspaces where
         toJSON DescribeWorkspaces'{..}
           = object
-              ["DirectoryId" .= _dwDirectoryId,
-               "WorkspaceIds" .= _dwWorkspaceIds,
-               "UserName" .= _dwUserName, "BundleId" .= _dwBundleId,
-               "NextToken" .= _dwNextToken, "Limit" .= _dwLimit]
+              (catMaybes
+                 [("DirectoryId" .=) <$> _dwDirectoryId,
+                  ("WorkspaceIds" .=) <$> _dwWorkspaceIds,
+                  ("UserName" .=) <$> _dwUserName,
+                  ("BundleId" .=) <$> _dwBundleId,
+                  ("NextToken" .=) <$> _dwNextToken,
+                  ("Limit" .=) <$> _dwLimit])
 
 instance ToPath DescribeWorkspaces where
         toPath = const "/"

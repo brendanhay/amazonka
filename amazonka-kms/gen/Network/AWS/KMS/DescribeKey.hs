@@ -95,7 +95,8 @@ instance ToHeaders DescribeKey where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DescribeKey where
-        toJSON DescribeKey'{..} = object ["KeyId" .= _dKeyId]
+        toJSON DescribeKey'{..}
+          = object (catMaybes [Just ("KeyId" .= _dKeyId)])
 
 instance ToPath DescribeKey where
         toPath = const "/"

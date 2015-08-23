@@ -86,7 +86,7 @@ instance ToHeaders DeleteHAPG where
 
 instance ToJSON DeleteHAPG where
         toJSON DeleteHAPG'{..}
-          = object ["HapgArn" .= _dhHAPGARN]
+          = object (catMaybes [Just ("HapgArn" .= _dhHAPGARN)])
 
 instance ToPath DeleteHAPG where
         toPath = const "/"

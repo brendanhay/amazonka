@@ -113,9 +113,10 @@ instance ToHeaders DeleteCustomActionType where
 instance ToJSON DeleteCustomActionType where
         toJSON DeleteCustomActionType'{..}
           = object
-              ["category" .= _dcatCategory,
-               "provider" .= _dcatProvider,
-               "version" .= _dcatVersion]
+              (catMaybes
+                 [Just ("category" .= _dcatCategory),
+                  Just ("provider" .= _dcatProvider),
+                  Just ("version" .= _dcatVersion)])
 
 instance ToPath DeleteCustomActionType where
         toPath = const "/"

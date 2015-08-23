@@ -101,7 +101,8 @@ instance ToHeaders DescribeUploadBuffer where
 
 instance ToJSON DescribeUploadBuffer where
         toJSON DescribeUploadBuffer'{..}
-          = object ["GatewayARN" .= _dubGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dubGatewayARN)])
 
 instance ToPath DescribeUploadBuffer where
         toPath = const "/"

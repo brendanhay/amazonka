@@ -169,10 +169,11 @@ instance ToHeaders CreateDataSourceFromS where
 instance ToJSON CreateDataSourceFromS where
         toJSON CreateDataSourceFromS'{..}
           = object
-              ["DataSourceName" .= _cdsfsDataSourceName,
-               "ComputeStatistics" .= _cdsfsComputeStatistics,
-               "DataSourceId" .= _cdsfsDataSourceId,
-               "DataSpec" .= _cdsfsDataSpec]
+              (catMaybes
+                 [("DataSourceName" .=) <$> _cdsfsDataSourceName,
+                  ("ComputeStatistics" .=) <$> _cdsfsComputeStatistics,
+                  Just ("DataSourceId" .= _cdsfsDataSourceId),
+                  Just ("DataSpec" .= _cdsfsDataSpec)])
 
 instance ToPath CreateDataSourceFromS where
         toPath = const "/"

@@ -196,11 +196,13 @@ instance ToHeaders CreateDataSourceFromRDS where
 instance ToJSON CreateDataSourceFromRDS where
         toJSON CreateDataSourceFromRDS'{..}
           = object
-              ["DataSourceName" .= _cdsfrdsDataSourceName,
-               "ComputeStatistics" .= _cdsfrdsComputeStatistics,
-               "DataSourceId" .= _cdsfrdsDataSourceId,
-               "RDSData" .= _cdsfrdsRDSData,
-               "RoleARN" .= _cdsfrdsRoleARN]
+              (catMaybes
+                 [("DataSourceName" .=) <$> _cdsfrdsDataSourceName,
+                  ("ComputeStatistics" .=) <$>
+                    _cdsfrdsComputeStatistics,
+                  Just ("DataSourceId" .= _cdsfrdsDataSourceId),
+                  Just ("RDSData" .= _cdsfrdsRDSData),
+                  Just ("RoleARN" .= _cdsfrdsRoleARN)])
 
 instance ToPath CreateDataSourceFromRDS where
         toPath = const "/"

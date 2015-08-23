@@ -113,9 +113,12 @@ instance ToHeaders ListAssociations where
 instance ToJSON ListAssociations where
         toJSON ListAssociations'{..}
           = object
-              ["NextToken" .= _laNextToken,
-               "MaxResults" .= _laMaxResults,
-               "AssociationFilterList" .= _laAssociationFilterList]
+              (catMaybes
+                 [("NextToken" .=) <$> _laNextToken,
+                  ("MaxResults" .=) <$> _laMaxResults,
+                  Just
+                    ("AssociationFilterList" .=
+                       _laAssociationFilterList)])
 
 instance ToPath ListAssociations where
         toPath = const "/"

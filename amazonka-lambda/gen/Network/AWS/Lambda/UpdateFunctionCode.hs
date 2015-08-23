@@ -145,9 +145,11 @@ instance ToHeaders UpdateFunctionCode where
 instance ToJSON UpdateFunctionCode where
         toJSON UpdateFunctionCode'{..}
           = object
-              ["S3ObjectVersion" .= _uS3ObjectVersion,
-               "S3Key" .= _uS3Key, "ZipFile" .= _uZipFile,
-               "S3Bucket" .= _uS3Bucket]
+              (catMaybes
+                 [("S3ObjectVersion" .=) <$> _uS3ObjectVersion,
+                  ("S3Key" .=) <$> _uS3Key,
+                  ("ZipFile" .=) <$> _uZipFile,
+                  ("S3Bucket" .=) <$> _uS3Bucket])
 
 instance ToPath UpdateFunctionCode where
         toPath UpdateFunctionCode'{..}

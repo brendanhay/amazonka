@@ -92,7 +92,8 @@ instance ToHeaders ListPipelines where
 
 instance ToJSON ListPipelines where
         toJSON ListPipelines'{..}
-          = object ["nextToken" .= _lpNextToken]
+          = object
+              (catMaybes [("nextToken" .=) <$> _lpNextToken])
 
 instance ToPath ListPipelines where
         toPath = const "/"

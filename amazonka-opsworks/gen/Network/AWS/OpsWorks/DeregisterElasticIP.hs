@@ -89,7 +89,8 @@ instance ToHeaders DeregisterElasticIP where
 
 instance ToJSON DeregisterElasticIP where
         toJSON DeregisterElasticIP'{..}
-          = object ["ElasticIp" .= _deipElasticIP]
+          = object
+              (catMaybes [Just ("ElasticIp" .= _deipElasticIP)])
 
 instance ToPath DeregisterElasticIP where
         toPath = const "/"

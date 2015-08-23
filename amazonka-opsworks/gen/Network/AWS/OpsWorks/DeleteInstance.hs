@@ -108,9 +108,10 @@ instance ToHeaders DeleteInstance where
 instance ToJSON DeleteInstance where
         toJSON DeleteInstance'{..}
           = object
-              ["DeleteVolumes" .= _diDeleteVolumes,
-               "DeleteElasticIp" .= _diDeleteElasticIP,
-               "InstanceId" .= _diInstanceId]
+              (catMaybes
+                 [("DeleteVolumes" .=) <$> _diDeleteVolumes,
+                  ("DeleteElasticIp" .=) <$> _diDeleteElasticIP,
+                  Just ("InstanceId" .= _diInstanceId)])
 
 instance ToPath DeleteInstance where
         toPath = const "/"

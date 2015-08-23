@@ -136,8 +136,9 @@ instance ToHeaders GetDataSource where
 instance ToJSON GetDataSource where
         toJSON GetDataSource'{..}
           = object
-              ["Verbose" .= _gdsVerbose,
-               "DataSourceId" .= _gdsDataSourceId]
+              (catMaybes
+                 [("Verbose" .=) <$> _gdsVerbose,
+                  Just ("DataSourceId" .= _gdsDataSourceId)])
 
 instance ToPath GetDataSource where
         toPath = const "/"

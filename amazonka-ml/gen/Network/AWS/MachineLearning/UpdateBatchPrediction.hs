@@ -102,8 +102,10 @@ instance ToHeaders UpdateBatchPrediction where
 instance ToJSON UpdateBatchPrediction where
         toJSON UpdateBatchPrediction'{..}
           = object
-              ["BatchPredictionId" .= _ubpBatchPredictionId,
-               "BatchPredictionName" .= _ubpBatchPredictionName]
+              (catMaybes
+                 [Just ("BatchPredictionId" .= _ubpBatchPredictionId),
+                  Just
+                    ("BatchPredictionName" .= _ubpBatchPredictionName)])
 
 instance ToPath UpdateBatchPrediction where
         toPath = const "/"

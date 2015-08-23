@@ -91,7 +91,8 @@ instance ToHeaders DescribeClusters where
 
 instance ToJSON DescribeClusters where
         toJSON DescribeClusters'{..}
-          = object ["clusters" .= _dcClusters]
+          = object
+              (catMaybes [("clusters" .=) <$> _dcClusters])
 
 instance ToPath DescribeClusters where
         toPath = const "/"

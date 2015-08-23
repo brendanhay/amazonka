@@ -114,9 +114,10 @@ instance ToHeaders UpdateMLModel where
 instance ToJSON UpdateMLModel where
         toJSON UpdateMLModel'{..}
           = object
-              ["MLModelName" .= _umlmMLModelName,
-               "ScoreThreshold" .= _umlmScoreThreshold,
-               "MLModelId" .= _umlmMLModelId]
+              (catMaybes
+                 [("MLModelName" .=) <$> _umlmMLModelName,
+                  ("ScoreThreshold" .=) <$> _umlmScoreThreshold,
+                  Just ("MLModelId" .= _umlmMLModelId)])
 
 instance ToPath UpdateMLModel where
         toPath = const "/"

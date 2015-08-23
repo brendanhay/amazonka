@@ -99,7 +99,9 @@ instance ToHeaders BatchGetRepositories where
 
 instance ToJSON BatchGetRepositories where
         toJSON BatchGetRepositories'{..}
-          = object ["repositoryNames" .= _bgrRepositoryNames]
+          = object
+              (catMaybes
+                 [Just ("repositoryNames" .= _bgrRepositoryNames)])
 
 instance ToPath BatchGetRepositories where
         toPath = const "/"

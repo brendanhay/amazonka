@@ -100,8 +100,9 @@ instance ToHeaders ListBranches where
 instance ToJSON ListBranches where
         toJSON ListBranches'{..}
           = object
-              ["nextToken" .= _lbNextToken,
-               "repositoryName" .= _lbRepositoryName]
+              (catMaybes
+                 [("nextToken" .=) <$> _lbNextToken,
+                  Just ("repositoryName" .= _lbRepositoryName)])
 
 instance ToPath ListBranches where
         toPath = const "/"

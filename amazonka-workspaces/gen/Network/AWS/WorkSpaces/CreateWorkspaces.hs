@@ -94,7 +94,8 @@ instance ToHeaders CreateWorkspaces where
 
 instance ToJSON CreateWorkspaces where
         toJSON CreateWorkspaces'{..}
-          = object ["Workspaces" .= _cwWorkspaces]
+          = object
+              (catMaybes [Just ("Workspaces" .= _cwWorkspaces)])
 
 instance ToPath CreateWorkspaces where
         toPath = const "/"

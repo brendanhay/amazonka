@@ -125,7 +125,10 @@ instance ToHeaders ListGateways where
 
 instance ToJSON ListGateways where
         toJSON ListGateways'{..}
-          = object ["Marker" .= _lgMarker, "Limit" .= _lgLimit]
+          = object
+              (catMaybes
+                 [("Marker" .=) <$> _lgMarker,
+                  ("Limit" .=) <$> _lgLimit])
 
 instance ToPath ListGateways where
         toPath = const "/"

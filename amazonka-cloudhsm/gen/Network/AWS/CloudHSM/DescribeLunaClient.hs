@@ -106,9 +106,10 @@ instance ToHeaders DescribeLunaClient where
 instance ToJSON DescribeLunaClient where
         toJSON DescribeLunaClient'{..}
           = object
-              ["ClientArn" .= _dlcClientARN,
-               "CertificateFingerprint" .=
-                 _dlcCertificateFingerprint]
+              (catMaybes
+                 [("ClientArn" .=) <$> _dlcClientARN,
+                  ("CertificateFingerprint" .=) <$>
+                    _dlcCertificateFingerprint])
 
 instance ToPath DescribeLunaClient where
         toPath = const "/"

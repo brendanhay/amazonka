@@ -162,12 +162,16 @@ instance ToHeaders UpdateTable where
 instance ToJSON UpdateTable where
         toJSON UpdateTable'{..}
           = object
-              ["ProvisionedThroughput" .= _utProvisionedThroughput,
-               "AttributeDefinitions" .= _utAttributeDefinitions,
-               "GlobalSecondaryIndexUpdates" .=
-                 _utGlobalSecondaryIndexUpdates,
-               "StreamSpecification" .= _utStreamSpecification,
-               "TableName" .= _utTableName]
+              (catMaybes
+                 [("ProvisionedThroughput" .=) <$>
+                    _utProvisionedThroughput,
+                  ("AttributeDefinitions" .=) <$>
+                    _utAttributeDefinitions,
+                  ("GlobalSecondaryIndexUpdates" .=) <$>
+                    _utGlobalSecondaryIndexUpdates,
+                  ("StreamSpecification" .=) <$>
+                    _utStreamSpecification,
+                  Just ("TableName" .= _utTableName)])
 
 instance ToPath UpdateTable where
         toPath = const "/"

@@ -129,8 +129,10 @@ instance ToHeaders DescribeWorkspaceBundles where
 instance ToJSON DescribeWorkspaceBundles where
         toJSON DescribeWorkspaceBundles'{..}
           = object
-              ["BundleIds" .= _dwbBundleIds, "Owner" .= _dwbOwner,
-               "NextToken" .= _dwbNextToken]
+              (catMaybes
+                 [("BundleIds" .=) <$> _dwbBundleIds,
+                  ("Owner" .=) <$> _dwbOwner,
+                  ("NextToken" .=) <$> _dwbNextToken])
 
 instance ToPath DescribeWorkspaceBundles where
         toPath = const "/"

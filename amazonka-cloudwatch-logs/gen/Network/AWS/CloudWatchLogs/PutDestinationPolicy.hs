@@ -96,8 +96,9 @@ instance ToHeaders PutDestinationPolicy where
 instance ToJSON PutDestinationPolicy where
         toJSON PutDestinationPolicy'{..}
           = object
-              ["destinationName" .= _pdpDestinationName,
-               "accessPolicy" .= _pdpAccessPolicy]
+              (catMaybes
+                 [Just ("destinationName" .= _pdpDestinationName),
+                  Just ("accessPolicy" .= _pdpAccessPolicy)])
 
 instance ToPath PutDestinationPolicy where
         toPath = const "/"

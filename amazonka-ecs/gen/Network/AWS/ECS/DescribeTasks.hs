@@ -102,7 +102,9 @@ instance ToHeaders DescribeTasks where
 instance ToJSON DescribeTasks where
         toJSON DescribeTasks'{..}
           = object
-              ["cluster" .= _dtCluster, "tasks" .= _dtTasks]
+              (catMaybes
+                 [("cluster" .=) <$> _dtCluster,
+                  Just ("tasks" .= _dtTasks)])
 
 instance ToPath DescribeTasks where
         toPath = const "/"

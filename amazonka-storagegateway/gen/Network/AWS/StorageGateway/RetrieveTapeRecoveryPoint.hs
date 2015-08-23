@@ -110,8 +110,9 @@ instance ToHeaders RetrieveTapeRecoveryPoint where
 instance ToJSON RetrieveTapeRecoveryPoint where
         toJSON RetrieveTapeRecoveryPoint'{..}
           = object
-              ["TapeARN" .= _rtrpTapeARN,
-               "GatewayARN" .= _rtrpGatewayARN]
+              (catMaybes
+                 [Just ("TapeARN" .= _rtrpTapeARN),
+                  Just ("GatewayARN" .= _rtrpGatewayARN)])
 
 instance ToPath RetrieveTapeRecoveryPoint where
         toPath = const "/"

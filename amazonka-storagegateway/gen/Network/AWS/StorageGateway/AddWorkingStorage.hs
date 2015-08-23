@@ -114,8 +114,9 @@ instance ToHeaders AddWorkingStorage where
 instance ToJSON AddWorkingStorage where
         toJSON AddWorkingStorage'{..}
           = object
-              ["GatewayARN" .= _awsGatewayARN,
-               "DiskIds" .= _awsDiskIds]
+              (catMaybes
+                 [Just ("GatewayARN" .= _awsGatewayARN),
+                  Just ("DiskIds" .= _awsDiskIds)])
 
 instance ToPath AddWorkingStorage where
         toPath = const "/"

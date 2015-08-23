@@ -123,11 +123,12 @@ instance ToHeaders UpdateBandwidthRateLimit where
 instance ToJSON UpdateBandwidthRateLimit where
         toJSON UpdateBandwidthRateLimit'{..}
           = object
-              ["AverageUploadRateLimitInBitsPerSec" .=
-                 _ubrlAverageUploadRateLimitInBitsPerSec,
-               "AverageDownloadRateLimitInBitsPerSec" .=
-                 _ubrlAverageDownloadRateLimitInBitsPerSec,
-               "GatewayARN" .= _ubrlGatewayARN]
+              (catMaybes
+                 [("AverageUploadRateLimitInBitsPerSec" .=) <$>
+                    _ubrlAverageUploadRateLimitInBitsPerSec,
+                  ("AverageDownloadRateLimitInBitsPerSec" .=) <$>
+                    _ubrlAverageDownloadRateLimitInBitsPerSec,
+                  Just ("GatewayARN" .= _ubrlGatewayARN)])
 
 instance ToPath UpdateBandwidthRateLimit where
         toPath = const "/"

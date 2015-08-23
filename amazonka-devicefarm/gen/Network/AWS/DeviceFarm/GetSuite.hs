@@ -87,7 +87,8 @@ instance ToHeaders GetSuite where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetSuite where
-        toJSON GetSuite'{..} = object ["arn" .= _gsArn]
+        toJSON GetSuite'{..}
+          = object (catMaybes [Just ("arn" .= _gsArn)])
 
 instance ToPath GetSuite where
         toPath = const "/"

@@ -103,8 +103,9 @@ instance ToHeaders RemoveTags where
 instance ToJSON RemoveTags where
         toJSON RemoveTags'{..}
           = object
-              ["ResourceId" .= _rtResourceId,
-               "TagKeys" .= _rtTagKeys]
+              (catMaybes
+                 [Just ("ResourceId" .= _rtResourceId),
+                  Just ("TagKeys" .= _rtTagKeys)])
 
 instance ToPath RemoveTags where
         toPath = const "/"

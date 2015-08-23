@@ -102,9 +102,10 @@ instance ToHeaders UpdateRepositoryDescription where
 instance ToJSON UpdateRepositoryDescription where
         toJSON UpdateRepositoryDescription'{..}
           = object
-              ["repositoryDescription" .=
-                 _urdRepositoryDescription,
-               "repositoryName" .= _urdRepositoryName]
+              (catMaybes
+                 [("repositoryDescription" .=) <$>
+                    _urdRepositoryDescription,
+                  Just ("repositoryName" .= _urdRepositoryName)])
 
 instance ToPath UpdateRepositoryDescription where
         toPath = const "/"

@@ -137,11 +137,16 @@ instance ToHeaders MergeDeveloperIdentities where
 instance ToJSON MergeDeveloperIdentities where
         toJSON MergeDeveloperIdentities'{..}
           = object
-              ["SourceUserIdentifier" .= _mdiSourceUserIdentifier,
-               "DestinationUserIdentifier" .=
-                 _mdiDestinationUserIdentifier,
-               "DeveloperProviderName" .= _mdiDeveloperProviderName,
-               "IdentityPoolId" .= _mdiIdentityPoolId]
+              (catMaybes
+                 [Just
+                    ("SourceUserIdentifier" .= _mdiSourceUserIdentifier),
+                  Just
+                    ("DestinationUserIdentifier" .=
+                       _mdiDestinationUserIdentifier),
+                  Just
+                    ("DeveloperProviderName" .=
+                       _mdiDeveloperProviderName),
+                  Just ("IdentityPoolId" .= _mdiIdentityPoolId)])
 
 instance ToPath MergeDeveloperIdentities where
         toPath = const "/"

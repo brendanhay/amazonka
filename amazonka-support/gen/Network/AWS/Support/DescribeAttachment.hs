@@ -93,7 +93,9 @@ instance ToHeaders DescribeAttachment where
 
 instance ToJSON DescribeAttachment where
         toJSON DescribeAttachment'{..}
-          = object ["attachmentId" .= _daAttachmentId]
+          = object
+              (catMaybes
+                 [Just ("attachmentId" .= _daAttachmentId)])
 
 instance ToPath DescribeAttachment where
         toPath = const "/"

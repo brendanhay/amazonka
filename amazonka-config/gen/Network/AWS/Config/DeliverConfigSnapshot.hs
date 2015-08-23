@@ -101,7 +101,9 @@ instance ToHeaders DeliverConfigSnapshot where
 instance ToJSON DeliverConfigSnapshot where
         toJSON DeliverConfigSnapshot'{..}
           = object
-              ["deliveryChannelName" .= _dcsDeliveryChannelName]
+              (catMaybes
+                 [Just
+                    ("deliveryChannelName" .= _dcsDeliveryChannelName)])
 
 instance ToPath DeliverConfigSnapshot where
         toPath = const "/"

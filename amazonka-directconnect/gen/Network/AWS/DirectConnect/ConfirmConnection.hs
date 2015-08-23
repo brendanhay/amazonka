@@ -92,7 +92,9 @@ instance ToHeaders ConfirmConnection where
 
 instance ToJSON ConfirmConnection where
         toJSON ConfirmConnection'{..}
-          = object ["connectionId" .= _ccConnectionId]
+          = object
+              (catMaybes
+                 [Just ("connectionId" .= _ccConnectionId)])
 
 instance ToPath ConfirmConnection where
         toPath = const "/"

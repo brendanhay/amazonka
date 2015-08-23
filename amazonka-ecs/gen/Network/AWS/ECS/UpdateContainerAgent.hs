@@ -113,8 +113,9 @@ instance ToHeaders UpdateContainerAgent where
 instance ToJSON UpdateContainerAgent where
         toJSON UpdateContainerAgent'{..}
           = object
-              ["cluster" .= _ucaCluster,
-               "containerInstance" .= _ucaContainerInstance]
+              (catMaybes
+                 [("cluster" .=) <$> _ucaCluster,
+                  Just ("containerInstance" .= _ucaContainerInstance)])
 
 instance ToPath UpdateContainerAgent where
         toPath = const "/"

@@ -141,9 +141,10 @@ instance ToHeaders CreateUpload where
 instance ToJSON CreateUpload where
         toJSON CreateUpload'{..}
           = object
-              ["contentType" .= _cuContentType,
-               "projectArn" .= _cuProjectARN, "name" .= _cuName,
-               "type" .= _cuType]
+              (catMaybes
+                 [("contentType" .=) <$> _cuContentType,
+                  Just ("projectArn" .= _cuProjectARN),
+                  Just ("name" .= _cuName), Just ("type" .= _cuType)])
 
 instance ToPath CreateUpload where
         toPath = const "/"

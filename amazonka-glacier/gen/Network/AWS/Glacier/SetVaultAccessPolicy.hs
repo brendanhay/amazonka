@@ -105,7 +105,7 @@ instance ToHeaders SetVaultAccessPolicy where
 
 instance ToJSON SetVaultAccessPolicy where
         toJSON SetVaultAccessPolicy'{..}
-          = object ["policy" .= _svapPolicy]
+          = object (catMaybes [("policy" .=) <$> _svapPolicy])
 
 instance ToPath SetVaultAccessPolicy where
         toPath SetVaultAccessPolicy'{..}

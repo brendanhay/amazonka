@@ -117,9 +117,11 @@ instance ToHeaders CreatePrivateVirtualInterface
 instance ToJSON CreatePrivateVirtualInterface where
         toJSON CreatePrivateVirtualInterface'{..}
           = object
-              ["connectionId" .= _creConnectionId,
-               "newPrivateVirtualInterface" .=
-                 _creNewPrivateVirtualInterface]
+              (catMaybes
+                 [Just ("connectionId" .= _creConnectionId),
+                  Just
+                    ("newPrivateVirtualInterface" .=
+                       _creNewPrivateVirtualInterface)])
 
 instance ToPath CreatePrivateVirtualInterface where
         toPath = const "/"

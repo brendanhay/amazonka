@@ -86,7 +86,8 @@ instance ToHeaders DescribeConnections where
 
 instance ToJSON DescribeConnections where
         toJSON DescribeConnections'{..}
-          = object ["connectionId" .= _dConnectionId]
+          = object
+              (catMaybes [("connectionId" .=) <$> _dConnectionId])
 
 instance ToPath DescribeConnections where
         toPath = const "/"

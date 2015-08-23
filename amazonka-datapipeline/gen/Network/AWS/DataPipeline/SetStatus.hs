@@ -109,8 +109,10 @@ instance ToHeaders SetStatus where
 instance ToJSON SetStatus where
         toJSON SetStatus'{..}
           = object
-              ["pipelineId" .= _ssPipelineId,
-               "objectIds" .= _ssObjectIds, "status" .= _ssStatus]
+              (catMaybes
+                 [Just ("pipelineId" .= _ssPipelineId),
+                  Just ("objectIds" .= _ssObjectIds),
+                  Just ("status" .= _ssStatus)])
 
 instance ToPath SetStatus where
         toPath = const "/"

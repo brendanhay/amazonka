@@ -98,7 +98,8 @@ instance ToHeaders DescribeLoadBasedAutoScaling where
 
 instance ToJSON DescribeLoadBasedAutoScaling where
         toJSON DescribeLoadBasedAutoScaling'{..}
-          = object ["LayerIds" .= _dlbasLayerIds]
+          = object
+              (catMaybes [Just ("LayerIds" .= _dlbasLayerIds)])
 
 instance ToPath DescribeLoadBasedAutoScaling where
         toPath = const "/"

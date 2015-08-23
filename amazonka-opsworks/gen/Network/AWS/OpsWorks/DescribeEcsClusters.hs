@@ -138,10 +138,11 @@ instance ToHeaders DescribeEcsClusters where
 instance ToJSON DescribeEcsClusters where
         toJSON DescribeEcsClusters'{..}
           = object
-              ["NextToken" .= _decNextToken,
-               "StackId" .= _decStackId,
-               "MaxResults" .= _decMaxResults,
-               "EcsClusterArns" .= _decEcsClusterARNs]
+              (catMaybes
+                 [("NextToken" .=) <$> _decNextToken,
+                  ("StackId" .=) <$> _decStackId,
+                  ("MaxResults" .=) <$> _decMaxResults,
+                  ("EcsClusterArns" .=) <$> _decEcsClusterARNs])
 
 instance ToPath DescribeEcsClusters where
         toPath = const "/"

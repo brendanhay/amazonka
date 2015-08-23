@@ -113,8 +113,9 @@ instance ToHeaders ListInstanceGroups where
 instance ToJSON ListInstanceGroups where
         toJSON ListInstanceGroups'{..}
           = object
-              ["Marker" .= _ligMarker,
-               "ClusterId" .= _ligClusterId]
+              (catMaybes
+                 [("Marker" .=) <$> _ligMarker,
+                  Just ("ClusterId" .= _ligClusterId)])
 
 instance ToPath ListInstanceGroups where
         toPath = const "/"

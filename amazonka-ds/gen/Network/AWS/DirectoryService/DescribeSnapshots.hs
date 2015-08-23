@@ -131,9 +131,11 @@ instance ToHeaders DescribeSnapshots where
 instance ToJSON DescribeSnapshots where
         toJSON DescribeSnapshots'{..}
           = object
-              ["DirectoryId" .= _dsDirectoryId,
-               "NextToken" .= _dsNextToken,
-               "SnapshotIds" .= _dsSnapshotIds, "Limit" .= _dsLimit]
+              (catMaybes
+                 [("DirectoryId" .=) <$> _dsDirectoryId,
+                  ("NextToken" .=) <$> _dsNextToken,
+                  ("SnapshotIds" .=) <$> _dsSnapshotIds,
+                  ("Limit" .=) <$> _dsLimit])
 
 instance ToPath DescribeSnapshots where
         toPath = const "/"

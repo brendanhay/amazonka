@@ -118,8 +118,11 @@ instance ToHeaders DescribeDestinations where
 instance ToJSON DescribeDestinations where
         toJSON DescribeDestinations'{..}
           = object
-              ["nextToken" .= _ddNextToken, "limit" .= _ddLimit,
-               "DestinationNamePrefix" .= _ddDestinationNamePrefix]
+              (catMaybes
+                 [("nextToken" .=) <$> _ddNextToken,
+                  ("limit" .=) <$> _ddLimit,
+                  ("DestinationNamePrefix" .=) <$>
+                    _ddDestinationNamePrefix])
 
 instance ToPath DescribeDestinations where
         toPath = const "/"

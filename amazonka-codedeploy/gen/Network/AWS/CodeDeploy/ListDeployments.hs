@@ -139,11 +139,14 @@ instance ToHeaders ListDeployments where
 instance ToJSON ListDeployments where
         toJSON ListDeployments'{..}
           = object
-              ["createTimeRange" .= _ldCreateTimeRange,
-               "nextToken" .= _ldNextToken,
-               "includeOnlyStatuses" .= _ldIncludeOnlyStatuses,
-               "applicationName" .= _ldApplicationName,
-               "deploymentGroupName" .= _ldDeploymentGroupName]
+              (catMaybes
+                 [("createTimeRange" .=) <$> _ldCreateTimeRange,
+                  ("nextToken" .=) <$> _ldNextToken,
+                  ("includeOnlyStatuses" .=) <$>
+                    _ldIncludeOnlyStatuses,
+                  ("applicationName" .=) <$> _ldApplicationName,
+                  ("deploymentGroupName" .=) <$>
+                    _ldDeploymentGroupName])
 
 instance ToPath ListDeployments where
         toPath = const "/"

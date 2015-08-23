@@ -138,8 +138,10 @@ instance ToHeaders ListVolumes where
 instance ToJSON ListVolumes where
         toJSON ListVolumes'{..}
           = object
-              ["Marker" .= _lvMarker, "Limit" .= _lvLimit,
-               "GatewayARN" .= _lvGatewayARN]
+              (catMaybes
+                 [("Marker" .=) <$> _lvMarker,
+                  ("Limit" .=) <$> _lvLimit,
+                  Just ("GatewayARN" .= _lvGatewayARN)])
 
 instance ToPath ListVolumes where
         toPath = const "/"

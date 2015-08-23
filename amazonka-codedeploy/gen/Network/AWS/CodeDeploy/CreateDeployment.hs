@@ -152,13 +152,16 @@ instance ToHeaders CreateDeployment where
 instance ToJSON CreateDeployment where
         toJSON CreateDeployment'{..}
           = object
-              ["deploymentConfigName" .= _cdDeploymentConfigName,
-               "revision" .= _cdRevision,
-               "description" .= _cdDescription,
-               "ignoreApplicationStopFailures" .=
-                 _cdIgnoreApplicationStopFailures,
-               "deploymentGroupName" .= _cdDeploymentGroupName,
-               "applicationName" .= _cdApplicationName]
+              (catMaybes
+                 [("deploymentConfigName" .=) <$>
+                    _cdDeploymentConfigName,
+                  ("revision" .=) <$> _cdRevision,
+                  ("description" .=) <$> _cdDescription,
+                  ("ignoreApplicationStopFailures" .=) <$>
+                    _cdIgnoreApplicationStopFailures,
+                  ("deploymentGroupName" .=) <$>
+                    _cdDeploymentGroupName,
+                  Just ("applicationName" .= _cdApplicationName)])
 
 instance ToPath CreateDeployment where
         toPath = const "/"

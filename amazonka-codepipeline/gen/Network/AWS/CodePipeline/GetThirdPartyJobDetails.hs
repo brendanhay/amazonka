@@ -110,8 +110,9 @@ instance ToHeaders GetThirdPartyJobDetails where
 instance ToJSON GetThirdPartyJobDetails where
         toJSON GetThirdPartyJobDetails'{..}
           = object
-              ["jobId" .= _gtpjdJobId,
-               "clientToken" .= _gtpjdClientToken]
+              (catMaybes
+                 [Just ("jobId" .= _gtpjdJobId),
+                  Just ("clientToken" .= _gtpjdClientToken)])
 
 instance ToPath GetThirdPartyJobDetails where
         toPath = const "/"

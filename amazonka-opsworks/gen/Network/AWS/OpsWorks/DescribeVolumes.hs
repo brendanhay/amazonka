@@ -126,10 +126,11 @@ instance ToHeaders DescribeVolumes where
 instance ToJSON DescribeVolumes where
         toJSON DescribeVolumes'{..}
           = object
-              ["InstanceId" .= _dvInstanceId,
-               "VolumeIds" .= _dvVolumeIds,
-               "RaidArrayId" .= _dvRAIdArrayId,
-               "StackId" .= _dvStackId]
+              (catMaybes
+                 [("InstanceId" .=) <$> _dvInstanceId,
+                  ("VolumeIds" .=) <$> _dvVolumeIds,
+                  ("RaidArrayId" .=) <$> _dvRAIdArrayId,
+                  ("StackId" .=) <$> _dvStackId])
 
 instance ToPath DescribeVolumes where
         toPath = const "/"

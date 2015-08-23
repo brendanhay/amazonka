@@ -96,8 +96,9 @@ instance ToHeaders RemoveTags where
 instance ToJSON RemoveTags where
         toJSON RemoveTags'{..}
           = object
-              ["pipelineId" .= _rtPipelineId,
-               "tagKeys" .= _rtTagKeys]
+              (catMaybes
+                 [Just ("pipelineId" .= _rtPipelineId),
+                  Just ("tagKeys" .= _rtTagKeys)])
 
 instance ToPath RemoveTags where
         toPath = const "/"

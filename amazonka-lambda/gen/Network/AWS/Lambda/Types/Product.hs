@@ -186,9 +186,11 @@ fcS3Bucket = lens _fcS3Bucket (\ s a -> s{_fcS3Bucket = a});
 instance ToJSON FunctionCode where
         toJSON FunctionCode'{..}
           = object
-              ["S3ObjectVersion" .= _fcS3ObjectVersion,
-               "S3Key" .= _fcS3Key, "ZipFile" .= _fcZipFile,
-               "S3Bucket" .= _fcS3Bucket]
+              (catMaybes
+                 [("S3ObjectVersion" .=) <$> _fcS3ObjectVersion,
+                  ("S3Key" .=) <$> _fcS3Key,
+                  ("ZipFile" .=) <$> _fcZipFile,
+                  ("S3Bucket" .=) <$> _fcS3Bucket])
 
 -- | The object for the Lambda function location.
 --

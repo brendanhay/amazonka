@@ -154,10 +154,12 @@ instance ToHeaders RunTask where
 instance ToJSON RunTask where
         toJSON RunTask'{..}
           = object
-              ["overrides" .= _rtOverrides,
-               "cluster" .= _rtCluster, "count" .= _rtCount,
-               "startedBy" .= _rtStartedBy,
-               "taskDefinition" .= _rtTaskDefinition]
+              (catMaybes
+                 [("overrides" .=) <$> _rtOverrides,
+                  ("cluster" .=) <$> _rtCluster,
+                  ("count" .=) <$> _rtCount,
+                  ("startedBy" .=) <$> _rtStartedBy,
+                  Just ("taskDefinition" .= _rtTaskDefinition)])
 
 instance ToPath RunTask where
         toPath = const "/"

@@ -95,8 +95,9 @@ instance ToHeaders AddTagsToStream where
 instance ToJSON AddTagsToStream where
         toJSON AddTagsToStream'{..}
           = object
-              ["StreamName" .= _attsStreamName,
-               "Tags" .= _attsTags]
+              (catMaybes
+                 [Just ("StreamName" .= _attsStreamName),
+                  Just ("Tags" .= _attsTags)])
 
 instance ToPath AddTagsToStream where
         toPath = const "/"

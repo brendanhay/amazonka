@@ -152,10 +152,13 @@ instance ToHeaders CreateDeployment where
 instance ToJSON CreateDeployment where
         toJSON CreateDeployment'{..}
           = object
-              ["CustomJson" .= _cdCustomJSON, "AppId" .= _cdAppId,
-               "InstanceIds" .= _cdInstanceIds,
-               "Comment" .= _cdComment, "StackId" .= _cdStackId,
-               "Command" .= _cdCommand]
+              (catMaybes
+                 [("CustomJson" .=) <$> _cdCustomJSON,
+                  ("AppId" .=) <$> _cdAppId,
+                  ("InstanceIds" .=) <$> _cdInstanceIds,
+                  ("Comment" .=) <$> _cdComment,
+                  Just ("StackId" .= _cdStackId),
+                  Just ("Command" .= _cdCommand)])
 
 instance ToPath CreateDeployment where
         toPath = const "/"

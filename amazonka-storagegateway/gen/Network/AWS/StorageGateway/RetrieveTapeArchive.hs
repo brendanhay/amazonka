@@ -114,8 +114,9 @@ instance ToHeaders RetrieveTapeArchive where
 instance ToJSON RetrieveTapeArchive where
         toJSON RetrieveTapeArchive'{..}
           = object
-              ["TapeARN" .= _rtaTapeARN,
-               "GatewayARN" .= _rtaGatewayARN]
+              (catMaybes
+                 [Just ("TapeARN" .= _rtaTapeARN),
+                  Just ("GatewayARN" .= _rtaGatewayARN)])
 
 instance ToPath RetrieveTapeArchive where
         toPath = const "/"

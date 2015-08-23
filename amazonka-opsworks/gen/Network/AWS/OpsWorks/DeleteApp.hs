@@ -84,7 +84,8 @@ instance ToHeaders DeleteApp where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DeleteApp where
-        toJSON DeleteApp'{..} = object ["AppId" .= _daAppId]
+        toJSON DeleteApp'{..}
+          = object (catMaybes [Just ("AppId" .= _daAppId)])
 
 instance ToPath DeleteApp where
         toPath = const "/"

@@ -95,7 +95,9 @@ instance ToHeaders AddTags where
 instance ToJSON AddTags where
         toJSON AddTags'{..}
           = object
-              ["pipelineId" .= _atPipelineId, "tags" .= _atTags]
+              (catMaybes
+                 [Just ("pipelineId" .= _atPipelineId),
+                  Just ("tags" .= _atTags)])
 
 instance ToPath AddTags where
         toPath = const "/"

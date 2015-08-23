@@ -107,7 +107,8 @@ instance ToHeaders DescribeGatewayInformation where
 
 instance ToJSON DescribeGatewayInformation where
         toJSON DescribeGatewayInformation'{..}
-          = object ["GatewayARN" .= _dgiGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dgiGatewayARN)])
 
 instance ToPath DescribeGatewayInformation where
         toPath = const "/"

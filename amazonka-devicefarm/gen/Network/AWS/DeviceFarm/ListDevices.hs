@@ -101,7 +101,9 @@ instance ToHeaders ListDevices where
 instance ToJSON ListDevices where
         toJSON ListDevices'{..}
           = object
-              ["arn" .= _ldArn, "nextToken" .= _ldNextToken]
+              (catMaybes
+                 [("arn" .=) <$> _ldArn,
+                  ("nextToken" .=) <$> _ldNextToken])
 
 instance ToPath ListDevices where
         toPath = const "/"

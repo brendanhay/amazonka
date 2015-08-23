@@ -89,7 +89,9 @@ instance ToHeaders GetDeployment where
 
 instance ToJSON GetDeployment where
         toJSON GetDeployment'{..}
-          = object ["deploymentId" .= _gdDeploymentId]
+          = object
+              (catMaybes
+                 [Just ("deploymentId" .= _gdDeploymentId)])
 
 instance ToPath GetDeployment where
         toPath = const "/"

@@ -110,7 +110,9 @@ instance ToHeaders GetBatchPrediction where
 instance ToJSON GetBatchPrediction where
         toJSON GetBatchPrediction'{..}
           = object
-              ["BatchPredictionId" .= _gbpBatchPredictionId]
+              (catMaybes
+                 [Just
+                    ("BatchPredictionId" .= _gbpBatchPredictionId)])
 
 instance ToPath GetBatchPrediction where
         toPath = const "/"

@@ -108,7 +108,7 @@ instance ToHeaders DescribeDomain where
 
 instance ToJSON DescribeDomain where
         toJSON DescribeDomain'{..}
-          = object ["name" .= _ddName]
+          = object (catMaybes [Just ("name" .= _ddName)])
 
 instance ToPath DescribeDomain where
         toPath = const "/"

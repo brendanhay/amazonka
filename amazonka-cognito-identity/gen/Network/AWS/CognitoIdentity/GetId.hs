@@ -121,8 +121,10 @@ instance ToHeaders GetId where
 instance ToJSON GetId where
         toJSON GetId'{..}
           = object
-              ["AccountId" .= _giAccountId, "Logins" .= _giLogins,
-               "IdentityPoolId" .= _giIdentityPoolId]
+              (catMaybes
+                 [("AccountId" .=) <$> _giAccountId,
+                  ("Logins" .=) <$> _giLogins,
+                  Just ("IdentityPoolId" .= _giIdentityPoolId)])
 
 instance ToPath GetId where
         toPath = const "/"

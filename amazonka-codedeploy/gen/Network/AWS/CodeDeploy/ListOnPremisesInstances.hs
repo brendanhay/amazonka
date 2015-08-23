@@ -125,9 +125,11 @@ instance ToHeaders ListOnPremisesInstances where
 instance ToJSON ListOnPremisesInstances where
         toJSON ListOnPremisesInstances'{..}
           = object
-              ["tagFilters" .= _lopiTagFilters,
-               "nextToken" .= _lopiNextToken,
-               "registrationStatus" .= _lopiRegistrationStatus]
+              (catMaybes
+                 [("tagFilters" .=) <$> _lopiTagFilters,
+                  ("nextToken" .=) <$> _lopiNextToken,
+                  ("registrationStatus" .=) <$>
+                    _lopiRegistrationStatus])
 
 instance ToPath ListOnPremisesInstances where
         toPath = const "/"

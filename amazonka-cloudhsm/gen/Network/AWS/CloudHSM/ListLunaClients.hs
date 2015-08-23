@@ -94,7 +94,8 @@ instance ToHeaders ListLunaClients where
 
 instance ToJSON ListLunaClients where
         toJSON ListLunaClients'{..}
-          = object ["NextToken" .= _llcNextToken]
+          = object
+              (catMaybes [("NextToken" .=) <$> _llcNextToken])
 
 instance ToPath ListLunaClients where
         toPath = const "/"

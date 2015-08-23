@@ -92,8 +92,9 @@ instance ToHeaders DeleteMetricFilter where
 instance ToJSON DeleteMetricFilter where
         toJSON DeleteMetricFilter'{..}
           = object
-              ["logGroupName" .= _delLogGroupName,
-               "filterName" .= _delFilterName]
+              (catMaybes
+                 [Just ("logGroupName" .= _delLogGroupName),
+                  Just ("filterName" .= _delFilterName)])
 
 instance ToPath DeleteMetricFilter where
         toPath = const "/"

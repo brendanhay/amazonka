@@ -234,7 +234,9 @@ instance ToHeaders InitiateJob where
 
 instance ToJSON InitiateJob where
         toJSON InitiateJob'{..}
-          = object ["jobParameters" .= _ijJobParameters]
+          = object
+              (catMaybes
+                 [("jobParameters" .=) <$> _ijJobParameters])
 
 instance ToPath InitiateJob where
         toPath InitiateJob'{..}

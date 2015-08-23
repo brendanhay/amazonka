@@ -94,7 +94,9 @@ instance ToHeaders UpdateRepositoryName where
 instance ToJSON UpdateRepositoryName where
         toJSON UpdateRepositoryName'{..}
           = object
-              ["oldName" .= _urnOldName, "newName" .= _urnNewName]
+              (catMaybes
+                 [Just ("oldName" .= _urnOldName),
+                  Just ("newName" .= _urnNewName)])
 
 instance ToPath UpdateRepositoryName where
         toPath = const "/"

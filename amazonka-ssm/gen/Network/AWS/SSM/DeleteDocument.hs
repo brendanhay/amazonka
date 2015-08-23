@@ -87,7 +87,7 @@ instance ToHeaders DeleteDocument where
 
 instance ToJSON DeleteDocument where
         toJSON DeleteDocument'{..}
-          = object ["Name" .= _dddName]
+          = object (catMaybes [Just ("Name" .= _dddName)])
 
 instance ToPath DeleteDocument where
         toPath = const "/"

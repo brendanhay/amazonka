@@ -107,7 +107,9 @@ instance ToHeaders CreateAssociation where
 instance ToJSON CreateAssociation where
         toJSON CreateAssociation'{..}
           = object
-              ["Name" .= _caName, "InstanceId" .= _caInstanceId]
+              (catMaybes
+                 [Just ("Name" .= _caName),
+                  Just ("InstanceId" .= _caInstanceId)])
 
 instance ToPath CreateAssociation where
         toPath = const "/"

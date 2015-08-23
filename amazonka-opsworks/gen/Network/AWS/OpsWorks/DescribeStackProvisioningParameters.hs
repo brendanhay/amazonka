@@ -101,7 +101,8 @@ instance ToHeaders
 instance ToJSON DescribeStackProvisioningParameters
          where
         toJSON DescribeStackProvisioningParameters'{..}
-          = object ["StackId" .= _dsppStackId]
+          = object
+              (catMaybes [Just ("StackId" .= _dsppStackId)])
 
 instance ToPath DescribeStackProvisioningParameters
          where

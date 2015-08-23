@@ -193,14 +193,18 @@ instance ToHeaders UpdateApp where
 instance ToJSON UpdateApp where
         toJSON UpdateApp'{..}
           = object
-              ["SslConfiguration" .= _uaSSLConfiguration,
-               "EnableSsl" .= _uaEnableSSL,
-               "Environment" .= _uaEnvironment,
-               "DataSources" .= _uaDataSources,
-               "AppSource" .= _uaAppSource, "Name" .= _uaName,
-               "Attributes" .= _uaAttributes, "Type" .= _uaType,
-               "Domains" .= _uaDomains,
-               "Description" .= _uaDescription, "AppId" .= _uaAppId]
+              (catMaybes
+                 [("SslConfiguration" .=) <$> _uaSSLConfiguration,
+                  ("EnableSsl" .=) <$> _uaEnableSSL,
+                  ("Environment" .=) <$> _uaEnvironment,
+                  ("DataSources" .=) <$> _uaDataSources,
+                  ("AppSource" .=) <$> _uaAppSource,
+                  ("Name" .=) <$> _uaName,
+                  ("Attributes" .=) <$> _uaAttributes,
+                  ("Type" .=) <$> _uaType,
+                  ("Domains" .=) <$> _uaDomains,
+                  ("Description" .=) <$> _uaDescription,
+                  Just ("AppId" .= _uaAppId)])
 
 instance ToPath UpdateApp where
         toPath = const "/"

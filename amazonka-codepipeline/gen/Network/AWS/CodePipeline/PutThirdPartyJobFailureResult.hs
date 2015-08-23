@@ -111,9 +111,10 @@ instance ToHeaders PutThirdPartyJobFailureResult
 instance ToJSON PutThirdPartyJobFailureResult where
         toJSON PutThirdPartyJobFailureResult'{..}
           = object
-              ["jobId" .= _ptpjfrJobId,
-               "clientToken" .= _ptpjfrClientToken,
-               "failureDetails" .= _ptpjfrFailureDetails]
+              (catMaybes
+                 [Just ("jobId" .= _ptpjfrJobId),
+                  Just ("clientToken" .= _ptpjfrClientToken),
+                  Just ("failureDetails" .= _ptpjfrFailureDetails)])
 
 instance ToPath PutThirdPartyJobFailureResult where
         toPath = const "/"

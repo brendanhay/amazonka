@@ -159,12 +159,15 @@ instance ToHeaders CreateHSM where
 instance ToJSON CreateHSM where
         toJSON CreateHSM'{..}
           = object
-              ["ClientToken" .= _chClientToken,
-               "SyslogIp" .= _chSyslogIP,
-               "ExternalId" .= _chExternalId, "EniIp" .= _chEniIP,
-               "SubnetId" .= _chSubnetId, "SshKey" .= _chSSHKey,
-               "IamRoleArn" .= _chIAMRoleARN,
-               "SubscriptionType" .= _chSubscriptionType]
+              (catMaybes
+                 [("ClientToken" .=) <$> _chClientToken,
+                  ("SyslogIp" .=) <$> _chSyslogIP,
+                  ("ExternalId" .=) <$> _chExternalId,
+                  ("EniIp" .=) <$> _chEniIP,
+                  Just ("SubnetId" .= _chSubnetId),
+                  Just ("SshKey" .= _chSSHKey),
+                  Just ("IamRoleArn" .= _chIAMRoleARN),
+                  Just ("SubscriptionType" .= _chSubscriptionType)])
 
 instance ToPath CreateHSM where
         toPath = const "/"

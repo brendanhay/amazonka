@@ -106,7 +106,9 @@ instance ToHeaders DescribeApps where
 instance ToJSON DescribeApps where
         toJSON DescribeApps'{..}
           = object
-              ["AppIds" .= _daAppIds, "StackId" .= _daStackId]
+              (catMaybes
+                 [("AppIds" .=) <$> _daAppIds,
+                  ("StackId" .=) <$> _daStackId])
 
 instance ToPath DescribeApps where
         toPath = const "/"

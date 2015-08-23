@@ -100,7 +100,8 @@ instance ToHeaders ListLocalDisks where
 
 instance ToJSON ListLocalDisks where
         toJSON ListLocalDisks'{..}
-          = object ["GatewayARN" .= _lldGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _lldGatewayARN)])
 
 instance ToPath ListLocalDisks where
         toPath = const "/"

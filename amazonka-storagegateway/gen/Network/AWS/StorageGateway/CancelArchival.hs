@@ -102,8 +102,9 @@ instance ToHeaders CancelArchival where
 instance ToJSON CancelArchival where
         toJSON CancelArchival'{..}
           = object
-              ["GatewayARN" .= _caGatewayARN,
-               "TapeARN" .= _caTapeARN]
+              (catMaybes
+                 [Just ("GatewayARN" .= _caGatewayARN),
+                  Just ("TapeARN" .= _caTapeARN)])
 
 instance ToPath CancelArchival where
         toPath = const "/"

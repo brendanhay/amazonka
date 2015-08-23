@@ -89,7 +89,8 @@ instance ToHeaders TerminateJobFlows where
 
 instance ToJSON TerminateJobFlows where
         toJSON TerminateJobFlows'{..}
-          = object ["JobFlowIds" .= _tjfJobFlowIds]
+          = object
+              (catMaybes [Just ("JobFlowIds" .= _tjfJobFlowIds)])
 
 instance ToPath TerminateJobFlows where
         toPath = const "/"

@@ -120,8 +120,9 @@ instance ToJSON DescribeTrustedAdvisorCheckResult
          where
         toJSON DescribeTrustedAdvisorCheckResult'{..}
           = object
-              ["language" .= _dtacrLanguage,
-               "checkId" .= _dtacrCheckId]
+              (catMaybes
+                 [("language" .=) <$> _dtacrLanguage,
+                  Just ("checkId" .= _dtacrCheckId)])
 
 instance ToPath DescribeTrustedAdvisorCheckResult
          where

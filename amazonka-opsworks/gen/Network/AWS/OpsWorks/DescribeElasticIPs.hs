@@ -123,8 +123,10 @@ instance ToHeaders DescribeElasticIPs where
 instance ToJSON DescribeElasticIPs where
         toJSON DescribeElasticIPs'{..}
           = object
-              ["InstanceId" .= _deiInstanceId, "Ips" .= _deiIPs,
-               "StackId" .= _deiStackId]
+              (catMaybes
+                 [("InstanceId" .=) <$> _deiInstanceId,
+                  ("Ips" .=) <$> _deiIPs,
+                  ("StackId" .=) <$> _deiStackId])
 
 instance ToPath DescribeElasticIPs where
         toPath = const "/"

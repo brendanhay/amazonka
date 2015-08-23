@@ -89,7 +89,8 @@ instance ToHeaders DeleteDirectory where
 
 instance ToJSON DeleteDirectory where
         toJSON DeleteDirectory'{..}
-          = object ["DirectoryId" .= _dDirectoryId]
+          = object
+              (catMaybes [Just ("DirectoryId" .= _dDirectoryId)])
 
 instance ToPath DeleteDirectory where
         toPath = const "/"

@@ -133,8 +133,9 @@ instance ToHeaders RespondActivityTaskCompleted where
 instance ToJSON RespondActivityTaskCompleted where
         toJSON RespondActivityTaskCompleted'{..}
           = object
-              ["result" .= _ratcResult,
-               "taskToken" .= _ratcTaskToken]
+              (catMaybes
+                 [("result" .=) <$> _ratcResult,
+                  Just ("taskToken" .= _ratcTaskToken)])
 
 instance ToPath RespondActivityTaskCompleted where
         toPath = const "/"

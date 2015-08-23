@@ -125,10 +125,11 @@ instance ToHeaders ValidatePipelineDefinition where
 instance ToJSON ValidatePipelineDefinition where
         toJSON ValidatePipelineDefinition'{..}
           = object
-              ["parameterObjects" .= _vpdParameterObjects,
-               "parameterValues" .= _vpdParameterValues,
-               "pipelineId" .= _vpdPipelineId,
-               "pipelineObjects" .= _vpdPipelineObjects]
+              (catMaybes
+                 [("parameterObjects" .=) <$> _vpdParameterObjects,
+                  ("parameterValues" .=) <$> _vpdParameterValues,
+                  Just ("pipelineId" .= _vpdPipelineId),
+                  Just ("pipelineObjects" .= _vpdPipelineObjects)])
 
 instance ToPath ValidatePipelineDefinition where
         toPath = const "/"

@@ -79,9 +79,10 @@ instance FromJSON CognitoStreams where
 instance ToJSON CognitoStreams where
         toJSON CognitoStreams'{..}
           = object
-              ["StreamingStatus" .= _csStreamingStatus,
-               "StreamName" .= _csStreamName,
-               "RoleArn" .= _csRoleARN]
+              (catMaybes
+                 [("StreamingStatus" .=) <$> _csStreamingStatus,
+                  ("StreamName" .=) <$> _csStreamName,
+                  ("RoleArn" .=) <$> _csRoleARN])
 
 -- | A collection of data for an identity pool. An identity pool can have
 -- multiple datasets. A dataset is per identity and can be general or
@@ -345,8 +346,9 @@ instance FromJSON PushSync where
 instance ToJSON PushSync where
         toJSON PushSync'{..}
           = object
-              ["ApplicationArns" .= _psApplicationARNs,
-               "RoleArn" .= _psRoleARN]
+              (catMaybes
+                 [("ApplicationArns" .=) <$> _psApplicationARNs,
+                  ("RoleArn" .=) <$> _psRoleARN])
 
 -- | The basic data structure of a dataset.
 --
@@ -483,7 +485,9 @@ rpSyncCount = lens _rpSyncCount (\ s a -> s{_rpSyncCount = a});
 instance ToJSON RecordPatch where
         toJSON RecordPatch'{..}
           = object
-              ["DeviceLastModifiedDate" .=
-                 _rpDeviceLastModifiedDate,
-               "Value" .= _rpValue, "Op" .= _rpOp, "Key" .= _rpKey,
-               "SyncCount" .= _rpSyncCount]
+              (catMaybes
+                 [("DeviceLastModifiedDate" .=) <$>
+                    _rpDeviceLastModifiedDate,
+                  ("Value" .=) <$> _rpValue, Just ("Op" .= _rpOp),
+                  Just ("Key" .= _rpKey),
+                  Just ("SyncCount" .= _rpSyncCount)])

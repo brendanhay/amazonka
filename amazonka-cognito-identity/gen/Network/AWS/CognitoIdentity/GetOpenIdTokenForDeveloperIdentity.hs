@@ -157,10 +157,11 @@ instance ToJSON GetOpenIdTokenForDeveloperIdentity
          where
         toJSON GetOpenIdTokenForDeveloperIdentity'{..}
           = object
-              ["TokenDuration" .= _goitfdiTokenDuration,
-               "IdentityId" .= _goitfdiIdentityId,
-               "IdentityPoolId" .= _goitfdiIdentityPoolId,
-               "Logins" .= _goitfdiLogins]
+              (catMaybes
+                 [("TokenDuration" .=) <$> _goitfdiTokenDuration,
+                  ("IdentityId" .=) <$> _goitfdiIdentityId,
+                  Just ("IdentityPoolId" .= _goitfdiIdentityPoolId),
+                  Just ("Logins" .= _goitfdiLogins)])
 
 instance ToPath GetOpenIdTokenForDeveloperIdentity
          where

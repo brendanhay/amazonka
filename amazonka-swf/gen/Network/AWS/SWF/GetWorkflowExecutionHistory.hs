@@ -176,11 +176,12 @@ instance ToHeaders GetWorkflowExecutionHistory where
 instance ToJSON GetWorkflowExecutionHistory where
         toJSON GetWorkflowExecutionHistory'{..}
           = object
-              ["nextPageToken" .= _gwehNextPageToken,
-               "reverseOrder" .= _gwehReverseOrder,
-               "maximumPageSize" .= _gwehMaximumPageSize,
-               "domain" .= _gwehDomain,
-               "execution" .= _gwehExecution]
+              (catMaybes
+                 [("nextPageToken" .=) <$> _gwehNextPageToken,
+                  ("reverseOrder" .=) <$> _gwehReverseOrder,
+                  ("maximumPageSize" .=) <$> _gwehMaximumPageSize,
+                  Just ("domain" .= _gwehDomain),
+                  Just ("execution" .= _gwehExecution)])
 
 instance ToPath GetWorkflowExecutionHistory where
         toPath = const "/"

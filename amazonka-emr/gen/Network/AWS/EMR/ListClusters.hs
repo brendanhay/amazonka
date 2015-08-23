@@ -132,10 +132,11 @@ instance ToHeaders ListClusters where
 instance ToJSON ListClusters where
         toJSON ListClusters'{..}
           = object
-              ["CreatedAfter" .= _lcCreatedAfter,
-               "Marker" .= _lcMarker,
-               "ClusterStates" .= _lcClusterStates,
-               "CreatedBefore" .= _lcCreatedBefore]
+              (catMaybes
+                 [("CreatedAfter" .=) <$> _lcCreatedAfter,
+                  ("Marker" .=) <$> _lcMarker,
+                  ("ClusterStates" .=) <$> _lcClusterStates,
+                  ("CreatedBefore" .=) <$> _lcCreatedBefore])
 
 instance ToPath ListClusters where
         toPath = const "/"

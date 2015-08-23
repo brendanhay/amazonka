@@ -101,7 +101,9 @@ instance ToHeaders CreateSnapshot where
 instance ToJSON CreateSnapshot where
         toJSON CreateSnapshot'{..}
           = object
-              ["Name" .= _csName, "DirectoryId" .= _csDirectoryId]
+              (catMaybes
+                 [("Name" .=) <$> _csName,
+                  Just ("DirectoryId" .= _csDirectoryId)])
 
 instance ToPath CreateSnapshot where
         toPath = const "/"

@@ -102,7 +102,8 @@ instance ToHeaders DescribeSnapshotSchedule where
 
 instance ToJSON DescribeSnapshotSchedule where
         toJSON DescribeSnapshotSchedule'{..}
-          = object ["VolumeARN" .= _dssVolumeARN]
+          = object
+              (catMaybes [Just ("VolumeARN" .= _dssVolumeARN)])
 
 instance ToPath DescribeSnapshotSchedule where
         toPath = const "/"

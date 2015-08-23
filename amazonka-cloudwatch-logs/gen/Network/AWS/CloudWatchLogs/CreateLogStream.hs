@@ -97,8 +97,9 @@ instance ToHeaders CreateLogStream where
 instance ToJSON CreateLogStream where
         toJSON CreateLogStream'{..}
           = object
-              ["logGroupName" .= _clsLogGroupName,
-               "logStreamName" .= _clsLogStreamName]
+              (catMaybes
+                 [Just ("logGroupName" .= _clsLogGroupName),
+                  Just ("logStreamName" .= _clsLogStreamName)])
 
 instance ToPath CreateLogStream where
         toPath = const "/"

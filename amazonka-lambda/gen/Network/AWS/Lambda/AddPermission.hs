@@ -172,10 +172,12 @@ instance ToHeaders AddPermission where
 instance ToJSON AddPermission where
         toJSON AddPermission'{..}
           = object
-              ["SourceAccount" .= _apSourceAccount,
-               "SourceArn" .= _apSourceARN,
-               "StatementId" .= _apStatementId,
-               "Action" .= _apAction, "Principal" .= _apPrincipal]
+              (catMaybes
+                 [("SourceAccount" .=) <$> _apSourceAccount,
+                  ("SourceArn" .=) <$> _apSourceARN,
+                  Just ("StatementId" .= _apStatementId),
+                  Just ("Action" .= _apAction),
+                  Just ("Principal" .= _apPrincipal)])
 
 instance ToPath AddPermission where
         toPath AddPermission'{..}

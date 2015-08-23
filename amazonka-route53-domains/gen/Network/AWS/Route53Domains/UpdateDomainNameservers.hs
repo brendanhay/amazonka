@@ -133,9 +133,10 @@ instance ToHeaders UpdateDomainNameservers where
 instance ToJSON UpdateDomainNameservers where
         toJSON UpdateDomainNameservers'{..}
           = object
-              ["FIAuthKey" .= _udnFIAuthKey,
-               "DomainName" .= _udnDomainName,
-               "Nameservers" .= _udnNameservers]
+              (catMaybes
+                 [("FIAuthKey" .=) <$> _udnFIAuthKey,
+                  Just ("DomainName" .= _udnDomainName),
+                  Just ("Nameservers" .= _udnNameservers)])
 
 instance ToPath UpdateDomainNameservers where
         toPath = const "/"

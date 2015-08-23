@@ -96,7 +96,8 @@ instance ToHeaders DescribeChapCredentials where
 
 instance ToJSON DescribeChapCredentials where
         toJSON DescribeChapCredentials'{..}
-          = object ["TargetARN" .= _dccTargetARN]
+          = object
+              (catMaybes [Just ("TargetARN" .= _dccTargetARN)])
 
 instance ToPath DescribeChapCredentials where
         toPath = const "/"

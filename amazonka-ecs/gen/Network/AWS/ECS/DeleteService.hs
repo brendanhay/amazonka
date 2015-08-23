@@ -97,7 +97,9 @@ instance ToHeaders DeleteService where
 instance ToJSON DeleteService where
         toJSON DeleteService'{..}
           = object
-              ["cluster" .= _dsCluster, "service" .= _dsService]
+              (catMaybes
+                 [("cluster" .=) <$> _dsCluster,
+                  Just ("service" .= _dsService)])
 
 instance ToPath DeleteService where
         toPath = const "/"

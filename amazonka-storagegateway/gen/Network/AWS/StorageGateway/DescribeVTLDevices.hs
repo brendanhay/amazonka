@@ -144,9 +144,11 @@ instance ToHeaders DescribeVTLDevices where
 instance ToJSON DescribeVTLDevices where
         toJSON DescribeVTLDevices'{..}
           = object
-              ["Marker" .= _dvtldMarker, "Limit" .= _dvtldLimit,
-               "VTLDeviceARNs" .= _dvtldVTLDeviceARNs,
-               "GatewayARN" .= _dvtldGatewayARN]
+              (catMaybes
+                 [("Marker" .=) <$> _dvtldMarker,
+                  ("Limit" .=) <$> _dvtldLimit,
+                  ("VTLDeviceARNs" .=) <$> _dvtldVTLDeviceARNs,
+                  Just ("GatewayARN" .= _dvtldGatewayARN)])
 
 instance ToPath DescribeVTLDevices where
         toPath = const "/"

@@ -108,8 +108,9 @@ instance ToHeaders ListDeploymentGroups where
 instance ToJSON ListDeploymentGroups where
         toJSON ListDeploymentGroups'{..}
           = object
-              ["nextToken" .= _ldgNextToken,
-               "applicationName" .= _ldgApplicationName]
+              (catMaybes
+                 [("nextToken" .=) <$> _ldgNextToken,
+                  Just ("applicationName" .= _ldgApplicationName)])
 
 instance ToPath ListDeploymentGroups where
         toPath = const "/"

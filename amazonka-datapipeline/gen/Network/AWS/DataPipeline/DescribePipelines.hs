@@ -99,7 +99,8 @@ instance ToHeaders DescribePipelines where
 
 instance ToJSON DescribePipelines where
         toJSON DescribePipelines'{..}
-          = object ["pipelineIds" .= _dpPipelineIds]
+          = object
+              (catMaybes [Just ("pipelineIds" .= _dpPipelineIds)])
 
 instance ToPath DescribePipelines where
         toPath = const "/"

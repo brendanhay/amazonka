@@ -236,13 +236,15 @@ instance ToHeaders DescribeMLModels where
 instance ToJSON DescribeMLModels where
         toJSON DescribeMLModels'{..}
           = object
-              ["EQ" .= _dmlmEQ, "GE" .= _dmlmGE,
-               "Prefix" .= _dmlmPrefix, "GT" .= _dmlmGT,
-               "NE" .= _dmlmNE, "NextToken" .= _dmlmNextToken,
-               "SortOrder" .= _dmlmSortOrder, "Limit" .= _dmlmLimit,
-               "LT" .= _dmlmLT,
-               "FilterVariable" .= _dmlmFilterVariable,
-               "LE" .= _dmlmLE]
+              (catMaybes
+                 [("EQ" .=) <$> _dmlmEQ, ("GE" .=) <$> _dmlmGE,
+                  ("Prefix" .=) <$> _dmlmPrefix, ("GT" .=) <$> _dmlmGT,
+                  ("NE" .=) <$> _dmlmNE,
+                  ("NextToken" .=) <$> _dmlmNextToken,
+                  ("SortOrder" .=) <$> _dmlmSortOrder,
+                  ("Limit" .=) <$> _dmlmLimit, ("LT" .=) <$> _dmlmLT,
+                  ("FilterVariable" .=) <$> _dmlmFilterVariable,
+                  ("LE" .=) <$> _dmlmLE])
 
 instance ToPath DescribeMLModels where
         toPath = const "/"

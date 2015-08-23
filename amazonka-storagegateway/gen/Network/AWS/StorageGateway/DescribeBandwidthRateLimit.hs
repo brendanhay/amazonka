@@ -103,7 +103,8 @@ instance ToHeaders DescribeBandwidthRateLimit where
 
 instance ToJSON DescribeBandwidthRateLimit where
         toJSON DescribeBandwidthRateLimit'{..}
-          = object ["GatewayARN" .= _dbrlGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dbrlGatewayARN)])
 
 instance ToPath DescribeBandwidthRateLimit where
         toPath = const "/"

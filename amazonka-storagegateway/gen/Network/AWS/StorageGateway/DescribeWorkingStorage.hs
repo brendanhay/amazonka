@@ -106,7 +106,8 @@ instance ToHeaders DescribeWorkingStorage where
 
 instance ToJSON DescribeWorkingStorage where
         toJSON DescribeWorkingStorage'{..}
-          = object ["GatewayARN" .= _dwsGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dwsGatewayARN)])
 
 instance ToPath DescribeWorkingStorage where
         toPath = const "/"

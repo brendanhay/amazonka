@@ -97,7 +97,9 @@ instance ToHeaders DescribeDeliveryChannelStatus
 instance ToJSON DescribeDeliveryChannelStatus where
         toJSON DescribeDeliveryChannelStatus'{..}
           = object
-              ["DeliveryChannelNames" .= _ddcsDeliveryChannelNames]
+              (catMaybes
+                 [("DeliveryChannelNames" .=) <$>
+                    _ddcsDeliveryChannelNames])
 
 instance ToPath DescribeDeliveryChannelStatus where
         toPath = const "/"

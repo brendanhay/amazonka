@@ -85,7 +85,9 @@ instance ToHeaders DeregisterOnPremisesInstance where
 
 instance ToJSON DeregisterOnPremisesInstance where
         toJSON DeregisterOnPremisesInstance'{..}
-          = object ["instanceName" .= _dopiInstanceName]
+          = object
+              (catMaybes
+                 [Just ("instanceName" .= _dopiInstanceName)])
 
 instance ToPath DeregisterOnPremisesInstance where
         toPath = const "/"

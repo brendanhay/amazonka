@@ -137,11 +137,13 @@ instance ToHeaders CreateEvaluation where
 instance ToJSON CreateEvaluation where
         toJSON CreateEvaluation'{..}
           = object
-              ["EvaluationName" .= _ceEvaluationName,
-               "EvaluationId" .= _ceEvaluationId,
-               "MLModelId" .= _ceMLModelId,
-               "EvaluationDataSourceId" .=
-                 _ceEvaluationDataSourceId]
+              (catMaybes
+                 [("EvaluationName" .=) <$> _ceEvaluationName,
+                  Just ("EvaluationId" .= _ceEvaluationId),
+                  Just ("MLModelId" .= _ceMLModelId),
+                  Just
+                    ("EvaluationDataSourceId" .=
+                       _ceEvaluationDataSourceId)])
 
 instance ToPath CreateEvaluation where
         toPath = const "/"

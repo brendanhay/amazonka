@@ -113,9 +113,10 @@ instance ToHeaders EvaluateExpression where
 instance ToJSON EvaluateExpression where
         toJSON EvaluateExpression'{..}
           = object
-              ["pipelineId" .= _eePipelineId,
-               "objectId" .= _eeObjectId,
-               "expression" .= _eeExpression]
+              (catMaybes
+                 [Just ("pipelineId" .= _eePipelineId),
+                  Just ("objectId" .= _eeObjectId),
+                  Just ("expression" .= _eeExpression)])
 
 instance ToPath EvaluateExpression where
         toPath = const "/"

@@ -101,7 +101,8 @@ instance ToHeaders DescribeMaintenanceStartTime where
 
 instance ToJSON DescribeMaintenanceStartTime where
         toJSON DescribeMaintenanceStartTime'{..}
-          = object ["GatewayARN" .= _dmstGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dmstGatewayARN)])
 
 instance ToPath DescribeMaintenanceStartTime where
         toPath = const "/"

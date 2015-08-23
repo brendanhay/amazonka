@@ -137,10 +137,11 @@ instance ToHeaders PutLogEvents where
 instance ToJSON PutLogEvents where
         toJSON PutLogEvents'{..}
           = object
-              ["sequenceToken" .= _pleSequenceToken,
-               "logGroupName" .= _pleLogGroupName,
-               "logStreamName" .= _pleLogStreamName,
-               "logEvents" .= _pleLogEvents]
+              (catMaybes
+                 [("sequenceToken" .=) <$> _pleSequenceToken,
+                  Just ("logGroupName" .= _pleLogGroupName),
+                  Just ("logStreamName" .= _pleLogStreamName),
+                  Just ("logEvents" .= _pleLogEvents)])
 
 instance ToPath PutLogEvents where
         toPath = const "/"

@@ -100,9 +100,10 @@ instance FromJSON Application where
 instance ToJSON Application where
         toJSON Application'{..}
           = object
-              ["AdditionalInfo" .= _aAdditionalInfo,
-               "Args" .= _aArgs, "Name" .= _aName,
-               "Version" .= _aVersion]
+              (catMaybes
+                 [("AdditionalInfo" .=) <$> _aAdditionalInfo,
+                  ("Args" .=) <$> _aArgs, ("Name" .=) <$> _aName,
+                  ("Version" .=) <$> _aVersion])
 
 -- | Configuration of a bootstrap action.
 --
@@ -140,8 +141,11 @@ bacScriptBootstrapAction = lens _bacScriptBootstrapAction (\ s a -> s{_bacScript
 instance ToJSON BootstrapActionConfig where
         toJSON BootstrapActionConfig'{..}
           = object
-              ["Name" .= _bacName,
-               "ScriptBootstrapAction" .= _bacScriptBootstrapAction]
+              (catMaybes
+                 [Just ("Name" .= _bacName),
+                  Just
+                    ("ScriptBootstrapAction" .=
+                       _bacScriptBootstrapAction)])
 
 -- | The detailed description of the cluster.
 --
@@ -640,9 +644,10 @@ instance FromJSON Configuration where
 instance ToJSON Configuration where
         toJSON Configuration'{..}
           = object
-              ["Configurations" .= _cConfigurations,
-               "Classification" .= _cClassification,
-               "Properties" .= _cProperties]
+              (catMaybes
+                 [("Configurations" .=) <$> _cConfigurations,
+                  ("Classification" .=) <$> _cClassification,
+                  ("Properties" .=) <$> _cProperties])
 
 -- | Provides information about the EC2 instances in a cluster grouped by
 -- category. For example, key name, subnet ID, IAM instance profile, and so
@@ -808,8 +813,11 @@ hjscJAR = lens _hjscJAR (\ s a -> s{_hjscJAR = a});
 instance ToJSON HadoopJARStepConfig where
         toJSON HadoopJARStepConfig'{..}
           = object
-              ["Args" .= _hjscArgs, "MainClass" .= _hjscMainClass,
-               "Properties" .= _hjscProperties, "Jar" .= _hjscJAR]
+              (catMaybes
+                 [("Args" .=) <$> _hjscArgs,
+                  ("MainClass" .=) <$> _hjscMainClass,
+                  ("Properties" .=) <$> _hjscProperties,
+                  Just ("Jar" .= _hjscJAR)])
 
 -- | A cluster step consisting of a JAR file whose main function will be
 -- executed. The main function submits a job for Hadoop to execute and
@@ -1155,12 +1163,14 @@ igcInstanceCount = lens _igcInstanceCount (\ s a -> s{_igcInstanceCount = a});
 instance ToJSON InstanceGroupConfig where
         toJSON InstanceGroupConfig'{..}
           = object
-              ["BidPrice" .= _igcBidPrice,
-               "Configurations" .= _igcConfigurations,
-               "Market" .= _igcMarket, "Name" .= _igcName,
-               "InstanceRole" .= _igcInstanceRole,
-               "InstanceType" .= _igcInstanceType,
-               "InstanceCount" .= _igcInstanceCount]
+              (catMaybes
+                 [("BidPrice" .=) <$> _igcBidPrice,
+                  ("Configurations" .=) <$> _igcConfigurations,
+                  ("Market" .=) <$> _igcMarket,
+                  ("Name" .=) <$> _igcName,
+                  Just ("InstanceRole" .= _igcInstanceRole),
+                  Just ("InstanceType" .= _igcInstanceType),
+                  Just ("InstanceCount" .= _igcInstanceCount)])
 
 -- | Modify an instance group size.
 --
@@ -1207,10 +1217,11 @@ igmcInstanceGroupId = lens _igmcInstanceGroupId (\ s a -> s{_igmcInstanceGroupId
 instance ToJSON InstanceGroupModifyConfig where
         toJSON InstanceGroupModifyConfig'{..}
           = object
-              ["InstanceCount" .= _igmcInstanceCount,
-               "EC2InstanceIdsToTerminate" .=
-                 _igmcEC2InstanceIdsToTerminate,
-               "InstanceGroupId" .= _igmcInstanceGroupId]
+              (catMaybes
+                 [("InstanceCount" .=) <$> _igmcInstanceCount,
+                  ("EC2InstanceIdsToTerminate" .=) <$>
+                    _igmcEC2InstanceIdsToTerminate,
+                  Just ("InstanceGroupId" .= _igmcInstanceGroupId)])
 
 -- | The status change reason details for the instance group.
 --
@@ -1632,25 +1643,28 @@ jficPlacement = lens _jficPlacement (\ s a -> s{_jficPlacement = a});
 instance ToJSON JobFlowInstancesConfig where
         toJSON JobFlowInstancesConfig'{..}
           = object
-              ["SlaveInstanceType" .= _jficSlaveInstanceType,
-               "Ec2KeyName" .= _jficEC2KeyName,
-               "InstanceCount" .= _jficInstanceCount,
-               "EmrManagedSlaveSecurityGroup" .=
-                 _jficEmrManagedSlaveSecurityGroup,
-               "AdditionalSlaveSecurityGroups" .=
-                 _jficAdditionalSlaveSecurityGroups,
-               "HadoopVersion" .= _jficHadoopVersion,
-               "AdditionalMasterSecurityGroups" .=
-                 _jficAdditionalMasterSecurityGroups,
-               "EmrManagedMasterSecurityGroup" .=
-                 _jficEmrManagedMasterSecurityGroup,
-               "Ec2SubnetId" .= _jficEC2SubnetId,
-               "MasterInstanceType" .= _jficMasterInstanceType,
-               "InstanceGroups" .= _jficInstanceGroups,
-               "KeepJobFlowAliveWhenNoSteps" .=
-                 _jficKeepJobFlowAliveWhenNoSteps,
-               "TerminationProtected" .= _jficTerminationProtected,
-               "Placement" .= _jficPlacement]
+              (catMaybes
+                 [("SlaveInstanceType" .=) <$> _jficSlaveInstanceType,
+                  ("Ec2KeyName" .=) <$> _jficEC2KeyName,
+                  ("InstanceCount" .=) <$> _jficInstanceCount,
+                  ("EmrManagedSlaveSecurityGroup" .=) <$>
+                    _jficEmrManagedSlaveSecurityGroup,
+                  ("AdditionalSlaveSecurityGroups" .=) <$>
+                    _jficAdditionalSlaveSecurityGroups,
+                  ("HadoopVersion" .=) <$> _jficHadoopVersion,
+                  ("AdditionalMasterSecurityGroups" .=) <$>
+                    _jficAdditionalMasterSecurityGroups,
+                  ("EmrManagedMasterSecurityGroup" .=) <$>
+                    _jficEmrManagedMasterSecurityGroup,
+                  ("Ec2SubnetId" .=) <$> _jficEC2SubnetId,
+                  ("MasterInstanceType" .=) <$>
+                    _jficMasterInstanceType,
+                  ("InstanceGroups" .=) <$> _jficInstanceGroups,
+                  ("KeepJobFlowAliveWhenNoSteps" .=) <$>
+                    _jficKeepJobFlowAliveWhenNoSteps,
+                  ("TerminationProtected" .=) <$>
+                    _jficTerminationProtected,
+                  ("Placement" .=) <$> _jficPlacement])
 
 -- | A key value pair.
 --
@@ -1685,7 +1699,9 @@ kvKey = lens _kvKey (\ s a -> s{_kvKey = a});
 
 instance ToJSON KeyValue where
         toJSON KeyValue'{..}
-          = object ["Value" .= _kvValue, "Key" .= _kvKey]
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _kvValue, ("Key" .=) <$> _kvKey])
 
 -- | The Amazon EC2 location for the job flow.
 --
@@ -1713,7 +1729,9 @@ ptAvailabilityZone = lens _ptAvailabilityZone (\ s a -> s{_ptAvailabilityZone = 
 
 instance ToJSON PlacementType where
         toJSON PlacementType'{..}
-          = object ["AvailabilityZone" .= _ptAvailabilityZone]
+          = object
+              (catMaybes
+                 [Just ("AvailabilityZone" .= _ptAvailabilityZone)])
 
 -- | Configuration of the script to run during a bootstrap action.
 --
@@ -1750,7 +1768,10 @@ sbacPath = lens _sbacPath (\ s a -> s{_sbacPath = a});
 
 instance ToJSON ScriptBootstrapActionConfig where
         toJSON ScriptBootstrapActionConfig'{..}
-          = object ["Args" .= _sbacArgs, "Path" .= _sbacPath]
+          = object
+              (catMaybes
+                 [("Args" .=) <$> _sbacArgs,
+                  Just ("Path" .= _sbacPath)])
 
 -- | This represents a step in a cluster.
 --
@@ -1862,9 +1883,10 @@ scHadoopJARStep = lens _scHadoopJARStep (\ s a -> s{_scHadoopJARStep = a});
 instance ToJSON StepConfig where
         toJSON StepConfig'{..}
           = object
-              ["ActionOnFailure" .= _scActionOnFailure,
-               "Name" .= _scName,
-               "HadoopJarStep" .= _scHadoopJARStep]
+              (catMaybes
+                 [("ActionOnFailure" .=) <$> _scActionOnFailure,
+                  Just ("Name" .= _scName),
+                  Just ("HadoopJarStep" .= _scHadoopJARStep)])
 
 -- | The details of the step state change reason.
 --
@@ -2100,7 +2122,9 @@ spcName = lens _spcName (\ s a -> s{_spcName = a});
 
 instance ToJSON SupportedProductConfig where
         toJSON SupportedProductConfig'{..}
-          = object ["Args" .= _spcArgs, "Name" .= _spcName]
+          = object
+              (catMaybes
+                 [("Args" .=) <$> _spcArgs, ("Name" .=) <$> _spcName])
 
 -- | A key\/value pair containing user-defined metadata that you can
 -- associate with an Amazon EMR resource. Tags make it easier to associate
@@ -2148,4 +2172,6 @@ instance FromJSON Tag where
 
 instance ToJSON Tag where
         toJSON Tag'{..}
-          = object ["Value" .= _tagValue, "Key" .= _tagKey]
+          = object
+              (catMaybes
+                 [("Value" .=) <$> _tagValue, ("Key" .=) <$> _tagKey])

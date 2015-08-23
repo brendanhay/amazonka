@@ -139,10 +139,11 @@ instance ToHeaders UpdateSnapshotSchedule where
 instance ToJSON UpdateSnapshotSchedule where
         toJSON UpdateSnapshotSchedule'{..}
           = object
-              ["Description" .= _ussDescription,
-               "VolumeARN" .= _ussVolumeARN,
-               "StartAt" .= _ussStartAt,
-               "RecurrenceInHours" .= _ussRecurrenceInHours]
+              (catMaybes
+                 [("Description" .=) <$> _ussDescription,
+                  Just ("VolumeARN" .= _ussVolumeARN),
+                  Just ("StartAt" .= _ussStartAt),
+                  Just ("RecurrenceInHours" .= _ussRecurrenceInHours)])
 
 instance ToPath UpdateSnapshotSchedule where
         toPath = const "/"

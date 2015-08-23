@@ -89,7 +89,8 @@ instance ToHeaders DisassociateElasticIP where
 
 instance ToJSON DisassociateElasticIP where
         toJSON DisassociateElasticIP'{..}
-          = object ["ElasticIp" .= _deiElasticIP]
+          = object
+              (catMaybes [Just ("ElasticIp" .= _deiElasticIP)])
 
 instance ToPath DisassociateElasticIP where
         toPath = const "/"

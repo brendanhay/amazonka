@@ -158,9 +158,12 @@ instance ToHeaders UpdateFunctionConfiguration where
 instance ToJSON UpdateFunctionConfiguration where
         toJSON UpdateFunctionConfiguration'{..}
           = object
-              ["MemorySize" .= _ufcMemorySize, "Role" .= _ufcRole,
-               "Handler" .= _ufcHandler, "Timeout" .= _ufcTimeout,
-               "Description" .= _ufcDescription]
+              (catMaybes
+                 [("MemorySize" .=) <$> _ufcMemorySize,
+                  ("Role" .=) <$> _ufcRole,
+                  ("Handler" .=) <$> _ufcHandler,
+                  ("Timeout" .=) <$> _ufcTimeout,
+                  ("Description" .=) <$> _ufcDescription])
 
 instance ToPath UpdateFunctionConfiguration where
         toPath UpdateFunctionConfiguration'{..}

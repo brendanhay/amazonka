@@ -315,21 +315,22 @@ instance ToHeaders TransferDomain where
 instance ToJSON TransferDomain where
         toJSON TransferDomain'{..}
           = object
-              ["PrivacyProtectTechContact" .=
-                 _tdPrivacyProtectTechContact,
-               "PrivacyProtectRegistrantContact" .=
-                 _tdPrivacyProtectRegistrantContact,
-               "AutoRenew" .= _tdAutoRenew,
-               "PrivacyProtectAdminContact" .=
-                 _tdPrivacyProtectAdminContact,
-               "IdnLangCode" .= _tdIdNLangCode,
-               "AuthCode" .= _tdAuthCode,
-               "Nameservers" .= _tdNameservers,
-               "DomainName" .= _tdDomainName,
-               "DurationInYears" .= _tdDurationInYears,
-               "AdminContact" .= _tdAdminContact,
-               "RegistrantContact" .= _tdRegistrantContact,
-               "TechContact" .= _tdTechContact]
+              (catMaybes
+                 [("PrivacyProtectTechContact" .=) <$>
+                    _tdPrivacyProtectTechContact,
+                  ("PrivacyProtectRegistrantContact" .=) <$>
+                    _tdPrivacyProtectRegistrantContact,
+                  ("AutoRenew" .=) <$> _tdAutoRenew,
+                  ("PrivacyProtectAdminContact" .=) <$>
+                    _tdPrivacyProtectAdminContact,
+                  ("IdnLangCode" .=) <$> _tdIdNLangCode,
+                  ("AuthCode" .=) <$> _tdAuthCode,
+                  ("Nameservers" .=) <$> _tdNameservers,
+                  Just ("DomainName" .= _tdDomainName),
+                  Just ("DurationInYears" .= _tdDurationInYears),
+                  Just ("AdminContact" .= _tdAdminContact),
+                  Just ("RegistrantContact" .= _tdRegistrantContact),
+                  Just ("TechContact" .= _tdTechContact)])
 
 instance ToPath TransferDomain where
         toPath = const "/"

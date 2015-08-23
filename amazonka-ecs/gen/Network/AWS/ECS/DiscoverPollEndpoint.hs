@@ -108,8 +108,9 @@ instance ToHeaders DiscoverPollEndpoint where
 instance ToJSON DiscoverPollEndpoint where
         toJSON DiscoverPollEndpoint'{..}
           = object
-              ["cluster" .= _dpeCluster,
-               "containerInstance" .= _dpeContainerInstance]
+              (catMaybes
+                 [("cluster" .=) <$> _dpeCluster,
+                  ("containerInstance" .=) <$> _dpeContainerInstance])
 
 instance ToPath DiscoverPollEndpoint where
         toPath = const "/"

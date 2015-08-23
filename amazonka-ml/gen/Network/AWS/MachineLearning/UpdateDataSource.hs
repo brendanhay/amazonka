@@ -101,8 +101,9 @@ instance ToHeaders UpdateDataSource where
 instance ToJSON UpdateDataSource where
         toJSON UpdateDataSource'{..}
           = object
-              ["DataSourceId" .= _udsDataSourceId,
-               "DataSourceName" .= _udsDataSourceName]
+              (catMaybes
+                 [Just ("DataSourceId" .= _udsDataSourceId),
+                  Just ("DataSourceName" .= _udsDataSourceName)])
 
 instance ToPath UpdateDataSource where
         toPath = const "/"

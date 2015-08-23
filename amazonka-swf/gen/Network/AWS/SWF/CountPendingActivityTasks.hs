@@ -117,8 +117,9 @@ instance ToHeaders CountPendingActivityTasks where
 instance ToJSON CountPendingActivityTasks where
         toJSON CountPendingActivityTasks'{..}
           = object
-              ["domain" .= _cpatDomain,
-               "taskList" .= _cpatTaskList]
+              (catMaybes
+                 [Just ("domain" .= _cpatDomain),
+                  Just ("taskList" .= _cpatTaskList)])
 
 instance ToPath CountPendingActivityTasks where
         toPath = const "/"

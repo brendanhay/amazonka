@@ -106,8 +106,9 @@ instance ToHeaders RegisterVolume where
 instance ToJSON RegisterVolume where
         toJSON RegisterVolume'{..}
           = object
-              ["Ec2VolumeId" .= _rvEC2VolumeId,
-               "StackId" .= _rvStackId]
+              (catMaybes
+                 [("Ec2VolumeId" .=) <$> _rvEC2VolumeId,
+                  Just ("StackId" .= _rvStackId)])
 
 instance ToPath RegisterVolume where
         toPath = const "/"

@@ -87,7 +87,8 @@ instance ToHeaders UnassignVolume where
 
 instance ToJSON UnassignVolume where
         toJSON UnassignVolume'{..}
-          = object ["VolumeId" .= _uvVolumeId]
+          = object
+              (catMaybes [Just ("VolumeId" .= _uvVolumeId)])
 
 instance ToPath UnassignVolume where
         toPath = const "/"

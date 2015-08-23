@@ -100,8 +100,9 @@ instance ToJSON DescribeConfigurationRecorderStatus
          where
         toJSON DescribeConfigurationRecorderStatus'{..}
           = object
-              ["ConfigurationRecorderNames" .=
-                 _dcrsConfigurationRecorderNames]
+              (catMaybes
+                 [("ConfigurationRecorderNames" .=) <$>
+                    _dcrsConfigurationRecorderNames])
 
 instance ToPath DescribeConfigurationRecorderStatus
          where

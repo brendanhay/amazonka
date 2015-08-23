@@ -147,8 +147,11 @@ instance ToHeaders DescribeStream where
 instance ToJSON DescribeStream where
         toJSON DescribeStream'{..}
           = object
-              ["ExclusiveStartShardId" .= _dExclusiveStartShardId,
-               "Limit" .= _dLimit, "StreamName" .= _dStreamName]
+              (catMaybes
+                 [("ExclusiveStartShardId" .=) <$>
+                    _dExclusiveStartShardId,
+                  ("Limit" .=) <$> _dLimit,
+                  Just ("StreamName" .= _dStreamName)])
 
 instance ToPath DescribeStream where
         toPath = const "/"

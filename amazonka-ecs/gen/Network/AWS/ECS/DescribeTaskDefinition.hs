@@ -96,7 +96,9 @@ instance ToHeaders DescribeTaskDefinition where
 
 instance ToJSON DescribeTaskDefinition where
         toJSON DescribeTaskDefinition'{..}
-          = object ["taskDefinition" .= _dtdTaskDefinition]
+          = object
+              (catMaybes
+                 [Just ("taskDefinition" .= _dtdTaskDefinition)])
 
 instance ToPath DescribeTaskDefinition where
         toPath = const "/"

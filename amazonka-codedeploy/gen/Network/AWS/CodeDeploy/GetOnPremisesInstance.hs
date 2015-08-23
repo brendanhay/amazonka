@@ -90,7 +90,9 @@ instance ToHeaders GetOnPremisesInstance where
 
 instance ToJSON GetOnPremisesInstance where
         toJSON GetOnPremisesInstance'{..}
-          = object ["instanceName" .= _gopiInstanceName]
+          = object
+              (catMaybes
+                 [Just ("instanceName" .= _gopiInstanceName)])
 
 instance ToPath GetOnPremisesInstance where
         toPath = const "/"

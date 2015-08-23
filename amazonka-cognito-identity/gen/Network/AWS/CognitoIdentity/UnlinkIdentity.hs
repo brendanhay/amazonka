@@ -106,9 +106,10 @@ instance ToHeaders UnlinkIdentity where
 instance ToJSON UnlinkIdentity where
         toJSON UnlinkIdentity'{..}
           = object
-              ["IdentityId" .= _uiIdentityId,
-               "Logins" .= _uiLogins,
-               "LoginsToRemove" .= _uiLoginsToRemove]
+              (catMaybes
+                 [Just ("IdentityId" .= _uiIdentityId),
+                  Just ("Logins" .= _uiLogins),
+                  Just ("LoginsToRemove" .= _uiLoginsToRemove)])
 
 instance ToPath UnlinkIdentity where
         toPath = const "/"

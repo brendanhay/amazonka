@@ -191,13 +191,15 @@ instance ToHeaders FilterLogEvents where
 instance ToJSON FilterLogEvents where
         toJSON FilterLogEvents'{..}
           = object
-              ["startTime" .= _fleStartTime,
-               "logStreamNames" .= _fleLogStreamNames,
-               "nextToken" .= _fleNextToken,
-               "endTime" .= _fleEndTime, "limit" .= _fleLimit,
-               "filterPattern" .= _fleFilterPattern,
-               "interleaved" .= _fleInterleaved,
-               "logGroupName" .= _fleLogGroupName]
+              (catMaybes
+                 [("startTime" .=) <$> _fleStartTime,
+                  ("logStreamNames" .=) <$> _fleLogStreamNames,
+                  ("nextToken" .=) <$> _fleNextToken,
+                  ("endTime" .=) <$> _fleEndTime,
+                  ("limit" .=) <$> _fleLimit,
+                  ("filterPattern" .=) <$> _fleFilterPattern,
+                  ("interleaved" .=) <$> _fleInterleaved,
+                  Just ("logGroupName" .= _fleLogGroupName)])
 
 instance ToPath FilterLogEvents where
         toPath = const "/"

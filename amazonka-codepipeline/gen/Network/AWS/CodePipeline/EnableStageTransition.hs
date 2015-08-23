@@ -110,9 +110,10 @@ instance ToHeaders EnableStageTransition where
 instance ToJSON EnableStageTransition where
         toJSON EnableStageTransition'{..}
           = object
-              ["pipelineName" .= _estPipelineName,
-               "stageName" .= _estStageName,
-               "transitionType" .= _estTransitionType]
+              (catMaybes
+                 [Just ("pipelineName" .= _estPipelineName),
+                  Just ("stageName" .= _estStageName),
+                  Just ("transitionType" .= _estTransitionType)])
 
 instance ToPath EnableStageTransition where
         toPath = const "/"

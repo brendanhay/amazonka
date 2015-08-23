@@ -105,7 +105,7 @@ instance ToHeaders AddTagsToVault where
 
 instance ToJSON AddTagsToVault where
         toJSON AddTagsToVault'{..}
-          = object ["Tags" .= _attvTags]
+          = object (catMaybes [("Tags" .=) <$> _attvTags])
 
 instance ToPath AddTagsToVault where
         toPath AddTagsToVault'{..}

@@ -99,7 +99,10 @@ instance ToHeaders StopTask where
 
 instance ToJSON StopTask where
         toJSON StopTask'{..}
-          = object ["cluster" .= _stCluster, "task" .= _stTask]
+          = object
+              (catMaybes
+                 [("cluster" .=) <$> _stCluster,
+                  Just ("task" .= _stTask)])
 
 instance ToPath StopTask where
         toPath = const "/"

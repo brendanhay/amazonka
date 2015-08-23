@@ -87,7 +87,8 @@ instance ToHeaders GetJob where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetJob where
-        toJSON GetJob'{..} = object ["arn" .= _gjArn]
+        toJSON GetJob'{..}
+          = object (catMaybes [Just ("arn" .= _gjArn)])
 
 instance ToPath GetJob where
         toPath = const "/"

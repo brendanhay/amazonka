@@ -120,8 +120,9 @@ instance ToHeaders ListClusters where
 instance ToJSON ListClusters where
         toJSON ListClusters'{..}
           = object
-              ["nextToken" .= _lcNextToken,
-               "maxResults" .= _lcMaxResults]
+              (catMaybes
+                 [("nextToken" .=) <$> _lcNextToken,
+                  ("maxResults" .=) <$> _lcMaxResults])
 
 instance ToPath ListClusters where
         toPath = const "/"

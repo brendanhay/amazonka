@@ -100,7 +100,7 @@ instance ToHeaders SetDataRetrievalPolicy where
 
 instance ToJSON SetDataRetrievalPolicy where
         toJSON SetDataRetrievalPolicy'{..}
-          = object ["Policy" .= _sdrpPolicy]
+          = object (catMaybes [("Policy" .=) <$> _sdrpPolicy])
 
 instance ToPath SetDataRetrievalPolicy where
         toPath SetDataRetrievalPolicy'{..}

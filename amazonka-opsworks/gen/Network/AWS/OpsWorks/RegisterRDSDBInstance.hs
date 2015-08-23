@@ -118,10 +118,11 @@ instance ToHeaders RegisterRDSDBInstance where
 instance ToJSON RegisterRDSDBInstance where
         toJSON RegisterRDSDBInstance'{..}
           = object
-              ["StackId" .= _rrdiStackId,
-               "RdsDbInstanceArn" .= _rrdiRDSDBInstanceARN,
-               "DbUser" .= _rrdiDBUser,
-               "DbPassword" .= _rrdiDBPassword]
+              (catMaybes
+                 [Just ("StackId" .= _rrdiStackId),
+                  Just ("RdsDbInstanceArn" .= _rrdiRDSDBInstanceARN),
+                  Just ("DbUser" .= _rrdiDBUser),
+                  Just ("DbPassword" .= _rrdiDBPassword)])
 
 instance ToPath RegisterRDSDBInstance where
         toPath = const "/"

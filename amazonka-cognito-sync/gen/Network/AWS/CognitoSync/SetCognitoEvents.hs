@@ -97,7 +97,7 @@ instance ToHeaders SetCognitoEvents where
 
 instance ToJSON SetCognitoEvents where
         toJSON SetCognitoEvents'{..}
-          = object ["Events" .= _sceEvents]
+          = object (catMaybes [Just ("Events" .= _sceEvents)])
 
 instance ToPath SetCognitoEvents where
         toPath SetCognitoEvents'{..}

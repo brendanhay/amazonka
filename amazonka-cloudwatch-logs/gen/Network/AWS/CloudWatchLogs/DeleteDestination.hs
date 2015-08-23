@@ -81,7 +81,9 @@ instance ToHeaders DeleteDestination where
 
 instance ToJSON DeleteDestination where
         toJSON DeleteDestination'{..}
-          = object ["destinationName" .= _ddDestinationName]
+          = object
+              (catMaybes
+                 [Just ("destinationName" .= _ddDestinationName)])
 
 instance ToPath DeleteDestination where
         toPath = const "/"

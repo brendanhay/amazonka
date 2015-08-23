@@ -117,10 +117,13 @@ instance ToHeaders PutMetricFilter where
 instance ToJSON PutMetricFilter where
         toJSON PutMetricFilter'{..}
           = object
-              ["logGroupName" .= _pmfLogGroupName,
-               "filterName" .= _pmfFilterName,
-               "filterPattern" .= _pmfFilterPattern,
-               "metricTransformations" .= _pmfMetricTransformations]
+              (catMaybes
+                 [Just ("logGroupName" .= _pmfLogGroupName),
+                  Just ("filterName" .= _pmfFilterName),
+                  Just ("filterPattern" .= _pmfFilterPattern),
+                  Just
+                    ("metricTransformations" .=
+                       _pmfMetricTransformations)])
 
 instance ToPath PutMetricFilter where
         toPath = const "/"

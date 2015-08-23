@@ -97,7 +97,10 @@ instance ToHeaders RevokeGrant where
 
 instance ToJSON RevokeGrant where
         toJSON RevokeGrant'{..}
-          = object ["KeyId" .= _rKeyId, "GrantId" .= _rGrantId]
+          = object
+              (catMaybes
+                 [Just ("KeyId" .= _rKeyId),
+                  Just ("GrantId" .= _rGrantId)])
 
 instance ToPath RevokeGrant where
         toPath = const "/"

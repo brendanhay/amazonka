@@ -84,7 +84,8 @@ instance ToHeaders DisableKey where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DisableKey where
-        toJSON DisableKey'{..} = object ["KeyId" .= _dkKeyId]
+        toJSON DisableKey'{..}
+          = object (catMaybes [Just ("KeyId" .= _dkKeyId)])
 
 instance ToPath DisableKey where
         toPath = const "/"

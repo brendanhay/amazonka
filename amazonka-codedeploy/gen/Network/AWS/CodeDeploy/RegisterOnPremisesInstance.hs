@@ -95,8 +95,9 @@ instance ToHeaders RegisterOnPremisesInstance where
 instance ToJSON RegisterOnPremisesInstance where
         toJSON RegisterOnPremisesInstance'{..}
           = object
-              ["instanceName" .= _ropiInstanceName,
-               "iamUserArn" .= _ropiIamUserARN]
+              (catMaybes
+                 [Just ("instanceName" .= _ropiInstanceName),
+                  Just ("iamUserArn" .= _ropiIamUserARN)])
 
 instance ToPath RegisterOnPremisesInstance where
         toPath = const "/"

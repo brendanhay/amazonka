@@ -163,11 +163,12 @@ instance ToHeaders CountOpenWorkflowExecutions where
 instance ToJSON CountOpenWorkflowExecutions where
         toJSON CountOpenWorkflowExecutions'{..}
           = object
-              ["executionFilter" .= _coweExecutionFilter,
-               "typeFilter" .= _coweTypeFilter,
-               "tagFilter" .= _coweTagFilter,
-               "domain" .= _coweDomain,
-               "startTimeFilter" .= _coweStartTimeFilter]
+              (catMaybes
+                 [("executionFilter" .=) <$> _coweExecutionFilter,
+                  ("typeFilter" .=) <$> _coweTypeFilter,
+                  ("tagFilter" .=) <$> _coweTagFilter,
+                  Just ("domain" .= _coweDomain),
+                  Just ("startTimeFilter" .= _coweStartTimeFilter)])
 
 instance ToPath CountOpenWorkflowExecutions where
         toPath = const "/"

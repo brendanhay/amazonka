@@ -91,8 +91,9 @@ instance ToHeaders UpdateApplication where
 instance ToJSON UpdateApplication where
         toJSON UpdateApplication'{..}
           = object
-              ["newApplicationName" .= _uaNewApplicationName,
-               "applicationName" .= _uaApplicationName]
+              (catMaybes
+                 [("newApplicationName" .=) <$> _uaNewApplicationName,
+                  ("applicationName" .=) <$> _uaApplicationName])
 
 instance ToPath UpdateApplication where
         toPath = const "/"

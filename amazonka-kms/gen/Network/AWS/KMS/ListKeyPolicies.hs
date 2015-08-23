@@ -126,8 +126,10 @@ instance ToHeaders ListKeyPolicies where
 instance ToJSON ListKeyPolicies where
         toJSON ListKeyPolicies'{..}
           = object
-              ["Marker" .= _lkpMarker, "Limit" .= _lkpLimit,
-               "KeyId" .= _lkpKeyId]
+              (catMaybes
+                 [("Marker" .=) <$> _lkpMarker,
+                  ("Limit" .=) <$> _lkpLimit,
+                  Just ("KeyId" .= _lkpKeyId)])
 
 instance ToPath ListKeyPolicies where
         toPath = const "/"

@@ -101,7 +101,9 @@ instance ToHeaders DeregisterTaskDefinition where
 
 instance ToJSON DeregisterTaskDefinition where
         toJSON DeregisterTaskDefinition'{..}
-          = object ["taskDefinition" .= _derTaskDefinition]
+          = object
+              (catMaybes
+                 [Just ("taskDefinition" .= _derTaskDefinition)])
 
 instance ToPath DeregisterTaskDefinition where
         toPath = const "/"

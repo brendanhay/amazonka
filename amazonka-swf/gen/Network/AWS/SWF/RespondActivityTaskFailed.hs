@@ -134,8 +134,10 @@ instance ToHeaders RespondActivityTaskFailed where
 instance ToJSON RespondActivityTaskFailed where
         toJSON RespondActivityTaskFailed'{..}
           = object
-              ["reason" .= _ratfReason, "details" .= _ratfDetails,
-               "taskToken" .= _ratfTaskToken]
+              (catMaybes
+                 [("reason" .=) <$> _ratfReason,
+                  ("details" .=) <$> _ratfDetails,
+                  Just ("taskToken" .= _ratfTaskToken)])
 
 instance ToPath RespondActivityTaskFailed where
         toPath = const "/"

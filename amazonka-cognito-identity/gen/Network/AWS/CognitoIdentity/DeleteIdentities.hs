@@ -94,7 +94,9 @@ instance ToHeaders DeleteIdentities where
 instance ToJSON DeleteIdentities where
         toJSON DeleteIdentities'{..}
           = object
-              ["IdentityIdsToDelete" .= _diIdentityIdsToDelete]
+              (catMaybes
+                 [Just
+                    ("IdentityIdsToDelete" .= _diIdentityIdsToDelete)])
 
 instance ToPath DeleteIdentities where
         toPath = const "/"

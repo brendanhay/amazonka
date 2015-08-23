@@ -97,7 +97,9 @@ instance ToHeaders UpdateElasticIP where
 instance ToJSON UpdateElasticIP where
         toJSON UpdateElasticIP'{..}
           = object
-              ["Name" .= _ueiName, "ElasticIp" .= _ueiElasticIP]
+              (catMaybes
+                 [("Name" .=) <$> _ueiName,
+                  Just ("ElasticIp" .= _ueiElasticIP)])
 
 instance ToPath UpdateElasticIP where
         toPath = const "/"

@@ -122,9 +122,10 @@ instance ToHeaders ReportTaskRunnerHeartbeat where
 instance ToJSON ReportTaskRunnerHeartbeat where
         toJSON ReportTaskRunnerHeartbeat'{..}
           = object
-              ["hostname" .= _rtrhHostname,
-               "workerGroup" .= _rtrhWorkerGroup,
-               "taskrunnerId" .= _rtrhTaskrunnerId]
+              (catMaybes
+                 [("hostname" .=) <$> _rtrhHostname,
+                  ("workerGroup" .=) <$> _rtrhWorkerGroup,
+                  Just ("taskrunnerId" .= _rtrhTaskrunnerId)])
 
 instance ToPath ReportTaskRunnerHeartbeat where
         toPath = const "/"

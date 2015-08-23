@@ -158,8 +158,10 @@ instance ToHeaders PollForActivityTask where
 instance ToJSON PollForActivityTask where
         toJSON PollForActivityTask'{..}
           = object
-              ["identity" .= _pfatIdentity,
-               "domain" .= _pfatDomain, "taskList" .= _pfatTaskList]
+              (catMaybes
+                 [("identity" .=) <$> _pfatIdentity,
+                  Just ("domain" .= _pfatDomain),
+                  Just ("taskList" .= _pfatTaskList)])
 
 instance ToPath PollForActivityTask where
         toPath = const "/"

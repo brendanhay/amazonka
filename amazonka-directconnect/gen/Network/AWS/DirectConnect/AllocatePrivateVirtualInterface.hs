@@ -140,10 +140,12 @@ instance ToHeaders AllocatePrivateVirtualInterface
 instance ToJSON AllocatePrivateVirtualInterface where
         toJSON AllocatePrivateVirtualInterface'{..}
           = object
-              ["connectionId" .= _apviConnectionId,
-               "ownerAccount" .= _apviOwnerAccount,
-               "newPrivateVirtualInterfaceAllocation" .=
-                 _apviNewPrivateVirtualInterfaceAllocation]
+              (catMaybes
+                 [Just ("connectionId" .= _apviConnectionId),
+                  Just ("ownerAccount" .= _apviOwnerAccount),
+                  Just
+                    ("newPrivateVirtualInterfaceAllocation" .=
+                       _apviNewPrivateVirtualInterfaceAllocation)])
 
 instance ToPath AllocatePrivateVirtualInterface where
         toPath = const "/"

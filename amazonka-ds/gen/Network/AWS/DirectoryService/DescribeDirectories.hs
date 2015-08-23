@@ -131,9 +131,10 @@ instance ToHeaders DescribeDirectories where
 instance ToJSON DescribeDirectories where
         toJSON DescribeDirectories'{..}
           = object
-              ["NextToken" .= _ddNextToken,
-               "DirectoryIds" .= _ddDirectoryIds,
-               "Limit" .= _ddLimit]
+              (catMaybes
+                 [("NextToken" .=) <$> _ddNextToken,
+                  ("DirectoryIds" .=) <$> _ddDirectoryIds,
+                  ("Limit" .=) <$> _ddLimit])
 
 instance ToPath DescribeDirectories where
         toPath = const "/"

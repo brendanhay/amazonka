@@ -133,9 +133,10 @@ instance ToHeaders PollForTask where
 instance ToJSON PollForTask where
         toJSON PollForTask'{..}
           = object
-              ["hostname" .= _pftHostname,
-               "instanceIdentity" .= _pftInstanceIdentity,
-               "workerGroup" .= _pftWorkerGroup]
+              (catMaybes
+                 [("hostname" .=) <$> _pftHostname,
+                  ("instanceIdentity" .=) <$> _pftInstanceIdentity,
+                  Just ("workerGroup" .= _pftWorkerGroup)])
 
 instance ToPath PollForTask where
         toPath = const "/"

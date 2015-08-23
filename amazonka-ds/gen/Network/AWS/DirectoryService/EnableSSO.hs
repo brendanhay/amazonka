@@ -116,9 +116,10 @@ instance ToHeaders EnableSSO where
 instance ToJSON EnableSSO where
         toJSON EnableSSO'{..}
           = object
-              ["UserName" .= _esUserName,
-               "Password" .= _esPassword,
-               "DirectoryId" .= _esDirectoryId]
+              (catMaybes
+                 [("UserName" .=) <$> _esUserName,
+                  ("Password" .=) <$> _esPassword,
+                  Just ("DirectoryId" .= _esDirectoryId)])
 
 instance ToPath EnableSSO where
         toPath = const "/"

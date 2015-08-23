@@ -87,7 +87,8 @@ instance ToHeaders GetRun where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetRun where
-        toJSON GetRun'{..} = object ["arn" .= _grArn]
+        toJSON GetRun'{..}
+          = object (catMaybes [Just ("arn" .= _grArn)])
 
 instance ToPath GetRun where
         toPath = const "/"

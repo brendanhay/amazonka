@@ -90,7 +90,9 @@ instance ToHeaders DeleteDeliveryChannel where
 instance ToJSON DeleteDeliveryChannel where
         toJSON DeleteDeliveryChannel'{..}
           = object
-              ["DeliveryChannelName" .= _ddcDeliveryChannelName]
+              (catMaybes
+                 [Just
+                    ("DeliveryChannelName" .= _ddcDeliveryChannelName)])
 
 instance ToPath DeleteDeliveryChannel where
         toPath = const "/"

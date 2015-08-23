@@ -119,10 +119,12 @@ instance ToHeaders UpdateUserProfile where
 instance ToJSON UpdateUserProfile where
         toJSON UpdateUserProfile'{..}
           = object
-              ["SshUsername" .= _uupSSHUsername,
-               "SshPublicKey" .= _uupSSHPublicKey,
-               "AllowSelfManagement" .= _uupAllowSelfManagement,
-               "IamUserArn" .= _uupIAMUserARN]
+              (catMaybes
+                 [("SshUsername" .=) <$> _uupSSHUsername,
+                  ("SshPublicKey" .=) <$> _uupSSHPublicKey,
+                  ("AllowSelfManagement" .=) <$>
+                    _uupAllowSelfManagement,
+                  Just ("IamUserArn" .= _uupIAMUserARN)])
 
 instance ToPath UpdateUserProfile where
         toPath = const "/"

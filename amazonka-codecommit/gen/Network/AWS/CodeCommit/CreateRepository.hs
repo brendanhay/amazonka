@@ -103,8 +103,10 @@ instance ToHeaders CreateRepository where
 instance ToJSON CreateRepository where
         toJSON CreateRepository'{..}
           = object
-              ["repositoryDescription" .= _crRepositoryDescription,
-               "repositoryName" .= _crRepositoryName]
+              (catMaybes
+                 [("repositoryDescription" .=) <$>
+                    _crRepositoryDescription,
+                  Just ("repositoryName" .= _crRepositoryName)])
 
 instance ToPath CreateRepository where
         toPath = const "/"

@@ -101,8 +101,9 @@ instance ToHeaders ModifyLunaClient where
 instance ToJSON ModifyLunaClient where
         toJSON ModifyLunaClient'{..}
           = object
-              ["ClientArn" .= _mlcClientARN,
-               "Certificate" .= _mlcCertificate]
+              (catMaybes
+                 [Just ("ClientArn" .= _mlcClientARN),
+                  Just ("Certificate" .= _mlcCertificate)])
 
 instance ToPath ModifyLunaClient where
         toPath = const "/"

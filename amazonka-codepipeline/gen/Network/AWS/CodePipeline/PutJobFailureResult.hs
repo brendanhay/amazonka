@@ -96,8 +96,9 @@ instance ToHeaders PutJobFailureResult where
 instance ToJSON PutJobFailureResult where
         toJSON PutJobFailureResult'{..}
           = object
-              ["jobId" .= _pjfrJobId,
-               "failureDetails" .= _pjfrFailureDetails]
+              (catMaybes
+                 [Just ("jobId" .= _pjfrJobId),
+                  Just ("failureDetails" .= _pjfrFailureDetails)])
 
 instance ToPath PutJobFailureResult where
         toPath = const "/"

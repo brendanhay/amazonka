@@ -97,8 +97,9 @@ instance ToHeaders UpdateKeyDescription where
 instance ToJSON UpdateKeyDescription where
         toJSON UpdateKeyDescription'{..}
           = object
-              ["KeyId" .= _ukdKeyId,
-               "Description" .= _ukdDescription]
+              (catMaybes
+                 [Just ("KeyId" .= _ukdKeyId),
+                  Just ("Description" .= _ukdDescription)])
 
 instance ToPath UpdateKeyDescription where
         toPath = const "/"

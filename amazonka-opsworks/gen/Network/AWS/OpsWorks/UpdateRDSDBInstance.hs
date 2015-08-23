@@ -106,9 +106,10 @@ instance ToHeaders UpdateRDSDBInstance where
 instance ToJSON UpdateRDSDBInstance where
         toJSON UpdateRDSDBInstance'{..}
           = object
-              ["DbUser" .= _urdiDBUser,
-               "DbPassword" .= _urdiDBPassword,
-               "RdsDbInstanceArn" .= _urdiRDSDBInstanceARN]
+              (catMaybes
+                 [("DbUser" .=) <$> _urdiDBUser,
+                  ("DbPassword" .=) <$> _urdiDBPassword,
+                  Just ("RdsDbInstanceArn" .= _urdiRDSDBInstanceARN)])
 
 instance ToPath UpdateRDSDBInstance where
         toPath = const "/"

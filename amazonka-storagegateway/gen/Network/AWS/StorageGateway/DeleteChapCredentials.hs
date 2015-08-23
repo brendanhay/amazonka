@@ -109,8 +109,9 @@ instance ToHeaders DeleteChapCredentials where
 instance ToJSON DeleteChapCredentials where
         toJSON DeleteChapCredentials'{..}
           = object
-              ["TargetARN" .= _dTargetARN,
-               "InitiatorName" .= _dInitiatorName]
+              (catMaybes
+                 [Just ("TargetARN" .= _dTargetARN),
+                  Just ("InitiatorName" .= _dInitiatorName)])
 
 instance ToPath DeleteChapCredentials where
         toPath = const "/"

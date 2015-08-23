@@ -141,8 +141,9 @@ instance ToHeaders CreateStream where
 instance ToJSON CreateStream where
         toJSON CreateStream'{..}
           = object
-              ["StreamName" .= _csStreamName,
-               "ShardCount" .= _csShardCount]
+              (catMaybes
+                 [Just ("StreamName" .= _csStreamName),
+                  Just ("ShardCount" .= _csShardCount)])
 
 instance ToPath CreateStream where
         toPath = const "/"

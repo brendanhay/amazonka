@@ -163,10 +163,12 @@ instance ToHeaders ListTaskDefinitions where
 instance ToJSON ListTaskDefinitions where
         toJSON ListTaskDefinitions'{..}
           = object
-              ["status" .= _ltdStatus,
-               "familyPrefix" .= _ltdFamilyPrefix,
-               "nextToken" .= _ltdNextToken, "sort" .= _ltdSort,
-               "maxResults" .= _ltdMaxResults]
+              (catMaybes
+                 [("status" .=) <$> _ltdStatus,
+                  ("familyPrefix" .=) <$> _ltdFamilyPrefix,
+                  ("nextToken" .=) <$> _ltdNextToken,
+                  ("sort" .=) <$> _ltdSort,
+                  ("maxResults" .=) <$> _ltdMaxResults])
 
 instance ToPath ListTaskDefinitions where
         toPath = const "/"

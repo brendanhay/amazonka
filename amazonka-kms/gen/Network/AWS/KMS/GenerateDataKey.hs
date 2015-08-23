@@ -177,11 +177,12 @@ instance ToHeaders GenerateDataKey where
 instance ToJSON GenerateDataKey where
         toJSON GenerateDataKey'{..}
           = object
-              ["KeySpec" .= _gdkKeySpec,
-               "EncryptionContext" .= _gdkEncryptionContext,
-               "NumberOfBytes" .= _gdkNumberOfBytes,
-               "GrantTokens" .= _gdkGrantTokens,
-               "KeyId" .= _gdkKeyId]
+              (catMaybes
+                 [("KeySpec" .=) <$> _gdkKeySpec,
+                  ("EncryptionContext" .=) <$> _gdkEncryptionContext,
+                  ("NumberOfBytes" .=) <$> _gdkNumberOfBytes,
+                  ("GrantTokens" .=) <$> _gdkGrantTokens,
+                  Just ("KeyId" .= _gdkKeyId)])
 
 instance ToPath GenerateDataKey where
         toPath = const "/"

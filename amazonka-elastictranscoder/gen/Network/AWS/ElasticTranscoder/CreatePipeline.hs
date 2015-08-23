@@ -315,12 +315,15 @@ instance ToHeaders CreatePipeline where
 instance ToJSON CreatePipeline where
         toJSON CreatePipeline'{..}
           = object
-              ["ContentConfig" .= _cContentConfig,
-               "OutputBucket" .= _cOutputBucket,
-               "AwsKmsKeyArn" .= _cAWSKMSKeyARN,
-               "ThumbnailConfig" .= _cThumbnailConfig,
-               "Notifications" .= _cNotifications, "Name" .= _cName,
-               "InputBucket" .= _cInputBucket, "Role" .= _cRole]
+              (catMaybes
+                 [("ContentConfig" .=) <$> _cContentConfig,
+                  ("OutputBucket" .=) <$> _cOutputBucket,
+                  ("AwsKmsKeyArn" .=) <$> _cAWSKMSKeyARN,
+                  ("ThumbnailConfig" .=) <$> _cThumbnailConfig,
+                  ("Notifications" .=) <$> _cNotifications,
+                  Just ("Name" .= _cName),
+                  Just ("InputBucket" .= _cInputBucket),
+                  Just ("Role" .= _cRole)])
 
 instance ToPath CreatePipeline where
         toPath = const "/2012-09-25/pipelines"

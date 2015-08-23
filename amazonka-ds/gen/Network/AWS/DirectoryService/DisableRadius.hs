@@ -88,7 +88,8 @@ instance ToHeaders DisableRadius where
 
 instance ToJSON DisableRadius where
         toJSON DisableRadius'{..}
-          = object ["DirectoryId" .= _drDirectoryId]
+          = object
+              (catMaybes [Just ("DirectoryId" .= _drDirectoryId)])
 
 instance ToPath DisableRadius where
         toPath = const "/"

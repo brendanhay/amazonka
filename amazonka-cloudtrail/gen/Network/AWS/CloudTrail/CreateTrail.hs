@@ -167,14 +167,17 @@ instance ToHeaders CreateTrail where
 instance ToJSON CreateTrail where
         toJSON CreateTrail'{..}
           = object
-              ["S3KeyPrefix" .= _ctS3KeyPrefix,
-               "SnsTopicName" .= _ctSNSTopicName,
-               "CloudWatchLogsLogGroupArn" .=
-                 _ctCloudWatchLogsLogGroupARN,
-               "IncludeGlobalServiceEvents" .=
-                 _ctIncludeGlobalServiceEvents,
-               "CloudWatchLogsRoleArn" .= _ctCloudWatchLogsRoleARN,
-               "Name" .= _ctName, "S3BucketName" .= _ctS3BucketName]
+              (catMaybes
+                 [("S3KeyPrefix" .=) <$> _ctS3KeyPrefix,
+                  ("SnsTopicName" .=) <$> _ctSNSTopicName,
+                  ("CloudWatchLogsLogGroupArn" .=) <$>
+                    _ctCloudWatchLogsLogGroupARN,
+                  ("IncludeGlobalServiceEvents" .=) <$>
+                    _ctIncludeGlobalServiceEvents,
+                  ("CloudWatchLogsRoleArn" .=) <$>
+                    _ctCloudWatchLogsRoleARN,
+                  Just ("Name" .= _ctName),
+                  Just ("S3BucketName" .= _ctS3BucketName)])
 
 instance ToPath CreateTrail where
         toPath = const "/"

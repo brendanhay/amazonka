@@ -122,8 +122,9 @@ instance ToHeaders DeprecateWorkflowType where
 instance ToJSON DeprecateWorkflowType where
         toJSON DeprecateWorkflowType'{..}
           = object
-              ["domain" .= _dDomain,
-               "workflowType" .= _dWorkflowType]
+              (catMaybes
+                 [Just ("domain" .= _dDomain),
+                  Just ("workflowType" .= _dWorkflowType)])
 
 instance ToPath DeprecateWorkflowType where
         toPath = const "/"

@@ -90,7 +90,8 @@ instance ToHeaders CreateTags where
         toHeaders = const mempty
 
 instance ToJSON CreateTags where
-        toJSON CreateTags'{..} = object ["Tags" .= _ctTags]
+        toJSON CreateTags'{..}
+          = object (catMaybes [Just ("Tags" .= _ctTags)])
 
 instance ToPath CreateTags where
         toPath CreateTags'{..}

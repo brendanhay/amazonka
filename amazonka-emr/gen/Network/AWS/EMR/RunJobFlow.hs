@@ -316,20 +316,24 @@ instance ToHeaders RunJobFlow where
 instance ToJSON RunJobFlow where
         toJSON RunJobFlow'{..}
           = object
-              ["AmiVersion" .= _rjfAMIVersion,
-               "AdditionalInfo" .= _rjfAdditionalInfo,
-               "Configurations" .= _rjfConfigurations,
-               "JobFlowRole" .= _rjfJobFlowRole,
-               "Steps" .= _rjfSteps,
-               "BootstrapActions" .= _rjfBootstrapActions,
-               "ReleaseLabel" .= _rjfReleaseLabel,
-               "NewSupportedProducts" .= _rjfNewSupportedProducts,
-               "LogUri" .= _rjfLogURI,
-               "SupportedProducts" .= _rjfSupportedProducts,
-               "VisibleToAllUsers" .= _rjfVisibleToAllUsers,
-               "Applications" .= _rjfApplications,
-               "Tags" .= _rjfTags, "ServiceRole" .= _rjfServiceRole,
-               "Name" .= _rjfName, "Instances" .= _rjfInstances]
+              (catMaybes
+                 [("AmiVersion" .=) <$> _rjfAMIVersion,
+                  ("AdditionalInfo" .=) <$> _rjfAdditionalInfo,
+                  ("Configurations" .=) <$> _rjfConfigurations,
+                  ("JobFlowRole" .=) <$> _rjfJobFlowRole,
+                  ("Steps" .=) <$> _rjfSteps,
+                  ("BootstrapActions" .=) <$> _rjfBootstrapActions,
+                  ("ReleaseLabel" .=) <$> _rjfReleaseLabel,
+                  ("NewSupportedProducts" .=) <$>
+                    _rjfNewSupportedProducts,
+                  ("LogUri" .=) <$> _rjfLogURI,
+                  ("SupportedProducts" .=) <$> _rjfSupportedProducts,
+                  ("VisibleToAllUsers" .=) <$> _rjfVisibleToAllUsers,
+                  ("Applications" .=) <$> _rjfApplications,
+                  ("Tags" .=) <$> _rjfTags,
+                  ("ServiceRole" .=) <$> _rjfServiceRole,
+                  Just ("Name" .= _rjfName),
+                  Just ("Instances" .= _rjfInstances)])
 
 instance ToPath RunJobFlow where
         toPath = const "/"

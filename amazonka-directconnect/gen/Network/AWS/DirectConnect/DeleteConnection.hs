@@ -96,7 +96,9 @@ instance ToHeaders DeleteConnection where
 
 instance ToJSON DeleteConnection where
         toJSON DeleteConnection'{..}
-          = object ["connectionId" .= _dcConnectionId]
+          = object
+              (catMaybes
+                 [Just ("connectionId" .= _dcConnectionId)])
 
 instance ToPath DeleteConnection where
         toPath = const "/"

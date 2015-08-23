@@ -88,7 +88,8 @@ instance ToHeaders DeletePipeline where
 
 instance ToJSON DeletePipeline where
         toJSON DeletePipeline'{..}
-          = object ["pipelineId" .= _dpPipelineId]
+          = object
+              (catMaybes [Just ("pipelineId" .= _dpPipelineId)])
 
 instance ToPath DeletePipeline where
         toPath = const "/"

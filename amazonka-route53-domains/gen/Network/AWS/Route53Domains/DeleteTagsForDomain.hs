@@ -123,8 +123,9 @@ instance ToHeaders DeleteTagsForDomain where
 instance ToJSON DeleteTagsForDomain where
         toJSON DeleteTagsForDomain'{..}
           = object
-              ["DomainName" .= _dtfdDomainName,
-               "TagsToDelete" .= _dtfdTagsToDelete]
+              (catMaybes
+                 [Just ("DomainName" .= _dtfdDomainName),
+                  Just ("TagsToDelete" .= _dtfdTagsToDelete)])
 
 instance ToPath DeleteTagsForDomain where
         toPath = const "/"

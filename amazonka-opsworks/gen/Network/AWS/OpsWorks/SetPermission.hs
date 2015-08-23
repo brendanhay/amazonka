@@ -135,9 +135,12 @@ instance ToHeaders SetPermission where
 instance ToJSON SetPermission where
         toJSON SetPermission'{..}
           = object
-              ["AllowSudo" .= _spAllowSudo, "Level" .= _spLevel,
-               "AllowSsh" .= _spAllowSSH, "StackId" .= _spStackId,
-               "IamUserArn" .= _spIAMUserARN]
+              (catMaybes
+                 [("AllowSudo" .=) <$> _spAllowSudo,
+                  ("Level" .=) <$> _spLevel,
+                  ("AllowSsh" .=) <$> _spAllowSSH,
+                  Just ("StackId" .= _spStackId),
+                  Just ("IamUserArn" .= _spIAMUserARN)])
 
 instance ToPath SetPermission where
         toPath = const "/"

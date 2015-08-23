@@ -100,7 +100,9 @@ instance ToHeaders DescribeAssociation where
 instance ToJSON DescribeAssociation where
         toJSON DescribeAssociation'{..}
           = object
-              ["Name" .= _daName, "InstanceId" .= _daInstanceId]
+              (catMaybes
+                 [Just ("Name" .= _daName),
+                  Just ("InstanceId" .= _daInstanceId)])
 
 instance ToPath DescribeAssociation where
         toPath = const "/"

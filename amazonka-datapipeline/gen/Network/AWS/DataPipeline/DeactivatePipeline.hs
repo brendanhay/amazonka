@@ -104,8 +104,9 @@ instance ToHeaders DeactivatePipeline where
 instance ToJSON DeactivatePipeline where
         toJSON DeactivatePipeline'{..}
           = object
-              ["cancelActive" .= _dCancelActive,
-               "pipelineId" .= _dPipelineId]
+              (catMaybes
+                 [("cancelActive" .=) <$> _dCancelActive,
+                  Just ("pipelineId" .= _dPipelineId)])
 
 instance ToPath DeactivatePipeline where
         toPath = const "/"

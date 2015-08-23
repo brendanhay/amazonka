@@ -98,7 +98,8 @@ instance ToHeaders ListVolumeRecoveryPoints where
 
 instance ToJSON ListVolumeRecoveryPoints where
         toJSON ListVolumeRecoveryPoints'{..}
-          = object ["GatewayARN" .= _lvrpGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _lvrpGatewayARN)])
 
 instance ToPath ListVolumeRecoveryPoints where
         toPath = const "/"

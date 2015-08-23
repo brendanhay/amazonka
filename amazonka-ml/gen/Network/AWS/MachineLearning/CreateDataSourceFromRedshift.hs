@@ -203,11 +203,12 @@ instance ToHeaders CreateDataSourceFromRedshift where
 instance ToJSON CreateDataSourceFromRedshift where
         toJSON CreateDataSourceFromRedshift'{..}
           = object
-              ["DataSourceName" .= _cdsfrDataSourceName,
-               "ComputeStatistics" .= _cdsfrComputeStatistics,
-               "DataSourceId" .= _cdsfrDataSourceId,
-               "DataSpec" .= _cdsfrDataSpec,
-               "RoleARN" .= _cdsfrRoleARN]
+              (catMaybes
+                 [("DataSourceName" .=) <$> _cdsfrDataSourceName,
+                  ("ComputeStatistics" .=) <$> _cdsfrComputeStatistics,
+                  Just ("DataSourceId" .= _cdsfrDataSourceId),
+                  Just ("DataSpec" .= _cdsfrDataSpec),
+                  Just ("RoleARN" .= _cdsfrRoleARN)])
 
 instance ToPath CreateDataSourceFromRedshift where
         toPath = const "/"

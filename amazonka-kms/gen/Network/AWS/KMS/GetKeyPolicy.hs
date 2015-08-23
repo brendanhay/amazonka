@@ -104,8 +104,9 @@ instance ToHeaders GetKeyPolicy where
 instance ToJSON GetKeyPolicy where
         toJSON GetKeyPolicy'{..}
           = object
-              ["KeyId" .= _gkpKeyId,
-               "PolicyName" .= _gkpPolicyName]
+              (catMaybes
+                 [Just ("KeyId" .= _gkpKeyId),
+                  Just ("PolicyName" .= _gkpPolicyName)])
 
 instance ToPath GetKeyPolicy where
         toPath = const "/"

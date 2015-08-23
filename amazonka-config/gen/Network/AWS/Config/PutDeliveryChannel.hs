@@ -95,7 +95,9 @@ instance ToHeaders PutDeliveryChannel where
 
 instance ToJSON PutDeliveryChannel where
         toJSON PutDeliveryChannel'{..}
-          = object ["DeliveryChannel" .= _pdcDeliveryChannel]
+          = object
+              (catMaybes
+                 [Just ("DeliveryChannel" .= _pdcDeliveryChannel)])
 
 instance ToPath PutDeliveryChannel where
         toPath = const "/"

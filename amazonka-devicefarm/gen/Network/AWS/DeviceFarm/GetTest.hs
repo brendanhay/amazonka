@@ -87,7 +87,8 @@ instance ToHeaders GetTest where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetTest where
-        toJSON GetTest'{..} = object ["arn" .= _gtArn]
+        toJSON GetTest'{..}
+          = object (catMaybes [Just ("arn" .= _gtArn)])
 
 instance ToPath GetTest where
         toPath = const "/"

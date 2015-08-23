@@ -96,7 +96,8 @@ instance ToHeaders
 instance ToJSON DescribeTrustedAdvisorCheckSummaries
          where
         toJSON DescribeTrustedAdvisorCheckSummaries'{..}
-          = object ["checkIds" .= _dtacsCheckIds]
+          = object
+              (catMaybes [Just ("checkIds" .= _dtacsCheckIds)])
 
 instance ToPath DescribeTrustedAdvisorCheckSummaries
          where

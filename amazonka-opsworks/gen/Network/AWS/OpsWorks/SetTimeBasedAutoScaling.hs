@@ -100,8 +100,10 @@ instance ToHeaders SetTimeBasedAutoScaling where
 instance ToJSON SetTimeBasedAutoScaling where
         toJSON SetTimeBasedAutoScaling'{..}
           = object
-              ["AutoScalingSchedule" .= _stbasAutoScalingSchedule,
-               "InstanceId" .= _stbasInstanceId]
+              (catMaybes
+                 [("AutoScalingSchedule" .=) <$>
+                    _stbasAutoScalingSchedule,
+                  Just ("InstanceId" .= _stbasInstanceId)])
 
 instance ToPath SetTimeBasedAutoScaling where
         toPath = const "/"

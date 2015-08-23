@@ -87,7 +87,8 @@ instance ToHeaders GetUpload where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetUpload where
-        toJSON GetUpload'{..} = object ["arn" .= _guArn]
+        toJSON GetUpload'{..}
+          = object (catMaybes [Just ("arn" .= _guArn)])
 
 instance ToPath GetUpload where
         toPath = const "/"

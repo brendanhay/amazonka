@@ -86,7 +86,9 @@ instance ToHeaders GenerateRandom where
 
 instance ToJSON GenerateRandom where
         toJSON GenerateRandom'{..}
-          = object ["NumberOfBytes" .= _grNumberOfBytes]
+          = object
+              (catMaybes
+                 [("NumberOfBytes" .=) <$> _grNumberOfBytes])
 
 instance ToPath GenerateRandom where
         toPath = const "/"

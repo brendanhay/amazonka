@@ -102,8 +102,9 @@ instance ToHeaders AssignInstance where
 instance ToJSON AssignInstance where
         toJSON AssignInstance'{..}
           = object
-              ["InstanceId" .= _aiInstanceId,
-               "LayerIds" .= _aiLayerIds]
+              (catMaybes
+                 [Just ("InstanceId" .= _aiInstanceId),
+                  Just ("LayerIds" .= _aiLayerIds)])
 
 instance ToPath AssignInstance where
         toPath = const "/"

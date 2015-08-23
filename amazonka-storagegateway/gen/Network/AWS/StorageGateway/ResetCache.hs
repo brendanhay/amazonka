@@ -98,7 +98,8 @@ instance ToHeaders ResetCache where
 
 instance ToJSON ResetCache where
         toJSON ResetCache'{..}
-          = object ["GatewayARN" .= _rcGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _rcGatewayARN)])
 
 instance ToPath ResetCache where
         toPath = const "/"

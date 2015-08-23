@@ -130,7 +130,9 @@ instance ToHeaders ListOperations where
 instance ToJSON ListOperations where
         toJSON ListOperations'{..}
           = object
-              ["MaxItems" .= _loMaxItems, "Marker" .= _loMarker]
+              (catMaybes
+                 [("MaxItems" .=) <$> _loMaxItems,
+                  ("Marker" .=) <$> _loMarker])
 
 instance ToPath ListOperations where
         toPath = const "/"

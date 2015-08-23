@@ -195,13 +195,14 @@ instance ToHeaders CountClosedWorkflowExecutions
 instance ToJSON CountClosedWorkflowExecutions where
         toJSON CountClosedWorkflowExecutions'{..}
           = object
-              ["closeStatusFilter" .= _ccweCloseStatusFilter,
-               "executionFilter" .= _ccweExecutionFilter,
-               "typeFilter" .= _ccweTypeFilter,
-               "closeTimeFilter" .= _ccweCloseTimeFilter,
-               "tagFilter" .= _ccweTagFilter,
-               "startTimeFilter" .= _ccweStartTimeFilter,
-               "domain" .= _ccweDomain]
+              (catMaybes
+                 [("closeStatusFilter" .=) <$> _ccweCloseStatusFilter,
+                  ("executionFilter" .=) <$> _ccweExecutionFilter,
+                  ("typeFilter" .=) <$> _ccweTypeFilter,
+                  ("closeTimeFilter" .=) <$> _ccweCloseTimeFilter,
+                  ("tagFilter" .=) <$> _ccweTagFilter,
+                  ("startTimeFilter" .=) <$> _ccweStartTimeFilter,
+                  Just ("domain" .= _ccweDomain)])
 
 instance ToPath CountClosedWorkflowExecutions where
         toPath = const "/"

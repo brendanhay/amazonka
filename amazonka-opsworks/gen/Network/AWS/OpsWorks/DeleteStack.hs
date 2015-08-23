@@ -87,7 +87,7 @@ instance ToHeaders DeleteStack where
 
 instance ToJSON DeleteStack where
         toJSON DeleteStack'{..}
-          = object ["StackId" .= _dsStackId]
+          = object (catMaybes [Just ("StackId" .= _dsStackId)])
 
 instance ToPath DeleteStack where
         toPath = const "/"

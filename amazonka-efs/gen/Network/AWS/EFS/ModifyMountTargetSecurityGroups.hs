@@ -102,7 +102,9 @@ instance ToHeaders ModifyMountTargetSecurityGroups
 
 instance ToJSON ModifyMountTargetSecurityGroups where
         toJSON ModifyMountTargetSecurityGroups'{..}
-          = object ["SecurityGroups" .= _mmtsgSecurityGroups]
+          = object
+              (catMaybes
+                 [("SecurityGroups" .=) <$> _mmtsgSecurityGroups])
 
 instance ToPath ModifyMountTargetSecurityGroups where
         toPath ModifyMountTargetSecurityGroups'{..}

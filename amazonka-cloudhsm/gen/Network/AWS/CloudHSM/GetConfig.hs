@@ -112,9 +112,10 @@ instance ToHeaders GetConfig where
 instance ToJSON GetConfig where
         toJSON GetConfig'{..}
           = object
-              ["ClientArn" .= _gcClientARN,
-               "ClientVersion" .= _gcClientVersion,
-               "HapgList" .= _gcHAPGList]
+              (catMaybes
+                 [Just ("ClientArn" .= _gcClientARN),
+                  Just ("ClientVersion" .= _gcClientVersion),
+                  Just ("HapgList" .= _gcHAPGList)])
 
 instance ToPath GetConfig where
         toPath = const "/"

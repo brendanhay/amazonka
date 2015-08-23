@@ -110,7 +110,9 @@ instance ToHeaders GetEvaluation where
 
 instance ToJSON GetEvaluation where
         toJSON GetEvaluation'{..}
-          = object ["EvaluationId" .= _geEvaluationId]
+          = object
+              (catMaybes
+                 [Just ("EvaluationId" .= _geEvaluationId)])
 
 instance ToPath GetEvaluation where
         toPath = const "/"

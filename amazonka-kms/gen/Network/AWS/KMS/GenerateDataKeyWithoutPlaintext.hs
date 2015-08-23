@@ -148,11 +148,12 @@ instance ToHeaders GenerateDataKeyWithoutPlaintext
 instance ToJSON GenerateDataKeyWithoutPlaintext where
         toJSON GenerateDataKeyWithoutPlaintext'{..}
           = object
-              ["KeySpec" .= _gdkwpKeySpec,
-               "EncryptionContext" .= _gdkwpEncryptionContext,
-               "NumberOfBytes" .= _gdkwpNumberOfBytes,
-               "GrantTokens" .= _gdkwpGrantTokens,
-               "KeyId" .= _gdkwpKeyId]
+              (catMaybes
+                 [("KeySpec" .=) <$> _gdkwpKeySpec,
+                  ("EncryptionContext" .=) <$> _gdkwpEncryptionContext,
+                  ("NumberOfBytes" .=) <$> _gdkwpNumberOfBytes,
+                  ("GrantTokens" .=) <$> _gdkwpGrantTokens,
+                  Just ("KeyId" .= _gdkwpKeyId)])
 
 instance ToPath GenerateDataKeyWithoutPlaintext where
         toPath = const "/"

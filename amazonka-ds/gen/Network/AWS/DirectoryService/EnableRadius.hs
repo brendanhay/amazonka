@@ -100,8 +100,9 @@ instance ToHeaders EnableRadius where
 instance ToJSON EnableRadius where
         toJSON EnableRadius'{..}
           = object
-              ["DirectoryId" .= _erDirectoryId,
-               "RadiusSettings" .= _erRadiusSettings]
+              (catMaybes
+                 [Just ("DirectoryId" .= _erDirectoryId),
+                  Just ("RadiusSettings" .= _erRadiusSettings)])
 
 instance ToPath EnableRadius where
         toPath = const "/"

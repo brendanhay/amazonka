@@ -91,7 +91,7 @@ instance ToHeaders DeleteCluster where
 
 instance ToJSON DeleteCluster where
         toJSON DeleteCluster'{..}
-          = object ["cluster" .= _dcCluster]
+          = object (catMaybes [Just ("cluster" .= _dcCluster)])
 
 instance ToPath DeleteCluster where
         toPath = const "/"

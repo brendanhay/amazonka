@@ -87,7 +87,7 @@ instance ToHeaders DeleteHSM where
 
 instance ToJSON DeleteHSM where
         toJSON DeleteHSM'{..}
-          = object ["HsmArn" .= _dhHSMARN]
+          = object (catMaybes [Just ("HsmArn" .= _dhHSMARN)])
 
 instance ToPath DeleteHSM where
         toPath = const "/"

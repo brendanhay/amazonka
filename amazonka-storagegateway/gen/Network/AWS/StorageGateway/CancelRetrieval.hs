@@ -103,8 +103,9 @@ instance ToHeaders CancelRetrieval where
 instance ToJSON CancelRetrieval where
         toJSON CancelRetrieval'{..}
           = object
-              ["GatewayARN" .= _crGatewayARN,
-               "TapeARN" .= _crTapeARN]
+              (catMaybes
+                 [Just ("GatewayARN" .= _crGatewayARN),
+                  Just ("TapeARN" .= _crTapeARN)])
 
 instance ToPath CancelRetrieval where
         toPath = const "/"

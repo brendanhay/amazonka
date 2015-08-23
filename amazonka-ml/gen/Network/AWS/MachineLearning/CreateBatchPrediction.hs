@@ -152,12 +152,15 @@ instance ToHeaders CreateBatchPrediction where
 instance ToJSON CreateBatchPrediction where
         toJSON CreateBatchPrediction'{..}
           = object
-              ["BatchPredictionName" .= _cbpBatchPredictionName,
-               "BatchPredictionId" .= _cbpBatchPredictionId,
-               "MLModelId" .= _cbpMLModelId,
-               "BatchPredictionDataSourceId" .=
-                 _cbpBatchPredictionDataSourceId,
-               "OutputUri" .= _cbpOutputURI]
+              (catMaybes
+                 [("BatchPredictionName" .=) <$>
+                    _cbpBatchPredictionName,
+                  Just ("BatchPredictionId" .= _cbpBatchPredictionId),
+                  Just ("MLModelId" .= _cbpMLModelId),
+                  Just
+                    ("BatchPredictionDataSourceId" .=
+                       _cbpBatchPredictionDataSourceId),
+                  Just ("OutputUri" .= _cbpOutputURI)])
 
 instance ToPath CreateBatchPrediction where
         toPath = const "/"

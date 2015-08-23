@@ -115,8 +115,10 @@ instance ToHeaders AcknowledgeThirdPartyJob where
 instance ToJSON AcknowledgeThirdPartyJob where
         toJSON AcknowledgeThirdPartyJob'{..}
           = object
-              ["jobId" .= _atpjJobId, "nonce" .= _atpjNonce,
-               "clientToken" .= _atpjClientToken]
+              (catMaybes
+                 [Just ("jobId" .= _atpjJobId),
+                  Just ("nonce" .= _atpjNonce),
+                  Just ("clientToken" .= _atpjClientToken)])
 
 instance ToPath AcknowledgeThirdPartyJob where
         toPath = const "/"

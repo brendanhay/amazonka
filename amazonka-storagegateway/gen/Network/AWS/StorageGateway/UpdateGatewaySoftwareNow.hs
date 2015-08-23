@@ -105,7 +105,8 @@ instance ToHeaders UpdateGatewaySoftwareNow where
 
 instance ToJSON UpdateGatewaySoftwareNow where
         toJSON UpdateGatewaySoftwareNow'{..}
-          = object ["GatewayARN" .= _ugsnGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _ugsnGatewayARN)])
 
 instance ToPath UpdateGatewaySoftwareNow where
         toPath = const "/"

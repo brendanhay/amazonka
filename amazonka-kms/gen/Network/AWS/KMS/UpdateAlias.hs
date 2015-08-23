@@ -112,8 +112,9 @@ instance ToHeaders UpdateAlias where
 instance ToJSON UpdateAlias where
         toJSON UpdateAlias'{..}
           = object
-              ["AliasName" .= _uaAliasName,
-               "TargetKeyId" .= _uaTargetKeyId]
+              (catMaybes
+                 [Just ("AliasName" .= _uaAliasName),
+                  Just ("TargetKeyId" .= _uaTargetKeyId)])
 
 instance ToPath UpdateAlias where
         toPath = const "/"

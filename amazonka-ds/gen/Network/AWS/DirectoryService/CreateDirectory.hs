@@ -140,10 +140,13 @@ instance ToHeaders CreateDirectory where
 instance ToJSON CreateDirectory where
         toJSON CreateDirectory'{..}
           = object
-              ["ShortName" .= _cShortName,
-               "VpcSettings" .= _cVPCSettings,
-               "Description" .= _cDescription, "Name" .= _cName,
-               "Password" .= _cPassword, "Size" .= _cSize]
+              (catMaybes
+                 [("ShortName" .=) <$> _cShortName,
+                  ("VpcSettings" .=) <$> _cVPCSettings,
+                  ("Description" .=) <$> _cDescription,
+                  Just ("Name" .= _cName),
+                  Just ("Password" .= _cPassword),
+                  Just ("Size" .= _cSize)])
 
 instance ToPath CreateDirectory where
         toPath = const "/"

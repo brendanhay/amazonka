@@ -191,13 +191,15 @@ instance ToHeaders ListTasks where
 instance ToJSON ListTasks where
         toJSON ListTasks'{..}
           = object
-              ["desiredStatus" .= _ltDesiredStatus,
-               "cluster" .= _ltCluster, "family" .= _ltFamily,
-               "nextToken" .= _ltNextToken,
-               "startedBy" .= _ltStartedBy,
-               "serviceName" .= _ltServiceName,
-               "containerInstance" .= _ltContainerInstance,
-               "maxResults" .= _ltMaxResults]
+              (catMaybes
+                 [("desiredStatus" .=) <$> _ltDesiredStatus,
+                  ("cluster" .=) <$> _ltCluster,
+                  ("family" .=) <$> _ltFamily,
+                  ("nextToken" .=) <$> _ltNextToken,
+                  ("startedBy" .=) <$> _ltStartedBy,
+                  ("serviceName" .=) <$> _ltServiceName,
+                  ("containerInstance" .=) <$> _ltContainerInstance,
+                  ("maxResults" .=) <$> _ltMaxResults])
 
 instance ToPath ListTasks where
         toPath = const "/"

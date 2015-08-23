@@ -394,14 +394,18 @@ instance FromJSON ContainerDefinition where
 instance ToJSON ContainerDefinition where
         toJSON ContainerDefinition'{..}
           = object
-              ["image" .= _cdImage, "command" .= _cdCommand,
-               "volumesFrom" .= _cdVolumesFrom,
-               "environment" .= _cdEnvironment,
-               "entryPoint" .= _cdEntryPoint,
-               "portMappings" .= _cdPortMappings,
-               "memory" .= _cdMemory, "name" .= _cdName,
-               "mountPoints" .= _cdMountPoints, "links" .= _cdLinks,
-               "essential" .= _cdEssential, "cpu" .= _cdCpu]
+              (catMaybes
+                 [("image" .=) <$> _cdImage,
+                  ("command" .=) <$> _cdCommand,
+                  ("volumesFrom" .=) <$> _cdVolumesFrom,
+                  ("environment" .=) <$> _cdEnvironment,
+                  ("entryPoint" .=) <$> _cdEntryPoint,
+                  ("portMappings" .=) <$> _cdPortMappings,
+                  ("memory" .=) <$> _cdMemory, ("name" .=) <$> _cdName,
+                  ("mountPoints" .=) <$> _cdMountPoints,
+                  ("links" .=) <$> _cdLinks,
+                  ("essential" .=) <$> _cdEssential,
+                  ("cpu" .=) <$> _cdCpu])
 
 -- | An Amazon EC2 instance that is running the Amazon ECS agent and has been
 -- registered with a cluster.
@@ -585,8 +589,10 @@ instance FromJSON ContainerOverride where
 instance ToJSON ContainerOverride where
         toJSON ContainerOverride'{..}
           = object
-              ["command" .= _coCommand,
-               "environment" .= _coEnvironment, "name" .= _coName]
+              (catMaybes
+                 [("command" .=) <$> _coCommand,
+                  ("environment" .=) <$> _coEnvironment,
+                  ("name" .=) <$> _coName])
 
 -- | Details on a service within a cluster
 --
@@ -899,7 +905,8 @@ instance FromJSON HostVolumeProperties where
 
 instance ToJSON HostVolumeProperties where
         toJSON HostVolumeProperties'{..}
-          = object ["sourcePath" .= _hvpSourcePath]
+          = object
+              (catMaybes [("sourcePath" .=) <$> _hvpSourcePath])
 
 -- | A key and value pair object.
 --
@@ -942,7 +949,10 @@ instance FromJSON KeyValuePair where
 
 instance ToJSON KeyValuePair where
         toJSON KeyValuePair'{..}
-          = object ["value" .= _kvpValue, "name" .= _kvpName]
+          = object
+              (catMaybes
+                 [("value" .=) <$> _kvpValue,
+                  ("name" .=) <$> _kvpName])
 
 -- | Details on a load balancer that is used with a service.
 --
@@ -998,9 +1008,10 @@ instance FromJSON LoadBalancer where
 instance ToJSON LoadBalancer where
         toJSON LoadBalancer'{..}
           = object
-              ["loadBalancerName" .= _lbLoadBalancerName,
-               "containerName" .= _lbContainerName,
-               "containerPort" .= _lbContainerPort]
+              (catMaybes
+                 [("loadBalancerName" .=) <$> _lbLoadBalancerName,
+                  ("containerName" .=) <$> _lbContainerName,
+                  ("containerPort" .=) <$> _lbContainerPort])
 
 -- | Details on a volume mount point that is used in a container definition.
 --
@@ -1054,9 +1065,10 @@ instance FromJSON MountPoint where
 instance ToJSON MountPoint where
         toJSON MountPoint'{..}
           = object
-              ["containerPath" .= _mpContainerPath,
-               "sourceVolume" .= _mpSourceVolume,
-               "readOnly" .= _mpReadOnly]
+              (catMaybes
+                 [("containerPath" .=) <$> _mpContainerPath,
+                  ("sourceVolume" .=) <$> _mpSourceVolume,
+                  ("readOnly" .=) <$> _mpReadOnly])
 
 -- | Details on the network bindings between a container and its host
 -- container instance.
@@ -1119,9 +1131,11 @@ instance FromJSON NetworkBinding where
 instance ToJSON NetworkBinding where
         toJSON NetworkBinding'{..}
           = object
-              ["bindIP" .= _nbBindIP, "protocol" .= _nbProtocol,
-               "hostPort" .= _nbHostPort,
-               "containerPort" .= _nbContainerPort]
+              (catMaybes
+                 [("bindIP" .=) <$> _nbBindIP,
+                  ("protocol" .=) <$> _nbProtocol,
+                  ("hostPort" .=) <$> _nbHostPort,
+                  ("containerPort" .=) <$> _nbContainerPort])
 
 -- | Port mappings allow containers to access ports on the host container
 -- instance to send or receive traffic. Port mappings are specified as part
@@ -1202,9 +1216,10 @@ instance FromJSON PortMapping where
 instance ToJSON PortMapping where
         toJSON PortMapping'{..}
           = object
-              ["protocol" .= _pmProtocol,
-               "hostPort" .= _pmHostPort,
-               "containerPort" .= _pmContainerPort]
+              (catMaybes
+                 [("protocol" .=) <$> _pmProtocol,
+                  ("hostPort" .=) <$> _pmHostPort,
+                  ("containerPort" .=) <$> _pmContainerPort])
 
 -- | Describes the resources available for a container instance.
 --
@@ -1290,11 +1305,12 @@ instance FromJSON Resource where
 instance ToJSON Resource where
         toJSON Resource'{..}
           = object
-              ["stringSetValue" .= _rStringSetValue,
-               "integerValue" .= _rIntegerValue,
-               "doubleValue" .= _rDoubleValue,
-               "longValue" .= _rLongValue, "name" .= _rName,
-               "type" .= _rType]
+              (catMaybes
+                 [("stringSetValue" .=) <$> _rStringSetValue,
+                  ("integerValue" .=) <$> _rIntegerValue,
+                  ("doubleValue" .=) <$> _rDoubleValue,
+                  ("longValue" .=) <$> _rLongValue,
+                  ("name" .=) <$> _rName, ("type" .=) <$> _rType])
 
 -- | Details on an event associated with a service.
 --
@@ -1569,7 +1585,9 @@ instance FromJSON TaskOverride where
 instance ToJSON TaskOverride where
         toJSON TaskOverride'{..}
           = object
-              ["containerOverrides" .= _toContainerOverrides]
+              (catMaybes
+                 [("containerOverrides" .=) <$>
+                    _toContainerOverrides])
 
 -- | The Docker and Amazon ECS container agent version information on a
 -- container instance.
@@ -1624,9 +1642,10 @@ instance FromJSON VersionInfo where
 instance ToJSON VersionInfo where
         toJSON VersionInfo'{..}
           = object
-              ["agentVersion" .= _viAgentVersion,
-               "agentHash" .= _viAgentHash,
-               "dockerVersion" .= _viDockerVersion]
+              (catMaybes
+                 [("agentVersion" .=) <$> _viAgentVersion,
+                  ("agentHash" .=) <$> _viAgentHash,
+                  ("dockerVersion" .=) <$> _viDockerVersion])
 
 -- | A data volume used in a task definition.
 --
@@ -1670,7 +1689,9 @@ instance FromJSON Volume where
 
 instance ToJSON Volume where
         toJSON Volume'{..}
-          = object ["name" .= _vName, "host" .= _vHost]
+          = object
+              (catMaybes
+                 [("name" .=) <$> _vName, ("host" .=) <$> _vHost])
 
 -- | Details on a data volume from another container.
 --
@@ -1715,5 +1736,6 @@ instance FromJSON VolumeFrom where
 instance ToJSON VolumeFrom where
         toJSON VolumeFrom'{..}
           = object
-              ["sourceContainer" .= _vfSourceContainer,
-               "readOnly" .= _vfReadOnly]
+              (catMaybes
+                 [("sourceContainer" .=) <$> _vfSourceContainer,
+                  ("readOnly" .=) <$> _vfReadOnly])

@@ -102,7 +102,10 @@ instance ToHeaders CreateDocument where
 
 instance ToJSON CreateDocument where
         toJSON CreateDocument'{..}
-          = object ["Content" .= _cdContent, "Name" .= _cdName]
+          = object
+              (catMaybes
+                 [Just ("Content" .= _cdContent),
+                  Just ("Name" .= _cdName)])
 
 instance ToPath CreateDocument where
         toPath = const "/"

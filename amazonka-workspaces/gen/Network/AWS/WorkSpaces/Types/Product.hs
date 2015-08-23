@@ -243,7 +243,8 @@ rWorkspaceId = lens _rWorkspaceId (\ s a -> s{_rWorkspaceId = a});
 
 instance ToJSON RebootRequest where
         toJSON RebootRequest'{..}
-          = object ["WorkspaceId" .= _rWorkspaceId]
+          = object
+              (catMaybes [Just ("WorkspaceId" .= _rWorkspaceId)])
 
 -- | Contains information used with the RebuildWorkspaces operation to
 -- rebuild a WorkSpace.
@@ -272,7 +273,8 @@ rrWorkspaceId = lens _rrWorkspaceId (\ s a -> s{_rrWorkspaceId = a});
 
 instance ToJSON RebuildRequest where
         toJSON RebuildRequest'{..}
-          = object ["WorkspaceId" .= _rrWorkspaceId]
+          = object
+              (catMaybes [Just ("WorkspaceId" .= _rrWorkspaceId)])
 
 -- | Contains information used with the TerminateWorkspaces operation to
 -- terminate a WorkSpace.
@@ -301,7 +303,8 @@ trWorkspaceId = lens _trWorkspaceId (\ s a -> s{_trWorkspaceId = a});
 
 instance ToJSON TerminateRequest where
         toJSON TerminateRequest'{..}
-          = object ["WorkspaceId" .= _trWorkspaceId]
+          = object
+              (catMaybes [Just ("WorkspaceId" .= _trWorkspaceId)])
 
 -- | Contains information about the user storage for a WorkSpace bundle.
 --
@@ -705,5 +708,7 @@ instance FromJSON WorkspaceRequest where
 instance ToJSON WorkspaceRequest where
         toJSON WorkspaceRequest'{..}
           = object
-              ["DirectoryId" .= _wrDirectoryId,
-               "UserName" .= _wrUserName, "BundleId" .= _wrBundleId]
+              (catMaybes
+                 [Just ("DirectoryId" .= _wrDirectoryId),
+                  Just ("UserName" .= _wrUserName),
+                  Just ("BundleId" .= _wrBundleId)])

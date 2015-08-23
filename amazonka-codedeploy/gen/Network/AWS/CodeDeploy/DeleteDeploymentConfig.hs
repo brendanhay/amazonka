@@ -89,7 +89,10 @@ instance ToHeaders DeleteDeploymentConfig where
 instance ToJSON DeleteDeploymentConfig where
         toJSON DeleteDeploymentConfig'{..}
           = object
-              ["deploymentConfigName" .= _ddcDeploymentConfigName]
+              (catMaybes
+                 [Just
+                    ("deploymentConfigName" .=
+                       _ddcDeploymentConfigName)])
 
 instance ToPath DeleteDeploymentConfig where
         toPath = const "/"

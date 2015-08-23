@@ -89,7 +89,9 @@ instance ToHeaders DeleteInterconnect where
 
 instance ToJSON DeleteInterconnect where
         toJSON DeleteInterconnect'{..}
-          = object ["interconnectId" .= _dInterconnectId]
+          = object
+              (catMaybes
+                 [Just ("interconnectId" .= _dInterconnectId)])
 
 instance ToPath DeleteInterconnect where
         toPath = const "/"

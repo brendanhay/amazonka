@@ -115,8 +115,9 @@ instance ToHeaders GetRecords where
 instance ToJSON GetRecords where
         toJSON GetRecords'{..}
           = object
-              ["Limit" .= _grLimit,
-               "ShardIterator" .= _grShardIterator]
+              (catMaybes
+                 [("Limit" .=) <$> _grLimit,
+                  Just ("ShardIterator" .= _grShardIterator)])
 
 instance ToPath GetRecords where
         toPath = const "/"

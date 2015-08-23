@@ -138,9 +138,11 @@ instance ToHeaders DescribeSubscriptionFilters where
 instance ToJSON DescribeSubscriptionFilters where
         toJSON DescribeSubscriptionFilters'{..}
           = object
-              ["filterNamePrefix" .= _dsfFilterNamePrefix,
-               "nextToken" .= _dsfNextToken, "limit" .= _dsfLimit,
-               "logGroupName" .= _dsfLogGroupName]
+              (catMaybes
+                 [("filterNamePrefix" .=) <$> _dsfFilterNamePrefix,
+                  ("nextToken" .=) <$> _dsfNextToken,
+                  ("limit" .=) <$> _dsfLimit,
+                  Just ("logGroupName" .= _dsfLogGroupName)])
 
 instance ToPath DescribeSubscriptionFilters where
         toPath = const "/"

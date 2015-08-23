@@ -140,7 +140,8 @@ instance ToHeaders GetDomainDetail where
 
 instance ToJSON GetDomainDetail where
         toJSON GetDomainDetail'{..}
-          = object ["DomainName" .= _gddDomainName]
+          = object
+              (catMaybes [Just ("DomainName" .= _gddDomainName)])
 
 instance ToPath GetDomainDetail where
         toPath = const "/"

@@ -91,7 +91,8 @@ instance ToHeaders CreateCluster where
 
 instance ToJSON CreateCluster where
         toJSON CreateCluster'{..}
-          = object ["clusterName" .= _ccClusterName]
+          = object
+              (catMaybes [("clusterName" .=) <$> _ccClusterName])
 
 instance ToPath CreateCluster where
         toPath = const "/"

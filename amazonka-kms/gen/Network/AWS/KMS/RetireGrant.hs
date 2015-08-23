@@ -121,8 +121,10 @@ instance ToHeaders RetireGrant where
 instance ToJSON RetireGrant where
         toJSON RetireGrant'{..}
           = object
-              ["KeyId" .= _rgKeyId, "GrantId" .= _rgGrantId,
-               "GrantToken" .= _rgGrantToken]
+              (catMaybes
+                 [("KeyId" .=) <$> _rgKeyId,
+                  ("GrantId" .=) <$> _rgGrantId,
+                  ("GrantToken" .=) <$> _rgGrantToken])
 
 instance ToPath RetireGrant where
         toPath = const "/"

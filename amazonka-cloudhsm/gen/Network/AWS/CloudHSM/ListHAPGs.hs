@@ -93,7 +93,8 @@ instance ToHeaders ListHAPGs where
 
 instance ToJSON ListHAPGs where
         toJSON ListHAPGs'{..}
-          = object ["NextToken" .= _lhNextToken]
+          = object
+              (catMaybes [("NextToken" .=) <$> _lhNextToken])
 
 instance ToPath ListHAPGs where
         toPath = const "/"

@@ -122,7 +122,9 @@ instance ToHeaders RegisterDevice where
 instance ToJSON RegisterDevice where
         toJSON RegisterDevice'{..}
           = object
-              ["Platform" .= _rdPlatform, "Token" .= _rdToken]
+              (catMaybes
+                 [Just ("Platform" .= _rdPlatform),
+                  Just ("Token" .= _rdToken)])
 
 instance ToPath RegisterDevice where
         toPath RegisterDevice'{..}

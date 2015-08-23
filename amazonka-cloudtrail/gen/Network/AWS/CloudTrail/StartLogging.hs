@@ -86,7 +86,8 @@ instance ToHeaders StartLogging where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON StartLogging where
-        toJSON StartLogging'{..} = object ["Name" .= _sName]
+        toJSON StartLogging'{..}
+          = object (catMaybes [Just ("Name" .= _sName)])
 
 instance ToPath StartLogging where
         toPath = const "/"

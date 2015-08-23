@@ -94,7 +94,9 @@ instance ToHeaders DeleteRepository where
 
 instance ToJSON DeleteRepository where
         toJSON DeleteRepository'{..}
-          = object ["repositoryName" .= _drRepositoryName]
+          = object
+              (catMaybes
+                 [Just ("repositoryName" .= _drRepositoryName)])
 
 instance ToPath DeleteRepository where
         toPath = const "/"

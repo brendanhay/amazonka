@@ -131,10 +131,12 @@ instance ToHeaders AddCommunicationToCase where
 instance ToJSON AddCommunicationToCase where
         toJSON AddCommunicationToCase'{..}
           = object
-              ["caseId" .= _actcCaseId,
-               "ccEmailAddresses" .= _actcCcEmailAddresses,
-               "attachmentSetId" .= _actcAttachmentSetId,
-               "communicationBody" .= _actcCommunicationBody]
+              (catMaybes
+                 [("caseId" .=) <$> _actcCaseId,
+                  ("ccEmailAddresses" .=) <$> _actcCcEmailAddresses,
+                  ("attachmentSetId" .=) <$> _actcAttachmentSetId,
+                  Just
+                    ("communicationBody" .= _actcCommunicationBody)])
 
 instance ToPath AddCommunicationToCase where
         toPath = const "/"

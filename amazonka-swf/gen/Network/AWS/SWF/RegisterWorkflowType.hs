@@ -256,17 +256,20 @@ instance ToHeaders RegisterWorkflowType where
 instance ToJSON RegisterWorkflowType where
         toJSON RegisterWorkflowType'{..}
           = object
-              ["defaultLambdaRole" .= _rwtDefaultLambdaRole,
-               "defaultChildPolicy" .= _rwtDefaultChildPolicy,
-               "defaultTaskList" .= _rwtDefaultTaskList,
-               "defaultTaskPriority" .= _rwtDefaultTaskPriority,
-               "defaultExecutionStartToCloseTimeout" .=
-                 _rwtDefaultExecutionStartToCloseTimeout,
-               "defaultTaskStartToCloseTimeout" .=
-                 _rwtDefaultTaskStartToCloseTimeout,
-               "description" .= _rwtDescription,
-               "domain" .= _rwtDomain, "name" .= _rwtName,
-               "version" .= _rwtVersion]
+              (catMaybes
+                 [("defaultLambdaRole" .=) <$> _rwtDefaultLambdaRole,
+                  ("defaultChildPolicy" .=) <$> _rwtDefaultChildPolicy,
+                  ("defaultTaskList" .=) <$> _rwtDefaultTaskList,
+                  ("defaultTaskPriority" .=) <$>
+                    _rwtDefaultTaskPriority,
+                  ("defaultExecutionStartToCloseTimeout" .=) <$>
+                    _rwtDefaultExecutionStartToCloseTimeout,
+                  ("defaultTaskStartToCloseTimeout" .=) <$>
+                    _rwtDefaultTaskStartToCloseTimeout,
+                  ("description" .=) <$> _rwtDescription,
+                  Just ("domain" .= _rwtDomain),
+                  Just ("name" .= _rwtName),
+                  Just ("version" .= _rwtVersion)])
 
 instance ToPath RegisterWorkflowType where
         toPath = const "/"

@@ -223,14 +223,17 @@ instance ToHeaders GetItem where
 instance ToJSON GetItem where
         toJSON GetItem'{..}
           = object
-              ["ProjectionExpression" .= _giProjectionExpression,
-               "ConsistentRead" .= _giConsistentRead,
-               "ExpressionAttributeNames" .=
-                 _giExpressionAttributeNames,
-               "AttributesToGet" .= _giAttributesToGet,
-               "ReturnConsumedCapacity" .=
-                 _giReturnConsumedCapacity,
-               "TableName" .= _giTableName, "Key" .= _giKey]
+              (catMaybes
+                 [("ProjectionExpression" .=) <$>
+                    _giProjectionExpression,
+                  ("ConsistentRead" .=) <$> _giConsistentRead,
+                  ("ExpressionAttributeNames" .=) <$>
+                    _giExpressionAttributeNames,
+                  ("AttributesToGet" .=) <$> _giAttributesToGet,
+                  ("ReturnConsumedCapacity" .=) <$>
+                    _giReturnConsumedCapacity,
+                  Just ("TableName" .= _giTableName),
+                  Just ("Key" .= _giKey)])
 
 instance ToPath GetItem where
         toPath = const "/"

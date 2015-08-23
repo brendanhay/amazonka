@@ -105,7 +105,8 @@ instance ToHeaders DescribeHAPG where
 
 instance ToJSON DescribeHAPG where
         toJSON DescribeHAPG'{..}
-          = object ["HapgArn" .= _dhapgHAPGARN]
+          = object
+              (catMaybes [Just ("HapgArn" .= _dhapgHAPGARN)])
 
 instance ToPath DescribeHAPG where
         toPath = const "/"

@@ -119,8 +119,10 @@ instance ToHeaders ConfirmPrivateVirtualInterface
 instance ToJSON ConfirmPrivateVirtualInterface where
         toJSON ConfirmPrivateVirtualInterface'{..}
           = object
-              ["virtualInterfaceId" .= _cpviVirtualInterfaceId,
-               "virtualGatewayId" .= _cpviVirtualGatewayId]
+              (catMaybes
+                 [Just
+                    ("virtualInterfaceId" .= _cpviVirtualInterfaceId),
+                  Just ("virtualGatewayId" .= _cpviVirtualGatewayId)])
 
 instance ToPath ConfirmPrivateVirtualInterface where
         toPath = const "/"

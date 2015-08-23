@@ -87,7 +87,8 @@ instance ToHeaders GetDocument where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetDocument where
-        toJSON GetDocument'{..} = object ["Name" .= _gdName]
+        toJSON GetDocument'{..}
+          = object (catMaybes [Just ("Name" .= _gdName)])
 
 instance ToPath GetDocument where
         toPath = const "/"

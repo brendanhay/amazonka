@@ -109,8 +109,9 @@ instance ToHeaders DescribeElasticLoadBalancers where
 instance ToJSON DescribeElasticLoadBalancers where
         toJSON DescribeElasticLoadBalancers'{..}
           = object
-              ["LayerIds" .= _delbLayerIds,
-               "StackId" .= _delbStackId]
+              (catMaybes
+                 [("LayerIds" .=) <$> _delbLayerIds,
+                  ("StackId" .=) <$> _delbStackId])
 
 instance ToPath DescribeElasticLoadBalancers where
         toPath = const "/"

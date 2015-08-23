@@ -93,8 +93,9 @@ instance ToHeaders PutRetentionPolicy where
 instance ToJSON PutRetentionPolicy where
         toJSON PutRetentionPolicy'{..}
           = object
-              ["logGroupName" .= _prpLogGroupName,
-               "retentionInDays" .= _prpRetentionInDays]
+              (catMaybes
+                 [Just ("logGroupName" .= _prpLogGroupName),
+                  Just ("retentionInDays" .= _prpRetentionInDays)])
 
 instance ToPath PutRetentionPolicy where
         toPath = const "/"

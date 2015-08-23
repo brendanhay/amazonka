@@ -89,7 +89,8 @@ instance ToHeaders DeregisterVolume where
 
 instance ToJSON DeregisterVolume where
         toJSON DeregisterVolume'{..}
-          = object ["VolumeId" .= _dvVolumeId]
+          = object
+              (catMaybes [Just ("VolumeId" .= _dvVolumeId)])
 
 instance ToPath DeregisterVolume where
         toPath = const "/"

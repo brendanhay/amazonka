@@ -96,7 +96,8 @@ instance ToHeaders DisableGateway where
 
 instance ToJSON DisableGateway where
         toJSON DisableGateway'{..}
-          = object ["GatewayARN" .= _dGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _dGatewayARN)])
 
 instance ToPath DisableGateway where
         toPath = const "/"

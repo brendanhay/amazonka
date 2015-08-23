@@ -112,7 +112,8 @@ instance ToHeaders ShutdownGateway where
 
 instance ToJSON ShutdownGateway where
         toJSON ShutdownGateway'{..}
-          = object ["GatewayARN" .= _sGatewayARN]
+          = object
+              (catMaybes [Just ("GatewayARN" .= _sGatewayARN)])
 
 instance ToPath ShutdownGateway where
         toPath = const "/"

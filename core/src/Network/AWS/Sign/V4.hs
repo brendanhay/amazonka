@@ -23,6 +23,7 @@ module Network.AWS.Sign.V4
 import           Control.Applicative
 import           Control.Lens
 import           Data.Bifunctor
+import qualified Data.ByteString              as BS
 import qualified Data.ByteString.Char8        as BS8
 import qualified Data.CaseInsensitive         as CI
 import qualified Data.Foldable                as Fold
@@ -61,6 +62,7 @@ data instance Meta V4 = Meta
     , metaSignature        :: !Signature
     , metaHeaders          :: ![Header]
     , metaBody             :: Client.RequestBody
+    , metaTimeout          :: !(Maybe Seconds)
     }
 
 instance ToLog (Meta V4) where
@@ -152,21 +154,20 @@ authorisation Meta{..} = algorithm
     <> ", Signature="     <> toBS metaSignature
 
 finalise :: Meta V4 -> (ClientRequest -> ClientRequest) -> Signed V4 a
-finalise meta authorise =
-    Signed meta . authorise $ clientRequest
-        { Client.method         = toBS (metaMethod meta)
-        , Client.host           = _endpointHost
-        , Client.secure         = _endpointSecure
-        , Client.port           = _endpointPort
-        , Client.path           = toBS (metaPath meta)
-        , Client.queryString    = if BS8.null qbs then qbs else '?' `BS8.cons` qbs
-        , Client.requestHeaders = metaHeaders meta
-        , Client.requestBody    = metaBody meta
-        }
+finalise m@Meta{..} authorise = Signed m (authorise rq)
   where
-    Endpoint{..} = metaEndpoint meta
+    rq = (clientRequest metaEndpoint metaTimeout)
+        { Client.method         = toBS metaMethod
+        , Client.path           = toBS metaPath
+        , Client.queryString    = qry
+        , Client.requestHeaders = metaHeaders
+        , Client.requestBody    = metaBody
+        }
 
-    qbs = toBS (metaCanonicalQuery meta)
+    qry | BS.null x = x
+        | otherwise = '?' `BS8.cons` x
+      where
+        x = toBS metaCanonicalQuery
 
 sign :: AuthEnv
      -> Region
@@ -190,6 +191,7 @@ sign auth reg ts svc presign digest rq = Meta
     , metaSignature        = signature (_authSecret auth) scope sts
     , metaHeaders          = _rqHeaders rq
     , metaBody             = bodyRequest (_rqBody rq)
+    , metaTimeout          = _svcTimeout svc
     }
   where
     query = canonicalQuery . presign cred shs $ _rqQuery rq

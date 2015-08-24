@@ -148,8 +148,8 @@ configured :: (MonadReader r m, HasEnv r, AWSRequest a)
            => a
            -> m (Request a)
 configured (request -> x) = do
-    c <- view envConfig
-    return $! x & rqService %~ configure c
+    o <- view envOverride
+    return $! x & rqService %~ applyOverride o
 
 retryStream :: Request a -> RetryPolicy
 retryStream x = RetryPolicy (const $ listToMaybe [0 | not p])

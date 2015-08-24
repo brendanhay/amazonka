@@ -94,6 +94,8 @@ module Network.AWS.Types
 
     -- * Regions
     , Region         (..)
+
+    -- * Endpoints
     , Endpoint       (..)
     , endpointHost
     , endpointPort

@@ -22,23 +22,16 @@ module Network.AWS.Env
     , Env      (..)
     , HasEnv   (..)
 
-    -- * Configuration
+    -- * Overriding Default Configuration
+    , Override (..)
+    , override
+    , configure
 
-    -- ** Scoped Actions
+    -- * Scoped Actions
+    , reconfigure
     , within
     , once
     , timeout
-    , endpoint
-    , signer
-
-    -- ** Environment Overrides
-    , setRetry
-    , setTimeout
-    , setEndpoint
-    , setSigner
-
-    -- * Internal
-    , configure
     ) where
 
 import           Control.Applicative
@@ -48,6 +41,7 @@ import           Control.Monad.Catch
 import           Control.Monad.IO.Class
 import           Control.Monad.Reader
 import           Control.Retry
+import           Data.Function               (on)
 import           Data.IORef
 import           Data.Monoid
 import           Network.AWS.Auth
@@ -62,7 +56,7 @@ data Env = Env
     { _envRegion     :: !Region
     , _envLogger     :: !Logger
     , _envRetryCheck :: !(Int -> HttpException -> Bool)
-    , _envConfig     :: !Config
+    , _envOverride   :: !Override
     , _envManager    :: !Manager
     , _envEC2        :: !(IORef (Maybe Bool))
     , _envAuth       :: !Auth
@@ -84,9 +78,8 @@ class HasEnv a where
     -- | The function used to determine if an 'HttpException' should be retried.
     envRetryCheck :: Lens' a (Int -> HttpException -> Bool)
 
-    -- | The currently applied overrides to the 'Service' configuration used
-    -- for signing and request construction.
-    envConfig     :: Lens' a Config
+    -- | The currently applied overrides to all 'Service' configuration.
+    envOverride   :: Lens' a Override
 
     -- | The 'Manager' used to create and manage open HTTP connections.
     envManager    :: Lens' a Manager
@@ -100,7 +93,7 @@ class HasEnv a where
     envRegion     = environment . lens _envRegion     (\s a -> s { _envRegion     = a })
     envLogger     = environment . lens _envLogger     (\s a -> s { _envLogger     = a })
     envRetryCheck = environment . lens _envRetryCheck (\s a -> s { _envRetryCheck = a })
-    envConfig     = environment . lens _envConfig     (\s a -> s { _envConfig     = a })
+    envOverride   = environment . lens _envOverride   (\s a -> s { _envOverride   = a })
     envManager    = environment . lens _envManager    (\s a -> s { _envManager    = a })
     envAuth       = environment . lens _envAuth       (\s a -> s { _envAuth       = a })
     envEC2        = environment . to _envEC2
@@ -118,27 +111,43 @@ instance ToLog Env where
             ]
 
 -- | An override function to apply to service configuration before use.
-newtype Config = Config { configure :: Service -> Service }
+newtype Override = Override { applyOverride :: Service -> Service }
 
-instance Monoid Config where
-    mempty      = Config id
-    mappend a b = Config (configure b . configure a)
+instance Monoid Override where
+    mempty      = Override id
+    mappend a b = Override (applyOverride b . applyOverride a)
 
--- | Override the retry behaviour for all service configurations.
-setRetry :: HasEnv a => (Retry -> Retry) -> a -> a
-setRetry f = envConfig <>~ Config (svcRetry %~ f)
+-- | Provide a function which will be added to the existing stack
+-- of overrides applied to all service configuration.
+--
+-- To override a specific service, it's suggested you use
+-- either 'configure' or 'reconfigure' with a modified version of the default
+-- service, such as @Network.AWS.DynamoDB.dynamoDB@.
+override :: HasEnv a => (Service -> Service) -> a -> a
+override f = envOverride <>~ Override f
 
--- | Override the endpoint for all service configurations.
-setEndpoint :: HasEnv a => (Endpoint -> Endpoint) -> a -> a
-setEndpoint f = envConfig <>~ Config (svcEndpoint %~ (f .))
+-- | Configure a specific service. All requests belonging to the
+-- supplied service will use this configuration instead of the default.
+--
+-- It's suggested you use a modified version of the default service, such
+-- as @Network.AWS.DynamoDB.dynamoDB@.
+--
+-- /See:/ 'reconfigure'.
+configure :: HasEnv a => Service -> a -> a
+configure s = override f
+  where
+    f x | on (==) _svcAbbrev s x = s
+        | otherwise              = x
 
--- | Override the timeout for all service configurations.
-setTimeout :: HasEnv a => Seconds -> a -> a
-setTimeout s = envConfig <>~ Config (svcTimeout ?~ s)
-
--- | Override the signer for all service configurations.
-setSigner :: HasEnv a => Signer -> a -> a
-setSigner v = envConfig <>~ Config (svcSigner .~ v)
+-- | Scope an action such that all requests belonging to the supplied service
+-- will use this configuration instead of the default.
+--
+-- It's suggested you use a modified version of the default service, such
+-- as @Network.AWS.DynamoDB.dynamoDB@.
+--
+-- /See:/ 'configure'.
+reconfigure :: (MonadReader r m, HasEnv r) => Service -> m a -> m a
+reconfigure = local . configure
 
 -- | Scope an action within the specific 'Region'.
 within :: (MonadReader r m, HasEnv r) => Region -> m a -> m a
@@ -147,7 +156,7 @@ within r = local (envRegion .~ r)
 -- | Scope an action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.
 once :: (MonadReader r m, HasEnv r) => m a -> m a
-once = local (setRetry (retryAttempts .~ 0))
+once = local (override (svcRetry . retryAttempts .~ 0))
 
 -- | Scope an action such that any HTTP response will use this timeout value.
 --
@@ -160,18 +169,8 @@ once = local (setRetry (retryAttempts .~ 0))
 -- * The 'envManager' timeout if set.
 --
 -- * The default 'ClientRequest' timeout. (Approximately 30s)
---
 timeout :: (MonadReader r m, HasEnv r) => Seconds -> m a -> m a
-timeout s = local (setTimeout s)
-
--- | Scope an action such that any HTTP requests and signing logic use
--- a modified endpoint.
-endpoint :: (MonadReader r m, HasEnv r) => (Endpoint -> Endpoint) -> m a -> m a
-endpoint f = local (setEndpoint f)
-
--- | Scope an action such that the specified signing algorithm is used.
-signer :: (MonadReader r m, HasEnv r) => Signer -> m a -> m a
-signer v = local (setSigner v)
+timeout s = local (override (svcTimeout ?~ s))
 
 -- | Creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.

@@ -60,20 +60,18 @@ module Control.Monad.Trans.AWS
 
     , await
 
-    -- ** Overriding Service Configuration
+    -- ** Service Configuration
     -- $service
 
+    -- *** Overriding Defaults
+    , configure
+    , override
+
+    -- *** Scoped Actions
+    , reconfigure
     , within
     , once
     , timeout
-    , endpoint
-    , signer
-
-    -- ** Environment Overrides
-    , setRetry
-    , setTimeout
-    , setEndpoint
-    , setSigner
 
     -- ** Streaming
     -- $streaming
@@ -131,6 +129,10 @@ module Control.Monad.Trans.AWS
     -- ** Constructing a Logger
     , newLogger
 
+    -- ** Endpoints
+    , Endpoint
+    , endpoint
+
     -- * Re-exported Types
     , RqBody
     , RsBody
@@ -157,6 +159,7 @@ import           Data.Conduit                 hiding (await)
 import           Data.IORef
 import           Network.AWS.Auth
 import qualified Network.AWS.EC2.Metadata     as EC2
+import           Network.AWS.Endpoint         (endpoint)
 import           Network.AWS.Env
 import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.HTTP
@@ -302,7 +305,7 @@ presign :: ( MonadIO m
         -> m ClientRequest
 presign ts ex x = do
     Env{..} <- view environment
-    Sign.presignWith (configure _envConfig) _envAuth _envRegion ts ex x
+    Sign.presignWith (applyOverride _envOverride) _envAuth _envRegion ts ex x
 
 -- | Test whether the underlying host is running on EC2.
 -- This is memoised and any external check occurs for the first invocation only.
@@ -401,46 +404,46 @@ namespace for services which support 'await'.
 When a request is sent, various values such as the endpoint,
 retry strategy, timeout and error handlers are taken from the associated 'Service'
 for a request. For example, 'DynamoDB' will use the 'Network.AWS.DynamoDB.dynamoDB'
-configuration for 'PutItem', 'Query' etc.
+configuration when sending 'PutItem', 'Query' and all other operations.
 
-You can apply overrides to all 'Service' configurations with two different
-mechanisms. The setter functions such as 'setEndpoint', 'setTimeout' etc.
-are used to wholly override all configurations before use and the
-'local' functions such as 'within', 'once', 'timeout' etc. modify all configurations
-for requests within scope.
+You can modify a specific 'Service''s default configuration by using
+'configure' or 'reconfigure'. To modify all configurations simultaneously, see 'override'.
 
-An example of how you might use these overrides is demonstrated using
-'setEndpoint' vs 'endpoint' to create environment which communicates with a
-local service, instead of the remote AWS APIs.
+An example of how you might alter default configuration using these mechanisms
+is demonstrated below. Firstly, the default 'dynamoDB' service is configured to
+use localhost as the endpoint:
 
-Firsly, a function with which to modify the 'Service' 'Endpoint' is defined:
+> let dynamo :: Service
+>     dynamo = dynamoDB & endpoint False "localhost" 8000
 
-> let local :: Endpoint -> Endpoint
->     local = (endpointHost   .~ "localhost")
->           . (endpointPort   .~ 8000)
->           . (endpointSecure .~ False)
+The updated configuration is then passed to the 'Env' during setup:
 
-then, setting the initial environment using 'setEndpoint':
-
-> e <- newEnv Frankfurt Discover <&> setEndpoint local
+> e <- newEnv Frankfurt Discover <&> configure dynamo
 > runAWS e $ do
->     -- Any service calls here will _always_ communicate with localhost:8000.
+>     -- This S3 operation will communicate with remote AWS APIs.
+>     x <- send listBuckets
+>
+>     -- DynamoDB operations will communicate with localhost:8000.
+>     y <- send listTables
+>
+>     -- Any operations for services other than DynamoDB, are not affected.
 >     ...
 
-versus scoping the 'endpoint' modifications:
+You can also scope the 'Endpoint' modifications (or any other 'Service' configuration)
+to specific actions:
 
-> e <- newEnv Frankfurt Discover
+> e <- newEnv Ireland Discover
 > runAWS e $ do
->     -- Service calls here will comminucate with remote AWS APIs.
->     ...
->     endpoint local $ do
->        -- Any service calls here will communicate with localhost:8000.
+>     -- Service operations here will communicate with AWS, even DynamoDB.
+>     x <- send listTables
+>
+>     reconfigure dynamo $ do
+>        -- In here, DynamoDB operations will communicate with localhost:8000,
+>        -- with operations for services not being affected.
 >        ...
 
-/Note:/ Functions such as 'setSigner' and 'signer' should be used with the
-various AWS constraints in mind. For example: if you're operating in @eu-central-1@ which
-only supports Version 4 signing and you use 'setSigner' 'v2' ..., you'll only
-receive signing failures for responses.
+Functions such as 'within', 'once', and 'timeout' likewise modify the underlying
+configuration for all service requests within their respective scope.
 -}
 
 {- $streaming

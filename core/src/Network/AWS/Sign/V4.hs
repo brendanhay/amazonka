@@ -16,7 +16,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Sign.V4
-    ( v4
+    ( V4 (..)
+    , v4
+    , metadata
     ) where
 
 import           Control.Applicative

@@ -64,4 +64,4 @@ presignWith :: (MonadIO m, AWSRequest a)
 presignWith f a r ts ex x =
     withAuth a $ \ae ->
         return $! sgRequest $
-            rqPresigner ex ae r ts (request x & rqService %~ f)
+            rqPresign ex (request x & rqService %~ f) ae r ts

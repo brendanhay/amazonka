@@ -148,7 +148,8 @@ timeout s = override (svcTimeout ?~ s)
 endpoint :: (MonadReader r m, HasEnv r) => (Endpoint -> Endpoint) -> m a -> m a
 endpoint f = override (svcEndpoint %~ (f .))
 
-signer :: (MonadReader r m, HasEnv r) => (forall v. Signer v) -> m a -> m a
+-- | Scope an action such that the specified signing algorithm is used.
+signer :: (MonadReader r m, HasEnv r) => Signer -> m a -> m a
 signer v = override (\x -> x { _svcSigner = v })
 
 -- | Creates a new environment with a new 'Manager' without debug logging

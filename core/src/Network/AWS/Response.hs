@@ -3,6 +3,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- |
 -- Module      : Network.AWS.Response
@@ -36,7 +37,6 @@ import           Prelude
 receiveNull :: MonadResource m
             => Rs a
             -> Logger
-            -> Service
             -> Request a
             -> ClientResponse
             -> m (Response a)
@@ -46,7 +46,6 @@ receiveNull rs _ = receive $ \_ _ x ->
 receiveEmpty :: MonadResource m
              => (Int -> ResponseHeaders -> () -> Either String (Rs a))
              -> Logger
-             -> Service
              -> Request a
              -> ClientResponse
              -> m (Response a)
@@ -57,7 +56,6 @@ receiveXMLWrapper :: MonadResource m
                   => Text
                   -> (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
                   -> Logger
-                  -> Service
                   -> Request a
                   -> ClientResponse
                   -> m (Response a)
@@ -66,7 +64,6 @@ receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
 receiveXML :: MonadResource m
            => (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
            -> Logger
-           -> Service
            -> Request a
            -> ClientResponse
            -> m (Response a)
@@ -75,7 +72,6 @@ receiveXML = deserialise decodeXML
 receiveJSON :: MonadResource m
             => (Int -> ResponseHeaders -> Object -> Either String (Rs a))
             -> Logger
-            -> Service
             -> Request a
             -> ClientResponse
             -> m (Response a)
@@ -84,7 +80,6 @@ receiveJSON = deserialise eitherDecode'
 receiveBody :: MonadResource m
             => (Int -> ResponseHeaders -> RsBody -> Either String (Rs a))
             -> Logger
-            -> Service
             -> Request a
             -> ClientResponse
             -> m (Response a)
@@ -94,7 +89,6 @@ deserialise :: MonadResource m
             => (LazyByteString -> Either String b)
             -> (Int -> ResponseHeaders -> b -> Either String (Rs a))
             -> Logger
-            -> Service
             -> Request a
             -> ClientResponse
             -> m (Response a)
@@ -105,11 +99,10 @@ deserialise g f l = receive $ \s h x -> do
 
 receive :: MonadResource m
         => (Int -> ResponseHeaders -> ResponseBody -> m (Either String (Rs a)))
-        -> Service
         -> Request a
         -> ClientResponse
         -> m (Response a)
-receive f Service{..} _ rs
+receive f (_rqService -> Service{..}) rs
     | not (_svcStatus s) = sinkLBS x >>= serviceErr
     | otherwise          = do
         p <- f (fromEnum s) h x

@@ -340,6 +340,9 @@ retryAttempts = lens _retryAttempts (\s a -> s { _retryAttempts = a })
 data Meta where
     Meta :: ToLog a => a -> Meta
 
+instance ToLog Meta where
+   build (Meta m) = build m
+
 -- | A signed 'ClientRequest' and associated metadata specific
 -- to the signing algorithm, tagged with the initial request type
 -- to be able to obtain the associated response, 'Rs a'.
